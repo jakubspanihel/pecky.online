@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>pecky.online — radnice pod drobnohledem</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --parchment:#F1EAD9;
+    --parchment-deep:#E9E0CB;
+    --ink:#2A2420;
+    --ink-soft:#5B5347;
+    --burgundy:#7C2F2B;
+    --burgundy-deep:#5E211E;
+    --field:#54624A;
+    --line:#C9BA98;
+    --gold:#AD7A2A;
+    --paper-shadow: 0 1px 0 rgba(42,36,32,0.06);
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:
+      repeating-linear-gradient(180deg, transparent 0 38px, rgba(124,47,43,0.035) 38px 39px),
+      var(--parchment);
+    color:var(--ink);
+    font-family:'IBM Plex Sans', sans-serif;
+    line-height:1.5;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:var(--burgundy); text-decoration:none;}
+  a:hover{text-decoration:underline;}
+  a:focus-visible, button:focus-visible, .navlink:focus-visible{outline:2px solid var(--burgundy); outline-offset:2px;}
+
+  .display{font-family:'Fraunces', serif; font-optical-sizing:auto;}
+
+  /* ===== Header ===== */
+  header.site{
+    border-bottom:2px solid var(--ink);
+    background:var(--parchment-deep);
+    position:sticky; top:0; z-index:20;
+  }
+  .header-inner{
+    max-width:1040px; margin:0 auto; padding:18px 24px 0;
+  }
+  .brand-row{display:flex; align-items:baseline; justify-content:space-between; gap:16px; flex-wrap:wrap;}
+  .brand{display:flex; align-items:center; gap:12px;}
+  .brand .mark{
+    width:40px;height:40px;border-radius:50%;
+    border:2px solid var(--burgundy);
+    display:flex;align-items:center;justify-content:center;
+    font-family:'Fraunces',serif; font-weight:700; color:var(--burgundy); font-size:18px;
+    background:var(--parchment);
+    flex-shrink:0;
+  }
+  .brand h1{font-size:22px; margin:0; letter-spacing:0.01em; font-weight:600;}
+  .brand h1 small{display:block; font-family:'IBM Plex Mono',monospace; font-weight:400; font-size:11px; color:var(--ink-soft); letter-spacing:0.08em; text-transform:uppercase; margin-top:2px;}
+  .header-meta{font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--ink-soft); text-align:right;}
+
+  nav.tabs{
+    max-width:1040px; margin:14px auto 0; padding:0 24px;
+    display:flex; gap:2px; flex-wrap:wrap; border-top:1px solid var(--line);
+  }
+  .navlink{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:12.5px; letter-spacing:0.03em; text-transform:uppercase;
+    padding:11px 14px; color:var(--ink-soft); border:none; background:none; cursor:pointer;
+    border-bottom:3px solid transparent; margin-bottom:-1px;
+  }
+  .navlink:hover{color:var(--ink); text-decoration:none;}
+  .navlink.active{color:var(--burgundy); border-bottom-color:var(--burgundy); font-weight:600;}
+
+  main{max-width:1040px; margin:0 auto; padding:36px 24px 80px;}
+  .panel{display:none; animation:fade .25s ease;}
+  .panel.active{display:block;}
+  @keyframes fade{from{opacity:0; transform:translateY(4px);} to{opacity:1; transform:translateY(0);}}
+
+  .eyebrow{
+    font-family:'IBM Plex Mono',monospace; font-size:11.5px; text-transform:uppercase;
+    letter-spacing:0.1em; color:var(--field); margin:0 0 6px;
+  }
+  h2.title{font-size:34px; margin:0 0 8px; font-weight:600;}
+  .lede{color:var(--ink-soft); max-width:640px; margin:0 0 28px; font-size:15px;}
+
+  /* ===== stamp signature element ===== */
+  .stamp{
+    display:inline-flex; align-items:center; gap:6px;
+    font-family:'IBM Plex Mono',monospace; font-size:10.5px; text-transform:uppercase; letter-spacing:0.08em;
+    color:var(--burgundy); border:1.5px solid var(--burgundy); border-radius:3px;
+    padding:3px 8px; transform:rotate(-2deg); opacity:0.85;
+    background:rgba(124,47,43,0.04);
+  }
+  .stamp::before{content:"✓"; font-size:11px;}
+
+  /* ===== Home hero ===== */
+  .hero-grid{display:grid; grid-template-columns:1.3fr 1fr; gap:32px; margin-bottom:8px;}
+  @media (max-width:720px){.hero-grid{grid-template-columns:1fr;}}
+  .facts{border:1px solid var(--line); background:rgba(255,255,255,0.35); padding:20px 22px; }
+  .facts dl{display:grid; grid-template-columns:auto 1fr; gap:9px 16px; margin:0; font-size:14px;}
+  .facts dt{font-family:'IBM Plex Mono',monospace; color:var(--ink-soft); font-size:11.5px; text-transform:uppercase; letter-spacing:0.04em; padding-top:2px;}
+  .facts dd{margin:0; font-weight:500;}
+
+  .quicklinks{display:flex; flex-direction:column; gap:10px;}
+  .qlink{
+    border:1px solid var(--line); background:var(--parchment-deep);
+    padding:14px 16px; display:flex; justify-content:space-between; align-items:center;
+    font-size:14px;
+  }
+  .qlink .lbl{font-weight:500;}
+  .qlink .url{font-family:'IBM Plex Mono',monospace; font-size:11.5px; color:var(--ink-soft);}
+
+  .section-divider{border:none; border-top:1px solid var(--line); margin:40px 0;}
+
+  /* ===== seat composition bar (zastupitelstvo) ===== */
+  .seatbar{display:flex; height:34px; border:1px solid var(--ink); overflow:hidden; margin:18px 0 10px;}
+  .seatbar span{display:flex; align-items:center; justify-content:center; font-family:'IBM Plex Mono',monospace; font-size:11px; color:#fff; font-weight:500;}
+  .majority-note{font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--ink-soft); margin-bottom:26px;}
+
+  table.register{width:100%; border-collapse:collapse; font-size:14px; margin-top:6px;}
+  table.register th{
+    text-align:left; font-family:'IBM Plex Mono',monospace; font-size:11px; text-transform:uppercase;
+    letter-spacing:0.04em; color:var(--ink-soft); border-bottom:1px solid var(--ink); padding:8px 10px;
+  }
+  table.register td{padding:11px 10px; border-bottom:1px solid var(--line); vertical-align:top;}
+  table.register tr:hover td{background:rgba(124,47,43,0.035);}
+  .swatch{display:inline-block; width:10px; height:10px; border-radius:50%; margin-right:8px; vertical-align:middle;}
+  .tag{font-family:'IBM Plex Mono',monospace; font-size:10.5px; text-transform:uppercase; padding:2px 7px; border:1px solid var(--line); border-radius:2px; color:var(--ink-soft);}
+  .tag.role{color:var(--burgundy); border-color:var(--burgundy);}
+
+  .callout{
+    border-left:3px solid var(--gold); background:rgba(173,122,42,0.08);
+    padding:14px 18px; font-size:13.5px; color:var(--ink-soft); margin:22px 0;
+  }
+  .callout strong{color:var(--ink);}
+
+  .card-grid{display:grid; grid-template-columns:repeat(auto-fill,minmax(220px,1fr)); gap:14px; margin-top:18px;}
+  .person-card{border:1px solid var(--line); background:rgba(255,255,255,0.35); padding:16px;}
+  .person-card .name{font-weight:600; margin-bottom:3px;}
+  .person-card .role{font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--burgundy); text-transform:uppercase; letter-spacing:0.03em;}
+  .person-card .party{font-size:12.5px; color:var(--ink-soft); margin-top:6px;}
+
+  .subject-box{
+    border:1px solid var(--ink); padding:18px 20px; background:var(--parchment-deep); margin-bottom:24px;
+    display:flex; justify-content:space-between; gap:16px; flex-wrap:wrap;
+  }
+  .subject-box .k{font-family:'IBM Plex Mono',monospace; font-size:11px; text-transform:uppercase; color:var(--ink-soft);}
+  .subject-box .v{font-weight:500; font-size:14px;}
+
+  .footer-note{
+    font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--ink-soft);
+    border-top:1px solid var(--line); padding-top:14px; margin-top:10px; line-height:1.7;
+  }
+
+  footer.site{max-width:1040px; margin:0 auto; padding:0 24px 60px; font-size:12px; color:var(--ink-soft);}
+</style>
+</head>
+<body>
+
+<header class="site">
+  <div class="header-inner">
+    <div class="brand-row">
+      <div class="brand">
+        <div class="mark">P</div>
+        <h1>pecky.online<small>radnice pod drobnohledem</small></h1>
+      </div>
+      <div class="header-meta">Neoficiální · občanský projekt<br>Pečky, okres Kolín</div>
+    </div>
+  </div>
+  <nav class="tabs" id="tabs">
+    <button class="navlink active" data-panel="domu">Domů</button>
+    <button class="navlink" data-panel="zastupitelstvo">Zastupitelstvo</button>
+    <button class="navlink" data-panel="rada">Rada</button>
+    <button class="navlink" data-panel="smlouvy">Smlouvy</button>
+    <button class="navlink" data-panel="zpravodaj">Zpravodaj</button>
+    <button class="navlink" data-panel="owebu">O webu</button>
+  </nav>
+</header>
+
+<main>
+
+  <!-- ================= DOMŮ ================= -->
+  <section class="panel active" id="panel-domu">
+    <p class="eyebrow">Pečky · Středočeský kraj · okres Kolín</p>
+    <h2 class="title display">Radnice, kterou lze přečíst</h2>
+    <p class="lede">Přehled samosprávy města Pečky — kdo město vede, jak je rozdělené zastupitelstvo a za co radnice utrácí. Sestaveno z veřejně dostupných zdrojů, na jednom místě.</p>
+
+    <div class="hero-grid">
+      <div class="facts">
+        <dl>
+          <dt>Status</dt><dd>Město (od 1925), předtím městys od 1879</dd>
+          <dt>První zmínka</dt><dd>1225, darovací listina Přemysla Otakara I.</dd>
+          <dt>Části obce</dt><dd>Pečky (4 195 ob.) · Velké Chvalovice (539 ob.)</dd>
+          <dt>Obyvatel</dt><dd>4 874 <span style="color:var(--ink-soft); font-weight:400;">(k 1.1.2025)</span></dd>
+          <dt>Rozloha</dt><dd>10,76 km²</dd>
+          <dt>Řeka</dt><dd>Výrovka</dt>
+          <dt>Starosta</dt><dd>Milan Paluska</dd>
+          <dt>ORP</dt><dd>Pečky — spravuje i Cerhenice, Dobřichov, Chotutice, Plaňany, Radim, Ratenice, Vrbčany</dd>
+        </dl>
+      </div>
+      <div class="quicklinks">
+        <a class="qlink" href="http://pecky.cz" target="_blank" rel="noopener">
+          <span class="lbl">Oficiální web města</span><span class="url">pecky.cz ↗</span>
+        </a>
+        <a class="qlink" href="https://www.facebook.com/mestopecky" target="_blank" rel="noopener">
+          <span class="lbl">Facebook města</span><span class="url">/mestopecky ↗</span>
+        </a>
+        <a class="qlink" href="https://www.youtube.com/@mestopecky" target="_blank" rel="noopener">
+          <span class="lbl">YouTube kanál</span><span class="url">@mestopecky ↗</span>
+        </a>
+        <a class="qlink" href="https://www.hlidacstatu.cz/subjekt/00239607" target="_blank" rel="noopener">
+          <span class="lbl">Profil na Hlídači státu</span><span class="url">IČO 00239607 ↗</span>
+        </a>
+      </div>
+    </div>
+
+    <div class="callout">
+      <strong>O čem tento web je:</strong> Pečky nemají tak rozsáhlá otevřená data jako velké městské části — tenhle web je proto zatím menší než svůj vzor. Rozšiřuje se postupně, jak přibývají ověřitelné zdroje. Chybějící nebo neúplné údaje jsou v každé sekci označené.
+    </div>
+  </section>
+
+  <!-- ================= ZASTUPITELSTVO ================= -->
+  <section class="panel" id="panel-zastupitelstvo">
+    <p class="eyebrow">Volební období 2022–2026</p>
+    <h2 class="title display">Zastupitelstvo města</h2>
+    <p class="lede">21 zastupitelů zvolených v komunálních volbách 23.–24. září 2022, účast 52,36 %. <span class="stamp">ověřeno</span></p>
+
+    <div class="seatbar" role="img" aria-label="Rozložení 21 mandátů mezi pět uskupení">
+      <span style="width:33.3%; background:#7C2F2B;">NAŠE PEČKY · 7</span>
+      <span style="width:28.6%; background:#54624A;">ODS a NK · 6</span>
+      <span style="width:14.3%; background:#AD7A2A;">LIDÉ PRO PEČKY · 3</span>
+      <span style="width:14.3%; background:#8A7A9B;">SNK PEČÁKŮM · 3</span>
+      <span style="width:9.5%; background:#8C8168;">ČSSD a levice · 2</span>
+    </div>
+    <p class="majority-note">nadpoloviční většina: 11 z 21 mandátů</p>
+
+    <table class="register">
+      <thead>
+        <tr><th>Uskupení</th><th>Mandátů</th><th>Charakter</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><span class="swatch" style="background:#7C2F2B;"></span>NAŠE PEČKY (STAN + nezávislí)</td><td>7</td><td>vedení radnice</td></tr>
+        <tr><td><span class="swatch" style="background:#54624A;"></span>Sdružení ODS a nezávislí</td><td>6</td><td>koalice</td></tr>
+        <tr><td><span class="swatch" style="background:#AD7A2A;"></span>LIDÉ PRO PEČKY s podporou SPD</td><td>3</td><td>opozice</td></tr>
+        <tr><td><span class="swatch" style="background:#8A7A9B;"></span>SNK PEČKY PEČÁKŮM</td><td>3</td><td>koalice</td></tr>
+        <tr><td><span class="swatch" style="background:#8C8168;"></span>ČSSD a sjednocená levice</td><td>2</td><td>opozice</td></tr>
+      </tbody>
+    </table>
+
+    <div class="callout">
+      <strong>Chybí jmenný seznam všech 21 zastupitelů.</strong> Stránka zastupitelstva na pecky.cz je vykreslovaná přes JavaScript a blokuje automatizovaný přístup, takže se mi ji zatím nepodařilo načíst. Pokud mi vložíš text té stránky nebo PDF zápisu z ustavujícího zasedání, jmenný rejstřík s fotkami a kartami zastupitelů do webu doplním.
+    </div>
+  </section>
+
+  <!-- ================= RADA ================= -->
+  <section class="panel" id="panel-rada">
+    <p class="eyebrow">Výkonný orgán města</p>
+    <h2 class="title display">Rada města</h2>
+    <p class="lede">Radu volí zastupitelstvo ze svého středu; řídí běžný chod úřadu mezi zasedáními zastupitelstva. <span class="stamp">ověřeno</span></p>
+
+    <div class="card-grid">
+      <div class="person-card">
+        <div class="role">Starosta</div>
+        <div class="name">Milan Paluska</div>
+        <div class="party">ODS</div>
+      </div>
+      <div class="person-card">
+        <div class="role">Místostarosta</div>
+        <div class="name">Zdeněk Fejfar</div>
+        <div class="party">ODS</div>
+      </div>
+      <div class="person-card">
+        <div class="role">Místostarosta</div>
+        <div class="name">Ing. Martin Jedlička</div>
+        <div class="party">SNK Pečky Pečákům</div>
+      </div>
+      <div class="person-card">
+        <div class="role">Radní</div>
+        <div class="name">Ing. Karel Krištoufek</div>
+        <div class="party">ODS</div>
+      </div>
+      <div class="person-card">
+        <div class="role">Radní</div>
+        <div class="name">Ing. Hana Kuprová</div>
+        <div class="party">ODS</div>
+      </div>
+      <div class="person-card">
+        <div class="role">Radní</div>
+        <div class="name">Ivana Trčková</div>
+        <div class="party">ODS</div>
+      </div>
+    </div>
+
+    <div class="callout" style="margin-top:24px;">
+      Radu tvoří poválební koalice ODS + NK a SNK Pečky Pečákům, uzavřená po volbách 2022. Kontakty na vedení: <a href="mailto:milan.paluska@pecky.cz">milan.paluska@pecky.cz</a>, <a href="mailto:zdenek.fejfar@pecky.cz">zdenek.fejfar@pecky.cz</a>, <a href="mailto:martin.jedlicka@pecky.cz">martin.jedlicka@pecky.cz</a>.
+    </div>
+  </section>
+
+  <!-- ================= SMLOUVY ================= -->
+  <section class="panel" id="panel-smlouvy">
+    <p class="eyebrow">Registr smluv · zákon 340/2015 Sb.</p>
+    <h2 class="title display">Smlouvy</h2>
+    <p class="lede">Registr smluv eviduje smlouvy, které veřejné instituce uzavírají za peníze daňových poplatníků. Data pro skupinu Město Pečky sbírá a strukturuje Hlídač státu; níže je výřez získaný přes připojený konektor Hlídače státu. <span class="stamp">ověřeno</span></p>
+
+    <div class="subject-box">
+      <div><div class="k">Subjekt</div><div class="v">Město Pečky</div></div>
+      <div><div class="k">IČO</div><div class="v">00239607</div></div>
+      <div><div class="k">Skupina celkem</div><div class="v">180 smluv · 102 405 895 Kč</div></div>
+      <div><div class="k">Jen úřad (bez organizací)</div><div class="v">46 smluv · 33 122 596 Kč</div></div>
+    </div>
+
+    <div class="callout">
+      <strong>Konektor funguje</strong> — dotaz na skupinu „Město Pečky" (úřad + 8 podřízených organizací a firem, mj. Pečovatelská služba města Pečky, Základní škola Pečky, Pečecké služby s.r.o.) vrátil <strong>180 smluv</strong> v registru smluv od roku 2017 v celkové hodnotě <strong>102,4 mil. Kč</strong>. Číslo zahrnuje obě strany — přijaté dotace i vlastní výdaje úřadu, bez rozlišení směru peněz.
+    </div>
+
+    <h3 class="display" style="font-size:19px; margin:30px 0 4px;">Nejnovější smlouvy</h3>
+    <table class="register">
+      <thead><tr><th>Datum podpisu</th><th>Předmět</th><th>Protistrana</th><th>Částka</th></tr></thead>
+      <tbody>
+        <tr><td>23. 7. 2026</td><td>Pečovatelská služba — dotace na sociální služby (Humanitární fond)</td><td>Středočeský kraj</td><td>1 100 000 Kč</td></tr>
+        <tr><td>23. 7. 2026</td><td>Pečovatelská služba — dotace na sociální služby (Humanitární fond)</td><td>Středočeský kraj</td><td>400 000 Kč</td></tr>
+        <tr><td>15. 7. 2026</td><td>Pečovatelská služba — dodatek č. 2, dofinancování sociální služby</td><td>Středočeský kraj</td><td>670 600 Kč</td></tr>
+        <tr><td>1. 6. 2026</td><td>ZŠ Pečky — Fond prevence 2026, dotace</td><td>Středočeský kraj</td><td>190 000 Kč</td></tr>
+        <tr><td>12. 5. 2026</td><td>Pečovatelská služba — dodatek k dotaci na sociální službu 2026</td><td>Středočeský kraj</td><td>6 902 700 Kč</td></tr>
+        <tr><td>15. 4. 2026</td><td>ZŠ Pečky — dotace na projekt rozvoje venkova</td><td>Státní zemědělský intervenční fond</td><td>800 000 Kč</td></tr>
+        <tr><td>1. 4. 2026</td><td>Organizování veřejné služby SKO-VS-2/2026</td><td>Úřad práce ČR</td><td>bez ceny</td></tr>
+        <tr><td>16. 3. 2026</td><td>Pečovatelská služba — dotace na sociální službu 2026</td><td>Středočeský kraj</td><td>1 735 700 Kč</td></tr>
+      </tbody>
+    </table>
+
+    <h3 class="display" style="font-size:19px; margin:30px 0 4px;">Největší smlouvy v registru (celá skupina)</h3>
+    <table class="register">
+      <thead><tr><th>Datum</th><th>Předmět</th><th>Protistrana</th><th>Částka</th></tr></thead>
+      <tbody>
+        <tr><td>4. 2. 2021</td><td>Darování hasičského vozidla NA MB Atego</td><td>HZS Středočeského kraje</td><td>9 322 779 Kč</td></tr>
+        <tr><td>10. 9. 2024</td><td>Podpora ze Státního fondu životního prostředí</td><td>SFŽP ČR</td><td>8 605 336 Kč</td></tr>
+        <tr><td>12. 5. 2026</td><td>Pečovatelská služba — dodatek k dotaci na sociální službu</td><td>Středočeský kraj</td><td>6 902 700 Kč</td></tr>
+        <tr><td>20. 3. 2025</td><td>Pečovatelská služba — dotace na sociální službu 2025</td><td>Středočeský kraj</td><td>6 294 100 Kč</td></tr>
+        <tr><td>20. 3. 2023</td><td>Pečovatelská služba — dotace na sociální službu 2023</td><td>Středočeský kraj</td><td>3 399 400 Kč</td></tr>
+        <tr><td>16. 11. 2023</td><td>Podpora ze Státního fondu životního prostředí</td><td>SFŽP</td><td>2 719 775 Kč</td></tr>
+        <tr><td>10. 6. 2021</td><td>Bezúplatný převod motorového vozidla</td><td>HZS hl. m. Prahy</td><td>2 344 834 Kč</td></tr>
+      </tbody>
+    </table>
+
+    <div class="callout" style="margin-top:22px; border-left-color:var(--burgundy); background:rgba(124,47,43,0.06);">
+      <strong>Smlouvy s upozorněním na právní nedostatek</strong> — Hlídač státu u nich při automatické kontrole narazil na formální vadu (podle Hlídače státu, možná chyba, nemusí znamenat neplatnost):
+      <table class="register" style="margin-top:12px;">
+        <tbody>
+          <tr><td style="width:110px;">18. 11. 2025</td><td>Věcné břemeno a umístění stavby</td><td>ČEZ Distribuce</td></tr>
+          <tr><td>30. 12. 2022</td><td>Dodatek č. 1 ke smlouvě o ubytování</td><td>Středočeský kraj</td></tr>
+          <tr><td>3. 11. 2021</td><td>Dodatek — rozdíl ceny bezpečnostního vybavení</td><td>HZS hl. m. Prahy</td></tr>
+          <tr><td>12. 7. 2021</td><td>Právní služby při založení družstva (společně s okolními obcemi)</td><td>Město Český Brod</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <table class="register" style="margin-top:26px;">
+      <thead><tr><th>Zdroj</th><th>Co obsahuje</th><th></th></tr></thead>
+      <tbody>
+        <tr>
+          <td>Hlídač státu — profil Města Pečky</td>
+          <td>plný přehled smluv, dotací, rizik a dodavatelů</td>
+          <td><a href="https://www.hlidacstatu.cz/subjekt/00239607" target="_blank" rel="noopener">otevřít ↗</a></td>
+        </tr>
+        <tr>
+          <td>smlouvy.gov.cz — oficiální registr smluv</td>
+          <td>plné znění smluv se subjektem Město Pečky</td>
+          <td><a href="https://smlouvy.gov.cz/vyhledavani?dotaz=M%C4%9Bsto%20Pe%C4%8Dky" target="_blank" rel="noopener">otevřít ↗</a></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="callout" style="margin-top:22px;">
+      <strong>Proč tabulka není interaktivní/živá v prohlížeči:</strong> data výše jsem stáhl přes konektor Hlídače státu napojený na tenhle chat — je to serverová integrace, ne veřejné API volatelné přímo z JavaScriptu v prohlížeči (chybí mu autorizační token a CORS přístup). Jde tedy o pravidelně aktualizovaný statický výřez, ne o živě se obnovující tabulku. Řekni, jak často to mám opakovat (např. při každé návštěvě tohoto chatu), a doplním nová čísla.
+    </div>
+  </section>
+
+  <!-- ================= ZPRAVODAJ ================= -->
+  <section class="panel" id="panel-zpravodaj">
+    <p class="eyebrow">Měsíčník města</p>
+    <h2 class="title display">Pečecké noviny</h2>
+    <p class="lede">Pečecké noviny jsou informační měsíčník, který vydává město a archivuje na svém webu.</p>
+
+    <table class="register">
+      <thead><tr><th>Vydání</th><th>Hlavní témata</th><th></th></tr></thead>
+      <tbody>
+        <tr>
+          <td>Duben 2026</td>
+          <td>Dotace pro sportovce, mezigenerační trénink paměti dětí a seniorů, výsledky běhu Pečecká desítka</td>
+          <td><a href="https://pecky.cz/files/pecky/gallery/18743/69cced40a0d6d_Pececke-noviny-4-2026.pdf" target="_blank" rel="noopener">PDF ↗</a></td>
+        </tr>
+        <tr>
+          <td>Červenec–srpen 2025</td>
+          <td>Prázdninové dvojčíslo, představení komunitního centra Pramínek</td>
+          <td><a href="https://pecky.cz/files/pecky/gallery/18744/69a01297a0584_pecky-noviny-7-8-2025.pdf" target="_blank" rel="noopener">PDF ↗</a></td>
+        </tr>
+        <tr>
+          <td>Prosinec 2020</td>
+          <td>Vánoční vydání (starší ročník, pro srovnání formátu novin)</td>
+          <td><a href="https://pecky.cz/files/pecky/gallery/18750/69a0164882b1b_pececke-noviny-12-2020.pdf" target="_blank" rel="noopener">PDF ↗</a></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="callout">
+      <strong>Archivní stránka na pecky.cz (<code>21389_pdf-zpravodaje</code>) je stejně jako ostatní podstránky chráněná proti botům</strong>, takže jsem z ní nemohl načíst kompletní seznam čísel — výše jsou jen tři vydání, která se podařilo dohledat jednotlivě přes vyhledávání. Noviny vycházejí měsíčně (mimo prázdninové dvojčíslo) v nákladu cca 1 000 kusů, vydává je město, redakci vede Alena Brantová (noviny@pecky.cz). Pošli mi zkopírovaný obsah archivní stránky nebo přímé odkazy na další čísla a doplním plný ročníkový přehled.
+    </div>
+  </section>
+
+  <!-- ================= O WEBU ================= -->
+  <section class="panel" id="panel-owebu">
+    <p class="eyebrow">Transparentnost dat</p>
+    <h2 class="title display">O webu</h2>
+    <p class="lede">pecky.online je neoficiální, nezávislý občanský projekt. Cílem je zpřehlednit veřejně dostupné informace o samosprávě města Pečky.</p>
+
+    <table class="register">
+      <thead><tr><th>Sekce</th><th>Zdroj</th><th>Stav</th></tr></thead>
+      <tbody>
+        <tr><td>Základní fakta o městě</td><td>Wikipedie, oficiální web města</td><td><span class="tag role">ověřeno</span></td></tr>
+        <tr><td>Výsledky voleb 2022</td><td>Seznam Zprávy, Novinky.cz — výsledkové servisy</td><td><span class="tag role">ověřeno</span></td></tr>
+        <tr><td>Jmenný seznam zastupitelstva</td><td>pecky.cz (nedostupné — ochrana proti botům)</td><td><span class="tag">chybí</span></td></tr>
+        <tr><td>Složení rady</td><td>pecky.cz, web ODS Pečky</td><td><span class="tag role">ověřeno</span></td></tr>
+        <tr><td>Smlouvy</td><td>Hlídač státu (konektor, statický výřez: 180 smluv / 102,4 mil. Kč, skupina celkem)</td><td><span class="tag role">ověřeno</span></td></tr>
+        <tr><td>Žádosti dle zákona 106/1999 Sb.</td><td>—</td><td><span class="tag">nedohledáno</span></td></tr>
+        <tr><td>Pečecké noviny</td><td>pecky.cz (3 dohledaná vydání, archiv nedostupný)</td><td><span class="tag">částečné</span></td></tr>
+      </tbody>
+    </table>
+
+    <div class="footer-note">
+      Poslední aktualizace: 4. srpna 2026 (smlouvy doplněny přes konektor Hlídače státu). Tento web nezastupuje Město Pečky ani žádnou politickou stranu. Chyby a doplnění vítány — pošli zdroj a opravím.
+    </div>
+  </section>
+
+</main>
+
+<footer class="site">
+  pecky.online — sestaveno jako neoficiální doplněk k pecky.cz.
+</footer>
+
+<script>
+  const links = document.querySelectorAll('.navlink');
+  const panels = document.querySelectorAll('.panel');
+  links.forEach(link => {
+    link.addEventListener('click', () => {
+      links.forEach(l => l.classList.remove('active'));
+      panels.forEach(p => p.classList.remove('active'));
+      link.classList.add('active');
+      document.getElementById('panel-' + link.dataset.panel).classList.add('active');
+      window.scrollTo({top: 0, behavior: 'smooth'});
+    });
+  });
+</script>
+
+</body>
+</html>
