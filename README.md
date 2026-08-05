@@ -20,9 +20,10 @@ o samosprávě města Pečky (okres Kolín, Středočeský kraj).
 
 - Základní fakta o městě: Wikipedie, oficiální web města (pecky.cz)
 - Výsledky komunálních voleb 2022: Seznam Zprávy, Novinky.cz
+- Jmenný seznam zastupitelstva (21/21 členů): pecky.cz — Složení ZM
 - Složení rady města: pecky.cz, web ODS Pečky
 - Smlouvy: Hlídač státu (konektor), IČO 00239607 — statický výřez, ne živá data
-- Pečecké noviny: pecky.cz (jednotlivá čísla dohledaná webovým vyhledáváním)
+- Pečecké noviny: pecky.cz — kompletní archiv PDF zpravodaje (68 vydání, 2020–2026)
 - Jednání a usnesení: jednorázový strojově čitelný export webu
   mesto-pecky.usneseni.cz z 4. 8. 2026 — 281 jednání (243 Rada, 38
   Zastupitelstvo, 2021–2026), 2 731 usnesení. Kompletní snímek se všemi detaily
@@ -33,15 +34,15 @@ o samosprávě města Pečky (okres Kolín, Středočeský kraj).
 
 ## Známé mezery
 
-- Chybí jmenný seznam všech 21 zastupitelů (stránka na pecky.cz blokuje
-  automatizovaný přístup) — máme jen rozložení mandátů podle stran.
-- Archiv Pečeckých novin není kompletní, jen tři dohledaná vydání.
 - Tabulka smluv je statický výřez z Hlídače státu, ne živě se obnovující data
   (chybí veřejné API volatelné přímo z prohlížeče).
+- Žádosti dle zákona 106/1999 Sb. nedohledány.
 
 ## Poslední aktualizace
 
-5. srpna 2026 (přidána sekce Jednání s archivem a fulltextovým hledáním)
+5. srpna 2026 (doplněn jmenný seznam zastupitelstva a kompletní archiv
+Pečeckých novin z pecky.cz — obě dřívější mezery vyřešeny procházením webu
+přes prohlížeč, který bot ochranu neblokuje)
 
 ## Publikování na GitHub Pages
 
