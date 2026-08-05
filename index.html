@@ -155,6 +155,44 @@
   }
 
   footer.site{max-width:1040px; margin:0 auto; padding:0 24px 60px; font-size:12px; color:var(--ink-soft);}
+
+  /* ===== Jednání (archiv + fulltext hledání) ===== */
+  .search-bar{display:flex; gap:10px; flex-wrap:wrap; margin:22px 0 6px;}
+  .search-bar input[type=search]{
+    flex:1 1 260px; padding:11px 13px; border:1px solid var(--ink);
+    background:rgba(255,255,255,0.65); font-family:'IBM Plex Sans',sans-serif;
+    font-size:14px; border-radius:2px; color:var(--ink);
+  }
+  .search-bar input[type=search]::placeholder{color:var(--ink-soft);}
+  .search-bar select{
+    padding:10px 10px; border:1px solid var(--line); background:var(--parchment-deep);
+    font-family:'IBM Plex Mono',monospace; font-size:12px; border-radius:2px; color:var(--ink-soft);
+  }
+  .search-status{font-family:'IBM Plex Mono',monospace; font-size:11.5px; color:var(--ink-soft); margin:8px 0 20px;}
+
+  .meeting-list{border-top:1px solid var(--ink);}
+  .meeting-row{border-bottom:1px solid var(--line);}
+  .meeting-row-main{display:flex; align-items:center; gap:12px; padding:11px 4px; cursor:pointer; font-size:14px;}
+  .meeting-row-main:hover{background:rgba(124,47,43,0.035);}
+  .meeting-label{font-weight:500; flex:1; min-width:120px;}
+  .meeting-date{font-family:'IBM Plex Mono',monospace; font-size:12px; color:var(--ink-soft);}
+  .meeting-count{font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--ink-soft); white-space:nowrap;}
+  .meeting-toggle{width:18px; text-align:center; color:var(--burgundy); font-weight:600; flex-shrink:0;}
+  .meeting-row-detail{padding:2px 4px 18px 4px;}
+  .res-list{margin:6px 0 12px; padding-left:0; list-style:none; font-size:13px;}
+  .res-list li{padding:6px 0; border-bottom:1px dotted var(--line);}
+  .meeting-links{display:flex; gap:14px; flex-wrap:wrap; font-size:12.5px;}
+
+  .hit-card{border:1px solid var(--line); background:rgba(255,255,255,0.35); padding:14px 16px; margin-bottom:12px;}
+  .hit-card--agenda{opacity:0.92;}
+  .hit-meta{display:flex; align-items:center; gap:10px; margin-bottom:7px; flex-wrap:wrap;}
+  .hit-label{font-weight:500; font-size:13.5px;}
+  .hit-date{font-family:'IBM Plex Mono',monospace; font-size:11.5px; color:var(--ink-soft); margin-left:auto;}
+  .hit-item{font-weight:500; font-size:14px; margin-bottom:4px;}
+  .hit-text{font-size:13.5px; color:var(--ink-soft); white-space:pre-line; margin-bottom:9px;}
+  .hit-footer{display:flex; gap:14px; flex-wrap:wrap; align-items:center; font-size:12px; font-family:'IBM Plex Mono',monospace; color:var(--ink-soft);}
+  .hit-number{color:var(--burgundy); font-weight:600;}
+  mark{background:rgba(173,122,42,0.4); color:inherit; padding:0 1px; border-radius:2px;}
 </style>
 </head>
 <body>
@@ -173,6 +211,7 @@
     <button class="navlink active" data-panel="domu">Domů</button>
     <button class="navlink" data-panel="zastupitelstvo">Zastupitelstvo</button>
     <button class="navlink" data-panel="rada">Rada</button>
+    <button class="navlink" data-panel="jednani">Jednání</button>
     <button class="navlink" data-panel="smlouvy">Smlouvy</button>
     <button class="navlink" data-panel="zpravodaj">Zpravodaj</button>
     <button class="navlink" data-panel="owebu">O webu</button>
@@ -295,6 +334,40 @@
 
     <div class="callout" style="margin-top:24px;">
       Radu tvoří poválební koalice ODS + NK a SNK Pečky Pečákům, uzavřená po volbách 2022. Kontakty na vedení: <a href="mailto:milan.paluska@pecky.cz">milan.paluska@pecky.cz</a>, <a href="mailto:zdenek.fejfar@pecky.cz">zdenek.fejfar@pecky.cz</a>, <a href="mailto:martin.jedlicka@pecky.cz">martin.jedlicka@pecky.cz</a>.
+    </div>
+  </section>
+
+  <!-- ================= JEDNÁNÍ ================= -->
+  <section class="panel" id="panel-jednani">
+    <p class="eyebrow">Archiv jednání · usneseni.cz</p>
+    <h2 class="title display">Jednání a usnesení</h2>
+    <p class="lede">Kompletní strojově čitelný archiv veřejných jednání rady a zastupitelstva města Pečky — pozvánky, zápisy a jednotlivá usnesení včetně výsledků hlasování, texty verbatim bez úprav. <span class="stamp">ověřeno</span></p>
+
+    <div class="subject-box" id="jednani-stats">
+      <div><div class="k">Jednání</div><div class="v">načítám…</div></div>
+    </div>
+
+    <div class="search-bar">
+      <input type="search" id="jednani-search" placeholder="Hledat klíčové slovo, např. „vodojem“, „ČOV“, „rozpočet“…" autocomplete="off">
+      <select id="jednani-filter-type">
+        <option value="">Vše — rada i zastupitelstvo</option>
+        <option value="Rada">Rada</option>
+        <option value="Zastupitelstvo">Zastupitelstvo</option>
+      </select>
+      <select id="jednani-filter-year">
+        <option value="">Všechny roky</option>
+      </select>
+    </div>
+
+    <p class="search-status" id="jednani-status">Načítám archiv…</p>
+    <div id="jednani-results"></div>
+
+    <div class="callout">
+      Data pochází z jednorázového strojově čitelného exportu webu
+      <a href="https://mesto-pecky.usneseni.cz/verejne/" target="_blank" rel="noopener">mesto-pecky.usneseni.cz</a>
+      pořízeného 4. 8. 2026 (verbatim texty, bez jazykových úprav). Novější jednání se do archivu doplní při
+      dalším běhu exportu. Kompletní datový snímek se všemi detaily (vč. jmenovitých hlasování a plných zápisů)
+      je k nahlédnutí ve zdrojových datech projektu.
     </div>
   </section>
 
@@ -449,8 +522,226 @@
       link.classList.add('active');
       document.getElementById('panel-' + link.dataset.panel).classList.add('active');
       window.scrollTo({top: 0, behavior: 'smooth'});
+      if (link.dataset.panel === 'jednani') loadJednani();
     });
   });
+</script>
+
+<script>
+  // ===== Jednání: archiv + fulltext hledání =====
+  let JEDNANI_DB = null;
+  let JEDNANI_LOADING = null;
+
+  function jStripDiacritics(s){
+    return (s || '').toString().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+  }
+  function jNorm(s){ return jStripDiacritics(s).toLowerCase(); }
+  function jEscapeHtml(s){
+    return (s || '').replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+  }
+  function jFormatDate(iso){
+    if (!iso) return '';
+    const parts = iso.split('-');
+    if (parts.length !== 3) return iso;
+    const [y, mo, d] = parts;
+    return `${parseInt(d, 10)}. ${parseInt(mo, 10)}. ${y}`;
+  }
+  function jHighlight(text, rawQuery){
+    let html = jEscapeHtml(text || '');
+    const words = (rawQuery || '').trim().split(/\s+/).filter(Boolean);
+    words.forEach(w => {
+      const esc = w.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+      if (!esc) return;
+      try { html = html.replace(new RegExp('(' + esc + ')', 'gi'), '<mark>$1</mark>'); } catch (e) {}
+    });
+    return html;
+  }
+
+  async function loadJednani(){
+    const statusEl = document.getElementById('jednani-status');
+    if (JEDNANI_DB) return JEDNANI_DB;
+    if (JEDNANI_LOADING) return JEDNANI_LOADING;
+    JEDNANI_LOADING = (async () => {
+      try {
+        const res = await fetch('data/pecky-jednani.json');
+        if (!res.ok) throw new Error('HTTP ' + res.status);
+        const data = await res.json();
+        const years = new Set();
+        data.meetings.forEach(m => {
+          m.resolutions.forEach(r => {
+            r._norm = jNorm([r.n, r.item, r.text].filter(Boolean).join(' '));
+          });
+          m.agenda.forEach(a => { a._norm = jNorm(a.t); });
+          years.add(m.year);
+        });
+        data._years = Array.from(years).sort((a, b) => b - a);
+        JEDNANI_DB = data;
+        jPopulateYearFilter();
+        jRenderStats();
+        jRunSearch();
+        return data;
+      } catch (e) {
+        statusEl.textContent = 'Archiv se nepodařilo načíst (' + e.message + '). Zkuste stránku obnovit.';
+        throw e;
+      }
+    })();
+    return JEDNANI_LOADING;
+  }
+
+  function jPopulateYearFilter(){
+    const sel = document.getElementById('jednani-filter-year');
+    JEDNANI_DB._years.forEach(y => {
+      const opt = document.createElement('option');
+      opt.value = String(y);
+      opt.textContent = y;
+      sel.appendChild(opt);
+    });
+  }
+
+  function jRenderStats(){
+    const el = document.getElementById('jednani-stats');
+    const years = JEDNANI_DB._years;
+    const minY = years[years.length - 1], maxY = years[0];
+    el.innerHTML = `
+      <div><div class="k">Jednání</div><div class="v">${JEDNANI_DB.meta.meetings_count}</div></div>
+      <div><div class="k">Usnesení</div><div class="v">${JEDNANI_DB.meta.resolutions_count}</div></div>
+      <div><div class="k">Období</div><div class="v">${minY}–${maxY}</div></div>
+      <div><div class="k">Zdroj</div><div class="v">mesto-pecky.usneseni.cz</div></div>
+    `;
+  }
+
+  function jFilteredMeetings(){
+    const type = document.getElementById('jednani-filter-type').value;
+    const year = document.getElementById('jednani-filter-year').value;
+    return JEDNANI_DB.meetings.filter(m =>
+      (!type || m.type === type) && (!year || String(m.year) === year)
+    );
+  }
+
+  function jRenderMeetingList(meetings){
+    if (!meetings.length) return '<p class="lede">Žádná jednání neodpovídají filtru.</p>';
+    const rows = meetings.map(m => `
+      <div class="meeting-row" data-uuid="${m.uuid}">
+        <div class="meeting-row-main">
+          <span class="tag${m.type === 'Zastupitelstvo' ? ' role' : ''}">${jEscapeHtml(m.type || '')}</span>
+          <span class="meeting-label">${jEscapeHtml(m.label || '')}</span>
+          <span class="meeting-date">${jFormatDate(m.date)}</span>
+          <span class="meeting-count">${m.resolutions.length} usnesení</span>
+          <span class="meeting-toggle">+</span>
+        </div>
+        <div class="meeting-row-detail" hidden>
+          ${m.resolutions.length
+            ? '<ul class="res-list">' + m.resolutions.map(r =>
+                `<li><span class="hit-number">${jEscapeHtml(r.n || '')}</span> — ${jEscapeHtml(r.item || '')}</li>`
+              ).join('') + '</ul>'
+            : '<p class="lede" style="margin:8px 0;">Bez zveřejněných usnesení k tomuto jednání.</p>'}
+          <div class="meeting-links">
+            ${m.links.minutes ? `<a href="${m.links.minutes}" target="_blank" rel="noopener">zápis ↗</a>` : ''}
+            ${m.links.resolutions ? `<a href="${m.links.resolutions}" target="_blank" rel="noopener">usnesení ↗</a>` : ''}
+            ${m.links.invitation ? `<a href="${m.links.invitation}" target="_blank" rel="noopener">pozvánka ↗</a>` : ''}
+            ${m.links.pdf ? `<a href="${m.links.pdf}" target="_blank" rel="noopener">podepsaný zápis (PDF) ↗</a>` : ''}
+          </div>
+        </div>
+      </div>
+    `).join('');
+    return `<div class="meeting-list">${rows}</div>`;
+  }
+
+  function jAttachAccordionHandlers(){
+    document.querySelectorAll('#jednani-results .meeting-row-main').forEach(el => {
+      el.addEventListener('click', () => {
+        const row = el.parentElement;
+        const detail = row.querySelector('.meeting-row-detail');
+        const toggle = el.querySelector('.meeting-toggle');
+        const isHidden = detail.hasAttribute('hidden');
+        if (isHidden) { detail.removeAttribute('hidden'); toggle.textContent = '−'; }
+        else { detail.setAttribute('hidden', ''); toggle.textContent = '+'; }
+      });
+    });
+  }
+
+  function jRenderHit(h, rawQuery){
+    const m = h.m;
+    const typeTag = `<span class="tag${m.type === 'Zastupitelstvo' ? ' role' : ''}">${jEscapeHtml(m.type || '')}</span>`;
+    if (h.kind === 'res') {
+      const r = h.r;
+      const hasVote = r.pro !== null && r.pro !== undefined;
+      return `<div class="hit-card">
+        <div class="hit-meta">
+          ${typeTag}
+          <span class="hit-label">${jEscapeHtml(m.label || '')}</span>
+          <span class="hit-date">${jFormatDate(m.date)}</span>
+        </div>
+        <div class="hit-item">${jHighlight(r.item, rawQuery)}</div>
+        <div class="hit-text">${jHighlight(r.text, rawQuery)}</div>
+        <div class="hit-footer">
+          <span class="hit-number">${jEscapeHtml(r.n || '')}</span>
+          ${hasVote ? `<span>pro ${r.pro} · proti ${r.proti} · zdržel se ${r.zdrzel}</span>` : ''}
+          ${r.url ? `<a href="${r.url}" target="_blank" rel="noopener">detail usnesení ↗</a>` : ''}
+          ${m.links.minutes ? `<a href="${m.links.minutes}" target="_blank" rel="noopener">zápis jednání ↗</a>` : ''}
+        </div>
+      </div>`;
+    }
+    const a = h.a;
+    return `<div class="hit-card hit-card--agenda">
+      <div class="hit-meta">
+        ${typeTag}
+        <span class="hit-label">${jEscapeHtml(m.label || '')}</span>
+        <span class="hit-date">${jFormatDate(m.date)}</span>
+      </div>
+      <div class="hit-item">${jHighlight(a.t, rawQuery)} <span class="tag">bod programu</span></div>
+      <div class="hit-footer">
+        ${m.links.minutes ? `<a href="${m.links.minutes}" target="_blank" rel="noopener">zápis jednání ↗</a>` : ''}
+      </div>
+    </div>`;
+  }
+
+  function jRunSearch(){
+    if (!JEDNANI_DB) return;
+    const rawQuery = document.getElementById('jednani-search').value;
+    const words = jNorm(rawQuery).split(/\s+/).filter(Boolean);
+    const meetings = jFilteredMeetings();
+    const statusEl = document.getElementById('jednani-status');
+    const resultsEl = document.getElementById('jednani-results');
+
+    if (!words.length) {
+      statusEl.textContent = `${meetings.length} jednání — klikněte pro rozbalení usnesení, nebo hledejte klíčové slovo výše.`;
+      resultsEl.innerHTML = jRenderMeetingList(meetings);
+      jAttachAccordionHandlers();
+      return;
+    }
+
+    const hits = [];
+    meetings.forEach(m => {
+      const resItemTexts = new Set(m.resolutions.map(r => r.item));
+      m.resolutions.forEach(r => {
+        if (words.every(w => r._norm.includes(w))) hits.push({ m, r, kind: 'res' });
+      });
+      m.agenda.forEach(a => {
+        if (!resItemTexts.has(a.t) && words.every(w => a._norm.includes(w))) {
+          hits.push({ m, a, kind: 'agenda' });
+        }
+      });
+    });
+
+    if (!hits.length) {
+      statusEl.textContent = 'Žádné shody pro „' + rawQuery.trim() + '“.';
+      resultsEl.innerHTML = '<p class="lede">Zkuste jiné klíčové slovo, nebo změňte filtr typu/roku výše.</p>';
+      return;
+    }
+    const meetingCount = new Set(hits.map(h => h.m.uuid)).size;
+    statusEl.textContent = `${hits.length} shod v ${meetingCount} jednáních`;
+    resultsEl.innerHTML = hits.map(h => jRenderHit(h, rawQuery)).join('');
+  }
+
+  let jSearchTimer = null;
+  function jScheduleSearch(){
+    clearTimeout(jSearchTimer);
+    jSearchTimer = setTimeout(jRunSearch, 120);
+  }
+  document.getElementById('jednani-search').addEventListener('input', jScheduleSearch);
+  document.getElementById('jednani-filter-type').addEventListener('change', jRunSearch);
+  document.getElementById('jednani-filter-year').addEventListener('change', jRunSearch);
 </script>
 
 </body>
