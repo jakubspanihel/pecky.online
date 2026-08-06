@@ -1,0 +1,128 @@
+{
+  "project": "pecky.online",
+  "description": "Seznam zdrojů, ze kterých pecky.online čerpá nebo může čerpat informace o samosprávě města Pečky.",
+  "last_updated": "2026-08-06",
+  "sources": [
+    {
+      "id": "pecky-cz",
+      "name": "Oficiální web města Pečky",
+      "url": "http://pecky.cz",
+      "category": "oficiální",
+      "description": "Hlavní web města — úřední deska, kontakty, aktuality, Pečecké noviny.",
+      "status": "částečně nedostupné",
+      "note": "Podstránky (zastupitelstvo, archiv zpravodaje) jsou vykreslované přes JavaScript a blokují automatizovaný přístup (ochrana proti botům)."
+    },
+    {
+      "id": "facebook-mestopecky",
+      "name": "Facebook — Město Pečky",
+      "url": "https://www.facebook.com/mestopecky",
+      "category": "sociální síť",
+      "description": "Oficiální facebookový profil města.",
+      "status": "ověřeno"
+    },
+    {
+      "id": "youtube-mestopecky",
+      "name": "YouTube — Město Pečky",
+      "url": "https://www.youtube.com/@mestopecky",
+      "category": "sociální síť",
+      "description": "Oficiální YouTube kanál města (záznamy jednání, reportáže).",
+      "status": "ověřeno"
+    },
+    {
+      "id": "hlidac-statu",
+      "name": "Hlídač státu — profil Města Pečky",
+      "url": "https://www.hlidacstatu.cz/subjekt/00239607",
+      "category": "otevřená data",
+      "description": "Přehled smluv, dotací, rizik a dodavatelů pro IČO 00239607 a celou skupinu (úřad + 8 podřízených organizací).",
+      "status": "ověřeno",
+      "note": "Data do webu tažena přes připojený MCP konektor Hlídače státu; jde o statický výřez, ne živě se obnovující data."
+    },
+    {
+      "id": "usneseni-cz",
+      "name": "Zápisy a usnesení ZM/RM",
+      "url": "https://mesto-pecky.usneseni.cz/verejne/",
+      "category": "oficiální",
+      "description": "Systém pro zveřejňování zápisů a usnesení zastupitelstva a rady města.",
+      "status": "částečně nedostupné",
+      "note": "Blokuje automatizovaný přístup (ochrana proti botům). Jmenné seznamy členů se v zápisech objevují nesystematicky (docházka, příchody/odchody), ne jako jednotný rejstřík."
+    },
+    {
+      "id": "facebook-kspecky",
+      "name": "Facebook — Kulturní středisko města Pečky",
+      "url": "https://www.facebook.com/kspecky",
+      "category": "sociální síť",
+      "description": "Profil kulturního střediska města (akce, kulturní program).",
+      "status": "ověřeno"
+    },
+    {
+      "id": "smlouvy-gov-cz",
+      "name": "Registr smluv (smlouvy.gov.cz)",
+      "url": "https://smlouvy.gov.cz/vyhledavani?dotaz=M%C4%9Bsto%20Pe%C4%8Dky",
+      "category": "otevřená data",
+      "description": "Oficiální celostátní registr smluv — plné znění smluv se subjektem Město Pečky.",
+      "status": "ověřeno"
+    },
+    {
+      "id": "volby-gov-cz",
+      "name": "Otevřená data voleb (ČSÚ)",
+      "url": "https://volby.gov.cz/opendata/opendata.htm",
+      "category": "otevřená data",
+      "description": "Strukturovaná otevřená data z komunálních a dalších voleb — výsledky, kandidátky, mandáty po obcích.",
+      "status": "ověřeno",
+      "note": "Použito na stránce Volby ke křížovému ověření výsledků a hlasů komunálních voleb 2022 (obec 537641 Pečky)."
+    },
+    {
+      "id": "pececke-sluzby",
+      "name": "Pečecké služby s.r.o.",
+      "url": "https://pececkesluzby.cz/",
+      "category": "podřízená organizace",
+      "description": "Web technických služeb města (jedna z organizací ve skupině Město Pečky sledované Hlídačem státu).",
+      "status": "nevytěženo"
+    },
+    {
+      "id": "monitor-statni-pokladna",
+      "name": "Monitor státní pokladny (MF ČR)",
+      "url": "https://monitor.statnipokladna.cz/",
+      "category": "otevřená data",
+      "description": "Oficiální data Ministerstva financí o hospodaření obce — rozpočet, příjmy a výdaje podle kapitol, zadluženost, plnění rozpočtu v čase.",
+      "status": "nevytěženo",
+      "note": "Návrh z 6. 8. 2026: doplnilo by webu chybějící celkový obrázek o hospodaření města (zatím jen jednotlivé smlouvy). Nejsilnější kandidát na další rozšíření."
+    },
+    {
+      "id": "uzemni-plan-pecky",
+      "name": "Územní plán Peček",
+      "url": "https://geoportal.uur.cz/",
+      "category": "otevřená data",
+      "description": "Platný územní plán města a jeho změny — mj. relevantní k bodům z volebních programů (obchvat, územní plán jižní části města, parkování).",
+      "status": "nevytěženo",
+      "note": "Návrh z 6. 8. 2026. URL je obecný Národní geoportál územního plánování — konkrétní dokumentaci pro Pečky je potřeba v něm dohledat, případně zkusit přímo pecky.cz."
+    },
+    {
+      "id": "csu-verejna-databaze",
+      "name": "ČSÚ — Veřejná databáze (MOS)",
+      "url": "https://vdb.czso.cz/vdbvo2/",
+      "category": "otevřená data",
+      "description": "Demografická a socioekonomická data obce v čase — počet obyvatel, věková struktura, nezaměstnanost a další ukazatele (Města a obce v datech).",
+      "status": "nevytěženo",
+      "note": "Návrh z 6. 8. 2026: doplnilo by statickou tabulku na Domů o vývoj v čase, ne jen aktuální stav."
+    },
+    {
+      "id": "vestnik-verejnych-zakazek",
+      "name": "Věstník veřejných zakázek",
+      "url": "https://vestnikverejnychzakazek.cz/",
+      "category": "otevřená data",
+      "description": "Veřejné zakázky a výběrová řízení vyhlášená městem — fáze před podpisem smlouvy (nabídky, průběh soutěže), kterou Registr smluv nepokrývá.",
+      "status": "nevytěženo",
+      "note": "Návrh z 6. 8. 2026."
+    },
+    {
+      "id": "justice-cz-sbirka-listin",
+      "name": "Justice.cz — Sbírka listin",
+      "url": "https://or.justice.cz/ias/ui/rejstrik-$firma?nazev=Pe%C4%8Deck%C3%A9%20slu%C5%BEby",
+      "category": "otevřená data",
+      "description": "Účetní závěrky a výroční zprávy městských organizací (např. Pečecké služby s.r.o.) ve sbírce listin obchodního rejstříku.",
+      "status": "nevytěženo",
+      "note": "Návrh z 6. 8. 2026."
+    }
+  ]
+}

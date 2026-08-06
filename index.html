@@ -129,6 +129,8 @@
   .swatch{display:inline-block; width:10px; height:10px; border-radius:50%; margin-right:8px; vertical-align:middle;}
   .tag{font-family:'IBM Plex Mono',monospace; font-size:10.5px; text-transform:uppercase; padding:2px 7px; border:1px solid var(--line); border-radius:2px; color:var(--ink-soft);}
   .tag.role{color:var(--burgundy); border-color:var(--burgundy);}
+  .tag.koalice{color:var(--field); border-color:var(--field); background:rgba(84,98,74,0.08);}
+  .tag.opozice{color:var(--burgundy); border-color:var(--burgundy); background:rgba(124,47,43,0.06);}
 
   .callout{
     border-left:3px solid var(--gold); background:rgba(173,122,42,0.08);
@@ -137,10 +139,41 @@
   .callout strong{color:var(--ink);}
 
   .card-grid{display:grid; grid-template-columns:repeat(auto-fill,minmax(220px,1fr)); gap:14px; margin-top:18px;}
+
+  .noviny-grid{display:grid; grid-template-columns:repeat(6,1fr); gap:16px; margin-top:16px;}
+  @media (max-width:960px){.noviny-grid{grid-template-columns:repeat(4,1fr);}}
+  @media (max-width:640px){.noviny-grid{grid-template-columns:repeat(2,1fr);}}
+  .noviny-card{display:block; border:1px solid var(--line); background:var(--parchment-deep); overflow:hidden; text-decoration:none; color:inherit; transition:border-color .15s, transform .15s;}
+  .noviny-card:hover{border-color:var(--burgundy); transform:translateY(-2px);}
+  .noviny-card img{width:100%; aspect-ratio:380/538; object-fit:cover; display:block; background:#fff; border-bottom:1px solid var(--line);}
+  .noviny-card .cap{padding:8px 10px; font-size:12.5px; font-weight:500; text-align:center; line-height:1.3;}
   .person-card{border:1px solid var(--line); background:rgba(255,255,255,0.35); padding:16px;}
+  .person-card::after{content:""; display:table; clear:both;}
   .person-card .name{font-weight:600; margin-bottom:3px;}
   .person-card .role{font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--burgundy); text-transform:uppercase; letter-spacing:0.03em;}
   .person-card .party{font-size:12.5px; color:var(--ink-soft); margin-top:6px;}
+  .program-list{margin:10px 0 0; padding-left:17px; font-size:12.5px; color:var(--ink-soft); line-height:1.55;}
+  .program-list li{margin-bottom:6px;}
+  .program-list li::marker{color:var(--burgundy);}
+  .program-list li strong{color:var(--ink); font-weight:600;}
+  .program-group + .program-group{margin-top:10px;}
+  .program-note{font-size:12px; color:var(--ink-soft); font-style:italic; margin:8px 0 0;}
+  .pdf-preview{float:left; width:150px; margin:0 14px 8px 0; border:1px solid var(--line); overflow:hidden; background:#fff;}
+  .pdf-preview img{display:block; width:100%; aspect-ratio:380/538; object-fit:cover; transition:opacity .15s;}
+  .pdf-preview:hover{border-color:var(--burgundy);}
+  .pdf-preview:hover img{opacity:0.9;}
+  .result-note{margin-top:12px; padding-top:10px; border-top:1px dashed var(--line); font-size:12.5px; color:var(--ink-soft); line-height:1.55;}
+  .result-note strong{color:var(--ink);}
+  .result-note .src{display:block; margin-top:4px; font-size:11px;}
+  .avatar{width:64px; height:64px; border-radius:50%; object-fit:cover; display:block; margin-bottom:10px; border:1px solid var(--line); background:var(--parchment-deep);}
+  .avatar-fallback{width:64px; height:64px; border-radius:50%; display:flex; align-items:center; justify-content:center; margin-bottom:10px; font-family:'Fraunces',serif; font-weight:600; font-size:20px; color:#fff; flex-shrink:0;}
+  .people-group h3{font-size:19px; margin:34px 0 4px;}
+  .person-card.party-nasepecky{background:#F9CDD2; border-color:#E20514;}
+  .person-card.party-ods{background:#CCD2E5; border-color:#1F2363;}
+  .person-card.party-snk{background:#EBD9E6; border-color:#A6528F;}
+  .person-card.party-spd{background:#E5DBD0; border-color:#8B5A2B;}
+  .person-card.party-cssd{background:#FFDFDF; border-color:#FF5F60;}
+  .person-card.party-lidovci{background:#F7E6B8; border-color:#EBB91E;}
 
   .subject-box{
     border:1px solid var(--ink); padding:18px 20px; background:var(--parchment-deep); margin-bottom:24px;
@@ -209,9 +242,9 @@
   </div>
   <nav class="tabs" id="tabs">
     <button class="navlink active" data-panel="domu">Domů</button>
-    <button class="navlink" data-panel="zastupitelstvo">Zastupitelstvo</button>
-    <button class="navlink" data-panel="rada">Rada</button>
-    <button class="navlink" data-panel="volby">Volby</button>
+    <button class="navlink" data-panel="lide">Lidé</button>
+    <button class="navlink" data-panel="volby2022">Volby 2022</button>
+    <button class="navlink" data-panel="volby2026">Volby 2026</button>
     <button class="navlink" data-panel="jednani">Jednání</button>
     <button class="navlink" data-panel="smlouvy">Smlouvy</button>
     <button class="navlink" data-panel="zpravodaj">Pečecké noviny</button>
@@ -235,7 +268,7 @@
           <dt>Části obce</dt><dd>Pečky (4 195 ob.) · Velké Chvalovice (539 ob.)</dd>
           <dt>Obyvatel</dt><dd>4 874 <span style="color:var(--ink-soft); font-weight:400;">(k 1.1.2025)</span></dd>
           <dt>Rozloha</dt><dd>10,76 km²</dd>
-          <dt>Řeka</dt><dd>Výrovka</dt>
+          <dt>Řeka</dt><dd>Výrovka</dd>
           <dt>Starosta</dt><dd>Milan Paluska</dd>
           <dt>ORP</dt><dd>Pečky — spravuje i Cerhenice, Dobřichov, Chotutice, Plaňany, Radim, Ratenice, Vrbčany</dd>
         </dl>
@@ -253,141 +286,331 @@
         <a class="qlink" href="https://www.hlidacstatu.cz/subjekt/00239607" target="_blank" rel="noopener">
           <span class="lbl">Profil na Hlídači státu</span><span class="url">IČO 00239607 ↗</span>
         </a>
+        <a class="qlink" href="https://mesto-pecky.usneseni.cz/verejne/" target="_blank" rel="noopener">
+          <span class="lbl">Zápisy a usnesení ZM/RM</span><span class="url">usneseni.cz ↗</span>
+        </a>
+        <a class="qlink" href="https://www.facebook.com/kspecky" target="_blank" rel="noopener">
+          <span class="lbl">Facebook — Kulturní středisko</span><span class="url">/kspecky ↗</span>
+        </a>
+        <a class="qlink" href="https://smlouvy.gov.cz/vyhledavani?dotaz=M%C4%9Bsto%20Pe%C4%8Dky" target="_blank" rel="noopener">
+          <span class="lbl">Registr smluv</span><span class="url">smlouvy.gov.cz ↗</span>
+        </a>
+        <a class="qlink" href="https://volby.gov.cz/opendata/opendata.htm" target="_blank" rel="noopener">
+          <span class="lbl">Otevřená data voleb (ČSÚ)</span><span class="url">volby.gov.cz ↗</span>
+        </a>
+        <a class="qlink" href="https://pececkesluzby.cz/" target="_blank" rel="noopener">
+          <span class="lbl">Pečecké služby s.r.o.</span><span class="url">pececkesluzby.cz ↗</span>
+        </a>
       </div>
     </div>
 
     <div class="callout">
-      <strong>O čem tento web je:</strong> Pečky nemají tak rozsáhlá otevřená data jako velké městské části — tenhle web je proto zatím menší než svůj vzor. Rozšiřuje se postupně, jak přibývají ověřitelné zdroje. Chybějící nebo neúplné údaje jsou v každé sekci označené.
+      <strong>O čem tento web je:</strong> Pečky nemají tak rozsáhlá otevřená data jako velké městské části — tenhle web je proto zatím menší než svůj vzor. Rozšiřuje se postupně, jak přibývají ověřitelné zdroje. Chybějící nebo neúplné údaje jsou v každé sekci označené. Kompletní seznam zdrojů i s poznámkami o jejich dostupnosti je v <code>sources.json</code> v repozitáři projektu.
     </div>
   </section>
 
-  <!-- ================= ZASTUPITELSTVO ================= -->
-  <section class="panel" id="panel-zastupitelstvo">
-    <p class="eyebrow">Volební období 2022–2026</p>
-    <h2 class="title display">Zastupitelstvo města</h2>
-    <p class="lede">21 zastupitelů zvolených v komunálních volbách 23.–24. září 2022, účast 52,36 %. Jmenný seznam níže. <span class="stamp">ověřeno</span></p>
+  <!-- ================= LIDÉ ================= -->
+  <section class="panel" id="panel-lide">
+    <p class="eyebrow">Jak se řídí město</p>
+    <h2 class="title display">Lidé, kteří řídí město</h2>
+    <p class="lede">Město řídí dvě propojené skupiny. Zastupitelstvo je 21členný sbor, který si občané volí přímo v komunálních volbách jednou za čtyři roky — má poslední slovo v zásadních otázkách jako rozpočet nebo majetek města. Zastupitelstvo si pak ze svého středu zvolí radu, menší výkonný tým, který řídí každodenní chod úřadu mezi jednotlivými zasedáními. Níž se dozvíš, kdo v nich sedí a o čem přesně rozhodují.</p>
 
-    <div class="seatbar" role="img" aria-label="Rozložení 21 mandátů mezi pět uskupení">
-      <span style="width:33.3%; background:#7C2F2B;">NAŠE PEČKY · 7</span>
-      <span style="width:28.6%; background:#54624A;">ODS a NK · 6</span>
-      <span style="width:14.3%; background:#AD7A2A;">LIDÉ PRO PEČKY · 3</span>
-      <span style="width:14.3%; background:#8A7A9B;">SNK PEČÁKŮM · 3</span>
-      <span style="width:9.5%; background:#8C8168;">ČSSD a levice · 2</span>
+    <div class="people-group">
+      <h3 class="display">Rada města (7)</h3>
+      <div class="card-grid">
+        <div class="person-card party-ods">
+          <img class="avatar" src="img/zastupitele/paluska.jpg" alt="Milan Paluska" loading="lazy">
+          <div class="role">Starosta</div>
+          <div class="name">Milan Paluska</div>
+          <div class="party">ODS</div>
+        </div>
+        <div class="person-card party-ods">
+          <img class="avatar" src="img/zastupitele/fejfar.jpg" alt="Zdeněk Fejfar" loading="lazy">
+          <div class="role">1. místostarosta</div>
+          <div class="name">Zdeněk Fejfar</div>
+          <div class="party">ODS</div>
+        </div>
+        <div class="person-card party-snk">
+          <div class="avatar-fallback" style="background:#A6528F;">MJ</div>
+          <div class="role">2. místostarosta</div>
+          <div class="name">Ing. Martin Jedlička</div>
+          <div class="party">SNK Pečky Pečákům</div>
+        </div>
+        <div class="person-card party-ods">
+          <img class="avatar" src="img/zastupitele/kristoufek.jpg" alt="Karel Krištoufek" loading="lazy">
+          <div class="role">Radní</div>
+          <div class="name">Ing. Karel Krištoufek</div>
+          <div class="party">ODS</div>
+        </div>
+        <div class="person-card party-ods">
+          <img class="avatar" src="img/zastupitele/kuprova.jpg" alt="Hana Kuprová" loading="lazy">
+          <div class="role">Radní</div>
+          <div class="name">Ing. Hana Kuprová</div>
+          <div class="party">ODS</div>
+        </div>
+        <div class="person-card party-ods">
+          <img class="avatar" src="img/zastupitele/trckova.jpg" alt="Ivana Trčková" loading="lazy">
+          <div class="role">Radní</div>
+          <div class="name">Ivana Trčková</div>
+          <div class="party">ODS</div>
+        </div>
+        <div class="person-card party-cssd">
+          <div class="avatar-fallback" style="background:#FF5F60;">PD</div>
+          <div class="role">Radní</div>
+          <div class="name">Ing. Petr Dürr</div>
+          <div class="party">ČSSD a sjednocená levice</div>
+        </div>
+      </div>
+      <div class="callout" style="margin-top:18px;">
+        Kontakty na vedení: <a href="mailto:milan.paluska@pecky.cz">milan.paluska@pecky.cz</a>, <a href="mailto:zdenek.fejfar@pecky.cz">zdenek.fejfar@pecky.cz</a>, <a href="mailto:martin.jedlicka@pecky.cz">martin.jedlicka@pecky.cz</a>. Zdroj složení: usnesení ustavujícího zasedání zastupitelstva 7/2022, viz sekce Volby 2022.
+      </div>
     </div>
-    <p class="majority-note">nadpoloviční většina: 11 z 21 mandátů</p>
+
+    <div class="people-group">
+      <h3 class="display">Ostatní členové zastupitelstva (14)</h3>
+      <p class="lede" style="margin-bottom:16px;">Bez funkce v radě — rozložení mandátů níže na této stránce, výsledky voleb v sekci Volby.</p>
+      <div class="card-grid">
+        <div class="person-card party-nasepecky">
+          <img class="avatar" src="img/zastupitele/drska.jpg" alt="Václav Drška" loading="lazy">
+          <div class="role">Zastupitel</div>
+          <div class="name">Václav Drška</div>
+          <div class="party">NAŠE PEČKY</div>
+        </div>
+        <div class="person-card party-nasepecky">
+          <img class="avatar" src="img/zastupitele/horynova.jpg" alt="Šárka Horynová" loading="lazy">
+          <div class="role">Zastupitelka</div>
+          <div class="name">Šárka Horynová</div>
+          <div class="party">NAŠE PEČKY</div>
+        </div>
+        <div class="person-card party-nasepecky">
+          <img class="avatar" src="img/zastupitele/katrnoska.jpg" alt="Jiří Katrnoška" loading="lazy">
+          <div class="role">Zastupitel</div>
+          <div class="name">Jiří Katrnoška</div>
+          <div class="party">NAŠE PEČKY</div>
+        </div>
+        <div class="person-card party-nasepecky">
+          <img class="avatar" src="img/zastupitele/schulz.jpg" alt="Ondřej Schulz" loading="lazy">
+          <div class="role">Zastupitel</div>
+          <div class="name">Ondřej Schulz</div>
+          <div class="party">NAŠE PEČKY</div>
+        </div>
+        <div class="person-card party-nasepecky">
+          <img class="avatar" src="img/zastupitele/svejnohova.jpg" alt="Alena Švejnohová" loading="lazy">
+          <div class="role">Zastupitelka</div>
+          <div class="name">Mgr. Alena Švejnohová</div>
+          <div class="party">NAŠE PEČKY</div>
+        </div>
+        <div class="person-card party-nasepecky">
+          <img class="avatar" src="img/zastupitele/vodicka-tomas.jpg" alt="Tomáš Vodička" loading="lazy">
+          <div class="role">Zastupitel</div>
+          <div class="name">Tomáš Vodička</div>
+          <div class="party">NAŠE PEČKY</div>
+        </div>
+        <div class="person-card party-nasepecky">
+          <img class="avatar" src="img/zastupitele/zelezny.jpg" alt="Jaroslav Železný" loading="lazy">
+          <div class="role">Zastupitel</div>
+          <div class="name">Jaroslav Železný</div>
+          <div class="party">NAŠE PEČKY</div>
+        </div>
+        <div class="person-card party-ods">
+          <img class="avatar" src="img/zastupitele/urban.jpg" alt="Milan Urban" loading="lazy">
+          <div class="role">Zastupitel</div>
+          <div class="name">Milan Urban</div>
+          <div class="party">ODS a NK</div>
+        </div>
+        <div class="person-card party-snk">
+          <div class="avatar-fallback" style="background:#A6528F;">MP</div>
+          <div class="role">Zastupitel</div>
+          <div class="name">Milan Pečenka</div>
+          <div class="party">SNK Pečky Pečákům</div>
+        </div>
+        <div class="person-card party-snk">
+          <div class="avatar-fallback" style="background:#A6528F;">PS</div>
+          <div class="role">Zastupitel</div>
+          <div class="name">Pavel Sedláček</div>
+          <div class="party">SNK Pečky Pečákům</div>
+        </div>
+        <div class="person-card party-spd">
+          <div class="avatar-fallback" style="background:#8B5A2B;">LM</div>
+          <div class="role">Zastupitel</div>
+          <div class="name">Lubomír Metelák</div>
+          <div class="party">Lidé pro Pečky (SPD)</div>
+        </div>
+        <div class="person-card party-spd">
+          <div class="avatar-fallback" style="background:#8B5A2B;">TR</div>
+          <div class="role">Zastupitel</div>
+          <div class="name">Tomáš Růžička</div>
+          <div class="party">Lidé pro Pečky (SPD)</div>
+        </div>
+        <div class="person-card party-spd">
+          <div class="avatar-fallback" style="background:#8B5A2B;">JV</div>
+          <div class="role">Zastupitelka</div>
+          <div class="name">Jaroslava Vosecká</div>
+          <div class="party">Lidé pro Pečky (SPD)</div>
+        </div>
+        <div class="person-card party-cssd">
+          <div class="avatar-fallback" style="background:#FF5F60;">LK</div>
+          <div class="role">Zastupitel</div>
+          <div class="name">Ladislav Kejda</div>
+          <div class="party">ČSSD a sjednocená levice</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="callout" style="margin-top:26px;">
+      <strong>O fotografiích:</strong> u 13 z 21 členů se podařilo dohledat fotografii. Šest členů Sdružení ODS a nezávislých kandidátů má oficiální portrét z <a href="https://www.ods.cz/ms.pecky/volby2022/komunalni/2570-pecky" target="_blank" rel="noopener">kandidátky na ods.cz</a> (stejné fotky, jaké strana používala i v tištěné inzerci). Sedm členů NAŠE PEČKY je z volebního inzerátu v Pečeckých novinách 9/2022 (str. 11), kde kandidáti sami zveřejnili portrét se jménem. U zbylých osmi (SNK Pečky Pečákům, Lidé pro Pečky s podporou SPD, ČSSD a sjednocená levice) jsem nenašel žádný oficiální web s fotkami jednotlivých kandidátů — jejich inzerce v novinách obsahovala jen jmenný seznam nebo nepojmenovanou skupinovou fotku, ze které nelze spolehlivě přiřadit obličej ke jménu — proto jen barevný iniciálový avatar.
+    </div>
+  </section>
+
+  <!-- ================= VOLBY 2022 ================= -->
+  <section class="panel" id="panel-volby2022">
+    <p class="eyebrow">Komunální volby 23.–24. 9. 2022</p>
+    <h2 class="title display">Volby 2022 do zastupitelstva</h2>
+    <p class="lede">Poslední komunální volby v Pečkách proběhly 23.–24. září 2022, účast byla 52,36 %. Kandidovalo šest uskupení, pět z nich získalo mandát. Níže jsou všechna uskupení s výsledky a shrnutím jejich volebního programu. <span class="stamp">ověřeno</span></p>
+
+    <h3 class="display" style="font-size:19px; margin:0 0 4px;">Volební programy - aneb co kdo sliboval</h3>
+    <p class="lede" style="margin-bottom:18px;">Shrnutí volebních programů z inzertních stran Pečeckých novin 9/2022 (vydání těsně před volbami), doplněno o oficiální kandidátku ODS. Plné znění viz odkaz u každého uskupení.</p>
+
+    <div class="card-grid" style="grid-template-columns:1fr;">
+      <div class="person-card party-nasepecky">
+        <a class="pdf-preview" href="https://pecky.cz/files/pecky/gallery/18748/69a0159f4d013_pec-ecke-noviny-9-2022-na-hled.pdf#page=11" target="_blank" rel="noopener">
+          <img src="img/volebni-programy-2022/nase-pecky.jpg" alt="Náhled strany 11 Pečeckých novin 9/2022 — volební inzerce NAŠE PEČKY" loading="lazy">
+        </a>
+        <div class="name">NAŠE PEČKY (STAN + nezávislí)</div>
+        <ul class="program-list">
+          <li><strong>Soběstačnost a rozvoj:</strong> úpravna vody, fotovoltaika a komunitní energetika, víc zeleně, územní plán jižní části města, parkování.</li>
+          <li><strong>Klíčové projekty:</strong> obchvat, tělocvična, opravy Tř. 5. května a chodníků, oživení náměstí, úprava hřbitova.</li>
+          <li><strong>Péče o občany:</strong> jesle, obecní bydlení, veřejné WC, modernizace zdravotního střediska, bezbariérová podatelna, sobotní úřední hodiny, bezpečnost.</li>
+          <li><strong>Vzdělání, kultura, sport:</strong> přístavba ZŠ, fotbalové kabiny, rekonstrukce kulturního domu, knihovna, diskgolf a pumptrack.</li>
+        </ul>
+      </div>
+
+      <div class="person-card party-ods">
+        <a class="pdf-preview" href="https://pecky.cz/files/pecky/gallery/18748/69a0159f4d013_pec-ecke-noviny-9-2022-na-hled.pdf#page=9" target="_blank" rel="noopener">
+          <img src="img/volebni-programy-2022/ods.jpg" alt="Náhled strany 9 Pečeckých novin 9/2022 — volební inzerce Sdružení ODS a nezávislých kandidátů" loading="lazy">
+        </a>
+        <div class="name">Sdružení ODS a nezávislých kandidátů</div>
+        <p class="program-note" style="margin-top:10px;">Nezveřejnilo jednotný bodový program — inzerce ukazuje portréty kandidátů s krátkými hesly, mj. k těmto tématům:</p>
+        <ul class="program-list">
+          <li>Investice do provozu města</li>
+          <li>Bezpečnost</li>
+          <li>Podpora sportu</li>
+          <li>Vzdělávání dětí</li>
+        </ul>
+        <p class="program-note">Text hesel je z fotomozaiky strojově málo čitelný, ověřitelný jen z originálu PDF.</p>
+      </div>
+
+      <div class="person-card party-snk">
+        <a class="pdf-preview" href="https://pecky.cz/files/pecky/gallery/18748/69a0159f4d013_pec-ecke-noviny-9-2022-na-hled.pdf#page=8" target="_blank" rel="noopener">
+          <img src="img/volebni-programy-2022/snk.jpg" alt="Náhled strany 8 Pečeckých novin 9/2022 — volební inzerce SNK Pečky Pečákům" loading="lazy">
+        </a>
+        <div class="name">SNK Pečky Pečákům</div>
+        <ul class="program-list">
+          <li>Pokračování jednání o obchvatu města</li>
+          <li>Řešení parkování</li>
+          <li>Výstavba obecních nebo družstevních bytů</li>
+          <li>Podpora podnikání a drobných podnikatelů</li>
+          <li>Řešení obslužnosti Velkých Chvalovic</li>
+          <li>Navýšení stavu městské policie</li>
+          <li>Podpora rozšíření zdravotní péče</li>
+          <li>Ochrana vodního zdroje</li>
+          <li>Dostavba a modernizace ZŠ a MŠ</li>
+          <li>Podpora sportovních oddílů a odpočinkových míst</li>
+          <li>Oprava jedné ulice v každé části města ročně</li>
+        </ul>
+      </div>
+
+      <div class="person-card party-spd">
+        <a class="pdf-preview" href="https://pecky.cz/files/pecky/gallery/18748/69a0159f4d013_pec-ecke-noviny-9-2022-na-hled.pdf#page=12" target="_blank" rel="noopener">
+          <img src="img/volebni-programy-2022/spd.jpg" alt="Náhled strany 12 Pečeckých novin 9/2022 — volební inzerce Lidé pro Pečky s podporou SPD" loading="lazy">
+        </a>
+        <div class="name">Lidé pro Pečky s podporou SPD</div>
+        <ul class="program-list">
+          <li><strong>Zdravotní a sociální:</strong> nový pečovatelský dům s hospicem, bezbariérovost, rehabilitační centrum s bazénem, rozšíření ordinací specialistů.</li>
+          <li><strong>Sport a vzdělávání:</strong> revitalizace myslivny a bažantnice, myslivecký kroužek, obnova Skautu/Junáka/Sokola, „kopečkové hřiště".</li>
+          <li><strong>Bezpečnost:</strong> městská policie 24/7, nové přechody.</li>
+          <li><strong>Životní prostředí:</strong> ochrana dřevin, remízky, nechemická likvidace plevele.</li>
+          <li><strong>Rozvoj města:</strong> revitalizace jižní části, oprava fontány, obnova pramene Poděbradky, nové bytové jednotky, úprava Barákovy a Třebízského ulice, parkoviště u lékárny.</li>
+        </ul>
+      </div>
+
+      <div class="person-card party-cssd">
+        <a class="pdf-preview" href="https://pecky.cz/files/pecky/gallery/18748/69a0159f4d013_pec-ecke-noviny-9-2022-na-hled.pdf#page=13" target="_blank" rel="noopener">
+          <img src="img/volebni-programy-2022/cssd.jpg" alt="Náhled strany 13 Pečeckých novin 9/2022 — volební inzerce ČSSD a sjednocené levice" loading="lazy">
+        </a>
+        <div class="name">ČSSD a sjednocená levice</div>
+        <ul class="program-list">
+          <li>Odpovědně provést město počínající ekonomickou krizí</li>
+          <li>Hospodařit s prostředky města odpovědně</li>
+          <li>Soustředit se na realizovatelné projekty</li>
+          <li>Opravovat ulice a chodníky rovnoměrně — Pečky jih, sever i Velké Chvalovice</li>
+          <li>Navázat na Strategický plán města</li>
+          <li>Podporovat sport, kulturu a spolky</li>
+          <li>Udržet zdravotní a sociální služby</li>
+          <li>Podporovat místní podnikatele a nové bydlení</li>
+          <li>Racionalizovat Pečecké služby</li>
+          <li>Udržet letní tábor v Hryzelích</li>
+          <li>Vybudovat veřejné WC</li>
+          <li>Opravit hřbitov</li>
+          <li>Nedopustit prodej vodovodu a kanalizace</li>
+        </ul>
+      </div>
+
+      <div class="person-card party-lidovci">
+        <a class="pdf-preview" href="https://pecky.cz/files/pecky/gallery/18748/69a0159f4d013_pec-ecke-noviny-9-2022-na-hled.pdf#page=10" target="_blank" rel="noopener">
+          <img src="img/volebni-programy-2022/lidovci.jpg" alt="Náhled strany 10 Pečeckých novin 9/2022 — volební inzerce Lidovci a nezávislí" loading="lazy">
+        </a>
+        <div class="name">Lidovci a nezávislí</div>
+        <ul class="program-list">
+          <li>Podpora zájmových, kulturních a volnočasových spolků</li>
+          <li>Opravy chodníků s bezbariérovými úpravami</li>
+          <li>Lavičky, odpadkové koše a veřejné WC</li>
+          <li>Obnova tradice pečeckého skautu</li>
+          <li>Více míst ve školce, vznik městských jeslí</li>
+          <li>Bezpečná a hlídaná dětská hřiště</li>
+          <li>U-rampa, Street Workout hřiště a pumptrack</li>
+          <li>Rozšíření obytných zón kvůli dopravní bezpečnosti</li>
+          <li>Rozšíření otevírací doby pošty</li>
+          <li>„Rozumné" dořešení obchvatu</li>
+          <li>Péče o hřbitov včetně autobusové zastávky</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="callout" style="margin-top:26px;">
+      <strong>Poznámka k metodě:</strong> volební programy jsou přepsané (u dvou uskupení strojovým OCR) z placené inzerce v čísle Pečeckých novin 9/2022 — tedy tak, jak je uskupení samo prezentovalo těsně před volbami. Nejde o hodnocení plnění programu; to sleduje sekce Jednání a usnesení podle skutečně přijatých usnesení zastupitelstva.
+    </div>
+
+    <h3 class="display" style="font-size:19px; margin:34px 0 4px;">Výsledek - aneb jak to dopadlo</h3>
+    <div class="subject-box">
+      <div><div class="k">Zapsaní voliči</div><div class="v">3 669</div></div>
+      <div><div class="k">Odevzdané obálky</div><div class="v">1 921</div></div>
+      <div><div class="k">Účast</div><div class="v">52,36 %</div></div>
+    </div>
 
     <table class="register">
       <thead>
-        <tr><th>Uskupení</th><th>Mandátů</th><th>Charakter</th></tr>
+        <tr><th>Uskupení</th><th>Podíl</th><th>Mandátů</th><th>Výsledek</th></tr>
       </thead>
       <tbody>
-        <tr><td><span class="swatch" style="background:#7C2F2B;"></span>NAŠE PEČKY (STAN + nezávislí)</td><td>7</td><td>opozice — vítěz voleb, mimo radu</td></tr>
-        <tr><td><span class="swatch" style="background:#54624A;"></span>Sdružení ODS a nezávislí</td><td>6</td><td>koalice — vedení radnice</td></tr>
-        <tr><td><span class="swatch" style="background:#AD7A2A;"></span>LIDÉ PRO PEČKY s podporou SPD</td><td>3</td><td>opozice</td></tr>
-        <tr><td><span class="swatch" style="background:#8A7A9B;"></span>SNK PEČKY PEČÁKŮM</td><td>3</td><td>koalice</td></tr>
-        <tr><td><span class="swatch" style="background:#8C8168;"></span>ČSSD a sjednocená levice</td><td>2</td><td>koalice</td></tr>
+        <tr><td><span class="swatch" style="background:#E20514;"></span>NAŠE PEČKY (STAN + nezávislí)</td><td>30,29 %</td><td>7</td><td><span class="tag opozice">opozice</span> Vítěz voleb, nicméně skončili v opozici, nemají zastoupení v radě.</td></tr>
+        <tr><td><span class="swatch" style="background:#1F2363;"></span>Sdružení ODS a nezávislých kandidátů</td><td>27,67 %</td><td>6</td><td><span class="tag koalice">koalice</span> Uzavřeli koalici se SNK Pečky Pečákům a ČSSD a sjednocenou levicí a jsou ve vedení radnice.</td></tr>
+        <tr><td><span class="swatch" style="background:#A6528F;"></span>SNK Pečky Pečákům</td><td>16,18 %</td><td>3</td><td><span class="tag koalice">koalice</span> Uzavřeli koalici s ODS a NK a ČSSD a sjednocenou levicí a jsou ve vedení radnice.</td></tr>
+        <tr><td><span class="swatch" style="background:#8B5A2B;"></span>Lidé pro Pečky s podporou SPD</td><td>13,94 %</td><td>3</td><td><span class="tag opozice">opozice</span> Skončili v opozici, nemají zastoupení v radě.</td></tr>
+        <tr><td><span class="swatch" style="background:#FF5F60;"></span>ČSSD a sjednocená levice</td><td>8,29 %</td><td>2</td><td><span class="tag koalice">koalice</span> Uzavřeli koalici s ODS a NK a SNK Pečky Pečákům a jsou ve vedení radnice.</td></tr>
+        <tr><td><span class="swatch" style="background:#EBB91E;"></span>Lidovci a nezávislí</td><td>3,62 %</td><td>0</td><td><span class="tag">bez zastupitelstva</span> Vůbec se nedostali do zastupitelstva.</td></tr>
       </tbody>
     </table>
-
-    <h3 class="display" style="font-size:19px; margin:30px 0 4px;">Jmenný seznam (21 členů)</h3>
-    <table class="register">
-      <thead><tr><th>Jméno</th><th>Uskupení</th><th>E-mail</th></tr></thead>
-      <tbody>
-        <tr><td><span class="swatch" style="background:#7C2F2B;"></span>Václav Drška</td><td>NAŠE PEČKY</td><td><a href="mailto:vaclav.drska@pecky.cz">vaclav.drska@pecky.cz</a></td></tr>
-        <tr><td><span class="swatch" style="background:#7C2F2B;"></span>Šárka Horynová</td><td>NAŠE PEČKY</td><td><a href="mailto:sarka.horynova@pecky.cz">sarka.horynova@pecky.cz</a></td></tr>
-        <tr><td><span class="swatch" style="background:#7C2F2B;"></span>Jiří Katrnoška</td><td>NAŠE PEČKY</td><td><a href="mailto:jiri.katrnoska@pecky.cz">jiri.katrnoska@pecky.cz</a></td></tr>
-        <tr><td><span class="swatch" style="background:#7C2F2B;"></span>Ondřej Schulz</td><td>NAŠE PEČKY</td><td><a href="mailto:ondrej.schulz@pecky.cz">ondrej.schulz@pecky.cz</a></td></tr>
-        <tr><td><span class="swatch" style="background:#7C2F2B;"></span>Mgr. Alena Švejnohová</td><td>NAŠE PEČKY</td><td><a href="mailto:alena.svejnohova@pecky.cz">alena.svejnohova@pecky.cz</a></td></tr>
-        <tr><td><span class="swatch" style="background:#7C2F2B;"></span>Tomáš Vodička</td><td>NAŠE PEČKY</td><td><a href="mailto:tomas.vodicka@pecky.cz">tomas.vodicka@pecky.cz</a></td></tr>
-        <tr><td><span class="swatch" style="background:#7C2F2B;"></span>Jaroslav Železný</td><td>NAŠE PEČKY</td><td><a href="mailto:jaroslav.zelezny@pecky.cz">jaroslav.zelezny@pecky.cz</a></td></tr>
-        <tr><td><span class="swatch" style="background:#54624A;"></span>Zdeněk Fejfar</td><td>ODS a NK</td><td><a href="mailto:zdenek.fejfar@pecky.cz">zdenek.fejfar@pecky.cz</a></td></tr>
-        <tr><td><span class="swatch" style="background:#54624A;"></span>Ing. Karel Krištoufek</td><td>ODS a NK</td><td><a href="mailto:karel.kristoufek@pecky.cz">karel.kristoufek@pecky.cz</a></td></tr>
-        <tr><td><span class="swatch" style="background:#54624A;"></span>Ing. Hana Kuprová</td><td>ODS a NK</td><td><a href="mailto:hana.kuprova@pecky.cz">hana.kuprova@pecky.cz</a></td></tr>
-        <tr><td><span class="swatch" style="background:#54624A;"></span>Milan Paluska</td><td>ODS a NK</td><td><a href="mailto:milan.paluska@pecky.cz">milan.paluska@pecky.cz</a></td></tr>
-        <tr><td><span class="swatch" style="background:#54624A;"></span>Ivana Trčková</td><td>ODS a NK</td><td><a href="mailto:ivana.trckova@pecky.cz">ivana.trckova@pecky.cz</a></td></tr>
-        <tr><td><span class="swatch" style="background:#54624A;"></span>Milan Urban</td><td>ODS a NK</td><td><a href="mailto:milan.urban@pecky.cz">milan.urban@pecky.cz</a></td></tr>
-        <tr><td><span class="swatch" style="background:#8A7A9B;"></span>Ing. Martin Jedlička</td><td>SNK Pečky Pečákům</td><td><a href="mailto:martin.jedlicka@pecky.cz">martin.jedlicka@pecky.cz</a></td></tr>
-        <tr><td><span class="swatch" style="background:#8A7A9B;"></span>Milan Pečenka</td><td>SNK Pečky Pečákům</td><td><a href="mailto:milan.pecenka@pecky.cz">milan.pecenka@pecky.cz</a></td></tr>
-        <tr><td><span class="swatch" style="background:#8A7A9B;"></span>Pavel Sedláček</td><td>SNK Pečky Pečákům</td><td><a href="mailto:pavel.sedlacek@pecky.cz">pavel.sedlacek@pecky.cz</a></td></tr>
-        <tr><td><span class="swatch" style="background:#AD7A2A;"></span>Lubomír Metelák</td><td>Lidé pro Pečky (SPD)</td><td><a href="mailto:lubomir.metelak@pecky.cz">lubomir.metelak@pecky.cz</a></td></tr>
-        <tr><td><span class="swatch" style="background:#AD7A2A;"></span>Tomáš Růžička</td><td>Lidé pro Pečky (SPD)</td><td><a href="mailto:tomas.ruzicka@pecky.cz">tomas.ruzicka@pecky.cz</a></td></tr>
-        <tr><td><span class="swatch" style="background:#AD7A2A;"></span>Jaroslava Vosecká</td><td>Lidé pro Pečky (SPD)</td><td><a href="mailto:jaroslava.vosecka@pecky.cz">jaroslava.vosecka@pecky.cz</a></td></tr>
-        <tr><td><span class="swatch" style="background:#8C8168;"></span>Ing. Petr Dürr</td><td>ČSSD a sjednocená levice</td><td><a href="mailto:petr.durr@pecky.cz">petr.durr@pecky.cz</a></td></tr>
-        <tr><td><span class="swatch" style="background:#8C8168;"></span>Ladislav Kejda</td><td>ČSSD a sjednocená levice</td><td><a href="mailto:ladislav.kejda@pecky.cz">ladislav.kejda@pecky.cz</a></td></tr>
-      </tbody>
-    </table>
-
-    <div class="callout" style="margin-top:22px;">
-      Zdroj: <a href="https://pecky.cz/default/default/21130_slozeni-zm" target="_blank" rel="noopener">Složení ZM na pecky.cz</a> (5. 8. 2026). Šest z 21 zastupitelů zároveň zasedá v radě města — viz sekce Rada.
-    </div>
-  </section>
-
-  <!-- ================= RADA ================= -->
-  <section class="panel" id="panel-rada">
-    <p class="eyebrow">Výkonný orgán města</p>
-    <h2 class="title display">Rada města</h2>
-    <p class="lede">Radu volí zastupitelstvo ze svého středu; řídí běžný chod úřadu mezi zasedáními zastupitelstva. Sedmičlenná rada (starosta, 2 místostarostové, 4 radní) byla zvolena na ustavujícím zasedání 20. 10. 2022. <span class="stamp">ověřeno</span></p>
-
-    <div class="card-grid">
-      <div class="person-card">
-        <div class="role">Starosta</div>
-        <div class="name">Milan Paluska</div>
-        <div class="party">ODS</div>
-      </div>
-      <div class="person-card">
-        <div class="role">1. místostarosta (uvolněný)</div>
-        <div class="name">Zdeněk Fejfar</div>
-        <div class="party">ODS</div>
-      </div>
-      <div class="person-card">
-        <div class="role">2. místostarosta (neuvolněný)</div>
-        <div class="name">Ing. Martin Jedlička</div>
-        <div class="party">SNK Pečky Pečákům</div>
-      </div>
-      <div class="person-card">
-        <div class="role">Radní</div>
-        <div class="name">Ing. Karel Krištoufek</div>
-        <div class="party">ODS</div>
-      </div>
-      <div class="person-card">
-        <div class="role">Radní</div>
-        <div class="name">Ing. Hana Kuprová</div>
-        <div class="party">ODS</div>
-      </div>
-      <div class="person-card">
-        <div class="role">Radní</div>
-        <div class="name">Ivana Trčková</div>
-        <div class="party">ODS</div>
-      </div>
-      <div class="person-card">
-        <div class="role">Radní</div>
-        <div class="name">Ing. Petr Dürr</div>
-        <div class="party">ČSSD a sjednocená levice</div>
-      </div>
+    <div class="callout" style="margin-top:14px;">
+      Zdroj: <a href="https://volby.gov.cz/pls/kv2022/vysledky_obec?datumvoleb=20220923&amp;cislo_obce=537641" target="_blank" rel="noopener">ČSÚ — otevřená data, volby.gov.cz (obec 537641 Pečky)</a>, křížově ověřeno s <a href="https://www.seznamzpravy.cz/p/vysledky-voleb/2022/komunalni-volby/obec/537641-pecky" target="_blank" rel="noopener">výsledkovým servisem Seznam Zprávy</a> — čísla se shodují. Voleno 21 zastupitelů, nadpoloviční většina 11 mandátů.
     </div>
 
-    <div class="callout" style="margin-top:24px;">
-      Kontakty na vedení: <a href="mailto:milan.paluska@pecky.cz">milan.paluska@pecky.cz</a>, <a href="mailto:zdenek.fejfar@pecky.cz">zdenek.fejfar@pecky.cz</a>, <a href="mailto:martin.jedlicka@pecky.cz">martin.jedlicka@pecky.cz</a>. Zdroj složení: usnesení ustavujícího zasedání zastupitelstva 7/2022, viz níže.
+    <div class="callout" style="margin-top:14px;">
+      <strong>Zajímavost:</strong> kdo vyhraje volby, automaticky nevede radnici. V Pečkách po volbách 2022 vede radu koalice tří menších uskupení, zatímco vítěz voleb (NAŠE PEČKY) v ní křeslo nemá — vysvětlení níže.
     </div>
 
     <h3 class="display" style="font-size:19px; margin:34px 0 4px;">Povolební koalice: proč vítěz voleb není v radě</h3>
-    <p class="lede" style="margin-bottom:16px;">Volby 2022 s přehledem vyhrálo uskupení <strong>NAŠE PEČKY</strong> (30,29 % hlasů, 7 z 21 mandátů — viz sekce Volby). Přesto nemá v sedmičlenné radě ani jedno křeslo. Vysvětlení není žádná anomálie ani chyba — je to důsledek toho, jak české obecní zřízení volbu vedení obce konstruuje.</p>
-
-    <table class="register" style="margin-bottom:18px;">
-      <thead><tr><th>Koalice (11 z 21 mandátů)</th><th>Mandátů</th></tr></thead>
-      <tbody>
-        <tr><td><span class="swatch" style="background:#54624A;"></span>Sdružení ODS a nezávislých kandidátů</td><td>6</td></tr>
-        <tr><td><span class="swatch" style="background:#8A7A9B;"></span>SNK Pečky Pečákům</td><td>3</td></tr>
-        <tr><td><span class="swatch" style="background:#8C8168;"></span>ČSSD a sjednocená levice</td><td>2</td></tr>
-      </tbody>
-    </table>
-    <table class="register" style="margin-bottom:18px;">
-      <thead><tr><th>Opozice (10 z 21 mandátů)</th><th>Mandátů</th></tr></thead>
-      <tbody>
-        <tr><td><span class="swatch" style="background:#7C2F2B;"></span>NAŠE PEČKY — vítěz voleb</td><td>7</td></tr>
-        <tr><td><span class="swatch" style="background:#AD7A2A;"></span>Lidé pro Pečky s podporou SPD</td><td>3</td></tr>
-      </tbody>
-    </table>
+    <p class="lede" style="margin-bottom:16px;">Volby 2022 s přehledem vyhrálo uskupení <strong>NAŠE PEČKY</strong> (30,29 % hlasů, 7 z 21 mandátů — viz tabulka výše). Přesto nemá v sedmičlenné radě ani jedno křeslo. Vysvětlení není žádná anomálie ani chyba — je to důsledek toho, jak české obecní zřízení volbu vedení obce konstruuje.</p>
 
     <div class="callout">
       <strong>Jak to funguje podle zákona:</strong> zákon č. 128/2000 Sb., o obcích, nezná přímou volbu starosty ani žádné pravidlo, že by uskupení s nejvíc hlasy nebo mandáty mělo přednostní právo vést obec. Starostu, místostarosty i radní volí <em>zastupitelstvo jako sbor</em> ze svého středu (§ 84 odst. 2 písm. m) a § 99), a to hlasováním, ke kterému je podle § 87 potřeba souhlas <strong>nadpoloviční většiny všech členů zastupitelstva</strong> — v Pečkách tedy nejméně 11 hlasů z 21, nikoli jen většina přítomných. Kdo tuto většinu na ustavujícím zasedání sestaví, je čistě věcí dohody mezi zvolenými zastupiteli po volbách — obdoba vládní koalice ve Sněmovně. Pokud se ostatní uskupení spojí proti vítězi voleb, může skončit i s nejvyšším počtem hlasů v opozici. Přesně to se stalo v Pečkách: ODS a NK, SNK Pečky Pečákům a ČSSD a sjednocená levice daly dohromady přesně 11 mandátů a na ustavujícím zasedání 20. 10. 2022 zvolily celé vedení města bez účasti NAŠE PEČKY.
@@ -419,102 +642,49 @@
         · plný zápis: <a href="https://mesto-pecky.usneseni.cz/verejne/bb54aa80-499b-11ed-9329-4b042f767445/zapis/?page=14" target="_blank" rel="noopener">zápis ze zasedání 7/2022 ↗</a>
       </div>
     </div>
-  </section>
 
-  <!-- ================= VOLBY ================= -->
-  <section class="panel" id="panel-volby">
-    <p class="eyebrow">Komunální volby 23.–24. 9. 2022</p>
-    <h2 class="title display">Volby do zastupitelstva</h2>
-    <p class="lede">Poslední komunální volby v Pečkách proběhly 23.–24. září 2022, účast byla 52,36 %. Kandidovalo šest uskupení, pět z nich získalo mandát. Níže jsou všechna uskupení s výsledky a shrnutím jejich volebního programu. <span class="stamp">ověřeno</span></p>
-
-    <div class="subject-box">
-      <div><div class="k">Zapsaní voliči</div><div class="v">3 669</div></div>
-      <div><div class="k">Odevzdané obálky</div><div class="v">1 921</div></div>
-      <div><div class="k">Účast</div><div class="v">52,36 %</div></div>
-      <div><div class="k">Platných hlasů celkem</div><div class="v">36 733</div></div>
-    </div>
+    <h3 class="display" style="font-size:19px; margin:34px 0 4px;">Historické srovnání: jak silná byla podpora starostů dřív</h3>
+    <p class="lede" style="margin-bottom:16px;">ČSÚ eviduje jen výsledky voleb (hlasy a mandáty stran), ne jmenovité hlasování zastupitelstva o starostovi — to je v zápisech z ustavujících zasedání, které má Pečky digitalizované v systému usneseni.cz až od dubna 2021. Pro roky 2014 a 2018 proto přesný poměr hlasů pro/proti/zdržel se nikde online nedohledáme; z dobového tisku se ale dá zjistit, jak silná byla povolební koalice.</p>
 
     <table class="register">
       <thead>
-        <tr><th>Uskupení</th><th>Hlasů pro kandidáty*</th><th>Podíl</th><th>Mandátů</th></tr>
+        <tr><th>Rok</th><th>Starosta/ka</th><th>Uskupení</th><th>Síla koalice</th></tr>
       </thead>
       <tbody>
-        <tr><td><span class="swatch" style="background:#7C2F2B;"></span>NAŠE PEČKY (STAN + nezávislí)</td><td>11 127</td><td>30,29 %</td><td>7</td></tr>
-        <tr><td><span class="swatch" style="background:#54624A;"></span>Sdružení ODS a nezávislých kandidátů</td><td>10 165</td><td>27,67 %</td><td>6</td></tr>
-        <tr><td><span class="swatch" style="background:#8A7A9B;"></span>SNK Pečky Pečákům</td><td>5 942</td><td>16,18 %</td><td>3</td></tr>
-        <tr><td><span class="swatch" style="background:#AD7A2A;"></span>Lidé pro Pečky s podporou SPD</td><td>5 122</td><td>13,94 %</td><td>3</td></tr>
-        <tr><td><span class="swatch" style="background:#8C8168;"></span>ČSSD a sjednocená levice</td><td>3 047</td><td>8,29 %</td><td>2</td></tr>
-        <tr><td><span class="swatch" style="background:#8C8C8C;"></span>Lidovci a nezávislí</td><td>1 330</td><td>3,62 %</td><td>0</td></tr>
+        <tr><td>2014</td><td>Milan Urban</td><td>ODS a nezávislí</td><td>8 z 21 mandátů (vítěz voleb), k většině 11 potřeboval dalšího koaličního partnera — dobový tisk přesné složení neuvádí</td></tr>
+        <tr><td>2018</td><td>Alena Švejnohová</td><td>SNK Naše Pečky</td><td>13 z 21 mandátů (SNK Naše Pečky 9 + Pečky Pečákům 2 + ČSSD 2)</td></tr>
+        <tr><td>2022</td><td>Milan Paluska</td><td>ODS a NK</td><td>11 z 21 mandátů (ODS a NK 6 + SNK Pečky Pečákům 3 + ČSSD a sjednocená levice 2), volba starosty 13 pro / 6 proti / 2 se zdrželi</td></tr>
       </tbody>
     </table>
+
     <div class="callout" style="margin-top:22px;">
-      <strong>* Proč je součet hlasů (36 733) vyšší než počet obyvatel i voličů:</strong> komunální volby používají tzv. panašování — každý z 1 921 voličů, kteří odevzdali obálku, měl k dispozici až 21 hlasů (podle počtu volených zastupitelů) a mohl je rozdělit mezi jednotlivé kandidáty napříč všemi kandidátkami. Číslo ve sloupci „Hlasů" proto není počet lidí, kteří dané uskupení volili, ale <strong>součet hlasů, které dohromady získali všichni jeho kandidáti</strong>. Platí: 5 942 + 10 165 + 1 330 + 11 127 + 5 122 + 3 047 = 36 733 = celkový počet platných hlasů udělených kandidátům v obci.
+      <strong>Zajímavý detail:</strong> Alena Švejnohová, starostka a vítězka voleb 2018 za SNK Naše Pečky (koalice 13 z 21 mandátů), dnes v zastupitelstvu 2022–2026 sedí jako řadová zastupitelka za nástupnické uskupení NAŠE PEČKY bez křesla v radě. Stejná značka, která v roce 2018 pohodlně vedla radnici, v roce 2022 sice znovu vyhrála volby, ale skončila mimo koalici — viz vysvětlení výše.
     </div>
+
     <div class="callout" style="margin-top:14px;">
-      Zdroj: <a href="https://volby.gov.cz/pls/kv2022/vysledky_obec?datumvoleb=20220923&amp;cislo_obce=537641" target="_blank" rel="noopener">ČSÚ — otevřená data, volby.gov.cz (obec 537641 Pečky)</a>, křížově ověřeno s <a href="https://www.seznamzpravy.cz/p/vysledky-voleb/2022/komunalni-volby/obec/537641-pecky" target="_blank" rel="noopener">výsledkovým servisem Seznam Zprávy</a> — čísla se shodují. Voleno 21 zastupitelů, nadpoloviční většina 11 mandátů.
+      Zdroje: <a href="https://kolinsky.denik.cz/zpravy-region/jak-dopadly-volby-v-dalsich-mestech-v-regionu/" target="_blank" rel="noopener">Kolínský deník — výsledky voleb 2014 ↗</a>, <a href="https://kolinsky.denik.cz/zpravy-region/v-peckach-dohodli-koalici-na-ustavujici-zastupitelstvo-si-ale-jeste-pockaji/" target="_blank" rel="noopener">koaliční dohoda 2018 ↗</a>, <a href="https://kolinsky.denik.cz/zpravy-region/pecky-maji-starostku-alenu-svejnohovou-resit-chce-severni-obchvat-mesta/" target="_blank" rel="noopener">zvolení starostky 2018 ↗</a>. Digitální archiv usnesení: <a href="https://mesto-pecky.usneseni.cz/verejne/?page=19" target="_blank" rel="noopener">mesto-pecky.usneseni.cz ↗</a> (nejstarší záznam 4/2021).
+    </div>
+  </section>
+
+  <!-- ================= VOLBY 2026 ================= -->
+  <section class="panel" id="panel-volby2026">
+    <p class="eyebrow">Komunální volby 9.–10. 10. 2026</p>
+    <h2 class="title display">Volby 2026 do zastupitelstva</h2>
+    <p class="lede">Příští komunální volby v Pečkách se konají 9.–10. října 2026. Výsledky, kandidátní listiny a volební programy uskupení doplníme na tuto stránku, jakmile budou k dispozici — stejně jako u voleb 2022. <span class="stamp">sledujeme</span></p>
+
+    <div class="subject-box">
+      <div><div class="k">Termín voleb</div><div class="v">9.–10. 10. 2026</div></div>
+      <div><div class="k">Vyhlášení voleb</div><div class="v">29. 6. 2026</div></div>
+      <div><div class="k">Uzávěrka kandidátních listin</div><div class="v">4. 8. 2026</div></div>
+      <div><div class="k">Volených mandátů</div><div class="v">21</div></div>
     </div>
 
-    <h3 class="display" style="font-size:19px; margin:34px 0 4px;">Volební programy uskupení</h3>
-    <p class="lede" style="margin-bottom:18px;">Shrnutí volebních programů z inzertních stran Pečeckých novin 9/2022 (vydání těsně před volbami), doplněno o oficiální kandidátku ODS. Plné znění viz odkaz u každého uskupení.</p>
-
-    <div class="card-grid" style="grid-template-columns:1fr;">
-      <div class="person-card">
-        <div class="role">7 mandátů</div>
-        <div class="name">NAŠE PEČKY (STAN + nezávislí)</div>
-        <div class="party" style="margin-top:10px; line-height:1.6;">
-          Program postavený na „čtyřech pilířích": <strong>soběstačnost a udržitelný rozvoj</strong> (úpravna vody, fotovoltaika a komunitní energetika, rozšíření zeleně, územní plán jižní části města, parkování), <strong>klíčové projekty a veřejný prostor</strong> (obchvat, tělocvična, opravy Tř. 5. května a chodníků, oživení náměstí, úprava hřbitova), <strong>péče o občany</strong> (jesle, obecní bydlení, veřejné WC, modernizace zdravotního střediska, bezbariérová podatelna, sobotní úřední hodiny, bezpečnost) a <strong>vzdělání, kultura a sport</strong> (přístavba ZŠ, fotbalové kabiny, rekonstrukce kulturního domu, knihovna, diskgolf a pumptrack).
-        </div>
-        <div class="footer-note" style="margin-top:12px; padding-top:8px;">Zdroj: Pečecké noviny 9/2022, s. 11 (inzerce) · <a href="https://pecky.cz/files/pecky/gallery/18748/69a0159f4d013_pec-ecke-noviny-9-2022-na-hled.pdf#page=11" target="_blank" rel="noopener">PDF str. 11 ↗</a></div>
-      </div>
-
-      <div class="person-card">
-        <div class="role">6 mandátů</div>
-        <div class="name">Sdružení ODS a nezávislých kandidátů</div>
-        <div class="party" style="margin-top:10px; line-height:1.6;">
-          Na rozdíl od ostatních uskupení nezveřejnilo jednotný bodový program — inzertní strana prezentuje jednotlivé kandidáty formou portrétů s krátkými hesly (mj. k investicím do provozu, bezpečnosti, sportu a vzdělávání dětí). Text hesel je kvůli grafické podobě stránky (fotomozaika) strojově málo čitelný; ověřitelný jen z originálu PDF.
-        </div>
-        <div class="footer-note" style="margin-top:12px; padding-top:8px;">Zdroj: Pečecké noviny 9/2022, s. 9 (inzerce, kandidátní portréty) · <a href="https://pecky.cz/files/pecky/gallery/18748/69a0159f4d013_pec-ecke-noviny-9-2022-na-hled.pdf#page=9" target="_blank" rel="noopener">PDF str. 9 ↗</a> · <a href="https://www.ods.cz/ms.pecky/volby2022/komunalni/2570-pecky" target="_blank" rel="noopener">kandidátka na ods.cz ↗</a></div>
-      </div>
-
-      <div class="person-card">
-        <div class="role">3 mandáty</div>
-        <div class="name">SNK Pečky Pečákům</div>
-        <div class="party" style="margin-top:10px; line-height:1.6;">
-          Vybrané body programu: pokračování jednání o obchvatu města, řešení parkování, výstavba obecních nebo družstevních bytů, podpora podnikání a drobných podnikatelů, řešení obslužnosti Velkých Chvalovic, navýšení stavu městské policie, podpora rozšíření zdravotní péče, ochrana vodního zdroje, dostavba a modernizace ZŠ a MŠ, podpora sportovních oddílů a odpočinkových míst, oprava jedné ulice v každé části města ročně.
-        </div>
-        <div class="footer-note" style="margin-top:12px; padding-top:8px;">Zdroj: Pečecké noviny 9/2022, s. 8 (inzerce) · <a href="https://pecky.cz/files/pecky/gallery/18748/69a0159f4d013_pec-ecke-noviny-9-2022-na-hled.pdf#page=8" target="_blank" rel="noopener">PDF str. 8 ↗</a></div>
-      </div>
-
-      <div class="person-card">
-        <div class="role">3 mandáty</div>
-        <div class="name">Lidé pro Pečky s podporou SPD</div>
-        <div class="party" style="margin-top:10px; line-height:1.6;">
-          Program rozdělený do pěti oblastí: <strong>zdravotní a sociální</strong> (nový pečovatelský dům s hospicem, bezbariérovost, rehabilitační centrum s bazénem, rozšíření ordinací specialistů), <strong>sport a vzdělávání</strong> (revitalizace myslivny a bažantnice, myslivecký kroužek, obnova Skautu/Junáka/Sokola, „kopečkové hřiště"), <strong>bezpečnost</strong> (městská policie 24/7, nové přechody), <strong>životní prostředí</strong> (ochrana dřevin, remízky, nechemická likvidace plevele) a <strong>rozvoj města</strong> (revitalizace jižní části, oprava fontány, obnova pramene Poděbradky, nové bytové jednotky, úprava Barákovy a Třebízského ulice, parkoviště u lékárny).
-        </div>
-        <div class="footer-note" style="margin-top:12px; padding-top:8px;">Zdroj: Pečecké noviny 9/2022, s. 12 (inzerce, přepis OCR) · <a href="https://pecky.cz/files/pecky/gallery/18748/69a0159f4d013_pec-ecke-noviny-9-2022-na-hled.pdf#page=12" target="_blank" rel="noopener">PDF str. 12 ↗</a></div>
-      </div>
-
-      <div class="person-card">
-        <div class="role">2 mandáty</div>
-        <div class="name">ČSSD a sjednocená levice</div>
-        <div class="party" style="margin-top:10px; line-height:1.6;">
-          Cíle: odpovědně provést město počínající ekonomickou krizí, hospodařit s prostředky města odpovědně, soustředit se na realizovatelné projekty, opravovat ulice a chodníky rovnoměrně v Pečkách jih, sever i Velkých Chvalovicích, navázat na Strategický plán města, podporovat sport, kulturu a spolky, udržet zdravotní a sociální služby, podporovat místní podnikatele a nové bydlení, racionalizovat Pečecké služby, udržet letní tábor v Hryzelích, vybudovat veřejné WC, opravit hřbitov a nedopustit prodej vodovodu a kanalizace.
-        </div>
-        <div class="footer-note" style="margin-top:12px; padding-top:8px;">Zdroj: Pečecké noviny 9/2022, s. 13 (inzerce, přepis OCR) · <a href="https://pecky.cz/files/pecky/gallery/18748/69a0159f4d013_pec-ecke-noviny-9-2022-na-hled.pdf#page=13" target="_blank" rel="noopener">PDF str. 13 ↗</a></div>
-      </div>
-
-      <div class="person-card">
-        <div class="role">0 mandátů</div>
-        <div class="name">Lidovci a nezávislí</div>
-        <div class="party" style="margin-top:10px; line-height:1.6;">
-          Co chtěli změnit: podpora zájmových, kulturních a volnočasových spolků, opravy chodníků s bezbariérovými úpravami, lavičky, odpadkové koše a veřejné WC, obnova tradice pečeckého skautu, více míst ve školce a vznik městských jeslí, bezpečná a hlídaná dětská hřiště, U-rampa, Street Workout hřiště a pumptrack, rozšíření obytných zón kvůli dopravní bezpečnosti, rozšíření otevírací doby pošty, „rozumné" dořešení obchvatu, péče o hřbitov včetně autobusové zastávky.
-        </div>
-        <div class="footer-note" style="margin-top:12px; padding-top:8px;">Zdroj: Pečecké noviny 9/2022, s. 10 (inzerce) · <a href="https://pecky.cz/files/pecky/gallery/18748/69a0159f4d013_pec-ecke-noviny-9-2022-na-hled.pdf#page=10" target="_blank" rel="noopener">PDF str. 10 ↗</a></div>
-      </div>
+    <div class="callout" style="margin-top:22px;">
+      <strong>Aktuální stav (k 6. 8. 2026):</strong> lhůta pro podání kandidátních listin skončila 4. srpna 2026, registrační úřad je teď posuzuje — konečný, oficiálně zaregistrovaný seznam kandidujících uskupení pro Pečky ještě není zveřejněný. Do té doby zůstává v čele města zastupitelstvo a rada zvolené ve volbách 2022 (viz stránka Lidé). Jakmile budou kandidátky a později výsledky k dispozici, doplníme je stejným způsobem jako u <a href="#" data-goto="volby2022">Voleb 2022</a>.
     </div>
 
-    <div class="callout" style="margin-top:26px;">
-      <strong>Poznámka k metodě:</strong> volební programy jsou přepsané (u dvou uskupení strojovým OCR) z placené inzerce v čísle Pečeckých novin 9/2022 — tedy tak, jak je uskupení samo prezentovalo těsně před volbami. Nejde o hodnocení plnění programu; to sleduje sekce Jednání a usnesení podle skutečně přijatých usnesení zastupitelstva.
+    <div class="callout" style="margin-top:14px;">
+      Zdroj termínů: <a href="https://mv.gov.cz/volby/clanek/informace-o-podminkach-kandidatury-ve-volbach-do-zastupitelstev-obci-v-roce-2026.aspx" target="_blank" rel="noopener">Ministerstvo vnitra ČR — mv.gov.cz ↗</a>. Průběžné oficiální výsledky po volbách budou na <a href="https://www.volby.cz/" target="_blank" rel="noopener">volby.cz ↗</a> a v otevřených datech ČSÚ (viz stránka O webu).
     </div>
   </section>
 
@@ -641,14 +811,13 @@
   <section class="panel" id="panel-zpravodaj">
     <p class="eyebrow">Měsíčník města</p>
     <h2 class="title display">Pečecké noviny</h2>
-    <p class="lede">Pečecké noviny jsou informační měsíčník, který vydává město a archivuje na svém webu. Kompletní archiv 2020–2026, 68 vydání. <span class="stamp">ověřeno</span></p>
-
-    <div class="callout">
-      Noviny vycházejí měsíčně (mimo prázdninové dvojčíslo červenec–srpen) v nákladu cca 1 000 kusů, vydává je město, redakci vede Alena Brantová (<a href="mailto:noviny@pecky.cz">noviny@pecky.cz</a>). Plný archiv i nadále vede pecky.cz — zde je zrcadlený přehled se všemi odkazy na PDF.
-    </div>
+    <p class="lede">Pečecké noviny jsou informační měsíčník města — vychází měsíčně (mimo prázdninové dvojčíslo červenec–srpen) v nákladu cca 1 000 kusů, redakci vede Alena Brantová (<a href="mailto:noviny@pecky.cz">noviny@pecky.cz</a>). Archiv 2020–2026, 68 vydání, je zrcadlený z pecky.cz se všemi odkazy na PDF. <span class="stamp">ověřeno</span></p>
 
     <h3 class="display" style="font-size:19px; margin:30px 0 4px;">Fulltextové hledání v obsahu</h3>
-    <p class="lede" style="margin-bottom:16px;">Text vyextrahovaný ze všech 68 PDF (2020–2026), hledá se bez ohledu na diakritiku a velikost písmen, napříč jednotlivými stránkami.</p>
+    <div class="callout" style="margin-bottom:16px;">
+      <strong>Papírové noviny nezapomínají, co kdo řekl nebo slíbil.</strong> Ten slib je černé na bílém v čísle, které vyšlo třeba před třemi lety — jenže si na něj prakticky nikdo nevzpomene, protože prolistovat roky vydání a přes tisíc stránek kvůli jedné větě nikdo nedělá. Papír si to pamatuje, ale nedá se v něm hledat. Fulltextové vyhledávání dělá přesně tohle: napíšeš jméno, slib nebo téma a za pár vteřin uvidíš přesně tu větu, i po letech — v jakém čísle vyšla a na jaké straně. Kdo co sliboval před volbami, jak se měnily ceny, kdy se o čem poprvé psalo — všechno to v archivu je, jen se to teď dá najít.
+    </div>
+    <p class="lede" style="margin-bottom:16px;">Text vyextrahovaný ze všech vydání, hledá se bez ohledu na diakritiku a velikost písmen, napříč jednotlivými stránkami.</p>
 
     <div class="search-bar">
       <input type="search" id="noviny-search" placeholder="Hledat v novinách, např. „obchvat“, „rozpočet“, „volby“…" autocomplete="off">
@@ -657,121 +826,304 @@
     <div id="noviny-results"></div>
 
     <h3 class="display" style="font-size:19px; margin:30px 0 4px;">2026</h3>
-    <table class="register">
-      <thead><tr><th>Vydání</th><th></th></tr></thead>
-      <tbody>
-        <tr><td>Leden 2026</td><td><a href="https://pecky.cz/files/pecky/gallery/18743/69a01264e3047_pececke-noviny-1-2026.pdf" target="_blank" rel="noopener">PDF ↗</a></td></tr>
-        <tr><td>Únor 2026</td><td><a href="https://pecky.cz/files/pecky/gallery/18743/69a012680d31c_pececke-noviny-2-2026.pdf" target="_blank" rel="noopener">PDF ↗</a></td></tr>
-        <tr><td>Březen 2026</td><td><a href="https://pecky.cz/files/pecky/gallery/18743/69b14edc54fc1_Pececke-noviny-3-2026.pdf" target="_blank" rel="noopener">PDF ↗</a></td></tr>
-        <tr><td>Duben 2026</td><td><a href="https://pecky.cz/files/pecky/gallery/18743/69cced40a0d6d_Pececke-noviny-4-2026.pdf" target="_blank" rel="noopener">PDF ↗</a></td></tr>
-        <tr><td>Květen 2026</td><td><a href="https://pecky.cz/files/pecky/gallery/18743/69fb1ebd5fa9f_Pececke-noviny-5-2026.pdf" target="_blank" rel="noopener">PDF ↗</a></td></tr>
-        <tr><td>Červen 2026</td><td><a href="https://pecky.cz/files/pecky/gallery/18743/6a203f44d4680_Pececke-noviny-6-2026.pdf" target="_blank" rel="noopener">PDF ↗</a></td></tr>
-        <tr><td>Červenec–srpen 2026</td><td><a href="https://pecky.cz/files/pecky/gallery/18743/6a570e575bf0f_Pececke-noviny-7-8-2026.pdf" target="_blank" rel="noopener">PDF ↗</a></td></tr>
-      </tbody>
-    </table>
+    <div class="noviny-grid">
+      <a class="noviny-card" href="https://pecky.cz/files/pecky/gallery/18743/69a01264e3047_pececke-noviny-1-2026.pdf" target="_blank" rel="noopener">
+        <img src="img/noviny/2026-01.jpg" alt="Titulní strana — Leden 2026" loading="lazy">
+        <div class="cap">Leden 2026</div>
+      </a>
+      <a class="noviny-card" href="https://pecky.cz/files/pecky/gallery/18743/69a012680d31c_pececke-noviny-2-2026.pdf" target="_blank" rel="noopener">
+        <img src="img/noviny/2026-02.jpg" alt="Titulní strana — Únor 2026" loading="lazy">
+        <div class="cap">Únor 2026</div>
+      </a>
+      <a class="noviny-card" href="https://pecky.cz/files/pecky/gallery/18743/69b14edc54fc1_Pececke-noviny-3-2026.pdf" target="_blank" rel="noopener">
+        <img src="img/noviny/2026-03.jpg" alt="Titulní strana — Březen 2026" loading="lazy">
+        <div class="cap">Březen 2026</div>
+      </a>
+      <a class="noviny-card" href="https://pecky.cz/files/pecky/gallery/18743/69cced40a0d6d_Pececke-noviny-4-2026.pdf" target="_blank" rel="noopener">
+        <img src="img/noviny/2026-04.jpg" alt="Titulní strana — Duben 2026" loading="lazy">
+        <div class="cap">Duben 2026</div>
+      </a>
+      <a class="noviny-card" href="https://pecky.cz/files/pecky/gallery/18743/69fb1ebd5fa9f_Pececke-noviny-5-2026.pdf" target="_blank" rel="noopener">
+        <img src="img/noviny/2026-05.jpg" alt="Titulní strana — Květen 2026" loading="lazy">
+        <div class="cap">Květen 2026</div>
+      </a>
+      <a class="noviny-card" href="https://pecky.cz/files/pecky/gallery/18743/6a203f44d4680_Pececke-noviny-6-2026.pdf" target="_blank" rel="noopener">
+        <img src="img/noviny/2026-06.jpg" alt="Titulní strana — Červen 2026" loading="lazy">
+        <div class="cap">Červen 2026</div>
+      </a>
+      <a class="noviny-card" href="https://pecky.cz/files/pecky/gallery/18743/6a570e575bf0f_Pececke-noviny-7-8-2026.pdf" target="_blank" rel="noopener">
+        <img src="img/noviny/2026-07-08.jpg" alt="Titulní strana — Červenec–srpen 2026" loading="lazy">
+        <div class="cap">Červenec–srpen 2026</div>
+      </a>
+    </div>
 
     <h3 class="display" style="font-size:19px; margin:30px 0 4px;">2025</h3>
-    <table class="register">
-      <thead><tr><th>Vydání</th><th></th></tr></thead>
-      <tbody>
-        <tr><td>Únor 2025</td><td><a href="https://pecky.cz/files/pecky/gallery/18744/69a0128d0fde3_pecky-noviny-2-2025.pdf" target="_blank" rel="noopener">PDF ↗</a></td></tr>
-        <tr><td>Březen 2025</td><td><a href="https://pecky.cz/files/pecky/gallery/18744/69a01290300e5_pecky-noviny-3-2025.pdf" target="_blank" rel="noopener">PDF ↗</a></td></tr>
-        <tr><td>Duben 2025</td><td><a href="https://pecky.cz/files/pecky/gallery/18744/69a01291c563d_pecky-noviny-4-2025.pdf" target="_blank" rel="noopener">PDF ↗</a></td></tr>
-        <tr><td>Květen 2025</td><td><a href="https://pecky.cz/files/pecky/gallery/18744/69a012941c13f_pecky-noviny-5-2025.pdf" target="_blank" rel="noopener">PDF ↗</a></td></tr>
-        <tr><td>Červen 2025</td><td><a href="https://pecky.cz/files/pecky/gallery/18744/69a01295bd038_pecky-noviny-6-2025.pdf" target="_blank" rel="noopener">PDF ↗</a></td></tr>
-        <tr><td>Červenec–srpen 2025</td><td><a href="https://pecky.cz/files/pecky/gallery/18744/69a01297a0584_pecky-noviny-7-8-2025.pdf" target="_blank" rel="noopener">PDF ↗</a></td></tr>
-        <tr><td>Září 2025</td><td><a href="https://pecky.cz/files/pecky/gallery/18744/69a0129aec807_pecky-noviny-9-2025.pdf" target="_blank" rel="noopener">PDF ↗</a></td></tr>
-        <tr><td>Říjen 2025</td><td><a href="https://pecky.cz/files/pecky/gallery/18744/69a0129f6b213_pecky-noviny-10-2025.pdf" target="_blank" rel="noopener">PDF ↗</a></td></tr>
-        <tr><td>Listopad 2025</td><td><a href="https://pecky.cz/files/pecky/gallery/18744/69a012a3cc7e4_pecky-noviny-11-2025.pdf" target="_blank" rel="noopener">PDF ↗</a></td></tr>
-        <tr><td>Prosinec 2025</td><td><a href="https://pecky.cz/files/pecky/gallery/18744/69a012aad2489_pecky-noviny-12-2025.pdf" target="_blank" rel="noopener">PDF ↗</a></td></tr>
-      </tbody>
-    </table>
+    <div class="noviny-grid">
+      <a class="noviny-card" href="https://pecky.cz/files/pecky/gallery/18744/69a0128d0fde3_pecky-noviny-2-2025.pdf" target="_blank" rel="noopener">
+        <img src="img/noviny/2025-02.jpg" alt="Titulní strana — Únor 2025" loading="lazy">
+        <div class="cap">Únor 2025</div>
+      </a>
+      <a class="noviny-card" href="https://pecky.cz/files/pecky/gallery/18744/69a01290300e5_pecky-noviny-3-2025.pdf" target="_blank" rel="noopener">
+        <img src="img/noviny/2025-03.jpg" alt="Titulní strana — Březen 2025" loading="lazy">
+        <div class="cap">Březen 2025</div>
+      </a>
+      <a class="noviny-card" href="https://pecky.cz/files/pecky/gallery/18744/69a01291c563d_pecky-noviny-4-2025.pdf" target="_blank" rel="noopener">
+        <img src="img/noviny/2025-04.jpg" alt="Titulní strana — Duben 2025" loading="lazy">
+        <div class="cap">Duben 2025</div>
+      </a>
+      <a class="noviny-card" href="https://pecky.cz/files/pecky/gallery/18744/69a012941c13f_pecky-noviny-5-2025.pdf" target="_blank" rel="noopener">
+        <img src="img/noviny/2025-05.jpg" alt="Titulní strana — Květen 2025" loading="lazy">
+        <div class="cap">Květen 2025</div>
+      </a>
+      <a class="noviny-card" href="https://pecky.cz/files/pecky/gallery/18744/69a01295bd038_pecky-noviny-6-2025.pdf" target="_blank" rel="noopener">
+        <img src="img/noviny/2025-06.jpg" alt="Titulní strana — Červen 2025" loading="lazy">
+        <div class="cap">Červen 2025</div>
+      </a>
+      <a class="noviny-card" href="https://pecky.cz/files/pecky/gallery/18744/69a01297a0584_pecky-noviny-7-8-2025.pdf" target="_blank" rel="noopener">
+        <img src="img/noviny/2025-07-08.jpg" alt="Titulní strana — Červenec–srpen 2025" loading="lazy">
+        <div class="cap">Červenec–srpen 2025</div>
+      </a>
+      <a class="noviny-card" href="https://pecky.cz/files/pecky/gallery/18744/69a0129aec807_pecky-noviny-9-2025.pdf" target="_blank" rel="noopener">
+        <img src="img/noviny/2025-09.jpg" alt="Titulní strana — Září 2025" loading="lazy">
+        <div class="cap">Září 2025</div>
+      </a>
+      <a class="noviny-card" href="https://pecky.cz/files/pecky/gallery/18744/69a0129f6b213_pecky-noviny-10-2025.pdf" target="_blank" rel="noopener">
+        <img src="img/noviny/2025-10.jpg" alt="Titulní strana — Říjen 2025" loading="lazy">
+        <div class="cap">Říjen 2025</div>
+      </a>
+      <a class="noviny-card" href="https://pecky.cz/files/pecky/gallery/18744/69a012a3cc7e4_pecky-noviny-11-2025.pdf" target="_blank" rel="noopener">
+        <img src="img/noviny/2025-11.jpg" alt="Titulní strana — Listopad 2025" loading="lazy">
+        <div class="cap">Listopad 2025</div>
+      </a>
+      <a class="noviny-card" href="https://pecky.cz/files/pecky/gallery/18744/69a012aad2489_pecky-noviny-12-2025.pdf" target="_blank" rel="noopener">
+        <img src="img/noviny/2025-12.jpg" alt="Titulní strana — Prosinec 2025" loading="lazy">
+        <div class="cap">Prosinec 2025</div>
+      </a>
+    </div>
 
     <h3 class="display" style="font-size:19px; margin:30px 0 4px;">2024</h3>
-    <table class="register">
-      <thead><tr><th>Vydání</th><th></th></tr></thead>
-      <tbody>
-        <tr><td>Leden 2024</td><td><a href="https://pecky.cz/files/pecky/gallery/18746/69a0151e5b442_pecky-noviny-1-2024.pdf" target="_blank" rel="noopener">PDF ↗</a></td></tr>
-        <tr><td>Únor 2024</td><td><a href="https://pecky.cz/files/pecky/gallery/18746/69a0152282cd6_pecky-noviny-2-2024-web.pdf" target="_blank" rel="noopener">PDF ↗</a></td></tr>
-        <tr><td>Březen 2024</td><td><a href="https://pecky.cz/files/pecky/gallery/18746/69a0152650854_pecky-noviny-3-2024-web.pdf" target="_blank" rel="noopener">PDF ↗</a></td></tr>
-        <tr><td>Duben 2024</td><td><a href="https://pecky.cz/files/pecky/gallery/18746/69a015279fe27_pecky-noviny-4-2024-web.pdf" target="_blank" rel="noopener">PDF ↗</a></td></tr>
-        <tr><td>Květen 2024</td><td><a href="https://pecky.cz/files/pecky/gallery/18746/69a0152957fc1_pecky-noviny-5-2024.pdf" target="_blank" rel="noopener">PDF ↗</a></td></tr>
-        <tr><td>Červen 2024</td><td><a href="https://pecky.cz/files/pecky/gallery/18746/69a0152a985fa_pecky-noviny-6-2024.pdf" target="_blank" rel="noopener">PDF ↗</a></td></tr>
-        <tr><td>Červenec–srpen 2024</td><td><a href="https://pecky.cz/files/pecky/gallery/18746/69a0152c294c4_pecky-noviny-7-8-2024-web.pdf" target="_blank" rel="noopener">PDF ↗</a></td></tr>
-        <tr><td>Září 2024</td><td><a href="https://pecky.cz/files/pecky/gallery/18746/69a015311fa14_pecky-noviny-9-2024-web.pdf" target="_blank" rel="noopener">PDF ↗</a></td></tr>
-        <tr><td>Říjen 2024</td><td><a href="https://pecky.cz/files/pecky/gallery/18746/69a01532c18a3_pecky-noviny-10-2024-web.pdf" target="_blank" rel="noopener">PDF ↗</a></td></tr>
-        <tr><td>Listopad 2024</td><td><a href="https://pecky.cz/files/pecky/gallery/18746/69a0153580ba6_pecky-noviny-11-2024-web.pdf" target="_blank" rel="noopener">PDF ↗</a></td></tr>
-        <tr><td>Prosinec 2024</td><td><a href="https://pecky.cz/files/pecky/gallery/18746/69a01537b824c_pecky-noviny-12-2024-web.pdf" target="_blank" rel="noopener">PDF ↗</a></td></tr>
-      </tbody>
-    </table>
+    <div class="noviny-grid">
+      <a class="noviny-card" href="https://pecky.cz/files/pecky/gallery/18746/69a0151e5b442_pecky-noviny-1-2024.pdf" target="_blank" rel="noopener">
+        <img src="img/noviny/2024-01.jpg" alt="Titulní strana — Leden 2024" loading="lazy">
+        <div class="cap">Leden 2024</div>
+      </a>
+      <a class="noviny-card" href="https://pecky.cz/files/pecky/gallery/18746/69a0152282cd6_pecky-noviny-2-2024-web.pdf" target="_blank" rel="noopener">
+        <img src="img/noviny/2024-02.jpg" alt="Titulní strana — Únor 2024" loading="lazy">
+        <div class="cap">Únor 2024</div>
+      </a>
+      <a class="noviny-card" href="https://pecky.cz/files/pecky/gallery/18746/69a0152650854_pecky-noviny-3-2024-web.pdf" target="_blank" rel="noopener">
+        <img src="img/noviny/2024-03.jpg" alt="Titulní strana — Březen 2024" loading="lazy">
+        <div class="cap">Březen 2024</div>
+      </a>
+      <a class="noviny-card" href="https://pecky.cz/files/pecky/gallery/18746/69a015279fe27_pecky-noviny-4-2024-web.pdf" target="_blank" rel="noopener">
+        <img src="img/noviny/2024-04.jpg" alt="Titulní strana — Duben 2024" loading="lazy">
+        <div class="cap">Duben 2024</div>
+      </a>
+      <a class="noviny-card" href="https://pecky.cz/files/pecky/gallery/18746/69a0152957fc1_pecky-noviny-5-2024.pdf" target="_blank" rel="noopener">
+        <img src="img/noviny/2024-05.jpg" alt="Titulní strana — Květen 2024" loading="lazy">
+        <div class="cap">Květen 2024</div>
+      </a>
+      <a class="noviny-card" href="https://pecky.cz/files/pecky/gallery/18746/69a0152a985fa_pecky-noviny-6-2024.pdf" target="_blank" rel="noopener">
+        <img src="img/noviny/2024-06.jpg" alt="Titulní strana — Červen 2024" loading="lazy">
+        <div class="cap">Červen 2024</div>
+      </a>
+      <a class="noviny-card" href="https://pecky.cz/files/pecky/gallery/18746/69a0152c294c4_pecky-noviny-7-8-2024-web.pdf" target="_blank" rel="noopener">
+        <img src="img/noviny/2024-07-08.jpg" alt="Titulní strana — Červenec–srpen 2024" loading="lazy">
+        <div class="cap">Červenec–srpen 2024</div>
+      </a>
+      <a class="noviny-card" href="https://pecky.cz/files/pecky/gallery/18746/69a015311fa14_pecky-noviny-9-2024-web.pdf" target="_blank" rel="noopener">
+        <img src="img/noviny/2024-09.jpg" alt="Titulní strana — Září 2024" loading="lazy">
+        <div class="cap">Září 2024</div>
+      </a>
+      <a class="noviny-card" href="https://pecky.cz/files/pecky/gallery/18746/69a01532c18a3_pecky-noviny-10-2024-web.pdf" target="_blank" rel="noopener">
+        <img src="img/noviny/2024-10.jpg" alt="Titulní strana — Říjen 2024" loading="lazy">
+        <div class="cap">Říjen 2024</div>
+      </a>
+      <a class="noviny-card" href="https://pecky.cz/files/pecky/gallery/18746/69a0153580ba6_pecky-noviny-11-2024-web.pdf" target="_blank" rel="noopener">
+        <img src="img/noviny/2024-11.jpg" alt="Titulní strana — Listopad 2024" loading="lazy">
+        <div class="cap">Listopad 2024</div>
+      </a>
+      <a class="noviny-card" href="https://pecky.cz/files/pecky/gallery/18746/69a01537b824c_pecky-noviny-12-2024-web.pdf" target="_blank" rel="noopener">
+        <img src="img/noviny/2024-12.jpg" alt="Titulní strana — Prosinec 2024" loading="lazy">
+        <div class="cap">Prosinec 2024</div>
+      </a>
+    </div>
 
     <h3 class="display" style="font-size:19px; margin:30px 0 4px;">2023</h3>
-    <table class="register">
-      <thead><tr><th>Vydání</th><th></th></tr></thead>
-      <tbody>
-        <tr><td>Březen 2023</td><td><a href="https://pecky.cz/files/pecky/gallery/18747/69a0155f54bad_2023-03-pec-ecke-noviny.pdf" target="_blank" rel="noopener">PDF ↗</a></td></tr>
-        <tr><td>Duben 2023</td><td><a href="https://pecky.cz/files/pecky/gallery/18747/69a0156260471_pecky-noviny-4-2023-web.pdf" target="_blank" rel="noopener">PDF ↗</a></td></tr>
-        <tr><td>Květen 2023</td><td><a href="https://pecky.cz/files/pecky/gallery/18747/69a01564332da_pecky-noviny-5-2023-web.pdf" target="_blank" rel="noopener">PDF ↗</a></td></tr>
-        <tr><td>Červen 2023</td><td><a href="https://pecky.cz/files/pecky/gallery/18747/69a01565c5889_pecky-noviny-6-2023-16stran-nahled-1-1.pdf" target="_blank" rel="noopener">PDF ↗</a></td></tr>
-        <tr><td>Červenec–srpen 2023</td><td><a href="https://pecky.cz/files/pecky/gallery/18747/69a0156c3c74a_pecky-noviny-7-8-2023.pdf" target="_blank" rel="noopener">PDF ↗</a></td></tr>
-        <tr><td>Září 2023</td><td><a href="https://pecky.cz/files/pecky/gallery/18747/69a0156e6e7ad_pecky-noviny-9-2023-nahled-web.pdf" target="_blank" rel="noopener">PDF ↗</a></td></tr>
-        <tr><td>Říjen 2023</td><td><a href="https://pecky.cz/files/pecky/gallery/18747/69a015709de91_pecky-noviny-10-2023-web.pdf" target="_blank" rel="noopener">PDF ↗</a></td></tr>
-        <tr><td>Listopad 2023</td><td><a href="https://pecky.cz/files/pecky/gallery/18747/69a0157288acb_pecky-noviny-11-2023-web.pdf" target="_blank" rel="noopener">PDF ↗</a></td></tr>
-        <tr><td>Prosinec 2023</td><td><a href="https://pecky.cz/files/pecky/gallery/18747/69a0157452a06_pecky-noviny-12-2023-web-1.pdf" target="_blank" rel="noopener">PDF ↗</a></td></tr>
-      </tbody>
-    </table>
+    <div class="noviny-grid">
+      <a class="noviny-card" href="https://pecky.cz/files/pecky/gallery/18747/69a0155f54bad_2023-03-pec-ecke-noviny.pdf" target="_blank" rel="noopener">
+        <img src="img/noviny/2023-03.jpg" alt="Titulní strana — Březen 2023" loading="lazy">
+        <div class="cap">Březen 2023</div>
+      </a>
+      <a class="noviny-card" href="https://pecky.cz/files/pecky/gallery/18747/69a0156260471_pecky-noviny-4-2023-web.pdf" target="_blank" rel="noopener">
+        <img src="img/noviny/2023-04.jpg" alt="Titulní strana — Duben 2023" loading="lazy">
+        <div class="cap">Duben 2023</div>
+      </a>
+      <a class="noviny-card" href="https://pecky.cz/files/pecky/gallery/18747/69a01564332da_pecky-noviny-5-2023-web.pdf" target="_blank" rel="noopener">
+        <img src="img/noviny/2023-05.jpg" alt="Titulní strana — Květen 2023" loading="lazy">
+        <div class="cap">Květen 2023</div>
+      </a>
+      <a class="noviny-card" href="https://pecky.cz/files/pecky/gallery/18747/69a01565c5889_pecky-noviny-6-2023-16stran-nahled-1-1.pdf" target="_blank" rel="noopener">
+        <img src="img/noviny/2023-06.jpg" alt="Titulní strana — Červen 2023" loading="lazy">
+        <div class="cap">Červen 2023</div>
+      </a>
+      <a class="noviny-card" href="https://pecky.cz/files/pecky/gallery/18747/69a0156c3c74a_pecky-noviny-7-8-2023.pdf" target="_blank" rel="noopener">
+        <img src="img/noviny/2023-07-08.jpg" alt="Titulní strana — Červenec–srpen 2023" loading="lazy">
+        <div class="cap">Červenec–srpen 2023</div>
+      </a>
+      <a class="noviny-card" href="https://pecky.cz/files/pecky/gallery/18747/69a0156e6e7ad_pecky-noviny-9-2023-nahled-web.pdf" target="_blank" rel="noopener">
+        <img src="img/noviny/2023-09.jpg" alt="Titulní strana — Září 2023" loading="lazy">
+        <div class="cap">Září 2023</div>
+      </a>
+      <a class="noviny-card" href="https://pecky.cz/files/pecky/gallery/18747/69a015709de91_pecky-noviny-10-2023-web.pdf" target="_blank" rel="noopener">
+        <img src="img/noviny/2023-10.jpg" alt="Titulní strana — Říjen 2023" loading="lazy">
+        <div class="cap">Říjen 2023</div>
+      </a>
+      <a class="noviny-card" href="https://pecky.cz/files/pecky/gallery/18747/69a0157288acb_pecky-noviny-11-2023-web.pdf" target="_blank" rel="noopener">
+        <img src="img/noviny/2023-11.jpg" alt="Titulní strana — Listopad 2023" loading="lazy">
+        <div class="cap">Listopad 2023</div>
+      </a>
+      <a class="noviny-card" href="https://pecky.cz/files/pecky/gallery/18747/69a0157452a06_pecky-noviny-12-2023-web-1.pdf" target="_blank" rel="noopener">
+        <img src="img/noviny/2023-12.jpg" alt="Titulní strana — Prosinec 2023" loading="lazy">
+        <div class="cap">Prosinec 2023</div>
+      </a>
+    </div>
 
     <h3 class="display" style="font-size:19px; margin:30px 0 4px;">2022</h3>
-    <table class="register">
-      <thead><tr><th>Vydání</th><th></th></tr></thead>
-      <tbody>
-        <tr><td>Leden 2022</td><td><a href="https://pecky.cz/files/pecky/gallery/18748/69a0159c34d85_pec-ecke-noviny-1-2022-web.pdf" target="_blank" rel="noopener">PDF ↗</a></td></tr>
-        <tr><td>Únor 2022</td><td><a href="https://pecky.cz/files/pecky/gallery/18748/69a0159d7d180_pec-ecke-noviny-2-2022-web.pdf" target="_blank" rel="noopener">PDF ↗</a></td></tr>
-        <tr><td>Březen 2022</td><td><a href="https://pecky.cz/files/pecky/gallery/18748/69a0159d0d842_pececke-noviny-3-2022-nahled.pdf" target="_blank" rel="noopener">PDF ↗</a></td></tr>
-        <tr><td>Duben 2022</td><td><a href="https://pecky.cz/files/pecky/gallery/18748/69a0159de5f34_pec-ecke-noviny-4-2022-na-hled.pdf" target="_blank" rel="noopener">PDF ↗</a></td></tr>
-        <tr><td>Květen 2022</td><td><a href="https://pecky.cz/files/pecky/gallery/18748/69a0159d41282_pec-ecke-noviny-5-2022-na-hled.pdf" target="_blank" rel="noopener">PDF ↗</a></td></tr>
-        <tr><td>Červen 2022</td><td><a href="https://pecky.cz/files/pecky/gallery/18748/69a0159c01c0d_pec-ecke-noviny-6-2022-na-hled.pdf" target="_blank" rel="noopener">PDF ↗</a></td></tr>
-        <tr><td>Červenec–srpen 2022</td><td><a href="https://pecky.cz/files/pecky/gallery/18748/69a0159c68a4e_pec-ecke-noviny-7-8-2022-web.pdf" target="_blank" rel="noopener">PDF ↗</a></td></tr>
-        <tr><td>Září 2022</td><td><a href="https://pecky.cz/files/pecky/gallery/18748/69a0159f4d013_pec-ecke-noviny-9-2022-na-hled.pdf" target="_blank" rel="noopener">PDF ↗</a></td></tr>
-        <tr><td>Říjen 2022</td><td><a href="https://pecky.cz/files/pecky/gallery/18748/69a015a23952e_pececke-noviny-10-2022-tisk.pdf" target="_blank" rel="noopener">PDF ↗</a></td></tr>
-      </tbody>
-    </table>
+    <div class="noviny-grid">
+      <a class="noviny-card" href="https://pecky.cz/files/pecky/gallery/18748/69a0159c34d85_pec-ecke-noviny-1-2022-web.pdf" target="_blank" rel="noopener">
+        <img src="img/noviny/2022-01.jpg" alt="Titulní strana — Leden 2022" loading="lazy">
+        <div class="cap">Leden 2022</div>
+      </a>
+      <a class="noviny-card" href="https://pecky.cz/files/pecky/gallery/18748/69a0159d7d180_pec-ecke-noviny-2-2022-web.pdf" target="_blank" rel="noopener">
+        <img src="img/noviny/2022-02.jpg" alt="Titulní strana — Únor 2022" loading="lazy">
+        <div class="cap">Únor 2022</div>
+      </a>
+      <a class="noviny-card" href="https://pecky.cz/files/pecky/gallery/18748/69a0159d0d842_pececke-noviny-3-2022-nahled.pdf" target="_blank" rel="noopener">
+        <img src="img/noviny/2022-03.jpg" alt="Titulní strana — Březen 2022" loading="lazy">
+        <div class="cap">Březen 2022</div>
+      </a>
+      <a class="noviny-card" href="https://pecky.cz/files/pecky/gallery/18748/69a0159de5f34_pec-ecke-noviny-4-2022-na-hled.pdf" target="_blank" rel="noopener">
+        <img src="img/noviny/2022-04.jpg" alt="Titulní strana — Duben 2022" loading="lazy">
+        <div class="cap">Duben 2022</div>
+      </a>
+      <a class="noviny-card" href="https://pecky.cz/files/pecky/gallery/18748/69a0159d41282_pec-ecke-noviny-5-2022-na-hled.pdf" target="_blank" rel="noopener">
+        <img src="img/noviny/2022-05.jpg" alt="Titulní strana — Květen 2022" loading="lazy">
+        <div class="cap">Květen 2022</div>
+      </a>
+      <a class="noviny-card" href="https://pecky.cz/files/pecky/gallery/18748/69a0159c01c0d_pec-ecke-noviny-6-2022-na-hled.pdf" target="_blank" rel="noopener">
+        <img src="img/noviny/2022-06.jpg" alt="Titulní strana — Červen 2022" loading="lazy">
+        <div class="cap">Červen 2022</div>
+      </a>
+      <a class="noviny-card" href="https://pecky.cz/files/pecky/gallery/18748/69a0159c68a4e_pec-ecke-noviny-7-8-2022-web.pdf" target="_blank" rel="noopener">
+        <img src="img/noviny/2022-07-08.jpg" alt="Titulní strana — Červenec–srpen 2022" loading="lazy">
+        <div class="cap">Červenec–srpen 2022</div>
+      </a>
+      <a class="noviny-card" href="https://pecky.cz/files/pecky/gallery/18748/69a0159f4d013_pec-ecke-noviny-9-2022-na-hled.pdf" target="_blank" rel="noopener">
+        <img src="img/noviny/2022-09.jpg" alt="Titulní strana — Září 2022" loading="lazy">
+        <div class="cap">Září 2022</div>
+      </a>
+      <a class="noviny-card" href="https://pecky.cz/files/pecky/gallery/18748/69a015a23952e_pececke-noviny-10-2022-tisk.pdf" target="_blank" rel="noopener">
+        <img src="img/noviny/2022-10.jpg" alt="Titulní strana — Říjen 2022" loading="lazy">
+        <div class="cap">Říjen 2022</div>
+      </a>
+    </div>
 
     <h3 class="display" style="font-size:19px; margin:30px 0 4px;">2021</h3>
-    <table class="register">
-      <thead><tr><th>Vydání</th><th></th></tr></thead>
-      <tbody>
-        <tr><td>Leden 2021</td><td><a href="https://pecky.cz/files/pecky/gallery/18749/69a015ef0d6c3_pececke-noviny-1-2021.pdf" target="_blank" rel="noopener">PDF ↗</a></td></tr>
-        <tr><td>Únor 2021</td><td><a href="https://pecky.cz/files/pecky/gallery/18749/69a015f258303_pececke-noviny-2-2021.pdf" target="_blank" rel="noopener">PDF ↗</a></td></tr>
-        <tr><td>Březen 2021</td><td><a href="https://pecky.cz/files/pecky/gallery/18749/69a015f4c1a8f_pececke-noviny-3-2021.pdf" target="_blank" rel="noopener">PDF ↗</a></td></tr>
-        <tr><td>Duben 2021</td><td><a href="https://pecky.cz/files/pecky/gallery/18749/69a015f6bdc87_pececke-noviny-4-2021.pdf" target="_blank" rel="noopener">PDF ↗</a></td></tr>
-        <tr><td>Květen 2021</td><td><a href="https://pecky.cz/files/pecky/gallery/18749/69a015f8b8fbb_pececke-noviny-5-2021.pdf" target="_blank" rel="noopener">PDF ↗</a></td></tr>
-        <tr><td>Červen 2021</td><td><a href="https://pecky.cz/files/pecky/gallery/18749/69a015fac39e1_pececke-noviny-6-2021.pdf" target="_blank" rel="noopener">PDF ↗</a></td></tr>
-        <tr><td>Červenec–srpen 2021</td><td><a href="https://pecky.cz/files/pecky/gallery/18749/69a015fcf1f01_pececke-noviny-7-8-2021.pdf" target="_blank" rel="noopener">PDF ↗</a></td></tr>
-        <tr><td>Září 2021</td><td><a href="https://pecky.cz/files/pecky/gallery/18749/69a015ff729e6_pec-ecke-noviny-9-2021.pdf" target="_blank" rel="noopener">PDF ↗</a></td></tr>
-        <tr><td>Říjen 2021</td><td><a href="https://pecky.cz/files/pecky/gallery/18749/69a01603d3ee3_pececke-noviny10-2021.pdf" target="_blank" rel="noopener">PDF ↗</a></td></tr>
-        <tr><td>Listopad 2021</td><td><a href="https://pecky.cz/files/pecky/gallery/18749/69a0160b8bab7_pec-ecke-noviny-11-2021.pdf" target="_blank" rel="noopener">PDF ↗</a></td></tr>
-        <tr><td>Prosinec 2021</td><td><a href="https://pecky.cz/files/pecky/gallery/18749/69a0160f2abb2_pececke-noviny-12-2021-nahled.pdf" target="_blank" rel="noopener">PDF ↗</a></td></tr>
-      </tbody>
-    </table>
+    <div class="noviny-grid">
+      <a class="noviny-card" href="https://pecky.cz/files/pecky/gallery/18749/69a015ef0d6c3_pececke-noviny-1-2021.pdf" target="_blank" rel="noopener">
+        <img src="img/noviny/2021-01.jpg" alt="Titulní strana — Leden 2021" loading="lazy">
+        <div class="cap">Leden 2021</div>
+      </a>
+      <a class="noviny-card" href="https://pecky.cz/files/pecky/gallery/18749/69a015f258303_pececke-noviny-2-2021.pdf" target="_blank" rel="noopener">
+        <img src="img/noviny/2021-02.jpg" alt="Titulní strana — Únor 2021" loading="lazy">
+        <div class="cap">Únor 2021</div>
+      </a>
+      <a class="noviny-card" href="https://pecky.cz/files/pecky/gallery/18749/69a015f4c1a8f_pececke-noviny-3-2021.pdf" target="_blank" rel="noopener">
+        <img src="img/noviny/2021-03.jpg" alt="Titulní strana — Březen 2021" loading="lazy">
+        <div class="cap">Březen 2021</div>
+      </a>
+      <a class="noviny-card" href="https://pecky.cz/files/pecky/gallery/18749/69a015f6bdc87_pececke-noviny-4-2021.pdf" target="_blank" rel="noopener">
+        <img src="img/noviny/2021-04.jpg" alt="Titulní strana — Duben 2021" loading="lazy">
+        <div class="cap">Duben 2021</div>
+      </a>
+      <a class="noviny-card" href="https://pecky.cz/files/pecky/gallery/18749/69a015f8b8fbb_pececke-noviny-5-2021.pdf" target="_blank" rel="noopener">
+        <img src="img/noviny/2021-05.jpg" alt="Titulní strana — Květen 2021" loading="lazy">
+        <div class="cap">Květen 2021</div>
+      </a>
+      <a class="noviny-card" href="https://pecky.cz/files/pecky/gallery/18749/69a015fac39e1_pececke-noviny-6-2021.pdf" target="_blank" rel="noopener">
+        <img src="img/noviny/2021-06.jpg" alt="Titulní strana — Červen 2021" loading="lazy">
+        <div class="cap">Červen 2021</div>
+      </a>
+      <a class="noviny-card" href="https://pecky.cz/files/pecky/gallery/18749/69a015fcf1f01_pececke-noviny-7-8-2021.pdf" target="_blank" rel="noopener">
+        <img src="img/noviny/2021-07-08.jpg" alt="Titulní strana — Červenec–srpen 2021" loading="lazy">
+        <div class="cap">Červenec–srpen 2021</div>
+      </a>
+      <a class="noviny-card" href="https://pecky.cz/files/pecky/gallery/18749/69a015ff729e6_pec-ecke-noviny-9-2021.pdf" target="_blank" rel="noopener">
+        <img src="img/noviny/2021-09.jpg" alt="Titulní strana — Září 2021" loading="lazy">
+        <div class="cap">Září 2021</div>
+      </a>
+      <a class="noviny-card" href="https://pecky.cz/files/pecky/gallery/18749/69a01603d3ee3_pececke-noviny10-2021.pdf" target="_blank" rel="noopener">
+        <img src="img/noviny/2021-10.jpg" alt="Titulní strana — Říjen 2021" loading="lazy">
+        <div class="cap">Říjen 2021</div>
+      </a>
+      <a class="noviny-card" href="https://pecky.cz/files/pecky/gallery/18749/69a0160b8bab7_pec-ecke-noviny-11-2021.pdf" target="_blank" rel="noopener">
+        <img src="img/noviny/2021-11.jpg" alt="Titulní strana — Listopad 2021" loading="lazy">
+        <div class="cap">Listopad 2021</div>
+      </a>
+      <a class="noviny-card" href="https://pecky.cz/files/pecky/gallery/18749/69a0160f2abb2_pececke-noviny-12-2021-nahled.pdf" target="_blank" rel="noopener">
+        <img src="img/noviny/2021-12.jpg" alt="Titulní strana — Prosinec 2021" loading="lazy">
+        <div class="cap">Prosinec 2021</div>
+      </a>
+    </div>
 
     <h3 class="display" style="font-size:19px; margin:30px 0 4px;">2020</h3>
-    <table class="register">
-      <thead><tr><th>Vydání</th><th></th></tr></thead>
-      <tbody>
-        <tr><td>Leden 2020</td><td><a href="https://pecky.cz/files/pecky/gallery/18750/69a0162f32042_pececke-noviny-1-2020-nahled.pdf" target="_blank" rel="noopener">PDF ↗</a></td></tr>
-        <tr><td>Únor 2020</td><td><a href="https://pecky.cz/files/pecky/gallery/18750/69a01633181a3_pececke-noviny-2-2020-nahled.pdf" target="_blank" rel="noopener">PDF ↗</a></td></tr>
-        <tr><td>Březen 2020</td><td><a href="https://pecky.cz/files/pecky/gallery/18750/69a0163569126_pececke-noviny-3-2020.pdf" target="_blank" rel="noopener">PDF ↗</a></td></tr>
-        <tr><td>Duben 2020</td><td><a href="https://pecky.cz/files/pecky/gallery/18750/69a01636ae57b_pececke-noviny-4-2020-nahled.pdf" target="_blank" rel="noopener">PDF ↗</a></td></tr>
-        <tr><td>Květen 2020</td><td><a href="https://pecky.cz/files/pecky/gallery/18750/69a01638814bc_pececke-noviny-5-2020.pdf" target="_blank" rel="noopener">PDF ↗</a></td></tr>
-        <tr><td>Červen 2020</td><td><a href="https://pecky.cz/files/pecky/gallery/18750/69a0163a24c3c_pececke-noviny-6-2020.pdf" target="_blank" rel="noopener">PDF ↗</a></td></tr>
-        <tr><td>Červenec 2020</td><td><a href="https://pecky.cz/files/pecky/gallery/18750/69a0163ce3cc1_pececke-noviny-7-2020.pdf" target="_blank" rel="noopener">PDF ↗</a></td></tr>
-        <tr><td>Září 2020</td><td><a href="https://pecky.cz/files/pecky/gallery/18750/69a01641507b3_pececke-noviny-9-2020.pdf" target="_blank" rel="noopener">PDF ↗</a></td></tr>
-        <tr><td>Říjen 2020</td><td><a href="https://pecky.cz/files/pecky/gallery/18750/69a01643d77e3_pececke-noviny-10-2020.pdf" target="_blank" rel="noopener">PDF ↗</a></td></tr>
-        <tr><td>Listopad 2020</td><td><a href="https://pecky.cz/files/pecky/gallery/18750/69a016469cd7a_pececke-noviny-11-2020.pdf" target="_blank" rel="noopener">PDF ↗</a></td></tr>
-        <tr><td>Prosinec 2020</td><td><a href="https://pecky.cz/files/pecky/gallery/18750/69a0164882b1b_pececke-noviny-12-2020.pdf" target="_blank" rel="noopener">PDF ↗</a></td></tr>
-      </tbody>
-    </table>
+    <div class="noviny-grid">
+      <a class="noviny-card" href="https://pecky.cz/files/pecky/gallery/18750/69a0162f32042_pececke-noviny-1-2020-nahled.pdf" target="_blank" rel="noopener">
+        <img src="img/noviny/2020-01.jpg" alt="Titulní strana — Leden 2020" loading="lazy">
+        <div class="cap">Leden 2020</div>
+      </a>
+      <a class="noviny-card" href="https://pecky.cz/files/pecky/gallery/18750/69a01633181a3_pececke-noviny-2-2020-nahled.pdf" target="_blank" rel="noopener">
+        <img src="img/noviny/2020-02.jpg" alt="Titulní strana — Únor 2020" loading="lazy">
+        <div class="cap">Únor 2020</div>
+      </a>
+      <a class="noviny-card" href="https://pecky.cz/files/pecky/gallery/18750/69a0163569126_pececke-noviny-3-2020.pdf" target="_blank" rel="noopener">
+        <img src="img/noviny/2020-03.jpg" alt="Titulní strana — Březen 2020" loading="lazy">
+        <div class="cap">Březen 2020</div>
+      </a>
+      <a class="noviny-card" href="https://pecky.cz/files/pecky/gallery/18750/69a01636ae57b_pececke-noviny-4-2020-nahled.pdf" target="_blank" rel="noopener">
+        <img src="img/noviny/2020-04.jpg" alt="Titulní strana — Duben 2020" loading="lazy">
+        <div class="cap">Duben 2020</div>
+      </a>
+      <a class="noviny-card" href="https://pecky.cz/files/pecky/gallery/18750/69a01638814bc_pececke-noviny-5-2020.pdf" target="_blank" rel="noopener">
+        <img src="img/noviny/2020-05.jpg" alt="Titulní strana — Květen 2020" loading="lazy">
+        <div class="cap">Květen 2020</div>
+      </a>
+      <a class="noviny-card" href="https://pecky.cz/files/pecky/gallery/18750/69a0163a24c3c_pececke-noviny-6-2020.pdf" target="_blank" rel="noopener">
+        <img src="img/noviny/2020-06.jpg" alt="Titulní strana — Červen 2020" loading="lazy">
+        <div class="cap">Červen 2020</div>
+      </a>
+      <a class="noviny-card" href="https://pecky.cz/files/pecky/gallery/18750/69a0163ce3cc1_pececke-noviny-7-2020.pdf" target="_blank" rel="noopener">
+        <img src="img/noviny/2020-07.jpg" alt="Titulní strana — Červenec 2020" loading="lazy">
+        <div class="cap">Červenec 2020</div>
+      </a>
+      <a class="noviny-card" href="https://pecky.cz/files/pecky/gallery/18750/69a01641507b3_pececke-noviny-9-2020.pdf" target="_blank" rel="noopener">
+        <img src="img/noviny/2020-09.jpg" alt="Titulní strana — Září 2020" loading="lazy">
+        <div class="cap">Září 2020</div>
+      </a>
+      <a class="noviny-card" href="https://pecky.cz/files/pecky/gallery/18750/69a01643d77e3_pececke-noviny-10-2020.pdf" target="_blank" rel="noopener">
+        <img src="img/noviny/2020-10.jpg" alt="Titulní strana — Říjen 2020" loading="lazy">
+        <div class="cap">Říjen 2020</div>
+      </a>
+      <a class="noviny-card" href="https://pecky.cz/files/pecky/gallery/18750/69a016469cd7a_pececke-noviny-11-2020.pdf" target="_blank" rel="noopener">
+        <img src="img/noviny/2020-11.jpg" alt="Titulní strana — Listopad 2020" loading="lazy">
+        <div class="cap">Listopad 2020</div>
+      </a>
+      <a class="noviny-card" href="https://pecky.cz/files/pecky/gallery/18750/69a0164882b1b_pececke-noviny-12-2020.pdf" target="_blank" rel="noopener">
+        <img src="img/noviny/2020-12.jpg" alt="Titulní strana — Prosinec 2020" loading="lazy">
+        <div class="cap">Prosinec 2020</div>
+      </a>
+    </div>
 
     <div class="callout" style="margin-top:22px;">
       Zdroj: <a href="https://pecky.cz/default/default/21389_pdf-zpravodaje" target="_blank" rel="noopener">archiv PDF zpravodaje na pecky.cz</a> (ověřeno 5. 8. 2026, 68 vydání 2020–2026).
@@ -791,7 +1143,8 @@
         <tr><td>Výsledky voleb 2022</td><td>ČSÚ — otevřená data (volby.gov.cz), křížově ověřeno se Seznam Zprávy</td><td><span class="tag role">ověřeno</span></td></tr>
         <tr><td>Volební programy 2022</td><td>Pečecké noviny 9/2022 (inzerce), u 2 uskupení přepis OCR</td><td><span class="tag role">ověřeno</span></td></tr>
         <tr><td>Fulltext v Pečeckých novinách</td><td>68 PDF 2020–2026, text extrahován (pdftotext)</td><td><span class="tag role">ověřeno</span></td></tr>
-        <tr><td>Jmenný seznam zastupitelstva</td><td>pecky.cz — Složení ZM (21/21 členů)</td><td><span class="tag role">ověřeno</span></td></tr>
+        <tr><td>Jmenný seznam zastupitelstva (na stránce Lidé)</td><td>pecky.cz — Složení ZM (21/21 členů)</td><td><span class="tag role">ověřeno</span></td></tr>
+        <tr><td>Fotografie zastupitelů (13/21)</td><td>ods.cz — oficiální kandidátka (6), Pečecké noviny 9/2022 — inzerce NAŠE PEČKY (7)</td><td><span class="tag role">ověřeno</span></td></tr>
         <tr><td>Složení rady (7 členů) a povolební koalice</td><td>usnesení ustavujícího zasedání ZM 7/2022, mesto-pecky.usneseni.cz</td><td><span class="tag role">ověřeno</span></td></tr>
         <tr><td>Jednání a usnesení</td><td>mesto-pecky.usneseni.cz (export 281 jednání / 2 731 usnesení)</td><td><span class="tag role">ověřeno</span></td></tr>
         <tr><td>Smlouvy</td><td>Hlídač státu (konektor, statický výřez: 180 smluv / 102,4 mil. Kč, skupina celkem)</td><td><span class="tag role">ověřeno</span></td></tr>
@@ -801,7 +1154,7 @@
     </table>
 
     <div class="footer-note">
-      Poslední aktualizace: 5. srpna 2026 (doplněn chybějící 7. člen rady a vysvětlení povolební koalice 2022 podle usnesení ustavujícího zasedání). Tento web nezastupuje Město Pečky ani žádnou politickou stranu. Chyby a doplnění vítány — pošli zdroj a opravím.
+      Poslední aktualizace: 5. srpna 2026 (jmenný seznam zastupitelstva přesunut na stránku Lidé, doplněny fotografie 13 z 21 zastupitelů). Tento web nezastupuje Město Pečky ani žádnou politickou stranu. Chyby a doplnění vítány — pošli zdroj a opravím.
     </div>
   </section>
 
@@ -812,19 +1165,51 @@
 </footer>
 
 <script>
-  const links = document.querySelectorAll('.navlink');
-  const panels = document.querySelectorAll('.panel');
-  links.forEach(link => {
+  // ===== Navigace: URL hash jako zdroj pravdy, funguje tlačítko Zpět/Vpřed =====
+  const NAVLINKS = document.querySelectorAll('.navlink');
+  const PANELS = document.querySelectorAll('.panel');
+  const PANEL_NAMES = Array.from(NAVLINKS).map(l => l.dataset.panel);
+  const DEFAULT_PANEL = 'domu';
+
+  function currentHashPanel(){
+    return window.location.hash.replace(/^#/, '');
+  }
+
+  function applyPanel(name, opts){
+    opts = opts || {};
+    const valid = PANEL_NAMES.includes(name) ? name : DEFAULT_PANEL;
+    NAVLINKS.forEach(l => l.classList.toggle('active', l.dataset.panel === valid));
+    PANELS.forEach(p => p.classList.toggle('active', p.id === 'panel-' + valid));
+    if (opts.scroll !== false) window.scrollTo({top: 0, behavior: opts.instant ? 'auto' : 'smooth'});
+    if (valid === 'jednani') loadJednani();
+    if (valid === 'zpravodaj') loadNoviny();
+  }
+
+  NAVLINKS.forEach(link => {
     link.addEventListener('click', () => {
-      links.forEach(l => l.classList.remove('active'));
-      panels.forEach(p => p.classList.remove('active'));
-      link.classList.add('active');
-      document.getElementById('panel-' + link.dataset.panel).classList.add('active');
-      window.scrollTo({top: 0, behavior: 'smooth'});
-      if (link.dataset.panel === 'jednani') loadJednani();
-      if (link.dataset.panel === 'zpravodaj') loadNoviny();
+      const name = link.dataset.panel;
+      if (currentHashPanel() === name) {
+        // stejná záložka znovu — jen dorovnat stav, hash se nemění (nehashchange nepřijde)
+        applyPanel(name);
+      } else {
+        window.location.hash = name; // vytvoří novou položku v historii → funguje Zpět/Vpřed
+      }
     });
   });
+
+  document.querySelectorAll('[data-goto]').forEach(el => {
+    el.addEventListener('click', (e) => {
+      e.preventDefault();
+      const target = document.querySelector('.navlink[data-panel="' + el.dataset.goto + '"]');
+      if (target) target.click();
+    });
+  });
+
+  // reaguje na tlačítka Zpět/Vpřed i na ruční změnu hashe v adresním řádku
+  window.addEventListener('hashchange', () => applyPanel(currentHashPanel()));
+
+  // úvodní vykreslení podle URL (funguje i přímý odkaz/záložka na konkrétní sekci, např. /#volby)
+  applyPanel(currentHashPanel(), {scroll: false});
 </script>
 
 <script>
