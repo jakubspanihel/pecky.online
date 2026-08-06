@@ -73,6 +73,32 @@
   .navlink:hover{color:var(--ink); text-decoration:none;}
   .navlink.active{color:var(--burgundy); border-bottom-color:var(--burgundy); font-weight:600;}
 
+  .subtabs{display:flex; gap:4px; flex-wrap:wrap; border-bottom:1px solid var(--line); margin:20px 0 28px;}
+  .subtablink{font-family:'IBM Plex Mono',monospace; font-size:12px; letter-spacing:0.03em; text-transform:uppercase; padding:9px 14px; color:var(--ink-soft); border:none; background:none; cursor:pointer; border-bottom:3px solid transparent; margin-bottom:-1px;}
+  .subtablink:hover{color:var(--ink);}
+  .subtablink.active{color:var(--burgundy); border-bottom-color:var(--burgundy); font-weight:600;}
+  .subpanel{display:none;}
+  .subpanel.active{display:block; animation:fade .25s ease;}
+
+  .toggle-details{display:inline-flex; align-items:center; gap:5px; font-family:'IBM Plex Mono',monospace; font-size:12px; text-transform:uppercase; letter-spacing:0.03em; color:var(--burgundy); border:1px solid var(--burgundy); background:none; padding:8px 14px; cursor:pointer; margin:0 0 22px;}
+  .toggle-details:hover{background:rgba(124,47,43,0.06);}
+  .toggle-details[aria-expanded="true"]{background:var(--burgundy); color:#fff;}
+  .details-block[hidden]{display:none;}
+
+  .promises-grid{display:grid; grid-template-columns:repeat(6,1fr); gap:12px; margin:20px 0 24px;}
+  @media (max-width:960px){.promises-grid{grid-template-columns:repeat(3,1fr);}}
+  @media (max-width:640px){.promises-grid{grid-template-columns:repeat(2,1fr);}}
+  .promise-card{display:block; width:100%; padding:0; border:2px solid var(--line); background:var(--parchment-deep); overflow:hidden; cursor:pointer; font-family:inherit; text-align:left; transition:border-color .15s, transform .15s;}
+  .promise-card img{width:100%; aspect-ratio:380/538; object-fit:cover; display:block; background:#fff; border-bottom:1px solid var(--line);}
+  .promise-card .cap{display:block; padding:8px 10px; font-size:12px; font-weight:600; line-height:1.35;}
+  .promise-card .cap .swatch{margin-right:5px;}
+  .promise-card .mandates{display:block; font-family:'IBM Plex Mono',monospace; font-size:10.5px; color:var(--ink-soft); text-transform:uppercase; font-weight:400; letter-spacing:0.03em; margin-top:2px;}
+  .promise-card:hover{border-color:var(--ink-soft); transform:translateY(-2px);}
+  .promise-card.active{border-color:var(--burgundy); box-shadow:0 0 0 1px var(--burgundy);}
+  .promise-detail{border:1px solid var(--line); background:rgba(255,255,255,0.35); padding:20px 22px;}
+  .promise-text{display:none;}
+  .promise-text.active{display:block; animation:fade .25s ease;}
+
   main{max-width:1040px; margin:0 auto; padding:36px 24px 80px;}
   .panel{display:none; animation:fade .25s ease;}
   .panel.active{display:block;}
@@ -362,7 +388,7 @@
         </div>
       </div>
       <div class="callout" style="margin-top:18px;">
-        Kontakty na vedení: <a href="mailto:milan.paluska@pecky.cz">milan.paluska@pecky.cz</a>, <a href="mailto:zdenek.fejfar@pecky.cz">zdenek.fejfar@pecky.cz</a>, <a href="mailto:martin.jedlicka@pecky.cz">martin.jedlicka@pecky.cz</a>. Zdroj složení: usnesení ustavujícího zasedání zastupitelstva 7/2022, viz sekce Volby 2022.
+        Zdroj složení: usnesení ustavujícího zasedání zastupitelstva 7/2022, viz sekce Volby 2022.
       </div>
     </div>
 
@@ -468,14 +494,45 @@
     <h2 class="title display">Volby 2022 do zastupitelstva</h2>
     <p class="lede">Poslední komunální volby v Pečkách proběhly 23.–24. září 2022, účast byla 52,36 %. Kandidovalo šest uskupení, pět z nich získalo mandát. Níže jsou všechna uskupení s výsledky a shrnutím jejich volebního programu. <span class="stamp">ověřeno</span></p>
 
+    <div class="subtabs" role="tablist" aria-label="Části stránky Volby 2022">
+      <button class="subtablink active" type="button" data-subpanel="sliby">Předvolební sliby</button>
+      <button class="subtablink" type="button" data-subpanel="vysledek">Výsledky voleb</button>
+      <button class="subtablink" type="button" data-subpanel="rozbor">Rozbor</button>
+    </div>
+
+    <div class="subpanel active" id="subpanel-sliby">
     <h3 class="display" style="font-size:19px; margin:0 0 4px;">Volební programy - aneb co kdo sliboval</h3>
     <p class="lede" style="margin-bottom:18px;">Shrnutí volebních programů z inzertních stran Pečeckých novin 9/2022 (vydání těsně před volbami), doplněno o oficiální kandidátku ODS. Plné znění viz odkaz u každého uskupení.</p>
 
-    <div class="card-grid" style="grid-template-columns:1fr;">
-      <div class="person-card party-nasepecky">
-        <a class="pdf-preview" href="https://pecky.cz/files/pecky/gallery/18748/69a0159f4d013_pec-ecke-noviny-9-2022-na-hled.pdf#page=11" target="_blank" rel="noopener">
-          <img src="img/volebni-programy-2022/nase-pecky.jpg" alt="Náhled strany 11 Pečeckých novin 9/2022 — volební inzerce NAŠE PEČKY" loading="lazy">
-        </a>
+    <div class="promises-grid">
+      <button class="promise-card party-nasepecky active" type="button" data-promise="nasepecky">
+        <img src="img/volebni-programy-2022/nase-pecky.jpg" alt="Náhled strany 11 Pečeckých novin 9/2022 — volební inzerce NAŠE PEČKY" loading="lazy">
+        <span class="cap"><span class="swatch" style="background:#E20514;"></span>NAŠE PEČKY<span class="mandates">7 mandátů</span></span>
+      </button>
+      <button class="promise-card party-ods" type="button" data-promise="ods">
+        <img src="img/volebni-programy-2022/ods.jpg" alt="Náhled strany 9 Pečeckých novin 9/2022 — volební inzerce Sdružení ODS a nezávislých kandidátů" loading="lazy">
+        <span class="cap"><span class="swatch" style="background:#1F2363;"></span>ODS a NK<span class="mandates">6 mandátů</span></span>
+      </button>
+      <button class="promise-card party-snk" type="button" data-promise="snk">
+        <img src="img/volebni-programy-2022/snk.jpg" alt="Náhled strany 8 Pečeckých novin 9/2022 — volební inzerce SNK Pečky Pečákům" loading="lazy">
+        <span class="cap"><span class="swatch" style="background:#A6528F;"></span>SNK Pečky Pečákům<span class="mandates">3 mandáty</span></span>
+      </button>
+      <button class="promise-card party-spd" type="button" data-promise="spd">
+        <img src="img/volebni-programy-2022/spd.jpg" alt="Náhled strany 12 Pečeckých novin 9/2022 — volební inzerce Lidé pro Pečky s podporou SPD" loading="lazy">
+        <span class="cap"><span class="swatch" style="background:#8B5A2B;"></span>Lidé pro Pečky (SPD)<span class="mandates">3 mandáty</span></span>
+      </button>
+      <button class="promise-card party-cssd" type="button" data-promise="cssd">
+        <img src="img/volebni-programy-2022/cssd.jpg" alt="Náhled strany 13 Pečeckých novin 9/2022 — volební inzerce ČSSD a sjednocené levice" loading="lazy">
+        <span class="cap"><span class="swatch" style="background:#FF5F60;"></span>ČSSD a levice<span class="mandates">2 mandáty</span></span>
+      </button>
+      <button class="promise-card party-lidovci" type="button" data-promise="lidovci">
+        <img src="img/volebni-programy-2022/lidovci.jpg" alt="Náhled strany 10 Pečeckých novin 9/2022 — volební inzerce Lidovci a nezávislí" loading="lazy">
+        <span class="cap"><span class="swatch" style="background:#EBB91E;"></span>Lidovci a nezávislí<span class="mandates">0 mandátů</span></span>
+      </button>
+    </div>
+
+    <div class="promise-detail">
+      <div class="promise-text active" id="promise-nasepecky">
         <div class="name">NAŠE PEČKY (STAN + nezávislí)</div>
         <ul class="program-list">
           <li><strong>Soběstačnost a rozvoj:</strong> úpravna vody, fotovoltaika a komunitní energetika, víc zeleně, územní plán jižní části města, parkování.</li>
@@ -483,12 +540,10 @@
           <li><strong>Péče o občany:</strong> jesle, obecní bydlení, veřejné WC, modernizace zdravotního střediska, bezbariérová podatelna, sobotní úřední hodiny, bezpečnost.</li>
           <li><strong>Vzdělání, kultura, sport:</strong> přístavba ZŠ, fotbalové kabiny, rekonstrukce kulturního domu, knihovna, diskgolf a pumptrack.</li>
         </ul>
+        <p class="program-note" style="margin-top:10px;">Zdroj: <a href="https://pecky.cz/files/pecky/gallery/18748/69a0159f4d013_pec-ecke-noviny-9-2022-na-hled.pdf#page=11" target="_blank" rel="noopener">Pečecké noviny 9/2022, PDF str. 11 ↗</a></p>
       </div>
 
-      <div class="person-card party-ods">
-        <a class="pdf-preview" href="https://pecky.cz/files/pecky/gallery/18748/69a0159f4d013_pec-ecke-noviny-9-2022-na-hled.pdf#page=9" target="_blank" rel="noopener">
-          <img src="img/volebni-programy-2022/ods.jpg" alt="Náhled strany 9 Pečeckých novin 9/2022 — volební inzerce Sdružení ODS a nezávislých kandidátů" loading="lazy">
-        </a>
+      <div class="promise-text" id="promise-ods">
         <div class="name">Sdružení ODS a nezávislých kandidátů</div>
         <p class="program-note" style="margin-top:10px;">Nezveřejnilo jednotný bodový program — inzerce ukazuje portréty kandidátů s krátkými hesly, mj. k těmto tématům:</p>
         <ul class="program-list">
@@ -498,12 +553,10 @@
           <li>Vzdělávání dětí</li>
         </ul>
         <p class="program-note">Text hesel je z fotomozaiky strojově málo čitelný, ověřitelný jen z originálu PDF.</p>
+        <p class="program-note" style="margin-top:10px;">Zdroj: <a href="https://pecky.cz/files/pecky/gallery/18748/69a0159f4d013_pec-ecke-noviny-9-2022-na-hled.pdf#page=9" target="_blank" rel="noopener">Pečecké noviny 9/2022, PDF str. 9 ↗</a> · <a href="https://www.ods.cz/ms.pecky/volby2022/komunalni/2570-pecky" target="_blank" rel="noopener">kandidátka na ods.cz ↗</a></p>
       </div>
 
-      <div class="person-card party-snk">
-        <a class="pdf-preview" href="https://pecky.cz/files/pecky/gallery/18748/69a0159f4d013_pec-ecke-noviny-9-2022-na-hled.pdf#page=8" target="_blank" rel="noopener">
-          <img src="img/volebni-programy-2022/snk.jpg" alt="Náhled strany 8 Pečeckých novin 9/2022 — volební inzerce SNK Pečky Pečákům" loading="lazy">
-        </a>
+      <div class="promise-text" id="promise-snk">
         <div class="name">SNK Pečky Pečákům</div>
         <ul class="program-list">
           <li>Pokračování jednání o obchvatu města</li>
@@ -518,12 +571,10 @@
           <li>Podpora sportovních oddílů a odpočinkových míst</li>
           <li>Oprava jedné ulice v každé části města ročně</li>
         </ul>
+        <p class="program-note" style="margin-top:10px;">Zdroj: <a href="https://pecky.cz/files/pecky/gallery/18748/69a0159f4d013_pec-ecke-noviny-9-2022-na-hled.pdf#page=8" target="_blank" rel="noopener">Pečecké noviny 9/2022, PDF str. 8 ↗</a></p>
       </div>
 
-      <div class="person-card party-spd">
-        <a class="pdf-preview" href="https://pecky.cz/files/pecky/gallery/18748/69a0159f4d013_pec-ecke-noviny-9-2022-na-hled.pdf#page=12" target="_blank" rel="noopener">
-          <img src="img/volebni-programy-2022/spd.jpg" alt="Náhled strany 12 Pečeckých novin 9/2022 — volební inzerce Lidé pro Pečky s podporou SPD" loading="lazy">
-        </a>
+      <div class="promise-text" id="promise-spd">
         <div class="name">Lidé pro Pečky s podporou SPD</div>
         <ul class="program-list">
           <li><strong>Zdravotní a sociální:</strong> nový pečovatelský dům s hospicem, bezbariérovost, rehabilitační centrum s bazénem, rozšíření ordinací specialistů.</li>
@@ -532,12 +583,10 @@
           <li><strong>Životní prostředí:</strong> ochrana dřevin, remízky, nechemická likvidace plevele.</li>
           <li><strong>Rozvoj města:</strong> revitalizace jižní části, oprava fontány, obnova pramene Poděbradky, nové bytové jednotky, úprava Barákovy a Třebízského ulice, parkoviště u lékárny.</li>
         </ul>
+        <p class="program-note" style="margin-top:10px;">Zdroj: <a href="https://pecky.cz/files/pecky/gallery/18748/69a0159f4d013_pec-ecke-noviny-9-2022-na-hled.pdf#page=12" target="_blank" rel="noopener">Pečecké noviny 9/2022, PDF str. 12 ↗</a></p>
       </div>
 
-      <div class="person-card party-cssd">
-        <a class="pdf-preview" href="https://pecky.cz/files/pecky/gallery/18748/69a0159f4d013_pec-ecke-noviny-9-2022-na-hled.pdf#page=13" target="_blank" rel="noopener">
-          <img src="img/volebni-programy-2022/cssd.jpg" alt="Náhled strany 13 Pečeckých novin 9/2022 — volební inzerce ČSSD a sjednocené levice" loading="lazy">
-        </a>
+      <div class="promise-text" id="promise-cssd">
         <div class="name">ČSSD a sjednocená levice</div>
         <ul class="program-list">
           <li>Odpovědně provést město počínající ekonomickou krizí</li>
@@ -554,12 +603,10 @@
           <li>Opravit hřbitov</li>
           <li>Nedopustit prodej vodovodu a kanalizace</li>
         </ul>
+        <p class="program-note" style="margin-top:10px;">Zdroj: <a href="https://pecky.cz/files/pecky/gallery/18748/69a0159f4d013_pec-ecke-noviny-9-2022-na-hled.pdf#page=13" target="_blank" rel="noopener">Pečecké noviny 9/2022, PDF str. 13 ↗</a></p>
       </div>
 
-      <div class="person-card party-lidovci">
-        <a class="pdf-preview" href="https://pecky.cz/files/pecky/gallery/18748/69a0159f4d013_pec-ecke-noviny-9-2022-na-hled.pdf#page=10" target="_blank" rel="noopener">
-          <img src="img/volebni-programy-2022/lidovci.jpg" alt="Náhled strany 10 Pečeckých novin 9/2022 — volební inzerce Lidovci a nezávislí" loading="lazy">
-        </a>
+      <div class="promise-text" id="promise-lidovci">
         <div class="name">Lidovci a nezávislí</div>
         <ul class="program-list">
           <li>Podpora zájmových, kulturních a volnočasových spolků</li>
@@ -574,6 +621,7 @@
           <li>„Rozumné" dořešení obchvatu</li>
           <li>Péče o hřbitov včetně autobusové zastávky</li>
         </ul>
+        <p class="program-note" style="margin-top:10px;">Zdroj: <a href="https://pecky.cz/files/pecky/gallery/18748/69a0159f4d013_pec-ecke-noviny-9-2022-na-hled.pdf#page=10" target="_blank" rel="noopener">Pečecké noviny 9/2022, PDF str. 10 ↗</a></p>
       </div>
     </div>
 
@@ -581,14 +629,43 @@
       <strong>Poznámka k metodě:</strong> volební programy jsou přepsané (u dvou uskupení strojovým OCR) z placené inzerce v čísle Pečeckých novin 9/2022 — tedy tak, jak je uskupení samo prezentovalo těsně před volbami. Nejde o hodnocení plnění programu; to sleduje sekce Jednání a usnesení podle skutečně přijatých usnesení zastupitelstva.
     </div>
 
-    <h3 class="display" style="font-size:19px; margin:34px 0 4px;">Výsledek - aneb jak to dopadlo</h3>
-    <div class="subject-box">
-      <div><div class="k">Zapsaní voliči</div><div class="v">3 669</div></div>
-      <div><div class="k">Odevzdané obálky</div><div class="v">1 921</div></div>
-      <div><div class="k">Účast</div><div class="v">52,36 %</div></div>
-    </div>
+    <h3 class="display" style="font-size:19px; margin:34px 0 4px;">Společná témata a shoda mezi uskupeními</h3>
+    <p class="lede" style="margin-bottom:16px;">Šest uskupení kandidovalo s odlišnými akcenty, ale řada bodů se v programech opakuje napříč politickým spektrem — od okrajových stran po vítěze i budoucí vedení radnice. Přehled ukazuje, kolik uskupení mělo dané téma ve svém programu.</p>
 
     <table class="register">
+      <thead><tr><th>Téma</th><th>Kolik uskupení</th><th>Která</th></tr></thead>
+      <tbody>
+        <tr><td>Sport a volný čas</td><td>6 z 6</td><td>úplně všechna uskupení</td></tr>
+        <tr><td>Bezpečnost a městská policie</td><td>5 z 6</td><td>všechna kromě ČSSD a sjednocené levice</td></tr>
+        <tr><td>Bydlení (obecní/družstevní byty)</td><td>4 z 6</td><td>NAŠE PEČKY, SNK Pečky Pečákům, Lidé pro Pečky SPD, ČSSD a sjednocená levice</td></tr>
+        <tr><td>Opravy chodníků a ulic</td><td>4 z 6</td><td>NAŠE PEČKY, SNK Pečky Pečákům, ČSSD a sjednocená levice, Lidovci a nezávislí</td></tr>
+        <tr><td>Zdravotní péče</td><td>4 z 6</td><td>NAŠE PEČKY, SNK Pečky Pečákům, Lidé pro Pečky SPD, ČSSD a sjednocená levice</td></tr>
+        <tr><td>Obchvat města</td><td>3 z 6</td><td>NAŠE PEČKY, SNK Pečky Pečákům, Lidovci a nezávislí</td></tr>
+        <tr><td>Veřejné WC</td><td>3 z 6</td><td>NAŠE PEČKY, ČSSD a sjednocená levice, Lidovci a nezávislí</td></tr>
+        <tr><td>Péče o hřbitov</td><td>3 z 6</td><td>NAŠE PEČKY, ČSSD a sjednocená levice, Lidovci a nezávislí</td></tr>
+        <tr><td>Parkování</td><td>3 z 6</td><td>NAŠE PEČKY, SNK Pečky Pečákům, Lidé pro Pečky SPD</td></tr>
+        <tr><td>Školky a jesle</td><td>3 z 6</td><td>NAŠE PEČKY, SNK Pečky Pečákům, Lidovci a nezávislí</td></tr>
+      </tbody>
+    </table>
+
+    <div class="callout" style="margin-top:22px;">
+      <strong>Obchvat jako téma napříč roky:</strong> obchvat města nebyl jen bodem tří programů z roku 2022 — byl to i investiční priorita starostky Aleny Švejnohové po volbách 2018 (viz záložka Rozbor → Historické srovnání). Napříč dvěma volebními obdobími a různými uskupeními jde o jediný projekt, na kterém se politická reprezentace Peček dlouhodobě shoduje, že je potřeba — a který k roku 2026 pořád nestojí.
+    </div>
+
+    <div class="callout" style="margin-top:14px;">
+      <strong>Kontrast ve stylu programů:</strong> NAŠE PEČKY a Lidé pro Pečky s podporou SPD měly programy rozdělené do tematických pilířů/oblastí, SNK Pečky Pečákům, ČSSD a sjednocená levice a Lidovci a nezávislí nabídly nestrukturovaný výčet bodů — a Sdružení ODS a nezávislých kandidátů, které nakonec obsadilo post starosty, žádný psaný program v inzerci nezveřejnilo vůbec, jen portréty kandidátů s hesly.
+    </div>
+    </div>
+
+    <div class="subpanel" id="subpanel-vysledek">
+    <h3 class="display" style="font-size:19px; margin:0 0 4px;">Výsledek - aneb jak to dopadlo</h3>
+    <table class="register" style="table-layout:fixed;">
+      <colgroup>
+        <col style="width:30%;">
+        <col style="width:14%;">
+        <col style="width:16%;">
+        <col style="width:40%;">
+      </colgroup>
       <thead>
         <tr><th>Uskupení</th><th>Podíl</th><th>Mandátů</th><th>Výsledek</th></tr>
       </thead>
@@ -601,17 +678,22 @@
         <tr><td><span class="swatch" style="background:#EBB91E;"></span>Lidovci a nezávislí</td><td>3,62 %</td><td>0</td><td><span class="tag">bez zastupitelstva</span> Vůbec se nedostali do zastupitelstva.</td></tr>
       </tbody>
     </table>
+    <p class="lede" style="margin:14px 0 0; max-width:none;">Ve volbách bylo zapsáno 3 669 voličů, z nichž 1 921 odevzdalo obálku s hlasy — volební účast tak dosáhla 52,36 %.</p>
     <div class="callout" style="margin-top:14px;">
       Zdroj: <a href="https://volby.gov.cz/pls/kv2022/vysledky_obec?datumvoleb=20220923&amp;cislo_obce=537641" target="_blank" rel="noopener">ČSÚ — otevřená data, volby.gov.cz (obec 537641 Pečky)</a>, křížově ověřeno s <a href="https://www.seznamzpravy.cz/p/vysledky-voleb/2022/komunalni-volby/obec/537641-pecky" target="_blank" rel="noopener">výsledkovým servisem Seznam Zprávy</a> — čísla se shodují. Voleno 21 zastupitelů, nadpoloviční většina 11 mandátů.
     </div>
 
     <div class="callout" style="margin-top:14px;">
-      <strong>Zajímavost:</strong> kdo vyhraje volby, automaticky nevede radnici. V Pečkách po volbách 2022 vede radu koalice tří menších uskupení, zatímco vítěz voleb (NAŠE PEČKY) v ní křeslo nemá — vysvětlení níže.
+      <strong>Zajímavost:</strong> kdo vyhraje volby, automaticky nevede radnici. V Pečkách po volbách 2022 vede radu koalice tří menších uskupení, zatímco vítěz voleb (NAŠE PEČKY) v ní křeslo nemá — vysvětlení v sekci Rozbor.
+    </div>
     </div>
 
-    <h3 class="display" style="font-size:19px; margin:34px 0 4px;">Povolební koalice: proč vítěz voleb není v radě</h3>
-    <p class="lede" style="margin-bottom:16px;">Volby 2022 s přehledem vyhrálo uskupení <strong>NAŠE PEČKY</strong> (30,29 % hlasů, 7 z 21 mandátů — viz tabulka výše). Přesto nemá v sedmičlenné radě ani jedno křeslo. Vysvětlení není žádná anomálie ani chyba — je to důsledek toho, jak české obecní zřízení volbu vedení obce konstruuje.</p>
+    <div class="subpanel" id="subpanel-rozbor">
+    <h3 class="display" style="font-size:19px; margin:0 0 4px;">Povolební koalice: proč vítěz voleb není v radě</h3>
+    <p class="lede" style="margin-bottom:16px;">Volby 2022 s přehledem vyhrálo uskupení <strong>NAŠE PEČKY</strong> (30,29 % hlasů, 7 z 21 mandátů — viz sekce Výsledky voleb). Přesto nemá v sedmičlenné radě ani jedno křeslo. Vysvětlení není žádná anomálie ani chyba — je to důsledek toho, jak české obecní zřízení volbu vedení obce konstruuje.</p>
 
+    <button class="toggle-details" type="button" aria-expanded="false" aria-controls="details-koalice">Více informací (rozbalit)</button>
+    <div class="details-block" id="details-koalice" hidden>
     <div class="callout">
       <strong>Jak to funguje podle zákona:</strong> zákon č. 128/2000 Sb., o obcích, nezná přímou volbu starosty ani žádné pravidlo, že by uskupení s nejvíc hlasy nebo mandáty mělo přednostní právo vést obec. Starostu, místostarosty i radní volí <em>zastupitelstvo jako sbor</em> ze svého středu (§ 84 odst. 2 písm. m) a § 99), a to hlasováním, ke kterému je podle § 87 potřeba souhlas <strong>nadpoloviční většiny všech členů zastupitelstva</strong> — v Pečkách tedy nejméně 11 hlasů z 21, nikoli jen většina přítomných. Kdo tuto většinu na ustavujícím zasedání sestaví, je čistě věcí dohody mezi zvolenými zastupiteli po volbách — obdoba vládní koalice ve Sněmovně. Pokud se ostatní uskupení spojí proti vítězi voleb, může skončit i s nejvyšším počtem hlasů v opozici. Přesně to se stalo v Pečkách: ODS a NK, SNK Pečky Pečákům a ČSSD a sjednocená levice daly dohromady přesně 11 mandátů a na ustavujícím zasedání 20. 10. 2022 zvolily celé vedení města bez účasti NAŠE PEČKY.
     </div>
@@ -642,10 +724,13 @@
         · plný zápis: <a href="https://mesto-pecky.usneseni.cz/verejne/bb54aa80-499b-11ed-9329-4b042f767445/zapis/?page=14" target="_blank" rel="noopener">zápis ze zasedání 7/2022 ↗</a>
       </div>
     </div>
+    </div>
 
     <h3 class="display" style="font-size:19px; margin:34px 0 4px;">Historické srovnání: jak silná byla podpora starostů dřív</h3>
     <p class="lede" style="margin-bottom:16px;">ČSÚ eviduje jen výsledky voleb (hlasy a mandáty stran), ne jmenovité hlasování zastupitelstva o starostovi — to je v zápisech z ustavujících zasedání, které má Pečky digitalizované v systému usneseni.cz až od dubna 2021. Pro roky 2014 a 2018 proto přesný poměr hlasů pro/proti/zdržel se nikde online nedohledáme; z dobového tisku se ale dá zjistit, jak silná byla povolební koalice.</p>
 
+    <button class="toggle-details" type="button" aria-expanded="false" aria-controls="details-historie">Více informací (rozbalit)</button>
+    <div class="details-block" id="details-historie" hidden>
     <table class="register">
       <thead>
         <tr><th>Rok</th><th>Starosta/ka</th><th>Uskupení</th><th>Síla koalice</th></tr>
@@ -658,11 +743,34 @@
     </table>
 
     <div class="callout" style="margin-top:22px;">
-      <strong>Zajímavý detail:</strong> Alena Švejnohová, starostka a vítězka voleb 2018 za SNK Naše Pečky (koalice 13 z 21 mandátů), dnes v zastupitelstvu 2022–2026 sedí jako řadová zastupitelka za nástupnické uskupení NAŠE PEČKY bez křesla v radě. Stejná značka, která v roce 2018 pohodlně vedla radnici, v roce 2022 sice znovu vyhrála volby, ale skončila mimo koalici — viz vysvětlení výše.
+      <strong>Zajímavý detail:</strong> Alena Švejnohová, starostka a vítězka voleb 2018 za SNK Naše Pečky (koalice 13 z 21 mandátů), dnes v zastupitelstvu 2022–2026 sedí jako řadová zastupitelka za nástupnické uskupení NAŠE PEČKY bez křesla v radě. Stejná značka, která v roce 2018 pohodlně vedla radnici, v roce 2022 sice znovu vyhrála volby, ale skončila mimo koalici — viz vysvětlení výše na této záložce.
     </div>
 
     <div class="callout" style="margin-top:14px;">
       Zdroje: <a href="https://kolinsky.denik.cz/zpravy-region/jak-dopadly-volby-v-dalsich-mestech-v-regionu/" target="_blank" rel="noopener">Kolínský deník — výsledky voleb 2014 ↗</a>, <a href="https://kolinsky.denik.cz/zpravy-region/v-peckach-dohodli-koalici-na-ustavujici-zastupitelstvo-si-ale-jeste-pockaji/" target="_blank" rel="noopener">koaliční dohoda 2018 ↗</a>, <a href="https://kolinsky.denik.cz/zpravy-region/pecky-maji-starostku-alenu-svejnohovou-resit-chce-severni-obchvat-mesta/" target="_blank" rel="noopener">zvolení starostky 2018 ↗</a>. Digitální archiv usnesení: <a href="https://mesto-pecky.usneseni.cz/verejne/?page=19" target="_blank" rel="noopener">mesto-pecky.usneseni.cz ↗</a> (nejstarší záznam 4/2021).
+    </div>
+    </div>
+
+    <h3 class="display" style="font-size:19px; margin:34px 0 4px;">Volební účast stoupá</h3>
+    <p class="lede" style="margin-bottom:16px;">Komunální volby mají v Česku dlouhodobě jednu z vyšších účastí ze všech typů voleb — mezi lety 2014 a 2022 se celostátní průměr pohyboval od 44,46 % do 47,34 %, výrazně nad senátními volbami (10–20 %) nebo volbami do Evropského parlamentu (18,2 % v roce 2014). Podle Wikipedie je hlavním důvodem to, že lidé v komunálních volbách často osobně znají kandidáty, o kterých rozhodují. V Pečkách navíc účast od roku 2014 soustavně roste a v posledních dvou volbách už znatelně převyšuje celostátní průměr.</p>
+
+    <button class="toggle-details" type="button" aria-expanded="false" aria-controls="details-ucast">Více informací (rozbalit)</button>
+    <div class="details-block" id="details-ucast" hidden>
+    <table class="register">
+      <thead>
+        <tr><th>Rok</th><th>Účast v Pečkách</th><th>Průměr ČR</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>2014</td><td>40,80 %</td><td>44,46 %</td></tr>
+        <tr><td>2018</td><td>48,81 %</td><td>47,34 %</td></tr>
+        <tr><td>2022</td><td>52,36 %</td><td>46,07 %</td></tr>
+      </tbody>
+    </table>
+
+    <div class="callout" style="margin-top:22px;">
+      Zdroje: <a href="https://volby.gov.cz/pls/kv2022/vysledky_obec?datumvoleb=20220923&amp;cislo_obce=537641" target="_blank" rel="noopener">ČSÚ — otevřená data, volby.gov.cz (obec 537641 Pečky)</a> za jednotlivé roky. Celostátní průměry: <a href="https://cs.wikipedia.org/wiki/Volby_do_zastupitelstev_obc%C3%AD_v_%C4%8Cesku#Volebn%C3%AD_%C3%BA%C4%8Dast" target="_blank" rel="noopener">Wikipedie — Volby do zastupitelstev obcí v Česku, sekce Volební účast ↗</a>.
+    </div>
+    </div>
     </div>
   </section>
 
@@ -1210,6 +1318,53 @@
 
   // úvodní vykreslení podle URL (funguje i přímý odkaz/záložka na konkrétní sekci, např. /#volby)
   applyPanel(currentHashPanel(), {scroll: false});
+</script>
+
+<script>
+  // ===== Podzáložky uvnitř panelu (např. Volby 2022: Předvolební sliby / Jak to dopadlo / Rozbor) =====
+  document.querySelectorAll('.subtabs').forEach(nav => {
+    const links = nav.querySelectorAll('.subtablink');
+    const panels = nav.parentElement.querySelectorAll(':scope > .subpanel');
+    links.forEach(link => {
+      link.addEventListener('click', () => {
+        links.forEach(l => l.classList.remove('active'));
+        panels.forEach(p => p.classList.remove('active'));
+        link.classList.add('active');
+        const target = nav.parentElement.querySelector('#subpanel-' + link.dataset.subpanel);
+        if (target) target.classList.add('active');
+        nav.scrollIntoView({behavior: 'smooth', block: 'start'});
+      });
+    });
+  });
+
+  // ===== Kartičky volebních programů: klik přepíná zobrazený přepis =====
+  document.querySelectorAll('.promises-grid').forEach(grid => {
+    const cards = grid.querySelectorAll('.promise-card');
+    const detail = grid.nextElementSibling;
+    cards.forEach(card => {
+      card.addEventListener('click', () => {
+        cards.forEach(c => c.classList.remove('active'));
+        card.classList.add('active');
+        if (detail) {
+          detail.querySelectorAll('.promise-text').forEach(t => t.classList.remove('active'));
+          const target = detail.querySelector('#promise-' + card.dataset.promise);
+          if (target) target.classList.add('active');
+        }
+      });
+    });
+  });
+
+  // ===== Rozbalovací bloky (tlačítko "Více informací") =====
+  document.querySelectorAll('.toggle-details').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const target = document.getElementById(btn.getAttribute('aria-controls'));
+      if (!target) return;
+      const expanded = btn.getAttribute('aria-expanded') === 'true';
+      btn.setAttribute('aria-expanded', String(!expanded));
+      target.hidden = expanded;
+      btn.textContent = expanded ? 'Více informací (rozbalit)' : 'Méně informací (sbalit)';
+    });
+  });
 </script>
 
 <script>
