@@ -164,6 +164,16 @@
   }
   .callout strong{color:var(--ink);}
 
+  /* ===== rozklikávací řádky tabulky (výdaje podle kategorií) ===== */
+  .exp-row{cursor:pointer;}
+  .exp-row:hover td{background:rgba(124,47,43,0.035);}
+  .exp-toggle{width:20px; text-align:center; color:var(--burgundy); font-weight:600; font-family:'IBM Plex Mono',monospace; padding-right:2px !important;}
+  .exp-detail td{padding:0 !important; border-bottom:1px solid var(--line);}
+  .exp-detail table.subtable{width:100%; border-collapse:collapse; font-size:13px; margin:0;}
+  .exp-detail table.subtable td{padding:7px 10px 7px 40px; border-bottom:1px dotted var(--line); color:var(--ink-soft);}
+  .exp-detail table.subtable td:last-child{text-align:right; padding-right:10px; white-space:nowrap; width:110px;}
+  .exp-detail table.subtable tr:last-child td{border-bottom:none;}
+
   .card-grid{display:grid; grid-template-columns:repeat(auto-fill,minmax(220px,1fr)); gap:14px; margin-top:18px;}
 
   .noviny-grid{display:grid; grid-template-columns:repeat(6,1fr); gap:16px; margin-top:16px;}
@@ -194,12 +204,18 @@
   .avatar{width:64px; height:64px; border-radius:50%; object-fit:cover; display:block; margin-bottom:10px; border:1px solid var(--line); background:var(--parchment-deep);}
   .avatar-fallback{width:64px; height:64px; border-radius:50%; display:flex; align-items:center; justify-content:center; margin-bottom:10px; font-family:'Fraunces',serif; font-weight:600; font-size:20px; color:#fff; flex-shrink:0;}
   .people-group h3{font-size:19px; margin:34px 0 4px;}
-  .person-card.party-nasepecky{background:#F9CDD2; border-color:#E20514;}
+  .person-card.party-nasepecky{background:#DADADA; border-color:#4A4A4A;}
   .person-card.party-ods{background:#CCD2E5; border-color:#1F2363;}
   .person-card.party-snk{background:#EBD9E6; border-color:#A6528F;}
   .person-card.party-spd{background:#E5DBD0; border-color:#8B5A2B;}
   .person-card.party-cssd{background:#FFDFDF; border-color:#FF5F60;}
   .person-card.party-lidovci{background:#F7E6B8; border-color:#EBB91E;}
+  .people-avatars{display:flex; flex-wrap:wrap; gap:4px; max-width:340px;}
+  .people-avatars .av-img{width:26px; height:26px; border-radius:50%; object-fit:cover; border:1px solid var(--line); background:var(--parchment-deep);}
+  .people-avatars .av-init{width:26px; height:26px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-family:'IBM Plex Mono',monospace; font-weight:600; font-size:9px; color:#fff; flex-shrink:0;}
+  .socials-cell{display:flex; flex-direction:column; gap:3px; font-size:12.5px;}
+  .socials-cell a{color:var(--burgundy);}
+  .none-found{color:var(--ink-soft); font-size:12.5px;}
 
   .subject-box{
     border:1px solid var(--ink); padding:18px 20px; background:var(--parchment-deep); margin-bottom:24px;
@@ -207,6 +223,13 @@
   }
   .subject-box .k{font-family:'IBM Plex Mono',monospace; font-size:11px; text-transform:uppercase; color:var(--ink-soft);}
   .subject-box .v{font-weight:500; font-size:14px;}
+
+  /* ===== hero stat cards (rychlé shrnutí čísel) ===== */
+  .stat-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:14px; margin:24px 0 30px;}
+  @media (max-width:720px){.stat-grid{grid-template-columns:repeat(2,1fr);}}
+  .stat-card{border:1px solid var(--line); background:rgba(255,255,255,0.35); padding:18px 16px; text-align:center;}
+  .stat-num{font-family:'Fraunces',serif; font-weight:700; font-size:27px; color:var(--burgundy); line-height:1.15;}
+  .stat-label{font-family:'IBM Plex Mono',monospace; font-size:10.5px; color:var(--ink-soft); text-transform:uppercase; letter-spacing:0.03em; margin-top:7px; line-height:1.45;}
 
   .footer-note{
     font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--ink-soft);
@@ -273,6 +296,8 @@
     <button class="navlink" data-panel="volby2026">Volby 2026</button>
     <button class="navlink" data-panel="jednani">Jednání</button>
     <button class="navlink" data-panel="smlouvy">Smlouvy</button>
+    <button class="navlink" data-panel="zakazky">Zakázky</button>
+    <button class="navlink" data-panel="pokladna">Pokladna</button>
     <button class="navlink" data-panel="zpravodaj">Pečecké noviny</button>
     <button class="navlink" data-panel="owebu">O webu</button>
   </nav>
@@ -284,53 +309,22 @@
   <section class="panel active" id="panel-domu">
     <p class="eyebrow">Pečky · Středočeský kraj · okres Kolín</p>
     <h2 class="title display">Radnice, kterou lze přečíst</h2>
-    <p class="lede">Přehled samosprávy města Pečky — kdo město vede, jak je rozdělené zastupitelstvo a za co radnice utrácí. Sestaveno z veřejně dostupných zdrojů, na jednom místě.</p>
+    <p class="lede">Přehled samosprávy města Pečky — kdo město vede, jak je rozdělené zastupitelstvo a za co radnice utrácí. <strong>Web je sestavovaný a průběžně aktualizovaný poloautomaticky s pomocí AI — všechny uvedené informace jsou ale ověřené a čerpají výhradně z veřejně dostupných zdrojů.</strong> Kompletní přehled zdrojů a odkazy najdeš v sekci O webu.</p>
 
-    <div class="hero-grid">
-      <div class="facts">
-        <dl>
-          <dt>Status</dt><dd>Město (od 1925), předtím městys od 1879</dd>
-          <dt>První zmínka</dt><dd>1225, darovací listina Přemysla Otakara I.</dd>
-          <dt>Části obce</dt><dd>Pečky (4 195 ob.) · Velké Chvalovice (539 ob.)</dd>
-          <dt>Obyvatel</dt><dd>4 874 <span style="color:var(--ink-soft); font-weight:400;">(k 1.1.2025)</span></dd>
-          <dt>Rozloha</dt><dd>10,76 km²</dd>
-          <dt>Řeka</dt><dd>Výrovka</dd>
-          <dt>Starosta</dt><dd>Milan Paluska</dd>
-          <dt>ORP</dt><dd>Pečky — spravuje i Cerhenice, Dobřichov, Chotutice, Plaňany, Radim, Ratenice, Vrbčany</dd>
-        </dl>
-      </div>
-      <div class="quicklinks">
-        <a class="qlink" href="http://pecky.cz" target="_blank" rel="noopener">
-          <span class="lbl">Oficiální web města</span><span class="url">pecky.cz ↗</span>
-        </a>
-        <a class="qlink" href="https://www.facebook.com/mestopecky" target="_blank" rel="noopener">
-          <span class="lbl">Facebook města</span><span class="url">/mestopecky ↗</span>
-        </a>
-        <a class="qlink" href="https://www.youtube.com/@mestopecky" target="_blank" rel="noopener">
-          <span class="lbl">YouTube kanál</span><span class="url">@mestopecky ↗</span>
-        </a>
-        <a class="qlink" href="https://www.hlidacstatu.cz/subjekt/00239607" target="_blank" rel="noopener">
-          <span class="lbl">Profil na Hlídači státu</span><span class="url">IČO 00239607 ↗</span>
-        </a>
-        <a class="qlink" href="https://mesto-pecky.usneseni.cz/verejne/" target="_blank" rel="noopener">
-          <span class="lbl">Zápisy a usnesení ZM/RM</span><span class="url">usneseni.cz ↗</span>
-        </a>
-        <a class="qlink" href="https://www.facebook.com/kspecky" target="_blank" rel="noopener">
-          <span class="lbl">Facebook — Kulturní středisko</span><span class="url">/kspecky ↗</span>
-        </a>
-        <a class="qlink" href="https://smlouvy.gov.cz/vyhledavani?dotaz=M%C4%9Bsto%20Pe%C4%8Dky" target="_blank" rel="noopener">
-          <span class="lbl">Registr smluv</span><span class="url">smlouvy.gov.cz ↗</span>
-        </a>
-        <a class="qlink" href="https://volby.gov.cz/opendata/opendata.htm" target="_blank" rel="noopener">
-          <span class="lbl">Otevřená data voleb (ČSÚ)</span><span class="url">volby.gov.cz ↗</span>
-        </a>
-        <a class="qlink" href="https://pececkesluzby.cz/" target="_blank" rel="noopener">
-          <span class="lbl">Pečecké služby s.r.o.</span><span class="url">pececkesluzby.cz ↗</span>
-        </a>
-      </div>
+    <div class="facts">
+      <dl>
+        <dt>Status</dt><dd>Město (od 1925), předtím městys od 1879</dd>
+        <dt>První zmínka</dt><dd>1225, darovací listina Přemysla Otakara I.</dd>
+        <dt>Části obce</dt><dd>Pečky (4 195 ob.) · Velké Chvalovice (539 ob.)</dd>
+        <dt>Obyvatel</dt><dd>4 874 <span style="color:var(--ink-soft); font-weight:400;">(k 1.1.2025)</span></dd>
+        <dt>Rozloha</dt><dd>10,76 km²</dd>
+        <dt>Řeka</dt><dd>Výrovka</dd>
+        <dt>Starosta</dt><dd>Milan Paluska</dd>
+        <dt>ORP</dt><dd>Pečky — spravuje i Cerhenice, Dobřichov, Chotutice, Plaňany, Radim, Ratenice, Vrbčany</dd>
+      </dl>
     </div>
 
-    <div class="callout">
+    <div class="callout" style="margin-top:20px;">
       <strong>O čem tento web je:</strong> Pečky nemají tak rozsáhlá otevřená data jako velké městské části — tenhle web je proto zatím menší než svůj vzor. Rozšiřuje se postupně, jak přibývají ověřitelné zdroje. Chybějící nebo neúplné údaje jsou v každé sekci označené. Kompletní seznam zdrojů i s poznámkami o jejich dostupnosti je v <code>sources.json</code> v repozitáři projektu.
     </div>
   </section>
@@ -495,19 +489,61 @@
     <p class="lede">Poslední komunální volby v Pečkách proběhly 23.–24. září 2022, účast byla 52,36 %. Kandidovalo šest uskupení, pět z nich získalo mandát. Níže jsou všechna uskupení s výsledky a shrnutím jejich volebního programu. <span class="stamp">ověřeno</span></p>
 
     <div class="subtabs" role="tablist" aria-label="Části stránky Volby 2022">
-      <button class="subtablink active" type="button" data-subpanel="sliby">Předvolební sliby</button>
+      <button class="subtablink active" type="button" data-subpanel="uskupeni">Volební uskupení</button>
+      <button class="subtablink" type="button" data-subpanel="sliby">Předvolební sliby</button>
       <button class="subtablink" type="button" data-subpanel="vysledek">Výsledky voleb</button>
       <button class="subtablink" type="button" data-subpanel="rozbor">Rozbor</button>
     </div>
 
-    <div class="subpanel active" id="subpanel-sliby">
+    <div class="subpanel active" id="subpanel-uskupeni">
+    <h3 class="display" style="font-size:19px; margin:0 0 4px;">Volební uskupení</h3>
+    <p class="lede" style="margin-bottom:16px;">Voleb 2022 se v Pečkách účastnilo šest uskupení. Konkrétní výsledky jsou v záložce Výsledky voleb, předvolební programy v záložce Předvolební sliby.</p>
+    <table class="register">
+      <thead><tr><th>Uskupení</th><th>Lidé</th><th>Sociální sítě</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><span class="swatch" style="background:#4A4A4A;"></span>NAŠE PEČKY (STAN + nezávislí)</td>
+          <td><div class="people-avatars"><img class="av-img" src="img/zastupitele/svejnohova.jpg" alt="Mgr. Alena Švejnohová" title="Mgr. Alena Švejnohová" loading="lazy"><img class="av-img" src="img/zastupitele/dvorakova.jpg" alt="Bc. Iveta Dvořáková" title="Bc. Iveta Dvořáková" loading="lazy"><img class="av-img" src="img/zastupitele/vodicka-tomas.jpg" alt="Tomáš Vodička" title="Tomáš Vodička" loading="lazy"><img class="av-img" src="img/zastupitele/horynova.jpg" alt="Šárka Horynová" title="Šárka Horynová" loading="lazy"><img class="av-img" src="img/zastupitele/katrnoska.jpg" alt="Jiří Katrnoška" title="Jiří Katrnoška" loading="lazy"><img class="av-img" src="img/zastupitele/zelezny.jpg" alt="Jaroslav Železný" title="Jaroslav Železný" loading="lazy"><img class="av-img" src="img/zastupitele/drska.jpg" alt="Václav Drška" title="Václav Drška" loading="lazy"><img class="av-img" src="img/zastupitele/schulz.jpg" alt="Ondřej Schulz" title="Ondřej Schulz" loading="lazy"><img class="av-img" src="img/zastupitele/heroldova.jpg" alt="Mgr. Jaroslava Heroldová, DiS." title="Mgr. Jaroslava Heroldová, DiS." loading="lazy"><img class="av-img" src="img/zastupitele/vodicka-libor.jpg" alt="Mgr. Libor Vodička, Ph.D." title="Mgr. Libor Vodička, Ph.D." loading="lazy"><img class="av-img" src="img/zastupitele/korous.jpg" alt="Ing. Jan Korouš, Ph.D." title="Ing. Jan Korouš, Ph.D." loading="lazy"><img class="av-img" src="img/zastupitele/vratna.jpg" alt="Ing. Nikola Vrátná" title="Ing. Nikola Vrátná" loading="lazy"><img class="av-img" src="img/zastupitele/pospisil.jpg" alt="Ing. František Pospíšil" title="Ing. František Pospíšil" loading="lazy"><img class="av-img" src="img/zastupitele/houdkova.jpg" alt="Mgr. Lucie Houdková" title="Mgr. Lucie Houdková" loading="lazy"><img class="av-img" src="img/zastupitele/schurzova.jpg" alt="MUDr. Věra Schürzová" title="MUDr. Věra Schürzová" loading="lazy"><img class="av-img" src="img/zastupitele/novak.jpg" alt="Miloš Novák" title="Miloš Novák" loading="lazy"><img class="av-img" src="img/zastupitele/zatrepalek.jpg" alt="Otakar Zatřepálek" title="Otakar Zatřepálek" loading="lazy"><img class="av-img" src="img/zastupitele/janackova.jpg" alt="Viktorie Janáčková, MSc." title="Viktorie Janáčková, MSc." loading="lazy"><img class="av-img" src="img/zastupitele/lebduska.jpg" alt="Mgr. Václav Lebduška" title="Mgr. Václav Lebduška" loading="lazy"><img class="av-img" src="img/zastupitele/nedoma.jpg" alt="Ing. David Nedoma" title="Ing. David Nedoma" loading="lazy"><img class="av-img" src="img/zastupitele/vlk.jpg" alt="PhDr. Miloslav Vlk" title="PhDr. Miloslav Vlk" loading="lazy"></div></td>
+          <td><div class="socials-cell"><a href="https://www.facebook.com/nasepecky" target="_blank" rel="noopener">Facebook ↗</a><a href="https://www.nasepecky.cz/" target="_blank" rel="noopener">Web ↗</a></div></td>
+        </tr>
+        <tr>
+          <td><span class="swatch" style="background:#1F2363;"></span>Sdružení ODS a nezávislých kandidátů</td>
+          <td><div class="people-avatars"><img class="av-img" src="img/zastupitele/paluska.jpg" alt="Milan Paluska" title="Milan Paluska" loading="lazy"><img class="av-img" src="img/zastupitele/kristoufek.jpg" alt="Ing. Karel Krištoufek" title="Ing. Karel Krištoufek" loading="lazy"><img class="av-img" src="img/zastupitele/fejfar.jpg" alt="Zdeněk Fejfar" title="Zdeněk Fejfar" loading="lazy"><img class="av-img" src="img/zastupitele/kuprova.jpg" alt="Ing. Hana Kuprová" title="Ing. Hana Kuprová" loading="lazy"><img class="av-img" src="img/zastupitele/trckova.jpg" alt="Ivana Trčková" title="Ivana Trčková" loading="lazy"><img class="av-img" src="img/zastupitele/zednik.jpg" alt="Ing. Petr Zedník" title="Ing. Petr Zedník" loading="lazy"><img class="av-img" src="img/zastupitele/dedkova.jpg" alt="Marcela Dědkova" title="Marcela Dědkova" loading="lazy"><img class="av-img" src="img/zastupitele/stanek.jpg" alt="Ing. Aleš Staněk" title="Ing. Aleš Staněk" loading="lazy"><img class="av-img" src="img/zastupitele/hruska-jan.jpg" alt="Ing. Jan Hruška" title="Ing. Jan Hruška" loading="lazy"><img class="av-img" src="img/zastupitele/hruska-ivan.jpg" alt="Ing. Ivan Hruška, CSc." title="Ing. Ivan Hruška, CSc." loading="lazy"><img class="av-img" src="img/zastupitele/kapralek.jpg" alt="Bc. Jan Kaprálek" title="Bc. Jan Kaprálek" loading="lazy"><img class="av-img" src="img/zastupitele/urban.jpg" alt="Milan Urban" title="Milan Urban" loading="lazy"><img class="av-img" src="img/zastupitele/krizova.jpg" alt="Mgr. Věra Křížová" title="Mgr. Věra Křížová" loading="lazy"><img class="av-img" src="img/zastupitele/kupr.jpg" alt="Mgr. Pavel Kupr" title="Mgr. Pavel Kupr" loading="lazy"><img class="av-img" src="img/zastupitele/rumlena.jpg" alt="Michal Rumlena" title="Michal Rumlena" loading="lazy"><img class="av-img" src="img/zastupitele/olesnanova.jpg" alt="Martina Lucie Olešňanová" title="Martina Lucie Olešňanová" loading="lazy"><img class="av-img" src="img/zastupitele/sima.jpg" alt="Mgr. Michal Šíma" title="Mgr. Michal Šíma" loading="lazy"><img class="av-img" src="img/zastupitele/holub.jpg" alt="Karel Holub" title="Karel Holub" loading="lazy"><img class="av-img" src="img/zastupitele/peskova.jpg" alt="Hana Pešková" title="Hana Pešková" loading="lazy"><img class="av-img" src="img/zastupitele/lukas.jpg" alt="Jaroslav Lukáš" title="Jaroslav Lukáš" loading="lazy"><img class="av-img" src="img/zastupitele/kristoufkova.jpg" alt="Mgr. Lenka Krištoufková" title="Mgr. Lenka Krištoufková" loading="lazy"></div></td>
+          <td><div class="socials-cell"><a href="https://www.facebook.com/odspecky.cz/" target="_blank" rel="noopener">Facebook ↗</a></div></td>
+        </tr>
+        <tr>
+          <td><span class="swatch" style="background:#A6528F;"></span>SNK Pečky Pečákům</td>
+          <td><div class="people-avatars"><span class="av-init" style="background:#A6528F;" title="Ing. Martin Jedlička">MJ</span><span class="av-init" style="background:#A6528F;" title="Milan Pečenka">MP</span><span class="av-init" style="background:#A6528F;" title="Michal Müller">MM</span><span class="av-init" style="background:#A6528F;" title="Luboš Holub">LH</span><span class="av-init" style="background:#A6528F;" title="Dušan Říha">DŘ</span><span class="av-init" style="background:#A6528F;" title="Roman Pejřil">RP</span><span class="av-init" style="background:#A6528F;" title="Ing. Šárka Jedličková">ŠJ</span><span class="av-init" style="background:#A6528F;" title="Pavel Sedláček">PS</span><span class="av-init" style="background:#A6528F;" title="Aleš Hájek">AH</span><span class="av-init" style="background:#A6528F;" title="Antonín Černý">AČ</span><span class="av-init" style="background:#A6528F;" title="Tomáš Cihlář">TC</span><span class="av-init" style="background:#A6528F;" title="Jan Hotovec">JH</span><span class="av-init" style="background:#A6528F;" title="Kristýna Vorlíčková">KV</span><span class="av-init" style="background:#A6528F;" title="Petr Šedina">PŠ</span><span class="av-init" style="background:#A6528F;" title="Tomáš Jedlička">TJ</span><span class="av-init" style="background:#A6528F;" title="Jana Doležalová">JD</span><span class="av-init" style="background:#A6528F;" title="Michal Špik">MŠ</span><span class="av-init" style="background:#A6528F;" title="Jan Kadlec">JK</span><span class="av-init" style="background:#A6528F;" title="Alena Vaz Santos">AS</span><span class="av-init" style="background:#A6528F;" title="Marie Čerychová">MČ</span><span class="av-init" style="background:#A6528F;" title="Miroslav Hartman">MH</span></div></td>
+          <td><div class="socials-cell"><a href="https://www.facebook.com/peckypecakum/" target="_blank" rel="noopener">Facebook ↗</a></div></td>
+        </tr>
+        <tr>
+          <td><span class="swatch" style="background:#8B5A2B;"></span>Lidé pro Pečky s podporou SPD</td>
+          <td><div class="people-avatars"><span class="av-init" style="background:#8B5A2B;" title="Lenka Třísková">LT</span><span class="av-init" style="background:#8B5A2B;" title="Jaroslava Vosecká">JV</span><span class="av-init" style="background:#8B5A2B;" title="Lubomír Metelák">LM</span><span class="av-init" style="background:#8B5A2B;" title="Viliam Szöcs">VS</span><span class="av-init" style="background:#8B5A2B;" title="Marie Vlková">MV</span><span class="av-init" style="background:#8B5A2B;" title="Tomáš Růžička">TR</span><span class="av-init" style="background:#8B5A2B;" title="Aneta Špičáková">AŠ</span><span class="av-init" style="background:#8B5A2B;" title="Jana Richterová">JR</span><span class="av-init" style="background:#8B5A2B;" title="Jaroslava Veselá">JV</span><span class="av-init" style="background:#8B5A2B;" title="Petr Klokočník">PK</span><span class="av-init" style="background:#8B5A2B;" title="Tomáš Musil">TM</span><span class="av-init" style="background:#8B5A2B;" title="Iveta Vejdovská">IV</span><span class="av-init" style="background:#8B5A2B;" title="Juraj Köszeghy">JK</span><span class="av-init" style="background:#8B5A2B;" title="Jaromír Vosmanský">JV</span><span class="av-init" style="background:#8B5A2B;" title="Lucie Křížková">LK</span><span class="av-init" style="background:#8B5A2B;" title="Renáta Hovorková">RH</span><span class="av-init" style="background:#8B5A2B;" title="Jaroslav Špičák">JŠ</span><span class="av-init" style="background:#8B5A2B;" title="Jitka Vernerová">JV</span><span class="av-init" style="background:#8B5A2B;" title="Milan Chrastný">MC</span><span class="av-init" style="background:#8B5A2B;" title="Lenka Musilová, DiS.">LM</span><span class="av-init" style="background:#8B5A2B;" title="Jindřiška Kremlová">JK</span></div></td>
+          <td><div class="socials-cell"><a href="https://www.facebook.com/groups/1080849193521600" target="_blank" rel="noopener">Facebook skupina ↗</a></div></td>
+        </tr>
+        <tr>
+          <td><span class="swatch" style="background:#FF5F60;"></span>ČSSD a sjednocená levice</td>
+          <td><div class="people-avatars"><span class="av-init" style="background:#FF5F60;" title="Ing. Petr Dürr">PD</span><span class="av-init" style="background:#FF5F60;" title="Mgr. Bc. Lenka Krúpová">LK</span><span class="av-init" style="background:#FF5F60;" title="Ivana Pánková">IP</span><span class="av-init" style="background:#FF5F60;" title="Ing. Vlastimil Kroužek">VK</span><span class="av-init" style="background:#FF5F60;" title="Ladislav Kejda">LK</span><span class="av-init" style="background:#FF5F60;" title="Lucie Straková">LS</span><span class="av-init" style="background:#FF5F60;" title="Venuše Zalabáková">VZ</span><span class="av-init" style="background:#FF5F60;" title="Renata Volková">RV</span><span class="av-init" style="background:#FF5F60;" title="Tomáš Mecera">TM</span><span class="av-init" style="background:#FF5F60;" title="Jiří Urban">JU</span><span class="av-init" style="background:#FF5F60;" title="Jan Dřízhal">JD</span><span class="av-init" style="background:#FF5F60;" title="Petr Jeřábek">PJ</span><span class="av-init" style="background:#FF5F60;" title="Jan Zalabák">JZ</span><span class="av-init" style="background:#FF5F60;" title="Radka Hájková">RH</span><span class="av-init" style="background:#FF5F60;" title="Luděk Vinohradník">LV</span><span class="av-init" style="background:#FF5F60;" title="Andrea Urbanová">AU</span><span class="av-init" style="background:#FF5F60;" title="Zuzana Peštová">ZP</span><span class="av-init" style="background:#FF5F60;" title="Milan Merhaut">MM</span><span class="av-init" style="background:#FF5F60;" title="Marek Vondráček">MV</span><span class="av-init" style="background:#FF5F60;" title="Pavel Sršeň">PS</span><span class="av-init" style="background:#FF5F60;" title="Lena Urbanová">LU</span></div></td>
+          <td><span class="none-found">—</span></td>
+        </tr>
+        <tr>
+          <td><span class="swatch" style="background:#EBB91E;"></span>Lidovci a nezávislí</td>
+          <td><div class="people-avatars"><span class="av-init" style="background:#EBB91E;" title="Mgr. Petr Zavřel">PZ</span><span class="av-init" style="background:#EBB91E;" title="Bc. Jaroslava Bulíčková">JB</span><span class="av-init" style="background:#EBB91E;" title="Bc. Martin Hruška, DiS.">MH</span><span class="av-init" style="background:#EBB91E;" title="Ing. Pavel Krejčí">PK</span><span class="av-init" style="background:#EBB91E;" title="Ing. Zdenka Zavřelová">ZZ</span><span class="av-init" style="background:#EBB91E;" title="Jana Nejedlá">JN</span><span class="av-init" style="background:#EBB91E;" title="Bc. Ester Middleditch">EM</span><span class="av-init" style="background:#EBB91E;" title="Pavel Krejčí">PK</span><span class="av-init" style="background:#EBB91E;" title="Stanislav Turyna">ST</span><span class="av-init" style="background:#EBB91E;" title="Ing. Ludmila Sádecká">LS</span><span class="av-init" style="background:#EBB91E;" title="Josef Sádecký">JS</span><span class="av-init" style="background:#EBB91E;" title="Helena Tvarohová">HT</span><span class="av-init" style="background:#EBB91E;" title="Anna Mojžíšová">AM</span><span class="av-init" style="background:#EBB91E;" title="Jiřina Hynková">JH</span><span class="av-init" style="background:#EBB91E;" title="Pavel Šulc">PŠ</span><span class="av-init" style="background:#EBB91E;" title="Marie Krejčová">MK</span><span class="av-init" style="background:#EBB91E;" title="Bc. Eliška Gezo, DiS.">EG</span><span class="av-init" style="background:#EBB91E;" title="Valeria Dolečková">VD</span><span class="av-init" style="background:#EBB91E;" title="Božena Andresová">BA</span><span class="av-init" style="background:#EBB91E;" title="Marie Váňová">MV</span><span class="av-init" style="background:#EBB91E;" title="Ing. Václav Zavřel">VZ</span></div></td>
+          <td><div class="socials-cell"><a href="https://www.facebook.com/lidovci.pecky" target="_blank" rel="noopener">Facebook ↗</a></div></td>
+        </tr>
+      </tbody>
+    </table>
+    <p class="program-note">Kompletní kandidátní listiny (21 kandidátů na uskupení) podle ČSÚ / novinky.cz — u jmen bez fotografie je zobrazen barevný avatar s iniciálami, plné jméno se zobrazí po najetí myší. Fotografie se podařilo dohledat u obou kandidátek, které je zveřejnily ve volebním inzerátu v Pečeckých novinách 9/2022 — NAŠE PEČKY (str. 11, 21 z 21) a Sdružení ODS a nezávislých kandidátů (str. 9, 21 z 21). U zbylých čtyř uskupení (SNK Pečky Pečákům, Lidé pro Pečky s podporou SPD, ČSSD a sjednocená levice, Lidovci a nezávislí) jejich inzerce obsahovala jen jmenný seznam bez portrétních fotek — Lidovci přímo uvádí, že „nechtějí stavět politiku na líbivých fotkách“.</p>
+    </div>
+
+    <div class="subpanel" id="subpanel-sliby">
     <h3 class="display" style="font-size:19px; margin:0 0 4px;">Volební programy - aneb co kdo sliboval</h3>
     <p class="lede" style="margin-bottom:18px;">Shrnutí volebních programů z inzertních stran Pečeckých novin 9/2022 (vydání těsně před volbami), doplněno o oficiální kandidátku ODS. Plné znění viz odkaz u každého uskupení.</p>
 
     <div class="promises-grid">
       <button class="promise-card party-nasepecky active" type="button" data-promise="nasepecky">
         <img src="img/volebni-programy-2022/nase-pecky.jpg" alt="Náhled strany 11 Pečeckých novin 9/2022 — volební inzerce NAŠE PEČKY" loading="lazy">
-        <span class="cap"><span class="swatch" style="background:#E20514;"></span>NAŠE PEČKY<span class="mandates">7 mandátů</span></span>
+        <span class="cap"><span class="swatch" style="background:#4A4A4A;"></span>NAŠE PEČKY<span class="mandates">7 mandátů</span></span>
       </button>
       <button class="promise-card party-ods" type="button" data-promise="ods">
         <img src="img/volebni-programy-2022/ods.jpg" alt="Náhled strany 9 Pečeckých novin 9/2022 — volební inzerce Sdružení ODS a nezávislých kandidátů" loading="lazy">
@@ -670,7 +706,7 @@
         <tr><th>Uskupení</th><th>Podíl</th><th>Mandátů</th><th>Výsledek</th></tr>
       </thead>
       <tbody>
-        <tr><td><span class="swatch" style="background:#E20514;"></span>NAŠE PEČKY (STAN + nezávislí)</td><td>30,29 %</td><td>7</td><td><span class="tag opozice">opozice</span> Vítěz voleb, nicméně skončili v opozici, nemají zastoupení v radě.</td></tr>
+        <tr><td><span class="swatch" style="background:#4A4A4A;"></span>NAŠE PEČKY (STAN + nezávislí)</td><td>30,29 %</td><td>7</td><td><span class="tag opozice">opozice</span> Vítěz voleb, nicméně skončili v opozici, nemají zastoupení v radě.</td></tr>
         <tr><td><span class="swatch" style="background:#1F2363;"></span>Sdružení ODS a nezávislých kandidátů</td><td>27,67 %</td><td>6</td><td><span class="tag koalice">koalice</span> Uzavřeli koalici se SNK Pečky Pečákům a ČSSD a sjednocenou levicí a jsou ve vedení radnice.</td></tr>
         <tr><td><span class="swatch" style="background:#A6528F;"></span>SNK Pečky Pečákům</td><td>16,18 %</td><td>3</td><td><span class="tag koalice">koalice</span> Uzavřeli koalici s ODS a NK a ČSSD a sjednocenou levicí a jsou ve vedení radnice.</td></tr>
         <tr><td><span class="swatch" style="background:#8B5A2B;"></span>Lidé pro Pečky s podporou SPD</td><td>13,94 %</td><td>3</td><td><span class="tag opozice">opozice</span> Skončili v opozici, nemají zastoupení v radě.</td></tr>
@@ -912,6 +948,249 @@
 
     <div class="callout" style="margin-top:22px;">
       <strong>Proč tabulka není interaktivní/živá v prohlížeči:</strong> data výše jsem stáhl přes konektor Hlídače státu napojený na tenhle chat — je to serverová integrace, ne veřejné API volatelné přímo z JavaScriptu v prohlížeči (chybí mu autorizační token a CORS přístup). Jde tedy o pravidelně aktualizovaný statický výřez, ne o živě se obnovující tabulku. Řekni, jak často to mám opakovat (např. při každé návštěvě tohoto chatu), a doplním nová čísla.
+    </div>
+  </section>
+
+  <!-- ================= ZAKÁZKY ================= -->
+  <section class="panel" id="panel-zakazky">
+    <p class="eyebrow">Veřejné zakázky · zákon 134/2016 Sb.</p>
+    <h2 class="title display">Zakázky</h2>
+    <p class="lede">Veřejná zakázka je výběrové řízení na dodavatele — fáze před podpisem samotné smlouvy (tu eviduje Registr smluv v sekci Smlouvy). Data pro Město Pečky sbírá a strukturuje Hlídač státu; níže je výřez z jejich veřejně přístupného vyhledávání zakázek. <span class="stamp">ověřeno</span></p>
+
+    <div class="subject-box">
+      <div><div class="k">Subjekt</div><div class="v">Město Pečky</div></div>
+      <div><div class="k">IČO</div><div class="v">00239607</div></div>
+      <div><div class="k">Nalezeno na Hlídači</div><div class="v">193 zakázek</div></div>
+    </div>
+
+    <div class="callout">
+      <strong>Nejvýznamnější aktuální investice:</strong> <strong>Dostavba učeben a tělocvičny v ZŠ Pečky</strong> za odhadovanou cenu <strong>168 614 851 Kč</strong> — zdaleka největší zakázka ve výřezu, s poslední změnou záznamu 10. 6. 2026. Následují dvě podobně pojmenované zakázky na rekonstrukci místních komunikací a vodovodního řadu za 23–32 mil. Kč (možná jde o projektovou a realizační fázi téže akce — tabulka na Hlídači zkracuje názvy, takže to nejde ověřit bez otevření detailu).
+    </div>
+
+    <h3 class="display" style="font-size:19px; margin:30px 0 4px;">Nejnovější zakázky (2025–2026)</h3>
+    <table class="register">
+      <thead><tr><th>Poslední změna</th><th>Název</th><th>Cena</th></tr></thead>
+      <tbody>
+        <tr><td>10. 6. 2026</td><td>Dostavba učeben a tělocvičny v ZŠ Pečky</td><td>168 614 851 Kč</td></tr>
+        <tr><td>6. 8. 2026</td><td>Rekonstrukce místních komunikací a vodovodní řad v…</td><td>32 425 117 Kč</td></tr>
+        <tr><td>9. 6. 2026</td><td>Rekonstrukce místních komunikací a vodovodní řad v…</td><td>23 213 648 Kč</td></tr>
+        <tr><td>9. 6. 2026</td><td>Pečky – rekonstrukce ul. Prokopa Holého a…</td><td>5 557 425 Kč</td></tr>
+        <tr><td>9. 6. 2026</td><td>Pečky – kalolis ČOV – modernizace</td><td>3 279 909 Kč</td></tr>
+        <tr><td>18. 6. 2026</td><td>Zeleň, záhony v intravilánu města Pečky – M. Alše a…</td><td>1 030 924 Kč</td></tr>
+        <tr><td>10. 6. 2026</td><td>Projektová příprava akcí souvisejících s…</td><td>1 270 856 Kč</td></tr>
+        <tr><td>18. 6. 2026</td><td>Obnova dětského hřiště Sídliště</td><td>neuvedena</td></tr>
+      </tbody>
+    </table>
+
+    <h3 class="display" style="font-size:19px; margin:30px 0 4px;">Největší zakázky ve výřezu</h3>
+    <table class="register">
+      <thead><tr><th>Cena</th><th>Název</th><th>Poslední změna</th></tr></thead>
+      <tbody>
+        <tr><td>168 614 851 Kč</td><td>Dostavba učeben a tělocvičny v ZŠ Pečky</td><td>10. 6. 2026</td></tr>
+        <tr><td>32 425 117 Kč</td><td>Rekonstrukce místních komunikací a vodovodní řad v…</td><td>6. 8. 2026</td></tr>
+        <tr><td>23 213 648 Kč</td><td>Rekonstrukce místních komunikací a vodovodní řad v…</td><td>9. 6. 2026</td></tr>
+        <tr><td>13 438 402 Kč <em>(odhad)</em></td><td>Rekonstrukce komunikací ul. M. Alše, části ul. K.…</td><td>29. 9. 2024</td></tr>
+        <tr><td>8 900 000 Kč <em>(odhad)</em></td><td>Domov pro každého — modulární domy pro Město Pečky</td><td>12. 9. 2022</td></tr>
+        <tr><td>8 728 840 Kč</td><td>Intenzifikace ČOV Pečky</td><td>20. 6. 2022</td></tr>
+        <tr><td>6 290 000 Kč</td><td>Revitalizace a obnova rybníku Benešák v Pečkách</td><td>9. 11. 2023</td></tr>
+      </tbody>
+    </table>
+
+    <table class="register" style="margin-top:26px;">
+      <thead><tr><th>Zdroj</th><th>Co obsahuje</th><th></th></tr></thead>
+      <tbody>
+        <tr>
+          <td>Hlídač veřejných zakázek — Město Pečky</td>
+          <td>vyhledávání všech zakázek dle IČO 00239607</td>
+          <td><a href="https://www.hlidacstatu.cz/verejnezakazky/hledat?Q=00239607" target="_blank" rel="noopener">otevřít ↗</a></td>
+        </tr>
+        <tr>
+          <td>Věstník veřejných zakázek</td>
+          <td>oficiální celostátní evidence zadávacích řízení</td>
+          <td><a href="https://vestnikverejnychzakazek.cz/" target="_blank" rel="noopener">otevřít ↗</a></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="callout" style="margin-top:22px;">
+      <strong>Proč tabulka není interaktivní/živá v prohlížeči:</strong> data výše jsem 6. 8. 2026 ručně stáhl z veřejně přístupného vyhledávání na Hlídači veřejných zakázek (bez přihlášení, bez API) — přes 190 záznamů napříč čtyřmi stránkami výsledků, z nichž je vybrán výřez výše. Ceny označené „odhad" jsou odhadovaná hodnota zakázky, ne nutně finální vysoutěžená cena. Jde o pravidelně aktualizovaný statický výřez, ne o živě se obnovující tabulku — řekni, jak často to mám opakovat, a doplním nová čísla.
+    </div>
+  </section>
+
+  <!-- ================= POKLADNA ================= -->
+  <section class="panel" id="panel-pokladna">
+    <p class="eyebrow">Rozpočet a hospodaření · Monitor Státní pokladny (MF ČR)</p>
+    <h2 class="title display">Pokladna</h2>
+    <p class="lede">Stručně: Pečky poslední čtyři roky hospodaří s přebytkem — skutečné příjmy pravidelně převyšují skutečné výdaje, i když se schválený rozpočet plánuje jako schodkový. Město nemá žádný úvěr ani dluhovou službu. Vedle běžného provozu (platy, služby, transfery) jde významná část peněz do investic — zejména do vodohospodářské infrastruktury, veřejného osvětlení a hasičů — často s vysokým podílem státních a evropských dotací. <span class="stamp">ověřeno</span></p>
+
+    <div class="stat-grid">
+      <div class="stat-card">
+        <div class="stat-num">0 Kč</div>
+        <div class="stat-label">dluhová služba<br>město nemá žádný úvěr</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">4 roky</div>
+        <div class="stat-label">v řadě v přebytku<br>2023–2026 (viz níže)</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">52,18 mil.</div>
+        <div class="stat-label">Kč investic v roce 2025<br>34 % celého rozpočtu</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">148</div>
+        <div class="stat-label">přijatých dotací<br>dohledáno od r. 2020</div>
+      </div>
+    </div>
+
+    <h3 class="display" style="font-size:19px; margin:30px 0 4px;">Na co město utrácí (rok 2025, celkem 155,55 mil. Kč)</h3>
+
+    <div class="seatbar" role="img" aria-label="Struktura výdajů města Pečky v roce 2025 podle kategorií">
+      <span style="width:16%; background:#8A7A9B;">Platy · 16 %</span>
+      <span style="width:17%; background:#AD7A2A;">Služby · 17 %</span>
+      <span style="width:26%; background:#54624A;">Transfery · 26 %</span>
+      <span style="width:8%; background:#8C8168;">Ostatní · 8 %</span>
+      <span style="width:33%; background:#7C2F2B;">Investice · 33 %</span>
+    </div>
+    <p class="majority-note">z toho 66 % (103,37 mil. Kč) běžný provoz, 34 % (52,18 mil. Kč) investice</p>
+
+    <table class="register" id="vydaje-table">
+      <thead><tr><th></th><th>Kategorie</th><th>Částka</th><th>Podíl</th></tr></thead>
+      <tbody>
+        <tr class="exp-row">
+          <td class="exp-toggle">+</td>
+          <td><span class="swatch" style="background:#8A7A9B;"></span>Platy a související výdaje</td><td>24,38 mil. Kč</td><td>16 %</td>
+        </tr>
+        <tr class="exp-detail" hidden><td colspan="4"><table class="subtable">
+          <tr><td>Platy zaměstnanců</td><td>13,34 mil. Kč</td></tr>
+          <tr><td>Odměny členů zastupitelstev</td><td>3,00 mil. Kč</td></tr>
+          <tr><td>Ostatní osobní výdaje</td><td>2,25 mil. Kč</td></tr>
+          <tr><td>Povinné pojistné (sociální, zdravotní, úrazové)</td><td>5,79 mil. Kč</td></tr>
+        </table></td></tr>
+
+        <tr class="exp-row">
+          <td class="exp-toggle">+</td>
+          <td><span class="swatch" style="background:#AD7A2A;"></span>Nákup služeb</td><td>26,36 mil. Kč</td><td>17 %</td>
+        </tr>
+        <tr class="exp-detail" hidden><td colspan="4"><table class="subtable">
+          <tr><td>Nákup ostatních služeb <span class="tag">nerozčleněno dál</span></td><td>23,75 mil. Kč</td></tr>
+          <tr><td>Zpracování dat a služby souvisejících s IKT</td><td>1,02 mil. Kč</td></tr>
+          <tr><td>Konzultační, poradenské a právní služby</td><td>378 tis. Kč</td></tr>
+          <tr><td>Služby peněžních ústavů</td><td>349 tis. Kč</td></tr>
+          <tr><td>Služby elektronických komunikací</td><td>262 tis. Kč</td></tr>
+          <tr><td>Služby školení a vzdělávání</td><td>245 tis. Kč</td></tr>
+          <tr><td>Poštovní služby</td><td>188 tis. Kč</td></tr>
+          <tr><td>Nájemné</td><td>165 tis. Kč</td></tr>
+        </table></td></tr>
+
+        <tr class="exp-row">
+          <td class="exp-toggle">+</td>
+          <td><span class="swatch" style="background:#54624A;"></span>Transfery veřejnoprávním subjektům a platby daní</td><td>39,97 mil. Kč</td><td>26 %</td>
+        </tr>
+        <tr class="exp-detail" hidden><td colspan="4"><table class="subtable">
+          <tr><td>Příspěvkovým organizacím města (školy, kulturní středisko, pečovatelská služba aj.)</td><td>31,98 mil. Kč</td></tr>
+          <tr><td>Platby daní (státnímu rozpočtu, krajům) a vratky transferů</td><td>6,58 mil. Kč</td></tr>
+          <tr><td>Transfery krajům a jiným rozpočtům územní úrovně</td><td>1,41 mil. Kč</td></tr>
+        </table></td></tr>
+
+        <tr class="exp-row">
+          <td class="exp-toggle">+</td>
+          <td><span class="swatch" style="background:#8C8168;"></span>Ostatní běžné výdaje</td><td>12,66 mil. Kč</td><td>8 %</td>
+        </tr>
+        <tr class="exp-detail" hidden><td colspan="4"><table class="subtable">
+          <tr><td>Opravy a udržování</td><td>5,27 mil. Kč</td></tr>
+          <tr><td>Transfery spolkům, církvím a neziskovým organizacím</td><td>2,80 mil. Kč</td></tr>
+          <tr><td>Materiál a drobný dlouhodobý majetek</td><td>1,96 mil. Kč</td></tr>
+          <tr><td>Voda, paliva a energie</td><td>1,29 mil. Kč</td></tr>
+          <tr><td>Půjčené prostředky a transfery fyzickým osobám</td><td>735 tis. Kč</td></tr>
+          <tr><td>Ostatní (cestovné, pohoštění, věcné dary aj.)</td><td>608 tis. Kč</td></tr>
+        </table></td></tr>
+
+        <tr class="exp-row">
+          <td class="exp-toggle">+</td>
+          <td><span class="swatch" style="background:#7C2F2B;"></span>Kapitálové (investiční) výdaje</td><td>52,18 mil. Kč</td><td>33 %</td>
+        </tr>
+        <tr class="exp-detail" hidden><td colspan="4"><table class="subtable">
+          <tr><td>Stavby</td><td>50,05 mil. Kč</td></tr>
+          <tr><td>Investiční transfery (obcím, příspěvkovým organizacím)</td><td>1,38 mil. Kč</td></tr>
+          <tr><td>Ostatní pořízení majetku (vybavení, pozemky, věcná břemena)</td><td>528 tis. Kč</td></tr>
+          <tr><td>Investiční půjčené prostředky</td><td>230 tis. Kč</td></tr>
+        </table></td></tr>
+      </tbody>
+    </table>
+
+    <div class="callout" style="margin-top:18px;">
+      Rozklikávací detail jde do úrovně, jakou nabízí oficiální rozpočtová skladba (položky výkazu FIN 2-12 M). U „Nákup ostatních služeb" (23,75 mil. Kč, prakticky celá kategorie Nákup služeb) je to nejjemnější úroveň, kterou stát eviduje — dál už jde jen o jednotlivé faktury v účetnictví města, ne o veřejná data. „Ostatní běžné výdaje" je souhrn napříč několika rozpočtovými seskupeními (nákupy, transfery soukromoprávním a fyzickým osobám, půjčky), ne jedna oficiální kategorie.
+    </div>
+
+    <h3 class="display" style="font-size:19px; margin:30px 0 4px;">Bankovní účty</h3>
+    <p class="lede" style="margin-bottom:16px;">Čísla účtů nikde souhrnně publikovaná nejsou — dohledal jsem je z bankovních výpisů citovaných ve zprávě nezávislého auditora k hospodaření města za rok 2025. Město vede celkem 9 účtů u 5 bank. <span class="stamp">ověřeno</span></p>
+
+    <table class="register">
+      <thead><tr><th>Účet</th><th>Banka</th><th>Účel</th></tr></thead>
+      <tbody>
+        <tr><td>94-3222151/0710</td><td>Česká národní banka</td><td>povinný účet u ČNB</td></tr>
+        <tr><td>1621191/0100</td><td>Komerční banka</td><td>výdajový</td></tr>
+        <tr><td>19-1621191/0100</td><td>Komerční banka</td><td>příjmový</td></tr>
+        <tr><td>6015-1621191/0100</td><td>Komerční banka</td><td>depozitní</td></tr>
+        <tr><td>51-5652460267/0100</td><td>Komerční banka</td><td>sociální fond</td></tr>
+        <tr><td>131-3838110207/0100</td><td>Komerční banka</td><td>spořicí</td></tr>
+        <tr><td>981224-504328309/0800</td><td>Česká spořitelna</td><td>Fond rozvoje bydlení</td></tr>
+        <tr><td>1387949441/2700</td><td>UniCredit Bank</td><td>termínovaný vklad</td></tr>
+        <tr><td>5639644029/5500</td><td>Raiffeisenbank</td><td>běžný</td></tr>
+      </tbody>
+    </table>
+
+    <div class="callout">
+      Souhrnný zůstatek na všech účtech, termínovaných vkladech a v pokladně byl k 31. 12. 2025 asi <strong>153,3 mil. Kč</strong>. Samostatné fondy (Fond rozvoje bydlení, Fond obnovy vodovodů, Fond obnovy kanalizace, Sociální fond) měly dohromady <strong>30,4 mil. Kč</strong>.
+    </div>
+
+    <div class="callout" style="border-left-color:var(--burgundy); background:rgba(124,47,43,0.06);">
+      <strong>Žádný z účtů není „transparentní účet"</strong> — veřejně prohledávatelný výpis transakcí v reálném čase, jaký mají některá jiná města (např. Písek, Prostějov). Zůstatky a pohyby na účtech Pečky se zveřejňují jen souhrnně a periodicky: agregovaně v Monitoru Státní pokladny a jednou ročně v Závěrečném účtu a auditorské zprávě. Reálný transakční deník veřejně dostupný není.
+    </div>
+
+    <table class="register" style="margin-top:26px;">
+      <thead><tr><th>Zdroj</th><th>Co obsahuje</th><th></th></tr></thead>
+      <tbody>
+        <tr>
+          <td>Monitor Státní pokladny — přehled obce Pečky</td>
+          <td>plnění rozpočtu, struktura výdajů, časové řady, dluhová služba</td>
+          <td><a href="https://monitor.statnipokladna.gov.cz/ucetni-jednotka/00239607/prehled" target="_blank" rel="noopener">otevřít ↗</a></td>
+        </tr>
+        <tr>
+          <td>Monitor — časové řady obce Pečky</td>
+          <td>víceletý vývoj příjmů, výdajů, dluhu a stavu na účtech</td>
+          <td><a href="https://monitor.statnipokladna.gov.cz/ucetni-jednotka/00239607/casove-rady" target="_blank" rel="noopener">otevřít ↗</a></td>
+        </tr>
+        <tr>
+          <td>Monitor — datový katalog Open Data</td>
+          <td>strojově čitelná data (JSON-LD/CSV/XML) ke stažení</td>
+          <td><a href="https://monitor.statnipokladna.gov.cz/datovy-katalog/open-data" target="_blank" rel="noopener">otevřít ↗</a></td>
+        </tr>
+        <tr>
+          <td>Hlídač státu — Registr dotací</td>
+          <td>úplný seznam přijatých dotací se zdroji a odkazy na detail</td>
+          <td><a href="https://www.hlidacstatu.cz/subjekt/00239607" target="_blank" rel="noopener">otevřít ↗</a></td>
+        </tr>
+        <tr>
+          <td>Zpráva o výsledku přezkoumání hospodaření 2025</td>
+          <td>seznam bankovních účtů podle výpisů kontrolovaných auditorem</td>
+          <td><a href="https://pecky.cz/files/pecky/attachments/428756/10-SCK-Zprava-digital-Pecky-01.01.2025-31.12.2025.pdf" target="_blank" rel="noopener">otevřít ↗</a></td>
+        </tr>
+        <tr>
+          <td>Fondy 2025 (příloha Závěrečného účtu)</td>
+          <td>zůstatky jednotlivých fondů města</td>
+          <td><a href="https://pecky.cz/files/pecky/attachments/428756/3-Fondy-2025.pdf" target="_blank" rel="noopener">otevřít ↗</a></td>
+        </tr>
+        <tr>
+          <td>Rekapitulace 2025 (příloha Závěrečného účtu)</td>
+          <td>souhrnný zůstatek na účtech, vkladech a v pokladně</td>
+          <td><a href="https://pecky.cz/files/pecky/attachments/428756/1-Rekapitulace-2025.pdf" target="_blank" rel="noopener">otevřít ↗</a></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="callout" style="margin-top:22px;">
+      <strong>Proč tabulka není živě aktuální:</strong> stejně jako u Smluv jde o ručně stažený a strukturovaný výřez z Monitoru Státní pokladny a Hlídače státu, ne o přímo napojené API v prohlížeči. Údaje za rok 2026 jsou průběžné (k 30. 6. 2026) a doplní se po uzávěrce roku.
     </div>
   </section>
 
@@ -1244,6 +1523,71 @@
     <h2 class="title display">O webu</h2>
     <p class="lede">pecky.online je neoficiální, nezávislý občanský projekt. Cílem je zpřehlednit veřejně dostupné informace o samosprávě města Pečky.</p>
 
+    <h3 class="display" style="font-size:19px; margin:0 0 4px;">Odkazy</h3>
+    <p class="lede" style="margin-bottom:16px;">Oficiální kanály města a související otevřená data.</p>
+    <div class="quicklinks">
+      <a class="qlink" href="http://pecky.cz" target="_blank" rel="noopener">
+        <span class="lbl">Oficiální web města</span><span class="url">pecky.cz ↗</span>
+      </a>
+      <a class="qlink" href="https://www.facebook.com/mestopecky" target="_blank" rel="noopener">
+        <span class="lbl">Facebook města</span><span class="url">/mestopecky ↗</span>
+      </a>
+      <a class="qlink" href="https://www.youtube.com/@mestopecky" target="_blank" rel="noopener">
+        <span class="lbl">YouTube kanál</span><span class="url">@mestopecky ↗</span>
+      </a>
+      <a class="qlink" href="https://www.hlidacstatu.cz/subjekt/00239607" target="_blank" rel="noopener">
+        <span class="lbl">Profil na Hlídači státu</span><span class="url">IČO 00239607 ↗</span>
+      </a>
+      <a class="qlink" href="https://mesto-pecky.usneseni.cz/verejne/" target="_blank" rel="noopener">
+        <span class="lbl">Zápisy a usnesení ZM/RM</span><span class="url">usneseni.cz ↗</span>
+      </a>
+      <a class="qlink" href="https://www.facebook.com/kspecky" target="_blank" rel="noopener">
+        <span class="lbl">Facebook — Kulturní středisko</span><span class="url">/kspecky ↗</span>
+      </a>
+      <a class="qlink" href="https://smlouvy.gov.cz/vyhledavani?dotaz=M%C4%9Bsto%20Pe%C4%8Dky" target="_blank" rel="noopener">
+        <span class="lbl">Registr smluv</span><span class="url">smlouvy.gov.cz ↗</span>
+      </a>
+      <a class="qlink" href="https://www.hlidacstatu.cz/verejnezakazky/hledat?Q=00239607" target="_blank" rel="noopener">
+        <span class="lbl">Hlídač veřejných zakázek</span><span class="url">hlidacstatu.cz ↗</span>
+      </a>
+      <a class="qlink" href="https://volby.gov.cz/opendata/opendata.htm" target="_blank" rel="noopener">
+        <span class="lbl">Otevřená data voleb (ČSÚ)</span><span class="url">volby.gov.cz ↗</span>
+      </a>
+      <a class="qlink" href="https://pececkesluzby.cz/" target="_blank" rel="noopener">
+        <span class="lbl">Pečecké služby s.r.o.</span><span class="url">pececkesluzby.cz ↗</span>
+      </a>
+    </div>
+
+    <h3 class="display" style="font-size:19px; margin:30px 0 4px;">Uskupení a politici na sociálních sítích</h3>
+    <p class="lede" style="margin-bottom:16px;">Nezávislé, veřejně dostupné účty jednotlivých uskupení a zastupitelů — nejde o oficiální kanály města ani o profily spravované tímto webem. <span class="stamp">ověřeno</span></p>
+    <div class="quicklinks">
+      <a class="qlink" href="https://www.facebook.com/nasepecky" target="_blank" rel="noopener">
+        <span class="lbl">Facebook — NAŠE PEČKY</span><span class="url">/nasepecky ↗</span>
+      </a>
+      <a class="qlink" href="https://www.nasepecky.cz/" target="_blank" rel="noopener">
+        <span class="lbl">Web uskupení NAŠE PEČKY</span><span class="url">nasepecky.cz ↗</span>
+      </a>
+      <a class="qlink" href="https://www.facebook.com/odspecky.cz/" target="_blank" rel="noopener">
+        <span class="lbl">Facebook — ODS a nezávislí Pečky</span><span class="url">/odspecky.cz ↗</span>
+      </a>
+      <a class="qlink" href="https://www.facebook.com/peckypecakum/" target="_blank" rel="noopener">
+        <span class="lbl">Facebook — Pečky Pečákům (SNK)</span><span class="url">/peckypecakum ↗</span>
+      </a>
+      <a class="qlink" href="https://www.facebook.com/groups/1080849193521600" target="_blank" rel="noopener">
+        <span class="lbl">FB skupina — Lidé pro Pečky s podporou SPD</span><span class="url">skupina ↗</span>
+      </a>
+      <a class="qlink" href="https://www.facebook.com/alena.svejnohova.9" target="_blank" rel="noopener">
+        <span class="lbl">Facebook — Alena Švejnohová (osobní profil)</span><span class="url">/alena.svejnohova.9 ↗</span>
+      </a>
+      <a class="qlink" href="https://www.facebook.com/profile.php?id=61581314026896" target="_blank" rel="noopener">
+        <span class="lbl">Facebook — Pečky NEXT (občanská iniciativa)</span><span class="url">profil ↗</span>
+      </a>
+    </div>
+    <div class="callout" style="margin-top:14px;">
+      Pro ČSSD a sjednocenou levici se vlastní sociální síť nepodařilo dohledat. U osobních profilů (Alena Švejnohová) a nezávislých iniciativ (Pečky NEXT) jde o účty třetích stran mimo kontrolu tohoto webu — obsah čtěte kriticky, stejně jako u jakéhokoli jiného zdroje na sociálních sítích.
+    </div>
+
+    <h3 class="display" style="font-size:19px; margin:30px 0 4px;">Zdroje a stav sekcí</h3>
     <table class="register">
       <thead><tr><th>Sekce</th><th>Zdroj</th><th>Stav</th></tr></thead>
       <tbody>
@@ -1256,13 +1600,15 @@
         <tr><td>Složení rady (7 členů) a povolební koalice</td><td>usnesení ustavujícího zasedání ZM 7/2022, mesto-pecky.usneseni.cz</td><td><span class="tag role">ověřeno</span></td></tr>
         <tr><td>Jednání a usnesení</td><td>mesto-pecky.usneseni.cz (export 281 jednání / 2 731 usnesení)</td><td><span class="tag role">ověřeno</span></td></tr>
         <tr><td>Smlouvy</td><td>Hlídač státu (konektor, statický výřez: 180 smluv / 102,4 mil. Kč, skupina celkem)</td><td><span class="tag role">ověřeno</span></td></tr>
+        <tr><td>Zakázky</td><td>Hlídač veřejných zakázek (statický výřez: 193 zakázek nalezeno pro IČO 00239607)</td><td><span class="tag role">ověřeno</span></td></tr>
+        <tr><td>Pokladna — rozpočet a hospodaření</td><td>Monitor Státní pokladny (MF ČR), Hlídač státu — Registr dotací (148 dotací nalezeno)</td><td><span class="tag role">ověřeno</span></td></tr>
         <tr><td>Žádosti dle zákona 106/1999 Sb.</td><td>—</td><td><span class="tag">nedohledáno</span></td></tr>
         <tr><td>Pečecké noviny</td><td>pecky.cz — archiv PDF zpravodaje (68/68 vydání, 2020–2026)</td><td><span class="tag role">ověřeno</span></td></tr>
       </tbody>
     </table>
 
     <div class="footer-note">
-      Poslední aktualizace: 5. srpna 2026 (jmenný seznam zastupitelstva přesunut na stránku Lidé, doplněny fotografie 13 z 21 zastupitelů). Tento web nezastupuje Město Pečky ani žádnou politickou stranu. Chyby a doplnění vítány — pošli zdroj a opravím.
+      Poslední aktualizace: 6. srpna 2026 (přidána sekce Pokladna s daty o rozpočtu a dotacích z Monitoru Státní pokladny a Registru dotací; přidána sekce Zakázky s výřezem z Hlídače veřejných zakázek). Tento web nezastupuje Město Pečky ani žádnou politickou stranu. Chyby a doplnění vítány — pošli zdroj a opravím.
     </div>
   </section>
 
@@ -1363,6 +1709,18 @@
       btn.setAttribute('aria-expanded', String(!expanded));
       target.hidden = expanded;
       btn.textContent = expanded ? 'Více informací (rozbalit)' : 'Méně informací (sbalit)';
+    });
+  });
+
+  // ===== Rozklikávací řádky tabulky (např. Pokladna: na co město utrácí) =====
+  document.querySelectorAll('.exp-row').forEach(row => {
+    row.addEventListener('click', () => {
+      const detail = row.nextElementSibling;
+      if (!detail || !detail.classList.contains('exp-detail')) return;
+      const toggle = row.querySelector('.exp-toggle');
+      const isHidden = detail.hasAttribute('hidden');
+      if (isHidden) { detail.removeAttribute('hidden'); if (toggle) toggle.textContent = '−'; }
+      else { detail.setAttribute('hidden', ''); if (toggle) toggle.textContent = '+'; }
     });
   });
 </script>
