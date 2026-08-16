@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pečecké noviny - archiv včetně hledání</title>
+<meta name="description" content="Archiv Pečeckých novin 2020–2026 (68 vydání) s fulltextovým hledáním napříč obsahem. Samostatná stránka sekce webu pecky.online.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  html{scroll-behavior:smooth;}
+  :root{
+    --parchment:#F1EAD9;
+    --parchment-deep:#E9E0CB;
+    --ink:#2A2420;
+    --ink-soft:#5B5347;
+    --burgundy:#7C2F2B;
+    --burgundy-deep:#5E211E;
+    --field:#54624A;
+    --line:#C9BA98;
+    --gold:#AD7A2A;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:
+      repeating-linear-gradient(180deg, transparent 0 38px, rgba(124,47,43,0.035) 38px 39px),
+      var(--parchment);
+    color:var(--ink);
+    font-family:'IBM Plex Sans', sans-serif;
+    line-height:1.5;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:var(--burgundy); text-decoration:none;}
+  a:hover{text-decoration:underline;}
+  a:focus-visible{outline:2px solid var(--burgundy); outline-offset:2px;}
+
+  .display{font-family:'Fraunces', serif; font-optical-sizing:auto;}
+
+  main{max-width:1040px; margin:0 auto; padding:36px 24px 80px;}
+
+  .eyebrow{
+    font-family:'IBM Plex Mono',monospace; font-size:11.5px; text-transform:uppercase;
+    letter-spacing:0.1em; color:var(--field); margin:0 0 6px;
+  }
+  h1.title{font-size:34px; margin:0 0 8px; font-weight:600;}
+  h3.display{font-size:19px; margin:30px 0 4px;}
+  .lede{color:var(--ink-soft); max-width:640px; margin:0 0 28px; font-size:15px;}
+
+  .stamp{
+    display:inline-flex; align-items:center; gap:6px;
+    font-family:'IBM Plex Mono',monospace; font-size:10.5px; text-transform:uppercase; letter-spacing:0.08em;
+    color:var(--burgundy); border:1.5px solid var(--burgundy); border-radius:3px;
+    padding:3px 8px; transform:rotate(-2deg); opacity:0.85;
+    background:rgba(124,47,43,0.04);
+  }
+  .stamp::before{content:"✓"; font-size:11px;}
+
+  .callout{
+    border-left:3px solid var(--gold); background:rgba(173,122,42,0.08);
+    padding:14px 18px; font-size:13.5px; color:var(--ink-soft); margin:22px 0;
+  }
+  .callout strong{color:var(--ink);}
+
+  .noviny-grid{display:grid; grid-template-columns:repeat(6,1fr); gap:16px; margin-top:16px;}
+  @media (max-width:960px){.noviny-grid{grid-template-columns:repeat(4,1fr);}}
+  @media (max-width:640px){.noviny-grid{grid-template-columns:repeat(2,1fr);}}
+  .noviny-card{display:block; border:1px solid var(--line); background:var(--parchment-deep); overflow:hidden; text-decoration:none; color:inherit; transition:border-color .15s, transform .15s;}
+  .noviny-card:hover{border-color:var(--burgundy); transform:translateY(-2px);}
+  .noviny-card img{width:100%; aspect-ratio:380/538; object-fit:cover; display:block; background:#fff; border-bottom:1px solid var(--line);}
+  .noviny-card .cap{padding:8px 10px; font-size:12.5px; font-weight:500; text-align:center; line-height:1.3;}
+
+  .year-heading{font-size:19px; margin:30px 0 4px;}
+
+  .search-bar{display:flex; gap:10px; flex-wrap:wrap; margin:22px 0 6px;}
+  .search-bar input[type=search]{
+    flex:1 1 260px; padding:11px 13px; border:1px solid var(--ink);
+    background:rgba(255,255,255,0.65); font-family:'IBM Plex Sans',sans-serif;
+    font-size:14px; border-radius:2px; color:var(--ink);
+  }
+  .search-bar input[type=search]::placeholder{color:var(--ink-soft);}
+  .search-status{font-family:'IBM Plex Mono',monospace; font-size:11.5px; color:var(--ink-soft); margin:8px 0 20px;}
+
+  .hit-card{border:1px solid var(--line); background:rgba(255,255,255,0.35); padding:14px 16px; margin-bottom:12px;}
+  .hit-card--noviny{display:flex; gap:14px;}
+  .hit-preview{flex:0 0 72px; width:72px; align-self:flex-start; border:1px solid var(--line); overflow:hidden; background:#fff; display:block;}
+  .hit-preview img{display:block; width:100%; aspect-ratio:380/538; object-fit:cover; transition:opacity .15s;}
+  .hit-preview:hover{border-color:var(--burgundy);}
+  .hit-preview:hover img{opacity:0.9;}
+  .hit-body{flex:1; min-width:0;}
+  .hit-meta{display:flex; align-items:center; gap:10px; margin-bottom:7px; flex-wrap:wrap;}
+  .hit-label{font-weight:500; font-size:13.5px;}
+  .hit-date{font-family:'IBM Plex Mono',monospace; font-size:11.5px; color:var(--ink-soft); margin-left:auto;}
+  .hit-text{font-size:13.5px; color:var(--ink-soft); white-space:pre-line; margin-bottom:9px;}
+  .hit-footer{display:flex; gap:14px; flex-wrap:wrap; align-items:center; font-size:12px; font-family:'IBM Plex Mono',monospace; color:var(--ink-soft);}
+  mark{background:rgba(173,122,42,0.4); color:inherit; padding:0 1px; border-radius:2px;}
+
+  .standalone-footer{
+    font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--ink-soft);
+    border-top:1px solid var(--line); padding-top:14px; margin-top:50px; line-height:1.7;
+    max-width:1040px; margin-left:auto; margin-right:auto; padding-left:24px; padding-right:24px;
+  }
+</style>
+</head>
+<body>
+
+<main>
+  <p class="eyebrow">Měsíčník města · samostatná stránka sekce</p>
+  <h1 class="title display">Pečecké noviny</h1>
+  <p class="lede">Papírové noviny nezapomínají, co kdo řekl nebo slíbil — jen se v nich nedá hledat. Ten slib černé na bílém v čísle starém tři roky si nikdo nevybaví, protože prolistovat roky vydání kvůli jedné větě nikdo nedělá. Fulltextové vyhledávání to mění: napíšete jméno, slib nebo téma a za pár vteřin uvidíte přesně tu větu — v jakém čísle vyšla a na jaké straně.</p>
+  <p class="lede" style="margin-bottom:16px;">Text vyextrahovaný ze všech vydání, hledá se bez ohledu na diakritiku a velikost písmen, napříč jednotlivými stránkami.</p>
+
+  <div class="search-bar">
+    <input type="search" id="noviny-search" placeholder="Hledat v novinách, např. „obchvat“, „rozpočet“, „volby“…" autocomplete="off">
+  </div>
+  <p class="search-status" id="noviny-status">Načítám archiv textu…</p>
+  <div id="noviny-results"></div>
+
+  <div id="noviny-grid-root"></div>
+
+  <div class="callout" style="margin-top:22px;">
+    Zdroj: <a href="https://pecky.cz/default/default/21389_pdf-zpravodaje" target="_blank" rel="noopener">archiv PDF zpravodaje na pecky.cz</a>. PDF odkazy níže vedou na lokální kopie staženého archivu (<code>Data/</code>) — pro odkaz přímo na pecky.cz otevřete PDF přes fulltextové hledání výše.
+  </div>
+
+  <p class="lede" style="margin-top:22px;">Pečecké noviny jsou informační měsíčník města — vychází měsíčně (mimo prázdninové dvojčíslo červenec–srpen) v nákladu cca 1 000 kusů, redakci vede Alena Brantová (<a href="mailto:noviny@pecky.cz">noviny@pecky.cz</a>). Archiv 2020–2026, 68 vydání, je zrcadlený z pecky.cz se všemi odkazy na PDF. <span class="stamp">ověřeno</span></p>
+</main>
+
+<footer class="standalone-footer">
+  Samostatná stránka sekce „Pečecké noviny" webu <a href="https://pecky.online/#zpravodaj">pecky.online</a> — neoficiální občanský projekt, Pečky, okres Kolín.
+</footer>
+
+<script>
+  function jStripDiacritics(s){
+    return (s || '').toString().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+  }
+  function jNorm(s){ return jStripDiacritics(s).toLowerCase(); }
+  function jEscapeHtml(s){
+    return (s || '').replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+  }
+  function jHighlight(text, rawQuery){
+    let html = jEscapeHtml(text || '');
+    const words = (rawQuery || '').trim().split(/\s+/).filter(Boolean);
+    words.forEach(w => {
+      const esc = w.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+      if (!esc) return;
+      try { html = html.replace(new RegExp('(' + esc + ')', 'gi'), '<mark>$1</mark>'); } catch (e) {}
+    });
+    return html;
+  }
+
+  let NOVINY_DB = null;
+  const NOVINY_MAX_HITS = 150;
+
+  function renderGrid(editions){
+    const byYear = new Map();
+    editions.forEach(ed => {
+      if (!byYear.has(ed.year)) byYear.set(ed.year, []);
+      byYear.get(ed.year).push(ed);
+    });
+    const years = Array.from(byYear.keys()).sort((a, b) => b - a);
+    const root = document.getElementById('noviny-grid-root');
+    root.innerHTML = years.map(year => {
+      const cards = byYear.get(year).map(ed => `
+        <a class="noviny-card" href="Data/${ed.slug}.pdf" target="_blank" rel="noopener">
+          <img src="img/${ed.slug}.jpg" alt="Titulní strana — ${jEscapeHtml(ed.label)}" loading="lazy">
+          <div class="cap">${jEscapeHtml(ed.label)}</div>
+        </a>`).join('');
+      return `<h3 class="year-heading display">${year}</h3><div class="noviny-grid">${cards}</div>`;
+    }).join('');
+  }
+
+  async function loadNoviny(){
+    const statusEl = document.getElementById('noviny-status');
+    try {
+      const res = await fetch('pecky-noviny.json');
+      if (!res.ok) throw new Error('HTTP ' + res.status);
+      const data = await res.json();
+      data.editions.forEach(ed => {
+        ed.pages.forEach((text, i) => {
+          ed._normPages = ed._normPages || [];
+          ed._normPages[i] = jNorm(text);
+        });
+      });
+      NOVINY_DB = data;
+      renderGrid(data.editions);
+      nRunSearch();
+    } catch (e) {
+      statusEl.textContent = 'Archiv novin se nepodařilo načíst (' + e.message + '). Zkuste stránku obnovit.';
+    }
+  }
+
+  function nSnippet(raw, norm, words){
+    let idx = -1;
+    words.forEach(w => {
+      const i = norm.indexOf(w);
+      if (i !== -1 && (idx === -1 || i < idx)) idx = i;
+    });
+    if (idx === -1) idx = 0;
+    const radius = 170;
+    const start = Math.max(0, idx - radius);
+    const end = Math.min(raw.length, idx + radius + words[0].length);
+    let snippet = raw.slice(start, end).replace(/\s+/g, ' ').trim();
+    if (start > 0) snippet = '…' + snippet;
+    if (end < raw.length) snippet = snippet + '…';
+    return snippet;
+  }
+
+  function nRunSearch(){
+    if (!NOVINY_DB) return;
+    const rawQuery = document.getElementById('noviny-search').value;
+    const words = jNorm(rawQuery).split(/\s+/).filter(Boolean);
+    const statusEl = document.getElementById('noviny-status');
+    const resultsEl = document.getElementById('noviny-results');
+    const gridEl = document.getElementById('noviny-grid-root');
+
+    if (!words.length) {
+      statusEl.textContent = `Prohledáno ${NOVINY_DB.meta.editions_count} vydání (${NOVINY_DB.meta.pages_total} stran) — napište klíčové slovo výše.`;
+      resultsEl.innerHTML = '';
+      gridEl.style.display = '';
+      return;
+    }
+
+    const hits = [];
+    NOVINY_DB.editions.forEach(ed => {
+      ed.pages.forEach((text, i) => {
+        const norm = ed._normPages[i];
+        if (words.every(w => norm.includes(w))) {
+          hits.push({ ed, page: i + 1, text, norm });
+        }
+      });
+    });
+
+    gridEl.style.display = 'none';
+
+    if (!hits.length) {
+      statusEl.textContent = 'Žádné shody pro „' + rawQuery.trim() + '“.';
+      resultsEl.innerHTML = '<p class="lede">Zkuste jiné klíčové slovo — hledá se bez ohledu na diakritiku.</p>';
+      return;
+    }
+
+    const editionCount = new Set(hits.map(h => h.ed.label)).size;
+    const shown = hits.slice(0, NOVINY_MAX_HITS);
+    statusEl.textContent = `${hits.length} shod v ${editionCount} vydáních`
+      + (hits.length > shown.length ? ` — zobrazeno prvních ${shown.length}, zpřesněte hledání` : '');
+
+    resultsEl.innerHTML = shown.map(h => {
+      const snippet = nSnippet(h.text, h.norm, words);
+      return `<div class="hit-card hit-card--noviny">
+        <a class="hit-preview" href="Data/${h.ed.slug}.pdf#page=${h.page}" target="_blank" rel="noopener">
+          <img src="pages/${h.ed.slug}/${h.page}.jpg" alt="Náhled strany ${h.page}" loading="lazy">
+        </a>
+        <div class="hit-body">
+          <div class="hit-meta">
+            <span class="hit-label">${jEscapeHtml(h.ed.label)}</span>
+            <span class="hit-date">strana ${h.page} / ${h.ed.page_count}</span>
+          </div>
+          <div class="hit-text">${jHighlight(snippet, rawQuery)}</div>
+          <div class="hit-footer">
+            <a href="${h.ed.url}#page=${h.page}" target="_blank" rel="noopener">otevřít PDF na pecky.cz, str. ${h.page} ↗</a>
+            <a href="Data/${h.ed.slug}.pdf#page=${h.page}" target="_blank" rel="noopener">lokální kopie ↗</a>
+          </div>
+        </div>
+      </div>`;
+    }).join('');
+  }
+
+  let nSearchTimer = null;
+  function nScheduleSearch(){
+    clearTimeout(nSearchTimer);
+    nSearchTimer = setTimeout(nRunSearch, 120);
+  }
+  document.getElementById('noviny-search').addEventListener('input', nScheduleSearch);
+
+  loadNoviny();
+</script>
+
+</body>
+</html>
