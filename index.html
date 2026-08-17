@@ -74,6 +74,46 @@
   .navlink:hover{color:var(--ink); text-decoration:none;}
   .navlink.active{color:var(--burgundy); border-bottom-color:var(--burgundy); font-weight:600;}
 
+  .nav-toggle{
+    display:none; align-items:center; gap:9px;
+    font-family:'IBM Plex Mono',monospace; font-size:12px; letter-spacing:0.04em; text-transform:uppercase;
+    color:var(--ink); background:none; border:1px solid var(--line); padding:9px 13px; cursor:pointer;
+    border-radius:2px; flex-shrink:0;
+  }
+  .nav-toggle:hover{border-color:var(--ink-soft);}
+  .nav-toggle .bars{width:16px; height:12px; position:relative; flex-shrink:0;}
+  .nav-toggle .bars span, .nav-toggle .bars span::before, .nav-toggle .bars span::after{
+    content:""; position:absolute; left:0; width:16px; height:2px; background:var(--ink);
+    transition:transform .15s ease, opacity .15s ease; top:5px;
+  }
+  .nav-toggle .bars span::before{top:-5px;}
+  .nav-toggle .bars span::after{top:5px;}
+  .nav-toggle[aria-expanded="true"] .bars span{background:transparent;}
+  .nav-toggle[aria-expanded="true"] .bars span::before{top:0; transform:rotate(45deg);}
+  .nav-toggle[aria-expanded="true"] .bars span::after{top:0; transform:rotate(-45deg);}
+
+  @media (max-width:760px){
+    .header-inner{padding:16px 18px 0;}
+    .brand-row{gap:10px;}
+    .header-meta{order:3; width:100%; text-align:left; margin-top:6px; font-size:10.5px;}
+    .nav-toggle{display:inline-flex; order:2; margin-left:auto;}
+    .brand{order:1;}
+    nav.tabs{
+      display:none; flex-direction:column; gap:0; flex-wrap:nowrap; border-top:none;
+      max-width:none; margin:0; padding:6px 0;
+      position:absolute; left:0; right:0; top:100%;
+      background:var(--parchment-deep); border-bottom:2px solid var(--ink);
+      box-shadow:0 8px 14px rgba(42,36,32,0.14);
+      max-height:calc(100vh - 100%); overflow-y:auto;
+    }
+    nav.tabs.open{display:flex;}
+    .navlink{
+      width:100%; text-align:left; padding:14px 18px; margin-bottom:0;
+      border-bottom:1px solid var(--line); border-left:3px solid transparent;
+    }
+    .navlink.active{border-bottom-color:var(--line); border-left-color:var(--burgundy);}
+  }
+
   .subtabs{display:flex; gap:4px; flex-wrap:wrap; border-bottom:1px solid var(--line); margin:20px 0 28px;}
   .subtablink{font-family:'IBM Plex Mono',monospace; font-size:12px; letter-spacing:0.03em; text-transform:uppercase; padding:9px 14px; color:var(--ink-soft); border:none; background:none; cursor:pointer; border-bottom:3px solid transparent; margin-bottom:-1px;}
   .subtablink:hover{color:var(--ink);}
@@ -112,6 +152,13 @@
   h2.title{font-size:34px; margin:0 0 8px; font-weight:600;}
   .lede{color:var(--ink-soft); max-width:640px; margin:0 0 28px; font-size:15px;}
 
+  @media (max-width:600px){
+    main{padding:28px 16px 60px;}
+    h2.title{font-size:26px;}
+    .brand h1{font-size:19px;}
+    .brand .mark{width:34px; height:34px; font-size:16px;}
+  }
+
   /* ===== stamp signature element ===== */
   .stamp{
     display:inline-flex; align-items:center; gap:6px;
@@ -146,6 +193,8 @@
   .seatbar span{display:flex; align-items:center; justify-content:center; font-family:'IBM Plex Mono',monospace; font-size:11px; color:#fff; font-weight:500;}
   .majority-note{font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--ink-soft); margin-bottom:26px;}
 
+  .table-scroll{overflow-x:auto; -webkit-overflow-scrolling:touch; margin-top:6px;}
+  .table-scroll table.register{margin-top:0; min-width:520px;}
   table.register{width:100%; border-collapse:collapse; font-size:14px; margin-top:6px;}
   table.register th{
     text-align:left; font-family:'IBM Plex Mono',monospace; font-size:11px; text-transform:uppercase;
@@ -297,6 +346,9 @@
         <div class="mark">P</div>
         <h1>pecky.online<small>radnice pod drobnohledem</small></h1>
       </div>
+      <button class="nav-toggle" id="navToggle" type="button" aria-expanded="false" aria-controls="tabs">
+        <span class="bars"><span></span></span>Menu
+      </button>
       <div class="header-meta">Neoficiální · občanský projekt<br>Pečky, okres Kolín</div>
     </div>
   </div>
@@ -1753,7 +1805,7 @@
     </table>
 
     <div class="footer-note">
-      Poslední aktualizace: 6. srpna 2026 (přidána sekce Pokladna s daty o rozpočtu a dotacích z Monitoru Státní pokladny a Registru dotací; přidána sekce Zakázky s výřezem z Hlídače veřejných zakázek). Tento web nezastupuje Město Pečky ani žádnou politickou stranu. Chyby a doplnění vítány — pošli zdroj a opravím.
+      Poslední aktualizace: 16. srpna 2026 (sekce Zpravodaj: náhledy jednotlivých stránek u výsledků fulltextového hledání v archivu Pečeckých novin). Tento web nezastupuje Město Pečky ani žádnou politickou stranu. Chyby a doplnění vítány — pošli zdroj a opravím.
     </div>
   </section>
 
@@ -1769,6 +1821,34 @@
   const PANELS = document.querySelectorAll('.panel');
   const PANEL_NAMES = Array.from(NAVLINKS).map(l => l.dataset.panel);
   const DEFAULT_PANEL = 'domu';
+
+  // ===== Mobilní menu (hamburger) =====
+  const navToggle = document.getElementById('navToggle');
+  const tabsNav = document.getElementById('tabs');
+
+  function closeMobileNav(){
+    tabsNav.classList.remove('open');
+    navToggle.setAttribute('aria-expanded', 'false');
+  }
+  function openMobileNav(){
+    tabsNav.classList.add('open');
+    navToggle.setAttribute('aria-expanded', 'true');
+  }
+
+  navToggle.addEventListener('click', () => {
+    if (tabsNav.classList.contains('open')) closeMobileNav(); else openMobileNav();
+  });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeMobileNav();
+  });
+  document.addEventListener('click', (e) => {
+    if (!tabsNav.classList.contains('open')) return;
+    if (tabsNav.contains(e.target) || navToggle.contains(e.target)) return;
+    closeMobileNav();
+  });
+  window.addEventListener('resize', () => {
+    if (window.innerWidth > 760) closeMobileNav();
+  });
 
   function currentHashPanel(){
     return window.location.hash.replace(/^#/, '');
@@ -1793,7 +1873,17 @@
       } else {
         window.location.hash = name; // vytvoří novou položku v historii → funguje Zpět/Vpřed
       }
+      closeMobileNav();
     });
+  });
+
+  // ===== Responzivní tabulky: zabalit register tabulky do scrollovatelného obalu =====
+  document.querySelectorAll('table.register').forEach(t => {
+    if (t.parentElement.classList.contains('table-scroll')) return;
+    const wrap = document.createElement('div');
+    wrap.className = 'table-scroll';
+    t.parentNode.insertBefore(wrap, t);
+    wrap.appendChild(t);
   });
 
   document.querySelectorAll('[data-goto]').forEach(el => {

@@ -108,6 +108,11 @@ indexu, špatnému názvu projektu a vzorku pouhých 20 nejnovějších dotací.
 
 ## Poslední aktualizace
 
+16. srpna 2026 (sekce Zpravodaj přesunuta do vlastní složky `pecky-noviny/`
+— obálky, fulltext, lokální kopie PDF i samostatná stránka na jednom místě;
+přidány náhledy jednotlivých stránek u výsledků fulltextového hledání,
+generované `pecky-noviny/render_pages.py`.)
+
 16. srpna 2026 (denní kontrola zdrojů: do sekce Smlouvy doplněny 2 nové smlouvy
 zachycené konektorem Hlídače státu — „Dar — zdravotnický batoh" 10 381 Kč
 (Krajské ředitelství policie Středočeského kraje, 22. 7. 2026) a „Smlouva o
