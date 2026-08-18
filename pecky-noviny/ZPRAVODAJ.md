@@ -16,20 +16,45 @@ obsahem.
 - Vydavatel: Město Pečky
 - Redakce: Alena Brantová, kontakt `noviny@pecky.cz`
 
-## Stav archivu (aktuální, k 16. 8. 2026)
-**Kompletní: 68/68 vydání, 2020–2026**, nejnovější je Červenec–srpen 2026.
-Archiv byl zrcadlený z pecky.cz — dřívější blokáda botů na archivní
-rozcestníkové stránce (viz níže) byla obejita jednorázově, výsledek je
-uložený lokálně a dál se z něj jen doplňuje.
+## Stav archivu (aktuální, k 18. 8. 2026)
+**111 vydání, 2008–2026** — dva různé zdroje:
+- **2020–2026: 68/68 vydání**, nejnovější je Červenec–srpen 2026. Zrcadlené
+  z pecky.cz — dřívější blokáda botů na archivní rozcestníkové stránce (viz
+  níže) byla obejita jednorázově, výsledek je uložený lokálně a dál se z něj
+  jen doplňuje. `url`/`file` v JSON u těchto vydání odkazují na pecky.cz.
+- **2008–2011: 43 vydání**, doplněno 18. 8. 2026 z lokálního archivu, který
+  poskytl uživatel (adresář `TEMP/`, needitovaný Windows archiv se strukturou
+  `PN {rok}/{mm}{rr}.pdf`, po zpracování smazán — obsah je beze zbytku v
+  `Data/`). **Tato vydání nejsou dostupná v aktuálním online archivu
+  pecky.cz** (rozcestník i staré `filemanager` odkazy vrací 404, ověřeno
+  18. 8. 2026) — mají proto `"url": null, "file": null` v JSON a karty na webu
+  odkazují jen na lokální `Data/{slug}.pdf`.
+
+### Známé mezery v archivu 2008–2011
+- **2/2011 a 3/2011 chybí.** Soubor archivovaný jako „0211" je ve
+  skutečnosti duplicitní kopie ledna 2011 (15/16 stran textově identických s
+  „0111", 16. strana se liší jen o jednu větu) — ne skutečné únorové číslo.
+  Vyřazeno, aby se pod únorem nepublikoval fakticky lednový obsah.
+- **10/2009, 11/2010 a 12/2010 chybí** — v poskytnutém archivu nebyly.
+- **9/2010 je dochované jen jako neúplný 4stránkový výřez** (chybí titulní
+  strana a většina čísla) — ponecháno v archivu i tak, karta na webu je
+  označená „neúplné".
+- **8/2009 (`0809.pdf`)** měl při extrakci `pdftotext` text na všech
+  stránkách zrcadlově obrácený znak po znaku (zjevná vada zdrojového PDF/jeho
+  fontu, ne chyba nástroje) — opraveno zpětným obrácením každého řádku po
+  extrakci, obsah čísla je jinak kompletní a čitelný.
+- **7/2011** má v tiráži překlep zdroje „červnec" místo „červenec" —
+  ponecháno verbatim (text se nepřepisuje, i když je zjevný překlep
+  originálu).
 
 ### Kde co je
 | Co | Kde | Formát |
 |---|---|---|
 | Obálky vydání (náhledy v gridu) | `pecky-noviny/img/{slug}.jpg` | JPG, 1. strana, ~150 DPI |
 | Fulltext obsahu pro vyhledávání | `pecky-noviny/pecky-noviny.json` | JSON: `{meta, editions:[{label, year, url, file, slug, pages:[string], page_count}]}`, extrakce `pdftotext -layout` |
-| Přímé PDF odkazy na pecky.cz | `url` pole v `pecky-noviny/pecky-noviny.json` | — |
-| **Lokální kopie všech PDF** | `pecky-noviny/Data/{slug}.pdf` | PDF, ~177 MB / 68 souborů, staženo `pecky-noviny/download.py` |
-| **Náhledy jednotlivých stránek** (pro preview ve výsledcích hledání) | `pecky-noviny/pages/{slug}/{page}.jpg` | JPG, **všechny** strany, 40 DPI/kvalita 60 (~32 KB/strana, ~35 MB/1022 stran), vygenerováno `pecky-noviny/render_pages.py` |
+| Přímé PDF odkazy na pecky.cz | `url` pole v `pecky-noviny/pecky-noviny.json` — `null` u vydání 2008–2011 (nejsou na pecky.cz, viz mezery výše) | — |
+| **Lokální kopie všech PDF** | `pecky-noviny/Data/{slug}.pdf` | PDF, ~820 MB / 111 souborů (68 staženo `pecky-noviny/download.py`, 43 z lokálního archivu 2008–2011 — skeny jsou násobně větší než born-digital PDF 2020+) |
+| **Náhledy jednotlivých stránek** (pro preview ve výsledcích hledání) | `pecky-noviny/pages/{slug}/{page}.jpg` | JPG, **všechny** strany, 40 DPI/kvalita 60 (~32 KB/strana, ~58 MB/1772 stran), vygenerováno `pecky-noviny/render_pages.py` |
 | **Samostatná stránka sekce** | `pecky-noviny/index.html` | viz „Samostatná stránka" níže |
 
 `slug` = `{RRRR}-{MM}` (`{RRRR}-{MM}-{MM}` pro červenec–srpen dvojčíslo,
@@ -164,8 +189,12 @@ Rozdíly oproti panelu v hlavním webu:
   výsledku odkazují na **lokální PDF** (`Data/{slug}.pdf`), ne na
   pecky.cz — stránka tak funguje i offline/mimo hosting hlavního webu.
   Výsledky hledání navíc nabízí i odkaz na originál na pecky.cz (v
-  kořenovém `index.html` je to naopak — tam odkazuje jen na pecky.cz,
-  lokální PDF se tam neodkazují).
+  kořenovém `index.html` je to naopak — tam odkazuje na pecky.cz,
+  lokální PDF se tam neodkazují). **Výjimka:** u vydání s `url: null`
+  (archiv 2008–2011, viz mezery výše) odkazuje na lokální PDF i kořenový
+  `index.html` — jinak by karta/odkaz vedly na neexistující URL. Karty
+  grid v kořenovém `index.html` to řeší přímo v ručně psaném `href`, JS
+  hledání v obou souborech fallbackem `h.ed.url || 'Data/{slug}.pdf'`.
 - Sdílí stejné CSS proměnné a fonty (Fraunces/IBM Plex) jako hlavní web
   pro vizuální konzistenci, ale jen podmnožinu stylů, které skutečně
   používá (žádné styly pro ostatní panely).
