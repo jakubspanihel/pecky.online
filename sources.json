@@ -35,7 +35,7 @@
       "category": "otevřená data",
       "description": "Přehled smluv, dotací, rizik a dodavatelů pro IČO 00239607 a celou skupinu (úřad + 8 podřízených organizací).",
       "status": "ověřeno",
-      "note": "Data do webu tažena přes připojený MCP konektor Hlídače státu; jde o statický výřez, ne živě se obnovující data. Denní diff 16. 8. 2026: přibyly 2 nové smlouvy (Dar — zdravotnický batoh 10 381 Kč; Smlouva o spolupráci — Digitální odysea 26/27 bez ceny) — promítnuto do tabulky „Nejnovější smlouvy" a součtů v sekci Smlouvy (nyní 182/47 smluv)."
+      "note": "Data do webu tažena přes připojený MCP konektor Hlídače státu; jde o statický výřez, ne živě se obnovující data. Denní diff 16. 8. 2026: přibyly 2 nové smlouvy (Dar — zdravotnický batoh 10 381 Kč; Smlouva o spolupráci — Digitální odysea 26/27 bez ceny) — promítnuto do tabulky „Nejnovější smlouvy“ a součtů v sekci Smlouvy (nyní 182/47 smluv)."
     },
     {
       "id": "hlidac-statu-zakazky",
@@ -108,12 +108,12 @@
     },
     {
       "id": "knihovnapecky-cz",
-      "name": "Městská knihovna Svatopluka Čecha",
+      "name": "Městská knihovna Svatopluka Čecha — stará doména (přesměrování)",
       "url": "https://www.knihovnapecky.cz",
       "category": "podřízená organizace",
-      "description": "Doména knihovny — přesměrovává na stránku knihovny na pecky.as4u.cz. Kontakt: Vladimíra Krulišová, knihovna@pececko.cz, tel. 321 785 566. Online katalog Clavius: http://lanius.pececko.cz/clavius/, Facebook: facebook.com/knihovnapecky. Podstránky: O nás, Akce, Výstavy, Projekty, kroužek Šikula, fotogalerie.",
+      "description": "Starší doména knihovny — přesměrovává na pecky.as4u.cz. Aktuální oficiální web viz samostatný záznam web-knihovna-pecky (pececko.cz), Facebook viz facebook-knihovna-pecky. Online katalog Clavius: http://lanius.pececko.cz/clavius/. Podstránky: O nás, Akce, Výstavy, Projekty, kroužek Šikula, fotogalerie.",
       "status": "ověřeno",
-      "note": "Nalezeno uživatelem 6. 8. 2026. Samotný obsah knihovny je pro projekt okrajový, ale přesměrování odhalilo zásadní zdroj pecky.as4u.cz — viz samostatný záznam. Knihovna je příspěvková organizace města, figuruje v dotacích i v projektech (mobiliář, výměna střešních oken, vybavení interiéru)."
+      "note": "Nalezeno uživatelem 6. 8. 2026. Samotný obsah knihovny je pro projekt okrajový, ale přesměrování odhalilo zásadní zdroj pecky.as4u.cz — viz samostatný záznam. Knihovna je příspěvková organizace města, figuruje v dotacích i v projektech (mobiliář, výměna střešních oken, vybavení interiéru). Doplněno 18. 8. 2026 o samostatné záznamy pro aktuální web a Facebook, které přidal uživatel."
     },
     {
       "id": "pecky-as4u-cz",
@@ -140,7 +140,7 @@
       "category": "otevřená data",
       "description": "Platný územní plán města a jeho změny — mj. relevantní k bodům z volebních programů (obchvat, územní plán jižní části města, parkování).",
       "status": "nevytěženo",
-      "note": "Návrh z 6. 8. 2026. URL je obecný Národní geoportál územního plánování — konkrétní dokumentaci pro Pečky je potřeba v něm dohledat, případně zkusit přímo pecky.cz."
+      "note": "Návrh z 6. 8. 2026. URL je obecný Národní geoportál územního plánování — konkrétní dokumentaci pro Pečky je potřeba v něm dohledat, případně zkusit přímo pecky.cz. Odkaz doplněn do quicklinks (sekce O webu → Odkazy) 18. 8. 2026 — obsah zatím nevytěžen, jen dostupný k prokliku."
     },
     {
       "id": "csu-verejna-databaze",
@@ -149,7 +149,7 @@
       "category": "otevřená data",
       "description": "Demografická a socioekonomická data obce v čase — počet obyvatel, věková struktura, nezaměstnanost a další ukazatele (Města a obce v datech).",
       "status": "nevytěženo",
-      "note": "Návrh z 6. 8. 2026: doplnilo by statickou tabulku na Domů o vývoj v čase, ne jen aktuální stav."
+      "note": "Návrh z 6. 8. 2026: doplnilo by statickou tabulku na Domů o vývoj v čase, ne jen aktuální stav. Odkaz doplněn do quicklinks (sekce O webu → Odkazy) 18. 8. 2026 — obsah zatím nevytěžen, jen dostupný k prokliku."
     },
     {
       "id": "vestnik-verejnych-zakazek",
@@ -167,7 +167,7 @@
       "category": "otevřená data",
       "description": "Účetní závěrky a výroční zprávy městských organizací (např. Pečecké služby s.r.o.) ve sbírce listin obchodního rejstříku.",
       "status": "nevytěženo",
-      "note": "Návrh z 6. 8. 2026."
+      "note": "Návrh z 6. 8. 2026. Odkaz doplněn do quicklinks (sekce O webu → Odkazy) 18. 8. 2026 — obsah zatím nevytěžen, jen dostupný k prokliku."
     },
     {
       "id": "facebook-nasepecky",
@@ -303,6 +303,24 @@
       "description": "15 agendových bodů rady a zastupitelstva týkajících se obchvatu dohledaných v lokálním archivu jednání (data/pecky-jednani.json): smlouva o spolupráci s krajem (10/2021), strategie výkupu pozemků (1/2022), žádost Spolku občanů pro změnu obchvatu o změnu PD (5/2022), smlouvy o smlouvě budoucí kupní (9/2022), směny pozemků (2023), přeložka plynovodu (7/2024), a UZ-51-5/25 (12. 11. 2025) — budoucí bezúplatné převzetí staré silnice II/329, výslovně podmíněné dokončením nové obchvatové komunikace.",
       "status": "ověřeno",
       "note": "Vytěženo 10. 8. 2026. Nejpřesnější a nejaktuálnější zdroj k fázi projektu — jasně dokládá, že k 11/2025 stavba obchvatu ještě nestála."
+    },
+    {
+      "id": "web-knihovna-pecky",
+      "name": "Městská knihovna Svatopluka Čecha v Pečkách — web",
+      "url": "https://www.pececko.cz",
+      "category": "oficiální · podřízená organizace",
+      "description": "Oficiální web městské knihovny (příspěvková organizace města, IČ 48932060) — aktuality, akce, výstavy, online katalog, otevírací doba (Tř. 5. května 241). Odpovědná osoba Vladimíra Krulišová. Kontaktní stránka uvádí i alias webu knihovnapecky.cz.",
+      "status": "ověřeno",
+      "note": "Přidáno uživatelem 18. 8. 2026. Zatím nevytěženo do žádné sekce webu."
+    },
+    {
+      "id": "facebook-knihovna-pecky",
+      "name": "Facebook — Městská knihovna Svatopluka Čecha v Pečkách",
+      "url": "https://www.facebook.com/knihovnapecky",
+      "category": "sociální síť · podřízená organizace",
+      "description": "Oficiální facebookový profil městské knihovny, uvedený i jako kontakt na oficiálním webu pececko.cz.",
+      "status": "ověřeno",
+      "note": "Přidáno uživatelem 18. 8. 2026. Zatím nevytěženo do žádné sekce webu."
     }
   ]
 }

@@ -15,6 +15,10 @@ Styl: pergamenově-úřední (Fraunces + IBM Plex Sans/Mono), viz <style> v hlav
   nebo přiznat jako mezeru (.callout)
 - Zachovávat jednosouborovou strukturu, needit do samostatných JS/CSS souborů
 - Zdroje: pecky.cz, facebook.com/mestopecky, Hlídač státu (IČO 00239607)
+- Každý nový zdroj přidaný do sources.json, který nemá vlastní kontextovou
+  citaci jinde na webu (např. konkrétní tabulku nebo callout), doplnit i
+  jako odkaz do quicklinks v sekci O webu → Odkazy — i když je jeho status
+  zatím "nevytěženo" (obsah nepoužit, ale odkaz má být dohledatelný).
 
 ## Dokumentace jednotlivých sekcí
 Některé sekce mají vlastní podrobnější referenční dokument a/nebo
@@ -41,7 +45,9 @@ samostatnou projektovou složku. Načíst při práci na dané sekci:
   web_search jako fallback, když web_fetch selže
 
 ## Git / GitHub
-Remote: <doplň po založení repa>
+Remote: https://github.com/jakubspanihel/pecky.online.git
 Před pushem vždy commit s popisnou zprávou, zachovej historii verzí webu.
 GitHub Integration konektor v chatu je zablokovaný OAuth konfliktem —
-publikuj přes přímý git CLI s vlastním GitHub přihlášením (SSH/token).
+publikuj přes přímý git CLI/GitHub API s vlastním GitHub přihlášením (token).
+Token (bez expirace) je uložený lokálně v `.github-pat` (v .gitignore,
+nikdy nejde do gitu) — před publikací ho odtud načíst, needit znovu žádat.
