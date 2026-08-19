@@ -152,6 +152,10 @@
   let NOVINY_DB = null;
   const NOVINY_MAX_HITS = 150;
 
+  const OLDER_YEARS_GAP_NOTE = `
+    <h3 class="display" style="font-size:19px; margin:34px 0 4px;">Starší ročníky (lokální archiv)</h3>
+    <p class="lede" style="margin-bottom:10px;">Starší ročníky nejsou v aktuálním online archivu pecky.cz dostupné (rozcestník i dřívější přímé odkazy vrací 404) — čísla níže pochází z lokálně dochovaných kopií, které web doplnil ručně. Chybí celé roky 2012–2015 a leden 2016 (zatím nedohledáno), srpen 2019, 2/2011 a 3/2011 (ve zdrojové kopii je pod únorem duplicitně uložené lednové číslo, ne skutečné vydání), 10/2009 a 11–12/2010; 9/2010 je dochované jen jako neúplný 4stránkový výřez bez titulní strany. <span class="stamp">přiznaná mezera</span></p>`;
+
   function renderGrid(editions){
     const byYear = new Map();
     editions.forEach(ed => {
@@ -160,13 +164,21 @@
     });
     const years = Array.from(byYear.keys()).sort((a, b) => b - a);
     const root = document.getElementById('noviny-grid-root');
+    let gapNoteInserted = false;
     root.innerHTML = years.map(year => {
-      const cards = byYear.get(year).map(ed => `
+      const yearEditions = byYear.get(year);
+      const isLocalArchive = yearEditions.every(ed => !ed.url);
+      let prefix = '';
+      if (isLocalArchive && !gapNoteInserted) {
+        prefix = OLDER_YEARS_GAP_NOTE;
+        gapNoteInserted = true;
+      }
+      const cards = yearEditions.map(ed => `
         <a class="noviny-card" href="Data/${ed.slug}.pdf" target="_blank" rel="noopener">
           <img src="img/${ed.slug}.jpg" alt="Titulní strana — ${jEscapeHtml(ed.label)}" loading="lazy">
           <div class="cap">${jEscapeHtml(ed.label)}</div>
         </a>`).join('');
-      return `<h3 class="year-heading display">${year}</h3><div class="noviny-grid">${cards}</div>`;
+      return `${prefix}<h3 class="year-heading display">${year}</h3><div class="noviny-grid">${cards}</div>`;
     }).join('');
   }
 
