@@ -16,19 +16,21 @@ obsahem.
 - Vydavatel: Město Pečky
 - Redakce: Alena Brantová, kontakt `noviny@pecky.cz`
 
-## Stav archivu (aktuální, k 18. 8. 2026)
-**111 vydání, 2008–2026** — dva různé zdroje:
+## Stav archivu (aktuální, k 19. 8. 2026)
+**147 vydání, 2008–2026** — dva různé zdroje:
 - **2020–2026: 68/68 vydání**, nejnovější je Červenec–srpen 2026. Zrcadlené
   z pecky.cz — dřívější blokáda botů na archivní rozcestníkové stránce (viz
   níže) byla obejita jednorázově, výsledek je uložený lokálně a dál se z něj
   jen doplňuje. `url`/`file` v JSON u těchto vydání odkazují na pecky.cz.
-- **2008–2011: 43 vydání**, doplněno 18. 8. 2026 z lokálního archivu, který
-  poskytl uživatel (adresář `TEMP/`, needitovaný Windows archiv se strukturou
-  `PN {rok}/{mm}{rr}.pdf`, po zpracování smazán — obsah je beze zbytku v
-  `Data/`). **Tato vydání nejsou dostupná v aktuálním online archivu
-  pecky.cz** (rozcestník i staré `filemanager` odkazy vrací 404, ověřeno
-  18. 8. 2026) — mají proto `"url": null, "file": null` v JSON a karty na webu
-  odkazují jen na lokální `Data/{slug}.pdf`.
+- **2008–2011 a 2016–2019: 79 vydání** (43 + 36) z lokálního archivu, který
+  poskytl uživatel po dávkách — adresář `TEMP/{rok}/*.pdf`, po zpracování
+  vždy smazán, obsah beze zbytku v `Data/`. Druhá dávka (2016–2019, doplněno
+  19. 8. 2026) měla jinou strukturu než první (`TEMP/{rok}/Pečecké noviny
+  {měsíc}-{rok}[ - web/náhled].pdf`, ne `PN {rok}/{mm}{rr}.pdf`) — název
+  měsíce/roku se parsuje z názvu souboru, ne z cesty. **Tato vydání nejsou
+  dostupná v aktuálním online archivu pecky.cz** (rozcestník i staré
+  `filemanager` odkazy vrací 404) — mají proto `"url": null, "file": null`
+  v JSON a karty na webu odkazují jen na lokální `Data/{slug}.pdf`.
 
 ### Známé mezery v archivu 2008–2011
 - **2/2011 a 3/2011 chybí.** Soubor archivovaný jako „0211" je ve
@@ -47,14 +49,25 @@ obsahem.
   ponecháno verbatim (text se nepřepisuje, i když je zjevný překlep
   originálu).
 
+### Známé mezery v archivu 2016–2019
+- **Celé roky 2012–2015 chybí** — zatím nedohledáno, žádný zdroj poskytnutý
+  ani nalezený.
+- **Leden 2016 chybí** — v poskytnuté dávce nebyl, ostatních 11 čísel roku
+  2016 (únor–prosinec) je kompletních.
+- **Březen–prosinec 2019 chybí** — poskytnutá dávka měla jen leden a únor
+  2019, pak mezera až do obnovení online archivu pecky.cz od ledna 2020.
+- 2016 a 2017 mají červenec a srpen jako **dvě samostatná čísla** (ne
+  dvojčíslo); 2018 naopak jako **jedno dvojčíslo** „7-8" — zachováno podle
+  skutečné struktury zdrojových souborů, ne sjednoceno uměle.
+
 ### Kde co je
 | Co | Kde | Formát |
 |---|---|---|
-| Obálky vydání (náhledy v gridu) | `pecky-noviny/img/{slug}.jpg` | JPG, 1. strana, ~150 DPI |
+| Obálky vydání (náhledy v gridu) | `pecky-noviny/img/{slug}.jpg` | JPG, 1. strana, `pdftoppm -r 46 -jpegopt quality=75` (~380 px šířka, odpovídá `aspect-ratio:380/538` v CSS) |
 | Fulltext obsahu pro vyhledávání | `pecky-noviny/pecky-noviny.json` | JSON: `{meta, editions:[{label, year, url, file, slug, pages:[string], page_count}]}`, extrakce `pdftotext -layout` |
-| Přímé PDF odkazy na pecky.cz | `url` pole v `pecky-noviny/pecky-noviny.json` — `null` u vydání 2008–2011 (nejsou na pecky.cz, viz mezery výše) | — |
-| **Lokální kopie všech PDF** | `pecky-noviny/Data/{slug}.pdf` | PDF, ~820 MB / 111 souborů (68 staženo `pecky-noviny/download.py`, 43 z lokálního archivu 2008–2011 — skeny jsou násobně větší než born-digital PDF 2020+) |
-| **Náhledy jednotlivých stránek** (pro preview ve výsledcích hledání) | `pecky-noviny/pages/{slug}/{page}.jpg` | JPG, **všechny** strany, 40 DPI/kvalita 60 (~32 KB/strana, ~58 MB/1772 stran), vygenerováno `pecky-noviny/render_pages.py` |
+| Přímé PDF odkazy na pecky.cz | `url` pole v `pecky-noviny/pecky-noviny.json` — `null` u vydání 2008–2011 a 2016–2019 (nejsou na pecky.cz, viz mezery výše) | — |
+| **Lokální kopie všech PDF** | `pecky-noviny/Data/{slug}.pdf` | PDF, ~214 MB / 147 souborů (68 staženo `pecky-noviny/download.py`, 79 z lokálního archivu 2008–2011 a 2016–2019) |
+| **Náhledy jednotlivých stránek** (pro preview ve výsledcích hledání) | `pecky-noviny/pages/{slug}/{page}.jpg` | JPG, **všechny** strany, 40 DPI/kvalita 60 (~32 KB/strana, ~34 MB/2218 stran), vygenerováno `pecky-noviny/render_pages.py` |
 | **Samostatná stránka sekce** | `pecky-noviny/index.html` | viz „Samostatná stránka" níže |
 
 `slug` = `{RRRR}-{MM}` (`{RRRR}-{MM}-{MM}` pro červenec–srpen dvojčíslo,
@@ -172,6 +185,43 @@ Claude Code lokálně.
    se generují za běhu z `pecky-noviny.json`, stačí krok 3.
 8. Ověřit datum poslední aktualizace v odkazu na zdroj archivu v
    kořenovém `index.html` (ř. ~1657).
+
+### Doplnění dávky z lokálního archivu (TEMP/)
+Když uživatel dodá další skupinu PDF mimo pecky.cz (např. do budoucna
+2012–2015), postup:
+
+1. Soubory čekají v `pecky-noviny/TEMP/{rok}/*.pdf` — **struktura ani
+   pojmenování souborů nejsou garantované** (dvě dosavadní dávky měly
+   každá jiný formát názvu, viz „Stav archivu" výše). Nejdřív se podívat,
+   jak jsou pojmenované, a podle toho napsat/upravit parsovací regex
+   (měsíc/rok z názvu souboru, ne z cesty ani obsahu).
+2. Pro každý soubor: `slug` = `{RRRR}-{MM}` (`{RRRR}-{MM}-{MM}` pro
+   dvojčíslo — **ověřit z názvu, jestli jde skutečně o dvojčíslo, ne
+   předpokládat** — červenec/srpen bývají v různých letech samostatně
+   i spojeně, viz mezery výše).
+3. Zkopírovat PDF do `Data/{slug}.pdf`, extrahovat text `pdftotext -layout`
+   (normalizace: ořezat okraje řádků, sloučit vícenásobné mezery, zahodit
+   prázdné řádky — viz co dělal skript použitý pro dávku 2016–2019).
+4. Vygenerovat obálku (`pdftoppm -r 46 -jpegopt quality=75 -f 1 -l 1`) do
+   `img/{slug}.jpg`.
+5. Přidat `edition` objekt (`label`, `year`, `url: null`, `file: null`,
+   `slug`, `pages`, `page_count`) do `pecky-noviny.json`, přepočítat
+   `meta.editions_count`/`meta.pages_total`.
+6. Spustit `render_pages.py` (doplní náhledy stránek pro nová vydání,
+   idempotentní).
+7. Doplnit kartu do kořenového `index.html` (`href` rovnou na
+   `pecky-noviny/Data/{slug}.pdf`, ne na pecky.cz — url je `null`) a do
+   společné „Zdroj: lokální archiv…" poznámky pod gridem aktualizovat
+   celkový počet a rozsah let. `pecky-noviny/index.html` se aktualizuje
+   automaticky (viz „Samostatná stránka" níže), stačí upravit počet
+   vydání v perexu a v `<meta name="description">`.
+8. Ověřit, že `.hit-card` fallback na lokální PDF funguje i pro nová
+   vydání (`h.ed.url || 'pecky-noviny/Data/' + slug + '.pdf'` v kořenovém
+   `index.html`; `pecky-noviny/index.html` používá lokální PDF vždy, viz
+   „Rozdíly oproti panelu" níže) — u dosavadních dvou dávek už to funguje,
+   nová vydání jen musí mít `url: null`.
+9. Smazat `TEMP/` (obsah je beze zbytku v `Data/`) a jednorázový
+   zpracovávací skript, pokud byl napsaný jako samostatný soubor.
 
 ## Samostatná stránka (`pecky-noviny/index.html`)
 Vedle panelu v hlavním webu existuje i samostatná, nezávisle otevíratelná
