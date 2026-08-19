@@ -30,7 +30,7 @@ obsahem.
   ne z cesty ani z předpokladu o formátu. **Tato vydání nejsou dostupná
   v aktuálním online archivu pecky.cz** (rozcestník i staré `filemanager`
   odkazy vrací 404) — mají proto `"url": null, "file": null` v JSON a karty
-  na webu odkazují jen na lokální `Data/{slug}.pdf`.
+  na webu odkazují jen na lokální `Data/PN {rok}/{slug}.pdf`.
 
   Historie dávek: 2008–2011 (43 vydání, `TEMP/{rok}/PN {rok}/{mm}{rr}.pdf`,
   18. 8. 2026) → 2016–2019 (36 vydání, `TEMP/{rok}/Pečecké noviny
@@ -73,7 +73,7 @@ obsahem.
 | Obálky vydání (náhledy v gridu) | `pecky-noviny/img/{slug}.jpg` | JPG, 1. strana, `pdftoppm -r 46 -jpegopt quality=75` (~380 px šířka, odpovídá `aspect-ratio:380/538` v CSS) |
 | Fulltext obsahu pro vyhledávání | `pecky-noviny/pecky-noviny.json` | JSON: `{meta, editions:[{label, year, url, file, slug, pages:[string], page_count}]}`, extrakce `pdftotext -layout` |
 | Přímé PDF odkazy na pecky.cz | `url` pole v `pecky-noviny/pecky-noviny.json` — `null` u vydání 2008–2011 a 2016–2019 (nejsou na pecky.cz, viz mezery výše) | — |
-| **Lokální kopie všech PDF** | `pecky-noviny/Data/{slug}.pdf` | PDF, ~232 MB / 156 souborů (68 staženo `pecky-noviny/download.py`, 88 z lokálního archivu 2008–2011 a 2016–2019) |
+| **Lokální kopie všech PDF** | `pecky-noviny/Data/PN {rok}/{slug}.pdf` (**pozor:** v HTML/JS hrefech se mezera v `PN {rok}` píše jako `PN%20{rok}`, na disku je to reálná mezera ve jménu složky) | PDF, ~232 MB / 156 souborů (68 staženo `pecky-noviny/download.py`, 88 z lokálního archivu 2008–2011 a 2016–2019) |
 | **Náhledy jednotlivých stránek** (pro preview ve výsledcích hledání) | `pecky-noviny/pages/{slug}/{page}.jpg` | JPG, **všechny** strany, 40 DPI/kvalita 60 (~32 KB/strana, ~39 MB/2346 stran), vygenerováno `pecky-noviny/render_pages.py` |
 | **Samostatná stránka sekce** | `pecky-noviny/index.html` | viz „Samostatná stránka" níže |
 
@@ -98,7 +98,7 @@ soubory přeskakuje).
 
 `pecky-noviny/render_pages.py` čte `pecky-noviny/pecky-noviny.json`,
 pro každé vydání spustí `pdftoppm` (poppler — stejná rodina nástrojů
-jako `pdftotext`) na `Data/{slug}.pdf` a uloží každou stranu jako
+jako `pdftotext`) na `Data/PN {rok}/{slug}.pdf` a uloží každou stranu jako
 `pages/{slug}/{page}.jpg`. Idempotentní (přeskočí vydání, které má
 všechny strany už vyrenderované) — vygenerování celého archivu (1022
 stran) trvá ~15 s.
@@ -174,7 +174,7 @@ Claude Code lokálně.
 ### Po nalezení nového čísla
 1. Vytvořit `slug` pro vydání (`{RRRR}-{MM}`, resp. `{RRRR}-{MM}-{MM}` pro
    červenec–srpen dvojčíslo, např. `2026-09`).
-2. Stáhnout PDF do `pecky-noviny/Data/{slug}.pdf` (přímý `curl`, bez bot
+2. Stáhnout PDF do `pecky-noviny/Data/PN {rok}/{slug}.pdf` (přímý `curl`, bez bot
    ochrany — viz výše), případně přes `pecky-noviny/download.py` po
    doplnění záznamu do `pecky-noviny/pecky-noviny.json`.
 3. Extrahovat text (`pdftotext -layout`) a přidat `edition` objekt do
@@ -206,7 +206,7 @@ Když uživatel dodá další skupinu PDF mimo pecky.cz (např. do budoucna
    dvojčíslo — **ověřit z názvu, jestli jde skutečně o dvojčíslo, ne
    předpokládat** — červenec/srpen bývají v různých letech samostatně
    i spojeně, viz mezery výše).
-3. Zkopírovat PDF do `Data/{slug}.pdf`, extrahovat text `pdftotext -layout`
+3. Zkopírovat PDF do `Data/PN {rok}/{slug}.pdf`, extrahovat text `pdftotext -layout`
    (normalizace: ořezat okraje řádků, sloučit vícenásobné mezery, zahodit
    prázdné řádky — viz co dělal skript použitý pro dávku 2016–2019).
 4. Vygenerovat obálku (`pdftoppm -r 46 -jpegopt quality=75 -f 1 -l 1`) do
@@ -217,16 +217,19 @@ Když uživatel dodá další skupinu PDF mimo pecky.cz (např. do budoucna
 6. Spustit `render_pages.py` (doplní náhledy stránek pro nová vydání,
    idempotentní).
 7. Doplnit kartu do kořenového `index.html` (`href` rovnou na
-   `pecky-noviny/Data/{slug}.pdf`, ne na pecky.cz — url je `null`) a do
+   `pecky-noviny/Data/PN {rok}/{slug}.pdf`, ne na pecky.cz — url je `null`) a do
    společné „Zdroj: lokální archiv…" poznámky pod gridem aktualizovat
    celkový počet a rozsah let. `pecky-noviny/index.html` se aktualizuje
    automaticky (viz „Samostatná stránka" níže), stačí upravit počet
    vydání v perexu a v `<meta name="description">`.
 8. Ověřit, že `.hit-card` fallback na lokální PDF funguje i pro nová
-   vydání (`h.ed.url || 'pecky-noviny/Data/' + slug + '.pdf'` v kořenovém
-   `index.html`; `pecky-noviny/index.html` používá lokální PDF vždy, viz
-   „Rozdíly oproti panelu" níže) — u dosavadních dvou dávek už to funguje,
-   nová vydání jen musí mít `url: null`.
+   vydání (`h.ed.url || 'pecky-noviny/Data/PN%20' + h.ed.year + '/' + h.ed.slug + '.pdf'`
+   v kořenovém `index.html`; `pecky-noviny/index.html` používá lokální PDF
+   vždy, viz „Rozdíly oproti panelu" níže) — u dosavadních dávek už to
+   funguje, nová vydání jen musí mít `url: null`. **Mezera v `PN {rok}`
+   musí být v URL/href jako `%20`**, ne doslovná mezera (prohlížeč ji
+   sice u kliknutí obvykle dokáže domyslet, ale `fetch()` a některé
+   nástroje ne — viz „Kde co je" výše).
 9. Smazat `TEMP/` (obsah je beze zbytku v `Data/`) a jednorázový
    zpracovávací skript, pokud byl napsaný jako samostatný soubor.
 
@@ -243,7 +246,7 @@ Rozdíly oproti panelu v hlavním webu:
   (`renderGrid()`), ne jako ručně psané `.noviny-card` odkazy — nový
   záznam v JSON se tedy v gridu objeví bez úpravy HTML.
 - Karty, náhledy stránek ve výsledcích hledání i odkazy v patičce
-  výsledku odkazují na **lokální PDF** (`Data/{slug}.pdf`), ne na
+  výsledku odkazují na **lokální PDF** (`Data/PN {rok}/{slug}.pdf`), ne na
   pecky.cz — stránka tak funguje i offline/mimo hosting hlavního webu.
   Výsledky hledání navíc nabízí i odkaz na originál na pecky.cz (v
   kořenovém `index.html` je to naopak — tam odkazuje na pecky.cz,
@@ -251,7 +254,8 @@ Rozdíly oproti panelu v hlavním webu:
   (archiv 2008–2011, viz mezery výše) odkazuje na lokální PDF i kořenový
   `index.html` — jinak by karta/odkaz vedly na neexistující URL. Karty
   grid v kořenovém `index.html` to řeší přímo v ručně psaném `href`, JS
-  hledání v obou souborech fallbackem `h.ed.url || 'Data/{slug}.pdf'`.
+  hledání v obou souborech fallbackem
+  `h.ed.url || 'Data/PN%20' + h.ed.year + '/' + h.ed.slug + '.pdf'`.
 - Sdílí stejné CSS proměnné a fonty (Fraunces/IBM Plex) jako hlavní web
   pro vizuální konzistenci, ale jen podmnožinu stylů, které skutečně
   používá (žádné styly pro ostatní panely).

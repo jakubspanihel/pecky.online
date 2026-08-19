@@ -174,7 +174,7 @@
         gapNoteInserted = true;
       }
       const cards = yearEditions.map(ed => `
-        <a class="noviny-card" href="Data/${ed.slug}.pdf" target="_blank" rel="noopener">
+        <a class="noviny-card" href="Data/PN%20${ed.year}/${ed.slug}.pdf" target="_blank" rel="noopener">
           <img src="img/${ed.slug}.jpg" alt="Titulní strana — ${jEscapeHtml(ed.label)}" loading="lazy">
           <div class="cap">${jEscapeHtml(ed.label)}</div>
         </a>`).join('');
@@ -258,7 +258,7 @@
 
     resultsEl.innerHTML = shown.map(h => {
       const snippet = nSnippet(h.text, h.norm, words);
-      const localHref = `Data/${h.ed.slug}.pdf#page=${h.page}`;
+      const localHref = `Data/PN%20${h.ed.year}/${h.ed.slug}.pdf#page=${h.page}`;
       const pdfcSrcLink = h.ed.url
         ? `<a href="${h.ed.url}#page=${h.page}" target="_blank" rel="noopener">otevřít PDF na pecky.cz, str. ${h.page} ↗</a>`
         : '';

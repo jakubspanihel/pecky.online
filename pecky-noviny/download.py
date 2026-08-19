@@ -41,7 +41,9 @@ def main():
     ok, skipped, failed = 0, 0, 0
     for e in editions:
         name = slugify_label(e["label"], e["year"]) + ".pdf"
-        dest = OUT_DIR / name
+        year_dir = OUT_DIR / f"PN {e['year']}"
+        year_dir.mkdir(parents=True, exist_ok=True)
+        dest = year_dir / name
         if dest.exists() and dest.stat().st_size > 0:
             skipped += 1
             continue

@@ -47,9 +47,9 @@ def main():
     total = 0
     for e in d["editions"]:
         slug = e["slug"]
-        pdf_path = PDF_DIR / f"{slug}.pdf"
+        pdf_path = PDF_DIR / f"PN {e['year']}" / f"{slug}.pdf"
         if not pdf_path.exists():
-            print(f"skip {slug}: PDF missing in Data/")
+            print(f"skip {slug}: PDF missing in Data/PN {e['year']}/")
             continue
         n = render_edition(slug, pdf_path, e["page_count"])
         if n:
