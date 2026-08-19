@@ -17,20 +17,27 @@ obsahem.
 - Redakce: Alena Brantová, kontakt `noviny@pecky.cz`
 
 ## Stav archivu (aktuální, k 19. 8. 2026)
-**147 vydání, 2008–2026** — dva různé zdroje:
+**156 vydání, 2008–2026** — dva různé zdroje:
 - **2020–2026: 68/68 vydání**, nejnovější je Červenec–srpen 2026. Zrcadlené
   z pecky.cz — dřívější blokáda botů na archivní rozcestníkové stránce (viz
   níže) byla obejita jednorázově, výsledek je uložený lokálně a dál se z něj
   jen doplňuje. `url`/`file` v JSON u těchto vydání odkazují na pecky.cz.
-- **2008–2011 a 2016–2019: 79 vydání** (43 + 36) z lokálního archivu, který
-  poskytl uživatel po dávkách — adresář `TEMP/{rok}/*.pdf`, po zpracování
-  vždy smazán, obsah beze zbytku v `Data/`. Druhá dávka (2016–2019, doplněno
-  19. 8. 2026) měla jinou strukturu než první (`TEMP/{rok}/Pečecké noviny
-  {měsíc}-{rok}[ - web/náhled].pdf`, ne `PN {rok}/{mm}{rr}.pdf`) — název
-  měsíce/roku se parsuje z názvu souboru, ne z cesty. **Tato vydání nejsou
-  dostupná v aktuálním online archivu pecky.cz** (rozcestník i staré
-  `filemanager` odkazy vrací 404) — mají proto `"url": null, "file": null`
-  v JSON a karty na webu odkazují jen na lokální `Data/{slug}.pdf`.
+- **2008–2011 a 2016–2019: 88 vydání** (43 + 45) z lokálního archivu, který
+  poskytl uživatel postupně ve třech dávkách — adresář `TEMP/*.pdf` (buď
+  přímo, nebo v podsložkách `TEMP/{rok}/`), po zpracování vždy smazán,
+  obsah beze zbytku v `Data/`. Každá dávka měla jinou strukturu/pojmenování
+  (viz historie níže) — název měsíce/roku se vždy parsuje z názvu souboru,
+  ne z cesty ani z předpokladu o formátu. **Tato vydání nejsou dostupná
+  v aktuálním online archivu pecky.cz** (rozcestník i staré `filemanager`
+  odkazy vrací 404) — mají proto `"url": null, "file": null` v JSON a karty
+  na webu odkazují jen na lokální `Data/{slug}.pdf`.
+
+  Historie dávek: 2008–2011 (43 vydání, `TEMP/{rok}/PN {rok}/{mm}{rr}.pdf`,
+  18. 8. 2026) → 2016–2019 (36 vydání, `TEMP/{rok}/Pečecké noviny
+  {měsíc}-{rok}[ - web/náhled].pdf`, 19. 8. 2026) → doplnění 2019 (9 vydání,
+  `TEMP/Pececke noviny {měsíc}-2019 - web/nahled.pdf`, bez diakritiky a bez
+  podsložky roku, 19. 8. 2026 — leden a únor byly v dávce znovu, ale už
+  existovaly v archivu, takže byly přeskočeny jako duplicity).
 
 ### Známé mezery v archivu 2008–2011
 - **2/2011 a 3/2011 chybí.** Soubor archivovaný jako „0211" je ve
@@ -54,8 +61,8 @@ obsahem.
   ani nalezený.
 - **Leden 2016 chybí** — v poskytnuté dávce nebyl, ostatních 11 čísel roku
   2016 (únor–prosinec) je kompletních.
-- **Březen–prosinec 2019 chybí** — poskytnutá dávka měla jen leden a únor
-  2019, pak mezera až do obnovení online archivu pecky.cz od ledna 2020.
+- **Srpen 2019 chybí** — jediný chybějící měsíc v roce 2019, zbytek roku
+  (leden–červenec, září–prosinec) je po třetí dávce kompletní.
 - 2016 a 2017 mají červenec a srpen jako **dvě samostatná čísla** (ne
   dvojčíslo); 2018 naopak jako **jedno dvojčíslo** „7-8" — zachováno podle
   skutečné struktury zdrojových souborů, ne sjednoceno uměle.
@@ -66,8 +73,8 @@ obsahem.
 | Obálky vydání (náhledy v gridu) | `pecky-noviny/img/{slug}.jpg` | JPG, 1. strana, `pdftoppm -r 46 -jpegopt quality=75` (~380 px šířka, odpovídá `aspect-ratio:380/538` v CSS) |
 | Fulltext obsahu pro vyhledávání | `pecky-noviny/pecky-noviny.json` | JSON: `{meta, editions:[{label, year, url, file, slug, pages:[string], page_count}]}`, extrakce `pdftotext -layout` |
 | Přímé PDF odkazy na pecky.cz | `url` pole v `pecky-noviny/pecky-noviny.json` — `null` u vydání 2008–2011 a 2016–2019 (nejsou na pecky.cz, viz mezery výše) | — |
-| **Lokální kopie všech PDF** | `pecky-noviny/Data/{slug}.pdf` | PDF, ~214 MB / 147 souborů (68 staženo `pecky-noviny/download.py`, 79 z lokálního archivu 2008–2011 a 2016–2019) |
-| **Náhledy jednotlivých stránek** (pro preview ve výsledcích hledání) | `pecky-noviny/pages/{slug}/{page}.jpg` | JPG, **všechny** strany, 40 DPI/kvalita 60 (~32 KB/strana, ~34 MB/2218 stran), vygenerováno `pecky-noviny/render_pages.py` |
+| **Lokální kopie všech PDF** | `pecky-noviny/Data/{slug}.pdf` | PDF, ~232 MB / 156 souborů (68 staženo `pecky-noviny/download.py`, 88 z lokálního archivu 2008–2011 a 2016–2019) |
+| **Náhledy jednotlivých stránek** (pro preview ve výsledcích hledání) | `pecky-noviny/pages/{slug}/{page}.jpg` | JPG, **všechny** strany, 40 DPI/kvalita 60 (~32 KB/strana, ~39 MB/2346 stran), vygenerováno `pecky-noviny/render_pages.py` |
 | **Samostatná stránka sekce** | `pecky-noviny/index.html` | viz „Samostatná stránka" níže |
 
 `slug` = `{RRRR}-{MM}` (`{RRRR}-{MM}-{MM}` pro červenec–srpen dvojčíslo,
