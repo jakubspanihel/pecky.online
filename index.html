@@ -216,6 +216,10 @@
   .tag.hotovo{color:var(--field); border-color:var(--field); background:rgba(84,98,74,0.10); font-weight:600;}
   .tag.probiha{color:var(--gold); border-color:var(--gold); background:rgba(173,122,42,0.10); font-weight:600;}
   .tag.papir{color:var(--burgundy); border-color:var(--burgundy); background:rgba(124,47,43,0.06); font-weight:600;}
+  /* stav usnesení (sekce Jednání) */
+  .tag.zamitnuto{color:var(--burgundy); border-color:var(--burgundy); background:rgba(124,47,43,0.08); font-weight:600;}
+  .tag.revokovano{color:var(--burgundy-deep); border-color:var(--burgundy-deep); border-style:dashed; background:rgba(94,33,30,0.06); font-weight:600;}
+  .res-outcome{margin-right:6px;}
 
   .callout{
     border-left:3px solid var(--gold); background:rgba(173,122,42,0.08);
@@ -1381,13 +1385,7 @@
   <section class="panel" id="panel-jednani">
     <p class="eyebrow">Archiv jednání · usneseni.cz</p>
     <h2 class="title display">Jednání a usnesení</h2>
-    <p class="lede">Kompletní strojově čitelný archiv veřejných jednání rady a zastupitelstva města Pečky — pozvánky, zápisy a jednotlivá usnesení včetně výsledků hlasování, texty verbatim bez úprav. <span class="stamp">ověřeno</span></p>
-
-    <div class="callout" style="margin-bottom:22px;">
-      <strong>Videozáznamy zasedání zastupitelstva</strong> jsou k dispozici online na YouTube:
-      <a href="https://www.youtube.com/watch?v=3aogykS4MQw&list=PL1KVT2dbyIKSTFRv7tfDqrfk5gkTSnoyu" target="_blank" rel="noopener">playlist ZM Pečky ↗</a>.
-      U jednání zastupitelstva, ke kterým existuje video, je odkaz na něj přímo u příslušné položky v archivu níže (30 z 38 zasedání od 3/2022 do současnosti; starší zasedání a jedno mimořádné jednání 3/2026 nahrané nejsou).
-    </div>
+    <p class="lede">Oficiální schůzky zvolených zástupců Peček, kde rozhodují o věcech veřejných. <a href="https://frankbold.org/poradna/fungovani-obci-a-uradu/organy-obce-a-kraje/organy-obce-a-kraje/rada/zastupitelstvo-obce-a-kraje-o-cem-rozhoduje-a-jak" target="_blank" rel="noopener">Více zde ↗</a>. Z každé schůzky existuje <a href="https://mesto-pecky.usneseni.cz/verejne/" target="_blank" rel="noopener">záznam ↗</a>. Z jednání zastupitelstva (které je veřejné, koná se v Kulturním domě cca jednou za 2 měsíce) je i <a href="https://www.youtube.com/playlist?list=PL1KVT2dbyIKSTFRv7tfDqrfk5gkTSnoyu" target="_blank" rel="noopener">video ↗</a>. Oficiální web města nyní neposkytuje možnost v záznamech vyhledávat, proto vznikla tato stránka. Zároveň jsou zde provázány informace o přijatých usneseních. <span class="stamp">ověřeno</span></p>
 
     <div class="subject-box" id="jednani-stats">
       <div><div class="k">Jednání</div><div class="v">načítám…</div></div>
@@ -1406,6 +1404,10 @@
     </div>
 
     <p class="search-status" id="jednani-status">Načítám archiv…</p>
+    <div style="display:flex; align-items:center; justify-content:space-between; gap:12px; margin:0 0 14px; flex-wrap:wrap;">
+      <h3 class="display" style="font-size:19px; margin:0;">Zápisy z jednání</h3>
+      <button class="toggle-details" type="button" id="jednani-expand-all" aria-expanded="false" style="margin:0; padding:7px 12px; font-size:11px; display:none;">Rozbalit vše</button>
+    </div>
     <div id="jednani-results"></div>
 
     <div class="callout">
@@ -2783,6 +2785,73 @@
     return html;
   }
 
+  // ===== Jak jednání dopadlo: klasifikace usnesení podle úvodního slovesa =====
+  // Řádky bez konkrétní shody (výjimečné/nestandardní formulace) badge nedostanou.
+  // JS \b je definované jen na ASCII [A-Za-z0-9_] — u slov končících na
+  // diakritiku (á, í, é...) proto \b za posledním písmenem chybně "neplatí"
+  // (obě sousední pozice bere jako "non-word"), takže vzory jako \bukládá\b
+  // na reálný text nikdy nesednou. Boundary proto stavíme ručně přes
+  // Unicode-aware lookaround (\p{L}\p{N}_), ne přes \b.
+  function jWordRe(alt){
+    return new RegExp('(?<![\\p{L}\\p{N}_])(?:' + alt + ')(?![\\p{L}\\p{N}_])', 'iu');
+  }
+  const J_OUTCOME_PATTERNS = [
+    [jWordRe('neschvaluje'), 'Neschváleno', 'zamitnuto'],
+    [jWordRe('nedoporučuje'), 'Nedoporučeno', 'zamitnuto'],
+    [jWordRe('nesouhlasí'), 'Nesouhlasí', 'zamitnuto'],
+    [jWordRe('nenavrhuje'), 'Nenavrženo', 'zamitnuto'],
+    [jWordRe('nebere na vědomí'), 'Nevzato na vědomí', 'zamitnuto'],
+    [jWordRe('zamítá|zamítla|zamítl'), 'Zamítnuto', 'zamitnuto'],
+    [jWordRe('odmítá'), 'Odmítnuto', 'zamitnuto'],
+    [jWordRe('odvolává'), 'Odvoláno', 'zamitnuto'],
+    [jWordRe('ruší'), 'Zrušeno', 'zamitnuto'],
+    [jWordRe('revokuje'), 'Revokuje', 'probiha'],
+    [jWordRe('doporučuje'), 'Doporučeno', 'probiha'],
+    [jWordRe('ukládá'), 'Uloženo', 'probiha'],
+    [jWordRe('bere na vědomí'), 'Vzato na vědomí', 'probiha'],
+    [jWordRe('schvaluje|schváluje'), 'Schváleno', 'hotovo'],
+    [jWordRe('souhlasí'), 'Souhlasí', 'hotovo'],
+    [jWordRe('vydává'), 'Vydáno', 'hotovo'],
+    [jWordRe('udílí|uděluje'), 'Uděleno', 'hotovo'],
+    [jWordRe('povoluje'), 'Povoleno', 'hotovo'],
+    [jWordRe('vyhlašuje|vyhlášuje'), 'Vyhlášeno', 'hotovo'],
+    [jWordRe('jmenuje'), 'Jmenováno', 'hotovo'],
+    [jWordRe('pověřuje'), 'Pověřeno', 'hotovo'],
+    [jWordRe('svěřuje'), 'Svěřeno', 'hotovo'],
+    [jWordRe('stanovuje|stanoví'), 'Stanoveno', 'hotovo'],
+    [jWordRe('mění'), 'Změněno', 'hotovo'],
+    [jWordRe('projednala|projednal'), 'Projednáno', 'hotovo'],
+    [jWordRe('navrhuje'), 'Navrženo', 'hotovo'],
+    [jWordRe('rozhoduje|rozhodlo|rozhodla'), 'Rozhodnuto', 'hotovo'],
+    [jWordRe('předkládá'), 'Předloženo', 'probiha'],
+  ];
+  function jClassifyOutcome(text){
+    const t = text || '';
+    let best = null;
+    for (const [re, label, cls] of J_OUTCOME_PATTERNS) {
+      const m = re.exec(t);
+      if (m && (best === null || m.index < best.index)) best = {label, cls};
+    }
+    return best;
+  }
+
+  // "Rada města revokuje usnesení UR-228-24/26 ..." → vytáhne cílové číslo usnesení
+  const J_REVOKE_TARGET_RE = /revokuje\s+(?:své\s+)?(?:usnesení\s+)?(?:č(?:íslo|\.)?\s*)?((?:UZ|UR)-\d+-\d+\/\d{2,4})/gi;
+  function jRevokeTargets(text){
+    const t = text || '';
+    const out = [];
+    let m;
+    J_REVOKE_TARGET_RE.lastIndex = 0;
+    while ((m = J_REVOKE_TARGET_RE.exec(t))) out.push(m[1].toUpperCase());
+    return out;
+  }
+  function jOutcomeBadgeHtml(r){
+    let html = '';
+    if (r._outcome) html += `<span class="tag res-outcome ${r._outcome.cls}">${jEscapeHtml(r._outcome.label)}</span>`;
+    if (r._revokedBy) html += `<span class="tag res-outcome revokovano" title="Revokováno usnesením ${jEscapeHtml(r._revokedBy)}">Revokováno</span>`;
+    return html;
+  }
+
   async function loadJednani(){
     const statusEl = document.getElementById('jednani-status');
     if (JEDNANI_DB) return JEDNANI_DB;
@@ -2793,12 +2862,29 @@
         if (!res.ok) throw new Error('HTTP ' + res.status);
         const data = await res.json();
         const years = new Set();
+        const resByNumber = {};
         data.meetings.forEach(m => {
           m.resolutions.forEach(r => {
             r._norm = jNorm([r.n, r.item, r.text].filter(Boolean).join(' '));
+            r._outcome = jClassifyOutcome(r.text);
+            if (r.n) resByNumber[r.n.toUpperCase()] = r;
           });
           m.agenda.forEach(a => { a._norm = jNorm(a.t); });
           years.add(m.year);
+        });
+        // druhý průchod: napárovat revokující usnesení na revokovaná (podle čísla v textu)
+        data.meetings.forEach(m => {
+          m.resolutions.forEach(r => {
+            jRevokeTargets(r.text).forEach(target => {
+              let hit = resByNumber[target];
+              if (!hit) {
+                // starší usnesení někdy uvádí číslo s celým letopočtem (.../2022 místo .../22)
+                const norm = target.replace(/\/(\d\d)(\d\d)$/, '/$2');
+                hit = resByNumber[norm];
+              }
+              if (hit && hit !== r) hit._revokedBy = r.n;
+            });
+          });
         });
         data._years = Array.from(years).sort((a, b) => b - a);
         JEDNANI_DB = data;
@@ -2846,19 +2932,19 @@
 
   function jRenderMeetingList(meetings){
     if (!meetings.length) return '<p class="lede">Žádná jednání neodpovídají filtru.</p>';
-    const rows = meetings.map(m => `
+    const rows = meetings.map((m, i) => `
       <div class="meeting-row" data-uuid="${m.uuid}">
         <div class="meeting-row-main">
           <span class="tag${m.type === 'Zastupitelstvo' ? ' role' : ''}">${jEscapeHtml(m.type || '')}</span>
           <span class="meeting-label">${jEscapeHtml(m.label || '')}</span>
           <span class="meeting-date">${jFormatDate(m.date)}</span>
           <span class="meeting-count">${m.resolutions.length} usnesení</span>
-          <span class="meeting-toggle">+</span>
+          <span class="meeting-toggle">${i === 0 ? '−' : '+'}</span>
         </div>
-        <div class="meeting-row-detail" hidden>
+        <div class="meeting-row-detail"${i === 0 ? '' : ' hidden'}>
           ${m.resolutions.length
             ? '<ul class="res-list">' + m.resolutions.map(r =>
-                `<li><span class="hit-number">${jEscapeHtml(r.n || '')}</span> — ${jEscapeHtml(r.item || '')}</li>`
+                `<li><span class="hit-number">${jEscapeHtml(r.n || '')}</span> — ${jEscapeHtml(r.item || '')} ${jOutcomeBadgeHtml(r)}</li>`
               ).join('') + '</ul>'
             : '<p class="lede" style="margin:8px 0;">Bez zveřejněných usnesení k tomuto jednání.</p>'}
           <div class="meeting-links">
@@ -2899,7 +2985,7 @@
           <span class="hit-label">${jEscapeHtml(m.label || '')}</span>
           <span class="hit-date">${jFormatDate(m.date)}</span>
         </div>
-        <div class="hit-item">${jHighlight(r.item, rawQuery)}</div>
+        <div class="hit-item">${jHighlight(r.item, rawQuery)} ${jOutcomeBadgeHtml(r)}</div>
         <div class="hit-text">${jHighlight(r.text, rawQuery)}</div>
         <div class="hit-footer">
           <span class="hit-number">${jEscapeHtml(r.n || '')}</span>
@@ -2933,13 +3019,19 @@
     const statusEl = document.getElementById('jednani-status');
     const resultsEl = document.getElementById('jednani-results');
 
+    const expandAllBtn = document.getElementById('jednani-expand-all');
+
     if (!words.length) {
       statusEl.textContent = `${meetings.length} jednání — klikněte pro rozbalení usnesení, nebo hledejte klíčové slovo výše.`;
       resultsEl.innerHTML = jRenderMeetingList(meetings);
       jAttachAccordionHandlers();
+      expandAllBtn.style.display = meetings.length ? '' : 'none';
+      expandAllBtn.textContent = 'Rozbalit vše';
+      expandAllBtn.setAttribute('aria-expanded', 'false');
       return;
     }
 
+    expandAllBtn.style.display = 'none';
     const hits = [];
     meetings.forEach(m => {
       const resItemTexts = new Set(m.resolutions.map(r => r.item));
@@ -2956,6 +3048,7 @@
     if (!hits.length) {
       statusEl.textContent = 'Žádné shody pro „' + rawQuery.trim() + '“.';
       resultsEl.innerHTML = '<p class="lede">Zkuste jiné klíčové slovo, nebo změňte filtr typu/roku výše.</p>';
+      expandAllBtn.style.display = 'none';
       return;
     }
     const meetingCount = new Set(hits.map(h => h.m.uuid)).size;
@@ -2971,6 +3064,18 @@
   document.getElementById('jednani-search').addEventListener('input', jScheduleSearch);
   document.getElementById('jednani-filter-type').addEventListener('change', jRunSearch);
   document.getElementById('jednani-filter-year').addEventListener('change', jRunSearch);
+
+  document.getElementById('jednani-expand-all').addEventListener('click', function(){
+    const rows = document.querySelectorAll('#jednani-results .meeting-row-detail');
+    const expand = Array.from(rows).some(d => d.hasAttribute('hidden'));
+    rows.forEach(d => {
+      const toggle = d.parentElement.querySelector('.meeting-toggle');
+      if (expand) { d.removeAttribute('hidden'); toggle.textContent = '−'; }
+      else { d.setAttribute('hidden', ''); toggle.textContent = '+'; }
+    });
+    this.textContent = expand ? 'Sbalit vše' : 'Rozbalit vše';
+    this.setAttribute('aria-expanded', expand ? 'true' : 'false');
+  });
 </script>
 
 <script>
