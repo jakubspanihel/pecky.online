@@ -116,6 +116,15 @@ indexu, špatnému názvu projektu a vzorku pouhých 20 nejnovějších dotací.
 
 ## Poslední aktualizace
 
+21. srpna 2026 (na žádost uživatele: do archivu `pecky-jednani.json` doplněna 2 jednání,
+která mají na usneseni.cz zatím jen Pozvánku — Zastupitelstvo 5/2026 z 26. 8. a Rada
+30/2026 z 24. 8., archiv nyní 285 jednání; agenda obou vytažena přímo z PDF pozvánky
+přes pdf.js v prohlížeči, ne jen odkaz. Dále opraven nesoulad v číslování videí na
+YouTube kanálu města: jednání 3/2026 (25. 5. 2026) nemá záznam vůbec, video s titulkem
+„ZM Pečky č. 3/2026" patří ve skutečnosti jednání 4/2026 — obě jednání teď mají pole
+`video_note` s vysvětlením, viditelné i v panelu Jednání na webu. Detaily viz
+`pecky-jednani/README.md`.)
+
 21. srpna 2026 (sekce Jednání přesunuta do vlastní složky `pecky-jednani/`,
 stejná konvence jako `pecky-noviny/` — `pecky-jednani.json` a
 `archive-2026-08-04.json` přesunuty ze `sources/`, které tím zaniklo,
