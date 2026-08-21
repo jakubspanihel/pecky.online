@@ -111,6 +111,7 @@
 
   .meeting-list{border-top:1px solid var(--ink);}
   .meeting-row{border-bottom:1px solid var(--line);}
+  .meeting-row--expanded{background:#ffffff;}
   .meeting-row--future .meeting-row-main{background:rgba(173,122,42,0.08);}
   .meeting-attendance{margin:2px 0 12px;}
   .meeting-row-main{display:flex; align-items:center; gap:12px; padding:11px 4px; cursor:pointer; font-size:14px;}
@@ -515,9 +516,8 @@
             ${jFormatDateZeroPad(m.date)} | Jednání ${jEscapeHtml(jMeetingTypeGenitive(m.type))} č. ${jEscapeHtml(String(m.number || ''))}
             ${future ? '<span class="tag probiha">plánováno</span>' : ''}
           </span>
-          <span class="meeting-count">${(m.agenda || []).length} bodů · ${m.resolutions.length} usnesení${jFormatAttendance(m) ? ` · ${jEscapeHtml(jFormatAttendance(m))}` : ''}</span>
+          <span class="meeting-count">${(m.agenda || []).length} bodů${m.resolutions.length ? ` · ${m.resolutions.length} usnesení` : ''}${jFormatAttendance(m) ? ` · ${jEscapeHtml(jFormatAttendance(m))}` : ''}</span>
           ${m.duration_seconds != null ? ` · <span class="meeting-duration">schůze trvala: ${jFormatDuration(m.duration_seconds)}</span>` : ''}
-          ${m.links.youtube ? `<span class="meeting-video-badge"><img class="meeting-yt-icon" src="../img/favicons/youtube-com.png" alt="" loading="lazy">Video</span>` : ''}
           <span class="meeting-toggle">+</span>
         </div>
         <div class="meeting-row-detail" hidden>
@@ -544,8 +544,8 @@
         const detail = row.querySelector('.meeting-row-detail');
         const toggle = el.querySelector('.meeting-toggle');
         const isHidden = detail.hasAttribute('hidden');
-        if (isHidden) { detail.removeAttribute('hidden'); toggle.textContent = '−'; }
-        else { detail.setAttribute('hidden', ''); toggle.textContent = '+'; }
+        if (isHidden) { detail.removeAttribute('hidden'); toggle.textContent = '−'; row.classList.add('meeting-row--expanded'); }
+        else { detail.setAttribute('hidden', ''); toggle.textContent = '+'; row.classList.remove('meeting-row--expanded'); }
       });
     });
   }
