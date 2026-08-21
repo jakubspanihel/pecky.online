@@ -33,17 +33,29 @@ samostatnou projektovou složku. Načíst při práci na dané sekci:
   `index.html` (jednosouborová struktura webu). Sekce má navíc i
   samostatnou stránku `pecky-noviny/index.html` (stejný obsah, bez
   hlavičky/navigace hlavního webu) — detaily v `ZPRAVODAJ.md`.
-- **Jednání** → `pecky-jednani/README.md` (zadání a rozhodnutí exportu),
-  `pecky-jednani/SPEC.md` (specifikace), `pecky-jednani/AUTOMATION.md`
-  (plán budoucí automatizace). Všechny soubory týkající se sekce Jednání
-  (index pro fulltextové hledání, kompletní datový snímek, referenční
-  dokumenty) patří do `pecky-jednani/`, ne do kořene repa ani do
-  `data/`/`sources/` — i nově vznikající. Jediná výjimka: zobrazení
-  v panelu zůstává v kořenovém `index.html` (jednosouborová struktura
-  webu). Sekce má navíc i samostatnou stránku `pecky-jednani/index.html`
-  (stejný obsah, bez hlavičky/navigace hlavního webu). `Data/` a `img/`
-  uvnitř jsou zatím prázdné (vyhrazené pro budoucí lokální archiv
-  dokumentů/obrázků k jednáním, stejná konvence jako `pecky-noviny/`).
+- **Jednání** → `pecky-jednani/README.md` (zadání, rozhodnutí exportu a
+  postup stahování PDF), `pecky-jednani/SPEC.md` (specifikace),
+  `pecky-jednani/AUTOMATION.md` (plán budoucí automatizace). Všechny
+  soubory týkající se sekce Jednání (index pro fulltextové hledání,
+  kompletní datový snímek, referenční dokumenty) patří do
+  `pecky-jednani/`, ne do kořene repa ani do `data/` — i nově vznikající.
+  Jediná výjimka: zobrazení v panelu zůstává v kořenovém `index.html`
+  (jednosouborová struktura webu). Sekce má navíc i samostatnou stránku
+  `pecky-jednani/index.html` (stejný obsah, bez hlavičky/navigace
+  hlavního webu). `Data/{datum}/` obsahuje lokální PDF archiv
+  (`podepsany-zapis.pdf` u všech jednání, `pozvanka.pdf` jen u jednání
+  od cca 6/2026 — starší web trvale nevydá, viz „Známá omezení zdroje"
+  v `pecky-jednani/README.md`); `img/` zatím prázdné.
+  - **Pravidla pro aktualizaci archivu (platí od 21. 8. 2026):**
+    - Do `pecky-jednani.json` zaznamenat i jednání, které má na webu
+      zatím jen Pozvánku (bez zápisu/usnesení) — dřív se takové
+      jednání při kontrole přeskakovalo, teď se má evidovat rovnou
+      (s prázdnými poli zápisu/usnesení) a doplnit, jakmile web zveřejní
+      zbytek.
+    - Stahovat i samotné dokumenty, ne jen odkazy na ně — Pozvánku
+      a podepsaný zápis, pokud jsou k dispozici — postupem popsaným
+      v `pecky-jednani/README.md` → „Stahování pozvánek a podepsaných
+      zápisů".
 
 ## Známé mezery (celoprojektové)
 - Kompletní seznam 21 zastupitelů (pecky.cz blokuje bot přístup)

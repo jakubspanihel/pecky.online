@@ -100,6 +100,13 @@ nemá.
 4. Jednání před 2/2025 (celé 2022–2024 a ZM 1/2025) kapitoly v popisku
    nemají vůbec — `shortDescription` obsahuje jen jednořádkový název.
 
+**Pozor — účel tohoto pole:** `video_ts`/`video_url` slouží jen k odkazu
+„▶ video" na konkrétní místo v záznamu (kde existuje). Zobrazený ČAS
+u bodu programu ve výpisu jednání z tohoto pole **nevychází** — původně tak
+bylo (chybně) zadáno a implementováno 20.–21. 8. 2026, protože YouTube
+kapitoly nejsou totéž co skutečná délka projednávání bodu. Opraveno
+21. 8. 2026 — viz `duration_seconds` níže.
+
 **Pro budoucí automatizaci:** při každém novém jednání ZM s YouTube odkazem
 zopakovat tento postup (stačí otevřít video a přečíst
 `ytInitialPlayerResponse.videoDetails.shortDescription`, žádné klikání není
@@ -107,15 +114,45 @@ potřeba). Pokud by šlo získat YouTube Data API klíč, `videos.list` s
 `part=snippet` vrátí totéž programově bez prohlížeče — vhodné pro plnou
 automatizaci bez GUI Chrome.
 
-## Délka videa (`video_duration_seconds`)
+## Délka jednání a délka projednávání bodu (`duration_seconds`)
 
-U každého jednání s `links.youtube` (nejen ZM s kapitolami — **všech 30**
-k 20. 8. 2026) je v `pecky-jednani.json` na úrovni jednání i celková délka
-záznamu v sekundách, doplněná 20. 8. 2026 pro zobrazení "▶ Video, h:mm" ve
-sbaleném řádku výpisu jednání. Zdroj: `ytInitialPlayerResponse.videoDetails
-.lengthSeconds` (jedno číslo, žádné parsování popisku není potřeba). **Při
-každé aktualizaci archivu o nové jednání s YouTube odkazem doplnit i tuto
-hodnotu** stejným způsobem.
+Opraveno 21. 8. 2026 — nahrazuje původní `video_duration_seconds`/`video_ts`
+jako zdroj zobrazeného času (to pole popisovalo jen dostupnost/pozici videa,
+tedy jen ~30 zasedání Zastupitelstva). Správný zdroj je **skutečná
+zaznamenaná délka ze zápisu**, dostupná pro VŠECHNA jednání — radu
+i zastupitelstvo, s videem i bez něj.
+
+Zdroj: text zápisu obsahuje u každého jednání přesné časové značky
+(`minutes.full_text` a `minutes.agenda_items[].raw_text` ve velkém
+`archive-*.json`, případně přímo stránka `/verejne/<uuid>/zapis/`):
+- `Jednání zahájeno DD.MM.RRRR v HH:MM:SS` / `Jednání ukončeno DD.MM.RRRR
+  v HH:MM:SS` → rozdíl = `meetings[].duration_seconds`. Pozor na tvar „ve"
+  místo „v" před některými hodinami (české skloňování, např. „ve 21:04:14").
+- U každého bodu programu: `Projednávání bodu bylo zahájeno v HH:MM:SS` /
+  `...ukončeno v HH:MM:SS` → rozdíl = `agenda[].duration_seconds`. Párovat
+  podle čísla v `(bod číslo N)` z nadpisu bodu, NE podle pořadí v zápisu —
+  pořadí projednávání se od pořadí v programu občas liší (stejně jako
+  u `video_ts` výše).
+- Body, které byly odloženy („Projednání bodu bylo odloženo.") nebo mají
+  prázdný `raw_text`, žádnou časovou značku nemají — bez `duration_seconds`,
+  nic se nedopočítává ani nevymýšlí.
+
+Pokrytí k 21. 8. 2026: 283/285 jednání (2 nejnovější — Zastupitelstvo 5/2026,
+Rada 30/2026 — mají zatím jen pozvánku, zápis ještě neexistuje), 3998/4046
+bodů programu (zbytek odloženo nebo bez zaznamenaného textu). 281/281 jednání
+zdrojováno z `archive-2026-08-04.json`; 2 nejnovější tou dobou v archivu
+chybějící jednání (Rada 28/2026, 29/2026) doplněna ručně stejným rozborem
+přímo ze stránky `/verejne/<uuid>/zapis/`.
+
+**Zobrazení na webu:** čas u bodu programu (`hh:mm`, nebo jen `mm` pod
+hodinu) je na konci řádku bodu, PŘED odkazem na video (pokud pro daný bod
+existuje — `video_url`/`video_ts` beze změny, pořád jen pro odkaz, viz výše).
+Délka celého jednání (`hh:mm`) je na konci sbaleného řádku jednání, odděleně
+od případného odkazu na video.
+
+**Pro budoucí automatizaci:** u každého nového jednání dohledat totéž z jeho
+`zapis/` stránky stejným rozborem a doplnit `duration_seconds` na úrovni
+jednání i jednotlivých bodů do `pecky-jednani.json`.
 
 ## Účast na jednání (`attendance.present`, `attendance.total`)
 
@@ -214,6 +251,30 @@ porovná MD5 hash všech souborů daného typu napříč `Data/` a nahlásí
 `DATA INTEGRITY WARNING`, pokud jsou dva různé dny bit-identické. Postup
 při nálezu: smazat oba soubory a stáhnout znovu každý zvlášť, jednotlivou
 navigací (ne v dávce), s ověřením hashe před finálním uložením.
+
+## Jednání jen s Pozvánkou (od 21. 8. 2026)
+
+Od 21. 8. 2026 platí (viz kořenový `CLAUDE.md`), že se do `pecky-jednani.json`
+zaznamenává i jednání, které má na webu zatím jen Pozvánku — bez zápisu
+a usnesení (dřív se takové jednání při kontrole přeskakovalo). Záznam má
+prázdné `resolutions: []`, `links.minutes`/`links.pdf`/`links.resolutions`
+`null`, `agenda` vyplněnou z textu Pozvánky. Až web zveřejní zápis
+a usnesení, jednání se doplní stejně jako běžný přírůstek.
+
+**Zdroj `agenda` u takového záznamu:** Pozvánka je na `usneseni.cz` jen PDF
+za Cloudflare — přímý `fetch()`/`curl` dostane 403. Funkční postup v Claude
+in Chrome session bez přístupu k reálné složce Stažené soubory (tedy mimo
+plný scraper výše): v kontextu stránky `fetch(url, {credentials:'include'})`
+načte PDF jako `ArrayBuffer` (cf_clearance cookie prohlížeče projde), pak
+`pdf.js` (`cdnjs.cloudflare.com/ajax/libs/pdf.js/…/pdf.min.js`, dynamicky
+vložený `<script>`) z něj v prohlížeči vytáhne čistý text (`getTextContent()`
+po stránkách) — ten už jde vrátit ven jako běžný string. Syrové PDF bajty
+(base64) ven vrátit nejde — nástroj pro spouštění JS v prohlížeči takový
+výstup blokuje jako bezpečnostní opatření proti exfiltraci binárek — takže
+`Data/{datum}/pozvanka.pdf` u těchto dvou jednání (Zastupitelstvo 5/2026,
+Rada 30/2026) zatím **chybí**; doplnit při příštím běhu plného scraperu
+(sekce „Stahování pozvánek a podepsaných zápisů" výše, který běží s reálným
+přístupem ke stažením).
 
 ## Spuštění
 

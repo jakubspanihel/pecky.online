@@ -80,6 +80,7 @@
   .tag.probiha{color:var(--gold); border-color:var(--gold); background:rgba(173,122,42,0.10); font-weight:600;}
   .tag.zamitnuto{color:var(--burgundy); border-color:var(--burgundy); background:rgba(124,47,43,0.08); font-weight:600;}
   .tag.revokovano{color:var(--burgundy-deep); border-color:var(--burgundy-deep); border-style:dashed; background:rgba(94,33,30,0.06); font-weight:600;}
+  .res-outcome{margin-right:6px;}
 
   .search-bar{display:flex; gap:10px; flex-wrap:wrap; margin:22px 0 6px;}
   .search-bar input[type=search]{
@@ -99,12 +100,26 @@
   .meeting-row-main{display:flex; align-items:center; gap:12px; padding:11px 4px; cursor:pointer; font-size:14px;}
   .meeting-row-main:hover{background:rgba(124,47,43,0.035);}
   .meeting-label{font-weight:500; flex:1; min-width:120px;}
+  .meeting-cal-icon{color:var(--ink-soft); vertical-align:-1px; margin-right:2px; flex-shrink:0;}
+  .meeting-video-badge{display:inline-flex; align-items:center; gap:4px; margin-left:12px; font-size:12px; font-weight:400; color:var(--ink-soft); font-family:'IBM Plex Mono',monospace;}
+  .meeting-duration{font-size:12px; color:var(--ink-soft); font-family:'IBM Plex Mono',monospace; white-space:nowrap;}
+  .meeting-yt-icon{width:13px; height:13px; border-radius:3px; object-fit:contain; vertical-align:-2px;}
   .meeting-date{font-family:'IBM Plex Mono',monospace; font-size:12px; color:var(--ink-soft);}
   .meeting-count{font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--ink-soft); white-space:nowrap;}
   .meeting-toggle{width:18px; text-align:center; color:var(--burgundy); font-weight:600; flex-shrink:0;}
   .meeting-row-detail{padding:2px 4px 18px 4px;}
   .res-list{margin:6px 0 12px; padding-left:0; list-style:none; font-size:13px;}
   .res-list li{padding:6px 0; border-bottom:1px dotted var(--line);}
+  .agenda-list{margin:6px 0 12px; padding-left:0; list-style:none; font-size:13px;}
+  .agenda-item{padding:7px 0; border-bottom:1px dotted var(--line);}
+  .agenda-item-main{display:flex; align-items:baseline; gap:7px; flex-wrap:wrap;}
+  .agenda-num{font-family:'IBM Plex Mono',monospace; color:var(--ink-soft); flex-shrink:0;}
+  .agenda-text{flex:1 1 auto; min-width:200px;}
+  .agenda-time{font-size:12px; color:var(--ink-soft); white-space:nowrap; font-family:'IBM Plex Mono',monospace;}
+  .agenda-video{font-size:12px; color:var(--burgundy); white-space:nowrap; font-family:'IBM Plex Mono',monospace;}
+  .agenda-res-list{margin:5px 0 0 20px; display:flex; flex-direction:column; gap:4px;}
+  .agenda-res{font-size:12.5px; display:flex; align-items:center; gap:8px; color:var(--ink-soft); white-space:nowrap;}
+  .agenda-res .hit-number{white-space:nowrap; cursor:help;}
   .meeting-links{display:flex; gap:14px; flex-wrap:wrap; font-size:12.5px;}
 
   .hit-card{border:1px solid var(--line); background:rgba(255,255,255,0.35); padding:14px 16px; margin-bottom:12px;}
@@ -130,15 +145,11 @@
 <main>
   <p class="eyebrow">Archiv jednání · usneseni.cz</p>
   <h1 class="title display">Jednání a usnesení</h1>
-  <p class="lede">Oficiální schůzky zvolených zástupců Peček, kde rozhodují o věcech veřejných. <a href="https://frankbold.org/poradna/fungovani-obci-a-uradu/organy-obce-a-kraje/organy-obce-a-kraje/rada/zastupitelstvo-obce-a-kraje-o-cem-rozhoduje-a-jak" target="_blank" rel="noopener">Více zde ↗</a>. Z každé schůzky existuje <a href="https://mesto-pecky.usneseni.cz/verejne/" target="_blank" rel="noopener">záznam ↗</a>. Z jednání zastupitelstva (které je veřejné, koná se v Kulturním domě cca jednou za 2 měsíce) je i <a href="https://www.youtube.com/playlist?list=PL1KVT2dbyIKSTFRv7tfDqrfk5gkTSnoyu" target="_blank" rel="noopener">video ↗</a>. Oficiální web města nyní neposkytuje možnost v záznamech vyhledávat, proto vznikla tato stránka. Zároveň jsou zde provázány informace o přijatých usneseních. <span class="stamp">ověřeno</span></p>
+  <p class="lede" id="jednani-stats" style="margin-bottom:16px;">Archiv se právě načítá…</p>
 
-  <div class="subject-box" id="jednani-stats">
-    <div><div class="k">Jednání</div><div class="v">načítám…</div></div>
-  </div>
+  <p class="lede" style="margin-bottom:16px;">Oficiální schůzky zvolených zástupců Peček, kde rozhodují o věcech veřejných. <a href="https://frankbold.org/poradna/fungovani-obci-a-uradu/organy-obce-a-kraje/organy-obce-a-kraje/rada/zastupitelstvo-obce-a-kraje-o-cem-rozhoduje-a-jak" target="_blank" rel="noopener">Více zde ↗</a>. Oficiální web města nyní neposkytuje možnost v záznamech vyhledávat, proto vznikla tato stránka. Zároveň jsou zde provázány informace o přijatých usneseních.</p>
 
-  <div class="callout">
-    Odkazy <strong>„pozvánka"</strong> a <strong>„podepsaný zápis (PDF)"</strong> u jednotlivých jednání někdy po kliknutí z tohoto webu místo konkrétního dokumentu otevřou jen úvodní stránku archivu usneseni.cz — zdrojový web takto chrání tyto dva konkrétní odkazy proti prokliku z cizích stránek (ostatní odkazy, „zápis" a „usnesení", tímto omezené nejsou a fungují spolehlivě). Samotné odkazy na našem webu jsou správné; při otevření přímo v adresním řádku fungují. <span class="stamp">přiznaná mezera</span>
-  </div>
+  <p class="lede">Z každé schůzky existuje <a href="https://mesto-pecky.usneseni.cz/verejne/" target="_blank" rel="noopener">záznam ↗</a>. Z jednání zastupitelstva (které je veřejné, koná se v Kulturním domě cca jednou za 2 měsíce) je i <a href="https://www.youtube.com/playlist?list=PL1KVT2dbyIKSTFRv7tfDqrfk5gkTSnoyu" target="_blank" rel="noopener">video ↗</a>. <span class="stamp">ověřeno</span></p>
 
   <div class="search-bar">
     <input type="search" id="jednani-search" placeholder="Hledat klíčové slovo, např. „vodojem“, „ČOV“, „rozpočet“…" autocomplete="off">
@@ -154,8 +165,8 @@
 
   <p class="search-status" id="jednani-status">Načítám archiv…</p>
   <div style="display:flex; align-items:center; justify-content:space-between; gap:12px; margin:0 0 14px; flex-wrap:wrap;">
-    <h3 class="display" style="margin:0;">Zápisy z jednání</h3>
-    <button class="toggle-details" type="button" id="jednani-expand-all" aria-expanded="false" style="padding:7px 12px; font-size:11px; display:none;">Rozbalit vše</button>
+    <h3 class="display" style="font-size:19px; margin:0;">Zápisy z jednání</h3>
+    <button class="toggle-details" type="button" id="jednani-expand-all" aria-expanded="false" style="margin:0; padding:7px 12px; font-size:11px; display:none;">Rozbalit vše</button>
   </div>
   <div id="jednani-results"></div>
 
@@ -166,6 +177,10 @@
     dalším běhu exportu. Kompletní datový snímek se všemi detaily (vč. jmenovitých hlasování a plných zápisů)
     je k nahlédnutí ve zdrojových datech projektu (<code>archive-2026-08-04.json</code> v tomto adresáři).
   </div>
+
+  <div class="callout">
+    Odkazy <strong>„pozvánka"</strong> a <strong>„podepsaný zápis (PDF)"</strong> u jednotlivých jednání někdy po kliknutí z tohoto webu místo konkrétního dokumentu otevřou jen úvodní stránku archivu usneseni.cz — zdrojový web takto chrání tyto dva konkrétní odkazy proti prokliku z cizích stránek (ostatní odkazy, „zápis" a „usnesení", tímto omezené nejsou a fungují spolehlivě). Samotné odkazy na našem webu jsou správné; při otevření přímo v adresním řádku fungují. <span class="stamp">přiznaná mezera</span>
+  </div>
 </main>
 
 <footer class="standalone-footer">
@@ -173,6 +188,7 @@
 </footer>
 
 <script>
+  // ===== Jednání: archiv + fulltext hledání =====
   let JEDNANI_DB = null;
   let JEDNANI_LOADING = null;
 
@@ -180,6 +196,50 @@
     return (s || '').toString().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
   }
   function jNorm(s){ return jStripDiacritics(s).toLowerCase(); }
+  function jTextSim(a, b){
+    const clean = s => jNorm(s || '').replace(/[^a-z0-9\s]/g, ' ').replace(/\s+/g, ' ').trim();
+    const na = clean(a), nb = clean(b);
+    if (!na || !nb) return 0;
+    if (na === nb) return 1;
+    if (na.includes(nb) || nb.includes(na)) return 0.9;
+    const bigrams = s => { const arr = []; for (let i = 0; i < s.length - 1; i++) arr.push(s.slice(i, i + 2)); return arr; };
+    const ba = bigrams(na), bb = bigrams(nb);
+    if (!ba.length || !bb.length) return 0;
+    const counts = {};
+    bb.forEach(g => counts[g] = (counts[g] || 0) + 1);
+    let matches = 0;
+    ba.forEach(g => { if (counts[g] > 0) { matches++; counts[g]--; } });
+    return (2 * matches) / (ba.length + bb.length);
+  }
+  function jFormatDateZeroPad(iso){
+    if (!iso) return '';
+    const parts = iso.split('-');
+    if (parts.length !== 3) return iso;
+    const [y, mo, d] = parts;
+    return `${d}. ${mo}. ${y}`;
+  }
+  function jMeetingTypeGenitive(type){
+    if (type === 'Rada') return 'rady';
+    if (type === 'Zastupitelstvo') return 'zastupitelstva';
+    return (type || '').toLowerCase();
+  }
+  function jFormatAttendance(m){
+    const a = m.attendance;
+    if (!a || a.present == null || a.total == null) return '';
+    if (m.type === 'Rada') return `sešlo se ${a.present} ze ${a.total} radních`;
+    if (m.type === 'Zastupitelstvo') return `sešlo se ${a.present} z ${a.total} zastupitelů`;
+    return `sešlo se ${a.present} z ${a.total}`;
+  }
+  function jFormatDuration(sec){
+    const totalMin = Math.round(sec / 60);
+    const h = Math.floor(totalMin / 60), m = totalMin % 60;
+    return `${h}:${String(m).padStart(2, '0')}`;
+  }
+  function jFormatItemTime(sec){
+    const totalMin = Math.round(sec / 60);
+    const h = Math.floor(totalMin / 60), m = totalMin % 60;
+    return h > 0 ? `${h}:${String(m).padStart(2, '0')}` : `${m}`;
+  }
   function jEscapeHtml(s){
     return (s || '').replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
   }
@@ -285,7 +345,19 @@
             r._outcome = jClassifyOutcome(r.text);
             if (r.n) resByNumber[r.n.toUpperCase()] = r;
           });
-          m.agenda.forEach(a => { a._norm = jNorm(a.t); });
+          m.agenda.forEach(a => { a._norm = jNorm(a.t); a._res = []; });
+          // spárovat usnesení s body programu, ze kterých vzešla (fuzzy shoda textu)
+          const unmatched = [];
+          m.resolutions.forEach(r => {
+            let best = null, bestScore = 0;
+            m.agenda.forEach(a => {
+              const score = jTextSim(a.t, r.item);
+              if (score > bestScore) { bestScore = score; best = a; }
+            });
+            if (best && bestScore >= 0.5) best._res.push(r);
+            else unmatched.push(r);
+          });
+          m._unmatchedRes = unmatched;
           years.add(m.year);
         });
         // druhý průchod: napárovat revokující usnesení na revokovaná (podle čísla v textu)
@@ -330,12 +402,8 @@
     const el = document.getElementById('jednani-stats');
     const years = JEDNANI_DB._years;
     const minY = years[years.length - 1], maxY = years[0];
-    el.innerHTML = `
-      <div><div class="k">Jednání</div><div class="v">${JEDNANI_DB.meta.meetings_count}</div></div>
-      <div><div class="k">Usnesení</div><div class="v">${JEDNANI_DB.meta.resolutions_count}</div></div>
-      <div><div class="k">Období</div><div class="v">${minY}–${maxY}</div></div>
-      <div><div class="k">Zdroj</div><div class="v">mesto-pecky.usneseni.cz</div></div>
-    `;
+    const resCount = JEDNANI_DB.meta.resolutions_count.toLocaleString('cs-CZ');
+    el.innerHTML = `Archiv obsahuje <strong>${JEDNANI_DB.meta.meetings_count} jednání</strong> a <strong>${resCount} usnesení</strong> z let ${minY}–${maxY}, čerpáno z <a href="https://mesto-pecky.usneseni.cz/verejne/" target="_blank" rel="noopener">mesto-pecky.usneseni.cz ↗</a>.`;
   }
 
   function jFilteredMeetings(){
@@ -346,30 +414,75 @@
     );
   }
 
+  function jResLabel(n){
+    return (n || '').replace(/^U[RZ]-/, 'Usnesení ');
+  }
+
+  function jRenderResItem(r){
+    const label = jEscapeHtml(jResLabel(r.n));
+    const tooltip = r.text ? ` title="${jEscapeHtml(r.text)}"` : '';
+    const link = r.url
+      ? `<a class="hit-number" href="${r.url}" target="_blank" rel="noopener"${tooltip}>${label}</a>`
+      : `<span class="hit-number"${tooltip}>${label}</span>`;
+    return `<div class="agenda-res">${link} ${jOutcomeBadgeHtml(r)}</div>`;
+  }
+
+  function jRenderResLine(r){
+    const label = jEscapeHtml(jResLabel(r.n));
+    const tooltip = r.text ? ` title="${jEscapeHtml(r.text)}"` : '';
+    const link = r.url
+      ? `<a class="hit-number" href="${r.url}" target="_blank" rel="noopener"${tooltip}>${label}</a>`
+      : `<span class="hit-number"${tooltip}>${label}</span>`;
+    return `<li>${link} — ${jEscapeHtml(r.item || '')} ${jOutcomeBadgeHtml(r)}</li>`;
+  }
+
+  function jRenderAgendaList(m){
+    if (!m.agenda || !m.agenda.length) {
+      return m.resolutions.length
+        ? '<ul class="res-list">' + m.resolutions.map(jRenderResLine).join('') + '</ul>'
+        : '<p class="lede" style="margin:8px 0;">Program ani usnesení k tomuto jednání nejsou zveřejněné.</p>';
+    }
+    const items = m.agenda.map(a => `
+      <li class="agenda-item">
+        <div class="agenda-item-main">
+          <span class="agenda-num">${jEscapeHtml(String(a.n))}.</span>
+          <span class="agenda-text">${jEscapeHtml(a.t || '')}</span>
+          ${a.duration_seconds != null ? `<span class="agenda-time">${jFormatItemTime(a.duration_seconds)}</span>` : ''}
+          ${a.video_url ? `<a class="agenda-video" href="${a.video_url}" target="_blank" rel="noopener">▶ video ↗</a>` : ''}
+        </div>
+        ${a._res && a._res.length ? '<div class="agenda-res-list">' + a._res.map(jRenderResItem).join('') + '</div>' : ''}
+      </li>
+    `).join('');
+    const unmatched = m._unmatchedRes && m._unmatchedRes.length
+      ? `<p class="lede" style="margin:14px 0 4px; font-size:12.5px;">Usnesení nešlo jednoznačně přiřadit k bodu programu:</p>
+         <ul class="res-list">${m._unmatchedRes.map(jRenderResLine).join('')}</ul>`
+      : '';
+    return `<ol class="agenda-list">${items}</ol>${unmatched}`;
+  }
+
   function jRenderMeetingList(meetings){
     if (!meetings.length) return '<p class="lede">Žádná jednání neodpovídají filtru.</p>';
     const rows = meetings.map((m, i) => `
       <div class="meeting-row" data-uuid="${m.uuid}">
         <div class="meeting-row-main">
-          <span class="tag${m.type === 'Zastupitelstvo' ? ' role' : ''}">${jEscapeHtml(m.type || '')}</span>
-          <span class="meeting-label">${jEscapeHtml(m.label || '')}</span>
-          <span class="meeting-date">${jFormatDate(m.date)}</span>
-          <span class="meeting-count">${m.resolutions.length} usnesení</span>
+          <span class="meeting-label">
+            <svg class="meeting-cal-icon" viewBox="0 0 16 16" width="13" height="13" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><rect x="1.5" y="3" width="13" height="11" rx="1.5"/><line x1="1.5" y1="6.2" x2="14.5" y2="6.2"/><line x1="4.5" y1="1.3" x2="4.5" y2="4"/><line x1="11.5" y1="1.3" x2="11.5" y2="4"/></svg>
+            ${jFormatDateZeroPad(m.date)} | Jednání ${jEscapeHtml(jMeetingTypeGenitive(m.type))} č. ${jEscapeHtml(String(m.number || ''))}
+          </span>
+          <span class="meeting-count">${(m.agenda || []).length} bodů · ${m.resolutions.length} usnesení${jFormatAttendance(m) ? ` · ${jEscapeHtml(jFormatAttendance(m))}` : ''}</span>
+          ${m.duration_seconds != null ? `<span class="meeting-duration">${jFormatDuration(m.duration_seconds)}</span>` : ''}
+          ${m.links.youtube ? `<span class="meeting-video-badge"><img class="meeting-yt-icon" src="../img/favicons/youtube-com.png" alt="" loading="lazy">Video</span>` : ''}
           <span class="meeting-toggle">${i === 0 ? '−' : '+'}</span>
         </div>
         <div class="meeting-row-detail"${i === 0 ? '' : ' hidden'}>
-          ${m.resolutions.length
-            ? '<ul class="res-list">' + m.resolutions.map(r =>
-                `<li><span class="hit-number">${jEscapeHtml(r.n || '')}</span> — ${jEscapeHtml(r.item || '')} ${jOutcomeBadgeHtml(r)}</li>`
-              ).join('') + '</ul>'
-            : '<p class="lede" style="margin:8px 0;">Bez zveřejněných usnesení k tomuto jednání.</p>'}
           <div class="meeting-links">
-            ${m.links.youtube ? `<a href="${m.links.youtube}" target="_blank" rel="noopener">▶ video ↗</a>` : ''}
-            ${m.links.minutes ? `<a href="${m.links.minutes}" target="_blank" rel="noopener">zápis ↗</a>` : ''}
-            ${m.links.resolutions ? `<a href="${m.links.resolutions}" target="_blank" rel="noopener">usnesení ↗</a>` : ''}
-            ${m.links.invitation ? `<a href="${m.links.invitation}" target="_blank" rel="noopener" title="Zdrojový web někdy odkaz z cizí stránky blokuje a otevře jen úvodní stránku archivu — zkuste prosím znovu, případně vyhledejte jednání přímo na usneseni.cz.">pozvánka ↗</a>` : ''}
-            ${m.links.pdf ? `<a href="${m.links.pdf}" target="_blank" rel="noopener" title="Zdrojový web někdy odkaz z cizí stránky blokuje a otevře jen úvodní stránku archivu — zkuste prosím znovu, případně vyhledejte jednání přímo na usneseni.cz.">podepsaný zápis (PDF) ↗</a>` : ''}
+            ${m.links.invitation ? `<a href="${m.links.invitation}" target="_blank" rel="noopener" title="Zdrojový web někdy odkaz z cizí stránky blokuje a otevře jen úvodní stránku archivu — zkuste prosím znovu, případně vyhledejte jednání přímo na usneseni.cz.">Pozvánka PDF ↗</a>` : ''}
+            ${m.links.youtube ? `<a href="${m.links.youtube}" target="_blank" rel="noopener">▶ Video ↗</a>` : ''}
+            ${m.links.minutes ? `<a href="${m.links.minutes}" target="_blank" rel="noopener">Zápis ↗</a>` : ''}
+            ${m.links.pdf ? `<a href="${m.links.pdf}" target="_blank" rel="noopener" title="Zdrojový web někdy odkaz z cizí stránky blokuje a otevře jen úvodní stránku archivu — zkuste prosím znovu, případně vyhledejte jednání přímo na usneseni.cz.">Zápis (podepsaný PDF) ↗</a>` : ''}
+            ${m.links.resolutions ? `<a href="${m.links.resolutions}" target="_blank" rel="noopener">Všechna přijatá usnesení ↗</a>` : ''}
           </div>
+          ${jRenderAgendaList(m)}
         </div>
       </div>
     `).join('');
