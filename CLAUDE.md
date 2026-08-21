@@ -5,8 +5,9 @@ Jednosouborová statická stránka — index.html, žádný build proces,
 žádné závislosti kromě Google Fonts CDN.
 
 ## Struktura
-Jediný soubor index.html, šest panelů přepínaných přes JS (data-panel
-atributy): Domů, Zastupitelstvo, Rada, Smlouvy, Zpravodaj, O webu.
+Jediný soubor index.html, panely přepínané přes JS (data-panel atributy):
+Domů, Lidé, Plán, Volby 2018, Volby 2022, Volby 2026, Jednání, Smlouvy,
+Zakázky, Pokladna, Pečecké noviny, O webu.
 Styl: pergamenově-úřední (Fraunces + IBM Plex Sans/Mono), viz <style> v hlavičce.
 
 ## Konvence
@@ -32,6 +33,17 @@ samostatnou projektovou složku. Načíst při práci na dané sekci:
   `index.html` (jednosouborová struktura webu). Sekce má navíc i
   samostatnou stránku `pecky-noviny/index.html` (stejný obsah, bez
   hlavičky/navigace hlavního webu) — detaily v `ZPRAVODAJ.md`.
+- **Jednání** → `pecky-jednani/README.md` (zadání a rozhodnutí exportu),
+  `pecky-jednani/SPEC.md` (specifikace), `pecky-jednani/AUTOMATION.md`
+  (plán budoucí automatizace). Všechny soubory týkající se sekce Jednání
+  (index pro fulltextové hledání, kompletní datový snímek, referenční
+  dokumenty) patří do `pecky-jednani/`, ne do kořene repa ani do
+  `data/`/`sources/` — i nově vznikající. Jediná výjimka: zobrazení
+  v panelu zůstává v kořenovém `index.html` (jednosouborová struktura
+  webu). Sekce má navíc i samostatnou stránku `pecky-jednani/index.html`
+  (stejný obsah, bez hlavičky/navigace hlavního webu). `Data/` a `img/`
+  uvnitř jsou zatím prázdné (vyhrazené pro budoucí lokální archiv
+  dokumentů/obrázků k jednáním, stejná konvence jako `pecky-noviny/`).
 
 ## Známé mezery (celoprojektové)
 - Kompletní seznam 21 zastupitelů (pecky.cz blokuje bot přístup)
@@ -43,6 +55,11 @@ samostatnou projektovou složku. Načíst při práci na dané sekci:
   identifikovat ručně z běžných výsledků
 - Bot-chráněné stránky (pecky.cz, mesto-pecky.usneseni.cz): zkus
   web_search jako fallback, když web_fetch selže
+- Velké soubory v `pecky-jednani/` (`archive-*.json`) čtené přímo z cesty
+  přes připojenou složku občas skončí `OSError: [Errno 35] Resource
+  deadlock avoided` (Python `open()`, `cat`, `head`...). Obejití: nejdřív
+  `cp soubor /tmp/kopie.json`, pak pracovat s kopií — `cp` samo selhání
+  nemělo.
 
 ## Git / GitHub
 Remote: https://github.com/jakubspanihel/pecky.online.git

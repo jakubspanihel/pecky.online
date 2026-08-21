@@ -7,14 +7,21 @@ o samosprávě města Pečky (okres Kolín, Středočeský kraj).
 
 - `index.html` — celá webová stránka (jeden soubor, HTML/CSS/JS, bez závislostí
   kromě Google Fonts přes CDN). Otevřete přímo v prohlížeči nebo nahrajte na
-  GitHub Pages / jakýkoli statický hosting.
-- `data/pecky-jednani.json` — datový soubor pro sekci „Jednání" (archiv jednání
-  rady a zastupitelstva s fulltextovým hledáním). Stránka si ho načítá přes
-  `fetch()`, proto je pro místní test potřeba spustit lokální server (např.
-  `python3 -m http.server`), otevření `index.html` přímo ze souboru (`file://`)
-  fetch v některých prohlížečích zablokuje.
-- `sources/` — zdrojový, kompletní export archivu jednání (surová data,
-  specifikace, viz níže).
+  GitHub Pages / jakýkoli statický hosting. Několik sekcí (Jednání, Pečecké
+  noviny) si data načítá přes `fetch()`, proto je pro místní test potřeba
+  spustit lokální server (např. `python3 -m http.server`), otevření
+  `index.html` přímo ze souboru (`file://`) fetch v některých prohlížečích
+  zablokuje.
+- `pecky-jednani/` — vše k sekci „Jednání": `pecky-jednani.json` (odlehčený
+  index pro fulltextové hledání na webu), `archive-2026-08-04.json`
+  (kompletní datový snímek se všemi detaily vč. jmenovitých hlasování),
+  `README.md`/`SPEC.md`/`AUTOMATION.md` (zadání, rozhodnutí a plán budoucí
+  aktualizace exportu), `Data/` a `img/` (zatím prázdné, vyhrazené pro
+  budoucí lokální archiv dokumentů/obrázků k jednáním) a samostatná stránka
+  `index.html` (stejný obsah bez hlavičky/navigace hlavního webu).
+- `pecky-noviny/` — vše k sekci „Pečecké noviny": archiv PDF, obálky,
+  fulltextový index, nástroje (`download.py`, `render_pages.py`) a
+  samostatná stránka `index.html`. Viz `pecky-noviny/ZPRAVODAJ.md`.
 
 ## Zdroje dat
 
@@ -36,9 +43,10 @@ o samosprávě města Pečky (okres Kolín, Středočeský kraj).
 - Jednání a usnesení: jednorázový strojově čitelný export webu
   mesto-pecky.usneseni.cz z 4. 8. 2026 — 281 jednání (243 Rada, 38
   Zastupitelstvo, 2021–2026), 2 731 usnesení. Kompletní snímek se všemi detaily
-  (vč. jmenovitých hlasování a plných zápisů) je v `sources/archive-2026-08-04.json`;
-  `data/pecky-jednani.json` je z něj odvozený odlehčený index pro hledání na
-  webu. Viz `sources/SPEC.md` a `sources/AUTOMATION.md` pro popis exportu a
+  (vč. jmenovitých hlasování a plných zápisů) je v
+  `pecky-jednani/archive-2026-08-04.json`; `pecky-jednani/pecky-jednani.json`
+  je z něj odvozený odlehčený index pro hledání na webu. Viz
+  `pecky-jednani/SPEC.md` a `pecky-jednani/AUTOMATION.md` pro popis exportu a
   plán budoucí aktualizace.
 
 ## Barevná paleta uskupení
@@ -67,8 +75,8 @@ Než o čemkoli prohlásíš, že to „v datech není“ nebo že se to „nest
 **vždy ve všech zdrojích a v jejich plné podobě**. Zkratky vedly už k prokazatelně
 chybným závěrům.
 
-1. **Vždy `sources/archive-2026-08-04.json`, ne `data/pecky-jednani.json`.**
-   Soubor v `data/` je odlehčený index (jen názvy a texty usnesení). Plný archiv
+1. **Vždy `pecky-jednani/archive-2026-08-04.json`, ne `pecky-jednani/pecky-jednani.json`.**
+   Druhý jmenovaný je odlehčený index (jen názvy a texty usnesení). Plný archiv
    obsahuje kompletní zápisy včetně diskuzí, důvodových zpráv a bodů programu —
    řádově víc textu. Pozn.: plný archiv nelze číst přes `mcp__workspace__bash`
    (mount hlásí „Resource deadlock avoided“) — použij nástroje Grep/Read, které
@@ -107,6 +115,29 @@ indexu, špatnému názvu projektu a vzorku pouhých 20 nejnovějších dotací.
   že se nerealizovaly.
 
 ## Poslední aktualizace
+
+21. srpna 2026 (sekce Jednání přesunuta do vlastní složky `pecky-jednani/`,
+stejná konvence jako `pecky-noviny/` — `pecky-jednani.json` a
+`archive-2026-08-04.json` přesunuty ze `sources/`, které tím zaniklo,
+`README.md`/`SPEC.md`/`AUTOMATION.md` přesunuty se souborem archivu; nové
+prázdné `Data/` a `img/` vyhrazené pro budoucí lokální archiv; nová
+samostatná stránka `pecky-jednani/index.html` se stejným obsahem jako panel
+Jednání. Všechny odkazy na staré cesty (`data/pecky-jednani.json`,
+`sources/*`) v `index.html` a tomto souboru aktualizovány — historické
+záznamy níže popisující starší cesty jsou ponechány beze změny jako
+dobový záznam.)
+
+20. srpna 2026 (kontrola zdrojů na výslovnou žádost uživatele: do `data/pecky-jednani.json`
+doplněna 2 nová jednání Rady města — 28/2026 z 10. 8. 2026 (5 usnesení UR-259 až UR-263) a
+29/2026 z 17. 8. 2026 (6 usnesení UR-264 až UR-269); archiv nyní čítá 283 jednání / 2 742
+usnesení, promítnuto i do statických zmínek počtu v sekcích Plán a O webu. Mimoto zjištěno a
+opraveno, že smlouvy zachycené při běhu 16. 8. 2026 (dar — zdravotnický batoh; spolupráce
+Digitální odysea 26/27) byly zapsané v README/sources.json, ale chyběly v samotném
+`index.html` — doplněny se stejnými částkami jako tehdy zaznamenané. Pečecké noviny a Zakázky
+zkontrolovány, beze změny. Pozn.: nový plný snímek `sources/archive-2026-08-20.json` podle
+`sources/SPEC.md` nebyl vytvořen kvůli velikosti souboru v tomto prostředí — aktuální je jen
+odvozený index `data/pecky-jednani.json`; kompletní snímek doplnit při příštím spuštění
+plného scraperu.)
 
 16. srpna 2026 (sekce Zpravodaj přesunuta do vlastní složky `pecky-noviny/`
 — obálky, fulltext, lokální kopie PDF i samostatná stránka na jednom místě;

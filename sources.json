@@ -1,7 +1,7 @@
 {
   "project": "pecky.online",
   "description": "Seznam zdrojů, ze kterých pecky.online čerpá nebo může čerpat informace o samosprávě města Pečky.",
-  "last_updated": "2026-08-16 (denní kontrola zdrojů — Smlouvy: +2 nové smlouvy (celkem 182/47 smluv); Jednání, Noviny, Zakázky beze změny; dříve též Zakázky, Pokladna, Bankovní účty, Plán)",
+  "last_updated": "2026-08-20 (kontrola zdrojů — Jednání: +2 jednání Rady (28/2026, 29/2026; celkem 283 jednání / 2 742 usnesení); dodatečně doplněny do index.html smlouvy zaznamenané už 16. 8. 2026 (182/47 smluv), které v souboru chyběly; Noviny, Zakázky beze změny)",
   "sources": [
     {
       "id": "pecky-cz",
@@ -53,7 +53,7 @@
       "category": "oficiální",
       "description": "Systém pro zveřejňování zápisů a usnesení zastupitelstva a rady města.",
       "status": "částečně nedostupné",
-      "note": "Blokuje automatizovaný přístup (ochrana proti botům). Jmenné seznamy členů se v zápisech objevují nesystematicky (docházka, příchody/odchody), ne jako jednotný rejstřík. Denní kontrola 16. 8. 2026 přes Claude in Chrome (bez Cloudflare výzvy): na webu přibyly Rada 28/2026 (10. 8. 2026) a Rada 29/2026 (17. 8. 2026, budoucí jednání), ale ani jedno nemá zatím zveřejněný zápis/usnesení (jen Pozvánka) — archiv sources/archive-2026-08-04.json a odvozený data/pecky-jednani.json tedy zůstávají aktuální (nejnovější kompletní jednání: Rada 27/2026, 20. 7. 2026)."
+      "note": "Blokuje automatizovaný přístup (ochrana proti botům). Jmenné seznamy členů se v zápisech objevují nesystematicky (docházka, příchody/odchody), ne jako jednotný rejstřík. Denní kontrola 16. 8. 2026 přes Claude in Chrome (bez Cloudflare výzvy): na webu přibyly Rada 28/2026 (10. 8. 2026) a Rada 29/2026 (17. 8. 2026, budoucí jednání), ale ani jedno nemá zatím zveřejněný zápis/usnesení (jen Pozvánka) — archiv sources/archive-2026-08-04.json a odvozený data/pecky-jednani.json tedy zůstávají aktuální (nejnovější kompletní jednání: Rada 27/2026, 20. 7. 2026). Zjištění 20. 8. 2026: dva konkrétní typy odkazů z `data/pecky-jednani.json` (`links.invitation` = pozvánka, `links.pdf` = podepsaný zápis) používají akční endpointy tvaru `?uuid=...&do=printPublicInvitation` / `?...&do=meetingReportControl-getSignedReportPdf`, které web při otevření z cizí domény (proklik z pecky.online, i s rel=noreferrer) přesměruje na úvodní stránku `/verejne/` místo konkrétního dokumentu — zjevná ochrana proti hotlinkování/embeddingu (pravděpodobně dle Sec-Fetch-Site, ne dle Referer hlavičky, tu jsme vyloučili testem). Stejná URL při zadání přímo do adresního řádku (bez cizí domény jako iniciátora) funguje správně. `links.minutes` (zápis) a `links.resolutions` (usnesení) jsou cestové URL bez `do=` parametru a tímto omezením netrpí, fungují spolehlivě i jako proklik. Nejde o chybu v datech/kódu pecky.online — odkazy samotné jsou správné, jde o vlastnost cílového webu, kterou nelze z naší strany obejít. Promítnuto do panelu Jednání jako `title` tooltip na obou postižených typech odkazů a jako přiznaná mezera v callout boxu."
     },
     {
       "id": "facebook-kspecky",
@@ -375,6 +375,42 @@
       "description": "Facebookový profil ke stejnojmennému soukromému historickému webu Pečky-Virtuálně.",
       "status": "nevytěženo",
       "note": "Přidáno uživatelem 19. 8. 2026. Zatím jen doplněno do quicklinks v sekci O webu — obsah nebyl použit jinde na webu."
+    },
+    {
+      "id": "pecky-cz-akcni-plan-2024-2026",
+      "name": "Akční plán rozvoje města Pečky 2024–2026 (pecky.cz)",
+      "url": "https://pecky.cz/files/pecky/gallery/18710/699ed77c67d43_Akcni-plan-2024-2026.xlsx.pdf",
+      "category": "oficiální",
+      "description": "Podrobný rozpočtovaný akční plán navazující na Strategický plán rozvoje města Pečky 2016–2026 — cca 65 konkrétních akcí se strategickou oblastí, garantem, prioritou, předpokládanou nákladovostí, rokem realizace a rozpočtem po jednotlivých letech 2024/2025/2026. Celkem 665 359 209 Kč (2024: 99 640 000 Kč, 2025: 215 943 234 Kč, 2026: 251 775 975 Kč).",
+      "status": "ověřeno",
+      "note": "Nalezeno 20. 8. 2026 na stránce „Strategické dokumenty města“ (pecky.cz/default/default/21308_strategicke-dokumenty-mesta), přečteno přes claude-in-chrome (přímý web_fetch na výpis dává 403, na PDF samotné funguje běžný curl). Vytěženo pro sekci Plán: doplněna nová položka „Obnova (sanace) vodojemu“ (25 mil. Kč, harmonogram 2024–2026) a upřesněny/potvrzeny existující položky (severní obchvat v plánu chybí, Mlýnský náhon a solární osvětlení Benešáku potvrzeny jako naplánované)."
+    },
+    {
+      "id": "pecky-cz-adaptacni-strategie-klima",
+      "name": "Adaptační strategie ke změně klimatu města Pečky (pecky.cz)",
+      "url": "https://pecky.cz/files/pecky/gallery/18709/699ed5d93bc39_adaptacni-strategie-mesta-pecky-na-klimatickou-zmenu.pdf",
+      "category": "oficiální",
+      "description": "Strategický dokument k adaptaci města na změnu klimatu (sucho, přívalové srážky, vlny horka).",
+      "status": "nevytěženo",
+      "note": "Nalezeno 20. 8. 2026 na stránce „Strategické dokumenty města“. Zmíněno v sekci Plán jako existující dokument s odkazem na zdroj, obsah zatím nevytěžen do žádné konkrétní položky."
+    },
+    {
+      "id": "pecky-cz-zasady-investori-2025",
+      "name": "Zásady Města Pečky pro spolupráci s investory (pecky.cz)",
+      "url": "https://pecky.cz/files/pecky/gallery/18704/699ec8ba1a832_zasady-spoluprace-2025-2.pdf",
+      "category": "oficiální",
+      "description": "Pravidla města pro spolupráci s developery/investory z roku 2025, včetně vzorů plánovacích smluv.",
+      "status": "nevytěženo",
+      "note": "Nalezeno 20. 8. 2026 na stránce „Strategické dokumenty města“. Zmíněno v sekci Plán jako existující dokument s odkazem na zdroj, obsah zatím nevytěžen do žádné konkrétní položky."
+    },
+    {
+      "id": "pecky-cz-strategicky-plan-aktualizace-2021-09",
+      "name": "Aktualizace strategického plánu 15. 9. 2021 (pecky.cz)",
+      "url": "https://pecky.cz/files/pecky/gallery/18710/699ed6c226d98_aktualizace-2021-09-15-strategickeho-planu-rozvoje-mesta-pecky-pro-rok-2016-2026.pdf",
+      "category": "oficiální",
+      "description": "Jednostránkový dodatek Strategického plánu rozvoje města Pečky 2016–2026, schválený zastupitelstvem 15. 9. 2021 usnesením UZ-15-2/2021 — přidává 2 nové aktivity (I.2.2.16, I.2.2.17: obnova veřejného prostranství ve Velkých Chvalovicích, ul. Pražská/Stará/Jarní, 2022 PD / 2023–25 realizace).",
+      "status": "ověřeno",
+      "note": "Nalezeno a vytěženo 20. 8. 2026 pro sekci Plán — doklad, že formální aktualizace plánu pokračovaly i po roce 2017, i když kolonka plnění 718 aktivit se dál nevedla."
     }
   ]
 }

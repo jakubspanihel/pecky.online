@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>pecky.online — radnice pod drobnohledem</title>
+<title>pecky.online — Pečky pohledem umělé inteligence</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -320,13 +320,25 @@
   .meeting-row-main{display:flex; align-items:center; gap:12px; padding:11px 4px; cursor:pointer; font-size:14px;}
   .meeting-row-main:hover{background:rgba(124,47,43,0.035);}
   .meeting-label{font-weight:500; flex:1; min-width:120px;}
-  .meeting-date{font-family:'IBM Plex Mono',monospace; font-size:12px; color:var(--ink-soft);}
+  .meeting-cal-icon{color:var(--ink-soft); vertical-align:-1px; margin-right:2px; flex-shrink:0;}
+  .meeting-video-badge{display:inline-flex; align-items:center; gap:4px; margin-left:12px; font-size:12px; font-weight:400; color:var(--ink-soft); font-family:'IBM Plex Mono',monospace;}
+  .meeting-yt-icon{width:13px; height:13px; border-radius:3px; object-fit:contain; vertical-align:-2px;}
   .meeting-count{font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--ink-soft); white-space:nowrap;}
   .meeting-toggle{width:18px; text-align:center; color:var(--burgundy); font-weight:600; flex-shrink:0;}
   .meeting-row-detail{padding:2px 4px 18px 4px;}
   .res-list{margin:6px 0 12px; padding-left:0; list-style:none; font-size:13px;}
   .res-list li{padding:6px 0; border-bottom:1px dotted var(--line);}
-  .meeting-links{display:flex; gap:14px; flex-wrap:wrap; font-size:12.5px;}
+  .agenda-list{margin:6px 0 12px; padding-left:0; list-style:none; font-size:13px;}
+  .agenda-item{padding:7px 0; border-bottom:1px dotted var(--line);}
+  .agenda-item-main{display:flex; align-items:baseline; gap:7px; flex-wrap:wrap;}
+  .agenda-num{font-family:'IBM Plex Mono',monospace; color:var(--ink-soft); flex-shrink:0;}
+  .agenda-text{flex:1 1 auto; min-width:200px;}
+  .agenda-time{font-size:12px; color:var(--ink-soft); white-space:nowrap; font-family:'IBM Plex Mono',monospace;}
+  .agenda-video{font-size:12px; color:var(--burgundy); white-space:nowrap; font-family:'IBM Plex Mono',monospace;}
+  .agenda-res-list{margin:5px 0 0 20px; display:flex; flex-direction:column; gap:4px;}
+  .agenda-res{font-size:12.5px; display:flex; align-items:center; gap:8px; color:var(--ink-soft); white-space:nowrap;}
+  .agenda-res .hit-number{white-space:nowrap; cursor:help;}
+  .meeting-links{display:flex; gap:14px; flex-wrap:wrap; font-size:12.5px; margin-bottom:10px;}
 
   .hit-card{border:1px solid var(--line); background:rgba(255,255,255,0.35); padding:14px 16px; margin-bottom:12px;}
   .hit-card--agenda{opacity:0.92;}
@@ -579,18 +591,18 @@
     </ul>
 
     <div class="callout" style="margin-top:26px;">
-      <strong>Zajímavé zjištění:</strong> dokument má vlastní tabulku plnění (splněno / nesplněno / probíhá) za každý rok 2016–2026 — u naprosté většiny ze 718 aktivit ale nemá vyplněný žádný stav. Jako „splněno" je označeno jen 13 aktivit, a to všechny z let 2016–2017. Vypadá to, že se sledování plnění po prvních dvou letech přestalo aktualizovat — dokument je tak spíš dobový rámec z roku 2016 než živě vedený tracker.
+      <strong>Zajímavé zjištění:</strong> dokument má vlastní tabulku plnění (splněno / nesplněno / probíhá) za každý rok 2016–2026 — u naprosté většiny ze 718 aktivit ale nemá vyplněný žádný stav. Jako „splněno“ je označeno jen 13 aktivit, a to všechny z let 2016–2017. Formální aktualizace plánu ale pokračovaly i dál — např. 15. 9. 2021 zastupitelstvo usnesením UZ-15-2/2021 schválilo dodatek přidávající 2 nové aktivity (obnova veřejného prostranství ve Velkých Chvalovicích, ul. Pražská/Stará/Jarní). Jen samotná kolonka plnění se po roce 2017 dál nevedla — dokument je tak spíš dobový rámec z roku 2016 než živě vedený tracker.
     </div>
 
     <h3 class="display" style="font-size:19px; margin:36px 0 4px;">Jak se plán plní?</h3>
-    <p class="lede" style="margin-bottom:16px;">Samotný dokument odpověď nedá — kolonka plnění zůstala po roce 2017 prázdná. Zkusili jsme proto položky plánu spárovat s tím, co je o městě skutečně doložitelné: s archivem jednání rady a zastupitelstva, s přijatými dotacemi, smlouvami a s Pečeckými novinami. Níže jsou projekty, u kterých se podařilo dohledat konkrétní stopu. <span class="stamp">ověřeno</span></p>
+    <p class="lede" style="margin-bottom:16px;">Samotný dokument odpověď nedá — kolonka plnění zůstala po roce 2017 prázdná. Zkusili jsme proto položky plánu spárovat s tím, co je o městě skutečně doložitelné: s archivem jednání rady a zastupitelstva, s přijatými dotacemi, smlouvami, s Pečeckými novinami a — pro roky 2024–2026 — s podrobným rozpočtovaným <strong>Akčním plánem rozvoje města</strong>, který na základní strategický plán navazuje (~65 položek, 665,4 mil. Kč). Níže jsou projekty, u kterých se podařilo dohledat konkrétní stopu. <span class="stamp">ověřeno</span></p>
 
     <table class="register">
       <thead><tr><th>Projekt (položka plánu)</th><th>Co se skutečně stalo</th><th>Stav</th></tr></thead>
       <tbody>
         <tr>
           <td><strong>Revitalizace rybníka Benešák</strong><br><span class="tag">Z.2.1.4 · termín 2019</span></td>
-          <td>Dotace z Operačního programu Životní prostředí (MŽP) <strong>3 146 174 Kč v roce 2019</strong>, navazující revitalizace bývalého lesíka u rybníka 935 336 Kč (2020). Hotovo potvrzují i Pečecké noviny. Později přibylo solární osvětlení (2025), chystá se workoutový park u Benešáku.</td>
+          <td>Dotace z Operačního programu Životní prostředí (MŽP) <strong>3 146 174 Kč v roce 2019</strong>, navazující revitalizace bývalého lesíka u rybníka 935 336 Kč (2020). Hotovo potvrzují i Pečecké noviny. Později přibylo solární osvětlení (2025, jako položka „VO – solární lampy u rybníka Benešák“ i v Akčním plánu 2024–2026), chystá se workoutový park u Benešáku.</td>
           <td><span class="tag hotovo">splněno v termínu</span></td>
         </tr>
         <tr>
@@ -615,13 +627,18 @@
         </tr>
         <tr>
           <td><strong>Severní obchvat</strong><br><span class="tag">I.1.2.7 · termín 2020</span></td>
-          <td>11 usnesení 2021–2025: smlouva o spolupráci se Středočeským krajem (2021), výkupy pozemků (2022), přeložky plynovodu (2023, 2024), převzetí staré silnice II/329 (11/2025). Šest let po plánovaném termínu nestojí.</td>
+          <td>11 usnesení 2021–2025: smlouva o spolupráci se Středočeským krajem (2021), výkupy pozemků (2022), přeložky plynovodu (2023, 2024), převzetí staré silnice II/329 (11/2025). Šest let po plánovaném termínu nestojí. V rozpočtovaném Akčním plánu 2024–2026 (665,4 mil. Kč, ~65 položek) obchvat vůbec není — žádná položka na tyto tři roky s ním nepočítá.</td>
           <td><span class="tag probiha">v přípravě</span></td>
         </tr>
         <tr>
           <td><strong>Odbahnění Mlýnského náhonu</strong><br><span class="tag">Z.2.1.3 · 5,4 mil. Kč</span></td>
-          <td>Dodatek k projektové dokumentaci (2022) a odkup podílu na pozemku (2023). Realizace v datech doložena není.</td>
+          <td>Dodatek k projektové dokumentaci (2022) a odkup podílu na pozemku (2023). Realizace v datech doložena není. Akční plán 2024–2026 ho pořád vede jen jako prioritu 2 (střední), bez přiřazeného roku realizace ani rozpočtu.</td>
           <td><span class="tag papir">zatím jen projekt</span></td>
+        </tr>
+        <tr>
+          <td><strong>Obnova (sanace) vodojemu</strong><br><span class="tag">Akční plán 2024–2026 · 25 mil. Kč</span></td>
+          <td>Nové zjištění z Akčního plánu rozvoje města 2024–2026: harmonogram 2024 zasmluvnit projektanta a statika → 2025 statický posudek a projektová dokumentace → realizace sanace 2026. V archivu jednání rady/zastupitelstva zatím nedoloženo — položka je zatím jen v rozpočtovaném plánu.</td>
+          <td><span class="tag papir">naplánováno na 2026</span></td>
         </tr>
         <tr>
           <td><strong>Veřejné WC a úschovna kol u nádraží</strong><br><span class="tag">I.2.2.14 a I.2.2.9</span></td>
@@ -639,8 +656,12 @@
       <strong>Hranice tohoto srovnání.</strong> Archiv jednání rady a zastupitelstva sahá jen do dubna 2021 — u aktivit s termínem 2016–2020 tedy chybí data a jejich nepřítomnost nic nedokazuje (Benešák z roku 2019 se podařilo doložit jen díky dotacím). Tabulka výše navíc pokrývá vybrané projekty, ne všech 183 aktivit plánu. U položek, které zde nejsou, netvrdíme, že se nestaly — jen zatím nebyly prověřeny.
     </div>
 
+    <div class="callout" style="margin-top:18px;">
+      Mezi strategickými dokumenty města jsou i dva zatím jinde na webu nezpracované: <strong>Adaptační strategie ke změně klimatu města Pečky</strong> (opatření pro sucho, přívalové srážky a horka) a <strong>Zásady města Pečky pro spolupráci s investory</strong> (2025, pravidla plánovacích smluv s developery). Obsahově nejde o sledování konkrétních investičních akcí jako zbytek této stránky, proto zatím jen odkaz na zdroj níže. <span class="stamp">přiznaná mezera</span>
+    </div>
+
     <div class="callout">
-      Zdroje: <a href="https://pecky.cz/files/pecky/gallery/18710/699ed628c2013_strategicky-plan-souhrn.pdf" target="_blank" rel="noopener">Strategický plán rozvoje města Pečky 2016–2026 — souhrn (PDF, pecky.cz) ↗</a> · archiv jednání a usnesení <a href="https://mesto-pecky.usneseni.cz/verejne/" target="_blank" rel="noopener">mesto-pecky.usneseni.cz ↗</a> (281 jednání, 2 731 usnesení) · <a href="https://www.hlidacstatu.cz/subjekt/00239607" target="_blank" rel="noopener">Hlídač státu — dotace a smlouvy ↗</a> · archiv Pečeckých novin. Zpracováno 6. 8. 2026.
+      Zdroje: <a href="https://pecky.cz/files/pecky/gallery/18710/699ed628c2013_strategicky-plan-souhrn.pdf" target="_blank" rel="noopener">Strategický plán rozvoje města Pečky 2016–2026 — souhrn (PDF, pecky.cz) ↗</a> · <a href="https://pecky.cz/files/pecky/gallery/18710/699ed77c67d43_Akcni-plan-2024-2026.xlsx.pdf" target="_blank" rel="noopener">Akční plán rozvoje města 2024–2026 (PDF, pecky.cz) ↗</a> · <a href="https://pecky.cz/files/pecky/gallery/18709/699ed5d93bc39_adaptacni-strategie-mesta-pecky-na-klimatickou-zmenu.pdf" target="_blank" rel="noopener">Adaptační strategie ke změně klimatu ↗</a> · <a href="https://pecky.cz/files/pecky/gallery/18704/699ec8ba1a832_zasady-spoluprace-2025-2.pdf" target="_blank" rel="noopener">Zásady pro spolupráci s investory ↗</a> · archiv jednání a usnesení <a href="https://mesto-pecky.usneseni.cz/verejne/" target="_blank" rel="noopener">mesto-pecky.usneseni.cz ↗</a> (283 jednání, 2 742 usnesení) · <a href="https://www.hlidacstatu.cz/subjekt/00239607" target="_blank" rel="noopener">Hlídač státu — dotace a smlouvy ↗</a> · archiv Pečeckých novin. Zpracováno 6. 8. 2026, doplněno 20. 8. 2026.
     </div>
 
     <h3 class="display" style="font-size:19px; margin:36px 0 4px;" id="obchvat-mesta">Obchvat města — proč se na něj čeká už přes 25 let</h3>
@@ -1385,11 +1406,11 @@
   <section class="panel" id="panel-jednani">
     <p class="eyebrow">Archiv jednání · usneseni.cz</p>
     <h2 class="title display">Jednání a usnesení</h2>
-    <p class="lede">Oficiální schůzky zvolených zástupců Peček, kde rozhodují o věcech veřejných. <a href="https://frankbold.org/poradna/fungovani-obci-a-uradu/organy-obce-a-kraje/organy-obce-a-kraje/rada/zastupitelstvo-obce-a-kraje-o-cem-rozhoduje-a-jak" target="_blank" rel="noopener">Více zde ↗</a>. Z každé schůzky existuje <a href="https://mesto-pecky.usneseni.cz/verejne/" target="_blank" rel="noopener">záznam ↗</a>. Z jednání zastupitelstva (které je veřejné, koná se v Kulturním domě cca jednou za 2 měsíce) je i <a href="https://www.youtube.com/playlist?list=PL1KVT2dbyIKSTFRv7tfDqrfk5gkTSnoyu" target="_blank" rel="noopener">video ↗</a>. Oficiální web města nyní neposkytuje možnost v záznamech vyhledávat, proto vznikla tato stránka. Zároveň jsou zde provázány informace o přijatých usneseních. <span class="stamp">ověřeno</span></p>
+    <p class="lede" id="jednani-stats" style="margin-bottom:16px;">Archiv se právě načítá…</p>
 
-    <div class="subject-box" id="jednani-stats">
-      <div><div class="k">Jednání</div><div class="v">načítám…</div></div>
-    </div>
+    <p class="lede" style="margin-bottom:16px;">Oficiální schůzky zvolených zástupců Peček, kde rozhodují o věcech veřejných. <a href="https://frankbold.org/poradna/fungovani-obci-a-uradu/organy-obce-a-kraje/organy-obce-a-kraje/rada/zastupitelstvo-obce-a-kraje-o-cem-rozhoduje-a-jak" target="_blank" rel="noopener">Více zde ↗</a>. Oficiální web města nyní neposkytuje možnost v záznamech vyhledávat, proto vznikla tato stránka. Zároveň jsou zde provázány informace o přijatých usneseních.</p>
+
+    <p class="lede">Z každé schůzky existuje <a href="https://mesto-pecky.usneseni.cz/verejne/" target="_blank" rel="noopener">záznam ↗</a>. Z jednání zastupitelstva (které je veřejné, koná se v Kulturním domě cca jednou za 2 měsíce) je i <a href="https://www.youtube.com/playlist?list=PL1KVT2dbyIKSTFRv7tfDqrfk5gkTSnoyu" target="_blank" rel="noopener">video ↗</a>. <span class="stamp">ověřeno</span></p>
 
     <div class="search-bar">
       <input type="search" id="jednani-search" placeholder="Hledat klíčové slovo, např. „vodojem“, „ČOV“, „rozpočet“…" autocomplete="off">
@@ -1417,6 +1438,10 @@
       dalším běhu exportu. Kompletní datový snímek se všemi detaily (vč. jmenovitých hlasování a plných zápisů)
       je k nahlédnutí ve zdrojových datech projektu.
     </div>
+
+    <div class="callout">
+      Odkazy <strong>„pozvánka"</strong> a <strong>„podepsaný zápis (PDF)"</strong> u jednotlivých jednání někdy po kliknutí z tohoto webu místo konkrétního dokumentu otevřou jen úvodní stránku archivu usneseni.cz — zdrojový web takto chrání tyto dva konkrétní odkazy proti prokliku z cizích stránek (ostatní odkazy, „zápis" a „usnesení", tímto omezené nejsou a fungují spolehlivě). Samotné odkazy na našem webu jsou správné; při otevření přímo v adresním řádku fungují. <span class="stamp">přiznaná mezera</span>
+    </div>
   </section>
 
   <!-- ================= SMLOUVY ================= -->
@@ -1440,9 +1465,9 @@
     <table class="register">
       <thead><tr><th>Datum podpisu</th><th>Předmět</th><th>Protistrana</th><th>Částka</th></tr></thead>
       <tbody>
+        <tr><td>22. 7. 2026</td><td>Dar — zdravotnický batoh</td><td>Krajské ředitelství policie Středočeského kraje</td><td>10 381 Kč</td></tr>
         <tr><td>23. 7. 2026</td><td>Pečovatelská služba — dotace na sociální služby (Humanitární fond)</td><td>Středočeský kraj</td><td>1 100 000 Kč</td></tr>
         <tr><td>23. 7. 2026</td><td>Pečovatelská služba — dotace na sociální služby (Humanitární fond)</td><td>Středočeský kraj</td><td>400 000 Kč</td></tr>
-        <tr><td>22. 7. 2026</td><td>Dar — zdravotnický batoh</td><td>Krajské ředitelství policie Středočeského kraje</td><td>10 381 Kč</td></tr>
         <tr><td>15. 7. 2026</td><td>Pečovatelská služba — dodatek č. 2, dofinancování sociální služby</td><td>Středočeský kraj</td><td>670 600 Kč</td></tr>
         <tr><td>14. 7. 2026</td><td>Smlouva o spolupráci — Digitální odysea 26/27 (Městská knihovna)</td><td>Sdružení knihoven ČR</td><td>bez ceny</td></tr>
         <tr><td>1. 6. 2026</td><td>ZŠ Pečky — Fond prevence 2026, dotace</td><td>Středočeský kraj</td><td>190 000 Kč</td></tr>
@@ -2590,7 +2615,7 @@
         <tr><td>Fotografie zastupitelů (13/21)</td><td>ods.cz — oficiální kandidátka (6), Pečecké noviny 9/2022 — inzerce NAŠE PEČKY (7)</td><td><span class="tag role">ověřeno</span></td></tr>
         <tr><td>Složení rady (7 členů) a povolební koalice</td><td>usnesení ustavujícího zasedání ZM 7/2022, mesto-pecky.usneseni.cz</td><td><span class="tag role">ověřeno</span></td></tr>
         <tr><td>Plán — strategický plán rozvoje 2016–2026</td><td>pecky.cz — souhrn Strategického plánu rozvoje města Pečky 2016–2026 (PDF)</td><td><span class="tag role">ověřeno</span></td></tr>
-        <tr><td>Jednání a usnesení</td><td>mesto-pecky.usneseni.cz (export 281 jednání / 2 731 usnesení)</td><td><span class="tag role">ověřeno</span></td></tr>
+        <tr><td>Jednání a usnesení</td><td>mesto-pecky.usneseni.cz (export 283 jednání / 2 742 usnesení)</td><td><span class="tag role">ověřeno</span></td></tr>
         <tr><td>Smlouvy</td><td>Hlídač státu (konektor, statický výřez: 180 smluv / 102,4 mil. Kč, skupina celkem)</td><td><span class="tag role">ověřeno</span></td></tr>
         <tr><td>Zakázky</td><td>Hlídač veřejných zakázek (statický výřez: 193 zakázek nalezeno pro IČO 00239607)</td><td><span class="tag role">ověřeno</span></td></tr>
         <tr><td>Pokladna — rozpočet, hospodaření a bankovní účty</td><td>Monitor Státní pokladny (MF ČR), Hlídač státu — Registr dotací (148 dotací nalezeno), Závěrečný účet 2025 + auditorská zpráva (pecky.cz)</td><td><span class="tag role">ověřeno</span></td></tr>
@@ -2693,7 +2718,10 @@
   window.addEventListener('hashchange', () => applyPanel(currentHashPanel()));
 
   // úvodní vykreslení podle URL (funguje i přímý odkaz/záložka na konkrétní sekci, např. /#volby)
-  applyPanel(currentHashPanel(), {scroll: false});
+  // odloženo na DOMContentLoaded, protože loadJednani/loadNoviny jsou definované
+  // až v pozdějších <script> blocích (jinak přímý odkaz/refresh na #jednani nebo
+  // #zpravodaj skončí s "ReferenceError: loadJednani/loadNoviny is not defined")
+  window.addEventListener('DOMContentLoaded', () => applyPanel(currentHashPanel(), {scroll: false}));
 </script>
 
 <script>
@@ -2764,6 +2792,50 @@
     return (s || '').toString().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
   }
   function jNorm(s){ return jStripDiacritics(s).toLowerCase(); }
+  function jTextSim(a, b){
+    const clean = s => jNorm(s || '').replace(/[^a-z0-9\s]/g, ' ').replace(/\s+/g, ' ').trim();
+    const na = clean(a), nb = clean(b);
+    if (!na || !nb) return 0;
+    if (na === nb) return 1;
+    if (na.includes(nb) || nb.includes(na)) return 0.9;
+    const bigrams = s => { const arr = []; for (let i = 0; i < s.length - 1; i++) arr.push(s.slice(i, i + 2)); return arr; };
+    const ba = bigrams(na), bb = bigrams(nb);
+    if (!ba.length || !bb.length) return 0;
+    const counts = {};
+    bb.forEach(g => counts[g] = (counts[g] || 0) + 1);
+    let matches = 0;
+    ba.forEach(g => { if (counts[g] > 0) { matches++; counts[g]--; } });
+    return (2 * matches) / (ba.length + bb.length);
+  }
+  function jFormatDateZeroPad(iso){
+    if (!iso) return '';
+    const parts = iso.split('-');
+    if (parts.length !== 3) return iso;
+    const [y, mo, d] = parts;
+    return `${d}. ${mo}. ${y}`;
+  }
+  function jMeetingTypeGenitive(type){
+    if (type === 'Rada') return 'rady';
+    if (type === 'Zastupitelstvo') return 'zastupitelstva';
+    return (type || '').toLowerCase();
+  }
+  function jFormatAttendance(m){
+    const a = m.attendance;
+    if (!a || a.present == null || a.total == null) return '';
+    if (m.type === 'Rada') return `sešlo se ${a.present} ze ${a.total} radních`;
+    if (m.type === 'Zastupitelstvo') return `sešlo se ${a.present} z ${a.total} zastupitelů`;
+    return `sešlo se ${a.present} z ${a.total}`;
+  }
+  function jFormatDuration(sec){
+    const totalMin = Math.round(sec / 60);
+    const h = Math.floor(totalMin / 60), m = totalMin % 60;
+    return `${h}:${String(m).padStart(2, '0')}`;
+  }
+  function jFormatItemTime(sec){
+    const totalMin = Math.round(sec / 60);
+    const h = Math.floor(totalMin / 60), m = totalMin % 60;
+    return h > 0 ? `${h}:${String(m).padStart(2, '0')}` : `${m}`;
+  }
   function jEscapeHtml(s){
     return (s || '').replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
   }
@@ -2858,7 +2930,7 @@
     if (JEDNANI_LOADING) return JEDNANI_LOADING;
     JEDNANI_LOADING = (async () => {
       try {
-        const res = await fetch('data/pecky-jednani.json');
+        const res = await fetch('pecky-jednani/pecky-jednani.json');
         if (!res.ok) throw new Error('HTTP ' + res.status);
         const data = await res.json();
         const years = new Set();
@@ -2869,7 +2941,19 @@
             r._outcome = jClassifyOutcome(r.text);
             if (r.n) resByNumber[r.n.toUpperCase()] = r;
           });
-          m.agenda.forEach(a => { a._norm = jNorm(a.t); });
+          m.agenda.forEach(a => { a._norm = jNorm(a.t); a._res = []; });
+          // spárovat usnesení s body programu, ze kterých vzešla (fuzzy shoda textu)
+          const unmatched = [];
+          m.resolutions.forEach(r => {
+            let best = null, bestScore = 0;
+            m.agenda.forEach(a => {
+              const score = jTextSim(a.t, r.item);
+              if (score > bestScore) { bestScore = score; best = a; }
+            });
+            if (best && bestScore >= 0.5) best._res.push(r);
+            else unmatched.push(r);
+          });
+          m._unmatchedRes = unmatched;
           years.add(m.year);
         });
         // druhý průchod: napárovat revokující usnesení na revokovaná (podle čísla v textu)
@@ -2914,12 +2998,8 @@
     const el = document.getElementById('jednani-stats');
     const years = JEDNANI_DB._years;
     const minY = years[years.length - 1], maxY = years[0];
-    el.innerHTML = `
-      <div><div class="k">Jednání</div><div class="v">${JEDNANI_DB.meta.meetings_count}</div></div>
-      <div><div class="k">Usnesení</div><div class="v">${JEDNANI_DB.meta.resolutions_count}</div></div>
-      <div><div class="k">Období</div><div class="v">${minY}–${maxY}</div></div>
-      <div><div class="k">Zdroj</div><div class="v">mesto-pecky.usneseni.cz</div></div>
-    `;
+    const resCount = JEDNANI_DB.meta.resolutions_count.toLocaleString('cs-CZ');
+    el.innerHTML = `Archiv obsahuje <strong>${JEDNANI_DB.meta.meetings_count} jednání</strong> a <strong>${resCount} usnesení</strong> z let ${minY}–${maxY}, čerpáno z <a href="https://mesto-pecky.usneseni.cz/verejne/" target="_blank" rel="noopener">mesto-pecky.usneseni.cz ↗</a>.`;
   }
 
   function jFilteredMeetings(){
@@ -2930,30 +3010,74 @@
     );
   }
 
+  function jResLabel(n){
+    return (n || '').replace(/^U[RZ]-/, 'Usnesení ');
+  }
+
+  function jRenderResItem(r){
+    const label = jEscapeHtml(jResLabel(r.n));
+    const tooltip = r.text ? ` title="${jEscapeHtml(r.text)}"` : '';
+    const link = r.url
+      ? `<a class="hit-number" href="${r.url}" target="_blank" rel="noopener"${tooltip}>${label}</a>`
+      : `<span class="hit-number"${tooltip}>${label}</span>`;
+    return `<div class="agenda-res">${link} ${jOutcomeBadgeHtml(r)}</div>`;
+  }
+
+  function jRenderResLine(r){
+    const label = jEscapeHtml(jResLabel(r.n));
+    const tooltip = r.text ? ` title="${jEscapeHtml(r.text)}"` : '';
+    const link = r.url
+      ? `<a class="hit-number" href="${r.url}" target="_blank" rel="noopener"${tooltip}>${label}</a>`
+      : `<span class="hit-number"${tooltip}>${label}</span>`;
+    return `<li>${link} — ${jEscapeHtml(r.item || '')} ${jOutcomeBadgeHtml(r)}</li>`;
+  }
+
+  function jRenderAgendaList(m){
+    if (!m.agenda || !m.agenda.length) {
+      return m.resolutions.length
+        ? '<ul class="res-list">' + m.resolutions.map(jRenderResLine).join('') + '</ul>'
+        : '<p class="lede" style="margin:8px 0;">Program ani usnesení k tomuto jednání nejsou zveřejněné.</p>';
+    }
+    const items = m.agenda.map(a => `
+      <li class="agenda-item">
+        <div class="agenda-item-main">
+          <span class="agenda-num">${jEscapeHtml(String(a.n))}.</span>
+          <span class="agenda-text">${jEscapeHtml(a.t || '')}</span>
+          ${a.video_ts != null ? `<span class="agenda-time">${jFormatItemTime(a.video_ts)}</span>` : ''}
+          ${a.video_url ? `<a class="agenda-video" href="${a.video_url}" target="_blank" rel="noopener">▶ video ↗</a>` : ''}
+        </div>
+        ${a._res && a._res.length ? '<div class="agenda-res-list">' + a._res.map(jRenderResItem).join('') + '</div>' : ''}
+      </li>
+    `).join('');
+    const unmatched = m._unmatchedRes && m._unmatchedRes.length
+      ? `<p class="lede" style="margin:14px 0 4px; font-size:12.5px;">Usnesení nešlo jednoznačně přiřadit k bodu programu:</p>
+         <ul class="res-list">${m._unmatchedRes.map(jRenderResLine).join('')}</ul>`
+      : '';
+    return `<ol class="agenda-list">${items}</ol>${unmatched}`;
+  }
+
   function jRenderMeetingList(meetings){
     if (!meetings.length) return '<p class="lede">Žádná jednání neodpovídají filtru.</p>';
     const rows = meetings.map((m, i) => `
       <div class="meeting-row" data-uuid="${m.uuid}">
         <div class="meeting-row-main">
-          <span class="tag${m.type === 'Zastupitelstvo' ? ' role' : ''}">${jEscapeHtml(m.type || '')}</span>
-          <span class="meeting-label">${jEscapeHtml(m.label || '')}</span>
-          <span class="meeting-date">${jFormatDate(m.date)}</span>
-          <span class="meeting-count">${m.resolutions.length} usnesení</span>
+          <span class="meeting-label">
+            <svg class="meeting-cal-icon" viewBox="0 0 16 16" width="13" height="13" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><rect x="1.5" y="3" width="13" height="11" rx="1.5"/><line x1="1.5" y1="6.2" x2="14.5" y2="6.2"/><line x1="4.5" y1="1.3" x2="4.5" y2="4"/><line x1="11.5" y1="1.3" x2="11.5" y2="4"/></svg>
+            ${jFormatDateZeroPad(m.date)} | Jednání ${jEscapeHtml(jMeetingTypeGenitive(m.type))} č. ${jEscapeHtml(String(m.number || ''))}
+          </span>
+          <span class="meeting-count">${(m.agenda || []).length} bodů · ${m.resolutions.length} usnesení${jFormatAttendance(m) ? ` · ${jEscapeHtml(jFormatAttendance(m))}` : ''}</span>
+          ${m.video_duration_seconds ? `<span class="meeting-video-badge"><img class="meeting-yt-icon" src="img/favicons/youtube-com.png" alt="" loading="lazy">Video, ${jFormatDuration(m.video_duration_seconds)}</span>` : ''}
           <span class="meeting-toggle">${i === 0 ? '−' : '+'}</span>
         </div>
         <div class="meeting-row-detail"${i === 0 ? '' : ' hidden'}>
-          ${m.resolutions.length
-            ? '<ul class="res-list">' + m.resolutions.map(r =>
-                `<li><span class="hit-number">${jEscapeHtml(r.n || '')}</span> — ${jEscapeHtml(r.item || '')} ${jOutcomeBadgeHtml(r)}</li>`
-              ).join('') + '</ul>'
-            : '<p class="lede" style="margin:8px 0;">Bez zveřejněných usnesení k tomuto jednání.</p>'}
           <div class="meeting-links">
-            ${m.links.youtube ? `<a href="${m.links.youtube}" target="_blank" rel="noopener">▶ video ↗</a>` : ''}
-            ${m.links.minutes ? `<a href="${m.links.minutes}" target="_blank" rel="noopener">zápis ↗</a>` : ''}
-            ${m.links.resolutions ? `<a href="${m.links.resolutions}" target="_blank" rel="noopener">usnesení ↗</a>` : ''}
-            ${m.links.invitation ? `<a href="${m.links.invitation}" target="_blank" rel="noopener">pozvánka ↗</a>` : ''}
-            ${m.links.pdf ? `<a href="${m.links.pdf}" target="_blank" rel="noopener">podepsaný zápis (PDF) ↗</a>` : ''}
+            ${m.links.invitation ? `<a href="${m.links.invitation}" target="_blank" rel="noopener" title="Zdrojový web někdy odkaz z cizí stránky blokuje a otevře jen úvodní stránku archivu — zkuste prosím znovu, případně vyhledejte jednání přímo na usneseni.cz.">Pozvánka PDF ↗</a>` : ''}
+            ${m.links.youtube ? `<a href="${m.links.youtube}" target="_blank" rel="noopener">▶ Video ↗</a>` : ''}
+            ${m.links.minutes ? `<a href="${m.links.minutes}" target="_blank" rel="noopener">Zápis ↗</a>` : ''}
+            ${m.links.pdf ? `<a href="${m.links.pdf}" target="_blank" rel="noopener" title="Zdrojový web někdy odkaz z cizí stránky blokuje a otevře jen úvodní stránku archivu — zkuste prosím znovu, případně vyhledejte jednání přímo na usneseni.cz.">Zápis (podepsaný PDF) ↗</a>` : ''}
+            ${m.links.resolutions ? `<a href="${m.links.resolutions}" target="_blank" rel="noopener">Všechna přijatá usnesení ↗</a>` : ''}
           </div>
+          ${jRenderAgendaList(m)}
         </div>
       </div>
     `).join('');
