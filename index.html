@@ -273,9 +273,11 @@
   .person-card.party-spd{background:#E5DBD0; border-color:#8B5A2B;}
   .person-card.party-cssd{background:#FFDFDF; border-color:#FF5F60;}
   .person-card.party-lidovci{background:#F7E6B8; border-color:#EBB91E;}
-  .people-avatars{display:flex; flex-wrap:wrap; gap:4px; max-width:340px;}
+  .people-avatars{display:flex; flex-wrap:wrap; align-items:center; gap:4px; max-width:340px;}
   .people-avatars .av-img{width:26px; height:26px; border-radius:50%; object-fit:cover; border:1px solid var(--line); background:var(--parchment-deep);}
   .people-avatars .av-init{width:26px; height:26px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-family:'IBM Plex Mono',monospace; font-weight:600; font-size:9px; color:#fff; flex-shrink:0;}
+  .people-avatars .av-init.av-absent{opacity:0.4;}
+  .people-avatars .attendance-sep{width:1px; align-self:stretch; background:var(--line); margin:0 2px; flex-shrink:0;}
   .socials-cell{display:flex; flex-direction:column; gap:3px; font-size:12.5px;}
   .socials-cell a{color:var(--burgundy);}
   .none-found{color:var(--ink-soft); font-size:12.5px;}
@@ -317,6 +319,8 @@
 
   .meeting-list{border-top:1px solid var(--ink);}
   .meeting-row{border-bottom:1px solid var(--line);}
+  .meeting-row--future .meeting-row-main{background:rgba(173,122,42,0.08);}
+  .meeting-attendance{margin:2px 0 12px;}
   .meeting-row-main{display:flex; align-items:center; gap:12px; padding:11px 4px; cursor:pointer; font-size:14px;}
   .meeting-row-main:hover{background:rgba(124,47,43,0.035);}
   .meeting-label{font-weight:500; flex:1; min-width:120px;}
@@ -3033,6 +3037,33 @@
     return `<li>${link} — ${jEscapeHtml(r.item || '')} ${jOutcomeBadgeHtml(r)}</li>`;
   }
 
+  const J_TITLE_RE = /^(Ing\.|Mgr\.|Bc\.|MUDr\.|PhDr\.|JUDr\.|RNDr\.|MgA\.|Ph\.D\.|CSc\.|DiS\.|MSc\.|doc\.|prof\.)$/i;
+  function jInitials(name){
+    const parts = (name || '').split(/\s+/).filter(p => p && !J_TITLE_RE.test(p));
+    if (!parts.length) return '?';
+    const first = parts[0][0] || '';
+    const last = parts.length > 1 ? parts[parts.length - 1][0] : '';
+    return (first + last).toUpperCase();
+  }
+  function jIsFutureMeeting(dateIso){
+    const now = new Date();
+    const today = now.getFullYear() + '-' + String(now.getMonth() + 1).padStart(2, '0') + '-' + String(now.getDate()).padStart(2, '0');
+    return (dateIso || '') > today;
+  }
+  function jRenderPresenceRow(m){
+    const a = m.attendance;
+    if (!a || (!a.present_names && !a.absent_names)) return '';
+    const present = (a.present_names || []).map(n =>
+      `<span class="av-init" style="background:#5B5347;" title="${jEscapeHtml(n)}">${jInitials(n)}</span>`
+    ).join('');
+    const absent = (a.absent_names || []).map(x =>
+      `<span class="av-init av-absent" style="background:#5B5347;" title="${jEscapeHtml(x.name)} (${jEscapeHtml(x.note)})">${jInitials(x.name)}</span>`
+    ).join('');
+    if (!present && !absent) return '';
+    const sep = present && absent ? '<span class="attendance-sep" aria-hidden="true"></span>' : '';
+    return `<div class="meeting-attendance"><div class="people-avatars">${present}${sep}${absent}</div></div>`;
+  }
+
   function jRenderAgendaList(m){
     if (!m.agenda || !m.agenda.length) {
       return m.resolutions.length
@@ -3059,19 +3090,22 @@
 
   function jRenderMeetingList(meetings){
     if (!meetings.length) return '<p class="lede">Žádná jednání neodpovídají filtru.</p>';
-    const rows = meetings.map((m, i) => `
-      <div class="meeting-row" data-uuid="${m.uuid}">
+    const rows = meetings.map(m => {
+      const future = jIsFutureMeeting(m.date);
+      return `
+      <div class="meeting-row${future ? ' meeting-row--future' : ''}" data-uuid="${m.uuid}">
         <div class="meeting-row-main">
           <span class="meeting-label">
             <svg class="meeting-cal-icon" viewBox="0 0 16 16" width="13" height="13" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><rect x="1.5" y="3" width="13" height="11" rx="1.5"/><line x1="1.5" y1="6.2" x2="14.5" y2="6.2"/><line x1="4.5" y1="1.3" x2="4.5" y2="4"/><line x1="11.5" y1="1.3" x2="11.5" y2="4"/></svg>
             ${jFormatDateZeroPad(m.date)} | Jednání ${jEscapeHtml(jMeetingTypeGenitive(m.type))} č. ${jEscapeHtml(String(m.number || ''))}
+            ${future ? '<span class="tag probiha">plánováno</span>' : ''}
           </span>
           <span class="meeting-count">${(m.agenda || []).length} bodů · ${m.resolutions.length} usnesení${jFormatAttendance(m) ? ` · ${jEscapeHtml(jFormatAttendance(m))}` : ''}</span>
-          ${m.duration_seconds != null ? `<span class="meeting-duration">${jFormatDuration(m.duration_seconds)}</span>` : ''}
+          ${m.duration_seconds != null ? ` · <span class="meeting-duration">schůze trvala: ${jFormatDuration(m.duration_seconds)}</span>` : ''}
           ${m.links.youtube ? `<span class="meeting-video-badge"><img class="meeting-yt-icon" src="img/favicons/youtube-com.png" alt="" loading="lazy">Video</span>` : ''}
-          <span class="meeting-toggle">${i === 0 ? '−' : '+'}</span>
+          <span class="meeting-toggle">+</span>
         </div>
-        <div class="meeting-row-detail"${i === 0 ? '' : ' hidden'}>
+        <div class="meeting-row-detail" hidden>
           <div class="meeting-links">
             ${m.links.invitation ? `<a href="${m.links.invitation}" target="_blank" rel="noopener" title="Zdrojový web někdy odkaz z cizí stránky blokuje a otevře jen úvodní stránku archivu — zkuste prosím znovu, případně vyhledejte jednání přímo na usneseni.cz.">Pozvánka PDF ↗</a>` : ''}
             ${m.links.youtube ? `<a href="${m.links.youtube}" target="_blank" rel="noopener">▶ Video ↗</a>` : ''}
@@ -3079,10 +3113,12 @@
             ${m.links.pdf ? `<a href="${m.links.pdf}" target="_blank" rel="noopener" title="Zdrojový web někdy odkaz z cizí stránky blokuje a otevře jen úvodní stránku archivu — zkuste prosím znovu, případně vyhledejte jednání přímo na usneseni.cz.">Zápis (podepsaný PDF) ↗</a>` : ''}
             ${m.links.resolutions ? `<a href="${m.links.resolutions}" target="_blank" rel="noopener">Všechna přijatá usnesení ↗</a>` : ''}
           </div>
+          ${jRenderPresenceRow(m)}
           ${jRenderAgendaList(m)}
         </div>
       </div>
-    `).join('');
+    `;
+    }).join('');
     return `<div class="meeting-list">${rows}</div>`;
   }
 

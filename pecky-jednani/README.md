@@ -148,9 +148,12 @@ přímo ze stránky `/verejne/<uuid>/zapis/`.
 `Mmin` (např. „45min") — opraveno 21. 8. 2026 z původního `h:mm`. Čas u bodu
 programu je na konci řádku bodu, PŘED odkazem na video (pokud pro daný bod
 existuje — `video_url`/`video_ts` beze změny, pořád jen pro odkaz, viz výše).
-Délka celého jednání je na konci sbaleného řádku jednání, odděleně od
-případného odkazu na video. Zdrojová funkce: `jFormatDuration`/
-`jFormatItemTime` v `index.html` i `pecky-jednani/index.html`.
+Délka celého jednání je na konci sbaleného řádku jednání s prefixem „schůze
+trvala: …", oddělená znakem „ · " od počtu přítomných členů (`sešlo se N
+z/ze M …`) a od případného odkazu na video. Zdrojová funkce:
+`jFormatDuration`/`jFormatItemTime` v `index.html` i
+`pecky-jednani/index.html`. Sbalený řádek se od 21. 8. 2026 už u prvního
+jednání v seznamu automaticky nerozbaluje — všechna jednání startují sbalená.
 
 **Pro budoucí automatizaci:** u každého nového jednání dohledat totéž z jeho
 `zapis/` stránky stejným rozborem a doplnit `duration_seconds` na úrovni
@@ -173,6 +176,37 @@ nebyla, doplněna ručně z jejich `zapis/` stránky.
 zápisu (`minutes.presence` v přírůstkovém přeparsování, nebo věta „Přítomno
 je…" na stránce `/verejne/<uuid>/zapis/`) a doplnit `attendance` do
 `pecky-jednani.json`.
+
+## Jmenovité obsazení (`attendance.present_names`, `attendance.absent_names`)
+
+Doplněno 21. 8. 2026 pro řádek s avatary účastníků nad seznamem bodů
+programu v rozbalené položce jednání. Zdroj: `minutes.presence.pritomni.names`
+(→ `present_names`) a `minutes.presence.omluveni.names` +
+`minutes.presence.nepritomni.names` sloučené dohromady, každé se štítkem
+`note` („omluven"/„nepřítomen") (→ `absent_names`, tvar
+`[{"name","note"}]`) — web request žádal jen binární Přítomni/Nepřítomni,
+proto omluvení a nepřítomní bez omluvy nejsou v UI rozlišeni jinak než
+`note` v tooltipu. Pokrytí stejné jako u `duration_seconds` (283/285 —
+2 nejnovější jednání ručně, 2 budoucí naplánovaná jednání zápis ještě
+nemají). Zobrazení: `.people-avatars`/`.av-init` — stejný vizuální styl
+jako sloupec „lidé" u tabulek volebních uskupení (barevný kroužek
+s iniciálami, celé jméno v `title`), tady jednotnou barvou (bez vazby na
+politické uskupení). Nepřítomní jsou na konci řádku za oddělovací
+svislou linkou (`.attendance-sep`) a mají poloviční krytí (`.av-absent`).
+Iniciály generuje `jInitials()` — odfiltruje běžné tituly (Ing., Mgr.,
+Bc. …) a vezme první písmeno křestního jména a příjmení.
+
+**Pro budoucí automatizaci:** u každého nového jednání doplnit
+`present_names`/`absent_names` stejným rozborem prezence jako u
+`attendance.present`/`total` výše.
+
+## Zvýraznění budoucích jednání (`jIsFutureMeeting()`)
+
+Doplněno 21. 8. 2026 — jednání s datem po dnešním dni (naplánovaná, zatím
+bez zápisu) dostanou ve výpisu štítek „plánováno" a jemně zvýrazněné
+pozadí sbaleného řádku (`.meeting-row--future`). Porovnání je čistě podle
+`m.date` vs. aktuální datum v prohlížeči (`jIsFutureMeeting()`), žádné
+zvláštní pole v datech není potřeba.
 
 **Technická poznámka k velkému `archive-*.json`:** přímé čtení tohoto
 souboru z připojené složky (`open()`/`head`/`cat` na cestě přes mount)
