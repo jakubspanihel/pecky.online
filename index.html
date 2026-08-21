@@ -3121,6 +3121,7 @@
             ${m.links.pdf ? `<a href="${m.links.pdf}" target="_blank" rel="noopener" title="Zdrojový web někdy odkaz z cizí stránky blokuje a otevře jen úvodní stránku archivu — zkuste prosím znovu, případně vyhledejte jednání přímo na usneseni.cz.">Zápis (podepsaný PDF) ↗</a>` : ''}
             ${m.links.resolutions ? `<a href="${m.links.resolutions}" target="_blank" rel="noopener">Všechna přijatá usnesení ↗</a>` : ''}
           </div>
+          ${m.video_note ? `<p class="lede" style="margin:6px 0 10px; font-size:12.5px; color:var(--burgundy);">⚠ ${jEscapeHtml(m.video_note)}</p>` : ''}
           ${jRenderPresenceRow(m)}
           ${jRenderAgendaList(m)}
         </div>
