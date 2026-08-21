@@ -125,6 +125,14 @@
   .toggle-details[aria-expanded="true"]{background:var(--burgundy); color:#fff;}
   .details-block[hidden]{display:none;}
 
+  .segmented-control{display:inline-flex; align-items:center; gap:8px;}
+  .segmented-label{font-family:'IBM Plex Mono',monospace; font-size:11px; text-transform:uppercase; letter-spacing:0.03em; color:var(--ink-soft);}
+  .segmented-group{display:inline-flex; border:1px solid var(--burgundy); border-radius:3px; overflow:hidden;}
+  .segmented-btn{font-family:'IBM Plex Mono',monospace; font-size:11.5px; padding:7px 13px; border:none; border-right:1px solid var(--burgundy); background:none; color:var(--burgundy); cursor:pointer;}
+  .segmented-btn:last-child{border-right:none;}
+  .segmented-btn:hover:not(.active){background:rgba(124,47,43,0.08);}
+  .segmented-btn.active{background:var(--burgundy); color:#fff;}
+
   .promises-grid{display:grid; grid-template-columns:repeat(6,1fr); gap:12px; margin:20px 0 24px;}
   @media (max-width:960px){.promises-grid{grid-template-columns:repeat(3,1fr);}}
   @media (max-width:640px){.promises-grid{grid-template-columns:repeat(2,1fr);}}
@@ -1411,19 +1419,12 @@
   <section class="panel" id="panel-jednani">
     <p class="eyebrow">Archiv jednání · usneseni.cz</p>
     <h2 class="title display">Jednání a usnesení</h2>
-    <p class="lede" id="jednani-stats" style="margin-bottom:16px;">Archiv se právě načítá…</p>
+    <p class="lede" style="margin-bottom:16px;">Oficiální schůzky zvolených zástupců Peček, kde rozhodují o věcech veřejných. <a href="https://frankbold.org/poradna/fungovani-obci-a-uradu/organy-obce-a-kraje/organy-obce-a-kraje/rada/zastupitelstvo-obce-a-kraje-o-cem-rozhoduje-a-jak" target="_blank" rel="noopener">Více zde ↗</a>. Oficiální web města nyní neposkytuje možnost v záznamech vyhledávat, proto vznikla tato stránka. Zároveň jsou zde provázány informace o přijatých usneseních. <span class="stamp">ověřeno</span></p>
 
-    <p class="lede" style="margin-bottom:16px;">Oficiální schůzky zvolených zástupců Peček, kde rozhodují o věcech veřejných. <a href="https://frankbold.org/poradna/fungovani-obci-a-uradu/organy-obce-a-kraje/organy-obce-a-kraje/rada/zastupitelstvo-obce-a-kraje-o-cem-rozhoduje-a-jak" target="_blank" rel="noopener">Více zde ↗</a>. Oficiální web města nyní neposkytuje možnost v záznamech vyhledávat, proto vznikla tato stránka. Zároveň jsou zde provázány informace o přijatých usneseních.</p>
-
-    <p class="lede">Z každé schůzky existuje <a href="https://mesto-pecky.usneseni.cz/verejne/" target="_blank" rel="noopener">záznam ↗</a>. Z jednání zastupitelstva (které je veřejné, koná se v Kulturním domě cca jednou za 2 měsíce) je i <a href="https://www.youtube.com/playlist?list=PL1KVT2dbyIKSTFRv7tfDqrfk5gkTSnoyu" target="_blank" rel="noopener">video ↗</a>. <span class="stamp">ověřeno</span></p>
+    <p class="lede" id="jednani-stats">Archiv se právě načítá…</p>
 
     <div class="search-bar">
       <input type="search" id="jednani-search" placeholder="Hledat klíčové slovo, např. „vodojem“, „ČOV“, „rozpočet“…" autocomplete="off">
-      <select id="jednani-filter-type">
-        <option value="">Vše — rada i zastupitelstvo</option>
-        <option value="Rada">Rada</option>
-        <option value="Zastupitelstvo">Zastupitelstvo</option>
-      </select>
       <select id="jednani-filter-year">
         <option value="">Všechny roky</option>
       </select>
@@ -1432,7 +1433,14 @@
     <p class="search-status" id="jednani-status">Načítám archiv…</p>
     <div style="display:flex; align-items:center; justify-content:space-between; gap:12px; margin:0 0 14px; flex-wrap:wrap;">
       <h3 class="display" style="font-size:19px; margin:0;">Zápisy z jednání</h3>
-      <button class="toggle-details" type="button" id="jednani-expand-all" aria-expanded="false" style="margin:0; padding:7px 12px; font-size:11px; display:none;">Rozbalit vše</button>
+      <div class="segmented-control">
+        <span class="segmented-label">Zobrazit:</span>
+        <div class="segmented-group" role="group" aria-label="Typ jednání">
+          <button type="button" class="segmented-btn active" data-type="">Vše</button>
+          <button type="button" class="segmented-btn" data-type="Rada">Rada</button>
+          <button type="button" class="segmented-btn" data-type="Zastupitelstvo">Zastupitelstvo</button>
+        </div>
+      </div>
     </div>
     <div id="jednani-results"></div>
 
@@ -3007,11 +3015,11 @@
     el.innerHTML = `Archiv obsahuje <strong>${JEDNANI_DB.meta.meetings_count} jednání</strong> a <strong>${resCount} usnesení</strong> z let ${minY}–${maxY}, čerpáno z <a href="https://mesto-pecky.usneseni.cz/verejne/" target="_blank" rel="noopener">mesto-pecky.usneseni.cz ↗</a>.`;
   }
 
+  let jTypeFilter = '';
   function jFilteredMeetings(){
-    const type = document.getElementById('jednani-filter-type').value;
     const year = document.getElementById('jednani-filter-year').value;
     return JEDNANI_DB.meetings.filter(m =>
-      (!type || m.type === type) && (!year || String(m.year) === year)
+      (!jTypeFilter || m.type === jTypeFilter) && (!year || String(m.year) === year)
     );
   }
 
@@ -3181,19 +3189,13 @@
     const statusEl = document.getElementById('jednani-status');
     const resultsEl = document.getElementById('jednani-results');
 
-    const expandAllBtn = document.getElementById('jednani-expand-all');
-
     if (!words.length) {
       statusEl.textContent = `${meetings.length} jednání — klikněte pro rozbalení usnesení, nebo hledejte klíčové slovo výše.`;
       resultsEl.innerHTML = jRenderMeetingList(meetings);
       jAttachAccordionHandlers();
-      expandAllBtn.style.display = meetings.length ? '' : 'none';
-      expandAllBtn.textContent = 'Rozbalit vše';
-      expandAllBtn.setAttribute('aria-expanded', 'false');
       return;
     }
 
-    expandAllBtn.style.display = 'none';
     const hits = [];
     meetings.forEach(m => {
       const resItemTexts = new Set(m.resolutions.map(r => r.item));
@@ -3210,7 +3212,6 @@
     if (!hits.length) {
       statusEl.textContent = 'Žádné shody pro „' + rawQuery.trim() + '“.';
       resultsEl.innerHTML = '<p class="lede">Zkuste jiné klíčové slovo, nebo změňte filtr typu/roku výše.</p>';
-      expandAllBtn.style.display = 'none';
       return;
     }
     const meetingCount = new Set(hits.map(h => h.m.uuid)).size;
@@ -3224,19 +3225,14 @@
     jSearchTimer = setTimeout(jRunSearch, 120);
   }
   document.getElementById('jednani-search').addEventListener('input', jScheduleSearch);
-  document.getElementById('jednani-filter-type').addEventListener('change', jRunSearch);
   document.getElementById('jednani-filter-year').addEventListener('change', jRunSearch);
 
-  document.getElementById('jednani-expand-all').addEventListener('click', function(){
-    const rows = document.querySelectorAll('#jednani-results .meeting-row-detail');
-    const expand = Array.from(rows).some(d => d.hasAttribute('hidden'));
-    rows.forEach(d => {
-      const toggle = d.parentElement.querySelector('.meeting-toggle');
-      if (expand) { d.removeAttribute('hidden'); toggle.textContent = '−'; }
-      else { d.setAttribute('hidden', ''); toggle.textContent = '+'; }
+  document.querySelectorAll('.segmented-btn').forEach(btn => {
+    btn.addEventListener('click', function(){
+      jTypeFilter = this.dataset.type;
+      document.querySelectorAll('.segmented-btn').forEach(b => b.classList.toggle('active', b === this));
+      jRunSearch();
     });
-    this.textContent = expand ? 'Sbalit vše' : 'Rozbalit vše';
-    this.setAttribute('aria-expanded', expand ? 'true' : 'false');
   });
 </script>
 
