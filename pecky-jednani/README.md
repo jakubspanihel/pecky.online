@@ -144,11 +144,13 @@ zdrojováno z `archive-2026-08-04.json`; 2 nejnovější tou dobou v archivu
 chybějící jednání (Rada 28/2026, 29/2026) doplněna ručně stejným rozborem
 přímo ze stránky `/verejne/<uuid>/zapis/`.
 
-**Zobrazení na webu:** čas u bodu programu (`hh:mm`, nebo jen `mm` pod
-hodinu) je na konci řádku bodu, PŘED odkazem na video (pokud pro daný bod
+**Zobrazení na webu:** formát `NhMMmin` (např. „2h:14min"), pod hodinu jen
+`Mmin` (např. „45min") — opraveno 21. 8. 2026 z původního `h:mm`. Čas u bodu
+programu je na konci řádku bodu, PŘED odkazem na video (pokud pro daný bod
 existuje — `video_url`/`video_ts` beze změny, pořád jen pro odkaz, viz výše).
-Délka celého jednání (`hh:mm`) je na konci sbaleného řádku jednání, odděleně
-od případného odkazu na video.
+Délka celého jednání je na konci sbaleného řádku jednání, odděleně od
+případného odkazu na video. Zdrojová funkce: `jFormatDuration`/
+`jFormatItemTime` v `index.html` i `pecky-jednani/index.html`.
 
 **Pro budoucí automatizaci:** u každého nového jednání dohledat totéž z jeho
 `zapis/` stránky stejným rozborem a doplnit `duration_seconds` na úrovni

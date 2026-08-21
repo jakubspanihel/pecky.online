@@ -2830,12 +2830,12 @@
   function jFormatDuration(sec){
     const totalMin = Math.round(sec / 60);
     const h = Math.floor(totalMin / 60), m = totalMin % 60;
-    return `${h}:${String(m).padStart(2, '0')}`;
+    return `${h}h:${String(m).padStart(2, '0')}min`;
   }
   function jFormatItemTime(sec){
     const totalMin = Math.round(sec / 60);
     const h = Math.floor(totalMin / 60), m = totalMin % 60;
-    return h > 0 ? `${h}:${String(m).padStart(2, '0')}` : `${m}`;
+    return h > 0 ? `${h}h:${String(m).padStart(2, '0')}min` : `${m}min`;
   }
   function jEscapeHtml(s){
     return (s || '').replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
