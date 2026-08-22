@@ -349,6 +349,8 @@
   .agenda-item-main{display:flex; align-items:baseline; gap:7px; flex-wrap:wrap;}
   .agenda-num{font-family:'IBM Plex Mono',monospace; color:var(--ink-soft); flex-shrink:0; width:2em;}
   .agenda-text{flex:1 1 auto; min-width:200px; font-weight:600;}
+  .agenda-text--toggle{cursor:pointer;}
+  .agenda-text--toggle:hover .info-icon{background:rgba(124,47,43,0.08);}
   .proposer{font-size:12px; color:var(--ink-soft); white-space:nowrap; font-family:'IBM Plex Mono',monospace;}
   .agenda-time{font-size:12px; color:var(--ink-soft); white-space:nowrap; font-family:'IBM Plex Mono',monospace;}
   .agenda-video{font-size:12px; color:var(--burgundy); white-space:nowrap; font-family:'IBM Plex Mono',monospace;}
@@ -3048,7 +3050,7 @@
     const link = r.url
       ? `<a class="hit-number" href="${r.url}" target="_blank" rel="noopener">${label}</a>`
       : `<span class="hit-number">${label}</span>`;
-    return `<div class="agenda-res">${jResInfoIcon(r)}${link} ${jOutcomeBadgeHtml(r)}${jResInfoText(r)}</div>`;
+    return `<div class="agenda-res">${link} ${jOutcomeBadgeHtml(r)}${jResInfoText(r)}</div>`;
   }
 
   function jRenderResLine(r){
@@ -3096,8 +3098,9 @@
       <li class="agenda-item">
         <div class="agenda-item-main">
           <span class="agenda-num">${jEscapeHtml(String(a.n))}.</span>
-          <span class="agenda-text">${jEscapeHtml(a.t || '')}</span>
-          ${a.duvodova_zprava ? `<button type="button" class="info-icon" title="${jEscapeHtml(a.duvodova_zprava)}" aria-label="Zobrazit důvodovou zprávu">i</button>` : ''}
+          ${(a.duvodova_zprava || (a._res && a._res.some(r => r.text)))
+            ? `<span class="agenda-text agenda-text--toggle" role="button" tabindex="0"${a.duvodova_zprava ? ` title="${jEscapeHtml(a.duvodova_zprava)}"` : ''} aria-label="Zobrazit podrobnosti bodu">${jEscapeHtml(a.t || '')}<span class="info-icon" aria-hidden="true">i</span></span>`
+            : `<span class="agenda-text">${jEscapeHtml(a.t || '')}</span>`}
           ${a.predkladatel ? `<span class="proposer">předkládá: ${jEscapeHtml(a.predkladatel)}</span>` : ''}
           ${a.duration_seconds != null ? `<span class="agenda-time">bod se projednával: ${jFormatItemTime(a.duration_seconds)}</span>` : ''}
           ${a.video_url ? `<a class="agenda-video" href="${a.video_url}" target="_blank" rel="noopener">▶ video ↗</a>` : ''}
@@ -3256,6 +3259,17 @@
   });
 
   document.getElementById('jednani-results').addEventListener('click', (e) => {
+    const textToggle = e.target.closest('.agenda-text--toggle');
+    if (textToggle) {
+      const li = textToggle.closest('.agenda-item');
+      if (!li) return;
+      const dzText = li.querySelector('.agenda-item-main > .info-toggle-text');
+      const resTexts = li.querySelectorAll('.agenda-res-list .info-toggle-text');
+      const willShow = dzText ? dzText.hidden : (resTexts.length ? resTexts[0].hidden : true);
+      if (dzText) dzText.hidden = !willShow;
+      resTexts.forEach(t => { t.hidden = !willShow; });
+      return;
+    }
     const btn = e.target.closest('.info-icon');
     if (!btn) return;
     const textEl = btn.parentElement.querySelector('.info-toggle-text');
