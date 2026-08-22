@@ -312,6 +312,22 @@ Rada 30/2026) zatím **chybí**; doplnit při příštím běhu plného scraperu
 (sekce „Stahování pozvánek a podepsaných zápisů" výše, který běží s reálným
 přístupem ke stažením).
 
+## Nesoulad číslování videí na YouTube (zjištěno 21. 8. 2026)
+
+Kanál @mestopecky čísluje videa zasedání ZM ve svých vlastních titulcích
+odděleně od oficiálního číslování usneseni.cz — od jara 2026 se rozešly.
+Jednání **3/2026 (25. 5. 2026)** nemá na kanálu žádný záznam (mezera
+v playlistu „Zasedání ZM" mezi videi z 22. 4. a 24. 6. 2026). Video
+s titulkem **„ZM Pečky č. 3/2026, 24. 6. 2026"** patří ve skutečnosti
+oficiálnímu jednání **4/2026** (ověřeno obsahem: bod „Plnění rozpočtu
+k 31.5.2026" nedává smysl pro jednání z 25. 5.) — je proto v archivu
+napárované na `d4c6e9ea-649c-11f1-95ba-0242c0a80003` (4/2026), ne na
+`88ca441d-4dca-11f1-b28e-0242c0a80003` (3/2026). Obě jednání mají pole
+`video_note` s vysvětlením, zobrazuje se i v panelu Jednání na webu.
+Při doplňování `links.youtube`/`video_ts` u budoucích jednání vždy ověřit
+shodu podle **obsahu** videa (program, zmíněná data), ne jen podle čísla
+v titulku na YouTube.
+
 ## Spuštění
 
 ```bash
