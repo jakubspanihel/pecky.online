@@ -132,13 +132,17 @@
   .agenda-list{margin:6px 0 12px; padding-left:0; list-style:none; font-size:13px;}
   .agenda-item{padding:7px 0; border-bottom:1px dotted var(--line);}
   .agenda-item-main{display:flex; align-items:baseline; gap:7px; flex-wrap:wrap;}
-  .agenda-num{font-family:'IBM Plex Mono',monospace; color:var(--ink-soft); flex-shrink:0;}
-  .agenda-text{flex:1 1 auto; min-width:200px;}
+  .agenda-num{font-family:'IBM Plex Mono',monospace; color:var(--ink-soft); flex-shrink:0; width:2em;}
+  .agenda-text{flex:1 1 auto; min-width:200px; font-weight:600;}
+  .proposer{font-size:12px; color:var(--ink-soft); white-space:nowrap; font-family:'IBM Plex Mono',monospace;}
   .agenda-time{font-size:12px; color:var(--ink-soft); white-space:nowrap; font-family:'IBM Plex Mono',monospace;}
   .agenda-video{font-size:12px; color:var(--burgundy); white-space:nowrap; font-family:'IBM Plex Mono',monospace;}
   .agenda-res-list{margin:5px 0 0 20px; display:flex; flex-direction:column; gap:4px;}
-  .agenda-res{font-size:12.5px; display:flex; align-items:center; gap:8px; color:var(--ink-soft); white-space:nowrap;}
-  .agenda-res .hit-number{white-space:nowrap; cursor:help;}
+  .agenda-res{font-size:12.5px; display:flex; align-items:center; gap:8px; color:var(--ink-soft); white-space:nowrap; flex-wrap:wrap;}
+  .agenda-res .hit-number{white-space:nowrap;}
+  .info-icon{display:inline-flex; align-items:center; justify-content:center; width:15px; height:15px; border-radius:50%; border:1px solid var(--burgundy); background:none; color:var(--burgundy); font-family:'IBM Plex Mono',monospace; font-style:italic; font-size:10px; font-weight:700; line-height:1; padding:0; cursor:pointer; flex-shrink:0;}
+  .info-icon:hover{background:rgba(124,47,43,0.08);}
+  .info-toggle-text{flex-basis:100%; width:100%; font-size:12.5px; color:var(--ink-soft); white-space:pre-line; margin:4px 0 2px; padding:7px 9px; background:rgba(0,0,0,0.03); border-left:2px solid var(--line);}
   .meeting-links{display:flex; gap:14px; flex-wrap:wrap; font-size:12.5px;}
 
   .hit-card{border:1px solid var(--line); background:rgba(255,255,255,0.35); padding:14px 16px; margin-bottom:12px;}
@@ -437,22 +441,29 @@
     return (n || '').replace(/^U[RZ]-/, 'Usnesení ');
   }
 
+  function jResInfoIcon(r){
+    if (!r.text) return '';
+    return `<button type="button" class="info-icon" title="${jEscapeHtml(r.text)}" aria-label="Zobrazit text usnesení">i</button>`;
+  }
+  function jResInfoText(r){
+    if (!r.text) return '';
+    return `<div class="info-toggle-text" hidden>${jEscapeHtml(r.text)}</div>`;
+  }
+
   function jRenderResItem(r){
     const label = jEscapeHtml(jResLabel(r.n));
-    const tooltip = r.text ? ` title="${jEscapeHtml(r.text)}"` : '';
     const link = r.url
-      ? `<a class="hit-number" href="${r.url}" target="_blank" rel="noopener"${tooltip}>${label}</a>`
-      : `<span class="hit-number"${tooltip}>${label}</span>`;
-    return `<div class="agenda-res">${link} ${jOutcomeBadgeHtml(r)}</div>`;
+      ? `<a class="hit-number" href="${r.url}" target="_blank" rel="noopener">${label}</a>`
+      : `<span class="hit-number">${label}</span>`;
+    return `<div class="agenda-res">${jResInfoIcon(r)}${link} ${jOutcomeBadgeHtml(r)}${jResInfoText(r)}</div>`;
   }
 
   function jRenderResLine(r){
     const label = jEscapeHtml(jResLabel(r.n));
-    const tooltip = r.text ? ` title="${jEscapeHtml(r.text)}"` : '';
     const link = r.url
-      ? `<a class="hit-number" href="${r.url}" target="_blank" rel="noopener"${tooltip}>${label}</a>`
-      : `<span class="hit-number"${tooltip}>${label}</span>`;
-    return `<li>${link} — ${jEscapeHtml(r.item || '')} ${jOutcomeBadgeHtml(r)}</li>`;
+      ? `<a class="hit-number" href="${r.url}" target="_blank" rel="noopener">${label}</a>`
+      : `<span class="hit-number">${label}</span>`;
+    return `<li>${jResInfoIcon(r)}${link} — ${jEscapeHtml(r.item || '')} ${jOutcomeBadgeHtml(r)}${jResInfoText(r)}</li>`;
   }
 
   const J_TITLE_RE = /^(Ing\.|Mgr\.|Bc\.|MUDr\.|PhDr\.|JUDr\.|RNDr\.|MgA\.|Ph\.D\.|CSc\.|DiS\.|MSc\.|doc\.|prof\.)$/i;
@@ -493,8 +504,11 @@
         <div class="agenda-item-main">
           <span class="agenda-num">${jEscapeHtml(String(a.n))}.</span>
           <span class="agenda-text">${jEscapeHtml(a.t || '')}</span>
-          ${a.duration_seconds != null ? `<span class="agenda-time">${jFormatItemTime(a.duration_seconds)}</span>` : ''}
+          ${a.duvodova_zprava ? `<button type="button" class="info-icon" title="${jEscapeHtml(a.duvodova_zprava)}" aria-label="Zobrazit důvodovou zprávu">i</button>` : ''}
+          ${a.predkladatel ? `<span class="proposer">předkládá: ${jEscapeHtml(a.predkladatel)}</span>` : ''}
+          ${a.duration_seconds != null ? `<span class="agenda-time">bod se projednával: ${jFormatItemTime(a.duration_seconds)}</span>` : ''}
           ${a.video_url ? `<a class="agenda-video" href="${a.video_url}" target="_blank" rel="noopener">▶ video ↗</a>` : ''}
+          ${a.duvodova_zprava ? `<div class="info-toggle-text" hidden>${jEscapeHtml(a.duvodova_zprava)}</div>` : ''}
         </div>
         ${a._res && a._res.length ? '<div class="agenda-res-list">' + a._res.map(jRenderResItem).join('') + '</div>' : ''}
       </li>
@@ -570,11 +584,12 @@
         <div class="hit-item">${jHighlight(r.item, rawQuery)} ${jOutcomeBadgeHtml(r)}</div>
         <div class="hit-text">${jHighlight(r.text, rawQuery)}</div>
         <div class="hit-footer">
-          <span class="hit-number">${jEscapeHtml(r.n || '')}</span>
+          ${jResInfoIcon(r)}<span class="hit-number">${jEscapeHtml(r.n || '')}</span>
           ${hasVote ? `<span>pro ${r.pro} · proti ${r.proti} · zdržel se ${r.zdrzel}</span>` : ''}
           ${r.url ? `<a href="${r.url}" target="_blank" rel="noopener">detail usnesení ↗</a>` : ''}
           ${m.links.minutes ? `<a href="${m.links.minutes}" target="_blank" rel="noopener">zápis jednání ↗</a>` : ''}
           ${m.links.youtube ? `<a href="${m.links.youtube}" target="_blank" rel="noopener">▶ video ↗</a>` : ''}
+          ${jResInfoText(r)}
         </div>
       </div>`;
     }
@@ -645,6 +660,13 @@
       document.querySelectorAll('.segmented-btn').forEach(b => b.classList.toggle('active', b === this));
       jRunSearch();
     });
+  });
+
+  document.getElementById('jednani-results').addEventListener('click', (e) => {
+    const btn = e.target.closest('.info-icon');
+    if (!btn) return;
+    const textEl = btn.parentElement.querySelector('.info-toggle-text');
+    if (textEl) textEl.hidden = !textEl.hidden;
   });
 
   loadJednani();
