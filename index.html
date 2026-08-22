@@ -120,7 +120,7 @@
   .subpanel{display:none;}
   .subpanel.active{display:block; animation:fade .25s ease;}
 
-  .toggle-details{display:inline-flex; align-items:center; gap:5px; font-family:'IBM Plex Mono',monospace; font-size:12px; text-transform:uppercase; letter-spacing:0.03em; color:var(--burgundy); border:1px solid var(--burgundy); background:none; padding:8px 14px; cursor:pointer; margin:0 0 22px;}
+  .toggle-details{display:inline-flex; align-items:center; gap:5px; font-family:'IBM Plex Mono',monospace; font-size:12px; text-transform:uppercase; letter-spacing:0.03em; color:var(--burgundy); border:1px solid var(--burgundy); background:none; padding:8px 14px; cursor:pointer; margin:0 0 22px; text-decoration:none;}
   .toggle-details:hover{background:rgba(124,47,43,0.06);}
   .toggle-details[aria-expanded="true"]{background:var(--burgundy); color:#fff;}
   .details-block[hidden]{display:none;}
@@ -330,6 +330,7 @@
   .meeting-row--expanded{background:#ffffff;}
   .meeting-row--future .meeting-row-main{background:rgba(173,122,42,0.08);}
   .meeting-attendance{margin:2px 0 12px;}
+  .meeting-attendance .people-avatars{max-width:none; flex-wrap:nowrap; overflow-x:auto; padding-bottom:2px;}
   .meeting-row-main{display:flex; align-items:center; gap:6px 12px; padding:11px 4px; cursor:pointer; font-size:14px; flex-wrap:wrap;}
   .meeting-row-main:hover{background:rgba(124,47,43,0.035);}
   .meeting-label{font-weight:500; flex:1 1 220px; min-width:0;}
@@ -3135,16 +3136,15 @@
           </span>
         </div>
         <div class="meeting-row-detail" hidden>
-          <div class="meeting-links">
-            ${m.links.invitation ? `<a href="${m.links.invitation}" target="_blank" rel="noopener" title="Zdrojový web někdy odkaz z cizí stránky blokuje a otevře jen úvodní stránku archivu — zkuste prosím znovu, případně vyhledejte jednání přímo na usneseni.cz.">Pozvánka PDF ↗</a>` : ''}
-            ${m.links.youtube ? `<a href="${m.links.youtube}" target="_blank" rel="noopener">▶ Video ↗</a>` : ''}
-            ${m.links.minutes ? `<a href="${m.links.minutes}" target="_blank" rel="noopener">Zápis ↗</a>` : ''}
-            ${m.links.pdf ? `<a href="${m.links.pdf}" target="_blank" rel="noopener" title="Zdrojový web někdy odkaz z cizí stránky blokuje a otevře jen úvodní stránku archivu — zkuste prosím znovu, případně vyhledejte jednání přímo na usneseni.cz.">Zápis (podepsaný PDF) ↗</a>` : ''}
-            ${m.links.resolutions ? `<a href="${m.links.resolutions}" target="_blank" rel="noopener">Všechna přijatá usnesení ↗</a>` : ''}
-          </div>
           ${m.video_note ? `<p class="lede" style="margin:6px 0 10px; font-size:12.5px; color:var(--burgundy);">⚠ ${jEscapeHtml(m.video_note)}</p>` : ''}
           ${jRenderPresenceRow(m)}
+          ${m.links.youtube ? `<a class="toggle-details" href="${m.links.youtube}" target="_blank" rel="noopener" style="margin:0 0 14px;"><img class="meeting-yt-icon" src="img/favicons/youtube-com.png" alt="" loading="lazy"> Video ↗</a>` : ''}
           ${jRenderAgendaList(m)}
+          <div class="meeting-links">
+            ${m.links.invitation ? `<a href="${m.links.invitation}" target="_blank" rel="noopener" title="Zdrojový web někdy odkaz z cizí stránky blokuje a otevře jen úvodní stránku archivu — zkuste prosím znovu, případně vyhledejte jednání přímo na usneseni.cz.">Pozvánka PDF ↗</a>` : ''}
+            ${m.links.minutes ? `<a class="toggle-details" href="${m.links.minutes}" target="_blank" rel="noopener" style="margin:0;">Zápis ↗</a>` : ''}
+            ${m.links.resolutions ? `<a href="${m.links.resolutions}" target="_blank" rel="noopener">Všechna přijatá usnesení ↗</a>` : ''}
+          </div>
         </div>
       </div>
     `;
