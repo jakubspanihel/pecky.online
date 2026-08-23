@@ -47,7 +47,8 @@
     max-width:1040px; margin:0 auto; padding:16px 18px 0;
   }
   .brand-row{display:flex; align-items:baseline; justify-content:space-between; gap:10px; flex-wrap:wrap;}
-  .brand{display:flex; align-items:center; gap:12px; order:1;}
+  .brand{display:flex; align-items:center; gap:12px; order:1; color:inherit; text-decoration:none; cursor:pointer;}
+  .brand:hover{text-decoration:none;}
   .brand .mark{
     width:40px;height:40px;border-radius:50%;
     border:2px solid var(--burgundy);
@@ -134,10 +135,6 @@
   .panel.active{display:block;}
   @keyframes fade{from{opacity:0; transform:translateY(4px);} to{opacity:1; transform:translateY(0);}}
 
-  .eyebrow{
-    font-family:'IBM Plex Mono',monospace; font-size:11.5px; text-transform:uppercase;
-    letter-spacing:0.1em; color:var(--field); margin:0 0 6px;
-  }
   h2.title{font-size:34px; margin:0 0 8px; font-weight:600;}
   .lede{color:var(--ink-soft); max-width:640px; margin:0 0 28px; font-size:15px;}
 
@@ -368,10 +365,10 @@
 <header class="site">
   <div class="header-inner">
     <div class="brand-row">
-      <div class="brand">
+      <a class="brand" href="#" data-goto="domu">
         <div class="mark">P</div>
-        <h1>pecky.online</h1>
-      </div>
+        <h1>PečkyBot</h1>
+      </a>
       <button class="nav-toggle" id="navToggle" type="button" aria-expanded="false" aria-controls="tabs">
         <span class="bars"><span></span></span>Menu
       </button>
@@ -403,7 +400,6 @@
 
   <!-- ================= LIDÉ ================= -->
   <section class="panel" id="panel-lide">
-    <p class="eyebrow">Jak se řídí město</p>
     <h2 class="title display">Lidé, kteří řídí město</h2>
     <p class="lede">Město řídí dvě propojené skupiny. Zastupitelstvo je 21členný sbor, který si občané volí přímo v komunálních volbách jednou za čtyři roky — má poslední slovo v zásadních otázkách jako rozpočet nebo majetek města. Zastupitelstvo si pak ze svého středu zvolí radu, menší výkonný tým, který řídí každodenní chod úřadu mezi jednotlivými zasedáními. Níž se dozvíš, kdo v nich sedí a o čem přesně rozhodují.</p>
 
@@ -556,7 +552,6 @@
 
   <!-- ================= PLÁN ================= -->
   <section class="panel" id="panel-plan">
-    <p class="eyebrow">Rozvoj města · 2016–2026</p>
     <h2 class="title display">Mají Pečky nějaký plán?</h2>
     <p class="lede">Každé město by mělo mít jasnou představu o tom, jak by mělo v budoucnu vypadat a čím by mělo vynikat. I Pečky mají takovou vizi — dokument, který určuje směr, priority a rozvoj obce na několik let dopředu. Ten poslední se jmenuje <a href="https://pecky.cz/files/pecky/gallery/18710/699ed628c2013_strategicky-plan-souhrn.pdf" target="_blank" rel="noopener">Strategický plán rozvoje města Pečky 2016–2026</a>. <span class="stamp">ověřeno</span></p>
 
@@ -700,7 +695,6 @@
 
   <!-- ================= VOLBY 2018 ================= -->
   <section class="panel" id="panel-volby2018">
-    <p class="eyebrow">Komunální volby 5.–6. 10. 2018</p>
     <h2 class="title display">Volby 2018 do zastupitelstva</h2>
     <p class="lede">Předminulé komunální volby v Pečkách proběhly 5.–6. října 2018, účast byla 48,81 %. Kandidovalo šest uskupení, pět z nich získalo mandát. Výsledky ještě před ustavujícím zasedáním napadl u soudu jeden občan — zastupitelstvo se kvůli tomu sešlo až o měsíc později, než je obvyklé. Níže jsou všechna uskupení s výsledky a shrnutím jejich volebního programu. <span class="stamp">ověřeno</span></p>
 
@@ -1057,7 +1051,6 @@
 
   <!-- ================= VOLBY 2022 ================= -->
   <section class="panel" id="panel-volby2022">
-    <p class="eyebrow">Komunální volby 23.–24. 9. 2022</p>
     <h2 class="title display">Volby 2022 do zastupitelstva</h2>
     <p class="lede">Poslední komunální volby v Pečkách proběhly 23.–24. září 2022, účast byla 52,36 %. Kandidovalo šest uskupení, pět z nich získalo mandát. Níže jsou všechna uskupení s výsledky a shrnutím jejich volebního programu. <span class="stamp">ověřeno</span></p>
 
@@ -1385,7 +1378,6 @@
 
   <!-- ================= VOLBY 2026 ================= -->
   <section class="panel" id="panel-volby2026">
-    <p class="eyebrow">Komunální volby 9.–10. 10. 2026</p>
     <h2 class="title display">Volby 2026 do zastupitelstva</h2>
     <p class="lede">Příští komunální volby v Pečkách se konají 9.–10. října 2026. Výsledky, kandidátní listiny a volební programy uskupení doplníme na tuto stránku, jakmile budou k dispozici — stejně jako u voleb 2022. <span class="stamp">sledujeme</span></p>
 
@@ -1407,7 +1399,6 @@
 
   <!-- ================= JEDNÁNÍ ================= -->
   <section class="panel" id="panel-jednani">
-    <p class="eyebrow">Archiv jednání · usneseni.cz</p>
     <h2 class="title display">Jednání a usnesení</h2>
     <p class="lede" style="margin-bottom:16px;">Oficiální schůzky zvolených zástupců Peček, kde rozhodují o věcech veřejných. <span class="stamp">ověřeno</span></p>
 
@@ -1449,7 +1440,6 @@
 
   <!-- ================= SMLOUVY ================= -->
   <section class="panel" id="panel-smlouvy">
-    <p class="eyebrow">Registr smluv · zákon 340/2015 Sb.</p>
     <h2 class="title display">Smlouvy</h2>
     <p class="lede">Registr smluv eviduje smlouvy, které veřejné instituce uzavírají za peníze daňových poplatníků. Data pro skupinu Město Pečky sbírá a strukturuje Hlídač státu; níže je výřez získaný přes připojený konektor Hlídače státu. <span class="stamp">ověřeno</span></p>
 
@@ -1528,7 +1518,6 @@
 
   <!-- ================= ZAKÁZKY ================= -->
   <section class="panel" id="panel-zakazky">
-    <p class="eyebrow">Veřejné zakázky · zákon 134/2016 Sb.</p>
     <h2 class="title display">Zakázky</h2>
     <p class="lede">Veřejná zakázka je výběrové řízení na dodavatele — fáze před podpisem samotné smlouvy (tu eviduje Registr smluv v sekci Smlouvy). Data pro Město Pečky sbírá a strukturuje Hlídač státu; níže je výřez z jejich veřejně přístupného vyhledávání zakázek. <span class="stamp">ověřeno</span></p>
 
@@ -1594,7 +1583,6 @@
 
   <!-- ================= POKLADNA ================= -->
   <section class="panel" id="panel-pokladna">
-    <p class="eyebrow">Rozpočet a hospodaření · Monitor Státní pokladny (MF ČR)</p>
     <h2 class="title display">Pokladna</h2>
     <p class="lede">Stručně: Pečky poslední čtyři roky hospodaří s přebytkem — skutečné příjmy pravidelně převyšují skutečné výdaje, i když se schválený rozpočet plánuje jako schodkový. Město nemá žádný úvěr ani dluhovou službu. Vedle běžného provozu (platy, služby, transfery) jde významná část peněz do investic — zejména do vodohospodářské infrastruktury, veřejného osvětlení a hasičů — často s vysokým podílem státních a evropských dotací. <span class="stamp">ověřeno</span></p>
 
@@ -1771,7 +1759,6 @@
 
   <!-- ================= ZPRAVODAJ ================= -->
   <section class="panel" id="panel-zpravodaj">
-    <p class="eyebrow">Měsíčník města</p>
     <h2 class="title display">Pečecké noviny</h2>
     <p class="lede">Co je psáno, to je dáno. Černé na bílém.</p>
     <p class="lede">Ponořte se do archivu a <strong>užijte si fulltextové vyhledávání</strong></p>
@@ -2500,7 +2487,6 @@
 
   <!-- ================= O WEBU ================= -->
   <section class="panel" id="panel-owebu">
-    <p class="eyebrow">Transparentnost dat</p>
     <h2 class="title display">O webu</h2>
     <p class="lede">pecky.online je neoficiální, nezávislý občanský projekt. Cílem je zpřehlednit veřejně dostupné informace o samosprávě města Pečky.</p>
 
