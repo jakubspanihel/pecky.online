@@ -57,8 +57,6 @@
     flex-shrink:0;
   }
   .brand h1{font-size:22px; margin:0; letter-spacing:0.01em; font-weight:600;}
-  .brand h1 small{display:block; font-family:'IBM Plex Mono',monospace; font-weight:400; font-size:11px; color:var(--ink-soft); letter-spacing:0.08em; text-transform:uppercase; margin-top:2px;}
-  .header-meta{font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--ink-soft); text-align:right;}
 
   nav.tabs{
     max-width:1040px; margin:14px auto 0; padding:0 24px;
@@ -94,7 +92,6 @@
   @media (max-width:760px){
     .header-inner{padding:16px 18px 0;}
     .brand-row{gap:10px;}
-    .header-meta{order:3; width:100%; text-align:left; margin-top:6px; font-size:10.5px;}
     .nav-toggle{display:inline-flex; order:2; margin-left:auto;}
     .brand{order:1;}
     nav.tabs{
@@ -388,12 +385,11 @@
     <div class="brand-row">
       <div class="brand">
         <div class="mark">P</div>
-        <h1>pecky.online<small>Pečky pohledem umělé inteligence</small></h1>
+        <h1>pecky.online</h1>
       </div>
       <button class="nav-toggle" id="navToggle" type="button" aria-expanded="false" aria-controls="tabs">
         <span class="bars"><span></span></span>Menu
       </button>
-      <div class="header-meta">Neoficiální · občanský projekt<br>Pečky, okres Kolín</div>
     </div>
   </div>
   <nav class="tabs" id="tabs">
@@ -416,7 +412,6 @@
 
   <!-- ================= DOMŮ ================= -->
   <section class="panel active" id="panel-domu">
-    <p class="eyebrow">Pečky · Středočeský kraj · okres Kolín</p>
     <h2 class="title display">Radnice, kterou lze přečíst</h2>
     <p class="lede"><strong>Web je sestavovaný a průběžně aktualizovaný poloautomaticky s pomocí AI — všechny uvedené informace jsou ale ověřené a čerpají výhradně z veřejně dostupných zdrojů.</strong> Kompletní přehled zdrojů a odkazy najdeš v sekci <a href="#" data-goto="owebu">O webu</a>.</p>
   </section>
