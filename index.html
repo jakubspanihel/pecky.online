@@ -44,7 +44,7 @@
     position:sticky; top:0; z-index:20;
   }
   .header-inner{
-    max-width:1040px; margin:0 auto; padding:16px 18px 0;
+    max-width:1040px; margin:0 auto; padding:16px 18px;
   }
   .brand-row{display:flex; align-items:baseline; justify-content:space-between; gap:10px; flex-wrap:wrap;}
   .brand{display:flex; align-items:center; gap:12px; order:1; color:inherit; text-decoration:none; cursor:pointer;}
@@ -72,7 +72,7 @@
     font-family:'IBM Plex Mono',monospace;
     font-size:12.5px; letter-spacing:0.03em; text-transform:uppercase;
     color:var(--ink-soft); border:none; background:none; cursor:pointer;
-    width:100%; text-align:left; padding:14px 18px; margin-bottom:0;
+    width:100%; text-align:center; padding:14px 18px; margin-bottom:0;
     border-bottom:1px solid var(--line); border-left:3px solid transparent;
   }
   .navlink:hover{color:var(--ink); text-decoration:none;}
@@ -137,6 +137,7 @@
 
   h2.title{font-size:34px; margin:0 0 8px; font-weight:600;}
   .lede{color:var(--ink-soft); max-width:640px; margin:0 0 28px; font-size:15px;}
+  .peckybot {float:left; margin-right:34px; width:200px; }
 
   @media (max-width:600px){
     main{padding:28px 16px 60px;}
@@ -288,7 +289,7 @@
     border-top:1px solid var(--line); padding-top:14px; margin-top:10px; line-height:1.7;
   }
 
-  footer.site{max-width:1040px; margin:0 auto; padding:0 24px 60px; font-size:12px; color:var(--ink-soft);}
+  footer.site{max-width:1040px; margin:0 auto; padding:0 24px 60px; font-size:12px; clear:both; color:var(--ink-soft);}
 
   /* ===== Jednání (archiv + fulltext hledání) ===== */
   .search-bar{display:flex; gap:10px; flex-wrap:wrap; margin:22px 0 6px;}
@@ -394,8 +395,10 @@
 
   <!-- ================= DOMŮ ================= -->
   <section class="panel active" id="panel-domu">
-    <h2 class="title display">Radnice, kterou lze přečíst</h2>
-    <p class="lede"><strong>Web je sestavovaný a průběžně aktualizovaný poloautomaticky s pomocí AI — všechny uvedené informace jsou ale ověřené a čerpají výhradně z veřejně dostupných zdrojů.</strong> Kompletní přehled zdrojů a odkazy najdeš v sekci <a href="#" data-goto="owebu">O webu</a>.</p>
+    <h2 class="title display">Jak vidí Pečky AI?</h2>
+    <p class="lede"><strong>Tento web připravuje PečkyBot.</strong></p>
+    <p class="lede"><img class="peckybot" src="img/peckybot/welcome.png" alt="PečkyBot">
+      Ahoj, já jsem PečkyBot 👋 <br> Procházím nejen oficiální web města a zobrazuji dostupné informace.</p>
   </section>
 
   <!-- ================= LIDÉ ================= -->
@@ -2774,6 +2777,7 @@
   // ===== Jednání: archiv + fulltext hledání =====
   let JEDNANI_DB = null;
   let JEDNANI_LOADING = null;
+  let PARCEL_URLS = {};
 
   function jStripDiacritics(s){
     return (s || '').toString().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
@@ -2840,6 +2844,35 @@
       const esc = w.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
       if (!esc) return;
       try { html = html.replace(new RegExp('(' + esc + ')', 'gi'), '<mark>$1</mark>'); } catch (e) {}
+    });
+    return html;
+  }
+
+  // ===== Prolinkování zmínek o parcelách na detail na Nahlížení do KN (VDP) =====
+  // Mapování „č. parc. NNNN(/NNN)“ -> URL je dopředu dohledané přes REST API ČÚZK
+  // (viz pecky-jednani/katastr.md, katastr-odkazy.json). Prolinkuje jen číslo, které
+  // následuje hned za výskytem „parc“ (pokrývá „č. parc. 1680“, „č.parc.1595“, „parc. 348/3“…);
+  // druhé a další číslo ve výčtu odděleném čárkou beze slova „parc“ se neprolinkuje (bezpečnější
+  // než hádat, které navazující číslo do výčtu ještě patří).
+  function jLinkParcely(escapedHtml){
+    if (!escapedHtml || !PARCEL_URLS || !Object.keys(PARCEL_URLS).length) return escapedHtml;
+    return escapedHtml.replace(/parc\.?\s*(\d{1,5}(?:\/\d{1,3})?)/gi, (whole, num) => {
+      const url = PARCEL_URLS[num];
+      if (!url) return whole;
+      const prefix = whole.slice(0, whole.length - num.length);
+      return `${prefix}<a href="${url}" target="_blank" rel="noopener" title="Detail parcely ${num} na Nahlížení do KN (VDP) ↗">${num}</a>`;
+    });
+  }
+  function jLinkedText(text){
+    return jLinkParcely(jEscapeHtml(text || ''));
+  }
+  function jHighlightLinked(text, rawQuery){
+    let html = jLinkedText(text);
+    const words = (rawQuery || '').trim().split(/\s+/).filter(w => w.length > 1);
+    words.forEach(w => {
+      const esc = w.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+      if (!esc) return;
+      try { html = html.replace(new RegExp('(' + esc + ')(?![^<]*>)', 'gi'), '<mark>$1</mark>'); } catch (e) {}
     });
     return html;
   }
@@ -2917,8 +2950,14 @@
     if (JEDNANI_LOADING) return JEDNANI_LOADING;
     JEDNANI_LOADING = (async () => {
       try {
-        const res = await fetch('pecky-jednani/pecky-jednani.json');
+        const [res, parcelRes] = await Promise.all([
+          fetch('pecky-jednani/pecky-jednani.json'),
+          fetch('pecky-jednani/katastr-odkazy.json').catch(() => null)
+        ]);
         if (!res.ok) throw new Error('HTTP ' + res.status);
+        if (parcelRes && parcelRes.ok) {
+          try { PARCEL_URLS = (await parcelRes.json()).parcely || {}; } catch (e) { PARCEL_URLS = {}; }
+        }
         const data = await res.json();
         const years = new Set();
         const resByNumber = {};
@@ -3023,7 +3062,7 @@
     const link = r.url
       ? `<a class="hit-number" href="${r.url}" target="_blank" rel="noopener">${label}</a>`
       : `<span class="hit-number">${label}</span>`;
-    return `<li>${jResInfoIcon(r)}${link} — ${jEscapeHtml(r.item || '')} ${jOutcomeBadgeHtml(r)}${jResInfoText(r)}</li>`;
+    return `<li>${jResInfoIcon(r)}${link} — ${jLinkedText(r.item || '')} ${jOutcomeBadgeHtml(r)}${jResInfoText(r)}</li>`;
   }
 
   const J_TITLE_RE = /^(Ing\.|Mgr\.|Bc\.|MUDr\.|PhDr\.|JUDr\.|RNDr\.|MgA\.|Ph\.D\.|CSc\.|DiS\.|MSc\.|doc\.|prof\.)$/i;
@@ -3064,8 +3103,8 @@
         <div class="agenda-item-main">
           <span class="agenda-num">${jEscapeHtml(String(a.n))}.</span>
           ${(a.duvodova_zprava || (a._res && a._res.some(r => r.text)))
-            ? `<span class="agenda-text agenda-text--toggle" role="button" tabindex="0"${a.duvodova_zprava ? ` title="${jEscapeHtml(a.duvodova_zprava)}"` : ''} aria-label="Zobrazit podrobnosti bodu">${jEscapeHtml(a.t || '')}<span class="info-icon" aria-hidden="true">i</span></span>`
-            : `<span class="agenda-text">${jEscapeHtml(a.t || '')}</span>`}
+            ? `<span class="agenda-text agenda-text--toggle" role="button" tabindex="0"${a.duvodova_zprava ? ` title="${jEscapeHtml(a.duvodova_zprava)}"` : ''} aria-label="Zobrazit podrobnosti bodu">${jLinkedText(a.t || '')}<span class="info-icon" aria-hidden="true">i</span></span>`
+            : `<span class="agenda-text">${jLinkedText(a.t || '')}</span>`}
           ${a.predkladatel ? `<span class="proposer">předkládá: ${jEscapeHtml(a.predkladatel)}</span>` : ''}
           ${a.duration_seconds != null ? `<span class="agenda-time">bod se projednával: ${jFormatItemTime(a.duration_seconds)}</span>` : ''}
           ${a.video_url ? `<a class="agenda-video" href="${a.video_url}" target="_blank" rel="noopener">▶ video ↗</a>` : ''}
@@ -3141,8 +3180,8 @@
           <span class="hit-label">${jEscapeHtml(m.label || '')}</span>
           <span class="hit-date">${jFormatDate(m.date)}</span>
         </div>
-        <div class="hit-item">${jHighlight(r.item, rawQuery)} ${jOutcomeBadgeHtml(r)}</div>
-        <div class="hit-text">${jHighlight(r.text, rawQuery)}</div>
+        <div class="hit-item">${jHighlightLinked(r.item, rawQuery)} ${jOutcomeBadgeHtml(r)}</div>
+        <div class="hit-text">${jHighlightLinked(r.text, rawQuery)}</div>
         <div class="hit-footer">
           ${jResInfoIcon(r)}<span class="hit-number">${jEscapeHtml(r.n || '')}</span>
           ${hasVote ? `<span>pro ${r.pro} · proti ${r.proti} · zdržel se ${r.zdrzel}</span>` : ''}
@@ -3160,7 +3199,7 @@
         <span class="hit-label">${jEscapeHtml(m.label || '')}</span>
         <span class="hit-date">${jFormatDate(m.date)}</span>
       </div>
-      <div class="hit-item">${jHighlight(a.t, rawQuery)} <span class="tag">bod programu</span></div>
+      <div class="hit-item">${jHighlightLinked(a.t, rawQuery)} <span class="tag">bod programu</span></div>
       <div class="hit-footer">
         ${m.links.minutes ? `<a href="${m.links.minutes}" target="_blank" rel="noopener">zápis jednání ↗</a>` : ''}
         ${m.links.youtube ? `<a href="${m.links.youtube}" target="_blank" rel="noopener">▶ video ↗</a>` : ''}

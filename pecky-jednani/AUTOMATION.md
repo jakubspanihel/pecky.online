@@ -50,6 +50,46 @@ stabilní adresa; jediný stabilní klíč je UUID jednání a `detail_id` usnes
   kvůli Cloudflare) — bezhlavý server NEBUDE fungovat bez vyřešení CF
   (např. placený scraping proxy, nebo dohoda s provozovatelem).
 
+## Odkazy na parcely (katastr) — aktualizovat při každém běhu
+
+Web prolinkovává zmínky o parcelách („č. parc. NNNN(/NNN)“) v textu
+usnesení/bodů programu na detail parcely na Nahlížení do KN (VDP).
+Mapování číslo → URL žije v `pecky-jednani/katastr-odkazy.json`
+(klíč `parcely`), načítá ho JS obou zobrazení (`index.html` i
+`pecky-jednani/index.html`) při startu vedle `pecky-jednani.json`.
+Postup a metodika dohledávání (přes REST API ČÚZK, api-kn.cuzk.gov.cz)
+jsou popsané v `katastr.md`.
+
+**Při každé aktualizaci `pecky-jednani.json` (nová jednání) je třeba:**
+
+1. Projít nová/změněná usnesení a body programu na zmínky „parc.
+   NNNN(/NNN)“ (regex `parc\.?\s*(\d{1,5}(?:\/\d{1,3})?)` — stejný,
+   jaký web používá k prolinkování na frontendu).
+2. Čísla, která ještě nejsou v `katastr-odkazy.json` → `parcely`,
+   dohledat přes `GET /api/v1/Parcely/Vyhledani` (klíč v
+   `.katastr-api-key`, gitignored). Postup podle `katastr.md`:
+   - vyzkoušet všechny 4 kombinace `TypParcely`×`DruhCislovaniParcely`
+     (ne jen PKN/pozemková — jednoduché hledání dá falešné negativy),
+   - k.ú. odhadnout z kontextu usnesení nebo podle „sourozeneckého"
+     čísla (stejné kmenové číslo u jiného už vyřešeného poddělení
+     typicky znamená stejné k.ú.), jinak zkusit Pečky, pak Velké
+     Chvalovice,
+   - **nekaskádovat naslepo přes další obce** bez kontextové opory —
+     riziko falešné shody (viz `katastr.md`, případ parcely 531).
+3. Nově nalezené dvojice `"NNNN": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/{id}"`
+   přidat do `parcely` v `katastr-odkazy.json`, aktualizovat `count` a
+   `generated`.
+4. Čísla, která se nedohledala v žádné rozumné kombinaci, do souboru
+   nepřidávat — needit vymýšlet, nechat nepodlinkovaná (needit ani
+   zpětně dohledávat v `katastr.md`, stačí že v mapě chybí).
+5. Žádná změna v HTML/JS není potřeba — prolinkování na frontendu je
+   datově řízené (nová položka v JSON se propíše automaticky).
+
+Ověřovací krok: po doplnění spustit stejnou kontrolu úplnosti, jakou
+použil první běh (22. 8. 2026) — projít `pecky-jednani.json` regexem
+na „parc.“, srovnat proti klíčům v `katastr-odkazy.json` a ověřit, že
+nepokryté zůstávají jen vědomé mezery (žádné tiše chybějící číslo).
+
 ## Rizika
 
 1. **Cloudflare** — hlavní riziko. Challenge může kdykoli zpřísnit; mitigace:
