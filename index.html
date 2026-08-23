@@ -44,10 +44,10 @@
     position:sticky; top:0; z-index:20;
   }
   .header-inner{
-    max-width:1040px; margin:0 auto; padding:18px 24px 0;
+    max-width:1040px; margin:0 auto; padding:16px 18px 0;
   }
-  .brand-row{display:flex; align-items:baseline; justify-content:space-between; gap:16px; flex-wrap:wrap;}
-  .brand{display:flex; align-items:center; gap:12px;}
+  .brand-row{display:flex; align-items:baseline; justify-content:space-between; gap:10px; flex-wrap:wrap;}
+  .brand{display:flex; align-items:center; gap:12px; order:1;}
   .brand .mark{
     width:40px;height:40px;border-radius:50%;
     border:2px solid var(--burgundy);
@@ -59,23 +59,29 @@
   .brand h1{font-size:22px; margin:0; letter-spacing:0.01em; font-weight:600;}
 
   nav.tabs{
-    max-width:1040px; margin:14px auto 0; padding:0 24px;
-    display:flex; gap:2px; flex-wrap:wrap; border-top:1px solid var(--line);
+    display:none; flex-direction:column; gap:0; flex-wrap:nowrap; border-top:none;
+    max-width:none; margin:0; padding:6px 0;
+    position:absolute; left:0; right:0; top:100%;
+    background:var(--parchment-deep); border-bottom:2px solid var(--ink);
+    box-shadow:0 8px 14px rgba(42,36,32,0.14);
+    max-height:calc(100vh - 100%); overflow-y:auto;
   }
+  nav.tabs.open{display:flex;}
   .navlink{
     font-family:'IBM Plex Mono',monospace;
     font-size:12.5px; letter-spacing:0.03em; text-transform:uppercase;
-    padding:11px 14px; color:var(--ink-soft); border:none; background:none; cursor:pointer;
-    border-bottom:3px solid transparent; margin-bottom:-1px;
+    color:var(--ink-soft); border:none; background:none; cursor:pointer;
+    width:100%; text-align:left; padding:14px 18px; margin-bottom:0;
+    border-bottom:1px solid var(--line); border-left:3px solid transparent;
   }
   .navlink:hover{color:var(--ink); text-decoration:none;}
-  .navlink.active{color:var(--burgundy); border-bottom-color:var(--burgundy); font-weight:600;}
+  .navlink.active{color:var(--burgundy); border-bottom-color:var(--line); border-left-color:var(--burgundy); font-weight:600;}
 
   .nav-toggle{
-    display:none; align-items:center; gap:9px;
+    display:inline-flex; align-items:center; gap:9px;
     font-family:'IBM Plex Mono',monospace; font-size:12px; letter-spacing:0.04em; text-transform:uppercase;
     color:var(--ink); background:none; border:1px solid var(--line); padding:9px 13px; cursor:pointer;
-    border-radius:2px; flex-shrink:0;
+    border-radius:2px; flex-shrink:0; order:2; margin-left:auto;
   }
   .nav-toggle:hover{border-color:var(--ink-soft);}
   .nav-toggle .bars{width:16px; height:12px; position:relative; flex-shrink:0;}
@@ -88,27 +94,6 @@
   .nav-toggle[aria-expanded="true"] .bars span{background:transparent;}
   .nav-toggle[aria-expanded="true"] .bars span::before{top:0; transform:rotate(45deg);}
   .nav-toggle[aria-expanded="true"] .bars span::after{top:0; transform:rotate(-45deg);}
-
-  @media (max-width:760px){
-    .header-inner{padding:16px 18px 0;}
-    .brand-row{gap:10px;}
-    .nav-toggle{display:inline-flex; order:2; margin-left:auto;}
-    .brand{order:1;}
-    nav.tabs{
-      display:none; flex-direction:column; gap:0; flex-wrap:nowrap; border-top:none;
-      max-width:none; margin:0; padding:6px 0;
-      position:absolute; left:0; right:0; top:100%;
-      background:var(--parchment-deep); border-bottom:2px solid var(--ink);
-      box-shadow:0 8px 14px rgba(42,36,32,0.14);
-      max-height:calc(100vh - 100%); overflow-y:auto;
-    }
-    nav.tabs.open{display:flex;}
-    .navlink{
-      width:100%; text-align:left; padding:14px 18px; margin-bottom:0;
-      border-bottom:1px solid var(--line); border-left:3px solid transparent;
-    }
-    .navlink.active{border-bottom-color:var(--line); border-left-color:var(--burgundy);}
-  }
 
   .subtabs{display:flex; gap:4px; flex-wrap:wrap; border-bottom:1px solid var(--line); margin:20px 0 28px;}
   .subtablink{font-family:'IBM Plex Mono',monospace; font-size:12px; letter-spacing:0.03em; text-transform:uppercase; padding:9px 14px; color:var(--ink-soft); border:none; background:none; cursor:pointer; border-bottom:3px solid transparent; margin-bottom:-1px;}
@@ -2650,7 +2635,8 @@
 </main>
 
 <footer class="site">
-  pecky.online — sestaveno jako neoficiální doplněk k pecky.cz.
+  <p style="margin:0 0 4px;">Pečky 28911, okres Kolín</p>
+  <p style="margin:0;">Sestaveno s pomocí umělé inteligence (vše je ozdrojované, ale kontrolujte si informace i z dalších zdrojů).</p>
 </footer>
 
 <script>
@@ -2683,9 +2669,6 @@
     if (!tabsNav.classList.contains('open')) return;
     if (tabsNav.contains(e.target) || navToggle.contains(e.target)) return;
     closeMobileNav();
-  });
-  window.addEventListener('resize', () => {
-    if (window.innerWidth > 760) closeMobileNav();
   });
 
   function currentHashPanel(){
