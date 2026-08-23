@@ -1,3 +1,9 @@
+> **OPUŠTĚNO (23. 8. 2026):** ruční/poloautomatický výstup starého postupu
+> (viz `katastr.md`) — nahrazeno skriptem `pecky-jednani/scripts/update-pozemky.py`,
+> výstup `parcely-odkazy.json`. Ponecháno jen jako historická reference,
+> needit aktualizovat ani z něj nic přebírat (může obsahovat stejnou třídu
+> chyby jako smazaný `katastr-odkazy.json` — viz `AUTOMATION.md`).
+
 | Datum | Orgán | Usnesení | Parcely | URL na detail parcely (VDP) | Předmět |
 |---|---|---|---|---|---|
 | 12.4.2021 | RM | UR-2-1/21 | 2007/2, 47/2 | 2007/2→https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1933564204<br>47/2→https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1605770204 | Smlouva o nájmu pozemků - Zásilkovna s.r.o., Praha 9 |

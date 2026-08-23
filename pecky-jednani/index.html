@@ -286,11 +286,14 @@
   }
 
   // ===== Prolinkování zmínek o parcelách na detail na Nahlížení do KN (VDP) =====
-  // Mapování „č. parc. NNNN(/NNN)“ -> URL je dopředu dohledané přes REST API ČÚZK
-  // (viz pecky-jednani/katastr.md, katastr-odkazy.json). Prolinkuje jen číslo, které
-  // následuje hned za výskytem „parc“ (pokrývá „č. parc. 1680“, „č.parc.1595“, „parc. 348/3“…);
-  // druhé a další číslo ve výčtu odděleném čárkou beze slova „parc“ se neprolinkuje (bezpečnější
-  // než hádat, které navazující číslo do výčtu ještě patří).
+  // Mapování „č. parc. NNNN(/NNN)“ -> URL generuje scripts/update-pozemky.py do
+  // parcely-odkazy.json (katastr-přesné dohledání přes vdp.cuzk.gov.cz; číslo, u kterého
+  // skript zjistil kolizi mezi víc katastry nebo katastr vůbec neurčil, se do mapy
+  // nepřidává, takže tu zůstane nepodlinkované — bezpečnější, než odkázat na špatnou
+  // parcelu). Prolinkuje jen číslo, které následuje hned za výskytem „parc“ (pokrývá
+  // „č. parc. 1680“, „č.parc.1595“, „parc. 348/3“…); druhé a další číslo ve výčtu
+  // odděleném čárkou beze slova „parc“ se neprolinkuje (bezpečnější než hádat, které
+  // navazující číslo do výčtu ještě patří).
   function jLinkParcely(escapedHtml){
     if (!escapedHtml || !PARCEL_URLS || !Object.keys(PARCEL_URLS).length) return escapedHtml;
     return escapedHtml.replace(/parc\.?\s*(\d{1,5}(?:\/\d{1,3})?)/gi, (whole, num) => {
@@ -389,7 +392,7 @@
       try {
         const [res, parcelRes] = await Promise.all([
           fetch('pecky-jednani.json'),
-          fetch('katastr-odkazy.json').catch(() => null)
+          fetch('parcely-odkazy.json').catch(() => null)
         ]);
         if (!res.ok) throw new Error('HTTP ' + res.status);
         if (parcelRes && parcelRes.ok) {

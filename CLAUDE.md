@@ -57,6 +57,20 @@ samostatnou projektovou složku. Načíst při práci na dané sekci:
       v `pecky-jednani/README.md` → „Stahování pozvánek a podepsaných
       zápisů".
 
+- **Pozemky** → tabulky Nákup/Prodej v panelu Pozemky (`index.html`) jsou
+  statický výřez z usnesení o prodeji/nákupu pozemku (analogie Smluv).
+  Po každé aktualizaci `pecky-jednani.json` spustit
+  `python3 pecky-jednani/scripts/update-pozemky.py` — v jednom běhu
+  přegeneruje obě tabulky vč. klikacích odkazů na parcely A ZÁROVEŇ
+  `pecky-jednani/parcely-odkazy.json`, obecnou mapu pro prolinkování
+  zmínek „parc. NNNN" kdekoli jinde v sekci Jednání (viz
+  `pecky-jednani/AUTOMATION.md` → „Odkazy na parcely (katastr)" a
+  „Tabulky Nákup/Prodej na stránce Pozemky"). Katastr-přesná cache:
+  `pecky-jednani/parcely-pozemky.json`. Starý `katastr-odkazy.json`
+  (globální mapa bez rozlišení katastru) byl 23. 8. 2026 smazaný —
+  obsahoval prokázanou chybu u kolidujících čísel parcel; needit ho
+  obnovovat ani na něj nic navazovat.
+
 ## Známé mezery (celoprojektové)
 - Kompletní seznam 21 zastupitelů (pecky.cz blokuje bot přístup)
 
@@ -65,8 +79,15 @@ samostatnou projektovou složku. Načíst při práci na dané sekci:
   ne jen ICOs_of_contracting_party (jen úřad)
 - with_serious_issues_only nespolehlivě vrací 0 — rizikové smlouvy
   identifikovat ručně z běžných výsledků
-- Bot-chráněné stránky (pecky.cz, mesto-pecky.usneseni.cz): zkus
-  web_search jako fallback, když web_fetch selže
+- Bot-chráněné / JS-vykreslované stránky (pecky.cz, mesto-pecky.usneseni.cz):
+  web_fetch často vrací prázdný obsah — zkus claude-in-chrome (navigate +
+  get_page_text/find), případně web_search jako fallback
+- pecky.cz prošel redesignem (nová platforma, nové URL jako /office/board) —
+  je aktuální, ale číst jen přes claude-in-chrome. Starší mirror
+  pecky.as4u.cz od cca 3/2026 přestal být průběžně aktualizovaný (např.
+  jeho úřední deska je zamrzlá na únoru/březnu 2026) — pro časově citlivý
+  obsah (úřední deska, aktuality) použij pecky.cz, ne pecky.as4u.cz;
+  as4u.cz zůstává užitečný pro starší/archivní obsah, viz sources.json
 - Velké soubory v `pecky-jednani/` (`archive-*.json`) čtené přímo z cesty
   přes připojenou složku občas skončí `OSError: [Errno 35] Resource
   deadlock avoided` (Python `open()`, `cat`, `head`...). Obejití: nejdřív

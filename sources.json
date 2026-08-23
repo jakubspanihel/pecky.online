@@ -1,7 +1,7 @@
 {
   "project": "pecky.online",
   "description": "Seznam zdrojů, ze kterých pecky.online čerpá nebo může čerpat informace o samosprávě města Pečky.",
-  "last_updated": "2026-08-21 (na žádost uživatele — Jednání: +2 jednání jen s Pozvánkou (Zastupitelstvo 5/2026, Rada 30/2026; celkem 285 jednání); opraven nesoulad číslování videí na YouTube u ZM 3/2026 a 4/2026, doplněno pole video_note vč. zobrazení na webu)",
+  "last_updated": "2026-08-23 (na žádost uživatele — Volby 2026: nalezen oficiální seznam zaregistrovaných volebních stran, přidán zdroj pecky-cz-uredni-deska-volby-2026-registrace; zjištěno a zaznamenáno, že pecky.cz prošel redesignem/migrací a pecky.as4u.cz od cca 3/2026 přestal být průběžně aktualizovaný — opraveny poznámky u pecky-cz a pecky-as4u-cz)",
   "sources": [
     {
       "id": "pecky-cz",
@@ -10,7 +10,7 @@
       "category": "oficiální",
       "description": "Hlavní web města — úřední deska, kontakty, aktuality, Pečecké noviny.",
       "status": "částečně nedostupné",
-      "note": "Podstránky (zastupitelstvo, archiv zpravodaje) jsou vykreslované přes JavaScript a blokují automatizovaný přístup (ochrana proti botům). OBEJITÍ (od 6. 8. 2026): tentýž obsah je čitelný na pecky.as4u.cz, které bot-ochranu nemá — pro strojové čtení používej primárně tuto doménu."
+      "note": "Podstránky (zastupitelstvo, archiv zpravodaje) jsou vykreslované přes JavaScript — prostý web_fetch/curl vrací prázdný obsah. OBEJITÍ (od 6. 8. 2026): tentýž obsah bylo možné číst na pecky.as4u.cz (bot-ochranu nemá). AKTUALIZACE 23. 8. 2026: web pecky.cz prošel redesignem/migrací na novou platformu (nové URL, např. /office/board pro úřední desku) — obsah je aktuální (ověřeno na úřední desce, srpen 2026), ale je nutné jej číst přes claude-in-chrome (JS rendering), web_fetch stále vrací prázdno. Mezitím zjištěno, že pecky.as4u.cz (stará platforma) přestal být průběžně aktualizován — jeho úřední deska je zamrzlá na stavu cca únor/březen 2026, viz poznámka u pecky-as4u-cz. Pro časově citlivý obsah (úřední deska, aktuality) proto od 23. 8. 2026 preferuj pecky.cz přes claude-in-chrome, ne pecky.as4u.cz."
     },
     {
       "id": "facebook-mestopecky",
@@ -121,8 +121,17 @@
       "url": "https://pecky.as4u.cz",
       "category": "oficiální",
       "description": "Plnohodnotná verze webu města v redakčním systému Public4u (as4u.cz), na kterou přesměrovávají některé domény města. Obsahuje mj. Zastupitelstvo, Radu, Rozpočty, Výbory a komise (11 orgánů), Strategické dokumenty, Projekty města (20+ projektů s detaily), Projekty příspěvkových organizací, Investice/studie/PD, Povinně zveřejňované informace, Veřejné zakázky, Vyhlášky a nařízení, Registr oznámení veřejných funkcionářů, Územní plán, Úřední desku a archiv Pečeckých novin.",
+      "status": "ověřeno — část obsahu neaktuální",
+      "note": "KLÍČOVÝ NÁLEZ 6. 8. 2026 (přes přesměrování z knihovnapecky.cz). Na rozdíl od www.pecky.cz NENÍ chráněn proti botům a jde číst běžným web_fetch — čistý statický HTML bez JS renderování. Uzavírá mezeru u zákona 106/1999 Sb.: na /cs/mestsky-urad/povinne-zverejnovane-informace-materialy/odpoved-podle-zakona-c-106-1999-sb.html jsou výroční zprávy o poskytování informací za roky 2011–2024 a jednotlivé žádosti i odpovědi v PDF. Potvrzuje také bankovní účet 1621191/0100 KB a existenci projektových stránek k Benešáku, úpravně vody, veřejnému osvětlení aj. Upřesněno uživatelem 20. 8. 2026: jde o starý web města Pečky — dřívější platforma (redakční systém Public4u). AKTUALIZACE 23. 8. 2026: na rozdíl od dřívějšího předpokladu web NENÍ průběžně aktualizovaný — jeho úřední deska je zamrzlá na stavu cca únor/březen 2026 (nejnovější položka 25. 2. 2026), zatímco nový pecky.cz k témuž datu ukazuje aktuality a úřední desku ze srpna 2026. Pro časově citlivý obsah (úřední deska, aktuality, jednání) proto raději použij pecky.cz přes claude-in-chrome; pecky.as4u.cz zůstává užitečný pro starší/archivní obsah (výroční zprávy, projekty, strategické dokumenty), kde stáří webu nevadí."
+    },
+    {
+      "id": "pecky-cz-uredni-deska-volby-2026-registrace",
+      "name": "Seznam zaregistrovaných volebních stran do zastupitelstev obcí 2026 (Úřední deska, pecky.cz)",
+      "url": "https://pecky.cz/files/pecky/attachments/457252/Zaregistrovane-volebni-strany-2026-1.pdf",
+      "category": "oficiální",
+      "description": "Oficiální seznam volebních stran zaregistrovaných registračním úřadem (Městský úřad Pečky) pro komunální volby 2026, za celý správní obvod úřadu (Pečky, Cerhenice, Dobřichov, Chotutice, Plaňany, Radim, Ratenice, Tatce, Vrbčany). Pro Pečky uvádí 5 uskupení. Doprovodný dokument (týž den, tentýž zdroj): Rozhodnutí o registraci kandidátních listin — https://pecky.cz/files/pecky/attachments/457265/Rozhodnuti-22-kandidatnich-listin.pdf (22 listin za celý obvod, naskenovaný dokument bez strojově čitelného textu).",
       "status": "ověřeno",
-      "note": "KLÍČOVÝ NÁLEZ 6. 8. 2026 (přes přesměrování z knihovnapecky.cz). Na rozdíl od www.pecky.cz NENÍ chráněn proti botům a jde číst běžným web_fetch — čistý statický HTML bez JS renderování. Ruší dosavadní hlavní omezení projektu („podstránky pecky.cz blokují automatizovaný přístup“). Uzavírá mezeru u zákona 106/1999 Sb.: na /cs/mestsky-urad/povinne-zverejnovane-informace-materialy/odpoved-podle-zakona-c-106-1999-sb.html jsou výroční zprávy o poskytování informací za roky 2011–2024 a jednotlivé žádosti i odpovědi v PDF. Potvrzuje také bankovní účet 1621191/0100 KB a existenci projektových stránek k Benešáku, úpravně vody, veřejnému osvětlení aj. Zatím jen zmapováno, obsah nevytěžen. Upřesněno uživatelem 20. 8. 2026: jde o starý web města Pečky — dřívější platforma (redakční systém Public4u), zůstává aktivní a je stále aktualizovaná (obsahuje např. aktuality z roku 2026), ale jako oficiální web ji nahradil pecky.cz."
+      "note": "Nalezeno a vytěženo 23. 8. 2026 na https://pecky.cz/office/board (nová platforma pecky.cz, čteno přes claude-in-chrome). Podepsáno Marcela Bahníková, zaměstnanec s osvědčením, V Pečkách dne 18. 8. 2026; na úřední desku vyvěšeno 19. 8. 2026, sejmutí 10. 10. 2026. Použito na stránce Volby 2026 → záložka Volební uskupení. Kompletní kandidátní listiny (jména a pořadí kandidátů) tento dokument neobsahuje — jen názvy zaregistrovaných uskupení."
     },
     {
       "id": "pecky-cz-strategicky-plan-2016-2026",

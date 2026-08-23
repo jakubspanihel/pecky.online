@@ -1,3 +1,10 @@
+> **OPUŠTĚNO (23. 8. 2026):** postup popsaný v tomhle dokumentu (REST API
+> ČÚZK, `katastr-odkazy.json`) se už nepoužívá — nahradil ho
+> `pecky-jednani/scripts/update-pozemky.py` (vyhledávání přes
+> vdp.cuzk.gov.cz, katastr-přesné, výstup `parcely-pozemky.json` +
+> `parcely-odkazy.json`). Důvod a detaily viz `AUTOMATION.md` → „Odkazy
+> na parcely (katastr)". Ponecháno jen jako historická poznámka.
+
 # Katastr nemovitostí — zadání pro API dotazy
 
 Pracovní dokument pro přípravu zadání na dotazy do API katastru
