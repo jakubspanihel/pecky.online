@@ -310,9 +310,11 @@
   .meeting-list{border-top:1px solid var(--ink);}
   .meeting-row{border-bottom:1px solid var(--line);}
   .meeting-row--expanded{background:#ffffff;}
-  .meeting-row--future .meeting-row-main{background:rgba(173,122,42,0.08);}
+  .meeting-row--future .meeting-row-main, .meeting-row--today .meeting-row-main{background:rgba(173,122,42,0.08);}
   .meeting-attendance{margin:2px 0 12px;}
   .meeting-attendance .people-avatars{max-width:none; flex-wrap:nowrap; overflow-x:auto; padding-bottom:2px;}
+  .meeting-row-avatars{max-width:none;}
+  .meeting-row-avatars .av-init, .meeting-row-avatars .av-img{width:20px; height:20px; font-size:8px;}
   .meeting-row-main{display:flex; align-items:center; gap:6px 12px; padding:11px 4px; cursor:pointer; font-size:14px; flex-wrap:wrap;}
   .meeting-row-main:hover{background:rgba(124,47,43,0.035);}
   .meeting-label{font-weight:500; flex:1 1 220px; min-width:0;}
@@ -3239,7 +3241,12 @@
     const today = now.getFullYear() + '-' + String(now.getMonth() + 1).padStart(2, '0') + '-' + String(now.getDate()).padStart(2, '0');
     return (dateIso || '') > today;
   }
-  function jRenderPresenceRow(m){
+  function jIsTodayMeeting(dateIso){
+    const now = new Date();
+    const today = now.getFullYear() + '-' + String(now.getMonth() + 1).padStart(2, '0') + '-' + String(now.getDate()).padStart(2, '0');
+    return (dateIso || '') === today;
+  }
+  function jAttendanceAvatarsHtml(m){
     const a = m.attendance;
     if (!a || (!a.present_names && !a.absent_names)) return '';
     const present = (a.present_names || []).map(n =>
@@ -3250,7 +3257,11 @@
     ).join('');
     if (!present && !absent) return '';
     const sep = present && absent ? '<span class="attendance-sep" aria-hidden="true"></span>' : '';
-    return `<div class="meeting-attendance"><div class="people-avatars">${present}${sep}${absent}</div></div>`;
+    return `${present}${sep}${absent}`;
+  }
+  function jRenderPresenceRow(m){
+    const html = jAttendanceAvatarsHtml(m);
+    return html ? `<div class="meeting-attendance"><div class="people-avatars">${html}</div></div>` : '';
   }
 
   function jRenderAgendaList(m){
@@ -3285,23 +3296,35 @@
     if (!meetings.length) return '<p class="lede">Žádná jednání neodpovídají filtru.</p>';
     const rows = meetings.map(m => {
       const future = jIsFutureMeeting(m.date);
+      const isToday = jIsTodayMeeting(m.date);
+      const chip = future ? '<span class="tag probiha">plánováno</span>'
+        : isToday ? `<span class="tag probiha">dnes${m.time ? `, ${jEscapeHtml(m.time)}` : ''}</span>` : '';
+      const venueHtml = m.venue ? `<span class="meeting-venue">📍 ${jEscapeHtml(m.venue)}</span>` : '';
+      const avatarsHtml = m.type === 'Rada' ? jAttendanceAvatarsHtml(m) : '';
+      const attendanceHtml = avatarsHtml
+        ? `<span class="people-avatars meeting-row-avatars">${avatarsHtml}</span>`
+        : (jFormatAttendance(m) ? `<span class="meeting-count">${jEscapeHtml(jFormatAttendance(m))}</span>` : '');
+      const detailTopHtml = m.type === 'Rada'
+        ? (m.resolutions.length ? `<p class="lede" style="margin:2px 0 12px; font-size:12.5px; font-family:'IBM Plex Mono',monospace; color:var(--ink-soft);">Přijato ${m.resolutions.length} usnesení</p>` : '')
+        : jRenderPresenceRow(m);
       return `
-      <div class="meeting-row${future ? ' meeting-row--future' : ''}" data-uuid="${m.uuid}">
+      <div class="meeting-row${future ? ' meeting-row--future' : ''}${isToday ? ' meeting-row--today' : ''}" data-uuid="${m.uuid}">
         <div class="meeting-row-main">
           <span class="meeting-label">
             <svg class="meeting-cal-icon" viewBox="0 0 16 16" width="13" height="13" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><rect x="1.5" y="3" width="13" height="11" rx="1.5"/><line x1="1.5" y1="6.2" x2="14.5" y2="6.2"/><line x1="4.5" y1="1.3" x2="4.5" y2="4"/><line x1="11.5" y1="1.3" x2="11.5" y2="4"/></svg>
             ${jFormatDateZeroPad(m.date)} | Jednání ${jEscapeHtml(jMeetingTypeGenitive(m.type))} č. ${jEscapeHtml(String(m.number || ''))}
-            ${future ? '<span class="tag probiha">plánováno</span>' : ''}
-            ${future && m.venue ? `<span class="meeting-venue">📍 ${jEscapeHtml(m.venue)}</span>` : ''}
+            ${chip}
           </span>
           <span class="meeting-info">
-            <span class="meeting-count">${(m.agenda || []).length} bodů${m.resolutions.length ? ` · ${m.resolutions.length} usnesení` : ''}${jFormatAttendance(m) ? ` · ${jEscapeHtml(jFormatAttendance(m))}` : ''}${m.duration_seconds != null ? ` · <span class="meeting-duration">schůze trvala: ${jFormatDuration(m.duration_seconds)}</span>` : ''}</span>
+            ${attendanceHtml}
+            ${m.duration_seconds != null ? `<span class="meeting-duration">schůze trvala: ${jFormatDuration(m.duration_seconds)}</span>` : ''}
+            ${(future || isToday) && venueHtml ? venueHtml : ''}
             <span class="meeting-toggle">+</span>
           </span>
         </div>
         <div class="meeting-row-detail" hidden>
           ${m.video_note ? `<p class="lede" style="margin:6px 0 10px; font-size:12.5px; color:var(--burgundy);">⚠ ${jEscapeHtml(m.video_note)}</p>` : ''}
-          ${jRenderPresenceRow(m)}
+          ${detailTopHtml}
           ${m.links.youtube ? `<a class="toggle-details" href="${m.links.youtube}" target="_blank" rel="noopener" style="margin:0 0 14px;"><img class="meeting-yt-icon" src="img/favicons/youtube-com.png" alt="" loading="lazy"> Video ↗</a>` : ''}
           ${jRenderAgendaList(m)}
           <div class="meeting-links">
