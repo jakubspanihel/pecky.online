@@ -5,6 +5,15 @@ z https://mesto-pecky.usneseni.cz/verejne/ — pozvánky, zápisy, jednotlivá
 usnesení a hlasování, se zachovanými relacemi. Viz [SPEC.md](SPEC.md) (zadání
 a rozhodnutí) a [AUTOMATION.md](AUTOMATION.md) (rozšíření na automatizovaný běh).
 
+## Umístění souborů
+Všechny soubory týkající se sekce Jednání (index pro fulltextové hledání,
+kompletní datový snímek, referenční dokumenty, skripty) patří do
+`pecky-jednani/`, ne do kořene repa ani do `data/` — i nově vznikající.
+Jediná výjimka: zobrazení v panelu zůstává v kořenovém `index.html`
+(jednosouborová struktura webu). Sekce má navíc i samostatnou stránku
+`pecky-jednani/index.html` (stejný obsah, bez hlavičky/navigace hlavního
+webu).
+
 **První kompletní export: 2026-08-04** — 281 jednání (243 Rada, 38
 Zastupitelstvo, 2021–2026), 2 731 usnesení vč. detail-stránek, 2 846 hlasování;
 číselné řady bez děr, verbatim audit bez odchylek. Viz
@@ -290,8 +299,8 @@ navigací (ne v dávce), s ověřením hashe před finálním uložením.
 
 ## Jednání jen s Pozvánkou (od 21. 8. 2026)
 
-Od 21. 8. 2026 platí (viz kořenový `CLAUDE.md`), že se do `pecky-jednani.json`
-zaznamenává i jednání, které má na webu zatím jen Pozvánku — bez zápisu
+Od 21. 8. 2026 platí, že se do `pecky-jednani.json` zaznamenává i jednání,
+které má na webu zatím jen Pozvánku — bez zápisu
 a usnesení (dřív se takové jednání při kontrole přeskakovalo). Záznam má
 prázdné `resolutions: []`, `links.minutes`/`links.pdf`/`links.resolutions`
 `null`, `agenda` vyplněnou z textu Pozvánky. Až web zveřejní zápis

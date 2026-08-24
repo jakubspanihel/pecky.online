@@ -4,6 +4,15 @@ Referenční dokument pro práci na panelu `panel-zpravodaj` v `index.html`
 webu pecky.online. Doplňuje obecné instrukce projektu (Project instructions
 / CLAUDE.md) — tohle je detail jen pro tuhle jednu sekci.
 
+## Umístění souborů
+Všechny soubory týkající se Pečeckých novin (tento dokument, extrahovaný
+fulltext JSON, obálky, stažená PDF, skripty) patří do `pecky-noviny/`, ne
+do kořene repa ani do `data/`/`img/` — i nově vznikající. Jediná výjimka:
+zobrazení v panelu zůstává v kořenovém `index.html` (jednosouborová
+struktura webu). Sekce má navíc i samostatnou stránku
+`pecky-noviny/index.html` (stejný obsah, bez hlavičky/navigace hlavního
+webu).
+
 ## Účel sekce
 Přehled informačního měsíčníku, který vydává město Pečky: archiv obálek
 vydání 2020–2026 s odkazy na PDF a fulltextové vyhledávání napříč jejich

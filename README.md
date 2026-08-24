@@ -21,7 +21,11 @@ o samosprávě města Pečky (okres Kolín, Středočeský kraj).
   `index.html` (stejný obsah bez hlavičky/navigace hlavního webu).
 - `pecky-noviny/` — vše k sekci „Pečecké noviny": archiv PDF, obálky,
   fulltextový index, nástroje (`download.py`, `render_pages.py`) a
-  samostatná stránka `index.html`. Viz `pecky-noviny/ZPRAVODAJ.md`.
+  samostatná stránka `index.html`. Viz `pecky-noviny/README.md`.
+- Každá další sekce webu má vlastní složku `pecky-<sekce>/` s `README.md`
+  (podrobnosti a datové soubory tam, kde nějaké má); u sekcí bez vlastních
+  dat obsahuje složka jen krátký `README.md`. Přehled a odkazy viz kořenový
+  `CLAUDE.md` → „Dokumentace jednotlivých sekcí".
 
 ## Zdroje dat
 
