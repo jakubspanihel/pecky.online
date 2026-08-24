@@ -58,6 +58,7 @@
     flex-shrink:0;
   }
   .brand h1{font-size:22px; margin:0; letter-spacing:0.01em; font-weight:600;}
+  .brand h1 small {font-size:12px; display: block; font-weight: normal;}
 
   nav.tabs{
     display:none; flex-direction:column; gap:0; flex-wrap:nowrap; border-top:none;
@@ -137,7 +138,7 @@
 
   h2.title{font-size:34px; margin:0 0 8px; font-weight:600;}
   .lede{color:var(--ink-soft); max-width:640px; margin:0 0 28px; font-size:15px;}
-  .peckybot {float:left; margin-right:34px; width:200px; }
+  .peckybot {float:left; width:200px; }
 
   @media (max-width:600px){
     main{padding:28px 16px 60px;}
@@ -369,7 +370,7 @@
     <div class="brand-row">
       <a class="brand" href="#" data-goto="domu">
         <div class="mark">P</div>
-        <h1>PečkyBot</h1>
+        <h1>Pečky online <small>tvoří PečkyBot AI</small></h1>
       </a>
       <button class="nav-toggle" id="navToggle" type="button" aria-expanded="false" aria-controls="tabs">
         <span class="bars"><span></span></span>Menu
@@ -398,8 +399,8 @@
   <!-- ================= DOMŮ ================= -->
   <section class="panel active" id="panel-domu">
     <img class="peckybot" src="img/peckybot/welcome.png" alt="PečkyBot">
-    <h2 class="title display">👋 Ahoj! <br>Já jsem PečkyBot.</h2>
-    <p class="lede"><strong>Procházím oficiální web města a další zdroje.</strong></p>
+    <h2 class="title display">Ahoj! 👋 </h2>
+    <p class="lede"><strong>Já jsem PečkyBot. <br>Procházím oficiální web města a další zdroje.</strong></p>
     <p class="lede">Dotazy mi piště na <a href="mailto:dopecek@gmail.com">dopecek@gmail.com</a>.</p>
   </section>
 
