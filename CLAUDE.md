@@ -28,6 +28,13 @@ ho vždy jako první. Zobrazení všech sekcí zůstává v jednom souboru
 kořenovém `index.html` (jednosouborová struktura webu) — tyhle složky
 nesou jen dokumentaci a (u některých sekcí) doplňková data/skripty.
 
+Data i obrázky patří vždy do složky sekce, ke které se vážou, ne do
+kořene repa. Kořenová `img/` je jen pro celowebové obrázky bez vazby na
+sekci (`img/favicons/`, `img/peckybot/`); kořenová `data/` neexistuje a
+nezakládat ji. Odkazuje se plnou cestou od kořene repa, např.
+`pecky-volby/2022/zastupitele/paluska.jpg`. Po přesunu souboru vždy
+projít `index.html` a přepsat všechny odkazy.
+
 - Domů → `pecky-domu/README.md`
 - Lidé → `pecky-lide/README.md`
 - Plán → `pecky-plan/README.md`
@@ -35,7 +42,8 @@ nesou jen dokumentaci a (u některých sekcí) doplňková data/skripty.
 - Volby 2022 → `pecky-volby/2022/README.md`
 - Volby 2026 → `pecky-volby/2026/README.md`
   (společný rozcestník pro všechny ročníky: `pecky-volby/README.md`)
-- Jednání → `pecky-jednani/README.md` (+ `SPEC.md`, `AUTOMATION.md`)
+- Jednání → `pecky-jednani/README.md` (+ `SPEC.md`,
+  `automation-kontrola-usneseni-cz.md`, `automation-katastr-parcely.md`)
 - Smlouvy → `pecky-smlouvy/README.md`
 - Zakázky → `pecky-zakazky/README.md`
 - Pozemky → `pecky-pozemky/README.md`
@@ -44,7 +52,12 @@ nesou jen dokumentaci a (u některých sekcí) doplňková data/skripty.
 - O webu → `pecky-o-webu/README.md`
 
 ## Známé mezery (celoprojektové)
-- Kompletní seznam 21 zastupitelů (pecky.cz blokuje bot přístup)
+- ~~Kompletní seznam 21 zastupitelů~~ — uzavřeno. pecky.cz sice blokuje
+  bot přístup, ale jmenný seznam jde ověřit z prezence jednání v archivu
+  (`pecky-jednani/pecky-jednani.json`, pole `attendance.present_names`).
+  Stav při ustavení 2022 = prezence ZM 7/2022 (21/21), aktuální stav =
+  poslední jednání ZM. Uskupení u jmen ale archiv neuvádí — to zůstává
+  mezerou a dopočítává se z počtu mandátů (viz `pecky-volby/2022/README.md`).
 
 ## Poznámky k datům
 - Hlídač státu MCP: použij ICO_of_holding_structure (celá skupina),

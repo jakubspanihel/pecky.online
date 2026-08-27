@@ -166,7 +166,7 @@ Doložená fakta, o která se text opírá:
   Facebook / Pečecké noviny? Zatím není rozhodnuto.
 - **Automatizace.** Postup je popsatelný skriptem až po sběr dat (bod, časy,
   hlasování, délky); psaní textu zůstává na modelu. Souvisí s
-  [AUTOMATION.md](AUTOMATION.md).
+  [automation-kontrola-usneseni-cz.md](automation-kontrola-usneseni-cz.md).
 - **Výběr bodů.** Zpracovávat všechny body, nebo jen ty, které projdou filtrem
   zajímavosti (dlouhá diskuse, nejednomyslné hlasování, začerněné údaje,
   finanční objem)? Poslední varianta dává pro čtenáře nejvíc smysl.

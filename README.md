@@ -15,13 +15,26 @@ o samosprávě města Pečky (okres Kolín, Středočeský kraj).
 - `pecky-jednani/` — vše k sekci „Jednání": `pecky-jednani.json` (odlehčený
   index pro fulltextové hledání na webu), `archive-2026-08-04.json`
   (kompletní datový snímek se všemi detaily vč. jmenovitých hlasování),
-  `README.md`/`SPEC.md`/`AUTOMATION.md` (zadání, rozhodnutí a plán budoucí
-  aktualizace exportu), `Data/` a `img/` (zatím prázdné, vyhrazené pro
-  budoucí lokální archiv dokumentů/obrázků k jednáním) a samostatná stránka
-  `index.html` (stejný obsah bez hlavičky/navigace hlavního webu).
+  `README.md`/`SPEC.md`/`automation-kontrola-usneseni-cz.md`/
+  `automation-katastr-parcely.md` (zadání, rozhodnutí a postup průběžné
+  aktualizace), `Data/{datum}/` (lokální archiv PDF zápisů a
+  pozvánek — kvůli velikosti je v `.gitignore`, do repa se nenahrává),
+  `scripts/` (pomocné skripty) a samostatná stránka `index.html`
+  (stejný obsah bez hlavičky/navigace hlavního webu).
 - `pecky-noviny/` — vše k sekci „Pečecké noviny": archiv PDF, obálky,
   fulltextový index, nástroje (`download.py`, `render_pages.py`) a
   samostatná stránka `index.html`. Viz `pecky-noviny/README.md`.
+- `pecky-volby/` — vše k volebním ročníkům, jedna podsložka na ročník
+  (`2018/`, `2022/`, `2026/`) s vlastním `README.md`. Součástí jsou i
+  obrázky ročníku: skeny volební inzerce (`volebni-programy-2018/`,
+  `volebni-programy-2022/`) a portréty zastupitelů zvolených 2022
+  (`2022/zastupitele/`, používá je i panel Lidé).
+- `img/` — jen celowebové obrázky, které nepatří žádné sekci:
+  `img/favicons/` (ikony zdrojů) a `img/peckybot/`. Obrázky vázané na
+  konkrétní sekci patří do složky té sekce.
+- `pecky-zakazky/` — vše k sekci „Zakázky": `pecky-zakazky-ids.json`
+  (kontrolní snímek ID zakázek pro denní diff, na webu se nezobrazuje)
+  a `README.md` s pracovním postupem. Viz `pecky-zakazky/README.md`.
 - Každá další sekce webu má vlastní složku `pecky-<sekce>/` s `README.md`
   (podrobnosti a datové soubory tam, kde nějaké má); u sekcí bez vlastních
   dat obsahuje složka jen krátký `README.md`. Přehled a odkazy viz kořenový
@@ -50,28 +63,25 @@ o samosprávě města Pečky (okres Kolín, Středočeský kraj).
   (vč. jmenovitých hlasování a plných zápisů) je v
   `pecky-jednani/archive-2026-08-04.json`; `pecky-jednani/pecky-jednani.json`
   je z něj odvozený odlehčený index pro hledání na webu. Viz
-  `pecky-jednani/SPEC.md` a `pecky-jednani/AUTOMATION.md` pro popis exportu a
-  plán budoucí aktualizace.
+  `pecky-jednani/SPEC.md` pro popis původního exportu a
+  `pecky-jednani/automation-kontrola-usneseni-cz.md` pro aktuální postup
+  průběžného doplňování.
 
 ## Barevná paleta uskupení
 
 Každé politické uskupení má na celém webu jednu pevně přiřazenou barvu — používá se
 konzistentně u kartiček lidí, kartiček volebních programů, sloupcového grafu mandátů
-i barevných teček (swatch) v tabulkách. CSS třídy `.person-card.party-*` (definice
-v `<style>` v `index.html`):
+i barevných teček (swatch) v tabulkách. Uskupení, které kandiduje opakovaně, si barvu
+drží i při změně názvu.
 
-| Uskupení | Třída | Zvýrazňovací barva | Pozadí kartičky |
-|---|---|---|---|
-| NAŠE PEČKY (STAN + nezávislí) | `party-nasepecky` | `#E20514` | `#F9CDD2` |
-| Sdružení ODS a nezávislých kandidátů | `party-ods` | `#1F2363` | `#CCD2E5` |
-| SNK Pečky Pečákům | `party-snk` | `#A6528F` | `#EBD9E6` |
-| Lidé pro Pečky s podporou SPD | `party-spd` | `#8B5A2B` | `#E5DBD0` |
-| ČSSD a sjednocená levice | `party-cssd` | `#FF5F60` | `#FFDFDF` |
-| Lidovci a nezávislí | `party-lidovci` | `#EBB91E` | `#F7E6B8` |
+**Tabulka barev se přesunula do [`pecky-volby/README.md`](pecky-volby/README.md)
+→ „Barevná paleta uskupení"** — je to pravidlo nejtěsněji svázané s volebními
+panely, tak žije u nich. Najdeš tam CSS třídy `.person-card.party-*`, hex hodnoty,
+ročníky a soupis nedodělků v paletě.
 
-Při přidávání nového místa na webu, kde se zobrazuje uskupení nebo jeho člen
-(nová kartička, graf, tabulka…), použij stejnou barvu z této tabulky místo
-vymýšlení nové.
+Pravidlo zůstává: při přidávání nového místa na webu, kde se zobrazuje uskupení
+nebo jeho člen (nová kartička, graf, tabulka…), použij existující barvu z té
+tabulky místo vymýšlení nové.
 
 ## Metodika ověřování (POVINNÉ)
 
@@ -119,6 +129,71 @@ indexu, špatnému názvu projektu a vzorku pouhých 20 nejnovějších dotací.
   že se nerealizovaly.
 
 ## Poslední aktualizace
+
+25. srpna 2026 (pravidlo naplněno u Voleb 2022: do subpanelu „Výsledky voleb"
+přidán blok „Kdo byl zvolen" — tabulka vedení a rady (7) s uskupením a
+poměrem hlasů, každý řádek odkazuje na vlastní usnesení, a tabulka zbylých
+14 zastupitelů po uskupeních, plus odkazy na zápis, všech 33 usnesení a
+videozáznam ustavujícího zasedání. Při přípravě zjištěno, že **složení se
+od ustavení dvakrát změnilo**, takže panel Lidé a Výsledky voleb 2022 se
+už rozcházejí: Jaroslava Vosecká složila slib za uvolněný mandát Lenky
+Třískové (ZM 4/2024, 11. 9. 2024) a Ondřej Schulz nastoupil po
+Bc. Ivetě Dvořákové (ZM 1/2025, 26. 2. 2025). Obě změny popsány v
+`pecky-volby/2022/README.md`; dřívější tvrzení v `pecky-lide/README.md`,
+že se složení nezměnilo, opraveno. Uskupení Dvořákové a Třískové není
+v usneseních uvedeno — dopočítáno z počtu mandátů a z kandidátky
+náhradníků, na webu přiznáno jako odvozený údaj.)
+
+25. srpna 2026 (nové pravidlo pro volební panely: subpanel „Výsledky voleb"
+má u proběhlých ročníků uvádět jmenovitě zvolené vedení, radu i zbytek
+zastupitelstva, zdrojem je ustavující zasedání ZM, ne výsledky voleb.
+Zapsáno do `pecky-volby/README.md` vč. rozlišení „Lidé = aktuální stav,
+Volby = stav při ustavení"; do `pecky-volby/2022/README.md` doplněna
+konkrétní kotva — ZM 7/2022 z 20. 10. 2022 (volby 23.–24. 9. 2022) a
+tabulka 7 zvolených členů vedení a rady s usneseními `UZ-90-7/22` až
+`UZ-96-7/22` a poměry hlasů, ověřeno proti archivu jednání. U ročníku
+2018 popsána mezera (usneseni.cz sahá jen do dubna 2021, ustavující
+zasedání 2018 tam není), u 2026 poznámka hlídat ustavující zasedání
+cca v listopadu 2026. Samotný obsah do `index.html` zatím nedoplněn —
+jmenný seznam je nadále jen v panelu Lidé.)
+
+24. srpna 2026 (tabulka „Barevná paleta uskupení" přesunuta z kořenového
+`README.md` do `pecky-volby/README.md`, kde je pravidlo nejblíž práci
+s volebními panely; v kořeni zůstal odkaz a samotné pravidlo, odkaz
+opraven i v `pecky-lide/README.md`. Při přesunu tabulka ověřena proti
+`index.html` a **opravena chyba**: NAŠE PEČKY měly uvedeno `#E20514` /
+`#F9CDD2`, skutečnost je `#4A4A4A` / `#DADADA` (staré hexy se na webu
+nevyskytovaly vůbec). Tabulka doplněna o KSČM (`#C1272D`, 2018), Pečky
+srdcem (`#2E7D32`, 2026), sloupec s ročníky, názvy uskupení napříč
+ročníky a názvy uskupení napříč ročníky. Zároveň doplněny chybějící CSS
+definice v `index.html`: `.person-card.party-kscm` (`#F1CFD1`/`#C1272D`),
+`.person-card.party-peckysrdcem` (`#D1E2D2`/`#2E7D32`) a
+`party-peckypecakum` přivěšená ke sdruženému selektoru s `party-snk`.
+Odstíny pozadí dopočítané stejným poměrem (78 % bílé), jakým vznikly
+stávající — vzorec sedí na existující hodnoty na desetinu přesně.
+Kontrolou pokrytí ověřeno, že všech 8 tříd použitých v HTML má teď
+pravidlo. Kartičky programů (`.promise-card`) barvu uskupení nepřebírají
+záměrně, barvu tam nese jen tečka `.swatch`.)
+
+24. srpna 2026 (dokončeno stěhování obrázků k sekcím: 54 souborů z kořenové
+`img/` přesunuto do složek volebních ročníků — `img/volebni-programy-2018/`
+→ `pecky-volby/2018/volebni-programy-2018/`, `img/volebni-programy-2022/`
+→ `pecky-volby/2022/volebni-programy-2022/` a `img/zastupitele/` (42
+portrétů) → `pecky-volby/2022/zastupitele/`. Všech 67 odkazů v `index.html`
+přepsáno na nové cesty a ověřeno, že se všechny lokální odkazy ve všech
+třech stránkách rozklíčují na existující soubory. V kořenové `img/`
+zůstávají jen celowebové `favicons/` a `peckybot/`. Umístění obrázků
+zdokumentováno v `pecky-volby/README.md`, `pecky-volby/2018|2022/README.md`
+a `pecky-lide/README.md`.)
+
+24. srpna 2026 (soubor `pecky-zakazky-ids.json` přesunut z kořenové složky
+`data/` do `pecky-zakazky/`, stejná konvence jako `pecky-jednani/`
+a `pecky-noviny/`; `data/` tím zaniká. Pracovní postup denního diffu ID
+zakázek, popis struktury souboru a známé mezery přesunuty z pole `note`
+uvnitř JSONu do `pecky-zakazky/README.md`, které je nově hlavním
+referenčním dokumentem sekce. Historické záznamy níže popisující starší
+cestu `data/pecky-zakazky-ids.json` jsou ponechány beze změny jako dobový
+záznam.)
 
 21. srpna 2026 (na žádost uživatele: do archivu `pecky-jednani.json` doplněna 2 jednání,
 která mají na usneseni.cz zatím jen Pozvánku — Zastupitelstvo 5/2026 z 26. 8. a Rada
@@ -203,6 +278,7 @@ přes prohlížeč, který bot ochranu neblokuje)
 ## Publikování na GitHub Pages
 
 1. Vytvořte nový repozitář (např. `pecky-online`)
-2. Nahrajte `index.html` a složku `data/` do kořene repozitáře
+2. Nahrajte `index.html` a složky sekcí (`pecky-jednani/`, `pecky-noviny/`,
+   `pecky-zakazky/` a další) do kořene repozitáře
 3. Settings → Pages → source: `main` branch, root
 4. Web poběží na `https://<vaše-uživatelské-jméno>.github.io/pecky-online/`

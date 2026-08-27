@@ -33,5 +33,4 @@ Ověří i balanci HTML tagů po zásahu (selže s chybou, pokud něco rozbije).
 Plný technický popis (dohledávání RUIAN ID, katastr-přesná kolize čísel
 parcel, proč byl starý globální `katastr-odkazy.json` smazaný, formát
 odkazu „řešilo se na: Jednání rady č. N" s deep-linkem do panelu Jednání)
-je v [`pecky-jednani/AUTOMATION.md`](../pecky-jednani/AUTOMATION.md) →
-„Odkazy na parcely (katastr)" a „Tabulky Nákup/Prodej na stránce Pozemky".
+je v [`pecky-jednani/automation-katastr-parcely.md`](../pecky-jednani/automation-katastr-parcely.md).

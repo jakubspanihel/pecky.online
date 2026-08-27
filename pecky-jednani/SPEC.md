@@ -37,7 +37,7 @@ Veřejná data o jednáních orgánů města Pečky (zastupitelstvo, rada, výbo
 
 ### Should
 - Work-dir se surovým HTML každé stažené stránky ponechat po běhu jako auditní ground truth (deliverable je ale jen JSON — dle volby uživatele).
-- `AUTOMATION.md`: spec pro budoucí rozšíření na automatizovaný/inkrementální export (jak detekovat nová jednání, co je stabilní klíč, kde jsou rizika).
+- `AUTOMATION.md`: spec pro budoucí rozšíření na automatizovaný/inkrementální export (jak detekovat nová jednání, co je stabilní klíč, kde jsou rizika). *(pozn. 27. 8. 2026: soubor zrušen — stroj, pro který popisoval provoz, už není dostupný; zbylá fakta přesunuta do [automation-kontrola-usneseni-cz.md](automation-kontrola-usneseni-cz.md) a [automation-katastr-parcely.md](automation-katastr-parcely.md).)*
 - README/AGENTS.md s dokumentací zdroje a struktury dat (dle globálních pravidel pro data extraction).
 - Strukturované JSON logy běhu do `logs/`.
 
@@ -47,7 +47,7 @@ Veřejná data o jednáních orgánů města Pečky (zastupitelstvo, rada, výbo
 
 ### Won't (vědomé neřešení)
 - Stahování PDF a audia (jen URL) — úspora místa, HTML obsah je pro strojovou analýzu primární.
-- Inkrementální aktualizace — jen popsaná v AUTOMATION.md.
+- Inkrementální aktualizace — jen popsaná v AUTOMATION.md *(zrušen 27. 8. 2026, viz poznámka výše — inkrementální doplňování teď řeší [automation-kontrola-usneseni-cz.md](automation-kontrola-usneseni-cz.md))*.
 - OCR/parsing podepsaných PDF, přepis audia.
 - Neveřejné sekce webu.
 
@@ -110,6 +110,15 @@ Veřejná data o jednáních orgánů města Pečky (zastupitelstvo, rada, výbo
 281/281 jednání, 2 731 usnesení (vše s detaily), 2 846 hlasování, číselné řady
 bez děr, verbatim audit bez odchylek, 0 CF challenge. Viz
 `data/report-2026-08-04.md`.
+
+**Stav k 27. 8. 2026:** ke stroji, na kterém tento scraper běžel
+(`/Users/sigy/Projects/Pečky`), už není přístup — jde o uzavřenou
+kapitolu, žádný další běh se neplánuje. Archiv se od té doby doplňuje
+lehkou cestou přes Claude in Chrome, viz
+[automation-kontrola-usneseni-cz.md](automation-kontrola-usneseni-cz.md).
+Důsledek: `detail_id` a jmenovitá hlasování u jednání doplněných tímto
+novým postupem chybí a nemají náhradní zdroj — trvalá mezera oproti
+původnímu rozsahu.
 
 ## Verification Plan
 

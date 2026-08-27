@@ -3,7 +3,11 @@
 Lokální strojově čitelný archiv všech veřejných jednání orgánů města Pečky
 z https://mesto-pecky.usneseni.cz/verejne/ — pozvánky, zápisy, jednotlivá
 usnesení a hlasování, se zachovanými relacemi. Viz [SPEC.md](SPEC.md) (zadání
-a rozhodnutí) a [AUTOMATION.md](AUTOMATION.md) (rozšíření na automatizovaný běh).
+a rozhodnutí původního jednorázového exportu),
+[automation-kontrola-usneseni-cz.md](automation-kontrola-usneseni-cz.md)
+(aktuální postup pro průběžné doplňování nových jednání přes Claude in Chrome)
+a [automation-katastr-parcely.md](automation-katastr-parcely.md) (katastr,
+tabulky Pozemky).
 
 ## Umístění souborů
 Všechny soubory týkající se sekce Jednání (index pro fulltextové hledání,
@@ -20,6 +24,12 @@ Zastupitelstvo, 2021–2026), 2 731 usnesení vč. detail-stránek, 2 846 hlasov
 `data/report-2026-08-04.md`.
 
 ## Výstup
+
+Pozor na cesty: `data/`, `work/` a `logs/` níže jsou složky **scraperu**
+na stroji, kde běží (`/Users/sigy/Projects/Pečky`, viz `SPEC.md`), ne
+složky tohoto repa — kořenová `data/` v repu neexistuje. Do repa se
+z toho přenáší jen snímek archivu, a to rovnou do `pecky-jednani/`
+(dnes `pecky-jednani/archive-2026-08-04.json`).
 
 - `data/archive-YYYY-MM-DD.json` — kompletní datovaný snímek (jeden soubor)
 - `data/report-YYYY-MM-DD.md` — report křížových kontrol a anomálií
@@ -337,24 +347,6 @@ Při doplňování `links.youtube`/`video_ts` u budoucích jednání vždy ově�
 shodu podle **obsahu** videa (program, zmíněná data), ne jen podle čísla
 v titulku na YouTube.
 
-## Spuštění
-
-```bash
-.venv/bin/python -m scraper.cli discover       # stáhne stránky výpisu (~3 min)
-.venv/bin/python -m scraper.cli index          # postaví work/meetings-index.json
-.venv/bin/python -m scraper.cli fetch          # dokumenty všech jednání (~1,5 h)
-.venv/bin/python -m scraper.cli parse          # offline: HTML/PDF → parsed.json
-.venv/bin/python -m scraper.cli fetch-details  # detail-stránky usnesení (~2,5 h)
-.venv/bin/python -m scraper.cli parse          # doplní data z detailů
-.venv/bin/python -m scraper.cli assemble       # archiv + validace + report
-```
-
-(Časy z běhu 2026-08-04 při plném rozsahu; `fetch --uuids <uuid>…` omezí běh
-na vybraná jednání.)
-
-Všechny fáze mají resume — přerušený běh po restartu pokračuje (checkpointy
-ve `work/`). Parsing je čistě offline nad `work/`, lze ho opakovat bez sítě.
-
 ## Cloudflare
 
 Web je za agresivní bot-ochranou. Scraper proto:
@@ -365,14 +357,3 @@ Web je za agresivní bot-ochranou. Scraper proto:
 - při detekci challenge čeká, až ho v okně odklikneš, a pokračuje sám.
 
 Playwright headless/vlastní HTTP klienti (curl, `page.request`) dostávají 403.
-
-## Testy
-
-```bash
-.venv/bin/python -m pytest tests/
-```
-
-33 testů proti reálným fixtures v `tests/fixtures/` (staženo 2026-08-04).
-Fixtures pokrývají 4 varianty layoutu textu usnesení, které se na webu
-v letech 2021–2026 vyskytují: `<p>`, `<div>`, holý text za labelem a vnořené
-tabulky/seznamy (dotace, školské obvody).
