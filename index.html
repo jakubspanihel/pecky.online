@@ -61,23 +61,23 @@
   .brand h1 small {font-size:12px; display: block; font-weight: normal;}
 
   nav.tabs{
-    display:none; flex-direction:column; gap:0; flex-wrap:nowrap; border-top:none;
-    max-width:none; margin:0; padding:6px 0;
-    position:absolute; left:0; right:0; top:100%;
-    background:var(--parchment-deep); border-bottom:2px solid var(--ink);
+    display:flex; flex-direction:row; flex-wrap:wrap; justify-content:center; align-items:center; gap:2px 4px; border-top:none;
+    max-width:none; margin:0; padding:10px 14px;
+    background:var(--parchment-deep); border-bottom:2px solid transparent;
     box-shadow:0 8px 14px rgba(42,36,32,0.14);
-    max-height:calc(100vh - 100%); overflow-y:auto;
+    max-height:0; overflow-y:auto; opacity:0;
+    transition:max-height 0.3s ease, opacity 0.25s ease, border-color 0.3s ease;
   }
-  nav.tabs.open{display:flex;}
+  nav.tabs.open{max-height:320px; opacity:1; border-bottom-color:var(--ink);}
   .navlink{
     font-family:'IBM Plex Mono',monospace;
     font-size:12.5px; letter-spacing:0.03em; text-transform:uppercase;
     color:var(--ink-soft); border:none; background:none; cursor:pointer;
-    width:100%; text-align:center; padding:14px 18px; margin-bottom:0;
-    border-bottom:1px solid var(--line); border-left:3px solid transparent;
+    text-align:center; padding:9px 14px; margin-bottom:0;
+    border-bottom:1px solid var(--line);
   }
   .navlink:hover{color:var(--ink); text-decoration:none;}
-  .navlink.active{color:var(--burgundy); border-bottom-color:var(--line); border-left-color:var(--burgundy); font-weight:600;}
+  .navlink.active{color:var(--burgundy); border-bottom-color:var(--line); font-weight:600;}
 
   .nav-toggle{
     display:inline-flex; align-items:center; gap:9px;
@@ -259,10 +259,12 @@
   .people-group h3{font-size:19px; margin:34px 0 4px;}
   .person-card.party-nasepecky{background:#DADADA; border-color:#4A4A4A;}
   .person-card.party-ods{background:#CCD2E5; border-color:#1F2363;}
-  .person-card.party-snk{background:#EBD9E6; border-color:#A6528F;}
+  .person-card.party-snk, .person-card.party-peckypecakum{background:#EBD9E6; border-color:#A6528F;}
   .person-card.party-spd{background:#E5DBD0; border-color:#8B5A2B;}
   .person-card.party-cssd{background:#FFDFDF; border-color:#FF5F60;}
   .person-card.party-lidovci{background:#F7E6B8; border-color:#EBB91E;}
+  .person-card.party-kscm{background:#F1CFD1; border-color:#C1272D;}
+  .person-card.party-peckysrdcem{background:#D1E2D2; border-color:#2E7D32;}
   .people-avatars{display:flex; flex-wrap:wrap; align-items:center; gap:4px; max-width:340px;}
   .people-avatars .av-img{width:26px; height:26px; border-radius:50%; object-fit:cover; border:1px solid var(--line); background:var(--parchment-deep);}
   .people-avatars .av-init{width:26px; height:26px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-family:'IBM Plex Mono',monospace; font-weight:600; font-size:9px; color:#fff; flex-shrink:0;}
@@ -415,13 +417,13 @@
       <h3 class="display">Rada města (7)</h3>
       <div class="card-grid">
         <div class="person-card party-ods">
-          <img class="avatar" src="img/zastupitele/paluska.jpg" alt="Milan Paluska" loading="lazy">
+          <img class="avatar" src="pecky-volby/2022/zastupitele/paluska.jpg" alt="Milan Paluska" loading="lazy">
           <div class="role">Starosta</div>
           <div class="name">Milan Paluska</div>
           <div class="party">ODS</div>
         </div>
         <div class="person-card party-ods">
-          <img class="avatar" src="img/zastupitele/fejfar.jpg" alt="Zdeněk Fejfar" loading="lazy">
+          <img class="avatar" src="pecky-volby/2022/zastupitele/fejfar.jpg" alt="Zdeněk Fejfar" loading="lazy">
           <div class="role">1. místostarosta</div>
           <div class="name">Zdeněk Fejfar</div>
           <div class="party">ODS</div>
@@ -433,19 +435,19 @@
           <div class="party">SNK Pečky Pečákům</div>
         </div>
         <div class="person-card party-ods">
-          <img class="avatar" src="img/zastupitele/kristoufek.jpg" alt="Karel Krištoufek" loading="lazy">
+          <img class="avatar" src="pecky-volby/2022/zastupitele/kristoufek.jpg" alt="Karel Krištoufek" loading="lazy">
           <div class="role">Radní</div>
           <div class="name">Ing. Karel Krištoufek</div>
           <div class="party">ODS</div>
         </div>
         <div class="person-card party-ods">
-          <img class="avatar" src="img/zastupitele/kuprova.jpg" alt="Hana Kuprová" loading="lazy">
+          <img class="avatar" src="pecky-volby/2022/zastupitele/kuprova.jpg" alt="Hana Kuprová" loading="lazy">
           <div class="role">Radní</div>
           <div class="name">Ing. Hana Kuprová</div>
           <div class="party">ODS</div>
         </div>
         <div class="person-card party-ods">
-          <img class="avatar" src="img/zastupitele/trckova.jpg" alt="Ivana Trčková" loading="lazy">
+          <img class="avatar" src="pecky-volby/2022/zastupitele/trckova.jpg" alt="Ivana Trčková" loading="lazy">
           <div class="role">Radní</div>
           <div class="name">Ivana Trčková</div>
           <div class="party">ODS</div>
@@ -467,49 +469,49 @@
       <p class="lede" style="margin-bottom:16px;">Bez funkce v radě — rozložení mandátů níže na této stránce, výsledky voleb v sekci Volby.</p>
       <div class="card-grid">
         <div class="person-card party-nasepecky">
-          <img class="avatar" src="img/zastupitele/drska.jpg" alt="Václav Drška" loading="lazy">
+          <img class="avatar" src="pecky-volby/2022/zastupitele/drska.jpg" alt="Václav Drška" loading="lazy">
           <div class="role">Zastupitel</div>
           <div class="name">Václav Drška</div>
           <div class="party">NAŠE PEČKY</div>
         </div>
         <div class="person-card party-nasepecky">
-          <img class="avatar" src="img/zastupitele/horynova.jpg" alt="Šárka Horynová" loading="lazy">
+          <img class="avatar" src="pecky-volby/2022/zastupitele/horynova.jpg" alt="Šárka Horynová" loading="lazy">
           <div class="role">Zastupitelka</div>
           <div class="name">Šárka Horynová</div>
           <div class="party">NAŠE PEČKY</div>
         </div>
         <div class="person-card party-nasepecky">
-          <img class="avatar" src="img/zastupitele/katrnoska.jpg" alt="Jiří Katrnoška" loading="lazy">
+          <img class="avatar" src="pecky-volby/2022/zastupitele/katrnoska.jpg" alt="Jiří Katrnoška" loading="lazy">
           <div class="role">Zastupitel</div>
           <div class="name">Jiří Katrnoška</div>
           <div class="party">NAŠE PEČKY</div>
         </div>
         <div class="person-card party-nasepecky">
-          <img class="avatar" src="img/zastupitele/schulz.jpg" alt="Ondřej Schulz" loading="lazy">
+          <img class="avatar" src="pecky-volby/2022/zastupitele/schulz.jpg" alt="Ondřej Schulz" loading="lazy">
           <div class="role">Zastupitel</div>
           <div class="name">Ondřej Schulz</div>
           <div class="party">NAŠE PEČKY</div>
         </div>
         <div class="person-card party-nasepecky">
-          <img class="avatar" src="img/zastupitele/svejnohova.jpg" alt="Alena Švejnohová" loading="lazy">
+          <img class="avatar" src="pecky-volby/2022/zastupitele/svejnohova.jpg" alt="Alena Švejnohová" loading="lazy">
           <div class="role">Zastupitelka</div>
           <div class="name">Mgr. Alena Švejnohová</div>
           <div class="party">NAŠE PEČKY</div>
         </div>
         <div class="person-card party-nasepecky">
-          <img class="avatar" src="img/zastupitele/vodicka-tomas.jpg" alt="Tomáš Vodička" loading="lazy">
+          <img class="avatar" src="pecky-volby/2022/zastupitele/vodicka-tomas.jpg" alt="Tomáš Vodička" loading="lazy">
           <div class="role">Zastupitel</div>
           <div class="name">Tomáš Vodička</div>
           <div class="party">NAŠE PEČKY</div>
         </div>
         <div class="person-card party-nasepecky">
-          <img class="avatar" src="img/zastupitele/zelezny.jpg" alt="Jaroslav Železný" loading="lazy">
+          <img class="avatar" src="pecky-volby/2022/zastupitele/zelezny.jpg" alt="Jaroslav Železný" loading="lazy">
           <div class="role">Zastupitel</div>
           <div class="name">Jaroslav Železný</div>
           <div class="party">NAŠE PEČKY</div>
         </div>
         <div class="person-card party-ods">
-          <img class="avatar" src="img/zastupitele/urban.jpg" alt="Milan Urban" loading="lazy">
+          <img class="avatar" src="pecky-volby/2022/zastupitele/urban.jpg" alt="Milan Urban" loading="lazy">
           <div class="role">Zastupitel</div>
           <div class="name">Milan Urban</div>
           <div class="party">ODS a NK</div>
@@ -760,27 +762,27 @@
 
     <div class="promises-grid">
       <button class="promise-card party-nasepecky active" type="button" data-promise="nasepecky18">
-        <img src="img/volebni-programy-2018/nasepecky.jpg" alt="Náhled strany Pečeckých novin 9/2018 — volební inzerce SNK NAŠE PEČKY" loading="lazy">
+        <img src="pecky-volby/2018/volebni-programy-2018/nasepecky.jpg" alt="Náhled strany Pečeckých novin 9/2018 — volební inzerce SNK NAŠE PEČKY" loading="lazy">
         <span class="cap"><span class="swatch" style="background:#4A4A4A;"></span>SNK NAŠE PEČKY<span class="mandates">9 mandátů</span></span>
       </button>
       <button class="promise-card party-ods" type="button" data-promise="ods18">
-        <img src="img/volebni-programy-2018/ods.jpg" alt="Náhled strany Pečeckých novin 9/2018 — volební inzerce Sdružení ODS a nezávislých kandidátů" loading="lazy">
+        <img src="pecky-volby/2018/volebni-programy-2018/ods.jpg" alt="Náhled strany Pečeckých novin 9/2018 — volební inzerce Sdružení ODS a nezávislých kandidátů" loading="lazy">
         <span class="cap"><span class="swatch" style="background:#1F2363;"></span>Sdružení ODS a nezávislých kandidátů<span class="mandates">5 mandátů</span></span>
       </button>
       <button class="promise-card party-kscm" type="button" data-promise="kscm18">
-        <img src="img/volebni-programy-2018/kscm.jpg" alt="Náhled strany Pečeckých novin 9/2018 — volební inzerce Komunistická strana Čech a Moravy" loading="lazy">
+        <img src="pecky-volby/2018/volebni-programy-2018/kscm.jpg" alt="Náhled strany Pečeckých novin 9/2018 — volební inzerce Komunistická strana Čech a Moravy" loading="lazy">
         <span class="cap"><span class="swatch" style="background:#C1272D;"></span>Komunistická strana Čech a Moravy<span class="mandates">3 mandáty</span></span>
       </button>
       <button class="promise-card party-peckypecakum" type="button" data-promise="peckypecakum18">
-        <img src="img/volebni-programy-2018/peckypecakum.jpg" alt="Náhled strany Pečeckých novin 9/2018 — volební inzerce PEČKY PEČÁKŮM" loading="lazy">
+        <img src="pecky-volby/2018/volebni-programy-2018/peckypecakum.jpg" alt="Náhled strany Pečeckých novin 9/2018 — volební inzerce PEČKY PEČÁKŮM" loading="lazy">
         <span class="cap"><span class="swatch" style="background:#A6528F;"></span>PEČKY PEČÁKŮM<span class="mandates">2 mandáty</span></span>
       </button>
       <button class="promise-card party-cssd" type="button" data-promise="cssd18">
-        <img src="img/volebni-programy-2018/cssd.jpg" alt="Náhled strany Pečeckých novin 9/2018 — volební inzerce Česká strana sociálně demokratická" loading="lazy">
+        <img src="pecky-volby/2018/volebni-programy-2018/cssd.jpg" alt="Náhled strany Pečeckých novin 9/2018 — volební inzerce Česká strana sociálně demokratická" loading="lazy">
         <span class="cap"><span class="swatch" style="background:#FF5F60;"></span>Česká strana sociálně demokratická<span class="mandates">2 mandáty</span></span>
       </button>
       <button class="promise-card party-lidovci" type="button" data-promise="lidovci18">
-        <img src="img/volebni-programy-2018/lidovci.jpg" alt="Náhled strany Pečeckých novin 9/2018 — volební inzerce LIDOVCI A NEZÁVISLÍ" loading="lazy">
+        <img src="pecky-volby/2018/volebni-programy-2018/lidovci.jpg" alt="Náhled strany Pečeckých novin 9/2018 — volební inzerce LIDOVCI A NEZÁVISLÍ" loading="lazy">
         <span class="cap"><span class="swatch" style="background:#EBB91E;"></span>LIDOVCI A NEZÁVISLÍ<span class="mandates">0 mandátů</span></span>
       </button>
     </div>
@@ -1077,12 +1079,12 @@
       <tbody>
         <tr>
           <td><span class="swatch" style="background:#4A4A4A;"></span>NAŠE PEČKY (STAN + nezávislí)</td>
-          <td><div class="people-avatars"><img class="av-img" src="img/zastupitele/svejnohova.jpg" alt="Mgr. Alena Švejnohová" title="Mgr. Alena Švejnohová" loading="lazy"><img class="av-img" src="img/zastupitele/dvorakova.jpg" alt="Bc. Iveta Dvořáková" title="Bc. Iveta Dvořáková" loading="lazy"><img class="av-img" src="img/zastupitele/vodicka-tomas.jpg" alt="Tomáš Vodička" title="Tomáš Vodička" loading="lazy"><img class="av-img" src="img/zastupitele/horynova.jpg" alt="Šárka Horynová" title="Šárka Horynová" loading="lazy"><img class="av-img" src="img/zastupitele/katrnoska.jpg" alt="Jiří Katrnoška" title="Jiří Katrnoška" loading="lazy"><img class="av-img" src="img/zastupitele/zelezny.jpg" alt="Jaroslav Železný" title="Jaroslav Železný" loading="lazy"><img class="av-img" src="img/zastupitele/drska.jpg" alt="Václav Drška" title="Václav Drška" loading="lazy"><img class="av-img" src="img/zastupitele/schulz.jpg" alt="Ondřej Schulz" title="Ondřej Schulz" loading="lazy"><img class="av-img" src="img/zastupitele/heroldova.jpg" alt="Mgr. Jaroslava Heroldová, DiS." title="Mgr. Jaroslava Heroldová, DiS." loading="lazy"><img class="av-img" src="img/zastupitele/vodicka-libor.jpg" alt="Mgr. Libor Vodička, Ph.D." title="Mgr. Libor Vodička, Ph.D." loading="lazy"><img class="av-img" src="img/zastupitele/korous.jpg" alt="Ing. Jan Korouš, Ph.D." title="Ing. Jan Korouš, Ph.D." loading="lazy"><img class="av-img" src="img/zastupitele/vratna.jpg" alt="Ing. Nikola Vrátná" title="Ing. Nikola Vrátná" loading="lazy"><img class="av-img" src="img/zastupitele/pospisil.jpg" alt="Ing. František Pospíšil" title="Ing. František Pospíšil" loading="lazy"><img class="av-img" src="img/zastupitele/houdkova.jpg" alt="Mgr. Lucie Houdková" title="Mgr. Lucie Houdková" loading="lazy"><img class="av-img" src="img/zastupitele/schurzova.jpg" alt="MUDr. Věra Schürzová" title="MUDr. Věra Schürzová" loading="lazy"><img class="av-img" src="img/zastupitele/novak.jpg" alt="Miloš Novák" title="Miloš Novák" loading="lazy"><img class="av-img" src="img/zastupitele/zatrepalek.jpg" alt="Otakar Zatřepálek" title="Otakar Zatřepálek" loading="lazy"><img class="av-img" src="img/zastupitele/janackova.jpg" alt="Viktorie Janáčková, MSc." title="Viktorie Janáčková, MSc." loading="lazy"><img class="av-img" src="img/zastupitele/lebduska.jpg" alt="Mgr. Václav Lebduška" title="Mgr. Václav Lebduška" loading="lazy"><img class="av-img" src="img/zastupitele/nedoma.jpg" alt="Ing. David Nedoma" title="Ing. David Nedoma" loading="lazy"><img class="av-img" src="img/zastupitele/vlk.jpg" alt="PhDr. Miloslav Vlk" title="PhDr. Miloslav Vlk" loading="lazy"></div></td>
+          <td><div class="people-avatars"><img class="av-img" src="pecky-volby/2022/zastupitele/svejnohova.jpg" alt="Mgr. Alena Švejnohová" title="Mgr. Alena Švejnohová" loading="lazy"><img class="av-img" src="pecky-volby/2022/zastupitele/dvorakova.jpg" alt="Bc. Iveta Dvořáková" title="Bc. Iveta Dvořáková" loading="lazy"><img class="av-img" src="pecky-volby/2022/zastupitele/vodicka-tomas.jpg" alt="Tomáš Vodička" title="Tomáš Vodička" loading="lazy"><img class="av-img" src="pecky-volby/2022/zastupitele/horynova.jpg" alt="Šárka Horynová" title="Šárka Horynová" loading="lazy"><img class="av-img" src="pecky-volby/2022/zastupitele/katrnoska.jpg" alt="Jiří Katrnoška" title="Jiří Katrnoška" loading="lazy"><img class="av-img" src="pecky-volby/2022/zastupitele/zelezny.jpg" alt="Jaroslav Železný" title="Jaroslav Železný" loading="lazy"><img class="av-img" src="pecky-volby/2022/zastupitele/drska.jpg" alt="Václav Drška" title="Václav Drška" loading="lazy"><img class="av-img" src="pecky-volby/2022/zastupitele/schulz.jpg" alt="Ondřej Schulz" title="Ondřej Schulz" loading="lazy"><img class="av-img" src="pecky-volby/2022/zastupitele/heroldova.jpg" alt="Mgr. Jaroslava Heroldová, DiS." title="Mgr. Jaroslava Heroldová, DiS." loading="lazy"><img class="av-img" src="pecky-volby/2022/zastupitele/vodicka-libor.jpg" alt="Mgr. Libor Vodička, Ph.D." title="Mgr. Libor Vodička, Ph.D." loading="lazy"><img class="av-img" src="pecky-volby/2022/zastupitele/korous.jpg" alt="Ing. Jan Korouš, Ph.D." title="Ing. Jan Korouš, Ph.D." loading="lazy"><img class="av-img" src="pecky-volby/2022/zastupitele/vratna.jpg" alt="Ing. Nikola Vrátná" title="Ing. Nikola Vrátná" loading="lazy"><img class="av-img" src="pecky-volby/2022/zastupitele/pospisil.jpg" alt="Ing. František Pospíšil" title="Ing. František Pospíšil" loading="lazy"><img class="av-img" src="pecky-volby/2022/zastupitele/houdkova.jpg" alt="Mgr. Lucie Houdková" title="Mgr. Lucie Houdková" loading="lazy"><img class="av-img" src="pecky-volby/2022/zastupitele/schurzova.jpg" alt="MUDr. Věra Schürzová" title="MUDr. Věra Schürzová" loading="lazy"><img class="av-img" src="pecky-volby/2022/zastupitele/novak.jpg" alt="Miloš Novák" title="Miloš Novák" loading="lazy"><img class="av-img" src="pecky-volby/2022/zastupitele/zatrepalek.jpg" alt="Otakar Zatřepálek" title="Otakar Zatřepálek" loading="lazy"><img class="av-img" src="pecky-volby/2022/zastupitele/janackova.jpg" alt="Viktorie Janáčková, MSc." title="Viktorie Janáčková, MSc." loading="lazy"><img class="av-img" src="pecky-volby/2022/zastupitele/lebduska.jpg" alt="Mgr. Václav Lebduška" title="Mgr. Václav Lebduška" loading="lazy"><img class="av-img" src="pecky-volby/2022/zastupitele/nedoma.jpg" alt="Ing. David Nedoma" title="Ing. David Nedoma" loading="lazy"><img class="av-img" src="pecky-volby/2022/zastupitele/vlk.jpg" alt="PhDr. Miloslav Vlk" title="PhDr. Miloslav Vlk" loading="lazy"></div></td>
           <td><div class="socials-cell"><a href="https://www.facebook.com/nasepecky" target="_blank" rel="noopener">Facebook ↗</a><a href="https://www.nasepecky.cz/" target="_blank" rel="noopener">Web ↗</a></div></td>
         </tr>
         <tr>
           <td><span class="swatch" style="background:#1F2363;"></span>Sdružení ODS a nezávislých kandidátů</td>
-          <td><div class="people-avatars"><img class="av-img" src="img/zastupitele/paluska.jpg" alt="Milan Paluska" title="Milan Paluska" loading="lazy"><img class="av-img" src="img/zastupitele/kristoufek.jpg" alt="Ing. Karel Krištoufek" title="Ing. Karel Krištoufek" loading="lazy"><img class="av-img" src="img/zastupitele/fejfar.jpg" alt="Zdeněk Fejfar" title="Zdeněk Fejfar" loading="lazy"><img class="av-img" src="img/zastupitele/kuprova.jpg" alt="Ing. Hana Kuprová" title="Ing. Hana Kuprová" loading="lazy"><img class="av-img" src="img/zastupitele/trckova.jpg" alt="Ivana Trčková" title="Ivana Trčková" loading="lazy"><img class="av-img" src="img/zastupitele/zednik.jpg" alt="Ing. Petr Zedník" title="Ing. Petr Zedník" loading="lazy"><img class="av-img" src="img/zastupitele/dedkova.jpg" alt="Marcela Dědkova" title="Marcela Dědkova" loading="lazy"><img class="av-img" src="img/zastupitele/stanek.jpg" alt="Ing. Aleš Staněk" title="Ing. Aleš Staněk" loading="lazy"><img class="av-img" src="img/zastupitele/hruska-jan.jpg" alt="Ing. Jan Hruška" title="Ing. Jan Hruška" loading="lazy"><img class="av-img" src="img/zastupitele/hruska-ivan.jpg" alt="Ing. Ivan Hruška, CSc." title="Ing. Ivan Hruška, CSc." loading="lazy"><img class="av-img" src="img/zastupitele/kapralek.jpg" alt="Bc. Jan Kaprálek" title="Bc. Jan Kaprálek" loading="lazy"><img class="av-img" src="img/zastupitele/urban.jpg" alt="Milan Urban" title="Milan Urban" loading="lazy"><img class="av-img" src="img/zastupitele/krizova.jpg" alt="Mgr. Věra Křížová" title="Mgr. Věra Křížová" loading="lazy"><img class="av-img" src="img/zastupitele/kupr.jpg" alt="Mgr. Pavel Kupr" title="Mgr. Pavel Kupr" loading="lazy"><img class="av-img" src="img/zastupitele/rumlena.jpg" alt="Michal Rumlena" title="Michal Rumlena" loading="lazy"><img class="av-img" src="img/zastupitele/olesnanova.jpg" alt="Martina Lucie Olešňanová" title="Martina Lucie Olešňanová" loading="lazy"><img class="av-img" src="img/zastupitele/sima.jpg" alt="Mgr. Michal Šíma" title="Mgr. Michal Šíma" loading="lazy"><img class="av-img" src="img/zastupitele/holub.jpg" alt="Karel Holub" title="Karel Holub" loading="lazy"><img class="av-img" src="img/zastupitele/peskova.jpg" alt="Hana Pešková" title="Hana Pešková" loading="lazy"><img class="av-img" src="img/zastupitele/lukas.jpg" alt="Jaroslav Lukáš" title="Jaroslav Lukáš" loading="lazy"><img class="av-img" src="img/zastupitele/kristoufkova.jpg" alt="Mgr. Lenka Krištoufková" title="Mgr. Lenka Krištoufková" loading="lazy"></div></td>
+          <td><div class="people-avatars"><img class="av-img" src="pecky-volby/2022/zastupitele/paluska.jpg" alt="Milan Paluska" title="Milan Paluska" loading="lazy"><img class="av-img" src="pecky-volby/2022/zastupitele/kristoufek.jpg" alt="Ing. Karel Krištoufek" title="Ing. Karel Krištoufek" loading="lazy"><img class="av-img" src="pecky-volby/2022/zastupitele/fejfar.jpg" alt="Zdeněk Fejfar" title="Zdeněk Fejfar" loading="lazy"><img class="av-img" src="pecky-volby/2022/zastupitele/kuprova.jpg" alt="Ing. Hana Kuprová" title="Ing. Hana Kuprová" loading="lazy"><img class="av-img" src="pecky-volby/2022/zastupitele/trckova.jpg" alt="Ivana Trčková" title="Ivana Trčková" loading="lazy"><img class="av-img" src="pecky-volby/2022/zastupitele/zednik.jpg" alt="Ing. Petr Zedník" title="Ing. Petr Zedník" loading="lazy"><img class="av-img" src="pecky-volby/2022/zastupitele/dedkova.jpg" alt="Marcela Dědkova" title="Marcela Dědkova" loading="lazy"><img class="av-img" src="pecky-volby/2022/zastupitele/stanek.jpg" alt="Ing. Aleš Staněk" title="Ing. Aleš Staněk" loading="lazy"><img class="av-img" src="pecky-volby/2022/zastupitele/hruska-jan.jpg" alt="Ing. Jan Hruška" title="Ing. Jan Hruška" loading="lazy"><img class="av-img" src="pecky-volby/2022/zastupitele/hruska-ivan.jpg" alt="Ing. Ivan Hruška, CSc." title="Ing. Ivan Hruška, CSc." loading="lazy"><img class="av-img" src="pecky-volby/2022/zastupitele/kapralek.jpg" alt="Bc. Jan Kaprálek" title="Bc. Jan Kaprálek" loading="lazy"><img class="av-img" src="pecky-volby/2022/zastupitele/urban.jpg" alt="Milan Urban" title="Milan Urban" loading="lazy"><img class="av-img" src="pecky-volby/2022/zastupitele/krizova.jpg" alt="Mgr. Věra Křížová" title="Mgr. Věra Křížová" loading="lazy"><img class="av-img" src="pecky-volby/2022/zastupitele/kupr.jpg" alt="Mgr. Pavel Kupr" title="Mgr. Pavel Kupr" loading="lazy"><img class="av-img" src="pecky-volby/2022/zastupitele/rumlena.jpg" alt="Michal Rumlena" title="Michal Rumlena" loading="lazy"><img class="av-img" src="pecky-volby/2022/zastupitele/olesnanova.jpg" alt="Martina Lucie Olešňanová" title="Martina Lucie Olešňanová" loading="lazy"><img class="av-img" src="pecky-volby/2022/zastupitele/sima.jpg" alt="Mgr. Michal Šíma" title="Mgr. Michal Šíma" loading="lazy"><img class="av-img" src="pecky-volby/2022/zastupitele/holub.jpg" alt="Karel Holub" title="Karel Holub" loading="lazy"><img class="av-img" src="pecky-volby/2022/zastupitele/peskova.jpg" alt="Hana Pešková" title="Hana Pešková" loading="lazy"><img class="av-img" src="pecky-volby/2022/zastupitele/lukas.jpg" alt="Jaroslav Lukáš" title="Jaroslav Lukáš" loading="lazy"><img class="av-img" src="pecky-volby/2022/zastupitele/kristoufkova.jpg" alt="Mgr. Lenka Krištoufková" title="Mgr. Lenka Krištoufková" loading="lazy"></div></td>
           <td><div class="socials-cell"><a href="https://www.facebook.com/odspecky.cz/" target="_blank" rel="noopener">Facebook ↗</a></div></td>
         </tr>
         <tr>
@@ -1116,27 +1118,27 @@
 
     <div class="promises-grid">
       <button class="promise-card party-nasepecky active" type="button" data-promise="nasepecky">
-        <img src="img/volebni-programy-2022/nase-pecky.jpg" alt="Náhled strany 11 Pečeckých novin 9/2022 — volební inzerce NAŠE PEČKY" loading="lazy">
+        <img src="pecky-volby/2022/volebni-programy-2022/nase-pecky.jpg" alt="Náhled strany 11 Pečeckých novin 9/2022 — volební inzerce NAŠE PEČKY" loading="lazy">
         <span class="cap"><span class="swatch" style="background:#4A4A4A;"></span>NAŠE PEČKY<span class="mandates">7 mandátů</span></span>
       </button>
       <button class="promise-card party-ods" type="button" data-promise="ods">
-        <img src="img/volebni-programy-2022/ods.jpg" alt="Náhled strany 9 Pečeckých novin 9/2022 — volební inzerce Sdružení ODS a nezávislých kandidátů" loading="lazy">
+        <img src="pecky-volby/2022/volebni-programy-2022/ods.jpg" alt="Náhled strany 9 Pečeckých novin 9/2022 — volební inzerce Sdružení ODS a nezávislých kandidátů" loading="lazy">
         <span class="cap"><span class="swatch" style="background:#1F2363;"></span>ODS a NK<span class="mandates">6 mandátů</span></span>
       </button>
       <button class="promise-card party-snk" type="button" data-promise="snk">
-        <img src="img/volebni-programy-2022/snk.jpg" alt="Náhled strany 8 Pečeckých novin 9/2022 — volební inzerce SNK Pečky Pečákům" loading="lazy">
+        <img src="pecky-volby/2022/volebni-programy-2022/snk.jpg" alt="Náhled strany 8 Pečeckých novin 9/2022 — volební inzerce SNK Pečky Pečákům" loading="lazy">
         <span class="cap"><span class="swatch" style="background:#A6528F;"></span>SNK Pečky Pečákům<span class="mandates">3 mandáty</span></span>
       </button>
       <button class="promise-card party-spd" type="button" data-promise="spd">
-        <img src="img/volebni-programy-2022/spd.jpg" alt="Náhled strany 12 Pečeckých novin 9/2022 — volební inzerce Lidé pro Pečky s podporou SPD" loading="lazy">
+        <img src="pecky-volby/2022/volebni-programy-2022/spd.jpg" alt="Náhled strany 12 Pečeckých novin 9/2022 — volební inzerce Lidé pro Pečky s podporou SPD" loading="lazy">
         <span class="cap"><span class="swatch" style="background:#8B5A2B;"></span>Lidé pro Pečky (SPD)<span class="mandates">3 mandáty</span></span>
       </button>
       <button class="promise-card party-cssd" type="button" data-promise="cssd">
-        <img src="img/volebni-programy-2022/cssd.jpg" alt="Náhled strany 13 Pečeckých novin 9/2022 — volební inzerce ČSSD a sjednocené levice" loading="lazy">
+        <img src="pecky-volby/2022/volebni-programy-2022/cssd.jpg" alt="Náhled strany 13 Pečeckých novin 9/2022 — volební inzerce ČSSD a sjednocené levice" loading="lazy">
         <span class="cap"><span class="swatch" style="background:#FF5F60;"></span>ČSSD a levice<span class="mandates">2 mandáty</span></span>
       </button>
       <button class="promise-card party-lidovci" type="button" data-promise="lidovci">
-        <img src="img/volebni-programy-2022/lidovci.jpg" alt="Náhled strany 10 Pečeckých novin 9/2022 — volební inzerce Lidovci a nezávislí" loading="lazy">
+        <img src="pecky-volby/2022/volebni-programy-2022/lidovci.jpg" alt="Náhled strany 10 Pečeckých novin 9/2022 — volební inzerce Lidovci a nezávislí" loading="lazy">
         <span class="cap"><span class="swatch" style="background:#EBB91E;"></span>Lidovci a nezávislí<span class="mandates">0 mandátů</span></span>
       </button>
     </div>
@@ -1295,6 +1297,53 @@
 
     <div class="callout" style="margin-top:14px;">
       <strong>Zajímavost:</strong> kdo vyhraje volby, automaticky nevede radnici. V Pečkách po volbách 2022 spojily síly tři menší uskupení — Sdružení ODS a nezávislých kandidátů (6 mandátů), SNK Pečky Pečákům (3) a ČSSD a sjednocená levice (2) — jejich společných 11 mandátů z 21 stačilo na většinu, zatímco vítěz voleb (NAŠE PEČKY, 7 mandátů) skončil mimo radu. Napříč politickým spektrem přitom nejde o přirozené spojence: ODS je celostátně středopravá strana, ČSSD středolevá, SNK Pečky Pečákům je nezávislá místní kandidátka bez stranické značky. Na komunální úrovni ale národní osa levice–pravice často neplatí — rozhoduje spíš osobní dohoda a rozdělení postů než ideologie. Podrobný rozbor viz záložka Rozbor.
+    </div>
+
+    <h3 class="display" style="font-size:19px; margin:34px 0 4px;">Kdo byl zvolen</h3>
+    <p class="lede" style="margin-bottom:16px; max-width:none;">Hlasy voličů rozdělily mandáty, starostu si ale zastupitelé volí mezi sebou. Nové zastupitelstvo se sešlo poprvé na <strong>ustavujícím zasedání č. 7/2022 dne 20. října 2022</strong> — necelý měsíc po volbách. Všech 21 zvolených zastupitelů složilo slib, zasedání ověřilo platnost voleb a zvolilo vedení města. Nikdo nechyběl.</p>
+
+    <h4 style="font-size:15px; margin:20px 0 2px;">Vedení města a rada (7)</h4>
+    <div class="table-scroll">
+    <table class="register">
+      <thead>
+        <tr><th>Funkce</th><th>Jméno</th><th>Zvoleno za</th><th>Hlasování</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Starosta</td><td>Milan Paluska</td><td><span class="swatch" style="background:#1F2363;"></span>ODS a NK</td><td><a href="https://mesto-pecky.usneseni.cz/verejne/usneseni/26765?mod=zastupitelstvo" target="_blank" rel="noopener">13–6–2 ↗</a></td></tr>
+        <tr><td>1. místostarosta <span class="tag">uvolněný</span></td><td>Zdeněk Fejfar</td><td><span class="swatch" style="background:#1F2363;"></span>ODS a NK</td><td><a href="https://mesto-pecky.usneseni.cz/verejne/usneseni/26766?mod=zastupitelstvo" target="_blank" rel="noopener">15–3–3 ↗</a></td></tr>
+        <tr><td>2. místostarosta <span class="tag">neuvolněný</span></td><td>Ing. Martin Jedlička</td><td><span class="swatch" style="background:#A6528F;"></span>SNK Pečky Pečákům</td><td><a href="https://mesto-pecky.usneseni.cz/verejne/usneseni/27055?mod=zastupitelstvo" target="_blank" rel="noopener">14–5–2 ↗</a></td></tr>
+        <tr><td>Radní</td><td>Ing. Karel Krištoufek</td><td><span class="swatch" style="background:#1F2363;"></span>ODS a NK</td><td><a href="https://mesto-pecky.usneseni.cz/verejne/usneseni/26768?mod=zastupitelstvo" target="_blank" rel="noopener">14–6–1 ↗</a></td></tr>
+        <tr><td>Radní</td><td>Ing. Hana Kuprová</td><td><span class="swatch" style="background:#1F2363;"></span>ODS a NK</td><td><a href="https://mesto-pecky.usneseni.cz/verejne/usneseni/26925?mod=zastupitelstvo" target="_blank" rel="noopener">16–2–3 ↗</a></td></tr>
+        <tr><td>Radní</td><td>Ivana Trčková</td><td><span class="swatch" style="background:#1F2363;"></span>ODS a NK</td><td><a href="https://mesto-pecky.usneseni.cz/verejne/usneseni/26926?mod=zastupitelstvo" target="_blank" rel="noopener">15–2–4 ↗</a></td></tr>
+        <tr><td>Radní</td><td>Ing. Petr Dürr</td><td><span class="swatch" style="background:#FF5F60;"></span>ČSSD a sjednocená levice</td><td><a href="https://mesto-pecky.usneseni.cz/verejne/usneseni/26927?mod=zastupitelstvo" target="_blank" rel="noopener">14–4–3 ↗</a></td></tr>
+      </tbody>
+    </table>
+    </div>
+    <p class="lede" style="margin:10px 0 0; max-width:none;">Hlasování se čte jako pro–proti–zdržel se, z 21 přítomných; ke zvolení bylo potřeba nejméně 11 hlasů. Ani jedna volba neprošla jednomyslně a proč, rozebírá záložka <strong>Rozbor</strong>.</p>
+
+    <h4 style="font-size:15px; margin:26px 0 2px;">Zbylých 14 zastupitelů</h4>
+    <div class="table-scroll">
+    <table class="register">
+      <thead>
+        <tr><th>Uskupení</th><th>Zastupitelé zvolení 2022</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><span class="swatch" style="background:#4A4A4A;"></span>NAŠE PEČKY (7)</td><td>Václav Drška, Bc. Iveta Dvořáková, Šárka Horynová, Jiří Katrnoška, Mgr. Alena Švejnohová, Tomáš Vodička, Jaroslav Železný</td></tr>
+        <tr><td><span class="swatch" style="background:#1F2363;"></span>ODS a NK (1)</td><td>Milan Urban</td></tr>
+        <tr><td><span class="swatch" style="background:#A6528F;"></span>SNK Pečky Pečákům (2)</td><td>Milan Pečenka, Pavel Sedláček</td></tr>
+        <tr><td><span class="swatch" style="background:#8B5A2B;"></span>Lidé pro Pečky s podporou SPD (3)</td><td>Lubomír Metelák, Tomáš Růžička, Lenka Třísková</td></tr>
+        <tr><td><span class="swatch" style="background:#FF5F60;"></span>ČSSD a sjednocená levice (1)</td><td>Ladislav Kejda</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <p class="lede" style="margin:10px 0 0; max-width:none;">Vítěz voleb NAŠE PEČKY má všech svých 7 zastupitelů mimo radu — jeho mandáty jsou celé v tomhle seznamu.</p>
+
+    <div class="callout" style="margin-top:18px;">
+      Zdroj: ustavující zasedání Zastupitelstva města Pečky č. 7/2022 z 20. 10. 2022, usnesení UZ-90-7/22 až UZ-96-7/22 (odkazy v tabulce) — <a href="https://mesto-pecky.usneseni.cz/verejne/bb54aa80-499b-11ed-9329-4b042f767445/zapis/?page=14" target="_blank" rel="noopener">plný zápis ze zasedání ↗</a>, <a href="https://mesto-pecky.usneseni.cz/verejne/bb54aa80-499b-11ed-9329-4b042f767445/usneseni/?page=14" target="_blank" rel="noopener">všech 33 usnesení ↗</a>, <a href="https://www.youtube.com/watch?v=s323C4rbXs8" target="_blank" rel="noopener">videozáznam ↗</a>. Jména 21 zastupitelů odpovídají prezenci zasedání. Uskupení, za které kandidovali Bc. Iveta Dvořáková a Lenka Třísková, není v usneseních uvedeno — dopočítali jsme ho z počtu mandátů jednotlivých uskupení a z toho, že za oba později nastoupil náhradník z téže kandidátky.
+    </div>
+
+    <div class="callout" style="margin-top:14px;">
+      <strong>Složení se od ustavení změnilo.</strong> Tenhle seznam je stav k 20. 10. 2022 a jako historický fakt se už nemění. Od té doby zastupitelstvo opustili dva lidé a nastoupili za ně náhradníci ze stejné kandidátky: <strong>Jaroslava Vosecká</strong> složila slib za uvolněný mandát Lenky Třískové na zasedání 4/2024 dne 11. 9. 2024 (paní Třísková krátce nato zemřela, město jí věnovalo pamětní strom v lokalitě Bačov), a <strong>Ondřej Schulz</strong> složil slib jako nový člen zastupitelstva na zasedání 1/2025 dne 26. 2. 2025 po Bc. Ivetě Dvořákové, kterou tehdy ve funkci předsedkyně kontrolního výboru vystřídala Mgr. Alena Švejnohová. Kdo v zastupitelstvu a radě sedí <em>dnes</em>, ukazuje sekce <strong>Lidé</strong>.
     </div>
     </div>
 

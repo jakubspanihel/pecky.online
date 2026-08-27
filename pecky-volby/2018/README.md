@@ -13,11 +13,26 @@ uskupení (záložka „Předvolební sliby") a rozbor, jak se naplnily (zálož
 dobový tisk / Seznam Zprávy, Novinky.cz (viz kořenový `README.md` →
 „Zdroje dat").
 
-Známá mezera: přesný poměr hlasů pro/proti/zdržel se při volbě
-starostky a radních dobový tisk needí a systém usneseni.cz sahá jen do
-dubna 2021 — u voleb 2018 (stejně jako u voleb 2014) tak přesné hlasování
-zastupitelstva není online dohledatelné.
+## Ustavující zasedání — mezera v datech
+Pravidlo „Zvolení zástupci patří do Výsledků voleb"
+([`pecky-volby/README.md`](../README.md)) se u tohoto ročníku dá naplnit
+jen částečně. Ustavující zasedání po volbách 2018 (a stejně tak 2014) se
+konalo dřív, než kam sahá systém usneseni.cz — ten začíná až **dubnem
+2021**, takže archiv jednání ho neobsahuje. Nedohledatelný je proto jak
+přesný poměr hlasů pro/proti/zdržel se při volbě starostky a radních,
+tak číslo a datum samotného zasedání; dobový tisk je neuvádí.
 
-Obsah panelu žije přímo v `index.html` (žádná samostatná datová sada).
-Zatím žádná další zvláštní pravidla nad rámec obecných konvencí v
-kořenovém `CLAUDE.md`. Doplnit sem, až nějaká vzniknou.
+Jména zvoleného vedení lze doplnit z dobového tisku a z webu města, ale
+**hlasování ne** — takový údaj neodhadovat ani nedopočítávat, označit ho
+jako mezeru (`.callout`) podle metodiky v kořenovém `README.md`.
+
+## Data ve složce
+Textový obsah panelu žije přímo v `index.html` (žádná samostatná datová
+sada). Ve složce ročníku je navíc `volebni-programy-2018/` — 6 skenů
+volební inzerce uskupení z Pečeckých novin 9/2018, zobrazovaných v
+záložce „Předvolební sliby". V `index.html` se na ně odkazuje cestou
+`pecky-volby/2018/volebni-programy-2018/{uskupeni}.jpg`.
+
+Jinak žádná další zvláštní pravidla nad rámec obecných konvencí v
+kořenovém `CLAUDE.md` a v [`pecky-volby/README.md`](../README.md).
+Doplnit sem, až nějaká vzniknou.

@@ -12,17 +12,17 @@ stránce Pozemky. Oboje řeší jeden skript,
 Do 23. 8. 2026 web prolinkovával zmínky o parcelách přes
 `pecky-jednani/katastr-odkazy.json` — globální mapu „číslo parcely →
 URL" bez rozlišení katastrálního území, dohledanou přes REST API ČÚZK
-(api-kn.cuzk.gov.cz, klíč `.katastr-api-key`), postup popsaný v
-`katastr.md`. **Soubor byl smazán**, protože obsahoval prokázanou
-chybu: číslo parcely je unikátní jen v rámci jednoho katastru, ale
-mapa měla pro každé číslo jen jednu hodnotu. Potvrzený případ: parcela
-„254" existuje jak v k.ú. Pečky (362 m², ID 1602232204 — to byla ta
-uložená hodnota), tak jako 254/1 a 254/2 v k.ú. Velké Chvalovice (483
-a 36 m²) — usnesení UZ-46-4/25/UR-274-30/25/UR-195-21/25 (prodej cca
-36 m² ve Velkých Chvalovicích) se tak prolinkovalo na ŠPATNOU (Pečky)
-parcelu. `katastr.md` a `katastr-parcely-v-usneseních.md` popisují tenhle
-starý, opuštěný postup — ponechány jen jako historická poznámka,
-needit se jimi řídit ani do nich nic doplňovat.
+(api-kn.cuzk.gov.cz, klíč `.katastr-api-key`). **Soubor byl smazán**,
+protože obsahoval prokázanou chybu: číslo parcely je unikátní jen
+v rámci jednoho katastru, ale mapa měla pro každé číslo jen jednu
+hodnotu. Potvrzený případ: parcela „254" existuje jak v k.ú. Pečky
+(362 m², ID 1602232204 — to byla ta uložená hodnota), tak jako 254/1
+a 254/2 v k.ú. Velké Chvalovice (483 a 36 m²) — usnesení
+UZ-46-4/25/UR-274-30/25/UR-195-21/25 (prodej cca 36 m² ve Velkých
+Chvalovicích) se tak prolinkovalo na ŠPATNOU (Pečky) parcelu. Postup
+i tenhle konkrétní chybný výstup dřív popisovaly `katastr.md`
+a `katastr-parcely-v-usneseních.md` — oba smazány (27. 8. 2026), popis
+chyby výše je teď jediný záznam o důvodu přechodu na `update-pozemky.py`.
 
 ## Současný stav
 

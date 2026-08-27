@@ -19,6 +19,17 @@ claude-in-chrome, viz kořenový `CLAUDE.md` → „Poznámky k datům" k
 bot-ochraně a redesignu pecky.cz. Průběžné oficiální výsledky po volbách
 budou na volby.gov.cz a v otevřených datech ČSÚ.
 
-Obsah panelu žije přímo v `index.html` (žádná samostatná datová sada).
-Zatím žádná další zvláštní pravidla nad rámec obecných konvencí v
+## Po volbách: hlídat ustavující zasedání
+Jakmile volby proběhnou, platí pravidlo „Zvolení zástupci patří do
+Výsledků voleb" ([`pecky-volby/README.md`](../README.md)): do subpanelu
+„Výsledky voleb" doplnit jmenovitě zvolené vedení, radu i zastupitelstvo.
+Zdrojem není výsledek voleb, ale **ustavující zasedání zastupitelstva** —
+u ročníku 2022 se konalo necelý měsíc po volbách (ZM 7/2022 dne
+20. 10. 2022), takže u voleb 9.–10. 10. 2026 čekat ustavující zasedání
+zhruba v **listopadu 2026**. Sledovat archiv jednání a pozvánky na
+úřední desce; jednání se pozná podle bodů „složení slibu", „ověření
+platnosti voleb" a „volba starosty".
+
+Obsah panelu jinak žije přímo v `index.html` (žádná samostatná datová
+sada). Zatím žádná další zvláštní pravidla nad rámec obecných konvencí v
 kořenovém `CLAUDE.md`. Doplnit sem, až nějaká vzniknou.
