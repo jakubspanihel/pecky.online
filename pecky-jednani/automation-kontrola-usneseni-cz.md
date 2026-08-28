@@ -5,9 +5,9 @@ Lehký, poloautomatický postup pro pravidelnou kontrolu, jestli na
 nepřibylo nové jednání nebo se u existujícího nedoplnil zápis a usnesení
 (oproti stavu jen s Pozvánkou). Doplňuje `pecky-jednani/pecky-jednani.json`
 — lehký soubor, který pohání panel Jednání na webu (root `index.html` i
-`pecky-jednani/index.html`). Součástí postupu (krok 6) je i kontrola
-záznamů zastupitelstva na YouTube — dělat při každém běhu, ne jen
-jednorázově.
+`pecky-jednani/index.html`). Součástí postupu je i kontrola záznamů
+zastupitelstva na YouTube (krok 6) a časových značek jednotlivých bodů
+u těch videí (krok 7) — obojí dělat při každém běhu, ne jen jednorázově.
 
 **Vztah k ostatním dokumentům:** dřívější plán počítal s plným scraperem
 (Playwright/CDP) běžícím na jiném stroji — popsaný v [SPEC.md](SPEC.md) —
@@ -162,14 +162,45 @@ je na `links.youtube` datově řízený — žádná úprava kódu není potřeb
 nový odkaz se automaticky promítne i do textů „K dispozici je video" (u
 proběhlého jednání bez zápisu) a tlačítka Video v rozbaleném řádku.
 
-### 7. Pozemky (pokud relevantní)
+### 7. Časové značky videa u zastupitelstva (dělat při KAŽDÉM běhu)
+
+**Pravidlo:** má-li jednání zastupitelstva zároveň zápis (`links.minutes`)
+i video (`links.youtube`), musí mít i `video_ts`/`video_url` u
+jednotlivých bodů agendy — jinak zůstane nedotažené napůl (video
+existuje, ale bez přímého odkazu na konkrétní bod). Kontrolovat při
+každém běhu, ne jen u nově doplněných jednání — obě podmínky se typicky
+splní v různých bězích (zápis se doplní tento týden, video až příští),
+takže mezera vzniká i u starších záznamů.
+
+1. Najdi v archivu jednání `type: "Zastupitelstvo"` s vyplněným
+   `links.minutes` i `links.youtube`, kde aspoň jeden bod `agenda[]`
+   nemá `video_ts`.
+2. Pro každé otevři video (`links.youtube`) přes Claude in Chrome a v
+   konzoli přečti `window.ytInitialPlayerResponse.videoDetails.shortDescription`
+   — od jednání ZM 2/2025 (2. 4. 2025) obsahuje kapitoly ve tvaru
+   `H:MM:SS Text bodu`. Starší jednání (2022–2024, ZM 1/2025) kapitoly
+   nemají vůbec — nechat bez `video_ts`, nevymýšlet.
+3. Spáruj kapitoly s `agenda[].n` podle **čísla bodu v textu kapitoly**
+   (obvykle na začátku, `N. Text`), ne podle pořadí řádků — číslování
+   v popisku se nemusí krýt s pořadím v zápisu. Plný popis rizik a edge
+   cases (dvě čísla v jedné kapitole, prefix „Úvod, N. …") je v
+   [README.md](README.md) → „Časové značky videa".
+4. Doplň `agenda[].video_ts` (sekundy od začátku) a `agenda[].video_url`
+   (`https://youtu.be/<ID>?t=<sekundy>`). Bod bez vlastní kapitoly
+   nechat bez těchto polí.
+
+Stejně jako krok 6 je i tohle datově řízené — žádná úprava kódu, nové
+`video_ts` se promítnou do tlačítka „▶ video ↗" u bodu agendy
+automaticky.
+
+### 8. Pozemky (pokud relevantní)
 
 Pokud nové usnesení řeší prodej/nákup pozemku, spustit i
 `python3 pecky-jednani/scripts/update-pozemky.py` — viz
 [automation-katastr-parcely.md](automation-katastr-parcely.md) pro plný
 popis.
 
-### 8. Ověř na webu
+### 9. Ověř na webu
 
 Spustit lokální server (`.claude/launch.json`, config
 `pecky-online-main` — port se přiděluje automaticky, `autoPort: true`),
@@ -185,7 +216,7 @@ konkrétních textových vzorech (`bod číslo N`, „Jednání zahájeno…",
 pozná jen tak, že očekávaný text v `get_page_text` chybí nebo nedává
 smysl — proto se výsledek nesmí slepě důvěřovat, vždy zkontrolovat.
 
-### 9. Nahlaš uživateli
+### 10. Nahlaš uživateli
 
 Stručně: co bylo nové/doplněné, co zůstává čekat na publikaci webem. Nic
 nevymýšlet — pokud web nic nového neukazuje, říct to přímo.
@@ -214,3 +245,7 @@ jednání) — do `attendance` šel počáteční stav 5/7, ne pozdější 6/7.
   jednání v titulku videa se nesmí považovat za spolehlivé — město ho
   historicky očíslovalo jinak než usneseni.cz (viz `video_note` u
   jednání 4/2026) — spárovat vždy podle data, ne podle čísla.
+- **Časové značky videa** (krok 7) — jednání před ZM 2/2025 (2. 4. 2025)
+  kapitoly v popisku vůbec nemají (`shortDescription` je jednořádkový
+  název bez timestampů) — u nich `video_ts` trvale chybí, nezkoušet
+  dohledávat jinak.

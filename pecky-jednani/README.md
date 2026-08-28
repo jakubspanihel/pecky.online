@@ -101,7 +101,14 @@ videa. Doplněno 20. 8. 2026 do lehkého souboru `pecky-jednani.json`
 (ne do velkého `archive-*.json`), jen pro Zastupitelstvo — Rada video
 nemá.
 
-**Extrakce (jednorázově, ručně přes Claude in Chrome):**
+**Není to jednorázová akce.** Zápis a YouTube odkaz se u jednání typicky
+doplní v různých bězích kontroly (zápis dřív, video až s odstupem) —
+kontrola „má jednání zápis i video, ale chybí mu `video_ts`?" se proto
+opakuje při každém běhu, viz
+[automation-kontrola-usneseni-cz.md](automation-kontrola-usneseni-cz.md)
+→ krok 7.
+
+**Extrakce (přes Claude in Chrome):**
 1. Pro jednání s `links.youtube` otevřít video, z `window.ytInitialPlayerResponse
    .videoDetails.shortDescription` vytáhnout řádky ve tvaru `H:MM:SS Text`
    (regex `^(\d{1,2}:\d{2}(?::\d{2})?)\s+(.*)$`).
