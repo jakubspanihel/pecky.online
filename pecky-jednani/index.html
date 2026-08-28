@@ -121,6 +121,7 @@
   .meeting-info{display:flex; align-items:center; gap:6px 10px; flex-wrap:wrap; min-width:0;}
   .meeting-duration{font-size:12px; color:var(--ink-soft); font-family:'IBM Plex Mono',monospace; white-space:nowrap;}
   .meeting-venue{font-size:12px; color:var(--ink-soft); margin-left:8px;}
+  .meeting-live-note{font-size:12px; color:var(--ink-soft);}
   .meeting-yt-icon{width:13px; height:13px; border-radius:3px; object-fit:contain; vertical-align:-2px;}
   .meeting-date{font-family:'IBM Plex Mono',monospace; font-size:12px; color:var(--ink-soft);}
   .meeting-count{font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--ink-soft); min-width:0;}
@@ -525,6 +526,17 @@
     const today = now.getFullYear() + '-' + String(now.getMonth() + 1).padStart(2, '0') + '-' + String(now.getDate()).padStart(2, '0');
     return (dateIso || '') === today;
   }
+  function jFormatDaysAgo(dateIso){
+    const now = new Date();
+    const todayUTC = Date.UTC(now.getFullYear(), now.getMonth(), now.getDate());
+    const [y, mo, d] = dateIso.split('-').map(Number);
+    const meetingUTC = Date.UTC(y, mo - 1, d);
+    const days = Math.round((todayUTC - meetingUTC) / 86400000);
+    if (days <= 0) return 'Proběhlo dnes';
+    if (days === 1) return 'Proběhlo včera';
+    if (days === 2) return 'Proběhlo předevčírem';
+    return `Proběhlo před ${days} dny`;
+  }
   function jAttendanceAvatarsHtml(m){
     const a = m.attendance;
     if (!a || (!a.present_names && !a.absent_names)) return '';
@@ -583,6 +595,13 @@
       const attendanceHtml = avatarsHtml
         ? `<span class="people-avatars meeting-row-avatars">${avatarsHtml}</span>`
         : (jFormatAttendance(m) ? `<span class="meeting-count">${jEscapeHtml(jFormatAttendance(m))}</span>` : '');
+      const pastNoMinutes = !future && !isToday && m.type === 'Zastupitelstvo' && !m.links.minutes;
+      const daysAgoHtml = pastNoMinutes
+        ? `<span class="meeting-count">${jFormatDaysAgo(m.date)}${m.links.youtube ? ` · <a href="${m.links.youtube}" target="_blank" rel="noopener">K dispozici je video ↗</a>` : ''}</span>`
+        : '';
+      const livestreamHtml = future && m.type === 'Zastupitelstvo' && m.links.invitation
+        ? `<span class="meeting-live-note">📺 živý přenos bude na Youtube</span>`
+        : '';
       const detailTopHtml = m.type === 'Rada'
         ? (m.resolutions.length ? `<p class="lede" style="margin:2px 0 12px; font-size:12.5px; font-family:'IBM Plex Mono',monospace; color:var(--ink-soft);">Přijato ${m.resolutions.length} usnesení</p>` : '')
         : jRenderPresenceRow(m);
@@ -597,7 +616,9 @@
           <span class="meeting-info">
             ${attendanceHtml}
             ${m.duration_seconds != null ? `<span class="meeting-duration">schůze trvala: ${jFormatDuration(m.duration_seconds)}</span>` : ''}
+            ${daysAgoHtml}
             ${(future || isToday) && venueHtml ? venueHtml : ''}
+            ${livestreamHtml}
             <span class="meeting-toggle">+</span>
           </span>
         </div>

@@ -5,7 +5,9 @@ Lehký, poloautomatický postup pro pravidelnou kontrolu, jestli na
 nepřibylo nové jednání nebo se u existujícího nedoplnil zápis a usnesení
 (oproti stavu jen s Pozvánkou). Doplňuje `pecky-jednani/pecky-jednani.json`
 — lehký soubor, který pohání panel Jednání na webu (root `index.html` i
-`pecky-jednani/index.html`).
+`pecky-jednani/index.html`). Součástí postupu (krok 6) je i kontrola
+záznamů zastupitelstva na YouTube — dělat při každém běhu, ne jen
+jednorázově.
 
 **Vztah k ostatním dokumentům:** dřívější plán počítal s plným scraperem
 (Playwright/CDP) běžícím na jiném stroji — popsaný v [SPEC.md](SPEC.md) —
@@ -119,17 +121,59 @@ záznamu.
 
 Ověřit: `python3 -c "import json; json.load(open('pecky-jednani/pecky-jednani.json'))"`.
 
-### 6. Pozemky (pokud relevantní)
+### 6. Kontrola YouTube u zastupitelstva (dělat při KAŽDÉM běhu)
+
+Rada nikdy nemá záznam na YouTube (ověřeno 27. 8. 2026: 0/246 jednání
+rady má `links.youtube`) — tenhle krok se týká jen Zastupitelstva.
+Provádět při každém běhu kontroly, ne jen když přibylo nové jednání —
+video se objevuje na kanálu s odstupem (u jednání 26. 8. 2026 vyšlo
+cca 22 hodin po jednání), takže jednání kontrolované „bez videa" dnes
+může mít video zítra.
+
+1. Najdi v archivu všechna jednání `type: "Zastupitelstvo"` s `date`
+   v minulosti a chybějícím/`null` `links.youtube`.
+2. Pro každé otevři playlist „Zasedání ZM" na kanálu Město Pečky
+   (`https://www.youtube.com/playlist?list=PL1KVT2dbyIKSTFRv7tfDqrfk5gkTSnoyu`)
+   — přes Claude in Chrome (`navigate` + `find`/`get_page_text`).
+   **WebFetch na YouTube nefunguje** — narazí na cookie-consent redirect
+   (`consent.youtube.com`), vrátí prázdno.
+3. Najdi video, jehož **datum** v titulku (`ZM Pečky č. N/RRRR, D. M.
+   RRRR, HH:MM`) sedí s `date` jednání. **Nespoléhat na číslo N v
+   titulku** — město ho čísluje nezávisle na usneseni.cz a historicky
+   se rozešlo (viz `video_note` u jednání 4/2026: video označené
+   „č. 3/2026" patří ve skutečnosti jednání 4/2026 z 24. 6. 2026).
+   Datum je jediný spolehlivý klíč pro spárování.
+4. Otevři nalezené video a ověř v popisku (obvykle „Záznam zasedání
+   zastupitelstva města Pečky č. N/RRRR, …") i v prvním kapitolovém
+   bodu, že souhlasí datum, číslo a případně první bod `agenda[0].t`.
+5. Doplň `links.youtube` (poslední klíč v objektu `links`), formát
+   `https://www.youtube.com/watch?v=<ID>&list=PL1KVT2dbyIKSTFRv7tfDqrfk5gkTSnoyu`
+   (bez dalších trackovacích parametrů z URL, jen `list`). Pokud číslo
+   v titulku videa nesedí s číslem jednání, doplň i `video_note`
+   vysvětlující nesoulad (vzor viz jednání 4/2026 výše v tomto
+   dokumentu).
+6. Jednání, ke kterým video na kanálu vůbec není (mezera v playlistu —
+   potvrzený případ jednání 3/2026, video k němu chybí úplně), nechat
+   bez `links.youtube` a nevymýšlet. Může se objevit až při některém
+   příštím běhu, nebo nikdy — v obou případech nic nepředstírat.
+
+Frontend (`index.html` i `pecky-jednani/index.html`, `jRenderMeetingList`)
+je na `links.youtube` datově řízený — žádná úprava kódu není potřeba,
+nový odkaz se automaticky promítne i do textů „K dispozici je video" (u
+proběhlého jednání bez zápisu) a tlačítka Video v rozbaleném řádku.
+
+### 7. Pozemky (pokud relevantní)
 
 Pokud nové usnesení řeší prodej/nákup pozemku, spustit i
 `python3 pecky-jednani/scripts/update-pozemky.py` — viz
 [automation-katastr-parcely.md](automation-katastr-parcely.md) pro plný
 popis.
 
-### 7. Ověř na webu
+### 8. Ověř na webu
 
 Spustit lokální server (`.claude/launch.json`, config
-`pecky-online-main`, port 8934), otevřít `#jednani`, rozkliknout dotčené
+`pecky-online-main` — port se přiděluje automaticky, `autoPort: true`),
+otevřít `#jednani`, rozkliknout dotčené
 jednání, zkontrolovat: počet usnesení v perexu nahoře odpovídá (`Archiv
 obsahuje … usnesení` — počítá se dynamicky, žádné jinde neupravovat),
 agenda seřazená 1..N, časy bodů dávají smysl, badge SCHVÁLENO/DOPORUČENO/
@@ -141,7 +185,7 @@ konkrétních textových vzorech (`bod číslo N`, „Jednání zahájeno…",
 pozná jen tak, že očekávaný text v `get_page_text` chybí nebo nedává
 smysl — proto se výsledek nesmí slepě důvěřovat, vždy zkontrolovat.
 
-### 8. Nahlaš uživateli
+### 9. Nahlaš uživateli
 
 Stručně: co bylo nové/doplněné, co zůstává čekat na publikaci webem. Nic
 nevymýšlet — pokud web nic nového neukazuje, říct to přímo.
@@ -165,3 +209,8 @@ jednání) — do `attendance` šel počáteční stav 5/7, ne pozdější 6/7.
   diffem. Tenhle lehký postup přepisuje `pecky-jednani.json` na místě,
   bez historie verzí mimo git — zpětnou opravu zápisu odhalí jen git
   historie souboru nebo ruční opětovná kontrola konkrétního jednání.
+- **YouTube** (krok 6) — `WebFetch` na YouTube nefunguje (cookie-consent
+  redirect přes `consent.youtube.com`), jen Claude in Chrome. Číslo
+  jednání v titulku videa se nesmí považovat za spolehlivé — město ho
+  historicky očíslovalo jinak než usneseni.cz (viz `video_note` u
+  jednání 4/2026) — spárovat vždy podle data, ne podle čísla.
