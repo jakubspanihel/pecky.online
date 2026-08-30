@@ -27,7 +27,7 @@ Jména zvoleného vedení lze doplnit z dobového tisku a z webu města, ale
 jako mezeru (`.callout`) podle metodiky v kořenovém `README.md`.
 
 ## Data ve složce
-Textový obsah panelu žije přímo v `index.html` (žádná samostatná datová
+Textový obsah panelu žije v `content/volby2018.html` (žádná samostatná datová
 sada). Ve složce ročníku je navíc `volebni-programy-2018/` — 6 skenů
 volební inzerce uskupení z Pečeckých novin 9/2018, zobrazovaných v
 záložce „Předvolební sliby". V `index.html` se na ně odkazuje cestou

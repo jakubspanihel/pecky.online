@@ -13,10 +13,12 @@ tabulky Pozemky).
 Všechny soubory týkající se sekce Jednání (index pro fulltextové hledání,
 kompletní datový snímek, referenční dokumenty, skripty) patří do
 `pecky-jednani/`, ne do kořene repa ani do `data/` — i nově vznikající.
-Jediná výjimka: zobrazení v panelu zůstává v kořenovém `index.html`
-(jednosouborová struktura webu). Sekce má navíc i samostatnou stránku
-`pecky-jednani/index.html` (stejný obsah, bez hlavičky/navigace hlavního
-webu).
+Jediná výjimka: zobrazení sekce žije v `content/jednani.html` (od migrace
+na vícestránkový web 30. 8. 2026 — viz `ARCHITEKTURA-MIGRACE.md` v kořeni
+repa) — needit vygenerovanou veřejnou stránku přímo, jen `content/jednani.html`
+a pak spustit `scripts/build.py`. Dřívější samostatná stránka
+`pecky-jednani/index.html` (kopie bez hlavičky hlavního webu) migrací
+zanikla — nahradila ji plnohodnotná veřejná stránka `/jednani/`.
 
 **První kompletní export: 2026-08-04** — 281 jednání (243 Rada, 38
 Zastupitelstvo, 2021–2026), 2 731 usnesení vč. detail-stránek, 2 846 hlasování;
@@ -177,9 +179,9 @@ existuje — `video_url`/`video_ts` beze změny, pořád jen pro odkaz, viz vý�
 Délka celého jednání je na konci sbaleného řádku jednání s prefixem „schůze
 trvala: …", oddělená znakem „ · " od počtu přítomných členů (`sešlo se N
 z/ze M …`) a od případného odkazu na video. Zdrojová funkce:
-`jFormatDuration`/`jFormatItemTime` v `index.html` i
-`pecky-jednani/index.html`. Sbalený řádek se od 21. 8. 2026 už u prvního
-jednání v seznamu automaticky nerozbaluje — všechna jednání startují sbalená.
+`jFormatDuration`/`jFormatItemTime` v `content/jednani.html`. Sbalený
+řádek se od 21. 8. 2026 už u prvního jednání v seznamu automaticky
+nerozbaluje — všechna jednání startují sbalená.
 
 **Pro budoucí automatizaci:** u každého nového jednání dohledat totéž z jeho
 `zapis/` stránky stejným rozborem a doplnit `duration_seconds` na úrovni

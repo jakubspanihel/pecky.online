@@ -1,8 +1,9 @@
 # Instrukce k sekci: Pozemky (panel `pozemky`)
 
-Referenční dokument pro práci na panelu `panel-pozemky` v `index.html`
-webu pecky.online. Doplňuje obecné instrukce projektu (Project instructions
-/ CLAUDE.md) — tohle je detail jen pro tuhle jednu sekci.
+Referenční dokument pro práci na panelu `panel-pozemky`
+(`content/pozemky.html`) webu pecky.online. Doplňuje obecné instrukce
+projektu (Project instructions / CLAUDE.md) — tohle je detail jen pro
+tuhle jednu sekci.
 
 ## Účel sekce
 Tabulky Nákup/Prodej v panelu Pozemky jsou statický výřez z usnesení rady
@@ -25,10 +26,14 @@ duplikace/kopírování mezi složkami.
 ## Aktualizace — spustit po každé změně `pecky-jednani.json`
 ```
 python3 pecky-jednani/scripts/update-pozemky.py
+python3 scripts/build.py
 ```
-Skript v jednom běhu přegeneruje obě HTML tabulky (Nákup/Prodej) přímo
-v kořenovém `index.html` a zároveň `pecky-jednani/parcely-odkazy.json`.
-Ověří i balanci HTML tagů po zásahu (selže s chybou, pokud něco rozbije).
+První skript v jednom běhu přegeneruje obě HTML tabulky (Nákup/Prodej)
+přímo v `content/pozemky.html` a zároveň `pecky-jednani/parcely-odkazy.json`;
+ověří i balanci HTML tagů po zásahu (selže s chybou, pokud něco rozbije).
+Druhý příkaz je od migrace na vícestránkový web (`ARCHITEKTURA-MIGRACE.md`)
+nutný vždy — promítne `content/pozemky.html` do veřejné stránky
+`pozemky/index.html`.
 
 Plný technický popis (dohledávání RUIAN ID, katastr-přesná kolize čísel
 parcel, proč byl starý globální `katastr-odkazy.json` smazaný, formát

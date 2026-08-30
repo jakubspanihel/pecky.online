@@ -1,7 +1,8 @@
 # Instrukce k sekci: Plán (panel `plan`)
 
-Referenční dokument pro práci na panelu `panel-plan` v `index.html` webu
-pecky.online. Doplňuje obecné instrukce projektu (Project instructions /
+Referenční dokument pro práci na panelu `panel-plan` v
+`content/plan.html` (generuje se do veřejné stránky `/plan/`, viz
+`scripts/build.py`). Doplňuje obecné instrukce projektu (Project instructions /
 CLAUDE.md) — tohle je detail jen pro tuhle jednu sekci.
 
 ## Účel sekce
@@ -15,6 +16,6 @@ zbytek ze 183 aktivit nebyl proti plnému archivu a všem dotacím
 systematicky prověřen (viz kořenový `README.md` → „Známé mezery"). Dokud
 se to nestane, netvrdit o nich, že se nerealizovaly.
 
-Obsah panelu žije přímo v `index.html` (žádná samostatná datová sada).
+Obsah panelu žije v `content/plan.html` (žádná samostatná datová sada).
 Zatím žádná další zvláštní pravidla nad rámec obecných konvencí v
 kořenovém `CLAUDE.md`. Doplnit sem, až nějaká vzniknou.

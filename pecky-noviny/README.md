@@ -1,17 +1,21 @@
 # Instrukce k sekci: Pečecké noviny (panel „Zpravodaj")
 
-Referenční dokument pro práci na panelu `panel-zpravodaj` v `index.html`
-webu pecky.online. Doplňuje obecné instrukce projektu (Project instructions
+Referenční dokument pro práci na panelu `panel-zpravodaj` v
+`content/zpravodaj.html` (generuje se do veřejné stránky `/noviny/`,
+viz `scripts/build.py`). Doplňuje obecné instrukce projektu (Project instructions
 / CLAUDE.md) — tohle je detail jen pro tuhle jednu sekci.
 
 ## Umístění souborů
 Všechny soubory týkající se Pečeckých novin (tento dokument, extrahovaný
 fulltext JSON, obálky, stažená PDF, skripty) patří do `pecky-noviny/`, ne
 do kořene repa ani do `data/`/`img/` — i nově vznikající. Jediná výjimka:
-zobrazení v panelu zůstává v kořenovém `index.html` (jednosouborová
-struktura webu). Sekce má navíc i samostatnou stránku
-`pecky-noviny/index.html` (stejný obsah, bez hlavičky/navigace hlavního
-webu).
+zobrazení sekce žije v `content/zpravodaj.html` (od migrace na
+vícestránkový web 30. 8. 2026 — viz `ARCHITEKTURA-MIGRACE.md` v kořeni
+repa) — needit vygenerovanou veřejnou stránku (`noviny/index.html`)
+přímo, jen `content/zpravodaj.html` a pak spustit `scripts/build.py`.
+Dřívější samostatná stránka `pecky-noviny/index.html` (kopie bez
+hlavičky hlavního webu) migrací zanikla — nahradila ji plnohodnotná
+veřejná stránka `/noviny/`.
 
 ## Účel sekce
 Přehled informačního měsíčníku, který vydává město Pečky: archiv obálek
@@ -84,20 +88,19 @@ obsahem.
 | Přímé PDF odkazy na pecky.cz | `url` pole v `pecky-noviny/pecky-noviny.json` — `null` u vydání 2008–2011 a 2016–2019 (nejsou na pecky.cz, viz mezery výše) | — |
 | **Lokální kopie všech PDF** | `pecky-noviny/Data/PN {rok}/{slug}.pdf` (**pozor:** v HTML/JS hrefech se mezera v `PN {rok}` píše jako `PN%20{rok}`, na disku je to reálná mezera ve jménu složky) | PDF, ~232 MB / 156 souborů (68 staženo `pecky-noviny/download.py`, 88 z lokálního archivu 2008–2011 a 2016–2019) |
 | **Náhledy jednotlivých stránek** (pro preview ve výsledcích hledání) | `pecky-noviny/pages/{slug}/{page}.jpg` | JPG, **všechny** strany, 40 DPI/kvalita 60 (~32 KB/strana, ~39 MB/2346 stran), vygenerováno `pecky-noviny/render_pages.py` |
-| **Samostatná stránka sekce** | `pecky-noviny/index.html` | viz „Samostatná stránka" níže |
 
 `slug` = `{RRRR}-{MM}` (`{RRRR}-{MM}-{MM}` pro červenec–srpen dvojčíslo,
 např. `2026-07-08`) — je to pole přímo v `pecky-noviny.json` u každého
 vydání, používají ho shodně `img/`, `Data/`, `pages/` i
-`pecky-noviny/index.html`, aby nevznikaly nezávislé implementace stejné
+`content/zpravodaj.html`, aby nevznikaly nezávislé implementace stejné
 konvence pojmenování. `{page}` v `pages/{slug}/{page}.jpg` je 1-based
 číslo strany bez zarovnávání nulami (`1.jpg`…`16.jpg`, ne `01.jpg`).
 
 `pecky-noviny/` je kanonické místo pro **všechno** související s touto
-sekcí — tenhle dokument, extrahovaný fulltext, obálky, zdrojová PDF,
-samostatná stránka i nástroje kolem nich. Jediná výjimka je zobrazení
-v hlavním panelu, které zůstává v kořenovém `index.html` (needituje se
-do samostatných souborů, jednosouborová struktura webu). Jakékoli nové
+sekcí — tenhle dokument, extrahovaný fulltext, obálky, zdrojová PDF
+i nástroje kolem nich. Jediná výjimka je zobrazení v hlavním panelu,
+které žije v `content/zpravodaj.html` (needituje se vygenerovaná
+veřejná stránka přímo, viz sekce Umístění souborů výše). Jakékoli nové
 soubory týkající se Pečeckých novin (data, poznámky, skripty, obrázky)
 patří do `pecky-noviny/`, ne do kořene repa ani do `data/`/`img/`.
 
@@ -113,12 +116,12 @@ všechny strany už vyrenderované) — vygenerování celého archivu (1022
 stran) trvá ~15 s.
 
 ### Zobrazení v panelu
-V `index.html` je to grid karet (`.noviny-card`) seskupený po letech
-(nejnovější rok nahoře, v roce nejnovější měsíc jako první), každá karta
-= obálka + odkaz na PDF (`target="_blank"`). Nad gridem je fulltextové
+V `content/zpravodaj.html` je to grid karet (`.noviny-card`) seskupený po
+letech (nejnovější rok nahoře, v roce nejnovější měsíc jako první), každá
+karta = obálka + odkaz na PDF (`target="_blank"`). Nad gridem je fulltextové
 vyhledávací pole (`#noviny-search`), které při vstupu do panelu asynchronně
-načte `pecky-noviny/pecky-noviny.json` (`loadNoviny()`, index.html ~ř. 2096) a hledá
-bez ohledu na diakritiku/velikost písmen napříč stránkami všech vydání.
+načte `pecky-noviny/pecky-noviny.json` (`loadNoviny()` v `content/zpravodaj.html`)
+a hledá bez ohledu na diakritiku/velikost písmen napříč stránkami všech vydání.
 
 ### Náhledy stránek ve výsledcích hledání
 Každý výsledek hledání (`.hit-card.hit-card--noviny`) zobrazuje vlevo
@@ -126,8 +129,10 @@ malý náhled konkrétní nalezené strany (`pages/{slug}/{page}.jpg`, karta
 odkazuje na PDF na dané straně) vedle úryvku textu s zvýrazněním. Náhled
 je při 40 DPI čitelný jen jako vizuální orientace (rozložení, fotky,
 nadpisy) — pro text slouží zvýrazněný úryvek, ne obrázek. Implementace
-(CSS `.hit-preview`/`.hit-body`, JS šablona v `nRunSearch`) je stejná
-v kořenovém `index.html` i v `pecky-noviny/index.html`. `.hit-card`
+(CSS `.hit-preview`/`.hit-body`, JS šablona v `nRunSearch`) žije v
+`content/zpravodaj.html` — od migrace na vícestránkový web (30. 8. 2026)
+existuje jen jednou, žádná ruční synchronizace duplicitní kopie (viz
+„Samostatná stránka" níže). `.hit-card`
 sdílí základní styl s výsledky hledání v sekci Jednání — modifikátor
 `.hit-card--noviny` (flex layout s náhledem) je proto samostatná třída,
 ne úprava `.hit-card` samotné, aby se nerozbilo rozvržení jednání.
@@ -193,14 +198,16 @@ Claude Code lokálně.
 5. Spustit `pecky-noviny/render_pages.py` — vygeneruje náhledy všech stran
    nového vydání do `pages/{slug}/` (idempotentní, existující vydání
    přeskočí, takže stačí spustit bez parametrů).
-6. Přidat kartu do příslušné roční sekce v kořenovém `index.html`
-   (`.noviny-card`, nejnovější nahoře) a upravit počet vydání v
-   `<p class="lede">` textu panelu.
-7. `pecky-noviny/index.html` (samostatná stránka, viz níže) se aktualizuje
-   **automaticky** — grid i vyhledávání (včetně náhledů stránek z kroku 5)
-   se generují za běhu z `pecky-noviny.json`, stačí krok 3.
-8. Ověřit datum poslední aktualizace v odkazu na zdroj archivu v
-   kořenovém `index.html` (ř. ~1657).
+6. Přidat kartu do příslušné roční sekce v `content/zpravodaj.html`
+   (`.noviny-card`, nejnovější nahoře), upravit počet vydání v
+   `<p class="lede">` textu panelu a spustit `python3 scripts/build.py`,
+   ať se promítne do veřejné stránky `/noviny/`.
+7. Ověřit datum poslední aktualizace v odkazu na zdroj archivu v
+   `content/zpravodaj.html` (hledat text „Zdroj: … archiv PDF
+   zpravodaje").
+
+Vyhledávání (včetně náhledů stránek z kroku 5) se generuje za běhu z
+`pecky-noviny.json` — žádný další ruční krok navíc, stačí krok 3.
 
 ### Doplnění dávky z lokálního archivu (TEMP/)
 Když uživatel dodá další skupinu PDF mimo pecky.cz (např. do budoucna
@@ -225,16 +232,14 @@ Když uživatel dodá další skupinu PDF mimo pecky.cz (např. do budoucna
    `meta.editions_count`/`meta.pages_total`.
 6. Spustit `render_pages.py` (doplní náhledy stránek pro nová vydání,
    idempotentní).
-7. Doplnit kartu do kořenového `index.html` (`href` rovnou na
+7. Doplnit kartu do `content/zpravodaj.html` (`href` rovnou na
    `pecky-noviny/Data/PN {rok}/{slug}.pdf`, ne na pecky.cz — url je `null`) a do
    společné „Zdroj: lokální archiv…" poznámky pod gridem aktualizovat
-   celkový počet a rozsah let. `pecky-noviny/index.html` se aktualizuje
-   automaticky (viz „Samostatná stránka" níže), stačí upravit počet
-   vydání v perexu a v `<meta name="description">`.
+   celkový počet a rozsah let, upravit počet vydání v perexu a v
+   `<meta name="description">`, pak spustit `python3 scripts/build.py`.
 8. Ověřit, že `.hit-card` fallback na lokální PDF funguje i pro nová
    vydání (`h.ed.url || 'pecky-noviny/Data/PN%20' + h.ed.year + '/' + h.ed.slug + '.pdf'`
-   v kořenovém `index.html`; `pecky-noviny/index.html` používá lokální PDF
-   vždy, viz „Rozdíly oproti panelu" níže) — u dosavadních dávek už to
+   v `content/zpravodaj.html`) — u dosavadních dávek už to
    funguje, nová vydání jen musí mít `url: null`. **Mezera v `PN {rok}`
    musí být v URL/href jako `%20`**, ne doslovná mezera (prohlížeč ji
    sice u kliknutí obvykle dokáže domyslet, ale `fetch()` a některé
@@ -242,37 +247,18 @@ Když uživatel dodá další skupinu PDF mimo pecky.cz (např. do budoucna
 9. Smazat `TEMP/` (obsah je beze zbytku v `Data/`) a jednorázový
    zpracovávací skript, pokud byl napsaný jako samostatný soubor.
 
-## Samostatná stránka (`pecky-noviny/index.html`)
-Vedle panelu v hlavním webu existuje i samostatná, nezávisle otevíratelná
-stránka `pecky-noviny/index.html` — stejný obsah (úvod, fulltextové
-hledání, grid vydání po letech), ale bez hlavičky/navigace na ostatní
-sekce webu (`header.site`/`nav.tabs` z kořenového `index.html` tam
-záměrně nejsou — je to čistě samostatná obrazovka). V patičce je jen
-textový odkaz zpět na `pecky.online`.
-
-Rozdíly oproti panelu v hlavním webu:
-- **Grid vydání se generuje za běhu v JS** z `pecky-noviny.json`
-  (`renderGrid()`), ne jako ručně psané `.noviny-card` odkazy — nový
-  záznam v JSON se tedy v gridu objeví bez úpravy HTML.
-- Karty, náhledy stránek ve výsledcích hledání i odkazy v patičce
-  výsledku odkazují na **lokální PDF** (`Data/PN {rok}/{slug}.pdf`), ne na
-  pecky.cz — stránka tak funguje i offline/mimo hosting hlavního webu.
-  Výsledky hledání navíc nabízí i odkaz na originál na pecky.cz (v
-  kořenovém `index.html` je to naopak — tam odkazuje na pecky.cz,
-  lokální PDF se tam neodkazují). **Výjimka:** u vydání s `url: null`
-  (archiv 2008–2011, viz mezery výše) odkazuje na lokální PDF i kořenový
-  `index.html` — jinak by karta/odkaz vedly na neexistující URL. Karty
-  grid v kořenovém `index.html` to řeší přímo v ručně psaném `href`, JS
-  hledání v obou souborech fallbackem
-  `h.ed.url || 'Data/PN%20' + h.ed.year + '/' + h.ed.slug + '.pdf'`.
-- Sdílí stejné CSS proměnné a fonty (Fraunces/IBM Plex) jako hlavní web
-  pro vizuální konzistenci, ale jen podmnožinu stylů, které skutečně
-  používá (žádné styly pro ostatní panely).
-- JS logika hledání (`jStripDiacritics`, `jNorm`, `jHighlight`,
-  `nRunSearch` apod.) je zkopírovaná z kořenového `index.html` — při
-  úpravě chování hledání na jednom místě zvážit, jestli neupravit i
-  druhé (zatím není sdílené, jednosouborová konvence hlavního webu
-  brání společnému JS souboru).
+## Samostatná stránka (zaniklo migrací 30. 8. 2026)
+Dřív (do 30. 8. 2026) existovala vedle panelu v hlavním webu i samostatná,
+nezávisle otevíratelná stránka `pecky-noviny/index.html` se stejným
+obsahem, ale bez hlavičky/navigace hlavního webu — duplicitní kód, který
+šlo snadno rozjet (JS hledání muselo zůstávat ručně synchronizované mezi
+oběma soubory). Migrace na vícestránkový web (`ARCHITEKTURA-MIGRACE.md`)
+tenhle problém odstranila: `pecky-noviny/index.html` byl smazán, veřejná
+stránka `/noviny/` se teď generuje ze stejného `content/zpravodaj.html`,
+který vidí i tenhle dokument výše — žádná ruční synchronizace dvou kopií
+JS logiky (`jStripDiacritics`, `jNorm`, `jHighlight`, `nRunSearch` apod.)
+už není potřeba, `jStripDiacritics`/`jNorm`/`jHighlight`/`jEscapeHtml`
+navíc teď žijí sdíleně v `assets/helpers.js`.
 
 ## Co NEPSAT do této sekce
 - Odhadovaná nebo rekonstruovaná témata čísel, která nebyla fyzicky

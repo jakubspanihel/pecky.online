@@ -1,7 +1,8 @@
 # Instrukce k sekci: Lidé (panel `lide`)
 
-Referenční dokument pro práci na panelu `panel-lide` v `index.html` webu
-pecky.online. Doplňuje obecné instrukce projektu (Project instructions /
+Referenční dokument pro práci na panelu `panel-lide` v
+`content/lide.html` (generuje se do veřejné stránky `/lide/`, viz
+`scripts/build.py`). Doplňuje obecné instrukce projektu (Project instructions /
 CLAUDE.md) — tohle je detail jen pro tuhle jednu sekci.
 
 ## Účel sekce
@@ -39,6 +40,120 @@ diakritiky malými písmeny; u shody příjmení i s křestním, např.
 nového ročníku, ne přepisovat tuhle. Detaily viz
 [`pecky-volby/README.md`](../pecky-volby/README.md).
 
-Obsah panelu jinak žije přímo v `index.html` (žádná samostatná datová
-sada). Zatím žádná další zvláštní pravidla nad rámec obecných konvencí v
-kořenovém `CLAUDE.md`. Doplnit sem, až nějaká vzniknou.
+## Datová sada
+
+Ve složce leží strojově čitelný adresář osob, organizací a vazeb mezi
+nimi. Návrh a rozhodnutí, proč je model takový, jsou v [`SPEC.md`](SPEC.md);
+tahle kapitola je provozní — jak s daty pracovat.
+
+```
+people.json          23 osob (21 aktuálních zastupitelů + 2 bývalí)
+organizations.json    9 organizací (Město Pečky + 8 volebních uskupení)
+affiliations.json    55 vazeb osoba–organizace
+validate.mjs         validátor
+```
+
+**Panel `panel-lide` se z těchhle souborů generuje.** Kartičky v
+`index.html` už nejsou — vytváří je `loadLide()` v posledním `<script>`
+bloku. Personální změna se tedy dělá **jen v JSON**, do HTML nesahat.
+
+Ručně psaný v panelu zůstává nadpis, úvodní odstavec a callout „O
+fotografiích"; počet fotek v něm (`#lide-photo-count`) i řádek se
+statistikou nad kartičkami (`#lide-status`) se dopočítávají z dat.
+
+Protože se data načítají `fetch`em, panel **nefunguje z `file://`** —
+stejně jako Jednání a Pečecké noviny. Lokálně `python3 -m http.server`.
+
+### Odkazovatelné adresy
+
+Panel má vlastní routing v hashi, takže na konkrétního člověka i uskupení
+jde poslat odkaz:
+
+```
+#lide/osoba/paluskam               detail starosty
+#lide/uskupeni/nasepecky           uskupení a jeho lidé
+#lide?org=ods&role=rada            radní za ODS
+#lide?q=svejnohova&scope=all       hledání včetně bývalých členů
+```
+
+Adresy stojí na `id` z JSON — proto se `id` po zveřejnění nemění.
+
+### Tři entity, ne jedna kartička
+
+Dnešní kartička slepuje tři různé věci dohromady. V datech jsou oddělené,
+protože každá má vlastní začátek, konec a zdroj:
+
+| Vazba | `role_type` | Od kdy | Zdroj |
+|---|---|---|---|
+| mandát v zastupitelstvu | `zastupitel` | složení slibu | zápis ustavujícího zasedání |
+| funkce v radě | `starosta`, `mistostarosta`, `rada` | volba na ustavujícím zasedání | usnesení `UZ-90-7/22`…`UZ-96-7/22` |
+| kandidátka, za kterou byl zvolen | `kandidatka` | den voleb | výsledky ČSÚ |
+
+Proto má každý zastupitel nejméně dvě vazby a člen rady tři. Že je
+někdo zároveň radní i zastupitel, **není duplicita**.
+
+Náhradník má vazbu na kandidátku od voleb 2022, ale mandát až od složení
+slibu — Ondřej Schulz od 26. 2. 2025, Jaroslava Vosecká od 11. 9. 2024.
+Ten rozdíl je správně a je vidět v timeline.
+
+### Validace
+
+Z kořene repa, před každým commitem datové změny:
+
+```bash
+node pecky-lide/validate.mjs
+```
+
+Exit 0 = čisté, 1 = chyby. Kromě obecné integrity hlídá i pravidla
+Peček: 21 zastupitelů, 7 radních, právě jeden starosta, každý zastupitel
+má kandidátku, dvě uskupení nemají tutéž barvu, a soubor, na který
+ukazuje `photo`, existuje.
+
+### Jak přidat osobu
+
+1. **`people.json`** — `id` je příjmení + iniciála křestního bez
+   diakritiky (`paluskam`, `svejnohovaa`).
+2. **`organizations.json`** — jen pokud uskupení nebo organizace ještě
+   chybí. U uskupení povinně `color` a `css_class` **z palety** v
+   [`pecky-volby/README.md`](../pecky-volby/README.md), ne nová barva.
+3. **`affiliations.json`** — mandát, případná funkce v radě, kandidátka.
+   `id` ve tvaru `{person_id}--{organization_id}--{pořadí}`.
+4. Zvýšit `meta.count` a `meta.updated` ve všech změněných souborech.
+5. Spustit validátor.
+
+**`id` se po zveřejnění nikdy nemění** — bude na něj odkazovat URL
+(`#lide/osoba/paluskam`) i všechny vazby.
+
+### Jak ukončit funkci
+
+Vazbu **nemazat.** Nastavit `to` na datum konce a `current` na `false`.
+Právě proto sekce existuje — z ručních kartiček historie mizí, z vazeb ne.
+Bc. Iveta Dvořáková a Lenka Třísková jsou v datech přesně z tohohle
+důvodu: ve výchozím zobrazení nejsou vidět, po přepnutí rozsahu na
+„Včetně historie" se objeví ve třetí skupině se štítkem, do kdy mandát
+trval.
+
+### Fotky a jejich původ
+
+`photo` je cesta od kořene repa do složky volebního ročníku, `photo_source`
+popisuje původ (kandidátka ods.cz, nebo inzerát v Pečeckých novinách
+9/2022 str. 11). Kdo fotku nemá, má obě pole prázdná a v UI dostane
+iniciálový avatar na barvě uskupení — viz kapitola „Fotky" výš.
+
+### Přiznané mezery v datech
+
+- **Kontakty nejsou vyplněné u nikoho.** Do `email` a `phone` patří jen
+  pracovní kontakty z veřejného zdroje; ty se zatím nepodařilo ověřit
+  (pecky.cz blokuje bot přístup).
+- **Uskupení Bc. Ivety Dvořákové a Lenky Třískové je dopočítané**, ne
+  citované — usnesení uskupení u jmen neuvádějí. Obě vazby mají proto
+  `verified: null` a vysvětlení v `note`.
+- **Výbory jsou zatím jen dva záznamy** (předsednictví kontrolního
+  výboru). Zbytek členů finančního a kontrolního výboru je v archivu
+  jednání pod `UZ-98`…`UZ-111` — doplnit ve fázi 5.
+- **Ročník 2018 v datech není.** Ustavující zasedání po volbách 2018 je
+  starší než archiv usneseni.cz (začíná dubnem 2021), viz
+  [`pecky-volby/2018/README.md`](../pecky-volby/2018/README.md).
+
+Textový obsah panelu jinak žije v `content/lide.html`. Další zvláštní
+pravidla doplnit sem, až nějaká vzniknou.

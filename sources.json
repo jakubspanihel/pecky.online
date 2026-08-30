@@ -1,7 +1,7 @@
 {
   "project": "pecky.online",
   "description": "Seznam zdrojů, ze kterých pecky.online čerpá nebo může čerpat informace o samosprávě města Pečky.",
-  "last_updated": "2026-08-23 (na žádost uživatele — Volby 2026: nalezen oficiální seznam zaregistrovaných volebních stran, přidán zdroj pecky-cz-uredni-deska-volby-2026-registrace; zjištěno a zaznamenáno, že pecky.cz prošel redesignem/migrací a pecky.as4u.cz od cca 3/2026 přestal být průběžně aktualizovaný — opraveny poznámky u pecky-cz a pecky-as4u-cz)",
+  "last_updated": "2026-08-30 (denní kontrola zdrojů: usneseni.cz — přidána Rada 31/2026 jen s Pozvánkou; Pečecké noviny — beze změny, nejnovější je 7–8/2026; veřejné zakázky — beze změny, 175 ID; Hlídač státu smlouvy — žádná nová smlouva, ale zaznamenán nevysvětlený úbytek záznamů v registru, souhrnná čísla na webu neměněna)",
   "sources": [
     {
       "id": "pecky-cz",
@@ -35,7 +35,7 @@
       "category": "otevřená data",
       "description": "Přehled smluv, dotací, rizik a dodavatelů pro IČO 00239607 a celou skupinu (úřad + 8 podřízených organizací).",
       "status": "ověřeno",
-      "note": "Data do webu tažena přes připojený MCP konektor Hlídače státu; jde o statický výřez, ne živě se obnovující data. Denní diff 16. 8. 2026: přibyly 2 nové smlouvy (Dar — zdravotnický batoh 10 381 Kč; Smlouva o spolupráci — Digitální odysea 26/27 bez ceny) — promítnuto do tabulky „Nejnovější smlouvy“ a součtů v sekci Smlouvy (nyní 182/47 smluv)."
+      "note": "Data do webu tažena přes připojený MCP konektor Hlídače státu; jde o statický výřez, ne živě se obnovující data. Denní diff 16. 8. 2026: přibyly 2 nové smlouvy (Dar — zdravotnický batoh 10 381 Kč; Smlouva o spolupráci — Digitální odysea 26/27 bez ceny) — promítnuto do tabulky „Nejnovější smlouvy“ a součtů v sekci Smlouvy (nyní 182/47 smluv). Denní kontrola 30. 8. 2026: žádná nová smlouva (nejnovější podpis je nadále 23. 7. 2026, už na webu). Konektor ale u téhož dotazu vrací MÉNĚ záznamů než 16. 8. 2026 — skupina 179 smluv / 102 075 674 Kč (dřív 182 / 102 416 276 Kč), samotný úřad 46 / 32 831 378 Kč (dřív 47 / 33 132 977 Kč). Úbytek nevysvětlen, souhrnná čísla v sekci Smlouvy proto ponechána beze změny — k prověření uživatelem."
     },
     {
       "id": "hlidac-statu-zakazky",
@@ -44,7 +44,7 @@
       "category": "otevřená data",
       "description": "Vyhledávání veřejných zakázek podle IČO 00239607 — 193 nalezených záznamů, výběrová řízení na dodavatele (fáze před podpisem smlouvy).",
       "status": "ověřeno",
-      "note": "Zadáno uživatelem 6. 8. 2026. Veřejně přístupné vyhledávání bez přihlášení, ne MCP konektor (ten pokrývá jen Registr smluv a dotace, ne veřejné zakázky). Ručně staženo přes 4 stránky výsledků; do webu vložen výřez (nejnovější 2025–2026 a největší zakázky). Statický výřez, ne živá data. Denní diff 6. 8. 2026 (druhá kontrola týž den) našel 1 novou zakázku (P26V00002056) proti baseline v data/pecky-zakazky-ids.json — promítnuto do tabulky Nejnovější zakázky. Denní diff 16. 8. 2026: beze změny (193 výsledků, všechna ID na stránkách 1–4 odpovídají baseline)."
+      "note": "Zadáno uživatelem 6. 8. 2026. Veřejně přístupné vyhledávání bez přihlášení, ne MCP konektor (ten pokrývá jen Registr smluv a dotace, ne veřejné zakázky). Ručně staženo přes 4 stránky výsledků; do webu vložen výřez (nejnovější 2025–2026 a největší zakázky). Statický výřez, ne živá data. Denní diff 6. 8. 2026 (druhá kontrola týž den) našel 1 novou zakázku (P26V00002056) proti baseline v data/pecky-zakazky-ids.json — promítnuto do tabulky Nejnovější zakázky. Denní diff 16. 8. 2026: beze změny (193 výsledků, všechna ID na stránkách 1–4 odpovídají baseline). Denní diff 30. 8. 2026: beze změny (175 unikátních ID na stránkách 1–4, žádné nové ani zmizelé proti baseline v pecky-zakazky/pecky-zakazky-ids.json — soubor neupravován)."
     },
     {
       "id": "usneseni-cz",
@@ -53,7 +53,7 @@
       "category": "oficiální",
       "description": "Systém pro zveřejňování zápisů a usnesení zastupitelstva a rady města.",
       "status": "částečně nedostupné",
-      "note": "Blokuje automatizovaný přístup (ochrana proti botům). Jmenné seznamy členů se v zápisech objevují nesystematicky (docházka, příchody/odchody), ne jako jednotný rejstřík. Denní kontrola 16. 8. 2026 přes Claude in Chrome (bez Cloudflare výzvy): na webu přibyly Rada 28/2026 (10. 8. 2026) a Rada 29/2026 (17. 8. 2026, budoucí jednání), ale ani jedno nemá zatím zveřejněný zápis/usnesení (jen Pozvánka) — archiv sources/archive-2026-08-04.json a odvozený data/pecky-jednani.json tedy zůstávají aktuální (nejnovější kompletní jednání: Rada 27/2026, 20. 7. 2026). Zjištění 20. 8. 2026: dva konkrétní typy odkazů z `data/pecky-jednani.json` (`links.invitation` = pozvánka, `links.pdf` = podepsaný zápis) používají akční endpointy tvaru `?uuid=...&do=printPublicInvitation` / `?...&do=meetingReportControl-getSignedReportPdf`, které web při otevření z cizí domény (proklik z pecky.online, i s rel=noreferrer) přesměruje na úvodní stránku `/verejne/` místo konkrétního dokumentu — zjevná ochrana proti hotlinkování/embeddingu (pravděpodobně dle Sec-Fetch-Site, ne dle Referer hlavičky, tu jsme vyloučili testem). Stejná URL při zadání přímo do adresního řádku (bez cizí domény jako iniciátora) funguje správně. `links.minutes` (zápis) a `links.resolutions` (usnesení) jsou cestové URL bez `do=` parametru a tímto omezením netrpí, fungují spolehlivě i jako proklik. Nejde o chybu v datech/kódu pecky.online — odkazy samotné jsou správné, jde o vlastnost cílového webu, kterou nelze z naší strany obejít. Promítnuto do panelu Jednání jako `title` tooltip na obou postižených typech odkazů a jako přiznaná mezera v callout boxu."
+      "note": "Blokuje automatizovaný přístup (ochrana proti botům). Jmenné seznamy členů se v zápisech objevují nesystematicky (docházka, příchody/odchody), ne jako jednotný rejstřík. Denní kontrola 16. 8. 2026 přes Claude in Chrome (bez Cloudflare výzvy): na webu přibyly Rada 28/2026 (10. 8. 2026) a Rada 29/2026 (17. 8. 2026, budoucí jednání), ale ani jedno nemá zatím zveřejněný zápis/usnesení (jen Pozvánka) — archiv sources/archive-2026-08-04.json a odvozený data/pecky-jednani.json tedy zůstávají aktuální (nejnovější kompletní jednání: Rada 27/2026, 20. 7. 2026). Zjištění 20. 8. 2026: dva konkrétní typy odkazů z `data/pecky-jednani.json` (`links.invitation` = pozvánka, `links.pdf` = podepsaný zápis) používají akční endpointy tvaru `?uuid=...&do=printPublicInvitation` / `?...&do=meetingReportControl-getSignedReportPdf`, které web při otevření z cizí domény (proklik z pecky.online, i s rel=noreferrer) přesměruje na úvodní stránku `/verejne/` místo konkrétního dokumentu — zjevná ochrana proti hotlinkování/embeddingu (pravděpodobně dle Sec-Fetch-Site, ne dle Referer hlavičky, tu jsme vyloučili testem). Stejná URL při zadání přímo do adresního řádku (bez cizí domény jako iniciátora) funguje správně. `links.minutes` (zápis) a `links.resolutions` (usnesení) jsou cestové URL bez `do=` parametru a tímto omezením netrpí, fungují spolehlivě i jako proklik. Nejde o chybu v datech/kódu pecky.online — odkazy samotné jsou správné, jde o vlastnost cílového webu, kterou nelze z naší strany obejít. Promítnuto do panelu Jednání jako `title` tooltip na obou postižených typech odkazů a jako přiznaná mezera v callout boxu. Denní kontrola 30. 8. 2026 přes Claude in Chrome (bez Cloudflare výzvy): přibyla Rada 31/2026 (31. 8. 2026), zatím jen s Pozvánkou — přidána do pecky-jednani/pecky-jednani.json jako záznam bez zápisu a usnesení (agenda z PDF pozvánky). Ověřeno, že ZM 5/2026 má na webu nadále jediné usnesení (UZ-33-5/26) a že v playlistu „Zasedání ZM“ na YouTube stále chybí záznam k ZM 3/2026 (25. 5. 2026)."
     },
     {
       "id": "facebook-kspecky",
@@ -78,7 +78,7 @@
       "category": "otevřená data",
       "description": "Strukturovaná otevřená data z komunálních a dalších voleb — výsledky, kandidátky, mandáty po obcích.",
       "status": "ověřeno",
-      "note": "Použito na stránce Volby ke křížovému ověření výsledků a hlasů komunálních voleb 2022 (obec 537641 Pečky)."
+      "note": "Použito na stránce Volby ke křížovému ověření výsledků a hlasů komunálních voleb 2022 (obec 537641 Pečky) a jako zdroj kompletních kandidátních listin pro volby 2026."
     },
     {
       "id": "pececke-sluzby",

@@ -1,7 +1,8 @@
 # Instrukce k sekci: Zakázky (panel `zakazky`)
 
-Referenční dokument pro práci na panelu `panel-zakazky` v `index.html`
-webu pecky.online. Doplňuje obecné instrukce projektu (Project instructions
+Referenční dokument pro práci na panelu `panel-zakazky` v
+`content/zakazky.html` (generuje se do veřejné stránky `/zakazky/`,
+viz `scripts/build.py`). Doplňuje obecné instrukce projektu (Project instructions
 / CLAUDE.md) — tohle je detail jen pro tuhle jednu sekci.
 
 ## Účel sekce
@@ -10,8 +11,10 @@ podpisem samotné smlouvy (tu eviduje sekce Smlouvy). Zdroj: Hlídač
 veřejných zakázek (veřejné vyhledávání, ne konektor), IČO 00239607 —
 statický výřez, ne živá data.
 
-Zobrazovaný obsah panelu žije přímo v `index.html` (jednosouborová
-struktura webu). Ve složce sekce je navíc jeden pomocný datový soubor,
+Zobrazovaný obsah panelu žije v `content/zakazky.html` (needit
+vygenerovanou veřejnou stránku `zakazky/index.html` přímo, vždy přes
+`content/zakazky.html` + `scripts/build.py` — viz `ARCHITEKTURA-MIGRACE.md`
+v kořeni repa). Ve složce sekce je navíc jeden pomocný datový soubor,
 který se na webu nezobrazuje a slouží jen ke kontrole novinek.
 
 ## Datový soubor `pecky-zakazky-ids.json`
@@ -44,8 +47,9 @@ Struktura:
 3. Porovnat s polem `ids` v tomto souboru. **Nová ID = nové nebo změněné
    zakázky.**
 4. U každého nového ID dohledat detail (název, datum, cena, dodavatel)
-   a promítnout ho do tabulky „Nejnovější zakázky" v `index.html`.
-   Chybějící údaj se přiznává (např. „cena neuvedena"), nikdy nedopočítává.
+   a promítnout ho do tabulky „Nejnovější zakázky" v `content/zakazky.html`,
+   pak spustit `python3 scripts/build.py`. Chybějící údaj se přiznává
+   (např. „cena neuvedena"), nikdy nedopočítává.
 5. Aktualizovat v tomto souboru `ids`, `count`, `snapshot_date` a `note`.
    `count` vždy přepočítat z délky pole, ne dopisovat ručně.
 6. Zapsat běh do changelogu v kořenovém `README.md` a k příslušnému

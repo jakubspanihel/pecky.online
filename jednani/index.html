@@ -3,215 +3,89 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Jednání a usnesení - archiv včetně hledání</title>
-<meta name="description" content="Strojově čitelný archiv veřejných jednání rady a zastupitelstva města Pečky s fulltextovým hledáním napříč usneseními a programy jednání. Samostatná stránka sekce webu pecky.online.">
+<title>Jednání zastupitelstva a rady — pecky.online</title>
+<meta name="description" content="Archiv jednání zastupitelstva a rady města Pečky s usneseními, docházkou a odkazy na videozáznam — s fulltextovým vyhledáváním.">
+<link rel="canonical" href="https://pecky.online/jednani/">
+<meta property="og:title" content="Jednání zastupitelstva a rady — pecky.online">
+<meta property="og:description" content="Archiv jednání zastupitelstva a rady města Pečky s usneseními, docházkou a odkazy na videozáznam — s fulltextovým vyhledáváním.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://pecky.online/jednani/">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-<style>
-  html{scroll-behavior:smooth;}
-  :root{
-    --parchment:#F1EAD9;
-    --parchment-deep:#E9E0CB;
-    --ink:#2A2420;
-    --ink-soft:#5B5347;
-    --burgundy:#7C2F2B;
-    --burgundy-deep:#5E211E;
-    --field:#54624A;
-    --line:#C9BA98;
-    --gold:#AD7A2A;
-  }
-  *{box-sizing:border-box;}
-  html,body{margin:0;padding:0;}
-  body{
-    background:
-      repeating-linear-gradient(180deg, transparent 0 38px, rgba(124,47,43,0.035) 38px 39px),
-      var(--parchment);
-    color:var(--ink);
-    font-family:'IBM Plex Sans', sans-serif;
-    line-height:1.5;
-    -webkit-font-smoothing:antialiased;
-  }
-  a{color:var(--burgundy); text-decoration:none;}
-  a:hover{text-decoration:underline;}
-  a:focus-visible{outline:2px solid var(--burgundy); outline-offset:2px;}
-
-  .display{font-family:'Fraunces', serif; font-optical-sizing:auto;}
-
-  main{max-width:1040px; margin:0 auto; padding:36px 24px 80px;}
-
-  h1.title{font-size:34px; margin:0 0 8px; font-weight:600;}
-  h3.display{font-size:19px; margin:30px 0 4px;}
-  .lede{color:var(--ink-soft); max-width:640px; margin:0 0 28px; font-size:15px;}
-
-  .stamp{
-    display:inline-flex; align-items:center; gap:6px;
-    font-family:'IBM Plex Mono',monospace; font-size:10.5px; text-transform:uppercase; letter-spacing:0.08em;
-    color:var(--burgundy); border:1.5px solid var(--burgundy); border-radius:3px;
-    padding:3px 8px; transform:rotate(-2deg); opacity:0.85;
-    background:rgba(124,47,43,0.04);
-  }
-  .stamp::before{content:"✓"; font-size:11px;}
-
-  .callout{
-    border-left:3px solid var(--gold); background:rgba(173,122,42,0.08);
-    padding:14px 18px; font-size:13.5px; color:var(--ink-soft); margin:22px 0;
-  }
-  .callout strong{color:var(--ink);}
-
-  .toggle-details{display:inline-flex; align-items:center; gap:5px; font-family:'IBM Plex Mono',monospace; font-size:12px; text-transform:uppercase; letter-spacing:0.03em; color:var(--burgundy); border:1px solid var(--burgundy); background:none; padding:8px 14px; cursor:pointer; margin:0; text-decoration:none;}
-  .toggle-details:hover{background:rgba(124,47,43,0.06);}
-  .toggle-details[aria-expanded="true"]{background:var(--burgundy); color:#fff;}
-
-  .segmented-control{display:inline-flex; align-items:center; gap:8px;}
-  .segmented-label{font-family:'IBM Plex Mono',monospace; font-size:11px; text-transform:uppercase; letter-spacing:0.03em; color:var(--ink-soft);}
-  .segmented-group{display:inline-flex; border:1px solid var(--burgundy); border-radius:3px; overflow:hidden;}
-  .segmented-btn{font-family:'IBM Plex Mono',monospace; font-size:11.5px; padding:7px 13px; border:none; border-right:1px solid var(--burgundy); background:none; color:var(--burgundy); cursor:pointer;}
-  .segmented-btn:last-child{border-right:none;}
-  .segmented-btn:hover:not(.active){background:rgba(124,47,43,0.08);}
-  .segmented-btn.active{background:var(--burgundy); color:#fff;}
-
-  .subject-box{
-    border:1px solid var(--ink); padding:18px 20px; background:var(--parchment-deep); margin-bottom:24px;
-    display:flex; justify-content:space-between; gap:16px; flex-wrap:wrap;
-  }
-  .subject-box .k{font-family:'IBM Plex Mono',monospace; font-size:11px; text-transform:uppercase; color:var(--ink-soft);}
-  .subject-box .v{font-weight:500; font-size:14px;}
-
-  .tag{font-family:'IBM Plex Mono',monospace; font-size:10.5px; text-transform:uppercase; padding:2px 7px; border:1px solid var(--line); border-radius:2px; color:var(--ink-soft);}
-  .tag.role{color:var(--burgundy); border-color:var(--burgundy);}
-  .tag.hotovo{color:var(--field); border-color:var(--field); background:rgba(84,98,74,0.10); font-weight:600;}
-  .tag.probiha{color:var(--gold); border-color:var(--gold); background:rgba(173,122,42,0.10); font-weight:600;}
-  .tag.zamitnuto{color:var(--burgundy); border-color:var(--burgundy); background:rgba(124,47,43,0.08); font-weight:600;}
-  .tag.revokovano{color:var(--burgundy-deep); border-color:var(--burgundy-deep); border-style:dashed; background:rgba(94,33,30,0.06); font-weight:600;}
-  .res-outcome{margin-right:6px;}
-
-  .search-bar{display:flex; gap:10px; flex-wrap:wrap; margin:22px 0 6px;}
-  .search-bar input[type=search]{
-    flex:1 1 260px; padding:11px 13px; border:1px solid var(--ink);
-    background:rgba(255,255,255,0.65); font-family:'IBM Plex Sans',sans-serif;
-    font-size:14px; border-radius:2px; color:var(--ink);
-  }
-  .search-bar input[type=search]::placeholder{color:var(--ink-soft);}
-  .search-bar select{
-    padding:10px 10px; border:1px solid var(--line); background:var(--parchment-deep);
-    font-family:'IBM Plex Mono',monospace; font-size:12px; border-radius:2px; color:var(--ink-soft);
-  }
-  .search-status{font-family:'IBM Plex Mono',monospace; font-size:11.5px; color:var(--ink-soft); margin:8px 0 20px;}
-
-  .people-avatars{display:flex; flex-wrap:wrap; align-items:center; gap:4px; max-width:340px;}
-  .people-avatars .av-img{width:26px; height:26px; border-radius:50%; object-fit:cover; border:1px solid var(--line); background:var(--parchment-deep);}
-  .people-avatars .av-init{width:26px; height:26px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-family:'IBM Plex Mono',monospace; font-weight:600; font-size:9px; color:#fff; flex-shrink:0;}
-  .people-avatars .av-init.av-absent{opacity:0.4;}
-  .people-avatars .attendance-sep{width:1px; align-self:stretch; background:var(--line); margin:0 2px; flex-shrink:0;}
-
-  .meeting-list{border-top:1px solid var(--ink);}
-  .meeting-row{border-bottom:1px solid var(--line);}
-  .meeting-row--expanded{background:#ffffff;}
-  .meeting-row--future .meeting-row-main, .meeting-row--today .meeting-row-main{background:rgba(173,122,42,0.08);}
-  .meeting-attendance{margin:2px 0 12px;}
-  .meeting-attendance .people-avatars{max-width:none; flex-wrap:nowrap; overflow-x:auto; padding-bottom:2px;}
-  .meeting-row-avatars{max-width:none;}
-  .meeting-row-avatars .av-init, .meeting-row-avatars .av-img{width:20px; height:20px; font-size:8px;}
-  .meeting-row-main{display:flex; align-items:center; gap:6px 12px; padding:11px 4px; cursor:pointer; font-size:14px; flex-wrap:wrap;}
-  .meeting-row-main:hover{background:rgba(124,47,43,0.035);}
-  .meeting-label{font-weight:500; flex:1 1 220px; min-width:0;}
-  .meeting-cal-icon{color:var(--ink-soft); vertical-align:-1px; margin-right:2px; flex-shrink:0;}
-  .meeting-video-badge{display:inline-flex; align-items:center; gap:4px; margin-left:12px; font-size:12px; font-weight:400; color:var(--ink-soft); font-family:'IBM Plex Mono',monospace;}
-  .meeting-info{display:flex; align-items:center; gap:6px 10px; flex-wrap:wrap; min-width:0;}
-  .meeting-duration{font-size:12px; color:var(--ink-soft); font-family:'IBM Plex Mono',monospace; white-space:nowrap;}
-  .meeting-venue{font-size:12px; color:var(--ink-soft); margin-left:8px;}
-  .meeting-live-note{font-size:12px; color:var(--ink-soft);}
-  .meeting-yt-icon{width:13px; height:13px; border-radius:3px; object-fit:contain; vertical-align:-2px;}
-  .meeting-date{font-family:'IBM Plex Mono',monospace; font-size:12px; color:var(--ink-soft);}
-  .meeting-count{font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--ink-soft); min-width:0;}
-  .meeting-toggle{width:18px; text-align:center; color:var(--burgundy); font-weight:600; flex-shrink:0;}
-  .meeting-row-detail{padding:2px 4px 18px 4px;}
-  .res-list{margin:6px 0 12px; padding-left:0; list-style:none; font-size:13px;}
-  .res-list li{padding:6px 0; border-bottom:1px dotted var(--line);}
-  .agenda-list{margin:6px 0 12px; padding-left:0; list-style:none; font-size:13px;}
-  .agenda-item{padding:7px 0; border-bottom:1px dotted var(--line);}
-  .agenda-item-main{display:flex; align-items:baseline; gap:7px; flex-wrap:wrap;}
-  .agenda-num{font-family:'IBM Plex Mono',monospace; color:var(--ink-soft); flex-shrink:0; width:2em;}
-  .agenda-text{flex:1 1 auto; min-width:200px; font-weight:600;}
-  .agenda-text--toggle{cursor:pointer;}
-  .agenda-text--toggle:hover .info-icon{background:rgba(124,47,43,0.08);}
-  .proposer{font-size:12px; color:var(--ink-soft); white-space:nowrap; font-family:'IBM Plex Mono',monospace;}
-  .agenda-time{font-size:12px; color:var(--ink-soft); white-space:nowrap; font-family:'IBM Plex Mono',monospace;}
-  .agenda-video{font-size:12px; color:var(--burgundy); white-space:nowrap; font-family:'IBM Plex Mono',monospace;}
-  .agenda-res-list{margin:5px 0 0 20px; display:flex; flex-direction:column; gap:4px;}
-  .agenda-res{font-size:12.5px; display:flex; align-items:center; gap:8px; color:var(--ink-soft); white-space:nowrap; flex-wrap:wrap;}
-  .agenda-res .hit-number{white-space:nowrap;}
-  .info-icon{display:inline-flex; align-items:center; justify-content:center; width:15px; height:15px; border-radius:50%; border:1px solid var(--burgundy); background:none; color:var(--burgundy); font-family:'IBM Plex Mono',monospace; font-style:italic; font-size:10px; font-weight:700; line-height:1; padding:0; cursor:pointer; flex-shrink:0;}
-  .info-icon:hover{background:rgba(124,47,43,0.08);}
-  .info-toggle-text{flex-basis:100%; width:100%; font-size:12.5px; color:var(--ink-soft); white-space:pre-line; margin:4px 0 2px; padding:7px 9px; background:rgba(0,0,0,0.03); border-left:2px solid var(--line);}
-  .meeting-links{display:flex; gap:14px; flex-wrap:wrap; font-size:12.5px;}
-
-  .hit-card{border:1px solid var(--line); background:rgba(255,255,255,0.35); padding:14px 16px; margin-bottom:12px;}
-  .hit-card--agenda{opacity:0.92;}
-  .hit-meta{display:flex; align-items:center; gap:10px; margin-bottom:7px; flex-wrap:wrap;}
-  .hit-label{font-weight:500; font-size:13.5px;}
-  .hit-date{font-family:'IBM Plex Mono',monospace; font-size:11.5px; color:var(--ink-soft); margin-left:auto;}
-  .hit-item{font-weight:500; font-size:14px; margin-bottom:4px;}
-  .hit-text{font-size:13.5px; color:var(--ink-soft); white-space:pre-line; margin-bottom:9px;}
-  .hit-footer{display:flex; gap:14px; flex-wrap:wrap; align-items:center; font-size:12px; font-family:'IBM Plex Mono',monospace; color:var(--ink-soft);}
-  .hit-number{color:var(--burgundy); font-weight:600;}
-  mark{background:rgba(173,122,42,0.4); color:inherit; padding:0 1px; border-radius:2px;}
-
-  .standalone-footer{
-    font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--ink-soft);
-    border-top:1px solid var(--line); padding-top:14px; margin-top:50px; line-height:1.7;
-    max-width:1040px; margin-left:auto; margin-right:auto; padding-left:24px; padding-right:24px;
-  }
-</style>
+<link rel="stylesheet" href="/assets/styles.css">
+<script src="/assets/helpers.js"></script>
 </head>
 <body>
-
-<main>
-  <h1 class="title display">Jednání a usnesení</h1>
-  <p class="lede" style="margin-bottom:16px;">Oficiální schůzky zvolených zástupců Peček, kde rozhodují o věcech veřejných. <span class="stamp">ověřeno</span></p>
-
-  <p class="lede" id="jednani-stats">Archiv se právě načítá…</p>
-
-  <div class="search-bar">
-    <input type="search" id="jednani-search" placeholder="Hledat klíčové slovo, např. „vodojem“, „ČOV“, „rozpočet“…" autocomplete="off">
-    <select id="jednani-filter-year">
-      <option value="">Všechny roky</option>
-    </select>
-  </div>
-
-  <p class="search-status" id="jednani-status">Načítám archiv…</p>
-  <div style="display:flex; align-items:center; justify-content:space-between; gap:12px; margin:0 0 14px; flex-wrap:wrap;">
-    <h3 class="display" style="font-size:19px; margin:0;">Zápisy z jednání</h3>
-    <div class="segmented-control">
-      <span class="segmented-label">Zobrazit:</span>
-      <div class="segmented-group" role="group" aria-label="Typ jednání">
-        <button type="button" class="segmented-btn active" data-type="">Vše</button>
-        <button type="button" class="segmented-btn" data-type="Rada">Rada</button>
-        <button type="button" class="segmented-btn" data-type="Zastupitelstvo">Zastupitelstvo</button>
-      </div>
+<header class="site">
+  <div class="header-inner">
+    <div class="brand-row">
+      <a class="brand" href="/">
+        <div class="mark">P</div>
+        <h1>Pečky online <small>tvoří PečkyBot AI</small></h1>
+      </a>
+      <button class="nav-toggle" id="navToggle" type="button" aria-expanded="false" aria-controls="tabs">
+        <span class="bars"><span></span></span>Menu
+      </button>
     </div>
   </div>
-  <div id="jednani-results"></div>
+  <nav class="tabs" id="tabs">
+    <a class="navlink" href="/">Domů</a>
+    <a class="navlink active" href="/jednani/">📅 Jednání</a>
+    <a class="navlink" href="/noviny/">📰 Pečecké noviny</a>
+    <a class="navlink" href="/lide/">Lidé</a>
+    <a class="navlink" href="/plan/">Plán</a>
+    <a class="navlink" href="/volby/2018/">Volby 2018</a>
+    <a class="navlink" href="/volby/2022/">Volby 2022</a>
+    <a class="navlink" href="/volby/2026/">Volby 2026</a>
+    <a class="navlink" href="/smlouvy/">Smlouvy</a>
+    <a class="navlink" href="/zakazky/">Zakázky</a>
+    <a class="navlink" href="/pozemky/">Pozemky</a>
+    <a class="navlink" href="/pokladna/">Pokladna</a>
+    <a class="navlink" href="/o-webu/">O webu</a>
+  </nav>
+</header>
 
-  <div class="callout">
-    Data pochází z jednorázového strojově čitelného exportu webu
-    <a href="https://mesto-pecky.usneseni.cz/verejne/" target="_blank" rel="noopener">mesto-pecky.usneseni.cz</a>
-    pořízeného 4. 8. 2026 (verbatim texty, bez jazykových úprav). Novější jednání se do archivu doplní při
-    dalším běhu exportu. Kompletní datový snímek se všemi detaily (vč. jmenovitých hlasování a plných zápisů)
-    je k nahlédnutí ve zdrojových datech projektu (<code>archive-2026-08-04.json</code> v tomto adresáři).
-    Čísla parcel („č. parc. …“) jsou tam, kde se to podařilo dohledat přes REST API ČÚZK, prolinkovaná
-    na detail parcely na <a href="https://vdp.cuzk.gov.cz/" target="_blank" rel="noopener">Nahlížení do KN (VDP)</a>. <span class="stamp">ověřeno</span>
-  </div>
+<main>
+  <section class="panel active" id="panel-jednani">
+    <h2 class="title display">Jednání a usnesení</h2>
+    <p class="lede" style="margin-bottom:16px;">Oficiální schůzky zvolených zástupců Peček, kde rozhodují o věcech veřejných. <span class="stamp">ověřeno</span></p>
 
-  <div class="callout">
-    Odkazy <strong>„pozvánka"</strong> a <strong>„podepsaný zápis (PDF)"</strong> u jednotlivých jednání někdy po kliknutí z tohoto webu místo konkrétního dokumentu otevřou jen úvodní stránku archivu usneseni.cz — zdrojový web takto chrání tyto dva konkrétní odkazy proti prokliku z cizích stránek (ostatní odkazy, „zápis" a „usnesení", tímto omezené nejsou a fungují spolehlivě). Samotné odkazy na našem webu jsou správné; při otevření přímo v adresním řádku fungují. <span class="stamp">přiznaná mezera</span>
-  </div>
-</main>
+    <p class="lede" id="jednani-stats">Archiv se právě načítá…</p>
 
-<footer class="standalone-footer">
-  Samostatná stránka sekce „Jednání" webu <a href="https://pecky.online/#jednani">pecky.online</a> — neoficiální občanský projekt, Pečky, okres Kolín.
-</footer>
+    <div class="search-bar">
+      <input type="search" id="jednani-search" placeholder="Hledat klíčové slovo, např. „vodojem“, „ČOV“, „rozpočet“…" autocomplete="off">
+      <select id="jednani-filter-year">
+        <option value="">Všechny roky</option>
+      </select>
+    </div>
+
+    <p class="search-status" id="jednani-status">Načítám archiv…</p>
+    <div style="display:flex; align-items:center; justify-content:space-between; gap:12px; margin:0 0 14px; flex-wrap:wrap;">
+      <h3 class="display" style="font-size:19px; margin:0;">Zápisy z jednání</h3>
+      <div class="segmented-control">
+        <span class="segmented-label">Zobrazit:</span>
+        <div class="segmented-group" role="group" aria-label="Typ jednání">
+          <button type="button" class="segmented-btn active" data-type="">Vše</button>
+          <button type="button" class="segmented-btn" data-type="Rada">Rada</button>
+          <button type="button" class="segmented-btn" data-type="Zastupitelstvo">Zastupitelstvo</button>
+        </div>
+      </div>
+    </div>
+    <div id="jednani-results"></div>
+
+    <div class="callout">
+      Data pochází z jednorázového strojově čitelného exportu webu
+      <a href="https://mesto-pecky.usneseni.cz/verejne/" target="_blank" rel="noopener">mesto-pecky.usneseni.cz</a>
+      pořízeného 4. 8. 2026 (verbatim texty, bez jazykových úprav). Novější jednání se do archivu doplní při
+      dalším běhu exportu. Kompletní datový snímek se všemi detaily (vč. jmenovitých hlasování a plných zápisů)
+      je k nahlédnutí ve zdrojových datech projektu.
+    </div>
+
+    <div class="callout">
+      Odkazy <strong>„pozvánka"</strong> a <strong>„podepsaný zápis (PDF)"</strong> u jednotlivých jednání někdy po kliknutí z tohoto webu místo konkrétního dokumentu otevřou jen úvodní stránku archivu usneseni.cz — zdrojový web takto chrání tyto dva konkrétní odkazy proti prokliku z cizích stránek (ostatní odkazy, „zápis" a „usnesení", tímto omezené nejsou a fungují spolehlivě). Samotné odkazy na našem webu jsou správné; při otevření přímo v adresním řádku fungují. <span class="stamp">přiznaná mezera</span>
+    </div>
+  </section>
 
 <script>
   // ===== Jednání: archiv + fulltext hledání =====
@@ -219,10 +93,6 @@
   let JEDNANI_LOADING = null;
   let PARCEL_URLS = {};
 
-  function jStripDiacritics(s){
-    return (s || '').toString().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
-  }
-  function jNorm(s){ return jStripDiacritics(s).toLowerCase(); }
   function jTextSim(a, b){
     const clean = s => jNorm(s || '').replace(/[^a-z0-9\s]/g, ' ').replace(/\s+/g, ' ').trim();
     const na = clean(a), nb = clean(b);
@@ -267,9 +137,6 @@
     const h = Math.floor(totalMin / 60), m = totalMin % 60;
     return h > 0 ? `${h}h:${String(m).padStart(2, '0')}min` : `${m}min`;
   }
-  function jEscapeHtml(s){
-    return (s || '').replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
-  }
   function jFormatDate(iso){
     if (!iso) return '';
     const parts = iso.split('-');
@@ -277,24 +144,14 @@
     const [y, mo, d] = parts;
     return `${parseInt(d, 10)}. ${parseInt(mo, 10)}. ${y}`;
   }
-  function jHighlight(text, rawQuery){
-    let html = jEscapeHtml(text || '');
-    const words = (rawQuery || '').trim().split(/\s+/).filter(w => w.length > 1);
-    words.forEach(w => {
-      const esc = w.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-      if (!esc) return;
-      try { html = html.replace(new RegExp('(' + esc + ')', 'gi'), '<mark>$1</mark>'); } catch (e) {}
-    });
-    return html;
-  }
 
   // ===== Prolinkování zmínek o parcelách na detail na Nahlížení do KN (VDP) =====
-  // Mapování „č. parc. NNNN(/NNN)“ -> URL generuje scripts/update-pozemky.py do
-  // parcely-odkazy.json (katastr-přesné dohledání přes vdp.cuzk.gov.cz; číslo, u kterého
-  // skript zjistil kolizi mezi víc katastry nebo katastr vůbec neurčil, se do mapy
-  // nepřidává, takže tu zůstane nepodlinkované — bezpečnější, než odkázat na špatnou
-  // parcelu). Prolinkuje jen číslo, které následuje hned za výskytem „parc“ (pokrývá
-  // „č. parc. 1680“, „č.parc.1595“, „parc. 348/3“…); druhé a další číslo ve výčtu
+  // Mapování „č. parc. NNNN(/NNN)“ -> URL generuje pecky-jednani/scripts/update-pozemky.py
+  // do pecky-jednani/parcely-odkazy.json (katastr-přesné dohledání přes vdp.cuzk.gov.cz;
+  // číslo, u kterého skript zjistil kolizi mezi víc katastry nebo katastr vůbec neurčil,
+  // se do mapy nepřidává, takže tu zůstane nepodlinkované — bezpečnější, než odkázat na
+  // špatnou parcelu). Prolinkuje jen číslo, které následuje hned za výskytem „parc“
+  // (pokrývá „č. parc. 1680“, „č.parc.1595“, „parc. 348/3“…); druhé a další číslo ve výčtu
   // odděleném čárkou beze slova „parc“ se neprolinkuje (bezpečnější než hádat, které
   // navazující číslo do výčtu ještě patří).
   function jLinkParcely(escapedHtml){
@@ -394,8 +251,8 @@
     JEDNANI_LOADING = (async () => {
       try {
         const [res, parcelRes] = await Promise.all([
-          fetch('pecky-jednani.json'),
-          fetch('parcely-odkazy.json').catch(() => null)
+          fetch('/pecky-jednani/pecky-jednani.json'),
+          fetch('/pecky-jednani/parcely-odkazy.json').catch(() => null)
         ]);
         if (!res.ok) throw new Error('HTTP ' + res.status);
         if (parcelRes && parcelRes.ok) {
@@ -508,14 +365,6 @@
     return `<li>${jResInfoIcon(r)}${link} — ${jLinkedText(r.item || '')} ${jOutcomeBadgeHtml(r)}${jResInfoText(r)}</li>`;
   }
 
-  const J_TITLE_RE = /^(Ing\.|Mgr\.|Bc\.|MUDr\.|PhDr\.|JUDr\.|RNDr\.|MgA\.|Ph\.D\.|CSc\.|DiS\.|MSc\.|doc\.|prof\.)$/i;
-  function jInitials(name){
-    const parts = (name || '').split(/\s+/).filter(p => p && !J_TITLE_RE.test(p));
-    if (!parts.length) return '?';
-    const first = parts[0][0] || '';
-    const last = parts.length > 1 ? parts[parts.length - 1][0] : '';
-    return (first + last).toUpperCase();
-  }
   function jIsFutureMeeting(dateIso){
     const now = new Date();
     const today = now.getFullYear() + '-' + String(now.getMonth() + 1).padStart(2, '0') + '-' + String(now.getDate()).padStart(2, '0');
@@ -625,7 +474,7 @@
         <div class="meeting-row-detail" hidden>
           ${m.video_note ? `<p class="lede" style="margin:6px 0 10px; font-size:12.5px; color:var(--burgundy);">⚠ ${jEscapeHtml(m.video_note)}</p>` : ''}
           ${detailTopHtml}
-          ${m.links.youtube ? `<a class="toggle-details" href="${m.links.youtube}" target="_blank" rel="noopener" style="margin:0 0 14px;"><img class="meeting-yt-icon" src="../img/favicons/youtube-com.png" alt="" loading="lazy"> Video ↗</a>` : ''}
+          ${m.links.youtube ? `<a class="toggle-details" href="${m.links.youtube}" target="_blank" rel="noopener" style="margin:0 0 14px;"><img class="meeting-yt-icon" src="/img/favicons/youtube-com.png" alt="" loading="lazy"> Video ↗</a>` : ''}
           ${jRenderAgendaList(m)}
           <div class="meeting-links">
             ${m.links.invitation ? `<a href="${m.links.invitation}" target="_blank" rel="noopener" title="Zdrojový web někdy odkaz z cizí stránky blokuje a otevře jen úvodní stránku archivu — zkuste prosím znovu, případně vyhledejte jednání přímo na usneseni.cz.">Pozvánka PDF ↗</a>` : ''}
@@ -651,6 +500,32 @@
       });
     });
   }
+
+  async function jGotoMeeting(uuid){
+    const navlink = document.querySelector('.navlink[data-panel="jednani"]');
+    if (navlink) navlink.click();
+    jTypeFilter = '';
+    document.querySelectorAll('.segmented-btn').forEach(b => b.classList.toggle('active', b.dataset.type === ''));
+    document.getElementById('jednani-filter-year').value = '';
+    document.getElementById('jednani-search').value = '';
+    await loadJednani();
+    jRunSearch();
+    const row = document.querySelector('#jednani-results .meeting-row[data-uuid="' + uuid + '"]');
+    if (!row) return;
+    const detail = row.querySelector('.meeting-row-detail');
+    const toggle = row.querySelector('.meeting-toggle');
+    detail.removeAttribute('hidden');
+    toggle.textContent = '−';
+    row.classList.add('meeting-row--expanded');
+    row.scrollIntoView({behavior: 'smooth', block: 'start'});
+  }
+
+  document.querySelectorAll('.pozemek-jednani-link').forEach(el => {
+    el.addEventListener('click', (e) => {
+      e.preventDefault();
+      jGotoMeeting(el.dataset.jednaniUuid);
+    });
+  });
 
   function jRenderHit(h, rawQuery){
     const m = h.m;
@@ -766,5 +641,13 @@
   loadJednani();
 </script>
 
+</main>
+<footer class="site">
+  <p style="margin:0 0 4px;">Pečky 28911, okres Kolín</p>
+  <p style="margin:0 0 4px;">Sestaveno s pomocí umělé inteligence (vše je ozdrojované, ale kontrolujte si informace i z dalších zdrojů).</p>
+  <p style="margin:0;">Dotazy mi piště na <a href="mailto:dopecek@gmail.com">dopecek@gmail.com</a>.</p>
+</footer>
+
+<script src="/assets/common.js"></script>
 </body>
 </html>

@@ -5,25 +5,31 @@ o samosprávě města Pečky (okres Kolín, Středočeský kraj).
 
 ## Obsah složky
 
-- `index.html` — celá webová stránka (jeden soubor, HTML/CSS/JS, bez závislostí
-  kromě Google Fonts přes CDN). Otevřete přímo v prohlížeči nebo nahrajte na
-  GitHub Pages / jakýkoli statický hosting. Několik sekcí (Jednání, Pečecké
-  noviny) si data načítá přes `fetch()`, proto je pro místní test potřeba
-  spustit lokální server (např. `python3 -m http.server`), otevření
-  `index.html` přímo ze souboru (`file://`) fetch v některých prohlížečích
-  zablokuje.
+- **Vícestránkový statický web** (od migrace 30. 8. 2026 — viz
+  `ARCHITEKTURA-MIGRACE.md`), bez runtime frameworku, bez závislostí
+  kromě Google Fonts přes CDN. `content/<sekce>.html` (jen obsah dané
+  sekce) + sdílené `templates/page.html`, `assets/nav.html`,
+  `assets/footer.html`, `assets/styles.css`, `assets/common.js`,
+  `assets/helpers.js` se skládají přes `scripts/build.py` do 13
+  samostatných veřejných stránek (`index.html` na kořeni = Domů,
+  `jednani/index.html`, `noviny/index.html`, `volby/2018/index.html`
+  atd.) — needit vygenerované stránky přímo, vždy přes odpovídající
+  `content/*.html` + `scripts/build.py`. Několik sekcí (Jednání, Pečecké
+  noviny, Lidé) si data načítá přes `fetch()`, proto je pro místní test
+  potřeba spustit lokální server (např. `python3 -m http.server`),
+  otevření vygenerovaných stránek přímo ze souboru (`file://`) fetch
+  v některých prohlížečích zablokuje.
 - `pecky-jednani/` — vše k sekci „Jednání": `pecky-jednani.json` (odlehčený
   index pro fulltextové hledání na webu), `archive-2026-08-04.json`
   (kompletní datový snímek se všemi detaily vč. jmenovitých hlasování),
   `README.md`/`SPEC.md`/`automation-kontrola-usneseni-cz.md`/
   `automation-katastr-parcely.md` (zadání, rozhodnutí a postup průběžné
   aktualizace), `Data/{datum}/` (lokální archiv PDF zápisů a
-  pozvánek — kvůli velikosti je v `.gitignore`, do repa se nenahrává),
-  `scripts/` (pomocné skripty) a samostatná stránka `index.html`
-  (stejný obsah bez hlavičky/navigace hlavního webu).
+  pozvánek — kvůli velikosti je v `.gitignore`, do repa se nenahrává)
+  a `scripts/` (pomocné skripty, vč. `update-pozemky.py`).
 - `pecky-noviny/` — vše k sekci „Pečecké noviny": archiv PDF, obálky,
-  fulltextový index, nástroje (`download.py`, `render_pages.py`) a
-  samostatná stránka `index.html`. Viz `pecky-noviny/README.md`.
+  fulltextový index a nástroje (`download.py`, `render_pages.py`).
+  Viz `pecky-noviny/README.md`.
 - `pecky-volby/` — vše k volebním ročníkům, jedna podsložka na ročník
   (`2018/`, `2022/`, `2026/`) s vlastním `README.md`. Součástí jsou i
   obrázky ročníku: skeny volební inzerce (`volebni-programy-2018/`,
@@ -128,7 +134,102 @@ indexu, špatnému názvu projektu a vzorku pouhých 20 nejnovějších dotací.
   a všem 148 dotacím systematicky prověřen — dokud se to nestane, netvrdit o nich,
   že se nerealizovaly.
 
+## Stav sekcí
+
+Rozcestník: kdy se u které sekce naposledy kontroloval zdroj a kdy se
+naposledy změnil obsah. Řazeno od nejnověji změněné. Data jsou absolutní
+datumy — stáří („před 6 dny") se dopočítává až při čtení, aby tabulka
+nezastarala bez denního běhu. Restrukturalizace a refactory se sem
+nezapisují, jen změny obsahu.
+
+| Sekce | Režim | Kontrola | Změna | Co naposledy |
+|---|---|---|---|---|
+| [Volby 2026](pecky-volby/2026/README.md) | hlídat | 30. 8. 2026 | 30. 8. 2026 | kompletní kandidátní listiny (105 kandidátů) |
+| [Jednání](pecky-jednani/README.md) | denně | 30. 8. 2026 | 30. 8. 2026 | Rada 31/2026 (jen Pozvánka) |
+| [Lidé](pecky-lide/README.md) | na vyžádání | 30. 8. 2026 | 30. 8. 2026 | oprava rozbitých cest k fotkám po migraci |
+| [Pozemky](pecky-pozemky/README.md) | odvozená | 30. 8. 2026 | 27. 8. 2026 | regenerace tabulek Nákup/Prodej |
+| [Volby 2022](pecky-volby/2022/README.md) | uzavřené | — | 25. 8. 2026 | blok „Kdo byl zvolen" |
+| [Pečecké noviny](pecky-noviny/README.md) | denně | 30. 8. 2026 | 24. 8. 2026 ? | vydání 7–8/2026 |
+| [Domů](pecky-domu/README.md) | odvozená | — | 24. 8. 2026 | brand header |
+| [Volby 2018](pecky-volby/2018/README.md) | uzavřené | — | 24. 8. 2026 | barva KSČM v paletě |
+| [O webu](pecky-o-webu/README.md) | odvozená | — | 24. 8. 2026 | vlastní složka + README |
+| [Smlouvy](pecky-smlouvy/README.md) | denně | 30. 8. 2026 | 20. 8. 2026 | 2 nové smlouvy |
+| [Plán](pecky-plan/README.md) | na vyžádání | 10. 8. 2026 | 10. 8. 2026 | sekce Obchvat |
+| [Zakázky](pecky-zakazky/README.md) | denně | 30. 8. 2026 | 6. 8. 2026 | 1 nová zakázka |
+| [Pokladna](pecky-pokladna/README.md) | na vyžádání | 6. 8. 2026 | 6. 8. 2026 | blok Bankovní účty |
+
+Režimy: **denně** = má zdroj, který kontroluje denní rutina · **hlídat** =
+čeká se na událost (volby 2026) · **na vyžádání** = kontroluje se, jen když
+o to někdo požádá · **odvozená** = nemá vlastní externí zdroj, mění se
+s jinou sekcí · **uzavřené** = historický ročník, nový obsah se nečeká.
+Pomlčka ve sloupci Kontrola znamená „nebylo co kontrolovat", ne opomenutí.
+
+Tabulku aktualizuje každá instrukce, která sáhne na obsah některé sekce —
+automatická denní rutina i ručně vyvolaná: přepíše řádek dotčené sekce
+(datum kontroly, u reálné změny i datum změny a sloupec „Co naposledy")
+a přesune ho na správné místo v řazení. Ostatní řádky nechá být.
+
+`?` u data znamená nedoložený odhad — nahradit, až se zjistí přesné datum.
+
 ## Poslední aktualizace
+
+30. srpna 2026 (**architektura webu přepracována z jednosouborového
+`index.html` na vícestránkový statický web** — plán v
+`ARCHITEKTURA-MIGRACE.md`, motivace: web přerostl jednosouborovou
+strukturu a chyběly trvalé odkazy na jednotlivé sekce i záložky uvnitř
+nich. Obsah rozřezán do `content/<sekce>.html` (13 souborů), sdílené
+části do `templates/page.html`, `assets/nav.html`, `assets/footer.html`,
+`assets/styles.css`, `assets/common.js` (nav, tabulky, subtaby — teď
+s trvalým odkazem na konkrétní záložku přes hash, např.
+`/pozemky/#prodej`, dřív subtaby neměly URL vazbu vůbec) a
+`assets/helpers.js` (funkce sdílené mezi Jednáním/Novinami/Lidmi:
+`jEscapeHtml`, `jNorm`, `jHighlight`, `jInitials`). Nový
+`scripts/build.py` skládá z těchto částí všech 13 veřejných stránek
+(`/`, `/jednani/`, `/noviny/`, `/lide/`, `/plan/`, `/volby/2018/`,
+`/volby/2022/`, `/volby/2026/`, `/smlouvy/`, `/zakazky/`, `/pozemky/`,
+`/pokladna/`, `/o-webu/`) + `sitemap.xml`/`robots.txt` a validuje
+HTML/JS. Staré odkazy typu `pecky.online/#pozemky` přesměrovává redirect
+v `content/domu.html` na novou adresu (mapovací tabulka pro 5 sekcí, kde
+se nová cesta liší od starého `data-panel` slugu: `zpravodaj`→`/noviny/`,
+`owebu`→`/o-webu/`, `volby2018/2022/2026`→`/volby/RRRR/`). Zjištěná
+a opravená chyba při migraci: `lApplyRoute()` v Lidé očekávala vždy hash
+začínající `lide` (na jednostránkovém webu tam vždy byl), na samostatné
+stránce `/lide/` bez hashe proto adresář vůbec nevykreslila — opraveno
+uvolněním podmínky. Ověřeno jsdom smoke testem (13 stránek bez JS chyb,
+fetch dat v Jednání/Novinách/Lidech, deep link na osobu, subtaby s
+hashem) a samostatným testem redirect logiky (19+7 testů, vše OK) i
+kontrolou, že všech 524 statických odkazů/src na vygenerovaných
+stránkách míří na existující soubory. Staré duplicitní samostatné
+stránky `pecky-jednani/index.html` a `pecky-noviny/index.html` smazány
+(nahradily je plnohodnotné `/jednani/` a `/noviny/`). `update-pozemky.py`
+upraven, aby psal do `content/pozemky.html` místo přímo do `index.html`
+— dokumentace (`CLAUDE.md`, `pecky-jednani/automation-katastr-parcely.md`,
+`pecky-jednani/README.md`, `pecky-noviny/README.md`,
+`pecky-pozemky/README.md`, `pecky-zakazky/README.md` a další sekce)
+aktualizována. Nepublikováno na GitHub — čeká na výslovné „Publikuj".)
+
+30. srpna 2026 (denní kontrola čtyř zdrojů. **Jednání:** na usneseni.cz
+přibyla Rada 31/2026 (31. 8. 2026) — zatím jen s Pozvánkou, přidána do
+`pecky-jednani/pecky-jednani.json` jako záznam s `resolutions: []`,
+`links.minutes`/`resolutions`/`pdf` = `null`, `time: "15:00"`, `venue`
+a 11 body agendy vytaženými z PDF pozvánky přes pdf.js v prohlížeči
+(postup viz `pecky-jednani/README.md` → „Jednání jen s Pozvánkou").
+Při té příležitosti **přepočteny hodnoty v `meta`**, které se rozešly se
+skutečností: `resolutions_count` 2743 → 2749 a `agenda_items_count`
+4062 → 4074 (počítáno ze samotných dat, dřívější čísla nezahrnovala
+přírůstek Rady 30/2026). Ověřeno, že usnesení ZM 5/2026 je na webu
+nadále jediné (UZ-33-5/26) a že v playlistu „Zasedání ZM" stále chybí
+video k ZM 3/2026 (25. 5. 2026) — známá mezera trvá. **Pečecké noviny:**
+nejnovější číslo v archivu pecky.cz je 7–8/2026, tedy beze změny.
+**Zakázky:** diff proti `pecky-zakazky/pecky-zakazky-ids.json` — 175
+nalezených ID, 0 nových, 0 zmizelých, soubor nedotčen. **Smlouvy:**
+žádná nová smlouva (nejnovější podpis je nadále 23. 7. 2026, už na webu),
+ale konektor Hlídače státu vrací u téhož dotazu **méně** záznamů než při
+kontrole 16. 8. 2026 — skupina 179 smluv / 102 075 674 Kč místo 182 /
+102 416 276 Kč, samotný úřad 46 / 32 831 378 Kč místo 47 / 33 132 977 Kč.
+Souhrnná čísla v sekci Smlouvy proto **záměrně ponechána beze změny** —
+úbytek záznamů v registru není vysvětlený a přepsat ho naslepo by bylo
+horší než přiznaná datace snímku; k rozhodnutí uživatele.)
 
 25. srpna 2026 (pravidlo naplněno u Voleb 2022: do subpanelu „Výsledky voleb"
 přidán blok „Kdo byl zvolen" — tabulka vedení a rady (7) s uskupením a
@@ -278,7 +379,10 @@ přes prohlížeč, který bot ochranu neblokuje)
 ## Publikování na GitHub Pages
 
 1. Vytvořte nový repozitář (např. `pecky-online`)
-2. Nahrajte `index.html` a složky sekcí (`pecky-jednani/`, `pecky-noviny/`,
+2. Před nahráním spusťte `python3 scripts/build.py` — vygeneruje
+   `index.html`, `jednani/`, `noviny/`, `volby/2018/` atd. ze
+   `content/*.html`. Nahrajte celý výsledek (vygenerované stránky,
+   `assets/`, složky sekcí jako `pecky-jednani/`, `pecky-noviny/`,
    `pecky-zakazky/` a další) do kořene repozitáře
 3. Settings → Pages → source: `main` branch, root
 4. Web poběží na `https://<vaše-uživatelské-jméno>.github.io/pecky-online/`

@@ -74,7 +74,7 @@ konstatuje v `UR-363-37/24` z 21. 10. 2024, pamětní strom v lokalitě
 Bačov řeší `UR-241-26/25`).
 
 ## Data ve složce
-Textový obsah panelu žije přímo v `index.html` (žádná samostatná datová
+Textový obsah panelu žije v `content/volby2022.html` (žádná samostatná datová
 sada). Ve složce ročníku jsou navíc dvě sady obrázků:
 
 - `volebni-programy-2022/` — 6 skenů volební inzerce uskupení z

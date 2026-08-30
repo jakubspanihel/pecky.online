@@ -1,0 +1,43 @@
+  <section class="panel active" id="panel-domu">
+    <img class="peckybot" src="/img/peckybot/welcome.png" alt="PečkyBot">
+    <h2 class="title display">Ahoj! 👋 </h2>
+    <p class="lede"><strong>Já jsem PečkyBot. <br>Procházím oficiální web města a další zdroje.</strong></p>
+    <p class="lede">Dotazy mi piště na <a href="mailto:dopecek@gmail.com">dopecek@gmail.com</a>.</p>
+
+    <h3 class="display" style="font-size:19px; margin:38px 0 4px;">Stav sekcí</h3>
+    <p class="lede" style="margin-bottom:16px;">Kdy jsem se u které sekce naposledy díval do zdroje a kdy se naposledy změnil obsah. Řazeno od nejnověji změněné.</p>
+    {{STAV_SEKCI}}
+    <p class="majority-note" style="margin-top:12px;">Pomlčka ve sloupci Kontrola znamená, že sekce nemá externí zdroj ke kontrole — ne že se na ni zapomnělo. Otazník u data je nedoložený odhad.</p>
+  </section>
+
+<script>
+  // ===== Zpětná kompatibilita: staré odkazy z jednostránkového webu =====
+  // (viz ARCHITEKTURA-MIGRACE.md, 2.3). Odkazy typu pecky.online/#pozemky
+  // mohly být nasdílené na Facebooku, v novinách apod. — po migraci na
+  // vícestránkovou strukturu je potřeba je poslat na novou adresu. Root
+  // index.html (Domů) je jediné místo, kam takový starý odkaz vůbec může
+  // dorazit (hash na kořenové doméně), takže redirect žije právě tady.
+  (function(){
+    var OLD_TO_NEW = {
+      domu: '/', jednani: '/jednani/', zpravodaj: '/noviny/', lide: '/lide/',
+      plan: '/plan/', volby2018: '/volby/2018/', volby2022: '/volby/2022/',
+      volby2026: '/volby/2026/', smlouvy: '/smlouvy/', zakazky: '/zakazky/',
+      pozemky: '/pozemky/', pokladna: '/pokladna/', owebu: '/o-webu/'
+    };
+    var hash = window.location.hash.replace(/^#/, '');
+    if (!hash) return;
+    var panel = hash.split(/[/?]/)[0];
+    if (!Object.prototype.hasOwnProperty.call(OLD_TO_NEW, panel)) return;
+    var target = OLD_TO_NEW[panel];
+    if (target === '/') {
+      // #domu na kořenové stránce - obsah je už správně zobrazený, jen smazat hash z URL
+      if (hash === 'domu') history.replaceState(null, '', '/');
+      return;
+    }
+    // podcesta/parametry za jménem panelu (např. #lide/osoba/paluskam?scope=all)
+    // se zachovávají celé, včetně jména panelu - Lidé si svoje vnitřní
+    // směrování (#lide/...) po migraci ponechaly beze změny
+    var hasSubpath = hash.length > panel.length;
+    window.location.replace(target + (hasSubpath ? '#' + hash : ''));
+  })();
+</script>

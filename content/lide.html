@@ -1,0 +1,575 @@
+  <section class="panel active" id="panel-lide">
+    <h2 class="title display">Lidé, kteří řídí město</h2>
+    <p class="lede">Město řídí dvě propojené skupiny. Zastupitelstvo je 21členný sbor, který si občané volí přímo v komunálních volbách jednou za čtyři roky — má poslední slovo v zásadních otázkách jako rozpočet nebo majetek města. Zastupitelstvo si pak ze svého středu zvolí radu, menší výkonný tým, který řídí každodenní chod úřadu mezi jednotlivými zasedáními. Níž se dozvíš, kdo v nich sedí a o čem přesně rozhodují.</p>
+
+    <div class="search-bar">
+      <input type="search" id="lide-search" placeholder="Hledat jméno, funkci nebo uskupení, např. „Švejnohová“, „místostarosta“, „NAŠE PEČKY“…" autocomplete="off" aria-label="Hledat v adresáři">
+      <div class="segmented-control">
+        <span class="segmented-label">Rozsah:</span>
+        <div class="segmented-group" role="group" aria-label="Rozsah adresáře">
+          <button type="button" class="segmented-btn active" data-lide-scope="current">Jen aktuální</button>
+          <button type="button" class="segmented-btn" data-lide-scope="all">Včetně historie</button>
+        </div>
+      </div>
+    </div>
+    <div class="filter-chips" id="lide-filter-org" role="group" aria-label="Filtr podle uskupení" hidden></div>
+    <div class="filter-chips" id="lide-filter-role" role="group" aria-label="Filtr podle role" hidden></div>
+
+    <p class="search-status" id="lide-status" aria-live="polite">Načítám adresář…</p>
+    <div id="lide-results"></div>
+
+    <div class="callout" style="margin-top:26px;">
+      <strong>O fotografiích:</strong> u <span id="lide-photo-count">13 z 21</span> členů se podařilo dohledat fotografii. Šest členů Sdružení ODS a nezávislých kandidátů má oficiální portrét z <a href="https://www.ods.cz/ms.pecky/volby2022/komunalni/2570-pecky" target="_blank" rel="noopener">kandidátky na ods.cz</a> (stejné fotky, jaké strana používala i v tištěné inzerci). Sedm členů NAŠE PEČKY je z volebního inzerátu v Pečeckých novinách 9/2022 (str. 11), kde kandidáti sami zveřejnili portrét se jménem. U zbylých osmi (SNK Pečky Pečákům, Lidé pro Pečky s podporou SPD, ČSSD a sjednocená levice) jsem nenašel žádný oficiální web s fotkami jednotlivých kandidátů — jejich inzerce v novinách obsahovala jen jmenný seznam nebo nepojmenovanou skupinovou fotku, ze které nelze spolehlivě přiřadit obličej ke jménu — proto jen barevný iniciálový avatar.
+    </div>
+  </section>
+
+<script>
+  // ===== Lidé: adresář zastupitelstva a rady z pecky-lide/ =====
+  // Data: people.json + organizations.json + affiliations.json (viz pecky-lide/SPEC.md).
+  // Kartičky se generují, v HTML se neudržují ručně.
+  let LIDE_DB = null;
+  let LIDE_LOADING = null;
+
+  // pořadí funkcí ve vedení města; zároveň slouží jako test „je členem rady"
+  const L_EXEC_RANK = {starosta: 0, mistostarosta: 1, rada: 2};
+
+  // které role nabídnout jako filtr a jak je pojmenovat (pořadí = pořadí čipů)
+  const L_ROLE_LABELS = [
+    ['starosta', 'Starosta'],
+    ['mistostarosta', 'Místostarostové'],
+    ['rada', 'Radní'],
+    ['zastupitel', 'Zastupitelé'],
+    ['komise', 'Výbory a komise'],
+    ['vedeni', 'Vedení organizací'],
+    ['zamestnanec', 'Zaměstnanci úřadu'],
+  ];
+
+  // váha funkce v timeline detailu — od nejvýznamnější po nejobecnější
+  const L_TL_ORDER = ['starosta', 'mistostarosta', 'rada', 'vedeni', 'komise', 'zastupitel', 'zamestnanec', 'clen', 'kandidatka'];
+  const L_TL_RANK = (t) => {
+    const i = L_TL_ORDER.indexOf(t);
+    return i === -1 ? L_TL_ORDER.length : i;
+  };
+
+  const L_STATE = {q: '', orgs: new Set(), roles: new Set(), scope: 'current', open: '', orgView: ''};
+
+  function lFullName(p){
+    return [p.title_before, p.first_name, p.last_name, p.title_after].filter(Boolean).join(' ');
+  }
+  function lPlainName(p){
+    return [p.first_name, p.last_name].filter(Boolean).join(' ');
+  }
+  // "1. místostarosta (uvolněný)" → "1. místostarosta"; první písmeno velké
+  function lRoleLabel(role){
+    const t = (role || '').replace(/\s*\((?:ne)?uvolněný\)\s*$/i, '').trim();
+    return t ? t.charAt(0).toUpperCase() + t.slice(1) : '';
+  }
+  function lFormatDate(iso){
+    const m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(iso || '');
+    if (m) return `${Number(m[3])}. ${Number(m[2])}. ${m[1]}`;
+    return /^\d{4}$/.test(iso || '') ? iso : (iso || '');
+  }
+  // řadicí klíč z data v mixu YYYY / YYYY-MM-DD; prázdné datum až nakonec
+  function lDateKey(v){
+    if (!v) return '0000-00-00';
+    return /^\d{4}$/.test(v) ? v + '-01-01' : v;
+  }
+  // období vazby lidsky; rozlišuje „trvá" od „konec neznámý"
+  function lRange(a){
+    const from = a.from ? lFormatDate(a.from) : '';
+    if (a.current) return from ? `${from} – dosud` : 'trvá, začátek neznámý';
+    if (a.to) return from ? `${from} – ${lFormatDate(a.to)}` : `do ${lFormatDate(a.to)}`;
+    return from ? `od ${from}, konec neznámý` : 'období neznámé';
+  }
+  function lSourceLinks(sources){
+    return (sources || []).filter(s => s && s.url)
+      .map(s => `<a href="${jEscapeHtml(s.url)}" target="_blank" rel="noopener">${jEscapeHtml(s.label || s.url)} ↗</a>`)
+      .join('');
+  }
+
+  // spojí tři pole do jedné pracovní struktury: osoba + její vazby + rozvinutá organizace
+  function lJoin(people, orgs, affs){
+    const orgById = {};
+    orgs.forEach((o, i) => { o._order = i; orgById[o.id] = o; });
+
+    const byPerson = {};
+    affs.forEach(a => {
+      a._org = orgById[a.organization_id] || null;
+      (byPerson[a.person_id] = byPerson[a.person_id] || []).push(a);
+    });
+
+    people.forEach(p => {
+      p._affs = byPerson[p.id] || [];
+      const list = p._affs.find(a => a.role_type === 'kandidatka');
+      p._party = list ? list._org : null;
+      p._mandate = p._affs.find(a => a.role_type === 'zastupitel' && a.current) || null;
+      p._exec = p._affs.find(a => a.current && L_EXEC_RANK[a.role_type] !== undefined) || null;
+
+      // poslední mandát v historii — pro bývalé členy, aby se dala ukázat role i konec
+      p._lastMandate = p._affs.filter(a => a.role_type === 'zastupitel')
+        .sort((x, y) => lDateKey(y.from).localeCompare(lDateKey(x.from)))[0] || null;
+      p._until = (!p._mandate && p._lastMandate) ? p._lastMandate.to : '';
+
+      // na kartičce se ukazuje funkce v radě, jinak mandát, u bývalých ten poslední
+      p._displayRole = p._exec ? p._exec.role
+        : (p._mandate ? p._mandate.role : (p._lastMandate ? p._lastMandate.role : ''));
+
+      // timeline: aktuální vazby nahoru, uvnitř podle váhy funkce a pak od nejnovější.
+      // Váha musí být před datem — starosta i mandát začaly týmž dnem a čistě
+      // chronologické řazení by nahoru vytáhlo náhodně to, co je v poli první
+      p._timeline = p._affs.slice().sort((x, y) =>
+        (Number(!!y.current) - Number(!!x.current)) ||
+        (L_TL_RANK(x.role_type) - L_TL_RANK(y.role_type)) ||
+        lDateKey(y.from).localeCompare(lDateKey(x.from)));
+
+      // předpočítaný text pro fulltext (bez diakritiky, malými písmeny)
+      p._haystack = jNorm([
+        lFullName(p), p.bio, (p.tags || []).join(' '),
+        p._affs.map(a => [
+          a.role,
+          a._org ? [a._org.name, a._org.short_name, (a._org.former_names || []).join(' ')].join(' ') : ''
+        ].join(' ')).join(' ')
+      ].join(' '));
+    });
+
+    return {people: people, orgs: orgs, affs: affs, orgById: orgById};
+  }
+
+  /* ---------- routing přes hash ---------- */
+  // #lide · #lide/osoba/{id} · #lide/uskupeni/{id} · #lide?q=…&org=…&role=…&scope=all
+
+  function lParseHash(){
+    const raw = window.location.hash.replace(/^#/, '');
+    const qi = raw.indexOf('?');
+    const path = (qi === -1 ? raw : raw.slice(0, qi)).split('/');
+    const query = new URLSearchParams(qi === -1 ? '' : raw.slice(qi + 1));
+    return {
+      panel: path[0] || '',
+      kind: path[1] || '',
+      id: path[2] ? decodeURIComponent(path[2]) : '',
+      query: query
+    };
+  }
+
+  function lBuildHash(){
+    let path = 'lide';
+    if (L_STATE.orgView) path += '/uskupeni/' + encodeURIComponent(L_STATE.orgView);
+    else if (L_STATE.open) path += '/osoba/' + encodeURIComponent(L_STATE.open);
+
+    const q = new URLSearchParams();
+    if (L_STATE.q.trim()) q.set('q', L_STATE.q.trim());
+    // u pohledu na uskupení je filtr součástí cesty, do parametrů se neduplikuje
+    if (!L_STATE.orgView && L_STATE.orgs.size) q.set('org', [...L_STATE.orgs].join(','));
+    if (L_STATE.roles.size) q.set('role', [...L_STATE.roles].join(','));
+    if (L_STATE.scope === 'all') q.set('scope', 'all');
+    const s = q.toString();
+    return '#' + path + (s ? '?' + s : '');
+  }
+
+  // push = nová položka v historii (otevření detailu, vstup na uskupení),
+  // jinak jen replaceState — psaní do hledání by jinak zaplevelilo tlačítko Zpět
+  function lSyncHash(push){
+    const h = lBuildHash();
+    if (window.location.hash === h) return;
+    if (push) window.location.hash = h;
+    else if (window.history && window.history.replaceState) window.history.replaceState(null, '', h);
+    else window.location.hash = h;
+  }
+
+  function lApplyRoute(){
+    const r = lParseHash();
+    // od migrace na vícestránkový web (ARCHITEKTURA-MIGRACE.md) je tahle
+    // stránka vždycky Lidé, i bez hashe v URL - prázdný panel proto taky
+    // projde (dřív existoval jen na jednostránkovém webu, kde '' znamenalo
+    // "žádný konkrétní panel v hashi", ne "tahle stránka není Lidé")
+    if (r.panel && r.panel !== 'lide') return;
+
+    L_STATE.q = r.query.get('q') || '';
+    L_STATE.roles = new Set((r.query.get('role') || '').split(',').filter(Boolean));
+    L_STATE.scope = r.query.get('scope') === 'all' ? 'all' : 'current';
+    L_STATE.orgView = r.kind === 'uskupeni' ? r.id : '';
+    L_STATE.open = r.kind === 'osoba' ? r.id : '';
+    // pohled na uskupení je zároveň filtr na to uskupení
+    L_STATE.orgs = L_STATE.orgView
+      ? new Set([L_STATE.orgView])
+      : new Set((r.query.get('org') || '').split(',').filter(Boolean));
+
+    const input = document.getElementById('lide-search');
+    if (input && input.value !== L_STATE.q) input.value = L_STATE.q;
+
+    lSyncChips();
+    lRenderResults();
+  }
+
+  /* ---------- filtrování ---------- */
+
+  function lFilterActive(){
+    return !!(L_STATE.q.trim() || L_STATE.orgs.size || L_STATE.roles.size);
+  }
+  function lInScope(p){
+    return L_STATE.scope === 'all' || !!(p._mandate || p._exec);
+  }
+  function lMatches(p){
+    if (!lInScope(p)) return false;
+    if (L_STATE.orgs.size && (!p._party || !L_STATE.orgs.has(p._party.id))) return false;
+    if (L_STATE.roles.size) {
+      const hit = p._affs.some(a => (L_STATE.scope === 'all' || a.current) && L_STATE.roles.has(a.role_type));
+      if (!hit) return false;
+    }
+    const words = jNorm(L_STATE.q).split(/\s+/).filter(w => w.length > 1);
+    if (words.length && !words.every(w => p._haystack.includes(w))) return false;
+    return true;
+  }
+
+  /* ---------- vykreslení ---------- */
+
+  function lPersonCard(p){
+    const org = p._party;
+    const cls = org && org.css_class ? ' ' + org.css_class : '';
+    const open = L_STATE.open === p.id;
+    const avatar = p.photo
+      ? `<img class="avatar" src="${jEscapeHtml(p.photo)}" alt="${jEscapeHtml(lPlainName(p))}" loading="lazy" width="64" height="64">`
+      : `<div class="avatar-fallback" style="background:${jEscapeHtml(org && org.color ? org.color : '#5B5347')};" aria-hidden="true">${jInitials(lFullName(p))}</div>`;
+    const until = p._until ? `<span class="tag until">do ${jEscapeHtml(lFormatDate(p._until))}</span>` : '';
+    // uskupení je klikací pro myš, ale ne samostatný tab stop — vnořený ovládací
+    // prvek uvnitř role="button" by mátl čtečky; v detailu je z něj pravý odkaz
+    const party = org
+      ? `<div class="party" data-lide-orgview="${jEscapeHtml(org.id)}" title="Zobrazit uskupení">${jEscapeHtml(org.short_name || org.name)}</div>`
+      : '<div class="party">—</div>';
+    return `
+        <div class="person-card${cls}" data-person="${jEscapeHtml(p.id)}" role="button" tabindex="0"
+             aria-expanded="${open}" aria-controls="lide-detail-${jEscapeHtml(p.id)}">
+          ${avatar}
+          <div class="role">${jEscapeHtml(lRoleLabel(p._displayRole))}</div>
+          <div class="name">${jEscapeHtml(lFullName(p))}</div>
+          ${party}
+          ${until}
+        </div>${open ? lPersonDetail(p) : ''}`;
+  }
+
+  function lPersonDetail(p){
+    const items = p._timeline.map(a => {
+      const org = a._org;
+      const orgHtml = org
+        ? `<a href="#lide/uskupeni/${encodeURIComponent(org.id)}" data-lide-orgview="${jEscapeHtml(org.id)}">${jEscapeHtml(org.name)}</a>`
+        : '—';
+      const src = lSourceLinks(a.sources);
+      return `
+          <li class="tl-item ${a.current ? 'tl-item--current' : 'tl-item--past'}">
+            <span class="tl-role">${jEscapeHtml(lRoleLabel(a.role))}</span>
+            <span class="tl-org">· ${orgHtml}</span>
+            <span class="tl-range">${jEscapeHtml(lRange(a))}${a.verified ? '' : ' · neověřeno'}</span>
+            ${a.note ? `<p class="tl-note">${jEscapeHtml(a.note)}</p>` : ''}
+            ${src ? `<p class="tl-src">${src}</p>` : ''}
+          </li>`;
+    }).join('');
+
+    const contacts = [
+      p.email ? `<a href="mailto:${jEscapeHtml(p.email)}">${jEscapeHtml(p.email)}</a>` : '',
+      p.phone ? jEscapeHtml(p.phone) : ''
+    ].filter(Boolean).join(' · ');
+
+    const meta = [
+      p.verified ? `<span class="stamp">ověřeno</span> ${jEscapeHtml(lFormatDate(p.verified))}` : '',
+      lSourceLinks(p.sources),
+      p.photo_source ? `Fotografie: ${jEscapeHtml(p.photo_source)}` : ''
+    ].filter(Boolean).join(' · ');
+
+    return `
+        <div class="person-detail" id="lide-detail-${jEscapeHtml(p.id)}">
+          <div class="detail-head">
+            <span class="detail-name">${jEscapeHtml(lFullName(p))}</span>
+            <button type="button" class="detail-close" data-lide-close>zavřít ✕</button>
+          </div>
+          ${p.bio ? `<p class="detail-bio">${jEscapeHtml(p.bio)}</p>` : ''}
+          ${contacts ? `<p class="detail-bio">${contacts}</p>` : ''}
+          <ul class="timeline">${items || '<li class="tl-item tl-item--past">Žádná doložená vazba.</li>'}</ul>
+          ${meta ? `<p class="detail-meta">${meta}</p>` : ''}
+        </div>`;
+  }
+
+  function lOrgHead(o){
+    if (!o) return '';
+    const dot = o.color ? `<span class="swatch" style="background:${jEscapeHtml(o.color)};"></span>` : '';
+    const links = [
+      o.web ? `<a href="${jEscapeHtml(o.web)}" target="_blank" rel="noopener">web ↗</a>` : '',
+      o.ico ? `<a href="https://www.hlidacstatu.cz/subjekt/${jEscapeHtml(o.ico)}" target="_blank" rel="noopener">Hlídač státu · IČO ${jEscapeHtml(o.ico)} ↗</a>` : '',
+      lSourceLinks(o.sources)
+    ].filter(Boolean).join('');
+    return `
+      <div class="org-head">
+        <div class="org-name">${dot}${jEscapeHtml(o.name)}</div>
+        ${(o.former_names || []).length ? `<p class="org-former">dříve: ${jEscapeHtml(o.former_names.join(' · '))}</p>` : ''}
+        ${o.note ? `<p class="org-note">${jEscapeHtml(o.note)}</p>` : ''}
+        ${links ? `<p class="org-links">${links}</p>` : ''}
+        <p class="org-links"><button type="button" class="chip-clear" data-lide-clear>zpět na celý adresář</button></p>
+      </div>`;
+  }
+
+  function lGroup(title, people, note){
+    if (!people.length) return '';
+    return `
+      <div class="people-group">
+        <h3 class="display">${jEscapeHtml(title)} (${people.length})</h3>
+        ${note ? `<p class="lede" style="margin-bottom:16px;">${note}</p>` : ''}
+        <div class="card-grid">${people.map(lPersonCard).join('')}</div>
+      </div>`;
+  }
+
+  const lSortExec = (a, b) =>
+    (L_EXEC_RANK[a._exec.role_type] - L_EXEC_RANK[b._exec.role_type]) ||
+    a._exec.role.localeCompare(b._exec.role, 'cs');
+
+  // po uskupeních (v pořadí z organizations.json), uvnitř abecedně podle příjmení
+  const lSortParty = (a, b) =>
+    ((a._party ? a._party._order : 99) - (b._party ? b._party._order : 99)) ||
+    a.last_name.localeCompare(b.last_name, 'cs');
+
+  function lRenderResults(){
+    const db = LIDE_DB;
+    const host = document.getElementById('lide-results');
+    if (!db || !host) return;
+
+    // neznámé id v hashi nemá tiše zmizet
+    let notice = '';
+    if (L_STATE.open && !db.people.some(p => p.id === L_STATE.open)) {
+      notice = `<div class="callout" style="border-left-color:var(--burgundy); background:rgba(124,47,43,0.06);">Osobu <code>${jEscapeHtml(L_STATE.open)}</code> se nepodařilo najít.</div>`;
+      L_STATE.open = '';
+    }
+    if (L_STATE.orgView && !db.orgById[L_STATE.orgView]) {
+      notice = `<div class="callout" style="border-left-color:var(--burgundy); background:rgba(124,47,43,0.06);">Uskupení <code>${jEscapeHtml(L_STATE.orgView)}</code> se nepodařilo najít.</div>`;
+      L_STATE.orgView = '';
+      L_STATE.orgs.clear();
+    }
+
+    const shown = db.people.filter(lMatches);
+    const rada = shown.filter(p => p._exec).sort(lSortExec);
+    const ostatni = shown.filter(p => p._mandate && !p._exec).sort(lSortParty);
+    const byvali = shown.filter(p => !p._mandate && !p._exec).sort(lSortParty);
+    const orgHead = L_STATE.orgView ? lOrgHead(db.orgById[L_STATE.orgView]) : '';
+
+    if (!shown.length) {
+      host.innerHTML = notice + orgHead + `
+        <div class="callout">
+          <strong>Nikdo neodpovídá zadání.</strong>
+          Zkus jiné slovo, nebo <button type="button" class="chip-clear" data-lide-clear>vymaž filtry</button>.
+          ${L_STATE.scope === 'current' ? 'Bývalí členové zastupitelstva se hledají až po přepnutí rozsahu na „Včetně historie".' : ''}
+        </div>`;
+    } else {
+      host.innerHTML = notice + orgHead +
+        lGroup('Rada města', rada) +
+        // href míří rovnou na cílový panel (ne na "#"): kdyby posluchač
+        // níž nestihl zabrat, hash přepne prohlížeč sám — místo aby ho vymazal
+        (rada.length ? `<div class="callout" style="margin-top:18px;">Zdroj složení: usnesení ustavujícího zasedání zastupitelstva 7/2022, viz sekce <a href="#volby2022" data-goto="volby2022">Volby 2022</a>.</div>` : '') +
+        lGroup('Ostatní členové zastupitelstva', ostatni,
+               'Bez funkce v radě — rozložení mandátů níže na této stránce, výsledky voleb v sekci Volby.') +
+        lGroup('Bývalí členové zastupitelstva', byvali,
+               'Mandát skončil v průběhu volebního období. Kartičky zůstávají, aby historie nemizela — kdo nastoupil místo nich, je v sekci Volby 2022.');
+    }
+
+    // data-goto uvnitř generovaného HTML potřebuje vlastní posluchač
+    // (globální proběhl jen jednou při startu a na později vložené uzly nedosáhne)
+    host.querySelectorAll('[data-goto]').forEach(el => {
+      el.addEventListener('click', (e) => {
+        e.preventDefault();
+        const target = document.querySelector('.navlink[data-panel="' + el.dataset.goto + '"]');
+        if (target) target.click();
+      });
+    });
+
+    lRenderStatus(shown, byvali);
+  }
+
+  function lRenderStatus(shown, byvali){
+    const db = LIDE_DB;
+    const statusEl = document.getElementById('lide-status');
+    if (!statusEl) return;
+
+    const pool = db.people.filter(lInScope);
+    if (lFilterActive()) {
+      statusEl.textContent = `Zobrazeno ${shown.length} z ${pool.length} ${pool.length === 1 ? 'osoby' : 'osob'}`;
+    } else {
+      const zastupitelu = db.people.filter(p => p._mandate || p._exec).length;
+      const radnich = db.people.filter(p => p._exec).length;
+      const hist = L_STATE.scope === 'all' ? ` · ${byvali.length} bývalých členů` : '';
+      statusEl.textContent =
+        `${zastupitelu} zastupitelů, z toho ${radnich} v radě${hist} · data ověřena ${lFormatDate(db._updated)}`;
+    }
+
+    const clearEl = document.getElementById('lide-clear');
+    if (clearEl) clearEl.hidden = !lFilterActive();
+  }
+
+  /* ---------- čipy ---------- */
+
+  function lChip(kind, value, label, color){
+    const style = color ? ` style="--chip:${jEscapeHtml(color)};"` : '';
+    const dot = color ? '<span class="dot" aria-hidden="true"></span>' : '';
+    return `<button type="button" class="chip" data-lide-${kind}="${jEscapeHtml(value)}" aria-pressed="false"${style}>${dot}${jEscapeHtml(label)}</button>`;
+  }
+
+  function lBuildChips(){
+    const db = LIDE_DB;
+    const orgBox = document.getElementById('lide-filter-org');
+    const roleBox = document.getElementById('lide-filter-role');
+    if (!orgBox || !roleBox) return;
+
+    // jen uskupení, která mají aspoň jednoho člověka
+    const used = new Set(db.affs.map(a => a.organization_id));
+    const parties = db.orgs.filter(o => o.type === 'politicke' && used.has(o.id));
+    orgBox.innerHTML = '<span class="chip-label">Uskupení:</span>' +
+      parties.map(o => lChip('org', o.id, o.short_name || o.name, o.color)).join('') +
+      '<button type="button" class="chip-clear" id="lide-clear" hidden>Vymazat filtry</button>';
+    orgBox.hidden = false;
+
+    const usedRoles = new Set(db.affs.map(a => a.role_type));
+    const roles = L_ROLE_LABELS.filter(([k]) => usedRoles.has(k));
+    roleBox.innerHTML = '<span class="chip-label">Role:</span>' +
+      roles.map(([k, label]) => lChip('role', k, label)).join('');
+    roleBox.hidden = false;
+  }
+
+  function lSyncChips(){
+    document.querySelectorAll('[data-lide-org]').forEach(el =>
+      el.setAttribute('aria-pressed', L_STATE.orgs.has(el.dataset.lideOrg) ? 'true' : 'false'));
+    document.querySelectorAll('[data-lide-role]').forEach(el =>
+      el.setAttribute('aria-pressed', L_STATE.roles.has(el.dataset.lideRole) ? 'true' : 'false'));
+    document.querySelectorAll('[data-lide-scope]').forEach(el =>
+      el.classList.toggle('active', el.dataset.lideScope === L_STATE.scope));
+  }
+
+  /* ---------- posluchače (registrují se jednou, i před načtením dat) ---------- */
+
+  (function lBindControls(){
+    const input = document.getElementById('lide-search');
+    if (!input) return;
+
+    let timer = null;
+    input.addEventListener('input', () => {
+      L_STATE.q = input.value;
+      clearTimeout(timer);
+      timer = setTimeout(() => { lRenderResults(); lSyncHash(false); }, 150);
+    });
+
+    // společná reakce na změnu filtru: překreslit a přepsat hash bez nové položky v historii
+    const afterFilter = () => { lSyncChips(); lRenderResults(); lSyncHash(false); };
+
+    document.addEventListener('click', (e) => {
+      const t = e.target;
+      if (!t || typeof t.closest !== 'function') return;
+
+      const close = t.closest('[data-lide-close]');
+      if (close) { L_STATE.open = ''; lSyncHash(true); return; }
+
+      if (t.closest('#lide-clear') || t.closest('[data-lide-clear]')) {
+        L_STATE.q = ''; L_STATE.orgs.clear(); L_STATE.roles.clear(); L_STATE.orgView = '';
+        input.value = '';
+        lSyncChips(); lRenderResults(); lSyncHash(true);
+        return;
+      }
+
+      const orgView = t.closest('[data-lide-orgview]');
+      if (orgView) {
+        e.preventDefault();
+        L_STATE.orgView = orgView.dataset.lideOrgview;
+        L_STATE.orgs = new Set([L_STATE.orgView]);
+        L_STATE.open = '';
+        lSyncHash(true);
+        return;
+      }
+
+      const scopeBtn = t.closest('[data-lide-scope]');
+      if (scopeBtn) { L_STATE.scope = scopeBtn.dataset.lideScope; afterFilter(); return; }
+
+      const orgBtn = t.closest('[data-lide-org]');
+      if (orgBtn) {
+        const id = orgBtn.dataset.lideOrg;
+        L_STATE.orgs.has(id) ? L_STATE.orgs.delete(id) : L_STATE.orgs.add(id);
+        L_STATE.orgView = ''; // čipy jsou filtr, ne pohled na jedno uskupení
+        afterFilter();
+        return;
+      }
+
+      const roleBtn = t.closest('[data-lide-role]');
+      if (roleBtn) {
+        const k = roleBtn.dataset.lideRole;
+        L_STATE.roles.has(k) ? L_STATE.roles.delete(k) : L_STATE.roles.add(k);
+        afterFilter();
+        return;
+      }
+
+      const card = t.closest('[data-person]');
+      if (card) {
+        L_STATE.open = (L_STATE.open === card.dataset.person) ? '' : card.dataset.person;
+        lSyncHash(true);
+      }
+    });
+
+    // kartička je role="button" — musí jít otevřít i klávesnicí
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && L_STATE.open) { L_STATE.open = ''; lSyncHash(true); return; }
+      if (e.key !== 'Enter' && e.key !== ' ') return;
+      const t = e.target;
+      if (!t || typeof t.closest !== 'function') return;
+      const card = t.closest('[data-person]');
+      if (!card) return;
+      e.preventDefault();
+      L_STATE.open = (L_STATE.open === card.dataset.person) ? '' : card.dataset.person;
+      lSyncHash(true);
+    });
+  })();
+
+  async function loadLide(){
+    if (LIDE_DB) { lApplyRoute(); return LIDE_DB; }
+    if (LIDE_LOADING) return LIDE_LOADING;
+    LIDE_LOADING = (async () => {
+      const statusEl = document.getElementById('lide-status');
+      try {
+        const files = ['people.json', 'organizations.json', 'affiliations.json'];
+        const res = await Promise.all(files.map(f => fetch('/pecky-lide/' + f)));
+        res.forEach((r, i) => { if (!r.ok) throw new Error(files[i] + ': HTTP ' + r.status); });
+        const [peopleDoc, orgsDoc, affsDoc] = await Promise.all(res.map(r => r.json()));
+
+        LIDE_DB = lJoin(peopleDoc.people || [], orgsDoc.organizations || [], affsDoc.affiliations || []);
+        LIDE_DB._updated = (peopleDoc.meta || {}).updated || '';
+
+        lBuildChips();
+        lApplyRoute();
+
+        // počet fotek v callloutu „O fotografiích" — ať číslo v textu nezastará
+        const current = LIDE_DB.people.filter(p => p._mandate || p._exec);
+        const countEl = document.getElementById('lide-photo-count');
+        if (countEl) countEl.textContent = `${current.filter(p => p.photo).length} z ${current.length}`;
+
+        return LIDE_DB;
+      } catch (e) {
+        if (statusEl) statusEl.textContent = '';
+        const host = document.getElementById('lide-results');
+        if (host) {
+          host.innerHTML = `
+            <div class="callout" style="border-left-color:var(--burgundy); background:rgba(124,47,43,0.06);">
+              <strong>Adresář se nepodařilo načíst.</strong> ${jEscapeHtml(e.message || '')}
+              Data leží v <a href="/pecky-lide/people.json" target="_blank" rel="noopener">pecky-lide/people.json</a>,
+              <a href="/pecky-lide/organizations.json" target="_blank" rel="noopener">organizations.json</a> a
+              <a href="/pecky-lide/affiliations.json" target="_blank" rel="noopener">affiliations.json</a> —
+              dají se otevřít napřímo. Pokud si stránku prohlížíš z disku (<code>file://</code>), načtení blokuje
+              prohlížeč, ne web; spusť lokální server.
+            </div>`;
+        }
+        // chybu nepropagovat dál — applyPanel volá loadLide bez .catch()
+        // a nezachycené odmítnutí Promise by zaneslo konzoli, aniž by to
+        // uživateli cokoli přidalo; hláška je vidět v panelu
+        console.warn('Lidé: načtení dat selhalo —', e);
+        LIDE_LOADING = null; // ať to jde zkusit znovu při dalším vstupu na panel
+        return null;
+      }
+    })();
+    return LIDE_LOADING;
+  }
+
+  loadLide();
+  // reaguje na Zpět/Vpřed a ruční změnu hashe (např. přechod z #lide/osoba/x
+  // zpátky na holé #lide) - dřív to zajišťoval sdílený hashchange listener
+  // v applyPanel(), teď je Lidé svoje vlastní stránka, takže si ho drží sama
+  window.addEventListener('hashchange', () => { loadLide(); });
+</script>

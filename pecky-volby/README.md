@@ -1,7 +1,8 @@
 # Instrukce k sekcím: Volby (panely `volby2018`, `volby2022`, `volby2026`)
 
-Referenční rozcestník pro práci na volebních panelech v `index.html` webu
-pecky.online. Doplňuje obecné instrukce projektu (Project instructions /
+Referenční rozcestník pro práci na volebních panelech v
+`content/volby{rok}.html` (generují se do veřejných stránek
+`/volby/{rok}/`, viz `scripts/build.py`). Doplňuje obecné instrukce projektu (Project instructions /
 CLAUDE.md) — tohle je společný detail pro všechny volební ročníky.
 
 ## Struktura — jedna podsložka na volební ročník
@@ -25,8 +26,9 @@ celoweb: `img/favicons/`, `img/peckybot/`):
 | `pecky-volby/2022/volebni-programy-2022/` | 6 skenů volební inzerce z Pečeckých novin 9/2022 |
 | `pecky-volby/2022/zastupitele/` | 42 portrétů zastupitelů zvolených 2022 (používá i panel Lidé) |
 
-V `index.html` se na ně odkazuje plnou cestou od kořene repa, např.
-`pecky-volby/2022/zastupitele/paluska.jpg`. Pojmenování souboru:
+V `content/<sekce>.html` se na ně odkazuje absolutní cestou od kořene
+webu (se zúvodním lomítkem, funguje z libovolné hloubky URL), např.
+`/pecky-volby/2022/zastupitele/paluska.jpg`. Pojmenování souboru:
 příjmení bez diakritiky malými písmeny, u shody příjmení s křestním
 (`hruska-ivan.jpg`, `vodicka-tomas.jpg`).
 
@@ -90,7 +92,7 @@ opakovaně, si barvu drží, i když se mu mění název.
 | Komunistická strana Čech a Moravy | `party-kscm` | `#C1272D` | `#F1CFD1` | 2018 |
 | Pečky srdcem | `party-peckysrdcem` | `#2E7D32` | `#D1E2D2` | 2026 |
 
-**Kde barvy žijí v kódu.** Pozadí kartiček je v `<style>` v `index.html`
+**Kde barvy žijí v kódu.** Pozadí kartiček je v `assets/styles.css`
 jako `.person-card.party-*` (`background` + `border-color`); tečky
 `.swatch` a graf mandátů mají hex napsaný inline v `style="background:…"`.
 Zvýrazňovací barva ve třetím sloupci = hodnota `border-color` u kartičky
@@ -101,7 +103,8 @@ uskupení nebo jeho člen (nová kartička, graf, tabulka, nový ročník),
 použij existující barvu z této tabulky, ne novou. Novou barvu zakládat
 jen pro uskupení, které tu ještě není.
 
-**Stav pokrytí** (ověřeno proti `index.html` 24. 8. 2026): všech osm
+**Stav pokrytí** (ověřeno proti `index.html` 24. 8. 2026, pravidla od
+migrace 30. 8. 2026 beze změny v `assets/styles.css`): všech osm
 tříd použitých v HTML má svoje `.person-card.party-*` pravidlo, žádné
 uskupení už nevypadne do neutrálního defaultu. Dvě poznámky:
 

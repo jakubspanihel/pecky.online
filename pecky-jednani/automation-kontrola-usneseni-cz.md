@@ -4,8 +4,9 @@ Lehký, poloautomatický postup pro pravidelnou kontrolu, jestli na
 [mesto-pecky.usneseni.cz/verejne/](https://mesto-pecky.usneseni.cz/verejne/)
 nepřibylo nové jednání nebo se u existujícího nedoplnil zápis a usnesení
 (oproti stavu jen s Pozvánkou). Doplňuje `pecky-jednani/pecky-jednani.json`
-— lehký soubor, který pohání panel Jednání na webu (root `index.html` i
-`pecky-jednani/index.html`). Součástí postupu je i kontrola záznamů
+— lehký soubor, který pohání panel Jednání na webu (`content/jednani.html`,
+promítne se do veřejné stránky `/jednani/` přes `scripts/build.py`).
+Součástí postupu je i kontrola záznamů
 zastupitelstva na YouTube (krok 6) a časových značek jednotlivých bodů
 u těch videí (krok 7) — obojí dělat při každém běhu, ne jen jednorázově.
 
@@ -105,7 +106,7 @@ Ze stránky `usnesení`:
   `href="#"` (žádná skutečná URL, jen JS placeholder bez network requestu
   za klikem) — pole `url` (odkaz na detail usnesení s `detail_id`) proto
   u takto doplněných usnesení NELZE touto cestou získat. Nechat vynechané
-  — frontend to zvládá (`r.url ? … : ''` v `index.html`). Dřív šlo doplnění
+  — frontend to zvládá (`r.url ? … : ''` v `content/jednani.html`). Dřív šlo doplnění
   nechat na plný scraper na jiném stroji, který k detailu přistupoval jinak
   (`in-page fetch`, ne klikání) — k tomu stroji už není přístup, takže jde
   o trvalou mezeru, ne dočasný stav do dalšího běhu.
@@ -157,7 +158,7 @@ může mít video zítra.
    bez `links.youtube` a nevymýšlet. Může se objevit až při některém
    příštím běhu, nebo nikdy — v obou případech nic nepředstírat.
 
-Frontend (`index.html` i `pecky-jednani/index.html`, `jRenderMeetingList`)
+Frontend (`content/jednani.html`, `jRenderMeetingList`)
 je na `links.youtube` datově řízený — žádná úprava kódu není potřeba,
 nový odkaz se automaticky promítne i do textů „K dispozici je video" (u
 proběhlého jednání bez zápisu) a tlačítka Video v rozbaleném řádku.
@@ -202,9 +203,10 @@ popis.
 
 ### 9. Ověř na webu
 
-Spustit lokální server (`.claude/launch.json`, config
-`pecky-online-main` — port se přiděluje automaticky, `autoPort: true`),
-otevřít `#jednani`, rozkliknout dotčené
+Nejdřív spustit `python3 scripts/build.py` (promítne `content/jednani.html`
+do `jednani/index.html`), pak spustit lokální server (`.claude/launch.json`,
+config `pecky-online-main` — port se přiděluje automaticky, `autoPort: true`),
+otevřít `/jednani/`, rozkliknout dotčené
 jednání, zkontrolovat: počet usnesení v perexu nahoře odpovídá (`Archiv
 obsahuje … usnesení` — počítá se dynamicky, žádné jinde neupravovat),
 agenda seřazená 1..N, časy bodů dávají smysl, badge SCHVÁLENO/DOPORUČENO/

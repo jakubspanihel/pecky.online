@@ -1,7 +1,8 @@
 # Instrukce k sekci: Smlouvy (panel `smlouvy`)
 
-Referenční dokument pro práci na panelu `panel-smlouvy` v `index.html`
-webu pecky.online. Doplňuje obecné instrukce projektu (Project instructions
+Referenční dokument pro práci na panelu `panel-smlouvy` v
+`content/smlouvy.html` (generuje se do veřejné stránky `/smlouvy/`,
+viz `scripts/build.py`). Doplňuje obecné instrukce projektu (Project instructions
 / CLAUDE.md) — tohle je detail jen pro tuhle jednu sekci.
 
 ## Účel sekce
@@ -15,6 +16,6 @@ Poznámky k datům (viz i kořenový `CLAUDE.md` → „Poznámky k datům"):
 - `with_serious_issues_only` nespolehlivě vrací 0 — rizikové smlouvy
   identifikovat ručně z běžných výsledků.
 
-Obsah panelu žije přímo v `index.html` (žádná samostatná datová sada).
+Obsah panelu žije v `content/smlouvy.html` (žádná samostatná datová sada).
 Zatím žádná další zvláštní pravidla nad rámec obecných konvencí v
 kořenovém `CLAUDE.md`. Doplnit sem, až nějaká vzniknou.

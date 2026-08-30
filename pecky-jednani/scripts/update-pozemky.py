@@ -3,21 +3,26 @@
 Aktualizace všech odkazů na katastrální parcely na webu pecky.online —
 jediný skript pro dvě navazující věci:
 
-A) Sekce Pozemky (panel-pozemky v index.html): tabulky Nákup/Prodej
-   sestavené z usnesení o prodeji/nákupu pozemku, s klikacím sloupcem
-   Parcela.
+A) Sekce Pozemky (panel-pozemky v content/pozemky.html): tabulky
+   Nákup/Prodej sestavené z usnesení o prodeji/nákupu pozemku, s klikacím
+   sloupcem Parcela.
 B) Obecné prolinkování zmínek "parc. NNNN" kdekoli v textu usnesení
-   a bodů programu v sekci Jednání (jLinkParcely() v index.html) —
+   a bodů programu v sekci Jednání (jLinkParcely() v content/jednani.html) —
    dřív pecky-jednani/katastr-odkazy.json, teď parcely-odkazy.json
    generovaný tímhle skriptem.
+
+DŮLEŽITÉ (od migrace na vícestránkový web, ARCHITEKTURA-MIGRACE.md):
+tenhle skript edituje content/pozemky.html, ne přímo veřejnou stránku —
+po jeho běhu je vždy potřeba ještě spustit `python3 scripts/build.py`,
+ať se změna promítne i do vygenerovaného pozemky/index.html.
 
 Co dělá (v pořadí):
 1. Načte/aktualizuje pecky-jednani/parcely-pozemky.json — katastr-přesnou
    cache "katastr|číslo parcely" -> RUIAN ID (zdroj pravdy pro obě části A i B).
 2. (A) Projde usnesení o prodeji/nákupu pozemku, vytáhne parcelní číslo,
    katastr, cenu, klasifikuje nákup/prodej, dohledá chybějící RUIAN ID
-   a přegeneruje obě HTML tabulky přímo v index.html. Ověří balanci
-   HTML tagů po zásahu.
+   a přegeneruje obě HTML tabulky přímo v content/pozemky.html. Ověří
+   balanci HTML tagů po zásahu.
 3. (B) Projde úplně všechna usnesení a body programu (ne jen ty
    o pozemcích), najde všechny zmínky "parc. NNNN", pro každé číslo
    zjistí katastr ze všech míst, kde se objevuje — pokud se katastr
@@ -51,7 +56,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[2]
 JEDNANI_JSON = ROOT / 'pecky-jednani' / 'pecky-jednani.json'
 CACHE_JSON = ROOT / 'pecky-jednani' / 'parcely-pozemky.json'
-INDEX_HTML = ROOT / 'index.html'
+POZEMKY_CONTENT = ROOT / 'content' / 'pozemky.html'
 TODAY = datetime.date.today().isoformat()
 
 # katastrální území použitá v tabulkách Pozemky a jejich kód (kodKuDr na vdp.cuzk.gov.cz)
@@ -286,7 +291,7 @@ def update_cache(rows, cache):
 # i body programu v celém pecky-jednani.json — číslo parcely bez katastru je nejednoznačné,
 # takže pro každé číslo sesbíráme katastr ze VŠECH míst, kde se objeví, a:
 #  - pokud se katastr napříč všemi výskyty shoduje (nebo ho neznáme jen u části z nich) → dohledáme
-#    a přidáme do finální ploché mapy (GENERAL_LINKS_JSON), kterou používá jLinkParcely() v index.html,
+#    a přidáme do finální ploché mapy (GENERAL_LINKS_JSON), kterou používá jLinkParcely() v content/jednani.html,
 #  - pokud se katastr u různých výskytů LIŠÍ (kolize, viz případ parcely "254" — Pečky vs.
 #    Velké Chvalovice) → číslo se do mapy vůbec nepřidá (raději nepodlinkovat, než odkázat špatně).
 GENERAL_LINKS_JSON = ROOT / 'pecky-jednani' / 'parcely-odkazy.json'
@@ -356,7 +361,7 @@ def build_general_links(mentions, cache):
     GENERAL_LINKS_JSON.write_text(json.dumps({
         '_comment': ('Plochá mapa "číslo parcely" -> URL detailu na vdp.cuzk.gov.cz pro obecné '
                      'prolinkování zmínek "parc. NNNN" v textu usnesení a bodů programu kdekoli '
-                     'na webu (jLinkParcely() v index.html, fetch v loadJednani()). Nahrazuje '
+                     'na webu (jLinkParcely() v content/jednani.html, fetch v loadJednani()). Nahrazuje '
                      'dřívější katastr-odkazy.json (smazaný 23. 8. 2026 — obsahoval prokázanou '
                      'chybu u kolidujících čísel, viz AUTOMATION.md). Číslo, u kterého se '
                      'katastr nepodařilo jednoznačně určit nebo koliduje mezi více katastry, '
@@ -452,14 +457,14 @@ def build_table(rows, cls, cache):
 
 
 def splice_into_index(nakup_html, prodej_html):
-    content = INDEX_HTML.read_text(encoding='utf-8')
+    content = POZEMKY_CONTENT.read_text(encoding='utf-8')
 
     pat_nakup = re.compile(
         r'(<div class="subpanel active" id="subpanel-pozemky-nakup">\n)(.*?)'
         r'(\n    </div>\n\n    <div class="subpanel" id="subpanel-pozemky-prodej">)', re.S)
     m = pat_nakup.search(content)
     if not m:
-        raise SystemExit('subpanel-pozemky-nakup nenalezen v index.html — zkontroluj strukturu panelu Pozemky')
+        raise SystemExit('subpanel-pozemky-nakup nenalezen v content/pozemky.html — zkontroluj strukturu panelu Pozemky')
     content = content[:m.start()] + m.group(1) + nakup_html + m.group(3) + content[m.end():]
 
     pat_prodej = re.compile(
@@ -467,14 +472,14 @@ def splice_into_index(nakup_html, prodej_html):
         r'(\n    </div>\n\n    <div class="callout" style="margin-top:26px;">)', re.S)
     m2 = pat_prodej.search(content)
     if not m2:
-        raise SystemExit('subpanel-pozemky-prodej nenalezen v index.html — zkontroluj strukturu panelu Pozemky')
+        raise SystemExit('subpanel-pozemky-prodej nenalezen v content/pozemky.html — zkontroluj strukturu panelu Pozemky')
     content = content[:m2.start()] + m2.group(1) + prodej_html + m2.group(3) + content[m2.end():]
 
-    INDEX_HTML.write_text(content, encoding='utf-8')
+    POZEMKY_CONTENT.write_text(content, encoding='utf-8')
 
 
 def check_tag_balance():
-    content = INDEX_HTML.read_text(encoding='utf-8')
+    content = POZEMKY_CONTENT.read_text(encoding='utf-8')
     clean = re.sub(r'<script\b[^>]*>.*?</script>', '', content, flags=re.S)
     clean = re.sub(r'<style\b[^>]*>.*?</style>', '', clean, flags=re.S)
     clean = re.sub(r'<!--.*?-->', '', clean, flags=re.S)
@@ -511,7 +516,7 @@ def main():
     prodej_html = build_table(rows, 'prodej', cache)
     splice_into_index(nakup_html, prodej_html)
     check_tag_balance()
-    print('Hotovo — index.html (panel Pozemky) aktualizován.')
+    print('Hotovo — content/pozemky.html aktualizován. Teď spustit `python3 scripts/build.py`, ať se to promítne i do pozemky/index.html.')
 
     mentions = scan_general_mentions(data)
     build_general_links(mentions, cache)

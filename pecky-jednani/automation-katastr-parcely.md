@@ -32,7 +32,7 @@ sekce „Tabulky Nákup/Prodej na stránce Pozemky" níže pro plný popis.
 Skript sám dohledává katastr z kontextu KAŽDÉHO výskytu čísla zvlášť
 (ne jen jednou globálně) a čísla, u kterých se katastr napříč výskyty
 neshoduje (kolize) nebo se nepodaří určit vůbec, **záměrně vynechá** —
-frontend (`jLinkParcely()` v `index.html` i `pecky-jednani/index.html`)
+frontend (`jLinkParcely()` v `content/jednani.html`)
 pak takové číslo prostě nepodlinkuje, což je bezpečné chování (žádný
 ruční krok navíc není potřeba, nová/změněná jednání se promítnou příštím
 spuštěním skriptu).
@@ -46,7 +46,7 @@ Výstupy skriptu pro tuhle část:
 
 ## Tabulky Nákup/Prodej na stránce Pozemky — aktualizovat spolu s Jednáním
 
-Panel „Pozemky" v kořenovém `index.html` (subpanely `subpanel-pozemky-nakup`
+Panel „Pozemky" (`content/pozemky.html`, subpanely `subpanel-pozemky-nakup`
 a `subpanel-pozemky-prodej`) je statický výřez sestavený z usnesení
 o prodeji/nákupu pozemku, ne živě dotahovaná data — analogicky k sekci
 Smlouvy. **Při každé aktualizaci `pecky-jednani.json` je proto potřeba
@@ -54,9 +54,14 @@ spustit i:**
 
 ```
 python3 pecky-jednani/scripts/update-pozemky.py
+python3 scripts/build.py
 ```
 
-Skript (spouštět z kořene repa) v jednom běhu:
+(druhý příkaz je od migrace na vícestránkový web nutný vždy — první
+skript edituje jen `content/pozemky.html`, do veřejné stránky
+`pozemky/index.html` se to promítne až přes `build.py`.)
+
+Skript `update-pozemky.py` (spouštět z kořene repa) v jednom běhu:
 1. Najde v `pecky-jednani.json` nová/změněná usnesení o prodeji/nákupu
    pozemku (stejná klíčová slova a metodika jako u ruční tabulky
    z 23. 8. 2026 — párování rada→zastupitelstvo, extrakce ceny).
@@ -66,7 +71,7 @@ Skript (spouštět z kořene repa) v jednom běhu:
    `katastr-odkazy.json`. Cache žije v `parcely-pozemky.json`
    (klíč `"katastr|číslo"`).
 3. Přegeneruje obě HTML tabulky a nahradí jimi obsah zmíněných subpanelů
-   přímo v `index.html`, ověří balanci HTML tagů.
+   přímo v `content/pozemky.html`, ověří balanci HTML tagů.
 4. Projde **úplně všechna** usnesení a body programu (ne jen ty
    o pozemcích), pro každou zmínku „parc. NNNN" zjistí katastr z jejího
    vlastního kontextu, sesbírá katastry napříč všemi výskyty daného
