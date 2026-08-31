@@ -116,9 +116,15 @@ for (const p of people) {
   }
   if (p.verified === null) warn(where, 'neověřeno (verified: null) — v UI se nezobrazí stamp');
   if (p.email && !p.email.includes('@')) err(where, `e-mail "${p.email}" nevypadá platně`);
-  if (p.photo) {
-    if (!existsSync(join(ROOT, p.photo))) err(where, `fotka ${p.photo} neexistuje`);
-    if (!p.photo_source) warn(where, 'má fotku, ale prázdné photo_source — doplnit původ');
+  if (p.photos !== undefined && !Array.isArray(p.photos)) err(where, 'photos musí být pole');
+  const seenPhotoYears = new Set();
+  for (const ph of p.photos ?? []) {
+    if (!ph.url) { err(where, 'položka photos bez url'); continue; }
+    if (!existsSync(join(ROOT, ph.url))) err(where, `fotka ${ph.url} neexistuje`);
+    if (!ph.photo_source) warn(where, `fotka ${ph.url} nemá photo_source — doplnit původ`);
+    if (typeof ph.year !== 'number') err(where, `fotka ${ph.url} nemá platný year`);
+    else if (seenPhotoYears.has(ph.year)) err(where, `dvě fotky se stejným year ${ph.year}`);
+    else seenPhotoYears.add(ph.year);
   }
   for (const s of p.sources ?? []) if (!s?.url) err(where, 'zdroj bez url');
 }

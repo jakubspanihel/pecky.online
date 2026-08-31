@@ -19,7 +19,7 @@
     <div id="lide-results"></div>
 
     <div class="callout" style="margin-top:26px;">
-      <strong>O fotografiích:</strong> u <span id="lide-photo-count">13 z 21</span> členů se podařilo dohledat fotografii. Šest členů Sdružení ODS a nezávislých kandidátů má oficiální portrét z <a href="https://www.ods.cz/ms.pecky/volby2022/komunalni/2570-pecky" target="_blank" rel="noopener">kandidátky na ods.cz</a> (stejné fotky, jaké strana používala i v tištěné inzerci). Sedm členů NAŠE PEČKY je z volebního inzerátu v Pečeckých novinách 9/2022 (str. 11), kde kandidáti sami zveřejnili portrét se jménem. U zbylých osmi (SNK Pečky Pečákům, Lidé pro Pečky s podporou SPD, ČSSD a sjednocená levice) jsem nenašel žádný oficiální web s fotkami jednotlivých kandidátů — jejich inzerce v novinách obsahovala jen jmenný seznam nebo nepojmenovanou skupinovou fotku, ze které nelze spolehlivě přiřadit obličej ke jménu — proto jen barevný iniciálový avatar.
+      <strong>O fotografiích:</strong> u <span id="lide-photo-count">13 z 21</span> členů se podařilo dohledat fotografii — pokud je jich u jedné osoby víc (fotka se mezi volbami mění), zobrazuje se vždy ta nejnovější, starší zůstávají v detailu osoby. Šest členů Sdružení ODS a nezávislých kandidátů má oficiální portrét z kandidátky — u pěti z nich nejnovější z <a href="https://www.ods.cz/os.kolin/volby2026/komunalni/3715-pecky" target="_blank" rel="noopener">kandidátní listiny pro volby 2026 na ods.cz</a>, u jednoho (Ing. Karel Krištoufek, v roce 2026 znovu nekandiduje) zůstává starší z <a href="https://www.ods.cz/ms.pecky/volby2022/komunalni/2570-pecky" target="_blank" rel="noopener">kandidátky 2022</a> (stejné fotky, jaké strana používala i v tištěné inzerci). Sedm členů NAŠE PEČKY má fotku — u čtyř z nich nejnovější z <a href="https://nasepecky.cz/#kandidati" target="_blank" rel="noopener">kandidátní listiny pro volby 2026 na nasepecky.cz</a>, u tří (Václav Drška, Šárka Horynová, Tomáš Vodička — v roce 2026 znovu nekandidují) zůstává starší z volebního inzerátu v Pečeckých novinách 9/2022 (str. 11), kde kandidáti sami zveřejnili portrét se jménem. U zbylých osmi (SNK Pečky Pečákům, Lidé pro Pečky s podporou SPD, ČSSD a sjednocená levice) jsem nenašel žádný oficiální web s fotkami jednotlivých kandidátů — jejich inzerce v novinách obsahovala jen jmenný seznam nebo nepojmenovanou skupinovou fotku, ze které nelze spolehlivě přiřadit obličej ke jménu — proto jen barevný iniciálový avatar.
     </div>
   </section>
 
@@ -228,8 +228,10 @@
     const org = p._party;
     const cls = org && org.css_class ? ' ' + org.css_class : '';
     const open = L_STATE.open === p.id;
-    const avatar = p.photo
-      ? `<img class="avatar" src="${jEscapeHtml(p.photo)}" alt="${jEscapeHtml(lPlainName(p))}" loading="lazy" width="64" height="64">`
+    // photos je řazené nejnovější první (§3.7 SPEC.md) — na kartičce vždy ta aktuální
+    const currentPhoto = (p.photos && p.photos.length) ? p.photos[0] : null;
+    const avatar = currentPhoto
+      ? `<img class="avatar" src="${jEscapeHtml(currentPhoto.url)}" alt="${jEscapeHtml(lPlainName(p))}" loading="lazy" width="64" height="64">`
       : `<div class="avatar-fallback" style="background:${jEscapeHtml(org && org.color ? org.color : '#5B5347')};" aria-hidden="true">${jInitials(lFullName(p))}</div>`;
     const until = p._until ? `<span class="tag until">do ${jEscapeHtml(lFormatDate(p._until))}</span>` : '';
     // uskupení je klikací pro myš, ale ne samostatný tab stop — vnořený ovládací
@@ -272,9 +274,15 @@
 
     const meta = [
       p.verified ? `<span class="stamp">ověřeno</span> ${jEscapeHtml(lFormatDate(p.verified))}` : '',
-      lSourceLinks(p.sources),
-      p.photo_source ? `Fotografie: ${jEscapeHtml(p.photo_source)}` : ''
+      lSourceLinks(p.sources)
     ].filter(Boolean).join(' · ');
+
+    // víc fotek na osobu (§3.7 SPEC.md) — všechny, ne jen ta aktuální na kartičce
+    const photosHtml = (p.photos || []).length
+      ? `<p class="detail-meta">Fotografie: ${p.photos.map(ph =>
+          `${jEscapeHtml(String(ph.year))} — ${jEscapeHtml(ph.photo_source || '')}`
+        ).join(' · ')}</p>`
+      : '';
 
     return `
         <div class="person-detail" id="lide-detail-${jEscapeHtml(p.id)}">
@@ -286,6 +294,7 @@
           ${contacts ? `<p class="detail-bio">${contacts}</p>` : ''}
           <ul class="timeline">${items || '<li class="tl-item tl-item--past">Žádná doložená vazba.</li>'}</ul>
           ${meta ? `<p class="detail-meta">${meta}</p>` : ''}
+          ${photosHtml}
         </div>`;
   }
 
@@ -547,7 +556,7 @@
         // počet fotek v callloutu „O fotografiích" — ať číslo v textu nezastará
         const current = LIDE_DB.people.filter(p => p._mandate || p._exec);
         const countEl = document.getElementById('lide-photo-count');
-        if (countEl) countEl.textContent = `${current.filter(p => p.photo).length} z ${current.length}`;
+        if (countEl) countEl.textContent = `${current.filter(p => p.photos && p.photos.length).length} z ${current.length}`;
 
         return LIDE_DB;
       } catch (e) {

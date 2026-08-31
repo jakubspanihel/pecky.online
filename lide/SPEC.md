@@ -110,8 +110,18 @@ Jednání a Pečecké noviny. Lokálně `python3 -m http.server`.
       "title_after": "",
       "email": "",
       "phone": "",
-      "photo": "volby/2022/zastupitele/paluska.jpg",
-      "photo_source": "Oficiální portrét z kandidátky ODS Pečky 2022 (…)",
+      "photos": [
+        {
+          "year": 2026,
+          "url": "/volby/2026/zastupitele/paluska.webp",
+          "photo_source": "Oficiální portrét z kandidátní listiny ODS a nezávislí kandidáti, Pečky 2026 (ods.cz/os.kolin/volby2026/komunalni/3715-pecky)"
+        },
+        {
+          "year": 2022,
+          "url": "/volby/2022/zastupitele/paluska.jpg",
+          "photo_source": "Oficiální portrét z kandidátky ODS Pečky 2022 (…)"
+        }
+      ],
       "bio": "Starosta města. Do funkce ho zastupitelstvo zvolilo…",
       "tags": ["zastupitel", "rada", "vedeni-mesta", "ods"],
       "sources": [{ "label": "Ustavující zasedání ZM 7/2022 — zápis", "url": "https://…" }],
@@ -127,8 +137,7 @@ Jednání a Pečecké noviny. Lokálně `python3 -m http.server`.
 | `first_name` / `last_name` | string | ✅ | `last_name` je řadicí klíč |
 | `title_before` / `title_after` | string | — | `""` místo `null` |
 | `email` / `phone` | string | — | jen pracovní kontakty, `""` když neznámé |
-| `photo` | string | — | cesta od kořene repa; `""` → iniciálový avatar |
-| `photo_source` | string | — | původ fotky; povinné, když je `photo` |
+| `photos` | objekt[] | — | `[]` → iniciálový avatar. Jeden člověk může mít fotku za víc let (kandidátka se opakuje, fotka se mění) — pole, ne jedna hodnota, viz §3.7 |
 | `bio` | string | — | prostý text, bez HTML |
 | `tags` | string[] | ✅ | viz §3.5 |
 | `sources` | objekt[] | ✅ | `{label, url}`; min. 1 u každé osoby s funkcí |
@@ -312,6 +321,39 @@ liší od jiných zdrojů) — to všechno může doplnit až další průchod, 
 bude zdroj. Tenhle krok řeší jen dohledatelnost (fulltext, filtr podle
 uskupení), ne úplnost profilu.
 
+### 3.7 `photos` — víc fotek na osobu
+
+Jedna osoba může kandidovat opakovaně a fotka na kandidátce se mezi lety mění
+(jiný portrét, jiná strana, žádná). Proto `person.photos` je pole, ne jedna
+hodnota — každá položka je fotka za jeden ročník:
+
+```json
+{
+  "year": 2026,
+  "url": "/volby/2026/zastupitele/paluska.webp",
+  "photo_source": "Oficiální portrét z kandidátní listiny ODS a nezávislí kandidáti, Pečky 2026 (ods.cz/os.kolin/volby2026/komunalni/3715-pecky)"
+}
+```
+
+| Pole | Typ | Povinné | Poznámka |
+|---|---|---|---|
+| `year` | number | ✅ | ročník, ke kterému fotka patří (kandidátka toho roku, ne datum pořízení) |
+| `url` | string | ✅ | cesta od kořene repa, do složky volebního ročníku (`volby/{rok}/zastupitele/…`) — fotky nikdy neleží v `lide/`, viz §2 |
+| `photo_source` | string | ✅ | původ fotky (strana, kandidátka, URL) |
+
+**Pravidla:**
+- Pole se řadí `year` sestupně (nejnovější první) — validátor i UI na tom
+  spoléhají, `lPersonCard()` bere `photos[0]` jako aktuální avatar.
+- Víc fotek za **stejný** rok nedává smysl (jedna kandidátka, jeden portrét)
+  — validátor to hlásí jako chybu.
+- Prázdné pole `[]` = žádná fotka nikdy nedohledána → iniciálový avatar,
+  stejně jako dřív `photo: ""`.
+- Detail osoby (`lPersonDetail()`) ukazuje všechny fotky s rokem a zdrojem,
+  ne jen tu aktuální — i stará fotka je doklad, ne šum.
+- Když se najde fotka za nový rok u někoho, kdo už fotku má, **stará
+  položka se neodstraňuje**, jen přibude nová — stejná filozofie jako
+  u vazeb v §3.4 (historie nemizí).
+
 ---
 
 ## 4. Validace
@@ -324,8 +366,9 @@ Peček**:
 - aktuálních zastupitelů je 21, členů rady 7, starosta právě jeden,
 - každý aktuální zastupitel má vazbu na nějakou kandidátku,
 - dvě uskupení nemají tutéž barvu,
-- soubor, na který ukazuje `photo`, existuje (chyba, ne varování — rozbitý
-  obrázek na webu je vidět).
+- soubor, na který ukazuje `url` každé položky `photos`, existuje (chyba,
+  ne varování — rozbitý obrázek na webu je vidět), a `photos` nemá dvě
+  položky se stejným `year`.
 
 Varování nejsou blokující: neověřený záznam, osoba bez vazby, ukončená vazba
 bez data konce, `meta.example: true`.

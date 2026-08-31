@@ -33,12 +33,15 @@ tenhle panel**; historický seznam u Voleb 2022 zůstává, jaký byl.
 
 ## Fotky
 Portréty na kartičkách (`img.avatar`) nejsou ve složce této sekce —
-leží u volebního ročníku, ve kterém byli členové zvoleni:
-`volby/2022/zastupitele/{prijmeni}.jpg` (42 souborů, příjmení bez
-diakritiky malými písmeny; u shody příjmení i s křestním, např.
-`hruska-ivan.jpg`). Po dalších volbách zakládat novou sadu ve složce
-nového ročníku, ne přepisovat tuhle. Detaily viz
-[`volby/README.md`](../volby/README.md).
+leží u volebního ročníku, ke kterému se váží: `volby/2022/zastupitele/
+{prijmeni}.jpg` (42 souborů, příjmení bez diakritiky malými písmeny;
+u shody příjmení i s křestním, např. `hruska-ivan.jpg`), od 30. 8. 2026
+i `volby/2026/zastupitele/{prijmeni}.webp` (15 souborů, kandidátka ODS
+z ods.cz — kandidátka nejde stáhnout jako jpg, formát ponechán webp).
+Jeden člověk tak může mít fotky ve víc ročnících najednou — proto
+`people.json` drží `photos` jako pole, ne jednu hodnotu, viz SPEC.md
+§3.7. Po dalších volbách zakládat novou sadu ve složce nového ročníku,
+staré nepřepisovat. Detaily viz [`volby/README.md`](../volby/README.md).
 
 ## Datová sada
 
@@ -109,7 +112,7 @@ node lide/validate.mjs
 Exit 0 = čisté, 1 = chyby. Kromě obecné integrity hlídá i pravidla
 Peček: 21 zastupitelů, 7 radních, právě jeden starosta, každý zastupitel
 má kandidátku, dvě uskupení nemají tutéž barvu, a soubor, na který
-ukazuje `photo`, existuje.
+ukazuje `url` každé položky `photos`, existuje.
 
 ### Jak přidat osobu
 
@@ -137,10 +140,17 @@ trval.
 
 ### Fotky a jejich původ
 
-`photo` je cesta od kořene repa do složky volebního ročníku, `photo_source`
-popisuje původ (kandidátka ods.cz, nebo inzerát v Pečeckých novinách
-9/2022 str. 11). Kdo fotku nemá, má obě pole prázdná a v UI dostane
-iniciálový avatar na barvě uskupení — viz kapitola „Fotky" výš.
+`photos` je pole, ne jedna hodnota — jeden člověk může kandidovat víckrát
+a fotka na kandidátce se mezi lety mění (viz SPEC.md §3.7). Každá položka:
+`year` (ročník kandidátky), `url` (cesta od kořene repa do složky
+volebního ročníku), `photo_source` (původ — kandidátka ods.cz, nebo
+inzerát v Pečeckých novinách). Karta osoby ukazuje vždy nejnovější
+(`photos[0]`, pole je řazené sestupně), detail osoby všechny. Kdo fotku
+nemá, má `photos: []` a v UI dostane iniciálový avatar na barvě
+uskupení — viz kapitola „Fotky" výš.
+
+Při nálezu nové fotky za další ročník se **stará položka neodstraňuje**,
+jen přibude nová — stejně jako u vazeb historie nemizí.
 
 ### Přiznané mezery v datech
 
