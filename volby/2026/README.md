@@ -2,7 +2,7 @@
 
 Referenční dokument pro práci na panelu `panel-volby2026` v `index.html`
 webu pecky.online. Doplňuje obecné instrukce projektu i společný rozcestník
-[`pecky-volby/README.md`](../README.md) — tohle je detail jen pro tenhle
+[`volby/README.md`](../README.md) — tohle je detail jen pro tenhle
 ročník.
 
 ## Účel sekce
@@ -28,7 +28,7 @@ výsledky po volbách budou na volby.gov.cz a v otevřených datech ČSÚ.
 
 ## Po volbách: hlídat ustavující zasedání
 Jakmile volby proběhnou, platí pravidlo „Zvolení zástupci patří do
-Výsledků voleb" ([`pecky-volby/README.md`](../README.md)): do subpanelu
+Výsledků voleb" ([`volby/README.md`](../README.md)): do subpanelu
 „Výsledky voleb" doplnit jmenovitě zvolené vedení, radu i zastupitelstvo.
 Zdrojem není výsledek voleb, ale **ustavující zasedání zastupitelstva** —
 u ročníku 2022 se konalo necelý měsíc po volbách (ZM 7/2022 dne

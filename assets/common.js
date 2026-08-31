@@ -84,23 +84,6 @@ document.querySelectorAll('.subtabs').forEach(nav => {
   });
 });
 
-// ===== Kartičky volebních programů: klik přepíná zobrazený přepis =====
-document.querySelectorAll('.promises-grid').forEach(grid => {
-  const cards = grid.querySelectorAll('.promise-card');
-  const detail = grid.nextElementSibling;
-  cards.forEach(card => {
-    card.addEventListener('click', () => {
-      cards.forEach(c => c.classList.remove('active'));
-      card.classList.add('active');
-      if (detail) {
-        detail.querySelectorAll('.promise-text').forEach(t => t.classList.remove('active'));
-        const target = detail.querySelector('#promise-' + card.dataset.promise);
-        if (target) target.classList.add('active');
-      }
-    });
-  });
-});
-
 // ===== Rozbalovací bloky (tlačítko "Více informací") =====
 document.querySelectorAll('.toggle-details').forEach(btn => {
   btn.addEventListener('click', () => {

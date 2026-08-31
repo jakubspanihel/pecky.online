@@ -49,46 +49,47 @@ odkazů v `content/domu.html`) je v `ARCHITEKTURA-MIGRACE.md`, sekce 2.3.
   tabulky nezapisují.
 
 ## Dokumentace jednotlivých sekcí
-Každá sekce webu má vlastní složku `pecky-<sekce>/` se souborem
-`README.md` — hlavní referenční dokument pro práci na dané sekci, načíst
-ho vždy jako první. Obsah sekce, který dřív žil v kořenovém `index.html`
+Každá sekce webu má vlastní složku `<sekce>/` se souborem `README.md` —
+hlavní referenční dokument pro práci na dané sekci, načíst ho vždy jako
+první. Stejná složka nese i vygenerovaný veřejný `index.html`
+(nedit — viz sekce Struktura výše) a u některých sekcí i doplňková
+data/skripty. Obsah sekce, který dřív žil v kořenovém `index.html`
 (jednosouborová struktura, do 30. 8. 2026), teď žije v
-`content/<sekce>.html` — tyhle `pecky-<sekce>/` složky nesou jen
-dokumentaci a (u některých sekcí) doplňková data/skripty.
+`content/<sekce>.html`.
 
 Data i obrázky patří vždy do složky sekce, ke které se vážou, ne do
 kořene repa. Kořenová `img/` je jen pro celowebové obrázky bez vazby na
 sekci (`img/favicons/`, `img/peckybot/`); kořenová `data/` neexistuje a
 nezakládat ji. Odkazuje se plnou cestou od kořene repa, např.
-`pecky-volby/2022/zastupitele/paluska.jpg`. Po přesunu souboru vždy
+`volby/2022/zastupitele/paluska.jpg`. Po přesunu souboru vždy
 projít příslušný `content/<sekce>.html` a přepsat všechny odkazy, pak
 spustit `python3 scripts/build.py`.
 
-- Domů → `pecky-domu/README.md`
-- Lidé → `pecky-lide/README.md` (+ `SPEC.md`; datová sada
+- Domů → `domu/README.md`
+- Lidé → `lide/README.md` (+ `SPEC.md`; datová sada
   `people.json` / `organizations.json` / `affiliations.json`,
-  kontrola `node pecky-lide/validate.mjs`)
-- Plán → `pecky-plan/README.md`
-- Volby 2018 → `pecky-volby/2018/README.md`
-- Volby 2022 → `pecky-volby/2022/README.md`
-- Volby 2026 → `pecky-volby/2026/README.md`
-  (společný rozcestník pro všechny ročníky: `pecky-volby/README.md`)
-- Jednání → `pecky-jednani/README.md` (+ `SPEC.md`,
+  kontrola `node lide/validate.mjs`)
+- Plán → `plan/README.md`
+- Volby 2018 → `volby/2018/README.md`
+- Volby 2022 → `volby/2022/README.md`
+- Volby 2026 → `volby/2026/README.md`
+  (společný rozcestník pro všechny ročníky: `volby/README.md`)
+- Jednání → `jednani/README.md` (+ `SPEC.md`,
   `automation-kontrola-usneseni-cz.md`, `automation-katastr-parcely.md`)
-- Smlouvy → `pecky-smlouvy/README.md`
-- Zakázky → `pecky-zakazky/README.md`
-- Pozemky → `pecky-pozemky/README.md`
-- Pokladna → `pecky-pokladna/README.md`
-- Pečecké noviny / Zpravodaj → `pecky-noviny/README.md`
-- O webu → `pecky-o-webu/README.md`
+- Smlouvy → `smlouvy/README.md`
+- Zakázky → `zakazky/README.md`
+- Pozemky → `pozemky/README.md`
+- Pokladna → `pokladna/README.md`
+- Pečecké noviny / Zpravodaj → `noviny/README.md`
+- O webu → `o-webu/README.md`
 
 ## Známé mezery (celoprojektové)
 - ~~Kompletní seznam 21 zastupitelů~~ — uzavřeno. pecky.cz sice blokuje
   bot přístup, ale jmenný seznam jde ověřit z prezence jednání v archivu
-  (`pecky-jednani/pecky-jednani.json`, pole `attendance.present_names`).
+  (`jednani/pecky-jednani.json`, pole `attendance.present_names`).
   Stav při ustavení 2022 = prezence ZM 7/2022 (21/21), aktuální stav =
   poslední jednání ZM. Uskupení u jmen ale archiv neuvádí — to zůstává
-  mezerou a dopočítává se z počtu mandátů (viz `pecky-volby/2022/README.md`).
+  mezerou a dopočítává se z počtu mandátů (viz `volby/2022/README.md`).
 
 ## Poznámky k datům
 - Hlídač státu MCP: použij ICO_of_holding_structure (celá skupina),
@@ -104,7 +105,7 @@ spustit `python3 scripts/build.py`.
   jeho úřední deska je zamrzlá na únoru/březnu 2026) — pro časově citlivý
   obsah (úřední deska, aktuality) použij pecky.cz, ne pecky.as4u.cz;
   as4u.cz zůstává užitečný pro starší/archivní obsah, viz sources.json
-- Velké soubory v `pecky-jednani/` (`archive-*.json`) čtené přímo z cesty
+- Velké soubory v `jednani/` (`archive-*.json`) čtené přímo z cesty
   přes připojenou složku občas skončí `OSError: [Errno 35] Resource
   deadlock avoided` (Python `open()`, `cat`, `head`...). Obejití: nejdřív
   `cp soubor /tmp/kopie.json`, pak pracovat s kopií — `cp` samo selhání

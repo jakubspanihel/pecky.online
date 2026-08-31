@@ -2,7 +2,7 @@
 
 Referenční dokument pro práci na panelu `panel-volby2018` v `index.html`
 webu pecky.online. Doplňuje obecné instrukce projektu i společný rozcestník
-[`pecky-volby/README.md`](../README.md) — tohle je detail jen pro tenhle
+[`volby/README.md`](../README.md) — tohle je detail jen pro tenhle
 ročník.
 
 ## Účel sekce
@@ -15,7 +15,7 @@ dobový tisk / Seznam Zprávy, Novinky.cz (viz kořenový `README.md` →
 
 ## Ustavující zasedání — mezera v datech
 Pravidlo „Zvolení zástupci patří do Výsledků voleb"
-([`pecky-volby/README.md`](../README.md)) se u tohoto ročníku dá naplnit
+([`volby/README.md`](../README.md)) se u tohoto ročníku dá naplnit
 jen částečně. Ustavující zasedání po volbách 2018 (a stejně tak 2014) se
 konalo dřív, než kam sahá systém usneseni.cz — ten začíná až **dubnem
 2021**, takže archiv jednání ho neobsahuje. Nedohledatelný je proto jak
@@ -31,8 +31,8 @@ Textový obsah panelu žije v `content/volby2018.html` (žádná samostatná dat
 sada). Ve složce ročníku je navíc `volebni-programy-2018/` — 6 skenů
 volební inzerce uskupení z Pečeckých novin 9/2018, zobrazovaných v
 záložce „Předvolební sliby". V `index.html` se na ně odkazuje cestou
-`pecky-volby/2018/volebni-programy-2018/{uskupeni}.jpg`.
+`volby/2018/volebni-programy-2018/{uskupeni}.jpg`.
 
 Jinak žádná další zvláštní pravidla nad rámec obecných konvencí v
-kořenovém `CLAUDE.md` a v [`pecky-volby/README.md`](../README.md).
+kořenovém `CLAUDE.md` a v [`volby/README.md`](../README.md).
 Doplnit sem, až nějaká vzniknou.

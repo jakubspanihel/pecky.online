@@ -6,9 +6,9 @@ Referenční rozcestník pro práci na volebních panelech v
 CLAUDE.md) — tohle je společný detail pro všechny volební ročníky.
 
 ## Struktura — jedna podsložka na volební ročník
-Každý ročník komunálních voleb má vlastní podsložku `pecky-volby/{rok}/`
+Každý ročník komunálních voleb má vlastní podsložku `volby/{rok}/`
 s vlastním `README.md`. Až přibude další ročník (další komunální volby po
-2026), založit stejným vzorem novou podsložku `pecky-volby/{rok}/` — ne
+2026), založit stejným vzorem novou podsložku `volby/{rok}/` — ne
 novou složku na kořenové úrovni repa.
 
 - [`2018/README.md`](2018/README.md) — panel `volby2018`
@@ -22,15 +22,25 @@ celoweb: `img/favicons/`, `img/peckybot/`):
 
 | Složka | Obsah |
 |---|---|
-| `pecky-volby/2018/volebni-programy-2018/` | 6 skenů volební inzerce z Pečeckých novin 9/2018 |
-| `pecky-volby/2022/volebni-programy-2022/` | 6 skenů volební inzerce z Pečeckých novin 9/2022 |
-| `pecky-volby/2022/zastupitele/` | 42 portrétů zastupitelů zvolených 2022 (používá i panel Lidé) |
+| `volby/2018/volebni-programy-2018/` | 6 skenů volební inzerce z Pečeckých novin 9/2018 |
+| `volby/2022/volebni-programy-2022/` | 6 skenů volební inzerce z Pečeckých novin 9/2022 |
+| `volby/2022/zastupitele/` | 42 portrétů zastupitelů zvolených 2022 (používá i panel Lidé) |
+| `volby/2026/zastupitele/` | 15 portrétů kandidátů ODS Pečky 2026, staženo z ods.cz (používá i panel Lidé) |
 
 V `content/<sekce>.html` se na ně odkazuje absolutní cestou od kořene
 webu (se zúvodním lomítkem, funguje z libovolné hloubky URL), např.
-`/pecky-volby/2022/zastupitele/paluska.jpg`. Pojmenování souboru:
+`/volby/2022/zastupitele/paluska.jpg`. Pojmenování souboru:
 příjmení bez diakritiky malými písmeny, u shody příjmení s křestním
 (`hruska-ivan.jpg`, `vodicka-tomas.jpg`).
+
+**`zastupitele/` navzdory názvu nese portréty kandidátů, ne jen
+zvolených** — u 2026 nikdo ještě zvolený není, jde o portréty
+z kandidátní listiny. Jeden člověk může mít soubor ve víc ročnících
+(fotka na kandidátce se mezi lety mění) — `lide/people.json` proto drží
+`photos` jako pole s rokem u každé položky, ne jednu cestu, viz
+[`lide/SPEC.md`](../lide/SPEC.md) §3.7. Formát souboru podle zdroje —
+2022 `.jpg` (Pečecké noviny/ods.cz), 2026 `.webp` (ods.cz negeneruje
+jpg) — needit převádět, jen dodržet pojmenování.
 
 ## Co mají volební panely společné
 - **Výsledky voleb** (proběhlé ročníky) — počty hlasů/mandátů po

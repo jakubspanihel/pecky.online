@@ -92,19 +92,19 @@ MANIFEST = {
 
 # cesta k README sekce (jak je zapsaná v tabulce "Stav sekcí") -> slug v MANIFEST
 README_TO_SLUG = {
-    'pecky-domu': 'domu',
-    'pecky-jednani': 'jednani',
-    'pecky-lide': 'lide',
-    'pecky-noviny': 'zpravodaj',
-    'pecky-o-webu': 'owebu',
-    'pecky-plan': 'plan',
-    'pecky-pokladna': 'pokladna',
-    'pecky-pozemky': 'pozemky',
-    'pecky-smlouvy': 'smlouvy',
-    'pecky-zakazky': 'zakazky',
-    'pecky-volby/2018': 'volby2018',
-    'pecky-volby/2022': 'volby2022',
-    'pecky-volby/2026': 'volby2026',
+    'domu': 'domu',
+    'jednani': 'jednani',
+    'lide': 'lide',
+    'noviny': 'zpravodaj',
+    'o-webu': 'owebu',
+    'plan': 'plan',
+    'pokladna': 'pokladna',
+    'pozemky': 'pozemky',
+    'smlouvy': 'smlouvy',
+    'zakazky': 'zakazky',
+    'volby/2018': 'volby2018',
+    'volby/2022': 'volby2022',
+    'volby/2026': 'volby2026',
 }
 
 

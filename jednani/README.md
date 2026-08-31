@@ -12,12 +12,12 @@ tabulky Pozemky).
 ## Umístění souborů
 Všechny soubory týkající se sekce Jednání (index pro fulltextové hledání,
 kompletní datový snímek, referenční dokumenty, skripty) patří do
-`pecky-jednani/`, ne do kořene repa ani do `data/` — i nově vznikající.
+`jednani/`, ne do kořene repa ani do `data/` — i nově vznikající.
 Jediná výjimka: zobrazení sekce žije v `content/jednani.html` (od migrace
 na vícestránkový web 30. 8. 2026 — viz `ARCHITEKTURA-MIGRACE.md` v kořeni
 repa) — needit vygenerovanou veřejnou stránku přímo, jen `content/jednani.html`
 a pak spustit `scripts/build.py`. Dřívější samostatná stránka
-`pecky-jednani/index.html` (kopie bez hlavičky hlavního webu) migrací
+`jednani/index.html` (kopie bez hlavičky hlavního webu) migrací
 zanikla — nahradila ji plnohodnotná veřejná stránka `/jednani/`.
 
 **První kompletní export: 2026-08-04** — 281 jednání (243 Rada, 38
@@ -30,8 +30,8 @@ Zastupitelstvo, 2021–2026), 2 731 usnesení vč. detail-stránek, 2 846 hlasov
 Pozor na cesty: `data/`, `work/` a `logs/` níže jsou složky **scraperu**
 na stroji, kde běží (`/Users/sigy/Projects/Pečky`, viz `SPEC.md`), ne
 složky tohoto repa — kořenová `data/` v repu neexistuje. Do repa se
-z toho přenáší jen snímek archivu, a to rovnou do `pecky-jednani/`
-(dnes `pecky-jednani/archive-2026-08-04.json`).
+z toho přenáší jen snímek archivu, a to rovnou do `jednani/`
+(dnes `jednani/archive-2026-08-04.json`).
 
 - `data/archive-YYYY-MM-DD.json` — kompletní datovaný snímek (jeden soubor)
 - `data/report-YYYY-MM-DD.md` — report křížových kontrol a anomálií
@@ -247,6 +247,35 @@ selhání nemělo, ačkoli přímé čtení stejné cesty ano.
 anonymizačních bloků █). Normalizovaná pole (`date_iso`, `number`) jsou vždy
 vedle `*_raw` originálu. Assemble fáze programově ověřuje, že každý text
 usnesení je (modulo whitespace) obsažen v surovém HTML.
+
+## Permalinky na jednotlivá jednání (`jSlugForMeeting()`)
+
+Doplněno 31. 8. 2026 — každý řádek v tabulce má trvalý odkaz tvaru
+`#rada-YYYY-MM-DD` / `#zastupitelstvo-YYYY-MM-DD`; obecné `#rada` /
+`#zastupitelstvo` filtrují celou tabulku jen na daný typ jednání. Slug se
+počítá za běhu z `type` + `date` (`content/jednani.html`, funkce
+`jSlugForMeeting()`) — **není to pole uložené v JSON ani krok, který by bylo
+potřeba dělat ručně.** Jakmile přibude nové jednání do `pecky-jednani.json`
+(viz `automation-kontrola-usneseni-cz.md`, krok 5) a web se přegeneruje
+(`python3 scripts/build.py`), permalink pro něj funguje sám od sebe — u
+kolizí data (dvě jednání týž den) je typ součástí slugu, takže nekoliduje.
+
+Odkazem je přímo název jednání (datum + „Jednání rady/zastupitelstva č. N")
+v hlavičce řádku — žádný zvláštní „#" vedle textu. Rozkliknutí řádku
+(kliknutím na název i kdekoli jinde v hlavičce) vždy nastaví URL na
+permalink daného jednání přes `history.replaceState`, jako by uživatel
+proklikl přímo tento odkaz, včetně scrollu na řádek — ale bez těžšího
+resetu filtrů, protože řádek je už viditelný na místě (`jToggleRow()`).
+Ctrl/Cmd/Shift/prostřední klik na název se nechává prohlížeči beze změny
+(otevření v nové kartě). Teprve příchod zvenčí (přímý odkaz, historie
+zpět/vpřed) spustí těžší `jGotoMeetingBySlug()` — reset filtrů, dohledání
+řádku a scroll.
+
+**V seznamu smí být rozbalený vždy jen jeden řádek** — `jToggleRow()` před
+rozbalením nového řádku sbalí všechny ostatní (`jCollapseRow()`). Netýká se
+`jGotoMeetingBySlug()`: ten pracuje na čerstvě vykresleném seznamu
+(`jRunSearch()` znovu sestaví celé HTML), kde je jinak rozbalených řádků
+vždy nula.
 
 ## Známá omezení zdroje (ověřeno 2026-08-04)
 

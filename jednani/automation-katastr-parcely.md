@@ -3,14 +3,14 @@
 Jak web propojuje zmínky o pozemcích/parcelách v usneseních s katastrem
 nemovitostí (RUIAN) a jak se z nich generují tabulky Nákup/Prodej na
 stránce Pozemky. Oboje řeší jeden skript,
-`pecky-jednani/scripts/update-pozemky.py`, nezávisle na scraperu jednání
+`jednani/scripts/update-pozemky.py`, nezávisle na scraperu jednání
 — spouští se poté, co se aktualizuje `pecky-jednani.json` (viz
 [automation-kontrola-usneseni-cz.md](automation-kontrola-usneseni-cz.md)).
 
 ## Historie (přečíst, než se sáhne na cokoli s „katastr" v názvu)
 
 Do 23. 8. 2026 web prolinkovával zmínky o parcelách přes
-`pecky-jednani/katastr-odkazy.json` — globální mapu „číslo parcely →
+`jednani/katastr-odkazy.json` — globální mapu „číslo parcely →
 URL" bez rozlišení katastrálního území, dohledanou přes REST API ČÚZK
 (api-kn.cuzk.gov.cz, klíč `.katastr-api-key`). **Soubor byl smazán**,
 protože obsahoval prokázanou chybu: číslo parcely je unikátní jen
@@ -27,7 +27,7 @@ chyby výše je teď jediný záznam o důvodu přechodu na `update-pozemky.py`.
 ## Současný stav
 
 Vše (tabulky Pozemky i obecné prolinkování „parc. NNNN" v Jednání)
-generuje jediný skript, `pecky-jednani/scripts/update-pozemky.py` — viz
+generuje jediný skript, `jednani/scripts/update-pozemky.py` — viz
 sekce „Tabulky Nákup/Prodej na stránce Pozemky" níže pro plný popis.
 Skript sám dohledává katastr z kontextu KAŽDÉHO výskytu čísla zvlášť
 (ne jen jednou globálně) a čísla, u kterých se katastr napříč výskyty
@@ -38,9 +38,9 @@ ruční krok navíc není potřeba, nová/změněná jednání se promítnou př
 spuštěním skriptu).
 
 Výstupy skriptu pro tuhle část:
-- `pecky-jednani/parcely-pozemky.json` — katastr-přesná cache
+- `jednani/parcely-pozemky.json` — katastr-přesná cache
   „katastr|číslo" → RUIAN ID, zdroj pravdy pro obojí níže.
-- `pecky-jednani/parcely-odkazy.json` — plochá mapa „číslo" → URL,
+- `jednani/parcely-odkazy.json` — plochá mapa „číslo" → URL,
   načítá ji frontend pro obecné prolinkování v Jednání (nahrazuje
   smazaný `katastr-odkazy.json`).
 
@@ -53,7 +53,7 @@ Smlouvy. **Při každé aktualizaci `pecky-jednani.json` je proto potřeba
 spustit i:**
 
 ```
-python3 pecky-jednani/scripts/update-pozemky.py
+python3 jednani/scripts/update-pozemky.py
 python3 scripts/build.py
 ```
 

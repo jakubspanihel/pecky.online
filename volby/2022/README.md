@@ -2,7 +2,7 @@
 
 Referenční dokument pro práci na panelu `panel-volby2022` v `index.html`
 webu pecky.online. Doplňuje obecné instrukce projektu i společný rozcestník
-[`pecky-volby/README.md`](../README.md) — tohle je detail jen pro tenhle
+[`volby/README.md`](../README.md) — tohle je detail jen pro tenhle
 ročník.
 
 ## Účel sekce
@@ -23,7 +23,7 @@ Volby proběhly **23.–24. 9. 2022**, nové zastupitelstvo se ustavilo na
 Na tomhle jednání složili zvolení zastupitelé slib, ověřila se platnost
 voleb a zvolilo se vedení města. Je to zdroj pro jmenný seznam v
 subpanelu „Výsledky voleb" (pravidlo viz
-[`pecky-volby/README.md`](../README.md) → „Zvolení zástupci").
+[`volby/README.md`](../README.md) → „Zvolení zástupci").
 
 Zvolené vedení a rada (7 členů), vč. poměru hlasů pro–proti–zdržel se:
 
@@ -37,7 +37,7 @@ Zvolené vedení a rada (7 členů), vč. poměru hlasů pro–proti–zdržel s
 | Radní | Ivana Trčková | `UZ-95-7/22` | 15–2–4 |
 | Radní | Ing. Petr Dürr | `UZ-96-7/22` | 14–4–3 |
 
-Ověřeno proti archivu jednání (`pecky-jednani/pecky-jednani.json`,
+Ověřeno proti archivu jednání (`jednani/pecky-jednani.json`,
 jednání `7/2022`, 33 usnesení `UZ-83-7/22`…`UZ-115-7/22`); každé usnesení
 má v archivu i vlastní URL na mesto-pecky.usneseni.cz. Tamtéž jsou
 usnesení o počtu uvolněných funkcí (`UZ-87`, `UZ-88`), o složení rady
@@ -79,9 +79,9 @@ sada). Ve složce ročníku jsou navíc dvě sady obrázků:
 
 - `volebni-programy-2022/` — 6 skenů volební inzerce uskupení z
   Pečeckých novin 9/2022 (záložka „Předvolební sliby"), cesta
-  `pecky-volby/2022/volebni-programy-2022/{uskupeni}.jpg`.
+  `volby/2022/volebni-programy-2022/{uskupeni}.jpg`.
 - `zastupitele/` — 42 portrétů zastupitelů zvolených v tomto ročníku,
-  cesta `pecky-volby/2022/zastupitele/{prijmeni}.jpg`. Odkazuje se na ně
+  cesta `volby/2022/zastupitele/{prijmeni}.jpg`. Odkazuje se na ně
   ze **dvou** míst v `index.html`: kartičky v panelu Lidé
   (`.avatar`) a avatary u volby vedení města v tomto panelu
   (`.people-avatars .av-img`) — při přejmenování projít obě.
@@ -89,5 +89,5 @@ sada). Ve složce ročníku jsou navíc dvě sady obrázků:
   iniciály `.av-init`.)
 
 Jinak žádná další zvláštní pravidla nad rámec obecných konvencí v
-kořenovém `CLAUDE.md` a v [`pecky-volby/README.md`](../README.md).
+kořenovém `CLAUDE.md` a v [`volby/README.md`](../README.md).
 Doplnit sem, až nějaká vzniknou.

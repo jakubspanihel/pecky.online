@@ -10,26 +10,26 @@ Tabulky Nákup/Prodej v panelu Pozemky jsou statický výřez z usnesení rady
 a zastupitelstva o prodeji/nákupu konkrétního pozemku (analogie sekce
 Smlouvy) — ne ručně psaný obsah, ale vygenerovaný ze zdrojových dat.
 
-## Umístění dat — proč nejsou v `pecky-pozemky/`
-Data i generující skript fyzicky žijí v `pecky-jednani/`, ne tady:
-- `pecky-jednani/scripts/update-pozemky.py` — generátor
-- `pecky-jednani/parcely-pozemky.json` — katastr-přesná cache
+## Umístění dat — proč nejsou v `pozemky/`
+Data i generující skript fyzicky žijí v `jednani/`, ne tady:
+- `jednani/scripts/update-pozemky.py` — generátor
+- `jednani/parcely-pozemky.json` — katastr-přesná cache
   „katastr|číslo parcely" → RUIAN ID
-- `pecky-jednani/parcely-odkazy.json` — plochá mapa pro obecné prolinkování
+- `jednani/parcely-odkazy.json` — plochá mapa pro obecné prolinkování
   zmínek „parc. NNNN" v sekci Jednání
 
-Důvod: tabulky Pozemky se počítají přímo z `pecky-jednani/pecky-jednani.json`
+Důvod: tabulky Pozemky se počítají přímo z `jednani/pecky-jednani.json`
 (usnesení rady/zastupitelstva) — data i skript mají těsnější vazbu na
 sekci Jednání než na cokoli vlastního, takže zůstávají u zdroje místo
 duplikace/kopírování mezi složkami.
 
 ## Aktualizace — spustit po každé změně `pecky-jednani.json`
 ```
-python3 pecky-jednani/scripts/update-pozemky.py
+python3 jednani/scripts/update-pozemky.py
 python3 scripts/build.py
 ```
 První skript v jednom běhu přegeneruje obě HTML tabulky (Nákup/Prodej)
-přímo v `content/pozemky.html` a zároveň `pecky-jednani/parcely-odkazy.json`;
+přímo v `content/pozemky.html` a zároveň `jednani/parcely-odkazy.json`;
 ověří i balanci HTML tagů po zásahu (selže s chybou, pokud něco rozbije).
 Druhý příkaz je od migrace na vícestránkový web (`ARCHITEKTURA-MIGRACE.md`)
 nutný vždy — promítne `content/pozemky.html` do veřejné stránky
@@ -38,4 +38,4 @@ nutný vždy — promítne `content/pozemky.html` do veřejné stránky
 Plný technický popis (dohledávání RUIAN ID, katastr-přesná kolize čísel
 parcel, proč byl starý globální `katastr-odkazy.json` smazaný, formát
 odkazu „řešilo se na: Jednání rady č. N" s deep-linkem do panelu Jednání)
-je v [`pecky-jednani/automation-katastr-parcely.md`](../pecky-jednani/automation-katastr-parcely.md).
+je v [`jednani/automation-katastr-parcely.md`](../jednani/automation-katastr-parcely.md).

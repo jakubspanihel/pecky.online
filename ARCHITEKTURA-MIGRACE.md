@@ -8,6 +8,14 @@ záznam (důvody rozhodnutí, mapa starý hash → nová cesta v sekci 2.3).
 Aktuální stav struktury a konvence pro práci s ní jsou v kořenovém
 `CLAUDE.md`.
 
+Dodatek (30. 8. 2026, stejný den): tehdy nově vzniklé bezprefixové
+složky sekcí (`jednani/`, `lide/` atd., viz 2.1) zpočátku existovaly
+vedle starších `pecky-<sekce>/` složek s dokumentací a daty. Ty byly
+následně (v rámci téhož dne) sloučené do bezprefixových složek — dnes
+tedy existuje jen jedna složka na sekci, ne dvě. Zbytek tohoto
+dokumentu popisuje stav bezprostředně po prvním kroku migrace a
+zmínky `pecky-<sekce>/` níže jsou proto historické, ne aktuální cesty.
+
 ## 1. Současný stav (fakta)
 
 - Jeden soubor `index.html`, 13 panelů (`data-panel`), přepínaných JS.

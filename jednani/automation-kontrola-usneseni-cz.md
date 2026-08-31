@@ -3,7 +3,7 @@
 Lehký, poloautomatický postup pro pravidelnou kontrolu, jestli na
 [mesto-pecky.usneseni.cz/verejne/](https://mesto-pecky.usneseni.cz/verejne/)
 nepřibylo nové jednání nebo se u existujícího nedoplnil zápis a usnesení
-(oproti stavu jen s Pozvánkou). Doplňuje `pecky-jednani/pecky-jednani.json`
+(oproti stavu jen s Pozvánkou). Doplňuje `jednani/pecky-jednani.json`
 — lehký soubor, který pohání panel Jednání na webu (`content/jednani.html`,
 promítne se do veřejné stránky `/jednani/` přes `scripts/build.py`).
 Součástí postupu je i kontrola záznamů
@@ -36,7 +36,7 @@ s odstupem 1–3 dnů po jednání.
 
 ### 1. Zjisti aktuální stav archivu
 
-Přečti `pecky-jednani/pecky-jednani.json`, seřaď `meetings` podle `date`
+Přečti `jednani/pecky-jednani.json`, seřaď `meetings` podle `date`
 sestupně, podívej se na několik posledních záznamů. Zvlášť si všimni těch,
 kde `links.minutes` je `null` (zaznamenané jen z Pozvánky, viz README.md
 sekce „Jednání jen s Pozvánkou") — u těch je potřeba web zkontrolovat jako
@@ -120,7 +120,15 @@ s `resolutions` neprázdným, jako referenční tvar), zapsat zpět
 jako zbytek souboru, jinak diff zasáhne celý soubor místo jen dotčeného
 záznamu.
 
-Ověřit: `python3 -c "import json; json.load(open('pecky-jednani/pecky-jednani.json'))"`.
+Ověřit: `python3 -c "import json; json.load(open('jednani/pecky-jednani.json'))"`.
+
+**Permalink vzniká automaticky, nic dalšího tu není potřeba dopisovat.**
+Trvalý odkaz tvaru `#rada-YYYY-MM-DD` / `#zastupitelstvo-YYYY-MM-DD` se
+u každého jednání v tabulce generuje za běhu z `type` + `date`
+(`content/jednani.html`, funkce `jSlugForMeeting()`) — není to pole
+uložené v JSON. Jakmile je nový záznam v `pecky-jednani.json` a web se
+přegeneruje (`python3 scripts/build.py`), permalink pro něj funguje sám
+od sebe.
 
 ### 6. Kontrola YouTube u zastupitelstva (dělat při KAŽDÉM běhu)
 
@@ -197,7 +205,7 @@ automaticky.
 ### 8. Pozemky (pokud relevantní)
 
 Pokud nové usnesení řeší prodej/nákup pozemku, spustit i
-`python3 pecky-jednani/scripts/update-pozemky.py` — viz
+`python3 jednani/scripts/update-pozemky.py` — viz
 [automation-katastr-parcely.md](automation-katastr-parcely.md) pro plný
 popis.
 

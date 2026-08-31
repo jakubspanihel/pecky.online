@@ -8,7 +8,7 @@ A) Sekce Pozemky (panel-pozemky v content/pozemky.html): tabulky
    sloupcem Parcela.
 B) Obecné prolinkování zmínek "parc. NNNN" kdekoli v textu usnesení
    a bodů programu v sekci Jednání (jLinkParcely() v content/jednani.html) —
-   dřív pecky-jednani/katastr-odkazy.json, teď parcely-odkazy.json
+   dřív jednani/katastr-odkazy.json, teď parcely-odkazy.json
    generovaný tímhle skriptem.
 
 DŮLEŽITÉ (od migrace na vícestránkový web, ARCHITEKTURA-MIGRACE.md):
@@ -17,7 +17,7 @@ po jeho běhu je vždy potřeba ještě spustit `python3 scripts/build.py`,
 ať se změna promítne i do vygenerovaného pozemky/index.html.
 
 Co dělá (v pořadí):
-1. Načte/aktualizuje pecky-jednani/parcely-pozemky.json — katastr-přesnou
+1. Načte/aktualizuje jednani/parcely-pozemky.json — katastr-přesnou
    cache "katastr|číslo parcely" -> RUIAN ID (zdroj pravdy pro obě části A i B).
 2. (A) Projde usnesení o prodeji/nákupu pozemku, vytáhne parcelní číslo,
    katastr, cenu, klasifikuje nákup/prodej, dohledá chybějící RUIAN ID
@@ -41,7 +41,7 @@ skript už tuhle třídu chyby nemůže zopakovat — u kolidujících čísel
 raději nepodlinkuje (viz build_general_links), než aby odkázal na
 špatnou parcelu.
 
-Spouštět: `python3 pecky-jednani/scripts/update-pozemky.py`
+Spouštět: `python3 jednani/scripts/update-pozemky.py`
 (z kořene repa; síťové dohledávání běží jen pro nová čísla, jinak rychlé).
 """
 import datetime
@@ -54,8 +54,8 @@ import urllib.request
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
-JEDNANI_JSON = ROOT / 'pecky-jednani' / 'pecky-jednani.json'
-CACHE_JSON = ROOT / 'pecky-jednani' / 'parcely-pozemky.json'
+JEDNANI_JSON = ROOT / 'jednani' / 'pecky-jednani.json'
+CACHE_JSON = ROOT / 'jednani' / 'parcely-pozemky.json'
 POZEMKY_CONTENT = ROOT / 'content' / 'pozemky.html'
 TODAY = datetime.date.today().isoformat()
 
@@ -244,7 +244,7 @@ def save_cache(cache):
         '_comment': ('Katastr-přesná mapa "katastr|číslo parcely" -> RUIAN ID. Zdroj pravdy '
                      'pro odkazy na parcely na celém webu (tabulky Pozemky i obecné prolinkování '
                      'v Jednání, viz parcely-odkazy.json). Generuje a doplňuje '
-                     'pecky-jednani/scripts/update-pozemky.py.'),
+                     'jednani/scripts/update-pozemky.py.'),
         'count': len(cache),
         'parcely': dict(sorted(cache.items())),
     }, ensure_ascii=False, indent=1) + '\n', encoding='utf-8')
@@ -294,7 +294,7 @@ def update_cache(rows, cache):
 #    a přidáme do finální ploché mapy (GENERAL_LINKS_JSON), kterou používá jLinkParcely() v content/jednani.html,
 #  - pokud se katastr u různých výskytů LIŠÍ (kolize, viz případ parcely "254" — Pečky vs.
 #    Velké Chvalovice) → číslo se do mapy vůbec nepřidá (raději nepodlinkovat, než odkázat špatně).
-GENERAL_LINKS_JSON = ROOT / 'pecky-jednani' / 'parcely-odkazy.json'
+GENERAL_LINKS_JSON = ROOT / 'jednani' / 'parcely-odkazy.json'
 GENERAL_PARC_RE = re.compile(r'parc\.?\s*(\d{1,5}(?:/\d{1,3})?)', re.I)
 
 
@@ -366,7 +366,7 @@ def build_general_links(mentions, cache):
                      'chybu u kolidujících čísel, viz AUTOMATION.md). Číslo, u kterého se '
                      'katastr nepodařilo jednoznačně určit nebo koliduje mezi více katastry, '
                      'se sem záměrně nepřidává — raději nepodlinkovat, než odkázat na špatnou '
-                     'parcelu. Generuje pecky-jednani/scripts/update-pozemky.py.'),
+                     'parcelu. Generuje jednani/scripts/update-pozemky.py.'),
         'count': len(links),
         'skipped_unknown_katastr': len(skipped_unknown),
         'skipped_collision': [{'cislo': n, 'katastry': k} for n, k in skipped_collision],

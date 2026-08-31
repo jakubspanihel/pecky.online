@@ -23,7 +23,7 @@ Snímek (snapshot) seznamu ID veřejných zakázek města, který slouží jako
 základ pro **denní diff** — tedy porovnání „co bylo minule" proti „co je
 na Hlídači dnes". Není to zdroj obsahu pro web, jen kontrolní otisk.
 
-Umístění: `pecky-zakazky/pecky-zakazky-ids.json`
+Umístění: `zakazky/pecky-zakazky-ids.json`
 (do 24. 8. 2026 ležel v kořenové složce `data/`, která tím zanikla).
 
 Struktura:

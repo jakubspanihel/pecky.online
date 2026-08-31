@@ -19,7 +19,7 @@ o samosprávě města Pečky (okres Kolín, Středočeský kraj).
   potřeba spustit lokální server (např. `python3 -m http.server`),
   otevření vygenerovaných stránek přímo ze souboru (`file://`) fetch
   v některých prohlížečích zablokuje.
-- `pecky-jednani/` — vše k sekci „Jednání": `pecky-jednani.json` (odlehčený
+- `jednani/` — vše k sekci „Jednání": `pecky-jednani.json` (odlehčený
   index pro fulltextové hledání na webu), `archive-2026-08-04.json`
   (kompletní datový snímek se všemi detaily vč. jmenovitých hlasování),
   `README.md`/`SPEC.md`/`automation-kontrola-usneseni-cz.md`/
@@ -27,10 +27,10 @@ o samosprávě města Pečky (okres Kolín, Středočeský kraj).
   aktualizace), `Data/{datum}/` (lokální archiv PDF zápisů a
   pozvánek — kvůli velikosti je v `.gitignore`, do repa se nenahrává)
   a `scripts/` (pomocné skripty, vč. `update-pozemky.py`).
-- `pecky-noviny/` — vše k sekci „Pečecké noviny": archiv PDF, obálky,
+- `noviny/` — vše k sekci „Pečecké noviny": archiv PDF, obálky,
   fulltextový index a nástroje (`download.py`, `render_pages.py`).
-  Viz `pecky-noviny/README.md`.
-- `pecky-volby/` — vše k volebním ročníkům, jedna podsložka na ročník
+  Viz `noviny/README.md`.
+- `volby/` — vše k volebním ročníkům, jedna podsložka na ročník
   (`2018/`, `2022/`, `2026/`) s vlastním `README.md`. Součástí jsou i
   obrázky ročníku: skeny volební inzerce (`volebni-programy-2018/`,
   `volebni-programy-2022/`) a portréty zastupitelů zvolených 2022
@@ -38,13 +38,14 @@ o samosprávě města Pečky (okres Kolín, Středočeský kraj).
 - `img/` — jen celowebové obrázky, které nepatří žádné sekci:
   `img/favicons/` (ikony zdrojů) a `img/peckybot/`. Obrázky vázané na
   konkrétní sekci patří do složky té sekce.
-- `pecky-zakazky/` — vše k sekci „Zakázky": `pecky-zakazky-ids.json`
+- `zakazky/` — vše k sekci „Zakázky": `pecky-zakazky-ids.json`
   (kontrolní snímek ID zakázek pro denní diff, na webu se nezobrazuje)
-  a `README.md` s pracovním postupem. Viz `pecky-zakazky/README.md`.
-- Každá další sekce webu má vlastní složku `pecky-<sekce>/` s `README.md`
-  (podrobnosti a datové soubory tam, kde nějaké má); u sekcí bez vlastních
-  dat obsahuje složka jen krátký `README.md`. Přehled a odkazy viz kořenový
-  `CLAUDE.md` → „Dokumentace jednotlivých sekcí".
+  a `README.md` s pracovním postupem. Viz `zakazky/README.md`.
+- Každá další sekce webu má vlastní složku `<sekce>/` s `README.md`
+  (podrobnosti a datové soubory tam, kde nějaké má, vedle vygenerovaného
+  `index.html`); u sekcí bez vlastních dat obsahuje složka jen krátký
+  `README.md` + `index.html`. Přehled a odkazy viz kořenový `CLAUDE.md`
+  → „Dokumentace jednotlivých sekcí".
 
 ## Zdroje dat
 
@@ -67,10 +68,10 @@ o samosprávě města Pečky (okres Kolín, Středočeský kraj).
   mesto-pecky.usneseni.cz z 4. 8. 2026 — 281 jednání (243 Rada, 38
   Zastupitelstvo, 2021–2026), 2 731 usnesení. Kompletní snímek se všemi detaily
   (vč. jmenovitých hlasování a plných zápisů) je v
-  `pecky-jednani/archive-2026-08-04.json`; `pecky-jednani/pecky-jednani.json`
+  `jednani/archive-2026-08-04.json`; `jednani/pecky-jednani.json`
   je z něj odvozený odlehčený index pro hledání na webu. Viz
-  `pecky-jednani/SPEC.md` pro popis původního exportu a
-  `pecky-jednani/automation-kontrola-usneseni-cz.md` pro aktuální postup
+  `jednani/SPEC.md` pro popis původního exportu a
+  `jednani/automation-kontrola-usneseni-cz.md` pro aktuální postup
   průběžného doplňování.
 
 ## Barevná paleta uskupení
@@ -80,7 +81,7 @@ konzistentně u kartiček lidí, kartiček volebních programů, sloupcového gr
 i barevných teček (swatch) v tabulkách. Uskupení, které kandiduje opakovaně, si barvu
 drží i při změně názvu.
 
-**Tabulka barev se přesunula do [`pecky-volby/README.md`](pecky-volby/README.md)
+**Tabulka barev se přesunula do [`volby/README.md`](volby/README.md)
 → „Barevná paleta uskupení"** — je to pravidlo nejtěsněji svázané s volebními
 panely, tak žije u nich. Najdeš tam CSS třídy `.person-card.party-*`, hex hodnoty,
 ročníky a soupis nedodělků v paletě.
@@ -95,7 +96,7 @@ Než o čemkoli prohlásíš, že to „v datech není“ nebo že se to „nest
 **vždy ve všech zdrojích a v jejich plné podobě**. Zkratky vedly už k prokazatelně
 chybným závěrům.
 
-1. **Vždy `pecky-jednani/archive-2026-08-04.json`, ne `pecky-jednani/pecky-jednani.json`.**
+1. **Vždy `jednani/archive-2026-08-04.json`, ne `jednani/pecky-jednani.json`.**
    Druhý jmenovaný je odlehčený index (jen názvy a texty usnesení). Plný archiv
    obsahuje kompletní zápisy včetně diskuzí, důvodových zpráv a bodů programu —
    řádově víc textu. Pozn.: plný archiv nelze číst přes `mcp__workspace__bash`
@@ -144,19 +145,19 @@ nezapisují, jen změny obsahu.
 
 | Sekce | Režim | Kontrola | Změna | Co naposledy |
 |---|---|---|---|---|
-| [Volby 2026](pecky-volby/2026/README.md) | hlídat | 30. 8. 2026 | 30. 8. 2026 | kompletní kandidátní listiny (105 kandidátů) |
-| [Jednání](pecky-jednani/README.md) | denně | 30. 8. 2026 | 30. 8. 2026 | Rada 31/2026 (jen Pozvánka) |
-| [Lidé](pecky-lide/README.md) | na vyžádání | 30. 8. 2026 | 30. 8. 2026 | oprava rozbitých cest k fotkám po migraci |
-| [Pozemky](pecky-pozemky/README.md) | odvozená | 30. 8. 2026 | 27. 8. 2026 | regenerace tabulek Nákup/Prodej |
-| [Volby 2022](pecky-volby/2022/README.md) | uzavřené | — | 25. 8. 2026 | blok „Kdo byl zvolen" |
-| [Pečecké noviny](pecky-noviny/README.md) | denně | 30. 8. 2026 | 24. 8. 2026 ? | vydání 7–8/2026 |
-| [Domů](pecky-domu/README.md) | odvozená | — | 24. 8. 2026 | brand header |
-| [Volby 2018](pecky-volby/2018/README.md) | uzavřené | — | 24. 8. 2026 | barva KSČM v paletě |
-| [O webu](pecky-o-webu/README.md) | odvozená | — | 24. 8. 2026 | vlastní složka + README |
-| [Smlouvy](pecky-smlouvy/README.md) | denně | 30. 8. 2026 | 20. 8. 2026 | 2 nové smlouvy |
-| [Plán](pecky-plan/README.md) | na vyžádání | 10. 8. 2026 | 10. 8. 2026 | sekce Obchvat |
-| [Zakázky](pecky-zakazky/README.md) | denně | 30. 8. 2026 | 6. 8. 2026 | 1 nová zakázka |
-| [Pokladna](pecky-pokladna/README.md) | na vyžádání | 6. 8. 2026 | 6. 8. 2026 | blok Bankovní účty |
+| [Lidé](lide/README.md) | na vyžádání | 31. 8. 2026 | 31. 8. 2026 | fotky kandidátů ODS 2026 z ods.cz, `photo` → pole `photos` (víc fotek na osobu) |
+| [Jednání](jednani/README.md) | denně | 31. 8. 2026 | 31. 8. 2026 | rozbalení řádku na něj i odscrolluje |
+| [Volby 2018](volby/2018/README.md) | uzavřené | — | 31. 8. 2026 | tabulka Výsledky voleb: kandidáti nahrazeni avatary zvolených zastupitelů |
+| [Volby 2022](volby/2022/README.md) | uzavřené | — | 31. 8. 2026 | tabulka Výsledky voleb: kandidáti nahrazeni avatary zvolených zastupitelů |
+| [Volby 2026](volby/2026/README.md) | hlídat | 30. 8. 2026 | 30. 8. 2026 | kompletní kandidátní listiny (105 kandidátů) |
+| [Pozemky](pozemky/README.md) | odvozená | 30. 8. 2026 | 27. 8. 2026 | regenerace tabulek Nákup/Prodej |
+| [Pečecké noviny](noviny/README.md) | denně | 30. 8. 2026 | 24. 8. 2026 ? | vydání 7–8/2026 |
+| [Domů](domu/README.md) | odvozená | — | 24. 8. 2026 | brand header |
+| [O webu](o-webu/README.md) | odvozená | — | 24. 8. 2026 | vlastní složka + README |
+| [Smlouvy](smlouvy/README.md) | denně | 30. 8. 2026 | 20. 8. 2026 | 2 nové smlouvy |
+| [Plán](plan/README.md) | na vyžádání | 10. 8. 2026 | 10. 8. 2026 | sekce Obchvat |
+| [Zakázky](zakazky/README.md) | denně | 30. 8. 2026 | 6. 8. 2026 | 1 nová zakázka |
+| [Pokladna](pokladna/README.md) | na vyžádání | 6. 8. 2026 | 6. 8. 2026 | blok Bankovní účty |
 
 Režimy: **denně** = má zdroj, který kontroluje denní rutina · **hlídat** =
 čeká se na událost (volby 2026) · **na vyžádání** = kontroluje se, jen když
@@ -382,7 +383,7 @@ přes prohlížeč, který bot ochranu neblokuje)
 2. Před nahráním spusťte `python3 scripts/build.py` — vygeneruje
    `index.html`, `jednani/`, `noviny/`, `volby/2018/` atd. ze
    `content/*.html`. Nahrajte celý výsledek (vygenerované stránky,
-   `assets/`, složky sekcí jako `pecky-jednani/`, `pecky-noviny/`,
-   `pecky-zakazky/` a další) do kořene repozitáře
+   `assets/`, složky sekcí jako `jednani/`, `noviny/`,
+   `zakazky/` a další) do kořene repozitáře
 3. Settings → Pages → source: `main` branch, root
 4. Web poběží na `https://<vaše-uživatelské-jméno>.github.io/pecky-online/`

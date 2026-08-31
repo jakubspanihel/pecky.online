@@ -120,6 +120,10 @@
     if (type === 'Zastupitelstvo') return 'zastupitelstva';
     return (type || '').toLowerCase();
   }
+  // trvalý odkaz na konkrétní jednání: #rada-2026-08-31, #zastupitelstvo-2026-06-24
+  function jSlugForMeeting(m){
+    return (m.type === 'Zastupitelstvo' ? 'zastupitelstvo' : 'rada') + '-' + m.date;
+  }
   function jFormatAttendance(m){
     const a = m.attendance;
     if (!a || a.present == null || a.total == null) return '';
@@ -146,8 +150,8 @@
   }
 
   // ===== Prolinkování zmínek o parcelách na detail na Nahlížení do KN (VDP) =====
-  // Mapování „č. parc. NNNN(/NNN)“ -> URL generuje pecky-jednani/scripts/update-pozemky.py
-  // do pecky-jednani/parcely-odkazy.json (katastr-přesné dohledání přes vdp.cuzk.gov.cz;
+  // Mapování „č. parc. NNNN(/NNN)“ -> URL generuje jednani/scripts/update-pozemky.py
+  // do jednani/parcely-odkazy.json (katastr-přesné dohledání přes vdp.cuzk.gov.cz;
   // číslo, u kterého skript zjistil kolizi mezi víc katastry nebo katastr vůbec neurčil,
   // se do mapy nepřidává, takže tu zůstane nepodlinkované — bezpečnější, než odkázat na
   // špatnou parcelu). Prolinkuje jen číslo, které následuje hned za výskytem „parc“
@@ -251,8 +255,8 @@
     JEDNANI_LOADING = (async () => {
       try {
         const [res, parcelRes] = await Promise.all([
-          fetch('/pecky-jednani/pecky-jednani.json'),
-          fetch('/pecky-jednani/parcely-odkazy.json').catch(() => null)
+          fetch('/jednani/pecky-jednani.json'),
+          fetch('/jednani/parcely-odkazy.json').catch(() => null)
         ]);
         if (!res.ok) throw new Error('HTTP ' + res.status);
         if (parcelRes && parcelRes.ok) {
@@ -328,7 +332,22 @@
     el.innerHTML = `Archiv obsahuje <strong>${JEDNANI_DB.meta.meetings_count} jednání</strong> a <strong>${resCount} usnesení</strong> z let ${minY}–${maxY}, čerpáno z <a href="https://mesto-pecky.usneseni.cz/verejne/" target="_blank" rel="noopener">mesto-pecky.usneseni.cz ↗</a>.`;
   }
 
+  // trvalý odkaz na filtr typu jednání: pecky.online/jednani/#rada, #zastupitelstvo
+  const J_TYPE_TO_HASH = {'Rada': 'rada', 'Zastupitelstvo': 'zastupitelstvo'};
+  const J_HASH_TO_TYPE = {rada: 'Rada', zastupitelstvo: 'Zastupitelstvo'};
+
   let jTypeFilter = '';
+  function jApplyTypeFilter(type, opts){
+    opts = opts || {};
+    jTypeFilter = type;
+    document.querySelectorAll('.segmented-btn').forEach(b => b.classList.toggle('active', b.dataset.type === type));
+    if (opts.updateHash !== false) {
+      const h = J_TYPE_TO_HASH[type];
+      history.replaceState(null, '', h ? '#' + h : location.pathname + location.search);
+    }
+    jRunSearch();
+  }
+
   function jFilteredMeetings(){
     const year = document.getElementById('jednani-filter-year').value;
     return JEDNANI_DB.meetings.filter(m =>
@@ -417,7 +436,6 @@
           ${(a.duvodova_zprava || (a._res && a._res.some(r => r.text)))
             ? `<span class="agenda-text agenda-text--toggle" role="button" tabindex="0"${a.duvodova_zprava ? ` title="${jEscapeHtml(a.duvodova_zprava)}"` : ''} aria-label="Zobrazit podrobnosti bodu">${jLinkedText(a.t || '')}<span class="info-icon" aria-hidden="true">i</span></span>`
             : `<span class="agenda-text">${jLinkedText(a.t || '')}</span>`}
-          ${a.predkladatel ? `<span class="proposer">předkládá: ${jEscapeHtml(a.predkladatel)}</span>` : ''}
           ${a.duration_seconds != null ? `<span class="agenda-time">bod se projednával: ${jFormatItemTime(a.duration_seconds)}</span>` : ''}
           ${a.video_url ? `<a class="agenda-video" href="${a.video_url}" target="_blank" rel="noopener">▶ video ↗</a>` : ''}
           ${a.duvodova_zprava ? `<div class="info-toggle-text" hidden>${jEscapeHtml(a.duvodova_zprava)}</div>` : ''}
@@ -454,12 +472,15 @@
       const detailTopHtml = m.type === 'Rada'
         ? (m.resolutions.length ? `<p class="lede" style="margin:2px 0 12px; font-size:12.5px; font-family:'IBM Plex Mono',monospace; color:var(--ink-soft);">Přijato ${m.resolutions.length} usnesení</p>` : '')
         : jRenderPresenceRow(m);
+      const slug = jSlugForMeeting(m);
       return `
-      <div class="meeting-row${future ? ' meeting-row--future' : ''}${isToday ? ' meeting-row--today' : ''}" data-uuid="${m.uuid}">
+      <div class="meeting-row${future ? ' meeting-row--future' : ''}${isToday ? ' meeting-row--today' : ''}" data-uuid="${m.uuid}" data-slug="${slug}">
         <div class="meeting-row-main">
           <span class="meeting-label">
-            <svg class="meeting-cal-icon" viewBox="0 0 16 16" width="13" height="13" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><rect x="1.5" y="3" width="13" height="11" rx="1.5"/><line x1="1.5" y1="6.2" x2="14.5" y2="6.2"/><line x1="4.5" y1="1.3" x2="4.5" y2="4"/><line x1="11.5" y1="1.3" x2="11.5" y2="4"/></svg>
-            ${jFormatDateZeroPad(m.date)} | Jednání ${jEscapeHtml(jMeetingTypeGenitive(m.type))} č. ${jEscapeHtml(String(m.number || ''))}
+            <a class="meeting-permalink" href="#${slug}" title="Trvalý odkaz na toto jednání">
+              <svg class="meeting-cal-icon" viewBox="0 0 16 16" width="13" height="13" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><rect x="1.5" y="3" width="13" height="11" rx="1.5"/><line x1="1.5" y1="6.2" x2="14.5" y2="6.2"/><line x1="4.5" y1="1.3" x2="4.5" y2="4"/><line x1="11.5" y1="1.3" x2="11.5" y2="4"/></svg>
+              ${jFormatDateZeroPad(m.date)} | Jednání ${jEscapeHtml(jMeetingTypeGenitive(m.type))} č. ${jEscapeHtml(String(m.number || ''))}
+            </a>
             ${chip}
           </span>
           <span class="meeting-info">
@@ -488,29 +509,60 @@
     return `<div class="meeting-list">${rows}</div>`;
   }
 
+  function jCollapseRow(row){
+    row.querySelector('.meeting-row-detail').setAttribute('hidden', '');
+    row.querySelector('.meeting-toggle').textContent = '+';
+    row.classList.remove('meeting-row--expanded');
+  }
+
+  // rozbalí/sbalí řádek; při rozbalení nastaví URL na permalink jednání
+  // (chová se, jako by uživatel proklikl odkaz s „#" — bez těžšího resetu
+  // filtrů/scrollu, protože řádek už je viditelný přímo na místě) a sbalí
+  // ostatní řádky, ať je v seznamu rozbalený vždy jen jeden
+  function jToggleRow(row){
+    const detail = row.querySelector('.meeting-row-detail');
+    const toggle = row.querySelector('.meeting-toggle');
+    const isHidden = detail.hasAttribute('hidden');
+    if (isHidden) {
+      document.querySelectorAll('#jednani-results .meeting-row--expanded').forEach(r => {
+        if (r !== row) jCollapseRow(r);
+      });
+      detail.removeAttribute('hidden');
+      toggle.textContent = '−';
+      row.classList.add('meeting-row--expanded');
+      if (row.dataset.slug) history.replaceState(null, '', '#' + row.dataset.slug);
+      row.scrollIntoView({behavior: 'smooth', block: 'start'});
+    } else {
+      jCollapseRow(row);
+    }
+  }
+
   function jAttachAccordionHandlers(){
     document.querySelectorAll('#jednani-results .meeting-row-main').forEach(el => {
-      el.addEventListener('click', () => {
-        const row = el.parentElement;
-        const detail = row.querySelector('.meeting-row-detail');
-        const toggle = el.querySelector('.meeting-toggle');
-        const isHidden = detail.hasAttribute('hidden');
-        if (isHidden) { detail.removeAttribute('hidden'); toggle.textContent = '−'; row.classList.add('meeting-row--expanded'); }
-        else { detail.setAttribute('hidden', ''); toggle.textContent = '+'; row.classList.remove('meeting-row--expanded'); }
+      el.addEventListener('click', (e) => {
+        if (e.target.closest('.meeting-permalink')) return; // odkaz má vlastní handler níž
+        jToggleRow(el.parentElement);
+      });
+    });
+    document.querySelectorAll('#jednani-results .meeting-permalink').forEach(link => {
+      link.addEventListener('click', (e) => {
+        // prostřední tlačítko / Ctrl / Cmd / Shift klik nechat prohlížeči (otevření v nové kartě)
+        if (e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+        e.preventDefault();
+        jToggleRow(link.closest('.meeting-row'));
       });
     });
   }
 
-  async function jGotoMeeting(uuid){
+  async function jGotoMeetingByAttr(attr, value){
     const navlink = document.querySelector('.navlink[data-panel="jednani"]');
     if (navlink) navlink.click();
-    jTypeFilter = '';
-    document.querySelectorAll('.segmented-btn').forEach(b => b.classList.toggle('active', b.dataset.type === ''));
+    jApplyTypeFilter('', {updateHash: false});
     document.getElementById('jednani-filter-year').value = '';
     document.getElementById('jednani-search').value = '';
     await loadJednani();
     jRunSearch();
-    const row = document.querySelector('#jednani-results .meeting-row[data-uuid="' + uuid + '"]');
+    const row = document.querySelector('#jednani-results .meeting-row[' + attr + '="' + value + '"]');
     if (!row) return;
     const detail = row.querySelector('.meeting-row-detail');
     const toggle = row.querySelector('.meeting-toggle');
@@ -519,6 +571,8 @@
     row.classList.add('meeting-row--expanded');
     row.scrollIntoView({behavior: 'smooth', block: 'start'});
   }
+  function jGotoMeeting(uuid){ return jGotoMeetingByAttr('data-uuid', uuid); }
+  function jGotoMeetingBySlug(slug){ return jGotoMeetingByAttr('data-slug', slug); }
 
   document.querySelectorAll('.pozemek-jednani-link').forEach(el => {
     el.addEventListener('click', (e) => {
@@ -614,10 +668,25 @@
 
   document.querySelectorAll('.segmented-btn').forEach(btn => {
     btn.addEventListener('click', function(){
-      jTypeFilter = this.dataset.type;
-      document.querySelectorAll('.segmented-btn').forEach(b => b.classList.toggle('active', b === this));
-      jRunSearch();
+      jApplyTypeFilter(this.dataset.type);
     });
+  });
+
+  // směrování podle hashe v URL: #rada / #zastupitelstvo (filtr typu) nebo
+  // #rada-2026-08-31 / #zastupitelstvo-2026-06-24 (trvalý odkaz na konkrétní jednání)
+  const J_MEETING_HASH_RE = /^(rada|zastupitelstvo)-(\d{4}-\d{2}-\d{2})$/;
+  function jRouteHash(hash){
+    if (J_HASH_TO_TYPE[hash]) { jApplyTypeFilter(J_HASH_TO_TYPE[hash], {updateHash: false}); return; }
+    if (J_MEETING_HASH_RE.test(hash)) { jGotoMeetingBySlug(hash); return; }
+    jApplyTypeFilter('', {updateHash: false});
+  }
+
+  const jInitialHash = window.location.hash.replace(/^#/, '');
+  if (jInitialHash) jRouteHash(jInitialHash);
+
+  // ruční změna hashe v adresním řádku / tlačítko Zpět-Vpřed
+  window.addEventListener('hashchange', () => {
+    jRouteHash(window.location.hash.replace(/^#/, ''));
   });
 
   document.getElementById('jednani-results').addEventListener('click', (e) => {
