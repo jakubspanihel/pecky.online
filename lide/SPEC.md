@@ -6,7 +6,10 @@ provozní pravidla („jak přidám osobu"), sem návrh a rozhodnutí, proč to 
 
 **Stav:** fáze 1–4 hotové — panel `panel-lide` se generuje z dat v této složce,
 má fulltext, filtry, rozbalovací detail s timeline, pohled na uskupení a vlastní
-routing v hashi. Zbývá fáze 5 (rozšíření dat) a 6 (propojení se zbytkem webu).
+routing v hashi. Probíhá fáze 5 (rozšíření dat), viz §3.6 a §7 — cílem je
+doplnit **všechny kandidáty ze všech kandidátních listin** (2018, 2022, 2026),
+zatím v minimální podobě (jméno, příjmení, vazba na kandidátku). Zbývá i
+fáze 6 (propojení se zbytkem webu).
 
 ---
 
@@ -34,11 +37,11 @@ jiný, zmizí. Ve vazbách se jen doplní `to` a záznam zůstane.
 
 ## 2. Uložení dat
 
-Data, validátor i dokumentace žijí v **`pecky-lide/`**, stejným vzorem jako
-`pecky-jednani/` a `pecky-noviny/`:
+Data, validátor i dokumentace žijí v **`lide/`**, stejným vzorem jako
+`jednani/` a `noviny/`:
 
 ```
-pecky-lide/
+lide/
 ├── people.json          osoby
 ├── organizations.json   město + volební uskupení
 ├── affiliations.json    vazby osoba–organizace
@@ -48,12 +51,12 @@ pecky-lide/
 ```
 
 **Fotky tady nejsou** a nebudou. Portréty patří k volebnímu ročníku, ve kterém
-byli lidé zvoleni — `pecky-volby/2022/zastupitele/{prijmeni}.jpg` — a odkazuje
+byli lidé zvoleni — `volby/2022/zastupitele/{prijmeni}.jpg` — a odkazuje
 se na ně plnou cestou od kořene repa. Pravidlo je starší než tahle sekce, viz
-[`pecky-volby/README.md`](../pecky-volby/README.md).
+[`volby/README.md`](../volby/README.md).
 
-**Proč tři soubory a ne jeden `pecky-lide.json`:** `pecky-jednani` a
-`pecky-noviny` mají jeden soubor, protože drží jednu entitu. Tady jsou entity
+**Proč tři soubory a ne jeden `lide.json`:** `jednani` a
+`noviny` mají jeden soubor, protože drží jednu entitu. Tady jsou entity
 tři a edituje se každá jinak často — osoby zřídka, vazby po každých volbách a
 personální změně. Oddělené soubory znamenají čitelný diff a menší riziko
 konfliktu.
@@ -107,7 +110,7 @@ Jednání a Pečecké noviny. Lokálně `python3 -m http.server`.
       "title_after": "",
       "email": "",
       "phone": "",
-      "photo": "pecky-volby/2022/zastupitele/paluska.jpg",
+      "photo": "volby/2022/zastupitele/paluska.jpg",
       "photo_source": "Oficiální portrét z kandidátky ODS Pečky 2022 (…)",
       "bio": "Starosta města. Do funkce ho zastupitelstvo zvolilo…",
       "tags": ["zastupitel", "rada", "vedeni-mesta", "ods"],
@@ -158,7 +161,7 @@ Jednání a Pečecké noviny. Lokálně `python3 -m http.server`.
 | `short_name` | string | — | pro badge a úzké sloupce; fallback = `name` |
 | `type` | enum | ✅ | `urad` · `prispevkova` · `firma` · `spolek` · `politicke` · `skola` · `jine` |
 | `ico` | string \| `null` | — | 8 číslic jako **string** (vedoucí nuly); prolinkuje na Hlídač státu |
-| `color` | `#RRGGBB` \| `null` | ✅ u `politicke` | z palety v [`pecky-volby/README.md`](../pecky-volby/README.md) |
+| `color` | `#RRGGBB` \| `null` | ✅ u `politicke` | z palety v [`volby/README.md`](../volby/README.md) |
 | `css_class` | string \| `null` | ✅ u `politicke` | `party-*`, existující třída v `index.html` |
 | `former_names` | string[] | ✅ | dřívější názvy s ročníkem; může být `[]` |
 
@@ -209,24 +212,111 @@ strojově čitelné místo. Validátor hlídá, že dvě uskupení nemají tuté
 
 ### 3.5 Kandidátka jako vazba, členství jako štítek
 
-Uskupení, za které byl někdo **zvolen**, je doložený fakt s datem a zdrojem
-(výsledky ČSÚ) — patří tedy do vazby, `role_type: "kandidatka"`, `from` = den
-voleb. Náhradník má vazbu na kandidátku od voleb, ale mandát až od složení
-slibu; ta nesrovnalost je správně a je vidět.
+Uskupení, za které někdo **kandidoval**, je doložený fakt s datem a zdrojem
+(kandidátní listina) — patří tedy do vazby, `role_type: "kandidatka"`, i když
+daný člověk nezískal mandát. Model původně počítal jen se zvolenými (`from` =
+den voleb), fáze 5 (§3.6) ho rozšiřuje na **všechny kandidáty všech
+kandidátek** — zvolení i nezvolení. Náhradník má vazbu na kandidátku od voleb,
+ale mandát až od složení slibu; ta nesrovnalost je správně a je vidět.
+
+`from` u vazby `kandidatka`:
+- 2018 a 2022 (volby proběhly): den voleb (`2018-10-05`, `2022-09-23`).
+- 2026 (volby ještě neproběhly): datum registrace kandidátní listiny
+  registračním úřadem (`2026-08-18`), ne datum voleb — to by tvrdilo něco, co
+  se ještě nestalo. `role` u těchto vazeb popisné, např. „Kandidát/ka do
+  zastupitelstva 2026", ne „zvolen/a".
 
 **Členství ve straně** naproti tomu doložené není a do dat nepatří. Slug
 uskupení zůstává i v `person.tags`, ale jen jako filtrovací zkratka odvozená
 z kandidátky, ne jako tvrzení o stranické příslušnosti.
 
 Doporučené jádro štítků: `zastupitel` · `rada` · `vedeni-mesta` ·
-`byvaly-zastupitel` · `komise` · `urednik` · `skolstvi` · `kultura` · `sport` ·
-`spolky` + slug uskupení.
+`byvaly-zastupitel` · `kandidat` · `komise` · `urednik` · `skolstvi` ·
+`kultura` · `sport` · `spolky` + slug uskupení. `kandidat` patří lidem bez
+jiné role — čistě filtrovací zkratka pro záznamy z §3.6.
+
+### 3.6 Minimální záznam kandidáta (fáze 5)
+
+Cíl: **v `people.json` je každý, kdo byl na kandidátní listině voleb 2018,
+2022 nebo 2026** — ne jen současní/bývalí zastupitelé. K 30. 8. 2026 je stav
+23 z 228 unikátních kandidátů napříč třemi ročníky (viz `content/volby2018.html`,
+`content/volby2022.html`, `content/volby2026.html`, tabulka „Volební
+uskupení" → sloupec „Lidé").
+
+Pro člověka, který **nikdy nedržel žádnou funkci** (jen kandidoval), zatím
+stačí minimální záznam — zbytek polí z §3.2 zůstává na výchozích prázdných
+hodnotách, dokud se nedohledá zdroj:
+
+```json
+{
+  "id": "novakj",
+  "first_name": "Jan",
+  "last_name": "Novák",
+  "title_before": "", "title_after": "",
+  "email": "", "phone": "",
+  "photo": "", "photo_source": "",
+  "bio": "",
+  "tags": ["kandidat", "nasepecky"],
+  "sources": [],
+  "verified": null
+}
+```
+
+a k němu jedna (nebo víc, kandidoval-li opakovaně) vazba — `current: true`
+a `to: null` podle stávající konvence u `kandidatka` (je to fakt, který
+netrvá jako funkce, ale ani „nekončí" — proto zůstává `current`, stejně jako
+u dnešních 55 vazeb tohoto typu; `role_type: kandidatka` navíc validátor
+nikdy nepočítá do 21 zastupitelů ani 7 radních, takže `current: true` tady
+nic nerozbíjí):
+
+```json
+{
+  "id": "novakj--nasepecky--1",
+  "person_id": "novakj",
+  "organization_id": "nasepecky",
+  "role": "Kandidát do zastupitelstva 2022",
+  "role_type": "kandidatka",
+  "from": "2022-09-23",
+  "to": null,
+  "current": true,
+  "note": "",
+  "sources": [{"label": "Kandidátní listina, volby 2022", "url": "https://volby.gov.cz/…"}],
+  "verified": "2026-08-31"
+}
+```
+
+`role` je záměrně neutrální „Kandidát/ka do zastupitelstva {rok}", ne
+„zvolen/a" — o zvolení a mandátu vypovídá samostatná vazba `zastupitel`
+(pokud existuje), tahle jen dokládá účast na listině.
+
+**Proč je to takhle a ne přísněji podle §3.2/§3.4:**
+- `sources: []` na osobě je v pořádku — zdroj (kandidátní listina) je na
+  vazbě, ne na osobě; §3.2 už dnes vyžaduje zdroj „jen u osoby s funkcí" a
+  kandidát bez mandátu funkci nemá.
+- `verified: null` na osobě neznamená chybu dat, jen že samotné jméno+příjmení
+  nikdo dodatečně neověřoval nad rámec kandidátky — `.stamp` v UI se u ní
+  neukáže, což je žádoucí (nepřehánět jistotu).
+
+**Co dělat, když kandidát == osoba už v `people.json`:** nezakládat druhý
+záznam osoby. Najít podle jména (diakritika i tituly se běžně liší mezi
+zdroji — porovnávat jen jádrem jména), doplnit jen chybějící vazbu
+`kandidatka` k existujícímu `person_id`. Typicky se to týká lidí, co
+kandidovali víckrát (např. součást vedení města 2022 kandidující znovu 2026).
+
+**Kolize `id`:** při 228 lidech běžná. Pravidlo z §3.1 (druhá iniciála,
+případně číslice) platí beze změny — např. dva „Novák M." → `novakm`,
+`novakm2`.
+
+**Mimo rozsah zatím:** fotky, bio, kontakty, přesné tituly z listiny (kde se
+liší od jiných zdrojů) — to všechno může doplnit až další průchod, jakmile
+bude zdroj. Tenhle krok řeší jen dohledatelnost (fulltext, filtr podle
+uskupení), ne úplnost profilu.
 
 ---
 
 ## 4. Validace
 
-`node pecky-lide/validate.mjs` z kořene repa. Exit 0 = čisté, 1 = chyby.
+`node lide/validate.mjs` z kořene repa. Exit 0 = čisté, 1 = chyby.
 Kromě obecné integrity (unikátní id, existující reference, číselníky, formáty
 dat, `current` vs `to`, IČO jako 8místný string) hlídá i **domenová pravidla
 Peček**:
@@ -461,13 +551,37 @@ zavření, psaní do hledání bez zaplevelení historie, a přechod na jiný pa
 který podcestu zahodí.
 
 ### Fáze 5 — rozšíření dat
-Členové finančního a kontrolního výboru z ustavujícího zasedání
-(`UZ-98`…`UZ-111`), vedení příspěvkových organizací a městských firem, ročník
-2018 jako historie (`current: false`). Doplnit chybějící kontakty z organizační
-struktury úřadu.
+
+**5a — všichni kandidáti všech kandidátek (aktuální priorita).** Viz §3.6 pro
+formát záznamu a pravidla. Rozsah k 30. 8. 2026:
+
+| Ročník | Kandidátů | Uskupení |
+|---|---|---|
+| 2018 | 125 (6 uskupení × 20–21) | SNK NAŠE PEČKY, Sdružení ODS a NK, KSČM, PEČKY PEČÁKŮM, ČSSD, LIDOVCI A NEZÁVISLÍ |
+| 2022 | 126 (6 × 21) | NAŠE PEČKY, ODS a NK, SNK Pečky Pečákům, Lidé pro Pečky (SPD), ČSSD a sjednocená levice, Lidovci a nezávislí |
+| 2026 | 105 (5 × 21) | ODS a NK, PEČKY PEČÁKŮM, NAŠE PEČKY A PEČKY NEXT, Lidé pro Pečky a VCH (SPD), Pečky srdcem |
+
+228 unikátních jmen napříč ročníky (někteří kandidovali víckrát), 23 už
+v `people.json` → **205 nových záznamů**. Organizace (§3.3) není třeba
+zakládat, všech 9 (město + 8 uskupení) už existuje se správným
+`former_names` pokrytím napříč lety. Zdroj jmen: tabulka „Volební uskupení"
+v `content/volby2018.html` / `volby2022.html` / `volby2026.html` (sloupec
+„Lidé", `title` atribut každého `av-init`/`av-img`), případně přímo
+volby.gov.cz — u 2026 konkrétně [Jmenné seznamy ČSÚ](https://volby.gov.cz/app/kv2026/cs/20261009/name-lists/!_0_1_2100_2104_537641).
+
+Po doběhnutí 5a zvýšit `meta.count` v `people.json` (23 → 228) a
+`affiliations.json` (55 → přibližně 260, 205 nových `kandidatka` vazeb + pár
+pro lidi, kteří kandidovali víckrát a v datech už jsou), spustit
+`node lide/validate.mjs` a v `README.md` → „Stav sekcí" zapsat řádek se
+změnou.
+
+**5b — zbytek (po 5a).** Členové finančního a kontrolního výboru z
+ustavujícího zasedání (`UZ-98`…`UZ-111`), vedení příspěvkových organizací a
+městských firem, doplnění `bio`/foto/`sources` u kandidátů z 5a, kde se
+zdroj najde. Doplnit chybějící kontakty z organizační struktury úřadu.
 
 ### Fáze 6 — propojení se zbytkem webu
-- jména v archivu jednání (`pecky-jednani`) prolinkovat na `#lide/osoba/{id}`,
+- jména v archivu jednání (`jednani`) prolinkovat na `#lide/osoba/{id}`,
 - organizace s `ico` → Hlídač státu a panel Smlouvy,
 - avatary u volby vedení v panelu Volby 2022 brát z `people.json` místo
   ručních cest.
@@ -486,7 +600,7 @@ Zlom nastává kolem **~300 osob**; při dnešních 23 stačí nejjednodušší 
   aby `jStripDiacritics` neběžel při každém stisku; render přes
   `DocumentFragment`; stránkovat po 50.
 - **Fotky:** `loading="lazy"` (už je), `width`/`height` proti CLS.
-- **Cache:** verzovat query stringem (`pecky-lide/people.json?v=2026-08-27`).
+- **Cache:** verzovat query stringem (`lide/people.json?v=2026-08-27`).
 
 ---
 
@@ -501,4 +615,4 @@ Zlom nastává kolem **~300 osob**; při dnešních 23 stačí nejjednodušší 
 - [x] Stamp „ověřeno" jen u `verified !== null`, zdroje u každé funkce
 - [ ] Mobil 360 px bez vodorovného scrollu — **neověřeno v prohlížeči**
 - [x] Chybějící nebo vadný JSON nerozbije zbytek webu — jen `.callout` v panelu
-- [x] `node pecky-lide/validate.mjs` hlásí 0 chyb
+- [x] `node lide/validate.mjs` hlásí 0 chyb

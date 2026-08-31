@@ -13,7 +13,7 @@ doplňkově web ODS Pečky (viz kořenový `README.md` → „Zdroje dat").
 Každé politické uskupení má na celém webu jednu pevně přiřazenou barvu
 (CSS třídy `.person-card.party-*`) — používá se konzistentně napříč
 sekcemi Lidé, Plán, Volby 2018/2022/2026. Tabulka barev je v
-[`pecky-volby/README.md`](../pecky-volby/README.md) → „Barevná paleta
+[`volby/README.md`](../volby/README.md) → „Barevná paleta
 uskupení"; při přidávání nového uskupení nebo člena vždy použít
 existující barvu z té tabulky, ne vymýšlet novou.
 
@@ -23,7 +23,7 @@ Známá mezera: kompletní seznam 21 zastupitelů se nedaří ověřit napřímo
 ## Lidé = aktuální stav, Volby = stav při ustavení
 Tenhle panel ukazuje, kdo v zastupitelstvu a radě sedí **teď**. Jmenný
 seznam zvolených po volbách je v subpanelu „Výsledky voleb" příslušného
-ročníku — viz [`pecky-volby/README.md`](../pecky-volby/README.md) →
+ročníku — viz [`volby/README.md`](../volby/README.md) →
 „Zvolení zástupci". **Oba seznamy jsou samostatné a už se rozcházejí:**
 od ustavujícího zasedání 20. 10. 2022 se složení dvakrát změnilo —
 Jaroslava Vosecká nastoupila za Lenku Třískovou (slib 11. 9. 2024) a
@@ -34,11 +34,11 @@ tenhle panel**; historický seznam u Voleb 2022 zůstává, jaký byl.
 ## Fotky
 Portréty na kartičkách (`img.avatar`) nejsou ve složce této sekce —
 leží u volebního ročníku, ve kterém byli členové zvoleni:
-`pecky-volby/2022/zastupitele/{prijmeni}.jpg` (42 souborů, příjmení bez
+`volby/2022/zastupitele/{prijmeni}.jpg` (42 souborů, příjmení bez
 diakritiky malými písmeny; u shody příjmení i s křestním, např.
 `hruska-ivan.jpg`). Po dalších volbách zakládat novou sadu ve složce
 nového ročníku, ne přepisovat tuhle. Detaily viz
-[`pecky-volby/README.md`](../pecky-volby/README.md).
+[`volby/README.md`](../volby/README.md).
 
 ## Datová sada
 
@@ -47,9 +47,11 @@ nimi. Návrh a rozhodnutí, proč je model takový, jsou v [`SPEC.md`](SPEC.md);
 tahle kapitola je provozní — jak s daty pracovat.
 
 ```
-people.json          23 osob (21 aktuálních zastupitelů + 2 bývalí)
+people.json          229 osob (21 aktuálních zastupitelů + 2 bývalí s plným
+                      profilem, 206 dalších kandidátů ze všech kandidátek
+                      2018/2022/2026 s minimálním záznamem — viz SPEC.md §3.6)
 organizations.json    9 organizací (Město Pečky + 8 volebních uskupení)
-affiliations.json    55 vazeb osoba–organizace
+affiliations.json   388 vazeb osoba–organizace
 validate.mjs         validátor
 ```
 
@@ -101,7 +103,7 @@ Ten rozdíl je správně a je vidět v timeline.
 Z kořene repa, před každým commitem datové změny:
 
 ```bash
-node pecky-lide/validate.mjs
+node lide/validate.mjs
 ```
 
 Exit 0 = čisté, 1 = chyby. Kromě obecné integrity hlídá i pravidla
@@ -115,7 +117,7 @@ ukazuje `photo`, existuje.
    diakritiky (`paluskam`, `svejnohovaa`).
 2. **`organizations.json`** — jen pokud uskupení nebo organizace ještě
    chybí. U uskupení povinně `color` a `css_class` **z palety** v
-   [`pecky-volby/README.md`](../pecky-volby/README.md), ne nová barva.
+   [`volby/README.md`](../volby/README.md), ne nová barva.
 3. **`affiliations.json`** — mandát, případná funkce v radě, kandidátka.
    `id` ve tvaru `{person_id}--{organization_id}--{pořadí}`.
 4. Zvýšit `meta.count` a `meta.updated` ve všech změněných souborech.
@@ -150,10 +152,16 @@ iniciálový avatar na barvě uskupení — viz kapitola „Fotky" výš.
   `verified: null` a vysvětlení v `note`.
 - **Výbory jsou zatím jen dva záznamy** (předsednictví kontrolního
   výboru). Zbytek členů finančního a kontrolního výboru je v archivu
-  jednání pod `UZ-98`…`UZ-111` — doplnit ve fázi 5.
-- **Ročník 2018 v datech není.** Ustavující zasedání po volbách 2018 je
-  starší než archiv usneseni.cz (začíná dubnem 2021), viz
-  [`pecky-volby/2018/README.md`](../pecky-volby/2018/README.md).
+  jednání pod `UZ-98`…`UZ-111` — doplnit ve fázi 5b.
+- **Kdo byl zvolen na ustavujícím zasedání po volbách 2018, v datech
+  není** (jen kdo kandidoval). To zasedání je starší než archiv
+  usneseni.cz (začíná dubnem 2021), viz
+  [`volby/2018/README.md`](../volby/2018/README.md) — nedá se snadno
+  dohledat, kdo z kandidátů 2018 skutečně získal mandát a zasedal.
+- **206 kandidátů (fáze 5a, SPEC.md §3.6) má zatím jen minimální
+  záznam** — jméno, příjmení, vazba na kandidátku. Bez `bio`, fotky,
+  kontaktů a `sources` na osobě (zdroj je jen na vazbě). Doplnění je
+  fáze 5b, postupně a jen tam, kde se najde veřejný zdroj.
 
 Textový obsah panelu jinak žije v `content/lide.html`. Další zvláštní
 pravidla doplnit sem, až nějaká vzniknou.

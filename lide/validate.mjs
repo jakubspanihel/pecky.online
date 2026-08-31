@@ -2,11 +2,11 @@
 /**
  * Validátor datové sady sekce „Lidé" — pecky.online
  *
- * Spuštění z kořene repa:   node pecky-lide/validate.mjs
+ * Spuštění z kořene repa:   node lide/validate.mjs
  * Exit code 0 = čisté, 1 = nalezeny chyby.
  *
  * Bez závislostí, čistý Node (>= 18). Pouštět před každým commitem
- * datové změny v pecky-lide/.
+ * datové změny v lide/.
  */
 
 import { readFileSync, existsSync } from 'node:fs';
@@ -37,7 +37,7 @@ const warn = (where, msg) => warnings.push(`${where}: ${msg}`);
 function load(name) {
   const path = join(DIR, name);
   if (!existsSync(path)) {
-    console.error(`CHYBA: chybí soubor pecky-lide/${name}`);
+    console.error(`CHYBA: chybí soubor lide/${name}`);
     process.exit(1);
   }
   try {
@@ -135,7 +135,7 @@ for (const o of orgs) {
   if (o.web && !/^https?:\/\//.test(o.web)) err(where, `web "${o.web}" musí začínat http:// nebo https://`);
   if (!Array.isArray(o.former_names)) err(where, 'former_names musí být pole');
   if (o.type === 'politicke') {
-    if (!HEX.test(o.color ?? '')) err(where, `uskupení musí mít color jako #RRGGBB (je "${o.color}") — paleta v pecky-volby/README.md`);
+    if (!HEX.test(o.color ?? '')) err(where, `uskupení musí mít color jako #RRGGBB (je "${o.color}") — paleta v volby/README.md`);
     if (!o.css_class) err(where, 'uskupení musí mít css_class (party-*) kvůli barvě kartiček');
   }
 }
@@ -209,7 +209,7 @@ for (const a of currentZM) {
 /* ---------- výstup ---------- */
 
 const line = `${people.length} osob · ${orgs.length} organizací · ${affs.length} vazeb (${affs.filter((a) => a.current).length} aktuálních)`;
-console.log(`\npecky-lide — ${line}`);
+console.log(`\nlide — ${line}`);
 console.log(`  zastupitelstvo: ${currentZM.length}/21 · rada: ${currentRada.length}/7\n`);
 
 if (warnings.length) {

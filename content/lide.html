@@ -24,8 +24,8 @@
   </section>
 
 <script>
-  // ===== Lidé: adresář zastupitelstva a rady z pecky-lide/ =====
-  // Data: people.json + organizations.json + affiliations.json (viz pecky-lide/SPEC.md).
+  // ===== Lidé: adresář zastupitelstva a rady z lide/ =====
+  // Data: people.json + organizations.json + affiliations.json (viz lide/SPEC.md).
   // Kartičky se generují, v HTML se neudržují ručně.
   let LIDE_DB = null;
   let LIDE_LOADING = null;
@@ -110,9 +110,10 @@
         .sort((x, y) => lDateKey(y.from).localeCompare(lDateKey(x.from)))[0] || null;
       p._until = (!p._mandate && p._lastMandate) ? p._lastMandate.to : '';
 
-      // na kartičce se ukazuje funkce v radě, jinak mandát, u bývalých ten poslední
+      // na kartičce se ukazuje funkce v radě, jinak mandát, u bývalých ten
+      // poslední, u čistých kandidátů bez mandátu aspoň text z kandidátky
       p._displayRole = p._exec ? p._exec.role
-        : (p._mandate ? p._mandate.role : (p._lastMandate ? p._lastMandate.role : ''));
+        : (p._mandate ? p._mandate.role : (p._lastMandate ? p._lastMandate.role : (list ? list.role : '')));
 
       // timeline: aktuální vazby nahoru, uvnitř podle váhy funkce a pak od nejnovější.
       // Váha musí být před datem — starosta i mandát začaly týmž dnem a čistě
@@ -345,7 +346,10 @@
     const shown = db.people.filter(lMatches);
     const rada = shown.filter(p => p._exec).sort(lSortExec);
     const ostatni = shown.filter(p => p._mandate && !p._exec).sort(lSortParty);
-    const byvali = shown.filter(p => !p._mandate && !p._exec).sort(lSortParty);
+    // „bývalí" = měli někdy skutečný mandát zastupitele, teď ne; „kandidáti" =
+    // mandát nikdy neměli, jen jsou (byli) na nějaké kandidátce — viz SPEC.md §3.6
+    const byvali = shown.filter(p => !p._mandate && !p._exec && p._lastMandate).sort(lSortParty);
+    const kandidati = shown.filter(p => !p._mandate && !p._exec && !p._lastMandate).sort(lSortParty);
     const orgHead = L_STATE.orgView ? lOrgHead(db.orgById[L_STATE.orgView]) : '';
 
     if (!shown.length) {
@@ -353,7 +357,7 @@
         <div class="callout">
           <strong>Nikdo neodpovídá zadání.</strong>
           Zkus jiné slovo, nebo <button type="button" class="chip-clear" data-lide-clear>vymaž filtry</button>.
-          ${L_STATE.scope === 'current' ? 'Bývalí členové zastupitelstva se hledají až po přepnutí rozsahu na „Včetně historie".' : ''}
+          ${L_STATE.scope === 'current' ? 'Bývalí členové zastupitelstva a kandidáti bez mandátu se hledají až po přepnutí rozsahu na „Včetně historie".' : ''}
         </div>`;
     } else {
       host.innerHTML = notice + orgHead +
@@ -364,7 +368,9 @@
         lGroup('Ostatní členové zastupitelstva', ostatni,
                'Bez funkce v radě — rozložení mandátů níže na této stránce, výsledky voleb v sekci Volby.') +
         lGroup('Bývalí členové zastupitelstva', byvali,
-               'Mandát skončil v průběhu volebního období. Kartičky zůstávají, aby historie nemizela — kdo nastoupil místo nich, je v sekci Volby 2022.');
+               'Mandát skončil v průběhu volebního období. Kartičky zůstávají, aby historie nemizela — kdo nastoupil místo nich, je v sekci Volby 2022.') +
+        lGroup('Kandidáti bez mandátu', kandidati,
+               'Kandidovali do zastupitelstva, ale mandát nezískali — nikdy nebyli zastupiteli ani radními. Zatím jen jméno, příjmení a kandidátka; profil se doplňuje postupně.');
     }
 
     // data-goto uvnitř generovaného HTML potřebuje vlastní posluchač
@@ -377,10 +383,10 @@
       });
     });
 
-    lRenderStatus(shown, byvali);
+    lRenderStatus(shown, byvali, kandidati);
   }
 
-  function lRenderStatus(shown, byvali){
+  function lRenderStatus(shown, byvali, kandidati){
     const db = LIDE_DB;
     const statusEl = document.getElementById('lide-status');
     if (!statusEl) return;
@@ -391,7 +397,9 @@
     } else {
       const zastupitelu = db.people.filter(p => p._mandate || p._exec).length;
       const radnich = db.people.filter(p => p._exec).length;
-      const hist = L_STATE.scope === 'all' ? ` · ${byvali.length} bývalých členů` : '';
+      const hist = L_STATE.scope === 'all'
+        ? ` · ${byvali.length} bývalých členů · ${kandidati.length} kandidátů bez mandátu`
+        : '';
       statusEl.textContent =
         `${zastupitelu} zastupitelů, z toho ${radnich} v radě${hist} · data ověřena ${lFormatDate(db._updated)}`;
     }
@@ -526,7 +534,7 @@
       const statusEl = document.getElementById('lide-status');
       try {
         const files = ['people.json', 'organizations.json', 'affiliations.json'];
-        const res = await Promise.all(files.map(f => fetch('/pecky-lide/' + f)));
+        const res = await Promise.all(files.map(f => fetch('/lide/' + f)));
         res.forEach((r, i) => { if (!r.ok) throw new Error(files[i] + ': HTTP ' + r.status); });
         const [peopleDoc, orgsDoc, affsDoc] = await Promise.all(res.map(r => r.json()));
 
@@ -549,9 +557,9 @@
           host.innerHTML = `
             <div class="callout" style="border-left-color:var(--burgundy); background:rgba(124,47,43,0.06);">
               <strong>Adresář se nepodařilo načíst.</strong> ${jEscapeHtml(e.message || '')}
-              Data leží v <a href="/pecky-lide/people.json" target="_blank" rel="noopener">pecky-lide/people.json</a>,
-              <a href="/pecky-lide/organizations.json" target="_blank" rel="noopener">organizations.json</a> a
-              <a href="/pecky-lide/affiliations.json" target="_blank" rel="noopener">affiliations.json</a> —
+              Data leží v <a href="/lide/people.json" target="_blank" rel="noopener">lide/people.json</a>,
+              <a href="/lide/organizations.json" target="_blank" rel="noopener">organizations.json</a> a
+              <a href="/lide/affiliations.json" target="_blank" rel="noopener">affiliations.json</a> —
               dají se otevřít napřímo. Pokud si stránku prohlížíš z disku (<code>file://</code>), načtení blokuje
               prohlížeč, ne web; spusť lokální server.
             </div>`;
