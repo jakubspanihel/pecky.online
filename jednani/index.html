@@ -93,6 +93,7 @@
   let JEDNANI_DB = null;
   let JEDNANI_LOADING = null;
   let PARCEL_URLS = {};
+  let PEOPLE_PHOTOS = {};  // jNameKey(jméno) -> URL fotky, z lide/people.json
 
   function jTextSim(a, b){
     const clean = s => jNorm(s || '').replace(/[^a-z0-9\s]/g, ' ').replace(/\s+/g, ' ').trim();
@@ -255,13 +256,24 @@
     if (JEDNANI_LOADING) return JEDNANI_LOADING;
     JEDNANI_LOADING = (async () => {
       try {
-        const [res, parcelRes] = await Promise.all([
+        const [res, parcelRes, peopleRes] = await Promise.all([
           fetch('/pecky.online/jednani/pecky-jednani.json'),
-          fetch('/pecky.online/jednani/parcely-odkazy.json').catch(() => null)
+          fetch('/pecky.online/jednani/parcely-odkazy.json').catch(() => null),
+          fetch('/pecky.online/lide/people.json').catch(() => null)
         ]);
         if (!res.ok) throw new Error('HTTP ' + res.status);
         if (parcelRes && parcelRes.ok) {
           try { PARCEL_URLS = (await parcelRes.json()).parcely || {}; } catch (e) { PARCEL_URLS = {}; }
+        }
+        if (peopleRes && peopleRes.ok) {
+          try {
+            const people = (await peopleRes.json()).people || [];
+            people.forEach(p => {
+              if (!p.photos || !p.photos.length) return;
+              // photos je řazené nejnovější první (§3.7 SPEC.md) - vždy ta aktuální
+              PEOPLE_PHOTOS[jNameKey([p.first_name, p.last_name].filter(Boolean).join(' '))] = p.photos[0].url;
+            });
+          } catch (e) { /* bez fotek se použijí iniciálové avatary, jako dřív */ }
         }
         const data = await res.json();
         const years = new Set();
@@ -406,14 +418,19 @@
     if (days === 2) return 'Proběhlo předevčírem';
     return `Proběhlo před ${days} dny`;
   }
+  function jAvatarHtml(name, extraClass, title){
+    const photo = PEOPLE_PHOTOS[jNameKey(name)];
+    const cls = extraClass ? ' ' + extraClass : '';
+    return photo
+      ? `<img class="av-img${cls}" src="${jWithBase(photo)}" alt="${jEscapeHtml(name)}" title="${jEscapeHtml(title)}" loading="lazy">`
+      : `<span class="av-init${cls}" style="background:#5B5347;" title="${jEscapeHtml(title)}">${jInitials(name)}</span>`;
+  }
   function jAttendanceAvatarsHtml(m){
     const a = m.attendance;
     if (!a || (!a.present_names && !a.absent_names)) return '';
-    const present = (a.present_names || []).map(n =>
-      `<span class="av-init" style="background:#5B5347;" title="${jEscapeHtml(n)}">${jInitials(n)}</span>`
-    ).join('');
+    const present = (a.present_names || []).map(n => jAvatarHtml(n, '', n)).join('');
     const absent = (a.absent_names || []).map(x =>
-      `<span class="av-init av-absent" style="background:#5B5347;" title="${jEscapeHtml(x.name)} (${jEscapeHtml(x.note)})">${jInitials(x.name)}</span>`
+      jAvatarHtml(x.name, 'av-absent', `${x.name} (${x.note})`)
     ).join('');
     if (!present && !absent) return '';
     const sep = present && absent ? '<span class="attendance-sep" aria-hidden="true"></span>' : '';
@@ -430,20 +447,22 @@
         ? '<ul class="res-list">' + m.resolutions.map(jRenderResLine).join('') + '</ul>'
         : '<p class="lede" style="margin:8px 0;">Program ani usnesení k tomuto jednání nejsou zveřejněné.</p>';
     }
-    const items = m.agenda.map(a => `
-      <li class="agenda-item">
+    const items = m.agenda.map(a => {
+      const hasDetail = !!(a.duvodova_zprava || (a._res && a._res.some(r => r.text)));
+      return `
+      <li class="agenda-item${hasDetail ? ' agenda-item--expandable' : ''}">
         <div class="agenda-item-main">
           <span class="agenda-num">${jEscapeHtml(String(a.n))}.</span>
-          ${(a.duvodova_zprava || (a._res && a._res.some(r => r.text)))
-            ? `<span class="agenda-text agenda-text--toggle" role="button" tabindex="0"${a.duvodova_zprava ? ` title="${jEscapeHtml(a.duvodova_zprava)}"` : ''} aria-label="Zobrazit podrobnosti bodu">${jLinkedText(a.t || '')}<span class="info-icon" aria-hidden="true">i</span></span>`
-            : `<span class="agenda-text">${jLinkedText(a.t || '')}</span>`}
+          <span class="agenda-text">${jLinkedText(a.t || '')}</span>
           ${a.duration_seconds != null ? `<span class="agenda-time">bod se projednával: ${jFormatItemTime(a.duration_seconds)}</span>` : ''}
           ${a.video_url ? `<a class="agenda-video" href="${a.video_url}" target="_blank" rel="noopener">▶ video ↗</a>` : ''}
-          ${a.duvodova_zprava ? `<div class="info-toggle-text" hidden>${jEscapeHtml(a.duvodova_zprava)}</div>` : ''}
+          ${hasDetail ? '<span class="agenda-toggle" aria-hidden="true">+</span>' : ''}
         </div>
+        ${a.duvodova_zprava ? `<div class="info-toggle-text" hidden>${jEscapeHtml(a.duvodova_zprava)}</div>` : ''}
         ${a._res && a._res.length ? '<div class="agenda-res-list">' + a._res.map(jRenderResItem).join('') + '</div>' : ''}
       </li>
-    `).join('');
+    `;
+    }).join('');
     const unmatched = m._unmatchedRes && m._unmatchedRes.length
       ? `<p class="lede" style="margin:14px 0 4px; font-size:12.5px;">Usnesení nešlo jednoznačně přiřadit k bodu programu:</p>
          <ul class="res-list">${m._unmatchedRes.map(jRenderResLine).join('')}</ul>`
@@ -690,16 +709,22 @@
     jRouteHash(window.location.hash.replace(/^#/, ''));
   });
 
+  // bod jednání se rozbaluje stejně jako celý řádek jednání - klik kdekoli
+  // v hlavičce bodu (ne jen na text), s +/− indikátorem (viz .meeting-toggle)
   document.getElementById('jednani-results').addEventListener('click', (e) => {
-    const textToggle = e.target.closest('.agenda-text--toggle');
-    if (textToggle) {
-      const li = textToggle.closest('.agenda-item');
-      if (!li) return;
-      const dzText = li.querySelector('.agenda-item-main > .info-toggle-text');
-      const resTexts = li.querySelectorAll('.agenda-res-list .info-toggle-text');
-      const willShow = dzText ? dzText.hidden : (resTexts.length ? resTexts[0].hidden : true);
-      if (dzText) dzText.hidden = !willShow;
-      resTexts.forEach(t => { t.hidden = !willShow; });
+    const agendaMain = e.target.closest('.agenda-item-main');
+    if (agendaMain && !e.target.closest('a')) {
+      const li = agendaMain.closest('.agenda-item');
+      if (li && li.classList.contains('agenda-item--expandable')) {
+        const toggle = li.querySelector('.agenda-toggle');
+        const dzText = li.querySelector(':scope > .info-toggle-text');
+        const resTexts = li.querySelectorAll('.agenda-res-list .info-toggle-text');
+        const willShow = !li.classList.contains('agenda-item--expanded');
+        if (dzText) dzText.hidden = !willShow;
+        resTexts.forEach(t => { t.hidden = !willShow; });
+        if (toggle) toggle.textContent = willShow ? '−' : '+';
+        li.classList.toggle('agenda-item--expanded', willShow);
+      }
       return;
     }
     const btn = e.target.closest('.info-icon');

@@ -32,3 +32,18 @@ function jInitials(name){
   const last = parts.length > 1 ? parts[parts.length - 1][0] : '';
   return (first + last).toUpperCase();
 }
+
+// normalizovaný klíč "jméno příjmení" bez titulů/diakritiky/velikosti písmen -
+// pro spárování jmen napříč zdroji, které titul zapisují jinak (s/bez čárky
+// před titulem za jménem apod.), viz jednani/README.md "Jmenovité obsazení"
+function jNameKey(name){
+  const parts = (name || '').split(/\s+/).filter(p => p && !J_TITLE_RE.test(p));
+  return jNorm(parts.join(' '));
+}
+
+// kořenově-absolutní interní odkaz (z JSON dat, ne ze statického HTML) na
+// nasazení, které běží na GitHub Pages subcestě (viz SITE_BASE_PATH ve
+// scripts/build.py, window.SITE_BASE_PATH injektováno v templates/page.html)
+function jWithBase(url){
+  return (url && url.charAt(0) === '/') ? (window.SITE_BASE_PATH || '') + url : (url || '');
+}

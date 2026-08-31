@@ -150,7 +150,7 @@ nezapisují, jen změny obsahu.
 | Sekce | Režim | Kontrola | Změna | Co naposledy |
 |---|---|---|---|---|
 | [Lidé](lide/README.md) | na vyžádání | 31. 8. 2026 | 31. 8. 2026 | fotky kandidátů ODS 2026 z ods.cz, `photo` → pole `photos` (víc fotek na osobu) |
-| [Jednání](jednani/README.md) | denně | 31. 8. 2026 | 31. 8. 2026 | rozbalení řádku na něj i odscrolluje |
+| [Jednání](jednani/README.md) | denně | 31. 8. 2026 | 31. 8. 2026 | fotky u lidí místo iniciál, rozbalovací body programu |
 | [Volby 2018](volby/2018/README.md) | uzavřené | — | 31. 8. 2026 | tabulka Výsledky voleb: kandidáti nahrazeni avatary zvolených zastupitelů |
 | [Volby 2022](volby/2022/README.md) | uzavřené | — | 31. 8. 2026 | tabulka Výsledky voleb: kandidáti nahrazeni avatary zvolených zastupitelů |
 | [Volby 2026](volby/2026/README.md) | hlídat | 30. 8. 2026 | 30. 8. 2026 | kompletní kandidátní listiny (105 kandidátů) |

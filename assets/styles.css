@@ -306,7 +306,7 @@
   .people-avatars{display:flex; flex-wrap:wrap; align-items:center; gap:4px; max-width:340px;}
   .people-avatars .av-img{width:26px; height:26px; border-radius:50%; object-fit:cover; border:1px solid var(--line); background:var(--parchment-deep);}
   .people-avatars .av-init{width:26px; height:26px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-family:'IBM Plex Mono',monospace; font-weight:600; font-size:9px; color:#fff; flex-shrink:0;}
-  .people-avatars .av-init.av-absent{opacity:0.4;}
+  .people-avatars .av-init.av-absent, .people-avatars .av-img.av-absent{opacity:0.4;}
   .people-avatars .attendance-sep{width:1px; align-self:stretch; background:var(--line); margin:0 2px; flex-shrink:0;}
   .socials-cell{display:flex; flex-direction:column; gap:3px; font-size:12.5px;}
   .socials-cell a{color:var(--burgundy);}
@@ -373,12 +373,13 @@
   .res-list{margin:6px 0 12px; padding-left:0; list-style:none; font-size:13px;}
   .res-list li{padding:6px 0; border-bottom:1px dotted var(--line);}
   .agenda-list{margin:6px 0 12px; padding-left:0; list-style:none; font-size:13px;}
-  .agenda-item{padding:7px 0; border-bottom:1px dotted var(--line);}
+  .agenda-item{padding:7px 4px; border-bottom:1px dotted var(--line);}
   .agenda-item-main{display:flex; align-items:baseline; gap:7px; flex-wrap:wrap;}
+  .agenda-item--expandable .agenda-item-main{cursor:pointer; margin:-7px -4px; padding:7px 4px; border-radius:2px;}
+  .agenda-item--expandable .agenda-item-main:hover{background:rgba(124,47,43,0.035);}
+  .agenda-toggle{width:16px; text-align:center; color:var(--burgundy); font-weight:600; flex-shrink:0;}
   .agenda-num{font-family:'IBM Plex Mono',monospace; color:var(--ink-soft); flex-shrink:0; width:2em;}
   .agenda-text{flex:1 1 auto; min-width:200px; font-weight:600;}
-  .agenda-text--toggle{cursor:pointer;}
-  .agenda-text--toggle:hover .info-icon{background:rgba(124,47,43,0.08);}
   .agenda-time{font-size:12px; color:var(--ink-soft); white-space:nowrap; font-family:'IBM Plex Mono',monospace;}
   .agenda-video{font-size:12px; color:var(--burgundy); white-space:nowrap; font-family:'IBM Plex Mono',monospace;}
   .agenda-res-list{margin:5px 0 0 20px; display:flex; flex-direction:column; gap:4px;}

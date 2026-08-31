@@ -277,6 +277,36 @@ rozbalením nového řádku sbalí všechny ostatní (`jCollapseRow()`). Netýk�
 (`jRunSearch()` znovu sestaví celé HTML), kde je jinak rozbalených řádků
 vždy nula.
 
+## Fotky u avatarů účastníků (od 31. 8. 2026)
+
+Řádek s avatary účastníků (viz „Jmenovité obsazení" výše) teď u lidí, kde
+existuje fotka, zobrazuje ji místo barevného kroužku s iniciálami — stejný
+princip jako u tabulek volebních uskupení a v sekci Lidé. Zdroj fotek je
+`lide/people.json` (`photos[0].url`, nejnovější fotka dané osoby, viz
+`lide/SPEC.md` §3.7) — `content/jednani.html` si ho při načtení natáhne
+navíc k `pecky-jednani.json`. Spárování jména z prezence jednání
+(`attendance.present_names`/`absent_names`, prostý text z usneseni.cz) se
+záznamem v `people.json` je fuzzy: `jNameKey()` (assets/helpers.js) odstraní
+tituly a diakritiku a porovná jen normalizované „jméno příjmení" — jména
+napříč zdroji totiž titul za jménem zapisují nekonzistentně (s/bez čárky).
+U koho se fotka nedohledá (typicky zastupitelé z volebního období
+2018–2022, které `people.json` nepokrývá — viz jeho `meta.note`), zůstává
+beze změny barevný iniciálový avatar.
+
+## Rozbalovací body programu (od 31. 8. 2026)
+
+Každý bod programu, který má co ukázat navíc (důvodovou zprávu nebo text
+usnesení), je teď rozbalovací stejným způsobem jako celý řádek jednání —
+klik kdekoli v hlavičce bodu (ne jen na text jako dřív), `+`/`−` indikátor
+vpravo (`.agenda-toggle`, stejný vizuální jazyk jako `.meeting-toggle` u
+řádku jednání). Rozbaluje se jen obsah samotné důvodové zprávy a plný text
+usnesení — čísla usnesení s výsledkem (přijato/zamítnuto apod.) zůstávají
+vidět vždy, bez rozbalení, stejně jako dřív. Na rozdíl od řádků jednání
+(kde je vždy rozbalený nejvýš jeden) se body programu rozbalují nezávisle
+na sobě — u jednání s víc body je běžné chtít porovnat text dvou z nich
+najednou. Zdrojová funkce: `jRenderAgendaList`/click handler v
+`content/jednani.html`.
+
 ## Známá omezení zdroje (ověřeno 2026-08-04)
 
 1. **Pozvánky**: web je generuje jen pro jednání od ~června 2026 (8 z 281);
