@@ -172,6 +172,17 @@ jen přibude nová — stejně jako u vazeb historie nemizí.
   záznam** — jméno, příjmení, vazba na kandidátku. Bez `bio`, fotky,
   kontaktů a `sources` na osobě (zdroj je jen na vazbě). Doplnění je
   fáze 5b, postupně a jen tam, kde se najde veřejný zdroj.
+- **Fotky za 2026 ověřeny 31. 8. 2026, dohledatelné jen u 2 z 5
+  uskupení.** ODS a nezávislí kandidáti (ods.cz) a NAŠE PEČKY A PEČKY
+  NEXT (nasepecky.cz) si pro tyhle volby udělaly vlastní web s portréty
+  kandidátů — viz §3.7 SPEC.md. Sdružení nezávislých kandidátů PEČKY
+  PEČÁKŮM, Lidé pro Pečky a Velké Chvalovice s podporou SPD a Pečky
+  srdcem mají jen Facebook (stránku/skupinu) — bez přihlášení jde
+  projít jen omezeně a fotky v příspěvcích nejsou jmenovitě popsané,
+  takže je nejde spolehlivě spárovat s konkrétním kandidátem. Nejde
+  o nedostatek hledání, ale o to, že takový zdroj u těchhle uskupení
+  reálně neexistuje — needit to zkoušet znovu, dokud web/inzerce
+  nevznikne.
 
 Textový obsah panelu jinak žije v `content/lide.html`. Další zvláštní
 pravidla doplnit sem, až nějaká vzniknou.

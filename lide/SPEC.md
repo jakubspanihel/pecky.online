@@ -354,6 +354,17 @@ hodnota — každá položka je fotka za jeden ročník:
   položka se neodstraňuje**, jen přibude nová — stejná filozofie jako
   u vazeb v §3.4 (historie nemizí).
 
+**Zdroje fotek za 2026 (ověřeno 31. 8. 2026):** dohledatelné jen u
+uskupení, která si pro kampaň udělala vlastní web s portréty kandidátů
+— ODS a nezávislí kandidáti (ods.cz) a NAŠE PEČKY A PEČKY NEXT
+(nasepecky.cz), 36 fotek dohromady. Zbylá tři uskupení (Sdružení
+nezávislých kandidátů PEČKY PEČÁKŮM, Lidé pro Pečky a Velké Chvalovice
+s podporou SPD, Pečky srdcem) mají jen Facebook — stránku/skupinu jde
+bez přihlášení projít jen omezeně a fotky v příspěvcích nemají jmenný
+popisek, takže spárování se jménem by bylo nespolehlivé (riziko záměny
+osoby). Nezkoušet znovu stejným postupem, dokud tahle tři uskupení
+nezaloží vlastní web nebo nevyjde volební inzerce v Pečeckých novinách.
+
 ---
 
 ## 4. Validace
