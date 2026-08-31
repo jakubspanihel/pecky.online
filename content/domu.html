@@ -18,20 +18,24 @@
   // index.html (Domů) je jediné místo, kam takový starý odkaz vůbec může
   // dorazit (hash na kořenové doméně), takže redirect žije právě tady.
   (function(){
+    // BASE: prefix pro nasazení na GitHub Pages subcestě (viz SITE_BASE_PATH
+    // ve scripts/build.py, injektováno jako window.SITE_BASE_PATH v
+    // templates/page.html) - '' na vlastní doméně, jinak např. '/pecky.online'.
+    var BASE = window.SITE_BASE_PATH;
     var OLD_TO_NEW = {
-      domu: '/', jednani: '/jednani/', zpravodaj: '/noviny/', lide: '/lide/',
-      plan: '/plan/', volby2018: '/volby/2018/', volby2022: '/volby/2022/',
-      volby2026: '/volby/2026/', smlouvy: '/smlouvy/', zakazky: '/zakazky/',
-      pozemky: '/pozemky/', pokladna: '/pokladna/', owebu: '/o-webu/'
+      domu: BASE + '/', jednani: BASE + '/jednani/', zpravodaj: BASE + '/noviny/', lide: BASE + '/lide/',
+      plan: BASE + '/plan/', volby2018: BASE + '/volby/2018/', volby2022: BASE + '/volby/2022/',
+      volby2026: BASE + '/volby/2026/', smlouvy: BASE + '/smlouvy/', zakazky: BASE + '/zakazky/',
+      pozemky: BASE + '/pozemky/', pokladna: BASE + '/pokladna/', owebu: BASE + '/o-webu/'
     };
     var hash = window.location.hash.replace(/^#/, '');
     if (!hash) return;
     var panel = hash.split(/[/?]/)[0];
     if (!Object.prototype.hasOwnProperty.call(OLD_TO_NEW, panel)) return;
     var target = OLD_TO_NEW[panel];
-    if (target === '/') {
+    if (target === BASE + '/') {
       // #domu na kořenové stránce - obsah je už správně zobrazený, jen smazat hash z URL
-      if (hash === 'domu') history.replaceState(null, '', '/');
+      if (hash === 'domu') history.replaceState(null, '', BASE + '/');
       return;
     }
     // podcesta/parametry za jménem panelu (např. #lide/osoba/paluskam?scope=all)

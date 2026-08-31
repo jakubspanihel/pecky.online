@@ -810,7 +810,7 @@
 
     resultsEl.innerHTML = shown.map(h => {
       const snippet = nSnippet(h.text, h.norm, words);
-      const pdfHref = (h.ed.url || ('/noviny/Data/PN%20' + h.ed.year + '/' + h.ed.slug + '.pdf')) + '#page=' + h.page;
+      const pdfHref = (h.ed.url || (window.SITE_BASE_PATH + '/noviny/Data/PN%20' + h.ed.year + '/' + h.ed.slug + '.pdf')) + '#page=' + h.page;
       return `<div class="hit-card hit-card--noviny">
         <a class="hit-preview" href="${pdfHref}" target="_blank" rel="noopener">
           <img src="/noviny/pages/${h.ed.slug}/${h.page}.jpg" alt="Náhled strany ${h.page}" loading="lazy">

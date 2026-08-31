@@ -22,6 +22,13 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 
+# Nasazení: repo zatím nemá vlastní doménu (pecky.online drží někdo jiný,
+# viz ARCHITEKTURA-MIGRACE.md), takže běží na GitHub Pages subcestě.
+# Až bude vlastní doména na kořeni, přepnout na SITE_BASE_PATH = '' a
+# SITE_DOMAIN = 'https://pecky.online' - jediné dvě řádky ke změně.
+SITE_BASE_PATH = '/pecky.online'
+SITE_DOMAIN = 'https://jakubspanihel.github.io/pecky.online'
+
 # slug -> (výstupní cesta, title, meta description, potřebuje assets/helpers.js)
 MANIFEST = {
     'domu': (
@@ -206,6 +213,25 @@ def render_stav_sekci(rows):
     return '\n'.join(out)
 
 
+def apply_base_path(html):
+    """Přepíše kořenově-absolutní interní odkazy (href="/...", src="/...",
+    fetch('/...')) tak, aby fungovaly i při nasazení na GitHub Pages
+    subcestě (SITE_BASE_PATH). Cíleně jen tyhle dva kontexty - ne plošně
+    "každá uvozovka za lomítkem", to by rozbilo např. self-closing SVG
+    tagy (rx="1.5"/><line .../>, kde "/" hned za uvozovkou není odkaz).
+    Beze změny, pokud SITE_BASE_PATH == '' (vlastní doména na kořeni).
+    """
+    if not SITE_BASE_PATH:
+        return html
+    html = re.sub(
+        r'\b(href|src)="(/(?!/)[^"]*)"',
+        lambda m: f'{m.group(1)}="{SITE_BASE_PATH}{m.group(2)}"', html)
+    html = re.sub(
+        r"fetch\('(/(?!/)[^']*)'",
+        lambda m: f"fetch('{SITE_BASE_PATH}{m.group(1)}'", html)
+    return html
+
+
 def build_nav(current_slug):
     nav = read('assets/nav.html')
     def repl(m):
@@ -237,10 +263,13 @@ def build_all():
         html = html.replace('{{TITLE}}', title)
         html = html.replace('{{DESCRIPTION}}', desc)
         html = html.replace('{{PATH}}', path)
+        html = html.replace('{{SITE_DOMAIN}}', SITE_DOMAIN)
         html = html.replace('{{HEAD_SCRIPTS}}', head_scripts)
         html = html.replace('{{NAV}}', nav)
         html = html.replace('{{CONTENT}}', content)
         html = html.replace('{{FOOTER}}', footer)
+        html = html.replace('{{SITE_BASE_PATH}}', SITE_BASE_PATH)
+        html = apply_base_path(html)
 
         out_path = out_file_for(path)
         out_path.parent.mkdir(parents=True, exist_ok=True)
@@ -254,11 +283,11 @@ def build_sitemap(written):
     lines = ['<?xml version="1.0" encoding="UTF-8"?>',
              '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
     for slug, out_path, path in written:
-        lines.append(f'  <url><loc>https://pecky.online{path}</loc></url>')
+        lines.append(f'  <url><loc>{SITE_DOMAIN}{path}</loc></url>')
     lines.append('</urlset>')
     (ROOT / 'sitemap.xml').write_text('\n'.join(lines) + '\n', encoding='utf-8')
 
-    robots = "User-agent: *\nAllow: /\nSitemap: https://pecky.online/sitemap.xml\n"
+    robots = f"User-agent: *\nAllow: /\nSitemap: {SITE_DOMAIN}/sitemap.xml\n"
     (ROOT / 'robots.txt').write_text(robots, encoding='utf-8')
 
 

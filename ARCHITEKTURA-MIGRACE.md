@@ -16,6 +16,22 @@ tedy existuje jen jedna složka na sekci, ne dvě. Zbytek tohoto
 dokumentu popisuje stav bezprostředně po prvním kroku migrace a
 zmínky `pecky-<sekce>/` níže jsou proto historické, ne aktuální cesty.
 
+Dodatek 2 (31. 8. 2026): migrace počítala s doménou `pecky.online` na
+kořeni, proto jsou všechny interní odkazy (nav, `content/*.html`,
+`sitemap.xml`, canonical/og:url) kořenově-absolutní (`/jednani/` apod.).
+Doména `pecky.online` ale patří někomu jinému (zjištěno 31. 8. 2026 při
+kontrole nasazení) — web běží na GitHub Pages subcestě
+`https://jakubspanihel.github.io/pecky.online/`, kde by tyhle odkazy bez
+úpravy mířily mimo web (`/jednani/` by se resolvlo na kořen
+`jakubspanihel.github.io`, ne na `.../pecky.online/`). Řešení: build.py
+teď má `SITE_BASE_PATH`/`SITE_DOMAIN` (přepínatelné na jeden řádek, až
+bude vlastní doména) a při generování přepisuje `href=`/`src=`/`fetch('`
+i pár runtime míst, která staví cesty z JSON dat nebo JS řetězců
+(`window.SITE_BASE_PATH`, viz `templates/page.html`,
+`content/domu.html`, `content/lide.html`, `content/zpravodaj.html`).
+Lokální test proto běží přes `python3 scripts/serve.py` (napodobí tu
+samou subcestu), ne přímo `python3 -m http.server` — viz `README.md`.
+
 ## 1. Současný stav (fakta)
 
 - Jeden soubor `index.html`, 13 panelů (`data-panel`), přepínaných JS.

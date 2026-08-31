@@ -230,8 +230,14 @@
     const open = L_STATE.open === p.id;
     // photos je řazené nejnovější první (§3.7 SPEC.md) — na kartičce vždy ta aktuální
     const currentPhoto = (p.photos && p.photos.length) ? p.photos[0] : null;
+    // fotky v people.json jsou kořenově-absolutní cesty (/volby/...) - na GitHub
+    // Pages subcestě potřebují stejný prefix jako statické href/src (viz
+    // window.SITE_BASE_PATH, injektováno v templates/page.html)
+    const photoUrl = currentPhoto && currentPhoto.url && currentPhoto.url.charAt(0) === '/'
+      ? window.SITE_BASE_PATH + currentPhoto.url
+      : (currentPhoto ? currentPhoto.url : '');
     const avatar = currentPhoto
-      ? `<img class="avatar" src="${jEscapeHtml(currentPhoto.url)}" alt="${jEscapeHtml(lPlainName(p))}" loading="lazy" width="64" height="64">`
+      ? `<img class="avatar" src="${jEscapeHtml(photoUrl)}" alt="${jEscapeHtml(lPlainName(p))}" loading="lazy" width="64" height="64">`
       : `<div class="avatar-fallback" style="background:${jEscapeHtml(org && org.color ? org.color : '#5B5347')};" aria-hidden="true">${jInitials(lFullName(p))}</div>`;
     const until = p._until ? `<span class="tag until">do ${jEscapeHtml(lFormatDate(p._until))}</span>` : '';
     // uskupení je klikací pro myš, ale ne samostatný tab stop — vnořený ovládací

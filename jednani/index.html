@@ -5,22 +5,23 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Jednání zastupitelstva a rady — pecky.online</title>
 <meta name="description" content="Archiv jednání zastupitelstva a rady města Pečky s usneseními, docházkou a odkazy na videozáznam — s fulltextovým vyhledáváním.">
-<link rel="canonical" href="https://pecky.online/jednani/">
+<link rel="canonical" href="https://jakubspanihel.github.io/pecky.online/jednani/">
 <meta property="og:title" content="Jednání zastupitelstva a rady — pecky.online">
 <meta property="og:description" content="Archiv jednání zastupitelstva a rady města Pečky s usneseními, docházkou a odkazy na videozáznam — s fulltextovým vyhledáváním.">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://pecky.online/jednani/">
+<meta property="og:url" content="https://jakubspanihel.github.io/pecky.online/jednani/">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/styles.css">
-<script src="/assets/helpers.js"></script>
+<link rel="stylesheet" href="/pecky.online/assets/styles.css">
+<script src="/pecky.online/assets/helpers.js"></script>
 </head>
 <body>
+<script>window.SITE_BASE_PATH = '/pecky.online';</script>
 <header class="site">
   <div class="header-inner">
     <div class="brand-row">
-      <a class="brand" href="/">
+      <a class="brand" href="/pecky.online/">
         <div class="mark">P</div>
         <h1>Pečky online <small>tvoří PečkyBot AI</small></h1>
       </a>
@@ -30,19 +31,19 @@
     </div>
   </div>
   <nav class="tabs" id="tabs">
-    <a class="navlink" href="/">Domů</a>
-    <a class="navlink active" href="/jednani/">📅 Jednání</a>
-    <a class="navlink" href="/noviny/">📰 Pečecké noviny</a>
-    <a class="navlink" href="/lide/">Lidé</a>
-    <a class="navlink" href="/plan/">Plán</a>
-    <a class="navlink" href="/volby/2018/">Volby 2018</a>
-    <a class="navlink" href="/volby/2022/">Volby 2022</a>
-    <a class="navlink" href="/volby/2026/">Volby 2026</a>
-    <a class="navlink" href="/smlouvy/">Smlouvy</a>
-    <a class="navlink" href="/zakazky/">Zakázky</a>
-    <a class="navlink" href="/pozemky/">Pozemky</a>
-    <a class="navlink" href="/pokladna/">Pokladna</a>
-    <a class="navlink" href="/o-webu/">O webu</a>
+    <a class="navlink" href="/pecky.online/">Domů</a>
+    <a class="navlink active" href="/pecky.online/jednani/">📅 Jednání</a>
+    <a class="navlink" href="/pecky.online/noviny/">📰 Pečecké noviny</a>
+    <a class="navlink" href="/pecky.online/lide/">Lidé</a>
+    <a class="navlink" href="/pecky.online/plan/">Plán</a>
+    <a class="navlink" href="/pecky.online/volby/2018/">Volby 2018</a>
+    <a class="navlink" href="/pecky.online/volby/2022/">Volby 2022</a>
+    <a class="navlink" href="/pecky.online/volby/2026/">Volby 2026</a>
+    <a class="navlink" href="/pecky.online/smlouvy/">Smlouvy</a>
+    <a class="navlink" href="/pecky.online/zakazky/">Zakázky</a>
+    <a class="navlink" href="/pecky.online/pozemky/">Pozemky</a>
+    <a class="navlink" href="/pecky.online/pokladna/">Pokladna</a>
+    <a class="navlink" href="/pecky.online/o-webu/">O webu</a>
   </nav>
 </header>
 
@@ -255,8 +256,8 @@
     JEDNANI_LOADING = (async () => {
       try {
         const [res, parcelRes] = await Promise.all([
-          fetch('/jednani/pecky-jednani.json'),
-          fetch('/jednani/parcely-odkazy.json').catch(() => null)
+          fetch('/pecky.online/jednani/pecky-jednani.json'),
+          fetch('/pecky.online/jednani/parcely-odkazy.json').catch(() => null)
         ]);
         if (!res.ok) throw new Error('HTTP ' + res.status);
         if (parcelRes && parcelRes.ok) {
@@ -495,7 +496,7 @@
         <div class="meeting-row-detail" hidden>
           ${m.video_note ? `<p class="lede" style="margin:6px 0 10px; font-size:12.5px; color:var(--burgundy);">⚠ ${jEscapeHtml(m.video_note)}</p>` : ''}
           ${detailTopHtml}
-          ${m.links.youtube ? `<a class="toggle-details" href="${m.links.youtube}" target="_blank" rel="noopener" style="margin:0 0 14px;"><img class="meeting-yt-icon" src="/img/favicons/youtube-com.png" alt="" loading="lazy"> Video ↗</a>` : ''}
+          ${m.links.youtube ? `<a class="toggle-details" href="${m.links.youtube}" target="_blank" rel="noopener" style="margin:0 0 14px;"><img class="meeting-yt-icon" src="/pecky.online/img/favicons/youtube-com.png" alt="" loading="lazy"> Video ↗</a>` : ''}
           ${jRenderAgendaList(m)}
           <div class="meeting-links">
             ${m.links.invitation ? `<a href="${m.links.invitation}" target="_blank" rel="noopener" title="Zdrojový web někdy odkaz z cizí stránky blokuje a otevře jen úvodní stránku archivu — zkuste prosím znovu, případně vyhledejte jednání přímo na usneseni.cz.">Pozvánka PDF ↗</a>` : ''}
@@ -717,6 +718,6 @@
   <p style="margin:0;">Dotazy mi piště na <a href="mailto:dopecek@gmail.com">dopecek@gmail.com</a>.</p>
 </footer>
 
-<script src="/assets/common.js"></script>
+<script src="/pecky.online/assets/common.js"></script>
 </body>
 </html>
