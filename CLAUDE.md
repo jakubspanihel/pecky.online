@@ -81,7 +81,7 @@ spustit `python3 scripts/build.py`.
 - Pozemky → `pozemky/README.md`
 - Pokladna → `pokladna/README.md`
 - Pečecké noviny / Zpravodaj → `noviny/README.md`
-- O webu → `o-webu/README.md`
+- O webu → `o-webu/README.md` (+ `automation-socialni-site.md`)
 
 ## Známé mezery (celoprojektové)
 - ~~Kompletní seznam 21 zastupitelů~~ — uzavřeno. pecky.cz sice blokuje
@@ -110,6 +110,17 @@ spustit `python3 scripts/build.py`.
   deadlock avoided` (Python `open()`, `cat`, `head`...). Obejití: nejdřív
   `cp soubor /tmp/kopie.json`, pak pracovat s kopií — `cp` samo selhání
   nemělo.
+- Git přes připojenou složku je nespolehlivý na čtení objektů: `git log`
+  s cestou (`git log -- cesta/k/souboru`) **tiše vrací prázdno** místo
+  commitů, `git show <commit>:<soubor>`, `git rev-list` i `git diff HEAD --`
+  padají na `Bus error`. Bez pathspec (`git log`, `git status`,
+  `git log --name-only`) to funguje, ale `--name-only` vypíše soubory jen
+  u několika nejnovějších commitů. Prázdný výstup proto neznamená „soubor
+  se nikdy neměnil" — na dohledání, kdy co vzniklo, použij mtime souborů
+  (`ls -la`, `stat`) a datumy uvnitř dat (`meta.generated_at`) a ověř je
+  proti changelogu v `README.md`. Historie repa navíc sahá jen ke
+  23. 8. 2026, starší změny v ní nejsou vůbec. (Zjištěno 30. 8. 2026 při
+  dohledávání, kdy se doplnil offline archiv Pečeckých novin.)
 
 ## Git / GitHub
 Remote: https://github.com/jakubspanihel/pecky.online.git

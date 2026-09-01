@@ -149,18 +149,18 @@ nezapisují, jen změny obsahu.
 
 | Sekce | Režim | Kontrola | Změna | Co naposledy |
 |---|---|---|---|---|
-| [Lidé](lide/README.md) | na vyžádání | 31. 8. 2026 | 31. 8. 2026 | fotky kandidátů ODS 2026 z ods.cz, `photo` → pole `photos` (víc fotek na osobu) |
-| [Jednání](jednani/README.md) | denně | 31. 8. 2026 | 31. 8. 2026 | fotky u lidí místo iniciál, rozbalovací body programu |
+| [Volby 2026](volby/2026/README.md) | denně | 1. 9. 2026 | 1. 9. 2026 | blok „Kde se volí" — 6 volebních okrsků a jejich sídla (úřední deska, 25. 8. 2026) |
+| [Lidé](lide/README.md) | na vyžádání | 1. 9. 2026 | 1. 9. 2026 | fotka Ing. Petra Dürra (Facebook profil A. Švejnohové, doplnil uživatel) |
+| [O webu](o-webu/README.md) | denně | 1. 9. 2026 | 1. 9. 2026 | sekce Sociální sítě: 14 účtů, u každého i datum posledního příspěvku/videa |
+| [Jednání](jednani/README.md) | denně | 1. 9. 2026 | 31. 8. 2026 | fotky u lidí místo iniciál, rozbalovací body programu |
 | [Volby 2018](volby/2018/README.md) | uzavřené | — | 31. 8. 2026 | tabulka Výsledky voleb: kandidáti nahrazeni avatary zvolených zastupitelů |
 | [Volby 2022](volby/2022/README.md) | uzavřené | — | 31. 8. 2026 | tabulka Výsledky voleb: kandidáti nahrazeni avatary zvolených zastupitelů |
-| [Volby 2026](volby/2026/README.md) | hlídat | 30. 8. 2026 | 30. 8. 2026 | kompletní kandidátní listiny (105 kandidátů) |
 | [Pozemky](pozemky/README.md) | odvozená | 30. 8. 2026 | 27. 8. 2026 | regenerace tabulek Nákup/Prodej |
-| [Pečecké noviny](noviny/README.md) | denně | 30. 8. 2026 | 24. 8. 2026 ? | vydání 7–8/2026 |
+| [Pečecké noviny](noviny/README.md) | denně | 1. 9. 2026 | 24. 8. 2026 ? | vydání 7–8/2026 |
 | [Domů](domu/README.md) | odvozená | — | 24. 8. 2026 | brand header |
-| [O webu](o-webu/README.md) | odvozená | — | 24. 8. 2026 | vlastní složka + README |
-| [Smlouvy](smlouvy/README.md) | denně | 30. 8. 2026 | 20. 8. 2026 | 2 nové smlouvy |
+| [Smlouvy](smlouvy/README.md) | denně | 1. 9. 2026 | 20. 8. 2026 | 2 nové smlouvy |
 | [Plán](plan/README.md) | na vyžádání | 10. 8. 2026 | 10. 8. 2026 | sekce Obchvat |
-| [Zakázky](zakazky/README.md) | denně | 30. 8. 2026 | 6. 8. 2026 | 1 nová zakázka |
+| [Zakázky](zakazky/README.md) | denně | 1. 9. 2026 | 6. 8. 2026 | 1 nová zakázka |
 | [Pokladna](pokladna/README.md) | na vyžádání | 6. 8. 2026 | 6. 8. 2026 | blok Bankovní účty |
 
 Režimy: **denně** = má zdroj, který kontroluje denní rutina · **hlídat** =
@@ -177,6 +177,33 @@ a přesune ho na správné místo v řazení. Ostatní řádky nechá být.
 `?` u data znamená nedoložený odhad — nahradit, až se zjistí přesné datum.
 
 ## Poslední aktualizace
+
+1. září 2026 (denní kontrola zdrojů. **Jednání:** na usneseni.cz nic
+nového — Rada 31/2026 (31. 8. 2026) má nadále jen Pozvánku, zápis ani
+usnesení zveřejněné nejsou; archiv proto beze změny (286 jednání).
+Playlist „Zasedání ZM" na YouTube zkontrolován: nejnovější video je ZM
+z 26. 8. 2026, které archiv už má, a **k jednání ZM 3/2026 z 25. 5. 2026
+video na kanálu stále chybí** — známá mezera trvá. **Pečecké noviny:**
+nejnovější číslo v archivu pecky.cz je nadále 7–8/2026, zářijové vydání
+ještě nevyšlo. **Zakázky:** diff proti `zakazky/pecky-zakazky-ids.json` —
+175 nalezených ID, 0 nových, 0 zmizelých, soubor nedotčen. **Smlouvy:**
+žádná nová smlouva (nejnovější podpis nadále 23. 7. 2026) a souhrnná
+čísla z Hlídače státu se drží na snížené úrovni zjištěné 30. 8. 2026
+(skupina 179 smluv / 102 075 674 Kč, úřad 46 / 32 831 378 Kč) — pokles
+proti 16. 8. (182/47) zůstává nevysvětlený, čísla v sekci Smlouvy proto
+i tentokrát **záměrně ponechána beze změny**; k rozhodnutí uživatele.
+**Volby 2026:** na úřední desce pecky.cz nalezen nový dokument
+„Informace o počtu a sídlech volebních okrsků" (podepsal starosta Milan
+Paluska 25. 8. 2026, vyvěšeno 25. 8. 2026) — do sekce přidán blok „Kde
+se volí" se **6 okrsky** a jejich sídly (Kulturní středisko, ZŠ Tř. Jana
+Švermy 342 pro okrsky 2 a 5, ZUŠ Barákova, Městská knihovna, knihovna
+Velké Chvalovice) a poznámkou, že přiřazení ulic k okrskům dokument
+neobsahuje; z téhož dokumentu doplněno, že se ve stejných dnech volí
+i do třetiny Senátu. PDF je sken, adresy přepsány ručně (OCR vrstva má
+překlepy). Zdroj zapsán do `sources.json`. **O webu → Sociální sítě:**
+kontrola dnes neopakována — proběhla už dřív téhož dne (14 účtů, viz
+předchozí záznam), opakovaný běh po pár hodinách by u malých lokálních
+účtů nepřinesl nic nového.)
 
 30. srpna 2026 (**architektura webu přepracována z jednosouborového
 `index.html` na vícestránkový statický web** — plán v

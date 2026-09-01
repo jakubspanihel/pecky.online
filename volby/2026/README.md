@@ -26,6 +26,18 @@ jen barevný avatar s iniciálami (`av-init`), fotky nejsou k dispozici,
 stejně jako u ročníků 2018/2022 před volbami. Průběžné oficiální
 výsledky po volbách budou na volby.gov.cz a v otevřených datech ČSÚ.
 
+## Kde se volí (volební okrsky)
+Blok „Kde se volí" v `content/volby2026.html` uvádí 6 volebních okrsků
+a jejich sídla podle dokumentu *Informace o počtu a sídlech volebních
+okrsků* (starosta Milan Paluska, 25. 8. 2026, úřední deska pecky.cz —
+záznam `pecky-cz-uredni-deska-volby-2026-okrsky` v `sources.json`).
+Doplněno 1. 9. 2026. Pozor: PDF je **sken**, jeho OCR vrstva má
+překlepy („Peěky", „votebního", čísla zákonů slitá do `49112001`) —
+adresy proto přepsány ručně, nikdy je nekopírovat přímo z `pdftotext`.
+Přiřazení jednotlivých ulic k okrskům dokument neobsahuje a jinde se
+zatím nedohledalo — na webu přiznáno jako mezera. Ze stejného dokumentu
+pochází i údaj, že se ve stejných dnech volí i do třetiny Senátu.
+
 ## Po volbách: hlídat ustavující zasedání
 Jakmile volby proběhnou, platí pravidlo „Zvolení zástupci patří do
 Výsledků voleb" ([`volby/README.md`](../README.md)): do subpanelu
@@ -40,3 +52,17 @@ platnosti voleb" a „volba starosty".
 Obsah panelu jinak žije v `content/volby2026.html` (žádná samostatná datová
 sada). Zatím žádná další zvláštní pravidla nad rámec obecných konvencí v
 kořenovém `CLAUDE.md`. Doplnit sem, až nějaká vzniknou.
+
+## Sociální sítě uskupení
+
+U každého odkazu na sociální síť v tabulce „Volební uskupení" (sloupeček
+„Poznámka") je v závorce počet sledujících/členů a datum **posledního
+příspěvku na dané síti** (ne datum naší kontroly — ukazatel, jak moc je
+stránka aktivní) — aktualizuje se denně. Těchto 7 odkazů je podmnožinou
+delšího seznamu v sekci [O webu](../../o-webu/README.md) → „Sociální
+sítě", kde žije i samotný postup kontroly:
+[o-webu/automation-socialni-site.md](../../o-webu/automation-socialni-site.md)
+— při každé aktualizaci se zapisuje na obě místa najednou. Poznámka je
+zúžená na max. 50 % šířky tabulky (`assets/styles.css`,
+`#panel-volby2026 table.register td:last-child`), aby ji dlouhý text
+u některých uskupení nenafukoval na úkor sloupečku „Lidé".

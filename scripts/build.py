@@ -232,12 +232,16 @@ def apply_base_path(html):
     return html
 
 
-def build_nav(current_slug):
-    nav = read('assets/nav.html')
+def apply_active(html, current_slug):
+    """Nahradí {{ACTIVE:slug}} placeholdery (navlinky žijí v assets/footer.html)."""
     def repl(m):
         slug = m.group(1)
         return ' active' if slug == current_slug else ''
-    return re.sub(r'\{\{ACTIVE:([a-z0-9]+)\}\}', repl, nav)
+    return re.sub(r'\{\{ACTIVE:([a-z0-9]+)\}\}', repl, html)
+
+
+def build_nav(current_slug):
+    return apply_active(read('assets/nav.html'), current_slug)
 
 
 def out_file_for(path):
@@ -249,7 +253,7 @@ def out_file_for(path):
 
 def build_all():
     page_tpl = read('templates/page.html')
-    footer = read('assets/footer.html')
+    footer_tpl = read('assets/footer.html')
     stav_sekci = render_stav_sekci(parse_stav_sekci())
     written = []
 
@@ -257,6 +261,7 @@ def build_all():
         content = read(f'content/{slug}.html')
         content = content.replace('{{STAV_SEKCI}}', stav_sekci)
         nav = build_nav(slug)
+        footer = apply_active(footer_tpl, slug)
         head_scripts = '<script src="/assets/helpers.js"></script>' if needs_helpers else ''
 
         html = page_tpl

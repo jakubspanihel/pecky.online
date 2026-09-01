@@ -1,7 +1,7 @@
 {
   "project": "pecky.online",
   "description": "Seznam zdrojů, ze kterých pecky.online čerpá nebo může čerpat informace o samosprávě města Pečky.",
-  "last_updated": "2026-08-30 (denní kontrola zdrojů: usneseni.cz — přidána Rada 31/2026 jen s Pozvánkou; Pečecké noviny — beze změny, nejnovější je 7–8/2026; veřejné zakázky — beze změny, 175 ID; Hlídač státu smlouvy — žádná nová smlouva, ale zaznamenán nevysvětlený úbytek záznamů v registru, souhrnná čísla na webu neměněna)",
+  "last_updated": "2026-09-01 (denní kontrola zdrojů: usneseni.cz — beze změny, Rada 31/2026 má nadále jen Pozvánku; Pečecké noviny — beze změny, nejnovější je 7–8/2026; veřejné zakázky — beze změny, 175 ID; Hlídač státu smlouvy — beze změny, snížené počty z 30. 8. se drží; úřední deska pecky.cz — nový dokument o počtu a sídlech volebních okrsků, promítnut do sekce Volby 2026)",
   "sources": [
     {
       "id": "pecky-cz",
@@ -132,6 +132,15 @@
       "description": "Oficiální seznam volebních stran zaregistrovaných registračním úřadem (Městský úřad Pečky) pro komunální volby 2026, za celý správní obvod úřadu (Pečky, Cerhenice, Dobřichov, Chotutice, Plaňany, Radim, Ratenice, Tatce, Vrbčany). Pro Pečky uvádí 5 uskupení. Doprovodný dokument (týž den, tentýž zdroj): Rozhodnutí o registraci kandidátních listin — https://pecky.cz/files/pecky/attachments/457265/Rozhodnuti-22-kandidatnich-listin.pdf (22 listin za celý obvod, naskenovaný dokument bez strojově čitelného textu).",
       "status": "ověřeno",
       "note": "Nalezeno a vytěženo 23. 8. 2026 na https://pecky.cz/office/board (nová platforma pecky.cz, čteno přes claude-in-chrome). Podepsáno Marcela Bahníková, zaměstnanec s osvědčením, V Pečkách dne 18. 8. 2026; na úřední desku vyvěšeno 19. 8. 2026, sejmutí 10. 10. 2026. Použito na stránce Volby 2026 → záložka Volební uskupení. Kompletní kandidátní listiny (jména a pořadí kandidátů) tento dokument neobsahuje — jen názvy zaregistrovaných uskupení."
+    },
+    {
+      "id": "pecky-cz-uredni-deska-volby-2026-okrsky",
+      "name": "Informace o počtu a sídlech volebních okrsků 2026 (Úřední deska, pecky.cz)",
+      "url": "https://pecky.cz/files/pecky/attachments/459682/IMG-0001-1.pdf",
+      "category": "oficiální",
+      "description": "Oznámení starosty města o počtu a sídlech volebních okrsků pro volby do zastupitelstva města Pečky a do 1/3 Senátu Parlamentu ČR konané 9.–10. 10. 2026. Uvádí 6 okrsků: 1) Kulturní středisko, Tř. Jana Švermy 255; 2) Základní škola, Tř. Jana Švermy 342; 3) Základní umělecká škola, Barákova 700; 4) Městská knihovna, Tř. 5. května 241; 5) Základní škola, Tř. Jana Švermy 342; 6) Knihovna Velké Chvalovice, Pečecká 166.",
+      "status": "ověřeno",
+      "note": "Nalezeno a vytěženo 1. 9. 2026 při denní kontrole na https://pecky.cz/office/board. Podepsal starosta Milan Paluska, V Pečkách dne 25. 8. 2026; na úřední desku vyvěšeno 25. 8. 2026, sejmutí 10. 10. 2026. PDF je naskenovaný dokument — text čitelný jen přes OCR vrstvu (pdftotext vrací překlepy typu „Peěky“, „votebního“), adresy proto přepsány ručně. Přiřazení ulic k jednotlivým okrskům dokument neobsahuje. Použito na stránce Volby 2026 → blok „Kde se volí“."
     },
     {
       "id": "pecky-cz-strategicky-plan-2016-2026",

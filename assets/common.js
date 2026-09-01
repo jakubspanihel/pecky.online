@@ -1,39 +1,9 @@
 // ===== assets/common.js — sdílená JS logika, načtená na každé stránce =====
 // Vzniklo migrací z jednosouborového index.html (ARCHITEKTURA-MIGRACE.md).
-// Obsahuje jen to, co je opravdu napříč sekcemi společné: mobilní menu,
+// Obsahuje jen to, co je opravdu napříč sekcemi společné:
 // responzivní tabulky, podzáložky (+ jejich odkaz na URL hash), kartičky
 // volebních programů, rozbalovací bloky. Logika specifická pro jednu sekci
 // (Jednání, Pečecké noviny, Lidé) žije přímo v příslušném content/<sekce>.html.
-
-// ===== Mobilní menu (hamburger) =====
-const navToggle = document.getElementById('navToggle');
-const tabsNav = document.getElementById('tabs');
-
-function closeMobileNav(){
-  tabsNav.classList.remove('open');
-  navToggle.setAttribute('aria-expanded', 'false');
-}
-function openMobileNav(){
-  tabsNav.classList.add('open');
-  navToggle.setAttribute('aria-expanded', 'true');
-}
-
-navToggle.addEventListener('click', () => {
-  if (tabsNav.classList.contains('open')) closeMobileNav(); else openMobileNav();
-});
-document.addEventListener('keydown', (e) => {
-  if (e.key === 'Escape') closeMobileNav();
-});
-document.addEventListener('click', (e) => {
-  if (!tabsNav.classList.contains('open')) return;
-  if (tabsNav.contains(e.target) || navToggle.contains(e.target)) return;
-  closeMobileNav();
-});
-// odkazy v nav jsou teď normální <a href>, ale ať se menu po kliknutí
-// na mobilu samo zavře (odkaz stejně provede navigaci na novou stránku)
-tabsNav.querySelectorAll('.navlink').forEach(link => {
-  link.addEventListener('click', closeMobileNav);
-});
 
 // ===== Responzivní tabulky: zabalit register tabulky do scrollovatelného obalu =====
 document.querySelectorAll('table.register').forEach(t => {
@@ -96,19 +66,19 @@ document.querySelectorAll('.toggle-details').forEach(btn => {
   });
 });
 
-// ===== Stav sekcí: absolutní datum -> relativní stáří =====
-// Zdroj pravdy je tabulka "Stav sekcí" v kořenovém README.md, která drží
-// absolutní datumy. Build je vysype do data-date (ISO) a jako viditelný
-// text nechá původní datum — kdyby JS neběžel, čtenář pořád vidí datum.
-// Stáří se počítá až tady, proti hodinám návštěvníka, takže tabulka
-// nezastará mezi buildy.
-(function () {
-  const cells = document.querySelectorAll('.stav-sekci td[data-date]');
-  if (!cells.length) return;
-
-  const DEN = 86400000;
+// ===== Sdílený převod absolutní datum (data-date, ISO) -> relativní stáří =====
+// Zdroj pravdy je vždy absolutní datum v HTML (kdyby JS neběžel, čtenář
+// pořád vidí to). Stáří se počítá až tady, proti hodinám návštěvníka, takže
+// text nezastará mezi buildy. Používá tabulka "Stav sekcí" i sloupeček
+// "sledujících" u sociálních sítí (Volby 2026).
+function relDatum(iso) {
+  const m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(iso || '');
+  if (!m) return null;                    // nečitelné datum radši nechat být
+  const d = new Date(+m[1], +m[2] - 1, +m[3]);
+  if (isNaN(d)) return null;
   const dnes = new Date();
   dnes.setHours(0, 0, 0, 0);
+  const n = Math.round((dnes - d) / 86400000);
 
   // 1 den / 2-4 dny / 5+ dní
   function dny(n) {
@@ -117,24 +87,41 @@ document.querySelectorAll('.toggle-details').forEach(btn => {
     return n + ' dní';
   }
 
-  function stari(n) {
-    if (n === 0) return 'dnes';
-    if (n === 1) return 'včera';
-    if (n < 0) return 'plánováno';       // datum v budoucnu (např. ohlášené jednání)
-    return 'před ' + dny(n);
-  }
+  if (n === 0) return 'dnes';
+  if (n === 1) return 'včera';
+  if (n < 0) return 'plánováno';          // datum v budoucnu (např. ohlášené jednání)
+  return 'před ' + dny(n);
+}
 
+// ===== Stav sekcí: absolutní datum -> relativní stáří =====
+// Zdroj pravdy je tabulka "Stav sekcí" v kořenovém README.md, která drží
+// absolutní datumy. Build je vysype do data-date (ISO) a jako viditelný
+// text nechá původní datum.
+(function () {
+  const cells = document.querySelectorAll('.stav-sekci td[data-date]');
+  if (!cells.length) return;
   cells.forEach(td => {
-    const iso = td.getAttribute('data-date');
-    const m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(iso || '');
-    if (!m) return;                       // nečitelné datum radši nechat být
-    const d = new Date(+m[1], +m[2] - 1, +m[3]);
-    if (isNaN(d)) return;
-    const n = Math.round((dnes - d) / DEN);
+    const stari = relDatum(td.getAttribute('data-date'));
+    if (stari === null) return;
     const odhad = td.hasAttribute('data-odhad');
     // absolutní datum se neztrácí — přesune se do tooltipu
     td.title = (odhad ? 'odhad, přesné datum nedoloženo — ' : '') + td.textContent.replace(/\s*\?$/, '').trim();
-    td.textContent = stari(n) + (odhad ? ' ?' : '');
+    td.textContent = stari + (odhad ? ' ?' : '');
+  });
+})();
+
+// ===== Sociální sítě (Volby 2026 i O webu): absolutní datum -> relativní stáří =====
+// Datum posledního příspěvku se doplňuje ručně/rutinou (viz
+// o-webu/automation-socialni-site.md), ale zobrazený text "poslední
+// příspěvek: dnes/včera/před X dny" se dopočítává stejně jako u Stavu sekcí.
+(function () {
+  const els = document.querySelectorAll('.socials-cell [data-date], .quicklinks [data-date]');
+  if (!els.length) return;
+  els.forEach(el => {
+    const stari = relDatum(el.getAttribute('data-date'));
+    if (stari === null) return;
+    el.title = el.textContent.trim();
+    el.textContent = stari;
   });
 })();
 

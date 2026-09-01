@@ -17,5 +17,17 @@ quicklinks v této sekci → Odkazy — i když je jeho status zatím
 „nevytěženo" (obsah nepoužit, ale odkaz má být dohledatelný).
 
 Obsah panelu žije v `content/owebu.html` (žádná samostatná datová sada).
+
+## Sociální sítě
+
+Sekce „Sociální sítě" (druhý blok `div.quicklinks`) shrnuje všechny
+facebookové/instagramové/YouTube účty zmiňované na webu, u každého počet
+sledujících/členů/odběratelů a datum posledního příspěvku/videa (ukazatel
+aktivity, ne datum naší kontroly). Aktualizuje se denně, postup viz
+[automation-socialni-site.md](automation-socialni-site.md). Sedm z těchto
+odkazů (volební uskupení) se zapisuje i do tabulky „Volební uskupení" na
+[Volby 2026](../volby/2026/README.md) — postup pokrývá obě místa
+najednou.
+
 Zatím žádná další zvláštní pravidla nad rámec konvence výše. Doplnit sem,
 až nějaká vzniknou.
