@@ -56,20 +56,52 @@ srpen 2026 mimo záběr archivu) a fulltext Pečeckých novin
   tedy byla zastavená ještě před zápisem ZM. RM 31/2026 (31. 8.) měla
   na programu „Dodatek č. 1 k SoD“, ale zápis/usnesení k 2. 9. 2026
   ještě nejsou zveřejněné (jen pozvánka) — **hlídat, až vyjdou**.
-- **Historie projektu sahá k roku 2008, ne 2015**, jak se traduje mezi
-  občany: zápis RM z 1. 9. 2008 (starosta Milan Urban) dělí
-  „II. etapu dostavby ZŠ“ na vývařovnu a tělocvičnu/aulu, zhotovitel PD
-  Ateliér A11 Hradec Králové. Stejná firma znovu 8/2017. Nová smlouva s
-  OV ARCHITEKTI s.r.o. 6/2018 (studie od nuly). V 6/2022 (zápis RM
-  24/2022) je zhotovitelem PD už **Atelier A99 s.r.o.** — tedy tři
-  různé projekční kanceláře za 14 let. Žádný z prohledaných zdrojů
-  před 8/2026 nezmiňuje piloty ani problém se základy.
+- **Historie projektu jako celku sahá k roku 2008**: zápis RM z
+  1. 9. 2008 (starosta Milan Urban) dělí „II. etapu dostavby ZŠ“ na
+  vývařovnu a tělocvičnu/aulu, zhotovitel PD Ateliér A11 Hradec
+  Králové. Stejná firma znovu 8/2017. Nová smlouva s OV ARCHITEKTI
+  s.r.o. 6/2018 (studie od nuly). V 6/2022 (zápis RM 24/2022) je
+  zhotovitelem PD už **Atelier A99 s.r.o.** — tedy tři různé
+  projekční kanceláře za 14 let. Žádný z prohledaných zdrojů před
+  8/2026 nezmiňuje piloty ani problém se základy. **Pozor** — toto NENÍ
+  vyvrácení tvrzení „dokumentace z roku 2015“ (viz níže, aktualizace ze
+  2. 9. 2026 večer): 2008 je správní rozhodnutí o rozdělení stavby na
+  etapy, 2015 je (podle Švejnohové) datum konkrétní kolaudační
+  dokumentace kuchyně s vadnými údaji o pilotách — jde o dva různé
+  dokumenty, ne o spor o jedno datum.
 - Pečecké noviny (offline archiv, ne přes `web_fetch`) nemají u starších
   vydání (2008–2019) přímé URL na pecky.cz — citováno jen číslem
   vydání, ne odkazem (výjimka: 7/2020, ta URL dostupná je).
 
+## Doplněno 2. 9. 2026 (večer): veřejná výzva Aleny Švejnohové na Facebooku
+
+Na žádost uživatele prohledán `facebook.com/svejnohova` — nalezen
+čerstvý veřejný příspěvek (v době kontroly ~13 minut starý), permalink:
+`https://www.facebook.com/svejnohova/posts/pfbid08z7hPHghV9PkSKSxAXPxHVYhbx8KVh9AfebfjgcHc6sC6bqwox57YFEkzEtTFCJnl`.
+Jako předsedkyně Kontrolního výboru v něm tvrdí: vadná dokumentace
+(kolaudace kuchyně) je z roku 2015, uváděla piloty 8,5 m, kontrolní
+zkoušky po poškození 3 pilot při bourání potvrdily skutečnou délku jen
+6,5–6,6 m; tehdejší vedení města: starosta Milan Urban, místostarosta
+Milan Paluska (dnešní starosta); popisuje, že jí město dokumenty ke
+kontrole nejprve odepřelo („Kontrolní výbor na ně nemá právo“), pak
+tvrdilo, že „ještě nejsou dohledané“; vyzývá k trestnímu oznámení pro
+podezření z podvodu a zmiňuje možný střet zájmů starosty Palusky.
+
+Toto je **jednostranné tvrzení volené zastupitelky pod jejím jménem**,
+ne nezávisle ověřený závěr — na stránce důsledně odlišeno od
+ověřených faktů ze zápisů (vlastní `.stamp` „ověřeno, Facebook
+A. Švejnohové, 2. 9. 2026“ jen pro fakt, že se takto vyjádřila; obsah
+jejích tvrzení zůstává v `.stamp` „přiznaná mezera“). Promítnuto do:
+perexu „Co přesně říká radnice“ (přesná čísla pilot), obou calloutů
+„Otevřené otázky“, nového řádku 2015 v tabulce „Historie projektu“ a
+nového řádku 2. 9. 2026 v tabulce „Zastavení stavby v roce 2026“.
+
 ## Co hlídat dál
 
+- Reakce vedení města (Paluska/Urban) na veřejnou výzvu Švejnohové —
+  dosud žádná (kontrolováno těsně po zveřejnění příspěvku).
+- Jestli případně dojde k trestnímu oznámení, které Švejnohová
+  požaduje, a s jakým výsledkem.
 - Zápis/usnesení RM 31/2026 (31. 8. 2026, Dodatek č. 1 k SoD) — až
   vyjde, doplnit obsah dodatku do časové osy.
 - Jestli/kdy radnice zveřejní vlastní tiskovou zprávu (kontrolováno
@@ -80,8 +112,6 @@ srpen 2026 mimo záběr archivu) a fulltext Pečeckých novin
   města, doplnit do časové osy a případně přehodnotit `Režim` v
   kořenové tabulce „Stav sekcí“ (`README.md`) z „hlídat“ na „denně“
   nebo „uzavřené“, podle toho, jak se věc vyvine.
-- Jestli se kontrolní výbor (Alena Švejnohová) k věci veřejně vyjádřil
-  — dosud nedohledáno, viz „Otevřené otázky“ na stránce.
-- Případné vyjádření/reakce od Milana Urbana nebo Milana Palusky.
-- Kdo přesně (ze tří projekčních kanceláří) navrhl piloty, které se
-  ukázaly jako kratší — dosud nedohledáno, viz „Historie projektu“.
+- Které konkrétní firmě/osobě se vadná dokumentace z roku 2015
+  přičítá — Švejnohová jmenuje jen tehdejší politické vedení, ne
+  zpracovatele dokumentace. Dosud nedohledáno, viz „Historie projektu“.

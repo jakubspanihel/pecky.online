@@ -64,6 +64,44 @@ datum posledního skutečného příspěvku/videa (ukazuje, jak je účet
   příspěvek jiné stránky; rozhoduje **první** (vlastní) datum stránky,
   ne datum sdíleného obsahu (viz Pečky Pečákům, kde vlastní sdílení je
   z 5. 6., ale sdílený příspěvek Města Pečky je ze 4. 6.).
+- **Facebook — zamíchaný (obfuskovaný) timestamp**: od 2. 9. 2026 Facebook
+  u části stránek nevypisuje datum příspěvku jako prostý text, ale rozsype
+  ho do desítek jednoznakových `<span>` promíchaných s návnadovými znaky
+  (v `get_page_text` to vypadá jako `S͏n͏d͏t͏o͏o͏p͏s͏e͏r͏4͏h͏…`).
+  Prosté čtení textu pak vrátí nesmysl, nebo — hůř — časovou značku
+  **komentáře** místo příspěvku. Spolehlivé je přečíst znaky v pořadí, v
+  jakém se skutečně vykreslí, tedy podle jejich pozice na obrazovce
+  (`javascript_tool`):
+  ```js
+  function dec(c){
+    const s=Array.from(c.querySelectorAll('span')).filter(x=>x.children.length===0);
+    const i=s.map(x=>{const r=x.getBoundingClientRect(),cs=getComputedStyle(x);
+      return {t:x.textContent.replace(/[͏​]/g,''),x:r.left,y:r.top,w:r.width,d:cs.display};})
+      .filter(o=>o.t&&o.d!=='none'&&o.w>0);
+    i.sort((a,b)=>(a.y-b.y)||(a.x-b.x));
+    return i.map(o=>o.t).join('');
+  }
+  const st=[];
+  for(const el of document.querySelectorAll('span')){
+    if(el.children.length>8 && /͏/.test(el.textContent) && el.textContent.length<250){
+      st.push(dec(el).slice(0,22));
+    }
+  }
+  st;
+  ```
+  Vrátí řetězce jako `"31. srpna v 18:45sptre"` nebo `"17 h…"` — platná je
+  jen ta část na začátku, zbytek je vata z návnadových znaků. Nesetřídit
+  podle CSS `order` (vrací jinou, špatnou permutaci) — jen podle
+  `getBoundingClientRect()`. Vrátí-li skript víc značek, ta první v pořadí
+  DOM nemusí být nejnovější příspěvek (připíchnuté příspěvky navrchu, viz
+  Městská knihovna: `["24. července…","31. srpna v 10:56…"]`) — brát
+  **nejnovější** datum, ne první.
+- **Facebook — absolutní datum je přesnější než relativní**: kde skript
+  vrátí tvar „31. srpna v 18:45", zapisovat to datum. Dopočet z relativního
+  tvaru („4 d") se snadno splete o den — při běhu 2. 9. 2026 se takhle
+  ukázalo, že u tří účtů (Kulturní středisko, Pečky srdcem, FB skupina SPD)
+  bylo datum z předchozího dne o den novější, než jaké má poslední skutečný
+  příspěvek.
 - **Instagram**: příspěvky v mřížce mívají 1–3 připíchnuté (pinned)
   navrchu, takže mřížka NENÍ spolehlivě chronologická a otevření
   jednotlivého příspěvku přes odkaz `/p/<kód>/` po pár kliknutích
@@ -76,6 +114,18 @@ datum posledního skutečného příspěvku/videa (ukazuje, jak je účet
   Vrátí řetězce typu `"Photo by Jméno on September 01, 2026."` — najdi
   mezi nimi nejnovější datum (nemusí to být první v poli kvůli
   připíchnutým příspěvkům).
+
+  **POZOR, od 2. 9. 2026 tohle přestalo fungovat**: v české lokalizaci
+  Instagram plní `alt` popiskem příspěvku („Propanbutan final boss pro max
+  #street #pecky…“), ne datem. `?hl=en` na tom nic nezmění, `time[datetime]`
+  ani odkazy `a[href^="/p/"]` se v odhlášené relaci nevykreslí, ve
+  `<script>` tazích není žádný `taken_at`/`taken_at_timestamp` a
+  `/api/v1/users/web_profile_info/?username=…` (i s hlavičkou
+  `x-ig-app-id`) vrací HTML místo JSON. Dokud se nenajde jiná cesta, u
+  obou instagramových účtů **aktualizuj jen počet sledujících** (ten je
+  v `document.body.innerText` jako „Sledující (N)“) a datum poslední
+  aktivity nech na hodnotě z posledního úspěšného čtení — nikdy ho
+  nedopočítávej ani neodhaduj podle Facebooku téhož uskupení.
 - **YouTube**: kanálová záložka „Videa" u tohoto kanálu NEODPOVÍDÁ
   skutečné poslední aktivitě — zasedání zastupitelstva se nahrávají
   jako „neveřejné" a v ní se neobjeví (naposledy zobrazovala video staré
