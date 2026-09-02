@@ -9,10 +9,20 @@ Použití:
     python3 scripts/serve.py [port]   # výchozí port 8000
 Pak otevřít http://localhost:PORT/pecky.online/
 """
+import functools
 import http.server
+import os
 import sys
+from pathlib import Path
 
 BASE_PATH = '/pecky.online'
+# Absolute, resolved from __file__ rather than the process's cwd — a
+# relative path (or the default no-`directory` behavior of
+# SimpleHTTPRequestHandler) needs a working os.getcwd() at request time,
+# which can fail with "Operation not permitted" if the process was spawned
+# with a cwd the sandbox can't stat (seen with the launch.json dev-server
+# runner). Resolving via __file__ sidesteps that entirely.
+SITE_ROOT = Path(__file__).resolve().parent.parent
 
 
 class Handler(http.server.SimpleHTTPRequestHandler):
@@ -24,5 +34,14 @@ class Handler(http.server.SimpleHTTPRequestHandler):
 
 
 if __name__ == '__main__':
-    port = int(sys.argv[1]) if len(sys.argv) > 1 else 8000
-    http.server.test(HandlerClass=Handler, port=port)
+    # port: CLI arg takes priority, then $PORT (set by the dev-server
+    # launcher when invoked without a shell to expand "$PORT" itself), then
+    # the 8000 default.
+    if len(sys.argv) > 1:
+        port = int(sys.argv[1])
+    elif os.environ.get('PORT'):
+        port = int(os.environ['PORT'])
+    else:
+        port = 8000
+    handler = functools.partial(Handler, directory=str(SITE_ROOT))
+    http.server.test(HandlerClass=handler, port=port)

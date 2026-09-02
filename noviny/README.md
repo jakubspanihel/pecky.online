@@ -29,8 +29,8 @@ obsahem.
 - Vydavatel: Město Pečky
 - Redakce: Alena Brantová, kontakt `noviny@pecky.cz`
 
-## Stav archivu (aktuální, k 19. 8. 2026)
-**156 vydání, 2008–2026** — dva různé zdroje:
+## Stav archivu (aktuální, k 2. 9. 2026)
+**161 vydání, 2001, 2005–2026** (2002–2004 chybí) — tři různé zdroje:
 - **2020–2026: 68/68 vydání**, nejnovější je Červenec–srpen 2026. Zrcadlené
   z pecky.cz — dřívější blokáda botů na archivní rozcestníkové stránce (viz
   níže) byla obejita jednorázově, výsledek je uložený lokálně a dál se z něj
@@ -44,13 +44,18 @@ obsahem.
   v aktuálním online archivu pecky.cz** (rozcestník i staré `filemanager`
   odkazy vrací 404) — mají proto `"url": null, "file": null` v JSON a karty
   na webu odkazují jen na lokální `Data/PN {rok}/{slug}.pdf`.
+- **2001, 2005–2006: 5 vydání** (2. 9. 2026) — čtvrtá dávka lokálního
+  archivu, tentokrát nahraná uživatelem přímo do `Data/PN {rok}/{slug}.pdf`
+  (bez mezikroku přes `TEMP/`), soubory už pojmenované přímo cílovým slugem.
+  Viz „Dávka 2001/2005/2006" níže pro detaily a známé mezery.
 
   Historie dávek: 2008–2011 (43 vydání, `TEMP/{rok}/PN {rok}/{mm}{rr}.pdf`,
   18. 8. 2026) → 2016–2019 (36 vydání, `TEMP/{rok}/Pečecké noviny
   {měsíc}-{rok}[ - web/náhled].pdf`, 19. 8. 2026) → doplnění 2019 (9 vydání,
   `TEMP/Pececke noviny {měsíc}-2019 - web/nahled.pdf`, bez diakritiky a bez
   podsložky roku, 19. 8. 2026 — leden a únor byly v dávce znovu, ale už
-  existovaly v archivu, takže byly přeskočeny jako duplicity).
+  existovaly v archivu, takže byly přeskočeny jako duplicity) → 2001/2005/2006
+  (5 vydání, přímo do `Data/`, 2. 9. 2026).
 
 ### Známé mezery v archivu 2008–2011
 - **2/2011 a 3/2011 chybí.** Soubor archivovaný jako „0211" je ve
@@ -80,13 +85,54 @@ obsahem.
   dvojčíslo); 2018 naopak jako **jedno dvojčíslo** „7-8" — zachováno podle
   skutečné struktury zdrojových souborů, ne sjednoceno uměle.
 
+### Dávka 2001/2005/2006 (2. 9. 2026)
+5 vydání nahraných přímo do `Data/`, soubory už pojmenované cílovým slugem
+(`{RRRR}-{MM}.pdf`), žádné přejmenovávání podle obsahu nebylo potřeba —
+jen sejmutí popisných přípisků v původním názvu souboru (`(1st page)`,
+`(1st page missing)`) do samostatné poznámky/badge na kartě, viz níže.
+
+- **2001: dochoval se jen červen, a to jako 1stránkové torzo** (jen titulní
+  strana) — karta označená „neúplné". Zbytek roku 2001 ani roky 2002–2004
+  nedohledány.
+- **2005: dochovalo se jen dvojčíslo červenec–srpen** (28 stran, kompletní).
+  Zbytek roku nedohledán.
+- **2006: dochovaly se jen leden (bez titulní strany, 7 stran), únor
+  (18 stran) a březen (20 stran)**, únor a březen kompletní. Leden karta
+  označená „neúplné" (stejný vzor jako 9/2010 výše). Duben–prosinec 2006
+  nedohledány.
+- **Fyzická velikost stránky A3, ne A4** (842×1191 pt) u `2001-06` a
+  `2006-01` — na rozdíl od zbytku archivu (A4, 595×842 pt). Pevné DPI podle
+  vzorce v „Kde co je" (46 DPI pro obálky, 40 DPI pro `pages/`) by u těchto
+  dvou vydání dalo ~1,4× větší obrázky než zbytek archivu. Obálky proto
+  vygenerovány přes `pdftoppm -scale-to-x 380 -scale-to-y -1` (cílová šířka
+  přímo, bez ohledu na zdrojovou velikost stránky) — `pages/` náhledy jsou
+  o něco větší (468×662 px místo 331×468 px), ale to nevadí: `.hit-preview`
+  v CSS je má stejně omezené na pevných 72 px šířky (`aspect-ratio` +
+  `object-fit:cover`), takže se to na webu nijak neprojeví.
+- **`2001-06` a `2006-01` (dohromady 8 stran) měly text z `pdftotext`
+  nepoužitelný** — vlastní/poškozené kódování fontů z dobového DTP softwaru
+  (tituly `06str1.pm6`/`06str2.pm6` v metadatech PDF potvrzují PageMaker).
+  Na rozdíl od 8/2009 výše (kde šlo o čistě zrcadlené znaky, opravitelné
+  jednoduchým obrácením řádku) je tahle vada nevratná — chybí i jednotlivé
+  diakritické znaky, ne jen přehozené pořadí. Řešení: nainstalován
+  `tesseract` (+ `tesseract-lang` pro češtinu) přes Homebrew, stránky
+  vyrenderovány přes `pdftoppm -r 300 -png` a rozpoznány `tesseract … -l ces
+  --psm 3`. Výsledek je čitelný, ojedinělé chyby rozpoznání se dají čekat
+  hlavně v hustě sázených tabulkách (viz str. 7 vydání `2006-01`). Zbytek
+  archivu dál extrahuje `pdftotext -layout` beze změny — OCR je jen záložní
+  cesta pro tato dvě konkrétní vydání, ne nová výchozí metoda.
+  **Vedlejší efekt instalace:** `brew install tesseract` vyvolal upgrade
+  `icu4c`, což rozbilo systémový `node` (starý binář odkazoval na
+  neexistující `libicui18n.69.dylib`, potřebné pro JS-syntax validaci
+  v `scripts/build.py`) — opraveno `brew reinstall node` (16.2.0 → 26.8.1).
+
 ### Kde co je
 | Co | Kde | Formát |
 |---|---|---|
-| Obálky vydání (náhledy v gridu) | `noviny/img/{slug}.jpg` | JPG, 1. strana, `pdftoppm -r 46 -jpegopt quality=75` (~380 px šířka, odpovídá `aspect-ratio:380/538` v CSS) |
-| Fulltext obsahu pro vyhledávání | `noviny/pecky-noviny.json` | JSON: `{meta, editions:[{label, year, url, file, slug, pages:[string], page_count}]}`, extrakce `pdftotext -layout` |
-| Přímé PDF odkazy na pecky.cz | `url` pole v `noviny/pecky-noviny.json` — `null` u vydání 2008–2011 a 2016–2019 (nejsou na pecky.cz, viz mezery výše) | — |
-| **Lokální kopie všech PDF** | `noviny/Data/PN {rok}/{slug}.pdf` (**pozor:** v HTML/JS hrefech se mezera v `PN {rok}` píše jako `PN%20{rok}`, na disku je to reálná mezera ve jménu složky) | PDF, ~232 MB / 156 souborů (68 staženo `noviny/download.py`, 88 z lokálního archivu 2008–2011 a 2016–2019) |
+| Obálky vydání (náhledy v gridu) | `noviny/img/{slug}.jpg` | JPG, 1. strana, `pdftoppm -r 46 -jpegopt quality=75` (~380 px šířka, odpovídá `aspect-ratio:380/538` v CSS); u stránek jiné fyzické velikosti než A4 (viz „Dávka 2001/2005/2006") místo pevného DPI `-scale-to-x 380 -scale-to-y -1` |
+| Fulltext obsahu pro vyhledávání | `noviny/pecky-noviny.json` | JSON: `{meta, editions:[{label, year, url, file, slug, pages:[string], page_count}]}`, extrakce `pdftotext -layout`; u 2 vydání (`2001-06`, `2006-01`) OCR přes `tesseract -l ces` místo toho, viz „Dávka 2001/2005/2006" |
+| Přímé PDF odkazy na pecky.cz | `url` pole v `noviny/pecky-noviny.json` — `null` u vydání 2001, 2005–2006, 2008–2011 a 2016–2019 (nejsou na pecky.cz, viz mezery výše) | — |
+| **Lokální kopie všech PDF** | `noviny/Data/PN {rok}/{slug}.pdf` (**pozor:** v HTML/JS hrefech se mezera v `PN {rok}` píše jako `PN%20{rok}`, na disku je to reálná mezera ve jménu složky) | PDF, ~236 MB / 161 souborů (68 staženo `noviny/download.py`, 93 z lokálního archivu — 2001, 2005–2006, 2008–2011 a 2016–2019) |
 | **Náhledy jednotlivých stránek** (pro preview ve výsledcích hledání) | `noviny/pages/{slug}/{page}.jpg` | JPG, **všechny** strany, 40 DPI/kvalita 60 (~32 KB/strana, ~39 MB/2346 stran), vygenerováno `noviny/render_pages.py` |
 
 `slug` = `{RRRR}-{MM}` (`{RRRR}-{MM}-{MM}` pro červenec–srpen dvojčíslo,

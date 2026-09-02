@@ -149,6 +149,7 @@ nezapisují, jen změny obsahu.
 
 | Sekce | Režim | Kontrola | Změna | Co naposledy |
 |---|---|---|---|---|
+| [Pečecké noviny](noviny/README.md) | denně | 2. 9. 2026 | 2. 9. 2026 | dávka 2001/2005/2006 od uživatele (5 vydání, 156→161) — 2 vydání OCR (nečitelné dobové kódování fontů) |
 | [O webu](o-webu/README.md) | denně | 2. 9. 2026 | 2. 9. 2026 | Sociální sítě: aktualizovány počty (streetpeopleofpecky 1 218, Pečky NEXT FB 291, ODS 213, IG Pečky NEXT 119) a data poslední aktivity |
 | [Volby 2026](volby/2026/README.md) | denně | 2. 9. 2026 | 2. 9. 2026 | tabulka uskupení: aktualizovány počty sledujících a data poslední aktivity u 7 sociálních profilů |
 | [Tělocvična](telocvicna/README.md) | hlídat | 2. 9. 2026 | 2. 9. 2026 | předsedkyně Kontrolního výboru A. Švejnohová zveřejnila na Facebooku výzvu — vadná dokumentace kuchyně prý z roku 2015 (piloty 8,5 m vs. skutečných 6,5–6,6 m), viní tehdejší vedení Urban/Paluska |
@@ -158,7 +159,6 @@ nezapisují, jen změny obsahu.
 | [Volby 2018](volby/2018/README.md) | uzavřené | — | 31. 8. 2026 | tabulka Výsledky voleb: kandidáti nahrazeni avatary zvolených zastupitelů |
 | [Volby 2022](volby/2022/README.md) | uzavřené | — | 31. 8. 2026 | tabulka Výsledky voleb: kandidáti nahrazeni avatary zvolených zastupitelů |
 | [Pozemky](pozemky/README.md) | odvozená | 30. 8. 2026 | 27. 8. 2026 | regenerace tabulek Nákup/Prodej |
-| [Pečecké noviny](noviny/README.md) | denně | 2. 9. 2026 | 24. 8. 2026 ? | vydání 7–8/2026 |
 | [Domů](domu/README.md) | odvozená | — | 24. 8. 2026 | brand header |
 | [Smlouvy](smlouvy/README.md) | denně | 2. 9. 2026 | 20. 8. 2026 | 2 nové smlouvy |
 | [Zakázky](zakazky/README.md) | denně | 2. 9. 2026 | 6. 8. 2026 | 1 nová zakázka |
