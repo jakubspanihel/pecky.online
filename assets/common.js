@@ -5,6 +5,15 @@
 // volebních programů, rozbalovací bloky. Logika specifická pro jednu sekci
 // (Jednání, Pečecké noviny, Lidé) žije přímo v příslušném content/<sekce>.html.
 
+// ===== Floating info tlačítko v hlavičce: odscrolluje na konec stránky (patička) =====
+const infoFab = document.getElementById('infoFab');
+const siteFooter = document.querySelector('footer.site');
+if (infoFab && siteFooter) {
+  infoFab.addEventListener('click', () => {
+    siteFooter.scrollIntoView({behavior: 'smooth', block: 'end'});
+  });
+}
+
 // ===== Responzivní tabulky: zabalit register tabulky do scrollovatelného obalu =====
 document.querySelectorAll('table.register').forEach(t => {
   if (t.parentElement.classList.contains('table-scroll')) return;

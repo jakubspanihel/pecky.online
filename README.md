@@ -10,7 +10,7 @@ o samosprávě města Pečky (okres Kolín, Středočeský kraj).
   kromě Google Fonts přes CDN. `content/<sekce>.html` (jen obsah dané
   sekce) + sdílené `templates/page.html`, `assets/nav.html`,
   `assets/footer.html`, `assets/styles.css`, `assets/common.js`,
-  `assets/helpers.js` se skládají přes `scripts/build.py` do 13
+  `assets/helpers.js` se skládají přes `scripts/build.py` do 14
   samostatných veřejných stránek (`index.html` na kořeni = Domů,
   `jednani/index.html`, `noviny/index.html`, `volby/2018/index.html`
   atd.) — needit vygenerované stránky přímo, vždy přes odpovídající
@@ -149,6 +149,8 @@ nezapisují, jen změny obsahu.
 
 | Sekce | Režim | Kontrola | Změna | Co naposledy |
 |---|---|---|---|---|
+| [Tělocvična](telocvicna/README.md) | hlídat | 2. 9. 2026 | 2. 9. 2026 | doplněna historie projektu 2008–2022 (Pečecké noviny) a 3 srpnové zápisy Rady — problém s piloty řešila radnice už od 10. 8., 16 dní před zápisem ZM |
+| [Plán](plan/README.md) | na vyžádání | 2. 9. 2026 | 2. 9. 2026 | řádek „Nová tělocvična a učebny ZŠ": stav → zastaveno, odkaz na novou sekci Tělocvična |
 | [Volby 2026](volby/2026/README.md) | denně | 1. 9. 2026 | 1. 9. 2026 | blok „Kde se volí" — 6 volebních okrsků a jejich sídla (úřední deska, 25. 8. 2026) |
 | [Lidé](lide/README.md) | na vyžádání | 1. 9. 2026 | 1. 9. 2026 | fotka Ing. Petra Dürra (Facebook profil A. Švejnohové, doplnil uživatel) |
 | [O webu](o-webu/README.md) | denně | 1. 9. 2026 | 1. 9. 2026 | sekce Sociální sítě: 14 účtů, u každého i datum posledního příspěvku/videa |
@@ -159,7 +161,6 @@ nezapisují, jen změny obsahu.
 | [Pečecké noviny](noviny/README.md) | denně | 1. 9. 2026 | 24. 8. 2026 ? | vydání 7–8/2026 |
 | [Domů](domu/README.md) | odvozená | — | 24. 8. 2026 | brand header |
 | [Smlouvy](smlouvy/README.md) | denně | 1. 9. 2026 | 20. 8. 2026 | 2 nové smlouvy |
-| [Plán](plan/README.md) | na vyžádání | 10. 8. 2026 | 10. 8. 2026 | sekce Obchvat |
 | [Zakázky](zakazky/README.md) | denně | 1. 9. 2026 | 6. 8. 2026 | 1 nová zakázka |
 | [Pokladna](pokladna/README.md) | na vyžádání | 6. 8. 2026 | 6. 8. 2026 | blok Bankovní účty |
 
@@ -177,6 +178,56 @@ a přesune ho na správné místo v řazení. Ostatní řádky nechá být.
 `?` u data znamená nedoložený odhad — nahradit, až se zjistí přesné datum.
 
 ## Poslední aktualizace
+
+2. září 2026 (na žádost uživatele prohledán celý archiv jednání —
+`jednani/archive-2026-08-04.json` (2021–7/2026) a `jednani/pecky-
+jednani.json` pro srpen 2026, mimo záběr staršího archivu — a fulltext
+Pečeckých novin 2008–2026, hledání zmínek o projektu tělocvičny pro
+sekci Tělocvična. Do `content/telocvicna.html` doplněny: (1) nová
+podsekce „Historie projektu (2008–2022)“ — zápis Rady z 1. 9. 2008
+(starosta Milan Urban) dělí „II. etapu dostavby ZŠ“ na vývařovnu a
+tělocvičnu/aulu se zhotovitelem PD Ateliér A11 Hradec Králové; táž
+firma znovu 2017; nová smlouva s OV ARCHITEKTI s.r.o. 2018 (studie od
+nuly); zhotovitelem PD je 2022 už třetí kancelář, Atelier A99 s.r.o.
+Dokumentace tak nesahá k roku 2015, jak se traduje mezi občany (a jak
+tvrdí i needitovaná výzva v `telocvicna/vyzva.html`), ale minimálně
+k roku 2008 — nikde v archivu do 8/2026 se přitom neobjevuje zmínka o
+pilotách. (2) 3 nové řádky časové osy ze zápisů Rady, které dosud
+sekce nepokrývala: RM 28/2026 (10. 8.) — nejstarší dohledaná zmínka o
+„utržených pilotách“, 16 dní před zápisem ZM; RM 29/2026 (17. 8.) —
+svolání mimořádného ZM právě kvůli tomu; RM 30/2026 (24. 8.) —
+„opatření vyvolaná pozastavením stavby“, tedy stavba byla zastavená
+ještě před zápisem ZM. Přidán i řádek o RM 31/2026 (31. 8., bod
+„Dodatek č. 1 k SoD“) s poznámkou, že zápis/usnesení k tomu zatím
+nejsou zveřejněné. Detaily a zdroje v `telocvicna/README.md`.)
+
+2. září 2026 (na žádost uživatele odebrán blok „Veřejná výzva“ z
+`content/telocvicna.html` — panel sekce Tělocvična je teď čistě věcný,
+stejně jako zbytek webu. Osobní výzva místo toho žije v novém
+samostatném souboru `telocvicna/vyzva.html`: needitovaný přepis
+uživatelova původního podkladu (jen připojena hlavička/patička webu),
+záměrně **mimo strukturu webu** — není v `scripts/build.py` MANIFEST,
+nikde na ni nevede odkaz, není v `sitemap.xml`, má `<meta
+name="robots" content="noindex, nofollow">`. Detaily v
+`telocvicna/README.md`.)
+
+2. září 2026 (přidána nová sekce **Tělocvična** (`/telocvicna/`) —
+stavba „Dostavba učeben a tělocvičny ZŠ Pečky“ (205 mil. Kč, zahájena
+3. 6. 2026) je od 26. 8. 2026 částečně zastavená: při obnažování šesti
+původních pilot podpírajících sousední budovu kuchyně a jídelny se u
+tří z nich zjistilo zkrácení cca 2 m a zkoušky PIT nepotvrdily délku
+pilot dle zhotovovacích protokolů. Podklad dodal uživatel (návrh
+veřejné výzvy), obsah před publikací nezávisle ověřen proti oficiálnímu
+zápisu ze zasedání ZM 5/2026 (usneseni.cz, čteno přes claude-in-chrome
+kvůli bot-ochraně) a proti videozáznamu na YouTube kanálu města — zápis
+potvrzuje technické jádro (6 pilot, PIT zkoušky, dočasné zastavení
+prací, i to, že Alena Švejnohová jako předsedkyně kontrolního výboru
+byla na jednání omluvena), ale neobsahuje uživatelovu výzvu ani
+přisouzení viny konkrétním osobám (Urban, Paluska, Švejnohová) — ty
+zůstávají v samostatném bloku „Veřejná výzva“ výslovně označené jako
+osobní názor autora webu, ne ověřené tvrzení. Sekce zařazena do
+navigace za Plán, `scripts/build.py` MANIFEST/README_TO_SLUG doplněny,
+web teď generuje 14 stránek.)
 
 1. září 2026 (denní kontrola zdrojů. **Jednání:** na usneseni.cz nic
 nového — Rada 31/2026 (31. 8. 2026) má nadále jen Pozvánku, zápis ani

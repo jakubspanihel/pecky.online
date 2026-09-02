@@ -56,6 +56,13 @@ MANIFEST = {
         'Co si město Pečky předsevzalo ve strategickém a akčním plánu '
         'rozvoje — a co se z toho reálně podařilo dohledat jako splněné.',
         False),
+    'telocvicna': (
+        '/telocvicna/', 'Tělocvična — pecky.online',
+        'Stavba nové tělocvičny a učeben u ZŠ Pečky (205 mil. Kč) byla '
+        'v srpnu 2026 částečně zastavena kvůli problému s piloty — '
+        'časová osa, ověřená fakta ze zápisu zastupitelstva a veřejná '
+        'výzva k transparentnímu řešení.',
+        False),
     'volby2018': (
         '/volby/2018/', 'Volby 2018 — pecky.online',
         'Komunální volby 2018 v Pečkách: volební uskupení, předvolební '
@@ -105,6 +112,7 @@ README_TO_SLUG = {
     'noviny': 'zpravodaj',
     'o-webu': 'owebu',
     'plan': 'plan',
+    'telocvicna': 'telocvicna',
     'pokladna': 'pokladna',
     'pozemky': 'pozemky',
     'smlouvy': 'smlouvy',
