@@ -29,6 +29,9 @@ ROOT = Path(__file__).resolve().parent.parent
 SITE_BASE_PATH = '/pecky.online'
 SITE_DOMAIN = 'https://jakubspanihel.github.io/pecky.online'
 
+# Google Analytics 4 (gtag.js), vkládá se do templates/page.html na každé stránce.
+GA_MEASUREMENT_ID = 'G-1CW9XK1VJY'
+
 # slug -> (výstupní cesta, title, meta description, potřebuje assets/helpers.js)
 MANIFEST = {
     'domu': (
@@ -277,6 +280,7 @@ def build_all():
         html = html.replace('{{DESCRIPTION}}', desc)
         html = html.replace('{{PATH}}', path)
         html = html.replace('{{SITE_DOMAIN}}', SITE_DOMAIN)
+        html = html.replace('{{GA_MEASUREMENT_ID}}', GA_MEASUREMENT_ID)
         html = html.replace('{{HEAD_SCRIPTS}}', head_scripts)
         html = html.replace('{{NAV}}', nav)
         html = html.replace('{{CONTENT}}', content)
