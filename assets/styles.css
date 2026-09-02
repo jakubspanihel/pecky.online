@@ -28,7 +28,7 @@
   .display{font-family:'Fraunces', serif; font-optical-sizing:auto;}
 
   /* ===== Header ===== */
-  header.site{position:sticky; top:0; z-index:50; background:var(--parchment); box-shadow:0 1px 0 rgba(42,36,32,0.08);}
+  header.site{background:var(--parchment); box-shadow:0 1px 0 rgba(42,36,32,0.08);}
   .header-inner{
     max-width:1040px; margin:0 auto; padding:16px 18px;
   }
@@ -47,12 +47,15 @@
   .brand h1{font-size:22px; margin:0; letter-spacing:0.01em; font-weight:600;}
   .brand h1 small {font-size:12px; display: block; font-weight: normal;}
 
-  /* ===== Info tlačítko v hlavičce: nenápadné, scrolluje na patičku ===== */
+  /* ===== Info tlačítko: nenápadné, zůstává na obrazovce (fixed, ne
+     celá hlavička) a scrolluje na patičku. Sticky by v krátké
+     header.site/brand-row stejně po pár px scrollu zase zmizelo -
+     pro trvale dosažitelné tlačítko po celé stránce proto fixed. ===== */
   .info-fab{
-    order:2; flex-shrink:0;
+    position:fixed; top:14px; right:16px; z-index:50;
     width:22px; height:22px; border-radius:50%; border:1px solid var(--line);
     display:flex; align-items:center; justify-content:center;
-    background:none; color:var(--ink-soft); opacity:0.5;
+    background:var(--parchment); color:var(--ink-soft); opacity:0.5;
     font-family:'Fraunces', serif; font-style:italic; font-weight:600; font-size:12px;
     cursor:pointer;
   }
