@@ -149,19 +149,19 @@ nezapisují, jen změny obsahu.
 
 | Sekce | Režim | Kontrola | Změna | Co naposledy |
 |---|---|---|---|---|
-| [Pečecké noviny](noviny/README.md) | denně | 2. 9. 2026 | 2. 9. 2026 | dávka 2001/2005/2006 od uživatele (5 vydání, 156→161) — 2 vydání OCR (nečitelné dobové kódování fontů) |
-| [O webu](o-webu/README.md) | denně | 2. 9. 2026 | 2. 9. 2026 | Sociální sítě: aktualizovány počty (streetpeopleofpecky 1 218, Pečky NEXT FB 291, ODS 213, IG Pečky NEXT 119) a data poslední aktivity |
-| [Volby 2026](volby/2026/README.md) | denně | 2. 9. 2026 | 2. 9. 2026 | tabulka uskupení: aktualizovány počty sledujících a data poslední aktivity u 7 sociálních profilů |
-| [Tělocvična](telocvicna/README.md) | hlídat | 2. 9. 2026 | 2. 9. 2026 | předsedkyně Kontrolního výboru A. Švejnohová zveřejnila na Facebooku výzvu — vadná dokumentace kuchyně prý z roku 2015 (piloty 8,5 m vs. skutečných 6,5–6,6 m), viní tehdejší vedení Urban/Paluska |
+| [Tělocvična](telocvicna/README.md) | hlídat | 4. 9. 2026 | 4. 9. 2026 | první oficiální vyjádření vedení města na Facebooku — potvrzuje problém s piloty, ale na tvrzení A. Švejnohové (2015, Urban/Paluska, odepřené podklady) nereaguje |
+| [O webu](o-webu/README.md) | denně | 3. 9. 2026 | 3. 9. 2026 | Sociální sítě: A. Švejnohová 933→942, streetpeopleofpecky 1 218→1 219, IG Pečky NEXT 119→120; nová aktivita u Města Pečky, Pečky-Virtuálně (po 2 měsících), Švejnohové, NAŠE PEČKY a Pečky NEXT |
+| [Volby 2026](volby/2026/README.md) | denně | 3. 9. 2026 | 3. 9. 2026 | tabulka uskupení: NAŠE PEČKY a Pečky NEXT (FB) nová aktivita 3. 9., IG Pečky NEXT 119→120 |
+| [Pečecké noviny](noviny/README.md) | denně | 3. 9. 2026 | 2. 9. 2026 | dávka 2001/2005/2006 od uživatele (5 vydání, 156→161) — 2 vydání OCR (nečitelné dobové kódování fontů) |
 | [Plán](plan/README.md) | na vyžádání | 2. 9. 2026 | 2. 9. 2026 | řádek „Nová tělocvična a učebny ZŠ": stav → zastaveno, odkaz na novou sekci Tělocvična |
 | [Lidé](lide/README.md) | na vyžádání | 1. 9. 2026 | 1. 9. 2026 | fotka Ing. Petra Dürra (Facebook profil A. Švejnohové, doplnil uživatel) |
-| [Jednání](jednani/README.md) | denně | 2. 9. 2026 | 31. 8. 2026 | fotky u lidí místo iniciál, rozbalovací body programu |
+| [Jednání](jednani/README.md) | denně | 3. 9. 2026 | 31. 8. 2026 | fotky u lidí místo iniciál, rozbalovací body programu |
 | [Volby 2018](volby/2018/README.md) | uzavřené | — | 31. 8. 2026 | tabulka Výsledky voleb: kandidáti nahrazeni avatary zvolených zastupitelů |
 | [Volby 2022](volby/2022/README.md) | uzavřené | — | 31. 8. 2026 | tabulka Výsledky voleb: kandidáti nahrazeni avatary zvolených zastupitelů |
 | [Pozemky](pozemky/README.md) | odvozená | 30. 8. 2026 | 27. 8. 2026 | regenerace tabulek Nákup/Prodej |
 | [Domů](domu/README.md) | odvozená | — | 24. 8. 2026 | brand header |
-| [Smlouvy](smlouvy/README.md) | denně | 2. 9. 2026 | 20. 8. 2026 | 2 nové smlouvy |
-| [Zakázky](zakazky/README.md) | denně | 2. 9. 2026 | 6. 8. 2026 | 1 nová zakázka |
+| [Smlouvy](smlouvy/README.md) | denně | 3. 9. 2026 | 20. 8. 2026 | 2 nové smlouvy |
+| [Zakázky](zakazky/README.md) | denně | 3. 9. 2026 | 6. 8. 2026 | 1 nová zakázka |
 | [Pokladna](pokladna/README.md) | na vyžádání | 6. 8. 2026 | 6. 8. 2026 | blok Bankovní účty |
 
 Režimy: **denně** = má zdroj, který kontroluje denní rutina · **hlídat** =
@@ -178,6 +178,71 @@ a přesune ho na správné místo v řazení. Ostatní řádky nechá být.
 `?` u data znamená nedoložený odhad — nahradit, až se zjistí přesné datum.
 
 ## Poslední aktualizace
+
+4. září 2026 (na žádost uživatele přečten nový příspěvek na
+`facebook.com/mestopecky` — první veřejné vyjádření samotného vedení
+města k pozastavení stavby tělocvičny, zveřejněné 4. 9. 2026 v 0:20
+(dosud mlčelo, viz kontroly Aktualit i Facebooku k 2. 9. 2026 v
+předchozích záznamech). Potvrzuje technické jádro ze zápisu ZM a
+upřesňuje: sanace pilot pod kuchyní byla plánovaná od začátku
+zakládání stavby, ale bourací práce odhalily pochybnosti o kvalitě a
+délce i STÁVAJÍCÍCH pilot; statik proto zpochybnil délku i dalších
+pilot, ne jen původně kontrolovaných; město zvažuje sanaci základů,
+nebo přeprojektování statiky celé stavby; dohoda se zhotovitelem o
+pozastavení prací šetří náklady města. Na konkrétní tvrzení Aleny
+Švejnohové z 2. 9. 2026 (rok 2015, jména Urban/Paluska, odepřené
+podklady) ale vyjádření vůbec nereaguje. Promítnuto do
+`content/telocvicna.html`: nový callout a odkaz v „Co přesně říká
+radnice“, poznámka v obou calloutech „Otevřené otázky“, nový řádek
+4. 9. 2026 v tabulce „Zastavení stavby“ (nad řádkem Švejnohové) a
+opravené pasáže, které dřív (platně k 2. 9.) tvrdily, že radnice mlčí.
+Detaily v `telocvicna/README.md`.)
+
+3. září 2026 (denní kontrola zdrojů. **Jednání:** na usneseni.cz nic
+nového — Rada 31/2026 (31. 8. 2026) má nadále jen Pozvánku, archiv beze
+změny (286 jednání). Nově se „Zvukový záznam" objevil i u ZM 4/2026
+(24. 6. 2026), nejen u ZM 5/2026 — pole se tedy doplňuje zpětně
+i ke starším zasedáním; archiv ho neeviduje, zatím jen poznámka
+v `sources.json`. Playlist „Zasedání ZM" beze změny (31 videí,
+nejnovější ZM z 26. 8. 2026) — **video k ZM 3/2026 z 25. 5. 2026 na
+kanálu stále chybí**, známá mezera trvá. Časové značky bodů (`video_ts`)
+zkontrolovány, žádné jednání se zápisem i videem nezůstalo nedotažené.
+**Pečecké noviny:** archiv pecky.cz nadále končí číslem 7–8/2026,
+zářijové vydání ještě nevyšlo. **Zakázky:** diff proti
+`zakazky/pecky-zakazky-ids.json` — 175 ID, 0 nových, 0 zmizelých,
+soubor nedotčen. **Smlouvy:** konektor Hlídače státu v této relaci nebyl
+k dispozici, čísla proto ověřena z veřejného webového vyhledávání Hlídače
+smluv (`holding:00239607` a `ico:00239607` — stejné dva pohledy jako
+u konektoru). Žádná nová smlouva (nejnovější podpis nadále 23. 7. 2026)
+a **pokles se dál neprohluboval** — skupina 150 smluv / cca 95 mil. Kč,
+úřad 46 / cca 33 mil. Kč, tedy přesně hodnoty naměřené 2. 9. Zároveň to
+**vyvrací domněnku, že jde o chybu konektoru** — stejná snížená čísla
+ukazuje i webové rozhraní Hlídače, takže úbytek 179 → 150 z 2. 9. je
+skutečný stav zdroje. Čísla v sekci Smlouvy proto **počtvrté ponechána
+beze změny** — k rozhodnutí uživatele. **Volby 2026:** na úřední desce
+pecky.cz nic nového (nejnovější dokument je nadále zápis ze ZM 5/2026
+vyvěšený 28. 8. 2026). **Sociální sítě (O webu + Volby 2026):**
+zkontrolováno všech 14 účtů. Změnily se počty: Alena Švejnohová
+933 → 942, streetpeopleofpecky 1 218 → 1 219, Instagram Pečky NEXT
+119 → 120; ostatní beze změny. Nová aktivita u pěti účtů — Město Pečky
+(2. 9.), Alena Švejnohová (2. 9.), NAŠE PEČKY a Pečky NEXT (oba dnes
+3. 9.) a zejména **Pečky-Virtuálně, které po dvou měsících ticha
+zveřejnily 2. 9. dva vlastní příspěvky** (26. 6. → 2. 9. 2026);
+ověřeno, že jde o vlastní sdílení stránky, ne o datum sdíleného obsahu.
+U obou instagramových účtů aktualizován jen počet sledujících — mezera
+v čtení data posledního příspěvku (popsaná 2. 9. v
+`o-webu/automation-socialni-site.md`) **trvá**, znovu ověřeno, že `alt`
+u obrázků mřížky vrací popisek místo data a `time[datetime]` se
+odhlášené relaci nevykreslí. **Technická překážka:** `scripts/build.py`
+se v tomto běhu nepodařilo spustit — připojená složka odmítala číst
+`scripts/build.py`, `assets/styles.css`, `templates/page.html`,
+`assets/nav.html` i `assets/footer.html` s `Resource deadlock avoided`
+(opakováno cca 20× během 2 minut, bez úspěchu). Zdrojové
+`content/owebu.html` a `content/volby2026.html` jsou aktualizované
+správně; do vygenerovaných `o-webu/index.html` a `volby/2026/index.html`
+byly ty samé řetězce zapsány ručně, aby web nezůstal nekonzistentní.
+**Doporučeno spustit `python3 scripts/build.py` ručně, až bude složka
+čitelná** — výstup by měl být identický, ale ověřit to je na místě.)
 
 2. září 2026 (na žádost uživatele prohledán `facebook.com/svejnohova`
 — nalezen čerstvý veřejný příspěvek předsedkyně Kontrolního výboru

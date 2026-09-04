@@ -96,17 +96,46 @@ perexu „Co přesně říká radnice“ (přesná čísla pilot), obou callout�
 „Otevřené otázky“, nového řádku 2015 v tabulce „Historie projektu“ a
 nového řádku 2. 9. 2026 v tabulce „Zastavení stavby v roce 2026“.
 
+## Doplněno 4. 9. 2026: první oficiální vyjádření vedení města
+
+Na žádost uživatele přečten nový příspěvek na `facebook.com/mestopecky`,
+permalink:
+`https://www.facebook.com/mestopecky/posts/pfbid0gi67kJjpLYcy3gjuLNim8Co2ggPyUi1REnGAVrhJscmbWtQK12Ty4nMREwWahxkzl`
+(zveřejněno pátek 4. 9. 2026 v 0:20, čteno přes claude-in-chrome —
+web_fetch na FB nefunguje, viz obecná poznámka v kořenovém `CLAUDE.md`).
+Je to **první veřejné vyjádření samotného vedení města** k celé věci
+(dosud mlčelo — viz předchozí kontroly Aktualit i Facebooku k
+2. 9. 2026 níže). Potvrzuje technické jádro ze zápisu ZM (piloty
+nedostatečné délky, zkoušky PIT + kontrolní jádrový vrt), navíc
+upřesňuje: sanace pilot pod kuchyní byla plánovaná už od začátku
+zakládání stavby, ale bourací práce odhalily pochybnosti o kvalitě/
+délce STÁVAJÍCÍCH pilot (ne jen nově budovaných); statik kvůli tomu
+zpochybnil délku i dalších pilot, ne jen původně kontrolovaných; město
+zvažuje sanaci základů, nebo přeprojektování statiky celé stavby;
+dohoda se zhotovitelem o pozastavení prací šetří náklady města; vedení
+města a právní zástupce shromažďují dokumentaci a řeší právní otázky.
+
+**Důležité:** vyjádření vůbec nereaguje na konkrétní tvrzení Aleny
+Švejnohové z 2. 9. 2026 (rok 2015, jména Urban/Paluska, odepřené
+podklady) — nepotvrzuje je ani nevyvrací. Promítnuto do: nového
+callloutu a bulletky v „Co přesně říká radnice“, poznámky v obou
+calloutech „Otevřené otázky“, nového řádku 4. 9. 2026 v tabulce
+„Zastavení stavby“ (nad řádek Švejnohové, protože je novější), a
+opraveny/odstraněny pasáže tvrdící, že radnice mlčí (ty byly k
+2. 9. 2026 pravdivé, teď ne).
+
 ## Co hlídat dál
 
-- Reakce vedení města (Paluska/Urban) na veřejnou výzvu Švejnohové —
-  dosud žádná (kontrolováno těsně po zveřejnění příspěvku).
+- Jestli a jak vedení města zareaguje konkrétně na tvrzení Švejnohové
+  (rok 2015, jména, odepřené podklady) — vyjádření z 4. 9. 2026 na ně
+  nereagovalo vůbec.
 - Jestli případně dojde k trestnímu oznámení, které Švejnohová
   požaduje, a s jakým výsledkem.
+- Které řešení si město nakonec vybere — sanaci základů, nebo
+  přeprojektování statiky celé stavby (obě možnosti otevřené podle
+  vyjádření 4. 9. 2026) — a jaké to bude mít vícenáklady.
 - Zápis/usnesení RM 31/2026 (31. 8. 2026, Dodatek č. 1 k SoD) — až
   vyjde, doplnit obsah dodatku do časové osy.
-- Jestli/kdy radnice zveřejní vlastní tiskovou zprávu (kontrolováno
-  2. 9. 2026 na `pecky.cz/default/default/21395_aktuality` a Facebooku
-  Město Pečky — k tomuto datu nic).
 - Výsledek diagnostiky, právního posouzení a dopad na harmonogram/
   rozpočet stavby — až se objeví v dalším zápisu ZM/RM nebo na webu
   města, doplnit do časové osy a případně přehodnotit `Režim` v
