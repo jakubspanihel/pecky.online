@@ -149,9 +149,9 @@ nezapisují, jen změny obsahu.
 
 | Sekce | Režim | Kontrola | Změna | Co naposledy |
 |---|---|---|---|---|
-| [Tělocvična](telocvicna/README.md) | hlídat | 4. 9. 2026 | 4. 9. 2026 | první oficiální vyjádření vedení města na Facebooku — potvrzuje problém s piloty, ale na tvrzení A. Švejnohové (2015, Urban/Paluska, odepřené podklady) nereaguje |
-| [Jednání](jednani/README.md) | denně | 4. 9. 2026 | 4. 9. 2026 | sbalený řádek: proběhlé jednání bez zápisu (libovolný typ, ne jen Zastupitelstvo) hlásí „zápis zatím není k dispozici" |
-| [O webu](o-webu/README.md) | denně | 3. 9. 2026 | 3. 9. 2026 | Sociální sítě: A. Švejnohová 933→942, streetpeopleofpecky 1 218→1 219, IG Pečky NEXT 119→120; nová aktivita u Města Pečky, Pečky-Virtuálně (po 2 měsících), Švejnohové, NAŠE PEČKY a Pečky NEXT |
+| [Tělocvična](telocvicna/README.md) | hlídat | 4. 9. 2026 | 4. 9. 2026 | zápis RM 31/2026: Dodatek č. 1 ke SoD schválen, cena díla +6,15 mil. Kč bez DPH na 211,5 mil. vč. DPH; radnice sama uvádí, že tím není dotčeno posouzení odpovědnosti |
+| [Jednání](jednani/README.md) | denně | 4. 9. 2026 | 4. 9. 2026 | Rada 31/2026 (31. 8.) doplněna o zápis a 6 usnesení (UR-276 až UR-281); přibyla Rada 32/2026 (7. 9.) zatím jen s Pozvánkou |
+| [O webu](o-webu/README.md) | denně | 4. 9. 2026 | 4. 9. 2026 | nový zdroj: TJ Sokol Pečky (web + Facebook, 221 sledujících), doplnil uživatel |
 | [Volby 2026](volby/2026/README.md) | denně | 3. 9. 2026 | 3. 9. 2026 | tabulka uskupení: NAŠE PEČKY a Pečky NEXT (FB) nová aktivita 3. 9., IG Pečky NEXT 119→120 |
 | [Pečecké noviny](noviny/README.md) | denně | 3. 9. 2026 | 2. 9. 2026 | dávka 2001/2005/2006 od uživatele (5 vydání, 156→161) — 2 vydání OCR (nečitelné dobové kódování fontů) |
 | [Plán](plan/README.md) | na vyžádání | 2. 9. 2026 | 2. 9. 2026 | řádek „Nová tělocvična a učebny ZŠ": stav → zastaveno, odkaz na novou sekci Tělocvična |
@@ -178,6 +178,43 @@ a přesune ho na správné místo v řazení. Ostatní řádky nechá být.
 `?` u data znamená nedoložený odhad — nahradit, až se zjistí přesné datum.
 
 ## Poslední aktualizace
+
+4. září 2026 (na žádost uživatele doplněn do `content/telocvicna.html`
+obsah zápisu RM 31/2026 (Dodatek č. 1 ke smlouvě o dílo, viz zápis
+usneseni.cz níže) — v době předchozích kontrol dostupný jen jako
+pozvánka. Dodatek zahrnuje 13 změnových listů, mimo jiné „změny
+související se statickým zajištěním stávajícího založení“ (piloty),
+navyšuje cenu díla o 6 150 969 Kč bez DPH na 211,5 mil. Kč vč. DPH
+(původně cca 205 mil.) — ale sám upozorňuje, že jde o vyúčtování už
+uzavřených změn, ne odhad celkových nákladů na vyřešení pilot. Dopad
+na harmonogram dodatek neřeší; radnice v něm výslovně uvádí, že jím
+není dotčeno budoucí posouzení odpovědnosti zhotovitele/projektanta.
+Promítnuto do stat-gridu, perexu, přepsaného řádku 31. 8. 2026
+v tabulce „Zastavení stavby“ a nového callloutu v „Otevřené otázky“.
+Detaily v `telocvicna/README.md`.)
+
+4. září 2026 (automatická kontrola usneseni.cz. **Jednání:** Rada
+31/2026 (31. 8. 2026) už má zveřejněný zápis, podepsaný zápis
+i přijatá usnesení — doplněna do `jednani/pecky-jednani.json` v plném
+rozsahu: 11 bodů programu s délkami a předkladateli, důvodové zprávy
+u bodů 3–8, prezence 6/7 (Ing. Petr Dürr nepřítomen na začátku,
+dorazil v 15:45), délka jednání 2h13min a 6 usnesení UR-276 až
+UR-281-31/26. Věcně největší z nich: UR-277 — Dodatek č. 1 k SoD
+„Dostavba učeben a tělocvičny v ZŠ Pečky“ (změnové listy ZL 01–13,
++6 150 969,14 Kč bez DPH na 174 765 820,14 Kč bez DPH, přijato 5-0-1).
+Zároveň na webu přibylo nové jednání **Rada 32/2026 (7. 9. 2026)**,
+zatím jen s Pozvánkou — zaznamenáno s programem o 17 bodech
+z pozvánkového PDF (mj. tři smlouvy s General Property X s.r.o.
+a termín/program zasedání ZM 16. 9. 2026). Archiv má nově 287 jednání,
+2 755 usnesení, 4 091 bodů programu; číselná řada usnesení Rady 2026
+je 1–281 bez děr. **YouTube (kroky 6 a 7):** playlist „Zasedání ZM"
+beze změny (31 videí, nejnovější 26. 8. 2026) — video k ZM 3/2026
+z 25. 5. 2026 na kanálu nadále chybí. Doplňovat časové značky nebylo
+kde: jediná mezera v éře kapitol jsou body 8 a 9 u ZM 2/2026
+(22. 4. 2026) a ověřeno přímo v popisku videa, že tyto dva body
+kapitolu vůbec nedostaly — zůstávají tedy prázdné. Vizuální kontrola
+na lokálním serveru v tomto automatickém běhu neproběhla, nahradila ji
+strojová kontrola dat.)
 
 4. září 2026 (na žádost uživatele znovu zkontrolovány Aktuality města
 Pečky na `pecky.cz/default/default/21395_aktuality` — beze změny oproti

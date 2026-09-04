@@ -133,6 +133,40 @@ samostatná zpráva o zastavení stavby ani facebookovém vyjádření tam
 není, ani po jeho zveřejnění. Bulletka u „Co přesně říká radnice“
 aktualizována na datum kontroly a přesnější popis.
 
+## Doplněno 4. 9. 2026 (odpoledne): zápis a usnesení RM 31/2026 (Dodatek č. 1 k SoD)
+
+Na žádost uživatele doplněn obsah zápisu RM 31/2026, který byl v době
+předchozí kontroly (2.–4. 9.) dostupný jen jako pozvánka. Zdroj:
+`jednani/pecky-jednani.json` (aktualizováno mezitím jiným — pravděpodobně
+denním automatizovaným — během), permalink zápisu:
+`https://mesto-pecky.usneseni.cz/verejne/a57ac114-a054-11f1-bd57-0242c0a80002/zapis/`.
+
+Klíčová zjištění, promítnutá do stránky:
+- **Dodatek č. 1 ke SoD schválen** (usnesení UR-277-31/26, 5 pro –
+  0 proti – 1 zdržel se), zahrnuje 13 změnových listů (ZL 01–13),
+  mimo jiné „změny související se statickým zajištěním stávajícího
+  založení a navazujícími opravami“ — tedy i piloty, ne jen ostatní
+  drobné nesoulady PD.
+- **Poprvé známé konkrétní číslo:** navýšení ceny díla o 6 150 969 Kč
+  bez DPH, nová cena 174 765 820 Kč bez DPH / 211 466 642 Kč vč. DPH
+  (původně cca 205 mil. Kč vč. DPH). **Pozor** — dodatek sám avizuje, že
+  jde o vyúčtování zatím uzavřených změn, ne o odhad celkových nákladů
+  na vyřešení pilot — nepsat to jako „konečnou cenu“.
+- Dopad na **harmonogram** dodatek výslovně neřeší („v současné době
+  není spolehlivě vyhodnocen“).
+- Radnice v textu dodatku výslovně uvádí, že jeho uzavřením „není
+  dotčeno případné následné posouzení příčin vzniku jednotlivých změn
+  ani odpovědnosti zhotovitele, projektanta či jiné osoby“ — silná
+  citace pro „Otevřené otázky“, potvrzuje, že otázka odpovědnosti je
+  formálně otevřená i podle samotného města, ne jen podle nás.
+- Vedlejší detail z bodu 3 (Aktuální informace vedení města): zázemí
+  školní jídelny bylo mezitím předáno k zahájení provozu — část
+  komplexu tedy funguje navzdory zastavení tělocvičny.
+
+Promítnuto do: intra + stat-grid (211,5 mil. místo 205 mil.), plně
+přepsaný řádek 31. 8. 2026 v tabulce „Zastavení stavby“, nový třetí
+callout v „Otevřené otázky“ (rozpočet/harmonogram/odpovědnost).
+
 ## Co hlídat dál
 
 - Jestli a jak vedení města zareaguje konkrétně na tvrzení Švejnohové
@@ -142,12 +176,13 @@ aktualizována na datum kontroly a přesnější popis.
   požaduje, a s jakým výsledkem.
 - Které řešení si město nakonec vybere — sanaci základů, nebo
   přeprojektování statiky celé stavby (obě možnosti otevřené podle
-  vyjádření 4. 9. 2026) — a jaké to bude mít vícenáklady.
-- Zápis/usnesení RM 31/2026 (31. 8. 2026, Dodatek č. 1 k SoD) — až
-  vyjde, doplnit obsah dodatku do časové osy.
-- Výsledek diagnostiky, právního posouzení a dopad na harmonogram/
-  rozpočet stavby — až se objeví v dalším zápisu ZM/RM nebo na webu
-  města, doplnit do časové osy a případně přehodnotit `Režim` v
+  vyjádření 4. 9. 2026) — a jestli přinesou další dodatky/vícenáklady
+  nad rámec Dodatku č. 1.
+- Výsledný dopad na harmonogram dokončení stavby — Dodatek č. 1 ho
+  výslovně neřeší.
+- Výsledek diagnostiky, právního posouzení a případné budoucí posouzení
+  odpovědnosti zhotovitele/projektanta — až se objeví v dalším zápisu
+  ZM/RM, doplnit do časové osy a případně přehodnotit `Režim` v
   kořenové tabulce „Stav sekcí“ (`README.md`) z „hlídat“ na „denně“
   nebo „uzavřené“, podle toho, jak se věc vyvine.
 - Které konkrétní firmě/osobě se vadná dokumentace z roku 2015
