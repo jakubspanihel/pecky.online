@@ -472,9 +472,9 @@
       const attendanceHtml = avatarsHtml
         ? `<span class="people-avatars meeting-row-avatars">${avatarsHtml}</span>`
         : (jFormatAttendance(m) ? `<span class="meeting-count">${jEscapeHtml(jFormatAttendance(m))}</span>` : '');
-      const pastNoMinutes = !future && !isToday && m.type === 'Zastupitelstvo' && !m.links.minutes;
+      const pastNoMinutes = !future && !isToday && !m.links.minutes;
       const daysAgoHtml = pastNoMinutes
-        ? `<span class="meeting-count">${jFormatDaysAgo(m.date)}${m.links.youtube ? ` · <a href="${m.links.youtube}" target="_blank" rel="noopener">K dispozici je video ↗</a>` : ''}</span>`
+        ? `<span class="meeting-count">${jFormatDaysAgo(m.date)}, zápis zatím není k dispozici${m.links.youtube ? ` · <a href="${m.links.youtube}" target="_blank" rel="noopener">K dispozici je video ↗</a>` : ''}</span>`
         : '';
       const livestreamHtml = future && m.type === 'Zastupitelstvo' && m.links.invitation
         ? `<span class="meeting-live-note">📺 živý přenos bude na Youtube</span>`

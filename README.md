@@ -150,12 +150,12 @@ nezapisují, jen změny obsahu.
 | Sekce | Režim | Kontrola | Změna | Co naposledy |
 |---|---|---|---|---|
 | [Tělocvična](telocvicna/README.md) | hlídat | 4. 9. 2026 | 4. 9. 2026 | první oficiální vyjádření vedení města na Facebooku — potvrzuje problém s piloty, ale na tvrzení A. Švejnohové (2015, Urban/Paluska, odepřené podklady) nereaguje |
+| [Jednání](jednani/README.md) | denně | 4. 9. 2026 | 4. 9. 2026 | sbalený řádek: proběhlé jednání bez zápisu (libovolný typ, ne jen Zastupitelstvo) hlásí „zápis zatím není k dispozici" |
 | [O webu](o-webu/README.md) | denně | 3. 9. 2026 | 3. 9. 2026 | Sociální sítě: A. Švejnohová 933→942, streetpeopleofpecky 1 218→1 219, IG Pečky NEXT 119→120; nová aktivita u Města Pečky, Pečky-Virtuálně (po 2 měsících), Švejnohové, NAŠE PEČKY a Pečky NEXT |
 | [Volby 2026](volby/2026/README.md) | denně | 3. 9. 2026 | 3. 9. 2026 | tabulka uskupení: NAŠE PEČKY a Pečky NEXT (FB) nová aktivita 3. 9., IG Pečky NEXT 119→120 |
 | [Pečecké noviny](noviny/README.md) | denně | 3. 9. 2026 | 2. 9. 2026 | dávka 2001/2005/2006 od uživatele (5 vydání, 156→161) — 2 vydání OCR (nečitelné dobové kódování fontů) |
 | [Plán](plan/README.md) | na vyžádání | 2. 9. 2026 | 2. 9. 2026 | řádek „Nová tělocvična a učebny ZŠ": stav → zastaveno, odkaz na novou sekci Tělocvična |
 | [Lidé](lide/README.md) | na vyžádání | 1. 9. 2026 | 1. 9. 2026 | fotka Ing. Petra Dürra (Facebook profil A. Švejnohové, doplnil uživatel) |
-| [Jednání](jednani/README.md) | denně | 3. 9. 2026 | 31. 8. 2026 | fotky u lidí místo iniciál, rozbalovací body programu |
 | [Volby 2018](volby/2018/README.md) | uzavřené | — | 31. 8. 2026 | tabulka Výsledky voleb: kandidáti nahrazeni avatary zvolených zastupitelů |
 | [Volby 2022](volby/2022/README.md) | uzavřené | — | 31. 8. 2026 | tabulka Výsledky voleb: kandidáti nahrazeni avatary zvolených zastupitelů |
 | [Pozemky](pozemky/README.md) | odvozená | 30. 8. 2026 | 27. 8. 2026 | regenerace tabulek Nákup/Prodej |

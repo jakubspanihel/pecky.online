@@ -307,6 +307,18 @@ na sobě — u jednání s víc body je běžné chtít porovnat text dvou z nic
 najednou. Zdrojová funkce: `jRenderAgendaList`/click handler v
 `content/jednani.html`.
 
+## Upozornění na chybějící zápis (od 4. 9. 2026)
+
+Sbalený řádek jednání, které už proběhlo (datum v minulosti, ne dnes),
+ale zatím k němu není zápis (`links.minutes` chybí — typicky pár
+nejnovějších jednání, viz „Jednání jen s Pozvánkou" výše), zobrazí na
+pravé straně řádku „Proběhlo před N dny, zápis zatím není k dispozici"
+místo prázdného místa (+ odkaz na video, pokud existuje). Původně to
+platilo jen pro Zastupitelstvo (`pastNoMinutes` v `jRenderMeetingList`,
+`content/jednani.html`) — od 4. 9. 2026 obecně pro libovolný typ
+jednání, protože avatary/počet přítomných u Rady jsou odvozené ze
+stejného zápisu a bez něj jsou taky prázdné.
+
 ## Známá omezení zdroje (ověřeno 2026-08-04)
 
 1. **Pozvánky**: web je generuje jen pro jednání od ~června 2026 (8 z 281);
