@@ -124,6 +124,15 @@ calloutech „Otevřené otázky“, nového řádku 4. 9. 2026 v tabulce
 opraveny/odstraněny pasáže tvrdící, že radnice mlčí (ty byly k
 2. 9. 2026 pravdivé, teď ne).
 
+Zároveň na žádost uživatele znovu zkontrolovány Aktuality města na
+`pecky.cz/default/default/21395_aktuality` (čteno přes claude-in-chrome
+— stránka je jinak bot-chráněná). K 4. 9. 2026 beze změny oproti
+kontrole z 2. 9. — nejnovější položka zůstává „Uzavírka ulice
+K. Havlíčka Borovského“ (3. 6. 2026, ohlášení startu stavby); žádná
+samostatná zpráva o zastavení stavby ani facebookovém vyjádření tam
+není, ani po jeho zveřejnění. Bulletka u „Co přesně říká radnice“
+aktualizována na datum kontroly a přesnější popis.
+
 ## Co hlídat dál
 
 - Jestli a jak vedení města zareaguje konkrétně na tvrzení Švejnohové

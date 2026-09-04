@@ -179,6 +179,14 @@ a přesune ho na správné místo v řazení. Ostatní řádky nechá být.
 
 ## Poslední aktualizace
 
+4. září 2026 (na žádost uživatele znovu zkontrolovány Aktuality města
+Pečky na `pecky.cz/default/default/21395_aktuality` — beze změny oproti
+2. 9. 2026, nejnovější položka zůstává „Uzavírka ulice K. Havlíčka
+Borovského“ z 3. 6. 2026. Ani po facebookovém vyjádření vedení města
+tam samostatná zpráva o zastavení stavby zveřejněná není. Bulletka u
+„Co přesně říká radnice“ v `content/telocvicna.html` aktualizována na
+nové datum kontroly.)
+
 4. září 2026 (na žádost uživatele přečten nový příspěvek na
 `facebook.com/mestopecky` — první veřejné vyjádření samotného vedení
 města k pozastavení stavby tělocvičny, zveřejněné 4. 9. 2026 v 0:20
