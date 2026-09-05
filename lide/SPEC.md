@@ -205,8 +205,17 @@ strojově čitelné místo. Validátor hlídá, že dvě uskupení nemají tuté
 | `from` / `to` | `YYYY-MM-DD` \| `YYYY` \| `null` | ✅ | `null` = neznámé / trvá |
 | `current` | boolean | ✅ | zdroj pravdy pro „aktuální", **neodvozovat z dat** |
 
-`role_type`: `zastupitel` · `rada` · `starosta` · `mistostarosta` · `vedeni` ·
-`zamestnanec` · `clen` · `komise` · `kandidatka` · `jine`.
+`role_type`: `zastupitel` · `rada` · `starosta` · `mistostarosta` ·
+`vedeni-urad` · `vedeni-organizace` · `zamestnanec` · `clen` · `komise` ·
+`kandidatka` · `jine`.
+
+Vedení je rozdělené na dva typy, protože jde o dvě různé věci: **`vedeni-urad`**
+je aparát radnice (tajemnice, vedoucí odborů, velitel městské policie) — vazba
+vždy na `mesto-pecky`, protože úřad není samostatná právnická osoba a do funkce
+jmenuje starosta; **`vedeni-organizace`** jsou ředitelé příspěvkových organizací
+a jednatelé městských firem, které rada zřizuje a jejichž vedení jmenuje. Panel
+Lidé je vypisuje jako dvě samostatné skupiny a validátor hlídá, že typ role
+odpovídá `organization.type`.
 
 **Pravidla:**
 

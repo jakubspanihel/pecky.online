@@ -61,7 +61,8 @@ validate.mjs         validátor
 ```
 
 **Vedení úřadu, příspěvkových organizací a městských firem** (`role_type:
-"vedeni"`, doplněno 5. 9. 2026, fáze 5b SPEC.md §7): tajemnice úřadu, 4
+"vedeni-urad"` a `"vedeni-organizace"`, doplněno 5. 9. 2026, fáze 5b
+SPEC.md §7): tajemnice úřadu, 4
 vedoucí odborů a velitel Městské policie (všichni jako vazba na
 `mesto-pecky` — úřad je součástí téže právnické osoby jako obec, ne
 samostatná organizace), plus ředitel/ka u každé ze 7 nově založených
@@ -119,9 +120,19 @@ Ten rozdíl je správně a je vidět v timeline.
 
 ### Co panel vypisuje a co ne
 
-Čtyři skupiny: **Rada města**, **Ostatní členové zastupitelstva**, **Vedení
-úřadu a městských organizací** a — až po přepnutí rozsahu na „Včetně
-historie" — **Bývalí členové zastupitelstva**.
+Pět skupin v tomhle pořadí: **Rada města**, **Ostatní členové
+zastupitelstva**, **Úřad města** (`vedeni-urad`), **Městské organizace**
+(`vedeni-organizace`) a — až po přepnutí rozsahu na „Včetně historie" —
+**Bývalí členové zastupitelstva**. Volení lidé nahoře, jmenovaní pod nimi,
+historie nakonec.
+
+Nad kartičkami je jediný řádek filtrů, **podle role**. Čipy podle uskupení
+tam byly a jsou pryč — řádek s pěti stranami nad jednadvaceti lidmi zabíral
+víc místa, než přinášel. **Filtrování podle uskupení ale nezmizelo**, jen
+nemá vlastní tlačítka: pořád funguje přes URL (`#lide?org=ods`), přes klik
+na uskupení na kartičce a přes pohled `#lide/uskupeni/{id}`. Kdo by chtěl
+čipy zpátky, vrátí je v `lBuildChips()` — `L_STATE.orgs` i větev v
+`lMatches()` zůstaly na místě.
 
 Kdo nespadá ani do jedné, se **nevypisuje a nezapočítává** do statistiky nad
 kartičkami. V praxi jde o lidi, o kterých z dat víme jen to, že byli na nějaké

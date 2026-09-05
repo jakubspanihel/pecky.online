@@ -18,7 +18,10 @@ const ROOT = resolve(DIR, '..');
 
 const ORG_TYPES = ['urad', 'prispevkova', 'firma', 'spolek', 'politicke', 'skola', 'jine'];
 const ROLE_TYPES = [
-  'zastupitel', 'rada', 'starosta', 'mistostarosta', 'vedeni',
+  'zastupitel', 'rada', 'starosta', 'mistostarosta',
+  // vedení je rozdělené podle toho, co člověk řídí: úřad města × příspěvkové
+  // organizace a městská firma — panel Lidé je vypisuje jako dvě skupiny
+  'vedeni-urad', 'vedeni-organizace',
   'zamestnanec', 'clen', 'komise', 'kandidatka', 'jine',
 ];
 
@@ -185,6 +188,18 @@ for (const a of affs) {
   const expected = `${a.person_id}--${a.organization_id}--`;
   if (typeof a.id === 'string' && !a.id.startsWith(expected)) {
     warn(where, 'id neodpovídá konvenci {person_id}--{organization_id}--{pořadí}');
+  }
+}
+
+// --- vedení musí sedět s typem organizace ---
+for (const a of affs) {
+  const org = orgs.find((o) => o.id === a.organization_id);
+  if (!org) continue;
+  if (a.role_type === 'vedeni-urad' && org.type !== 'urad') {
+    err(`vazba ${a.id}`, `role_type "vedeni-urad", ale ${org.id} je typu "${org.type}" — patří sem vedeni-organizace`);
+  }
+  if (a.role_type === 'vedeni-organizace' && org.type === 'urad') {
+    err(`vazba ${a.id}`, `role_type "vedeni-organizace", ale ${org.id} je úřad — patří sem vedeni-urad`);
   }
 }
 

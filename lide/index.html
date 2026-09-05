@@ -52,7 +52,6 @@
         </div>
       </div>
     </div>
-    <div class="filter-chips" id="lide-filter-org" role="group" aria-label="Filtr podle uskupení" hidden></div>
     <div class="filter-chips" id="lide-filter-role" role="group" aria-label="Filtr podle role" hidden></div>
 
     <p class="search-status" id="lide-status" aria-live="polite">Načítám adresář…</p>
@@ -80,12 +79,13 @@
     ['rada', 'Radní'],
     ['zastupitel', 'Zastupitelé'],
     ['komise', 'Výbory a komise'],
-    ['vedeni', 'Vedení organizací'],
+    ['vedeni-urad', 'Úřad města'],
+    ['vedeni-organizace', 'Městské organizace'],
     ['zamestnanec', 'Zaměstnanci úřadu'],
   ];
 
   // váha funkce v timeline detailu — od nejvýznamnější po nejobecnější
-  const L_TL_ORDER = ['starosta', 'mistostarosta', 'rada', 'vedeni', 'komise', 'zastupitel', 'zamestnanec', 'clen', 'kandidatka'];
+  const L_TL_ORDER = ['starosta', 'mistostarosta', 'rada', 'vedeni-urad', 'vedeni-organizace', 'komise', 'zastupitel', 'zamestnanec', 'clen', 'kandidatka'];
   const L_TL_RANK = (t) => {
     const i = L_TL_ORDER.indexOf(t);
     return i === -1 ? L_TL_ORDER.length : i;
@@ -146,9 +146,11 @@
       p._exec = p._affs.find(a => a.current && L_EXEC_RANK[a.role_type] !== undefined) || null;
       // vedení úřadu/příspěvkových organizací a městských firem (fáze 5b, SPEC.md
       // §7) — mimo zastupitelstvo/radu, proto samostatné pole, ne součást _exec
-      p._vedeni = p._affs.find(a => a.current && a.role_type === 'vedeni') || null;
+      p._urad = p._affs.find(a => a.current && a.role_type === 'vedeni-urad') || null;
+      p._organizace = p._affs.find(a => a.current && a.role_type === 'vedeni-organizace') || null;
       // _office = důvod, proč je člověk v adresáři, i když nikdy neměl mandát
-      p._office = p._vedeni || p._affs.find(a => a.current && a.role_type === 'zamestnanec') || null;
+      p._office = p._urad || p._organizace
+        || p._affs.find(a => a.current && a.role_type === 'zamestnanec') || null;
 
       // poslední mandát v historii — pro bývalé členy, aby se dala ukázat role i konec
       p._lastMandate = p._affs.filter(a => a.role_type === 'zastupitel')
@@ -159,7 +161,7 @@
       // poslední, u čistých kandidátů bez mandátu aspoň text z kandidátky,
       // u vedení úřadu/organizací bez kandidátky aspoň jejich funkce
       p._displayRole = p._exec ? p._exec.role
-        : (p._mandate ? p._mandate.role : (p._lastMandate ? p._lastMandate.role : (list ? list.role : (p._vedeni ? p._vedeni.role : ''))));
+        : (p._mandate ? p._mandate.role : (p._lastMandate ? p._lastMandate.role : (list ? list.role : (p._office ? p._office.role : ''))));
 
       // timeline: aktuální vazby nahoru, uvnitř podle váhy funkce a pak od nejnovější.
       // Váha musí být před datem — starosta i mandát začaly týmž dnem a čistě
@@ -426,9 +428,12 @@
     const ostatni = shown.filter(p => p._mandate && !p._exec).sort(lSortParty);
     // „bývalí" = měli někdy skutečný mandát zastupitele, teď ne
     const byvali = shown.filter(p => !p._mandate && !p._exec && p._lastMandate).sort(lSortParty);
-    // vedení úřadu a městských organizací — lidé, kteří v adresáři nejsou kvůli
-    // mandátu, ale kvůli funkci; řadí se podle organizace, pak podle příjmení
-    const vedeni = shown.filter(p => !p._mandate && !p._exec && !p._lastMandate && p._office).sort(lSortOffice);
+    // vedení — lidé, kteří v adresáři nejsou kvůli mandátu, ale kvůli funkci.
+    // Úřad města a městské organizace jsou dvě různé věci: úředníky vede
+    // tajemnice a jmenuje je starosta, ředitele příspěvkovek jmenuje rada
+    const office = shown.filter(p => !p._mandate && !p._exec && !p._lastMandate && p._office);
+    const vedeniUrad = office.filter(p => p._urad).sort(lSortOffice);
+    const vedeniOrg = office.filter(p => !p._urad && p._organizace).sort(lSortOffice);
     const orgHead = L_STATE.orgView ? lOrgHead(db.orgById[L_STATE.orgView]) : '';
 
     if (!shown.length) {
@@ -446,8 +451,10 @@
         (rada.length ? `<div class="callout" style="margin-top:18px;">Zdroj složení: usnesení ustavujícího zasedání zastupitelstva 7/2022, viz sekce <a href="#volby2022" data-goto="volby2022">Volby 2022</a>.</div>` : '') +
         lGroup('Ostatní členové zastupitelstva', ostatni,
                'Bez funkce v radě — rozložení mandátů níže na této stránce, výsledky voleb v sekci Volby.') +
-        lGroup('Vedení úřadu a městských organizací', vedeni,
-               'Nevolení lidé, kteří řídí každodenní chod — tajemnice, vedoucí odborů, velitel městské policie a ředitelé příspěvkových organizací a městské firmy. Do zastupitelstva nekandidovali; jmenuje je rada nebo starosta, ne voliči.') +
+        lGroup('Úřad města', vedeniUrad,
+               'Nevolení lidé, kteří řídí každodenní chod radnice — tajemnice, vedoucí odborů a velitel městské policie. Do zastupitelstva nekandidovali; do funkce je jmenuje starosta, ne voliči.') +
+        lGroup('Městské organizace', vedeniOrg,
+               'Ředitelé příspěvkových organizací města a jednatelka městské firmy — školy, knihovna, kulturní středisko, pečovatelská služba. Jmenuje je rada města.') +
         lGroup('Bývalí členové zastupitelstva', byvali,
                'Mandát skončil v průběhu volebního období. Kartičky zůstávají, aby historie nemizela — kdo nastoupil místo nich, je v sekci Volby 2022.');
     }
@@ -462,10 +469,10 @@
       });
     });
 
-    lRenderStatus(shown, byvali, vedeni);
+    lRenderStatus(shown, byvali, vedeniUrad, vedeniOrg);
   }
 
-  function lRenderStatus(shown, byvali, vedeni){
+  function lRenderStatus(shown, byvali, vedeniUrad, vedeniOrg){
     const db = LIDE_DB;
     const statusEl = document.getElementById('lide-status');
     if (!statusEl) return;
@@ -477,7 +484,9 @@
       const zastupitelu = db.people.filter(p => p._mandate || p._exec).length;
       const radnich = db.people.filter(p => p._exec).length;
       const hist = L_STATE.scope === 'all' ? ` · ${byvali.length} bývalých členů` : '';
-      const office = vedeni.length ? ` · ${vedeni.length} ve vedení úřadu a organizací` : '';
+      const office = (vedeniUrad.length || vedeniOrg.length)
+        ? ` · vedení: ${vedeniUrad.length} na úřadu, ${vedeniOrg.length} v městských organizacích`
+        : '';
       statusEl.textContent =
         `${zastupitelu} zastupitelů, z toho ${radnich} v radě${office}${hist} · data ověřena ${lFormatDate(db._updated)}`;
     }
@@ -496,25 +505,20 @@
 
   function lBuildChips(){
     const db = LIDE_DB;
-    const orgBox = document.getElementById('lide-filter-org');
     const roleBox = document.getElementById('lide-filter-role');
-    if (!orgBox || !roleBox) return;
+    if (!roleBox) return;
 
-    // jen uskupení, která mají aspoň jednoho *vypisovaného* člověka — jinak by
-    // čip vedl na prázdný výsledek (uskupení, ze kterého známe pouze kandidáty)
-    const used = new Set();
-    db.people.filter(lListed).forEach(p => p._affs.forEach(a => used.add(a.organization_id)));
-    // (stejná množina, na jakou se ptá lMatches — čip tak nikdy nevede na prázdno)
-    const parties = db.orgs.filter(o => o.type === 'politicke' && used.has(o.id));
-    orgBox.innerHTML = '<span class="chip-label">Uskupení:</span>' +
-      parties.map(o => lChip('org', o.id, o.short_name || o.name, o.color)).join('') +
-      '<button type="button" class="chip-clear" id="lide-clear" hidden>Vymazat filtry</button>';
-    orgBox.hidden = false;
-
+    // Čipy uskupení se záměrně nevykreslují — řádek s pěti stranami nad
+    // jednadvaceti lidmi zabíral víc místa, než přinášel. Filtrování podle
+    // uskupení tím ale nezmizelo: pořád funguje přes URL (#lide?org=ods),
+    // přes klik na uskupení na kartičce a přes pohled #lide/uskupeni/{id}.
+    // Proto zůstává i L_STATE.orgs a jeho větev v lMatches().
     const usedRoles = new Set(db.affs.map(a => a.role_type));
     const roles = L_ROLE_LABELS.filter(([k]) => usedRoles.has(k));
     roleBox.innerHTML = '<span class="chip-label">Role:</span>' +
-      roles.map(([k, label]) => lChip('role', k, label)).join('');
+      roles.map(([k, label]) => lChip('role', k, label)).join('') +
+      // tlačítko dřív žilo v řádku uskupení; ten je pryč, takže se přesunulo sem
+      '<button type="button" class="chip-clear" id="lide-clear" hidden>Vymazat filtry</button>';
     roleBox.hidden = false;
   }
 
