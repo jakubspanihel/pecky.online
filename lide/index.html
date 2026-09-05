@@ -59,7 +59,7 @@
     <div id="lide-results"></div>
 
     <div class="callout" style="margin-top:26px;">
-      <strong>O fotografiích:</strong> u <span id="lide-photo-count">13 z 21</span> členů se podařilo dohledat fotografii — pokud je jich u jedné osoby víc (fotka se mezi volbami mění), zobrazuje se vždy ta nejnovější, starší zůstávají v detailu osoby. Šest členů Sdružení ODS a nezávislých kandidátů má oficiální portrét z kandidátky — u pěti z nich nejnovější z <a href="https://www.ods.cz/os.kolin/volby2026/komunalni/3715-pecky" target="_blank" rel="noopener">kandidátní listiny pro volby 2026 na ods.cz</a>, u jednoho (Ing. Karel Krištoufek, v roce 2026 znovu nekandiduje) zůstává starší z <a href="https://www.ods.cz/ms.pecky/volby2022/komunalni/2570-pecky" target="_blank" rel="noopener">kandidátky 2022</a> (stejné fotky, jaké strana používala i v tištěné inzerci). Sedm členů NAŠE PEČKY má fotku — u čtyř z nich nejnovější z <a href="https://nasepecky.cz/#kandidati" target="_blank" rel="noopener">kandidátní listiny pro volby 2026 na nasepecky.cz</a>, u tří (Václav Drška, Šárka Horynová, Tomáš Vodička — v roce 2026 znovu nekandidují) zůstává starší z volebního inzerátu v Pečeckých novinách 9/2022 (str. 11), kde kandidáti sami zveřejnili portrét se jménem. U zbylých osmi (SNK Pečky Pečákům, Lidé pro Pečky s podporou SPD, ČSSD a sjednocená levice) jsem nenašel žádný oficiální web s fotkami jednotlivých kandidátů — jejich inzerce v novinách obsahovala jen jmenný seznam nebo nepojmenovanou skupinovou fotku, ze které nelze spolehlivě přiřadit obličej ke jménu — proto jen barevný iniciálový avatar. Totéž platí i mezi kandidáty bez mandátu (ročníky 2018/2022/2026 dohromady): tři z pěti uskupení kandidujících 2026 (Sdružení nezávislých kandidátů PEČKY PEČÁKŮM, Lidé pro Pečky a Velké Chvalovice s podporou SPD, Pečky srdcem) mají jen Facebook, ne vlastní web — a stránku/skupinu jde bez přihlášení projít jen do určité míry a fotky v ní nejsou jmenovitě popsané, takže je nejde spolehlivě spárovat s konkrétním kandidátem. Zdroj a datum pokusu viz <a href="/pecky.online/volby/2026/">Volby 2026</a>.
+      <strong>O fotografiích:</strong> u <span id="lide-photo-count">13 z 21</span> členů se podařilo dohledat fotografii — pokud je jich u jedné osoby víc (fotka se mezi volbami mění), zobrazuje se vždy ta nejnovější, starší zůstávají v detailu osoby. Šest členů Sdružení ODS a nezávislých kandidátů má oficiální portrét z kandidátky — u pěti z nich nejnovější z <a href="https://www.ods.cz/os.kolin/volby2026/komunalni/3715-pecky" target="_blank" rel="noopener">kandidátní listiny pro volby 2026 na ods.cz</a>, u jednoho (Ing. Karel Krištoufek, v roce 2026 znovu nekandiduje) zůstává starší z <a href="https://www.ods.cz/ms.pecky/volby2022/komunalni/2570-pecky" target="_blank" rel="noopener">kandidátky 2022</a> (stejné fotky, jaké strana používala i v tištěné inzerci). Sedm členů NAŠE PEČKY má fotku — u čtyř z nich nejnovější z <a href="https://nasepecky.cz/#kandidati" target="_blank" rel="noopener">kandidátní listiny pro volby 2026 na nasepecky.cz</a>, u tří (Václav Drška, Šárka Horynová, Tomáš Vodička — v roce 2026 znovu nekandidují) zůstává starší z volebního inzerátu v Pečeckých novinách 9/2022 (str. 11), kde kandidáti sami zveřejnili portrét se jménem. U zbylých osmi (SNK Pečky Pečákům, Lidé pro Pečky s podporou SPD, ČSSD a sjednocená levice) jsem nenašel žádný oficiální web s fotkami jednotlivých kandidátů — jejich inzerce v novinách obsahovala jen jmenný seznam nebo nepojmenovanou skupinovou fotku, ze které nelze spolehlivě přiřadit obličej ke jménu — proto jen barevný iniciálový avatar. Zdroj a datum pokusu viz <a href="/pecky.online/volby/2026/">Volby 2026</a>.
     </div>
   </section>
 
@@ -147,6 +147,8 @@
       // vedení úřadu/příspěvkových organizací a městských firem (fáze 5b, SPEC.md
       // §7) — mimo zastupitelstvo/radu, proto samostatné pole, ne součást _exec
       p._vedeni = p._affs.find(a => a.current && a.role_type === 'vedeni') || null;
+      // _office = důvod, proč je člověk v adresáři, i když nikdy neměl mandát
+      p._office = p._vedeni || p._affs.find(a => a.current && a.role_type === 'zamestnanec') || null;
 
       // poslední mandát v historii — pro bývalé členy, aby se dala ukázat role i konec
       p._lastMandate = p._affs.filter(a => a.role_type === 'zastupitel')
@@ -252,11 +254,26 @@
     return !!(L_STATE.q.trim() || L_STATE.orgs.size || L_STATE.roles.size);
   }
   function lInScope(p){
-    return L_STATE.scope === 'all' || !!(p._mandate || p._exec || p._vedeni);
+    return L_STATE.scope === 'all' || !!(p._mandate || p._exec || p._office);
+  }
+  // Panel vypisuje tři skupiny: radu, ostatní zastupitele a bývalé členy.
+  // Kdo nespadá ani do jedné, se nevypisuje — a nesmí se ani započítat, jinak
+  // by status sliboval osoby, které nejde zobrazit. Dřív takové lidi sbírala
+  // skupina „Kandidáti bez mandátu", jenže ten nadpis o části z nich tvrdil
+  // něco, co data neříkají: byli mezi nimi i vedoucí odborů a ředitelé
+  // městských organizací, kteří do zastupitelstva nikdy nekandidovali.
+  // Záznamy v people.json zůstávají, jen se nerenderují.
+  function lListed(p){
+    return !!(p._mandate || p._exec || p._lastMandate || p._office);
   }
   function lMatches(p){
+    if (!lListed(p)) return false;
     if (!lInScope(p)) return false;
-    if (L_STATE.orgs.size && (!p._party || !L_STATE.orgs.has(p._party.id))) return false;
+    // pozor: ne podle p._party (to je jen první kandidátka v pořadí), ale podle
+    // libovolné vazby — lidé kandidovali napříč ročníky za různá uskupení
+    // a filtr musí najít stejné lidi, jaké slibuje čip. Zároveň to dává smysl
+    // pohledu na organizaci: #lide/uskupeni/mesto-pecky ukáže celé zastupitelstvo
+    if (L_STATE.orgs.size && !p._affs.some(a => L_STATE.orgs.has(a.organization_id))) return false;
     if (L_STATE.roles.size) {
       const hit = p._affs.some(a => (L_STATE.scope === 'all' || a.current) && L_STATE.roles.has(a.role_type));
       if (!hit) return false;
@@ -281,8 +298,10 @@
     const until = p._until ? `<span class="tag until">do ${jEscapeHtml(lFormatDate(p._until))}</span>` : '';
     // uskupení je klikací pro myš, ale ne samostatný tab stop — vnořený ovládací
     // prvek uvnitř role="button" by mátl čtečky; v detailu je z něj pravý odkaz
-    const party = org
-      ? `<div class="party" data-lide-orgview="${jEscapeHtml(org.id)}" title="Zobrazit uskupení">${jEscapeHtml(org.short_name || org.name)}</div>`
+    // u vedení úřadu není kandidátka — místo ní se ukazuje organizace, kterou vedou
+    const badge = org || (p._office ? p._office._org : null);
+    const party = badge
+      ? `<div class="party" data-lide-orgview="${jEscapeHtml(badge.id)}" title="${org ? 'Zobrazit uskupení' : 'Zobrazit organizaci'}">${jEscapeHtml(badge.short_name || badge.name)}</div>`
       : '<div class="party">—</div>';
     return `
         <div class="person-card${cls}" data-person="${jEscapeHtml(p.id)}" role="button" tabindex="0"
@@ -376,6 +395,11 @@
     a._exec.role.localeCompare(b._exec.role, 'cs');
 
   // po uskupeních (v pořadí z organizations.json), uvnitř abecedně podle příjmení
+  const lSortOffice = (a, b) =>
+    (((a._office && a._office._org) ? a._office._org._order : 99) -
+     ((b._office && b._office._org) ? b._office._org._order : 99)) ||
+    a.last_name.localeCompare(b.last_name, 'cs');
+
   const lSortParty = (a, b) =>
     ((a._party ? a._party._order : 99) - (b._party ? b._party._order : 99)) ||
     a.last_name.localeCompare(b.last_name, 'cs');
@@ -400,10 +424,11 @@
     const shown = db.people.filter(lMatches);
     const rada = shown.filter(p => p._exec).sort(lSortExec);
     const ostatni = shown.filter(p => p._mandate && !p._exec).sort(lSortParty);
-    // „bývalí" = měli někdy skutečný mandát zastupitele, teď ne; „kandidáti" =
-    // mandát nikdy neměli, jen jsou (byli) na nějaké kandidátce — viz SPEC.md §3.6
+    // „bývalí" = měli někdy skutečný mandát zastupitele, teď ne
     const byvali = shown.filter(p => !p._mandate && !p._exec && p._lastMandate).sort(lSortParty);
-    const kandidati = shown.filter(p => !p._mandate && !p._exec && !p._lastMandate).sort(lSortParty);
+    // vedení úřadu a městských organizací — lidé, kteří v adresáři nejsou kvůli
+    // mandátu, ale kvůli funkci; řadí se podle organizace, pak podle příjmení
+    const vedeni = shown.filter(p => !p._mandate && !p._exec && !p._lastMandate && p._office).sort(lSortOffice);
     const orgHead = L_STATE.orgView ? lOrgHead(db.orgById[L_STATE.orgView]) : '';
 
     if (!shown.length) {
@@ -411,7 +436,7 @@
         <div class="callout">
           <strong>Nikdo neodpovídá zadání.</strong>
           Zkus jiné slovo, nebo <button type="button" class="chip-clear" data-lide-clear>vymaž filtry</button>.
-          ${L_STATE.scope === 'current' ? 'Bývalí členové zastupitelstva a kandidáti bez mandátu se hledají až po přepnutí rozsahu na „Včetně historie".' : ''}
+          ${L_STATE.scope === 'current' ? 'Bývalí členové zastupitelstva se hledají až po přepnutí rozsahu na „Včetně historie".' : ''}
         </div>`;
     } else {
       host.innerHTML = notice + orgHead +
@@ -421,10 +446,10 @@
         (rada.length ? `<div class="callout" style="margin-top:18px;">Zdroj složení: usnesení ustavujícího zasedání zastupitelstva 7/2022, viz sekce <a href="#volby2022" data-goto="volby2022">Volby 2022</a>.</div>` : '') +
         lGroup('Ostatní členové zastupitelstva', ostatni,
                'Bez funkce v radě — rozložení mandátů níže na této stránce, výsledky voleb v sekci Volby.') +
+        lGroup('Vedení úřadu a městských organizací', vedeni,
+               'Nevolení lidé, kteří řídí každodenní chod — tajemnice, vedoucí odborů, velitel městské policie a ředitelé příspěvkových organizací a městské firmy. Do zastupitelstva nekandidovali; jmenuje je rada nebo starosta, ne voliči.') +
         lGroup('Bývalí členové zastupitelstva', byvali,
-               'Mandát skončil v průběhu volebního období. Kartičky zůstávají, aby historie nemizela — kdo nastoupil místo nich, je v sekci Volby 2022.') +
-        lGroup('Kandidáti bez mandátu', kandidati,
-               'Kandidovali do zastupitelstva, ale mandát nezískali — nikdy nebyli zastupiteli ani radními. Zatím jen jméno, příjmení a kandidátka; profil se doplňuje postupně.');
+               'Mandát skončil v průběhu volebního období. Kartičky zůstávají, aby historie nemizela — kdo nastoupil místo nich, je v sekci Volby 2022.');
     }
 
     // data-goto uvnitř generovaného HTML potřebuje vlastní posluchač
@@ -437,25 +462,24 @@
       });
     });
 
-    lRenderStatus(shown, byvali, kandidati);
+    lRenderStatus(shown, byvali, vedeni);
   }
 
-  function lRenderStatus(shown, byvali, kandidati){
+  function lRenderStatus(shown, byvali, vedeni){
     const db = LIDE_DB;
     const statusEl = document.getElementById('lide-status');
     if (!statusEl) return;
 
-    const pool = db.people.filter(lInScope);
+    const pool = db.people.filter(p => lListed(p) && lInScope(p));
     if (lFilterActive()) {
       statusEl.textContent = `Zobrazeno ${shown.length} z ${pool.length} ${pool.length === 1 ? 'osoby' : 'osob'}`;
     } else {
       const zastupitelu = db.people.filter(p => p._mandate || p._exec).length;
       const radnich = db.people.filter(p => p._exec).length;
-      const hist = L_STATE.scope === 'all'
-        ? ` · ${byvali.length} bývalých členů · ${kandidati.length} kandidátů bez mandátu`
-        : '';
+      const hist = L_STATE.scope === 'all' ? ` · ${byvali.length} bývalých členů` : '';
+      const office = vedeni.length ? ` · ${vedeni.length} ve vedení úřadu a organizací` : '';
       statusEl.textContent =
-        `${zastupitelu} zastupitelů, z toho ${radnich} v radě${hist} · data ověřena ${lFormatDate(db._updated)}`;
+        `${zastupitelu} zastupitelů, z toho ${radnich} v radě${office}${hist} · data ověřena ${lFormatDate(db._updated)}`;
     }
 
     const clearEl = document.getElementById('lide-clear');
@@ -476,8 +500,11 @@
     const roleBox = document.getElementById('lide-filter-role');
     if (!orgBox || !roleBox) return;
 
-    // jen uskupení, která mají aspoň jednoho člověka
-    const used = new Set(db.affs.map(a => a.organization_id));
+    // jen uskupení, která mají aspoň jednoho *vypisovaného* člověka — jinak by
+    // čip vedl na prázdný výsledek (uskupení, ze kterého známe pouze kandidáty)
+    const used = new Set();
+    db.people.filter(lListed).forEach(p => p._affs.forEach(a => used.add(a.organization_id)));
+    // (stejná množina, na jakou se ptá lMatches — čip tak nikdy nevede na prázdno)
     const parties = db.orgs.filter(o => o.type === 'politicke' && used.has(o.id));
     orgBox.innerHTML = '<span class="chip-label">Uskupení:</span>' +
       parties.map(o => lChip('org', o.id, o.short_name || o.name, o.color)).join('') +

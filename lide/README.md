@@ -117,6 +117,26 @@ Náhradník má vazbu na kandidátku od voleb 2022, ale mandát až od složení
 slibu — Ondřej Schulz od 26. 2. 2025, Jaroslava Vosecká od 11. 9. 2024.
 Ten rozdíl je správně a je vidět v timeline.
 
+### Co panel vypisuje a co ne
+
+Čtyři skupiny: **Rada města**, **Ostatní členové zastupitelstva**, **Vedení
+úřadu a městských organizací** a — až po přepnutí rozsahu na „Včetně
+historie" — **Bývalí členové zastupitelstva**.
+
+Kdo nespadá ani do jedné, se **nevypisuje a nezapočítává** do statistiky nad
+kartičkami. V praxi jde o lidi, o kterých z dat víme jen to, že byli na nějaké
+kandidátní listině (`role_type: "kandidatka"` a nic dalšího) — dnes přes dvě
+stovky záznamů z ročníků 2018/2022/2026. V `people.json` zůstávají a používají
+je sekce Volby, panel Lidé je ale nezobrazuje.
+
+Dřív je sbírala skupina „Kandidáti bez mandátu". Ten nadpis byl zavádějící:
+padali do něj i vedoucí odborů a ředitelé městských organizací, kteří do
+zastupitelstva nikdy nekandidovali. Proto mají teď vlastní skupinu a nadpis,
+který o nich mluví pravdivě.
+
+**Když někoho přidáš a on se neobjeví**, chybí mu vazba mimo kandidátku —
+mandát (`zastupitel`), funkce v radě, `vedeni` nebo `zamestnanec`.
+
 ### Validace
 
 Z kořene repa, před každým commitem datové změny:
