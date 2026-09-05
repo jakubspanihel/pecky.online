@@ -104,6 +104,9 @@
       p._party = list ? list._org : null;
       p._mandate = p._affs.find(a => a.role_type === 'zastupitel' && a.current) || null;
       p._exec = p._affs.find(a => a.current && L_EXEC_RANK[a.role_type] !== undefined) || null;
+      // vedení úřadu/příspěvkových organizací a městských firem (fáze 5b, SPEC.md
+      // §7) — mimo zastupitelstvo/radu, proto samostatné pole, ne součást _exec
+      p._vedeni = p._affs.find(a => a.current && a.role_type === 'vedeni') || null;
 
       // poslední mandát v historii — pro bývalé členy, aby se dala ukázat role i konec
       p._lastMandate = p._affs.filter(a => a.role_type === 'zastupitel')
@@ -111,9 +114,10 @@
       p._until = (!p._mandate && p._lastMandate) ? p._lastMandate.to : '';
 
       // na kartičce se ukazuje funkce v radě, jinak mandát, u bývalých ten
-      // poslední, u čistých kandidátů bez mandátu aspoň text z kandidátky
+      // poslední, u čistých kandidátů bez mandátu aspoň text z kandidátky,
+      // u vedení úřadu/organizací bez kandidátky aspoň jejich funkce
       p._displayRole = p._exec ? p._exec.role
-        : (p._mandate ? p._mandate.role : (p._lastMandate ? p._lastMandate.role : (list ? list.role : '')));
+        : (p._mandate ? p._mandate.role : (p._lastMandate ? p._lastMandate.role : (list ? list.role : (p._vedeni ? p._vedeni.role : ''))));
 
       // timeline: aktuální vazby nahoru, uvnitř podle váhy funkce a pak od nejnovější.
       // Váha musí být před datem — starosta i mandát začaly týmž dnem a čistě
@@ -208,7 +212,7 @@
     return !!(L_STATE.q.trim() || L_STATE.orgs.size || L_STATE.roles.size);
   }
   function lInScope(p){
-    return L_STATE.scope === 'all' || !!(p._mandate || p._exec);
+    return L_STATE.scope === 'all' || !!(p._mandate || p._exec || p._vedeni);
   }
   function lMatches(p){
     if (!lInScope(p)) return false;

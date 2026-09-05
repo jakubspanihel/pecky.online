@@ -50,13 +50,29 @@ nimi. Návrh a rozhodnutí, proč je model takový, jsou v [`SPEC.md`](SPEC.md);
 tahle kapitola je provozní — jak s daty pracovat.
 
 ```
-people.json          229 osob (21 aktuálních zastupitelů + 2 bývalí s plným
+people.json          242 osob (21 aktuálních zastupitelů + 2 bývalí s plným
                       profilem, 206 dalších kandidátů ze všech kandidátek
-                      2018/2022/2026 s minimálním záznamem — viz SPEC.md §3.6)
-organizations.json    9 organizací (Město Pečky + 8 volebních uskupení)
-affiliations.json   388 vazeb osoba–organizace
+                      2018/2022/2026 s minimálním záznamem (SPEC.md §3.6),
+                      13 vedení úřadu/příspěvkovek/firem (fáze 5b, §7))
+organizations.json   16 organizací (Město Pečky + 8 volebních uskupení +
+                      7 příspěvkovek/firem — fáze 5b)
+affiliations.json   400 vazeb osoba–organizace
 validate.mjs         validátor
 ```
+
+**Vedení úřadu, příspěvkových organizací a městských firem** (`role_type:
+"vedeni"`, doplněno 5. 9. 2026, fáze 5b SPEC.md §7): tajemnice úřadu, 4
+vedoucí odborů a velitel Městské policie (všichni jako vazba na
+`mesto-pecky` — úřad je součástí téže právnické osoby jako obec, ne
+samostatná organizace), plus ředitel/ka u každé ze 7 nově založených
+organizací (MŠ MAŠINKA, ZŠ, ZUŠ, Kulturní středisko, Městská knihovna,
+Pečovatelská služba, Pečecké služby s.r.o.). Zdroj: kontaktní stránky
+pecky.cz, cross-ověřeno v Hlídači státu; u Pečeckých služeb (s.r.o.)
+jednatelka dohledána přímo v obchodním rejstříku (justice.cz), protože
+firemní web k datu ověření uváděl už neplatné jméno — viz `note` u
+organizace `pececke-sluzby`. Aby se tihle lidé (bez mandátu v ZM/RM)
+zobrazili i ve výchozím rozsahu „Jen aktuální“, `lInScope()` v
+`content/lide.html` teď kromě `_mandate`/`_exec` počítá i s `_vedeni`.
 
 **Panel `panel-lide` se z těchhle souborů generuje.** Kartičky v
 `index.html` už nejsou — vytváří je `loadLide()` v posledním `<script>`
