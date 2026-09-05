@@ -139,7 +139,8 @@ Jednání a Pečecké noviny. Lokálně `python3 -m http.server`.
 | `id` | slug | ✅ | unikátní, neměnné |
 | `first_name` / `last_name` | string | ✅ | `last_name` je řadicí klíč |
 | `title_before` / `title_after` | string | — | `""` místo `null` |
-| `email` / `phone` | string | — | jen pracovní kontakty, `""` když neznámé |
+| `email` | string | — | jen pracovní adresa, `""` když neznámá |
+| `phone` | string | — | jedno nebo víc čísel oddělených `" · "`, každé ve tvaru `+420 123 456 789`; pořadí kancelář → mobil. `""` když neznámé |
 | `photos` | objekt[] | — | `[]` → iniciálový avatar. Jeden člověk může mít fotku za víc let (kandidátka se opakuje, fotka se mění) — pole, ne jedna hodnota, viz §3.7 |
 | `bio` | string | — | prostý text, bez HTML |
 | `tags` | string[] | ✅ | viz §3.5 |
@@ -332,6 +333,26 @@ případně číslice) platí beze změny — např. dva „Novák M." → `nova
 liší od jiných zdrojů) — to všechno může doplnit až další průchod, jakmile
 bude zdroj. Tenhle krok řeší jen dohledatelnost (fulltext, filtr podle
 uskupení), ne úplnost profilu.
+
+### 3.6b `phone` — víc čísel v jednom poli
+
+Město u části funkcionářů uvádí kancelář i služební mobil. Obě čísla nesou
+smysl (na jedno se dovoláš v úředních hodinách, na druhé jindy), takže se
+zapisují obě do jednoho řetězce oddělené `" · "`:
+
+```json
+"phone": "+420 321 785 050 · +420 606 609 572"
+```
+
+Proč ne pole jako u `photos`: čísla nemají žádná další metadata (rok, zdroj,
+popisek), takže by pole přineslo jen zanoření navíc. Oddělovač je dokumentovaný
+a strojově zpracovatelný — `lPhoneLinks()` na něm dělí a z každého čísla dělá
+vlastní odkaz `tel:` (v `href` bez mezer, ty některé telefony ve vytáčení
+nezvládají). Validátor kontroluje tvar každého čísla zvlášť.
+
+Ústředna `+420 321 785 051` se jako osobní kontakt nezapisuje — u lidí, kterým
+telefonní seznam uvádí jen ji, zůstává `phone` prázdný nebo nese přímé číslo
+z odborové stránky. Fax se nezapisuje vůbec.
 
 ### 3.7 `photos` — víc fotek na osobu
 

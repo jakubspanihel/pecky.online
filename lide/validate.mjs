@@ -119,6 +119,10 @@ for (const p of people) {
   }
   if (p.verified === null) warn(where, 'neověřeno (verified: null) — v UI se nezobrazí stamp');
   if (p.email && !p.email.includes('@')) err(where, `e-mail "${p.email}" nevypadá platně`);
+  // telefon: jedno nebo víc čísel oddělených „ · ", každé v mezinárodním tvaru
+  for (const num of (p.phone || '').split('·').map((x) => x.trim()).filter(Boolean)) {
+    if (!/^\+\d{1,3}( \d{3}){3}$/.test(num)) err(where, `telefon "${num}" nemá tvar "+420 123 456 789"`);
+  }
   if (p.photos !== undefined && !Array.isArray(p.photos)) err(where, 'photos musí být pole');
   const seenPhotoYears = new Set();
   for (const ph of p.photos ?? []) {

@@ -126,6 +126,14 @@
     if (a.to) return from ? `${from} – ${lFormatDate(a.to)}` : `do ${lFormatDate(a.to)}`;
     return from ? `od ${from}, konec neznámý` : 'období neznámé';
   }
+  // Telefon může nést víc čísel (kancelář a služební mobil), oddělovač „ · ".
+  // Každé dostane vlastní odkaz tel:, v href bez mezer — ty některé telefony
+  // a systémy ve vytáčení nezvládají.
+  function lPhoneLinks(phone){
+    return (phone || '').split('·').map(x => x.trim()).filter(Boolean)
+      .map(num => `<a href="tel:${jEscapeHtml(num.replace(/[^\d+]/g, ''))}">${jEscapeHtml(num)}</a>`)
+      .join(' · ');
+  }
   function lSourceLinks(sources){
     return (sources || []).filter(s => s && s.url)
       .map(s => `<a href="${jEscapeHtml(s.url)}" target="_blank" rel="noopener">${jEscapeHtml(s.label || s.url)} ↗</a>`)
@@ -352,7 +360,7 @@
 
     const contacts = [
       p.email ? `<a href="mailto:${jEscapeHtml(p.email)}">${jEscapeHtml(p.email)}</a>` : '',
-      p.phone ? jEscapeHtml(p.phone) : ''
+      lPhoneLinks(p.phone)
     ].filter(Boolean).join(' · ');
 
     const meta = [
