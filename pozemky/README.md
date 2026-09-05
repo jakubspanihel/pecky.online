@@ -37,5 +37,17 @@ nutný vždy — promítne `content/pozemky.html` do veřejné stránky
 
 Plný technický popis (dohledávání RUIAN ID, katastr-přesná kolize čísel
 parcel, proč byl starý globální `katastr-odkazy.json` smazaný, formát
-odkazu „řešilo se na: Jednání rady č. N" s deep-linkem do panelu Jednání)
-je v [`jednani/automation-katastr-parcely.md`](../jednani/automation-katastr-parcely.md).
+odkazu „řešilo se na: Jednání rady č. N" — od 5. 9. 2026 skutečný
+meziseránkový odkaz `/jednani/#rada-YYYY-MM-DD` na trvalý hash jednání,
+ne JS-only handler jako dřív) je v
+[`jednani/automation-katastr-parcely.md`](../jednani/automation-katastr-parcely.md).
+
+## Kontrola po každém běhu `update-pozemky.py`
+Po přegenerování tabulek namátkou ověřit, že odkaz „řešilo se na"
+u pár řádků skutečně vede na existující jednání (otevřít
+`/jednani/#rada-YYYY-MM-DD` resp. `#zastupitelstvo-YYYY-MM-DD` a ověřit,
+že se stránka Jednání načte s rozbaleným správným řádkem) — hlavně po
+větším zásahu do `pecky-jednani.json` (přečíslování jednání, oprava
+data). Needit se vracet k dřívějšímu vzoru `data-jednani-uuid` +
+JS handler — na samostatné stránce Pozemky nikdy nefungoval, viz
+`jednani/automation-katastr-parcely.md`.

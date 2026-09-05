@@ -88,3 +88,36 @@ ve skriptu). Číslo, které se nepodaří dohledat automaticky (rozdělená/
 sloučená parcela apod.), skript nahlásí a je třeba jej doplnit do
 `MANUAL_OVERRIDES` ve skriptu s odůvodněním (výměra/kontext z textu
 usnesení).
+
+## Odkaz „řešilo se na: Jednání rady/zastupitelstva č. N"
+
+Každý řádek tabulky Pozemky odkazuje na konkrétní jednání, na kterém
+se usnesení o daném pozemku projednávalo. Formát (od opravy
+5. 9. 2026, funkce `meeting_slug()` a `row_html()` ve skriptu):
+
+```
+<a href="/jednani/#rada-2026-08-24">Jednání rady č. 30</a>
+```
+
+Cíl `#rada-YYYY-MM-DD` / `#zastupitelstvo-YYYY-MM-DD` je trvalý hash
+jednání ze stránky Jednání (`jSlugForMeeting()` v `content/jednani.html`)
+— `jRouteHash()` na této stránce hash při načtení rozpozná
+(`J_MEETING_HASH_RE`) a rovnou rozbalí odpovídající řádek.
+
+**Do 5. 9. 2026 byl tenhle odkaz na celé stránce Pozemky nefunkční** —
+mířil na `href="#"` s `data-jednani-uuid="…"` a klik na něj obsluhoval
+JS handler (`.pozemek-jednani-link` / `jGotoMeeting()`), který ale žije
+jen v `<script>` bloku `content/jednani.html`, takže se na stránce
+Pozemky vůbec nenačetl (a i kdyby ano, `jGotoMeeting()` spoléhal na
+starou jednostránkovou navigaci `.navlink[data-panel="jednani"]`
+z doby před migrací na vícestránkový web, viz `ARCHITEKTURA-MIGRACE.md`).
+Řádky tak vypadaly jako klikací odkaz, ale klik nikam nevedl. Oprava:
+generovat rovnou skutečný meziseránkový `<a href="/jednani/#…">`
+místo JS-only handleru — funguje bez ohledu na to, ze které stránky se
+na něj kliká, a `apply_base_path()` v `scripts/build.py` mu při buildu
+správně předsadí `SITE_BASE_PATH` stejně jako ostatním kořenově-
+absolutním odkazům.
+
+Při dalších úpravách skriptu **needit** vracet zpět na
+`data-jednani-uuid`/`pozemek-jednani-link` vzor — je to slepá větev,
+která na samostatné stránce Pozemky nikdy nefungovala.
