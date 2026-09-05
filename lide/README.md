@@ -130,6 +130,20 @@ Poslední skupina není jen o lidech, kteří odešli uprostřed období. Patř�
 do ní každý s doloženou ukončenou funkcí a bez aktuální — tedy i starostové,
 místostarostové a radní minulých volebních období.
 
+**Se zapnutým filtrem podle role se skupiny pojmenují podle něj** —
+„Starosta — nyní" a „Starosta — dříve" — a výchozí pětice se nevykreslí.
+Důvod: seskupení podle *dnešního* postavení přestává dávat smysl ve chvíli,
+kdy filtr matchuje i minulé funkce. Hledání starostů s historií vracelo
+Milana Urbana a Alenu Švejnohovou pod nadpisem „Ostatní členové
+zastupitelstva" s popiskem „Bez funkce v radě" — pravdivé o jejich dnešním
+postavení, ale mlčící o tom, proč se v seznamu octli. Kartička dál ukazuje
+současné postavení, celý průběh je v detailu.
+
+Filtr rolí míří na `role_type`, ne na členství v radě jako orgánu.
+Místostarosta je člen rady, ale má vlastní `role_type`, takže pod „Radní"
+nespadá — Zdeněk Fejfar se proto objeví v „Radní — dříve" (radním byl
+2014–2018, dnes je místostarosta). Je to důsledek modelu, ne chyba.
+
 Nad kartičkami je jediný řádek filtrů, **podle role**. Čipy podle uskupení
 tam byly a jsou pryč — řádek s pěti stranami nad jednadvaceti lidmi zabíral
 víc místa, než přinášel. **Filtrování podle uskupení ale nezmizelo**, jen

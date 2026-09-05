@@ -377,6 +377,28 @@
     a._exec.role.localeCompare(b._exec.role, 'cs');
 
   // po uskupeních (v pořadí z organizations.json), uvnitř abecedně podle příjmení
+  // popisek vybraných rolí do nadpisu skupiny („Starosta", „Starosta · Radní")
+  function lRolesLabel(){
+    return [...L_STATE.roles]
+      .map(k => (L_ROLE_LABELS.find(x => x[0] === k) || [k, k])[1])
+      .join(' · ');
+  }
+  // má člověk vybranou roli právě teď, nebo ji měl jen v minulosti?
+  function lRoleNow(p){
+    return p._affs.some(a => lActive(a) && L_STATE.roles.has(a.role_type));
+  }
+  // pro seznam „nyní": vedení města nahoru, pak zastupitelé, pak úřad a organizace
+  const lSortCurrent = (a, b) => {
+    const w = p => p._exec ? L_EXEC_RANK[p._exec.role_type]
+      : (p._mandate ? 5 : (p._office ? 6 : 9));
+    return (w(a) - w(b)) || a.last_name.localeCompare(b.last_name, 'cs');
+  };
+  // pro seznam „dříve": podle váhy poslední funkce, pak od nejnovějšího konce
+  const lSortPast = (a, b) =>
+    (L_TL_RANK(a._lastRole ? a._lastRole.role_type : '') - L_TL_RANK(b._lastRole ? b._lastRole.role_type : '')) ||
+    lDateKey((b._lastRole || {}).to).localeCompare(lDateKey((a._lastRole || {}).to)) ||
+    a.last_name.localeCompare(b.last_name, 'cs');
+
   const lSortOffice = (a, b) =>
     (((a._office && a._office._org) ? a._office._org._order : 99) -
      ((b._office && b._office._org) ? b._office._org._order : 99)) ||
@@ -410,10 +432,7 @@
     // kteří odešli uprostřed období, sem patří i vedení dřívějších volebních
     // období — starostové, místostarostové a radní z let 2014–2018 a 2018–2022.
     // Řadí se podle váhy poslední funkce, pak od nejnovějšího konce
-    const byvali = shown.filter(p => !p._mandate && !p._exec && !p._office).sort((a, b) =>
-      (L_TL_RANK(a._lastRole ? a._lastRole.role_type : '') - L_TL_RANK(b._lastRole ? b._lastRole.role_type : '')) ||
-      lDateKey((b._lastRole || {}).to).localeCompare(lDateKey((a._lastRole || {}).to)) ||
-      a.last_name.localeCompare(b.last_name, 'cs'));
+    const byvali = shown.filter(p => !p._mandate && !p._exec && !p._office).sort(lSortPast);
     // vedení — lidé, kteří v adresáři nejsou kvůli mandátu, ale kvůli funkci.
     // Úřad města a městské organizace jsou dvě různé věci: úředníky vede
     // tajemnice a jmenuje je starosta, ředitele příspěvkovek jmenuje rada
@@ -422,6 +441,15 @@
     const vedeniOrg = office.filter(p => !p._urad && p._organizace).sort(lSortOffice);
     const orgHead = L_STATE.orgView ? lOrgHead(db.orgById[L_STATE.orgView]) : '';
 
+    // Když je zapnutý filtr podle role, seskupení podle *dnešního* postavení
+    // přestává dávat smysl: hledám-li starosty a zapnu historii, vyjdou mi lidé,
+    // kteří starosty byli dřív — a nadpis „Ostatní členové zastupitelstva"
+    // s popiskem „Bez funkce v radě" o nich tvrdí něco jiného, než proč se
+    // v seznamu octli. Skupiny proto pojmenuje ten filtr: nyní × dříve.
+    const roleLabel = L_STATE.roles.size ? lRolesLabel() : '';
+    const roleNow = L_STATE.roles.size ? shown.filter(lRoleNow).sort(lSortCurrent) : [];
+    const rolePast = L_STATE.roles.size ? shown.filter(p => !lRoleNow(p)).sort(lSortPast) : [];
+
     if (!shown.length) {
       host.innerHTML = notice + orgHead + `
         <div class="callout">
@@ -429,6 +457,12 @@
           Zkus jiné slovo, nebo <button type="button" class="chip-clear" data-lide-clear>vymaž filtry</button>.
           ${L_STATE.scope === 'current' ? 'Dřívější vedení a bývalí zastupitelé se hledají až po přepnutí rozsahu na „Včetně historie".' : ''}
         </div>`;
+    } else if (L_STATE.roles.size) {
+      host.innerHTML = notice + orgHead +
+        lGroup(roleLabel + ' — nyní', roleNow,
+               'Osoby, které vybranou roli zastávají v tuto chvíli.') +
+        lGroup(roleLabel + ' — dříve', rolePast,
+               'Osoby, které vybranou roli zastávaly v minulosti a dnes ji nemají. Kartička ukazuje jejich současné postavení, celý průběh je v detailu.');
     } else {
       host.innerHTML = notice + orgHead +
         lGroup('Rada města', rada) +
