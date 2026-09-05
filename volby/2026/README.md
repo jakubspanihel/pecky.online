@@ -58,7 +58,7 @@ kořenovém `CLAUDE.md`. Doplnit sem, až nějaká vzniknou.
 U každého odkazu na sociální síť v tabulce „Volební uskupení" (sloupeček
 „Poznámka") je v závorce počet sledujících/členů a datum **posledního
 příspěvku na dané síti** (ne datum naší kontroly — ukazatel, jak moc je
-stránka aktivní) — aktualizuje se denně. Těchto 7 odkazů je podmnožinou
+stránka aktivní) — aktualizuje se týdně. Těchto 7 odkazů je podmnožinou
 delšího seznamu v sekci [O webu](../../o-webu/README.md) → „Sociální
 sítě", kde žije i samotný postup kontroly:
 [o-webu/automation-socialni-site.md](../../o-webu/automation-socialni-site.md)

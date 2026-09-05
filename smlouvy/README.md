@@ -18,7 +18,7 @@ Poznámky k datům (viz i kořenový `CLAUDE.md` → „Poznámky k datům"):
 
 Obsah panelu žije v `content/smlouvy.html` (žádná samostatná datová sada).
 
-## Pracovní postup: denní kontrola
+## Pracovní postup: týdenní kontrola
 
 Sekce nemá vlastní snímek ID jako Zakázky — porovnává se přímo proti
 tomu, co je v tabulkách v `content/smlouvy.html`.

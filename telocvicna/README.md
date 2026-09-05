@@ -183,7 +183,7 @@ callout v „Otevřené otázky“ (rozpočet/harmonogram/odpovědnost).
 - Výsledek diagnostiky, právního posouzení a případné budoucí posouzení
   odpovědnosti zhotovitele/projektanta — až se objeví v dalším zápisu
   ZM/RM, doplnit do časové osy a případně přehodnotit `Režim` v
-  kořenové tabulce „Stav sekcí“ (`README.md`) z „hlídat“ na „denně“
+  kořenové tabulce „Stav sekcí“ (`README.md`) z „hlídat“ na „týdně“
   nebo „uzavřené“, podle toho, jak se věc vyvine.
 - Které konkrétní firmě/osobě se vadná dokumentace z roku 2015
   přičítá — Švejnohová jmenuje jen tehdejší politické vedení, ne

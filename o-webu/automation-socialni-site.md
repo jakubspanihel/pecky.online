@@ -13,9 +13,9 @@ zapisují přímo do HTML.
 
 ## Kdy spustit
 
-V rámci denní rutiny, spolu s ostatními sekcemi v režimu „denně" (viz
+V rámci týdenní rutiny, spolu s ostatními sekcemi v režimu „týdně" (viz
 `README.md` → „Stav sekcí"). Počty sledujících se u malých místních
-účtů mění pomalu, ale požadavek je aktualizovat je denně, ne jen
+účtů mění pomalu, ale požadavek je aktualizovat je každý běh, ne jen
 příležitostně.
 
 ## Postup

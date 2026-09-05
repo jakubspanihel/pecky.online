@@ -43,7 +43,7 @@ o samosprávě města Pečky (okres Kolín, Středočeský kraj).
   `img/favicons/` (ikony zdrojů) a `img/peckybot/`. Obrázky vázané na
   konkrétní sekci patří do složky té sekce.
 - `zakazky/` — vše k sekci „Zakázky": `pecky-zakazky-ids.json`
-  (kontrolní snímek ID zakázek pro denní diff, na webu se nezobrazuje)
+  (kontrolní snímek ID zakázek pro týdenní diff, na webu se nezobrazuje)
   a `README.md` s pracovním postupem. Viz `zakazky/README.md`.
 - Každá další sekce webu má vlastní složku `<sekce>/` s `README.md`
   (podrobnosti a datové soubory tam, kde nějaké má, vedle vygenerovaného
@@ -144,7 +144,7 @@ indexu, špatnému názvu projektu a vzorku pouhých 20 nejnovějších dotací.
 Rozcestník: kdy se u které sekce naposledy kontroloval zdroj a kdy se
 naposledy změnil obsah. Řazeno od nejnověji změněné. Data jsou absolutní
 datumy — stáří („před 6 dny") se dopočítává až při čtení, aby tabulka
-nezastarala bez denního běhu. Restrukturalizace a refactory se sem
+nezastarala bez týdenního běhu. Restrukturalizace a refactory se sem
 nezapisují, jen změny obsahu.
 
 | Sekce | Režim | Kontrola | Změna | Co naposledy |
@@ -152,32 +152,48 @@ nezapisují, jen změny obsahu.
 | [Pozemky](pozemky/README.md) | odvozená | 5. 9. 2026 | 5. 9. 2026 | oprava odkazu „řešilo se na: Jednání…" u všech řádků — mířil na `href="#"` s JS handlerem, který se na samostatné stránce Pozemky nikdy nenačetl (pozůstatek jednostránkové architektury); teď skutečný odkaz `/jednani/#rada-YYYY-MM-DD` |
 | [Tělocvična](telocvicna/README.md) | hlídat | 4. 9. 2026 | 4. 9. 2026 | zápis RM 31/2026: Dodatek č. 1 ke SoD schválen, cena díla +6,15 mil. Kč bez DPH na 211,5 mil. vč. DPH; radnice sama uvádí, že tím není dotčeno posouzení odpovědnosti |
 | [Lidé](lide/README.md) | na vyžádání | 5. 9. 2026 | 5. 9. 2026 | fáze 5b (SPEC.md §7): vedení úřadu (tajemnice, 4 vedoucí odborů, velitel MP) + vedení 7 příspěvkovek/firmy (13 osob, 7 nových organizací) |
-| [Jednání](jednani/README.md) | denně | 4. 9. 2026 | 4. 9. 2026 | Rada 31/2026 (31. 8.) doplněna o zápis a 6 usnesení (UR-276 až UR-281); přibyla Rada 32/2026 (7. 9.) zatím jen s Pozvánkou |
-| [O webu](o-webu/README.md) | denně | 4. 9. 2026 | 4. 9. 2026 | nový zdroj: TJ Sokol Pečky (web + Facebook, 221 sledujících), doplnil uživatel |
-| [Volby 2026](volby/2026/README.md) | denně | 3. 9. 2026 | 3. 9. 2026 | tabulka uskupení: NAŠE PEČKY a Pečky NEXT (FB) nová aktivita 3. 9., IG Pečky NEXT 119→120 |
-| [Pečecké noviny](noviny/README.md) | denně | 3. 9. 2026 | 2. 9. 2026 | dávka 2001/2005/2006 od uživatele (5 vydání, 156→161) — 2 vydání OCR (nečitelné dobové kódování fontů) |
+| [Jednání](jednani/README.md) | týdně | 4. 9. 2026 | 4. 9. 2026 | Rada 31/2026 (31. 8.) doplněna o zápis a 6 usnesení (UR-276 až UR-281); přibyla Rada 32/2026 (7. 9.) zatím jen s Pozvánkou |
+| [O webu](o-webu/README.md) | týdně | 4. 9. 2026 | 4. 9. 2026 | nový zdroj: TJ Sokol Pečky (web + Facebook, 221 sledujících), doplnil uživatel |
+| [Volby 2026](volby/2026/README.md) | týdně | 3. 9. 2026 | 3. 9. 2026 | tabulka uskupení: NAŠE PEČKY a Pečky NEXT (FB) nová aktivita 3. 9., IG Pečky NEXT 119→120 |
+| [Pečecké noviny](noviny/README.md) | týdně | 3. 9. 2026 | 2. 9. 2026 | dávka 2001/2005/2006 od uživatele (5 vydání, 156→161) — 2 vydání OCR (nečitelné dobové kódování fontů) |
 | [Plán](plan/README.md) | na vyžádání | 2. 9. 2026 | 2. 9. 2026 | řádek „Nová tělocvična a učebny ZŠ": stav → zastaveno, odkaz na novou sekci Tělocvična |
 | [Volby 2018](volby/2018/README.md) | uzavřené | — | 31. 8. 2026 | tabulka Výsledky voleb: kandidáti nahrazeni avatary zvolených zastupitelů |
 | [Volby 2022](volby/2022/README.md) | uzavřené | — | 31. 8. 2026 | tabulka Výsledky voleb: kandidáti nahrazeni avatary zvolených zastupitelů |
 | [Domů](domu/README.md) | odvozená | — | 24. 8. 2026 | brand header |
-| [Smlouvy](smlouvy/README.md) | denně | 3. 9. 2026 | 20. 8. 2026 | 2 nové smlouvy |
-| [Zakázky](zakazky/README.md) | denně | 3. 9. 2026 | 6. 8. 2026 | 1 nová zakázka |
+| [Smlouvy](smlouvy/README.md) | týdně | 3. 9. 2026 | 20. 8. 2026 | 2 nové smlouvy |
+| [Zakázky](zakazky/README.md) | týdně | 3. 9. 2026 | 6. 8. 2026 | 1 nová zakázka |
 | [Pokladna](pokladna/README.md) | na vyžádání | 6. 8. 2026 | 6. 8. 2026 | blok Bankovní účty |
 
-Režimy: **denně** = má zdroj, který kontroluje denní rutina · **hlídat** =
+Režimy: **týdně** = má zdroj, který kontroluje týdenní rutina (neděle
+večer) · **hlídat** =
 čeká se na událost (volby 2026) · **na vyžádání** = kontroluje se, jen když
 o to někdo požádá · **odvozená** = nemá vlastní externí zdroj, mění se
 s jinou sekcí · **uzavřené** = historický ročník, nový obsah se nečeká.
 Pomlčka ve sloupci Kontrola znamená „nebylo co kontrolovat", ne opomenutí.
 
 Tabulku aktualizuje každá instrukce, která sáhne na obsah některé sekce —
-automatická denní rutina i ručně vyvolaná: přepíše řádek dotčené sekce
+automatická týdenní rutina i ručně vyvolaná: přepíše řádek dotčené sekce
 (datum kontroly, u reálné změny i datum změny a sloupec „Co naposledy")
 a přesune ho na správné místo v řazení. Ostatní řádky nechá být.
 
 `?` u data znamená nedoložený odhad — nahradit, až se zjistí přesné datum.
 
 ## Poslední aktualizace
+
+5. září 2026 (na žádost uživatele překlopena automatická rutina z denní
+na **týdenní** — běží v neděli večer, cron `0 18 * * 0` (fakticky
+týdenní byla už dřív, jen se všude jmenovala „denní“). Sjednoceno
+pojmenování: režim sekcí v tabulce „Stav sekcí“ i v legendě `denně` →
+`týdně` (Jednání, O webu, Volby 2026, Pečecké noviny, Smlouvy,
+Zakázky), přepsané postupy v `zakazky/README.md` (týdenní diff),
+`smlouvy/README.md`, `o-webu/README.md`, `o-webu/automation-socialni-site.md`,
+`volby/2026/README.md`, `jednani/automation-kontrola-usneseni-cz.md`
+(nově upozorňuje, že za týden mohlo přibýt víc jednání najednou —
+kontrolovat celé období od data v tabulce, ne jen poslední den)
+a `telocvicna/README.md`. Na webu: `content/owebu.html` → sociální sítě
+„aktualizuje se týdně“. Historické záznamy v tomto changelogu zmiňující
+„denní kontrolu“ zůstávají beze změny — popisují běhy, které tak
+skutečně proběhly.)
 
 4. září 2026 (na žádost uživatele doplněn do `content/telocvicna.html`
 obsah zápisu RM 31/2026 (Dodatek č. 1 ke smlouvě o dílo, viz zápis

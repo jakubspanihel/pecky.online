@@ -23,7 +23,7 @@ Obsah panelu žije v `content/owebu.html` (žádná samostatná datová sada).
 Sekce „Sociální sítě" (druhý blok `div.quicklinks`) shrnuje všechny
 facebookové/instagramové/YouTube účty zmiňované na webu, u každého počet
 sledujících/členů/odběratelů a datum posledního příspěvku/videa (ukazatel
-aktivity, ne datum naší kontroly). Aktualizuje se denně, postup viz
+aktivity, ne datum naší kontroly). Aktualizuje se týdně, postup viz
 [automation-socialni-site.md](automation-socialni-site.md). Sedm z těchto
 odkazů (volební uskupení) se zapisuje i do tabulky „Volební uskupení" na
 [Volby 2026](../volby/2026/README.md) — postup pokrývá obě místa

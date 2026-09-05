@@ -20,7 +20,7 @@ který se na webu nezobrazuje a slouží jen ke kontrole novinek.
 ## Datový soubor `pecky-zakazky-ids.json`
 
 Snímek (snapshot) seznamu ID veřejných zakázek města, který slouží jako
-základ pro **denní diff** — tedy porovnání „co bylo minule" proti „co je
+základ pro **týdenní diff** — tedy porovnání „co bylo minule" proti „co je
 na Hlídači dnes". Není to zdroj obsahu pro web, jen kontrolní otisk.
 
 Umístění: `zakazky/pecky-zakazky-ids.json`
@@ -36,7 +36,7 @@ Struktura:
 | `count` | Počet ID v poli `ids` (musí souhlasit s jeho délkou) |
 | `ids` | Pole unikátních ID zakázek ve formátu `P##V########` |
 
-## Pracovní postup: denní diff
+## Pracovní postup: týdenní diff
 
 1. Otevřít vyhledávání na Hlídači veřejných zakázek pro IČO 00239607
    (hodnota pole `source`) a projít **všechny** stránky výsledků.

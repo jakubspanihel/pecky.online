@@ -28,9 +28,12 @@ u kroku 4.
 
 ## Kdy spustit
 
-Kdykoli — na webu nemá smysl kontrolovat víc než jednou denně (rada
-zasedá týdně, zastupitelstvo měsíčně). Web zápis obvykle publikuje
-s odstupem 1–3 dnů po jednání.
+Kdykoli; automaticky v rámci týdenní rutiny (neděle večer). Rada zasedá
+týdně, zastupitelstvo měsíčně, takže jeden běh za týden odpovídá tempu
+zdroje — počítej ale s tím, že od minulého běhu mohlo přibýt víc jednání
+najednou, a projdi celé období od data v tabulce „Stav sekcí". Web zápis
+obvykle publikuje s odstupem 1–3 dnů po jednání, takže poslední jednání
+může být ještě bez zápisu.
 
 ## Postup
 
