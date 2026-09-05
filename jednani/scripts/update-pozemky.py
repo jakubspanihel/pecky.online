@@ -191,7 +191,7 @@ def extract_rows(data):
                 date=m['date'], typ=r['n'][1] if False else ('Zastupitelstvo' if r['n'].startswith('UZ') else 'Rada'),
                 n=r['n'], item=item, parc=parc, kat=kat, cls=classify(item),
                 price_disp=price_disp, price_num=price_num, url=r.get('url', ''),
-                meeting_uuid=m.get('uuid', ''), meeting_number=m.get('number'),
+                meeting_number=m.get('number'),
             ))
     rows.sort(key=lambda x: x['date'], reverse=True)
 
@@ -416,6 +416,13 @@ def meeting_genitive(typ):
     return 'rady' if typ == 'Rada' else 'zastupitelstva'
 
 
+def meeting_slug(typ, date):
+    """Trvalý hash jednání dle jSlugForMeeting() v content/jednani.html
+    (typ-YYYY-MM-DD) — jRouteHash() na stránce Jednání jím při načtení
+    rovnou otevře správný řádek, viz J_MEETING_HASH_RE."""
+    return ('zastupitelstvo' if typ == 'Zastupitelstvo' else 'rada') + '-' + date
+
+
 def row_html(r, cache):
     kat = esc(r['kat'] or 'neuvedeno')
     price = esc(r['price_disp'] or '–')
@@ -426,13 +433,14 @@ def row_html(r, cache):
     item_link = f'<a href="{esc(r["url"])}" target="_blank" rel="noopener">{item}</a>' if r['url'] else item
     parc_html = parcela_cell(r, cache)
     meeting_link = ''
-    if r.get('meeting_uuid') and r.get('meeting_number'):
+    if r.get('meeting_number'):
         meeting_label = f'Jednání {meeting_genitive(r["typ"])} č. {r["meeting_number"]}'
         is_future = r['date'] > TODAY
         prefix = 'bude se řešit na: ' if is_future else 'řešilo se na: '
         chip = ' <span class="tag" style="margin-left:4px;">PLÁNOVÁNO</span>' if is_future else ''
+        slug = meeting_slug(r['typ'], r['date'])
         meeting_link = (f'<br><span class="pozemek-jednani-meta">{prefix}'
-                         f'<a href="#" class="pozemek-jednani-link" data-jednani-uuid="{esc(r["meeting_uuid"])}">{esc(meeting_label)}</a>{chip}</span>')
+                         f'<a href="/jednani/#{slug}">{esc(meeting_label)}</a>{chip}</span>')
     return (f'        <tr><td>{fmt_date(r["date"])}</td><td>{parc_html}</td><td>{kat}</td>'
             f'<td>{item_link}{note} <span class="tag" style="margin-left:4px;">{n_esc}</span>{meeting_link}</td>'
             f'<td style="white-space:nowrap;">{price}</td></tr>')
