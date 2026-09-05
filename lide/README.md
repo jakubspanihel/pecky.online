@@ -43,6 +43,13 @@ Jeden člověk tak může mít fotky ve víc ročnících najednou — proto
 §3.7. Po dalších volbách zakládat novou sadu ve složce nového ročníku,
 staré nepřepisovat. Detaily viz [`volby/README.md`](../volby/README.md).
 
+Výjimkou jsou portréty, které nepocházejí z voleb — ty leží v
+`lide/foto/{prijmeni}.jpg`. Zatím jde o jediný případ: 2. místostarosta
+Ing. Martin Jedlička, jehož fotka je z Rady města na oficiálním webu
+(pecky.as4u.cz). Do složky volebního ročníku nepatří, protože ta je
+popsaná jako portréty zvolených kandidátů z volebních materiálů — fotka
+z webu radnice by tam o svém původu lhala.
+
 ## Datová sada
 
 Ve složce leží strojově čitelný adresář osob, organizací a vazeb mezi
@@ -50,6 +57,7 @@ nimi. Návrh a rozhodnutí, proč je model takový, jsou v [`SPEC.md`](SPEC.md);
 tahle kapitola je provozní — jak s daty pracovat.
 
 ```
+foto/                portréty z jiných zdrojů než z voleb (viz níž)
 people.json          242 osob (21 aktuálních zastupitelů + 2 bývalí s plným
                       profilem, 206 dalších kandidátů ze všech kandidátek
                       2018/2022/2026 s minimálním záznamem (SPEC.md §3.6),
@@ -241,9 +249,10 @@ trval.
 
 `photos` je pole, ne jedna hodnota — jeden člověk může kandidovat víckrát
 a fotka na kandidátce se mezi lety mění (viz SPEC.md §3.7). Každá položka:
-`year` (ročník kandidátky), `url` (cesta od kořene repa do složky
-volebního ročníku), `photo_source` (původ — kandidátka ods.cz, nebo
-inzerát v Pečeckých novinách). Karta osoby ukazuje vždy nejnovější
+`year` (ročník kandidátky nebo volební období), `url` (cesta od kořene
+repa — `volby/{rok}/zastupitele/…` u fotek z voleb, `lide/foto/…`
+u ostatních), `photo_source` (původ — kandidátka ods.cz, inzerát
+v Pečeckých novinách, web města…). Karta osoby ukazuje vždy nejnovější
 (`photos[0]`, pole je řazené sestupně), detail osoby všechny. Kdo fotku
 nemá, má `photos: []` a v UI dostane iniciálový avatar na barvě
 uskupení — viz kapitola „Fotky" výš.

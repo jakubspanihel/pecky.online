@@ -50,10 +50,13 @@ lide/
 └── SPEC.md              tenhle dokument
 ```
 
-**Fotky tady nejsou** a nebudou. Portréty patří k volebnímu ročníku, ve kterém
-byli lidé zvoleni — `volby/2022/zastupitele/{prijmeni}.jpg` — a odkazuje
-se na ně plnou cestou od kořene repa. Pravidlo je starší než tahle sekce, viz
-[`volby/README.md`](../volby/README.md).
+**Fotky z volebních materiálů tady nejsou.** Portréty z kandidátek patří
+k volebnímu ročníku, ve kterém byli lidé zvoleni —
+`volby/2022/zastupitele/{prijmeni}.jpg` — a odkazuje se na ně plnou cestou
+od kořene repa. Pravidlo je starší než tahle sekce, viz
+[`volby/README.md`](../volby/README.md). Podsložka `lide/foto/` je na
+portréty, které se k žádným volbám neváží (typicky z webu radnice) —
+podrobně v §3.7.
 
 **Proč tři soubory a ne jeden `lide.json`:** `jednani` a
 `noviny` mají jeden soubor, protože drží jednu entitu. Tady jsou entity
@@ -346,9 +349,22 @@ hodnota — každá položka je fotka za jeden ročník:
 
 | Pole | Typ | Povinné | Poznámka |
 |---|---|---|---|
-| `year` | number | ✅ | ročník, ke kterému fotka patří (kandidátka toho roku, ne datum pořízení) |
-| `url` | string | ✅ | cesta od kořene repa, do složky volebního ročníku (`volby/{rok}/zastupitele/…`) — fotky nikdy neleží v `lide/`, viz §2 |
+| `year` | number | ✅ | ročník, ke kterému fotka patří (kandidátka nebo volební období toho roku, ne datum pořízení) |
+| `url` | string | ✅ | cesta od kořene repa — viz pravidlo o umístění níž |
 | `photo_source` | string | ✅ | původ fotky (strana, kandidátka, URL) |
+
+**Kam fotka patří** podle toho, odkud je:
+
+- **z volebního materiálu** (kandidátní listina, volební inzerce) →
+  `volby/{rok}/zastupitele/…`, protože se váže k tomu ročníku;
+- **z jiného veřejného zdroje** — typicky oficiální web města, kde má
+  fotku vedení a úředníci bez vazby na volby → `lide/foto/…`.
+
+Původní pravidlo znělo „fotky nikdy neleží v `lide/`" a platilo v době, kdy
+všechny pocházely z kandidátek. Portrét 2. místostarosty Martina Jedličky
+z pecky.as4u.cz do složky volebního ročníku nepatří — ta je popsaná jako
+portréty *zvolených kandidátů z volebních materiálů* a strčit tam fotku
+z webu radnice by o jejím původu lhalo.
 
 **Pravidla:**
 - Pole se řadí `year` sestupně (nejnovější první) — validátor i UI na tom
