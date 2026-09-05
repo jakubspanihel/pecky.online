@@ -1,7 +1,5 @@
   <section class="panel active" id="panel-jednani">
     <h2 class="title display">Jednání a usnesení</h2>
-    <p class="lede" style="margin-bottom:16px;">Oficiální schůzky zvolených zástupců Peček, kde rozhodují o věcech veřejných. <span class="stamp">ověřeno</span></p>
-
     <p class="lede" id="jednani-stats">Archiv se právě načítá…</p>
 
     <div class="search-bar">
@@ -44,6 +42,7 @@
   let JEDNANI_LOADING = null;
   let PARCEL_URLS = {};
   let PEOPLE_PHOTOS = {};  // jNameKey(jméno) -> URL fotky, z lide/people.json
+  let TERM_BOUNDARIES = [];  // hranice volebních období, z jednani/volebni-obdobi.json
 
   function jTextSim(a, b){
     const clean = s => jNorm(s || '').replace(/[^a-z0-9\s]/g, ' ').replace(/\s+/g, ' ').trim();
@@ -206,10 +205,11 @@
     if (JEDNANI_LOADING) return JEDNANI_LOADING;
     JEDNANI_LOADING = (async () => {
       try {
-        const [res, parcelRes, peopleRes] = await Promise.all([
+        const [res, parcelRes, peopleRes, termRes] = await Promise.all([
           fetch('/jednani/pecky-jednani.json'),
           fetch('/jednani/parcely-odkazy.json').catch(() => null),
-          fetch('/lide/people.json').catch(() => null)
+          fetch('/lide/people.json').catch(() => null),
+          fetch('/jednani/volebni-obdobi.json').catch(() => null)
         ]);
         if (!res.ok) throw new Error('HTTP ' + res.status);
         if (parcelRes && parcelRes.ok) {
@@ -224,6 +224,9 @@
               PEOPLE_PHOTOS[jNameKey([p.first_name, p.last_name].filter(Boolean).join(' '))] = p.photos[0].url;
             });
           } catch (e) { /* bez fotek se použijí iniciálové avatary, jako dřív */ }
+        }
+        if (termRes && termRes.ok) {
+          try { TERM_BOUNDARIES = (await termRes.json()).obdobi || []; } catch (e) { TERM_BOUNDARIES = []; }
         }
         const data = await res.json();
         const years = new Set();
@@ -420,9 +423,18 @@
     return `<ol class="agenda-list">${items}</ol>${unmatched}`;
   }
 
+  function jTermDividerHtml(prev, m){
+    if (!prev) return '';
+    const boundary = TERM_BOUNDARIES.find(b => prev.date > b.date && m.date <= b.date);
+    return boundary
+      ? `<div class="term-divider"><span>${jEscapeHtml(boundary.label)}</span></div>`
+      : '';
+  }
+
   function jRenderMeetingList(meetings){
     if (!meetings.length) return '<p class="lede">Žádná jednání neodpovídají filtru.</p>';
-    const rows = meetings.map(m => {
+    const rows = meetings.map((m, i) => {
+      const dividerHtml = jTermDividerHtml(meetings[i - 1], m);
       const future = jIsFutureMeeting(m.date);
       const isToday = jIsTodayMeeting(m.date);
       const chip = future ? '<span class="tag probiha">plánováno</span>'
@@ -444,6 +456,7 @@
         : jRenderPresenceRow(m);
       const slug = jSlugForMeeting(m);
       return `
+      ${dividerHtml}
       <div class="meeting-row${future ? ' meeting-row--future' : ''}${isToday ? ' meeting-row--today' : ''}" data-uuid="${m.uuid}" data-slug="${slug}">
         <div class="meeting-row-main">
           <span class="meeting-label">
