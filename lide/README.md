@@ -123,8 +123,12 @@ Ten rozdíl je správně a je vidět v timeline.
 Pět skupin v tomhle pořadí: **Rada města**, **Ostatní členové
 zastupitelstva**, **Úřad města** (`vedeni-urad`), **Městské organizace**
 (`vedeni-organizace`) a — až po přepnutí rozsahu na „Včetně historie" —
-**Bývalí členové zastupitelstva**. Volení lidé nahoře, jmenovaní pod nimi,
-historie nakonec.
+**Dřívější vedení a bývalí zastupitelé**. Volení lidé nahoře, jmenovaní
+pod nimi, historie nakonec.
+
+Poslední skupina není jen o lidech, kteří odešli uprostřed období. Patří
+do ní každý s doloženou ukončenou funkcí a bez aktuální — tedy i starostové,
+místostarostové a radní minulých volebních období.
 
 Nad kartičkami je jediný řádek filtrů, **podle role**. Čipy podle uskupení
 tam byly a jsou pryč — řádek s pěti stranami nad jednadvaceti lidmi zabíral
@@ -160,6 +164,33 @@ Exit 0 = čisté, 1 = chyby. Kromě obecné integrity hlídá i pravidla
 Peček: 21 zastupitelů, 7 radních, právě jeden starosta, každý zastupitel
 má kandidátku, dvě uskupení nemají tutéž barvu, a soubor, na který
 ukazuje `url` každé položky `photos`, existuje.
+
+### Historie vedení města
+
+| Období | Starosta/ka | Místostarostové | Zdroj |
+|---|---|---|---|
+| 2006–2018 | Milan Urban (Sdružení ODS a NK) | — | Kolínský deník 29. 9. 2018 |
+| 2014–2018 | Milan Urban | Milan Paluska | Kolínský deník 29. 9. 2018 |
+| 2018–2022 | Mgr. Alena Švejnohová | Bc. Iveta Minaříková, Mgr. Blanka Kozáková | Pečecké noviny 12/2018, str. 3 |
+| 2022–dosud | Milan Paluska | Zdeněk Fejfar, Ing. Martin Jedlička | usnesení ZM 7/2022 |
+
+Milan Urban byl starostou **tři volební období po sobě (2006, 2010, 2014)**,
+dvanáct let. Ve volbách 2018 už nekandidoval a v zastupitelstvu 2018–2022
+není; vrátil se až mandátem z voleb 2022. Přesné datum nástupu v roce 2006
+se nepodařilo doložit (archiv Pečeckých novin má mezeru mezi dubnem 2006
+a prosincem 2007), proto je `from` uložené jen jako rok.
+
+Rada 2014–2018: Ing. Petr Zedník, Martin Homan, Ing. arch. Pavel Švanda
+M.Sc. (KDU-ČSL), Šárka Horynová (KDU-ČSL), Zdeněk Fejfar.
+Rada 2018–2022: Šárka Horynová, Tomáš Vodička, Jiří Katrnoška,
+Jaroslav Železný (+ starostka a obě místostarostky).
+
+**Ještě nedoplněno:** řadoví zastupitelé období 2014–2018 a 2018–2022.
+Oba jmenné seznamy jsou doložené (Kolínský deník má u roku 2014 i uskupení
+u každého jména; soupis „Naši zastupitelé" v Pečeckých novinách 12/2018 má
+sloupce v PDF promíchané, takže přiřazení uskupení k jménům z něj **nelze
+brát jako ověřené**). Většina těch lidí už v `people.json` je — jako
+kandidáti — takže jde o doplnění vazeb, ne osob.
 
 ### Jak přidat osobu
 
@@ -210,11 +241,19 @@ jen přibude nová — stejně jako u vazeb historie nemizí.
 - **Výbory jsou zatím jen dva záznamy** (předsednictví kontrolního
   výboru). Zbytek členů finančního a kontrolního výboru je v archivu
   jednání pod `UZ-98`…`UZ-111` — doplnit ve fázi 5b.
-- **Kdo byl zvolen na ustavujícím zasedání po volbách 2018, v datech
-  není** (jen kdo kandidoval). To zasedání je starší než archiv
-  usneseni.cz (začíná dubnem 2021), viz
-  [`volby/2018/README.md`](../volby/2018/README.md) — nedá se snadno
-  dohledat, kdo z kandidátů 2018 skutečně získal mandát a zasedal.
+- **Z ustavujícího zasedání po volbách 2018 je v datech jen vedení**
+  (starostka, obě místostarostky a rada), ne všech 21 zastupitelů.
+  Zasedání je starší než archiv usneseni.cz (začíná dubnem 2021), viz
+  [`volby/2018/README.md`](../volby/2018/README.md), takže zdrojem jsou
+  Pečecké noviny 12/2018 — a **poměry hlasů při volbě starostky se
+  dohledat nedaří**. Jmenný soupis „Naši zastupitelé" v témž článku má
+  v PDF promíchané sloupce, takže přiřazení uskupení k jménům z něj nelze
+  brát jako ověřené; proto zatím nedoplněno.
+- **Kandidatury mají v datech `current: true` a `to: null`**, přestože jde
+  o jednorázovou událost. Panel to obchází zobrazením — `lActive()` je za
+  aktivní nepovažuje a v timeline je vypisuje jako „volby 5. 10. 2018",
+  jinak by dávno skončená kandidatura přebila skutečné funkce. Správně by
+  to měla řešit data; změna se dotkne přes 350 vazeb, proto zatím čeká.
 - **206 kandidátů (fáze 5a, SPEC.md §3.6) má zatím jen minimální
   záznam** — jméno, příjmení, vazba na kandidátku. Bez `bio`, fotky,
   kontaktů a `sources` na osobě (zdroj je jen na vazbě). Doplnění je

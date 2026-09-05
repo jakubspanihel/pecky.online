@@ -252,8 +252,6 @@
   .person-card[data-person]{cursor:pointer; transition:border-color .15s, box-shadow .15s;}
   .person-card[data-person]:hover{box-shadow:0 2px 0 rgba(42,36,32,0.10);}
   .person-card[data-person]:focus-visible{outline:2px solid var(--burgundy); outline-offset:2px;}
-  .person-card .party[data-lide-orgview]{cursor:pointer; text-decoration:underline; text-decoration-style:dotted; text-underline-offset:2px;}
-  .person-card .party[data-lide-orgview]:hover{color:var(--ink);}
 
   .person-detail{grid-column:1 / -1; border:1px solid var(--ink); background:#fff; padding:18px 20px 16px;}
   .person-detail .detail-head{display:flex; align-items:baseline; justify-content:space-between; gap:12px; flex-wrap:wrap;}

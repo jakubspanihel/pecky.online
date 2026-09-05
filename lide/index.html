@@ -114,9 +114,17 @@
     if (!v) return '0000-00-00';
     return /^\d{4}$/.test(v) ? v + '-01-01' : v;
   }
+  // Kandidatura je jednorázová událost, ne trvající stav. V datech má
+  // current: true a to: null (tak ji založila fáze 5), takže by se v timeline
+  // vykreslila jako „– dosud" a vyskočila nad skutečné, dávno ukončené funkce.
+  // Pro zobrazení a řazení ji proto za aktivní nepovažujeme.
+  function lActive(a){
+    return !!a.current && a.role_type !== 'kandidatka';
+  }
   // období vazby lidsky; rozlišuje „trvá" od „konec neznámý"
   function lRange(a){
     const from = a.from ? lFormatDate(a.from) : '';
+    if (a.role_type === 'kandidatka') return from ? `volby ${from}` : 'termín voleb neznámý';
     if (a.current) return from ? `${from} – dosud` : 'trvá, začátek neznámý';
     if (a.to) return from ? `${from} – ${lFormatDate(a.to)}` : `do ${lFormatDate(a.to)}`;
     return from ? `od ${from}, konec neznámý` : 'období neznámé';
@@ -155,19 +163,29 @@
       // poslední mandát v historii — pro bývalé členy, aby se dala ukázat role i konec
       p._lastMandate = p._affs.filter(a => a.role_type === 'zastupitel')
         .sort((x, y) => lDateKey(y.from).localeCompare(lDateKey(x.from)))[0] || null;
-      p._until = (!p._mandate && p._lastMandate) ? p._lastMandate.to : '';
+      // nejvýznamnější ukončená funkce vůbec — starosta z minulého období nemá
+      // mandát ani úřad, ale na kartičce má stát „Starosta", ne „Kandidát"
+      p._lastRole = p._affs.filter(a => !lActive(a) && a.role_type !== 'kandidatka')
+        .sort((x, y) => (L_TL_RANK(x.role_type) - L_TL_RANK(y.role_type)) ||
+                        lDateKey(y.to).localeCompare(lDateKey(x.to)))[0] || null;
+      p._until = (!p._mandate && !p._exec && !p._office)
+        ? ((p._lastMandate && p._lastMandate.to) || (p._lastRole && p._lastRole.to) || '')
+        : '';
 
       // na kartičce se ukazuje funkce v radě, jinak mandát, u bývalých ten
       // poslední, u čistých kandidátů bez mandátu aspoň text z kandidátky,
       // u vedení úřadu/organizací bez kandidátky aspoň jejich funkce
       p._displayRole = p._exec ? p._exec.role
-        : (p._mandate ? p._mandate.role : (p._lastMandate ? p._lastMandate.role : (list ? list.role : (p._office ? p._office.role : ''))));
+        : (p._mandate ? p._mandate.role
+          : (p._office ? p._office.role
+          : (p._lastRole ? p._lastRole.role
+          : (list ? list.role : ''))));
 
       // timeline: aktuální vazby nahoru, uvnitř podle váhy funkce a pak od nejnovější.
       // Váha musí být před datem — starosta i mandát začaly týmž dnem a čistě
       // chronologické řazení by nahoru vytáhlo náhodně to, co je v poli první
       p._timeline = p._affs.slice().sort((x, y) =>
-        (Number(!!y.current) - Number(!!x.current)) ||
+        (Number(lActive(y)) - Number(lActive(x))) ||
         (L_TL_RANK(x.role_type) - L_TL_RANK(y.role_type)) ||
         lDateKey(y.from).localeCompare(lDateKey(x.from)));
 
@@ -266,7 +284,7 @@
   // městských organizací, kteří do zastupitelstva nikdy nekandidovali.
   // Záznamy v people.json zůstávají, jen se nerenderují.
   function lListed(p){
-    return !!(p._mandate || p._exec || p._lastMandate || p._office);
+    return !!(p._mandate || p._exec || p._office || p._lastRole);
   }
   function lMatches(p){
     if (!lListed(p)) return false;
@@ -298,12 +316,14 @@
       ? `<img class="avatar" src="${jEscapeHtml(photoUrl)}" alt="${jEscapeHtml(lPlainName(p))}" loading="lazy" width="64" height="64">`
       : `<div class="avatar-fallback" style="background:${jEscapeHtml(org && org.color ? org.color : '#5B5347')};" aria-hidden="true">${jInitials(lFullName(p))}</div>`;
     const until = p._until ? `<span class="tag until">do ${jEscapeHtml(lFormatDate(p._until))}</span>` : '';
-    // uskupení je klikací pro myš, ale ne samostatný tab stop — vnořený ovládací
-    // prvek uvnitř role="button" by mátl čtečky; v detailu je z něj pravý odkaz
-    // u vedení úřadu není kandidátka — místo ní se ukazuje organizace, kterou vedou
+    // Popiska je jen text, ne ovládací prvek: celá kartička je role="button",
+    // který otevírá detail, a druhý klikací cíl uvnitř něj mátl myš i čtečky.
+    // Na uskupení/organizaci se prokliká z timeline v detailu, kde je z toho
+    // pravý odkaz. U vedení úřadu není kandidátka — místo ní se ukazuje
+    // organizace, kterou vedou.
     const badge = org || (p._office ? p._office._org : null);
     const party = badge
-      ? `<div class="party" data-lide-orgview="${jEscapeHtml(badge.id)}" title="${org ? 'Zobrazit uskupení' : 'Zobrazit organizaci'}">${jEscapeHtml(badge.short_name || badge.name)}</div>`
+      ? `<div class="party">${jEscapeHtml(badge.short_name || badge.name)}</div>`
       : '<div class="party">—</div>';
     return `
         <div class="person-card${cls}" data-person="${jEscapeHtml(p.id)}" role="button" tabindex="0"
@@ -324,7 +344,7 @@
         : '—';
       const src = lSourceLinks(a.sources);
       return `
-          <li class="tl-item ${a.current ? 'tl-item--current' : 'tl-item--past'}">
+          <li class="tl-item ${lActive(a) ? 'tl-item--current' : 'tl-item--past'}">
             <span class="tl-role">${jEscapeHtml(lRoleLabel(a.role))}</span>
             <span class="tl-org">· ${orgHtml}</span>
             <span class="tl-range">${jEscapeHtml(lRange(a))}${a.verified ? '' : ' · neověřeno'}</span>
@@ -426,8 +446,14 @@
     const shown = db.people.filter(lMatches);
     const rada = shown.filter(p => p._exec).sort(lSortExec);
     const ostatni = shown.filter(p => p._mandate && !p._exec).sort(lSortParty);
-    // „bývalí" = měli někdy skutečný mandát zastupitele, teď ne
-    const byvali = shown.filter(p => !p._mandate && !p._exec && p._lastMandate).sort(lSortParty);
+    // „bývalí" = mají doloženou ukončenou funkci a žádnou aktuální. Kromě lidí,
+    // kteří odešli uprostřed období, sem patří i vedení dřívějších volebních
+    // období — starostové, místostarostové a radní z let 2014–2018 a 2018–2022.
+    // Řadí se podle váhy poslední funkce, pak od nejnovějšího konce
+    const byvali = shown.filter(p => !p._mandate && !p._exec && !p._office).sort((a, b) =>
+      (L_TL_RANK(a._lastRole ? a._lastRole.role_type : '') - L_TL_RANK(b._lastRole ? b._lastRole.role_type : '')) ||
+      lDateKey((b._lastRole || {}).to).localeCompare(lDateKey((a._lastRole || {}).to)) ||
+      a.last_name.localeCompare(b.last_name, 'cs'));
     // vedení — lidé, kteří v adresáři nejsou kvůli mandátu, ale kvůli funkci.
     // Úřad města a městské organizace jsou dvě různé věci: úředníky vede
     // tajemnice a jmenuje je starosta, ředitele příspěvkovek jmenuje rada
@@ -441,7 +467,7 @@
         <div class="callout">
           <strong>Nikdo neodpovídá zadání.</strong>
           Zkus jiné slovo, nebo <button type="button" class="chip-clear" data-lide-clear>vymaž filtry</button>.
-          ${L_STATE.scope === 'current' ? 'Bývalí členové zastupitelstva se hledají až po přepnutí rozsahu na „Včetně historie".' : ''}
+          ${L_STATE.scope === 'current' ? 'Dřívější vedení a bývalí zastupitelé se hledají až po přepnutí rozsahu na „Včetně historie".' : ''}
         </div>`;
     } else {
       host.innerHTML = notice + orgHead +
@@ -455,8 +481,8 @@
                'Nevolení lidé, kteří řídí každodenní chod radnice — tajemnice, vedoucí odborů a velitel městské policie. Do zastupitelstva nekandidovali; do funkce je jmenuje starosta, ne voliči.') +
         lGroup('Městské organizace', vedeniOrg,
                'Ředitelé příspěvkových organizací města a jednatelka městské firmy — školy, knihovna, kulturní středisko, pečovatelská služba. Jmenuje je rada města.') +
-        lGroup('Bývalí členové zastupitelstva', byvali,
-               'Mandát skončil v průběhu volebního období. Kartičky zůstávají, aby historie nemizela — kdo nastoupil místo nich, je v sekci Volby 2022.');
+        lGroup('Dřívější vedení a bývalí zastupitelé', byvali,
+               'Lidé s doloženou funkcí, která už skončila — starostové, místostarostové a radní minulých volebních období i zastupitelé, kteří odešli uprostřed toho současného. Kartičky zůstávají, aby historie nemizela.');
     }
 
     // data-goto uvnitř generovaného HTML potřebuje vlastní posluchač
@@ -483,7 +509,7 @@
     } else {
       const zastupitelu = db.people.filter(p => p._mandate || p._exec).length;
       const radnich = db.people.filter(p => p._exec).length;
-      const hist = L_STATE.scope === 'all' ? ` · ${byvali.length} bývalých členů` : '';
+      const hist = L_STATE.scope === 'all' ? ` · ${byvali.length} v historii` : '';
       const office = (vedeniUrad.length || vedeniOrg.length)
         ? ` · vedení: ${vedeniUrad.length} na úřadu, ${vedeniOrg.length} v městských organizacích`
         : '';
