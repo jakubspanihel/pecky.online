@@ -262,9 +262,15 @@ jen přibude nová — stejně jako u vazeb historie nemizí.
 
 ### Přiznané mezery v datech
 
-- **Kontakty nejsou vyplněné u nikoho.** Do `email` a `phone` patří jen
-  pracovní kontakty z veřejného zdroje; ty se zatím nepodařilo ověřit
-  (pecky.cz blokuje bot přístup).
+- **Kontakty má 33 z 243 osob** (21 zastupitelů, 6 vedení úřadu, 6 vedení
+  městských organizací). Zdroje: [Zastupitelstvo
+  města](https://pecky.as4u.cz/cs/mesto/zastupitelstvo-mesta/) (e-maily
+  všech 21, tvar `jmeno.prijmeni@pecky.cz` bez diakritiky),
+  [Telefonní seznam](https://pecky.as4u.cz/cs/mestsky-urad/telefonni-seznam-5.html)
+  a stránky odborů. Telefon má jen ten, komu web uvádí **vlastní linku** —
+  ústředna `+420 321 785 051` se jako osobní kontakt nezapisuje.
+  Kandidáti bez funkce kontakt nemají a mít nebudou: nejsou veřejní
+  funkcionáři a město jejich spojení nezveřejňuje.
 - **Uskupení Bc. Ivety Dvořákové a Lenky Třískové je dopočítané**, ne
   citované — usnesení uskupení u jmen neuvádějí. Obě vazby mají proto
   `verified: null` a vysvětlení v `note`.
