@@ -3,7 +3,7 @@
     <p class="lede">Město řídí dvě propojené skupiny. Zastupitelstvo je 21členný sbor, který si občané volí přímo v komunálních volbách jednou za čtyři roky — má poslední slovo v zásadních otázkách jako rozpočet nebo majetek města. Zastupitelstvo si pak ze svého středu zvolí radu, menší výkonný tým, který řídí každodenní chod úřadu mezi jednotlivými zasedáními. Níž se dozvíš, kdo v nich sedí a o čem přesně rozhodují.</p>
 
     <div class="search-bar">
-      <input type="search" id="lide-search" placeholder="Hledat jméno, funkci nebo uskupení, např. „Švejnohová“, „místostarosta“, „NAŠE PEČKY“…" autocomplete="off" aria-label="Hledat v adresáři">
+      <input type="search" id="lide-search" placeholder="Hledat jméno nebo funkci, např. „Urban“ nebo „ředitel“" autocomplete="off" aria-label="Hledat v adresáři">
       <div class="segmented-control">
         <span class="segmented-label">Rozsah:</span>
         <div class="segmented-group" role="group" aria-label="Rozsah adresáře">
@@ -17,9 +17,6 @@
     <p class="search-status" id="lide-status" aria-live="polite">Načítám adresář…</p>
     <div id="lide-results"></div>
 
-    <div class="callout" style="margin-top:26px;">
-      <strong>O fotografiích:</strong> u <span id="lide-photo-count">13 z 21</span> členů se podařilo dohledat fotografii — pokud je jich u jedné osoby víc (fotka se mezi volbami mění), zobrazuje se vždy ta nejnovější, starší zůstávají v detailu osoby. Šest členů Sdružení ODS a nezávislých kandidátů má oficiální portrét z kandidátky — u pěti z nich nejnovější z <a href="https://www.ods.cz/os.kolin/volby2026/komunalni/3715-pecky" target="_blank" rel="noopener">kandidátní listiny pro volby 2026 na ods.cz</a>, u jednoho (Ing. Karel Krištoufek, v roce 2026 znovu nekandiduje) zůstává starší z <a href="https://www.ods.cz/ms.pecky/volby2022/komunalni/2570-pecky" target="_blank" rel="noopener">kandidátky 2022</a> (stejné fotky, jaké strana používala i v tištěné inzerci). Sedm členů NAŠE PEČKY má fotku — u čtyř z nich nejnovější z <a href="https://nasepecky.cz/#kandidati" target="_blank" rel="noopener">kandidátní listiny pro volby 2026 na nasepecky.cz</a>, u tří (Václav Drška, Šárka Horynová, Tomáš Vodička — v roce 2026 znovu nekandidují) zůstává starší z volebního inzerátu v Pečeckých novinách 9/2022 (str. 11), kde kandidáti sami zveřejnili portrét se jménem. U zbylých osmi (SNK Pečky Pečákům, Lidé pro Pečky s podporou SPD, ČSSD a sjednocená levice) jsem nenašel žádný oficiální web s fotkami jednotlivých kandidátů — jejich inzerce v novinách obsahovala jen jmenný seznam nebo nepojmenovanou skupinovou fotku, ze které nelze spolehlivě přiřadit obličej ke jménu — proto jen barevný iniciálový avatar. Zdroj a datum pokusu viz <a href="/volby/2026/">Volby 2026</a>.
-    </div>
   </section>
 
 <script>
@@ -648,11 +645,6 @@
 
         lBuildChips();
         lApplyRoute();
-
-        // počet fotek v callloutu „O fotografiích" — ať číslo v textu nezastará
-        const current = LIDE_DB.people.filter(p => p._mandate || p._exec);
-        const countEl = document.getElementById('lide-photo-count');
-        if (countEl) countEl.textContent = `${current.filter(p => p.photos && p.photos.length).length} z ${current.length}`;
 
         return LIDE_DB;
       } catch (e) {

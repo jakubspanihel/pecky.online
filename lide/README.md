@@ -79,9 +79,16 @@ zobrazili i ve výchozím rozsahu „Jen aktuální“, `lInScope()` v
 `index.html` už nejsou — vytváří je `loadLide()` v posledním `<script>`
 bloku. Personální změna se tedy dělá **jen v JSON**, do HTML nesahat.
 
-Ručně psaný v panelu zůstává nadpis, úvodní odstavec a callout „O
-fotografiích"; počet fotek v něm (`#lide-photo-count`) i řádek se
-statistikou nad kartičkami (`#lide-status`) se dopočítávají z dat.
+Ručně psaný v panelu zůstává jen nadpis a úvodní odstavec; řádek se
+statistikou nad kartičkami (`#lide-status`) se dopočítává z dat.
+
+Souhrnný callout „O fotografiích" **na stránce už není** (odstraněn
+5. 9. 2026). Původ každé fotky nese `photo_source` u příslušné položky
+v `photos` a vypisuje se v detailu osoby s rokem. Cenou za to je, že
+web už nikde nevysvětluje, **proč** u části lidí fotka chybí —
+zdůvodnění (tři z pěti uskupení mají jen Facebook, kde nejdou fotky
+spolehlivě spárovat se jmény) zůstalo jen v historii gitu a v
+[`volby/2026/README.md`](../volby/2026/README.md).
 
 Protože se data načítají `fetch`em, panel **nefunguje z `file://`** —
 stejně jako Jednání a Pečecké noviny. Lokálně `python3 -m http.server`.
