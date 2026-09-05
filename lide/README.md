@@ -268,7 +268,9 @@ jen přibude nová — stejně jako u vazeb historie nemizí.
   všech 21, tvar `jmeno.prijmeni@pecky.cz` bez diakritiky),
   [Telefonní seznam](https://pecky.as4u.cz/cs/mestsky-urad/telefonni-seznam-5.html)
   a stránky odborů. Telefon má jen ten, komu web uvádí **vlastní linku** —
-  ústředna `+420 321 785 051` se jako osobní kontakt nezapisuje.
+  ústředna `+420 321 785 051` se jako osobní kontakt nezapisuje, fax taky ne.
+  Kdo má kancelář i služební mobil, má obě čísla v jednom poli oddělená
+  `" · "` (SPEC.md §3.6b); v detailu osoby z každého vede odkaz `tel:`.
   Kandidáti bez funkce kontakt nemají a mít nebudou: nejsou veřejní
   funkcionáři a město jejich spojení nezveřejňuje.
 - **Uskupení Bc. Ivety Dvořákové a Lenky Třískové je dopočítané**, ne
