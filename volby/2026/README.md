@@ -77,6 +77,18 @@ NEXT, Lidé pro Pečky a Velké Chvalovice s podporou SPD) program zatím
 nemají — doplnit stejným postupem, až budou k dispozici (typicky volební
 inzerce v Pečeckých novinách těsně před volbami, viz `volby/2022/README.md`).
 
+Z `pecky-pecakum.jpg` (materiál obsahuje portrétní fotky jen kandidátů na
+prvních pěti místech listiny) jsme 8. 9. 2026 vystřihli jednotlivé avatary
+a přiřadili je jmenovitě: Ing. Martin Jedlička → `jedlicka.webp`, Milan
+Pečenka → `pecenka-milan.webp` (rozlišeno od kandidáta Vojtěcha Pečenky na
+téže listině, který fotku nemá), Ing. Šárka Jedličková → `jedlickova.webp`,
+Pavel Sedláček → `sedlacek.webp`, Alena Cihlářová → `cihlarova.webp` — vše
+ve `volby/2026/zastupitele/`. Zapsáno i do `lide/people.json` (pole
+`photos`, `year: 2026`) u všech pěti, aby se fotky ukázaly i na stránce
+Lidé — u Martina Jedličky jde už o druhou fotku v poli (starší z roku 2022
+z webu města zůstává, viz `lide/README.md` → „Fotky"), u zbylých čtyř o
+první fotku vůbec.
+
 ## Sociální sítě uskupení
 
 U každého odkazu na sociální síť v tabulce „Volební uskupení" (sloupeček
