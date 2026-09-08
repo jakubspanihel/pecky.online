@@ -245,6 +245,21 @@ důvodu: ve výchozím zobrazení nejsou vidět, po přepnutí rozsahu na
 „Včetně historie" se objeví ve třetí skupině se štítkem, do kdy mandát
 trval.
 
+### Kdo do adresáře patří
+
+Volení funkcionáři (zastupitelé, rada), jmenované vedení (úřad, městské
+organizace) **i řadoví zaměstnanci úřadu** — referentky, účetní, matrikářka.
+U zaměstnanců se ale vede **jen to, co radnice sama zveřejňuje jako služební
+spojení**: jméno, funkce, pracovní e-mail a telefon. Nic dalšího se k nim
+nedohledává. Podrobně a s odůvodněním v SPEC.md §6, bod 4.
+
+Do 8. 9. 2026 platilo pravidlo opačné („ne řadoví zaměstnanci") a změnilo se
+na pokyn autora webu při doplňování kontaktů z organizační struktury na
+pecky.cz.
+
+Kandidáti bez mandátu jsou v datech, ale panel je nevypisuje — to je jiná věc,
+viz „Co panel vypisuje a co ne".
+
 ### Povolání
 
 Všech 105 kandidátů z voleb 2026 má `occupation` — text ze sloupce „Povolání"

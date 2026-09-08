@@ -553,7 +553,16 @@ Patří do `.callout` v patě sekce (částečně tam už je — „O fotografi�
 3. Každá funkce má **zdroj**. Bez zdroje se nezveřejňuje — přiznaná mezera je
    lepší než nedoložené tvrzení. Kde je údaj dopočítaný, musí to být v `note`
    napsané (viz uskupení Dvořákové a Třískové).
-4. Zveřejňují se lidé ve **veřejné funkci**, ne řadoví zaměstnanci úřadu.
+4. Zveřejňují se lidé ve **veřejné funkci i řadoví zaměstnanci úřadu** —
+   u zaměstnanců ale výhradně to, co o nich radnice sama zveřejňuje jako
+   služební spojení na svém webu (jméno, funkce, pracovní e-mail a telefon).
+   Nic dalšího se k nim nedohledává: žádné vazby na kandidátky, majetek,
+   sociální sítě ani zmínky v zápisech. Referentka odboru je v adresáři
+   proto, aby se na ni dalo obrátit, ne aby byla předmětem zkoumání —
+   to je rozdíl oproti voleným funkcionářům, u kterých je zkoumání smyslem
+   celého webu.
+   *(Do 8. 9. 2026 znělo pravidlo opačně — „ne řadoví zaměstnanci". Změněno
+   na pokyn autora webu při doplnění kontaktů z organizační struktury.)*
 5. Kontakt na opravu a vyřízení do 14 dnů. Opravit fakt, nemazat historii.
 6. `noindex` na detaily osob **nedávat** — smyslem je dohledatelnost; místo
    toho hlídat přesnost.
