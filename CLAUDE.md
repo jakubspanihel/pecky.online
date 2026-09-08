@@ -40,6 +40,16 @@ odkazů v `content/domu.html`) je v `ARCHITEKTURA-MIGRACE.md`, sekce 2.3.
   citaci jinde na webu (např. konkrétní tabulku nebo callout), doplnit i
   jako odkaz do quicklinks v sekci O webu → Odkazy — i když je jeho status
   zatím "nevytěženo" (obsah nepoužit, ale odkaz má být dohledatelný).
+- Body jednání se promítají do sekcí, kterých se věcně týkají — ne jen
+  do Jednání. Konkrétně: bod nebo usnesení ke stavbě tělocvičny („Dostavba
+  učeben a tělocvičny v ZŠ Pečky“, piloty, statické zajištění, dodatky ke
+  SoD) vždy aktualizuje i sekci Tělocvična (přes `content/telocvicna.html`
+  + build), bod k prodeji/nákupu pozemku sekci Pozemky. Postupy:
+  `telocvicna/README.md` → „Pracovní postup: týdenní kontrola“ a
+  `jednani/automation-katastr-parcely.md`.
+- Každý běh kontroly končí výpisem provedených změn — u každého dotčeného
+  souboru jednou větou, co a proč se změnilo. Sekce, kde kontrola nic
+  nenašla, se hlásí výslovně jako „zkontrolováno, beze změny“, ne mlčením.
 - Po každé kontrole nebo změně obsahu sekce (automatické i ručně vyvolané)
   přepsat její řádek v tabulce `README.md` → „Stav sekcí": datum kontroly
   vždy, datum změny a sloupec „Co naposledy" jen při reálné změně obsahu;

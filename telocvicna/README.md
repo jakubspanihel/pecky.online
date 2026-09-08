@@ -21,6 +21,51 @@ zastupitelstva a proti videozáznamu (viz zdroje níže), a strukturovaný
 do obvyklého stylu webu (perex, časová osa, citace důvodové zprávy,
 přiznané mezery). Je striktně věcný — žádný osobní názor neobsahuje.
 
+## Pracovní postup: týdenní kontrola
+
+Sekce nemá vlastní snímek dat — hlavním zdrojem jsou **zápisy a usnesení
+Rady a Zastupitelstva**, které se stahují v rámci kontroly sekce Jednání
+([`jednani/automation-kontrola-usneseni-cz.md`](../jednani/automation-kontrola-usneseni-cz.md),
+krok 9). Tenhle postup na něj navazuje a spouští se při každém týdenním
+běhu.
+
+1. **Najdi dotčené body.** V jednáních doplněných/zkontrolovaných v tomto
+   běhu (i v těch, která mají zatím jen Pozvánku — program bodů je sám
+   o sobě informace) projdi `agenda[].t` a `resolutions[].text` a hledej
+   nejen slovo „tělocvična“, ale i: „Dostavba učeben“, „ZŠ Pečky“,
+   „piloty“, „založení“, „statické zajištění“, „Dodatek č. … k SoD“,
+   „změnový list“, „zhotovitel“, „TDI“, „pozastavení stavby“.
+2. **Přečti plný text bodu**, ne jen jeho název — důvodová zpráva
+   a text usnesení nesou konkrétní čísla a formulace (viz Dodatek č. 1
+   níže, kde teprve zápis prozradil částku i větu o odpovědnosti).
+3. **Zapiš do `content/telocvicna.html`** (needit vygenerovaný
+   `telocvicna/index.html` — přepíše ho příští build). Kam co patří:
+   - nový vývoj s datem → nový řádek v tabulce **„Zastavení stavby
+     v roce 2026“** (nejnovější nahoře); události před rokem 2026 →
+     tabulka **„Historie projektu“**
+   - změna ceny, termínu nebo rozsahu → **stat-grid** a perex nahoře
+   - citace/postoj radnice → **„Co přesně říká radnice“**
+   - co zápis nezodpovídá (dopad na termín, konečná cena, odpovědnost)
+     → **„Otevřené otázky“** jako přiznaná mezera
+4. **Ověřenost.** Co je doložené zápisem, označ `.stamp` „ověřeno“
+   s uvedením jednání a data. Co je tvrzení jedné strany (politik,
+   Facebook), drž jako jednostranné tvrzení pod jménem, ne jako závěr.
+   Nikdy nedopočítávat čísla, která zdroj neuvádí.
+5. **Přegeneruj** — `python3 scripts/build.py`.
+6. **Zapiš stopu**: nová datovaná podsekce v tomto souboru, záznam
+   v changelogu kořenového `README.md` a přepsaný řádek Tělocvična
+   v tabulce „Stav sekcí“ (datum kontroly vždy, datum změny a sloupec
+   „Co naposledy“ jen při reálné změně obsahu).
+7. **Reportuj.** Ve shrnutí běhu vždy uveď, co se v sekci změnilo —
+   jmenovitě soubor a věcnou změnu. Když se nezměnilo nic, napiš přímo
+   „Tělocvična: zkontrolováno, beze změny“; tenhle řádek ve shrnutí
+   nesmí chybět ani při nulovém nálezu.
+
+Kromě zápisů zůstávají doplňkovými zdroji Facebook města a A. Švejnohové
+a Aktuality na pecky.cz (obojí čitelné jen přes claude-in-chrome) —
+kontrolují se, když na ně narazí kontrola sociálních sítí v sekci O webu,
+nebo když si o to uživatel řekne.
+
 ## Ověřené jádro (zápis ZM 5/2026, 26. 8. 2026)
 
 Bod č. 4 programu „Dostavba učeben a tělocvičny v ZŠ Pečky — aktuální
@@ -182,9 +227,10 @@ callout v „Otevřené otázky“ (rozpočet/harmonogram/odpovědnost).
   výslovně neřeší.
 - Výsledek diagnostiky, právního posouzení a případné budoucí posouzení
   odpovědnosti zhotovitele/projektanta — až se objeví v dalším zápisu
-  ZM/RM, doplnit do časové osy a případně přehodnotit `Režim` v
-  kořenové tabulce „Stav sekcí“ (`README.md`) z „hlídat“ na „týdně“
-  nebo „uzavřené“, podle toho, jak se věc vyvine.
+  ZM/RM, doplnit do časové osy. (Režim sekce v kořenové tabulce „Stav
+  sekcí“ se 8. 9. 2026 změnil z „hlídat“ na „týdně“ — viz „Pracovní
+  postup: týdenní kontrola“ výše. Až věc doběhne, přehodnotit na
+  „uzavřené“.)
 - Které konkrétní firmě/osobě se vadná dokumentace z roku 2015
   přičítá — Švejnohová jmenuje jen tehdejší politické vedení, ne
   zpracovatele dokumentace. Dosud nedohledáno, viz „Historie projektu“.

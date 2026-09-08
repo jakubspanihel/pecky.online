@@ -7,8 +7,10 @@ nepřibylo nové jednání nebo se u existujícího nedoplnil zápis a usnesení
 — lehký soubor, který pohání panel Jednání na webu (`content/jednani.html`,
 promítne se do veřejné stránky `/jednani/` přes `scripts/build.py`).
 Součástí postupu je i kontrola záznamů
-zastupitelstva na YouTube (krok 6) a časových značek jednotlivých bodů
-u těch videí (krok 7) — obojí dělat při každém běhu, ne jen jednorázově.
+zastupitelstva na YouTube (krok 6), časových značek jednotlivých bodů
+u těch videí (krok 7) a promítnutí bodů týkajících se stavby tělocvičny
+do sekce [/telocvicna/](../telocvicna/README.md) (krok 9) — všechno dělat
+při každém běhu, ne jen jednorázově.
 
 **Vztah k ostatním dokumentům:** dřívější plán počítal s plným scraperem
 (Playwright/CDP) běžícím na jiném stroji — popsaný v [SPEC.md](SPEC.md) —
@@ -212,7 +214,41 @@ Pokud nové usnesení řeší prodej/nákup pozemku, spustit i
 [automation-katastr-parcely.md](automation-katastr-parcely.md) pro plný
 popis.
 
-### 9. Ověř na webu
+### 9. Tělocvična (pokud relevantní) — POVINNÉ při každém běhu
+
+Stavbu „Dostavba učeben a tělocvičny v ZŠ Pečky“ sleduje vlastní sekce
+[/telocvicna/](../telocvicna/README.md) a její hlavní zdroj jsou právě
+zápisy Rady a Zastupitelstva. **Projdi proto při každém běhu program
+i usnesení všech nově doplněných jednání a hledej body, které se
+tělocvičny týkají** — nejen podle slova „tělocvična“, ale i podle
+souvisejících formulací: „Dostavba učeben“, „ZŠ Pečky“, „piloty“,
+„založení“, „statické zajištění“, „Dodatek č. … k SoD“, „změnový list“,
+„zhotovitel“, „TDI“, „pozastavení stavby“. Hledej i v jednáních, která
+mají zatím jen Pozvánku — program bodů je sám o sobě informace (viz
+RM 31/2026, kde byl bod „Dodatek č. 1 k SoD“ znám z pozvánky týden
+před zveřejněním zápisu).
+
+Najdeš-li takový bod:
+
+1. Otevři [`telocvicna/README.md`](../telocvicna/README.md) a řiď se
+   sekcí „Pracovní postup: týdenní kontrola“ — je tam popsané, kam
+   který typ zjištění na stránce patří (časová osa, stat-grid, callouty
+   „Otevřené otázky“, „Co přesně říká radnice“).
+2. Obsah zapisuj do `content/telocvicna.html`, **ne** do vygenerovaného
+   `telocvicna/index.html` (ten přepíše příští build), a pak spusť
+   `python3 scripts/build.py`.
+3. Drž konvenci sekce: co je doložené zápisem, označ jako ověřené
+   (`.stamp`); co zápis neříká (dopad na termín, cenu, odpovědnost),
+   přiznej jako mezeru — nedopočítávat a nedomýšlet.
+4. Zapiš změnu do `telocvicna/README.md` (nová datovaná podsekce),
+   do changelogu v kořenovém `README.md` a přepiš řádek Tělocvična
+   v tabulce „Stav sekcí“.
+5. **Nahlaš to ve shrnutí běhu** — viz krok 11.
+
+Netýká-li se tělocvičny žádný nový bod, do shrnutí napiš, že sekce byla
+zkontrolována a je beze změny. Mlčení není totéž co „nic tam nebylo“.
+
+### 10. Ověř na webu
 
 Nejdřív spustit `python3 scripts/build.py` (promítne `content/jednani.html`
 do `jednani/index.html`), pak spustit lokální server (`.claude/launch.json`,
@@ -229,10 +265,16 @@ konkrétních textových vzorech (`bod číslo N`, „Jednání zahájeno…",
 pozná jen tak, že očekávaný text v `get_page_text` chybí nebo nedává
 smysl — proto se výsledek nesmí slepě důvěřovat, vždy zkontrolovat.
 
-### 10. Nahlaš uživateli
+### 11. Nahlaš uživateli
 
 Stručně: co bylo nové/doplněné, co zůstává čekat na publikaci webem. Nic
 nevymýšlet — pokud web nic nového neukazuje, říct to přímo.
+
+**Vždy jmenovitě vypiš, co jsi změnil** — u každého dotčeného souboru
+(`jednani/pecky-jednani.json`, `content/telocvicna.html`, `README.md`,
+`sources.json` …) jednou větou, co se v něm změnilo a proč. Sekce
+Tělocvična (krok 9) má v tomto výpisu vlastní řádek vždy, i když se
+nezměnila — pak s poznámkou „zkontrolováno, beze změny“.
 
 ## Příklad (Rada 30/2026, 24. 8. 2026 → doplněno 27. 8. 2026)
 
