@@ -93,13 +93,16 @@ sada). Ve složce ročníku jsou navíc dvě sady obrázků:
 Blok „Volební účast stoupá" (subpanel Rozbor) místo tabulky používá
 ručně psaný inline SVG liniový graf — žádná JS knihovna, konzistentní
 s pravidlem „žádné závislosti kromě Google Fonts" v kořenovém `CLAUDE.md`.
-Černá linka (`var(--ink)`) = Pečky, šedá (`var(--ink-soft)`) = průměr ČR,
-roky zleva doprava od nejstaršího (2014) po nejnovější (2022). Přesné
-hodnoty jsou popsané i v `<desc>` uvnitř SVG (čtečky obrazovky, fulltext)
-a jako čísla přímo u datových bodů — při změně čísel (revize dat ČSÚ)
-je nutné přepočítat i souřadnice bodů (`y = 220 - (hodnota - 35) * 10`,
-`x` 100/330/560 pro 2014/2018/2022) ručně, žádný generátor grafu v
-projektu není.
+Bordó linka (`var(--burgundy)`, širší tah `stroke-width="4"`) = Pečky,
+šedá (`var(--ink-soft)`, `stroke-width="2.5"`) = průměr ČR, roky zleva
+doprava od nejstaršího (2014) po nejnovější (2022). Přesné hodnoty jsou
+popsané i v `<desc>` uvnitř SVG (čtečky obrazovky, fulltext) a jako čísla
+přímo u datových bodů — při změně čísel (revize dat ČSÚ) je nutné
+přepočítat i souřadnice bodů (`y = 220 - (hodnota - 35) * 10`, `x`
+100/480/860 pro 2014/2018/2022, `viewBox` `0 0 940 260`) ručně, žádný
+generátor grafu v projektu není. (Barva a šířka linky Pečky i rozteč osy
+X upraveny 8. 9. 2026 — dřív černá `var(--ink)`, `stroke-width="2.5"`,
+`x` 100/330/560, `viewBox` `0 0 660 260`.)
 
 Jinak žádná další zvláštní pravidla nad rámec obecných konvencí v
 kořenovém `CLAUDE.md` a v [`volby/README.md`](../README.md).
