@@ -31,6 +31,10 @@ odkazů v `content/domu.html`) je v `ARCHITEKTURA-MIGRACE.md`, sekce 2.3.
 
 ## Konvence
 - Web celý v češtině, srozumitelným jazykem pro širokou veřejnost
+- **Perex sekce (`p.lede` pod nadpisem) psát jako profesionální copywriter.**
+  Krátké a jednoduché věty. Popisuje, co na stránce *je* — ne obecný výklad
+  tématu. Přesnost má přednost před svižností: nic, co se nedá doložit daty
+  na té stránce. Nepřehánět počty ani rozsah („u většiny" jen když to sedí).
 - Žádná vymyšlená data — každý fakt buď označit jako ověřený (.stamp),
   nebo přiznat jako mezeru (.callout)
 - Needit vygenerované stránky přímo (viz sekce Struktura výše) — vždy
