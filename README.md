@@ -150,6 +150,7 @@ nezapisují, jen změny obsahu.
 
 | Sekce | Režim | Kontrola | Změna | Co naposledy |
 |---|---|---|---|---|
+| [Volby 2022](volby/2022/README.md) | uzavřené | — | 8. 9. 2026 | blok „Volební účast stoupá" (Rozbor): tabulka nahrazena ručně psaným SVG liniovým grafem (černá linka Pečky, šedá průměr ČR, 2014→2022 zleva doprava) — žádná JS knihovna, viz `volby/2022/README.md` |
 | [Volby 2026](volby/2026/README.md) | týdně | 8. 9. 2026 | 8. 9. 2026 | stránka přestavěna na podzáložky po vzoru Voleb 2018/2022 (dřív jedna plochá stránka) — nová záložka „Předvolební sliby" s volebními programy dvou z pěti uskupení (Pečky srdcem, Sdružení nezávislých kandidátů PEČKY PEČÁKŮM), soubory doplnil uživatel do `volby/2026/volebni-programy-2026/`; zbylá tři uskupení v mezeře, doplní se stejně jako u Voleb 2022; z plakátu PEČKY PEČÁKŮM vystřiženo a jmenovitě přiřazeno 5 avatarů (Jedlička, Pečenka, Jedličková, Sedláček, Cihlářová) do `volby/2026/zastupitele/`, zapsáno i do `lide/people.json` |
 | [Pozemky](pozemky/README.md) | odvozená | 5. 9. 2026 | 5. 9. 2026 | oprava odkazu „řešilo se na: Jednání…" u všech řádků — mířil na `href="#"` s JS handlerem, který se na samostatné stránce Pozemky nikdy nenačetl (pozůstatek jednostránkové architektury); teď skutečný odkaz `/jednani/#rada-YYYY-MM-DD` |
 | [Tělocvična](telocvicna/README.md) | týdně | 8. 9. 2026 | 4. 9. 2026 | zápis RM 31/2026: Dodatek č. 1 ke SoD schválen, cena díla +6,15 mil. Kč bez DPH na 211,5 mil. vč. DPH; radnice sama uvádí, že tím není dotčeno posouzení odpovědnosti |
@@ -160,7 +161,6 @@ nezapisují, jen změny obsahu.
 | [Pečecké noviny](noviny/README.md) | týdně | 3. 9. 2026 | 2. 9. 2026 | dávka 2001/2005/2006 od uživatele (5 vydání, 156→161) — 2 vydání OCR (nečitelné dobové kódování fontů) |
 | [Plán](plan/README.md) | na vyžádání | 2. 9. 2026 | 2. 9. 2026 | řádek „Nová tělocvična a učebny ZŠ": stav → zastaveno, odkaz na novou sekci Tělocvična |
 | [Volby 2018](volby/2018/README.md) | uzavřené | — | 31. 8. 2026 | tabulka Výsledky voleb: kandidáti nahrazeni avatary zvolených zastupitelů |
-| [Volby 2022](volby/2022/README.md) | uzavřené | — | 31. 8. 2026 | tabulka Výsledky voleb: kandidáti nahrazeni avatary zvolených zastupitelů |
 | [Domů](domu/README.md) | odvozená | — | 24. 8. 2026 | brand header |
 | [Smlouvy](smlouvy/README.md) | týdně | 3. 9. 2026 | 20. 8. 2026 | 2 nové smlouvy |
 | [Zakázky](zakazky/README.md) | týdně | 3. 9. 2026 | 6. 8. 2026 | 1 nová zakázka |

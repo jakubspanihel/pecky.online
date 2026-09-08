@@ -318,16 +318,57 @@
 
     <button class="toggle-details" type="button" aria-expanded="false" aria-controls="details-ucast">Více informací (rozbalit)</button>
     <div class="details-block" id="details-ucast" hidden>
-    <table class="register">
-      <thead>
-        <tr><th>Rok</th><th>Účast v Pečkách</th><th>Průměr ČR</th></tr>
-      </thead>
-      <tbody>
-        <tr><td>2014</td><td>40,80 %</td><td>44,46 %</td></tr>
-        <tr><td>2018</td><td>48,81 %</td><td>47,34 %</td></tr>
-        <tr><td>2022</td><td>52,36 %</td><td>46,07 %</td></tr>
-      </tbody>
-    </table>
+    <div class="chart-wrap" style="max-width:620px;">
+      <svg viewBox="0 0 660 260" role="img" aria-label="Liniový graf volební účasti v Pečkách a celostátního průměru ČR, 2014–2022" style="width:100%; height:auto; font-family:'IBM Plex Mono',monospace;">
+        <title>Volební účast: Pečky a průměr ČR, 2014–2022</title>
+        <desc>Pečky: 2014 40,80 %, 2018 48,81 %, 2022 52,36 %. Průměr ČR: 2014 44,46 %, 2018 47,34 %, 2022 46,07 %.</desc>
+        <g stroke="var(--line)" stroke-width="1">
+          <line x1="100" y1="20" x2="560" y2="20"></line>
+          <line x1="100" y1="70" x2="560" y2="70"></line>
+          <line x1="100" y1="120" x2="560" y2="120"></line>
+          <line x1="100" y1="170" x2="560" y2="170"></line>
+          <line x1="100" y1="220" x2="560" y2="220"></line>
+        </g>
+        <g fill="var(--ink-soft)" font-size="11">
+          <text x="90" y="24" text-anchor="end">55 %</text>
+          <text x="90" y="74" text-anchor="end">50 %</text>
+          <text x="90" y="124" text-anchor="end">45 %</text>
+          <text x="90" y="174" text-anchor="end">40 %</text>
+          <text x="90" y="224" text-anchor="end">35 %</text>
+        </g>
+        <g fill="var(--ink)" font-size="12" text-anchor="middle">
+          <text x="100" y="245">2014</text>
+          <text x="330" y="245">2018</text>
+          <text x="560" y="245">2022</text>
+        </g>
+        <polyline points="100,125 330,97 560,109" fill="none" stroke="var(--ink-soft)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"></polyline>
+        <g fill="var(--ink-soft)">
+          <circle cx="100" cy="125" r="4"></circle>
+          <circle cx="330" cy="97" r="4"></circle>
+          <circle cx="560" cy="109" r="4"></circle>
+        </g>
+        <g fill="var(--ink-soft)" font-size="11">
+          <text x="108" y="112" text-anchor="start">44,46 %</text>
+          <text x="330" y="114" text-anchor="middle">47,34 %</text>
+          <text x="568" y="113" text-anchor="start">46,07 %</text>
+        </g>
+        <polyline points="100,162 330,82 560,46" fill="none" stroke="var(--ink)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"></polyline>
+        <g fill="var(--ink)">
+          <circle cx="100" cy="162" r="4"></circle>
+          <circle cx="330" cy="82" r="4"></circle>
+          <circle cx="560" cy="46" r="4"></circle>
+        </g>
+        <g fill="var(--ink)" font-size="11" font-weight="600">
+          <text x="106" y="180" text-anchor="start">40,80 %</text>
+          <text x="330" y="66" text-anchor="middle">48,81 %</text>
+          <text x="568" y="50" text-anchor="start">52,36 %</text>
+        </g>
+      </svg>
+      <div style="display:flex; gap:18px; margin-top:8px; font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--ink-soft);">
+        <span><span style="display:inline-block; width:16px; height:3px; background:var(--ink); vertical-align:middle; margin-right:5px;"></span>Pečky</span>
+        <span><span style="display:inline-block; width:16px; height:3px; background:var(--ink-soft); vertical-align:middle; margin-right:5px;"></span>Průměr ČR</span>
+      </div>
+    </div>
 
     <div class="callout" style="margin-top:22px;">
       Zdroje: <a href="https://volby.gov.cz/pls/kv2022/vysledky_obec?datumvoleb=20220923&amp;cislo_obce=537641" target="_blank" rel="noopener">ČSÚ — otevřená data, volby.gov.cz (obec 537641 Pečky)</a> za jednotlivé roky. Celostátní průměry: <a href="https://cs.wikipedia.org/wiki/Volby_do_zastupitelstev_obc%C3%AD_v_%C4%8Cesku#Volebn%C3%AD_%C3%BA%C4%8Dast" target="_blank" rel="noopener">Wikipedie — Volby do zastupitelstev obcí v Česku, sekce Volební účast ↗</a>.

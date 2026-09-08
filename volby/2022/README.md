@@ -88,6 +88,19 @@ sada). Ve složce ročníku jsou navíc dvě sady obrázků:
   (Řádky jednání v panelu Jednání portréty nepoužívají, mají jen
   iniciály `.av-init`.)
 
+## Graf volební účasti (od 8. 9. 2026)
+
+Blok „Volební účast stoupá" (subpanel Rozbor) místo tabulky používá
+ručně psaný inline SVG liniový graf — žádná JS knihovna, konzistentní
+s pravidlem „žádné závislosti kromě Google Fonts" v kořenovém `CLAUDE.md`.
+Černá linka (`var(--ink)`) = Pečky, šedá (`var(--ink-soft)`) = průměr ČR,
+roky zleva doprava od nejstaršího (2014) po nejnovější (2022). Přesné
+hodnoty jsou popsané i v `<desc>` uvnitř SVG (čtečky obrazovky, fulltext)
+a jako čísla přímo u datových bodů — při změně čísel (revize dat ČSÚ)
+je nutné přepočítat i souřadnice bodů (`y = 220 - (hodnota - 35) * 10`,
+`x` 100/330/560 pro 2014/2018/2022) ručně, žádný generátor grafu v
+projektu není.
+
 Jinak žádná další zvláštní pravidla nad rámec obecných konvencí v
 kořenovém `CLAUDE.md` a v [`volby/README.md`](../README.md).
 Doplnit sem, až nějaká vzniknou.
