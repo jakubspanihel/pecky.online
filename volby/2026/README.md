@@ -53,6 +53,30 @@ Obsah panelu jinak žije v `content/volby2026.html` (žádná samostatná datov�
 sada). Zatím žádná další zvláštní pravidla nad rámec obecných konvencí v
 kořenovém `CLAUDE.md`. Doplnit sem, až nějaká vzniknou.
 
+## Podzáložky (od 8. 9. 2026)
+
+Stránka teď má stejnou `.subtabs`/`.subpanel` strukturu jako Volby 2018/2022
+(dřív byla plochá, bez záložek): **Volební uskupení** (tabulka uskupení +
+Kde se volí + stavové callouty) a **Předvolební sliby** — druhá se ale
+nejmenuje `sliby`/`uskupeni` jako u starších ročníků, ale `sliby2026`/
+`uskupeni2026`, protože `id="subpanel-…"` musí být na webu jedinečné napříč
+sekcemi a build skládá jen jednu stránku najednou (kolize by teoreticky
+nevadila, ale konvence pojmenování `<sekce><rok>` je zavedená už z
+`content/volby2018.html`).
+
+## Volební programy (od 8. 9. 2026)
+
+Obrázky volebních programů/materiálů leží ve `volby/2026/volebni-programy-2026/`
+(stejná konvence jako `volby/2022/volebni-programy-2022/`). K 8. 9. 2026 jen
+dva soubory, oba doplnil přímo uživatel (ne dohledáno na webu/Facebooku):
+`pecky-srdcem.jpg` (bodový program ve 4 oblastech) a `pecky-pecakum.jpg`
+(jen portréty kandidátky a heslo, bez bodového programu). Přesný zdroj
+a datum prvního zveřejnění nejsou ověřené — na stránce přiznáno jako
+mezera. Zbylá tři uskupení (ODS a nezávislí kandidáti, NAŠE PEČKY A PEČKY
+NEXT, Lidé pro Pečky a Velké Chvalovice s podporou SPD) program zatím
+nemají — doplnit stejným postupem, až budou k dispozici (typicky volební
+inzerce v Pečeckých novinách těsně před volbami, viz `volby/2022/README.md`).
+
 ## Sociální sítě uskupení
 
 U každého odkazu na sociální síť v tabulce „Volební uskupení" (sloupeček
