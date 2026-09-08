@@ -97,7 +97,10 @@ Jednání a Pečecké noviny. Lokálně `python3 -m http.server`.
   Pořadí rozlišuje víc vazeb téže dvojice.
 - Povolené znaky: `a–z`, `0–9`, `-`.
 - **ID je neměnné.** Po zveřejnění se nepřejmenovává — odkazuje na něj URL i
-  všechny vazby.
+  všechny vazby. Když se ukáže, že dva záznamy jsou jedna osoba (typicky změna
+  příjmení), jeden se smaže a jeho `id` se u ponechaného uloží do `aliases`;
+  router podle nich starý odkaz přesměruje. Postup viz README → „Když se ukáže,
+  že dva záznamy jsou jedna osoba".
 
 ### 3.2 `people.json`
 
@@ -143,6 +146,8 @@ Jednání a Pečecké noviny. Lokálně `python3 -m http.server`.
 | `phone` | string | — | jedno nebo víc čísel oddělených `" · "`, každé ve tvaru `+420 123 456 789`; pořadí kancelář → mobil. `""` když neznámé |
 | `photos` | objekt[] | — | `[]` → iniciálový avatar. Jeden člověk může mít fotku za víc let (kandidátka se opakuje, fotka se mění) — pole, ne jedna hodnota, viz §3.7 |
 | `bio` | string | — | prostý text, bez HTML |
+| `former_last_names` | string[] | — | dřívější příjmení; jde do fulltextu i do hlavičky detailu |
+| `aliases` | string[] | — | dřívější `id` sloučených záznamů; router podle nich přesměrovává |
 | `occupations` | objekt[] | — | povolání **tak, jak ho člověk sám uvedl ve volebních podkladech** — ne ověřený současný stav. Pole s ročníkem, viz §3.6c |
 | `tags` | string[] | ✅ | viz §3.5 |
 | `sources` | objekt[] | ✅ | `{label, url}`; min. 1 u každé osoby s funkcí |

@@ -105,6 +105,12 @@
     const orgById = {};
     orgs.forEach((o, i) => { o._order = i; orgById[o.id] = o; });
 
+    // Když se dvě karty ukážou být jedna osoba (změna příjmení), záznamy se
+    // sloučí, ale staré id se drží jako alias — SPEC §3.1 říká, že id je po
+    // zveřejnění neměnné, takže dřívější odkaz nesmí skončit na „nenalezeno".
+    const aliasMap = {};
+    people.forEach(p => (p.aliases || []).forEach(a => { aliasMap[a] = p.id; }));
+
     const byPerson = {};
     affs.forEach(a => {
       a._org = orgById[a.organization_id] || null;
@@ -156,7 +162,8 @@
 
       // předpočítaný text pro fulltext (bez diakritiky, malými písmeny)
       p._haystack = jNorm([
-        lFullName(p), p.bio, (p.occupations || []).map(o => o.value).join(' '), (p.tags || []).join(' '),
+        lFullName(p), p.bio, (p.former_last_names || []).join(' '),
+        (p.occupations || []).map(o => o.value).join(' '), (p.tags || []).join(' '),
         p._affs.map(a => [
           a.role,
           a._org ? [a._org.name, a._org.short_name, (a._org.former_names || []).join(' ')].join(' ') : ''
@@ -164,7 +171,7 @@
       ].join(' '));
     });
 
-    return {people: people, orgs: orgs, affs: affs, orgById: orgById};
+    return {people: people, orgs: orgs, affs: affs, orgById: orgById, aliasMap: aliasMap};
   }
 
   /* ---------- routing přes hash ---------- */
@@ -226,11 +233,16 @@
       ? new Set([L_STATE.orgView])
       : new Set((r.query.get('org') || '').split(',').filter(Boolean));
 
+    // starý odkaz na sloučenou osobu tiše přesměrovat na její dnešní id
+    const alias = LIDE_DB && LIDE_DB.aliasMap ? LIDE_DB.aliasMap[L_STATE.open] : null;
+    if (alias) L_STATE.open = alias;
+
     const input = document.getElementById('lide-search');
     if (input && input.value !== L_STATE.q) input.value = L_STATE.q;
 
     lSyncChips();
     lRenderResults();
+    if (alias) lSyncHash(false);
   }
 
   /* ---------- filtrování ---------- */
@@ -348,7 +360,10 @@
     return `
         <div class="person-detail" id="lide-detail-${jEscapeHtml(p.id)}">
           <div class="detail-head">
-            <span class="detail-name">${jEscapeHtml(lFullName(p))}</span>
+            <span class="detail-name">${jEscapeHtml(lFullName(p))}${
+              (p.former_last_names || []).length
+                ? ` <span class="occ-note">dříve ${jEscapeHtml(p.former_last_names.join(', '))}</span>`
+                : ''}</span>
             <button type="button" class="detail-close" data-lide-close>zavřít ✕</button>
           </div>
           ${p.bio ? `<p class="detail-bio">${jEscapeHtml(p.bio)}</p>` : ''}

@@ -125,6 +125,8 @@ for (const p of people) {
     err(where, 'occupation/occupation_year je zrušené pole — použij occupations[] (SPEC §3.6c)');
   }
   if (p.occupations !== undefined && !Array.isArray(p.occupations)) err(where, 'occupations musí být pole');
+  if (p.former_last_names !== undefined && !Array.isArray(p.former_last_names)) err(where, 'former_last_names musí být pole');
+  if (p.aliases !== undefined && !Array.isArray(p.aliases)) err(where, 'aliases musí být pole');
   const occYears = new Set();
   let prevOcc = Infinity;
   for (const o of p.occupations ?? []) {
@@ -207,6 +209,18 @@ for (const a of affs) {
   const expected = `${a.person_id}--${a.organization_id}--`;
   if (typeof a.id === 'string' && !a.id.startsWith(expected)) {
     warn(where, 'id neodpovídá konvenci {person_id}--{organization_id}--{pořadí}');
+  }
+}
+
+// --- aliasy sloučených osob ---
+const allIds = new Set(people.map((p) => p.id));
+const aliasSeen = new Map();
+for (const p of people) {
+  for (const a of p.aliases ?? []) {
+    if (!SLUG.test(a)) err(`osoba ${p.id}`, `alias "${a}" není platný slug`);
+    if (allIds.has(a)) err(`osoba ${p.id}`, `alias "${a}" se kryje s existujícím id — sloučení nedotažené`);
+    if (aliasSeen.has(a)) err(`osoba ${p.id}`, `alias "${a}" už používá ${aliasSeen.get(a)}`);
+    else aliasSeen.set(a, p.id);
   }
 }
 

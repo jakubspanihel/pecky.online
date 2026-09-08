@@ -234,6 +234,24 @@ sloupce v PDF promíchané, takže přiřazení uskupení k jménům z něj **ne
 brát jako ověřené**). Většina těch lidí už v `people.json` je — jako
 kandidáti — takže jde o doplnění vazeb, ne osob.
 
+### Když se ukáže, že dva záznamy jsou jedna osoba
+
+Stává se to hlavně při změně příjmení. Postup (poprvé použit 8. 9. 2026 na
+Ivetě Minaříkové → Dvořákové):
+
+1. Ponechat záznam s **dnešním** příjmením, druhý smazat.
+2. Do ponechaného doplnit `former_last_names` (dřívější příjmení; jde i do
+   fulltextu, takže se člověk najde pod oběma) a `aliases` se **starým `id`**.
+3. Vazby zrušeného záznamu přepojit na `person_id` ponechaného a přečíslovat
+   jejich `id` podle konvence `{person_id}--{organization_id}--{pořadí}`.
+4. Sloučit `sources`, `tags`, případně `photos`; přepsat `bio`, aby popisovalo
+   celou dráhu.
+
+Alias je tam proto, že SPEC §3.1 označuje `id` za neměnné — starý odkaz
+`#lide/osoba/minarikovai` se nesmí rozbít. Router ho tiše přesměruje na
+platné `id` a přepíše URL na kanonickou. Validátor hlídá, že se alias nekryje
+s existujícím `id` (to by znamenalo nedotažené sloučení) ani s jiným aliasem.
+
 ### Jak přidat osobu
 
 1. **`people.json`** — `id` je příjmení + iniciála křestního bez
@@ -320,9 +338,9 @@ jen přibude nová — stejně jako u vazeb historie nemizí.
   `+420 724 125 367`, na as4u.cz `+420 724 885 367` — platí to první.
   „Nina Husová" je na as4u.cz vedená jako „Nina Vlčková"; vypadá to na změnu
   příjmení, ale doložené to není, takže je v datech jen pod aktuálním jménem.
-- **Uskupení Bc. Ivety Dvořákové a Lenky Třískové je dopočítané**, ne
-  citované — usnesení uskupení u jmen neuvádějí. Obě vazby mají proto
-  `verified: null` a vysvětlení v `note`.
+- ~~Uskupení Bc. Ivety Dvořákové a Lenky Třískové je dopočítané~~ —
+  uzavřeno 8. 9. 2026. Výsledky voleb 2022 na Poradně pro obce uvádějí
+  kandidátku přímo u jména, obě vazby jsou teď doložené.
 - **Výbory jsou zatím jen dva záznamy** (předsednictví kontrolního
   výboru). Zbytek členů finančního a kontrolního výboru je v archivu
   jednání pod `UZ-98`…`UZ-111` — doplnit ve fázi 5b.
