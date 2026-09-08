@@ -198,10 +198,23 @@ ukazuje `url` každé položky `photos`, existuje.
 
 | Období | Starosta/ka | Místostarostové | Zdroj |
 |---|---|---|---|
+| 1990–2002 | Ing. František Pospíšil | — | kandidátní listina 2026 · Příběhy našich sousedů · Pečecké noviny 12/2019 |
 | 2006–2018 | Milan Urban (Sdružení ODS a NK) | — | Kolínský deník 29. 9. 2018 |
 | 2014–2018 | Milan Urban | Milan Paluska | Kolínský deník 29. 9. 2018 |
 | 2018–2022 | Mgr. Alena Švejnohová | Bc. Iveta Minaříková, Mgr. Blanka Kozáková | Pečecké noviny 12/2018, str. 3 |
 | 2022–dosud | Milan Paluska | Zdeněk Fejfar, Ing. Martin Jedlička | usnesení ZM 7/2022 |
+
+**František Pospíšil** byl prvním polistopadovým starostou Peček, rovněž tři
+období po sobě (1990, 1994, 1998). Do vedení města nastoupil už 1989 jako
+tajemník a poté předseda městského národního výboru — to je ale jen z jednoho
+zdroje (životopis Příběhů našich sousedů), proto je ta část jen v `note`, ne
+jako samostatná vazba. Samotné starostování 1990–2002 potvrzují tři nezávislé
+zdroje, z toho jeden úřední: kandidátní listina 2026 u jeho jména uvádí
+„starosta města 1990-2002".
+
+**Mezera 2002–2006 zůstává.** Jaroslav Tvrz je v Pečeckých novinách doložený
+jako starosta v roce 2005 a začátkem 2006, ale kdy nastoupil, doložené není —
+v adresáři proto zatím není.
 
 Milan Urban byl starostou **tři volební období po sobě (2006, 2010, 2014)**,
 dvanáct let. Ve volbách 2018 už nekandidoval a v zastupitelstvu 2018–2022
