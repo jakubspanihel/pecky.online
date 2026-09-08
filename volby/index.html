@@ -3,13 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>pecky.online — Pečky pohledem umělé inteligence</title>
-<meta name="description" content="Neoficiální občanský transparentní web o městě Pečky (okres Kolín): zastupitelstvo, rada, smlouvy, zakázky a Pečecké noviny na jednom místě.">
-<link rel="canonical" href="https://jakubspanihel.github.io/pecky.online/">
-<meta property="og:title" content="pecky.online — Pečky pohledem umělé inteligence">
-<meta property="og:description" content="Neoficiální občanský transparentní web o městě Pečky (okres Kolín): zastupitelstvo, rada, smlouvy, zakázky a Pečecké noviny na jednom místě.">
+<title>Volby do zastupitelstva — pecky.online</title>
+<meta name="description" content="Přehled komunálních voleb do zastupitelstva města Pečky: ročníky 2018, 2022 a 2026.">
+<link rel="canonical" href="https://jakubspanihel.github.io/pecky.online/volby/">
+<meta property="og:title" content="Volby do zastupitelstva — pecky.online">
+<meta property="og:description" content="Přehled komunálních voleb do zastupitelstva města Pečky: ročníky 2018, 2022 a 2026.">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://jakubspanihel.github.io/pecky.online/">
+<meta property="og:url" content="https://jakubspanihel.github.io/pecky.online/volby/">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -38,43 +38,17 @@
 </header>
 
 <main>
-  <section class="panel active" id="panel-domu"></section>
+  <section class="panel active" id="panel-volby">
+    <h2 class="title display">Volby do zastupitelstva</h2>
+    <p class="lede">Volby do zastupitelstva Peček se konají jednou za 4 roky. Výsledkem hlasování je nové zastupitelstvo složené z 21 přímo volených zástupců. Ti následně ze svého středu vybírají starostu a členy rady města (užší vedení). Komunální volby tedy přímo ovlivňují prostředí, ve kterém občané Peček žijí, pracují a tráví volný čas. Přesto k volebním urnám přichází pouze přibližně polovina oprávněných obyvatel.</p>
 
-<script>
-  // ===== Zpětná kompatibilita: staré odkazy z jednostránkového webu =====
-  // (viz ARCHITEKTURA-MIGRACE.md, 2.3). Odkazy typu pecky.online/#pozemky
-  // mohly být nasdílené na Facebooku, v novinách apod. — po migraci na
-  // vícestránkovou strukturu je potřeba je poslat na novou adresu. Root
-  // index.html (Domů) je jediné místo, kam takový starý odkaz vůbec může
-  // dorazit (hash na kořenové doméně), takže redirect žije právě tady.
-  (function(){
-    // BASE: prefix pro nasazení na GitHub Pages subcestě (viz SITE_BASE_PATH
-    // ve scripts/build.py, injektováno jako window.SITE_BASE_PATH v
-    // templates/page.html) - '' na vlastní doméně, jinak např. '/pecky.online'.
-    var BASE = window.SITE_BASE_PATH;
-    var OLD_TO_NEW = {
-      domu: BASE + '/', jednani: BASE + '/jednani/', zpravodaj: BASE + '/noviny/', lide: BASE + '/lide/',
-      plan: BASE + '/plan/', volby: BASE + '/volby/', volby2018: BASE + '/volby/2018/', volby2022: BASE + '/volby/2022/',
-      volby2026: BASE + '/volby/2026/', smlouvy: BASE + '/smlouvy/', zakazky: BASE + '/zakazky/',
-      pozemky: BASE + '/pozemky/', pokladna: BASE + '/pokladna/', owebu: BASE + '/o-webu/'
-    };
-    var hash = window.location.hash.replace(/^#/, '');
-    if (!hash) return;
-    var panel = hash.split(/[/?]/)[0];
-    if (!Object.prototype.hasOwnProperty.call(OLD_TO_NEW, panel)) return;
-    var target = OLD_TO_NEW[panel];
-    if (target === BASE + '/') {
-      // #domu na kořenové stránce - obsah je už správně zobrazený, jen smazat hash z URL
-      if (hash === 'domu') history.replaceState(null, '', BASE + '/');
-      return;
-    }
-    // podcesta/parametry za jménem panelu (např. #lide/osoba/paluskam?scope=all)
-    // se zachovávají celé, včetně jména panelu - Lidé si svoje vnitřní
-    // směrování (#lide/...) po migraci ponechaly beze změny
-    var hasSubpath = hash.length > panel.length;
-    window.location.replace(target + (hasSubpath ? '#' + hash : ''));
-  })();
-</script>
+    <h3 class="display" style="font-size:19px; margin:30px 0 10px;">Volební ročníky</h3>
+    <ul>
+      <li><a href="/pecky.online/volby/2018/">Volby 2018</a></li>
+      <li><a href="/pecky.online/volby/2022/">Volby 2022</a></li>
+      <li><a href="/pecky.online/volby/2026/">Volby 2026</a></li>
+    </ul>
+  </section>
 
 </main>
 <footer class="site">
@@ -84,13 +58,13 @@
     <p class="lede"><strong>Já jsem PečkyBot. <br>Procházím internet a hledám informace o Pečkách (28911, okres Kolín)</strong></p>
   </div>
   <nav class="tabs footer-inner" id="tabs">
-    <a class="navlink active" href="/pecky.online/">Domů</a>
+    <a class="navlink" href="/pecky.online/">Domů</a>
     <a class="navlink" href="/pecky.online/jednani/">📅 Jednání</a>
     <a class="navlink" href="/pecky.online/noviny/">📰 Pečecké noviny</a>
     <a class="navlink" href="/pecky.online/lide/">Lidé</a>
     <a class="navlink" href="/pecky.online/plan/">Plán</a>
     <a class="navlink" href="/pecky.online/telocvicna/">🏗️ Tělocvična</a>
-    <a class="navlink" href="/pecky.online/volby/">Volby</a>
+    <a class="navlink active" href="/pecky.online/volby/">Volby</a>
     <a class="navlink" href="/pecky.online/smlouvy/">Smlouvy</a>
     <a class="navlink" href="/pecky.online/zakazky/">Zakázky</a>
     <a class="navlink" href="/pecky.online/pozemky/">Pozemky</a>

@@ -245,6 +245,18 @@ důvodu: ve výchozím zobrazení nejsou vidět, po přepnutí rozsahu na
 „Včetně historie" se objeví ve třetí skupině se štítkem, do kdy mandát
 trval.
 
+### Povolání
+
+Všech 105 kandidátů z voleb 2026 má `occupation` — text ze sloupce „Povolání"
+kandidátní listiny, který si **vyplňuje kandidát sám**. Není ověřený a
+zastarává (Paluska tam má „starosta města"), takže se vždy ukládá i
+`occupation_year` a detail osoby píše „uvedeno na kandidátní listině 2026".
+Zdroj `volby/2026/data-export.csv`, podrobnosti v SPEC.md §3.6c.
+
+Z těch 105 jich panel vypisuje 18 — zbytek jsou kandidáti bez funkce, kteří
+se nezobrazují (viz „Co panel vypisuje a co ne"). Údaj v datech přesto
+zůstává: až někdo z nich funkci získá, povolání tam bude.
+
 ### Fotky a jejich původ
 
 `photos` je pole, ne jedna hodnota — jeden člověk může kandidovat víckrát

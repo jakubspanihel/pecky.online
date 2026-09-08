@@ -66,6 +66,11 @@ MANIFEST = {
         'časová osa, ověřená fakta ze zápisu zastupitelstva a veřejná '
         'výzva k transparentnímu řešení.',
         False),
+    'volby': (
+        '/volby/', 'Volby do zastupitelstva — pecky.online',
+        'Přehled komunálních voleb do zastupitelstva města Pečky: '
+        'ročníky 2018, 2022 a 2026.',
+        False),
     'volby2018': (
         '/volby/2018/', 'Volby 2018 — pecky.online',
         'Komunální volby 2018 v Pečkách: volební uskupení, předvolební '
@@ -120,6 +125,7 @@ README_TO_SLUG = {
     'pozemky': 'pozemky',
     'smlouvy': 'smlouvy',
     'zakazky': 'zakazky',
+    'volby': 'volby',
     'volby/2018': 'volby2018',
     'volby/2022': 'volby2022',
     'volby/2026': 'volby2026',
@@ -247,7 +253,8 @@ def apply_active(html, current_slug):
     """Nahradí {{ACTIVE:slug}} placeholdery (navlinky žijí v assets/footer.html)."""
     def repl(m):
         slug = m.group(1)
-        return ' active' if slug == current_slug else ''
+        is_election_page = current_slug in {'volby', 'volby2018', 'volby2022', 'volby2026'}
+        return ' active' if slug == current_slug or (slug == 'volby' and is_election_page) else ''
     return re.sub(r'\{\{ACTIVE:([a-z0-9]+)\}\}', repl, html)
 
 
@@ -262,10 +269,10 @@ def out_file_for(path):
     return ROOT / path.strip('/') / 'index.html'
 
 
-def build_all():
+def build_all(stav_rows=None):
     page_tpl = read('templates/page.html')
     footer_tpl = read('assets/footer.html')
-    stav_sekci = render_stav_sekci(parse_stav_sekci())
+    stav_sekci = render_stav_sekci(stav_rows or parse_stav_sekci())
     written = []
 
     for slug, (path, title, desc, needs_helpers) in MANIFEST.items():
@@ -296,11 +303,27 @@ def build_all():
     return written
 
 
-def build_sitemap(written):
+def build_sitemap(written, stav_rows):
+    """Vygeneruje sitemapu s datem poslední obsahové změny sekce.
+
+    Tabulka „Stav sekcí“ v README je projektový changelog a její sloupec
+    „Změna“ je zdroj pravdy pro <lastmod>. Datum kontroly sem nepatří:
+    kontrola bez změny obsahu nemění stránku, kterou má vyhledávač indexovat.
+    """
+    lastmod_by_path = {row['url']: row['zmena']['iso'] for row in stav_rows
+                       if row['zmena'] is not None}
     lines = ['<?xml version="1.0" encoding="UTF-8"?>',
              '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
     for slug, out_path, path in written:
-        lines.append(f'  <url><loc>{SITE_DOMAIN}{path}</loc></url>')
+        lastmod = lastmod_by_path.get(path)
+        if lastmod is None:
+            raise SystemExit(f'CHYBA: pro sitemapu chybí datum změny sekce {slug}.')
+        lines.extend([
+            '  <url>',
+            f'    <loc>{SITE_DOMAIN}{path}</loc>',
+            f'    <lastmod>{lastmod}</lastmod>',
+            '  </url>',
+        ])
     lines.append('</urlset>')
     (ROOT / 'sitemap.xml').write_text('\n'.join(lines) + '\n', encoding='utf-8')
 
@@ -371,8 +394,9 @@ def validate(written):
 
 
 if __name__ == '__main__':
-    written = build_all()
-    build_sitemap(written)
+    stav_rows = parse_stav_sekci()
+    written = build_all(stav_rows)
+    build_sitemap(written, stav_rows)
     print(f'Vygenerováno {len(written)} stránek + sitemap.xml + robots.txt.')
     if '--no-check' not in sys.argv:
         print('Validace (tag balance + JS syntax):')

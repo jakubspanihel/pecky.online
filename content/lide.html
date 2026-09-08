@@ -156,7 +156,7 @@
 
       // předpočítaný text pro fulltext (bez diakritiky, malými písmeny)
       p._haystack = jNorm([
-        lFullName(p), p.bio, (p.tags || []).join(' '),
+        lFullName(p), p.bio, p.occupation, (p.tags || []).join(' '),
         p._affs.map(a => [
           a.role,
           a._org ? [a._org.name, a._org.short_name, (a._org.former_names || []).join(' ')].join(' ') : ''
@@ -318,6 +318,13 @@
           </li>`;
     }).join('');
 
+    // Povolání je sebedeklarace z kandidátní listiny, ne ověřený současný stav —
+    // proto se u něj vždy uvádí ročník, ze kterého pochází.
+    const occupation = p.occupation
+      ? `<p class="detail-bio"><span class="occ-label">Povolání</span> ${jEscapeHtml(p.occupation)}${
+          p.occupation_year ? ` <span class="occ-note">— uvedeno na kandidátní listině ${jEscapeHtml(String(p.occupation_year))}</span>` : ''}</p>`
+      : '';
+
     const contacts = [
       p.email ? `<a href="mailto:${jEscapeHtml(p.email)}">${jEscapeHtml(p.email)}</a>` : '',
       lPhoneLinks(p.phone)
@@ -342,6 +349,7 @@
             <button type="button" class="detail-close" data-lide-close>zavřít ✕</button>
           </div>
           ${p.bio ? `<p class="detail-bio">${jEscapeHtml(p.bio)}</p>` : ''}
+          ${occupation}
           ${contacts ? `<p class="detail-bio">${contacts}</p>` : ''}
           <ul class="timeline">${items || '<li class="tl-item tl-item--past">Žádná doložená vazba.</li>'}</ul>
           ${meta ? `<p class="detail-meta">${meta}</p>` : ''}

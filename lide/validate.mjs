@@ -119,6 +119,10 @@ for (const p of people) {
   }
   if (p.verified === null) warn(where, 'neověřeno (verified: null) — v UI se nezobrazí stamp');
   if (p.email && !p.email.includes('@')) err(where, `e-mail "${p.email}" nevypadá platně`);
+  // povolání = sebedeklarace z kandidátní listiny, bez ročníku by nešlo říct, odkud je
+  if (p.occupation !== undefined && typeof p.occupation !== 'string') err(where, 'occupation musí být string');
+  if (p.occupation && typeof p.occupation_year !== 'number') err(where, 'occupation bez occupation_year (ročník kandidátní listiny)');
+  if (p.occupation_year !== undefined && !p.occupation) warn(where, 'occupation_year bez occupation');
   // telefon: jedno nebo víc čísel oddělených „ · ", každé v mezinárodním tvaru
   for (const num of (p.phone || '').split('·').map((x) => x.trim()).filter(Boolean)) {
     if (!/^\+\d{1,3}( \d{3}){3}$/.test(num)) err(where, `telefon "${num}" nemá tvar "+420 123 456 789"`);

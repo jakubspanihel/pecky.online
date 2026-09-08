@@ -143,6 +143,8 @@ Jednání a Pečecké noviny. Lokálně `python3 -m http.server`.
 | `phone` | string | — | jedno nebo víc čísel oddělených `" · "`, každé ve tvaru `+420 123 456 789`; pořadí kancelář → mobil. `""` když neznámé |
 | `photos` | objekt[] | — | `[]` → iniciálový avatar. Jeden člověk může mít fotku za víc let (kandidátka se opakuje, fotka se mění) — pole, ne jedna hodnota, viz §3.7 |
 | `bio` | string | — | prostý text, bez HTML |
+| `occupation` | string | — | povolání **tak, jak ho člověk sám uvedl na kandidátní listině** — ne ověřený současný stav |
+| `occupation_year` | number | ✅ když je `occupation` | ročník kandidátní listiny, ze které údaj pochází |
 | `tags` | string[] | ✅ | viz §3.5 |
 | `sources` | objekt[] | ✅ | `{label, url}`; min. 1 u každé osoby s funkcí |
 | `verified` | `YYYY-MM-DD` \| `null` | ✅ | `null` = neověřeno → **žádný stamp v UI** |
@@ -353,6 +355,29 @@ nezvládají). Validátor kontroluje tvar každého čísla zvlášť.
 Ústředna `+420 321 785 051` se jako osobní kontakt nezapisuje — u lidí, kterým
 telefonní seznam uvádí jen ji, zůstává `phone` prázdný nebo nese přímé číslo
 z odborové stránky. Fax se nezapisuje vůbec.
+
+### 3.6c `occupation` — povolání z kandidátní listiny
+
+Kandidátní listina obsahuje sloupec „Povolání", který si **vyplňuje kandidát
+sám**. Není to ověřený údaj o zaměstnání a časem zastará — Milan Paluska tam
+má „starosta města", což platí jen dokud starostou je. Proto se ukládá
+i `occupation_year` a UI ho vždy zobrazí:
+
+```json
+"occupation": "bezpečnostní manažer a dobrovolný hasič",
+"occupation_year": 2026
+```
+
+Detail osoby to vypíše jako „Povolání — uvedeno na kandidátní listině 2026",
+aby čtenář věděl, odkud to je a jak je to staré. Validátor hlásí `occupation`
+bez ročníku jako chybu; bez toho by se nedalo poznat, ke kterému roku se údaj
+vztahuje.
+
+Zdroj pro ročník 2026: `volby/2026/data-export.csv` (export z volby.gov.cz,
+105 kandidátů pěti uskupení). Napárováno přes příjmení + jméno **a zároveň**
+vazbu `kandidatka` na tutéž kandidátku 2026 — 105 ze 105 jednoznačně.
+Údaj mají i kandidáti, které panel nevypisuje; až se někdo z nich do
+zastupitelstva dostane, povolání tam bude připravené.
 
 ### 3.7 `photos` — víc fotek na osobu
 

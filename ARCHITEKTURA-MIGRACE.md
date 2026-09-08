@@ -67,6 +67,7 @@ soubory) se normálně commitne do repa — stejný duch jako dnešní
 /index.html                  → Domů (zůstává na kořeni)
 /lide/index.html             → Lidé
 /plan/index.html             → Plán
+/volby/index.html            → Volby
 /volby/2018/index.html       → Volby 2018
 /volby/2022/index.html       → Volby 2022
 /volby/2026/index.html       → Volby 2026

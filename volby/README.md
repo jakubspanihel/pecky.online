@@ -1,9 +1,19 @@
-# Instrukce k sekcím: Volby (panely `volby2018`, `volby2022`, `volby2026`)
+# Instrukce k sekci: Volby (rozcestník a panely `volby2018`, `volby2022`, `volby2026`)
 
-Referenční rozcestník pro práci na volebních panelech v
-`content/volby{rok}.html` (generují se do veřejných stránek
-`/volby/{rok}/`, viz `scripts/build.py`). Doplňuje obecné instrukce projektu (Project instructions /
-CLAUDE.md) — tohle je společný detail pro všechny volební ročníky.
+Referenční dokument pro volební rozcestník `content/volby.html` i volební
+panely `content/volby{rok}.html` (generují se do veřejných stránek
+`/volby/` a `/volby/{rok}/`, viz `scripts/build.py`). Doplňuje obecné
+instrukce projektu (Project instructions / CLAUDE.md) — tohle je společný
+detail pro všechny volební ročníky.
+
+## Rozcestník `/volby/`
+
+Kořenová stránka Volby stručně vysvětluje význam komunálních voleb v
+Pečkách a obsahuje obyčejný odrážkový seznam odkazů na všechny dostupné
+ročníky. Je to jediný volební odkaz ve sdílené navigaci (`assets/footer.html`);
+odkazy na jednotlivé ročníky do navigace nepřidávat. Při založení nového
+ročníku proto přidat jeho odkaz sem, vytvořit složku `volby/{rok}/` a doplnit
+jej do manifestu v `scripts/build.py`.
 
 ## Struktura — jedna podsložka na volební ročník
 Každý ročník komunálních voleb má vlastní podsložku `volby/{rok}/`

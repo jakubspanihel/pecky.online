@@ -10,7 +10,7 @@ o samosprávě města Pečky (okres Kolín, Středočeský kraj).
   kromě Google Fonts přes CDN. `content/<sekce>.html` (jen obsah dané
   sekce) + sdílené `templates/page.html`, `assets/nav.html`,
   `assets/footer.html`, `assets/styles.css`, `assets/common.js`,
-  `assets/helpers.js` se skládají přes `scripts/build.py` do 14
+  `assets/helpers.js` se skládají přes `scripts/build.py` do 15
   samostatných veřejných stránek (`index.html` na kořeni = Domů,
   `jednani/index.html`, `noviny/index.html`, `volby/2018/index.html`
   atd.) — needit vygenerované stránky přímo, vždy přes odpovídající
@@ -34,8 +34,9 @@ o samosprávě města Pečky (okres Kolín, Středočeský kraj).
 - `noviny/` — vše k sekci „Pečecké noviny": archiv PDF, obálky,
   fulltextový index a nástroje (`download.py`, `render_pages.py`).
   Viz `noviny/README.md`.
-- `volby/` — vše k volebním ročníkům, jedna podsložka na ročník
-  (`2018/`, `2022/`, `2026/`) s vlastním `README.md`. Součástí jsou i
+- `volby/` — rozcestník komunálních voleb (`/volby/`) a vše k volebním
+  ročníkům, jedna podsložka na ročník (`2018/`, `2022/`, `2026/`) s vlastním
+  `README.md`. Součástí jsou i
   obrázky ročníku: skeny volební inzerce (`volebni-programy-2018/`,
   `volebni-programy-2022/`) a portréty zastupitelů zvolených 2022
   (`2022/zastupitele/`, používá je i panel Lidé).
@@ -151,9 +152,10 @@ nezapisují, jen změny obsahu.
 |---|---|---|---|---|
 | [Pozemky](pozemky/README.md) | odvozená | 5. 9. 2026 | 5. 9. 2026 | oprava odkazu „řešilo se na: Jednání…" u všech řádků — mířil na `href="#"` s JS handlerem, který se na samostatné stránce Pozemky nikdy nenačetl (pozůstatek jednostránkové architektury); teď skutečný odkaz `/jednani/#rada-YYYY-MM-DD` |
 | [Tělocvična](telocvicna/README.md) | hlídat | 4. 9. 2026 | 4. 9. 2026 | zápis RM 31/2026: Dodatek č. 1 ke SoD schválen, cena díla +6,15 mil. Kč bez DPH na 211,5 mil. vč. DPH; radnice sama uvádí, že tím není dotčeno posouzení odpovědnosti |
-| [Lidé](lide/README.md) | na vyžádání | 5. 9. 2026 | 5. 9. 2026 | doplněny e-maily všech 21 zastupitelů a služební telefony vedení (kancelář i mobil) z webu města, v detailu osoby jako odkazy `tel:`; doplněn portrét Ing. Martina Jedličky z webu města (nová složka `lide/foto/` na fotky mimo volební materiály); odstraněn souhrnný callout „O fotografiích" (původ fotek zůstává v detailu osoby), upraven placeholder hledání; při filtru podle role se skupiny pojmenují podle něj („Starosta — nyní / dříve") místo zavádějícího „Ostatní členové zastupitelstva"; doplněna historie vedení města: Milan Urban starostou 2006–2018 (3 období), rada 2014–2018 a vedení 2018–2022 v čele se starostkou A. Švejnohovou (14 nových vazeb, 1 nová osoba); vedení rozděleno na „Úřad města" (6) a „Městské organizace" (7) — vlastní skupiny i filtry role (`vedeni-urad` / `vedeni-organizace`); zrušeny čipy filtru podle uskupení (filtr zůstává přes URL a klik na kartičce); dřívější skupina „Kandidáti bez mandátu" zrušena, kandidáti zůstávají v datech, ale nevypisují se |
+| [Lidé](lide/README.md) | na vyžádání | 8. 9. 2026 | 8. 9. 2026 | doplněno povolání všech 105 kandidátů z kandidátních listin 2026 (`volby/2026/data-export.csv`), v detailu osoby vč. ročníku listiny; doplněny e-maily všech 21 zastupitelů a služební telefony vedení (kancelář i mobil) z webu města, v detailu osoby jako odkazy `tel:`; doplněn portrét Ing. Martina Jedličky z webu města (nová složka `lide/foto/` na fotky mimo volební materiály); odstraněn souhrnný callout „O fotografiích" (původ fotek zůstává v detailu osoby), upraven placeholder hledání; při filtru podle role se skupiny pojmenují podle něj („Starosta — nyní / dříve") místo zavádějícího „Ostatní členové zastupitelstva"; doplněna historie vedení města: Milan Urban starostou 2006–2018 (3 období), rada 2014–2018 a vedení 2018–2022 v čele se starostkou A. Švejnohovou (14 nových vazeb, 1 nová osoba); vedení rozděleno na „Úřad města" (6) a „Městské organizace" (7) — vlastní skupiny i filtry role (`vedeni-urad` / `vedeni-organizace`); zrušeny čipy filtru podle uskupení (filtr zůstává přes URL a klik na kartičce); dřívější skupina „Kandidáti bez mandátu" zrušena, kandidáti zůstávají v datech, ale nevypisují se |
 | [Jednání](jednani/README.md) | týdně | 4. 9. 2026 | 4. 9. 2026 | Rada 31/2026 (31. 8.) doplněna o zápis a 6 usnesení (UR-276 až UR-281); přibyla Rada 32/2026 (7. 9.) zatím jen s Pozvánkou |
 | [O webu](o-webu/README.md) | týdně | 4. 9. 2026 | 4. 9. 2026 | nový zdroj: TJ Sokol Pečky (web + Facebook, 221 sledujících), doplnil uživatel |
+| [Volby](volby/README.md) | odvozená | — | 8. 9. 2026 | nový rozcestník volebních ročníků 2018, 2022 a 2026 |
 | [Volby 2026](volby/2026/README.md) | týdně | 3. 9. 2026 | 3. 9. 2026 | tabulka uskupení: NAŠE PEČKY a Pečky NEXT (FB) nová aktivita 3. 9., IG Pečky NEXT 119→120 |
 | [Pečecké noviny](noviny/README.md) | týdně | 3. 9. 2026 | 2. 9. 2026 | dávka 2001/2005/2006 od uživatele (5 vydání, 156→161) — 2 vydání OCR (nečitelné dobové kódování fontů) |
 | [Plán](plan/README.md) | na vyžádání | 2. 9. 2026 | 2. 9. 2026 | řádek „Nová tělocvična a učebny ZŠ": stav → zastaveno, odkaz na novou sekci Tělocvična |
