@@ -300,6 +300,14 @@ jen přibude nová — stejně jako u vazeb historie nemizí.
   `" · "` (SPEC.md §3.6b); v detailu osoby z každého vede odkaz `tel:`.
   Kandidáti bez funkce kontakt nemají a mít nebudou: nejsou veřejní
   funkcionáři a město jejich spojení nezveřejňuje.
+- **Čtyři lidé z ekonomicko-správního odboru sdílejí linku `+420 721 183 560`
+  a tři z investic `+420 606 753 278`** — je to číslo odboru, ne osobní.
+  Zapsané je (lepší než nic), ale každá taková vazba to má v `note`.
+- **Při rozporu mezi zdroji platí pecky.cz, ne pecky.as4u.cz.** Starý web se
+  od jara 2026 neaktualizuje. Konkrétně: Jiří Moravec má na pecky.cz
+  `+420 724 125 367`, na as4u.cz `+420 724 885 367` — platí to první.
+  „Nina Husová" je na as4u.cz vedená jako „Nina Vlčková"; vypadá to na změnu
+  příjmení, ale doložené to není, takže je v datech jen pod aktuálním jménem.
 - **Uskupení Bc. Ivety Dvořákové a Lenky Třískové je dopočítané**, ne
   citované — usnesení uskupení u jmen neuvádějí. Obě vazby mají proto
   `verified: null` a vysvětlení v `note`.

@@ -151,8 +151,8 @@ nezapisují, jen změny obsahu.
 | Sekce | Režim | Kontrola | Změna | Co naposledy |
 |---|---|---|---|---|
 | [Pozemky](pozemky/README.md) | odvozená | 5. 9. 2026 | 5. 9. 2026 | oprava odkazu „řešilo se na: Jednání…" u všech řádků — mířil na `href="#"` s JS handlerem, který se na samostatné stránce Pozemky nikdy nenačetl (pozůstatek jednostránkové architektury); teď skutečný odkaz `/jednani/#rada-YYYY-MM-DD` |
-| [Tělocvična](telocvicna/README.md) | hlídat | 4. 9. 2026 | 4. 9. 2026 | zápis RM 31/2026: Dodatek č. 1 ke SoD schválen, cena díla +6,15 mil. Kč bez DPH na 211,5 mil. vč. DPH; radnice sama uvádí, že tím není dotčeno posouzení odpovědnosti |
-| [Lidé](lide/README.md) | na vyžádání | 8. 9. 2026 | 8. 9. 2026 | doplněno povolání všech 105 kandidátů z kandidátních listin 2026 (`volby/2026/data-export.csv`), v detailu osoby vč. ročníku listiny; doplněny e-maily všech 21 zastupitelů a služební telefony vedení (kancelář i mobil) z webu města, v detailu osoby jako odkazy `tel:`; doplněn portrét Ing. Martina Jedličky z webu města (nová složka `lide/foto/` na fotky mimo volební materiály); odstraněn souhrnný callout „O fotografiích" (původ fotek zůstává v detailu osoby), upraven placeholder hledání; při filtru podle role se skupiny pojmenují podle něj („Starosta — nyní / dříve") místo zavádějícího „Ostatní členové zastupitelstva"; doplněna historie vedení města: Milan Urban starostou 2006–2018 (3 období), rada 2014–2018 a vedení 2018–2022 v čele se starostkou A. Švejnohovou (14 nových vazeb, 1 nová osoba); vedení rozděleno na „Úřad města" (6) a „Městské organizace" (7) — vlastní skupiny i filtry role (`vedeni-urad` / `vedeni-organizace`); zrušeny čipy filtru podle uskupení (filtr zůstává přes URL a klik na kartičce); dřívější skupina „Kandidáti bez mandátu" zrušena, kandidáti zůstávají v datech, ale nevypisují se |
+| [Tělocvična](telocvicna/README.md) | týdně | 8. 9. 2026 | 4. 9. 2026 | zápis RM 31/2026: Dodatek č. 1 ke SoD schválen, cena díla +6,15 mil. Kč bez DPH na 211,5 mil. vč. DPH; radnice sama uvádí, že tím není dotčeno posouzení odpovědnosti |
+| [Lidé](lide/README.md) | na vyžádání | 8. 9. 2026 | 8. 9. 2026 | doplněno 16 zaměstnanců úřadu z organizační struktury na pecky.cz (skupina „Úřad města" ze 6 na 22), rozšířeno pravidlo §6/4 o řadové zaměstnance; doplněno povolání všech 105 kandidátů z kandidátních listin 2026 (`volby/2026/data-export.csv`), v detailu osoby vč. ročníku listiny; doplněny e-maily všech 21 zastupitelů a služební telefony vedení (kancelář i mobil) z webu města, v detailu osoby jako odkazy `tel:`; doplněn portrét Ing. Martina Jedličky z webu města (nová složka `lide/foto/` na fotky mimo volební materiály); odstraněn souhrnný callout „O fotografiích" (původ fotek zůstává v detailu osoby), upraven placeholder hledání; při filtru podle role se skupiny pojmenují podle něj („Starosta — nyní / dříve") místo zavádějícího „Ostatní členové zastupitelstva"; doplněna historie vedení města: Milan Urban starostou 2006–2018 (3 období), rada 2014–2018 a vedení 2018–2022 v čele se starostkou A. Švejnohovou (14 nových vazeb, 1 nová osoba); vedení rozděleno na „Úřad města" (6) a „Městské organizace" (7) — vlastní skupiny i filtry role (`vedeni-urad` / `vedeni-organizace`); zrušeny čipy filtru podle uskupení (filtr zůstává přes URL a klik na kartičce); dřívější skupina „Kandidáti bez mandátu" zrušena, kandidáti zůstávají v datech, ale nevypisují se |
 | [Jednání](jednani/README.md) | týdně | 4. 9. 2026 | 4. 9. 2026 | Rada 31/2026 (31. 8.) doplněna o zápis a 6 usnesení (UR-276 až UR-281); přibyla Rada 32/2026 (7. 9.) zatím jen s Pozvánkou |
 | [O webu](o-webu/README.md) | týdně | 4. 9. 2026 | 4. 9. 2026 | nový zdroj: TJ Sokol Pečky (web + Facebook, 221 sledujících), doplnil uživatel |
 | [Volby](volby/README.md) | odvozená | — | 8. 9. 2026 | nový rozcestník volebních ročníků 2018, 2022 a 2026 |
@@ -168,7 +168,7 @@ nezapisují, jen změny obsahu.
 
 Režimy: **týdně** = má zdroj, který kontroluje týdenní rutina (neděle
 večer) · **hlídat** =
-čeká se na událost (volby 2026) · **na vyžádání** = kontroluje se, jen když
+čeká se na událost · **na vyžádání** = kontroluje se, jen když
 o to někdo požádá · **odvozená** = nemá vlastní externí zdroj, mění se
 s jinou sekcí · **uzavřené** = historický ročník, nový obsah se nečeká.
 Pomlčka ve sloupci Kontrola znamená „nebylo co kontrolovat", ne opomenutí.
@@ -181,6 +181,23 @@ a přesune ho na správné místo v řazení. Ostatní řádky nechá být.
 `?` u data znamená nedoložený odhad — nahradit, až se zjistí přesné datum.
 
 ## Poslední aktualizace
+
+8. září 2026 (na žádost uživatele doplněno pravidlo do týdenní rutiny:
+**bod jednání týkající se stavby tělocvičny musí aktualizovat i sekci
+Tělocvična**, ne jen sekci Jednání, a **každý běh musí jmenovitě
+vyreportovat, co změnil**. Zapsáno na čtyři místa: nový krok 9
+„Tělocvična (pokud relevantní)" v `jednani/automation-kontrola-usneseni-cz.md`
+(vč. seznamu hledaných formulací — nejen „tělocvična", ale i „Dostavba
+učeben", „piloty", „statické zajištění", „Dodatek č. … k SoD" apod.;
+následující kroky přečíslovány na 10 a 11, do kroku 11 přidán povinný
+výpis změn); nová sekce „Pracovní postup: týdenní kontrola" v
+`telocvicna/README.md` (kam který typ zjištění na stránce patří);
+dvě nové odrážky v `CLAUDE.md` → „Konvence" (promítání bodů jednání do
+věcně dotčených sekcí; povinný report změn). Režim sekce Tělocvična
+v tabulce „Stav sekcí" změněn z `hlídat` na `týdně` — nově ji týdenní
+rutina kontroluje sama, ne až na vyžádání; z legendy u režimu `hlídat`
+proto odstraněn příklad „volby 2026". Obsah webu tato změna nemění,
+jen postupy.)
 
 5. září 2026 (na žádost uživatele překlopena automatická rutina z denní
 na **týdenní** — běží v neděli večer, cron `0 18 * * 0` (fakticky
