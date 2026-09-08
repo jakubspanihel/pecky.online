@@ -275,15 +275,14 @@ viz „Co panel vypisuje a co ne".
 
 ### Povolání
 
-Všech 105 kandidátů z voleb 2026 má `occupation` — text ze sloupce „Povolání"
-kandidátní listiny, který si **vyplňuje kandidát sám**. Není ověřený a
-zastarává (Paluska tam má „starosta města"), takže se vždy ukládá i
-`occupation_year` a detail osoby píše „uvedeno na kandidátní listině 2026".
-Zdroj `volby/2026/data-export.csv`, podrobnosti v SPEC.md §3.6c.
+`occupations` je pole seřazené od nejnovějšího ročníku, každá položka nese
+`year`, `value` a `source`. Text si **vyplňuje kandidát sám** ve volebních
+podkladech — není ověřený a mezi volbami se mění (Paluska 2022 „podnikatel",
+2026 „starosta města"). Detail proto vypisuje všechny ročníky s rokem.
+Podrobnosti v SPEC.md §3.6c.
 
-Z těch 105 jich panel vypisuje 18 — zbytek jsou kandidáti bez funkce, kteří
-se nezobrazují (viz „Co panel vypisuje a co ne"). Údaj v datech přesto
-zůstává: až někdo z nich funkci získá, povolání tam bude.
+Pokrytí: 111 osob, z toho 15 má oba ročníky. Zdroje — `volby/2026/data-export.csv`
+(105 kandidátů 2026) a Poradna pro obce (21 zvolených 2022).
 
 ### Fotky a jejich původ
 

@@ -119,10 +119,21 @@ for (const p of people) {
   }
   if (p.verified === null) warn(where, 'neověřeno (verified: null) — v UI se nezobrazí stamp');
   if (p.email && !p.email.includes('@')) err(where, `e-mail "${p.email}" nevypadá platně`);
-  // povolání = sebedeklarace z kandidátní listiny, bez ročníku by nešlo říct, odkud je
-  if (p.occupation !== undefined && typeof p.occupation !== 'string') err(where, 'occupation musí být string');
-  if (p.occupation && typeof p.occupation_year !== 'number') err(where, 'occupation bez occupation_year (ročník kandidátní listiny)');
-  if (p.occupation_year !== undefined && !p.occupation) warn(where, 'occupation_year bez occupation');
+  // povolání = sebedeklarace z volebních podkladů; bez ročníku by nešlo říct, odkud je,
+  // a protože se mezi volbami mění, je to pole seřazené od nejnovějšího
+  if (p.occupation !== undefined || p.occupation_year !== undefined) {
+    err(where, 'occupation/occupation_year je zrušené pole — použij occupations[] (SPEC §3.6c)');
+  }
+  if (p.occupations !== undefined && !Array.isArray(p.occupations)) err(where, 'occupations musí být pole');
+  const occYears = new Set();
+  let prevOcc = Infinity;
+  for (const o of p.occupations ?? []) {
+    if (!o.value) err(where, 'položka occupations bez value');
+    if (typeof o.year !== 'number') err(where, `povolání "${o.value}" nemá platný year`);
+    else if (occYears.has(o.year)) err(where, `dvě povolání se stejným year ${o.year}`);
+    else { occYears.add(o.year); if (o.year > prevOcc) err(where, 'occupations není seřazené od nejnovějšího'); prevOcc = o.year; }
+    if (!o.source) warn(where, `povolání "${o.value}" nemá source`);
+  }
   // telefon: jedno nebo víc čísel oddělených „ · ", každé v mezinárodním tvaru
   for (const num of (p.phone || '').split('·').map((x) => x.trim()).filter(Boolean)) {
     if (!/^\+\d{1,3}( \d{3}){3}$/.test(num)) err(where, `telefon "${num}" nemá tvar "+420 123 456 789"`);

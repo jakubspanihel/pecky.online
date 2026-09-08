@@ -156,7 +156,7 @@
 
       // předpočítaný text pro fulltext (bez diakritiky, malými písmeny)
       p._haystack = jNorm([
-        lFullName(p), p.bio, p.occupation, (p.tags || []).join(' '),
+        lFullName(p), p.bio, (p.occupations || []).map(o => o.value).join(' '), (p.tags || []).join(' '),
         p._affs.map(a => [
           a.role,
           a._org ? [a._org.name, a._org.short_name, (a._org.former_names || []).join(' ')].join(' ') : ''
@@ -318,11 +318,14 @@
           </li>`;
     }).join('');
 
-    // Povolání je sebedeklarace z kandidátní listiny, ne ověřený současný stav —
-    // proto se u něj vždy uvádí ročník, ze kterého pochází.
-    const occupation = p.occupation
-      ? `<p class="detail-bio"><span class="occ-label">Povolání</span> ${jEscapeHtml(p.occupation)}${
-          p.occupation_year ? ` <span class="occ-note">— uvedeno na kandidátní listině ${jEscapeHtml(String(p.occupation_year))}</span>` : ''}</p>`
+    // Povolání je sebedeklarace z volebních podkladů, ne ověřený současný stav,
+    // a mezi volbami se mění — proto pole s ročníkem u každé položky (§3.6c).
+    const occupation = (p.occupations || []).length
+      ? `<p class="detail-bio"><span class="occ-label">Povolání</span> ` +
+        p.occupations.map(o =>
+          `${jEscapeHtml(o.value)} <span class="occ-note">(${jEscapeHtml(String(o.year))})</span>`
+        ).join(' · ') +
+        ` <span class="occ-note">— podle volebních podkladů daného roku</span></p>`
       : '';
 
     const contacts = [

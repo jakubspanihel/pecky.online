@@ -50,9 +50,10 @@ MANIFEST = {
         'vyhledáváním napříč všemi vydáními.',
         True),
     'lide': (
-        '/lide/', 'Lidé — zastupitelstvo a rada — pecky.online',
-        'Adresář zastupitelů a radních města Pečky: kdo je kdo, za jaké '
-        'uskupení kandidoval a jakou má aktuální funkci.',
+        '/lide/', 'Lidé města Pečky — pecky.online',
+        'Adresář lidí ve veřejných funkcích města Pečky — zastupitelstvo, '
+        'rada, vedení a zaměstnanci úřadu i ředitelé městských organizací. '
+        'U každého funkce, kontakt a zdroj.',
         True),
     'plan': (
         '/plan/', 'Strategický plán města — pecky.online',
