@@ -125,18 +125,26 @@ spustit `python3 scripts/build.py`.
   přes připojenou složku občas skončí `OSError: [Errno 35] Resource
   deadlock avoided` (Python `open()`, `cat`, `head`...). Obejití: nejdřív
   `cp soubor /tmp/kopie.json`, pak pracovat s kopií — `cp` samo selhání
-  nemělo.
-- Git přes připojenou složku je nespolehlivý na čtení objektů: `git log`
-  s cestou (`git log -- cesta/k/souboru`) **tiše vrací prázdno** místo
-  commitů, `git show <commit>:<soubor>`, `git rev-list` i `git diff HEAD --`
-  padají na `Bus error`. Bez pathspec (`git log`, `git status`,
-  `git log --name-only`) to funguje, ale `--name-only` vypíše soubory jen
-  u několika nejnovějších commitů. Prázdný výstup proto neznamená „soubor
-  se nikdy neměnil" — na dohledání, kdy co vzniklo, použij mtime souborů
-  (`ls -la`, `stat`) a datumy uvnitř dat (`meta.generated_at`) a ověř je
-  proti changelogu v `README.md`. Historie repa navíc sahá jen ke
-  23. 8. 2026, starší změny v ní nejsou vůbec. (Zjištěno 30. 8. 2026 při
-  dohledávání, kdy se doplnil offline archiv Pečeckých novin.)
+  nemělo. Pozn. 9. 9. 2026: při kontrolním testu se chyba nezopakovala
+  (3/3 přímá načtení `archive-2026-08-04.json` prošla), ale protože šlo
+  vždy o občasnou chybu, postup přes kopii zůstává doporučený.
+- ~~Git přes připojenou složku je nespolehlivý na čtení objektů~~ —
+  **VYŘEŠENO 9. 9. 2026.** Příčinou nebyl git, ale to, že připojená
+  složka odmítala `unlink` („Operation not permitted"): git po sobě
+  nemohl uklidit `.git/index.lock` ani rozepsané `.git/objects/tmp_obj_*`,
+  takže každý další příkaz spadl na „Another git process seems to be
+  running" nebo na `Bus error`. Mazání se zapíná nástrojem
+  `allow_cowork_file_delete` (stačí jednou, platí pro celou složku) —
+  **narazíš-li na „Operation not permitted" při `rm`, zavolej ho místo
+  hlášení, že to nejde.** Po zapnutí ověřeno, že funguje `git log --
+  cesta/k/souboru`, `git show <commit>:<soubor>` i `git diff HEAD~1 --stat`.
+  Zbytek staré poznámky ale platí dál: **historie repa sahá jen ke
+  23. 8. 2026**, starší změny v ní nejsou vůbec — na dohledání, kdy co
+  vzniklo před tímto datem, použij mtime souborů (`ls -la`, `stat`),
+  datumy uvnitř dat (`meta.generated_at`) a changelog v `README.md`.
+  Nouzové obejití, kdyby se blokované mazání někdy vrátilo: zámky
+  nemazat, ale přejmenovat (`mv .git/index.lock .git/index.lock.bak.$(date +%s%N)`)
+  — rename mount povoluje i tehdy, když unlink ne.
 
 ## Git / GitHub
 Remote: https://github.com/jakubspanihel/pecky.online.git
@@ -145,3 +153,25 @@ GitHub Integration konektor v chatu je zablokovaný OAuth konfliktem —
 publikuj přes přímý git CLI/GitHub API s vlastním GitHub přihlášením (token).
 Token (bez expirace) je uložený lokálně v `.github-pat` (v .gitignore,
 nikdy nejde do gitu) — před publikací ho odtud načíst, needit znovu žádat.
+
+Postup publikace ověřený 9. 9. 2026:
+
+```bash
+PAT=$(tr -d '\r\n' < .github-pat)
+git push "https://x-access-token:${PAT}@github.com/jakubspanihel/pecky.online.git" main
+# tracking ref se pushem na explicitní URL neaktualizuje — dorovnat:
+git fetch "https://x-access-token:${PAT}@github.com/jakubspanihel/pecky.online.git" \
+  main:refs/remotes/origin/main --force
+```
+
+- Push přes pojmenovaný `origin` selže na chybějící přihlášení; posílat
+  na explicitní URL s tokenem. Token nikdy nevypisovat do výstupu —
+  filtrovat přes `sed -e "s|${PAT}|***|g"`.
+- Hláška `git: 'credential-osxkeychain' is not a git command` je
+  **neškodná** — repo má v konfiguraci macOS credential helper, který
+  v linuxovém sandboxu neexistuje. Push i tak projde.
+- Bez toho `fetch` výše bude `git status -sb` tvrdit „ahead N", i když
+  je vše nahrané. Není to chyba pushe, jen zastaralý `origin/main`.
+- Commit vždy s popisnou zprávou přes `-F soubor` (víceřádkové české
+  zprávy v `-m` se v shellu lámou), autor
+  `Jakub Španihel <jakubspanihel@gmail.com>`.
