@@ -245,6 +245,12 @@ VOLBY_SLUG_TO_ROK = {'volby2026': '2026', 'volby2022': '2022', 'volby2018': '201
 def render_volby_rocniky(current_slug):
     current_rok = VOLBY_SLUG_TO_ROK.get(current_slug)
     items = []
+    # První položka je popisek/odkaz zpět na rozcestník /volby/ - na
+    # samotném rozcestníku není kam odkazovat, takže tam není klikací.
+    if current_slug == 'volby':
+        items.append('<span class="year-btn year-btn-label" aria-current="page">Volby:</span>')
+    else:
+        items.append('<a class="year-btn year-btn-label" href="/volby/">Volby:</a>')
     for rok in VOLBY_ROCNIKY:
         cls = 'year-btn active' if rok == current_rok else 'year-btn'
         items.append(f'<a class="{cls}" href="/volby/{rok}/">{rok}</a>')

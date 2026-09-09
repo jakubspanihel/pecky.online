@@ -16,17 +16,33 @@ nepřidávat.
 ## Komponenta „Rozcestník ročníků" (`{{VOLBY_ROCNIKY}}`, od 9. 9. 2026)
 
 Odkazy na jednotlivé ročníky (dřív odrážkový seznam jen na `/volby/`)
-jsou teď řádek buttonů (`.year-nav` / `.year-btn`, `assets/styles.css`),
-od nejnovějšího po nejstarší. Je to sdílená komponenta, ne ruční HTML —
-žije v `scripts/build.py` (`VOLBY_ROCNIKY`, `VOLBY_SLUG_TO_ROK`,
-`render_volby_rocniky()`) a vykresluje se přes placeholder
-`{{VOLBY_ROCNIKY}}` v `content/<sekce>.html`, podobně jako
-`{{STAV_SEKCI}}`. Použitá na čtyřech stránkách:
+jsou teď vystředěný řádek buttonů (`.year-nav` / `.year-btn`,
+`assets/styles.css`), od nejnovějšího po nejstarší. Je to sdílená
+komponenta, ne ruční HTML — žije v `scripts/build.py`
+(`VOLBY_ROCNIKY`, `VOLBY_SLUG_TO_ROK`, `render_volby_rocniky()`) a
+vykresluje se přes placeholder `{{VOLBY_ROCNIKY}}` v
+`content/<sekce>.html`, podobně jako `{{STAV_SEKCI}}`. Použitá na
+čtyřech stránkách:
 
 - `/volby/` — mezi perexem a blokem „Volební účast stoupá", bez nadpisu
   (`content/volby.html`)
 - `/volby/2018/`, `/volby/2022/`, `/volby/2026/` — nad `<h2>` nadpisem
   stránky ročníku, aktuální ročník zvýrazněný (`.year-btn.active`)
+
+**Vizuál (od 9. 9. 2026).** Buttony mají plnou pergamenovou výplň
+(`var(--parchment-deep)`) a tučné písmo — vizuálně „bytelnější" než
+prostý odkaz, konzistentní s ostatními akčními prvky webu (`.tag`,
+`.toggle-details`). Aktivní/aktuální ročník je zvýrazněný plnou bordó
+výplní s bílým textem, stejný vzor jako `.segmented-btn.active` a
+`.toggle-details[aria-expanded="true"]` jinde na webu — jedna vizuální
+řeč pro „tohle je vybrané" napříč komponentami.
+
+**První položka řádku je popisek „Volby:"**, ne rok — vede zpět na
+`/volby/`. Na jednotlivých ročnících je to klikací odkaz stylovaný
+jako obrysový button (stejný vzor jako `.toggle-details`: bordó
+obrys, bez výplně, bez podtržení); na samotném rozcestníku `/volby/`
+klikací není (`<span>` místo `<a>`, třída `.year-btn-label`) — nemá
+kam odkazovat, když už na cíli je.
 
 **Při založení dalšího ročníku** (po 2026) přidat rok na začátek seznamu
 `VOLBY_ROCNIKY` a novou dvojici do `VOLBY_SLUG_TO_ROK` ve
