@@ -23,13 +23,15 @@ příležitostně.
 ### 1. Projdi všechny odkazy v seznamu
 
 V `content/owebu.html`, sekce „Sociální sítě", je `div.quicklinks`
-s jedním `<a class="qlink">` na účet. Aktuálně (1. 9. 2026) jde o 14
+s jedním `<a class="qlink">` na účet. Aktuálně (9. 9. 2026) jde o 15
 odkazů: Facebook Město Pečky, Facebook Pečky-Virtuálně, Instagram
 streetpeopleofpecky, Facebook NAŠE PEČKY, Facebook Kulturní středisko
 města Pečky, Facebook Alena Švejnohová, Facebook Městská knihovna
 Svatopluka Čecha, Facebook Pečky NEXT, Facebook Pečky Pečákům,
-Facebook ODS a nezávislí Pečky, Instagram Pečky NEXT, YouTube Město
-Pečky, Facebook Pečky srdcem, FB skupina Lidé pro Pečky s podporou SPD.
+Facebook TJ Sokol Pečky, Facebook ODS a nezávislí Pečky, Instagram
+Pečky NEXT, YouTube Město Pečky, Facebook Pečky srdcem, FB skupina
+Lidé pro Pečky s podporou SPD.
+(TJ Sokol Pečky přibyl 4. 9. 2026; do 3. 9. 2026 jich bylo 14.)
 
 ### 2. Zjisti počet sledujících a datum poslední aktivity (Claude in Chrome)
 
