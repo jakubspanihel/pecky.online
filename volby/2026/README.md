@@ -53,6 +53,14 @@ Obsah panelu jinak žije v `content/volby2026.html` (žádná samostatná datov�
 sada). Zatím žádná další zvláštní pravidla nad rámec obecných konvencí v
 kořenovém `CLAUDE.md`. Doplnit sem, až nějaká vzniknou.
 
+## Perex (od 9. 9. 2026)
+
+Dvojice `.stat-card` pod perexem („9.–10. 10. 2026" / „52,36 % volební
+účast ve volbách 2022") byla odstraněná — oba údaje byly duplicitní
+(termín voleb je v samotném perexu, účast 2022 je v grafu „Volební
+účast stoupá" na `/volby/`). Datum voleb je místo toho tučně
+zvýrazněné přímo v textu perexu (`<strong>9.–10. října 2026</strong>`).
+
 ## Podzáložky (od 8. 9. 2026)
 
 Stránka teď má stejnou `.subtabs`/`.subpanel` strukturu jako Volby 2018/2022
