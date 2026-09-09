@@ -88,9 +88,16 @@ sada). Ve složce ročníku jsou navíc dvě sady obrázků:
   (Řádky jednání v panelu Jednání portréty nepoužívají, mají jen
   iniciály `.av-init`.)
 
-## Graf volební účasti (od 8. 9. 2026)
+## Graf volební účasti (od 8. 9. 2026, přesunuto na `/volby/` 9. 9. 2026)
 
-Blok „Volební účast stoupá" (subpanel Rozbor) místo tabulky používá
+Blok „Volební účast stoupá" žil v subpanelu Rozbor, ale od 9. 9. 2026 je
+přesunutý na rozcestník `/volby/` (`content/volby.html`, pod seznam
+„Volební ročníky") — srovnává napříč ročníky, ne jen 2022, takže
+patřil na společnou stránku, ne do jednoho ročníku. V `content/volby2022.html`
+už není. Dokumentace grafu zůstává tady, dokud je 2022 poslední ročník
+v grafu — viz i [`volby/README.md`](../README.md) → „Rozcestník `/volby/`".
+
+Místo tabulky používá
 ručně psaný inline SVG liniový graf — žádná JS knihovna, konzistentní
 s pravidlem „žádné závislosti kromě Google Fonts" v kořenovém `CLAUDE.md`.
 Bordó linka (`var(--burgundy)`, širší tah `stroke-width="4"`) = Pečky,

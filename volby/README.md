@@ -15,6 +15,17 @@ odkazy na jednotlivé ročníky do navigace nepřidávat. Při založení novéh
 ročníku proto přidat jeho odkaz sem, vytvořit složku `volby/{rok}/` a doplnit
 jej do manifestu v `scripts/build.py`.
 
+Pod seznamem „Volební ročníky" je od 9. 9. 2026 i blok „Volební účast
+stoupá" — ručně psaný inline SVG liniový graf účasti v Pečkách vs.
+celostátní průměr ČR (2014–2022), přesunutý sem ze záložky „Rozbor" na
+`/volby/2022/`, protože srovnává napříč ročníky, ne jen ten jeden. Žije
+v `content/volby.html` (ne v `content/volby2022.html`); dokumentace grafu
+(barvy, souřadnice, vzorec pro přepočet při revizi dat ČSÚ) zůstává v
+[`2022/README.md`](2022/README.md) → „Graf volební účasti", protože
+data 2022 jsou poslední uzavřený ročník v grafu — až přibude výsledek
+2026, graf i jeho dokumentace se rozšíří o třetí bod a dokumentace se
+podle potřeby přesune sem.
+
 ## Struktura — jedna podsložka na volební ročník
 Každý ročník komunálních voleb má vlastní podsložku `volby/{rok}/`
 s vlastním `README.md`. Až přibude další ročník (další komunální volby po
