@@ -231,6 +231,27 @@ def render_stav_sekci(rows):
     return '\n'.join(out)
 
 
+# Znovupoužitelná komponenta "rozcestník volebních ročníků" - řádek buttonů,
+# od nejnovějšího po nejstarší. Používá se jak na rozcestníku /volby/ (bez
+# nadpisu, mezi perexem a grafem účasti), tak nad nadpisem každé jednotlivé
+# stránky ročníku (/volby/2018/, /volby/2022/, /volby/2026/), kde navíc
+# zvýrazní aktivní rok. Zdroj pravdy pro seznam ročníků je tenhle slovník -
+# při založení dalšího ročníku (po 2026) přidat sem, do MANIFEST i do
+# volby/README.md.
+VOLBY_ROCNIKY = ['2026', '2022', '2018']  # nejnovější -> nejstarší
+VOLBY_SLUG_TO_ROK = {'volby2026': '2026', 'volby2022': '2022', 'volby2018': '2018'}
+
+
+def render_volby_rocniky(current_slug):
+    current_rok = VOLBY_SLUG_TO_ROK.get(current_slug)
+    items = []
+    for rok in VOLBY_ROCNIKY:
+        cls = 'year-btn active' if rok == current_rok else 'year-btn'
+        items.append(f'<a class="{cls}" href="/volby/{rok}/">{rok}</a>')
+    return ('<nav class="year-nav" aria-label="Volební ročníky">\n  '
+            + '\n  '.join(items) + '\n</nav>')
+
+
 def apply_base_path(html):
     """Přepíše kořenově-absolutní interní odkazy (href="/...", src="/...",
     fetch('/...')) tak, aby fungovaly i při nasazení na GitHub Pages
@@ -279,6 +300,8 @@ def build_all(stav_rows=None):
     for slug, (path, title, desc, needs_helpers) in MANIFEST.items():
         content = read(f'content/{slug}.html')
         content = content.replace('{{STAV_SEKCI}}', stav_sekci)
+        if slug in VOLBY_SLUG_TO_ROK or slug == 'volby':
+            content = content.replace('{{VOLBY_ROCNIKY}}', render_volby_rocniky(slug))
         nav = build_nav(slug)
         footer = apply_active(footer_tpl, slug)
         head_scripts = '<script src="/assets/helpers.js"></script>' if needs_helpers else ''

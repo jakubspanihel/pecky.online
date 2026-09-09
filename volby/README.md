@@ -9,13 +9,31 @@ detail pro všechny volební ročníky.
 ## Rozcestník `/volby/`
 
 Kořenová stránka Volby stručně vysvětluje význam komunálních voleb v
-Pečkách a obsahuje obyčejný odrážkový seznam odkazů na všechny dostupné
-ročníky. Je to jediný volební odkaz ve sdílené navigaci (`assets/footer.html`);
-odkazy na jednotlivé ročníky do navigace nepřidávat. Při založení nového
-ročníku proto přidat jeho odkaz sem, vytvořit složku `volby/{rok}/` a doplnit
-jej do manifestu v `scripts/build.py`.
+Pečkách. Je to jediný volební odkaz ve sdílené navigaci
+(`assets/footer.html`); odkazy na jednotlivé ročníky do navigace
+nepřidávat.
 
-Pod seznamem „Volební ročníky" je od 9. 9. 2026 i blok „Volební účast
+## Komponenta „Rozcestník ročníků" (`{{VOLBY_ROCNIKY}}`, od 9. 9. 2026)
+
+Odkazy na jednotlivé ročníky (dřív odrážkový seznam jen na `/volby/`)
+jsou teď řádek buttonů (`.year-nav` / `.year-btn`, `assets/styles.css`),
+od nejnovějšího po nejstarší. Je to sdílená komponenta, ne ruční HTML —
+žije v `scripts/build.py` (`VOLBY_ROCNIKY`, `VOLBY_SLUG_TO_ROK`,
+`render_volby_rocniky()`) a vykresluje se přes placeholder
+`{{VOLBY_ROCNIKY}}` v `content/<sekce>.html`, podobně jako
+`{{STAV_SEKCI}}`. Použitá na čtyřech stránkách:
+
+- `/volby/` — mezi perexem a blokem „Volební účast stoupá", bez nadpisu
+  (`content/volby.html`)
+- `/volby/2018/`, `/volby/2022/`, `/volby/2026/` — nad `<h2>` nadpisem
+  stránky ročníku, aktuální ročník zvýrazněný (`.year-btn.active`)
+
+**Při založení dalšího ročníku** (po 2026) přidat rok na začátek seznamu
+`VOLBY_ROCNIKY` a novou dvojici do `VOLBY_SLUG_TO_ROK` ve
+`scripts/build.py`, vedle běžného postupu (nová podsložka `volby/{rok}/`,
+záznam v `MANIFEST`) popsaného níže.
+
+Pod rozcestníkem ročníků je od 9. 9. 2026 i blok „Volební účast
 stoupá" — ručně psaný inline SVG liniový graf účasti v Pečkách vs.
 celostátní průměr ČR (2014–2022), přesunutý sem ze záložky „Rozbor" na
 `/volby/2022/`, protože srovnává napříč ročníky, ne jen ten jeden. Žije
