@@ -26,6 +26,14 @@ data 2022 jsou poslední uzavřený ročník v grafu — až přibude výsledek
 2026, graf i jeho dokumentace se rozšíří o třetí bod a dokumentace se
 podle potřeby přesune sem.
 
+Graf je (od 9. 9. 2026) trvale viditelný, bez rozbalovacího tlačítka
+`.toggle-details` — na rozdíl od podobných bloků „Více informací" jinde
+na webu tenhle blok patří k perexu sekce, ne k volitelnému detailu.
+Pořadí uvnitř bloku: nadpis → jedna věta („K volebním urnám přichází
+pouze přibližně polovina oprávněných obyvatel.") → graf → delší
+vysvětlující odstavec → zdroje. Delší odstavec je záměrně až pod
+grafem, ne nad ním — čtenář nejdřív vidí data, pak kontext k nim.
+
 ## Struktura — jedna podsložka na volební ročník
 Každý ročník komunálních voleb má vlastní podsložku `volby/{rok}/`
 s vlastním `README.md`. Až přibude další ročník (další komunální volby po
