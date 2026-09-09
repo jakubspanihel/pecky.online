@@ -53,6 +53,32 @@ Obsah panelu jinak žije v `content/volby2026.html` (žádná samostatná datov�
 sada). Zatím žádná další zvláštní pravidla nad rámec obecných konvencí v
 kořenovém `CLAUDE.md`. Doplnit sem, až nějaká vzniknou.
 
+## Odkaz na kandidátní listinu u každého uskupení (od 9. 9. 2026)
+
+V tabulce „Volební uskupení" má teď každé uskupení ve sloupečku
+„Poznámka" (první řádek `.socials-cell`, před Facebookem) odkaz přímo
+na jeho kompletní kandidátní listinu na volby.gov.cz — filtrovaný na
+konkrétní `KL` (kandidátní listinu), ne na obecný přehled všech 105
+kandidátů. Vzor URL: `https://volby.gov.cz/app/kv2026/cs/20261009/name-lists/!_0_1_2100_2104_537641__{N}`,
+kde `{N}` je číslo kandidátní listiny (`0`=přehled „Všichni platní
+kandidáti", `1`=Zastupitelstva obcí, `2100_2104_537641`=kraj/okres/obec
+Pečky, poslední číslo za dvojitou podtržítkovou mezerou = pořadové
+číslo listiny). Ověřeno v claude-in-chrome/Browseru 9. 9. 2026 —
+přepínáním filtru „Vyberte kandidátní listinu" na stránce a čtením
+výsledné URL, u listiny 1 (Pečky srdcem) navíc obsahem tabulky (21
+jmen sedí s daty na webu).
+
+Mapování listina → uskupení (needit měnit bez ověření na volby.gov.cz,
+čísla listin nejsou abecední ani podle výsledků 2022):
+
+| Číslo listiny | Uskupení |
+|---|---|
+| 1 | Pečky srdcem |
+| 2 | NAŠE PEČKY A PEČKY NEXT |
+| 3 | Sdružení ODS, NK |
+| 4 | Sdružení nezávislých kandidátů PEČKY PEČÁKŮM |
+| 5 | Lidé pro Pečky a Velké Chvalovice s podporou SPD |
+
 ## Perex (od 9. 9. 2026)
 
 Dvojice `.stat-card` pod perexem („9.–10. 10. 2026" / „52,36 % volební
