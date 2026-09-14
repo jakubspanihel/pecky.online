@@ -119,6 +119,20 @@ function relDatum(iso) {
   });
 })();
 
+// ===== "Aktualizováno" pod nadpisem sekce: absolutní datum -> relativní stáří =====
+// Datum je totéž co sloupec "Změna" tabulky Stav sekcí pro danou sekci (viz
+// scripts/build.py, apply_lastmod) - jen jiný viditelný text, stejný přepočet.
+(function () {
+  const els = document.querySelectorAll('p.lastmod[data-date]');
+  if (!els.length) return;
+  els.forEach(el => {
+    const stari = relDatum(el.getAttribute('data-date'));
+    if (stari === null) return;
+    el.title = el.textContent.trim();
+    el.textContent = 'Aktualizováno ' + stari;
+  });
+})();
+
 // ===== Sociální sítě (Volby 2026 i O webu): absolutní datum -> relativní stáří =====
 // Datum posledního příspěvku se doplňuje ručně/rutinou (viz
 // o-webu/automation-socialni-site.md), ale zobrazený text "poslední

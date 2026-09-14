@@ -244,6 +244,30 @@ def render_stav_sekci(rows):
     return '\n'.join(out)
 
 
+def lastmod_map(stav_rows):
+    """{url: {'iso', 'raw', 'odhad'}} pro sekce, co mají datum "Změna" v
+    tabulce Stav sekcí. Sdílený zdroj pro <lastmod> v sitemapě (build_sitemap)
+    i pro viditelné "Aktualizováno" na stránce samotné (apply_lastmod) -
+    jedno datum, dvě použití, žádné ruční psaní do content/<sekce>.html."""
+    return {row['url']: row['zmena'] for row in stav_rows if row['zmena'] is not None}
+
+
+TITLE_RE = re.compile(r'(<h2 class="title[^"]*">.*?</h2>)')
+
+
+def apply_lastmod(content, lastmod):
+    """Vloží "Aktualizováno: ..." hned za nadpis sekce (<h2 class="title">).
+    Beze změny, pokud sekce nemá datum "Změna" v Stav sekcí (typicky Domů,
+    která nemá vlastní <h2 class="title"> - nechybí tam co nahradit) nebo
+    podstránky z EXTRA_PAGES (nemají řádek v tabulce vůbec)."""
+    if lastmod is None:
+        return content
+    tag = (f'\n    <p class="lastmod" data-date="{lastmod["iso"]}">'
+           f'Aktualizováno: {lastmod["raw"]}</p>')
+    new_content, n = TITLE_RE.subn(lambda m: m.group(1) + tag, content, count=1)
+    return new_content if n else content
+
+
 # Znovupoužitelná komponenta "rozcestník volebních ročníků" - řádek buttonů,
 # od nejnovějšího po nejstarší. Používá se jak na rozcestníku /volby/ (bez
 # nadpisu, mezi perexem a grafem účasti), tak nad nadpisem každé jednotlivé
@@ -316,7 +340,9 @@ def out_file_for(path):
 def build_all(stav_rows=None):
     page_tpl = read('templates/page.html')
     footer_tpl = read('assets/footer.html')
-    stav_sekci = render_stav_sekci(stav_rows or parse_stav_sekci())
+    rows = stav_rows or parse_stav_sekci()
+    stav_sekci = render_stav_sekci(rows)
+    lastmods = lastmod_map(rows)
     written = []
     extra_written = []
 
@@ -328,6 +354,8 @@ def build_all(stav_rows=None):
     for slug, path, title, desc, needs_helpers, nav_slug, je_extra in stranky:
         content = read(f'content/{slug}.html')
         content = content.replace('{{STAV_SEKCI}}', stav_sekci)
+        if not je_extra:
+            content = apply_lastmod(content, lastmods.get(path))
         if slug in VOLBY_SLUG_TO_ROK or slug == 'volby':
             content = content.replace('{{VOLBY_ROCNIKY}}', render_volby_rocniky(slug))
         nav = build_nav(nav_slug)
@@ -364,8 +392,7 @@ def build_sitemap(written, stav_rows):
     „Změna“ je zdroj pravdy pro <lastmod>. Datum kontroly sem nepatří:
     kontrola bez změny obsahu nemění stránku, kterou má vyhledávač indexovat.
     """
-    lastmod_by_path = {row['url']: row['zmena']['iso'] for row in stav_rows
-                       if row['zmena'] is not None}
+    lastmod_by_path = {url: d['iso'] for url, d in lastmod_map(stav_rows).items()}
     lines = ['<?xml version="1.0" encoding="UTF-8"?>',
              '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
     for slug, out_path, path in written:

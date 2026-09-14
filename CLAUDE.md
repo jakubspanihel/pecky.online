@@ -61,6 +61,15 @@ odkazů v `content/domu.html`) je v `ARCHITEKTURA-MIGRACE.md`, sekce 2.3.
   Datumy se drží absolutní — relativní stáří se dopočítává až při čtení,
   nikdy se do souboru nezapisuje. Restrukturalizace a refactory se do
   tabulky nezapisují.
+- Datum „Aktualizováno" pod nadpisem sekce (na stránce samotné, vedle
+  perexu) se **negeneruje ručně** — `scripts/build.py` ho vloží
+  automaticky z téhož data „Změna" v tabulce `README.md` → „Stav sekcí",
+  co používá i `<lastmod>` v sitemapě (funkce `lastmod_map`/`apply_lastmod`).
+  Nepsat `<p class="lastmod">` do `content/<sekce>.html` ručně — stačí
+  přepsat řádek sekce ve „Stav sekcí" (viz bod výše) a build ho promítne
+  na stránku sám. Sekce bez vlastního `<h2 class="title">` (Domů) nebo
+  bez řádku ve „Stav sekcí" (podstránky z `EXTRA_PAGES`, např.
+  `/jednani/absence.html`) datum nemají.
 
 ## Dokumentace jednotlivých sekcí
 Každá sekce webu má vlastní složku `<sekce>/` se souborem `README.md` —
