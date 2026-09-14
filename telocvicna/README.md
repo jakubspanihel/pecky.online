@@ -243,6 +243,54 @@ Promítnuto do `content/telocvicna.html`: nový řádek 7. 9. 2026 v tabulce
 v „Otevřené otázky“ k jednání ZM 16. 9., `lastmod` na 10. 9. 2026.
 Stat-grid ani perex se neměnily — cena díla se nezměnila.
 
+## Doplněno 14. 9. 2026: dávka Pečeckých novin 2012–2015 (uživatel)
+
+Na žádost uživatele prohledána dávka nově doplněných výtisků
+(`noviny/pecky-noviny.json`, roky 2012–2015, 44 vydání) na klíčová
+slova `tělocvičn`, `kolaudac`, `pilot`, `základ`, `kuchyň`, `vývařovn`,
+`statik`. Většina zásahů byla falešný poplach (např. „pilotní projekt“
+soutěže, kolaudace ulice Palackého, statika mostu po povodni) — ale
+osm výtisků z let 2014–2016 vyplnilo skutečnou mezeru mezi řádky
+1. 9. 2008 a červen 2016 v tabulce „Historie projektu“:
+
+- **Nezávislé potvrzení tvrzení Švejnohové o roce 2015.** Zápis RM
+  citovaný v Pečeckých novinách 4/2015: „dokončení aktualizace
+  projektové dokumentace projekční kanceláří A11 Hradec Králové —
+  vývařovna ZŠ Pečky“. Je to první dobový (ne dodatečný, ne od
+  Švejnohové) zdroj, který potvrzuje **rok i zpracovatele** z jejího
+  facebookového tvrzení ze 2. 9. 2026 — **ale ne** konkrétní údaj
+  o délce pilot (8,5 m) ani to, že šlo o „kolaudační“ dokumentaci
+  (tenhle zápis mluví o aktualizaci projektové dokumentace, ne o
+  kolaudaci samotné stavby). Rozdíl je důležitý, nepřepisovat na
+  „potvrzeno“ bez výhrady.
+- **Chronologie 2014–2016 dřív chyběla úplně.** PN 9/2014 (titulní
+  článek „Dostavba vývařovny obědů základní školy“): tehdy ještě
+  žádná projektová dokumentace pro stavební povolení neexistovala,
+  II. etapa (vývařovna + tělocvična + aula) čekala 8 let na dotaci,
+  odhad rozpočtu jen 78 mil. Kč (dnešní cena za samotnou tělocvičnu/
+  učebny: 211,5 mil. Kč — desetinásobek za menší rozsah, stojí za
+  zmínku při psaní o nákladech). Podepsal tehdejší místostarosta
+  Ing. Karel Krištoufek — dnes stále radní, možný zdroj k oslovení,
+  kdyby měl uživatel zájem. PN 10/2014 a 11/2014: Rada ještě na
+  podzim 2014 teprve vybírala zpracovatele PD a jednala s A11 o
+  cenových návrzích — potvrzuje, že proces se táhl roky, ne že
+  „dokumentace z 2015“ vznikla odnikud. PN 11/2015: spolek rodičů
+  ZŠ pořád „podporuje výstavbu vývařovny“ — stavba tedy ještě
+  neskončila. PN 8/2016 („Vývařovna finišuje“): stavba byla
+  v dokončovací fázi ještě v srpnu 2016, dva měsíce po předchozí
+  poznámce webu „červen 2016 — kuchyň se dokončuje“.
+- **Nenalezeno:** žádná zmínka o kolaudaci konkrétně kuchyně/vývařovny
+  (jen nesouvisející kolaudace ulice), žádná zmínka o pilotách
+  v technickém smyslu, žádné jméno zhotovitele stavby (na rozdíl od
+  zpracovatele PD, kterým byl A11). Zůstává mezerou.
+
+Promítnuto do `content/telocvicna.html`: šest nových řádků v tabulce
+„Historie projektu“ (září/říjen/listopad 2014, duben/listopad 2015,
+srpen 2016), upravený úvodní odstavec nad tabulkou, upravený
+gap-callout pod tabulkou, upravený první callout v „Otevřené otázky“
+(rok a zpracovatel teď „nezávisle podepřené“ místo „jen jejím
+tvrzením“), `lastmod` na 14. 9. 2026.
+
 ## Co hlídat dál
 
 - Jestli a jak vedení města zareaguje konkrétně na tvrzení Švejnohové
@@ -265,6 +313,14 @@ Stat-grid ani perex se neměnily — cena díla se nezměnila.
   sekcí“ se 8. 9. 2026 změnil z „hlídat“ na „týdně“ — viz „Pracovní
   postup: týdenní kontrola“ výše. Až věc doběhne, přehodnotit na
   „uzavřené“.)
-- Které konkrétní firmě/osobě se vadná dokumentace z roku 2015
-  přičítá — Švejnohová jmenuje jen tehdejší politické vedení, ne
-  zpracovatele dokumentace. Dosud nedohledáno, viz „Historie projektu“.
+- Kdo konkrétně (v rámci Ateliéru A11) odpovídá za vadné údaje o délce
+  pilot — zápis RM 4/2015 potvrdil aspoň firmu a rok, ale ne
+  konkrétní osobu ani to, že šlo o „kolaudační“ dokumentaci, jak tvrdí
+  Švejnohová. Dosud nedohledáno, viz „Historie projektu“.
+- Zhotovitel/dodavatel samotné stavby vývařovny (2015–2016, ne
+  zpracovatel PD) — jméno se v prohledaných Pečeckých novinách
+  nenašlo. Pokud přibudou další ročníky novin, hledat i tohle.
+- Jestli/kdy proběhla formální kolaudace vývařovny — v novinách 2015–
+  2016 nedohledána (jen „finišuje“ v 8/2016), a hodila by se pro
+  přesné porovnání s tvrzením Švejnohové o „kolaudační dokumentaci
+  z roku 2015“.
