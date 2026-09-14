@@ -44,4 +44,14 @@ if __name__ == '__main__':
     else:
         port = 8000
     handler = functools.partial(Handler, directory=str(SITE_ROOT))
-    http.server.test(HandlerClass=handler, port=port)
+    try:
+        http.server.test(HandlerClass=handler, port=port)
+    except OSError as e:
+        # Already running (e.g. spawned by a previous session that's still
+        # alive) — treat re-invocation as a no-op instead of a traceback,
+        # so "just start the server" is always safe to run again.
+        if e.errno == 48:  # Address already in use
+            print(f'Port {port} už je obsazený — server na něm pravděpodobně už běží '
+                  f'(http://localhost:{port}{BASE_PATH}/). Nic se nespouští znovu.')
+            sys.exit(0)
+        raise

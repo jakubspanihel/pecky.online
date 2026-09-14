@@ -145,6 +145,20 @@ spustit `python3 scripts/build.py`.
   Nouzové obejití, kdyby se blokované mazání někdy vrátilo: zámky
   nemazat, ale přejmenovat (`mv .git/index.lock .git/index.lock.bak.$(date +%s%N)`)
   — rename mount povoluje i tehdy, když unlink ne.
+- **`preview_start` s `name` (spuštění dev serveru podle `.claude/launch.json`)
+  na tomhle stroji spolehlivě padá na `[Errno 1] Operation not permitted`
+  při otevírání `scripts/serve.py`.** Diagnostikováno 14. 9. 2026: jde
+  o macOS sandbox/TCC omezení konkrétního launcher procesu, který
+  `preview_start` interně používá — ne chybu v `serve.py` ani v repu
+  (stejný soubor se bez problému spustí ručně přes Bash tool). Neřeší se
+  úpravou skriptu/configu. **Obejití:** spustit server ručně přes Bash
+  (`python3 scripts/serve.py`, typicky na pozadí), pak zavolat
+  `preview_start` s `url` (`http://localhost:8000`) místo `name` — Browser
+  pane se tak napojí na už běžící server, aniž by ho sám spouštěl. `serve.py`
+  vždy defaultuje na port 8000 a od 14. 9. 2026 je idempotentní — když je
+  port už obsazený (typicky server z předchozí relace), vypíše hlášku
+  a skončí čistě (exit 0) místo pádu na traceback, takže "jen to spusť" je
+  vždy bezpečné zavolat znovu bez kontroly předem.
 
 ## Git / GitHub
 Remote: https://github.com/jakubspanihel/pecky.online.git
