@@ -57,9 +57,18 @@ Struktura:
 
 ## Poznámky a známé mezery
 
-- Hlídač hlásil u posledního průchodu **193 výsledků celkem**, ale
-  potvrzených unikátních ID je **175**. Rozdíl jde nejspíš za
-  reklamní/duplicitní řádky ve výpisu — nepovažovat 193 za počet zakázek.
+- Hlídač hlásil u posledního průchodu (13. 9. 2026) **214 výsledků
+  celkem**, ale potvrzených unikátních ID je **176**. Rozdíl jde za
+  reklamní/duplicitní řádky ve výpisu — nepovažovat 214 za počet zakázek.
+  (Dřívější průchody hlásily 193 výsledků / 175 ID.)
+- **Vyhledávání `Q=00239607` je fulltextové, ne filtr podle zadavatele.**
+  Vrací i zakázky cizích úřadů, kde se to číslo objeví kdekoli v textu
+  (Obec Úholičky, Město Tachov, hl. m. Praha, Středočeský kraj…). Nové ID
+  proto vždy nejdřív ověřit v detailu a do tabulky „Nejnovější zakázky"
+  promítnout jen zakázky, kde je zadavatelem Město Pečky nebo jeho
+  organizace. Případ z 13. 9. 2026: `P22V00000346` = „Novostavba silnice
+  III. třídy Nová Průběžná v obci **Zdiby** – PD" (zadavatel Středočeský
+  kraj) — do snímku zapsáno, na web ne.
 - Historická chyba: snímek k 6. 8. 2026 uváděl `count: 172`, ačkoli pole
   `ids` obsahovalo 174 položek. Opraveno tamtéž; proto krok 5 výše trvá
   na přepočtu.

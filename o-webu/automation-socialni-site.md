@@ -98,6 +98,26 @@ datum posledního skutečného příspěvku/videa (ukazuje, jak je účet
   DOM nemusí být nejnovější příspěvek (připíchnuté příspěvky navrchu, viz
   Městská knihovna: `["24. července…","31. srpna v 10:56…"]`) — brát
   **nejnovější** datum, ne první.
+- **Facebook — od 13. 9. 2026 nejspolehlivější je `creation_time`
+  z vložených dat.** Trik s pořadím znaků výše přestal zabírat: značka
+  data je teď prázdný `<span>` (`textContent.length === 0`) doplněný
+  `<template>` elementem, takže z DOM textu se nepřečte vůbec nic — ani
+  nesmysl. Datum posledního příspěvku ale zůstává ve `<script>` datech
+  stránky:
+  ```js
+  const s = [...document.querySelectorAll('script')].map(x => x.textContent).join(' ');
+  const m = [...s.matchAll(/(?:creation_time|publish_time)\\?"?:\s*(\d{9,13})/g)]
+    .map(x => +x[1]).filter(v => v > 1600000000 && v < 1900000000);
+  [...new Set(m)].sort((a,b) => b-a).slice(0,3)
+    .map(v => new Date(v*1000).toISOString().slice(0,16));
+  ```
+  Bere se **nejvyšší** (nejnovější) hodnota — připíchnuté starší
+  příspěvky i starší sdílený obsah tak vypadnou samy. Ověřeno proti
+  relativnímu tvaru: Město Pečky ukazovalo „7 h" a `creation_time` dalo
+  13. 9. 2026 07:53, což při kontrole v ~14:50 sedí. Stránku po navigaci
+  nechat načíst ~4 s, jinak jsou skripty ještě prázdné. Pro pořádek: ani
+  jeden ze způsobů níže (obfuskované `<span>`, relativní čas) není
+  potřeba, pokud tenhle vrátí výsledek.
 - **Facebook — absolutní datum je přesnější než relativní**: kde skript
   vrátí tvar „31. srpna v 18:45", zapisovat to datum. Dopočet z relativního
   tvaru („4 d") se snadno splete o den — při běhu 2. 9. 2026 se takhle

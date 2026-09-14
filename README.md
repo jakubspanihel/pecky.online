@@ -150,20 +150,20 @@ nezapisují, jen změny obsahu.
 
 | Sekce | Režim | Kontrola | Změna | Co naposledy |
 |---|---|---|---|---|
+| [Jednání](jednani/README.md) | týdně | 14. 9. 2026 | 13. 9. 2026 | přibyla **Rada 33/2026 (14. 9. 2026)** zatím jen s Pozvánkou — 9bodový program vytažen z PDF pozvánky (mj. Smlouva o zřízení práva stavby – kolárna u ČD, změna termínu plnění UR-265-29/26, vyřazení nepotřebného DHM ZŠ); archiv má nově 289 jednání, počet usnesení beze změny (2 767); dřív (10. 9. 2026): Rada 32/2026 (7. 9.) doplněna o zápis a 12 usnesení (UR-282 až UR-293), vč. prezence, průběžných příchodů/odchodů a délek jednotlivých bodů; přibylo Zastupitelstvo 6/2026 (16. 9.) zatím jen s Pozvánkou a 23bodovým programem; přepočítána `jednani/absence.json`; dřív (9. 9. 2026): nová neprolinkovaná podstránka `/jednani/absence.html` — kolikrát který zastupitel a radní chyběl na jednání, zvlášť za zastupitelstvo a radu a zvlášť za volební období, opravené o pozdní příchody (odkaz zatím nikde, stránka má `noindex` a není v sitemapě); data generuje `jednani/scripts/absence.py` do `jednani/absence.json`; dřív (týž den): do datové sady doplněna průběžná prezence (`attendance.changes`) — příchody, odchody a distanční připojení během jednání, které scraper dosud zahazoval: 124 jednání, 218 událostí, zpětně z archivu skriptem `jednani/scripts/doplnit-prubeznou-prezenci.py`, 5 jednání novějších než archiv ověřeno ručně na usneseni.cz; bez toho vypadá pozdní příchod jako celodenní absence (u jednoho radního 59 % místo 31 %). Zatím jen v datech, v UI se nezobrazuje. Nový postup `jednani/INSTRUKCE-absence.md` (počítání absence zastupitelů) |
+| [O webu](o-webu/README.md) | týdně | 13. 9. 2026 | 13. 9. 2026 | aktualizováno všech 15 sociálních sítí — počty sledujících se změnily u 7 účtů (Alena Švejnohová 946 → 955, Kulturní středisko 992 → 993, Městská knihovna 482 → 483, Pečky Pečákům 238 → 245, TJ Sokol 221 → 223, ODS a nezávislí 217 → 221, Pečky srdcem 73 → 78, Instagram streetpeopleofpecky 1 218 → 1 216), nová aktivita u 7 účtů (Město Pečky, NAŠE PEČKY, Alena Švejnohová, Kulturní středisko, Pečky NEXT FB, Pečky Pečákům, ODS a nezávislí, Pečky srdcem); u obou instagramových účtů opět jen počet sledujících — mezera v čtení data posledního příspěvku trvá; dřív (9. 9. 2026): aktualizováno všech 15 sociálních sítí — počty sledujících se změnily u 6 účtů (Alena Švejnohová 942 → 946, Městská knihovna 483 → 482, Pečky NEXT FB 291 → 306, ODS a nezávislí 213 → 217, Instagram Pečky NEXT 120 → 128, Pečky srdcem 72 → 73, FB skupina SPD 39 → 40 členů, Instagram streetpeopleofpecky 1 219 → 1 218), nová aktivita u 8 účtů (mj. Pečky Pečákům po třech měsících ticha, 5. 6. → 8. 9. 2026); u obou instagramových účtů opět jen počet sledujících — mezera v čtení data posledního příspěvku trvá |
+| [Volby 2026](volby/2026/README.md) | týdně | 13. 9. 2026 | 13. 9. 2026 | aktualizovány počty sledujících a datumy poslední aktivity u 7 sociálních sítí uskupení v tabulce „Volební uskupení" (ODS a nezávislí 217 → 221, Pečky Pečákům 238 → 245, Pečky srdcem 73 → 78; nová aktivita u NAŠE PEČKY, Pečky NEXT FB, Pečky Pečákům, ODS a nezávislí, Pečky srdcem); na úřední desce pecky.cz přibyly dva volební dokumenty (svolání prvního zasedání OVK, školení k zásadám hlasování, oba 10. 9. 2026) — jsou procesní, na stránku nepromítnuty; dřív (9. 9. 2026): aktualizovány počty sledujících a datumy poslední aktivity u 7 sociálních sítí uskupení v tabulce „Volební uskupení" (ODS a nezávislí 213 → 217, Pečky NEXT FB 291 → 306, Instagram Pečky NEXT 120 → 128, Pečky srdcem 72 → 73, FB skupina SPD 39 → 40 členů; Pečky Pečákům po třech měsících ticha nový příspěvek 8. 9. 2026); dřív (týž den): u každého z pěti uskupení v tabulce „Volební uskupení" doplněn odkaz na jeho kompletní kandidátní listinu na volby.gov.cz (filtrováno na dané KL, ne obecný přehled); odstraněna dvojice `.stat-card` pod perexem (termín voleb + účast 2022 byly duplicitní s perexem a s grafem na `/volby/`), datum voleb místo toho tučně v samotném perexu; nad nadpisem přidán rozcestník ročníků (`{{VOLBY_ROCNIKY}}`, viz `volby/README.md`); dřív (8. 9. 2026): stránka přestavěna na podzáložky po vzoru Voleb 2018/2022 (dřív jedna plochá stránka) — nová záložka „Předvolební sliby" s volebními programy dvou z pěti uskupení (Pečky srdcem, Sdružení nezávislých kandidátů PEČKY PEČÁKŮM), soubory doplnil uživatel do `volby/2026/volebni-programy-2026/`; zbylá tři uskupení v mezeře, doplní se stejně jako u Voleb 2022; z plakátu PEČKY PEČÁKŮM vystřiženo a jmenovitě přiřazeno 5 avatarů (Jedlička, Pečenka, Jedličková, Sedláček, Cihlářová) do `volby/2026/zastupitele/`, zapsáno i do `lide/people.json` |
+| [Tělocvična](telocvicna/README.md) | týdně | 14. 9. 2026 | 10. 9. 2026 | zápis RM 32/2026 (7. 9.): město přizvalo externího pracovníka na sanace budov a připravuje vyjádření právní kanceláře k dalšímu postupu; rozpočtová opatření č. 9/2026 zvyšují letošní výdajovou položku stavby o 10 mil. Kč — podle důvodové zprávy jde o „předpoklad plateb v letošním roce“, ne o nově vyčíslené vícenáklady (UR-288-32/26, rozhodne ZM 16. 9.); nový callout k programu ZM 6/2026, kde má stavba samostatný bod; dřív (4. 9. 2026): zápis RM 31/2026 — Dodatek č. 1 ke SoD schválen, cena díla +6,15 mil. Kč bez DPH na 211,5 mil. vč. DPH |
 | [Volby](volby/README.md) | odvozená | — | 9. 9. 2026 | odrážkový seznam ročníků nahrazen znovupoužitelnou komponentou „rozcestník ročníků" (`{{VOLBY_ROCNIKY}}`) — vystředěný řádek buttonů s plnou pergamenovou výplní, od nejnovějšího po nejstarší, první položka popisek „Volby:" (odkaz zpět na rozcestník, na `/volby/` samotném neklikací), aktivní ročník zvýrazněný plnou bordó výplní; stejná komponenta nově i nad nadpisem `/volby/2018/`, `/volby/2022/` a `/volby/2026/`; dřív (týž den): blok „Volební účast stoupá" bez rozbalovacího tlačítka (trvale viditelný), graf prohozen s vysvětlujícím odstavcem (teď nad ním), pod nadpis doplněna věta „K volebním urnám přichází pouze přibližně polovina oprávněných obyvatel." |
 | [Volby 2018](volby/2018/README.md) | uzavřené | — | 9. 9. 2026 | nad nadpisem přidán rozcestník ročníků (`{{VOLBY_ROCNIKY}}`, viz `volby/README.md`) |
 | [Volby 2022](volby/2022/README.md) | uzavřené | — | 9. 9. 2026 | nad nadpisem přidán rozcestník ročníků (`{{VOLBY_ROCNIKY}}`); blok „Volební účast stoupá" (SVG graf) přesunut ze záložky Rozbor na rozcestník `/volby/` — v panelu Volby 2022 už není, viz `volby/README.md` |
-| [Volby 2026](volby/2026/README.md) | týdně | 9. 9. 2026 | 9. 9. 2026 | aktualizovány počty sledujících a datumy poslední aktivity u 7 sociálních sítí uskupení v tabulce „Volební uskupení" (ODS a nezávislí 213 → 217, Pečky NEXT FB 291 → 306, Instagram Pečky NEXT 120 → 128, Pečky srdcem 72 → 73, FB skupina SPD 39 → 40 členů; Pečky Pečákům po třech měsících ticha nový příspěvek 8. 9. 2026); dřív (týž den): u každého z pěti uskupení v tabulce „Volební uskupení" doplněn odkaz na jeho kompletní kandidátní listinu na volby.gov.cz (filtrováno na dané KL, ne obecný přehled); odstraněna dvojice `.stat-card` pod perexem (termín voleb + účast 2022 byly duplicitní s perexem a s grafem na `/volby/`), datum voleb místo toho tučně v samotném perexu; nad nadpisem přidán rozcestník ročníků (`{{VOLBY_ROCNIKY}}`, viz `volby/README.md`); dřív (8. 9. 2026): stránka přestavěna na podzáložky po vzoru Voleb 2018/2022 (dřív jedna plochá stránka) — nová záložka „Předvolební sliby" s volebními programy dvou z pěti uskupení (Pečky srdcem, Sdružení nezávislých kandidátů PEČKY PEČÁKŮM), soubory doplnil uživatel do `volby/2026/volebni-programy-2026/`; zbylá tři uskupení v mezeře, doplní se stejně jako u Voleb 2022; z plakátu PEČKY PEČÁKŮM vystřiženo a jmenovitě přiřazeno 5 avatarů (Jedlička, Pečenka, Jedličková, Sedláček, Cihlářová) do `volby/2026/zastupitele/`, zapsáno i do `lide/people.json` |
-| [O webu](o-webu/README.md) | týdně | 9. 9. 2026 | 9. 9. 2026 | aktualizováno všech 15 sociálních sítí — počty sledujících se změnily u 6 účtů (Alena Švejnohová 942 → 946, Městská knihovna 483 → 482, Pečky NEXT FB 291 → 306, ODS a nezávislí 213 → 217, Instagram Pečky NEXT 120 → 128, Pečky srdcem 72 → 73, FB skupina SPD 39 → 40 členů, Instagram streetpeopleofpecky 1 219 → 1 218), nová aktivita u 8 účtů (mj. Pečky Pečákům po třech měsících ticha, 5. 6. → 8. 9. 2026); u obou instagramových účtů opět jen počet sledujících — mezera v čtení data posledního příspěvku trvá |
-| [Smlouvy](smlouvy/README.md) | týdně | 9. 9. 2026 | 9. 9. 2026 | 2 nové smlouvy do tabulky „Nejnovější smlouvy": dar hydraulického vyprošťovacího zařízení WEBER HYDRAULIK SP 49 od HZS Středočeského kraje (7. 9. 2026, 642 510 Kč) a dotace Středočeského kraje ZŠ Pečky na bezplatné školní stravování 2026/2027 (31. 8. 2026, 298 960 Kč); souhrnná čísla ponechána beze změny — viz nedořešený úbytek záznamů u Hlídače z 30. 8.–2. 9. |
+| [Smlouvy](smlouvy/README.md) | týdně | 13. 9. 2026 | 9. 9. 2026 | 2 nové smlouvy do tabulky „Nejnovější smlouvy": dar hydraulického vyprošťovacího zařízení WEBER HYDRAULIK SP 49 od HZS Středočeského kraje (7. 9. 2026, 642 510 Kč) a dotace Středočeského kraje ZŠ Pečky na bezplatné školní stravování 2026/2027 (31. 8. 2026, 298 960 Kč); souhrnná čísla ponechána beze změny — viz nedořešený úbytek záznamů u Hlídače z 30. 8.–2. 9. |
 | [Lidé](lide/README.md) | na vyžádání | 8. 9. 2026 | 8. 9. 2026 | doplněny fotky (`photos[]`, rok 2026) pěti kandidátů PEČKY PEČÁKŮM vystřižené z volebního plakátu — Martin Jedlička, Milan Pečenka, Šárka Jedličková, Pavel Sedláček, Alena Cihlářová; sloučeny záznamy Ivety Minaříkové a Dvořákové (jedna osoba, změna příjmení), staré `id` zůstává jako alias; povolání převedeno na `occupations[]` s ročníkem, doplněn ročník 2022 u 21 zvolených (Poradna pro obce); srovnán `<title>` a popis stránky s novým nadpisem; nový nadpis „Lidé města Pečky" a přepsaný perex (popisuje, co na stránce je, ne výklad o samosprávě); doplněn Ing. František Pospíšil jako první polistopadový starosta (1990–2002, tři období); doplněno 16 zaměstnanců úřadu z organizační struktury na pecky.cz (skupina „Úřad města" ze 6 na 22), rozšířeno pravidlo §6/4 o řadové zaměstnance; doplněno povolání všech 105 kandidátů z kandidátních listin 2026 (`volby/2026/data-export.csv`), v detailu osoby vč. ročníku listiny; doplněny e-maily všech 21 zastupitelů a služební telefony vedení (kancelář i mobil) z webu města, v detailu osoby jako odkazy `tel:`; doplněn portrét Ing. Martina Jedličky z webu města (nová složka `lide/foto/` na fotky mimo volební materiály); odstraněn souhrnný callout „O fotografiích" (původ fotek zůstává v detailu osoby), upraven placeholder hledání; při filtru podle role se skupiny pojmenují podle něj („Starosta — nyní / dříve") místo zavádějícího „Ostatní členové zastupitelstva"; doplněna historie vedení města: Milan Urban starostou 2006–2018 (3 období), rada 2014–2018 a vedení 2018–2022 v čele se starostkou A. Švejnohovou (14 nových vazeb, 1 nová osoba); vedení rozděleno na „Úřad města" (6) a „Městské organizace" (7) — vlastní skupiny i filtry role (`vedeni-urad` / `vedeni-organizace`); zrušeny čipy filtru podle uskupení (filtr zůstává přes URL a klik na kartičce); dřívější skupina „Kandidáti bez mandátu" zrušena, kandidáti zůstávají v datech, ale nevypisují se |
-| [Pozemky](pozemky/README.md) | odvozená | 5. 9. 2026 | 5. 9. 2026 | oprava odkazu „řešilo se na: Jednání…" u všech řádků — mířil na `href="#"` s JS handlerem, který se na samostatné stránce Pozemky nikdy nenačetl (pozůstatek jednostránkové architektury); teď skutečný odkaz `/jednani/#rada-YYYY-MM-DD` |
-| [Tělocvična](telocvicna/README.md) | týdně | 9. 9. 2026 | 4. 9. 2026 | zápis RM 31/2026: Dodatek č. 1 ke SoD schválen, cena díla +6,15 mil. Kč bez DPH na 211,5 mil. vč. DPH; radnice sama uvádí, že tím není dotčeno posouzení odpovědnosti |
-| [Jednání](jednani/README.md) | týdně | 9. 9. 2026 | 4. 9. 2026 | Rada 31/2026 (31. 8.) doplněna o zápis a 6 usnesení (UR-276 až UR-281); přibyla Rada 32/2026 (7. 9.) zatím jen s Pozvánkou |
-| [Pečecké noviny](noviny/README.md) | týdně | 9. 9. 2026 | 2. 9. 2026 | dávka 2001/2005/2006 od uživatele (5 vydání, 156→161) — 2 vydání OCR (nečitelné dobové kódování fontů) |
+| [Pozemky](pozemky/README.md) | odvozená | 10. 9. 2026 | 5. 9. 2026 | oprava odkazu „řešilo se na: Jednání…" u všech řádků — mířil na `href="#"` s JS handlerem, který se na samostatné stránce Pozemky nikdy nenačetl (pozůstatek jednostránkové architektury); teď skutečný odkaz `/jednani/#rada-YYYY-MM-DD` |
+| [Pečecké noviny](noviny/README.md) | týdně | 13. 9. 2026 | 2. 9. 2026 | dávka 2001/2005/2006 od uživatele (5 vydání, 156→161) — 2 vydání OCR (nečitelné dobové kódování fontů) |
 | [Plán](plan/README.md) | na vyžádání | 2. 9. 2026 | 2. 9. 2026 | řádek „Nová tělocvična a učebny ZŠ": stav → zastaveno, odkaz na novou sekci Tělocvična |
 | [Domů](domu/README.md) | odvozená | — | 24. 8. 2026 | brand header |
-| [Zakázky](zakazky/README.md) | týdně | 9. 9. 2026 | 6. 8. 2026 | 1 nová zakázka |
+| [Zakázky](zakazky/README.md) | týdně | 13. 9. 2026 | 6. 8. 2026 | 1 nová zakázka |
 | [Pokladna](pokladna/README.md) | na vyžádání | 6. 8. 2026 | 6. 8. 2026 | blok Bankovní účty |
 
 Režimy: **týdně** = má zdroj, který kontroluje týdenní rutina (neděle
@@ -181,6 +181,117 @@ a přesune ho na správné místo v řazení. Ostatní řádky nechá být.
 `?` u data znamená nedoložený odhad — nahradit, až se zjistí přesné datum.
 
 ## Poslední aktualizace
+
+14. září 2026 (automatická kontrola usneseni.cz. **Jednání:** beze změny
+— výpis na usneseni.cz (stav k 14. 9. 2026 08:26) ukazuje přesně to, co
+už archiv má: **Zastupitelstvo 6/2026 (16. 9.)** a **Rada 33/2026
+(14. 9.)** nadále jen s Pozvánkou, **Rada 32/2026 (7. 9.)** kompletní
+od 10. 9. Žádné nové jednání, u žádného staršího nepřibyl zápis ani
+usnesení; `pecky-jednani.json` nedotčen — archiv drží **289 jednání,
+2 767 usnesení**. Playlist „Zasedání ZM" má 32 položek, beze změny proti
+13. 9.: jediná novinka zůstává naplánovaný živý přenos **ZM 6/2026
+(16. 9. 2026, 16:30)**, který se do `links.youtube` **nezapisuje** —
+postup (krok 6) pracuje jen s jednáními v minulosti a odkaz se doplní
+po zveřejnění záznamu. **Video k ZM 3/2026 z 25. 5. 2026 na kanálu
+stále chybí**, známá mezera trvá. Časové značky bodů (`video_ts`)
+prověřeny u všech zastupitelstev od ZM 2/2025: jediné chybějící jsou
+„Volba pracovních komisí" (vlastní kapitolu v popisku nikdy nemá), body
+8 a 9 u ZM 2/2026 a celé ZM 3/2026 bez videa — vše ověřené mezery, nic
+k doplnění. **Tělocvična:** zkontrolováno, beze změny — nepřibylo
+jednání, jehož program nebo usnesení by se stavby týkaly; bod
+„Informace o stavební akci Dostavba učeben a tělocvičny v ZŠ Pečky"
+z programu ZM 6/2026 je v sekci podchycen už od 10. 9. **Pozemky:**
+žádné nové usnesení k prodeji/nákupu pozemku, `update-pozemky.py`
+nespouštěn. Web přegenerován kontrolně (`scripts/build.py`), výstup
+identický. Změněn jen tento changelog a datum kontroly u Jednání
+a Tělocvičny v tabulce „Stav sekcí".)
+
+13. září 2026 (týdenní kontrola zdrojů. **Jednání:** na usneseni.cz
+přibylo jedno nové jednání — **Rada 33/2026 (14. 9. 2026)**, zatím jen
+s Pozvánkou; zaznamenáno s programem o 9 bodech z pozvánkového PDF (mj.
+Smlouva o zřízení práva stavby – kolárna u ČD, změna termínu plnění
+usnesení UR-265-29/26 a souhlas s vyřazením nepotřebného DHM ZŠ Pečky).
+U žádného staršího jednání nepřibyl zápis ani usnesení — Rada 32/2026
+byla doplněná už 10. 9., Zastupitelstvo 6/2026 (16. 9.) má nadále jen
+Pozvánku. Archiv má nově **289 jednání, 2 767 usnesení, 4 123 bodů
+programu**. `jednani/absence.json` přepočítán, beze změny (nové jednání
+zatím nemá prezenci). Playlist „Zasedání ZM" má 32 položek — proti
+minulému běhu přibyl jen naplánovaný přenos ZM 6/2026 (16. 9. 2026),
+žádný nový záznam; **video k ZM 3/2026 z 25. 5. 2026 na kanálu stále
+chybí**, známá mezera trvá. Časové značky bodů (`video_ts`)
+zkontrolovány — jediné nedoplněné jsou body 8 a 9 u ZM 2/2026, kde je
+ověřeno, že vlastní kapitolu v popisku videa nemají.
+**Tělocvična:** zkontrolováno, beze změny — program Rady 33/2026 žádný
+bod ke stavbě, pilotám, statice ani dodatkům ke SoD neobsahuje (ověřeno
+i u UR-265-29/26, na které se jeden bod odvolává: jde o oplocení
+dětského hřiště na sídlišti, ne o tělocvičnu). **Pozemky:** nové
+usnesení k prodeji/nákupu pozemku nepřibylo, `update-pozemky.py`
+nespouštěn. **Pečecké noviny:** archiv pecky.cz nadále končí číslem
+7–8/2026, zářijové vydání ještě nevyšlo. **Smlouvy:** konektor Hlídače
+státu vrací **přesně stejná čísla jako 9. 9.** — skupina 152 smluv /
+95 486 534 Kč, úřad 47 / 33 473 888 Kč, nejnovější podpis nadále
+7. 9. 2026. Žádná nová smlouva, tabulky ani souhrny nedotčeny;
+**nevysvětlený propad z 30. 8.–2. 9. (skupina 182 → 150) zůstává
+nedorovnaný** a čísla v sekci jsou pošesté ponechána beze změny —
+k rozhodnutí uživatele. **Zakázky:** diff proti
+`zakazky/pecky-zakazky-ids.json` — **176 ID, 1 nové, 0 zmizelých**.
+Nové ID `P22V00000346` je ale **fulltextový šum**: jde o zakázku
+„Novostavba silnice III. třídy Nová Průběžná v obci **Zdiby** – PD"
+zadavatele Středočeský kraj, s Pečkami nesouvisí. Do kontrolního snímku
+zapsáno (aby se příště znovu nehlásilo), do tabulky „Nejnovější zakázky"
+**ne**. Při té příležitosti zjištěno, že vyhledávání `Q=00239607` je
+fulltext, ne filtr podle zadavatele — dopsáno jako pravidlo do
+`zakazky/README.md` i do `sources.json`. Hlídač dnes hlásí 214 výsledků
+celkem (dřív 193) při 176 unikátních ID. **Volby 2026:** na úřední desce
+pecky.cz přibyly dva volební dokumenty, oba vyvěšené 10. 9. 2026 —
+„Svolání prvního zasedání OVK" a „Školení k zásadám hlasování". Oba se
+týkají okrskových volebních komisí, ne voličů; na stránku proto
+nepromítnuty, jen hlášeny. **Sociální sítě (O webu + Volby 2026):**
+zkontrolováno všech 15 účtů. Počty se změnily u 8: Alena Švejnohová
+946 → 955, Kulturní středisko 992 → 993, Městská knihovna 482 → 483,
+Pečky Pečákům 238 → 245, TJ Sokol Pečky 221 → 223, ODS a nezávislí
+Pečky 217 → 221, Pečky srdcem 73 → 78, Instagram streetpeopleofpecky
+1 218 → 1 216. Nová aktivita u 8 účtů: Město Pečky (13. 9.), NAŠE PEČKY
+(12. 9.), Alena Švejnohová (13. 9.), Kulturní středisko (31. 8. →
+10. 9.), Pečky NEXT FB (12. 9.), Pečky Pečákům (10. 9.), ODS a nezávislí
+Pečky (13. 9.) a Pečky srdcem (28. 8. → 10. 9.). Měsíc před volbami jsou
+tedy aktivní všechna volební uskupení kromě FB skupiny Lidé pro Pečky
+s podporou SPD (nadále 27. 8. 2026). **Nová technická překážka
+a její obejití:** Facebook od tohoto běhu nevykresluje datum příspěvku
+ani jako zamíchané `<span>` znaky — značka je prázdný `<span>` doplněný
+`<template>`, takže dosavadní postup (čtení znaků podle pozice na
+obrazovce) vracel prázdno. Spolehlivě jde datum přečíst z
+`creation_time`/`publish_time` ve `<script>` datech stránky; postup
+ověřen proti relativnímu tvaru („7 h" u Města Pečky = 13. 9. 07:53)
+a zapsán do `o-webu/automation-socialni-site.md`. U obou instagramových
+účtů aktualizován jen počet sledujících — mezera v čtení data
+posledního příspěvku (popsaná 2. 9.) **trvá**. `python3
+scripts/build.py` proběhl bez chyby — 15 stránek + 1 neprolinkovaná
+podstránka, validace OK. Vizuální kontrola na lokálním serveru v tomto
+automatickém běhu neproběhla, nahradila ji strojová kontrola
+vygenerovaných stránek.)
+
+10. září 2026 (automatická kontrola usneseni.cz. **Jednání:** Rada
+32/2026 (7. 9. 2026) doplněna o zápis a 12 usnesení (UR-282 až UR-293)
+včetně prezence, průběžných příchodů/odchodů a délek jednotlivých bodů;
+nově přibylo **Zastupitelstvo 6/2026 (16. 9. 2026)** zatím jen
+s Pozvánkou — 23bodový program vytažen z PDF pozvánky. Archiv teď 288
+jednání a 2 767 usnesení. Přepočítána `jednani/absence.json`. Playlist
+„Zasedání ZM" — přibyl naplánovaný přenos ZM 6/2026 (16. 9. 2026), do
+archivu zatím nezapsán (jednání ještě neproběhlo); **video k ZM 3/2026
+z 25. 5. 2026 na kanálu stále chybí**, známá mezera trvá. Časové značky
+bodů (`video_ts`) zkontrolovány — u ZM 2/2026 ověřeno v popisku videa,
+že body 8 a 9 vlastní kapitolu nemají, takže tam nejde o mezeru.
+**Tělocvična:** ze zápisu RM 32/2026 doplněny dvě věci — město přizvalo
+externího pracovníka na sanace budov a připravuje vyjádření právní
+kanceláře k dalšímu postupu; rozpočtová opatření č. 9/2026 zvyšují
+letošní výdajovou položku stavby o 10 mil. Kč, podle důvodové zprávy ale
+jako „předpoklad plateb v letošním roce", ne jako nově vyčíslené
+vícenáklady (UR-288-32/26, 4 pro – 1 zdržel se; rozhodne ZM 16. 9.).
+Přidán callout k programu ZM 6/2026, kde má stavba samostatný bod.
+**Pozemky:** `update-pozemky.py` přegenerován, beze změny — obě nové
+darovací smlouvy s General Property X (UR-291, UR-292) jsou bezúplatné
+převody, které tabulky Nákup/Prodej nesledují.)
 
 9. září 2026 (týdenní kontrola zdrojů. **Jednání:** na usneseni.cz nic
 nového — Rada 32/2026 (7. 9. 2026) má nadále jen Pozvánku, zápis ani

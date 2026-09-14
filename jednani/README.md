@@ -228,6 +228,56 @@ Bc. …) a vezme první písmeno křestního jména a příjmení.
 `present_names`/`absent_names` stejným rozborem prezence jako u
 `attendance.present`/`total` výše.
 
+## Průběžná prezence (`attendance.changes`)
+
+Doplněno 9. 9. 2026. Zápis vedle úvodní prezence zaznamenává i každý
+příchod, odchod a distanční připojení během jednání („V 15:45:53 přišel
+Ing. Petr Dürr, přítomno 7 z 7 radních." + blok „Aktualizovaný stav
+prezence"). Do té doby scraper tyhle věty vědomě zahazoval; ukázalo se, že
+bez nich vypadá pozdní příchod jako celodenní absence — u Ing. Petra Dürra
+100 chybějících úvodních prezencí ze 170 jednání rady, ale u 47 z nich
+zápis eviduje pozdější příchod.
+
+Tvar: `[{"time":"15:45:53","event":"přišel","name":"Ing. Petr Dürr",
+"present_after":7}]`, seřazeno podle času. `event` je `"přišel"`,
+`"odešel"` nebo `"distančně"`. U jednání bez jediné změny se pole
+vynechává. Pokrytí: 124 jednání z 286 (218 událostí — 140 příchodů,
+77 odchodů, 1 distanční připojení), doplněno zpětně z
+`archive-2026-08-04.json` skriptem `scripts/doplnit-prubeznou-prezenci.py`;
+pět jednání novějších než snímek archivu ověřeno ručně na `/zapis/`.
+
+Zatím jde o čistě datové pole — **v UI se nezobrazuje**. Řádek s avatary
+účastníků pořád ukazuje jen stav ze zahájení, takže kdo dorazil později,
+je tam mezi nepřítomnými. Až se bude řešit zobrazení, patří k tomu
+i rozhodnutí, jak takového člověka v řádku odlišit.
+
+**Pro budoucí automatizaci:** vytáhnout `changes` z každého nového zápisu
+podle `automation-kontrola-usneseni-cz.md`, krok 4.
+
+## Absence na jednáních (`absence.json`, `/jednani/absence.html`)
+
+Doplněno 9. 9. 2026. Kolikrát který zastupitel a radní chyběl — spočítáno
+z `attendance` a `attendance.changes` skriptem `scripts/absence.py` do
+`jednani/absence.json`, odkud si to stránka natáhne za běhu. Postup,
+zdůvodnění a pasti popisuje `INSTRUKCE-absence.md`; skript ho implementuje,
+ne naopak — při změně pravidel se mění oba soubory.
+
+`absence.json` drží čtyři bloky (Rada a Zastupitelstvo × dvě volební
+období), v každém řádek na osobu s počtem jednání v mandátu, absencí
+při zahájení, pozdních příchodů, skutečné nepřítomnosti, dřívějších odchodů
+a případnou poznámkou. Blok nese i `kontrola` — součet absencí přes osoby
+proti součtu přes jednání; rozdíl smí být nenulový jen tam, kde ho
+vysvětluje vadný záznam u zdroje (dnes Rada 24/2024, rozdíl +1).
+
+**Stránka není nikde prolinkovaná** — nemá odkaz v navigaci ani v žádné
+sekci, není v `sitemap.xml` a nese `noindex`. Dá se na ni dostat jen
+přímou adresou. Generuje ji `scripts/build.py` ze `content/absence.html`
+přes `EXTRA_PAGES` (viz `ARCHITEKTURA-MIGRACE.md`); až se rozhodne, kam
+odkaz patří, stačí ho někam přidat a `noindex` z `build.py` odebrat.
+
+**Při každém novém jednání** znovu spustit `python3 jednani/scripts/absence.py`
+— `absence.json` se nepřepočítává sám.
+
 ## Zvýraznění budoucích jednání (`jIsFutureMeeting()`)
 
 Doplněno 21. 8. 2026 — jednání s datem po dnešním dni (naplánovaná, zatím

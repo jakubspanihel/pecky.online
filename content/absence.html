@@ -1,0 +1,121 @@
+  <section class="panel active" id="panel-absence">
+    <h2 class="title display">Kdo chybí na jednáních</h2>
+    <p class="lede">Kolikrát který zastupitel a radní chyběl na jednání. Čísla vycházejí ze jmenné prezence v zápisech města a jsou opravená o pozdní příchody — kdo dorazil po zahájení, není veden jako nepřítomný. Zastupitelstvo a rada se počítají zvlášť, uvnitř zvlášť za každé volební období. <span class="stamp">ověřeno</span></p>
+
+    <div class="callout">
+      <strong>Co čísla znamenají.</strong> Prezence v zápisu je pořízená při zahájení jednání. Příchody a odchody v jeho průběhu zapisovatel eviduje zvlášť („V 15:45:53 přišel Ing. Petr Dürr, přítomno 7 z 7 radních") a my je do výpočtu započítali — sloupec <em>nebyl vůbec</em> proto počítá jen ta jednání, kde člověk chyběl při zahájení a jeho pozdější příchod zápis nezaznamenal. Rozdíl je podstatný: bez téhle opravy by u jednoho radního vyšla absence 59 % místo 31 %.
+      <br><br>
+      <strong>Odchody se s absencí nesčítají.</strong> Sloupec <em>odešel dřív</em> stojí samostatně — zůstat do konce jednání není povinnost a přesnou délku účasti ze zápisu spočítat nejde. Čte se ale spolu s absencí: kdo nechyběl ani jednou, mohl přesto odejít z poloviny jednání.
+      <br><br>
+      <strong>Tabulka nehodnotí.</strong> Zápis neuvádí, proč se kdo omluvil ani proč se neomluvil, takže z čísel nejde odvodit, kdo bere mandát vážně. Rozdíl mezi omluvenou a neomluvenou nepřítomností je jen ten, jak ji zapsal zapisovatel.
+    </div>
+
+    <div class="subtabs" role="tablist" aria-label="Části stránky Absence">
+      <button class="subtablink active" type="button" data-subpanel="absence-zastupitelstvo">Zastupitelstvo</button>
+      <button class="subtablink" type="button" data-subpanel="absence-rada">Rada</button>
+      <button class="subtablink" type="button" data-subpanel="absence-metodika">Jak se to počítá</button>
+    </div>
+
+    <div class="subpanel active" id="subpanel-absence-zastupitelstvo">
+      <div id="absence-zastupitelstvo-obsah"><p class="lede">Načítám data…</p></div>
+    </div>
+
+    <div class="subpanel" id="subpanel-absence-rada">
+      <div id="absence-rada-obsah"><p class="lede">Načítám data…</p></div>
+    </div>
+
+    <div class="subpanel" id="subpanel-absence-metodika">
+      <h3>Odkud data jsou</h3>
+      <p>Zdrojem je jmenná prezence ze zápisů zveřejněných městem na <a href="https://mesto-pecky.usneseni.cz/verejne/" target="_blank" rel="noopener">mesto-pecky.usneseni.cz</a>, uložená v datové sadě <code>jednani/pecky-jednani.json</code>. U každého jednání zápis vypisuje přítomné jmenovitě a zvlášť omluvené a nepřítomné; u části jednání navíc každý příchod a odchod v průběhu.</p>
+
+      <h3>Jmenovatel je mandát, ne počet všech jednání</h3>
+      <p>Sloupec <em>jednání</em> udává počet jednání konaných v době, kdy dotyčný v orgánu skutečně zasedal — ne počet všech jednání období. Náhradník, který složil slib uprostřed období, má proto menší jmenovatel než ostatní; u koho se mandát liší od zbytku sboru, je to uvedené v poznámce. Tabulka je řazená od nejkratšího mandátu, protože právě u krátkých mandátů procento klame nejvíc.</p>
+
+      <h3>Co do čísel nespadá</h3>
+      <ul>
+        <li><strong>Období 2018–2022 není celé.</strong> Zápisy na usneseni.cz začínají u zastupitelstva 16. 6. 2021 a u rady 12. 4. 2021, starší jednání tam nejsou. Tabulka za tohle období tedy pokrývá jen jeho poslední rok a půl.</li>
+        <li><strong>Průběžnou prezenci nemá každý zápis.</strong> Věty o příchodech a odchodech jsou u 124 z 286 jednání. U ostatních zápis žádnou změnu neuvádí — což může znamenat, že žádná nenastala, ale ověřit to nejde.</li>
+        <li><strong>Dva záznamy jsou vadné už u zdroje.</strong> Zápis rady 27/2021 vede Jiřího Katrnošku zároveň mezi přítomnými i nepřítomnými (jinde v témže zápisu stojí, že se účastnil distančně — počítáme ho jako přítomného). Zápis rady 24/2024 vypisuje čtyři přítomné, ale v souhrnné větě tvrdí „přítomno je 5 členů“; počítáme podle jmen.</li>
+        <li><strong>Důvody absence tabulka nesleduje</strong>, protože je zápis neuvádí.</li>
+      </ul>
+
+      <p class="meta-note">Celý postup i s pastmi, na které se při počítání dá narazit, popisuje soubor <code>jednani/INSTRUKCE-absence.md</code> v repozitáři webu. Data pro tuhle stránku generuje skript <code>jednani/scripts/absence.py</code> do <code>jednani/absence.json</code>.</p>
+    </div>
+
+    <p class="meta-note" id="absence-patka"></p>
+  </section>
+
+<script>
+(function(){
+  function esc(s){
+    return String(s == null ? '' : s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+  }
+
+  // '2026-08-26' -> '26. 8. 2026'
+  function datum(iso){
+    const m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(iso || '');
+    return m ? `${+m[3]}. ${+m[2]}. ${m[1]}` : (iso || '');
+  }
+
+  function procenta(x){
+    // vždy jedno desetinné místo a desetinná čárka — ať sloupec drží tvar
+    return Number(x).toFixed(1).replace('.', ',') + ' %';
+  }
+
+  function tabulka(blok){
+    const radky = blok.radky.map(r => {
+      // Zvýraznit řádky, kde samotné procento klame: kratší mandát než má
+      // celé období, hodně pozdních příchodů, nebo hodně dřívějších odchodů.
+      const kratsi = r.mandat < blok.jednani;
+      return `<tr>
+        <td>${esc(r.jmeno)}</td>
+        <td class="num">${r.mandat}${kratsi ? `<span class="absence-rozpad">z ${blok.jednani} v období</span>` : ''}</td>
+        <td class="num">${r.chybel}${r.chybel ? ` <span class="absence-rozpad">${r.omluven} omluv., ${r.nepritomen} neomluv.</span>` : ''}</td>
+        <td class="num">${r.dorazil || '—'}</td>
+        <td class="num"><strong>${r.nebyl}</strong>${r.mandat >= 10 ? ` <span class="absence-rozpad">${procenta(r.podil)}</span>` : ''}</td>
+        <td class="num">${r.odesel || '—'}</td>
+        <td>${esc(r.poznamka || '')}</td>
+      </tr>`;
+    }).join('\n');
+
+    return `<h3>${esc(blok.obdobi)} — ${blok.jednani} jednání</h3>
+      <p class="meta-note">${datum(blok.od)} – ${datum(blok.do)}. Řazeno od nejkratšího mandátu; procento se uvádí jen tam, kde je jmenovatel aspoň 10 jednání.</p>
+      <div class="table-scroll">
+      <table class="register absence-tabulka">
+        <thead><tr>
+          <th>Jméno</th><th class="num">Jednání</th><th class="num">Chyběl při zahájení</th>
+          <th class="num">Dorazil později</th><th class="num">Nebyl vůbec</th>
+          <th class="num">Odešel dřív</th><th>Poznámka</th>
+        </tr></thead>
+        <tbody>${radky}</tbody>
+      </table>
+      </div>`;
+  }
+
+  function vykresli(data){
+    for (const organ of ['Zastupitelstvo', 'Rada']) {
+      const bloky = data.obdobi.filter(b => b.organ === organ)
+                              .sort((a, b) => b.obdobi.localeCompare(a.obdobi));  // novější období nahoře
+      const cil = document.getElementById('absence-' + organ.toLowerCase() + '-obsah');
+      if (!cil) continue;
+      cil.innerHTML = bloky.map(tabulka).join('\n') +
+        `<div class="callout">Období 2018–2022 pokrývá jen svou poslední část — zápisy na usneseni.cz
+         začínají u zastupitelstva 16. 6. 2021 a u rady 12. 4. 2021, starší jednání zveřejněná nejsou.</div>`;
+    }
+    const p = document.getElementById('absence-patka');
+    if (p) {
+      p.textContent = `Data zahrnují jednání do ${datum(data.meta.data_do)} — celkem `
+        + `${data.meta.jednani_celkem} jednání se jmennou prezencí, z toho `
+        + `${data.meta.jednani_s_prubeznou_prezenci} se záznamem příchodů a odchodů v průběhu.`;
+    }
+  }
+
+  fetch('/jednani/absence.json')
+    .then(r => { if (!r.ok) throw new Error(r.status); return r.json(); })
+    .then(vykresli)
+    .catch(() => {
+      document.querySelectorAll('#absence-zastupitelstvo-obsah, #absence-rada-obsah')
+        .forEach(el => { el.innerHTML = '<div class="callout">Data se nepodařilo načíst.</div>'; });
+    });
+})();
+</script>

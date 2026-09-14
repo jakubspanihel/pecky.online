@@ -171,6 +171,16 @@ Tenhle redirect snippet by měl zůstat natrvalo, ne jen po dobu migrace.
   ne jen na `index.html`.
 - Vygeneruje navíc `sitemap.xml` (výčet všech `<sekce>/index.html`) a
   `robots.txt` — dnes chybí obojí.
+- **Neprolinkované podstránky (`EXTRA_PAGES`, doplněno 9. 9. 2026).**
+  Vedle sekcí z `MANIFEST` umí build i podstránku uvnitř sekce
+  (`/jednani/absence.html`) — stejná šablona, navigace i patička, ale
+  žádný řádek v tabulce „Stav sekcí", žádný záznam v `sitemap.xml`
+  a navíc `noindex`. Slouží pro obsah, který je hotový, ale ještě není
+  rozhodnuté, kam na něj patří odkaz; dostat se na něj dá jen přímou
+  adresou. Cesta končící `.html` se zapisuje jako soubor, ne jako
+  `adresář/index.html`. Až se odkaz doplní, přesunout položku do
+  `MANIFEST` (a založit jí řádek ve „Stav sekcí", odkud si build bere
+  `lastmod` pro sitemapu).
 - Spouští se ručně před `git push`/publikací, stejně jako dnešní
   `update-pozemky.py` — žádný CI, žádný automatický build na
   GitHub Pages straně.

@@ -112,6 +112,19 @@ MANIFEST = {
         False),
 }
 
+# Podstránky, které se generují stejně jako sekce z MANIFEST, ale nepatří
+# do navigace ani do sitemapy — nemají řádek v tabulce „Stav sekcí" a dá se
+# na ně dostat jen přímým odkazem. Dostanou navíc noindex, aby se neobjevily
+# ve vyhledávačích dřív, než se na ně někde odkáže.
+# slug -> (výstupní cesta, title, meta description, helpers.js, sekce pro navigaci)
+EXTRA_PAGES = {
+    'absence': (
+        '/jednani/absence.html', 'Absence na jednáních — pecky.online',
+        'Kolikrát který zastupitel a radní města Pečky chyběl na jednání — '
+        'spočítáno z jmenné prezence v zápisech, opravené o pozdní příchody.',
+        False, 'jednani'),
+}
+
 
 # cesta k README sekce (jak je zapsaná v tabulce "Stav sekcí") -> slug v MANIFEST
 README_TO_SLUG = {
@@ -291,9 +304,12 @@ def build_nav(current_slug):
 
 
 def out_file_for(path):
-    """'/' -> index.html; '/jednani/' -> jednani/index.html"""
+    """'/' -> index.html; '/jednani/' -> jednani/index.html;
+    '/jednani/absence.html' -> jednani/absence.html (podstránka, ne adresář)"""
     if path == '/':
         return ROOT / 'index.html'
+    if path.endswith('.html'):
+        return ROOT / path.lstrip('/')
     return ROOT / path.strip('/') / 'index.html'
 
 
@@ -302,15 +318,23 @@ def build_all(stav_rows=None):
     footer_tpl = read('assets/footer.html')
     stav_sekci = render_stav_sekci(stav_rows or parse_stav_sekci())
     written = []
+    extra_written = []
 
-    for slug, (path, title, desc, needs_helpers) in MANIFEST.items():
+    stranky = [(slug, path, title, desc, helpers, slug, False)
+               for slug, (path, title, desc, helpers) in MANIFEST.items()]
+    stranky += [(slug, path, title, desc, helpers, nav_slug, True)
+                for slug, (path, title, desc, helpers, nav_slug) in EXTRA_PAGES.items()]
+
+    for slug, path, title, desc, needs_helpers, nav_slug, je_extra in stranky:
         content = read(f'content/{slug}.html')
         content = content.replace('{{STAV_SEKCI}}', stav_sekci)
         if slug in VOLBY_SLUG_TO_ROK or slug == 'volby':
             content = content.replace('{{VOLBY_ROCNIKY}}', render_volby_rocniky(slug))
-        nav = build_nav(slug)
-        footer = apply_active(footer_tpl, slug)
+        nav = build_nav(nav_slug)
+        footer = apply_active(footer_tpl, nav_slug)
         head_scripts = '<script src="/assets/helpers.js"></script>' if needs_helpers else ''
+        if je_extra:
+            head_scripts = '<meta name="robots" content="noindex">\n' + head_scripts
 
         html = page_tpl
         html = html.replace('{{TITLE}}', title)
@@ -328,9 +352,9 @@ def build_all(stav_rows=None):
         out_path = out_file_for(path)
         out_path.parent.mkdir(parents=True, exist_ok=True)
         out_path.write_text(html, encoding='utf-8')
-        written.append((slug, out_path, path))
+        (extra_written if je_extra else written).append((slug, out_path, path))
 
-    return written
+    return written, extra_written
 
 
 def build_sitemap(written, stav_rows):
@@ -425,12 +449,14 @@ def validate(written):
 
 if __name__ == '__main__':
     stav_rows = parse_stav_sekci()
-    written = build_all(stav_rows)
-    build_sitemap(written, stav_rows)
-    print(f'Vygenerováno {len(written)} stránek + sitemap.xml + robots.txt.')
+    written, extra_written = build_all(stav_rows)
+    build_sitemap(written, stav_rows)   # podstránky z EXTRA_PAGES do sitemapy nepatří
+    print(f'Vygenerováno {len(written)} stránek '
+          f'(+ {len(extra_written)} neprolinkovaných podstránek) '
+          f'+ sitemap.xml + robots.txt.')
     if '--no-check' not in sys.argv:
         print('Validace (tag balance + JS syntax):')
-        ok = validate(written)
+        ok = validate(written + extra_written)
         if not ok:
             print('NĚKTERÉ STRÁNKY MAJÍ CHYBU — viz výš.')
             sys.exit(1)

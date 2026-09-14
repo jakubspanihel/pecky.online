@@ -212,6 +212,37 @@ Promítnuto do: intra + stat-grid (211,5 mil. místo 205 mil.), plně
 přepsaný řádek 31. 8. 2026 v tabulce „Zastavení stavby“, nový třetí
 callout v „Otevřené otázky“ (rozpočet/harmonogram/odpovědnost).
 
+## Doplněno 10. 9. 2026: zápis RM 32/2026 + program ZM 6/2026
+
+Automatická kontrola usneseni.cz (krok 9). Zdroj: zápis RM 32/2026
+(7. 9. 2026),
+`https://mesto-pecky.usneseni.cz/verejne/9b05ec54-a5f5-11f1-a3cf-0242c0a80003/zapis/`,
+a pozvánka ZM 6/2026 (16. 9. 2026).
+
+- **Externí odborník na sanace.** Bod 3 (Aktuální informace vedení
+  města): „porada externího pracovníka na sanace budov ve věci dalšího
+  pokračování stavby, příprava vyjádření právní kanceláře o dalším
+  postupu“. Je to první doklad, že město k věci přizvalo externího
+  specialistu na sanace — dosud se mluvilo jen o generálním projektantovi,
+  autorském dozoru, statikovi a TDI. Jméno ani firmu zápis neuvádí.
+- **10 mil. Kč do letošního rozpočtu — ale ne vícenáklady.** Bod 9
+  (Rozpočtová opatření č. 9/2026): „§ 3113 Dostavba učeben a tělocvičny
+  v ZŠ Pečky č. 2026, zvýšení o 10 000 000 Kč, jedná se o předpoklad
+  plateb v letošním roce“. **Nepsat to jako zdražení stavby** — je to
+  úprava letošního cash flow, ne nově vyčíslený vícenáklad; celková cena
+  díla zůstává na 211,5 mil. Kč vč. DPH po Dodatku č. 1. Rada doporučila
+  ZM ke schválení (UR-288-32/26, 4 pro – 0 proti – 1 zdržel se).
+- **Rozhodne zastupitelstvo 16. 9. 2026.** Pozvánka ZM 6/2026 má na
+  programu samostatný bod 6 „Informace o stavební akci ‚Dostavba učeben
+  a tělocvičny v ZŠ Pečky‘“ a bod 8 s rozpočtovými opatřeními č. 9/2026.
+  Obsah informace ani stanovisko právní kanceláře pozvánka neuvádí —
+  doplnit ze zápisu, až vyjde.
+
+Promítnuto do `content/telocvicna.html`: nový řádek 7. 9. 2026 v tabulce
+„Zastavení stavby v roce 2026“ (nad 4. 9.), nový čtvrtý callout
+v „Otevřené otázky“ k jednání ZM 16. 9., `lastmod` na 10. 9. 2026.
+Stat-grid ani perex se neměnily — cena díla se nezměnila.
+
 ## Co hlídat dál
 
 - Jestli a jak vedení města zareaguje konkrétně na tvrzení Švejnohové
@@ -219,6 +250,9 @@ callout v „Otevřené otázky“ (rozpočet/harmonogram/odpovědnost).
   nereagovalo vůbec.
 - Jestli případně dojde k trestnímu oznámení, které Švejnohová
   požaduje, a s jakým výsledkem.
+- Co konkrétně vedení města řekne zastupitelstvu 16. 9. 2026 (bod 6)
+  a jaké bude stanovisko právní kanceláře, o jehož přípravě mluví
+  zápis RM 32/2026 — doplnit ze zápisu ZM 6/2026, až vyjde.
 - Které řešení si město nakonec vybere — sanaci základů, nebo
   přeprojektování statiky celé stavby (obě možnosti otevřené podle
   vyjádření 4. 9. 2026) — a jestli přinesou další dodatky/vícenáklady

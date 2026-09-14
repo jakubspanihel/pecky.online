@@ -93,12 +93,34 @@ Ze `zápis` textu:
   má, jinak pole vynechat.
 - **Délka celého jednání** (`duration_seconds` na úrovni jednání):
   `Jednání zahájeno DD.MM.RRRR v HH:MM:SS` / `Jednání ukončeno … v HH:MM:SS`.
-- **`attendance`**: z „Úvodní prezence" (na začátku zápisu, NE z pozdějších
-  „Aktualizovaný stav prezence" po příchodu/odchodu člena v průběhu —
-  archiv drží stav ze zahájení, konzistentně s ostatními záznamy).
+- **`attendance`**: z „Úvodní prezence" na začátku zápisu.
   `present`/`total` z věty „Přítomno je N (z M) členů"; `present_names` ze
   jmen v „Přítomni"; `absent_names` = „Omluveni" + „Nepřítomni" sloučené,
   každé se `note: "omluven"` / `"nepřítomen"`.
+- **`attendance.changes`** (doplněno 9. 9. 2026): příchody, odchody
+  a distanční připojení **v průběhu** jednání. Zápis je vede jako věty
+  „V 15:45:53 přišel Ing. Petr Dürr, přítomno 7 z 7 radních." následované
+  blokem „Aktualizovaný stav prezence". Do dubna 2026 se tyhle věty vědomě
+  vynechávaly — ukázalo se ale, že bez nich vypadá pozdní příchod jako
+  celodenní absence a statistika docházky je pak u konkrétních lidí skoro
+  dvojnásobná (viz `INSTRUKCE-absence.md` §3). **Vytáhnout je vždy.**
+
+  Tvar: pole objektů `{"time": "15:45:53", "event": "přišel",
+  "name": "Ing. Petr Dürr", "present_after": 7}`, seřazené podle času.
+  `event` nabývá hodnot `"přišel"` (i pro tvar „přišla"), `"odešel"`
+  (i „odešla") a `"distančně"` (věta „se zúčastnil/a distančně").
+  `present_after` je počet přítomných po té změně. Pole se u jednání bez
+  jediné změny **vynechává**, nepíše se prázdné.
+
+  Sběr z textu zápisu obstará regulární výraz
+  `V (\d{1,2}:\d{2}:\d{2}) (přišel|přišla|odešel|odešla|se zúčastnil[a]?
+  distančně) (.+?), přítomno (\d+)(?: z (\d+))? (zastupitelů|radních)\.` —
+  pozor, jméno musí končit až na `, přítomno`, ne na první tečce, jinak se
+  utne na titulu („Ing."). Jméno pak projít stejným úklidem jako prezenci
+  (nezlomitelné mezery, poznámka za pomlčkou — `INSTRUKCE-absence.md` §5).
+  U jednání, která jsou ve velkém `archive-*.json`, tohle všechno udělá
+  `jednani/scripts/doplnit-prubeznou-prezenci.py`; ručně se doplňují jen
+  jednání novější než snímek archivu.
 - Po doplnění `links.minutes`/`resolutions`/`agenda`/`duration_seconds`
   smazat pole `time` (scheduled čas z Pozvánky) — ostatní kompletní
   záznamy ho nemají, nahrazuje ho skutečný `duration_seconds`.
