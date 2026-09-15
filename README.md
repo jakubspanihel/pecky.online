@@ -7,6 +7,9 @@ o samosprávě města Pečky (okres Kolín, Středočeský kraj).
 
 - `CHANGELOG.md` — historie kontrol, ověřování zdrojů a změn obsahu
   jednotlivých sekcí, nejnovější záznamy nahoře.
+- `TROUBLESHOOTING.md` — známé bugy a obejití konkrétního provozního
+  prostředí (sandbox, mounty, `preview_start`), odděleně od trvalých
+  konvencí k datům v `CLAUDE.md`.
 - **Vícestránkový statický web** (od migrace 30. 8. 2026 — viz
   `ARCHITEKTURA-MIGRACE.md`), bez runtime frameworku, bez závislostí
   kromě Google Fonts přes CDN. `content/<sekce>.html` (jen obsah dané

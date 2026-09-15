@@ -289,7 +289,7 @@ zvláštní pole v datech není potřeba.
 **Technická poznámka k velkému `archive-*.json`:** přímé čtení tohoto
 souboru z připojené složky (`open()`/`head`/`cat` na cestě přes mount)
 občas skončí `OSError: [Errno 35] Resource deadlock avoided` (viz i
-poznámka v kořenovém `CLAUDE.md`). Spolehlivé obejití: nejdřív soubor
+poznámka v kořenovém `TROUBLESHOOTING.md`). Spolehlivé obejití: nejdřív soubor
 zkopírovat (`cp archive-*.json /tmp/…`) a pracovat s kopií — `cp` samo
 selhání nemělo, ačkoli přímé čtení stejné cesty ano.
 
