@@ -263,8 +263,8 @@ Najdeš-li takový bod:
    (`.stamp`); co zápis neříká (dopad na termín, cenu, odpovědnost),
    přiznej jako mezeru — nedopočítávat a nedomýšlet.
 4. Zapiš změnu do `telocvicna/README.md` (nová datovaná podsekce),
-   do changelogu v kořenovém `README.md` a přepiš řádek Tělocvična
-   v tabulce „Stav sekcí“.
+   do kořenového `CHANGELOG.md` a přepiš řádek Tělocvična
+   v tabulce „Stav sekcí“ v `README.md`.
 5. **Nahlaš to ve shrnutí běhu** — viz krok 11.
 
 Netýká-li se tělocvičny žádný nový bod, do shrnutí napiš, že sekce byla

@@ -52,7 +52,7 @@ Struktura:
    (např. „cena neuvedena"), nikdy nedopočítává.
 5. Aktualizovat v tomto souboru `ids`, `count`, `snapshot_date` a `note`.
    `count` vždy přepočítat z délky pole, ne dopisovat ručně.
-6. Zapsat běh do changelogu v kořenovém `README.md` a k příslušnému
+6. Zapsat běh do kořenového `CHANGELOG.md` a k příslušnému
    zdroji v `sources.json`.
 
 ## Poznámky a známé mezery

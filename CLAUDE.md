@@ -150,7 +150,7 @@ spustit `python3 scripts/build.py`.
   Zbytek staré poznámky ale platí dál: **historie repa sahá jen ke
   23. 8. 2026**, starší změny v ní nejsou vůbec — na dohledání, kdy co
   vzniklo před tímto datem, použij mtime souborů (`ls -la`, `stat`),
-  datumy uvnitř dat (`meta.generated_at`) a changelog v `README.md`.
+  datumy uvnitř dat (`meta.generated_at`) a `CHANGELOG.md`.
   Nouzové obejití, kdyby se blokované mazání někdy vrátilo: zámky
   nemazat, ale přejmenovat (`mv .git/index.lock .git/index.lock.bak.$(date +%s%N)`)
   — rename mount povoluje i tehdy, když unlink ne.

@@ -53,9 +53,9 @@ běhu.
    Nikdy nedopočítávat čísla, která zdroj neuvádí.
 5. **Přegeneruj** — `python3 scripts/build.py`.
 6. **Zapiš stopu**: nová datovaná podsekce v tomto souboru, záznam
-   v changelogu kořenového `README.md` a přepsaný řádek Tělocvična
-   v tabulce „Stav sekcí“ (datum kontroly vždy, datum změny a sloupec
-   „Co naposledy“ jen při reálné změně obsahu).
+   v kořenovém `CHANGELOG.md` a přepsaný řádek Tělocvična
+   v tabulce „Stav sekcí“ v `README.md` (datum kontroly vždy, datum
+   změny a sloupec „Co naposledy“ jen při reálné změně obsahu).
 7. **Reportuj.** Ve shrnutí běhu vždy uveď, co se v sekci změnilo —
    jmenovitě soubor a věcnou změnu. Když se nezměnilo nic, napiš přímo
    „Tělocvična: zkontrolováno, beze změny“; tenhle řádek ve shrnutí
