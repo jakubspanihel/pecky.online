@@ -98,18 +98,31 @@ sekcemi a build skládá jen jednu stránku najednou (kolize by teoreticky
 nevadila, ale konvence pojmenování `<sekce><rok>` je zavedená už z
 `content/volby2018.html`).
 
-## Volební programy (od 8. 9. 2026)
+## Volební programy (od 8. 9. 2026, doplněno 16. 9. 2026)
 
 Obrázky volebních programů/materiálů leží ve `volby/2026/volebni-programy-2026/`
-(stejná konvence jako `volby/2022/volebni-programy-2022/`). K 8. 9. 2026 jen
-dva soubory, oba doplnil přímo uživatel (ne dohledáno na webu/Facebooku):
-`pecky-srdcem.jpg` (bodový program ve 4 oblastech) a `pecky-pecakum.jpg`
-(jen portréty kandidátky a heslo, bez bodového programu). Přesný zdroj
-a datum prvního zveřejnění nejsou ověřené — na stránce přiznáno jako
-mezera. Zbylá tři uskupení (ODS a nezávislí kandidáti, NAŠE PEČKY A PEČKY
-NEXT, Lidé pro Pečky a Velké Chvalovice s podporou SPD) program zatím
-nemají — doplnit stejným postupem, až budou k dispozici (typicky volební
-inzerce v Pečeckých novinách těsně před volbami, viz `volby/2022/README.md`).
+(stejná konvence jako `volby/2022/volebni-programy-2022/`). Od 16. 9. 2026
+mají program dohledaný všech pět uskupení:
+
+- `pecky-srdcem.jpg` (bodový program ve 4 oblastech) a `pecky-pecakum.jpg`
+  (jen portréty kandidátky a heslo, bez bodového programu) — oba doplnil
+  přímo uživatel k 8. 9. 2026, přesný zdroj a datum prvního zveřejnění
+  nejsou ověřené.
+- `nase-pecky.jpg` — vystřiženo ze samostatného podkladového PDF
+  `nase-pecky-noviny.pdf` (dodal uživatel, tiskový layout, 2 strany:
+  str. 1 „Priority 2026" + „Na Plný Pečky!", str. 2 „Naši kandidáti" se
+  všemi 21 portréty — na web zatím jen str. 1, str. 2 zůstává v repu jako
+  zdroj pro případné budoucí doplnění kandidátských fotek).
+- `ods.jpg` a `lide-pro-pecky.jpg` — vystřiženy z **Pečeckých novin 9/2026**
+  (`noviny/Data/PN 2026/2026-09.pdf`, str. 9 a 10; volební inzerce
+  uskupení č. 2 na str. 8 té samé novinové sazby posloužila jako ověření
+  `nase-pecky.jpg` — obsahově identická s podkladovým PDF).
+
+Postup extrakce: `pdftoppm -r 300 -x -y -W -H` (poppler) ořízne konkrétní
+ad přímo z PDF v cílovém rozlišení — přesnější a rychlejší než screenshot
++ oříznutí rastrového obrázku. Hraniční souřadnice odhadnuté vizuální
+kontrolou nízkorozlišených náhledů stránek (`noviny/pages/2026-09/`), pak
+zpřesněné podle skutečného ořezu.
 
 Z `pecky-pecakum.jpg` (materiál obsahuje portrétní fotky jen kandidátů na
 prvních pěti místech listiny) jsme 8. 9. 2026 vystřihli jednotlivé avatary

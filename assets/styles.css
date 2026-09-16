@@ -106,6 +106,7 @@
   .segmented-btn.active{background:var(--burgundy); color:#fff;}
 
   .promises-grid{display:grid; grid-template-columns:repeat(6,1fr); gap:12px; margin:20px 0 24px;}
+  @media (min-width:961px){.promises-grid.promises-grid-5{grid-template-columns:repeat(5,1fr);}}
   @media (max-width:960px){.promises-grid{grid-template-columns:repeat(3,1fr);}}
   @media (max-width:640px){.promises-grid{grid-template-columns:repeat(2,1fr);}}
   .promise-card{display:block; width:100%; padding:0; border:2px solid var(--line); background:var(--parchment-deep); overflow:hidden; cursor:pointer; font-family:inherit; text-align:left; transition:border-color .15s, transform .15s;}
