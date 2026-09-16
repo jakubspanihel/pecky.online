@@ -167,7 +167,15 @@ spustit `python3 scripts/build.py`.
   vždy defaultuje na port 8000 a od 14. 9. 2026 je idempotentní — když je
   port už obsazený (typicky server z předchozí relace), vypíše hlášku
   a skončí čistě (exit 0) místo pádu na traceback, takže "jen to spusť" je
-  vždy bezpečné zavolat znovu bez kontroly předem.
+  vždy bezpečné zavolat znovu bez kontroly předem. Tenhle postup je
+  zabalený jako projektový skill `.claude/skills/pecky-online-dev-server/`
+  (needit se přímo, `.claude/` je celé v `.gitignore`) — viz i konvence
+  pojmenování skillů níže.
+
+## Projektové skilly
+Všechny projektové skilly v `.claude/skills/` pojmenovávat s prefixem
+`pecky-online-` (např. `pecky-online-dev-server`) — odlišuje je to od
+globálních/pluginových skillů se stejným obecným názvem.
 
 ## Git / GitHub
 Remote: https://github.com/jakubspanihel/pecky.online.git
