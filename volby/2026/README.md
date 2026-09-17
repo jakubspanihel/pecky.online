@@ -26,17 +26,15 @@ jen barevný avatar s iniciálami (`av-init`), fotky nejsou k dispozici,
 stejně jako u ročníků 2018/2022 před volbami. Průběžné oficiální
 výsledky po volbách budou na volby.gov.cz a v otevřených datech ČSÚ.
 
-## Kde se volí (volební okrsky)
-Blok „Kde se volí" v `content/volby2026.html` uvádí 6 volebních okrsků
-a jejich sídla podle dokumentu *Informace o počtu a sídlech volebních
-okrsků* (starosta Milan Paluska, 25. 8. 2026, úřední deska pecky.cz —
-záznam `pecky-cz-uredni-deska-volby-2026-okrsky` v `sources.json`).
-Doplněno 1. 9. 2026. Pozor: PDF je **sken**, jeho OCR vrstva má
-překlepy („Peěky", „votebního", čísla zákonů slitá do `49112001`) —
-adresy proto přepsány ručně, nikdy je nekopírovat přímo z `pdftotext`.
-Přiřazení jednotlivých ulic k okrskům dokument neobsahuje a jinde se
-zatím nedohledalo — na webu přiznáno jako mezera. Ze stejného dokumentu
-pochází i údaj, že se ve stejných dnech volí i do třetiny Senátu.
+## Kde se volí (volební okrsky) — zrušeno 17. 9. 2026
+Blok „Kde se volí" (6 volebních okrsků a jejich sídla podle dokumentu
+*Informace o počtu a sídlech volebních okrsků*, starosta Milan Paluska,
+25. 8. 2026, úřední deska pecky.cz — záznam
+`pecky-cz-uredni-deska-volby-2026-okrsky` v `sources.json`) byl
+doplněn 1. 9. 2026 a k 17. 9. 2026 z `content/volby2026.html` odstraněn
+na žádost uživatele. Zdrojový dokument v `sources.json` zůstává —
+kdyby se blok měl vrátit, text (vč. upozornění na chyby v OCR skenu
+a mezery v přiřazení ulic k okrskům) je v historii gitu.
 
 ## Po volbách: hlídat ustavující zasedání
 Jakmile volby proběhnou, platí pravidlo „Zvolení zástupci patří do
@@ -135,6 +133,34 @@ ve `volby/2026/zastupitele/`. Zapsáno i do `lide/people.json` (pole
 Lidé — u Martina Jedličky jde už o druhou fotku v poli (starší z roku 2022
 z webu města zůstává, viz `lide/README.md` → „Fotky"), u zbylých čtyř o
 první fotku vůbec.
+
+## Politická zkušenost kandidátů (doplněno 17. 9. 2026)
+
+Sloupeček „Poznámka" u každého uskupení má teď (za větou o kandidátech,
+kteří dřív kandidovali za jiné uskupení) i větu o tom, kolik z 21
+kandidátů obhajuje aktuální funkci a kolik kandiduje poprvé. Zdroj dat:
+`lide/affiliations.json` u sekce Lidé — všech 105 kandidátů 2026 je tam
+už spárováno se svým `person_id` a affiliations obsahují i historii
+dřívějších funkcí (role_type `zastupitel`/`starosta`/`rada`/
+`mistostarosta` u organizace `mesto-pecky`, s `current: true/false`
+a daty `from`/`to`).
+
+Souhrn (105 kandidátů celkem): 17 obhajuje aktuální mandát (1 starosta,
+2 místostarostové, 3 radní, zbytek řadoví zastupitelé — 81 % dnešního
+zastupitelstva kandiduje znovu), 2 byli ve vedení města dřív a dnes už
+ne (Ing. František Pospíšil, starosta 1990–2002 — první porevoluční,
+vrací se po 24 letech; Ing. Petr Zedník, radní 2014–2018), 42 už dřív
+kandidovalo (2018/2022) bez zvolení a 44 kandiduje poprvé. Zvláštní
+případ je Mgr. Alena Švejnohová (NAŠE PEČKY) — dnes zastupitelka a
+předsedkyně kontrolního výboru, ale byla i starostkou 2018–2022, takže
+patří do obou skupin zároveň (v textu u uskupení zmíněno jen jednou).
+Nikdo z 105 kandidátů (mimo výše zmíněné zastupitele) není podle dat
+zaměstnancem úřadu ani žádné příspěvkové organizace města.
+
+Přesná čísla za uskupení (obhajuje / bylo ve vedení dřív / kandidovalo
+dřív bez zvolení / nováček, součet vždy 21): ODS a nezávislí Pečky
+5/1/11/4, NAŠE PEČKY A PEČKY NEXT 4/1/6/10, PEČKY PEČÁKŮM 3/0/11/7,
+Lidé pro Pečky a Velké Chvalovice s SPD 3/0/6/12, Pečky srdcem 2/0/8/11.
 
 ## Sociální sítě uskupení
 
