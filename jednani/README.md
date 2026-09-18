@@ -369,6 +369,47 @@ platilo jen pro Zastupitelstvo (`pastNoMinutes` v `jRenderMeetingList`,
 jednání, protože avatary/počet přítomných u Rady jsou odvozené ze
 stejného zápisu a bez něj jsou taky prázdné.
 
+Od 18. 9. 2026 je text „zápis zatím není k dispozici" barevně zvýrazněný
+(`.no-minutes-warning`, `var(--burgundy)`) — zbytek řádku („Proběhlo před
+N dny…", odkaz na video) zůstává neutrální.
+
+## Pozvánka PDF jen u nadcházejících jednání (od 18. 9. 2026)
+
+Odkaz „Pozvánka PDF ↗" v rozbaleném řádku jednání (`m.links.invitation`)
+se od 18. 9. 2026 zobrazuje jen u jednání, které ještě neproběhlo
+(naplánované nebo dnešní — `future || isToday` v `jRenderMeetingList`,
+`content/jednani.html`). U proběhlého jednání ztrácí Pozvánka smysl (zápis
+a usnesení ji nahradí) a odkaz mizí, i když v datech `links.invitation`
+zůstává (nemaže se, jen se nevykresluje).
+
+## Živé vysílání budoucího jednání zastupitelstva (`links.livestream`, od 18. 9. 2026)
+
+Rada nemá video vůbec (viz „Nesoulad číslování videí" níže), ale
+Zastupitelstvo bývá na kanálu @mestopecky přenášeno živě. Pro **naplánované**
+jednání zastupitelstva (`jIsFutureMeeting()` = true) je potřeba při každém
+běhu kontroly zjistit, jestli už na playlistu „Zasedání ZM"
+(`https://www.youtube.com/playlist?list=PL1KVT2dbyIKSTFRv7tfDqrfk5gkTSnoyu`)
+existuje záznam pro nadcházející/plánovaný přenos (YouTube ho typicky
+zobrazí jako „Premiéra"/naplánované video ještě před začátkem).
+
+- **Pokud odkaz existuje**, doplnit ho do `pecky-jednani.json` jako
+  `links.livestream` (stejný tvar URL jako `links.youtube`). Frontend pak
+  na sbaleném řádku zobrazí „📺 Živé vysílání od HH:MM" (čas je z pole
+  `time`, doplněného už dřív z Pozvánky — viz automation-kontrola-usneseni-cz.md
+  krok 4) jako odkaz, a v rozbaleném řádku funguje tlačítko „Video ↗"
+  stejně jako u proběhlého jednání s `links.youtube`.
+- **Pokud odkaz zatím neexistuje**, nic nevymýšlet a nic nezobrazovat —
+  žádný generický text typu „přenos bude na Youtube" (vymyšlené tvrzení
+  bez ověření, viz konvence webu o zákazu vymyšlených dat). Zkusit znovu
+  při příštím běhu.
+- Po jednání se `links.livestream` stává zbytečným — stejné video pak
+  najde a do `links.youtube` doplní běžný krok 6 kontroly (spárování podle
+  data v popisku). `links.livestream` u proběhlého jednání se dá smazat,
+  ale není to nutné (`future` podmínka ve frontendu ho stejně přestane
+  používat, jakmile datum jednání mine).
+- Zdrojová logika: `livestreamHtml`/`videoUrl` v `jRenderMeetingList`,
+  `content/jednani.html`.
+
 ## Známá omezení zdroje (ověřeno 2026-08-04)
 
 1. **Pozvánky**: web je generuje jen pro jednání od ~června 2026 (8 z 281);

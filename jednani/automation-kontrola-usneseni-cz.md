@@ -193,6 +193,25 @@ může mít video zítra.
    bez `links.youtube` a nevymýšlet. Může se objevit až při některém
    příštím běhu, nebo nikdy — v obou případech nic nepředstírat.
 
+### 6b. Živý přenos u naplánovaného zastupitelstva (dělat při KAŽDÉM běhu, doplněno 18. 9. 2026)
+
+Najdeš-li v archivu jednání `type: "Zastupitelstvo"` s `date` **v
+budoucnosti** (naplánované, ještě neproběhlo), zkontroluj stejný playlist
+„Zasedání ZM" jako v kroku 6, jestli už obsahuje odkaz na nadcházející
+živý přenos (YouTube ho zpravidla ukazuje jako naplánované video/premiéru
+ještě před začátkem vysílání).
+
+- Pokud odkaz existuje, doplň ho jako `links.livestream` (stejný tvar
+  URL jako `links.youtube`). Web pak sám zobrazí na sbaleném řádku „📺
+  Živé vysílání od HH:MM" (čas bere z pole `time`, doplněného z Pozvánky)
+  a v rozbaleném řádku tlačítko „Video ↗" — viz
+  [README.md](README.md) → „Živé vysílání budoucího jednání
+  zastupitelstva".
+- Pokud odkaz zatím neexistuje, nic nezobrazovat ani nevymýšlet (žádný
+  generický text bez ověření) — zkusit znovu při příštím běhu.
+- Po jednání nahradí `links.youtube` z běžného kroku 6 tuhle dočasnou
+  hodnotu; mazat `links.livestream` ručně není nutné.
+
 Frontend (`content/jednani.html`, `jRenderMeetingList`)
 je na `links.youtube` datově řízený — žádná úprava kódu není potřeba,
 nový odkaz se automaticky promítne i do textů „K dispozici je video" (u

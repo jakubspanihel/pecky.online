@@ -1,7 +1,7 @@
 {
   "project": "pecky.online",
   "description": "Seznam zdrojů, ze kterých pecky.online čerpá nebo může čerpat informace o samosprávě města Pečky.",
-  "last_updated": "2026-09-16",
+  "last_updated": "2026-09-18",
   "sources": [
     {
       "id": "pecky-cz",
@@ -93,9 +93,9 @@
       "name": "Monitor státní pokladny (MF ČR)",
       "url": "https://monitor.statnipokladna.gov.cz/ucetni-jednotka/00239607/prehled",
       "category": "otevřená data",
-      "description": "Oficiální data Ministerstva financí o hospodaření obce — rozpočet, příjmy a výdaje podle kapitol, zadluženost, plnění rozpočtu v čase. Datový katalog Open Data: https://monitor.statnipokladna.gov.cz/datovy-katalog/open-data.",
+      "description": "Oficiální data Ministerstva financí o hospodaření obce — rozpočet, příjmy a výdaje podle kapitol, zadluženost, plnění rozpočtu v čase. Datový katalog Open Data: https://monitor.statnipokladna.gov.cz/datovy-katalog/open-data. Konkrétní pohled na souhrnný rozpočet za dané účetní období: https://monitor.statnipokladna.gov.cz/ucetni-jednotka/00239607/rozpocet/souhrnny?obdobi=2512&rad=t (obdobi=2512 = prosinec 2025/uzávěrka FY2025, rad=t = tabulkový pohled).",
       "status": "ověřeno",
-      "note": "Vytěženo 6. 8. 2026 pro novou sekci Pokladna: vývoj příjmů/výdajů/salda 2023–2026, struktura výdajů, dluhová služba (0 Kč, žádný úvěr). Doplněno o Registr dotací z Hlídače státu (148 nalezených dotací, IČO 00239607)."
+      "note": "Vytěženo 6. 8. 2026 pro novou sekci Pokladna: vývoj příjmů/výdajů/salda 2023–2026, struktura výdajů, dluhová služba (0 Kč, žádný úvěr). Doplněno o Registr dotací z Hlídače státu (148 nalezených dotací, IČO 00239607). Doplněno 18. 9. 2026: konkrétní URL na souhrnný rozpočet (rozpočet/souhrnny?obdobi=2512&rad=t) zadal uživatel — je to týž endpoint, který jako svůj primární zdroj cituje i publicspendingdata.org (viz samostatný záznam)."
     },
     {
       "id": "pecky-cz-zaverecny-ucet-2025",
@@ -465,6 +465,15 @@
       "description": "Facebookový profil tělovýchovné jednoty Sokol Pečky.",
       "status": "nevytěženo",
       "note": "Doplněno uživatelem 4. 9. 2026, spolu s web-sokolpecky-cz."
+    },
+    {
+      "id": "publicspendingdata-org",
+      "name": "Public Spending Data — Pečky",
+      "url": "https://publicspendingdata.org/cz/municipalities/pecky/?lang=cs#rozpocet",
+      "category": "otevřená data",
+      "description": "Neoficiální mezinárodní projekt agregující oficiální obecní finance do přehledné časové řady. Pro Pečky nabízí příjmy/výdaje/saldo/stav účtů po jednotlivých letech 2010–2025 (delší časová řada, než je aktuálně na webu v sekci Pokladna). Vlastní sekce „Zdroje a data“ na stránce jako svůj zdroj cituje přímo Monitor státní pokladny (konkrétně https://monitor.statnipokladna.gov.cz/ucetni-jednotka/00239607/rozpocet/souhrnny?obdobi=2512&rad=t — viz záznam monitor-statni-pokladna), jde tedy o přehlednější nadstavbu nad týmiž daty, ne o nezávislý zdroj.",
+      "status": "nevytěženo",
+      "note": "Přidáno uživatelem 18. 9. 2026. Obsah zatím nebyl vytěžen do žádné sekce webu, jen doplněn do quicklinks (O webu → Odkazy) — díky delší časové řadě (2010–2025 vs. dosavadní 2023–2026 v sekci Pokladna) stojí za zvážení jako doplněk k Monitoru při budoucí aktualizaci Pokladny."
     }
   ]
 }

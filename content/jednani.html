@@ -446,11 +446,12 @@
         : (jFormatAttendance(m) ? `<span class="meeting-count">${jEscapeHtml(jFormatAttendance(m))}</span>` : '');
       const pastNoMinutes = !future && !isToday && !m.links.minutes;
       const daysAgoHtml = pastNoMinutes
-        ? `<span class="meeting-count">${jFormatDaysAgo(m.date)}, zápis zatím není k dispozici${m.links.youtube ? ` · <a href="${m.links.youtube}" target="_blank" rel="noopener">K dispozici je video ↗</a>` : ''}</span>`
+        ? `<span class="meeting-count">${jFormatDaysAgo(m.date)}, <span class="no-minutes-warning">zápis zatím není k dispozici</span>${m.links.youtube ? ` · <a href="${m.links.youtube}" target="_blank" rel="noopener">K dispozici je video ↗</a>` : ''}</span>`
         : '';
-      const livestreamHtml = future && m.type === 'Zastupitelstvo' && m.links.invitation
-        ? `<span class="meeting-live-note">📺 živý přenos bude na Youtube</span>`
+      const livestreamHtml = future && m.type === 'Zastupitelstvo' && m.links.livestream && m.time
+        ? `<span class="meeting-live-note">📺 <a href="${m.links.livestream}" target="_blank" rel="noopener">Živé vysílání od ${jEscapeHtml(m.time)}</a></span>`
         : '';
+      const videoUrl = m.links.youtube || (future && m.links.livestream) || '';
       const detailTopHtml = m.type === 'Rada'
         ? (m.resolutions.length ? `<p class="lede" style="margin:2px 0 12px; font-size:12.5px; font-family:'IBM Plex Mono',monospace; color:var(--ink-soft);">Přijato ${m.resolutions.length} usnesení</p>` : '')
         : jRenderPresenceRow(m);
@@ -478,10 +479,10 @@
         <div class="meeting-row-detail" hidden>
           ${m.video_note ? `<p class="lede" style="margin:6px 0 10px; font-size:12.5px; color:var(--burgundy);">⚠ ${jEscapeHtml(m.video_note)}</p>` : ''}
           ${detailTopHtml}
-          ${m.links.youtube ? `<a class="toggle-details" href="${m.links.youtube}" target="_blank" rel="noopener" style="margin:0 0 14px;"><img class="meeting-yt-icon" src="/img/favicons/youtube-com.png" alt="" loading="lazy"> Video ↗</a>` : ''}
+          ${videoUrl ? `<a class="toggle-details" href="${videoUrl}" target="_blank" rel="noopener" style="margin:0 0 14px;"><img class="meeting-yt-icon" src="/img/favicons/youtube-com.png" alt="" loading="lazy"> Video ↗</a>` : ''}
           ${jRenderAgendaList(m)}
           <div class="meeting-links">
-            ${m.links.invitation ? `<a href="${m.links.invitation}" target="_blank" rel="noopener" title="Zdrojový web někdy odkaz z cizí stránky blokuje a otevře jen úvodní stránku archivu — zkuste prosím znovu, případně vyhledejte jednání přímo na usneseni.cz.">Pozvánka PDF ↗</a>` : ''}
+            ${(future || isToday) && m.links.invitation ? `<a href="${m.links.invitation}" target="_blank" rel="noopener" title="Zdrojový web někdy odkaz z cizí stránky blokuje a otevře jen úvodní stránku archivu — zkuste prosím znovu, případně vyhledejte jednání přímo na usneseni.cz.">Pozvánka PDF ↗</a>` : ''}
             ${m.links.minutes ? `<a class="toggle-details" href="${m.links.minutes}" target="_blank" rel="noopener" style="margin:0;">Zápis ↗</a>` : ''}
             ${m.links.resolutions ? `<a href="${m.links.resolutions}" target="_blank" rel="noopener">Všechna přijatá usnesení ↗</a>` : ''}
           </div>
