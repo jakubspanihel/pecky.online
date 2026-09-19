@@ -58,15 +58,37 @@ tahle kapitola je provozní — jak s daty pracovat.
 
 ```
 foto/                portréty z jiných zdrojů než z voleb (viz níž)
-people.json          242 osob (21 aktuálních zastupitelů + 2 bývalí s plným
+people.json          266 osob (21 aktuálních zastupitelů + 2 bývalí s plným
                       profilem, 206 dalších kandidátů ze všech kandidátek
                       2018/2022/2026 s minimálním záznamem (SPEC.md §3.6),
-                      13 vedení úřadu/příspěvkovek/firem (fáze 5b, §7))
+                      13 vedení úřadu/příspěvkovek/firem (fáze 5b, §7),
+                      8 nových jen kvůli členství v komisi RM/školské radě)
 organizations.json   16 organizací (Město Pečky + 8 volebních uskupení +
                       7 příspěvkovek/firem — fáze 5b)
-affiliations.json   400 vazeb osoba–organizace
+affiliations.json   485 vazeb osoba–organizace
 validate.mjs         validátor
 ```
+
+**Komise RM a školská rada** (doplněno 19. 9. 2026): pět iniciativních a
+poradních komisí rady města (sportovní, kulturní, Sbor pro občanské
+záležitosti, stavebně-dopravní a ŽP, sociální/zdravotní/bytová) plus
+školská rada ZŠ Pečky. Modelováno jako vazby s `role_type: "komise"` —
+stejný typ, jaký už měl předsednictví kontrolního výboru zastupitelstva —
+ne jako nové organizace: komise nejsou samostatné právnické osoby, jde
+o orgány zřízené radou (viz `Jednaci_rad_komisi.pdf` na pecky.cz), takže
+vazby míří na existující `mesto-pecky` (pět komisí RM) nebo `zs-pecky`
+(školská rada, protože jde o orgán školy, ne úřadu). Zdroj: podstránky
+pecky.cz → Rada města → Komise RM; přesné datum jmenování tam není
+uvedené, jen aktuální složení — vazby proto mají `from: null` a `note`
+s vysvětlením. Členství v komisi teď počítá do `_office` stejně jako
+`vedeni-urad`/`vedeni-organizace`/`zamestnanec` (viz `content/lide.html`
+→ `lJoin`), jinak by přes 20 lidí, kteří v komisi sedí, ale nikdy
+nekandidovali ani nepracují na úřadu, v adresáři vůbec nenaskočilo —
+stejná past, jaké se předešlo u `vedeni-urad`/`vedeni-organizace`
+(fáze 5b, viz odstavec výš). Panel proto má šestou skupinu „Komise rady
+města a školská rada"; kdo má vedle komise i mandát, úřad nebo vedení
+organizace, zůstává ve své dosavadní skupině — komise je pak vidět jen
+v jeho detailu/timeline, ne jako duplicitní kartička.
 
 **Vedení úřadu, příspěvkových organizací a městských firem** (`role_type:
 "vedeni-urad"` a `"vedeni-organizace"`, doplněno 5. 9. 2026, fáze 5b
@@ -149,9 +171,10 @@ Ten rozdíl je správně a je vidět v timeline.
 
 ### Co panel vypisuje a co ne
 
-Pět skupin v tomhle pořadí: **Rada města**, **Ostatní členové
+Šest skupin v tomhle pořadí: **Rada města**, **Ostatní členové
 zastupitelstva**, **Úřad města** (`vedeni-urad`), **Městské organizace**
-(`vedeni-organizace`) a — až po přepnutí rozsahu na „Včetně historie" —
+(`vedeni-organizace`), **Komise rady města a školská rada** (`komise`,
+doplněno 19. 9. 2026) a — až po přepnutí rozsahu na „Včetně historie" —
 **Dřívější vedení a bývalí zastupitelé**. Volení lidé nahoře, jmenovaní
 pod nimi, historie nakonec.
 
@@ -293,10 +316,12 @@ trval.
 ### Kdo do adresáře patří
 
 Volení funkcionáři (zastupitelé, rada), jmenované vedení (úřad, městské
-organizace) **i řadoví zaměstnanci úřadu** — referentky, účetní, matrikářka.
-U zaměstnanců se ale vede **jen to, co radnice sama zveřejňuje jako služební
-spojení**: jméno, funkce, pracovní e-mail a telefon. Nic dalšího se k nim
-nedohledává. Podrobně a s odůvodněním v SPEC.md §6, bod 4.
+organizace), **i řadoví zaměstnanci úřadu** — referentky, účetní, matrikářka
+— a od 19. 9. 2026 i **členové komisí rady města a školské rady ZŠ Pečky**
+(`role_type: "komise"`, viz „Datová sada" výš). U zaměstnanců se ale vede
+**jen to, co radnice sama zveřejňuje jako služební spojení**: jméno, funkce,
+pracovní e-mail a telefon. Nic dalšího se k nim nedohledává. Podrobně
+a s odůvodněním v SPEC.md §6, bod 4.
 
 Do 8. 9. 2026 platilo pravidlo opačné („ne řadoví zaměstnanci") a změnilo se
 na pokyn autora webu při doplňování kontaktů z organizační struktury na
@@ -383,6 +408,11 @@ o konkrétní osobě, použít stejnou funkci, ne psát tvary napevno.
 - **Výbory jsou zatím jen dva záznamy** (předsednictví kontrolního
   výboru). Zbytek členů finančního a kontrolního výboru je v archivu
   jednání pod `UZ-98`…`UZ-111` — doplnit ve fázi 5b.
+- **Komise RM a školská rada nemají doložené datum jmenování** — pecky.cz
+  u nich ukazuje jen aktuální složení, ne kdy ho rada schválila. Vazby
+  mají `from: null` a `verified` na datum, kdy bylo složení ověřené na
+  webu (19. 9. 2026), ne na datum vzniku funkce. Přesné datum by šlo
+  dohledat v usneseních RM, zatím nedohledáno.
 - **Z ustavujícího zasedání po volbách 2018 je v datech jen vedení**
   (starostka, obě místostarostky a rada), ne všech 21 zastupitelů.
   Zasedání je starší než archiv usneseni.cz (začíná dubnem 2021), viz
