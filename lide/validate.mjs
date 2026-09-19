@@ -112,6 +112,7 @@ for (const p of people) {
   const where = `osoba ${p.id}`;
   if (!p.first_name) err(where, 'chybí first_name');
   if (!p.last_name) err(where, 'chybí last_name');
+  if (p.gender !== 'm' && p.gender !== 'f') err(where, `gender musí být "m" nebo "f" (je "${p.gender}")`);
   if (!Array.isArray(p.tags)) err(where, 'tags musí být pole');
   if (!Array.isArray(p.sources)) err(where, 'sources musí být pole');
   if (p.verified !== null && !DATE_FULL.test(p.verified ?? '')) {

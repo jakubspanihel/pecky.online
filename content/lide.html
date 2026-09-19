@@ -41,64 +41,22 @@
     ['zamestnanec', 'Zaměstnanci úřadu'],
   ];
 
-  // váha funkce v timeline detailu — od nejvýznamnější po nejobecnější
-  const L_TL_ORDER = ['starosta', 'mistostarosta', 'rada', 'vedeni-urad', 'vedeni-organizace', 'komise', 'zastupitel', 'zamestnanec', 'clen', 'kandidatka'];
-  const L_TL_RANK = (t) => {
-    const i = L_TL_ORDER.indexOf(t);
-    return i === -1 ? L_TL_ORDER.length : i;
-  };
+  // formátování osoby/vazby a vykreslení vizitky (person-detail) jsou od
+  // 19. 9. 2026 sdílená komponenta v assets/helpers.js (pc*), protože ji
+  // znovu použije i Jednání → Absence — aliasy tu jen drží dosavadní
+  // krátká jména funkcí v celém zbytku tohoto souboru.
+  const L_TL_RANK = pcTlRank;
+  const lFullName = pcFullName;
+  const lPlainName = pcPlainName;
+  const lRoleLabel = pcRoleLabel;
+  const lFormatDate = pcFormatDate;
+  const lDateKey = pcDateKey;
+  const lActive = pcActive;
+  const lRange = pcRange;
+  const lPhoneLinks = pcPhoneLinks;
+  const lSourceLinks = pcSourceLinks;
 
   const L_STATE = {q: '', orgs: new Set(), roles: new Set(), scope: 'current', open: '', orgView: ''};
-
-  function lFullName(p){
-    return [p.title_before, p.first_name, p.last_name, p.title_after].filter(Boolean).join(' ');
-  }
-  function lPlainName(p){
-    return [p.first_name, p.last_name].filter(Boolean).join(' ');
-  }
-  // "1. místostarosta (uvolněný)" → "1. místostarosta"; první písmeno velké
-  function lRoleLabel(role){
-    const t = (role || '').replace(/\s*\((?:ne)?uvolněný\)\s*$/i, '').trim();
-    return t ? t.charAt(0).toUpperCase() + t.slice(1) : '';
-  }
-  function lFormatDate(iso){
-    const m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(iso || '');
-    if (m) return `${Number(m[3])}. ${Number(m[2])}. ${m[1]}`;
-    return /^\d{4}$/.test(iso || '') ? iso : (iso || '');
-  }
-  // řadicí klíč z data v mixu YYYY / YYYY-MM-DD; prázdné datum až nakonec
-  function lDateKey(v){
-    if (!v) return '0000-00-00';
-    return /^\d{4}$/.test(v) ? v + '-01-01' : v;
-  }
-  // Kandidatura je jednorázová událost, ne trvající stav. V datech má
-  // current: true a to: null (tak ji založila fáze 5), takže by se v timeline
-  // vykreslila jako „– dosud" a vyskočila nad skutečné, dávno ukončené funkce.
-  // Pro zobrazení a řazení ji proto za aktivní nepovažujeme.
-  function lActive(a){
-    return !!a.current && a.role_type !== 'kandidatka';
-  }
-  // období vazby lidsky; rozlišuje „trvá" od „konec neznámý"
-  function lRange(a){
-    const from = a.from ? lFormatDate(a.from) : '';
-    if (a.role_type === 'kandidatka') return from ? `volby ${from}` : 'termín voleb neznámý';
-    if (a.current) return from ? `${from} – dosud` : 'trvá, začátek neznámý';
-    if (a.to) return from ? `${from} – ${lFormatDate(a.to)}` : `do ${lFormatDate(a.to)}`;
-    return from ? `od ${from}, konec neznámý` : 'období neznámé';
-  }
-  // Telefon může nést víc čísel (kancelář a služební mobil), oddělovač „ · ".
-  // Každé dostane vlastní odkaz tel:, v href bez mezer — ty některé telefony
-  // a systémy ve vytáčení nezvládají.
-  function lPhoneLinks(phone){
-    return (phone || '').split('·').map(x => x.trim()).filter(Boolean)
-      .map(num => `<a href="tel:${jEscapeHtml(num.replace(/[^\d+]/g, ''))}">${jEscapeHtml(num)}</a>`)
-      .join(' · ');
-  }
-  function lSourceLinks(sources){
-    return (sources || []).filter(s => s && s.url)
-      .map(s => `<a href="${jEscapeHtml(s.url)}" target="_blank" rel="noopener">${jEscapeHtml(s.label || s.url)} ↗</a>`)
-      .join('');
-  }
 
   // spojí tři pole do jedné pracovní struktury: osoba + její vazby + rozvinutá organizace
   function lJoin(people, orgs, affs){
@@ -152,13 +110,11 @@
           : (p._lastRole ? p._lastRole.role
           : (list ? list.role : ''))));
 
-      // timeline: aktuální vazby nahoru, uvnitř podle váhy funkce a pak od nejnovější.
-      // Váha musí být před datem — starosta i mandát začaly týmž dnem a čistě
-      // chronologické řazení by nahoru vytáhlo náhodně to, co je v poli první
-      p._timeline = p._affs.slice().sort((x, y) =>
-        (Number(lActive(y)) - Number(lActive(x))) ||
-        (L_TL_RANK(x.role_type) - L_TL_RANK(y.role_type)) ||
-        lDateKey(y.from).localeCompare(lDateKey(x.from)));
+      // timeline pro detail (pcBuildTimeline, assets/helpers.js): aktuální vazby
+      // nahoru, uvnitř podle váhy funkce a pak od nejnovější. Váha musí být před
+      // datem — starosta i mandát začaly týmž dnem a čistě chronologické řazení
+      // by nahoru vytáhlo náhodně to, co je v poli první
+      p._timeline = pcBuildTimeline(p.id, affs, orgById);
 
       // předpočítaný text pro fulltext (bez diakritiky, malými písmeny)
       p._haystack = jNorm([
@@ -286,12 +242,7 @@
     const org = p._party;
     const cls = org && org.css_class ? ' ' + org.css_class : '';
     const open = L_STATE.open === p.id;
-    // photos je řazené nejnovější první (§3.7 SPEC.md) — na kartičce vždy ta aktuální
-    const currentPhoto = (p.photos && p.photos.length) ? p.photos[0] : null;
-    const photoUrl = currentPhoto ? jWithBase(currentPhoto.url) : '';
-    const avatar = currentPhoto
-      ? `<img class="avatar" src="${jEscapeHtml(photoUrl)}" alt="${jEscapeHtml(lPlainName(p))}" loading="lazy" width="64" height="64">`
-      : `<div class="avatar-fallback" style="background:${jEscapeHtml(org && org.color ? org.color : '#5B5347')};" aria-hidden="true">${jInitials(lFullName(p))}</div>`;
+    const avatar = pcAvatarHtml(p, {color: org && org.color});
     const until = p._until ? `<span class="tag until">do ${jEscapeHtml(lFormatDate(p._until))}</span>` : '';
     // Popiska je jen text, ne ovládací prvek: celá kartička je role="button",
     // který otevírá detail, a druhý klikací cíl uvnitř něj mátl myš i čtečky.
@@ -313,66 +264,10 @@
         </div>${open ? lPersonDetail(p) : ''}`;
   }
 
+  // vykreslení karty je od 19. 9. 2026 sdílené s Jednání → Absence,
+  // viz pcDetailHtml v assets/helpers.js
   function lPersonDetail(p){
-    const items = p._timeline.map(a => {
-      const org = a._org;
-      const orgHtml = org
-        ? `<a href="#lide/uskupeni/${encodeURIComponent(org.id)}" data-lide-orgview="${jEscapeHtml(org.id)}">${jEscapeHtml(org.name)}</a>`
-        : '—';
-      const src = lSourceLinks(a.sources);
-      return `
-          <li class="tl-item ${lActive(a) ? 'tl-item--current' : 'tl-item--past'}">
-            <span class="tl-role">${jEscapeHtml(lRoleLabel(a.role))}</span>
-            <span class="tl-org">· ${orgHtml}</span>
-            <span class="tl-range">${jEscapeHtml(lRange(a))}${a.verified ? '' : ' · neověřeno'}</span>
-            ${a.note ? `<p class="tl-note">${jEscapeHtml(a.note)}</p>` : ''}
-            ${src ? `<p class="tl-src">${src}</p>` : ''}
-          </li>`;
-    }).join('');
-
-    // Povolání je sebedeklarace z volebních podkladů, ne ověřený současný stav,
-    // a mezi volbami se mění — proto pole s ročníkem u každé položky (§3.6c).
-    const occupation = (p.occupations || []).length
-      ? `<p class="detail-bio"><span class="occ-label">Povolání</span> ` +
-        p.occupations.map(o =>
-          `${jEscapeHtml(o.value)} <span class="occ-note">(${jEscapeHtml(String(o.year))})</span>`
-        ).join(' · ') +
-        ` <span class="occ-note">— podle volebních podkladů daného roku</span></p>`
-      : '';
-
-    const contacts = [
-      p.email ? `<a href="mailto:${jEscapeHtml(p.email)}">${jEscapeHtml(p.email)}</a>` : '',
-      lPhoneLinks(p.phone)
-    ].filter(Boolean).join(' · ');
-
-    const meta = [
-      p.verified ? `<span class="stamp">ověřeno</span> ${jEscapeHtml(lFormatDate(p.verified))}` : '',
-      lSourceLinks(p.sources)
-    ].filter(Boolean).join(' · ');
-
-    // víc fotek na osobu (§3.7 SPEC.md) — všechny, ne jen ta aktuální na kartičce
-    const photosHtml = (p.photos || []).length
-      ? `<p class="detail-meta">Fotografie: ${p.photos.map(ph =>
-          `${jEscapeHtml(String(ph.year))} — ${jEscapeHtml(ph.photo_source || '')}`
-        ).join(' · ')}</p>`
-      : '';
-
-    return `
-        <div class="person-detail" id="lide-detail-${jEscapeHtml(p.id)}">
-          <div class="detail-head">
-            <span class="detail-name">${jEscapeHtml(lFullName(p))}${
-              (p.former_last_names || []).length
-                ? ` <span class="occ-note">dříve ${jEscapeHtml(p.former_last_names.join(', '))}</span>`
-                : ''}</span>
-            <button type="button" class="detail-close" data-lide-close>zavřít ✕</button>
-          </div>
-          ${p.bio ? `<p class="detail-bio">${jEscapeHtml(p.bio)}</p>` : ''}
-          ${occupation}
-          ${contacts ? `<p class="detail-bio">${contacts}</p>` : ''}
-          <ul class="timeline">${items || '<li class="tl-item tl-item--past">Žádná doložená vazba.</li>'}</ul>
-          ${meta ? `<p class="detail-meta">${meta}</p>` : ''}
-          ${photosHtml}
-        </div>`;
+    return pcDetailHtml(p, {id: `lide-detail-${p.id}`, closeAttr: 'data-lide-close'});
   }
 
   function lOrgHead(o){
@@ -617,15 +512,10 @@
         return;
       }
 
-      const orgView = t.closest('[data-lide-orgview]');
-      if (orgView) {
-        e.preventDefault();
-        L_STATE.orgView = orgView.dataset.lideOrgview;
-        L_STATE.orgs = new Set([L_STATE.orgView]);
-        L_STATE.open = '';
-        lSyncHash(true);
-        return;
-      }
+      // odkaz na uskupení v detailu (pcDetailHtml) je obyčejné `<a href="#lide/uskupeni/…">`
+      // bez zvláštního zachycení — klik jen změní hash, hashchange listener
+      // (dole u loadLide()) zavolá lApplyRoute() a ten už L_STATE.orgView/orgs
+      // i zavření detailu odvodí sám z nového hashe
 
       const scopeBtn = t.closest('[data-lide-scope]');
       if (scopeBtn) { L_STATE.scope = scopeBtn.dataset.lideScope; afterFilter(); return; }

@@ -196,6 +196,18 @@ vyhledávací pole (`#noviny-search`), které při vstupu do panelu asynchronně
 načte `noviny/pecky-noviny.json` (`loadNoviny()` v `content/zpravodaj.html`)
 a hledá bez ohledu na diakritiku/velikost písmen napříč stránkami všech vydání.
 
+**Badge „Nejnovější vydání" má vždy jen jedna karta — ta úplně první v gridu
+(nejnovější rok, nejnovější měsíc).** Značí se `<span class="stamp">` v
+`.cap` dané karty, např.:
+```html
+<div class="cap">Září 2026<br><span class="stamp" style="font-size:8.5px; padding:2px 6px; margin-top:4px;">Nejnovější vydání</span></div>
+```
+**Při doplnění nového čísla (viz „Po nalezení nového čísla" a „Doplnění
+dávky z lokálního archivu" níže) je nutné badge přesunout:** odebrat ho ze
+staré nejnovější karty a přidat na kartu nového vydání — nikdy ho
+neponechávat na staré kartě a nikdy ho nepřidávat na víc než jednu kartu
+najednou.
+
 ### Náhledy stránek ve výsledcích hledání
 Každý výsledek hledání (`.hit-card.hit-card--noviny`) zobrazuje vlevo
 malý náhled konkrétní nalezené strany (`pages/{slug}/{page}.jpg`, karta
@@ -281,7 +293,11 @@ Claude Code lokálně.
    id="noviny-lede">`) se generuje automaticky z `pecky-noviny.json` za
    běhu stránky (JS v `content/zpravodaj.html`), needit ho ručně — jen
    spustit `python3 scripts/build.py`, ať se promítne do `/noviny/`.
-7. Ověřit datum poslední aktualizace v odkazu na zdroj archivu v
+7. **Přesunout badge „Nejnovější vydání"** (viz „Zobrazení v panelu" výše)
+   ze staré nejnovější karty na kartu nového vydání — odebrat
+   `<span class="stamp">Nejnovější vydání</span>` ze staré karty (`.cap`
+   se vrátí na prostý text bez `<br>`) a přidat ho na novou první kartu.
+8. Ověřit datum poslední aktualizace v odkazu na zdroj archivu v
    `content/zpravodaj.html` (hledat text „Zdroj: … archiv PDF
    zpravodaje").
 

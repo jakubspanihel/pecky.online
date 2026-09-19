@@ -105,6 +105,10 @@ MANIFEST = {
         '/pokladna/', 'Pokladna — pecky.online',
         'Na co město Pečky utrácí: rozpočet a hospodaření srozumitelně.',
         False),
+    'kalendar': (
+        '/kalendar/', 'Kalendář — pecky.online',
+        'Kalendář termínů týkajících se města Pečky.',
+        False),
     'owebu': (
         '/o-webu/', 'O webu — pecky.online',
         'Co je pecky.online, kdo a jak ho dělá, a odkazy na oficiální '
@@ -112,17 +116,25 @@ MANIFEST = {
         False),
 }
 
-# Podstránky, které se generují stejně jako sekce z MANIFEST, ale nepatří
-# do navigace ani do sitemapy — nemají řádek v tabulce „Stav sekcí" a dá se
-# na ně dostat jen přímým odkazem. Dostanou navíc noindex, aby se neobjevily
-# ve vyhledávačích dřív, než se na ně někde odkáže.
-# slug -> (výstupní cesta, title, meta description, helpers.js, sekce pro navigaci)
+# Podstránky, které se generují stejně jako sekce z MANIFEST, ale nemají
+# řádek v tabulce „Stav sekcí" (žádné pravidelné kontroly, žádné datum
+# "Aktualizováno" na stránce). Šesté pole (lastmod) rozhoduje o viditelnosti
+# pro vyhledávače: None = stránka je jen přímým odkazem, dostane noindex
+# a do sitemapy nejde; ISO datum = stránka je odněkud odkázaná, noindex
+# odpadá a do sitemapy jde s tímhle datem (ruční — bez vlastního řádku v
+# "Stav sekcí" nemá odkud se dopočítat samo).
+# slug -> (výstupní cesta, title, meta description, helpers.js, sekce pro navigaci, lastmod)
 EXTRA_PAGES = {
     'absence': (
-        '/jednani/absence.html', 'Absence na jednáních — pecky.online',
-        'Kolikrát který zastupitel a radní města Pečky chyběl na jednání — '
-        'spočítáno z jmenné prezence v zápisech, opravené o pozdní příchody.',
-        False, 'jednani'),
+        '/jednani/absence.html', 'Jak vás zastupitelé zastupují — pecky.online',
+        'Docházka zastupitelů a radních města Pečky na jednání v aktuálním '
+        'volebním období — spočítáno z jmenné prezence v zápisech, opravené '
+        'o pozdní příchody.',
+        # helpers.js: stránka od 19. 9. 2026 používá sdílenou vizitku osoby
+        # (pcAvatarHtml/pcDetailHtml) napojenou na lide/people.json
+        # Odkázaná z /jednani/ (odstavec "Kontrola docházky") od 19. 9. 2026 —
+        # proto má lastmod a jde do sitemapy, viz komentář výše.
+        True, 'jednani', '2026-09-19'),
 }
 
 
@@ -136,6 +148,7 @@ README_TO_SLUG = {
     'plan': 'plan',
     'telocvicna': 'telocvicna',
     'pokladna': 'pokladna',
+    'kalendar': 'kalendar',
     'pozemky': 'pozemky',
     'smlouvy': 'smlouvy',
     'zakazky': 'zakazky',
@@ -345,13 +358,14 @@ def build_all(stav_rows=None):
     lastmods = lastmod_map(rows)
     written = []
     extra_written = []
+    extra_indexed = []  # podstránky z EXTRA_PAGES s lastmod (odkázané -> patří do sitemapy)
 
-    stranky = [(slug, path, title, desc, helpers, slug, False)
+    stranky = [(slug, path, title, desc, helpers, slug, False, None)
                for slug, (path, title, desc, helpers) in MANIFEST.items()]
-    stranky += [(slug, path, title, desc, helpers, nav_slug, True)
-                for slug, (path, title, desc, helpers, nav_slug) in EXTRA_PAGES.items()]
+    stranky += [(slug, path, title, desc, helpers, nav_slug, True, lastmod)
+                for slug, (path, title, desc, helpers, nav_slug, lastmod) in EXTRA_PAGES.items()]
 
-    for slug, path, title, desc, needs_helpers, nav_slug, je_extra in stranky:
+    for slug, path, title, desc, needs_helpers, nav_slug, je_extra, extra_lastmod in stranky:
         content = read(f'content/{slug}.html')
         content = content.replace('{{STAV_SEKCI}}', stav_sekci)
         if not je_extra:
@@ -361,7 +375,7 @@ def build_all(stav_rows=None):
         nav = build_nav(nav_slug)
         footer = apply_active(footer_tpl, nav_slug)
         head_scripts = '<script src="/assets/helpers.js"></script>' if needs_helpers else ''
-        if je_extra:
+        if je_extra and extra_lastmod is None:
             head_scripts = '<meta name="robots" content="noindex">\n' + head_scripts
 
         html = page_tpl
@@ -381,11 +395,13 @@ def build_all(stav_rows=None):
         out_path.parent.mkdir(parents=True, exist_ok=True)
         out_path.write_text(html, encoding='utf-8')
         (extra_written if je_extra else written).append((slug, out_path, path))
+        if je_extra and extra_lastmod is not None:
+            extra_indexed.append((slug, out_path, path, extra_lastmod))
 
-    return written, extra_written
+    return written, extra_written, extra_indexed
 
 
-def build_sitemap(written, stav_rows):
+def build_sitemap(written, stav_rows, extra_indexed=None):
     """Vygeneruje sitemapu s datem poslední obsahové změny sekce.
 
     Tabulka „Stav sekcí“ v README je projektový changelog a její sloupec
@@ -399,6 +415,13 @@ def build_sitemap(written, stav_rows):
         lastmod = lastmod_by_path.get(path)
         if lastmod is None:
             raise SystemExit(f'CHYBA: pro sitemapu chybí datum změny sekce {slug}.')
+        lines.extend([
+            '  <url>',
+            f'    <loc>{SITE_DOMAIN}{path}</loc>',
+            f'    <lastmod>{lastmod}</lastmod>',
+            '  </url>',
+        ])
+    for slug, out_path, path, lastmod in (extra_indexed or []):
         lines.extend([
             '  <url>',
             f'    <loc>{SITE_DOMAIN}{path}</loc>',
@@ -476,10 +499,13 @@ def validate(written):
 
 if __name__ == '__main__':
     stav_rows = parse_stav_sekci()
-    written, extra_written = build_all(stav_rows)
-    build_sitemap(written, stav_rows)   # podstránky z EXTRA_PAGES do sitemapy nepatří
+    written, extra_written, extra_indexed = build_all(stav_rows)
+    build_sitemap(written, stav_rows, extra_indexed)
+    indexed_slugs = {slug for slug, *_ in extra_indexed}
+    hidden_count = len([e for e in extra_written if e[0] not in indexed_slugs])
     print(f'Vygenerováno {len(written)} stránek '
-          f'(+ {len(extra_written)} neprolinkovaných podstránek) '
+          f'(+ {len(extra_written)} podstránek z EXTRA_PAGES, '
+          f'z toho {hidden_count} neprolinkovaných) '
           f'+ sitemap.xml + robots.txt.')
     if '--no-check' not in sys.argv:
         print('Validace (tag balance + JS syntax):')

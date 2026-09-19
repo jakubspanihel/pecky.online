@@ -1,0 +1,123 @@
+  <section class="panel active" id="panel-kalendar">
+    <h2 class="title display">Kalendář</h2>
+    <p class="lede">Termíny jednání rady a zastupitelstva města Pečky v měsíční mřížce — data z archivu sekce <a href="/jednani/">Jednání</a>. Kalendář jde i stáhnout jako soubor pro Google, Apple nebo Outlook kalendář.</p>
+
+    <div class="callout">
+      Zatím jediný zapojený zdroj je Jednání. Termín voleb a kalendář akcí z webu města zatím chybí, doplníme je v další verzi. <span class="stamp">přiznaná mezera</span>
+    </div>
+
+    <div class="segmented-control" style="margin:22px 0 14px;">
+      <span class="segmented-label">Typ:</span>
+      <div class="segmented-group" role="group" aria-label="Typ jednání">
+        <button type="button" class="segmented-btn active" data-cat="">Vše</button>
+        <button type="button" class="segmented-btn" data-cat="zastupitelstvo">Zastupitelstvo</button>
+        <button type="button" class="segmented-btn" data-cat="rada">Rada</button>
+      </div>
+    </div>
+
+    <div style="display:flex; align-items:center; gap:8px; margin:0 0 4px; flex-wrap:wrap;">
+      <button type="button" class="year-btn" id="kal-prev" aria-label="Předchozí měsíc">◀</button>
+      <span class="year-btn year-btn-label" id="kal-month-label" style="min-width:160px; text-align:center;">…</span>
+      <button type="button" class="year-btn" id="kal-next" aria-label="Následující měsíc">▶</button>
+      <button type="button" class="year-btn" id="kal-today">Dnes</button>
+    </div>
+
+    <p class="search-status" id="kal-status">Načítám kalendář…</p>
+    <table class="calendar-table" id="kal-grid" style="display:none;">
+      <thead>
+        <tr><th>Po</th><th>Út</th><th>St</th><th>Čt</th><th>Pá</th><th>So</th><th>Ne</th></tr>
+      </thead>
+      <tbody id="kal-grid-body"></tbody>
+    </table>
+
+    <p class="meta-note" style="margin-top:16px;">
+      <a href="/kalendar/kalendar.ics">Stáhnout kalendář (.ics)</a> — jde přidat nebo přihlásit v Google, Apple i Outlook kalendáři.
+    </p>
+  </section>
+
+<script>
+  // ===== Kalendář: měsíční mřížka z kalendar/udalosti.json =====
+  const KAL_MONTHS = ['Leden','Únor','Březen','Duben','Květen','Červen',
+                       'Červenec','Srpen','Září','Říjen','Listopad','Prosinec'];
+  let KAL_EVENTS_BY_DATE = {};
+  let KAL_CAT = '';
+  const kalNow = new Date();
+  let kalYear = kalNow.getFullYear();
+  let kalMonth = kalNow.getMonth();  // 0-based
+
+  function kalPad(n){ return String(n).padStart(2, '0'); }
+  function kalDateStr(y, m, d){ return `${y}-${kalPad(m + 1)}-${kalPad(d)}`; }
+  function kalEsc(s){
+    return (s || '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+  }
+
+  function kalRenderGrid(){
+    const body = document.getElementById('kal-grid-body');
+    const first = new Date(kalYear, kalMonth, 1);
+    const startOffset = (first.getDay() + 6) % 7;  // Po=0 .. Ne=6
+    const daysInMonth = new Date(kalYear, kalMonth + 1, 0).getDate();
+    const todayStr = kalDateStr(kalNow.getFullYear(), kalNow.getMonth(), kalNow.getDate());
+
+    const cells = [];
+    for (let i = 0; i < startOffset; i++) cells.push(null);
+    for (let d = 1; d <= daysInMonth; d++) cells.push(d);
+    while (cells.length % 7 !== 0) cells.push(null);
+
+    let html = '';
+    for (let i = 0; i < cells.length; i += 7) {
+      html += '<tr>';
+      for (let j = i; j < i + 7; j++) {
+        const d = cells[j];
+        if (d === null) { html += '<td class="empty"></td>'; continue; }
+        const dateStr = kalDateStr(kalYear, kalMonth, d);
+        const evs = (KAL_EVENTS_BY_DATE[dateStr] || []).filter(e => !KAL_CAT || e.category === KAL_CAT);
+        let evHtml = '';
+        if (evs.length) {
+          evHtml = '<div class="kal-events">' + evs.map(e => {
+            const tip = e.description ? `${e.title} — ${e.description}` : e.title;
+            return `<a class="kal-ev kal-ev-${e.category}" href="${e.link}" title="${kalEsc(tip)}">${kalEsc(e.title)}</a>`;
+          }).join('') + '</div>';
+        }
+        html += `<td class="${dateStr === todayStr ? 'today' : ''}"><span class="day-num">${d}</span>${evHtml}</td>`;
+      }
+      html += '</tr>';
+    }
+    body.innerHTML = html;
+    document.getElementById('kal-month-label').textContent = `${KAL_MONTHS[kalMonth]} ${kalYear}`;
+  }
+
+  document.getElementById('kal-prev').addEventListener('click', () => {
+    kalMonth--; if (kalMonth < 0) { kalMonth = 11; kalYear--; }
+    kalRenderGrid();
+  });
+  document.getElementById('kal-next').addEventListener('click', () => {
+    kalMonth++; if (kalMonth > 11) { kalMonth = 0; kalYear++; }
+    kalRenderGrid();
+  });
+  document.getElementById('kal-today').addEventListener('click', () => {
+    kalYear = kalNow.getFullYear(); kalMonth = kalNow.getMonth();
+    kalRenderGrid();
+  });
+  document.querySelectorAll('#panel-kalendar .segmented-btn[data-cat]').forEach(btn => {
+    btn.addEventListener('click', function(){
+      document.querySelectorAll('#panel-kalendar .segmented-btn[data-cat]').forEach(b => b.classList.remove('active'));
+      this.classList.add('active');
+      KAL_CAT = this.dataset.cat;
+      kalRenderGrid();
+    });
+  });
+
+  fetch('/kalendar/udalosti.json')
+    .then(r => r.json())
+    .then(data => {
+      (data.events || []).forEach(e => {
+        (KAL_EVENTS_BY_DATE[e.date] = KAL_EVENTS_BY_DATE[e.date] || []).push(e);
+      });
+      document.getElementById('kal-status').style.display = 'none';
+      document.getElementById('kal-grid').style.display = '';
+      kalRenderGrid();
+    })
+    .catch(() => {
+      document.getElementById('kal-status').textContent = 'Kalendář se nepodařilo načíst.';
+    });
+</script>

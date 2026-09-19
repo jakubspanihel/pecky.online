@@ -115,6 +115,20 @@ jde poslat odkaz:
 
 Adresy stojí na `id` z JSON — proto se `id` po zveřejnění nemění.
 
+### Vizitka osoby je sdílená komponenta (od 19. 9. 2026)
+
+Vykreslení detailu osoby (`lPersonDetail` v `content/lide.html`) i avatar
+kartičky delegují na `pcDetailHtml`/`pcAvatarHtml`/`pcBuildTimeline`
+v `assets/helpers.js` — čistě formátovací a vykreslovací funkce bez závislosti
+na routingu nebo filtrech téhle sekce. Vznikly proto, aby stejnou vizitku šlo
+znovu použít i mimo Lidé: první uplatnění je jméno v tabulce Jednání →
+Absence (`/jednani/absence.html`, viz `jednani/README.md` →
+„Avatar a vizitka osoby u jména"), kde se klikem na jméno rozbalí přesně
+tahle karta. `content/lide.html` si drží krátké aliasy (`lFullName`,
+`lRoleLabel` apod.) na `pc*` funkce, ať se nemusí přepisovat zbytek souboru —
+při úpravě formátování (datum, telefon, timeline) měnit vždy `pc*` verzi
+v `assets/helpers.js`, ne kopírovat logiku zpátky sem.
+
 ### Tři entity, ne jedna kartička
 
 Dnešní kartička slepuje tři různé věci dohromady. V datech jsou oddělené,
@@ -316,6 +330,31 @@ uskupení — viz kapitola „Fotky" výš.
 
 Při nálezu nové fotky za další ročník se **stará položka neodstraňuje**,
 jen přibude nová — stejně jako u vazeb historie nemizí.
+
+### České skloňování osob (gender)
+
+Doplněno 19. 9. 2026, zadal uživatel — vzniklo z textu „Přítomen: N"
+v poznámce `jednani/absence.html` (mužský tvar u žen gramaticky špatně,
+např. „Ivana Trčková … Přítomen" místo „Přítomna"). Řešení je obecné pro
+celý web: kdekoli se generuje text o konkrétní osobě z přídavného jména/
+příčestí (přítomen/přítomna, zvolen/zvolena, jmenován/jmenována…),
+používá stejný mechanismus.
+
+`people.json` nese u každé osoby povinné pole `gender` (`"m"` / `"f"`,
+SPEC.md §3.2). U všech 258 záznamů odvozeno ze **jména** (ne příjmení —
+česká křestní jména jsou téměř bezvýhradně rodově jednoznačná, na rozdíl
+od příjmení, kde selhávají cizí/nesklonná tvary jako „Middleditch" nebo
+„Vaz Santos"): 105 unikátních jmen ručně roztříděno a zkřížově ověřeno
+proti příponě příjmení (`-ová`/`-á`) — 5 shod nesedělo kvůli právě
+takovým nesklonným příjmením, ne kvůli špatně určenému rodu. `validate.mjs`
+kontroluje, že `gender` je u každé osoby `"m"` nebo `"f"`.
+
+Vykreslení: `pcGendered(p, masc, fem)` v `assets/helpers.js` — vrátí `fem`
+jen když `p.gender === 'f'`, jinak `masc` (i když `p` chybí, tedy osobu
+se nepodařilo spárovat — bezpečný výchozí mužský tvar). Použití v
+`jednani/absence.html` → `poznamkaHtml(r, p)`: `pcGendered(p, 'Přítomen',
+'Přítomna')`. Při dalším místě na webu, kde bude potřeba skloňovat text
+o konkrétní osobě, použít stejnou funkci, ne psát tvary napevno.
 
 ### Přiznané mezery v datech
 

@@ -7,12 +7,12 @@ runtime framework, žádné závislosti kromě Google Fonts CDN. Jediný
 výstup jsou čisté statické soubory pro GitHub Pages.
 
 ## Struktura (od migrace 30. 8. 2026 — viz ARCHITEKTURA-MIGRACE.md)
-15 sekcí, každá vlastní adresář/URL: Domů (`/`), Lidé (`/lide/`), Plán
+16 sekcí, každá vlastní adresář/URL: Domů (`/`), Lidé (`/lide/`), Plán
 (`/plan/`), Tělocvična (`/telocvicna/`), Volby (`/volby/`) a Volby 2018/2022/2026
 (`/volby/2018/` atd.), Jednání (`/jednani/`), Smlouvy (`/smlouvy/`),
 Zakázky (`/zakazky/`), Pozemky (`/pozemky/`), Pokladna (`/pokladna/`),
-Pečecké noviny (`/noviny/`), O webu (`/o-webu/`). Styl: pergamenově-
-úřední (Fraunces + IBM Plex Sans/Mono), `assets/styles.css`.
+Kalendář (`/kalendar/`), Pečecké noviny (`/noviny/`), O webu (`/o-webu/`).
+Styl: pergamenově-úřední (Fraunces + IBM Plex Sans/Mono), `assets/styles.css`.
 
 **Needit přímo vygenerované `<sekce>/index.html` soubory** (přepíše je
 příští build) **ani kořenový `index.html`** (to je teď vygenerovaný
@@ -105,6 +105,7 @@ spustit `python3 scripts/build.py`.
 - Zakázky → `zakazky/README.md`
 - Pozemky → `pozemky/README.md`
 - Pokladna → `pokladna/README.md`
+- Kalendář → `kalendar/README.md`
 - Pečecké noviny / Zpravodaj → `noviny/README.md`
 - O webu → `o-webu/README.md` (+ `automation-socialni-site.md`)
 

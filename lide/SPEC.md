@@ -112,6 +112,7 @@ Jednání a Pečecké noviny. Lokálně `python3 -m http.server`.
       "id": "paluskam",
       "first_name": "Milan",
       "last_name": "Paluska",
+      "gender": "m",
       "title_before": "",
       "title_after": "",
       "email": "",
@@ -141,6 +142,7 @@ Jednání a Pečecké noviny. Lokálně `python3 -m http.server`.
 |---|---|---|---|
 | `id` | slug | ✅ | unikátní, neměnné |
 | `first_name` / `last_name` | string | ✅ | `last_name` je řadicí klíč |
+| `gender` | `"m"` \| `"f"` | ✅ | pro gramaticky správné skloňování (přítomen/přítomna, zvolen/zvolena…) — odvozeno z `first_name`, viz `lide/README.md` § „České skloňování osob (gender)". Použij sdílenou `pcGendered()` z `assets/helpers.js`, nepiš tvary napevno |
 | `title_before` / `title_after` | string | — | `""` místo `null` |
 | `email` | string | — | jen pracovní adresa, `""` když neznámá |
 | `phone` | string | — | jedno nebo víc čísel oddělených `" · "`, každé ve tvaru `+420 123 456 789`; pořadí kancelář → mobil. `""` když neznámé |
@@ -280,6 +282,7 @@ hodnotách, dokud se nedohledá zdroj:
   "id": "novakj",
   "first_name": "Jan",
   "last_name": "Novák",
+  "gender": "m",
   "title_before": "", "title_after": "",
   "email": "", "phone": "",
   "photo": "", "photo_source": "",
