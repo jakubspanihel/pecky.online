@@ -8,8 +8,10 @@ nepřibylo nové jednání nebo se u existujícího nedoplnil zápis a usnesení
 promítne se do veřejné stránky `/jednani/` přes `scripts/build.py`).
 Součástí postupu je i kontrola záznamů
 zastupitelstva na YouTube (krok 6), časových značek jednotlivých bodů
-u těch videí (krok 7) a promítnutí bodů týkajících se stavby tělocvičny
-do sekce [/telocvicna/](../telocvicna/README.md) (krok 9) — všechno dělat
+u těch videí (krok 7), přegenerování dat sekce
+[/kalendar/](../kalendar/README.md) (krok 8b) a promítnutí bodů
+týkajících se stavby tělocvičny do sekce
+[/telocvicna/](../telocvicna/README.md) (krok 9) — všechno dělat
 při každém běhu, ne jen jednorázově.
 
 **Vztah k ostatním dokumentům:** dřívější plán počítal s plným scraperem
@@ -255,6 +257,25 @@ Pokud nové usnesení řeší prodej/nákup pozemku, spustit i
 [automation-katastr-parcely.md](automation-katastr-parcely.md) pro plný
 popis.
 
+### 8b. Kalendář — POVINNÉ při každém běhu
+
+Sekce [/kalendar/](../kalendar/README.md) čerpá přímo z
+`pecky-jednani.json` (termíny jednání rady a zastupitelstva v měsíční
+mřížce + `.ics` ke stažení). Po jakékoli úpravě souboru v kroku 5 —
+nové jednání, doplněný zápis, zmizelé/objevené pole `time` — spustit:
+
+```
+python3 kalendar/scripts/update-kalendar.py
+```
+
+Přegeneruje `kalendar/udalosti.json` a `kalendar/kalendar.ics`. Na
+rozdíl od kroku 8 (Pozemky) se spouští vždy, ne jen když se týká
+konkrétního usnesení — kalendář zobrazuje všechna jednání, ne jen ta
+o pozemcích. Viz [kalendar/README.md](../kalendar/README.md) pro popis
+skriptu a schéma dat. `content/kalendar.html` samotný upravovat není
+potřeba — stránka si data natahuje přes `fetch()` za běhu v prohlížeči,
+staví se (spolu se zbytkem webu) až krokem 10.
+
 ### 9. Tělocvična (pokud relevantní) — POVINNÉ při každém běhu
 
 Stavbu „Dostavba učeben a tělocvičny v ZŠ Pečky“ sleduje vlastní sekce
@@ -312,7 +333,8 @@ Stručně: co bylo nové/doplněné, co zůstává čekat na publikaci webem. Ni
 nevymýšlet — pokud web nic nového neukazuje, říct to přímo.
 
 **Vždy jmenovitě vypiš, co jsi změnil** — u každého dotčeného souboru
-(`jednani/pecky-jednani.json`, `content/telocvicna.html`, `README.md`,
+(`jednani/pecky-jednani.json`, `kalendar/udalosti.json`,
+`kalendar/kalendar.ics`, `content/telocvicna.html`, `README.md`,
 `sources.json` …) jednou větou, co se v něm změnilo a proč. Sekce
 Tělocvična (krok 9) má v tomto výpisu vlastní řádek vždy, i když se
 nezměnila — pak s poznámkou „zkontrolováno, beze změny“.

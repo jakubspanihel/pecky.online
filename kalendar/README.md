@@ -29,7 +29,9 @@ a kalendář akcí z webu města jsou plánované, ale ještě nezapojené
   přes `--burgundy`) prolinkované na `/jednani/#{typ}-{datum}`.
 
 ### Aktualizace
-Spustit po každé aktualizaci `jednani/pecky-jednani.json`:
+Spouští se automaticky jako krok 8b týdenní kontroly Jednání — viz
+`jednani/automation-kontrola-usneseni-cz.md` → „8b. Kalendář".
+Ručně spustit po každé aktualizaci `jednani/pecky-jednani.json`:
 ```
 python3 kalendar/scripts/update-kalendar.py
 python3 scripts/build.py
@@ -84,7 +86,3 @@ zplošťuje svá specifika na tahle pole, detaily zůstávají dostupné přes
   který `update-kalendar.py` při běhu přimíchá ke zbytku.
 - **Kalendář akcí z webu města** — vyžaduje vlastní scraper (obdoba
   `pecky-online-noviny-check`), zatím neexistuje.
-- Jestli zapojit `update-kalendar.py` do týdenní kontroly (spouštět
-  automaticky po `pecky-online-jednani-check`, obdoba toho, jak
-  `jednani/scripts/update-pozemky.py` navazuje na aktualizaci jednani
-  dat) — zatím se spouští jen ručně.
