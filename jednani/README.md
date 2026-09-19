@@ -282,7 +282,11 @@ samo — při další obsahové změně stránky datum v `build.py` ručně
 posunout).
 
 **Při každém novém jednání** znovu spustit `python3 jednani/scripts/absence.py`
-— `absence.json` se nepřepočítává sám.
+— `absence.json` se nepřepočítává sám. Doplněno 19. 9. 2026 jako vlastní
+krok 8c v `automation-kontrola-usneseni-cz.md` (dřív to v týdenním
+postupu nebylo, takže se přepočet snadno zapomněl — viz historie
+v kořenovém `README.md` → „Stav sekcí"), teď se dělá při každém běhu
+automaticky spolu s ostatním.
 
 **Avatar a vizitka osoby u jména (od 19. 9. 2026).** Jméno v prvním sloupci
 tabulky je teď u koho jde spárovat s `lide/people.json` (fuzzy přes

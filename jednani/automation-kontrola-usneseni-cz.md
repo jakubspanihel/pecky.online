@@ -9,7 +9,8 @@ promítne se do veřejné stránky `/jednani/` přes `scripts/build.py`).
 Součástí postupu je i kontrola záznamů
 zastupitelstva na YouTube (krok 6), časových značek jednotlivých bodů
 u těch videí (krok 7), přegenerování dat sekce
-[/kalendar/](../kalendar/README.md) (krok 8b) a promítnutí bodů
+[/kalendar/](../kalendar/README.md) (krok 8b), přepočet docházky pro
+sekci [/jednani/absence.html](absence.html) (krok 8c) a promítnutí bodů
 týkajících se stavby tělocvičny do sekce
 [/telocvicna/](../telocvicna/README.md) (krok 9) — všechno dělat
 při každém běhu, ne jen jednorázově.
@@ -275,6 +276,31 @@ o pozemcích. Viz [kalendar/README.md](../kalendar/README.md) pro popis
 skriptu a schéma dat. `content/kalendar.html` samotný upravovat není
 potřeba — stránka si data natahuje přes `fetch()` za běhu v prohlížeči,
 staví se (spolu se zbytkem webu) až krokem 10.
+
+### 8c. Absence — POVINNÉ při každém běhu
+
+Sekce [/jednani/absence.html](absence.html) („Jak vás zastupitelé
+zastupují" — docházka) čerpá z `jednani/absence.json`, které se **samo
+nepřepočítává** — je to statický soubor, ne živý dotaz nad
+`pecky-jednani.json`. Po jakékoli úpravě prezence v kroku 5 (nové
+jednání, doplněná úvodní prezence, doplněné `attendance.changes`)
+spustit:
+
+```
+python3 jednani/scripts/absence.py
+```
+
+Přepíše `jednani/absence.json`. Skript sám vypíše kontrolní součet za
+každý blok (Rada/Zastupitelstvo × volební období) — rozdíl smí být
+nenulový jen tam, kde ho vysvětluje známý vadný záznam zdroje (viz
+`INSTRUKCE-absence.md` §1 a §7); jakýkoli jiný nenulový rozdíl znamená
+zkontrolovat nově zapsaná data z kroku 5. Stejně jako u kroku 8b
+(Kalendář) se spouští vždy, ne jen když se týká konkrétního jednání —
+`absence.json` je souhrn přes celé volební období, takže ho rozhodí
+i jediné nově doplněné jednání. `content/absence.html` samotný upravovat
+není potřeba — stránka si `absence.json` (i `lide/people.json` kvůli
+avatarům a vizitkám) natahuje přes `fetch()` za běhu v prohlížeči, staví
+se (spolu se zbytkem webu) až krokem 10.
 
 ### 9. Tělocvična (pokud relevantní) — POVINNÉ při každém běhu
 
