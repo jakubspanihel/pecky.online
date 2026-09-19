@@ -2,6 +2,14 @@
     <h2 class="title display">O webu</h2>
     <p class="lede">pecky.online je neoficiální, nezávislý občanský projekt. Cílem je zpřehlednit veřejně dostupné informace o samosprávě města Pečky.</p>
 
+    <div class="subtabs" role="tablist" aria-label="Části stránky O webu">
+      <button class="subtablink active" type="button" data-subpanel="owebu-odkazy">Odkazy</button>
+      <button class="subtablink" type="button" data-subpanel="owebu-socialni">Sociální sítě</button>
+      <button class="subtablink" type="button" data-subpanel="owebu-zdroje">Zdroje</button>
+      <button class="subtablink" type="button" data-subpanel="owebu-historie">Historie změn na webu</button>
+    </div>
+
+    <div class="subpanel active" id="subpanel-owebu-odkazy">
     <h3 class="display" style="font-size:19px; margin:0 0 4px;">Odkazy</h3>
     <p class="lede" style="margin-bottom:16px;">Oficiální kanály města a související otevřená data.</p>
     <div class="quicklinks">
@@ -46,7 +54,26 @@
       </a>
     </div>
 
-    <h3 class="display" style="font-size:19px; margin:30px 0 4px;">Sociální sítě</h3>
+    <h3 class="display" style="font-size:19px; margin:30px 0 4px;">Další nezávislé zdroje</h3>
+    <p class="lede" style="margin-bottom:16px;">Soukromé/komunitní weby o Pečkách a webová prezentace volebního uskupení — nespravované městem ani tímto webem (jejich sociální sítě jsou v záložce Sociální sítě).</p>
+    <div class="quicklinks">
+      <a class="qlink" href="https://www.pecky-virtualne.cz/" target="_blank" rel="noopener">
+        <span class="qlink-main"><span class="qlink-icon-fallback" style="background:var(--burgundy-deep);">PV</span><span class="lbl">Pečky-Virtuálně (historie města, neoficiální)</span></span><span class="url">pecky-virtualne.cz ↗</span>
+      </a>
+      <a class="qlink" href="https://www.nasepecky.cz/" target="_blank" rel="noopener">
+        <span class="qlink-main"><span class="qlink-icon-fallback" style="background:#AD7A2A;">NP</span><span class="lbl">Web uskupení NAŠE PEČKY</span></span><span class="url">nasepecky.cz ↗</span>
+      </a>
+      <a class="qlink" href="https://kolinsky.denik.cz/" target="_blank" rel="noopener">
+        <span class="qlink-main"><span class="qlink-icon-fallback" style="background:#5B5347;">KD</span><span class="lbl">Kolínský deník (regionální zpravodajství)</span></span><span class="url">kolinsky.denik.cz ↗</span>
+      </a>
+      <a class="qlink" href="https://www.sokolpecky.cz/" target="_blank" rel="noopener">
+        <span class="qlink-main"><span class="qlink-icon-fallback" style="background:#7C2F2B;">SP</span><span class="lbl">TJ Sokol Pečky (sportovní klub, vlastní sokolovna)</span></span><span class="url">sokolpecky.cz ↗</span>
+      </a>
+    </div>
+    </div>
+
+    <div class="subpanel" id="subpanel-owebu-socialni">
+    <h3 class="display" style="font-size:19px; margin:0 0 4px;">Sociální sítě</h3>
     <p class="lede" style="margin-bottom:16px;">Všechny facebookové, instagramové a YouTube účty zmiňované na tomto webu na jednom místě, seřazené sestupně podle počtu sledujících (u Facebooku po zaokrouhlení, jak je zobrazuje samotná platforma; u YouTube odběratelé, u FB skupiny členové) — u každého i datum posledního příspěvku/videa jako ukazatel, jak moc je účet aktivní. Označené jako „oficiální“ jsou kanály spravované městem — zbytek jsou nezávislé účty uskupení, politiků a komunitních iniciativ mimo kontrolu tohoto webu. Aktualizuje se týdně. Snímek k 16. 9. 2026, časem se mění. <span class="stamp">ověřeno</span></p>
     <div class="quicklinks">
       <a class="qlink" href="https://www.facebook.com/mestopecky" target="_blank" rel="noopener">
@@ -98,25 +125,10 @@
     <div class="callout" style="margin-top:14px;">
       Pro ČSSD a sjednocenou levici se vlastní sociální síť nepodařilo dohledat. U stránky Aleny Švejnohové (vázané na její politické angažmá, nikoli soukromý profil), nezávislých iniciativ (Pečky NEXT, Pečky-Virtuálně) a neoficiálních účtů (streetpeopleofpecky — lokální sbírka pouličních fotek, nesouvisí s žádným uskupením) jde o účty třetích stran mimo kontrolu tohoto webu — obsah čtěte kriticky, stejně jako u jakéhokoli jiného zdroje na sociálních sítích.
     </div>
-
-    <h3 class="display" style="font-size:19px; margin:30px 0 4px;">Další nezávislé zdroje</h3>
-    <p class="lede" style="margin-bottom:16px;">Soukromé/komunitní weby o Pečkách a webová prezentace volebního uskupení — nespravované městem ani tímto webem (jejich sociální sítě jsou v bloku výše).</p>
-    <div class="quicklinks">
-      <a class="qlink" href="https://www.pecky-virtualne.cz/" target="_blank" rel="noopener">
-        <span class="qlink-main"><span class="qlink-icon-fallback" style="background:var(--burgundy-deep);">PV</span><span class="lbl">Pečky-Virtuálně (historie města, neoficiální)</span></span><span class="url">pecky-virtualne.cz ↗</span>
-      </a>
-      <a class="qlink" href="https://www.nasepecky.cz/" target="_blank" rel="noopener">
-        <span class="qlink-main"><span class="qlink-icon-fallback" style="background:#AD7A2A;">NP</span><span class="lbl">Web uskupení NAŠE PEČKY</span></span><span class="url">nasepecky.cz ↗</span>
-      </a>
-      <a class="qlink" href="https://kolinsky.denik.cz/" target="_blank" rel="noopener">
-        <span class="qlink-main"><span class="qlink-icon-fallback" style="background:#5B5347;">KD</span><span class="lbl">Kolínský deník (regionální zpravodajství)</span></span><span class="url">kolinsky.denik.cz ↗</span>
-      </a>
-      <a class="qlink" href="https://www.sokolpecky.cz/" target="_blank" rel="noopener">
-        <span class="qlink-main"><span class="qlink-icon-fallback" style="background:#7C2F2B;">SP</span><span class="lbl">TJ Sokol Pečky (sportovní klub, vlastní sokolovna)</span></span><span class="url">sokolpecky.cz ↗</span>
-      </a>
     </div>
 
-    <h3 class="display" style="font-size:19px; margin:30px 0 4px;">Zdroje a stav sekcí</h3>
+    <div class="subpanel" id="subpanel-owebu-zdroje">
+    <h3 class="display" style="font-size:19px; margin:0 0 4px;">Zdroje a stav sekcí</h3>
     <table class="register">
       <thead><tr><th>Sekce</th><th>Zdroj</th><th>Stav</th></tr></thead>
       <tbody>
@@ -139,13 +151,16 @@
         <tr><td>Pečecké noviny</td><td>pecky.cz — archiv PDF zpravodaje (68/68 vydání, 2020–2026); doplněno lokálním archivem redakce (43 vydání, 2008–2011, nedostupné na pecky.cz — viz mezery v panelu Zpravodaj)</td><td><span class="tag role">ověřeno</span></td></tr>
       </tbody>
     </table>
+    </div>
+
+    <div class="subpanel" id="subpanel-owebu-historie">
+    <h3 class="display" style="font-size:19px; margin:0 0 4px;">Stav sekcí</h3>
+    <p class="lede" style="margin-bottom:16px;">Kdy jsem se u které sekce naposledy díval do zdroje a kdy se naposledy změnil obsah. Řazeno od nejnověji změněné.</p>
+    {{STAV_SEKCI}}
+    <p class="majority-note" style="margin-top:12px;">Pomlčka ve sloupci Kontrola znamená, že sekce nemá externí zdroj ke kontrole — ne že se na ni zapomnělo. Otazník u data je nedoložený odhad.</p>
+    </div>
 
     <div class="footer-note">
       Poslední aktualizace: 18. srpna 2026 (sekce Zpravodaj: doplněn lokální archiv Pečeckých novin 2008–2011, 43 vydání s fulltextem a náhledy stránek). Tento web nezastupuje Město Pečky ani žádnou politickou stranu. Chyby a doplnění vítány — pošli zdroj a opravím.
     </div>
-
-    <h3 class="display" style="font-size:19px; margin:38px 0 4px;">Stav sekcí</h3>
-    <p class="lede" style="margin-bottom:16px;">Kdy jsem se u které sekce naposledy díval do zdroje a kdy se naposledy změnil obsah. Řazeno od nejnověji změněné.</p>
-    {{STAV_SEKCI}}
-    <p class="majority-note" style="margin-top:12px;">Pomlčka ve sloupci Kontrola znamená, že sekce nemá externí zdroj ke kontrole — ne že se na ni zapomnělo. Otazník u data je nedoložený odhad.</p>
   </section>
