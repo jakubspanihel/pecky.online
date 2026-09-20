@@ -9,6 +9,7 @@
     --field:#54624A;
     --line:#C9BA98;
     --gold:#AD7A2A;
+    --gold-deep:#8A5F1E;
     --paper-shadow: 0 1px 0 rgba(42,36,32,0.06);
   }
   *{box-sizing:border-box;}
@@ -230,10 +231,21 @@
   table.calendar-table .kal-ev:hover{opacity:0.85;}
   table.calendar-table .kal-ev-rada{background:var(--field);}
   table.calendar-table .kal-ev-zastupitelstvo{background:var(--burgundy);}
+  table.calendar-table .kal-ev-akce{background:var(--gold-deep);}
+  table.calendar-table .kal-ev-kurz{background:var(--ink-soft);}
   @media (max-width:600px){
     table.calendar-table td{min-height:42px; padding:5px 4px;}
     table.calendar-table .kal-ev{font-size:9px; padding:1px 3px;}
   }
+
+  /* ===== tabulka akcí (/kalendar/akce/) ===== */
+  table.akce-tabulka td.akce-datum{white-space:nowrap;}
+  table.akce-tabulka .akce-cas{font-family:'IBM Plex Mono',monospace; font-size:12.5px; white-space:nowrap;}
+  table.akce-tabulka .akce-cas-none{color:var(--line);}
+  table.akce-tabulka .akce-zdroj{font-size:12px;}
+  table.akce-tabulka .akce-pozn{font-style:italic;}
+  /* akce, na kterou vede odkaz z mřížky kalendáře */
+  table.akce-tabulka tr:target td{background:rgba(173,122,42,0.14);}
 
   /* ===== rozklikávací řádky tabulky (výdaje podle kategorií) ===== */
   .exp-row{cursor:pointer;}

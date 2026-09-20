@@ -1,0 +1,1241 @@
+{
+ "meta": {
+  "description": "Kulturní a společenské akce v Pečkách a okolí. U každé akce je pořadatel (id do lide/organizations.json) a doklady, ze kterých je přepsaná (evidence[] — zdroj je id do kořenového sources.json). Zdroj sekce Kalendář — do udalosti.json a kalendar.ics je promítá kalendar/scripts/update-kalendar.py.",
+  "updated": "2026-09-20",
+  "note": "Jednání rady a zastupitelstva do tohohle souboru nepatří, i když je plakát KD uvádí — ta má kalendář z jednani/pecky-jednani.json a zapsáním sem by v mřížce vznikly duplicity. Pořadatel je vždy ten, kdo akci pořádá, ne ten, od koho o ní víme — to je evidence[].source."
+ },
+ "events": [
+  {
+   "id": "akce-2026-07-10-pececke-filmove-leto-po",
+   "title": "Pečecké filmové léto: Po večerce",
+   "date": "2026-07-10",
+   "time": "21:45",
+   "category": "akce",
+   "place": "Fotbalové hřiště AFK Pečky",
+   "organizer": "kulturni-stredisko-pecky",
+   "organizer_name": null,
+   "description": null,
+   "note": "Plakát uvádí „promítání vždy po setmění“; pořadatel na Facebooku upřesnil začátek přibližně na 21:45.",
+   "evidence": [
+    {
+     "source": "facebook-kspecky",
+     "kind": "plakat",
+     "url": "https://www.facebook.com/photo/?fbid=1400528865465464",
+     "label": "Plakát Pečecké filmové léto 2026",
+     "published": "2026-06-30",
+     "retrieved": "2026-09-20"
+    }
+   ]
+  },
+  {
+   "id": "akce-2026-08-14-pececke-filmove-leto-nekdo",
+   "title": "Pečecké filmové léto: Někdo to rád v Plzni",
+   "date": "2026-08-14",
+   "time": null,
+   "category": "akce",
+   "place": "Hřiště TJ Sokol, Velké Chvalovice",
+   "organizer": "kulturni-stredisko-pecky",
+   "organizer_name": null,
+   "description": null,
+   "note": "Promítání po setmění, přesný čas plakát neuvádí.",
+   "evidence": [
+    {
+     "source": "facebook-kspecky",
+     "kind": "plakat",
+     "url": "https://www.facebook.com/photo/?fbid=1400528865465464",
+     "label": "Plakát Pečecké filmové léto 2026",
+     "published": "2026-06-30",
+     "retrieved": "2026-09-20"
+    }
+   ]
+  },
+  {
+   "id": "akce-2026-08-22-pececke-filmove-leto-ovce",
+   "title": "Pečecké filmové léto: Ovce žerou první",
+   "date": "2026-08-22",
+   "time": "20:45",
+   "category": "akce",
+   "place": "Fotbalové hřiště AFK Pečky",
+   "organizer": "kulturni-stredisko-pecky",
+   "organizer_name": null,
+   "description": null,
+   "note": "Pořadatel na Facebooku uvedl začátek po setmění ve 20:45–21:00.",
+   "evidence": [
+    {
+     "source": "facebook-kspecky",
+     "kind": "plakat",
+     "url": "https://www.facebook.com/photo/?fbid=1400528865465464",
+     "label": "Plakát Pečecké filmové léto 2026",
+     "published": "2026-06-30",
+     "retrieved": "2026-09-20"
+    }
+   ]
+  },
+  {
+   "id": "akce-2026-08-30-pececke-filmove-leto-spongebob",
+   "title": "Pečecké filmové léto: SpongeBob – Pirátské dobrodružství",
+   "date": "2026-08-30",
+   "time": "14:00",
+   "category": "akce",
+   "place": "U rybníka Benešák, Pečky",
+   "organizer": "kulturni-stredisko-pecky",
+   "organizer_name": null,
+   "description": null,
+   "note": "Plakát uváděl „po setmění“, pořadatel v komentářích upřesnil 14:00; část návštěvníků na to podle diskuse pod příspěvkem nestihla zareagovat.",
+   "evidence": [
+    {
+     "source": "facebook-kspecky",
+     "kind": "plakat",
+     "url": "https://www.facebook.com/photo/?fbid=1400528865465464",
+     "label": "Plakát Pečecké filmové léto 2026",
+     "published": "2026-06-30",
+     "retrieved": "2026-09-20"
+    }
+   ]
+  },
+  {
+   "id": "akce-2026-09-05-pohadkova-cesta-v-dobrichove",
+   "title": "Pohádková cesta v Dobřichově",
+   "date": "2026-09-05",
+   "time": "13:00",
+   "category": "akce",
+   "place": "Kostel Nejsvětější Trojice, Dobřichov",
+   "organizer": "kulturni-stredisko-pecky",
+   "organizer_name": null,
+   "description": null,
+   "note": null,
+   "evidence": [
+    {
+     "source": "facebook-kspecky",
+     "kind": "plakat",
+     "url": "https://www.facebook.com/photo/?fbid=1460686936116323",
+     "label": "Program KD Pečky 9–12/2026, 1. část (září a říjen)",
+     "published": "2026-09-10",
+     "retrieved": "2026-09-20"
+    }
+   ]
+  },
+  {
+   "id": "akce-2026-09-09-cka-prednaska-ceska-cesta",
+   "title": "ČKA – přednáška: Česká cesta do pravěku",
+   "date": "2026-09-09",
+   "time": "17:00",
+   "category": "akce",
+   "place": "Přednáškový sál Kulturního domu Pečky",
+   "organizer": "kulturni-stredisko-pecky",
+   "organizer_name": null,
+   "description": null,
+   "note": null,
+   "evidence": [
+    {
+     "source": "facebook-kspecky",
+     "kind": "plakat",
+     "url": "https://www.facebook.com/photo/?fbid=1460686936116323",
+     "label": "Program KD Pečky 9–12/2026, 1. část (září a říjen)",
+     "published": "2026-09-10",
+     "retrieved": "2026-09-20"
+    }
+   ]
+  },
+  {
+   "id": "akce-2026-09-13-zahradni-slavnost-v-dps",
+   "title": "Zahradní slavnost v DPS",
+   "date": "2026-09-13",
+   "time": "14:00",
+   "category": "akce",
+   "place": "Atrium domu s pečovatelskou službou, Pečky",
+   "organizer": "kulturni-stredisko-pecky",
+   "organizer_name": null,
+   "description": null,
+   "note": null,
+   "evidence": [
+    {
+     "source": "facebook-kspecky",
+     "kind": "plakat",
+     "url": "https://www.facebook.com/photo/?fbid=1460686936116323",
+     "label": "Program KD Pečky 9–12/2026, 1. část (září a říjen)",
+     "published": "2026-09-10",
+     "retrieved": "2026-09-20"
+    }
+   ]
+  },
+  {
+   "id": "akce-2026-09-13-pececke-svatovaclavske-vinobrani",
+   "title": "Pečecké Svatováclavské vinobraní",
+   "date": "2026-09-13",
+   "time": "15:00",
+   "category": "akce",
+   "place": "Prostor mezi katolickým kostelem a Tescem, Pečky",
+   "organizer": "kulturni-stredisko-pecky",
+   "organizer_name": null,
+   "description": null,
+   "note": "11. ročník, 15:00–20:00. Program KD uvádí u téže akce začátek v 16:00 a místo „proluka u Tesca“ — přednost má podrobnější plakát vinobraní. Partneři: město Pečky, Vinotéka ROKO, Autoslužby u Čerta, RE/MAX (Luboš Holub).",
+   "evidence": [
+    {
+     "source": "facebook-kspecky",
+     "kind": "plakat",
+     "url": "https://www.facebook.com/photo/?fbid=1452347926950224",
+     "label": "Plakát Pečecké Svatováclavské vinobraní 2026",
+     "published": "2026-08-31",
+     "retrieved": "2026-09-20"
+    }
+   ]
+  },
+  {
+   "id": "akce-2026-09-16-noc-literatury-2026",
+   "title": "Noc literatury 2026",
+   "date": "2026-09-16",
+   "time": null,
+   "category": "akce",
+   "place": "Čtení úryvků po celém městě",
+   "organizer": "kulturni-stredisko-pecky",
+   "organizer_name": null,
+   "description": null,
+   "note": null,
+   "evidence": [
+    {
+     "source": "facebook-kspecky",
+     "kind": "plakat",
+     "url": "https://www.facebook.com/photo/?fbid=1460686936116323",
+     "label": "Program KD Pečky 9–12/2026, 1. část (září a říjen)",
+     "published": "2026-09-10",
+     "retrieved": "2026-09-20"
+    }
+   ]
+  },
+  {
+   "id": "akce-2026-09-19-food-festival-velke-chvalovice",
+   "title": "Food festival Velké Chvalovice",
+   "date": "2026-09-19",
+   "time": "11:00",
+   "category": "akce",
+   "place": "Hřiště Velké Chvalovice",
+   "organizer": "kulturni-stredisko-pecky",
+   "organizer_name": null,
+   "description": null,
+   "note": null,
+   "evidence": [
+    {
+     "source": "facebook-kspecky",
+     "kind": "plakat",
+     "url": "https://www.facebook.com/photo/?fbid=1460686936116323",
+     "label": "Program KD Pečky 9–12/2026, 1. část (září a říjen)",
+     "published": "2026-09-10",
+     "retrieved": "2026-09-20"
+    }
+   ]
+  },
+  {
+   "id": "akce-2026-09-19-kurzy-spolecenskeho-tance-uvodni",
+   "title": "Kurzy společenského tance – úvodní hodiny",
+   "date": "2026-09-19",
+   "time": "15:30",
+   "category": "kurz",
+   "place": "Velký sál Kulturního domu Pečky",
+   "organizer": "kulturni-stredisko-pecky",
+   "organizer_name": null,
+   "description": null,
+   "note": null,
+   "evidence": [
+    {
+     "source": "facebook-kspecky",
+     "kind": "plakat",
+     "url": "https://www.facebook.com/photo/?fbid=1460686936116323",
+     "label": "Program KD Pečky 9–12/2026, 1. část (září a říjen)",
+     "published": "2026-09-10",
+     "retrieved": "2026-09-20"
+    }
+   ]
+  },
+  {
+   "id": "akce-2026-09-23-cka-prednaska-krasna-jizba",
+   "title": "ČKA – přednáška: Krásná jizba, zapomenutá krása lidové kultury",
+   "date": "2026-09-23",
+   "time": "17:00",
+   "category": "akce",
+   "place": "Přednáškový sál Kulturního domu Pečky",
+   "organizer": "kulturni-stredisko-pecky",
+   "organizer_name": null,
+   "description": null,
+   "note": null,
+   "evidence": [
+    {
+     "source": "facebook-kspecky",
+     "kind": "plakat",
+     "url": "https://www.facebook.com/photo/?fbid=1460686936116323",
+     "label": "Program KD Pečky 9–12/2026, 1. část (září a říjen)",
+     "published": "2026-09-10",
+     "retrieved": "2026-09-20"
+    }
+   ]
+  },
+  {
+   "id": "akce-2026-09-26-kurzy-spolecenskeho-tance",
+   "title": "Kurzy společenského tance",
+   "date": "2026-09-26",
+   "time": "15:30",
+   "category": "kurz",
+   "place": "Velký sál Kulturního domu Pečky",
+   "organizer": "kulturni-stredisko-pecky",
+   "organizer_name": null,
+   "description": null,
+   "note": null,
+   "evidence": [
+    {
+     "source": "facebook-kspecky",
+     "kind": "plakat",
+     "url": "https://www.facebook.com/photo/?fbid=1460686936116323",
+     "label": "Program KD Pečky 9–12/2026, 1. část (září a říjen)",
+     "published": "2026-09-10",
+     "retrieved": "2026-09-20"
+    }
+   ]
+  },
+  {
+   "id": "akce-2026-09-27-slavnosti-svateho-vaclava",
+   "title": "Slavnosti svatého Václava",
+   "date": "2026-09-27",
+   "time": "15:00",
+   "category": "akce",
+   "place": "U rybníka Benešák, Pečky",
+   "organizer": "kulturni-stredisko-pecky",
+   "organizer_name": null,
+   "description": null,
+   "note": "Slavnosti dobrého vína a jídla, vstup zdarma, hraje kapela FOBOS. Program KD tutéž akci uvádí jako „Svatováclavský vinný košt“ od 13:00 — přednost má novější samostatný plakát. Ve spolupráci se Sklenkou Francie a Vinnými sklepy.",
+   "evidence": [
+    {
+     "source": "facebook-kspecky",
+     "kind": "plakat",
+     "url": "https://www.facebook.com/photo/?fbid=1469029025282114",
+     "label": "Plakát Slavnosti svatého Václava 2026",
+     "published": "2026-09-20",
+     "retrieved": "2026-09-20"
+    }
+   ]
+  },
+  {
+   "id": "akce-2026-10-03-kurzy-spolecenskeho-tance",
+   "title": "Kurzy společenského tance",
+   "date": "2026-10-03",
+   "time": "15:30",
+   "category": "kurz",
+   "place": "Velký sál Kulturního domu Pečky",
+   "organizer": "kulturni-stredisko-pecky",
+   "organizer_name": null,
+   "description": null,
+   "note": null,
+   "evidence": [
+    {
+     "source": "facebook-kspecky",
+     "kind": "plakat",
+     "url": "https://www.facebook.com/photo/?fbid=1460686936116323",
+     "label": "Program KD Pečky 9–12/2026, 1. část (září a říjen)",
+     "published": "2026-09-10",
+     "retrieved": "2026-09-20"
+    }
+   ]
+  },
+  {
+   "id": "akce-2026-10-04-kino-pro-deti",
+   "title": "Kino pro děti",
+   "date": "2026-10-04",
+   "time": "14:30",
+   "category": "akce",
+   "place": "Malý sál Kulturního domu Pečky",
+   "organizer": "kulturni-stredisko-pecky",
+   "organizer_name": null,
+   "description": null,
+   "note": null,
+   "evidence": [
+    {
+     "source": "facebook-kspecky",
+     "kind": "plakat",
+     "url": "https://www.facebook.com/photo/?fbid=1460686936116323",
+     "label": "Program KD Pečky 9–12/2026, 1. část (září a říjen)",
+     "published": "2026-09-10",
+     "retrieved": "2026-09-20"
+    }
+   ]
+  },
+  {
+   "id": "akce-2026-10-07-cka-prednaska-historie-vyroby",
+   "title": "ČKA – přednáška: Historie výroby železa a jeho zpracování",
+   "date": "2026-10-07",
+   "time": "17:00",
+   "category": "akce",
+   "place": "Přednáškový sál Kulturního domu Pečky",
+   "organizer": "kulturni-stredisko-pecky",
+   "organizer_name": null,
+   "description": null,
+   "note": null,
+   "evidence": [
+    {
+     "source": "facebook-kspecky",
+     "kind": "plakat",
+     "url": "https://www.facebook.com/photo/?fbid=1460686936116323",
+     "label": "Program KD Pečky 9–12/2026, 1. část (září a říjen)",
+     "published": "2026-09-10",
+     "retrieved": "2026-09-20"
+    }
+   ]
+  },
+  {
+   "id": "akce-2026-10-09-kurz-spolecenskeho-tance-1",
+   "title": "Kurz společenského tance – 1. prodloužená hodina, odpolední",
+   "date": "2026-10-09",
+   "time": "18:00",
+   "category": "kurz",
+   "place": "Velký sál Kulturního domu Pečky",
+   "organizer": "kulturni-stredisko-pecky",
+   "organizer_name": null,
+   "description": null,
+   "note": null,
+   "evidence": [
+    {
+     "source": "facebook-kspecky",
+     "kind": "plakat",
+     "url": "https://www.facebook.com/photo/?fbid=1460686936116323",
+     "label": "Program KD Pečky 9–12/2026, 1. část (září a říjen)",
+     "published": "2026-09-10",
+     "retrieved": "2026-09-20"
+    }
+   ]
+  },
+  {
+   "id": "akce-2026-10-10-kurz-spolecenskeho-tance-1",
+   "title": "Kurz společenského tance – 1. prodloužená hodina, večerní",
+   "date": "2026-10-10",
+   "time": "18:00",
+   "category": "kurz",
+   "place": "Velký sál Kulturního domu Pečky",
+   "organizer": "kulturni-stredisko-pecky",
+   "organizer_name": null,
+   "description": null,
+   "note": null,
+   "evidence": [
+    {
+     "source": "facebook-kspecky",
+     "kind": "plakat",
+     "url": "https://www.facebook.com/photo/?fbid=1460686936116323",
+     "label": "Program KD Pečky 9–12/2026, 1. část (září a říjen)",
+     "published": "2026-09-10",
+     "retrieved": "2026-09-20"
+    }
+   ]
+  },
+  {
+   "id": "akce-2026-10-16-divadlo-pro-dospele",
+   "title": "Divadlo pro dospělé",
+   "date": "2026-10-16",
+   "time": "19:30",
+   "category": "akce",
+   "place": "Velký sál Kulturního domu Pečky",
+   "organizer": "kulturni-stredisko-pecky",
+   "organizer_name": null,
+   "description": null,
+   "note": null,
+   "evidence": [
+    {
+     "source": "facebook-kspecky",
+     "kind": "plakat",
+     "url": "https://www.facebook.com/photo/?fbid=1460686936116323",
+     "label": "Program KD Pečky 9–12/2026, 1. část (září a říjen)",
+     "published": "2026-09-10",
+     "retrieved": "2026-09-20"
+    }
+   ]
+  },
+  {
+   "id": "akce-2026-10-17-kurzy-spolecenskeho-tance",
+   "title": "Kurzy společenského tance",
+   "date": "2026-10-17",
+   "time": "15:30",
+   "category": "kurz",
+   "place": "Velký sál Kulturního domu Pečky",
+   "organizer": "kulturni-stredisko-pecky",
+   "organizer_name": null,
+   "description": null,
+   "note": null,
+   "evidence": [
+    {
+     "source": "facebook-kspecky",
+     "kind": "plakat",
+     "url": "https://www.facebook.com/photo/?fbid=1460686936116323",
+     "label": "Program KD Pečky 9–12/2026, 1. část (září a říjen)",
+     "published": "2026-09-10",
+     "retrieved": "2026-09-20"
+    }
+   ]
+  },
+  {
+   "id": "akce-2026-10-18-divadlo-pro-deti",
+   "title": "Divadlo pro děti",
+   "date": "2026-10-18",
+   "time": "14:30",
+   "category": "akce",
+   "place": "Velký sál Kulturního domu Pečky",
+   "organizer": "kulturni-stredisko-pecky",
+   "organizer_name": null,
+   "description": null,
+   "note": null,
+   "evidence": [
+    {
+     "source": "facebook-kspecky",
+     "kind": "plakat",
+     "url": "https://www.facebook.com/photo/?fbid=1460686936116323",
+     "label": "Program KD Pečky 9–12/2026, 1. část (září a říjen)",
+     "published": "2026-09-10",
+     "retrieved": "2026-09-20"
+    }
+   ]
+  },
+  {
+   "id": "akce-2026-10-21-cka-prednaska-kde-domov",
+   "title": "ČKA – přednáška: Kde domov můj? Životní příběh Františka Škroupa",
+   "date": "2026-10-21",
+   "time": "17:00",
+   "category": "akce",
+   "place": "Přednáškový sál Kulturního domu Pečky",
+   "organizer": "kulturni-stredisko-pecky",
+   "organizer_name": null,
+   "description": null,
+   "note": null,
+   "evidence": [
+    {
+     "source": "facebook-kspecky",
+     "kind": "plakat",
+     "url": "https://www.facebook.com/photo/?fbid=1460686936116323",
+     "label": "Program KD Pečky 9–12/2026, 1. část (září a říjen)",
+     "published": "2026-09-10",
+     "retrieved": "2026-09-20"
+    }
+   ]
+  },
+  {
+   "id": "akce-2026-10-24-kurzy-spolecenskeho-tance",
+   "title": "Kurzy společenského tance",
+   "date": "2026-10-24",
+   "time": "15:30",
+   "category": "kurz",
+   "place": "Velký sál Kulturního domu Pečky",
+   "organizer": "kulturni-stredisko-pecky",
+   "organizer_name": null,
+   "description": null,
+   "note": null,
+   "evidence": [
+    {
+     "source": "facebook-kspecky",
+     "kind": "plakat",
+     "url": "https://www.facebook.com/photo/?fbid=1460686936116323",
+     "label": "Program KD Pečky 9–12/2026, 1. část (září a říjen)",
+     "published": "2026-09-10",
+     "retrieved": "2026-09-20"
+    }
+   ]
+  },
+  {
+   "id": "akce-2026-10-27-beseda-besip",
+   "title": "Beseda BESIP",
+   "date": "2026-10-27",
+   "time": "16:00",
+   "category": "akce",
+   "place": "Přednáškový sál Kulturního domu Pečky",
+   "organizer": "kulturni-stredisko-pecky",
+   "organizer_name": null,
+   "description": null,
+   "note": null,
+   "evidence": [
+    {
+     "source": "facebook-kspecky",
+     "kind": "plakat",
+     "url": "https://www.facebook.com/photo/?fbid=1460686936116323",
+     "label": "Program KD Pečky 9–12/2026, 1. část (září a říjen)",
+     "published": "2026-09-10",
+     "retrieved": "2026-09-20"
+    }
+   ]
+  },
+  {
+   "id": "akce-2026-10-30-kurz-spolecenskeho-tance-2",
+   "title": "Kurz společenského tance – 2. prodloužená hodina, odpolední",
+   "date": "2026-10-30",
+   "time": "18:00",
+   "category": "kurz",
+   "place": "Velký sál Kulturního domu Pečky",
+   "organizer": "kulturni-stredisko-pecky",
+   "organizer_name": null,
+   "description": null,
+   "note": null,
+   "evidence": [
+    {
+     "source": "facebook-kspecky",
+     "kind": "plakat",
+     "url": "https://www.facebook.com/photo/?fbid=1460686936116323",
+     "label": "Program KD Pečky 9–12/2026, 1. část (září a říjen)",
+     "published": "2026-09-10",
+     "retrieved": "2026-09-20"
+    }
+   ]
+  },
+  {
+   "id": "akce-2026-10-31-kurz-spolecenskeho-tance-2",
+   "title": "Kurz společenského tance – 2. prodloužená hodina, večerní",
+   "date": "2026-10-31",
+   "time": "18:00",
+   "category": "kurz",
+   "place": "Velký sál Kulturního domu Pečky",
+   "organizer": "kulturni-stredisko-pecky",
+   "organizer_name": null,
+   "description": null,
+   "note": null,
+   "evidence": [
+    {
+     "source": "facebook-kspecky",
+     "kind": "plakat",
+     "url": "https://www.facebook.com/photo/?fbid=1460686936116323",
+     "label": "Program KD Pečky 9–12/2026, 1. část (září a říjen)",
+     "published": "2026-09-10",
+     "retrieved": "2026-09-20"
+    }
+   ]
+  },
+  {
+   "id": "akce-2026-11-01-turnaj-ps5-fifa",
+   "title": "Turnaj PS5 FIFA",
+   "date": "2026-11-01",
+   "time": "14:30",
+   "category": "akce",
+   "place": "Malý sál Kulturního domu Pečky",
+   "organizer": "kulturni-stredisko-pecky",
+   "organizer_name": null,
+   "description": null,
+   "note": null,
+   "evidence": [
+    {
+     "source": "facebook-kspecky",
+     "kind": "plakat",
+     "url": "https://www.facebook.com/photo/?fbid=1460686996116317",
+     "label": "Program KD Pečky 9–12/2026, 2. část (listopad a prosinec)",
+     "published": "2026-09-10",
+     "retrieved": "2026-09-20"
+    }
+   ]
+  },
+  {
+   "id": "akce-2026-11-03-pececky-okraslovaci-spolek-prednaska",
+   "title": "Pečecký okrašlovací spolek – přednáška",
+   "date": "2026-11-03",
+   "time": "18:00",
+   "category": "akce",
+   "place": "Přednáškový sál Kulturního domu Pečky",
+   "organizer": "pececky-okraslovaci-spolek",
+   "organizer_name": null,
+   "description": null,
+   "note": "Pořadatele uvádí název akce v programu Kulturního domu Pečky, samostatný plakát spolku zatím nemáme.",
+   "evidence": [
+    {
+     "source": "facebook-kspecky",
+     "kind": "plakat",
+     "url": "https://www.facebook.com/photo/?fbid=1460686996116317",
+     "label": "Program KD Pečky 9–12/2026, 2. část (listopad a prosinec)",
+     "published": "2026-09-10",
+     "retrieved": "2026-09-20"
+    }
+   ]
+  },
+  {
+   "id": "akce-2026-11-04-cka-prednaska-pohadky-a",
+   "title": "ČKA – přednáška: Pohádky a jejich léčivá",
+   "date": "2026-11-04",
+   "time": "17:00",
+   "category": "akce",
+   "place": "Přednáškový sál Kulturního domu Pečky",
+   "organizer": "kulturni-stredisko-pecky",
+   "organizer_name": null,
+   "description": null,
+   "note": "Název je na plakátu useknutý slovem „léčivá“ — přepsáno doslova, doplnit po zveřejnění upřesnění.",
+   "evidence": [
+    {
+     "source": "facebook-kspecky",
+     "kind": "plakat",
+     "url": "https://www.facebook.com/photo/?fbid=1460686996116317",
+     "label": "Program KD Pečky 9–12/2026, 2. část (listopad a prosinec)",
+     "published": "2026-09-10",
+     "retrieved": "2026-09-20"
+    }
+   ]
+  },
+  {
+   "id": "akce-2026-11-06-travesti-show-hanky-panky",
+   "title": "Travesti show – Hanky Panky",
+   "date": "2026-11-06",
+   "time": "19:30",
+   "category": "akce",
+   "place": "Velký sál Kulturního domu Pečky",
+   "organizer": "kulturni-stredisko-pecky",
+   "organizer_name": null,
+   "description": null,
+   "note": null,
+   "evidence": [
+    {
+     "source": "facebook-kspecky",
+     "kind": "plakat",
+     "url": "https://www.facebook.com/photo/?fbid=1460686996116317",
+     "label": "Program KD Pečky 9–12/2026, 2. část (listopad a prosinec)",
+     "published": "2026-09-10",
+     "retrieved": "2026-09-20"
+    }
+   ]
+  },
+  {
+   "id": "akce-2026-11-07-kurzy-spolecenskeho-tance",
+   "title": "Kurzy společenského tance",
+   "date": "2026-11-07",
+   "time": "15:30",
+   "category": "kurz",
+   "place": "Velký sál Kulturního domu Pečky",
+   "organizer": "kulturni-stredisko-pecky",
+   "organizer_name": null,
+   "description": null,
+   "note": null,
+   "evidence": [
+    {
+     "source": "facebook-kspecky",
+     "kind": "plakat",
+     "url": "https://www.facebook.com/photo/?fbid=1460686996116317",
+     "label": "Program KD Pečky 9–12/2026, 2. část (listopad a prosinec)",
+     "published": "2026-09-10",
+     "retrieved": "2026-09-20"
+    }
+   ]
+  },
+  {
+   "id": "akce-2026-11-10-pececky-okraslovaci-spolek-prednaska",
+   "title": "Pečecký okrašlovací spolek – přednáška",
+   "date": "2026-11-10",
+   "time": "18:00",
+   "category": "akce",
+   "place": "Přednáškový sál Kulturního domu Pečky",
+   "organizer": "pececky-okraslovaci-spolek",
+   "organizer_name": null,
+   "description": null,
+   "note": "Pořadatele uvádí název akce v programu Kulturního domu Pečky, samostatný plakát spolku zatím nemáme.",
+   "evidence": [
+    {
+     "source": "facebook-kspecky",
+     "kind": "plakat",
+     "url": "https://www.facebook.com/photo/?fbid=1460686996116317",
+     "label": "Program KD Pečky 9–12/2026, 2. část (listopad a prosinec)",
+     "published": "2026-09-10",
+     "retrieved": "2026-09-20"
+    }
+   ]
+  },
+  {
+   "id": "akce-2026-11-13-degustace-roko",
+   "title": "Degustace ROKO",
+   "date": "2026-11-13",
+   "time": "19:00",
+   "category": "akce",
+   "place": "Přednáškový sál Kulturního domu Pečky",
+   "organizer": "kulturni-stredisko-pecky",
+   "organizer_name": null,
+   "description": null,
+   "note": null,
+   "evidence": [
+    {
+     "source": "facebook-kspecky",
+     "kind": "plakat",
+     "url": "https://www.facebook.com/photo/?fbid=1460686996116317",
+     "label": "Program KD Pečky 9–12/2026, 2. část (listopad a prosinec)",
+     "published": "2026-09-10",
+     "retrieved": "2026-09-20"
+    }
+   ]
+  },
+  {
+   "id": "akce-2026-11-14-kurzy-spolecenskeho-tance",
+   "title": "Kurzy společenského tance",
+   "date": "2026-11-14",
+   "time": "15:30",
+   "category": "kurz",
+   "place": "Velký sál Kulturního domu Pečky",
+   "organizer": "kulturni-stredisko-pecky",
+   "organizer_name": null,
+   "description": null,
+   "note": null,
+   "evidence": [
+    {
+     "source": "facebook-kspecky",
+     "kind": "plakat",
+     "url": "https://www.facebook.com/photo/?fbid=1460686996116317",
+     "label": "Program KD Pečky 9–12/2026, 2. část (listopad a prosinec)",
+     "published": "2026-09-10",
+     "retrieved": "2026-09-20"
+    }
+   ]
+  },
+  {
+   "id": "akce-2026-11-15-divadlo-pro-deti",
+   "title": "Divadlo pro děti",
+   "date": "2026-11-15",
+   "time": "14:30",
+   "category": "akce",
+   "place": "Velký sál Kulturního domu Pečky",
+   "organizer": "kulturni-stredisko-pecky",
+   "organizer_name": null,
+   "description": null,
+   "note": null,
+   "evidence": [
+    {
+     "source": "facebook-kspecky",
+     "kind": "plakat",
+     "url": "https://www.facebook.com/photo/?fbid=1460686996116317",
+     "label": "Program KD Pečky 9–12/2026, 2. část (listopad a prosinec)",
+     "published": "2026-09-10",
+     "retrieved": "2026-09-20"
+    }
+   ]
+  },
+  {
+   "id": "akce-2026-11-18-cka-prednaska-tajemna-rise",
+   "title": "ČKA – přednáška: Tajemná říše loutek",
+   "date": "2026-11-18",
+   "time": "17:00",
+   "category": "akce",
+   "place": "Přednáškový sál Kulturního domu Pečky",
+   "organizer": "kulturni-stredisko-pecky",
+   "organizer_name": null,
+   "description": null,
+   "note": null,
+   "evidence": [
+    {
+     "source": "facebook-kspecky",
+     "kind": "plakat",
+     "url": "https://www.facebook.com/photo/?fbid=1460686996116317",
+     "label": "Program KD Pečky 9–12/2026, 2. část (listopad a prosinec)",
+     "published": "2026-09-10",
+     "retrieved": "2026-09-20"
+    }
+   ]
+  },
+  {
+   "id": "akce-2026-11-20-kurz-spolecenskeho-tance-3",
+   "title": "Kurz společenského tance – 3. prodloužená hodina, odpolední",
+   "date": "2026-11-20",
+   "time": "18:00",
+   "category": "kurz",
+   "place": "Velký sál Kulturního domu Pečky",
+   "organizer": "kulturni-stredisko-pecky",
+   "organizer_name": null,
+   "description": null,
+   "note": null,
+   "evidence": [
+    {
+     "source": "facebook-kspecky",
+     "kind": "plakat",
+     "url": "https://www.facebook.com/photo/?fbid=1460686996116317",
+     "label": "Program KD Pečky 9–12/2026, 2. část (listopad a prosinec)",
+     "published": "2026-09-10",
+     "retrieved": "2026-09-20"
+    }
+   ]
+  },
+  {
+   "id": "akce-2026-11-21-kurz-spolecenskeho-tance-3",
+   "title": "Kurz společenského tance – 3. prodloužená hodina, večerní",
+   "date": "2026-11-21",
+   "time": "18:00",
+   "category": "kurz",
+   "place": "Velký sál Kulturního domu Pečky",
+   "organizer": "kulturni-stredisko-pecky",
+   "organizer_name": null,
+   "description": null,
+   "note": null,
+   "evidence": [
+    {
+     "source": "facebook-kspecky",
+     "kind": "plakat",
+     "url": "https://www.facebook.com/photo/?fbid=1460686996116317",
+     "label": "Program KD Pečky 9–12/2026, 2. část (listopad a prosinec)",
+     "published": "2026-09-10",
+     "retrieved": "2026-09-20"
+    }
+   ]
+  },
+  {
+   "id": "akce-2026-11-24-pececky-okraslovaci-spolek-prednaska",
+   "title": "Pečecký okrašlovací spolek – přednáška",
+   "date": "2026-11-24",
+   "time": "18:00",
+   "category": "akce",
+   "place": "Přednáškový sál Kulturního domu Pečky",
+   "organizer": "pececky-okraslovaci-spolek",
+   "organizer_name": null,
+   "description": null,
+   "note": "Pořadatele uvádí název akce v programu Kulturního domu Pečky, samostatný plakát spolku zatím nemáme.",
+   "evidence": [
+    {
+     "source": "facebook-kspecky",
+     "kind": "plakat",
+     "url": "https://www.facebook.com/photo/?fbid=1460686996116317",
+     "label": "Program KD Pečky 9–12/2026, 2. část (listopad a prosinec)",
+     "published": "2026-09-10",
+     "retrieved": "2026-09-20"
+    }
+   ]
+  },
+  {
+   "id": "akce-2026-11-26-schuze-stp",
+   "title": "Schůze STP",
+   "date": "2026-11-26",
+   "time": "13:30",
+   "category": "akce",
+   "place": "Velký sál Kulturního domu Pečky",
+   "organizer": "kulturni-stredisko-pecky",
+   "organizer_name": null,
+   "description": null,
+   "note": null,
+   "evidence": [
+    {
+     "source": "facebook-kspecky",
+     "kind": "plakat",
+     "url": "https://www.facebook.com/photo/?fbid=1460686996116317",
+     "label": "Program KD Pečky 9–12/2026, 2. část (listopad a prosinec)",
+     "published": "2026-09-10",
+     "retrieved": "2026-09-20"
+    }
+   ]
+  },
+  {
+   "id": "akce-2026-11-27-divadlo-pro-dospele",
+   "title": "Divadlo pro dospělé",
+   "date": "2026-11-27",
+   "time": "19:30",
+   "category": "akce",
+   "place": "Velký sál Kulturního domu Pečky",
+   "organizer": "kulturni-stredisko-pecky",
+   "organizer_name": null,
+   "description": null,
+   "note": null,
+   "evidence": [
+    {
+     "source": "facebook-kspecky",
+     "kind": "plakat",
+     "url": "https://www.facebook.com/photo/?fbid=1460686996116317",
+     "label": "Program KD Pečky 9–12/2026, 2. část (listopad a prosinec)",
+     "published": "2026-09-10",
+     "retrieved": "2026-09-20"
+    }
+   ]
+  },
+  {
+   "id": "akce-2026-11-28-adventni-setkani-ve-velkych",
+   "title": "Adventní setkání ve Velkých Chvalovicích 2026",
+   "date": "2026-11-28",
+   "time": "15:00",
+   "category": "akce",
+   "place": "Prostor před kaplí, Velké Chvalovice",
+   "organizer": "kulturni-stredisko-pecky",
+   "organizer_name": null,
+   "description": null,
+   "note": null,
+   "evidence": [
+    {
+     "source": "facebook-kspecky",
+     "kind": "plakat",
+     "url": "https://www.facebook.com/photo/?fbid=1460686996116317",
+     "label": "Program KD Pečky 9–12/2026, 2. část (listopad a prosinec)",
+     "published": "2026-09-10",
+     "retrieved": "2026-09-20"
+    }
+   ]
+  },
+  {
+   "id": "akce-2026-11-28-kurzy-spolecenskeho-tance",
+   "title": "Kurzy společenského tance",
+   "date": "2026-11-28",
+   "time": "15:30",
+   "category": "kurz",
+   "place": "Velký sál Kulturního domu Pečky",
+   "organizer": "kulturni-stredisko-pecky",
+   "organizer_name": null,
+   "description": null,
+   "note": null,
+   "evidence": [
+    {
+     "source": "facebook-kspecky",
+     "kind": "plakat",
+     "url": "https://www.facebook.com/photo/?fbid=1460686996116317",
+     "label": "Program KD Pečky 9–12/2026, 2. část (listopad a prosinec)",
+     "published": "2026-09-10",
+     "retrieved": "2026-09-20"
+    }
+   ]
+  },
+  {
+   "id": "akce-2026-11-29-adventni-setkani-2026",
+   "title": "Adventní setkání 2026",
+   "date": "2026-11-29",
+   "time": "14:00",
+   "category": "akce",
+   "place": "Areál ZŠ Pečky, kostel sv. Václava",
+   "organizer": "kulturni-stredisko-pecky",
+   "organizer_name": null,
+   "description": null,
+   "note": null,
+   "evidence": [
+    {
+     "source": "facebook-kspecky",
+     "kind": "plakat",
+     "url": "https://www.facebook.com/photo/?fbid=1460686996116317",
+     "label": "Program KD Pečky 9–12/2026, 2. část (listopad a prosinec)",
+     "published": "2026-09-10",
+     "retrieved": "2026-09-20"
+    }
+   ]
+  },
+  {
+   "id": "akce-2026-12-01-pececky-okraslovaci-spolek-prednaska",
+   "title": "Pečecký okrašlovací spolek – přednáška",
+   "date": "2026-12-01",
+   "time": "18:00",
+   "category": "akce",
+   "place": "Přednáškový sál Kulturního domu Pečky",
+   "organizer": "pececky-okraslovaci-spolek",
+   "organizer_name": null,
+   "description": null,
+   "note": "Pořadatele uvádí název akce v programu Kulturního domu Pečky, samostatný plakát spolku zatím nemáme.",
+   "evidence": [
+    {
+     "source": "facebook-kspecky",
+     "kind": "plakat",
+     "url": "https://www.facebook.com/photo/?fbid=1460686996116317",
+     "label": "Program KD Pečky 9–12/2026, 2. část (listopad a prosinec)",
+     "published": "2026-09-10",
+     "retrieved": "2026-09-20"
+    }
+   ]
+  },
+  {
+   "id": "akce-2026-12-02-cka-prednaska-po-stopach",
+   "title": "ČKA – přednáška: Po stopách středověkých vitrají v českých zemích",
+   "date": "2026-12-02",
+   "time": "17:00",
+   "category": "akce",
+   "place": "Přednáškový sál Kulturního domu Pečky",
+   "organizer": "kulturni-stredisko-pecky",
+   "organizer_name": null,
+   "description": null,
+   "note": null,
+   "evidence": [
+    {
+     "source": "facebook-kspecky",
+     "kind": "plakat",
+     "url": "https://www.facebook.com/photo/?fbid=1460686996116317",
+     "label": "Program KD Pečky 9–12/2026, 2. část (listopad a prosinec)",
+     "published": "2026-09-10",
+     "retrieved": "2026-09-20"
+    }
+   ]
+  },
+  {
+   "id": "akce-2026-12-04-predvanocni-turnaj-v-beer",
+   "title": "Předvánoční turnaj v BEER PONGU",
+   "date": "2026-12-04",
+   "time": "18:00",
+   "category": "akce",
+   "place": "Přednáškový sál Kulturního domu Pečky",
+   "organizer": "kulturni-stredisko-pecky",
+   "organizer_name": null,
+   "description": null,
+   "note": null,
+   "evidence": [
+    {
+     "source": "facebook-kspecky",
+     "kind": "plakat",
+     "url": "https://www.facebook.com/photo/?fbid=1460686996116317",
+     "label": "Program KD Pečky 9–12/2026, 2. část (listopad a prosinec)",
+     "published": "2026-09-10",
+     "retrieved": "2026-09-20"
+    }
+   ]
+  },
+  {
+   "id": "akce-2026-12-05-kurzy-spolecenskeho-tance",
+   "title": "Kurzy společenského tance",
+   "date": "2026-12-05",
+   "time": "15:30",
+   "category": "kurz",
+   "place": "Velký sál Kulturního domu Pečky",
+   "organizer": "kulturni-stredisko-pecky",
+   "organizer_name": null,
+   "description": null,
+   "note": null,
+   "evidence": [
+    {
+     "source": "facebook-kspecky",
+     "kind": "plakat",
+     "url": "https://www.facebook.com/photo/?fbid=1460686996116317",
+     "label": "Program KD Pečky 9–12/2026, 2. část (listopad a prosinec)",
+     "published": "2026-09-10",
+     "retrieved": "2026-09-20"
+    }
+   ]
+  },
+  {
+   "id": "akce-2026-12-06-mikulasska-promitani-s-nadilkou",
+   "title": "Mikulášská promítání s nadílkou",
+   "date": "2026-12-06",
+   "time": "14:30",
+   "category": "akce",
+   "place": "Velký sál Kulturního domu Pečky",
+   "organizer": "kulturni-stredisko-pecky",
+   "organizer_name": null,
+   "description": null,
+   "note": null,
+   "evidence": [
+    {
+     "source": "facebook-kspecky",
+     "kind": "plakat",
+     "url": "https://www.facebook.com/photo/?fbid=1460686996116317",
+     "label": "Program KD Pečky 9–12/2026, 2. část (listopad a prosinec)",
+     "published": "2026-09-10",
+     "retrieved": "2026-09-20"
+    }
+   ]
+  },
+  {
+   "id": "akce-2026-12-09-cesko-zpiva-koledy-2025",
+   "title": "Česko zpívá koledy 2025",
+   "date": "2026-12-09",
+   "time": "18:00",
+   "category": "akce",
+   "place": "Prostor Mateřské školy Mašinka, Pečky",
+   "organizer": "kulturni-stredisko-pecky",
+   "organizer_name": null,
+   "description": null,
+   "note": "Plakát uvádí v názvu ročník 2025, akce je ale vypsaná na prosinec 2026 — přepsáno doslova z plakátu.",
+   "evidence": [
+    {
+     "source": "facebook-kspecky",
+     "kind": "plakat",
+     "url": "https://www.facebook.com/photo/?fbid=1460686996116317",
+     "label": "Program KD Pečky 9–12/2026, 2. část (listopad a prosinec)",
+     "published": "2026-09-10",
+     "retrieved": "2026-09-20"
+    }
+   ]
+  },
+  {
+   "id": "akce-2026-12-11-kurz-spolecenskeho-tance-venecek",
+   "title": "Kurz společenského tance – věneček, odpolední",
+   "date": "2026-12-11",
+   "time": "18:00",
+   "category": "kurz",
+   "place": "Velký sál Kulturního domu Pečky",
+   "organizer": "kulturni-stredisko-pecky",
+   "organizer_name": null,
+   "description": null,
+   "note": null,
+   "evidence": [
+    {
+     "source": "facebook-kspecky",
+     "kind": "plakat",
+     "url": "https://www.facebook.com/photo/?fbid=1460686996116317",
+     "label": "Program KD Pečky 9–12/2026, 2. část (listopad a prosinec)",
+     "published": "2026-09-10",
+     "retrieved": "2026-09-20"
+    }
+   ]
+  },
+  {
+   "id": "akce-2026-12-12-kurz-spolecenskeho-tance-venecek",
+   "title": "Kurz společenského tance – věneček, večerní",
+   "date": "2026-12-12",
+   "time": "18:00",
+   "category": "kurz",
+   "place": "Velký sál Kulturního domu Pečky",
+   "organizer": "kulturni-stredisko-pecky",
+   "organizer_name": null,
+   "description": null,
+   "note": null,
+   "evidence": [
+    {
+     "source": "facebook-kspecky",
+     "kind": "plakat",
+     "url": "https://www.facebook.com/photo/?fbid=1460686996116317",
+     "label": "Program KD Pečky 9–12/2026, 2. část (listopad a prosinec)",
+     "published": "2026-09-10",
+     "retrieved": "2026-09-20"
+    }
+   ]
+  },
+  {
+   "id": "akce-2026-12-13-cka-predvanocni-koncert",
+   "title": "ČKA – Předvánoční koncert",
+   "date": "2026-12-13",
+   "time": "15:00",
+   "category": "akce",
+   "place": "Velký sál Kulturního domu Pečky",
+   "organizer": "kulturni-stredisko-pecky",
+   "organizer_name": null,
+   "description": null,
+   "note": null,
+   "evidence": [
+    {
+     "source": "facebook-kspecky",
+     "kind": "plakat",
+     "url": "https://www.facebook.com/photo/?fbid=1460686996116317",
+     "label": "Program KD Pečky 9–12/2026, 2. část (listopad a prosinec)",
+     "published": "2026-09-10",
+     "retrieved": "2026-09-20"
+    }
+   ]
+  },
+  {
+   "id": "akce-2026-12-18-divadlo-pro-dospele",
+   "title": "Divadlo pro dospělé",
+   "date": "2026-12-18",
+   "time": "19:30",
+   "category": "akce",
+   "place": "Velký sál Kulturního domu Pečky",
+   "organizer": "kulturni-stredisko-pecky",
+   "organizer_name": null,
+   "description": null,
+   "note": null,
+   "evidence": [
+    {
+     "source": "facebook-kspecky",
+     "kind": "plakat",
+     "url": "https://www.facebook.com/photo/?fbid=1460686996116317",
+     "label": "Program KD Pečky 9–12/2026, 2. část (listopad a prosinec)",
+     "published": "2026-09-10",
+     "retrieved": "2026-09-20"
+    }
+   ]
+  },
+  {
+   "id": "akce-2026-12-27-vanocni-koncert-telegraf-roxor",
+   "title": "Vánoční koncert TELEGRAF + ROXOR",
+   "date": "2026-12-27",
+   "time": "20:00",
+   "category": "akce",
+   "place": "Velký sál Kulturního domu Pečky",
+   "organizer": "kulturni-stredisko-pecky",
+   "organizer_name": null,
+   "description": null,
+   "note": null,
+   "evidence": [
+    {
+     "source": "facebook-kspecky",
+     "kind": "plakat",
+     "url": "https://www.facebook.com/photo/?fbid=1460686996116317",
+     "label": "Program KD Pečky 9–12/2026, 2. část (listopad a prosinec)",
+     "published": "2026-09-10",
+     "retrieved": "2026-09-20"
+    }
+   ]
+  }
+ ]
+}

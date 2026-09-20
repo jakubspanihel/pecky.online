@@ -105,7 +105,7 @@ spustit `python3 scripts/build.py`.
 - Zakázky → `zakazky/README.md`
 - Pozemky → `pozemky/README.md`
 - Pokladna → `pokladna/README.md`
-- Kalendář → `kalendar/README.md`
+- Kalendář → `kalendar/README.md` (+ `automation-plakat-akce.md`)
 - Pečecké noviny / Zpravodaj → `noviny/README.md`
 - O webu → `o-webu/README.md` (+ `automation-socialni-site.md`)
 

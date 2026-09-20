@@ -330,6 +330,15 @@ pecky.cz.
 Kandidáti bez mandátu jsou v datech, ale panel je nevypisuje — to je jiná věc,
 viz „Co panel vypisuje a co ne".
 
+**Organizace bez vazeb na osoby.** Od 20. 9. 2026 jsou v
+`organizations.json` i dva spolky — `tj-sokol-pecky` a
+`pececky-okraslovaci-spolek` (`type: "spolek"`, identifikace a IČO z Hlídače
+státu). Žádné vazby v `affiliations.json` nemají a v adresáři Lidí se
+nezobrazují: rejstřík organizací slouží celému webu, ne jen téhle sekci, a
+sekce Kalendář se na jejich id odkazuje jako na pořadatele akcí
+(`kalendar/akce.json` → `organizer`, viz `kalendar/README.md`). Vazby na
+konkrétní lidi se k nim doplní, až pro ně bude doložený zdroj.
+
 ### Povolání
 
 `occupations` je pole seřazené od nejnovějšího ročníku, každá položka nese

@@ -60,8 +60,9 @@
       "name": "Facebook — Kulturní středisko města Pečky",
       "url": "https://www.facebook.com/kspecky",
       "category": "sociální síť",
-      "description": "Profil kulturního střediska města (akce, kulturní program).",
-      "status": "ověřeno"
+      "description": "Profil kulturního střediska města (akce, kulturní program). Od 20. 9. 2026 zdroj sekce Kalendář — program kulturního domu a plakáty jednotlivých akcí se z něj přepisují do kalendar/akce.json.",
+      "status": "ověřeno",
+      "note": "Středisko zveřejňuje souhrnný program vždy na několik měsíců dopředu (např. „Program 9–12/2026“ z 10. 9. 2026 ve dvou plakátech: září+říjen a listopad+prosinec) a k jednotlivým akcím pak samostatné plakáty, které údaje z programu občas upřesňují nebo přepisují — u Svatováclavského vinobraní a Slavností sv. Václava 2026 se lišil čas i název akce. Přednost má novější samostatný plakát, rozpor se zapisuje do pole note u akce. Program je jen v obrázku, ne v textu: čte se okem přes claude-in-chrome, ne scraperem. Postup: skill pecky-online-kalendar-plakat."
     },
     {
       "id": "smlouvy-gov-cz",

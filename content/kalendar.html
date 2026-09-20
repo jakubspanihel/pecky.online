@@ -1,19 +1,23 @@
   <section class="panel active" id="panel-kalendar">
     <h2 class="title display">Kalendář</h2>
-    <p class="lede">Termíny jednání rady a zastupitelstva města Pečky v měsíční mřížce — data z archivu sekce <a href="/jednani/">Jednání</a>. Kalendář jde i stáhnout jako soubor pro Google, Apple nebo Outlook kalendář.</p>
+    <p class="lede">Měsíční mřížka termínů z Peček. Jednání rady a zastupitelstva jsou z archivu sekce <a href="/jednani/">Jednání</a>, kulturní akce a kurzy z plakátů a příspěvků pořadatelů — u každé akce najdete místo, pořadatele a odkaz na zdroj na <a href="/kalendar/akce/">samostatné stránce</a>. Kalendář jde i stáhnout jako soubor pro Google, Apple nebo Outlook kalendář.</p>
 
     <div class="callout">
-      Zatím jediný zapojený zdroj je Jednání. Termín voleb a kalendář akcí z webu města zatím chybí, doplníme je v další verzi. <span class="stamp">přiznaná mezera</span>
+      Akce přepisuje redakce z plakátů a příspěvků pořadatelů — zatím jen z programu Kulturního střediska, které ho na svém facebookovém profilu zveřejňuje vždy na několik měsíců dopředu. Kalendář akcí z webu města ani termín voleb zapojené nejsou. <span class="stamp">přiznaná mezera</span>
     </div>
 
     <div class="segmented-control" style="margin:22px 0 14px;">
       <span class="segmented-label">Typ:</span>
-      <div class="segmented-group" role="group" aria-label="Typ jednání">
+      <div class="segmented-group" role="group" aria-label="Typ události">
         <button type="button" class="segmented-btn active" data-cat="">Vše</button>
         <button type="button" class="segmented-btn" data-cat="zastupitelstvo">Zastupitelstvo</button>
         <button type="button" class="segmented-btn" data-cat="rada">Rada</button>
+        <button type="button" class="segmented-btn" data-cat="akce">Akce</button>
+        <button type="button" class="segmented-btn" data-cat="kurz">Kurzy</button>
       </div>
     </div>
+
+    <div class="filter-chips" id="kal-filter-org" role="group" aria-label="Filtr podle pořadatele" hidden></div>
 
     <div style="display:flex; align-items:center; gap:8px; margin:0 0 4px; flex-wrap:wrap;">
       <button type="button" class="year-btn" id="kal-prev" aria-label="Předchozí měsíc">◀</button>
@@ -41,6 +45,7 @@
                        'Červenec','Srpen','Září','Říjen','Listopad','Prosinec'];
   let KAL_EVENTS_BY_DATE = {};
   let KAL_CAT = '';
+  let KAL_ORG = '';   // id pořadatele z lide/organizations.json, '' = všichni
   const kalNow = new Date();
   let kalYear = kalNow.getFullYear();
   let kalMonth = kalNow.getMonth();  // 0-based
@@ -70,11 +75,16 @@
         const d = cells[j];
         if (d === null) { html += '<td class="empty"></td>'; continue; }
         const dateStr = kalDateStr(kalYear, kalMonth, d);
-        const evs = (KAL_EVENTS_BY_DATE[dateStr] || []).filter(e => !KAL_CAT || e.category === KAL_CAT);
+        const evs = (KAL_EVENTS_BY_DATE[dateStr] || []).filter(e =>
+          (!KAL_CAT || e.category === KAL_CAT) && (!KAL_ORG || e.organizer === KAL_ORG));
         let evHtml = '';
         if (evs.length) {
           evHtml = '<div class="kal-events">' + evs.map(e => {
-            const tip = e.description ? `${e.title} — ${e.description}` : e.title;
+            // pořadatele ukazujeme jen u akcí — u jednání je jím vždy město a v tooltipu by jen překážel
+            const porada = (e.category === 'akce' || e.category === 'kurz') && e.organizer_name
+              ? `pořádá ${e.organizer_name}` : null;
+            const parts = [e.time, e.description, porada].filter(Boolean).join(' · ');
+            const tip = parts ? `${e.title} — ${parts}` : e.title;
             return `<a class="kal-ev kal-ev-${e.category}" href="${e.link}" title="${kalEsc(tip)}">${kalEsc(e.title)}</a>`;
           }).join('') + '</div>';
         }
@@ -84,6 +94,45 @@
     }
     body.innerHTML = html;
     document.getElementById('kal-month-label').textContent = `${KAL_MONTHS[kalMonth]} ${kalYear}`;
+  }
+
+  function kalRenderOrgChips(events){
+    const box = document.getElementById('kal-filter-org');
+    const poradatele = new Map();   // id -> název, v pořadí prvního výskytu
+    events.forEach(e => {
+      if (e.organizer && e.organizer_name && !poradatele.has(e.organizer)) {
+        poradatele.set(e.organizer, e.organizer_name);
+      }
+    });
+    // s jediným pořadatelem nemá filtr co nabídnout
+    if (poradatele.size < 2) return;
+    box.innerHTML = '<span class="chip-label">Pořadatel:</span>' +
+      [...poradatele].map(([id, nazev]) =>
+        `<button type="button" class="chip" data-kal-org="${kalEsc(id)}" aria-pressed="false">`
+        + `${kalEsc(nazev)}</button>`).join('') +
+      '<button type="button" class="chip-clear" id="kal-org-clear" hidden>Vymazat filtr</button>';
+    box.hidden = false;
+
+    box.querySelectorAll('[data-kal-org]').forEach(btn => {
+      btn.addEventListener('click', function(){
+        // druhý klik na tentýž čip filtr zruší
+        KAL_ORG = (KAL_ORG === this.dataset.kalOrg) ? '' : this.dataset.kalOrg;
+        kalSyncOrgChips();
+        kalRenderGrid();
+      });
+    });
+    document.getElementById('kal-org-clear').addEventListener('click', () => {
+      KAL_ORG = '';
+      kalSyncOrgChips();
+      kalRenderGrid();
+    });
+  }
+
+  function kalSyncOrgChips(){
+    document.querySelectorAll('[data-kal-org]').forEach(el =>
+      el.setAttribute('aria-pressed', el.dataset.kalOrg === KAL_ORG ? 'true' : 'false'));
+    const clear = document.getElementById('kal-org-clear');
+    if (clear) clear.hidden = !KAL_ORG;
   }
 
   document.getElementById('kal-prev').addEventListener('click', () => {
@@ -115,6 +164,7 @@
       });
       document.getElementById('kal-status').style.display = 'none';
       document.getElementById('kal-grid').style.display = '';
+      kalRenderOrgChips(data.events || []);
       kalRenderGrid();
     })
     .catch(() => {
