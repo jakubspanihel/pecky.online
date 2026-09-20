@@ -1,7 +1,7 @@
 {
   "project": "pecky.online",
   "description": "Seznam zdrojů, ze kterých pecky.online čerpá nebo může čerpat informace o samosprávě města Pečky.",
-  "last_updated": "2026-09-18",
+  "last_updated": "2026-09-20",
   "sources": [
     {
       "id": "pecky-cz",
@@ -465,6 +465,15 @@
       "description": "Facebookový profil tělovýchovné jednoty Sokol Pečky.",
       "status": "nevytěženo",
       "note": "Doplněno uživatelem 4. 9. 2026, spolu s web-sokolpecky-cz."
+    },
+    {
+      "id": "csu-informace-vyhlasene-volby",
+      "name": "Informace k aktuálně vyhlášeným volbám (ČSÚ)",
+      "url": "https://csu.gov.cz/informace-k-aktualne-vyhlasenym-volbam",
+      "category": "oficiální",
+      "description": "Přehled ČSÚ o všech aktuálně vyhlášených volbách v daném roce. Sekce „Aktuálně vyhlášené volby“ odkazuje na podstránku csu.gov.cz/volby-2026, která uvádí: volby do zastupitelstev obcí a do Senátu Parlamentu ČR 9.–10. října 2026 (vyhlášeny rozhodnutím prezidenta republiky č. 117/2026 Sb.; případné druhé kolo senátních voleb 16.–17. 10. 2026) a mimořádné volby do zastupitelstev obcí 28. 3. 2026 (jinde v ČR, netýká se Peček).",
+      "status": "ověřeno",
+      "note": "Dohledáno 20. 9. 2026 na žádost uživatele jako nezávislé ověření termínu 9.–10. 10. 2026, který stránka Volby 2026 už dřív cituje z mv.gov.cz — obě data se shodují. Kontextově zatím citováno jen tady v sources.json, ne přímo v content/volby2026.html; doplněno i do quicklinks (O webu → Odkazy)."
     },
     {
       "id": "publicspendingdata-org",
