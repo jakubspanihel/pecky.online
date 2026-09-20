@@ -256,8 +256,14 @@
   .noviny-card .cap{padding:8px 10px; font-size:12.5px; font-weight:500; text-align:center; line-height:1.3;}
   .person-card{border:1px solid var(--line); background:rgba(255,255,255,0.35); padding:16px;}
   .person-card::after{content:""; display:table; clear:both;}
+  /* foto a text vedle sebe — role může vypsat víc funkcí najednou (viz
+     lActiveRolesLabel), takže text zalamuje do víc řádků vedle fotky
+     místo pod ní, aby delší výpis nenatahoval kartičku zbytečně do výšky */
+  .person-card .pc-row{display:flex; align-items:flex-start; gap:12px;}
+  .person-card .pc-row .avatar, .person-card .pc-row .avatar-fallback{margin-bottom:0; flex-shrink:0;}
+  .person-card .pc-info{min-width:0;}
   .person-card .name{font-weight:600; margin-bottom:3px;}
-  .person-card .role{font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--burgundy); text-transform:uppercase; letter-spacing:0.03em;}
+  .person-card .role{font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--burgundy); text-transform:uppercase; letter-spacing:0.03em; line-height:1.4; margin-bottom:4px;}
   .person-card .party{font-size:12.5px; color:var(--ink-soft); margin-top:6px;}
   .program-list{margin:10px 0 0; padding-left:17px; font-size:12.5px; color:var(--ink-soft); line-height:1.55;}
   .program-list li{margin-bottom:6px;}

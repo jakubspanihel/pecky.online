@@ -243,6 +243,26 @@
 
   /* ---------- vykreslení ---------- */
 
+  // Všechny aktuální role osoby, ne jen ta jedna nejvýznamnější (_displayRole).
+  // Kdo je zastupitel i člen dvou komisí zároveň, má na kartičce vidět
+  // všechny tři, ne aby zbylé dvě zůstaly schované až v detailu. Řazeno
+  // stejnou váhou jako timeline (L_TL_RANK) — nejvýznamnější první. Bez
+  // jediné aktivní role (bývalí, viz „byvali" skupina) padá zpět na
+  // _displayRole, který u nich ukazuje jejich poslední funkci.
+  function lActiveRolesLabel(p){
+    const active = p._affs.filter(a => lActive(a));
+    if (!active.length) return lRoleLabel(p._displayRole);
+    const seen = new Set();
+    const labels = [];
+    active
+      .sort((a, b) => L_TL_RANK(a.role_type) - L_TL_RANK(b.role_type))
+      .forEach(a => {
+        const label = lRoleLabel(a.role);
+        if (label && !seen.has(label)) { seen.add(label); labels.push(label); }
+      });
+    return labels.join(', ');
+  }
+
   function lPersonCard(p){
     const org = p._party;
     const cls = org && org.css_class ? ' ' + org.css_class : '';
@@ -261,10 +281,14 @@
     return `
         <div class="person-card${cls}" data-person="${jEscapeHtml(p.id)}" role="button" tabindex="0"
              aria-expanded="${open}" aria-controls="lide-detail-${jEscapeHtml(p.id)}">
-          ${avatar}
-          <div class="role">${jEscapeHtml(lRoleLabel(p._displayRole))}</div>
-          <div class="name">${jEscapeHtml(lFullName(p))}</div>
-          ${party}
+          <div class="pc-row">
+            ${avatar}
+            <div class="pc-info">
+              <div class="name">${jEscapeHtml(lFullName(p))}</div>
+              <div class="role">${jEscapeHtml(lActiveRolesLabel(p))}</div>
+              ${party}
+            </div>
+          </div>
           ${until}
         </div>${open ? lPersonDetail(p) : ''}`;
   }
