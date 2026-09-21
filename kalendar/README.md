@@ -221,10 +221,22 @@ seznam místo rozházených poznámek po repu.
     - **`time` je začátek bloku**, ne přesný rozsah — u dvouhodinových
       bloků (basketbal, oba volejbaly, oba čtvrteční badmintony) je celý
       rozsah v `note`.
-    - **Oprava podle zvýrazněné poznámky**, ne podle mřížky tabulky:
-      „Rodiče a děti" má ve sloupci rozvrhu 16–17, ale žlutě zvýrazněná
-      poznámka pod tabulkou to opravuje na pondělní dopoledne 9:30–10:30
-      — použit opravený čas, rozpor zaznamenán v `note`.
+    - **Text pod tabulkou doplňuje, ne opravuje** — chyba objevená
+      22. 9. 2026 a opravená: „Rodiče a děti" je ve sloupci rozvrhu
+      16–17 (pondělí večer) A ZÁROVEŇ žlutě zvýrazněná poznámka pod
+      tabulkou zvlášť uvádí „pondělí DOPOLEDNE 9:30–10:30" — to je
+      **druhá, samostatná skupina stejného názvu v jiný čas**, ne oprava
+      tabulkového záznamu. Obě zapsány jako dva paralelní záznamy
+      (`kurz-…-rodice-a-deti` večer 16:00, `kurz-…-rodice-a-deti-dopoledne`
+      dopoledne 9:30), každý po celou sezónu. Stejné pravidlo platí pro
+      všechny ostatní texty pod tabulkou (Oddíl šachu, Oddíl stolního
+      tenisu, Kynologický kroužek…) — ty nejsou v hlavní mřížce Po–Pá
+      vůbec, takže u nich k záměně nedošlo, ale liší se typicky místem
+      konání (klubovna, galerie, zahrada) místo pouhého jiného sloupce v
+      téže tabulce. Před dalším podobným rozvrhem vždy nejdřív ověřit,
+      jestli položka pod tabulkou má, nebo nemá stejnojmenný protějšek
+      v hlavní mřížce — a pokud ano, řešit ji jako druhý záznam, ne jako
+      přepis prvního.
     - **Rozpor Facebook × noviny** rozhodnutý ve prospěch Facebooku
       (vlastní kanál pořadatele, viz „Rozpory mezi zdroji" níže): kynologický
       kroužek je podle Facebooku 1× za 14 dní, noviny periodicitu vůbec
