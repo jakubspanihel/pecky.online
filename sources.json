@@ -1,7 +1,7 @@
 {
   "project": "pecky.online",
   "description": "Seznam zdrojů, ze kterých pecky.online čerpá nebo může čerpat informace o samosprávě města Pečky.",
-  "last_updated": "2026-09-20",
+  "last_updated": "2026-09-21",
   "sources": [
     {
       "id": "pecky-cz",
@@ -355,9 +355,9 @@
       "name": "Facebook — Městská knihovna Svatopluka Čecha v Pečkách",
       "url": "https://www.facebook.com/knihovnapecky",
       "category": "sociální síť · podřízená organizace",
-      "description": "Oficiální facebookový profil městské knihovny, uvedený i jako kontakt na oficiálním webu pececko.cz.",
+      "description": "Oficiální facebookový profil městské knihovny, uvedený i jako kontakt na oficiálním webu pececko.cz. Od 20. 9. 2026 zdroj sekce Kalendář — akce a přednáškové cykly knihovny (Bookstart, VU3V, kurzy pro seniory, výstavy) se z něj přepisují do kalendar/akce.json.",
       "status": "ověřeno",
-      "note": "Přidáno uživatelem 18. 8. 2026. Zatím nevytěženo do žádné sekce webu."
+      "note": "Přidáno uživatelem 18. 8. 2026. Zapojeno do sekce Kalendář 20. 9. 2026 — viz kalendar/README.md → „Kulturní a společenské akce — aktivní\". Na rozdíl od Kulturního střediska knihovna zveřejňuje skoro vždy jeden plakát na jednu akci, výjimkou jsou sezónní programy VU3V bundlující víc přednáškových cyklů v jednom plakátu."
     },
     {
       "id": "vzcentrum-cz",
@@ -465,7 +465,7 @@
       "category": "sociální síť · spolek",
       "description": "Facebookový profil tělovýchovné jednoty Sokol Pečky.",
       "status": "nevytěženo",
-      "note": "Doplněno uživatelem 4. 9. 2026, spolu s web-sokolpecky-cz."
+      "note": "Doplněno uživatelem 4. 9. 2026, spolu s web-sokolpecky-cz. Zkontrolováno pro sekci Kalendář 20. 9. 2026 — celý profil (8 fotek) jsou nábory do stálých oddílů/kroužků bez konkrétního data (taneční oddíly, florbal, kynologický kroužek, cvičení pro seniory, „Chlapi sobě\"), žádná datovaná akce k zápisu do kalendar/akce.json. Status zůstává „nevytěženo\", dokud se na profilu neobjeví plakát s konkrétním termínem — viz kalendar/README.md → „Kulturní a společenské akce — aktivní\". Doplněno 21. 9. 2026: totéž potvrzují i Pečecké noviny 9/2026 (str. 19, „Rozvrh hodin sokolovny — školní rok 2026/2027\") — stálý týdenní rozvrh na celý školní rok bez data konce, ne řada jednotlivých termínů, viz kalendar/README.md."
     },
     {
       "id": "csu-informace-vyhlasene-volby",
@@ -474,7 +474,7 @@
       "category": "oficiální",
       "description": "Přehled ČSÚ o všech aktuálně vyhlášených volbách v daném roce. Sekce „Aktuálně vyhlášené volby“ odkazuje na podstránku csu.gov.cz/volby-2026, která uvádí: volby do zastupitelstev obcí a do Senátu Parlamentu ČR 9.–10. října 2026 (vyhlášeny rozhodnutím prezidenta republiky č. 117/2026 Sb.; případné druhé kolo senátních voleb 16.–17. 10. 2026) a mimořádné volby do zastupitelstev obcí 28. 3. 2026 (jinde v ČR, netýká se Peček).",
       "status": "ověřeno",
-      "note": "Dohledáno 20. 9. 2026 na žádost uživatele jako nezávislé ověření termínu 9.–10. 10. 2026, který stránka Volby 2026 už dřív cituje z mv.gov.cz — obě data se shodují. Kontextově zatím citováno jen tady v sources.json, ne přímo v content/volby2026.html; doplněno i do quicklinks (O webu → Odkazy)."
+      "note": "Dohledáno 20. 9. 2026 na žádost uživatele jako nezávislé ověření termínu 9.–10. 10. 2026, který stránka Volby 2026 už dřív cituje z mv.gov.cz — obě data se shodují. Doplněno i do quicklinks (O webu → Odkazy). Od 20. 9. 2026 má i vlastní kontextovou citaci: termín voleb je zapojen do sekce Kalendář (kalendar/udalosti-rucni.json → build_volby_events(), viz kalendar/README.md → „Volby“)."
     },
     {
       "id": "publicspendingdata-org",
@@ -484,6 +484,42 @@
       "description": "Neoficiální mezinárodní projekt agregující oficiální obecní finance do přehledné časové řady. Pro Pečky nabízí příjmy/výdaje/saldo/stav účtů po jednotlivých letech 2010–2025 (delší časová řada, než je aktuálně na webu v sekci Pokladna). Vlastní sekce „Zdroje a data“ na stránce jako svůj zdroj cituje přímo Monitor státní pokladny (konkrétně https://monitor.statnipokladna.gov.cz/ucetni-jednotka/00239607/rozpocet/souhrnny?obdobi=2512&rad=t — viz záznam monitor-statni-pokladna), jde tedy o přehlednější nadstavbu nad týmiž daty, ne o nezávislý zdroj.",
       "status": "nevytěženo",
       "note": "Přidáno uživatelem 18. 9. 2026. Obsah zatím nebyl vytěžen do žádné sekce webu, jen doplněn do quicklinks (O webu → Odkazy) — díky delší časové řadě (2010–2025 vs. dosavadní 2023–2026 v sekci Pokladna) stojí za zvážení jako doplněk k Monitoru při budoucí aktualizaci Pokladny."
+    },
+    {
+      "id": "pecky-noviny",
+      "name": "Pečecké noviny — měsíčník města Pečky",
+      "url": "https://pecky.cz/default/default/21389_pdf-zpravodaje",
+      "category": "oficiální",
+      "description": "Měsíční zpravodaj města Pečky (viz sekce Pečecké noviny na tomto webu, kompletní archiv PDF v noviny/pecky-noviny.json). Od 21. 9. 2026 i zdroj sekce Kalendář — tabulky a plakáty otištěné v konkrétním vydání se citují jako evidence[].kind \"zpravodaj\" v kalendar/akce.json.",
+      "status": "ověřeno",
+      "note": "První konkrétní použití: Pečecké noviny 9/2026, str. 19 „Rozvrh hodin sokolovny — školní rok 2026/2027\" — zdroj pro opakované události TJ Sokol Pečky v kalendáři, viz kalendar/README.md."
+    },
+    {
+      "id": "web-tenispecky-cz",
+      "name": "Tenis Pečky — web tenisového oddílu TJ Spartak Pečky",
+      "url": "https://www.tenispecky.cz/",
+      "category": "oficiální · spolek",
+      "description": "Web tenisového oddílu Spartaku Pečky — aktuality (turnaje, brigády, výsledky mistrovské soutěže mládeže), tenisová škola, závodní tenis, pronájem kurtů a kontakt. Kurty na Sokolské 1062.",
+      "status": "nevytěženo",
+      "note": "Přidáno uživatelem 21. 9. 2026. Zatím nevytěženo do žádné sekce webu."
+    },
+    {
+      "id": "facebook-tenis-spartak-pecky",
+      "name": "Facebook — Tenis Spartak Pečky",
+      "url": "https://www.facebook.com/profile.php?id=100057429309940",
+      "category": "sociální síť · spolek",
+      "description": "Facebookový profil tenisového oddílu Spartaku Pečky (223 sledujících), odkazuje na tenispecky.cz. Kontakt trenér David Urlich.",
+      "status": "ověřeno",
+      "note": "Přidáno uživatelem 21. 9. 2026, spolu s web-tenispecky-cz."
+    },
+    {
+      "id": "instagram-hospoda-na-hristi-pecky",
+      "name": "Instagram — Hospoda na hřišti",
+      "url": "https://www.instagram.com/hospoda_na_hristi_pecky/",
+      "category": "sociální síť · podnik",
+      "description": "Instagramový účet místní hospody u sportovního hřiště v Pečkách (265 sledujících, 157 příspěvků). Soukromý podnik, ne městská ani spolková organizace. Od 22. 9. 2026 zdroj sekce Kalendář — vlastní akce (turnaje, hospodský kvíz) se z něj přepisují do kalendar/akce.json.",
+      "status": "ověřeno",
+      "note": "Přidáno uživatelem 21. 9. 2026. Zapojeno do sekce Kalendář 22. 9. 2026 — viz kalendar/README.md → „Kulturní a společenské akce — aktivní\". Datum posledního příspěvku se z profilu nedá spolehlivě odečíst (stejná mezera jako u ostatních Instagram účtů, viz instagram-streetpeopleofpecky), proto v quicklinks jen počet sledujících, bez data — na čtení jednotlivých příspěvků přes claude-in-chrome (ne na tenhle typ metadat) to vliv nemá."
     }
   ]
 }

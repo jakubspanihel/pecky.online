@@ -1,25 +1,13 @@
   <section class="panel active" id="panel-kalendar-akce">
-    <h2 class="title display">Akce v Pečkách</h2>
-    <p class="lede">Kulturní a společenské akce v Pečkách a okolí. U každé akce je místo, čas, pořadatel a odkaz na doklad, ze kterého je přepsaná. Termíny se objevují i v měsíční mřížce sekce <a href="/kalendar/">Kalendář</a>.</p>
+    <h2 class="title display">Nadcházející akce v Pečkách</h2>
+    <p class="lede">Kulturní a společenské akce v Pečkách a okolí. <a href="/kalendar/">Výpis také v kalendáři</a>.</p>
 
-    <div class="callout">
-      Akce přepisuje redakce z plakátů a příspěvků pořadatelů — město samo strojově čitelný kalendář akcí nezveřejňuje. Pořadatel a zdroj jsou dvě různé věci: akci může pořádat spolek a ohlásit ji někdo jiný, proto je u každé akce obojí zvlášť. Pořadatel může termín změnit, aniž by se to na tuhle stránku promítlo. <span class="stamp">přepsáno ze zdrojů</span>
-    </div>
-
-    <div class="segmented-control" style="margin:22px 0 14px;">
-      <span class="segmented-label">Období:</span>
-      <div class="segmented-group" role="group" aria-label="Období">
-        <button type="button" class="segmented-btn active" data-range="budouci">Nadcházející</button>
-        <button type="button" class="segmented-btn" data-range="vse">Vše</button>
-      </div>
-    </div>
-
-    <div class="segmented-control" style="margin:0 0 10px;">
+    <div class="segmented-control" style="margin:22px 0 10px;">
       <span class="segmented-label">Typ:</span>
       <div class="segmented-group" role="group" aria-label="Typ akce">
         <button type="button" class="segmented-btn active" data-akce-cat="">Vše</button>
         <button type="button" class="segmented-btn" data-akce-cat="akce">Akce</button>
-        <button type="button" class="segmented-btn" data-akce-cat="kurz">Kurzy</button>
+        <button type="button" class="segmented-btn" data-akce-cat="kurz">Kurzy/tréninky/pravidelné akce</button>
       </div>
     </div>
 
@@ -46,8 +34,8 @@
                           'Červenec','Srpen','Září','Říjen','Listopad','Prosinec'];
     // jak pojmenovat doklad ve sloupci Zdroj podle evidence.kind
     const DOKLAD = {plakat: 'plakát', prispevek: 'příspěvek', web: 'web',
-                    zpravodaj: 'zpravodaj', tisk: 'tisk', ustni: 'sdělení'};
-    let AKCE = [], ORG = {}, ZDROJE = {}, RANGE = 'budouci', CAT = '', ORGF = '';
+                    zpravodaj: 'Pečecké noviny', tisk: 'tisk', ustni: 'sdělení'};
+    let AKCE = [], ORG = {}, ZDROJE = {}, CAT = '', ORGF = '';
     const dnes = new Date().toISOString().slice(0, 10);
 
     function esc(s){
@@ -70,12 +58,10 @@
       const vybrane = AKCE.filter(a =>
         (!CAT || a.category === CAT) &&
         (!ORGF || a.organizer === ORGF) &&
-        (RANGE === 'vse' || a.date >= dnes));
+        a.date >= dnes);
       const obsah = document.getElementById('akce-obsah');
       if (!vybrane.length) {
-        obsah.innerHTML = '<div class="callout">Pro zvolený filtr nejsou žádné akce. '
-          + 'Pořadatelé zveřejňují program vždy na několik měsíců dopředu — '
-          + 'zkuste přepnout na „Vše".</div>';
+        obsah.innerHTML = '<div class="callout">Pro zvolený filtr nejsou žádné nadcházející akce.</div>';
         return;
       }
       // seskupení po měsících, v pořadí, v jakém akce přicházejí (data jsou seřazená)
@@ -196,15 +182,6 @@
         }).join('');
     }
 
-    document.querySelectorAll('#panel-kalendar-akce .segmented-btn[data-range]').forEach(b => {
-      b.addEventListener('click', function(){
-        document.querySelectorAll('#panel-kalendar-akce .segmented-btn[data-range]')
-          .forEach(x => x.classList.remove('active'));
-        this.classList.add('active');
-        RANGE = this.dataset.range;
-        vykresli();
-      });
-    });
     document.querySelectorAll('#panel-kalendar-akce .segmented-btn[data-akce-cat]').forEach(b => {
       b.addEventListener('click', function(){
         document.querySelectorAll('#panel-kalendar-akce .segmented-btn[data-akce-cat]')
@@ -231,16 +208,6 @@
       });
       ((zdroje && zdroje.sources) || []).forEach(z => { ZDROJE[z.id] = z; });
       document.getElementById('akce-status').style.display = 'none';
-      // přišel-li návštěvník odkazem na konkrétní akci, může být v minulosti —
-      // výchozí filtr „Nadcházející" by ji schoval, proto rovnou přepnout na Vše
-      if (location.hash) {
-        const cil = AKCE.find(a => a.id === location.hash.slice(1));
-        if (cil && cil.date < dnes) {
-          RANGE = 'vse';
-          document.querySelectorAll('#panel-kalendar-akce .segmented-btn[data-range]')
-            .forEach(x => x.classList.toggle('active', x.dataset.range === 'vse'));
-        }
-      }
       vykresliChipyPoradatelu();
       vykresli();
       vykresliZdroje();

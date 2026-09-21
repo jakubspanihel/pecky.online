@@ -117,12 +117,13 @@ MANIFEST = {
 }
 
 # Podstránky, které se generují stejně jako sekce z MANIFEST, ale nemají
-# řádek v tabulce „Stav sekcí" (žádné pravidelné kontroly, žádné datum
-# "Aktualizováno" na stránce). Šesté pole (lastmod) rozhoduje o viditelnosti
-# pro vyhledávače: None = stránka je jen přímým odkazem, dostane noindex
-# a do sitemapy nejde; ISO datum = stránka je odněkud odkázaná, noindex
-# odpadá a do sitemapy jde s tímhle datem (ruční — bez vlastního řádku v
-# "Stav sekcí" nemá odkud se dopočítat samo).
+# řádek v tabulce „Stav sekcí" (žádné pravidelné kontroly odtamtud). Šesté
+# pole (lastmod) rozhoduje o viditelnosti pro vyhledávače i o datu
+# "Aktualizováno" na stránce: None = stránka je jen přímým odkazem, dostane
+# noindex, do sitemapy nejde a datum na stránce nemá; ISO datum = stránka je
+# odněkud odkázaná, noindex odpadá, jde do sitemapy s tímhle datem a stejné
+# datum se vypíše i pod nadpisem stránky (ruční — bez vlastního řádku v
+# "Stav sekcí" nemá odkud se dopočítat samo, na rozdíl od stránek z MANIFEST).
 # slug -> (výstupní cesta, title, meta description, helpers.js, sekce pro navigaci, lastmod)
 EXTRA_PAGES = {
     'absence': (
@@ -136,13 +137,14 @@ EXTRA_PAGES = {
         # proto má lastmod a jde do sitemapy, viz komentář výše.
         True, 'jednani', '2026-09-19'),
     'kalendar-akce': (
-        '/kalendar/akce/', 'Akce v Pečkách — pecky.online',
-        'Kulturní a společenské akce v Pečkách a okolí přepsané z plakátů '
-        'Kulturního střediska města Pečky — termín, místo a odkaz na zdrojový '
-        'plakát u každé akce.',
+        '/kalendar/akce/', 'Nadcházející akce v Pečkách — pecky.online',
+        'Nadcházející kulturní a společenské akce v Pečkách a okolí přepsané '
+        'z plakátů a příspěvků pořadatelů — termín, místo a odkaz na zdrojový '
+        'doklad u každé akce.',
         # Odkázaná z perexu a z odznaků v mřížce /kalendar/ od 20. 9. 2026 —
-        # proto má lastmod a jde do sitemapy, viz komentář výše.
-        False, 'kalendar', '2026-09-20'),
+        # proto má lastmod a jde do sitemapy, viz komentář výše. Od
+        # 22. 9. 2026 vypisuje jen nadcházející akce (přepínač Období pryč).
+        False, 'kalendar', '2026-09-22'),
 }
 
 
@@ -276,6 +278,12 @@ def lastmod_map(stav_rows):
 TITLE_RE = re.compile(r'(<h2 class="title[^"]*">.*?</h2>)')
 
 
+def iso_to_cz(iso):
+    """'2026-09-20' -> '20. 9. 2026' (stejný zápis jako ve "Stav sekcí")."""
+    y, m, d = iso.split('-')
+    return f'{int(d)}. {int(m)}. {y}'
+
+
 def apply_lastmod(content, lastmod):
     """Vloží "Aktualizováno: ..." hned za nadpis sekce (<h2 class="title">).
     Beze změny, pokud sekce nemá datum "Změna" v Stav sekcí (typicky Domů,
@@ -376,7 +384,11 @@ def build_all(stav_rows=None):
     for slug, path, title, desc, needs_helpers, nav_slug, je_extra, extra_lastmod in stranky:
         content = read(f'content/{slug}.html')
         content = content.replace('{{STAV_SEKCI}}', stav_sekci)
-        if not je_extra:
+        if je_extra:
+            if extra_lastmod is not None:
+                content = apply_lastmod(
+                    content, {'iso': extra_lastmod, 'raw': iso_to_cz(extra_lastmod), 'odhad': False})
+        else:
             content = apply_lastmod(content, lastmods.get(path))
         if slug in VOLBY_SLUG_TO_ROK or slug == 'volby':
             content = content.replace('{{VOLBY_ROCNIKY}}', render_volby_rocniky(slug))

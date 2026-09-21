@@ -10,6 +10,7 @@
     --line:#C9BA98;
     --gold:#AD7A2A;
     --gold-deep:#8A5F1E;
+    --slate:#3E4C6D;
     --paper-shadow: 0 1px 0 rgba(42,36,32,0.06);
   }
   *{box-sizing:border-box;}
@@ -233,6 +234,11 @@
   table.calendar-table .kal-ev-zastupitelstvo{background:var(--burgundy);}
   table.calendar-table .kal-ev-akce{background:var(--gold-deep);}
   table.calendar-table .kal-ev-kurz{background:var(--ink-soft);}
+  table.calendar-table .kal-ev-volby{background:var(--slate);}
+  /* pokračování vícedenní akce (den 2+ v date_end rozsahu) - tlumenější, ať je jasné, že
+     nejde o novou samostatnou akci ten den, ale o pokračování zahájené dřív */
+  table.calendar-table .kal-ev-cont{opacity:0.65; background-image:repeating-linear-gradient(
+    135deg, rgba(255,255,255,0.15) 0 4px, transparent 4px 8px);}
   @media (max-width:600px){
     table.calendar-table td{min-height:42px; padding:5px 4px;}
     table.calendar-table .kal-ev{font-size:9px; padding:1px 3px;}

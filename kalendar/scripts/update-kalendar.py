@@ -15,7 +15,10 @@ A) Jednání rady a zastupitelstva — z jednani/pecky-jednani.json (stejný
 B) Kulturní a společenské akce — z kalendar/akce.json, které plní
    skill pecky-online-kalendar-plakat z plakátů Kulturního střediska
    města Pečky (kategorie 'akce' a 'kurz').
-C) (budoucí) Volby — zatím nikde strukturovaně, ruční záznam.
+C) Volby — z kalendar/udalosti-rucni.json, ručně psaný soubor bez
+   vlastního scraperu (termín voleb se nemění často). Datum vždy ověřit
+   proti sources.json -> csu-informace-vyhlasene-volby (viz
+   kalendar/README.md -> "Volby").
 
 Spouštět po každé aktualizaci jednani/pecky-jednani.json nebo
 kalendar/akce.json (stejně jako jednani/scripts/update-pozemky.py). Po běhu tohoto skriptu je potřeba
@@ -43,6 +46,7 @@ from scripts.build import SITE_DOMAIN  # noqa: E402 - zdroj pravdy pro absolutn�
 
 JEDNANI_JSON = ROOT / 'jednani' / 'pecky-jednani.json'
 AKCE_JSON = ROOT / 'kalendar' / 'akce.json'
+VOLBY_JSON = ROOT / 'kalendar' / 'udalosti-rucni.json'
 ORGANIZACE_JSON = ROOT / 'lide' / 'organizations.json'
 OUT_JSON = ROOT / 'kalendar' / 'udalosti.json'
 OUT_ICS = ROOT / 'kalendar' / 'kalendar.ics'
@@ -142,6 +146,46 @@ def build_akce_events():
     return events
 
 
+def build_volby_events():
+    """Ručně psané jednorázové termíny z kalendar/udalosti-rucni.json -> společné schéma.
+
+    Na rozdíl od Jednání a Akcí nemá tenhle zdroj vlastní scraper - termín
+    voleb se nemění často, soubor se aktualizuje ručně po ověření proti
+    sources.json -> csu-informace-vyhlasene-volby (viz kalendar/README.md
+    -> "Volby"). Stejný soubor může v budoucnu nést i další jednorázové
+    ručně psané termíny, ne jen volby - proto stejné společné schéma
+    jako u ostatních zdrojů, ne zvláštní volební pole.
+    """
+    if not VOLBY_JSON.exists():
+        return []
+    data = json.loads(VOLBY_JSON.read_text(encoding='utf-8'))
+    org = nazvy_organizaci()
+    events = []
+    for a in data.get('events', []):
+        time_val = a.get('time')
+        org_id = a.get('organizer')
+        org_name = org.get(org_id) if org_id else None
+        org_name = org_name or a.get('organizer_name')
+        events.append({
+            'id': a['id'],
+            'title': a['title'],
+            'date': a['date'],
+            'date_end': a.get('date_end'),
+            'time': time_val,
+            'all_day': time_val is None,
+            'category': a['category'],
+            'link': a.get('link'),
+            'description': a.get('description'),
+            'place': a.get('place'),
+            'organizer': org_id,
+            'organizer_name': org_name,
+            'image': a.get('image'),
+            'note': a.get('note'),
+            'source_ref': a['id'],
+        })
+    return events
+
+
 # ---------------------------------------------------------------- iCalendar
 
 def ics_escape(text):
@@ -209,14 +253,15 @@ def build_ics(events):
 def main():
     jednani = build_jednani_events()
     akce = build_akce_events()
-    events = jednani + akce
-    # (budoucí zdroje: events += build_volby_events(); ...)
+    volby = build_volby_events()
+    events = jednani + akce + volby
     events.sort(key=lambda e: (e['date'], e['time'] or ''))
 
     OUT_JSON.write_text(json.dumps({
         'meta': {
             'generated_from': (f'jednani/pecky-jednani.json ({len(jednani)} jednání), '
-                               f'kalendar/akce.json ({len(akce)} akcí)'),
+                               f'kalendar/akce.json ({len(akce)} akcí), '
+                               f'kalendar/udalosti-rucni.json ({len(volby)} termínů)'),
             'updated': datetime.now(PRAGUE).strftime('%Y-%m-%d'),
         },
         'events': events,

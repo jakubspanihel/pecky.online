@@ -67,9 +67,13 @@ odkazů v `content/domu.html`) je v `ARCHITEKTURA-MIGRACE.md`, sekce 2.3.
   co používá i `<lastmod>` v sitemapě (funkce `lastmod_map`/`apply_lastmod`).
   Nepsat `<p class="lastmod">` do `content/<sekce>.html` ručně — stačí
   přepsat řádek sekce ve „Stav sekcí" (viz bod výše) a build ho promítne
-  na stránku sám. Sekce bez vlastního `<h2 class="title">` (Domů) nebo
-  bez řádku ve „Stav sekcí" (podstránky z `EXTRA_PAGES`, např.
-  `/jednani/absence.html`) datum nemají.
+  na stránku sám. Sekce bez vlastního `<h2 class="title">` (Domů) datum
+  nemá. Podstránky z `EXTRA_PAGES` nemají řádek ve „Stav sekcí" (žádné
+  pravidelné kontroly odtamtud), ale mají-li vyplněné šesté pole
+  (`lastmod`, ruční ISO datum — viz `/jednani/absence.html`,
+  `/kalendar/akce/`), dostanou stejné „Aktualizováno" jako běžné sekce;
+  ruční přepsání toho pole ve `scripts/build.py` funguje stejně jako
+  přepsání řádku ve „Stav sekcí" jinde.
 
 ## Dokumentace jednotlivých sekcí
 Každá sekce webu má vlastní složku `<sekce>/` se souborem `README.md` —
