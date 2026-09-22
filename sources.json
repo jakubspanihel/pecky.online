@@ -375,7 +375,7 @@
       "category": "sociální síť · občanská iniciativa",
       "description": "Instagramový účet občanské iniciativy Pečky NEXT, doplňkový k jejich facebookové stránce (facebook.com/profile.php?id=61581314026896).",
       "status": "ověřeno",
-      "note": "Přidáno uživatelem 18. 8. 2026. 114 sledujících (stav k 18. 8. 2026, Instagram) — doplněno do seznamu sociálních sítí v sekci O webu."
+      "note": "Přidáno uživatelem 18. 8. 2026. 131 sledujících, poslední příspěvek 21. 9. 2026 (stav k 22. 9. 2026). OPRAVA 22. 9. 2026: dřív zapsané datum bylo staré (14. 9. 2026) — první tři dlaždice mřížky jsou staré grafiky (duben/červen 2026), z toho jen prostřední má pin ikonu, skutečně nejnovější příspěvek je až na 4. dlaždici. Viz o-webu/automation-socialni-site.md → „Chyták s připíchnutím“."
     },
     {
       "id": "instagram-streetpeopleofpecky",
@@ -384,7 +384,7 @@
       "category": "sociální síť · neoficiální",
       "description": "Neoficiální lokální účet se sbírkou \"pouličních\" fotek z Peček přispívaných místními (bio: pošli nám do DM svůj úlovek). Nesouvisí s žádným politickým uskupením ani institucí.",
       "status": "ověřeno",
-      "note": "Přidáno uživatelem 18. 8. 2026. 1 223 sledujících (stav k 18. 8. 2026, Instagram) — doplněno do seznamu sociálních sítí v sekci O webu. MEZERA od 2. 9. 2026: datum posledního příspěvku už z profilu nejde odečíst — Instagram v české lokalizaci plní atribut `alt` u obrázků mřížky popiskem příspěvku místo dříve používaného tvaru „Photo by … on September 01, 2026.“, `time[datetime]` ani odkazy `/p/<kód>/` se v odhlášené relaci nevykreslují a endpoint `/api/v1/users/web_profile_info/` vrací HTML místo JSON. Postup v o-webu/automation-socialni-site.md (krok 2b) tím přestal fungovat; počet sledujících se čte dál z textu profilu, datum poslední aktivity zůstává na hodnotě z posledního úspěšného čtení. Týká se i účtu instagram-peckynext."
+      "note": "Přidáno uživatelem 18. 8. 2026. 1 215 sledujících (22. 9. 2026, dřív 1 216), poslední příspěvek nadále 22. 8. 2026 — ověřeno znovu 22. 9. 2026. MEZERA od 2. 9. do 22. 9. 2026: datum posledního příspěvku nešlo z profilu odečíst přes starší postup (atribut `alt` u obrázků mřížky v české lokalizaci plní popiskem příspěvku, ne datem). OPRAVENO 22. 9. 2026: v přihlášené relaci claude-in-chrome funguje spolehlivě `<time datetime>` na stránce jednotlivého příspěvku (`/p/<kód>/`) — dřívější pozorování, že se tam nevykresluje, platilo jen pro odhlášenou/izolovanou relaci. Nový postup i chyták s připíchnutými příspěvky (mřížka není chronologická, pin nemusí být na dlaždici 1) viz o-webu/automation-socialni-site.md → „Instagram“ a „Chyták s připíchnutím“. Týká se i účtu instagram-peckynext."
     },
     {
       "id": "novinky-cz-volby",
