@@ -491,6 +491,37 @@ seznam místo rozházených poznámek po repu.
     Pečky" nebo „Malý sál, Základní umělecká škola Pečky, Barákova 700,
     Pečky", ne jen „Učebna č. 7"/„Malý sál" samo o sobě. Vyučující
     v `description`, ne v `note` — jde o běžný, ne výjimečný údaj.
+  - **ZŠ Pečky — Organizace školního roku 2026/2027** —
+    [zspecky.cz](https://www.zspecky.cz/e_download.php?file=/data/uredni_deska/obsah243_2.pdf&original=Organizace_skolniho_roku_2026_2027_ZS_Pecky.pdf)
+    (PDF na úřední desce, `sources.json` → `web-zspecky-cz`,
+    `organizer: zs-pecky`), zapojeno 22. 9. 2026 na žádost uživatele.
+    Na rozdíl od kroužků VCP/ZUŠ výše jde o **jednorázová a víceněnní
+    data**, ne o týdenní rozvrh — zapsáno přímo z tabulky dokumentu,
+    žádné dopočítávání. **14 nových `akce` záznamů:**
+    - Prázdniny (podzimní, vánoční, pololetní, jarní pro okres Kolín,
+      velikonoční, hlavní) — `place: null` (škola je zavřená, ne
+      otevřená na nějakém místě), `time: null` (celodenní), vícedenní
+      přes `date_end`. **Přímo potvrzuje termíny**, které se dřív u
+      TJ Sokol/Vzdělávacího centra/ZUŠ odvozovaly obecně z
+      archiv.msmt.gov.cz — tohle je od 22. 9. 2026 přednější, konkrétně
+      pečecký zdroj pro stejné termíny.
+    - Vydání výpisu vysvědčení (28. 1. 2027, konec 1. pololetí) a
+      vydání vysvědčení (30. 6. 2027, konec školního roku) — jednotlivé
+      dny, sloučeny s odpovídajícím „Ukončení X. pololetí" z dokumentu
+      (stejný den, jedna událost, ne dvě).
+    - Zápis do 1. ročníku — dva dny (27. a 28. 1. 2027) jako dva
+      záznamy, různý čas i konec (12:30–17:00, resp. 12:30–15:00).
+    - Třídní schůzky — tři termíny (3. 9. 2026, 12. 11. 2026,
+      22. 4. 2027) v dokumentu, **první už proběhlý k datu kontroly**
+      (nezapsán, stejné pravidlo jako u ostatních zdrojů). Zbylé dva
+      zapsány jako **dva paralelní záznamy** (1. stupeň/2. stupeň, na
+      žádost uživatele) — jiný čas (16:30/17:00), stejná budova.
+    - **Vynecháno:** začátek vyučování 2026/2027 (1. 9., proběhlé),
+      začátek vyučování 2027/2028 (1. 9. 2027, na žádost uživatele —
+      mimo aktuální školní rok, o kterém dokument je), pedagogické rady
+      (5 termínů — interní jednání sboru, ne veřejná akce), ředitelské
+      volno (dokument sám říká, že zůstává jako rezerva bez
+      konkrétního data).
   - **Volební uskupení 2026** — zapojeno 22. 9. 2026 na žádost uživatele,
     viz pravidlo „rovné zacházení" u kroku „U facebookových zdrojů vždy
     nejdřív zkontrolovat `/events`" výše. První kontrola všech pěti
