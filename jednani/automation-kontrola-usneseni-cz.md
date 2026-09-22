@@ -267,10 +267,23 @@ nové jednání, doplněný zápis, zmizelé/objevené pole `time` — spustit:
 
 ```
 python3 kalendar/scripts/update-kalendar.py
+python3 kalendar/scripts/sync-google.py
 ```
 
-Přegeneruje `kalendar/udalosti.json` a `kalendar/kalendar.ics`. Na
-rozdíl od kroku 8 (Pozemky) se spouští vždy, ne jen když se týká
+První přegeneruje `kalendar/udalosti.json` a `kalendar/kalendar.ics`,
+druhý je promítne do veřejného Google kalendáře „Co se děje v Pečkách"
+(viz [kalendar/README.md](../kalendar/README.md) → „Odebírání
+kalendáře").
+
+**Chybí-li klíč, synchronizaci vynech a nahlas ji.** `sync-google.py` čte
+`.google-calendar-api-key.json` v kořeni repa; ten soubor je
+v `.gitignore`, takže cloudový checkout ho nemá a skript by na něm spadl.
+Neexistuje-li, druhý příkaz přeskoč a do shrnutí běhu přidej řádek
+„Google kalendář čeká na synchronizaci — spustit
+`python3 kalendar/scripts/sync-google.py` lokálně". Celý běh kvůli tomu
+neukončuj — mřížka na webu i `.ics` jsou v pořádku, pozadu je jen Google.
+
+Na rozdíl od kroku 8 (Pozemky) se spouští vždy, ne jen když se týká
 konkrétního usnesení — kalendář zobrazuje všechna jednání, ne jen ta
 o pozemcích. Viz [kalendar/README.md](../kalendar/README.md) pro popis
 skriptu a schéma dat. `content/kalendar.html` samotný upravovat není
