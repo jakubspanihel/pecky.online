@@ -471,6 +471,16 @@ seznam místo rozházených poznámek po repu.
   - **Facebook města** (`facebook-mestopecky`) — zatím nepřispěl žádnou
     akcí do `akce.json`; `/events` k 22. 9. 2026 ukazuje jen proběhlé
     (naposled Koncert 16. 4. 2025), žádná záložka „Nadcházející".
+  - **FB skupina „Máme rádi Pečky"** (`facebook-group-mame-radi-pecky`,
+    4,9 tis. členů, přidáno 22. 9. 2026) — na rozdíl od výše je to obecná
+    komunitní nástěnka, ne profil jednoho pořadatele; záložka „Události"
+    ukazovala jen jednu nadcházející akci, a tu sdílenou z jiné obce
+    (Obnova krajiny Kolínska a Nymburska, Kostelní Lhota — mimo Pečky/
+    Velké Chvalovice, nezapsáno). Feed „Diskuze" jinak samé nečitelné
+    sdílené obrázky (`get_page_text` z nich nic nevytáhl) + repost už
+    známého Hospodského kvízu. Nic k zápisu. Příště čekat spíš přesdílené
+    cizí akce než vlastní obsah — u skupiny tohoto typu má smysl kouknout
+    hlavně na záložku Události, hlubší scroll feedu se zatím nevyplatil.
 
   Proto `evidence` pole a ne jedno pole se zdrojem — nový zdroj přibývá
   stejným způsobem jako výše.

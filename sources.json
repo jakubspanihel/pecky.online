@@ -529,6 +529,15 @@
       "description": "Instagramový účet volebního uskupení NAŠE PEČKY (106 sledujících, 79 příspěvků, bio „Na plný Pečky!“), doplňkový k jejich facebookovému profilu (facebook.com/nasepecky) a webu (nasepecky.cz).",
       "status": "ověřeno",
       "note": "Přidáno uživatelem 22. 9. 2026. Na rozdíl od profilového gridu (viz mezera u instagram-streetpeopleofpecky) stránka jednotlivého příspěvku (/p/<kód>/) pořád nese funkční `<time datetime>` se skutečným datem — poslední příspěvek 21. 9. 2026. OPRAVA (týž den): první čtení omylem vzalo datum připnutého příspěvku („Na Plný Pečky!“, 📌, tři dlaždice v mřížce), ne skutečně nejnovějšího — mřížka na Instagramu řadí připnuté příspěvky první bez ohledu na datum, teprve za nimi pokračuje chronologicky. Při čtení data z gridu vždy nejdřív ověřit/přeskočit 📌 ikonu, jinak vznikne stejná chyba."
+    },
+    {
+      "id": "facebook-group-mame-radi-pecky",
+      "name": "Facebook skupina — Máme rádi Pečky",
+      "url": "https://www.facebook.com/groups/514789833279969",
+      "category": "sociální síť · komunitní skupina",
+      "description": "Velká veřejná komunitní skupina (4,9 tis. členů, popis „Skupina pro všechny, kteří mají rádi Pečky“) — sídlo skupiny Pečky. Na rozdíl od ostatních sledovaných účtů to není profil jednoho pořadatele, ale obecná nástěnka, kam přispívají jednotliví členové i firmy/spolky (např. Hospoda Hřiště tam sdílí totéž co na svém Instagramu).",
+      "status": "ověřeno",
+      "note": "Přidáno uživatelem 22. 9. 2026, rovnou zkontrolováno na nové akce pro Kalendář. Strukturovaná záložka „Události“ k tomu dni ukazovala jen jednu nadcházející událost — „Obnova krajiny Kolínska a Nymburska“ (Obecní knihovna a Komunitní centrum Kostelní Lhota), akce jiné obce sdílená členkou do skupiny, mimo rozsah webu (ne Pečky/Velké Chvalovice) — nezapsáno. Feed „Diskuze“ jinak jen sdílené obrázky bez strojově čitelného textu (get_page_text z nich nic nevytáhl) a jeden repost už známého Hospodského kvízu. Žádná nová akce k zápisu do kalendar/akce.json. Skupina je obecná, hlučnější než profily jednotlivých pořadatelů — při příští kontrole čekat spíš sdílení cizích akcí než vlastní obsah."
     }
   ]
 }
