@@ -1,7 +1,7 @@
 {
   "project": "pecky.online",
   "description": "Seznam zdrojů, ze kterých pecky.online čerpá nebo může čerpat informace o samosprávě města Pečky.",
-  "last_updated": "2026-09-21",
+  "last_updated": "2026-09-22",
   "sources": [
     {
       "id": "pecky-cz",
@@ -195,7 +195,7 @@
       "category": "sociální síť · uskupení",
       "description": "Oficiální facebookový profil uskupení NAŠE PEČKY (vítěz voleb 2022, 7 mandátů, opozice). 1 tis. sledujících. Kontakt svejnohova@nasepecky.cz.",
       "status": "ověřeno",
-      "note": "Nalezeno 6. 8. 2026 (příklad zadaný uživatelem). Odkazuje na vlastní web nasepecky.cz — viz samostatný záznam."
+      "note": "Nalezeno 6. 8. 2026 (příklad zadaný uživatelem). Odkazuje na vlastní web nasepecky.cz — viz samostatný záznam. Od 22. 9. 2026 i zdroj sekce Kalendář (Facebook Události, /events) — kontrolováno rovnocenně se všemi pěti uskupeními 2026, viz kalendar/README.md → „Kulturní a společenské akce\"."
     },
     {
       "id": "web-nasepecky-cz",
@@ -203,8 +203,8 @@
       "url": "https://www.nasepecky.cz/",
       "category": "oficiální · uskupení",
       "description": "Vlastní web uskupení NAŠE PEČKY, uvedený jako odkaz na jejich FB stránce. K 6. 8. 2026 obsahuje jen jednu pozvánku na akci (leták) — minimální obsah, ale existuje vlastní grafická identita/logo.",
-      "status": "nevytěženo",
-      "note": "Objeveno 6. 8. 2026 při průzkumu FB stránky NAŠE PEČKY, nebylo v původním zadání."
+      "status": "ověřeno",
+      "note": "Objeveno 6. 8. 2026 při průzkumu FB stránky NAŠE PEČKY, nebylo v původním zadání. Od 22. 9. 2026 i zdroj sekce Kalendář (sekce „Akce\" na webu) — kontrolováno rovnocenně se všemi pěti uskupeními 2026, viz kalendar/README.md."
     },
     {
       "id": "facebook-ods-pecky",
@@ -520,6 +520,15 @@
       "description": "Instagramový účet místní hospody u sportovního hřiště v Pečkách (265 sledujících, 157 příspěvků). Soukromý podnik, ne městská ani spolková organizace. Od 22. 9. 2026 zdroj sekce Kalendář — vlastní akce (turnaje, hospodský kvíz) se z něj přepisují do kalendar/akce.json.",
       "status": "ověřeno",
       "note": "Přidáno uživatelem 21. 9. 2026. Zapojeno do sekce Kalendář 22. 9. 2026 — viz kalendar/README.md → „Kulturní a společenské akce — aktivní\". Datum posledního příspěvku se z profilu nedá spolehlivě odečíst (stejná mezera jako u ostatních Instagram účtů, viz instagram-streetpeopleofpecky), proto v quicklinks jen počet sledujících, bez data — na čtení jednotlivých příspěvků přes claude-in-chrome (ne na tenhle typ metadat) to vliv nemá."
+    },
+    {
+      "id": "instagram-nase-pecky",
+      "name": "Instagram — NAŠE PEČKY",
+      "url": "https://www.instagram.com/nase_pecky/",
+      "category": "sociální síť · uskupení",
+      "description": "Instagramový účet volebního uskupení NAŠE PEČKY (106 sledujících, 79 příspěvků, bio „Na plný Pečky!“), doplňkový k jejich facebookovému profilu (facebook.com/nasepecky) a webu (nasepecky.cz).",
+      "status": "ověřeno",
+      "note": "Přidáno uživatelem 22. 9. 2026. Na rozdíl od profilového gridu (viz mezera u instagram-streetpeopleofpecky) stránka jednotlivého příspěvku (/p/<kód>/) pořád nese funkční `<time datetime>` se skutečným datem — poslední příspěvek 27. 10. 2025, dlouho neaktivní. Obsah zatím nevytěžen do žádné sekce webu, jen doplněn do quicklinks (O webu → Sociální sítě) s tímto datem."
     }
   ]
 }
