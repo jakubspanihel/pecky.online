@@ -58,17 +58,48 @@ tahle kapitola je provozní — jak s daty pracovat.
 
 ```
 foto/                portréty z jiných zdrojů než z voleb (viz níž)
-people.json          287 osob (21 aktuálních zastupitelů + 2 bývalí s plným
+people.json          335 osob (21 aktuálních zastupitelů + 2 bývalí s plným
                       profilem, 206 dalších kandidátů ze všech kandidátek
                       2018/2022/2026 s minimálním záznamem (SPEC.md §3.6),
                       13 vedení úřadu/příspěvkovek/firem (fáze 5b, §7),
                       8 jen kvůli členství v komisi RM/školské radě,
-                      21 pedagogů ZUŠ Pečky — viz níž)
+                      21 pedagogů ZUŠ Pečky, 48 pedagogů ZŠ Pečky — viz níž)
 organizations.json   20 organizací (Město Pečky + 8 volebních uskupení +
                       7 příspěvkovek + 2 firmy + 2 spolky)
-affiliations.json   506 vazeb osoba–organizace
+affiliations.json   560 vazeb osoba–organizace
 validate.mjs         validátor
 ```
+
+**Pedagogický sbor ZŠ Pečky** (doplněno 22. 9. 2026): 46 učitelů 1. a
+2. stupně a 7 vychovatelek školní družiny — zdroje
+[zspecky.cz/1-stupen/ucitele](https://www.zspecky.cz/1-stupen/ucitele/),
+[.../2-stupen/ucitele](https://www.zspecky.cz/2-stupen/ucitele/) (jmenné
+seznamy konzultačních hodin, bez e-mailu/telefonu — proto ho u učitelů
+nemá nikdo) a jednotlivé podstránky `družina/školní-družina/{i–vii}-oddeleni/`
+(u vychovatelek e-mail i telefon má každá). Pět z nich šlo spárovat
+s existujícími záznamy podle jména a tituly se přesně shodovaly
+(`kozakovab`, `pisovam`, `vinohradnikovah` už byly ze školské rady;
+`kristoufkoval`, `kuprp` z kandidátek/komisí — u Kupra navíc sedí i jeho
+vlastní údaj „učitel, trenér" v `occupations`) — dostali jen novou vazbu,
+ne duplicitní osobu. `role_type: "ucitel"` u učitelů (stejný typ jako
+u ZUŠ, role text rozlišuje „učitel/učitelka 1. stupně" vs „2. stupně");
+vychovatelky mají vlastní `role_type: "vychovatel"` — jiná profese než
+učitel, i když jde taky o pedagogického pracovníka školy, na pokyn autora
+webu zadaný jako vlastní typ, aby se dala filtrovat samostatně
+(`content/lide.html` počítá oba do skupiny „Městské organizace", stejně
+jako komise/vedeni-organizace, viz odstavec u ZUŠ výš). Bc. Hana
+Vinohradníková je „vedoucí vychovatelka" II. oddělení — rozlišeno
+v `role`, `role_type` zůstává stejný jako u ostatních vychovatelek.
+
+Jana Bartáková je na 1. stupni i na 2. stupni se skoro identickým
+záznamem (stejná místnost, čas se liší jen o 5 minut) — nejde vyloučit,
+že je to duplicita ze šablony webu školy, ale na pokyn autora webu jsou
+zapsané obě vazby, tak jak to zdroj uvádí.
+
+**Přiznaná mezera:** školní klub (`/druzina/skolni-klub/`) uvádí jen dva
+e-maily bez celého jména (`hatasova@zspecky.cz`, `kasparkova@zspecky.cz`)
+— bez křestního jména nejde založit záznam s `id` podle konvence, takže
+tihle dva lidé v adresáři chybí, dokud se jméno nedohledá jinde.
 
 **Pedagogický sbor ZUŠ Pečky** (doplněno 22. 9. 2026): ředitelka (dřív
 `vorlickovap`), zástupkyně ředitelky a 20 učitelů ze 4 oborů (hudební,

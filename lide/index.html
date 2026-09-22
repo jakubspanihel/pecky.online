@@ -40,7 +40,7 @@
 <main>
   <section class="panel active" id="panel-lide">
     <h2 class="title display">Lidé města Pečky</h2>
-    <p class="lastmod" data-date="2026-09-19">Aktualizováno: 19. 9. 2026</p>
+    <p class="lastmod" data-date="2026-09-22">Aktualizováno: 22. 9. 2026</p>
     <p class="lede">Vizitky lidí, kteří v Pečkách zastávají veřejnou funkci. Najdeš tu zastupitelstvo a radu města, vedení a zaměstnance úřadu, ředitele městských organizací i členy komisí rady a školské rady. U každého je funkce a zdroj, téměř u všech i pracovní kontakt. Přepínač rozsahu přidá dřívější vedení města a bývalé zastupitele.</p>
 
     <div class="search-bar">
@@ -80,6 +80,12 @@
     ['vedeni-urad', 'Úřad města'],
     ['vedeni-organizace', 'Městské organizace'],
     ['zamestnanec', 'Zaměstnanci úřadu'],
+    // vlastní role_type (ne zamestnanec), aby šli pedagogové vyfiltrovat
+    // zvlášť — první užití u ZUŠ Pečky, teď i učitelé ZŠ
+    ['ucitel', 'Učitelé'],
+    // vychovatelky družiny/školního klubu — jiná profese než učitel,
+    // proto vlastní čip (doplněno 22. 9. 2026)
+    ['vychovatel', 'Vychovatelé družiny'],
   ];
 
   // formátování osoby/vazby a vykreslení vizitky (person-detail) jsou od
@@ -125,8 +131,22 @@
       // vedení úřadu/příspěvkových organizací a městských firem (fáze 5b, SPEC.md
       // §7) — mimo zastupitelstvo/radu, proto samostatné pole, ne součást _exec
       p._urad = p._affs.find(a => a.current && a.role_type === 'vedeni-urad') || null;
-      p._organizace = p._affs.find(a => a.current && a.role_type === 'vedeni-organizace') || null;
-      p._zamestnanec = p._affs.find(a => a.current && a.role_type === 'zamestnanec') || null;
+      // _organizace = vedení, učitel nebo (výjimečně) řadový zaměstnanec
+      // organizace jiné než úřad (doplněno 22. 9. 2026 pro pedagogický sbor
+      // ZUŠ Pečky) — `zamestnanec` sám o sobě neříká, kde: bez kontroly typu
+      // organizace by zaměstnanec městské organizace skončil v "Úřad města"
+      // jen proto, že sdílí role_type s úřednicí. Učitelé mají od téhož data
+      // vlastní `role_type: "ucitel"` (viz lide/README.md), aby šli
+      // vyfiltrovat zvlášť od zbytku organizace — přesto počítají do stejné
+      // skupiny „Městské organizace", ne do vlastní. Vychovatelé družiny
+      // (vlastní role_type od 22. 9. 2026, viz lide/README.md) ze stejného
+      // důvodu patří do téže skupiny jako učitelé a vedení.
+      p._organizace = p._affs.find(a => a.current &&
+        (a.role_type === 'vedeni-organizace' || a.role_type === 'ucitel' ||
+         a.role_type === 'vychovatel' ||
+         (a.role_type === 'zamestnanec' && a._org && a._org.type !== 'urad'))) || null;
+      p._zamestnanec = p._affs.find(a => a.current && a.role_type === 'zamestnanec' &&
+        a._org && a._org.type === 'urad') || null;
       // členství v komisi RM / školské radě (doplněno 19. 9. 2026) — stejný
       // důvod jako u _urad/_organizace: bez téhle větve by přes dvacet lidí,
       // kteří v komisi sedí, ale nikdy nekandidovali ani nepracují na úřadu,
@@ -398,6 +418,10 @@
   const lSortOffice = (a, b) =>
     (((a._office && a._office._org) ? a._office._org._order : 99) -
      ((b._office && b._office._org) ? b._office._org._order : 99)) ||
+    // uvnitř téže organizace nahoru vedení (ředitel/ka), pak řadoví
+    // zaměstnanci — jinak by např. učitelka ZUŠ abecedně předběhla
+    // ředitelku jen díky příjmení
+    (L_TL_RANK(a._office.role_type) - L_TL_RANK(b._office.role_type)) ||
     a.last_name.localeCompare(b.last_name, 'cs');
 
   const lSortParty = (a, b) =>
@@ -484,7 +508,7 @@
         lGroup('Úřad města', vedeniUrad,
                'Nevolení lidé, kteří zajišťují každodenní chod radnice — tajemnice, vedoucí odborů, velitel městské policie a referenti jednotlivých odborů. Nikdo z nich není volený; uvedené je jen to, co město samo zveřejňuje jako služební spojení.') +
         lGroup('Městské organizace', vedeniOrg,
-               'Ředitelé příspěvkových organizací města a jednatelka městské firmy — školy, knihovna, kulturní středisko, pečovatelská služba. Jmenuje je rada města.') +
+               'Ředitelé příspěvkových organizací města a jednatelka městské firmy — školy, knihovna, kulturní středisko, pečovatelská služba; jmenuje je rada města. U ZUŠ Pečky navíc celý pedagogický sbor, protože ho škola sama zveřejňuje.') +
         lGroup('Komise rady města a školská rada', komiseGroup,
                'Iniciativní a poradní orgány zřízené radou města, plus školská rada ZŠ Pečky. Kdo je zároveň zastupitelem, radním nebo vede úřad či organizaci, je uvedený tam.') +
         lGroup('Dřívější vedení a bývalí zastupitelé', byvali,

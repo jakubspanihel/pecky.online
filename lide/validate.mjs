@@ -22,7 +22,12 @@ const ROLE_TYPES = [
   // vedení je rozdělené podle toho, co člověk řídí: úřad města × příspěvkové
   // organizace a městská firma — panel Lidé je vypisuje jako dvě skupiny
   'vedeni-urad', 'vedeni-organizace',
-  'zamestnanec', 'clen', 'komise', 'kandidatka', 'jine',
+  // učitel je vlastní typ (ne zamestnanec), aby šli pedagogové filtrovat
+  // zvlášť od úřednického personálu — první užití u ZUŠ Pečky, teď i ZŠ.
+  // vychovatel (družina/školní klub) je od učitele odlišná profese, i když
+  // taky pedagogický pracovník — proto další vlastní typ, ne totéž jako
+  // učitel (doplněno 22. 9. 2026, na pokyn autora webu)
+  'zamestnanec', 'ucitel', 'vychovatel', 'clen', 'komise', 'kandidatka', 'jine',
 ];
 
 const SLUG = /^[a-z0-9-]+$/;
