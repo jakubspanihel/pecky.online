@@ -481,6 +481,13 @@ seznam místo rozházených poznámek po repu.
     známého Hospodského kvízu. Nic k zápisu. Příště čekat spíš přesdílené
     cizí akce než vlastní obsah — u skupiny tohoto typu má smysl kouknout
     hlavně na záložku Události, hlubší scroll feedu se zatím nevyplatil.
+  - **FB skupina „NAŠE PEČKY - komunita"** (`facebook-group-nase-pecky-komunita`,
+    516 členů, přidáno 22. 9. 2026) — stejný vzorec jako u „Máme rádi
+    Pečky" výše, i když je navázaná na uskupení NAŠE PEČKY: záložka
+    „Události" měla jednu nadcházející akci, „Slavnosti podzimu a
+    moštování" (3. 10. 2026), ale pořádá ji spolek Huslík v Poděbradech
+    — mimo Pečky/Velké Chvalovice, nezapsáno. Feed měl navrchu jen
+    nesouvisející AI reklamu na manikúru, dál se nenačetl. Nic k zápisu.
 
   Proto `evidence` pole a ne jedno pole se zdrojem — nový zdroj přibývá
   stejným způsobem jako výše.
