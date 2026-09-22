@@ -32,7 +32,9 @@ doscrollovat, to je vědomý kompromis, ne přehlédnutá chyba.
     `content/kalendar.html` si je natahuje přes `fetch()` (stejný vzor
     jako Jednání/Lidé/Noviny).
   - **`kalendar/kalendar.ics`** — stejné události ve formátu iCalendar
-    (RFC 5545), stažitelné/přihlašovatelné tlačítkem na stránce.
+    (RFC 5545). Od 22. 9. 2026 na stránku přímo nelinkovaný (viz
+    „Odebírání kalendáře" níže) — pořád se ale generuje a je dostupný
+    na `/kalendar/kalendar.ics`, jen bez odkazu z UI.
 - **`content/kalendar.html`** — měsíční mřížka vykreslená v prohlížeči
   (žádný build-time HTML pro jednotlivé dny): navigace měsícem
   (◀ / Dnes / ▶), filtr podle pořadatele (chipy, generované z dat —
@@ -67,6 +69,83 @@ ze všech zapojených zdrojů najednou. Druhý je potřeba, jen pokud se
 změnil `content/kalendar.html` samotný (data soubory build.py
 nekopíruje ani neupravuje — GitHub Pages/`scripts/serve.py` je
 servíruje přímo ze složky `kalendar/`).
+
+## Odebírání kalendáře
+
+Od 22. 9. 2026 (na žádost uživatele) první věta perexu `/kalendar/`
+odkazuje rovnou na veřejný Google Calendar (embed pro zobrazení v
+prohlížeči):
+```
+https://calendar.google.com/calendar/embed?src=a81de8fe68a5e6d118ceeea3614ba159febf695e65b164cade86b682d58ef726%40group.calendar.google.com&ctz=Europe%2FPrague
+```
+a ve stejné větě (v závorce „dostupné také jako iCal") ještě na
+přímý `.ics` feed téhož Google kalendáře (pro přihlášení v Apple/Outlook
+apod., ne pro zobrazení v prohlížeči):
+```
+https://calendar.google.com/calendar/ical/a81de8fe68a5e6d118ceeea3614ba159febf695e65b164cade86b682d58ef726%40group.calendar.google.com/public/basic.ics
+```
+Druhá věta perexu (popis mřížky + odkaz na `/kalendar/akce/`) je od
+téhož data na vlastním řádku (`<br>` uvnitř stejného `<p class="lede">`,
+ne nový odstavec — první věta je CTA, zbytek je popis stránky).
+
+Dřív byl na stránce přímý odkaz na `/kalendar/kalendar.ics` (dole pod
+mřížkou) — ten zůstal, `.ics` se pořád generuje na stejném místě, jen
+z UI přímo nelinkovaný (viz „Jak to funguje" výše). Odkaz na `basic.ics`
+v perexu je jiný soubor (feed samotného Google kalendáře, ne repo).
+
+**Čím se ten Google kalendář plní:**
+`kalendar/scripts/sync-google.py`. Bere hotový `kalendar/udalosti.json`
+(ne `.ics`) a srovná s ním obsah kalendáře přes Google Calendar API:
+co je nové založí, co se změnilo přepíše, co ze zdroje zmizelo smaže.
+Běh je idempotentní — ID události v Googlu je `sha1` ze `source_ref`,
+takže opakované spuštění nic nezduplikuje; o to větší důraz na to, že
+`source_ref` musí zůstat stabilní (viz „Schéma jedné události" níže).
+Skript sahá jen na události, které sám založil (poznávací značka
+`extendedProperties.private.pecky`) — co si do kalendáře přidá člověk
+ručně, nechá být.
+
+Spouští se **ručně**, po `update-kalendar.py`:
+```
+python3 kalendar/scripts/update-kalendar.py
+python3 kalendar/scripts/sync-google.py --dry-run   # co by se stalo
+python3 kalendar/scripts/sync-google.py             # zápis
+```
+`--dry-run` jen vypíše plán a nic nezapíše, `--limit N` omezí počet
+zápisů (opatrný běh), `--no-delete` vypne mazání.
+
+**Kde je ten druhý příkaz zapsaný jako povinný krok:**
+`kalendar/automation-plakat-akce.md` → krok 6 (zápis akcí z plakátu)
+a `jednani/automation-kontrola-usneseni-cz.md` → krok 8b (týdenní
+kontrola jednání). Obojí s podmínkou: **chybí-li klíč, běh synchronizaci
+vynechá a napíše to do shrnutí** místo aby spadl — cloudový checkout
+repozitáře `.google-calendar-api-key.json` nemá, protože je
+v `.gitignore`. Takový běh tedy nechá Google pozadu záměrně a čeká,
+až `sync-google.py` spustíš u sebe. Automatizovat i ten poslední krok
+by znamenalo dostat klíč do GitHub Actions jako secret — zatím vědomě
+neuděláno, synchronizace je ruční.
+
+- **Závislost:** `pip3 install google-api-python-client google-auth` —
+  jediná externí závislost v celém repu, ostatní skripty jedou na
+  standardní knihovně. Bez ní `update-kalendar.py` i `build.py` fungují
+  dál, spadne jen tenhle skript.
+- **Přístup:** servisní účet `pecky-kalendar-sync@
+  norse-sequence-509316-d9.iam.gserviceaccount.com` (bez zalomení),
+  kterému je kalendář nasdílený s právem
+  „Provádět změny v událostech". Klíč je v `.google-calendar-api-key.json`
+  v kořeni repa, je v `.gitignore` a **do gitu nepatří** (repozitář je
+  veřejný). Cesta jde přebít proměnnou `PECKY_GOOGLE_KEY`, ID kalendáře
+  přes `PECKY_GOOGLE_CALENDAR` nebo `--calendar-id`.
+- **Dva převody navíc oproti `.ics`:** Google nepřijme událost bez konce,
+  takže akce s časem a bez uvedeného konce dostane délku 2 h
+  (`DEFAULT_DURATION_MIN`); a událost se zapisuje jako `transparent`
+  s vypnutými upomínkami, aby odběrateli neblokovala jeho vlastní čas
+  a nerozesílala upozornění. Kategorie navíc řídí barvu události
+  (`BARVY` ve skriptu, drží se barev mřížky).
+
+Samotná aktualizace `kalendar.ics` přes `update-kalendar.py` do Google
+kalendáře **nic nepropisuje** — bez druhého příkazu výš zůstane Google
+na starých datech. Při jakékoli změně schématu (`source_ref`, časové
+pásmo, kategorie) projít i tenhle skript.
 
 ## Schéma jedné události
 Společné pro všechny budoucí zdroje (ne jen Jednání) — nový zdroj
@@ -166,6 +245,49 @@ seznam místo rozházených poznámek po repu.
   vrstvy, čtený okem přes claude-in-chrome, ne scraperem. Každý zapojený
   zdroj má vlastní posloupnost/kvirky, zaznamenané tady, aby je nemusel
   příští běh znovu objevovat:
+  - **Kontrola sociálních sítí je samoobslužná vůči `sources.json` —
+    ne seznam k ručnímu udržování.** (Pravidlo, doplněno 22. 9. 2026 na
+    žádost uživatele.) Na začátku kontroly Akcí vždy nejdřív vytáhnout
+    z kořenového `sources.json` **aktuální** seznam všech záznamů, jejichž
+    `url` obsahuje `facebook.com`, a zvlášť těch, co obsahují
+    `instagram.com` — bez ohledu na `status`/`category`/na to, jestli je
+    zdroj politické uskupení, spolek, podnik nebo cokoli jiného. Přibude-li
+    do `sources.json` kdykoli v budoucnu nový facebookový nebo
+    instagramový zdroj (třeba kvůli úplně jiné sekci webu), patří do
+    příští kontroly Akcí automaticky — nečekat, až ho sem někdo ručně
+    dopíše. Projít **všechny** stejným postupem, žádný nevynechávat a
+    žádný nezvýhodňovat:
+    - **Facebook** — `facebook.com/<profil>/events` (u skupin
+      `facebook.com/groups/<id>/events`) vždy první, teprve pak fotky.
+      Kde organizátor Facebook Události zakládá, je to strukturovaná data
+      (datum, čas, místo) bez čtení plakátu okem — rychlejší a
+      spolehlivější než OCR z obrázku. Zajímá jen záložka „Nadcházející"
+      (existuje-li — řada organizátorů Události nezakládá vůbec, jen
+      postuje plakáty, pak `/events` ukáže jen „Uplynulé" nebo nic —
+      u takových zdrojů rovnou pokračovat na fotky, ne se vracet k
+      Událostem znovu příště). Cenné i jako křížová kontrola už zapsaných
+      akcí, ne jen zdroj nových — takhle 22. 9. 2026 vyšla najevo změna
+      termínu u knihovny (viz níže).
+    - **Instagram** — nemá obdobu Událostí, jen mřížka příspěvků řazená
+      od nejnovějšího. Projít okem přes claude-in-chrome (poslední
+      ~5–10 příspěvků), stejná technika jako u „Hospoda na hřišti" níže.
+    - **Co zapsat:** stejná pravidla jako u jiných zdrojů (žádná akce bez
+      data, viz krok 4 „Co vynechat" v `automation-plakat-akce.md`) —
+      obsah akce se **nefiltruje podle politického ani jiného tématu**.
+      Rovné zacházení znamená zapsat, co je skutečně akce, u kteréhokoli
+      zdroje stejně — ne cenzurovat nebo zvýhodňovat podle toho, kdo
+      pořádá. (Dřív, 22. 9. 2026, tu bylo kritérium vynechávat „volební
+      mítinky, debaty pořádané jako kampaň" — zrušeno týž den na žádost
+      uživatele, viz `README.md` → „Stav sekcí" pro historii.)
+    - **Organizátor** je vždy subjekt samotný (`organizer` = id v
+      `lide/organizations.json`, `type: "politicke"` u uskupení), ne
+      konkrétní osoba — „pořádá Alena Švejnohová" do `organizer` nepatří,
+      viz „Nový pořadatel" níže.
+    - **První běh podle tohohle pravidla (22. 9. 2026)** prošel všech 14
+      tehdejších facebookových a 3 instagramové záznamy v `sources.json`
+      — výsledky viz „Volební uskupení 2026" a jednotlivé organizátory
+      níže. Příští běh může narazit na jiný soubor zdrojů, podle toho, co
+      mezitím do `sources.json` přibylo jinde na webu.
 
   - **Kulturní středisko** — [facebook.com/kspecky](https://www.facebook.com/kspecky).
     Program vychází vždy na několik měsíců dopředu jako souhrnný plakát
@@ -187,7 +309,12 @@ seznam místo rozházených poznámek po repu.
     („další várka knih právě dorazila") — ty nejsou akce, viz krok 4 „Co
     vynechat". Několik příspěvků má u data štítek Facebooku „AI obsah"
     (zřejmě nástroj na tvorbu plakátu, ne pochybnost o akci samotné) —
-    stojí za zmínku v `note`, ne za vynechání záznamu.
+    stojí za zmínku v `note`, ne za vynechání záznamu. **Má aktivně
+    používané Facebook Události** (`facebook.com/knihovnapecky/events`)
+    — 22. 9. 2026 odtud vyšla najevo „ZMĚNA TERMÍNU" u „S knížkou do
+    života" (posun z 22. 9. na 30. 9. 2026), kterou původní
+    plakát/pozvánka v `evidence[0]` neuváděl — opraveno, druhý doklad
+    (`kind: "web"`, odkaz na `/events`) doplněn k záznamu.
   - **TJ Sokol Pečky** — dva zdroje dohromady:
     [facebook.com/tjsokolpecky/photos](https://www.facebook.com/tjsokolpecky/photos)
     (zkontrolováno 20. 9. 2026: profil sám o sobě jen nábory bez
@@ -298,7 +425,52 @@ seznam místo rozházených poznámek po repu.
       hospoda na svém profilu taky zmiňuje („u nás na hřišti") — doplněn
       jako druhý doklad `evidence[]` k existujícímu záznamu KD, ne nový
       záznam.
-  - **Facebook města** — zatím nezapojený zdroj, počítá se s ním.
+  - **Volební uskupení 2026** — zapojeno 22. 9. 2026 na žádost uživatele,
+    viz pravidlo „rovné zacházení" u kroku „U facebookových zdrojů vždy
+    nejdřív zkontrolovat `/events`" výše. První kontrola všech pěti
+    uskupení (22. 9. 2026):
+    - **NAŠE PEČKY** — 2 nadcházející Události na
+      [facebook.com/nasepecky/events](https://www.facebook.com/nasepecky/events)
+      (debata s kandidátem do Senátu 29. 9. a **Hospodský kvíz o
+      Pečkách a Velkých Chvalovicích** 6. 10., Bowling Bar Seňorita) a
+      celá sekce „Akce" na [nasepecky.cz](https://nasepecky.cz/#akce) —
+      dalších 5 položek, z toho 3 nové (Stand Up 25. 9., Benefiční
+      koncert pro vitráže 28. 9., Slavnost v parku 3. 10.), zbylé dvě se
+      s Událostmi kryjí. **Celkem 5 záznamů zapsáno**, žádný nevynechán
+      pro politický obsah (viz „Co zapsat" výše — kritérium na vynechání
+      kampaňového obsahu bylo 22. 9. 2026 zrušeno). Pečky NEXT (spojená
+      kandidátka, vlastní FB profil) měla jen proběhlé Události, nic
+      k zápisu navíc.
+    - **ODS a nezávislí**, **Pečky Pečákům** — jen proběhlé/staré
+      Události (ODS naposled 20. 9. 2026, Pečákům 2023), nic
+      nadcházejícího.
+    - **Lidé pro Pečky s podporou SPD** — FB skupina, ne stránka
+      (`facebook.com/groups/<id>/events`, ne `/<profil>/events`) —
+      výslovně „Žádné nadcházející události".
+    - **Pečky srdcem** — Facebook Události vůbec nepoužívá, záložka na
+      profilu chybí.
+    - Žádné uskupení nebylo přeskočeno ani zvýhodněno — u čtyř z pěti
+      nebylo co zapsat, ne že by se nekontrolovala.
+    - **Druhá kontrola 22. 9. 2026** (test nového samoobslužného pravidla
+      výše, zbylé dosud neprojité `facebook.com`/`instagram.com` záznamy
+      ze `sources.json`): `facebook-svejnohova-osobni` má stejné dvě
+      Události jako `facebook-nasepecky` (žádná nová), `facebook-lidovci-pecky`
+      jen proběhlé — vč. „Rozloučení s létem!" 20. 9. 2026 (událost
+      vytvořena „ODS a nezávislí Pečky"), ale to už je 2 dny stará akce,
+      nezapisuje se zpětně. `facebook-mestopecky` a `facebook-tenis-spartak-pecky`
+      bez nadcházejících Událostí. Nový instagramový zdroj
+      **`instagram-nase-pecky`** (přibyl do `sources.json` mezitím, mimo
+      tuhle kontrolu — přesně případ, na který samoobslužné pravidlo
+      cílí) měl plakát „Pojďme se potkat — září a říjen 2026" — potvrzuje
+      beze změny 4 už zapsané politické akce (termíny/časy sedí), zbylé
+      4 položky plakátu (farmářské trhy 5. 9., káva s hejtmankou 8. 9.,
+      beseda s pivovarníky 18. 9., Food festival 19. 9.) jsou k datu
+      kontroly už proběhlé, nezapsány. `instagram-peckynext` má týž obsah
+      jako `instagram-nase-pecky`, nic navíc. `instagram-streetpeopleofpecky`
+      potvrzeně mimo téma (humorný/meme účet, ne akce).
+  - **Facebook města** (`facebook-mestopecky`) — zatím nepřispěl žádnou
+    akcí do `akce.json`; `/events` k 22. 9. 2026 ukazuje jen proběhlé
+    (naposled Koncert 16. 4. 2025), žádná záložka „Nadcházející".
 
   Proto `evidence` pole a ne jedno pole se zdrojem — nový zdroj přibývá
   stejným způsobem jako výše.

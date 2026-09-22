@@ -11,8 +11,22 @@ Datový model a pravidla zdroje popisuje `kalendar/README.md` → „Kulturní
 a společenské akce — aktivní". Tenhle soubor je jen postup, ne druhý
 zdroj pravdy o schématu.
 
-## 1. Získat obrázek
+## 1. Získat obrázek — a nejdřív zkontrolovat sociální sítě podle `sources.json`
 
+- **Před ručním zpracováním jednoho plakátu: projít všechny facebookové
+  a instagramové zdroje ze `sources.json` podle pravidla v
+  `kalendar/README.md` → „Kulturní a společenské akce — aktivní"** (seznam
+  se vytahuje ze `sources.json` znovu při každé kontrole, ne z pevného
+  výčtu tady). U facebookových zdrojů vždy nejdřív `facebook.com/<profil>/events`
+  (u skupin `facebook.com/groups/<id>/events`), ne fotky — kde organizátor
+  Události zakládá, je datum/čas/místo hned jako strukturovaný text
+  (`get_page_text`), bez čtení plakátu okem. Záložka „Nadcházející" je ta,
+  co zajímá — existuje jen u organizátorů, co Události aktivně používají
+  (u KD a TJ Sokol k 22. 9. 2026 nic, u knihovny ano). Zkontrolovat i proti
+  už zapsaným akcím v `akce.json`, ne jen hledat nové — Události umí
+  ukázat změnu termínu, kterou plakát/`evidence[0]` mlčky nezachytí (viz
+  „S knížkou do života" u knihovny, `kalendar/README.md`). U instagramových
+  zdrojů (nemají obdobu Událostí) projít mřížku posledních příspěvků okem.
 - **Příloha v chatu nebo soubor v repu** — čti rovnou nástrojem `Read`.
 - **Odkaz na příspěvek nebo webovou stránku** — otevři ho přes `claude-in-chrome`
   (`navigate` + `computer screenshot`). Plakát je obrázek bez textové
@@ -141,11 +155,22 @@ Pak spusť:
 
 ```
 python3 kalendar/scripts/update-kalendar.py
+python3 kalendar/scripts/sync-google.py
 python3 scripts/build.py
 ```
 
-První přegeneruje `udalosti.json` a `kalendar.ics`, druhý promítne změnu
-do stránek (a zvaliduje HTML/JS).
+První přegeneruje `udalosti.json` a `kalendar.ics`, druhý promítne nová
+data do veřejného Google kalendáře „Co se děje v Pečkách", třetí promítne
+změnu do stránek (a zvaliduje HTML/JS). Popis synchronizace je
+v `kalendar/README.md` → „Odebírání kalendáře".
+
+**Chybí-li klíč, synchronizaci vynech a nahlas ji.** `sync-google.py` čte
+`.google-calendar-api-key.json` v kořeni repa; ten soubor je
+v `.gitignore`, takže cloudový checkout ho nemá a skript by na něm spadl.
+Neexistuje-li, druhý příkaz přeskoč a do závěrečného výpisu (krok 8)
+přidej řádek „Google kalendář čeká na synchronizaci — spustit
+`python3 kalendar/scripts/sync-google.py` lokálně". Celý běh kvůli tomu
+neukončuj, zbytek kroků na Googlu nezávisí.
 
 ## 7. Dopsat kontext
 
