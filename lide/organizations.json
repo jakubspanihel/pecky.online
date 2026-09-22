@@ -1,455 +1,475 @@
 {
-  "meta": {
-    "updated": "2026-09-20",
-    "count": 18,
-    "source": "Ustavující zasedání ZM 7/2022 (20. 10. 2022) + archiv jednání + výsledky voleb ČSÚ",
-    "note": "Volební uskupení pocházejí z volby/ (výsledky 2018, 2022 a registrace 2026). Barvy odpovídají paletě v volby/README.md. Spolky (type: spolek) vedeme jako možné pořadatele akcí v sekci Kalendář — u nich zatím neevidujeme vazby na osoby, jen identifikaci z rejstříku."
-  },
-  "organizations": [
+ "meta": {
+  "updated": "2026-09-22",
+  "count": 20,
+  "source": "Ustavující zasedání ZM 7/2022 (20. 10. 2022) + archiv jednání + výsledky voleb ČSÚ",
+  "note": "Volební uskupení pocházejí z volby/ (výsledky 2018, 2022 a registrace 2026). Barvy odpovídají paletě v volby/README.md. Spolky (type: spolek) vedeme jako možné pořadatele akcí v sekci Kalendář — u nich zatím neevidujeme vazby na osoby, jen identifikaci z rejstříku."
+ },
+ "organizations": [
+  {
+   "id": "mesto-pecky",
+   "name": "Město Pečky",
+   "short_name": "Město Pečky",
+   "type": "urad",
+   "ico": "00239607",
+   "address": "Masarykovo nám. 78, 289 11 Pečky",
+   "web": "https://www.pecky.cz",
+   "color": null,
+   "css_class": null,
+   "former_names": [],
+   "note": "Obec s pověřeným obecním úřadem, okres Kolín. Zastupitelstvo má 21 členů, rada 7.",
+   "sources": [
     {
-      "id": "mesto-pecky",
-      "name": "Město Pečky",
-      "short_name": "Město Pečky",
-      "type": "urad",
-      "ico": "00239607",
-      "address": "Masarykovo nám. 78, 289 11 Pečky",
-      "web": "https://www.pecky.cz",
-      "color": null,
-      "css_class": null,
-      "former_names": [],
-      "note": "Obec s pověřeným obecním úřadem, okres Kolín. Zastupitelstvo má 21 členů, rada 7.",
-      "sources": [
-        {
-          "label": "Město Pečky — Hlídač státu",
-          "url": "https://www.hlidacstatu.cz/subjekt/00239607"
-        }
-      ],
-      "verified": "2026-08-27"
-    },
-    {
-      "id": "nasepecky",
-      "name": "NAŠE PEČKY A PEČKY NEXT",
-      "short_name": "NAŠE PEČKY",
-      "type": "politicke",
-      "ico": null,
-      "address": "",
-      "web": "",
-      "color": "#4A4A4A",
-      "css_class": "party-nasepecky",
-      "former_names": [
-        "SNK NAŠE PEČKY (2018)",
-        "NAŠE PEČKY (STAN + nezávislí) (2022)"
-      ],
-      "note": "2018: 39,60 % / 9 mandátů. 2022: 30,29 % / 7 mandátů — vítěz voleb, přesto bez křesla v radě. Kandiduje i 2026.",
-      "sources": [
-        {
-          "label": "Výsledky voleb 2018 — ČSÚ, volby.gov.cz (obec 537641 Pečky)",
-          "url": "https://volby.gov.cz/pls/kv2018/vysledky_obec?datumvoleb=20181005&cislo_obce=537641"
-        },
-        {
-          "label": "Výsledky voleb 2022 — ČSÚ, volby.gov.cz (obec 537641 Pečky)",
-          "url": "https://volby.gov.cz/pls/kv2022/vysledky_obec?datumvoleb=20220923&cislo_obce=537641"
-        },
-        {
-          "label": "Registrace kandidátních listin pro volby 2026 — úřední deska města",
-          "url": "https://www.pecky.cz/"
-        }
-      ],
-      "verified": "2026-08-27"
-    },
-    {
-      "id": "ods",
-      "name": "ODS a nezávislí kandidáti",
-      "short_name": "ODS a NK",
-      "type": "politicke",
-      "ico": null,
-      "address": "",
-      "web": "https://www.ods.cz/ms.pecky",
-      "color": "#1F2363",
-      "css_class": "party-ods",
-      "former_names": [
-        "Sdružení ODS a nezávislých kandidátů (2018, 2022)"
-      ],
-      "note": "2018: 24,44 % / 5 mandátů. 2022: 27,67 % / 6 mandátů — vede radnici. Kandiduje i 2026. Jde o místní sdružení, ne o celostátní ODS jako právnickou osobu, proto bez IČO.",
-      "sources": [
-        {
-          "label": "Výsledky voleb 2018 — ČSÚ, volby.gov.cz (obec 537641 Pečky)",
-          "url": "https://volby.gov.cz/pls/kv2018/vysledky_obec?datumvoleb=20181005&cislo_obce=537641"
-        },
-        {
-          "label": "Výsledky voleb 2022 — ČSÚ, volby.gov.cz (obec 537641 Pečky)",
-          "url": "https://volby.gov.cz/pls/kv2022/vysledky_obec?datumvoleb=20220923&cislo_obce=537641"
-        },
-        {
-          "label": "Registrace kandidátních listin pro volby 2026 — úřední deska města",
-          "url": "https://www.pecky.cz/"
-        }
-      ],
-      "verified": "2026-08-27"
-    },
-    {
-      "id": "snk-pecky-pecakum",
-      "name": "Sdružení nezávislých kandidátů PEČKY PEČÁKŮM",
-      "short_name": "SNK Pečky Pečákům",
-      "type": "politicke",
-      "ico": null,
-      "address": "",
-      "web": "",
-      "color": "#A6528F",
-      "css_class": "party-snk",
-      "former_names": [
-        "PEČKY PEČÁKŮM (2018)",
-        "SNK Pečky Pečákům (2022)"
-      ],
-      "note": "2018: 10,81 % / 2 mandáty. 2022: 16,18 % / 3 mandáty — v koalici. Kandiduje i 2026. V index.html má historicky dvě CSS třídy pro tutéž barvu: party-snk a party-peckypecakum.",
-      "sources": [
-        {
-          "label": "Výsledky voleb 2018 — ČSÚ, volby.gov.cz (obec 537641 Pečky)",
-          "url": "https://volby.gov.cz/pls/kv2018/vysledky_obec?datumvoleb=20181005&cislo_obce=537641"
-        },
-        {
-          "label": "Výsledky voleb 2022 — ČSÚ, volby.gov.cz (obec 537641 Pečky)",
-          "url": "https://volby.gov.cz/pls/kv2022/vysledky_obec?datumvoleb=20220923&cislo_obce=537641"
-        },
-        {
-          "label": "Registrace kandidátních listin pro volby 2026 — úřední deska města",
-          "url": "https://www.pecky.cz/"
-        }
-      ],
-      "verified": "2026-08-27"
-    },
-    {
-      "id": "lide-pro-pecky-spd",
-      "name": "Lidé pro Pečky a Velké Chvalovice s podporou SPD",
-      "short_name": "Lidé pro Pečky (SPD)",
-      "type": "politicke",
-      "ico": null,
-      "address": "",
-      "web": "",
-      "color": "#8B5A2B",
-      "css_class": "party-spd",
-      "former_names": [
-        "Lidé pro Pečky s podporou SPD (2022)"
-      ],
-      "note": "2022: 13,94 % / 3 mandáty — opozice. Kandiduje i 2026. V roce 2018 nekandidovali.",
-      "sources": [
-        {
-          "label": "Výsledky voleb 2022 — ČSÚ, volby.gov.cz (obec 537641 Pečky)",
-          "url": "https://volby.gov.cz/pls/kv2022/vysledky_obec?datumvoleb=20220923&cislo_obce=537641"
-        },
-        {
-          "label": "Registrace kandidátních listin pro volby 2026 — úřední deska města",
-          "url": "https://www.pecky.cz/"
-        }
-      ],
-      "verified": "2026-08-27"
-    },
-    {
-      "id": "cssd",
-      "name": "ČSSD a sjednocená levice",
-      "short_name": "ČSSD a sjednocená levice",
-      "type": "politicke",
-      "ico": null,
-      "address": "",
-      "web": "",
-      "color": "#FF5F60",
-      "css_class": "party-cssd",
-      "former_names": [
-        "Česká strana sociálně demokratická (2018)"
-      ],
-      "note": "2018: 8,25 % / 2 mandáty. 2022: 8,29 % / 2 mandáty — v koalici. Pro volby 2026 registraci kandidátní listiny nepodali.",
-      "sources": [
-        {
-          "label": "Výsledky voleb 2018 — ČSÚ, volby.gov.cz (obec 537641 Pečky)",
-          "url": "https://volby.gov.cz/pls/kv2018/vysledky_obec?datumvoleb=20181005&cislo_obce=537641"
-        },
-        {
-          "label": "Výsledky voleb 2022 — ČSÚ, volby.gov.cz (obec 537641 Pečky)",
-          "url": "https://volby.gov.cz/pls/kv2022/vysledky_obec?datumvoleb=20220923&cislo_obce=537641"
-        }
-      ],
-      "verified": "2026-08-27"
-    },
-    {
-      "id": "lidovci",
-      "name": "Lidovci a nezávislí",
-      "short_name": "Lidovci a NK",
-      "type": "politicke",
-      "ico": null,
-      "address": "",
-      "web": "",
-      "color": "#EBB91E",
-      "css_class": "party-lidovci",
-      "former_names": [
-        "LIDOVCI A NEZÁVISLÍ (2018)"
-      ],
-      "note": "2018: 4,15 % / 0 mandátů. 2022: 3,62 % / 0 mandátů. Ani v jednom ročníku se nedostali do zastupitelstva.",
-      "sources": [
-        {
-          "label": "Výsledky voleb 2018 — ČSÚ, volby.gov.cz (obec 537641 Pečky)",
-          "url": "https://volby.gov.cz/pls/kv2018/vysledky_obec?datumvoleb=20181005&cislo_obce=537641"
-        },
-        {
-          "label": "Výsledky voleb 2022 — ČSÚ, volby.gov.cz (obec 537641 Pečky)",
-          "url": "https://volby.gov.cz/pls/kv2022/vysledky_obec?datumvoleb=20220923&cislo_obce=537641"
-        }
-      ],
-      "verified": "2026-08-27"
-    },
-    {
-      "id": "kscm",
-      "name": "Komunistická strana Čech a Moravy",
-      "short_name": "KSČM",
-      "type": "politicke",
-      "ico": null,
-      "address": "",
-      "web": "",
-      "color": "#C1272D",
-      "css_class": "party-kscm",
-      "former_names": [],
-      "note": "2018: 12,75 % / 3 mandáty. V roce 2022 už v Pečkách nekandidovali.",
-      "sources": [
-        {
-          "label": "Výsledky voleb 2018 — ČSÚ, volby.gov.cz (obec 537641 Pečky)",
-          "url": "https://volby.gov.cz/pls/kv2018/vysledky_obec?datumvoleb=20181005&cislo_obce=537641"
-        }
-      ],
-      "verified": "2026-08-27"
-    },
-    {
-      "id": "pecky-srdcem",
-      "name": "Pečky srdcem",
-      "short_name": "Pečky srdcem",
-      "type": "politicke",
-      "ico": null,
-      "address": "",
-      "web": "",
-      "color": "#2E7D32",
-      "css_class": "party-peckysrdcem",
-      "former_names": [],
-      "note": "Nové uskupení, poprvé kandiduje ve volbách 2026. Zatím bez mandátu, a tedy bez jediné vazby v affiliations.json.",
-      "sources": [
-        {
-          "label": "Registrace kandidátních listin pro volby 2026 — úřední deska města",
-          "url": "https://www.pecky.cz/"
-        }
-      ],
-      "verified": "2026-08-27"
-    },
-    {
-      "id": "msmasinka-pecky",
-      "name": "Mateřská škola MAŠINKA Pečky",
-      "short_name": "MŠ MAŠINKA Pečky",
-      "type": "prispevkova",
-      "ico": "49862359",
-      "address": "Tř. Jana Švermy 825, 289 11 Pečky",
-      "web": "https://www.msmasinkapecky.cz/",
-      "color": null,
-      "css_class": null,
-      "former_names": [],
-      "note": "Příspěvková organizace města, zřízena 1. 4. 1994. Historie školy sahá do roku 1970.",
-      "sources": [
-        {
-          "label": "Mateřská škola MAŠINKA Pečky — pecky.cz",
-          "url": "https://pecky.cz/default/default/21103_materska-skola-masinka-pecky"
-        }
-      ],
-      "verified": "2026-09-05"
-    },
-    {
-      "id": "zs-pecky",
-      "name": "Základní škola Pečky, okres Kolín",
-      "short_name": "ZŠ Pečky",
-      "type": "prispevkova",
-      "ico": "49862456",
-      "address": "Tř. Jana Švermy 342, 289 11 Pečky",
-      "web": "http://www.zspecky.cz/",
-      "color": null,
-      "css_class": null,
-      "former_names": [],
-      "note": "Příspěvková organizace města. 24 tříd, 720 žáků (stav 2026).",
-      "sources": [
-        {
-          "label": "Základní škola Pečky, okres Kolín — pecky.cz",
-          "url": "https://pecky.cz/default/default/21104_zakladni-skola-pecky-okres-kolin"
-        }
-      ],
-      "verified": "2026-09-05"
-    },
-    {
-      "id": "zus-pecky",
-      "name": "Základní umělecká škola Pečky, okres Kolín",
-      "short_name": "ZUŠ Pečky",
-      "type": "prispevkova",
-      "ico": "17181186",
-      "address": "Barákova 700, 289 11 Pečky",
-      "web": "https://zuspecky.cz",
-      "color": null,
-      "css_class": null,
-      "former_names": [],
-      "note": "Samostatná příspěvková organizace od 1. 9. 2022 (zařazení do sítě škol 31. 8. 2022).",
-      "sources": [
-        {
-          "label": "Základní umělecká škola Pečky — pecky.cz",
-          "url": "https://pecky.cz/default/default/21106_zakladni-umelecka-skola-pecky"
-        }
-      ],
-      "verified": "2026-09-05"
-    },
-    {
-      "id": "kulturni-stredisko-pecky",
-      "name": "Kulturní středisko města Pečky",
-      "short_name": "Kulturní středisko",
-      "type": "prispevkova",
-      "ico": "70927022",
-      "address": "Tř. Jana Švermy 255, Pečky, 289 11",
-      "web": "",
-      "color": null,
-      "css_class": null,
-      "former_names": [
-        "Závodní klub ROH TONA (1959)",
-        "Závodní klub pracujících v Pečkách (1964)"
-      ],
-      "note": "Příspěvkovou organizací města od 1. 7. 2001. Provozuje i „Vzdělávací centrum“ (vzcentrum.cz) — jde o tutéž právnickou osobu/IČO, ne samostatnou organizaci; jeho koordinátorkou je Mgr. Jana Kusá, statutárním zástupcem celého střediska zůstává ředitel.",
-      "sources": [
-        {
-          "label": "Kulturní středisko — pecky.cz",
-          "url": "https://pecky.cz/default/default/21107_kulturni-stredisko"
-        },
-        {
-          "label": "Kulturní středisko města Pečky — Hlídač státu",
-          "url": "https://www.hlidacstatu.cz/subjekt/70927022"
-        }
-      ],
-      "verified": "2026-09-05"
-    },
-    {
-      "id": "mestska-knihovna-pecky",
-      "name": "Městská knihovna Svatopluka Čecha",
-      "short_name": "Městská knihovna",
-      "type": "prispevkova",
-      "ico": "48932060",
-      "address": "Tř. 5. května 241, Pečky 289 11",
-      "web": "http://www.knihovnapecky.cz",
-      "color": null,
-      "css_class": null,
-      "former_names": [],
-      "note": "Příspěvková organizace města.",
-      "sources": [
-        {
-          "label": "Městská knihovna Svatopluka Čecha — pecky.cz",
-          "url": "https://pecky.cz/default/default/21109_mestska-knihovna-svatopluka-cecha"
-        }
-      ],
-      "verified": "2026-09-05"
-    },
-    {
-      "id": "pecovatelska-sluzba-pecky",
-      "name": "Pečovatelská služba města Pečky",
-      "short_name": "Pečovatelská služba",
-      "type": "prispevkova",
-      "ico": "61883531",
-      "address": "Chvalovická 1042, 289 11 Pečky",
-      "web": "https://www.pspecky.cz/",
-      "color": null,
-      "css_class": null,
-      "former_names": [],
-      "note": "Příspěvková organizace města poskytující terénní a ambulantní sociální služby (pečovatelská služba, denní stacionář, senior klub, senior doprava).",
-      "sources": [
-        {
-          "label": "Pečovatelská služba — pecky.cz",
-          "url": "https://pecky.cz/default/default/21110_pecovatelska-sluzba"
-        }
-      ],
-      "verified": "2026-09-05"
-    },
-    {
-      "id": "pececke-sluzby",
-      "name": "Pečecké služby, s.r.o.",
-      "short_name": "Pečecké služby",
-      "type": "firma",
-      "ico": "26143551",
-      "address": "Tř. Jana Švermy 49, 289 11 Pečky",
-      "web": "https://pececkesluzby.cz/",
-      "color": null,
-      "css_class": null,
-      "former_names": [],
-      "note": "100% vlastník Město Pečky (vklad 19 040 000 Kč, zapsáno 29. 12. 1999). Technické služby (vodovody, kanalizace, zeleň, hřbitov, sběrný dvůr aj.). Jednatelka Mgr. Bc. Zuzana Högerová, MPA, od 2. 3. 2026 (obchodní rejstřík, přes ni jediné jednající osoby) — firemní web k 5. 9. 2026 na kontaktní stránce stále uvádí jako jednatele předchozí osobu (Ing. Michal Pavlas), to už neodpovídá rejstříku.",
-      "sources": [
-        {
-          "label": "Obchodní rejstřík — Pečecké služby, s.r.o. (justice.cz)",
-          "url": "https://or.justice.cz/ias/ui/rejstrik-$firma?ico=26143551"
-        },
-        {
-          "label": "Pečecké služby, s.r.o. — Kontakty (firemní web, neaktuální jméno jednatele)",
-          "url": "https://pececkesluzby.cz/office/"
-        }
-      ],
-      "verified": "2026-09-05"
-    },
-    {
-      "id": "tj-sokol-pecky",
-      "name": "Tělocvičná jednota Sokol Pečky",
-      "short_name": "TJ Sokol Pečky",
-      "type": "spolek",
-      "ico": "00664171",
-      "address": "",
-      "web": "https://www.sokolpecky.cz/",
-      "color": null,
-      "css_class": null,
-      "former_names": [],
-      "note": "Spolek (zapsaný spolek, nezisková organizace), 1–5 zaměstnanců. Do rejstříku doplněn 20. 9. 2026 jako možný pořadatel akcí v sekci Kalendář; vazby na konkrétní osoby zatím neevidujeme.",
-      "sources": [
-        {
-          "label": "Tělocvičná jednota Sokol Pečky — Hlídač státu",
-          "url": "https://www.hlidacstatu.cz/subjekt/00664171"
-        },
-        {
-          "label": "TJ Sokol Pečky — oficiální web",
-          "url": "https://www.sokolpecky.cz/"
-        }
-      ],
-      "verified": "2026-09-20"
-    },
-    {
-      "id": "pececky-okraslovaci-spolek",
-      "name": "Pečecký okrašlovací spolek",
-      "short_name": "Okrašlovací spolek",
-      "type": "spolek",
-      "ico": "21001634",
-      "address": "",
-      "web": "",
-      "color": null,
-      "css_class": null,
-      "former_names": [],
-      "note": "Spolek (zapsaný spolek, nezisková organizace). Do rejstříku doplněn 20. 9. 2026 jako pořadatel přednáškového cyklu, který vypisuje program Kulturního domu Pečky 9–12/2026 (listopad a prosinec 2026, přednáškový sál KD); vazby na konkrétní osoby zatím neevidujeme.",
-      "sources": [
-        {
-          "label": "Pečecký okrašlovací spolek — Hlídač státu",
-          "url": "https://www.hlidacstatu.cz/subjekt/21001634"
-        }
-      ],
-      "verified": "2026-09-20"
-    },
-    {
-      "id": "hospoda-na-hristi-pecky",
-      "name": "Hospoda na hřišti",
-      "short_name": "Hospoda na hřišti",
-      "type": "firma",
-      "ico": null,
-      "address": "",
-      "web": "",
-      "color": null,
-      "css_class": null,
-      "former_names": [],
-      "note": "Restaurace/hospoda u sportovního hřiště v Pečkách. Soukromý podnik, ne městská ani spolková organizace. IČO se nepodařilo dohledat (Hlídač státu bez shody na název) — pořadatel akcí v sekci Kalendář i tak, jen bez IČO v rejstříku.",
-      "sources": [
-        {
-          "label": "Instagram — Hospoda na hřišti",
-          "url": "https://www.instagram.com/hospoda_na_hristi_pecky/"
-        }
-      ],
-      "verified": "2026-09-22"
+     "label": "Město Pečky — Hlídač státu",
+     "url": "https://www.hlidacstatu.cz/subjekt/00239607"
     }
-  ]
+   ],
+   "verified": "2026-08-27"
+  },
+  {
+   "id": "nasepecky",
+   "name": "NAŠE PEČKY A PEČKY NEXT",
+   "short_name": "NAŠE PEČKY",
+   "type": "politicke",
+   "ico": null,
+   "address": "",
+   "web": "",
+   "color": "#4A4A4A",
+   "css_class": "party-nasepecky",
+   "former_names": [
+    "SNK NAŠE PEČKY (2018)",
+    "NAŠE PEČKY (STAN + nezávislí) (2022)"
+   ],
+   "note": "2018: 39,60 % / 9 mandátů. 2022: 30,29 % / 7 mandátů — vítěz voleb, přesto bez křesla v radě. Kandiduje i 2026.",
+   "sources": [
+    {
+     "label": "Výsledky voleb 2018 — ČSÚ, volby.gov.cz (obec 537641 Pečky)",
+     "url": "https://volby.gov.cz/pls/kv2018/vysledky_obec?datumvoleb=20181005&cislo_obce=537641"
+    },
+    {
+     "label": "Výsledky voleb 2022 — ČSÚ, volby.gov.cz (obec 537641 Pečky)",
+     "url": "https://volby.gov.cz/pls/kv2022/vysledky_obec?datumvoleb=20220923&cislo_obce=537641"
+    },
+    {
+     "label": "Registrace kandidátních listin pro volby 2026 — úřední deska města",
+     "url": "https://www.pecky.cz/"
+    }
+   ],
+   "verified": "2026-08-27"
+  },
+  {
+   "id": "ods",
+   "name": "ODS a nezávislí kandidáti",
+   "short_name": "ODS a NK",
+   "type": "politicke",
+   "ico": null,
+   "address": "",
+   "web": "https://www.ods.cz/ms.pecky",
+   "color": "#1F2363",
+   "css_class": "party-ods",
+   "former_names": [
+    "Sdružení ODS a nezávislých kandidátů (2018, 2022)"
+   ],
+   "note": "2018: 24,44 % / 5 mandátů. 2022: 27,67 % / 6 mandátů — vede radnici. Kandiduje i 2026. Jde o místní sdružení, ne o celostátní ODS jako právnickou osobu, proto bez IČO.",
+   "sources": [
+    {
+     "label": "Výsledky voleb 2018 — ČSÚ, volby.gov.cz (obec 537641 Pečky)",
+     "url": "https://volby.gov.cz/pls/kv2018/vysledky_obec?datumvoleb=20181005&cislo_obce=537641"
+    },
+    {
+     "label": "Výsledky voleb 2022 — ČSÚ, volby.gov.cz (obec 537641 Pečky)",
+     "url": "https://volby.gov.cz/pls/kv2022/vysledky_obec?datumvoleb=20220923&cislo_obce=537641"
+    },
+    {
+     "label": "Registrace kandidátních listin pro volby 2026 — úřední deska města",
+     "url": "https://www.pecky.cz/"
+    }
+   ],
+   "verified": "2026-08-27"
+  },
+  {
+   "id": "snk-pecky-pecakum",
+   "name": "Sdružení nezávislých kandidátů PEČKY PEČÁKŮM",
+   "short_name": "SNK Pečky Pečákům",
+   "type": "politicke",
+   "ico": null,
+   "address": "",
+   "web": "",
+   "color": "#A6528F",
+   "css_class": "party-snk",
+   "former_names": [
+    "PEČKY PEČÁKŮM (2018)",
+    "SNK Pečky Pečákům (2022)"
+   ],
+   "note": "2018: 10,81 % / 2 mandáty. 2022: 16,18 % / 3 mandáty — v koalici. Kandiduje i 2026. V index.html má historicky dvě CSS třídy pro tutéž barvu: party-snk a party-peckypecakum.",
+   "sources": [
+    {
+     "label": "Výsledky voleb 2018 — ČSÚ, volby.gov.cz (obec 537641 Pečky)",
+     "url": "https://volby.gov.cz/pls/kv2018/vysledky_obec?datumvoleb=20181005&cislo_obce=537641"
+    },
+    {
+     "label": "Výsledky voleb 2022 — ČSÚ, volby.gov.cz (obec 537641 Pečky)",
+     "url": "https://volby.gov.cz/pls/kv2022/vysledky_obec?datumvoleb=20220923&cislo_obce=537641"
+    },
+    {
+     "label": "Registrace kandidátních listin pro volby 2026 — úřední deska města",
+     "url": "https://www.pecky.cz/"
+    }
+   ],
+   "verified": "2026-08-27"
+  },
+  {
+   "id": "lide-pro-pecky-spd",
+   "name": "Lidé pro Pečky a Velké Chvalovice s podporou SPD",
+   "short_name": "Lidé pro Pečky (SPD)",
+   "type": "politicke",
+   "ico": null,
+   "address": "",
+   "web": "",
+   "color": "#8B5A2B",
+   "css_class": "party-spd",
+   "former_names": [
+    "Lidé pro Pečky s podporou SPD (2022)"
+   ],
+   "note": "2022: 13,94 % / 3 mandáty — opozice. Kandiduje i 2026. V roce 2018 nekandidovali.",
+   "sources": [
+    {
+     "label": "Výsledky voleb 2022 — ČSÚ, volby.gov.cz (obec 537641 Pečky)",
+     "url": "https://volby.gov.cz/pls/kv2022/vysledky_obec?datumvoleb=20220923&cislo_obce=537641"
+    },
+    {
+     "label": "Registrace kandidátních listin pro volby 2026 — úřední deska města",
+     "url": "https://www.pecky.cz/"
+    }
+   ],
+   "verified": "2026-08-27"
+  },
+  {
+   "id": "cssd",
+   "name": "ČSSD a sjednocená levice",
+   "short_name": "ČSSD a sjednocená levice",
+   "type": "politicke",
+   "ico": null,
+   "address": "",
+   "web": "",
+   "color": "#FF5F60",
+   "css_class": "party-cssd",
+   "former_names": [
+    "Česká strana sociálně demokratická (2018)"
+   ],
+   "note": "2018: 8,25 % / 2 mandáty. 2022: 8,29 % / 2 mandáty — v koalici. Pro volby 2026 registraci kandidátní listiny nepodali.",
+   "sources": [
+    {
+     "label": "Výsledky voleb 2018 — ČSÚ, volby.gov.cz (obec 537641 Pečky)",
+     "url": "https://volby.gov.cz/pls/kv2018/vysledky_obec?datumvoleb=20181005&cislo_obce=537641"
+    },
+    {
+     "label": "Výsledky voleb 2022 — ČSÚ, volby.gov.cz (obec 537641 Pečky)",
+     "url": "https://volby.gov.cz/pls/kv2022/vysledky_obec?datumvoleb=20220923&cislo_obce=537641"
+    }
+   ],
+   "verified": "2026-08-27"
+  },
+  {
+   "id": "lidovci",
+   "name": "Lidovci a nezávislí",
+   "short_name": "Lidovci a NK",
+   "type": "politicke",
+   "ico": null,
+   "address": "",
+   "web": "",
+   "color": "#EBB91E",
+   "css_class": "party-lidovci",
+   "former_names": [
+    "LIDOVCI A NEZÁVISLÍ (2018)"
+   ],
+   "note": "2018: 4,15 % / 0 mandátů. 2022: 3,62 % / 0 mandátů. Ani v jednom ročníku se nedostali do zastupitelstva.",
+   "sources": [
+    {
+     "label": "Výsledky voleb 2018 — ČSÚ, volby.gov.cz (obec 537641 Pečky)",
+     "url": "https://volby.gov.cz/pls/kv2018/vysledky_obec?datumvoleb=20181005&cislo_obce=537641"
+    },
+    {
+     "label": "Výsledky voleb 2022 — ČSÚ, volby.gov.cz (obec 537641 Pečky)",
+     "url": "https://volby.gov.cz/pls/kv2022/vysledky_obec?datumvoleb=20220923&cislo_obce=537641"
+    }
+   ],
+   "verified": "2026-08-27"
+  },
+  {
+   "id": "kscm",
+   "name": "Komunistická strana Čech a Moravy",
+   "short_name": "KSČM",
+   "type": "politicke",
+   "ico": null,
+   "address": "",
+   "web": "",
+   "color": "#C1272D",
+   "css_class": "party-kscm",
+   "former_names": [],
+   "note": "2018: 12,75 % / 3 mandáty. V roce 2022 už v Pečkách nekandidovali.",
+   "sources": [
+    {
+     "label": "Výsledky voleb 2018 — ČSÚ, volby.gov.cz (obec 537641 Pečky)",
+     "url": "https://volby.gov.cz/pls/kv2018/vysledky_obec?datumvoleb=20181005&cislo_obce=537641"
+    }
+   ],
+   "verified": "2026-08-27"
+  },
+  {
+   "id": "pecky-srdcem",
+   "name": "Pečky srdcem",
+   "short_name": "Pečky srdcem",
+   "type": "politicke",
+   "ico": null,
+   "address": "",
+   "web": "",
+   "color": "#2E7D32",
+   "css_class": "party-peckysrdcem",
+   "former_names": [],
+   "note": "Nové uskupení, poprvé kandiduje ve volbách 2026. Zatím bez mandátu, a tedy bez jediné vazby v affiliations.json.",
+   "sources": [
+    {
+     "label": "Registrace kandidátních listin pro volby 2026 — úřední deska města",
+     "url": "https://www.pecky.cz/"
+    }
+   ],
+   "verified": "2026-08-27"
+  },
+  {
+   "id": "msmasinka-pecky",
+   "name": "Mateřská škola MAŠINKA Pečky",
+   "short_name": "MŠ MAŠINKA Pečky",
+   "type": "prispevkova",
+   "ico": "49862359",
+   "address": "Tř. Jana Švermy 825, 289 11 Pečky",
+   "web": "https://www.msmasinkapecky.cz/",
+   "color": null,
+   "css_class": null,
+   "former_names": [],
+   "note": "Příspěvková organizace města, zřízena 1. 4. 1994. Historie školy sahá do roku 1970.",
+   "sources": [
+    {
+     "label": "Mateřská škola MAŠINKA Pečky — pecky.cz",
+     "url": "https://pecky.cz/default/default/21103_materska-skola-masinka-pecky"
+    }
+   ],
+   "verified": "2026-09-05"
+  },
+  {
+   "id": "zs-pecky",
+   "name": "Základní škola Pečky, okres Kolín",
+   "short_name": "ZŠ Pečky",
+   "type": "prispevkova",
+   "ico": "49862456",
+   "address": "Tř. Jana Švermy 342, 289 11 Pečky",
+   "web": "http://www.zspecky.cz/",
+   "color": null,
+   "css_class": null,
+   "former_names": [],
+   "note": "Příspěvková organizace města. 24 tříd, 720 žáků (stav 2026).",
+   "sources": [
+    {
+     "label": "Základní škola Pečky, okres Kolín — pecky.cz",
+     "url": "https://pecky.cz/default/default/21104_zakladni-skola-pecky-okres-kolin"
+    }
+   ],
+   "verified": "2026-09-05"
+  },
+  {
+   "id": "zus-pecky",
+   "name": "Základní umělecká škola Pečky, okres Kolín",
+   "short_name": "ZUŠ Pečky",
+   "type": "prispevkova",
+   "ico": "17181186",
+   "address": "Barákova 700, 289 11 Pečky",
+   "web": "https://zuspecky.cz",
+   "color": null,
+   "css_class": null,
+   "former_names": [],
+   "note": "Samostatná příspěvková organizace od 1. 9. 2022 (zařazení do sítě škol 31. 8. 2022).",
+   "sources": [
+    {
+     "label": "Základní umělecká škola Pečky — pecky.cz",
+     "url": "https://pecky.cz/default/default/21106_zakladni-umelecka-skola-pecky"
+    }
+   ],
+   "verified": "2026-09-05"
+  },
+  {
+   "id": "kulturni-stredisko-pecky",
+   "name": "Kulturní středisko města Pečky",
+   "short_name": "Kulturní středisko",
+   "type": "prispevkova",
+   "ico": "70927022",
+   "address": "Tř. Jana Švermy 255, Pečky, 289 11",
+   "web": "",
+   "color": null,
+   "css_class": null,
+   "former_names": [
+    "Závodní klub ROH TONA (1959)",
+    "Závodní klub pracujících v Pečkách (1964)"
+   ],
+   "note": "Příspěvkovou organizací města od 1. 7. 2001. Provozuje i „Vzdělávací centrum“ (vzcentrum.cz) — jde o tutéž právnickou osobu/IČO, ne samostatnou organizaci; jeho koordinátorkou je Mgr. Jana Kusá, statutárním zástupcem celého střediska zůstává ředitel.",
+   "sources": [
+    {
+     "label": "Kulturní středisko — pecky.cz",
+     "url": "https://pecky.cz/default/default/21107_kulturni-stredisko"
+    },
+    {
+     "label": "Kulturní středisko města Pečky — Hlídač státu",
+     "url": "https://www.hlidacstatu.cz/subjekt/70927022"
+    }
+   ],
+   "verified": "2026-09-05"
+  },
+  {
+   "id": "mestska-knihovna-pecky",
+   "name": "Městská knihovna Svatopluka Čecha",
+   "short_name": "Městská knihovna",
+   "type": "prispevkova",
+   "ico": "48932060",
+   "address": "Tř. 5. května 241, Pečky 289 11",
+   "web": "http://www.knihovnapecky.cz",
+   "color": null,
+   "css_class": null,
+   "former_names": [],
+   "note": "Příspěvková organizace města.",
+   "sources": [
+    {
+     "label": "Městská knihovna Svatopluka Čecha — pecky.cz",
+     "url": "https://pecky.cz/default/default/21109_mestska-knihovna-svatopluka-cecha"
+    }
+   ],
+   "verified": "2026-09-05"
+  },
+  {
+   "id": "pecovatelska-sluzba-pecky",
+   "name": "Pečovatelská služba města Pečky",
+   "short_name": "Pečovatelská služba",
+   "type": "prispevkova",
+   "ico": "61883531",
+   "address": "Chvalovická 1042, 289 11 Pečky",
+   "web": "https://www.pspecky.cz/",
+   "color": null,
+   "css_class": null,
+   "former_names": [],
+   "note": "Příspěvková organizace města poskytující terénní a ambulantní sociální služby (pečovatelská služba, denní stacionář, senior klub, senior doprava).",
+   "sources": [
+    {
+     "label": "Pečovatelská služba — pecky.cz",
+     "url": "https://pecky.cz/default/default/21110_pecovatelska-sluzba"
+    }
+   ],
+   "verified": "2026-09-05"
+  },
+  {
+   "id": "pececke-sluzby",
+   "name": "Pečecké služby, s.r.o.",
+   "short_name": "Pečecké služby",
+   "type": "firma",
+   "ico": "26143551",
+   "address": "Tř. Jana Švermy 49, 289 11 Pečky",
+   "web": "https://pececkesluzby.cz/",
+   "color": null,
+   "css_class": null,
+   "former_names": [],
+   "note": "100% vlastník Město Pečky (vklad 19 040 000 Kč, zapsáno 29. 12. 1999). Technické služby (vodovody, kanalizace, zeleň, hřbitov, sběrný dvůr aj.). Jednatelka Mgr. Bc. Zuzana Högerová, MPA, od 2. 3. 2026 (obchodní rejstřík, přes ni jediné jednající osoby) — firemní web k 5. 9. 2026 na kontaktní stránce stále uvádí jako jednatele předchozí osobu (Ing. Michal Pavlas), to už neodpovídá rejstříku.",
+   "sources": [
+    {
+     "label": "Obchodní rejstřík — Pečecké služby, s.r.o. (justice.cz)",
+     "url": "https://or.justice.cz/ias/ui/rejstrik-$firma?ico=26143551"
+    },
+    {
+     "label": "Pečecké služby, s.r.o. — Kontakty (firemní web, neaktuální jméno jednatele)",
+     "url": "https://pececkesluzby.cz/office/"
+    }
+   ],
+   "verified": "2026-09-05"
+  },
+  {
+   "id": "tj-sokol-pecky",
+   "name": "Tělocvičná jednota Sokol Pečky",
+   "short_name": "TJ Sokol Pečky",
+   "type": "spolek",
+   "ico": "00664171",
+   "address": "",
+   "web": "https://www.sokolpecky.cz/",
+   "color": null,
+   "css_class": null,
+   "former_names": [],
+   "note": "Spolek (zapsaný spolek, nezisková organizace), 1–5 zaměstnanců. Do rejstříku doplněn 20. 9. 2026 jako možný pořadatel akcí v sekci Kalendář; vazby na konkrétní osoby zatím neevidujeme.",
+   "sources": [
+    {
+     "label": "Tělocvičná jednota Sokol Pečky — Hlídač státu",
+     "url": "https://www.hlidacstatu.cz/subjekt/00664171"
+    },
+    {
+     "label": "TJ Sokol Pečky — oficiální web",
+     "url": "https://www.sokolpecky.cz/"
+    }
+   ],
+   "verified": "2026-09-20"
+  },
+  {
+   "id": "pececky-okraslovaci-spolek",
+   "name": "Pečecký okrašlovací spolek",
+   "short_name": "Okrašlovací spolek",
+   "type": "spolek",
+   "ico": "21001634",
+   "address": "",
+   "web": "",
+   "color": null,
+   "css_class": null,
+   "former_names": [],
+   "note": "Spolek (zapsaný spolek, nezisková organizace). Do rejstříku doplněn 20. 9. 2026 jako pořadatel přednáškového cyklu, který vypisuje program Kulturního domu Pečky 9–12/2026 (listopad a prosinec 2026, přednáškový sál KD); vazby na konkrétní osoby zatím neevidujeme.",
+   "sources": [
+    {
+     "label": "Pečecký okrašlovací spolek — Hlídač státu",
+     "url": "https://www.hlidacstatu.cz/subjekt/21001634"
+    }
+   ],
+   "verified": "2026-09-20"
+  },
+  {
+   "id": "hospoda-na-hristi-pecky",
+   "name": "Hospoda na hřišti",
+   "short_name": "Hospoda na hřišti",
+   "type": "firma",
+   "ico": null,
+   "address": "",
+   "web": "",
+   "color": null,
+   "css_class": null,
+   "former_names": [],
+   "note": "Restaurace/hospoda u sportovního hřiště v Pečkách. Soukromý podnik, ne městská ani spolková organizace. IČO se nepodařilo dohledat (Hlídač státu bez shody na název) — pořadatel akcí v sekci Kalendář i tak, jen bez IČO v rejstříku.",
+   "sources": [
+    {
+     "label": "Instagram — Hospoda na hřišti",
+     "url": "https://www.instagram.com/hospoda_na_hristi_pecky/"
+    }
+   ],
+   "verified": "2026-09-22"
+  },
+  {
+   "id": "vzdelavaci-centrum-pecky",
+   "name": "Vzdělávací centrum Pečky",
+   "short_name": "Vzdělávací centrum",
+   "type": "prispevkova",
+   "ico": "70927022",
+   "address": "Tř. Jana Švermy 141, Pečky, 289 11",
+   "web": "https://www.vzcentrum.cz",
+   "color": null,
+   "css_class": null,
+   "former_names": [],
+   "note": "Provoz Kulturního střediska města Pečky (`kulturni-stredisko-pecky`) — tatáž právnická osoba/IČO, jen jiná budova (Tř. Jana Švermy 141, KD je na Tř. Jana Švermy 255) a jiná nabídka (kroužky, víkendovky, klub Klubko, tábory pro děti). Vedeno jako vlastní pořadatel v Kalendáři (na žádost uživatele, 22. 9. 2026), aby dlouhodobě opakovaná pravidelná činnost kroužků nesplynula ve filtru s vlastním jednorázovým kulturním programem střediska.",
+   "sources": [
+    {
+     "label": "Vzdělávací centrum Pečky — vzcentrum.cz",
+     "url": "https://www.vzcentrum.cz"
+    }
+   ],
+   "verified": "2026-09-22"
+  }
+ ]
 }

@@ -425,6 +425,72 @@ seznam místo rozházených poznámek po repu.
       hospoda na svém profilu taky zmiňuje („u nás na hřišti") — doplněn
       jako druhý doklad `evidence[]` k existujícímu záznamu KD, ne nový
       záznam.
+  - **Vzdělávací centrum Pečky** — [vzcentrum.cz](https://www.vzcentrum.cz)
+    (`sources.json` → `vzcentrum-cz`), zapojeno 22. 9. 2026 na žádost
+    uživatele. Provoz Kulturního střediska (tatáž právnická osoba/IČO,
+    viz `lide/organizations.json` → `kulturni-stredisko-pecky`), ale
+    veden jako **vlastní pořadatel `vzdelavaci-centrum-pecky`** — jinak
+    by ~1400 týdenních kroužků ve filtru „Pořadatel" splynulo s KD
+    vlastním jednorázovým programem pod jedním čipem (generátor
+    (`update-kalendar.py`) bere název čipu z registru podle `organizer`
+    id, ne z `organizer_name` u jednotlivé události — ten se použije,
+    jen když `organizer` chybí úplně).
+    - **`/krouzky`** — 43 kroužků pro školní rok 2026/2027. Vynechány:
+      „S kytarou za písničkou" (den/čas web neuvádí) a „Výletník"
+      (měsíční celodenní výlety, web slibuje „termíny září–prosinec
+      budou upřesněny v září", zatím žádné konkrétní datum) — case
+      „akce bez data" z `automation-plakat-akce.md`. Sloučeno bez ztráty
+      informace: 4× „Příprava na přijímačky" → 2 záznamy podle časového
+      slotu (dvojkaři/trojkaři i gymnázia/jedničkáři běží ve stejný čas
+      souběžně, zmíněno v `note`), taneční kurz 4× (dívky/chlapci ×
+      odpolední/večerní) → 2 záznamy podle slotu (dívky a chlapci mají
+      oddělenou kapacitu, ale tutéž fyzickou lekci). **Zbylých 37 sérií
+      rozepsáno na jednotlivé týdenní termíny** od prvního výskytu dne
+      v týdnu do konce školního roku **30. 6. 2027**, se stejným
+      vynecháním prázdnin jako u TJ Sokol výše (podzimní, vánoční,
+      pololetní, jarní pro okres Kolín, velikonoční). Web na rozdíl od
+      TJ Sokol neuvádí explicitní „začínáme od" datum pro běžné kroužky
+      — použit **stejný referenční týden jako u TJ Sokol (od 7. 9. 2026)**,
+      přiznaná mezera, ne potvrzený fakt. **Taneční kurz** (organizátor
+      zůstává `kulturni-stredisko-pecky`, ne Vzdělávací centrum — kontakt
+      v popisu je `kspecky@seznam.cz`, jde o vlastní program KD jen
+      cross-listovaný na vzcentrum.cz) má explicitní první lekci
+      19. 9. 2026, plus tři prodloužené lekce a věneček na pevná data
+      mimo pravidelný rozvrh (9./10., 30./31. 10., 20./21. 11.,
+      11./12. 12. 2026, podle skupiny) — ty zapsány zvlášť jako
+      jednorázové `akce`, ne jako další „kurz" výskyty.
+    - **`/vikendovky` a `/klubko`** — k 22. 9. 2026 obsahují jen školní
+      rok 2025/2026 (víkendovky 25. 9. 2025 – 4. 6. 2026, Klubko
+      15. 9. 2025 – 4. 5. 2026), všechno proběhlé. Sezóna 2026/2027 tam
+      zatím není zveřejněná — nic k zápisu. **Zkontrolovat znovu při
+      každé další kontrole Kalendáře** (na žádost uživatele), ne čekat
+      na zvláštní podnět. Klubko pro info: měsíční tematický kurz, vždy
+      4 úterní termíny v měsíci, 18:00–19:30, potvrzeno z plakátů.
+    - **`/tabory`** — prázdné („Počet nalezených táborů: 0"), typicky
+      sezónní sekce plněná blíž k létu/prázdninám.
+  - **ZUŠ Pečky** — [zuspecky.cz/rozvrh-hodin](https://zuspecky.cz/rozvrh-hodin/)
+    (`sources.json` → `web-zuspecky-cz`, `organizer: zus-pecky`), zapojeno
+    22. 9. 2026 na žádost uživatele. Stránka je výslovně označená
+    „Předběžné rozvrhy hodin skupinových předmětů ve školním roce
+    2026–2027" a „Změna vyhrazena!" — volnější status než u ostatních
+    zdrojů, zapsáno i tak, ale beze snahy vydávat to za jistotu.
+    Obsahuje jen **skupinové předměty** (individuální výuka nástroje na
+    webu logicky není — rozvrh po jednotlivých žácích se nezveřejňuje):
+    Přípravka (PHV), Hudební nauka po ročnících (1.–5.) a Hudební nauka
+    se sborem (1.–3. roč.), a tři soubory (Small band, Pěvecký sbor,
+    NeSoubor) — **10 řádků, 437 nových „kurz" záznamů** rozepsaných po
+    týdnech od stejného referenčního startu jako u TJ Sokol/Vzdělávacího
+    centra (7. 9. 2026 — web žádné konkrétní datum neuvádí) do konce
+    školního roku 30. 6. 2027, stejné vynechání prázdnin. „Hudební nauka
+    se sborem" **zapsána jako dva paralelní záznamy** (pondělí i úterý,
+    na žádost uživatele) — stejný předmět, čas i vyučující, koná se
+    ale dvakrát týdně, ne jen jednou. **Místo vždy s dovětkem
+    „Základní umělecká škola Pečky"** (na žádost uživatele, stejné
+    pravidlo jako „žádné zkratky" u Vzdělávacího centra výše) —
+    `place` je „Učebna č. 7, Základní umělecká škola Pečky, Barákova 700,
+    Pečky" nebo „Malý sál, Základní umělecká škola Pečky, Barákova 700,
+    Pečky", ne jen „Učebna č. 7"/„Malý sál" samo o sobě. Vyučující
+    v `description`, ne v `note` — jde o běžný, ne výjimečný údaj.
   - **Volební uskupení 2026** — zapojeno 22. 9. 2026 na žádost uživatele,
     viz pravidlo „rovné zacházení" u kroku „U facebookových zdrojů vždy
     nejdřív zkontrolovat `/events`" výše. První kontrola všech pěti

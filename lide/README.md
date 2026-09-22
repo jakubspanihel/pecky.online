@@ -58,16 +58,38 @@ tahle kapitola je provozní — jak s daty pracovat.
 
 ```
 foto/                portréty z jiných zdrojů než z voleb (viz níž)
-people.json          266 osob (21 aktuálních zastupitelů + 2 bývalí s plným
+people.json          287 osob (21 aktuálních zastupitelů + 2 bývalí s plným
                       profilem, 206 dalších kandidátů ze všech kandidátek
                       2018/2022/2026 s minimálním záznamem (SPEC.md §3.6),
                       13 vedení úřadu/příspěvkovek/firem (fáze 5b, §7),
-                      8 nových jen kvůli členství v komisi RM/školské radě)
-organizations.json   16 organizací (Město Pečky + 8 volebních uskupení +
-                      7 příspěvkovek/firem — fáze 5b)
-affiliations.json   485 vazeb osoba–organizace
+                      8 jen kvůli členství v komisi RM/školské radě,
+                      21 pedagogů ZUŠ Pečky — viz níž)
+organizations.json   20 organizací (Město Pečky + 8 volebních uskupení +
+                      7 příspěvkovek + 2 firmy + 2 spolky)
+affiliations.json   506 vazeb osoba–organizace
 validate.mjs         validátor
 ```
+
+**Pedagogický sbor ZUŠ Pečky** (doplněno 22. 9. 2026): ředitelka (dřív
+`vorlickovap`), zástupkyně ředitelky a 20 učitelů ze 4 oborů (hudební,
+výtvarný a multimediální, taneční, literárně-dramatický) — zdroj
+[zuspecky.cz/kontakty](https://zuspecky.cz/kontakty/), který u každého
+uvádí jméno, obor/nástroj a pracovní e-mail. Zástupkyně ředitelky
+(`role_type: "vedeni-organizace"`, stejně jako ředitelka) je zapsaná
+jednou vazbou, která v `role` kombinuje funkci i to, co učí — dělat pro
+tutéž osobu na stejné organizaci dvě vazby (vedení + výuka) by jen
+duplikovalo kartičku. Zbylých 20 má vlastní `role_type: "ucitel"`
+(doplněno 22. 9. 2026, na pokyn autora webu) — **ne** `"zamestnanec"`,
+aby šli učitelé filtrovat zvlášť od úřednického personálu; do budoucna
+se stejný typ použije i pro učitele ZŠ Pečky. `content/lide.html`
+i tak počítá `ucitel` do stejné skupiny „Městské organizace" jako
+`vedeni-organizace`/`zamestnanec` u ostatních organizací (`_organizace`
+v `lJoin`) — jen řádek s filtry navíc nabízí čip „Učitelé", který
+`role_type` „zamestnanec" nechává čistě pro úřad. Zavedení tohoto typu
+poprvé opouští dosavadní pravidlo „jen zaměstnanci úřadu" (viz „Kdo do
+adresáře patří" níž) — škola samotná zveřejňuje jmenný seznam učitelů
+s e-maily, takže platí stejná logika transparentnosti jako u úřadu.
+Datum nástupu web školy neuvádí u nikoho, proto `from: null` napříč.
 
 **Komise RM a školská rada** (doplněno 19. 9. 2026): pět iniciativních a
 poradních komisí rady města (sportovní, kulturní, Sbor pro občanské
@@ -319,13 +341,16 @@ Volení funkcionáři (zastupitelé, rada), jmenované vedení (úřad, městsk�
 organizace), **i řadoví zaměstnanci úřadu** — referentky, účetní, matrikářka
 — a od 19. 9. 2026 i **členové komisí rady města a školské rady ZŠ Pečky**
 (`role_type: "komise"`, viz „Datová sada" výš). U zaměstnanců se ale vede
-**jen to, co radnice sama zveřejňuje jako služební spojení**: jméno, funkce,
-pracovní e-mail a telefon. Nic dalšího se k nim nedohledává. Podrobně
+**jen to, co organizace sama zveřejňuje jako služební spojení**: jméno,
+funkce, pracovní e-mail a telefon. Nic dalšího se k nim nedohledává. Podrobně
 a s odůvodněním v SPEC.md §6, bod 4.
 
 Do 8. 9. 2026 platilo pravidlo opačné („ne řadoví zaměstnanci") a změnilo se
 na pokyn autora webu při doplňování kontaktů z organizační struktury na
-pecky.cz.
+pecky.cz. Od 22. 9. 2026 platí stejné pravidlo i mimo úřad — první případ
+je celý pedagogický sbor ZUŠ Pečky (21 lidí, zdroj zuspecky.cz/kontakty),
+protože škola sama zveřejňuje jmenný seznam učitelů s e-maily; u jiných
+příspěvkovek se to samé doplní, až se najde srovnatelně veřejný zdroj.
 
 Kandidáti bez mandátu jsou v datech, ale panel je nevypisuje — to je jiná věc,
 viz „Co panel vypisuje a co ne".
@@ -338,6 +363,14 @@ nezobrazují: rejstřík organizací slouží celému webu, ne jen téhle sekci,
 sekce Kalendář se na jejich id odkazuje jako na pořadatele akcí
 (`kalendar/akce.json` → `organizer`, viz `kalendar/README.md`). Vazby na
 konkrétní lidi se k nim doplní, až pro ně bude doložený zdroj.
+
+Od 22. 9. 2026 přibylo `vzdelavaci-centrum-pecky` (`type: "prispevkova"`,
+stejné IČO jako `kulturni-stredisko-pecky` — jde o tutéž právnickou osobu,
+jen jiný provoz/budova) — samostatné id, aby se v Kalendáři jeho ~1400
+týdenních kroužků neslila ve filtru s vlastním programem Kulturního domu
+pod jedno pořadatelské jméno. Přesný vzor jako u obou spolků výše, jen
+s odlišným důvodem pro oddělení (kapacita filtru, ne odlišná právnická
+osoba).
 
 ### Povolání
 
