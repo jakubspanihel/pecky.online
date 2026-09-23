@@ -26,8 +26,12 @@ const ROLE_TYPES = [
   // zvlášť od úřednického personálu — první užití u ZUŠ Pečky, teď i ZŠ.
   // vychovatel (družina/školní klub) je od učitele odlišná profese, i když
   // taky pedagogický pracovník — proto další vlastní typ, ne totéž jako
-  // učitel (doplněno 22. 9. 2026, na pokyn autora webu)
-  'zamestnanec', 'ucitel', 'vychovatel', 'clen', 'komise', 'kandidatka', 'jine',
+  // učitel (doplněno 22. 9. 2026, na pokyn autora webu). Stejným dnem a ze
+  // stejného důvodu přibyly asistent-pedagoga (pomáhá konkrétnímu dítěti/
+  // třídě, nemá kvalifikaci učitele) a provozni (nepedagogický personál —
+  // úklid, údržba)
+  'zamestnanec', 'ucitel', 'vychovatel', 'asistent-pedagoga', 'provozni',
+  'clen', 'komise', 'kandidatka', 'jine',
 ];
 
 const SLUG = /^[a-z0-9-]+$/;

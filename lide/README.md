@@ -58,17 +58,41 @@ tahle kapitola je provozní — jak s daty pracovat.
 
 ```
 foto/                portréty z jiných zdrojů než z voleb (viz níž)
-people.json          335 osob (21 aktuálních zastupitelů + 2 bývalí s plným
+people.json          357 osob (21 aktuálních zastupitelů + 2 bývalí s plným
                       profilem, 206 dalších kandidátů ze všech kandidátek
                       2018/2022/2026 s minimálním záznamem (SPEC.md §3.6),
                       13 vedení úřadu/příspěvkovek/firem (fáze 5b, §7),
                       8 jen kvůli členství v komisi RM/školské radě,
-                      21 pedagogů ZUŠ Pečky, 48 pedagogů ZŠ Pečky — viz níž)
+                      21 pedagogů ZUŠ Pečky, 48 pedagogů ZŠ Pečky,
+                      22 lidí z MŠ MAŠINKA Pečky — viz níž)
 organizations.json   20 organizací (Město Pečky + 8 volebních uskupení +
                       7 příspěvkovek + 2 firmy + 2 spolky)
-affiliations.json   560 vazeb osoba–organizace
+affiliations.json   582 vazeb osoba–organizace
 validate.mjs         validátor
 ```
+
+**MŠ MAŠINKA Pečky** (doplněno 22. 9. 2026): 13 učitelek + zástupkyně
+ředitelky + 4 asistentky pedagoga + 4 uklízečky, dohledáno na
+stránkách jednotlivých tříd — zdroj
+[msmasinkapecky.cz/nase-tridy](https://www.msmasinkapecky.cz/nase-tridy/)
+(7 tříd, každá má vlastní podstránku s bios učitelek a závěrečnou větou
+jmenující úklid a asistentku pedagoga). Ředitelka `bubenickovak` beze
+změny — jen potvrzeno, že vedle vedení školy učí i ve třídě Domeček
+(do jejího záznamu se to nedopisovalo, stejný princip jako u ředitelky
+ZUŠ). **Nový nález:** Petra Tvrdá je
+zástupkyně ředitelky (dosud v datech nebyla vůbec) — zapsaná jednou
+vazbou `role_type: "vedeni-organizace"`, která kombinuje funkci vedení
+i to, že učí třídu Kytička (stejný vzor jako zástupkyně ředitelky ZUŠ).
+Dva nové typy v číselníku, na pokyn autora webu:
+`role_type: "asistent-pedagoga"` (pomáhá konkrétnímu dítěti/třídě, nemá
+kvalifikaci učitele — jiná profese než učitel i vychovatel) a
+`role_type: "provozni"` (nepedagogický personál — úklid; dvě uklízečky
+uklízí po dvou třídách, zapsané jednou vazbou s oběma třídami v `role`,
+ne dvakrát). Všechny čtyři nové typy (`ucitel`, `vychovatel`,
+`asistent-pedagoga`, `provozni`) počítají do stejné skupiny „Městské
+organizace" (`_organizace` v `content/lide.html`), každý s vlastním
+filtrovacím čipem. Žádná z těchto osob nemá e-mail/telefon — třídní
+stránky uvádí jen kontakt na třídu jako celek, ne na jednotlivé lidi.
 
 **Pedagogický sbor ZŠ Pečky** (doplněno 22. 9. 2026): 46 učitelů 1. a
 2. stupně a 7 vychovatelek školní družiny — zdroje
