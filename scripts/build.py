@@ -145,6 +145,17 @@ EXTRA_PAGES = {
         # proto má lastmod a jde do sitemapy, viz komentář výše. Od
         # 22. 9. 2026 vypisuje jen nadcházející akce (přepínač Období pryč).
         False, 'kalendar', '2026-09-22'),
+    'nejdelsi': (
+        '/jednani/nejdelsi.html', 'Nejdelší jednání zastupitelstva — pecky.online',
+        'Deset bodů jednání zastupitelstva města Pečky s nejdelší dobou '
+        'projednávání v aktuálním volebním období, dopočítané z časových '
+        'značek videozáznamů na YouTube.',
+        # Odkázaná z /jednani/ (odstavec hned za "Kontrola docházky") od
+        # 23. 9. 2026 — proto má lastmod a jde do sitemapy, viz komentář výše.
+        # Statická tabulka (snímek k datu lastmod) — na rozdíl od absence.html
+        # se nefetchuje z JSON, ať se při ohlédnutí na starší žebříček neplete
+        # čtenář s průběžně rostoucím zdrojem dat.
+        False, 'jednani', '2026-09-23'),
 }
 
 
