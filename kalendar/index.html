@@ -5,15 +5,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Kalendář — pecky.online</title>
 <meta name="description" content="Kalendář termínů týkajících se města Pečky.">
-<link rel="canonical" href="https://jakubspanihel.github.io/pecky.online/kalendar/">
+<link rel="canonical" href="https://dopecek.cz/kalendar/">
 <meta property="og:title" content="Kalendář — pecky.online">
 <meta property="og:description" content="Kalendář termínů týkajících se města Pečky.">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://jakubspanihel.github.io/pecky.online/kalendar/">
+<meta property="og:url" content="https://dopecek.cz/kalendar/">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/pecky.online/assets/styles.css">
+<link rel="stylesheet" href="/assets/styles.css">
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-1CW9XK1VJY"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -24,12 +24,12 @@
 
 </head>
 <body>
-<script>window.SITE_BASE_PATH = '/pecky.online';</script>
+<script>window.SITE_BASE_PATH = '';</script>
 <header class="site">
   <div class="header-inner">
     <div class="brand-row">
-      <a class="brand" href="/pecky.online/">
-        <div class="mark"><img src="/pecky.online/img/Pecky-logo-mesta.webp" alt="Znak města Pečky" width="40" height="40"></div>
+      <a class="brand" href="/">
+        <div class="mark"><img src="/img/Pecky-logo-mesta.webp" alt="Znak města Pečky" width="40" height="40"></div>
         <h1>Pečky online <small>tvoří PečkyBot AI</small></h1>
       </a>
       <button type="button" class="info-fab" id="infoFab" title="O webu" aria-label="Přejít na patičku s informacemi o webu">i</button>
@@ -42,7 +42,7 @@
     <h2 class="title display">Kalendář</h2>
     <p class="lastmod" data-date="2026-09-23">Aktualizováno: 23. 9. 2026</p>
     <p class="lede"><a href="https://calendar.google.com/calendar/embed?src=a81de8fe68a5e6d118ceeea3614ba159febf695e65b164cade86b682d58ef726%40group.calendar.google.com&ctz=Europe%2FPrague" target="_blank" rel="noopener">Odebírejte kalendář</a> přímo ve vašem Google, Apple i Outlook kalendáři (dostupné také jako <a href="https://calendar.google.com/calendar/ical/a81de8fe68a5e6d118ceeea3614ba159febf695e65b164cade86b682d58ef726%40group.calendar.google.com/public/basic.ics" target="_blank" rel="noopener">iCal</a>).<br>
-      Měsíční mřížka termínů z Peček — jednání, volby, kulturní akce a kurzy. <a href="/pecky.online/kalendar/akce/">Výpis také v tabulce</a>.</p>
+      Měsíční mřížka termínů z Peček — jednání, volby, kulturní akce a kurzy. <a href="/kalendar/akce/">Výpis také v tabulce</a>.</p>
 
     <div class="filter-chips" id="kal-filter-org" role="group" aria-label="Filtr podle pořadatele" hidden></div>
 
@@ -64,7 +64,7 @@
     <div class="callout" style="margin-top:22px;">
       Kalendář čerpá z těchto zdrojů:
       <ul class="program-list" style="margin-top:8px;">
-        <li><strong>Jednání rady a zastupitelstva</strong> — archiv sekce <a href="/pecky.online/jednani/">Jednání</a></li>
+        <li><strong>Jednání rady a zastupitelstva</strong> — archiv sekce <a href="/jednani/">Jednání</a></li>
         <li><strong>Termín komunálních voleb</strong> — <a href="https://csu.gov.cz/informace-k-aktualne-vyhlasenym-volbam" target="_blank" rel="noopener">Český statistický úřad</a></li>
         <li><strong>Kulturní středisko města Pečky</strong> — <a href="https://www.facebook.com/kspecky" target="_blank" rel="noopener">Facebook</a></li>
         <li><strong>Městská knihovna Svatopluka Čecha</strong> — <a href="https://www.facebook.com/knihovnapecky" target="_blank" rel="noopener">Facebook</a> a <a href="https://www.pececko.cz" target="_blank" rel="noopener">web</a></li>
@@ -210,7 +210,7 @@
     kalRenderGrid();
   });
 
-  fetch('/pecky.online/kalendar/udalosti.json')
+  fetch('/kalendar/udalosti.json')
     .then(r => r.json())
     .then(data => {
       (data.events || []).forEach(e => {
@@ -231,24 +231,24 @@
 </main>
 <footer class="site">
   <div class="footer-inner">
-    <img class="peckybot" src="/pecky.online/img/peckybot/welcome.png" alt="PečkyBot">
+    <img class="peckybot" src="/img/peckybot/welcome.png" alt="PečkyBot">
     <p class="lede">Ahoj! 👋</p>
     <p class="lede"><strong>Já jsem PečkyBot. <br>Procházím internet a hledám informace o Pečkách (28911, okres Kolín)</strong></p>
   </div>
   <nav class="tabs footer-inner" id="tabs">
-    <a class="navlink" href="/pecky.online/">Domů</a>
-    <a class="navlink" href="/pecky.online/jednani/">📅 Jednání</a>
-    <a class="navlink" href="/pecky.online/noviny/">📰 Pečecké noviny</a>
-    <a class="navlink" href="/pecky.online/lide/">Lidé</a>
-    <a class="navlink" href="/pecky.online/plan/">Plán</a>
-    <a class="navlink" href="/pecky.online/telocvicna/">🏗️ Tělocvična</a>
-    <a class="navlink" href="/pecky.online/volby/">Volby</a>
-    <a class="navlink" href="/pecky.online/smlouvy/">Smlouvy</a>
-    <a class="navlink" href="/pecky.online/zakazky/">Zakázky</a>
-    <a class="navlink" href="/pecky.online/pozemky/">Pozemky</a>
-    <a class="navlink" href="/pecky.online/pokladna/">Pokladna</a>
-    <a class="navlink active" href="/pecky.online/kalendar/">🗓️ Kalendář</a>
-    <a class="navlink" href="/pecky.online/o-webu/">O webu</a>
+    <a class="navlink" href="/">Domů</a>
+    <a class="navlink" href="/jednani/">📅 Jednání</a>
+    <a class="navlink" href="/noviny/">📰 Pečecké noviny</a>
+    <a class="navlink" href="/lide/">Lidé</a>
+    <a class="navlink" href="/plan/">Plán</a>
+    <a class="navlink" href="/telocvicna/">🏗️ Tělocvična</a>
+    <a class="navlink" href="/volby/">Volby</a>
+    <a class="navlink" href="/smlouvy/">Smlouvy</a>
+    <a class="navlink" href="/zakazky/">Zakázky</a>
+    <a class="navlink" href="/pozemky/">Pozemky</a>
+    <a class="navlink" href="/pokladna/">Pokladna</a>
+    <a class="navlink active" href="/kalendar/">🗓️ Kalendář</a>
+    <a class="navlink" href="/o-webu/">O webu</a>
   </nav>
   <div class="footer-inner footer-credits">
     <p style="margin:0;">Sestaveno s pomocí umělé inteligence (vše je ozdrojované, ale kontrolujte si informace i z dalších zdrojů).</p>
@@ -258,6 +258,6 @@
   </div>
 </footer>
 
-<script src="/pecky.online/assets/common.js"></script>
+<script src="/assets/common.js"></script>
 </body>
 </html>

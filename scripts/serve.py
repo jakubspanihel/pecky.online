@@ -1,13 +1,16 @@
 #!/usr/bin/env python3
-"""Lokální dev server, který napodobuje GitHub Pages subcestu (/pecky.online/),
-aby při testu fungovaly stejné kořenově-absolutní odkazy jako po nasazení
-(viz SITE_BASE_PATH ve scripts/build.py). Bez tohohle by lokální test na
-http://localhost:PORT/ ukazoval nestylovanou stránku s 404 na assety, i
-když je build v pořádku - subcesta lokálně jinak neexistuje.
+"""Lokální dev server pro pecky.online.
+
+Web běží na vlastní doméně dopecek.cz na kořeni (SITE_BASE_PATH = ''
+ve scripts/build.py), takže kořenově-absolutní odkazy (/assets/...)
+fungují na http://localhost:PORT/ beze změny - žádná subcesta se
+lokálně nesimuluje. (BASE_PATH tu zůstává jen jako přepínač pro
+starší stav bez vlastní domény, kdy web běžel na GitHub Pages
+subcestě /pecky.online/ - viz historie tohoto souboru.)
 
 Použití:
     python3 scripts/serve.py [port]   # výchozí port 8000
-Pak otevřít http://localhost:PORT/pecky.online/
+Pak otevřít http://localhost:PORT/
 """
 import functools
 import http.server
@@ -15,7 +18,7 @@ import os
 import sys
 from pathlib import Path
 
-BASE_PATH = '/pecky.online'
+BASE_PATH = ''
 # Absolute, resolved from __file__ rather than the process's cwd — a
 # relative path (or the default no-`directory` behavior of
 # SimpleHTTPRequestHandler) needs a working os.getcwd() at request time,

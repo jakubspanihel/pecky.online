@@ -14,15 +14,16 @@ o samosprávě města Pečky (okres Kolín, Středočeský kraj).
   samostatných veřejných stránek (`index.html` na kořeni = Domů,
   `jednani/index.html`, `noviny/index.html`, `volby/2018/index.html`
   atd.) — needit vygenerované stránky přímo, vždy přes odpovídající
-  `content/*.html` + `scripts/build.py`. Repo zatím nemá vlastní doménu
-  (viz ARCHITEKTURA-MIGRACE.md), takže odkazy/assety počítají s GitHub
-  Pages subcestou `/pecky.online/` (`SITE_BASE_PATH` ve `scripts/build.py`)
-  — pro místní test proto místo `python3 -m http.server` spustit
-  `python3 scripts/serve.py` (napodobí tu samou subcestu) a otevřít
-  `http://localhost:8000/pecky.online/`. Několik sekcí (Jednání, Pečecké
-  noviny, Lidé) si navíc data načítá přes `fetch()`, takže i bez ohledu
-  na subcestu je lokální server nutný — otevření vygenerovaných stránek
-  přímo ze souboru (`file://`) fetch v některých prohlížečích zablokuje.
+  `content/*.html` + `scripts/build.py`. Web běží na vlastní doméně
+  `dopecek.cz` na kořeni (`CNAME` v rootu repa, GitHub Pages — viz
+  ARCHITEKTURA-MIGRACE.md, Dodatek 3), odkazy/assety jsou proto
+  kořenově-absolutní bez subcesty (`SITE_BASE_PATH = ''` ve
+  `scripts/build.py`) — pro místní test proto místo `python3 -m
+  http.server` spustit `python3 scripts/serve.py` a otevřít
+  `http://localhost:8000/`. Několik sekcí (Jednání, Pečecké noviny,
+  Lidé) si navíc data načítá přes `fetch()`, takže lokální server je
+  nutný i tak — otevření vygenerovaných stránek přímo ze souboru
+  (`file://`) fetch v některých prohlížečích zablokuje.
 - `jednani/` — vše k sekci „Jednání": `pecky-jednani.json` (odlehčený
   index pro fulltextové hledání na webu), `archive-2026-08-04.json`
   (kompletní datový snímek se všemi detaily vč. jmenovitých hlasování),

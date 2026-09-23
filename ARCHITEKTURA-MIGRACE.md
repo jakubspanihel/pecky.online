@@ -32,6 +32,14 @@ i pár runtime míst, která staví cesty z JSON dat nebo JS řetězců
 Lokální test proto běží přes `python3 scripts/serve.py` (napodobí tu
 samou subcestu), ne přímo `python3 -m http.server` — viz `README.md`.
 
+Dodatek 3 (23. 9. 2026): web teď běží na vlastní doméně `dopecek.cz`
+na kořeni (GitHub Pages, `CNAME` v rootu repa) — `pecky.online` jako
+doména zůstává mimo dosah (viz Dodatek 2), takže se místo ní použila
+`dopecek.cz`. `SITE_BASE_PATH`/`SITE_DOMAIN` ve `scripts/build.py`
+přepnuty na `''`/`'https://dopecek.cz'`, žádná subcesta se už
+nepřepisuje ani lokálně nesimuluje (`scripts/serve.py` teď servíruje
+přímo z kořene).
+
 ## 1. Současný stav (fakta)
 
 - Jeden soubor `index.html`, 13 panelů (`data-panel`), přepínaných JS.

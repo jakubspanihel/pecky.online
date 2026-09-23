@@ -22,12 +22,12 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 
-# Nasazení: repo zatím nemá vlastní doménu (pecky.online drží někdo jiný,
-# viz ARCHITEKTURA-MIGRACE.md), takže běží na GitHub Pages subcestě.
-# Až bude vlastní doména na kořeni, přepnout na SITE_BASE_PATH = '' a
-# SITE_DOMAIN = 'https://pecky.online' - jediné dvě řádky ke změně.
-SITE_BASE_PATH = '/pecky.online'
-SITE_DOMAIN = 'https://jakubspanihel.github.io/pecky.online'
+# Nasazení: vlastní doména dopecek.cz na kořeni (CNAME, přes GitHub Pages),
+# viz ARCHITEKTURA-MIGRACE.md. Dřív web běžel na GitHub Pages subcestě
+# (https://jakubspanihel.github.io/pecky.online/) bez vlastní domény —
+# proto SITE_BASE_PATH pořád existuje jako přepínač pro tenhle stav.
+SITE_BASE_PATH = ''
+SITE_DOMAIN = 'https://dopecek.cz'
 
 # Google Analytics 4 (gtag.js), vkládá se do templates/page.html na každé stránce.
 GA_MEASUREMENT_ID = 'G-1CW9XK1VJY'

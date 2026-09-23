@@ -5,15 +5,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Jak vás zastupitelé zastupují — pecky.online</title>
 <meta name="description" content="Docházka zastupitelů a radních města Pečky na jednání v aktuálním volebním období — spočítáno z jmenné prezence v zápisech, opravené o pozdní příchody.">
-<link rel="canonical" href="https://jakubspanihel.github.io/pecky.online/jednani/absence.html">
+<link rel="canonical" href="https://dopecek.cz/jednani/absence.html">
 <meta property="og:title" content="Jak vás zastupitelé zastupují — pecky.online">
 <meta property="og:description" content="Docházka zastupitelů a radních města Pečky na jednání v aktuálním volebním období — spočítáno z jmenné prezence v zápisech, opravené o pozdní příchody.">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://jakubspanihel.github.io/pecky.online/jednani/absence.html">
+<meta property="og:url" content="https://dopecek.cz/jednani/absence.html">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/pecky.online/assets/styles.css">
+<link rel="stylesheet" href="/assets/styles.css">
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-1CW9XK1VJY"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -21,15 +21,15 @@
   gtag('js', new Date());
   gtag('config', 'G-1CW9XK1VJY');
 </script>
-<script src="/pecky.online/assets/helpers.js"></script>
+<script src="/assets/helpers.js"></script>
 </head>
 <body>
-<script>window.SITE_BASE_PATH = '/pecky.online';</script>
+<script>window.SITE_BASE_PATH = '';</script>
 <header class="site">
   <div class="header-inner">
     <div class="brand-row">
-      <a class="brand" href="/pecky.online/">
-        <div class="mark"><img src="/pecky.online/img/Pecky-logo-mesta.webp" alt="Znak města Pečky" width="40" height="40"></div>
+      <a class="brand" href="/">
+        <div class="mark"><img src="/img/Pecky-logo-mesta.webp" alt="Znak města Pečky" width="40" height="40"></div>
         <h1>Pečky online <small>tvoří PečkyBot AI</small></h1>
       </a>
       <button type="button" class="info-fab" id="infoFab" title="O webu" aria-label="Přejít na patičku s informacemi o webu">i</button>
@@ -41,7 +41,7 @@
   <section class="panel active" id="panel-absence">
     <h2 class="title display">Jak vás zastupitelé zastupují</h2>
     <p class="lastmod" data-date="2026-09-19">Aktualizováno: 19. 9. 2026</p>
-    <p class="lede">Docházka zastupitelů a radních na jednání. Zdrojem dat jsou zápisy z <a href="/pecky.online/jednani/">jednání</a>. <span class="stamp">ověřeno</span></p>
+    <p class="lede">Docházka zastupitelů a radních na jednání. Zdrojem dat jsou zápisy z <a href="/jednani/">jednání</a>. <span class="stamp">ověřeno</span></p>
 
     <div class="subtabs" role="tablist" aria-label="Části stránky Absence">
       <button class="subtablink active" type="button" data-subpanel="absence-rada">Rada</button>
@@ -221,10 +221,10 @@
   });
 
   Promise.all([
-    fetch('/pecky.online/jednani/absence.json').then(r => { if (!r.ok) throw new Error(r.status); return r.json(); }),
-    fetch('/pecky.online/lide/people.json').catch(() => null),
-    fetch('/pecky.online/lide/organizations.json').catch(() => null),
-    fetch('/pecky.online/lide/affiliations.json').catch(() => null)
+    fetch('/jednani/absence.json').then(r => { if (!r.ok) throw new Error(r.status); return r.json(); }),
+    fetch('/lide/people.json').catch(() => null),
+    fetch('/lide/organizations.json').catch(() => null),
+    fetch('/lide/affiliations.json').catch(() => null)
   ]).then(async ([absence, peopleRes, orgsRes, affsRes]) => {
     try {
       if (peopleRes && peopleRes.ok && orgsRes && orgsRes.ok && affsRes && affsRes.ok) {
@@ -252,24 +252,24 @@
 </main>
 <footer class="site">
   <div class="footer-inner">
-    <img class="peckybot" src="/pecky.online/img/peckybot/welcome.png" alt="PečkyBot">
+    <img class="peckybot" src="/img/peckybot/welcome.png" alt="PečkyBot">
     <p class="lede">Ahoj! 👋</p>
     <p class="lede"><strong>Já jsem PečkyBot. <br>Procházím internet a hledám informace o Pečkách (28911, okres Kolín)</strong></p>
   </div>
   <nav class="tabs footer-inner" id="tabs">
-    <a class="navlink" href="/pecky.online/">Domů</a>
-    <a class="navlink active" href="/pecky.online/jednani/">📅 Jednání</a>
-    <a class="navlink" href="/pecky.online/noviny/">📰 Pečecké noviny</a>
-    <a class="navlink" href="/pecky.online/lide/">Lidé</a>
-    <a class="navlink" href="/pecky.online/plan/">Plán</a>
-    <a class="navlink" href="/pecky.online/telocvicna/">🏗️ Tělocvična</a>
-    <a class="navlink" href="/pecky.online/volby/">Volby</a>
-    <a class="navlink" href="/pecky.online/smlouvy/">Smlouvy</a>
-    <a class="navlink" href="/pecky.online/zakazky/">Zakázky</a>
-    <a class="navlink" href="/pecky.online/pozemky/">Pozemky</a>
-    <a class="navlink" href="/pecky.online/pokladna/">Pokladna</a>
-    <a class="navlink" href="/pecky.online/kalendar/">🗓️ Kalendář</a>
-    <a class="navlink" href="/pecky.online/o-webu/">O webu</a>
+    <a class="navlink" href="/">Domů</a>
+    <a class="navlink active" href="/jednani/">📅 Jednání</a>
+    <a class="navlink" href="/noviny/">📰 Pečecké noviny</a>
+    <a class="navlink" href="/lide/">Lidé</a>
+    <a class="navlink" href="/plan/">Plán</a>
+    <a class="navlink" href="/telocvicna/">🏗️ Tělocvična</a>
+    <a class="navlink" href="/volby/">Volby</a>
+    <a class="navlink" href="/smlouvy/">Smlouvy</a>
+    <a class="navlink" href="/zakazky/">Zakázky</a>
+    <a class="navlink" href="/pozemky/">Pozemky</a>
+    <a class="navlink" href="/pokladna/">Pokladna</a>
+    <a class="navlink" href="/kalendar/">🗓️ Kalendář</a>
+    <a class="navlink" href="/o-webu/">O webu</a>
   </nav>
   <div class="footer-inner footer-credits">
     <p style="margin:0;">Sestaveno s pomocí umělé inteligence (vše je ozdrojované, ale kontrolujte si informace i z dalších zdrojů).</p>
@@ -279,6 +279,6 @@
   </div>
 </footer>
 
-<script src="/pecky.online/assets/common.js"></script>
+<script src="/assets/common.js"></script>
 </body>
 </html>
