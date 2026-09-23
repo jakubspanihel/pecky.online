@@ -427,6 +427,13 @@ pod jedno pořadatelské jméno. Přesný vzor jako u obou spolků výše, jen
 s odlišným důvodem pro oddělení (kapacita filtru, ne odlišná právnická
 osoba).
 
+Od 23. 9. 2026 přibylo `maminky-sobe` (`type: "spolek"`, IČO 27033431) —
+spolek realizující Komunitní centrum Pramínek v **sousední obci
+Dobřichov**, ne v Pečkách. Na žádost uživatele („akce z Dobřichova budeme
+také evidovat") je přesto v rejstříku jako pořadatel akcí v Kalendáři —
+vazba na Pečky je přes spolupráci s Farností Pečky, viz `kalendar/README.md`.
+První případ pořadatele mimo katastr města.
+
 ### Povolání
 
 `occupations` je pole seřazené od nejnovějšího ročníku, každá položka nese

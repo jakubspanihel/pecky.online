@@ -241,6 +241,16 @@ seznam místo rozházených poznámek po repu.
   v mřížce řádově víc než jednorázových akcí a přebily by je — filtr
   „Kurzy/tréninky/pravidelné akce" je umí schovat. (Pozn.: dřív popsáno úžeji jen jako „taneční
   kurzy" — rozšířeno 21. 9. 2026 po zapojení TJ Sokol, viz níže.)
+  **Konec bez uvedeného data:** nemá-li pravidelný `kurz` u zdroje jasný
+  konec sezóny, defaultní horizont je **konec školního roku 30. 6. 2027**
+  (pravidlo, 23. 9. 2026 na žádost uživatele — „zapiš dle termínů
+  školního roku, takhle to dělej vždycky, když nebude znám konec").
+  Platí i pro zdroje bez vazby na školní docházku (např. Pramínek
+  Dobřichov níže) — školní rok je jen sdílený, dostatečně dlouhý
+  horizont, ne tvrzení, že aktivita je školní. Výjimka: **Senior klub
+  Pečovatelské služby** (do 31. 12. 2027) — zadáno explicitně před tímhle
+  pravidlem, ponecháno beze změny, nový default se týká až budoucích
+  případů.
 - **Zdroje** — plakáty a příspěvky pořadatelů, vždy obrázek bez textové
   vrstvy, čtený okem přes claude-in-chrome, ne scraperem. Každý zapojený
   zdroj má vlastní posloupnost/kvirky, zaznamenané tady, aby je nemusel
@@ -315,6 +325,20 @@ seznam místo rozházených poznámek po repu.
     života" (posun z 22. 9. na 30. 9. 2026), kterou původní
     plakát/pozvánka v `evidence[0]` neuváděl — opraveno, druhý doklad
     (`kind: "web"`, odkaz na `/events`) doplněn k záznamu.
+    **Vlastní web knihovny [pececko.cz](https://www.pececko.cz)**
+    (`sources.json` → `web-knihovna-pecky`) přidán ke kontrole 22. 9. 2026
+    na žádost uživatele (konkrétně z `/noc-literatury/`, archivní stránky
+    ročníků akce) — **kontrolovat i domovskou stránku** (záložky
+    Aktuality/Informace/Akce/Výstavy dole vypisují to samé, co web
+    zveřejní jako nejnovější, bez nutnosti dolovat z Facebooku). K datu
+    zapojení web jen potvrdil, co už bylo zapsané (Noc literatury,
+    Bookstart/S knížkou do života, Digitální odysea, VU3V) — žádná nová
+    akce, ale odhalil starou **duplicitu**: „Noc literatury 2026" byla
+    zapsaná dvakrát (jednou obecně z programu KD, podruhé podrobně
+    z vlastního plakátu knihovny) — sloučeno do jednoho záznamu s třemi
+    doklady `evidence[]`, ne dva samostatné. Web sám k jedné položce
+    (Noc literatury) přiřazuje záložku „Výstavy", ne „Akce" — nespoléhat
+    na jeho vlastní kategorizaci, řídit se obsahem.
   - **TJ Sokol Pečky** — dva zdroje dohromady:
     [facebook.com/tjsokolpecky/photos](https://www.facebook.com/tjsokolpecky/photos)
     (zkontrolováno 20. 9. 2026: profil sám o sobě jen nábory bez
@@ -522,6 +546,96 @@ seznam místo rozházených poznámek po repu.
       (5 termínů — interní jednání sboru, ne veřejná akce), ředitelské
       volno (dokument sám říká, že zůstává jako rezerva bez
       konkrétního data).
+  - **Pečovatelská služba města Pečky** —
+    [pspecky.cz](https://www.pspecky.cz/) (`sources.json` →
+    `web-pspecky-cz`, `organizer: pecovatelska-sluzba-pecky`), přidáno
+    ke kontrole 22. 9. 2026 na žádost uživatele (kvůli případným
+    plakátům v sekci Akce/Aktuality — žádná samostatná „Akce" stránka
+    na webu ale neexistuje, `/akce/` vrací 404; web nemá ani vlastní
+    Facebook). K datu zapojení jediný nalezený obsah:
+    **`/senior-klub-pecky/`** — celoroční harmonogram 4 pravidelných
+    aktivit (Trénink paměti, Tvořivá dílna, Cvičení na židli,
+    Muzicírování pro radost — poslední 1× za 2 týdny, web přesně
+    neuvádí které úterky, zapsáno od nejbližšího nadcházejícího).
+    **232 nových `kurz` záznamů**, na rozdíl od TJ Sokol/VCP/ZUŠ **bez
+    vazby na školní rok** (senior klub běží celoročně, ne podle
+    školního kalendáře) — rozepsáno od 23. 9. 2026 (zítřek od kontroly,
+    ať dnešní úterní termíny nejsou nejistě zapsané jako „ještě
+    proběhnou") **do 31. 12. 2027 na žádost uživatele**, „ať to sedí
+    s horizontem ostatních zdrojů". **Žádné prázdniny nevynechány** —
+    na rozdíl od školních zdrojů tu není zdroj, o který by se dalo
+    přerušení opřít; možné vánoční/letní pauzy jsou tak přiznaná
+    mezera, ne tvrzený fakt. Aktuality sekce k datu kontroly jediný
+    příspěvek (odstávka střediska hygieny léto 2026) — nebyla akce,
+    nezapsáno.
+  - **MŠ MAŠINKA Pečky** — [msmasinkapecky.cz/akce-skoly](https://www.msmasinkapecky.cz/akce-skoly/)
+    (`sources.json` → `web-msmasinkapecky-cz`, `organizer: msmasinka-pecky`),
+    zapojeno 22. 9. 2026 na žádost uživatele. Vlastní stránka „Akce
+    školy" existuje (na rozdíl od pspecky.cz) a k datu kontroly měla
+    přesně 2 položky, obě zapsány — **2 nové `akce` záznamy**:
+    - **Bramboriáda** (22. 9. 2026, dnes v době zápisu) — podzimní
+      potlach pro rodiny, hlasování o nejlepší bramborovou specialitu.
+      Zapsáno i přesto, že datum je totožné se dnem kontroly (ne
+      zpětně doplňovaná akce, ale aktuální/nadcházející v okamžiku
+      zápisu).
+    - **Canisterapie** (26.–27. 10. 2026) — první návštěva
+      canisterapeutického psa, novinka školního roku. Web píše, že pes
+      bude chodit „pravidelně", ale žádné další termíny neuvádí —
+      zapsán jen tenhle první, žádné vymýšlené opakování.
+  - **Street Food Festiválek Pečky** (17. 10. 2026, Kulturní dům) —
+    zapsáno 23. 9. 2026 přímo z odkazu na Facebook událost, který zadal
+    uživatel. Pořádá externí firma **City Event** (celostátní přehlídka
+    street food festivalů, 235 uplynulých událostí jinde), ne Kulturní
+    středisko — `organizer: null`, `organizer_name: "City Event"` (jde
+    o hostující pořadatele mimo rejstřík, stejný vzor jako u cizích
+    divadelních souborů, viz krok 3b v `automation-plakat-akce.md`).
+    Nový zdroj `facebook-event-street-food-festivalek-pecky` v
+    `sources.json` — jednorázový, nekontroluje se dál pravidelně (na
+    rozdíl od ostatních zdrojů v týhle sekci).
+  - **Kalendář událostí na webu města** —
+    [pecky.cz/default/events](https://pecky.cz/default/events)
+    (`sources.json` → `pecky-cz`), přidáno k pravidelné kontrole
+    23. 9. 2026 na žádost uživatele. Měsíční mřížka, jednotlivé záznamy
+    na `/default/report/<id>_<slug>` mají vlastní datum/čas i plakát
+    jako přílohu a časovou značku „Zveřejněno" — cenné i jako křížová
+    kontrola už zapsaných akcí, ne jen zdroj nových (23. 9. 2026 tudy
+    vyšlo najevo potvrzení přesunu Bookstart na 30. 9., zveřejněné týž
+    den ráno — doplněno jako čtvrtý doklad k existujícímu záznamu).
+    Zahrnuje i akce mimo Pečky (typicky „Platí pro: Celé město" u všech
+    záznamů bez rozdílu, ne spolehlivý filtr). Zjevně regionální
+    položky bez vazby na Pečky (jiné obce — Sokoleč, Nová Ves I. u
+    Kolína) do kalendáře nepatří.
+  - **Pramínek Dobřichov** — zapojeno 23. 9. 2026 na žádost uživatele
+    („akce z Dobřichova budeme také evidovat"), objeveno přes
+    `pecky.cz/default/events`. Komunitní/mateřské centrum v sousední
+    obci Dobřichov (Dobřichov 24), ne Pečky samo — ale realizuje ho
+    spolek **Maminky sobě, z.s.** (IČO 27033431, `organizer:
+    maminky-sobe`) ve spolupráci s **Farností Pečky**, což vazbu na
+    Pečky dává. Vlastní web [mcpraminek.cz](https://www.mcpraminek.cz)
+    (`sources.json` → `web-mcpraminek-cz`) má rubriku „Program a akce"
+    (jednotlivé akce na `/products/<slug>/`, datum/čas jen v textu, bez
+    vlastního pole) a „Kroužky" — **4 nové `akce` záznamy** z plakátů
+    nalezených přes pecky.cz:
+    - **Postav si draka** (29. 9. 2026) — „první část" dílny, může
+      pokračovat.
+    - **Kaštanová mast** (2. 10. 2026) — plakát říká „první setkání",
+      možná sezónní série; další termíny zatím nezveřejněné.
+    - **Kožedělná dílna** (4. 10. 2026) a **Komunitní kavárna otevřena**
+      (4. 10. 2026, „v Pramínku") — jednorázové.
+    - **Nenalezeno na webu:** vlastní `kalendar-akci/` rubrika prázdná
+      („V této rubrice nejsou žádné články"); „Program a akce" má 5
+      stránek archivu, prošla jen první — přiznaná mezera pro příští
+      kontrolu.
+    - **Objeveno navíc na `/program-a-akce/`, doplněno 23. 9. 2026** —
+      dva pravidelné kroužky, **75 nových `kurz` záznamů** (na žádost
+      uživatele, „zapiš dle termínů školního roku" — viz defaultní
+      pravidlo u kategorie `kurz` výše, teď platí obecně):
+      - **Zálesák** (děti od 7 let) — úterý 17:00–18:30, od potvrzeného
+        začátku 15. 9. 2026 do 30. 6. 2027.
+      - **Hrátky s batolátky** (rodiče s batolaty) — čtvrtek 9:00–12:00;
+        web přesný začátek sezóny neuvádí, zapsáno od nejbližšího
+        nadcházejícího čtvrtku po datu kontroly (24. 9. 2026) do
+        30. 6. 2027.
   - **Volební uskupení 2026** — zapojeno 22. 9. 2026 na žádost uživatele,
     viz pravidlo „rovné zacházení" u kroku „U facebookových zdrojů vždy
     nejdřív zkontrolovat `/events`" výše. První kontrola všech pěti
