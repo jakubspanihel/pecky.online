@@ -65,17 +65,18 @@
 
   /* ===== Nav (v patičce) ===== */
   nav.tabs{
-    display:flex; flex-direction:row; flex-wrap:wrap; justify-content:center; align-items:center; gap:2px 4px;
+    display:flex; flex-direction:column; gap:6px;
     max-width:none; margin:0; padding:10px 14px;
   }
   .navlink{
+    display:block; width:100%; box-sizing:border-box;
     font-family:'IBM Plex Mono',monospace;
-    font-size:12.5px; letter-spacing:0.03em; text-transform:uppercase;
-    color:var(--ink-soft); border:none; background:none; cursor:pointer;
-    text-align:center; padding:9px 14px; margin-bottom:0;
+    font-size:15px; letter-spacing:0.03em; text-transform:uppercase;
+    color:var(--ink-soft); border:1px solid var(--line); border-radius:3px; background:none; cursor:pointer;
+    text-align:center; padding:12px 14px; margin-bottom:0;
   }
-  .navlink:hover{color:var(--ink); text-decoration:none;}
-  .navlink.active{color:var(--burgundy); font-weight:600;}
+  .navlink:hover{color:var(--ink); border-color:var(--ink-soft); text-decoration:none;}
+  .navlink.active{color:var(--burgundy); border-color:var(--burgundy); font-weight:600;}
 
   .subtabs{display:flex; gap:4px; flex-wrap:wrap; border-bottom:1px solid var(--line); margin:20px 0 28px;}
   .subtablink{font-family:'IBM Plex Mono',monospace; font-size:12px; letter-spacing:0.03em; text-transform:uppercase; padding:9px 14px; color:var(--ink-soft); border:none; background:none; cursor:pointer; border-bottom:3px solid transparent; margin-bottom:-1px;}
@@ -125,7 +126,7 @@
 
   h2.title{font-size:34px; margin:0 0 8px; font-weight:600;}
   .lede{color:var(--ink-soft); margin:0 0 28px; font-size:15px;}
-  .peckybot {float:left; width:100px; }
+  .peckybot {width:100px; }
 
   @media (max-width:600px){
     main{padding:28px 16px 60px;}
