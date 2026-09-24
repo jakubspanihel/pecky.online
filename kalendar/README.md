@@ -61,18 +61,50 @@ vede rovnou na zdroj" v „Jak to funguje" níže.
     `#kal-grid`/`#kal-list` a zavolá odpovídající vykreslení — nová
     cesta (navigace, filtr, přepínač samotný) proto nesmí volat
     `kalRenderGrid()` přímo, jinak by se v pohledu Seznam neprojevila.
-  - **Checkbox „Pravidelné akce, kurzy a tréninky"** (`#kal-show-kurz`,
-    doplněno 24. 9. 2026 na žádost uživatele, na řádku navigace měsícem
-    před přepínačem „Zobrazit jako", zarovnané vpravo) — zaškrtnutý je
-    výchozí stav (`KAL_SHOW_KURZ = true`, kurzy vidět jako dřív);
-    odškrtnutím zmizí kategorie `kurz` z obou pohledů (mřížka i Seznam),
-    ať jde kalendář prohlédnout bez tisícovek pravidelných termínů
-    (934 TJ Sokol + 1390 VCP + 437 ZUŠ + 232 Pečovatelská služba + 79
-    Pramínek k 24. 9. 2026 — viz čísla u jednotlivých zdrojů níže).
-    Filtr kategorie kombinuje s filtrem pořadatele (obě podmínky
-    zároveň), sdílený mezi pohledy stejně jako `KAL_ORG` — obě
-    `kalRenderGrid()`/`kalRenderList()` mají vlastní `.filter(e =>
-    KAL_SHOW_KURZ || e.category !== 'kurz')`, žádná centrální funkce.
+  - **Odkaz „Filtr"** (`#kal-filter-toggle`, doplněno 24. 9. 2026 na
+    žádost uživatele, na řádku navigace měsícem hned za tlačítkem „Dnes" —
+    přesunuto tamtéž ze zprvu zvolené pozice za přepínačem „Zobrazit jako",
+    na druhou žádost uživatele týž den) — jen schovává/ukazuje panel filtrů
+    (`#kal-filter-org`), samotné filtrování dál řídí checkbox a čipy
+    pořadatele uvnitř. Sémanticky `<button>`, vizuálně obyčejný textový
+    odkaz (`.text-toggle` v `assets/styles.css`: bez rámečku/pozadí,
+    podtržený, barva `--burgundy`/`--burgundy-deep` v aktivním stavu — na
+    žádost uživatele nahradilo původní stylování jako `.year-btn`). Ne přes
+    sdílený `.toggle-details` vzor z `assets/common.js` — ten by na klik
+    přepisoval text tlačítka na „Méně informací", což pro „Filtr" nedává
+    smysl; stav nese `aria-expanded` + `.active` s vlastním handlerem. Panel
+    je defaultně skrytý (`hidden`) a leží **těsně před tabulkou/seznamem**
+    (`#kal-status`), ne u navigace měsícem — přesunuto z původního umístění
+    24. 9. 2026 na žádost uživatele spolu s přidáním tlačítka Filtr.
+  - **Panel filtrů `#kal-filter-org`** — obsahuje dva prvky, oba se
+    zapisují do sdíleného stavu čteného oběma pohledy (mřížka i Seznam):
+    - **Checkbox „Pravidelné akce, kurzy a tréninky"** (`#kal-show-kurz`,
+      doplněno 24. 9. 2026 na žádost uživatele, přesunuto do panelu
+      filtrů týž den při přidání tlačítka Filtr) — zaškrtnutý je výchozí
+      stav (`KAL_SHOW_KURZ = true`, kurzy vidět jako dřív); odškrtnutím
+      zmizí kategorie `kurz` z obou pohledů (mřížka i Seznam), ať jde
+      kalendář prohlédnout bez tisícovek pravidelných termínů (934 TJ
+      Sokol + 1390 VCP + 437 ZUŠ + 232 Pečovatelská služba + 79 Pramínek
+      k 24. 9. 2026 — viz čísla u jednotlivých zdrojů níže). Filtr
+      kategorie kombinuje s filtrem pořadatele (obě podmínky zároveň),
+      sdílený mezi pohledy stejně jako `KAL_ORG` — přes společnou funkci
+      `kalVidet(e)`, kterou volají `kalRenderGrid()` i `kalRenderList()`.
+      Jediný checkbox kategorie na webu — kategorie `svoz` (Pečecké
+      služby) měla krátce vlastní checkbox „Svoz odpadu" (`#kal-show-svoz`),
+      **zrušený týž den na žádost uživatele** jako zbytný: pořadatel
+      „Pečecké služby" má jen tuhle jednu kategorii, takže ho beze zbytku
+      skryje/ukáže i čip pořadatele v sekci níž — dva filtry na totéž.
+    - **Čipy pořadatele** — vykreslené `kalRenderOrgChips()` do vnořeného
+      `#kal-org-chips-inner` (ne přímo do `#kal-filter-org`, aby render
+      nesmazal sousední checkbox); viditelnost samotného panelu řídí
+      výhradně tlačítko Filtr, ne počet pořadatelů — s < 2 pořadateli
+      `kalRenderOrgChips()` vykreslí prázdný `#kal-org-chips-inner`
+      (checkbox zůstává).
+    - CSS pozn.: `.filter-chips{display:flex}` v `assets/styles.css`
+      přebíjí výchozí UA pravidlo `[hidden]{display:none}` (autorský
+      styl na `display` má přednost bez ohledu na atribut `hidden`) —
+      proto explicitní `.filter-chips[hidden]{display:none;}` hned pod
+      tím, jinak by byl panel viditelný i se zavřeným Filtrem.
   - **Odkaz na akci/kurz vede rovnou na zdroj, ne na interní kotvu.**
     Do 24. 9. 2026 mířil na `/kalendar/#<id>` (podstránku `/kalendar/akce/`,
     pak přepnutí do pohledu Seznam s doscrolováním) — **zrušeno na
@@ -218,6 +250,7 @@ s proměnnými `--org-<id>` a `--org-<id>-bg`. Kalendář je čte podle pole
 | Kulturní středisko (`kulturni-stredisko-pecky`) | `#B5561C` rezavá | `#F2E1D6` | 135 |
 | Pramínek / Maminky sobě (`maminky-sobe`) | `#1580A0` azurová | `#D5E8EE` | 79 |
 | AFK Pečky (`afk-pecky`) | `#1010E0` královská modrá | `#D8D8F9` | 42 |
+| Pečecké služby (`pececke-sluzby`) | `#6D1F4F` vínová | `#E5D7DF` | 186 svozů |
 
 Ostatní pořadatelé barvu nemají a padají na neutrální fallback (akce
 `--gold-deep`, kurz šedý proužek). Město Pečky barvu záměrně nemá — jeho
@@ -237,7 +270,10 @@ volbách. AFK Pečky (24. 9. 2026): klubová modrobílá, jenže modrou
 oblast už drží TJ Sokol, ODS, Pramínek a `--slate` — žádný tlumený modrý
 odstín nedal ΔE ≥ 17, splnila to až sytá královská modrá `#1010E0`
 (nejbližší ODS 17,3 a ZUŠ 17,4, kontrast s bílou 9,7 : 1). Je o poznání
-výraznější než zbytek palety — vědomý kompromis ve prospěch klubové barvy. Novou barvu zkontrolovat stejně; validátor
+výraznější než zbytek palety — vědomý kompromis ve prospěch klubové barvy.
+Pečecké služby (24. 9. 2026, kvůli svozu odpadů): vínová `#6D1F4F`,
+nejbližší SNK Pečky Pečákům 18,0 a `--burgundy` 18,5, kontrast s bílou
+10,7 : 1. Novou barvu zkontrolovat stejně; validátor
 `node lide/validate.mjs` hlídá formát a duplicitu hexu.
 
 ## Schéma jedné události
@@ -1000,6 +1036,44 @@ seznam místo rozházených poznámek po repu.
   ```
   python3 kalendar/scripts/update-kalendar.py
   ```
+
+### Svoz odpadů — aktivní (od 24. 9. 2026)
+
+- **Data:** `kalendar/svoz-odpadu.json`, funkce `build_svoz_events()`.
+  Soubor drží jeden záznam na typ svozu (`types[]`: `id`, `title`,
+  `place`, `rule` = text legendy z PDF, `dates[]`); generátor ho rozepíše
+  na **jednu celodenní událost na typ a den** (rozhodl uživatel — ne
+  sloučeně po dnech). `id`/`source_ref` = `svoz-<typ>-<datum>`.
+- **Zdroj:** `sources.json` → `pecky-cz-harmonogram-svozu-2026` —
+  jednostránkové PDF „Harmonogram svozu odpadů z domácností 2026" na
+  pecky.cz, stažitelné běžným curl. Odkaz u každé události vede přímo na
+  to PDF (`meta.evidence.url`).
+- **Pořadatel:** `pececke-sluzby` (Pečecké služby, s.r.o.). **PDF
+  pořadatele neuvádí** — zadal ho uživatel 24. 9. 2026, poznamenáno
+  v `meta.organizer_note`. Doloží-li se odjinud, doplnit doklad.
+- **Kategorie:** `svoz` — bez vlastního checkboxu (krátce ho měla, `#kal-show-svoz`
+  v panelu Filtr, **zrušen 24. 9. 2026 na žádost uživatele** jako zbytný:
+  pořadatel „Pečecké služby" má jen tuhle kategorii, takže totéž dělá čip
+  pořadatele). V mřížce stejně tlumeně jako `kurz` (světlé pozadí + proužek
+  v barvě pořadatele, `.kal-ev-svoz`), v Seznamu štítek `svoz`, v Google
+  kalendáři `colorId` 3 (Grape).
+- **Rozsah 2026:** 186 termínů ve 111 dnech, celý rok (rozhodl uživatel,
+  i zpětně) — komunální sever 34, jih 34, sídliště 52, BIO 42, plast 12,
+  papír 12. Nepravidelnosti převzaté z PDF tak, jak jsou: sever navíc
+  28. 12. (mimo 14denní rytmus), svoz jede i 6. 4. a 28. 9. (svátky),
+  BIO v lednu a únoru jen jednou měsíčně, poslední 1. 12.
+- **Vytěžení:** termíny jsou v PDF jen **barvou buňky**, text dne je
+  u všech dní stejný — ručně přepisovat nemá smysl. Skript
+  `kalendar/scripts/extract-svoz-odpadu.py <pdf> <rok>` (potřebuje poppler:
+  `pdftotext`, `pdftoppm`) vezme polohy čísel z textové vrstvy, dopočítá
+  datum (kontroluje proti dni v týdnu sloupce) a přečte barvu pozadí;
+  zapíše jen `dates[]` do existujících `types[]`. Souřadnice sloupců
+  a barvy odpovídají šabloně 2026.
+- **Aktualizace:** jednou ročně, až město vyvěsí harmonogram na další rok —
+  nové PDF, nový záznam v `sources.json`, zkontrolovat okem, jestli
+  sedí šablona (sloupce/barvy/legenda), pak skript, `update-kalendar.py`
+  a `sync-google.py`. Změna během roku (např. mimořádný svoz) se píše
+  ručně do `dates[]`.
 
 ### Kalendář akcí z webu města — zapojeno 23. 9. 2026
 

@@ -98,6 +98,10 @@
   a.year-btn-label:hover{background:rgba(124,47,43,0.08); color:var(--burgundy);}
   span.year-btn-label{cursor:default; opacity:0.85;}
 
+  .text-toggle{display:inline-block; font-family:var(--font-mono); font-size:13px; font-weight:700; letter-spacing:0.02em; margin:2px; padding:9px 2px; border:none; background:none; color:var(--burgundy); cursor:pointer; text-decoration:underline;}
+  .text-toggle:hover{color:var(--burgundy-deep);}
+  .text-toggle.active{color:var(--burgundy-deep);}
+
   .lastmod{font-family:var(--font-mono); font-size:11.5px; text-transform:uppercase; letter-spacing:0.03em; color:var(--ink-soft); margin:0 0 14px;}
 
   .toggle-details{display:inline-flex; align-items:center; gap:5px; font-family:var(--font-mono); font-size:12px; text-transform:uppercase; letter-spacing:0.03em; color:var(--burgundy); border:1px solid var(--burgundy); background:none; padding:8px 14px; cursor:pointer; margin:0 0 22px; text-decoration:none;}
@@ -255,6 +259,9 @@
   table.calendar-table .kal-ev-kurz{background:var(--org-c-bg, var(--parchment-deep)); color:var(--ink);
     box-shadow:inset 3px 0 0 var(--org-c, var(--ink-soft));}
   table.calendar-table .kal-ev-volby{background:var(--slate);}
+  /* svoz odpadů: stejně tlumeně jako kurz (opakuje se každý týden) */
+  table.calendar-table .kal-ev-svoz{background:var(--org-c-bg, var(--parchment-deep)); color:var(--ink);
+    box-shadow:inset 3px 0 0 var(--org-c, var(--ink-soft));}
   /* pokračování vícedenní akce (den 2+ v date_end rozsahu) - tlumenější, ať je jasné, že
      nejde o novou samostatnou akci ten den, ale o pokračování zahájené dřív */
   table.calendar-table .kal-ev-cont{opacity:0.65; background-image:repeating-linear-gradient(
@@ -323,6 +330,7 @@
 
   /* ===== Lidé (adresář: filtry a kartičky) ===== */
   .filter-chips{display:flex; flex-wrap:wrap; gap:8px; align-items:center; margin:10px 0 0;}
+  .filter-chips[hidden]{display:none;}
   .filter-chips + .filter-chips{margin-top:8px;}
   .chip-label{font-family:var(--font-mono); font-size:11px; text-transform:uppercase; letter-spacing:0.03em; color:var(--ink-soft); margin-right:2px;}
   .chip{display:inline-flex; align-items:center; gap:6px; font-family:var(--font-mono); font-size:11.5px; padding:5px 11px; border:1px solid var(--line); border-radius:999px; background:rgba(255,255,255,0.4); color:var(--ink-soft); cursor:pointer;}

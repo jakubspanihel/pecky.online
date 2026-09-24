@@ -63,6 +63,7 @@ BARVY = {
     'akce': '9',             # Blueberry
     'kurz': '8',             # Graphite — tlumená, kurzů je řádově nejvíc
     'volby': '5',            # Banana
+    'svoz': '3',             # Grape — nejblíž vínové barvě Pečeckých služeb v mřížce
 }
 
 # Značka v extendedProperties, podle které skript pozná vlastní události.

@@ -24,6 +24,9 @@ D) Zápasy AFK Pečky — z kalendar/afk-zapasy.json, které stahuje
    zápasy hrané v Pečkách, všech týmů). Tenhle skript sám nic nestahuje -
    pracuje s posledním uloženým souborem, viz kalendar/README.md ->
    "Zápasy AFK Pečky".
+E) Svoz odpadů — z kalendar/svoz-odpadu.json (harmonogram města, vytěžený
+   z PDF skriptem kalendar/scripts/extract-svoz-odpadu.py), kategorie
+   'svoz', jedna celodenní událost na typ svozu a den.
 
 Spouštět po každé aktualizaci jednani/pecky-jednani.json nebo
 kalendar/akce.json (stejně jako jednani/scripts/update-pozemky.py). Po běhu tohoto skriptu je potřeba
@@ -53,6 +56,7 @@ JEDNANI_JSON = ROOT / 'jednani' / 'pecky-jednani.json'
 AKCE_JSON = ROOT / 'kalendar' / 'akce.json'
 VOLBY_JSON = ROOT / 'kalendar' / 'udalosti-rucni.json'
 AFK_JSON = ROOT / 'kalendar' / 'afk-zapasy.json'
+SVOZ_JSON = ROOT / 'kalendar' / 'svoz-odpadu.json'
 ORGANIZACE_JSON = ROOT / 'lide' / 'organizations.json'
 OUT_JSON = ROOT / 'kalendar' / 'udalosti.json'
 OUT_ICS = ROOT / 'kalendar' / 'kalendar.ics'
@@ -239,6 +243,45 @@ def build_afk_events():
     return events
 
 
+def build_svoz_events():
+    """Harmonogram svozu odpadů z kalendar/svoz-odpadu.json -> společné schéma.
+
+    Zdrojový soubor drží jeden záznam na typ svozu se seznamem dat (tak ho
+    vytěží extract-svoz-odpadu.py z PDF). Sem se rozepíše na jednu celodenní
+    událost na typ a den - v mřížce se tak dá poznat, co ten den jede,
+    a filtr/checkbox "Svoz odpadu" je schová najednou. Odkaz vede rovnou
+    na PDF harmonogramu (stejně jako u akcí: link = doklad, ne interní kotva).
+    """
+    if not SVOZ_JSON.exists():
+        return []
+    data = json.loads(SVOZ_JSON.read_text(encoding='utf-8'))
+    meta = data['meta']
+    org = nazvy_organizaci()
+    org_id = meta.get('organizer')
+    events = []
+    for t in data['types']:
+        for d in t['dates']:
+            eid = f'svoz-{t["id"]}-{d}'
+            events.append({
+                'id': eid,
+                'title': t['title'],
+                'date': d,
+                'date_end': None,
+                'time': None,
+                'all_day': True,
+                'category': 'svoz',
+                'link': meta['evidence']['url'],
+                'description': t['place'],
+                'place': t['place'],
+                'organizer': org_id,
+                'organizer_name': org.get(org_id) if org_id else None,
+                'image': None,
+                'note': None,
+                'source_ref': eid,
+            })
+    return events
+
+
 # ---------------------------------------------------------------- iCalendar
 
 def ics_escape(text):
@@ -320,7 +363,8 @@ def main():
     akce = build_akce_events()
     volby = build_volby_events()
     afk = build_afk_events()
-    events = jednani + akce + volby + afk
+    svoz = build_svoz_events()
+    events = jednani + akce + volby + afk + svoz
     events.sort(key=lambda e: (e['date'], e['time'] or ''))
 
     OUT_JSON.write_text(json.dumps({
@@ -328,7 +372,8 @@ def main():
             'generated_from': (f'jednani/pecky-jednani.json ({len(jednani)} jednání), '
                                f'kalendar/akce.json ({len(akce)} akcí), '
                                f'kalendar/udalosti-rucni.json ({len(volby)} termínů), '
-                               f'kalendar/afk-zapasy.json ({len(afk)} zápasů v Pečkách)'),
+                               f'kalendar/afk-zapasy.json ({len(afk)} zápasů v Pečkách), '
+                               f'kalendar/svoz-odpadu.json ({len(svoz)} svozů)'),
             'updated': datetime.now(PRAGUE).strftime('%Y-%m-%d'),
         },
         'events': events,

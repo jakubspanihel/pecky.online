@@ -58,20 +58,21 @@ tahle kapitola je provozní — jak s daty pracovat.
 
 ```
 foto/                portréty z jiných zdrojů než z voleb (viz níž)
-people.json          365 osob (21 aktuálních zastupitelů + 2 bývalí s plným
+people.json          381 osob (21 aktuálních zastupitelů + 2 bývalí s plným
                       profilem, 206 dalších kandidátů ze všech kandidátek
                       2018/2022/2026 s minimálním záznamem (SPEC.md §3.6),
                       13 vedení úřadu/příspěvkovek/firem (fáze 5b, §7),
                       8 jen kvůli členství v komisi RM/školské radě,
                       21 pedagogů ZUŠ Pečky, 48 pedagogů ZŠ Pečky,
                       22 lidí z MŠ MAŠINKA Pečky, 2 noví z výboru
-                      Pečeckého okrašlovacího spolku — viz níž)
+                      Pečeckého okrašlovacího spolku, 16 nových z AFK Pečky — viz níž)
 organizations.json   24 organizací (Město Pečky + 8 volebních uskupení +
                       7 příspěvkovek + 2 firmy + 6 spolků — poslední
                       4 spolky/firmy založeny jinou souběžnou session
-                      pro sekci Kalendář, vazby na osoby z nich zatím
-                      eviduje jen Pečecký okrašlovací spolek)
-affiliations.json   593 vazeb osoba–organizace
+                      pro sekci Kalendář; vazby na osoby mají
+                      Pečecký okrašlovací spolek, SŽM Pečky, Minigolfclub
+                      Dráčata a AFK Pečky)
+affiliations.json   615 vazeb osoba–organizace
 validate.mjs         validátor
 ```
 
@@ -93,6 +94,28 @@ kteří nikde jinde nefigurují, v adresáři vůbec nenaskočili). Skupina
 spolky a školská rada" a čip „Spolky" přibyl vedle „Výbory a komise".
 Datum vzniku funkce (`from`) je datum vzniku spolku (11. 12. 2023) — to
 jediné rejstřík uvádí, žádná pozdější změna ve výboru není zapsaná.
+
+**AFK Pečky — vedení a realizační týmy** (doplněno 24. 9. 2026): 21 lidí
+z webu klubu — výkonný výbor ze stránky
+[afkpecky.cz/vedeni-klubu](https://www.afkpecky.cz/vedeni-klubu/) (předseda,
+jednatel, hospodář → `vedeni-organizace`, stejně jako výbor SŽM Pečky)
+a trenéři, asistenti trenéra a vedoucí mužstev ze stránek
+`/<tým>/realizacni-tym/` všech 7 týmů (→ `clen`, stejný vzor jako výbor
+Okrašlovacího spolku, aby se ukázali ve skupině „Komise, spolky a školská
+rada"; nový typ „trenér" se nezaváděl). Kontakty ani fotky web neuvádí.
+**Soupisky hráčů se nepřebírají** — nejsou to funkce ve spolku a u mládeže
+jde o děti. Realizační týmy web vede jen pro sezónu 2025/2026 (jiná
+v nabídce není), vazby proto mají `from: "2025"` a přiznanou poznámku,
+že složení pro 2026/2027 nemusí sedět.
+Předseda Jaroslav Lukáš je jako jediný zapsaný i ve spolkovém rejstříku
+(statutární orgán, předsedou od 27. 1. 2014) — datum narození z ARES
+odpovídá věku 65 let na kandidátní listině ODS 2026, spojení s existujícím
+záznamem `lukasj` je tedy ověřené. Čtyři další přesné shody jména
+(`konupekj`, `drizhalj`, `vilimj` — týž učitel ZŠ?, `spikm`) jsou
+spárované jen podle jména a vazba to v `note` přiznává. Jaroslav Vorlíček
+(jednatel) **není** Jiří Vorlíček z kandidátky 2026 — nový záznam
+`vorlicekj2`. Zdeněk Buřič má dvě vazby (hospodář + trenér mladších
+žáků), Vojtěch Buřič je samostatná osoba.
 
 **MŠ MAŠINKA Pečky** (doplněno 22. 9. 2026): 13 učitelek + zástupkyně
 ředitelky + 4 asistentky pedagoga + 4 uklízečky, dohledáno na
