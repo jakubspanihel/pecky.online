@@ -339,6 +339,32 @@ ZM řekne — teď referuje, co zápis skutečně obsahuje a co pořád chybí).
 Stat-grid ani perex se neměnily — cena díla podle smlouvy/dodatku se
 nezměnila, 26/10 mil. jsou náklady/rozpočet, ne cena díla.
 
+## Doplněno 24. 9. 2026: zápis RM 34/2026
+
+Automatická kontrola usneseni.cz (krok 9). Zdroj: zápis RM 34/2026
+(21. 9. 2026),
+`https://mesto-pecky.usneseni.cz/verejne/010befaf-b0de-11f1-b254-0242c0a80003/zapis/`.
+
+- **Dva nové detaily, žádný nový fakt o řešení.** Bod 3 (Aktuální
+  informace vedení města), starosta Milan Paluska: u stavební akce se
+  „čeká na vyjádření geotechnika“ a „proběhne schůzka se zástupcem
+  právní kanceláře“. Dřív zápisy zmiňovaly jen čekání na právní
+  kancelář — teď se poprvé objevuje i geotechnik jako strana, na jejíž
+  stanovisko se čeká, a schůzka s právníkem je poprvé popsaná jako
+  naplánovaná, ne jen jako obecné čekání. Zápis ale neuvádí ani obsah,
+  ani termín schůzky, ani žádné jméno geotechnika — samotné stanovisko
+  (technické i právní) pořád chybí.
+- Rozpočet, cena díla ani harmonogram se v tomto zápise vůbec nezmiňují
+  — čísla 211,5 mil. (cena díla), 26 mil. (dosud vynaložené náklady)
+  a 10 mil. (letošní rozpočtové navýšení) zůstávají na úrovni
+  z 16. 9. 2026.
+
+Promítnuto do `content/telocvicna.html`: nový řádek v tabulce
+„Zastavení stavby v roce 2026“ (21. 9., nad 16. 9.), rozšířený čtvrtý
+callout v „Otevřené otázky“ o právní kanceláři (doplněn geotechnik
+a naplánovaná schůzka). Stat-grid, perex a ostatní callouty beze
+změny — žádná nová čísla ani rozhodnutí.
+
 ## Co hlídat dál
 
 - Jestli a jak vedení města zareaguje konkrétně na tvrzení Švejnohové
