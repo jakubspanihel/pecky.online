@@ -1,7 +1,6 @@
   <section class="panel active" id="panel-kalendar">
     <h2 class="title display">Kalendář</h2>
-    <p class="lede"><a href="https://calendar.google.com/calendar/embed?src=a81de8fe68a5e6d118ceeea3614ba159febf695e65b164cade86b682d58ef726%40group.calendar.google.com&ctz=Europe%2FPrague" target="_blank" rel="noopener">Odebírejte kalendář</a> přímo ve vašem Google, Apple i Outlook kalendáři (dostupné také jako <a href="https://calendar.google.com/calendar/ical/a81de8fe68a5e6d118ceeea3614ba159febf695e65b164cade86b682d58ef726%40group.calendar.google.com/public/basic.ics" target="_blank" rel="noopener">iCal</a>).<br>
-      Měsíční mřížka termínů z Peček — jednání, volby, kulturní akce a kurzy. <a href="/kalendar/akce/">Výpis také v tabulce</a>.</p>
+    <p class="lede"><a href="https://calendar.google.com/calendar/embed?src=a81de8fe68a5e6d118ceeea3614ba159febf695e65b164cade86b682d58ef726%40group.calendar.google.com&ctz=Europe%2FPrague" target="_blank" rel="noopener">Odebírejte kalendář</a> přímo ve vašem Google, Apple i Outlook kalendáři (dostupné také jako <a href="https://calendar.google.com/calendar/ical/a81de8fe68a5e6d118ceeea3614ba159febf695e65b164cade86b682d58ef726%40group.calendar.google.com/public/basic.ics" target="_blank" rel="noopener">iCal</a>).</p>
 
     <div class="filter-chips" id="kal-filter-org" role="group" aria-label="Filtr podle pořadatele" hidden></div>
 
@@ -10,6 +9,17 @@
       <span class="year-btn year-btn-label" id="kal-month-label" style="min-width:160px; text-align:center;">…</span>
       <button type="button" class="year-btn" id="kal-next" aria-label="Následující měsíc">▶</button>
       <button type="button" class="year-btn" id="kal-today">Dnes</button>
+      <label class="checkbox-label" style="margin-left:auto;">
+        <input type="checkbox" id="kal-show-kurz" checked>
+        Pravidelné akce, kurzy a tréninky
+      </label>
+      <div class="segmented-control">
+        <span class="segmented-label">Zobrazit jako:</span>
+        <div class="segmented-group" role="group" aria-label="Zobrazení kalendáře">
+          <button type="button" class="segmented-btn active" data-kal-view="kalendar">Kalendář</button>
+          <button type="button" class="segmented-btn" data-kal-view="seznam">Seznam</button>
+        </div>
+      </div>
     </div>
 
     <p class="search-status" id="kal-status">Načítám kalendář…</p>
@@ -19,6 +29,7 @@
       </thead>
       <tbody id="kal-grid-body"></tbody>
     </table>
+    <div id="kal-list" style="display:none;"></div>
 
     <div class="callout" style="margin-top:22px;">
       Kalendář čerpá z těchto zdrojů:
@@ -39,7 +50,6 @@
         <li><strong>Pramínek Dobřichov</strong> — <a href="https://www.mcpraminek.cz" target="_blank" rel="noopener">web</a></li>
         <li><strong>SŽM Pečky</strong> — <a href="https://szmpecky.webnode.cz/kalendar-akci/" target="_blank" rel="noopener">web</a></li>
       </ul>
-      Kalendář akcí z webu města zapojený není. <span class="stamp">přiznaná mezera</span>
     </div>
   </section>
 
@@ -48,11 +58,21 @@
   const KAL_MONTHS = ['Leden','Únor','Březen','Duben','Květen','Červen',
                        'Červenec','Srpen','Září','Říjen','Listopad','Prosinec'];
   let KAL_EVENTS_BY_DATE = {};
+  let KAL_ALL_EVENTS = [];
   let KAL_ORG = '';   // id pořadatele z lide/organizations.json, '' = všichni
+  let KAL_VIEW = 'kalendar';   // 'kalendar' = mřížka, 'seznam' = tabulka vybraného měsíce
+  let KAL_SHOW_KURZ = true;   // false = skrýt kategorii 'kurz' (checkbox "Pravidelné akce, kurzy a tréninky")
   const kalNow = new Date();
   let kalYear = kalNow.getFullYear();
   let kalMonth = kalNow.getMonth();  // 0-based
 
+  // CSS proměnné barvy pořadatele (--org-<id> generuje build z organizations.json);
+  // nedefinovaná proměnná = pořadatel bez barvy -> CSS použije fallback
+  function kalOrgStyle(id){
+    if (!id) return '';
+    const s = kalEsc(id);
+    return `--org-c:var(--org-${s});--org-c-bg:var(--org-${s}-bg);--chip:var(--org-${s});`;
+  }
   function kalPad(n){ return String(n).padStart(2, '0'); }
   function kalDateStr(y, m, d){ return `${y}-${kalPad(m + 1)}-${kalPad(d)}`; }
   function kalEsc(s){
@@ -96,7 +116,8 @@
         if (d === null) { html += '<td class="empty"></td>'; continue; }
         const dateStr = kalDateStr(kalYear, kalMonth, d);
         const evs = (KAL_EVENTS_BY_DATE[dateStr] || []).filter(e =>
-          !KAL_ORG || e.organizer === KAL_ORG);
+          (!KAL_ORG || e.organizer === KAL_ORG) &&
+          (KAL_SHOW_KURZ || e.category !== 'kurz'));
         let evHtml = '';
         if (evs.length) {
           evHtml = '<div class="kal-events">' + evs.map(e => {
@@ -107,7 +128,9 @@
             const parts = [e.time, range, e.description, porada].filter(Boolean).join(' · ');
             const tip = parts ? `${e.title} — ${parts}` : e.title;
             const cont = range && dateStr !== e.date ? ' kal-ev-cont' : '';
-            return `<a class="kal-ev kal-ev-${e.category}${cont}" href="${e.link}" title="${kalEsc(tip)}">${kalEsc(e.title)}</a>`;
+            const barva = (e.category === 'akce' || e.category === 'kurz') ? ` style="${kalOrgStyle(e.organizer)}"` : '';
+            const cizi = e.link && /^https?:\/\//.test(e.link) ? ' target="_blank" rel="noopener"' : '';
+            return `<a class="kal-ev kal-ev-${e.category}${cont}" href="${e.link || '#'}" title="${kalEsc(tip)}"${barva}${cizi}>${kalEsc(e.title)}</a>`;
           }).join('') + '</div>';
         }
         html += `<td class="${dateStr === todayStr ? 'today' : ''}"><span class="day-num">${d}</span>${evHtml}</td>`;
@@ -115,7 +138,79 @@
       html += '</tr>';
     }
     body.innerHTML = html;
+  }
+
+  // Seznam vybraného měsíce — tabulka stylově jako dřívější /kalendar/akce/
+  // (zrušená 24. 9. 2026), ale nad společnými daty z udalosti.json
+  // (zahrnuje i jednání/volby, ne jen akce.json). Odkaz u akce/kurzu vede
+  // rovnou na zdroj (evidence[0].url z akce.json — viz build_akce_events()
+  // v update-kalendar.py), ne na interní kotvu — 24. 9. 2026 na žádost
+  // uživatele zrušeny odkazy na jednotlivé události uvnitř webu.
+  function kalRenderList(){
+    const list = document.getElementById('kal-list');
+    const ym = `${kalYear}-${kalPad(kalMonth + 1)}`;
+    const dny = ['neděle', 'pondělí', 'úterý', 'středa', 'čtvrtek', 'pátek', 'sobota'];
+    const evs = KAL_ALL_EVENTS
+      .filter(e => e.date.slice(0, 7) === ym)
+      .filter(e => !KAL_ORG || e.organizer === KAL_ORG)
+      .filter(e => KAL_SHOW_KURZ || e.category !== 'kurz')
+      .sort((a, b) => a.date === b.date
+        ? (a.time || '').localeCompare(b.time || '')
+        : a.date.localeCompare(b.date));
+
+    if (!evs.length) {
+      list.innerHTML = '<div class="callout">Pro zvolený filtr a měsíc nejsou žádné akce.</div>';
+      return;
+    }
+
+    const radky = evs.map(e => {
+      const cas = e.time
+        ? `<span class="akce-cas">${kalEsc(e.time)}</span>`
+        : '<span class="akce-cas akce-cas-none" title="Zdroj čas neuvádí">—</span>';
+      const stitek = e.category === 'kurz' ? ' <span class="tag">kurz</span>' : '';
+      const porada = (e.category === 'akce' || e.category === 'kurz') && e.organizer_name
+        ? `pořádá ${e.organizer_name}` : null;
+      const metaText = [e.place, kalFmtRange(e), porada].filter(Boolean).join(' · ');
+      const meta = metaText ? `<span class="meta-note">${kalEsc(metaText)}</span>` : '';
+      const pozn = e.note ? `<span class="meta-note akce-pozn">${kalEsc(e.note)}</span>` : '';
+      const tecka = (e.category === 'akce' || e.category === 'kurz') && e.organizer
+        ? `<span class="swatch org-swatch" style="${kalOrgStyle(e.organizer)}"></span>` : '';
+      const cizi = e.link && /^https?:\/\//.test(e.link) ? ' target="_blank" rel="noopener"' : '';
+      const nazev = e.link
+        ? `<a href="${e.link}"${cizi}>${kalEsc(e.title)}</a>`
+        : kalEsc(e.title);
+      const [, mm, dd] = e.date.split('-');
+      const den = `${parseInt(dd, 10)}. ${parseInt(mm, 10)}.`;
+      const denNazev = dny[new Date(e.date + 'T12:00:00').getDay()];
+      return `<tr>
+        <td class="akce-datum"><strong>${den}</strong><span class="meta-note">${denNazev}</span></td>
+        <td>${cas}</td>
+        <td>${tecka}${nazev}${stitek}${meta}${pozn}</td>
+      </tr>`;
+    }).join('');
+
+    list.innerHTML = `<div class="table-scroll"><table class="register akce-tabulka">
+      <thead><tr><th>Datum</th><th>Čas</th><th>Akce</th></tr></thead>
+      <tbody>${radky}</tbody>
+    </table></div>`;
+  }
+
+  // Přepne mezi mřížkou a seznamem, aktualizuje popisek měsíce a vykreslí
+  // aktivní pohled — volají ho navigace měsícem, filtr pořadatele i přepínač
+  // Kalendář/Seznam, ať se nezapomene na některou z cest.
+  function kalShowView(view){
     document.getElementById('kal-month-label').textContent = `${KAL_MONTHS[kalMonth]} ${kalYear}`;
+    const grid = document.getElementById('kal-grid');
+    const list = document.getElementById('kal-list');
+    if (view === 'seznam') {
+      grid.style.display = 'none';
+      list.style.display = '';
+      kalRenderList();
+    } else {
+      list.style.display = 'none';
+      grid.style.display = '';
+      kalRenderGrid();
+    }
   }
 
   function kalRenderOrgChips(events){
@@ -130,8 +225,8 @@
     if (poradatele.size < 2) return;
     box.innerHTML = '<span class="chip-label">Pořadatel:</span>' +
       [...poradatele].map(([id, nazev]) =>
-        `<button type="button" class="chip" data-kal-org="${kalEsc(id)}" aria-pressed="false">`
-        + `${kalEsc(nazev)}</button>`).join('') +
+        `<button type="button" class="chip" data-kal-org="${kalEsc(id)}" aria-pressed="false" style="${kalOrgStyle(id)}">`
+        + `<span class="dot"></span>${kalEsc(nazev)}</button>`).join('') +
       '<button type="button" class="chip-clear" id="kal-org-clear" hidden>Vymazat filtr</button>';
     box.hidden = false;
 
@@ -140,13 +235,13 @@
         // druhý klik na tentýž čip filtr zruší
         KAL_ORG = (KAL_ORG === this.dataset.kalOrg) ? '' : this.dataset.kalOrg;
         kalSyncOrgChips();
-        kalRenderGrid();
+        kalShowView(KAL_VIEW);
       });
     });
     document.getElementById('kal-org-clear').addEventListener('click', () => {
       KAL_ORG = '';
       kalSyncOrgChips();
-      kalRenderGrid();
+      kalShowView(KAL_VIEW);
     });
   }
 
@@ -159,29 +254,44 @@
 
   document.getElementById('kal-prev').addEventListener('click', () => {
     kalMonth--; if (kalMonth < 0) { kalMonth = 11; kalYear--; }
-    kalRenderGrid();
+    kalShowView(KAL_VIEW);
   });
   document.getElementById('kal-next').addEventListener('click', () => {
     kalMonth++; if (kalMonth > 11) { kalMonth = 0; kalYear++; }
-    kalRenderGrid();
+    kalShowView(KAL_VIEW);
   });
   document.getElementById('kal-today').addEventListener('click', () => {
     kalYear = kalNow.getFullYear(); kalMonth = kalNow.getMonth();
-    kalRenderGrid();
+    kalShowView(KAL_VIEW);
+  });
+
+  document.querySelectorAll('#panel-kalendar .segmented-btn[data-kal-view]').forEach(btn => {
+    btn.addEventListener('click', function(){
+      document.querySelectorAll('#panel-kalendar .segmented-btn[data-kal-view]')
+        .forEach(x => x.classList.remove('active'));
+      this.classList.add('active');
+      KAL_VIEW = this.dataset.kalView;
+      kalShowView(KAL_VIEW);
+    });
+  });
+
+  document.getElementById('kal-show-kurz').addEventListener('change', function(){
+    KAL_SHOW_KURZ = this.checked;
+    kalShowView(KAL_VIEW);
   });
 
   fetch('/kalendar/udalosti.json')
     .then(r => r.json())
     .then(data => {
-      (data.events || []).forEach(e => {
+      KAL_ALL_EVENTS = data.events || [];
+      KAL_ALL_EVENTS.forEach(e => {
         kalDateRange(e.date, e.date_end).forEach(ds => {
           (KAL_EVENTS_BY_DATE[ds] = KAL_EVENTS_BY_DATE[ds] || []).push(e);
         });
       });
       document.getElementById('kal-status').style.display = 'none';
-      document.getElementById('kal-grid').style.display = '';
-      kalRenderOrgChips(data.events || []);
-      kalRenderGrid();
+      kalRenderOrgChips(KAL_ALL_EVENTS);
+      kalShowView(KAL_VIEW);
     })
     .catch(() => {
       document.getElementById('kal-status').textContent = 'Kalendář se nepodařilo načíst.';

@@ -5,7 +5,8 @@ plakát nebo pozvánka kteréhokoli pořadatele akcí v Pečkách (kulturní
 středisko, knihovna, spolek, škola, město) — obrázek přiložený v chatu,
 soubor v repu, nebo odkaz na příspěvek na sociální síti či web. Výstupem jsou nové
 nebo aktualizované záznamy v `kalendar/akce.json`, promítnuté do mřížky
-`/kalendar/` i do podstránky `/kalendar/akce/`.
+i pohledu Seznam na `/kalendar/` (přepínač „Zobrazit jako: Kalendář /
+Seznam", od 24. 9. 2026 bez samostatné podstránky `/kalendar/akce/`).
 
 Datový model a pravidla zdroje popisuje `kalendar/README.md` → „Kulturní
 a společenské akce — aktivní". Tenhle soubor je jen postup, ne druhý

@@ -136,15 +136,6 @@ EXTRA_PAGES = {
         # Odkázaná z /jednani/ (odstavec "Kontrola docházky") od 19. 9. 2026 —
         # proto má lastmod a jde do sitemapy, viz komentář výše.
         True, 'jednani', '2026-09-19'),
-    'kalendar-akce': (
-        '/kalendar/akce/', 'Nadcházející akce v Pečkách — pecky.online',
-        'Nadcházející kulturní a společenské akce v Pečkách a okolí přepsané '
-        'z plakátů a příspěvků pořadatelů — termín, místo a odkaz na zdrojový '
-        'doklad u každé akce.',
-        # Odkázaná z perexu a z odznaků v mřížce /kalendar/ od 20. 9. 2026 —
-        # proto má lastmod a jde do sitemapy, viz komentář výše. Od
-        # 22. 9. 2026 vypisuje jen nadcházející akce (přepínač Období pryč).
-        False, 'kalendar', '2026-09-22'),
     'nejdelsi': (
         '/jednani/nejdelsi.html', 'Nejdelší body jednání zastupitelstva — pecky.online',
         'Deset bodů jednání zastupitelstva města Pečky s nejdelší dobou '

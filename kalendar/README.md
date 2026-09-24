@@ -10,18 +10,17 @@ Klasický tabulkový kalendář s termíny týkajícími se města Pečky.
 Aktuální seznam zapojených zdrojů je vždy v callout boxu pod mřížkou na
 `/kalendar/` — nekopírovat počet/výčet sem do perexu ještě jednou, ať
 nevznikají dva zdroje pravdy, co se rozejdou (viz „Seznam zdrojů pod
-mřížkou musí být vždy kompletní" v „Jak to funguje" níže). Kalendář akcí
-z webu města je plánovaný, ale ještě nezapojený (viz „Zdroje" níže).
+mřížkou musí být vždy kompletní" v „Jak to funguje" níže).
 
-Akce mají navíc vlastní podstránku **`/kalendar/akce/`**
-(`content/kalendar-akce.html`, registrovaná v `EXTRA_PAGES` ve
-`scripts/build.py` — má tam i šesté pole `lastmod`, díky kterému má stejně
-jako běžné sekce vlastní „Aktualizováno" pod nadpisem): měsíční výpis
-s místem, časem, pořadatelem a odkazem na zdrojový plakát. Odznak akce
-v mřížce na ni vede kotvou `#<id akce>` — mřížka sama zdroj ani místo
-neunese. Od 22. 9. 2026 ukazuje **vždy jen nadcházející akce** (žádný
-přepínač Období) — odkaz z mřížky na už proběhlou akci se tak nemá na co
-doscrollovat, to je vědomý kompromis, ne přehlédnutá chyba.
+Celá sekce žije na jediné stránce **`/kalendar/`** (`content/kalendar.html`)
+ve dvou pohledech — mřížka a Seznam, přepínatelné bez reloadu (viz
+„Přepínač „Zobrazit jako"" níže). Samostatná podstránka `/kalendar/akce/`
+existovala do 24. 9. 2026 (`content/kalendar-akce.html`, měsíční tabulka
+akcí) — na žádost uživatele zrušena, protože ji plně nahradil pohled
+Seznam. **Odkazy na jednotlivou akci/kurz uvnitř webu neexistují vůbec**
+(zrušeno 24. 9. 2026, druhá žádost uživatele týž den) — název akce/kurzu
+teď odkazuje přímo na zdroj, ze kterého vznikl, viz „Odkaz na akci/kurz
+vede rovnou na zdroj" v „Jak to funguje" níže.
 
 ## Jak to funguje
 
@@ -45,6 +44,58 @@ doscrollovat, to je vědomý kompromis, ne přehlédnutá chyba.
   je callout **„Kalendář čerpá z těchto zdrojů"** — bulletkový seznam
   všech zapojených zdrojů, každý jako odkaz na svůj profil/web (viz
   „Zdroje" níže).
+  - **Přepínač „Zobrazit jako: Kalendář / Seznam"** (`segmented-control`,
+    doplněno 24. 9. 2026 na žádost uživatele, na stejném řádku jako
+    navigace měsícem, zarovnané vpravo přes `margin-left:auto`) —
+    Kalendář je výchozí, stejná mřížka jako dřív. Seznam přepne na
+    tabulku vybraného měsíce (`#kal-list`) — sloupce Datum/Čas/Akce,
+    barevná tečka pořadatele (`.org-swatch`), štítek `kurz`, poznámka
+    pod názvem — nad daty z `kalendar/udalosti.json` (`KAL_ALL_EVENTS`),
+    ne z `akce.json`, takže zahrnuje i jednání a volby, ne jen
+    akce/kurzy. Bez vlastního sloupce Zdroj (v `udalosti.json` není
+    `evidence[]`) — přiznaný rozdíl oproti zrušené `/kalendar/akce/`,
+    ne opomenutí; místo toho název akce/kurzu sám odkazuje rovnou na
+    zdroj, viz „Odkaz na akci/kurz" níže. Navigace měsícem i filtr
+    pořadatele fungují v obou pohledech přes společnou funkci
+    `kalShowView()`, která podle `KAL_VIEW` přepne viditelnost
+    `#kal-grid`/`#kal-list` a zavolá odpovídající vykreslení — nová
+    cesta (navigace, filtr, přepínač samotný) proto nesmí volat
+    `kalRenderGrid()` přímo, jinak by se v pohledu Seznam neprojevila.
+  - **Checkbox „Pravidelné akce, kurzy a tréninky"** (`#kal-show-kurz`,
+    doplněno 24. 9. 2026 na žádost uživatele, na řádku navigace měsícem
+    před přepínačem „Zobrazit jako", zarovnané vpravo) — zaškrtnutý je
+    výchozí stav (`KAL_SHOW_KURZ = true`, kurzy vidět jako dřív);
+    odškrtnutím zmizí kategorie `kurz` z obou pohledů (mřížka i Seznam),
+    ať jde kalendář prohlédnout bez tisícovek pravidelných termínů
+    (934 TJ Sokol + 1390 VCP + 437 ZUŠ + 232 Pečovatelská služba + 79
+    Pramínek k 24. 9. 2026 — viz čísla u jednotlivých zdrojů níže).
+    Filtr kategorie kombinuje s filtrem pořadatele (obě podmínky
+    zároveň), sdílený mezi pohledy stejně jako `KAL_ORG` — obě
+    `kalRenderGrid()`/`kalRenderList()` mají vlastní `.filter(e =>
+    KAL_SHOW_KURZ || e.category !== 'kurz')`, žádná centrální funkce.
+  - **Odkaz na akci/kurz vede rovnou na zdroj, ne na interní kotvu.**
+    Do 24. 9. 2026 mířil na `/kalendar/#<id>` (podstránku `/kalendar/akce/`,
+    pak přepnutí do pohledu Seznam s doscrolováním) — **zrušeno na
+    žádost uživatele**, žádné odkazy na jednotlivé události uvnitř
+    webu už nejsou. `build_akce_events()` v `update-kalendar.py`
+    dává do `link` přímo `evidence[0]['url']` — první (nejsilnější)
+    doklad té konkrétní akce v `akce.json`, ten samý zdroj, ze kterého
+    záznam vznikl. Jednání a volby si `link` na interní cestu
+    (`/jednani/#…`, `/volby/2026/`) drží dál beze změny — jen akce/kurz
+    teď míří ven. V mřížce (`kalRenderGrid()`) i Seznamu
+    (`kalRenderList()`) se `http(s)://` odkaz pozná regexem a dostane
+    `target="_blank" rel="noopener"`, interní cesta zůstává v témže okně;
+    `link` bez hodnoty (akce bez `evidence[]`, v praxi se nestává) se
+    v Seznamu vykreslí jako prostý text, ne odkaz na nic.
+    Stejná hodnota jde beze změny i do `kalendar.ics` (`URL:`) a do
+    Google kalendáře přes `sync-google.py` (`source.url`) — obojí mělo
+    dřív natvrdo `SITE_DOMAIN + link`, což by u externí URL vyrobilo
+    zdvojený řetězec typu `https://dopecek.cz/https://facebook.com/…`;
+    obě místa mají teď vlastní `abs_url()` (link už absolutní → beze
+    změny, jinak SITE_DOMAIN dopsat). `sync-google.py` navíc titulek
+    zdroje „Do Peček . cz" v Google Kalendáři píše, jen když je `link`
+    fakt náš (`url_je_nas`) — u cizí URL ho radši vynechá, ať si Google
+    název domény odvodí sám, než aby tvrdil, že cizí web je „Do Peček . cz".
 - **Seznam zdrojů pod mřížkou musí být vždy kompletní.** Přibude-li nový
   organizátor/zdroj do `akce.json` (nový pořadatel v
   `lide/organizations.json` + nová `evidence[].source` v
@@ -84,9 +135,10 @@ apod., ne pro zobrazení v prohlížeči):
 ```
 https://calendar.google.com/calendar/ical/a81de8fe68a5e6d118ceeea3614ba159febf695e65b164cade86b682d58ef726%40group.calendar.google.com/public/basic.ics
 ```
-Druhá věta perexu (popis mřížky + odkaz na `/kalendar/akce/`) je od
-téhož data na vlastním řádku (`<br>` uvnitř stejného `<p class="lede">`,
-ne nový odstavec — první věta je CTA, zbytek je popis stránky).
+Druhá věta perexu (popis mřížky + odkaz na `/kalendar/akce/`) byla od
+téhož data na vlastním řádku (`<br>` uvnitř stejného `<p class="lede">`)
+— **zrušena 24. 9. 2026 na žádost uživatele** spolu s celou podstránkou;
+perex teď má jen tu jednu větu s odkazem na Google kalendář.
 
 Dřív byl na stránce přímý odkaz na `/kalendar/kalendar.ics` (dole pod
 mřížkou) — ten zůstal, `.ics` se pořád generuje na stejném místě, jen
@@ -147,6 +199,41 @@ kalendáře **nic nepropisuje** — bez druhého příkazu výš zůstane Google
 na starých datech. Při jakékoli změně schématu (`source_ref`, časové
 pásmo, kategorie) projít i tenhle skript.
 
+## Barvy pořadatelů
+
+Od 24. 9. 2026 má každý výrazný pořadatel vlastní barvu. Stejný mechanismus
+jako u politických uskupení: barva je vlastnost **organizace** v
+[`lide/organizations.json`](../lide/organizations.json) (pole `color` +
+`color_bg`), `scripts/build.py` z nich generuje `assets/org-colors.css`
+s proměnnými `--org-<id>` a `--org-<id>-bg`. Kalendář je čte podle pole
+`organizer` u události — žádnou vlastní paletu nemá.
+
+| Pořadatel (`id`) | Barva | Pozadí | Akcí v datech (9/2026) |
+|---|---|---|---|
+| Vzdělávací centrum (`vzdelavaci-centrum-pecky`) | `#177568` petrolejová | `#D5E6E4` | 1 390 |
+| TJ Sokol (`tj-sokol-pecky`) | `#2F62B5` modrá | `#DAE3F2` | 934 |
+| ZUŠ (`zus-pecky`) | `#7550A8` fialová | `#E6E0EF` | 437 |
+| Pečovatelská služba (`pecovatelska-sluzba-pecky`) | `#727A10` olivová | `#E6E7D4` | 232 |
+| Kulturní středisko (`kulturni-stredisko-pecky`) | `#B5561C` rezavá | `#F2E1D6` | 135 |
+| Pramínek / Maminky sobě (`maminky-sobe`) | `#1580A0` azurová | `#D5E8EE` | 79 |
+
+Ostatní pořadatelé barvu nemají a padají na neutrální fallback (akce
+`--gold-deep`, kurz šedý proužek). Město Pečky barvu záměrně nemá — jeho
+události jsou jednání a volby, které se barví podle kategorie.
+
+**Jak se barva používá.** Mřížka `/kalendar/`: akce plnou barvou pořadatele,
+kurzy světlým pozadím (`-bg`) s proužkem v barvě pořadatele; jednání
+a volby dál podle kategorie. Pohled Seznam: tečka `.org-swatch` u názvu.
+Čipy filtru pořadatele: tečka v barvě (`--chip`) slouží zároveň jako
+legenda.
+
+**Výběr barev.** Tlumené tóny ladící s pergamenem, bílé písmo na plné barvě
+s kontrastem ≥ 4,5 : 1 (WCAG AA), vzájemný rozdíl CIEDE2000 ≥ 17 a odstup
+od barev uskupení a kategorií kalendáře. Nejtěsnější dvojice: Kulturní
+středisko × SPD (ΔE 11) — v kalendáři se nepotkají, SPD je jen ve
+volbách. Novou barvu zkontrolovat stejně; validátor
+`node lide/validate.mjs` hlídá formát a duplicitu hexu.
+
 ## Schéma jedné události
 Společné pro všechny budoucí zdroje (ne jen Jednání) — nový zdroj
 zplošťuje svá specifika na tahle pole, detaily zůstávají dostupné přes
@@ -196,7 +283,7 @@ zplošťuje svá specifika na tahle pole, detaily zůstávají dostupné přes
   strukturovaně nedrží).
 - **`organizer`** — id pořadatele v `lide/organizations.json` (rejstřík
   organizací celého webu, kalendář si vlastní seznam nedrží). U Jednání
-  `mesto-pecky`. Řídí čipy „Pořadatel" nad mřížkou i na `/kalendar/akce/`.
+  `mesto-pecky`. Řídí čipy „Pořadatel" nad mřížkou i nad pohledem Seznam.
 - **`organizer_name`** — jméno k tomu id (`short_name`, jinak `name`),
   dopsané generátorem, aby ho klient nemusel dohledávat druhým fetchem.
   U pořadatele mimo rejstřík (cizí soubor, soukromý pořadatel) je vyplněné
@@ -434,8 +521,8 @@ seznam místo rozházených poznámek po repu.
       z plakátu, kategorie `kurz`; k němu dalších **8 týdnů dopředu
       (do 2. 12., ~2 měsíce od prvního termínu)** dopočítaných jako
       pravidelné pokračování — každý s poznámkou **„Negarantováno"**,
-      ať je v `/kalendar/akce/` i v tooltipu mřížky na první pohled
-      jasné, že jde o odhad, ne o potvrzený termín ze zdroje. Přibude-li
+      ať je v pohledu Seznam i v tooltipu mřížky na první pohled jasné,
+      že jde o odhad, ne o potvrzený termín ze zdroje. Přibude-li
       časem výslovné zrušení nebo potvrzení konkrétní středy, opravit
       podle aktuálního stavu profilu, ne slepě prodlužovat dalších
       8 týdnů při každé kontrole.
@@ -724,11 +811,14 @@ seznam místo rozházených poznámek po repu.
   to není trojí akce, ale jeden záznam se třemi doklady. **První doklad je
   ten, podle kterého jsou zapsané údaje**, ostatní ho potvrzují. Každý
   doklad má `source` (id v `sources.json`), `kind` (`plakat` ·
-  `prispevek` · `web` · `zpravodaj` · `tisk` · `ustni` — řídí, jak se
-  odkaz pojmenuje ve sloupci Zdroj; `zpravodaj` se od 22. 9. 2026
-  zobrazuje rovnou jako „Pečecké noviny", ne obecně jako „zpravodaj" —
-  mapování v `content/kalendar-akce.html` → `DOKLAD`), `url`, `label`
+  `prispevek` · `web` · `zpravodaj` · `tisk` · `ustni`), `url`, `label`
   (název konkrétního plakátu, ne profilu), `published` a `retrieved`.
+  **`evidence[]` od 24. 9. 2026 (zrušení `/kalendar/akce/`) nikde ve
+  veřejném UI nevidět** — zůstává jen data pro budoucí použití/audit,
+  ne zdroj pro nějaký sloupec Zdroj; mapování `kind` → čitelný název
+  (dřív `DOKLAD` v `content/kalendar-akce.html`, `zpravodaj` →
+  „Pečecké noviny") s tím zrušené stránky zmizelo, nemá se kde
+  uplatnit.
 - **Aktualizace:** skillem `pecky-online-kalendar-plakat` (předhodí se mu
   obrázek plakátu nebo odkaz na příspěvek, akce rozpozná a zapíše).
   Ručně po jakékoli úpravě `akce.json`:
@@ -791,12 +881,11 @@ seznam místo rozházených poznámek po repu.
   python3 kalendar/scripts/update-kalendar.py
   ```
 
-### Kalendář akcí z webu města — plánováno, zatím nezapojeno
+### Kalendář akcí z webu města — zapojeno 23. 9. 2026
 
-- **Data:** vyžaduje vlastní scraper webu města (obdoba
-  `pecky-online-noviny-check`), zatím neexistuje.
-- **Až se zapojí:** vlastní `build_akce_events()` + zdrojový JSON
-  doplňovaný scraperem.
-- **Aktualizace:** kandidát na vlastní projektový skill
-  (`pecky-online-*-check`) zapojený do týdenní kontroly, obdoba
-  Jednání výše — až bude scraper hotový.
+Původně plánované jako vlastní scraper (`build_akce_events()` nad
+zdrojovým JSON) — místo toho zapojeno stejně jako ostatní zdroje výše:
+`pecky.cz/default/events` čtené ručně přes claude-in-chrome (ne
+automatizovaný scraper), nálezy přepsané do `kalendar/akce.json` skillem
+`pecky-online-kalendar-plakat`. Viz vlastní bullet „Kalendář událostí na
+webu města" v „Zdroje" výše pro detaily a kvirky.
