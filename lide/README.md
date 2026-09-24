@@ -58,18 +58,41 @@ tahle kapitola je provozní — jak s daty pracovat.
 
 ```
 foto/                portréty z jiných zdrojů než z voleb (viz níž)
-people.json          357 osob (21 aktuálních zastupitelů + 2 bývalí s plným
+people.json          365 osob (21 aktuálních zastupitelů + 2 bývalí s plným
                       profilem, 206 dalších kandidátů ze všech kandidátek
                       2018/2022/2026 s minimálním záznamem (SPEC.md §3.6),
                       13 vedení úřadu/příspěvkovek/firem (fáze 5b, §7),
                       8 jen kvůli členství v komisi RM/školské radě,
                       21 pedagogů ZUŠ Pečky, 48 pedagogů ZŠ Pečky,
-                      22 lidí z MŠ MAŠINKA Pečky — viz níž)
-organizations.json   20 organizací (Město Pečky + 8 volebních uskupení +
-                      7 příspěvkovek + 2 firmy + 2 spolky)
-affiliations.json   582 vazeb osoba–organizace
+                      22 lidí z MŠ MAŠINKA Pečky, 2 noví z výboru
+                      Pečeckého okrašlovacího spolku — viz níž)
+organizations.json   24 organizací (Město Pečky + 8 volebních uskupení +
+                      7 příspěvkovek + 2 firmy + 6 spolků — poslední
+                      4 spolky/firmy založeny jinou souběžnou session
+                      pro sekci Kalendář, vazby na osoby z nich zatím
+                      eviduje jen Pečecký okrašlovací spolek)
+affiliations.json   593 vazeb osoba–organizace
 validate.mjs         validátor
 ```
+
+**Pečecký okrašlovací spolek — výbor** (doplněno 24. 9. 2026): 5členný
+výbor dohledaný v obchodním rejstříku
+([rejstrik.penize.cz](https://rejstrik.penize.cz/21001634-pececky-okraslovaci-spolek),
+zdroj justice.cz) — organizace samotná byla v `organizations.json` už
+od 20. 9. 2026 (přidala jiná souběžná session pro Kalendář), ale bez
+vazeb na osoby, což si i sama poznamenala v `note`. Tři z pěti členů
+výboru šlo spárovat s existujícími záznamy podle jména a titulu přesně
+(`houdkoval`, `vodickat`, `vodickal`) — malé město, stejní lidé se
+potkávají v komisích, kandidátkách i spolcích. Nový `role_type` se
+nezaváděl: použit už existující, dosud nepoužitý `"clen"` z číselníku,
+na pokyn autora webu — je to obdoba `"komise"`, jen u nezávislého
+spolku místo orgánu města, takže se stejně jako komise počítá do
+`_komise`/`_office` v `content/lide.html` (jinak by dva zcela noví lidé,
+kteří nikde jinde nefigurují, v adresáři vůbec nenaskočili). Skupina
+„Komise rady města a školská rada" byla proto přejmenována na „Komise,
+spolky a školská rada" a čip „Spolky" přibyl vedle „Výbory a komise".
+Datum vzniku funkce (`from`) je datum vzniku spolku (11. 12. 2023) — to
+jediné rejstřík uvádí, žádná pozdější změna ve výboru není zapsaná.
 
 **MŠ MAŠINKA Pečky** (doplněno 22. 9. 2026): 13 učitelek + zástupkyně
 ředitelky + 4 asistentky pedagoga + 4 uklízečky, dohledáno na
@@ -250,8 +273,9 @@ Ten rozdíl je správně a je vidět v timeline.
 
 Šest skupin v tomhle pořadí: **Rada města**, **Ostatní členové
 zastupitelstva**, **Úřad města** (`vedeni-urad`), **Městské organizace**
-(`vedeni-organizace`), **Komise rady města a školská rada** (`komise`,
-doplněno 19. 9. 2026) a — až po přepnutí rozsahu na „Včetně historie" —
+(`vedeni-organizace`), **Komise, spolky a školská rada** (`komise`
+a `clen`, doplněno 19., resp. 24. 9. 2026) a — až po přepnutí rozsahu
+na „Včetně historie" —
 **Dřívější vedení a bývalí zastupitelé**. Volení lidé nahoře, jmenovaní
 pod nimi, historie nakonec.
 
@@ -371,8 +395,9 @@ s existujícím `id` (to by znamenalo nedotažené sloučení) ani s jiným alia
 1. **`people.json`** — `id` je příjmení + iniciála křestního bez
    diakritiky (`paluskam`, `svejnohovaa`).
 2. **`organizations.json`** — jen pokud uskupení nebo organizace ještě
-   chybí. U uskupení povinně `color` a `css_class` **z palety** v
-   [`volby/README.md`](../volby/README.md), ne nová barva.
+   chybí. U uskupení povinně `color`, `color_bg` a `css_class` **z palety** v
+   [`volby/README.md`](../volby/README.md), ne nová barva. Barvy se
+   do CSS dostanou přes build (`assets/org-colors.css`), nikde je nepsat ručně.
 3. **`affiliations.json`** — mandát, případná funkce v radě, kandidátka.
    `id` ve tvaru `{person_id}--{organization_id}--{pořadí}`.
 4. Zvýšit `meta.count` a `meta.updated` ve všech změněných souborech.

@@ -16,6 +16,7 @@ Použití:
     python3 scripts/build.py            # vygeneruje všechny stránky + validace
     python3 scripts/build.py --no-check # bez HTML/JS validace (rychlejší, pro ladění)
 """
+import json
 import re
 import sys
 from pathlib import Path
@@ -35,83 +36,83 @@ GA_MEASUREMENT_ID = 'G-1CW9XK1VJY'
 # slug -> (výstupní cesta, title, meta description, potřebuje assets/helpers.js)
 MANIFEST = {
     'domu': (
-        '/', 'pecky.online — Pečky pohledem umělé inteligence',
+        '/', 'Do Peček . cz — Pečky pohledem umělé inteligence',
         'Neoficiální občanský transparentní web o městě Pečky (okres Kolín): '
         'zastupitelstvo, rada, smlouvy, zakázky a Pečecké noviny na jednom místě.',
         False),
     'jednani': (
-        '/jednani/', 'Jednání zastupitelstva a rady — pecky.online',
+        '/jednani/', 'Jednání zastupitelstva a rady — Do Peček . cz',
         'Archiv jednání zastupitelstva a rady města Pečky s usneseními, '
         'docházkou a odkazy na videozáznam — s fulltextovým vyhledáváním.',
         True),
     'zpravodaj': (
-        '/noviny/', 'Pečecké noviny — pecky.online',
+        '/noviny/', 'Pečecké noviny — Do Peček . cz',
         'Archiv Pečeckých novin (městského zpravodaje) s fulltextovým '
         'vyhledáváním napříč všemi vydáními.',
         True),
     'lide': (
-        '/lide/', 'Lidé města Pečky — pecky.online',
+        '/lide/', 'Lidé města Pečky — Do Peček . cz',
         'Adresář lidí ve veřejných funkcích města Pečky — zastupitelstvo, '
         'rada, vedení a zaměstnanci úřadu i ředitelé městských organizací. '
         'U každého funkce, kontakt a zdroj.',
         True),
     'plan': (
-        '/plan/', 'Strategický plán města — pecky.online',
+        '/plan/', 'Strategický plán města — Do Peček . cz',
         'Co si město Pečky předsevzalo ve strategickém a akčním plánu '
         'rozvoje — a co se z toho reálně podařilo dohledat jako splněné.',
         False),
     'telocvicna': (
-        '/telocvicna/', 'Tělocvična — pecky.online',
+        '/telocvicna/', 'Tělocvična — Do Peček . cz',
         'Stavba nové tělocvičny a učeben u ZŠ Pečky (205 mil. Kč) byla '
         'v srpnu 2026 částečně zastavena kvůli problému s piloty — '
         'časová osa, ověřená fakta ze zápisu zastupitelstva a veřejná '
         'výzva k transparentnímu řešení.',
         False),
     'volby': (
-        '/volby/', 'Volby do zastupitelstva — pecky.online',
+        '/volby/', 'Volby do zastupitelstva — Do Peček . cz',
         'Přehled komunálních voleb do zastupitelstva města Pečky: '
         'ročníky 2018, 2022 a 2026.',
         False),
     'volby2018': (
-        '/volby/2018/', 'Volby 2018 — pecky.online',
+        '/volby/2018/', 'Volby 2018 — Do Peček . cz',
         'Komunální volby 2018 v Pečkách: volební uskupení, předvolební '
         'sliby a výsledky.',
         False),
     'volby2022': (
-        '/volby/2022/', 'Volby 2022 — pecky.online',
+        '/volby/2022/', 'Volby 2022 — Do Peček . cz',
         'Komunální volby 2022 v Pečkách: volební uskupení, předvolební '
         'sliby, výsledky a rozbor povolební koalice.',
         False),
     'volby2026': (
-        '/volby/2026/', 'Volby 2026 — pecky.online',
+        '/volby/2026/', 'Volby 2026 — Do Peček . cz',
         'Komunální volby 2026 v Pečkách: registrovaná uskupení a aktuální '
         'stav příprav.',
         False),
     'smlouvy': (
-        '/smlouvy/', 'Smlouvy — pecky.online',
+        '/smlouvy/', 'Smlouvy — Do Peček . cz',
         'Veřejné smlouvy města Pečky podle registru smluv, přes Hlídače '
         'státu.',
         False),
     'zakazky': (
-        '/zakazky/', 'Veřejné zakázky — pecky.online',
+        '/zakazky/', 'Veřejné zakázky — Do Peček . cz',
         'Veřejné zakázky zadané městem Pečky.',
         False),
     'pozemky': (
-        '/pozemky/', 'Pozemky — pecky.online',
+        '/pozemky/', 'Pozemky — Do Peček . cz',
         'Pozemky, které město Pečky kupuje nebo prodává, s odkazy na '
         'katastr nemovitostí.',
         False),
     'pokladna': (
-        '/pokladna/', 'Pokladna — pecky.online',
+        '/pokladna/', 'Pokladna — Do Peček . cz',
         'Na co město Pečky utrácí: rozpočet a hospodaření srozumitelně.',
         False),
     'kalendar': (
-        '/kalendar/', 'Kalendář — pecky.online',
+        '/kalendar/', 'Kalendář — Do Peček . cz',
         'Kalendář termínů týkajících se města Pečky.',
         False),
     'owebu': (
-        '/o-webu/', 'O webu — pecky.online',
-        'Co je pecky.online, kdo a jak ho dělá, a odkazy na oficiální '
+        '/o-webu/', 'O webu — Do Peček . cz',
+        'Co je Do Peček . cz, kdo a jak ho dělá, a odkazy na oficiální '
         'zdroje a otevřená data o městě Pečky.',
         False),
 }
@@ -127,7 +128,7 @@ MANIFEST = {
 # slug -> (výstupní cesta, title, meta description, helpers.js, sekce pro navigaci, lastmod)
 EXTRA_PAGES = {
     'absence': (
-        '/jednani/absence.html', 'Jak vás zastupitelé zastupují — pecky.online',
+        '/jednani/absence.html', 'Jak vás zastupitelé zastupují — Do Peček . cz',
         'Docházka zastupitelů a radních města Pečky na jednání v aktuálním '
         'volebním období — spočítáno z jmenné prezence v zápisech, opravené '
         'o pozdní příchody.',
@@ -137,7 +138,7 @@ EXTRA_PAGES = {
         # proto má lastmod a jde do sitemapy, viz komentář výše.
         True, 'jednani', '2026-09-19'),
     'nejdelsi': (
-        '/jednani/nejdelsi.html', 'Nejdelší body jednání zastupitelstva — pecky.online',
+        '/jednani/nejdelsi.html', 'Nejdelší body jednání zastupitelstva — Do Peček . cz',
         'Deset bodů jednání zastupitelstva města Pečky s nejdelší dobou '
         'projednávání v aktuálním volebním období, dopočítané z časových '
         'značek videozáznamů na YouTube.',
@@ -178,6 +179,43 @@ def read(path):
 def esc(s):
     return (s.replace('&', '&amp;').replace('<', '&lt;').replace('>', '&gt;')
              .replace('"', '&quot;'))
+
+
+def build_org_colors():
+    """Vygeneruje assets/org-colors.css z lide/organizations.json.
+
+    Jediný zdroj barev organizací (politická uskupení, pořadatelé akcí…)
+    jsou pole `color` a `color_bg` v organizations.json. Tady z nich
+    vzniknou CSS proměnné --org-<id> a --org-<id>-bg; organizace
+    s `css_class` (uskupení, party-*) dostanou navíc alias --<css_class>
+    a --<css_class>-bg, na který se odkazují starší pravidla v styles.css.
+    Organizace bez barvy proměnnou nemá — kód si drží fallback
+    (var(--org-x, var(--ink-soft)) apod.).
+    """
+    doc = json.loads(read('lide/organizations.json'))
+    hex_re = re.compile(r'^#[0-9A-Fa-f]{6}$')
+    lines = ['/* VYGENEROVÁNO scripts/build.py z lide/organizations.json — NEEDITOVAT.',
+             '   Barvu organizace měnit v organizations.json (pole color / color_bg),',
+             '   pak spustit python3 scripts/build.py. */',
+             ':root{']
+    for o in doc.get('organizations', []):
+        color, bg = o.get('color'), o.get('color_bg')
+        if not color:
+            continue
+        for val in (color, bg):
+            if val and not hex_re.match(val):
+                raise SystemExit(f'CHYBA: organizace {o["id"]} má neplatnou barvu {val!r}.')
+        name = o.get('short_name') or o.get('name') or o['id']
+        lines.append(f'  /* {name} */')
+        lines.append(f'  --org-{o["id"]}:{color};')
+        if bg:
+            lines.append(f'  --org-{o["id"]}-bg:{bg};')
+        if o.get('css_class'):
+            lines.append(f'  --{o["css_class"]}:var(--org-{o["id"]});')
+            if bg:
+                lines.append(f'  --{o["css_class"]}-bg:var(--org-{o["id"]}-bg);')
+    lines.append('}')
+    (ROOT / 'assets/org-colors.css').write_text('\n'.join(lines) + '\n', encoding='utf-8')
 
 
 def parse_stav_sekci():
@@ -520,6 +558,7 @@ def validate(written):
 
 
 if __name__ == '__main__':
+    build_org_colors()
     stav_rows = parse_stav_sekci()
     written, extra_written, extra_indexed = build_all(stav_rows)
     build_sitemap(written, stav_rows, extra_indexed)

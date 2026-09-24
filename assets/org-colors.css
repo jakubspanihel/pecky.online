@@ -1,0 +1,66 @@
+/* VYGENEROVÁNO scripts/build.py z lide/organizations.json — NEEDITOVAT.
+   Barvu organizace měnit v organizations.json (pole color / color_bg),
+   pak spustit python3 scripts/build.py. */
+:root{
+  /* NAŠE PEČKY */
+  --org-nasepecky:#4A4A4A;
+  --org-nasepecky-bg:#DADADA;
+  --party-nasepecky:var(--org-nasepecky);
+  --party-nasepecky-bg:var(--org-nasepecky-bg);
+  /* ODS a NK */
+  --org-ods:#1F2363;
+  --org-ods-bg:#CCD2E5;
+  --party-ods:var(--org-ods);
+  --party-ods-bg:var(--org-ods-bg);
+  /* SNK Pečky Pečákům */
+  --org-snk-pecky-pecakum:#A6528F;
+  --org-snk-pecky-pecakum-bg:#EBD9E6;
+  --party-snk:var(--org-snk-pecky-pecakum);
+  --party-snk-bg:var(--org-snk-pecky-pecakum-bg);
+  /* Lidé pro Pečky (SPD) */
+  --org-lide-pro-pecky-spd:#8B5A2B;
+  --org-lide-pro-pecky-spd-bg:#E5DBD0;
+  --party-spd:var(--org-lide-pro-pecky-spd);
+  --party-spd-bg:var(--org-lide-pro-pecky-spd-bg);
+  /* ČSSD a sjednocená levice */
+  --org-cssd:#FF5F60;
+  --org-cssd-bg:#FFDFDF;
+  --party-cssd:var(--org-cssd);
+  --party-cssd-bg:var(--org-cssd-bg);
+  /* Lidovci a NK */
+  --org-lidovci:#EBB91E;
+  --org-lidovci-bg:#F7E6B8;
+  --party-lidovci:var(--org-lidovci);
+  --party-lidovci-bg:var(--org-lidovci-bg);
+  /* KSČM */
+  --org-kscm:#C1272D;
+  --org-kscm-bg:#F1CFD1;
+  --party-kscm:var(--org-kscm);
+  --party-kscm-bg:var(--org-kscm-bg);
+  /* Pečky srdcem */
+  --org-pecky-srdcem:#2E7D32;
+  --org-pecky-srdcem-bg:#D1E2D2;
+  --party-peckysrdcem:var(--org-pecky-srdcem);
+  --party-peckysrdcem-bg:var(--org-pecky-srdcem-bg);
+  /* ZUŠ Pečky */
+  --org-zus-pecky:#7550A8;
+  --org-zus-pecky-bg:#E6E0EF;
+  /* Kulturní středisko */
+  --org-kulturni-stredisko-pecky:#B5561C;
+  --org-kulturni-stredisko-pecky-bg:#F2E1D6;
+  /* Pečovatelská služba */
+  --org-pecovatelska-sluzba-pecky:#727A10;
+  --org-pecovatelska-sluzba-pecky-bg:#E6E7D4;
+  /* TJ Sokol Pečky */
+  --org-tj-sokol-pecky:#2F62B5;
+  --org-tj-sokol-pecky-bg:#DAE3F2;
+  /* AFK Pečky */
+  --org-afk-pecky:#1010E0;
+  --org-afk-pecky-bg:#D8D8F9;
+  /* Vzdělávací centrum */
+  --org-vzdelavaci-centrum-pecky:#177568;
+  --org-vzdelavaci-centrum-pecky-bg:#D5E6E4;
+  /* Pramínek Dobřichov */
+  --org-maminky-sobe:#1580A0;
+  --org-maminky-sobe-bg:#D5E8EE;
+}

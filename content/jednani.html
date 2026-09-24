@@ -12,7 +12,7 @@
     <p class="search-status" id="jednani-status">Načítám archiv…</p>
     <p class="lede" style="margin:0 0 18px;">Související: <a href="/jednani/absence.html">Docházka zastupitelů</a> · <a href="/jednani/nejdelsi.html">Nejdelší body jednání zastupitelstva</a></p>
     <div style="display:flex; align-items:center; justify-content:space-between; gap:12px; margin:0 0 14px; flex-wrap:wrap;">
-      <h3 class="display" style="font-size:19px; margin:0;">Zápisy z jednání</h3>
+      <h3 class="display" style="margin:0;">Zápisy z jednání</h3>
       <div class="segmented-control">
         <span class="segmented-label">Zobrazit:</span>
         <div class="segmented-group" role="group" aria-label="Typ jednání">
@@ -421,7 +421,7 @@
     `;
     }).join('');
     const unmatched = m._unmatchedRes && m._unmatchedRes.length
-      ? `<p class="lede" style="margin:14px 0 4px; font-size:12.5px;">Usnesení nešlo jednoznačně přiřadit k bodu programu:</p>
+      ? `<p class="lede lede-sm" style="margin:14px 0 4px;">Usnesení nešlo jednoznačně přiřadit k bodu programu:</p>
          <ul class="res-list">${m._unmatchedRes.map(jRenderResLine).join('')}</ul>`
       : '';
     return `<ol class="agenda-list">${items}</ol>${unmatched}`;
@@ -457,7 +457,7 @@
         : '';
       const videoUrl = m.links.youtube || (future && m.links.livestream) || '';
       const detailTopHtml = m.type === 'Rada'
-        ? (m.resolutions.length ? `<p class="lede" style="margin:2px 0 12px; font-size:12.5px; font-family:'IBM Plex Mono',monospace; color:var(--ink-soft);">Přijato ${m.resolutions.length} usnesení</p>` : '')
+        ? (m.resolutions.length ? `<p class="lede lede-sm" style="margin:2px 0 12px; font-family:var(--font-mono); color:var(--ink-soft);">Přijato ${m.resolutions.length} usnesení</p>` : '')
         : jRenderPresenceRow(m);
       const slug = jSlugForMeeting(m);
       return `
@@ -481,7 +481,7 @@
           </span>
         </div>
         <div class="meeting-row-detail" hidden>
-          ${m.video_note ? `<p class="lede" style="margin:6px 0 10px; font-size:12.5px; color:var(--burgundy);">⚠ ${jEscapeHtml(m.video_note)}</p>` : ''}
+          ${m.video_note ? `<p class="lede lede-sm" style="margin:6px 0 10px; color:var(--burgundy);">⚠ ${jEscapeHtml(m.video_note)}</p>` : ''}
           ${detailTopHtml}
           ${videoUrl ? `<a class="toggle-details" href="${videoUrl}" target="_blank" rel="noopener" style="margin:0 0 14px;"><img class="meeting-yt-icon" src="/img/favicons/youtube-com.png" alt="" loading="lazy"> Video ↗</a>` : ''}
           ${jRenderAgendaList(m)}

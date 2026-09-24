@@ -1,6 +1,6 @@
 {
- "project": "pecky.online",
- "description": "Seznam zdrojů, ze kterých pecky.online čerpá nebo může čerpat informace o samosprávě města Pečky.",
+ "project": "Do Peček . cz",
+ "description": "Seznam zdrojů, ze kterých Do Peček . cz čerpá nebo může čerpat informace o samosprávě města Pečky.",
  "last_updated": "2026-09-24",
  "sources": [
   {
@@ -684,13 +684,22 @@
    "note": "Přidáno uživatelem 24. 9. 2026. Datum posledního příspěvku zatím nezjištěno (spolehlivě jen ze stránky příspěvku /p/<kód>/, viz o-webu/automation-socialni-site.md)."
   },
   {
-   "id": "rejstrik-penize-cz",
-   "name": "Rejstřík.penize.cz — veřejný rejstřík subjektů",
-   "url": "https://rejstrik.penize.cz/",
-   "category": "otevřená data",
-   "description": "Agregátor veřejných rejstříků ČR (ARES, obchodní i živnostenský rejstřík, Justice.cz) do jednoho vyhledávání — podle názvu/IČO subjektu, nebo podle jména osoby (najde všechny firmy/živnosti, ve kterých osoba figuruje). Užitečné pro křížovou kontrolu organizací v lide/organizations.json a osob v lide/people.json.",
+   "id": "web-minigolf-pecky",
+   "name": "Minigolfclub Dráčata Pečky — web",
+   "url": "https://minigolf-pecky.webnode.cz/",
+   "category": "spolek",
+   "description": "Webnode web minigolfového oddílu (viz lide/organizations.json → minigolfclub-dracata-pecky). Úvodní stránka má aktuální otvírací dobu veřejného hřiště u Benešáku; „Turnaje“ (/turnaje/) rozpis ligových turnajů roku 2026 po měsících (u domácích dubnových s daty, jinak jen místo); „O nás“ a „Služby“ popisují tréninky dětí. Aktuality ani RSS se neaktualizují (jediná zpráva z 27. 1. 2014); podstránka Služby → Nábory má zastaralé/rozporné údaje (čtvrteční trénink).",
+   "status": "vytěženo",
+   "note": "Přidáno uživatelem 24. 9. 2026 — organizace, předsedkyně (ARES) a trenér (Pečecké noviny 9/2025) do sekce Lidé, 3 domácí turnaje z dubna 2026, víkendové otevření hřiště do 1. 10. a pondělní tréninky dětí do kalendar/akce.json."
+  },
+  {
+   "id": "facebook-hostinec-u-strikacky",
+   "name": "Facebook — Hostinec „U Stříkačky“",
+   "url": "https://www.facebook.com/profile.php?id=61552053562486",
+   "category": "sociální síť · podnik",
+   "description": "Facebookový profil hospody „Restaurace Stříkačka – HOSPŮDKA U HASIČŮ“, V. B. Třebízského 84, Pečky (517 sledujících k 24. 9. 2026). Soukromý podnik, ne městská ani spolková organizace.",
    "status": "nevytěženo",
-   "note": "Přidáno uživatelem 24. 9. 2026 k použití pro kontrolu organizací (IČO) a osob (jméno) v sekci Lidé."
+   "note": "Přidáno uživatelem 24. 9. 2026. Zkontrolováno pro sekci Kalendář týž den: záložka Události má jen dvě staré položky (Uzená kýta 9/2024, Svatomartinská Husa 11/2023), nic nadcházejícího; posledních ~5 příspěvků jsou výhradně denní jídelní lístky bez vazby na konkrétní jednorázovou akci — nic k zápisu do kalendar/akce.json (viz kalendar/README.md → „Kulturní a společenské akce\")."
   }
  ]
 }

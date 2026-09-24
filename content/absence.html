@@ -82,7 +82,7 @@
   function personCellHtml(r, p, rowKey){
     if (!p) {
       return `<span class="absence-person">
-        <span class="avatar-fallback avatar-inline" style="width:26px; height:26px; font-size:9px; background:#5B5347;" aria-hidden="true">${jInitials(r.jmeno)}</span>
+        <span class="avatar-fallback avatar-inline" style="width:26px; height:26px; background:#5B5347;" aria-hidden="true">${jInitials(r.jmeno)}</span>
         <span>${jEscapeHtml(r.jmeno)}</span>
       </span>`;
     }

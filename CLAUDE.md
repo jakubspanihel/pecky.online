@@ -2,7 +2,8 @@
 
 Neoficiální občanský transparentní web o městě Pečky (okres Kolín).
 Vícestránkový statický web (viz `ARCHITEKTURA-MIGRACE.md`) — žádný
-runtime framework, žádné závislosti kromě Google Fonts CDN. Jediný
+runtime framework, žádné externí závislosti (ani webová písma — jen systémová,
+viz proměnné `--font-*` v `assets/styles.css`). Jediný
 "build krok" je lokální generovací skript `scripts/build.py`, jeho
 výstup jsou čisté statické soubory pro GitHub Pages.
 
@@ -12,7 +13,7 @@ výstup jsou čisté statické soubory pro GitHub Pages.
 (`/volby/2018/` atd.), Jednání (`/jednani/`), Smlouvy (`/smlouvy/`),
 Zakázky (`/zakazky/`), Pozemky (`/pozemky/`), Pokladna (`/pokladna/`),
 Kalendář (`/kalendar/`), Pečecké noviny (`/noviny/`), O webu (`/o-webu/`).
-Styl: pergamenově-úřední (Fraunces + IBM Plex Sans/Mono), `assets/styles.css`.
+Styl: pergamenově-úřední (jen systémová písma: `system-ui` pro text, `ui-serif`/Georgia pro nadpisy, systémové neproporcionální), `assets/styles.css`.
 
 **Needit přímo vygenerované `<sekce>/index.html` soubory** (přepíše je
 příští build) **ani kořenový `index.html`** (to je teď vygenerovaný
@@ -20,6 +21,9 @@ výstup pro Domů). Místo toho:
 - obsah sekce → `content/<sekce>.html` (jen tělo panelu)
 - sdílená navigace/patička → `assets/nav.html` / `assets/footer.html`
 - sdílené CSS → `assets/styles.css`
+- barvy organizací (uskupení, pořadatelé) → `lide/organizations.json`
+  (`color`/`color_bg`); build z nich generuje `assets/org-colors.css`
+  (`--org-<id>`, aliasy `--party-*`) — ten needitovat, hex jinde nepsat
 - sdílený JS (nav, subtaby, tabulky) → `assets/common.js`; pomocné
   funkce sdílené mezi Jednáním/Novinami/Lidmi → `assets/helpers.js`;
   JS specifický pro jednu sekci žije přímo v `content/<sekce>.html`
@@ -71,7 +75,7 @@ odkazů v `content/domu.html`) je v `ARCHITEKTURA-MIGRACE.md`, sekce 2.3.
   nemá. Podstránky z `EXTRA_PAGES` nemají řádek ve „Stav sekcí" (žádné
   pravidelné kontroly odtamtud), ale mají-li vyplněné šesté pole
   (`lastmod`, ruční ISO datum — viz `/jednani/absence.html`,
-  `/kalendar/akce/`), dostanou stejné „Aktualizováno" jako běžné sekce;
+  `/jednani/nejdelsi.html`), dostanou stejné „Aktualizováno" jako běžné sekce;
   ruční přepsání toho pole ve `scripts/build.py` funguje stejně jako
   přepsání řádku ve „Stav sekcí" jinde.
 

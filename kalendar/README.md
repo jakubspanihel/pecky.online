@@ -238,7 +238,6 @@ oblast už drží TJ Sokol, ODS, Pramínek a `--slate` — žádný tlumený mod
 odstín nedal ΔE ≥ 17, splnila to až sytá královská modrá `#1010E0`
 (nejbližší ODS 17,3 a ZUŠ 17,4, kontrast s bílou 9,7 : 1). Je o poznání
 výraznější než zbytek palety — vědomý kompromis ve prospěch klubové barvy. Novou barvu zkontrolovat stejně; validátor
-`node lide/validate.mjs` hlídá formát a duplicitu hexu. Novou barvu zkontrolovat stejně; validátor
 `node lide/validate.mjs` hlídá formát a duplicitu hexu.
 
 ## Schéma jedné události
@@ -720,6 +719,35 @@ seznam místo rozházených poznámek po repu.
     náhledy, otevřou se ve zvětšeném náhledu/lightboxu) a srovnat s už
     zapsanými termíny; změna data/nový rok přepíše existující záznam se
     stejným `id`, ne duplicitní zápis.
+  - **Minigolfclub Dráčata Pečky** — [minigolf-pecky.webnode.cz](https://minigolf-pecky.webnode.cz/)
+    (`sources.json` → `web-minigolf-pecky`, `organizer: minigolfclub-dracata-pecky`),
+    zapojeno 24. 9. 2026 na žádost uživatele. Web nemá kalendář akcí —
+    čerpá se ze tří míst:
+    - **/turnaje/** — rozpis ligových turnajů roku po měsících. Data mají
+      jen domácí dubnové turnaje (12. 4. Oblastní přebor, 18.–19. 4. MČR
+      dětí a mládeže Junior Trophy, 26. 4. Bohemia Tour 1. liga) — zapsány
+      jako `akce`, s druhým dokladem z Pečeckých novin 5/2026, str. 11.
+      Venkovní turnaje (Praha, Varšava, Děčín, Radotín…) se nezapisují —
+      nejsou v Pečkách. Domácí zářijový turnaj 2. ligy („září: Pečky",
+      noviny 9/2026 „v září na domácím hřišti") nemá datum — **nezapsán,
+      přiznaná mezera**. Nadpis „turnaj pro veřejnost 2026" je na webu
+      prázdný.
+    - **Úvodní stránka** — otvírací doba veřejného hřiště („otevřeno do
+      1. 10. 26, každou So + Ne 14–18"). Zapsáno jako `kurz` jen od data
+      zapojení (26. a 27. 9. 2026); řádek „Hřiště bude pro veřejnost
+      zavřené:" je prázdný. Při každé kontrole ověřit, jestli nepřibyla
+      nová sezóna/doba.
+    - **/o-nas/ + /sluzby/** — trénink dětí každé pondělí 14–16 (shodně
+      i Pečecké noviny 11/2025) → `kurz` od 28. 9. 2026 do 30. 6. 2027
+      (výchozí horizont). Podstránka Služby → **Nábory** uvádí rozporně
+      čtvrtek 14–17 a otevření „od června do září" — vypadá neudržovaně,
+      nepoužito, rozpor přiznán v `note` záznamů.
+    **Kontrola:** Aktuality i RSS jsou mrtvé (jediná zpráva z 27. 1. 2014),
+    datum změny stránek web neukazuje — při každé kontrole projít
+    `/turnaje/` a úvodní stránku (stačí `curl`, statické HTML Webnode,
+    claude-in-chrome netřeba) a srovnat se zapsanými záznamy. Aktuálnější
+    zprávy (výsledky, plány turnajů) píše předsedkyně Věra Šuková do
+    rubriky Spolky/Sport v Pečeckých novinách — kontrolovat i tam.
   - **Street Food Festiválek Pečky** (17. 10. 2026, Kulturní dům) —
     zapsáno 23. 9. 2026 přímo z odkazu na Facebook událost, který zadal
     uživatel. Pořádá externí firma **City Event** (celostátní přehlídka
@@ -837,6 +865,17 @@ seznam místo rozházených poznámek po repu.
     moštování" (3. 10. 2026), ale pořádá ji spolek Huslík v Poděbradech
     — mimo Pečky/Velké Chvalovice, nezapsáno. Feed měl navrchu jen
     nesouvisející AI reklamu na manikúru, dál se nenačetl. Nic k zápisu.
+  - **Hostinec „U Stříkačky"** (`facebook-hostinec-u-strikacky`, 517
+    sledujících, přidáno uživatelem 24. 9. 2026) — soukromá hospoda,
+    V. B. Třebízského 84, Pečky. Záložka Události má jen dvě staré
+    položky (Uzená kýta 9/2024, Svatomartinská Husa 11/2023), žádná
+    záložka „Nadcházející". Posledních ~5 příspěvků profilu jsou
+    výhradně denní jídelní lístky („JÍDELNÍ LÍSTEK — ČTVRTEK 24. 9.
+    2026" apod.) bez vazby na jednorázovou akci — case „akce bez data"
+    z `automation-plakat-akce.md`, ne akce k zapsání. Nic k zápisu.
+    Organizaci v `lide/organizations.json` zatím nezakládat (žádná
+    akce, kterou by měla pořádat) — první výskyt konkrétní akce založí
+    pořadatele podle kroku 3b v `automation-plakat-akce.md`.
 
   Proto `evidence` pole a ne jedno pole se zdrojem — nový zdroj přibývá
   stejným způsobem jako výše.
@@ -875,7 +914,7 @@ seznam místo rozházených poznámek po repu.
   spolu s Kalendářem: spolky `tj-sokol-pecky` a `pececky-okraslovaci-spolek`
   (20. 9. 2026), firma `hospoda-na-hristi-pecky` (22. 9. 2026, IČO se
   nepodařilo dohledat — pořadatel i bez něj), spolek `szm-pecky`
-  (24. 9. 2026). Pro jednorázového
+  (24. 9. 2026), spolek `minigolfclub-dracata-pecky` (24. 9. 2026). Pro jednorázového
   pořadatele mimo rejstřík (cizí divadelní soubor) slouží `organizer:
   null` + `organizer_name: "…"` textem; zakládat kvůli jedné akci
   organizaci nemá smysl, ale ztratit pořadatele taky ne.

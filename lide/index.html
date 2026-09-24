@@ -3,16 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Lidé města Pečky — pecky.online</title>
+<title>Lidé města Pečky — Do Peček . cz</title>
 <meta name="description" content="Adresář lidí ve veřejných funkcích města Pečky — zastupitelstvo, rada, vedení a zaměstnanci úřadu i ředitelé městských organizací. U každého funkce, kontakt a zdroj.">
 <link rel="canonical" href="https://dopecek.cz/lide/">
-<meta property="og:title" content="Lidé města Pečky — pecky.online">
+<meta property="og:title" content="Lidé města Pečky — Do Peček . cz">
 <meta property="og:description" content="Adresář lidí ve veřejných funkcích města Pečky — zastupitelstvo, rada, vedení a zaměstnanci úřadu i ředitelé městských organizací. U každého funkce, kontakt a zdroj.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://dopecek.cz/lide/">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/org-colors.css">
 <link rel="stylesheet" href="/assets/styles.css">
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-1CW9XK1VJY"></script>
 <script>
@@ -29,8 +27,7 @@
   <div class="header-inner">
     <div class="brand-row">
       <a class="brand" href="/">
-        <div class="mark"><img src="/img/Pecky-logo-mesta.webp" alt="Znak města Pečky" width="40" height="40"></div>
-        <h1>Pečky online <small>tvoří PečkyBot AI</small></h1>
+        <h1>Do Peček . cz</h1>
       </a>
       <button type="button" class="info-fab" id="infoFab" title="O webu" aria-label="Přejít na patičku s informacemi o webu">i</button>
     </div>
@@ -90,6 +87,10 @@
     // první užití u MŠ MAŠINKA Pečky, vlastní čipy ze stejného důvodu
     ['asistent-pedagoga', 'Asistenti pedagoga'],
     ['provozni', 'Provozní personál'],
+    // výbory nezávislých spolků (ne orgánů města) — první užití u Pečeckého
+    // okrašlovacího spolku, doplněno 24. 9. 2026; vlastní čip, ale počítá
+    // se do stejné skupiny jako komise (viz `_komise` v `lJoin`)
+    ['clen', 'Spolky'],
   ];
 
   // formátování osoby/vazby a vykreslení vizitky (person-detail) jsou od
@@ -156,8 +157,12 @@
       // členství v komisi RM / školské radě (doplněno 19. 9. 2026) — stejný
       // důvod jako u _urad/_organizace: bez téhle větve by přes dvacet lidí,
       // kteří v komisi sedí, ale nikdy nekandidovali ani nepracují na úřadu,
-      // v adresáři vůbec nenaskočilo (viz lide/README.md)
-      p._komise = p._affs.find(a => a.current && a.role_type === 'komise') || null;
+      // v adresáři vůbec nenaskočilo (viz lide/README.md). `clen` (výbor
+      // spolku, doplněno 24. 9. 2026 pro Pečecký okrašlovací spolek) patří
+      // do téže skupiny — je to obdoba komise, jen u nezávislého spolku
+      // místo orgánu města.
+      p._komise = p._affs.find(a => a.current &&
+        (a.role_type === 'komise' || a.role_type === 'clen')) || null;
       // _office = důvod, proč je člověk v adresáři, i když nikdy neměl mandát
       p._office = p._urad || p._organizace || p._zamestnanec || p._komise || null;
 
@@ -330,11 +335,18 @@
     return labels.join(', ');
   }
 
+  // Barva organizace: CSS proměnná --org-<id> (assets/org-colors.css generuje
+  // build z organizations.json), hex z JSONu jen jako záloha.
+  function lOrgColor(o){
+    if (!o || !o.color) return null;
+    return `var(--org-${o.id}, ${o.color})`;
+  }
+
   function lPersonCard(p){
     const org = p._party;
     const cls = org && org.css_class ? ' ' + org.css_class : '';
     const open = L_STATE.open === p.id;
-    const avatar = pcAvatarHtml(p, {color: org && org.color});
+    const avatar = pcAvatarHtml(p, {color: lOrgColor(org)});
     const until = p._until ? `<span class="tag until">do ${jEscapeHtml(lFormatDate(p._until))}</span>` : '';
     // Popiska je jen text, ne ovládací prvek: celá kartička je role="button",
     // který otevírá detail, a druhý klikací cíl uvnitř něj mátl myš i čtečky.
@@ -368,7 +380,7 @@
 
   function lOrgHead(o){
     if (!o) return '';
-    const dot = o.color ? `<span class="swatch" style="background:${jEscapeHtml(o.color)};"></span>` : '';
+    const dot = o.color ? `<span class="swatch" style="background:${jEscapeHtml(lOrgColor(o))};"></span>` : '';
     const links = [
       o.web ? `<a href="${jEscapeHtml(o.web)}" target="_blank" rel="noopener">web ↗</a>` : '',
       o.ico ? `<a href="https://www.hlidacstatu.cz/subjekt/${jEscapeHtml(o.ico)}" target="_blank" rel="noopener">Hlídač státu · IČO ${jEscapeHtml(o.ico)} ↗</a>` : '',
@@ -515,8 +527,8 @@
                'Nevolení lidé, kteří zajišťují každodenní chod radnice — tajemnice, vedoucí odborů, velitel městské policie a referenti jednotlivých odborů. Nikdo z nich není volený; uvedené je jen to, co město samo zveřejňuje jako služební spojení.') +
         lGroup('Městské organizace', vedeniOrg,
                'Ředitelé příspěvkových organizací města a jednatelka městské firmy — školy, knihovna, kulturní středisko, pečovatelská služba; jmenuje je rada města. U ZUŠ Pečky navíc celý pedagogický sbor, protože ho škola sama zveřejňuje.') +
-        lGroup('Komise rady města a školská rada', komiseGroup,
-               'Iniciativní a poradní orgány zřízené radou města, plus školská rada ZŠ Pečky. Kdo je zároveň zastupitelem, radním nebo vede úřad či organizaci, je uvedený tam.') +
+        lGroup('Komise, spolky a školská rada', komiseGroup,
+               'Iniciativní a poradní orgány zřízené radou města, školská rada ZŠ Pečky a výbory nezávislých spolků působících v Pečkách. Kdo je zároveň zastupitelem, radním nebo vede úřad či organizaci, je uvedený tam.') +
         lGroup('Dřívější vedení a bývalí zastupitelé', byvali,
                'Lidé s doloženou funkcí, která už skončila — starostové, místostarostové a radní minulých volebních období i zastupitelé, kteří odešli uprostřed toho současného. Kartičky zůstávají, aby historie nemizela.');
     }
@@ -722,6 +734,10 @@
 
 </main>
 <footer class="site">
+  <div class="footer-inner footer-credits">
+    <img class="peckybot" src="/img/peckybot/welcome.png" alt="PečkyBot">
+    <p style="margin:8px 0 0;">Web je sestaven s pomocí AI. Robot čerpá informace z veřejných dat dostupných na internetu.</p>
+  </div>
   <nav class="tabs footer-inner" id="tabs">
     <a class="navlink" href="/kalendar/">🗓️ Kalendář</a>
     <a class="navlink" href="/jednani/">📅 Jednání</a>
@@ -736,10 +752,6 @@
     <a class="navlink" href="/pokladna/">Pokladna</a>
     <a class="navlink" href="/o-webu/">O webu</a>
   </nav>
-  <div class="footer-inner footer-credits">
-    <img class="peckybot" src="/img/peckybot/welcome.png" alt="PečkyBot">
-    <p style="margin:8px 0 0;">Web je sestaven s pomocí AI. Robot čerpá informace z veřejných dat dostupných na internetu.</p>
-  </div>
   <div class="footer-inner footer-credits">
     <p style="margin:0;">Našli jste nepřesnost? Máte tip na nějaké téma ke zpracování? Zajímá vás něco o Pečkách? Pište na: <a href="mailto:dopecek@gmail.com">dopecek@gmail.com</a>.</p>
   </div>

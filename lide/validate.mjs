@@ -174,15 +174,23 @@ for (const o of orgs) {
   }
   if (o.web && !/^https?:\/\//.test(o.web)) err(where, `web "${o.web}" musí začínat http:// nebo https://`);
   if (!Array.isArray(o.former_names)) err(where, 'former_names musí být pole');
+  // barva je volitelná u všech typů (pořadatelé akcí v kalendáři apod.) —
+  // build z ní generuje --org-<id> v assets/org-colors.css
+  if (o.color != null && !HEX.test(o.color)) err(where, `color musí být #RRGGBB nebo null (je "${o.color}")`);
+  if (o.color_bg != null) {
+    if (!HEX.test(o.color_bg)) err(where, `color_bg musí být #RRGGBB nebo null (je "${o.color_bg}")`);
+    if (!o.color) err(where, 'color_bg bez color nedává smysl');
+  }
   if (o.type === 'politicke') {
     if (!HEX.test(o.color ?? '')) err(where, `uskupení musí mít color jako #RRGGBB (je "${o.color}") — paleta v volby/README.md`);
     if (!o.css_class) err(where, 'uskupení musí mít css_class (party-*) kvůli barvě kartiček');
+    if (!o.color_bg) err(where, 'uskupení musí mít color_bg (pozadí kartičky) — paleta v volby/README.md');
   }
 }
 
-// barvy uskupení nesmí kolidovat — jedna barva = jedno uskupení
+// barvy nesmí kolidovat — jedna barva = jedna organizace (uskupení i pořadatelé)
 const byColor = new Map();
-for (const o of orgs.filter((x) => x.type === 'politicke' && x.color)) {
+for (const o of orgs.filter((x) => x.color)) {
   const prev = byColor.get(o.color.toUpperCase());
   if (prev) err(`organizace ${o.id}`, `barvu ${o.color} už má ${prev}`);
   else byColor.set(o.color.toUpperCase(), o.id);

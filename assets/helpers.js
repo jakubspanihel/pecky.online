@@ -149,8 +149,7 @@ function pcAvatarHtml(p, opts){
     return `<img class="avatar${cls}" style="width:${size}px; height:${size}px;" src="${jEscapeHtml(url)}" alt="${jEscapeHtml(name)}" loading="lazy" width="${size}" height="${size}">`;
   }
   const color = opts.color || '#5B5347';
-  const fontSize = opts.fontSize || Math.round(size * 0.3125);
-  return `<div class="avatar-fallback${cls}" style="width:${size}px; height:${size}px; font-size:${fontSize}px; background:${jEscapeHtml(color)};" aria-hidden="true">${jInitials(pcFullName(p))}</div>`;
+  return `<div class="avatar-fallback${cls}" style="width:${size}px; height:${size}px; background:${jEscapeHtml(color)};" aria-hidden="true">${jInitials(pcFullName(p))}</div>`;
 }
 
 // plná vizitka osoby — stejná karta jako v detailu sekce Lidé.
