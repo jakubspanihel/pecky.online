@@ -101,10 +101,25 @@ def google_id(ev):
     return hashlib.sha1((ev.get('source_ref') or ev['id']).encode('utf-8')).hexdigest()
 
 
+def abs_url(link):
+    """`link` je buď absolutní URL na externí zdroj (akce/kurz od 24. 9. 2026
+    míří rovnou na doklad, ne na web samotný), nebo cesta uvnitř webu
+    (jednání/volby) — ty jediné potřebují SITE_DOMAIN dopsat."""
+    if not link:
+        return None
+    if link.startswith('http://') or link.startswith('https://'):
+        return link
+    return f'{SITE_DOMAIN}{link}'
+
+
 def telo_udalosti(ev):
     """Jedna událost společného schématu -> tělo pro Google API."""
     zacatek, konec = rozsah(ev)
-    url = f'{SITE_DOMAIN}{ev["link"]}' if ev.get('link') else None
+    url = abs_url(ev.get('link'))
+    # "Do Peček . cz" jako název zdroje dává smysl jen u interních odkazů
+    # (jednání/volby) — u akcí/kurzů teď url míří na cizí web, tam ať si
+    # Google název domény odvodí sám.
+    url_je_nas = bool(url) and url.startswith(SITE_DOMAIN)
     popis = [t for t in (
         ev.get('description'),
         f'Pořádá {ev["organizer_name"]}' if ev.get('organizer_name') else None,
@@ -131,7 +146,7 @@ def telo_udalosti(ev):
         }},
     }
     if url:
-        telo['source'] = {'title': 'Pečky online', 'url': url}
+        telo['source'] = {'url': url, **({'title': 'Do Peček . cz'} if url_je_nas else {})}
     telo = {k: v for k, v in telo.items() if v is not None}
 
     # Otisk obsahu, aby další běh poznal, co se od minule opravdu změnilo,

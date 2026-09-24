@@ -108,11 +108,12 @@ def build_akce_events():
     Zdrojový soubor plní skill pecky-online-kalendar-plakat přepisem plakátů
     a příspěvků pořadatelů. Pořadatel (`organizer`) a zdroj (`evidence[].source`)
     jsou dvě různé věci: akci může pořádat spolek a ohlásit ji facebook města.
-    Do kalendáře jde pořadatel (filtr i tooltip), doklady zůstávají na
-    podstránce /kalendar/akce/, kterou vykresluje přímo z akce.json. Akce bez uvedeného času (plakát ho
-    neuvádí, např. „po setmění") jdou do kalendáře jako celodenní. Odkaz vede
-    na podstránku /kalendar/akce/, kde je u každé akce místo, pořadatel
-    a odkaz na zdrojový plakát — mřížka sama zdroj neunese.
+    Do kalendáře jde pořadatel (filtr i tooltip). Akce bez uvedeného času
+    (plakát ho neuvádí, např. „po setmění") jdou do kalendáře jako celodenní.
+    Odkaz vede přímo na zdroj, ze kterého akce vznikla — první doklad
+    v `evidence[]` (nejsilnější zdroj, podle kterého jsou zapsané údaje, viz
+    „Schéma jedné události" v kalendar/README.md), ne na interní kotvu na
+    webu. Od 24. 9. 2026 na žádost uživatele — dřív šlo o `/kalendar/#<id>`.
     """
     if not AKCE_JSON.exists():
         return []
@@ -126,6 +127,7 @@ def build_akce_events():
         org_id = a.get('organizer')
         org_name = org.get(org_id) if org_id else None
         org_name = org_name or a.get('organizer_name')
+        evidence = a.get('evidence') or []
         events.append({
             'id': a['id'],
             'title': a['title'],
@@ -134,7 +136,7 @@ def build_akce_events():
             'time': time_val,
             'all_day': time_val is None,
             'category': a['category'],  # 'akce' / 'kurz'
-            'link': f'/kalendar/akce/#{a["id"]}',
+            'link': evidence[0]['url'] if evidence else None,
             'description': a.get('description') or a.get('place'),
             'place': a.get('place'),
             'organizer': org_id,
@@ -206,6 +208,17 @@ def ics_fold(line):
     return out
 
 
+def abs_url(link):
+    """`link` je buď absolutní URL na externí zdroj (akce/kurz od 24. 9. 2026
+    míří rovnou na doklad, ne na web samotný), nebo cesta uvnitř webu
+    (jednání/volby) — ty jediné potřebují SITE_DOMAIN dopsat."""
+    if not link:
+        return None
+    if link.startswith('http://') or link.startswith('https://'):
+        return link
+    return f'{SITE_DOMAIN}{link}'
+
+
 def event_to_vevent(ev, dtstamp):
     lines = ['BEGIN:VEVENT', f'UID:{ev["source_ref"] or ev["id"]}@pecky.online',
               f'DTSTAMP:{dtstamp}']
@@ -226,8 +239,9 @@ def event_to_vevent(ev, dtstamp):
         lines.append(ics_fold(f'DESCRIPTION:{ics_escape(". ".join(popis))}'))
     if ev.get('place'):
         lines.append(ics_fold(f'LOCATION:{ics_escape(ev["place"])}'))
-    if ev['link']:
-        lines.append(ics_fold(f'URL:{SITE_DOMAIN}{ev["link"]}'))
+    url = abs_url(ev['link'])
+    if url:
+        lines.append(ics_fold(f'URL:{url}'))
     lines.append(f'CATEGORIES:{ev["category"].upper()}')
     lines.append('END:VEVENT')
     return lines
@@ -241,7 +255,7 @@ def build_ics(events):
         'PRODID:-//pecky.online//Kalendar//CS',
         'CALSCALE:GREGORIAN',
         'METHOD:PUBLISH',
-        'X-WR-CALNAME:Pečky online — Kalendář',
+        'X-WR-CALNAME:Do Peček . cz — Kalendář',
         'X-WR-TIMEZONE:Europe/Prague',
     ]
     for ev in events:
