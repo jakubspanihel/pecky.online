@@ -646,6 +646,15 @@
    "description": "Web Komunitního centra Pramínek Dobřichov (provozuje spolek Maminky sobě, z.s. — viz lide/organizations.json → maminky-sobe), sousední obec Dobřichov u Pečky, ve spolupráci s Farností Pečky. Rubriky „Program a akce\" a „Kroužky\" mají skutečný obsah, „kalendář akcí\" je prázdný (nepoužívaný). Jednotlivé akce na /products/<slug>/ mívají jen datum/čas v textu, bez samostatného pole.",
    "status": "ověřeno",
    "note": "Přidáno a vytěženo 23. 9. 2026 na žádost uživatele (rozšíření geografického rozsahu Kalendáře i na Dobřichov) — dohledáno přes akce zveřejněné na pecky.cz/default/events. „Program a akce\" má víc stránek archivu (1 z 5), nekontrolováno do hloubky; při té příležitosti nalezeny i 2 recenzentní kroužky (Zálesák, Hrátky s batolátky) — zatím jen nahlášeny, nezapsány."
+  },
+  {
+   "id": "web-szmpecky-cz",
+   "name": "Spolek železničních modelářů Pečky — web",
+   "url": "https://szmpecky.webnode.cz/",
+   "category": "spolek",
+   "description": "Klubový web SŽM Pečky (příspěvková organizace — ne, spolek — viz lide/organizations.json → szm-pecky). Podstránka „Členové spolku\" (/nas-tym/) vypisuje kompletní seznam cca 40 členů vč. funkcí ve výboru (předseda, místopředseda, hospodář, správce webu); podstránka „Kalendář akcí\" (/kalendar-akci/) je fotogalerie dvou plakátů — souhrnný roční kalendář výstav 2026 a podrobný plakát k nejbližší výstavě.",
+   "status": "vytěženo",
+   "note": "Přidáno uživatelem 24. 9. 2026 — organizace založena do lide/organizations.json, výbor spolku (4 osoby s funkcí) doplněn do lide/people.json, 9 termínů výstav 2026 zapsáno do kalendar/akce.json jako pořadatel szm-pecky."
   }
  ]
 }

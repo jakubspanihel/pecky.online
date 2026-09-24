@@ -582,6 +582,23 @@ seznam místo rozházených poznámek po repu.
       canisterapeutického psa, novinka školního roku. Web píše, že pes
       bude chodit „pravidelně", ale žádné další termíny neuvádí —
       zapsán jen tenhle první, žádné vymýšlené opakování.
+  - **SŽM Pečky** — [szmpecky.webnode.cz/kalendar-akci](https://szmpecky.webnode.cz/kalendar-akci/)
+    (`sources.json` → `web-szmpecky-cz`, `organizer: szm-pecky`), zapojeno
+    24. 9. 2026 na žádost uživatele. Stránka je fotogalerie, ne
+    strukturovaný kalendář — dva plakáty: souhrnný „Výstavy 2026" s
+    celoročním rozpisem 9 víkendů výstav modelových kolejišť (zpravidla
+    první víkend v měsíci, vždy sobota 9–17 a neděle 9–15) a podrobný
+    plakát k nejbližšímu termínu (k datu zapojení 3.–4. říjen 2026, s
+    cenami vstupného a programem). Zapsáno všech 9 termínů z ročního
+    plakátu jako samostatné `akce` záznamy (29.–31. 5. jako třídenní
+    „největší výstava modelových kolejišť v ČR", ostatní dvoudenní); u
+    nejbližšího termínu doplněn i druhý doklad z podrobného plakátu.
+    **Kontrola:** stránka nemá RSS ani archiv verzí, nový rok se objeví
+    jen přepsáním stejné fotogalerie stejnými odkazy — při každé kontrole
+    znovu projít oba plakáty okem přes claude-in-chrome (kliknout na
+    náhledy, otevřou se ve zvětšeném náhledu/lightboxu) a srovnat s už
+    zapsanými termíny; změna data/nový rok přepíše existující záznam se
+    stejným `id`, ne duplicitní zápis.
   - **Street Food Festiválek Pečky** (17. 10. 2026, Kulturní dům) —
     zapsáno 23. 9. 2026 přímo z odkazu na Facebook událost, který zadal
     uživatel. Pořádá externí firma **City Event** (celostátní přehlídka
@@ -733,7 +750,8 @@ seznam místo rozházených poznámek po repu.
   `lide/SPEC.md`), teprve pak se na jeho id odkazuje. Přibylo tam takhle
   spolu s Kalendářem: spolky `tj-sokol-pecky` a `pececky-okraslovaci-spolek`
   (20. 9. 2026), firma `hospoda-na-hristi-pecky` (22. 9. 2026, IČO se
-  nepodařilo dohledat — pořadatel i bez něj). Pro jednorázového
+  nepodařilo dohledat — pořadatel i bez něj), spolek `szm-pecky`
+  (24. 9. 2026). Pro jednorázového
   pořadatele mimo rejstřík (cizí divadelní soubor) slouží `organizer:
   null` + `organizer_name: "…"` textem; zakládat kvůli jedné akci
   organizaci nemá smysl, ale ztratit pořadatele taky ne.
