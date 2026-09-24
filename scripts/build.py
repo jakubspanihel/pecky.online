@@ -146,7 +146,7 @@ EXTRA_PAGES = {
         # 22. 9. 2026 vypisuje jen nadcházející akce (přepínač Období pryč).
         False, 'kalendar', '2026-09-22'),
     'nejdelsi': (
-        '/jednani/nejdelsi.html', 'Nejdelší jednání zastupitelstva — pecky.online',
+        '/jednani/nejdelsi.html', 'Nejdelší body jednání zastupitelstva — pecky.online',
         'Deset bodů jednání zastupitelstva města Pečky s nejdelší dobou '
         'projednávání v aktuálním volebním období, dopočítané z časových '
         'značek videozáznamů na YouTube.',

@@ -315,6 +315,21 @@ není potřeba — stránka si `absence.json` (i `lide/people.json` kvůli
 avatarům a vizitkám) natahuje přes `fetch()` za běhu v prohlížeči, staví
 se (spolu se zbytkem webu) až krokem 10.
 
+### 8d. Nejdelší jednání zastupitelstva (pokud relevantní)
+
+Stránka [/jednani/nejdelsi.html](nejdelsi.html) je statická tabulka TOP 10
+bodů programu **zastupitelstva** s nejvyšším `duration_seconds` v aktuálním
+volebním období — **negeneruje se skriptem, je to ruční snímek** (na
+rozdíl od `absence.json` v kroku 8c), takže se sama nepřepočítává a hrozí,
+že zestárne beze změny. Po doplnění `duration_seconds` u nového jednání
+**Zastupitelstva** (krok 4/5) zkontrolovat, jestli některý z jeho bodů
+překonává současné desáté místo (k 23. 9. 2026: 45min / 2 700 s) —
+pokud ano, přepočítat žebříček nad aktuálním `pecky-jednani.json` (filtr
+`type === 'Zastupitelstvo'`, `date >= '2022-10-20'`, seřadit
+`agenda[].duration_seconds` sestupně, prvních 10) a ručně přepsat řádky
+tabulky v `content/nejdelsi.html`. U Rady se nekontroluje — stránka
+sleduje jen zastupitelstvo.
+
 ### 9. Tělocvična (pokud relevantní) — POVINNÉ při každém běhu
 
 Stavbu „Dostavba učeben a tělocvičny v ZŠ Pečky“ sleduje vlastní sekce

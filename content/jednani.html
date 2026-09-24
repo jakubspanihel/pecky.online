@@ -10,8 +10,7 @@
     </div>
 
     <p class="search-status" id="jednani-status">Načítám archiv…</p>
-    <p class="lede" style="margin:0 0 18px;">Kontrola docházky: <a href="/jednani/absence.html">Jak vás zastupitelé zastupují</a></p>
-    <p class="lede" style="margin:0 0 18px;">Nejdelší jednání: <a href="/jednani/nejdelsi.html">Nejdelší jednání zastupitelstva</a></p>
+    <p class="lede" style="margin:0 0 18px;">Související: <a href="/jednani/absence.html">Docházka zastupitelů</a> · <a href="/jednani/nejdelsi.html">Nejdelší body jednání zastupitelstva</a></p>
     <div style="display:flex; align-items:center; justify-content:space-between; gap:12px; margin:0 0 14px; flex-wrap:wrap;">
       <h3 class="display" style="font-size:19px; margin:0;">Zápisy z jednání</h3>
       <div class="segmented-control">
@@ -402,14 +401,17 @@
         ? '<ul class="res-list">' + m.resolutions.map(jRenderResLine).join('') + '</ul>'
         : '<p class="lede" style="margin:8px 0;">Program ani usnesení k tomuto jednání nejsou zveřejněné.</p>';
     }
+    const timedDurations = m.agenda.map(a => a.duration_seconds).filter(d => d != null);
+    const maxDuration = timedDurations.length > 1 ? Math.max(...timedDurations) : null;
     const items = m.agenda.map(a => {
       const hasDetail = !!(a.duvodova_zprava || (a._res && a._res.some(r => r.text)));
+      const isLongest = maxDuration != null && a.duration_seconds === maxDuration;
       return `
       <li class="agenda-item${hasDetail ? ' agenda-item--expandable' : ''}">
         <div class="agenda-item-main">
           <span class="agenda-num">${jEscapeHtml(String(a.n))}.</span>
           <span class="agenda-text">${jLinkedText(a.t || '')}</span>
-          ${a.duration_seconds != null ? `<span class="agenda-time">bod se projednával: ${jFormatItemTime(a.duration_seconds)}</span>` : ''}
+          ${a.duration_seconds != null ? `<span class="agenda-time">bod se projednával: ${jFormatItemTime(a.duration_seconds)}${isLongest ? ' 🔥' : ''}</span>` : ''}
           ${a.video_url ? `<a class="agenda-video" href="${a.video_url}" target="_blank" rel="noopener">▶ video ↗</a>` : ''}
           ${hasDetail ? '<span class="agenda-toggle" aria-hidden="true">+</span>' : ''}
         </div>

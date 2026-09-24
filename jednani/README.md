@@ -187,6 +187,31 @@ nerozbaluje — všechna jednání startují sbalená.
 `zapis/` stránky stejným rozborem a doplnit `duration_seconds` na úrovni
 jednání i jednotlivých bodů do `pecky-jednani.json`.
 
+**Nejdéle projednávaný bod (🔥, od 23. 9. 2026):** bod programu s nejvyšším
+`duration_seconds` v rámci jednání dostane u svého času ve výpisu příponu
+„ 🔥" (`bod se projednával: 2h:14min 🔥`). Počítá se za běhu z dat, která už
+v `pecky-jednani.json` jsou — žádné nové pole, žádný ruční krok při
+doplňování jednání. Podmínka: jednání musí mít aspoň dva body s vyplněným
+`duration_seconds`, jinak by "nejdelší" u jediného časovaného bodu nic
+neříkalo (viz konvence webu o nepřehánění). Při shodě více bodů na stejné
+maximální délce dostanou 🔥 všechny. Zdrojová funkce: `jRenderAgendaList`
+v `content/jednani.html` (`maxDuration`/`isLongest`).
+
+**Žebříček nejdelších bodů (`/jednani/nejdelsi.html`, od 23. 9. 2026):**
+samostatná podstránka se statickou tabulkou TOP 10 bodů programu
+**zastupitelstva** (Rada se nesleduje) s nejvyšším `duration_seconds`
+v aktuálním volebním období (od ustavujícího zasedání 20. 10. 2022) — na
+rozdíl od 🔥 značky výše, která srovnává jen body v rámci jednoho jednání,
+jde tady o srovnání napříč všemi jednáními. **Ruční snímek dat, ne živý
+`fetch()`** — na rozdíl od `absence.json` (krok 8c) se sama nepřepočítává
+a při zapomenutí zestárne beze změny; po každé aktualizaci
+`duration_seconds` u nového jednání Zastupitelstva proto zkontrolovat,
+jestli by se žebříček změnil, a pokud ano, přepsat tabulku v
+`content/nejdelsi.html` ručně (viz krok 8d v
+`automation-kontrola-usneseni-cz.md`). Odkázaná z `/jednani/` (odstavec
+„Související:" vedle Docházky) přes trvalý hash na konkrétní jednání
+(`jSlugForMeeting()`, viz „Permalinky na jednotlivá jednání" níže).
+
 ## Účast na jednání (`attendance.present`, `attendance.total`)
 
 Doplněno 21. 8. 2026 pro zobrazení "sešlo se N z/ze M radních/zastupitelů"
