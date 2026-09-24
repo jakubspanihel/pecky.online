@@ -1,7 +1,7 @@
 {
  "project": "pecky.online",
  "description": "Seznam zdrojů, ze kterých pecky.online čerpá nebo může čerpat informace o samosprávě města Pečky.",
- "last_updated": "2026-09-22",
+ "last_updated": "2026-09-24",
  "sources": [
   {
    "id": "pecky-cz",
@@ -655,6 +655,33 @@
    "description": "Klubový web SŽM Pečky (příspěvková organizace — ne, spolek — viz lide/organizations.json → szm-pecky). Podstránka „Členové spolku\" (/nas-tym/) vypisuje kompletní seznam cca 40 členů vč. funkcí ve výboru (předseda, místopředseda, hospodář, správce webu); podstránka „Kalendář akcí\" (/kalendar-akci/) je fotogalerie dvou plakátů — souhrnný roční kalendář výstav 2026 a podrobný plakát k nejbližší výstavě.",
    "status": "vytěženo",
    "note": "Přidáno uživatelem 24. 9. 2026 — organizace založena do lide/organizations.json, výbor spolku (4 osoby s funkcí) doplněn do lide/people.json, 9 termínů výstav 2026 zapsáno do kalendar/akce.json jako pořadatel szm-pecky."
+  },
+  {
+   "id": "web-afkpecky-cz",
+   "name": "AFK Pečky — oficiální web fotbalového klubu",
+   "url": "https://www.afkpecky.cz/",
+   "category": "oficiální · spolek",
+   "description": "Web fotbalového klubu AFK Pečky (založen 1908), městský stadion v Barákově ulici. Sedm týmů od mladší přípravky po A tým mužů (7. liga, skupina C), u každého rozpis zápasů, tabulka, soupiska a novinky; klubové aktuality.",
+   "status": "ověřeno",
+   "note": "Přidáno uživatelem 24. 9. 2026 spolu s facebook-afk-pecky a instagram-afk-pecky. Průzkum pro Kalendář týž den: web běží na platformě webyprokluby.cz. Nejužitečnější jsou stránky /<tým>/zapasy/ (a-tym, b-tym, starsi-dorost, starsi-zaci, mladsi-zaci, starsi-pripravka, mladsi-pripravka) — celý podzimní rozpis mistrovských utkání s datem, časem výkopu, soupeřem a hřištěm (domácí = „Barákova ul., Pečky“); k 24. 9. 2026 celkem 52 nadcházejících zápasů, z toho 24 doma; hráno v Pečkách se počítá podle hřiště, ne podle pořadí týmů. Stránky /<tým>/kalendar/ jsou jen JS vykreslení téhož rozpisu, bez exportu iCal. Rubrika Aktuality (/co-se-u-nas-deje/) nese víkendové programy a klubové akce (např. Zlaté pondělí 28. 9. 2026 od 14:00 na hřišti v rámci posvícení). Stránka Areál vkládá veřejný Google kalendář „Rozpis UMT“ (pq2oqsf8ip8pu4jkb9nql61a6k@group.calendar.google.com, iCal feed funguje) — jde ale o rezervace umělé trávy pro tréninky (90 záznamů, poslední únor 2026), ne veřejné akce. Zapojeno do Kalendáře týž den (rozhodl uživatel): domácí zápasy všech 7 týmů stahuje kalendar/scripts/fetch-afk-zapasy.py do kalendar/afk-zapasy.json (41 zápasů v Pečkách k 24. 9. 2026, vč. odehraných), klubové akce z Aktualit se zapisují do kalendar/akce.json (první: Zlaté pondělí 28. 9. 2026). Týdenní kontrola, viz kalendar/README.md → „Zápasy AFK Pečky“."
+  },
+  {
+   "id": "facebook-afk-pecky",
+   "name": "Facebook — AFK Pečky",
+   "url": "https://www.facebook.com/p/AFK-Pe%C4%8Dky-100057262787888",
+   "category": "sociální síť · spolek",
+   "description": "Oficiální facebooková stránka fotbalového klubu AFK Pečky (649 sledujících k 24. 9. 2026), odkazuje na afkpecky.cz.",
+   "status": "nevytěženo",
+   "note": "Přidáno uživatelem 24. 9. 2026. Bez přihlášení (Browser pane) se zobrazí jen úvodní informace, příspěvky ne — číst přes claude-in-chrome. Data posledního příspěvku zatím nezjištěno."
+  },
+  {
+   "id": "instagram-afk-pecky",
+   "name": "Instagram — AFK Pečky",
+   "url": "https://www.instagram.com/afk_pecky/",
+   "category": "sociální síť · spolek",
+   "description": "Instagramový profil A týmu AFK Pečky (338 sledujících, 80 příspěvků k 24. 9. 2026), adresa Barákova 993, Pečky.",
+   "status": "nevytěženo",
+   "note": "Přidáno uživatelem 24. 9. 2026. Datum posledního příspěvku zatím nezjištěno (spolehlivě jen ze stránky příspěvku /p/<kód>/, viz o-webu/automation-socialni-site.md)."
   }
  ]
 }

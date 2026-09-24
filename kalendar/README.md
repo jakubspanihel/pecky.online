@@ -110,7 +110,8 @@ vede rovnou na zdroj" v „Jak to funguje" níže.
   nedává návštěvníkovi nic k ověření.
 
 Po jakékoli aktualizaci dat kteréhokoli zdroje (viz „Zdroje" níže)
-spustit:
+spustit (zápasy AFK Pečky předtím stáhnout
+`python3 kalendar/scripts/fetch-afk-zapasy.py`, viz „Zápasy AFK Pečky"):
 ```
 python3 kalendar/scripts/update-kalendar.py
 python3 scripts/build.py
@@ -216,6 +217,7 @@ s proměnnými `--org-<id>` a `--org-<id>-bg`. Kalendář je čte podle pole
 | Pečovatelská služba (`pecovatelska-sluzba-pecky`) | `#727A10` olivová | `#E6E7D4` | 232 |
 | Kulturní středisko (`kulturni-stredisko-pecky`) | `#B5561C` rezavá | `#F2E1D6` | 135 |
 | Pramínek / Maminky sobě (`maminky-sobe`) | `#1580A0` azurová | `#D5E8EE` | 79 |
+| AFK Pečky (`afk-pecky`) | `#1010E0` královská modrá | `#D8D8F9` | 42 |
 
 Ostatní pořadatelé barvu nemají a padají na neutrální fallback (akce
 `--gold-deep`, kurz šedý proužek). Město Pečky barvu záměrně nemá — jeho
@@ -231,7 +233,12 @@ legenda.
 s kontrastem ≥ 4,5 : 1 (WCAG AA), vzájemný rozdíl CIEDE2000 ≥ 17 a odstup
 od barev uskupení a kategorií kalendáře. Nejtěsnější dvojice: Kulturní
 středisko × SPD (ΔE 11) — v kalendáři se nepotkají, SPD je jen ve
-volbách. Novou barvu zkontrolovat stejně; validátor
+volbách. AFK Pečky (24. 9. 2026): klubová modrobílá, jenže modrou
+oblast už drží TJ Sokol, ODS, Pramínek a `--slate` — žádný tlumený modrý
+odstín nedal ΔE ≥ 17, splnila to až sytá královská modrá `#1010E0`
+(nejbližší ODS 17,3 a ZUŠ 17,4, kontrast s bílou 9,7 : 1). Je o poznání
+výraznější než zbytek palety — vědomý kompromis ve prospěch klubové barvy. Novou barvu zkontrolovat stejně; validátor
+`node lide/validate.mjs` hlídá formát a duplicitu hexu. Novou barvu zkontrolovat stejně; validátor
 `node lide/validate.mjs` hlídá formát a duplicitu hexu.
 
 ## Schéma jedné události
@@ -291,6 +298,33 @@ zplošťuje svá specifika na tahle pole, detaily zůstávají dostupné přes
 - **`source_ref`** — ID v zdrojových datech (u Jednání `uuid` z
   `pecky-jednani.json`) — používá se i jako `UID` v `.ics`, musí zůstat
   stabilní napříč přegenerováními.
+
+## Pracovní postup: týdenní kontrola
+
+Od 24. 9. 2026 (na žádost uživatele) má Kalendář v `README.md` → „Stav
+sekcí" režim `týdně` — spouští ho skill `pecky-online-update` přes tenhle
+postup. Týdenní kontrola pokrývá jen zdroje, které se dají projít
+spolehlivě a rychle; ostatní pořadatelé (plakáty, Facebook, Instagram)
+zůstávají na vyžádání přes skill `pecky-online-kalendar-plakat`.
+
+1. **Zápasy AFK Pečky:** `python3 kalendar/scripts/fetch-afk-zapasy.py`.
+   Skript vypíše změny oproti minulému běhu (nové zápasy, přeložené
+   termíny, zmizelé nadcházející zápasy, nové výsledky). Skončí-li
+   „ZASTAVENO", ověř rozpis ručně na afkpecky.cz — `--force` jen když
+   tým opravdu nemá žádné zápasy (konec sezóny, zrušené družstvo),
+   nikdy naslepo; jinak sekci přeskoč a nahlas to ve shrnutí.
+2. **Aktuality AFK Pečky** (`afkpecky.cz/co-se-u-nas-deje/`): projít
+   články od data minulé kontroly Kalendáře. Klubová akce s konkrétním
+   termínem (posvícení, turnaj, kemp, nábor s datem) → zapsat do
+   `kalendar/akce.json` podle schématu a konvencí skillu
+   `pecky-online-kalendar-plakat`. „Víkendový program" porovnat s
+   rozpisem z kroku 1 — rozpor (jiný čas, přeložení, které rozpis ještě
+   nemá) nahlásit, do dat nepsat ručně (přepsal by ho příští běh).
+3. **Přegenerovat:** `python3 kalendar/scripts/update-kalendar.py`
+   (a `python3 scripts/build.py`, jen pokud se změnil `content/kalendar.html`).
+4. **Výpis a Stav sekcí** podle `CLAUDE.md` → „Konvence": změny
+   z kroku 1 a 2 jednou větou, jinak „zkontrolováno, beze změny".
+   Nové výsledky odehraných zápasů se počítají jako změna obsahu.
 
 ## Zdroje
 
@@ -845,6 +879,53 @@ seznam místo rozházených poznámek po repu.
   pořadatele mimo rejstřík (cizí divadelní soubor) slouží `organizer:
   null` + `organizer_name: "…"` textem; zakládat kvůli jedné akci
   organizaci nemá smysl, ale ztratit pořadatele taky ne.
+
+### Zápasy AFK Pečky — aktivní (od 24. 9. 2026)
+
+- **Data:** `kalendar/afk-zapasy.json`, stahuje ho
+  `kalendar/scripts/fetch-afk-zapasy.py` (jediný zdroj kalendáře se
+  skutečným scraperem — web klubu jde číst prostým HTTP, bez
+  claude-in-chrome), do kalendáře promítá `build_afk_events()`.
+  `update-kalendar.py` sám nic nestahuje, pracuje s posledním uloženým
+  souborem — proto ho bez obav spouští i krok 8b kontroly Jednání.
+- **Zdroj:** `sources.json` → `web-afkpecky-cz`, stránky
+  `afkpecky.cz/<tým>/zapasy/` všech 7 týmů (A tým, B tým, starší dorost,
+  starší a mladší žáci, starší a mladší přípravka). Tabulka „Mistrovská
+  utkání" (případně „Přátelská utkání") aktuální sezóny: datum, čas
+  výkopu, domácí, hosté, skóre; hřiště z modálního okna „Info o hřišti".
+  Stránky `/<tým>/kalendar/` jsou jen JS překreslení téže tabulky, iCal
+  export web nemá. Veřejný Google kalendář „Rozpis UMT" ze stránky Areál
+  **nepoužívat** — rezervace umělé trávy na tréninky, ne veřejné akce.
+- **Rozsah (rozhodl uživatel 24. 9. 2026):** domácí zápasy **všech**
+  týmů. Soubor drží všechny zápasy (i venkovní, příznak `home`), filtr
+  dělá až `build_afk_events()` podle `in_pecky` — **rozhoduje hřiště,
+  ne pořadí týmů**: 15. 9. 2026 hrála mladší přípravka „Čechie Tuklaty :
+  AFK Pečky" na hřišti „Barákova ul., Pečky"; takový zápas v kalendáři
+  je, s poznámkou. Venkovní zápasy by šly zapnout úpravou filtru bez
+  nového stahování.
+- **Kategorie:** `akce` (veřejná jednorázová událost pro diváky, ne
+  trénink) — checkbox „Pravidelné akce, kurzy a tréninky" je neschová.
+- **Pořadatel:** `afk-pecky` (Amatérský fotbalový klub Pečky, z.s.,
+  IČO 62994417). **Odkaz:** stránka zápasů daného týmu (jednotlivý zápas
+  vlastní URL na webu klubu nemá). **UID:** `afk-<tým>-<id modálu>` —
+  číslo zápasu v systému klubu, drží se i po přeložení termínu.
+- **Odehrané zápasy** zůstávají v kalendáři s výsledkem v popisu
+  (skóre v pořadí domácí:hosté, jak ho uvádí web). Po přepnutí webu na
+  novou sezónu (léto) je skript ponechá ze starého souboru, historie se
+  neztratí; nadcházející zápas, který z webu zmizí, se nepřenáší (zrušení)
+  a jen se vypíše.
+- **Pojistky / kvirky parseru:** tým bez jediného zápasu → zápis se
+  zastaví (`--force` až po ručním ověření). U B týmu chybí na webu třída
+  `hometeam`, domácí se proto pozná podle názvu „AFK Pečky…" v první
+  buňce. Modální okno bez údaje o hřišti nesmí převzít hřiště ze
+  sousedního okna (parsuje se po jednotlivých oknech).
+- **Klubové akce mimo rozpis** (Zlaté pondělí, turnaje, kempy) nejsou
+  v tabulkách zápasů — ty se čtou z Aktualit (`/co-se-u-nas-deje/`)
+  a zapisují ručně do `kalendar/akce.json` (evidence `web-afkpecky-cz`,
+  `kind: "web"`), stejně jako u ostatních pořadatelů. První: Zlaté
+  pondělí 28. 9. 2026 od 14:00. Víkendové programy v Aktualitách jen
+  opakují rozpis — slouží ke křížové kontrole (24. 9. 2026 souhlasily).
+- **Aktualizace:** týdně, viz „Pracovní postup: týdenní kontrola" níže.
 
 ### Volby — aktivní
 

@@ -19,6 +19,11 @@ C) Volby — z kalendar/udalosti-rucni.json, ručně psaný soubor bez
    vlastního scraperu (termín voleb se nemění často). Datum vždy ověřit
    proti sources.json -> csu-informace-vyhlasene-volby (viz
    kalendar/README.md -> "Volby").
+D) Zápasy AFK Pečky — z kalendar/afk-zapasy.json, které stahuje
+   kalendar/scripts/fetch-afk-zapasy.py z afkpecky.cz (do kalendáře jen
+   zápasy hrané v Pečkách, všech týmů). Tenhle skript sám nic nestahuje -
+   pracuje s posledním uloženým souborem, viz kalendar/README.md ->
+   "Zápasy AFK Pečky".
 
 Spouštět po každé aktualizaci jednani/pecky-jednani.json nebo
 kalendar/akce.json (stejně jako jednani/scripts/update-pozemky.py). Po běhu tohoto skriptu je potřeba
@@ -47,6 +52,7 @@ from scripts.build import SITE_DOMAIN  # noqa: E402 - zdroj pravdy pro absolutn�
 JEDNANI_JSON = ROOT / 'jednani' / 'pecky-jednani.json'
 AKCE_JSON = ROOT / 'kalendar' / 'akce.json'
 VOLBY_JSON = ROOT / 'kalendar' / 'udalosti-rucni.json'
+AFK_JSON = ROOT / 'kalendar' / 'afk-zapasy.json'
 ORGANIZACE_JSON = ROOT / 'lide' / 'organizations.json'
 OUT_JSON = ROOT / 'kalendar' / 'udalosti.json'
 OUT_ICS = ROOT / 'kalendar' / 'kalendar.ics'
@@ -188,6 +194,51 @@ def build_volby_events():
     return events
 
 
+def build_afk_events():
+    """Zápasy AFK Pečky hrané v Pečkách z kalendar/afk-zapasy.json -> společné schéma.
+
+    Soubor plní kalendar/scripts/fetch-afk-zapasy.py (všechny zápasy všech
+    týmů, doma i venku). Do kalendáře jdou jen ty s `in_pecky` - hřiště
+    v Pečkách podle webu klubu, i když je soupeř vedený jako domácí.
+    Kategorie `akce`: zápas je veřejná jednorázová událost pro diváky,
+    ne kurz/trénink. Odehrané zápasy zůstávají s výsledkem v popisu.
+    """
+    if not AFK_JSON.exists():
+        return []
+    data = json.loads(AFK_JSON.read_text(encoding='utf-8'))
+    org = nazvy_organizaci()
+    events = []
+    for t in data['teams']:
+        for m in t['matches']:
+            if not m['in_pecky']:
+                continue
+            # "Mistrovská utkání" (nadpis tabulky) -> "mistrovské utkání"
+            soutez = {'Mistrovská utkání': 'mistrovské utkání',
+                      'Přátelská utkání': 'přátelské utkání'}.get(m['competition'], m['competition'])
+            popis = [t.get('league'), soutez]
+            if m.get('score'):
+                popis.append(f'výsledek {m["score"]}')
+            events.append({
+                'id': m['id'],
+                'title': f'Fotbal ({t["name"]}): {m["home_team"]} – {m["away_team"]}',
+                'date': m['date'],
+                'date_end': None,
+                'time': m['time'],
+                'all_day': m['time'] is None,
+                'category': 'akce',
+                'link': t['url'],
+                'description': ' · '.join(p for p in popis if p),
+                'place': 'Fotbalové hřiště AFK Pečky, Barákova ul., Pečky',
+                'organizer': 'afk-pecky',
+                'organizer_name': org.get('afk-pecky', 'AFK Pečky'),
+                'image': None,
+                'note': (None if m['home'] else
+                         'Domácím týmem je soupeř, hraje se ale na hřišti AFK Pečky (podle webu klubu).'),
+                'source_ref': m['id'],
+            })
+    return events
+
+
 # ---------------------------------------------------------------- iCalendar
 
 def ics_escape(text):
@@ -268,14 +319,16 @@ def main():
     jednani = build_jednani_events()
     akce = build_akce_events()
     volby = build_volby_events()
-    events = jednani + akce + volby
+    afk = build_afk_events()
+    events = jednani + akce + volby + afk
     events.sort(key=lambda e: (e['date'], e['time'] or ''))
 
     OUT_JSON.write_text(json.dumps({
         'meta': {
             'generated_from': (f'jednani/pecky-jednani.json ({len(jednani)} jednání), '
                                f'kalendar/akce.json ({len(akce)} akcí), '
-                               f'kalendar/udalosti-rucni.json ({len(volby)} termínů)'),
+                               f'kalendar/udalosti-rucni.json ({len(volby)} termínů), '
+                               f'kalendar/afk-zapasy.json ({len(afk)} zápasů v Pečkách)'),
             'updated': datetime.now(PRAGUE).strftime('%Y-%m-%d'),
         },
         'events': events,
