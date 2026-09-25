@@ -211,6 +211,7 @@
   // aktivní pohled — volají ho navigace měsícem, filtr pořadatele i přepínač
   // Kalendář/Seznam, ať se nezapomene na některou z cest.
   function kalShowView(view){
+    kalWriteHash();
     document.getElementById('kal-month-label').textContent = `${KAL_MONTHS[kalMonth]} ${kalYear}`;
     const grid = document.getElementById('kal-grid');
     const list = document.getElementById('kal-list');
@@ -223,6 +224,29 @@
       grid.style.display = '';
       kalRenderGrid();
     }
+  }
+
+  // Stav v URL: #RRRR-MM = mřížka daného měsíce, #RRRR-MM/seznam = pohled
+  // Seznam. Příchod na /kalendar/ bez hashe doplní aktuální měsíc. Zapisuje
+  // se přes replaceState (stejně jako podzáložky v common.js), ať
+  // listování měsíci nezaplní historii prohlížeče; ruční změnu hashe nebo
+  // odkaz zvenku zachytí posluchač hashchange níž.
+  function kalHash(){
+    return `#${kalYear}-${kalPad(kalMonth + 1)}` + (KAL_VIEW === 'seznam' ? '/seznam' : '');
+  }
+  function kalWriteHash(){
+    if (window.location.hash !== kalHash()) history.replaceState(null, '', kalHash());
+  }
+  // načte hash do stavu; vrací false, když hash není platný kalendářní stav
+  function kalReadHash(){
+    const m = window.location.hash.match(/^#(\d{4})-(\d{2})(?:\/(seznam|kalendar))?$/);
+    if (!m || +m[2] < 1 || +m[2] > 12) return false;
+    kalYear = +m[1];
+    kalMonth = +m[2] - 1;
+    KAL_VIEW = m[3] === 'seznam' ? 'seznam' : 'kalendar';
+    document.querySelectorAll('#panel-kalendar .segmented-btn[data-kal-view]')
+      .forEach(x => x.classList.toggle('active', x.dataset.kalView === KAL_VIEW));
+    return true;
   }
 
   function kalRenderOrgChips(events){
@@ -285,6 +309,14 @@
       KAL_VIEW = this.dataset.kalView;
       kalShowView(KAL_VIEW);
     });
+  });
+
+  // hned při načtení (ještě před stažením dat) — /kalendar/ se tak přepíše
+  // na /kalendar/#RRRR-MM aktuálního měsíce
+  kalReadHash();
+  kalWriteHash();
+  window.addEventListener('hashchange', () => {
+    if (kalReadHash()) kalShowView(KAL_VIEW); else kalWriteHash();
   });
 
   document.getElementById('kal-show-kurz').addEventListener('change', function(){
