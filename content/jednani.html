@@ -348,7 +348,7 @@
   // jen text návrhu a výsledek hlasování. Viz jednani/README.md → "Zamítnuté návrhy usnesení".
   function jRenderRejectedVote(rv){
     const voteText = `pro: ${rv.pro} · proti: ${rv.proti} · zdržel se: ${rv.zdrzel}`;
-    return `<div class="agenda-res-list"><div class="agenda-res">${jResInfoIcon(rv)}<span class="tag res-outcome zamitnuto">Zamítnuto</span> <span class="meeting-count">${jEscapeHtml(voteText)}</span>${jResInfoText(rv)}</div></div>`;
+    return `<div class="agenda-res-list"><div class="agenda-res"><span class="tag res-outcome zamitnuto">Zamítnuto</span> <span class="meeting-count">${jEscapeHtml(voteText)}</span>${jResInfoText(rv)}</div></div>`;
   }
 
   function jRenderResLine(r){
