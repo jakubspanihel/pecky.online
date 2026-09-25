@@ -105,8 +105,10 @@ chybným závěrům.
    Druhý jmenovaný je odlehčený index (jen názvy a texty usnesení). Plný archiv
    obsahuje kompletní zápisy včetně diskuzí, důvodových zpráv a bodů programu —
    řádově víc textu. Pozn.: plný archiv nelze číst přes `mcp__workspace__bash`
-   (mount hlásí „Resource deadlock avoided“) — použij nástroje Grep/Read, které
-   běží na hostu.
+   (mount hlásí „Resource deadlock avoided“) — na vyhledávání/čtení použij
+   nástroje Grep/Read (běží na hostu); potřebuješ-li soubor načíst celý a
+   parsovat (Python `open()`/`json.load()`), zkopíruj ho nejdřív do `/tmp`
+   (viz `CLAUDE.md` → „Poznámky k datům").
 2. **U dotací a smluv nikdy nespoléhej na prvních N záznamů.** Hlídač státu
    defaultně vrací malý vzorek; při řazení `DateAddedDesc` vypadnou starší roky.
    Projdi všechny stránky, nebo cíleně hledej klíčovým slovem k danému projektu.

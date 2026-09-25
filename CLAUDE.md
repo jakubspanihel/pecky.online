@@ -132,11 +132,15 @@ spustit `python3 scripts/build.py`.
   as4u.cz zůstává užitečný pro starší/archivní obsah, viz sources.json
 - Velké soubory v `jednani/` (`archive-*.json`) čtené přímo z cesty
   přes připojenou složku občas skončí `OSError: [Errno 35] Resource
-  deadlock avoided` (Python `open()`, `cat`, `head`...). Obejití: nejdřív
-  `cp soubor /tmp/kopie.json`, pak pracovat s kopií — `cp` samo selhání
-  nemělo. Pozn. 9. 9. 2026: při kontrolním testu se chyba nezopakovala
-  (3/3 přímá načtení `archive-2026-08-04.json` prošla), ale protože šlo
-  vždy o občasnou chybu, postup přes kopii zůstává doporučený.
+  deadlock avoided` (Python `open()`, `cat`, `head`..., i `mcp__workspace__bash`
+  na stejnou cestu). Dvě obejití podle toho, co potřebuješ: na
+  vyhledávání/čtení textu stačí nástroje Grep/Read (běží na hostu, mount
+  neobcházejí); potřebuješ-li soubor načíst celý a parsovat (Python
+  `open()`/`json.load()`), zkopíruj ho nejdřív (`cp soubor /tmp/kopie.json`)
+  a pracuj s kopií — `cp` samo selhání nemělo. Pozn. 9. 9. 2026: při
+  kontrolním testu se chyba nezopakovala (3/3 přímá načtení
+  `archive-2026-08-04.json` prošla), ale protože šlo vždy o občasnou
+  chybu, obě obejití zůstávají doporučená.
 - ~~Git přes připojenou složku je nespolehlivý na čtení objektů~~ —
   **VYŘEŠENO 9. 9. 2026.** Příčinou nebyl git, ale to, že připojená
   složka odmítala `unlink` („Operation not permitted"): git po sobě
