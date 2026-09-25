@@ -3,17 +3,15 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Jednání zastupitelstva a rady — pecky.online</title>
+<title>Jednání zastupitelstva a rady — Do Peček . cz</title>
 <meta name="description" content="Archiv jednání zastupitelstva a rady města Pečky s usneseními, docházkou a odkazy na videozáznam — s fulltextovým vyhledáváním.">
-<link rel="canonical" href="https://jakubspanihel.github.io/pecky.online/jednani/">
-<meta property="og:title" content="Jednání zastupitelstva a rady — pecky.online">
+<link rel="canonical" href="https://dopecek.cz/jednani/">
+<meta property="og:title" content="Jednání zastupitelstva a rady — Do Peček . cz">
 <meta property="og:description" content="Archiv jednání zastupitelstva a rady města Pečky s usneseními, docházkou a odkazy na videozáznam — s fulltextovým vyhledáváním.">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://jakubspanihel.github.io/pecky.online/jednani/">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/pecky.online/assets/styles.css">
+<meta property="og:url" content="https://dopecek.cz/jednani/">
+<link rel="stylesheet" href="/assets/org-colors.css">
+<link rel="stylesheet" href="/assets/styles.css">
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-1CW9XK1VJY"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -21,16 +19,15 @@
   gtag('js', new Date());
   gtag('config', 'G-1CW9XK1VJY');
 </script>
-<script src="/pecky.online/assets/helpers.js"></script>
+<script src="/assets/helpers.js"></script>
 </head>
 <body>
-<script>window.SITE_BASE_PATH = '/pecky.online';</script>
+<script>window.SITE_BASE_PATH = '';</script>
 <header class="site">
   <div class="header-inner">
     <div class="brand-row">
-      <a class="brand" href="/pecky.online/">
-        <div class="mark"><img src="/pecky.online/img/Pecky-logo-mesta.webp" alt="Znak města Pečky" width="40" height="40"></div>
-        <h1>Pečky online <small>tvoří PečkyBot AI</small></h1>
+      <a class="brand" href="/">
+        <h1>Do Peček . cz</h1>
       </a>
       <button type="button" class="info-fab" id="infoFab" title="O webu" aria-label="Přejít na patičku s informacemi o webu">i</button>
     </div>
@@ -40,7 +37,7 @@
 <main>
   <section class="panel active" id="panel-jednani">
     <h2 class="title display">Jednání a usnesení</h2>
-    <p class="lastmod" data-date="2026-09-13">Aktualizováno: 13. 9. 2026</p>
+    <p class="lastmod" data-date="2026-09-24">Aktualizováno: 24. 9. 2026</p>
     <p class="lede" id="jednani-stats">Archiv se právě načítá…</p>
 
     <div class="search-bar">
@@ -51,8 +48,9 @@
     </div>
 
     <p class="search-status" id="jednani-status">Načítám archiv…</p>
+    <p class="lede" style="margin:0 0 18px;">Související: <a href="/jednani/absence.html">Docházka zastupitelů</a> · <a href="/jednani/nejdelsi.html">Nejdelší body jednání zastupitelstva</a></p>
     <div style="display:flex; align-items:center; justify-content:space-between; gap:12px; margin:0 0 14px; flex-wrap:wrap;">
-      <h3 class="display" style="font-size:19px; margin:0;">Zápisy z jednání</h3>
+      <h3 class="display" style="margin:0;">Zápisy z jednání</h3>
       <div class="segmented-control">
         <span class="segmented-label">Zobrazit:</span>
         <div class="segmented-group" role="group" aria-label="Typ jednání">
@@ -247,10 +245,10 @@
     JEDNANI_LOADING = (async () => {
       try {
         const [res, parcelRes, peopleRes, termRes] = await Promise.all([
-          fetch('/pecky.online/jednani/pecky-jednani.json'),
-          fetch('/pecky.online/jednani/parcely-odkazy.json').catch(() => null),
-          fetch('/pecky.online/lide/people.json').catch(() => null),
-          fetch('/pecky.online/jednani/volebni-obdobi.json').catch(() => null)
+          fetch('/jednani/pecky-jednani.json'),
+          fetch('/jednani/parcely-odkazy.json').catch(() => null),
+          fetch('/lide/people.json').catch(() => null),
+          fetch('/jednani/volebni-obdobi.json').catch(() => null)
         ]);
         if (!res.ok) throw new Error('HTTP ' + res.status);
         if (parcelRes && parcelRes.ok) {
@@ -441,14 +439,17 @@
         ? '<ul class="res-list">' + m.resolutions.map(jRenderResLine).join('') + '</ul>'
         : '<p class="lede" style="margin:8px 0;">Program ani usnesení k tomuto jednání nejsou zveřejněné.</p>';
     }
+    const timedDurations = m.agenda.map(a => a.duration_seconds).filter(d => d != null);
+    const maxDuration = timedDurations.length > 1 ? Math.max(...timedDurations) : null;
     const items = m.agenda.map(a => {
       const hasDetail = !!(a.duvodova_zprava || (a._res && a._res.some(r => r.text)));
+      const isLongest = maxDuration != null && a.duration_seconds === maxDuration;
       return `
       <li class="agenda-item${hasDetail ? ' agenda-item--expandable' : ''}">
         <div class="agenda-item-main">
           <span class="agenda-num">${jEscapeHtml(String(a.n))}.</span>
           <span class="agenda-text">${jLinkedText(a.t || '')}</span>
-          ${a.duration_seconds != null ? `<span class="agenda-time">bod se projednával: ${jFormatItemTime(a.duration_seconds)}</span>` : ''}
+          ${a.duration_seconds != null ? `<span class="agenda-time">bod se projednával: ${jFormatItemTime(a.duration_seconds)}${isLongest ? ' 🔥' : ''}</span>` : ''}
           ${a.video_url ? `<a class="agenda-video" href="${a.video_url}" target="_blank" rel="noopener">▶ video ↗</a>` : ''}
           ${hasDetail ? '<span class="agenda-toggle" aria-hidden="true">+</span>' : ''}
         </div>
@@ -458,7 +459,7 @@
     `;
     }).join('');
     const unmatched = m._unmatchedRes && m._unmatchedRes.length
-      ? `<p class="lede" style="margin:14px 0 4px; font-size:12.5px;">Usnesení nešlo jednoznačně přiřadit k bodu programu:</p>
+      ? `<p class="lede lede-sm" style="margin:14px 0 4px;">Usnesení nešlo jednoznačně přiřadit k bodu programu:</p>
          <ul class="res-list">${m._unmatchedRes.map(jRenderResLine).join('')}</ul>`
       : '';
     return `<ol class="agenda-list">${items}</ol>${unmatched}`;
@@ -487,13 +488,14 @@
         : (jFormatAttendance(m) ? `<span class="meeting-count">${jEscapeHtml(jFormatAttendance(m))}</span>` : '');
       const pastNoMinutes = !future && !isToday && !m.links.minutes;
       const daysAgoHtml = pastNoMinutes
-        ? `<span class="meeting-count">${jFormatDaysAgo(m.date)}, zápis zatím není k dispozici${m.links.youtube ? ` · <a href="${m.links.youtube}" target="_blank" rel="noopener">K dispozici je video ↗</a>` : ''}</span>`
+        ? `<span class="meeting-count">${jFormatDaysAgo(m.date)}, <span class="no-minutes-warning">zápis zatím není k dispozici</span>${m.links.youtube ? ` · <a href="${m.links.youtube}" target="_blank" rel="noopener">K dispozici je video ↗</a>` : ''}</span>`
         : '';
-      const livestreamHtml = future && m.type === 'Zastupitelstvo' && m.links.invitation
-        ? `<span class="meeting-live-note">📺 živý přenos bude na Youtube</span>`
+      const livestreamHtml = future && m.type === 'Zastupitelstvo' && m.links.livestream && m.time
+        ? `<span class="meeting-live-note">📺 <a href="${m.links.livestream}" target="_blank" rel="noopener">Živé vysílání od ${jEscapeHtml(m.time)}</a></span>`
         : '';
+      const videoUrl = m.links.youtube || (future && m.links.livestream) || '';
       const detailTopHtml = m.type === 'Rada'
-        ? (m.resolutions.length ? `<p class="lede" style="margin:2px 0 12px; font-size:12.5px; font-family:'IBM Plex Mono',monospace; color:var(--ink-soft);">Přijato ${m.resolutions.length} usnesení</p>` : '')
+        ? (m.resolutions.length ? `<p class="lede lede-sm" style="margin:2px 0 12px; font-family:var(--font-mono); color:var(--ink-soft);">Přijato ${m.resolutions.length} usnesení</p>` : '')
         : jRenderPresenceRow(m);
       const slug = jSlugForMeeting(m);
       return `
@@ -517,12 +519,12 @@
           </span>
         </div>
         <div class="meeting-row-detail" hidden>
-          ${m.video_note ? `<p class="lede" style="margin:6px 0 10px; font-size:12.5px; color:var(--burgundy);">⚠ ${jEscapeHtml(m.video_note)}</p>` : ''}
+          ${m.video_note ? `<p class="lede lede-sm" style="margin:6px 0 10px; color:var(--burgundy);">⚠ ${jEscapeHtml(m.video_note)}</p>` : ''}
           ${detailTopHtml}
-          ${m.links.youtube ? `<a class="toggle-details" href="${m.links.youtube}" target="_blank" rel="noopener" style="margin:0 0 14px;"><img class="meeting-yt-icon" src="/pecky.online/img/favicons/youtube-com.png" alt="" loading="lazy"> Video ↗</a>` : ''}
+          ${videoUrl ? `<a class="toggle-details" href="${videoUrl}" target="_blank" rel="noopener" style="margin:0 0 14px;"><img class="meeting-yt-icon" src="/img/favicons/youtube-com.png" alt="" loading="lazy"> Video ↗</a>` : ''}
           ${jRenderAgendaList(m)}
           <div class="meeting-links">
-            ${m.links.invitation ? `<a href="${m.links.invitation}" target="_blank" rel="noopener" title="Zdrojový web někdy odkaz z cizí stránky blokuje a otevře jen úvodní stránku archivu — zkuste prosím znovu, případně vyhledejte jednání přímo na usneseni.cz.">Pozvánka PDF ↗</a>` : ''}
+            ${(future || isToday) && m.links.invitation ? `<a href="${m.links.invitation}" target="_blank" rel="noopener" title="Zdrojový web někdy odkaz z cizí stránky blokuje a otevře jen úvodní stránku archivu — zkuste prosím znovu, případně vyhledejte jednání přímo na usneseni.cz.">Pozvánka PDF ↗</a>` : ''}
             ${m.links.minutes ? `<a class="toggle-details" href="${m.links.minutes}" target="_blank" rel="noopener" style="margin:0;">Zápis ↗</a>` : ''}
             ${m.links.resolutions ? `<a href="${m.links.resolutions}" target="_blank" rel="noopener">Všechna přijatá usnesení ↗</a>` : ''}
           </div>
@@ -742,33 +744,29 @@
 
 </main>
 <footer class="site">
-  <div class="footer-inner">
-    <img class="peckybot" src="/pecky.online/img/peckybot/welcome.png" alt="PečkyBot">
-    <p class="lede">Ahoj! 👋</p>
-    <p class="lede"><strong>Já jsem PečkyBot. <br>Procházím internet a hledám informace o Pečkách (28911, okres Kolín)</strong></p>
+  <div class="footer-inner footer-credits">
+    <img class="peckybot" src="/img/peckybot/welcome.png" alt="PečkyBot">
+    <p style="margin:8px 0 0;">Web je sestaven s pomocí AI. Robot čerpá informace z veřejných dat dostupných na internetu.</p>
   </div>
   <nav class="tabs footer-inner" id="tabs">
-    <a class="navlink" href="/pecky.online/">Domů</a>
-    <a class="navlink active" href="/pecky.online/jednani/">📅 Jednání</a>
-    <a class="navlink" href="/pecky.online/noviny/">📰 Pečecké noviny</a>
-    <a class="navlink" href="/pecky.online/lide/">Lidé</a>
-    <a class="navlink" href="/pecky.online/plan/">Plán</a>
-    <a class="navlink" href="/pecky.online/telocvicna/">🏗️ Tělocvična</a>
-    <a class="navlink" href="/pecky.online/volby/">Volby</a>
-    <a class="navlink" href="/pecky.online/smlouvy/">Smlouvy</a>
-    <a class="navlink" href="/pecky.online/zakazky/">Zakázky</a>
-    <a class="navlink" href="/pecky.online/pozemky/">Pozemky</a>
-    <a class="navlink" href="/pecky.online/pokladna/">Pokladna</a>
-    <a class="navlink" href="/pecky.online/o-webu/">O webu</a>
+    <a class="navlink" href="/kalendar/">🗓️ Kalendář</a>
+    <a class="navlink active" href="/jednani/">📅 Jednání</a>
+    <a class="navlink" href="/noviny/">📰 Pečecké noviny</a>
+    <a class="navlink" href="/lide/">Lidé</a>
+    <a class="navlink" href="/plan/">Plán</a>
+    <a class="navlink" href="/telocvicna/">🔥 Tělocvična</a>
+    <a class="navlink" href="/volby/">Volby</a>
+    <a class="navlink" href="/smlouvy/">Smlouvy</a>
+    <a class="navlink" href="/zakazky/">Zakázky</a>
+    <a class="navlink" href="/pozemky/">Pozemky</a>
+    <a class="navlink" href="/pokladna/">Pokladna</a>
+    <a class="navlink" href="/o-webu/">O webu</a>
   </nav>
   <div class="footer-inner footer-credits">
-    <p style="margin:0;">Sestaveno s pomocí umělé inteligence (vše je ozdrojované, ale kontrolujte si informace i z dalších zdrojů).</p>
-  </div>
-  <div class="footer-inner footer-credits">
-    <p style="margin:0;">Dotazy mi piště na <a href="mailto:dopecek@gmail.com">dopecek@gmail.com</a>.</p>
+    <p style="margin:0;">Našli jste nepřesnost? Máte tip na nějaké téma ke zpracování? Zajímá vás něco o Pečkách? Pište na: <a href="mailto:dopecek@gmail.com">dopecek@gmail.com</a>.</p>
   </div>
 </footer>
 
-<script src="/pecky.online/assets/common.js"></script>
+<script src="/assets/common.js"></script>
 </body>
 </html>

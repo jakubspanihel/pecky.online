@@ -3,17 +3,15 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Lidé města Pečky — pecky.online</title>
+<title>Lidé města Pečky — Do Peček . cz</title>
 <meta name="description" content="Adresář lidí ve veřejných funkcích města Pečky — zastupitelstvo, rada, vedení a zaměstnanci úřadu i ředitelé městských organizací. U každého funkce, kontakt a zdroj.">
-<link rel="canonical" href="https://jakubspanihel.github.io/pecky.online/lide/">
-<meta property="og:title" content="Lidé města Pečky — pecky.online">
+<link rel="canonical" href="https://dopecek.cz/lide/">
+<meta property="og:title" content="Lidé města Pečky — Do Peček . cz">
 <meta property="og:description" content="Adresář lidí ve veřejných funkcích města Pečky — zastupitelstvo, rada, vedení a zaměstnanci úřadu i ředitelé městských organizací. U každého funkce, kontakt a zdroj.">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://jakubspanihel.github.io/pecky.online/lide/">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/pecky.online/assets/styles.css">
+<meta property="og:url" content="https://dopecek.cz/lide/">
+<link rel="stylesheet" href="/assets/org-colors.css">
+<link rel="stylesheet" href="/assets/styles.css">
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-1CW9XK1VJY"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -21,16 +19,15 @@
   gtag('js', new Date());
   gtag('config', 'G-1CW9XK1VJY');
 </script>
-<script src="/pecky.online/assets/helpers.js"></script>
+<script src="/assets/helpers.js"></script>
 </head>
 <body>
-<script>window.SITE_BASE_PATH = '/pecky.online';</script>
+<script>window.SITE_BASE_PATH = '';</script>
 <header class="site">
   <div class="header-inner">
     <div class="brand-row">
-      <a class="brand" href="/pecky.online/">
-        <div class="mark"><img src="/pecky.online/img/Pecky-logo-mesta.webp" alt="Znak města Pečky" width="40" height="40"></div>
-        <h1>Pečky online <small>tvoří PečkyBot AI</small></h1>
+      <a class="brand" href="/">
+        <h1>Do Peček . cz</h1>
       </a>
       <button type="button" class="info-fab" id="infoFab" title="O webu" aria-label="Přejít na patičku s informacemi o webu">i</button>
     </div>
@@ -40,8 +37,8 @@
 <main>
   <section class="panel active" id="panel-lide">
     <h2 class="title display">Lidé města Pečky</h2>
-    <p class="lastmod" data-date="2026-09-08">Aktualizováno: 8. 9. 2026</p>
-    <p class="lede">Vizitky lidí, kteří v Pečkách zastávají veřejnou funkci. Najdeš tu zastupitelstvo a radu města, vedení a zaměstnance úřadu i ředitele městských organizací. U každého je funkce a zdroj, téměř u všech i pracovní kontakt. Přepínač rozsahu přidá dřívější vedení města a bývalé zastupitele.</p>
+    <p class="lastmod" data-date="2026-09-24">Aktualizováno: 24. 9. 2026</p>
+    <p class="lede">Vizitky lidí, kteří v Pečkách zastávají veřejnou funkci. Najdeš tu zastupitelstvo a radu města, vedení a zaměstnance úřadu, ředitele městských organizací i členy komisí rady a školské rady. U každého je funkce a zdroj, téměř u všech i pracovní kontakt. Přepínač rozsahu přidá dřívější vedení města a bývalé zastupitele.</p>
 
     <div class="search-bar">
       <input type="search" id="lide-search" placeholder="Hledat jméno nebo funkci, např. „Urban“ nebo „ředitel“" autocomplete="off" aria-label="Hledat v adresáři">
@@ -80,66 +77,42 @@
     ['vedeni-urad', 'Úřad města'],
     ['vedeni-organizace', 'Městské organizace'],
     ['zamestnanec', 'Zaměstnanci úřadu'],
+    // vlastní role_type (ne zamestnanec), aby šli pedagogové vyfiltrovat
+    // zvlášť — první užití u ZUŠ Pečky, teď i učitelé ZŠ
+    ['ucitel', 'Učitelé'],
+    // vychovatelky družiny/školního klubu — jiná profese než učitel,
+    // proto vlastní čip (doplněno 22. 9. 2026)
+    ['vychovatel', 'Vychovatelé družiny'],
+    // asistentky pedagoga a nepedagogický provozní personál (úklid) —
+    // první užití u MŠ MAŠINKA Pečky, vlastní čipy ze stejného důvodu
+    ['asistent-pedagoga', 'Asistenti pedagoga'],
+    ['provozni', 'Provozní personál'],
+    // realizační týmy sportovních klubů (trenéři, asistenti, vedoucí
+    // mužstev) — první užití u AFK Pečky, doplněno 24. 9. 2026; vlastní
+    // čip a stejná skupina jako vedení organizace, přesně jako učitelé
+    ['trener', 'Trenéři'],
+    // výbory nezávislých spolků (ne orgánů města) — první užití u Pečeckého
+    // okrašlovacího spolku, doplněno 24. 9. 2026; vlastní čip, ale počítá
+    // se do stejné skupiny jako komise (viz `_komise` v `lJoin`)
+    ['clen', 'Spolky'],
   ];
 
-  // váha funkce v timeline detailu — od nejvýznamnější po nejobecnější
-  const L_TL_ORDER = ['starosta', 'mistostarosta', 'rada', 'vedeni-urad', 'vedeni-organizace', 'komise', 'zastupitel', 'zamestnanec', 'clen', 'kandidatka'];
-  const L_TL_RANK = (t) => {
-    const i = L_TL_ORDER.indexOf(t);
-    return i === -1 ? L_TL_ORDER.length : i;
-  };
+  // formátování osoby/vazby a vykreslení vizitky (person-detail) jsou od
+  // 19. 9. 2026 sdílená komponenta v assets/helpers.js (pc*), protože ji
+  // znovu použije i Jednání → Absence — aliasy tu jen drží dosavadní
+  // krátká jména funkcí v celém zbytku tohoto souboru.
+  const L_TL_RANK = pcTlRank;
+  const lFullName = pcFullName;
+  const lPlainName = pcPlainName;
+  const lRoleLabel = pcRoleLabel;
+  const lFormatDate = pcFormatDate;
+  const lDateKey = pcDateKey;
+  const lActive = pcActive;
+  const lRange = pcRange;
+  const lPhoneLinks = pcPhoneLinks;
+  const lSourceLinks = pcSourceLinks;
 
   const L_STATE = {q: '', orgs: new Set(), roles: new Set(), scope: 'current', open: '', orgView: ''};
-
-  function lFullName(p){
-    return [p.title_before, p.first_name, p.last_name, p.title_after].filter(Boolean).join(' ');
-  }
-  function lPlainName(p){
-    return [p.first_name, p.last_name].filter(Boolean).join(' ');
-  }
-  // "1. místostarosta (uvolněný)" → "1. místostarosta"; první písmeno velké
-  function lRoleLabel(role){
-    const t = (role || '').replace(/\s*\((?:ne)?uvolněný\)\s*$/i, '').trim();
-    return t ? t.charAt(0).toUpperCase() + t.slice(1) : '';
-  }
-  function lFormatDate(iso){
-    const m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(iso || '');
-    if (m) return `${Number(m[3])}. ${Number(m[2])}. ${m[1]}`;
-    return /^\d{4}$/.test(iso || '') ? iso : (iso || '');
-  }
-  // řadicí klíč z data v mixu YYYY / YYYY-MM-DD; prázdné datum až nakonec
-  function lDateKey(v){
-    if (!v) return '0000-00-00';
-    return /^\d{4}$/.test(v) ? v + '-01-01' : v;
-  }
-  // Kandidatura je jednorázová událost, ne trvající stav. V datech má
-  // current: true a to: null (tak ji založila fáze 5), takže by se v timeline
-  // vykreslila jako „– dosud" a vyskočila nad skutečné, dávno ukončené funkce.
-  // Pro zobrazení a řazení ji proto za aktivní nepovažujeme.
-  function lActive(a){
-    return !!a.current && a.role_type !== 'kandidatka';
-  }
-  // období vazby lidsky; rozlišuje „trvá" od „konec neznámý"
-  function lRange(a){
-    const from = a.from ? lFormatDate(a.from) : '';
-    if (a.role_type === 'kandidatka') return from ? `volby ${from}` : 'termín voleb neznámý';
-    if (a.current) return from ? `${from} – dosud` : 'trvá, začátek neznámý';
-    if (a.to) return from ? `${from} – ${lFormatDate(a.to)}` : `do ${lFormatDate(a.to)}`;
-    return from ? `od ${from}, konec neznámý` : 'období neznámé';
-  }
-  // Telefon může nést víc čísel (kancelář a služební mobil), oddělovač „ · ".
-  // Každé dostane vlastní odkaz tel:, v href bez mezer — ty některé telefony
-  // a systémy ve vytáčení nezvládají.
-  function lPhoneLinks(phone){
-    return (phone || '').split('·').map(x => x.trim()).filter(Boolean)
-      .map(num => `<a href="tel:${jEscapeHtml(num.replace(/[^\d+]/g, ''))}">${jEscapeHtml(num)}</a>`)
-      .join(' · ');
-  }
-  function lSourceLinks(sources){
-    return (sources || []).filter(s => s && s.url)
-      .map(s => `<a href="${jEscapeHtml(s.url)}" target="_blank" rel="noopener">${jEscapeHtml(s.label || s.url)} ↗</a>`)
-      .join('');
-  }
 
   // spojí tři pole do jedné pracovní struktury: osoba + její vazby + rozvinutá organizace
   function lJoin(people, orgs, affs){
@@ -167,10 +140,37 @@
       // vedení úřadu/příspěvkových organizací a městských firem (fáze 5b, SPEC.md
       // §7) — mimo zastupitelstvo/radu, proto samostatné pole, ne součást _exec
       p._urad = p._affs.find(a => a.current && a.role_type === 'vedeni-urad') || null;
-      p._organizace = p._affs.find(a => a.current && a.role_type === 'vedeni-organizace') || null;
-      p._zamestnanec = p._affs.find(a => a.current && a.role_type === 'zamestnanec') || null;
+      // _organizace = vedení, učitel nebo (výjimečně) řadový zaměstnanec
+      // organizace jiné než úřad (doplněno 22. 9. 2026 pro pedagogický sbor
+      // ZUŠ Pečky) — `zamestnanec` sám o sobě neříká, kde: bez kontroly typu
+      // organizace by zaměstnanec městské organizace skončil v "Úřad města"
+      // jen proto, že sdílí role_type s úřednicí. Učitelé mají od téhož data
+      // vlastní `role_type: "ucitel"` (viz lide/README.md), aby šli
+      // vyfiltrovat zvlášť od zbytku organizace — přesto počítají do stejné
+      // skupiny „Městské organizace", ne do vlastní. Vychovatelé družiny
+      // (vlastní role_type od 22. 9. 2026, viz lide/README.md) ze stejného
+      // důvodu patří do téže skupiny jako učitelé a vedení. Stejně tak
+      // asistent-pedagoga a provozni (MŠ MAŠINKA Pečky, doplněno 22. 9. 2026).
+      // Trenéři (AFK Pečky, doplněno 24. 9. 2026) stejně jako učitelé: vlastní
+      // čip, ale do skupiny k vedení své organizace.
+      p._organizace = p._affs.find(a => a.current &&
+        (a.role_type === 'vedeni-organizace' || a.role_type === 'ucitel' ||
+         a.role_type === 'vychovatel' || a.role_type === 'asistent-pedagoga' ||
+         a.role_type === 'provozni' || a.role_type === 'trener' ||
+         (a.role_type === 'zamestnanec' && a._org && a._org.type !== 'urad'))) || null;
+      p._zamestnanec = p._affs.find(a => a.current && a.role_type === 'zamestnanec' &&
+        a._org && a._org.type === 'urad') || null;
+      // členství v komisi RM / školské radě (doplněno 19. 9. 2026) — stejný
+      // důvod jako u _urad/_organizace: bez téhle větve by přes dvacet lidí,
+      // kteří v komisi sedí, ale nikdy nekandidovali ani nepracují na úřadu,
+      // v adresáři vůbec nenaskočilo (viz lide/README.md). `clen` (výbor
+      // spolku, doplněno 24. 9. 2026 pro Pečecký okrašlovací spolek) patří
+      // do téže skupiny — je to obdoba komise, jen u nezávislého spolku
+      // místo orgánu města.
+      p._komise = p._affs.find(a => a.current &&
+        (a.role_type === 'komise' || a.role_type === 'clen')) || null;
       // _office = důvod, proč je člověk v adresáři, i když nikdy neměl mandát
-      p._office = p._urad || p._organizace || p._zamestnanec || null;
+      p._office = p._urad || p._organizace || p._zamestnanec || p._komise || null;
 
       // poslední mandát v historii — pro bývalé členy, aby se dala ukázat role i konec
       p._lastMandate = p._affs.filter(a => a.role_type === 'zastupitel')
@@ -193,13 +193,11 @@
           : (p._lastRole ? p._lastRole.role
           : (list ? list.role : ''))));
 
-      // timeline: aktuální vazby nahoru, uvnitř podle váhy funkce a pak od nejnovější.
-      // Váha musí být před datem — starosta i mandát začaly týmž dnem a čistě
-      // chronologické řazení by nahoru vytáhlo náhodně to, co je v poli první
-      p._timeline = p._affs.slice().sort((x, y) =>
-        (Number(lActive(y)) - Number(lActive(x))) ||
-        (L_TL_RANK(x.role_type) - L_TL_RANK(y.role_type)) ||
-        lDateKey(y.from).localeCompare(lDateKey(x.from)));
+      // timeline pro detail (pcBuildTimeline, assets/helpers.js): aktuální vazby
+      // nahoru, uvnitř podle váhy funkce a pak od nejnovější. Váha musí být před
+      // datem — starosta i mandát začaly týmž dnem a čistě chronologické řazení
+      // by nahoru vytáhlo náhodně to, co je v poli první
+      p._timeline = pcBuildTimeline(p.id, affs, orgById);
 
       // předpočítaný text pro fulltext (bez diakritiky, malými písmeny)
       p._haystack = jNorm([
@@ -323,16 +321,38 @@
 
   /* ---------- vykreslení ---------- */
 
+  // Všechny aktuální role osoby, ne jen ta jedna nejvýznamnější (_displayRole).
+  // Kdo je zastupitel i člen dvou komisí zároveň, má na kartičce vidět
+  // všechny tři, ne aby zbylé dvě zůstaly schované až v detailu. Řazeno
+  // stejnou váhou jako timeline (L_TL_RANK) — nejvýznamnější první. Bez
+  // jediné aktivní role (bývalí, viz „byvali" skupina) padá zpět na
+  // _displayRole, který u nich ukazuje jejich poslední funkci.
+  function lActiveRolesLabel(p){
+    const active = p._affs.filter(a => lActive(a));
+    if (!active.length) return lRoleLabel(p._displayRole);
+    const seen = new Set();
+    const labels = [];
+    active
+      .sort((a, b) => L_TL_RANK(a.role_type) - L_TL_RANK(b.role_type))
+      .forEach(a => {
+        const label = lRoleLabel(a.role);
+        if (label && !seen.has(label)) { seen.add(label); labels.push(label); }
+      });
+    return labels.join(', ');
+  }
+
+  // Barva organizace: CSS proměnná --org-<id> (assets/org-colors.css generuje
+  // build z organizations.json), hex z JSONu jen jako záloha.
+  function lOrgColor(o){
+    if (!o || !o.color) return null;
+    return `var(--org-${o.id}, ${o.color})`;
+  }
+
   function lPersonCard(p){
     const org = p._party;
     const cls = org && org.css_class ? ' ' + org.css_class : '';
     const open = L_STATE.open === p.id;
-    // photos je řazené nejnovější první (§3.7 SPEC.md) — na kartičce vždy ta aktuální
-    const currentPhoto = (p.photos && p.photos.length) ? p.photos[0] : null;
-    const photoUrl = currentPhoto ? jWithBase(currentPhoto.url) : '';
-    const avatar = currentPhoto
-      ? `<img class="avatar" src="${jEscapeHtml(photoUrl)}" alt="${jEscapeHtml(lPlainName(p))}" loading="lazy" width="64" height="64">`
-      : `<div class="avatar-fallback" style="background:${jEscapeHtml(org && org.color ? org.color : '#5B5347')};" aria-hidden="true">${jInitials(lFullName(p))}</div>`;
+    const avatar = pcAvatarHtml(p, {color: lOrgColor(org)});
     const until = p._until ? `<span class="tag until">do ${jEscapeHtml(lFormatDate(p._until))}</span>` : '';
     // Popiska je jen text, ne ovládací prvek: celá kartička je role="button",
     // který otevírá detail, a druhý klikací cíl uvnitř něj mátl myš i čtečky.
@@ -346,79 +366,27 @@
     return `
         <div class="person-card${cls}" data-person="${jEscapeHtml(p.id)}" role="button" tabindex="0"
              aria-expanded="${open}" aria-controls="lide-detail-${jEscapeHtml(p.id)}">
-          ${avatar}
-          <div class="role">${jEscapeHtml(lRoleLabel(p._displayRole))}</div>
-          <div class="name">${jEscapeHtml(lFullName(p))}</div>
-          ${party}
+          <div class="pc-row">
+            ${avatar}
+            <div class="pc-info">
+              <div class="name">${jEscapeHtml(lFullName(p))}</div>
+              <div class="role">${jEscapeHtml(lActiveRolesLabel(p))}</div>
+              ${party}
+            </div>
+          </div>
           ${until}
         </div>${open ? lPersonDetail(p) : ''}`;
   }
 
+  // vykreslení karty je od 19. 9. 2026 sdílené s Jednání → Absence,
+  // viz pcDetailHtml v assets/helpers.js
   function lPersonDetail(p){
-    const items = p._timeline.map(a => {
-      const org = a._org;
-      const orgHtml = org
-        ? `<a href="#lide/uskupeni/${encodeURIComponent(org.id)}" data-lide-orgview="${jEscapeHtml(org.id)}">${jEscapeHtml(org.name)}</a>`
-        : '—';
-      const src = lSourceLinks(a.sources);
-      return `
-          <li class="tl-item ${lActive(a) ? 'tl-item--current' : 'tl-item--past'}">
-            <span class="tl-role">${jEscapeHtml(lRoleLabel(a.role))}</span>
-            <span class="tl-org">· ${orgHtml}</span>
-            <span class="tl-range">${jEscapeHtml(lRange(a))}${a.verified ? '' : ' · neověřeno'}</span>
-            ${a.note ? `<p class="tl-note">${jEscapeHtml(a.note)}</p>` : ''}
-            ${src ? `<p class="tl-src">${src}</p>` : ''}
-          </li>`;
-    }).join('');
-
-    // Povolání je sebedeklarace z volebních podkladů, ne ověřený současný stav,
-    // a mezi volbami se mění — proto pole s ročníkem u každé položky (§3.6c).
-    const occupation = (p.occupations || []).length
-      ? `<p class="detail-bio"><span class="occ-label">Povolání</span> ` +
-        p.occupations.map(o =>
-          `${jEscapeHtml(o.value)} <span class="occ-note">(${jEscapeHtml(String(o.year))})</span>`
-        ).join(' · ') +
-        ` <span class="occ-note">— podle volebních podkladů daného roku</span></p>`
-      : '';
-
-    const contacts = [
-      p.email ? `<a href="mailto:${jEscapeHtml(p.email)}">${jEscapeHtml(p.email)}</a>` : '',
-      lPhoneLinks(p.phone)
-    ].filter(Boolean).join(' · ');
-
-    const meta = [
-      p.verified ? `<span class="stamp">ověřeno</span> ${jEscapeHtml(lFormatDate(p.verified))}` : '',
-      lSourceLinks(p.sources)
-    ].filter(Boolean).join(' · ');
-
-    // víc fotek na osobu (§3.7 SPEC.md) — všechny, ne jen ta aktuální na kartičce
-    const photosHtml = (p.photos || []).length
-      ? `<p class="detail-meta">Fotografie: ${p.photos.map(ph =>
-          `${jEscapeHtml(String(ph.year))} — ${jEscapeHtml(ph.photo_source || '')}`
-        ).join(' · ')}</p>`
-      : '';
-
-    return `
-        <div class="person-detail" id="lide-detail-${jEscapeHtml(p.id)}">
-          <div class="detail-head">
-            <span class="detail-name">${jEscapeHtml(lFullName(p))}${
-              (p.former_last_names || []).length
-                ? ` <span class="occ-note">dříve ${jEscapeHtml(p.former_last_names.join(', '))}</span>`
-                : ''}</span>
-            <button type="button" class="detail-close" data-lide-close>zavřít ✕</button>
-          </div>
-          ${p.bio ? `<p class="detail-bio">${jEscapeHtml(p.bio)}</p>` : ''}
-          ${occupation}
-          ${contacts ? `<p class="detail-bio">${contacts}</p>` : ''}
-          <ul class="timeline">${items || '<li class="tl-item tl-item--past">Žádná doložená vazba.</li>'}</ul>
-          ${meta ? `<p class="detail-meta">${meta}</p>` : ''}
-          ${photosHtml}
-        </div>`;
+    return pcDetailHtml(p, {id: `lide-detail-${p.id}`, closeAttr: 'data-lide-close'});
   }
 
   function lOrgHead(o){
     if (!o) return '';
-    const dot = o.color ? `<span class="swatch" style="background:${jEscapeHtml(o.color)};"></span>` : '';
+    const dot = o.color ? `<span class="swatch" style="background:${jEscapeHtml(lOrgColor(o))};"></span>` : '';
     const links = [
       o.web ? `<a href="${jEscapeHtml(o.web)}" target="_blank" rel="noopener">web ↗</a>` : '',
       o.ico ? `<a href="https://www.hlidacstatu.cz/subjekt/${jEscapeHtml(o.ico)}" target="_blank" rel="noopener">Hlídač státu · IČO ${jEscapeHtml(o.ico)} ↗</a>` : '',
@@ -474,6 +442,10 @@
   const lSortOffice = (a, b) =>
     (((a._office && a._office._org) ? a._office._org._order : 99) -
      ((b._office && b._office._org) ? b._office._org._order : 99)) ||
+    // uvnitř téže organizace nahoru vedení (ředitel/ka), pak řadoví
+    // zaměstnanci — jinak by např. učitelka ZUŠ abecedně předběhla
+    // ředitelku jen díky příjmení
+    (L_TL_RANK(a._office.role_type) - L_TL_RANK(b._office.role_type)) ||
     a.last_name.localeCompare(b.last_name, 'cs');
 
   const lSortParty = (a, b) =>
@@ -503,12 +475,15 @@
     // „bývalí" = mají doloženou ukončenou funkci a žádnou aktuální. Kromě lidí,
     // kteří odešli uprostřed období, sem patří i vedení dřívějších volebních
     // období — starostové, místostarostové a radní z let 2014–2018 a 2018–2022.
+    // Kdo má k tomu i aktuální _office (typicky bývalá místostarostka, dnes
+    // členka komise), patří do `office` níž — kartička ukazuje aktuální
+    // postavení, historie je v detailu, stejně jako u každého jiného.
     // Řadí se podle váhy poslední funkce, pak od nejnovějšího konce
     const byvali = shown.filter(p => !p._mandate && !p._exec && !p._office).sort(lSortPast);
     // vedení — lidé, kteří v adresáři nejsou kvůli mandátu, ale kvůli funkci.
     // Úřad města a městské organizace jsou dvě různé věci: úředníky vede
     // tajemnice a jmenuje je starosta, ředitele příspěvkovek jmenuje rada
-    const office = shown.filter(p => !p._mandate && !p._exec && !p._lastMandate && p._office);
+    const office = shown.filter(p => !p._mandate && !p._exec && p._office);
     // Úřad = vedení i řadoví zaměstnanci; vedoucí nahoru, uvnitř abecedně.
     // Bez toho by zaměstnanci nespadli do žádné skupiny a jen by navyšovali
     // čísla ve statistice — stejná past jako dřív u „Kandidátů bez mandátu"
@@ -516,6 +491,12 @@
       (L_TL_RANK(a._office.role_type) - L_TL_RANK(b._office.role_type)) ||
       a.last_name.localeCompare(b.last_name, 'cs'));
     const vedeniOrg = office.filter(p => !p._urad && !p._zamestnanec && p._organizace).sort(lSortOffice);
+    // komise RM a školská rada — lidé, kteří v adresáři jsou jen kvůli
+    // členství v komisi, ne kvůli mandátu ani zaměstnání/vedení. Kdo má
+    // vedle komise i úřad/organizaci, zůstává v té skupině (viz výš), aby
+    // se nezdvojil.
+    const komiseGroup = office.filter(p => !p._urad && !p._zamestnanec && !p._organizace && p._komise)
+      .sort((a, b) => a.last_name.localeCompare(b.last_name, 'cs'));
     const orgHead = L_STATE.orgView ? lOrgHead(db.orgById[L_STATE.orgView]) : '';
 
     // Když je zapnutý filtr podle role, seskupení podle *dnešního* postavení
@@ -551,7 +532,9 @@
         lGroup('Úřad města', vedeniUrad,
                'Nevolení lidé, kteří zajišťují každodenní chod radnice — tajemnice, vedoucí odborů, velitel městské policie a referenti jednotlivých odborů. Nikdo z nich není volený; uvedené je jen to, co město samo zveřejňuje jako služební spojení.') +
         lGroup('Městské organizace', vedeniOrg,
-               'Ředitelé příspěvkových organizací města a jednatelka městské firmy — školy, knihovna, kulturní středisko, pečovatelská služba. Jmenuje je rada města.') +
+               'Ředitelé příspěvkových organizací města a jednatelka městské firmy — školy, knihovna, kulturní středisko, pečovatelská služba; jmenuje je rada města. U ZUŠ Pečky navíc celý pedagogický sbor, protože ho škola sama zveřejňuje.') +
+        lGroup('Komise, spolky a školská rada', komiseGroup,
+               'Iniciativní a poradní orgány zřízené radou města, školská rada ZŠ Pečky a výbory nezávislých spolků působících v Pečkách. Kdo je zároveň zastupitelem, radním nebo vede úřad či organizaci, je uvedený tam.') +
         lGroup('Dřívější vedení a bývalí zastupitelé', byvali,
                'Lidé s doloženou funkcí, která už skončila — starostové, místostarostové a radní minulých volebních období i zastupitelé, kteří odešli uprostřed toho současného. Kartičky zůstávají, aby historie nemizela.');
     }
@@ -566,10 +549,10 @@
       });
     });
 
-    lRenderStatus(shown, byvali, vedeniUrad, vedeniOrg);
+    lRenderStatus(shown, byvali, vedeniUrad, vedeniOrg, komiseGroup);
   }
 
-  function lRenderStatus(shown, byvali, vedeniUrad, vedeniOrg){
+  function lRenderStatus(shown, byvali, vedeniUrad, vedeniOrg, komiseGroup){
     const db = LIDE_DB;
     const statusEl = document.getElementById('lide-status');
     if (!statusEl) return;
@@ -584,8 +567,9 @@
       const office = (vedeniUrad.length || vedeniOrg.length)
         ? ` · ${vedeniUrad.length} na úřadu města, ${vedeniOrg.length} v městských organizacích`
         : '';
+      const komise = komiseGroup.length ? ` · ${komiseGroup.length} v komisích a školské radě` : '';
       statusEl.textContent =
-        `${zastupitelu} zastupitelů, z toho ${radnich} v radě${office}${hist} · data ověřena ${lFormatDate(db._updated)}`;
+        `${zastupitelu} zastupitelů, z toho ${radnich} v radě${office}${komise}${hist} · data ověřena ${lFormatDate(db._updated)}`;
     }
 
     const clearEl = document.getElementById('lide-clear');
@@ -658,15 +642,10 @@
         return;
       }
 
-      const orgView = t.closest('[data-lide-orgview]');
-      if (orgView) {
-        e.preventDefault();
-        L_STATE.orgView = orgView.dataset.lideOrgview;
-        L_STATE.orgs = new Set([L_STATE.orgView]);
-        L_STATE.open = '';
-        lSyncHash(true);
-        return;
-      }
+      // odkaz na uskupení v detailu (pcDetailHtml) je obyčejné `<a href="#lide/uskupeni/…">`
+      // bez zvláštního zachycení — klik jen změní hash, hashchange listener
+      // (dole u loadLide()) zavolá lApplyRoute() a ten už L_STATE.orgView/orgs
+      // i zavření detailu odvodí sám z nového hashe
 
       const scopeBtn = t.closest('[data-lide-scope]');
       if (scopeBtn) { L_STATE.scope = scopeBtn.dataset.lideScope; afterFilter(); return; }
@@ -716,7 +695,7 @@
       const statusEl = document.getElementById('lide-status');
       try {
         const files = ['people.json', 'organizations.json', 'affiliations.json'];
-        const res = await Promise.all(files.map(f => fetch('/pecky.online/lide/' + f)));
+        const res = await Promise.all(files.map(f => fetch('/lide/' + f)));
         res.forEach((r, i) => { if (!r.ok) throw new Error(files[i] + ': HTTP ' + r.status); });
         const [peopleDoc, orgsDoc, affsDoc] = await Promise.all(res.map(r => r.json()));
 
@@ -734,9 +713,9 @@
           host.innerHTML = `
             <div class="callout" style="border-left-color:var(--burgundy); background:rgba(124,47,43,0.06);">
               <strong>Adresář se nepodařilo načíst.</strong> ${jEscapeHtml(e.message || '')}
-              Data leží v <a href="/pecky.online/lide/people.json" target="_blank" rel="noopener">lide/people.json</a>,
-              <a href="/pecky.online/lide/organizations.json" target="_blank" rel="noopener">organizations.json</a> a
-              <a href="/pecky.online/lide/affiliations.json" target="_blank" rel="noopener">affiliations.json</a> —
+              Data leží v <a href="/lide/people.json" target="_blank" rel="noopener">lide/people.json</a>,
+              <a href="/lide/organizations.json" target="_blank" rel="noopener">organizations.json</a> a
+              <a href="/lide/affiliations.json" target="_blank" rel="noopener">affiliations.json</a> —
               dají se otevřít napřímo. Pokud si stránku prohlížíš z disku (<code>file://</code>), načtení blokuje
               prohlížeč, ne web; spusť lokální server.
             </div>`;
@@ -761,33 +740,29 @@
 
 </main>
 <footer class="site">
-  <div class="footer-inner">
-    <img class="peckybot" src="/pecky.online/img/peckybot/welcome.png" alt="PečkyBot">
-    <p class="lede">Ahoj! 👋</p>
-    <p class="lede"><strong>Já jsem PečkyBot. <br>Procházím internet a hledám informace o Pečkách (28911, okres Kolín)</strong></p>
+  <div class="footer-inner footer-credits">
+    <img class="peckybot" src="/img/peckybot/welcome.png" alt="PečkyBot">
+    <p style="margin:8px 0 0;">Web je sestaven s pomocí AI. Robot čerpá informace z veřejných dat dostupných na internetu.</p>
   </div>
   <nav class="tabs footer-inner" id="tabs">
-    <a class="navlink" href="/pecky.online/">Domů</a>
-    <a class="navlink" href="/pecky.online/jednani/">📅 Jednání</a>
-    <a class="navlink" href="/pecky.online/noviny/">📰 Pečecké noviny</a>
-    <a class="navlink active" href="/pecky.online/lide/">Lidé</a>
-    <a class="navlink" href="/pecky.online/plan/">Plán</a>
-    <a class="navlink" href="/pecky.online/telocvicna/">🏗️ Tělocvična</a>
-    <a class="navlink" href="/pecky.online/volby/">Volby</a>
-    <a class="navlink" href="/pecky.online/smlouvy/">Smlouvy</a>
-    <a class="navlink" href="/pecky.online/zakazky/">Zakázky</a>
-    <a class="navlink" href="/pecky.online/pozemky/">Pozemky</a>
-    <a class="navlink" href="/pecky.online/pokladna/">Pokladna</a>
-    <a class="navlink" href="/pecky.online/o-webu/">O webu</a>
+    <a class="navlink" href="/kalendar/">🗓️ Kalendář</a>
+    <a class="navlink" href="/jednani/">📅 Jednání</a>
+    <a class="navlink" href="/noviny/">📰 Pečecké noviny</a>
+    <a class="navlink active" href="/lide/">Lidé</a>
+    <a class="navlink" href="/plan/">Plán</a>
+    <a class="navlink" href="/telocvicna/">🔥 Tělocvična</a>
+    <a class="navlink" href="/volby/">Volby</a>
+    <a class="navlink" href="/smlouvy/">Smlouvy</a>
+    <a class="navlink" href="/zakazky/">Zakázky</a>
+    <a class="navlink" href="/pozemky/">Pozemky</a>
+    <a class="navlink" href="/pokladna/">Pokladna</a>
+    <a class="navlink" href="/o-webu/">O webu</a>
   </nav>
   <div class="footer-inner footer-credits">
-    <p style="margin:0;">Sestaveno s pomocí umělé inteligence (vše je ozdrojované, ale kontrolujte si informace i z dalších zdrojů).</p>
-  </div>
-  <div class="footer-inner footer-credits">
-    <p style="margin:0;">Dotazy mi piště na <a href="mailto:dopecek@gmail.com">dopecek@gmail.com</a>.</p>
+    <p style="margin:0;">Našli jste nepřesnost? Máte tip na nějaké téma ke zpracování? Zajímá vás něco o Pečkách? Pište na: <a href="mailto:dopecek@gmail.com">dopecek@gmail.com</a>.</p>
   </div>
 </footer>
 
-<script src="/pecky.online/assets/common.js"></script>
+<script src="/assets/common.js"></script>
 </body>
 </html>

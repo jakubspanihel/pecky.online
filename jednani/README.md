@@ -187,6 +187,31 @@ nerozbaluje — všechna jednání startují sbalená.
 `zapis/` stránky stejným rozborem a doplnit `duration_seconds` na úrovni
 jednání i jednotlivých bodů do `pecky-jednani.json`.
 
+**Nejdéle projednávaný bod (🔥, od 23. 9. 2026):** bod programu s nejvyšším
+`duration_seconds` v rámci jednání dostane u svého času ve výpisu příponu
+„ 🔥" (`bod se projednával: 2h:14min 🔥`). Počítá se za běhu z dat, která už
+v `pecky-jednani.json` jsou — žádné nové pole, žádný ruční krok při
+doplňování jednání. Podmínka: jednání musí mít aspoň dva body s vyplněným
+`duration_seconds`, jinak by "nejdelší" u jediného časovaného bodu nic
+neříkalo (viz konvence webu o nepřehánění). Při shodě více bodů na stejné
+maximální délce dostanou 🔥 všechny. Zdrojová funkce: `jRenderAgendaList`
+v `content/jednani.html` (`maxDuration`/`isLongest`).
+
+**Žebříček nejdelších bodů (`/jednani/nejdelsi.html`, od 23. 9. 2026):**
+samostatná podstránka se statickou tabulkou TOP 10 bodů programu
+**zastupitelstva** (Rada se nesleduje) s nejvyšším `duration_seconds`
+v aktuálním volebním období (od ustavujícího zasedání 20. 10. 2022) — na
+rozdíl od 🔥 značky výše, která srovnává jen body v rámci jednoho jednání,
+jde tady o srovnání napříč všemi jednáními. **Ruční snímek dat, ne živý
+`fetch()`** — na rozdíl od `absence.json` (krok 8c) se sama nepřepočítává
+a při zapomenutí zestárne beze změny; po každé aktualizaci
+`duration_seconds` u nového jednání Zastupitelstva proto zkontrolovat,
+jestli by se žebříček změnil, a pokud ano, přepsat tabulku v
+`content/nejdelsi.html` ručně (viz krok 8d v
+`automation-kontrola-usneseni-cz.md`). Odkázaná z `/jednani/` (odstavec
+„Související:" vedle Docházky) přes trvalý hash na konkrétní jednání
+(`jSlugForMeeting()`, viz „Permalinky na jednotlivá jednání" níže).
+
 ## Účast na jednání (`attendance.present`, `attendance.total`)
 
 Doplněno 21. 8. 2026 pro zobrazení "sešlo se N z/ze M radních/zastupitelů"
@@ -269,14 +294,118 @@ a případnou poznámkou. Blok nese i `kontrola` — součet absencí přes osob
 proti součtu přes jednání; rozdíl smí být nenulový jen tam, kde ho
 vysvětluje vadný záznam u zdroje (dnes Rada 24/2024, rozdíl +1).
 
-**Stránka není nikde prolinkovaná** — nemá odkaz v navigaci ani v žádné
-sekci, není v `sitemap.xml` a nese `noindex`. Dá se na ni dostat jen
-přímou adresou. Generuje ji `scripts/build.py` ze `content/absence.html`
-přes `EXTRA_PAGES` (viz `ARCHITEKTURA-MIGRACE.md`); až se rozhodne, kam
-odkaz patří, stačí ho někam přidat a `noindex` z `build.py` odebrat.
+Od 19. 9. 2026 je odkázaná — odstavec „Kontrola docházky: Jak vás
+zastupitelé zastupují" nad nadpisem „Zápisy z jednání" v
+`content/jednani.html`. V navigaci vlastní odkaz pořád nemá (žije jen
+jako podstránka `/jednani/absence.html`, ne jako plnohodnotná sekce
+s vlastním řádkem v „Stav sekcí"). Generuje ji `scripts/build.py`
+z `content/absence.html` přes `EXTRA_PAGES` (viz `ARCHITEKTURA-MIGRACE.md`)
+— šesté pole u záznamu `absence` je ISO datum, které zároveň sundá
+`noindex` a stránku zařadí do `sitemap.xml` s tímhle datem jako
+`<lastmod>` (bez vlastního řádku v „Stav sekcí" ho nemá odkud dopočítat
+samo — při další obsahové změně stránky datum v `build.py` ručně
+posunout).
 
 **Při každém novém jednání** znovu spustit `python3 jednani/scripts/absence.py`
-— `absence.json` se nepřepočítává sám.
+— `absence.json` se nepřepočítává sám. Doplněno 19. 9. 2026 jako vlastní
+krok 8c v `automation-kontrola-usneseni-cz.md` (dřív to v týdenním
+postupu nebylo, takže se přepočet snadno zapomněl — viz historie
+v kořenovém `README.md` → „Stav sekcí"), teď se dělá při každém běhu
+automaticky spolu s ostatním.
+
+**Avatar a vizitka osoby u jména (od 19. 9. 2026).** Jméno v prvním sloupci
+tabulky je teď u koho jde spárovat s `lide/people.json` (fuzzy přes
+`jNameKey`, stejný princip jako u avatarů účastníků v `content/jednani.html`
+výše) klikací odkaz s malým kulatým avatarem vedle sebe; klik rozbalí pod
+řádek stejnou vizitku (bio, povolání, kontakt, timeline funkcí), jakou
+zobrazuje detail osoby v sekci Lidé. U jmen bez záznamu v `people.json`
+(v aktuálních datech žádné nejsou, ale mohou přibýt) zůstává jen prostý
+text bez avataru a bez odkazu — žádná vymyšlená data. Jen jeden řádek smí
+být rozbalený zároveň, ale rozlišuje se podle konkrétního řádku tabulky, ne
+podle osoby — `absence.json` drží tutéž osobu klidně ve dvou volebních
+obdobích zvlášť (dnes se ale zobrazuje jen jedno, viz níže), a klik na
+jeden řádek nesmí otevřít vizitku i v jiném se stejnou osobou.
+
+Vykreslení vizitky (`pcAvatarHtml`/`pcDetailHtml`/`pcBuildTimeline`) je
+sdílená komponenta v `assets/helpers.js`, vytažená z detailu osoby
+v `content/lide.html` (ten teď na stejné funkce jen deleguje) — viz
+`lide/README.md`. Stránka kvůli tomu nově načítá i `lide/people.json`,
+`organizations.json` a `affiliations.json` (`EXTRA_PAGES` v
+`scripts/build.py` má u `absence` nastavené `helpers.js` na `True`); pokud
+se tahle data nenačtou, zůstane tabulka fungovat jako dřív, jen bez avatarů
+a bez klikacích jmen.
+
+**Přepracováno na „Docházku" (od 19. 9. 2026), zadal uživatel.** Stránka
+dřív ukazovala obě volební období vedle sebe a hlavní číslo bylo „nebyl
+vůbec"; teď:
+
+- Titulek je „Jak vás zastupitelé zastupují" (dřív „Kdo chybí na
+  jednáních"), perex i `<title>`/meta popisek v `scripts/build.py` přepsané
+  na docházkové vyznění.
+- Tabulka ukazuje **jen aktuální volební období 2022–2026** — starší
+  2018–2022 se v datech dál počítá (`absence.py`/`absence.json` beze
+  změny), na webu se ale nevykresluje, protože ho zápisy na usneseni.cz
+  pokrývají jen zčásti a srovnání s kompletním obdobím by zkreslilo. Ve
+  `vykresli()` (`content/absence.html`) se z bloků daného orgánu bere vždy
+  jen nejnovější (`.sort(...).localeCompare...)[0]`), ne všechny — až
+  přibude další volební období, přepne se samo.
+- Sloupce jsou teď **Jméno, Docházka, Mandát, Poznámka** (dřív Jméno,
+  Jednání, Chyběl při zahájení, Dorazil později, Nebyl vůbec, Odešel dřív,
+  Poznámka). Docházka (`100 − r.podil`, vždy zobrazená, ne jen při
+  mandátu ≥ 10) je teď headline číslo místo „nebyl vůbec". Mandát ukazuje
+  tvar „X / Y" (jednání v mandátu / jednání v celém období) místo dřívějšího
+  jednoho čísla s podmíněným rozpadem. Chyběl při zahájení, dorazil později
+  a odešel dřív se nezobrazují jako vlastní sloupce, ale jako bodový seznam
+  v Poznámce (spolu s případným textovým vysvětlením typu „náhradník, slib
+  …") — vynechá se, kde je hodnota 0.
+- Vysvětlující `.callout` (co čísla znamenají, odchody, tabulka nehodnotí)
+  se přesunul z hlavního těla stránky do záložky „Jak se to počítá", kde
+  teď žije hned pod „Odkud data jsou"; text přepsaný na Docházku
+  („sloupec Docházka…", „docházka 41 % místo 69 %" — stejný podkladový
+  příklad jako dřív, jen z druhé strany).
+- Datový model (`jednani/absence.json`, `jednani/scripts/absence.py`,
+  `INSTRUKCE-absence.md`) se **neměnil** — jde čistě o přepočet/přeuspořádání
+  existujících polí (`podil`, `mandat`, `chybel`, `omluven`, `nepritomen`,
+  `dorazil`, `odesel`, `poznamka`) na frontendu v `content/absence.html`.
+
+**Pořadí záložek a řazení tabulky (týž den, dodatečná úprava zadaná
+uživatelem).** Záložka Rada je teď první a výchozí (dřív Zastupitelstvo);
+pořadí se prohodilo jak u tlačítek `.subtablink`, tak u odpovídajících
+`.subpanel` divů a v poli `for (const organ of [...])` ve `vykresli()`.
+Tabulka se řadí **od nejmenší docházky** (`blok.radky.slice().sort((a,b)
+=> b.podil - a.podil)`, sestupně podle `podil` = vzestupně podle
+docházky) místo dřívějšího řazení od nejkratšího mandátu ze zdrojových
+dat — `absence.json` samo dál drží pořadí podle mandátu (viz
+`INSTRUKCE-absence.md` → „Řazení a poznámky"), přeřazuje se až na
+frontendu. Meta-poznámka pod nadpisem bloku i vysvětlení v „Jak se to
+počítá" přepsané na novou logiku řazení.
+
+**Zjednodušení perexu a nadpisu bloku (týž den, další úprava zadaná
+uživatelem).** Perex zkrácen na jednu větu s odkazem: „Docházka
+zastupitelů a radních na jednání. Zdrojem dat jsou zápisy z
+[jednání](/jednani/)." — druhý odstavec (dřívější vysvětlení opravy
+o pozdní příchody) zahozen, přesun informace o volebním období do
+nadpisu bloku (viz níže) ho udělal nadbytečným. Popisný řádek nad
+tabulkou („31. 10. 2022 – 7. 9. 2026. Řazeno od nejmenší docházky…")
+zrušen u obou orgánů. `<h3>{období} — N jednání</h3>` nahrazen odstavcem
+ve tvaru „Rada města se ve volebním období 2022–2026 sešla 175 krát."
+(`sešla`/`sešlo` podle rodu orgánu — `Rada` žensky, `Zastupitelstvo`
+středně, viz `tabulka()` v `content/absence.html`).
+
+**Položka „Přítomen" v poznámce (týž den, zadal uživatel).** Bodový seznam
+v Poznámce má teď vždy první položku „Přítomen: N" — reálný počet jednání,
+na kterých osoba byla (`r.mandat - r.nebyl`), protějšek sloupce Docházka
+v absolutním čísle místo procenta. Na rozdíl od „chyběl při zahájení"/
+„dorazil později"/„odešel dřív" se zobrazuje vždy, i při nulové absenci
+(`poznamkaHtml()` v `content/absence.html`).
+
+**Skloňování „přítomen/přítomna" vyřešeno (19. 9. 2026, týž den).**
+`people.json` má nově u každé osoby pole `gender`; `poznamkaHtml(r, p)`
+volá sdílenou `pcGendered(p, 'Přítomen', 'Přítomna')` z
+`assets/helpers.js`, takže „Ivana Trčková … Přítomna: 166" je teď
+gramaticky správně. Podrobnosti (odvození `gender` ze jmen, validace,
+obecný mechanismus pro celý web) viz `lide/README.md` → „České skloňování
+osob (gender)".
 
 ## Zvýraznění budoucích jednání (`jIsFutureMeeting()`)
 
@@ -368,6 +497,47 @@ platilo jen pro Zastupitelstvo (`pastNoMinutes` v `jRenderMeetingList`,
 `content/jednani.html`) — od 4. 9. 2026 obecně pro libovolný typ
 jednání, protože avatary/počet přítomných u Rady jsou odvozené ze
 stejného zápisu a bez něj jsou taky prázdné.
+
+Od 18. 9. 2026 je text „zápis zatím není k dispozici" barevně zvýrazněný
+(`.no-minutes-warning`, `var(--burgundy)`) — zbytek řádku („Proběhlo před
+N dny…", odkaz na video) zůstává neutrální.
+
+## Pozvánka PDF jen u nadcházejících jednání (od 18. 9. 2026)
+
+Odkaz „Pozvánka PDF ↗" v rozbaleném řádku jednání (`m.links.invitation`)
+se od 18. 9. 2026 zobrazuje jen u jednání, které ještě neproběhlo
+(naplánované nebo dnešní — `future || isToday` v `jRenderMeetingList`,
+`content/jednani.html`). U proběhlého jednání ztrácí Pozvánka smysl (zápis
+a usnesení ji nahradí) a odkaz mizí, i když v datech `links.invitation`
+zůstává (nemaže se, jen se nevykresluje).
+
+## Živé vysílání budoucího jednání zastupitelstva (`links.livestream`, od 18. 9. 2026)
+
+Rada nemá video vůbec (viz „Nesoulad číslování videí" níže), ale
+Zastupitelstvo bývá na kanálu @mestopecky přenášeno živě. Pro **naplánované**
+jednání zastupitelstva (`jIsFutureMeeting()` = true) je potřeba při každém
+běhu kontroly zjistit, jestli už na playlistu „Zasedání ZM"
+(`https://www.youtube.com/playlist?list=PL1KVT2dbyIKSTFRv7tfDqrfk5gkTSnoyu`)
+existuje záznam pro nadcházející/plánovaný přenos (YouTube ho typicky
+zobrazí jako „Premiéra"/naplánované video ještě před začátkem).
+
+- **Pokud odkaz existuje**, doplnit ho do `pecky-jednani.json` jako
+  `links.livestream` (stejný tvar URL jako `links.youtube`). Frontend pak
+  na sbaleném řádku zobrazí „📺 Živé vysílání od HH:MM" (čas je z pole
+  `time`, doplněného už dřív z Pozvánky — viz automation-kontrola-usneseni-cz.md
+  krok 4) jako odkaz, a v rozbaleném řádku funguje tlačítko „Video ↗"
+  stejně jako u proběhlého jednání s `links.youtube`.
+- **Pokud odkaz zatím neexistuje**, nic nevymýšlet a nic nezobrazovat —
+  žádný generický text typu „přenos bude na Youtube" (vymyšlené tvrzení
+  bez ověření, viz konvence webu o zákazu vymyšlených dat). Zkusit znovu
+  při příštím běhu.
+- Po jednání se `links.livestream` stává zbytečným — stejné video pak
+  najde a do `links.youtube` doplní běžný krok 6 kontroly (spárování podle
+  data v popisku). `links.livestream` u proběhlého jednání se dá smazat,
+  ale není to nutné (`future` podmínka ve frontendu ho stejně přestane
+  používat, jakmile datum jednání mine).
+- Zdrojová logika: `livestreamHtml`/`videoUrl` v `jRenderMeetingList`,
+  `content/jednani.html`.
 
 ## Známá omezení zdroje (ověřeno 2026-08-04)
 

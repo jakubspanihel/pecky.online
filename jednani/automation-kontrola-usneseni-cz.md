@@ -8,8 +8,11 @@ nepřibylo nové jednání nebo se u existujícího nedoplnil zápis a usnesení
 promítne se do veřejné stránky `/jednani/` přes `scripts/build.py`).
 Součástí postupu je i kontrola záznamů
 zastupitelstva na YouTube (krok 6), časových značek jednotlivých bodů
-u těch videí (krok 7) a promítnutí bodů týkajících se stavby tělocvičny
-do sekce [/telocvicna/](../telocvicna/README.md) (krok 9) — všechno dělat
+u těch videí (krok 7), přegenerování dat sekce
+[/kalendar/](../kalendar/README.md) (krok 8b), přepočet docházky pro
+sekci [/jednani/absence.html](absence.html) (krok 8c) a promítnutí bodů
+týkajících se stavby tělocvičny do sekce
+[/telocvicna/](../telocvicna/README.md) (krok 9) — všechno dělat
 při každém běhu, ne jen jednorázově.
 
 **Vztah k ostatním dokumentům:** dřívější plán počítal s plným scraperem
@@ -193,6 +196,25 @@ může mít video zítra.
    bez `links.youtube` a nevymýšlet. Může se objevit až při některém
    příštím běhu, nebo nikdy — v obou případech nic nepředstírat.
 
+### 6b. Živý přenos u naplánovaného zastupitelstva (dělat při KAŽDÉM běhu, doplněno 18. 9. 2026)
+
+Najdeš-li v archivu jednání `type: "Zastupitelstvo"` s `date` **v
+budoucnosti** (naplánované, ještě neproběhlo), zkontroluj stejný playlist
+„Zasedání ZM" jako v kroku 6, jestli už obsahuje odkaz na nadcházející
+živý přenos (YouTube ho zpravidla ukazuje jako naplánované video/premiéru
+ještě před začátkem vysílání).
+
+- Pokud odkaz existuje, doplň ho jako `links.livestream` (stejný tvar
+  URL jako `links.youtube`). Web pak sám zobrazí na sbaleném řádku „📺
+  Živé vysílání od HH:MM" (čas bere z pole `time`, doplněného z Pozvánky)
+  a v rozbaleném řádku tlačítko „Video ↗" — viz
+  [README.md](README.md) → „Živé vysílání budoucího jednání
+  zastupitelstva".
+- Pokud odkaz zatím neexistuje, nic nezobrazovat ani nevymýšlet (žádný
+  generický text bez ověření) — zkusit znovu při příštím běhu.
+- Po jednání nahradí `links.youtube` z běžného kroku 6 tuhle dočasnou
+  hodnotu; mazat `links.livestream` ručně není nutné.
+
 Frontend (`content/jednani.html`, `jRenderMeetingList`)
 je na `links.youtube` datově řízený — žádná úprava kódu není potřeba,
 nový odkaz se automaticky promítne i do textů „K dispozici je video" (u
@@ -235,6 +257,78 @@ Pokud nové usnesení řeší prodej/nákup pozemku, spustit i
 `python3 jednani/scripts/update-pozemky.py` — viz
 [automation-katastr-parcely.md](automation-katastr-parcely.md) pro plný
 popis.
+
+### 8b. Kalendář — POVINNÉ při každém běhu
+
+Sekce [/kalendar/](../kalendar/README.md) čerpá přímo z
+`pecky-jednani.json` (termíny jednání rady a zastupitelstva v měsíční
+mřížce + `.ics` ke stažení). Po jakékoli úpravě souboru v kroku 5 —
+nové jednání, doplněný zápis, zmizelé/objevené pole `time` — spustit:
+
+```
+python3 kalendar/scripts/update-kalendar.py
+python3 kalendar/scripts/sync-google.py
+```
+
+První přegeneruje `kalendar/udalosti.json` a `kalendar/kalendar.ics`,
+druhý je promítne do veřejného Google kalendáře „Co se děje v Pečkách"
+(viz [kalendar/README.md](../kalendar/README.md) → „Odebírání
+kalendáře").
+
+**Chybí-li klíč, synchronizaci vynech a nahlas ji.** `sync-google.py` čte
+`.google-calendar-api-key.json` v kořeni repa; ten soubor je
+v `.gitignore`, takže cloudový checkout ho nemá a skript by na něm spadl.
+Neexistuje-li, druhý příkaz přeskoč a do shrnutí běhu přidej řádek
+„Google kalendář čeká na synchronizaci — spustit
+`python3 kalendar/scripts/sync-google.py` lokálně". Celý běh kvůli tomu
+neukončuj — mřížka na webu i `.ics` jsou v pořádku, pozadu je jen Google.
+
+Na rozdíl od kroku 8 (Pozemky) se spouští vždy, ne jen když se týká
+konkrétního usnesení — kalendář zobrazuje všechna jednání, ne jen ta
+o pozemcích. Viz [kalendar/README.md](../kalendar/README.md) pro popis
+skriptu a schéma dat. `content/kalendar.html` samotný upravovat není
+potřeba — stránka si data natahuje přes `fetch()` za běhu v prohlížeči,
+staví se (spolu se zbytkem webu) až krokem 10.
+
+### 8c. Absence — POVINNÉ při každém běhu
+
+Sekce [/jednani/absence.html](absence.html) („Jak vás zastupitelé
+zastupují" — docházka) čerpá z `jednani/absence.json`, které se **samo
+nepřepočítává** — je to statický soubor, ne živý dotaz nad
+`pecky-jednani.json`. Po jakékoli úpravě prezence v kroku 5 (nové
+jednání, doplněná úvodní prezence, doplněné `attendance.changes`)
+spustit:
+
+```
+python3 jednani/scripts/absence.py
+```
+
+Přepíše `jednani/absence.json`. Skript sám vypíše kontrolní součet za
+každý blok (Rada/Zastupitelstvo × volební období) — rozdíl smí být
+nenulový jen tam, kde ho vysvětluje známý vadný záznam zdroje (viz
+`INSTRUKCE-absence.md` §1 a §7); jakýkoli jiný nenulový rozdíl znamená
+zkontrolovat nově zapsaná data z kroku 5. Stejně jako u kroku 8b
+(Kalendář) se spouští vždy, ne jen když se týká konkrétního jednání —
+`absence.json` je souhrn přes celé volební období, takže ho rozhodí
+i jediné nově doplněné jednání. `content/absence.html` samotný upravovat
+není potřeba — stránka si `absence.json` (i `lide/people.json` kvůli
+avatarům a vizitkám) natahuje přes `fetch()` za běhu v prohlížeči, staví
+se (spolu se zbytkem webu) až krokem 10.
+
+### 8d. Nejdelší jednání zastupitelstva (pokud relevantní)
+
+Stránka [/jednani/nejdelsi.html](nejdelsi.html) je statická tabulka TOP 10
+bodů programu **zastupitelstva** s nejvyšším `duration_seconds` v aktuálním
+volebním období — **negeneruje se skriptem, je to ruční snímek** (na
+rozdíl od `absence.json` v kroku 8c), takže se sama nepřepočítává a hrozí,
+že zestárne beze změny. Po doplnění `duration_seconds` u nového jednání
+**Zastupitelstva** (krok 4/5) zkontrolovat, jestli některý z jeho bodů
+překonává současné desáté místo (k 23. 9. 2026: 45min / 2 700 s) —
+pokud ano, přepočítat žebříček nad aktuálním `pecky-jednani.json` (filtr
+`type === 'Zastupitelstvo'`, `date >= '2022-10-20'`, seřadit
+`agenda[].duration_seconds` sestupně, prvních 10) a ručně přepsat řádky
+tabulky v `content/nejdelsi.html`. U Rady se nekontroluje — stránka
+sleduje jen zastupitelstvo.
 
 ### 9. Tělocvična (pokud relevantní) — POVINNÉ při každém běhu
 
@@ -293,7 +387,8 @@ Stručně: co bylo nové/doplněné, co zůstává čekat na publikaci webem. Ni
 nevymýšlet — pokud web nic nového neukazuje, říct to přímo.
 
 **Vždy jmenovitě vypiš, co jsi změnil** — u každého dotčeného souboru
-(`jednani/pecky-jednani.json`, `content/telocvicna.html`, `README.md`,
+(`jednani/pecky-jednani.json`, `kalendar/udalosti.json`,
+`kalendar/kalendar.ics`, `content/telocvicna.html`, `README.md`,
 `sources.json` …) jednou větou, co se v něm změnilo a proč. Sekce
 Tělocvična (krok 9) má v tomto výpisu vlastní řádek vždy, i když se
 nezměnila — pak s poznámkou „zkontrolováno, beze změny“.

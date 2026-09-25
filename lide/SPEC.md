@@ -112,6 +112,7 @@ Jednání a Pečecké noviny. Lokálně `python3 -m http.server`.
       "id": "paluskam",
       "first_name": "Milan",
       "last_name": "Paluska",
+      "gender": "m",
       "title_before": "",
       "title_after": "",
       "email": "",
@@ -141,6 +142,7 @@ Jednání a Pečecké noviny. Lokálně `python3 -m http.server`.
 |---|---|---|---|
 | `id` | slug | ✅ | unikátní, neměnné |
 | `first_name` / `last_name` | string | ✅ | `last_name` je řadicí klíč |
+| `gender` | `"m"` \| `"f"` | ✅ | pro gramaticky správné skloňování (přítomen/přítomna, zvolen/zvolena…) — odvozeno z `first_name`, viz `lide/README.md` § „České skloňování osob (gender)". Použij sdílenou `pcGendered()` z `assets/helpers.js`, nepiš tvary napevno |
 | `title_before` / `title_after` | string | — | `""` místo `null` |
 | `email` | string | — | jen pracovní adresa, `""` když neznámá |
 | `phone` | string | — | jedno nebo víc čísel oddělených `" · "`, každé ve tvaru `+420 123 456 789`; pořadí kancelář → mobil. `""` když neznámé |
@@ -180,7 +182,8 @@ Jednání a Pečecké noviny. Lokálně `python3 -m http.server`.
 | `short_name` | string | — | pro badge a úzké sloupce; fallback = `name` |
 | `type` | enum | ✅ | `urad` · `prispevkova` · `firma` · `spolek` · `politicke` · `skola` · `jine` |
 | `ico` | string \| `null` | — | 8 číslic jako **string** (vedoucí nuly); prolinkuje na Hlídač státu |
-| `color` | `#RRGGBB` \| `null` | ✅ u `politicke` | z palety v [`volby/README.md`](../volby/README.md) |
+| `color` | `#RRGGBB` \| `null` | ✅ u `politicke` | uskupení z palety v [`volby/README.md`](../volby/README.md), pořadatelé akcí z palety v [`kalendar/README.md`](../kalendar/README.md); build z ní generuje `--org-<id>` v `assets/org-colors.css` |
+| `color_bg` | `#RRGGBB` \| `null` | ✅ u `politicke` | světlé pozadí (kartička, kurz v kalendáři); jen spolu s `color`; generuje `--org-<id>-bg` |
 | `css_class` | string \| `null` | ✅ u `politicke` | `party-*`, existující třída v `index.html` |
 | `former_names` | string[] | ✅ | dřívější názvy s ročníkem; může být `[]` |
 
@@ -280,6 +283,7 @@ hodnotách, dokud se nedohledá zdroj:
   "id": "novakj",
   "first_name": "Jan",
   "last_name": "Novák",
+  "gender": "m",
   "title_before": "", "title_after": "",
   "email": "", "phone": "",
   "photo": "", "photo_source": "",
@@ -469,7 +473,7 @@ bez data konce, `meta.example: true`.
 ## 5. UI sekce „Lidé"
 
 Zachovat vizuální jazyk projektu — `--parchment` / `--ink` / `--burgundy` /
-`--gold` / `--line`, Fraunces pro nadpisy, IBM Plex Mono pro metadata,
+`--gold` / `--line`, `--font-display` pro nadpisy, `--font-mono` pro metadata,
 `.callout` a `.stamp` beze změny. Barvy kartiček brát z `organization.color`
 a `organization.css_class`, ne z nové palety.
 

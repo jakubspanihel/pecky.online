@@ -165,11 +165,16 @@ opakovaně, si barvu drží, i když se mu mění název.
 | Komunistická strana Čech a Moravy | `party-kscm` | `#C1272D` | `#F1CFD1` | 2018 |
 | Pečky srdcem | `party-peckysrdcem` | `#2E7D32` | `#D1E2D2` | 2026 |
 
-**Kde barvy žijí v kódu.** Pozadí kartiček je v `assets/styles.css`
-jako `.person-card.party-*` (`background` + `border-color`); tečky
-`.swatch` a graf mandátů mají hex napsaný inline v `style="background:…"`.
-Zvýrazňovací barva ve třetím sloupci = hodnota `border-color` u kartičky
-i barva tečky — je to jedno a totéž číslo.
+**Kde barvy žijí v kódu** (od 24. 9. 2026). Jediný zdroj jsou pole
+`color` (zvýrazňovací barva) a `color_bg` (pozadí kartičky) v
+[`lide/organizations.json`](../lide/organizations.json). `scripts/build.py`
+z nich generuje `assets/org-colors.css` s proměnnými `--org-<id>` /
+`--org-<id>-bg` a aliasy `--party-*` / `--party-*-bg` podle `css_class`.
+Kartičky `.person-card.party-*` v `assets/styles.css`, tečky `.swatch`
+i graf mandátů v `content/volby20*.html` se odkazují jen na
+`var(--party-*)` — hex se nikde jinde nepíše. Změna barvy = úprava
+`organizations.json` + build. Tabulka výše je jen přehled a musí s JSONem
+souhlasit.
 
 **Pravidlo.** Při přidávání nového místa na webu, kde se zobrazuje
 uskupení nebo jeho člen (nová kartička, graf, tabulka, nový ročník),

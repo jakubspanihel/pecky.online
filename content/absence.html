@@ -1,39 +1,39 @@
   <section class="panel active" id="panel-absence">
-    <h2 class="title display">Kdo chybí na jednáních</h2>
-    <p class="lede">Kolikrát který zastupitel a radní chyběl na jednání. Čísla vycházejí ze jmenné prezence v zápisech města a jsou opravená o pozdní příchody — kdo dorazil po zahájení, není veden jako nepřítomný. Zastupitelstvo a rada se počítají zvlášť, uvnitř zvlášť za každé volební období. <span class="stamp">ověřeno</span></p>
-
-    <div class="callout">
-      <strong>Co čísla znamenají.</strong> Prezence v zápisu je pořízená při zahájení jednání. Příchody a odchody v jeho průběhu zapisovatel eviduje zvlášť („V 15:45:53 přišel Ing. Petr Dürr, přítomno 7 z 7 radních") a my je do výpočtu započítali — sloupec <em>nebyl vůbec</em> proto počítá jen ta jednání, kde člověk chyběl při zahájení a jeho pozdější příchod zápis nezaznamenal. Rozdíl je podstatný: bez téhle opravy by u jednoho radního vyšla absence 59 % místo 31 %.
-      <br><br>
-      <strong>Odchody se s absencí nesčítají.</strong> Sloupec <em>odešel dřív</em> stojí samostatně — zůstat do konce jednání není povinnost a přesnou délku účasti ze zápisu spočítat nejde. Čte se ale spolu s absencí: kdo nechyběl ani jednou, mohl přesto odejít z poloviny jednání.
-      <br><br>
-      <strong>Tabulka nehodnotí.</strong> Zápis neuvádí, proč se kdo omluvil ani proč se neomluvil, takže z čísel nejde odvodit, kdo bere mandát vážně. Rozdíl mezi omluvenou a neomluvenou nepřítomností je jen ten, jak ji zapsal zapisovatel.
-    </div>
+    <h2 class="title display">Jak vás zastupitelé zastupují</h2>
+    <p class="lede">Docházka zastupitelů a radních na jednání. Zdrojem dat jsou zápisy z <a href="/jednani/">jednání</a>. <span class="stamp">ověřeno</span></p>
 
     <div class="subtabs" role="tablist" aria-label="Části stránky Absence">
-      <button class="subtablink active" type="button" data-subpanel="absence-zastupitelstvo">Zastupitelstvo</button>
-      <button class="subtablink" type="button" data-subpanel="absence-rada">Rada</button>
+      <button class="subtablink active" type="button" data-subpanel="absence-rada">Rada</button>
+      <button class="subtablink" type="button" data-subpanel="absence-zastupitelstvo">Zastupitelstvo</button>
       <button class="subtablink" type="button" data-subpanel="absence-metodika">Jak se to počítá</button>
     </div>
 
-    <div class="subpanel active" id="subpanel-absence-zastupitelstvo">
-      <div id="absence-zastupitelstvo-obsah"><p class="lede">Načítám data…</p></div>
+    <div class="subpanel active" id="subpanel-absence-rada">
+      <div id="absence-rada-obsah"><p class="lede">Načítám data…</p></div>
     </div>
 
-    <div class="subpanel" id="subpanel-absence-rada">
-      <div id="absence-rada-obsah"><p class="lede">Načítám data…</p></div>
+    <div class="subpanel" id="subpanel-absence-zastupitelstvo">
+      <div id="absence-zastupitelstvo-obsah"><p class="lede">Načítám data…</p></div>
     </div>
 
     <div class="subpanel" id="subpanel-absence-metodika">
       <h3>Odkud data jsou</h3>
       <p>Zdrojem je jmenná prezence ze zápisů zveřejněných městem na <a href="https://mesto-pecky.usneseni.cz/verejne/" target="_blank" rel="noopener">mesto-pecky.usneseni.cz</a>, uložená v datové sadě <code>jednani/pecky-jednani.json</code>. U každého jednání zápis vypisuje přítomné jmenovitě a zvlášť omluvené a nepřítomné; u části jednání navíc každý příchod a odchod v průběhu.</p>
 
+      <div class="callout">
+        <strong>Co čísla znamenají.</strong> Prezence v zápisu je pořízená při zahájení jednání. Příchody a odchody v jeho průběhu zapisovatel eviduje zvlášť („V 15:45:53 přišel Ing. Petr Dürr, přítomno 7 z 7 radních") a my je do výpočtu započítali — sloupec <em>Docházka</em> proto počítá jako účast i jednání, na která člověk dorazil později (podrobnosti jsou v poznámce u řádku). Rozdíl je podstatný: bez téhle opravy by u jednoho radního vyšla docházka 41 % místo 69 %.
+        <br><br>
+        <strong>Odchody se do docházky nepočítají.</strong> Kdy někdo odešel dřív, je uvedené v poznámce u řádku — zůstat do konce jednání není povinnost a přesnou délku účasti ze zápisu spočítat nejde. Čte se ale spolu s docházkou: kdo nechyběl ani jednou, mohl přesto odejít z poloviny jednání.
+        <br><br>
+        <strong>Tabulka nehodnotí.</strong> Zápis neuvádí, proč se kdo omluvil ani proč se neomluvil, takže z čísel nejde odvodit, kdo bere mandát vážně. Rozdíl mezi omluvenou a neomluvenou nepřítomností je jen ten, jak ji zapsal zapisovatel.
+      </div>
+
       <h3>Jmenovatel je mandát, ne počet všech jednání</h3>
-      <p>Sloupec <em>jednání</em> udává počet jednání konaných v době, kdy dotyčný v orgánu skutečně zasedal — ne počet všech jednání období. Náhradník, který složil slib uprostřed období, má proto menší jmenovatel než ostatní; u koho se mandát liší od zbytku sboru, je to uvedené v poznámce. Tabulka je řazená od nejkratšího mandátu, protože právě u krátkých mandátů procento klame nejvíc.</p>
+      <p>Sloupec <em>mandát</em> (tvar „X / Y") udává v X počet jednání konaných v době, kdy dotyčný v orgánu skutečně zasedal, v Y celkový počet jednání v období — Docházka v procentech se počítá z X, ne z Y. Náhradník, který složil slib uprostřed období, má proto menší X než ostatní; u koho se mandát liší od zbytku sboru, je to uvedené v poznámce. Tabulka je řazená od nejmenší docházky, ale u krátkého mandátu klame procento nejvíc — i pár jednání jím hodně pohne, proto vždy hlídat i sloupec Mandát vedle Docházky.</p>
 
       <h3>Co do čísel nespadá</h3>
       <ul>
-        <li><strong>Období 2018–2022 není celé.</strong> Zápisy na usneseni.cz začínají u zastupitelstva 16. 6. 2021 a u rady 12. 4. 2021, starší jednání tam nejsou. Tabulka za tohle období tedy pokrývá jen jeho poslední rok a půl.</li>
+        <li><strong>Období 2018–2022 se v tabulce neukazuje.</strong> Zápisy na usneseni.cz začínají u zastupitelstva 16. 6. 2021 a u rady 12. 4. 2021 — pokrývají tak jen poslední necelé dva roky toho čtyřletého období, což by srovnání s kompletním obdobím 2022–2026 zkreslilo.</li>
         <li><strong>Průběžnou prezenci nemá každý zápis.</strong> Věty o příchodech a odchodech jsou u 124 z 286 jednání. U ostatních zápis žádnou změnu neuvádí — což může znamenat, že žádná nenastala, ale ověřit to nejde.</li>
         <li><strong>Dva záznamy jsou vadné už u zdroje.</strong> Zápis rady 27/2021 vede Jiřího Katrnošku zároveň mezi přítomnými i nepřítomnými (jinde v témže zápisu stojí, že se účastnil distančně — počítáme ho jako přítomného). Zápis rady 24/2024 vypisuje čtyři přítomné, ale v souhrnné větě tvrdí „přítomno je 5 členů“; počítáme podle jmen.</li>
         <li><strong>Důvody absence tabulka nesleduje</strong>, protože je zápis neuvádí.</li>
@@ -47,10 +47,6 @@
 
 <script>
 (function(){
-  function esc(s){
-    return String(s == null ? '' : s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
-  }
-
   // '2026-08-26' -> '26. 8. 2026'
   function datum(iso){
     const m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(iso || '');
@@ -62,30 +58,92 @@
     return Number(x).toFixed(1).replace('.', ',') + ' %';
   }
 
+  // Avatar a vizitka (pcAvatarHtml/pcDetailHtml, assets/helpers.js) u jmen,
+  // která jde spárovat s lide/people.json — stejná vizitka jako v detailu
+  // osoby v sekci Lidé. Spárování je fuzzy přes jNameKey (tituly a diakritika
+  // stranou), stejně jako u avatarů účastníků v content/jednani.html. Koho
+  // se nepodaří najít (typicky zastupitelé 2018–2022, které people.json
+  // nepokrývá — viz jeho meta.note), zůstává beze změny: jen jméno, bez
+  // avataru a bez odkazu — žádná vymyšlená data.
+  let ABS_DATA = null;
+  let AFFS = [];
+  let ORG_BY_ID = {};
+  const PEOPLE_BY_KEY = {};
+  // otevřený řádek se rozlišuje podle řádku tabulky, ne podle osoby — tentýž
+  // člověk může mít řádek ve dvou obdobích zvlášť (např. náhradník, který
+  // nastoupil uprostřed období má řádek v obou), a klik na jeden z nich
+  // nesmí otevřít vizitku i u toho druhého, skrytého v neaktivní podzáložce
+  let openRowKey = '';
+
+  function personFor(jmeno){
+    return PEOPLE_BY_KEY[jNameKey(jmeno)] || null;
+  }
+
+  function personCellHtml(r, p, rowKey){
+    if (!p) {
+      return `<span class="absence-person">
+        <span class="avatar-fallback avatar-inline" style="width:26px; height:26px; background:#5B5347;" aria-hidden="true">${jInitials(r.jmeno)}</span>
+        <span>${jEscapeHtml(r.jmeno)}</span>
+      </span>`;
+    }
+    const open = openRowKey === rowKey;
+    return `<span class="absence-person">
+      ${pcAvatarHtml(p, {size: 26, cls: 'avatar-inline'})}
+      <button type="button" class="absence-name-link" data-absence-row="${jEscapeHtml(rowKey)}"
+        aria-expanded="${open}" aria-controls="absence-detail-${jEscapeHtml(rowKey)}">${jEscapeHtml(r.jmeno)}</button>
+    </span>`;
+  }
+
+  function personDetailRowHtml(p, rowKey){
+    if (openRowKey !== rowKey) return '';
+    if (!p._timeline) p._timeline = pcBuildTimeline(p.id, AFFS, ORG_BY_ID);
+    const html = pcDetailHtml(p, {
+      id: `absence-detail-${rowKey}`,
+      closeAttr: 'data-absence-close',
+      orgHrefPrefix: jWithBase('/lide/')
+    });
+    return `<tr class="absence-detail-row"><td colspan="4">${html}</td></tr>`;
+  }
+
+  // "přítomen" (mandát mínus nebyl vůbec = jednání, na kterých osoba reálně
+  // byla, ať už od začátku nebo po pozdějším příchodu) je vždy první položka
+  // — je to protějšek sloupce Docházka. "chyběl při zahájení", "dorazil
+  // později" a "odešel dřív" pod ním, jen když je hodnota nenulová.
+  function poznamkaHtml(r, p){
+    const pritomen = r.mandat - r.nebyl;
+    const label = pcGendered(p, 'Přítomen', 'Přítomna');
+    const body = [`<li>${label}: ${pritomen}</li>`];
+    if (r.chybel) body.push(`<li>Chyběl při zahájení: ${r.chybel} (${r.omluven} omluv., ${r.nepritomen} neomluv.)</li>`);
+    if (r.dorazil) body.push(`<li>Dorazil později: ${r.dorazil}</li>`);
+    if (r.odesel) body.push(`<li>Odešel dřív: ${r.odesel}</li>`);
+    const text = r.poznamka ? `<p class="absence-poznamka-text">${jEscapeHtml(r.poznamka)}</p>` : '';
+    return `${text}<ul class="absence-poznamka-list">${body.join('')}</ul>`;
+  }
+
   function tabulka(blok){
-    const radky = blok.radky.map(r => {
-      // Zvýraznit řádky, kde samotné procento klame: kratší mandát než má
-      // celé období, hodně pozdních příchodů, nebo hodně dřívějších odchodů.
-      const kratsi = r.mandat < blok.jednani;
+    // od nejmenší docházky (= od nejvyššího podílu "nebyl vůbec") — stabilní
+    // řazení drží u shodné docházky původní pořadí ze zdroje (od nejkratšího mandátu)
+    const radky = blok.radky.slice().sort((a, b) => b.podil - a.podil).map(r => {
+      const p = personFor(r.jmeno);
+      // stabilní, ale jedinečný klíč řádku napříč celou stránkou (obě
+      // podzáložky se renderují do DOM zároveň, jen jedna je vidět) — jen
+      // a-z0-9-, ať jde bezpečně použít v id i data-atributu
+      const rowKey = jNorm(`${blok.organ}-${blok.obdobi}-${r.klic}`).replace(/[^a-z0-9]+/g, '-');
       return `<tr>
-        <td>${esc(r.jmeno)}</td>
-        <td class="num">${r.mandat}${kratsi ? `<span class="absence-rozpad">z ${blok.jednani} v období</span>` : ''}</td>
-        <td class="num">${r.chybel}${r.chybel ? ` <span class="absence-rozpad">${r.omluven} omluv., ${r.nepritomen} neomluv.</span>` : ''}</td>
-        <td class="num">${r.dorazil || '—'}</td>
-        <td class="num"><strong>${r.nebyl}</strong>${r.mandat >= 10 ? ` <span class="absence-rozpad">${procenta(r.podil)}</span>` : ''}</td>
-        <td class="num">${r.odesel || '—'}</td>
-        <td>${esc(r.poznamka || '')}</td>
-      </tr>`;
+        <td>${personCellHtml(r, p, rowKey)}</td>
+        <td class="num"><strong>${procenta(100 - r.podil)}</strong></td>
+        <td class="num">${r.mandat} / ${blok.jednani}</td>
+        <td>${poznamkaHtml(r, p)}</td>
+      </tr>${p ? personDetailRowHtml(p, rowKey) : ''}`;
     }).join('\n');
 
-    return `<h3>${esc(blok.obdobi)} — ${blok.jednani} jednání</h3>
-      <p class="meta-note">${datum(blok.od)} – ${datum(blok.do)}. Řazeno od nejkratšího mandátu; procento se uvádí jen tam, kde je jmenovatel aspoň 10 jednání.</p>
+    // rod podmětu se liší — "rada" je ženská, "zastupitelstvo" střední
+    const sesloSe = blok.organ === 'Rada' ? 'sešla' : 'sešlo';
+    return `<p>${jEscapeHtml(blok.organ)} města se ve volebním období ${jEscapeHtml(blok.obdobi)} ${sesloSe} ${blok.jednani} krát.</p>
       <div class="table-scroll">
       <table class="register absence-tabulka">
         <thead><tr>
-          <th>Jméno</th><th class="num">Jednání</th><th class="num">Chyběl při zahájení</th>
-          <th class="num">Dorazil později</th><th class="num">Nebyl vůbec</th>
-          <th class="num">Odešel dřív</th><th>Poznámka</th>
+          <th>Jméno</th><th class="num">Docházka</th><th class="num">Mandát</th><th>Poznámka</th>
         </tr></thead>
         <tbody>${radky}</tbody>
       </table>
@@ -93,29 +151,59 @@
   }
 
   function vykresli(data){
-    for (const organ of ['Zastupitelstvo', 'Rada']) {
-      const bloky = data.obdobi.filter(b => b.organ === organ)
-                              .sort((a, b) => b.obdobi.localeCompare(a.obdobi));  // novější období nahoře
+    ABS_DATA = data;
+    for (const organ of ['Rada', 'Zastupitelstvo']) {
+      // jen aktuální volební období — starší (2018–2022) zápisy na usneseni.cz
+      // pokrývají jen zčásti, viz záložka „Jak se to počítá"
+      const blok = data.obdobi.filter(b => b.organ === organ)
+                             .sort((a, b) => b.obdobi.localeCompare(a.obdobi))[0];  // nejnovější období
       const cil = document.getElementById('absence-' + organ.toLowerCase() + '-obsah');
       if (!cil) continue;
-      cil.innerHTML = bloky.map(tabulka).join('\n') +
-        `<div class="callout">Období 2018–2022 pokrývá jen svou poslední část — zápisy na usneseni.cz
-         začínají u zastupitelstva 16. 6. 2021 a u rady 12. 4. 2021, starší jednání zveřejněná nejsou.</div>`;
+      cil.innerHTML = blok ? tabulka(blok) : '<p class="lede">Data nejsou k dispozici.</p>';
     }
     const p = document.getElementById('absence-patka');
     if (p) {
-      p.textContent = `Data zahrnují jednání do ${datum(data.meta.data_do)} — celkem `
-        + `${data.meta.jednani_celkem} jednání se jmennou prezencí, z toho `
-        + `${data.meta.jednani_s_prubeznou_prezenci} se záznamem příchodů a odchodů v průběhu.`;
+      p.textContent = `Data zahrnují jednání do ${datum(data.meta.data_do)}.`;
     }
   }
 
-  fetch('/jednani/absence.json')
-    .then(r => { if (!r.ok) throw new Error(r.status); return r.json(); })
-    .then(vykresli)
-    .catch(() => {
-      document.querySelectorAll('#absence-zastupitelstvo-obsah, #absence-rada-obsah')
-        .forEach(el => { el.innerHTML = '<div class="callout">Data se nepodařilo načíst.</div>'; });
-    });
+  document.addEventListener('click', (e) => {
+    const t = e.target;
+    if (!t || typeof t.closest !== 'function' || !ABS_DATA) return;
+    if (t.closest('[data-absence-close]')) { openRowKey = ''; vykresli(ABS_DATA); return; }
+    const link = t.closest('[data-absence-row]');
+    if (link) {
+      const key = link.dataset.absenceRow;
+      openRowKey = (openRowKey === key) ? '' : key;
+      vykresli(ABS_DATA);
+    }
+  });
+
+  Promise.all([
+    fetch('/jednani/absence.json').then(r => { if (!r.ok) throw new Error(r.status); return r.json(); }),
+    fetch('/lide/people.json').catch(() => null),
+    fetch('/lide/organizations.json').catch(() => null),
+    fetch('/lide/affiliations.json').catch(() => null)
+  ]).then(async ([absence, peopleRes, orgsRes, affsRes]) => {
+    try {
+      if (peopleRes && peopleRes.ok && orgsRes && orgsRes.ok && affsRes && affsRes.ok) {
+        const [peopleDoc, orgsDoc, affsDoc] = await Promise.all(
+          [peopleRes, orgsRes, affsRes].map(r => r.json()));
+        (orgsDoc.organizations || []).forEach(o => { ORG_BY_ID[o.id] = o; });
+        AFFS = affsDoc.affiliations || [];
+        (peopleDoc.people || []).forEach(p => {
+          const key = jNameKey([p.first_name, p.last_name].filter(Boolean).join(' '));
+          if (key) PEOPLE_BY_KEY[key] = p;
+        });
+      }
+    } catch (e) {
+      // bez adresáře se zobrazí jen jména jako dřív — avatary a vizitky nejsou kritické
+      console.warn('Absence: adresář lidí se nepodařilo napojit —', e);
+    }
+    vykresli(absence);
+  }).catch(() => {
+    document.querySelectorAll('#absence-zastupitelstvo-obsah, #absence-rada-obsah')
+      .forEach(el => { el.innerHTML = '<div class="callout">Data se nepodařilo načíst.</div>'; });
+  });
 })();
 </script>

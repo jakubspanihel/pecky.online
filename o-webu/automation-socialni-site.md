@@ -124,30 +124,54 @@ datum posledního skutečného příspěvku/videa (ukazuje, jak je účet
   ukázalo, že u tří účtů (Kulturní středisko, Pečky srdcem, FB skupina SPD)
   bylo datum z předchozího dne o den novější, než jaké má poslední skutečný
   příspěvek.
-- **Instagram**: příspěvky v mřížce mívají 1–3 připíchnuté (pinned)
-  navrchu, takže mřížka NENÍ spolehlivě chronologická a otevření
-  jednotlivého příspěvku přes odkaz `/p/<kód>/` po pár kliknutích
-  narazí na přihlašovací stěnu. Spolehlivější je přečíst atribut `alt`
-  obrázků v mřížce přes `javascript_tool` — Instagram do něj vkládá
-  přesné datum:
+- **Instagram**: příspěvky v mřížce profilu mívají 1–3 **připíchnuté
+  (pinned)** navrchu, takže **mřížka NENÍ spolehlivě chronologická**.
+  Nejspolehlivější zdroj data je atribut `datetime` elementu `<time>`
+  na stránce **jednotlivého příspěvku** (`/p/<kód>/`), ne cokoli
+  v mřížce samotné:
   ```js
-  Array.from(document.querySelectorAll('img[alt]')).map(img => img.alt)
+  const t = document.querySelector('time');
+  t && {datetime: t.getAttribute('datetime'), title: t.getAttribute('title')}
   ```
-  Vrátí řetězce typu `"Photo by Jméno on September 01, 2026."` — najdi
-  mezi nimi nejnovější datum (nemusí to být první v poli kvůli
-  připíchnutým příspěvkům).
+  Ověřeno funkční 22. 9. 2026 v relaci `claude-in-chrome` (skutečné
+  přihlášené Chrome, ne izolovaný `mcp__Claude_Browser__*`) — zřejmě
+  proto, že jde o přihlášenou relaci, ne o odhlášenou, ve které dřív
+  narážela na stěnu (viz níže „starší poznámka“). Postup:
+  1. Otevři profil, `computer` klikni na dlaždici v mřížce (souřadnice
+     ze screenshotu, ne `href` — čtení `a[href^="/p/"]` přes
+     `javascript_tool` bylo v této relaci blokované jako „Base64 encoded
+     data“, zjevně bezpečnostní filtr nástroje na krátké kódy).
+  2. Na stránce příspěvku přečti `<time datetime>` výše.
+  3. **Zkontroluj takhle víc než jen první dlaždici** — viz „chyták
+     s připíchnutím“ hned pod tímto seznamem.
 
-  **POZOR, od 2. 9. 2026 tohle přestalo fungovat**: v české lokalizaci
-  Instagram plní `alt` popiskem příspěvku („Propanbutan final boss pro max
-  #street #pecky…“), ne datem. `?hl=en` na tom nic nezmění, `time[datetime]`
-  ani odkazy `a[href^="/p/"]` se v odhlášené relaci nevykreslí, ve
-  `<script>` tazích není žádný `taken_at`/`taken_at_timestamp` a
-  `/api/v1/users/web_profile_info/?username=…` (i s hlavičkou
-  `x-ig-app-id`) vrací HTML místo JSON. Dokud se nenajde jiná cesta, u
-  obou instagramových účtů **aktualizuj jen počet sledujících** (ten je
-  v `document.body.innerText` jako „Sledující (N)“) a datum poslední
-  aktivity nech na hodnotě z posledního úspěšného čtení — nikdy ho
-  nedopočítávej ani neodhaduj podle Facebooku téhož uskupení.
+  **Chyták s připíchnutím (zjištěno 22. 9. 2026, `nase_pecky` a
+  `peckynext`):** připíchnutý příspěvek u `nase_pecky` zabíral první
+  tři dlaždice (jeden vícedílný příspěvek), takže dlaždice 1 dala
+  úplně špatné datum (27. 10. 2025 místo skutečného 21. 9. 2026 —
+  chyba, která se dostala až na živý web, než ji odhalil uživatel).
+  U `peckynext` byla připíchnutá **jen prostřední, druhá dlaždice** —
+  dlaždice 1 a 3 pin ikonu neměly, ale přesto byly staré (duben a
+  červen 2026), zatímco skutečně nejnovější příspěvek byl až na
+  dlaždici 4 (21. 9. 2026, shodou okolností tentýž sdílený příspěvek
+  jako u `nase_pecky`). **Poučení: pin ikona (📌, pravý horní roh
+  dlaždice) se nedá spolehnout, že bude jen na dlaždici 1, ani že
+  bude vůbec vidět na screenshotu spolehlivě — nekontroluj proto jen
+  první dlaždici a nevěř pozici v mřížce.** Bezpečný postup: otevři
+  postupně dlaždice 1 až aspoň 4–5, přečti `<time datetime>` u každé,
+  a jako „poslední příspěvek“ zapiš **nejvyšší (nejnovější) nalezené
+  datum**, ne datum první dlaždice.
+
+  **Starší poznámka (platila do cca 22. 9. 2026, ponechána pro
+  kontext):** v odhlášené/izolované relaci `alt` atribut obrázků
+  v mřížce nesl datum ve tvaru `"Photo by Jméno on September 01,
+  2026."`, dokud od 2. 9. 2026 nepřestal (v české lokalizaci Instagram
+  do `alt` plní popisek příspěvku, ne datum) a `time[datetime]` na
+  detailu příspěvku se prý nevykresloval vůbec. V přihlášené relaci
+  `claude-in-chrome` se `time[datetime]` ukázalo jako spolehlivé —
+  pokud by v budoucnu zase selhalo (odhlášení, změna Instagramu),
+  vrať se k pokusu o `alt` text jako fallback, ne rovnou k „jen počet
+  sledujících“.
 - **YouTube**: kanálová záložka „Videa" u tohoto kanálu NEODPOVÍDÁ
   skutečné poslední aktivitě — zasedání zastupitelstva se nahrávají
   jako „neveřejné" a v ní se neobjeví (naposledy zobrazovala video staré
@@ -231,15 +255,23 @@ nedostupná), nechat beze změny a nahlásit jako mezeru.
   `get_page_text` ukáže dvě jména a dvě data za sebou. Datum posledního
   příspěvku = datum **vlastního** sdílení (první jméno/datum ve dvojici),
   ne datum původního sdíleného obsahu.
-- **Připíchnuté příspěvky na Instagramu** — mřížka profilu není
-  spolehlivě chronologická (1–3 pinned příspěvky navrchu). Nespoléhat na
-  pořadí v mřížce, číst `alt` text obrázků (krok 2b) a vzít z něj
-  nejnovější datum.
-- **Instagram vyžaduje přihlášení na jednotlivé příspěvky** — otevření
-  `/p/<kód>/` po pár kliknutích v rámci jedné session narazí na
-  přihlašovací stěnu (`Prohlédněte si příspěvek → Zaregistrujte se`).
-  Technika s `img[alt]` (krok 2b) tuhle stěnu obchází, protože čte data
-  přímo z profilové mřížky bez otevírání detailu.
+- **Připíchnuté příspěvky na Instagramu — nejde spolehnout ani na to,
+  že pin je jen na dlaždici 1.** Mřížka profilu není spolehlivě
+  chronologická (1–3 pinned příspěvky navrchu, ověřeno i 3 dlaždice
+  najednou u jednoho vícedílného příspěvku). U `peckynext` (22. 9. 2026)
+  byla připíchnutá dlaždice 2, ne 1 — dlaždice 1 a 3 bez pin ikony byly
+  přesto staré. **Vždy otevři a přečti `<time datetime>` aspoň u prvních
+  4–5 dlaždic (krok 2b) a jako poslední příspěvek zapiš nejvyšší
+  nalezené datum, nikdy jen datum dlaždice 1.** Tahle chyba se jednou
+  reálně dostala až na živý web (`nase_pecky`, 22. 9. 2026) — odhalil ji
+  až uživatel, ne kontrola.
+- **Instagram detail příspěvku (`/p/<kód>/`) — přihlašovací stěna byla
+  dřív problém, teď ne.** V přihlášené relaci `claude-in-chrome`
+  (ověřeno 22. 9. 2026, 4 účty po sobě) se `<time datetime>` čte
+  spolehlivě bez zdi. Přihlašovací stěna po pár kliknutích byla
+  pozorována jen v izolované/odhlášené relaci — pokud se objeví znovu,
+  zkontroluj nejdřív, jestli relace `claude-in-chrome` není odhlášená,
+  než se vracet k `img[alt]` fallbacku.
 - **YouTube a `mcp__Claude_Browser__*`** — v izolovaném in-app
   prohlížeči se `consent.youtube.com` opakovaně zasekává i po kliknutí
   na „Odmítnout vše" (ověřeno 1. 9. 2026, více pokusů). Přepnout na

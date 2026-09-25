@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kalendář — Do Peček . cz</title>
+<meta name="description" content="Kalendář termínů týkajících se města Pečky.">
+<link rel="canonical" href="https://dopecek.cz/kalendar/">
+<meta property="og:title" content="Kalendář — Do Peček . cz">
+<meta property="og:description" content="Kalendář termínů týkajících se města Pečky.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://dopecek.cz/kalendar/">
+<link rel="stylesheet" href="/assets/org-colors.css">
+<link rel="stylesheet" href="/assets/styles.css">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-1CW9XK1VJY"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-1CW9XK1VJY');
+</script>
+
+</head>
+<body>
+<script>window.SITE_BASE_PATH = '';</script>
+<header class="site">
+  <div class="header-inner">
+    <div class="brand-row">
+      <a class="brand" href="/">
+        <h1>Do Peček . cz</h1>
+      </a>
+      <button type="button" class="info-fab" id="infoFab" title="O webu" aria-label="Přejít na patičku s informacemi o webu">i</button>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="panel active" id="panel-kalendar">
+    <h2 class="title display">Kalendář</h2>
+    <p class="lastmod" data-date="2026-09-25">Aktualizováno: 25. 9. 2026</p>
+    <p class="lede"><a href="https://calendar.google.com/calendar/embed?src=a81de8fe68a5e6d118ceeea3614ba159febf695e65b164cade86b682d58ef726%40group.calendar.google.com&ctz=Europe%2FPrague" target="_blank" rel="noopener">Odebírejte kalendář</a> přímo ve vašem Google, Apple i Outlook kalendáři (dostupné také jako <a href="https://calendar.google.com/calendar/ical/a81de8fe68a5e6d118ceeea3614ba159febf695e65b164cade86b682d58ef726%40group.calendar.google.com/public/basic.ics" target="_blank" rel="noopener">iCal</a>).</p>
+
+    <div style="display:flex; align-items:center; gap:8px; margin:22px 0 4px; flex-wrap:wrap;">
+      <button type="button" class="year-btn" id="kal-prev" aria-label="Předchozí měsíc">◀</button>
+      <span class="year-btn year-btn-label" id="kal-month-label" style="min-width:160px; text-align:center;">…</span>
+      <button type="button" class="year-btn" id="kal-next" aria-label="Následující měsíc">▶</button>
+      <button type="button" class="year-btn" id="kal-today">Dnes</button>
+      <button type="button" class="text-toggle" id="kal-filter-toggle" aria-expanded="false" aria-controls="kal-filter-org">Filtr</button>
+      <div class="segmented-control" style="margin-left:auto;">
+        <span class="segmented-label">Zobrazit jako:</span>
+        <div class="segmented-group" role="group" aria-label="Zobrazení kalendáře">
+          <button type="button" class="segmented-btn active" data-kal-view="kalendar">Kalendář</button>
+          <button type="button" class="segmented-btn" data-kal-view="seznam">Seznam</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="filter-chips" id="kal-filter-org" role="group" aria-label="Filtry" hidden>
+      <label class="checkbox-label">
+        <input type="checkbox" id="kal-show-kurz" checked>
+        Pravidelné akce, kurzy a tréninky
+      </label>
+      <span id="kal-org-chips-inner"></span>
+    </div>
+
+    <p class="search-status" id="kal-status">Načítám kalendář…</p>
+    <table class="calendar-table" id="kal-grid" style="display:none;">
+      <thead>
+        <tr><th>Po</th><th>Út</th><th>St</th><th>Čt</th><th>Pá</th><th>So</th><th>Ne</th></tr>
+      </thead>
+      <tbody id="kal-grid-body"></tbody>
+    </table>
+    <div id="kal-list" style="display:none;"></div>
+
+    <div class="callout" style="margin-top:22px;">
+      Kalendář čerpá z těchto zdrojů:
+      <ul class="program-list" style="margin-top:8px;">
+        <li><strong>Jednání rady a zastupitelstva</strong> — archiv sekce <a href="/jednani/">Jednání</a></li>
+        <li><strong>Termín komunálních voleb</strong> — <a href="https://csu.gov.cz/informace-k-aktualne-vyhlasenym-volbam" target="_blank" rel="noopener">Český statistický úřad</a></li>
+        <li><strong>Kulturní středisko města Pečky</strong> — <a href="https://www.facebook.com/kspecky" target="_blank" rel="noopener">Facebook</a></li>
+        <li><strong>Městská knihovna Svatopluka Čecha</strong> — <a href="https://www.facebook.com/knihovnapecky" target="_blank" rel="noopener">Facebook</a> a <a href="https://www.pececko.cz" target="_blank" rel="noopener">web</a></li>
+        <li><strong>TJ Sokol Pečky</strong> — <a href="https://www.facebook.com/tjsokolpecky" target="_blank" rel="noopener">Facebook</a> a <a href="https://pecky.cz/default/default/21389_pdf-zpravodaje" target="_blank" rel="noopener">Pečecké noviny</a></li>
+        <li><strong>AFK Pečky</strong> — <a href="https://www.afkpecky.cz/a-tym/zapasy/" target="_blank" rel="noopener">rozpisy zápasů</a> (domácí zápasy všech týmů) a <a href="https://www.afkpecky.cz/co-se-u-nas-deje/" target="_blank" rel="noopener">aktuality</a></li>
+        <li><strong>Hospoda na hřišti</strong> — <a href="https://www.instagram.com/hospoda_na_hristi_pecky/" target="_blank" rel="noopener">Instagram</a></li>
+        <li><strong>NAŠE PEČKY</strong> — <a href="https://www.facebook.com/nasepecky" target="_blank" rel="noopener">Facebook</a> a <a href="https://nasepecky.cz/#akce" target="_blank" rel="noopener">web</a></li>
+        <li><strong>Vzdělávací centrum Pečky</strong> — <a href="https://www.vzcentrum.cz/krouzky" target="_blank" rel="noopener">web</a></li>
+        <li><strong>Základní umělecká škola Pečky</strong> — <a href="https://zuspecky.cz/rozvrh-hodin/" target="_blank" rel="noopener">web</a></li>
+        <li><strong>Základní škola Pečky, okres Kolín</strong> — <a href="https://www.zspecky.cz/e_download.php?file=/data/uredni_deska/obsah243_2.pdf&original=Organizace_skolniho_roku_2026_2027_ZS_Pecky.pdf" target="_blank" rel="noopener">web</a></li>
+        <li><strong>Pečovatelská služba města Pečky</strong> — <a href="https://www.pspecky.cz/senior-klub-pecky/" target="_blank" rel="noopener">web</a></li>
+        <li><strong>MŠ MAŠINKA Pečky</strong> — <a href="https://www.msmasinkapecky.cz/akce-skoly/" target="_blank" rel="noopener">web</a></li>
+        <li><strong>Kalendář událostí na webu města</strong> — <a href="https://pecky.cz/default/events" target="_blank" rel="noopener">web</a></li>
+        <li><strong>Pramínek Dobřichov</strong> — <a href="https://www.mcpraminek.cz" target="_blank" rel="noopener">web</a></li>
+        <li><strong>SŽM Pečky</strong> — <a href="https://szmpecky.webnode.cz/kalendar-akci/" target="_blank" rel="noopener">web</a></li>
+        <li><strong>Svoz odpadů (Pečecké služby)</strong> — <a href="https://pecky.cz/files/pecky/gallery/18641/6999802843bb9_Harmonogram-svozu-odpadu-z-domacnosti-2026-final.pdf" target="_blank" rel="noopener">harmonogram 2026 na webu města</a></li>
+        <li><strong>Minigolfclub Dráčata Pečky</strong> — <a href="https://minigolf-pecky.webnode.cz/turnaje/" target="_blank" rel="noopener">web</a></li>
+      </ul>
+    </div>
+  </section>
+
+<script>
+  // ===== Kalendář: měsíční mřížka z kalendar/udalosti.json =====
+  const KAL_MONTHS = ['Leden','Únor','Březen','Duben','Květen','Červen',
+                       'Červenec','Srpen','Září','Říjen','Listopad','Prosinec'];
+  let KAL_EVENTS_BY_DATE = {};
+  let KAL_ALL_EVENTS = [];
+  let KAL_ORG = '';   // id pořadatele z lide/organizations.json, '' = všichni
+  let KAL_VIEW = 'kalendar';   // 'kalendar' = mřížka, 'seznam' = bloky akcí vybraného měsíce
+  let KAL_SHOW_KURZ = true;   // false = skrýt kategorii 'kurz' (checkbox "Pravidelné akce, kurzy a tréninky")
+  const kalNow = new Date();
+  let kalYear = kalNow.getFullYear();
+  let kalMonth = kalNow.getMonth();  // 0-based
+
+  // CSS proměnné barvy pořadatele (--org-<id> generuje build z organizations.json);
+  // nedefinovaná proměnná = pořadatel bez barvy -> CSS použije fallback
+  function kalOrgStyle(id){
+    if (!id) return '';
+    const s = kalEsc(id);
+    return `--org-c:var(--org-${s});--org-c-bg:var(--org-${s}-bg);--chip:var(--org-${s});`;
+  }
+  // kategorie, které se barví podle pořadatele a ukazují "pořádá …"
+  // (jednání a volby se barví podle kategorie, pořadatelem je vždy město)
+  function kalMaPoradatele(e){ return e.category === 'akce' || e.category === 'kurz' || e.category === 'svoz'; }
+  // společný filtr pořadatele + checkboxu kategorie pro mřížku i Seznam
+  function kalVidet(e){
+    return (!KAL_ORG || e.organizer === KAL_ORG) &&
+      (KAL_SHOW_KURZ || e.category !== 'kurz');
+  }
+  function kalPad(n){ return String(n).padStart(2, '0'); }
+  function kalDateStr(y, m, d){ return `${y}-${kalPad(m + 1)}-${kalPad(d)}`; }
+  function kalEsc(s){
+    return (s || '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+  }
+  // 'YYYY-MM-DD' -> ['YYYY-MM-DD', ...] od data do date_end včetně (jednodenní akce vrátí jen sebe)
+  function kalDateRange(startStr, endStr){
+    const out = [];
+    let d = new Date(startStr + 'T00:00:00');
+    const end = new Date((endStr || startStr) + 'T00:00:00');
+    while (d <= end) {
+      out.push(kalDateStr(d.getFullYear(), d.getMonth(), d.getDate()));
+      d.setDate(d.getDate() + 1);
+    }
+    return out;
+  }
+  // lidsky čitelný rozsah "1. 9.–30. 9." pro vícedenní akce, jinak null
+  function kalFmtRange(e){
+    if (!e.date_end || e.date_end === e.date) return null;
+    const fmt = ds => { const [, m, d] = ds.split('-'); return `${parseInt(d, 10)}. ${parseInt(m, 10)}.`; };
+    return `${fmt(e.date)}–${fmt(e.date_end)}`;
+  }
+
+  function kalRenderGrid(){
+    const body = document.getElementById('kal-grid-body');
+    const first = new Date(kalYear, kalMonth, 1);
+    const startOffset = (first.getDay() + 6) % 7;  // Po=0 .. Ne=6
+    const daysInMonth = new Date(kalYear, kalMonth + 1, 0).getDate();
+    const todayStr = kalDateStr(kalNow.getFullYear(), kalNow.getMonth(), kalNow.getDate());
+
+    const cells = [];
+    for (let i = 0; i < startOffset; i++) cells.push(null);
+    for (let d = 1; d <= daysInMonth; d++) cells.push(d);
+    while (cells.length % 7 !== 0) cells.push(null);
+
+    let html = '';
+    for (let i = 0; i < cells.length; i += 7) {
+      html += '<tr>';
+      for (let j = i; j < i + 7; j++) {
+        const d = cells[j];
+        if (d === null) { html += '<td class="empty"></td>'; continue; }
+        const dateStr = kalDateStr(kalYear, kalMonth, d);
+        const evs = (KAL_EVENTS_BY_DATE[dateStr] || []).filter(kalVidet);
+        let evHtml = '';
+        if (evs.length) {
+          evHtml = '<div class="kal-events">' + evs.map(e => {
+            // pořadatele ukazujeme jen u akcí — u jednání je jím vždy město a v tooltipu by jen překážel
+            const porada = kalMaPoradatele(e) && e.organizer_name
+              ? `pořádá ${e.organizer_name}` : null;
+            const range = kalFmtRange(e);
+            const parts = [e.time, range, e.description, porada].filter(Boolean).join(' · ');
+            const tip = parts ? `${e.title} — ${parts}` : e.title;
+            const cont = range && dateStr !== e.date ? ' kal-ev-cont' : '';
+            const barva = kalMaPoradatele(e) ? ` style="${kalOrgStyle(e.organizer)}"` : '';
+            const cizi = e.link && /^https?:\/\//.test(e.link) ? ' target="_blank" rel="noopener"' : '';
+            return `<a class="kal-ev kal-ev-${e.category}${cont}" href="${e.link || '#'}" title="${kalEsc(tip)}"${barva}${cizi}>${kalEsc(e.title)}</a>`;
+          }).join('') + '</div>';
+        }
+        html += `<td class="${dateStr === todayStr ? 'today' : ''}"><span class="day-num">${d}</span>${evHtml}</td>`;
+      }
+      html += '</tr>';
+    }
+    body.innerHTML = html;
+  }
+
+  // Seznam vybraného měsíce — každá událost jako samostatný blok: nahoře
+  // datum a čas na jednom řádku, pod ním název s odkazem na detail a pak
+  // popis. Data ze společného udalosti.json (zahrnuje i jednání/volby, ne
+  // jen akce.json). Odkaz u akce/kurzu vede rovnou na zdroj
+  // (evidence[0].url z akce.json — viz build_akce_events()
+  // v update-kalendar.py), ne na interní kotvu — 24. 9. 2026 na žádost
+  // uživatele zrušeny odkazy na jednotlivé události uvnitř webu.
+  function kalRenderList(){
+    const list = document.getElementById('kal-list');
+    const ym = `${kalYear}-${kalPad(kalMonth + 1)}`;
+    const dny = ['neděle', 'pondělí', 'úterý', 'středa', 'čtvrtek', 'pátek', 'sobota'];
+    const evs = KAL_ALL_EVENTS
+      .filter(e => e.date.slice(0, 7) === ym)
+      .filter(kalVidet)
+      .sort((a, b) => a.date === b.date
+        ? (a.time || '').localeCompare(b.time || '')
+        : a.date.localeCompare(b.date));
+
+    if (!evs.length) {
+      list.innerHTML = '<div class="callout">Pro zvolený filtr a měsíc nejsou žádné akce.</div>';
+      return;
+    }
+
+    const bloky = evs.map(e => {
+      const [, mm, dd] = e.date.split('-');
+      const denNazev = dny[new Date(e.date + 'T12:00:00').getDay()];
+      const datum = kalFmtRange(e) || `${parseInt(dd, 10)}. ${parseInt(mm, 10)}.`;
+      // čas jen když ho zdroj uvádí — jinak se o čase nepíše nic
+      const cas = e.time ? ` · <span class="akce-cas">${kalEsc(e.time)}</span>` : '';
+      const stitek = e.category === 'kurz' ? ' <span class="tag">kurz</span>'
+        : e.category === 'svoz' ? ' <span class="tag">svoz</span>' : '';
+      const cizi = e.link && /^https?:\/\//.test(e.link) ? ' target="_blank" rel="noopener"' : '';
+      const nazev = e.link
+        ? `<a href="${e.link}"${cizi}>${kalEsc(e.title)}</a>`
+        : kalEsc(e.title);
+      // popis shodný s místem (typicky svoz) nezobrazovat dvakrát
+      const popis = e.description && e.description !== e.place ? `<p class="akce-popis">${kalEsc(e.description)}</p>` : '';
+      // pořadatel jako barevný chip na konci řádku s datem (jen u akcí/kurzů/svozů —
+      // u jednání a voleb je pořadatelem vždy město)
+      const porada = kalMaPoradatele(e) && e.organizer_name
+        ? `<span class="akce-poradatel" title="Pořadatel" style="${kalOrgStyle(e.organizer)}">${kalEsc(e.organizer_name)}</span>` : '';
+      const metaText = e.place || '';
+      const meta = metaText ? `<span class="meta-note">${kalEsc(metaText)}</span>` : '';
+      const pozn = e.note ? `<span class="meta-note akce-pozn">${kalEsc(e.note)}</span>` : '';
+      const barva = kalMaPoradatele(e) && e.organizer ? ` style="${kalOrgStyle(e.organizer)}"` : '';
+      return `<article class="akce-blok akce-blok-${e.category}"${barva}>
+        <div class="akce-kdy"><span><strong>${denNazev} ${datum}</strong>${cas}</span>${porada}</div>
+        <h3 class="akce-nazev">${nazev}${stitek}</h3>
+        ${popis}${meta}${pozn}
+      </article>`;
+    }).join('');
+
+    list.innerHTML = `<div class="akce-bloky">${bloky}</div>`;
+  }
+
+  // Přepne mezi mřížkou a seznamem, aktualizuje popisek měsíce a vykreslí
+  // aktivní pohled — volají ho navigace měsícem, filtr pořadatele i přepínač
+  // Kalendář/Seznam, ať se nezapomene na některou z cest.
+  function kalShowView(view){
+    document.getElementById('kal-month-label').textContent = `${KAL_MONTHS[kalMonth]} ${kalYear}`;
+    const grid = document.getElementById('kal-grid');
+    const list = document.getElementById('kal-list');
+    if (view === 'seznam') {
+      grid.style.display = 'none';
+      list.style.display = '';
+      kalRenderList();
+    } else {
+      list.style.display = 'none';
+      grid.style.display = '';
+      kalRenderGrid();
+    }
+  }
+
+  function kalRenderOrgChips(events){
+    const box = document.getElementById('kal-org-chips-inner');
+    const poradatele = new Map();   // id -> název, v pořadí prvního výskytu
+    events.forEach(e => {
+      if (e.organizer && e.organizer_name && !poradatele.has(e.organizer)) {
+        poradatele.set(e.organizer, e.organizer_name);
+      }
+    });
+    // s jediným pořadatelem nemá filtr co nabídnout — checkbox "Pravidelné
+    // akce…" ale zůstává, ten na počtu pořadatelů nezávisí
+    if (poradatele.size < 2) { box.innerHTML = ''; return; }
+    box.innerHTML = '<span class="chip-label">Pořadatel:</span>' +
+      [...poradatele].map(([id, nazev]) =>
+        `<button type="button" class="chip" data-kal-org="${kalEsc(id)}" aria-pressed="false" style="${kalOrgStyle(id)}">`
+        + `<span class="dot"></span>${kalEsc(nazev)}</button>`).join('') +
+      '<button type="button" class="chip-clear" id="kal-org-clear" hidden>Vymazat filtr</button>';
+
+    box.querySelectorAll('[data-kal-org]').forEach(btn => {
+      btn.addEventListener('click', function(){
+        // druhý klik na tentýž čip filtr zruší
+        KAL_ORG = (KAL_ORG === this.dataset.kalOrg) ? '' : this.dataset.kalOrg;
+        kalSyncOrgChips();
+        kalShowView(KAL_VIEW);
+      });
+    });
+    document.getElementById('kal-org-clear').addEventListener('click', () => {
+      KAL_ORG = '';
+      kalSyncOrgChips();
+      kalShowView(KAL_VIEW);
+    });
+  }
+
+  function kalSyncOrgChips(){
+    document.querySelectorAll('[data-kal-org]').forEach(el =>
+      el.setAttribute('aria-pressed', el.dataset.kalOrg === KAL_ORG ? 'true' : 'false'));
+    const clear = document.getElementById('kal-org-clear');
+    if (clear) clear.hidden = !KAL_ORG;
+  }
+
+  document.getElementById('kal-prev').addEventListener('click', () => {
+    kalMonth--; if (kalMonth < 0) { kalMonth = 11; kalYear--; }
+    kalShowView(KAL_VIEW);
+  });
+  document.getElementById('kal-next').addEventListener('click', () => {
+    kalMonth++; if (kalMonth > 11) { kalMonth = 0; kalYear++; }
+    kalShowView(KAL_VIEW);
+  });
+  document.getElementById('kal-today').addEventListener('click', () => {
+    kalYear = kalNow.getFullYear(); kalMonth = kalNow.getMonth();
+    kalShowView(KAL_VIEW);
+  });
+
+  document.querySelectorAll('#panel-kalendar .segmented-btn[data-kal-view]').forEach(btn => {
+    btn.addEventListener('click', function(){
+      document.querySelectorAll('#panel-kalendar .segmented-btn[data-kal-view]')
+        .forEach(x => x.classList.remove('active'));
+      this.classList.add('active');
+      KAL_VIEW = this.dataset.kalView;
+      kalShowView(KAL_VIEW);
+    });
+  });
+
+  document.getElementById('kal-show-kurz').addEventListener('change', function(){
+    KAL_SHOW_KURZ = this.checked;
+    kalShowView(KAL_VIEW);
+  });
+
+  // Tlačítko "Filtr" jen schovává/ukazuje panel (#kal-filter-org) —
+  // samotné filtrování dál řídí checkbox a čipy pořadatele uvnitř.
+  document.getElementById('kal-filter-toggle').addEventListener('click', function(){
+    const expanded = this.getAttribute('aria-expanded') === 'true';
+    this.setAttribute('aria-expanded', String(!expanded));
+    this.classList.toggle('active', !expanded);
+    document.getElementById('kal-filter-org').hidden = expanded;
+  });
+
+  fetch('/kalendar/udalosti.json')
+    .then(r => r.json())
+    .then(data => {
+      KAL_ALL_EVENTS = data.events || [];
+      KAL_ALL_EVENTS.forEach(e => {
+        kalDateRange(e.date, e.date_end).forEach(ds => {
+          (KAL_EVENTS_BY_DATE[ds] = KAL_EVENTS_BY_DATE[ds] || []).push(e);
+        });
+      });
+      document.getElementById('kal-status').style.display = 'none';
+      kalRenderOrgChips(KAL_ALL_EVENTS);
+      kalShowView(KAL_VIEW);
+    })
+    .catch(() => {
+      document.getElementById('kal-status').textContent = 'Kalendář se nepodařilo načíst.';
+    });
+</script>
+
+</main>
+<footer class="site">
+  <div class="footer-inner footer-credits">
+    <img class="peckybot" src="/img/peckybot/welcome.png" alt="PečkyBot">
+    <p style="margin:8px 0 0;">Web je sestaven s pomocí AI. Robot čerpá informace z veřejných dat dostupných na internetu.</p>
+  </div>
+  <nav class="tabs footer-inner" id="tabs">
+    <a class="navlink active" href="/kalendar/">🗓️ Kalendář</a>
+    <a class="navlink" href="/jednani/">📅 Jednání</a>
+    <a class="navlink" href="/noviny/">📰 Pečecké noviny</a>
+    <a class="navlink" href="/lide/">Lidé</a>
+    <a class="navlink" href="/plan/">Plán</a>
+    <a class="navlink" href="/telocvicna/">🔥 Tělocvična</a>
+    <a class="navlink" href="/volby/">Volby</a>
+    <a class="navlink" href="/smlouvy/">Smlouvy</a>
+    <a class="navlink" href="/zakazky/">Zakázky</a>
+    <a class="navlink" href="/pozemky/">Pozemky</a>
+    <a class="navlink" href="/pokladna/">Pokladna</a>
+    <a class="navlink" href="/o-webu/">O webu</a>
+  </nav>
+  <div class="footer-inner footer-credits">
+    <p style="margin:0;">Našli jste nepřesnost? Máte tip na nějaké téma ke zpracování? Zajímá vás něco o Pečkách? Pište na: <a href="mailto:dopecek@gmail.com">dopecek@gmail.com</a>.</p>
+  </div>
+</footer>
+
+<script src="/assets/common.js"></script>
+</body>
+</html>

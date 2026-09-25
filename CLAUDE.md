@@ -2,15 +2,18 @@
 
 Neoficiální občanský transparentní web o městě Pečky (okres Kolín).
 Vícestránkový statický web (viz `ARCHITEKTURA-MIGRACE.md`) — žádný
-runtime framework, žádné závislosti kromě Google Fonts CDN. Jediný
+runtime framework, žádné externí závislosti (ani webová písma — jen systémová,
+viz proměnné `--font-*` v `assets/styles.css`). Jediný
 "build krok" je lokální generovací skript `scripts/build.py`, jeho
 výstup jsou čisté statické soubory pro GitHub Pages.
 
 ## Struktura (od migrace 30. 8. 2026 — viz ARCHITEKTURA-MIGRACE.md)
-Vícestránkový statický web, žádný runtime framework. Každá sekce má vlastní
-adresář/URL, generovaný `index.html` (needit — přepíše ho příští build,
-viz níže) a `README.md` (hlavní referenční dokument pro práci na sekci,
-načíst vždy jako první):
+Vícestránkový statický web, žádný runtime framework. Styl: pergamenově-
+úřední, jen systémová písma (`system-ui` pro text, `ui-serif`/Georgia pro
+nadpisy, systémové neproporcionální). Každá sekce má vlastní adresář/URL,
+generovaný `index.html` (needit — přepíše ho příští build, viz níže) a
+`README.md` (hlavní referenční dokument pro práci na sekci, načíst vždy
+jako první):
 
 | Sekce | URL | Dokumentace |
 |---|---|---|
@@ -25,6 +28,7 @@ načíst vždy jako první):
 | Zakázky | `/zakazky/` | `zakazky/README.md` |
 | Pozemky | `/pozemky/` | `pozemky/README.md` |
 | Pokladna | `/pokladna/` | `pokladna/README.md` |
+| Kalendář | `/kalendar/` | `kalendar/README.md` (+ `automation-plakat-akce.md`) |
 | Pečecké noviny | `/noviny/` | `noviny/README.md` |
 | O webu | `/o-webu/` | `o-webu/README.md` (+ `automation-socialni-site.md`) |
 
@@ -33,6 +37,9 @@ načíst vždy jako první):
 - obsah sekce → `content/<sekce>.html` (jen tělo panelu)
 - sdílená navigace/patička → `assets/nav.html` / `assets/footer.html`
 - sdílené CSS → `assets/styles.css`
+- barvy organizací (uskupení, pořadatelé) → `lide/organizations.json`
+  (`color`/`color_bg`); build z nich generuje `assets/org-colors.css`
+  (`--org-<id>`, aliasy `--party-*`) — ten needitovat, hex jinde nepsat
 - sdílený JS (nav, subtaby, tabulky) → `assets/common.js`; pomocné
   funkce sdílené mezi Jednáním/Novinami/Lidmi → `assets/helpers.js`;
   JS specifický pro jednu sekci žije přímo v `content/<sekce>.html`
@@ -88,9 +95,13 @@ příslušný `content/<sekce>.html` a přepsat všechny odkazy, pak spustit
   co používá i `<lastmod>` v sitemapě (funkce `lastmod_map`/`apply_lastmod`).
   Nepsat `<p class="lastmod">` do `content/<sekce>.html` ručně — stačí
   přepsat řádek sekce ve „Stav sekcí" (viz bod výše) a build ho promítne
-  na stránku sám. Sekce bez vlastního `<h2 class="title">` (Domů) nebo
-  bez řádku ve „Stav sekcí" (podstránky z `EXTRA_PAGES`, např.
-  `/jednani/absence.html`) datum nemají.
+  na stránku sám. Sekce bez vlastního `<h2 class="title">` (Domů) datum
+  nemá. Podstránky z `EXTRA_PAGES` nemají řádek ve „Stav sekcí" (žádné
+  pravidelné kontroly odtamtud), ale mají-li vyplněné šesté pole
+  (`lastmod`, ruční ISO datum — viz `/jednani/absence.html`,
+  `/jednani/nejdelsi.html`), dostanou stejné „Aktualizováno" jako běžné sekce;
+  ruční přepsání toho pole ve `scripts/build.py` funguje stejně jako
+  přepsání řádku ve „Stav sekcí" jinde.
 
 ## Poznámky k datům
 - Hlídač státu MCP: použij ICO_of_holding_structure (celá skupina),
@@ -109,6 +120,11 @@ příslušný `content/<sekce>.html` a přepsat všechny odkazy, pak spustit
 
 Provozní pasti prostředí (git deadlock na velkých souborech, pád
 `preview_start`, historie repa) a jejich obejití → `TROUBLESHOOTING.md`.
+
+## Projektové skilly
+Všechny projektové skilly v `.claude/skills/` pojmenovávat s prefixem
+`pecky-online-` (např. `pecky-online-dev-server`) — odlišuje je to od
+globálních/pluginových skillů se stejným obecným názvem.
 
 ## Git / GitHub
 Remote: https://github.com/jakubspanihel/pecky.online.git

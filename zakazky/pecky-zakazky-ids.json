@@ -1,7 +1,7 @@
 {
   "source": "https://www.hlidacstatu.cz/verejnezakazky/hledat?Q=00239607",
-  "snapshot_date": "2026-09-13",
-  "note": "Kontrolní snímek ID veřejných zakázek pro týdenní diff (formát P##V########), nalezených průchodem stránek výsledků vyhledávání pro IČO 00239607 na Hlídači veřejných zakázek. Nezobrazuje se na webu. Pracovní postup, struktura polí a známé mezery: viz zakazky/README.md. Poslední běh 13. 9. 2026: přibylo 1 nové ID (P22V00000346), do tabulky „Nejnovější zakázky“ ale záměrně NEpromítnuto — jde o fulltextový šum, zakázka „Novostavba silnice III. třídy Nová Průběžná v obci Zdiby – PD“ zadavatele Středočeský kraj, s Pečkami nesouvisí. Vyhledávání dnes hlásí 214 výsledků celkem (dřív 193) při 176 unikátních ID — rozdíl jdou duplicitní/reklamní řádky ve výpisu.",
+  "snapshot_date": "2026-09-16",
+  "note": "Kontrolní snímek ID veřejných zakázek pro týdenní diff (formát P##V########), nalezených průchodem stránek výsledků vyhledávání pro IČO 00239607 na Hlídači veřejných zakázek. Nezobrazuje se na webu. Pracovní postup, struktura polí a známé mezery: viz zakazky/README.md. Poslední běh 16. 9. 2026: vyhledávání hlásí beze změny 214 výsledků (stejně jako 13. 9. 2026); žádné nové ID mezi P##V######## nálezy tohoto běhu, které by chybělo v uloženém snímku — pole `ids` proto ponecháno beze změny. `P22V00000346` (Zdiby, Středočeský kraj) se ve výpisu drží dál jako fulltextový šum, viz níže.",
   "count": 176,
   "ids": [
     "P12V00003515",

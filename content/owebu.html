@@ -1,8 +1,16 @@
   <section class="panel active" id="panel-owebu">
     <h2 class="title display">O webu</h2>
-    <p class="lede">pecky.online je neoficiální, nezávislý občanský projekt. Cílem je zpřehlednit veřejně dostupné informace o samosprávě města Pečky.</p>
+    <p class="lede">Do Peček . cz je neoficiální, nezávislý občanský projekt. Cílem je zpřehlednit veřejně dostupné informace o samosprávě města Pečky.</p>
 
-    <h3 class="display" style="font-size:19px; margin:0 0 4px;">Odkazy</h3>
+    <div class="subtabs" role="tablist" aria-label="Části stránky O webu">
+      <button class="subtablink active" type="button" data-subpanel="owebu-odkazy">Odkazy</button>
+      <button class="subtablink" type="button" data-subpanel="owebu-socialni">Sociální sítě</button>
+      <button class="subtablink" type="button" data-subpanel="owebu-zdroje">Zdroje</button>
+      <button class="subtablink" type="button" data-subpanel="owebu-historie">Historie změn na webu</button>
+    </div>
+
+    <div class="subpanel active" id="subpanel-owebu-odkazy">
+    <h3 class="display" style="margin:0 0 4px;">Odkazy</h3>
     <p class="lede" style="margin-bottom:16px;">Oficiální kanály města a související otevřená data.</p>
     <div class="quicklinks">
       <a class="qlink" href="http://pecky.cz" target="_blank" rel="noopener">
@@ -32,72 +40,37 @@
       <a class="qlink" href="https://www.pececko.cz/kontakty/" target="_blank" rel="noopener">
         <span class="qlink-main"><img class="qlink-icon" src="/img/favicons/pececko-cz.png" alt="" loading="lazy"><span class="lbl">Městská knihovna Svatopluka Čecha</span></span><span class="url">pececko.cz ↗</span>
       </a>
+      <a class="qlink" href="https://zuspecky.cz/" target="_blank" rel="noopener">
+        <span class="qlink-main"><span class="qlink-icon-fallback" style="background:var(--gold-deep);">ZUŠ</span><span class="lbl">Základní umělecká škola Pečky</span></span><span class="url">zuspecky.cz ↗</span>
+      </a>
+      <a class="qlink" href="https://www.zspecky.cz/" target="_blank" rel="noopener">
+        <span class="qlink-main"><span class="qlink-icon-fallback" style="background:var(--burgundy);">ZŠ</span><span class="lbl">Základní škola Pečky</span></span><span class="url">zspecky.cz ↗</span>
+      </a>
+      <a class="qlink" href="https://www.pspecky.cz/" target="_blank" rel="noopener">
+        <span class="qlink-main"><span class="qlink-icon-fallback" style="background:#8A5F1E;">PS</span><span class="lbl">Pečovatelská služba města Pečky</span></span><span class="url">pspecky.cz ↗</span>
+      </a>
+      <a class="qlink" href="https://www.msmasinkapecky.cz/" target="_blank" rel="noopener">
+        <span class="qlink-main"><span class="qlink-icon-fallback" style="background:#3E7C7C;">MŠ</span><span class="lbl">MŠ MAŠINKA Pečky</span></span><span class="url">msmasinkapecky.cz ↗</span>
+      </a>
       <a class="qlink" href="https://geoportal.gov.cz/" target="_blank" rel="noopener">
         <span class="qlink-main"><img class="qlink-icon" src="/img/favicons/geoportal-cz.png" alt="" loading="lazy"><span class="lbl">Územní plán (Národní geoportál)</span></span><span class="url">geoportal.gov.cz ↗</span>
       </a>
       <a class="qlink" href="https://vdb.czso.cz/vdbvo2/" target="_blank" rel="noopener">
         <span class="qlink-main"><img class="qlink-icon" src="/img/favicons/czso-cz.png" alt="" loading="lazy"><span class="lbl">ČSÚ — Veřejná databáze (MOS)</span></span><span class="url">vdb.czso.cz ↗</span>
       </a>
+      <a class="qlink" href="https://csu.gov.cz/informace-k-aktualne-vyhlasenym-volbam" target="_blank" rel="noopener">
+        <span class="qlink-main"><img class="qlink-icon" src="/img/favicons/czso-cz.png" alt="" loading="lazy"><span class="lbl">ČSÚ — Aktuálně vyhlášené volby</span></span><span class="url">csu.gov.cz ↗</span>
+      </a>
       <a class="qlink" href="https://or.justice.cz/ias/ui/rejstrik-$firma?nazev=Pe%C4%8Deck%C3%A9%20slu%C5%BEby" target="_blank" rel="noopener">
         <span class="qlink-main"><img class="qlink-icon" src="/img/favicons/justice-cz.png" alt="" loading="lazy"><span class="lbl">Justice.cz — sbírka listin</span></span><span class="url">or.justice.cz ↗</span>
       </a>
+      <a class="qlink" href="https://publicspendingdata.org/cz/municipalities/pecky/?lang=cs#rozpocet" target="_blank" rel="noopener">
+        <span class="qlink-main"><span class="qlink-icon-fallback" style="background:var(--gold);">PSD</span><span class="lbl">Public Spending Data — rozpočet obce v čase</span></span><span class="url">publicspendingdata.org ↗</span>
+      </a>
     </div>
 
-    <h3 class="display" style="font-size:19px; margin:30px 0 4px;">Sociální sítě</h3>
-    <p class="lede" style="margin-bottom:16px;">Všechny facebookové, instagramové a YouTube účty zmiňované na tomto webu na jednom místě, seřazené sestupně podle počtu sledujících (u Facebooku po zaokrouhlení, jak je zobrazuje samotná platforma; u YouTube odběratelé, u FB skupiny členové) — u každého i datum posledního příspěvku/videa jako ukazatel, jak moc je účet aktivní. Označené jako „oficiální“ jsou kanály spravované městem — zbytek jsou nezávislé účty uskupení, politiků a komunitních iniciativ mimo kontrolu tohoto webu. Aktualizuje se týdně. Snímek k 1. 9. 2026, časem se mění. <span class="stamp">ověřeno</span></p>
-    <div class="quicklinks">
-      <a class="qlink" href="https://www.facebook.com/mestopecky" target="_blank" rel="noopener">
-        <span class="qlink-main"><img class="qlink-icon" src="/img/favicons/facebook-com.png" alt="" loading="lazy"><span class="lbl">Facebook — Město Pečky (oficiální)</span></span><span class="url"><span class="follower-count">2,9 tis. sledujících</span><span class="url-meta">poslední příspěvek <span data-date="2026-09-13">13. 9. 2026</span></span></span>
-      </a>
-      <a class="qlink" href="https://www.facebook.com/pecky.virtualne/" target="_blank" rel="noopener">
-        <span class="qlink-main"><img class="qlink-icon" src="/img/favicons/facebook-com.png" alt="" loading="lazy"><span class="lbl">Facebook — Pečky-Virtuálně (neoficiální, historie města)</span></span><span class="url"><span class="follower-count">1,4 tis. sledujících</span><span class="url-meta">poslední příspěvek <span data-date="2026-09-04">4. 9. 2026</span></span></span>
-      </a>
-      <a class="qlink" href="https://www.instagram.com/streetpeopleofpecky/" target="_blank" rel="noopener">
-        <span class="qlink-main"><img class="qlink-icon" src="/img/favicons/instagram-com.png" alt="" loading="lazy"><span class="lbl">Instagram — streetpeopleofpecky (neoficiální)</span></span><span class="url"><span class="follower-count">1 216 sledujících</span><span class="url-meta">poslední příspěvek <span data-date="2026-08-22">22. 8. 2026</span></span></span>
-      </a>
-      <a class="qlink" href="https://www.facebook.com/nasepecky" target="_blank" rel="noopener">
-        <span class="qlink-main"><img class="qlink-icon" src="/img/favicons/facebook-com.png" alt="" loading="lazy"><span class="lbl">Facebook — NAŠE PEČKY</span></span><span class="url"><span class="follower-count">~1 tis. sledujících</span><span class="url-meta">poslední příspěvek <span data-date="2026-09-12">12. 9. 2026</span></span></span>
-      </a>
-      <a class="qlink" href="https://www.facebook.com/kspecky" target="_blank" rel="noopener">
-        <span class="qlink-main"><img class="qlink-icon" src="/img/favicons/facebook-com.png" alt="" loading="lazy"><span class="lbl">Facebook — Kulturní středisko města Pečky (oficiální)</span></span><span class="url"><span class="follower-count">993 sledujících</span><span class="url-meta">poslední příspěvek <span data-date="2026-09-10">10. 9. 2026</span></span></span>
-      </a>
-      <a class="qlink" href="https://www.facebook.com/svejnohova" target="_blank" rel="noopener">
-        <span class="qlink-main"><img class="qlink-icon" src="/img/favicons/facebook-com.png" alt="" loading="lazy"><span class="lbl">Facebook — Alena Švejnohová (zastupitelka a kandidátka na starostku)</span></span><span class="url"><span class="follower-count">955 sledujících</span><span class="url-meta">poslední příspěvek <span data-date="2026-09-13">13. 9. 2026</span></span></span>
-      </a>
-      <a class="qlink" href="https://www.facebook.com/knihovnapecky" target="_blank" rel="noopener">
-        <span class="qlink-main"><img class="qlink-icon" src="/img/favicons/facebook-com.png" alt="" loading="lazy"><span class="lbl">Facebook — Městská knihovna Svatopluka Čecha (oficiální)</span></span><span class="url"><span class="follower-count">483 sledujících</span><span class="url-meta">poslední příspěvek <span data-date="2026-09-08">8. 9. 2026</span></span></span>
-      </a>
-      <a class="qlink" href="https://www.facebook.com/profile.php?id=61581314026896" target="_blank" rel="noopener">
-        <span class="qlink-main"><img class="qlink-icon" src="/img/favicons/facebook-com.png" alt="" loading="lazy"><span class="lbl">Facebook — Pečky NEXT (občanská iniciativa)</span></span><span class="url"><span class="follower-count">306 sledujících</span><span class="url-meta">poslední příspěvek <span data-date="2026-09-12">12. 9. 2026</span></span></span>
-      </a>
-      <a class="qlink" href="https://www.facebook.com/peckypecakum/" target="_blank" rel="noopener">
-        <span class="qlink-main"><img class="qlink-icon" src="/img/favicons/facebook-com.png" alt="" loading="lazy"><span class="lbl">Facebook — Pečky Pečákům (SNK)</span></span><span class="url"><span class="follower-count">245 sledujících</span><span class="url-meta">poslední příspěvek <span data-date="2026-09-10">10. 9. 2026</span></span></span>
-      </a>
-      <a class="qlink" href="https://www.facebook.com/tjsokolpecky" target="_blank" rel="noopener">
-        <span class="qlink-main"><img class="qlink-icon" src="/img/favicons/facebook-com.png" alt="" loading="lazy"><span class="lbl">Facebook — TJ Sokol Pečky</span></span><span class="url"><span class="follower-count">223 sledujících</span><span class="url-meta">poslední příspěvek <span data-date="2026-09-08">8. 9. 2026</span></span></span>
-      </a>
-      <a class="qlink" href="https://www.facebook.com/odspecky.cz/" target="_blank" rel="noopener">
-        <span class="qlink-main"><img class="qlink-icon" src="/img/favicons/facebook-com.png" alt="" loading="lazy"><span class="lbl">Facebook — ODS a nezávislí Pečky</span></span><span class="url"><span class="follower-count">221 sledujících</span><span class="url-meta">poslední příspěvek <span data-date="2026-09-13">13. 9. 2026</span></span></span>
-      </a>
-      <a class="qlink" href="https://www.instagram.com/peckynext" target="_blank" rel="noopener">
-        <span class="qlink-main"><img class="qlink-icon" src="/img/favicons/instagram-com.png" alt="" loading="lazy"><span class="lbl">Instagram — Pečky NEXT (občanská iniciativa)</span></span><span class="url"><span class="follower-count">128 sledujících</span><span class="url-meta">poslední příspěvek <span data-date="2026-09-01">1. 9. 2026</span></span></span>
-      </a>
-      <a class="qlink" href="https://www.youtube.com/@mestopecky" target="_blank" rel="noopener">
-        <span class="qlink-main"><img class="qlink-icon" src="/img/favicons/youtube-com.png" alt="" loading="lazy"><span class="lbl">YouTube — Město Pečky (oficiální)</span></span><span class="url"><span class="follower-count">93 odběratelů</span><span class="url-meta">poslední video <span data-date="2026-08-27">27. 8. 2026</span></span></span>
-      </a>
-      <a class="qlink" href="https://www.facebook.com/p/Pečky-Srdcem-61590557991395/" target="_blank" rel="noopener">
-        <span class="qlink-main"><img class="qlink-icon" src="/img/favicons/facebook-com.png" alt="" loading="lazy"><span class="lbl">Facebook — Pečky srdcem</span></span><span class="url"><span class="follower-count">78 sledujících</span><span class="url-meta">poslední příspěvek <span data-date="2026-09-10">10. 9. 2026</span></span></span>
-      </a>
-      <a class="qlink" href="https://www.facebook.com/groups/1080849193521600" target="_blank" rel="noopener">
-        <span class="qlink-main"><img class="qlink-icon" src="/img/favicons/facebook-com.png" alt="" loading="lazy"><span class="lbl">FB skupina — Lidé pro Pečky s podporou SPD</span></span><span class="url"><span class="follower-count">40 členů</span><span class="url-meta">poslední příspěvek <span data-date="2026-08-27">27. 8. 2026</span></span></span>
-      </a>
-    </div>
-    <div class="callout" style="margin-top:14px;">
-      Pro ČSSD a sjednocenou levici se vlastní sociální síť nepodařilo dohledat. U stránky Aleny Švejnohové (vázané na její politické angažmá, nikoli soukromý profil), nezávislých iniciativ (Pečky NEXT, Pečky-Virtuálně) a neoficiálních účtů (streetpeopleofpecky — lokální sbírka pouličních fotek, nesouvisí s žádným uskupením) jde o účty třetích stran mimo kontrolu tohoto webu — obsah čtěte kriticky, stejně jako u jakéhokoli jiného zdroje na sociálních sítích.
-    </div>
-
-    <h3 class="display" style="font-size:19px; margin:30px 0 4px;">Další nezávislé zdroje</h3>
-    <p class="lede" style="margin-bottom:16px;">Soukromé/komunitní weby o Pečkách a webová prezentace volebního uskupení — nespravované městem ani tímto webem (jejich sociální sítě jsou v bloku výše).</p>
+    <h3 class="display" style="margin:30px 0 4px;">Další nezávislé zdroje</h3>
+    <p class="lede" style="margin-bottom:16px;">Soukromé/komunitní weby o Pečkách a webová prezentace volebního uskupení — nespravované městem ani tímto webem (jejich sociální sítě jsou v záložce Sociální sítě).</p>
     <div class="quicklinks">
       <a class="qlink" href="https://www.pecky-virtualne.cz/" target="_blank" rel="noopener">
         <span class="qlink-main"><span class="qlink-icon-fallback" style="background:var(--burgundy-deep);">PV</span><span class="lbl">Pečky-Virtuálně (historie města, neoficiální)</span></span><span class="url">pecky-virtualne.cz ↗</span>
@@ -111,9 +84,117 @@
       <a class="qlink" href="https://www.sokolpecky.cz/" target="_blank" rel="noopener">
         <span class="qlink-main"><span class="qlink-icon-fallback" style="background:#7C2F2B;">SP</span><span class="lbl">TJ Sokol Pečky (sportovní klub, vlastní sokolovna)</span></span><span class="url">sokolpecky.cz ↗</span>
       </a>
+      <a class="qlink" href="https://www.tenispecky.cz/" target="_blank" rel="noopener">
+        <span class="qlink-main"><span class="qlink-icon-fallback" style="background:#54624A;">TP</span><span class="lbl">Tenis Pečky (tenisový oddíl TJ Spartak Pečky)</span></span><span class="url">tenispecky.cz ↗</span>
+      </a>
+      <a class="qlink" href="https://www.afkpecky.cz/" target="_blank" rel="noopener">
+        <span class="qlink-main"><span class="qlink-icon-fallback" style="background:#2F4A7A;">AFK</span><span class="lbl">AFK Pečky (fotbalový klub, stadion v Barákově ulici)</span></span><span class="url">afkpecky.cz ↗</span>
+      </a>
+      <a class="qlink" href="https://szmpecky.webnode.cz/" target="_blank" rel="noopener">
+        <span class="qlink-main"><span class="qlink-icon-fallback" style="background:var(--slate); font-size:10px;">SŽM</span><span class="lbl">Spolek železničních modelářů Pečky (klubovna s modelovými kolejišti)</span></span><span class="url">szmpecky.webnode.cz ↗</span>
+      </a>
+      <a class="qlink" href="https://minigolf-pecky.webnode.cz/" target="_blank" rel="noopener">
+        <span class="qlink-main"><span class="qlink-icon-fallback" style="background:var(--field); font-size:10px;">MG</span><span class="lbl">Minigolfclub Dráčata Pečky (minigolfové hřiště u rybníka Benešáku)</span></span><span class="url">minigolf-pecky.webnode.cz ↗</span>
+      </a>
+    </div>
     </div>
 
-    <h3 class="display" style="font-size:19px; margin:30px 0 4px;">Zdroje a stav sekcí</h3>
+    <div class="subpanel" id="subpanel-owebu-socialni">
+    <h3 class="display" style="margin:0 0 4px;">Sociální sítě</h3>
+    <p class="lede" style="margin-bottom:16px;">Všechny facebookové, instagramové a YouTube účty zmiňované na tomto webu na jednom místě, seřazené sestupně podle počtu sledujících (u Facebooku po zaokrouhlení, jak je zobrazuje samotná platforma; u YouTube odběratelé, u FB skupiny členové) — u každého i datum posledního příspěvku/videa jako ukazatel, jak moc je účet aktivní. Označené jako „oficiální“ jsou kanály spravované městem — zbytek jsou nezávislé účty uskupení, politiků a komunitních iniciativ mimo kontrolu tohoto webu. Aktualizuje se týdně. Snímek k 19. 9. 2026, časem se mění. <span class="stamp">ověřeno</span></p>
+    <div class="quicklinks">
+      <a class="qlink" href="https://www.facebook.com/groups/514789833279969" target="_blank" rel="noopener">
+        <span class="qlink-main"><img class="qlink-icon" src="/img/favicons/facebook-com.png" alt="" loading="lazy"><span class="lbl">FB skupina — Máme rádi Pečky (komunitní)</span></span><span class="url"><span class="follower-count">4,9 tis. členů</span></span>
+      </a>
+      <a class="qlink" href="https://www.facebook.com/mestopecky" target="_blank" rel="noopener">
+        <span class="qlink-main"><img class="qlink-icon" src="/img/favicons/facebook-com.png" alt="" loading="lazy"><span class="lbl">Facebook — Město Pečky (oficiální)</span></span><span class="url"><span class="follower-count">2,9 tis. sledujících</span><span class="url-meta">poslední příspěvek <span data-date="2026-09-18">18. 9. 2026</span></span></span>
+      </a>
+      <a class="qlink" href="https://www.facebook.com/pecky.virtualne/" target="_blank" rel="noopener">
+        <span class="qlink-main"><img class="qlink-icon" src="/img/favicons/facebook-com.png" alt="" loading="lazy"><span class="lbl">Facebook — Pečky-Virtuálně (neoficiální, historie města)</span></span><span class="url"><span class="follower-count">1,4 tis. sledujících</span><span class="url-meta">poslední příspěvek <span data-date="2026-09-04">4. 9. 2026</span></span></span>
+      </a>
+      <a class="qlink" href="https://www.instagram.com/streetpeopleofpecky/" target="_blank" rel="noopener">
+        <span class="qlink-main"><img class="qlink-icon" src="/img/favicons/instagram-com.png" alt="" loading="lazy"><span class="lbl">Instagram — streetpeopleofpecky (neoficiální)</span></span><span class="url"><span class="follower-count">1 215 sledujících</span><span class="url-meta">poslední příspěvek <span data-date="2026-08-22">22. 8. 2026</span></span></span>
+      </a>
+      <a class="qlink" href="https://www.facebook.com/nasepecky" target="_blank" rel="noopener">
+        <span class="qlink-main"><img class="qlink-icon" src="/img/favicons/facebook-com.png" alt="" loading="lazy"><span class="lbl">Facebook — NAŠE PEČKY</span></span><span class="url"><span class="follower-count">~1 tis. sledujících</span><span class="url-meta">poslední příspěvek <span data-date="2026-09-19">19. 9. 2026</span></span></span>
+      </a>
+      <a class="qlink" href="https://www.facebook.com/vzcentrum" target="_blank" rel="noopener">
+        <span class="qlink-main"><img class="qlink-icon" src="/img/favicons/facebook-com.png" alt="" loading="lazy"><span class="lbl">Facebook — Vzdělávací centrum Pečky</span></span><span class="url"><span class="follower-count">846 sledujících</span><span class="url-meta">poslední příspěvek <span data-date="2026-09-02">2. 9. 2026</span></span></span>
+      </a>
+      <a class="qlink" href="https://www.instagram.com/nase_pecky/" target="_blank" rel="noopener">
+        <span class="qlink-main"><img class="qlink-icon" src="/img/favicons/instagram-com.png" alt="" loading="lazy"><span class="lbl">Instagram — NAŠE PEČKY</span></span><span class="url"><span class="follower-count">106 sledujících</span><span class="url-meta">poslední příspěvek <span data-date="2026-09-21">21. 9. 2026</span></span></span>
+      </a>
+      <a class="qlink" href="https://www.facebook.com/groups/389985379543371" target="_blank" rel="noopener">
+        <span class="qlink-main"><img class="qlink-icon" src="/img/favicons/facebook-com.png" alt="" loading="lazy"><span class="lbl">FB skupina — NAŠE PEČKY - komunita</span></span><span class="url"><span class="follower-count">516 členů</span></span>
+      </a>
+      <a class="qlink" href="https://www.facebook.com/kspecky" target="_blank" rel="noopener">
+        <span class="qlink-main"><img class="qlink-icon" src="/img/favicons/facebook-com.png" alt="" loading="lazy"><span class="lbl">Facebook — Kulturní středisko města Pečky (oficiální)</span></span><span class="url"><span class="follower-count">993 sledujících</span><span class="url-meta">poslední příspěvek <span data-date="2026-09-10">10. 9. 2026</span></span></span>
+      </a>
+      <a class="qlink" href="https://www.facebook.com/svejnohova" target="_blank" rel="noopener">
+        <span class="qlink-main"><img class="qlink-icon" src="/img/favicons/facebook-com.png" alt="" loading="lazy"><span class="lbl">Facebook — Alena Švejnohová (zastupitelka a kandidátka na starostku)</span></span><span class="url"><span class="follower-count">956 sledujících</span><span class="url-meta">poslední příspěvek <span data-date="2026-09-18">18. 9. 2026</span></span></span>
+      </a>
+      <a class="qlink" href="https://www.facebook.com/p/AFK-Pe%C4%8Dky-100057262787888" target="_blank" rel="noopener">
+        <span class="qlink-main"><img class="qlink-icon" src="/img/favicons/facebook-com.png" alt="" loading="lazy"><span class="lbl">Facebook — AFK Pečky (fotbalový klub)</span></span><span class="url"><span class="follower-count">649 sledujících</span></span>
+      </a>
+      <a class="qlink" href="https://www.facebook.com/profile.php?id=100047289323273" target="_blank" rel="noopener">
+        <span class="qlink-main"><img class="qlink-icon" src="/img/favicons/facebook-com.png" alt="" loading="lazy"><span class="lbl">Facebook — Základní umělecká škola Pečky</span></span><span class="url"><span class="follower-count">473 sledujících</span><span class="url-meta">poslední příspěvek <span data-date="2026-08-31">31. 8. 2026</span></span></span>
+      </a>
+      <a class="qlink" href="https://www.facebook.com/knihovnapecky" target="_blank" rel="noopener">
+        <span class="qlink-main"><img class="qlink-icon" src="/img/favicons/facebook-com.png" alt="" loading="lazy"><span class="lbl">Facebook — Městská knihovna Svatopluka Čecha (oficiální)</span></span><span class="url"><span class="follower-count">483 sledujících</span><span class="url-meta">poslední příspěvek <span data-date="2026-09-04">4. 9. 2026</span></span></span>
+      </a>
+      <a class="qlink" href="https://www.instagram.com/afk_pecky/" target="_blank" rel="noopener">
+        <span class="qlink-main"><img class="qlink-icon" src="/img/favicons/instagram-com.png" alt="" loading="lazy"><span class="lbl">Instagram — AFK Pečky (A tým)</span></span><span class="url"><span class="follower-count">338 sledujících</span></span>
+      </a>
+      <a class="qlink" href="https://www.facebook.com/profile.php?id=61581314026896" target="_blank" rel="noopener">
+        <span class="qlink-main"><img class="qlink-icon" src="/img/favicons/facebook-com.png" alt="" loading="lazy"><span class="lbl">Facebook — Pečky NEXT (občanská iniciativa)</span></span><span class="url"><span class="follower-count">308 sledujících</span><span class="url-meta">poslední příspěvek <span data-date="2026-09-19">19. 9. 2026</span></span></span>
+      </a>
+      <a class="qlink" href="https://www.facebook.com/spolekrodicupecky" target="_blank" rel="noopener">
+        <span class="qlink-main"><img class="qlink-icon" src="/img/favicons/facebook-com.png" alt="" loading="lazy"><span class="lbl">Facebook — Spolek rodičů ZŠ Pečky</span></span><span class="url"><span class="follower-count">254 sledujících</span><span class="url-meta">poslední příspěvek <span data-date="2026-02-14">14. 2. 2026</span></span></span>
+      </a>
+      <a class="qlink" href="https://www.facebook.com/peckypecakum/" target="_blank" rel="noopener">
+        <span class="qlink-main"><img class="qlink-icon" src="/img/favicons/facebook-com.png" alt="" loading="lazy"><span class="lbl">Facebook — Pečky Pečákům (SNK)</span></span><span class="url"><span class="follower-count">246 sledujících</span><span class="url-meta">poslední příspěvek <span data-date="2026-09-14">14. 9. 2026</span></span></span>
+      </a>
+      <a class="qlink" href="https://www.facebook.com/odspecky.cz/" target="_blank" rel="noopener">
+        <span class="qlink-main"><img class="qlink-icon" src="/img/favicons/facebook-com.png" alt="" loading="lazy"><span class="lbl">Facebook — ODS a nezávislí Pečky</span></span><span class="url"><span class="follower-count">232 sledujících</span><span class="url-meta">poslední příspěvek <span data-date="2026-09-18">18. 9. 2026</span></span></span>
+      </a>
+      <a class="qlink" href="https://www.facebook.com/tjsokolpecky" target="_blank" rel="noopener">
+        <span class="qlink-main"><img class="qlink-icon" src="/img/favicons/facebook-com.png" alt="" loading="lazy"><span class="lbl">Facebook — TJ Sokol Pečky</span></span><span class="url"><span class="follower-count">224 sledujících</span><span class="url-meta">poslední příspěvek <span data-date="2026-09-17">17. 9. 2026</span></span></span>
+      </a>
+      <a class="qlink" href="https://www.facebook.com/skolapecky" target="_blank" rel="noopener">
+        <span class="qlink-main"><img class="qlink-icon" src="/img/favicons/facebook-com.png" alt="" loading="lazy"><span class="lbl">Facebook — Základní škola Pečky (oficiální)</span></span><span class="url"><span class="follower-count">186 sledujících</span><span class="url-meta">poslední příspěvek <span data-date="2026-09-21">21. 9. 2026</span></span></span>
+      </a>
+      <a class="qlink" href="https://www.instagram.com/peckynext" target="_blank" rel="noopener">
+        <span class="qlink-main"><img class="qlink-icon" src="/img/favicons/instagram-com.png" alt="" loading="lazy"><span class="lbl">Instagram — Pečky NEXT (občanská iniciativa)</span></span><span class="url"><span class="follower-count">131 sledujících</span><span class="url-meta">poslední příspěvek <span data-date="2026-09-21">21. 9. 2026</span></span></span>
+      </a>
+      <a class="qlink" href="https://www.facebook.com/profile.php?id=61568834450570" target="_blank" rel="noopener">
+        <span class="qlink-main"><img class="qlink-icon" src="/img/favicons/facebook-com.png" alt="" loading="lazy"><span class="lbl">Facebook — ZŠ Pečky při ZŠ, MŠ a PŠ Kolín</span></span><span class="url"><span class="follower-count">114 sledujících</span><span class="url-meta">poslední příspěvek <span data-date="2026-09-19">19. 9. 2026</span></span></span>
+      </a>
+      <a class="qlink" href="https://www.youtube.com/@mestopecky" target="_blank" rel="noopener">
+        <span class="qlink-main"><img class="qlink-icon" src="/img/favicons/youtube-com.png" alt="" loading="lazy"><span class="lbl">YouTube — Město Pečky (oficiální)</span></span><span class="url"><span class="follower-count">95 odběratelů</span><span class="url-meta">poslední video <span data-date="2026-09-17">17. 9. 2026</span></span></span>
+      </a>
+      <a class="qlink" href="https://www.facebook.com/p/Pečky-Srdcem-61590557991395/" target="_blank" rel="noopener">
+        <span class="qlink-main"><img class="qlink-icon" src="/img/favicons/facebook-com.png" alt="" loading="lazy"><span class="lbl">Facebook — Pečky srdcem</span></span><span class="url"><span class="follower-count">87 sledujících</span><span class="url-meta">poslední příspěvek <span data-date="2026-09-13">13. 9. 2026</span></span></span>
+      </a>
+      <a class="qlink" href="https://www.facebook.com/groups/1080849193521600" target="_blank" rel="noopener">
+        <span class="qlink-main"><img class="qlink-icon" src="/img/favicons/facebook-com.png" alt="" loading="lazy"><span class="lbl">FB skupina — Lidé pro Pečky s podporou SPD</span></span><span class="url"><span class="follower-count">40 členů</span><span class="url-meta">poslední příspěvek <span data-date="2026-09-19">19. 9. 2026</span></span></span>
+      </a>
+      <a class="qlink" href="https://www.facebook.com/profile.php?id=100057429309940" target="_blank" rel="noopener">
+        <span class="qlink-main"><img class="qlink-icon" src="/img/favicons/facebook-com.png" alt="" loading="lazy"><span class="lbl">Facebook — Tenis Spartak Pečky</span></span><span class="url"><span class="follower-count">223 sledujících</span><span class="url-meta">poslední příspěvek <span data-date="2026-08-27">27. 8. 2026</span></span></span>
+      </a>
+      <a class="qlink" href="https://www.instagram.com/hospoda_na_hristi_pecky/" target="_blank" rel="noopener">
+        <span class="qlink-main"><img class="qlink-icon" src="/img/favicons/instagram-com.png" alt="" loading="lazy"><span class="lbl">Instagram — Hospoda na hřišti (soukromý podnik)</span></span><span class="url"><span class="follower-count">265 sledujících</span><span class="url-meta">poslední příspěvek <span data-date="2026-09-22">22. 9. 2026</span></span></span>
+      </a>
+      <a class="qlink" href="https://www.facebook.com/profile.php?id=61552053562486" target="_blank" rel="noopener">
+        <span class="qlink-main"><img class="qlink-icon" src="/img/favicons/facebook-com.png" alt="" loading="lazy"><span class="lbl">Facebook — Hostinec „U Stříkačky“ (soukromý podnik)</span></span><span class="url"><span class="follower-count">517 sledujících</span><span class="url-meta">poslední příspěvek <span data-date="2026-09-24">24. 9. 2026</span></span></span>
+      </a>
+    </div>
+    <div class="callout" style="margin-top:14px;">
+      Pro ČSSD a sjednocenou levici se vlastní sociální síť nepodařilo dohledat. U stránky Aleny Švejnohové (vázané na její politické angažmá, nikoli soukromý profil), nezávislých iniciativ (Pečky NEXT, Pečky-Virtuálně) a neoficiálních účtů (streetpeopleofpecky — lokální sbírka pouličních fotek, nesouvisí s žádným uskupením) jde o účty třetích stran mimo kontrolu tohoto webu — obsah čtěte kriticky, stejně jako u jakéhokoli jiného zdroje na sociálních sítích.
+    </div>
+    </div>
+
+    <div class="subpanel" id="subpanel-owebu-zdroje">
+    <h3 class="display" style="margin:0 0 4px;">Zdroje a stav sekcí</h3>
     <table class="register">
       <thead><tr><th>Sekce</th><th>Zdroj</th><th>Stav</th></tr></thead>
       <tbody>
@@ -136,13 +217,16 @@
         <tr><td>Pečecké noviny</td><td>pecky.cz — archiv PDF zpravodaje (68/68 vydání, 2020–2026); doplněno lokálním archivem redakce (43 vydání, 2008–2011, nedostupné na pecky.cz — viz mezery v panelu Zpravodaj)</td><td><span class="tag role">ověřeno</span></td></tr>
       </tbody>
     </table>
+    </div>
+
+    <div class="subpanel" id="subpanel-owebu-historie">
+    <h3 class="display" style="margin:0 0 4px;">Stav sekcí</h3>
+    <p class="lede" style="margin-bottom:16px;">Kdy jsem se u které sekce naposledy díval do zdroje a kdy se naposledy změnil obsah. Řazeno od nejnověji změněné.</p>
+    {{STAV_SEKCI}}
+    <p class="majority-note" style="margin-top:12px;">Pomlčka ve sloupci Kontrola znamená, že sekce nemá externí zdroj ke kontrole — ne že se na ni zapomnělo. Otazník u data je nedoložený odhad.</p>
+    </div>
 
     <div class="footer-note">
       Poslední aktualizace: 18. srpna 2026 (sekce Zpravodaj: doplněn lokální archiv Pečeckých novin 2008–2011, 43 vydání s fulltextem a náhledy stránek). Tento web nezastupuje Město Pečky ani žádnou politickou stranu. Chyby a doplnění vítány — pošli zdroj a opravím.
     </div>
-
-    <h3 class="display" style="font-size:19px; margin:38px 0 4px;">Stav sekcí</h3>
-    <p class="lede" style="margin-bottom:16px;">Kdy jsem se u které sekce naposledy díval do zdroje a kdy se naposledy změnil obsah. Řazeno od nejnověji změněné.</p>
-    {{STAV_SEKCI}}
-    <p class="majority-note" style="margin-top:12px;">Pomlčka ve sloupci Kontrola znamená, že sekce nemá externí zdroj ke kontrole — ne že se na ni zapomnělo. Otazník u data je nedoložený odhad.</p>
   </section>

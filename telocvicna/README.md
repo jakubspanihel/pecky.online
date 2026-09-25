@@ -291,6 +291,80 @@ gap-callout pod tabulkou, upravený první callout v „Otevřené otázky“
 (rok a zpracovatel teď „nezávisle podepřené“ místo „jen jejím
 tvrzením“), `lastmod` na 14. 9. 2026.
 
+## Doplněno 21. 9. 2026: zápis ZM 6/2026 a RM 33/2026
+
+Automatická kontrola usneseni.cz (krok 9). Zdroje: zápis ZM 6/2026
+(16. 9. 2026),
+`https://mesto-pecky.usneseni.cz/verejne/1e69bf60-aa81-11f1-b174-0242c0a80002/zapis/`,
+a zápis RM 33/2026 (14. 9. 2026),
+`https://mesto-pecky.usneseni.cz/verejne/fe58c641-ab82-11f1-8b0b-0242c0a80002/zapis/`.
+
+- **Kontrolní den na stavbě 10. 9. 2026.** Bod 6 ZM 6/2026 (Informace
+  o stavební akci): písemné materiály k bodu dostali zastupitelé
+  dodatečně, protože je zpracovatelé doplnili „na základě výsledků
+  kontrolního dne, následných konzultací a případného právního
+  posouzení dalšího postupu“ o „aktuální informace a návrh dalšího
+  postupu“. Je to první doklad, že na stavbě proběhla fyzická kontrola
+  po zastavení prací — samotný obsah návrhu dalšího postupu ale zápis
+  necituje, jen konstatuje, že existuje. Zastupitelstvo vzalo informaci
+  na vědomí bez hlasování.
+- **10 mil. Kč schváleno, ne jen doporučeno — a poprvé číslo za
+  dosavadní náklady.** Bod 8 (Rozpočtová opatření č. 9/2026),
+  usnesení **UZ-35-6/26**: navýšení § 3113 o 10 mil. Kč schváleno
+  (s nesouvisející úpravou o odchytu nutrií). Důvodová zpráva k tomu
+  poprvé uvádí souhrnné číslo za **už vynaložené** náklady na
+  zrealizovanou část („dle smlouvy a dodatku, vč. dozorů, výběr.
+  řízení, úpravy projektu“): **26 mil. Kč** — a že do konce roku se
+  čekají další výdaje na zastavení/konzervaci stavby, stavební práce
+  v kuchyni (zateplení), úpravu projektu a právní služby, bez
+  konkrétní částky. **Nepřepisovat 26 mil. na „cenu vyřešení pilot“**
+  — zahrnuje i běžné náklady realizované části stavby před zastavením.
+- **RM 33/2026 (14. 9., před ZM): stav beze změny.** Bod 3 (Aktuální
+  informace vedení města), místostarosta Zdeněk Fejfar: stavba
+  „pozastavena“ a „zakonzervována“, řeší se „pochybnosti týkající se
+  délky nosných pilot“, čeká se na vyjádření právní kanceláře. Stejná
+  formulace jako v předchozích týdnech — žádný nový fakt, jen potvrzení
+  že se stav k tomuto datu nezměnil.
+- **Právní kancelář k 16. 9. 2026 pořád nevydala stanovisko** — ani
+  jeden ze dvou zápisů (RM 33/2026, ZM 6/2026) ho neobsahuje, oba jen
+  zmiňují, že se na něj čeká. Otázka odpovědnosti a technického řešení
+  zůstává otevřená i po zasedání ZM, na které se čekalo od 10. 9. 2026
+  (viz „Doplněno 10. 9. 2026“ výše).
+
+Promítnuto do `content/telocvicna.html`: dva nové řádky v tabulce
+„Zastavení stavby v roce 2026“ (16. 9. a 14. 9., nad 7. 9.), rozšířený
+čtvrtý callout v „Otevřené otázky“ (dopad na rozpočet — nová čísla
+26 mil. + 10 mil.), přepsaný pátý callout tamtéž (dřív anticipoval, co
+ZM řekne — teď referuje, co zápis skutečně obsahuje a co pořád chybí).
+Stat-grid ani perex se neměnily — cena díla podle smlouvy/dodatku se
+nezměnila, 26/10 mil. jsou náklady/rozpočet, ne cena díla.
+
+## Doplněno 24. 9. 2026: zápis RM 34/2026
+
+Automatická kontrola usneseni.cz (krok 9). Zdroj: zápis RM 34/2026
+(21. 9. 2026),
+`https://mesto-pecky.usneseni.cz/verejne/010befaf-b0de-11f1-b254-0242c0a80003/zapis/`.
+
+- **Dva nové detaily, žádný nový fakt o řešení.** Bod 3 (Aktuální
+  informace vedení města), starosta Milan Paluska: u stavební akce se
+  „čeká na vyjádření geotechnika“ a „proběhne schůzka se zástupcem
+  právní kanceláře“. Dřív zápisy zmiňovaly jen čekání na právní
+  kancelář — teď se poprvé objevuje i geotechnik jako strana, na jejíž
+  stanovisko se čeká, a schůzka s právníkem je poprvé popsaná jako
+  naplánovaná, ne jen jako obecné čekání. Zápis ale neuvádí ani obsah,
+  ani termín schůzky, ani žádné jméno geotechnika — samotné stanovisko
+  (technické i právní) pořád chybí.
+- Rozpočet, cena díla ani harmonogram se v tomto zápise vůbec nezmiňují
+  — čísla 211,5 mil. (cena díla), 26 mil. (dosud vynaložené náklady)
+  a 10 mil. (letošní rozpočtové navýšení) zůstávají na úrovni
+  z 16. 9. 2026.
+
+Promítnuto do `content/telocvicna.html`: nový řádek v tabulce
+„Zastavení stavby v roce 2026“ (21. 9., nad 16. 9.), rozšířený čtvrtý
+callout v „Otevřené otázky“ o právní kanceláři (doplněn geotechnik
+a naplánovaná schůzka). Stat-grid, perex a ostatní callouty beze
+změny — žádná nová čísla ani rozhodnutí.
+
 ## Co hlídat dál
 
 - Jestli a jak vedení města zareaguje konkrétně na tvrzení Švejnohové
@@ -298,9 +372,12 @@ tvrzením“), `lastmod` na 14. 9. 2026.
   nereagovalo vůbec.
 - Jestli případně dojde k trestnímu oznámení, které Švejnohová
   požaduje, a s jakým výsledkem.
-- Co konkrétně vedení města řekne zastupitelstvu 16. 9. 2026 (bod 6)
-  a jaké bude stanovisko právní kanceláře, o jehož přípravě mluví
-  zápis RM 32/2026 — doplnit ze zápisu ZM 6/2026, až vyjde.
+- Stanovisko právní kanceláře k dalšímu postupu — k 21. 9. 2026 (zápisy
+  RM 33/2026 i ZM 6/2026) se na něj pořád jen čeká, žádný z dosud
+  dohledaných zápisů ho neobsahuje. Sledovat další zápisy RM/ZM.
+- Obsah „návrhu dalšího postupu“, kterým byly podle zápisu ZM 6/2026
+  doplněny materiály k bodu 6 po kontrolním dni na stavbě 10. 9. 2026
+  — zápis konstatuje, že existuje, ale necituje ho.
 - Které řešení si město nakonec vybere — sanaci základů, nebo
   přeprojektování statiky celé stavby (obě možnosti otevřené podle
   vyjádření 4. 9. 2026) — a jestli přinesou další dodatky/vícenáklady

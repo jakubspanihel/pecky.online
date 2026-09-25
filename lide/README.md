@@ -58,15 +58,166 @@ tahle kapitola je provozní — jak s daty pracovat.
 
 ```
 foto/                portréty z jiných zdrojů než z voleb (viz níž)
-people.json          242 osob (21 aktuálních zastupitelů + 2 bývalí s plným
+people.json          381 osob (21 aktuálních zastupitelů + 2 bývalí s plným
                       profilem, 206 dalších kandidátů ze všech kandidátek
                       2018/2022/2026 s minimálním záznamem (SPEC.md §3.6),
-                      13 vedení úřadu/příspěvkovek/firem (fáze 5b, §7))
-organizations.json   16 organizací (Město Pečky + 8 volebních uskupení +
-                      7 příspěvkovek/firem — fáze 5b)
-affiliations.json   400 vazeb osoba–organizace
+                      13 vedení úřadu/příspěvkovek/firem (fáze 5b, §7),
+                      8 jen kvůli členství v komisi RM/školské radě,
+                      21 pedagogů ZUŠ Pečky, 48 pedagogů ZŠ Pečky,
+                      22 lidí z MŠ MAŠINKA Pečky, 2 noví z výboru
+                      Pečeckého okrašlovacího spolku, 16 nových z AFK Pečky — viz níž)
+organizations.json   24 organizací (Město Pečky + 8 volebních uskupení +
+                      7 příspěvkovek + 2 firmy + 6 spolků — poslední
+                      4 spolky/firmy založeny jinou souběžnou session
+                      pro sekci Kalendář; vazby na osoby mají
+                      Pečecký okrašlovací spolek, SŽM Pečky, Minigolfclub
+                      Dráčata a AFK Pečky)
+affiliations.json   615 vazeb osoba–organizace
 validate.mjs         validátor
 ```
+
+**Pečecký okrašlovací spolek — výbor** (doplněno 24. 9. 2026): 5členný
+výbor dohledaný v obchodním rejstříku
+([rejstrik.penize.cz](https://rejstrik.penize.cz/21001634-pececky-okraslovaci-spolek),
+zdroj justice.cz) — organizace samotná byla v `organizations.json` už
+od 20. 9. 2026 (přidala jiná souběžná session pro Kalendář), ale bez
+vazeb na osoby, což si i sama poznamenala v `note`. Tři z pěti členů
+výboru šlo spárovat s existujícími záznamy podle jména a titulu přesně
+(`houdkoval`, `vodickat`, `vodickal`) — malé město, stejní lidé se
+potkávají v komisích, kandidátkách i spolcích. Nový `role_type` se
+nezaváděl: použit už existující, dosud nepoužitý `"clen"` z číselníku,
+na pokyn autora webu — je to obdoba `"komise"`, jen u nezávislého
+spolku místo orgánu města, takže se stejně jako komise počítá do
+`_komise`/`_office` v `content/lide.html` (jinak by dva zcela noví lidé,
+kteří nikde jinde nefigurují, v adresáři vůbec nenaskočili). Skupina
+„Komise rady města a školská rada" byla proto přejmenována na „Komise,
+spolky a školská rada" a čip „Spolky" přibyl vedle „Výbory a komise".
+Datum vzniku funkce (`from`) je datum vzniku spolku (11. 12. 2023) — to
+jediné rejstřík uvádí, žádná pozdější změna ve výboru není zapsaná.
+
+**AFK Pečky — vedení a realizační týmy** (doplněno 24. 9. 2026): 21 lidí
+z webu klubu — výkonný výbor ze stránky
+[afkpecky.cz/vedeni-klubu](https://www.afkpecky.cz/vedeni-klubu/) (předseda,
+jednatel, hospodář → `vedeni-organizace`, stejně jako výbor SŽM Pečky)
+a trenéři, asistenti trenéra a vedoucí mužstev ze stránek
+`/<tým>/realizacni-tym/` všech 7 týmů → vlastní `role_type: "trener"`
+(zaveden týž den na pokyn autora webu, s přístupem jako u `ucitel`:
+vlastní čip „Trenéři" ve filtru, ale skupina „Městské organizace" spolu
+s vedením klubu, `_organizace` v `content/lide.html`). Vedoucí mužstva
+nemá samostatný typ — je součástí realizačního týmu, rozlišuje ho jen
+text v `role` (stejně jako „vedoucí vychovatelka" u vychovatelek).
+Původně (týž den) zapsáni jako `clen` ve skupině „Komise, spolky a školská
+rada" — autorovi webu se to nelíbilo. Kontakty ani fotky web neuvádí.
+**Soupisky hráčů se nepřebírají** — nejsou to funkce ve spolku a u mládeže
+jde o děti. Realizační týmy web vede jen pro sezónu 2025/2026 (jiná
+v nabídce není), vazby proto mají `from: "2025"` a přiznanou poznámku,
+že složení pro 2026/2027 nemusí sedět.
+Předseda Jaroslav Lukáš je jako jediný zapsaný i ve spolkovém rejstříku
+(statutární orgán, předsedou od 27. 1. 2014) — datum narození z ARES
+odpovídá věku 65 let na kandidátní listině ODS 2026, spojení s existujícím
+záznamem `lukasj` je tedy ověřené. Čtyři další přesné shody jména
+(`konupekj`, `drizhalj`, `vilimj` — týž učitel ZŠ?, `spikm`) jsou
+spárované jen podle jména a vazba to v `note` přiznává. Jaroslav Vorlíček
+(jednatel) **není** Jiří Vorlíček z kandidátky 2026 — nový záznam
+`vorlicekj2`. Zdeněk Buřič má dvě vazby (hospodář + trenér mladších
+žáků), Vojtěch Buřič je samostatná osoba.
+
+**MŠ MAŠINKA Pečky** (doplněno 22. 9. 2026): 13 učitelek + zástupkyně
+ředitelky + 4 asistentky pedagoga + 4 uklízečky, dohledáno na
+stránkách jednotlivých tříd — zdroj
+[msmasinkapecky.cz/nase-tridy](https://www.msmasinkapecky.cz/nase-tridy/)
+(7 tříd, každá má vlastní podstránku s bios učitelek a závěrečnou větou
+jmenující úklid a asistentku pedagoga). Ředitelka `bubenickovak` beze
+změny — jen potvrzeno, že vedle vedení školy učí i ve třídě Domeček
+(do jejího záznamu se to nedopisovalo, stejný princip jako u ředitelky
+ZUŠ). **Nový nález:** Petra Tvrdá je
+zástupkyně ředitelky (dosud v datech nebyla vůbec) — zapsaná jednou
+vazbou `role_type: "vedeni-organizace"`, která kombinuje funkci vedení
+i to, že učí třídu Kytička (stejný vzor jako zástupkyně ředitelky ZUŠ).
+Dva nové typy v číselníku, na pokyn autora webu:
+`role_type: "asistent-pedagoga"` (pomáhá konkrétnímu dítěti/třídě, nemá
+kvalifikaci učitele — jiná profese než učitel i vychovatel) a
+`role_type: "provozni"` (nepedagogický personál — úklid; dvě uklízečky
+uklízí po dvou třídách, zapsané jednou vazbou s oběma třídami v `role`,
+ne dvakrát). Všechny čtyři nové typy (`ucitel`, `vychovatel`,
+`asistent-pedagoga`, `provozni`) — a od 24. 9. 2026 i `trener` (AFK
+Pečky, viz níž) — počítají do stejné skupiny „Městské
+organizace" (`_organizace` v `content/lide.html`), každý s vlastním
+filtrovacím čipem. Žádná z těchto osob nemá e-mail/telefon — třídní
+stránky uvádí jen kontakt na třídu jako celek, ne na jednotlivé lidi.
+
+**Pedagogický sbor ZŠ Pečky** (doplněno 22. 9. 2026): 46 učitelů 1. a
+2. stupně a 7 vychovatelek školní družiny — zdroje
+[zspecky.cz/1-stupen/ucitele](https://www.zspecky.cz/1-stupen/ucitele/),
+[.../2-stupen/ucitele](https://www.zspecky.cz/2-stupen/ucitele/) (jmenné
+seznamy konzultačních hodin, bez e-mailu/telefonu — proto ho u učitelů
+nemá nikdo) a jednotlivé podstránky `družina/školní-družina/{i–vii}-oddeleni/`
+(u vychovatelek e-mail i telefon má každá). Pět z nich šlo spárovat
+s existujícími záznamy podle jména a tituly se přesně shodovaly
+(`kozakovab`, `pisovam`, `vinohradnikovah` už byly ze školské rady;
+`kristoufkoval`, `kuprp` z kandidátek/komisí — u Kupra navíc sedí i jeho
+vlastní údaj „učitel, trenér" v `occupations`) — dostali jen novou vazbu,
+ne duplicitní osobu. `role_type: "ucitel"` u učitelů (stejný typ jako
+u ZUŠ, role text rozlišuje „učitel/učitelka 1. stupně" vs „2. stupně");
+vychovatelky mají vlastní `role_type: "vychovatel"` — jiná profese než
+učitel, i když jde taky o pedagogického pracovníka školy, na pokyn autora
+webu zadaný jako vlastní typ, aby se dala filtrovat samostatně
+(`content/lide.html` počítá oba do skupiny „Městské organizace", stejně
+jako komise/vedeni-organizace, viz odstavec u ZUŠ výš). Bc. Hana
+Vinohradníková je „vedoucí vychovatelka" II. oddělení — rozlišeno
+v `role`, `role_type` zůstává stejný jako u ostatních vychovatelek.
+
+Jana Bartáková je na 1. stupni i na 2. stupni se skoro identickým
+záznamem (stejná místnost, čas se liší jen o 5 minut) — nejde vyloučit,
+že je to duplicita ze šablony webu školy, ale na pokyn autora webu jsou
+zapsané obě vazby, tak jak to zdroj uvádí.
+
+**Přiznaná mezera:** školní klub (`/druzina/skolni-klub/`) uvádí jen dva
+e-maily bez celého jména (`hatasova@zspecky.cz`, `kasparkova@zspecky.cz`)
+— bez křestního jména nejde založit záznam s `id` podle konvence, takže
+tihle dva lidé v adresáři chybí, dokud se jméno nedohledá jinde.
+
+**Pedagogický sbor ZUŠ Pečky** (doplněno 22. 9. 2026): ředitelka (dřív
+`vorlickovap`), zástupkyně ředitelky a 20 učitelů ze 4 oborů (hudební,
+výtvarný a multimediální, taneční, literárně-dramatický) — zdroj
+[zuspecky.cz/kontakty](https://zuspecky.cz/kontakty/), který u každého
+uvádí jméno, obor/nástroj a pracovní e-mail. Zástupkyně ředitelky
+(`role_type: "vedeni-organizace"`, stejně jako ředitelka) je zapsaná
+jednou vazbou, která v `role` kombinuje funkci i to, co učí — dělat pro
+tutéž osobu na stejné organizaci dvě vazby (vedení + výuka) by jen
+duplikovalo kartičku. Zbylých 20 má vlastní `role_type: "ucitel"`
+(doplněno 22. 9. 2026, na pokyn autora webu) — **ne** `"zamestnanec"`,
+aby šli učitelé filtrovat zvlášť od úřednického personálu; do budoucna
+se stejný typ použije i pro učitele ZŠ Pečky. `content/lide.html`
+i tak počítá `ucitel` do stejné skupiny „Městské organizace" jako
+`vedeni-organizace`/`zamestnanec` u ostatních organizací (`_organizace`
+v `lJoin`) — jen řádek s filtry navíc nabízí čip „Učitelé", který
+`role_type` „zamestnanec" nechává čistě pro úřad. Zavedení tohoto typu
+poprvé opouští dosavadní pravidlo „jen zaměstnanci úřadu" (viz „Kdo do
+adresáře patří" níž) — škola samotná zveřejňuje jmenný seznam učitelů
+s e-maily, takže platí stejná logika transparentnosti jako u úřadu.
+Datum nástupu web školy neuvádí u nikoho, proto `from: null` napříč.
+
+**Komise RM a školská rada** (doplněno 19. 9. 2026): pět iniciativních a
+poradních komisí rady města (sportovní, kulturní, Sbor pro občanské
+záležitosti, stavebně-dopravní a ŽP, sociální/zdravotní/bytová) plus
+školská rada ZŠ Pečky. Modelováno jako vazby s `role_type: "komise"` —
+stejný typ, jaký už měl předsednictví kontrolního výboru zastupitelstva —
+ne jako nové organizace: komise nejsou samostatné právnické osoby, jde
+o orgány zřízené radou (viz `Jednaci_rad_komisi.pdf` na pecky.cz), takže
+vazby míří na existující `mesto-pecky` (pět komisí RM) nebo `zs-pecky`
+(školská rada, protože jde o orgán školy, ne úřadu). Zdroj: podstránky
+pecky.cz → Rada města → Komise RM; přesné datum jmenování tam není
+uvedené, jen aktuální složení — vazby proto mají `from: null` a `note`
+s vysvětlením. Členství v komisi teď počítá do `_office` stejně jako
+`vedeni-urad`/`vedeni-organizace`/`zamestnanec` (viz `content/lide.html`
+→ `lJoin`), jinak by přes 20 lidí, kteří v komisi sedí, ale nikdy
+nekandidovali ani nepracují na úřadu, v adresáři vůbec nenaskočilo —
+stejná past, jaké se předešlo u `vedeni-urad`/`vedeni-organizace`
+(fáze 5b, viz odstavec výš). Panel proto má šestou skupinu „Komise rady
+města a školská rada"; kdo má vedle komise i mandát, úřad nebo vedení
+organizace, zůstává ve své dosavadní skupině — komise je pak vidět jen
+v jeho detailu/timeline, ne jako duplicitní kartička.
 
 **Vedení úřadu, příspěvkových organizací a městských firem** (`role_type:
 "vedeni-urad"` a `"vedeni-organizace"`, doplněno 5. 9. 2026, fáze 5b
@@ -115,6 +266,20 @@ jde poslat odkaz:
 
 Adresy stojí na `id` z JSON — proto se `id` po zveřejnění nemění.
 
+### Vizitka osoby je sdílená komponenta (od 19. 9. 2026)
+
+Vykreslení detailu osoby (`lPersonDetail` v `content/lide.html`) i avatar
+kartičky delegují na `pcDetailHtml`/`pcAvatarHtml`/`pcBuildTimeline`
+v `assets/helpers.js` — čistě formátovací a vykreslovací funkce bez závislosti
+na routingu nebo filtrech téhle sekce. Vznikly proto, aby stejnou vizitku šlo
+znovu použít i mimo Lidé: první uplatnění je jméno v tabulce Jednání →
+Absence (`/jednani/absence.html`, viz `jednani/README.md` →
+„Avatar a vizitka osoby u jména"), kde se klikem na jméno rozbalí přesně
+tahle karta. `content/lide.html` si drží krátké aliasy (`lFullName`,
+`lRoleLabel` apod.) na `pc*` funkce, ať se nemusí přepisovat zbytek souboru —
+při úpravě formátování (datum, telefon, timeline) měnit vždy `pc*` verzi
+v `assets/helpers.js`, ne kopírovat logiku zpátky sem.
+
 ### Tři entity, ne jedna kartička
 
 Dnešní kartička slepuje tři různé věci dohromady. V datech jsou oddělené,
@@ -135,9 +300,11 @@ Ten rozdíl je správně a je vidět v timeline.
 
 ### Co panel vypisuje a co ne
 
-Pět skupin v tomhle pořadí: **Rada města**, **Ostatní členové
+Šest skupin v tomhle pořadí: **Rada města**, **Ostatní členové
 zastupitelstva**, **Úřad města** (`vedeni-urad`), **Městské organizace**
-(`vedeni-organizace`) a — až po přepnutí rozsahu na „Včetně historie" —
+(`vedeni-organizace`), **Komise, spolky a školská rada** (`komise`
+a `clen`, doplněno 19., resp. 24. 9. 2026) a — až po přepnutí rozsahu
+na „Včetně historie" —
 **Dřívější vedení a bývalí zastupitelé**. Volení lidé nahoře, jmenovaní
 pod nimi, historie nakonec.
 
@@ -257,8 +424,9 @@ s existujícím `id` (to by znamenalo nedotažené sloučení) ani s jiným alia
 1. **`people.json`** — `id` je příjmení + iniciála křestního bez
    diakritiky (`paluskam`, `svejnohovaa`).
 2. **`organizations.json`** — jen pokud uskupení nebo organizace ještě
-   chybí. U uskupení povinně `color` a `css_class` **z palety** v
-   [`volby/README.md`](../volby/README.md), ne nová barva.
+   chybí. U uskupení povinně `color`, `color_bg` a `css_class` **z palety** v
+   [`volby/README.md`](../volby/README.md), ne nová barva. Barvy se
+   do CSS dostanou přes build (`assets/org-colors.css`), nikde je nepsat ručně.
 3. **`affiliations.json`** — mandát, případná funkce v radě, kandidátka.
    `id` ve tvaru `{person_id}--{organization_id}--{pořadí}`.
 4. Zvýšit `meta.count` a `meta.updated` ve všech změněných souborech.
@@ -279,17 +447,46 @@ trval.
 ### Kdo do adresáře patří
 
 Volení funkcionáři (zastupitelé, rada), jmenované vedení (úřad, městské
-organizace) **i řadoví zaměstnanci úřadu** — referentky, účetní, matrikářka.
-U zaměstnanců se ale vede **jen to, co radnice sama zveřejňuje jako služební
-spojení**: jméno, funkce, pracovní e-mail a telefon. Nic dalšího se k nim
-nedohledává. Podrobně a s odůvodněním v SPEC.md §6, bod 4.
+organizace), **i řadoví zaměstnanci úřadu** — referentky, účetní, matrikářka
+— a od 19. 9. 2026 i **členové komisí rady města a školské rady ZŠ Pečky**
+(`role_type: "komise"`, viz „Datová sada" výš). U zaměstnanců se ale vede
+**jen to, co organizace sama zveřejňuje jako služební spojení**: jméno,
+funkce, pracovní e-mail a telefon. Nic dalšího se k nim nedohledává. Podrobně
+a s odůvodněním v SPEC.md §6, bod 4.
 
 Do 8. 9. 2026 platilo pravidlo opačné („ne řadoví zaměstnanci") a změnilo se
 na pokyn autora webu při doplňování kontaktů z organizační struktury na
-pecky.cz.
+pecky.cz. Od 22. 9. 2026 platí stejné pravidlo i mimo úřad — první případ
+je celý pedagogický sbor ZUŠ Pečky (21 lidí, zdroj zuspecky.cz/kontakty),
+protože škola sama zveřejňuje jmenný seznam učitelů s e-maily; u jiných
+příspěvkovek se to samé doplní, až se najde srovnatelně veřejný zdroj.
 
 Kandidáti bez mandátu jsou v datech, ale panel je nevypisuje — to je jiná věc,
 viz „Co panel vypisuje a co ne".
+
+**Organizace bez vazeb na osoby.** Od 20. 9. 2026 jsou v
+`organizations.json` i dva spolky — `tj-sokol-pecky` a
+`pececky-okraslovaci-spolek` (`type: "spolek"`, identifikace a IČO z Hlídače
+státu). Žádné vazby v `affiliations.json` nemají a v adresáři Lidí se
+nezobrazují: rejstřík organizací slouží celému webu, ne jen téhle sekci, a
+sekce Kalendář se na jejich id odkazuje jako na pořadatele akcí
+(`kalendar/akce.json` → `organizer`, viz `kalendar/README.md`). Vazby na
+konkrétní lidi se k nim doplní, až pro ně bude doložený zdroj.
+
+Od 22. 9. 2026 přibylo `vzdelavaci-centrum-pecky` (`type: "prispevkova"`,
+stejné IČO jako `kulturni-stredisko-pecky` — jde o tutéž právnickou osobu,
+jen jiný provoz/budova) — samostatné id, aby se v Kalendáři jeho ~1400
+týdenních kroužků neslila ve filtru s vlastním programem Kulturního domu
+pod jedno pořadatelské jméno. Přesný vzor jako u obou spolků výše, jen
+s odlišným důvodem pro oddělení (kapacita filtru, ne odlišná právnická
+osoba).
+
+Od 23. 9. 2026 přibylo `maminky-sobe` (`type: "spolek"`, IČO 27033431) —
+spolek realizující Komunitní centrum Pramínek v **sousední obci
+Dobřichov**, ne v Pečkách. Na žádost uživatele („akce z Dobřichova budeme
+také evidovat") je přesto v rejstříku jako pořadatel akcí v Kalendáři —
+vazba na Pečky je přes spolupráci s Farností Pečky, viz `kalendar/README.md`.
+První případ pořadatele mimo katastr města.
 
 ### Povolání
 
@@ -316,6 +513,31 @@ uskupení — viz kapitola „Fotky" výš.
 
 Při nálezu nové fotky za další ročník se **stará položka neodstraňuje**,
 jen přibude nová — stejně jako u vazeb historie nemizí.
+
+### České skloňování osob (gender)
+
+Doplněno 19. 9. 2026, zadal uživatel — vzniklo z textu „Přítomen: N"
+v poznámce `jednani/absence.html` (mužský tvar u žen gramaticky špatně,
+např. „Ivana Trčková … Přítomen" místo „Přítomna"). Řešení je obecné pro
+celý web: kdekoli se generuje text o konkrétní osobě z přídavného jména/
+příčestí (přítomen/přítomna, zvolen/zvolena, jmenován/jmenována…),
+používá stejný mechanismus.
+
+`people.json` nese u každé osoby povinné pole `gender` (`"m"` / `"f"`,
+SPEC.md §3.2). U všech 258 záznamů odvozeno ze **jména** (ne příjmení —
+česká křestní jména jsou téměř bezvýhradně rodově jednoznačná, na rozdíl
+od příjmení, kde selhávají cizí/nesklonná tvary jako „Middleditch" nebo
+„Vaz Santos"): 105 unikátních jmen ručně roztříděno a zkřížově ověřeno
+proti příponě příjmení (`-ová`/`-á`) — 5 shod nesedělo kvůli právě
+takovým nesklonným příjmením, ne kvůli špatně určenému rodu. `validate.mjs`
+kontroluje, že `gender` je u každé osoby `"m"` nebo `"f"`.
+
+Vykreslení: `pcGendered(p, masc, fem)` v `assets/helpers.js` — vrátí `fem`
+jen když `p.gender === 'f'`, jinak `masc` (i když `p` chybí, tedy osobu
+se nepodařilo spárovat — bezpečný výchozí mužský tvar). Použití v
+`jednani/absence.html` → `poznamkaHtml(r, p)`: `pcGendered(p, 'Přítomen',
+'Přítomna')`. Při dalším místě na webu, kde bude potřeba skloňovat text
+o konkrétní osobě, použít stejnou funkci, ne psát tvary napevno.
 
 ### Přiznané mezery v datech
 
@@ -344,6 +566,11 @@ jen přibude nová — stejně jako u vazeb historie nemizí.
 - **Výbory jsou zatím jen dva záznamy** (předsednictví kontrolního
   výboru). Zbytek členů finančního a kontrolního výboru je v archivu
   jednání pod `UZ-98`…`UZ-111` — doplnit ve fázi 5b.
+- **Komise RM a školská rada nemají doložené datum jmenování** — pecky.cz
+  u nich ukazuje jen aktuální složení, ne kdy ho rada schválila. Vazby
+  mají `from: null` a `verified` na datum, kdy bylo složení ověřené na
+  webu (19. 9. 2026), ne na datum vzniku funkce. Přesné datum by šlo
+  dohledat v usneseních RM, zatím nedohledáno.
 - **Z ustavujícího zasedání po volbách 2018 je v datech jen vedení**
   (starostka, obě místostarostky a rada), ne všech 21 zastupitelů.
   Zasedání je starší než archiv usneseni.cz (začíná dubnem 2021), viz

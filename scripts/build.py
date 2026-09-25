@@ -16,18 +16,19 @@ Použití:
     python3 scripts/build.py            # vygeneruje všechny stránky + validace
     python3 scripts/build.py --no-check # bez HTML/JS validace (rychlejší, pro ladění)
 """
+import json
 import re
 import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 
-# Nasazení: repo zatím nemá vlastní doménu (pecky.online drží někdo jiný,
-# viz ARCHITEKTURA-MIGRACE.md), takže běží na GitHub Pages subcestě.
-# Až bude vlastní doména na kořeni, přepnout na SITE_BASE_PATH = '' a
-# SITE_DOMAIN = 'https://pecky.online' - jediné dvě řádky ke změně.
-SITE_BASE_PATH = '/pecky.online'
-SITE_DOMAIN = 'https://jakubspanihel.github.io/pecky.online'
+# Nasazení: vlastní doména dopecek.cz na kořeni (CNAME, přes GitHub Pages),
+# viz ARCHITEKTURA-MIGRACE.md. Dřív web běžel na GitHub Pages subcestě
+# (https://jakubspanihel.github.io/pecky.online/) bez vlastní domény —
+# proto SITE_BASE_PATH pořád existuje jako přepínač pro tenhle stav.
+SITE_BASE_PATH = ''
+SITE_DOMAIN = 'https://dopecek.cz'
 
 # Google Analytics 4 (gtag.js), vkládá se do templates/page.html na každé stránce.
 GA_MEASUREMENT_ID = 'G-1CW9XK1VJY'
@@ -35,94 +36,118 @@ GA_MEASUREMENT_ID = 'G-1CW9XK1VJY'
 # slug -> (výstupní cesta, title, meta description, potřebuje assets/helpers.js)
 MANIFEST = {
     'domu': (
-        '/', 'pecky.online — Pečky pohledem umělé inteligence',
+        '/', 'Do Peček . cz — Pečky pohledem umělé inteligence',
         'Neoficiální občanský transparentní web o městě Pečky (okres Kolín): '
         'zastupitelstvo, rada, smlouvy, zakázky a Pečecké noviny na jednom místě.',
         False),
     'jednani': (
-        '/jednani/', 'Jednání zastupitelstva a rady — pecky.online',
+        '/jednani/', 'Jednání zastupitelstva a rady — Do Peček . cz',
         'Archiv jednání zastupitelstva a rady města Pečky s usneseními, '
         'docházkou a odkazy na videozáznam — s fulltextovým vyhledáváním.',
         True),
     'zpravodaj': (
-        '/noviny/', 'Pečecké noviny — pecky.online',
+        '/noviny/', 'Pečecké noviny — Do Peček . cz',
         'Archiv Pečeckých novin (městského zpravodaje) s fulltextovým '
         'vyhledáváním napříč všemi vydáními.',
         True),
     'lide': (
-        '/lide/', 'Lidé města Pečky — pecky.online',
+        '/lide/', 'Lidé města Pečky — Do Peček . cz',
         'Adresář lidí ve veřejných funkcích města Pečky — zastupitelstvo, '
         'rada, vedení a zaměstnanci úřadu i ředitelé městských organizací. '
         'U každého funkce, kontakt a zdroj.',
         True),
     'plan': (
-        '/plan/', 'Strategický plán města — pecky.online',
+        '/plan/', 'Strategický plán města — Do Peček . cz',
         'Co si město Pečky předsevzalo ve strategickém a akčním plánu '
         'rozvoje — a co se z toho reálně podařilo dohledat jako splněné.',
         False),
     'telocvicna': (
-        '/telocvicna/', 'Tělocvična — pecky.online',
+        '/telocvicna/', 'Tělocvična — Do Peček . cz',
         'Stavba nové tělocvičny a učeben u ZŠ Pečky (205 mil. Kč) byla '
         'v srpnu 2026 částečně zastavena kvůli problému s piloty — '
         'časová osa, ověřená fakta ze zápisu zastupitelstva a veřejná '
         'výzva k transparentnímu řešení.',
         False),
     'volby': (
-        '/volby/', 'Volby do zastupitelstva — pecky.online',
+        '/volby/', 'Volby do zastupitelstva — Do Peček . cz',
         'Přehled komunálních voleb do zastupitelstva města Pečky: '
         'ročníky 2018, 2022 a 2026.',
         False),
     'volby2018': (
-        '/volby/2018/', 'Volby 2018 — pecky.online',
+        '/volby/2018/', 'Volby 2018 — Do Peček . cz',
         'Komunální volby 2018 v Pečkách: volební uskupení, předvolební '
         'sliby a výsledky.',
         False),
     'volby2022': (
-        '/volby/2022/', 'Volby 2022 — pecky.online',
+        '/volby/2022/', 'Volby 2022 — Do Peček . cz',
         'Komunální volby 2022 v Pečkách: volební uskupení, předvolební '
         'sliby, výsledky a rozbor povolební koalice.',
         False),
     'volby2026': (
-        '/volby/2026/', 'Volby 2026 — pecky.online',
+        '/volby/2026/', 'Volby 2026 — Do Peček . cz',
         'Komunální volby 2026 v Pečkách: registrovaná uskupení a aktuální '
         'stav příprav.',
         False),
     'smlouvy': (
-        '/smlouvy/', 'Smlouvy — pecky.online',
+        '/smlouvy/', 'Smlouvy — Do Peček . cz',
         'Veřejné smlouvy města Pečky podle registru smluv, přes Hlídače '
         'státu.',
         False),
     'zakazky': (
-        '/zakazky/', 'Veřejné zakázky — pecky.online',
+        '/zakazky/', 'Veřejné zakázky — Do Peček . cz',
         'Veřejné zakázky zadané městem Pečky.',
         False),
     'pozemky': (
-        '/pozemky/', 'Pozemky — pecky.online',
+        '/pozemky/', 'Pozemky — Do Peček . cz',
         'Pozemky, které město Pečky kupuje nebo prodává, s odkazy na '
         'katastr nemovitostí.',
         False),
     'pokladna': (
-        '/pokladna/', 'Pokladna — pecky.online',
+        '/pokladna/', 'Pokladna — Do Peček . cz',
         'Na co město Pečky utrácí: rozpočet a hospodaření srozumitelně.',
         False),
+    'kalendar': (
+        '/kalendar/', 'Kalendář — Do Peček . cz',
+        'Kalendář termínů týkajících se města Pečky.',
+        False),
     'owebu': (
-        '/o-webu/', 'O webu — pecky.online',
-        'Co je pecky.online, kdo a jak ho dělá, a odkazy na oficiální '
+        '/o-webu/', 'O webu — Do Peček . cz',
+        'Co je Do Peček . cz, kdo a jak ho dělá, a odkazy na oficiální '
         'zdroje a otevřená data o městě Pečky.',
         False),
 }
 
-# Podstránky, které se generují stejně jako sekce z MANIFEST, ale nepatří
-# do navigace ani do sitemapy — nemají řádek v tabulce „Stav sekcí" a dá se
-# na ně dostat jen přímým odkazem. Dostanou navíc noindex, aby se neobjevily
-# ve vyhledávačích dřív, než se na ně někde odkáže.
-# slug -> (výstupní cesta, title, meta description, helpers.js, sekce pro navigaci)
+# Podstránky, které se generují stejně jako sekce z MANIFEST, ale nemají
+# řádek v tabulce „Stav sekcí" (žádné pravidelné kontroly odtamtud). Šesté
+# pole (lastmod) rozhoduje o viditelnosti pro vyhledávače i o datu
+# "Aktualizováno" na stránce: None = stránka je jen přímým odkazem, dostane
+# noindex, do sitemapy nejde a datum na stránce nemá; ISO datum = stránka je
+# odněkud odkázaná, noindex odpadá, jde do sitemapy s tímhle datem a stejné
+# datum se vypíše i pod nadpisem stránky (ruční — bez vlastního řádku v
+# "Stav sekcí" nemá odkud se dopočítat samo, na rozdíl od stránek z MANIFEST).
+# slug -> (výstupní cesta, title, meta description, helpers.js, sekce pro navigaci, lastmod)
 EXTRA_PAGES = {
     'absence': (
-        '/jednani/absence.html', 'Absence na jednáních — pecky.online',
-        'Kolikrát který zastupitel a radní města Pečky chyběl na jednání — '
-        'spočítáno z jmenné prezence v zápisech, opravené o pozdní příchody.',
-        False, 'jednani'),
+        '/jednani/absence.html', 'Jak vás zastupitelé zastupují — Do Peček . cz',
+        'Docházka zastupitelů a radních města Pečky na jednání v aktuálním '
+        'volebním období — spočítáno z jmenné prezence v zápisech, opravené '
+        'o pozdní příchody.',
+        # helpers.js: stránka od 19. 9. 2026 používá sdílenou vizitku osoby
+        # (pcAvatarHtml/pcDetailHtml) napojenou na lide/people.json
+        # Odkázaná z /jednani/ (odstavec "Kontrola docházky") od 19. 9. 2026 —
+        # proto má lastmod a jde do sitemapy, viz komentář výše.
+        True, 'jednani', '2026-09-19'),
+    'nejdelsi': (
+        '/jednani/nejdelsi.html', 'Nejdelší body jednání zastupitelstva — Do Peček . cz',
+        'Deset bodů jednání zastupitelstva města Pečky s nejdelší dobou '
+        'projednávání v aktuálním volebním období, dopočítané z časových '
+        'značek videozáznamů na YouTube.',
+        # Odkázaná z /jednani/ (odstavec hned za "Kontrola docházky") od
+        # 23. 9. 2026 — proto má lastmod a jde do sitemapy, viz komentář výše.
+        # Statická tabulka (snímek k datu lastmod) — na rozdíl od absence.html
+        # se nefetchuje z JSON, ať se při ohlédnutí na starší žebříček neplete
+        # čtenář s průběžně rostoucím zdrojem dat.
+        False, 'jednani', '2026-09-23'),
 }
 
 
@@ -136,6 +161,7 @@ README_TO_SLUG = {
     'plan': 'plan',
     'telocvicna': 'telocvicna',
     'pokladna': 'pokladna',
+    'kalendar': 'kalendar',
     'pozemky': 'pozemky',
     'smlouvy': 'smlouvy',
     'zakazky': 'zakazky',
@@ -153,6 +179,43 @@ def read(path):
 def esc(s):
     return (s.replace('&', '&amp;').replace('<', '&lt;').replace('>', '&gt;')
              .replace('"', '&quot;'))
+
+
+def build_org_colors():
+    """Vygeneruje assets/org-colors.css z lide/organizations.json.
+
+    Jediný zdroj barev organizací (politická uskupení, pořadatelé akcí…)
+    jsou pole `color` a `color_bg` v organizations.json. Tady z nich
+    vzniknou CSS proměnné --org-<id> a --org-<id>-bg; organizace
+    s `css_class` (uskupení, party-*) dostanou navíc alias --<css_class>
+    a --<css_class>-bg, na který se odkazují starší pravidla v styles.css.
+    Organizace bez barvy proměnnou nemá — kód si drží fallback
+    (var(--org-x, var(--ink-soft)) apod.).
+    """
+    doc = json.loads(read('lide/organizations.json'))
+    hex_re = re.compile(r'^#[0-9A-Fa-f]{6}$')
+    lines = ['/* VYGENEROVÁNO scripts/build.py z lide/organizations.json — NEEDITOVAT.',
+             '   Barvu organizace měnit v organizations.json (pole color / color_bg),',
+             '   pak spustit python3 scripts/build.py. */',
+             ':root{']
+    for o in doc.get('organizations', []):
+        color, bg = o.get('color'), o.get('color_bg')
+        if not color:
+            continue
+        for val in (color, bg):
+            if val and not hex_re.match(val):
+                raise SystemExit(f'CHYBA: organizace {o["id"]} má neplatnou barvu {val!r}.')
+        name = o.get('short_name') or o.get('name') or o['id']
+        lines.append(f'  /* {name} */')
+        lines.append(f'  --org-{o["id"]}:{color};')
+        if bg:
+            lines.append(f'  --org-{o["id"]}-bg:{bg};')
+        if o.get('css_class'):
+            lines.append(f'  --{o["css_class"]}:var(--org-{o["id"]});')
+            if bg:
+                lines.append(f'  --{o["css_class"]}-bg:var(--org-{o["id"]}-bg);')
+    lines.append('}')
+    (ROOT / 'assets/org-colors.css').write_text('\n'.join(lines) + '\n', encoding='utf-8')
 
 
 def parse_stav_sekci():
@@ -255,6 +318,12 @@ def lastmod_map(stav_rows):
 TITLE_RE = re.compile(r'(<h2 class="title[^"]*">.*?</h2>)')
 
 
+def iso_to_cz(iso):
+    """'2026-09-20' -> '20. 9. 2026' (stejný zápis jako ve "Stav sekcí")."""
+    y, m, d = iso.split('-')
+    return f'{int(d)}. {int(m)}. {y}'
+
+
 def apply_lastmod(content, lastmod):
     """Vloží "Aktualizováno: ..." hned za nadpis sekce (<h2 class="title">).
     Beze změny, pokud sekce nemá datum "Změna" v Stav sekcí (typicky Domů,
@@ -345,23 +414,28 @@ def build_all(stav_rows=None):
     lastmods = lastmod_map(rows)
     written = []
     extra_written = []
+    extra_indexed = []  # podstránky z EXTRA_PAGES s lastmod (odkázané -> patří do sitemapy)
 
-    stranky = [(slug, path, title, desc, helpers, slug, False)
+    stranky = [(slug, path, title, desc, helpers, slug, False, None)
                for slug, (path, title, desc, helpers) in MANIFEST.items()]
-    stranky += [(slug, path, title, desc, helpers, nav_slug, True)
-                for slug, (path, title, desc, helpers, nav_slug) in EXTRA_PAGES.items()]
+    stranky += [(slug, path, title, desc, helpers, nav_slug, True, lastmod)
+                for slug, (path, title, desc, helpers, nav_slug, lastmod) in EXTRA_PAGES.items()]
 
-    for slug, path, title, desc, needs_helpers, nav_slug, je_extra in stranky:
+    for slug, path, title, desc, needs_helpers, nav_slug, je_extra, extra_lastmod in stranky:
         content = read(f'content/{slug}.html')
         content = content.replace('{{STAV_SEKCI}}', stav_sekci)
-        if not je_extra:
+        if je_extra:
+            if extra_lastmod is not None:
+                content = apply_lastmod(
+                    content, {'iso': extra_lastmod, 'raw': iso_to_cz(extra_lastmod), 'odhad': False})
+        else:
             content = apply_lastmod(content, lastmods.get(path))
         if slug in VOLBY_SLUG_TO_ROK or slug == 'volby':
             content = content.replace('{{VOLBY_ROCNIKY}}', render_volby_rocniky(slug))
         nav = build_nav(nav_slug)
         footer = apply_active(footer_tpl, nav_slug)
         head_scripts = '<script src="/assets/helpers.js"></script>' if needs_helpers else ''
-        if je_extra:
+        if je_extra and extra_lastmod is None:
             head_scripts = '<meta name="robots" content="noindex">\n' + head_scripts
 
         html = page_tpl
@@ -381,11 +455,13 @@ def build_all(stav_rows=None):
         out_path.parent.mkdir(parents=True, exist_ok=True)
         out_path.write_text(html, encoding='utf-8')
         (extra_written if je_extra else written).append((slug, out_path, path))
+        if je_extra and extra_lastmod is not None:
+            extra_indexed.append((slug, out_path, path, extra_lastmod))
 
-    return written, extra_written
+    return written, extra_written, extra_indexed
 
 
-def build_sitemap(written, stav_rows):
+def build_sitemap(written, stav_rows, extra_indexed=None):
     """Vygeneruje sitemapu s datem poslední obsahové změny sekce.
 
     Tabulka „Stav sekcí“ v README je projektový changelog a její sloupec
@@ -399,6 +475,13 @@ def build_sitemap(written, stav_rows):
         lastmod = lastmod_by_path.get(path)
         if lastmod is None:
             raise SystemExit(f'CHYBA: pro sitemapu chybí datum změny sekce {slug}.')
+        lines.extend([
+            '  <url>',
+            f'    <loc>{SITE_DOMAIN}{path}</loc>',
+            f'    <lastmod>{lastmod}</lastmod>',
+            '  </url>',
+        ])
+    for slug, out_path, path, lastmod in (extra_indexed or []):
         lines.extend([
             '  <url>',
             f'    <loc>{SITE_DOMAIN}{path}</loc>',
@@ -475,11 +558,15 @@ def validate(written):
 
 
 if __name__ == '__main__':
+    build_org_colors()
     stav_rows = parse_stav_sekci()
-    written, extra_written = build_all(stav_rows)
-    build_sitemap(written, stav_rows)   # podstránky z EXTRA_PAGES do sitemapy nepatří
+    written, extra_written, extra_indexed = build_all(stav_rows)
+    build_sitemap(written, stav_rows, extra_indexed)
+    indexed_slugs = {slug for slug, *_ in extra_indexed}
+    hidden_count = len([e for e in extra_written if e[0] not in indexed_slugs])
     print(f'Vygenerováno {len(written)} stránek '
-          f'(+ {len(extra_written)} neprolinkovaných podstránek) '
+          f'(+ {len(extra_written)} podstránek z EXTRA_PAGES, '
+          f'z toho {hidden_count} neprolinkovaných) '
           f'+ sitemap.xml + robots.txt.')
     if '--no-check' not in sys.argv:
         print('Validace (tag balance + JS syntax):')

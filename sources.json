@@ -1,470 +1,714 @@
 {
-  "project": "pecky.online",
-  "description": "Seznam zdrojů, ze kterých pecky.online čerpá nebo může čerpat informace o samosprávě města Pečky.",
-  "last_updated": "2026-09-13",
-  "sources": [
-    {
-      "id": "pecky-cz",
-      "name": "Oficiální web města Pečky",
-      "url": "http://pecky.cz",
-      "category": "oficiální",
-      "description": "Hlavní web města — úřední deska, kontakty, aktuality, Pečecké noviny.",
-      "status": "částečně nedostupné",
-      "note": "Podstránky (zastupitelstvo, archiv zpravodaje) jsou vykreslované přes JavaScript — prostý web_fetch/curl vrací prázdný obsah. OBEJITÍ (od 6. 8. 2026): tentýž obsah bylo možné číst na pecky.as4u.cz (bot-ochranu nemá). AKTUALIZACE 23. 8. 2026: web pecky.cz prošel redesignem/migrací na novou platformu (nové URL, např. /office/board pro úřední desku) — obsah je aktuální (ověřeno na úřední desce, srpen 2026), ale je nutné jej číst přes claude-in-chrome (JS rendering), web_fetch stále vrací prázdno. Mezitím zjištěno, že pecky.as4u.cz (stará platforma) přestal být průběžně aktualizován — jeho úřední deska je zamrzlá na stavu cca únor/březen 2026, viz poznámka u pecky-as4u-cz. Pro časově citlivý obsah (úřední deska, aktuality) proto od 23. 8. 2026 preferuj pecky.cz přes claude-in-chrome, ne pecky.as4u.cz. Denní kontrola 3. 9. 2026: na úřední desce (/office/board) nic nového k volbám ani k jednáním — nejnovější dokument je nadále zápis ze ZM 5/2026 vyvěšený 28. 8. 2026. Archiv PDF zpravodaje (/default/default/21389_pdf-zpravodaje) končí nadále číslem 7–8/2026, zářijové vydání ještě nevyšlo."
-    },
-    {
-      "id": "facebook-mestopecky",
-      "name": "Facebook — Město Pečky",
-      "url": "https://www.facebook.com/mestopecky",
-      "category": "sociální síť",
-      "description": "Oficiální facebookový profil města.",
-      "status": "ověřeno"
-    },
-    {
-      "id": "youtube-mestopecky",
-      "name": "YouTube — Město Pečky",
-      "url": "https://www.youtube.com/@mestopecky",
-      "category": "sociální síť",
-      "description": "Oficiální YouTube kanál města (záznamy jednání, reportáže).",
-      "status": "ověřeno"
-    },
-    {
-      "id": "hlidac-statu",
-      "name": "Hlídač státu — profil Města Pečky",
-      "url": "https://www.hlidacstatu.cz/subjekt/00239607",
-      "category": "otevřená data",
-      "description": "Přehled smluv, dotací, rizik a dodavatelů pro IČO 00239607 a celou skupinu (úřad + 8 podřízených organizací).",
-      "status": "ověřeno",
-      "note": "Data do webu tažena přes připojený MCP konektor Hlídače státu; jde o statický výřez, ne živě se obnovující data. Denní diff 16. 8. 2026: přibyly 2 nové smlouvy (Dar — zdravotnický batoh 10 381 Kč; Smlouva o spolupráci — Digitální odysea 26/27 bez ceny) — promítnuto do tabulky „Nejnovější smlouvy“ a součtů v sekci Smlouvy (nyní 182/47 smluv). Denní kontrola 30. 8. 2026: žádná nová smlouva (nejnovější podpis je nadále 23. 7. 2026, už na webu). Konektor ale u téhož dotazu vrací MÉNĚ záznamů než 16. 8. 2026 — skupina 179 smluv / 102 075 674 Kč (dřív 182 / 102 416 276 Kč), samotný úřad 46 / 32 831 378 Kč (dřív 47 / 33 132 977 Kč). Úbytek nevysvětlen, souhrnná čísla v sekci Smlouvy proto ponechána beze změny — k prověření uživatelem. Denní kontrola 1. 9. 2026: čísla se držela na úrovni z 30. 8. (179/46). Denní kontrola 2. 9. 2026: opět žádná nová smlouva (nejnovější podpis nadále 23. 7. 2026), ale úbytek u skupiny se PROHLOUBIL — skupina 150 smluv / 94 545 064 Kč (z 179 / 102 075 674 Kč, tedy −29 záznamů a −7,5 mil. Kč za dva dny), zatímco samotný úřad zůstal na 46 / 32 831 378 Kč. Souhrnná čísla v sekci Smlouvy ponechána beze změny i tentokrát; dvakrát opakovaný pokles bez jediné nové smlouvy vypadá spíš na změnu v indexaci skupiny na straně Hlídače státu než na skutečné stažení smluv z registru — k rozhodnutí uživatele. Denní kontrola 3. 9. 2026: MCP konektor Hlídače státu v této relaci NEBYL k dispozici — čísla proto ověřena z veřejného webového vyhledávání Hlídače smluv (dotazy holding:00239607 a ico:00239607, tedy stejné dva pohledy jako u konektoru). Výsledek: skupina 150 smluv / cca 95 mil. Kč, samotný úřad 46 smluv / cca 33 mil. Kč — tedy přesně hodnoty naměřené konektorem 2. 9. 2026, pokles se dál neprohluboval. Zároveň je tím vyloučeno, že by šlo o chybu konektoru: stejná snížená čísla ukazuje i webové rozhraní Hlídače. Žádná nová smlouva (nejnovější podpis nadále 23. 7. 2026). Souhrnná čísla v sekci Smlouvy ponechána beze změny — k rozhodnutí uživatele. Týdenní kontrola 9. 9. 2026: 2 nové smlouvy — „Darovací smlouva – Město Pečky – zařízení vyprošťovací hydraulické WEBER HYDRAULIK SP 49\" (HZS Středočeského kraje, podpis 7. 9. 2026, 642 510 Kč) a „S-4189/ŘDP/2026 – dotace na bezplatné školní stravování 2026/2027\" (Středočeský kraj → ZŠ Pečky, podpis 31. 8. 2026, 298 960 Kč); obě doplněny do tabulky „Nejnovější smlouvy\". Souhrny konektoru: skupina 152 smluv / 95 486 533,66 Kč (z 150 / 94 545 064), úřad 47 / 33 473 888,05 Kč (z 46 / 32 831 378) — nárůst přesně odpovídá oběma novým smlouvám. Absolutní úroveň ale zůstává pod hodnotami z 16. 8. (182/47 · 102,4 mil.), takže souhrnná čísla v subject-boxu a calloutu na webu jsou popáté ponechána beze změny; k rozhodnutí uživatele."
-    },
-    {
-      "id": "hlidac-statu-zakazky",
-      "name": "Hlídač veřejných zakázek — vyhledávání Město Pečky",
-      "url": "https://www.hlidacstatu.cz/verejnezakazky/hledat?Q=00239607",
-      "category": "otevřená data",
-      "description": "Vyhledávání veřejných zakázek podle IČO 00239607 — 193 nalezených záznamů, výběrová řízení na dodavatele (fáze před podpisem smlouvy).",
-      "status": "ověřeno",
-      "note": "Zadáno uživatelem 6. 8. 2026. Veřejně přístupné vyhledávání bez přihlášení, ne MCP konektor (ten pokrývá jen Registr smluv a dotace, ne veřejné zakázky). Ručně staženo přes 4 stránky výsledků; do webu vložen výřez (nejnovější 2025–2026 a největší zakázky). Statický výřez, ne živá data. Denní diff 6. 8. 2026 (druhá kontrola týž den) našel 1 novou zakázku (P26V00002056) proti baseline v data/pecky-zakazky-ids.json — promítnuto do tabulky Nejnovější zakázky. Denní diff 16. 8. 2026: beze změny (193 výsledků, všechna ID na stránkách 1–4 odpovídají baseline). Denní diff 30. 8. 2026: beze změny (175 unikátních ID na stránkách 1–4, žádné nové ani zmizelé proti baseline v pecky-zakazky/pecky-zakazky-ids.json — soubor neupravován). Denní diff 1. a 2. 9. 2026: beze změny (175 unikátních ID, sada shodná s baseline — ověřeno porovnáním SHA-256 seřazeného seznamu ID; soubor neupravován). Denní diff 3. 9. 2026: beze změny (175 unikátních ID napříč stránkami výsledků, 0 nových, 0 zmizelých proti baseline; soubor neupravován). Týdenní diff 9. 9. 2026: 175 ID, 0 nových, 0 zmizelých — sada shodná s baseline, soubor pecky-zakazky-ids.json nedotčen. AKTUALIZACE 13. 9. 2026: vyhledávání `Q=00239607` je fulltextové, ne filtr podle zadavatele — vrací i zakázky cizích úřadů, kde se to číslo objeví kdekoli v textu. Týdenní diff 13. 9. 2026 našel 1 nové ID (P22V00000346 = „Novostavba silnice III. třídy Nová Průběžná v obci Zdiby – PD“, zadavatel Středočeský kraj); do snímku zapsáno, na web NE. Hlídač dnes hlásí 214 výsledků celkem (dřív 193) při 176 unikátních ID."
-    },
-    {
-      "id": "usneseni-cz",
-      "name": "Zápisy a usnesení ZM/RM",
-      "url": "https://mesto-pecky.usneseni.cz/verejne/",
-      "category": "oficiální",
-      "description": "Systém pro zveřejňování zápisů a usnesení zastupitelstva a rady města.",
-      "status": "částečně nedostupné",
-      "note": "Blokuje automatizovaný přístup (ochrana proti botům). Jmenné seznamy členů se v zápisech objevují nesystematicky (docházka, příchody/odchody), ne jako jednotný rejstřík. Denní kontrola 16. 8. 2026 přes Claude in Chrome (bez Cloudflare výzvy): na webu přibyly Rada 28/2026 (10. 8. 2026) a Rada 29/2026 (17. 8. 2026, budoucí jednání), ale ani jedno nemá zatím zveřejněný zápis/usnesení (jen Pozvánka) — archiv sources/archive-2026-08-04.json a odvozený data/pecky-jednani.json tedy zůstávají aktuální (nejnovější kompletní jednání: Rada 27/2026, 20. 7. 2026). Zjištění 20. 8. 2026: dva konkrétní typy odkazů z `data/pecky-jednani.json` (`links.invitation` = pozvánka, `links.pdf` = podepsaný zápis) používají akční endpointy tvaru `?uuid=...&do=printPublicInvitation` / `?...&do=meetingReportControl-getSignedReportPdf`, které web při otevření z cizí domény (proklik z pecky.online, i s rel=noreferrer) přesměruje na úvodní stránku `/verejne/` místo konkrétního dokumentu — zjevná ochrana proti hotlinkování/embeddingu (pravděpodobně dle Sec-Fetch-Site, ne dle Referer hlavičky, tu jsme vyloučili testem). Stejná URL při zadání přímo do adresního řádku (bez cizí domény jako iniciátora) funguje správně. `links.minutes` (zápis) a `links.resolutions` (usnesení) jsou cestové URL bez `do=` parametru a tímto omezením netrpí, fungují spolehlivě i jako proklik. Nejde o chybu v datech/kódu pecky.online — odkazy samotné jsou správné, jde o vlastnost cílového webu, kterou nelze z naší strany obejít. Promítnuto do panelu Jednání jako `title` tooltip na obou postižených typech odkazů a jako přiznaná mezera v callout boxu. Denní kontrola 30. 8. 2026 přes Claude in Chrome (bez Cloudflare výzvy): přibyla Rada 31/2026 (31. 8. 2026), zatím jen s Pozvánkou — přidána do pecky-jednani/pecky-jednani.json jako záznam bez zápisu a usnesení (agenda z PDF pozvánky). Ověřeno, že ZM 5/2026 má na webu nadále jediné usnesení (UZ-33-5/26) a že v playlistu „Zasedání ZM“ na YouTube stále chybí záznam k ZM 3/2026 (25. 5. 2026). Denní kontrola 2. 9. 2026: beze změny — Rada 31/2026 (31. 8. 2026) má nadále jen Pozvánku, žádné nové jednání nepřibylo (archiv 286 jednání). U ZM 5/2026 web nově nabízí i „Zvukový záznam“ (dosud jen zápis a usnesení); archiv toto pole neeviduje. Playlist „Zasedání ZM“ beze změny — nejnovější video je ZM z 26. 8. 2026 a video k ZM 3/2026 (25. 5. 2026) na kanálu stále chybí. Denní kontrola 3. 9. 2026: beze změny — Rada 31/2026 (31. 8. 2026) má nadále jen Pozvánku, žádné nové jednání nepřibylo (archiv 286 jednání). „Zvukový záznam“ web nově nabízí i u ZM 4/2026 (24. 6. 2026), nejen u ZM 5/2026 — pole se šíří zpětně i ke starším zasedáním; archiv ho nadále neeviduje. Playlist „Zasedání ZM“ beze změny (31 videí, nejnovější ZM z 26. 8. 2026); video k ZM 3/2026 (25. 5. 2026) na kanálu stále chybí. Časové značky bodů (video_ts) zkontrolovány — žádné jednání se zápisem i videem nezůstalo nedotažené. Týdenní kontrola 9. 9. 2026: beze změny — Rada 32/2026 (7. 9. 2026) má nadále jen Pozvánku, zápis ani usnesení zveřejněné nejsou; archiv zůstává na 287 jednáních / 2 755 usneseních. Cloudflare challenge se neobjevila."
-    },
-    {
-      "id": "facebook-kspecky",
-      "name": "Facebook — Kulturní středisko města Pečky",
-      "url": "https://www.facebook.com/kspecky",
-      "category": "sociální síť",
-      "description": "Profil kulturního střediska města (akce, kulturní program).",
-      "status": "ověřeno"
-    },
-    {
-      "id": "smlouvy-gov-cz",
-      "name": "Registr smluv (smlouvy.gov.cz)",
-      "url": "https://smlouvy.gov.cz/vyhledavani?dotaz=M%C4%9Bsto%20Pe%C4%8Dky",
-      "category": "otevřená data",
-      "description": "Oficiální celostátní registr smluv — plné znění smluv se subjektem Město Pečky.",
-      "status": "ověřeno"
-    },
-    {
-      "id": "volby-gov-cz",
-      "name": "Otevřená data voleb (ČSÚ)",
-      "url": "https://volby.gov.cz/opendata/opendata.htm",
-      "category": "otevřená data",
-      "description": "Strukturovaná otevřená data z komunálních a dalších voleb — výsledky, kandidátky, mandáty po obcích.",
-      "status": "ověřeno",
-      "note": "Použito na stránce Volby ke křížovému ověření výsledků a hlasů komunálních voleb 2022 (obec 537641 Pečky) a jako zdroj kompletních kandidátních listin pro volby 2026."
-    },
-    {
-      "id": "pececke-sluzby",
-      "name": "Pečecké služby s.r.o.",
-      "url": "https://pececkesluzby.cz/",
-      "category": "podřízená organizace",
-      "description": "Web technických služeb města (jedna z organizací ve skupině Město Pečky sledované Hlídačem státu).",
-      "status": "nevytěženo"
-    },
-    {
-      "id": "monitor-statni-pokladna",
-      "name": "Monitor státní pokladny (MF ČR)",
-      "url": "https://monitor.statnipokladna.gov.cz/ucetni-jednotka/00239607/prehled",
-      "category": "otevřená data",
-      "description": "Oficiální data Ministerstva financí o hospodaření obce — rozpočet, příjmy a výdaje podle kapitol, zadluženost, plnění rozpočtu v čase. Datový katalog Open Data: https://monitor.statnipokladna.gov.cz/datovy-katalog/open-data.",
-      "status": "ověřeno",
-      "note": "Vytěženo 6. 8. 2026 pro novou sekci Pokladna: vývoj příjmů/výdajů/salda 2023–2026, struktura výdajů, dluhová služba (0 Kč, žádný úvěr). Doplněno o Registr dotací z Hlídače státu (148 nalezených dotací, IČO 00239607)."
-    },
-    {
-      "id": "pecky-cz-zaverecny-ucet-2025",
-      "name": "Návrh závěrečného účtu 2025 (pecky.cz)",
-      "url": "https://pecky.cz/default/report/428756_navrh-zaverecneho-uctu-2025",
-      "category": "oficiální",
-      "description": "Roční hospodářská uzávěrka města s přílohami: Rekapitulace, Plnění rozpočtu, Fondy, Poskytnuté/přijaté dotace, Hospodaření příspěvkových organizací a s.r.o., výkaz Fin 2-12, Zpráva o přezkoumání hospodaření (audit).",
-      "status": "ověřeno",
-      "note": "Vytěženo 6. 8. 2026 pro sekci Pokladna → Bankovní účty. Auditorská zpráva (příloha 10) cituje bankovní výpisy a odhalila 9 konkrétních čísel účtů u 5 bank, jinde na webu ani v Monitoru nepublikovaných. Přílohy Rekapitulace a Fondy daly souhrnné zůstatky (153,3 mil. Kč na účtech/vkladech/pokladně, 30,4 mil. Kč ve fondech k 31.12.2025). PDF přílohy staženy přímo (pecky.cz/files/...), ne přes web_fetch (ten na PDF timeoutoval)."
-    },
-    {
-      "id": "knihovnapecky-cz",
-      "name": "Městská knihovna Svatopluka Čecha — stará doména (přesměrování)",
-      "url": "https://www.knihovnapecky.cz",
-      "category": "podřízená organizace",
-      "description": "Starší doména knihovny — přesměrovává na pecky.as4u.cz. Aktuální oficiální web viz samostatný záznam web-knihovna-pecky (pececko.cz), Facebook viz facebook-knihovna-pecky. Online katalog Clavius: http://lanius.pececko.cz/clavius/. Podstránky: O nás, Akce, Výstavy, Projekty, kroužek Šikula, fotogalerie.",
-      "status": "ověřeno",
-      "note": "Nalezeno uživatelem 6. 8. 2026. Samotný obsah knihovny je pro projekt okrajový, ale přesměrování odhalilo zásadní zdroj pecky.as4u.cz — viz samostatný záznam. Knihovna je příspěvková organizace města, figuruje v dotacích i v projektech (mobiliář, výměna střešních oken, vybavení interiéru). Doplněno 18. 8. 2026 o samostatné záznamy pro aktuální web a Facebook, které přidal uživatel."
-    },
-    {
-      "id": "pecky-as4u-cz",
-      "name": "pecky.as4u.cz — starý web města (čitelná verze)",
-      "url": "https://pecky.as4u.cz",
-      "category": "oficiální",
-      "description": "Plnohodnotná verze webu města v redakčním systému Public4u (as4u.cz), na kterou přesměrovávají některé domény města. Obsahuje mj. Zastupitelstvo, Radu, Rozpočty, Výbory a komise (11 orgánů), Strategické dokumenty, Projekty města (20+ projektů s detaily), Projekty příspěvkových organizací, Investice/studie/PD, Povinně zveřejňované informace, Veřejné zakázky, Vyhlášky a nařízení, Registr oznámení veřejných funkcionářů, Územní plán, Úřední desku a archiv Pečeckých novin.",
-      "status": "ověřeno — část obsahu neaktuální",
-      "note": "KLÍČOVÝ NÁLEZ 6. 8. 2026 (přes přesměrování z knihovnapecky.cz). Na rozdíl od www.pecky.cz NENÍ chráněn proti botům a jde číst běžným web_fetch — čistý statický HTML bez JS renderování. Uzavírá mezeru u zákona 106/1999 Sb.: na /cs/mestsky-urad/povinne-zverejnovane-informace-materialy/odpoved-podle-zakona-c-106-1999-sb.html jsou výroční zprávy o poskytování informací za roky 2011–2024 a jednotlivé žádosti i odpovědi v PDF. Potvrzuje také bankovní účet 1621191/0100 KB a existenci projektových stránek k Benešáku, úpravně vody, veřejnému osvětlení aj. Upřesněno uživatelem 20. 8. 2026: jde o starý web města Pečky — dřívější platforma (redakční systém Public4u). AKTUALIZACE 23. 8. 2026: na rozdíl od dřívějšího předpokladu web NENÍ průběžně aktualizovaný — jeho úřední deska je zamrzlá na stavu cca únor/březen 2026 (nejnovější položka 25. 2. 2026), zatímco nový pecky.cz k témuž datu ukazuje aktuality a úřední desku ze srpna 2026. Pro časově citlivý obsah (úřední deska, aktuality, jednání) proto raději použij pecky.cz přes claude-in-chrome; pecky.as4u.cz zůstává užitečný pro starší/archivní obsah (výroční zprávy, projekty, strategické dokumenty), kde stáří webu nevadí."
-    },
-    {
-      "id": "pecky-cz-uredni-deska-volby-2026-registrace",
-      "name": "Seznam zaregistrovaných volebních stran do zastupitelstev obcí 2026 (Úřední deska, pecky.cz)",
-      "url": "https://pecky.cz/files/pecky/attachments/457252/Zaregistrovane-volebni-strany-2026-1.pdf",
-      "category": "oficiální",
-      "description": "Oficiální seznam volebních stran zaregistrovaných registračním úřadem (Městský úřad Pečky) pro komunální volby 2026, za celý správní obvod úřadu (Pečky, Cerhenice, Dobřichov, Chotutice, Plaňany, Radim, Ratenice, Tatce, Vrbčany). Pro Pečky uvádí 5 uskupení. Doprovodný dokument (týž den, tentýž zdroj): Rozhodnutí o registraci kandidátních listin — https://pecky.cz/files/pecky/attachments/457265/Rozhodnuti-22-kandidatnich-listin.pdf (22 listin za celý obvod, naskenovaný dokument bez strojově čitelného textu).",
-      "status": "ověřeno",
-      "note": "Nalezeno a vytěženo 23. 8. 2026 na https://pecky.cz/office/board (nová platforma pecky.cz, čteno přes claude-in-chrome). Podepsáno Marcela Bahníková, zaměstnanec s osvědčením, V Pečkách dne 18. 8. 2026; na úřední desku vyvěšeno 19. 8. 2026, sejmutí 10. 10. 2026. Použito na stránce Volby 2026 → záložka Volební uskupení. Kompletní kandidátní listiny (jména a pořadí kandidátů) tento dokument neobsahuje — jen názvy zaregistrovaných uskupení."
-    },
-    {
-      "id": "pecky-cz-uredni-deska-volby-2026-okrsky",
-      "name": "Informace o počtu a sídlech volebních okrsků 2026 (Úřední deska, pecky.cz)",
-      "url": "https://pecky.cz/files/pecky/attachments/459682/IMG-0001-1.pdf",
-      "category": "oficiální",
-      "description": "Oznámení starosty města o počtu a sídlech volebních okrsků pro volby do zastupitelstva města Pečky a do 1/3 Senátu Parlamentu ČR konané 9.–10. 10. 2026. Uvádí 6 okrsků: 1) Kulturní středisko, Tř. Jana Švermy 255; 2) Základní škola, Tř. Jana Švermy 342; 3) Základní umělecká škola, Barákova 700; 4) Městská knihovna, Tř. 5. května 241; 5) Základní škola, Tř. Jana Švermy 342; 6) Knihovna Velké Chvalovice, Pečecká 166.",
-      "status": "ověřeno",
-      "note": "Nalezeno a vytěženo 1. 9. 2026 při denní kontrole na https://pecky.cz/office/board. Podepsal starosta Milan Paluska, V Pečkách dne 25. 8. 2026; na úřední desku vyvěšeno 25. 8. 2026, sejmutí 10. 10. 2026. PDF je naskenovaný dokument — text čitelný jen přes OCR vrstvu (pdftotext vrací překlepy typu „Peěky“, „votebního“), adresy proto přepsány ručně. Přiřazení ulic k jednotlivým okrskům dokument neobsahuje. Použito na stránce Volby 2026 → blok „Kde se volí“."
-    },
-    {
-      "id": "pecky-cz-strategicky-plan-2016-2026",
-      "name": "Strategický plán rozvoje města Pečky 2016–2026 — souhrn (pecky.cz)",
-      "url": "https://pecky.cz/files/pecky/gallery/18710/699ed628c2013_strategicky-plan-souhrn.pdf",
-      "category": "oficiální",
-      "description": "Desetiletý rozvojový plán města: motto a vize, 4 prioritní oblasti (Sport/kultura/školství/soc. služby, Doprava/infrastruktura, Životní prostředí, Podnikání/cestovní ruch) rozpadlé na priority, opatření a 718 dílčích aktivit s termínem, odpovědností, indikátorem plnění a financováním. Obsahuje i vlastní tabulku plnění po letech.",
-      "status": "ověřeno",
-      "note": "Vytěženo 6. 8. 2026 pro novou sekci Plán. Stáhnuto přes curl + pdftotext -layout (18 stran), ne web_fetch. Zjištění: z 718 aktivit je jako „splněno“ v dokumentu označeno jen 13, všechny z let 2016–2017 — sledování plnění zjevně po dvou letech ustalo."
-    },
-    {
-      "id": "uzemni-plan-pecky",
-      "name": "Územní plán Peček",
-      "url": "https://geoportal.gov.cz/",
-      "category": "otevřená data",
-      "description": "Platný územní plán města a jeho změny — mj. relevantní k bodům z volebních programů (obchvat, územní plán jižní části města, parkování).",
-      "status": "nevytěženo",
-      "note": "Návrh z 6. 8. 2026. URL je obecný Národní geoportál územního plánování — konkrétní dokumentaci pro Pečky je potřeba v něm dohledat, případně zkusit přímo pecky.cz. Odkaz doplněn do quicklinks (sekce O webu → Odkazy) 18. 8. 2026 — obsah zatím nevytěžen, jen dostupný k prokliku. Oprava 19. 8. 2026: původní URL geoportal.uur.cz byla neexistující doména (NXDOMAIN) — opraveno na skutečný Národní geoportál INSPIRE (geoportal.gov.cz)."
-    },
-    {
-      "id": "csu-verejna-databaze",
-      "name": "ČSÚ — Veřejná databáze (MOS)",
-      "url": "https://vdb.czso.cz/vdbvo2/",
-      "category": "otevřená data",
-      "description": "Demografická a socioekonomická data obce v čase — počet obyvatel, věková struktura, nezaměstnanost a další ukazatele (Města a obce v datech).",
-      "status": "nevytěženo",
-      "note": "Návrh z 6. 8. 2026: doplnilo by statickou tabulku na Domů o vývoj v čase, ne jen aktuální stav. Odkaz doplněn do quicklinks (sekce O webu → Odkazy) 18. 8. 2026 — obsah zatím nevytěžen, jen dostupný k prokliku."
-    },
-    {
-      "id": "vestnik-verejnych-zakazek",
-      "name": "Věstník veřejných zakázek",
-      "url": "https://vestnikverejnychzakazek.cz/",
-      "category": "otevřená data",
-      "description": "Veřejné zakázky a výběrová řízení vyhlášená městem — fáze před podpisem smlouvy (nabídky, průběh soutěže), kterou Registr smluv nepokrývá.",
-      "status": "nevytěženo",
-      "note": "Návrh z 6. 8. 2026."
-    },
-    {
-      "id": "justice-cz-sbirka-listin",
-      "name": "Justice.cz — Sbírka listin",
-      "url": "https://or.justice.cz/ias/ui/rejstrik-$firma?nazev=Pe%C4%8Deck%C3%A9%20slu%C5%BEby",
-      "category": "otevřená data",
-      "description": "Účetní závěrky a výroční zprávy městských organizací (např. Pečecké služby s.r.o.) ve sbírce listin obchodního rejstříku.",
-      "status": "nevytěženo",
-      "note": "Návrh z 6. 8. 2026. Odkaz doplněn do quicklinks (sekce O webu → Odkazy) 18. 8. 2026 — obsah zatím nevytěžen, jen dostupný k prokliku."
-    },
-    {
-      "id": "facebook-nasepecky",
-      "name": "Facebook — NAŠE PEČKY",
-      "url": "https://www.facebook.com/nasepecky",
-      "category": "sociální síť · uskupení",
-      "description": "Oficiální facebookový profil uskupení NAŠE PEČKY (vítěz voleb 2022, 7 mandátů, opozice). 1 tis. sledujících. Kontakt svejnohova@nasepecky.cz.",
-      "status": "ověřeno",
-      "note": "Nalezeno 6. 8. 2026 (příklad zadaný uživatelem). Odkazuje na vlastní web nasepecky.cz — viz samostatný záznam."
-    },
-    {
-      "id": "web-nasepecky-cz",
-      "name": "nasepecky.cz — web uskupení NAŠE PEČKY",
-      "url": "https://www.nasepecky.cz/",
-      "category": "oficiální · uskupení",
-      "description": "Vlastní web uskupení NAŠE PEČKY, uvedený jako odkaz na jejich FB stránce. K 6. 8. 2026 obsahuje jen jednu pozvánku na akci (leták) — minimální obsah, ale existuje vlastní grafická identita/logo.",
-      "status": "nevytěženo",
-      "note": "Objeveno 6. 8. 2026 při průzkumu FB stránky NAŠE PEČKY, nebylo v původním zadání."
-    },
-    {
-      "id": "facebook-ods-pecky",
-      "name": "Facebook — ODS a nezávislí Pečky",
-      "url": "https://www.facebook.com/odspecky.cz/",
-      "category": "sociální síť · uskupení",
-      "description": "Oficiální facebookový profil uskupení ODS a nezávislí Pečky (6 mandátů, vede radnici). 167 sledujících.",
-      "status": "ověřeno",
-      "note": "Nalezeno 6. 8. 2026 (příklad zadaný uživatelem)."
-    },
-    {
-      "id": "facebook-peckypecakum",
-      "name": "Facebook — Pečky Pečákům (SNK Pečky Pečákům)",
-      "url": "https://www.facebook.com/peckypecakum/",
-      "category": "sociální síť · uskupení",
-      "description": "Oficiální facebookový profil uskupení SNK Pečky Pečákům (3 mandáty, koalice). 239 sledujících. Kontakt mestopecky@post.cz.",
-      "status": "ověřeno",
-      "note": "Dohledáno 6. 8. 2026 vlastním průzkumem (nebylo v zadaných příkladech) — doplňuje chybějící sociální síť pro jediné uskupení, které dosud nemělo žádný zdroj s fotkami/webem."
-    },
-    {
-      "id": "facebook-lide-pro-pecky-spd-skupina",
-      "name": "Facebook skupina — Lidé pro Pečky s podporou SPD Official",
-      "url": "https://www.facebook.com/groups/1080849193521600",
-      "category": "sociální síť · uskupení",
-      "description": "Veřejná FB skupina uskupení Lidé pro Pečky s podporou SPD (3 mandáty, opozice). 35 členů, správce Jan Hromádko.",
-      "status": "ověřeno",
-      "note": "Nalezeno 6. 8. 2026 (příklad zadaný uživatelem). Aktuální příspěvek (6. 8. 2026) oznamuje podání kandidátní listiny pro volby 2026 — relevantní pro stránku Volby 2026."
-    },
-    {
-      "id": "facebook-svejnohova-osobni",
-      "name": "Facebook — Alena Švejnohová (zastupitelka a kandidátka na starostku)",
-      "url": "https://www.facebook.com/svejnohova",
-      "category": "sociální síť · veřejná stránka politika",
-      "description": "Veřejná facebooková stránka Aleny Švejnohové, zastupitelky za NAŠE PEČKY, popsaná jako „zastupitelka a kandidátka na starostku města Pečky“ pro volby 2026 — vztahuje se k politickému angažmá, nejde o soukromý osobní profil. 932 sledujících (23. 8. 2026).",
-      "status": "ověřeno",
-      "note": "Nalezeno 6. 8. 2026 (příklad zadaný uživatelem). Důležité zjištění pro stránku Volby 2026: potvrzená kandidatura na starostku. URL nahrazeno 23. 8. 2026 (uživatel) — facebook.com/svejnohova je veřejná stránka vázaná na politické angažmá, ne soukromý profil; přesto použít obezřetně, jen veřejně sdílené příspěvky týkající se veřejné/politické činnosti."
-    },
-    {
-      "id": "facebook-cssd-pecky",
-      "name": "ČSSD a sjednocená levice Pečky — sociální síť",
-      "url": null,
-      "category": "sociální síť · uskupení",
-      "description": "Samostatný FB profil pro uskupení ČSSD a sjednocená levice v Pečkách (2 mandáty, koalice) nebyl při průzkumu 6. 8. 2026 nalezen.",
-      "status": "nenalezeno",
-      "note": "Jediné ze zastoupených uskupení, pro které se nepodařilo dohledat vlastní sociální síť. Zkusit znovu, případně přes profil Petra Dürra nebo celostátní ČSSD kanály."
-    },
-    {
-      "id": "facebook-lidovci-pecky",
-      "name": "Facebook — Lidovci a nezávislí Pečky",
-      "url": "https://www.facebook.com/lidovci.pecky",
-      "category": "sociální síť · uskupení",
-      "description": "Facebookový profil uskupení Lidovci a nezávislí (KDU-ČSL+NK, 0 mandátů, mimo zastupitelstvo). Odkaz nalezen přímo v jejich volebním inzerátu v Pečeckých novinách 9/2022, str. 10.",
-      "status": "nevytěženo",
-      "note": "Nalezeno 6. 8. 2026 při opakovaném průzkumu volebních inzerátů v Pečeckých novinách 9/2022 (hledání fotografií kandidátů). Doplňuje jediné dosud chybějící uskupení bez sociální sítě v tabulce Volební uskupení. Obsah zatím nebyl vytěžen."
-    },
-    {
-      "id": "facebook-pecky-next",
-      "name": "Facebook — Pečky NEXT",
-      "url": "https://www.facebook.com/profile.php?id=61581314026896",
-      "category": "sociální síť · občanská iniciativa",
-      "description": "Facebooký profil komunitní organizace „Pečky NEXT“, 254 sledujících. Publikuje kritické srovnání slibů a reality vedení města (např. stav cest v parku 2022 vs. 2026, s odkazem na FB stránku ODS a nezávislí Pečky). V odkazech uvádí petici na petice.com „Petice proti strachu a negativním stereotypům o Pečkách“.",
-      "status": "ověřeno",
-      "note": "Nalezeno 6. 8. 2026 (doplněno uživatelem). Nejde o žádné ze zavedených volebních uskupení — vypadá jako nová občanská/watchdog iniciativa, případně formující se skupina před volbami 2026. Zdroj třeba číst kriticky a vyváženě, jde o straně jedné petice/kritiky vedení města."
-    },
-    {
-      "id": "facebook-pecky-srdcem",
-      "name": "Facebook — Pečky srdcem",
-      "url": "https://www.facebook.com/p/Pečky-Srdcem-61590557991395/",
-      "category": "sociální síť · volební uskupení 2026",
-      "description": "Oficiální facebookový profil volebního uskupení Pečky srdcem, zaregistrovaného 18. 8. 2026 pro komunální volby 2026. Nové uskupení bez přímého předchůdce ve volbách 2022.",
-      "status": "ověřeno",
-      "note": "Doplněno uživatelem 23. 8. 2026 — kontextová citace u tabulky uskupení na stránce Volby 2026 → záložka Volební uskupení."
-    },
-    {
-      "id": "kolinsky-denik-obchvat-2018",
-      "name": "Pečky stále doufají v severní obchvat. Dočkají se? — Kolínský deník",
-      "url": "https://kolinsky.denik.cz/zpravy-region/pecky-stale-doufaji-v-severni-obchvat-dockaji-se/",
-      "category": "dobový tisk",
-      "description": "Článek z 2. 5. 2018 (autorka Alena Dušková) — starosta Milan Urban popisuje neúnosnou dopravu centrem, jižní obchvat v provozu 18 let, severní část brzdí výkup pozemků a spor o křížení s cyklostezkou z roku 2007.",
-      "status": "ověřeno",
-      "note": "Vytěženo 10. 8. 2026 pro sekci Obchvat na stránce Plán. Potvrzuje, že jižní obchvat je v provozu od cca roku 2000."
-    },
-    {
-      "id": "kolinsky-denik-obchvat-2017",
-      "name": "Obchvat zatím nebude, opraví průtah městem — Kolínský deník",
-      "url": "https://kolinsky.denik.cz/zpravy-region/obchvat-zatim-nebude-opravi-prutah-mestem/",
-      "category": "dobový tisk",
-      "description": "Článek z 22. 11. 2017 (autorka Lucie Mašínová) — starosta Milan Urban: „O obchvatu severní části se hovoří od dokončení obchvatu jižní části.“ Klíčový zdroj pro dataci — dokládá desetiletí trvající diskuzi o severní části ještě před obnovením jednání v roce 2021.",
-      "status": "ověřeno",
-      "note": "Vytěženo 10. 8. 2026 na žádost uživatele o hlubší historický research (obchvat se řeší déle než od roku 2000)."
-    },
-    {
-      "id": "kolinsky-denik",
-      "name": "Kolínský deník",
-      "url": "https://kolinsky.denik.cz/",
-      "category": "regionální tisk",
-      "description": "Regionální zpravodajský web (síť Deník, vydavatel VLTAVA LABE MEDIA) pokrývající i Pečky. Několik jeho konkrétních článků je na webu už citováno jednotlivě — viz kolinsky-denik-obchvat-2017/2018 výše a přímé odkazy v content/volby2022.html (volby 2014, koaliční dohoda a zvolení starostky 2018) a content/telocvicna.html (zahájení stavby tělocvičny 2026).",
-      "status": "nevytěženo",
-      "note": "Doplněno uživatelem 2. 9. 2026 jako obecná doména (ne konkrétní článek) — proto i v quicklinks O webu → Odkazy, i když obsah samotné domény zatím nebyl cíleně vytěžen nad rámec už citovaných článků."
-    },
-    {
-      "id": "hlidacstatu-smlouva-obchvat-pd-2021",
-      "name": "Smlouva 15541043 — II/329 Pečky, severní obchvat - PD (Hlídač státu)",
-      "url": "https://www.hlidacstatu.cz/Detail/15541043",
-      "category": "otevřená data",
-      "description": "Smlouva Středočeského kraje s konsorciem Ateliér projektování inženýrských staveb, Pragoprojekt a Pontex na aktualizaci projektové dokumentace obchvatu, uzavřena 17. 2. 2021, hodnota 5,19 mil. Kč s DPH.",
-      "status": "ověřeno",
-      "note": "Vytěženo 10. 8. 2026 pro sekci Obchvat na stránce Plán."
-    },
-    {
-      "id": "vrbova-lhota-uredni-deska-obchvat-2024",
-      "name": "Oznámení o zahájení územního řízení — Pečky severní obchvat (úřední deska Vrbová Lhota)",
-      "url": "https://www.vrbova-lhota.cz/uredni-deska/uredni-deska/1424",
-      "category": "oficiální",
-      "description": "Oznámení Krajského úřadu Středočeského kraje o zahájení územního řízení pro stavbu severního obchvatu, zveřejněné 15. 5. 2024 na úřední desce sousední obce Vrbová Lhota (trasa zasahuje i její katastr).",
-      "status": "ověřeno",
-      "note": "Vytěženo 10. 8. 2026. Nejnovější formální procesní krok, který se podařilo dohledat mimo archiv usnesení mesto-pecky.usneseni.cz."
-    },
-    {
-      "id": "uzemni-plan-pecky-vyrok-2023",
-      "name": "Územní plán Pečky — úplné znění po změně č. 2 (09/2023)",
-      "url": "https://pecky.cz/files/pecky/gallery/18707/699ece79804bb_V-Zrok-UeZ-po-ZM2.pdf",
-      "category": "oficiální",
-      "description": "Aktuální výrok územního plánu města. Kapitola Doprava popisuje původ konceptu obchvatu (přeložka silnice II/329 v souvislosti se zrušením úrovňového železničního přejezdu při modernizaci trati Praha–Kolín–Břeclav) a dopravní intenzity odůvodňující dostavbu severní části.",
-      "status": "ověřeno",
-      "note": "Vytěženo 10. 8. 2026. Doplňkově dohledáno (přes web search), že samotný původní územní plán Peček byl schválen okresním úřadem Kolín ještě před novelou stavebního zákona z roku 1998 — přímý primární dokument k tomuto konkrétnímu datu se ale nepodařilo stáhnout (odkazy na pecky.cz jsou nefunkční/přesměrované na 404)."
-    },
-    {
-      "id": "usneseni-obchvat-2021-2025",
-      "name": "Archiv usnesení — obchvat (výběr 2021–2025)",
-      "url": "https://mesto-pecky.usneseni.cz/verejne/",
-      "category": "oficiální",
-      "description": "15 agendových bodů rady a zastupitelstva týkajících se obchvatu dohledaných v lokálním archivu jednání (data/pecky-jednani.json): smlouva o spolupráci s krajem (10/2021), strategie výkupu pozemků (1/2022), žádost Spolku občanů pro změnu obchvatu o změnu PD (5/2022), smlouvy o smlouvě budoucí kupní (9/2022), směny pozemků (2023), přeložka plynovodu (7/2024), a UZ-51-5/25 (12. 11. 2025) — budoucí bezúplatné převzetí staré silnice II/329, výslovně podmíněné dokončením nové obchvatové komunikace.",
-      "status": "ověřeno",
-      "note": "Vytěženo 10. 8. 2026. Nejpřesnější a nejaktuálnější zdroj k fázi projektu — jasně dokládá, že k 11/2025 stavba obchvatu ještě nestála."
-    },
-    {
-      "id": "web-knihovna-pecky",
-      "name": "Městská knihovna Svatopluka Čecha v Pečkách — web",
-      "url": "https://www.pececko.cz",
-      "category": "oficiální · podřízená organizace",
-      "description": "Oficiální web městské knihovny (příspěvková organizace města, IČ 48932060) — aktuality, akce, výstavy, online katalog, otevírací doba (Tř. 5. května 241). Odpovědná osoba Vladimíra Krulišová. Kontaktní stránka uvádí i alias webu knihovnapecky.cz.",
-      "status": "ověřeno",
-      "note": "Přidáno uživatelem 18. 8. 2026. Zatím nevytěženo do žádné sekce webu."
-    },
-    {
-      "id": "facebook-knihovna-pecky",
-      "name": "Facebook — Městská knihovna Svatopluka Čecha v Pečkách",
-      "url": "https://www.facebook.com/knihovnapecky",
-      "category": "sociální síť · podřízená organizace",
-      "description": "Oficiální facebookový profil městské knihovny, uvedený i jako kontakt na oficiálním webu pececko.cz.",
-      "status": "ověřeno",
-      "note": "Přidáno uživatelem 18. 8. 2026. Zatím nevytěženo do žádné sekce webu."
-    },
-    {
-      "id": "vzcentrum-cz",
-      "name": "Vzdělávací centrum Pečky",
-      "url": "https://www.vzcentrum.cz",
-      "category": "podřízená organizace",
-      "description": "Web zájmového a vzdělávacího centra pro děti (kroužky, víkendovky, tábory, klub Klubko), sídlí na Tř. Jana Švermy 141. Titulek stránky uvádí \"Kulturní středisko města Pečky\" — provozně souvisí s kulturním střediskem.",
-      "status": "ověřeno",
-      "note": "Přidáno uživatelem 18. 8. 2026. Zatím nevytěženo do žádné sekce webu."
-    },
-    {
-      "id": "instagram-peckynext",
-      "name": "Instagram — PečkyNEXT",
-      "url": "https://www.instagram.com/peckynext",
-      "category": "sociální síť · občanská iniciativa",
-      "description": "Instagramový účet občanské iniciativy Pečky NEXT, doplňkový k jejich facebookové stránce (facebook.com/profile.php?id=61581314026896).",
-      "status": "ověřeno",
-      "note": "Přidáno uživatelem 18. 8. 2026. 114 sledujících (stav k 18. 8. 2026, Instagram) — doplněno do seznamu sociálních sítí v sekci O webu."
-    },
-    {
-      "id": "instagram-streetpeopleofpecky",
-      "name": "Instagram — streetpeopleofpecky",
-      "url": "https://www.instagram.com/streetpeopleofpecky/",
-      "category": "sociální síť · neoficiální",
-      "description": "Neoficiální lokální účet se sbírkou \"pouličních\" fotek z Peček přispívaných místními (bio: pošli nám do DM svůj úlovek). Nesouvisí s žádným politickým uskupením ani institucí.",
-      "status": "ověřeno",
-      "note": "Přidáno uživatelem 18. 8. 2026. 1 223 sledujících (stav k 18. 8. 2026, Instagram) — doplněno do seznamu sociálních sítí v sekci O webu. MEZERA od 2. 9. 2026: datum posledního příspěvku už z profilu nejde odečíst — Instagram v české lokalizaci plní atribut `alt` u obrázků mřížky popiskem příspěvku místo dříve používaného tvaru „Photo by … on September 01, 2026.“, `time[datetime]` ani odkazy `/p/<kód>/` se v odhlášené relaci nevykreslují a endpoint `/api/v1/users/web_profile_info/` vrací HTML místo JSON. Postup v o-webu/automation-socialni-site.md (krok 2b) tím přestal fungovat; počet sledujících se čte dál z textu profilu, datum poslední aktivity zůstává na hodnotě z posledního úspěšného čtení. Týká se i účtu instagram-peckynext."
-    },
-    {
-      "id": "novinky-cz-volby",
-      "name": "Novinky.cz — Kandidáti v komunálních volbách",
-      "url": "https://www.novinky.cz/p/vysledky-voleb/2018/komunalni-volby/obec/537641-pecky/kandidati",
-      "category": "otevřená data",
-      "description": "Kompletní kandidátní listiny (jméno, věk, povolání, bydliště, navrhující strana) pro obec Pečky, agregováno z dat ČSÚ. Použito pro doplnění celých 20–21členných kandidátek u komunálních voleb, které samotné výsledkové XML ČSÚ neobsahuje (to uvádí jen zvolené zastupitele).",
-      "status": "ověřeno",
-      "note": "Použito 19. 8. 2026 pro sekci Volby 2018 (kompletní kandidátky všech 6 uskupení, 125 jmen)."
-    },
-    {
-      "id": "pecky-virtualne-cz",
-      "name": "Pečky-Virtuálně",
-      "url": "https://www.pecky-virtualne.cz/",
-      "category": "neoficiální · historický projekt",
-      "description": "Soukromý neoficiální web věnovaný místní historii Peček (Mgr. Petr Zavřel, LL.M.) — fotogalerie, historické snímky, významní občané a rodáci, dokumenty a mapy, archivy z 1. a 2. světové války, prostor pro příspěvky veřejnosti. Není hrazeno z prostředků třetích stran ani spravováno městem.",
-      "status": "nevytěženo",
-      "note": "Přidáno uživatelem 19. 8. 2026. Zatím jen doplněno do quicklinks v sekci O webu — obsah nebyl použit jinde na webu."
-    },
-    {
-      "id": "facebook-pecky-virtualne",
-      "name": "Facebook — Pečky-Virtuálně",
-      "url": "https://www.facebook.com/pecky.virtualne/",
-      "category": "sociální síť · neoficiální",
-      "description": "Facebookový profil ke stejnojmennému soukromému historickému webu Pečky-Virtuálně.",
-      "status": "nevytěženo",
-      "note": "Přidáno uživatelem 19. 8. 2026. Zatím jen doplněno do quicklinks v sekci O webu — obsah nebyl použit jinde na webu."
-    },
-    {
-      "id": "pecky-cz-akcni-plan-2024-2026",
-      "name": "Akční plán rozvoje města Pečky 2024–2026 (pecky.cz)",
-      "url": "https://pecky.cz/files/pecky/gallery/18710/699ed77c67d43_Akcni-plan-2024-2026.xlsx.pdf",
-      "category": "oficiální",
-      "description": "Podrobný rozpočtovaný akční plán navazující na Strategický plán rozvoje města Pečky 2016–2026 — cca 65 konkrétních akcí se strategickou oblastí, garantem, prioritou, předpokládanou nákladovostí, rokem realizace a rozpočtem po jednotlivých letech 2024/2025/2026. Celkem 665 359 209 Kč (2024: 99 640 000 Kč, 2025: 215 943 234 Kč, 2026: 251 775 975 Kč).",
-      "status": "ověřeno",
-      "note": "Nalezeno 20. 8. 2026 na stránce „Strategické dokumenty města“ (pecky.cz/default/default/21308_strategicke-dokumenty-mesta), přečteno přes claude-in-chrome (přímý web_fetch na výpis dává 403, na PDF samotné funguje běžný curl). Vytěženo pro sekci Plán: doplněna nová položka „Obnova (sanace) vodojemu“ (25 mil. Kč, harmonogram 2024–2026) a upřesněny/potvrzeny existující položky (severní obchvat v plánu chybí, Mlýnský náhon a solární osvětlení Benešáku potvrzeny jako naplánované)."
-    },
-    {
-      "id": "pecky-cz-adaptacni-strategie-klima",
-      "name": "Adaptační strategie ke změně klimatu města Pečky (pecky.cz)",
-      "url": "https://pecky.cz/files/pecky/gallery/18709/699ed5d93bc39_adaptacni-strategie-mesta-pecky-na-klimatickou-zmenu.pdf",
-      "category": "oficiální",
-      "description": "Strategický dokument k adaptaci města na změnu klimatu (sucho, přívalové srážky, vlny horka).",
-      "status": "nevytěženo",
-      "note": "Nalezeno 20. 8. 2026 na stránce „Strategické dokumenty města“. Zmíněno v sekci Plán jako existující dokument s odkazem na zdroj, obsah zatím nevytěžen do žádné konkrétní položky."
-    },
-    {
-      "id": "pecky-cz-zasady-investori-2025",
-      "name": "Zásady Města Pečky pro spolupráci s investory (pecky.cz)",
-      "url": "https://pecky.cz/files/pecky/gallery/18704/699ec8ba1a832_zasady-spoluprace-2025-2.pdf",
-      "category": "oficiální",
-      "description": "Pravidla města pro spolupráci s developery/investory z roku 2025, včetně vzorů plánovacích smluv.",
-      "status": "nevytěženo",
-      "note": "Nalezeno 20. 8. 2026 na stránce „Strategické dokumenty města“. Zmíněno v sekci Plán jako existující dokument s odkazem na zdroj, obsah zatím nevytěžen do žádné konkrétní položky."
-    },
-    {
-      "id": "pecky-cz-strategicky-plan-aktualizace-2021-09",
-      "name": "Aktualizace strategického plánu 15. 9. 2021 (pecky.cz)",
-      "url": "https://pecky.cz/files/pecky/gallery/18710/699ed6c226d98_aktualizace-2021-09-15-strategickeho-planu-rozvoje-mesta-pecky-pro-rok-2016-2026.pdf",
-      "category": "oficiální",
-      "description": "Jednostránkový dodatek Strategického plánu rozvoje města Pečky 2016–2026, schválený zastupitelstvem 15. 9. 2021 usnesením UZ-15-2/2021 — přidává 2 nové aktivity (I.2.2.16, I.2.2.17: obnova veřejného prostranství ve Velkých Chvalovicích, ul. Pražská/Stará/Jarní, 2022 PD / 2023–25 realizace).",
-      "status": "ověřeno",
-      "note": "Nalezeno a vytěženo 20. 8. 2026 pro sekci Plán — doklad, že formální aktualizace plánu pokračovaly i po roce 2017, i když kolonka plnění 718 aktivit se dál nevedla."
-    },
-    {
-      "id": "web-sokolpecky-cz",
-      "name": "TJ Sokol Pečky — oficiální web",
-      "url": "https://www.sokolpecky.cz/",
-      "category": "oficiální · spolek",
-      "description": "Tělovýchovná jednota Sokol Pečky, součást celostátního sokolského hnutí (založeno 1862). Provozuje vlastní sokolovnu v Pečkách, kompletně zrekonstruovanou v roce 2020; činnost podporuje mj. Národní sportovní agentura a město Pečky dotacemi.",
-      "status": "nevytěženo",
-      "note": "Doplněno uživatelem 4. 9. 2026. Relevantní pro sekci Tělocvična (nová sportovní hala u ZŠ) a Plán — sokolovna je samostatné, dřívější sportovní zařízení ve městě, obsah zatím nevytěžen."
-    },
-    {
-      "id": "facebook-tj-sokol-pecky",
-      "name": "Facebook — TJ Sokol Pečky",
-      "url": "https://www.facebook.com/tjsokolpecky",
-      "category": "sociální síť · spolek",
-      "description": "Facebookový profil tělovýchovné jednoty Sokol Pečky.",
-      "status": "nevytěženo",
-      "note": "Doplněno uživatelem 4. 9. 2026, spolu s web-sokolpecky-cz."
-    }
-  ]
+ "project": "Do Peček . cz",
+ "description": "Seznam zdrojů, ze kterých Do Peček . cz čerpá nebo může čerpat informace o samosprávě města Pečky.",
+ "last_updated": "2026-09-24",
+ "sources": [
+  {
+   "id": "pecky-cz",
+   "name": "Oficiální web města Pečky",
+   "url": "http://pecky.cz",
+   "category": "oficiální",
+   "description": "Hlavní web města — úřední deska, kontakty, aktuality, Pečecké noviny.",
+   "status": "částečně nedostupné",
+   "note": "Podstránky (zastupitelstvo, archiv zpravodaje) jsou vykreslované přes JavaScript — prostý web_fetch/curl vrací prázdný obsah. OBEJITÍ (od 6. 8. 2026): tentýž obsah bylo možné číst na pecky.as4u.cz (bot-ochranu nemá). AKTUALIZACE 23. 8. 2026: web pecky.cz prošel redesignem/migrací na novou platformu (nové URL, např. /office/board pro úřední desku) — obsah je aktuální (ověřeno na úřední desce, srpen 2026), ale je nutné jej číst přes claude-in-chrome (JS rendering), web_fetch stále vrací prázdno. Mezitím zjištěno, že pecky.as4u.cz (stará platforma) přestal být průběžně aktualizován — jeho úřední deska je zamrzlá na stavu cca únor/březen 2026, viz poznámka u pecky-as4u-cz. Pro časově citlivý obsah (úřední deska, aktuality) proto od 23. 8. 2026 preferuj pecky.cz přes claude-in-chrome, ne pecky.as4u.cz. Denní kontrola 3. 9. 2026: na úřední desce (/office/board) nic nového k volbám ani k jednáním — nejnovější dokument je nadále zápis ze ZM 5/2026 vyvěšený 28. 8. 2026. Archiv PDF zpravodaje (/default/default/21389_pdf-zpravodaje) končí nadále číslem 7–8/2026, zářijové vydání ještě nevyšlo. Doplněno 23. 9. 2026 na žádost uživatele: k pravidelné kontrole Kalendáře patří i /default/events — vlastní měsíční kalendář města, jednotlivé záznamy na /default/report/<id>_<slug> mají datum/čas i plakát jako přílohu, časy „Zveřejněno“ ukazují, kdy přibyly. Cenné i jako křížová kontrola už zapsaných akcí (23. 9. 2026 tudy vyšlo najevo potvrzení přesunu Bookstart na 30. 9., zveřejněné týž den ráno)."
+  },
+  {
+   "id": "facebook-mestopecky",
+   "name": "Facebook — Město Pečky",
+   "url": "https://www.facebook.com/mestopecky",
+   "category": "sociální síť",
+   "description": "Oficiální facebookový profil města.",
+   "status": "ověřeno"
+  },
+  {
+   "id": "youtube-mestopecky",
+   "name": "YouTube — Město Pečky",
+   "url": "https://www.youtube.com/@mestopecky",
+   "category": "sociální síť",
+   "description": "Oficiální YouTube kanál města (záznamy jednání, reportáže).",
+   "status": "ověřeno"
+  },
+  {
+   "id": "hlidac-statu",
+   "name": "Hlídač státu — profil Města Pečky",
+   "url": "https://www.hlidacstatu.cz/subjekt/00239607",
+   "category": "otevřená data",
+   "description": "Přehled smluv, dotací, rizik a dodavatelů pro IČO 00239607 a celou skupinu (úřad + 8 podřízených organizací).",
+   "status": "ověřeno",
+   "note": "Data do webu tažena přes připojený MCP konektor Hlídače státu; jde o statický výřez, ne živě se obnovující data. Denní diff 16. 8. 2026: přibyly 2 nové smlouvy (Dar — zdravotnický batoh 10 381 Kč; Smlouva o spolupráci — Digitální odysea 26/27 bez ceny) — promítnuto do tabulky „Nejnovější smlouvy“ a součtů v sekci Smlouvy (nyní 182/47 smluv). Denní kontrola 30. 8. 2026: žádná nová smlouva (nejnovější podpis je nadále 23. 7. 2026, už na webu). Konektor ale u téhož dotazu vrací MÉNĚ záznamů než 16. 8. 2026 — skupina 179 smluv / 102 075 674 Kč (dřív 182 / 102 416 276 Kč), samotný úřad 46 / 32 831 378 Kč (dřív 47 / 33 132 977 Kč). Úbytek nevysvětlen, souhrnná čísla v sekci Smlouvy proto ponechána beze změny — k prověření uživatelem. Denní kontrola 1. 9. 2026: čísla se držela na úrovni z 30. 8. (179/46). Denní kontrola 2. 9. 2026: opět žádná nová smlouva (nejnovější podpis nadále 23. 7. 2026), ale úbytek u skupiny se PROHLOUBIL — skupina 150 smluv / 94 545 064 Kč (z 179 / 102 075 674 Kč, tedy −29 záznamů a −7,5 mil. Kč za dva dny), zatímco samotný úřad zůstal na 46 / 32 831 378 Kč. Souhrnná čísla v sekci Smlouvy ponechána beze změny i tentokrát; dvakrát opakovaný pokles bez jediné nové smlouvy vypadá spíš na změnu v indexaci skupiny na straně Hlídače státu než na skutečné stažení smluv z registru — k rozhodnutí uživatele. Denní kontrola 3. 9. 2026: MCP konektor Hlídače státu v této relaci NEBYL k dispozici — čísla proto ověřena z veřejného webového vyhledávání Hlídače smluv (dotazy holding:00239607 a ico:00239607, tedy stejné dva pohledy jako u konektoru). Výsledek: skupina 150 smluv / cca 95 mil. Kč, samotný úřad 46 smluv / cca 33 mil. Kč — tedy přesně hodnoty naměřené konektorem 2. 9. 2026, pokles se dál neprohluboval. Zároveň je tím vyloučeno, že by šlo o chybu konektoru: stejná snížená čísla ukazuje i webové rozhraní Hlídače. Žádná nová smlouva (nejnovější podpis nadále 23. 7. 2026). Souhrnná čísla v sekci Smlouvy ponechána beze změny — k rozhodnutí uživatele. Týdenní kontrola 9. 9. 2026: 2 nové smlouvy — „Darovací smlouva – Město Pečky – zařízení vyprošťovací hydraulické WEBER HYDRAULIK SP 49\" (HZS Středočeského kraje, podpis 7. 9. 2026, 642 510 Kč) a „S-4189/ŘDP/2026 – dotace na bezplatné školní stravování 2026/2027\" (Středočeský kraj → ZŠ Pečky, podpis 31. 8. 2026, 298 960 Kč); obě doplněny do tabulky „Nejnovější smlouvy\". Souhrny konektoru: skupina 152 smluv / 95 486 533,66 Kč (z 150 / 94 545 064), úřad 47 / 33 473 888,05 Kč (z 46 / 32 831 378) — nárůst přesně odpovídá oběma novým smlouvám. Absolutní úroveň ale zůstává pod hodnotami z 16. 8. (182/47 · 102,4 mil.), takže souhrnná čísla v subject-boxu a calloutu na webu jsou popáté ponechána beze změny; k rozhodnutí uživatele. Týdenní kontrola 15. 9. 2026 (přes MCP konektor): přesně stejná čísla jako 9.–14. 9. — skupina 152 smluv / 95 486 533,66 Kč, úřad 47 / 33 473 888,05 Kč, nejnovější podpis nadále 7. 9. 2026. Žádná nová smlouva."
+  },
+  {
+   "id": "hlidac-statu-zakazky",
+   "name": "Hlídač veřejných zakázek — vyhledávání Město Pečky",
+   "url": "https://www.hlidacstatu.cz/verejnezakazky/hledat?Q=00239607",
+   "category": "otevřená data",
+   "description": "Vyhledávání veřejných zakázek podle IČO 00239607 — 193 nalezených záznamů, výběrová řízení na dodavatele (fáze před podpisem smlouvy).",
+   "status": "ověřeno",
+   "note": "Zadáno uživatelem 6. 8. 2026. Veřejně přístupné vyhledávání bez přihlášení, ne MCP konektor (ten pokrývá jen Registr smluv a dotace, ne veřejné zakázky). Ručně staženo přes 4 stránky výsledků; do webu vložen výřez (nejnovější 2025–2026 a největší zakázky). Statický výřez, ne živá data. Denní diff 6. 8. 2026 (druhá kontrola týž den) našel 1 novou zakázku (P26V00002056) proti baseline v data/pecky-zakazky-ids.json — promítnuto do tabulky Nejnovější zakázky. Denní diff 16. 8. 2026: beze změny (193 výsledků, všechna ID na stránkách 1–4 odpovídají baseline). Denní diff 30. 8. 2026: beze změny (175 unikátních ID na stránkách 1–4, žádné nové ani zmizelé proti baseline v pecky-zakazky/pecky-zakazky-ids.json — soubor neupravován). Denní diff 1. a 2. 9. 2026: beze změny (175 unikátních ID, sada shodná s baseline — ověřeno porovnáním SHA-256 seřazeného seznamu ID; soubor neupravován). Denní diff 3. 9. 2026: beze změny (175 unikátních ID napříč stránkami výsledků, 0 nových, 0 zmizelých proti baseline; soubor neupravován). Týdenní diff 9. 9. 2026: 175 ID, 0 nových, 0 zmizelých — sada shodná s baseline, soubor pecky-zakazky-ids.json nedotčen. AKTUALIZACE 13. 9. 2026: vyhledávání `Q=00239607` je fulltextové, ne filtr podle zadavatele — vrací i zakázky cizích úřadů, kde se to číslo objeví kdekoli v textu. Týdenní diff 13. 9. 2026 našel 1 nové ID (P22V00000346 = „Novostavba silnice III. třídy Nová Průběžná v obci Zdiby – PD“, zadavatel Středočeský kraj); do snímku zapsáno, na web NE. Hlídač dnes hlásí 214 výsledků celkem (dřív 193) při 176 unikátních ID. Týdenní diff 15. 9. 2026: beze změny (176 unikátních ID formátu P##V########, 0 nových, 0 zmizelých). Při té příležitosti průchod poprvé rozšířen na všech 5 stránek výpisu (dřív 4) — objevilo se 18 dalších záznamů, ale žádný v sledovaném formátu P##V########: jde o starší číselné/Z-prefixové položky registru před rokem 2016 a o fulltextový šum jiných zadavatelů (stejný jev jako u P22V00000346/Zdiby). Potvrzuje to, že baseline v P##V######## formátu je úplná — nic k doplnění do snímku."
+  },
+  {
+   "id": "usneseni-cz",
+   "name": "Zápisy a usnesení ZM/RM",
+   "url": "https://mesto-pecky.usneseni.cz/verejne/",
+   "category": "oficiální",
+   "description": "Systém pro zveřejňování zápisů a usnesení zastupitelstva a rady města.",
+   "status": "částečně nedostupné",
+   "note": "Blokuje automatizovaný přístup (ochrana proti botům). Jmenné seznamy členů se v zápisech objevují nesystematicky (docházka, příchody/odchody), ne jako jednotný rejstřík. Denní kontrola 16. 8. 2026 přes Claude in Chrome (bez Cloudflare výzvy): na webu přibyly Rada 28/2026 (10. 8. 2026) a Rada 29/2026 (17. 8. 2026, budoucí jednání), ale ani jedno nemá zatím zveřejněný zápis/usnesení (jen Pozvánka) — archiv sources/archive-2026-08-04.json a odvozený data/pecky-jednani.json tedy zůstávají aktuální (nejnovější kompletní jednání: Rada 27/2026, 20. 7. 2026). Zjištění 20. 8. 2026: dva konkrétní typy odkazů z `data/pecky-jednani.json` (`links.invitation` = pozvánka, `links.pdf` = podepsaný zápis) používají akční endpointy tvaru `?uuid=...&do=printPublicInvitation` / `?...&do=meetingReportControl-getSignedReportPdf`, které web při otevření z cizí domény (proklik z pecky.online, i s rel=noreferrer) přesměruje na úvodní stránku `/verejne/` místo konkrétního dokumentu — zjevná ochrana proti hotlinkování/embeddingu (pravděpodobně dle Sec-Fetch-Site, ne dle Referer hlavičky, tu jsme vyloučili testem). Stejná URL při zadání přímo do adresního řádku (bez cizí domény jako iniciátora) funguje správně. `links.minutes` (zápis) a `links.resolutions` (usnesení) jsou cestové URL bez `do=` parametru a tímto omezením netrpí, fungují spolehlivě i jako proklik. Nejde o chybu v datech/kódu pecky.online — odkazy samotné jsou správné, jde o vlastnost cílového webu, kterou nelze z naší strany obejít. Promítnuto do panelu Jednání jako `title` tooltip na obou postižených typech odkazů a jako přiznaná mezera v callout boxu. Denní kontrola 30. 8. 2026 přes Claude in Chrome (bez Cloudflare výzvy): přibyla Rada 31/2026 (31. 8. 2026), zatím jen s Pozvánkou — přidána do pecky-jednani/pecky-jednani.json jako záznam bez zápisu a usnesení (agenda z PDF pozvánky). Ověřeno, že ZM 5/2026 má na webu nadále jediné usnesení (UZ-33-5/26) a že v playlistu „Zasedání ZM“ na YouTube stále chybí záznam k ZM 3/2026 (25. 5. 2026). Denní kontrola 2. 9. 2026: beze změny — Rada 31/2026 (31. 8. 2026) má nadále jen Pozvánku, žádné nové jednání nepřibylo (archiv 286 jednání). U ZM 5/2026 web nově nabízí i „Zvukový záznam“ (dosud jen zápis a usnesení); archiv toto pole neeviduje. Playlist „Zasedání ZM“ beze změny — nejnovější video je ZM z 26. 8. 2026 a video k ZM 3/2026 (25. 5. 2026) na kanálu stále chybí. Denní kontrola 3. 9. 2026: beze změny — Rada 31/2026 (31. 8. 2026) má nadále jen Pozvánku, žádné nové jednání nepřibylo (archiv 286 jednání). „Zvukový záznam“ web nově nabízí i u ZM 4/2026 (24. 6. 2026), nejen u ZM 5/2026 — pole se šíří zpětně i ke starším zasedáním; archiv ho nadále neeviduje. Playlist „Zasedání ZM“ beze změny (31 videí, nejnovější ZM z 26. 8. 2026); video k ZM 3/2026 (25. 5. 2026) na kanálu stále chybí. Časové značky bodů (video_ts) zkontrolovány — žádné jednání se zápisem i videem nezůstalo nedotažené. Týdenní kontrola 9. 9. 2026: beze změny — Rada 32/2026 (7. 9. 2026) má nadále jen Pozvánku, zápis ani usnesení zveřejněné nejsou; archiv zůstává na 287 jednáních / 2 755 usneseních. Cloudflare challenge se neobjevila. Týdenní kontrola 15. 9. 2026: beze změny — výpis identický se stavem 14. 9. (Rada 33/2026 a Zastupitelstvo 6/2026 nadále jen s Pozvánkou), Cloudflare challenge se neobjevila."
+  },
+  {
+   "id": "facebook-kspecky",
+   "name": "Facebook — Kulturní středisko města Pečky",
+   "url": "https://www.facebook.com/kspecky",
+   "category": "sociální síť",
+   "description": "Profil kulturního střediska města (akce, kulturní program). Od 20. 9. 2026 zdroj sekce Kalendář — program kulturního domu a plakáty jednotlivých akcí se z něj přepisují do kalendar/akce.json.",
+   "status": "ověřeno",
+   "note": "Středisko zveřejňuje souhrnný program vždy na několik měsíců dopředu (např. „Program 9–12/2026“ z 10. 9. 2026 ve dvou plakátech: září+říjen a listopad+prosinec) a k jednotlivým akcím pak samostatné plakáty, které údaje z programu občas upřesňují nebo přepisují — u Svatováclavského vinobraní a Slavností sv. Václava 2026 se lišil čas i název akce. Přednost má novější samostatný plakát, rozpor se zapisuje do pole note u akce. Program je jen v obrázku, ne v textu: čte se okem přes claude-in-chrome, ne scraperem. Postup: skill pecky-online-kalendar-plakat."
+  },
+  {
+   "id": "smlouvy-gov-cz",
+   "name": "Registr smluv (smlouvy.gov.cz)",
+   "url": "https://smlouvy.gov.cz/vyhledavani?dotaz=M%C4%9Bsto%20Pe%C4%8Dky",
+   "category": "otevřená data",
+   "description": "Oficiální celostátní registr smluv — plné znění smluv se subjektem Město Pečky.",
+   "status": "ověřeno"
+  },
+  {
+   "id": "volby-gov-cz",
+   "name": "Otevřená data voleb (ČSÚ)",
+   "url": "https://volby.gov.cz/opendata/opendata.htm",
+   "category": "otevřená data",
+   "description": "Strukturovaná otevřená data z komunálních a dalších voleb — výsledky, kandidátky, mandáty po obcích.",
+   "status": "ověřeno",
+   "note": "Použito na stránce Volby ke křížovému ověření výsledků a hlasů komunálních voleb 2022 (obec 537641 Pečky) a jako zdroj kompletních kandidátních listin pro volby 2026."
+  },
+  {
+   "id": "pececke-sluzby",
+   "name": "Pečecké služby s.r.o.",
+   "url": "https://pececkesluzby.cz/",
+   "category": "podřízená organizace",
+   "description": "Web technických služeb města (jedna z organizací ve skupině Město Pečky sledované Hlídačem státu).",
+   "status": "nevytěženo"
+  },
+  {
+   "id": "monitor-statni-pokladna",
+   "name": "Monitor státní pokladny (MF ČR)",
+   "url": "https://monitor.statnipokladna.gov.cz/ucetni-jednotka/00239607/prehled",
+   "category": "otevřená data",
+   "description": "Oficiální data Ministerstva financí o hospodaření obce — rozpočet, příjmy a výdaje podle kapitol, zadluženost, plnění rozpočtu v čase. Datový katalog Open Data: https://monitor.statnipokladna.gov.cz/datovy-katalog/open-data. Konkrétní pohled na souhrnný rozpočet za dané účetní období: https://monitor.statnipokladna.gov.cz/ucetni-jednotka/00239607/rozpocet/souhrnny?obdobi=2512&rad=t (obdobi=2512 = prosinec 2025/uzávěrka FY2025, rad=t = tabulkový pohled).",
+   "status": "ověřeno",
+   "note": "Vytěženo 6. 8. 2026 pro novou sekci Pokladna: vývoj příjmů/výdajů/salda 2023–2026, struktura výdajů, dluhová služba (0 Kč, žádný úvěr). Doplněno o Registr dotací z Hlídače státu (148 nalezených dotací, IČO 00239607). Doplněno 18. 9. 2026: konkrétní URL na souhrnný rozpočet (rozpočet/souhrnny?obdobi=2512&rad=t) zadal uživatel — je to týž endpoint, který jako svůj primární zdroj cituje i publicspendingdata.org (viz samostatný záznam)."
+  },
+  {
+   "id": "pecky-cz-zaverecny-ucet-2025",
+   "name": "Návrh závěrečného účtu 2025 (pecky.cz)",
+   "url": "https://pecky.cz/default/report/428756_navrh-zaverecneho-uctu-2025",
+   "category": "oficiální",
+   "description": "Roční hospodářská uzávěrka města s přílohami: Rekapitulace, Plnění rozpočtu, Fondy, Poskytnuté/přijaté dotace, Hospodaření příspěvkových organizací a s.r.o., výkaz Fin 2-12, Zpráva o přezkoumání hospodaření (audit).",
+   "status": "ověřeno",
+   "note": "Vytěženo 6. 8. 2026 pro sekci Pokladna → Bankovní účty. Auditorská zpráva (příloha 10) cituje bankovní výpisy a odhalila 9 konkrétních čísel účtů u 5 bank, jinde na webu ani v Monitoru nepublikovaných. Přílohy Rekapitulace a Fondy daly souhrnné zůstatky (153,3 mil. Kč na účtech/vkladech/pokladně, 30,4 mil. Kč ve fondech k 31.12.2025). PDF přílohy staženy přímo (pecky.cz/files/...), ne přes web_fetch (ten na PDF timeoutoval)."
+  },
+  {
+   "id": "knihovnapecky-cz",
+   "name": "Městská knihovna Svatopluka Čecha — stará doména (přesměrování)",
+   "url": "https://www.knihovnapecky.cz",
+   "category": "podřízená organizace",
+   "description": "Starší doména knihovny — přesměrovává na pecky.as4u.cz. Aktuální oficiální web viz samostatný záznam web-knihovna-pecky (pececko.cz), Facebook viz facebook-knihovna-pecky. Online katalog Clavius: http://lanius.pececko.cz/clavius/. Podstránky: O nás, Akce, Výstavy, Projekty, kroužek Šikula, fotogalerie.",
+   "status": "ověřeno",
+   "note": "Nalezeno uživatelem 6. 8. 2026. Samotný obsah knihovny je pro projekt okrajový, ale přesměrování odhalilo zásadní zdroj pecky.as4u.cz — viz samostatný záznam. Knihovna je příspěvková organizace města, figuruje v dotacích i v projektech (mobiliář, výměna střešních oken, vybavení interiéru). Doplněno 18. 8. 2026 o samostatné záznamy pro aktuální web a Facebook, které přidal uživatel."
+  },
+  {
+   "id": "pecky-as4u-cz",
+   "name": "pecky.as4u.cz — starý web města (čitelná verze)",
+   "url": "https://pecky.as4u.cz",
+   "category": "oficiální",
+   "description": "Plnohodnotná verze webu města v redakčním systému Public4u (as4u.cz), na kterou přesměrovávají některé domény města. Obsahuje mj. Zastupitelstvo, Radu, Rozpočty, Výbory a komise (11 orgánů), Strategické dokumenty, Projekty města (20+ projektů s detaily), Projekty příspěvkových organizací, Investice/studie/PD, Povinně zveřejňované informace, Veřejné zakázky, Vyhlášky a nařízení, Registr oznámení veřejných funkcionářů, Územní plán, Úřední desku a archiv Pečeckých novin.",
+   "status": "ověřeno — část obsahu neaktuální",
+   "note": "KLÍČOVÝ NÁLEZ 6. 8. 2026 (přes přesměrování z knihovnapecky.cz). Na rozdíl od www.pecky.cz NENÍ chráněn proti botům a jde číst běžným web_fetch — čistý statický HTML bez JS renderování. Uzavírá mezeru u zákona 106/1999 Sb.: na /cs/mestsky-urad/povinne-zverejnovane-informace-materialy/odpoved-podle-zakona-c-106-1999-sb.html jsou výroční zprávy o poskytování informací za roky 2011–2024 a jednotlivé žádosti i odpovědi v PDF. Potvrzuje také bankovní účet 1621191/0100 KB a existenci projektových stránek k Benešáku, úpravně vody, veřejnému osvětlení aj. Upřesněno uživatelem 20. 8. 2026: jde o starý web města Pečky — dřívější platforma (redakční systém Public4u). AKTUALIZACE 23. 8. 2026: na rozdíl od dřívějšího předpokladu web NENÍ průběžně aktualizovaný — jeho úřední deska je zamrzlá na stavu cca únor/březen 2026 (nejnovější položka 25. 2. 2026), zatímco nový pecky.cz k témuž datu ukazuje aktuality a úřední desku ze srpna 2026. Pro časově citlivý obsah (úřední deska, aktuality, jednání) proto raději použij pecky.cz přes claude-in-chrome; pecky.as4u.cz zůstává užitečný pro starší/archivní obsah (výroční zprávy, projekty, strategické dokumenty), kde stáří webu nevadí."
+  },
+  {
+   "id": "pecky-cz-uredni-deska-volby-2026-registrace",
+   "name": "Seznam zaregistrovaných volebních stran do zastupitelstev obcí 2026 (Úřední deska, pecky.cz)",
+   "url": "https://pecky.cz/files/pecky/attachments/457252/Zaregistrovane-volebni-strany-2026-1.pdf",
+   "category": "oficiální",
+   "description": "Oficiální seznam volebních stran zaregistrovaných registračním úřadem (Městský úřad Pečky) pro komunální volby 2026, za celý správní obvod úřadu (Pečky, Cerhenice, Dobřichov, Chotutice, Plaňany, Radim, Ratenice, Tatce, Vrbčany). Pro Pečky uvádí 5 uskupení. Doprovodný dokument (týž den, tentýž zdroj): Rozhodnutí o registraci kandidátních listin — https://pecky.cz/files/pecky/attachments/457265/Rozhodnuti-22-kandidatnich-listin.pdf (22 listin za celý obvod, naskenovaný dokument bez strojově čitelného textu).",
+   "status": "ověřeno",
+   "note": "Nalezeno a vytěženo 23. 8. 2026 na https://pecky.cz/office/board (nová platforma pecky.cz, čteno přes claude-in-chrome). Podepsáno Marcela Bahníková, zaměstnanec s osvědčením, V Pečkách dne 18. 8. 2026; na úřední desku vyvěšeno 19. 8. 2026, sejmutí 10. 10. 2026. Použito na stránce Volby 2026 → záložka Volební uskupení. Kompletní kandidátní listiny (jména a pořadí kandidátů) tento dokument neobsahuje — jen názvy zaregistrovaných uskupení."
+  },
+  {
+   "id": "pecky-cz-uredni-deska-volby-2026-okrsky",
+   "name": "Informace o počtu a sídlech volebních okrsků 2026 (Úřední deska, pecky.cz)",
+   "url": "https://pecky.cz/files/pecky/attachments/459682/IMG-0001-1.pdf",
+   "category": "oficiální",
+   "description": "Oznámení starosty města o počtu a sídlech volebních okrsků pro volby do zastupitelstva města Pečky a do 1/3 Senátu Parlamentu ČR konané 9.–10. 10. 2026. Uvádí 6 okrsků: 1) Kulturní středisko, Tř. Jana Švermy 255; 2) Základní škola, Tř. Jana Švermy 342; 3) Základní umělecká škola, Barákova 700; 4) Městská knihovna, Tř. 5. května 241; 5) Základní škola, Tř. Jana Švermy 342; 6) Knihovna Velké Chvalovice, Pečecká 166.",
+   "status": "ověřeno",
+   "note": "Nalezeno a vytěženo 1. 9. 2026 při denní kontrole na https://pecky.cz/office/board. Podepsal starosta Milan Paluska, V Pečkách dne 25. 8. 2026; na úřední desku vyvěšeno 25. 8. 2026, sejmutí 10. 10. 2026. PDF je naskenovaný dokument — text čitelný jen přes OCR vrstvu (pdftotext vrací překlepy typu „Peěky“, „votebního“), adresy proto přepsány ručně. Přiřazení ulic k jednotlivým okrskům dokument neobsahuje. Použito na stránce Volby 2026 → blok „Kde se volí“."
+  },
+  {
+   "id": "pecky-cz-strategicky-plan-2016-2026",
+   "name": "Strategický plán rozvoje města Pečky 2016–2026 — souhrn (pecky.cz)",
+   "url": "https://pecky.cz/files/pecky/gallery/18710/699ed628c2013_strategicky-plan-souhrn.pdf",
+   "category": "oficiální",
+   "description": "Desetiletý rozvojový plán města: motto a vize, 4 prioritní oblasti (Sport/kultura/školství/soc. služby, Doprava/infrastruktura, Životní prostředí, Podnikání/cestovní ruch) rozpadlé na priority, opatření a 718 dílčích aktivit s termínem, odpovědností, indikátorem plnění a financováním. Obsahuje i vlastní tabulku plnění po letech.",
+   "status": "ověřeno",
+   "note": "Vytěženo 6. 8. 2026 pro novou sekci Plán. Stáhnuto přes curl + pdftotext -layout (18 stran), ne web_fetch. Zjištění: z 718 aktivit je jako „splněno“ v dokumentu označeno jen 13, všechny z let 2016–2017 — sledování plnění zjevně po dvou letech ustalo."
+  },
+  {
+   "id": "uzemni-plan-pecky",
+   "name": "Územní plán Peček",
+   "url": "https://geoportal.gov.cz/",
+   "category": "otevřená data",
+   "description": "Platný územní plán města a jeho změny — mj. relevantní k bodům z volebních programů (obchvat, územní plán jižní části města, parkování).",
+   "status": "nevytěženo",
+   "note": "Návrh z 6. 8. 2026. URL je obecný Národní geoportál územního plánování — konkrétní dokumentaci pro Pečky je potřeba v něm dohledat, případně zkusit přímo pecky.cz. Odkaz doplněn do quicklinks (sekce O webu → Odkazy) 18. 8. 2026 — obsah zatím nevytěžen, jen dostupný k prokliku. Oprava 19. 8. 2026: původní URL geoportal.uur.cz byla neexistující doména (NXDOMAIN) — opraveno na skutečný Národní geoportál INSPIRE (geoportal.gov.cz)."
+  },
+  {
+   "id": "csu-verejna-databaze",
+   "name": "ČSÚ — Veřejná databáze (MOS)",
+   "url": "https://vdb.czso.cz/vdbvo2/",
+   "category": "otevřená data",
+   "description": "Demografická a socioekonomická data obce v čase — počet obyvatel, věková struktura, nezaměstnanost a další ukazatele (Města a obce v datech).",
+   "status": "nevytěženo",
+   "note": "Návrh z 6. 8. 2026: doplnilo by statickou tabulku na Domů o vývoj v čase, ne jen aktuální stav. Odkaz doplněn do quicklinks (sekce O webu → Odkazy) 18. 8. 2026 — obsah zatím nevytěžen, jen dostupný k prokliku."
+  },
+  {
+   "id": "vestnik-verejnych-zakazek",
+   "name": "Věstník veřejných zakázek",
+   "url": "https://vestnikverejnychzakazek.cz/",
+   "category": "otevřená data",
+   "description": "Veřejné zakázky a výběrová řízení vyhlášená městem — fáze před podpisem smlouvy (nabídky, průběh soutěže), kterou Registr smluv nepokrývá.",
+   "status": "nevytěženo",
+   "note": "Návrh z 6. 8. 2026."
+  },
+  {
+   "id": "justice-cz-sbirka-listin",
+   "name": "Justice.cz — Sbírka listin",
+   "url": "https://or.justice.cz/ias/ui/rejstrik-$firma?nazev=Pe%C4%8Deck%C3%A9%20slu%C5%BEby",
+   "category": "otevřená data",
+   "description": "Účetní závěrky a výroční zprávy městských organizací (např. Pečecké služby s.r.o.) ve sbírce listin obchodního rejstříku.",
+   "status": "nevytěženo",
+   "note": "Návrh z 6. 8. 2026. Odkaz doplněn do quicklinks (sekce O webu → Odkazy) 18. 8. 2026 — obsah zatím nevytěžen, jen dostupný k prokliku."
+  },
+  {
+   "id": "facebook-nasepecky",
+   "name": "Facebook — NAŠE PEČKY",
+   "url": "https://www.facebook.com/nasepecky",
+   "category": "sociální síť · uskupení",
+   "description": "Oficiální facebookový profil uskupení NAŠE PEČKY (vítěz voleb 2022, 7 mandátů, opozice). 1 tis. sledujících. Kontakt svejnohova@nasepecky.cz.",
+   "status": "ověřeno",
+   "note": "Nalezeno 6. 8. 2026 (příklad zadaný uživatelem). Odkazuje na vlastní web nasepecky.cz — viz samostatný záznam. Od 22. 9. 2026 i zdroj sekce Kalendář (Facebook Události, /events) — kontrolováno rovnocenně se všemi pěti uskupeními 2026, viz kalendar/README.md → „Kulturní a společenské akce\"."
+  },
+  {
+   "id": "web-nasepecky-cz",
+   "name": "nasepecky.cz — web uskupení NAŠE PEČKY",
+   "url": "https://www.nasepecky.cz/",
+   "category": "oficiální · uskupení",
+   "description": "Vlastní web uskupení NAŠE PEČKY, uvedený jako odkaz na jejich FB stránce. K 6. 8. 2026 obsahuje jen jednu pozvánku na akci (leták) — minimální obsah, ale existuje vlastní grafická identita/logo.",
+   "status": "ověřeno",
+   "note": "Objeveno 6. 8. 2026 při průzkumu FB stránky NAŠE PEČKY, nebylo v původním zadání. Od 22. 9. 2026 i zdroj sekce Kalendář (sekce „Akce\" na webu) — kontrolováno rovnocenně se všemi pěti uskupeními 2026, viz kalendar/README.md."
+  },
+  {
+   "id": "facebook-ods-pecky",
+   "name": "Facebook — ODS a nezávislí Pečky",
+   "url": "https://www.facebook.com/odspecky.cz/",
+   "category": "sociální síť · uskupení",
+   "description": "Oficiální facebookový profil uskupení ODS a nezávislí Pečky (6 mandátů, vede radnici). 167 sledujících.",
+   "status": "ověřeno",
+   "note": "Nalezeno 6. 8. 2026 (příklad zadaný uživatelem)."
+  },
+  {
+   "id": "facebook-peckypecakum",
+   "name": "Facebook — Pečky Pečákům (SNK Pečky Pečákům)",
+   "url": "https://www.facebook.com/peckypecakum/",
+   "category": "sociální síť · uskupení",
+   "description": "Oficiální facebookový profil uskupení SNK Pečky Pečákům (3 mandáty, koalice). 239 sledujících. Kontakt mestopecky@post.cz.",
+   "status": "ověřeno",
+   "note": "Dohledáno 6. 8. 2026 vlastním průzkumem (nebylo v zadaných příkladech) — doplňuje chybějící sociální síť pro jediné uskupení, které dosud nemělo žádný zdroj s fotkami/webem."
+  },
+  {
+   "id": "facebook-lide-pro-pecky-spd-skupina",
+   "name": "Facebook skupina — Lidé pro Pečky s podporou SPD Official",
+   "url": "https://www.facebook.com/groups/1080849193521600",
+   "category": "sociální síť · uskupení",
+   "description": "Veřejná FB skupina uskupení Lidé pro Pečky s podporou SPD (3 mandáty, opozice). 35 členů, správce Jan Hromádko.",
+   "status": "ověřeno",
+   "note": "Nalezeno 6. 8. 2026 (příklad zadaný uživatelem). Aktuální příspěvek (6. 8. 2026) oznamuje podání kandidátní listiny pro volby 2026 — relevantní pro stránku Volby 2026."
+  },
+  {
+   "id": "facebook-svejnohova-osobni",
+   "name": "Facebook — Alena Švejnohová (zastupitelka a kandidátka na starostku)",
+   "url": "https://www.facebook.com/svejnohova",
+   "category": "sociální síť · veřejná stránka politika",
+   "description": "Veřejná facebooková stránka Aleny Švejnohové, zastupitelky za NAŠE PEČKY, popsaná jako „zastupitelka a kandidátka na starostku města Pečky“ pro volby 2026 — vztahuje se k politickému angažmá, nejde o soukromý osobní profil. 932 sledujících (23. 8. 2026).",
+   "status": "ověřeno",
+   "note": "Nalezeno 6. 8. 2026 (příklad zadaný uživatelem). Důležité zjištění pro stránku Volby 2026: potvrzená kandidatura na starostku. URL nahrazeno 23. 8. 2026 (uživatel) — facebook.com/svejnohova je veřejná stránka vázaná na politické angažmá, ne soukromý profil; přesto použít obezřetně, jen veřejně sdílené příspěvky týkající se veřejné/politické činnosti."
+  },
+  {
+   "id": "facebook-cssd-pecky",
+   "name": "ČSSD a sjednocená levice Pečky — sociální síť",
+   "url": null,
+   "category": "sociální síť · uskupení",
+   "description": "Samostatný FB profil pro uskupení ČSSD a sjednocená levice v Pečkách (2 mandáty, koalice) nebyl při průzkumu 6. 8. 2026 nalezen.",
+   "status": "nenalezeno",
+   "note": "Jediné ze zastoupených uskupení, pro které se nepodařilo dohledat vlastní sociální síť. Zkusit znovu, případně přes profil Petra Dürra nebo celostátní ČSSD kanály."
+  },
+  {
+   "id": "facebook-lidovci-pecky",
+   "name": "Facebook — Lidovci a nezávislí Pečky",
+   "url": "https://www.facebook.com/lidovci.pecky",
+   "category": "sociální síť · uskupení",
+   "description": "Facebookový profil uskupení Lidovci a nezávislí (KDU-ČSL+NK, 0 mandátů, mimo zastupitelstvo). Odkaz nalezen přímo v jejich volebním inzerátu v Pečeckých novinách 9/2022, str. 10.",
+   "status": "nevytěženo",
+   "note": "Nalezeno 6. 8. 2026 při opakovaném průzkumu volebních inzerátů v Pečeckých novinách 9/2022 (hledání fotografií kandidátů). Doplňuje jediné dosud chybějící uskupení bez sociální sítě v tabulce Volební uskupení. Obsah zatím nebyl vytěžen."
+  },
+  {
+   "id": "facebook-pecky-next",
+   "name": "Facebook — Pečky NEXT",
+   "url": "https://www.facebook.com/profile.php?id=61581314026896",
+   "category": "sociální síť · občanská iniciativa",
+   "description": "Facebooký profil komunitní organizace „Pečky NEXT“, 254 sledujících. Publikuje kritické srovnání slibů a reality vedení města (např. stav cest v parku 2022 vs. 2026, s odkazem na FB stránku ODS a nezávislí Pečky). V odkazech uvádí petici na petice.com „Petice proti strachu a negativním stereotypům o Pečkách“.",
+   "status": "ověřeno",
+   "note": "Nalezeno 6. 8. 2026 (doplněno uživatelem). Nejde o žádné ze zavedených volebních uskupení — vypadá jako nová občanská/watchdog iniciativa, případně formující se skupina před volbami 2026. Zdroj třeba číst kriticky a vyváženě, jde o straně jedné petice/kritiky vedení města."
+  },
+  {
+   "id": "facebook-pecky-srdcem",
+   "name": "Facebook — Pečky srdcem",
+   "url": "https://www.facebook.com/p/Pečky-Srdcem-61590557991395/",
+   "category": "sociální síť · volební uskupení 2026",
+   "description": "Oficiální facebookový profil volebního uskupení Pečky srdcem, zaregistrovaného 18. 8. 2026 pro komunální volby 2026. Nové uskupení bez přímého předchůdce ve volbách 2022.",
+   "status": "ověřeno",
+   "note": "Doplněno uživatelem 23. 8. 2026 — kontextová citace u tabulky uskupení na stránce Volby 2026 → záložka Volební uskupení."
+  },
+  {
+   "id": "kolinsky-denik-obchvat-2018",
+   "name": "Pečky stále doufají v severní obchvat. Dočkají se? — Kolínský deník",
+   "url": "https://kolinsky.denik.cz/zpravy-region/pecky-stale-doufaji-v-severni-obchvat-dockaji-se/",
+   "category": "dobový tisk",
+   "description": "Článek z 2. 5. 2018 (autorka Alena Dušková) — starosta Milan Urban popisuje neúnosnou dopravu centrem, jižní obchvat v provozu 18 let, severní část brzdí výkup pozemků a spor o křížení s cyklostezkou z roku 2007.",
+   "status": "ověřeno",
+   "note": "Vytěženo 10. 8. 2026 pro sekci Obchvat na stránce Plán. Potvrzuje, že jižní obchvat je v provozu od cca roku 2000."
+  },
+  {
+   "id": "kolinsky-denik-obchvat-2017",
+   "name": "Obchvat zatím nebude, opraví průtah městem — Kolínský deník",
+   "url": "https://kolinsky.denik.cz/zpravy-region/obchvat-zatim-nebude-opravi-prutah-mestem/",
+   "category": "dobový tisk",
+   "description": "Článek z 22. 11. 2017 (autorka Lucie Mašínová) — starosta Milan Urban: „O obchvatu severní části se hovoří od dokončení obchvatu jižní části.“ Klíčový zdroj pro dataci — dokládá desetiletí trvající diskuzi o severní části ještě před obnovením jednání v roce 2021.",
+   "status": "ověřeno",
+   "note": "Vytěženo 10. 8. 2026 na žádost uživatele o hlubší historický research (obchvat se řeší déle než od roku 2000)."
+  },
+  {
+   "id": "kolinsky-denik",
+   "name": "Kolínský deník",
+   "url": "https://kolinsky.denik.cz/",
+   "category": "regionální tisk",
+   "description": "Regionální zpravodajský web (síť Deník, vydavatel VLTAVA LABE MEDIA) pokrývající i Pečky. Několik jeho konkrétních článků je na webu už citováno jednotlivě — viz kolinsky-denik-obchvat-2017/2018 výše a přímé odkazy v content/volby2022.html (volby 2014, koaliční dohoda a zvolení starostky 2018) a content/telocvicna.html (zahájení stavby tělocvičny 2026).",
+   "status": "nevytěženo",
+   "note": "Doplněno uživatelem 2. 9. 2026 jako obecná doména (ne konkrétní článek) — proto i v quicklinks O webu → Odkazy, i když obsah samotné domény zatím nebyl cíleně vytěžen nad rámec už citovaných článků."
+  },
+  {
+   "id": "hlidacstatu-smlouva-obchvat-pd-2021",
+   "name": "Smlouva 15541043 — II/329 Pečky, severní obchvat - PD (Hlídač státu)",
+   "url": "https://www.hlidacstatu.cz/Detail/15541043",
+   "category": "otevřená data",
+   "description": "Smlouva Středočeského kraje s konsorciem Ateliér projektování inženýrských staveb, Pragoprojekt a Pontex na aktualizaci projektové dokumentace obchvatu, uzavřena 17. 2. 2021, hodnota 5,19 mil. Kč s DPH.",
+   "status": "ověřeno",
+   "note": "Vytěženo 10. 8. 2026 pro sekci Obchvat na stránce Plán."
+  },
+  {
+   "id": "vrbova-lhota-uredni-deska-obchvat-2024",
+   "name": "Oznámení o zahájení územního řízení — Pečky severní obchvat (úřední deska Vrbová Lhota)",
+   "url": "https://www.vrbova-lhota.cz/uredni-deska/uredni-deska/1424",
+   "category": "oficiální",
+   "description": "Oznámení Krajského úřadu Středočeského kraje o zahájení územního řízení pro stavbu severního obchvatu, zveřejněné 15. 5. 2024 na úřední desce sousední obce Vrbová Lhota (trasa zasahuje i její katastr).",
+   "status": "ověřeno",
+   "note": "Vytěženo 10. 8. 2026. Nejnovější formální procesní krok, který se podařilo dohledat mimo archiv usnesení mesto-pecky.usneseni.cz."
+  },
+  {
+   "id": "uzemni-plan-pecky-vyrok-2023",
+   "name": "Územní plán Pečky — úplné znění po změně č. 2 (09/2023)",
+   "url": "https://pecky.cz/files/pecky/gallery/18707/699ece79804bb_V-Zrok-UeZ-po-ZM2.pdf",
+   "category": "oficiální",
+   "description": "Aktuální výrok územního plánu města. Kapitola Doprava popisuje původ konceptu obchvatu (přeložka silnice II/329 v souvislosti se zrušením úrovňového železničního přejezdu při modernizaci trati Praha–Kolín–Břeclav) a dopravní intenzity odůvodňující dostavbu severní části.",
+   "status": "ověřeno",
+   "note": "Vytěženo 10. 8. 2026. Doplňkově dohledáno (přes web search), že samotný původní územní plán Peček byl schválen okresním úřadem Kolín ještě před novelou stavebního zákona z roku 1998 — přímý primární dokument k tomuto konkrétnímu datu se ale nepodařilo stáhnout (odkazy na pecky.cz jsou nefunkční/přesměrované na 404)."
+  },
+  {
+   "id": "usneseni-obchvat-2021-2025",
+   "name": "Archiv usnesení — obchvat (výběr 2021–2025)",
+   "url": "https://mesto-pecky.usneseni.cz/verejne/",
+   "category": "oficiální",
+   "description": "15 agendových bodů rady a zastupitelstva týkajících se obchvatu dohledaných v lokálním archivu jednání (data/pecky-jednani.json): smlouva o spolupráci s krajem (10/2021), strategie výkupu pozemků (1/2022), žádost Spolku občanů pro změnu obchvatu o změnu PD (5/2022), smlouvy o smlouvě budoucí kupní (9/2022), směny pozemků (2023), přeložka plynovodu (7/2024), a UZ-51-5/25 (12. 11. 2025) — budoucí bezúplatné převzetí staré silnice II/329, výslovně podmíněné dokončením nové obchvatové komunikace.",
+   "status": "ověřeno",
+   "note": "Vytěženo 10. 8. 2026. Nejpřesnější a nejaktuálnější zdroj k fázi projektu — jasně dokládá, že k 11/2025 stavba obchvatu ještě nestála."
+  },
+  {
+   "id": "web-knihovna-pecky",
+   "name": "Městská knihovna Svatopluka Čecha v Pečkách — web",
+   "url": "https://www.pececko.cz",
+   "category": "oficiální · podřízená organizace",
+   "description": "Oficiální web městské knihovny (příspěvková organizace města, IČ 48932060) — aktuality, akce, výstavy, online katalog, otevírací doba (Tř. 5. května 241). Odpovědná osoba Vladimíra Krulišová. Kontaktní stránka uvádí i alias webu knihovnapecky.cz.",
+   "status": "ověřeno",
+   "note": "Přidáno uživatelem 18. 8. 2026. Vytěženo 22. 9. 2026 do sekce Kalendář (na žádost uživatele, konkrétně stránka /noc-literatury/ a domovská stránka → záložky Aktuality/Akce/Výstavy) — potvrdilo beze změny už zapsané akce (Noc literatury, Bookstart/S knížkou do života, Digitální odysea, VU3V), doplněno jako druhý/třetí doklad evidence[]. Zápis přitom odhalil starší duplicitu „Noc literatury 2026“ (dva záznamy z KD programu a z knihovny na tentýž den) — sloučeno do jednoho."
+  },
+  {
+   "id": "facebook-knihovna-pecky",
+   "name": "Facebook — Městská knihovna Svatopluka Čecha v Pečkách",
+   "url": "https://www.facebook.com/knihovnapecky",
+   "category": "sociální síť · podřízená organizace",
+   "description": "Oficiální facebookový profil městské knihovny, uvedený i jako kontakt na oficiálním webu pececko.cz. Od 20. 9. 2026 zdroj sekce Kalendář — akce a přednáškové cykly knihovny (Bookstart, VU3V, kurzy pro seniory, výstavy) se z něj přepisují do kalendar/akce.json.",
+   "status": "ověřeno",
+   "note": "Přidáno uživatelem 18. 8. 2026. Zapojeno do sekce Kalendář 20. 9. 2026 — viz kalendar/README.md → „Kulturní a společenské akce — aktivní\". Na rozdíl od Kulturního střediska knihovna zveřejňuje skoro vždy jeden plakát na jednu akci, výjimkou jsou sezónní programy VU3V bundlující víc přednáškových cyklů v jednom plakátu."
+  },
+  {
+   "id": "vzcentrum-cz",
+   "name": "Vzdělávací centrum Pečky",
+   "url": "https://www.vzcentrum.cz",
+   "category": "podřízená organizace",
+   "description": "Web zájmového a vzdělávacího centra pro děti (kroužky, víkendovky, tábory, klub Klubko), sídlí na Tř. Jana Švermy 141. Titulek stránky uvádí \"Kulturní středisko města Pečky\" — provozně souvisí s kulturním střediskem.",
+   "status": "ověřeno",
+   "note": "Přidáno uživatelem 18. 8. 2026. Vytěženo 22. 9. 2026 do sekce Kalendář — sekce /krouzky (43 kroužků, školní rok 2026/2027, rozepsáno na jednotlivé týdenní termíny). Sekce /vikendovky a /klubko k tomuto datu obsahují jen školní rok 2025/2026 (vše proběhlé), sezóna 2026/2027 tam ještě není zveřejněná — kontrolovat znovu při každé další kontrole Kalendáře. Sekce /tabory prázdná."
+  },
+  {
+   "id": "instagram-peckynext",
+   "name": "Instagram — PečkyNEXT",
+   "url": "https://www.instagram.com/peckynext",
+   "category": "sociální síť · občanská iniciativa",
+   "description": "Instagramový účet občanské iniciativy Pečky NEXT, doplňkový k jejich facebookové stránce (facebook.com/profile.php?id=61581314026896).",
+   "status": "ověřeno",
+   "note": "Přidáno uživatelem 18. 8. 2026. 131 sledujících, poslední příspěvek 21. 9. 2026 (stav k 22. 9. 2026). OPRAVA 22. 9. 2026: dřív zapsané datum bylo staré (14. 9. 2026) — první tři dlaždice mřížky jsou staré grafiky (duben/červen 2026), z toho jen prostřední má pin ikonu, skutečně nejnovější příspěvek je až na 4. dlaždici. Viz o-webu/automation-socialni-site.md → „Chyták s připíchnutím“."
+  },
+  {
+   "id": "instagram-streetpeopleofpecky",
+   "name": "Instagram — streetpeopleofpecky",
+   "url": "https://www.instagram.com/streetpeopleofpecky/",
+   "category": "sociální síť · neoficiální",
+   "description": "Neoficiální lokální účet se sbírkou \"pouličních\" fotek z Peček přispívaných místními (bio: pošli nám do DM svůj úlovek). Nesouvisí s žádným politickým uskupením ani institucí.",
+   "status": "ověřeno",
+   "note": "Přidáno uživatelem 18. 8. 2026. 1 215 sledujících (22. 9. 2026, dřív 1 216), poslední příspěvek nadále 22. 8. 2026 — ověřeno znovu 22. 9. 2026. MEZERA od 2. 9. do 22. 9. 2026: datum posledního příspěvku nešlo z profilu odečíst přes starší postup (atribut `alt` u obrázků mřížky v české lokalizaci plní popiskem příspěvku, ne datem). OPRAVENO 22. 9. 2026: v přihlášené relaci claude-in-chrome funguje spolehlivě `<time datetime>` na stránce jednotlivého příspěvku (`/p/<kód>/`) — dřívější pozorování, že se tam nevykresluje, platilo jen pro odhlášenou/izolovanou relaci. Nový postup i chyták s připíchnutými příspěvky (mřížka není chronologická, pin nemusí být na dlaždici 1) viz o-webu/automation-socialni-site.md → „Instagram“ a „Chyták s připíchnutím“. Týká se i účtu instagram-peckynext."
+  },
+  {
+   "id": "novinky-cz-volby",
+   "name": "Novinky.cz — Kandidáti v komunálních volbách",
+   "url": "https://www.novinky.cz/p/vysledky-voleb/2018/komunalni-volby/obec/537641-pecky/kandidati",
+   "category": "otevřená data",
+   "description": "Kompletní kandidátní listiny (jméno, věk, povolání, bydliště, navrhující strana) pro obec Pečky, agregováno z dat ČSÚ. Použito pro doplnění celých 20–21členných kandidátek u komunálních voleb, které samotné výsledkové XML ČSÚ neobsahuje (to uvádí jen zvolené zastupitele).",
+   "status": "ověřeno",
+   "note": "Použito 19. 8. 2026 pro sekci Volby 2018 (kompletní kandidátky všech 6 uskupení, 125 jmen)."
+  },
+  {
+   "id": "pecky-virtualne-cz",
+   "name": "Pečky-Virtuálně",
+   "url": "https://www.pecky-virtualne.cz/",
+   "category": "neoficiální · historický projekt",
+   "description": "Soukromý neoficiální web věnovaný místní historii Peček (Mgr. Petr Zavřel, LL.M.) — fotogalerie, historické snímky, významní občané a rodáci, dokumenty a mapy, archivy z 1. a 2. světové války, prostor pro příspěvky veřejnosti. Není hrazeno z prostředků třetích stran ani spravováno městem.",
+   "status": "nevytěženo",
+   "note": "Přidáno uživatelem 19. 8. 2026. Zatím jen doplněno do quicklinks v sekci O webu — obsah nebyl použit jinde na webu."
+  },
+  {
+   "id": "facebook-pecky-virtualne",
+   "name": "Facebook — Pečky-Virtuálně",
+   "url": "https://www.facebook.com/pecky.virtualne/",
+   "category": "sociální síť · neoficiální",
+   "description": "Facebookový profil ke stejnojmennému soukromému historickému webu Pečky-Virtuálně.",
+   "status": "nevytěženo",
+   "note": "Přidáno uživatelem 19. 8. 2026. Zatím jen doplněno do quicklinks v sekci O webu — obsah nebyl použit jinde na webu."
+  },
+  {
+   "id": "pecky-cz-harmonogram-svozu-2026",
+   "name": "Harmonogram svozu odpadů z domácností 2026 (pecky.cz)",
+   "url": "https://pecky.cz/files/pecky/gallery/18641/6999802843bb9_Harmonogram-svozu-odpadu-z-domacnosti-2026-final.pdf",
+   "category": "oficiální",
+   "description": "Roční harmonogram svozu odpadů z domácností v Pečkách a Velkých Chvalovicích na rok 2026 — komunální odpad (sever, jih, sídliště), BIO odpad, plast a papír. Termíny jsou v PDF vyznačené jen barvou buňky kalendáře.",
+   "status": "ověřeno",
+   "note": "Odkaz dodal uživatel 24. 9. 2026, PDF stažené běžným curl. Vytěženo týž den do sekce Kalendář (kategorie svoz, 186 termínů v kalendar/svoz-odpadu.json) skriptem kalendar/scripts/extract-svoz-odpadu.py, který čte barvy buněk. Pořadatele PDF neuvádí — Pečecké služby, s.r.o. jako pořadatele zadal uživatel."
+  },
+  {
+   "id": "pecky-cz-akcni-plan-2024-2026",
+   "name": "Akční plán rozvoje města Pečky 2024–2026 (pecky.cz)",
+   "url": "https://pecky.cz/files/pecky/gallery/18710/699ed77c67d43_Akcni-plan-2024-2026.xlsx.pdf",
+   "category": "oficiální",
+   "description": "Podrobný rozpočtovaný akční plán navazující na Strategický plán rozvoje města Pečky 2016–2026 — cca 65 konkrétních akcí se strategickou oblastí, garantem, prioritou, předpokládanou nákladovostí, rokem realizace a rozpočtem po jednotlivých letech 2024/2025/2026. Celkem 665 359 209 Kč (2024: 99 640 000 Kč, 2025: 215 943 234 Kč, 2026: 251 775 975 Kč).",
+   "status": "ověřeno",
+   "note": "Nalezeno 20. 8. 2026 na stránce „Strategické dokumenty města“ (pecky.cz/default/default/21308_strategicke-dokumenty-mesta), přečteno přes claude-in-chrome (přímý web_fetch na výpis dává 403, na PDF samotné funguje běžný curl). Vytěženo pro sekci Plán: doplněna nová položka „Obnova (sanace) vodojemu“ (25 mil. Kč, harmonogram 2024–2026) a upřesněny/potvrzeny existující položky (severní obchvat v plánu chybí, Mlýnský náhon a solární osvětlení Benešáku potvrzeny jako naplánované)."
+  },
+  {
+   "id": "pecky-cz-adaptacni-strategie-klima",
+   "name": "Adaptační strategie ke změně klimatu města Pečky (pecky.cz)",
+   "url": "https://pecky.cz/files/pecky/gallery/18709/699ed5d93bc39_adaptacni-strategie-mesta-pecky-na-klimatickou-zmenu.pdf",
+   "category": "oficiální",
+   "description": "Strategický dokument k adaptaci města na změnu klimatu (sucho, přívalové srážky, vlny horka).",
+   "status": "nevytěženo",
+   "note": "Nalezeno 20. 8. 2026 na stránce „Strategické dokumenty města“. Zmíněno v sekci Plán jako existující dokument s odkazem na zdroj, obsah zatím nevytěžen do žádné konkrétní položky."
+  },
+  {
+   "id": "pecky-cz-zasady-investori-2025",
+   "name": "Zásady Města Pečky pro spolupráci s investory (pecky.cz)",
+   "url": "https://pecky.cz/files/pecky/gallery/18704/699ec8ba1a832_zasady-spoluprace-2025-2.pdf",
+   "category": "oficiální",
+   "description": "Pravidla města pro spolupráci s developery/investory z roku 2025, včetně vzorů plánovacích smluv.",
+   "status": "nevytěženo",
+   "note": "Nalezeno 20. 8. 2026 na stránce „Strategické dokumenty města“. Zmíněno v sekci Plán jako existující dokument s odkazem na zdroj, obsah zatím nevytěžen do žádné konkrétní položky."
+  },
+  {
+   "id": "pecky-cz-strategicky-plan-aktualizace-2021-09",
+   "name": "Aktualizace strategického plánu 15. 9. 2021 (pecky.cz)",
+   "url": "https://pecky.cz/files/pecky/gallery/18710/699ed6c226d98_aktualizace-2021-09-15-strategickeho-planu-rozvoje-mesta-pecky-pro-rok-2016-2026.pdf",
+   "category": "oficiální",
+   "description": "Jednostránkový dodatek Strategického plánu rozvoje města Pečky 2016–2026, schválený zastupitelstvem 15. 9. 2021 usnesením UZ-15-2/2021 — přidává 2 nové aktivity (I.2.2.16, I.2.2.17: obnova veřejného prostranství ve Velkých Chvalovicích, ul. Pražská/Stará/Jarní, 2022 PD / 2023–25 realizace).",
+   "status": "ověřeno",
+   "note": "Nalezeno a vytěženo 20. 8. 2026 pro sekci Plán — doklad, že formální aktualizace plánu pokračovaly i po roce 2017, i když kolonka plnění 718 aktivit se dál nevedla."
+  },
+  {
+   "id": "web-sokolpecky-cz",
+   "name": "TJ Sokol Pečky — oficiální web",
+   "url": "https://www.sokolpecky.cz/",
+   "category": "oficiální · spolek",
+   "description": "Tělovýchovná jednota Sokol Pečky, součást celostátního sokolského hnutí (založeno 1862). Provozuje vlastní sokolovnu v Pečkách, kompletně zrekonstruovanou v roce 2020; činnost podporuje mj. Národní sportovní agentura a město Pečky dotacemi.",
+   "status": "nevytěženo",
+   "note": "Doplněno uživatelem 4. 9. 2026. Relevantní pro sekci Tělocvična (nová sportovní hala u ZŠ) a Plán — sokolovna je samostatné, dřívější sportovní zařízení ve městě, obsah zatím nevytěžen."
+  },
+  {
+   "id": "facebook-tj-sokol-pecky",
+   "name": "Facebook — TJ Sokol Pečky",
+   "url": "https://www.facebook.com/tjsokolpecky",
+   "category": "sociální síť · spolek",
+   "description": "Facebookový profil tělovýchovné jednoty Sokol Pečky.",
+   "status": "nevytěženo",
+   "note": "Doplněno uživatelem 4. 9. 2026, spolu s web-sokolpecky-cz. Zkontrolováno pro sekci Kalendář 20. 9. 2026 — celý profil (8 fotek) jsou nábory do stálých oddílů/kroužků bez konkrétního data (taneční oddíly, florbal, kynologický kroužek, cvičení pro seniory, „Chlapi sobě\"), žádná datovaná akce k zápisu do kalendar/akce.json. Status zůstává „nevytěženo\", dokud se na profilu neobjeví plakát s konkrétním termínem — viz kalendar/README.md → „Kulturní a společenské akce — aktivní\". Doplněno 21. 9. 2026: totéž potvrzují i Pečecké noviny 9/2026 (str. 19, „Rozvrh hodin sokolovny — školní rok 2026/2027\") — stálý týdenní rozvrh na celý školní rok bez data konce, ne řada jednotlivých termínů, viz kalendar/README.md."
+  },
+  {
+   "id": "csu-informace-vyhlasene-volby",
+   "name": "Informace k aktuálně vyhlášeným volbám (ČSÚ)",
+   "url": "https://csu.gov.cz/informace-k-aktualne-vyhlasenym-volbam",
+   "category": "oficiální",
+   "description": "Přehled ČSÚ o všech aktuálně vyhlášených volbách v daném roce. Sekce „Aktuálně vyhlášené volby“ odkazuje na podstránku csu.gov.cz/volby-2026, která uvádí: volby do zastupitelstev obcí a do Senátu Parlamentu ČR 9.–10. října 2026 (vyhlášeny rozhodnutím prezidenta republiky č. 117/2026 Sb.; případné druhé kolo senátních voleb 16.–17. 10. 2026) a mimořádné volby do zastupitelstev obcí 28. 3. 2026 (jinde v ČR, netýká se Peček).",
+   "status": "ověřeno",
+   "note": "Dohledáno 20. 9. 2026 na žádost uživatele jako nezávislé ověření termínu 9.–10. 10. 2026, který stránka Volby 2026 už dřív cituje z mv.gov.cz — obě data se shodují. Doplněno i do quicklinks (O webu → Odkazy). Od 20. 9. 2026 má i vlastní kontextovou citaci: termín voleb je zapojen do sekce Kalendář (kalendar/udalosti-rucni.json → build_volby_events(), viz kalendar/README.md → „Volby“)."
+  },
+  {
+   "id": "publicspendingdata-org",
+   "name": "Public Spending Data — Pečky",
+   "url": "https://publicspendingdata.org/cz/municipalities/pecky/?lang=cs#rozpocet",
+   "category": "otevřená data",
+   "description": "Neoficiální mezinárodní projekt agregující oficiální obecní finance do přehledné časové řady. Pro Pečky nabízí příjmy/výdaje/saldo/stav účtů po jednotlivých letech 2010–2025 (delší časová řada, než je aktuálně na webu v sekci Pokladna). Vlastní sekce „Zdroje a data“ na stránce jako svůj zdroj cituje přímo Monitor státní pokladny (konkrétně https://monitor.statnipokladna.gov.cz/ucetni-jednotka/00239607/rozpocet/souhrnny?obdobi=2512&rad=t — viz záznam monitor-statni-pokladna), jde tedy o přehlednější nadstavbu nad týmiž daty, ne o nezávislý zdroj.",
+   "status": "nevytěženo",
+   "note": "Přidáno uživatelem 18. 9. 2026. Obsah zatím nebyl vytěžen do žádné sekce webu, jen doplněn do quicklinks (O webu → Odkazy) — díky delší časové řadě (2010–2025 vs. dosavadní 2023–2026 v sekci Pokladna) stojí za zvážení jako doplněk k Monitoru při budoucí aktualizaci Pokladny."
+  },
+  {
+   "id": "pecky-noviny",
+   "name": "Pečecké noviny — měsíčník města Pečky",
+   "url": "https://pecky.cz/default/default/21389_pdf-zpravodaje",
+   "category": "oficiální",
+   "description": "Měsíční zpravodaj města Pečky (viz sekce Pečecké noviny na tomto webu, kompletní archiv PDF v noviny/pecky-noviny.json). Od 21. 9. 2026 i zdroj sekce Kalendář — tabulky a plakáty otištěné v konkrétním vydání se citují jako evidence[].kind \"zpravodaj\" v kalendar/akce.json.",
+   "status": "ověřeno",
+   "note": "První konkrétní použití: Pečecké noviny 9/2026, str. 19 „Rozvrh hodin sokolovny — školní rok 2026/2027\" — zdroj pro opakované události TJ Sokol Pečky v kalendáři, viz kalendar/README.md."
+  },
+  {
+   "id": "web-tenispecky-cz",
+   "name": "Tenis Pečky — web tenisového oddílu TJ Spartak Pečky",
+   "url": "https://www.tenispecky.cz/",
+   "category": "oficiální · spolek",
+   "description": "Web tenisového oddílu Spartaku Pečky — aktuality (turnaje, brigády, výsledky mistrovské soutěže mládeže), tenisová škola, závodní tenis, pronájem kurtů a kontakt. Kurty na Sokolské 1062.",
+   "status": "nevytěženo",
+   "note": "Přidáno uživatelem 21. 9. 2026. Zatím nevytěženo do žádné sekce webu."
+  },
+  {
+   "id": "facebook-tenis-spartak-pecky",
+   "name": "Facebook — Tenis Spartak Pečky",
+   "url": "https://www.facebook.com/profile.php?id=100057429309940",
+   "category": "sociální síť · spolek",
+   "description": "Facebookový profil tenisového oddílu Spartaku Pečky (223 sledujících), odkazuje na tenispecky.cz. Kontakt trenér David Urlich.",
+   "status": "ověřeno",
+   "note": "Přidáno uživatelem 21. 9. 2026, spolu s web-tenispecky-cz."
+  },
+  {
+   "id": "instagram-hospoda-na-hristi-pecky",
+   "name": "Instagram — Hospoda na hřišti",
+   "url": "https://www.instagram.com/hospoda_na_hristi_pecky/",
+   "category": "sociální síť · podnik",
+   "description": "Instagramový účet místní hospody u sportovního hřiště v Pečkách (265 sledujících, 157 příspěvků). Soukromý podnik, ne městská ani spolková organizace. Od 22. 9. 2026 zdroj sekce Kalendář — vlastní akce (turnaje, hospodský kvíz) se z něj přepisují do kalendar/akce.json.",
+   "status": "ověřeno",
+   "note": "Přidáno uživatelem 21. 9. 2026. Zapojeno do sekce Kalendář 22. 9. 2026 — viz kalendar/README.md → „Kulturní a společenské akce — aktivní\". Datum posledního příspěvku se z profilu nedá spolehlivě odečíst (stejná mezera jako u ostatních Instagram účtů, viz instagram-streetpeopleofpecky), proto v quicklinks jen počet sledujících, bez data — na čtení jednotlivých příspěvků přes claude-in-chrome (ne na tenhle typ metadat) to vliv nemá."
+  },
+  {
+   "id": "instagram-nase-pecky",
+   "name": "Instagram — NAŠE PEČKY",
+   "url": "https://www.instagram.com/nase_pecky/",
+   "category": "sociální síť · uskupení",
+   "description": "Instagramový účet volebního uskupení NAŠE PEČKY (106 sledujících, 79 příspěvků, bio „Na plný Pečky!“), doplňkový k jejich facebookovému profilu (facebook.com/nasepecky) a webu (nasepecky.cz).",
+   "status": "ověřeno",
+   "note": "Přidáno uživatelem 22. 9. 2026. Na rozdíl od profilového gridu (viz mezera u instagram-streetpeopleofpecky) stránka jednotlivého příspěvku (/p/<kód>/) pořád nese funkční `<time datetime>` se skutečným datem — poslední příspěvek 21. 9. 2026. OPRAVA (týž den): první čtení omylem vzalo datum připnutého příspěvku („Na Plný Pečky!“, 📌, tři dlaždice v mřížce), ne skutečně nejnovějšího — mřížka na Instagramu řadí připnuté příspěvky první bez ohledu na datum, teprve za nimi pokračuje chronologicky. Při čtení data z gridu vždy nejdřív ověřit/přeskočit 📌 ikonu, jinak vznikne stejná chyba."
+  },
+  {
+   "id": "facebook-group-mame-radi-pecky",
+   "name": "Facebook skupina — Máme rádi Pečky",
+   "url": "https://www.facebook.com/groups/514789833279969",
+   "category": "sociální síť · komunitní skupina",
+   "description": "Velká veřejná komunitní skupina (4,9 tis. členů, popis „Skupina pro všechny, kteří mají rádi Pečky“) — sídlo skupiny Pečky. Na rozdíl od ostatních sledovaných účtů to není profil jednoho pořadatele, ale obecná nástěnka, kam přispívají jednotliví členové i firmy/spolky (např. Hospoda Hřiště tam sdílí totéž co na svém Instagramu).",
+   "status": "ověřeno",
+   "note": "Přidáno uživatelem 22. 9. 2026, rovnou zkontrolováno na nové akce pro Kalendář. Strukturovaná záložka „Události“ k tomu dni ukazovala jen jednu nadcházející událost — „Obnova krajiny Kolínska a Nymburska“ (Obecní knihovna a Komunitní centrum Kostelní Lhota), akce jiné obce sdílená členkou do skupiny, mimo rozsah webu (ne Pečky/Velké Chvalovice) — nezapsáno. Feed „Diskuze“ jinak jen sdílené obrázky bez strojově čitelného textu (get_page_text z nich nic nevytáhl) a jeden repost už známého Hospodského kvízu. Žádná nová akce k zápisu do kalendar/akce.json. Skupina je obecná, hlučnější než profily jednotlivých pořadatelů — při příští kontrole čekat spíš sdílení cizích akcí než vlastní obsah. OPRAVA 22. 9. 2026 (uživatel si všiml): quicklink omylem skončil v O webu → Odkazy → Další nezávislé zdroje, přesunuto do Sociální sítě (je to sociální síť jako ostatní sledované účty, jen bez jednoho konkrétního pořadatele) — 4,9 tis. členů je nejvyšší číslo ze všech sledovaných účtů, řádek proto podle pravidla „sestupně podle počtu“ patří úplně nahoru."
+  },
+  {
+   "id": "facebook-group-nase-pecky-komunita",
+   "name": "Facebook skupina — NAŠE PEČKY - komunita",
+   "url": "https://www.facebook.com/groups/389985379543371",
+   "category": "sociální síť · uskupení",
+   "description": "Veřejná komunitní skupina navázaná na uskupení NAŠE PEČKY (516 členů), popis „přátelská skupina pro všechny, kdo s námi chtějí dál měnit, budovat a starat se o Pečky a Velké Chvalovice“ — doplňková k facebook-nasepecky (oficiální stránka) a web-nasepecky-cz, ale samostatná diskuzní skupina, ne jen kanál pro vyhlášky.",
+   "status": "ověřeno",
+   "note": "Přidáno uživatelem 22. 9. 2026, rovnou zkontrolováno na nové akce pro Kalendář. Záložka „Události“ ukazovala jednu nadcházející — „Slavnosti podzimu a moštování“, sobota 3. 10. 2026 v 10:00, ale pořádá ji spolek Huslík (záchranná stanice/ekocentrum) na adrese Na Zálesí 1473, Poděbrady — mimo rozsah webu (ne Pečky/Velké Chvalovice), nezapsáno. Feed „Diskuze“ na začátku měl zjevně nesouvisející AI reklamu na manikúru (štítek „AI obsah“), dál se nenačetl. Žádná nová akce k zápisu do kalendar/akce.json. Stejný vzorec jako u facebook-group-mame-radi-pecky — obecnější skupina, čekat spíš přesdílené cizí akce z okolí (Poděbrady, Nymbursko) než vlastní pečecký obsah."
+  },
+  {
+   "id": "web-zuspecky-cz",
+   "name": "Základní umělecká škola Pečky — web",
+   "url": "https://zuspecky.cz/",
+   "category": "oficiální · podřízená organizace",
+   "description": "Oficiální web ZUŠ Pečky (příspěvková organizace města, IČO 17181186, Barákova 700 — viz lide/organizations.json → zus-pecky) — aktuality (talentové zkoušky, koncerty, soutěže), obory (hudební, výtvarný, taneční, literárně dramatický), kontakty. Aktuality k 22. 9. 2026 nejnovější ze 14. 4. 2026 (talentové zkoušky na 2026/2027) — web se neaktualizuje často.",
+   "status": "ověřeno",
+   "note": "Přidáno uživatelem 22. 9. 2026. Vytěženo týž den do sekce Kalendář — podstránka /rozvrh-hodin/ (10 skupinových předmětů, školní rok 2026/2027, „předběžné, změna vyhrazena“, rozepsáno na jednotlivé týdenní termíny). Rubrika „Koncerty a další akce“ v archivu aktualit zatím nekontrolována — možná mezera pro příští kontrolu."
+  },
+  {
+   "id": "facebook-zuspecky",
+   "name": "Facebook — Základní umělecká škola Pečky",
+   "url": "https://www.facebook.com/profile.php?id=100047289323273",
+   "category": "sociální síť · podřízená organizace",
+   "description": "Oficiální facebookový profil ZUŠ Pečky (473 sledujících), odkazuje na zuspecky.cz. Kontakt 778 835 104, adresa Barákova 700.",
+   "status": "ověřeno",
+   "note": "Přidáno uživatelem 22. 9. 2026, spolu s web-zuspecky-cz. Poslední příspěvek 31. 8. 2026 (nábor do nového oboru „Multimédia na ZUŠ Pečky“)."
+  },
+  {
+   "id": "facebook-vzcentrum",
+   "name": "Facebook — Vzdělávací centrum Pečky",
+   "url": "https://www.facebook.com/vzcentrum",
+   "category": "sociální síť · podřízená organizace",
+   "description": "Oficiální facebookový profil Vzdělávacího centra Pečky (846 sledujících) — jazykové kurzy, přednášky z psychologie, keramika, kytara, ateliér, logopedie, kroužky pro děti. Odkazuje na vzcentrum.cz. Adresa Tř. Jana Švermy 141.",
+   "status": "ověřeno",
+   "note": "Doplněno uživatelem 22. 9. 2026 k už existujícímu záznamu vzcentrum-cz (web), který dosud neměl vlastní facebookový zdroj. Poslední příspěvek 2. 9. 2026."
+  },
+  {
+   "id": "web-zspecky-cz",
+   "name": "Základní škola Pečky, okres Kolín — web",
+   "url": "https://www.zspecky.cz/",
+   "category": "oficiální · podřízená organizace",
+   "description": "Oficiální web ZŠ Pečky (příspěvková organizace města — viz lide/organizations.json → zs-pecky). Aktuality z jednotlivých tříd a akcí, aktualizováno prakticky denně (k 22. 9. 2026 poslední záznamy z 22., 21., 16. a 15. 9.).",
+   "status": "ověřeno",
+   "note": "Přidáno uživatelem 22. 9. 2026. Vytěženo týž den do sekce Kalendář — konkrétně dokument „Organizace školního roku 2026/2027“ (úřední deska, PDF) s termíny prázdnin, konce pololetí, zápisu a třídních schůzek (14 nových záznamů). Aktuality z jednotlivých tříd a akcí (hlavní obsah webu, aktualizováno prakticky denně) zatím nekontrolovány — možná mezera pro příští kontrolu."
+  },
+  {
+   "id": "web-pspecky-cz",
+   "name": "Pečovatelská služba města Pečky — web",
+   "url": "https://www.pspecky.cz/",
+   "category": "oficiální · podřízená organizace",
+   "description": "Oficiální web Pečovatelské služby města Pečky (příspěvková organizace, IČO 61883531 — viz lide/organizations.json → pecovatelska-sluzba-pecky). Popisuje nabízené služby (pečovatelská služba, denní stacionář, senior klub, senior doprava, pedikúra, půjčovna pomůcek), žádná vlastní sociální síť. Sekce „Aktuality“ k 22. 9. 2026 jediný příspěvek (odstávka střediska hygieny léto 2026, ne akce).",
+   "status": "ověřeno",
+   "note": "Přidáno uživatelem 22. 9. 2026 s žádostí kontrolovat sekci Akce/Aktuality kvůli plakátům. Vytěženo týž den do sekce Kalendář — podstránka /senior-klub-pecky/ má pravidelný celoroční harmonogram (4 aktivity), rozepsáno do 31. 12. 2027. Žádná samostatná stránka „Akce“ na webu neexistuje (/akce/ vrací 404) — kontrolovat aktuality a senior klub, případně jednorázové plakáty, které tam časem přibydou."
+  },
+  {
+   "id": "facebook-spolek-rodicu-pecky",
+   "name": "Facebook — Spolek rodičů ZŠ Pečky",
+   "url": "https://www.facebook.com/spolekrodicupecky",
+   "category": "sociální síť · spolek",
+   "description": "Oficiální facebookový profil Spolku rodičů ZŠ Pečky (254 sledujících), popsaný jako „komunitní organizace“. Odkazuje na zspecky.cz. Adresa Tř. Jana Švermy 342.",
+   "status": "ověřeno",
+   "note": "Přidáno uživatelem 22. 9. 2026. Poslední příspěvek 14. 2. 2026 (pozvánka na „První pečecký swap“, akce toho dne) — přes 7 měsíců neaktivní k datu přidání. Spolek zatím není v lide/organizations.json."
+  },
+  {
+   "id": "facebook-zs-pecky-kolin",
+   "name": "Facebook — ZŠ Pečky při ZŠ, MŠ a PŠ Kolín",
+   "url": "https://www.facebook.com/profile.php?id=61568834450570",
+   "category": "sociální síť · podřízená organizace",
+   "description": "Facebookový profil (114 sledujících) pobočky/odloučeného pracoviště „ZŠ Pečky“ patřícího pod ZŠ, MŠ a PŠ Kolín (speciální/praktická škola se sídlem v Kolíně, web zskolin.cz) — NENÍ totéž co web-zspecky-cz (samostatná „běžná“ ZŠ Pečky). Adresa Tř. Jana Švermy 540. Popis: „škola s individuálním přístupem“.",
+   "status": "ověřeno",
+   "note": "Přidáno uživatelem 22. 9. 2026. Poslední příspěvek 19. 9. 2026. Jde o dvě různé instituce se stejným názvem „ZŠ Pečky“ v adrese/titulku — nezaměňovat s Základní školou Pečky, okres Kolín (zs-pecky/web-zspecky-cz). Zatím žádný vlastní záznam v lide/organizations.json."
+  },
+  {
+   "id": "facebook-zspecky",
+   "name": "Facebook — Základní škola Pečky, okres Kolín",
+   "url": "https://www.facebook.com/skolapecky",
+   "category": "sociální síť · podřízená organizace",
+   "description": "Oficiální facebookový profil Základní školy Pečky, okres Kolín (186 sledujících) — TOHLE je skutečná zs-pecky/web-zspecky-cz, na rozdíl od facebook-zs-pecky-kolin výše. Odkazuje na zspecky.cz. Adresa Tř. Jana Švermy 342 (stejná jako Spolek rodičů ZŠ Pečky).",
+   "status": "ověřeno",
+   "note": "Přidáno uživatelem 22. 9. 2026. Poslední příspěvek 21. 9. 2026. Teď má škola ve zdrojích tři různé, správně odlišené facebookové účty se jménem „ZŠ Pečky“ — tenhle (oficiální školní), facebook-spolek-rodicu-pecky (spolek rodičů, stejná adresa) a facebook-zs-pecky-kolin (jiná instituce, jen podobný název)."
+  },
+  {
+   "id": "web-msmasinkapecky-cz",
+   "name": "MŠ MAŠINKA Pečky — web",
+   "url": "https://www.msmasinkapecky.cz/",
+   "category": "oficiální · podřízená organizace",
+   "description": "Oficiální web Mateřské školy MAŠINKA Pečky (příspěvková organizace — viz lide/organizations.json → msmasinka-pecky). Má vlastní rubriku Aktuality (k 22. 9. 2026 nejnovější ze 14. 9. 2026 — renovace herních prvků na zahradě), dále Akce školy, Pro nově přijaté děti, Canisterapie.",
+   "status": "ověřeno",
+   "note": "Přidáno uživatelem 22. 9. 2026. Vytěženo týž den do sekce Kalendář — podstránka /akce-skoly/ měla 2 akce (Bramboriáda, Canisterapie), obě zapsány. Aktuality rubrika (renovace herních prvků aj.) zatím nekontrolována."
+  },
+  {
+   "id": "facebook-event-street-food-festivalek-pecky",
+   "name": "Facebook událost — Street Food Festiválek Pečky",
+   "url": "https://www.facebook.com/events/1571340844481885/",
+   "category": "sociální síť · jednorázová akce",
+   "description": "Facebooková událost jednorázového street food festivalu v areálu Kulturního domu/střediska Pečky. Pořádá externí firma City Event (celostátní přehlídka street food festivalů, přes 235 uplynulých událostí) — ne město ani Kulturní středisko samo.",
+   "status": "ověřeno",
+   "note": "Přidáno uživatelem 23. 9. 2026, přímý odkaz na konkrétní událost."
+  },
+  {
+   "id": "web-mcpraminek-cz",
+   "name": "Komunitní centrum Pramínek Dobřichov — web",
+   "url": "https://www.mcpraminek.cz",
+   "category": "spolek",
+   "description": "Web Komunitního centra Pramínek Dobřichov (provozuje spolek Maminky sobě, z.s. — viz lide/organizations.json → maminky-sobe), sousední obec Dobřichov u Pečky, ve spolupráci s Farností Pečky. Rubriky „Program a akce\" a „Kroužky\" mají skutečný obsah, „kalendář akcí\" je prázdný (nepoužívaný). Jednotlivé akce na /products/<slug>/ mívají jen datum/čas v textu, bez samostatného pole.",
+   "status": "ověřeno",
+   "note": "Přidáno a vytěženo 23. 9. 2026 na žádost uživatele (rozšíření geografického rozsahu Kalendáře i na Dobřichov) — dohledáno přes akce zveřejněné na pecky.cz/default/events. „Program a akce\" má víc stránek archivu (1 z 5), nekontrolováno do hloubky; při té příležitosti nalezeny i 2 recenzentní kroužky (Zálesák, Hrátky s batolátky) — zatím jen nahlášeny, nezapsány."
+  },
+  {
+   "id": "web-szmpecky-cz",
+   "name": "Spolek železničních modelářů Pečky — web",
+   "url": "https://szmpecky.webnode.cz/",
+   "category": "spolek",
+   "description": "Klubový web SŽM Pečky (příspěvková organizace — ne, spolek — viz lide/organizations.json → szm-pecky). Podstránka „Členové spolku\" (/nas-tym/) vypisuje kompletní seznam cca 40 členů vč. funkcí ve výboru (předseda, místopředseda, hospodář, správce webu); podstránka „Kalendář akcí\" (/kalendar-akci/) je fotogalerie dvou plakátů — souhrnný roční kalendář výstav 2026 a podrobný plakát k nejbližší výstavě.",
+   "status": "vytěženo",
+   "note": "Přidáno uživatelem 24. 9. 2026 — organizace založena do lide/organizations.json, výbor spolku (4 osoby s funkcí) doplněn do lide/people.json, 9 termínů výstav 2026 zapsáno do kalendar/akce.json jako pořadatel szm-pecky."
+  },
+  {
+   "id": "web-afkpecky-cz",
+   "name": "AFK Pečky — oficiální web fotbalového klubu",
+   "url": "https://www.afkpecky.cz/",
+   "category": "oficiální · spolek",
+   "description": "Web fotbalového klubu AFK Pečky (založen 1908), městský stadion v Barákově ulici. Sedm týmů od mladší přípravky po A tým mužů (7. liga, skupina C), u každého rozpis zápasů, tabulka, soupiska a novinky; klubové aktuality.",
+   "status": "ověřeno",
+   "note": "Přidáno uživatelem 24. 9. 2026 spolu s facebook-afk-pecky a instagram-afk-pecky. Průzkum pro Kalendář týž den: web běží na platformě webyprokluby.cz. Nejužitečnější jsou stránky /<tým>/zapasy/ (a-tym, b-tym, starsi-dorost, starsi-zaci, mladsi-zaci, starsi-pripravka, mladsi-pripravka) — celý podzimní rozpis mistrovských utkání s datem, časem výkopu, soupeřem a hřištěm (domácí = „Barákova ul., Pečky“); k 24. 9. 2026 celkem 52 nadcházejících zápasů, z toho 24 doma; hráno v Pečkách se počítá podle hřiště, ne podle pořadí týmů. Stránky /<tým>/kalendar/ jsou jen JS vykreslení téhož rozpisu, bez exportu iCal. Rubrika Aktuality (/co-se-u-nas-deje/) nese víkendové programy a klubové akce (např. Zlaté pondělí 28. 9. 2026 od 14:00 na hřišti v rámci posvícení). Stránka Areál vkládá veřejný Google kalendář „Rozpis UMT“ (pq2oqsf8ip8pu4jkb9nql61a6k@group.calendar.google.com, iCal feed funguje) — jde ale o rezervace umělé trávy pro tréninky (90 záznamů, poslední únor 2026), ne veřejné akce. Zapojeno do Kalendáře týž den (rozhodl uživatel): domácí zápasy všech 7 týmů stahuje kalendar/scripts/fetch-afk-zapasy.py do kalendar/afk-zapasy.json (41 zápasů v Pečkách k 24. 9. 2026, vč. odehraných), klubové akce z Aktualit se zapisují do kalendar/akce.json (první: Zlaté pondělí 28. 9. 2026). Týdenní kontrola, viz kalendar/README.md → „Zápasy AFK Pečky“. Vytěženo i do sekce Lidé (24. 9. 2026): stránky /vedeni-klubu/ a /<tým>/realizacni-tym/ — 3 členové výkonného výboru a 18 členů realizačních týmů, vazby na organizaci afk-pecky v lide/affiliations.json. Realizační týmy web uvádí jen pro sezónu 2025/2026, soupisky hráčů se záměrně nepřebírají (u mládeže jde o děti)."
+  },
+  {
+   "id": "facebook-afk-pecky",
+   "name": "Facebook — AFK Pečky",
+   "url": "https://www.facebook.com/p/AFK-Pe%C4%8Dky-100057262787888",
+   "category": "sociální síť · spolek",
+   "description": "Oficiální facebooková stránka fotbalového klubu AFK Pečky (649 sledujících k 24. 9. 2026), odkazuje na afkpecky.cz.",
+   "status": "nevytěženo",
+   "note": "Přidáno uživatelem 24. 9. 2026. Bez přihlášení (Browser pane) se zobrazí jen úvodní informace, příspěvky ne — číst přes claude-in-chrome. Data posledního příspěvku zatím nezjištěno."
+  },
+  {
+   "id": "instagram-afk-pecky",
+   "name": "Instagram — AFK Pečky",
+   "url": "https://www.instagram.com/afk_pecky/",
+   "category": "sociální síť · spolek",
+   "description": "Instagramový profil A týmu AFK Pečky (338 sledujících, 80 příspěvků k 24. 9. 2026), adresa Barákova 993, Pečky.",
+   "status": "nevytěženo",
+   "note": "Přidáno uživatelem 24. 9. 2026. Datum posledního příspěvku zatím nezjištěno (spolehlivě jen ze stránky příspěvku /p/<kód>/, viz o-webu/automation-socialni-site.md)."
+  },
+  {
+   "id": "web-minigolf-pecky",
+   "name": "Minigolfclub Dráčata Pečky — web",
+   "url": "https://minigolf-pecky.webnode.cz/",
+   "category": "spolek",
+   "description": "Webnode web minigolfového oddílu (viz lide/organizations.json → minigolfclub-dracata-pecky). Úvodní stránka má aktuální otvírací dobu veřejného hřiště u Benešáku; „Turnaje“ (/turnaje/) rozpis ligových turnajů roku 2026 po měsících (u domácích dubnových s daty, jinak jen místo); „O nás“ a „Služby“ popisují tréninky dětí. Aktuality ani RSS se neaktualizují (jediná zpráva z 27. 1. 2014); podstránka Služby → Nábory má zastaralé/rozporné údaje (čtvrteční trénink).",
+   "status": "vytěženo",
+   "note": "Přidáno uživatelem 24. 9. 2026 — organizace, předsedkyně (ARES) a trenér (Pečecké noviny 9/2025) do sekce Lidé, 3 domácí turnaje z dubna 2026, víkendové otevření hřiště do 1. 10. a pondělní tréninky dětí do kalendar/akce.json."
+  },
+  {
+   "id": "facebook-hostinec-u-strikacky",
+   "name": "Facebook — Hostinec „U Stříkačky“",
+   "url": "https://www.facebook.com/profile.php?id=61552053562486",
+   "category": "sociální síť · podnik",
+   "description": "Facebookový profil hospody „Restaurace Stříkačka – HOSPŮDKA U HASIČŮ“, V. B. Třebízského 84, Pečky (517 sledujících k 24. 9. 2026). Soukromý podnik, ne městská ani spolková organizace.",
+   "status": "nevytěženo",
+   "note": "Přidáno uživatelem 24. 9. 2026. Zkontrolováno pro sekci Kalendář týž den: záložka Události má jen dvě staré položky (Uzená kýta 9/2024, Svatomartinská Husa 11/2023), nic nadcházejícího; posledních ~5 příspěvků jsou výhradně denní jídelní lístky bez vazby na konkrétní jednorázovou akci — nic k zápisu do kalendar/akce.json (viz kalendar/README.md → „Kulturní a společenské akce\")."
+  }
+ ]
 }
