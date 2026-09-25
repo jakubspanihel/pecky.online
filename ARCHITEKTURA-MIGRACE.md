@@ -40,6 +40,13 @@ přepnuty na `''`/`'https://dopecek.cz'`, žádná subcesta se už
 nepřepisuje ani lokálně nesimuluje (`scripts/serve.py` teď servíruje
 přímo z kořene).
 
+Dodatek 4 (24. 9. 2026): rebrand „Pečky online" → „Do Peček . cz"
+zrušil i webová písma — sekce 5 níže ještě zmiňuje Fraunces + IBM Plex
+z Google Fonts CDN, to je od tohoto data neaktuální. Web teď jede jen
+na systémových písmech (`system-ui` pro text, `ui-serif`/Georgia pro
+nadpisy, systémové neproporcionální — proměnné `--font-*` v
+`assets/styles.css`), žádné externí závislosti.
+
 ## 1. Současný stav (fakta)
 
 - Jeden soubor `index.html`, 13 panelů (`data-panel`), přepínaných JS.
@@ -216,9 +223,9 @@ Tenhle redirect snippet by měl zůstat natrvalo, ne jen po dobu migrace.
   `content/<sekce>.html`, ne přímo v kořenovém `index.html`.
 - Git/GitHub publikační workflow („Publikuj" jako explicitní spouštěč,
   token z `.github-pat`) — beze změny.
-- Vizuální styl (pergamenově-úřední, Fraunces + IBM Plex) — jen se CSS
-  přesune z `<style>` v hlavičce do `assets/styles.css`, obsahově beze
-  změny.
+- Vizuální styl (pergamenově-úřední, ~~Fraunces + IBM Plex~~ — od
+  24. 9. 2026 jen systémová písma, viz Dodatek 4) — jen se CSS přesune
+  z `<style>` v hlavičce do `assets/styles.css`, obsahově beze změny.
 
 ## 6. Doporučené pořadí, až se půjde do realizace
 
