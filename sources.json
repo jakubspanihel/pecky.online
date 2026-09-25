@@ -772,6 +772,24 @@
    "description": "Facebookový profil tanečního studia DSA Plaňany (595 sledujících k 25. 9. 2026).",
    "status": "vytěženo",
    "note": "Přidáno uživatelem 25. 9. 2026. Plakát náboru (příspěvek 27. 8. 2026) potvrzuje rozpis skupin trénujících v KS Pečky (úterý, doplněno o čtvrtek z webu) — použito jako doplňkový doklad k web-studioanet-cz."
+  },
+  {
+   "id": "web-dcglow-cz",
+   "name": "DC Glow — oficiální web",
+   "url": "https://www.dcglow.cz",
+   "category": "spolek",
+   "description": "Web taneční skupiny DC GLOW, z.s. (viz lide/organizations.json → dc-glow), založené 2009 pod záštitou Kulturního střediska města Pečky (disco dance, show dance, disco duo/sólo).",
+   "status": "vytěženo",
+   "note": "Přidáno uživatelem 25. 9. 2026. Dynamický obsah (`/kalendar-akci/`, `/aktuality/`, `/dokumenty-ke-stazeni/`) neaktualizovaný od sezóny 2022/2023 — poslední aktualita i dokumenty jsou z roku 2022/2023, kalendář akcí (JS widget) nemá žádnou událost v žádném zkontrolovaném měsíci 2026. Statické stránky (`/o-nas/`, `/vekove-kategorie/`) jsou obecné, bez rozvrhu hodin. Klub je přitom prokazatelně aktivní (viz facebook-dcglow) — rozpor mezi neudržovaným webem a živým Facebookem, ne mezi neexistencí klubu a existencí; nepodařilo se ale dohledat aktuální den/čas tréninku pro zápis do kalendar/akce.json, zůstává jako mezera."
+  },
+  {
+   "id": "facebook-dcglow",
+   "name": "Facebook — DC GLOW",
+   "url": "https://www.facebook.com/www.dcglow.cz/",
+   "category": "sociální síť · spolek",
+   "description": "Facebookový profil taneční skupiny DC GLOW (544 sledujících k 25. 9. 2026). Aktivní — poslední příspěvek 2. 9. 2026 (Letní soustředění Harcov 2026), titulní foto zmiňuje umístění na soutěži v Příbrami.",
+   "status": "nevytěženo",
+   "note": "Přidáno uživatelem 25. 9. 2026. Záložka Události jen minulé (naposledy nábor květen 2023), fotogalerie jen z letního soustředění Harcov (žádný plakát s rozvrhem/nábory pro sezónu 2026/2027). Feed se dál nenačetl (stejné technické omezení jako u jiných FB stránek v tomto repu) — kontrolovat znovu při další pravidelné kontrole, zejména kolem září/října na plakát náboru."
   }
  ]
 }

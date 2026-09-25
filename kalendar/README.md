@@ -1041,6 +1041,22 @@ seznam místo rozházených poznámek po repu.
     archiv do roku 2025, sezóna 2026/2027 v ní zatím není; přesné datum
     zahájení pravidelných tréninků po náboru (8. a 15. 9. 2026) web
     neuvádí, zapsáno od nejbližšího úterý/čtvrtku k datu zjištění.
+  - **DC GLOW** (`web-dcglow-cz` + `facebook-dcglow`, 544 sledujících na
+    FB, přidáno uživatelem 25. 9. 2026) — taneční skupina založená 2009
+    přímo pod záštitou Kulturního středisku města Pečky
+    (`lide/organizations.json` → `dc-glow`, IČO 21862184). **Přiznaná
+    mezera, nic nezapsáno:** klub je prokazatelně aktivní (Facebook má
+    čerstvý příspěvek o letním soustředění v Harcově, titulní foto
+    zmiňuje umístění na soutěži v Příbrami), ale ani jeden zdroj
+    neposkytl aktuální den/čas pravidelného tréninku pro zápis do
+    `kalendar/akce.json` — web (`/kalendar-akci/`, `/aktuality/`,
+    `/dokumenty-ke-stazeni/`) má dynamický obsah neaktualizovaný od
+    sezóny 2022/2023, FB záložka Události končí náborem z května 2023
+    a fotogalerie má jen fotky ze soustředění, žádný plakát s rozpisem.
+    **Kontrola při příštím běhu:** zkusit znovu FB feed (nedonačetl se
+    dál než na jeden příspěvek, stejné technické omezení jako jinde
+    v repu) a hlavně sledovat září/říjen na plakát náboru pro další
+    sezónu — přesně to, co u Studio Anet a VLCI Pečky fungovalo.
 
   Proto `evidence` pole a ne jedno pole se zdrojem — nový zdroj přibývá
   stejným způsobem jako výše.
