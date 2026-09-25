@@ -975,11 +975,31 @@ přes prohlížeč, který bot ochranu neblokuje)
 
 ## Publikování na GitHub Pages
 
-1. Vytvořte nový repozitář (např. `pecky-online`)
-2. Před nahráním spusťte `python3 scripts/build.py` — vygeneruje
-   `index.html`, `jednani/`, `noviny/`, `volby/2018/` atd. ze
-   `content/*.html`. Nahrajte celý výsledek (vygenerované stránky,
-   `assets/`, složky sekcí jako `jednani/`, `noviny/`,
-   `zakazky/` a další) do kořene repozitáře
-3. Settings → Pages → source: `main` branch, root
-4. Web poběží na `https://<vaše-uživatelské-jméno>.github.io/pecky-online/`
+Web běží na **https://dopecek.cz** z GitHub Pages tohoto repa
+(`jakubspanihel/pecky.online`). Nasazení je automatické, žádné vlastní
+workflow v repu není (`.github/workflows/` neexistuje).
+
+**Jak se web dostane ven:**
+1. Úprava zdroje: `content/<sekce>.html`, `assets/*`, data sekce atd.
+2. Lokálně `python3 scripts/build.py`. Na GitHubu build **neběží** —
+   vygenerované stránky (`index.html`, `<sekce>/index.html`,
+   `sitemap.xml`, `robots.txt`) se commitují hotové. Bez buildu zůstane
+   na webu stará verze, i když je upravený zdroj v repu.
+3. Commit a push do `main` (přímo, nebo merge PR).
+4. GitHub po každém pushi do `main` sám spustí vestavěnou akci
+   **„pages build and deployment"** a obsah `main` zkopíruje na web.
+   Trvá to zhruba 3 minuty. Běhy a jejich výsledek jsou v záložce
+   [Actions](https://github.com/jakubspanihel/pecky.online/actions).
+
+**Nastavení, na kterém to stojí:**
+- Settings → Pages → Build and deployment: *Deploy from a branch*,
+  větev `main`, složka `/ (root)`.
+- `CNAME` v kořeni repa (`dopecek.cz`) určuje vlastní doménu. Nemazat
+  — bez něj Pages spadnou zpět na `jakubspanihel.github.io/pecky.online/`,
+  kde by kořenově-absolutní odkazy (`SITE_BASE_PATH = ''` ve
+  `scripts/build.py`) nefungovaly.
+- `.nojekyll` v kořeni vypíná Jekyll: soubory se servírují tak, jak
+  jsou, včetně složek a souborů začínajících podtržítkem.
+
+Lokální náhled před pushem: `python3 scripts/serve.py`
+a `http://localhost:8000/` (viz začátek tohoto README).
