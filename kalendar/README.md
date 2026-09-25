@@ -946,6 +946,34 @@ seznam místo rozházených poznámek po repu.
     Organizaci v `lide/organizations.json` zatím nezakládat (žádná
     akce, kterou by měla pořádat) — první výskyt konkrétní akce založí
     pořadatele podle kroku 3b v `automation-plakat-akce.md`.
+  - **FitPecky.cz** (`facebook-fitpecky-cz`, 1,2 tis. sledujících,
+    přidáno uživatelem 25. 9. 2026) — prodejna zdravé výživy, bezobalu
+    a ekodrogerie s občerstvením, Masarykovo náměstí / V. B. Třebízského
+    656, Pečky (`lide/organizations.json` → `fitpecky-cz`, provozovatelka
+    Radana Honsová, tatáž osoba jako u Nejen kavárna u Radu níže, jiná
+    provozovna). Záložka Události má jen proběhlé přednášky a workshopy
+    (naposled „Imagine Medicine" a „Umění degustace", dál zpět „Aby záda
+    nebolela", „Reflexní terapie pro každý den", „Jóga se snídaní",
+    cyklovýlet, běžecká akce), žádná záložka „Nadcházející"; poslední
+    vlastní příspěvek 5. 7. 2026. Podnik přednášky/workshopy občas
+    pořádá, jen zrovna žádnou nemá ohlášenou — nic k zápisu, zkontrolovat
+    znovu při další kontrole.
+  - **Nejen kavárna u Radu** (`instagram-nejenkavarnauradu`, 508
+    sledujících, přidáno uživatelem 25. 9. 2026) — kavárna, V. B.
+    Třebízského 656, Pečky (`lide/organizations.json` →
+    `nejen-kavarna-u-radu`, provozovatelka Radana Honsová). Mřížka má
+    několik plakátů na vlastní akce, všechny ale s termínem v minulosti:
+    „Podzim a péče o sebe" (ajurvédská přednáška) na plakátu uvádí jen
+    „22. října" bez roku — **popisek příspěvku (čtený přes meta tagy
+    stránky, plakát samotný rok neuvádí) potvrzuje 22. 10. 2025, ne
+    2026** (dobrá připomínka nespoléhat na plakát samotný, je-li rok
+    nejistý); „Povídání o Mongolsku" 4. 10. 2025; „Becherovka Park
+    Lounge" 18. 4. 2026; „Poznávačka" (spoluúčast s KC Pramínek a
+    Pečeckým okrašlovacím spolkem) odkazovala na termíny 13. a 19. 9.
+    2026 — všechny k datu kontroly proběhlé. Ajurvédská přednáška se
+    koná opakovaně na podzim („Tradičně netradiční") — vydání pro podzim
+    2026 zatím neohlášené, zkontrolovat znovu při další kontrole. Nic
+    aktuálního k zápisu.
 
   Proto `evidence` pole a ne jedno pole se zdrojem — nový zdroj přibývá
   stejným způsobem jako výše.

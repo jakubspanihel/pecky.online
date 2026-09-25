@@ -219,7 +219,7 @@
       const denNazev = dny[new Date(e.date + 'T12:00:00').getDay()];
       const datum = kalFmtRange(e) || `${parseInt(dd, 10)}. ${parseInt(mm, 10)}.`;
       // čas jen když ho zdroj uvádí — jinak se o čase nepíše nic
-      const cas = e.time ? ` · <span class="akce-cas">${kalEsc(e.time)}</span>` : '';
+      const cas = e.time ? `<span class="akce-cas">${kalEsc(e.time)}</span>` : '';
       const stitek = e.category === 'kurz' ? ' <span class="tag">kurz</span>'
         : e.category === 'svoz' ? ' <span class="tag">svoz</span>' : '';
       const cizi = e.link && /^https?:\/\//.test(e.link) ? ' target="_blank" rel="noopener"' : '';
@@ -228,18 +228,21 @@
         : kalEsc(e.title);
       // popis shodný s místem (typicky svoz) nezobrazovat dvakrát
       const popis = e.description && e.description !== e.place ? `<p class="akce-popis">${kalEsc(e.description)}</p>` : '';
-      // pořadatel jako barevný chip na konci řádku s datem (jen u akcí/kurzů/svozů —
+      // pořadatel jako prostý řádek na konci bloku (jen u akcí/kurzů/svozů —
       // u jednání a voleb je pořadatelem vždy město)
       const porada = kalMaPoradatele(e) && e.organizer_name
-        ? `<span class="akce-poradatel" title="Pořadatel" style="${kalOrgStyle(e.organizer)}">${kalEsc(e.organizer_name)}</span>` : '';
-      const metaText = e.place || '';
-      const meta = metaText ? `<span class="meta-note">${kalEsc(metaText)}</span>` : '';
+        ? `<p class="akce-poradatel">Pořádá: ${kalEsc(e.organizer_name)}</p>` : '';
+      // čas a místo konání na vlastním řádku pod datem, oddělené tečkou
+      const misto = e.place ? `<span class="meta-note">${kalEsc(e.place)}</span>` : '';
+      const kdeKdy = [cas, misto].filter(Boolean).join(' · ');
+      const meta = kdeKdy ? `<div class="akce-kdekdy">${kdeKdy}</div>` : '';
       const pozn = e.note ? `<span class="meta-note akce-pozn">${kalEsc(e.note)}</span>` : '';
       const barva = kalMaPoradatele(e) && e.organizer ? ` style="${kalOrgStyle(e.organizer)}"` : '';
       return `<article class="akce-blok akce-blok-${e.category}"${barva}>
-        <div class="akce-kdy"><span><strong>${denNazev} ${datum}</strong>${cas}</span>${porada}</div>
+        <div class="akce-kdy"><strong>${datum} ${denNazev}</strong></div>
+        ${meta}
         <h3 class="akce-nazev">${nazev}${stitek}</h3>
-        ${popis}${meta}${pozn}
+        ${popis}${pozn}${porada}
       </article>`;
     }).join('');
 
