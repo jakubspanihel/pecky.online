@@ -1,7 +1,9 @@
 # Instrukce k sekci: Volby 2026 (panel `volby2026`)
 
-Referenční dokument pro práci na panelu `panel-volby2026` v `index.html`
-webu pecky.online. Doplňuje obecné instrukce projektu i společný rozcestník
+Referenční dokument pro práci na panelu `panel-volby2026`
+(obsah v `content/volby2026.html`, generuje se do veřejné stránky
+`/volby/2026/`, viz `scripts/build.py`). Doplňuje obecné instrukce
+projektu i společný rozcestník
 [`volby/README.md`](../README.md) — tohle je detail jen pro tenhle
 ročník.
 

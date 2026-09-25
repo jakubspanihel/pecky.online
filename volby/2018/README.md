@@ -1,7 +1,9 @@
 # Instrukce k sekci: Volby 2018 (panel `volby2018`)
 
-Referenční dokument pro práci na panelu `panel-volby2018` v `index.html`
-webu pecky.online. Doplňuje obecné instrukce projektu i společný rozcestník
+Referenční dokument pro práci na panelu `panel-volby2018`
+(obsah v `content/volby2018.html`, generuje se do veřejné stránky
+`/volby/2018/`, viz `scripts/build.py`). Doplňuje obecné instrukce
+projektu i společný rozcestník
 [`volby/README.md`](../README.md) — tohle je detail jen pro tenhle
 ročník.
 
