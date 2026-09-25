@@ -1027,6 +1027,20 @@ seznam místo rozházených poznámek po repu.
     Kulturního střediska (23. 9., 9. 9.), pozvánka na zasedání ZM
     6/2026 (16. 9., pokrývá Jednání) a Postřižinská Dočesná — pivovarní
     festival v Nymburku, mimo Pečky/Dobřichov.
+  - **Studio Anet** (`web-studioanet-cz` + `facebook-studioanett`, 595
+    sledujících na FB, přidáno uživatelem 25. 9. 2026) — taneční studio
+    DSA Plaňany, z.s. (`lide/organizations.json` → `dsa-planany`, sídlo
+    v Tatcích, IČO 17387884). Polovina skupin trénuje v Tatcích, ale
+    **úterní a čtvrteční skupiny (Junioři B, Juniorky A, BOMBY/rodiče,
+    Hlaváci) trénují v Kulturním středisku Pečky** — proto v rozsahu
+    webu i přes sídlo mimo Pečky/Dobřichov (viz i BK Pečky výše, stejný
+    princip: pořadatel odjinud, akce v Pečkách). Rozpis pro sezónu
+    2026/2027 z domovské stránky webu (potvrzený plakátem náboru na FB)
+    — 4 skupiny × úterý/čtvrtek = **288 týdenních záznamů** `kurz` do
+    30. 6. 2027. Podstránka `/kalendar-akci` webu je jen historický
+    archiv do roku 2025, sezóna 2026/2027 v ní zatím není; přesné datum
+    zahájení pravidelných tréninků po náboru (8. a 15. 9. 2026) web
+    neuvádí, zapsáno od nejbližšího úterý/čtvrtku k datu zjištění.
 
   Proto `evidence` pole a ne jedno pole se zdrojem — nový zdroj přibývá
   stejným způsobem jako výše.
@@ -1066,7 +1080,9 @@ seznam místo rozházených poznámek po repu.
   (20. 9. 2026), firma `hospoda-na-hristi-pecky` (22. 9. 2026, IČO se
   nepodařilo dohledat — pořadatel i bez něj), spolek `szm-pecky`
   (24. 9. 2026), spolek `minigolfclub-dracata-pecky` (24. 9. 2026), spolek
-  `bk-pecky` (25. 9. 2026, IČO 27031250 dle Hlídače státu). Pro jednorázového
+  `bk-pecky` (25. 9. 2026, IČO 27031250 dle Hlídače státu), spolek
+  `dsa-planany` (25. 9. 2026, IČO 17387884 dle Hlídače státu — sídlo
+  v Tatcích, ale tréninky dvou dní v týdnu v Pečkách). Pro jednorázového
   pořadatele mimo rejstřík (cizí divadelní soubor) slouží `organizer:
   null` + `organizer_name: "…"` textem; zakládat kvůli jedné akci
   organizaci nemá smysl, ale ztratit pořadatele taky ne.
