@@ -991,6 +991,23 @@ seznam místo rozházených poznámek po repu.
     koná opakovaně na podzim („Tradičně netradiční") — vydání pro podzim
     2026 zatím neohlášené, zkontrolovat znovu při další kontrole. Nic
     aktuálního k zápisu.
+  - **PEČKY město v Polabí** (`facebook-pecky-mesto-v-polabi`, 1,5 tis.
+    sledujících, přidáno uživatelem 25. 9. 2026) — regionální komunitní
+    stránka (vede Michal Müller), **výslovně ne oficiální profil MÚ
+    Pečky**, hlavně sdílí příspěvky jiných stránek. Záložka Události má
+    jen minulé (naposledy 2023), nic nadcházejícího. Z fotogalerie (8
+    fotek celkem) jeden nový nález: plakát náboru **„VLCI Pečky“** —
+    basketbalový oddíl TJ Sokol Pečky, trénink každý pátek 15:00–16:00
+    v Park Hale Pečky (sportovní hala), trenér Zdeněk Fejfar, pro
+    ročník 2017–2020 — **doplňuje dřív zjištěnou mezeru** „Basketbal —
+    městská sportovní hala: rozpis samostatně" z Pečeckých novin 9/2026
+    (viz `kalendar/akce.json`, 35 týdenních záznamů `kurz` do 30. 6.
+    2027, organizer `tj-sokol-pecky`); přesné datum zahájení tréninků
+    plakát neuvádí, zapsáno od nejbližšího pátku k datu zjištění.
+    Zbytek fotogalerie beze změny k zápisu: dvě už proběhlé přednášky
+    Kulturního střediska (23. 9., 9. 9.), pozvánka na zasedání ZM
+    6/2026 (16. 9., pokrývá Jednání) a Postřižinská Dočesná — pivovarní
+    festival v Nymburku, mimo Pečky/Dobřichov.
 
   Proto `evidence` pole a ne jedno pole se zdrojem — nový zdroj přibývá
   stejným způsobem jako výše.
