@@ -128,14 +128,13 @@ git fetch "https://x-access-token:${PAT}@github.com/jakubspanihel/pecky.online.g
   main:refs/remotes/origin/main --force
 ```
 
-- Push přes pojmenovaný `origin` selže na chybějící přihlášení; posílat
-  na explicitní URL s tokenem. Token nikdy nevypisovat do výstupu —
-  filtrovat přes `sed -e "s|${PAT}|***|g"`.
-- Hláška `git: 'credential-osxkeychain' is not a git command` je
-  **neškodná** — repo má v konfiguraci macOS credential helper, který
-  v linuxovém sandboxu neexistuje. Push i tak projde.
-- Bez toho `fetch` výše bude `git status -sb` tvrdit „ahead N", i když
-  je vše nahrané. Není to chyba pushe, jen zastaralý `origin/main`.
+- Push přes pojmenovaný `origin` selže na chybějící přihlášení — posílat
+  na explicitní URL s tokenem (bez toho i `git status -sb` po pushi
+  mylně tvrdí „ahead N", proto ten `fetch` výše). Token nikdy
+  nevypisovat do výstupu — filtrovat přes `sed -e "s|${PAT}|***|g"`.
+  Hláška `git: 'credential-osxkeychain' is not a git command` je
+  neškodná (macOS credential helper v linuxovém sandboxu neexistuje) —
+  push i tak projde.
 - Commit vždy s popisnou zprávou přes `-F soubor` (víceřádkové české
   zprávy v `-m` se v shellu lámou), autor
   `Jakub Španihel <jakubspanihel@gmail.com>`.
