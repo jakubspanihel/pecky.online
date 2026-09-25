@@ -801,6 +801,23 @@ seznam místo rozházených poznámek po repu.
     claude-in-chrome netřeba) a srovnat se zapsanými záznamy. Aktuálnější
     zprávy (výsledky, plány turnajů) píše předsedkyně Věra Šuková do
     rubriky Spolky/Sport v Pečeckých novinách — kontrolovat i tam.
+  - **Pečecká desítka** — [pecky10km.cz](https://www.pecky10km.cz)
+    (`sources.json` → `web-pecky10km-cz`, `organizer: bk-pecky`), zapojeno
+    25. 9. 2026 na žádost uživatele. Tradiční silniční běh na 10 km
+    (Memoriál Jardy Kvačka), pravidelně **druhá sobota v březnu** — termín
+    ověřený nezávisle za roky 2023 (11. 3.), 2024 (9. 3.), 2025 (8. 3.) a
+    2026 (14. 3.); zapsáno 5 termínů (43.–47. ročník), vč. už oznámeného
+    47. ročníku 13. 3. 2027 (bez propozic, viz `note` u záznamu).
+    **Kontrola nového ročníku (POVINNÉ při každém běhu):** hlavní stránka
+    pecky10km.cz má vpravo blok „Krátce“ s aktuálním datem nejbližšího
+    závodu a stavem registrace — nejrychlejší způsob, jak zjistit, jestli
+    přibyl nový ročník nebo se up­řesnily propozice (startovné, kapacita,
+    čas startu). Web má nespolehlivé routování (odkazy z domovské stránky
+    občas vedou zpět na ni, přímé URL typu `/index.php/propozice-2026`
+    fungují nekonzistentně) — při potížích zkusit Facebook
+    (`facebook-pececkadesitka`) nebo dohledat přes Google. Jakmile web
+    zveřejní propozice na další ročník (obvykle na podzim předchozího
+    roku), doplnit/upřesnit záznam (čas startu, startovné se nezapisuje).
   - **Street Food Festiválek Pečky** (17. 10. 2026, Kulturní dům) —
     zapsáno 23. 9. 2026 přímo z odkazu na Facebook událost, který zadal
     uživatel. Pořádá externí firma **City Event** (celostátní přehlídka
@@ -967,7 +984,8 @@ seznam místo rozházených poznámek po repu.
   spolu s Kalendářem: spolky `tj-sokol-pecky` a `pececky-okraslovaci-spolek`
   (20. 9. 2026), firma `hospoda-na-hristi-pecky` (22. 9. 2026, IČO se
   nepodařilo dohledat — pořadatel i bez něj), spolek `szm-pecky`
-  (24. 9. 2026), spolek `minigolfclub-dracata-pecky` (24. 9. 2026). Pro jednorázového
+  (24. 9. 2026), spolek `minigolfclub-dracata-pecky` (24. 9. 2026), spolek
+  `bk-pecky` (25. 9. 2026, IČO 27031250 dle Hlídače státu). Pro jednorázového
   pořadatele mimo rejstřík (cizí divadelní soubor) slouží `organizer:
   null` + `organizer_name: "…"` textem; zakládat kvůli jedné akci
   organizaci nemá smysl, ale ztratit pořadatele taky ne.

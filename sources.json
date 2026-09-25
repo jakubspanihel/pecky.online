@@ -1,7 +1,7 @@
 {
  "project": "Do Peček . cz",
  "description": "Seznam zdrojů, ze kterých Do Peček . cz čerpá nebo může čerpat informace o samosprávě města Pečky.",
- "last_updated": "2026-09-24",
+ "last_updated": "2026-09-25",
  "sources": [
   {
    "id": "pecky-cz",
@@ -709,6 +709,24 @@
    "description": "Facebookový profil hospody „Restaurace Stříkačka – HOSPŮDKA U HASIČŮ“, V. B. Třebízského 84, Pečky (517 sledujících k 24. 9. 2026). Soukromý podnik, ne městská ani spolková organizace.",
    "status": "nevytěženo",
    "note": "Přidáno uživatelem 24. 9. 2026. Zkontrolováno pro sekci Kalendář týž den: záložka Události má jen dvě staré položky (Uzená kýta 9/2024, Svatomartinská Husa 11/2023), nic nadcházejícího; posledních ~5 příspěvků jsou výhradně denní jídelní lístky bez vazby na konkrétní jednorázovou akci — nic k zápisu do kalendar/akce.json (viz kalendar/README.md → „Kulturní a společenské akce\")."
+  },
+  {
+   "id": "web-pecky10km-cz",
+   "name": "Pečecká desítka — oficiální web",
+   "url": "https://www.pecky10km.cz",
+   "category": "sportovní akce",
+   "description": "Web tradičního běžeckého závodu Pečecká desítka — Memoriál Jardy Kvačka (10 km, každoročně druhá sobota v březnu). Propozice, historie závodu (od roku 1975/1980), výsledky a fotky jednotlivých ročníků. Sidebar „Krátce“ na hlavní stránce vždy uvádí datum nejbližšího/příštího ročníku a stav registrace — nejspolehlivější místo pro kontrolu nového data.",
+   "status": "vytěženo",
+   "note": "Přidáno uživatelem 25. 9. 2026. Pořádá BK Pečky z.s. (viz lide/organizations.json → bk-pecky). Weby jednotlivých ročníků (URL vzor /domains/pecky10km.cz/index.php/propozice-YYYY) přímým odkazem nekonzistentně fungují (občas 404) — spolehlivější je dohledat přes hlavní stránku nebo přes Google."
+  },
+  {
+   "id": "facebook-pececkadesitka",
+   "name": "Facebook — Pečecká desítka",
+   "url": "https://www.facebook.com/Pececkadesitka/",
+   "category": "sociální síť · sportovní akce",
+   "description": "Facebookový profil běžeckého závodu Pečecká desítka (1,2 tis. sledujících k 25. 9. 2026).",
+   "status": "vytěženo",
+   "note": "Přidáno uživatelem 25. 9. 2026."
   }
  ]
 }
