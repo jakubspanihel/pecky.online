@@ -8,16 +8,32 @@ viz proměnné `--font-*` v `assets/styles.css`). Jediný
 výstup jsou čisté statické soubory pro GitHub Pages.
 
 ## Struktura (od migrace 30. 8. 2026 — viz ARCHITEKTURA-MIGRACE.md)
-16 sekcí, každá vlastní adresář/URL: Domů (`/`), Lidé (`/lide/`), Plán
-(`/plan/`), Tělocvična (`/telocvicna/`), Volby (`/volby/`) a Volby 2018/2022/2026
-(`/volby/2018/` atd.), Jednání (`/jednani/`), Smlouvy (`/smlouvy/`),
-Zakázky (`/zakazky/`), Pozemky (`/pozemky/`), Pokladna (`/pokladna/`),
-Kalendář (`/kalendar/`), Pečecké noviny (`/noviny/`), O webu (`/o-webu/`).
-Styl: pergamenově-úřední (jen systémová písma: `system-ui` pro text, `ui-serif`/Georgia pro nadpisy, systémové neproporcionální), `assets/styles.css`.
+Vícestránkový statický web, žádný runtime framework. Styl: pergamenově-
+úřední, jen systémová písma (`system-ui` pro text, `ui-serif`/Georgia pro
+nadpisy, systémové neproporcionální). Každá sekce má vlastní adresář/URL,
+generovaný `index.html` (needit — přepíše ho příští build, viz níže) a
+`README.md` (hlavní referenční dokument pro práci na sekci, načíst vždy
+jako první):
 
-**Needit přímo vygenerované `<sekce>/index.html` soubory** (přepíše je
-příští build) **ani kořenový `index.html`** (to je teď vygenerovaný
-výstup pro Domů). Místo toho:
+| Sekce | URL | Dokumentace |
+|---|---|---|
+| Domů | `/` | `domu/README.md` |
+| Lidé | `/lide/` | `lide/README.md` (+ `SPEC.md`; `people.json`/`organizations.json`/`affiliations.json`, kontrola `node lide/validate.mjs`) |
+| Plán | `/plan/` | `plan/README.md` |
+| Tělocvična | `/telocvicna/` | `telocvicna/README.md` |
+| Volby | `/volby/` | `volby/README.md` (rozcestník) |
+| Volby 2018/2022/2026 | `/volby/2018/` atd. | `volby/<rok>/README.md` |
+| Jednání | `/jednani/` | `jednani/README.md` (+ `SPEC.md`, `automation-kontrola-usneseni-cz.md`, `automation-katastr-parcely.md`) |
+| Smlouvy | `/smlouvy/` | `smlouvy/README.md` |
+| Zakázky | `/zakazky/` | `zakazky/README.md` |
+| Pozemky | `/pozemky/` | `pozemky/README.md` |
+| Pokladna | `/pokladna/` | `pokladna/README.md` |
+| Kalendář | `/kalendar/` | `kalendar/README.md` (+ `automation-plakat-akce.md`) |
+| Pečecké noviny | `/noviny/` | `noviny/README.md` |
+| O webu | `/o-webu/` | `o-webu/README.md` (+ `automation-socialni-site.md`) |
+
+**Needit přímo vygenerované `<sekce>/index.html` soubory ani kořenový
+`index.html`** (výstup pro Domů). Místo toho:
 - obsah sekce → `content/<sekce>.html` (jen tělo panelu)
 - sdílená navigace/patička → `assets/nav.html` / `assets/footer.html`
 - sdílené CSS → `assets/styles.css`
@@ -28,10 +44,18 @@ výstup pro Domů). Místo toho:
   funkce sdílené mezi Jednáním/Novinami/Lidmi → `assets/helpers.js`;
   JS specifický pro jednu sekci žije přímo v `content/<sekce>.html`
 - pak spustit `python3 scripts/build.py` (validuje HTML/JS a přegeneruje
-  všech 13 stránek + `sitemap.xml`/`robots.txt`)
+  všechny stránky + `sitemap.xml`/`robots.txt`)
 
 Mapování starý slug → nová cesta (kvůli redirectu starých `#panel`
 odkazů v `content/domu.html`) je v `ARCHITEKTURA-MIGRACE.md`, sekce 2.3.
+
+Data i obrázky patří vždy do složky sekce, ke které se vážou, ne do
+kořene repa. Kořenová `img/` je jen pro celowebové obrázky bez vazby na
+sekci (`img/favicons/`, `img/peckybot/`); kořenová `data/` neexistuje a
+nezakládat ji. Odkazuje se plnou cestou od kořene repa, např.
+`volby/2022/zastupitele/paluska.jpg`. Po přesunu souboru vždy projít
+příslušný `content/<sekce>.html` a přepsat všechny odkazy, pak spustit
+`python3 scripts/build.py`.
 
 ## Konvence
 - Web celý v češtině, srozumitelným jazykem pro širokou veřejnost
@@ -79,52 +103,6 @@ odkazů v `content/domu.html`) je v `ARCHITEKTURA-MIGRACE.md`, sekce 2.3.
   ruční přepsání toho pole ve `scripts/build.py` funguje stejně jako
   přepsání řádku ve „Stav sekcí" jinde.
 
-## Dokumentace jednotlivých sekcí
-Každá sekce webu má vlastní složku `<sekce>/` se souborem `README.md` —
-hlavní referenční dokument pro práci na dané sekci, načíst ho vždy jako
-první. Stejná složka nese i vygenerovaný veřejný `index.html`
-(nedit — viz sekce Struktura výše) a u některých sekcí i doplňková
-data/skripty. Obsah sekce, který dřív žil v kořenovém `index.html`
-(jednosouborová struktura, do 30. 8. 2026), teď žije v
-`content/<sekce>.html`.
-
-Data i obrázky patří vždy do složky sekce, ke které se vážou, ne do
-kořene repa. Kořenová `img/` je jen pro celowebové obrázky bez vazby na
-sekci (`img/favicons/`, `img/peckybot/`); kořenová `data/` neexistuje a
-nezakládat ji. Odkazuje se plnou cestou od kořene repa, např.
-`volby/2022/zastupitele/paluska.jpg`. Po přesunu souboru vždy
-projít příslušný `content/<sekce>.html` a přepsat všechny odkazy, pak
-spustit `python3 scripts/build.py`.
-
-- Domů → `domu/README.md`
-- Lidé → `lide/README.md` (+ `SPEC.md`; datová sada
-  `people.json` / `organizations.json` / `affiliations.json`,
-  kontrola `node lide/validate.mjs`)
-- Plán → `plan/README.md`
-- Tělocvična → `telocvicna/README.md`
-- Volby → `volby/README.md`
-- Volby 2018 → `volby/2018/README.md`
-- Volby 2022 → `volby/2022/README.md`
-- Volby 2026 → `volby/2026/README.md`
-  (společný rozcestník pro všechny ročníky: `volby/README.md`)
-- Jednání → `jednani/README.md` (+ `SPEC.md`,
-  `automation-kontrola-usneseni-cz.md`, `automation-katastr-parcely.md`)
-- Smlouvy → `smlouvy/README.md`
-- Zakázky → `zakazky/README.md`
-- Pozemky → `pozemky/README.md`
-- Pokladna → `pokladna/README.md`
-- Kalendář → `kalendar/README.md` (+ `automation-plakat-akce.md`)
-- Pečecké noviny / Zpravodaj → `noviny/README.md`
-- O webu → `o-webu/README.md` (+ `automation-socialni-site.md`)
-
-## Známé mezery (celoprojektové)
-- ~~Kompletní seznam 21 zastupitelů~~ — uzavřeno. pecky.cz sice blokuje
-  bot přístup, ale jmenný seznam jde ověřit z prezence jednání v archivu
-  (`jednani/pecky-jednani.json`, pole `attendance.present_names`).
-  Stav při ustavení 2022 = prezence ZM 7/2022 (21/21), aktuální stav =
-  poslední jednání ZM. Uskupení u jmen ale archiv neuvádí — to zůstává
-  mezerou a dopočítává se z počtu mandátů (viz `volby/2022/README.md`).
-
 ## Poznámky k datům
 - Hlídač státu MCP: použij ICO_of_holding_structure (celá skupina),
   ne jen ICOs_of_contracting_party (jen úřad)
@@ -139,47 +117,9 @@ spustit `python3 scripts/build.py`.
   jeho úřední deska je zamrzlá na únoru/březnu 2026) — pro časově citlivý
   obsah (úřední deska, aktuality) použij pecky.cz, ne pecky.as4u.cz;
   as4u.cz zůstává užitečný pro starší/archivní obsah, viz sources.json
-- Velké soubory v `jednani/` (`archive-*.json`) čtené přímo z cesty
-  přes připojenou složku občas skončí `OSError: [Errno 35] Resource
-  deadlock avoided` (Python `open()`, `cat`, `head`...). Obejití: nejdřív
-  `cp soubor /tmp/kopie.json`, pak pracovat s kopií — `cp` samo selhání
-  nemělo. Pozn. 9. 9. 2026: při kontrolním testu se chyba nezopakovala
-  (3/3 přímá načtení `archive-2026-08-04.json` prošla), ale protože šlo
-  vždy o občasnou chybu, postup přes kopii zůstává doporučený.
-- ~~Git přes připojenou složku je nespolehlivý na čtení objektů~~ —
-  **VYŘEŠENO 9. 9. 2026.** Příčinou nebyl git, ale to, že připojená
-  složka odmítala `unlink` („Operation not permitted"): git po sobě
-  nemohl uklidit `.git/index.lock` ani rozepsané `.git/objects/tmp_obj_*`,
-  takže každý další příkaz spadl na „Another git process seems to be
-  running" nebo na `Bus error`. Mazání se zapíná nástrojem
-  `allow_cowork_file_delete` (stačí jednou, platí pro celou složku) —
-  **narazíš-li na „Operation not permitted" při `rm`, zavolej ho místo
-  hlášení, že to nejde.** Po zapnutí ověřeno, že funguje `git log --
-  cesta/k/souboru`, `git show <commit>:<soubor>` i `git diff HEAD~1 --stat`.
-  Zbytek staré poznámky ale platí dál: **historie repa sahá jen ke
-  23. 8. 2026**, starší změny v ní nejsou vůbec — na dohledání, kdy co
-  vzniklo před tímto datem, použij mtime souborů (`ls -la`, `stat`),
-  datumy uvnitř dat (`meta.generated_at`) a changelog v `README.md`.
-  Nouzové obejití, kdyby se blokované mazání někdy vrátilo: zámky
-  nemazat, ale přejmenovat (`mv .git/index.lock .git/index.lock.bak.$(date +%s%N)`)
-  — rename mount povoluje i tehdy, když unlink ne.
-- **`preview_start` s `name` (spuštění dev serveru podle `.claude/launch.json`)
-  na tomhle stroji spolehlivě padá na `[Errno 1] Operation not permitted`
-  při otevírání `scripts/serve.py`.** Diagnostikováno 14. 9. 2026: jde
-  o macOS sandbox/TCC omezení konkrétního launcher procesu, který
-  `preview_start` interně používá — ne chybu v `serve.py` ani v repu
-  (stejný soubor se bez problému spustí ručně přes Bash tool). Neřeší se
-  úpravou skriptu/configu. **Obejití:** spustit server ručně přes Bash
-  (`python3 scripts/serve.py`, typicky na pozadí), pak zavolat
-  `preview_start` s `url` (`http://localhost:8000`) místo `name` — Browser
-  pane se tak napojí na už běžící server, aniž by ho sám spouštěl. `serve.py`
-  vždy defaultuje na port 8000 a od 14. 9. 2026 je idempotentní — když je
-  port už obsazený (typicky server z předchozí relace), vypíše hlášku
-  a skončí čistě (exit 0) místo pádu na traceback, takže "jen to spusť" je
-  vždy bezpečné zavolat znovu bez kontroly předem. Tenhle postup je
-  zabalený jako projektový skill `.claude/skills/pecky-online-dev-server/`
-  (needit se přímo, `.claude/` je celé v `.gitignore`) — viz i konvence
-  pojmenování skillů níže.
+
+Provozní pasti prostředí (git deadlock na velkých souborech, pád
+`preview_start`, historie repa) a jejich obejití → `TROUBLESHOOTING.md`.
 
 ## Projektové skilly
 Všechny projektové skilly v `.claude/skills/` pojmenovávat s prefixem
@@ -204,14 +144,13 @@ git fetch "https://x-access-token:${PAT}@github.com/jakubspanihel/pecky.online.g
   main:refs/remotes/origin/main --force
 ```
 
-- Push přes pojmenovaný `origin` selže na chybějící přihlášení; posílat
-  na explicitní URL s tokenem. Token nikdy nevypisovat do výstupu —
-  filtrovat přes `sed -e "s|${PAT}|***|g"`.
-- Hláška `git: 'credential-osxkeychain' is not a git command` je
-  **neškodná** — repo má v konfiguraci macOS credential helper, který
-  v linuxovém sandboxu neexistuje. Push i tak projde.
-- Bez toho `fetch` výše bude `git status -sb` tvrdit „ahead N", i když
-  je vše nahrané. Není to chyba pushe, jen zastaralý `origin/main`.
+- Push přes pojmenovaný `origin` selže na chybějící přihlášení — posílat
+  na explicitní URL s tokenem (bez toho i `git status -sb` po pushi
+  mylně tvrdí „ahead N", proto ten `fetch` výše). Token nikdy
+  nevypisovat do výstupu — filtrovat přes `sed -e "s|${PAT}|***|g"`.
+  Hláška `git: 'credential-osxkeychain' is not a git command` je
+  neškodná (macOS credential helper v linuxovém sandboxu neexistuje) —
+  push i tak projde.
 - Commit vždy s popisnou zprávou přes `-F soubor` (víceřádkové české
   zprávy v `-m` se v shellu lámou), autor
   `Jakub Španihel <jakubspanihel@gmail.com>`.
