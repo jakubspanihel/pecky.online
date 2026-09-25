@@ -87,6 +87,10 @@
     // první užití u MŠ MAŠINKA Pečky, vlastní čipy ze stejného důvodu
     ['asistent-pedagoga', 'Asistenti pedagoga'],
     ['provozni', 'Provozní personál'],
+    // realizační týmy sportovních klubů (trenéři, asistenti, vedoucí
+    // mužstev) — první užití u AFK Pečky, doplněno 24. 9. 2026; vlastní
+    // čip a stejná skupina jako vedení organizace, přesně jako učitelé
+    ['trener', 'Trenéři'],
     // výbory nezávislých spolků (ne orgánů města) — první užití u Pečeckého
     // okrašlovacího spolku, doplněno 24. 9. 2026; vlastní čip, ale počítá
     // se do stejné skupiny jako komise (viz `_komise` v `lJoin`)
@@ -147,10 +151,12 @@
       // (vlastní role_type od 22. 9. 2026, viz lide/README.md) ze stejného
       // důvodu patří do téže skupiny jako učitelé a vedení. Stejně tak
       // asistent-pedagoga a provozni (MŠ MAŠINKA Pečky, doplněno 22. 9. 2026).
+      // Trenéři (AFK Pečky, doplněno 24. 9. 2026) stejně jako učitelé: vlastní
+      // čip, ale do skupiny k vedení své organizace.
       p._organizace = p._affs.find(a => a.current &&
         (a.role_type === 'vedeni-organizace' || a.role_type === 'ucitel' ||
          a.role_type === 'vychovatel' || a.role_type === 'asistent-pedagoga' ||
-         a.role_type === 'provozni' ||
+         a.role_type === 'provozni' || a.role_type === 'trener' ||
          (a.role_type === 'zamestnanec' && a._org && a._org.type !== 'urad'))) || null;
       p._zamestnanec = p._affs.find(a => a.current && a.role_type === 'zamestnanec' &&
         a._org && a._org.type === 'urad') || null;

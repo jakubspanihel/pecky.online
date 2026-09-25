@@ -29,8 +29,10 @@ const ROLE_TYPES = [
   // učitel (doplněno 22. 9. 2026, na pokyn autora webu). Stejným dnem a ze
   // stejného důvodu přibyly asistent-pedagoga (pomáhá konkrétnímu dítěti/
   // třídě, nemá kvalifikaci učitele) a provozni (nepedagogický personál —
-  // úklid, údržba)
-  'zamestnanec', 'ucitel', 'vychovatel', 'asistent-pedagoga', 'provozni',
+  // úklid, údržba). trener (trenéři, asistenti trenéra a vedoucí mužstev
+  // sportovních klubů) je vlastní typ ze stejného důvodu jako ucitel —
+  // první užití u AFK Pečky, doplněno 24. 9. 2026 na pokyn autora webu
+  'zamestnanec', 'ucitel', 'vychovatel', 'asistent-pedagoga', 'provozni', 'trener',
   'clen', 'komise', 'kandidatka', 'jine',
 ];
 

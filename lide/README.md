@@ -100,9 +100,14 @@ z webu klubu — výkonný výbor ze stránky
 [afkpecky.cz/vedeni-klubu](https://www.afkpecky.cz/vedeni-klubu/) (předseda,
 jednatel, hospodář → `vedeni-organizace`, stejně jako výbor SŽM Pečky)
 a trenéři, asistenti trenéra a vedoucí mužstev ze stránek
-`/<tým>/realizacni-tym/` všech 7 týmů (→ `clen`, stejný vzor jako výbor
-Okrašlovacího spolku, aby se ukázali ve skupině „Komise, spolky a školská
-rada"; nový typ „trenér" se nezaváděl). Kontakty ani fotky web neuvádí.
+`/<tým>/realizacni-tym/` všech 7 týmů → vlastní `role_type: "trener"`
+(zaveden týž den na pokyn autora webu, s přístupem jako u `ucitel`:
+vlastní čip „Trenéři" ve filtru, ale skupina „Městské organizace" spolu
+s vedením klubu, `_organizace` v `content/lide.html`). Vedoucí mužstva
+nemá samostatný typ — je součástí realizačního týmu, rozlišuje ho jen
+text v `role` (stejně jako „vedoucí vychovatelka" u vychovatelek).
+Původně (týž den) zapsáni jako `clen` ve skupině „Komise, spolky a školská
+rada" — autorovi webu se to nelíbilo. Kontakty ani fotky web neuvádí.
 **Soupisky hráčů se nepřebírají** — nejsou to funkce ve spolku a u mládeže
 jde o děti. Realizační týmy web vede jen pro sezónu 2025/2026 (jiná
 v nabídce není), vazby proto mají `from: "2025"` a přiznanou poznámku,
@@ -135,7 +140,8 @@ kvalifikaci učitele — jiná profese než učitel i vychovatel) a
 `role_type: "provozni"` (nepedagogický personál — úklid; dvě uklízečky
 uklízí po dvou třídách, zapsané jednou vazbou s oběma třídami v `role`,
 ne dvakrát). Všechny čtyři nové typy (`ucitel`, `vychovatel`,
-`asistent-pedagoga`, `provozni`) počítají do stejné skupiny „Městské
+`asistent-pedagoga`, `provozni`) — a od 24. 9. 2026 i `trener` (AFK
+Pečky, viz níž) — počítají do stejné skupiny „Městské
 organizace" (`_organizace` v `content/lide.html`), každý s vlastním
 filtrovacím čipem. Žádná z těchto osob nemá e-mail/telefon — třídní
 stránky uvádí jen kontakt na třídu jako celek, ne na jednotlivé lidi.

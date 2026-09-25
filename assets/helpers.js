@@ -56,7 +56,7 @@ function jWithBase(url){
 // čisté formátování a vykreslení. Vstupem je vždy záznam osoby z people.json
 // s dopočítaným `_timeline` (viz pcBuildTimeline níže).
 
-const PC_TL_ORDER = ['starosta', 'mistostarosta', 'rada', 'vedeni-urad', 'vedeni-organizace', 'komise', 'zastupitel', 'zamestnanec', 'ucitel', 'vychovatel', 'asistent-pedagoga', 'provozni', 'clen', 'kandidatka'];
+const PC_TL_ORDER = ['starosta', 'mistostarosta', 'rada', 'vedeni-urad', 'vedeni-organizace', 'komise', 'zastupitel', 'zamestnanec', 'ucitel', 'vychovatel', 'asistent-pedagoga', 'provozni', 'trener', 'clen', 'kandidatka'];
 // váha funkce v timeline detailu — od nejvýznamnější po nejobecnější
 function pcTlRank(t){
   const i = PC_TL_ORDER.indexOf(t);
