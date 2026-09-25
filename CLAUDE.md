@@ -92,14 +92,6 @@ příslušný `content/<sekce>.html` a přepsat všechny odkazy, pak spustit
   bez řádku ve „Stav sekcí" (podstránky z `EXTRA_PAGES`, např.
   `/jednani/absence.html`) datum nemají.
 
-## Známé mezery (celoprojektové)
-- ~~Kompletní seznam 21 zastupitelů~~ — uzavřeno. pecky.cz sice blokuje
-  bot přístup, ale jmenný seznam jde ověřit z prezence jednání v archivu
-  (`jednani/pecky-jednani.json`, pole `attendance.present_names`).
-  Stav při ustavení 2022 = prezence ZM 7/2022 (21/21), aktuální stav =
-  poslední jednání ZM. Uskupení u jmen ale archiv neuvádí — to zůstává
-  mezerou a dopočítává se z počtu mandátů (viz `volby/2022/README.md`).
-
 ## Poznámky k datům
 - Hlídač státu MCP: použij ICO_of_holding_structure (celá skupina),
   ne jen ICOs_of_contracting_party (jen úřad)
