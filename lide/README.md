@@ -99,7 +99,9 @@ spolehlivě spárovat se jmény) zůstalo jen v historii gitu a v
 [`volby/2026/README.md`](../volby/2026/README.md).
 
 Protože se data načítají `fetch`em, panel **nefunguje z `file://`** —
-stejně jako Jednání a Pečecké noviny. Lokálně `python3 -m http.server`.
+stejně jako Jednání a Pečecké noviny. Lokálně `python3 scripts/serve.py`
+(ne `python3 -m http.server` — ten neodpovídá subcestě `/pecky.online/`,
+na které web běží na GitHub Pages).
 
 ### Odkazovatelné adresy
 
