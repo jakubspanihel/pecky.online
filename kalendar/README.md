@@ -67,6 +67,17 @@ vede rovnou na zdroj" v „Jak to funguje" níže.
     `#kal-grid`/`#kal-list` a zavolá odpovídající vykreslení — nová
     cesta (navigace, filtr, přepínač samotný) proto nesmí volat
     `kalRenderGrid()` přímo, jinak by se v pohledu Seznam neprojevila.
+  - **Stav v URL** (doplněno 25. 9. 2026 na žádost uživatele) — měsíc
+    a pohled se zapisují do hashe: `#RRRR-MM` = mřížka daného měsíce,
+    `#RRRR-MM/seznam` = pohled Seznam. Příchod na `/kalendar/` bez hashe
+    ho hned doplní na aktuální měsíc (`/kalendar/#2026-09`), takže jde
+    konkrétní měsíc/pohled nasdílet nebo uložit do záložek. Zápis dělá
+    `kalWriteHash()` uvnitř `kalShowView()` přes `history.replaceState`
+    (stejně jako podzáložky v `assets/common.js`, listování měsíci tedy
+    neplní historii prohlížeče); čtení `kalReadHash()` při načtení
+    a v posluchači `hashchange` (ruční úprava adresy, odkaz zvenku).
+    Neplatný hash (`#nesmysl`, `#2026-13`) se ignoruje a přepíše
+    aktuálním stavem.
   - **Odkaz „Filtr"** (`#kal-filter-toggle`, doplněno 24. 9. 2026 na
     žádost uživatele, na řádku navigace měsícem hned za tlačítkem „Dnes" —
     přesunuto tamtéž ze zprvu zvolené pozice za přepínačem „Zobrazit jako",
