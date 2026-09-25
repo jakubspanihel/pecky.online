@@ -51,9 +51,10 @@ vede rovnou na zdroj" v „Jak to funguje" níže.
     výpis vybraného měsíce (`#kal-list`) — od 25. 9. 2026 (na žádost
     uživatele) místo tabulky jako **bloky** (`.akce-blok` v
     `.akce-bloky`): první řádek den v týdnu + datum (u vícedenních
-    rozsah) a čas („čas neuveden", když ho zdroj nemá), pod ním název
-    jako odkaz na detail s tečkou pořadatele (`.org-swatch`) a štítkem
-    `kurz`/`svoz`, pak popis (`description`), místo · pořadatel
+    rozsah) a čas (když ho zdroj nemá, o čase se nepíše nic), na
+    konci téhož řádku pořadatel jako barevný chip (`.akce-poradatel`,
+    jen u akcí/kurzů/svozů), pod ním název jako odkaz na detail se
+    štítkem `kurz`/`svoz`, pak popis (`description`), místo
     a poznámka; levý okraj bloku nese barvu pořadatele, u jednání
     a voleb barvu kategorie jako v mřížce — nad daty z `kalendar/udalosti.json` (`KAL_ALL_EVENTS`),
     ne z `akce.json`, takže zahrnuje i jednání a volby, ne jen
@@ -263,7 +264,7 @@ události jsou jednání a volby, které se barví podle kategorie.
 
 **Jak se barva používá.** Mřížka `/kalendar/`: akce plnou barvou pořadatele,
 kurzy světlým pozadím (`-bg`) s proužkem v barvě pořadatele; jednání
-a volby dál podle kategorie. Pohled Seznam: tečka `.org-swatch` u názvu.
+a volby dál podle kategorie. Pohled Seznam: barevný chip pořadatele (`.akce-poradatel`) na konci řádku s datem.
 Čipy filtru pořadatele: tečka v barvě (`--chip`) slouží zároveň jako
 legenda.
 
