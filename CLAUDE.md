@@ -7,16 +7,29 @@ runtime framework, žádné závislosti kromě Google Fonts CDN. Jediný
 výstup jsou čisté statické soubory pro GitHub Pages.
 
 ## Struktura (od migrace 30. 8. 2026 — viz ARCHITEKTURA-MIGRACE.md)
-15 sekcí, každá vlastní adresář/URL: Domů (`/`), Lidé (`/lide/`), Plán
-(`/plan/`), Tělocvična (`/telocvicna/`), Volby (`/volby/`) a Volby 2018/2022/2026
-(`/volby/2018/` atd.), Jednání (`/jednani/`), Smlouvy (`/smlouvy/`),
-Zakázky (`/zakazky/`), Pozemky (`/pozemky/`), Pokladna (`/pokladna/`),
-Pečecké noviny (`/noviny/`), O webu (`/o-webu/`). Styl: pergamenově-
-úřední (Fraunces + IBM Plex Sans/Mono), `assets/styles.css`.
+Vícestránkový statický web, žádný runtime framework. Každá sekce má vlastní
+adresář/URL, generovaný `index.html` (needit — přepíše ho příští build,
+viz níže) a `README.md` (hlavní referenční dokument pro práci na sekci,
+načíst vždy jako první):
 
-**Needit přímo vygenerované `<sekce>/index.html` soubory** (přepíše je
-příští build) **ani kořenový `index.html`** (to je teď vygenerovaný
-výstup pro Domů). Místo toho:
+| Sekce | URL | Dokumentace |
+|---|---|---|
+| Domů | `/` | `domu/README.md` |
+| Lidé | `/lide/` | `lide/README.md` (+ `SPEC.md`; `people.json`/`organizations.json`/`affiliations.json`, kontrola `node lide/validate.mjs`) |
+| Plán | `/plan/` | `plan/README.md` |
+| Tělocvična | `/telocvicna/` | `telocvicna/README.md` |
+| Volby | `/volby/` | `volby/README.md` (rozcestník) |
+| Volby 2018/2022/2026 | `/volby/2018/` atd. | `volby/<rok>/README.md` |
+| Jednání | `/jednani/` | `jednani/README.md` (+ `SPEC.md`, `automation-kontrola-usneseni-cz.md`, `automation-katastr-parcely.md`) |
+| Smlouvy | `/smlouvy/` | `smlouvy/README.md` |
+| Zakázky | `/zakazky/` | `zakazky/README.md` |
+| Pozemky | `/pozemky/` | `pozemky/README.md` |
+| Pokladna | `/pokladna/` | `pokladna/README.md` |
+| Pečecké noviny | `/noviny/` | `noviny/README.md` |
+| O webu | `/o-webu/` | `o-webu/README.md` (+ `automation-socialni-site.md`) |
+
+**Needit přímo vygenerované `<sekce>/index.html` soubory ani kořenový
+`index.html`** (výstup pro Domů). Místo toho:
 - obsah sekce → `content/<sekce>.html` (jen tělo panelu)
 - sdílená navigace/patička → `assets/nav.html` / `assets/footer.html`
 - sdílené CSS → `assets/styles.css`
@@ -24,10 +37,18 @@ výstup pro Domů). Místo toho:
   funkce sdílené mezi Jednáním/Novinami/Lidmi → `assets/helpers.js`;
   JS specifický pro jednu sekci žije přímo v `content/<sekce>.html`
 - pak spustit `python3 scripts/build.py` (validuje HTML/JS a přegeneruje
-  všech 13 stránek + `sitemap.xml`/`robots.txt`)
+  všechny stránky + `sitemap.xml`/`robots.txt`)
 
 Mapování starý slug → nová cesta (kvůli redirectu starých `#panel`
 odkazů v `content/domu.html`) je v `ARCHITEKTURA-MIGRACE.md`, sekce 2.3.
+
+Data i obrázky patří vždy do složky sekce, ke které se vážou, ne do
+kořene repa. Kořenová `img/` je jen pro celowebové obrázky bez vazby na
+sekci (`img/favicons/`, `img/peckybot/`); kořenová `data/` neexistuje a
+nezakládat ji. Odkazuje se plnou cestou od kořene repa, např.
+`volby/2022/zastupitele/paluska.jpg`. Po přesunu souboru vždy projít
+příslušný `content/<sekce>.html` a přepsat všechny odkazy, pak spustit
+`python3 scripts/build.py`.
 
 ## Konvence
 - Web celý v češtině, srozumitelným jazykem pro širokou veřejnost
@@ -70,43 +91,6 @@ odkazů v `content/domu.html`) je v `ARCHITEKTURA-MIGRACE.md`, sekce 2.3.
   na stránku sám. Sekce bez vlastního `<h2 class="title">` (Domů) nebo
   bez řádku ve „Stav sekcí" (podstránky z `EXTRA_PAGES`, např.
   `/jednani/absence.html`) datum nemají.
-
-## Dokumentace jednotlivých sekcí
-Každá sekce webu má vlastní složku `<sekce>/` se souborem `README.md` —
-hlavní referenční dokument pro práci na dané sekci, načíst ho vždy jako
-první. Stejná složka nese i vygenerovaný veřejný `index.html`
-(nedit — viz sekce Struktura výše) a u některých sekcí i doplňková
-data/skripty. Obsah sekce, který dřív žil v kořenovém `index.html`
-(jednosouborová struktura, do 30. 8. 2026), teď žije v
-`content/<sekce>.html`.
-
-Data i obrázky patří vždy do složky sekce, ke které se vážou, ne do
-kořene repa. Kořenová `img/` je jen pro celowebové obrázky bez vazby na
-sekci (`img/favicons/`, `img/peckybot/`); kořenová `data/` neexistuje a
-nezakládat ji. Odkazuje se plnou cestou od kořene repa, např.
-`volby/2022/zastupitele/paluska.jpg`. Po přesunu souboru vždy
-projít příslušný `content/<sekce>.html` a přepsat všechny odkazy, pak
-spustit `python3 scripts/build.py`.
-
-- Domů → `domu/README.md`
-- Lidé → `lide/README.md` (+ `SPEC.md`; datová sada
-  `people.json` / `organizations.json` / `affiliations.json`,
-  kontrola `node lide/validate.mjs`)
-- Plán → `plan/README.md`
-- Tělocvična → `telocvicna/README.md`
-- Volby → `volby/README.md`
-- Volby 2018 → `volby/2018/README.md`
-- Volby 2022 → `volby/2022/README.md`
-- Volby 2026 → `volby/2026/README.md`
-  (společný rozcestník pro všechny ročníky: `volby/README.md`)
-- Jednání → `jednani/README.md` (+ `SPEC.md`,
-  `automation-kontrola-usneseni-cz.md`, `automation-katastr-parcely.md`)
-- Smlouvy → `smlouvy/README.md`
-- Zakázky → `zakazky/README.md`
-- Pozemky → `pozemky/README.md`
-- Pokladna → `pokladna/README.md`
-- Pečecké noviny / Zpravodaj → `noviny/README.md`
-- O webu → `o-webu/README.md` (+ `automation-socialni-site.md`)
 
 ## Známé mezery (celoprojektové)
 - ~~Kompletní seznam 21 zastupitelů~~ — uzavřeno. pecky.cz sice blokuje
