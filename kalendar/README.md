@@ -673,13 +673,32 @@ seznam místo rozházených poznámek po repu.
       (ten dává `link` v kalendáři), gymnázia/jedničkáři jako druhý,
       rozhodl uživatel 25. 9. 2026 bez principiálního důvodu pro jinou
       volbu.
-    - **`/vikendovky` a `/klubko`** — k 22. 9. 2026 obsahují jen školní
+    - **`/vikendovky` a `/klubko`** — k 22. 9. 2026 obsahovaly jen školní
       rok 2025/2026 (víkendovky 25. 9. 2025 – 4. 6. 2026, Klubko
       15. 9. 2025 – 4. 5. 2026), všechno proběhlé. Sezóna 2026/2027 tam
-      zatím není zveřejněná — nic k zápisu. **Zkontrolovat znovu při
-      každé další kontrole Kalendáře** (na žádost uživatele), ne čekat
-      na zvláštní podnět. Klubko pro info: měsíční tematický kurz, vždy
-      4 úterní termíny v měsíci, 18:00–19:30, potvrzeno z plakátů.
+      zatím nebyla zveřejněná. **Zkontrolovat znovu při každé další
+      kontrole Kalendáře** (na žádost uživatele), ne čekat na zvláštní
+      podnět. Klubko pro info: měsíční tematický kurz, vždy 4 úterní
+      termíny v měsíci, 18:00–19:30, potvrzeno z plakátů.
+      - **25. 9. 2026 (na žádost uživatele, konkrétní odkaz):** první
+        položka sezóny 2026/2027 se ve `/vikendovky` objevila —
+        [vzcentrum.cz/vikendovky/92-atelier](https://www.vzcentrum.cz/vikendovky/92-atelier),
+        „sobotní Ateliér" s Františkem Hálou. Datum vedle nadpisu na
+        detailu stránky (v tomto případě „25.09.2026") **není datum
+        akce** — je to zjevně datum vydání/publikace příspěvku (loňský
+        ročník téže položky má stejný popisek a datum „25.09.2025",
+        rok předtím; ověřeno srovnáním na `/vikendovky` listingu).
+        Skutečné termíny jsou jen na plakátu (obrázek, ne text stránky):
+        **4 soboty 9:00–16:00, 200 Kč/osoba, pro děti i dospělé — 26. 9.,
+        31. 10., 28. 11., 19. 12. 2026.** Doplňuje mezeru zapsanou u
+        pravidelného středečního Ateliéru výše („otevřen i každou
+        poslední sobotu v měsíci, konkrétní termíny web neuvádí") —
+        zapsáno jako 4 samostatné `kurz` záznamy `kurz-<datum>-atelier-sobotni`,
+        title „Ateliér (sobotní blok)" (odlišeno od středečního
+        `kurz-<datum>-atelier"), stejný pořadatel a místo. Zbytek
+        `/vikendovky` (smyslohraní, keramika s Ivanem Sagačem, rodinné
+        neděle, výlety) je k 25. 9. 2026 pořád jen loňská sezóna,
+        proběhlá — nezapisovat, dokud nevyjde nová.
     - **`/tabory`** — prázdné („Počet nalezených táborů: 0"), typicky
       sezónní sekce plněná blíž k létu/prázdninám.
   - **ZUŠ Pečky** — [zuspecky.cz/rozvrh-hodin](https://zuspecky.cz/rozvrh-hodin/)
