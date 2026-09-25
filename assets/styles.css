@@ -271,13 +271,21 @@
     table.calendar-table .kal-ev{font-size:9px; padding:1px 3px;}
   }
 
-  /* ===== tabulka akcí (pohled Seznam na /kalendar/) ===== */
-  table.akce-tabulka td.akce-datum{white-space:nowrap;}
-  table.akce-tabulka .akce-cas{font-family:var(--font-mono); font-size:12.5px; white-space:nowrap;}
-  table.akce-tabulka .akce-cas-none{color:var(--line);}
-  table.akce-tabulka .akce-pozn{font-style:italic;}
-  /* akce, na kterou vede odkaz z mřížky kalendáře */
-  table.akce-tabulka tr:target td{background:rgba(173,122,42,0.14);}
+  /* ===== bloky akcí (pohled Seznam na /kalendar/) ===== */
+  .akce-bloky{display:flex; flex-direction:column; gap:10px;}
+  .akce-blok{background:rgba(255,255,255,0.35); border:1px solid var(--line);
+    border-left:4px solid var(--org-c, var(--line)); border-radius:2px; padding:10px 14px;}
+  /* jednání a volby barvou kategorie stejně jako v mřížce, akce barvou pořadatele */
+  .akce-blok-zastupitelstvo{border-left-color:var(--burgundy);}
+  .akce-blok-rada{border-left-color:var(--field);}
+  .akce-blok-volby{border-left-color:var(--slate);}
+  .akce-blok-akce{border-left-color:var(--org-c, var(--gold-deep));}
+  .akce-blok .akce-kdy{margin:0; font-family:var(--font-mono); font-size:12.5px; color:var(--ink-soft);}
+  .akce-blok .akce-kdy strong{color:var(--ink);}
+  .akce-blok .akce-cas-none{font-style:italic;}
+  .akce-blok .akce-nazev{margin:4px 0 0; font-family:var(--font-display); font-size:var(--fs-h4); line-height:1.3;}
+  .akce-blok .akce-popis{margin:4px 0 0; font-size:14px;}
+  .akce-blok .akce-pozn{font-style:italic;}
 
   /* ===== rozklikávací řádky tabulky (výdaje podle kategorií) ===== */
   .exp-row{cursor:pointer;}

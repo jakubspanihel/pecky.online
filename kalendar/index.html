@@ -37,7 +37,7 @@
 <main>
   <section class="panel active" id="panel-kalendar">
     <h2 class="title display">Kalendář</h2>
-    <p class="lastmod" data-date="2026-09-24">Aktualizováno: 24. 9. 2026</p>
+    <p class="lastmod" data-date="2026-09-25">Aktualizováno: 25. 9. 2026</p>
     <p class="lede"><a href="https://calendar.google.com/calendar/embed?src=a81de8fe68a5e6d118ceeea3614ba159febf695e65b164cade86b682d58ef726%40group.calendar.google.com&ctz=Europe%2FPrague" target="_blank" rel="noopener">Odebírejte kalendář</a> přímo ve vašem Google, Apple i Outlook kalendáři (dostupné také jako <a href="https://calendar.google.com/calendar/ical/a81de8fe68a5e6d118ceeea3614ba159febf695e65b164cade86b682d58ef726%40group.calendar.google.com/public/basic.ics" target="_blank" rel="noopener">iCal</a>).</p>
 
     <div style="display:flex; align-items:center; gap:8px; margin:22px 0 4px; flex-wrap:wrap;">
@@ -104,7 +104,7 @@
   let KAL_EVENTS_BY_DATE = {};
   let KAL_ALL_EVENTS = [];
   let KAL_ORG = '';   // id pořadatele z lide/organizations.json, '' = všichni
-  let KAL_VIEW = 'kalendar';   // 'kalendar' = mřížka, 'seznam' = tabulka vybraného měsíce
+  let KAL_VIEW = 'kalendar';   // 'kalendar' = mřížka, 'seznam' = bloky akcí vybraného měsíce
   let KAL_SHOW_KURZ = true;   // false = skrýt kategorii 'kurz' (checkbox "Pravidelné akce, kurzy a tréninky")
   const kalNow = new Date();
   let kalYear = kalNow.getFullYear();
@@ -190,10 +190,11 @@
     body.innerHTML = html;
   }
 
-  // Seznam vybraného měsíce — tabulka stylově jako dřívější /kalendar/akce/
-  // (zrušená 24. 9. 2026), ale nad společnými daty z udalosti.json
-  // (zahrnuje i jednání/volby, ne jen akce.json). Odkaz u akce/kurzu vede
-  // rovnou na zdroj (evidence[0].url z akce.json — viz build_akce_events()
+  // Seznam vybraného měsíce — každá událost jako samostatný blok: nahoře
+  // datum a čas na jednom řádku, pod ním název s odkazem na detail a pak
+  // popis. Data ze společného udalosti.json (zahrnuje i jednání/volby, ne
+  // jen akce.json). Odkaz u akce/kurzu vede rovnou na zdroj
+  // (evidence[0].url z akce.json — viz build_akce_events()
   // v update-kalendar.py), ne na interní kotvu — 24. 9. 2026 na žádost
   // uživatele zrušeny odkazy na jednotlivé události uvnitř webu.
   function kalRenderList(){
@@ -212,37 +213,37 @@
       return;
     }
 
-    const radky = evs.map(e => {
+    const bloky = evs.map(e => {
+      const [, mm, dd] = e.date.split('-');
+      const denNazev = dny[new Date(e.date + 'T12:00:00').getDay()];
+      const datum = kalFmtRange(e) || `${parseInt(dd, 10)}. ${parseInt(mm, 10)}.`;
       const cas = e.time
         ? `<span class="akce-cas">${kalEsc(e.time)}</span>`
-        : '<span class="akce-cas akce-cas-none" title="Zdroj čas neuvádí">—</span>';
+        : '<span class="akce-cas akce-cas-none" title="Zdroj čas neuvádí">čas neuveden</span>';
       const stitek = e.category === 'kurz' ? ' <span class="tag">kurz</span>'
         : e.category === 'svoz' ? ' <span class="tag">svoz</span>' : '';
-      const porada = kalMaPoradatele(e) && e.organizer_name
-        ? `pořádá ${e.organizer_name}` : null;
-      const metaText = [e.place, kalFmtRange(e), porada].filter(Boolean).join(' · ');
-      const meta = metaText ? `<span class="meta-note">${kalEsc(metaText)}</span>` : '';
-      const pozn = e.note ? `<span class="meta-note akce-pozn">${kalEsc(e.note)}</span>` : '';
       const tecka = kalMaPoradatele(e) && e.organizer
         ? `<span class="swatch org-swatch" style="${kalOrgStyle(e.organizer)}"></span>` : '';
       const cizi = e.link && /^https?:\/\//.test(e.link) ? ' target="_blank" rel="noopener"' : '';
       const nazev = e.link
         ? `<a href="${e.link}"${cizi}>${kalEsc(e.title)}</a>`
         : kalEsc(e.title);
-      const [, mm, dd] = e.date.split('-');
-      const den = `${parseInt(dd, 10)}. ${parseInt(mm, 10)}.`;
-      const denNazev = dny[new Date(e.date + 'T12:00:00').getDay()];
-      return `<tr>
-        <td class="akce-datum"><strong>${den}</strong><span class="meta-note">${denNazev}</span></td>
-        <td>${cas}</td>
-        <td>${tecka}${nazev}${stitek}${meta}${pozn}</td>
-      </tr>`;
+      // popis shodný s místem (typicky svoz) nezobrazovat dvakrát
+      const popis = e.description && e.description !== e.place ? `<p class="akce-popis">${kalEsc(e.description)}</p>` : '';
+      const porada = kalMaPoradatele(e) && e.organizer_name
+        ? `pořádá ${e.organizer_name}` : null;
+      const metaText = [e.place, porada].filter(Boolean).join(' · ');
+      const meta = metaText ? `<span class="meta-note">${kalEsc(metaText)}</span>` : '';
+      const pozn = e.note ? `<span class="meta-note akce-pozn">${kalEsc(e.note)}</span>` : '';
+      const barva = kalMaPoradatele(e) && e.organizer ? ` style="${kalOrgStyle(e.organizer)}"` : '';
+      return `<article class="akce-blok akce-blok-${e.category}"${barva}>
+        <p class="akce-kdy"><strong>${denNazev} ${datum}</strong> · ${cas}</p>
+        <h3 class="akce-nazev">${tecka}${nazev}${stitek}</h3>
+        ${popis}${meta}${pozn}
+      </article>`;
     }).join('');
 
-    list.innerHTML = `<div class="table-scroll"><table class="register akce-tabulka">
-      <thead><tr><th>Datum</th><th>Čas</th><th>Akce</th></tr></thead>
-      <tbody>${radky}</tbody>
-    </table></div>`;
+    list.innerHTML = `<div class="akce-bloky">${bloky}</div>`;
   }
 
   // Přepne mezi mřížkou a seznamem, aktualizuje popisek měsíce a vykreslí

@@ -48,9 +48,14 @@ vede rovnou na zdroj" v „Jak to funguje" níže.
     doplněno 24. 9. 2026 na žádost uživatele, na stejném řádku jako
     navigace měsícem, zarovnané vpravo přes `margin-left:auto`) —
     Kalendář je výchozí, stejná mřížka jako dřív. Seznam přepne na
-    tabulku vybraného měsíce (`#kal-list`) — sloupce Datum/Čas/Akce,
-    barevná tečka pořadatele (`.org-swatch`), štítek `kurz`, poznámka
-    pod názvem — nad daty z `kalendar/udalosti.json` (`KAL_ALL_EVENTS`),
+    výpis vybraného měsíce (`#kal-list`) — od 25. 9. 2026 (na žádost
+    uživatele) místo tabulky jako **bloky** (`.akce-blok` v
+    `.akce-bloky`): první řádek den v týdnu + datum (u vícedenních
+    rozsah) a čas („čas neuveden", když ho zdroj nemá), pod ním název
+    jako odkaz na detail s tečkou pořadatele (`.org-swatch`) a štítkem
+    `kurz`/`svoz`, pak popis (`description`), místo · pořadatel
+    a poznámka; levý okraj bloku nese barvu pořadatele, u jednání
+    a voleb barvu kategorie jako v mřížce — nad daty z `kalendar/udalosti.json` (`KAL_ALL_EVENTS`),
     ne z `akce.json`, takže zahrnuje i jednání a volby, ne jen
     akce/kurzy. Bez vlastního sloupce Zdroj (v `udalosti.json` není
     `evidence[]`) — přiznaný rozdíl oproti zrušené `/kalendar/akce/`,
