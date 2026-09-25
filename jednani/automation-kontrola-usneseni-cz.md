@@ -127,6 +127,15 @@ Ze `zápis` textu:
 - Po doplnění `links.minutes`/`resolutions`/`agenda`/`duration_seconds`
   smazat pole `time` (scheduled čas z Pozvánky) — ostatní kompletní
   záznamy ho nemají, nahrazuje ho skutečný `duration_seconds`.
+- **Zamítnuté návrhy usnesení** (`agenda[].rejected_vote`, doplněno
+  25. 9. 2026): u bodu, kde zápis obsahuje hlasování s výsledkem „Návrh
+  nebyl přijat" (na rozdíl od bodů bez hlasování vůbec — čistě
+  informativní „bere na vědomí"), doplnit `rejected_vote: {"text"
+  (navržené znění usnesení verbatim), "pro", "proti", "zdrzel"}`. Takový
+  návrh se **nikdy neobjeví** na stránce `usnesení` (žádné číslo, žádná
+  URL), takže bez tohodle kroku zůstane neviditelný — vypadal by stejně
+  jako bod bez hlasování. Podrobnosti a zdůvodnění:
+  [README.md](README.md) → „Zamítnuté návrhy usnesení".
 
 Ze stránky `usnesení`:
 - Pro každé usnesení: `n` (číslo, tvar `UR-XXX-N/RR`), `item` (bod

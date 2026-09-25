@@ -343,6 +343,14 @@
     return `<div class="agenda-res">${link} ${jOutcomeBadgeHtml(r)}${jResInfoText(r)}</div>`;
   }
 
+  // Návrh usnesení, který neprošel hlasováním — na rozdíl od m.resolutions
+  // (jen přijatá usnesení, jak je vede usneseni.cz) nemá číslo ani odkaz,
+  // jen text návrhu a výsledek hlasování. Viz jednani/README.md → "Zamítnuté návrhy usnesení".
+  function jRenderRejectedVote(rv){
+    const voteText = `pro: ${rv.pro} · proti: ${rv.proti} · zdržel se: ${rv.zdrzel}`;
+    return `<div class="agenda-res-list"><div class="agenda-res">${jResInfoIcon(rv)}<span class="tag res-outcome zamitnuto">Zamítnuto</span> <span class="meeting-count">${jEscapeHtml(voteText)}</span>${jResInfoText(rv)}</div></div>`;
+  }
+
   function jRenderResLine(r){
     const label = jEscapeHtml(jResLabel(r.n));
     const link = r.url
@@ -404,7 +412,7 @@
     const timedDurations = m.agenda.map(a => a.duration_seconds).filter(d => d != null);
     const maxDuration = timedDurations.length > 1 ? Math.max(...timedDurations) : null;
     const items = m.agenda.map(a => {
-      const hasDetail = !!(a.duvodova_zprava || (a._res && a._res.some(r => r.text)));
+      const hasDetail = !!(a.duvodova_zprava || (a._res && a._res.some(r => r.text)) || a.rejected_vote);
       const isLongest = maxDuration != null && a.duration_seconds === maxDuration;
       return `
       <li class="agenda-item${hasDetail ? ' agenda-item--expandable' : ''}">
@@ -417,6 +425,7 @@
         </div>
         ${a.duvodova_zprava ? `<div class="info-toggle-text" hidden>${jEscapeHtml(a.duvodova_zprava)}</div>` : ''}
         ${a._res && a._res.length ? '<div class="agenda-res-list">' + a._res.map(jRenderResItem).join('') + '</div>' : ''}
+        ${a.rejected_vote ? jRenderRejectedVote(a.rejected_vote) : ''}
       </li>
     `;
     }).join('');

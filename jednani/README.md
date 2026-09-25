@@ -486,6 +486,46 @@ na sobě — u jednání s víc body je běžné chtít porovnat text dvou z nic
 najednou. Zdrojová funkce: `jRenderAgendaList`/click handler v
 `content/jednani.html`.
 
+## Zamítnuté návrhy usnesení (`agenda[].rejected_vote`, od 25. 9. 2026)
+
+`m.resolutions` (a z něj `content/jednani.html` odvozený `a._res`) obsahuje
+jen **přijatá** usnesení, tak jak je vede stránka `/usnesení/` na
+usneseni.cz — návrh, který hlasování neprošlo, tam vůbec nevznikne (nemá
+`UR-`/`UZ-` číslo, žádnou vlastní URL). Zápis (`/zapis/`) ale hlasování
+o takovém návrhu pořád zaznamenává, vč. počtu hlasů — bez zvláštního pole
+by proto bod, o kterém se **reálně hlasovalo a byl zamítnut**, vypadal
+na webu stejně jako čistě informativní bod bez hlasování (např. „Aktuální
+informace vedení města").
+
+Pole `agenda[].rejected_vote` (`{"text", "pro", "proti", "zdrzel"}`) tohle
+rozlišuje: `text` je verbatim navržené znění usnesení z zápisu (ne
+vymyšlené - proto ne "usnesení", ale "návrh usnesení", protože k přijetí
+nedošlo), `pro`/`proti`/`zdrzel` je výsledek hlasování. Zobrazí se jako
+badge „Zamítnuto" (stejná vizuální třída `res-outcome zamitnuto` jako
+u zamítnutých/neschválených přijatých usnesení) + hlasování na sbaleném
+řádku bodu, s rozbalovacím "i" tlačítkem na plný navržený text — stejný
+vzor jako `jResInfoIcon`/`jResInfoText` u běžných usnesení, jen bez čísla
+a odkazu (žádné neexistuje). Zdrojová funkce: `jRenderRejectedVote`
+v `content/jednani.html`.
+
+**Zatím jen u jednoho bodu** — bod 14 „Souhlas s krátkodobým užitím části
+pozemku parc. č. 1018 (Park pod vodojemem)" u Rady 34/2026 (21. 9. 2026,
+zamítnuto 1 pro : 4 proti : 2 zdržel se). Historický přepočet zbytku
+archivu (ve velkém `archive-2026-08-04.json` je zamítnutých hlasování
+napříč 2021–2026 evidováno 81, žádné z nich zatím v `pecky-jednani.json`
+není) je vědomě odložený na později — viz úkol níže.
+
+**Pro budoucí automatizaci:** u nového jednání sledovat v zápisu i výsledek
+„Návrh nebyl přijat" (ne jen přijatá usnesení ze stránky `/usnesení/`) a
+takový bod doplnit stejně jako výše — `text` (navržené znění), `pro`,
+`proti`, `zdrzel`. Bod bez hlasování vůbec (čistě informativní, „bere na
+vědomí" bez explicitního usnesení) `rejected_vote` nedostává — jen bod,
+o kterém se reálně hlasovalo a neprošel.
+
+**Otevřený úkol:** promítnout `rejected_vote` zpětně i do starších jednání
+z velkého `archive-2026-08-04.json` (81 nalezených případů) — vědomě
+odložené, viz zadání uživatele 25. 9. 2026.
+
 ## Upozornění na chybějící zápis (od 4. 9. 2026)
 
 Sbalený řádek jednání, které už proběhlo (datum v minulosti, ne dnes),
