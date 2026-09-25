@@ -656,6 +656,23 @@ seznam místo rozházených poznámek po repu.
       mimo pravidelný rozvrh (9./10., 30./31. 10., 20./21. 11.,
       11./12. 12. 2026, podle skupiny) — ty zapsány zvlášť jako
       jednorázové `akce`, ne jako další „kurz" výskyty.
+    - **`evidence[].url` musí mířit na detail konkrétního kroužku**
+      (`vzcentrum.cz/krouzky/<id>-<slug>`, viditelné na kartě kroužku
+      na `/krouzky` po kliknutí), **ne na obecný rozcestník
+      `vzcentrum.cz/krouzky`** — týž odkaz pro všech ~1400 kroužků byl
+      chyba prvního zápisu 22. 9. 2026, opravena 25. 9. 2026 na žádost
+      uživatele (odkaz z kalendáře jinak vždy skončil na stejné obecné
+      stránce místo na konkrétním kurzu). Slug se v čase nemění (`id-`
+      prefix je interní ID webu vzcentrum.cz), ale při přidání dalšího
+      kroužku z tohoto zdroje ho znovu dohledat kliknutím na kartu, ne
+      odhadovat podle vzoru — číslování ID není souvislé podle abecedy.
+      Výjimka: **„Příprava na přijímací zkoušky" (14:00 i 16:00)** —
+      každý čas ve skutečnosti pokrývá dvě běžící skupiny naráz
+      (dvojkaři/trojkaři + gymnázia/jedničkáři, viz výše), proto má
+      `evidence[]` dva doklady — dvojkaři/trojkaři jako `evidence[0]`
+      (ten dává `link` v kalendáři), gymnázia/jedničkáři jako druhý,
+      rozhodl uživatel 25. 9. 2026 bez principiálního důvodu pro jinou
+      volbu.
     - **`/vikendovky` a `/klubko`** — k 22. 9. 2026 obsahují jen školní
       rok 2025/2026 (víkendovky 25. 9. 2025 – 4. 6. 2026, Klubko
       15. 9. 2025 – 4. 5. 2026), všechno proběhlé. Sezóna 2026/2027 tam
