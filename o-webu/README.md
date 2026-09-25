@@ -29,5 +29,5 @@ odkazů (volební uskupení) se zapisuje i do tabulky „Volební uskupení" na
 [Volby 2026](../volby/2026/README.md) — postup pokrývá obě místa
 najednou.
 
-Zatím žádná další zvláštní pravidla nad rámec konvence výše. Doplnit sem,
-až nějaká vzniknou.
+Zatím žádná další zvláštní pravidla nad rámec konvence výše a obecných
+konvencí v kořenovém `CLAUDE.md`. Doplnit sem, až nějaká vzniknou.
