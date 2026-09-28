@@ -7231,16 +7231,16 @@
       "role": "Jednatelka Pečecké služby, s.r.o.",
       "role_type": "vedeni-organizace",
       "from": "2026-03-02",
-      "to": null,
-      "current": true,
-      "note": "Jediná jednatelka. Firemní web k 5. 9. 2026 stále uvádí jako jednatele předchozí osobu (Ing. Michal Pavlas) — neodpovídá obchodnímu rejstříku, viz note u organizace.",
+      "to": "2026-08-31",
+      "current": false,
+      "note": "Jediná jednatelka. Funkce zanikla 31. 8. 2026 (zapsáno v rejstříku až 11. 9. 2026, proto ještě 5. 9. 2026 při ověření vypadal firemní web s Michalem Pavlasem jako neaktuální — ve skutečnosti byl napřed, viz jeho záznam níže).",
       "sources": [
         {
           "label": "Obchodní rejstřík — Pečecké služby, s.r.o. (justice.cz)",
-          "url": "https://or.justice.cz/ias/ui/rejstrik-$firma?ico=26143551"
+          "url": "https://or.justice.cz/ias/ui/rejstrik-firma.vysledky?subjektId=97126&typ=UPLNY"
         }
       ],
-      "verified": "2026-09-05"
+      "verified": "2026-09-28"
     },
     {
       "id": "urbanm--mesto-pecky--2",
@@ -11419,6 +11419,28 @@
         }
       ],
       "verified": "2026-09-25"
+    },
+    {
+      "id": "pavlasm--pececke-sluzby--1",
+      "person_id": "pavlasm",
+      "organization_id": "pececke-sluzby",
+      "role": "Jednatel Pečecké služby, s.r.o.",
+      "role_type": "vedeni-organizace",
+      "from": "2026-09-01",
+      "to": null,
+      "current": true,
+      "note": "Jediný jednatel. Návrat do funkce po dřívějším období do 26. 1. 2026 (viz historie v obchodním rejstříku); firemní web s ním jako jednatelem souhlasil dřív, než to rejstřík zapsal (11. 9. 2026) — proto dřívější ověření webu 5. 9. 2026 vypadalo jako rozpor s rejstříkem, ve skutečnosti byl web napřed.",
+      "sources": [
+        {
+          "label": "Kontakty — Pečecké služby, s.r.o. (pececkesluzby.cz)",
+          "url": "https://pececkesluzby.cz/office/"
+        },
+        {
+          "label": "Obchodní rejstřík — Pečecké služby, s.r.o. (justice.cz)",
+          "url": "https://or.justice.cz/ias/ui/rejstrik-firma.vysledky?subjektId=97126&typ=UPLNY"
+        }
+      ],
+      "verified": "2026-09-28"
     }
   ]
 }
