@@ -48,7 +48,11 @@ Přečti `jednani/pecky-jednani.json`, seřaď `meetings` podle `date`
 sestupně, podívej se na několik posledních záznamů. Zvlášť si všimni těch,
 kde `links.minutes` je `null` (zaznamenané jen z Pozvánky, viz README.md
 sekce „Jednání jen s Pozvánkou") — u těch je potřeba web zkontrolovat jako
-první.
+první. Stejně tak si všimni záznamů s `uuid: null` (zapsané jen z bodu
+programu Rady o termínu příštího ZM, ještě před vlastní Pozvánkou —
+viz README.md sekce „Jednání jen z bodu programu Rady"): pokud web mezitím
+zveřejnil skutečnou Pozvánku/UUID pro totéž `type`+`date`, doplň `uuid`,
+`links` a `agenda` do TOHOTO záznamu na místě — nezakládej nový, duplicitní.
 
 ### 2. Otevři výpis na webu (Claude in Chrome)
 

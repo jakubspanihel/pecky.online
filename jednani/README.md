@@ -647,6 +647,40 @@ porovná MD5 hash všech souborů daného typu napříč `Data/` a nahlásí
 při nálezu: smazat oba soubory a stáhnout znovu každý zvlášť, jednotlivou
 navigací (ne v dávce), s ověřením hashe před finálním uložením.
 
+## Jednání jen z bodu programu Rady, ještě bez vlastní Pozvánky (od 28. 9. 2026)
+
+Ještě o krok dřív než „Jednání jen s Pozvánkou" níže: Rada na svém
+jednání běžně schvaluje **termín a program příštího zasedání ZM** jako
+vlastní bod programu (i s usnesením) — a to o dost dřív, než ZM samo
+dostane na `usneseni.cz` vlastní UUID/Pozvánku (ta se zveřejňuje jen
+pár dní předem). První případ: **Zastupitelstvo 7/2026 (7. 10. 2026)**,
+zapsáno na žádost uživatele 28. 9. 2026 z bodu 16 zápisu **Rady
+34/2026 (21. 9. 2026)**, usnesení `UR-309-34/26`: „Rada města schvaluje
+termín a program zasedání ZM dne 7.10.2026 od 16.30 hodin v Kulturním
+domě, Tř. Jana Švermy čp. 255, Pečky."
+
+Záznam má na rozdíl od „Jednání jen s Pozvánkou" **`uuid: null`**
+(žádné zatím neexistuje) a **`links` úplně `null`** včetně
+`invitation` (žádná Pozvánka na ZM samotné ještě nevyšla). `venue`
+a `time` ale znát jde — jsou přímo v textu usnesení Rady. `agenda: []`
+a `resolutions: []` zůstávají prázdné, protože vlastní program/usnesení
+ZM se z bodu Rady nedají vyčíst (Rada schvaluje jen termín, ne
+jednotlivé body) — nevymýšlet je. Na webu se to zobrazí korektně samo:
+`content/jednani.html` u budoucího jednání bez `links.minutes` ukáže
+štítek „PLÁNOVÁNO" a text „Program ani usnesení k tomuto jednání
+nejsou zveřejněné", stejnou logikou jako u běžného „jen Pozvánka"
+záznamu níže — není potřeba žádná zvláštní podmínka v kódu.
+`kalendar/scripts/update-kalendar.py` zvládá `uuid: null` bez úprav
+(`source_ref` má fallback na stabilní `id`, viz `sync-google.py`).
+
+**Důležité pro příští běh kontroly:** až `usneseni.cz` zveřejní
+skutečnou Pozvánku/UUID pro Zastupitelstvo 7/2026, **tenhle záznam
+aktualizovat na místě** (doplnit `uuid`, `links`, `agenda` ze skutečné
+Pozvánky) — **nezakládat nový, duplicitní záznam**. Poznat ho jde podle
+kombinace `type`+`date` (Zastupitelstvo, 2026-10-07) při `uuid: null`.
+Stejné pravidlo platí pro jakékoli další jednání zapsané tímhle
+postupem v budoucnu.
+
 ## Jednání jen s Pozvánkou (od 21. 8. 2026)
 
 Od 21. 8. 2026 platí, že se do `pecky-jednani.json` zaznamenává i jednání,
