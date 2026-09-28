@@ -165,6 +165,23 @@ záznamu.
 
 Ověřit: `python3 -c "import json; json.load(open('jednani/pecky-jednani.json'))"`.
 
+**Nový záznam vždy vlož na správné místo v poli, ne na konec.** `meetings`
+je seřazené sestupně podle `date` (nejnovější/nejbližší budoucí první) a
+frontend (`content/jednani.html`) tenhle pořádek za běhu nijak
+nepřetřiďuje — zobrazuje pole přesně v pořadí, v jakém je v souboru.
+Přidání záznamu na konec pole (typicky `meetings.append(...)`) ho tak
+zařadí úplně dolů za nejstarší jednání z roku 2021, i když jde o jednání
+nejnovější nebo teprve plánované — na webu je pak fakticky neviditelné,
+i když v datech je (viz `jednani/README.md` → „Pořadí v poli `meetings`",
+najito 28. 9. 2026 u Zastupitelstva 7/2026: rada mu usnesením určila
+termín, ale záznam skončil na konci pole místo na začátku).
+
+**Po každé změně počtu záznamů aktualizuj `meta.meetings_count`**
+(`data.meta.meetings_count = len(data['meetings'])`) — liší se od skutečné
+délky pole, hlásí se to nesprávně v perexu stránky („Archiv obsahuje…").
+Totéž platí obdobně pro `meta.resolutions_count`/`agenda_items_count` při
+změně počtu usnesení/bodů.
+
 **Permalink vzniká automaticky, nic dalšího tu není potřeba dopisovat.**
 Trvalý odkaz tvaru `#rada-YYYY-MM-DD` / `#zastupitelstvo-YYYY-MM-DD` se
 u každého jednání v tabulce generuje za běhu z `type` + `date`

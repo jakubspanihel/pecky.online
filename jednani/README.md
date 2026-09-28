@@ -407,6 +407,30 @@ gramaticky správně. Podrobnosti (odvození `gender` ze jmen, validace,
 obecný mechanismus pro celý web) viz `lide/README.md` → „České skloňování
 osob (gender)".
 
+## Pořadí v poli `meetings` (opraveno 28. 9. 2026)
+
+`pecky-jednani.json` → `meetings` musí být seřazené sestupně podle `date`
+(nejnovější/nejbližší budoucí první) — `content/jednani.html` pole za
+běhu nijak nepřetřiďuje, zobrazuje ho přesně v pořadí ze souboru (žádné
+`.sort()` na `data.meetings` nikde v kódu). Nový záznam patří na místo
+odpovídající jeho datu, ne na konec pole.
+
+**Zjištěno 28. 9. 2026:** Zastupitelstvo 7/2026 (7. 10. 2026) — rada mu
+usnesením RM 34/2026 (bod 16) určila termín, program a místo konání, ještě
+předtím, než web usneseni.cz cokoli o tomto jednání zveřejnil (žádná
+Pozvánka, žádné UUID — proto `"uuid": null` a prázdné `links`). Záznam byl
+i tak správně přidán do `pecky-jednani.json`, ale `.append()`-em na konec
+pole, tedy za nejstarší jednání z roku 2021 — na webu se tak fakticky
+ztratil (musel by se scrollovat úplně dolů pod celý archiv, aby ho někdo
+našel), přestože podle `jIsFutureMeeting()` měl být nahoře se štítkem
+„plánováno". Souběžně nesouhlasil i `meta.meetings_count` (290 místo
+skutečných 291 záznamů v poli) — uživatel si všiml až toho, že jednání
+v tabulce vůbec nevidí, a dotázal se. Oprava: záznam přesunut na index 0,
+`meta.meetings_count` opraveno na 291. Do
+[automation-kontrola-usneseni-cz.md](automation-kontrola-usneseni-cz.md)
+→ krok 5 doplněno pravidlo pro vkládání nových záznamů i pro
+synchronizaci `meta` počtů, ať se stejná chyba neopakuje.
+
 ## Zvýraznění budoucích jednání (`jIsFutureMeeting()`)
 
 Doplněno 21. 8. 2026 — jednání s datem po dnešním dni (naplánovaná, zatím
