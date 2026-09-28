@@ -5,7 +5,7 @@ všech odkazů na sociální sítě v sekci [O webu](README.md) → „Sociáln�
 sítě" (`content/owebu.html`, druhý blok `div.quicklinks`): **počet
 sledujících/členů/odběratelů** a **datum posledního příspěvku/videa na
 dané síti** (ukazatel, jak moc je účet aktivní — NE datum, kdy jsme si
-údaje naposledy ověřili). Sedm z těchto odkazů se navíc opakuje na
+údaje naposledy ověřili). Osm z těchto odkazů se navíc opakuje na
 stránce [Volby 2026](../volby/2026/README.md) (tabulka „Volební
 uskupení", sloupeček „Poznámka" → `.socials-cell`) — ty se zapisují na
 obě místa najednou, viz krok 4. Nemá vlastní datový soubor — údaje se
@@ -23,15 +23,18 @@ příležitostně.
 ### 1. Projdi všechny odkazy v seznamu
 
 V `content/owebu.html`, sekce „Sociální sítě", je `div.quicklinks`
-s jedním `<a class="qlink">` na účet. Aktuálně (9. 9. 2026) jde o 15
-odkazů: Facebook Město Pečky, Facebook Pečky-Virtuálně, Instagram
-streetpeopleofpecky, Facebook NAŠE PEČKY, Facebook Kulturní středisko
-města Pečky, Facebook Alena Švejnohová, Facebook Městská knihovna
-Svatopluka Čecha, Facebook Pečky NEXT, Facebook Pečky Pečákům,
-Facebook TJ Sokol Pečky, Facebook ODS a nezávislí Pečky, Instagram
-Pečky NEXT, YouTube Město Pečky, Facebook Pečky srdcem, FB skupina
-Lidé pro Pečky s podporou SPD.
-(TJ Sokol Pečky přibyl 4. 9. 2026; do 3. 9. 2026 jich bylo 14.)
+s jedním `<a class="qlink">` na účet. **Projdi všechny, které tam právě
+jsou** — seznam průběžně roste (hlavně s novými zdroji Kalendáře), takže
+pevný výčet by tu rychle zastaral. Pro orientaci: 9. 9. 2026 jich bylo
+15, 28. 9. 2026 už 35 (Facebookové stránky i skupiny, šest Instagramů,
+YouTube). Aktuální počet i seznam vypíše:
+
+```bash
+grep -c 'class="qlink"' <(awk '/id="subpanel-owebu-socialni"/,/id="subpanel-owebu-zdroje"/' content/owebu.html)
+```
+
+Nově přidaný účet může mít jen `follower-count` bez řádku `url-meta`
+(datum) — doplň mu ho stejně jako ostatním (viz krok 3).
 
 ### 2. Zjisti počet sledujících a datum poslední aktivity (Claude in Chrome)
 
@@ -213,22 +216,24 @@ dvou položek po aktualizaci prohodí, přesuň řádek `<a class="qlink">`
 na správné místo (ne nutně po každé kontrole, jen když se pořadí
 skutečně změní).
 
-### 4. Promítni na Volby 2026 (jen 7 překrývajících se odkazů)
+### 4. Promítni na Volby 2026 (jen 8 překrývajících se odkazů)
 
-Těchto 7 odkazů se objevuje i v tabulce „Volební uskupení" na
+Těchto 8 odkazů se objevuje i v tabulce „Volební uskupení" na
 `/volby/2026/` (`content/volby2026.html`, `.socials-cell`): Facebook
-NAŠE PEČKY, Facebook Pečky NEXT, Instagram Pečky NEXT, Facebook Pečky
-Pečákům, Facebook ODS a nezávislí Pečky, Facebook Pečky srdcem, FB
-skupina Lidé pro Pečky s podporou SPD. Zapiš tam stejné číslo i stejné
-datum poslední aktivity, ve tvaru:
+NAŠE PEČKY, Instagram NAŠE PEČKY, Facebook Pečky NEXT, Instagram Pečky
+NEXT, Facebook Pečky Pečákům, Facebook ODS a nezávislí Pečky, Facebook
+Pečky srdcem, FB skupina Lidé pro Pečky s podporou SPD. (Instagram NAŠE
+PEČKY přibyl 28. 9. 2026.) Zapiš tam stejné číslo i stejné datum
+poslední aktivity, ve tvaru:
 
 ```html
 <span class="social-meta">(N sledujících, poslední příspěvek: <span data-date="RRRR-MM-DD">D. M. RRRR</span>)</span>
 ```
 
-Zbylých 7 odkazů (Město Pečky, Pečky-Virtuálně, streetpeopleofpecky,
-Kulturní středisko, Alena Švejnohová, Městská knihovna, YouTube) na
-Volby 2026 nepatří — nejsou volební uskupení.
+Ostatní odkazy (město, spolky, školy, podniky, Alena Švejnohová jako
+osoba…) na Volby 2026 nepatří — nejsou volební uskupení. Přibude-li
+v O webu další účet některého z pěti kandidujících uskupení, patří
+i sem — pak rozšiř výčet výše.
 
 ### 5. Přegeneruj a ověř
 
