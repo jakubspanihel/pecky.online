@@ -20,8 +20,8 @@ sám s daty sekcí při každém `python3 scripts/build.py`.
 
 | Karta | Zdroj | Co ukazuje |
 |---|---|---|
-| Nadcházející akce | `kalendar/udalosti.json` → `events`, jen kategorie `akce` a `volby` (kurzy a svoz odpadu by výpis zahltily) | 5 nejbližších akcí, odkaz na měsíc `/kalendar/#RRRR-MM/seznam` |
-| Jednání rady, zastupitelstva a výborů | `jednani/pecky-jednani.json` + `jednani/vybory.json` → `meetings` | „Příště“: ohlášená jednání Rady/ZM (max 2); „Naposledy“: 3 poslední proběhlá jednání Rady/ZM s počtem usnesení, odkaz `/jednani/#rada-RRRR-MM-DD`; „Výbory — poslední zveřejněný zápis“ (od 29. 9. 2026): poslední proběhlé jednání finančního a kontrolního výboru zvlášť, odkaz `/jednani/#financni-vybor-RRRR-MM-DD` — výbory zveřejňují zápisy se zpožděním, mezi „Naposledy“ by se skoro nedostaly |
+| Nadcházející akce | `kalendar/udalosti.json` → `events`, jen kategorie `akce` a `volby` (kurzy a svoz odpadu by výpis zahltily) | 5 nejbližších akcí, odkaz na měsíc `/kalendar/#RRRR-MM/seznam`; DNES/ZÍTRA/POZÍTŘÍ štítek u toho, co je v dohledu (viz níže) |
+| Jednání rady, zastupitelstva a výborů | `jednani/pecky-jednani.json` + `jednani/vybory.json` → `meetings` | „Příště“: ohlášená jednání Rady/ZM (max 2), i s DNES/ZÍTRA/POZÍTŘÍ štítkem; „Naposledy“: 3 poslední proběhlá jednání Rady/ZM s počtem usnesení, odkaz `/jednani/#rada-RRRR-MM-DD`; „Výbory — poslední zveřejněný zápis“ (od 29. 9. 2026): poslední proběhlé jednání finančního a kontrolního výboru zvlášť, odkaz `/jednani/#financni-vybor-RRRR-MM-DD` — výbory zveřejňují zápisy se zpožděním, mezi „Naposledy“ by se skoro nedostaly |
 | Pečecké noviny | `noviny/pecky-noviny.json` → `editions` (nejvyšší `slug`) | titulní strana (`noviny/pages/<slug>/1.jpg`, je-li) + odkaz na PDF |
 | Naposledy aktualizováno | `README.md` → „Stav sekcí“, sloupec „Změna“ (bez Domů) | 5 naposledy změněných sekcí; sloupec „Co naposledy“ se záměrně nepoužívá (je to interní pracovní log) |
 
@@ -39,6 +39,19 @@ i s nadpisem. Datum „Naposledy aktualizováno“ se přepočítává na stář
 
 Vícedenní akce, která v době buildu už běží, má text „probíhá do …“ —
 ten se počítá při buildu, ne v prohlížeči.
+
+### Štítek DNES/ZÍTRA/POZÍTŘÍ (doplněno 29. 9. 2026 na žádost uživatele)
+Každá `<li data-until="…">` v obou kartách („Nadcházející akce“ i
+„Příště“ u Jednání — stejná značka, stejný mechanismus) dostane za
+odkazem štítek `<span class="tag kal-dnes/kal-blizko">`, počítaný v
+`assets/common.js` (ne při buildu — ze stejného důvodu jako mizení
+proběhlých položek výš, ať zůstane platný i dny po buildu). Datum
+začátku bere z `data-from`, je-li (jen vícedenní akce v kalendáři),
+jinak z `data-until` — u jednání je vždy stejné jako konec (jednodenní).
+Sdílí CSS třídy `.tag.kal-dnes`/`.tag.kal-blizko` se stejným štítkem
+v Kalendáři → Seznam (`assets/styles.css`, `kalRelTag()` v
+`content/kalendar.html`) — logika je záměrně duplikovaná (dashboard
+běží nezávisle na `content/kalendar.html`), ne sdílená funkce.
 
 ### Přidání další karty
 1. Ve `scripts/build.py` napsat funkci `_dash_<nazev>()` vracející

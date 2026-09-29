@@ -22,6 +22,10 @@
         <input type="checkbox" id="kal-show-kurz" checked>
         Pravidelné akce, kurzy a tréninky
       </label>
+      <label class="checkbox-label">
+        <input type="checkbox" id="kal-only-future">
+        Pouze budoucí události
+      </label>
       <span id="kal-org-chips-inner"></span>
     </div>
 
@@ -70,9 +74,18 @@
   let KAL_ORG = '';   // id pořadatele z lide/organizations.json, '' = všichni
   let KAL_VIEW = 'kalendar';   // 'kalendar' = mřížka, 'seznam' = bloky akcí vybraného měsíce
   let KAL_SHOW_KURZ = true;   // false = skrýt kategorii 'kurz' (checkbox "Pravidelné akce, kurzy a tréninky")
+  let KAL_ONLY_FUTURE = false;   // true = skrýt už proběhlé události (checkbox "Pouze budoucí události")
   const kalNow = new Date();
   let kalYear = kalNow.getFullYear();
   let kalMonth = kalNow.getMonth();  // 0-based
+  const KAL_TODAY_STR = kalDateStr(kalNow.getFullYear(), kalNow.getMonth(), kalNow.getDate());
+  // pomocná fce pro "zítra"/"pozítří" níž — kalNow + offsetDays dní jako 'YYYY-MM-DD'
+  function kalOffsetStr(offsetDays){
+    const d = new Date(kalNow.getFullYear(), kalNow.getMonth(), kalNow.getDate() + offsetDays);
+    return kalDateStr(d.getFullYear(), d.getMonth(), d.getDate());
+  }
+  const KAL_TOMORROW_STR = kalOffsetStr(1);
+  const KAL_DAYAFTER_STR = kalOffsetStr(2);
 
   // CSS proměnné barvy pořadatele (--org-<id> generuje build z organizations.json);
   // nedefinovaná proměnná = pořadatel bez barvy -> CSS použije fallback
@@ -84,10 +97,13 @@
   // kategorie, které se barví podle pořadatele a ukazují "pořádá …"
   // (jednání a volby se barví podle kategorie, pořadatelem je vždy město)
   function kalMaPoradatele(e){ return e.category === 'akce' || e.category === 'kurz' || e.category === 'svoz'; }
-  // společný filtr pořadatele + checkboxu kategorie pro mřížku i Seznam
+  // společný filtr pořadatele + checkboxů kategorie/budoucnosti pro mřížku i Seznam.
+  // "Budoucí" = ještě neskončilo — u vícedenní akce rozhoduje date_end, ne date,
+  // ať se hned první den akce nezačne tvářit jako už proběhlá.
   function kalVidet(e){
     return (!KAL_ORG || e.organizer === KAL_ORG) &&
-      (KAL_SHOW_KURZ || e.category !== 'kurz');
+      (KAL_SHOW_KURZ || e.category !== 'kurz') &&
+      (!KAL_ONLY_FUTURE || (e.date_end || e.date) >= KAL_TODAY_STR);
   }
   function kalPad(n){ return String(n).padStart(2, '0'); }
   function kalDateStr(y, m, d){ return `${y}-${kalPad(m + 1)}-${kalPad(d)}`; }
@@ -111,13 +127,24 @@
     const fmt = ds => { const [, m, d] = ds.split('-'); return `${parseInt(d, 10)}. ${parseInt(m, 10)}.`; };
     return `${fmt(e.date)}–${fmt(e.date_end)}`;
   }
+  // "DNES"/"ZÍTRA"/"POZÍTŘÍ" pro Seznam — podle toho, jestli do rozsahu
+  // události (date..date_end, u jednodenní stejné) padne dnešek/zítřek/
+  // pozítří; jinak null (bez tagu). U vícedenní akce, která už dnes
+  // probíhá, se tak ukáže DNES, i když nezačala dnes.
+  function kalRelTag(e){
+    const start = e.date, end = e.date_end || e.date;
+    if (KAL_TODAY_STR >= start && KAL_TODAY_STR <= end) return 'DNES';
+    if (KAL_TOMORROW_STR >= start && KAL_TOMORROW_STR <= end) return 'ZÍTRA';
+    if (KAL_DAYAFTER_STR >= start && KAL_DAYAFTER_STR <= end) return 'POZÍTŘÍ';
+    return null;
+  }
 
   function kalRenderGrid(){
     const body = document.getElementById('kal-grid-body');
     const first = new Date(kalYear, kalMonth, 1);
     const startOffset = (first.getDay() + 6) % 7;  // Po=0 .. Ne=6
     const daysInMonth = new Date(kalYear, kalMonth + 1, 0).getDate();
-    const todayStr = kalDateStr(kalNow.getFullYear(), kalNow.getMonth(), kalNow.getDate());
+    const todayStr = KAL_TODAY_STR;
 
     const cells = [];
     for (let i = 0; i < startOffset; i++) cells.push(null);
@@ -181,6 +208,9 @@
       const [, mm, dd] = e.date.split('-');
       const denNazev = dny[new Date(e.date + 'T12:00:00').getDay()];
       const datum = kalFmtRange(e) || `${parseInt(dd, 10)}. ${parseInt(mm, 10)}.`;
+      const relTag = kalRelTag(e);
+      const relStitek = relTag
+        ? ` <span class="tag${relTag === 'DNES' ? ' kal-dnes' : ' kal-blizko'}">${relTag}</span>` : '';
       // čas jen když ho zdroj uvádí — jinak se o čase nepíše nic
       const cas = e.time ? `<span class="akce-cas">${kalEsc(e.time)}</span>` : '';
       const stitek = e.category === 'kurz' ? ' <span class="tag">kurz</span>'
@@ -202,7 +232,7 @@
       const pozn = e.note ? `<span class="meta-note akce-pozn">${kalEsc(e.note)}</span>` : '';
       const barva = kalMaPoradatele(e) && e.organizer ? ` style="${kalOrgStyle(e.organizer)}"` : '';
       return `<article class="akce-blok akce-blok-${e.category}"${barva}>
-        <div class="akce-kdy"><strong>${datum} ${denNazev}</strong></div>
+        <div class="akce-kdy"><strong>${datum} ${denNazev}</strong>${relStitek}</div>
         ${meta}
         <h3 class="akce-nazev">${nazev}${stitek}</h3>
         ${popis}${pozn}${porada}
@@ -249,9 +279,19 @@
     kalYear = +m[1];
     kalMonth = +m[2] - 1;
     KAL_VIEW = m[3] === 'seznam' ? 'seznam' : 'kalendar';
+    kalSetOnlyFuture(KAL_VIEW === 'seznam');
     document.querySelectorAll('#panel-kalendar .segmented-btn[data-kal-view]')
       .forEach(x => x.classList.toggle('active', x.dataset.kalView === KAL_VIEW));
     return true;
+  }
+
+  // Zapne/vypne checkbox "Pouze budoucí události" i jeho stav najednou —
+  // volá se programově při přepnutí zobrazení (ON pro Seznam, OFF pro
+  // Kalendář), ne z vlastního change listeneru checkboxu níž, ať se
+  // needit zacyklí.
+  function kalSetOnlyFuture(val){
+    KAL_ONLY_FUTURE = val;
+    document.getElementById('kal-only-future').checked = val;
   }
 
   function kalRenderOrgChips(events){
@@ -312,6 +352,7 @@
         .forEach(x => x.classList.remove('active'));
       this.classList.add('active');
       KAL_VIEW = this.dataset.kalView;
+      kalSetOnlyFuture(KAL_VIEW === 'seznam');
       kalShowView(KAL_VIEW);
     });
   });
@@ -326,6 +367,10 @@
 
   document.getElementById('kal-show-kurz').addEventListener('change', function(){
     KAL_SHOW_KURZ = this.checked;
+    kalShowView(KAL_VIEW);
+  });
+  document.getElementById('kal-only-future').addEventListener('change', function(){
+    KAL_ONLY_FUTURE = this.checked;
     kalShowView(KAL_VIEW);
   });
 

@@ -254,6 +254,9 @@
   /* stav usnesení (sekce Jednání) */
   .tag.zamitnuto{color:var(--burgundy); border-color:var(--burgundy); background:rgba(124,47,43,0.08); font-weight:600;}
   .tag.revokovano{color:var(--burgundy-deep); border-color:var(--burgundy-deep); border-style:dashed; background:rgba(94,33,30,0.06); font-weight:600;}
+  /* relativní datum v Seznamu Kalendáře (dnes/zítra/pozítří) */
+  .tag.kal-dnes{color:#fff; border-color:var(--burgundy); background:var(--burgundy); font-weight:600;}
+  .tag.kal-blizko{color:var(--burgundy); border-color:var(--burgundy); background:rgba(124,47,43,0.06);}
   .res-outcome{margin-right:6px;}
 
   .callout{

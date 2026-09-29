@@ -67,6 +67,15 @@ vede rovnou na zdroj" v „Jak to funguje" níže.
     `#kal-grid`/`#kal-list` a zavolá odpovídající vykreslení — nová
     cesta (navigace, filtr, přepínač samotný) proto nesmí volat
     `kalRenderGrid()` přímo, jinak by se v pohledu Seznam neprojevila.
+  - **Štítek „DNES"/„ZÍTRA"/„POZÍTŘÍ"** v Seznamu (doplněno 29. 9. 2026
+    na žádost uživatele) — za datem v `.akce-kdy`, funkce `kalRelTag(e)`:
+    testuje, jestli dnešek/zítřek/pozítří (`KAL_TODAY_STR`/`KAL_TOMORROW_STR`/
+    `KAL_DAYAFTER_STR`) padne do rozsahu události (`date`..`date_end`,
+    u jednodenní stejné) — ne jen podle `date`, ať se vícedenní akce,
+    která dnes právě probíhá, taky správně označí jako DNES, i když
+    nezačala dnes. Bez shody žádný štítek. `DNES` má vlastní výraznou
+    třídu `.tag.kal-dnes` (plná burgundová), `ZÍTRA`/`POZÍTŘÍ` sdílí
+    tlumenější `.tag.kal-blizko`.
   - **Stav v URL** (doplněno 25. 9. 2026 na žádost uživatele) — měsíc
     a pohled se zapisují do hashe: `#RRRR-MM` = mřížka daného měsíce,
     `#RRRR-MM/seznam` = pohled Seznam. Příchod na `/kalendar/` bez hashe
@@ -93,7 +102,7 @@ vede rovnou na zdroj" v „Jak to funguje" níže.
     je defaultně skrytý (`hidden`) a leží **těsně před tabulkou/seznamem**
     (`#kal-status`), ne u navigace měsícem — přesunuto z původního umístění
     24. 9. 2026 na žádost uživatele spolu s přidáním tlačítka Filtr.
-  - **Panel filtrů `#kal-filter-org`** — obsahuje dva prvky, oba se
+  - **Panel filtrů `#kal-filter-org`** — obsahuje tři prvky, všechny se
     zapisují do sdíleného stavu čteného oběma pohledy (mřížka i Seznam):
     - **Checkbox „Pravidelné akce, kurzy a tréninky"** (`#kal-show-kurz`,
       doplněno 24. 9. 2026 na žádost uživatele, přesunuto do panelu
@@ -111,6 +120,21 @@ vede rovnou na zdroj" v „Jak to funguje" níže.
       **zrušený týž den na žádost uživatele** jako zbytný: pořadatel
       „Pečecké služby" má jen tuhle jednu kategorii, takže ho beze zbytku
       skryje/ukáže i čip pořadatele v sekci níž — dva filtry na totéž.
+    - **Checkbox „Pouze budoucí události"** (`#kal-only-future`,
+      `KAL_ONLY_FUTURE`, doplněno 29. 9. 2026 na žádost uživatele) —
+      odškrtnutý je výchozí stav (vidět úplně vše, jako dřív); zaškrtnutím
+      zmizí události, které už skončily — u vícedenní akce rozhoduje
+      `date_end`, ne `date` (první den akce se tak hned netváří jako
+      proběhlá). Kombinuje se s ostatními filtry stejně jako `KAL_SHOW_KURZ`
+      přes sdílenou `kalVidet(e)`. **Sleduje přepínač Kalendář/Seznam**
+      (`kalSetOnlyFuture()`, volané z kliku na segmented-btn i z
+      `kalReadHash()` při příchodu na `#RRRR-MM`/`#RRRR-MM/seznam`):
+      přepnutím na Seznam se sám zaškrtne (dlouhý seznam všech proběhlých
+      i budoucích termínů měsíce by jinak zbytečně zabíral úvod nejstarší
+      historií), přepnutím zpátky na Kalendář (doplněno 29. 9. 2026, tentýž
+      den co samotný checkbox) se sám zase odškrtne. Navigace měsícem
+      uvnitř téhož pohledu checkbox nemění, jen samotné přepnutí
+      Kalendář/Seznam.
     - **Čipy pořadatele** — vykreslené `kalRenderOrgChips()` do vnořeného
       `#kal-org-chips-inner` (ne přímo do `#kal-filter-org`, aby render
       nesmazal sousední checkbox); viditelnost samotného panelu řídí

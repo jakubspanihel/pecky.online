@@ -184,6 +184,38 @@ function relDatum(iso) {
   });
 })();
 
+// ===== Dashboard: štítek DNES/ZÍTRA/POZÍTŘÍ u nadcházejících položek =====
+// Stejná logika jako kalRelTag() v content/kalendar.html (Kalendář → Seznam),
+// jen se počítá v prohlížeči místo při buildu, ať zůstane platná i dny po
+// buildu (viz komentář nad render_dashboard() ve scripts/build.py). Platí
+// pro "Nadcházející akce" i "Příště" v kartě Jednání — obě sdílí stejnou
+// značku li[data-until]. data-until je poslední den, kdy je položka ještě
+// aktuální (u vícedenní akce konec, jinak totéž co začátek); data-from se
+// píše jen tam, kde se od data-until liší.
+(function () {
+  const items = document.querySelectorAll('.dash-list li[data-until]');
+  if (!items.length) return;
+  const d = new Date();
+  const pad = n => String(n).padStart(2, '0');
+  const toStr = dt => dt.getFullYear() + '-' + pad(dt.getMonth() + 1) + '-' + pad(dt.getDate());
+  const dnes = toStr(d);
+  const zitra = toStr(new Date(d.getFullYear(), d.getMonth(), d.getDate() + 1));
+  const pozitri = toStr(new Date(d.getFullYear(), d.getMonth(), d.getDate() + 2));
+  items.forEach(li => {
+    const until = li.getAttribute('data-until');
+    const from = li.getAttribute('data-from') || until;
+    let tag = null;
+    if (dnes >= from && dnes <= until) tag = 'DNES';
+    else if (zitra >= from && zitra <= until) tag = 'ZÍTRA';
+    else if (pozitri >= from && pozitri <= until) tag = 'POZÍTŘÍ';
+    if (!tag) return;
+    const a = li.querySelector('a');
+    if (!a) return;
+    a.insertAdjacentHTML('afterend',
+      ` <span class="tag ${tag === 'DNES' ? 'kal-dnes' : 'kal-blizko'}">${tag}</span>`);
+  });
+})();
+
 // ===== Rozklikávací řádky tabulky (např. Pokladna: na co město utrácí) =====
 document.querySelectorAll('.exp-row').forEach(row => {
   row.addEventListener('click', () => {
