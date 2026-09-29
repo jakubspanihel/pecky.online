@@ -122,6 +122,24 @@ spárované jen podle jména a vazba to v `note` přiznává. Jaroslav Vorlíče
 `vorlicekj2`. Zdeněk Buřič má dvě vazby (hospodář + trenér mladších
 žáků), Vojtěch Buřič je samostatná osoba.
 
+**Pečecké služby, s.r.o. — zaměstnanci** (doplněno 29. 9. 2026): zdroj
+[pececkesluzby.cz/office](https://pececkesluzby.cz/office/) uvádí kromě
+jednatele ještě 5 lidí (asistentka vedení/personalistka, objednávky/
+pokladna/fakturace, ekonomka, 2 provozní techniky) — zadal uživatel
+dotazem, jestli jsou v adresáři. Simona Vrbová (ekonomka) tam mezitím
+souběžně doplnila jiná session (vč. jejího krátkého jednatelství
+27. 1.–2. 3. 2026 mezi Brantem a Högerovou). Ze zbylých 4: Pavel
+Sedláček je na pokyn autora webu **stejná osoba** jako stávající
+zastupitel `sedlacekp` (SNK Pečky Pečákům) — dostal jen novou vazbu.
+Luboš Hanzelín je naopak na pokyn autora webu **jiná osoba** než
+stávající `hanzelinl` Lukáš Hanzelín (ředitel Kulturního střediska) —
+nezaměňovat přes podobné jméno, nový záznam `hanzelinl2`. Aneta
+Bernardová a Libuše Černá jsou nové bez podobnosti k nikomu
+existujícímu. Všichni čtyři `role_type: "zamestnanec"` — firma (`type:
+"firma"`) není úřad, takže spadají pod `_organizace` ve `content/lide.html`
+stejnou větví, jaká už existovala pro zaměstnance organizací mimo úřad
+(žádná úprava kódu nebyla potřeba, na rozdíl od ZUŠ/ZŠ/MŠ výš).
+
 **MŠ MAŠINKA Pečky** (doplněno 22. 9. 2026): 13 učitelek + zástupkyně
 ředitelky + 4 asistentky pedagoga + 4 uklízečky, dohledáno na
 stránkách jednotlivých tříd — zdroj
@@ -302,8 +320,8 @@ Ten rozdíl je správně a je vidět v timeline.
 
 Šest skupin v tomhle pořadí: **Rada města**, **Ostatní členové
 zastupitelstva**, **Úřad města** (`vedeni-urad`), **Městské organizace**
-(`vedeni-organizace`), **Komise, spolky a školská rada** (`komise`
-a `clen`, doplněno 19., resp. 24. 9. 2026) a — až po přepnutí rozsahu
+(`vedeni-organizace`), **Výbory, komise, spolky a školská rada** (`komise`
+a `clen`, doplněno 19., resp. 24. 9. 2026; výbory ZM 29. 9. 2026) a — až po přepnutí rozsahu
 na „Včetně historie" —
 **Dřívější vedení a bývalí zastupitelé**. Volení lidé nahoře, jmenovaní
 pod nimi, historie nakonec.
@@ -347,6 +365,35 @@ který o nich mluví pravdivě.
 
 **Když někoho přidáš a on se neobjeví**, chybí mu vazba mimo kandidátku —
 mandát (`zastupitel`), funkce v radě, `vedeni` nebo `zamestnanec`.
+
+### Finanční a kontrolní výbor ZM (doplněno 29. 9. 2026)
+
+Oba výbory mají sedm členů (UZ-97-7/22). Složení je z usnesení ustavujícího
+zasedání 20. 10. 2022 (`UZ-98`…`UZ-111`) a pozdějších doplňovacích voleb
+(`UZ-47-5/24`, `UZ-2-1/25`, `UZ-3-1/25`). Křížově ověřeno proti aktuálnímu
+výpisu na pecky.cz (Zastupitelstvo → Výbory ZM) 29. 9. 2026 — sedí na
+jméno. `role_type: "komise"`, stejně jako předsednictví kontrolního výboru,
+které už v datech bylo. U každé vazby je v `note` číslo usnesení a poměr
+hlasů, ve `sources` přímý odkaz na usnesení (a u aktuálních členů i na
+výpis na pecky.cz).
+
+- **Finanční výbor:** předseda Ing. Karel Krištoufek; členové Ing. Šárka
+  Jedličková, Pavel Sedláček, Milan Urban, Tomáš Vodička, Jaroslav Železný,
+  Lubomír Metelák — beze změny od roku 2022. Web města píše „Metalák",
+  usnesení i kandidátka „Metelák".
+- **Kontrolní výbor:** předsedkyně Bc. Iveta Dvořáková (do 26. 2. 2025, kdy
+  jí skončil i mandát), pak Mgr. Alena Švejnohová (do té doby řadová členka,
+  proto má dvě vazby za sebou). Členové Milan Pečenka, Ivana Trčková,
+  Václav Drška, Ing. Petr Dürr; Lenka Třísková do roku 2024 (viz Přiznané
+  mezery), po ní Jaroslava Vosecká (od 13. 11. 2024) a na místo Dvořákové
+  Jiří Katrnoška (od 26. 2. 2025).
+- Členství předsedů se jako zvláštní vazba „člen" nezapisuje — předseda
+  je členem výboru automaticky.
+- Všichni kromě Šárky Jedličkové jsou (nebo byli) zastupitelé, takže
+  párování je jednoznačné. Jedličková spárována podle jména a titulu Ing.
+  (kandidátka 2026 uvádí povolání „vedoucí finančního odboru"). Jako jediná
+  nezastupitelka se na stránce objeví ve skupině „Výbory, komise, spolky
+  a školská rada".
 
 ### Validace
 
@@ -563,9 +610,12 @@ o konkrétní osobě, použít stejnou funkci, ne psát tvary napevno.
 - ~~Uskupení Bc. Ivety Dvořákové a Lenky Třískové je dopočítané~~ —
   uzavřeno 8. 9. 2026. Výsledky voleb 2022 na Poradně pro obce uvádějí
   kandidátku přímo u jména, obě vazby jsou teď doložené.
-- **Výbory jsou zatím jen dva záznamy** (předsednictví kontrolního
-  výboru). Zbytek členů finančního a kontrolního výboru je v archivu
-  jednání pod `UZ-98`…`UZ-111` — doplnit ve fázi 5b.
+- ~~Výbory jsou zatím jen dva záznamy~~ — uzavřeno 29. 9. 2026, viz
+  „Finanční a kontrolní výbor ZM" níže.
+- **Lenka Třísková nemá přesné datum odchodu z kontrolního výboru.**
+  Vazba má `to: "2024"`: mandát jí skončil 11. 9. 2024 a její místo ve
+  výboru zastupitelstvo obsadilo 13. 11. 2024 (Jaroslava Vosecká, UZ-47-5/24),
+  ale samotný odchod (spolu s mandátem, nebo dřív) usnesení nezachycují.
 - **Komise RM a školská rada nemají doložené datum jmenování** — pecky.cz
   u nich ukazuje jen aktuální složení, ne kdy ho rada schválila. Vazby
   mají `from: null` a `verified` na datum, kdy bylo složení ověřené na

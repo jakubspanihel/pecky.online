@@ -632,6 +632,26 @@ Kolize data (víc jednání týž den — zatím jediný případ 25. 5. 2026: R
 20/2026 + Zastupitelstvo 3/2026) se řeší příponou složky
 `-rada`/`-zastupitelstvo`.
 
+### Zápisy výborů ZM (`Data/{datum}-financni-vybor/`, `…-kontrolni-vybor/`)
+
+Finanční a kontrolní výbor nejsou na `usneseni.cz` — zápisy z jejich
+jednání zveřejňuje jen pecky.cz (Zastupitelstvo → [Výbory ZM](https://pecky.cz/default/default/21133_vybory-zm)
+→ Finanční / Kontrolní výbor → Zápisy {rok}). Staženo jednorázově
+29. 9. 2026: `Data/{datum}-financni-vybor/zapis.pdf` (31 zápisů,
+11/2018–6/2026) a `Data/{datum}-kontrolni-vybor/zapis.pdf` (14 zápisů,
+3/2020–6/2026; stránka „Zápisy 2022" KV je na webu prázdná). Přípona
+složky je vždy, i bez kolize data — jde o jiný orgán než Rada/ZM.
+
+- Soubor se jmenuje `zapis.pdf`, ne `podepsany-zapis.pdf` — web ho tak
+  neoznačuje a podpis nebyl ověřován.
+- Datum složky je z názvu souboru na webu (formáty se liší: `FV_10.5.2022`,
+  `KV-18.2.2026`, `17_6_2026`). U 31 PDF s textovou vrstvou ověřeno, že
+  první datum v textu se shoduje; 14 je naskenovaných bez textu
+  (neověřeno, datum jen z názvu).
+- Na rozdíl od `usneseni.cz` pecky.cz Cloudflare neblokuje — stačí přímý
+  `curl` na `/files/pecky/gallery/…`. Všech 45 souborů má různý MD5.
+- Obsah zápisů zatím není vytěžený do `pecky-jednani.json` ani jinam.
+
 ### Stahování pozvánek a podepsaných zápisů (pro budoucí doplnění)
 
 Cloudflare blokuje jakýkoli non-browser přístup (curl, přímé HTTP) —

@@ -722,8 +722,9 @@ pro lidi, kteří kandidovali víckrát a v datech už jsou), spustit
 `node lide/validate.mjs` a v `README.md` → „Stav sekcí" zapsat řádek se
 změnou.
 
-**5b — zbytek (po 5a).** Členové finančního a kontrolního výboru z
-ustavujícího zasedání (`UZ-98`…`UZ-111`), vedení příspěvkových organizací a
+**5b — zbytek (po 5a).** ~~Členové finančního a kontrolního výboru z
+ustavujícího zasedání (`UZ-98`…`UZ-111`)~~ (hotovo 29. 9. 2026, viz
+`README.md` → „Finanční a kontrolní výbor ZM"), vedení příspěvkových organizací a
 městských firem, doplnění `bio`/foto/`sources` u kandidátů z 5a, kde se
 zdroj najde. Doplnit chybějící kontakty z organizační struktury úřadu.
 
