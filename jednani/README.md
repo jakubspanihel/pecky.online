@@ -755,6 +755,37 @@ funguje i přímý `curl`, žádný prohlížeč netřeba.
    beze změny“); při změně přepsat řádek Jednání v `README.md` → „Stav
    sekcí“.
 
+### Zápisy komisí RM (`Data/{datum}-{komise}/`, skript `komise-check.py`)
+
+Obdoba výborů pro komise rady města: zápisy zveřejňuje jen pecky.cz
+([Komise RM](https://pecky.cz/default/default/21179_komise-rm)), na
+`usneseni.cz` nejsou. **Stav 29. 9. 2026: připraveno, zatím nestaženo** —
+skript vznikl v cloudové relaci, která na pecky.cz neměla síťový přístup,
+takže struktura stránek komisí není ověřená. Spouští se lokálně (tam, kde
+`Data/` trvale žije):
+
+1. `python3 jednani/scripts/komise-check.py --dry-run` — vypíše nalezené
+   komise (podstránky Komise RM se slugem obsahujícím „komise“), jejich
+   stránky se zápisy (slug `zapis…`), počty PDF a datum z názvu souboru.
+   Nic nestahuje. Chybí-li komise (slug bez „komise“, např. redakční
+   rada), přidat ji `--stranka URL` nebo do `DALSI_STRANKY` ve skriptu.
+   Nenajde-li skript nic, vypíše všechny odkazy stránky Komise RM.
+2. `python3 jednani/scripts/komise-check.py` — stáhne každé PDF, které
+   ještě není v lokální evidenci `Data/komise-stazene.json` (URL → soubor,
+   MD5, zdroj data), do `Data/{datum}-{komise}/zapis.pdf`. `{komise}` je
+   slug stránky komise na pecky.cz, přípona složky vždy (jako u výborů).
+   Druhý zápis téže komise ze stejného dne → `zapis-2.pdf`. Stejné PDF
+   pod jinou URL (shodné MD5) se přeskočí.
+3. Datum se bere z názvu souboru (`10.5.2025`, `3_6_2025`, `2025-06-03`),
+   jinak z prvního data v textu PDF (`pdftotext`). Obojí **ověřit proti
+   textu zápisu** a složku případně přejmenovat (u výborů byl název
+   souboru dvakrát chybný). Bez zjistitelného data (typicky sken bez
+   textu) jde soubor do `Data/_bez-data/{komise}/{původní název}` —
+   zařadit ručně po přečtení (OCR jako u výborů).
+4. Skript je idempotentní — opakované spuštění stáhne jen nové zápisy.
+   Vytěžení obsahu do gitu (obdoba `vybory.json`) zatím není; až bude,
+   evidence přejde z lokálního `komise-stazene.json` na `links.minutes`.
+
 ### Stahování pozvánek a podepsaných zápisů (pro budoucí doplnění)
 
 Cloudflare blokuje jakýkoli non-browser přístup (curl, přímé HTTP) —
