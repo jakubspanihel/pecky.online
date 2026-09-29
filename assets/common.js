@@ -148,6 +148,42 @@ function relDatum(iso) {
   });
 })();
 
+// ===== Dashboard na homepage: proběhlé položky pryč, datum změny -> stáří =====
+// Build (render_dashboard ve scripts/build.py) vypíše budoucích položek víc,
+// než je vidět (nadbytečné mají hidden). Tady se skryjí ty, jejichž
+// data-until už je v minulosti, a zbylé se odkryjí až do data-max seznamu.
+(function () {
+  const lists = document.querySelectorAll('.dash-list');
+  if (!lists.length) return;
+  const d = new Date();
+  const dnes = d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0') + '-' + String(d.getDate()).padStart(2, '0');
+  lists.forEach(ul => {
+    const max = parseInt(ul.getAttribute('data-max'), 10);
+    const items = ul.querySelectorAll('li[data-until]');
+    if (!items.length) return;
+    let shown = 0;
+    items.forEach(li => {
+      const ok = li.getAttribute('data-until') >= dnes && (isNaN(max) || shown < max);
+      li.hidden = !ok;
+      if (ok) shown++;
+    });
+    const empty = ul.querySelector('.dash-empty');
+    if (empty) empty.hidden = shown > 0;
+    // seznam bez jediné budoucí položky (a bez hlášky) schovat i s nadpisem
+    if (!shown && !empty) {
+      ul.hidden = true;
+      const h = ul.previousElementSibling;
+      if (h && h.tagName === 'H4') h.hidden = true;
+    }
+  });
+  document.querySelectorAll('.dash-list [data-date]').forEach(el => {
+    const stari = relDatum(el.getAttribute('data-date'));
+    if (stari === null) return;
+    el.title = el.textContent.trim();
+    el.textContent = 'aktualizováno ' + stari;
+  });
+})();
+
 // ===== Rozklikávací řádky tabulky (např. Pokladna: na co město utrácí) =====
 document.querySelectorAll('.exp-row').forEach(row => {
   row.addEventListener('click', () => {

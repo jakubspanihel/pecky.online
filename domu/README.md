@@ -5,10 +5,47 @@ Referenční dokument pro práci na panelu `panel-domu` v `content/domu.html`
 CLAUDE.md) — tohle je detail jen pro tuhle jednu sekci.
 
 ## Účel sekce
-Úvodní panel webu (výchozí při načtení) — krátké představení „PečkyBota"
-(maskota webu) a kontakt na zpětnou vazbu. Bez vlastního datového zdroje,
-bez odkazu na konkrétní fakta k ověřování.
+Úvodní stránka webu funguje jako dashboard „Co je nového“: ukazuje
+nejnovější obsah z ostatních sekcí a odkazuje do nich. Vlastní datový
+zdroj nemá — jen přebírá, co už ověřily jednotlivé sekce, takže tu
+neplatí `.stamp`/`.callout` na úrovni jednotlivých položek (ověření visí
+na cílové sekci). PečkyBot (maskot webu) a kontakt na zpětnou vazbu jsou
+ve sdílené patičce `assets/footer.html`, ne v tomhle panelu.
 
-Obsah panelu žije v `content/domu.html` (žádná samostatná datová sada).
-Zatím žádná zvláštní pravidla nad rámec obecných konvencí v kořenovém
-`CLAUDE.md`. Doplnit sem, až nějaká vzniknou.
+## Dashboard — jak funguje
+`content/domu.html` obsahuje jen nadpis, perex a značku `{{DASHBOARD}}`.
+Build ji nahradí výstupem `render_dashboard()` ve `scripts/build.py`
+(blok „Dashboard na homepage“). **Dashboard se needituje ručně** — mění se
+sám s daty sekcí při každém `python3 scripts/build.py`.
+
+| Karta | Zdroj | Co ukazuje |
+|---|---|---|
+| Nadcházející akce | `kalendar/udalosti.json` → `events`, jen kategorie `akce` a `volby` (kurzy a svoz odpadu by výpis zahltily) | 5 nejbližších akcí, odkaz na měsíc `/kalendar/#RRRR-MM/seznam` |
+| Jednání rady a zastupitelstva | `jednani/pecky-jednani.json` → `meetings` | „Příště“: ohlášená jednání (max 2); „Naposledy“: 3 poslední proběhlá s počtem usnesení, odkaz `/jednani/#rada-RRRR-MM-DD` |
+| Pečecké noviny | `noviny/pecky-noviny.json` → `editions` (nejvyšší `slug`) | titulní strana (`noviny/pages/<slug>/1.jpg`, je-li) + odkaz na PDF |
+| Naposledy aktualizováno | `README.md` → „Stav sekcí“, sloupec „Změna“ (bez Domů) | 5 naposledy změněných sekcí; sloupec „Co naposledy“ se záměrně nepoužívá (je to interní pracovní log) |
+
+Počty a vybrané kategorie jsou konstanty `DASH_*` na začátku bloku v
+`scripts/build.py`. Styl: `.dash-*` v `assets/styles.css`.
+
+### Budoucí položky a zastarávání mezi buildy
+Ohlášená jednání a akce nesou `data-until` (ISO datum konce). Build jich
+vypíše víc, než je vidět (rezerva zhruba na týden, nadbytečné mají
+`hidden`); `assets/common.js` v prohlížeči skryje ty, které už proběhly,
+a odkryje další v pořadí až do `data-max` seznamu. Když nezbude žádná
+akce, ukáže se hláška `.dash-empty`; prázdné „Příště“ u jednání zmizí
+i s nadpisem. Datum „Naposledy aktualizováno“ se přepočítává na stáří
+(„aktualizováno včera“) stejnou funkcí `relDatum` jako tabulka Stav sekcí.
+
+Vícedenní akce, která v době buildu už běží, má text „probíhá do …“ —
+ten se počítá při buildu, ne v prohlížeči.
+
+### Přidání další karty
+1. Ve `scripts/build.py` napsat funkci `_dash_<nazev>()` vracející
+   `_dash_card(titulek, odkaz_sekce, text_odkazu, tělo)` a přidat ji do
+   seznamu `karty` v `render_dashboard()`.
+2. Brát data jen ze souborů sekce (JSON, Stav sekcí) — nic nepsat ručně
+   do HTML. Chybějící nebo prázdná data mají shodit build s jasnou
+   chybou (`SystemExit('CHYBA: dashboard - …')`), ne tiše vynechat kartu.
+3. Budoucí položky označit `data-until`, u seznamů s limitem dát `data-max`.
+4. Doplnit tabulku výš a spustit `python3 scripts/build.py`.

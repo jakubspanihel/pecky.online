@@ -337,6 +337,131 @@ def apply_lastmod(content, lastmod):
     return new_content if n else content
 
 
+# ===== Dashboard na homepage (Domů) =====
+# Blok {{DASHBOARD}} v content/domu.html. Skládá se při buildu z dat, která
+# už ověřily jednotlivé sekce - nic nového nevymýšlí, jen vybírá nejnovější
+# položky a odkazuje zpátky do sekce. Budoucí položky (ohlášená jednání,
+# nadcházející akce) nesou data-until: build jich vypíše víc, než je vidět
+# (nadbytečné mají hidden), a common.js v prohlížeči skryje ty, co mezitím
+# proběhly, a doplní další v pořadí - homepage tak nezastará mezi buildy.
+DASH_KALENDAR_KATEGORIE = ('akce', 'volby')  # kurzy a svoz odpadu by zahltily výpis
+DASH_AKCE_VIDET, DASH_AKCE_REZERVA = 5, 25  # rezerva ~ týden bez buildu
+DASH_JEDNANI_PROBEHLA = 3
+DASH_ZMENY = 5
+DNY_CZ = ['po', 'út', 'st', 'čt', 'pá', 'so', 'ne']
+
+
+def _den_cz(iso):
+    """'2026-10-07' -> 'st 7. 10.' (krátký zápis do výpisu)."""
+    from datetime import date
+    y, m, d = (int(x) for x in iso.split('-'))
+    return f'{DNY_CZ[date(y, m, d).weekday()]} {d}. {m}.'
+
+
+def _dash_card(title, href, link_text, body):
+    return (f'<div class="dash-card">\n'
+            f'  <h3 class="display"><a href="{href}">{esc(title)}</a></h3>\n'
+            f'{body}\n'
+            f'  <a class="dash-more" href="{href}">{esc(link_text)} →</a>\n'
+            f'</div>')
+
+
+def _dash_jednani(dnes):
+    meetings = json.loads(read('jednani/pecky-jednani.json'))['meetings']
+    def slug(m):
+        return f'{m["type"].lower()}-{m["date"]}'
+    def nazev(m):
+        return f'{m["type"]} {m["number"]}/{m["year"]}'
+
+    ohlasena = sorted((m for m in meetings if m['date'] >= dnes), key=lambda m: m['date'])
+    probehla = sorted((m for m in meetings if m['date'] < dnes),
+                      key=lambda m: m['date'], reverse=True)[:DASH_JEDNANI_PROBEHLA]
+    if not probehla:
+        raise SystemExit('CHYBA: dashboard - v jednani/pecky-jednani.json není žádné proběhlé jednání.')
+
+    out = []
+    if ohlasena:
+        out.append('  <h4>Příště</h4>\n  <ul class="dash-list" data-max="2">')
+        for m in ohlasena:
+            kdy = iso_to_cz(m['date']) + (f' v {m["time"]}' if m.get('time') else '')
+            out.append(f'    <li data-until="{m["date"]}"><a href="/jednani/#{slug(m)}">'
+                       f'{esc(nazev(m))}</a><span class="meta-note">{esc(kdy)}'
+                       f'{" · " + esc(m["venue"]) if m.get("venue") else ""}</span></li>')
+        out.append('  </ul>')
+    out.append('  <h4>Naposledy</h4>\n  <ul class="dash-list">')
+    for m in probehla:
+        n_res = len(m.get('resolutions') or [])
+        if n_res:
+            co = f'{n_res} usnesení'
+        elif not (m.get('links') or {}).get('minutes'):
+            co = 'zápis zatím nezveřejněn'
+        else:
+            co = 'bez usnesení'
+        out.append(f'    <li><a href="/jednani/#{slug(m)}">{esc(nazev(m))}</a>'
+                   f'<span class="meta-note">{esc(iso_to_cz(m["date"]))} · {esc(co)}</span></li>')
+    out.append('  </ul>')
+    return _dash_card('Jednání rady a zastupitelstva', '/jednani/', 'Všechna jednání', '\n'.join(out))
+
+
+def _dash_kalendar(dnes):
+    events = json.loads(read('kalendar/udalosti.json'))['events']
+    akce = sorted((e for e in events
+                   if e['category'] in DASH_KALENDAR_KATEGORIE
+                   and (e.get('date_end') or e['date']) >= dnes),
+                  key=lambda e: (e['date'], e.get('time') or ''))[:DASH_AKCE_VIDET + DASH_AKCE_REZERVA]
+    out = [f'  <ul class="dash-list" data-max="{DASH_AKCE_VIDET}">']
+    for i, e in enumerate(akce):
+        vicedenni = e.get('date_end') and e['date_end'] != e['date']
+        if vicedenni and e['date'] < dnes:
+            kdy = f'probíhá do {_den_cz(e["date_end"])}'
+        else:
+            kdy = _den_cz(e['date']) + (f' – {_den_cz(e["date_end"])}' if vicedenni else '')
+        if e.get('time') and not e.get('all_day'):
+            kdy += f' v {e["time"]}'
+        kdo = f' · {esc(e["organizer_name"])}' if e.get('organizer_name') else ''
+        mesic = e['date'][:7]
+        hidden = ' hidden' if i >= DASH_AKCE_VIDET else ''
+        out.append(f'    <li data-until="{e.get("date_end") or e["date"]}"{hidden}>'
+                   f'<a href="/kalendar/#{mesic}/seznam">{esc(e["title"])}</a>'
+                   f'<span class="meta-note">{esc(kdy)}{kdo}</span></li>')
+    out.append('    <li class="dash-empty"' + ('' if not akce else ' hidden') +
+               '>Žádná nadcházející akce zatím není v kalendáři zapsaná.</li>')
+    out.append('  </ul>')
+    return _dash_card('Nadcházející akce', '/kalendar/', 'Celý kalendář', '\n'.join(out))
+
+
+def _dash_noviny():
+    editions = json.loads(read('noviny/pecky-noviny.json'))['editions']
+    ed = max(editions, key=lambda e: e['slug'])
+    pdf = ed['url'] or f'/noviny/Data/PN%20{ed["year"]}/{ed["slug"]}.pdf'
+    obalka = f'noviny/pages/{ed["slug"]}/1.jpg'
+    img = (f'<img src="/{obalka}" alt="Titulní strana Pečeckých novin {esc(ed["label"])}" loading="lazy">'
+           if (ROOT / obalka).exists() else '')
+    body = (f'  <a class="dash-noviny" href="{pdf}">{img}'
+            f'<span class="cap">{esc(ed["label"])}'
+            f'<span class="meta-note">{ed["page_count"]} stran · PDF</span></span></a>')
+    return _dash_card('Pečecké noviny', '/noviny/', 'Archiv a vyhledávání', body)
+
+
+def _dash_zmeny(stav_rows):
+    rows = [r for r in stav_rows if r['zmena'] is not None and r['url'] != '/']
+    rows.sort(key=lambda r: r['zmena']['iso'], reverse=True)
+    out = ['  <ul class="dash-list">']
+    for r in rows[:DASH_ZMENY]:
+        out.append(f'    <li><a href="{r["url"]}">{esc(r["name"])}</a>'
+                   f'<span class="meta-note" data-date="{r["zmena"]["iso"]}">'
+                   f'{esc(r["zmena"]["raw"])}</span></li>')
+    out.append('  </ul>')
+    return _dash_card('Naposledy aktualizováno', '/o-webu/', 'Stav všech sekcí', '\n'.join(out))
+
+
+def render_dashboard(stav_rows):
+    from datetime import date
+    dnes = date.today().isoformat()
+    karty = [_dash_kalendar(dnes), _dash_jednani(dnes), _dash_noviny(), _dash_zmeny(stav_rows)]
+    return '<div class="dash-grid">\n' + '\n'.join(karty) + '\n</div>'
+
+
 # Znovupoužitelná komponenta "rozcestník volebních ročníků" - řádek buttonů,
 # od nejnovějšího po nejstarší. Používá se jak na rozcestníku /volby/ (bez
 # nadpisu, mezi perexem a grafem účasti), tak nad nadpisem každé jednotlivé
@@ -430,6 +555,8 @@ def build_all(stav_rows=None):
                     content, {'iso': extra_lastmod, 'raw': iso_to_cz(extra_lastmod), 'odhad': False})
         else:
             content = apply_lastmod(content, lastmods.get(path))
+        if '{{DASHBOARD}}' in content:
+            content = content.replace('{{DASHBOARD}}', render_dashboard(rows))
         if slug in VOLBY_SLUG_TO_ROK or slug == 'volby':
             content = content.replace('{{VOLBY_ROCNIKY}}', render_volby_rocniky(slug))
         nav = build_nav(nav_slug)
