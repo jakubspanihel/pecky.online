@@ -35,10 +35,16 @@ promítla do veřejné stránky (samotná data v kalendar/udalosti.json
 a kalendar/kalendar.ics build.py nekopíruje ani neupravuje, jen je
 scripts/serve.py / GitHub Pages servíruje přímo ze složky kalendar/).
 
+Po vygenerování rovnou spustí kalendar/scripts/sync-google.py (promítnutí
+do veřejného Google Kalendáře), viz sync_google() níže; bez klíče nebo
+knihovny sync jen přeskočí s varováním.
+
 Použití:
-    python3 kalendar/scripts/update-kalendar.py
+    python3 kalendar/scripts/update-kalendar.py              # vygenerovat + synchronizovat
+    python3 kalendar/scripts/update-kalendar.py --no-sync    # jen vygenerovat
 """
 import json
+import os
 import sys
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
@@ -429,6 +435,38 @@ def main():
           f'-> {OUT_JSON.relative_to(ROOT)}, {OUT_ICS.relative_to(ROOT)}')
     if by_org:
         print('  pořadatelé akcí: ' + ', '.join(f'{v}x {k}' for k, v in sorted(by_org.items())))
+
+    if '--no-sync' in sys.argv:
+        print('Synchronizace do Google Kalendáře vynechána (--no-sync).')
+    else:
+        sync_google()
+
+
+def sync_google():
+    """Hned po vygenerování promítne udalosti.json do Google Kalendáře.
+
+    Od 29. 9. 2026 na pokyn autora webu: generování a synchronizace jsou
+    jeden krok, aby Google nezůstával pozadu (předtím se sync ručně
+    zapomínal a nahromadilo se přes 1 700 nepropsaných změn). Chybí-li
+    klíč nebo knihovna (cloudový checkout, jiný stroj), synchronizaci jen
+    přeskočí s varováním — generování tím neselže. Vypnout jde přepínačem
+    --no-sync (např. při přegenerování z čistých vstupů v commit skillu).
+    """
+    import importlib.util
+    import subprocess
+    key = Path(os.environ.get('PECKY_GOOGLE_KEY', ROOT / '.google-calendar-api-key.json'))
+    if not key.exists():
+        print(f'!! SYNCHRONIZACE PŘESKOČENA: chybí klíč {key.name} — Google Kalendář zůstává pozadu, '
+              'spusť `python3 kalendar/scripts/sync-google.py` na stroji s klíčem a napiš to do shrnutí.')
+        return
+    if importlib.util.find_spec('googleapiclient') is None:
+        print('!! SYNCHRONIZACE PŘESKOČENA: chybí knihovna (pip3 install google-api-python-client google-auth).')
+        return
+    print('Synchronizuji do Google Kalendáře (kalendar/scripts/sync-google.py)…', flush=True)
+    r = subprocess.run([sys.executable, str(ROOT / 'kalendar' / 'scripts' / 'sync-google.py')])
+    if r.returncode:
+        print(f'!! SYNCHRONIZACE SELHALA (návratový kód {r.returncode}) — udalosti.json je vygenerovaný, '
+              'Google Kalendář ne; napiš to do shrnutí.')
 
 
 if __name__ == '__main__':

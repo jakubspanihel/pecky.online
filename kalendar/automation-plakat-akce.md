@@ -156,19 +156,19 @@ Pak spusť:
 
 ```
 python3 kalendar/scripts/update-kalendar.py
-python3 kalendar/scripts/sync-google.py
 python3 scripts/build.py
 ```
 
-První přegeneruje `udalosti.json` a `kalendar.ics`, druhý promítne nová
-data do veřejného Google kalendáře „Co se děje v Pečkách", třetí promítne
+První přegeneruje `udalosti.json` a `kalendar.ics` a sám je hned promítne
+do veřejného Google kalendáře „Co se děje v Pečkách" (od 29. 9. 2026
+automaticky, samostatný `sync-google.py` už nespouštět), druhý promítne
 změnu do stránek (a zvaliduje HTML/JS). Popis synchronizace je
 v `kalendar/README.md` → „Odebírání kalendáře".
 
-**Chybí-li klíč, synchronizaci vynech a nahlas ji.** `sync-google.py` čte
+**Chybí-li klíč, generátor synchronizaci sám vynechá (hláška „SYNCHRONIZACE PŘESKOČENA“) — nahlas to ve shrnutí.** `sync-google.py` čte
 `.google-calendar-api-key.json` v kořeni repa; ten soubor je
 v `.gitignore`, takže cloudový checkout ho nemá a skript by na něm spadl.
-Neexistuje-li, druhý příkaz přeskoč a do závěrečného výpisu (krok 8)
+Neexistuje-li, do závěrečného výpisu (krok 8)
 přidej řádek „Google kalendář čeká na synchronizaci — spustit
 `python3 kalendar/scripts/sync-google.py` lokálně". Celý běh kvůli tomu
 neukončuj, zbytek kroků na Googlu nezávisí.

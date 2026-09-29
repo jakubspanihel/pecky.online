@@ -297,18 +297,18 @@ nové jednání, doplněný zápis, zmizelé/objevené pole `time` — spustit:
 
 ```
 python3 kalendar/scripts/update-kalendar.py
-python3 kalendar/scripts/sync-google.py
 ```
 
-První přegeneruje `kalendar/udalosti.json` a `kalendar/kalendar.ics`,
-druhý je promítne do veřejného Google kalendáře „Co se děje v Pečkách"
+Přegeneruje `kalendar/udalosti.json` a `kalendar/kalendar.ics` a sám
+je hned promítne do veřejného Google kalendáře „Co se děje v Pečkách"
+(od 29. 9. 2026 automaticky, samostatný `sync-google.py` už nespouštět)
 (viz [kalendar/README.md](../kalendar/README.md) → „Odebírání
 kalendáře").
 
-**Chybí-li klíč, synchronizaci vynech a nahlas ji.** `sync-google.py` čte
+**Chybí-li klíč, generátor synchronizaci sám vynechá (hláška „SYNCHRONIZACE PŘESKOČENA“) — nahlas to ve shrnutí.** `sync-google.py` čte
 `.google-calendar-api-key.json` v kořeni repa; ten soubor je
 v `.gitignore`, takže cloudový checkout ho nemá a skript by na něm spadl.
-Neexistuje-li, druhý příkaz přeskoč a do shrnutí běhu přidej řádek
+Neexistuje-li, do shrnutí běhu přidej řádek
 „Google kalendář čeká na synchronizaci — spustit
 `python3 kalendar/scripts/sync-google.py` lokálně". Celý běh kvůli tomu
 neukončuj — mřížka na webu i `.ics` jsou v pořádku, pozadu je jen Google.

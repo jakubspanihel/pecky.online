@@ -230,20 +230,29 @@ Skript sahá jen na události, které sám založil (poznávací značka
 `extendedProperties.private.pecky`) — co si do kalendáře přidá člověk
 ručně, nechá být.
 
-Spouští se **ručně**, po `update-kalendar.py`:
+**Od 29. 9. 2026 se spouští automaticky** — na pokyn autora webu je
+synchronizace součástí každého `update-kalendar.py` (funkce
+`sync_google()` na konci generátoru). Předtím se spouštěla ručně a často
+zapomínala: první automatický běh musel dohnat 373 nových a 1 390
+změněných událostí. Generátor tedy:
 ```
-python3 kalendar/scripts/update-kalendar.py
-python3 kalendar/scripts/sync-google.py --dry-run   # co by se stalo
-python3 kalendar/scripts/sync-google.py             # zápis
+python3 kalendar/scripts/update-kalendar.py            # vygeneruje a hned synchronizuje
+python3 kalendar/scripts/update-kalendar.py --no-sync  # jen vygeneruje
 ```
+`--no-sync` jen tam, kde se generuje z jiného než skutečného stavu
+(např. přegenerování z čistých vstupů při commitu, viz skill
+`pecky-online-commit`) — jinak nikdy. Samotný sync jde dál spustit
+i ručně: `python3 kalendar/scripts/sync-google.py [--dry-run]`;
 `--dry-run` jen vypíše plán a nic nezapíše, `--limit N` omezí počet
-zápisů (opatrný běh), `--no-delete` vypne mazání.
+zápisů (opatrný běh), `--no-delete` vypne mazání. Velký sync (stovky
+změn) trvá přes 10 minut — v nástrojích s časovým limitem pouštět na
+pozadí.
 
-**Kde je ten druhý příkaz zapsaný jako povinný krok:**
-`kalendar/automation-plakat-akce.md` → krok 6 (zápis akcí z plakátu)
-a `jednani/automation-kontrola-usneseni-cz.md` → krok 8b (týdenní
-kontrola jednání). Obojí s podmínkou: **chybí-li klíč, běh synchronizaci
-vynechá a napíše to do shrnutí** místo aby spadl — cloudový checkout
+**Chybí-li klíč nebo knihovna, generátor synchronizaci vynechá
+s varováním „SYNCHRONIZACE PŘESKOČENA“ a běh to musí napsat do
+shrnutí** (dřív to hlídaly jednotlivé postupy — `kalendar/automation-plakat-akce.md`
+→ krok 6 a `jednani/automation-kontrola-usneseni-cz.md` → krok 8b —
+teď to dělá generátor sám) — cloudový checkout
 repozitáře `.google-calendar-api-key.json` nemá, protože je
 v `.gitignore`. Takový běh tedy nechá Google pozadu záměrně a čeká,
 až `sync-google.py` spustíš u sebe. Automatizovat i ten poslední krok
@@ -268,9 +277,9 @@ neuděláno, synchronizace je ruční.
   a nerozesílala upozornění. Kategorie navíc řídí barvu události
   (`BARVY` ve skriptu, drží se barev mřížky).
 
-Samotná aktualizace `kalendar.ics` přes `update-kalendar.py` do Google
-kalendáře **nic nepropisuje** — bez druhého příkazu výš zůstane Google
-na starých datech. Při jakékoli změně schématu (`source_ref`, časové
+Do Google Kalendáře propisuje jen krok `sync_google()` v generátoru
+(resp. `sync-google.py`), samotný `.ics` ne — s `--no-sync` zůstane
+Google na starých datech. Při jakékoli změně schématu (`source_ref`, časové
 pásmo, kategorie) projít i tenhle skript.
 
 ## Barvy pořadatelů
