@@ -35,6 +35,13 @@ Druhý příkaz je od migrace na vícestránkový web (`ARCHITEKTURA-MIGRACE.md`
 nutný vždy — promítne `content/pozemky.html` do veřejné stránky
 `pozemky/index.html`.
 
+Skript přepisuje jen obsah obou subpanelů (tabulky + součet). Callouty pod
+nimi jsou psané ručně a zůstávají: „Poznámky k datům“ a od 29. 9. 2026
+i „Kontrolní výbor k pozemkům“ — zjištění výborů zastupitelstva
+(`jednani/vybory.json`, viz `jednani/README.md` → „Jednání výborů ZM“)
+k parcelám z tabulek. Zatím jediné: KV 19. 3. 2025 k parc. 1449/118. Při
+novém zápisu výboru, který se týká konkrétní parcely, doplnit sem.
+
 Plný technický popis (dohledávání RUIAN ID, katastr-přesná kolize čísel
 parcel, proč byl starý globální `katastr-odkazy.json` smazaný, formát
 odkazu „řešilo se na: Jednání rady č. N" — od 5. 9. 2026 skutečný

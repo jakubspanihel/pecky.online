@@ -368,10 +368,14 @@ def _dash_card(title, href, link_text, body):
 
 def _dash_jednani(dnes):
     meetings = json.loads(read('jednani/pecky-jednani.json'))['meetings']
+    # jednání výborů ZM (jednani/vybory.json) — nečíslovaná, jen proběhlá;
+    # slug stejný jako trvalý odkaz na stránce Jednání (#financni-vybor-…)
+    vybory = json.loads(read('jednani/vybory.json'))['meetings']
+    VYBOR_SLUG = {'Finanční výbor': 'financni-vybor', 'Kontrolní výbor': 'kontrolni-vybor'}
     def slug(m):
-        return f'{m["type"].lower()}-{m["date"]}'
+        return f'{VYBOR_SLUG.get(m["type"]) or m["type"].lower()}-{m["date"]}'
     def nazev(m):
-        return f'{m["type"]} {m["number"]}/{m["year"]}'
+        return m['type'] if m.get('number') is None else f'{m["type"]} {m["number"]}/{m["year"]}'
 
     ohlasena = sorted((m for m in meetings if m['date'] >= dnes), key=lambda m: m['date'])
     probehla = sorted((m for m in meetings if m['date'] < dnes),
@@ -400,7 +404,20 @@ def _dash_jednani(dnes):
         out.append(f'    <li><a href="/jednani/#{slug(m)}">{esc(nazev(m))}</a>'
                    f'<span class="meta-note">{esc(iso_to_cz(m["date"]))} · {esc(co)}</span></li>')
     out.append('  </ul>')
-    return _dash_card('Jednání rady a zastupitelstva', '/jednani/', 'Všechna jednání', '\n'.join(out))
+    # výbory zveřejňují zápisy se zpožděním, mezi nejnovějšími jednáními
+    # Rady/ZM by se téměř neobjevily — proto poslední jednání každého zvlášť
+    posledni_vybory = [max((m for m in vybory if m['type'] == t and m['date'] < dnes),
+                           key=lambda m: m['date'], default=None) for t in VYBOR_SLUG]
+    posledni_vybory = [m for m in posledni_vybory if m]
+    if posledni_vybory:
+        out.append('  <h4>Výbory — poslední zveřejněný zápis</h4>\n  <ul class="dash-list">')
+        for m in posledni_vybory:
+            n_res = len(m.get('resolutions') or [])
+            co = f'{n_res} usnesení' if n_res else 'bez usnesení'
+            out.append(f'    <li><a href="/jednani/#{slug(m)}">{esc(nazev(m))}</a>'
+                       f'<span class="meta-note">{esc(iso_to_cz(m["date"]))} · {esc(co)}</span></li>')
+        out.append('  </ul>')
+    return _dash_card('Jednání rady, zastupitelstva a výborů', '/jednani/', 'Všechna jednání', '\n'.join(out))
 
 
 def _dash_kalendar(dnes):

@@ -53,6 +53,7 @@ from scripts.build import SITE_DOMAIN  # noqa: E402 - zdroj pravdy pro absolutn�
 # (scripts/build.py -> apply_base_path), na absolutní URL se nepoužívá.
 
 JEDNANI_JSON = ROOT / 'jednani' / 'pecky-jednani.json'
+VYBORY_JSON = ROOT / 'jednani' / 'vybory.json'
 AKCE_JSON = ROOT / 'kalendar' / 'akce.json'
 VOLBY_JSON = ROOT / 'kalendar' / 'udalosti-rucni.json'
 AFK_JSON = ROOT / 'kalendar' / 'afk-zapasy.json'
@@ -108,6 +109,41 @@ def build_jednani_events():
             'image': None,
             'note': None,
             'source_ref': m['uuid'],
+        })
+    return events
+
+
+def build_vybory_events():
+    """Finanční + kontrolní výbor z jednani/vybory.json -> společné schéma.
+
+    Výbory jednání nečíslují, takže titulek je jen název výboru. Čas
+    a místo jen tam, kde je zápis uvádí (jinak celodenní). Do kalendáře
+    jdou jen jednání se zveřejněným zápisem — ohlášená nemají v datech
+    samostatný záznam. Kategorie 'vybor' (barva v mřížce i v Google
+    Kalendáři viz styles.css a sync-google.py).
+    """
+    data = json.loads(VYBORY_JSON.read_text(encoding='utf-8'))
+    org = nazvy_organizaci()
+    events = []
+    for m in data['meetings']:
+        agenda_n = len(m.get('agenda') or [])
+        body = 'bod' if agenda_n == 1 else 'body' if 2 <= agenda_n <= 4 else 'bodů'
+        events.append({
+            'id': f'jednani-{m["id"]}',
+            'title': m['type'],
+            'date': m['date'],
+            'date_end': None,
+            'time': m.get('time'),
+            'all_day': m.get('time') is None,
+            'category': 'vybor',
+            'link': f'/jednani/#{m["id"]}',
+            'description': f'{agenda_n} {body} programu' if agenda_n else None,
+            'place': m.get('venue'),
+            'organizer': 'mesto-pecky',
+            'organizer_name': org.get('mesto-pecky', 'Město Pečky'),
+            'image': None,
+            'note': None,
+            'source_ref': m['id'],
         })
     return events
 
@@ -360,16 +396,18 @@ def build_ics(events):
 
 def main():
     jednani = build_jednani_events()
+    vybory = build_vybory_events()
     akce = build_akce_events()
     volby = build_volby_events()
     afk = build_afk_events()
     svoz = build_svoz_events()
-    events = jednani + akce + volby + afk + svoz
+    events = jednani + vybory + akce + volby + afk + svoz
     events.sort(key=lambda e: (e['date'], e['time'] or ''))
 
     OUT_JSON.write_text(json.dumps({
         'meta': {
             'generated_from': (f'jednani/pecky-jednani.json ({len(jednani)} jednání), '
+                               f'jednani/vybory.json ({len(vybory)} jednání výborů), '
                                f'kalendar/akce.json ({len(akce)} akcí), '
                                f'kalendar/udalosti-rucni.json ({len(volby)} termínů), '
                                f'kalendar/afk-zapasy.json ({len(afk)} zápasů v Pečkách), '

@@ -158,6 +158,8 @@ function pcAvatarHtml(p, opts){
 //   closeAttr     - data-atribut na tlačítku „zavřít", který si přečte volající JS
 //   orgHrefPrefix - prefix před `#lide/uskupeni/<id>` v odkazu na uskupení;
 //                   mimo stránku /lide/ musí vést celou cestou (jWithBase('/lide/'))
+// Vazba může nést předvykreslené `_extraHtml` (už escapované HTML), které se
+// vloží pod poznámku — Lidé tam dávají účast na jednáních výborů.
 function pcDetailHtml(p, opts){
   opts = opts || {};
   const closeAttr = opts.closeAttr || 'data-person-detail-close';
@@ -176,6 +178,7 @@ function pcDetailHtml(p, opts){
           <span class="tl-org">· ${orgHtml}</span>
           <span class="tl-range">${jEscapeHtml(pcRange(a))}${a.verified ? '' : ' · neověřeno'}</span>
           ${a.note ? `<p class="tl-note">${jEscapeHtml(a.note)}</p>` : ''}
+          ${a._extraHtml || ''}
           ${src ? `<p class="tl-src">${src}</p>` : ''}
         </li>`;
   }).join('');

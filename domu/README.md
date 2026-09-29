@@ -21,7 +21,7 @@ sám s daty sekcí při každém `python3 scripts/build.py`.
 | Karta | Zdroj | Co ukazuje |
 |---|---|---|
 | Nadcházející akce | `kalendar/udalosti.json` → `events`, jen kategorie `akce` a `volby` (kurzy a svoz odpadu by výpis zahltily) | 5 nejbližších akcí, odkaz na měsíc `/kalendar/#RRRR-MM/seznam` |
-| Jednání rady a zastupitelstva | `jednani/pecky-jednani.json` → `meetings` | „Příště“: ohlášená jednání (max 2); „Naposledy“: 3 poslední proběhlá s počtem usnesení, odkaz `/jednani/#rada-RRRR-MM-DD` |
+| Jednání rady, zastupitelstva a výborů | `jednani/pecky-jednani.json` + `jednani/vybory.json` → `meetings` | „Příště“: ohlášená jednání Rady/ZM (max 2); „Naposledy“: 3 poslední proběhlá jednání Rady/ZM s počtem usnesení, odkaz `/jednani/#rada-RRRR-MM-DD`; „Výbory — poslední zveřejněný zápis“ (od 29. 9. 2026): poslední proběhlé jednání finančního a kontrolního výboru zvlášť, odkaz `/jednani/#financni-vybor-RRRR-MM-DD` — výbory zveřejňují zápisy se zpožděním, mezi „Naposledy“ by se skoro nedostaly |
 | Pečecké noviny | `noviny/pecky-noviny.json` → `editions` (nejvyšší `slug`) | titulní strana (`noviny/pages/<slug>/1.jpg`, je-li) + odkaz na PDF |
 | Naposledy aktualizováno | `README.md` → „Stav sekcí“, sloupec „Změna“ (bez Domů) | 5 naposledy změněných sekcí; sloupec „Co naposledy“ se záměrně nepoužívá (je to interní pracovní log) |
 

@@ -399,6 +399,20 @@ seznam místo rozházených poznámek po repu.
   python3 kalendar/scripts/update-kalendar.py
   ```
 
+### Jednání výborů zastupitelstva — aktivní (od 29. 9. 2026)
+
+- **Data:** `jednani/vybory.json`, funkce `build_vybory_events()`.
+- **Kategorie:** `vybor` (finanční i kontrolní výbor, rozlišené titulkem).
+  Barva v mřížce `--gold` (`.kal-ev-vybor`, `.akce-blok-vybor` ve
+  `styles.css`), v Google Kalendáři Tangerine (`BARVY` v `sync-google.py`).
+- **Jen proběhlá jednání se zveřejněným zápisem** — ohlášená jednání
+  výborů nemají v datech vlastní záznam. Čas a místo jen tam, kde je
+  zápis uvádí, jinak celodenní. `source_ref` / `UID` = `id` jednání
+  (`financni-vybor-RRRR-MM-DD`).
+- **Aktualizace:** po každé úpravě `vybory.json` spustit
+  `python3 kalendar/scripts/update-kalendar.py` (a pak synchronizaci do
+  Google Kalendáře stejně jako u ostatních zdrojů).
+
 ### Kulturní a společenské akce — aktivní
 
 - **Data:** `kalendar/akce.json`, funkce `build_akce_events()`.

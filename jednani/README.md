@@ -644,13 +644,116 @@ složky je vždy, i bez kolize data — jde o jiný orgán než Rada/ZM.
 
 - Soubor se jmenuje `zapis.pdf`, ne `podepsany-zapis.pdf` — web ho tak
   neoznačuje a podpis nebyl ověřován.
-- Datum složky je z názvu souboru na webu (formáty se liší: `FV_10.5.2022`,
-  `KV-18.2.2026`, `17_6_2026`). U 31 PDF s textovou vrstvou ověřeno, že
-  první datum v textu se shoduje; 14 je naskenovaných bez textu
-  (neověřeno, datum jen z názvu).
+- Datum složky je datum jednání. Většinou odpovídá názvu souboru na webu
+  (formáty se liší: `FV_10.5.2022`, `KV-18.2.2026`, `17_6_2026`), ale dva
+  soubory jsou na pecky.cz pojmenované chybně a složky jsou přejmenované
+  podle data v zápisu: `KV_23.09.2023` → `2023-09-20-kontrolni-vybor`,
+  `KV_16.11.2024` → `2024-11-06-kontrolni-vybor` (obojí ověřeno proti skenu).
+- 31 PDF má textovou vrstvu (`pdftotext`), 14 jsou skeny bez textu — čtou
+  se přes OCR: `pdftoppm -r 300 -png` + `tesseract -l ces`. OCR plete
+  hlavně diakritiku ve jménech (Důrr, Kůúty) a odrážky — jména se vždy
+  normalizují podle Lidí, sporná místa (hlasování) ověřit proti obrázku.
 - Na rozdíl od `usneseni.cz` pecky.cz Cloudflare neblokuje — stačí přímý
   `curl` na `/files/pecky/gallery/…`. Všech 45 souborů má různý MD5.
-- Obsah zápisů zatím není vytěžený do `pecky-jednani.json` ani jinam.
+- Obsah je vytěžený do `vybory.json` (všech 45 zápisů), viz
+  „Jednání výborů ZM (`vybory.json`)“ níže.
+
+### Jednání výborů ZM (`vybory.json`)
+
+Samostatný soubor vedle `pecky-jednani.json` — ten se přírůstkově plní
+z usneseni.cz a výbory by se v něm míchaly se scraperem. `content/jednani.html`
+načte oba a spojí je do jednoho chronologického seznamu; filtr
+„Finanční výbor“ / „Kontrolní výbor“, trvalé odkazy `#financni-vybor-{datum}`
+a `#kontrolni-vybor-{datum}`. Stav 29. 9. 2026: 45 jednání (31 FV, 14 KV)
+a 75 usnesení — všechny zápisy zveřejněné na pecky.cz (FV od 11/2018,
+KV od 3/2020). Složení výborů 2018–2022 je v Lidech (viz `lide/README.md`
+→ „Finanční a kontrolní výbor ZM“), aby šly vykreslit avatary přítomných.
+
+Záznam má stejná pole jako jednání Rady/ZM, s těmito rozdíly:
+
+- `id` (`financni-vybor-2025-11-11`) místo `uuid` (to je `null`),
+  `number: null` — výbory jednání nečíslují.
+- `time`/`time_end` a z nich `duration_seconds`, jen když zápis uvádí obojí.
+  `venue` jen když ho uvádí zápis (nedopočítávat z pozvánek v jiných zápisech).
+- `links.minutes` = PDF na pecky.cz (lokální `Data/` je v `.gitignore`),
+  `links.source_page` = stránka „Zápisy {rok}“.
+- `attendance.present_names` / `absent_names[{name, note}]` s plnými jmény
+  a tituly podle Lidí, i když zápis píše jen příjmení nebo iniciálu.
+  `note`: `omluven(a)`, `neomluven(a)`, nebo `nepřítomen/nepřítomna, zápis
+  důvod neuvádí`, když zápis chybějícího člena vůbec nezmiňuje.
+  `total` = počet členů výboru v tu chvíli (KV 6. 11. 2024 měl 6).
+  Navíc `arrived_late[{name, time}]`, `left_early[{name, time}]` (na
+  stránce viditelně v detailu, bez důvodu — ten je v PDF) a
+  `guests[{name, note}]` (funkce hosta).
+- `agenda[{n, t}]` doslovně z programu zápisu, bez délek. Zápis bez
+  programu → `[]` („Zápis neuvádí program jednání“).
+- `resolutions[{n, text, pro, proti, zdrzel, adopted, vote_names?, note?}]`
+  — text doslovně, `n` jen když ho zápis dává (`1`, `KV-1/2026`).
+  **Patří sem i neschválené návrhy** (`adopted: false`, štítek
+  „Neschváleno“), protože výbor o nich formálně hlasoval. `vote_names`
+  jen když zápis jména uvádí; rozpory v zápisu jdou do `note`, neopravují se.
+- `chair`, `recorded_by`, `attachments[]` (přílohy podle zápisu),
+  `extraction{method: pdftotext|ocr, checked, note}` — poznámka ke
+  čtení zápisu (překlepy, nejasnosti, odkazy na nezveřejněná jednání).
+
+Zápisy odkazují na jednání, jejichž zápis na pecky.cz není: FV 12. jednání
+(12/2019–2/2020), ohlášené FV 18. 3. 2020, KV před 5. 3. 2020 a ohlášené
+KV 23. 3. 2020, ohlášené KV 6. 10. 2021, KV 5. 9. 2023, FV 23. 11. 2023
+a ohlášené KV 19. 11. 2025 — přiznáno v calloutu na stránce (příklady).
+
+**Zvláštnosti zápisů 2018–2022** (FV za předsedy Vodičky, KV za předsedy
+Palusky): FV v zápisech číslovalo jednání („3. jednání“ … „20. jednání“,
+číslo je jen v `extraction.note`, `number` zůstává `null`), chodilo
+kontrolovat jednotlivé příspěvkové organizace a o dílčích doporučeních
+hlasovalo průběžně — každé hlasované doporučení je samostatný záznam
+v `resolutions`. Většina usnesení ale výsledek hlasování neuvádí →
+`pro/proti/zdrzel: null`, `adopted: null` (štítek jen podle slovesa,
+u hlasování „hlasování zápis neuvádí“). Čas a místo často chybí a jsou
+doplněné z ohlášení v předchozím zápisu („Příští zasedání: …“) — vždy
+s poznámkou v `extraction.note`. Zápis 22. 11. 2018 neuvádí účast
+(`present: null`), 28. 11. 2018 jen hlasující. Zápisy KV 2021 Lenku
+Krúpovou vůbec nezmiňují — není jisté, jestli byla ještě členkou, proto
+v nich není ani mezi nepřítomnými (přítomní + nepřítomní tu dávají 6 ze 7).
+
+**Pravidlo pro účast:** jinak zápis v datech vždy vede všechny členy
+výboru — přítomné i chybějící (s poznámkou „zápis důvod neuvádí“, když
+chybějícího nezmiňuje). Na tom stojí počty účasti u osob v Lidech
+(`content/lide.html` → `lAttachVyborAttendance`): kdo u jednání není
+uveden vůbec, tehdy ve výboru nebyl a jednání se mu nezapočítá.
+
+### Kontrola nových zápisů výborů (týdně, skill `pecky-online-vybory-check`)
+
+Výbory nejsou na usneseni.cz, takže je kontrola Jednání (scraper, Chrome)
+nepokrývá — běží zvlášť, ve stejném týdenním běhu. Zdroj je pecky.cz,
+funguje i přímý `curl`, žádný prohlížeč netřeba.
+
+1. `python3 jednani/scripts/vybory-check.py` — vypíše složení obou výborů
+   podle webu a každý zápis, jehož URL ještě není v `vybory.json`
+   (`links.minutes`), stáhne do `Data/{datum}-{financni|kontrolni}-vybor/zapis.pdf`.
+   Datum je jen z názvu souboru — **vždy ověřit proti textu zápisu**
+   (dvakrát už byl chybný), případně složku přejmenovat.
+2. **Složení:** liší-li se výpis od Lidí (aktuální vazby „člen/předseda
+   finančního|kontrolního výboru“), dohledat usnesení ZM o volbě/odvolání
+   a upravit `lide/affiliations.json` podle `lide/README.md` → „Finanční
+   a kontrolní výbor ZM“. Samotný výpis na webu stačí jen jako potvrzení,
+   datum změny se bere z usnesení. Web píše „Metalák“ — to je známý
+   překlep, ne změna.
+3. **Vytěžení** nového zápisu do `vybory.json` podle struktury v „Jednání
+   výborů ZM (`vybory.json`)“ výše: text přes `pdftotext -layout`, sken
+   přes `pdftoppm -r 300 -png` + `tesseract -l ces`, sporná místa (jména,
+   hlasování) proti obrázku stránky. Všichni členové výboru musí být
+   v `present_names` nebo `absent_names` (kontrola: `present +
+   len(absent_names) == total`) — na tom stojí počty účasti v Lidech.
+   Přepočítat `meta.meetings_count` / `resolutions_count`.
+4. **Promítnutí:** týká-li se zápis tělocvičny (financování, úvěr —
+   `UZ-24-4/26` ukládá FV podávat zprávu o úvěru aspoň jednou ročně),
+   nový řádek v Tělocvičně → „Financování a finanční výbor“; týká-li se
+   konkrétní parcely z tabulek Pozemků, callout „Kontrolní výbor
+   k pozemkům“ v `content/pozemky.html` (mimo generované tabulky).
+5. `python3 kalendar/scripts/update-kalendar.py` a `python3 scripts/build.py`.
+6. Do shrnutí běhu vlastní řádek „Jednání — výbory“ (i „zkontrolováno,
+   beze změny“); při změně přepsat řádek Jednání v `README.md` → „Stav
+   sekcí“.
 
 ### Stahování pozvánek a podepsaných zápisů (pro budoucí doplnění)
 

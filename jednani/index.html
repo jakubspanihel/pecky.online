@@ -37,7 +37,7 @@
 <main>
   <section class="panel active" id="panel-jednani">
     <h2 class="title display">Jednání a usnesení</h2>
-    <p class="lastmod" data-date="2026-09-28">Aktualizováno: 28. 9. 2026</p>
+    <p class="lastmod" data-date="2026-09-29">Aktualizováno: 29. 9. 2026</p>
     <p class="lede" id="jednani-stats">Archiv se právě načítá…</p>
 
     <div class="search-bar">
@@ -57,10 +57,23 @@
           <button type="button" class="segmented-btn active" data-type="">Vše</button>
           <button type="button" class="segmented-btn" data-type="Rada">Rada</button>
           <button type="button" class="segmented-btn" data-type="Zastupitelstvo">Zastupitelstvo</button>
+          <button type="button" class="segmented-btn" data-type="Finanční výbor">Finanční výbor</button>
+          <button type="button" class="segmented-btn" data-type="Kontrolní výbor">Kontrolní výbor</button>
         </div>
       </div>
     </div>
     <div id="jednani-results"></div>
+
+    <div class="callout">
+      Jednání <strong>finančního a kontrolního výboru</strong> zastupitelstva nejsou na usneseni.cz — jejich zápisy
+      zveřejňuje jen <a href="https://pecky.cz/default/default/21133_vybory-zm" target="_blank" rel="noopener">pecky.cz ↗</a>
+      jako PDF. Účast, program a usnesení výborů jsou z nich přepsané ručně, u každého jednání je odkaz na původní zápis.
+      Výbory svá jednání nenahrávají a zpravidla nečíslují (jen finanční výbor v letech 2019–2022 uváděl v zápisech pořadí jednání).
+      Doplněné jsou všechny zápisy, které město zveřejnilo — finanční výbor od listopadu 2018, kontrolní od března 2020.
+      Některé zápisy ale odkazují na jednání, jejichž zápis zveřejněný není (např. KV 6. 10. 2021, KV 5. 9. 2023,
+      FV 23. 11. 2023), a starší zápisy často neuvádějí výsledek hlasování.
+      <span class="stamp">přiznaná mezera</span>
+    </div>
 
     <div class="callout">
       Data pochází z jednorázového strojově čitelného exportu webu
@@ -81,6 +94,7 @@
   let JEDNANI_LOADING = null;
   let PARCEL_URLS = {};
   let PEOPLE_PHOTOS = {};  // jNameKey(jméno) -> URL fotky, z lide/people.json
+  let PEOPLE_GENDER = {};  // jNameKey(jméno) -> 'm' / 'f', z lide/people.json (skloňování)
   let TERM_BOUNDARIES = [];  // hranice volebních období, z jednani/volebni-obdobi.json
 
   function jTextSim(a, b){
@@ -105,20 +119,28 @@
     const [y, mo, d] = parts;
     return `${d}. ${mo}. ${y}`;
   }
+  // výbory zastupitelstva (jednani/vybory.json, zdroj pecky.cz) — na rozdíl od
+  // Rady/ZM nejsou na usneseni.cz, jednání nečíslují a nemají video
+  const J_VYBOR_TYPES = ['Finanční výbor', 'Kontrolní výbor'];
+  function jIsVybor(m){ return J_VYBOR_TYPES.includes(m.type); }
   function jMeetingTypeGenitive(type){
     if (type === 'Rada') return 'rady';
     if (type === 'Zastupitelstvo') return 'zastupitelstva';
+    if (type === 'Finanční výbor') return 'finančního výboru';
+    if (type === 'Kontrolní výbor') return 'kontrolního výboru';
     return (type || '').toLowerCase();
   }
-  // trvalý odkaz na konkrétní jednání: #rada-2026-08-31, #zastupitelstvo-2026-06-24
+  // trvalý odkaz na konkrétní jednání: #rada-2026-08-31, #zastupitelstvo-2026-06-24,
+  // #financni-vybor-2025-11-11, #kontrolni-vybor-2023-05-24
   function jSlugForMeeting(m){
-    return (m.type === 'Zastupitelstvo' ? 'zastupitelstvo' : 'rada') + '-' + m.date;
+    return (J_TYPE_TO_HASH[m.type] || 'rada') + '-' + m.date;
   }
   function jFormatAttendance(m){
     const a = m.attendance;
     if (!a || a.present == null || a.total == null) return '';
     if (m.type === 'Rada') return `sešlo se ${a.present} ze ${a.total} radních`;
     if (m.type === 'Zastupitelstvo') return `sešlo se ${a.present} z ${a.total} zastupitelů`;
+    if (jIsVybor(m)) return `sešlo se ${a.present} ze ${a.total} členů výboru`;
     return `sešlo se ${a.present} z ${a.total}`;
   }
   function jFormatDuration(sec){
@@ -244,11 +266,12 @@
     if (JEDNANI_LOADING) return JEDNANI_LOADING;
     JEDNANI_LOADING = (async () => {
       try {
-        const [res, parcelRes, peopleRes, termRes] = await Promise.all([
+        const [res, parcelRes, peopleRes, termRes, vyboryRes] = await Promise.all([
           fetch('/jednani/pecky-jednani.json'),
           fetch('/jednani/parcely-odkazy.json').catch(() => null),
           fetch('/lide/people.json').catch(() => null),
-          fetch('/jednani/volebni-obdobi.json').catch(() => null)
+          fetch('/jednani/volebni-obdobi.json').catch(() => null),
+          fetch('/jednani/vybory.json').catch(() => null)
         ]);
         if (!res.ok) throw new Error('HTTP ' + res.status);
         if (parcelRes && parcelRes.ok) {
@@ -258,6 +281,7 @@
           try {
             const people = (await peopleRes.json()).people || [];
             people.forEach(p => {
+              if (p.gender) PEOPLE_GENDER[jNameKey([p.first_name, p.last_name].filter(Boolean).join(' '))] = p.gender;
               if (!p.photos || !p.photos.length) return;
               // photos je řazené nejnovější první (§3.7 SPEC.md) - vždy ta aktuální
               PEOPLE_PHOTOS[jNameKey([p.first_name, p.last_name].filter(Boolean).join(' '))] = p.photos[0].url;
@@ -268,6 +292,18 @@
           try { TERM_BOUNDARIES = (await termRes.json()).obdobi || []; } catch (e) { TERM_BOUNDARIES = []; }
         }
         const data = await res.json();
+        // jednání výborů se přimíchají do jednoho chronologického seznamu
+        // (nejnovější první, stejně jako pecky-jednani.json); bez souboru
+        // stránka funguje dál jen s Radou a ZM
+        data._vyboryCount = 0;
+        if (vyboryRes && vyboryRes.ok) {
+          try {
+            const vybory = (await vyboryRes.json()).meetings || [];
+            data._vyboryCount = vybory.length;
+            data.meetings = data.meetings.concat(vybory)
+              .sort((a, b) => (b.date || '').localeCompare(a.date || ''));
+          } catch (e) { /* bez výborů */ }
+        }
         const years = new Set();
         const resByNumber = {};
         data.meetings.forEach(m => {
@@ -277,6 +313,19 @@
             if (r.n) resByNumber[r.n.toUpperCase()] = r;
           });
           m.agenda.forEach(a => { a._norm = jNorm(a.t); a._res = []; });
+          if (jIsVybor(m)) {
+            // usnesení výborů většinou nemají číslo ani vlastní „item“ — vypisují
+            // se samostatným blokem pod programem, ne párováním k bodům; štítek
+            // bere výsledek hlasování ze zápisu (adopted), ne jen sloveso
+            // adopted: null = zápis hlasování neuvádí → štítek jen podle slovesa
+            m.resolutions.forEach(r => {
+              if (r.adopted === false) r._outcome = {label: 'Neschváleno', cls: 'zamitnuto'};
+              else if (!r._outcome && r.adopted === true) r._outcome = {label: 'Přijato', cls: 'hotovo'};
+            });
+            m._unmatchedRes = [];
+            years.add(m.year);
+            return;
+          }
           // spárovat usnesení s body programu, ze kterých vzešla (fuzzy shoda textu)
           const unmatched = [];
           m.resolutions.forEach(r => {
@@ -305,6 +354,7 @@
             });
           });
         });
+        jLinkVyborItems(data.meetings);
         data._years = Array.from(years).sort((a, b) => b - a);
         JEDNANI_DB = data;
         jPopulateYearFilter();
@@ -319,6 +369,36 @@
     return JEDNANI_LOADING;
   }
 
+  // Body Rady/ZM typu „Zápis/Zpráva z jednání Kontrolního výboru“ neuvádějí,
+  // kterého jednání výboru se týkají (ani usnesení k nim) — proto se nepáruje
+  // na jedno konkrétní, ale vypíší se fakticky všechna jednání daného výboru
+  // od minulého zasedání téhož orgánu; když žádné nebylo, poslední předchozí.
+  const J_VYBOR_ITEM_RE = /(zápis|zpráv|informac)[^]*?(finančního|kontrolního) výboru/i;
+  function jLinkVyborItems(meetings){
+    const byType = t => meetings.filter(m => m.type === t).sort((a, b) => a.date.localeCompare(b.date));
+    const vybory = {'finančního': byType('Finanční výbor'), 'kontrolního': byType('Kontrolní výbor')};
+    ['Rada', 'Zastupitelstvo'].forEach(t => {
+      const list = byType(t);
+      list.forEach((m, i) => {
+        const prev = list[i - 1];
+        m.agenda.forEach(a => {
+          const hit = J_VYBOR_ITEM_RE.exec(a.t || '');
+          if (!hit) return;
+          const vs = vybory[hit[2].toLowerCase()];
+          let since = prev ? vs.filter(v => v.date < m.date && v.date > prev.date) : [];
+          let label = `Zveřejněná jednání ${hit[2].toLowerCase()} výboru od minulého zasedání ${t === 'Rada' ? 'rady' : 'zastupitelstva'}:`;
+          if (!since.length) {
+            const last = vs.filter(v => v.date < m.date).pop();
+            if (!last) return;
+            since = [last];
+            label = `Poslední předchozí zveřejněné jednání ${hit[2].toLowerCase()} výboru:`;
+          }
+          a._vyborLinks = {label, meetings: since};
+        });
+      });
+    });
+  }
+
   function jPopulateYearFilter(){
     const sel = document.getElementById('jednani-filter-year');
     JEDNANI_DB._years.forEach(y => {
@@ -331,15 +411,22 @@
 
   function jRenderStats(){
     const el = document.getElementById('jednani-stats');
-    const years = JEDNANI_DB._years;
+    // rozsah let jen za Radu/ZM (usneseni.cz) — výbory sahají dál do minulosti
+    const years = [...new Set(JEDNANI_DB.meetings.filter(m => !jIsVybor(m)).map(m => m.year))].sort((a, b) => b - a);
     const minY = years[years.length - 1], maxY = years[0];
     const resCount = JEDNANI_DB.meta.resolutions_count.toLocaleString('cs-CZ');
-    el.innerHTML = `Archiv obsahuje <strong>${JEDNANI_DB.meta.meetings_count} jednání</strong> a <strong>${resCount} usnesení</strong> z let ${minY}–${maxY}, čerpáno z <a href="https://mesto-pecky.usneseni.cz/verejne/" target="_blank" rel="noopener">mesto-pecky.usneseni.cz ↗</a>.`;
+    const vc = JEDNANI_DB._vyboryCount;
+    const vyboryHtml = vc
+      ? ` K tomu <strong>${vc} jednání finančního a kontrolního výboru</strong> z let ${JEDNANI_DB.meetings.filter(jIsVybor).map(m => m.year).reduce((a, b) => Math.min(a, b))}–${JEDNANI_DB.meetings.filter(jIsVybor).map(m => m.year).reduce((a, b) => Math.max(a, b))} ze zápisů na <a href="https://pecky.cz/default/default/21133_vybory-zm" target="_blank" rel="noopener">pecky.cz ↗</a>.`
+      : '';
+    el.innerHTML = `Archiv obsahuje <strong>${JEDNANI_DB.meta.meetings_count} jednání</strong> rady a zastupitelstva a <strong>${resCount} usnesení</strong> z let ${minY}–${maxY}, čerpáno z <a href="https://mesto-pecky.usneseni.cz/verejne/" target="_blank" rel="noopener">mesto-pecky.usneseni.cz ↗</a>.${vyboryHtml}`;
   }
 
   // trvalý odkaz na filtr typu jednání: pecky.online/jednani/#rada, #zastupitelstvo
-  const J_TYPE_TO_HASH = {'Rada': 'rada', 'Zastupitelstvo': 'zastupitelstvo'};
-  const J_HASH_TO_TYPE = {rada: 'Rada', zastupitelstvo: 'Zastupitelstvo'};
+  const J_TYPE_TO_HASH = {'Rada': 'rada', 'Zastupitelstvo': 'zastupitelstvo',
+    'Finanční výbor': 'financni-vybor', 'Kontrolní výbor': 'kontrolni-vybor'};
+  const J_HASH_TO_TYPE = {rada: 'Rada', zastupitelstvo: 'Zastupitelstvo',
+    'financni-vybor': 'Finanční výbor', 'kontrolni-vybor': 'Kontrolní výbor'};
 
   let jTypeFilter = '';
   function jApplyTypeFilter(type, opts){
@@ -428,7 +515,14 @@
   function jAttendanceAvatarsHtml(m){
     const a = m.attendance;
     if (!a || (!a.present_names && !a.absent_names)) return '';
-    const present = (a.present_names || []).map(n => jAvatarHtml(n, '', n)).join('');
+    const leftAt = {}, arrivedAt = {};
+    (a.left_early || []).forEach(x => { leftAt[x.name] = x.time; });
+    (a.arrived_late || []).forEach(x => { arrivedAt[x.name] = x.time; });
+    const present = (a.present_names || []).map(n => {
+      const extra = [arrivedAt[n] ? `${jPrisel(n)} v ${arrivedAt[n]}` : '', n in leftAt ? `${jOdesel(n)}${leftAt[n] ? ` v ${leftAt[n]}` : ' během jednání'}` : '']
+        .filter(Boolean).join(', ');
+      return jAvatarHtml(n, '', extra ? `${n} (${extra})` : n);
+    }).join('');
     const absent = (a.absent_names || []).map(x =>
       jAvatarHtml(x.name, 'av-absent', `${x.name} (${x.note})`)
     ).join('');
@@ -442,6 +536,9 @@
   }
 
   function jRenderAgendaList(m){
+    if (jIsVybor(m) && (!m.agenda || !m.agenda.length)) {
+      return '<p class="lede lede-sm" style="margin:8px 0; color:var(--ink-soft);">Zápis neuvádí program jednání.</p>';
+    }
     if (!m.agenda || !m.agenda.length) {
       return m.resolutions.length
         ? '<ul class="res-list">' + m.resolutions.map(jRenderResLine).join('') + '</ul>'
@@ -461,6 +558,7 @@
           ${a.video_url ? `<a class="agenda-video" href="${a.video_url}" target="_blank" rel="noopener">▶ video ↗</a>` : ''}
           ${hasDetail ? '<span class="agenda-toggle" aria-hidden="true">+</span>' : ''}
         </div>
+        ${a._vyborLinks ? `<div class="meeting-count" style="margin:2px 0 0 26px;">${jEscapeHtml(a._vyborLinks.label)} ${a._vyborLinks.meetings.map(v => `<a href="#${jSlugForMeeting(v)}">${jFormatDate(v.date)}</a>`).join(', ')}</div>` : ''}
         ${a.duvodova_zprava ? `<div class="info-toggle-text" hidden>${jEscapeHtml(a.duvodova_zprava)}</div>` : ''}
         ${a._res && a._res.length ? '<div class="agenda-res-list">' + a._res.map(jRenderResItem).join('') + '</div>' : ''}
         ${a.rejected_vote ? jRenderRejectedVote(a.rejected_vote) : ''}
@@ -472,6 +570,50 @@
          <ul class="res-list">${m._unmatchedRes.map(jRenderResLine).join('')}</ul>`
       : '';
     return `<ol class="agenda-list">${items}</ol>${unmatched}`;
+  }
+
+  function jPrisel(name){
+    const g = PEOPLE_GENDER[jNameKey(name)];
+    return g === 'f' ? 'přišla' : g === 'm' ? 'přišel' : 'přišel/přišla';
+  }
+  function jOdesel(name){
+    const g = PEOPLE_GENDER[jNameKey(name)];
+    return g === 'f' ? 'odešla' : g === 'm' ? 'odešel' : 'odešel/odešla';
+  }
+  // detail jednání výboru: hosté a odchody během jednání nad programem,
+  // usnesení/doporučení pod ním
+  function jRenderVyborGuests(m){
+    const a = m.attendance || {};
+    const g = a.guests || [];
+    const guestsHtml = g.length
+      ? `<p class="lede lede-sm" style="margin:2px 0 8px;"><strong>Hosté:</strong> ${g.map(x => jEscapeHtml(x.name) + (x.note ? ` <span style="color:var(--ink-soft);">(${jEscapeHtml(x.note)})</span>` : '')).join(', ')}</p>`
+      : '';
+    const noteP = t => `<p class="lede lede-sm" style="margin:2px 0 8px;">${t}</p>`;
+    const arrivedHtml = (a.arrived_late || []).map(x =>
+      noteP(`${jEscapeHtml(x.name)} ${jPrisel(x.name)} až v ${jEscapeHtml(x.time)}.`)).join('');
+    const leftHtml = (a.left_early || []).map(x =>
+      noteP(`${jEscapeHtml(x.name)} ${jOdesel(x.name)} ${x.time ? `z jednání v ${jEscapeHtml(x.time)}` : 'během jednání'}.`)).join('');
+    const timeHtml = m.time && !m.duration_seconds
+      ? noteP(`Začátek v ${jEscapeHtml(m.time)}${m.time_end ? `, konec v ${jEscapeHtml(m.time_end)}` : ''}.`)
+      : (!m.time && m.time_end ? noteP(`Jednání skončilo v ${jEscapeHtml(m.time_end)}.`) : '');
+    const venueHtml = m.venue ? noteP(`Místo: ${jEscapeHtml(m.venue)}.`) : '';
+    const body = guestsHtml + arrivedHtml + leftHtml + venueHtml + timeHtml;
+    return body ? `<div style="margin:0 0 12px;">${body}</div>` : '';
+  }
+  function jVoteLine(r){
+    if (r.pro == null) return '<span class="meeting-count" style="color:var(--ink-soft);">hlasování zápis neuvádí</span>';
+    const vn = r.vote_names || {};
+    const t = k => vn[k] && vn[k].length ? vn[k].join(', ') : '';
+    const title = [['pro', 'pro'], ['proti', 'proti'], ['zdrzel', 'zdržel se']]
+      .filter(([k]) => t(k)).map(([k, l]) => `${l}: ${t(k)}`).join(' · ');
+    return `<span class="meeting-count"${title ? ` title="${jEscapeHtml(title)}"` : ''}>pro ${r.pro} · proti ${r.proti} · zdržel se ${r.zdrzel}</span>`;
+  }
+  function jRenderVyborResolutions(m){
+    if (!m.resolutions.length) {
+      return '<p class="lede lede-sm" style="margin:10px 0 4px; color:var(--ink-soft);">Zápis neobsahuje žádné usnesení ani doporučení výboru.</p>';
+    }
+    return `<p class="lede lede-sm" style="margin:14px 0 4px;"><strong>Usnesení a doporučení výboru</strong> (doslovně podle zápisu):</p>
+      <ul class="res-list">${m.resolutions.map(r => `<li>${r.n ? `<span class="hit-number">${jEscapeHtml(/^\d+$/.test(r.n) ? r.n + '.' : r.n)}</span> ` : ''}${jLinkedText(r.text || '').replace(/\n/g, '<br>')} ${jOutcomeBadgeHtml(r)} ${jVoteLine(r)}${r.note ? `<br><span class="meeting-count" style="color:var(--ink-soft);">Pozn.: ${jEscapeHtml(r.note)}</span>` : ''}</li>`).join('')}</ul>`;
   }
 
   function jTermDividerHtml(prev, m){
@@ -491,7 +633,8 @@
       const chip = future ? '<span class="tag probiha">plánováno</span>'
         : isToday ? `<span class="tag probiha">dnes${m.time ? `, ${jEscapeHtml(m.time)}` : ''}</span>` : '';
       const venueHtml = m.venue ? `<span class="meeting-venue">📍 ${jEscapeHtml(m.venue)}</span>` : '';
-      const avatarsHtml = m.type === 'Rada' ? jAttendanceAvatarsHtml(m) : '';
+      const vybor = jIsVybor(m);
+      const avatarsHtml = (m.type === 'Rada' || vybor) ? jAttendanceAvatarsHtml(m) : '';
       const attendanceHtml = avatarsHtml
         ? `<span class="people-avatars meeting-row-avatars">${avatarsHtml}</span>`
         : (jFormatAttendance(m) ? `<span class="meeting-count">${jEscapeHtml(jFormatAttendance(m))}</span>` : '');
@@ -503,18 +646,19 @@
         ? `<span class="meeting-live-note">📺 <a href="${m.links.livestream}" target="_blank" rel="noopener">Živé vysílání od ${jEscapeHtml(m.time)}</a></span>`
         : '';
       const videoUrl = m.links.youtube || (future && m.links.livestream) || '';
-      const detailTopHtml = m.type === 'Rada'
+      const detailTopHtml = vybor ? jRenderVyborGuests(m)
+        : m.type === 'Rada'
         ? (m.resolutions.length ? `<p class="lede lede-sm" style="margin:2px 0 12px; font-family:var(--font-mono); color:var(--ink-soft);">Přijato ${m.resolutions.length} usnesení</p>` : '')
         : jRenderPresenceRow(m);
       const slug = jSlugForMeeting(m);
       return `
       ${dividerHtml}
-      <div class="meeting-row${future ? ' meeting-row--future' : ''}${isToday ? ' meeting-row--today' : ''}" data-uuid="${m.uuid}" data-slug="${slug}">
+      <div class="meeting-row${future ? ' meeting-row--future' : ''}${isToday ? ' meeting-row--today' : ''}" data-uuid="${m.uuid || m.id}" data-slug="${slug}">
         <div class="meeting-row-main">
           <span class="meeting-label">
             <a class="meeting-permalink" href="#${slug}" title="Trvalý odkaz na toto jednání">
               <svg class="meeting-cal-icon" viewBox="0 0 16 16" width="13" height="13" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><rect x="1.5" y="3" width="13" height="11" rx="1.5"/><line x1="1.5" y1="6.2" x2="14.5" y2="6.2"/><line x1="4.5" y1="1.3" x2="4.5" y2="4"/><line x1="11.5" y1="1.3" x2="11.5" y2="4"/></svg>
-              ${jFormatDateZeroPad(m.date)} | Jednání ${jEscapeHtml(jMeetingTypeGenitive(m.type))} č. ${jEscapeHtml(String(m.number || ''))}
+              ${jFormatDateZeroPad(m.date)} | Jednání ${jEscapeHtml(jMeetingTypeGenitive(m.type))}${m.number ? ` č. ${jEscapeHtml(String(m.number))}` : ''}
             </a>
             ${chip}
           </span>
@@ -532,9 +676,10 @@
           ${detailTopHtml}
           ${videoUrl ? `<a class="toggle-details" href="${videoUrl}" target="_blank" rel="noopener" style="margin:0 0 14px;"><img class="meeting-yt-icon" src="/img/favicons/youtube-com.png" alt="" loading="lazy"> Video ↗</a>` : ''}
           ${jRenderAgendaList(m)}
+          ${vybor ? jRenderVyborResolutions(m) : ''}
           <div class="meeting-links">
             ${(future || isToday) && m.links.invitation ? `<a href="${m.links.invitation}" target="_blank" rel="noopener" title="Zdrojový web někdy odkaz z cizí stránky blokuje a otevře jen úvodní stránku archivu — zkuste prosím znovu, případně vyhledejte jednání přímo na usneseni.cz.">Pozvánka PDF ↗</a>` : ''}
-            ${m.links.minutes ? `<a class="toggle-details" href="${m.links.minutes}" target="_blank" rel="noopener" style="margin:0;">Zápis ↗</a>` : ''}
+            ${m.links.minutes ? `<a class="toggle-details" href="${m.links.minutes}" target="_blank" rel="noopener" style="margin:0;">${vybor ? 'Zápis (PDF, pecky.cz) ↗' : 'Zápis ↗'}</a>` : ''}
             ${m.links.resolutions ? `<a href="${m.links.resolutions}" target="_blank" rel="noopener">Všechna přijatá usnesení ↗</a>` : ''}
           </div>
         </div>
@@ -618,7 +763,7 @@
 
   function jRenderHit(h, rawQuery){
     const m = h.m;
-    const typeTag = `<span class="tag${m.type === 'Zastupitelstvo' ? ' role' : ''}">${jEscapeHtml(m.type || '')}</span>`;
+    const typeTag = `<span class="tag${m.type === 'Zastupitelstvo' ? ' role' : jIsVybor(m) ? ' vybor' : ''}">${jEscapeHtml(m.type || '')}</span>`;
     if (h.kind === 'res') {
       const r = h.r;
       const hasVote = r.pro !== null && r.pro !== undefined;
@@ -628,7 +773,7 @@
           <span class="hit-label">${jEscapeHtml(m.label || '')}</span>
           <span class="hit-date">${jFormatDate(m.date)}</span>
         </div>
-        <div class="hit-item">${jHighlightLinked(r.item, rawQuery)} ${jOutcomeBadgeHtml(r)}</div>
+        <div class="hit-item">${r.item ? jHighlightLinked(r.item, rawQuery) : jEscapeHtml('Usnesení ' + jMeetingTypeGenitive(m.type))} ${jOutcomeBadgeHtml(r)}</div>
         <div class="hit-text">${jHighlightLinked(r.text, rawQuery)}</div>
         <div class="hit-footer">
           ${jResInfoIcon(r)}<span class="hit-number">${jEscapeHtml(r.n || '')}</span>
@@ -636,6 +781,7 @@
           ${r.url ? `<a href="${r.url}" target="_blank" rel="noopener">detail usnesení ↗</a>` : ''}
           ${m.links.minutes ? `<a href="${m.links.minutes}" target="_blank" rel="noopener">zápis jednání ↗</a>` : ''}
           ${m.links.youtube ? `<a href="${m.links.youtube}" target="_blank" rel="noopener">▶ video ↗</a>` : ''}
+          ${jIsVybor(m) ? `<a href="#${jSlugForMeeting(m)}">celé jednání výboru</a>` : ''}
           ${jResInfoText(r)}
         </div>
       </div>`;
@@ -688,7 +834,7 @@
       resultsEl.innerHTML = '<p class="lede">Zkuste jiné klíčové slovo, nebo změňte filtr typu/roku výše.</p>';
       return;
     }
-    const meetingCount = new Set(hits.map(h => h.m.uuid)).size;
+    const meetingCount = new Set(hits.map(h => h.m.uuid || h.m.id)).size;
     statusEl.textContent = `${hits.length} shod v ${meetingCount} jednáních`;
     resultsEl.innerHTML = hits.map(h => jRenderHit(h, rawQuery)).join('');
   }
@@ -709,7 +855,7 @@
 
   // směrování podle hashe v URL: #rada / #zastupitelstvo (filtr typu) nebo
   // #rada-2026-08-31 / #zastupitelstvo-2026-06-24 (trvalý odkaz na konkrétní jednání)
-  const J_MEETING_HASH_RE = /^(rada|zastupitelstvo)-(\d{4}-\d{2}-\d{2})$/;
+  const J_MEETING_HASH_RE = /^(rada|zastupitelstvo|financni-vybor|kontrolni-vybor)-(\d{4}-\d{2}-\d{2})$/;
   function jRouteHash(hash){
     if (J_HASH_TO_TYPE[hash]) { jApplyTypeFilter(J_HASH_TO_TYPE[hash], {updateHash: false}); return; }
     if (J_MEETING_HASH_RE.test(hash)) { jGotoMeetingBySlug(hash); return; }

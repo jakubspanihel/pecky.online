@@ -1,7 +1,7 @@
 {
  "project": "Do Peček . cz",
  "description": "Seznam zdrojů, ze kterých Do Peček . cz čerpá nebo může čerpat informace o samosprávě města Pečky.",
- "last_updated": "2026-09-25",
+ "last_updated": "2026-09-29",
  "sources": [
   {
    "id": "pecky-cz",
@@ -799,6 +799,15 @@
    "description": "Oficiální facebooková stránka jednotky sboru dobrovolných hasičů Pečky (JSDH Pečky – JPO II, předurčenost na dopravní nehody), 945 sledujících k 25. 9. 2026. Adresa V. B. Třebízského 1140, Pečky (hasičská zbrojnice).",
    "status": "ověřeno",
    "note": "Přidáno uživatelem 25. 9. 2026 s žádostí založit organizaci a zkontrolovat nadcházející akce. Bez přihlášení (Browser pane) se načte jen úvod a nejvýš 1 příspěvek, dál se zasekne na „Trvá to déle než obvykle\" — číst přes claude-in-chrome (přihlášená relace). K datu kontroly 3 nejnovější příspěvky, všechny proběhlé: „JEDE JEDE MAŠINKA\" (post 22. 5. 2026, akce 30. 5. 2026, Den dětí ve stylu hasičů/vláčku), „Pálení čarodějnic\" (post 26. 4., akce 30. 4.) a pozvánka na „HASIČSKÝ BÁL\" pořádaný SDH Pečky (post 3. 2., datum plesu v příspěvku nerozbaleno, sezóna plesů leden–únor) — žádná nadcházející akce k zápisu do kalendáře. Stránka nemá vlastní záložku Události."
+  },
+  {
+   "id": "pecky-cz-vybory-zm",
+   "name": "Výbory ZM — zápisy finančního a kontrolního výboru (pecky.cz)",
+   "url": "https://pecky.cz/default/default/21133_vybory-zm",
+   "category": "oficiální",
+   "description": "Podstránka webu města se složením finančního a kontrolního výboru zastupitelstva a jejich zápisy jako PDF, rozdělenými po letech („Zápisy {rok}“): FV od 11/2018, KV od 3/2020 (stránka KV „Zápisy 2022“ je prázdná).",
+   "status": "vytěženo",
+   "note": "Přidáno 29. 9. 2026. Na rozdíl od zbytku pecky.cz jde číst i přímým curl (stránky i PDF). Všech 45 zápisů vytěženo do jednani/vybory.json (sekce Jednání, filtr Finanční/Kontrolní výbor), složení do lide/affiliations.json. Pravidelná kontrola: skill pecky-online-vybory-check + jednani/scripts/vybory-check.py. Pozor: názvy PDF nesou datum, které nemusí odpovídat zápisu (KV_23.09.2023 = jednání 20. 9. 2023, KV_16.11.2024 = 6. 11. 2024); výpis složení FV píše „Lubomír Metalák“ (překlep, správně Metelák)."
   }
  ]
 }

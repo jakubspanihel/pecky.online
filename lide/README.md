@@ -387,8 +387,28 @@ výpis na pecky.cz).
   Václav Drška, Ing. Petr Dürr; Lenka Třísková do roku 2024 (viz Přiznané
   mezery), po ní Jaroslava Vosecká (od 13. 11. 2024) a na místo Dvořákové
   Jiří Katrnoška (od 26. 2. 2025).
+- **Období 2018–2022** (doplněno týž den, podklad pro zápisy výborů na
+  stránce Jednání): složení z Pečeckých novin 12/2018, str. 3 (ustavující
+  zasedání 14. 11. 2018), křížově ověřeno seznamy přítomných ve všech
+  zápisech FV 2018–2022 a KV 2020–2021 na pecky.cz. Usnesení ZM od 4/2021
+  žádnou další volbu do výborů neobsahují.
+  - FV: předseda Tomáš Vodička; členové Ing. Petr Dürr, Ing. František
+    Pospíšil (spárován s prvním polistopadovým starostou), Ing. Jana Sladká,
+    Ing. Martin Jedlička, Jaroslav Semerád a od února 2019 jako sedmý
+    Ing. Ladislav Zindr (nová osoba `zindrl`, Pečecké noviny 3/2019 —
+    přesné datum zasedání neuvedeno, vazba má `from: "2019"`).
+  - KV: předseda Milan Paluska; členové Mgr. Bc. Lenka Krúpová,
+    Mgr. Jaroslava Heroldová, Ing. Jan Korouš, Jaroslav Železný, Zdeněk
+    Fejfar, Jaroslav Martinec.
 - Členství předsedů se jako zvláštní vazba „člen" nezapisuje — předseda
   je členem výboru automaticky.
+- **Účast na jednáních výborů** (od 29. 9. 2026): u každé vazby na výbor
+  ukazuje detail osoby, na kolika zveřejněných jednáních výboru v období
+  vazby byl člověk přítomen / omluven / jinak nepřítomen. Počítá se za
+  běhu z `jednani/vybory.json` (`lAttachVyborAttendance` v
+  `content/lide.html`), do `affiliations.json` se nic nezapisuje. Vazba
+  si výsledek nese v `_extraHtml`, který sdílená vizitka (`pcDetailHtml`
+  v `assets/helpers.js`) vykreslí pod poznámku.
 - Všichni kromě Šárky Jedličkové jsou (nebo byli) zastupitelé, takže
   párování je jednoznačné. Jedličková spárována podle jména a titulu Ing.
   (kandidátka 2026 uvádí povolání „vedoucí finančního odboru"). Jako jediná
@@ -460,6 +480,12 @@ Ivetě Minaříkové → Dvořákové):
    jejich `id` podle konvence `{person_id}--{organization_id}--{pořadí}`.
 4. Sloučit `sources`, `tags`, případně `photos`; přepsat `bio`, aby popisovalo
    celou dráhu.
+
+Podruhé použit 29. 9. 2026: `sladkaj2` (jednatelka TJ Sokol, založená
+zvlášť kvůli nepotvrzené shodě jména) sloučena do `sladkaj` (Komise
+sportovní RM) na pokyn autora webu, že jde o jednu osobu — zároveň i ta
+„Ing. Jana Sladká“ z finančního výboru 2018–2022. Příjmení se neměnilo,
+takže bez `former_last_names`, jen `aliases: ["sladkaj2"]`.
 
 Alias je tam proto, že SPEC §3.1 označuje `id` za neměnné — starý odkaz
 `#lide/osoba/minarikovai` se nesmí rozbít. Router ho tiše přesměruje na
@@ -612,6 +638,11 @@ o konkrétní osobě, použít stejnou funkci, ne psát tvary napevno.
   kandidátku přímo u jména, obě vazby jsou teď doložené.
 - ~~Výbory jsou zatím jen dva záznamy~~ — uzavřeno 29. 9. 2026, viz
   „Finanční a kontrolní výbor ZM" níže.
+- **Lenka Krúpová nemá doložený konec členství v kontrolním výboru
+  2018–2022** (`to: null`, `current: false` — validátor to hlásí jako
+  varování, je to záměr). V zápisu KV 5. 3. 2020 je neomluvená, v zápisech
+  z roku 2021 už chybí úplně, ani mezi omluvenými; odvolání ani rezignace
+  nejsou nikde zapsané.
 - **Lenka Třísková nemá přesné datum odchodu z kontrolního výboru.**
   Vazba má `to: "2024"`: mandát jí skončil 11. 9. 2024 a její místo ve
   výboru zastupitelstvo obsadilo 13. 11. 2024 (Jaroslava Vosecká, UZ-47-5/24),

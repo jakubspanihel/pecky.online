@@ -60,6 +60,7 @@ DEFAULT_DURATION_MIN = 120
 BARVY = {
     'rada': '10',            # Basil — zelená jako --field v mřížce
     'zastupitelstvo': '11',  # Tomato — nejblíž bordó --burgundy
+    'vybor': '6',            # Tangerine — nejblíž --gold jednání výborů v mřížce
     'akce': '9',             # Blueberry
     'kurz': '8',             # Graphite — tlumená, kurzů je řádově nejvíc
     'volby': '5',            # Banana

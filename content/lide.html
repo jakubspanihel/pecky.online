@@ -650,6 +650,47 @@
     });
   })();
 
+  // U vazby „člen/předseda finančního|kontrolního výboru“ spočítá účast
+  // na zveřejněných zápisech výboru v období vazby. Jména v zápisech jsou
+  // normalizovaná podle Lidí (viz jednani/README.md), párují se přes jNameKey.
+  function lAttachVyborAttendance(db, meetings){
+    const people = db.people || db;
+    (Array.isArray(people) ? people : []).forEach(p => {
+      const key = jNameKey([p.first_name, p.last_name].filter(Boolean).join(' '));
+      // _timeline drží kopie vazeb (pcBuildTimeline), ne tytéž objekty
+      [...(p._affs || []), ...(p._timeline || [])].forEach(a => {
+        const hit = /(finančního|kontrolního) výboru/.exec(a.role || '');
+        if (!hit || a.organization_id !== 'mesto-pecky') return;
+        const type = hit[1] === 'finančního' ? 'Finanční výbor' : 'Kontrolní výbor';
+        const from = a.from ? String(a.from).padEnd(10, a.from.length === 4 ? '-01-01' : '') : '0000';
+        const to = a.to ? String(a.to).padEnd(10, a.to.length === 4 ? '-12-31' : '') : '9999';
+        const ms = meetings.filter(m => m.type === type && m.date >= from && m.date <= to);
+        if (!ms.length) return;
+        let present = 0, excused = 0, other = 0, unknown = 0, skipped = 0;
+        ms.forEach(m => {
+          const at = m.attendance || {};
+          if (at.present == null) { unknown++; return; }
+          if ((at.present_names || []).some(n => jNameKey(n) === key)) { present++; return; }
+          const ab = (at.absent_names || []).find(x => jNameKey(x.name) === key);
+          // zápisy ve vybory.json vždy vedou všechny členy (přítomné i chybějící);
+          // kdo není zmíněný vůbec, tehdy ve výboru nebyl — typicky vazba
+          // s rokem místo přesného data („2019“), jednání se nezapočítá
+          if (!ab) { skipped++; return; }
+          if (/^omluven/.test(ab.note || '')) excused++;
+          else other++;
+        });
+        const known = ms.length - unknown - skipped;
+        const hash = type === 'Finanční výbor' ? 'financni-vybor' : 'kontrolni-vybor';
+        const parts = [`${pcGendered(p, 'přítomen', 'přítomna')} na ${present} z ${known}`];
+        if (excused) parts.push(`${pcGendered(p, 'omluven', 'omluvena')} ${excused}×`);
+        if (other) parts.push(`jinak ${pcGendered(p, 'nepřítomen', 'nepřítomna')} ${other}×`);
+        a._extraHtml = `<p class="tl-note">Zveřejněná jednání výboru v tomto období: ${jEscapeHtml(parts.join(', '))}` +
+          (unknown ? ` (u ${unknown} zápis účast neuvádí)` : '') +
+          ` · <a href="/jednani/#${hash}">zápisy v sekci Jednání</a></p>`;
+      });
+    });
+  }
+
   async function loadLide(){
     if (LIDE_DB) { lApplyRoute(); return LIDE_DB; }
     if (LIDE_LOADING) return LIDE_LOADING;
@@ -662,6 +703,12 @@
         const [peopleDoc, orgsDoc, affsDoc] = await Promise.all(res.map(r => r.json()));
 
         LIDE_DB = lJoin(peopleDoc.people || [], orgsDoc.organizations || [], affsDoc.affiliations || []);
+        // účast na jednáních výborů ZM (jednani/vybory.json) — nepovinné,
+        // bez souboru se detail osoby vykreslí jako dřív
+        try {
+          const vr = await fetch('/jednani/vybory.json');
+          if (vr.ok) lAttachVyborAttendance(LIDE_DB, (await vr.json()).meetings || []);
+        } catch (e) { /* bez účasti na výborech */ }
         LIDE_DB._updated = (peopleDoc.meta || {}).updated || '';
 
         lBuildChips();

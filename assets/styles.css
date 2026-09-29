@@ -119,6 +119,13 @@
   .segmented-btn:last-child{border-right:none;}
   .segmented-btn:hover:not(.active){background:rgba(124,47,43,0.08);}
   .segmented-btn.active{background:var(--burgundy); color:#fff;}
+  /* úzký displej: víc tlačítek (Jednání má 5) se zalomí do řádků místo
+     přetečení přes okraj; záporný okraj schová zdvojené hrany pod rámečkem skupiny */
+  @media (max-width:600px){
+    .segmented-control{flex-wrap:wrap; max-width:100%;}
+    .segmented-group{flex-wrap:wrap; max-width:100%;}
+    .segmented-btn{flex:1 1 auto; margin:0 -1px -1px 0; border-bottom:1px solid var(--burgundy);}
+  }
 
   .promises-grid{display:grid; grid-template-columns:repeat(6,1fr); gap:12px; margin:20px 0 24px;}
   @media (min-width:961px){.promises-grid.promises-grid-5{grid-template-columns:repeat(5,1fr);}}
@@ -237,6 +244,7 @@
      může ze selektoru vypadnout. */
   .pozemek-jednani-meta, .meta-note{display:block; margin-top:4px; font-size:12px; font-family:var(--font-mono); color:var(--ink-soft);}
   .tag.role{color:var(--burgundy); border-color:var(--burgundy);}
+  .tag.vybor{color:var(--field); border-color:var(--field);}
   .tag.koalice{color:var(--field); border-color:var(--field); background:rgba(84,98,74,0.08);}
   .tag.opozice{color:var(--burgundy); border-color:var(--burgundy); background:rgba(124,47,43,0.06);}
   /* stavy plnění plánu */
@@ -274,6 +282,7 @@
   table.calendar-table .kal-ev:hover{opacity:0.85;}
   table.calendar-table .kal-ev-rada{background:var(--field);}
   table.calendar-table .kal-ev-zastupitelstvo{background:var(--burgundy);}
+  table.calendar-table .kal-ev-vybor{background:var(--gold);}
   /* akce a kurzy nesou barvu pořadatele: JS nastaví na odkaz --org-c/--org-c-bg
      (= --org-<id> z assets/org-colors.css); pořadatel bez barvy spadne na fallback.
      Akce plnou barvou, kurzy (opakované, je jich většina) světlým podkladem s proužkem. */
@@ -300,6 +309,7 @@
   /* jednání a volby barvou kategorie stejně jako v mřížce, akce barvou pořadatele */
   .akce-blok-zastupitelstvo{border-left-color:var(--burgundy);}
   .akce-blok-rada{border-left-color:var(--field);}
+  .akce-blok-vybor{border-left-color:var(--gold);}
   .akce-blok-volby{border-left-color:var(--slate);}
   .akce-blok-akce{border-left-color:var(--org-c, var(--gold-deep));}
   .akce-blok .akce-kdy, .akce-blok .akce-kdekdy{margin:0; font-family:var(--font-mono); font-size:12.5px; color:var(--ink-soft);}
