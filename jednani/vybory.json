@@ -2,8 +2,8 @@
   "meta": {
     "updated": "2026-09-29",
     "source": "https://pecky.cz/default/default/21133_vybory-zm",
-    "note": "Jednání finančního a kontrolního výboru zastupitelstva, vytěžená ručně z PDF zápisů zveřejněných na pecky.cz (lokální kopie v jednani/Data/{datum}-financni-vybor|kontrolni-vybor/zapis.pdf). Struktura záznamu odpovídá pecky-jednani.json, rozdíly viz jednani/README.md → „Jednání výborů ZM“. Všechny zápisy zveřejněné na pecky.cz (FV od 11/2018, KV od 3/2020).",
-    "meetings_count": 45,
+    "note": "Jednání finančního a kontrolního výboru zastupitelstva, vytěžená ručně z PDF zápisů zveřejněných na pecky.cz (lokální kopie v jednani/Data/{datum}-financni-vybor|kontrolni-vybor/zapis.pdf). Struktura záznamu odpovídá pecky-jednani.json, rozdíly viz jednani/README.md → „Jednání výborů ZM“. Všechny zápisy zveřejněné na pecky.cz (FV od 11/2018, KV od 3/2020) a tři další, které má jen starý web pecky.as4u.cz (FV 23. 11. 2023, KV 21. 5. 2025, KV 19. 11. 2025).",
+    "meetings_count": 48,
     "resolutions_count": 75
   },
   "meetings": [
@@ -410,6 +410,73 @@
       }
     },
     {
+      "id": "kontrolni-vybor-2025-11-19",
+      "uuid": null,
+      "type": "Kontrolní výbor",
+      "number": null,
+      "year": 2025,
+      "date": "2025-11-19",
+      "label": "Kontrolní výbor (19. 11. 2025)",
+      "time": "16:30",
+      "time_end": "18:30",
+      "duration_seconds": 7200,
+      "venue": null,
+      "links": {
+        "minutes": "https://pecky.as4u.cz/filemanager/files/4879091.pdf",
+        "source_page": "https://pecky.as4u.cz/cs/mesto/vybory-a-komise/kontrolni-vybor/zapisy-kontrolniho-vyboru.html"
+      },
+      "attendance": {
+        "present": 6,
+        "total": 7,
+        "present_names": [
+          "Mgr. Alena Švejnohová",
+          "Ivana Trčková",
+          "Jaroslava Vosecká",
+          "Jiří Katrnoška",
+          "Milan Pečenka",
+          "Ing. Petr Dürr"
+        ],
+        "absent_names": [
+          {
+            "name": "Václav Drška",
+            "note": "omluven"
+          }
+        ],
+        "arrived_late": [
+          {
+            "name": "Milan Pečenka",
+            "time": "17:00"
+          },
+          {
+            "name": "Ing. Petr Dürr",
+            "time": "17:30"
+          }
+        ],
+        "left_early": [
+          {
+            "name": "Jiří Katrnoška",
+            "time": "17:00"
+          }
+        ],
+        "guests": []
+      },
+      "chair": "Mgr. Alena Švejnohová",
+      "recorded_by": "Mgr. Alena Švejnohová",
+      "agenda": [
+        {
+          "n": 1,
+          "t": "Kontrola zápisů a podkladů k jednání Rady města Pečky za období od 25. 8. 2025 do 10.11.2025 a vybraných poptávkových řízení a průzkumů trhu."
+        }
+      ],
+      "resolutions": [],
+      "attachments": [],
+      "extraction": {
+        "method": "pdftotext",
+        "checked": "2026-09-29",
+        "note": "Zápis na novém webu pecky.cz chybí, dohledán a stažen 29. 9. 2026 ze starého webu pecky.as4u.cz. Jde o jednání ohlášené v zápisu z 30. 10. 2025. Neobsahuje usnesení."
+      }
+    },
+    {
       "id": "financni-vybor-2025-11-11",
       "uuid": null,
       "type": "Finanční výbor",
@@ -565,7 +632,7 @@
       "extraction": {
         "method": "ocr",
         "checked": "2026-09-29",
-        "note": "Zápis ohlašuje další jednání KV na 19. 11. 2025 — jeho zápis na pecky.cz není."
+        "note": "Zápis ohlašuje další jednání KV na 19. 11. 2025 — jeho zápis na pecky.cz není, ale je na starém webu pecky.as4u.cz (doplněno)."
       }
     },
     {
@@ -658,6 +725,60 @@
       "extraction": {
         "method": "pdftotext",
         "checked": "2026-09-29"
+      }
+    },
+    {
+      "id": "kontrolni-vybor-2025-05-21",
+      "uuid": null,
+      "type": "Kontrolní výbor",
+      "number": null,
+      "year": 2025,
+      "date": "2025-05-21",
+      "label": "Kontrolní výbor (21. 5. 2025)",
+      "time": null,
+      "time_end": "18:10",
+      "duration_seconds": null,
+      "venue": null,
+      "links": {
+        "minutes": "https://pecky.as4u.cz/filemanager/files/4502408.pdf",
+        "source_page": "https://pecky.as4u.cz/cs/mesto/vybory-a-komise/kontrolni-vybor/zapisy-kontrolniho-vyboru.html"
+      },
+      "attendance": {
+        "present": 5,
+        "total": 7,
+        "present_names": [
+          "Mgr. Alena Švejnohová",
+          "Ivana Trčková",
+          "Jiří Katrnoška",
+          "Milan Pečenka",
+          "Ing. Petr Dürr"
+        ],
+        "absent_names": [
+          {
+            "name": "Jaroslava Vosecká",
+            "note": "omluvena"
+          },
+          {
+            "name": "Václav Drška",
+            "note": "omluven"
+          }
+        ],
+        "guests": []
+      },
+      "chair": "Mgr. Alena Švejnohová",
+      "recorded_by": "Mgr. Alena Švejnohová",
+      "agenda": [
+        {
+          "n": 1,
+          "t": "Kontrola zápisů a podkladů k jednání Rady města Pečky za období od 17. 3. 2025 do 12. 5. 2025 a zápisu z jednání Zastupitelstva města ze dne 2. 4. 2025."
+        }
+      ],
+      "resolutions": [],
+      "attachments": [],
+      "extraction": {
+        "method": "ocr",
+        "checked": "2026-09-29",
+        "note": "Zápis na novém webu pecky.cz chybí, dohledán a stažen 29. 9. 2026 ze starého webu pecky.as4u.cz (sken, čteno přes OCR). Neobsahuje usnesení; předsedkyně upozornila na drobné nedostatky v zápisech RM (chybějící přílohy 28. 4. 2025, nepodepsaný zápis 12. 5. 2025)."
       }
     },
     {
@@ -1346,7 +1467,78 @@
       "extraction": {
         "method": "pdftotext",
         "checked": "2026-09-29",
-        "note": "Zápis odkazuje na předchozí jednání FV 23. 11. 2023, jehož zápis na pecky.cz není."
+        "note": "Zápis odkazuje na předchozí jednání FV 23. 11. 2023 — to na pecky.cz není, ale je na starém webu pecky.as4u.cz (doplněno)."
+      }
+    },
+    {
+      "id": "financni-vybor-2023-11-23",
+      "uuid": null,
+      "type": "Finanční výbor",
+      "number": null,
+      "year": 2023,
+      "date": "2023-11-23",
+      "label": "Finanční výbor (23. 11. 2023)",
+      "time": "15:30",
+      "time_end": "17:20",
+      "duration_seconds": 6600,
+      "venue": null,
+      "links": {
+        "minutes": "https://pecky.as4u.cz/filemanager/files/4045405.pdf",
+        "source_page": "https://pecky.as4u.cz/cs/mesto/vybory-a-komise/financni-vybor/zapisy-financniho-vyboru.html"
+      },
+      "attendance": {
+        "present": 5,
+        "total": 7,
+        "present_names": [
+          "Ing. Karel Krištoufek",
+          "Ing. Šárka Jedličková",
+          "Pavel Sedláček",
+          "Milan Urban",
+          "Jaroslav Železný"
+        ],
+        "absent_names": [
+          {
+            "name": "Lubomír Metelák",
+            "note": "omluven"
+          },
+          {
+            "name": "Tomáš Vodička",
+            "note": "omluven"
+          }
+        ],
+        "guests": [
+          {
+            "name": "Marcela Bahníková",
+            "note": "vedoucí ekonomicko-správního odboru"
+          },
+          {
+            "name": "Milan Paluska",
+            "note": "starosta"
+          }
+        ]
+      },
+      "chair": "Ing. Karel Krištoufek",
+      "recorded_by": "Ing. Karel Krištoufek",
+      "agenda": [
+        {
+          "n": 1,
+          "t": "Seznámení a projednání návrhu rozpočtu města na rok 2024"
+        },
+        {
+          "n": 2,
+          "t": "Seznámení a projednání návrhu střednědobého výhledu rozpočtu na roky 2024 až 2026"
+        }
+      ],
+      "resolutions": [],
+      "attachments": [
+        "Plnění rozpočtu 2023",
+        "Návrh rozpočtu na rok 2024",
+        "Návrh střednědobého výhledu rozpočtu 2024–2026"
+      ],
+      "extraction": {
+        "method": "pdftotext",
+        "checked": "2026-09-29",
+        "note": "Zápis na novém webu pecky.cz chybí, dohledán a stažen 29. 9. 2026 ze starého webu pecky.as4u.cz. Neobsahuje usnesení (o rozpočtu se hlasovalo až 30. 11. 2023). Podle zápisu jsou všechny plánované investice v dalších letech z prostředků města, „s výjimkou dostavby ZŠ Pečky, kde je potřeba investiční půjčky pravděpodobně nevyhnutelná“."
       }
     },
     {

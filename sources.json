@@ -807,7 +807,7 @@
    "category": "oficiální",
    "description": "Podstránka webu města se složením finančního a kontrolního výboru zastupitelstva a jejich zápisy jako PDF, rozdělenými po letech („Zápisy {rok}“): FV od 11/2018, KV od 3/2020 (stránka KV „Zápisy 2022“ je prázdná).",
    "status": "vytěženo",
-   "note": "Přidáno 29. 9. 2026. Na rozdíl od zbytku pecky.cz jde číst i přímým curl (stránky i PDF). Všech 45 zápisů vytěženo do jednani/vybory.json (sekce Jednání, filtr Finanční/Kontrolní výbor), složení do lide/affiliations.json. Pravidelná kontrola: skill pecky-online-vybory-check + jednani/scripts/vybory-check.py. Pozor: názvy PDF nesou datum, které nemusí odpovídat zápisu (KV_23.09.2023 = jednání 20. 9. 2023, KV_16.11.2024 = 6. 11. 2024); výpis složení FV píše „Lubomír Metalák“ (překlep, správně Metelák)."
+   "note": "Přidáno 29. 9. 2026. Na rozdíl od zbytku pecky.cz jde číst i přímým curl (stránky i PDF). Všech 45 zápisů vytěženo do jednani/vybory.json (sekce Jednání, filtr Finanční/Kontrolní výbor), složení do lide/affiliations.json. Pravidelná kontrola: skill pecky-online-vybory-check + jednani/scripts/vybory-check.py. Pozor: názvy PDF nesou datum, které nemusí odpovídat zápisu (KV_23.09.2023 = jednání 20. 9. 2023, KV_16.11.2024 = 6. 11. 2024); výpis složení FV píše „Lubomír Metalák“ (překlep, správně Metelák). Tři zápisy, které na pecky.cz chybí (FV 23. 11. 2023, KV 21. 5. 2025, KV 19. 11. 2025), jsou jen na starém webu pecky.as4u.cz (Město → Výbory a komise → Zápisy finančního/kontrolního výboru) — stažené a vytěžené 29. 9. 2026, kontrolní skript prochází i starý web."
   }
  ]
 }

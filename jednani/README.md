@@ -655,7 +655,12 @@ složky je vždy, i bez kolize data — jde o jiný orgán než Rada/ZM.
   normalizují podle Lidí, sporná místa (hlasování) ověřit proti obrázku.
 - Na rozdíl od `usneseni.cz` pecky.cz Cloudflare neblokuje — stačí přímý
   `curl` na `/files/pecky/gallery/…`. Všech 45 souborů má různý MD5.
-- Obsah je vytěžený do `vybory.json` (všech 45 zápisů), viz
+- Tři zápisy, které na pecky.cz chybí, stažené 29. 9. 2026 ze starého webu
+  (pecky.as4u.cz → Výbory a komise → Zápisy finančního/kontrolního výboru):
+  `2023-11-23-financni-vybor`, `2025-05-21-kontrolni-vybor`,
+  `2025-11-19-kontrolni-vybor`. Starý web má zbylé zápisy taky (se správným
+  datem v popisku odkazu), ale od jara 2026 se neaktualizuje.
+- Obsah je vytěžený do `vybory.json` (všech 48 zápisů), viz
   „Jednání výborů ZM (`vybory.json`)“ níže.
 
 ### Jednání výborů ZM (`vybory.json`)
@@ -664,9 +669,10 @@ Samostatný soubor vedle `pecky-jednani.json` — ten se přírůstkově plní
 z usneseni.cz a výbory by se v něm míchaly se scraperem. `content/jednani.html`
 načte oba a spojí je do jednoho chronologického seznamu; filtr
 „Finanční výbor“ / „Kontrolní výbor“, trvalé odkazy `#financni-vybor-{datum}`
-a `#kontrolni-vybor-{datum}`. Stav 29. 9. 2026: 45 jednání (31 FV, 14 KV)
+a `#kontrolni-vybor-{datum}`. Stav 29. 9. 2026: 48 jednání (32 FV, 16 KV)
 a 75 usnesení — všechny zápisy zveřejněné na pecky.cz (FV od 11/2018,
-KV od 3/2020). Složení výborů 2018–2022 je v Lidech (viz `lide/README.md`
+KV od 3/2020) a tři, které má jen starý web pecky.as4u.cz (FV 23. 11. 2023,
+KV 21. 5. 2025, KV 19. 11. 2025; `links.minutes` u nich míří na as4u). Složení výborů 2018–2022 je v Lidech (viz `lide/README.md`
 → „Finanční a kontrolní výbor ZM“), aby šly vykreslit avatary přítomných.
 
 Záznam má stejná pole jako jednání Rady/ZM, s těmito rozdíly:
@@ -696,10 +702,11 @@ Záznam má stejná pole jako jednání Rady/ZM, s těmito rozdíly:
   `extraction{method: pdftotext|ocr, checked, note}` — poznámka ke
   čtení zápisu (překlepy, nejasnosti, odkazy na nezveřejněná jednání).
 
-Zápisy odkazují na jednání, jejichž zápis na pecky.cz není: FV 12. jednání
-(12/2019–2/2020), ohlášené FV 18. 3. 2020, KV před 5. 3. 2020 a ohlášené
-KV 23. 3. 2020, ohlášené KV 6. 10. 2021, KV 5. 9. 2023, FV 23. 11. 2023
-a ohlášené KV 19. 11. 2025 — přiznáno v calloutu na stránce (příklady).
+Zápisy odkazují na jednání, jejichž zápis není zveřejněný ani na pecky.cz,
+ani na starém webu: FV 12. jednání (12/2019–2/2020), ohlášené FV 18. 3. 2020,
+KV před 5. 3. 2020 a ohlášené KV 23. 3. 2020, ohlášené KV 6. 10. 2021
+a KV 5. 9. 2023 — přiznáno v calloutu na stránce (příklady). FV 23. 11. 2023
+a KV 19. 11. 2025 se našly na starém webu (doplněno 29. 9. 2026).
 
 **Zvláštnosti zápisů 2018–2022** (FV za předsedy Vodičky, KV za předsedy
 Palusky): FV v zápisech číslovalo jednání („3. jednání“ … „20. jednání“,
@@ -729,7 +736,8 @@ funguje i přímý `curl`, žádný prohlížeč netřeba.
 
 1. `python3 jednani/scripts/vybory-check.py` — vypíše složení obou výborů
    podle webu a každý zápis, jehož URL ještě není v `vybory.json`
-   (`links.minutes`), stáhne do `Data/{datum}-{financni|kontrolni}-vybor/zapis.pdf`.
+   (`links.minutes`; u starého webu pecky.as4u.cz podle výboru + data
+   z popisku odkazu), stáhne do `Data/{datum}-{financni|kontrolni}-vybor/zapis.pdf`.
    Datum je jen z názvu souboru — **vždy ověřit proti textu zápisu**
    (dvakrát už byl chybný), případně složku přejmenovat.
 2. **Složení:** liší-li se výpis od Lidí (aktuální vazby „člen/předseda

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Kontrola nových zápisů finančního a kontrolního výboru na pecky.cz.
+"""Kontrola nových zápisů finančního a kontrolního výboru na pecky.cz (+ starý web pecky.as4u.cz).
 
 Projde stránky „Zápisy {rok}“ obou výborů (pecky.cz → Zastupitelstvo →
 Výbory ZM), porovná odkazy na PDF s `links.minutes` v jednani/vybory.json
@@ -32,6 +32,14 @@ UA = 'Mozilla/5.0'
 VYBORY = {
     'financni-vybor': ('Finanční výbor', '/default/default/21145_financni-vybor'),
     'kontrolni-vybor': ('Kontrolní výbor', '/default/default/21141_kontrolni-vybor'),
+}
+# Starý web města (od cca 3/2026 se neaktualizuje, ale má 3 zápisy, které
+# na pecky.cz chybí — FV 23. 11. 2023, KV 21. 5. 2025, KV 19. 11. 2025).
+# Soubory tam mají jen číselné názvy, datum je v textu odkazu; porovnává se
+# proto podle id jednání (výbor + datum), ne podle URL.
+AS4U = {
+    'financni-vybor': 'https://pecky.as4u.cz/cs/mesto/vybory-a-komise/financni-vybor/zapisy-financniho-vyboru.html',
+    'kontrolni-vybor': 'https://pecky.as4u.cz/cs/mesto/vybory-a-komise/kontrolni-vybor/zapisy-kontrolniho-vyboru.html',
 }
 
 
@@ -68,7 +76,9 @@ def slozeni(html):
 
 def main():
     dry = '--dry-run' in sys.argv
-    zname = {m['links']['minutes'] for m in json.loads(VYBORY_JSON.read_text(encoding='utf-8'))['meetings']}
+    meetings = json.loads(VYBORY_JSON.read_text(encoding='utf-8'))['meetings']
+    zname = {m['links']['minutes'] for m in meetings}
+    zname_id = {m['id'] for m in meetings}
     nove = []
     for suffix, (nazev, cesta) in VYBORY.items():
         html = get(BASE + cesta).decode('utf-8', errors='replace')
@@ -84,6 +94,18 @@ def main():
                     continue
                 datum = datum_z_nazvu(pdf.rsplit('/', 1)[-1])
                 nove.append((nazev, suffix, datum, url))
+        # starý web: odkaz <a href="…/filemanager/files/NNN.pdf">datum</a>
+        try:
+            stary = get(AS4U[suffix]).decode('utf-8', errors='replace')
+        except RuntimeError as e:
+            print(f'   ! starý web nedostupný ({e}) — přeskočeno')
+            continue
+        for url, text in re.findall(r'<a href="(https://pecky\.as4u\.cz/filemanager/files/\d+\.pdf)"[^>]*>(.*?)</a>', stary, re.S):
+            m = re.search(r'(\d{1,2})[ .]+(\d{1,2})[ .]+(\d{4})', unescape(re.sub(r'<[^>]+>', ' ', text)))
+            datum = f'{int(m.group(3))}-{int(m.group(2)):02d}-{int(m.group(1)):02d}' if m else None
+            if url in zname or (datum and f'{suffix}-{datum}' in zname_id):
+                continue
+            nove.append((nazev + ' (starý web)', suffix, datum, url))
     if not nove:
         print('\nŽádný nový zápis — vybory.json pokrývá všechna PDF na webu.')
         return
