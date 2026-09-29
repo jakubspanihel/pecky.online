@@ -407,6 +407,81 @@ gramaticky správně. Podrobnosti (odvození `gender` ze jmen, validace,
 obecný mechanismus pro celý web) viz `lide/README.md` → „České skloňování
 osob (gender)".
 
+**Sloupec Mandát ukazuje tři čísla (29. 9. 2026, zadal uživatel.)**
+Tvar „X / Y / Z" — X je `mandat − nebyl` (přítomen), Y je `mandat`
+(jednání v době, kdy osoba v orgánu zasedala), Z je `blok.jednani`
+(jednání v celém období) — dřív jen „Y / Z". X duplikuje číslo, které
+poznámka pod řádkem uvádí jako „Přítomen: N", ale v Mandátu je vidět bez
+rozbalení řádku. `tabulka()`/`poznamkaHtml()` v `content/absence.html`
+teď počítají `pritomen` jednou a sdílí ho.
+
+**Finanční a Kontrolní výbor přidány (29. 9. 2026, zadal uživatel.)**
+Stejná Docházka/Mandát/Poznámka tabulka jako u Rady a Zastupitelstva, teď
+i pro oba výbory ZM — dvě nové podzáložky mezi Zastupitelstvem a „Jak se
+to počítá" (pořadí podle `content/jednani.html`). Zdroj je
+`jednani/vybory.json` (viz „Jednání výborů ZM" výše), ne
+`pecky-jednani.json` — `jednani/scripts/absence.py` teď čte oba soubory
+a slučuje je do jednoho seznamu jednání ještě před výpočtem
+(`nacti_vybory()`). Tři úpravy skriptu byly potřeba, ne jen přičtení dat:
+
+- `vybory.json` skloňuje `absent_names[].note` podle rodu
+  (`"omluven"`/`"omluvena"`, `"neomluven"`/`"neomluvena"`,
+  `"nepřítomen/nepřítomna, zápis důvod neuvádí"`, `"zápis účast
+  neuvádí"`) — `pecky-jednani.json` má jen `"omluven"`/`"nepřítomen"`.
+  Test na přesnou shodu `x['note'] == 'omluven'` by `"omluvena"` (8×
+  v datech) špatně započítal jako neomluvenou absenci; opraveno na
+  `.startswith('omluven')` (stejné řešení jako `lAttachVyborAttendance`
+  v `content/lide.html` už používá pro totéž).
+- `vybory.json` nemá jedno pole `attendance.changes`, ale zvlášť
+  `arrived_late[{name,time}]`/`left_early[{name,time}]` — `nacti_vybory()`
+  je při načtení sloučí do stejného tvaru `{event, name}`
+  (`'přišel'`/`'odešel'`) jako Rada/ZM čekávají.
+- `OBDOBI` má nové položky `'Finanční výbor'`/`'Kontrolní výbor'`, stejná
+  hranice volebních období jako Zastupitelstvo (výbory volí ZM).
+
+Obě volební období se počítají (`absence.json` teď má 8 bloků místo 4),
+na webu se stejně jako u Rady/ZM zobrazuje jen 2022–2026 — období
+2018–2022 má u výborů vlastní mezery (zápis `financni-vybor-2018-11-22`
+bez zaznamenané účasti, dva zápisy kontrolního výboru z roku 2021 vůbec
+nezmiňují Lenku Krúpovou → `kontrola().rozdil = -2`, zdokumentováno jako
+vadný záznam stejně jako starší Rada 27/2021 a Rada 24/2024). Čtyři
+řádky aktuálního období mají poznámku o nástupu/konci členství ve výboru
+(`POZNAMKY` v `absence.py`, zdroj `lide/README.md` → „Finanční a
+kontrolní výbor ZM") — pozor, jde o jinou vazbu než stejná osoba má
+u typu Zastupitelstvo, takže i jiné datum (např. Lenka Třísková: mandát
+zastupitelky skončil 19. 6. 2024, mandát ve výboru až 11. 9. 2024).
+
+Vzorek je malý (12 jednání FV, 11 KV za 2022–2026 — necelá desetina
+Rady), doplněna vlastní věta v „Co do čísel nespadá" upozorňující, že tu
+procento kolísá výrazně víc. Perex a meta popisek (`scripts/build.py`)
+přepsané z „zastupitelů a radních" na „zastupitelů, radních a členů
+výborů zastupitelstva".
+
+**Tabulka zúžena na dva sloupce (týž den, zadal uživatel.)** Mandát
+(dřív vlastní sloupec „X / Y / Z") a Poznámka zmizely jako samostatné
+sloupce — zůstávají Jméno a Docházka:
+
+- Docházka teď pod procentem nese menším písmem „přítomen X z Y"
+  (`X = mandat − nebyl`, `Y = mandat`) — `Z` (celkový počet jednání
+  v období) zůstává jen ve větě nad tabulkou, teď navíc tučně
+  (`<strong>${blok.jednani}</strong>`).
+  Dřívější řádek se z Mandátu nikam nekopíroval, jen se přesunul.
+- Poznámka (chyběl při zahájení/dorazil později/odešel dřív + volný
+  text) se přesunula do buňky se jménem, pod avatar a odkaz — `tabulka()`
+  ji teď připojuje rovnou za `personCellHtml()` do stejné `<td>`.
+- Položka „Přítomen: N" v poznámce zmizela — duplikovala nové „X z Y"
+  u Docházky. `poznamkaHtml(r)` ztratila parametr `pritomen`, číslo se
+  teď počítá jen jednou v `tabulka()` a jde přímo do řádku Docházky.
+- `colspan` rozbaleného řádku vizitky změněn ze 4 na 2.
+- CSS (`assets/styles.css`): `td:last-child` pravidlo (mělo cílit na
+  Poznámku, po přesunu by sedělo na Docházku) nahrazeno stylem přímo na
+  `.absence-poznamka-text`/`.absence-poznamka-list`; nové
+  `.absence-mandat` pro řádek „X z Y" pod procentem; zrušen
+  `white-space:nowrap` na prvním sloupci (teď nese víceřádkovou
+  poznámku, ne jen krátké jméno).
+- Metodika („Jak se to počítá") a poznámka o malém vzorku u výborů
+  přepsané na novou podobu sloupců.
+
 ## Pořadí v poli `meetings` (opraveno 28. 9. 2026)
 
 `pecky-jednani.json` → `meetings` musí být seřazené sestupně podle `date`

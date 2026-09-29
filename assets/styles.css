@@ -548,15 +548,19 @@
   mark{background:rgba(173,122,42,0.4); color:inherit; padding:0 1px; border-radius:2px;}
 
   /* ---- Absence na jednáních (/jednani/absence.html) ---- */
-  table.absence-tabulka th.num, table.absence-tabulka td.num{text-align:right; white-space:nowrap;}
-  table.absence-tabulka th:first-child, table.absence-tabulka td:first-child{white-space:nowrap;}
-  table.absence-tabulka td:last-child{font-size:12.5px; color:var(--ink-soft);}
-  .absence-poznamka-text{margin:0 0 4px;}
+  /* jen dva sloupce — Docházka (+ "přítomen X z Y" pod procentem) a Jméno (+ poznámka pod ním) */
+  table.absence-tabulka th.num, table.absence-tabulka td.num{text-align:right; white-space:nowrap; vertical-align:top;}
+  table.absence-tabulka td{vertical-align:top;}
+  table.absence-tabulka th.num, table.absence-tabulka td.num{padding-right:22px;}
+  .absence-mandat{display:block; margin-top:3px; font-family:'IBM Plex Mono',monospace; font-size:11.5px; color:var(--ink-soft); font-weight:400;}
+  .absence-poznamka-text, .absence-poznamka-list{font-size:12.5px; color:var(--ink-soft);}
+  .absence-poznamka-text{margin:6px 0 4px;}
   .absence-poznamka-text:last-child{margin-bottom:0;}
-  .absence-poznamka-list{list-style:none; margin:0; padding:0;}
+  .absence-poznamka-list{list-style:none; margin:6px 0 0; padding:0;}
+  .absence-poznamka-list:not(:first-child){margin-top:2px;}
   .absence-poznamka-list li{position:relative; padding-left:11px;}
   .absence-poznamka-list li::before{content:"—"; position:absolute; left:0;}
-  .table-scroll table.absence-tabulka{min-width:460px;}
+  .table-scroll table.absence-tabulka{min-width:340px;}
   /* jméno + avatar v prvním sloupci, klik otevře vizitku (pcDetailHtml) — u koho se osoba
      nedohledá v lide/people.json, zůstává jen prostý text bez avataru a bez odkazu */
   .absence-person{display:flex; align-items:center; gap:8px;}

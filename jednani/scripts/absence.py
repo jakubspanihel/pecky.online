@@ -1,10 +1,16 @@
 #!/usr/bin/env python3
-"""Spočítá absenci členů zastupitelstva a rady a zapíše ji do jednani/absence.json.
+"""Spočítá absenci členů zastupitelstva, rady a výborů ZM a zapíše ji do
+jednani/absence.json.
 
 Postup, který skript implementuje, i zdůvodnění jednotlivých kroků popisuje
-jednani/INSTRUKCE-absence.md. Stručně:
+jednani/INSTRUKCE-absence.md (psané pro Radu/Zastupitelstvo, pro výbory
+platí stejně). Stručně:
 
-- Rada a Zastupitelstvo se počítají zvlášť, uvnitř zvlášť po volebních obdobích.
+- Rada, Zastupitelstvo, Finanční výbor a Kontrolní výbor se počítají
+  zvlášť, uvnitř zvlášť po volebních obdobích.
+- Zdroj dat: jednani/pecky-jednani.json (Rada, Zastupitelstvo) +
+  jednani/vybory.json (oba výbory — jiný soubor, jen normalizované na
+  stejný tvar při načtení, viz nacti_vybory()).
 - Jmenovatel je mandát dané osoby (jednání mezi jejím prvním a posledním
   výskytem v prezenci), ne počet všech jednání období — §2.
 - Absence se počítá z úvodní prezence **opravené o zaznamenané příchody**
@@ -25,16 +31,22 @@ from pathlib import Path
 
 KOREN = Path(__file__).resolve().parent.parent.parent
 DATA = KOREN / 'jednani' / 'pecky-jednani.json'
+VYBORY = KOREN / 'jednani' / 'vybory.json'
 VYSTUP = KOREN / 'jednani' / 'absence.json'
 
 # Hranice volebních období = první jednání nového složení orgánu. Zastupitelstvo
 # se obměnilo na ustavujícím zasedání 20. 10. 2022 (viz jednani/volebni-obdobi.json),
-# rada zvolená na témže zasedání poprvé jednala 31. 10. 2022.
+# rada zvolená na témže zasedání poprvé jednala 31. 10. 2022. Výbory ZM se
+# obměňují spolu se zastupitelstvem, které je volí — stejná hranice jako u ZM.
 OBDOBI = {
     'Zastupitelstvo': [('2018–2022', '0000-00-00', '2022-10-20'),
                        ('2022–2026', '2022-10-20', '9999-99-99')],
     'Rada': [('2018–2022', '0000-00-00', '2022-10-31'),
              ('2022–2026', '2022-10-31', '9999-99-99')],
+    'Finanční výbor': [('2018–2022', '0000-00-00', '2022-10-20'),
+                        ('2022–2026', '2022-10-20', '9999-99-99')],
+    'Kontrolní výbor': [('2018–2022', '0000-00-00', '2022-10-20'),
+                         ('2022–2026', '2022-10-20', '9999-99-99')],
 }
 
 # Jedna osoba pod dvěma příjmeními — Bc. Iveta Minaříková se v srpnu 2022
@@ -59,6 +71,13 @@ POZNAMKY = {
     ('Rada', '2018–2022', 'viktorie janackova'): 'v radě od 20. 9. 2021',
     ('Rada', '2018–2022', 'iveta dvorakova'): 'dříve Minaříková',
     ('Zastupitelstvo', '2018–2022', 'iveta dvorakova'): 'dříve Minaříková',
+    # Kontrolní výbor — složení podle lide/README.md § „Finanční a kontrolní
+    # výbor ZM"; poznámka je za členství ve výboru, ne za mandát v ZM (jiné
+    # datum než stejná osoba má u typu Zastupitelstvo výše).
+    ('Kontrolní výbor', '2022–2026', 'jaroslava vosecka'): 'členka výboru od 13. 11. 2024 (UZ-47-5/24)',
+    ('Kontrolní výbor', '2022–2026', 'lenka triskova'): 'mandát ve výboru skončil 11. 9. 2024',
+    ('Kontrolní výbor', '2022–2026', 'jiri katrnoska'): 'členem výboru od 26. 2. 2025 (za Ivetu Dvořákovou)',
+    ('Kontrolní výbor', '2022–2026', 'iveta dvorakova'): 'předsedkyně výboru do 26. 2. 2025, kdy skončil i mandát',
 }
 
 TITUL = re.compile(r'^(ing|mgr|bc|mudr|judr|phdr|rndr|mga|ph\.?d|csc|dis|msc|doc|prof)\.?,?$', re.I)
@@ -116,7 +135,9 @@ def absence_v_obdobi(typ, jednani):
 
         for x in absentni:
             o = osoby[klic(x['name'])]
-            o['omluven' if x['note'] == 'omluven' else 'nepritomen'] += 1
+            # 'omluven'/'omluvena' u vybory.json (skloňuje podle rodu,
+            # pecky-jednani.json má jen 'omluven') — prefix, ne přesná shoda
+            o['omluven' if (x['note'] or '').startswith('omluven') else 'nepritomen'] += 1
             if klic(x['name']) in prisli:
                 o['dorazil'] += 1
             else:
@@ -154,7 +175,10 @@ def kontrola(typ, obdobi, jednani, radky):
         a = m['attendance']
         if len(a['present_names']) != a['present'] or \
                 len(a['present_names']) + len(a.get('absent_names') or []) != a['total']:
-            vadne.append(f"{m['type']} {m['label']}")
+            # u výborů label už typ obsahuje ("Kontrolní výbor (17. 6. 2026)"),
+            # u Rady/ZM ne ("27/2021 (22. 11. 2021)") — nezdvojovat prefix
+            label = m['label'] if m['label'].startswith(m['type']) else f"{m['type']} {m['label']}"
+            vadne.append(label)
     return {
         'soucet_pres_osoby': pres_osoby,
         'soucet_pres_jednani': pres_jednani,
@@ -163,8 +187,27 @@ def kontrola(typ, obdobi, jednani, radky):
     }
 
 
+def nacti_vybory():
+    """Jednání finančního a kontrolního výboru ZM (vybory.json) v tvaru,
+    který absence_v_obdobi() čeká — stejná pole jako pecky-jednani.json,
+    až na 'changes': místo jednoho pole má vybory.json zvlášť
+    arrived_late[{name,time}]/left_early[{name,time}], sem se sloučí do
+    stejného tvaru {event, name} jako 'přišel'/'odešel' u Rady/ZM."""
+    if not VYBORY.exists():
+        return []
+    vybory = json.load(open(VYBORY, encoding='utf-8'))
+    for m in vybory['meetings']:
+        a = m.get('attendance') or {}
+        zmeny = ([{'event': 'přišel', 'name': x['name']} for x in (a.get('arrived_late') or [])] +
+                 [{'event': 'odešel', 'name': x['name']} for x in (a.get('left_early') or [])])
+        if zmeny:
+            a['changes'] = zmeny
+    return vybory['meetings']
+
+
 def main(vypsat_jen):
     data = json.load(open(DATA, encoding='utf-8'))
+    data['meetings'] = data['meetings'] + nacti_vybory()
     vysledek = {'meta': {}, 'obdobi': []}
     vsechna = []
 
@@ -192,10 +235,11 @@ def main(vypsat_jen):
 
     s_prubeznou = [m for m in vsechna if (m.get('attendance') or {}).get('changes')]
     vysledek['meta'] = {
-        'popis': 'Absence členů zastupitelstva a rady města Pečky, spočítaná z jmenné '
-                 'prezence v zápisech na usneseni.cz. Postup: jednani/INSTRUKCE-absence.md.',
+        'popis': 'Absence členů zastupitelstva, rady a výborů ZM města Pečky, spočítaná '
+                 'z jmenné prezence v zápisech. Postup: jednani/INSTRUKCE-absence.md.',
         'generoval': 'jednani/scripts/absence.py',
-        'zdroj': 'jednani/pecky-jednani.json',
+        'zdroj': 'jednani/pecky-jednani.json (Rada, Zastupitelstvo) + jednani/vybory.json '
+                 '(Finanční výbor, Kontrolní výbor)',
         'jednani_celkem': len(vsechna),
         'jednani_s_prubeznou_prezenci': len(s_prubeznou),
         'data_do': max(m['date'] for m in vsechna),

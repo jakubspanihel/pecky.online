@@ -129,9 +129,9 @@ MANIFEST = {
 EXTRA_PAGES = {
     'absence': (
         '/jednani/absence.html', 'Jak vás zastupitelé zastupují — Do Peček . cz',
-        'Docházka zastupitelů a radních města Pečky na jednání v aktuálním '
-        'volebním období — spočítáno z jmenné prezence v zápisech, opravené '
-        'o pozdní příchody.',
+        'Docházka zastupitelů, radních a členů výborů zastupitelstva města '
+        'Pečky na jednání v aktuálním volebním období — spočítáno z jmenné '
+        'prezence v zápisech, opravené o pozdní příchody.',
         # helpers.js: stránka od 19. 9. 2026 používá sdílenou vizitku osoby
         # (pcAvatarHtml/pcDetailHtml) napojenou na lide/people.json
         # Odkázaná z /jednani/ (odstavec "Kontrola docházky") od 19. 9. 2026 —
