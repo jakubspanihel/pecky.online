@@ -417,8 +417,8 @@ teď počítají `pritomen` jednou a sdílí ho.
 
 **Finanční a Kontrolní výbor přidány (29. 9. 2026, zadal uživatel.)**
 Stejná Docházka/Mandát/Poznámka tabulka jako u Rady a Zastupitelstva, teď
-i pro oba výbory ZM — dvě nové podzáložky mezi Zastupitelstvem a „Jak se
-to počítá" (pořadí podle `content/jednani.html`). Zdroj je
+i pro oba výbory ZM — dvě nové podzáložky za Zastupitelstvem (pořadí
+podle `content/jednani.html`). Zdroj je
 `jednani/vybory.json` (viz „Jednání výborů ZM" výše), ne
 `pecky-jednani.json` — `jednani/scripts/absence.py` teď čte oba soubory
 a slučuje je do jednoho seznamu jednání ještě před výpočtem
@@ -481,6 +481,22 @@ sloupce — zůstávají Jméno a Docházka:
   poznámku, ne jen krátké jméno).
 - Metodika („Jak se to počítá") a poznámka o malém vzorku u výborů
   přepsané na novou podobu sloupců.
+
+**Aktuální podoba stránky (29. 9. 2026, konec dne)** — starší odstavce
+výše jsou chronologický záznam úprav, tohle je stav, který platí:
+
+- Podzáložky: Rada, Zastupitelstvo, Finanční výbor, Kontrolní výbor.
+  Záložka „Jak se to počítá" zrušena; metodika (Odkud data jsou, Co čísla
+  znamenají, Jmenovatel je mandát, Co do čísel nespadá) je jeden
+  sdílený blok pod tabulkami (`#absence-metodika`), sbalený za tlačítkem
+  `.toggle-details` („Více informací (rozbalit)" — popisek nastavuje
+  `assets/common.js`).
+- Tabulka má dva sloupce v pořadí **Docházka, Jméno**: Docházka =
+  procento + „Přítomen X z Y" (`X = mandat − nebyl`, `Y = mandat`, rod
+  přes `pcGendered`), Jméno = avatar + odkaz na vizitku + poznámka
+  (chyběl při zahájení/dorazil později/odešel dřív + volný text z
+  `POZNAMKY`). Řazeno od nejmenší docházky. Celkový počet jednání v
+  období je jen ve větě nad tabulkou, tučně.
 
 ## Pořadí v poli `meetings` (opraveno 28. 9. 2026)
 
