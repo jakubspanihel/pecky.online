@@ -129,6 +129,9 @@ globálních/pluginových skillů se stejným obecným názvem.
 ## Git / GitHub
 Remote: https://github.com/jakubspanihel/pecky.online.git
 Před pushem vždy commit s popisnou zprávou, zachovej historii verzí webu.
+Na repu často souběžně pracuje víc relací — commituj jen změny svého
+běhu, ne cizí rozpracovanou práci (ani ve sdíleném `README.md`); postup
+a pomocný skript jsou ve skillu `pecky-online-commit`.
 GitHub Integration konektor v chatu je zablokovaný OAuth konfliktem —
 publikuj přes přímý git CLI/GitHub API s vlastním GitHub přihlášením (token).
 Token (bez expirace) je uložený lokálně v `.github-pat` (v .gitignore,

@@ -51,9 +51,19 @@ Struktura:
    pak spustit `python3 scripts/build.py`. Chybějící údaj se přiznává
    (např. „cena neuvedena"), nikdy nedopočítává.
 5. Aktualizovat v tomto souboru `ids`, `count`, `snapshot_date` a `note`.
-   `count` vždy přepočítat z délky pole, ne dopisovat ručně.
-6. Zapsat běh do changelogu v kořenovém `README.md` a k příslušnému
-   zdroji v `sources.json`.
+   `count` vždy přepočítat z délky pole, ne dopisovat ručně. Do `ids`
+   patří **všechna** ID formátu `P##V########` z výpisu, i zakázky cizích
+   zadavatelů (viz „Poznámky a známé mezery" — do snímku ano, na web ne);
+   jinak by je příští diff hlásil jako nová/zmizelá.
+   **Nejsi-li si jistý, že jsi prošel úplně všechny stránky výsledků
+   beze zbytku, pole `ids` naslepo nepřepisuj** — hrozí ztráta platných
+   starších ID. V takovém případě jen doplň nová ID (nic nemaž) a do
+   `note` napiš, co bylo ověřeno a že úplná rekonciliace pole `ids` se
+   nedělala.
+6. Zapsat běh do changelogu v kořenovém `README.md`, k příslušnému
+   zdroji v `sources.json` a do tabulky „Stav sekcí" (datum kontroly
+   vždy, datum změny jen při reálné změně obsahu — viz `CLAUDE.md` →
+   Konvence).
 
 ## Poznámky a známé mezery
 
