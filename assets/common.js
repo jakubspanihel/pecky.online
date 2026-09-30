@@ -212,9 +212,7 @@ function relDatum(iso) {
     const a = li.querySelector('a');
     if (!a) return;
     const span = `<span class="tag ${tag === 'DNES' ? 'kal-dnes' : 'kal-blizko'}">${tag}</span>`;
-    // v kartě "Nadcházející akce" před názvem, jinde (Jednání → Příště) za ním
-    if (li.closest('.dash-card--kalendar')) a.insertAdjacentHTML('beforebegin', span + ' ');
-    else a.insertAdjacentHTML('afterend', ' ' + span);
+    a.insertAdjacentHTML('beforebegin', span + ' ');  // štítek před názvem
   });
 })();
 
@@ -278,4 +276,17 @@ document.querySelectorAll('.exp-row').forEach(row => {
     new MutationObserver(ms => ms.forEach(m => m.addedNodes.forEach(fixNode)))
       .observe(document.body, {childList: true, subtree: true});
   }
+})();
+
+// ===== Nadpis sekce (h2.title, sticky) = odkaz "nahoru" =====
+(function () {
+  const reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+  document.querySelectorAll('h2.title').forEach(h => {
+    h.setAttribute('role', 'button');
+    h.setAttribute('tabindex', '0');
+    h.setAttribute('title', 'Nahoru');
+    const up = () => window.scrollTo({top: 0, behavior: reduce ? 'auto' : 'smooth'});
+    h.addEventListener('click', up);
+    h.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); up(); } });
+  });
 })();
