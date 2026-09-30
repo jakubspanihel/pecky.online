@@ -303,5 +303,9 @@ document.querySelectorAll('.exp-row').forEach(row => {
   const dny = Math.round((Date.UTC(y, m - 1, dd) - dnes) / 86400000);
   const kdy = li.querySelector('.dash-zm-kdy');
   if (dny < 0 || !kdy) return;
-  kdy.textContent = dny === 0 ? 'je dnes' : dny === 1 ? 'je zítra' : `za ${dny} ${dny < 5 ? 'dny' : 'dní'}`;
+  // méně než 7 dní: název dne (stejná logika jako _zm_kdy() ve scripts/build.py)
+  const DEN = ['v neděli', 'v pondělí', 'v úterý', 've středu', 've čtvrtek', 'v pátek', 'v sobotu'];  // getUTCDay() 0 = ne
+  kdy.textContent = dny === 0 ? 'je dnes' : dny === 1 ? 'je zítra'
+    : dny < 7 ? 'je ' + DEN[new Date(Date.UTC(y, m - 1, dd)).getUTCDay()]
+    : `za ${dny} ${dny < 5 ? 'dny' : 'dní'}`;
 })();

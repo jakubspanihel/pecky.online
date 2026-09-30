@@ -432,6 +432,21 @@ def _dash_jednani(dnes):
     return _dash_card('Jednání rady, zastupitelstva a výborů', '/jednani/', 'Všechna jednání', '\n'.join(out), 'jednani')
 
 
+ZM_DEN_CZ = ['v pondělí', 'v úterý', 've středu', 've čtvrtek', 'v pátek', 'v sobotu', 'v neděli']  # weekday() 0 = po
+
+
+def _zm_kdy(dny, weekday):
+    """Text za "Příští zastupitelstvo": dnes / zítra / název dne (méně než
+    7 dní) / za N dní. Stejná logika je v assets/common.js (přepočet v prohlížeči)."""
+    if dny == 0:
+        return 'je dnes'
+    if dny == 1:
+        return 'je zítra'
+    if dny < 7:
+        return 'je ' + ZM_DEN_CZ[weekday]
+    return f'za {dny} {"dny" if dny < 5 else "dní"}'
+
+
 def _dash_zastupitelstvo(dnes):
     """Samostatný widget na úplném začátku Domů: ohlášené zastupitelstvo
     (jen ZM, ne Rada). Bez ohlášeného zastupitelstva vrací ''. Budoucí ZM se
@@ -451,7 +466,7 @@ def _dash_zastupitelstvo(dnes):
         odkaz = f'/jednani/#zastupitelstvo-{m["date"]}'
         dny = (_date.fromisoformat(m['date']) - _date.fromisoformat(dnes)).days
         # výchozí text z doby buildu; common.js ho v prohlížeči přepočítá
-        za = 'je dnes' if dny == 0 else 'je zítra' if dny == 1 else f'za {dny} {"dny" if dny < 5 else "dní"}'
+        za = _zm_kdy(dny, _date.fromisoformat(m['date']).weekday())
         out.append(f'    <li data-until="{m["date"]}"{" hidden" if i else ""}>'
                    f'<h3 class="display"><a href="{odkaz}">Příští zastupitelstvo '
                    f'<span class="dash-zm-kdy">{za}</span></a></h3>'
