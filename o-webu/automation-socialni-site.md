@@ -249,15 +249,18 @@ mají novou aktivitu, které zůstávají dlouhodobě neaktivní. Nic
 nevymýšlet — číslo/datum, které web nezobrazí (např. stránka
 nedostupná), nechat beze změny a nahlásit jako mezeru.
 
-**Nové akce pro Kalendář (povinná součást hlášení):** při čtení příspěvků
-si všímej i toho, jestli některý účet nově oznamuje akci s konkrétním
-budoucím datem (plakát, pozvánka, událost), která ještě není v
-`kalendar/akce.json`. Na konci hlášení vždy jednou větou uveď, jestli
-byla nějaká taková akce nalezena — vypiš ji (název, datum, pořadatel,
-odkaz na příspěvek) a nabídni zápis do kalendáře postupem
-`kalendar/automation-plakat-akce.md` (skill `pecky-online-kalendar-plakat`).
-Nic sám nezapisuj bez souhlasu uživatele; nebyla-li nalezena žádná,
-napiš to výslovně („nové akce pro Kalendář: žádné nalezeny"), nemlč.
+**Nové akce pro Kalendář (povinná součást každé kontroly):** při každé
+kontrole sociálních sítí u každého účtu aktivně hledej budoucí akce
+(plakát, pozvánka, Facebook Událost, příspěvek s konkrétním datem), které
+ještě nejsou v `kalendar/akce.json` — nejen si jich všímej mimochodem.
+Facebook: nejdřív `<profil>/events` → „Nadcházející", pak nejnovější
+příspěvky; Instagram: příspěvky otevřené kvůli datu (krok 2b) si rovnou
+prohlédni i obsahově. Nalezené akce zapiš podle
+`kalendar/automation-plakat-akce.md` (skill `pecky-online-kalendar-plakat`,
+i s výpisem změn) — týdenní kontrola Kalendáře ten skill stejně spouští.
+V hlášení vždy uveď jednou větou výsledek: vypiš nalezené akce (název,
+datum, pořadatel) a co se s nimi stalo, nebo výslovně „nové akce pro
+Kalendář: žádné nalezeny".
 
 ## Další rizika
 

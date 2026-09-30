@@ -388,9 +388,8 @@ zplošťuje svá specifika na tahle pole, detaily zůstávají dostupné přes
 
 Od 24. 9. 2026 (na žádost uživatele) má Kalendář v `README.md` → „Stav
 sekcí" režim `týdně` — spouští ho skill `pecky-online-update` přes tenhle
-postup. Týdenní kontrola pokrývá jen zdroje, které se dají projít
-spolehlivě a rychle; ostatní pořadatelé (plakáty, Facebook, Instagram)
-zůstávají na vyžádání přes skill `pecky-online-kalendar-plakat`.
+postup. Od 30. 9. 2026 zahrnuje i plakáty a příspěvky pořadatelů na
+Facebooku/Instagramu (krok 3, skill `pecky-online-kalendar-plakat`).
 
 1. **Zápasy AFK Pečky:** `python3 kalendar/scripts/fetch-afk-zapasy.py`.
    Skript vypíše změny oproti minulému běhu (nové zápasy, přeložené
@@ -405,10 +404,17 @@ zůstávají na vyžádání přes skill `pecky-online-kalendar-plakat`.
    `pecky-online-kalendar-plakat`. „Víkendový program" porovnat s
    rozpisem z kroku 1 — rozpor (jiný čas, přeložení, které rozpis ještě
    nemá) nahlásit, do dat nepsat ručně (přepsal by ho příští běh).
-3. **Přegenerovat:** `python3 kalendar/scripts/update-kalendar.py`
+3. **Plakáty a příspěvky pořadatelů** (od 30. 9. 2026 na žádost
+   uživatele součást týdenní kontroly): spustit skill
+   `pecky-online-kalendar-plakat` — postup
+   `kalendar/automation-plakat-akce.md`, zdroje ze `sources.json` (všechny
+   facebookové a instagramové, viz „Zdroje" níže). Hledají se jen akce
+   s budoucím datem, které ještě nejsou v `akce.json`; už zapsané se
+   křížově ověřují (změna termínu, zrušení).
+4. **Přegenerovat:** `python3 kalendar/scripts/update-kalendar.py`
    (a `python3 scripts/build.py`, jen pokud se změnil `content/kalendar.html`).
-4. **Výpis a Stav sekcí** podle `CLAUDE.md` → „Konvence": změny
-   z kroku 1 a 2 jednou větou, jinak „zkontrolováno, beze změny".
+5. **Výpis a Stav sekcí** podle `CLAUDE.md` → „Konvence": změny
+   z kroků 1–3 jednou větou, jinak „zkontrolováno, beze změny".
    Nové výsledky odehraných zápasů se počítají jako změna obsahu.
 
 ## Zdroje

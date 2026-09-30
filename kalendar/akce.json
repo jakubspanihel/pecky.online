@@ -1,7 +1,7 @@
 {
  "meta": {
   "description": "Kulturní a společenské akce v Pečkách a okolí. U každé akce je pořadatel (id do lide/organizations.json) a doklady, ze kterých je přepsaná (evidence[] — zdroj je id do kořenového sources.json). Zdroj sekce Kalendář — do udalosti.json a kalendar.ics je promítá kalendar/scripts/update-kalendar.py.",
-  "updated": "2026-09-23",
+  "updated": "2026-09-30",
   "note": "Jednání rady a zastupitelstva do tohohle souboru nepatří, i když je plakát KD uvádí — ta má kalendář z jednani/pecky-jednani.json a zapsáním sem by v mřížce vznikly duplicity. Pořadatel je vždy ten, kdo akci pořádá, ne ten, od koho o ní víme — to je evidence[].source."
  },
  "events": [
@@ -7177,7 +7177,7 @@
    "organizer": "nasepecky",
    "organizer_name": null,
    "description": "Setkání s hudbou, zábavou a občerstvením.",
-   "note": null,
+   "note": "Facebook Událost pořadatele vede akci pod názvem „NAŠE PEČKY + PEČKY NEXT slavnost NA PLNÝ PEČKY“, sobota 3. 10. od 14:00 do 19:00, místo Masarykovo náměstí; podle popisu bude hudba, káva, pivo, limo, víno a dobroty, pro děti balónky. Zapsané údaje zůstávají podle nasepecky.cz (název „Slavnost v parku“, místo u sochy TGM na náměstí).",
    "evidence": [
     {
      "source": "web-nasepecky-cz",
@@ -7186,6 +7186,37 @@
      "label": "nasepecky.cz — Akce: Slavnost v parku",
      "published": "2026-09-01",
      "retrieved": "2026-09-22"
+    },
+    {
+     "source": "facebook-nasepecky",
+     "kind": "web",
+     "url": "https://www.facebook.com/events/1765644417887276/",
+     "label": "Facebook Události — NAŠE PEČKY + PEČKY NEXT slavnost NA PLNÝ PEČKY",
+     "published": "2026-09-30",
+     "retrieved": "2026-09-30"
+    }
+   ]
+  },
+  {
+   "id": "akce-2026-10-03-namaluj-si-akvarel-na-textil-s-frantou-halou",
+   "title": "Namaluj si akvarel na textil s Frantou Hálou",
+   "date": "2026-10-03",
+   "date_end": null,
+   "time": "14:00",
+   "category": "akce",
+   "place": "Městská knihovna Svatopluka Čecha v Pečkách, tř. 5. května 241",
+   "organizer": "mestska-knihovna-pecky",
+   "organizer_name": null,
+   "description": null,
+   "note": "Zapsáno jen podle údajů Facebook Události (název, den, čas, adresa); popis události v přehledu nebyl přečten.",
+   "evidence": [
+    {
+     "source": "facebook-knihovna-pecky",
+     "kind": "web",
+     "url": "https://www.facebook.com/events/4422713067988046/",
+     "label": "Facebook Události — Namaluj si akvarel na textil s Frantou Hálou",
+     "published": "2026-09-28",
+     "retrieved": "2026-09-30"
     }
    ]
   },
@@ -7302,8 +7333,31 @@
    ]
   },
   {
+   "id": "akce-2026-10-04-slavnostni-otevreni-detskeho-hriste",
+   "title": "Slavnostní otevření dětského hřiště v Pečkách",
+   "date": "2026-10-04",
+   "date_end": null,
+   "time": "14:00",
+   "category": "akce",
+   "place": "Centrální park, přímo na hřišti u Parkhaly / ZUŠ, Pečky",
+   "organizer": "mesto-pecky",
+   "organizer_name": null,
+   "description": "Slavnostní otevření dětského hřiště, 14:00–16:00. Doprovodný program: stanoviště BESIP (křížovky a dopravní testy), malování na obličej, točená limonáda zdarma.",
+   "note": "Plakát uvádí „Na akci srdečně zve Město Pečky“ a místo „Centrální park, přímo na hřišti u Parkhaly / ZUŠ“ (přepsáno doslova). Sdílel ho Kulturní středisko města Pečky 30. 9. 2026 (9:29) v jednom příspěvku s oznámením, že dětské promítání téhož dne (4. 10.) se ruší. Odkaz míří na profil KS, protože adresu konkrétního příspěvku se nepodařilo přečíst.",
+   "evidence": [
+    {
+     "source": "facebook-kspecky",
+     "kind": "plakat",
+     "url": "https://www.facebook.com/kspecky",
+     "label": "Plakát „Slavnostní otevření dětského hřiště v Pečkách“ (sdílený příspěvek KS Pečky)",
+     "published": "2026-09-30",
+     "retrieved": "2026-09-30"
+    }
+   ]
+  },
+  {
    "id": "akce-2026-10-04-kino-pro-deti",
-   "title": "Kino pro děti",
+   "title": "ZRUŠENO: Kino pro děti",
    "date": "2026-10-04",
    "time": "14:30",
    "category": "akce",
@@ -7311,7 +7365,7 @@
    "organizer": "kulturni-stredisko-pecky",
    "organizer_name": null,
    "description": null,
-   "note": null,
+   "note": "Kulturní středisko města Pečky 30. 9. 2026 (9:29) na Facebooku oznámilo: „DĚTSKÉ PROMÍTÁNÍ 4.10. ZRUŠENO!!!“ (zbytek příspěvku nebyl přečten). Téhož odpoledne se koná Slavnostní otevření dětského hřiště.",
    "evidence": [
     {
      "source": "facebook-kspecky",
@@ -7320,6 +7374,14 @@
      "label": "Program KD Pečky 9–12/2026, 1. část (září a říjen)",
      "published": "2026-09-10",
      "retrieved": "2026-09-20"
+    },
+    {
+     "source": "facebook-kspecky",
+     "kind": "prispevek",
+     "url": "https://www.facebook.com/kspecky",
+     "label": "Příspěvek KS Pečky „DĚTSKÉ PROMÍTÁNÍ 4.10. ZRUŠENO!!!“",
+     "published": "2026-09-30",
+     "retrieved": "2026-09-30"
     }
    ]
   },
@@ -7616,6 +7678,37 @@
      "label": "vzcentrum.cz — Příprava na přijímací zkoušky 9. třída (16:00)",
      "published": "2026-09-22",
      "retrieved": "2026-09-25"
+    }
+   ]
+  },
+  {
+   "id": "kurz-2026-10-05-detska-joga-zviratkova",
+   "title": "Dětská jóga — zvířátková",
+   "date": "2026-10-05",
+   "date_end": null,
+   "time": "16:00",
+   "category": "kurz",
+   "place": "Vzdělávací centrum Pečky, Tř. Jana Švermy 141, Pečky",
+   "organizer": "vzdelavaci-centrum-pecky",
+   "organizer_name": null,
+   "description": "Věk 5–7 let (předškoláci/prvňáci). Vede certifikovaná lektorka dětské jógy.",
+   "note": "Blok 16:00–16:45. Nový kroužek od 5. 10. 2026 podle detailu na vzcentrum.cz (každé pondělí, ukončení 7. 6. 2027). Web uvádí 33 lekcí za rok; kalendář má týdenní termíny se stejným vynecháním prázdnin jako ostatní pondělní kroužky, které web u tohoto kroužku nerozepisuje — počet se proto může o jednu lekci lišit.",
+   "evidence": [
+    {
+     "source": "vzcentrum-cz",
+     "kind": "web",
+     "url": "https://www.vzcentrum.cz/krouzky/290-detska-joga-zviratkova",
+     "label": "vzcentrum.cz — Dětská jóga - zvířátková",
+     "published": "2026-09-30",
+     "retrieved": "2026-09-30"
+    },
+    {
+     "source": "facebook-vzcentrum",
+     "kind": "prispevek",
+     "url": "https://www.facebook.com/vzcentrum",
+     "label": "Příspěvek VC Pečky „kroužkový nášup: Od 5. října nový kroužek Dětská jóga“",
+     "published": "2026-09-29",
+     "retrieved": "2026-09-30"
     }
    ]
   },
@@ -8956,6 +9049,29 @@
    ]
   },
   {
+   "id": "akce-2026-10-08-pruvod-sokolskych-svetel",
+   "title": "Průvod sokolských světel",
+   "date": "2026-10-08",
+   "date_end": null,
+   "time": "18:00",
+   "category": "akce",
+   "place": "Petra Bezruče 330, Pečky",
+   "organizer": "tj-sokol-pecky",
+   "organizer_name": null,
+   "description": null,
+   "note": "Zapsáno jen podle Facebook Události TJ Sokol Pečky (název, den, čas, adresa); popis události nebyl přečten.",
+   "evidence": [
+    {
+     "source": "facebook-tj-sokol-pecky",
+     "kind": "web",
+     "url": "https://www.facebook.com/events/1456071526374362/",
+     "label": "Facebook Události — Průvod sokolských světel",
+     "published": "2026-09-30",
+     "retrieved": "2026-09-30"
+    }
+   ]
+  },
+  {
    "id": "kurz-2026-10-08-volejbal-radim-dospeli",
    "title": "Volejbal Radim — dospělí",
    "date": "2026-10-08",
@@ -9512,6 +9628,37 @@
      "label": "vzcentrum.cz — Příprava na přijímací zkoušky 9. třída (16:00)",
      "published": "2026-09-22",
      "retrieved": "2026-09-25"
+    }
+   ]
+  },
+  {
+   "id": "kurz-2026-10-12-detska-joga-zviratkova",
+   "title": "Dětská jóga — zvířátková",
+   "date": "2026-10-12",
+   "date_end": null,
+   "time": "16:00",
+   "category": "kurz",
+   "place": "Vzdělávací centrum Pečky, Tř. Jana Švermy 141, Pečky",
+   "organizer": "vzdelavaci-centrum-pecky",
+   "organizer_name": null,
+   "description": "Věk 5–7 let (předškoláci/prvňáci). Vede certifikovaná lektorka dětské jógy.",
+   "note": "Blok 16:00–16:45. Nový kroužek od 5. 10. 2026 podle detailu na vzcentrum.cz (každé pondělí, ukončení 7. 6. 2027). Web uvádí 33 lekcí za rok; kalendář má týdenní termíny se stejným vynecháním prázdnin jako ostatní pondělní kroužky, které web u tohoto kroužku nerozepisuje — počet se proto může o jednu lekci lišit.",
+   "evidence": [
+    {
+     "source": "vzcentrum-cz",
+     "kind": "web",
+     "url": "https://www.vzcentrum.cz/krouzky/290-detska-joga-zviratkova",
+     "label": "vzcentrum.cz — Dětská jóga - zvířátková",
+     "published": "2026-09-30",
+     "retrieved": "2026-09-30"
+    },
+    {
+     "source": "facebook-vzcentrum",
+     "kind": "prispevek",
+     "url": "https://www.facebook.com/vzcentrum",
+     "label": "Příspěvek VC Pečky „kroužkový nášup: Od 5. října nový kroužek Dětská jóga“",
+     "published": "2026-09-29",
+     "retrieved": "2026-09-30"
     }
    ]
   },
@@ -11419,6 +11566,37 @@
    ]
   },
   {
+   "id": "kurz-2026-10-19-detska-joga-zviratkova",
+   "title": "Dětská jóga — zvířátková",
+   "date": "2026-10-19",
+   "date_end": null,
+   "time": "16:00",
+   "category": "kurz",
+   "place": "Vzdělávací centrum Pečky, Tř. Jana Švermy 141, Pečky",
+   "organizer": "vzdelavaci-centrum-pecky",
+   "organizer_name": null,
+   "description": "Věk 5–7 let (předškoláci/prvňáci). Vede certifikovaná lektorka dětské jógy.",
+   "note": "Blok 16:00–16:45. Nový kroužek od 5. 10. 2026 podle detailu na vzcentrum.cz (každé pondělí, ukončení 7. 6. 2027). Web uvádí 33 lekcí za rok; kalendář má týdenní termíny se stejným vynecháním prázdnin jako ostatní pondělní kroužky, které web u tohoto kroužku nerozepisuje — počet se proto může o jednu lekci lišit.",
+   "evidence": [
+    {
+     "source": "vzcentrum-cz",
+     "kind": "web",
+     "url": "https://www.vzcentrum.cz/krouzky/290-detska-joga-zviratkova",
+     "label": "vzcentrum.cz — Dětská jóga - zvířátková",
+     "published": "2026-09-30",
+     "retrieved": "2026-09-30"
+    },
+    {
+     "source": "facebook-vzcentrum",
+     "kind": "prispevek",
+     "url": "https://www.facebook.com/vzcentrum",
+     "label": "Příspěvek VC Pečky „kroužkový nášup: Od 5. října nový kroužek Dětská jóga“",
+     "published": "2026-09-29",
+     "retrieved": "2026-09-30"
+    }
+   ]
+  },
+  {
    "id": "kurz-2026-10-19-pevecky-sbor",
    "title": "Pěvecký sbor",
    "date": "2026-10-19",
@@ -13242,6 +13420,37 @@
    ]
   },
   {
+   "id": "kurz-2026-10-26-detska-joga-zviratkova",
+   "title": "Dětská jóga — zvířátková",
+   "date": "2026-10-26",
+   "date_end": null,
+   "time": "16:00",
+   "category": "kurz",
+   "place": "Vzdělávací centrum Pečky, Tř. Jana Švermy 141, Pečky",
+   "organizer": "vzdelavaci-centrum-pecky",
+   "organizer_name": null,
+   "description": "Věk 5–7 let (předškoláci/prvňáci). Vede certifikovaná lektorka dětské jógy.",
+   "note": "Blok 16:00–16:45. Nový kroužek od 5. 10. 2026 podle detailu na vzcentrum.cz (každé pondělí, ukončení 7. 6. 2027). Web uvádí 33 lekcí za rok; kalendář má týdenní termíny se stejným vynecháním prázdnin jako ostatní pondělní kroužky, které web u tohoto kroužku nerozepisuje — počet se proto může o jednu lekci lišit.",
+   "evidence": [
+    {
+     "source": "vzcentrum-cz",
+     "kind": "web",
+     "url": "https://www.vzcentrum.cz/krouzky/290-detska-joga-zviratkova",
+     "label": "vzcentrum.cz — Dětská jóga - zvířátková",
+     "published": "2026-09-30",
+     "retrieved": "2026-09-30"
+    },
+    {
+     "source": "facebook-vzcentrum",
+     "kind": "prispevek",
+     "url": "https://www.facebook.com/vzcentrum",
+     "label": "Příspěvek VC Pečky „kroužkový nášup: Od 5. října nový kroužek Dětská jóga“",
+     "published": "2026-09-29",
+     "retrieved": "2026-09-30"
+    }
+   ]
+  },
+  {
    "id": "kurz-2026-10-26-pevecky-sbor",
    "title": "Pěvecký sbor",
    "date": "2026-10-26",
@@ -14833,6 +15042,37 @@
      "label": "vzcentrum.cz — Příprava na přijímací zkoušky 9. třída (16:00)",
      "published": "2026-09-22",
      "retrieved": "2026-09-25"
+    }
+   ]
+  },
+  {
+   "id": "kurz-2026-11-02-detska-joga-zviratkova",
+   "title": "Dětská jóga — zvířátková",
+   "date": "2026-11-02",
+   "date_end": null,
+   "time": "16:00",
+   "category": "kurz",
+   "place": "Vzdělávací centrum Pečky, Tř. Jana Švermy 141, Pečky",
+   "organizer": "vzdelavaci-centrum-pecky",
+   "organizer_name": null,
+   "description": "Věk 5–7 let (předškoláci/prvňáci). Vede certifikovaná lektorka dětské jógy.",
+   "note": "Blok 16:00–16:45. Nový kroužek od 5. 10. 2026 podle detailu na vzcentrum.cz (každé pondělí, ukončení 7. 6. 2027). Web uvádí 33 lekcí za rok; kalendář má týdenní termíny se stejným vynecháním prázdnin jako ostatní pondělní kroužky, které web u tohoto kroužku nerozepisuje — počet se proto může o jednu lekci lišit.",
+   "evidence": [
+    {
+     "source": "vzcentrum-cz",
+     "kind": "web",
+     "url": "https://www.vzcentrum.cz/krouzky/290-detska-joga-zviratkova",
+     "label": "vzcentrum.cz — Dětská jóga - zvířátková",
+     "published": "2026-09-30",
+     "retrieved": "2026-09-30"
+    },
+    {
+     "source": "facebook-vzcentrum",
+     "kind": "prispevek",
+     "url": "https://www.facebook.com/vzcentrum",
+     "label": "Příspěvek VC Pečky „kroužkový nášup: Od 5. října nový kroužek Dětská jóga“",
+     "published": "2026-09-29",
+     "retrieved": "2026-09-30"
     }
    ]
   },
@@ -16677,6 +16917,37 @@
      "label": "vzcentrum.cz — Příprava na přijímací zkoušky 9. třída (16:00)",
      "published": "2026-09-22",
      "retrieved": "2026-09-25"
+    }
+   ]
+  },
+  {
+   "id": "kurz-2026-11-09-detska-joga-zviratkova",
+   "title": "Dětská jóga — zvířátková",
+   "date": "2026-11-09",
+   "date_end": null,
+   "time": "16:00",
+   "category": "kurz",
+   "place": "Vzdělávací centrum Pečky, Tř. Jana Švermy 141, Pečky",
+   "organizer": "vzdelavaci-centrum-pecky",
+   "organizer_name": null,
+   "description": "Věk 5–7 let (předškoláci/prvňáci). Vede certifikovaná lektorka dětské jógy.",
+   "note": "Blok 16:00–16:45. Nový kroužek od 5. 10. 2026 podle detailu na vzcentrum.cz (každé pondělí, ukončení 7. 6. 2027). Web uvádí 33 lekcí za rok; kalendář má týdenní termíny se stejným vynecháním prázdnin jako ostatní pondělní kroužky, které web u tohoto kroužku nerozepisuje — počet se proto může o jednu lekci lišit.",
+   "evidence": [
+    {
+     "source": "vzcentrum-cz",
+     "kind": "web",
+     "url": "https://www.vzcentrum.cz/krouzky/290-detska-joga-zviratkova",
+     "label": "vzcentrum.cz — Dětská jóga - zvířátková",
+     "published": "2026-09-30",
+     "retrieved": "2026-09-30"
+    },
+    {
+     "source": "facebook-vzcentrum",
+     "kind": "prispevek",
+     "url": "https://www.facebook.com/vzcentrum",
+     "label": "Příspěvek VC Pečky „kroužkový nášup: Od 5. října nový kroužek Dětská jóga“",
+     "published": "2026-09-29",
+     "retrieved": "2026-09-30"
     }
    ]
   },
@@ -18629,6 +18900,37 @@
    ]
   },
   {
+   "id": "kurz-2026-11-16-detska-joga-zviratkova",
+   "title": "Dětská jóga — zvířátková",
+   "date": "2026-11-16",
+   "date_end": null,
+   "time": "16:00",
+   "category": "kurz",
+   "place": "Vzdělávací centrum Pečky, Tř. Jana Švermy 141, Pečky",
+   "organizer": "vzdelavaci-centrum-pecky",
+   "organizer_name": null,
+   "description": "Věk 5–7 let (předškoláci/prvňáci). Vede certifikovaná lektorka dětské jógy.",
+   "note": "Blok 16:00–16:45. Nový kroužek od 5. 10. 2026 podle detailu na vzcentrum.cz (každé pondělí, ukončení 7. 6. 2027). Web uvádí 33 lekcí za rok; kalendář má týdenní termíny se stejným vynecháním prázdnin jako ostatní pondělní kroužky, které web u tohoto kroužku nerozepisuje — počet se proto může o jednu lekci lišit.",
+   "evidence": [
+    {
+     "source": "vzcentrum-cz",
+     "kind": "web",
+     "url": "https://www.vzcentrum.cz/krouzky/290-detska-joga-zviratkova",
+     "label": "vzcentrum.cz — Dětská jóga - zvířátková",
+     "published": "2026-09-30",
+     "retrieved": "2026-09-30"
+    },
+    {
+     "source": "facebook-vzcentrum",
+     "kind": "prispevek",
+     "url": "https://www.facebook.com/vzcentrum",
+     "label": "Příspěvek VC Pečky „kroužkový nášup: Od 5. října nový kroužek Dětská jóga“",
+     "published": "2026-09-29",
+     "retrieved": "2026-09-30"
+    }
+   ]
+  },
+  {
    "id": "kurz-2026-11-16-pevecky-sbor",
    "title": "Pěvecký sbor",
    "date": "2026-11-16",
@@ -20491,6 +20793,37 @@
      "label": "vzcentrum.cz — Příprava na přijímací zkoušky 9. třída (16:00)",
      "published": "2026-09-22",
      "retrieved": "2026-09-25"
+    }
+   ]
+  },
+  {
+   "id": "kurz-2026-11-23-detska-joga-zviratkova",
+   "title": "Dětská jóga — zvířátková",
+   "date": "2026-11-23",
+   "date_end": null,
+   "time": "16:00",
+   "category": "kurz",
+   "place": "Vzdělávací centrum Pečky, Tř. Jana Švermy 141, Pečky",
+   "organizer": "vzdelavaci-centrum-pecky",
+   "organizer_name": null,
+   "description": "Věk 5–7 let (předškoláci/prvňáci). Vede certifikovaná lektorka dětské jógy.",
+   "note": "Blok 16:00–16:45. Nový kroužek od 5. 10. 2026 podle detailu na vzcentrum.cz (každé pondělí, ukončení 7. 6. 2027). Web uvádí 33 lekcí za rok; kalendář má týdenní termíny se stejným vynecháním prázdnin jako ostatní pondělní kroužky, které web u tohoto kroužku nerozepisuje — počet se proto může o jednu lekci lišit.",
+   "evidence": [
+    {
+     "source": "vzcentrum-cz",
+     "kind": "web",
+     "url": "https://www.vzcentrum.cz/krouzky/290-detska-joga-zviratkova",
+     "label": "vzcentrum.cz — Dětská jóga - zvířátková",
+     "published": "2026-09-30",
+     "retrieved": "2026-09-30"
+    },
+    {
+     "source": "facebook-vzcentrum",
+     "kind": "prispevek",
+     "url": "https://www.facebook.com/vzcentrum",
+     "label": "Příspěvek VC Pečky „kroužkový nášup: Od 5. října nový kroužek Dětská jóga“",
+     "published": "2026-09-29",
+     "retrieved": "2026-09-30"
     }
    ]
   },
@@ -22441,6 +22774,37 @@
    ]
   },
   {
+   "id": "kurz-2026-11-30-detska-joga-zviratkova",
+   "title": "Dětská jóga — zvířátková",
+   "date": "2026-11-30",
+   "date_end": null,
+   "time": "16:00",
+   "category": "kurz",
+   "place": "Vzdělávací centrum Pečky, Tř. Jana Švermy 141, Pečky",
+   "organizer": "vzdelavaci-centrum-pecky",
+   "organizer_name": null,
+   "description": "Věk 5–7 let (předškoláci/prvňáci). Vede certifikovaná lektorka dětské jógy.",
+   "note": "Blok 16:00–16:45. Nový kroužek od 5. 10. 2026 podle detailu na vzcentrum.cz (každé pondělí, ukončení 7. 6. 2027). Web uvádí 33 lekcí za rok; kalendář má týdenní termíny se stejným vynecháním prázdnin jako ostatní pondělní kroužky, které web u tohoto kroužku nerozepisuje — počet se proto může o jednu lekci lišit.",
+   "evidence": [
+    {
+     "source": "vzcentrum-cz",
+     "kind": "web",
+     "url": "https://www.vzcentrum.cz/krouzky/290-detska-joga-zviratkova",
+     "label": "vzcentrum.cz — Dětská jóga - zvířátková",
+     "published": "2026-09-30",
+     "retrieved": "2026-09-30"
+    },
+    {
+     "source": "facebook-vzcentrum",
+     "kind": "prispevek",
+     "url": "https://www.facebook.com/vzcentrum",
+     "label": "Příspěvek VC Pečky „kroužkový nášup: Od 5. října nový kroužek Dětská jóga“",
+     "published": "2026-09-29",
+     "retrieved": "2026-09-30"
+    }
+   ]
+  },
+  {
    "id": "kurz-2026-11-30-pevecky-sbor",
    "title": "Pěvecký sbor",
    "date": "2026-11-30",
@@ -24303,6 +24667,37 @@
      "label": "vzcentrum.cz — Příprava na přijímací zkoušky 9. třída (16:00)",
      "published": "2026-09-22",
      "retrieved": "2026-09-25"
+    }
+   ]
+  },
+  {
+   "id": "kurz-2026-12-07-detska-joga-zviratkova",
+   "title": "Dětská jóga — zvířátková",
+   "date": "2026-12-07",
+   "date_end": null,
+   "time": "16:00",
+   "category": "kurz",
+   "place": "Vzdělávací centrum Pečky, Tř. Jana Švermy 141, Pečky",
+   "organizer": "vzdelavaci-centrum-pecky",
+   "organizer_name": null,
+   "description": "Věk 5–7 let (předškoláci/prvňáci). Vede certifikovaná lektorka dětské jógy.",
+   "note": "Blok 16:00–16:45. Nový kroužek od 5. 10. 2026 podle detailu na vzcentrum.cz (každé pondělí, ukončení 7. 6. 2027). Web uvádí 33 lekcí za rok; kalendář má týdenní termíny se stejným vynecháním prázdnin jako ostatní pondělní kroužky, které web u tohoto kroužku nerozepisuje — počet se proto může o jednu lekci lišit.",
+   "evidence": [
+    {
+     "source": "vzcentrum-cz",
+     "kind": "web",
+     "url": "https://www.vzcentrum.cz/krouzky/290-detska-joga-zviratkova",
+     "label": "vzcentrum.cz — Dětská jóga - zvířátková",
+     "published": "2026-09-30",
+     "retrieved": "2026-09-30"
+    },
+    {
+     "source": "facebook-vzcentrum",
+     "kind": "prispevek",
+     "url": "https://www.facebook.com/vzcentrum",
+     "label": "Příspěvek VC Pečky „kroužkový nášup: Od 5. října nový kroužek Dětská jóga“",
+     "published": "2026-09-29",
+     "retrieved": "2026-09-30"
     }
    ]
   },
@@ -26209,6 +26604,37 @@
    ]
   },
   {
+   "id": "kurz-2026-12-14-detska-joga-zviratkova",
+   "title": "Dětská jóga — zvířátková",
+   "date": "2026-12-14",
+   "date_end": null,
+   "time": "16:00",
+   "category": "kurz",
+   "place": "Vzdělávací centrum Pečky, Tř. Jana Švermy 141, Pečky",
+   "organizer": "vzdelavaci-centrum-pecky",
+   "organizer_name": null,
+   "description": "Věk 5–7 let (předškoláci/prvňáci). Vede certifikovaná lektorka dětské jógy.",
+   "note": "Blok 16:00–16:45. Nový kroužek od 5. 10. 2026 podle detailu na vzcentrum.cz (každé pondělí, ukončení 7. 6. 2027). Web uvádí 33 lekcí za rok; kalendář má týdenní termíny se stejným vynecháním prázdnin jako ostatní pondělní kroužky, které web u tohoto kroužku nerozepisuje — počet se proto může o jednu lekci lišit.",
+   "evidence": [
+    {
+     "source": "vzcentrum-cz",
+     "kind": "web",
+     "url": "https://www.vzcentrum.cz/krouzky/290-detska-joga-zviratkova",
+     "label": "vzcentrum.cz — Dětská jóga - zvířátková",
+     "published": "2026-09-30",
+     "retrieved": "2026-09-30"
+    },
+    {
+     "source": "facebook-vzcentrum",
+     "kind": "prispevek",
+     "url": "https://www.facebook.com/vzcentrum",
+     "label": "Příspěvek VC Pečky „kroužkový nášup: Od 5. října nový kroužek Dětská jóga“",
+     "published": "2026-09-29",
+     "retrieved": "2026-09-30"
+    }
+   ]
+  },
+  {
    "id": "kurz-2026-12-14-pevecky-sbor",
    "title": "Pěvecký sbor",
    "date": "2026-12-14",
@@ -27965,6 +28391,37 @@
    ]
   },
   {
+   "id": "kurz-2026-12-21-detska-joga-zviratkova",
+   "title": "Dětská jóga — zvířátková",
+   "date": "2026-12-21",
+   "date_end": null,
+   "time": "16:00",
+   "category": "kurz",
+   "place": "Vzdělávací centrum Pečky, Tř. Jana Švermy 141, Pečky",
+   "organizer": "vzdelavaci-centrum-pecky",
+   "organizer_name": null,
+   "description": "Věk 5–7 let (předškoláci/prvňáci). Vede certifikovaná lektorka dětské jógy.",
+   "note": "Blok 16:00–16:45. Nový kroužek od 5. 10. 2026 podle detailu na vzcentrum.cz (každé pondělí, ukončení 7. 6. 2027). Web uvádí 33 lekcí za rok; kalendář má týdenní termíny se stejným vynecháním prázdnin jako ostatní pondělní kroužky, které web u tohoto kroužku nerozepisuje — počet se proto může o jednu lekci lišit.",
+   "evidence": [
+    {
+     "source": "vzcentrum-cz",
+     "kind": "web",
+     "url": "https://www.vzcentrum.cz/krouzky/290-detska-joga-zviratkova",
+     "label": "vzcentrum.cz — Dětská jóga - zvířátková",
+     "published": "2026-09-30",
+     "retrieved": "2026-09-30"
+    },
+    {
+     "source": "facebook-vzcentrum",
+     "kind": "prispevek",
+     "url": "https://www.facebook.com/vzcentrum",
+     "label": "Příspěvek VC Pečky „kroužkový nášup: Od 5. října nový kroužek Dětská jóga“",
+     "published": "2026-09-29",
+     "retrieved": "2026-09-30"
+    }
+   ]
+  },
+  {
    "id": "kurz-2026-12-21-pevecky-sbor",
    "title": "Pěvecký sbor",
    "date": "2026-12-21",
@@ -28858,6 +29315,37 @@
      "label": "vzcentrum.cz — Příprava na přijímací zkoušky 9. třída (16:00)",
      "published": "2026-09-22",
      "retrieved": "2026-09-25"
+    }
+   ]
+  },
+  {
+   "id": "kurz-2027-01-04-detska-joga-zviratkova",
+   "title": "Dětská jóga — zvířátková",
+   "date": "2027-01-04",
+   "date_end": null,
+   "time": "16:00",
+   "category": "kurz",
+   "place": "Vzdělávací centrum Pečky, Tř. Jana Švermy 141, Pečky",
+   "organizer": "vzdelavaci-centrum-pecky",
+   "organizer_name": null,
+   "description": "Věk 5–7 let (předškoláci/prvňáci). Vede certifikovaná lektorka dětské jógy.",
+   "note": "Blok 16:00–16:45. Nový kroužek od 5. 10. 2026 podle detailu na vzcentrum.cz (každé pondělí, ukončení 7. 6. 2027). Web uvádí 33 lekcí za rok; kalendář má týdenní termíny se stejným vynecháním prázdnin jako ostatní pondělní kroužky, které web u tohoto kroužku nerozepisuje — počet se proto může o jednu lekci lišit.",
+   "evidence": [
+    {
+     "source": "vzcentrum-cz",
+     "kind": "web",
+     "url": "https://www.vzcentrum.cz/krouzky/290-detska-joga-zviratkova",
+     "label": "vzcentrum.cz — Dětská jóga - zvířátková",
+     "published": "2026-09-30",
+     "retrieved": "2026-09-30"
+    },
+    {
+     "source": "facebook-vzcentrum",
+     "kind": "prispevek",
+     "url": "https://www.facebook.com/vzcentrum",
+     "label": "Příspěvek VC Pečky „kroužkový nášup: Od 5. října nový kroužek Dětská jóga“",
+     "published": "2026-09-29",
+     "retrieved": "2026-09-30"
     }
    ]
   },
@@ -30584,6 +31072,37 @@
      "label": "vzcentrum.cz — Příprava na přijímací zkoušky 9. třída (16:00)",
      "published": "2026-09-22",
      "retrieved": "2026-09-25"
+    }
+   ]
+  },
+  {
+   "id": "kurz-2027-01-11-detska-joga-zviratkova",
+   "title": "Dětská jóga — zvířátková",
+   "date": "2027-01-11",
+   "date_end": null,
+   "time": "16:00",
+   "category": "kurz",
+   "place": "Vzdělávací centrum Pečky, Tř. Jana Švermy 141, Pečky",
+   "organizer": "vzdelavaci-centrum-pecky",
+   "organizer_name": null,
+   "description": "Věk 5–7 let (předškoláci/prvňáci). Vede certifikovaná lektorka dětské jógy.",
+   "note": "Blok 16:00–16:45. Nový kroužek od 5. 10. 2026 podle detailu na vzcentrum.cz (každé pondělí, ukončení 7. 6. 2027). Web uvádí 33 lekcí za rok; kalendář má týdenní termíny se stejným vynecháním prázdnin jako ostatní pondělní kroužky, které web u tohoto kroužku nerozepisuje — počet se proto může o jednu lekci lišit.",
+   "evidence": [
+    {
+     "source": "vzcentrum-cz",
+     "kind": "web",
+     "url": "https://www.vzcentrum.cz/krouzky/290-detska-joga-zviratkova",
+     "label": "vzcentrum.cz — Dětská jóga - zvířátková",
+     "published": "2026-09-30",
+     "retrieved": "2026-09-30"
+    },
+    {
+     "source": "facebook-vzcentrum",
+     "kind": "prispevek",
+     "url": "https://www.facebook.com/vzcentrum",
+     "label": "Příspěvek VC Pečky „kroužkový nášup: Od 5. října nový kroužek Dětská jóga“",
+     "published": "2026-09-29",
+     "retrieved": "2026-09-30"
     }
    ]
   },
@@ -32322,6 +32841,37 @@
    ]
   },
   {
+   "id": "kurz-2027-01-18-detska-joga-zviratkova",
+   "title": "Dětská jóga — zvířátková",
+   "date": "2027-01-18",
+   "date_end": null,
+   "time": "16:00",
+   "category": "kurz",
+   "place": "Vzdělávací centrum Pečky, Tř. Jana Švermy 141, Pečky",
+   "organizer": "vzdelavaci-centrum-pecky",
+   "organizer_name": null,
+   "description": "Věk 5–7 let (předškoláci/prvňáci). Vede certifikovaná lektorka dětské jógy.",
+   "note": "Blok 16:00–16:45. Nový kroužek od 5. 10. 2026 podle detailu na vzcentrum.cz (každé pondělí, ukončení 7. 6. 2027). Web uvádí 33 lekcí za rok; kalendář má týdenní termíny se stejným vynecháním prázdnin jako ostatní pondělní kroužky, které web u tohoto kroužku nerozepisuje — počet se proto může o jednu lekci lišit.",
+   "evidence": [
+    {
+     "source": "vzcentrum-cz",
+     "kind": "web",
+     "url": "https://www.vzcentrum.cz/krouzky/290-detska-joga-zviratkova",
+     "label": "vzcentrum.cz — Dětská jóga - zvířátková",
+     "published": "2026-09-30",
+     "retrieved": "2026-09-30"
+    },
+    {
+     "source": "facebook-vzcentrum",
+     "kind": "prispevek",
+     "url": "https://www.facebook.com/vzcentrum",
+     "label": "Příspěvek VC Pečky „kroužkový nášup: Od 5. října nový kroužek Dětská jóga“",
+     "published": "2026-09-29",
+     "retrieved": "2026-09-30"
+    }
+   ]
+  },
+  {
    "id": "kurz-2027-01-18-pevecky-sbor",
    "title": "Pěvecký sbor",
    "date": "2027-01-18",
@@ -34044,6 +34594,37 @@
      "label": "vzcentrum.cz — Příprava na přijímací zkoušky 9. třída (16:00)",
      "published": "2026-09-22",
      "retrieved": "2026-09-25"
+    }
+   ]
+  },
+  {
+   "id": "kurz-2027-01-25-detska-joga-zviratkova",
+   "title": "Dětská jóga — zvířátková",
+   "date": "2027-01-25",
+   "date_end": null,
+   "time": "16:00",
+   "category": "kurz",
+   "place": "Vzdělávací centrum Pečky, Tř. Jana Švermy 141, Pečky",
+   "organizer": "vzdelavaci-centrum-pecky",
+   "organizer_name": null,
+   "description": "Věk 5–7 let (předškoláci/prvňáci). Vede certifikovaná lektorka dětské jógy.",
+   "note": "Blok 16:00–16:45. Nový kroužek od 5. 10. 2026 podle detailu na vzcentrum.cz (každé pondělí, ukončení 7. 6. 2027). Web uvádí 33 lekcí za rok; kalendář má týdenní termíny se stejným vynecháním prázdnin jako ostatní pondělní kroužky, které web u tohoto kroužku nerozepisuje — počet se proto může o jednu lekci lišit.",
+   "evidence": [
+    {
+     "source": "vzcentrum-cz",
+     "kind": "web",
+     "url": "https://www.vzcentrum.cz/krouzky/290-detska-joga-zviratkova",
+     "label": "vzcentrum.cz — Dětská jóga - zvířátková",
+     "published": "2026-09-30",
+     "retrieved": "2026-09-30"
+    },
+    {
+     "source": "facebook-vzcentrum",
+     "kind": "prispevek",
+     "url": "https://www.facebook.com/vzcentrum",
+     "label": "Příspěvek VC Pečky „kroužkový nášup: Od 5. října nový kroužek Dětská jóga“",
+     "published": "2026-09-29",
+     "retrieved": "2026-09-30"
     }
    ]
   },
@@ -35875,6 +36456,37 @@
    ]
   },
   {
+   "id": "kurz-2027-02-08-detska-joga-zviratkova",
+   "title": "Dětská jóga — zvířátková",
+   "date": "2027-02-08",
+   "date_end": null,
+   "time": "16:00",
+   "category": "kurz",
+   "place": "Vzdělávací centrum Pečky, Tř. Jana Švermy 141, Pečky",
+   "organizer": "vzdelavaci-centrum-pecky",
+   "organizer_name": null,
+   "description": "Věk 5–7 let (předškoláci/prvňáci). Vede certifikovaná lektorka dětské jógy.",
+   "note": "Blok 16:00–16:45. Nový kroužek od 5. 10. 2026 podle detailu na vzcentrum.cz (každé pondělí, ukončení 7. 6. 2027). Web uvádí 33 lekcí za rok; kalendář má týdenní termíny se stejným vynecháním prázdnin jako ostatní pondělní kroužky, které web u tohoto kroužku nerozepisuje — počet se proto může o jednu lekci lišit.",
+   "evidence": [
+    {
+     "source": "vzcentrum-cz",
+     "kind": "web",
+     "url": "https://www.vzcentrum.cz/krouzky/290-detska-joga-zviratkova",
+     "label": "vzcentrum.cz — Dětská jóga - zvířátková",
+     "published": "2026-09-30",
+     "retrieved": "2026-09-30"
+    },
+    {
+     "source": "facebook-vzcentrum",
+     "kind": "prispevek",
+     "url": "https://www.facebook.com/vzcentrum",
+     "label": "Příspěvek VC Pečky „kroužkový nášup: Od 5. října nový kroužek Dětská jóga“",
+     "published": "2026-09-29",
+     "retrieved": "2026-09-30"
+    }
+   ]
+  },
+  {
    "id": "kurz-2027-02-08-pevecky-sbor",
    "title": "Pěvecký sbor",
    "date": "2027-02-08",
@@ -37609,6 +38221,37 @@
    ]
   },
   {
+   "id": "kurz-2027-02-15-detska-joga-zviratkova",
+   "title": "Dětská jóga — zvířátková",
+   "date": "2027-02-15",
+   "date_end": null,
+   "time": "16:00",
+   "category": "kurz",
+   "place": "Vzdělávací centrum Pečky, Tř. Jana Švermy 141, Pečky",
+   "organizer": "vzdelavaci-centrum-pecky",
+   "organizer_name": null,
+   "description": "Věk 5–7 let (předškoláci/prvňáci). Vede certifikovaná lektorka dětské jógy.",
+   "note": "Blok 16:00–16:45. Nový kroužek od 5. 10. 2026 podle detailu na vzcentrum.cz (každé pondělí, ukončení 7. 6. 2027). Web uvádí 33 lekcí za rok; kalendář má týdenní termíny se stejným vynecháním prázdnin jako ostatní pondělní kroužky, které web u tohoto kroužku nerozepisuje — počet se proto může o jednu lekci lišit.",
+   "evidence": [
+    {
+     "source": "vzcentrum-cz",
+     "kind": "web",
+     "url": "https://www.vzcentrum.cz/krouzky/290-detska-joga-zviratkova",
+     "label": "vzcentrum.cz — Dětská jóga - zvířátková",
+     "published": "2026-09-30",
+     "retrieved": "2026-09-30"
+    },
+    {
+     "source": "facebook-vzcentrum",
+     "kind": "prispevek",
+     "url": "https://www.facebook.com/vzcentrum",
+     "label": "Příspěvek VC Pečky „kroužkový nášup: Od 5. října nový kroužek Dětská jóga“",
+     "published": "2026-09-29",
+     "retrieved": "2026-09-30"
+    }
+   ]
+  },
+  {
    "id": "kurz-2027-02-15-pevecky-sbor",
    "title": "Pěvecký sbor",
    "date": "2027-02-15",
@@ -39331,6 +39974,37 @@
      "label": "vzcentrum.cz — Příprava na přijímací zkoušky 9. třída (16:00)",
      "published": "2026-09-22",
      "retrieved": "2026-09-25"
+    }
+   ]
+  },
+  {
+   "id": "kurz-2027-02-22-detska-joga-zviratkova",
+   "title": "Dětská jóga — zvířátková",
+   "date": "2027-02-22",
+   "date_end": null,
+   "time": "16:00",
+   "category": "kurz",
+   "place": "Vzdělávací centrum Pečky, Tř. Jana Švermy 141, Pečky",
+   "organizer": "vzdelavaci-centrum-pecky",
+   "organizer_name": null,
+   "description": "Věk 5–7 let (předškoláci/prvňáci). Vede certifikovaná lektorka dětské jógy.",
+   "note": "Blok 16:00–16:45. Nový kroužek od 5. 10. 2026 podle detailu na vzcentrum.cz (každé pondělí, ukončení 7. 6. 2027). Web uvádí 33 lekcí za rok; kalendář má týdenní termíny se stejným vynecháním prázdnin jako ostatní pondělní kroužky, které web u tohoto kroužku nerozepisuje — počet se proto může o jednu lekci lišit.",
+   "evidence": [
+    {
+     "source": "vzcentrum-cz",
+     "kind": "web",
+     "url": "https://www.vzcentrum.cz/krouzky/290-detska-joga-zviratkova",
+     "label": "vzcentrum.cz — Dětská jóga - zvířátková",
+     "published": "2026-09-30",
+     "retrieved": "2026-09-30"
+    },
+    {
+     "source": "facebook-vzcentrum",
+     "kind": "prispevek",
+     "url": "https://www.facebook.com/vzcentrum",
+     "label": "Příspěvek VC Pečky „kroužkový nášup: Od 5. října nový kroužek Dětská jóga“",
+     "published": "2026-09-29",
+     "retrieved": "2026-09-30"
     }
    ]
   },
@@ -41069,6 +41743,37 @@
    ]
   },
   {
+   "id": "kurz-2027-03-01-detska-joga-zviratkova",
+   "title": "Dětská jóga — zvířátková",
+   "date": "2027-03-01",
+   "date_end": null,
+   "time": "16:00",
+   "category": "kurz",
+   "place": "Vzdělávací centrum Pečky, Tř. Jana Švermy 141, Pečky",
+   "organizer": "vzdelavaci-centrum-pecky",
+   "organizer_name": null,
+   "description": "Věk 5–7 let (předškoláci/prvňáci). Vede certifikovaná lektorka dětské jógy.",
+   "note": "Blok 16:00–16:45. Nový kroužek od 5. 10. 2026 podle detailu na vzcentrum.cz (každé pondělí, ukončení 7. 6. 2027). Web uvádí 33 lekcí za rok; kalendář má týdenní termíny se stejným vynecháním prázdnin jako ostatní pondělní kroužky, které web u tohoto kroužku nerozepisuje — počet se proto může o jednu lekci lišit.",
+   "evidence": [
+    {
+     "source": "vzcentrum-cz",
+     "kind": "web",
+     "url": "https://www.vzcentrum.cz/krouzky/290-detska-joga-zviratkova",
+     "label": "vzcentrum.cz — Dětská jóga - zvířátková",
+     "published": "2026-09-30",
+     "retrieved": "2026-09-30"
+    },
+    {
+     "source": "facebook-vzcentrum",
+     "kind": "prispevek",
+     "url": "https://www.facebook.com/vzcentrum",
+     "label": "Příspěvek VC Pečky „kroužkový nášup: Od 5. října nový kroužek Dětská jóga“",
+     "published": "2026-09-29",
+     "retrieved": "2026-09-30"
+    }
+   ]
+  },
+  {
    "id": "kurz-2027-03-01-pevecky-sbor",
    "title": "Pěvecký sbor",
    "date": "2027-03-01",
@@ -42791,6 +43496,37 @@
      "label": "vzcentrum.cz — Příprava na přijímací zkoušky 9. třída (16:00)",
      "published": "2026-09-22",
      "retrieved": "2026-09-25"
+    }
+   ]
+  },
+  {
+   "id": "kurz-2027-03-08-detska-joga-zviratkova",
+   "title": "Dětská jóga — zvířátková",
+   "date": "2027-03-08",
+   "date_end": null,
+   "time": "16:00",
+   "category": "kurz",
+   "place": "Vzdělávací centrum Pečky, Tř. Jana Švermy 141, Pečky",
+   "organizer": "vzdelavaci-centrum-pecky",
+   "organizer_name": null,
+   "description": "Věk 5–7 let (předškoláci/prvňáci). Vede certifikovaná lektorka dětské jógy.",
+   "note": "Blok 16:00–16:45. Nový kroužek od 5. 10. 2026 podle detailu na vzcentrum.cz (každé pondělí, ukončení 7. 6. 2027). Web uvádí 33 lekcí za rok; kalendář má týdenní termíny se stejným vynecháním prázdnin jako ostatní pondělní kroužky, které web u tohoto kroužku nerozepisuje — počet se proto může o jednu lekci lišit.",
+   "evidence": [
+    {
+     "source": "vzcentrum-cz",
+     "kind": "web",
+     "url": "https://www.vzcentrum.cz/krouzky/290-detska-joga-zviratkova",
+     "label": "vzcentrum.cz — Dětská jóga - zvířátková",
+     "published": "2026-09-30",
+     "retrieved": "2026-09-30"
+    },
+    {
+     "source": "facebook-vzcentrum",
+     "kind": "prispevek",
+     "url": "https://www.facebook.com/vzcentrum",
+     "label": "Příspěvek VC Pečky „kroužkový nášup: Od 5. října nový kroužek Dětská jóga“",
+     "published": "2026-09-29",
+     "retrieved": "2026-09-30"
     }
    ]
   },
@@ -44529,6 +45265,37 @@
    ]
   },
   {
+   "id": "kurz-2027-03-15-detska-joga-zviratkova",
+   "title": "Dětská jóga — zvířátková",
+   "date": "2027-03-15",
+   "date_end": null,
+   "time": "16:00",
+   "category": "kurz",
+   "place": "Vzdělávací centrum Pečky, Tř. Jana Švermy 141, Pečky",
+   "organizer": "vzdelavaci-centrum-pecky",
+   "organizer_name": null,
+   "description": "Věk 5–7 let (předškoláci/prvňáci). Vede certifikovaná lektorka dětské jógy.",
+   "note": "Blok 16:00–16:45. Nový kroužek od 5. 10. 2026 podle detailu na vzcentrum.cz (každé pondělí, ukončení 7. 6. 2027). Web uvádí 33 lekcí za rok; kalendář má týdenní termíny se stejným vynecháním prázdnin jako ostatní pondělní kroužky, které web u tohoto kroužku nerozepisuje — počet se proto může o jednu lekci lišit.",
+   "evidence": [
+    {
+     "source": "vzcentrum-cz",
+     "kind": "web",
+     "url": "https://www.vzcentrum.cz/krouzky/290-detska-joga-zviratkova",
+     "label": "vzcentrum.cz — Dětská jóga - zvířátková",
+     "published": "2026-09-30",
+     "retrieved": "2026-09-30"
+    },
+    {
+     "source": "facebook-vzcentrum",
+     "kind": "prispevek",
+     "url": "https://www.facebook.com/vzcentrum",
+     "label": "Příspěvek VC Pečky „kroužkový nášup: Od 5. října nový kroužek Dětská jóga“",
+     "published": "2026-09-29",
+     "retrieved": "2026-09-30"
+    }
+   ]
+  },
+  {
    "id": "kurz-2027-03-15-pevecky-sbor",
    "title": "Pěvecký sbor",
    "date": "2027-03-15",
@@ -46255,6 +47022,37 @@
    ]
   },
   {
+   "id": "kurz-2027-03-22-detska-joga-zviratkova",
+   "title": "Dětská jóga — zvířátková",
+   "date": "2027-03-22",
+   "date_end": null,
+   "time": "16:00",
+   "category": "kurz",
+   "place": "Vzdělávací centrum Pečky, Tř. Jana Švermy 141, Pečky",
+   "organizer": "vzdelavaci-centrum-pecky",
+   "organizer_name": null,
+   "description": "Věk 5–7 let (předškoláci/prvňáci). Vede certifikovaná lektorka dětské jógy.",
+   "note": "Blok 16:00–16:45. Nový kroužek od 5. 10. 2026 podle detailu na vzcentrum.cz (každé pondělí, ukončení 7. 6. 2027). Web uvádí 33 lekcí za rok; kalendář má týdenní termíny se stejným vynecháním prázdnin jako ostatní pondělní kroužky, které web u tohoto kroužku nerozepisuje — počet se proto může o jednu lekci lišit.",
+   "evidence": [
+    {
+     "source": "vzcentrum-cz",
+     "kind": "web",
+     "url": "https://www.vzcentrum.cz/krouzky/290-detska-joga-zviratkova",
+     "label": "vzcentrum.cz — Dětská jóga - zvířátková",
+     "published": "2026-09-30",
+     "retrieved": "2026-09-30"
+    },
+    {
+     "source": "facebook-vzcentrum",
+     "kind": "prispevek",
+     "url": "https://www.facebook.com/vzcentrum",
+     "label": "Příspěvek VC Pečky „kroužkový nášup: Od 5. října nový kroužek Dětská jóga“",
+     "published": "2026-09-29",
+     "retrieved": "2026-09-30"
+    }
+   ]
+  },
+  {
    "id": "kurz-2027-03-22-pevecky-sbor",
    "title": "Pěvecký sbor",
    "date": "2027-03-22",
@@ -47744,6 +48542,37 @@
      "label": "vzcentrum.cz — Příprava na přijímací zkoušky 9. třída (16:00)",
      "published": "2026-09-22",
      "retrieved": "2026-09-25"
+    }
+   ]
+  },
+  {
+   "id": "kurz-2027-03-29-detska-joga-zviratkova",
+   "title": "Dětská jóga — zvířátková",
+   "date": "2027-03-29",
+   "date_end": null,
+   "time": "16:00",
+   "category": "kurz",
+   "place": "Vzdělávací centrum Pečky, Tř. Jana Švermy 141, Pečky",
+   "organizer": "vzdelavaci-centrum-pecky",
+   "organizer_name": null,
+   "description": "Věk 5–7 let (předškoláci/prvňáci). Vede certifikovaná lektorka dětské jógy.",
+   "note": "Blok 16:00–16:45. Nový kroužek od 5. 10. 2026 podle detailu na vzcentrum.cz (každé pondělí, ukončení 7. 6. 2027). Web uvádí 33 lekcí za rok; kalendář má týdenní termíny se stejným vynecháním prázdnin jako ostatní pondělní kroužky, které web u tohoto kroužku nerozepisuje — počet se proto může o jednu lekci lišit.",
+   "evidence": [
+    {
+     "source": "vzcentrum-cz",
+     "kind": "web",
+     "url": "https://www.vzcentrum.cz/krouzky/290-detska-joga-zviratkova",
+     "label": "vzcentrum.cz — Dětská jóga - zvířátková",
+     "published": "2026-09-30",
+     "retrieved": "2026-09-30"
+    },
+    {
+     "source": "facebook-vzcentrum",
+     "kind": "prispevek",
+     "url": "https://www.facebook.com/vzcentrum",
+     "label": "Příspěvek VC Pečky „kroužkový nášup: Od 5. října nový kroužek Dětská jóga“",
+     "published": "2026-09-29",
+     "retrieved": "2026-09-30"
     }
    ]
   },
@@ -49470,6 +50299,37 @@
      "label": "vzcentrum.cz — Příprava na přijímací zkoušky 9. třída (16:00)",
      "published": "2026-09-22",
      "retrieved": "2026-09-25"
+    }
+   ]
+  },
+  {
+   "id": "kurz-2027-04-05-detska-joga-zviratkova",
+   "title": "Dětská jóga — zvířátková",
+   "date": "2027-04-05",
+   "date_end": null,
+   "time": "16:00",
+   "category": "kurz",
+   "place": "Vzdělávací centrum Pečky, Tř. Jana Švermy 141, Pečky",
+   "organizer": "vzdelavaci-centrum-pecky",
+   "organizer_name": null,
+   "description": "Věk 5–7 let (předškoláci/prvňáci). Vede certifikovaná lektorka dětské jógy.",
+   "note": "Blok 16:00–16:45. Nový kroužek od 5. 10. 2026 podle detailu na vzcentrum.cz (každé pondělí, ukončení 7. 6. 2027). Web uvádí 33 lekcí za rok; kalendář má týdenní termíny se stejným vynecháním prázdnin jako ostatní pondělní kroužky, které web u tohoto kroužku nerozepisuje — počet se proto může o jednu lekci lišit.",
+   "evidence": [
+    {
+     "source": "vzcentrum-cz",
+     "kind": "web",
+     "url": "https://www.vzcentrum.cz/krouzky/290-detska-joga-zviratkova",
+     "label": "vzcentrum.cz — Dětská jóga - zvířátková",
+     "published": "2026-09-30",
+     "retrieved": "2026-09-30"
+    },
+    {
+     "source": "facebook-vzcentrum",
+     "kind": "prispevek",
+     "url": "https://www.facebook.com/vzcentrum",
+     "label": "Příspěvek VC Pečky „kroužkový nášup: Od 5. října nový kroužek Dětská jóga“",
+     "published": "2026-09-29",
+     "retrieved": "2026-09-30"
     }
    ]
   },
@@ -51208,6 +52068,37 @@
    ]
   },
   {
+   "id": "kurz-2027-04-12-detska-joga-zviratkova",
+   "title": "Dětská jóga — zvířátková",
+   "date": "2027-04-12",
+   "date_end": null,
+   "time": "16:00",
+   "category": "kurz",
+   "place": "Vzdělávací centrum Pečky, Tř. Jana Švermy 141, Pečky",
+   "organizer": "vzdelavaci-centrum-pecky",
+   "organizer_name": null,
+   "description": "Věk 5–7 let (předškoláci/prvňáci). Vede certifikovaná lektorka dětské jógy.",
+   "note": "Blok 16:00–16:45. Nový kroužek od 5. 10. 2026 podle detailu na vzcentrum.cz (každé pondělí, ukončení 7. 6. 2027). Web uvádí 33 lekcí za rok; kalendář má týdenní termíny se stejným vynecháním prázdnin jako ostatní pondělní kroužky, které web u tohoto kroužku nerozepisuje — počet se proto může o jednu lekci lišit.",
+   "evidence": [
+    {
+     "source": "vzcentrum-cz",
+     "kind": "web",
+     "url": "https://www.vzcentrum.cz/krouzky/290-detska-joga-zviratkova",
+     "label": "vzcentrum.cz — Dětská jóga - zvířátková",
+     "published": "2026-09-30",
+     "retrieved": "2026-09-30"
+    },
+    {
+     "source": "facebook-vzcentrum",
+     "kind": "prispevek",
+     "url": "https://www.facebook.com/vzcentrum",
+     "label": "Příspěvek VC Pečky „kroužkový nášup: Od 5. října nový kroužek Dětská jóga“",
+     "published": "2026-09-29",
+     "retrieved": "2026-09-30"
+    }
+   ]
+  },
+  {
    "id": "kurz-2027-04-12-pevecky-sbor",
    "title": "Pěvecký sbor",
    "date": "2027-04-12",
@@ -52930,6 +53821,37 @@
      "label": "vzcentrum.cz — Příprava na přijímací zkoušky 9. třída (16:00)",
      "published": "2026-09-22",
      "retrieved": "2026-09-25"
+    }
+   ]
+  },
+  {
+   "id": "kurz-2027-04-19-detska-joga-zviratkova",
+   "title": "Dětská jóga — zvířátková",
+   "date": "2027-04-19",
+   "date_end": null,
+   "time": "16:00",
+   "category": "kurz",
+   "place": "Vzdělávací centrum Pečky, Tř. Jana Švermy 141, Pečky",
+   "organizer": "vzdelavaci-centrum-pecky",
+   "organizer_name": null,
+   "description": "Věk 5–7 let (předškoláci/prvňáci). Vede certifikovaná lektorka dětské jógy.",
+   "note": "Blok 16:00–16:45. Nový kroužek od 5. 10. 2026 podle detailu na vzcentrum.cz (každé pondělí, ukončení 7. 6. 2027). Web uvádí 33 lekcí za rok; kalendář má týdenní termíny se stejným vynecháním prázdnin jako ostatní pondělní kroužky, které web u tohoto kroužku nerozepisuje — počet se proto může o jednu lekci lišit.",
+   "evidence": [
+    {
+     "source": "vzcentrum-cz",
+     "kind": "web",
+     "url": "https://www.vzcentrum.cz/krouzky/290-detska-joga-zviratkova",
+     "label": "vzcentrum.cz — Dětská jóga - zvířátková",
+     "published": "2026-09-30",
+     "retrieved": "2026-09-30"
+    },
+    {
+     "source": "facebook-vzcentrum",
+     "kind": "prispevek",
+     "url": "https://www.facebook.com/vzcentrum",
+     "label": "Příspěvek VC Pečky „kroužkový nášup: Od 5. října nový kroužek Dětská jóga“",
+     "published": "2026-09-29",
+     "retrieved": "2026-09-30"
     }
    ]
   },
@@ -54714,6 +55636,37 @@
    ]
   },
   {
+   "id": "kurz-2027-04-26-detska-joga-zviratkova",
+   "title": "Dětská jóga — zvířátková",
+   "date": "2027-04-26",
+   "date_end": null,
+   "time": "16:00",
+   "category": "kurz",
+   "place": "Vzdělávací centrum Pečky, Tř. Jana Švermy 141, Pečky",
+   "organizer": "vzdelavaci-centrum-pecky",
+   "organizer_name": null,
+   "description": "Věk 5–7 let (předškoláci/prvňáci). Vede certifikovaná lektorka dětské jógy.",
+   "note": "Blok 16:00–16:45. Nový kroužek od 5. 10. 2026 podle detailu na vzcentrum.cz (každé pondělí, ukončení 7. 6. 2027). Web uvádí 33 lekcí za rok; kalendář má týdenní termíny se stejným vynecháním prázdnin jako ostatní pondělní kroužky, které web u tohoto kroužku nerozepisuje — počet se proto může o jednu lekci lišit.",
+   "evidence": [
+    {
+     "source": "vzcentrum-cz",
+     "kind": "web",
+     "url": "https://www.vzcentrum.cz/krouzky/290-detska-joga-zviratkova",
+     "label": "vzcentrum.cz — Dětská jóga - zvířátková",
+     "published": "2026-09-30",
+     "retrieved": "2026-09-30"
+    },
+    {
+     "source": "facebook-vzcentrum",
+     "kind": "prispevek",
+     "url": "https://www.facebook.com/vzcentrum",
+     "label": "Příspěvek VC Pečky „kroužkový nášup: Od 5. října nový kroužek Dětská jóga“",
+     "published": "2026-09-29",
+     "retrieved": "2026-09-30"
+    }
+   ]
+  },
+  {
    "id": "kurz-2027-04-26-pevecky-sbor",
    "title": "Pěvecký sbor",
    "date": "2027-04-26",
@@ -56436,6 +57389,37 @@
      "label": "vzcentrum.cz — Příprava na přijímací zkoušky 9. třída (16:00)",
      "published": "2026-09-22",
      "retrieved": "2026-09-25"
+    }
+   ]
+  },
+  {
+   "id": "kurz-2027-05-03-detska-joga-zviratkova",
+   "title": "Dětská jóga — zvířátková",
+   "date": "2027-05-03",
+   "date_end": null,
+   "time": "16:00",
+   "category": "kurz",
+   "place": "Vzdělávací centrum Pečky, Tř. Jana Švermy 141, Pečky",
+   "organizer": "vzdelavaci-centrum-pecky",
+   "organizer_name": null,
+   "description": "Věk 5–7 let (předškoláci/prvňáci). Vede certifikovaná lektorka dětské jógy.",
+   "note": "Blok 16:00–16:45. Nový kroužek od 5. 10. 2026 podle detailu na vzcentrum.cz (každé pondělí, ukončení 7. 6. 2027). Web uvádí 33 lekcí za rok; kalendář má týdenní termíny se stejným vynecháním prázdnin jako ostatní pondělní kroužky, které web u tohoto kroužku nerozepisuje — počet se proto může o jednu lekci lišit.",
+   "evidence": [
+    {
+     "source": "vzcentrum-cz",
+     "kind": "web",
+     "url": "https://www.vzcentrum.cz/krouzky/290-detska-joga-zviratkova",
+     "label": "vzcentrum.cz — Dětská jóga - zvířátková",
+     "published": "2026-09-30",
+     "retrieved": "2026-09-30"
+    },
+    {
+     "source": "facebook-vzcentrum",
+     "kind": "prispevek",
+     "url": "https://www.facebook.com/vzcentrum",
+     "label": "Příspěvek VC Pečky „kroužkový nášup: Od 5. října nový kroužek Dětská jóga“",
+     "published": "2026-09-29",
+     "retrieved": "2026-09-30"
     }
    ]
   },
@@ -58174,6 +59158,37 @@
    ]
   },
   {
+   "id": "kurz-2027-05-10-detska-joga-zviratkova",
+   "title": "Dětská jóga — zvířátková",
+   "date": "2027-05-10",
+   "date_end": null,
+   "time": "16:00",
+   "category": "kurz",
+   "place": "Vzdělávací centrum Pečky, Tř. Jana Švermy 141, Pečky",
+   "organizer": "vzdelavaci-centrum-pecky",
+   "organizer_name": null,
+   "description": "Věk 5–7 let (předškoláci/prvňáci). Vede certifikovaná lektorka dětské jógy.",
+   "note": "Blok 16:00–16:45. Nový kroužek od 5. 10. 2026 podle detailu na vzcentrum.cz (každé pondělí, ukončení 7. 6. 2027). Web uvádí 33 lekcí za rok; kalendář má týdenní termíny se stejným vynecháním prázdnin jako ostatní pondělní kroužky, které web u tohoto kroužku nerozepisuje — počet se proto může o jednu lekci lišit.",
+   "evidence": [
+    {
+     "source": "vzcentrum-cz",
+     "kind": "web",
+     "url": "https://www.vzcentrum.cz/krouzky/290-detska-joga-zviratkova",
+     "label": "vzcentrum.cz — Dětská jóga - zvířátková",
+     "published": "2026-09-30",
+     "retrieved": "2026-09-30"
+    },
+    {
+     "source": "facebook-vzcentrum",
+     "kind": "prispevek",
+     "url": "https://www.facebook.com/vzcentrum",
+     "label": "Příspěvek VC Pečky „kroužkový nášup: Od 5. října nový kroužek Dětská jóga“",
+     "published": "2026-09-29",
+     "retrieved": "2026-09-30"
+    }
+   ]
+  },
+  {
    "id": "kurz-2027-05-10-pevecky-sbor",
    "title": "Pěvecký sbor",
    "date": "2027-05-10",
@@ -59896,6 +60911,37 @@
      "label": "vzcentrum.cz — Příprava na přijímací zkoušky 9. třída (16:00)",
      "published": "2026-09-22",
      "retrieved": "2026-09-25"
+    }
+   ]
+  },
+  {
+   "id": "kurz-2027-05-17-detska-joga-zviratkova",
+   "title": "Dětská jóga — zvířátková",
+   "date": "2027-05-17",
+   "date_end": null,
+   "time": "16:00",
+   "category": "kurz",
+   "place": "Vzdělávací centrum Pečky, Tř. Jana Švermy 141, Pečky",
+   "organizer": "vzdelavaci-centrum-pecky",
+   "organizer_name": null,
+   "description": "Věk 5–7 let (předškoláci/prvňáci). Vede certifikovaná lektorka dětské jógy.",
+   "note": "Blok 16:00–16:45. Nový kroužek od 5. 10. 2026 podle detailu na vzcentrum.cz (každé pondělí, ukončení 7. 6. 2027). Web uvádí 33 lekcí za rok; kalendář má týdenní termíny se stejným vynecháním prázdnin jako ostatní pondělní kroužky, které web u tohoto kroužku nerozepisuje — počet se proto může o jednu lekci lišit.",
+   "evidence": [
+    {
+     "source": "vzcentrum-cz",
+     "kind": "web",
+     "url": "https://www.vzcentrum.cz/krouzky/290-detska-joga-zviratkova",
+     "label": "vzcentrum.cz — Dětská jóga - zvířátková",
+     "published": "2026-09-30",
+     "retrieved": "2026-09-30"
+    },
+    {
+     "source": "facebook-vzcentrum",
+     "kind": "prispevek",
+     "url": "https://www.facebook.com/vzcentrum",
+     "label": "Příspěvek VC Pečky „kroužkový nášup: Od 5. října nový kroužek Dětská jóga“",
+     "published": "2026-09-29",
+     "retrieved": "2026-09-30"
     }
    ]
   },
@@ -61634,6 +62680,37 @@
    ]
   },
   {
+   "id": "kurz-2027-05-24-detska-joga-zviratkova",
+   "title": "Dětská jóga — zvířátková",
+   "date": "2027-05-24",
+   "date_end": null,
+   "time": "16:00",
+   "category": "kurz",
+   "place": "Vzdělávací centrum Pečky, Tř. Jana Švermy 141, Pečky",
+   "organizer": "vzdelavaci-centrum-pecky",
+   "organizer_name": null,
+   "description": "Věk 5–7 let (předškoláci/prvňáci). Vede certifikovaná lektorka dětské jógy.",
+   "note": "Blok 16:00–16:45. Nový kroužek od 5. 10. 2026 podle detailu na vzcentrum.cz (každé pondělí, ukončení 7. 6. 2027). Web uvádí 33 lekcí za rok; kalendář má týdenní termíny se stejným vynecháním prázdnin jako ostatní pondělní kroužky, které web u tohoto kroužku nerozepisuje — počet se proto může o jednu lekci lišit.",
+   "evidence": [
+    {
+     "source": "vzcentrum-cz",
+     "kind": "web",
+     "url": "https://www.vzcentrum.cz/krouzky/290-detska-joga-zviratkova",
+     "label": "vzcentrum.cz — Dětská jóga - zvířátková",
+     "published": "2026-09-30",
+     "retrieved": "2026-09-30"
+    },
+    {
+     "source": "facebook-vzcentrum",
+     "kind": "prispevek",
+     "url": "https://www.facebook.com/vzcentrum",
+     "label": "Příspěvek VC Pečky „kroužkový nášup: Od 5. října nový kroužek Dětská jóga“",
+     "published": "2026-09-29",
+     "retrieved": "2026-09-30"
+    }
+   ]
+  },
+  {
    "id": "kurz-2027-05-24-pevecky-sbor",
    "title": "Pěvecký sbor",
    "date": "2027-05-24",
@@ -63356,6 +64433,37 @@
      "label": "vzcentrum.cz — Příprava na přijímací zkoušky 9. třída (16:00)",
      "published": "2026-09-22",
      "retrieved": "2026-09-25"
+    }
+   ]
+  },
+  {
+   "id": "kurz-2027-05-31-detska-joga-zviratkova",
+   "title": "Dětská jóga — zvířátková",
+   "date": "2027-05-31",
+   "date_end": null,
+   "time": "16:00",
+   "category": "kurz",
+   "place": "Vzdělávací centrum Pečky, Tř. Jana Švermy 141, Pečky",
+   "organizer": "vzdelavaci-centrum-pecky",
+   "organizer_name": null,
+   "description": "Věk 5–7 let (předškoláci/prvňáci). Vede certifikovaná lektorka dětské jógy.",
+   "note": "Blok 16:00–16:45. Nový kroužek od 5. 10. 2026 podle detailu na vzcentrum.cz (každé pondělí, ukončení 7. 6. 2027). Web uvádí 33 lekcí za rok; kalendář má týdenní termíny se stejným vynecháním prázdnin jako ostatní pondělní kroužky, které web u tohoto kroužku nerozepisuje — počet se proto může o jednu lekci lišit.",
+   "evidence": [
+    {
+     "source": "vzcentrum-cz",
+     "kind": "web",
+     "url": "https://www.vzcentrum.cz/krouzky/290-detska-joga-zviratkova",
+     "label": "vzcentrum.cz — Dětská jóga - zvířátková",
+     "published": "2026-09-30",
+     "retrieved": "2026-09-30"
+    },
+    {
+     "source": "facebook-vzcentrum",
+     "kind": "prispevek",
+     "url": "https://www.facebook.com/vzcentrum",
+     "label": "Příspěvek VC Pečky „kroužkový nášup: Od 5. října nový kroužek Dětská jóga“",
+     "published": "2026-09-29",
+     "retrieved": "2026-09-30"
     }
    ]
   },
@@ -65090,6 +66198,37 @@
      "label": "vzcentrum.cz — Příprava na přijímací zkoušky 9. třída (16:00)",
      "published": "2026-09-22",
      "retrieved": "2026-09-25"
+    }
+   ]
+  },
+  {
+   "id": "kurz-2027-06-07-detska-joga-zviratkova",
+   "title": "Dětská jóga — zvířátková",
+   "date": "2027-06-07",
+   "date_end": null,
+   "time": "16:00",
+   "category": "kurz",
+   "place": "Vzdělávací centrum Pečky, Tř. Jana Švermy 141, Pečky",
+   "organizer": "vzdelavaci-centrum-pecky",
+   "organizer_name": null,
+   "description": "Věk 5–7 let (předškoláci/prvňáci). Vede certifikovaná lektorka dětské jógy.",
+   "note": "Blok 16:00–16:45. Nový kroužek od 5. 10. 2026 podle detailu na vzcentrum.cz (každé pondělí, ukončení 7. 6. 2027). Web uvádí 33 lekcí za rok; kalendář má týdenní termíny se stejným vynecháním prázdnin jako ostatní pondělní kroužky, které web u tohoto kroužku nerozepisuje — počet se proto může o jednu lekci lišit.",
+   "evidence": [
+    {
+     "source": "vzcentrum-cz",
+     "kind": "web",
+     "url": "https://www.vzcentrum.cz/krouzky/290-detska-joga-zviratkova",
+     "label": "vzcentrum.cz — Dětská jóga - zvířátková",
+     "published": "2026-09-30",
+     "retrieved": "2026-09-30"
+    },
+    {
+     "source": "facebook-vzcentrum",
+     "kind": "prispevek",
+     "url": "https://www.facebook.com/vzcentrum",
+     "label": "Příspěvek VC Pečky „kroužkový nášup: Od 5. října nový kroužek Dětská jóga“",
+     "published": "2026-09-29",
+     "retrieved": "2026-09-30"
     }
    ]
   },
