@@ -50,6 +50,8 @@
   .brand-row{display:flex; align-items:center; justify-content:space-between; gap:10px; flex-wrap:wrap;}
   .brand{display:flex; align-items:center; gap:12px; order:1; color:inherit; text-decoration:none; cursor:pointer;}
   .brand:hover{text-decoration:none;}
+  .brand-logo{width:40px; height:40px; flex-shrink:0; display:block;}
+  @media (min-width:601px){.brand-logo{width:48px; height:48px;}}
   /* mobile-first: základ pro telefon, od 601 px větší */
   .brand h1{font-family:var(--font-body); color:var(--ink-soft); font-size:var(--fs-title-mobile); margin:0; letter-spacing:-0.03em; font-weight:900; line-height:1.15;}
   @media (min-width:601px){.brand h1{font-size:var(--fs-title);}}
@@ -205,7 +207,7 @@
   }
 
   /* ===== Dashboard na homepage (generuje scripts/build.py, render_dashboard) ===== */
-  .dash-title{font-size:var(--fs-title-mobile); margin:0 0 8px; font-weight:600;}
+  .dash-title{font-size:var(--fs-title-mobile); margin:0 0 8px; font-weight:600; position:sticky; top:0; z-index:10; background:var(--parchment); padding:8px 0; margin-top:-8px; cursor:pointer;}
   @media (min-width:601px){.dash-title{font-size:var(--fs-title);}}
   .dash-grid{display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:16px;}
   @media (max-width:720px){.dash-grid{grid-template-columns:1fr;}}

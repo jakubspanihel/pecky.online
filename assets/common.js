@@ -5,12 +5,12 @@
 // volebních programů, rozbalovací bloky. Logika specifická pro jednu sekci
 // (Jednání, Pečecké noviny, Lidé) žije přímo v příslušném content/<sekce>.html.
 
-// ===== Floating info tlačítko v hlavičce: odscrolluje na konec stránky (patička) =====
+// ===== Floating info tlačítko v hlavičce: odscrolluje na začátek patičky (její horní hrana = horní hrana okna) =====
 const infoFab = document.getElementById('infoFab');
 const siteFooter = document.querySelector('footer.site');
 if (infoFab && siteFooter) {
   infoFab.addEventListener('click', () => {
-    siteFooter.scrollIntoView({behavior: 'smooth', block: 'end'});
+    siteFooter.scrollIntoView({behavior: 'smooth', block: 'start'});
   });
 }
 
@@ -278,10 +278,10 @@ document.querySelectorAll('.exp-row').forEach(row => {
   }
 })();
 
-// ===== Nadpis sekce (h2.title, sticky) = odkaz "nahoru" =====
+// ===== Nadpis sekce (h2.title / h2.dash-title na Domů, sticky) = odkaz "nahoru" =====
 (function () {
   const reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
-  document.querySelectorAll('h2.title').forEach(h => {
+  document.querySelectorAll('h2.title, h2.dash-title').forEach(h => {
     h.setAttribute('role', 'button');
     h.setAttribute('tabindex', '0');
     h.setAttribute('title', 'Nahoru');
