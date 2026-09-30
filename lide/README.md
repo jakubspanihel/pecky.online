@@ -295,6 +295,27 @@ na ní. Ostatní členové už v Lidech byli (Homan a Chárová jen jako kandid�
 v Lidech chybí: Astrová, Taxová, Korouš, Hájková (jen příjmení v zápisech). Jaroslav Hovorka
 (`hovorkaj`) v Lidech **není** Petr Hovorka ze školské rady — nesměšovat.
 
+**Komise RM 2018–2022 — členové ze zveřejněných zápisů** (doplněno 30. 9. 2026 na žádost uživatele;
+zdroj `jednani/komise.json`, volební období 2018–2022). Vazby `role_type: "komise"` na `mesto-pecky`
+u Komise sportovní, Komise stavebně-dopravní (od 2020 se scházela společně s komisí pro životní prostředí),
+Komise pro kulturu a vzdělávání (dnešní Kulturní komise) a Sboru pro občanské záležitosti: 52 členských vazeb
+a 5 předsedů (Katrnoška — sportovní, Vodička — stavební, Kozáková — kulturní do 2021, Janáčková — kulturní od
+4. 11. 2021, Turynová — SPOZ), 10 nových osob (`tags: ["komise"]`): Jana Vaníčková, Vojtěch Malina, Radek Čížek,
+Kateřina Čiháková, Hana Pokorná, Miroslava Zumrová, Romana Růžičková, Eva Jíchová, Miloslava Turynová,
+Svatava Jindřichová. **Začátek mandátu:** členové počátečního složení komisí (Pečecké noviny 12/2018, s. 3) mají
+`from: 2018-11-19` — rada města komise jmenovala na prvním zasedání po ustavení zastupitelstva; přesné datum
+19. 11. 2018 je doloženo u SPOZ (zápis SPOZ z 13. 12. 2018 cituje jmenování „dne 19. 11. 2018“), u ostatních
+komisí Noviny uvádějí jen listopadové zasedání rady. Kdo v počátečním seznamu není (Zindrová, Vlk, Krulišová
+jako zástupkyně knihovny, Čížek, Čiháková, Šestáková, Šátková, Fejfar, Janáčková v kulturní komisi…), má `from`
+= první doložené jednání a v `note` „datum jmenování nedohledáno“. `to: 2022-11-14` = nové komise jmenované
+usnesením RM UR-436 až UR-442-45/22; poslední doložená účast je v `note`. Ze zápisů jsou **vynecháni** hosté a ti,
+kdo v žádném zápisu nefigurují (např. Hála, Janovský, Douděra, Kynclová z jmenovacích seznamů), a městský architekt
+Jan Drška (v zápisech jako prezentující). Sociální, bytová a další komise bez zveřejněných zápisů se nedoplňovaly.
+Docházka u vazeb se počítá z `komise.json` (role „Komise pro kulturu a vzdělávání“ a „Komise pro životní
+prostředí“ jsou v `L_ATTENDANCE_ROLES` napojené na kulturní, resp. stavební komisi). `jNameKey()` v
+`assets/helpers.js` teď umí i „Petra Vorlíčková, DiS.“ (čárka před titulem se lepila k příjmení a nespárovala
+docházku) a tituly `arch.`, `M.Sc.`, `MBA`, `MPA`, `PaedDr.`.
+
 **Vedení úřadu, příspěvkových organizací a městských firem** (`role_type:
 "vedeni-urad"` a `"vedeni-organizace"`, doplněno 5. 9. 2026, fáze 5b
 SPEC.md §7): tajemnice úřadu, 4

@@ -24,9 +24,9 @@ function jHighlight(text, rawQuery){
   return html;
 }
 
-const J_TITLE_RE = /^(Ing\.|Mgr\.|Bc\.|MUDr\.|PhDr\.|JUDr\.|RNDr\.|MgA\.|Ph\.D\.|CSc\.|DiS\.|MSc\.|doc\.|prof\.)$/i;
+const J_TITLE_RE = /^(Ing\.|Mgr\.|Bc\.|MUDr\.|PhDr\.|JUDr\.|RNDr\.|MgA\.|PaedDr\.|Ph\.D\.|CSc\.|DiS\.|MSc\.|M\.Sc\.|MBA|MPA|arch\.|doc\.|prof\.)$/i;
 function jInitials(name){
-  const parts = (name || '').split(/\s+/).filter(p => p && !J_TITLE_RE.test(p));
+  const parts = (name || '').split(/[\s,]+/).filter(p => p && !J_TITLE_RE.test(p));
   if (!parts.length) return '?';
   const first = parts[0][0] || '';
   const last = parts.length > 1 ? parts[parts.length - 1][0] : '';
@@ -37,7 +37,7 @@ function jInitials(name){
 // pro spárování jmen napříč zdroji, které titul zapisují jinak (s/bez čárky
 // před titulem za jménem apod.), viz jednani/README.md "Jmenovité obsazení"
 function jNameKey(name){
-  const parts = (name || '').split(/\s+/).filter(p => p && !J_TITLE_RE.test(p));
+  const parts = (name || '').split(/[\s,]+/).filter(p => p && !J_TITLE_RE.test(p));
   return jNorm(parts.join(' '));
 }
 
