@@ -171,6 +171,8 @@ function relDatum(iso) {
     if (empty) empty.hidden = shown > 0;
     // seznam bez jediné budoucí položky (a bez hlášky) schovat i s nadpisem
     if (!shown && !empty) {
+      const zm = ul.closest('.dash-zm');
+      if (zm) zm.hidden = true;  // widget Příští zastupitelstvo: žádné už není před námi
       ul.hidden = true;
       const h = ul.previousElementSibling;
       if (h && h.tagName === 'H4') h.hidden = true;
@@ -193,7 +195,7 @@ function relDatum(iso) {
 // aktuální (u vícedenní akce konec, jinak totéž co začátek); data-from se
 // píše jen tam, kde se od data-until liší.
 (function () {
-  const items = document.querySelectorAll('.dash-list li[data-until]');
+  const items = document.querySelectorAll('.dash-list li[data-until]:not(.dash-zm li)');
   if (!items.length) return;
   const d = new Date();
   const pad = n => String(n).padStart(2, '0');
@@ -289,4 +291,17 @@ document.querySelectorAll('.exp-row').forEach(row => {
     h.addEventListener('click', up);
     h.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); up(); } });
   });
+})();
+
+// ===== Widget "Příští zastupitelstvo": titulek s odpočtem (je dnes / je zítra / za N dní) =====
+(function () {
+  const li = document.querySelector('.dash-zm li:not([hidden])');
+  if (!li) return;
+  const d = new Date();
+  const dnes = Date.UTC(d.getFullYear(), d.getMonth(), d.getDate());
+  const [y, m, dd] = li.getAttribute('data-until').split('-').map(Number);
+  const dny = Math.round((Date.UTC(y, m - 1, dd) - dnes) / 86400000);
+  const kdy = li.querySelector('.dash-zm-kdy');
+  if (dny < 0 || !kdy) return;
+  kdy.textContent = dny === 0 ? 'je dnes' : dny === 1 ? 'je zítra' : `za ${dny} ${dny < 5 ? 'dny' : 'dní'}`;
 })();

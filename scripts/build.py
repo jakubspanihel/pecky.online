@@ -398,21 +398,12 @@ def _dash_jednani(dnes):
     def nazev(m):
         return m['type'] if m.get('number') is None else f'{m["type"]} {m["number"]}/{m["year"]}'
 
-    ohlasena = sorted((m for m in meetings if m['date'] >= dnes), key=lambda m: m['date'])
     probehla = sorted((m for m in meetings if m['date'] < dnes),
                       key=lambda m: m['date'], reverse=True)[:DASH_JEDNANI_PROBEHLA]
     if not probehla:
         raise SystemExit('CHYBA: dashboard - v jednani/pecky-jednani.json není žádné proběhlé jednání.')
 
     out = []
-    if ohlasena:
-        out.append('  <h4>Příště</h4>\n  <ul class="dash-list" data-max="2">')
-        for m in ohlasena:
-            kdy = iso_to_cz(m['date']) + (f' v {m["time"]}' if m.get('time') else '')
-            out.append(f'    <li data-until="{m["date"]}"><a href="/jednani/#{slug(m)}">'
-                       f'{esc(nazev(m))}</a><span class="meta-note">{esc(kdy)}'
-                       f'{" · " + esc(m["venue"]) if m.get("venue") else ""}</span></li>')
-        out.append('  </ul>')
     out.append('  <h4>Naposledy</h4>\n  <ul class="dash-list">')
     for m in probehla:
         n_res = len(m.get('resolutions') or [])
@@ -439,6 +430,34 @@ def _dash_jednani(dnes):
                        f'<span class="meta-note">{esc(iso_to_cz(m["date"]))} · {esc(co)}</span></li>')
         out.append('  </ul>')
     return _dash_card('Jednání rady, zastupitelstva a výborů', '/jednani/', 'Všechna jednání', '\n'.join(out), 'jednani')
+
+
+def _dash_zastupitelstvo(dnes):
+    """Samostatný widget na úplném začátku Domů: ohlášené zastupitelstvo
+    (jen ZM, ne Rada). Bez ohlášeného zastupitelstva vrací ''. Budoucí ZM se
+    vypíše víc (rezerva), common.js ukáže první, které ještě neproběhlo,
+    a nezbyde-li žádné, schová celý widget - neshnije mezi buildy."""
+    meetings = json.loads(read('jednani/pecky-jednani.json'))['meetings']
+    zm = sorted((m for m in meetings if m['type'] == 'Zastupitelstvo' and m['date'] >= dnes),
+                key=lambda m: m['date'])[:3]
+    if not zm:
+        return ''
+    from datetime import date as _date
+    out = ['<div class="dash-zm">',
+           '  <ul class="dash-list" data-max="1">']
+    for i, m in enumerate(zm):
+        kdy = iso_to_cz(m['date']) + (f' v {m["time"]}' if m.get('time') else '')
+        misto = f' · {esc(m["venue"])}' if m.get('venue') else ''
+        odkaz = f'/jednani/#zastupitelstvo-{m["date"]}'
+        dny = (_date.fromisoformat(m['date']) - _date.fromisoformat(dnes)).days
+        # výchozí text z doby buildu; common.js ho v prohlížeči přepočítá
+        za = 'je dnes' if dny == 0 else 'je zítra' if dny == 1 else f'za {dny} {"dny" if dny < 5 else "dní"}'
+        out.append(f'    <li data-until="{m["date"]}"{" hidden" if i else ""}>'
+                   f'<h3 class="display"><a href="{odkaz}">Příští zastupitelstvo '
+                   f'<span class="dash-zm-kdy">{za}</span></a></h3>'
+                   f'<span class="meta-note">{esc(kdy)}{misto}</span></li>')
+    out += ['  </ul>', '</div>']
+    return '\n'.join(out)
 
 
 def _dash_kalendar(dnes):
@@ -508,7 +527,8 @@ def render_dashboard(stav_rows):
     from datetime import date
     dnes = date.today().isoformat()
     karty = [_dash_kalendar(dnes), _dash_jednani(dnes), _dash_noviny(), _dash_zmeny(stav_rows)]
-    return '<div class="dash-grid dash-bento">\n' + '\n'.join(karty) + '\n</div>'
+    return (_dash_zastupitelstvo(dnes) + '\n'
+            + '<div class="dash-grid dash-bento">\n' + '\n'.join(karty) + '\n</div>')
 
 
 # Znovupoužitelná komponenta "rozcestník volebních ročníků" - řádek buttonů,
