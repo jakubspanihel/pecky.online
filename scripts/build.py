@@ -462,8 +462,11 @@ def _dash_kalendar(dnes):
         # štítek DNES/ZÍTRA/POZÍTŘÍ v common.js, ať probíhající vícedenní akce
         # ukáže DNES i mimo první den
         data_from = f' data-from="{e["date"]}"' if vicedenni else ''
+        # odkaz vede na originální zdroj události; bez něj na kalendář
+        zdroj = e.get('link') or f'/kalendar/#{mesic}/seznam'
+        cizi = ' target="_blank" rel="noopener"' if zdroj.startswith('http') else ''
         out.append(f'    <li data-until="{e.get("date_end") or e["date"]}"{data_from}{hidden}>'
-                   f'<a href="/kalendar/#{mesic}/seznam">{esc(e["title"])}</a>'
+                   f'<a href="{esc(zdroj)}"{cizi}>{esc(e["title"])}</a>'
                    f'<span class="meta-note">{esc(kdy)}{kdo}</span></li>')
     out.append('    <li class="dash-empty"' + ('' if not akce else ' hidden') +
                '>Žádná nadcházející akce zatím není v kalendáři zapsaná.</li>')
