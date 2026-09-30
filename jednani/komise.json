@@ -1,0 +1,5213 @@
+{
+ "meta": {
+  "updated": "2026-09-30",
+  "source": "https://pecky.cz/default/default/21179_komise-rm",
+  "note": "Jednání komisí rady města a pracovní skupiny pro oslavy 100 let povýšení Peček na město z volebních období 2018–2022 a 2022–2026, vytěžená ručně z PDF zápisů zveřejněných na pecky.cz (lokální kopie v jednani/Data/{datum}-{sportovni-komise|kulturni-komise|stavebni-komise|pracovni-skupina}/zapis.pdf). Struktura záznamu odpovídá vybory.json, rozdíly viz jednani/README.md → „Jednání komisí RM (komise.json)“. Zápisy sociální komise a Sboru pro občanské záležitosti se nezveřejňují.",
+  "meetings_count": 49,
+  "resolutions_count": 102
+ },
+ "meetings": [
+  {
+   "id": "sportovni-komise-2026-02-10",
+   "uuid": null,
+   "type": "Sportovní komise",
+   "group": "komise",
+   "bodies": [
+    "Sportovní komise"
+   ],
+   "number": null,
+   "year": 2026,
+   "date": "2026-02-10",
+   "label": "Sportovní komise (10. 2. 2026)",
+   "time": null,
+   "time_end": null,
+   "duration_seconds": null,
+   "venue": null,
+   "links": {
+    "minutes": "https://pecky.cz/files/pecky/gallery/18830/69a838313a8dc_SK-zapis-10.02.2026.pdf",
+    "source_page": "https://pecky.cz/default/default/21594_2022-2026"
+   },
+   "attendance": {
+    "present": 10,
+    "total": 12,
+    "present_names": [
+     "Zdeněk Fejfar",
+     "Tomáš Růžička",
+     "Mgr. Pavel Kupr",
+     "Jiří Katrnoška",
+     "Václav Drška",
+     "Ladislav Kejda",
+     "Ing. Aleš Staněk",
+     "Michal Rumlena",
+     "Ladislava Šátková ml.",
+     "Ing. Jana Sladká"
+    ],
+    "absent_names": [
+     {
+      "name": "Ing. Pavel Krejčí",
+      "note": "omluven"
+     },
+     {
+      "name": "Mgr. Helena Šestáková",
+      "note": "nepřítomna, zápis důvod neuvádí"
+     }
+    ],
+    "guests": []
+   },
+   "chair": "Zdeněk Fejfar",
+   "recorded_by": "Zdeněk Fejfar",
+   "agenda": [
+    {
+     "n": 1,
+     "t": "Úvod"
+    },
+    {
+     "n": 2,
+     "t": "Rozdělení dotací pro sportovní oddíly města Pečky"
+    },
+    {
+     "n": 3,
+     "t": "Sportovní den pro děti 1. stupně Základní školy Pečky, okres Kolín"
+    },
+    {
+     "n": 4,
+     "t": "Rezervační systém sportovní haly"
+    },
+    {
+     "n": 5,
+     "t": "Diskuze"
+    },
+    {
+     "n": 6,
+     "t": "Závěr"
+    }
+   ],
+   "resolutions": [
+    {
+     "n": null,
+     "text": "Dotace města na rok 2026 – TJ SOKOL Pečky: navrženo 700 000 Kč (požadavek 700 000 Kč, výpočet 701 295,70 Kč) — schváleno.",
+     "pro": 10,
+     "proti": 0,
+     "zdrzel": 0,
+     "adopted": true
+    },
+    {
+     "n": null,
+     "text": "Dotace města na rok 2026 – Oddíl vodní turistiky Pečky: navrženo 120 000 Kč (požadavek 130 000 Kč, výpočet 48 586,31 Kč) — schváleno.",
+     "pro": 10,
+     "proti": 0,
+     "zdrzel": 0,
+     "adopted": true,
+     "note": "Oproti výpočtu podpořeny dvě významné akce, které oddíl pořádá: Vavřinecký potok a akce na rybníku „Benešák“ při Rodinné pouti mašinka."
+    },
+    {
+     "n": null,
+     "text": "Dotace města na rok 2026 – Zimní turisti Pečky, protinávrh p. Katrnošky: 65 000 Kč (požadavek 100 000 Kč, výpočet 74 091,45 Kč).",
+     "pro": 1,
+     "proti": 9,
+     "zdrzel": 0,
+     "adopted": false
+    },
+    {
+     "n": null,
+     "text": "Dotace města na rok 2026 – Zimní turisti Pečky, původní návrh: 60 000 Kč (požadavek 100 000 Kč, výpočet 74 091,45 Kč) — schváleno.",
+     "pro": 9,
+     "proti": 1,
+     "zdrzel": 0,
+     "adopted": true
+    },
+    {
+     "n": null,
+     "text": "Dotace města na rok 2026 – Basketbal Pečky: navrženo 42 000 Kč (požadavek 42 000 Kč, výpočet 46 774,82 Kč) — schváleno.",
+     "pro": 10,
+     "proti": 0,
+     "zdrzel": 0,
+     "adopted": true
+    },
+    {
+     "n": null,
+     "text": "Dotace města na rok 2026 – Minigolf Dráčata Pečky: navrženo 50 000 Kč (požadavek 50 000 Kč, výpočet 36 378,67 Kč) — schváleno.",
+     "pro": 10,
+     "proti": 0,
+     "zdrzel": 0,
+     "adopted": true,
+     "note": "Oproti výpočtu podpořeny do výše žádosti na akce (turnaje), které pořádají."
+    },
+    {
+     "n": null,
+     "text": "Dotace města na rok 2026 – TJ SOKOL Velké Chvalovice: navrženo 100 000 Kč (požadavek 120 000 Kč, výpočet 98 598,61 Kč) — schváleno.",
+     "pro": 9,
+     "proti": 0,
+     "zdrzel": 1,
+     "adopted": true,
+     "note": "Zápis neuvádí, kdo se zdržel."
+    },
+    {
+     "n": null,
+     "text": "Dotace města na rok 2026 – SKC Pečky: navrženo 15 000 Kč (požadavek 15 000 Kč, výpočet 4 500,00 Kč) — schváleno.",
+     "pro": 10,
+     "proti": 0,
+     "zdrzel": 0,
+     "adopted": true,
+     "note": "Oproti výpočtu podpořeny dvě akce, které organizují."
+    },
+    {
+     "n": null,
+     "text": "Dotace města na rok 2026 – TJ Spartak Pečky: navrženo 150 000 Kč (požadavek 180 000 Kč, výpočet 168 092,24 Kč) — schváleno.",
+     "pro": 10,
+     "proti": 0,
+     "zdrzel": 0,
+     "adopted": true
+    },
+    {
+     "n": null,
+     "text": "Dotace města na rok 2026 – AFK Pečky: navrženo 470 000 Kč (požadavek 490 000 Kč, výpočet 384 039,46 Kč) — schváleno.",
+     "pro": 10,
+     "proti": 0,
+     "zdrzel": 0,
+     "adopted": true,
+     "note": "Zápis uvádí protinávrh p. Staňka na 490 000 Kč a větu „oproti výpočtu podpořeny do výše navrhované dotace na akce (turnaje), které pořádají“; jediné hlasování (10 : 0 : 0) není přiřazené ani k návrhu, ani k protinávrhu — částka 470 000 Kč je z tabulky „navrhovaná výše dotace 2026“."
+    },
+    {
+     "n": null,
+     "text": "Dotace města na rok 2026 – BK Pečky: navrženo 45 000 Kč (požadavek 45 000 Kč, výpočet 1 500,00 Kč) — schváleno.",
+     "pro": 9,
+     "proti": 0,
+     "zdrzel": 1,
+     "adopted": true,
+     "note": "Oproti výpočtu podpořeny dvě významné akce, které klub pořádá: Pečecká desítka a Běh parkem. Zápis neuvádí, kdo se zdržel."
+    },
+    {
+     "n": null,
+     "text": "Dotace města na rok 2026 – FBC Charisma Pečky: navrženo 7 000 Kč (požadavek 7 000 Kč, výpočet 34 909,46 Kč) — schváleno.",
+     "pro": 10,
+     "proti": 0,
+     "zdrzel": 0,
+     "adopted": true
+    },
+    {
+     "n": null,
+     "text": "Dotace města na rok 2026 – DC GLOW, z.s.: navrženo 224 600 Kč (požadavek 224 600 Kč, výpočet 278 416,01 Kč) — schváleno.",
+     "pro": 10,
+     "proti": 0,
+     "zdrzel": 0,
+     "adopted": true
+    },
+    {
+     "n": null,
+     "text": "Dotace města na rok 2026 – Volejbal Pečky, z.s.: navrženo 110 000 Kč (požadavek 110 000 Kč, výpočet 122 817,26 Kč) — schváleno.",
+     "pro": 10,
+     "proti": 0,
+     "zdrzel": 0,
+     "adopted": true,
+     "note": "Od 1. 1. 2026 se volejbal oddělil od TJ Spartak Pečky a vznikl nový subjekt Volejbal Pečky, z.s."
+    },
+    {
+     "n": null,
+     "text": "Sportovní den pro děti 1. stupně Základní školy Pečky, okres Kolín: pan Kupr byl pověřen jednáním s vedením školy o zájmu ohledně sportovního dne a popřípadě termínu konání.",
+     "pro": 10,
+     "proti": 0,
+     "zdrzel": 0,
+     "adopted": true
+    }
+   ],
+   "summary": [
+    "Dotace oddílům celkem 2 093 600 Kč (žádosti 2 213 600 Kč; výpočet 2 000 000 Kč), navrhovaná rezerva 150 000 Kč. Nově mezi oddíly přibyl Volejbal Pečky, z.s.",
+    "Zimní turisti: protinávrh vyšší dotace (65 000 Kč) neprošel (1 pro, 9 proti), schválen původní návrh 60 000 Kč.",
+    "Rezervační systém sportovní haly (od 9/2025) několik oddílů připomínkovalo, dodavatel ho zatím neupravil; příslib do konce března 2026.",
+    "V diskuzi: havarijní stav oplocení volejbalových kurtů, dotaz na umělou trávu na hřišti na sokolišti, pozvání na Pečeckou desítku. Zdeněk Fejfar podal informaci o stavu příprav akce „Dostavba ZŠ o učebny, aulu a tělocvičnu“."
+   ],
+   "attachments": [
+    "Výpočet rozdělení dotací sportovním oddílům pro rok 2026"
+   ],
+   "extraction": {
+    "method": "pdftotext",
+    "checked": "2026-09-30",
+    "note": "Zápis neuvádí celkový počet členů komise (12 je převzato z předchozích zápisů) a nezmiňuje Mgr. Helenu Šestákovou ani mezi přítomnými, ani mezi omluvenými — v datech je mezi nepřítomnými s poznámkou „zápis důvod neuvádí“ (10 přítomných + 1 omluvený + 1 nezmíněná). Usnesení o dotacích jsou sestavená z tabulky a hlasování za každým řádkem; u hlasování 9 : 0 : 1 zápis nejmenuje, kdo se zdržel. Zápis nemá číslovaná usnesení, přílohou je výpočet dotací pro rok 2026."
+   }
+  },
+  {
+   "id": "stavebni-komise-2025-09-24",
+   "uuid": null,
+   "type": "Stavebně-dopravní komise",
+   "group": "komise",
+   "bodies": [
+    "Stavebně-dopravní komise"
+   ],
+   "number": null,
+   "year": 2025,
+   "date": "2025-09-24",
+   "label": "Stavebně-dopravní komise (24. 9. 2025)",
+   "time": "16:00",
+   "time_end": "17:40",
+   "duration_seconds": null,
+   "venue": null,
+   "links": {
+    "minutes": "https://pecky.cz/files/pecky/gallery/18834/69a803d0dbb43_STK-24-9-2025.pdf",
+    "source_page": "https://pecky.cz/default/default/21595_2022-2026"
+   },
+   "attendance": {
+    "present": 7,
+    "total": 8,
+    "present_names": [
+     "Ing. Petr Dürr",
+     "Ivana Trčková",
+     "Michal Müller",
+     "Ing. Ivan Hruška, CSc.",
+     "Dušan Říha",
+     "Jiří Katrnoška",
+     "Václav Drška"
+    ],
+    "absent_names": [
+     {
+      "name": "Antonín Černý",
+      "note": "omluven"
+     }
+    ],
+    "guests": [
+     {
+      "name": "Milan Paluska",
+      "note": "starosta"
+     }
+    ]
+   },
+   "chair": "Ing. Petr Dürr",
+   "recorded_by": "Ing. Petr Dürr",
+   "agenda": [
+    {
+     "n": 1,
+     "t": "Zahájení"
+    },
+    {
+     "n": 2,
+     "t": "Schválení programu jednání"
+    },
+    {
+     "n": 3,
+     "t": "Informace o investičních akcích města"
+    },
+    {
+     "n": 4,
+     "t": "Informace - odbor výstavby, ŽP a zemědělství – MěÚ"
+    },
+    {
+     "n": 5,
+     "t": "Kontrola zápisu z minulého jednání"
+    },
+    {
+     "n": 6,
+     "t": "Parkování ve městě"
+    },
+    {
+     "n": 7,
+     "t": "Různé"
+    },
+    {
+     "n": 8,
+     "t": "Usnesení"
+    },
+    {
+     "n": 9,
+     "t": "Závěr"
+    }
+   ],
+   "resolutions": [
+    {
+     "n": null,
+     "text": "Komise velmi doporučuje RM a zastupitelstvu se znovu zabývat možností vypracování dopravní studie, z důvodu neutěšené dopravní situace na sídlišti a v dalších lokalitách ve městě a v návaznosti na plánovaný obchvat města",
+     "pro": null,
+     "proti": null,
+     "zdrzel": null,
+     "adopted": null,
+     "note": "Součást bodu 6 (Parkování ve městě); zápis hlasování neuvádí."
+    },
+    {
+     "n": null,
+     "text": "Komise doporučuje prověřit možnost zřízení dalších parkovacích míst v lokalitě u nádraží, za stávajícím parkovištěm (rozšíření kapacity)",
+     "pro": null,
+     "proti": null,
+     "zdrzel": null,
+     "adopted": null,
+     "note": "Součást bodu 6 (Parkování ve městě); zápis hlasování neuvádí."
+    },
+    {
+     "n": "8",
+     "text": "Komise schvaluje projednané body a závěry z nich.",
+     "pro": null,
+     "proti": null,
+     "zdrzel": null,
+     "adopted": null,
+     "note": "Zápis neuvádí počty hlasů."
+    }
+   ],
+   "summary": [
+    "Starosta: základní škola – tělocvična: pokračuje příprava (opěrná zeď, přeložky sítí), do konce roku příprava, v příštím roce výběrové řízení na dodavatele stavby a žádost o dotaci; celková předpokládaná cena 180 mil. Kč.",
+    "Další akce: uzavírka Velkých Chvalovic v říjnu, Bačov od října, cyklostezka do Velkých Chvalovic, projekt opravy fasády staré ZŠ, dokončené tribuny na hřišti, vodárna, komplikace s pozemkovými úpravami.",
+    "Odbor výstavby, ŽP a zemědělství: nízký stav obsazení, chybí minimálně 1 člověk a nejsou zájemci.",
+    "Parkování: orientační cena parkovacího systému u nádraží 700 000 Kč bez DPH, návratnost cca 1 rok; pro řešení celého města je podle komise nutná dopravní studie.",
+    "Pajasan: likvidaci zahájila odborná firma, vzniká seznam stromů. Diskutována proluka na náměstí a cyklostezka do Velkých Chvalovic."
+   ],
+   "attachments": [],
+   "extraction": {
+    "method": "pdftotext",
+    "checked": "2026-09-30",
+    "note": "Zápis uvádí jen „Komise schvaluje projednané body a závěry z nich“ (bod 8, bez počtů hlasů); dvě doporučení jsou z textu bodu 6. Jednání začalo v 16:00 a skončilo v 17:40. Michal Müller je v zápisu jednou přepsaný jako „Miler“ (normalizováno). V zápisech komise se za celé období nevyskytuje Lubomír Metelák ani Tomáš Vodička, kteří jsou v Lidech vedeni jako členové (viz jednani/README.md → Komise)."
+   }
+  },
+  {
+   "id": "kulturni-komise-2025-09-02",
+   "uuid": null,
+   "type": "Kulturní komise",
+   "group": "komise",
+   "bodies": [
+    "Kulturní komise",
+    "Pracovní skupina pro oslavy 100 let"
+   ],
+   "number": null,
+   "year": 2025,
+   "date": "2025-09-02",
+   "label": "Kulturní komise (2. 9. 2025)",
+   "time": "16:00",
+   "time_end": "16:45",
+   "duration_seconds": null,
+   "venue": null,
+   "links": {
+    "minutes": "https://pecky.cz/files/pecky/gallery/19064/69c3ea738fa95_zapis-2.9.2025.pdf",
+    "source_page": "https://pecky.cz/default/default/21597_2022-2026"
+   },
+   "attendance": {
+    "present": 7,
+    "total": 7,
+    "present_names": [
+     "Ing. Martin Jedlička",
+     "Michal Müller",
+     "Lukáš Hanzelín",
+     "Ludmila Švandová",
+     "Petra Vorlíčková, DiS.",
+     "Milan Urban",
+     "Ing. Hana Kuprová"
+    ],
+    "absent_names": [],
+    "guests": [
+     {
+      "name": "Ivana Trčková",
+      "note": null
+     },
+     {
+      "name": "Zdeněk Fejfar",
+      "note": null
+     },
+     {
+      "name": "Milan Paluska",
+      "note": "starosta"
+     }
+    ]
+   },
+   "chair": "Ing. Martin Jedlička",
+   "recorded_by": "Ing. Hana Kuprová",
+   "agenda": [
+    {
+     "n": 1,
+     "t": "Vysazení památného stromu k příležitosti oslav 100 let povýšení Peček na město (800 let od první písemné zmínky)"
+    }
+   ],
+   "resolutions": [
+    {
+     "n": null,
+     "text": "po společné diskuzi se komise a pracovní skupina usnesly doporučit radě města variantu dubu červeného v proluce u Tesca (finální umístění bude konzultováno s dodavatelskou firmou – potřebný perimetr, ochranné pásmo) dne 21.10.2025.",
+     "pro": 7,
+     "proti": 0,
+     "zdrzel": 0,
+     "adopted": true
+    }
+   ],
+   "summary": [
+    "Návrh vysadit památný strom 28. října na výročí založení republiky; diskuze o druhu (dub, lípa, vánoční strom) a umístění (u Sáňkovačky × blíže centru, proluka u Tesca).",
+    "Slavnostní akt s vystoupením žáků ZUŠ: termín přesunut kvůli podzimním prázdninám na úterý 21. 10. 2025 od 16:00."
+   ],
+   "attachments": [],
+   "extraction": {
+    "method": "pdftotext",
+    "checked": "2026-09-30",
+    "note": "Zápis je na pecky.cz dvakrát — mezi zápisy kulturní komise i pracovní skupiny (stejný obsah, dva soubory); v datech je jednou. Zápis nemá formální program; bod jednání je přepsaný z věty „Obsahem jednání je vysazení památného stromu…“. V diskuzi zápis jmenuje i „pí Pokornou“, která není mezi přítomnými uvedena. Zahájeno v 16:00, ukončeno v 16:45."
+   }
+  },
+  {
+   "id": "stavebni-komise-2025-05-28",
+   "uuid": null,
+   "type": "Stavebně-dopravní komise",
+   "group": "komise",
+   "bodies": [
+    "Stavebně-dopravní komise"
+   ],
+   "number": null,
+   "year": 2025,
+   "date": "2025-05-28",
+   "label": "Stavebně-dopravní komise (28. 5. 2025)",
+   "time": "17:30",
+   "time_end": "19:35",
+   "duration_seconds": null,
+   "venue": null,
+   "links": {
+    "minutes": "https://pecky.cz/files/pecky/gallery/18834/69a803cc40b74_STK-28-05-2025.pdf",
+    "source_page": "https://pecky.cz/default/default/21595_2022-2026"
+   },
+   "attendance": {
+    "present": 5,
+    "total": 7,
+    "present_names": [
+     "Ing. Petr Dürr",
+     "Ivana Trčková",
+     "Michal Müller",
+     "Ing. Ivan Hruška, CSc.",
+     "Dušan Říha"
+    ],
+    "absent_names": [
+     {
+      "name": "Jiří Katrnoška",
+      "note": "omluven"
+     },
+     {
+      "name": "Antonín Černý",
+      "note": "omluven"
+     }
+    ],
+    "guests": [
+     {
+      "name": "Milan Paluska",
+      "note": "starosta"
+     }
+    ]
+   },
+   "chair": "Ing. Petr Dürr",
+   "recorded_by": "Ing. Petr Dürr",
+   "agenda": [
+    {
+     "n": 1,
+     "t": "Zahájení"
+    },
+    {
+     "n": 2,
+     "t": "Kontrola zápisu z minulého jednání komise"
+    },
+    {
+     "n": 3,
+     "t": "Informace o stavebních akcích ve městě"
+    },
+    {
+     "n": 4,
+     "t": "Osvětlení podchodu v parku"
+    },
+    {
+     "n": 5,
+     "t": "Dopravní studie"
+    },
+    {
+     "n": 6,
+     "t": "Invazivní druhy – Pajasan žláznatý (Ailanthus altissima)"
+    },
+    {
+     "n": 7,
+     "t": "Termín a téma příštího jednání komise"
+    },
+    {
+     "n": 8,
+     "t": "Závěr"
+    }
+   ],
+   "resolutions": [
+    {
+     "n": null,
+     "text": "Komise doporučuje prověřit, zda je možné umístit v ochranném pásmu tyto 2 solární lampy.",
+     "pro": null,
+     "proti": null,
+     "zdrzel": null,
+     "adopted": null,
+     "note": "Návrh komise: osvětlení podchodu v parku provést jako solární (podobně jako u rybníka), bez výkopů pro kabely. Zápis nemá samostatné usnesení ani hlasování; doporučení jsou z textu bodů 4–6."
+    },
+    {
+     "n": null,
+     "text": "Dopravní studie – komise velmi doporučuje RM a zastupitelstvu se znovu zabývat možností vypracování dopravní studie, z důvodu neutěšené dopravní situace na sídlišti a v dalších lokalitách ve městě a v návaznosti na plánovaný obchvat města.",
+     "pro": null,
+     "proti": null,
+     "zdrzel": null,
+     "adopted": null
+    },
+    {
+     "n": null,
+     "text": "Komise doporučuje RM zahájit cílené vyhledávání a likvidaci Pajasanu žláznatého dle příručky Ministerstva životního prostředí, jak postupovat, pokud máte pajasan na svém pozemku. Cílená aplikace herbicidu (injektáže, částečné loupání kůry). Stromy ponechat k přirozenému rozpadu, na nelesních biotopech dle potřeby kácet až zcela odumřelé stromy (1–2 roky po zásahu).",
+     "pro": null,
+     "proti": null,
+     "zdrzel": null,
+     "adopted": null
+    }
+   ],
+   "summary": [
+    "Starosta informoval o stavebních akcích: Bačov, cyklostezka do Velkých Chvalovic, oprava hřbitova, rekonstrukce zdravotního střediska, solární lampy u rybníka, výměna hlavic veřejného osvětlení (úspora 50 % elektřiny), příprava rekonstrukce chodníku na Tř. 5. května.",
+    "Na 6/2025 je plánovaná poptávka na dostavbu školy — zjištění ceny.",
+    "Vodárna: posudek statika — vrchní vrstvu betonu je potřeba otryskat a opravit, výztuž i základy jsou v pořádku, náklon 6 cm je v toleranci; je třeba zajistit projekt opravy vodojemu.",
+    "Propustek u DPS: odpověď KSÚS zatím nepřišla. Příští jednání 17. 9. 2025, téma parkování ve městě."
+   ],
+   "attachments": [],
+   "extraction": {
+    "method": "pdftotext",
+    "checked": "2026-09-30",
+    "note": "Zápis neuvádí žádné hlasování ani samostatné usnesení; tři doporučení jsou věty „Komise doporučuje / velmi doporučuje“ z bodů 4, 5 a 6 (pro/proti/zdržel se: zápis neuvádí). Jednání začalo v 17:30 a skončilo v 19:35. Zápis nemá číslovaný program — body jsou přepsané z úvodního seznamu. V zápisech komise se za celé období nevyskytuje Lubomír Metelák ani Tomáš Vodička, kteří jsou v Lidech vedeni jako členové (viz jednani/README.md → Komise)."
+   }
+  },
+  {
+   "id": "sportovni-komise-2025-02-04",
+   "uuid": null,
+   "type": "Sportovní komise",
+   "group": "komise",
+   "bodies": [
+    "Sportovní komise"
+   ],
+   "number": null,
+   "year": 2025,
+   "date": "2025-02-04",
+   "label": "Sportovní komise (4. 2. 2025)",
+   "time": null,
+   "time_end": null,
+   "duration_seconds": null,
+   "venue": null,
+   "links": {
+    "minutes": "https://pecky.cz/files/pecky/gallery/18830/69a7fa7334497_SK-zapis-04.02.2025.pdf",
+    "source_page": "https://pecky.cz/default/default/21594_2022-2026"
+   },
+   "attendance": {
+    "present": 11,
+    "total": 12,
+    "present_names": [
+     "Zdeněk Fejfar",
+     "Mgr. Pavel Kupr",
+     "Jiří Katrnoška",
+     "Václav Drška",
+     "Ladislav Kejda",
+     "Ing. Pavel Krejčí",
+     "Michal Rumlena",
+     "Ing. Aleš Staněk",
+     "Mgr. Helena Šestáková",
+     "Ladislava Šátková ml.",
+     "Ing. Jana Sladká"
+    ],
+    "absent_names": [
+     {
+      "name": "Tomáš Růžička",
+      "note": "omluven"
+     }
+    ],
+    "guests": []
+   },
+   "chair": "Zdeněk Fejfar",
+   "recorded_by": "Zuzana Vaněčková",
+   "agenda": [
+    {
+     "n": 1,
+     "t": "Úvod"
+    },
+    {
+     "n": 2,
+     "t": "Rozdělení dotací pro sportovní oddíly města Pečky"
+    },
+    {
+     "n": 3,
+     "t": "Návrh úprav smlouvy přidělení dotací"
+    },
+    {
+     "n": 4,
+     "t": "Sportovní den pro děti 1. stupně ZŠ Pečky"
+    },
+    {
+     "n": 5,
+     "t": "Rezervační systém sportovní haly"
+    },
+    {
+     "n": 6,
+     "t": "Diskuze"
+    },
+    {
+     "n": 7,
+     "t": "Závěr"
+    }
+   ],
+   "resolutions": [
+    {
+     "n": null,
+     "text": "Dotace města na rok 2025 – TJ SOKOL Pečky: navrženo 560 000 Kč (požadavek 560 000 Kč, výpočet 676 476 Kč) — schváleno.",
+     "pro": 11,
+     "proti": 0,
+     "zdrzel": 0,
+     "adopted": true
+    },
+    {
+     "n": null,
+     "text": "Dotace města na rok 2025 – Oddíl vodní turistiky Pečky: navrženo 120 000 Kč (požadavek 120 000 Kč, výpočet 51 305 Kč) — schváleno.",
+     "pro": 11,
+     "proti": 0,
+     "zdrzel": 0,
+     "adopted": true,
+     "note": "Oproti výpočtu podpořeny dvě významné akce, které oddíl pořádá: Vavřinecký potok a akce na rybníku „Benešák“ při Rodinné pouti mašinka."
+    },
+    {
+     "n": null,
+     "text": "Dotace města na rok 2025 – Zimní turisti Pečky: navrženo 60 000 Kč (požadavek 100 000 Kč, výpočet 61 934 Kč) — schváleno.",
+     "pro": 11,
+     "proti": 0,
+     "zdrzel": 0,
+     "adopted": true
+    },
+    {
+     "n": null,
+     "text": "Dotace města na rok 2025 – Basketbal Pečky: navrženo 45 000 Kč (požadavek 45 000 Kč, výpočet 46 109 Kč) — schváleno.",
+     "pro": 11,
+     "proti": 0,
+     "zdrzel": 0,
+     "adopted": true
+    },
+    {
+     "n": null,
+     "text": "Dotace města na rok 2025 – Minigolf Dráčata Pečky: navrženo 45 000 Kč (požadavek 45 000 Kč, výpočet 42 409 Kč) — schváleno.",
+     "pro": 11,
+     "proti": 0,
+     "zdrzel": 0,
+     "adopted": true,
+     "note": "Oproti výpočtu podpořeny do výše žádosti na akce (turnaje), které pořádají."
+    },
+    {
+     "n": null,
+     "text": "Dotace města na rok 2025 – TJ SOKOL Velké Chvalovice: navrženo 100 000 Kč (požadavek 100 000 Kč, výpočet 105 144 Kč) — schváleno.",
+     "pro": 11,
+     "proti": 0,
+     "zdrzel": 0,
+     "adopted": true
+    },
+    {
+     "n": null,
+     "text": "Dotace města na rok 2025 – SKC Pečky: navrženo 15 000 Kč (požadavek 15 000 Kč, výpočet 5 815 Kč) — schváleno.",
+     "pro": 11,
+     "proti": 0,
+     "zdrzel": 0,
+     "adopted": true,
+     "note": "Oproti výpočtu podpořeny dvě akce, které organizují: Časovka Plaňany, Pečecká 100."
+    },
+    {
+     "n": null,
+     "text": "Dotace města na rok 2025 – TJ Spartak Pečky: navrženo 250 000 Kč (požadavek 250 000 Kč, výpočet 216 757 Kč) — schváleno.",
+     "pro": 11,
+     "proti": 0,
+     "zdrzel": 0,
+     "adopted": true,
+     "note": "Oproti výpočtu podpořeny do výše žádosti na akce (turnaje), které pořádají."
+    },
+    {
+     "n": null,
+     "text": "Dotace města na rok 2025 – AFK Pečky: navrženo 470 000 Kč (požadavek 500 000 Kč, výpočet 418 923 Kč) — schváleno.",
+     "pro": 11,
+     "proti": 0,
+     "zdrzel": 0,
+     "adopted": true,
+     "note": "Zápis uvádí: oproti výpočtu podpořeny do výše žádosti na akce (turnaje), které pořádají."
+    },
+    {
+     "n": null,
+     "text": "Dotace města na rok 2025 – BK Pečky: navrženo 40 000 Kč (požadavek 40 000 Kč, výpočet 1 586 Kč) — schváleno.",
+     "pro": 11,
+     "proti": 0,
+     "zdrzel": 0,
+     "adopted": true,
+     "note": "Oproti výpočtu podpořeny dvě významné akce, které klub pořádá: Pečecká desítka a Běh parkem."
+    },
+    {
+     "n": null,
+     "text": "Dotace města na rok 2025 – FBC Charisma Pečky: navrženo 7 000 Kč (požadavek 7 000 Kč, výpočet 37 277 Kč) — schváleno.",
+     "pro": 11,
+     "proti": 0,
+     "zdrzel": 0,
+     "adopted": true
+    },
+    {
+     "n": null,
+     "text": "Dotace města na rok 2025 – DC GLOW, z.s.: navrženo 215 000 Kč (požadavek 215 000 Kč, výpočet 236 265 Kč) — schváleno.",
+     "pro": 11,
+     "proti": 0,
+     "zdrzel": 0,
+     "adopted": true
+    },
+    {
+     "n": null,
+     "text": "Sportovní komise doporučuje RM ke schválení tuto změnu ve Smlouvě o poskytnutí dotace z rozpočtu Města Pečky.\nV článku I. Výše a účel dotace se vypouští v odst. 3 „mzdových nákladů“ a doplňuje se odst. 5 se zněním:\nZ dotace může být použito celkem 15 % z celkové částky na odměny trenérů mládeže a 10 % z celkové částky na mzdové náklady spojené se správou a údržbou vlastních prostor.",
+     "pro": 11,
+     "proti": 0,
+     "zdrzel": 0,
+     "adopted": true
+    }
+   ],
+   "summary": [
+    "Dotace oddílům celkem 1 927 000 Kč (žádosti 1 997 000 Kč; výpočet 1 900 000 Kč), rezerva 323 000 Kč, z níž se vyplácejí i další dotace na sport.",
+    "Návrh změny smlouvy o dotaci: nejvýše 15 % z dotace na odměny trenérů mládeže a 10 % na mzdové náklady spojené se správou a údržbou vlastních prostor.",
+    "Sportovní den: ZŠ navrhuje 23.–24. 6. 2025; komise zvažuje pátek 20. 6. a pondělí 23. 6. Rezervační systém sportovní haly je na webu města, oficiální náběh plánovaný od 9/2025.",
+    "Zdeněk Fejfar informoval o dalších krocích v přípravě dostavby tělocvičny při dostavbě ZŠ o učebny, aulu a tělocvičnu."
+   ],
+   "attachments": [
+    "Výpočet rozdělení dotací sportovním oddílům pro rok 2025"
+   ],
+   "extraction": {
+    "method": "pdftotext",
+    "checked": "2026-09-30",
+    "note": "Zápis nemá číslovaná usnesení; usnesení o dotacích jsou sestavená z tabulky (navrhovaná výše dotace 2025) a z hlasování za každým řádkem. Zápis je „1. jednání“ roku 2025, podepsaný 5. 2. 2025; přílohou je výpočet dotací. Zápis končí formulí „všechny body navrženého programu byly projednány a schváleny“."
+   }
+  },
+  {
+   "id": "pracovni-skupina-2025-01-30",
+   "uuid": null,
+   "type": "Pracovní skupina pro oslavy 100 let",
+   "group": "komise",
+   "bodies": [
+    "Pracovní skupina pro oslavy 100 let"
+   ],
+   "number": null,
+   "year": 2025,
+   "date": "2025-01-30",
+   "label": "Pracovní skupina pro oslavy 100 let (30. 1. 2025)",
+   "time": "16:00",
+   "time_end": "17:20",
+   "duration_seconds": null,
+   "venue": null,
+   "links": {
+    "minutes": "https://pecky.cz/files/pecky/gallery/19062/69c3e05e69ad5_zapis-30.1.2025.pdf",
+    "source_page": "https://pecky.cz/default/default/21896_zapisy-pracovni-skupiny-pro-oslavy-100-let"
+   },
+   "attendance": {
+    "present": 5,
+    "total": 5,
+    "present_names": [
+     "Milan Paluska",
+     "Ing. Martin Jedlička",
+     "Petra Vorlíčková, DiS.",
+     "Lukáš Hanzelín",
+     "Ing. Hana Kuprová"
+    ],
+    "absent_names": [],
+    "guests": []
+   },
+   "chair": "Ing. Martin Jedlička",
+   "recorded_by": "Ing. Hana Kuprová",
+   "agenda": [
+    {
+     "n": 1,
+     "t": "Slavnostní setkání (zasedání zastupitelstva) – 26. 4. 2025 od 14:00."
+    }
+   ],
+   "resolutions": [],
+   "summary": [
+    "Slavnostní setkání (zasedání zastupitelstva) 26. 4. 2025 od 14:00: pozvánky (VIP hosté, zastupitelé, čestní občané), řízení starosta, zahájení hymnou, proslovy, oceňování čestných občanů a pamětní medaile; pozvánky se rozesílají do 7. 2. 2025.",
+    "Slavnostní mše 27. 4. 2025 od 9:00 (kardinál Duka), poté oběd.",
+    "Komise pro udělování čestného občanství: nejvýše 7 osob (lichý počet), složení schvaluje rada města; navrhováni starosta, Martin Jedlička (za radu), Ondřej Schulz (za zastupitelstvo), zástupci organizací a kronikář města, poradní hlas matriky. Bude projednáno v radě 3. 2. 2025."
+   ],
+   "attachments": [],
+   "extraction": {
+    "method": "pdftotext",
+    "checked": "2026-09-30",
+    "note": "Zápis je jen mezi zápisy pracovní skupiny. Přítomní podle zápisu: Milan Paluska, Martin Jedlička, Petra Vorlíčková, Lukáš Hanzelín, Hana Kuprová; členové pracovní skupiny Milan Urban, Michal Müller, Nikola Vrátná a Jan Karbus nejsou zmíněni (nejsou proto uvedeni ani mezi nepřítomnými). Zápis neobsahuje usnesení ani hlasování. Jednání začalo v 16:00 a skončilo v 17:20."
+   }
+  },
+  {
+   "id": "sportovni-komise-2024-10-24",
+   "uuid": null,
+   "type": "Sportovní komise",
+   "group": "komise",
+   "bodies": [
+    "Sportovní komise"
+   ],
+   "number": null,
+   "year": 2024,
+   "date": "2024-10-24",
+   "label": "Sportovní komise (24. 10. 2024)",
+   "time": null,
+   "time_end": null,
+   "duration_seconds": null,
+   "venue": null,
+   "links": {
+    "minutes": "https://pecky.cz/files/pecky/gallery/18830/69a7fa6e045bd_SK-zapis-24.10.2024.pdf",
+    "source_page": "https://pecky.cz/default/default/21594_2022-2026"
+   },
+   "attendance": {
+    "present": 9,
+    "total": 12,
+    "present_names": [
+     "Zdeněk Fejfar",
+     "Tomáš Růžička",
+     "Jiří Katrnoška",
+     "Václav Drška",
+     "Ladislav Kejda",
+     "Ing. Aleš Staněk",
+     "Ladislava Šátková ml.",
+     "Ing. Jana Sladká"
+    ],
+    "absent_names": [
+     {
+      "name": "Mgr. Pavel Kupr",
+      "note": "omluven"
+     },
+     {
+      "name": "Michal Rumlena",
+      "note": "omluven"
+     },
+     {
+      "name": "Mgr. Helena Šestáková",
+      "note": "omluvena"
+     }
+    ],
+    "guests": [
+     {
+      "name": "Ing. Markéta Koděrová",
+      "note": "DC GLOW, z.s."
+     }
+    ]
+   },
+   "chair": "Zdeněk Fejfar",
+   "recorded_by": "Zdeněk Fejfar",
+   "agenda": [
+    {
+     "n": 1,
+     "t": "Úvod"
+    },
+    {
+     "n": 2,
+     "t": "Představení nového zapsaného spolku DC GLOW, z.s."
+    },
+    {
+     "n": 3,
+     "t": "Projednání žádosti o dotaci DC GLOW, z.s."
+    },
+    {
+     "n": 4,
+     "t": "Připravovaná kniha k oslavám výročí 100 let povýšení Peček na město"
+    },
+    {
+     "n": 5,
+     "t": "Sportovní den pro děti 1. stupně ZŠ Pečky – vyhodnocení uskutečněného v roce 2024, termín pro rok 2025"
+    },
+    {
+     "n": 6,
+     "t": "Diskuze"
+    },
+    {
+     "n": 7,
+     "t": "Závěr"
+    }
+   ],
+   "resolutions": [
+    {
+     "n": null,
+     "text": "Sportovní komise doporučuje RM schválit dotaci na činnost nově vzniklého zapsaného spolku DC GLOW, z.s. ve výši 79 000 Kč.",
+     "pro": 9,
+     "proti": 0,
+     "zdrzel": 0,
+     "adopted": true,
+     "note": "Zápis uvádí odůvodnění: spolek vzešel z dlouho fungujícího kroužku pod Kulturním střediskem a má velkou členskou základnu převážně mládeže (100 dětí). Výpočet dotace: 79 253,33 Kč za září–prosinec."
+    },
+    {
+     "n": null,
+     "text": "Sportovní komise doporučuje RM zařadit do připravovaného rozpočtu 2025 města Pečky položku „příspěvek sportovním oddílům“ ve výši 2250000 Kč.",
+     "pro": 9,
+     "proti": 0,
+     "zdrzel": 0,
+     "adopted": true,
+     "note": "Odůvodnění v zápise: vznik spolku DC GLOW, růst členských základen a nižší dotace oddílům od NSA proti minulým rokům."
+    }
+   ],
+   "summary": [
+    "Zástupkyně DC GLOW (bývalý kroužek KS Pečky, taneční styl disco dance a show dance) představila spolek a žádost o dotaci.",
+    "Jiří Katrnoška představil kapitolu o sportu v knize ke 100 letům města.",
+    "Sportovní den 2025: předběžný termín 23.–24. 6. 2025. Komise diskutovala i horší podmínky dotací od NSA a úpravu smlouvy o využití dotace."
+   ],
+   "attachments": [],
+   "extraction": {
+    "method": "pdftotext",
+    "checked": "2026-09-30",
+    "note": "Zápis je „5. jednání“; předseda uvádí, že 4. jednání bylo zrušeno pro velké množství omluvenek a neusnášeníschopnost. Zápis uvádí PŘÍTOMNO 9 (hlasování také 9), ale jmenuje jen 8 přítomných — Ing. Pavel Krejčí není uveden ani mezi přítomnými, ani mezi omluvenými (9 + 3 omluvení = 12 členů); počet 9 je převzatý ze zápisu, Krejčí je v datech mezi nepřítomnými bez uvedení. Zápis končí formulí „všechny body navrženého programu byly projednány a schváleny“."
+   }
+  },
+  {
+   "id": "kulturni-komise-2024-09-19",
+   "uuid": null,
+   "type": "Kulturní komise",
+   "group": "komise",
+   "bodies": [
+    "Kulturní komise",
+    "Pracovní skupina pro oslavy 100 let"
+   ],
+   "number": null,
+   "year": 2024,
+   "date": "2024-09-19",
+   "label": "Kulturní komise (19. 9. 2024)",
+   "time": "16:00",
+   "time_end": "17:00",
+   "duration_seconds": null,
+   "venue": null,
+   "links": {
+    "minutes": "https://pecky.cz/files/pecky/gallery/19062/69c3dfdfbc640_zapis-19.9.2024.pdf",
+    "source_page": "https://pecky.cz/default/default/21896_zapisy-pracovni-skupiny-pro-oslavy-100-let"
+   },
+   "attendance": {
+    "present": 7,
+    "total": 10,
+    "present_names": [
+     "Ing. Martin Jedlička",
+     "Michal Müller",
+     "Lukáš Hanzelín",
+     "Ludmila Švandová",
+     "Petra Vorlíčková, DiS.",
+     "Ing. Hana Kuprová",
+     "Milan Urban"
+    ],
+    "absent_names": [
+     {
+      "name": "Ing. Nikola Vrátná",
+      "note": "omluvena"
+     },
+     {
+      "name": "Mgr. Věra Křížová",
+      "note": "omluvena"
+     },
+     {
+      "name": "Jan Karbus",
+      "note": "omluven"
+     }
+    ],
+    "guests": [
+     {
+      "name": "Čermáková",
+      "note": "ředitelka, „PS“ podle zápisu"
+     },
+     {
+      "name": "Malichová",
+      "note": "zástupkyně MŠ"
+     },
+     {
+      "name": "Krištoufková",
+      "note": "zástupkyně ZŠ"
+     }
+    ]
+   },
+   "chair": "Ing. Martin Jedlička",
+   "recorded_by": null,
+   "agenda": [
+    {
+     "n": 1,
+     "t": "Logo oslav"
+    },
+    {
+     "n": 2,
+     "t": "Propagace akcí"
+    },
+    {
+     "n": 3,
+     "t": "Financování akcí související s oslavami"
+    }
+   ],
+   "resolutions": [],
+   "summary": [
+    "Logo schválené radou města (návrh ZUŠ) bude rozesláno; propagace akcí tištěnými plakáty (A3 na celý rok 2025, A4 čtvrtletní).",
+    "Náklady na akce hradí příspěvkové organizace ze svých rozpočtů; rozpočet na příští rok navýší o položku oslavy města.",
+    "Kniha k oslavám: autoři kapitol a termíny; čestné občanství — v říjnu a listopadu se přijímají návrhy na formuláři, po schválení radou budou zveřejněna pravidla."
+   ],
+   "attachments": [],
+   "extraction": {
+    "method": "pdftotext",
+    "checked": "2026-09-30",
+    "note": "Zápis nese název „Schůzka kulturní komise a komise pro oslavy 100 let výročí povýšení Peček“; je jen mezi zápisy pracovní skupiny na pecky.cz. Ředitelka Ing. Petra Vorlíčková (ZUŠ) je členkou kulturní komise. Zápis neobsahuje usnesení ani hlasování. Jednání začalo v 16:00 a skončilo v 17:00. Program má v zápisu tři body, v textu jsou čtyři."
+   }
+  },
+  {
+   "id": "stavebni-komise-2024-06-05",
+   "uuid": null,
+   "type": "Stavebně-dopravní komise",
+   "group": "komise",
+   "bodies": [
+    "Stavebně-dopravní komise"
+   ],
+   "number": null,
+   "year": 2024,
+   "date": "2024-06-05",
+   "label": "Stavebně-dopravní komise (5. 6. 2024)",
+   "time": "16:00",
+   "time_end": "18:00",
+   "duration_seconds": null,
+   "venue": null,
+   "links": {
+    "minutes": "https://pecky.cz/files/pecky/gallery/18834/69a803c7a42ec_STK-05-06-2024.pdf",
+    "source_page": "https://pecky.cz/default/default/21595_2022-2026"
+   },
+   "attendance": {
+    "present": 8,
+    "total": 9,
+    "present_names": [
+     "Ing. Petr Dürr",
+     "Václav Drška",
+     "Ivana Trčková",
+     "Michal Müller",
+     "Ing. Ivan Hruška, CSc.",
+     "Dušan Říha",
+     "Antonín Černý",
+     "Jiří Katrnoška"
+    ],
+    "absent_names": [
+     {
+      "name": "Lenka Třísková",
+      "note": "omluvena"
+     }
+    ],
+    "guests": [
+     {
+      "name": "Milan Paluska",
+      "note": "starosta"
+     },
+     {
+      "name": "Ing. Věra Růžičková",
+      "note": null
+     },
+     {
+      "name": "Marie Hoznauerová",
+      "note": null
+     },
+     {
+      "name": "Ing. Jana Zindrová",
+      "note": null
+     }
+    ]
+   },
+   "chair": "Ing. Petr Dürr",
+   "recorded_by": "Ing. Petr Dürr",
+   "agenda": [
+    {
+     "n": 1,
+     "t": "Zahájení"
+    },
+    {
+     "n": 2,
+     "t": "Schválení programu jednání"
+    },
+    {
+     "n": 3,
+     "t": "Informace o investičních akcích města"
+    },
+    {
+     "n": 4,
+     "t": "Informace - odbor výstavby, ŽP a zemědělství – MěÚ"
+    },
+    {
+     "n": 5,
+     "t": "Kontrola zápisu z minulého jednání"
+    },
+    {
+     "n": 6,
+     "t": "Odvod dešťových vod – ul. Chvalovická, Pečky"
+    },
+    {
+     "n": 7,
+     "t": "Stav místních komunikací"
+    },
+    {
+     "n": 8,
+     "t": "Cyklověž"
+    },
+    {
+     "n": 9,
+     "t": "Různé"
+    },
+    {
+     "n": 10,
+     "t": "Usnesení"
+    },
+    {
+     "n": 11,
+     "t": "Závěr"
+    }
+   ],
+   "resolutions": [
+    {
+     "n": "10.1",
+     "text": "Komise podporuje a doporučuje vyřešení situace odvodu dešť. vod v ulici Chvalovická u DPS a křižovatky s ulicí V Kaštánkách.",
+     "pro": 8,
+     "proti": 0,
+     "zdrzel": 0,
+     "adopted": true
+    },
+    {
+     "n": "10.2",
+     "text": "Komise žádá o dokumentaci ulic k opravám, aby mohla dokument připomínkovat před jednáním rady.",
+     "pro": 8,
+     "proti": 0,
+     "zdrzel": 0,
+     "adopted": true
+    },
+    {
+     "n": "10.3",
+     "text": "Komise doporučuje RM zabývat se přechodem přes hlavní silnici mezi sídlištěm a parkem v ulici Hellichova a zařadit jej do plánu investic.",
+     "pro": 8,
+     "proti": 0,
+     "zdrzel": 0,
+     "adopted": true
+    },
+    {
+     "n": "10.4",
+     "text": "Termín příštího jednání komise je 13.11.2024 v 16:00 hod v obřadní síni MěÚ",
+     "pro": 8,
+     "proti": 0,
+     "zdrzel": 0,
+     "adopted": true
+    }
+   ],
+   "summary": [
+    "Starosta informoval o investičních akcích města (kabiny, Bačov, cyklostezka do Velkých Chvalovic, oplocení MŠ, rekonstrukce střechy čp. 46, fotovoltaika, zateplení knihovny a ZŠ, Tř. 5. května, ul. Nymburská, záměr sportovní haly, přeložky CETIN, lávka přes Výrovku).",
+    "Odbor výstavby, ŽP a zemědělství se připravuje na nový stavební zákon a digitalizaci stavebního řízení.",
+    "Michal Müller stáhl bod o cyklověži; Jiří Katrnoška navrhl řešit přechod u „eko vody“ (ul. Hellichova)."
+   ],
+   "attachments": [],
+   "extraction": {
+    "method": "pdftotext",
+    "checked": "2026-09-30",
+    "note": "Zápis uvádí u hlasování jen „všichni pro“ — počet 8 hlasů je dopočtený z počtu přítomných. Jednání začalo v 16:00 a skončilo v 18:00. U hostů zápis neuvádí funkce. V zápisech komise se za celé období nevyskytuje Lubomír Metelák ani Tomáš Vodička, kteří jsou v Lidech vedeni jako členové (viz jednani/README.md → Komise)."
+   }
+  },
+  {
+   "id": "kulturni-komise-2024-05-28",
+   "uuid": null,
+   "type": "Kulturní komise",
+   "group": "komise",
+   "bodies": [
+    "Kulturní komise",
+    "Pracovní skupina pro oslavy 100 let"
+   ],
+   "number": null,
+   "year": 2024,
+   "date": "2024-05-28",
+   "label": "Kulturní komise (28. 5. 2024)",
+   "time": "16:00",
+   "time_end": null,
+   "duration_seconds": null,
+   "venue": null,
+   "links": {
+    "minutes": "https://pecky.cz/files/pecky/gallery/19064/69c3ea423f7b4_zapis-28.5.2024.pdf",
+    "source_page": "https://pecky.cz/default/default/21597_2022-2026"
+   },
+   "attendance": {
+    "present": 7,
+    "total": 10,
+    "present_names": [
+     "Ing. Martin Jedlička",
+     "Lukáš Hanzelín",
+     "Ludmila Švandová",
+     "Petra Vorlíčková, DiS.",
+     "Michal Müller",
+     "Milan Urban",
+     "Ing. Hana Kuprová"
+    ],
+    "absent_names": [
+     {
+      "name": "Mgr. Věra Křížová",
+      "note": "omluvena"
+     },
+     {
+      "name": "Ing. Nikola Vrátná",
+      "note": "omluvena"
+     },
+     {
+      "name": "Jan Karbus",
+      "note": "omluven"
+     }
+    ],
+    "guests": [
+     {
+      "name": "Mgr. Lenka Krištoufková",
+      "note": "ZŠ Pečky"
+     },
+     {
+      "name": "Bc. Květa Bubeníčková",
+      "note": "MŠ Pečky"
+     }
+    ]
+   },
+   "chair": "Ing. Martin Jedlička",
+   "recorded_by": "Ing. Hana Kuprová",
+   "agenda": [
+    {
+     "n": 1,
+     "t": "Aktualizace kalendáře akcí v rámci oslav"
+    },
+    {
+     "n": 2,
+     "t": "Rozpočet akcí v rámci oslav povýšení Peček na město"
+    },
+    {
+     "n": 3,
+     "t": "Průběžná diskuze"
+    }
+   ],
+   "resolutions": [],
+   "summary": [
+    "Příspěvkové organizace představily plánované akce k oslavám: ZŠ (sborník, upomínkové předměty, školní akademie, venkovní hra, výstava prací žáků), MŠ (rodinný piknik 15. 5. 2025, rozloučení s předškoláky 25. 6. 2025), knihovna (výstavy a literární podvečer), DPS (zahradní slavnosti), Kulturní středisko (slavnostní Mašinka), ZUŠ (akce doplněny do harmonogramu).",
+    "V diskuzi: jubilejní kámen, akce sportovní komise, průběh slavnostního zastupitelstva, ocenění čestných občanů, kniha k výročí. Organizace doplní údaje do 5. 6. 2024, poté se přehled projedná v radě města; Martin Jedlička osloví MAS Podlipansko."
+   ],
+   "attachments": [],
+   "extraction": {
+    "method": "pdftotext",
+    "checked": "2026-09-30",
+    "note": "Zápis je na pecky.cz dvakrát — mezi zápisy kulturní komise i pracovní skupiny (stejný obsah, dva soubory); v datech je jednou. Zápis neobsahuje usnesení ani hlasování. Hostům zápis neuvádí funkce (podle textu zástupkyně ZŠ a MŠ). Zahájeno v 16:00; příští jednání „bude svoláno dle potřeby“."
+   }
+  },
+  {
+   "id": "kulturni-komise-2024-05-22",
+   "uuid": null,
+   "type": "Kulturní komise",
+   "group": "komise",
+   "bodies": [
+    "Kulturní komise",
+    "Pracovní skupina pro oslavy 100 let"
+   ],
+   "number": null,
+   "year": 2024,
+   "date": "2024-05-22",
+   "label": "Kulturní komise (22. 5. 2024)",
+   "time": "18:00",
+   "time_end": null,
+   "duration_seconds": null,
+   "venue": null,
+   "links": {
+    "minutes": "https://pecky.cz/files/pecky/gallery/19064/69c3ea3f61d8a_zapis-22.5.2024.pdf",
+    "source_page": "https://pecky.cz/default/default/21597_2022-2026"
+   },
+   "attendance": {
+    "present": 7,
+    "total": 10,
+    "present_names": [
+     "Ing. Martin Jedlička",
+     "Lukáš Hanzelín",
+     "Ludmila Švandová",
+     "Petra Vorlíčková, DiS.",
+     "Michal Müller",
+     "Milan Urban",
+     "Ing. Hana Kuprová"
+    ],
+    "absent_names": [
+     {
+      "name": "Mgr. Věra Křížová",
+      "note": "omluvena"
+     },
+     {
+      "name": "Ing. Nikola Vrátná",
+      "note": "omluvena"
+     },
+     {
+      "name": "Jan Karbus",
+      "note": "omluven"
+     }
+    ],
+    "guests": []
+   },
+   "chair": "Ing. Martin Jedlička",
+   "recorded_by": "Ing. Hana Kuprová",
+   "agenda": [
+    {
+     "n": 1,
+     "t": "Kalendář akcí v rámci oslav"
+    },
+    {
+     "n": 2,
+     "t": "Příprava rozpočtu akcí v rámci oslav povýšení Peček na město"
+    },
+    {
+     "n": 3,
+     "t": "Logo oslav"
+    },
+    {
+     "n": 4,
+     "t": "Diskuze a různé"
+    }
+   ],
+   "resolutions": [],
+   "summary": [
+    "Kalendář akcí oslav v průběhu roku 2025; na příští jednání budou přizváni ředitelé příspěvkových organizací.",
+    "Návrh rozpočtu akcí celkem 1 360 000 Kč (kniha 250 000, ples 100 000, koncert Napolitan Quartet 30 000, slavnostní zastupitelstvo 50 000 + čestní občané 50 000, Mašinka 700 000, Noc kostelů 10 000, vinobraní 50 000, jubilejní kámen a pamětní strom 20 000, bannery 100 000 Kč; u dalších položek částka zatím chybí).",
+    "Na žádost rady města bude v logu akcentováno výročí 100 let povýšení na město; 800 let od první zmínky se na logu uvádět nebude. Schůzka v ZUŠ o úpravě loga proběhla 6. 5. 2024."
+   ],
+   "attachments": [],
+   "extraction": {
+    "method": "pdftotext",
+    "checked": "2026-09-30",
+    "note": "Zápis je na pecky.cz dvakrát — mezi zápisy kulturní komise i pracovní skupiny (stejný obsah, dva soubory); v datech je jednou. Zápis neobsahuje usnesení ani hlasování. Text zápisu zve na příští jednání „28. 5. 2025“ — zjevný překlep, další zápis je z 28. 5. 2024. Zahájeno v 18:00."
+   }
+  },
+  {
+   "id": "kulturni-komise-2024-03-20",
+   "uuid": null,
+   "type": "Kulturní komise",
+   "group": "komise",
+   "bodies": [
+    "Kulturní komise",
+    "Pracovní skupina pro oslavy 100 let"
+   ],
+   "number": null,
+   "year": 2024,
+   "date": "2024-03-20",
+   "label": "Kulturní komise (20. 3. 2024)",
+   "time": "16:00",
+   "time_end": null,
+   "duration_seconds": null,
+   "venue": null,
+   "links": {
+    "minutes": "https://pecky.cz/files/pecky/gallery/19064/69c3ea3b5eaab_zapis-20.3.2024.pdf",
+    "source_page": "https://pecky.cz/default/default/21597_2022-2026"
+   },
+   "attendance": {
+    "present": 6,
+    "total": 10,
+    "present_names": [
+     "Ing. Martin Jedlička",
+     "Michal Müller",
+     "Lukáš Hanzelín",
+     "Ludmila Švandová",
+     "Petra Vorlíčková, DiS.",
+     "Milan Urban"
+    ],
+    "absent_names": [
+     {
+      "name": "Ing. Nikola Vrátná",
+      "note": "omluvena"
+     },
+     {
+      "name": "Ing. Hana Kuprová",
+      "note": "omluvena"
+     },
+     {
+      "name": "Mgr. Věra Křížová",
+      "note": "omluvena"
+     },
+     {
+      "name": "Jan Karbus",
+      "note": "omluven"
+     }
+    ],
+    "guests": []
+   },
+   "chair": "Ing. Martin Jedlička",
+   "recorded_by": "Ing. Martin Jedlička",
+   "agenda": [
+    {
+     "n": 1,
+     "t": "Seznámení s přípravou knihy k výročí"
+    },
+    {
+     "n": 2,
+     "t": "Návrh kulturních akcí v rámci oslav výročí a jejich harmonogram."
+    },
+    {
+     "n": 3,
+     "t": "Kniha vydávaná k příležitosti výročí."
+    },
+    {
+     "n": 4,
+     "t": "Definování úkolů při přípravě kulturních akcí a jejich schválení."
+    }
+   ],
+   "resolutions": [
+    {
+     "n": null,
+     "text": "Komise schvaluje zápis z jednání KK a pracovní skupiny k oslavám města.",
+     "pro": 6,
+     "proti": 0,
+     "zdrzel": 0,
+     "adopted": true
+    }
+   ],
+   "summary": [
+    "Kniha: 17. 4. 2024 schůzka na radnici se spoluautory a představiteli města; představa o tiskovinách za 250 000 Kč.",
+    "Program oslav: logo (dvě výročí, v barvách města), akce a jejich orientační rozpočty — ples 60 000 Kč, slavnostní zastupitelstvo 20 000 Kč, přednášky a výstavy 40 000 Kč, Mašinka 850 000 Kč, turistická známka 10 000 Kč, reklamní předměty 100 000 Kč.",
+    "Úkoly: schválit hlavní plán oslav, připravit návrh rozpočtu, doplnit doprovodné akce, připravit kalendář akcí, schválit logo."
+   ],
+   "attachments": [
+    "Příloha č. 1: cenový návrh akce Mašinka 2025",
+    "Příloha č. 2: cenový návrh oslav města"
+   ],
+   "extraction": {
+    "method": "ocr",
+    "checked": "2026-09-30",
+    "note": "Zápis je na pecky.cz dvakrát — mezi zápisy kulturní komise i pracovní skupiny (stejný obsah, dva soubory); v datech je jednou. Zápis je sken (bez textové vrstvy), čteno OCR (tesseract); částky a údaje u příloh jsou z OCR (příloha č. 2 se v OCR ořezala). Přítomni: kulturní komise Jedlička, Müller, Hanzelín, Švandová, Vorlíčková; pracovní skupina Urban, Müller, Hanzelín (Müller a Hanzelín jsou členy obou). Zahájeno v 16:00."
+   }
+  },
+  {
+   "id": "sportovni-komise-2024-02-06",
+   "uuid": null,
+   "type": "Sportovní komise",
+   "group": "komise",
+   "bodies": [
+    "Sportovní komise"
+   ],
+   "number": null,
+   "year": 2024,
+   "date": "2024-02-06",
+   "label": "Sportovní komise (6. 2. 2024)",
+   "time": null,
+   "time_end": null,
+   "duration_seconds": null,
+   "venue": null,
+   "links": {
+    "minutes": "https://pecky.cz/files/pecky/gallery/18830/69a7fa6a2edaf_SK-zapis-06.02.2024.pdf",
+    "source_page": "https://pecky.cz/default/default/21594_2022-2026"
+   },
+   "attendance": {
+    "present": 11,
+    "total": 12,
+    "present_names": [
+     "Zdeněk Fejfar",
+     "Tomáš Růžička",
+     "Mgr. Pavel Kupr",
+     "Jiří Katrnoška",
+     "Václav Drška",
+     "Ladislav Kejda",
+     "Ing. Aleš Staněk",
+     "Michal Rumlena",
+     "Mgr. Helena Šestáková",
+     "Ladislava Šátková ml.",
+     "Ing. Jana Sladká"
+    ],
+    "absent_names": [
+     {
+      "name": "Ing. Pavel Krejčí",
+      "note": "omluven"
+     }
+    ],
+    "guests": [
+     {
+      "name": "Milan Paluska",
+      "note": "starosta"
+     }
+    ]
+   },
+   "chair": "Zdeněk Fejfar",
+   "recorded_by": "Zuzana Vaněčková",
+   "agenda": [
+    {
+     "n": 1,
+     "t": "Úvod"
+    },
+    {
+     "n": 2,
+     "t": "Dotace z rozpočtu města Pečky pro sportovní oddíly"
+    },
+    {
+     "n": 3,
+     "t": "Sportovní den dětí – návrhy na způsob realizace"
+    },
+    {
+     "n": 4,
+     "t": "Diskuze"
+    },
+    {
+     "n": 5,
+     "t": "Závěr"
+    }
+   ],
+   "resolutions": [
+    {
+     "n": null,
+     "text": "Dotace města na rok 2024 – TJ SOKOL Pečky: navrženo 560 000 Kč (požadavek 560 000 Kč, výpočet dle pravidel 602 963,49 Kč) — schváleno.",
+     "pro": 8,
+     "proti": 0,
+     "zdrzel": 3,
+     "adopted": true,
+     "vote_names": {
+      "zdrzel": [
+       "Zdeněk Fejfar",
+       "Jiří Katrnoška",
+       "Ing. Jana Sladká"
+      ]
+     }
+    },
+    {
+     "n": null,
+     "text": "Dotace města na rok 2024 – Oddíl vodní turistiky Pečky: navrženo 100 000 Kč (požadavek 120 000 Kč, výpočet dle pravidel 37 809,96 Kč) — schváleno.",
+     "pro": 11,
+     "proti": 0,
+     "zdrzel": 0,
+     "adopted": true
+    },
+    {
+     "n": null,
+     "text": "Dotace města na rok 2024 – Zimní turisti Pečky: navrženo 55 000 Kč (požadavek 100 000 Kč, výpočet dle pravidel 54 551,55 Kč) — schváleno.",
+     "pro": 11,
+     "proti": 0,
+     "zdrzel": 0,
+     "adopted": true
+    },
+    {
+     "n": null,
+     "text": "Dotace města na rok 2024 – Basketbal Pečky: navrženo 48 000 Kč (požadavek 48 000 Kč, výpočet dle pravidel 70 458,34 Kč) — schváleno.",
+     "pro": 10,
+     "proti": 0,
+     "zdrzel": 1,
+     "adopted": true,
+     "vote_names": {
+      "zdrzel": [
+       "Zdeněk Fejfar"
+      ]
+     }
+    },
+    {
+     "n": null,
+     "text": "Dotace města na rok 2024 – Minigolf Dráčata Pečky: navrženo 45 000 Kč (požadavek 45 000 Kč, výpočet dle pravidel 41 044,43 Kč) — schváleno.",
+     "pro": 11,
+     "proti": 0,
+     "zdrzel": 0,
+     "adopted": true
+    },
+    {
+     "n": null,
+     "text": "Dotace města na rok 2024 – TJ SOKOL Velké Chvalovice: navrženo 80 000 Kč (požadavek 80 000 Kč, výpočet dle pravidel 92 142,54 Kč) — schváleno.",
+     "pro": 10,
+     "proti": 0,
+     "zdrzel": 1,
+     "adopted": true,
+     "vote_names": {
+      "zdrzel": [
+       "Václav Drška"
+      ]
+     }
+    },
+    {
+     "n": null,
+     "text": "Dotace města na rok 2024 – SKC Pečky: navrženo 15 000 Kč (požadavek 15 000 Kč, výpočet dle pravidel 3 225,05 Kč) — schváleno.",
+     "pro": 11,
+     "proti": 0,
+     "zdrzel": 0,
+     "adopted": true
+    },
+    {
+     "n": null,
+     "text": "Dotace města na rok 2024 – TJ SPARTAK Pečky: navrženo 250 000 Kč (požadavek 250 000 Kč, výpočet dle pravidel 192 311,61 Kč) — schváleno.",
+     "pro": 8,
+     "proti": 0,
+     "zdrzel": 3,
+     "adopted": true,
+     "vote_names": {
+      "zdrzel": [
+       "Michal Rumlena",
+       "Mgr. Helena Šestáková",
+       "Ladislava Šátková ml."
+      ]
+     }
+    },
+    {
+     "n": null,
+     "text": "Dotace města na rok 2024 – AFK Pečky: navrženo 450 000 Kč (požadavek 500 000 Kč, výpočet dle pravidel 406 399,07 Kč) — schváleno.",
+     "pro": 9,
+     "proti": 0,
+     "zdrzel": 2,
+     "adopted": true,
+     "vote_names": {
+      "zdrzel": [
+       "Tomáš Růžička",
+       "Ing. Aleš Staněk"
+      ]
+     }
+    },
+    {
+     "n": null,
+     "text": "Dotace města na rok 2024 – BK Pečky: navrženo 35 000 Kč (požadavek 35 000 Kč, výpočet dle pravidel 1 688,33 Kč) — schváleno.",
+     "pro": 10,
+     "proti": 0,
+     "zdrzel": 1,
+     "adopted": true,
+     "vote_names": {
+      "zdrzel": [
+       "Jiří Katrnoška"
+      ]
+     }
+    },
+    {
+     "n": null,
+     "text": "Dotace města na rok 2024 – FBC Charisma Pečky: navrženo 7 000 Kč (požadavek 7 000 Kč, výpočet dle pravidel 35 017,65 Kč) — schváleno.",
+     "pro": 11,
+     "proti": 0,
+     "zdrzel": 0,
+     "adopted": true
+    }
+   ],
+   "summary": [
+    "Dotace oddílům celkem 1 645 000 Kč, rezerva 105 000 Kč (žádosti dohromady 1 760 000 Kč). O každém oddílu se hlasovalo zvlášť; členové komise, kteří v oddílu působí, se zdrželi.",
+    "Sportovní den pro děti 1. stupně: dvoudenní, čtvrtek a pátek 20.–21. 6. 2024; oddíly do konce února sdělí zapojení.",
+    "Starosta Milan Paluska informoval o financování rekonstrukce kabin AFK a o rozpočtovém opatření na koupi traktoru pro TJ Sokol Velké Chvalovice."
+   ],
+   "attachments": [],
+   "extraction": {
+    "method": "pdftotext",
+    "checked": "2026-09-30",
+    "note": "Zápis nemá číslovaná usnesení; jednotlivá usnesení o dotacích jsou sestavená z tabulky „návrh dotace 2024“ a z hlasování za každým řádkem (výsledek „schváleno“ je v tabulce). Jména zdržení jsou uvedena v zápisu. Zápis končí formulí „všechny body navrženého programu byly projednány a schváleny“."
+   }
+  },
+  {
+   "id": "stavebni-komise-2024-01-17",
+   "uuid": null,
+   "type": "Stavebně-dopravní komise",
+   "group": "komise",
+   "bodies": [
+    "Stavebně-dopravní komise"
+   ],
+   "number": null,
+   "year": 2024,
+   "date": "2024-01-17",
+   "label": "Stavebně-dopravní komise (17. 1. 2024)",
+   "time": "16:00",
+   "time_end": "18:00",
+   "duration_seconds": null,
+   "venue": null,
+   "links": {
+    "minutes": "https://pecky.cz/files/pecky/gallery/18834/69a803c2df869_STK-17-01-2024.pdf",
+    "source_page": "https://pecky.cz/default/default/21595_2022-2026"
+   },
+   "attendance": {
+    "present": 7,
+    "total": 8,
+    "present_names": [
+     "Ing. Petr Dürr",
+     "Václav Drška",
+     "Ivana Trčková",
+     "Michal Müller",
+     "Ing. Ivan Hruška, CSc.",
+     "Dušan Říha",
+     "Lenka Třísková"
+    ],
+    "absent_names": [
+     {
+      "name": "Antonín Černý",
+      "note": "omluven"
+     }
+    ],
+    "guests": []
+   },
+   "chair": "Ing. Petr Dürr",
+   "recorded_by": "Ing. Petr Dürr",
+   "agenda": [
+    {
+     "n": 1,
+     "t": "Zahájení"
+    },
+    {
+     "n": 2,
+     "t": "Schválení programu jednání"
+    },
+    {
+     "n": 3,
+     "t": "Kontrola zápisu z minulého jednání"
+    },
+    {
+     "n": 4,
+     "t": "Odvodnění hřbitova – cesty"
+    },
+    {
+     "n": 5,
+     "t": "Stav Tř. 5.května"
+    },
+    {
+     "n": 6,
+     "t": "Různé"
+    },
+    {
+     "n": 7,
+     "t": "Usnesení"
+    },
+    {
+     "n": 8,
+     "t": "Závěr"
+    }
+   ],
+   "resolutions": [
+    {
+     "n": "7.1",
+     "text": "Komise doporučuje řešit odvedení dešťové vody na hřbitově ve spolupráci s odbornou firmou tak, aby nedocházelo k tvorbě kaluží a voda nepoškozovala vybavení hřbitova.",
+     "pro": 7,
+     "proti": 0,
+     "zdrzel": 0,
+     "adopted": true
+    },
+    {
+     "n": "7.2",
+     "text": "Komise doporučuje řešit reklamaci propadlého oddělovacího pruhu od křižovatky Tř. Jana Švermy x ul. Sladkovského, ve směru na Poděbrady",
+     "pro": 7,
+     "proti": 0,
+     "zdrzel": 0,
+     "adopted": true
+    },
+    {
+     "n": "7.3",
+     "text": "Komise doporučuje požádat MP o větší dohled na křižovatce u květinářství a kostela – stojící vozidla.",
+     "pro": 7,
+     "proti": 0,
+     "zdrzel": 0,
+     "adopted": true
+    },
+    {
+     "n": "7.4",
+     "text": "Komise doporučuje požádat MP o větší dohled na Tř. 5.května s rychlostním radarem.",
+     "pro": 7,
+     "proti": 0,
+     "zdrzel": 0,
+     "adopted": true
+    },
+    {
+     "n": "7.5",
+     "text": "Termín příštího jednání komise je 5.6.2024 v 16:00 hod v obřadní síni MěÚ",
+     "pro": 7,
+     "proti": 0,
+     "zdrzel": 0,
+     "adopted": true
+    }
+   ],
+   "summary": [
+    "Na hřbitově se na cestách tvoří kaluže a bláto; kanalizace tam není, komise doporučuje vsakování (případně vsakovací nádrže) a odbornou firmu.",
+    "Propadlý oddělovací pruh na Tř. Jana Švermy směrem na Poděbrady: doporučena reklamace u zhotovitele.",
+    "Michal Müller se ptal na výkopy CETIN a ČEZ na sídlišti; Lenka Třísková upozornila na vysokou rychlost vozidel na Tř. 5. května."
+   ],
+   "attachments": [],
+   "extraction": {
+    "method": "pdftotext",
+    "checked": "2026-09-30",
+    "note": "Zápis uvádí u hlasování jen „všichni pro“ — počet 7 hlasů je dopočtený z počtu přítomných členů. Jednání začalo v 16:00 a skončilo v 18:00 (podle zápisu). Počet členů 8 = jmenovitě uvedení přítomní a omluvení. V zápisech komise se za celé období nevyskytuje Lubomír Metelák ani Tomáš Vodička, kteří jsou v Lidech vedeni jako členové (viz jednani/README.md → Komise)."
+   }
+  },
+  {
+   "id": "sportovni-komise-2024-01-09",
+   "uuid": null,
+   "type": "Sportovní komise",
+   "group": "komise",
+   "bodies": [
+    "Sportovní komise"
+   ],
+   "number": null,
+   "year": 2024,
+   "date": "2024-01-09",
+   "label": "Sportovní komise (9. 1. 2024)",
+   "time": null,
+   "time_end": null,
+   "duration_seconds": null,
+   "venue": null,
+   "links": {
+    "minutes": "https://pecky.cz/files/pecky/gallery/18830/69a7fa66e4bf0_SK-zapis-09.01.2024.pdf",
+    "source_page": "https://pecky.cz/default/default/21594_2022-2026"
+   },
+   "attendance": {
+    "present": 10,
+    "total": 12,
+    "present_names": [
+     "Zdeněk Fejfar",
+     "Tomáš Růžička",
+     "Mgr. Pavel Kupr",
+     "Jiří Katrnoška",
+     "Václav Drška",
+     "Michal Rumlena",
+     "Ladislav Kejda",
+     "Mgr. Helena Šestáková",
+     "Ladislava Šátková ml.",
+     "Ing. Jana Sladká"
+    ],
+    "absent_names": [
+     {
+      "name": "Ing. Aleš Staněk",
+      "note": "omluven"
+     },
+     {
+      "name": "Ing. Pavel Krejčí",
+      "note": "omluven"
+     }
+    ],
+    "guests": []
+   },
+   "chair": "Zdeněk Fejfar",
+   "recorded_by": "Zuzana Vaněčková",
+   "agenda": [
+    {
+     "n": 1,
+     "t": "Úvod"
+    },
+    {
+     "n": 2,
+     "t": "Členské základny sportovních oddílů"
+    },
+    {
+     "n": 3,
+     "t": "Dotace z rozpočtu města Pečky pro sportovní oddíly"
+    },
+    {
+     "n": 4,
+     "t": "Diskuze"
+    },
+    {
+     "n": 5,
+     "t": "Závěr"
+    }
+   ],
+   "resolutions": [
+    {
+     "n": null,
+     "text": "Sportovní komise se usnesla na změně přílohy č. 2 „členská základna oddílů“: V příloze č. 2 bude nově uvedeno: jméno a příjmení člena, datum narození člena, oddíl, dospělý – závodní x rekreační, dítě – trénující týdně x netrénující týdně.",
+     "pro": 10,
+     "proti": 0,
+     "zdrzel": 0,
+     "adopted": true
+    },
+    {
+     "n": null,
+     "text": "Rozdělovat příspěvek města 1 750 000,- Kč se bude v těchto kategoriích:\nRezerva: 50 000,- Kč\nPříspěvek sportovní akce: 150 000,- Kč\nPříspěvek provozní náklady: 350 000,- Kč\nPříspěvek podle členské základny dětí: 950 000,- Kč\nPříspěvek podle členské základny dospělí: 250 000,- Kč",
+     "pro": 10,
+     "proti": 0,
+     "zdrzel": 0,
+     "adopted": true
+    }
+   ],
+   "summary": [
+    "Oddíly dokládají členskou základnu (seznamy, registrace u svazů, členské příspěvky) jako podklad pro dotace.",
+    "Mgr. Pavel Kupr zval na závody taekwondo „Pečecký pohár“ 20. 1. 2024 v Parkhale (výtěžek pro nemocnou dívku).",
+    "Příští zasedání 30. 1. 2024."
+   ],
+   "attachments": [],
+   "extraction": {
+    "method": "pdftotext",
+    "checked": "2026-09-30",
+    "note": "Zápis je „1. jednání“ roku 2024. Podpis předsedy s datem 12. 1. 2024. Zápis končí formulí „všechny body navrženého programu byly projednány a schváleny“ (není samostatné usnesení)."
+   }
+  },
+  {
+   "id": "kulturni-komise-2024-01-09",
+   "uuid": null,
+   "type": "Kulturní komise",
+   "group": "komise",
+   "bodies": [
+    "Kulturní komise",
+    "Pracovní skupina pro oslavy 100 let"
+   ],
+   "number": null,
+   "year": 2024,
+   "date": "2024-01-09",
+   "label": "Kulturní komise (9. 1. 2024)",
+   "time": "16:00",
+   "time_end": null,
+   "duration_seconds": null,
+   "venue": null,
+   "links": {
+    "minutes": "https://pecky.cz/files/pecky/gallery/19064/69c3ea380c731_zapis-9.1.2024.pdf",
+    "source_page": "https://pecky.cz/default/default/21597_2022-2026"
+   },
+   "attendance": {
+    "present": 10,
+    "total": 10,
+    "present_names": [
+     "Ing. Martin Jedlička",
+     "Michal Müller",
+     "Lukáš Hanzelín",
+     "Ludmila Švandová",
+     "Petra Vorlíčková, DiS.",
+     "Mgr. Věra Křížová",
+     "Milan Urban",
+     "Ing. Nikola Vrátná",
+     "Jan Karbus",
+     "Ing. Hana Kuprová"
+    ],
+    "absent_names": [],
+    "guests": [
+     {
+      "name": "Tomáš Vodička",
+      "note": null
+     }
+    ]
+   },
+   "chair": "Ing. Martin Jedlička",
+   "recorded_by": "Ing. Hana Kuprová",
+   "agenda": [
+    {
+     "n": 1,
+     "t": "Návrh kulturních akcí v rámci oslav výročí a jejich harmonogram."
+    },
+    {
+     "n": 2,
+     "t": "Kniha vydávaná k příležitosti výročí."
+    },
+    {
+     "n": 3,
+     "t": "Definování úkolů při přípravě kulturních akcí a jejich schválení."
+    }
+   ],
+   "resolutions": [
+    {
+     "n": null,
+     "text": "Komise se usnesla na výše uvedených kulturních akcích a schvaluje následující úkoly pro členy komise:\n1) Oslovit představitele spolků, zájmových a příspěvkových organizací města – Martin Jedlička\n2) Zajištění termín schůzky s panem Fojtíkem (v Kulturním středisku) ve věci obsahu knihy – nezapomenout na menší spolky a činnosti – Michal Müller\n3) Lukáš Hanzelín – návrh rozpočtu oslav (pro představu o celkové ceně)",
+     "pro": 10,
+     "proti": 0,
+     "zdrzel": 0,
+     "adopted": true
+    }
+   ],
+   "summary": [
+    "Společné jednání kulturní komise a pracovní skupiny; přítomni byli všichni členové obou orgánů.",
+    "Logo oslav: dvě výročí (800 let od první zmínky, 100 let od povýšení na město); členové se shodli na znázornění obou výročí v barvách města.",
+    "Akce: ples města, slavnostní zasedání zastupitelstva s oceněním čestných občanů, přednášky a výstavy v roce 2025, zahradní slavnosti DPS, rozšířená Mašinka, mše a koncert. Harmonogram: ples v 1–2/2025, slavnostní zastupitelstvo 25.–26. 4., Mašinka 31. 5.",
+    "Kniha k výročí: vede ji PhDr. Pavel Fojtík s kolektivem autorů, rozsah 400–500 stran; kapitoly mají odborní autoři (např. sport – Jiří Katrnoška)."
+   ],
+   "attachments": [],
+   "extraction": {
+    "method": "pdftotext",
+    "checked": "2026-09-30",
+    "note": "Zápis je na pecky.cz dvakrát — mezi zápisy kulturní komise i pracovní skupiny (stejný obsah, dva soubory); v datech je jednou. Program má v zápisu tři body, v textu jsou body čtyři (logo, akce, harmonogram, kniha) — program je přepsaný z úvodního seznamu. Přítomní jsou sjednoceni z obou orgánů (Michal Müller a Lukáš Hanzelín jsou členy obou). Zápis píše „Milan Urban předseda“ pracovní skupiny. Zahájeno v 16:00."
+   }
+  },
+  {
+   "id": "kulturni-komise-2023-07-18",
+   "uuid": null,
+   "type": "Kulturní komise",
+   "group": "komise",
+   "bodies": [
+    "Kulturní komise",
+    "Pracovní skupina pro oslavy 100 let"
+   ],
+   "number": null,
+   "year": 2023,
+   "date": "2023-07-18",
+   "label": "Kulturní komise (18. 7. 2023)",
+   "time": "15:30",
+   "time_end": "17:35",
+   "duration_seconds": null,
+   "venue": null,
+   "links": {
+    "minutes": "https://pecky.cz/files/pecky/gallery/19064/69c3ea35015a2_zapis-18.7.2023.pdf",
+    "source_page": "https://pecky.cz/default/default/21597_2022-2026"
+   },
+   "attendance": {
+    "present": 8,
+    "total": 9,
+    "present_names": [
+     "Ing. Martin Jedlička",
+     "Mgr. Věra Křížová",
+     "Petra Vorlíčková, DiS.",
+     "Ludmila Švandová",
+     "Michal Müller",
+     "Lukáš Hanzelín",
+     "Ing. Hana Kuprová",
+     "Jan Karbus"
+    ],
+    "absent_names": [
+     {
+      "name": "Ing. Nikola Vrátná",
+      "note": "omluvena"
+     }
+    ],
+    "guests": [
+     {
+      "name": "Milan Paluska",
+      "note": "starosta"
+     }
+    ]
+   },
+   "chair": "Ing. Martin Jedlička",
+   "recorded_by": "Ing. Martin Jedlička",
+   "agenda": [
+    {
+     "n": 1,
+     "t": "Seznámení s akcemi připravovanými ve druhé polovině roku."
+    },
+    {
+     "n": 2,
+     "t": "Seznámení s výhledem dokončení rekonstrukce KS a jeho následná činnost"
+    },
+    {
+     "n": 3,
+     "t": "Presentace kulturních akcí ve městě"
+    },
+    {
+     "n": 4,
+     "t": "Příprava programu oslav povýšení Peček na město"
+    }
+   ],
+   "resolutions": [
+    {
+     "n": null,
+     "text": "Kulturní komise se usnesla na nastavení jednotného kalendáře kulturních akcí a jeho presentaci v rámci stránek města a Pečeckých novin od 2 pololetí roku 2023. Garantem kalendáře bude ředitel KS Pečky.",
+     "pro": 6,
+     "proti": 0,
+     "zdrzel": 0,
+     "adopted": true,
+     "vote_names": {
+      "pro": [
+       "Ing. Martin Jedlička",
+       "Mgr. Věra Křížová",
+       "Lukáš Hanzelín",
+       "Petra Vorlíčková, DiS.",
+       "Ludmila Švandová",
+       "Michal Müller"
+      ]
+     }
+    }
+   ],
+   "summary": [
+    "Zástupci organizací informovali o podzimních akcích; starosta o rekonstrukci Kulturního střediska a předběžném termínu dokončení.",
+    "Kalendář kulturních akcí bude samostatnou přílohou Pečeckých novin a bude prezentován za město; zachována zůstává možnost vkládat akce do společného kalendáře na webu města.",
+    "Jednání rozšířené o členy pracovní skupiny pro oslavy 100 let povýšení: dohodnuto zpracování loga oslav ZUŠ Pečky a pracovní návrh programu (mše v kostele sv. Václava, koncert, přednášky, články v Pečeckých novinách, reprezentační ples, slavnostní zastupitelstvo, čestné občanství, ocenění občanů). Michal Müller připomněl i 800 let od první zmínky o obci."
+   ],
+   "attachments": [],
+   "extraction": {
+    "method": "pdftotext",
+    "checked": "2026-09-30",
+    "note": "Jednání kulturní komise rozšířené o členy pracovní skupiny (Hana Kuprová a Jan Karbus uvedeni jako „Komise 100 let povýšení na město“; Ing. Nikola Vrátná omluvena, Milan Urban nezmíněn) — proto je v datech u obou orgánů. Hlasovalo jen šest členů kulturní komise. Zahájeno v 15:30, ukončeno v 17:35. Zápis píše „Petra Vodičková“ v seznamu hlasujících, jinde Vorlíčková (normalizováno)."
+   }
+  },
+  {
+   "id": "sportovni-komise-2023-06-20",
+   "uuid": null,
+   "type": "Sportovní komise",
+   "group": "komise",
+   "bodies": [
+    "Sportovní komise"
+   ],
+   "number": null,
+   "year": 2023,
+   "date": "2023-06-20",
+   "label": "Sportovní komise (20. 6. 2023)",
+   "time": null,
+   "time_end": null,
+   "duration_seconds": null,
+   "venue": null,
+   "links": {
+    "minutes": "https://pecky.cz/files/pecky/gallery/18830/69a7fa5f5f753_SK-zapis-20.06.2023.pdf",
+    "source_page": "https://pecky.cz/default/default/21594_2022-2026"
+   },
+   "attendance": {
+    "present": 12,
+    "total": 12,
+    "present_names": [
+     "Zdeněk Fejfar",
+     "Tomáš Růžička",
+     "Mgr. Pavel Kupr",
+     "Jiří Katrnoška",
+     "Václav Drška",
+     "Ladislav Kejda",
+     "Ing. Aleš Staněk",
+     "Ing. Pavel Krejčí",
+     "Michal Rumlena",
+     "Mgr. Helena Šestáková",
+     "Ladislava Šátková ml.",
+     "Ing. Jana Sladká"
+    ],
+    "absent_names": [],
+    "guests": []
+   },
+   "chair": "Zdeněk Fejfar",
+   "recorded_by": "Zuzana Vaněčková",
+   "agenda": [
+    {
+     "n": 1,
+     "t": "Úvod"
+    },
+    {
+     "n": 2,
+     "t": "Zhodnocení sportovního dne pro děti 1. stupně ZŠ Pečky"
+    },
+    {
+     "n": 3,
+     "t": "Projednání a schválení harmonogramu obsazenosti „Park haly“ sportovními oddíly pro sezonu 2023/2024"
+    },
+    {
+     "n": 4,
+     "t": "Seznámení s harmonogramem obsazenosti „Sokolovny“ pro sezonu 2023/2024"
+    },
+    {
+     "n": 5,
+     "t": "Diskuze"
+    },
+    {
+     "n": 6,
+     "t": "Závěr"
+    }
+   ],
+   "resolutions": [],
+   "summary": [
+    "Zápis obsahuje rozvrh hodin Park haly a Sokolovny na školní rok 2023/2024 (tabulky oddílů).",
+    "Další schůzky: 19. 9. a 12. 12. 2023."
+   ],
+   "attachments": [],
+   "extraction": {
+    "method": "pdftotext",
+    "checked": "2026-09-30",
+    "note": "Zápis je „3. jednání“ (číslování v rámci roku). U bodu 3 („projednání a schválení harmonogramu Park haly“) je v zápisu řádek hlasování, ale počty hlasů jsou prázdné (u hlasování o programu je uvedeno PROTI: 0 a ZDRŽEL SE: 0, PRO chybí) — hlasování proto v datech není. Zápis končí formulí „všechny body navrženého programu byly projednány a schváleny“ (není samostatné usnesení). Rozvrhy jsou v PDF jako tabulky, do dat nejsou přepsané."
+   }
+  },
+  {
+   "id": "sportovni-komise-2023-04-25",
+   "uuid": null,
+   "type": "Sportovní komise",
+   "group": "komise",
+   "bodies": [
+    "Sportovní komise"
+   ],
+   "number": null,
+   "year": 2023,
+   "date": "2023-04-25",
+   "label": "Sportovní komise (25. 4. 2023)",
+   "time": null,
+   "time_end": null,
+   "duration_seconds": null,
+   "venue": null,
+   "links": {
+    "minutes": "https://pecky.cz/files/pecky/gallery/18830/69a7fa5a01f7e_SK-zapis-25.04.2023.pdf",
+    "source_page": "https://pecky.cz/default/default/21594_2022-2026"
+   },
+   "attendance": {
+    "present": 12,
+    "total": 12,
+    "present_names": [
+     "Zdeněk Fejfar",
+     "Tomáš Růžička",
+     "Mgr. Pavel Kupr",
+     "Jiří Katrnoška",
+     "Václav Drška",
+     "Ladislav Kejda",
+     "Ing. Aleš Staněk",
+     "Ing. Pavel Krejčí",
+     "Michal Rumlena",
+     "Mgr. Helena Šestáková",
+     "Ladislava Šátková ml.",
+     "Ing. Jana Sladká"
+    ],
+    "absent_names": [],
+    "guests": []
+   },
+   "chair": "Zdeněk Fejfar",
+   "recorded_by": "Zuzana Vaněčková",
+   "agenda": [
+    {
+     "n": 1,
+     "t": "Úvod"
+    },
+    {
+     "n": 2,
+     "t": "Sportovní den pro 1. stupeň"
+    },
+    {
+     "n": 3,
+     "t": "Diskuze, podněty"
+    },
+    {
+     "n": 4,
+     "t": "Závěr"
+    }
+   ],
+   "resolutions": [],
+   "summary": [
+    "Sokol (Jana Sladká) navrhl spojit sportovní den s týdnem projektu MOVE Week (22.–28. 5. 2023); ve stejném týdnu je ale pouť Mašinka.",
+    "Mgr. Helena Šestáková (TJ Spartak) poslala odkazy na rezervační systémy jiných tělocvičen a hal jako inspiraci pro Parkhalu.",
+    "Plánované schůzky: 13. 6., 19. 9. a 12. 12. 2023."
+   ],
+   "attachments": [],
+   "extraction": {
+    "method": "pdftotext",
+    "checked": "2026-09-30",
+    "note": "Zápis je „2. jednání“ (komise číslují jednání v rámci roku, první jednání 2023 není zveřejněné). Zápis končí formulí „všechny body navrženého programu byly projednány a schváleny“ — není to samostatné usnesení, proto tu žádné není. Počty přítomných/omluvených a hlasování o programu má zápis v poli formuláře prázdné (ověřeno proti obrázku stránky); účast je proto jen z jmenného seznamu (12 přítomných, všichni členové komise). Zápis neuvádí čas ani místo."
+   }
+  },
+  {
+   "id": "kulturni-komise-2023-01-18",
+   "uuid": null,
+   "type": "Kulturní komise",
+   "group": "komise",
+   "bodies": [
+    "Kulturní komise"
+   ],
+   "number": null,
+   "year": 2023,
+   "date": "2023-01-18",
+   "label": "Kulturní komise (18. 1. 2023)",
+   "time": "16:00",
+   "time_end": "17:45",
+   "duration_seconds": null,
+   "venue": null,
+   "links": {
+    "minutes": "https://pecky.cz/files/pecky/gallery/19064/69c3ea2cddea1_zapis-18.1.2023.pdf",
+    "source_page": "https://pecky.cz/default/default/21597_2022-2026"
+   },
+   "attendance": {
+    "present": 6,
+    "total": 6,
+    "present_names": [
+     "Ing. Martin Jedlička",
+     "Mgr. Věra Křížová",
+     "Petra Vorlíčková, DiS.",
+     "Ludmila Švandová",
+     "Michal Müller",
+     "Lukáš Hanzelín"
+    ],
+    "absent_names": [],
+    "guests": [
+     {
+      "name": "Vladimíra Krulišová",
+      "note": null
+     },
+     {
+      "name": "Milan Paluska",
+      "note": "starosta"
+     }
+    ]
+   },
+   "chair": "Ing. Martin Jedlička",
+   "recorded_by": "Ing. Martin Jedlička",
+   "agenda": [
+    {
+     "n": 1,
+     "t": "Seznámení s problematikou fungování komise, diskuze"
+    }
+   ],
+   "resolutions": [
+    {
+     "n": null,
+     "text": "Kulturní komise se usnesla na nastavení jednotného kalendáře kulturních akcí a jeho prezentace v rámci stránek města a Pečeckých novin od 2 pololetí roku 2023. Garantem kalendáře bude ředitel KS Pečky.",
+     "pro": 6,
+     "proti": 0,
+     "zdrzel": 0,
+     "adopted": true,
+     "vote_names": {
+      "pro": [
+       "Ing. Martin Jedlička",
+       "Mgr. Věra Křížová",
+       "Lukáš Hanzelín",
+       "Petra Vorlíčková, DiS.",
+       "Ludmila Švandová",
+       "Michal Müller"
+      ]
+     },
+     "note": "Téměř totožné usnesení je i v zápisu z 18. 7. 2023."
+    }
+   ],
+   "summary": [
+    "První jednání komise v novém složení: členové se představili a byli seznámeni s dosavadní prací komise.",
+    "Komise se většinou hlasů shodla zachovat stávající systém výstupů; informace bude garantovat Kulturní středisko.",
+    "Příprava opětovného vydávání Pečeckých novin; většina doporučila zřídit jednu e-mailovou adresu pro podklady k příspěvkům.",
+    "Starosta seznámil členy se situací ve městě s ohledem na kulturní potřeby a možnosti města."
+   ],
+   "attachments": [],
+   "extraction": {
+    "method": "ocr",
+    "checked": "2026-09-30",
+    "note": "Zápis je sken (bez textové vrstvy), čteno OCR (tesseract) a jména normalizována podle Lidí (zápis píše „Petra Vodičková DiS.“ místo Vorlíčková, „Můller“). Jednání začalo v 16:00 a skončilo v 17:45. Zápis je také mezi zápisy pracovní skupiny na pecky.cz (stejný obsah, jiný soubor)."
+   }
+  },
+  {
+   "id": "kulturni-komise-2022-08-30",
+   "uuid": null,
+   "type": "Kulturní komise",
+   "group": "komise",
+   "bodies": [
+    "Kulturní komise"
+   ],
+   "number": null,
+   "year": 2022,
+   "date": "2022-08-30",
+   "label": "Kulturní komise (30. 8. 2022)",
+   "time": null,
+   "time_end": null,
+   "duration_seconds": null,
+   "venue": null,
+   "links": {
+    "minutes": "https://pecky.cz/files/pecky/gallery/19065/69c3ed12606ea_30.8.2022.pdf",
+    "source_page": "https://pecky.cz/default/default/21899_2018-2022"
+   },
+   "attendance": {
+    "present": 6,
+    "total": 6,
+    "present_names": [
+     "Ludmila Švandová",
+     "Lukáš Hanzelín",
+     "Mgr. Libor Vodička, Ph.D.",
+     "PhDr. Miloslav Vlk",
+     "Michal Müller",
+     "Viktorie Janáčková, MSc."
+    ],
+    "absent_names": [],
+    "guests": []
+   },
+   "chair": "Viktorie Janáčková, MSc.",
+   "recorded_by": "Viktorie Janáčková, MSc.",
+   "agenda": [
+    {
+     "n": 1,
+     "t": "Hodnocení fungování kulturní komise za minulé volební období"
+    },
+    {
+     "n": 2,
+     "t": "Oslavy 100 let založení města"
+    },
+    {
+     "n": 3,
+     "t": "Program plánovaných akcí na další měsíce"
+    },
+    {
+     "n": 4,
+     "t": "Další informace a diskuze"
+    }
+   ],
+   "resolutions": [],
+   "summary": [
+    "Hodnocení komise za volební období: zavedena prohlídková služba kostelů, lepší informovanost o akcích (9 „áček“ a 6 vývěsek), rekonstrukce KS; návrhy: jednotlivé infomaily a mobilní rozhlas, navigační systém ve městě, zapojit vedení ZUŠ a zástupce knihovny.",
+    "Oslavy 100 let: sborník ke 100 letům města s externím editorem, městské suvenýry (turistické známky), aktualizace seznamu čestných občanů; pracovní skupina by měla být rozšířena a rozdělena na dokumentární a „akční“ část.",
+    "Vzhledem k plánované další etapě rekonstrukce KS se neplánuje Ples města 2023; členové mají zájem o práci v komisi i v dalším volebním období."
+   ],
+   "attachments": [],
+   "extraction": {
+    "method": "pdftotext",
+    "checked": "2026-09-30",
+    "note": " Zápis je z volebního období 2018–2022 (složení komise se od 2022 zcela liší). Poslední zápis kulturní komise před volbami 2022; zápis uvádí „Usnesení: –“ a že komisi po ustanovení nového předsedy svolá nový předseda."
+   }
+  },
+  {
+   "id": "sportovni-komise-2022-06-15",
+   "uuid": null,
+   "type": "Sportovní komise",
+   "group": "komise",
+   "bodies": [
+    "Sportovní komise"
+   ],
+   "number": null,
+   "year": 2022,
+   "date": "2022-06-15",
+   "label": "Sportovní komise (15. 6. 2022)",
+   "time": null,
+   "time_end": null,
+   "duration_seconds": null,
+   "venue": null,
+   "links": {
+    "minutes": "https://pecky.cz/files/pecky/gallery/19734/69e5ee831927c_15.6.2022.pdf",
+    "source_page": "https://pecky.cz/default/default/22553_2018-2022"
+   },
+   "attendance": {
+    "present": 6,
+    "total": 11,
+    "present_names": [
+     "Jiří Katrnoška",
+     "Zdeněk Fejfar",
+     "Mgr. Helena Šestáková",
+     "Ing. Stanislav Jiran",
+     "Eva Jíchová",
+     "Ladislava Šátková ml."
+    ],
+    "absent_names": [
+     {
+      "name": "Ing. David Nedoma",
+      "note": "omluven"
+     },
+     {
+      "name": "Mgr. Pavel Kupr",
+      "note": "omluven"
+     },
+     {
+      "name": "Zdeněk Buřič",
+      "note": "omluven"
+     },
+     {
+      "name": "Mgr. Tomáš Drška",
+      "note": "omluven"
+     },
+     {
+      "name": "Michal Rumlena",
+      "note": "omluven"
+     }
+    ],
+    "guests": [
+     {
+      "name": "Tomáš Vodička",
+      "note": null
+     },
+     {
+      "name": "Ing. Pavel Krejčí",
+      "note": null
+     }
+    ]
+   },
+   "chair": "Jiří Katrnoška",
+   "recorded_by": "Zuzana Vaněčková",
+   "agenda": [
+    {
+     "n": 1,
+     "t": "Úvod"
+    },
+    {
+     "n": 2,
+     "t": "Činnost jednotlivých oddílů v roce 2022"
+    },
+    {
+     "n": 3,
+     "t": "Informace o připravovaných stavebních akcích"
+    },
+    {
+     "n": 4,
+     "t": "Rozpis hodin ve sportovní hale"
+    },
+    {
+     "n": 5,
+     "t": "Diskuse"
+    },
+    {
+     "n": 6,
+     "t": "Závěr"
+    }
+   ],
+   "resolutions": [
+    {
+     "n": null,
+     "text": "Rozpis hodin ve sportovní hale (příloha zápisu).",
+     "pro": 6,
+     "proti": 0,
+     "zdrzel": 0,
+     "adopted": true
+    }
+   ],
+   "summary": [
+    "Oddíly informovaly o činnosti v roce 2022 (basketbal, Pečecká desítka 13. 3. 2022 — 460 dospělých běžců a přes 100 dětí, Spartak, TJ Sokol, Velké Chvalovice — postup do III. třídy).",
+    "Tělocvična v ZŠ Pečky: probíhá stavební řízení, stavební odbor vypořádává námitky sousedů; úpravy projektové dokumentace navýší rozpočet přibližně o 380 000 Kč (Tomáš Vodička).",
+    "Tomáš Vodička: od roku 2019 přímé dotace na sport ve městě cca 6 mil. Kč; příprava rekonstrukce zázemí AFK (6 kabin, rozpočet 8 mil., dotace 5,5–6 mil.), zázemí ve Velkých Chvalovicích ve fázi studie; Pavel Krejčí: úvaha o přístavbě šaten u Park haly.",
+    "Úkol: předávat informace oddílů o připravovaných akcích do Pečeckých novin. Příští zasedání v říjnu 2022."
+   ],
+   "attachments": [],
+   "extraction": {
+    "method": "ocr",
+    "checked": "2026-09-30",
+    "note": " Zápis je z volebního období 2018–2022 (složení komise se od 2022 zcela liší). Zápis je sken, čteno OCR (tesseract); „1. jednání“ komise sportovní, poslední zápis před volbami 2022. Zápis uvádí PŘÍTOMNO 6, OMLUVENO 5 — v datech všech 11 jmenovaných."
+   }
+  },
+  {
+   "id": "stavebni-komise-2022-03-10",
+   "uuid": null,
+   "type": "Stavebně-dopravní komise",
+   "group": "komise",
+   "bodies": [
+    "Stavebně-dopravní komise"
+   ],
+   "number": null,
+   "year": 2022,
+   "date": "2022-03-10",
+   "label": "Stavebně-dopravní komise (10. 3. 2022)",
+   "time": null,
+   "time_end": null,
+   "duration_seconds": null,
+   "venue": null,
+   "links": {
+    "minutes": "https://pecky.cz/files/pecky/gallery/19066/69c3f01de491d_zapis-10.3.22.pdf",
+    "source_page": "https://pecky.cz/default/default/21900_2018-2022"
+   },
+   "attendance": {
+    "present": 6,
+    "total": 10,
+    "present_names": [
+     "Tomáš Vodička",
+     "Ing. František Pospíšil",
+     "Ondřej Schulz",
+     "Jaroslav Železný",
+     "Lenka Třísková",
+     "Viktorie Janáčková, MSc."
+    ],
+    "absent_names": [
+     {
+      "name": "Jiří Katrnoška",
+      "note": "omluven"
+     },
+     {
+      "name": "Milan Merhaut",
+      "note": "omluven"
+     },
+     {
+      "name": "Ing. Věra Růžičková",
+      "note": "omluvena"
+     },
+     {
+      "name": "Kateřina Čiháková",
+      "note": "omluvena"
+     }
+    ],
+    "guests": []
+   },
+   "chair": "Tomáš Vodička",
+   "recorded_by": "Viktorie Janáčková, MSc.",
+   "agenda": [
+    {
+     "n": 1,
+     "t": "Prezentace Adaptační strategie města Pečky na klimatickou změnu"
+    },
+    {
+     "n": 2,
+     "t": "Diskuze"
+    }
+   ],
+   "resolutions": [
+    {
+     "n": null,
+     "text": "Všichni přítomní členové komise odhlasovali doporučení adaptační strategie zastupitelstvu města.",
+     "pro": 6,
+     "proti": 0,
+     "zdrzel": 0,
+     "adopted": true,
+     "note": "Počet hlasů dopočtený z počtu přítomných členů (zápis uvádí „všichni přítomní“)."
+    }
+   ],
+   "summary": [
+    "Předseda představil Adaptační strategii města Pečky na klimatickou změnu (zhotovitel Vodohospodářský rozvoj a výstavba a.s.): analytická část (větrná eroze třetího z pěti stupňů, počet tropických dní poroste, sněhová pokrývka nad 10 cm po roce 2040 zřejmě zmizí) a návrhová část (technická, měkká a přírodní opatření, katalog opatření).",
+    "Členové komise ocenili detail studie a nic z jejího obsahu nerozporovali."
+   ],
+   "attachments": [],
+   "extraction": {
+    "method": "pdftotext",
+    "checked": "2026-09-30",
+    "note": " Zápis je z volebního období 2018–2022 (jiné složení komise, předseda Tomáš Vodička). Komise stavebně-dopravní a ŽP, poslední zápis před volbami 2022. Zápis uvádí „Veřejnost: 1“."
+   }
+  },
+  {
+   "id": "kulturni-komise-2022-02-11",
+   "uuid": null,
+   "type": "Kulturní komise",
+   "group": "komise",
+   "bodies": [
+    "Kulturní komise"
+   ],
+   "number": null,
+   "year": 2022,
+   "date": "2022-02-11",
+   "label": "Kulturní komise (11. 2. 2022)",
+   "time": null,
+   "time_end": null,
+   "duration_seconds": null,
+   "venue": null,
+   "links": {
+    "minutes": "https://pecky.cz/files/pecky/gallery/19065/69c3ed0f2e3a4_11.2.2022.pdf",
+    "source_page": "https://pecky.cz/default/default/21899_2018-2022"
+   },
+   "attendance": {
+    "present": 4,
+    "total": 6,
+    "present_names": [
+     "Ludmila Švandová",
+     "Lukáš Hanzelín",
+     "Mgr. Libor Vodička, Ph.D.",
+     "Viktorie Janáčková, MSc."
+    ],
+    "absent_names": [
+     {
+      "name": "PhDr. Miloslav Vlk",
+      "note": "omluven"
+     },
+     {
+      "name": "Michal Müller",
+      "note": "omluven"
+     }
+    ],
+    "guests": [
+     {
+      "name": "Tomáš Vodička",
+      "note": null
+     },
+     {
+      "name": "Eva Zajícová",
+      "note": null
+     }
+    ]
+   },
+   "chair": "Viktorie Janáčková, MSc.",
+   "recorded_by": "Viktorie Janáčková, MSc.",
+   "agenda": [
+    {
+     "n": 1,
+     "t": "Příprava tryzny za Pečecké židy"
+    },
+    {
+     "n": 2,
+     "t": "Zpřístupnění kostelů & Noc kostelů"
+    },
+    {
+     "n": 3,
+     "t": "Program plánovaných akcí na další měsíce"
+    },
+    {
+     "n": 4,
+     "t": "Další informace a diskuze"
+    }
+   ],
+   "resolutions": [],
+   "summary": [
+    "Příprava tryzny za pečecké židy: město objednalo „kameny zmizelých“ (28 lidí, kteří odjeli do Terezína a nevrátili se) k usazení do 9. 6.; tryzna u nádraží 9. 6. 2022, výstava o rabínu Federovi v KS (vernisáž 26. 5.).",
+    "Od 1. 3. bude možné navštívit oba kostely s průvodcem (vstupné 50/20 Kč, minimum 150 Kč za prohlídku); Noc kostelů 10. 6.",
+    "Program plánovaných akcí do června 2022 (masopustní trhy, Pečecká desítka 12. 3., Mašinka 28. 5. a další)."
+   ],
+   "attachments": [],
+   "extraction": {
+    "method": "pdftotext",
+    "checked": "2026-09-30",
+    "note": " Zápis je z volebního období 2018–2022 (složení komise se od 2022 zcela liší). Zápis uvádí „Usnesení: –“."
+   }
+  },
+  {
+   "id": "kulturni-komise-2021-11-04",
+   "uuid": null,
+   "type": "Kulturní komise",
+   "group": "komise",
+   "bodies": [
+    "Kulturní komise"
+   ],
+   "number": null,
+   "year": 2021,
+   "date": "2021-11-04",
+   "label": "Kulturní komise (4. 11. 2021)",
+   "time": null,
+   "time_end": null,
+   "duration_seconds": null,
+   "venue": null,
+   "links": {
+    "minutes": "https://pecky.cz/files/pecky/gallery/19065/69c3ed0b1cf4e_4.11.2021.pdf",
+    "source_page": "https://pecky.cz/default/default/21899_2018-2022"
+   },
+   "attendance": {
+    "present": 4,
+    "total": 7,
+    "present_names": [
+     "Vladimíra Krulišová",
+     "Ludmila Švandová",
+     "Lukáš Hanzelín",
+     "Viktorie Janáčková, MSc."
+    ],
+    "absent_names": [
+     {
+      "name": "PhDr. Miloslav Vlk",
+      "note": "omluven"
+     },
+     {
+      "name": "Mgr. Libor Vodička, Ph.D.",
+      "note": "omluven"
+     },
+     {
+      "name": "Michal Müller",
+      "note": "omluven"
+     }
+    ],
+    "guests": [
+     {
+      "name": "Mgr. Blanka Kozáková",
+      "note": null
+     }
+    ]
+   },
+   "chair": "Viktorie Janáčková, MSc.",
+   "recorded_by": "Viktorie Janáčková, MSc.",
+   "agenda": [
+    {
+     "n": 1,
+     "t": "Představení členů komise a jejich aktivit"
+    },
+    {
+     "n": 2,
+     "t": "Diskuze nad propagací kulturních aktivit"
+    },
+    {
+     "n": 3,
+     "t": "Diskuze nad sjednocením přístupu při organizaci kulturních akcí ve městě"
+    },
+    {
+     "n": 4,
+     "t": "Další informace a diskuze"
+    }
+   ],
+   "resolutions": [],
+   "summary": [
+    "Komise se shoduje, že výlepy alespoň od příspěvkových organizací města by měly být zdarma; je nutná revize plakátovacích ploch a pravidla jejich používání (plakáty na „áčka“ jen A3, výlep v pondělí a čtvrtek, 10–14 dní předem).",
+    "Předsedkyně komise zpracuje do konce roku 2021 sjednocení přístupu k pořádání kulturních akcí ve městě (termíny, podpora města, propagace), aby se od roku 2022 mohl nový systém zavést.",
+    "Další podněty: přesunout informační centrum z knihovny do Kulturního střediska (včetně kopírování a laminace); podnět pro redakční radu Pečeckých novin k označení schránek."
+   ],
+   "attachments": [],
+   "extraction": {
+    "method": "ocr",
+    "checked": "2026-09-30",
+    "note": " Zápis je z volebního období 2018–2022 (složení komise se od 2022 zcela liší). Zápis je sken, čteno OCR (tesseract); v zápisech „pí. Krulišová“ apod. — jména jsou doplněná podle Lidí. Zápis uvádí „Usnesení: –“. Zapisovatelka Viktorie Janáčková je pod zápisem podepsaná jako předseda komise; Blanka Kozáková je uvedena jen jako host."
+   }
+  },
+  {
+   "id": "stavebni-komise-2021-09-29",
+   "uuid": null,
+   "type": "Stavebně-dopravní komise",
+   "group": "komise",
+   "bodies": [
+    "Stavebně-dopravní komise"
+   ],
+   "number": null,
+   "year": 2021,
+   "date": "2021-09-29",
+   "label": "Stavebně-dopravní komise (29. 9. 2021)",
+   "time": "17:00",
+   "time_end": null,
+   "duration_seconds": null,
+   "venue": null,
+   "links": {
+    "minutes": "https://pecky.cz/files/pecky/gallery/19066/69c3f01b1d185_29.9.2021.pdf",
+    "source_page": "https://pecky.cz/default/default/21900_2018-2022"
+   },
+   "attendance": {
+    "present": 5,
+    "total": 10,
+    "present_names": [
+     "Ing. Věra Růžičková",
+     "Milan Merhaut",
+     "Ondřej Schulz",
+     "Jaroslav Železný",
+     "Tomáš Vodička"
+    ],
+    "absent_names": [
+     {
+      "name": "Ing. arch. Pavel Švanda, M.Sc.",
+      "note": "omluven"
+     },
+     {
+      "name": "Jiří Katrnoška",
+      "note": "omluven"
+     },
+     {
+      "name": "Lenka Třísková",
+      "note": "omluvena"
+     },
+     {
+      "name": "Ing. František Pospíšil",
+      "note": "omluven"
+     },
+     {
+      "name": "Viktorie Janáčková, MSc.",
+      "note": "omluvena"
+     }
+    ],
+    "guests": []
+   },
+   "chair": "Tomáš Vodička",
+   "recorded_by": null,
+   "agenda": [
+    {
+     "n": 1,
+     "t": "Úvodní informace"
+    },
+    {
+     "n": 2,
+     "t": "Studie území u hájovny – zpracováno developerem"
+    },
+    {
+     "n": 3,
+     "t": "Rekapitulace jednotlivých investičních akcí města, rozpracované projekty, studie"
+    },
+    {
+     "n": 4,
+     "t": "Dotazy, postřehy, žádosti, oznámení"
+    },
+    {
+     "n": 5,
+     "t": "Ukončení komise"
+    }
+   ],
+   "resolutions": [
+    {
+     "n": null,
+     "text": "Stavební komise konstatuje, že studie lokality u hájovny odpovídá současným trendům a doporučuje Radě města podpořit změnu Územního plánu v zastavitelnosti v ploše So. Dále navrhuje řešit s developerem otázku hluku v horních patrech domů z budoucího obchvatu a řešení dostatečnosti parkovacích míst, skladovacích prostor v bytových domech pro uložení kol, kočárků, lyží apod. v jednotlivých domech.",
+     "pro": 5,
+     "proti": 0,
+     "zdrzel": 0,
+     "adopted": true
+    }
+   ],
+   "summary": [
+    "Rekapitulace investičních akcí: Za Hřištěm ve V. Chvalovicích (parcely se prodávají), studie komunikací Pražská/Jarní/Křivá, obnova zeleně (realizace na jaro 2022), Mlýnský náhon, kabiny AFK (výběr projektanta), Bačov, Milčická, projekční práce (park, WC u nádraží, úpravna vody, Dešťovka), obchvat, revize veřejného osvětlení."
+   ],
+   "attachments": [],
+   "extraction": {
+    "method": "pdftotext",
+    "checked": "2026-09-30",
+    "note": " Zápis je z volebního období 2018–2022 (jiné složení komise, předseda Tomáš Vodička). Jednání stavební komise a komise životního prostředí, 17:00. Zápis nemá zapisovatele uvedeného; podepsán předsedou Tomášem Vodičkou. Hlasování „Pro: 5“."
+   }
+  },
+  {
+   "id": "sportovni-komise-2021-09-14",
+   "uuid": null,
+   "type": "Sportovní komise",
+   "group": "komise",
+   "bodies": [
+    "Sportovní komise"
+   ],
+   "number": null,
+   "year": 2021,
+   "date": "2021-09-14",
+   "label": "Sportovní komise (14. 9. 2021)",
+   "time": null,
+   "time_end": null,
+   "duration_seconds": null,
+   "venue": null,
+   "links": {
+    "minutes": "https://pecky.cz/files/pecky/gallery/19734/69e5ee7fd659c_14.9.2021.pdf",
+    "source_page": "https://pecky.cz/default/default/22553_2018-2022"
+   },
+   "attendance": {
+    "present": 6,
+    "total": 11,
+    "present_names": [
+     "Jiří Katrnoška",
+     "Michal Rumlena",
+     "Mgr. Pavel Kupr",
+     "Ing. Stanislav Jiran",
+     "Eva Jíchová",
+     "Ladislava Šátková ml."
+    ],
+    "absent_names": [
+     {
+      "name": "Mgr. Helena Šestáková",
+      "note": "omluvena"
+     },
+     {
+      "name": "Ing. David Nedoma",
+      "note": "omluven"
+     },
+     {
+      "name": "Zdeněk Buřič",
+      "note": "omluven"
+     },
+     {
+      "name": "Mgr. Václav Lebduška",
+      "note": "neomluven"
+     },
+     {
+      "name": "Mgr. Tomáš Drška",
+      "note": "neomluven"
+     }
+    ],
+    "guests": []
+   },
+   "chair": "Jiří Katrnoška",
+   "recorded_by": "Zuzana Vaněčková",
+   "agenda": [
+    {
+     "n": 1,
+     "t": "Úvod"
+    },
+    {
+     "n": 2,
+     "t": "Činnost jednotlivých oddílů v roce 2021"
+    },
+    {
+     "n": 3,
+     "t": "Informace o úpravě režimu provozu na atletickém hřišti"
+    },
+    {
+     "n": 4,
+     "t": "Rozpis hodin ve sportovní hale"
+    },
+    {
+     "n": 5,
+     "t": "Diskuse"
+    },
+    {
+     "n": 6,
+     "t": "Závěr"
+    }
+   ],
+   "resolutions": [
+    {
+     "n": null,
+     "text": "Provozní doba letního hřiště pro veřejnost — přítomnost správce (květen–říjen, provozní doba dle přílohy zápisu).",
+     "pro": 6,
+     "proti": 0,
+     "zdrzel": 0,
+     "adopted": true,
+     "note": "Hlasování o bodu 3; provozní doba je v příloze zápisu (např. červenec a srpen úterý–pátek dopoledne a odpoledne, víkend 14–20 h)."
+    },
+    {
+     "n": null,
+     "text": "Rozpis hodin ve sportovní hale pro sezónu 2021–2022 (příloha zápisu).",
+     "pro": 6,
+     "proti": 0,
+     "zdrzel": 0,
+     "adopted": true
+    },
+    {
+     "n": null,
+     "text": "Sportovní komise doporučuje, aby nevyčerpané částky příspěvku na činnost sportovních oddílu na rok 2021 byly na základě jejich žádosti podané na MěÚ Pečky do 31.12.2021 přesunuty do roku 2022.",
+     "pro": 6,
+     "proti": 0,
+     "zdrzel": 0,
+     "adopted": true,
+     "note": "Návrh Heleny Šestákové (Spartak): rok 2021 byl z poloviny zasažen covidem, oddíly proto nemohly dotaci vyčerpat."
+    }
+   ],
+   "summary": [
+    "Oddíly informovaly o činnosti v roce 2021 po covidovém omezení (Sokol prakticky bez činnosti, AFK obnovil činnost v květnu — 9 mužstev, Spartak volejbal od května, taekwondo — nominace na ME).",
+    "AFK shání správce hřiště (sekání, příprava, údržba).",
+    "Provozní doba letního hřiště a rozpis hodin v hale na sezónu 2021–2022 jsou v přílohách zápisu."
+   ],
+   "attachments": [],
+   "extraction": {
+    "method": "ocr",
+    "checked": "2026-09-30",
+    "note": " Zápis je z volebního období 2018–2022 (složení komise se od 2022 zcela liší). Zápis je sken, čteno OCR (tesseract). Zápis je „1. jednání“ roku 2021 a uvádí PŘÍTOMNO 6, OMLUVENO 3, NEOMLUVENO 3 — jmenuje ale jen dva neomluvené (Lebduška, Drška), třetí chybí; v datech je proto 11 členů a počty pro/proti jsou 6 z 6 přítomných. Ladislava Šátková je ztotožněna s pozdější členkou Ladislavou Šátkovou ml. (volejbal TJ Spartak)."
+   }
+  },
+  {
+   "id": "kulturni-komise-2021-09-01",
+   "uuid": null,
+   "type": "Kulturní komise",
+   "group": "komise",
+   "bodies": [
+    "Kulturní komise"
+   ],
+   "number": null,
+   "year": 2021,
+   "date": "2021-09-01",
+   "label": "Kulturní komise (1. 9. 2021)",
+   "time": null,
+   "time_end": null,
+   "duration_seconds": null,
+   "venue": null,
+   "links": {
+    "minutes": "https://pecky.cz/files/pecky/gallery/19065/69c3ebc14edba_1.9.2021.pdf",
+    "source_page": "https://pecky.cz/default/default/21899_2018-2022"
+   },
+   "attendance": {
+    "present": 7,
+    "total": 7,
+    "present_names": [
+     "Lukáš Hanzelín",
+     "Mgr. Blanka Kozáková",
+     "Vladimíra Krulišová",
+     "Michal Müller",
+     "Ludmila Švandová",
+     "PhDr. Miloslav Vlk",
+     "Mgr. Libor Vodička, Ph.D."
+    ],
+    "absent_names": [],
+    "guests": []
+   },
+   "chair": "Mgr. Blanka Kozáková",
+   "recorded_by": "Mgr. Blanka Kozáková",
+   "agenda": [
+    {
+     "n": 1,
+     "t": "Přivítání a seznámení s programem kulturní komise"
+    },
+    {
+     "n": 2,
+     "t": "Informace pana Hanzelína o aktuálním stavu rekonstrukce a kolaudace KS"
+    },
+    {
+     "n": 3,
+     "t": "Pečecké noviny"
+    },
+    {
+     "n": 4,
+     "t": "Podzimní kulturní program v Pečkách a Velkých Chvalovicích"
+    },
+    {
+     "n": 5,
+     "t": "Diskuze a různé"
+    }
+   ],
+   "resolutions": [],
+   "summary": [
+    "Podzimní kulturní program: farmářské trhy a Zahradní slavnost v DPS (4. 9.), klavírní recitál, Street food festival a dětské odpoledne ve Velkých Chvalovicích (18. 9.), Svatováclavské vinobraní (19. 9.), Noc literatury (22. 9.), Týden knihoven, zahájení tanečních (16. 10.), adventní trhy (28. 11.), odhalení lavičky Vladimíra Renčína (prosinec), Ples města Pečky."
+   ],
+   "attachments": [],
+   "extraction": {
+    "method": "ocr",
+    "checked": "2026-09-30",
+    "note": " Zápis je z volebního období 2018–2022 (složení komise se od 2022 zcela liší). Zápis je sken, čteno OCR (tesseract). Zápis neobsahuje usnesení ani hlasování."
+   }
+  },
+  {
+   "id": "stavebni-komise-2021-03-11",
+   "uuid": null,
+   "type": "Stavebně-dopravní komise",
+   "group": "komise",
+   "bodies": [
+    "Stavebně-dopravní komise"
+   ],
+   "number": null,
+   "year": 2021,
+   "date": "2021-03-11",
+   "label": "Stavebně-dopravní komise (11. 3. 2021)",
+   "time": "17:00",
+   "time_end": null,
+   "duration_seconds": null,
+   "venue": null,
+   "links": {
+    "minutes": "https://pecky.cz/files/pecky/gallery/19066/69c3f0179543c_11.3.2021.pdf",
+    "source_page": "https://pecky.cz/default/default/21900_2018-2022"
+   },
+   "attendance": {
+    "present": 8,
+    "total": 9,
+    "present_names": [
+     "Ing. František Pospíšil",
+     "Jaroslav Železný",
+     "Viktorie Janáčková, MSc.",
+     "Jiří Katrnoška",
+     "Radek Čížek",
+     "Ondřej Schulz",
+     "Ing. Věra Růžičková",
+     "Tomáš Vodička"
+    ],
+    "absent_names": [
+     {
+      "name": "Lenka Třísková",
+      "note": "omluvena"
+     }
+    ],
+    "guests": [
+     {
+      "name": "MgA. Jan Drška",
+      "note": "městský architekt"
+     },
+     {
+      "name": "Martin Němeček",
+      "note": "zástupce investora lokality Na Varhánkách"
+     }
+    ]
+   },
+   "chair": "Tomáš Vodička",
+   "recorded_by": "Viktorie Janáčková, MSc.",
+   "agenda": [
+    {
+     "n": 1,
+     "t": "Diskuse nad připravovanými developerskými projekty na území města"
+    }
+   ],
+   "resolutions": [
+    {
+     "n": null,
+     "text": "Doporučení radě města:\n1. Lokalita Na Varhánkách — s investorem dále jednat: a udržet spojení s městským architektem ohledně použitých materiálů (ideálně navrhnout již používaná řešení ve městě – VO, chodníky) a také ohledně výsadby (rozšířit druhovou skladbu); a pohlídat si, že k prodeji parcel dojde až po celkové přípravě ze strany investora (komunikace, kanalizace, osvětlení, atd.); aby byl řešen celkový postup průběhu projektu: aby nebyly kolaudovány stavby na jednotlivých parcelách, pokud nebude zkolaudována komunikace a celá lokalita připravená na stavbu; o ideálně bezúplatném převodu pozemků u Petra Bezruče na město zadarmo a o výsadbu zeleně a vybudování infrastruktury dle požadavků města (dětské hřiště, lavičky apod.); a řešit témata – viz došlé dotazy po konání komise.\n2. Lokalita developerská u Myslivny — s investorem dále jednat: a požadovat zastavovací architektonicko-urbanistickou studii, která má obsahovat řešení celé lokality v obou územích (kanalizace, zasakovací řešení, komunikace, zeleň, znovuvyužití orné půdy, parkovací místa, chodníky a jejich materiály, zpomalovací „vyvýšené“ křižovatky, stromořadí, zelené pruhy, veřejné osvětlení a dodržení standardů města); studie musí řešit i rekonstrukci ulice Prokopa Holého, napojení na Letohradskou ulici, veřejná prostranství, veřejnou zeleň a kontejnerová stání; požadovat vybudování komunikací potřebných pro celé území.\n3. Lokalita u Benzínky — po investorovi požadovat změnu záměru: k využití prostoru v souladu s UP, tj. patrovou budovou kombinující byty, obchody, kanceláře, nebo výrobu.",
+     "pro": null,
+     "proti": null,
+     "zdrzel": null,
+     "adopted": null,
+     "note": "Zápis: „O výše uvedených doporučeních nebylo hlasováno, panovala o nich shoda. Pouze u lokality u benzínky došlo na vyjádření souhlasu jednotlivými členy komise (kromě F. Pospíšila).“ Text zkrácen o opakující se výčet požadavků."
+    }
+   ],
+   "summary": [
+    "Lokalita Na Varhánkách: 12 parcel, zóna 30, komunikace napojená na ulici Dělnickou; realizace plánovaná na jaro 2022; k prodeji parcel má dojít až po přípravě lokality investorem.",
+    "Lokalita u Myslivny: jeden investor, chce i bytový dům; komise požaduje zastavovací architektonicko-urbanistickou studii celého území.",
+    "Lokalita u Benzínky: developer chtěl dlouhodobý pronájem městského pozemku pro obchodní záměr; komise o samostatný supermarket „nestojí“ a preferuje využití dle územního plánu (patrová budova — byty, obchody, kanceláře, výroba); František Pospíšil kategoricky nesouhlasí s obchodním domem."
+   ],
+   "attachments": [],
+   "extraction": {
+    "method": "pdftotext",
+    "checked": "2026-09-30",
+    "note": " Zápis je z volebního období 2018–2022 (jiné složení komise, předseda Tomáš Vodička). Jednání komise stavební a komise životního prostředí, on-line konference, 17:00. Zápis vytvořila Viktorie Janáčková."
+   }
+  },
+  {
+   "id": "stavebni-komise-2020-09-23",
+   "uuid": null,
+   "type": "Stavebně-dopravní komise",
+   "group": "komise",
+   "bodies": [
+    "Stavebně-dopravní komise"
+   ],
+   "number": null,
+   "year": 2020,
+   "date": "2020-09-23",
+   "label": "Stavebně-dopravní komise (23. 9. 2020)",
+   "time": "17:00",
+   "time_end": null,
+   "duration_seconds": null,
+   "venue": null,
+   "links": {
+    "minutes": "https://pecky.cz/files/pecky/gallery/19066/69c3f014756e9_23.9.2020.pdf",
+    "source_page": "https://pecky.cz/default/default/21900_2018-2022"
+   },
+   "attendance": {
+    "present": 12,
+    "total": 15,
+    "present_names": [
+     "Ing. František Pospíšil",
+     "Milan Merhaut",
+     "Jaroslav Železný",
+     "Viktorie Janáčková, MSc.",
+     "Kateřina Čiháková",
+     "Lenka Třísková",
+     "Hana Pokorná",
+     "Ing. Jana Zindrová",
+     "Radek Čížek",
+     "Ondřej Schulz",
+     "Ing. Věra Růžičková",
+     "Tomáš Vodička"
+    ],
+    "absent_names": [
+     {
+      "name": "Vojtěch Malina",
+      "note": "omluven"
+     },
+     {
+      "name": "Ing. arch. Pavel Švanda, M.Sc.",
+      "note": "omluven"
+     },
+     {
+      "name": "Jiří Katrnoška",
+      "note": "omluven"
+     }
+    ],
+    "guests": []
+   },
+   "chair": "Tomáš Vodička",
+   "recorded_by": "Radek Čížek",
+   "agenda": [
+    {
+     "n": 1,
+     "t": "Úvodní informace"
+    },
+    {
+     "n": 2,
+     "t": "Rekapitulace jednotlivých investičních akcí města, rozpracované projekty, studie"
+    },
+    {
+     "n": 3,
+     "t": "Dotazy, postřehy, žádosti, oznámení"
+    },
+    {
+     "n": 4,
+     "t": "Ukončení komise"
+    }
+   ],
+   "resolutions": [],
+   "summary": [
+    "Jednotlivé body se řešily podle tabulky investičních akcí z rozpočtu 2020 (příloha zápisu: přehled investičních akcí města 2020 včetně projektových dokumentací a studií); obsah rozpravy zápis neuvádí."
+   ],
+   "attachments": [],
+   "extraction": {
+    "method": "pdftotext",
+    "checked": "2026-09-30",
+    "note": " Zápis je z volebního období 2018–2022 (jiné složení komise, předseda Tomáš Vodička). Společné jednání stavební komise a komise životního prostředí, 17:00. Zápis vytvořil Radek Čížek; předsedou je Tomáš Vodička."
+   }
+  },
+  {
+   "id": "sportovni-komise-2020-02-27",
+   "uuid": null,
+   "type": "Sportovní komise",
+   "group": "komise",
+   "bodies": [
+    "Sportovní komise"
+   ],
+   "number": null,
+   "year": 2020,
+   "date": "2020-02-27",
+   "label": "Sportovní komise (27. 2. 2020)",
+   "time": null,
+   "time_end": null,
+   "duration_seconds": null,
+   "venue": null,
+   "links": {
+    "minutes": "https://pecky.cz/files/pecky/gallery/19734/69e5ee7c18810_27.2.2020.pdf",
+    "source_page": "https://pecky.cz/default/default/22553_2018-2022"
+   },
+   "attendance": {
+    "present": 7,
+    "total": 11,
+    "present_names": [
+     "Jiří Katrnoška",
+     "Ing. David Nedoma",
+     "Michal Rumlena",
+     "Mgr. Pavel Kupr",
+     "Ing. Romana Růžičková",
+     "Eva Jíchová",
+     "Zdeněk Buřič"
+    ],
+    "absent_names": [
+     {
+      "name": "Mgr. Václav Lebduška",
+      "note": "omluven"
+     },
+     {
+      "name": "Mgr. Tomáš Drška",
+      "note": "omluven"
+     },
+     {
+      "name": "Ing. Stanislav Jiran",
+      "note": "omluven"
+     },
+     {
+      "name": "Bc. Martin Vaníček",
+      "note": "omluven"
+     }
+    ],
+    "guests": [
+     {
+      "name": "Mgr. Helena Šestáková",
+      "note": "Spartak Pečky"
+     }
+    ]
+   },
+   "chair": "Jiří Katrnoška",
+   "recorded_by": "Zuzana Vaněčková",
+   "agenda": [
+    {
+     "n": 1,
+     "t": "Úvod"
+    },
+    {
+     "n": 2,
+     "t": "Rozdělení příspěvku města oddílům na činnost v roce 2020"
+    },
+    {
+     "n": 3,
+     "t": "Informace oddílů o činnosti a akcích v letošním roce"
+    },
+    {
+     "n": 4,
+     "t": "Závěr"
+    }
+   ],
+   "resolutions": [
+    {
+     "n": null,
+     "text": "Rozdělení příspěvku města na činnost sportovních oddílů 2020 — navrhované příspěvky: Spartak Pečky 181 000, Sokol V. Chvalovice 40 000, Sokol Pečky 390 000, AFK Pečky 360 000, Zimní turisti 68 000, Vodní turisti 91 000, Charisma 7 000, Basketbal Pečky 30 000, BK Pečky 42 000, Dráčata 25 000, Cyklisti 15 000 Kč; celkem 1 249 000 Kč.",
+     "pro": 7,
+     "proti": 0,
+     "zdrzel": 0,
+     "adopted": true,
+     "note": "Text sestavený z tabulky „Navrhované příspěvky oddílům na rok 2020“; hlasováno o rozdělení dotace. Zápis počítá s navýšením příspěvku města na 1 400 000 Kč (členská základna 900 000, provoz 350 000, akce a rezerva cca 150 000). Zápis v závěru uvádí „rozděleno 1 267 000 Kč, zůstatek 133 000 Kč“, což se s částkou 1 249 000 Kč nekryje (rozdíl 18 000 Kč)."
+    }
+   ],
+   "summary": [
+    "Model rozdělení: členská základna 900 000 Kč (70 % mládež — 1 533 Kč na dítě, 30 % dospělí — 1 234 Kč na závodně a 177 Kč na rekreačně sportujícího), provozní náklady 350 000 Kč; za rok 2019 se počítají náklady a žádosti oddílů.",
+    "Zástupci oddílů informovali o činnosti (volejbal, TJ Sokol – rekonstrukce sokolovny pokračuje, AFK, Spartak, basketbal a BK Pečky, taekwondo); Pečecká desítka 14. 3. 2020 (750 přihlášených z 7 zemí)."
+   ],
+   "attachments": [],
+   "extraction": {
+    "method": "ocr",
+    "checked": "2026-09-30",
+    "note": " Zápis je z volebního období 2018–2022 (složení komise se od 2022 zcela liší). Zápis je sken (bez textové vrstvy), čteno OCR (tesseract); částky jsou z OCR a vzájemně sedí. Zápis je „1. jednání“ roku 2020 (číslování po letech). Ve výpisu je „Helena Šestáková“ vedená jako host; OCR ji na jednom místě čte jako „Helena Milerová“. Zápis nemá „Usnesení“ ani další sekce vyplněné."
+   }
+  },
+  {
+   "id": "kulturni-komise-2020-01-29",
+   "uuid": null,
+   "type": "Kulturní komise",
+   "group": "komise",
+   "bodies": [
+    "Kulturní komise"
+   ],
+   "number": null,
+   "year": 2020,
+   "date": "2020-01-29",
+   "label": "Kulturní komise (29. 1. 2020)",
+   "time": null,
+   "time_end": null,
+   "duration_seconds": null,
+   "venue": null,
+   "links": {
+    "minutes": "https://pecky.cz/files/pecky/gallery/19065/69c3ebbd7249a_29.1.2020.pdf",
+    "source_page": "https://pecky.cz/default/default/21899_2018-2022"
+   },
+   "attendance": {
+    "present": 6,
+    "total": 7,
+    "present_names": [
+     "Mgr. Blanka Kozáková",
+     "Lukáš Hanzelín",
+     "Vladimíra Krulišová",
+     "Michal Müller",
+     "Mgr. Libor Vodička, Ph.D.",
+     "PhDr. Miloslav Vlk"
+    ],
+    "absent_names": [
+     {
+      "name": "Ludmila Švandová",
+      "note": "omluvena"
+     }
+    ],
+    "guests": []
+   },
+   "chair": "Mgr. Blanka Kozáková",
+   "recorded_by": "Mgr. Blanka Kozáková",
+   "agenda": [
+    {
+     "n": 1,
+     "t": "Přivítání a seznámení s programem kulturní komise"
+    },
+    {
+     "n": 2,
+     "t": "Informace pana Hanzelína o aktuálním stavu s rekonstrukcí sokolovny"
+    },
+    {
+     "n": 3,
+     "t": "Propagační materiály města"
+    },
+    {
+     "n": 4,
+     "t": "Společné pečecké čtení pro rodiče a děti - březen/duben 2020"
+    },
+    {
+     "n": 5,
+     "t": "Procházka po hřbitově (připraví pan Vlk) – květen 2020"
+    },
+    {
+     "n": 6,
+     "t": "Noc literatury – 13. 5. 2020 (organizuje p. Müller a Městská knihovna v Pečkách)"
+    },
+    {
+     "n": 7,
+     "t": "95. výročí povýšení města Pečky na město"
+    },
+    {
+     "n": 10,
+     "t": "Různé: propagace akcí města; Bookstart do života; možnost skenování fotografií v knihovně"
+    }
+   ],
+   "resolutions": [],
+   "summary": [
+    "Zápis obsahuje jen program jednání; průběh jednání a výsledky v něm nejsou."
+   ],
+   "attachments": [],
+   "extraction": {
+    "method": "ocr",
+    "checked": "2026-09-30",
+    "note": " Zápis je z volebního období 2018–2022 (složení komise se od 2022 zcela liší). Zápis je „1. jednání kulturní komise“ roku 2020, sken; obsahuje jen program. Body programu jsou v zápisu číslované 1–7 a 10 (osmý a devátý bod v zápisu chybí) — čísla zachována podle zápisu."
+   }
+  },
+  {
+   "id": "sportovni-komise-2019-12-05",
+   "uuid": null,
+   "type": "Sportovní komise",
+   "group": "komise",
+   "bodies": [
+    "Sportovní komise"
+   ],
+   "number": null,
+   "year": 2019,
+   "date": "2019-12-05",
+   "label": "Sportovní komise (5. 12. 2019)",
+   "time": null,
+   "time_end": null,
+   "duration_seconds": null,
+   "venue": null,
+   "links": {
+    "minutes": "https://pecky.cz/files/pecky/gallery/19734/69e5ee768a879_5.12.2019.pdf",
+    "source_page": "https://pecky.cz/default/default/22553_2018-2022"
+   },
+   "attendance": {
+    "present": 8,
+    "total": 11,
+    "present_names": [
+     "Jiří Katrnoška",
+     "Ing. David Nedoma",
+     "Bc. Martin Vaníček",
+     "Michal Rumlena",
+     "Ing. Stanislav Jiran",
+     "Ing. Romana Růžičková",
+     "Eva Jíchová",
+     "Zdeněk Buřič"
+    ],
+    "absent_names": [
+     {
+      "name": "Mgr. Václav Lebduška",
+      "note": "omluven"
+     },
+     {
+      "name": "Mgr. Tomáš Drška",
+      "note": "omluven"
+     },
+     {
+      "name": "Mgr. Pavel Kupr",
+      "note": "omluven"
+     }
+    ],
+    "guests": [
+     {
+      "name": "Václav Polák",
+      "note": "oddíl vodní turistiky"
+     },
+     {
+      "name": "Jiří Lerch",
+      "note": "Spartak Pečky – tenis"
+     }
+    ]
+   },
+   "chair": "Jiří Katrnoška",
+   "recorded_by": "Zuzana Vaněčková",
+   "agenda": [
+    {
+     "n": 1,
+     "t": "Úvod"
+    },
+    {
+     "n": 2,
+     "t": "Činnost jednotlivých oddílů v roce 2019"
+    },
+    {
+     "n": 3,
+     "t": "Plánované sportovní akce oddílů v roce 2020"
+    },
+    {
+     "n": 4,
+     "t": "Informace o vyplňování žádostí o příspěvek města oddílům na činnost v roce 2020"
+    },
+    {
+     "n": 5,
+     "t": "Kritéria rozdělení příspěvku oddílům"
+    },
+    {
+     "n": 6,
+     "t": "Různé"
+    },
+    {
+     "n": 7,
+     "t": "Závěr"
+    }
+   ],
+   "resolutions": [
+    {
+     "n": null,
+     "text": "Návrh jak postupovat při rozdělení příspěvku pro sportovní oddíly na rok 2020 byl schválen.",
+     "pro": 6,
+     "proti": 0,
+     "zdrzel": 2,
+     "adopted": true,
+     "note": "Návrh (podmíněný rozpočtem, model z 1 250 000 Kč): sportovní akce a mimořádné turnaje 100 000, rezerva 25 000, provoz sportovního zařízení 315 000 (dělí se podle nákladů oddílů), podle členské základny 810 000 Kč — z toho mládež 567 000 (70 %, dělí se počtem dětí narozených 2000 a mladších) a dospělí 243 000 (30 %; závodně 80 %, rekreačně 20 %). Zdeněk Buřič namítl, že 315 000 Kč na provoz je nedostatečných."
+    }
+   ],
+   "summary": [
+    "Zástupci oddílů informovali o činnosti v roce 2019 a plánech na rok 2020 (volejbal, Sokol, Spartak tenis, AFK, TJ Sokol Velké Chvalovice, vodní turistika, basketbal, BK Pečky — Pečecká desítka 14. 3. 2020).",
+    "Jiří Katrnoška: kabiny ve Velkých Chvalovicích jsou ve špatném stavu; je zpracovaná studie zázemí AFK; na ZM 18. 12. 2019 bude projednána studie tělocvičny nad školní kuchyní s odhadovanou cenou přes 100 mil. Kč.",
+    "Žádosti o dotace se podávají na MěÚ Pečky, ideálně do konce roku; příští zasedání v únoru 2020."
+   ],
+   "attachments": [],
+   "extraction": {
+    "method": "pdftotext",
+    "checked": "2026-09-30",
+    "note": " Zápis je z volebního období 2018–2022 (složení komise se od 2022 zcela liší). Zápis je „5. jednání“ (číslování od 2018). Zápis uvádí „přítomno 8, omluveno 3“."
+   }
+  },
+  {
+   "id": "stavebni-komise-2019-11-27",
+   "uuid": null,
+   "type": "Stavebně-dopravní komise",
+   "group": "komise",
+   "bodies": [
+    "Stavebně-dopravní komise"
+   ],
+   "number": null,
+   "year": 2019,
+   "date": "2019-11-27",
+   "label": "Stavebně-dopravní komise (27. 11. 2019)",
+   "time": "18:00",
+   "time_end": null,
+   "duration_seconds": null,
+   "venue": "Kulturní středisko Pečky",
+   "links": {
+    "minutes": "https://pecky.cz/files/pecky/gallery/19066/69c3f00c9e587_zapis-27.11.2019.pdf",
+    "source_page": "https://pecky.cz/default/default/21900_2018-2022"
+   },
+   "attendance": {
+    "present": 9,
+    "total": 9,
+    "present_names": [
+     "Ing. František Pospíšil",
+     "Milan Merhaut",
+     "Jiří Katrnoška",
+     "Jaroslav Železný",
+     "MgA. Jan Drška",
+     "Vojtěch Malina",
+     "Ing. Věra Růžičková",
+     "Tomáš Vodička",
+     "Ondřej Schulz"
+    ],
+    "absent_names": [],
+    "guests": [
+     {
+      "name": "Mgr. Alena Švejnohová",
+      "note": "starostka"
+     }
+    ]
+   },
+   "chair": "Tomáš Vodička",
+   "recorded_by": "Ing. Věra Růžičková",
+   "agenda": [
+    {
+     "n": 1,
+     "t": "Projekty a investice 2020"
+    },
+    {
+     "n": 2,
+     "t": "Studie MŠ MAŠINKA- dopravní situace přilehlé komunikace, oplocení"
+    },
+    {
+     "n": 3,
+     "t": "Digitální mapa města"
+    },
+    {
+     "n": 4,
+     "t": "Prezentace Studie okolí vlakového nádraží"
+    },
+    {
+     "n": 5,
+     "t": "Cesta ke koncepci města"
+    }
+   ],
+   "resolutions": [],
+   "summary": [
+    "Veřejné jednání: Tomáš Vodička prezentoval návrh rozpočtu města na rok 2020 v oblasti investic, studií a projektových dokumentací; architekt Jan Drška vysvětlil omezení dopravy před školkou a studii okolí nádraží (východní část u nádražní budovy — veřejné WC, stojany, zeleň).",
+    "Tomáš Vodička předvedl aplikaci GIS Online (digitální mapa města včetně Velkých Chvalovic), mapa má být na webu města; Jan Drška navrhl cestu k městské koncepci.",
+    "Veřejnost diskutovala problémy komunikací: Tř. 5. května, ul. Barákova, Husovo náměstí, proluka u lékárny."
+   ],
+   "attachments": [],
+   "extraction": {
+    "method": "pdftotext",
+    "checked": "2026-09-30",
+    "note": " Zápis je z volebního období 2018–2022 (jiné složení komise, předseda Tomáš Vodička). Zápis je „8. jednání – veřejného“, 27. 11. 2019 v 18:00 v Kulturním středisku; Milan Merhaut je v seznamu přítomných uveden dvakrát (v datech jednou). Na pecky.cz je zápis vystavený dvakrát (dva soubory, stejný obsah). Zápis neobsahuje usnesení ani hlasování."
+   }
+  },
+  {
+   "id": "stavebni-komise-2019-10-21",
+   "uuid": null,
+   "type": "Stavebně-dopravní komise",
+   "group": "komise",
+   "bodies": [
+    "Stavebně-dopravní komise"
+   ],
+   "number": null,
+   "year": 2019,
+   "date": "2019-10-21",
+   "label": "Stavebně-dopravní komise (21. 10. 2019)",
+   "time": "17:00",
+   "time_end": null,
+   "duration_seconds": null,
+   "venue": null,
+   "links": {
+    "minutes": "https://pecky.cz/files/pecky/gallery/19066/69c3f00921dc4_zapis-21.10.2019.pdf",
+    "source_page": "https://pecky.cz/default/default/21900_2018-2022"
+   },
+   "attendance": {
+    "present": 8,
+    "total": 9,
+    "present_names": [
+     "Ing. František Pospíšil",
+     "Milan Merhaut",
+     "Jiří Katrnoška",
+     "Jaroslav Železný",
+     "MgA. Jan Drška",
+     "Vojtěch Malina",
+     "Ing. Věra Růžičková",
+     "Tomáš Vodička"
+    ],
+    "absent_names": [
+     {
+      "name": "Ondřej Schulz",
+      "note": "omluven"
+     }
+    ],
+    "guests": [],
+    "arrived_late": [
+     {
+      "name": "Jiří Katrnoška",
+      "time": "17:30"
+     },
+     {
+      "name": "Jaroslav Železný",
+      "time": "17:30"
+     }
+    ]
+   },
+   "chair": "Tomáš Vodička",
+   "recorded_by": "Jana Zindrová",
+   "agenda": [
+    {
+     "n": 1,
+     "t": "Tř. J. Švermy - aktuální info"
+    },
+    {
+     "n": 2,
+     "t": "Chodník Milčická - rozpracovaná projektová dokumentace"
+    },
+    {
+     "n": 3,
+     "t": "MŠ plot a přilehlá komunikace - studie"
+    },
+    {
+     "n": 4,
+     "t": "Bačovská 88 - rekonstrukce městského objektu a jeho využití"
+    },
+    {
+     "n": 5,
+     "t": "Zázemí fotbalového hřiště V. Chvalovice"
+    },
+    {
+     "n": 6,
+     "t": "Hospodaření s dešťovou vodou - využití dotací"
+    }
+   ],
+   "resolutions": [],
+   "summary": [
+    "Tř. J. Švermy: etapy 3 a 4, dokončení nejpozději do 15. 12. 2019; Milčická: tři varianty cyklostezky/chodníku, preferovaná s 2,20 m širokou cyklostezkou.",
+    "Bačovská 88: město zvažuje sociální/startovací bydlení (dotace až 100 % nákladů) — studie: 3 byty v podkroví, 1 v přízemí, komunitní místnost.",
+    "Zázemí fotbalového hřiště ve Velkých Chvalovicích: předběžně dohodnut odkup pozemku od investora za původní cenu; o odkupu bude jednat zastupitelstvo.",
+    "Hospodaření s dešťovou vodou: devět městských objektů vytipováno pro nádrže či zasakování (ZŠ, bývalá jatka, domy s pečovatelskou službou, ZUŠ, hasiči, MŠ, KS, Vzdělávací centrum) s využitím dotací."
+   ],
+   "attachments": [],
+   "extraction": {
+    "method": "pdftotext",
+    "checked": "2026-09-30",
+    "note": " Zápis je z volebního období 2018–2022 (jiné složení komise, předseda Tomáš Vodička). Zápis je „7. jednání Stavební komise“ (17:00); Jiří Katrnoška a Jaroslav Železný jsou uvedeni zároveň mezi přítomnými i omluvenými — zápis vysvětluje, že se po skončení zasedání rady v 17:30 zúčastnili zasedání komise. Jan Drška (městský architekt) je v tomto zápise mezi přítomnými. Zápis neobsahuje usnesení ani hlasování."
+   }
+  },
+  {
+   "id": "kulturni-komise-2019-09-26",
+   "uuid": null,
+   "type": "Kulturní komise",
+   "group": "komise",
+   "bodies": [
+    "Kulturní komise"
+   ],
+   "number": null,
+   "year": 2019,
+   "date": "2019-09-26",
+   "label": "Kulturní komise (26. 9. 2019)",
+   "time": null,
+   "time_end": null,
+   "duration_seconds": null,
+   "venue": null,
+   "links": {
+    "minutes": "https://pecky.cz/files/pecky/gallery/19065/69c3ebba4ae08_26.9.2019.pdf",
+    "source_page": "https://pecky.cz/default/default/21899_2018-2022"
+   },
+   "attendance": {
+    "present": 7,
+    "total": 7,
+    "present_names": [
+     "Mgr. Blanka Kozáková",
+     "PhDr. Miloslav Vlk",
+     "Lukáš Hanzelín",
+     "Vladimíra Krulišová",
+     "Ludmila Švandová",
+     "Michal Müller",
+     "Mgr. Libor Vodička, Ph.D."
+    ],
+    "absent_names": [],
+    "guests": []
+   },
+   "chair": "Mgr. Blanka Kozáková",
+   "recorded_by": "Mgr. Blanka Kozáková",
+   "agenda": [
+    {
+     "n": 1,
+     "t": "Přivítání a seznámení s programem kulturní komise"
+    },
+    {
+     "n": 2,
+     "t": "Informace pana Hanzelína o aktuálním stavu s rekonstrukcí sokolovny"
+    },
+    {
+     "n": 3,
+     "t": "Informace o projektu Nezapomeňme"
+    },
+    {
+     "n": 4,
+     "t": "Zhodnocení akce Společné pečecké čtení pro rodiče a děti - velmi pozitivní ohlasy"
+    },
+    {
+     "n": 5,
+     "t": "Plánovaná akce - procházka po hřbitově (připraví pan Vlk) — jaro 2020"
+    },
+    {
+     "n": 6,
+     "t": "V týdnu mezi 6.1.— 10. 1. proběhne 2. společné čtení pro rodiče a děti z knížek, které děti našly pod stromečkem"
+    },
+    {
+     "n": 7,
+     "t": "Filmový workshop — nabídka pro ZŠ"
+    },
+    {
+     "n": 8,
+     "t": "Bookstart — s knížkou do života — možnost vydání brožury s veršíky a ilustracemi (není zatíženo autorskými právy)"
+    },
+    {
+     "n": 9,
+     "t": "Žádost pana Hanzelína o co nejrychlejší vypsání výběrového řízení na obnovu KS a informačního centra"
+    },
+    {
+     "n": 10,
+     "t": "Různé"
+    }
+   ],
+   "resolutions": [],
+   "summary": [
+    "Zápis obsahuje jen program jednání; průběh jednání a výsledky v něm nejsou."
+   ],
+   "attachments": [],
+   "extraction": {
+    "method": "ocr",
+    "checked": "2026-09-30",
+    "note": " Zápis je z volebního období 2018–2022 (složení komise se od 2022 zcela liší). Zápis je „5. jednání kulturní komise“, sken; obsahuje jen program (u bodu 5 OCR čte „Vlk“ jako „VIk“)."
+   }
+  },
+  {
+   "id": "sportovni-komise-2019-06-27",
+   "uuid": null,
+   "type": "Sportovní komise",
+   "group": "komise",
+   "bodies": [
+    "Sportovní komise",
+    "Stavebně-dopravní komise"
+   ],
+   "number": null,
+   "year": 2019,
+   "date": "2019-06-27",
+   "label": "Sportovní komise (27. 6. 2019)",
+   "time": null,
+   "time_end": null,
+   "duration_seconds": null,
+   "venue": null,
+   "links": {
+    "minutes": "https://pecky.cz/files/pecky/gallery/19734/69e5ee72e5c6e_27.06.2019.pdf",
+    "source_page": "https://pecky.cz/default/default/22553_2018-2022",
+    "minutes_more": [
+     {
+      "label": "Zápis stavební komise",
+      "url": "https://pecky.cz/files/pecky/gallery/19066/69c3f006059bd_zapis-27.6.19.pdf"
+     }
+    ]
+   },
+   "attendance": {
+    "present": 6,
+    "total": 14,
+    "present_names": [
+     "Tomáš Vodička",
+     "Jiří Katrnoška",
+     "Ing. Věra Růžičková",
+     "Ondřej Schulz",
+     "Ing. Romana Růžičková",
+     "Bc. Martin Vaníček"
+    ],
+    "absent_names": [
+     {
+      "name": "Ing. Stanislav Jiran",
+      "note": "omluven"
+     },
+     {
+      "name": "Ing. David Nedoma",
+      "note": "omluven"
+     },
+     {
+      "name": "Ing. Jana Zindrová",
+      "note": "omluvena"
+     },
+     {
+      "name": "Ing. arch. Pavel Švanda, M.Sc.",
+      "note": "omluven"
+     },
+     {
+      "name": "Ing. František Pospíšil",
+      "note": "omluven"
+     },
+     {
+      "name": "Jaroslav Železný",
+      "note": "omluven"
+     },
+     {
+      "name": "Milan Merhaut",
+      "note": "omluven"
+     },
+     {
+      "name": "Vojtěch Malina",
+      "note": "omluven"
+     }
+    ],
+    "guests": [
+     {
+      "name": "Luboš Zajíc",
+      "note": null
+     }
+    ]
+   },
+   "chair": "Tomáš Vodička",
+   "recorded_by": "Jiří Katrnoška",
+   "agenda": [
+    {
+     "n": 1,
+     "t": "Úvod"
+    },
+    {
+     "n": 2,
+     "t": "Zázemí AFK"
+    },
+    {
+     "n": 3,
+     "t": "Tělocvična ZŠ"
+    },
+    {
+     "n": 4,
+     "t": "Závěr"
+    }
+   ],
+   "resolutions": [],
+   "summary": [
+    "Zázemí AFK: k studii nebyly zaslány písemné připomínky; vyvstal požadavek na zlepšení zázemí pro volejbal (antuka) a basket (asfalt) v parku.",
+    "Tělocvična ZŠ: Tomáš Vodička prezentoval odpovědi ZŠ na dotazník a doplnil odpovědi členů obou komisí (např. hlediště včetně varianty zcela zrušit).",
+    "Závěr: všichni přítomní doporučují studii AFK posunout do další fáze a studii tělocvičny přepracovat podle připomínek a zpracovat projektovou dokumentaci; zápis uvádí, že tělocvična základní škole „velmi chybí“ a její realizace je potřeba co nejdříve."
+   ],
+   "attachments": [],
+   "extraction": {
+    "method": "pdftotext",
+    "checked": "2026-09-30",
+    "note": " Zápis je z volebního období 2018–2022 (složení komise se od 2022 zcela liší). Společné jednání sportovní a stavebně-dopravní komise; každý orgán má svůj zápis (sportovní „4. jednání“, stavební „6. jednání“) s téměř totožným obsahem. Účast je sjednocená: sportovní zápis uvádí přítomné Katrnošku, Vaníčka, Růžičkovou a omluvené Jirana a Nedomu (ostatní členy sportovní komise nezmiňuje), stavební zápis přítomné Vodičku, Katrnošku, Věru Růžičkovou, Schulze a omluvené ostatní členy. Jednání zahájil předseda stavební komise Tomáš Vodička („obou komisí“). Textová vrstva sportovního PDF je poškozená (OCR), text ověřen proti stavebnímu zápisu. Zápis neobsahuje usnesení ani hlasování."
+   }
+  },
+  {
+   "id": "kulturni-komise-2019-06-13",
+   "uuid": null,
+   "type": "Kulturní komise",
+   "group": "komise",
+   "bodies": [
+    "Kulturní komise"
+   ],
+   "number": null,
+   "year": 2019,
+   "date": "2019-06-13",
+   "label": "Kulturní komise (13. 6. 2019)",
+   "time": null,
+   "time_end": null,
+   "duration_seconds": null,
+   "venue": null,
+   "links": {
+    "minutes": "https://pecky.cz/files/pecky/gallery/19065/69c3ebb776ff1_13.6.2019.pdf",
+    "source_page": "https://pecky.cz/default/default/21899_2018-2022"
+   },
+   "attendance": {
+    "present": 7,
+    "total": 7,
+    "present_names": [
+     "Mgr. Blanka Kozáková",
+     "PhDr. Miloslav Vlk",
+     "Lukáš Hanzelín",
+     "Vladimíra Krulišová",
+     "Ludmila Švandová",
+     "Michal Müller",
+     "Mgr. Libor Vodička, Ph.D."
+    ],
+    "absent_names": [],
+    "guests": []
+   },
+   "chair": "Mgr. Blanka Kozáková",
+   "recorded_by": "Mgr. Blanka Kozáková",
+   "agenda": [
+    {
+     "n": 1,
+     "t": "Přivítání a seznámení s programem kulturní komise"
+    },
+    {
+     "n": 2,
+     "t": "Informace o akci Noc literatury"
+    },
+    {
+     "n": 3,
+     "t": "Informace o výstavě Má vlast cestami proměn"
+    },
+    {
+     "n": 4,
+     "t": "Pečecké kulturní léto"
+    },
+    {
+     "n": 5,
+     "t": "Různé"
+    }
+   ],
+   "resolutions": [],
+   "summary": [
+    "Zápis obsahuje jen program jednání; průběh jednání a výsledky v něm nejsou."
+   ],
+   "attachments": [],
+   "extraction": {
+    "method": "ocr",
+    "checked": "2026-09-30",
+    "note": " Zápis je z volebního období 2018–2022 (složení komise se od 2022 zcela liší). Zápis je „4. jednání kulturní komise“, sken; obsahuje jen program."
+   }
+  },
+  {
+   "id": "sportovni-komise-2019-05-23",
+   "uuid": null,
+   "type": "Sportovní komise",
+   "group": "komise",
+   "bodies": [
+    "Sportovní komise",
+    "Stavebně-dopravní komise"
+   ],
+   "number": null,
+   "year": 2019,
+   "date": "2019-05-23",
+   "label": "Sportovní komise (23. 5. 2019)",
+   "time": null,
+   "time_end": null,
+   "duration_seconds": null,
+   "venue": null,
+   "links": {
+    "minutes": "https://pecky.cz/files/pecky/gallery/19734/69e5ee6eea57f_23.5.2019.pdf",
+    "source_page": "https://pecky.cz/default/default/22553_2018-2022",
+    "minutes_more": [
+     {
+      "label": "Zápis stavební komise",
+      "url": "https://pecky.cz/files/pecky/gallery/19066/69c3f00234141_zapis-23.5.19.pdf"
+     }
+    ]
+   },
+   "attendance": {
+    "present": 15,
+    "total": 20,
+    "present_names": [
+     "Jiří Katrnoška",
+     "Mgr. Václav Lebduška",
+     "Ing. David Nedoma",
+     "Bc. Martin Vaníček",
+     "Ing. Romana Růžičková",
+     "Eva Jíchová",
+     "Michal Rumlena",
+     "Mgr. Pavel Kupr",
+     "Tomáš Vodička",
+     "Ing. František Pospíšil",
+     "Jaroslav Železný",
+     "Jana Vaníčková",
+     "Milan Merhaut",
+     "Ing. Věra Růžičková",
+     "Vojtěch Malina"
+    ],
+    "absent_names": [
+     {
+      "name": "Ing. Stanislav Jiran",
+      "note": "omluven"
+     },
+     {
+      "name": "Zdeněk Buřič",
+      "note": "omluven"
+     },
+     {
+      "name": "Ing. Jana Zindrová",
+      "note": "omluvena"
+     },
+     {
+      "name": "Ondřej Schulz",
+      "note": "omluven"
+     },
+     {
+      "name": "Ing. arch. Pavel Švanda, M.Sc.",
+      "note": "omluven"
+     }
+    ],
+    "guests": [
+     {
+      "name": "Lukáš Hanzelín",
+      "note": null
+     },
+     {
+      "name": "Jaroslav Vorlíček",
+      "note": null
+     }
+    ]
+   },
+   "chair": "Jiří Katrnoška",
+   "recorded_by": "Zuzana Vaněčková",
+   "agenda": [
+    {
+     "n": 1,
+     "t": "Úvod"
+    },
+    {
+     "n": 2,
+     "t": "Tělocvična ZŠ"
+    },
+    {
+     "n": 3,
+     "t": "Zázemí AFK"
+    },
+    {
+     "n": 4,
+     "t": "Venkovní hřiště - info"
+    },
+    {
+     "n": 5,
+     "t": "Zázemí SOKOL Velké Chvalovice"
+    },
+    {
+     "n": 6,
+     "t": "Diskuze, různé"
+    },
+    {
+     "n": 7,
+     "t": "Závěr"
+    }
+   ],
+   "resolutions": [],
+   "summary": [
+    "Jan Drška (městský architekt) a Tomáš Vodička představili studii tělocvičny ZŠ a studii zázemí AFK; Tomáš Vodička informoval o venkovním hřišti (žádost o dotaci) a o zázemí Sokola Velké Chvalovice.",
+    "Členové obou komisí mají do 17. 6. poslat připomínky k požadavkům na využití tělocvičny podle okruhů: hodiny tělocviku, aula, vybavení tělocvičny, vnější plášť/školní dvůr/střecha, mimoškolní sport.",
+    "Příští společné zasedání 27. 6. 2019 v Kulturním domě."
+   ],
+   "attachments": [],
+   "extraction": {
+    "method": "pdftotext",
+    "checked": "2026-09-30",
+    "note": " Zápis je z volebního období 2018–2022 (složení komise se od 2022 zcela liší). Společné jednání sportovní a stavebně-dopravní komise; každý orgán má svůj zápis (sportovní „3. jednání“, stavební „5. jednání“) s téměř totožným obsahem. V datech je jednou; účast je sjednocená z obou zápisů (Jiří Katrnoška je členem obou komisí). Sportovní zápis uvádí navíc hosty Lukáše Hanzelína a Jaroslava Vorlíčka a členy stavební komise; přítomní členové sportovní komise: 8, stavební komise: 8. Jednání řídil předseda sportovní komise Jiří Katrnoška. Zápis neobsahuje usnesení ani hlasování; Jan Drška je v zápisech uveden jako prezentující (městský architekt)."
+   }
+  },
+  {
+   "id": "kulturni-komise-2019-04-11",
+   "uuid": null,
+   "type": "Kulturní komise",
+   "group": "komise",
+   "bodies": [
+    "Kulturní komise"
+   ],
+   "number": null,
+   "year": 2019,
+   "date": "2019-04-11",
+   "label": "Kulturní komise (11. 4. 2019)",
+   "time": null,
+   "time_end": null,
+   "duration_seconds": null,
+   "venue": null,
+   "links": {
+    "minutes": "https://pecky.cz/files/pecky/gallery/19065/69c3ebb421e98_11.4.2019.pdf",
+    "source_page": "https://pecky.cz/default/default/21899_2018-2022"
+   },
+   "attendance": {
+    "present": 6,
+    "total": 7,
+    "present_names": [
+     "Mgr. Blanka Kozáková",
+     "PhDr. Miloslav Vlk",
+     "Lukáš Hanzelín",
+     "Vladimíra Krulišová",
+     "Ludmila Švandová",
+     "Michal Müller"
+    ],
+    "absent_names": [
+     {
+      "name": "Mgr. Libor Vodička, Ph.D.",
+      "note": "omluven"
+     }
+    ],
+    "guests": []
+   },
+   "chair": "Mgr. Blanka Kozáková",
+   "recorded_by": null,
+   "agenda": [
+    {
+     "n": 1,
+     "t": "Přivítání a seznámení s programem kulturní komise"
+    },
+    {
+     "n": 2,
+     "t": "Informace o novinkách týkajících se kulturního života v Pečkách"
+    },
+    {
+     "n": 3,
+     "t": "Pečecké noviny – příspěvky, připomínky"
+    },
+    {
+     "n": 4,
+     "t": "Bookstar – s knihou do života"
+    },
+    {
+     "n": 5,
+     "t": "Noc literatury 9.5.2019 (a) časový plán – začátek v 18.00, předpokládaný konec 21.30; b) seznam knih, z nichž bude předčítáno; c) seznam předčítajících na jednotlivých stanovištích)"
+    },
+    {
+     "n": 6,
+     "t": "Diskuze a různé (a) informace pana Lukáše Hanzelína o plánované rekonstrukci kulturního střediska)"
+    }
+   ],
+   "resolutions": [],
+   "summary": [
+    "Zápis obsahuje jen program jednání (přítomní, omluvený, body programu); průběh jednání a výsledky v něm nejsou."
+   ],
+   "attachments": [],
+   "extraction": {
+    "method": "ocr",
+    "checked": "2026-09-30",
+    "note": " Zápis je z volebního období 2018–2022 (složení komise se od 2022 zcela liší). Zápis je „3. jednání kulturní komise“, sken; obsahuje jen program."
+   }
+  },
+  {
+   "id": "stavebni-komise-2019-04-08",
+   "uuid": null,
+   "type": "Stavebně-dopravní komise",
+   "group": "komise",
+   "bodies": [
+    "Stavebně-dopravní komise"
+   ],
+   "number": null,
+   "year": 2019,
+   "date": "2019-04-08",
+   "label": "Stavebně-dopravní komise (8. 4. 2019)",
+   "time": null,
+   "time_end": null,
+   "duration_seconds": null,
+   "venue": null,
+   "links": {
+    "minutes": "https://pecky.cz/files/pecky/gallery/19066/69c3efff4b26a_zapis-stavebni-komise-8.4.19.pdf",
+    "source_page": "https://pecky.cz/default/default/21900_2018-2022"
+   },
+   "attendance": {
+    "present": 10,
+    "total": 9,
+    "present_names": [
+     "Tomáš Vodička",
+     "Ondřej Schulz",
+     "Jiří Katrnoška",
+     "Jaroslav Železný",
+     "Jana Vaníčková",
+     "Ing. František Pospíšil",
+     "Milan Merhaut",
+     "Vojtěch Malina",
+     "Ing. Věra Růžičková"
+    ],
+    "absent_names": [],
+    "guests": [
+     {
+      "name": "Mgr. Alena Švejnohová",
+      "note": "starostka"
+     },
+     {
+      "name": "MgA. Jan Drška",
+      "note": "městský architekt"
+     }
+    ]
+   },
+   "chair": "Tomáš Vodička",
+   "recorded_by": "Jana Zindrová",
+   "agenda": [
+    {
+     "n": 1,
+     "t": "Tř. J. Švermy – informace od starostky"
+    },
+    {
+     "n": 2,
+     "t": "Obchvat – informace od starostky"
+    },
+    {
+     "n": 3,
+     "t": "MŠ plot"
+    },
+    {
+     "n": 4,
+     "t": "Tělocvična ZŠ"
+    },
+    {
+     "n": 5,
+     "t": "AFK Pečky - rekonstrukce zázemí"
+    }
+   ],
+   "resolutions": [
+    {
+     "n": null,
+     "text": "Zachování stávajícího stavu komunikace u MŠ a využití finančních prostředků účelněji (návrh p. Pospíšila; vše ponechat na Švermovku).",
+     "pro": 6,
+     "proti": null,
+     "zdrzel": null,
+     "adopted": true,
+     "vote_names": {
+      "pro": [
+       "Milan Merhaut",
+       "Ing. František Pospíšil",
+       "Jaroslav Železný",
+       "Jana Vaníčková",
+       "Jiří Katrnoška",
+       "Ondřej Schulz"
+      ]
+     },
+     "note": "Zápis uvádí jen počet „pro“ (nadpoloviční většina členů), o dalších variantách se nehlasovalo."
+    },
+    {
+     "n": null,
+     "text": "Pokračovat v práci na projektu tělocvičny u ZŠ?",
+     "pro": 10,
+     "proti": null,
+     "zdrzel": null,
+     "adopted": true
+    },
+    {
+     "n": null,
+     "text": "Zachování stávajících navržených rozměrů stavby?",
+     "pro": 10,
+     "proti": null,
+     "zdrzel": null,
+     "adopted": true
+    },
+    {
+     "n": null,
+     "text": "Doporučení radě města řešit připomínku, stížnost na zpoždění vlaků při pravidelné schůzce s IDSK.",
+     "pro": 8,
+     "proti": null,
+     "zdrzel": 2,
+     "adopted": true
+    }
+   ],
+   "summary": [
+    "Tělocvična ZŠ: Jan Drška představil vývoj školy, dvě dokumentace (starší, menší, a větší z roku 2018) a odhad nákladů větší varianty cca 100 mil. Kč (srovnatelné stavby obvykle kolem 60 mil., žádná v patře); jde o dostavbu školy (učebny, aula), ne novou sportovní halu. Komise se shodla pokračovat podle hmotové studie z roku 2018.",
+    "Starostka Alena Švejnohová informovala o rekonstrukci tř. J. Švermy (komplikace s krajem a zhotovitelem, provizorní parkování u Tesca a v proluce u lékárny) a o obchvatu (kraj doporučuje neměnit trasu, možná studie proveditelnosti).",
+    "MŠ plot: Jan Drška představil dvě varianty řešení vjezdu; komise většinou zvolila nezasahovat a peníze ponechat na Švermovku.",
+    "Jana Vaníčková informovala o zpožděních a rušení spěšných vlaků; komise doporučuje radě řešit to s IDSK."
+   ],
+   "attachments": [],
+   "extraction": {
+    "method": "pdftotext",
+    "checked": "2026-09-30",
+    "note": " Zápis je z volebního období 2018–2022 (jiné složení komise, předseda Tomáš Vodička). Zápis je „4. jednání“; uvádí 9 přítomných, ale hlasování „pro: 10“ (a „pro 8, zdrželo se 2“) — desátý hlasující není jmenován, Pavel Švanda v zápise diskutuje, ale mezi přítomnými není; počet přítomných 10 je odvozen z hlasování. Zápis píše „Alena Švejnohová, starostka“."
+   }
+  },
+  {
+   "id": "stavebni-komise-2019-03-14",
+   "uuid": null,
+   "type": "Stavebně-dopravní komise",
+   "group": "komise",
+   "bodies": [
+    "Stavebně-dopravní komise"
+   ],
+   "number": null,
+   "year": 2019,
+   "date": "2019-03-14",
+   "label": "Stavebně-dopravní komise (14. 3. 2019)",
+   "time": null,
+   "time_end": null,
+   "duration_seconds": null,
+   "venue": null,
+   "links": {
+    "minutes": "https://pecky.cz/files/pecky/gallery/19066/69c3effbdff3b_zapis-14.3.19.pdf",
+    "source_page": "https://pecky.cz/default/default/21900_2018-2022"
+   },
+   "attendance": {
+    "present": 8,
+    "total": 10,
+    "present_names": [
+     "Jana Vaníčková",
+     "Ondřej Schulz",
+     "Vojtěch Malina",
+     "Ing. František Pospíšil",
+     "Jaroslav Železný",
+     "Milan Merhaut",
+     "Tomáš Vodička",
+     "Jiří Katrnoška"
+    ],
+    "absent_names": [
+     {
+      "name": "Ing. Jana Zindrová",
+      "note": "omluvena"
+     },
+     {
+      "name": "Ing. Věra Růžičková",
+      "note": "omluvena"
+     }
+    ],
+    "guests": [
+     {
+      "name": "MgA. Jan Drška",
+      "note": "městský architekt"
+     }
+    ],
+    "left_early": [
+     {
+      "name": "Jiří Katrnoška",
+      "time": null
+     }
+    ]
+   },
+   "chair": "Tomáš Vodička",
+   "recorded_by": "Tomáš Vodička",
+   "agenda": [
+    {
+     "n": 1,
+     "t": "koncepce práce MA – stávající stav, návrh změny a postupu zavedení"
+    },
+    {
+     "n": 2,
+     "t": "prodloužení cyklostezky Radim - tř. 5. května"
+    },
+    {
+     "n": 3,
+     "t": "náměstí – určení pořadí postupné rekonstrukce náměstí"
+    },
+    {
+     "n": 4,
+     "t": "ZŠ – tělocvična – prezentace aktuálního stavu"
+    },
+    {
+     "n": 5,
+     "t": "Dům služeb – fasáda – informace"
+    },
+    {
+     "n": 6,
+     "t": "Mateřská škola – úprava plotu a řešení dopravní obslužnosti"
+    },
+    {
+     "n": 7,
+     "t": "Zdravotní středisko – úprava prosklené stěny"
+    }
+   ],
+   "resolutions": [
+    {
+     "n": "1",
+     "text": "Komise doporučuje radě města dokončit práci na koncepci práce městského architekta a následně upravit vztah města a městského architekta smluvně podle této koncepce.",
+     "pro": 8,
+     "proti": 0,
+     "zdrzel": 0,
+     "adopted": true
+    },
+    {
+     "n": "2",
+     "text": "Komise doporučuje radě města zahájit práci na projektové dokumentaci náměstí. Navrhujeme vypsat soutěž na PD na proluku a náměstí s rozdělením na tyto dvě části. Doporučujeme následující pořadí částí k rekonstrukci náměstí: proluka, komunikace pošta – radnice - kostel, zeleň a vnitřní plocha náměstí, Třebízského, horní trojúhelník, prostor před kostelem a u domácích potřeb.",
+     "pro": 7,
+     "proti": 0,
+     "zdrzel": 0,
+     "adopted": true
+    },
+    {
+     "n": "3",
+     "text": "Komise bere na vědomí plány na opravu fasády domu služeb.",
+     "pro": null,
+     "proti": null,
+     "zdrzel": null,
+     "adopted": null
+    },
+    {
+     "n": "4",
+     "text": "Komise doporučuje radě města rekonstruovat prosklenou stěnu dle návrhu s využitím prostoru stávajícího balkonu.",
+     "pro": null,
+     "proti": null,
+     "zdrzel": null,
+     "adopted": null
+    },
+    {
+     "n": "5",
+     "text": "Komise doporučuje starostce jednat o úpravách dvou vyústění komunikací z náměstí na Švermovu třídu. Řešit body: napojení obrubníku a počet a umístění patníků.",
+     "pro": 7,
+     "proti": 0,
+     "zdrzel": 0,
+     "adopted": true
+    }
+   ],
+   "summary": [
+    "ZŠ – tělocvična: bod byl přesunut na příští jednání; dohodnuto soutěžit náměstí jako celek (proluka a vlastní náměstí).",
+    "Návrh prodloužení cyklostezky z Radimi ke křižovatce u Diany; Jiří Katrnoška ho zkonzultuje s dopravními inženýry.",
+    "Mateřská škola: úprava plotu a řešení vjezdu vozidel (přes 15 let se nedaří zabránit vjezdu) — bod přesunut; komise ukládá pozvat starostku k informacím o obchvatu."
+   ],
+   "attachments": [],
+   "extraction": {
+    "method": "pdftotext",
+    "checked": "2026-09-30",
+    "note": " Zápis je z volebního období 2018–2022 (jiné složení komise, předseda Tomáš Vodička). Zápis je „3. jednání“; Jiří Katrnoška odešel při projednávání náměstí (zápis neuvádí čas), proto hlasovalo 7 členů z 8 přítomných. Přílohy: koncepce práce městského architekta, vizualizace cyklostezky, studie náměstí, Dům služeb, MŠ, zdravotní středisko."
+   }
+  },
+  {
+   "id": "kulturni-komise-2019-02-07",
+   "uuid": null,
+   "type": "Kulturní komise",
+   "group": "komise",
+   "bodies": [
+    "Kulturní komise"
+   ],
+   "number": null,
+   "year": 2019,
+   "date": "2019-02-07",
+   "label": "Kulturní komise (7. 2. 2019)",
+   "time": null,
+   "time_end": null,
+   "duration_seconds": null,
+   "venue": null,
+   "links": {
+    "minutes": "https://pecky.cz/files/pecky/gallery/19065/69c3ebb146ab8_7.2.2019.pdf",
+    "source_page": "https://pecky.cz/default/default/21899_2018-2022"
+   },
+   "attendance": {
+    "present": 6,
+    "total": 7,
+    "present_names": [
+     "Mgr. Blanka Kozáková",
+     "PhDr. Miloslav Vlk",
+     "Lukáš Hanzelín",
+     "Vladimíra Krulišová",
+     "Ludmila Švandová",
+     "Michal Müller"
+    ],
+    "absent_names": [
+     {
+      "name": "Mgr. Libor Vodička, Ph.D.",
+      "note": "omluven"
+     }
+    ],
+    "guests": []
+   },
+   "chair": "Mgr. Blanka Kozáková",
+   "recorded_by": "Mgr. Blanka Kozáková",
+   "agenda": [
+    {
+     "n": 1,
+     "t": "Přivítání a seznámení s programem 2. jednání kulturní komise"
+    },
+    {
+     "n": 2,
+     "t": "Seznámení s důvody rozdělení původní komise"
+    },
+    {
+     "n": 3,
+     "t": "Pečecké noviny"
+    },
+    {
+     "n": 4,
+     "t": "Jeden svět - termíny"
+    },
+    {
+     "n": 5,
+     "t": "Dotační program Středočeského kraje týkající se kultury - knihovna"
+    },
+    {
+     "n": 6,
+     "t": "Den otevřených dveří v KS - 14.2. 2019 od 8.00 do 18.00"
+    },
+    {
+     "n": 7,
+     "t": "Možnost partnerství s některou z obcí v Zakarpatí"
+    },
+    {
+     "n": 8,
+     "t": "Informace pana Hanzelína o plánovaném využití zahrady u KS v Pečkách"
+    },
+    {
+     "n": 9,
+     "t": "Diskuze o vhodných prostorách pro informační centrum"
+    },
+    {
+     "n": 10,
+     "t": "Diskuze a různé"
+    }
+   ],
+   "resolutions": [
+    {
+     "n": null,
+     "text": "Doporučení kulturní komise k žádostem o finanční příspěvek na akce v Pečkách: Na kole dětem - 2.6.2019; Svatováclavské vinobraní - září 2019; Česká křesťanská akademie - celoroční činnost",
+     "pro": null,
+     "proti": null,
+     "zdrzel": null,
+     "adopted": null
+    },
+    {
+     "n": null,
+     "text": "Kulturní komise dává doporučení RM začít se zabývat umístěním informačního centra do prostor kulturního střediska",
+     "pro": null,
+     "proti": null,
+     "zdrzel": null,
+     "adopted": null
+    }
+   ],
+   "summary": [
+    "Filmové promítání Jeden svět (21. 3., 28. 3., 4. 4., 11. 4.); den otevřených dveří a „veřejný audit“ Kulturního střediska 14. 2. 2019.",
+    "Úkoly: předměty vhodné k propagaci města, Paměť národa (knižní vydání), akce knihovny, knížky pro knihovnu na Zakarpatí; stanovit redakční radu Pečeckých novin.",
+    "Příští zasedání 11. 4. 2019 v Městské knihovně."
+   ],
+   "attachments": [],
+   "extraction": {
+    "method": "pdftotext",
+    "checked": "2026-09-30",
+    "note": " Zápis je z volebního období 2018–2022 (složení komise se od 2022 zcela liší). Zápis je „2. jednání kulturní komise“ po rozdělení původní společné komise. Zápis neobsahuje hlasování; doporučení jsou z odstavce „Úkoly“."
+   }
+  },
+  {
+   "id": "stavebni-komise-2019-01-24",
+   "uuid": null,
+   "type": "Stavebně-dopravní komise",
+   "group": "komise",
+   "bodies": [
+    "Stavebně-dopravní komise"
+   ],
+   "number": null,
+   "year": 2019,
+   "date": "2019-01-24",
+   "label": "Stavebně-dopravní komise (24. 1. 2019)",
+   "time": null,
+   "time_end": null,
+   "duration_seconds": null,
+   "venue": null,
+   "links": {
+    "minutes": "https://pecky.cz/files/pecky/gallery/19066/69c3eff8c5a3b_zapis-24.1.2019.pdf",
+    "source_page": "https://pecky.cz/default/default/21900_2018-2022"
+   },
+   "attendance": {
+    "present": 11,
+    "total": 11,
+    "present_names": [
+     "Tomáš Vodička",
+     "Ondřej Schulz",
+     "Jiří Katrnoška",
+     "Jaroslav Železný",
+     "Jana Vaníčková",
+     "Ing. František Pospíšil",
+     "Milan Merhaut",
+     "Vojtěch Malina",
+     "Ing. Věra Růžičková",
+     "Ing. Jana Zindrová",
+     "Ing. arch. Pavel Švanda, M.Sc."
+    ],
+    "absent_names": [],
+    "guests": [
+     {
+      "name": "MgA. Jan Drška",
+      "note": "městský architekt"
+     }
+    ]
+   },
+   "chair": "Tomáš Vodička",
+   "recorded_by": "Jana Zindrová",
+   "agenda": [
+    {
+     "n": 1,
+     "t": "Doplněný přehled stavebních a dopravních projektů o podněty členů komise a body ze Strategického plánu"
+    },
+    {
+     "n": 2,
+     "t": "Mapa investic - vizualizace přehledu výše"
+    },
+    {
+     "n": 3,
+     "t": "Doporučení radě města k parkování po dobu rekonstrukce Tř. J. Švermy"
+    },
+    {
+     "n": 4,
+     "t": "Společný prostor proluky u domu služeb a parku u vodojemu - prezentace konceptu"
+    },
+    {
+     "n": 5,
+     "t": "Podchod - prezentace možných řešení pohybu pěších a cyklistů + úprava výjezdu pro vozíčkáře a cyklisty na jižní straně"
+    },
+    {
+     "n": 6,
+     "t": "Dopravní značení v Pečkách a Velkých Chvalovicích - seznam chybějícího, nebo špatného značení ve městě"
+    },
+    {
+     "n": 7,
+     "t": "Náměstí - studie"
+    }
+   ],
+   "resolutions": [
+    {
+     "n": "1",
+     "text": "Na základě prezentovaného konceptu proluky u domu služeb a parku pod vodojemem doporučuje komise změnu zadání z projektové dokumentace proluky na zadání zpracování studie na řešení společného prostoru proluky a parku.",
+     "pro": 11,
+     "proti": 0,
+     "zdrzel": 0,
+     "adopted": true,
+     "note": "Zápis: „Stavebně-dopravní komise doporučuje radě města“."
+    },
+    {
+     "n": "2",
+     "text": "Podchod - ubourat stávající zděné zábradlí a nahradit ho železným zábradlím (zajištění průhlednosti a zpřehlednění pohybu osob na vjezdu pro cyklisty a vozíčkáře).",
+     "pro": 11,
+     "proti": 0,
+     "zdrzel": 0,
+     "adopted": true
+    },
+    {
+     "n": "3",
+     "text": "Podchod - rozšířit vrchní rampu „posunutím“ opěrné zdi o cca 0,5m u mezipodesty a rozšíření podesty a ubourání opěrné zdi spodní části zídky a tím zajištění zvětšení prostoru především pro vozíčkáře.",
+     "pro": 11,
+     "proti": 0,
+     "zdrzel": 0,
+     "adopted": true
+    },
+    {
+     "n": "4",
+     "text": "Řešit špatné dopravní značení v Pečkách a Velkých Chvalovicích.",
+     "pro": 11,
+     "proti": 0,
+     "zdrzel": 0,
+     "adopted": true
+    },
+    {
+     "n": "5",
+     "text": "Odstranit nebo doplnit dopravní značení tam, kde je to v možnostech města, co nejdříve.",
+     "pro": 11,
+     "proti": 0,
+     "zdrzel": 0,
+     "adopted": true
+    },
+    {
+     "n": "6",
+     "text": "Zjednodušit dopravní značení tam, kde to je možné a preferovat přednost zprava.",
+     "pro": 11,
+     "proti": 0,
+     "zdrzel": 0,
+     "adopted": true
+    },
+    {
+     "n": "7",
+     "text": "Stavební komise doporučuje radě města pokračovat ve zpracování stávající studie náměstí a „posunout“ ji do další fáze zpracování projektových dokumentací pro jednotlivé fáze.",
+     "pro": 11,
+     "proti": 0,
+     "zdrzel": 0,
+     "adopted": true
+    }
+   ],
+   "summary": [
+    "Doporučení radě města k parkování po dobu rekonstrukce Tř. J. Švermy je samostatnou přílohou zápisu.",
+    "Otázka uzavírání prostoru proluky a parku na noc: 5 hlasů pro ponechání otevřeného, 6 pro uzavírání na noc.",
+    "Všechna doporučení radě města byla přijata všemi 11 přítomnými; příští zasedání 14. 3. 2019."
+   ],
+   "attachments": [],
+   "extraction": {
+    "method": "pdftotext",
+    "checked": "2026-09-30",
+    "note": " Zápis je z volebního období 2018–2022 (jiné složení komise, předseda Tomáš Vodička). Zápis je „2. jednání“; zápis píše u jednoho člena „Jiří Železný“ (normalizováno na Jaroslava Železného). Hlasování „Pro: 11“ je u každého bodu zvlášť."
+   }
+  },
+  {
+   "id": "sportovni-komise-2019-01-17",
+   "uuid": null,
+   "type": "Sportovní komise",
+   "group": "komise",
+   "bodies": [
+    "Sportovní komise"
+   ],
+   "number": null,
+   "year": 2019,
+   "date": "2019-01-17",
+   "label": "Sportovní komise (17. 1. 2019)",
+   "time": null,
+   "time_end": null,
+   "duration_seconds": null,
+   "venue": null,
+   "links": {
+    "minutes": "https://pecky.cz/files/pecky/gallery/19734/69e5ee6b30f95_17.1.2019.pdf",
+    "source_page": "https://pecky.cz/default/default/22553_2018-2022"
+   },
+   "attendance": {
+    "present": 9,
+    "total": 11,
+    "present_names": [
+     "Jiří Katrnoška",
+     "Mgr. Václav Lebduška",
+     "Mgr. Tomáš Drška",
+     "Ing. David Nedoma",
+     "Bc. Martin Vaníček",
+     "Ing. Stanislav Jiran",
+     "Ing. Romana Růžičková",
+     "Eva Jíchová",
+     "Zdeněk Buřič"
+    ],
+    "absent_names": [
+     {
+      "name": "Michal Rumlena",
+      "note": "omluven"
+     },
+     {
+      "name": "Mgr. Pavel Kupr",
+      "note": "omluven"
+     }
+    ],
+    "guests": [
+     {
+      "name": "Věra Suková",
+      "note": "oddíl Minigolf Dráčata"
+     }
+    ]
+   },
+   "chair": "Jiří Katrnoška",
+   "recorded_by": "Zuzana Vaněčková",
+   "agenda": [
+    {
+     "n": 1,
+     "t": "Úvod"
+    },
+    {
+     "n": 2,
+     "t": "Příspěvek města oddílům na činnost v roce 2019"
+    },
+    {
+     "n": 3,
+     "t": "Sportovní akce „Na kole dětem“"
+    },
+    {
+     "n": 4,
+     "t": "Venkovní školní hřiště"
+    },
+    {
+     "n": 5,
+     "t": "Diskuze, různé"
+    },
+    {
+     "n": 6,
+     "t": "Závěr"
+    }
+   ],
+   "resolutions": [
+    {
+     "n": "1",
+     "text": "Sportovní komise schválila příspěvky sportovním oddílům z rozpočtu Města Pečky na rok 2019 takto:\nSPARTAK PEČKY 177.876,-Kč, SOKOL VELKÉ CHVALOVICE 38.782,-Kč, SOKOL PEČKY 384.722,-Kč, AFK PEČKY 339.645,-Kč, ZIMNÍ TURISTI PEČKY 47.225,-Kč, ODDÍL VODNÍ TURISTIKY PEČKY 84.901,-Kč, CHARISMA PEČKY 27.978,-Kč, BASKETBAL PEČKY 30.351,-Kč, BK PEČKY 40.000,-Kč, MINIGOLF DRÁČATA PEČKY 23.548,-Kč, SKC PEČKY 14.396,-Kč.",
+     "pro": 6,
+     "proti": 1,
+     "zdrzel": 2,
+     "adopted": true,
+     "vote_names": {
+      "pro": [
+       "Jiří Katrnoška",
+       "Mgr. Václav Lebduška",
+       "Bc. Martin Vaníček",
+       "Ing. Stanislav Jiran",
+       "Ing. Romana Růžičková",
+       "Eva Jíchová"
+      ],
+      "proti": [
+       "Zdeněk Buřič"
+      ],
+      "zdrzel": [
+       "Mgr. Tomáš Drška",
+       "Ing. David Nedoma"
+      ]
+     },
+     "note": "Klíč rozdělení dotace 1 250 000 Kč: děti 562 500, dospělí 250 000, provozní náklady 312 500, akce oddílů 100 000, rezerva 25 000 Kč (nerozdělená rezerva 40 576 Kč)."
+    },
+    {
+     "n": "2",
+     "text": "Sportovní komise vzala na vědomí požadavek p.Dršky a p. Buřiče o dorovnání příspěvku na činnost oddílu AFK Pečky a Oddílu vodní turistiky Pečky dle předložené žádosti případně dle reality roku 2018.",
+     "pro": null,
+     "proti": null,
+     "zdrzel": null,
+     "adopted": null
+    },
+    {
+     "n": "3",
+     "text": "Sportovní komise neschválila žádosti pana Jana Váni zástupce Tenisové akademie TAJV a Ing. Jiřího Nigrina zástupce šachového oddílu TJ Sokol Pečky o poskytnutí dotace na rok 2019.",
+     "pro": 0,
+     "proti": 9,
+     "zdrzel": 0,
+     "adopted": false,
+     "note": "Zápis uvádí dvě hlasování (každá žádost zvlášť), obě 0 pro, 9 proti, 0 zdrželo se."
+    },
+    {
+     "n": "4",
+     "text": "Sportovní komise vzala na vědomí informaci rekonstrukci sportovního areálu.",
+     "pro": null,
+     "proti": null,
+     "zdrzel": null,
+     "adopted": null
+    },
+    {
+     "n": "5",
+     "text": "Sportovní komise doporučila zúčastnit se akce „Na kole dětem“ dne 02.06.2019.",
+     "pro": null,
+     "proti": null,
+     "zdrzel": null,
+     "adopted": null
+    }
+   ],
+   "summary": [
+    "Rozdělení dotace 2019 podle klíče z prvního zasedání; zástupci oddílů vodní turistiky (Drška) a AFK (Buřič) žádají dorovnání příspěvku na výši žádostí.",
+    "Charitativní cyklojízda „Na kole dětem“ (peloton napříč republikou, Pečky jsou jednou ze zastávek) — komise doporučuje zúčastnit se 2. 6. 2019.",
+    "Venkovní školní hřiště: tři varianty; Rada města rozhodla zpracovat projektovou dokumentaci a žádost o dotaci na výměnu povrchu uvnitř atletického areálu (varianta 2, umělá tráva), realizace jen při získání dotace.",
+    "Pečecká desítka 9. 3. 2019 (610 přihlášených, z toho 43 z Peček); oddíl Minigolf Dráčata žádá o pétanquové hřiště."
+   ],
+   "attachments": [],
+   "extraction": {
+    "method": "pdftotext",
+    "checked": "2026-09-30",
+    "note": " Zápis je z volebního období 2018–2022 (složení komise se od 2022 zcela liší). Zápis je „2. jednání“. Textová vrstva PDF je z OCR a plná chyb (Katmoška, Jíchová/Jichová, „Prosram“); jména a text jsou opravené proti významu a dalším zápisům. Zápis uvádí „přítomno 9, omluveno 2“."
+   }
+  },
+  {
+   "id": "sportovni-komise-2018-12-13",
+   "uuid": null,
+   "type": "Sportovní komise",
+   "group": "komise",
+   "bodies": [
+    "Sportovní komise"
+   ],
+   "number": null,
+   "year": 2018,
+   "date": "2018-12-13",
+   "label": "Sportovní komise (13. 12. 2018)",
+   "time": null,
+   "time_end": null,
+   "duration_seconds": null,
+   "venue": null,
+   "links": {
+    "minutes": "https://pecky.cz/files/pecky/gallery/19734/69e5ee606cd0d_13.12.2018.pdf",
+    "source_page": "https://pecky.cz/default/default/22553_2018-2022"
+   },
+   "attendance": {
+    "present": 9,
+    "total": 11,
+    "present_names": [
+     "Jiří Katrnoška",
+     "Mgr. Václav Lebduška",
+     "Mgr. Tomáš Drška",
+     "Ing. David Nedoma",
+     "Bc. Martin Vaníček",
+     "Ing. Stanislav Jiran",
+     "Ing. Romana Růžičková",
+     "Eva Jíchová",
+     "Zdeněk Buřič"
+    ],
+    "absent_names": [
+     {
+      "name": "Michal Rumlena",
+      "note": "omluven"
+     },
+     {
+      "name": "Mgr. Pavel Kupr",
+      "note": "omluven"
+     }
+    ],
+    "guests": [
+     {
+      "name": "Václav Polák",
+      "note": "oddíl vodní turistiky"
+     }
+    ]
+   },
+   "chair": "Jiří Katrnoška",
+   "recorded_by": null,
+   "agenda": [
+    {
+     "n": 1,
+     "t": "Úvod"
+    },
+    {
+     "n": 2,
+     "t": "Činnost jednotlivých oddílů v roce 2018"
+    },
+    {
+     "n": 3,
+     "t": "Plánované sportovní akce oddílů v roce 2019"
+    },
+    {
+     "n": 4,
+     "t": "Příspěvek města oddílům na činnost v roce 2019"
+    },
+    {
+     "n": 5,
+     "t": "Různé"
+    },
+    {
+     "n": 6,
+     "t": "Závěr"
+    }
+   ],
+   "resolutions": [
+    {
+     "n": null,
+     "text": "Nastavení pravidel rozdělování dotace na rok 2019 (celkem 1 250 000 Kč) — varianta 1: děti 550 000, dospělí 270 000, zohlednění provozních nákladů oddílů 300 000, akce oddílů 100 000, minimální rezerva 30 000 Kč.",
+     "pro": 0,
+     "proti": 0,
+     "zdrzel": 9,
+     "adopted": false
+    },
+    {
+     "n": null,
+     "text": "Nastavení pravidel rozdělování dotace na rok 2019 (celkem 1 250 000 Kč) — varianta 2: děti 562 500, dospělí 250 000, náklady 312 500, akce 100 000, rezerva 25 000 Kč. Závěr: Komise doporučuje pracovat dle varianty 2.",
+     "pro": 5,
+     "proti": 0,
+     "zdrzel": 3,
+     "adopted": true,
+     "note": "Zápis uvádí 5 pro a 3 zdržení z 9 přítomných — jeden hlas v zápisu chybí."
+    },
+    {
+     "n": null,
+     "text": "Žádost oddílu Minigolf Club Dráčata o příspěvek 800 Kč na výrobu minigolfových míčků u příležitosti výročí. Závěr: Komise nedoporučuje vyhovět žádosti oddílu.",
+     "pro": 0,
+     "proti": 7,
+     "zdrzel": 2,
+     "adopted": false
+    }
+   ],
+   "summary": [
+    "Komise ve zcela novém složení (po volbách 2018): členové se představili a informovali o činnosti svých oddílů v roce 2018 a plánech na 2019; někteří jsou nominováni stranami „Naše Pečky“ a KSČM.",
+    "Jiří Katrnoška navrhl dvě varianty pravidel rozdělení dotace (1 250 000 Kč); oddíly mají do konce roku vrátit dotazníky.",
+    "Zdeněk Buřič navrhl výměnu povrchu atletického sportoviště za umělou trávu; David Nedoma a Václav Lebduška chtějí nastolit nová pravidla činnosti komise a víc informovat veřejnost.",
+    "Pečecká desítka 9. 3. 2019 (150 přihlášených); příští zasedání 17. 1. 2019."
+   ],
+   "attachments": [],
+   "extraction": {
+    "method": "pdftotext",
+    "checked": "2026-09-30",
+    "note": " Zápis je z volebního období 2018–2022 (složení komise se od 2022 zcela liší). Text PDF má rozházené mezery mezi písmeny (chybná textová vrstva) a je částečně poškozený; jména jsou normalizovaná podle Lidí a ověřená proti ostatním zápisům. Zápis nemá číslo jednání; další zápis je „2. jednání“. Zapisovatelka není uvedena."
+   }
+  },
+  {
+   "id": "kulturni-komise-2018-12-13",
+   "uuid": null,
+   "type": "Kulturní komise",
+   "group": "komise",
+   "bodies": [
+    "Kulturní komise"
+   ],
+   "number": null,
+   "year": 2018,
+   "date": "2018-12-13",
+   "label": "Kulturní komise (13. 12. 2018)",
+   "time": null,
+   "time_end": null,
+   "duration_seconds": null,
+   "venue": null,
+   "links": {
+    "minutes": "https://pecky.cz/files/pecky/gallery/19065/69c3eba6d5e79_13.12.2018-skolska-a-kulturni-komise.pdf",
+    "source_page": "https://pecky.cz/default/default/21899_2018-2022"
+   },
+   "attendance": {
+    "present": 10,
+    "total": 11,
+    "present_names": [
+     "Mgr. Blanka Kozáková",
+     "Mgr. Jaroslava Heroldová, DiS.",
+     "Mgr. Jana Kusá",
+     "Lukáš Hanzelín",
+     "Mgr. Libor Vodička, Ph.D.",
+     "Vladimíra Krulišová",
+     "Ludmila Švandová",
+     "Mgr. Věra Křížová",
+     "Miroslava Zumrová",
+     "Petra Vorlíčková, DiS."
+    ],
+    "absent_names": [
+     {
+      "name": "Michal Müller",
+      "note": "omluven"
+     }
+    ],
+    "guests": [
+     {
+      "name": "Mgr. Alena Švejnohová",
+      "note": null
+     }
+    ]
+   },
+   "chair": "Mgr. Blanka Kozáková",
+   "recorded_by": "Mgr. Blanka Kozáková",
+   "agenda": [
+    {
+     "n": 1,
+     "t": "Seznámení a představení jednotlivých členů"
+    },
+    {
+     "n": 2,
+     "t": "Porovnání jednotlivých předvolebních priorit týkajících se školství a kultury"
+    },
+    {
+     "n": 3,
+     "t": "Veřejné audity příspěvkových organizací"
+    },
+    {
+     "n": 4,
+     "t": "Seznámení s projektem Má vlast cestami proměn"
+    },
+    {
+     "n": 5,
+     "t": "Dotační program Středočeského kraje týkající se kultury a školství"
+    },
+    {
+     "n": 6,
+     "t": "Diskuze a různé"
+    }
+   ],
+   "resolutions": [],
+   "summary": [
+    "Úkoly: navrhnout využití budovy obecního úřadu ve Velkých Chvalovicích; v únoru den otevřených dveří a „veřejný audit“ kulturního střediska a vzdělávacího centra; zmapovat priority veřejných potřeb a zájmů.",
+    "Příští zasedání 7. 2. 2019 v 16:00."
+   ],
+   "attachments": [],
+   "extraction": {
+    "method": "ocr",
+    "checked": "2026-09-30",
+    "note": " Zápis je z volebního období 2018–2022 (složení komise se od 2022 zcela liší). Zápis je z „1. jednání školské a kulturní komise“ — původní společná komise byla po tomto jednání rozdělena (další zápis z 7. 2. 2019 uvádí bod „Seznámení s důvody rozdělení původní komise“). Zápis je sken, čteno OCR (tesseract). Zápis neobsahuje usnesení."
+   }
+  },
+  {
+   "id": "sbor-2018-12-13",
+   "uuid": null,
+   "type": "Sbor pro občanské záležitosti",
+   "group": "komise",
+   "bodies": [
+    "Sbor pro občanské záležitosti"
+   ],
+   "number": null,
+   "year": 2018,
+   "date": "2018-12-13",
+   "label": "Sbor pro občanské záležitosti (13. 12. 2018)",
+   "time": "15:00",
+   "time_end": null,
+   "duration_seconds": null,
+   "venue": "Městský úřad Pečky",
+   "links": {
+    "minutes": "https://pecky.cz/files/pecky/gallery/19067/69c3f79f91842_zapis-z-jednani-13.12.2018-spoz.pdf",
+    "source_page": "https://pecky.cz/default/default/21206_sbor-pro-obcanske-zalezitosti"
+   },
+   "attendance": {
+    "present": 7,
+    "total": 9,
+    "present_names": [
+     "Miloslava Turynová",
+     "Mgr. Jaroslava Heroldová, DiS.",
+     "Věra Šuková",
+     "Svatava Jindřichová",
+     "Marie Vlková",
+     "Růžena Tykvová",
+     "Zuzana Vaněčková"
+    ],
+    "absent_names": [
+     {
+      "name": "Šárka Horynová",
+      "note": "omluvena"
+     },
+     {
+      "name": "Hana Pešková",
+      "note": "neomluvena"
+     }
+    ],
+    "guests": []
+   },
+   "chair": "Miloslava Turynová",
+   "recorded_by": "Zuzana Vaněčková",
+   "agenda": [
+    {
+     "n": 1,
+     "t": "úvod"
+    },
+    {
+     "n": 2,
+     "t": "přivítání předsedy a členů SPOZ"
+    },
+    {
+     "n": 3,
+     "t": "seznámení s prací SPOZ, rozdělení aktivit spojených s prací SPOZ"
+    },
+    {
+     "n": 4,
+     "t": "informace o odměně"
+    },
+    {
+     "n": 5,
+     "t": "Různé, diskuse"
+    },
+    {
+     "n": 6,
+     "t": "závěr"
+    }
+   ],
+   "resolutions": [
+    {
+     "n": null,
+     "text": "Návrh, aby se jubilantům nepředávaly potravinové balíčky, ale upomínkový hrneček se znakem města (obrázkem kostela…).",
+     "pro": 1,
+     "proti": 4,
+     "zdrzel": 2,
+     "adopted": false
+    },
+    {
+     "n": null,
+     "text": "Návrh, aby se vítání občánků konalo 2x do roka a to v sobotu.",
+     "pro": 1,
+     "proti": 2,
+     "zdrzel": 4,
+     "adopted": false
+    },
+    {
+     "n": null,
+     "text": "Návrh, aby se u příležitosti konání zlaté (stříbrné…) svatby předávaly svatebčanům památeční skleničky se znakem města.",
+     "pro": 7,
+     "proti": 0,
+     "zdrzel": 0,
+     "adopted": true
+    },
+    {
+     "n": null,
+     "text": "Návrh, aby se cena potravinových balíčků zvýšila z částky 350,- Kč na částku 400,- Kč. Návrh předloží radě ke schválení.",
+     "pro": 7,
+     "proti": 0,
+     "zdrzel": 0,
+     "adopted": true
+    }
+   ],
+   "summary": [
+    "Jednání SPOZ 13. 12. 2018 v 15:00 na Městském úřadě: Rada města 19. 11. 2018 potvrdila předsedkyni Miloslavu Turynovou a jmenovala novou členku Jaroslavu Heroldovou; noví členové Šárka Horynová a Hana Pešková.",
+    "Zuzana Vaněčková seznámila členky s dosavadní prací SPOZ (vítání občánků, loučení s MŠ, ocenění žáků, vítání prvňáčků, gratulace jubilantům, zlaté svatby, pietní vzpomínka) a rozdělila aktivity mezi členky; od ledna 2019 nové dohody a odměňování podle vykonané práce."
+   ],
+   "attachments": [],
+   "extraction": {
+    "method": "pdftotext",
+    "checked": "2026-09-30",
+    "note": " Jediný zveřejněný zápis Sboru pro občanské záležitosti (volební období 2018–2022, jiné složení než dnes). Jednání zahájila a zapsala Zuzana Vaněčková (členka a pracovnice úřadu); předsedkyní je podle zápisu Miloslava Turynová. Zápis nemá číslo jednání."
+   }
+  },
+  {
+   "id": "stavebni-komise-2018-12-06",
+   "uuid": null,
+   "type": "Stavebně-dopravní komise",
+   "group": "komise",
+   "bodies": [
+    "Stavebně-dopravní komise"
+   ],
+   "number": null,
+   "year": 2018,
+   "date": "2018-12-06",
+   "label": "Stavebně-dopravní komise (6. 12. 2018)",
+   "time": null,
+   "time_end": null,
+   "duration_seconds": null,
+   "venue": null,
+   "links": {
+    "minutes": "https://pecky.cz/files/pecky/gallery/19066/69c3eff14c6ea_zapis-6.12.18.pdf",
+    "source_page": "https://pecky.cz/default/default/21900_2018-2022"
+   },
+   "attendance": {
+    "present": 8,
+    "total": 8,
+    "present_names": [
+     "Ing. Věra Růžičková",
+     "Jana Vaníčková",
+     "Milan Merhaut",
+     "Jaroslav Železný",
+     "Jiří Katrnoška",
+     "Tomáš Vodička",
+     "Ondřej Schulz",
+     "Vojtěch Malina"
+    ],
+    "absent_names": [],
+    "guests": [
+     {
+      "name": "MgA. Jan Drška",
+      "note": null
+     }
+    ]
+   },
+   "chair": "Tomáš Vodička",
+   "recorded_by": "Tomáš Vodička",
+   "agenda": [
+    {
+     "n": 1,
+     "t": "Členové komise se seznámili a připomínkovali koncepci práce Stavebně-dopravní komise a městského architekta."
+    },
+    {
+     "n": 2,
+     "t": "Členové komise se seznámili se soupisem investičních akcí a podnětů od občanů."
+    },
+    {
+     "n": 3,
+     "t": "Členům byl představen úkol z Rady – zkusit najít řešení pro parkování aut v průběhu budování rozšíření parkoviště u nádraží a Tř. Jana Švermy."
+    }
+   ],
+   "resolutions": [],
+   "summary": [
+    "Úkoly: Vojtěch Malina upraví schéma práce komise a průběh projednání investiční akce; Tomáš Vodička a Vojtěch Malina navrhnou popis pozice městského architekta; členové pošlou do 31. 12. otázky k seznamu investičních akcí a návrhy řešení parkování v době rekonstrukce Tř. J. Švermy a parkoviště u nádraží.",
+    "Vjezd k nádraží bude uzavřen po dobu rekonstrukce úseku (3–4 měsíce); příští setkání 24. 1. 2019."
+   ],
+   "attachments": [],
+   "extraction": {
+    "method": "pdftotext",
+    "checked": "2026-09-30",
+    "note": " Zápis je z volebního období 2018–2022 (jiné složení komise, předseda Tomáš Vodička). Zápis nemá číslo jednání ani program (body jsou z textu); zápis neobsahuje usnesení ani hlasování. Omluvení nejsou uvedeni."
+   }
+  }
+ ]
+}

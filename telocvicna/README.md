@@ -365,6 +365,27 @@ callout v „Otevřené otázky“ o právní kanceláři (doplněn geotechnik
 a naplánovaná schůzka). Stat-grid, perex a ostatní callouty beze
 změny — žádná nová čísla ani rozhodnutí.
 
+## Doplněno 30. 9. 2026: zápisy komisí rady města
+
+Nová tabulka **„Tělocvična v komisích rady města (2019–2026)“** v `content/telocvicna.html`
+(mezi „Financování a finanční výbor“ a „Historie projektu“). Zdroj:
+`jednani/komise.json` (viz `jednani/README.md` → „Jednání komisí RM“) —
+sportovní komise 4. 2. 2025 a 10. 2. 2026 (předseda Fejfar jen informuje o stavu
+příprav, bez podrobností) a stavebně-dopravní komise 28. 5. a 24. 9. 2025
+(informace starosty: poptávka 6/2025, příprava do konce roku, výběrové řízení
+na dodavatele v příštím roce, žádost o dotaci, předpokládaná cena 180 mil. Kč).
+Do stejné tabulky jsou dopsané i zápisy z volebního období 2018–2022
+(14. 3.–5. 12. 2019 a 15. 6. 2022): stavební komise 8. 4. 2019 hlasovala
+10 hlasy pro pokračování práce na projektu a zachování rozměrů (odhad cca
+100 mil. Kč), společná jednání sportovní a stavební komise 23. 5. a 27. 6. 2019
+shromáždila připomínky k studii a doporučila přepracování. Komise o stavbě
+nerozhodují, jen přebírají informace — proto jsou řádky v tabulce věcně stručné
+a nic k nim nedopočítává. Číslo 180 mil. Kč
+(starosta, 9/2025) se liší od „projektové ceny 175 mil. Kč s DPH“ ze zápisu
+finančního výboru z 11. 11. 2025 — obě jsou citovaná tak, jak je zdroj uvádí.
+Do týdenní kontroly Tělocvičny patří i nové zápisy sportovní a stavebně-dopravní
+komise (skill `pecky-online-komise-check` je hlásí, když se tělocvičny týkají).
+
 ## Co hlídat dál
 
 - Jestli a jak vedení města zareaguje konkrétně na tvrzení Švejnohové

@@ -267,6 +267,34 @@ stávajícím členům komisí, které v těch usneseních jsou, bylo doplněno
   členka sociální komise Blanka Svatoňková (`svatonkovab`, jen
   z usnesení rady, ve výpisu komise není).
 
+**Školská rada ZŠ Pečky — členové 2009–2026** (doplněno 30. 9. 2026 na žádost
+uživatele po vytěžení zápisů školské rady, viz `jednani/README.md` → „Školská rada“).
+Vazby `role_type: "komise"` na organizaci `zs-pecky`, role „člen(ka) školské rady ZŠ Pečky
+(zástupce zřizovatele / pedagogických pracovníků / zákonných zástupců žáků)“ a „předseda/předsedkyně
+školské rady ZŠ Pečky“. Vazba = jedno funkční období nebo jeho doložený úsek, proto mají
+dlouholetí členové víc vazeb. **Začátek mandátu** je vždy nejlepší doložený:
+- **zástupci zřizovatele:** datum usnesení rady města — 29. 11. 2010 (Krúpová) a 13. 12. 2010
+  (Katrnoška, Jedlička; Pečecké noviny 1/2011), 24. 11. 2014 (Homan, Horynová, Jedlička; Pečecké noviny 1/2015 —
+  datum je z OCR „2?. listopadu 2014“ a cyklu zasedání rady), 5. 12. 2022 (Kuprová, Fejfarová, Nepovímová;
+  UR-484-48/22) a 10. 11. 2025 (Kuprová, Trčková, Nepovímová; UR-364-42/25). Konec: odvolání 24. 11. 2014, resp.
+  nahrazení dalším složením; u členů 2014–2022 nejsou dostupná případná jmenování v letech 2017 a 2020.
+- **volení zástupci rodičů:** datum voleb, kde ho škola zveřejnila — 14. 9. 2009 (Procházka, Hovorka), 11. 3. 2011
+  (Literová), 23. 10. 2014 (Minaříková/Dvořáková, Chárová, Charousová). Rodiče 2019–2022 (Astrová, Taxová, Korouš)
+  a 2023–2025 (Břečka, Kubinová, Bitrmanová) mají jen první doložené jednání (17. 1. 2023 u posledních tří).
+- **volení zástupci pedagogů:** web školy data voleb pedagogů nezveřejňuje — `from` je první doložené jednání
+  (Vinohradníková 7. 9. 2009, Kozáková 23. 9. 2010, Píšová 15. 6. 2015), dřívější mandát je vedený jako jedno
+  souvislé období do 5. 1. 2026.
+- **současná rada:** funkční období všech devíti členů začalo **5. 1. 2026**, kdy rada města (RM 1/2026, bod 15)
+  vzala na vědomí složení školské rady v plném obsazení — podle volebního řádu (UR-365-42/25) je tím stanoven počátek
+  tříletého funkčního období; zřizovatelé mají navíc datum jmenování 10. 11. 2025. Předsedkyní byla 5. 2. 2026 zvolena
+  Michaela Trčková (dříve od 17. 1. 2023 Hana Kuprová, předsedou byl Martin Jedlička 2011–2014 a 2015–2023).
+Nové osoby (`tags: ["skolska-rada"]`, zdroj zápisy/výsledky voleb): Klára Literová, Lucie Charousová, Pavel Břečka,
+Romana Kubinová, Lenka Bitrmanová, Vlastimil Procházka, Petr Hovorka, Ludmila Podlešáková. **Iveta Minaříková
+z ŠR 2014–2019 je Bc. Iveta Dvořáková (`dvorakovai`)** — alias `minarikovai` je už v datech, proto je její vazba
+na ní. Ostatní členové už v Lidech byli (Homan a Chárová jen jako kandidáti, Němcová jako učitelka). Neurčeni a proto
+v Lidech chybí: Astrová, Taxová, Korouš, Hájková (jen příjmení v zápisech). Jaroslav Hovorka
+(`hovorkaj`) v Lidech **není** Petr Hovorka ze školské rady — nesměšovat.
+
 **Vedení úřadu, příspěvkových organizací a městských firem** (`role_type:
 "vedeni-urad"` a `"vedeni-organizace"`, doplněno 5. 9. 2026, fáze 5b
 SPEC.md §7): tajemnice úřadu, 4

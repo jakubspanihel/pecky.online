@@ -438,17 +438,26 @@ seznam místo rozházených poznámek po repu.
   python3 kalendar/scripts/update-kalendar.py
   ```
 
-### Jednání výborů zastupitelstva — aktivní (od 29. 9. 2026)
+### Jednání výborů, komisí a školské rady — aktivní (výbory od 29. 9. 2026, komise a školská rada od 30. 9. 2026)
 
-- **Data:** `jednani/vybory.json`, funkce `build_vybory_events()`.
-- **Kategorie:** `vybor` (finanční i kontrolní výbor, rozlišené titulkem).
+- **Data:** `jednani/vybory.json` (finanční a kontrolní výbor ZM), `jednani/komise.json` (komise rady města,
+  pracovní skupina pro oslavy 100 let, Sbor pro občanské záležitosti) a `jednani/skolska-rada.json` (školská
+  rada ZŠ Pečky, pořadatelem je `zs-pecky`); všechno zpracovává funkce `build_vybory_events()`. Titulek je
+  název orgánu, u společného jednání dvou orgánů oba názvy (např. „Kulturní komise a Pracovní skupina pro
+  oslavy 100 let“). Stav 30. 9. 2026: 131 jednání (48 výborů, 49 komisí, 34 školské rady), z toho nejstarší
+  z roku 2009.
+- **Nová jednání:** každý nově vytěžený zápis výboru, komise nebo školské rady se má hned promítnout
+  do kalendáře (`update-kalendar.py` + synchronizace do Google) — je to poslední krok kontrol
+  `pecky-online-vybory-check` a `pecky-online-komise-check` (viz `jednani/README.md`).
+- **Kategorie:** `vybor` (finanční i kontrolní výbor, komise a školská rada, rozlišené titulkem).
   Barva v mřížce `--gold` (`.kal-ev-vybor`, `.akce-blok-vybor` ve
   `styles.css`), v Google Kalendáři Tangerine (`BARVY` v `sync-google.py`).
 - **Jen proběhlá jednání se zveřejněným zápisem** — ohlášená jednání
   výborů nemají v datech vlastní záznam. Čas a místo jen tam, kde je
   zápis uvádí, jinak celodenní. `source_ref` / `UID` = `id` jednání
-  (`financni-vybor-RRRR-MM-DD`).
-- **Aktualizace:** po každé úpravě `vybory.json` spustit
+  (`financni-vybor-RRRR-MM-DD`, `sportovni-komise-RRRR-MM-DD`, `skolska-rada-RRRR-MM-DD` …) — u komisí a
+  školské rady je zároveň trvalým odkazem `#id` na stránce Jednání.
+- **Aktualizace:** po každé úpravě `vybory.json`, `komise.json` nebo `skolska-rada.json` spustit
   `python3 kalendar/scripts/update-kalendar.py` (a pak synchronizaci do
   Google Kalendáře stejně jako u ostatních zdrojů).
 

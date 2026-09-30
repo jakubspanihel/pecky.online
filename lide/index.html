@@ -37,7 +37,7 @@
 <main>
   <section class="panel active" id="panel-lide">
     <h2 class="title display">Lidé města Pečky</h2>
-    <p class="lastmod" data-date="2026-09-29">Aktualizováno: 29. 9. 2026</p>
+    <p class="lastmod" data-date="2026-09-30">Aktualizováno: 30. 9. 2026</p>
     <p class="lede">Vizitky lidí, kteří v Pečkách zastávají veřejnou funkci. Najdeš tu zastupitelstvo a radu města, vedení a zaměstnance úřadu, ředitele městských organizací i členy komisí rady a školské rady. U každého je funkce a zdroj, téměř u všech i pracovní kontakt. Přepínač rozsahu přidá dřívější vedení města a bývalé zastupitele.</p>
 
     <div class="search-bar">
@@ -688,21 +688,34 @@
     });
   })();
 
-  // U vazby „člen/předseda finančního|kontrolního výboru“ spočítá účast
-  // na zveřejněných zápisech výboru v období vazby. Jména v zápisech jsou
+  // U vazby „člen/předseda finančního|kontrolního výboru“ a člena komise RM
+  // (sportovní, kulturní, stavebně-dopravní, pracovní skupina pro oslavy) spočítá
+  // účast na zveřejněných zápisech v období vazby. Jména v zápisech jsou
   // normalizovaná podle Lidí (viz jednani/README.md), párují se přes jNameKey.
+  // Výbory vedou v zápisech všechny členy; komise jen ty, které zápis jmenuje
+  // — kdo v zápisu není, se do počtu nezapočítá (viz jednani/README.md → komise.json).
+  const L_ATTENDANCE_ROLES = [
+    {re: /finančního výboru/i, type: 'Finanční výbor', komise: false},
+    {re: /kontrolního výboru/i, type: 'Kontrolní výbor', komise: false},
+    {re: /Komise sportovní/i, type: 'Sportovní komise', komise: true},
+    {re: /Sbor\w* pro občanské záležitosti/i, type: 'Sbor pro občanské záležitosti', komise: true},
+    {re: /školské rady ZŠ Pečky/i, type: 'Školská rada', komise: true, org: 'zs-pecky'},
+    {re: /Kulturní komise/i, type: 'Kulturní komise', komise: true},
+    {re: /Komise stavebně-dopravní/i, type: 'Stavebně-dopravní komise', komise: true},
+    {re: /Pracovní skupin\w* pro oslavy/i, type: 'Pracovní skupina pro oslavy 100 let', komise: true}
+  ];
   function lAttachVyborAttendance(db, meetings){
     const people = db.people || db;
     (Array.isArray(people) ? people : []).forEach(p => {
       const key = jNameKey([p.first_name, p.last_name].filter(Boolean).join(' '));
       // _timeline drží kopie vazeb (pcBuildTimeline), ne tytéž objekty
       [...(p._affs || []), ...(p._timeline || [])].forEach(a => {
-        const hit = /(finančního|kontrolního) výboru/.exec(a.role || '');
-        if (!hit || a.organization_id !== 'mesto-pecky') return;
-        const type = hit[1] === 'finančního' ? 'Finanční výbor' : 'Kontrolní výbor';
+        const hit = L_ATTENDANCE_ROLES.find(r => r.re.test(a.role || ''));
+        if (!hit || a.organization_id !== (hit.org || 'mesto-pecky')) return;
+        const type = hit.type;
         const from = a.from ? String(a.from).padEnd(10, a.from.length === 4 ? '-01-01' : '') : '0000';
         const to = a.to ? String(a.to).padEnd(10, a.to.length === 4 ? '-12-31' : '') : '9999';
-        const ms = meetings.filter(m => m.type === type && m.date >= from && m.date <= to);
+        const ms = meetings.filter(m => (m.bodies || [m.type]).includes(type) && m.date >= from && m.date <= to);
         if (!ms.length) return;
         let present = 0, excused = 0, other = 0, unknown = 0, skipped = 0;
         ms.forEach(m => {
@@ -718,11 +731,12 @@
           else other++;
         });
         const known = ms.length - unknown - skipped;
-        const hash = type === 'Finanční výbor' ? 'financni-vybor' : 'kontrolni-vybor';
+        if (hit.komise && known + unknown === 0) return;
+        const hash = hit.komise ? 'komise' : type === 'Finanční výbor' ? 'financni-vybor' : 'kontrolni-vybor';
         const parts = [`${pcGendered(p, 'přítomen', 'přítomna')} na ${present} z ${known}`];
         if (excused) parts.push(`${pcGendered(p, 'omluven', 'omluvena')} ${excused}×`);
         if (other) parts.push(`jinak ${pcGendered(p, 'nepřítomen', 'nepřítomna')} ${other}×`);
-        a._extraHtml = `<p class="tl-note">Zveřejněná jednání výboru v tomto období: ${jEscapeHtml(parts.join(', '))}` +
+        a._extraHtml = `<p class="tl-note">Zveřejněná jednání ${hit.komise ? 'komise' : 'výboru'} v tomto období${hit.komise ? ' (jen ta, kde je zápis jmenuje)' : ''}: ${jEscapeHtml(parts.join(', '))}` +
           (unknown ? ` (u ${unknown} zápis účast neuvádí)` : '') +
           ` · <a href="/jednani/#${hash}">zápisy v sekci Jednání</a></p>`;
       });
@@ -744,8 +758,12 @@
         // účast na jednáních výborů ZM (jednani/vybory.json) — nepovinné,
         // bez souboru se detail osoby vykreslí jako dřív
         try {
-          const vr = await fetch('/jednani/vybory.json');
-          if (vr.ok) lAttachVyborAttendance(LIDE_DB, (await vr.json()).meetings || []);
+          const [vr, kr, sr] = await Promise.all([fetch('/jednani/vybory.json'), fetch('/jednani/komise.json').catch(() => null), fetch('/jednani/skolska-rada.json').catch(() => null)]);
+          const zapisy = [];
+          if (vr.ok) zapisy.push(...((await vr.json()).meetings || []));
+          if (kr && kr.ok) zapisy.push(...((await kr.json()).meetings || []));
+          if (sr && sr.ok) zapisy.push(...((await sr.json()).meetings || []));
+          if (zapisy.length) lAttachVyborAttendance(LIDE_DB, zapisy);
         } catch (e) { /* bez účasti na výborech */ }
         LIDE_DB._updated = (peopleDoc.meta || {}).updated || '';
 

@@ -43,7 +43,7 @@
 
       <h3>Co do čísel nespadá</h3>
       <ul>
-        <li><strong>Období 2018–2022 se v tabulce neukazuje.</strong> Zápisy na usneseni.cz začínají u zastupitelstva 16. 6. 2021 a u rady 12. 4. 2021 — pokrývají tak jen poslední necelé dva roky toho čtyřletého období, což by srovnání s kompletním obdobím 2022–2026 zkreslilo. U obou výborů má tohle období navíc vlastní mezery v zápisech (viz níže), takže se neukazuje ze stejného důvodu.</li>
+        <li><strong>Období 2018–2022 se ukazuje jen u výborů.</strong> Zápisy na usneseni.cz začínají u zastupitelstva 16. 6. 2021 a u rady 12. 4. 2021 — pokrývají tak jen poslední necelé dva roky toho čtyřletého období, což by srovnání s kompletním obdobím 2022–2026 zkreslilo, proto se u Rady a Zastupitelstva neukazuje. U obou výborů je předchozí období k dispozici v rozbalovacím bloku pod tabulkou, ale s mezerami v zápisech: Kontrolní výbor má jen 3 zveřejněná jednání a dva jeho zápisy z roku 2021 nezmiňují jednu členku.</li>
         <li><strong>Průběžnou prezenci nemá každý zápis.</strong> Věty o příchodech a odchodech jsou u 124 z 286 jednání. U ostatních zápis žádnou změnu neuvádí — což může znamenat, že žádná nenastala, ale ověřit to nejde.</li>
         <li><strong>Tři záznamy jsou vadné už u zdroje.</strong> Zápis rady 27/2021 vede Jiřího Katrnošku zároveň mezi přítomnými i nepřítomnými (jinde v témže zápisu stojí, že se účastnil distančně — počítáme ho jako přítomného). Zápis rady 24/2024 vypisuje čtyři přítomné, ale v souhrnné větě tvrdí „přítomno je 5 členů“; počítáme podle jmen. Dva zápisy kontrolního výboru z roku 2021 vůbec nezmiňují jednu členku (ani mezi přítomnými, ani mezi nepřítomnými) — pro ta jednání ji tabulka nepočítá ani jako přítomnou, ani jako nepřítomnou.</li>
         <li><strong>Malý vzorek u výborů.</strong> Finanční a Kontrolní výbor mají za aktuální období jen 12, resp. 11 zveřejněných jednání — necelá desetina toho, co Rada. Procento u nich kolísá mnohem víc než u Rady/Zastupitelstva už z jediné chybějící účasti, „X z Y" pod procentem je tu proto obzvlášť důležité hlídat.</li>
@@ -101,6 +101,11 @@
   // nastoupil uprostřed období má řádek v obou), a klik na jeden z nich
   // nesmí otevřít vizitku i u toho druhého, skrytého v neaktivní podzáložce
   let openRowKey = '';
+  const predchoziOtevrene = new Set();
+  const VYHRADA_PREDCHOZI = {
+    'Finanční výbor': '<strong>Pozor na úplnost.</strong> Jde o zveřejněné zápisy. U zápisu z 22. 11. 2018 není zaznamenaná účast, takže se do absence nepromítá — první započtené jednání je z 28. 11. 2018. Ladislav Zindr je ve výboru až od 27. 3. 2019.',
+    'Kontrolní výbor': '<strong>Pozor na malý a neúplný vzorek.</strong> Zápisy z let 2018–2020 zveřejněné nejsou, máme jen 3 jednání. Zápisy z 22. 9. a 10. 11. 2021 nezmiňují jednu členku (ani mezi přítomnými, ani mezi nepřítomnými), pro tato jednání ji tabulka nepočítá.',
+  };
 
   function personFor(jmeno){
     return PEOPLE_BY_KEY[jNameKey(jmeno)] || null;
@@ -182,20 +187,40 @@
   function vykresli(data){
     ABS_DATA = data;
     for (const organ of ['Rada', 'Zastupitelstvo', 'Finanční výbor', 'Kontrolní výbor']) {
-      // jen aktuální volební období — starší (2018–2022) zápisy pokrývají
+      // hlavní tabulka jen aktuální období — starší (2018–2022) zápisy pokrývají
       // jen zčásti (u Rady/Zastupitelstva usneseni.cz, u výborů vlastní
       // mezery v zápisech), viz rozbalovací blok pod tabulkou
       const blok = data.obdobi.filter(b => b.organ === organ)
                              .sort((a, b) => b.obdobi.localeCompare(a.obdobi))[0];  // nejnovější období
       const cil = document.getElementById('absence-' + ORGAN_SLUG[organ] + '-obsah');
       if (!cil) continue;
-      cil.innerHTML = blok ? tabulka(blok) : '<p class="lede">Data nejsou k dispozici.</p>';
+      let html = blok ? tabulka(blok) : '<p class="lede">Data nejsou k dispozici.</p>';
+      // u výborů navíc předchozí období jako rozbalovací blok
+      if (organ.endsWith('výbor')) {
+        const stare = data.obdobi.find(b => b.organ === organ && b.obdobi === '2018–2022');
+        if (stare) {
+          const key = ORGAN_SLUG[organ];
+          html += `<details class="absence-predchozi" data-predchozi="${key}"${predchoziOtevrene.has(key) ? ' open' : ''} style="margin-top:24px;">
+            <summary><strong>Předchozí volební období 2018–2022</strong></summary>
+            <div class="callout" style="margin-top:12px;">${VYHRADA_PREDCHOZI[organ]}</div>
+            ${tabulka(stare)}
+          </details>`;
+        }
+      }
+      cil.innerHTML = html;
     }
     const p = document.getElementById('absence-patka');
     if (p) {
       p.textContent = `Data zahrnují jednání do ${datum(data.meta.data_do)}.`;
     }
   }
+
+  document.addEventListener('toggle', (e) => {
+    const d = e.target;
+    if (d && d.dataset && d.dataset.predchozi) {
+      if (d.open) predchoziOtevrene.add(d.dataset.predchozi); else predchoziOtevrene.delete(d.dataset.predchozi);
+    }
+  }, true);
 
   document.addEventListener('click', (e) => {
     const t = e.target;

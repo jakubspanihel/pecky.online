@@ -60,6 +60,8 @@ from scripts.build import SITE_DOMAIN  # noqa: E402 - zdroj pravdy pro absolutn�
 
 JEDNANI_JSON = ROOT / 'jednani' / 'pecky-jednani.json'
 VYBORY_JSON = ROOT / 'jednani' / 'vybory.json'
+KOMISE_JSON = ROOT / 'jednani' / 'komise.json'
+SKOLSKA_RADA_JSON = ROOT / 'jednani' / 'skolska-rada.json'
 AKCE_JSON = ROOT / 'kalendar' / 'akce.json'
 VOLBY_JSON = ROOT / 'kalendar' / 'udalosti-rucni.json'
 AFK_JSON = ROOT / 'kalendar' / 'afk-zapasy.json'
@@ -120,37 +122,49 @@ def build_jednani_events():
 
 
 def build_vybory_events():
-    """Finanční + kontrolní výbor z jednani/vybory.json -> společné schéma.
+    """Výbory ZM, komise RM a školská rada -> společné schéma (kategorie 'vybor').
 
-    Výbory jednání nečíslují, takže titulek je jen název výboru. Čas
-    a místo jen tam, kde je zápis uvádí (jinak celodenní). Do kalendáře
-    jdou jen jednání se zveřejněným zápisem — ohlášená nemají v datech
-    samostatný záznam. Kategorie 'vybor' (barva v mřížce i v Google
-    Kalendáři viz styles.css a sync-google.py).
+    Zdroje: jednani/vybory.json (finanční a kontrolní výbor),
+    jednani/komise.json (komise rady města a pracovní skupina pro oslavy)
+    a jednani/skolska-rada.json (školská rada ZŠ Pečky; pořadatelem je
+    škola). Všechny mají stejný tvar záznamu (viz jednani/README.md).
+
+    Jednání se nečíslují, takže titulek je název orgánu (u společného
+    jednání dvou orgánů oba názvy). Čas a místo jen tam, kde je zápis
+    uvádí (jinak celodenní). Do kalendáře jdou jen jednání se zveřejněným
+    zápisem — ohlášená nemají v datech samostatný záznam. Kategorie
+    'vybor' (barva v mřížce i v Google Kalendáři viz styles.css
+    a sync-google.py).
     """
-    data = json.loads(VYBORY_JSON.read_text(encoding='utf-8'))
     org = nazvy_organizaci()
+    zdroje = [(VYBORY_JSON, 'mesto-pecky'), (KOMISE_JSON, 'mesto-pecky'), (SKOLSKA_RADA_JSON, 'zs-pecky')]
     events = []
-    for m in data['meetings']:
-        agenda_n = len(m.get('agenda') or [])
-        body = 'bod' if agenda_n == 1 else 'body' if 2 <= agenda_n <= 4 else 'bodů'
-        events.append({
-            'id': f'jednani-{m["id"]}',
-            'title': m['type'],
-            'date': m['date'],
-            'date_end': None,
-            'time': m.get('time'),
-            'all_day': m.get('time') is None,
-            'category': 'vybor',
-            'link': f'/jednani/#{m["id"]}',
-            'description': f'{agenda_n} {body} programu' if agenda_n else None,
-            'place': m.get('venue'),
-            'organizer': 'mesto-pecky',
-            'organizer_name': org.get('mesto-pecky', 'Město Pečky'),
-            'image': None,
-            'note': None,
-            'source_ref': m['id'],
-        })
+    for cesta, poradatel in zdroje:
+        if not cesta.exists():
+            continue
+        data = json.loads(cesta.read_text(encoding='utf-8'))
+        for m in data['meetings']:
+            agenda_n = len(m.get('agenda') or [])
+            body = 'bod' if agenda_n == 1 else 'body' if 2 <= agenda_n <= 4 else 'bodů'
+            bodies = m.get('bodies') or [m['type']]
+            title = ' a '.join(bodies) if len(bodies) > 1 else m['type']
+            events.append({
+                'id': f'jednani-{m["id"]}',
+                'title': title,
+                'date': m['date'],
+                'date_end': None,
+                'time': m.get('time'),
+                'all_day': m.get('time') is None,
+                'category': 'vybor',
+                'link': f'/jednani/#{m["id"]}',
+                'description': f'{agenda_n} {body} programu' if agenda_n else None,
+                'place': m.get('venue'),
+                'organizer': poradatel,
+                'organizer_name': org.get(poradatel, 'Město Pečky'),
+                'image': None,
+                'note': None,
+                'source_ref': m['id'],
+            })
     return events
 
 
@@ -413,7 +427,7 @@ def main():
     OUT_JSON.write_text(json.dumps({
         'meta': {
             'generated_from': (f'jednani/pecky-jednani.json ({len(jednani)} jednání), '
-                               f'jednani/vybory.json ({len(vybory)} jednání výborů), '
+                               f'jednani/vybory.json + komise.json + skolska-rada.json ({len(vybory)} jednání výborů, komisí a školské rady), '
                                f'kalendar/akce.json ({len(akce)} akcí), '
                                f'kalendar/udalosti-rucni.json ({len(volby)} termínů), '
                                f'kalendar/afk-zapasy.json ({len(afk)} zápasů v Pečkách), '

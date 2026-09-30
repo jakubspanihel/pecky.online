@@ -854,6 +854,193 @@ funguje i přímý `curl`, žádný prohlížeč netřeba.
    beze změny“); při změně přepsat řádek Jednání v `README.md` → „Stav
    sekcí“.
 
+### Zápisy komisí RM (`Data/{datum}-sportovni-komise/`, `…-kulturni-komise/`, `…-stavebni-komise/`, `…-pracovni-skupina/`)
+
+Komise rady města zveřejňuje jen pecky.cz (Rada města → [Komise RM](https://pecky.cz/default/default/21179_komise-rm)
+→ komise → „2018-2022“ / „2022-2026“); stejně jako u výborů stačí přímý `curl`.
+Rozsah: **obě volební období** (zápisy před 2018 web nemá). Staženo
+30. 9. 2026 (49 jednání): 2022–2026 — sportovní komise 7 (4/2023–2/2026), kulturní
+komise + pracovní skupina pro oslavy 100 let povýšení Peček 9, stavebně-dopravní
+komise 4 (1/2024–9/2025); 2018–2022 — sportovní komise 8 (12/2018–6/2022), kulturní
+komise 10 (12/2018–8/2022), stavební komise 10 (12/2018–3/2022), Sbor pro občanské
+záležitosti 1 (13. 12. 2018).
+
+- **Sociální komise zápisy nezveřejňuje.** Web výslovně uvádí, že
+  anonymizované zápisy kvůli ochraně osobních údajů zveřejňovány nebudou
+  a neanonymizované jsou k nahlédnutí na úřadě. **Sbor pro občanské
+  záležitosti** má zveřejněný jediný zápis (13. 12. 2018, stránka komise
+  ho drží přímo, bez podstránky po letech). Na stránce Jednání je to
+  přiznané v calloutu; skript hlídá obojí (kdyby zápis přibyl, ohlásí ho).
+- **Volební období 2018–2022:** komise ve zcela jiném složení; společná
+  jednání sportovní a stavební komise (23. 5. a 27. 6. 2019) mají na
+  pecky.cz zápis u každého orgánu zvlášť (různá čísla jednání, téměř totožný
+  obsah) — v datech jsou jednou pod typem „Sportovní komise“ s `bodies`
+  obou orgánů a druhý zápis je v `links.minutes_more`. Zápis stavební komise
+  z 27. 11. 2019 je na webu vystavený dvakrát (stejný soubor). Původní „školská
+  a kulturní komise“ (13. 12. 2018) byla po prvním jednání rozdělena a je
+  vedená jako Kulturní komise. Soubor „informace-kulturni-komise-1.pdf“ není
+  zápis (vyjádření předsedkyně z doby covidu) a vytěžen není. U 4 kulturních
+  zápisů z let 2019–2020 je zveřejněn jen program jednání (přiznáno v
+  `extraction.note` a na stránce).
+- **Společná jednání kulturní komise a pracovní skupiny jsou na pecky.cz
+  dvakrát** — pět zápisů (9. 1., 20. 3., 22. 5., 28. 5. 2024, 2. 9. 2025) je
+  vystavených jako dva různé soubory (jiný MD5, stejný obsah) na stránce
+  kulturní komise a pracovní skupiny. V datech jsou jednou; složka se jmenuje
+  podle `type` (`kulturni-komise`). Zápisy 19. 9. 2024 a 30. 1. 2025 jsou
+  jen u pracovní skupiny (19. 9. 2024 je ale ve skutečnosti „schůzka kulturní
+  komise a komise pro oslavy“, proto má typ Kulturní komise a `bodies`
+  obou orgánů; 30. 1. 2025 je čistě pracovní skupina).
+- 2022–2026: zápisy z 18. 1. 2023 a 20. 3. 2024 jsou skeny (OCR: `pdftoppm -r 300 -png`
+  + `tesseract -l ces`), zbylých 18 má textovou vrstvu. 2018–2022: 10 zápisů je
+  skenů (kulturní 7, sportovní 3, stavební žádný), sportovní zápisy
+  z let 2018–2019 mají vadnou textovou vrstvu z OCR (rozházená písmena). OCR plete
+  diakritiku ve jménech (Můller) — jména se normalizují podle Lidí.
+
+### Jednání komisí RM (`komise.json`)
+
+Samostatný soubor vedle `vybory.json`, načítaný stejně (`content/jednani.html`
+soubory spojí do jednoho chronologického seznamu; filtr **Komise** ukazuje
+všech pět typů, konkrétní jednání mají trvalý odkaz
+`#sportovni-komise-2024-02-06`, `#kulturni-komise-…`, `#stavebni-komise-…`,
+`#pracovni-skupina-…`, `#sbor-…`). Stav 30. 9. 2026: 49 jednání, 102 usnesení.
+
+Záznam má stejná pole jako ve `vybory.json` (viz výše) a navíc:
+
+- `group: "komise"` — podle něj `jIsKomise()` odliší komise od výborů
+  (`jIsVybor()` platí pro obojí, protože jednání mají shodné vykreslení).
+- `type` — `Sportovní komise`, `Kulturní komise`, `Stavebně-dopravní komise`
+  (do 2022 „stavební komise“), `Pracovní skupina pro oslavy 100 let`,
+  `Sbor pro občanské záležitosti`.
+- `bodies` — orgány, kterých se jednání týká (společné jednání má dva:
+  `["Kulturní komise", "Pracovní skupina pro oslavy 100 let"]`); podle toho
+  Lidé párují docházku s vazbou člena. `links.minutes_more[]` = další zápis
+  téhož jednání (`{label, url}`), když ho druhý orgán vede zvlášť.
+- `summary[]` — krátké věcné shrnutí z textu zápisu (komise často nehlasují,
+  bez shrnutí by u jednání bez usnesení nebylo vidět nic než program).
+  Jen to, co v zápisu stojí, žádné vlastní závěry.
+- `number` je vždy `null`: sportovní komise sice zápisy číslují („5. jednání“),
+  ale po ročních řadách (2024: 1., 2., …, 5.), takže číslo nejde spojit se
+  zápisy dalších let; zůstává jen v `extraction.note`.
+
+**Rozdíly proti výborům:**
+
+- **Účast:** `present_names` + `absent_names` jsou jen lidé, které zápis
+  jmenuje. Výjimka: zápis sportovní komise uvádí „Celkem 12 členů komise“
+  — člen, kterého zápis nezmiňuje (Šestáková 10. 2. 2026), je mezi
+  nepřítomnými s poznámkou „zápis důvod neuvádí“. U stavebně-dopravní a kulturní
+  komise se celkový počet členů v zápisech nepíše a `total` = jmenovitě
+  uvedení. V Lidech proto u komisí stojí „jen ta, kde je zápis jmenuje“
+  (`L_ATTENDANCE_ROLES` v `content/lide.html`).
+- **Usnesení:** komise většinou nehlasují o číslovaných usneseních.
+  Do `resolutions` patří to, co zápis označuje jako „Usnesení“ nebo
+  „Komise doporučuje“, a hlasované doporučení (u sportovní komise každá
+  dotace oddílu zvlášť; text sestavený z tabulky a hlasování — poznamenáno
+  v `extraction.note`). Závěrečná formule „všechny body navrženého
+  programu byly projednány a schváleny“ **není** usnesení a nezapisuje se.
+  „Všichni pro“ = počet přítomných (poznámka v `extraction.note`); doporučení
+  bez hlasování mají `pro/proti/zdrzel: null`, `adopted: null`.
+- U dotací oddílům jde o **doporučení pro RM** — schvaluje je až rada.
+- Sportovní komise 24. 10. 2024 uvádí 9 přítomných, ale jmenuje 8
+  (Krejčí chybí mezi přítomnými i omluvenými) — počet 9 je ze zápisu,
+  jméno se nedopočítává.
+
+**Rozpory se složením v Lidech (zjištěno 30. 9. 2026, neopraveno):**
+
+- Stavebně-dopravní komise: Lubomír Metelák je na pecky.cz mezi členy, ale
+  v žádném zápisu 2024–2025 se nevyskytuje; Tomáš Vodička je v Lidech člen,
+  na pecky.cz už není a v zápisech taky ne (odchod nedatován). Jiří
+  Katrnoška je v Lidech členem od 14. 11. 2022, v zápisech je poprvé
+  5. 6. 2024 (17. 1. 2024 ani omluven není).
+- Sportovní komise: web uvádí 11 členů, bez Ladislavy Šátkové ml.; zápisy
+  2023–2026 ji ale vedou jako členku a Lidé také.
+
+### Kontrola nových zápisů komisí (týdně, skill `pecky-online-komise-check`)
+
+Běží ve stejném týdenním běhu jako kontrola výborů; zdroj pecky.cz, stačí `curl`.
+
+1. `python3 jednani/scripts/komise-check.py` — vypíše složení všech pěti komisí
+   podle webu a každý zápis (2018–2026), který ještě není v `komise.json`
+   (porovnává komisi + datum z názvu souboru, ne URL — kvůli dvojím
+   souborům u společných jednání); stáhne do
+   `Data/{datum}-{sportovni-komise|kulturni-komise|stavebni-komise}/zapis.pdf`.
+   Datum je jen z názvu souboru — **vždy ověřit proti textu zápisu**.
+   Zápis pracovní skupiny přejmenovat složku na `…-pracovni-skupina`.
+2. **Složení:** liší-li se výpis od Lidí (vazby `role_type: "komise"`),
+   dohledat usnesení RM o jmenování/odvolání (viz `lide/README.md` →
+   „Komise RM“) a upravit `lide/affiliations.json`. Rozpory výše jsou známé.
+3. **Vytěžení** do `komise.json` podle struktury výše: text přes
+   `pdftotext -layout`, sken přes `pdftoppm -r 300 -png` + `tesseract -l ces`.
+   Jména normalizovat podle `lide/people.json`, hosty nechat tak, jak je zápis
+   uvádí. Přepočítat `meta.meetings_count` / `resolutions_count`.
+   Ověřit `present ≤ len(present_names) + len(absent_names)`.
+4. **Promítnutí:** týká-li se zápis tělocvičny (starosta či předseda komise
+   informuje o dostavbě ZŠ), nový řádek v Tělocvičně → „Tělocvična v komisích
+   rady města“ (`content/telocvicna.html`); týká-li se konkrétní parcely,
+   sekce Pozemky (viz `automation-katastr-parcely.md`).
+5. **Kalendář:** `python3 kalendar/scripts/update-kalendar.py` — nová jednání komisí (i pracovní skupiny
+   a Sboru) přidá jako události kategorie `vybor` a hned je synchronizuje do Google Kalendáře (generátor
+   sync spouští sám, viz `kalendar/README.md`). Pak `python3 scripts/build.py`. Domů (`_dash_jednani`)
+   komise zatím nezahrnuje.
+6. Do shrnutí běhu vlastní řádek „Jednání — komise“ (i „zkontrolováno,
+   beze změny“); při změně přepsat řádek Jednání v `README.md` → „Stav sekcí“.
+
+### Školská rada ZŠ Pečky (`skolska-rada.json`, `Data/{datum}-skolska-rada/`)
+
+Školská rada je orgán školy (zřizovatel město), ne komise rady města, ale v datech
+i na stránce se vede s komisemi (`group: "komise"`, filtr **Komise**, `type:
+"Školská rada"`, trvalé odkazy `#skolska-rada-{datum}`). Zdroj je web školy —
+[Zápisy a dokumenty ŠR](https://www.zspecky.cz/skola/skolska-rada/zapisy-a-dokumenty-sr/),
+ne pecky.cz. Stav 30. 9. 2026: **34 jednání** (7. 9. 2009 – 28. 8. 2026), 61 usnesení.
+Soubory jsou stažené do `Data/{datum}-skolska-rada/` (zapis.pdf nebo zapis-N.jpg + `zdroj.txt`
+s odkazem na stránku školy; `Data/` je v `.gitignore`).
+
+- **Struktura webu školy:** každé jednání je vlastní podstránka s přílohou (většinou
+  PDF, u starších zápisů obrázky JPG); dva záznamy drží víc jednání v jednom souboru —
+  „Zápis 2009-10“ (PDF se zápisy 7. 9. a 13. 10. 2009; soubor je kvůli tomu ve dvou složkách)
+  a „Zápisy 2011-12“ (6. 10. 2011 a 24. 4. 2012). Stránka „zápis z jednání školské rady“
+  (17. 9. 2013) nemá přílohu a „zápis z jednání rady školy“ (10. 10. 2013) je jen titulní
+  strana téhož zápisu jako „Zápis z jednání ŠR ze dne 10. 10. 2013“ (jeden záznam,
+  druhá stránka v `links.minutes_more`). Nejsou tu volební řád, výroční zprávy ani výsledky
+  voleb — jen zápisy z jednání.
+- **Kvalita zdroje:** téměř všechny zápisy před 2023 jsou skeny (OCR, u 2009–2016 nízké
+  rozlišení ~500×770 px, ověřováno proti obrázku); od 2023 mají textovou vrstvu.
+  Zápis z 31. 8. 2023 je na hlavičkovém papíru Města Pečky („VÝBORY – KOMISE“).
+- **Jména členů:** zápisy do 2014 a 2019–2022 uvádějí členy jen příjmením („p. Katrnoška, pí. Krúpová“,
+  „paní Astrová, pan Korouš“). V datech jsou celými jmény podle Lidí tam, kde jde osobu spolehlivě určit
+  z jiného zdroje: výsledky voleb rodičů a doplňovacích voleb na webu školy (Procházka, Hovorka, Literová,
+  Chárová, Charousová, Minaříková), jmenování rady města v Pečeckých novinách (Katrnoška, Jedlička, Krúpová,
+  Homan, Horynová), výčet členů v zápisu 15. 6. 2015 a zápisy od 2023. **Iveta Minaříková (zápisy 2015–2019) je
+  dnešní Bc. Iveta Dvořáková** (`dvorakovai`, dřívější příjmení v `former_last_names`), v datech vedená jejím
+  dnešním jménem. Neurčeni (zůstávají příjmením): Astrová, Taxová, Korouš (rodiče 2019–2022), Hájková (2014),
+  Charouzová/Charousová jako přepis téhož příjmení a „p. Zajíc“ (ředitel) v zápisech do 2022. Kozáková, Píšová
+  a Vinohradníková jsou vedeny celým jménem po celou dobu (pedagožky se shodným příjmením v zápisech 2009–2026).
+- **Účast a hlasování:** `total` je počet členů rady (9), zápis ho ale zpravidla nepíše.
+  U hlasování per rollam (3. 9. 2020, 20. 11. 2020, 24. 11. 2021, 22. 6. 2022) zápis nejmenuje
+  přítomné; datum jednání je datum zápisu. Zápis „ze 3. 9. 2020“ jmenuje 7 hlasujících ze 9.
+- **Ochrana osobních údajů:** zápis z 7. 11. 2024 obsahuje diskuzi o personální záležitosti
+  konkrétního zaměstnance školy (nepravomocně rozhodnutá věc). V datech ani ve shrnutí
+  není jméno ani obsah přepsán (`extraction.note`); zůstává jen v původním zápisu, na který
+  jednání odkazuje.
+- **Lidé:** členové rady mají u vazeb `školské rady ZŠ Pečky` (organizace `zs-pecky`) počítanou
+  docházku (`L_ATTENDANCE_ROLES` v `content/lide.html`), a to jen tam, kde se jméno v zápisu shoduje.
+  Členství a začátky mandátů (jmenování RM, volby, ustavení rady) jsou popsané v `lide/README.md` →
+  „Školská rada ZŠ Pečky — členové 2009–2026“ (30. 9. 2026).
+- **Další dokumenty ze stránky ŠR** jsou v `Data/skolska-rada-dokumenty/{stránka}/` (volební řád 2025, doplňovací
+  volby 2009, výsledky voleb 2011 a 2014, výroční zprávy 2016/17 a 2017/18, hlasování o VZ 2015/16, volební lístek 2011;
+  u každého `zdroj.txt` a `stranka.txt` s textem stránky). Z nich jsou vytěžené jen údaje o volbách a schvalování
+  (klíče `election_rules`, `elections`, `other_decisions` v `skolska-rada.json`; stránka je nezobrazuje). U volebních
+  výsledků se jmenují jen zvolení členové — kandidáti, kteří zvoleni nebyli, jsou soukromé osoby a jména se
+  nepřepisují. Výroční zprávy školy nevytěženy (jde o dokumenty školy, ne rady).
+
+**Kontrola nových zápisů (týdně):** `python3 jednani/scripts/skolska-rada-check.py` —
+porovná záznamy se zápisy na webu školy s `skolska-rada.json` (podle data v názvu záznamu),
+stáhne nové do `Data/{datum}-skolska-rada/`; vytěžení do `skolska-rada.json` je ruční krok
+(struktura jako `komise.json`, viz „Jednání komisí RM“ výše; počty přepočítat v `meta`).
+Promítnutí: týká-li se zápis tělocvičny, řádek v Tělocvičně → „Tělocvična v komisích rady
+města a ve školské radě“. **Kalendář:** nové jednání školské rady se zapisuje jako událost stejně jako komise
+(`python3 kalendar/scripts/update-kalendar.py`, sync do Google se spouští sám). Skript hlídá jen zápisy jednání; ostatní dokumenty ŠR
+(výroční zprávy, volební řád) ne.
+
 ### Stahování pozvánek a podepsaných zápisů (pro budoucí doplnění)
 
 Cloudflare blokuje jakýkoli non-browser přístup (curl, přímé HTTP) —
@@ -977,3 +1164,9 @@ Web je za agresivní bot-ochranou. Scraper proto:
 - při detekci challenge čeká, až ho v okně odklikneš, a pokračuje sám.
 
 Playwright headless/vlastní HTTP klienti (curl, `page.request`) dostávají 403.
+
+**Předchozí období u výborů (30. 9. 2026, zadal uživatel).** Pod tabulkou
+Finančního i Kontrolního výboru na `/jednani/absence.html` je rozbalovací
+blok „Předchozí volební období 2018–2022" (tatáž `tabulka()` + vlastní
+výhrada o mezerách v zápisech; `content/absence.html`, `VYHRADA_PREDCHOZI`).
+Rada a Zastupitelstvo dál ukazují jen 2022–2026. Datový model se neměnil.

@@ -19,8 +19,19 @@
           <button type="button" class="segmented-btn active" data-type="">Vše</button>
           <button type="button" class="segmented-btn" data-type="Rada">Rada</button>
           <button type="button" class="segmented-btn" data-type="Zastupitelstvo">Zastupitelstvo</button>
-          <button type="button" class="segmented-btn" data-type="Finanční výbor">Finanční výbor</button>
-          <button type="button" class="segmented-btn" data-type="Kontrolní výbor">Kontrolní výbor</button>
+          <span class="segmented-more">
+            <button type="button" class="segmented-btn segmented-more-btn" id="jednani-more-btn" aria-haspopup="true" aria-expanded="false">Další…</button>
+            <div class="segmented-menu" id="jednani-more-menu" role="menu" hidden>
+            <button type="button" class="segmented-menu-item" role="menuitem" data-type="Finanční výbor">Finanční výbor</button>
+            <button type="button" class="segmented-menu-item" role="menuitem" data-type="Kontrolní výbor">Kontrolní výbor</button>
+            <button type="button" class="segmented-menu-item" role="menuitem" data-type="Sportovní komise">Sportovní komise</button>
+            <button type="button" class="segmented-menu-item" role="menuitem" data-type="Kulturní komise">Kulturní komise</button>
+            <button type="button" class="segmented-menu-item" role="menuitem" data-type="Stavebně-dopravní komise">Stavebně-dopravní komise</button>
+            <button type="button" class="segmented-menu-item" role="menuitem" data-type="Pracovní skupina pro oslavy 100 let">Pracovní skupina pro oslavy 100 let</button>
+            <button type="button" class="segmented-menu-item" role="menuitem" data-type="Sbor pro občanské záležitosti">Sbor pro občanské záležitosti</button>
+            <button type="button" class="segmented-menu-item" role="menuitem" data-type="Školská rada">Školská rada</button>
+            </div>
+          </span>
         </div>
       </div>
     </div>
@@ -36,6 +47,20 @@
       města <a href="https://pecky.as4u.cz/cs/mesto/vybory-a-komise/" target="_blank" rel="noopener">pecky.as4u.cz ↗</a>.
       Některé zápisy ale odkazují na jednání, jejichž zápis není zveřejněný nikde (např. KV 6. 10. 2021, KV 5. 9. 2023),
       a starší zápisy často neuvádějí výsledek hlasování.
+      <span class="stamp">přiznaná mezera</span>
+    </div>
+
+    <div class="callout">
+      Filtry <strong>komisí</strong> (sportovní, kulturní, stavebně-dopravní, pracovní skupina, sbor, školská rada) ukazují zápisy komisí rady města — sportovní, kulturní, stavebně-dopravní (do roku 2022 stavební) a Sboru pro občanské záležitosti
+      — a pracovní skupiny pro oslavy 100 let povýšení Peček na město z volebních období 2018–2022 a 2022–2026. Zveřejňuje je jen
+      <a href="https://pecky.cz/default/default/21179_komise-rm" target="_blank" rel="noopener">pecky.cz ↗</a> jako PDF;
+      účast, program a usnesení jsou z nich přepsané ručně a u každého jednání je odkaz na původní zápis. Komise zpravidla
+      nehlasují o číslovaných usneseních, proto je u jednání i krátké shrnutí z textu zápisu. Společná jednání dvou komisí
+      (kulturní s pracovní skupinou, sportovní se stavební) mají na pecky.cz zápis pod každým orgánem zvlášť nebo dvakrát; tady jsou jednou.
+      Zápisy <strong>sociální komise</strong> web nezveřejňuje (chrání osobní údaje) a <strong>Sbor pro občanské záležitosti</strong>
+      zveřejnil jediný zápis (13. 12. 2018). Zápisy z let 2018–2022 jsou často jen stručné (u několika kulturní komise je zveřejněn jen program jednání)
+      a složení komisí se od voleb 2022 zcela liší. Komise před rokem 2018 doplněné nejsou.
+      Samostatně je i <strong>školská rada ZŠ Pečky</strong> (zápisy z let 2009–2026 z <a href="https://www.zspecky.cz/skola/skolska-rada/zapisy-a-dokumenty-sr/" target="_blank" rel="noopener">webu školy ↗</a>, starší jsou nekvalitní skeny; u 2009–2016 se členové uvádějí jen příjmením, jak je píše zápis). U jednání školské rady per rollam (mailem) zápis nejmenuje členy ani počty hlasů.
       <span class="stamp">přiznaná mezera</span>
     </div>
 
@@ -86,12 +111,24 @@
   // výbory zastupitelstva (jednani/vybory.json, zdroj pecky.cz) — na rozdíl od
   // Rady/ZM nejsou na usneseni.cz, jednání nečíslují a nemají video
   const J_VYBOR_TYPES = ['Finanční výbor', 'Kontrolní výbor'];
-  function jIsVybor(m){ return J_VYBOR_TYPES.includes(m.type); }
+  // komise rady města a pracovní skupina (jednani/komise.json) — stejný tvar
+  // záznamu jako u výborů, navíc `group: 'komise'`, `bodies` (orgány, kterých
+  // se jednání týká — společné jednání kulturní komise a pracovní skupiny má dva)
+  // a `summary` (věcné shrnutí z textu zápisu); jIsVybor proto platí pro oba
+  const J_KOMISE_TYPES = ['Sportovní komise', 'Kulturní komise', 'Stavebně-dopravní komise', 'Pracovní skupina pro oslavy 100 let', 'Sbor pro občanské záležitosti', 'Školská rada'];
+  function jIsKomise(m){ return m.group === 'komise'; }
+  function jIsVybor(m){ return J_VYBOR_TYPES.includes(m.type) || jIsKomise(m); }
   function jMeetingTypeGenitive(type){
     if (type === 'Rada') return 'rady';
     if (type === 'Zastupitelstvo') return 'zastupitelstva';
     if (type === 'Finanční výbor') return 'finančního výboru';
     if (type === 'Kontrolní výbor') return 'kontrolního výboru';
+    if (type === 'Sportovní komise') return 'sportovní komise';
+    if (type === 'Kulturní komise') return 'kulturní komise';
+    if (type === 'Stavebně-dopravní komise') return 'stavebně-dopravní komise';
+    if (type === 'Pracovní skupina pro oslavy 100 let') return 'pracovní skupiny pro oslavy 100 let';
+    if (type === 'Sbor pro občanské záležitosti') return 'sboru pro občanské záležitosti';
+    if (type === 'Školská rada') return 'školské rady';
     return (type || '').toLowerCase();
   }
   // trvalý odkaz na konkrétní jednání: #rada-2026-08-31, #zastupitelstvo-2026-06-24,
@@ -104,6 +141,7 @@
     if (!a || a.present == null || a.total == null) return '';
     if (m.type === 'Rada') return `sešlo se ${a.present} ze ${a.total} radních`;
     if (m.type === 'Zastupitelstvo') return `sešlo se ${a.present} z ${a.total} zastupitelů`;
+    if (jIsKomise(m)) return `sešlo se ${a.present} z ${a.total} členů`;
     if (jIsVybor(m)) return `sešlo se ${a.present} ze ${a.total} členů výboru`;
     return `sešlo se ${a.present} z ${a.total}`;
   }
@@ -230,12 +268,14 @@
     if (JEDNANI_LOADING) return JEDNANI_LOADING;
     JEDNANI_LOADING = (async () => {
       try {
-        const [res, parcelRes, peopleRes, termRes, vyboryRes] = await Promise.all([
+        const [res, parcelRes, peopleRes, termRes, vyboryRes, komiseRes, srRes] = await Promise.all([
           fetch('/jednani/pecky-jednani.json'),
           fetch('/jednani/parcely-odkazy.json').catch(() => null),
           fetch('/lide/people.json').catch(() => null),
           fetch('/jednani/volebni-obdobi.json').catch(() => null),
-          fetch('/jednani/vybory.json').catch(() => null)
+          fetch('/jednani/vybory.json').catch(() => null),
+          fetch('/jednani/komise.json').catch(() => null),
+          fetch('/jednani/skolska-rada.json').catch(() => null)
         ]);
         if (!res.ok) throw new Error('HTTP ' + res.status);
         if (parcelRes && parcelRes.ok) {
@@ -267,6 +307,26 @@
             data.meetings = data.meetings.concat(vybory)
               .sort((a, b) => (b.date || '').localeCompare(a.date || ''));
           } catch (e) { /* bez výborů */ }
+        }
+        // komise RM: totéž — bez souboru stránka funguje dál
+        data._komiseCount = 0;
+        if (komiseRes && komiseRes.ok) {
+          try {
+            const komise = (await komiseRes.json()).meetings || [];
+            data._komiseCount = komise.length;
+            data.meetings = data.meetings.concat(komise)
+              .sort((a, b) => (b.date || '').localeCompare(a.date || ''));
+          } catch (e) { /* bez komisí */ }
+        }
+        // školská rada ZŠ Pečky (jednani/skolska-rada.json) se řadí mezi komise
+        data._skolskaRadaCount = 0;
+        if (srRes && srRes.ok) {
+          try {
+            const sr = (await srRes.json()).meetings || [];
+            data._skolskaRadaCount = sr.length;
+            data.meetings = data.meetings.concat(sr)
+              .sort((a, b) => (b.date || '').localeCompare(a.date || ''));
+          } catch (e) { /* bez školské rady */ }
         }
         const years = new Set();
         const resByNumber = {};
@@ -380,23 +440,53 @@
     const minY = years[years.length - 1], maxY = years[0];
     const resCount = JEDNANI_DB.meta.resolutions_count.toLocaleString('cs-CZ');
     const vc = JEDNANI_DB._vyboryCount;
+    const vyboryYears = JEDNANI_DB.meetings.filter(m => jIsVybor(m) && !jIsKomise(m)).map(m => m.year);
     const vyboryHtml = vc
-      ? ` K tomu <strong>${vc} jednání finančního a kontrolního výboru</strong> z let ${JEDNANI_DB.meetings.filter(jIsVybor).map(m => m.year).reduce((a, b) => Math.min(a, b))}–${JEDNANI_DB.meetings.filter(jIsVybor).map(m => m.year).reduce((a, b) => Math.max(a, b))} ze zápisů na <a href="https://pecky.cz/default/default/21133_vybory-zm" target="_blank" rel="noopener">pecky.cz ↗</a>.`
+      ? ` K tomu <strong>${vc} jednání finančního a kontrolního výboru</strong> z let ${Math.min(...vyboryYears)}–${Math.max(...vyboryYears)} ze zápisů na <a href="https://pecky.cz/default/default/21133_vybory-zm" target="_blank" rel="noopener">pecky.cz ↗</a>.`
       : '';
-    el.innerHTML = `Archiv obsahuje <strong>${JEDNANI_DB.meta.meetings_count} jednání</strong> rady a zastupitelstva a <strong>${resCount} usnesení</strong> z let ${minY}–${maxY}, čerpáno z <a href="https://mesto-pecky.usneseni.cz/verejne/" target="_blank" rel="noopener">mesto-pecky.usneseni.cz ↗</a>.${vyboryHtml}`;
+    const kc = JEDNANI_DB._komiseCount;
+    const komiseYears = JEDNANI_DB.meetings.filter(m => jIsKomise(m) && m.type !== 'Školská rada').map(m => m.year);
+    const komiseHtml = kc
+      ? ` A <strong>${kc} jednání komisí rady města</strong> z let ${Math.min(...komiseYears)}–${Math.max(...komiseYears)} ze zápisů na <a href="https://pecky.cz/default/default/21179_komise-rm" target="_blank" rel="noopener">pecky.cz ↗</a>.`
+      : '';
+    const sc = JEDNANI_DB._skolskaRadaCount;
+    const srYears = JEDNANI_DB.meetings.filter(m => m.type === 'Školská rada').map(m => m.year);
+    const srHtml = sc
+      ? ` A <strong>${sc} jednání školské rady ZŠ Pečky</strong> z let ${Math.min(...srYears)}–${Math.max(...srYears)} ze zápisů na <a href="https://www.zspecky.cz/skola/skolska-rada/zapisy-a-dokumenty-sr/" target="_blank" rel="noopener">webu školy ↗</a>.`
+      : '';
+    el.innerHTML = `Archiv obsahuje <strong>${JEDNANI_DB.meta.meetings_count} jednání</strong> rady a zastupitelstva a <strong>${resCount} usnesení</strong> z let ${minY}–${maxY}, čerpáno z <a href="https://mesto-pecky.usneseni.cz/verejne/" target="_blank" rel="noopener">mesto-pecky.usneseni.cz ↗</a>.${vyboryHtml}${komiseHtml}${srHtml}`;
   }
 
   // trvalý odkaz na filtr typu jednání: pecky.online/jednani/#rada, #zastupitelstvo
+  // konkrétní jednání mají trvalý odkaz podle svého typu (#sportovni-komise-2024-02-06)
   const J_TYPE_TO_HASH = {'Rada': 'rada', 'Zastupitelstvo': 'zastupitelstvo',
-    'Finanční výbor': 'financni-vybor', 'Kontrolní výbor': 'kontrolni-vybor'};
+    'Finanční výbor': 'financni-vybor', 'Kontrolní výbor': 'kontrolni-vybor',
+    'Sportovní komise': 'sportovni-komise', 'Kulturní komise': 'kulturni-komise',
+    'Stavebně-dopravní komise': 'stavebni-komise', 'Pracovní skupina pro oslavy 100 let': 'pracovni-skupina',
+    'Sbor pro občanské záležitosti': 'sbor', 'Školská rada': 'skolska-rada'};
   const J_HASH_TO_TYPE = {rada: 'Rada', zastupitelstvo: 'Zastupitelstvo',
-    'financni-vybor': 'Finanční výbor', 'kontrolni-vybor': 'Kontrolní výbor'};
+    'financni-vybor': 'Finanční výbor', 'kontrolni-vybor': 'Kontrolní výbor',
+    'sportovni-komise': 'Sportovní komise', 'kulturni-komise': 'Kulturní komise',
+    'stavebni-komise': 'Stavebně-dopravní komise', 'pracovni-skupina': 'Pracovní skupina pro oslavy 100 let',
+    sbor: 'Sbor pro občanské záležitosti', 'skolska-rada': 'Školská rada'};
 
   let jTypeFilter = '';
+  function jCloseMoreMenu(){
+    const menu = document.getElementById('jednani-more-menu');
+    if (!menu || menu.hidden) return;
+    menu.hidden = true;
+    document.getElementById('jednani-more-btn').setAttribute('aria-expanded', 'false');
+  }
   function jApplyTypeFilter(type, opts){
     opts = opts || {};
     jTypeFilter = type;
-    document.querySelectorAll('.segmented-btn').forEach(b => b.classList.toggle('active', b.dataset.type === type));
+    document.querySelectorAll('.segmented-btn:not(.segmented-more-btn)').forEach(b => b.classList.toggle('active', b.dataset.type === type));
+    const moreItem = document.querySelector('.segmented-menu-item[data-type="' + type + '"]');
+    document.querySelectorAll('.segmented-menu-item').forEach(b => b.classList.toggle('active', b === moreItem));
+    const moreBtn = document.getElementById('jednani-more-btn');
+    moreBtn.classList.toggle('active', !!moreItem);
+    moreBtn.textContent = moreItem ? moreItem.textContent + ' ▾' : 'Další… ▾';
+    jCloseMoreMenu();
     if (opts.updateHash !== false) {
       const h = J_TYPE_TO_HASH[type];
       history.replaceState(null, '', h ? '#' + h : location.pathname + location.search);
@@ -407,7 +497,7 @@
   function jFilteredMeetings(){
     const year = document.getElementById('jednani-filter-year').value;
     return JEDNANI_DB.meetings.filter(m =>
-      (!jTypeFilter || m.type === jTypeFilter) && (!year || String(m.year) === year)
+      (!jTypeFilter || m.type === jTypeFilter || (m.bodies || []).includes(jTypeFilter)) && (!year || String(m.year) === year)
     );
   }
 
@@ -572,11 +662,21 @@
       .filter(([k]) => t(k)).map(([k, l]) => `${l}: ${t(k)}`).join(' · ');
     return `<span class="meeting-count"${title ? ` title="${jEscapeHtml(title)}"` : ''}>pro ${r.pro} · proti ${r.proti} · zdržel se ${r.zdrzel}</span>`;
   }
+  // věcné shrnutí jednání komise z textu zápisu (komise často nehlasují,
+  // a bez shrnutí by u jednání bez usnesení nebylo vidět nic než program)
+  function jRenderKomiseSummary(m){
+    if (!m.summary || !m.summary.length) return '';
+    return `<p class="lede lede-sm" style="margin:14px 0 4px;"><strong>Z jednání</strong> (shrnutí ze zápisu):</p>
+      <ul class="res-list">${m.summary.map(t => `<li>${jLinkedText(t)}</li>`).join('')}</ul>`;
+  }
   function jRenderVyborResolutions(m){
     if (!m.resolutions.length) {
+      if (jIsKomise(m)) {
+        return '<p class="lede lede-sm" style="margin:10px 0 4px; color:var(--ink-soft);">Zápis neobsahuje žádné hlasované usnesení ani doporučení.</p>';
+      }
       return '<p class="lede lede-sm" style="margin:10px 0 4px; color:var(--ink-soft);">Zápis neobsahuje žádné usnesení ani doporučení výboru.</p>';
     }
-    return `<p class="lede lede-sm" style="margin:14px 0 4px;"><strong>Usnesení a doporučení výboru</strong> (doslovně podle zápisu):</p>
+    return `<p class="lede lede-sm" style="margin:14px 0 4px;"><strong>Usnesení a doporučení ${jIsKomise(m) ? 'komise' : 'výboru'}</strong> (${jIsKomise(m) ? 'podle zápisu; u dotací sestavené z tabulky a hlasování' : 'doslovně podle zápisu'}):</p>
       <ul class="res-list">${m.resolutions.map(r => `<li>${r.n ? `<span class="hit-number">${jEscapeHtml(/^\d+$/.test(r.n) ? r.n + '.' : r.n)}</span> ` : ''}${jLinkedText(r.text || '').replace(/\n/g, '<br>')} ${jOutcomeBadgeHtml(r)} ${jVoteLine(r)}${r.note ? `<br><span class="meeting-count" style="color:var(--ink-soft);">Pozn.: ${jEscapeHtml(r.note)}</span>` : ''}</li>`).join('')}</ul>`;
   }
 
@@ -622,7 +722,7 @@
           <span class="meeting-label">
             <a class="meeting-permalink" href="#${slug}" title="Trvalý odkaz na toto jednání">
               <svg class="meeting-cal-icon" viewBox="0 0 16 16" width="13" height="13" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><rect x="1.5" y="3" width="13" height="11" rx="1.5"/><line x1="1.5" y1="6.2" x2="14.5" y2="6.2"/><line x1="4.5" y1="1.3" x2="4.5" y2="4"/><line x1="11.5" y1="1.3" x2="11.5" y2="4"/></svg>
-              ${jFormatDateZeroPad(m.date)} | Jednání ${jEscapeHtml(jMeetingTypeGenitive(m.type))}${m.number ? ` č. ${jEscapeHtml(String(m.number))}` : ''}
+              ${jFormatDateZeroPad(m.date)} | Jednání ${jEscapeHtml(jMeetingTypeGenitive(m.type))}${m.bodies && m.bodies.length > 1 ? ' a ' + m.bodies.filter(b => b !== m.type).map(jMeetingTypeGenitive).join(' a ') : ''}${m.number ? ` č. ${jEscapeHtml(String(m.number))}` : ''}
             </a>
             ${chip}
           </span>
@@ -640,10 +740,12 @@
           ${detailTopHtml}
           ${videoUrl ? `<a class="toggle-details" href="${videoUrl}" target="_blank" rel="noopener" style="margin:0 0 14px;"><img class="meeting-yt-icon" src="/img/favicons/youtube-com.png" alt="" loading="lazy"> Video ↗</a>` : ''}
           ${jRenderAgendaList(m)}
+          ${jIsKomise(m) ? jRenderKomiseSummary(m) : ''}
           ${vybor ? jRenderVyborResolutions(m) : ''}
           <div class="meeting-links">
             ${(future || isToday) && m.links.invitation ? `<a href="${m.links.invitation}" target="_blank" rel="noopener" title="Zdrojový web někdy odkaz z cizí stránky blokuje a otevře jen úvodní stránku archivu — zkuste prosím znovu, případně vyhledejte jednání přímo na usneseni.cz.">Pozvánka PDF ↗</a>` : ''}
-            ${m.links.minutes ? `<a class="toggle-details" href="${m.links.minutes}" target="_blank" rel="noopener" style="margin:0;">${vybor ? 'Zápis (PDF, pecky.cz) ↗' : 'Zápis ↗'}</a>` : ''}
+            ${m.links.minutes ? `<a class="toggle-details" href="${m.links.minutes}" target="_blank" rel="noopener" style="margin:0;">${m.links.minutes_label || (vybor ? 'Zápis (PDF, pecky.cz) ↗' : 'Zápis ↗')}</a>` : ''}
+            ${(m.links.minutes_more || []).map(x => `<a class="toggle-details" href="${x.url}" target="_blank" rel="noopener" style="margin:0;">${jEscapeHtml(x.label)} (PDF) ↗</a>`).join('')}
             ${m.links.resolutions ? `<a href="${m.links.resolutions}" target="_blank" rel="noopener">Všechna přijatá usnesení ↗</a>` : ''}
           </div>
         </div>
@@ -745,7 +847,7 @@
           ${r.url ? `<a href="${r.url}" target="_blank" rel="noopener">detail usnesení ↗</a>` : ''}
           ${m.links.minutes ? `<a href="${m.links.minutes}" target="_blank" rel="noopener">zápis jednání ↗</a>` : ''}
           ${m.links.youtube ? `<a href="${m.links.youtube}" target="_blank" rel="noopener">▶ video ↗</a>` : ''}
-          ${jIsVybor(m) ? `<a href="#${jSlugForMeeting(m)}">celé jednání výboru</a>` : ''}
+          ${jIsVybor(m) ? `<a href="#${jSlugForMeeting(m)}">celé jednání ${jIsKomise(m) ? 'komise' : 'výboru'}</a>` : ''}
           ${jResInfoText(r)}
         </div>
       </div>`;
@@ -811,15 +913,23 @@
   document.getElementById('jednani-search').addEventListener('input', jScheduleSearch);
   document.getElementById('jednani-filter-year').addEventListener('change', jRunSearch);
 
-  document.querySelectorAll('.segmented-btn').forEach(btn => {
+  document.querySelectorAll('.segmented-btn:not(.segmented-more-btn), .segmented-menu-item').forEach(btn => {
     btn.addEventListener('click', function(){
       jApplyTypeFilter(this.dataset.type);
     });
   });
+  document.getElementById('jednani-more-btn').addEventListener('click', function(e){
+    e.stopPropagation();
+    const menu = document.getElementById('jednani-more-menu');
+    menu.hidden = !menu.hidden;
+    this.setAttribute('aria-expanded', String(!menu.hidden));
+  });
+  document.addEventListener('click', jCloseMoreMenu);
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') jCloseMoreMenu(); });
 
   // směrování podle hashe v URL: #rada / #zastupitelstvo (filtr typu) nebo
   // #rada-2026-08-31 / #zastupitelstvo-2026-06-24 (trvalý odkaz na konkrétní jednání)
-  const J_MEETING_HASH_RE = /^(rada|zastupitelstvo|financni-vybor|kontrolni-vybor)-(\d{4}-\d{2}-\d{2})$/;
+  const J_MEETING_HASH_RE = /^(rada|zastupitelstvo|financni-vybor|kontrolni-vybor|sportovni-komise|kulturni-komise|stavebni-komise|pracovni-skupina|sbor|skolska-rada)-(\d{4}-\d{2}-\d{2})$/;
   function jRouteHash(hash){
     if (J_HASH_TO_TYPE[hash]) { jApplyTypeFilter(J_HASH_TO_TYPE[hash], {updateHash: false}); return; }
     if (J_MEETING_HASH_RE.test(hash)) { jGotoMeetingBySlug(hash); return; }
