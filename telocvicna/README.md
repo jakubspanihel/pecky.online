@@ -386,6 +386,24 @@ finančního výboru z 11. 11. 2025 — obě jsou citovaná tak, jak je zdroj uv
 Do týdenní kontroly Tělocvičny patří i nové zápisy sportovní a stavebně-dopravní
 komise (skill `pecky-online-komise-check` je hlásí, když se tělocvičny týkají).
 
+## Doplněno 30. 9. 2026 (večer): pozvánka ZM 7/2026
+
+Zdroj: Pozvánka na Zastupitelstvo 7/2026 (7. 10. 2026, 16:30), PDF z
+`usneseni.cz` (`?uuid=e43cffac-bbcc-11f1-a148-0242c0a80002&do=printPublicInvitation`
+— prohlížeč ho neotevře jako stránku, čte se přes `fetch` a rozbalení
+PDF streamů).
+
+- Bod 3 programu: „Dostavba učeben a tělocvičny v ZŠ Pečky – Dodatek
+  č. 2 k SoD ze dne 26.03.2026“. Poprvé je v programu druhý dodatek ke
+  smlouvě o dílo. Obsah, cena ani dopad na termín z pozvánky nevyplývají;
+  o dodatku zatím nehlasovala ani rada (v archivu žádné usnesení).
+- Bod 4: Rozpočtová opatření č. 10/2026 (souvislost s tělocvičnou
+  nedoložena, jen ohlídat).
+
+Promítnuto do `content/telocvicna.html`: nový řádek „7. 10. 2026
+(plánováno)“ v tabulce „Zastavení stavby v roce 2026“. Po jednání ověřit
+zápis a doplnit znění, cenu a výsledek hlasování.
+
 ## Co hlídat dál
 
 - Jestli a jak vedení města zareaguje konkrétně na tvrzení Švejnohové

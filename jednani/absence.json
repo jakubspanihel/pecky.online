@@ -3,8 +3,8 @@
     "popis": "Absence členů zastupitelstva, rady a výborů ZM města Pečky, spočítaná z jmenné prezence v zápisech. Postup: jednani/INSTRUKCE-absence.md.",
     "generoval": "jednani/scripts/absence.py",
     "zdroj": "jednani/pecky-jednani.json (Rada, Zastupitelstvo) + jednani/vybory.json (Finanční výbor, Kontrolní výbor)",
-    "jednani_celkem": 334,
-    "jednani_s_prubeznou_prezenci": 134,
+    "jednani_celkem": 337,
+    "jednani_s_prubeznou_prezenci": 135,
     "data_do": "2026-09-21"
   },
   "obdobi": [
@@ -1036,20 +1036,20 @@
     {
       "organ": "Finanční výbor",
       "obdobi": "2022–2026",
-      "jednani": 12,
+      "jednani": 13,
       "od": "2022-11-23",
       "do": "2026-06-02",
       "radky": [
         {
           "klic": "lubomir metelak",
           "jmeno": "Lubomír Metelák",
-          "mandat": 12,
-          "chybel": 11,
-          "omluven": 9,
+          "mandat": 13,
+          "chybel": 12,
+          "omluven": 10,
           "nepritomen": 2,
           "dorazil": 0,
-          "nebyl": 11,
-          "podil": 91.7,
+          "nebyl": 12,
+          "podil": 92.3,
           "odesel": 0,
           "mandat_od": "2022-11-23",
           "mandat_do": "2026-06-02"
@@ -1057,27 +1057,13 @@
         {
           "klic": "sarka jedlickova",
           "jmeno": "Ing. Šárka Jedličková",
-          "mandat": 12,
+          "mandat": 13,
           "chybel": 2,
           "omluven": 1,
           "nepritomen": 1,
           "dorazil": 0,
           "nebyl": 2,
-          "podil": 16.7,
-          "odesel": 0,
-          "mandat_od": "2022-11-23",
-          "mandat_do": "2026-06-02"
-        },
-        {
-          "klic": "pavel sedlacek",
-          "jmeno": "Pavel Sedláček",
-          "mandat": 12,
-          "chybel": 1,
-          "omluven": 0,
-          "nepritomen": 1,
-          "dorazil": 0,
-          "nebyl": 1,
-          "podil": 8.3,
+          "podil": 15.4,
           "odesel": 0,
           "mandat_od": "2022-11-23",
           "mandat_do": "2026-06-02"
@@ -1085,21 +1071,35 @@
         {
           "klic": "tomas vodicka",
           "jmeno": "Tomáš Vodička",
-          "mandat": 12,
-          "chybel": 1,
-          "omluven": 1,
+          "mandat": 13,
+          "chybel": 2,
+          "omluven": 2,
           "nepritomen": 0,
           "dorazil": 0,
-          "nebyl": 1,
-          "podil": 8.3,
+          "nebyl": 2,
+          "podil": 15.4,
           "odesel": 1,
+          "mandat_od": "2022-11-23",
+          "mandat_do": "2026-06-02"
+        },
+        {
+          "klic": "pavel sedlacek",
+          "jmeno": "Pavel Sedláček",
+          "mandat": 13,
+          "chybel": 1,
+          "omluven": 0,
+          "nepritomen": 1,
+          "dorazil": 0,
+          "nebyl": 1,
+          "podil": 7.7,
+          "odesel": 0,
           "mandat_od": "2022-11-23",
           "mandat_do": "2026-06-02"
         },
         {
           "klic": "karel kristoufek",
           "jmeno": "Ing. Karel Krištoufek",
-          "mandat": 12,
+          "mandat": 13,
           "chybel": 0,
           "omluven": 0,
           "nepritomen": 0,
@@ -1113,7 +1113,7 @@
         {
           "klic": "jaroslav zelezny",
           "jmeno": "Jaroslav Železný",
-          "mandat": 12,
+          "mandat": 13,
           "chybel": 0,
           "omluven": 0,
           "nepritomen": 0,
@@ -1127,7 +1127,7 @@
         {
           "klic": "milan urban",
           "jmeno": "Milan Urban",
-          "mandat": 12,
+          "mandat": 13,
           "chybel": 0,
           "omluven": 0,
           "nepritomen": 0,
@@ -1140,8 +1140,8 @@
         }
       ],
       "kontrola": {
-        "soucet_pres_osoby": 15,
-        "soucet_pres_jednani": 15,
+        "soucet_pres_osoby": 17,
+        "soucet_pres_jednani": 17,
         "rozdil": 0,
         "vadne_zaznamy": []
       }
@@ -1265,25 +1265,10 @@
     {
       "organ": "Kontrolní výbor",
       "obdobi": "2022–2026",
-      "jednani": 11,
+      "jednani": 13,
       "od": "2023-01-10",
       "do": "2026-06-17",
       "radky": [
-        {
-          "klic": "jaroslava vosecka",
-          "jmeno": "Jaroslava Vosecká",
-          "mandat": 5,
-          "chybel": 3,
-          "omluven": 3,
-          "nepritomen": 0,
-          "dorazil": 0,
-          "nebyl": 3,
-          "podil": 60.0,
-          "odesel": 0,
-          "mandat_od": "2025-03-19",
-          "mandat_do": "2026-06-17",
-          "poznamka": "členka výboru od 13. 11. 2024 (UZ-47-5/24)"
-        },
         {
           "klic": "lenka triskova",
           "jmeno": "Lenka Třísková",
@@ -1298,21 +1283,6 @@
           "mandat_od": "2023-01-10",
           "mandat_do": "2023-12-14",
           "poznamka": "mandát ve výboru skončil 11. 9. 2024"
-        },
-        {
-          "klic": "jiri katrnoska",
-          "jmeno": "Jiří Katrnoška",
-          "mandat": 5,
-          "chybel": 1,
-          "omluven": 1,
-          "nepritomen": 0,
-          "dorazil": 0,
-          "nebyl": 1,
-          "podil": 20.0,
-          "odesel": 0,
-          "mandat_od": "2025-03-19",
-          "mandat_do": "2026-06-17",
-          "poznamka": "členem výboru od 26. 2. 2025 (za Ivetu Dvořákovou)"
         },
         {
           "klic": "iveta dvorakova",
@@ -1330,29 +1300,45 @@
           "poznamka": "předsedkyně výboru do 26. 2. 2025, kdy skončil i mandát"
         },
         {
+          "klic": "jaroslava vosecka",
+          "jmeno": "Jaroslava Vosecká",
+          "mandat": 7,
+          "chybel": 4,
+          "omluven": 4,
+          "nepritomen": 0,
+          "dorazil": 0,
+          "nebyl": 4,
+          "podil": 57.1,
+          "odesel": 0,
+          "mandat_od": "2025-03-19",
+          "mandat_do": "2026-06-17",
+          "poznamka": "členka výboru od 13. 11. 2024 (UZ-47-5/24)"
+        },
+        {
+          "klic": "jiri katrnoska",
+          "jmeno": "Jiří Katrnoška",
+          "mandat": 7,
+          "chybel": 1,
+          "omluven": 1,
+          "nepritomen": 0,
+          "dorazil": 0,
+          "nebyl": 1,
+          "podil": 14.3,
+          "odesel": 1,
+          "mandat_od": "2025-03-19",
+          "mandat_do": "2026-06-17",
+          "poznamka": "členem výboru od 26. 2. 2025 (za Ivetu Dvořákovou)"
+        },
+        {
           "klic": "petr durr",
           "jmeno": "Ing. Petr Dürr",
-          "mandat": 11,
+          "mandat": 13,
           "chybel": 5,
           "omluven": 0,
           "nepritomen": 5,
           "dorazil": 0,
           "nebyl": 5,
-          "podil": 45.5,
-          "odesel": 0,
-          "mandat_od": "2023-01-10",
-          "mandat_do": "2026-06-17"
-        },
-        {
-          "klic": "milan pecenka",
-          "jmeno": "Milan Pečenka",
-          "mandat": 11,
-          "chybel": 2,
-          "omluven": 0,
-          "nepritomen": 2,
-          "dorazil": 0,
-          "nebyl": 2,
-          "podil": 18.2,
+          "podil": 38.5,
           "odesel": 0,
           "mandat_od": "2023-01-10",
           "mandat_do": "2026-06-17"
@@ -1360,13 +1346,27 @@
         {
           "klic": "vaclav drska",
           "jmeno": "Václav Drška",
-          "mandat": 11,
-          "chybel": 1,
-          "omluven": 1,
+          "mandat": 13,
+          "chybel": 3,
+          "omluven": 3,
           "nepritomen": 0,
           "dorazil": 0,
-          "nebyl": 1,
-          "podil": 9.1,
+          "nebyl": 3,
+          "podil": 23.1,
+          "odesel": 0,
+          "mandat_od": "2023-01-10",
+          "mandat_do": "2026-06-17"
+        },
+        {
+          "klic": "milan pecenka",
+          "jmeno": "Milan Pečenka",
+          "mandat": 13,
+          "chybel": 2,
+          "omluven": 0,
+          "nepritomen": 2,
+          "dorazil": 0,
+          "nebyl": 2,
+          "podil": 15.4,
           "odesel": 0,
           "mandat_od": "2023-01-10",
           "mandat_do": "2026-06-17"
@@ -1374,7 +1374,7 @@
         {
           "klic": "ivana trckova",
           "jmeno": "Ivana Trčková",
-          "mandat": 11,
+          "mandat": 13,
           "chybel": 0,
           "omluven": 0,
           "nepritomen": 0,
@@ -1388,7 +1388,7 @@
         {
           "klic": "alena svejnohova",
           "jmeno": "Mgr. Alena Švejnohová",
-          "mandat": 11,
+          "mandat": 13,
           "chybel": 0,
           "omluven": 0,
           "nepritomen": 0,
@@ -1401,8 +1401,8 @@
         }
       ],
       "kontrola": {
-        "soucet_pres_osoby": 15,
-        "soucet_pres_jednani": 15,
+        "soucet_pres_osoby": 18,
+        "soucet_pres_jednani": 18,
         "rozdil": 0,
         "vadne_zaznamy": []
       }

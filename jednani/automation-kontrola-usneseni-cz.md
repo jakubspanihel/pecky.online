@@ -73,6 +73,41 @@ Porovnej se stavem z kroku 1:
   `zápis`/`usnesení`** → doplnit plný obsah (hlavní případ, viz níže).
 - Nic nového → nahlásit uživateli beze změny, nic nevymýšlet.
 
+### 2b. Program z Pozvánky (PDF) — doplněno 30. 9. 2026
+
+U jednání, které má zatím jen Pozvánku (typicky nadcházející ZM), je
+program jen v PDF. Odkaz `Pozvánka` (`?uuid=<uuid>&do=printPublicInvitation`)
+se v Chrome **neotevře jako stránka** — vrátí `application/pdf`, takže
+Chrome soubor jen stáhne a karta zůstane beze změny; `get_page_text`
+pak selže („chrome:// URL“). `curl` dostane 403 (Cloudflare). Adresa
+`/verejne/<uuid>/` bez parametrů vede na přihlášení do app.usneseni.cz
+— nepoužívat.
+
+Postup:
+1. UUID získej z výpisu: `javascript_tool` →
+   `[...document.querySelectorAll('a')].filter(x=>x.textContent.trim()=='Pozvánka')[i].getAttribute('href').match(/[0-9a-f]{8}-[0-9a-f-]{27}/)[0]`
+   (vypsat celý `href` nástroj blokuje kvůli query stringu, samotné UUID projde).
+2. Naviguj Chrome (`navigate`) na adresu Pozvánky. PDF se uloží do
+   `~/Downloads/Pozvanka-na-jednani-anonymizováno-<N>-<RRRR>.pdf`
+   (opakované navigace přidávají ` (2)`, ` (3)` …).
+3. Přečti lokálně: `pdftotext -layout "<nejnovější soubor>" -`
+   (`ls -t ~/Downloads/Pozvanka-na-jednani* | head -1`). Program je
+   v sekci „Program jednání“, body číslované `N.`.
+4. Do `agenda` zapiš `{"n": N, "t": "<název bodu>"}` (jen tyto dvě
+   pole — předkladatel a délka přibudou až ze zápisu).
+5. Stažená PDF se v repu nenechávají; soubory v `~/Downloads` jsou
+   jen dočasné (smazat na pokyn uživatele).
+
+Záložní cesta, nejde-li stahování: v kartě s usneseni.cz `fetch` adresy
+Pozvánky → `arrayBuffer` → `btoa`, pak rozbalit streamy přes
+`DecompressionStream('deflate-raw')` (vynechat 2 bajty hlavičky)
+a poskládat text z operátorů `Tj` (písmena jsou oddělená mezerami,
+háčky v nestandardním kódování: `\r`=č, `Y`=ř, `` ` ``=Š). Je to
+pracné — upřednostnit `pdftotext`.
+
+Program z Pozvánky se promítá i do jiných sekcí (krok 9 — Tělocvična:
+hledat „Dodatek … k SoD“ apod.).
+
 ### 3. Stáhni zápis a usnesení
 
 Pro každé jednání k doplnění zjisti UUID (z `href` odkazu `zápis` na
