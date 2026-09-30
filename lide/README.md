@@ -316,6 +316,20 @@ prostředí“ jsou v `L_ATTENDANCE_ROLES` napojené na kulturní, resp. stavebn
 `assets/helpers.js` teď umí i „Petra Vorlíčková, DiS.“ (čárka před titulem se lepila k příjmení a nespárovala
 docházku) a tituly `arch.`, `M.Sc.`, `MBA`, `MPA`, `PaedDr.`.
 
+**Komise bytová a sociální — členové 2010–2019** (doplněno 30. 9. 2026 na žádost uživatele; zdroj Pečecké
+noviny, ne zápisy — tyto komise zápisy nezveřejňují, členství je proto doložené jen jmenovacími seznamy rady města).
+**Komise bytová:** 2010–2014 (RM 29. 11. 2010 — Horynová předsedkyně, Janoušková, V. Růžičková, Vinohradník, Semerád),
+2014–2018 (předsedkyně jmenována RM 24. 11. 2014, „konečné obsazení“ 8. 12. 2014 — navíc Mgr. Petra Šetková, nová
+osoba `setkovap`) a 2018–2019 (RM listopad 2018 — Horynová, Heroldová, Vinohradník, Čermáková, V. Růžičková,
+Janoušková). **Komise pro sociální oblast a zdravotnictví** 2018–2019 (předsedkyně Iveta Minaříková, dnes
+Dvořáková; Horynová, Schürzová, Kynclová, Vinohradník, Velká, Čermáková). Obě komise zrušila rada města v létě 2019
+(Pečecké noviny 9/2019, s. 2, „prázdninová jednání“; datum usnesení nedohledáno, `to: 2019`) a zřídila
+Komisi pro otázky sociální, zdravotní a bytové — **její členy z let 2019–2022 zdroje neuvádějí** (mezera; od
+14. 11. 2022 jsou členové v Lidech podle UR-436-45/22). Zapisovatelka Dana Pečenková (úřednice) a členové, kteří
+nejsou ve zdrojích jmenovitě (např. „zástupce knihovny“), se nedoplňovali. Před rokem 2010 Noviny seznamy komisí
+neuvádějí; sociální komise 2010–2018 v Novinách nefiguruje (mohla neexistovat). Datum 8. 12. 2014 vychází z toho,
+že Noviny 1/2015 uvádějí „bude doplněno na příští RM 8. 12. 2014“ a následně „jmenuje konečné obsazení“.
+
 **Vedení úřadu, příspěvkových organizací a městských firem** (`role_type:
 "vedeni-urad"` a `"vedeni-organizace"`, doplněno 5. 9. 2026, fáze 5b
 SPEC.md §7): tajemnice úřadu, 4
