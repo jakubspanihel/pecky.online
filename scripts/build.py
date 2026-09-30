@@ -21,6 +21,9 @@ import re
 import sys
 from pathlib import Path
 
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from typografie import nbsp_html  # noqa: E402
+
 ROOT = Path(__file__).resolve().parent.parent
 
 # Nasazení: vlastní doména dopecek.cz na kořeni (CNAME, přes GitHub Pages),
@@ -240,8 +243,8 @@ def parse_stav_sekci():
         if not line.startswith('| ['):
             continue
         cells = [c.strip() for c in line.split('|')[1:-1]]
-        if len(cells) != 5:
-            raise SystemExit(f'CHYBA: řádek tabulky "Stav sekcí" nemá 5 sloupců: {line}')
+        if len(cells) != 6:
+            raise SystemExit(f'CHYBA: řádek tabulky "Stav sekcí" nemá 6 sloupců: {line}')
         name_m = re.match(r'\[([^\]]+)\]\(([^)]+)\)', cells[0])
         if not name_m:
             raise SystemExit(f'CHYBA: nečitelný odkaz v tabulce "Stav sekcí": {cells[0]}')
@@ -258,11 +261,28 @@ def parse_stav_sekci():
             'kontrola': parse_cz_date(cells[2]),
             'zmena': parse_cz_date(cells[3]),
             'co': cells[4],
+            'widget': parse_widget_cell(cells[5]),
         })
 
     if not rows:
         raise SystemExit('CHYBA: tabulka "Stav sekcí" v README.md je prázdná.')
     return rows
+
+
+def parse_widget_cell(cell):
+    """'[text](url)' -> {'text', 'url'}, '—' -> None.
+
+    Sloupec "Widget" je ručně psaný, čtenářský popisek pro kartu "Naposledy
+    aktualizováno" na homepage (na rozdíl od "Co naposledy", což je interní
+    pracovní log) - vyplňuje se jen u sekcí, které mají jít do widgetu
+    (nejvýš DASH_ZMENY najednou, viz render_dashboard). Prázdné = "—".
+    """
+    if cell in ('—', '-', ''):
+        return None
+    m = re.match(r'^\[([^\]]+)\]\(([^)]+)\)$', cell)
+    if not m:
+        raise SystemExit(f'CHYBA: sloupec "Widget" v tabulce "Stav sekcí" čeká "[text](url)" nebo "—": {cell!r}')
+    return {'text': m.group(1), 'url': m.group(2)}
 
 
 def parse_cz_date(cell):
@@ -347,7 +367,7 @@ def apply_lastmod(content, lastmod):
 DASH_KALENDAR_KATEGORIE = ('akce', 'volby')  # kurzy a svoz odpadu by zahltily výpis
 DASH_AKCE_VIDET, DASH_AKCE_REZERVA = 5, 25  # rezerva ~ týden bez buildu
 DASH_JEDNANI_PROBEHLA = 3
-DASH_ZMENY = 5
+DASH_ZMENY = 3
 DNY_CZ = ['po', 'út', 'st', 'čt', 'pá', 'so', 'ne']
 
 
@@ -465,13 +485,17 @@ def _dash_noviny():
 
 
 def _dash_zmeny(stav_rows):
-    rows = [r for r in stav_rows if r['zmena'] is not None and r['url'] != '/']
+    # Jen sekce s ručně vyplněným sloupcem "Widget" (viz parse_widget_cell) -
+    # krátký čtenářský popisek + přesný odkaz, na rozdíl od "Co naposledy"
+    # (interní pracovní log, sem se nedává). Řadí se podle data "Změna",
+    # ale zobrazuje se jen DASH_ZMENY nejnovějších - u víc než DASH_ZMENY
+    # vyplněných widgetů je na dalším běhu kontroly smazat ten nejstarší
+    # zpátky na "—", ať se widget nezacpe.
+    rows = [r for r in stav_rows if r['widget'] is not None and r['zmena'] is not None]
     rows.sort(key=lambda r: r['zmena']['iso'], reverse=True)
     out = ['  <ul class="dash-list">']
     for r in rows[:DASH_ZMENY]:
-        out.append(f'    <li><a href="{r["url"]}">{esc(r["name"])}</a>'
-                   f'<span class="meta-note" data-date="{r["zmena"]["iso"]}">'
-                   f'{esc(r["zmena"]["raw"])}</span></li>')
+        out.append(f'    <li><a href="{r["widget"]["url"]}">{esc(r["widget"]["text"])}</a></li>')
     out.append('  </ul>')
     return _dash_card('Naposledy aktualizováno', '/o-webu/', 'Stav všech sekcí', '\n'.join(out))
 
@@ -597,6 +621,7 @@ def build_all(stav_rows=None):
         html = html.replace('{{CONTENT}}', content)
         html = html.replace('{{FOOTER}}', footer)
         html = html.replace('{{SITE_BASE_PATH}}', SITE_BASE_PATH)
+        html = nbsp_html(html)  # české pevné mezery, viz TYPOGRAFIE.md
         html = apply_base_path(html)
 
         out_path = out_file_for(path)

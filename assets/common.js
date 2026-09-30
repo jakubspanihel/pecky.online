@@ -227,3 +227,53 @@ document.querySelectorAll('.exp-row').forEach(row => {
     else { detail.setAttribute('hidden', ''); if (toggle) toggle.textContent = '+'; }
   });
 });
+
+// ===== České pevné mezery (NBSP) v dynamicky generovaném textu =====
+// Obdoba scripts/typografie.py (pravidla viz TYPOGRAFIE.md, držet shodná).
+// Statický HTML text řeší build; tohle dořeší text vložený skriptem později.
+(function(){
+  const NB = ' ';
+  const MES = 'ledna|února|března|dubna|května|června|července|srpna|září|října|listopadu|prosince';
+  const JED = 'km|m|cm|mm|kg|g|t|l|ha|m²|m³|m2|m3|%|°C|Kč|Kc|EUR|CZK|ks|tis\\.|mil\\.|mld\\.|hod\\.|min\\.|let';
+  const TIT = 'Ing|Bc|Mgr|MUDr|JUDr|PhDr|RNDr|MVDr|Ph\\.D|MBA|DiS|doc|prof|arch|MgA|BcA|ThDr|PaedDr|CSc|mjr|plk|kpt|por|npor|gen|pplk';
+  const VICE = 'do|na|po|za|od|ve|ke|se|ze|že|či|pro|při|nad|pod|před|přes|bez|což|aby|když|atd\\.';
+  const ZKR = 'str|obr|tab|č|čl|odst|písm|příl|kap|čp|ev|pozn';
+  const VELKE = '[A-ZÁČĎÉĚÍŇÓŘŠŤÚŮÝŽ]';
+  const P = [
+    [/(?<![\p{L}\p{N}_])([KkSsVvZzOoUuAaIi]) (?=\S)/gu, '$1' + NB],
+    [new RegExp('(?<![\\p{L}\\p{N}_])((?:' + VICE + ')) (?=\\S)', 'giu'), '$1' + NB],
+    [new RegExp('(\\d) (?=(?:' + JED + ')(?![\\p{L}\\p{N}_]))', 'gu'), '$1' + NB],
+    [/\b(tis\.|mil\.|mld\.) (?=Kč)/g, '$1' + NB],
+    [/(?<![\d.,])(\d{1,3}) (?=\d{3}(?!\d))/g, '$1' + NB],
+    [new RegExp('(\\d' + NB + '\\d{3}) (?=\\d{3}(?!\\d))', 'g'), '$1' + NB],
+    [new RegExp('\\b(\\d{1,2}\\.) (?=(?:\\d{1,2}\\.|\\d{4}|' + MES + ')(?![\\p{L}\\d]))', 'gu'), '$1' + NB],
+    [new RegExp('(?<![\\p{L}])((?:' + TIT + ')\\.) (?=' + VELKE + ')', 'gu'), '$1' + NB],
+    [new RegExp('(?<![\\p{L}])(pan|pana|panu|paní) (?=' + VELKE + ')', 'gu'), '$1' + NB],
+    [new RegExp('(?<![\\p{L}])((?:' + ZKR + ')\\.) (?=\\d)', 'gu'), '$1' + NB],
+    [/(?<![\p{L}])(č\.) (?=j\.)/gu, '$1' + NB],
+    [/(?<![\p{L}])(j\.) (?=\d)/gu, '$1' + NB],
+    [/(§) (?=\d)/g, '$1' + NB],
+  ];
+  function peckyNbsp(t){ return P.reduce((s, [rx, r]) => s.replace(rx, r), t); }
+  window.peckyNbsp = peckyNbsp;
+
+  const SKIP = new Set(['SCRIPT','STYLE','PRE','CODE','TEXTAREA','TITLE','INPUT']);
+  function fixNode(n){
+    if (n.nodeType === 3) {
+      const p = n.parentNode;
+      if (p && !SKIP.has(p.nodeName) && n.nodeValue.indexOf(' ') !== -1) {
+        const v = peckyNbsp(n.nodeValue);
+        if (v !== n.nodeValue) n.nodeValue = v;
+      }
+    } else if (n.nodeType === 1 && !SKIP.has(n.nodeName)) {
+      const w = document.createTreeWalker(n, NodeFilter.SHOW_TEXT);
+      const txt = [];
+      while (w.nextNode()) txt.push(w.currentNode);
+      txt.forEach(fixNode);
+    }
+  }
+  if (document.body) {
+    new MutationObserver(ms => ms.forEach(m => m.addedNodes.forEach(fixNode)))
+      .observe(document.body, {childList: true, subtree: true});
+  }
+})();

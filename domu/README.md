@@ -23,10 +23,27 @@ sám s daty sekcí při každém `python3 scripts/build.py`.
 | Nadcházející akce | `kalendar/udalosti.json` → `events`, jen kategorie `akce` a `volby` (kurzy a svoz odpadu by výpis zahltily) | 5 nejbližších akcí, odkaz na měsíc `/kalendar/#RRRR-MM/seznam`; DNES/ZÍTRA/POZÍTŘÍ štítek u toho, co je v dohledu (viz níže) |
 | Jednání rady, zastupitelstva a výborů | `jednani/pecky-jednani.json` + `jednani/vybory.json` → `meetings` | „Příště“: ohlášená jednání Rady/ZM (max 2), i s DNES/ZÍTRA/POZÍTŘÍ štítkem; „Naposledy“: 3 poslední proběhlá jednání Rady/ZM s počtem usnesení, odkaz `/jednani/#rada-RRRR-MM-DD`; „Výbory — poslední zveřejněný zápis“ (od 29. 9. 2026): poslední proběhlé jednání finančního a kontrolního výboru zvlášť, odkaz `/jednani/#financni-vybor-RRRR-MM-DD` — výbory zveřejňují zápisy se zpožděním, mezi „Naposledy“ by se skoro nedostaly |
 | Pečecké noviny | `noviny/pecky-noviny.json` → `editions` (nejvyšší `slug`) | titulní strana (`noviny/pages/<slug>/1.jpg`, je-li) + odkaz na PDF |
-| Naposledy aktualizováno | `README.md` → „Stav sekcí“, sloupec „Změna“ (bez Domů) | 5 naposledy změněných sekcí; sloupec „Co naposledy“ se záměrně nepoužívá (je to interní pracovní log) |
+| Naposledy aktualizováno | `README.md` → „Stav sekcí“, nový sloupec „Widget“ (od 29. 9. 2026) | max 3 položky, každá jako jeden odkaz s krátkým čtenářským popiskem — ne sloupec „Co naposledy“ (ten zůstává interní pracovní log, sem se nedává) |
 
 Počty a vybrané kategorie jsou konstanty `DASH_*` na začátku bloku v
 `scripts/build.py`. Styl: `.dash-*` v `assets/styles.css`.
+
+### Sloupec „Widget" v tabulce Stav sekcí (od 29. 9. 2026)
+Šestý sloupec tabulky „Stav sekcí" — buňka je buď `—`, nebo
+`[krátký popisek](/cesta/ke/konkrétní/stránce)` (markdown odkaz, cíl
+klidně hlouběji než kořen sekce, např. `/jednani/absence.html`, ne jen
+`/jednani/`). Parsuje ho `parse_widget_cell()` ve `scripts/build.py`.
+Nerenderuje se ve veřejné tabulce na `/o-webu/` (tam zůstává jen
+původních 5 sloupců) — slouží výhradně kartě „Naposledy aktualizováno"
+na homepage.
+
+Popisek psát jako copywriter: krátká věta, žádná ID v zpětných
+apostrofech, žádné „dřív (týž den)" řetězení z interního logu — úplný
+opak stylu sloupce „Co naposledy". Vyplňovat jen u sekcí, které si teď
+tenhle prostor na homepage zaslouží (ne u každé změny automaticky).
+Karta zobrazuje nejvýš `DASH_ZMENY` (3) nejnovějších podle data
+„Změna" — **má-li vyplněný widget víc než `DASH_ZMENY` řádků, smazat
+zpátky na `—` ten nejstarší**, ať se homepage nezacpe starými odkazy.
 
 ### Budoucí položky a zastarávání mezi buildy
 Ohlášená jednání a akce nesou `data-until` (ISO datum konce). Build jich
@@ -34,8 +51,7 @@ vypíše víc, než je vidět (rezerva zhruba na týden, nadbytečné mají
 `hidden`); `assets/common.js` v prohlížeči skryje ty, které už proběhly,
 a odkryje další v pořadí až do `data-max` seznamu. Když nezbude žádná
 akce, ukáže se hláška `.dash-empty`; prázdné „Příště“ u jednání zmizí
-i s nadpisem. Datum „Naposledy aktualizováno“ se přepočítává na stáří
-(„aktualizováno včera“) stejnou funkcí `relDatum` jako tabulka Stav sekcí.
+i s nadpisem.
 
 Vícedenní akce, která v době buildu už běží, má text „probíhá do …“ —
 ten se počítá při buildu, ne v prohlížeči.

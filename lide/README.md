@@ -237,6 +237,36 @@ města a školská rada"; kdo má vedle komise i mandát, úřad nebo vedení
 organizace, zůstává ve své dosavadní skupině — komise je pak vidět jen
 v jeho detailu/timeline, ne jako duplicitní kartička.
 
+**Komise RM, doplnění a data jmenování** (29. 9. 2026, po porovnání se
+starým webem `pecky.as4u.cz` → Komise rady města 2022–2026, stav
+18. 2. 2025, a s usneseními rady). Zdroj dat jmenování: usnesení RM
+`UR-436` až `UR-442-45/22` z jednání rady **14. 11. 2022** (první složení
+všech komisí ve volebním období 2022–2026) a pozdější změny —
+`UR-2-1/23` (9. 1. 2023, doplněna Sladká, Šestáková a Šátková ml. do
+sportovní komise), `UR-163-15/24` (22. 4. 2024, Horkel), `UR-362-37/24`
+a `UR-363-37/24` (21. 10. 2024, ukončení členství Velké a Růžičkové,
+úmrtí Třískové), `UR-232-25/25` (30. 6. 2025, Svatoňková). Všem
+stávajícím členům komisí, které v těch usneseních jsou, bylo doplněno
+`from` a přesný odkaz na usnesení. Nově:
+- **Fond rozvoje bydlení** — komise rady, která doporučuje půjčky
+  z fondu (`role`: „předseda/člen komise Fondu rozvoje bydlení RM“):
+  Jedlička (předseda), Krištoufek, Janoušková, dřívější člen Vlastimil
+  Kmoch (`kmochv`, v 2/2025 už není). Aktuální pecky.cz složení neuvádí,
+  vazby jsou vedené jako aktuální na základě starého webu a toho, že rada
+  komisi využívá i v září 2026 (`UR-283-32/26`).
+- **Pracovní skupina pro oslavy 100 let povýšení Peček na město** — šest
+  uzavřených vazeb (14. 11. 2022 – 12. 1. 2026, zrušena `UR-22-2/26`),
+  nová osoba Jan Karbus.
+- **Školská rada:** Mgr. Michaela Fejfarová (`fejfarovam`, zástupkyně
+  zřizovatele 5. 12. 2022 – 10. 11. 2025, kdy rada jmenovala místo ní
+  JUDr. Michaelu Trčkovou); Kuprová a Nepovímová mají `from: 2022-12-05`.
+- **Komise, které dnes už nemají původní členy:** uzavřené vazby Velké
+  (`velkas`) a Růžičkové (`ruzickovav`) v sociální komisi, Třískové ve
+  stavební, Vodičky ve stavební (odchod nedatován), Šátkové ml.
+  (`satkoval2`, sportovní; na webu „Šestáková ml.“ je překlep), a nová
+  členka sociální komise Blanka Svatoňková (`svatonkovab`, jen
+  z usnesení rady, ve výpisu komise není).
+
 **Vedení úřadu, příspěvkových organizací a městských firem** (`role_type:
 "vedeni-urad"` a `"vedeni-organizace"`, doplněno 5. 9. 2026, fáze 5b
 SPEC.md §7): tajemnice úřadu, 4
@@ -647,11 +677,16 @@ o konkrétní osobě, použít stejnou funkci, ne psát tvary napevno.
   Vazba má `to: "2024"`: mandát jí skončil 11. 9. 2024 a její místo ve
   výboru zastupitelstvo obsadilo 13. 11. 2024 (Jaroslava Vosecká, UZ-47-5/24),
   ale samotný odchod (spolu s mandátem, nebo dřív) usnesení nezachycují.
-- **Komise RM a školská rada nemají doložené datum jmenování** — pecky.cz
-  u nich ukazuje jen aktuální složení, ne kdy ho rada schválila. Vazby
-  mají `from: null` a `verified` na datum, kdy bylo složení ověřené na
-  webu (19. 9. 2026), ne na datum vzniku funkce. Přesné datum by šlo
-  dohledat v usneseních RM, zatím nedohledáno.
+- ~~Komise RM a školská rada nemají doložené datum jmenování~~ — doplněno
+  29. 9. 2026 z usnesení RM, viz „Komise RM, doplnění a data jmenování“.
+  Zůstávají mezery: **Kuprová jako předsedkyně školské rady** je doložená
+  jen starým webem k 2/2025 (jen v `note`, `role` zůstala „členka“);
+  **odchod Vlastimila Kmocha z komise Fondu rozvoje bydlení, Tomáše
+  Vodičky ze stavební komise a Ladislavy Šátkové ml. ze sportovní**
+  není v žádném dohledaném usnesení (`to: null`, `current: false`);
+  komise FRB a složení komisí před 14. 11. 2022 (2018–2022) v datech
+  chybí; **Ladislava Šátková ml.** je vedená jako samostatná osoba,
+  shoda s Ing. Ladislavou Šátkovou (`satkoval`) není potvrzená.
 - **Z ustavujícího zasedání po volbách 2018 je v datech jen vedení**
   (starostka, obě místostarostky a rada), ne všech 21 zastupitelů.
   Zasedání je starší než archiv usneseni.cz (začíná dubnem 2021), viz

@@ -249,6 +249,16 @@ mají novou aktivitu, které zůstávají dlouhodobě neaktivní. Nic
 nevymýšlet — číslo/datum, které web nezobrazí (např. stránka
 nedostupná), nechat beze změny a nahlásit jako mezeru.
 
+**Nové akce pro Kalendář (povinná součást hlášení):** při čtení příspěvků
+si všímej i toho, jestli některý účet nově oznamuje akci s konkrétním
+budoucím datem (plakát, pozvánka, událost), která ještě není v
+`kalendar/akce.json`. Na konci hlášení vždy jednou větou uveď, jestli
+byla nějaká taková akce nalezena — vypiš ji (název, datum, pořadatel,
+odkaz na příspěvek) a nabídni zápis do kalendáře postupem
+`kalendar/automation-plakat-akce.md` (skill `pecky-online-kalendar-plakat`).
+Nic sám nezapisuj bez souhlasu uživatele; nebyla-li nalezena žádná,
+napiš to výslovně („nové akce pro Kalendář: žádné nalezeny"), nemlč.
+
 ## Další rizika
 
 - **Zaokrouhlení u větších čísel** — Facebook od cca 1 000 sledujících

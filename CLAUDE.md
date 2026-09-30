@@ -59,6 +59,9 @@ příslušný `content/<sekce>.html` a přepsat všechny odkazy, pak spustit
 
 ## Konvence
 - Web celý v češtině, srozumitelným jazykem pro širokou veřejnost
+- České pevné mezery (jednopísmenné předložky, číslo + jednotka, data, tituly,
+  zkratky) doplňuje build automaticky — ve zdrojích psát běžné mezery;
+  pravidla a implementace v `TYPOGRAFIE.md`.
 - **Perex sekce (`p.lede` pod nadpisem) psát jako profesionální copywriter.**
   Krátké a jednoduché věty. Popisuje, co na stránce *je* — ne obecný výklad
   tématu. Přesnost má přednost před svižností: nic, co se nedá doložit daty
