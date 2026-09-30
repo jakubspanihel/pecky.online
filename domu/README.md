@@ -41,6 +41,14 @@ Popisek psát jako copywriter: krátká věta, žádná ID v zpětných
 apostrofech, žádné „dřív (týž den)" řetězení z interního logu — úplný
 opak stylu sloupce „Co naposledy". Vyplňovat jen u sekcí, které si teď
 tenhle prostor na homepage zaslouží (ne u každé změny automaticky).
+**Co do widgetu patří (pravidlo od 30. 9. 2026):** jen důležité
+aktualizace — nový typ obsahu nebo nová funkce (nový zdroj dat, nový
+přehled, nová skupina jednání). Nepatří sem týdenní kontroly a rutinní
+počty, opravy, změny vzhledu a UI, doplnění řádku či drobné informace do
+existující tabulky ani technické detaily (synchronizace, build). Při
+každém zápisu do „Stav sekcí“ zvážit, jestli změna toto kritérium splňuje;
+nesplňuje-li, sloupec Widget neměnit.
+
 Karta zobrazuje nejvýš `DASH_ZMENY` (3) nejnovějších podle data
 „Změna" — **má-li vyplněný widget víc než `DASH_ZMENY` řádků, smazat
 zpátky na `—` ten nejstarší**, ať se homepage nezacpe starými odkazy.
