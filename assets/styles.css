@@ -207,6 +207,20 @@
   @media (min-width:601px){.dash-title{font-size:var(--fs-title);}}
   .dash-grid{display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:16px;}
   @media (max-width:720px){.dash-grid{grid-template-columns:1fr;}}
+  /* bento: nestejně velké dlaždice v mřížce; pořadí v HTML zůstává (kalendář,
+     jednání, noviny, změny) — rozložení řídí grid-template-areas */
+  .dash-bento{grid-template-columns:repeat(4,minmax(0,1fr)); grid-template-areas:"jed jed kal kal" "jed jed nov zme"; gap:14px;}
+  .dash-bento .dash-card{border-radius:12px;}
+  .dash-card--jednani{grid-area:jed; background:rgba(255,255,255,0.5);}
+  .dash-card--kalendar{grid-area:kal;}
+  .dash-bento .dash-list{margin-bottom:14px;}
+  .dash-bento .dash-list + .dash-more, .dash-bento .dash-noviny + .dash-more{margin-top:auto;}
+  .dash-card--noviny{grid-area:nov; background:var(--parchment-deep);}
+  .dash-card--zmeny{grid-area:zme; background:var(--parchment-deep);}
+  .dash-card--noviny .dash-noviny{flex-direction:column; align-items:flex-start;}
+  .dash-card--noviny .dash-noviny img{width:100%; max-width:140px;}
+  @media (max-width:980px){.dash-bento{grid-template-columns:repeat(2,minmax(0,1fr)); grid-template-areas:"jed kal" "jed nov" "zme zme";}}
+  @media (max-width:720px){.dash-bento{grid-template-columns:1fr; grid-template-areas:"kal" "jed" "nov" "zme";}}
   .dash-card{border:1px solid var(--line); background:rgba(255,255,255,0.35); padding:18px 20px; display:flex; flex-direction:column; min-width:0;}
   .dash-card h3{margin:0 0 10px; font-weight:600;}
   .dash-card h3 a{color:var(--ink); text-decoration:none;}

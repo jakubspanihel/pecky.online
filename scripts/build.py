@@ -378,8 +378,9 @@ def _den_cz(iso):
     return f'{DNY_CZ[date(y, m, d).weekday()]} {d}. {m}.'
 
 
-def _dash_card(title, href, link_text, body):
-    return (f'<div class="dash-card">\n'
+def _dash_card(title, href, link_text, body, key):
+    # key = název dlaždice v bento mřížce (grid-area v assets/styles.css)
+    return (f'<div class="dash-card dash-card--{key}">\n'
             f'  <h3 class="display"><a href="{href}">{esc(title)}</a></h3>\n'
             f'{body}\n'
             f'  <a class="dash-more" href="{href}">{esc(link_text)} →</a>\n'
@@ -437,7 +438,7 @@ def _dash_jednani(dnes):
             out.append(f'    <li><a href="/jednani/#{slug(m)}">{esc(nazev(m))}</a>'
                        f'<span class="meta-note">{esc(iso_to_cz(m["date"]))} · {esc(co)}</span></li>')
         out.append('  </ul>')
-    return _dash_card('Jednání rady, zastupitelstva a výborů', '/jednani/', 'Všechna jednání', '\n'.join(out))
+    return _dash_card('Jednání rady, zastupitelstva a výborů', '/jednani/', 'Všechna jednání', '\n'.join(out), 'jednani')
 
 
 def _dash_kalendar(dnes):
@@ -471,7 +472,7 @@ def _dash_kalendar(dnes):
     out.append('    <li class="dash-empty"' + ('' if not akce else ' hidden') +
                '>Žádná nadcházející akce zatím není v kalendáři zapsaná.</li>')
     out.append('  </ul>')
-    return _dash_card('Nadcházející akce', '/kalendar/', 'Celý kalendář', '\n'.join(out))
+    return _dash_card('Nadcházející akce', '/kalendar/', 'Celý kalendář', '\n'.join(out), 'kalendar')
 
 
 def _dash_noviny():
@@ -484,7 +485,7 @@ def _dash_noviny():
     body = (f'  <a class="dash-noviny" href="{pdf}">{img}'
             f'<span class="cap">{esc(ed["label"])}'
             f'<span class="meta-note">{ed["page_count"]} stran · PDF</span></span></a>')
-    return _dash_card('Pečecké noviny', '/noviny/', 'Archiv a vyhledávání', body)
+    return _dash_card('Pečecké noviny', '/noviny/', 'Archiv a vyhledávání', body, 'noviny')
 
 
 def _dash_zmeny(stav_rows):
@@ -500,14 +501,14 @@ def _dash_zmeny(stav_rows):
     for r in rows[:DASH_ZMENY]:
         out.append(f'    <li><a href="{r["widget"]["url"]}">{esc(r["widget"]["text"])}</a></li>')
     out.append('  </ul>')
-    return _dash_card('Naposledy aktualizováno', '/o-webu/', 'Stav všech sekcí', '\n'.join(out))
+    return _dash_card('Naposledy aktualizováno', '/o-webu/', 'Stav všech sekcí', '\n'.join(out), 'zmeny')
 
 
 def render_dashboard(stav_rows):
     from datetime import date
     dnes = date.today().isoformat()
     karty = [_dash_kalendar(dnes), _dash_jednani(dnes), _dash_noviny(), _dash_zmeny(stav_rows)]
-    return '<div class="dash-grid">\n' + '\n'.join(karty) + '\n</div>'
+    return '<div class="dash-grid dash-bento">\n' + '\n'.join(karty) + '\n</div>'
 
 
 # Znovupoužitelná komponenta "rozcestník volebních ročníků" - řádek buttonů,

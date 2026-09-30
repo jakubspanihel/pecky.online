@@ -211,8 +211,10 @@ function relDatum(iso) {
     if (!tag) return;
     const a = li.querySelector('a');
     if (!a) return;
-    a.insertAdjacentHTML('afterend',
-      ` <span class="tag ${tag === 'DNES' ? 'kal-dnes' : 'kal-blizko'}">${tag}</span>`);
+    const span = `<span class="tag ${tag === 'DNES' ? 'kal-dnes' : 'kal-blizko'}">${tag}</span>`;
+    // v kartě "Nadcházející akce" před názvem, jinde (Jednání → Příště) za ním
+    if (li.closest('.dash-card--kalendar')) a.insertAdjacentHTML('beforebegin', span + ' ');
+    else a.insertAdjacentHTML('afterend', ' ' + span);
   });
 })();
 
