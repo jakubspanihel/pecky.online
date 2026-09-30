@@ -45,11 +45,19 @@
     <p class="lastmod" data-date="2026-09-19">Aktualizováno: 19. 9. 2026</p>
     <p class="lede">Docházka zastupitelů, radních a členů výborů zastupitelstva na jednání. Zdrojem dat jsou zápisy z <a href="/jednani/">jednání</a>. <span class="stamp">ověřeno</span></p>
 
-    <div class="subtabs" role="tablist" aria-label="Části stránky Absence">
-      <button class="subtablink active" type="button" data-subpanel="absence-rada">Rada</button>
-      <button class="subtablink" type="button" data-subpanel="absence-zastupitelstvo">Zastupitelstvo</button>
-      <button class="subtablink" type="button" data-subpanel="absence-financni-vybor">Finanční výbor</button>
-      <button class="subtablink" type="button" data-subpanel="absence-kontrolni-vybor">Kontrolní výbor</button>
+    <div class="segmented-control" style="margin:0 0 18px;">
+      <span class="segmented-label">Zobrazit:</span>
+      <div class="segmented-group" role="group" aria-label="Orgán">
+        <button type="button" class="segmented-btn active" data-organ="absence-rada">Rada</button>
+        <button type="button" class="segmented-btn" data-organ="absence-zastupitelstvo">Zastupitelstvo</button>
+        <span class="segmented-more">
+          <button type="button" class="segmented-btn segmented-more-btn" id="absence-more-btn" aria-haspopup="true" aria-expanded="false">Další…</button>
+          <div class="segmented-menu" id="absence-more-menu" role="menu" hidden>
+            <button type="button" class="segmented-menu-item" role="menuitem" data-organ="absence-financni-vybor">Finanční výbor</button>
+            <button type="button" class="segmented-menu-item" role="menuitem" data-organ="absence-kontrolni-vybor">Kontrolní výbor</button>
+          </div>
+        </span>
+      </div>
     </div>
 
     <div class="subpanel active" id="subpanel-absence-rada">
@@ -303,6 +311,42 @@
     document.querySelectorAll('#absence-zastupitelstvo-obsah, #absence-rada-obsah')
       .forEach(el => { el.innerHTML = '<div class="callout">Data se nepodařilo načíst.</div>'; });
   });
+})();
+</script>
+<script>
+(function(){
+  // segmentovaný přepínač orgánu (vzor: Jednání) — panely zůstávají .subpanel
+  const btns = document.querySelectorAll('[data-organ]');
+  const menu = document.getElementById('absence-more-menu');
+  const moreBtn = document.getElementById('absence-more-btn');
+  function closeMenu(){
+    if (menu.hidden) return;
+    menu.hidden = true;
+    moreBtn.setAttribute('aria-expanded', 'false');
+  }
+  function show(name, updateHash){
+    const item = Array.from(btns).find(b => b.dataset.organ === name);
+    if (!item) return;
+    btns.forEach(b => b.classList.toggle('active', b === item));
+    const inMenu = item.classList.contains('segmented-menu-item');
+    moreBtn.classList.toggle('active', inMenu);
+    moreBtn.textContent = inMenu ? item.textContent + ' ▾' : 'Další… ▾';
+    document.querySelectorAll('#panel-absence > .subpanel').forEach(p =>
+      p.classList.toggle('active', p.id === 'subpanel-' + name));
+    closeMenu();
+    if (updateHash) history.replaceState(null, '', '#' + name);
+  }
+  btns.forEach(b => b.addEventListener('click', () => show(b.dataset.organ, true)));
+  moreBtn.addEventListener('click', e => {
+    e.stopPropagation();
+    menu.hidden = !menu.hidden;
+    moreBtn.setAttribute('aria-expanded', String(!menu.hidden));
+  });
+  document.addEventListener('click', closeMenu);
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeMenu(); });
+  const fromHash = () => show(location.hash.replace(/^#/, ''), false);
+  if (location.hash) fromHash();
+  window.addEventListener('hashchange', fromHash);
 })();
 </script>
 
