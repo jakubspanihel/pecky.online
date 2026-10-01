@@ -345,15 +345,15 @@ def iso_to_cz(iso):
 
 
 def apply_lastmod(content, lastmod):
-    """Vloží "Aktualizováno: ..." hned za nadpis sekce (<h2 class="title">).
+    """Vloží "Aktualizováno: ..." hned před nadpis sekce (<h2 class="title">).
     Beze změny, pokud sekce nemá datum "Změna" v Stav sekcí (typicky Domů,
     která nemá vlastní <h2 class="title"> - nechybí tam co nahradit) nebo
     podstránky z EXTRA_PAGES (nemají řádek v tabulce vůbec)."""
     if lastmod is None:
         return content
-    tag = (f'\n    <p class="lastmod" data-date="{lastmod["iso"]}">'
-           f'Aktualizováno: {lastmod["raw"]}</p>')
-    new_content, n = TITLE_RE.subn(lambda m: m.group(1) + tag, content, count=1)
+    tag = (f'<p class="lastmod" data-date="{lastmod["iso"]}">'
+           f'Aktualizováno: {lastmod["raw"]}</p>\n    ')
+    new_content, n = TITLE_RE.subn(lambda m: tag + m.group(1), content, count=1)
     return new_content if n else content
 
 
