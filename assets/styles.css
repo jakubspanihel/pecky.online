@@ -119,8 +119,8 @@
   .subpanel{display:none;}
   .subpanel.active{display:block; animation:fade .25s ease;}
 
-  .year-nav{display:flex; justify-content:center; align-items:center; gap:10px; flex-wrap:wrap; margin:0 0 26px; padding:6px 0;}
-  .year-btn{display:inline-block; font-family:var(--font-mono); font-size:13px; font-weight:700; letter-spacing:0.02em; padding:9px 20px; margin:2px; border:1px solid var(--line); border-radius:3px; color:var(--ink); background:var(--parchment-deep); text-decoration:none; transition:border-color .15s, color .15s, background-color .15s;}
+  .year-nav{display:flex; justify-content:center; align-items:center; gap:6px; flex-wrap:wrap; margin:0 0 26px; padding:6px 0;}
+  .year-btn{display:inline-block; font-family:var(--font-mono); font-size:13px; font-weight:700; letter-spacing:0.02em; padding:9px 20px; margin:0; border:1px solid var(--line); border-radius:3px; color:var(--ink); background:var(--parchment-deep); text-decoration:none; transition:border-color .15s, color .15s, background-color .15s;}
   .year-btn:hover{border-color:var(--burgundy); color:var(--burgundy); text-decoration:none;}
   .year-btn.active{background:var(--burgundy); border-color:var(--burgundy); color:#fff;}
   .year-btn-label{background:none; border-color:var(--burgundy); color:var(--burgundy);}
@@ -519,6 +519,16 @@
   .people-avatars .av-init{width:26px; height:26px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-family:var(--font-mono); font-weight:600; font-size:9px; color:#fff; flex-shrink:0;}
   .people-avatars .av-init.av-absent, .people-avatars .av-img.av-absent{opacity:0.4;}
   .people-avatars .attendance-sep{width:1px; align-self:stretch; background:var(--line); margin:0 2px; flex-shrink:0;}
+  /* karty volebních uskupení (Volby 2018/2022/2026) */
+  .party-cards{display:flex; flex-direction:column; gap:12px; margin-top:6px;}
+  .party-card{background:rgba(255,255,255,0.35); border:1px solid var(--line);
+    border-left:4px solid var(--org-c, var(--line)); border-radius:12px; padding:14px 18px;}
+  .party-card .party-name{font-family:var(--font-display); font-size:19px; font-weight:600; margin:0 0 10px;}
+  .party-card .party-body{margin:0; display:grid; gap:10px; font-size:14px;}
+  .party-card .party-row{line-height:1.55;}
+  .party-card .people-avatars{max-width:none; gap:6px;}
+  .party-card .people-avatars .av-img, .party-card .people-avatars .av-init{width:44px; height:44px;}
+  .party-card .people-avatars .av-init{font-size:13px;}
   .socials-cell{display:flex; flex-direction:column; gap:3px; font-size:12.5px;}
   .socials-cell a{color:var(--burgundy);}
   .socials-cell .social-meta{color:var(--ink-soft);}
