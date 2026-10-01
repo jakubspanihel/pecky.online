@@ -47,15 +47,10 @@
 
     <div class="search-bar">
       <input type="search" id="jednani-search" placeholder="Hledat klíčové slovo, např. „vodojem“, „ČOV“, „rozpočet“…" autocomplete="off">
-      <select id="jednani-filter-year">
-        <option value="">Všechny roky</option>
-      </select>
     </div>
 
     <p class="search-status" id="jednani-status">Načítám archiv…</p>
-    <p class="lede" style="margin:0 0 18px;">Související: <a href="/jednani/absence.html">Docházka zastupitelů</a> · <a href="/jednani/nejdelsi.html">Nejdelší body jednání zastupitelstva</a></p>
     <div style="display:flex; align-items:center; justify-content:space-between; gap:12px; margin:0 0 14px; flex-wrap:wrap;">
-      <h3 class="display" style="margin:0;">Zápisy z jednání</h3>
       <div class="segmented-control">
         <span class="segmented-label">Zobrazit:</span>
         <div class="segmented-group" role="group" aria-label="Typ jednání">
@@ -118,6 +113,7 @@
     <div class="callout">
       Odkazy <strong>„pozvánka"</strong> a <strong>„podepsaný zápis (PDF)"</strong> u jednotlivých jednání někdy po kliknutí z tohoto webu místo konkrétního dokumentu otevřou jen úvodní stránku archivu usneseni.cz — zdrojový web takto chrání tyto dva konkrétní odkazy proti prokliku z cizích stránek (ostatní odkazy, „zápis" a „usnesení", tímto omezené nejsou a fungují spolehlivě). Samotné odkazy na našem webu jsou správné; při otevření přímo v adresním řádku fungují. <span class="stamp">přiznaná mezera</span>
     </div>
+    <p class="lede" style="margin:18px 0 0;">Související: <a href="/jednani/absence.html">Docházka zastupitelů</a> · <a href="/jednani/nejdelsi.html">Nejdelší body jednání zastupitelstva</a></p>
   </section>
 
 <script>
@@ -424,7 +420,6 @@
         jLinkVyborItems(data.meetings);
         data._years = Array.from(years).sort((a, b) => b - a);
         JEDNANI_DB = data;
-        jPopulateYearFilter();
         jRenderStats();
         jRunSearch();
         return data;
@@ -463,16 +458,6 @@
           a._vyborLinks = {label, meetings: since};
         });
       });
-    });
-  }
-
-  function jPopulateYearFilter(){
-    const sel = document.getElementById('jednani-filter-year');
-    JEDNANI_DB._years.forEach(y => {
-      const opt = document.createElement('option');
-      opt.value = String(y);
-      opt.textContent = y;
-      sel.appendChild(opt);
     });
   }
 
@@ -538,9 +523,8 @@
   }
 
   function jFilteredMeetings(){
-    const year = document.getElementById('jednani-filter-year').value;
     return JEDNANI_DB.meetings.filter(m =>
-      (!jTypeFilter || m.type === jTypeFilter || (m.bodies || []).includes(jTypeFilter)) && (!year || String(m.year) === year)
+      !jTypeFilter || m.type === jTypeFilter || (m.bodies || []).includes(jTypeFilter)
     );
   }
 
@@ -590,6 +574,18 @@
     const now = new Date();
     const today = now.getFullYear() + '-' + String(now.getMonth() + 1).padStart(2, '0') + '-' + String(now.getDate()).padStart(2, '0');
     return (dateIso || '') === today;
+  }
+  // chip u budoucího jednání: zítra / název dne (méně než 7 dní) / za N dní
+  function jUntilChipHtml(dateIso){
+    if (!jIsFutureMeeting(dateIso)) return '';
+    const now = new Date();
+    const [y, mo, d] = dateIso.split('-').map(Number);
+    const days = Math.round((Date.UTC(y, mo - 1, d) - Date.UTC(now.getFullYear(), now.getMonth(), now.getDate())) / 86400000);
+    const DEN = ['V neděli', 'V pondělí', 'V úterý', 'Ve středu', 'Ve čtvrtek', 'V pátek', 'V sobotu'];
+    const txt = days === 1 ? 'Zítra'
+      : days < 7 ? DEN[new Date(Date.UTC(y, mo - 1, d)).getUTCDay()]
+      : `za ${days} ${days < 5 ? 'dny' : 'dní'}`;
+    return `<span class="tag probiha">${txt}</span>`;
   }
   function jFormatDaysAgo(dateIso){
     const now = new Date();
@@ -847,7 +843,6 @@
     const navlink = document.querySelector('.navlink[data-panel="jednani"]');
     if (navlink) navlink.click();
     jApplyTypeFilter('', {updateHash: false});
-    document.getElementById('jednani-filter-year').value = '';
     document.getElementById('jednani-search').value = '';
     await loadJednani();
     jRunSearch();
@@ -881,6 +876,7 @@
           ${typeTag}
           <span class="hit-label">${jEscapeHtml(m.label || '')}</span>
           <span class="hit-date">${jFormatDate(m.date)}</span>
+          ${jUntilChipHtml(m.date)}
         </div>
         <div class="hit-item">${r.item ? jHighlightLinked(r.item, rawQuery) : jEscapeHtml('Usnesení ' + jMeetingTypeGenitive(m.type))} ${jOutcomeBadgeHtml(r)}</div>
         <div class="hit-text">${jHighlightLinked(r.text, rawQuery)}</div>
@@ -901,6 +897,7 @@
         ${typeTag}
         <span class="hit-label">${jEscapeHtml(m.label || '')}</span>
         <span class="hit-date">${jFormatDate(m.date)}</span>
+          ${jUntilChipHtml(m.date)}
       </div>
       <div class="hit-item">${jHighlightLinked(a.t, rawQuery)} <span class="tag">bod programu</span></div>
       <div class="hit-footer">
@@ -940,7 +937,7 @@
 
     if (!hits.length) {
       statusEl.textContent = 'Žádné shody pro „' + rawQuery.trim() + '“.';
-      resultsEl.innerHTML = '<p class="lede">Zkuste jiné klíčové slovo, nebo změňte filtr typu/roku výše.</p>';
+      resultsEl.innerHTML = '<p class="lede">Zkuste jiné klíčové slovo, nebo změňte filtr typu výše.</p>';
       return;
     }
     const meetingCount = new Set(hits.map(h => h.m.uuid || h.m.id)).size;
@@ -954,7 +951,6 @@
     jSearchTimer = setTimeout(jRunSearch, 120);
   }
   document.getElementById('jednani-search').addEventListener('input', jScheduleSearch);
-  document.getElementById('jednani-filter-year').addEventListener('change', jRunSearch);
 
   document.querySelectorAll('.segmented-btn:not(.segmented-more-btn), .segmented-menu-item').forEach(btn => {
     btn.addEventListener('click', function(){
