@@ -89,17 +89,17 @@ function relDatum(iso) {
   dnes.setHours(0, 0, 0, 0);
   const n = Math.round((dnes - d) / 86400000);
 
-  // 1 den / 2-4 dny / 5+ dní
-  function dny(n) {
-    if (n === 1) return '1 den';
-    if (n >= 2 && n <= 4) return n + ' dny';
-    return n + ' dní';
-  }
-
   if (n === 0) return 'dnes';
   if (n === 1) return 'včera';
   if (n < 0) return 'plánováno';          // datum v budoucnu (např. ohlášené jednání)
-  return 'před ' + dny(n);
+
+  // detail klesá se stářím: dny -> týdny -> měsíce -> roky (7. pád po "před")
+  if (n < 14) return 'před ' + n + ' dny';
+  if (n < 28) return 'před ' + Math.floor(n / 7) + ' týdny';
+  if (n < 60) return 'před měsícem';
+  if (n < 365) return 'před ' + Math.max(2, Math.floor(n / 30.4)) + ' měsíci';
+  if (n < 730) return 'před rokem';
+  return 'před ' + Math.max(2, Math.floor(n / 365.25)) + ' lety';
 }
 
 // ===== Stav sekcí: absolutní datum -> relativní stáří =====
@@ -130,6 +130,11 @@ function relDatum(iso) {
     if (stari === null) return;
     el.title = el.textContent.trim();
     el.textContent = 'Aktualizováno ' + stari;
+    // semafor: do 7 dní zelená, do 31 dní žlutá, starší červená
+    const m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(el.getAttribute('data-date'));
+    const dnes = new Date(); dnes.setHours(0, 0, 0, 0);
+    const n = Math.round((dnes - new Date(+m[1], +m[2] - 1, +m[3])) / 86400000);
+    if (n >= 0) el.classList.add(n <= 7 ? 'age-fresh' : n <= 31 ? 'age-month' : 'age-old');
   });
 })();
 
