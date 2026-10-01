@@ -1,18 +1,25 @@
   <section class="panel active" id="panel-lide">
     <h2 class="title display">Lidé města Pečky</h2>
-    <p class="lede">Vizitky lidí, kteří v Pečkách zastávají veřejnou funkci. Najdeš tu zastupitelstvo a radu města, vedení a zaměstnance úřadu, ředitele městských organizací i členy komisí rady a školské rady. U každého je funkce a zdroj, téměř u všech i pracovní kontakt. Přepínač rozsahu přidá dřívější vedení města a bývalé zastupitele.</p>
+    <p class="lede">Vizitky lidí, kteří v Pečkách zastávají veřejnou funkci. Najdeš tu zastupitelstvo a radu města, vedení a zaměstnance úřadu, ředitele městských organizací i členy komisí rady a školské rady. U každého je funkce a zdroj, téměř u všech i pracovní kontakt. Ve filtru jde zapnout i dřívější vedení města a bývalé zastupitele.</p>
 
     <div class="search-bar">
       <input type="search" id="lide-search" placeholder="Hledat jméno nebo funkci, např. „Urban“ nebo „ředitel“" autocomplete="off" aria-label="Hledat v adresáři">
-      <div class="segmented-control">
-        <span class="segmented-label">Rozsah:</span>
-        <div class="segmented-group" role="group" aria-label="Rozsah adresáře">
-          <button type="button" class="segmented-btn active" data-lide-scope="current">Jen aktuální</button>
-          <button type="button" class="segmented-btn" data-lide-scope="all">Včetně historie</button>
-        </div>
+      <button type="button" class="text-toggle" id="lide-filter-toggle" title="Filtr" aria-expanded="false" aria-controls="lide-filters"><svg class="kal-ico" viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 3h12l-4.5 5.5V13l-3-1.5V8.5z"/></svg><span class="kal-lbl">Filtr</span></button>
+    </div>
+    <div id="lide-filters" hidden>
+      <div class="filter-chips">
+        <label class="checkbox-label">
+          <input type="checkbox" id="lide-show-history">
+          Zobrazovat i historické záznamy
+        </label>
+      </div>
+      <div class="filter-chips" id="lide-filter-role" role="group" aria-label="Filtr podle role" hidden></div>
+      <div class="filter-chips" id="lide-filter-organ" role="group" aria-label="Filtr podle orgánu" hidden></div>
+      <div class="filter-chips" id="lide-filter-orgrow" hidden>
+        <label class="chip-label" for="lide-filter-org">Uskupení / organizace:</label>
+        <select id="lide-filter-org"></select>
       </div>
     </div>
-    <div class="filter-chips" id="lide-filter-role" role="group" aria-label="Filtr podle role" hidden></div>
 
     <p class="search-status" id="lide-status" aria-live="polite">Načítám adresář…</p>
     <div id="lide-results"></div>
@@ -74,7 +81,26 @@
   const lPhoneLinks = pcPhoneLinks;
   const lSourceLinks = pcSourceLinks;
 
-  const L_STATE = {q: '', orgs: new Set(), roles: new Set(), scope: 'current', open: '', orgView: ''};
+  const L_STATE = {q: '', orgs: new Set(), roles: new Set(), organs: new Set(), scope: 'current', open: '', orgView: ''};
+
+  // orgány, podle kterých jde filtrovat. Vazba do orgánu patří podle role_type
+  // (zastupitelstvo, rada) nebo podle znění role (výbory a komise nemají vlastní
+  // organizaci — všechny jsou vazby na Město Pečky).
+  const L_BODIES = [
+    ['zastupitelstvo', 'Zastupitelstvo', a => a.role_type === 'zastupitel'],
+    ['rada', 'Rada města', a => L_EXEC_RANK[a.role_type] !== undefined],
+    ['financni-vybor', 'Finanční výbor', a => /finančního výboru/i.test(a.role)],
+    ['kontrolni-vybor', 'Kontrolní výbor', a => /kontrolního výboru|kontrolní komise/i.test(a.role)],
+    ['komise-sportovni', 'Sportovní komise', a => /Komise sportovní/i.test(a.role)],
+    ['komise-kulturni', 'Kulturní komise', a => /Kulturní komise|Komise pro kulturu/i.test(a.role)],
+    ['komise-stavebni', 'Stavebně-dopravní komise', a => /stavebně-dopravní|životní prostředí/i.test(a.role)],
+    ['komise-socialni', 'Sociální a bytová komise', a => /Komise (bytové|pro (otázky )?sociální)/i.test(a.role) || /Fondu rozvoje bydlení/i.test(a.role)],
+    ['soz', 'Sbor pro občanské záležitosti', a => /občanské záležitosti/i.test(a.role)],
+    ['skolska-rada', 'Školská rada', a => /školské rady/i.test(a.role)],
+    ['pracovni-skupina', 'Pracovní skupina k oslavám', a => /Pracovní skupin/i.test(a.role)],
+    ['redakcni-rada', 'Redakční rada novin', a => /Redakční rady/i.test(a.role)],
+    ['vybor-spolku', 'Výbory spolků', a => a.role_type === 'clen']
+  ];
 
   // spojí tři pole do jedné pracovní struktury: osoba + její vazby + rozvinutá organizace
   function lJoin(people, orgs, affs){
@@ -201,6 +227,7 @@
     // u pohledu na uskupení je filtr součástí cesty, do parametrů se neduplikuje
     if (!L_STATE.orgView && L_STATE.orgs.size) q.set('org', [...L_STATE.orgs].join(','));
     if (L_STATE.roles.size) q.set('role', [...L_STATE.roles].join(','));
+    if (L_STATE.organs.size) q.set('organ', [...L_STATE.organs].join(','));
     if (L_STATE.scope === 'all') q.set('scope', 'all');
     const s = q.toString();
     return '#' + path + (s ? '?' + s : '');
@@ -226,6 +253,7 @@
 
     L_STATE.q = r.query.get('q') || '';
     L_STATE.roles = new Set((r.query.get('role') || '').split(',').filter(Boolean));
+    L_STATE.organs = new Set((r.query.get('organ') || '').split(',').filter(Boolean));
     L_STATE.scope = r.query.get('scope') === 'all' ? 'all' : 'current';
     L_STATE.orgView = r.kind === 'uskupeni' ? r.id : '';
     L_STATE.open = r.kind === 'osoba' ? r.id : '';
@@ -249,7 +277,7 @@
   /* ---------- filtrování ---------- */
 
   function lFilterActive(){
-    return !!(L_STATE.q.trim() || L_STATE.orgs.size || L_STATE.roles.size);
+    return !!(L_STATE.q.trim() || L_STATE.orgs.size || L_STATE.roles.size || L_STATE.organs.size);
   }
   function lInScope(p){
     return L_STATE.scope === 'all' || !!(p._mandate || p._exec || p._office);
@@ -274,6 +302,11 @@
     if (L_STATE.orgs.size && !p._affs.some(a => L_STATE.orgs.has(a.organization_id))) return false;
     if (L_STATE.roles.size) {
       const hit = p._affs.some(a => (L_STATE.scope === 'all' || a.current) && L_STATE.roles.has(a.role_type));
+      if (!hit) return false;
+    }
+    if (L_STATE.organs.size) {
+      const hit = p._affs.some(a => (L_STATE.scope === 'all' || a.current) &&
+        L_BODIES.some(b => L_STATE.organs.has(b[0]) && b[2](a)));
       if (!hit) return false;
     }
     const words = jNorm(L_STATE.q).split(/\s+/).filter(w => w.length > 1);
@@ -314,7 +347,7 @@
     const org = p._party;
     const cls = org && org.css_class ? ' ' + org.css_class : '';
     const open = L_STATE.open === p.id;
-    const avatar = pcAvatarHtml(p, {color: lOrgColor(org)});
+    const avatar = pcAvatarHtml(p, {ring: org ? lOrgColor(org) : null});
     const until = p._until ? `<span class="tag until">do ${jEscapeHtml(lFormatDate(p._until))}</span>` : '';
     // Popiska je jen text, ne ovládací prvek: celá kartička je role="button",
     // který otevírá detail, a druhý klikací cíl uvnitř něj mátl myš i čtečky.
@@ -475,7 +508,7 @@
         <div class="callout">
           <strong>Nikdo neodpovídá zadání.</strong>
           Zkus jiné slovo, nebo <button type="button" class="chip-clear" data-lide-clear>vymaž filtry</button>.
-          ${L_STATE.scope === 'current' ? 'Dřívější vedení a bývalí zastupitelé se hledají až po přepnutí rozsahu na „Včetně historie".' : ''}
+          ${L_STATE.scope === 'current' ? 'Dřívější vedení a bývalí zastupitelé se hledají až po zapnutí „Zobrazovat i historické záznamy“.' : ''}
         </div>`;
     } else if (L_STATE.roles.size) {
       host.innerHTML = notice + orgHead +
@@ -563,6 +596,33 @@
       // tlačítko dřív žilo v řádku uskupení; ten je pryč, takže se přesunulo sem
       '<button type="button" class="chip-clear" id="lide-clear" hidden>Vymazat filtry</button>';
     roleBox.hidden = false;
+
+    const organBox = document.getElementById('lide-filter-organ');
+    const usedBodies = L_BODIES.filter(b => db.affs.some(b[2]));
+    organBox.innerHTML = '<span class="chip-label">Orgán:</span>' +
+      usedBodies.map(b => lChip('organ', b[0], b[1])).join('');
+    organBox.hidden = false;
+
+    // uskupení a organizace: výběr (organizací je přes třicet — na čipy moc);
+    // jen ty, ke kterým máme aspoň jednu vazbu
+    const orgSel = document.getElementById('lide-filter-org');
+    const orgTypes = [['politicke', 'Politická uskupení'], ['urad', 'Úřad'], ['prispevkova', 'Příspěvkové organizace'],
+                      ['firma', 'Firmy'], ['spolek', 'Spolky'], ['jine', 'Ostatní']];
+    const usedOrgs = new Set(db.affs.map(a => a.organization_id));
+    orgSel.innerHTML = '<option value="">Všechna</option>' + orgTypes.map(([t, label]) => {
+      const opts = db.orgs.filter(o => o.type === t && usedOrgs.has(o.id))
+        .map(o => `<option value="${jEscapeHtml(o.id)}">${jEscapeHtml(o.short_name || o.name)}</option>`).join('');
+      return opts ? `<optgroup label="${label}">${opts}</optgroup>` : '';
+    }).join('');
+    document.getElementById('lide-filter-orgrow').hidden = false;
+  }
+
+  function lSetFilterOpen(open){
+    const t = document.getElementById('lide-filter-toggle'), box = document.getElementById('lide-filters');
+    if (!t || !box) return;
+    t.setAttribute('aria-expanded', String(open));
+    t.classList.toggle('active', open);
+    box.hidden = !open;
   }
 
   function lSyncChips(){
@@ -570,13 +630,32 @@
       el.setAttribute('aria-pressed', L_STATE.orgs.has(el.dataset.lideOrg) ? 'true' : 'false'));
     document.querySelectorAll('[data-lide-role]').forEach(el =>
       el.setAttribute('aria-pressed', L_STATE.roles.has(el.dataset.lideRole) ? 'true' : 'false'));
-    document.querySelectorAll('[data-lide-scope]').forEach(el =>
-      el.classList.toggle('active', el.dataset.lideScope === L_STATE.scope));
+    document.querySelectorAll('[data-lide-organ]').forEach(el =>
+      el.setAttribute('aria-pressed', L_STATE.organs.has(el.dataset.lideOrgan) ? 'true' : 'false'));
+    const orgSel = document.getElementById('lide-filter-org');
+    if (orgSel) orgSel.value = L_STATE.orgs.size === 1 ? [...L_STATE.orgs][0] : '';
+    const hist = document.getElementById('lide-show-history');
+    if (hist) hist.checked = L_STATE.scope === 'all';
+    // aktivní filtr (role / historie) nesmí zůstat schovaný
+    if (L_STATE.roles.size || L_STATE.organs.size || L_STATE.orgs.size || L_STATE.scope === 'all') lSetFilterOpen(true);
   }
 
   /* ---------- posluchače (registrují se jednou, i před načtením dat) ---------- */
 
   (function lBindControls(){
+    document.addEventListener('change', e => {
+      if (e.target && e.target.id === 'lide-filter-org') {
+        L_STATE.orgs.clear();
+        if (e.target.value) L_STATE.orgs.add(e.target.value);
+        L_STATE.orgView = '';
+        afterFilter();
+        return;
+      }
+      if (e.target && e.target.id === 'lide-show-history') {
+        L_STATE.scope = e.target.checked ? 'all' : 'current';
+        afterFilter();
+      }
+    });
     const input = document.getElementById('lide-search');
     if (!input) return;
 
@@ -598,7 +677,7 @@
       if (close) { L_STATE.open = ''; lSyncHash(true); return; }
 
       if (t.closest('#lide-clear') || t.closest('[data-lide-clear]')) {
-        L_STATE.q = ''; L_STATE.orgs.clear(); L_STATE.roles.clear(); L_STATE.orgView = '';
+        L_STATE.q = ''; L_STATE.orgs.clear(); L_STATE.roles.clear(); L_STATE.organs.clear(); L_STATE.orgView = '';
         input.value = '';
         lSyncChips(); lRenderResults(); lSyncHash(true);
         return;
@@ -609,14 +688,22 @@
       // (dole u loadLide()) zavolá lApplyRoute() a ten už L_STATE.orgView/orgs
       // i zavření detailu odvodí sám z nového hashe
 
-      const scopeBtn = t.closest('[data-lide-scope]');
-      if (scopeBtn) { L_STATE.scope = scopeBtn.dataset.lideScope; afterFilter(); return; }
+      const ft = t.closest('#lide-filter-toggle');
+      if (ft) { lSetFilterOpen(ft.getAttribute('aria-expanded') !== 'true'); return; }
 
       const orgBtn = t.closest('[data-lide-org]');
       if (orgBtn) {
         const id = orgBtn.dataset.lideOrg;
         L_STATE.orgs.has(id) ? L_STATE.orgs.delete(id) : L_STATE.orgs.add(id);
         L_STATE.orgView = ''; // čipy jsou filtr, ne pohled na jedno uskupení
+        afterFilter();
+        return;
+      }
+
+      const organBtn = t.closest('[data-lide-organ]');
+      if (organBtn) {
+        const k = organBtn.dataset.lideOrgan;
+        L_STATE.organs.has(k) ? L_STATE.organs.delete(k) : L_STATE.organs.add(k);
         afterFilter();
         return;
       }

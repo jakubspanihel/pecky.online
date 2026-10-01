@@ -136,20 +136,21 @@ function pcBuildTimeline(personId, affs, orgById){
 }
 
 // avatar osoby (fotka, nebo barevný kroužek s iniciálami) — pro kartičku
-// v sekci Lidé i pro jednotlivý odkaz na osobu jinde na webu (menší, opts.size)
+// v sekci Lidé (opts.ring = barva obrysu dle uskupení) i pro jednotlivý odkaz na osobu jinde na webu (menší, opts.size)
 function pcAvatarHtml(p, opts){
   opts = opts || {};
   const size = opts.size || 64;
   const cls = opts.cls ? ' ' + opts.cls : '';
   const name = pcPlainName(p);
   // photos je řazené nejnovější první (lide/SPEC.md §3.7) — vždy ta aktuální
+  const ring = opts.ring ? ` --ring:${jEscapeHtml(opts.ring)};` : '';
   const photo = (p.photos && p.photos.length) ? p.photos[0] : null;
   if (photo) {
     const url = jWithBase(photo.url);
-    return `<img class="avatar${cls}" style="width:${size}px; height:${size}px;" src="${jEscapeHtml(url)}" alt="${jEscapeHtml(name)}" loading="lazy" width="${size}" height="${size}">`;
+    return `<img class="avatar${cls}" style="width:${size}px; height:${size}px;${ring}" src="${jEscapeHtml(url)}" alt="${jEscapeHtml(name)}" loading="lazy" width="${size}" height="${size}">`;
   }
-  const color = opts.color || '#5B5347';
-  return `<div class="avatar-fallback${cls}" style="width:${size}px; height:${size}px; background:${jEscapeHtml(color)};" aria-hidden="true">${jInitials(pcFullName(p))}</div>`;
+  const color = '#5B5347';
+  return `<div class="avatar-fallback${cls}" style="width:${size}px; height:${size}px; background:${jEscapeHtml(color)};${ring}" aria-hidden="true">${jInitials(pcFullName(p))}</div>`;
 }
 
 // plná vizitka osoby — stejná karta jako v detailu sekce Lidé.

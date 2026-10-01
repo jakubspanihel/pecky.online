@@ -111,6 +111,7 @@
   .tabs-secondary .navlink.active{border:none;}
   .navlink:hover{color:var(--ink); border-color:var(--ink-soft); text-decoration:none;}
   .navlink.active{color:var(--burgundy); border-color:var(--burgundy); font-weight:600;}
+  .header-nav .navlink.active{background:var(--burgundy); border-color:var(--burgundy); color:#fff;}
 
   .subtabs{display:flex; gap:4px; flex-wrap:wrap; border-bottom:1px solid var(--line); margin:20px 0 28px;}
   .subtablink{font-family:var(--font-mono); font-size:12px; letter-spacing:0.03em; text-transform:uppercase; padding:9px 14px; color:var(--ink-soft); border:none; background:none; cursor:pointer; border-bottom:3px solid transparent; margin-bottom:-1px;}
@@ -164,9 +165,10 @@
   .kal-toolbar{position:sticky; top:var(--kal-top,48px); z-index:9; background:var(--parchment); padding:8px 0; margin-top:14px !important;}
   .kal-toolbar > .segmented-control{order:1; margin-left:auto;}
   .kal-toolbar > .filter-chips{order:2; flex-basis:100%; margin:0;}
+  .kal-ico{vertical-align:-2px; margin-right:6px;}
   .kal-toolbar .kal-ico{vertical-align:-2px; margin-right:6px;}
-  .kal-toolbar #kal-filter-toggle{padding:7px 11px; border-radius:3px; text-decoration:none; font-size:11.5px; border:1px solid transparent;}
-  .kal-toolbar #kal-filter-toggle.active{background:var(--burgundy); color:#fff; border-color:var(--burgundy);}
+  .kal-toolbar #kal-filter-toggle, .search-bar #lide-filter-toggle{padding:7px 11px; border-radius:3px; text-decoration:none; font-size:11.5px; border:1px solid transparent;}
+  .kal-toolbar #kal-filter-toggle.active, .search-bar #lide-filter-toggle.active{background:var(--burgundy); color:#fff; border-color:var(--burgundy);}
   .kal-arrow{width:40px; height:40px; padding:0; margin:0; text-align:center; line-height:1;}
   .kal-arrow + .kal-arrow{margin-left:-1px;}
   @media (max-width:600px){
@@ -455,6 +457,7 @@
   .avatar{width:64px; height:64px; border-radius:50%; object-fit:cover; display:block; margin-bottom:10px; border:1px solid var(--line); background:var(--parchment-deep);}
   .avatar-fallback{width:64px; height:64px; border-radius:50%; display:flex; align-items:center; justify-content:center; margin-bottom:10px; font-family:var(--font-display); font-weight:600; font-size:20px; color:#fff; flex-shrink:0;}
   /* menší avatar vedle jména v běžícím textu/tabulce (pcAvatarHtml se size), např. Jednání → Absence */
+  .avatar[style*="--ring"], .avatar-fallback[style*="--ring"]{outline:3px solid var(--ring); outline-offset:1px;}
   .avatar-inline{margin-bottom:0; flex-shrink:0; font-size:9px;}
   .people-group h3{margin:34px 0 4px;}
 
@@ -506,14 +509,6 @@
   .org-head .org-note{font-size:13px; color:var(--ink-soft); line-height:1.6; margin:8px 0 0; max-width:640px;}
   .org-head .org-links{margin:10px 0 0; font-size:12px;}
   .org-head .org-links a + a{margin-left:12px;}
-  .person-card.party-nasepecky{background:var(--party-nasepecky-bg); border-color:var(--party-nasepecky);}
-  .person-card.party-ods{background:var(--party-ods-bg); border-color:var(--party-ods);}
-  .person-card.party-snk, .person-card.party-peckypecakum{background:var(--party-snk-bg); border-color:var(--party-snk);}
-  .person-card.party-spd{background:var(--party-spd-bg); border-color:var(--party-spd);}
-  .person-card.party-cssd{background:var(--party-cssd-bg); border-color:var(--party-cssd);}
-  .person-card.party-lidovci{background:var(--party-lidovci-bg); border-color:var(--party-lidovci);}
-  .person-card.party-kscm{background:var(--party-kscm-bg); border-color:var(--party-kscm);}
-  .person-card.party-peckysrdcem{background:var(--party-peckysrdcem-bg); border-color:var(--party-peckysrdcem);}
   .people-avatars{display:flex; flex-wrap:wrap; align-items:center; gap:4px; max-width:340px;}
   .people-avatars .av-img{width:26px; height:26px; border-radius:50%; object-fit:cover; border:1px solid var(--line); background:var(--parchment-deep);}
   .people-avatars .av-init{width:26px; height:26px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-family:var(--font-mono); font-weight:600; font-size:9px; color:#fff; flex-shrink:0;}
@@ -568,7 +563,7 @@
     font-size:14px; border-radius:2px; color:var(--ink);
   }
   .search-bar input[type=search]::placeholder{color:var(--ink-soft);}
-  .search-bar select{
+  .search-bar select, #lide-filter-org{
     padding:10px 10px; border:1px solid var(--line); background:var(--parchment-deep);
     font-family:var(--font-mono); font-size:12px; border-radius:2px; color:var(--ink-soft);
   }
