@@ -26,7 +26,7 @@ V `content/owebu.html`, sekce „Sociální sítě", je `div.quicklinks`
 s jedním `<a class="qlink">` na účet. **Projdi všechny, které tam právě
 jsou** — seznam průběžně roste (hlavně s novými zdroji Kalendáře), takže
 pevný výčet by tu rychle zastaral. Pro orientaci: 9. 9. 2026 jich bylo
-15, 28. 9. 2026 už 35 (Facebookové stránky i skupiny, šest Instagramů,
+15, 28. 9. 2026 už 35, 30. 9. 2026 už 36 (Facebookové stránky i skupiny, šest Instagramů,
 YouTube). Aktuální počet i seznam vypíše:
 
 ```bash

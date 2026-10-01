@@ -1044,6 +1044,13 @@ seznam místo rozházených poznámek po repu.
     Organizaci v `lide/organizations.json` zatím nezakládat (žádná
     akce, kterou by měla pořádat) — první výskyt konkrétní akce založí
     pořadatele podle kroku 3b v `automation-plakat-akce.md`.
+  - **FB skupina „Hospůdka na hřišti Velké Chvalovice"**
+    (`facebook-group-hospudka-na-hristi`, 624 členů, přidáno uživatelem
+    30. 9. 2026) — soukromá hospůdka u hřiště ve Velkých Chvalovicích.
+    Záložka Události bez nadcházejících (minulé: Chvalovický kotlík
+    1. 8., Pálení čarodějnic 30. 4.); poslední příspěvek 26. 9. 2026
+    zval na „Rozloučení s létem" 27. 9. — už proběhlo. Nic k zápisu.
+    Příště číst záložku Události a nejnovější příspěvky.
   - **FitPecky.cz** (`facebook-fitpecky-cz`, 1,2 tis. sledujících,
     přidáno uživatelem 25. 9. 2026) — prodejna zdravé výživy, bezobalu
     a ekodrogerie s občerstvením, Masarykovo náměstí / V. B. Třebízského

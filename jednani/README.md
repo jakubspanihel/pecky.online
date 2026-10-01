@@ -212,6 +212,15 @@ jestli by se žebříček změnil, a pokud ano, přepsat tabulku v
 „Související:" vedle Docházky) přes trvalý hash na konkrétní jednání
 (`jSlugForMeeting()`, viz „Permalinky na jednotlivá jednání" níže).
 
+**Žebříček odpracovaných hodin (`/jednani/odpracovano.html`, od 30. 9. 2026):**
+statická podstránka se 23 zastupiteli z volebního období 2022–2026
+seřazenými podle počtu jednání (rada, ZM, výbory, komise, školská rada),
+s odpracovanými hodinami (součet `duration_seconds`, u komisí a výborů
+`time`–`time_end`; jednání bez času se do hodin nepočítají, jen se
+vykážou) a štítkem „Člen rady"/„Zastupitel". Ruční snímek k 30. 9. 2026,
+ne živý `fetch()` — stejně jako `nejdelsi.html`. Sekce „Ti další" je
+rozbalovací. Odkázaná z `/jednani/` („Související:").
+
 ## Účast na jednání (`attendance.present`, `attendance.total`)
 
 Doplněno 21. 8. 2026 pro zobrazení "sešlo se N z/ze M radních/zastupitelů"

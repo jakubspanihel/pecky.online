@@ -1,32 +1,31 @@
   <section class="panel active" id="panel-kalendar">
     <h2 class="title display">Kalendář</h2>
-    <p class="lede"><a href="https://calendar.google.com/calendar/embed?src=a81de8fe68a5e6d118ceeea3614ba159febf695e65b164cade86b682d58ef726%40group.calendar.google.com&ctz=Europe%2FPrague" target="_blank" rel="noopener">Odebírejte kalendář</a> přímo ve vašem Google, Apple i Outlook kalendáři (dostupné také jako <a href="https://calendar.google.com/calendar/ical/a81de8fe68a5e6d118ceeea3614ba159febf695e65b164cade86b682d58ef726%40group.calendar.google.com/public/basic.ics" target="_blank" rel="noopener">iCal</a>).</p>
 
-    <div style="display:flex; align-items:center; gap:8px; margin:22px 0 4px; flex-wrap:wrap;">
-      <button type="button" class="year-btn" id="kal-prev" aria-label="Předchozí měsíc">◀</button>
-      <span class="year-btn year-btn-label" id="kal-month-label" style="min-width:160px; text-align:center;">…</span>
-      <button type="button" class="year-btn" id="kal-next" aria-label="Následující měsíc">▶</button>
-      <button type="button" class="year-btn" id="kal-today">Dnes</button>
-      <button type="button" class="text-toggle" id="kal-filter-toggle" aria-expanded="false" aria-controls="kal-filter-org">Filtr</button>
-      <div class="segmented-control" style="margin-left:auto;">
-        <span class="segmented-label">Zobrazit jako:</span>
+    <div class="kal-toolbar" style="display:flex; align-items:center; gap:8px; margin:22px 0 4px; flex-wrap:wrap;">
+      <div class="segmented-control">
+        <button type="button" class="text-toggle" id="kal-filter-toggle" title="Filtr" aria-expanded="false" aria-controls="kal-filter-org"><svg class="kal-ico" viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 3h12l-4.5 5.5V13l-3-1.5V8.5z"/></svg><span class="kal-lbl">Filtr</span></button>
         <div class="segmented-group" role="group" aria-label="Zobrazení kalendáře">
-          <button type="button" class="segmented-btn active" data-kal-view="kalendar">Kalendář</button>
-          <button type="button" class="segmented-btn" data-kal-view="seznam">Seznam</button>
+          <button type="button" class="segmented-btn active" data-kal-view="kalendar" title="Kalendář"><svg class="kal-ico" viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="3" width="12" height="11" rx="1.5"/><path d="M2 6.5h12M5 1.5v3M11 1.5v3"/></svg><span class="kal-lbl">Kalendář</span></button>
+          <button type="button" class="segmented-btn" data-kal-view="seznam" title="Seznam"><svg class="kal-ico" viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5.5 4h8M5.5 8h8M5.5 12h8"/><path d="M2.5 4h.01M2.5 8h.01M2.5 12h.01" stroke-width="2"/></svg><span class="kal-lbl">Seznam</span></button>
         </div>
       </div>
-    </div>
-
-    <div class="filter-chips" id="kal-filter-org" role="group" aria-label="Filtry" hidden>
-      <label class="checkbox-label">
-        <input type="checkbox" id="kal-show-kurz" checked>
-        Pravidelné akce, kurzy a tréninky
-      </label>
-      <label class="checkbox-label">
-        <input type="checkbox" id="kal-only-future">
-        Pouze budoucí události
-      </label>
-      <span id="kal-org-chips-inner"></span>
+      <div class="filter-chips" id="kal-filter-org" role="group" aria-label="Filtry" hidden>
+        <label class="checkbox-label">
+          <input type="checkbox" id="kal-show-kurz" checked>
+          Pravidelné akce, kurzy a tréninky
+        </label>
+        <label class="checkbox-label">
+          <input type="checkbox" id="kal-only-future">
+          Pouze budoucí události
+        </label>
+        <span id="kal-org-chips-inner"></span>
+      </div>
+      <div style="display:inline-flex;">
+        <button type="button" class="year-btn kal-arrow" id="kal-prev" aria-label="Předchozí měsíc">◀</button>
+        <button type="button" class="year-btn kal-arrow" id="kal-next" aria-label="Následující měsíc">▶</button>
+      </div>
+      <strong id="kal-month-label" style="font-family:var(--font-display, ui-serif, Georgia, serif); font-size:20px; margin:0 6px;">…</strong>
+      <button type="button" class="text-toggle" id="kal-today" style="display:none;">Dnes</button>
     </div>
 
     <p class="search-status" id="kal-status">Načítám kalendář…</p>
@@ -38,31 +37,7 @@
     </table>
     <div id="kal-list" style="display:none;"></div>
 
-    <div class="callout" style="margin-top:22px;">
-      Kalendář čerpá z těchto zdrojů:
-      <ul class="program-list" style="margin-top:8px;">
-        <li><strong>Jednání rady a zastupitelstva</strong> — archiv sekce <a href="/jednani/">Jednání</a></li>
-        <li><strong>Jednání finančního a kontrolního výboru, komisí rady města a školské rady</strong> — zápisy zveřejněné na <a href="https://pecky.cz/default/default/21133_vybory-zm" target="_blank" rel="noopener">pecky.cz</a> (výbory, komise) a na <a href="https://www.zspecky.cz/skola/skolska-rada/zapisy-a-dokumenty-sr/" target="_blank" rel="noopener">webu základní školy</a> (školská rada), přepsané v sekci <a href="/jednani/#komise">Jednání</a> (jen proběhlá jednání se zveřejněným zápisem, u starších i z let 2009–2018)</li>
-        <li><strong>Termín komunálních voleb</strong> — <a href="https://csu.gov.cz/informace-k-aktualne-vyhlasenym-volbam" target="_blank" rel="noopener">Český statistický úřad</a></li>
-        <li><strong>Kulturní středisko města Pečky</strong> — <a href="https://www.facebook.com/kspecky" target="_blank" rel="noopener">Facebook</a></li>
-        <li><strong>Městská knihovna Svatopluka Čecha</strong> — <a href="https://www.facebook.com/knihovnapecky" target="_blank" rel="noopener">Facebook</a> a <a href="https://www.pececko.cz" target="_blank" rel="noopener">web</a></li>
-        <li><strong>TJ Sokol Pečky</strong> — <a href="https://www.facebook.com/tjsokolpecky" target="_blank" rel="noopener">Facebook</a> a <a href="https://pecky.cz/default/default/21389_pdf-zpravodaje" target="_blank" rel="noopener">Pečecké noviny</a></li>
-        <li><strong>AFK Pečky</strong> — <a href="https://www.afkpecky.cz/a-tym/zapasy/" target="_blank" rel="noopener">rozpisy zápasů</a> (domácí zápasy všech týmů) a <a href="https://www.afkpecky.cz/co-se-u-nas-deje/" target="_blank" rel="noopener">aktuality</a></li>
-        <li><strong>Hospoda na hřišti</strong> — <a href="https://www.instagram.com/hospoda_na_hristi_pecky/" target="_blank" rel="noopener">Instagram</a></li>
-        <li><strong>NAŠE PEČKY</strong> — <a href="https://www.facebook.com/nasepecky" target="_blank" rel="noopener">Facebook</a> a <a href="https://nasepecky.cz/#akce" target="_blank" rel="noopener">web</a></li>
-        <li><strong>Vzdělávací centrum Pečky</strong> — <a href="https://www.vzcentrum.cz/krouzky" target="_blank" rel="noopener">web</a></li>
-        <li><strong>Základní umělecká škola Pečky</strong> — <a href="https://zuspecky.cz/rozvrh-hodin/" target="_blank" rel="noopener">web</a></li>
-        <li><strong>Základní škola Pečky, okres Kolín</strong> — <a href="https://www.zspecky.cz/e_download.php?file=/data/uredni_deska/obsah243_2.pdf&original=Organizace_skolniho_roku_2026_2027_ZS_Pecky.pdf" target="_blank" rel="noopener">web</a></li>
-        <li><strong>Pečovatelská služba města Pečky</strong> — <a href="https://www.pspecky.cz/senior-klub-pecky/" target="_blank" rel="noopener">web</a></li>
-        <li><strong>MŠ MAŠINKA Pečky</strong> — <a href="https://www.msmasinkapecky.cz/akce-skoly/" target="_blank" rel="noopener">web</a></li>
-        <li><strong>Kalendář událostí na webu města</strong> — <a href="https://pecky.cz/default/events" target="_blank" rel="noopener">web</a></li>
-        <li><strong>Pramínek Dobřichov</strong> — <a href="https://www.mcpraminek.cz" target="_blank" rel="noopener">web</a></li>
-        <li><strong>SŽM Pečky</strong> — <a href="https://szmpecky.webnode.cz/kalendar-akci/" target="_blank" rel="noopener">web</a></li>
-        <li><strong>Svoz odpadů (Pečecké služby)</strong> — <a href="https://pecky.cz/files/pecky/gallery/18641/6999802843bb9_Harmonogram-svozu-odpadu-z-domacnosti-2026-final.pdf" target="_blank" rel="noopener">harmonogram 2026 na webu města</a></li>
-        <li><strong>Minigolfclub Dráčata Pečky</strong> — <a href="https://minigolf-pecky.webnode.cz/turnaje/" target="_blank" rel="noopener">web</a></li>
-        <li><strong>Pečecká desítka</strong> — <a href="https://www.pecky10km.cz" target="_blank" rel="noopener">web</a> a <a href="https://www.facebook.com/Pececkadesitka/" target="_blank" rel="noopener">Facebook</a></li>
-      </ul>
-    </div>
+    <p class="lede" style="margin-top:22px;">Kalendář můžete <a href="webcal://calendar.google.com/calendar/ical/a81de8fe68a5e6d118ceeea3614ba159febf695e65b164cade86b682d58ef726%40group.calendar.google.com/public/basic.ics">odebírat v aplikaci Kalendář</a> (Apple, Outlook), nové akce se budou doplňovat samy.</p>
   </section>
 
 <script>
@@ -210,7 +185,7 @@
       const datum = kalFmtRange(e) || `${parseInt(dd, 10)}. ${parseInt(mm, 10)}.`;
       const relTag = kalRelTag(e);
       const relStitek = relTag
-        ? ` <span class="tag${relTag === 'DNES' ? ' kal-dnes' : ' kal-blizko'}">${relTag}</span>` : '';
+        ? `<span class="tag${relTag === 'DNES' ? ' kal-dnes' : ' kal-blizko'}">${relTag}</span> ` : '';
       // čas jen když ho zdroj uvádí — jinak se o čase nepíše nic
       const cas = e.time ? `<span class="akce-cas">${kalEsc(e.time)}</span>` : '';
       const stitek = e.category === 'kurz' ? ' <span class="tag">kurz</span>'
@@ -224,7 +199,7 @@
       // pořadatel jako prostý řádek na konci bloku (jen u akcí/kurzů/svozů —
       // u jednání a voleb je pořadatelem vždy město)
       const porada = kalMaPoradatele(e) && e.organizer_name
-        ? `<p class="akce-poradatel">Pořádá: ${kalEsc(e.organizer_name)}</p>` : '';
+        ? `<p class="akce-poradatel"><span class="dot"></span>Pořádá: ${kalEsc(e.organizer_name)}</p>` : '';
       // čas a místo konání na vlastním řádku pod datem, oddělené tečkou
       const misto = e.place ? `<span class="meta-note">${kalEsc(e.place)}</span>` : '';
       const kdeKdy = [cas, misto].filter(Boolean).join(' · ');
@@ -232,7 +207,7 @@
       const pozn = e.note ? `<span class="meta-note akce-pozn">${kalEsc(e.note)}</span>` : '';
       const barva = kalMaPoradatele(e) && e.organizer ? ` style="${kalOrgStyle(e.organizer)}"` : '';
       return `<article class="akce-blok akce-blok-${e.category}"${barva}>
-        <div class="akce-kdy"><strong>${datum} ${denNazev}</strong>${relStitek}</div>
+        <div class="akce-kdy">${relStitek}<strong>${datum} ${denNazev}</strong></div>
         ${meta}
         <h3 class="akce-nazev">${nazev}${stitek}</h3>
         ${popis}${pozn}${porada}
@@ -248,6 +223,8 @@
   function kalShowView(view){
     kalWriteHash();
     document.getElementById('kal-month-label').textContent = `${KAL_MONTHS[kalMonth]} ${kalYear}`;
+    document.getElementById('kal-today').style.display =
+      (kalYear === kalNow.getFullYear() && kalMonth === kalNow.getMonth()) ? 'none' : '';
     const grid = document.getElementById('kal-grid');
     const list = document.getElementById('kal-list');
     if (view === 'seznam') {
@@ -332,6 +309,14 @@
     const clear = document.getElementById('kal-org-clear');
     if (clear) clear.hidden = !KAL_ORG;
   }
+
+  // toolbar se lepí pod sticky nadpisem sekce — výšku nadpisu měříme za běhu
+  function kalStickyTop(){
+    const h = document.querySelector('#panel-kalendar h2.title');
+    if (h) document.getElementById('panel-kalendar').style.setProperty('--kal-top', h.offsetHeight + 'px');
+  }
+  kalStickyTop();
+  window.addEventListener('resize', kalStickyTop);
 
   document.getElementById('kal-prev').addEventListener('click', () => {
     kalMonth--; if (kalMonth < 0) { kalMonth = 11; kalYear--; }

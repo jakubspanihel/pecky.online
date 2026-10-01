@@ -161,7 +161,17 @@
   .segmented-btn.active{background:var(--burgundy); color:#fff;}
   /* úzký displej: víc tlačítek (Jednání má 5) se zalomí do řádků místo
      přetečení přes okraj; záporný okraj schová zdvojené hrany pod rámečkem skupiny */
+  .kal-toolbar{position:sticky; top:var(--kal-top,48px); z-index:9; background:var(--parchment); padding:8px 0; margin-top:14px !important;}
+  .kal-toolbar > .segmented-control{order:1; margin-left:auto;}
+  .kal-toolbar > .filter-chips{order:2; flex-basis:100%; margin:0;}
+  .kal-toolbar .kal-ico{vertical-align:-2px; margin-right:6px;}
+  .kal-toolbar #kal-filter-toggle{padding:7px 11px; border-radius:3px; text-decoration:none; font-size:11.5px; border:1px solid transparent;}
+  .kal-toolbar #kal-filter-toggle.active{background:var(--burgundy); color:#fff; border-color:var(--burgundy);}
+  .kal-arrow{width:40px; height:40px; padding:0; margin:0; text-align:center; line-height:1;}
+  .kal-arrow + .kal-arrow{margin-left:-1px;}
   @media (max-width:600px){
+    .kal-toolbar > .segmented-control{order:-1; margin-left:0; width:100%; justify-content:flex-end;}
+    .kal-toolbar > .filter-chips{order:-1;}
     .segmented-control{flex-wrap:wrap; max-width:100%;}
     .segmented-group{flex-wrap:wrap; max-width:100%;}
     .segmented-btn{flex:1 1 auto; margin:0 -1px -1px 0; border-bottom:1px solid var(--burgundy);}
@@ -382,7 +392,7 @@
   /* ===== bloky akcí (pohled Seznam na /kalendar/) ===== */
   .akce-bloky{display:flex; flex-direction:column; gap:10px;}
   .akce-blok{background:rgba(255,255,255,0.35); border:1px solid var(--line);
-    border-left:4px solid var(--org-c, var(--line)); border-radius:2px; padding:10px 14px;}
+    border-left:4px solid var(--org-c, var(--line)); border-radius:12px; padding:10px 14px;}
   /* jednání a volby barvou kategorie stejně jako v mřížce, akce barvou pořadatele */
   .akce-blok-zastupitelstvo{border-left-color:var(--burgundy);}
   .akce-blok-rada{border-left-color:var(--field);}
@@ -393,7 +403,8 @@
   .akce-blok .akce-kdy strong{color:var(--ink); font-size:var(--fs-h3);}
   .akce-blok .akce-kdekdy{margin-top:2px;}
   .akce-blok .akce-kdekdy .meta-note{display:inline; margin:0; font-size:inherit;}
-  .akce-blok .akce-poradatel{margin:6px 0 0; font-size:12.5px; color:var(--ink-soft);}
+  .akce-blok .akce-poradatel{margin:6px 0 0; font-size:12.5px; color:var(--ink-soft); display:flex; align-items:center; gap:6px;}
+  .akce-blok .akce-poradatel .dot{width:9px; height:9px; border-radius:50%; border:1px solid var(--chip, var(--line)); background:var(--chip, transparent); flex-shrink:0;}
   .akce-blok .akce-nazev{margin:4px 0 0; font-family:var(--font-display); font-size:var(--fs-h4); line-height:1.3;}
   .akce-blok .akce-popis{margin:4px 0 0; font-size:14px;}
   .akce-blok .akce-pozn{font-style:italic;}

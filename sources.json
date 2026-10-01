@@ -826,6 +826,15 @@
    "description": "Stránka webu Základní školy Pečky, okr. Kolín se zápisy z jednání školské rady po školních letech (2009/2010 – 2026/2027) jako PDF nebo obrázky, plus volební řád, výsledky voleb a výroční zprávy školy.",
    "status": "vytěženo",
    "note": "Přidáno 30. 9. 2026 na žádost uživatele. Jde číst přímým curl (podstránky i přílohy přes e_download.php). Vytěženo 34 jednání (2009–2026) do jednani/skolska-rada.json (sekce Jednání, filtr Komise); většina zápisů před 2023 jsou skeny (OCR). Zápis z 7. 11. 2024 obsahuje personální záležitost jednoho zaměstnance — v datech záměrně nepřepsána. Volební řád, výroční zprávy a výsledky voleb nevytěženy. Pravidelná kontrola: jednani/scripts/skolska-rada-check.py (skill pecky-online-komise-check). Doplněno 30. 9. 2026: ostatní dokumenty ze stránky (volební řád 2025, výsledky voleb 2009/2011/2014, výroční zprávy, hlasování o VZ) staženy do jednani/Data/skolska-rada-dokumenty/; vytěženy údaje o volbách a schvalování (skolska-rada.json), členové a začátky mandátů v Lidech (lide/README.md → Školská rada ZŠ Pečky). Doplňující zdroj mandátů: Pečecké noviny 2011–2015 (usnesení RM o jmenování členů školské rady) a RM 1/2026, bod 15."
+  },
+  {
+   "id": "facebook-group-hospudka-na-hristi",
+   "name": "Facebook skupina — Hospůdka na hřišti Velké Chvalovice",
+   "url": "https://www.facebook.com/groups/302811704063917",
+   "category": "sociální síť · komunitní skupina",
+   "description": "Veřejná FB skupina hospůdky u hřiště ve Velkých Chvalovicích (624 členů; popis: hospůdka s možností oslav, svateb, grilování a firemních večírků). Moderátorka Lenka Dušková.",
+   "status": "ověřeno",
+   "note": "Přidáno uživatelem 30. 9. 2026, rovnou zkontrolováno. Poslední příspěvek 26. 9. 2026 (pozvánka na „Rozloučení s létem“ v neděli 27. 9., už proběhlo). Záložka Události: žádné nadcházející, minulé Chvalovický kotlík (1. 8.), Pálení čarodějnic (30. 4.), prázdninová zábava (26. 7. 2025). Žádná akce k zápisu do kalendar/akce.json. Vztah k Instagramu „Hospoda na hřišti“ (instagram-hospoda-na-hristi) nebyl ověřen — nepředpokládat, že jde o totéž zařízení."
   }
  ]
 }

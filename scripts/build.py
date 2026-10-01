@@ -151,6 +151,15 @@ EXTRA_PAGES = {
         # se nefetchuje z JSON, ať se při ohlédnutí na starší žebříček neplete
         # čtenář s průběžně rostoucím zdrojem dat.
         False, 'jednani', '2026-09-23'),
+    'odpracovano': (
+        '/jednani/odpracovano.html', 'Kolik času zastupitelé odpracovali — Do Peček . cz',
+        'Žebříček zastupitelů města Pečky za volební období 2022–2026 podle '
+        'počtu jednání rady, zastupitelstva, výborů a komisí a součtu '
+        'odpracovaných hodin — spočítáno z jmenné prezence v zápisech.',
+        # Odkázaná z /jednani/ (odstavec "Související") od 30. 9. 2026 —
+        # proto má lastmod a jde do sitemapy. Statický snímek k datu lastmod.
+        # helpers.js: avatary a vizitka osoby (pcAvatarHtml/pcDetailHtml)
+        True, 'jednani', '2026-09-30'),
 }
 
 
