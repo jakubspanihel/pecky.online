@@ -171,8 +171,6 @@ function relDatum(iso) {
     if (empty) empty.hidden = shown > 0;
     // seznam bez jediné budoucí položky (a bez hlášky) schovat i s nadpisem
     if (!shown && !empty) {
-      const zm = ul.closest('.dash-zm');
-      if (zm) zm.hidden = true;  // widget Příští zastupitelstvo: žádné už není před námi
       ul.hidden = true;
       const h = ul.previousElementSibling;
       if (h && h.tagName === 'H4') h.hidden = true;
@@ -238,7 +236,7 @@ document.querySelectorAll('.exp-row').forEach(row => {
   const MES = 'ledna|února|března|dubna|května|června|července|srpna|září|října|listopadu|prosince';
   const JED = 'km|m|cm|mm|kg|g|t|l|ha|m²|m³|m2|m3|%|°C|Kč|Kc|EUR|CZK|ks|tis\\.|mil\\.|mld\\.|hod\\.|min\\.|let';
   const TIT = 'Ing|Bc|Mgr|MUDr|JUDr|PhDr|RNDr|MVDr|Ph\\.D|MBA|DiS|doc|prof|arch|MgA|BcA|ThDr|PaedDr|CSc|mjr|plk|kpt|por|npor|gen|pplk';
-  const VICE = 'do|na|po|za|od|ve|ke|se|ze|že|či|pro|při|nad|pod|před|přes|bez|což|aby|když|atd\\.';
+  const VICE = 'do|na|po|za|od|ve|ke|se|ze|že|či|co|ku|by|ať|ač|pro|při|nad|pod|před|přes|bez|což|aby|když|atd\\.';
   const ZKR = 'str|obr|tab|č|čl|odst|písm|příl|kap|čp|ev|pozn';
   const VELKE = '[A-ZÁČĎÉĚÍŇÓŘŠŤÚŮÝŽ]';
   const P = [
@@ -293,19 +291,38 @@ document.querySelectorAll('.exp-row').forEach(row => {
   });
 })();
 
-// ===== Widget "Příští zastupitelstvo": titulek s odpočtem (je dnes / je zítra / za N dní) =====
+// ===== Widget "Příští zastupitelstvo" (+ volby): titulek s odpočtem =====
 (function () {
-  const li = document.querySelector('.dash-zm li:not([hidden])');
-  if (!li) return;
   const d = new Date();
   const dnes = Date.UTC(d.getFullYear(), d.getMonth(), d.getDate());
-  const [y, m, dd] = li.getAttribute('data-until').split('-').map(Number);
-  const dny = Math.round((Date.UTC(y, m - 1, dd) - dnes) / 86400000);
-  const kdy = li.querySelector('.dash-zm-kdy');
-  if (dny < 0 || !kdy) return;
-  // méně než 7 dní: název dne (stejná logika jako _zm_kdy() ve scripts/build.py)
-  const DEN = ['v neděli', 'v pondělí', 'v úterý', 've středu', 've čtvrtek', 'v pátek', 'v sobotu'];  // getUTCDay() 0 = ne
-  kdy.textContent = dny === 0 ? 'je dnes' : dny === 1 ? 'je zítra'
-    : dny < 7 ? 'je ' + DEN[new Date(Date.UTC(y, m - 1, dd)).getUTCDay()]
-    : `za ${dny} ${dny < 5 ? 'dny' : 'dní'}`;
+  const utc = iso => { const [y, m, dd] = iso.split('-').map(Number); return Date.UTC(y, m - 1, dd); };
+  const dnu = iso => Math.round((utc(iso) - dnes) / 86400000);
+  const sklon = n => `${n} ${n < 5 ? 'dny' : 'dní'}`;
+
+  const zmKdy = document.querySelector('.dash-zm li:not([hidden]) .dash-zm-kdy');
+  if (zmKdy) {
+    const dny = dnu(zmKdy.closest('li').getAttribute('data-until'));
+    // méně než 7 dní: název dne (stejná logika jako _zm_kdy() ve scripts/build.py)
+    const DEN = ['v neděli', 'v pondělí', 'v úterý', 've středu', 've čtvrtek', 'v pátek', 'v sobotu'];  // getUTCDay() 0 = ne
+    if (dny >= 0) {
+      const iso = zmKdy.closest('li').getAttribute('data-until');
+      zmKdy.textContent = dny === 0 ? 'je dnes' : dny === 1 ? 'je zítra'
+        : dny < 7 ? 'je ' + DEN[new Date(utc(iso)).getUTCDay()]
+        : `za ${sklon(dny)}`;
+    }
+  }
+
+  // volby: odpočet k prvnímu dni, během hlasování "právě probíhají"
+  const vKdy = document.querySelector('.dash-zm li:not([hidden]) .dash-volby-kdy');
+  if (vKdy) {
+    const li = vKdy.closest('li');
+    const dny = dnu(li.getAttribute('data-from'));
+    if (dnu(li.getAttribute('data-until')) >= 0)
+      vKdy.textContent = dny <= 0 ? 'Volby právě probíhají' : dny === 1 ? 'Volby jsou už zítra' : `Volby už za ${sklon(dny)}`;
+  }
+
+  // widget bez jediné viditelné položky schovat celý
+  document.querySelectorAll('.dash-zm').forEach(z => {
+    z.hidden = !z.querySelector('li:not([hidden])');
+  });
 })();

@@ -24,7 +24,7 @@ Pravidla držet v obou souborech shodná. Ruční `&nbsp;` jen jako výjimka.
 Víceslabičné i kratší předložky a spojky by na konci řádku neměly zůstávat,
 pokud to škodí čitelnosti nebo estetice (knižní sazba, delší články).
 * **Pravidlo:** pevná mezera *za* těmito slovy (malá i velká první písmeno).
-* **Dvoupísmenné:** `do`, `na`, `po`, `za`, `od`, `ve`, `ke`, `se`, `ze`, `že`, `či`, `atd.`
+* **Dvoupísmenné:** `do`, `na`, `po`, `za`, `od`, `ve`, `ke`, `se`, `ze`, `že`, `či`, `co`, `ku`, `by`, `ať`, `ač`, `atd.`
 * **Tří- a víc písmen:** `pro`, `při`, `nad`, `pod`, `před`, `přes`, `bez`, `což`, `aby`, `když`.
 * **Příklady:** `na stole`, `před domem`, `říkal, že přijde`, `aby věděl`.
 

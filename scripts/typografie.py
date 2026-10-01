@@ -13,7 +13,7 @@ JEDNOTKY = (r'km|m|cm|mm|kg|g|t|l|ha|m²|m³|m2|m3|%|°C|Kč|Kc|EUR|CZK|ks|'
             r'tis\.|mil\.|mld\.|hod\.|min\.|let')
 TITULY = (r'Ing|Bc|Mgr|MUDr|JUDr|PhDr|RNDr|MVDr|Ph\.D|MBA|DiS|doc|prof|arch|'
           r'MgA|BcA|ThDr|PaedDr|CSc|mjr|plk|kpt|por|npor|gen|pplk')
-VICE = r'do|na|po|za|od|ve|ke|se|ze|že|či|pro|při|nad|pod|před|přes|bez|což|aby|když'
+VICE = r'do|na|po|za|od|ve|ke|se|ze|že|či|co|ku|by|ať|ač|pro|při|nad|pod|před|přes|bez|což|aby|když'
 ZKRATKY = r'str|obr|tab|č|čl|odst|písm|příl|kap|čp|ev|pozn'
 
 # (regulární výraz, náhrada) — aplikují se postupně

@@ -447,19 +447,47 @@ def _zm_kdy(dny, weekday):
     return f'za {dny} {"dny" if dny < 5 else "dní"}'
 
 
+def _volby_kdy(dny, probiha):
+    """Text "Volby ..." do widgetu; stejná logika je v assets/common.js."""
+    if probiha:
+        return 'Volby právě probíhají'
+    if dny == 1:
+        return 'Volby jsou už zítra'
+    return f'Volby už za {dny} {"dny" if dny < 5 else "dní"}'
+
+
+def _zm_odkazy(m, odkaz):
+    """Řádek odkazů pod zasedáním: "Program jednání" (jen je-li program znám
+    z pozvánky = neprázdné `agenda`) -> detail jednání v /jednani/, a
+    "Živé vysílání od HH:MM" (jen je-li známý odkaz na livestream i čas)."""
+    odkazy = []
+    if m.get('agenda'):
+        odkazy.append(f'<a href="{odkaz}">Program jednání</a>')
+    live = (m.get('links') or {}).get('livestream')
+    if live and m.get('time'):
+        odkazy.append(f'<a href="{esc(live)}" target="_blank" rel="noopener">'
+                      f'Živé vysílání od {esc(m["time"])} ↗</a>')
+    return f'<span class="dash-zm-odkazy">{" · ".join(odkazy)}</span>' if odkazy else ''
+
+
 def _dash_zastupitelstvo(dnes):
     """Samostatný widget na úplném začátku Domů: ohlášené zastupitelstvo
-    (jen ZM, ne Rada). Bez ohlášeného zastupitelstva vrací ''. Budoucí ZM se
-    vypíše víc (rezerva), common.js ukáže první, které ještě neproběhlo,
-    a nezbyde-li žádné, schová celý widget - neshnije mezi buildy."""
+    (jen ZM, ne Rada) a nejbližší volby z kalendáře. Bez obojího vrací ''.
+    Budoucí ZM se vypíše víc (rezerva), common.js ukáže první, které ještě
+    neproběhlo, a nezbyde-li žádná položka, schová celý widget - neshnije
+    mezi buildy."""
+    from datetime import date as _date
     meetings = json.loads(read('jednani/pecky-jednani.json'))['meetings']
     zm = sorted((m for m in meetings if m['type'] == 'Zastupitelstvo' and m['date'] >= dnes),
                 key=lambda m: m['date'])[:3]
-    if not zm:
+    events = json.loads(read('kalendar/udalosti.json'))['events']
+    volby = sorted((e for e in events if e['category'] == 'volby'
+                    and (e.get('date_end') or e['date']) >= dnes), key=lambda e: e['date'])[:1]
+    if not zm and not volby:
         return ''
-    from datetime import date as _date
-    out = ['<div class="dash-zm">',
-           '  <ul class="dash-list" data-max="1">']
+    out = ['<div class="dash-zm">']
+    if zm:
+        out.append('  <ul class="dash-list dash-zm-blok dash-zm-blok--zm" data-max="1">')
     for i, m in enumerate(zm):
         kdy = iso_to_cz(m['date']) + (f' v {m["time"]}' if m.get('time') else '')
         misto = f' · {esc(m["venue"])}' if m.get('venue') else ''
@@ -468,10 +496,20 @@ def _dash_zastupitelstvo(dnes):
         # výchozí text z doby buildu; common.js ho v prohlížeči přepočítá
         za = _zm_kdy(dny, _date.fromisoformat(m['date']).weekday())
         out.append(f'    <li data-until="{m["date"]}"{" hidden" if i else ""}>'
-                   f'<h3 class="display"><a href="{odkaz}">Příští zastupitelstvo '
+                   f'<h3 class="display"><a href="{odkaz}">Příští zasedání zastupitelstva '
                    f'<span class="dash-zm-kdy">{za}</span></a></h3>'
-                   f'<span class="meta-note">{esc(kdy)}{misto}</span></li>')
-    out += ['  </ul>', '</div>']
+                   f'<span class="meta-note">{esc(kdy)}{misto}</span>{_zm_odkazy(m, odkaz)}</li>')
+    if zm:
+        out.append('  </ul>')
+    for e in volby:
+        konec = e.get('date_end') or e['date']
+        dny = (_date.fromisoformat(e['date']) - _date.fromisoformat(dnes)).days
+        rozsah = (f'{int(e["date"][8:])}.–{iso_to_cz(konec)}' if konec != e['date'] else iso_to_cz(e['date']))
+        out.append(f'  <ul class="dash-list dash-zm-blok dash-zm-blok--volby">\n    <li data-from="{e["date"]}" data-until="{konec}">'
+                   f'<h3 class="display"><a href="/volby/">'
+                   f'<span class="dash-volby-kdy">{_volby_kdy(dny, dny <= 0)}</span></a></h3>'
+                   f'<span class="meta-note">{esc(rozsah)}</span></li>\n  </ul>')
+    out.append('</div>')
     return '\n'.join(out)
 
 
