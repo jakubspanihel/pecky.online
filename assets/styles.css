@@ -60,32 +60,55 @@
   .brand h1{font-family:var(--font-body); color:var(--ink-soft); font-size:var(--fs-title-mobile); margin:0; letter-spacing:-0.03em; font-weight:900; line-height:1.15;}
   @media (min-width:601px){.brand h1{font-size:var(--fs-title);}}
 
-  /* ===== Info tlačítko: nenápadné, zůstává na obrazovce (fixed, ne
-     celá hlavička) a scrolluje na patičku. Sticky by v krátké
-     header.site/brand-row stejně po pár px scrollu zase zmizelo -
-     pro trvale dosažitelné tlačítko po celé stránce proto fixed. ===== */
+  .tagline{margin:8px 0 0; font-family:var(--font-display); font-size:var(--fs-lede, 16px); color:var(--ink-soft);}
+
+  /* ===== Hamburger (info-fab): fixed, zobrazuje se jen když lišta menu v hlavičce není na obrazovce ===== */
   .info-fab{
     position:fixed; top:14px; right:16px; z-index:50;
-    width:36px; height:36px; border-radius:50%; border:1px solid var(--line);
+    width:40px; height:40px; border-radius:50%; border:1px solid var(--line);
     display:flex; align-items:center; justify-content:center;
-    background:var(--parchment); color:var(--ink-soft); opacity:0.5;
-    font-family:var(--font-display); font-style:italic; font-weight:600; font-size:20px;
-    cursor:pointer;
+    background:var(--parchment); color:var(--ink-soft);
+    font-size:22px; line-height:1; padding:0; cursor:pointer;
   }
-  .info-fab:hover{opacity:1; color:var(--burgundy); border-color:var(--burgundy);}
+  .info-fab[hidden]{display:none;}
+  .info-fab:hover{color:var(--burgundy); border-color:var(--burgundy);}
 
-  /* ===== Nav (v patičce) ===== */
+  /* ===== overlay-menu: celá obrazovka, 30% černá, vycentrovaný sloupec bloků ===== */
+  .overlay-menu{
+    position:fixed; inset:0; z-index:100; background:rgba(0,0,0,0.75);
+    display:flex; align-items:center; justify-content:center; overflow-y:auto;
+  }
+  .overlay-menu[hidden]{display:none;}
+  .overlay-links{display:flex; flex-direction:column; gap:3px; width:100%; max-width:200pt; padding:60px 0; margin:auto;}
+  .overlay-links .navlink{background:var(--parchment); width:100%;}
+  .overlay-links .navlink.secondary{background:none; border-color:transparent; color:#fff; text-decoration:underline; padding:6px 14px; font-size:12px;}
+  .overlay-links .navlink.secondary.active{color:#fff; font-weight:700;}
+  .overlay-close{
+    position:fixed; z-index:101; top:14px; right:16px;
+    width:40px; height:40px; border-radius:50%; border:1px solid var(--line);
+    background:var(--parchment); color:var(--ink-soft); font-size:20px; line-height:1; padding:0; cursor:pointer;
+  }
+  .overlay-close:hover{color:var(--burgundy); border-color:var(--burgundy);}
+
+  /* ===== Nav (na konci hlavičky): jednořádková lišta, horizontální scroll ===== */
   nav.tabs{
-    display:flex; flex-direction:column; gap:6px;
-    max-width:none; margin:0; padding:10px 14px;
+    display:flex; flex-direction:row; flex-wrap:nowrap; gap:6px;
+    max-width:1040px; margin:0 auto; padding:0 18px 12px;
+    overflow-x:auto; overflow-y:hidden; -webkit-overflow-scrolling:touch;
+    scrollbar-width:thin;
   }
   .navlink{
-    display:block; width:100%; box-sizing:border-box;
+    display:block; flex:0 0 auto; white-space:nowrap; box-sizing:border-box;
     font-family:var(--font-mono);
-    font-size:15px; letter-spacing:0.03em; text-transform:uppercase;
-    color:var(--ink-soft); border:1px solid var(--line); border-radius:3px; background:none; cursor:pointer;
-    text-align:center; padding:12px 14px; margin-bottom:0; text-decoration:none;
+    font-size:13px; letter-spacing:0.03em; text-transform:uppercase;
+    color:var(--ink-soft); border:1px solid var(--line); border-radius:3px; background:var(--parchment-deep); cursor:pointer;
+    text-align:center; padding:10px 14px; text-decoration:none;
   }
+  /* sekundární menu (začátek patičky): nenápadné, jen podtržení */
+  nav.tabs-secondary{padding-top:14px; padding-bottom:4px; gap:18px;}
+  .tabs-secondary .navlink{border:none; background:none; text-decoration:underline; padding:6px 2px; font-size:13px;}
+  .tabs-secondary .navlink:hover{text-decoration:underline;}
+  .tabs-secondary .navlink.active{border:none;}
   .navlink:hover{color:var(--ink); border-color:var(--ink-soft); text-decoration:none;}
   .navlink.active{color:var(--burgundy); border-color:var(--burgundy); font-weight:600;}
 
@@ -255,6 +278,8 @@
   .dash-card h3 + h4{margin-top:0;}
   .dash-list{list-style:none; margin:0; padding:0;}
   .dash-list li{padding:8px 0; border-bottom:1px dotted var(--line); font-size:14px; line-height:1.35;}
+  .dash-list li:has(> .rel-date){display:flex; justify-content:space-between; align-items:baseline; gap:10px;}
+  .dash-list .rel-date{flex:0 0 auto; font-size:12px; font-family:var(--font-mono); color:var(--ink-soft); white-space:nowrap;}
   .dash-list li:last-child{border-bottom:none;}
   .dash-list .dash-empty{color:var(--ink-soft); font-style:italic;}
   .dash-more{margin-top:auto; align-self:flex-start; font-family:var(--font-mono); font-size:12px; font-weight:700; letter-spacing:0.02em; padding:7px 14px; border:1px solid var(--line); border-radius:3px; color:var(--ink); background:var(--parchment-deep); text-decoration:none; transition:border-color .15s, color .15s;}

@@ -393,6 +393,15 @@ def _dash_jednani(dnes):
     # slug stejný jako trvalý odkaz na stránce Jednání (#financni-vybor-…)
     vybory = json.loads(read('jednani/vybory.json'))['meetings']
     VYBOR_SLUG = {'Finanční výbor': 'financni-vybor', 'Kontrolní výbor': 'kontrolni-vybor'}
+    # komise rady a pracovní skupina (komise.json), školská rada (skolska-rada.json)
+    komise = (json.loads(read('jednani/komise.json'))['meetings']
+              + json.loads(read('jednani/skolska-rada.json'))['meetings'])
+    KOMISE_SLUG = {'Sportovní komise': 'sportovni-komise', 'Kulturní komise': 'kulturni-komise',
+                   'Stavebně-dopravní komise': 'stavebni-komise',
+                   'Pracovní skupina pro oslavy 100 let': 'pracovni-skupina',
+                   'Sbor pro občanské záležitosti': 'sbor', 'Školská rada': 'skolska-rada'}
+    VYBOR_SLUG.update(KOMISE_SLUG)
+    vybory = vybory + komise
     def slug(m):
         return f'{VYBOR_SLUG.get(m["type"]) or m["type"].lower()}-{m["date"]}'
     def nazev(m):
@@ -404,17 +413,11 @@ def _dash_jednani(dnes):
         raise SystemExit('CHYBA: dashboard - v jednani/pecky-jednani.json není žádné proběhlé jednání.')
 
     out = []
-    out.append('  <h4>Naposledy</h4>\n  <ul class="dash-list">')
+    out.append('  <h4>Poslední zveřejněné zápisy</h4>\n  <ul class="dash-list">')
     for m in probehla:
-        n_res = len(m.get('resolutions') or [])
-        if n_res:
-            co = f'{n_res} usnesení'
-        elif not (m.get('links') or {}).get('minutes'):
-            co = 'zápis zatím nezveřejněn'
-        else:
-            co = 'bez usnesení'
-        out.append(f'    <li><a href="/jednani/#{slug(m)}">{esc(nazev(m))}</a>'
-                   f'<span class="meta-note">{esc(iso_to_cz(m["date"]))} · {esc(co)}</span></li>')
+        bez_zapisu = '' if (m.get('links') or {}).get('minutes') else ' <span class="meta-note">zápis zatím nezveřejněn</span>'
+        out.append(f'    <li><span><a href="/jednani/#{slug(m)}">{esc(nazev(m))}</a>{bez_zapisu}</span>'
+                   f'<span class="rel-date" data-date="{m["date"]}">{esc(iso_to_cz(m["date"]))}</span></li>')
     out.append('  </ul>')
     # výbory zveřejňují zápisy se zpožděním, mezi nejnovějšími jednáními
     # Rady/ZM by se téměř neobjevily — proto poslední jednání každého zvlášť
@@ -422,14 +425,13 @@ def _dash_jednani(dnes):
                            key=lambda m: m['date'], default=None) for t in VYBOR_SLUG]
     posledni_vybory = [m for m in posledni_vybory if m]
     if posledni_vybory:
-        out.append('  <h4>Výbory — poslední zveřejněný zápis</h4>\n  <ul class="dash-list">')
+        posledni_vybory.sort(key=lambda m: m['date'], reverse=True)
+        out.append('  <h4>Výbory a komise</h4>\n  <ul class="dash-list">')
         for m in posledni_vybory:
-            n_res = len(m.get('resolutions') or [])
-            co = f'{n_res} usnesení' if n_res else 'bez usnesení'
-            out.append(f'    <li><a href="/jednani/#{slug(m)}">{esc(nazev(m))}</a>'
-                       f'<span class="meta-note">{esc(iso_to_cz(m["date"]))} · {esc(co)}</span></li>')
+            out.append(f'    <li><span><a href="/jednani/#{slug(m)}">{esc(nazev(m))}</a></span>'
+                       f'<span class="rel-date" data-date="{m["date"]}">{esc(iso_to_cz(m["date"]))}</span></li>')
         out.append('  </ul>')
-    return _dash_card('Jednání rady, zastupitelstva a výborů', '/jednani/', 'Všechna jednání', '\n'.join(out), 'jednani')
+    return _dash_card('Proběhlá jednání rady, zastupitelstva, výborů a komisí', '/jednani/', 'Všechna jednání', '\n'.join(out), 'jednani')
 
 
 ZM_DEN_CZ = ['v pondělí', 'v úterý', 've středu', 've čtvrtek', 'v pátek', 'v sobotu', 'v neděli']  # weekday() 0 = po
@@ -640,7 +642,10 @@ def apply_active(html, current_slug):
 
 
 def build_nav(current_slug):
-    return apply_active(read('assets/nav.html'), current_slug)
+    # Slogan v hlavičce jen na homepage
+    tagline = ('    <p class="tagline">Abyste vždycky věděli, co se v Pečkách děje</p>\n'
+               if current_slug == 'domu' else '')
+    return apply_active(read('assets/nav.html').replace('{{TAGLINE}}', tagline), current_slug)
 
 
 def out_file_for(path):

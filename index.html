@@ -34,14 +34,26 @@
         <img class="brand-logo" src="/img/favicons/icon-192.png" alt="" width="44" height="44">
         <h1>Do Peček . cz</h1>
       </a>
-      <button type="button" class="info-fab" id="infoFab" title="O webu" aria-label="Přejít na patičku s informacemi o webu">i</button>
+      <button type="button" class="info-fab" id="infoFab" title="Menu" aria-label="Otevřít menu" aria-controls="overlayMenu" hidden>☰</button>
     </div>
+    <p class="tagline">Abyste vždycky věděli, co se v Pečkách děje</p>
   </div>
+  <nav class="tabs header-nav" id="tabs">
+    <a class="navlink" href="/kalendar/">📅 Kalendář</a>
+    <a class="navlink" href="/jednani/">📄 Jednání</a>
+    <a class="navlink" href="/noviny/">📰 Pečecké noviny</a>
+    <a class="navlink" href="/lide/">Lidé</a>
+    <a class="navlink" href="/telocvicna/">Tělocvična</a>
+    <a class="navlink" href="/volby/">Volby</a>
+  </nav>
 </header>
+<div class="overlay-menu" id="overlayMenu" role="dialog" aria-modal="true" aria-label="Menu" hidden>
+  <button type="button" class="overlay-close" id="overlayClose" aria-label="Zavřít menu">✕</button>
+  <nav class="overlay-links" id="overlayLinks"></nav>
+</div>
 
 <main>
   <section class="panel active" id="panel-domu">
-    <h2 class="dash-title display">Abyste vždycky věděli, co se v Pečkách děje</h2>
     <div class="dash-zm">
   <ul class="dash-list dash-zm-blok dash-zm-blok--zm" data-max="1">
     <li data-until="2026-10-07"><h3 class="display"><a href="/jednani/#zastupitelstvo-2026-10-07">Příští zasedání zastupitelstva <span class="dash-zm-kdy">je ve středu</span></a></h3><span class="meta-note">7. 10. 2026 v 16:30 · Kulturní dům, Tř. Jana Švermy čp. 255, Pečky</span><span class="dash-zm-odkazy"><a href="/jednani/#zastupitelstvo-2026-10-07">Program jednání</a> · <a href="https://www.youtube.com/watch?v=EkRg1mXMSpk&amp;list=PL1KVT2dbyIKSTFRv7tfDqrfk5gkTSnoyu" target="_blank" rel="noopener">Živé vysílání od 16:30 ↗</a></span></li>
@@ -89,17 +101,23 @@
   <a class="dash-more" href="/kalendar/">Celý kalendář →</a>
 </div>
 <div class="dash-card dash-card--jednani">
-  <h3 class="display"><a href="/jednani/">Jednání rady, zastupitelstva a výborů</a></h3>
-  <h4>Naposledy</h4>
+  <h3 class="display"><a href="/jednani/">Proběhlá jednání rady, zastupitelstva, výborů a komisí</a></h3>
+  <h4>Poslední zveřejněné zápisy</h4>
   <ul class="dash-list">
-    <li><a href="/jednani/#rada-2026-09-21">Rada 34/2026</a><span class="meta-note">21. 9. 2026 · 11 usnesení</span></li>
-    <li><a href="/jednani/#zastupitelstvo-2026-09-16">Zastupitelstvo 6/2026</a><span class="meta-note">16. 9. 2026 · 13 usnesení</span></li>
-    <li><a href="/jednani/#rada-2026-09-14">Rada 33/2026</a><span class="meta-note">14. 9. 2026 · 6 usnesení</span></li>
+    <li><span><a href="/jednani/#rada-2026-09-21">Rada 34/2026</a></span><span class="rel-date" data-date="2026-09-21">21. 9. 2026</span></li>
+    <li><span><a href="/jednani/#zastupitelstvo-2026-09-16">Zastupitelstvo 6/2026</a></span><span class="rel-date" data-date="2026-09-16">16. 9. 2026</span></li>
+    <li><span><a href="/jednani/#rada-2026-09-14">Rada 33/2026</a></span><span class="rel-date" data-date="2026-09-14">14. 9. 2026</span></li>
   </ul>
-  <h4>Výbory — poslední zveřejněný zápis</h4>
+  <h4>Výbory a komise</h4>
   <ul class="dash-list">
-    <li><a href="/jednani/#financni-vybor-2026-06-02">Finanční výbor</a><span class="meta-note">2. 6. 2026 · 1 usnesení</span></li>
-    <li><a href="/jednani/#kontrolni-vybor-2026-06-17">Kontrolní výbor</a><span class="meta-note">17. 6. 2026 · 1 usnesení</span></li>
+    <li><span><a href="/jednani/#skolska-rada-2026-08-28">Školská rada</a></span><span class="rel-date" data-date="2026-08-28">28. 8. 2026</span></li>
+    <li><span><a href="/jednani/#kontrolni-vybor-2026-06-17">Kontrolní výbor</a></span><span class="rel-date" data-date="2026-06-17">17. 6. 2026</span></li>
+    <li><span><a href="/jednani/#financni-vybor-2026-06-02">Finanční výbor</a></span><span class="rel-date" data-date="2026-06-02">2. 6. 2026</span></li>
+    <li><span><a href="/jednani/#sportovni-komise-2026-02-10">Sportovní komise</a></span><span class="rel-date" data-date="2026-02-10">10. 2. 2026</span></li>
+    <li><span><a href="/jednani/#stavebni-komise-2025-09-24">Stavebně-dopravní komise</a></span><span class="rel-date" data-date="2025-09-24">24. 9. 2025</span></li>
+    <li><span><a href="/jednani/#kulturni-komise-2025-09-02">Kulturní komise</a></span><span class="rel-date" data-date="2025-09-02">2. 9. 2025</span></li>
+    <li><span><a href="/jednani/#pracovni-skupina-2025-01-30">Pracovní skupina pro oslavy 100 let</a></span><span class="rel-date" data-date="2025-01-30">30. 1. 2025</span></li>
+    <li><span><a href="/jednani/#sbor-2018-12-13">Sbor pro občanské záležitosti</a></span><span class="rel-date" data-date="2018-12-13">13. 12. 2018</span></li>
   </ul>
   <a class="dash-more" href="/jednani/">Všechna jednání →</a>
 </div>
@@ -158,25 +176,19 @@
 
 </main>
 <footer class="site">
-  <div class="footer-inner footer-credits">
-    <p style="margin:0 0 8px;">👋 Ahoj, já jsem PečkyBot.</p>
-    <img class="peckybot" src="/img/peckybot/welcome.png" alt="PečkyBot">
-    <p style="margin:8px 0 0;">Web je sestaven s pomocí AI. Robot čerpá informace z veřejných dat dostupných na internetu.</p>
-  </div>
-  <nav class="tabs footer-inner" id="tabs">
-    <a class="navlink" href="/kalendar/">🗓️ Kalendář</a>
-    <a class="navlink" href="/jednani/">📅 Jednání</a>
-    <a class="navlink" href="/noviny/">📰 Pečecké noviny</a>
-    <a class="navlink" href="/lide/">Lidé</a>
+  <nav class="tabs tabs-secondary header-nav" id="tabsSecondary" aria-label="Další sekce">
     <a class="navlink" href="/plan/">Plán</a>
-    <a class="navlink" href="/telocvicna/">🔥 Tělocvična</a>
-    <a class="navlink" href="/volby/">Volby</a>
     <a class="navlink" href="/smlouvy/">Smlouvy</a>
     <a class="navlink" href="/zakazky/">Zakázky</a>
     <a class="navlink" href="/pozemky/">Pozemky</a>
     <a class="navlink" href="/pokladna/">Pokladna</a>
     <a class="navlink" href="/o-webu/">O webu</a>
   </nav>
+  <div class="footer-inner footer-credits">
+    <p style="margin:0 0 8px;">👋 Ahoj, já jsem PečkyBot.</p>
+    <img class="peckybot" src="/img/peckybot/welcome.png" alt="PečkyBot">
+    <p style="margin:8px 0 0;">Web je sestaven s pomocí AI. Robot čerpá informace z veřejných dat dostupných na internetu.</p>
+  </div>
   <div class="footer-inner footer-credits">
     <p style="margin:0;">Našli jste nepřesnost? Máte tip na nějaké téma ke zpracování? Zajímá vás něco o Pečkách? Pište na: <a href="mailto:dopecek@gmail.com">dopecek@gmail.com</a>.</p>
   </div>

@@ -5,14 +5,37 @@
 // volebních programů, rozbalovací bloky. Logika specifická pro jednu sekci
 // (Jednání, Pečecké noviny, Lidé) žije přímo v příslušném content/<sekce>.html.
 
-// ===== Floating info tlačítko v hlavičce: odscrolluje na začátek patičky (její horní hrana = horní hrana okna) =====
-const infoFab = document.getElementById('infoFab');
-const siteFooter = document.querySelector('footer.site');
-if (infoFab && siteFooter) {
-  infoFab.addEventListener('click', () => {
-    siteFooter.scrollIntoView({behavior: 'smooth', block: 'start'});
+// ===== Hamburger (info-fab) + overlay-menu =====
+// Hamburger je vidět jen když lišta menu v hlavičce není na obrazovce.
+(function () {
+  const fab = document.getElementById('infoFab');
+  const tabs = document.getElementById('tabs');
+  const overlay = document.getElementById('overlayMenu');
+  const links = document.getElementById('overlayLinks');
+  const closeBtn = document.getElementById('overlayClose');
+  if (!fab || !tabs || !overlay || !links) return;
+  const home = document.createElement('a');
+  home.className = 'navlink';
+  home.href = '/';
+  home.textContent = '🤖 Do Peček';
+  links.appendChild(home);
+  document.querySelectorAll('#tabs .navlink, #tabsSecondary .navlink').forEach(a => {
+    const clone = a.cloneNode(true);
+    if (a.closest('#tabsSecondary')) clone.classList.add('secondary');
+    links.appendChild(clone);
   });
-}
+  const open = () => { overlay.hidden = false; document.body.style.overflow = 'hidden'; };
+  const close = () => { overlay.hidden = true; document.body.style.overflow = ''; };
+  fab.addEventListener('click', open);
+  closeBtn.addEventListener('click', close);
+  overlay.addEventListener('click', e => { if (e.target === overlay) close(); });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape' && !overlay.hidden) close(); });
+  if ('IntersectionObserver' in window) {
+    new IntersectionObserver(([en]) => { fab.hidden = en.isIntersecting; }).observe(tabs);
+  } else {
+    fab.hidden = false;
+  }
+})();
 
 // ===== Responzivní tabulky: zabalit register tabulky do scrollovatelného obalu =====
 document.querySelectorAll('table.register').forEach(t => {
@@ -181,7 +204,13 @@ function relDatum(iso) {
       if (h && h.tagName === 'H4') h.hidden = true;
     }
   });
-  document.querySelectorAll('.dash-list [data-date]').forEach(el => {
+  document.querySelectorAll('.dash-list .rel-date[data-date]').forEach(el => {
+    const stari = relDatum(el.getAttribute('data-date'));
+    if (stari === null) return;
+    el.title = el.textContent.trim();
+    el.textContent = stari;
+  });
+  document.querySelectorAll('.dash-list [data-date]:not(.rel-date)').forEach(el => {
     const stari = relDatum(el.getAttribute('data-date'));
     if (stari === null) return;
     el.title = el.textContent.trim();
@@ -329,5 +358,13 @@ document.querySelectorAll('.exp-row').forEach(row => {
   // widget bez jediné viditelné položky schovat celý
   document.querySelectorAll('.dash-zm').forEach(z => {
     z.hidden = !z.querySelector('li:not([hidden])');
+  });
+})();
+
+// ===== Menu v hlavičce: aktivní položku dorolovat do viditelné části lišty =====
+(function () {
+  document.querySelectorAll('nav.tabs').forEach(tabs => {
+  const act = tabs.querySelector('.navlink.active');
+  if (act) tabs.scrollLeft = Math.max(0, act.offsetLeft - (tabs.clientWidth - act.offsetWidth) / 2);
   });
 })();

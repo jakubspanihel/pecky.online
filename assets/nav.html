@@ -5,7 +5,19 @@
         <img class="brand-logo" src="/img/favicons/icon-192.png" alt="" width="44" height="44">
         <h1>Do Peček . cz</h1>
       </a>
-      <button type="button" class="info-fab" id="infoFab" title="O webu" aria-label="Přejít na patičku s informacemi o webu">i</button>
+      <button type="button" class="info-fab" id="infoFab" title="Menu" aria-label="Otevřít menu" aria-controls="overlayMenu" hidden>☰</button>
     </div>
-  </div>
+{{TAGLINE}}  </div>
+  <nav class="tabs header-nav" id="tabs">
+    <a class="navlink{{ACTIVE:kalendar}}" href="/kalendar/">📅 Kalendář</a>
+    <a class="navlink{{ACTIVE:jednani}}" href="/jednani/">📄 Jednání</a>
+    <a class="navlink{{ACTIVE:zpravodaj}}" href="/noviny/">📰 Pečecké noviny</a>
+    <a class="navlink{{ACTIVE:lide}}" href="/lide/">Lidé</a>
+    <a class="navlink{{ACTIVE:telocvicna}}" href="/telocvicna/">Tělocvična</a>
+    <a class="navlink{{ACTIVE:volby}}" href="/volby/">Volby</a>
+  </nav>
 </header>
+<div class="overlay-menu" id="overlayMenu" role="dialog" aria-modal="true" aria-label="Menu" hidden>
+  <button type="button" class="overlay-close" id="overlayClose" aria-label="Zavřít menu">✕</button>
+  <nav class="overlay-links" id="overlayLinks"></nav>
+</div>
