@@ -473,3 +473,24 @@ stavby v roce 2026“.
   2016 nedohledána (jen „finišuje“ v 8/2016), a hodila by se pro
   přesné porovnání s tvrzením Švejnohové o „kolaudační dokumentaci
   z roku 2015“.
+
+## Doplněno 2. 10. 2026: Facebook města k zasedání ZM 1/2026 (monitoring FB)
+
+Při prvním běhu monitoringu Facebooku (`o-webu/facebook-monitoring/`, měsíc
+2026-03) se mezi příspěvky objevilo video „Nová tělocvična schválena!“
+z 5. 3. 2026 (permalink `https://www.facebook.com/reel/907537705207449/`,
+136 reakcí, 7 komentářů, 8 sdílení). Na žádost uživatele promítnuto do
+`content/telocvicna.html` — nový nejstarší řádek „4.–5. 3. 2026“ v tabulce
+„Zastavení stavby v roce 2026“.
+
+- **Ověření proti zápisu ZM 1/2026 (4. 3. 2026):** stavba má v usneseních
+  jen UZ-2-1/26 (výběr dodavatele MARHOLD + POHL cz, SoD za 168 614 851 Kč
+  bez DPH, 18 – 0 – 2). Formulaci z příspěvku „schválili investiční záměr“
+  zápis neobsahuje — na stránce je to vedené jako rozdíl ve slovníku, ne
+  jako chyba.
+- **Sportovní dotace oddílům** zmíněné v téže zprávě se na stránku Tělocvična
+  záměrně nepromítají (s tělocvičnou nesouvisí, rozhodnutí uživatele).
+- Do stránky se z Facebooku nepromítají zprávy typu odstávka vody (rozhodnutí
+  uživatele — historická, nerelevantní data).
+- Dosud na stránce chybělo celé zasedání ZM 1/2026 (4. 3.) — smlouva z
+  26. 3. byla uvedena jen v tabulce „Vývoj celkové ceny“.
