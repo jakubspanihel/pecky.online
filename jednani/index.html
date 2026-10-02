@@ -55,23 +55,23 @@
   <section class="panel active" id="panel-jednani">
     <p class="lastmod" data-date="2026-10-01">Aktualizováno: 1. 10. 2026</p>
     <h2 class="title display">Jednání a usnesení</h2>
-    <p class="lede" id="jednani-stats">Archiv se právě načítá…</p>
+    <p class="lede" id="jednani-stats">Tady najdete jednání rady města, zastupitelstva, výborů, komisí a školské rady. U každého je program, usnesení a výsledky hlasování. Stačí zadat slovo a zobrazí se, kde se o něm jednalo.</p>
 
-    <div class="search-bar">
-      <input type="search" id="jednani-search" placeholder="Hledat klíčové slovo, např. „vodojem“, „ČOV“, „rozpočet“…" autocomplete="off">
-    </div>
-
-    <p class="search-status" id="jednani-status">Načítám archiv…</p>
-    <div style="display:flex; align-items:center; justify-content:space-between; gap:12px; margin:0 0 14px; flex-wrap:wrap;">
+    <div class="list-control">
+      <div class="search-bar">
+        <input type="search" id="jednani-search" placeholder="Hledat" autocomplete="off" aria-label="Hledat v jednáních">
+      </div>
       <div class="segmented-control">
-        <span class="segmented-label">Zobrazit:</span>
         <div class="segmented-group" role="group" aria-label="Typ jednání">
           <button type="button" class="segmented-btn active" data-type="">Vše</button>
           <button type="button" class="segmented-btn" data-type="Rada">Rada</button>
           <button type="button" class="segmented-btn" data-type="Zastupitelstvo">Zastupitelstvo</button>
           <span class="segmented-more">
-            <button type="button" class="segmented-btn segmented-more-btn" id="jednani-more-btn" aria-haspopup="true" aria-expanded="false">Další…</button>
+            <button type="button" class="segmented-btn segmented-more-btn" id="jednani-more-btn" aria-haspopup="true" aria-expanded="false"><span class="lbl-d">Další…</span><span class="lbl-m">Vše</span> ▾</button>
             <div class="segmented-menu" id="jednani-more-menu" role="menu" hidden>
+            <button type="button" class="segmented-menu-item seg-primary" role="menuitem" data-type="">Vše</button>
+            <button type="button" class="segmented-menu-item seg-primary" role="menuitem" data-type="Rada">Rada</button>
+            <button type="button" class="segmented-menu-item seg-primary" role="menuitem" data-type="Zastupitelstvo">Zastupitelstvo</button>
             <button type="button" class="segmented-menu-item" role="menuitem" data-type="Finanční výbor">Finanční výbor</button>
             <button type="button" class="segmented-menu-item" role="menuitem" data-type="Kontrolní výbor">Kontrolní výbor</button>
             <button type="button" class="segmented-menu-item" role="menuitem" data-type="Sportovní komise">Sportovní komise</button>
@@ -85,6 +85,7 @@
         </div>
       </div>
     </div>
+    <h3 class="search-status" id="jednani-status"><span class="spinner" aria-hidden="true"></span>Načítám archiv…</h3>
     <div id="jednani-results"></div>
 
     <div class="callout">
@@ -432,7 +433,6 @@
         jLinkVyborItems(data.meetings);
         data._years = Array.from(years).sort((a, b) => b - a);
         JEDNANI_DB = data;
-        jRenderStats();
         jRunSearch();
         return data;
       } catch (e) {
@@ -473,30 +473,6 @@
     });
   }
 
-  function jRenderStats(){
-    const el = document.getElementById('jednani-stats');
-    // rozsah let jen za Radu/ZM (usneseni.cz) — výbory sahají dál do minulosti
-    const years = [...new Set(JEDNANI_DB.meetings.filter(m => !jIsVybor(m)).map(m => m.year))].sort((a, b) => b - a);
-    const minY = years[years.length - 1], maxY = years[0];
-    const resCount = JEDNANI_DB.meta.resolutions_count.toLocaleString('cs-CZ');
-    const vc = JEDNANI_DB._vyboryCount;
-    const vyboryYears = JEDNANI_DB.meetings.filter(m => jIsVybor(m) && !jIsKomise(m)).map(m => m.year);
-    const vyboryHtml = vc
-      ? ` K tomu <strong>${vc} jednání finančního a kontrolního výboru</strong> z let ${Math.min(...vyboryYears)}–${Math.max(...vyboryYears)} ze zápisů na <a href="https://pecky.cz/default/default/21133_vybory-zm" target="_blank" rel="noopener">pecky.cz ↗</a>.`
-      : '';
-    const kc = JEDNANI_DB._komiseCount;
-    const komiseYears = JEDNANI_DB.meetings.filter(m => jIsKomise(m) && m.type !== 'Školská rada').map(m => m.year);
-    const komiseHtml = kc
-      ? ` A <strong>${kc} jednání komisí rady města</strong> z let ${Math.min(...komiseYears)}–${Math.max(...komiseYears)} ze zápisů na <a href="https://pecky.cz/default/default/21179_komise-rm" target="_blank" rel="noopener">pecky.cz ↗</a>.`
-      : '';
-    const sc = JEDNANI_DB._skolskaRadaCount;
-    const srYears = JEDNANI_DB.meetings.filter(m => m.type === 'Školská rada').map(m => m.year);
-    const srHtml = sc
-      ? ` A <strong>${sc} jednání školské rady ZŠ Pečky</strong> z let ${Math.min(...srYears)}–${Math.max(...srYears)} ze zápisů na <a href="https://www.zspecky.cz/skola/skolska-rada/zapisy-a-dokumenty-sr/" target="_blank" rel="noopener">webu školy ↗</a>.`
-      : '';
-    el.innerHTML = `Archiv obsahuje <strong>${JEDNANI_DB.meta.meetings_count} jednání</strong> rady a zastupitelstva a <strong>${resCount} usnesení</strong> z let ${minY}–${maxY}, čerpáno z <a href="https://mesto-pecky.usneseni.cz/verejne/" target="_blank" rel="noopener">mesto-pecky.usneseni.cz ↗</a>.${vyboryHtml}${komiseHtml}${srHtml}`;
-  }
-
   // trvalý odkaz na filtr typu jednání: pecky.online/jednani/#rada, #zastupitelstvo
   // konkrétní jednání mají trvalý odkaz podle svého typu (#sportovni-komise-2024-02-06)
   const J_TYPE_TO_HASH = {'Rada': 'rada', 'Zastupitelstvo': 'zastupitelstvo',
@@ -521,11 +497,14 @@
     opts = opts || {};
     jTypeFilter = type;
     document.querySelectorAll('.segmented-btn:not(.segmented-more-btn)').forEach(b => b.classList.toggle('active', b.dataset.type === type));
-    const moreItem = document.querySelector('.segmented-menu-item[data-type="' + type + '"]');
-    document.querySelectorAll('.segmented-menu-item').forEach(b => b.classList.toggle('active', b === moreItem));
+    const curItem = document.querySelector('.segmented-menu-item[data-type="' + type + '"]');
+    const moreItem = curItem && !curItem.classList.contains('seg-primary') ? curItem : null;
+    document.querySelectorAll('.segmented-menu-item').forEach(b => b.classList.toggle('active', b === curItem));
     const moreBtn = document.getElementById('jednani-more-btn');
     moreBtn.classList.toggle('active', !!moreItem);
-    moreBtn.textContent = moreItem ? moreItem.textContent + ' ▾' : 'Další… ▾';
+    // desktop: "Další…" / název vybraného typu mimo tři hlavní; mobil (.lbl-m): vždy název aktivního filtru
+    moreBtn.querySelector('.lbl-d').textContent = moreItem ? moreItem.textContent : 'Další…';
+    moreBtn.querySelector('.lbl-m').textContent = curItem ? curItem.textContent : 'Vše';
     jCloseMoreMenu();
     if (opts.updateHash !== false) {
       const h = J_TYPE_TO_HASH[type];
@@ -931,7 +910,7 @@
     const resultsEl = document.getElementById('jednani-results');
 
     if (!words.length) {
-      statusEl.textContent = `${meetings.length} jednání — klikněte pro rozbalení usnesení, nebo hledejte klíčové slovo výše.`;
+      statusEl.textContent = `${meetings.length} jednání`;
       resultsEl.innerHTML = jRenderMeetingList(meetings);
       jAttachAccordionHandlers();
       return;

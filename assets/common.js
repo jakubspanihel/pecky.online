@@ -30,6 +30,11 @@
   closeBtn.addEventListener('click', close);
   overlay.addEventListener('click', e => { if (e.target === overlay) close(); });
   document.addEventListener('keydown', e => { if (e.key === 'Escape' && !overlay.hidden) close(); });
+  // výška sticky lišty (jen desktop) — odsazení pro sticky nadpisy sekcí
+  const mq = window.matchMedia('(min-width:768px)');
+  const setNavH = () => document.documentElement.style.setProperty('--nav-h', mq.matches ? tabs.offsetHeight + 'px' : '0px');
+  setNavH();
+  window.addEventListener('resize', setNavH);
   if ('IntersectionObserver' in window) {
     new IntersectionObserver(([en]) => { fab.hidden = en.isIntersecting; }).observe(tabs);
   } else {
@@ -367,4 +372,13 @@ document.querySelectorAll('.exp-row').forEach(row => {
   const act = tabs.querySelector('.navlink.active');
   if (act) tabs.scrollLeft = Math.max(0, act.offsetLeft - (tabs.clientWidth - act.offsetWidth) / 2);
   });
+})();
+
+// ===== Výška sticky nadpisu sekce (--title-h) — sticky ovládací prvky se lepí pod něj =====
+(function () {
+  const h = document.querySelector('.panel.active h2.title');
+  if (!h) return;
+  const set = () => document.documentElement.style.setProperty('--title-h', h.offsetHeight + 'px');
+  set();
+  window.addEventListener('resize', set);
 })();
