@@ -404,6 +404,39 @@ Promítnuto do `content/telocvicna.html`: nový řádek „7. 10. 2026
 (plánováno)“ v tabulce „Zastavení stavby v roce 2026“. Po jednání ověřit
 zápis a doplnit znění, cenu a výsledek hlasování.
 
+## Doplněno 1. 10. 2026: pozvánka RM 35/2026
+
+Zdroj: Pozvánka na schůzi rady města 35/2026 (5. 10. 2026, 15:00,
+obřadní síň radnice), PDF z `usneseni.cz`
+(`?uuid=d1e80ae0-bbcd-11f1-a148-0242c0a80002&do=printPublicInvitation`,
+stažená přes `navigate` a přečtená `pdftotext`).
+
+- Bod 10: „Dostavba učeben a tělocvičny v ZŠ Pečky – Dodatek č. 2 k SoD
+  ze dne 26.03.2026 – informace“ (týž dodatek je 7. 10. v programu ZM).
+- Bod 14: TDS na akci Dostavba… – Dodatek č. 1 k Příkazní smlouvě ze dne
+  16.04.2026.
+- Bod 15: KBOZP na akci Dostavba… – Dodatek č. 1 k Příkazní smlouvě ze
+  dne 29.04.2026.
+- Obsah, cena ani důvod dodatků z pozvánky nevyplývají.
+
+Promítnuto do `content/telocvicna.html`: nový řádek „5. 10. 2026
+(plánováno)“ v tabulce „Zastavení stavby v roce 2026“. Po jednání ověřit
+zápis (zejména co obsahuje „informace“ k dodatku č. 2 a zda rada
+dodatky ke příkazním smlouvám schválila).
+
+## Doplněno 1. 10. 2026: zápis Kontrolního výboru 28. 8. 2026
+
+Zdroj: zápis KV z 28. 8. 2026 (pecky.cz, sken, OCR ověřený proti
+obrázku), vytěžený do `jednani/vybory.json`. Jednostránkový zápis: 5 z 7
+členů přítomno, bez usnesení. Výbor se seznámil s podklady ke stavbě
+(protokol TDI o jádrovém vrtání piloty č. 102 z 21. 8., výzva Atelier 99
+ze 14. 8., e-mail A99/Elsa consulting, e-mail Iora/Město Pečky o právních
+službách, bod 3 zápisu RM 24. 8.) — obsah podkladů zápis neuvádí.
+Doplňuje dosud jednostrannou informaci Švejnohové (viz 2. 9. 2026), že se
+výbor stavbou zabýval: je to teď doložené zápisem. Promítnuto do
+`content/telocvicna.html`: nový řádek „28. 8. 2026“ v tabulce „Zastavení
+stavby v roce 2026“.
+
 ## Co hlídat dál
 
 - Jestli a jak vedení města zareaguje konkrétně na tvrzení Švejnohové

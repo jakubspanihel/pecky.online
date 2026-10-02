@@ -1,12 +1,66 @@
 {
   "meta": {
-    "updated": "2026-09-29",
+    "updated": "2026-10-01",
     "source": "https://pecky.cz/default/default/21133_vybory-zm",
     "note": "Jednání finančního a kontrolního výboru zastupitelstva, vytěžená ručně z PDF zápisů zveřejněných na pecky.cz (lokální kopie v jednani/Data/{datum}-financni-vybor|kontrolni-vybor/zapis.pdf). Struktura záznamu odpovídá pecky-jednani.json, rozdíly viz jednani/README.md → „Jednání výborů ZM“. Všechny zápisy zveřejněné na pecky.cz (FV od 11/2018, KV od 3/2020) a tři další, které má jen starý web pecky.as4u.cz (FV 23. 11. 2023, KV 21. 5. 2025, KV 19. 11. 2025).",
-    "meetings_count": 48,
+    "meetings_count": 49,
     "resolutions_count": 75
   },
   "meetings": [
+    {
+      "id": "kontrolni-vybor-2026-08-28",
+      "uuid": null,
+      "type": "Kontrolní výbor",
+      "number": null,
+      "year": 2026,
+      "date": "2026-08-28",
+      "label": "Kontrolní výbor (28. 8. 2026)",
+      "time": "17:30",
+      "time_end": "18:09",
+      "duration_seconds": 2340,
+      "venue": null,
+      "links": {
+        "minutes": "https://pecky.cz/files/pecky/gallery/20110/6abe3b7c8fa64_28-8-2026.pdf",
+        "source_page": "https://pecky.cz/default/default/21176_zapisy-2026"
+      },
+      "attendance": {
+        "present": 5,
+        "total": 7,
+        "present_names": [
+          "Mgr. Alena Švejnohová",
+          "Jiří Katrnoška",
+          "Jaroslava Vosecká",
+          "Ing. Petr Dürr",
+          "Václav Drška"
+        ],
+        "absent_names": [
+          {
+            "name": "Ivana Trčková",
+            "note": "omluvena"
+          },
+          {
+            "name": "Milan Pečenka",
+            "note": "neomluven"
+          }
+        ],
+        "guests": []
+      },
+      "chair": "Mgr. Alena Švejnohová",
+      "recorded_by": "Alena Švejnohová",
+      "agenda": [
+        {
+          "n": 1,
+          "t": "Seznámení s podklady: Protokol TDI o ověřovácím jádrovém vrtání piloty č.102 (21.8.2026); Výzva k dočasnému zastavení stavebních praví – Atelier 99 (ze 14.8.2026); Email A99/Elsa consulting - příloha ZM 5/2026; Email Iora/Město Pečky - žádost o právní služby související se smluvním vztahem Města a Zhotovitele stavby dostavby; Bod 3 ze Zápisu z Rady města 24.8.2026"
+        }
+      ],
+      "resolutions": [],
+      "attachments": [],
+      "extraction": {
+        "method": "ocr",
+        "checked": "2026-10-01",
+        "note": "Jednostránkový sken bez textové vrstvy, přečteno OCR a ověřeno proti obrázku stránky. Zápis nepřijímá žádné usnesení ani nehlasuje. Názvy podkladů přepsány doslova včetně překlepů („ověřovácím“, „stavebních praví“). Jméno „Jirka Katrnoška“ je v zápisu v tomto tvaru, v Lidech vedeno jako Jiří Katrnoška. Zápis podklady jen vyjmenovává — jejich obsah ani závěry výboru neuvádí; k bodu 3 zápisu RM z 24. 8. 2026 (Aktuální informace vedení města) konstatuje, že neobsahuje žádné písemné podklady k prostudování, jen starostovu větu o kontrolním dni stavby a opatřeních vyvolaných pozastavením stavby."
+      }
+    },
     {
       "id": "kontrolni-vybor-2026-06-17",
       "uuid": null,
