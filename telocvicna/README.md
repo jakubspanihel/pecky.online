@@ -530,3 +530,22 @@ kontroly. Starší zápisy v tomto README se nepřepisují — platí tato oprav
 
 Nepromítnuto (rozhodnutí uživatele): ostatní kandidáty z FB (Volby,
 Plán/Zakázky, Jednání, Kalendář) zatím ignorovat.
+
+## Doplněno 2. 10. 2026 (3): příprava stavby na podzim 2025 (Facebook města)
+
+Z monitoringu Facebooku (rok 2025) vybral uživatel tři příspěvky o zdi u ZŠ
+a přípravě dostavby. V `content/telocvicna.html` nová tabulka **„Příprava
+stavby na podzim 2025“** (nad tabulkou „Vývoj celkové ceny“), řazeno od
+nejnovějšího:
+
+- **21. 11. 2025** — zeď „podmínka zahájení“; zadávací řízení na zhotovitele,
+  **lhůta nabídek do 15. 12. 2025**; příprava žádosti o dotaci od NSA
+  (**max. do výše až 30 mil. Kč**); stavba v roce 2026. Další osud žádosti
+  o dotaci není na stránce doložený (přiznáno v textu) — **ověřit** při
+  příští kontrole (usnesení rady/zastupitelstva, Hlídač státu, pecky.cz).
+- **11. 11. 2025** — stavba nadzemní části zdi po dokončení betonáže základů.
+- **31. 10. 2025** — zeď jako první podmínka zahájení; betonáž základů, hotovo
+  do konce 2025; finalizace zadávací dokumentace.
+
+Jde o tvrzení města z Facebooku (stamp „ověřeno, Facebook Město Pečky“ jen
+pro to, že se tak vyjádřilo), ne o zápisy z jednání.

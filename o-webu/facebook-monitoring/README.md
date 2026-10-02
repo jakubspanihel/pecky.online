@@ -18,7 +18,7 @@ Zdroje:
 
 | ID zdroje | Profil | Stav |
 |---|---|---|
-| `facebook-mestopecky` | https://www.facebook.com/mestopecky (Město Pečky) | ruční běhy, zatím jen 2026-03 |
+| `facebook-mestopecky` | https://www.facebook.com/mestopecky (Město Pečky) | ruční běhy, 2025-01 až 2026-09 |
 
 **Soubory `*.json` a `media/` jsou v `.gitignore`** — jsou jen lokální pracovní
 data, do gitu ani na GitHub Pages nejdou. V gitu je jen tento README.
@@ -44,8 +44,22 @@ statistice. Součty reakcí/komentářů se do něj **nedávají** (zkreslují j
 2–4 virální videa, jsou to snímky k `counts_as_of` a odvozená čísla v syrovém
 souboru se rozcházejí s daty). Přepočítává ho skript
 `python3 o-webu/facebook-monitoring/summary.py` — **spustit po každém zápisu
-měsíčního souboru**, ručně se nepíše. Celkové statistiky přes měsíce patří do
-samostatného generovaného přehledu (zatím neexistuje).
+měsíčního souboru**, ručně se nepíše. Přehled přes všechny měsíce
+generuje tentýž skript do `content/fbmonitoring.html` — veřejná stránka
+**Monitoring** na `/o-webu/facebook-monitoring/facebook-mestopecky/`
+(registrace `EXTRA_PAGES['fbmonitoring']` ve `scripts/build.py`, odkaz z
+O webu → Sociální sítě pod položkou „Facebook — Město Pečky (oficiální)“).
+Tabulka je statický snímek (zdrojová JSON jsou v `.gitignore`), takže po
+každém novém měsíci: `summary.py` → `python3 scripts/build.py` → přepsat
+`lastmod` v `EXTRA_PAGES['fbmonitoring']`. Stránka ukazuje měsíc, počet
+příspěvků (bez rozsahu dat), sestupně. Od 2. 10. 2026 je řádek měsíce
+**klikací**: po rozkliknutí se pod ním ukáže rozpad podle typu (pevné
+pořadí text, odkaz, foto, album, video, sdílený příspěvek, událost, změna
+úvodní fotky; jen nenulové) a sdílení z cizích profilů, pak tabulka
+Datum | Obsah — obsah je **krátký popis příspěvku** (pole `popis`, viz
+níže) s odkazem na originál na Facebooku, pod ním
+`👍 reakce 💬 komentáře ♺ sdílení typ: …`. Text příspěvku se na web
+nepřenáší, takže se tam nedostanou jména ani telefony z původních textů.
 
 Příspěvek (řazeno od nejnovějšího):
 
@@ -56,6 +70,7 @@ Příspěvek (řazeno od nejnovějšího):
 | `published` | místní čas (Europe/Prague), ISO bez zóny |
 | `type` | `text`, `odkaz`, `foto`, `album`, `video`, `sdílený příspěvek`, `změna úvodní fotky` |
 | `text` | plné znění, rozbalené, tak jak je (včetně emoji); `null` u čistých sdílení |
+| `popis` | krátký **ručně psaný** popis příspěvku pro veřejnou stránku Monitoring (jedna věta, bez jmen soukromých osob a telefonů; u příspěvků bez textu „Foto (bez textu)“, „Sdílený příspěvek profilu …“). Píše se při sběru měsíce; chybí-li, `summary.py` použije neutrální popis podle typu |
 | `shared_from` | u sdílení: `url`, `page`, a pokud je původní příspěvek v datech, i `post_id`/`published` (text hledat u něj) |
 | `attachments` | u odkazů: `title` + `url` přílohy |
 | `media_count` | počet fotek v albu |
@@ -88,7 +103,7 @@ příspěvky tématy sekcí (kalendář, tělocvična…), přidává se samosta
 5. Z odpovědí vybrat objekty `__typename: "Story"` s `post_id` a
    `creation_time` (duplicity sloučit podle `post_id`, ponechat úplnější),
    převést čas do Europe/Prague a vyfiltrovat jen příspěvky daného měsíce.
-6. Zapsat `yyyy-mm.json`. Při opakovaném běhu stejného měsíce slučovat podle
+6. U každého příspěvku doplnit pole `popis` (viz tabulka polí). Zapsat `yyyy-mm.json`. Při opakovaném běhu stejného měsíce slučovat podle
    `id` a přepisovat jen počty a případně změněný `text`. Pak spustit
    `summary.py`.
 7. **Kandidáti do jiných sekcí webu** (např. stavba tělocvičny → Tělocvična,

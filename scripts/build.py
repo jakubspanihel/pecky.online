@@ -164,6 +164,17 @@ EXTRA_PAGES = {
         # proto má lastmod a jde do sitemapy. Statický snímek k datu lastmod.
         # helpers.js: avatary a vizitka osoby (pcAvatarHtml/pcDetailHtml)
         True, 'jednani', '2026-09-30'),
+    'fbmonitoring': (
+        '/o-webu/facebook-monitoring/facebook-mestopecky/',
+        'Monitoring Facebooku města Pečky — Do Peček . cz',
+        'Které měsíce z oficiálního facebookového profilu Města Pečky máme '
+        'sesbírané a kolik příspěvků v nich vyšlo.',
+        # Odkázaná z O webu -> Sociální sítě (u položky "Facebook — Město Pečky")
+        # od 2. 10. 2026 — proto má lastmod a jde do sitemapy. Obsah
+        # content/fbmonitoring.html GENERUJE o-webu/facebook-monitoring/summary.py
+        # (statický snímek tabulky; zdrojová JSON jsou v .gitignore). Po každém
+        # novém měsíci: pustit summary.py, build a přepsat lastmod níže.
+        False, 'owebu', '2026-10-02'),
 }
 
 
