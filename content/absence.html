@@ -39,7 +39,7 @@
       <p>Zdrojem je jmenná prezence ze zápisů. U Rady a Zastupitelstva ze zápisů zveřejněných na <a href="https://mesto-pecky.usneseni.cz/verejne/" target="_blank" rel="noopener">mesto-pecky.usneseni.cz</a> (datová sada <code>jednani/pecky-jednani.json</code>); u Finančního a Kontrolního výboru ze zápisů zveřejněných na pecky.cz jako PDF (datová sada <code>jednani/vybory.json</code>, viz <a href="/jednani/">sekce Jednání</a>). U každého jednání zápis vypisuje přítomné jmenovitě a zvlášť omluvené a nepřítomné; u části jednání navíc každý příchod a odchod v průběhu.</p>
 
       <div class="callout">
-        <strong>Co čísla znamenají.</strong> Prezence v zápisu je pořízená při zahájení jednání. Příchody a odchody v jeho průběhu zapisovatel eviduje zvlášť („V 15:45:53 přišel Ing. Petr Dürr, přítomno 7 z 7 radních") a my je do výpočtu započítali — sloupec <em>Docházka</em> proto počítá jako účast i jednání, na která člověk dorazil později (podrobnosti jsou v poznámce u řádku). Rozdíl je podstatný: bez téhle opravy by u jednoho radního vyšla docházka 41 % místo 69 %.
+        <strong>Co čísla znamenají.</strong> Prezence v zápisu je pořízená při zahájení jednání. Příchody a odchody v jeho průběhu zapisovatel eviduje zvlášť („V 15:45:53 přišel Ing. Petr Dürr, přítomno 7 z 7 radních"). Výpočet je započítává — sloupec <em>Docházka</em> proto počítá jako účast i jednání, na která člověk dorazil později (podrobnosti jsou v poznámce u řádku). Rozdíl je podstatný: bez téhle opravy by u jednoho radního vyšla docházka 41 % místo 69 %.
         <br><br>
         <strong>Odchody se do docházky nepočítají.</strong> Kdy někdo odešel dřív, je uvedené v poznámce pod jménem — zůstat do konce jednání není povinnost a přesnou délku účasti ze zápisu spočítat nejde. Čte se ale spolu s docházkou: kdo nechyběl ani jednou, mohl přesto odejít z poloviny jednání.
         <br><br>
@@ -112,7 +112,7 @@
   const predchoziOtevrene = new Set();
   const VYHRADA_PREDCHOZI = {
     'Finanční výbor': '<strong>Pozor na úplnost.</strong> Jde o zveřejněné zápisy. U zápisu z 22. 11. 2018 není zaznamenaná účast, takže se do absence nepromítá — první započtené jednání je z 28. 11. 2018. Ladislav Zindr je ve výboru až od 27. 3. 2019.',
-    'Kontrolní výbor': '<strong>Pozor na malý a neúplný vzorek.</strong> Zápisy z let 2018–2020 zveřejněné nejsou, máme jen 3 jednání. Zápisy z 22. 9. a 10. 11. 2021 nezmiňují jednu členku (ani mezi přítomnými, ani mezi nepřítomnými), pro tato jednání ji tabulka nepočítá.',
+    'Kontrolní výbor': '<strong>Pozor na malý a neúplný vzorek.</strong> Zápisy z let 2018–2020 zveřejněné nejsou, k dispozici jsou jen 3 jednání. Zápisy z 22. 9. a 10. 11. 2021 nezmiňují jednu členku (ani mezi přítomnými, ani mezi nepřítomnými), pro tato jednání ji tabulka nepočítá.',
   };
 
   function personFor(jmeno){

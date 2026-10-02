@@ -23,6 +23,8 @@ SOURCE_URL = 'https://www.facebook.com/mestopecky'
 
 MONTHS = ['Leden', 'Únor', 'Březen', 'Duben', 'Květen', 'Červen',
           'Červenec', 'Srpen', 'Září', 'Říjen', 'Listopad', 'Prosinec']
+MONTHS_GEN = ['ledna', 'února', 'března', 'dubna', 'května', 'června', 'července',
+              'srpna', 'září', 'října', 'listopadu', 'prosince']
 TYPE_LABELS = {
     'sdílený příspěvek': 'sdílení', 'odkaz': 'odkazy', 'text': 'texty',
     'album': 'alba', 'foto': 'foto', 'video': 'video',
@@ -124,6 +126,9 @@ def render_page(months):
     total = sum(s['posts'] for _, s, _, _ in months)
     counts = max((c for *_, c in months if c), default=None)
     counts_cz = cz_date(counts + 'T00:00') if counts else 'neuvedeno'
+    prvni, posledni = months[-1][0], months[0][0]  # months jsou sestupně
+    od_txt = f'{MONTHS_GEN[int(prvni[5:]) - 1]} {prvni[:4]}'
+    do_txt = f'{MONTHS_GEN[int(posledni[5:]) - 1]} {posledni[:4]}'
     return f'''  <style>
     .fb-row{{cursor:pointer;}}
     .fb-row:hover td,.fb-row:focus-visible td{{background:var(--parchment-deep);}}
@@ -137,7 +142,7 @@ def render_page(months):
   </style>
   <section class="panel active" id="panel-fbmonitoring">
     <h2 class="title display">Monitoring Facebooku: Město Pečky</h2>
-    <p class="lede">Archiv příspěvků oficiálního facebookového profilu města. Tabulka ukazuje, které měsíce máme sesbírané a kolik příspěvků v nich vyšlo. Kliknutím na měsíc se rozbalí rozpad podle typu a seznam příspěvků.</p>
+    <p class="lede">Příspěvky z oficiálního facebookového profilu Města Pečky od {od_txt} po měsících. U každého měsíce je počet příspěvků, po rozkliknutí rozpad podle typu a seznam příspěvků s odkazy na Facebook.</p>
 
     <div class="table-scroll">
     <table class="register">
@@ -149,7 +154,7 @@ def render_page(months):
     </table>
     </div>
 
-    <p class="meta-note">Příspěvky se sbírají ručně z veřejného profilu <a href="{SOURCE_URL}" target="_blank" rel="noopener">facebook.com/mestopecky</a> a řadí se podle data zveřejnění. Počítají se všechny příspěvky profilu v daném měsíci, včetně sdílení příspěvků jiných profilů a změn úvodní fotky. U každého příspěvku je jen krátký popis s odkazem na originál na Facebooku; počty reakcí (👍), komentářů (💬) a sdílení (♺) jsou stav k {counts_cz}. Měsíce, které v tabulce nejsou, zatím nejsou sesbírané. Zpět na <a href="/o-webu/#owebu-socialni">Sociální sítě</a>. <span class="stamp">ověřeno</span></p>
+    <p class="meta-note">Data pocházejí z veřejného profilu <a href="{SOURCE_URL}" target="_blank" rel="noopener">facebook.com/mestopecky</a> a řadí se podle data zveřejnění. Počítají se všechny příspěvky profilu v daném měsíci, včetně sdílení příspěvků jiných profilů a změn úvodní fotky. U každého příspěvku je jen krátký popis s odkazem na originál na Facebooku; počty reakcí (👍), komentářů (💬) a sdílení (♺) jsou stav k {counts_cz}. Přehled pokrývá období od {od_txt} do {do_txt}. Dřívější a pozdější měsíce v něm zatím nejsou. Zpět na <a href="/o-webu/#owebu-socialni">Sociální sítě</a>. <span class="stamp">ověřeno</span></p>
     <script>
     document.querySelectorAll('#panel-fbmonitoring .fb-row').forEach(function (tr) {{
       function toggle() {{

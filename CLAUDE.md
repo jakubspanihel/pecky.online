@@ -66,6 +66,21 @@ příslušný `content/<sekce>.html` a přepsat všechny odkazy, pak spustit
   Krátké a jednoduché věty. Popisuje, co na stránce *je* — ne obecný výklad
   tématu. Přesnost má přednost před svižností: nic, co se nedá doložit daty
   na té stránce. Nepřehánět počty ani rozsah („u většiny" jen když to sedí).
+- **Copywriting pravidla pro všechny texty na webu** (perexy, popisky, calloutu,
+  poznámky, tabulky, generované stránky) — **kromě přímých citací** zdrojů:
+  - **Žádné „my".** Web nemá autorský kolektiv, který by mluvil o sobě: nepsat
+    „máme", „jsme", „našli jsme", „zkusili jsme", „naše", „nezveřejňujeme",
+    „sbíráme". Psát věcně a neosobně: *co na stránce je* („Přehled obsahuje…",
+    „Výpočet započítává…", „je dopočítané z…", „k dispozici jsou 3 jednání").
+  - **Žádný interní slang**, kterému čtenář nerozumí: „sesbírané", „vytěženo",
+    „snímek dat", „rozpracované", „bereme z…". Říct, co čtenář vidí a odkud to je.
+  - Neodkazovat na to, jak práce probíhá („sbírá se ručně"); stačí zdroj
+    („Data pocházejí z veřejného profilu…").
+  - Rozsah a mezery uvádět konkrétně („od ledna 2025 do září 2026"), ne
+    obecně („zatím nemáme všechno").
+  - Kontrola před publikací: `grep -iE "\b(máme|jsme|naše|našich|nám|nás)\b"`
+    v `content/*.html` a generátorech; shody jsou povolené jen v citacích
+    a v názvech (např. uskupení NAŠE PEČKY, skupina „Máme rádi Pečky").
 - **Stav načítání** (`.search-status`) je vždy `<h3 class="search-status">` s `<span class="spinner" aria-hidden="true"></span>` před textem (vzor: Jednání) a po načtení v něm zůstává jen počet záznamů. Platí pro každou novou sekci s načítáním dat.
 - Žádná vymyšlená data — každý fakt buď označit jako ověřený (.stamp),
   nebo přiznat jako mezeru (.callout)
