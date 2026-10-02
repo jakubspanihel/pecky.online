@@ -66,6 +66,7 @@ příslušný `content/<sekce>.html` a přepsat všechny odkazy, pak spustit
   Krátké a jednoduché věty. Popisuje, co na stránce *je* — ne obecný výklad
   tématu. Přesnost má přednost před svižností: nic, co se nedá doložit daty
   na té stránce. Nepřehánět počty ani rozsah („u většiny" jen když to sedí).
+- **Stav načítání** (`.search-status`) je vždy `<h3 class="search-status">` s `<span class="spinner" aria-hidden="true"></span>` před textem (vzor: Jednání) a po načtení v něm zůstává jen počet záznamů. Platí pro každou novou sekci s načítáním dat.
 - Žádná vymyšlená data — každý fakt buď označit jako ověřený (.stamp),
   nebo přiznat jako mezeru (.callout)
 - Needit vygenerované stránky přímo (viz sekce Struktura výše) — vždy

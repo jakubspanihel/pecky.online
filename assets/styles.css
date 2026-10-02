@@ -137,7 +137,7 @@
   a.year-btn-label:hover{background:rgba(124,47,43,0.08); color:var(--burgundy);}
   span.year-btn-label{cursor:default; opacity:0.85;}
 
-  .text-toggle{display:inline-block; font-family:var(--font-mono); font-size:13px; font-weight:700; letter-spacing:0.02em; margin:2px; padding:9px 2px; border:none; background:none; color:var(--burgundy); cursor:pointer; text-decoration:underline;}
+  .text-toggle{display:inline-flex; align-items:center; white-space:nowrap; flex-shrink:0; font-family:var(--font-mono); font-size:13px; font-weight:700; letter-spacing:0.02em; margin:2px; padding:9px 2px; border:none; background:none; color:var(--burgundy); cursor:pointer; text-decoration:underline;}
   .text-toggle:hover{color:var(--burgundy-deep);}
   .text-toggle.active{color:var(--burgundy-deep);}
 
@@ -174,7 +174,7 @@
   .kal-toolbar{position:sticky; top:var(--kal-top,48px); z-index:9; background:var(--parchment); padding:8px 0; margin-top:14px !important;}
   .kal-toolbar > .segmented-control{order:1; margin-left:auto;}
   .kal-toolbar > .filter-chips{order:2; flex-basis:100%; margin:0;}
-  .kal-ico{vertical-align:-2px; margin-right:6px;}
+  .kal-ico{vertical-align:-2px; margin-right:6px; flex-shrink:0;}
   .kal-toolbar .kal-ico{vertical-align:-2px; margin-right:6px;}
   .kal-toolbar #kal-filter-toggle, .search-bar #lide-filter-toggle{padding:7px 11px; border-radius:3px; text-decoration:none; font-size:11.5px; border:1px solid transparent;}
   .kal-toolbar #kal-filter-toggle.active, .search-bar #lide-filter-toggle.active{background:var(--burgundy); color:#fff; border-color:var(--burgundy);}
@@ -572,12 +572,17 @@
     font-size:14px; border-radius:2px; color:var(--ink);
   }
   .search-bar input[type=search]::placeholder{color:var(--ink-soft);}
-  .search-bar select, #lide-filter-org{
+  .search-bar select, .list-filters select{
     padding:10px 10px; border:1px solid var(--line); background:var(--parchment-deep);
     font-family:var(--font-mono); font-size:12px; border-radius:2px; color:var(--ink-soft);
   }
   .list-control{position:sticky; top:var(--title-h,0px); z-index:9; background:var(--parchment); display:flex; align-items:center; justify-content:space-between; gap:12px; margin:14px 0; padding:8px 0; flex-wrap:wrap;}
-  .list-control > .search-bar{flex:1 1 260px; margin:0;}
+  .list-control > .list-filters{flex:1 0 100%; margin:0;}
+  .list-control > .list-filters[hidden]{display:none;}
+  .list-filters .filter-row{display:flex; flex-wrap:wrap; gap:8px 12px; align-items:center;}
+  .list-filters .checkbox-label{font-size:13px;}
+  .list-control > .search-bar{flex:1 1 260px; margin:0; flex-wrap:nowrap;}
+  .list-control > .search-bar input[type=search]{min-width:0;}
   .list-control > .segmented-control{margin-left:auto;}
   h3.search-status{margin:0 0 12px; font-family:var(--font-display); font-size:var(--fs-h3); font-weight:600; color:var(--ink);}
   /* filtr typu: na desktopu segmentovaný přepínač; na mobilu jedno tlačítko s aktivní volbou, vše ostatní v menu */
@@ -585,6 +590,8 @@
   @media (max-width:600px){
     .list-control{flex-wrap:nowrap; align-items:stretch;}
     .list-control > .search-bar{flex:1 1 0; min-width:0;}
+    .list-control:has(> .list-filters){flex-wrap:wrap;}
+    .list-filters select{max-width:100%;}
     .list-control > .segmented-control{flex:0 1 auto; flex-wrap:nowrap; min-width:0; max-width:48%;}
     .list-control .segmented-control, .list-control .segmented-group, .list-control .segmented-more{display:flex; align-items:stretch;}
     .list-control .segmented-group{flex-wrap:nowrap; max-width:100%; min-width:0;}
