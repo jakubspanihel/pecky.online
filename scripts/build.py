@@ -39,7 +39,7 @@ GA_MEASUREMENT_ID = 'G-1CW9XK1VJY'
 # slug -> (výstupní cesta, title, meta description, potřebuje assets/helpers.js)
 MANIFEST = {
     'domu': (
-        '/', 'Do Peček . cz — Pečky pohledem umělé inteligence',
+        '/', 'Do Peček . cz — Abyste věděli, co se ve městě děje',
         'Neoficiální občanský transparentní web o městě Pečky (okres Kolín): '
         'zastupitelstvo, rada, smlouvy, zakázky a Pečecké noviny na jednom místě.',
         False),
