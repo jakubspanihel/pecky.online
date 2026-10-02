@@ -549,3 +549,12 @@ nejnovějšího:
 
 Jde o tvrzení města z Facebooku (stamp „ověřeno, Facebook Město Pečky“ jen
 pro to, že se tak vyjádřilo), ne o zápisy z jednání.
+
+## Doplněno 3. 10. 2026: Facebook města 2021 (monitoring FB)
+Z monitoringu Facebooku města za rok 2021 doplněny do tabulky „Historie projektu“ (`content/telocvicna.html`) dva řádky:
+22. 2. 2021 (Rada schválila výběr dodavatele projektové dokumentace, studie OV ARCHITEKTI; datum „pondělí“ dopočítáno
+z příspěvku z 24. 2. 2021, zápis v archivu není — usneseni.cz začíná v dubnu 2021) a 17. 9. 2021 (pozvánka na veřejnou
+prezentaci dokumentace 23. 9. 2021; tvrzení města o chybějící tělocvičně a o rozhodnutí z roku 1984 uvedeno jako
+tvrzení z příspěvku). Příspěvky z 30. 3. 2021 (dotace kraje na Mlýnský náhon, dešťovou vodu, stezku v ul. Milčická) a
+4. 1. 2021 (smlouva na budovu u nádraží) s tělocvičnou nesouvisejí. Roky 2022 a 2023 v monitoringu žádný příspěvek
+k tělocvičně neobsahují.

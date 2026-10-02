@@ -18,7 +18,7 @@ Zdroje:
 
 | ID zdroje | Profil | Stav |
 |---|---|---|
-| `facebook-mestopecky` | https://www.facebook.com/mestopecky (Město Pečky) | ruční běhy, 2024-01 až 2026-09 |
+| `facebook-mestopecky` | https://www.facebook.com/mestopecky (Město Pečky) | ruční běhy, 2021-01 až 2026-09 |
 
 **Soubory `*.json` a `media/` jsou v `.gitignore`** — jsou jen lokální pracovní
 data, do gitu ani na GitHub Pages nejdou. V gitu je jen tento README.

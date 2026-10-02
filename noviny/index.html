@@ -53,7 +53,7 @@
 
 <main>
   <section class="panel active" id="panel-zpravodaj">
-    <p class="lastmod" data-date="2026-09-16">Aktualizováno: 16. 9. 2026</p>
+    <p class="lastmod" data-date="2026-10-02">Aktualizováno: 2. 10. 2026</p>
     <h2 class="title display">Pečecké noviny</h2>
     <p class="lede" id="noviny-lede">Tady najdete obálky a PDF měsíčníku Pečecké noviny. Stačí zadat slovo a zobrazí se, na kterých stranách kterého vydání se objevilo.</p>
     <div class="list-control">
@@ -233,6 +233,8 @@
         <div class="cap">Březen 2023</div>
       </a>
     </div>
+
+    <div class="term-divider"><span>Listopad 2022 – únor 2023: vydávání pozastaveno (rada města, 10. 11. 2022) · od března 2023 nový vzhled</span></div>
 
     <h3 class="display" style="margin:30px 0 4px;">2022</h3>
     <div class="noviny-grid">
@@ -1008,8 +1010,8 @@
       <li><strong>2016:</strong> leden</li>
       <li><strong>2019:</strong> srpen</li>
       <li><strong>2020:</strong> srpen</li>
-      <li><strong>2022:</strong> listopad, prosinec</li>
-      <li><strong>2023:</strong> leden, únor</li>
+      <li><strong>2022:</strong> listopad, prosinec (vydávání dočasně pozastaveno, viz oddělovač v přehledu výše)</li>
+      <li><strong>2023:</strong> leden, únor (vydávání pozastaveno)</li>
       <li><strong>2025:</strong> leden</li>
     </ul>
     <p class="program-note">Rok 2026 průběžně pokračuje (zatím vydáno do čísla červenec–srpen) — chybějící pozdější měsíce nejsou mezera, ještě nevyšly. U vydání 2001-06 a 2006-01 (dohromady 8 stran) byl extrahovaný text z PDF nepoužitelný (poškozené vlastní kódování fontů z tehdejšího DTP softwaru) — fulltext pro tato dvě čísla proto pochází z OCR (Tesseract, čeština), ne z přímé extrakce jako zbytek archivu; ojedinělá chyba rozpoznání v hustě sázených tabulkách je proto pravděpodobnější než jinde. Celý ročník 2012–2015 (44 vydání) jsou čisté naskenované obrázky bez textové vrstvy — fulltext pro celou tuhle dávku proto pochází z OCR stejně jako u zmíněných dvou čísel.</p>
@@ -1115,10 +1117,14 @@
     statusEl.textContent = `${hits.length} shod v ${editionCount} vydáních`
       + (hits.length > shown.length ? ` — zobrazeno prvních ${shown.length}, zpřesněte hledání` : '');
 
+    let lastYear = null;
     resultsEl.innerHTML = shown.map(h => {
+      const year = Math.floor(nEditionSortKey(h.ed) / 100);
+      const yearHead = year !== lastYear ? `<h3 class="display" style="margin:30px 0 4px;">${year}</h3>` : '';
+      lastYear = year;
       const snippet = nSnippet(h.text, h.norm, words);
       const pdfHref = (h.ed.url || (window.SITE_BASE_PATH + '/noviny/Data/PN%20' + h.ed.year + '/' + h.ed.slug + '.pdf')) + '#page=' + h.page;
-      return `<div class="hit-card hit-card--noviny">
+      return yearHead + `<div class="hit-card hit-card--noviny">
         <a class="hit-preview" href="${pdfHref}" target="_blank" rel="noopener">
           <img src="/noviny/pages/${h.ed.slug}/${h.page}.jpg" alt="Náhled strany ${h.page}" loading="lazy">
         </a>
