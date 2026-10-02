@@ -66,6 +66,14 @@ function pcTlRank(t){
 function pcFullName(p){
   return [p.title_before, p.first_name, p.last_name, p.title_after].filter(Boolean).join(' ');
 }
+// Vizitky: u osob s `censor_surname` jen iniciála příjmení + chip „cenzura";
+// data zůstávají celá, mění se jen vizuální výpis. Vrací HTML.
+function pcDisplayNameHtml(p){
+  if (!p.censor_surname) return jEscapeHtml(pcFullName(p));
+  const ini = (p.last_name || '').trim().charAt(0);
+  return jEscapeHtml([p.first_name, ini ? ini + '.' : ''].filter(Boolean).join(' ')) +
+    ' <span class="stamp stamp-sm stamp-plain">cenzura</span>';
+}
 function pcPlainName(p){
   return [p.first_name, p.last_name].filter(Boolean).join(' ');
 }
@@ -228,7 +236,7 @@ function pcDetailHtml(p, opts){
   return `
       <div class="person-detail" id="${jEscapeHtml(opts.id || ('person-detail-' + p.id))}">
         <div class="detail-head">
-          <span class="detail-name">${jEscapeHtml(pcFullName(p))}${
+          <span class="detail-name">${pcDisplayNameHtml(p)}${
             (p.former_last_names || []).length
               ? ` <span class="occ-note">dříve ${jEscapeHtml(p.former_last_names.join(', '))}</span>`
               : ''}</span>

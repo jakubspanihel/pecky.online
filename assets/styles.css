@@ -232,6 +232,8 @@
   }
   .stamp::before{content:"✓"; font-size:11px;}
   .stamp-sm{font-size:8.5px; padding:2px 6px; margin-top:4px;}
+  .stamp-plain::before{content:none;}
+  .name .stamp-plain, .detail-name .stamp-plain{margin-top:0; vertical-align:middle;}
 
   /* ===== Home hero ===== */
   .hero-grid{display:grid; grid-template-columns:1.3fr 1fr; gap:32px; margin-bottom:8px;}
