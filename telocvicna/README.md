@@ -494,3 +494,39 @@ z 5. 3. 2026 (permalink `https://www.facebook.com/reel/907537705207449/`,
   uživatele — historická, nerelevantní data).
 - Dosud na stránce chybělo celé zasedání ZM 1/2026 (4. 3.) — smlouva z
   26. 3. byla uvedena jen v tabulce „Vývoj celkové ceny“.
+
+## Doplněno 2. 10. 2026 (2): Facebook města květen–září + oprava data vyjádření
+
+Z monitoringu Facebooku (`o-webu/facebook-monitoring/`, měsíce 2026-05 až
+2026-09) vybral uživatel čtyři příspěvky pro Tělocvičnu. V
+`content/telocvicna.html`, tabulka „Zastavení stavby v roce 2026“:
+
+- **1. 6. 2026** — dopravní omezení: uzavřená část ulice K. Havlíčka
+  Borovského od 3. 6. 2026, podle předpokladů do konce listopadu 2027;
+  K + R parkoviště, asistenti a městská policie na přechodech.
+- **4. 6. 2026** — město na Facebooku potvrzuje oficiální zahájení stavby
+  (tělocvična, aula, odborné učebny).
+- **30. 7. 2026** — návštěva náměstka hejtmanky Jana Skopečka na stavbě,
+  rozhovor o možnostech financování a dofinancování. Příspěvek nezmiňuje
+  částku ani dohodu a o pilotách mlčí; časově předchází první dohledané
+  zmínce o problému (RM 28/2026, 10. 8.).
+- **23. 9. 2026** — „Reakce vedení města na příspěvek zastupitelky Aleny
+  Švejnohové“: právní stanovisko doručeno krátce před ZM 16. 9. a předáno
+  zastupitelům beze změn, s výhradou, že není konečné; dokumentace se
+  dohledává, byla zajištěna proti skartaci; stanovisko podle města
+  neurčuje konečnou odpovědnost. Jednostranné vyjádření — na stránce
+  vedeno pod jménem města; příspěvek Švejnohové, na který reaguje,
+  v textu není citován. Doplněna věta i do callout „Zápis ze zasedání
+  zastupitelstva 16. 9. 2026 stanovisko právní kanceláře … neobsahuje“.
+
+**Oprava data (ověřeno v Chrome 2. 10. 2026):** vyjádření vedení města k
+pozastavení stavby (permalink `…pfbid0gi67kJjpLYcy3gjuLNim8Co2ggPyUi1REnGAVrhJscmbWtQK12Ty4nMREwWahxkzl`)
+bylo zveřejněno **3. 9. 2026 v 16:50** (Facebook u příspěvku ukazuje „3. září
+v 16:50“, totéž vychází z GraphQL dat monitoringu), ne 4. 9. v 0:20, jak
+uvádí sekce „Doplněno 4. 9. 2026“ výše. Na stránce přepsáno na 3. 9. 2026
+(řádek v tabulce, stamp, odkaz v seznamu, věta v „Otevřené otázky“);
+poznámka o kontrole Aktualit „k 4. 9. 2026“ zůstává, to je datum té
+kontroly. Starší zápisy v tomto README se nepřepisují — platí tato oprava.
+
+Nepromítnuto (rozhodnutí uživatele): ostatní kandidáty z FB (Volby,
+Plán/Zakázky, Jednání, Kalendář) zatím ignorovat.

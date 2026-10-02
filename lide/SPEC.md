@@ -131,7 +131,7 @@ Jednání a Pečecké noviny. Lokálně `python3 -m http.server`.
       ],
       "bio": "Starosta města. Do funkce ho zastupitelstvo zvolilo…",
       "tags": ["zastupitel", "rada", "vedeni-mesta", "ods"],
-      "sources": [{ "label": "Ustavující zasedání ZM 7/2022 — zápis", "url": "https://…" }],
+      "sources": ["zm-ustavujici-2022-zapis"],
       "verified": "2026-08-27"
     }
   ]
@@ -152,7 +152,7 @@ Jednání a Pečecké noviny. Lokálně `python3 -m http.server`.
 | `aliases` | string[] | — | dřívější `id` sloučených záznamů; router podle nich přesměrovává |
 | `occupations` | objekt[] | — | povolání **tak, jak ho člověk sám uvedl ve volebních podkladech** — ne ověřený současný stav. Pole s ročníkem, viz §3.6c |
 | `tags` | string[] | ✅ | viz §3.5 |
-| `sources` | objekt[] | ✅ | `{label, url}`; min. 1 u každé osoby s funkcí |
+| `sources` | string[] | ✅ | id zdrojů z `sources.json` (§3.8); min. 1 u každé osoby s funkcí |
 | `verified` | `YYYY-MM-DD` \| `null` | ✅ | `null` = neověřeno → **žádný stamp v UI** |
 
 ### 3.3 `organizations.json`
@@ -205,7 +205,7 @@ strojově čitelné místo. Validátor hlídá, že dvě uskupení nemají tuté
   "to": null,
   "current": true,
   "note": "Zvolen na ustavujícím zasedání ZM 7/2022, usnesení UZ-90-7/22, hlasování 13–6–2 (pro–proti–zdržel se).",
-  "sources": [{ "label": "Usnesení UZ-90-7/22", "url": "https://…" }],
+  "sources": ["usneseni-uz-90-7-22"],
   "verified": "2026-08-27"
 }
 ```
@@ -312,7 +312,7 @@ nic nerozbíjí):
   "to": null,
   "current": true,
   "note": "",
-  "sources": [{"label": "Kandidátní listina, volby 2022", "url": "https://volby.gov.cz/…"}],
+  "sources": ["csu-kandidati-2022"],
   "verified": "2026-08-31"
 }
 ```
@@ -391,6 +391,35 @@ o změně příjmení.
 Zdroje: `volby/2026/data-export.csv` (105 kandidátů) pro rok 2026,
 [Poradna pro obce](https://www.poradnaproobce.cz/vysledky-voleb-zastupitelstva-obci/2022/stredocesky-kraj/kolin/pecky-537641)
 pro 21 zvolených roku 2022. Údaj mají i lidé, které panel nevypisuje.
+
+### 3.8 `sources.json` — číselník zdrojů a vynechávání prázdných polí
+
+**Zdroje.** Stejný zdroj (kandidátní listina ČSÚ, Pečecké noviny, stránka
+učitelů ZŠ) se opakuje u desítek až stovek záznamů, proto osoby, vazby i
+organizace nenesou objekt `{label, url}`, ale jen jeho id:
+
+```json
+// sources.json
+{ "sources": { "csu-kandidati-2022": { "label": "Kandidátní listina, volby 2022 — ČSÚ, volby.gov.cz", "url": "https://volby.gov.cz/…" } } }
+// affiliations.json / people.json / organizations.json
+"sources": ["csu-kandidati-2022"]
+```
+
+- id odpovídá `[a-z0-9-]+`, doporučený tvar `<původce>-<co>-<rok>`; po zveřejnění se
+  nemění (stejně jako id osob).
+- Nový zdroj se nejdřív přidá do `sources.json`, pak se na něj odkáže. Validátor
+  chybí-li id v číselníku, hlásí chybu; nepoužitý zdroj je jen varování.
+- Web číselník načítá `pcLoadSources()` z `assets/helpers.js`; `pcSourceLinks()`
+  id rozbalí na odkaz. Stránka, která vykresluje vizitku osoby, musí `pcLoadSources()`
+  zavolat před vykreslením (Lidé, Absence, Odpracováno už to dělají).
+- Zdroje `photo_source` u fotek (§3.7) zůstávají volný text přímo v záznamu.
+
+**Prázdná pole se nezapisují.** Chybějící `email`, `phone`, `bio`, `photos`,
+`title_before`, `title_after`, `former_last_names`, `aliases`, `occupations`
+u osoby a `note` u vazby znamenají totéž co prázdná hodnota (`""`, `[]`).
+Povinná pole (`id`, `first_name`, `last_name`, `gender`, `tags`, `sources`,
+`verified`) zůstávají vždy. Kód webu s chybějícími poli počítá
+(`p.bio ? … : ''`, `(p.photos || [])`), nová pole proto nevyplňovat prázdnými hodnotami.
 
 ### 3.7 `photos` — víc fotek na osobu
 

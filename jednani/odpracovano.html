@@ -165,6 +165,7 @@
   Promise.all([
     fetch('/lide/people.json'), fetch('/lide/organizations.json'), fetch('/lide/affiliations.json')
   ]).then(rs => { if (!rs.every(r => r.ok)) throw new Error('fetch'); return Promise.all(rs.map(r => r.json())); })
+    .then(async docs => { await pcLoadSources().catch(() => null); return docs; })
     .then(([peopleDoc, orgsDoc, affsDoc]) => {
       (orgsDoc.organizations || []).forEach(o => { ORG_BY_ID[o.id] = o; });
       AFFS = affsDoc.affiliations || [];

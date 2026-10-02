@@ -66,6 +66,8 @@ people.json          381 osob (21 aktuálních zastupitelů + 2 bývalí s plný
                       21 pedagogů ZUŠ Pečky, 48 pedagogů ZŠ Pečky,
                       22 lidí z MŠ MAŠINKA Pečky, 2 noví z výboru
                       Pečeckého okrašlovacího spolku, 16 nových z AFK Pečky — viz níž)
+sources.json         číselník zdrojů (id → label + url), odkazují se na něj
+                      osoby, vazby i organizace v poli `sources` (SPEC.md §3.8)
 organizations.json   24 organizací (Město Pečky + 8 volebních uskupení +
                       7 příspěvkovek + 2 firmy + 6 spolků — poslední
                       4 spolky/firmy založeny jinou souběžnou session
@@ -75,6 +77,12 @@ organizations.json   24 organizací (Město Pečky + 8 volebních uskupení +
 affiliations.json   615 vazeb osoba–organizace
 validate.mjs         validátor
 ```
+
+**Zdroje:** `lide/sources.json` je jiný soubor než kořenový `sources.json`
+(ten je přehled zdrojů celého webu). Do `lide/sources.json` patří zdroje, na které
+odkazují osoby, vazby a organizace — nový zdroj se nejdřív přidá tam a v záznamu se
+uvede jeho id (SPEC.md §3.8). Prázdná pole (`email`, `bio`, `photos`…) se nezapisují.
+
 
 **Pečecký okrašlovací spolek — výbor** (doplněno 24. 9. 2026): 5členný
 výbor dohledaný v obchodním rejstříku
@@ -587,8 +595,13 @@ s existujícím `id` (to by znamenalo nedotažené sloučení) ani s jiným alia
 
 ### Jak přidat osobu
 
+0. **`sources.json`** — má-li záznam odkazovat na zdroj, který tam ještě není,
+   nejdřív ho přidat (`id` → `{label, url}`, SPEC.md §3.8). Existující zdroje
+   (kandidátní listiny ČSÚ, Pečecké noviny, stránky škol…) se jen znovu použijí
+   přes jejich id — nikdy nevkládat `{label, url}` přímo do záznamu.
 1. **`people.json`** — `id` je příjmení + iniciála křestního bez
-   diakritiky (`paluskam`, `svejnohovaa`).
+   diakritiky (`paluskam`, `svejnohovaa`). `sources` je pole id ze `sources.json`.
+   Prázdná pole (`email`, `phone`, `bio`, `photos`, tituly) se nezapisují.
 2. **`organizations.json`** — jen pokud uskupení nebo organizace ještě
    chybí. U uskupení povinně `color`, `color_bg` a `css_class` **z palety** v
    [`volby/README.md`](../volby/README.md), ne nová barva. Barvy se

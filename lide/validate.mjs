@@ -65,10 +65,12 @@ function load(name) {
 const peopleDoc = load('people.json');
 const orgsDoc = load('organizations.json');
 const affsDoc = load('affiliations.json');
+const sourcesDoc = load('sources.json');
 
 const people = peopleDoc.people ?? [];
 const orgs = orgsDoc.organizations ?? [];
 const affs = affsDoc.affiliations ?? [];
+const sources = sourcesDoc.sources ?? {};
 
 /* ---------- pomocné ---------- */
 
@@ -118,6 +120,28 @@ const personIds = new Set(people.map((p) => p.id));
 const orgIds = new Set(orgs.map((o) => o.id));
 const affCount = new Map();
 
+// --- zdroje (sources.json je číselník; osoby, vazby i organizace na něj
+// odkazují id v poli `sources`, viz SPEC §3.8) ---
+for (const [id, s] of Object.entries(sources)) {
+  if (!SLUG.test(id)) err(`zdroj ${id}`, 'id musí odpovídat [a-z0-9-]+');
+  if (!s?.url) err(`zdroj ${id}`, 'chybí url');
+  if (!s?.label) err(`zdroj ${id}`, 'chybí label');
+}
+const usedSources = new Set();
+const checkSources = (where, list) => {
+  for (const id of list ?? []) {
+    if (typeof id !== 'string') { err(where, 'zdroj musí být id ze sources.json, ne objekt'); continue; }
+    if (!(id in sources)) err(where, `zdroj "${id}" není v sources.json`);
+    usedSources.add(id);
+  }
+};
+for (const p of people) checkSources(`osoba ${p.id}`, p.sources);
+for (const a of affs) checkSources(`vazba ${a.id}`, a.sources);
+for (const o of orgs) checkSources(`organizace ${o.id}`, o.sources);
+for (const id of Object.keys(sources)) {
+  if (!usedSources.has(id)) warn(`zdroj ${id}`, 'nikde nepoužitý');
+}
+
 // --- osoby ---
 for (const p of people) {
   const where = `osoba ${p.id}`;
@@ -162,7 +186,6 @@ for (const p of people) {
     else if (seenPhotoYears.has(ph.year)) err(where, `dvě fotky se stejným year ${ph.year}`);
     else seenPhotoYears.add(ph.year);
   }
-  for (const s of p.sources ?? []) if (!s?.url) err(where, 'zdroj bez url');
 }
 
 // --- organizace ---

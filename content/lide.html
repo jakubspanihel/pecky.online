@@ -773,6 +773,7 @@
       try {
         const files = ['people.json', 'organizations.json', 'affiliations.json'];
         const res = await Promise.all(files.map(f => fetch('/lide/' + f)));
+        await pcLoadSources(); // číselník zdrojů (sources.json), viz SPEC §3.8
         res.forEach((r, i) => { if (!r.ok) throw new Error(files[i] + ': HTTP ' + r.status); });
         const [peopleDoc, orgsDoc, affsDoc] = await Promise.all(res.map(r => r.json()));
 

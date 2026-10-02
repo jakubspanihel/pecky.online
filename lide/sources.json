@@ -1,0 +1,831 @@
+{
+  "meta": {
+    "note": "Číselník zdrojů: osoby, vazby i organizace na zdroje odkazují jejich id (pole sources). Viz SPEC.md §3.8."
+  },
+  "sources": {
+    "zm-ustavujici-2022-zapis": {
+      "label": "Ustavující zasedání ZM 7/2022 — zápis",
+      "url": "https://mesto-pecky.usneseni.cz/verejne/bb54aa80-499b-11ed-9329-4b042f767445/zapis/?page=14"
+    },
+    "zastupitelstvo-mesta-oficialni-web-mesta-pecky": {
+      "label": "Zastupitelstvo města — oficiální web města Pečky",
+      "url": "https://pecky.as4u.cz/cs/mesto/zastupitelstvo-mesta/"
+    },
+    "telefonni-seznam-mestskeho-uradu-oficialni-web-m": {
+      "label": "Telefonní seznam městského úřadu — oficiální web města Pečky",
+      "url": "https://pecky.as4u.cz/cs/mestsky-urad/telefonni-seznam-5.html"
+    },
+    "csu-kandidati-2026": {
+      "label": "Kandidátní listiny pro volby 2026 — ČSÚ, volby.gov.cz (obec 537641 Pečky)",
+      "url": "https://volby.gov.cz/app/kv2026/cs/20261009/name-lists/!_0_1_2100_2104_537641"
+    },
+    "poradna-pro-obce-2022": {
+      "label": "Výsledky komunálních voleb 2022 v Pečkách — Poradna pro obce (data ČSÚ)",
+      "url": "https://www.poradnaproobce.cz/vysledky-voleb-zastupitelstva-obci/2022/stredocesky-kraj/kolin/pecky-537641"
+    },
+    "rada-mesta-oficialni-web-mesta-pecky": {
+      "label": "Rada města — oficiální web města Pečky",
+      "url": "https://pecky.as4u.cz/cs/mesto/rada-mesta-3/"
+    },
+    "realizacni-tym-starsi-zaci-afk-pecky-afkpecky-cz": {
+      "label": "Realizační tým — Starší žáci, AFK Pečky (afkpecky.cz)",
+      "url": "https://www.afkpecky.cz/starsi-zaci/realizacni-tym/"
+    },
+    "realizacni-tym-b-tym-afk-pecky-afkpecky-cz": {
+      "label": "Realizační tým — B tým, AFK Pečky (afkpecky.cz)",
+      "url": "https://www.afkpecky.cz/b-tym/realizacni-tym/"
+    },
+    "vedeni-klubu-afk-pecky-afkpecky-cz": {
+      "label": "Vedení klubu — AFK Pečky (afkpecky.cz)",
+      "url": "https://www.afkpecky.cz/vedeni-klubu/"
+    },
+    "amatersky-fotbalovy-klub-pecky-z-s-spolkovy-rejs": {
+      "label": "Amatérský fotbalový klub Pečky, z.s. — spolkový rejstřík (ARES)",
+      "url": "https://ares.gov.cz/ekonomicke-subjekty?ico=62994417"
+    },
+    "pribehy-nasich-sousedu-frantisek-pospisil-zivoto": {
+      "label": "Příběhy našich sousedů — František Pospíšil, životopis (žáci ZŠ Pečky, ročník 2024/2025)",
+      "url": "https://www.pribehynasichsousedu.cz/kolinsko/kolinsko-2024-2025/pospisil-frantisek/"
+    },
+    "realizacni-tym-mladsi-pripravka-afk-pecky-afkpec": {
+      "label": "Realizační tým — Mladší přípravka, AFK Pečky (afkpecky.cz)",
+      "url": "https://www.afkpecky.cz/mladsi-pripravka/realizacni-tym/"
+    },
+    "vedeni-mesta-kontakty-pecky-cz": {
+      "label": "Vedení města — kontakty (pecky.cz)",
+      "url": "https://pecky.cz/office/default/2647"
+    },
+    "odbor-spravy-majetku-mesta-a-bytoveho-hospodarst": {
+      "label": "Odbor správy majetku města a bytového hospodářství — kontakty (pecky.cz)",
+      "url": "https://pecky.cz/office/default/2746"
+    },
+    "odbor-ekonomicko-spravni-kontakty-pecky-cz": {
+      "label": "Odbor ekonomicko-správní — kontakty (pecky.cz)",
+      "url": "https://pecky.cz/office/default/2745"
+    },
+    "odbor-stavebni-kontakty-pecky-cz": {
+      "label": "Odbor stavební — kontakty (pecky.cz)",
+      "url": "https://pecky.cz/office/default/2743"
+    },
+    "odbor-investic-a-rozvoje-kontakty-pecky-cz": {
+      "label": "Odbor investic a rozvoje — kontakty (pecky.cz)",
+      "url": "https://pecky.cz/office/default/2748"
+    },
+    "mestska-policie-pecky-cz": {
+      "label": "Městská policie — pecky.cz",
+      "url": "https://pecky.cz/default/default/21997_mestska-policie"
+    },
+    "materska-skola-masinka-pecky-pecky-cz": {
+      "label": "Mateřská škola MAŠINKA Pečky — pecky.cz",
+      "url": "https://pecky.cz/default/default/21103_materska-skola-masinka-pecky"
+    },
+    "zakladni-skola-pecky-okres-kolin-pecky-cz": {
+      "label": "Základní škola Pečky, okres Kolín — pecky.cz",
+      "url": "https://pecky.cz/default/default/21104_zakladni-skola-pecky-okres-kolin"
+    },
+    "zakladni-umelecka-skola-pecky-pecky-cz": {
+      "label": "Základní umělecká škola Pečky — pecky.cz",
+      "url": "https://pecky.cz/default/default/21106_zakladni-umelecka-skola-pecky"
+    },
+    "kulturni-stredisko-pecky-cz": {
+      "label": "Kulturní středisko — pecky.cz",
+      "url": "https://pecky.cz/default/default/21107_kulturni-stredisko"
+    },
+    "mestska-knihovna-svatopluka-cecha-pecky-cz": {
+      "label": "Městská knihovna Svatopluka Čecha — pecky.cz",
+      "url": "https://pecky.cz/default/default/21109_mestska-knihovna-svatopluka-cecha"
+    },
+    "pecovatelska-sluzba-pecky-cz": {
+      "label": "Pečovatelská služba — pecky.cz",
+      "url": "https://pecky.cz/default/default/21110_pecovatelska-sluzba"
+    },
+    "obchodni-rejstrik-pececke-sluzby-s-r-o-justice-c": {
+      "label": "Obchodní rejstřík — Pečecké služby, s.r.o. (justice.cz)",
+      "url": "https://or.justice.cz/ias/ui/rejstrik-$firma?ico=26143551"
+    },
+    "kolinsky-denik-29-9-2018-starosta-pecek-funkci-o": {
+      "label": "Kolínský deník, 29. 9. 2018 — „Starosta Peček funkci obhajovat nebude“ (soupis vedení města volebního období 2014–2018)",
+      "url": "https://kolinsky.denik.cz/zpravy-region/starosta-pecek-funkci-obhajovat-nebude-uz-museji-prijit-mladsi-rika/"
+    },
+    "kancelar-tajemnika-kontakty-oficialni-web-mesta": {
+      "label": "Kancelář tajemníka — kontakty, oficiální web města Pečky",
+      "url": "https://pecky.cz/office/default/2747"
+    },
+    "odbor-spravy-majetku-mesta-a-bytoveho-hospodarst-2": {
+      "label": "Odbor správy majetku města a bytového hospodářství — kontakty, oficiální web města Pečky",
+      "url": "https://pecky.cz/office/default/2746"
+    },
+    "odbor-ekonomicko-spravni-kontakty-oficialni-web": {
+      "label": "Odbor ekonomicko-správní — kontakty, oficiální web města Pečky",
+      "url": "https://pecky.cz/office/default/2745"
+    },
+    "odbor-stavebni-kontakty-oficialni-web-mesta-peck": {
+      "label": "Odbor stavební — kontakty, oficiální web města Pečky",
+      "url": "https://pecky.cz/office/default/2743"
+    },
+    "odbor-investic-a-rozvoje-kontakty-oficialni-web": {
+      "label": "Odbor investic a rozvoje — kontakty, oficiální web města Pečky",
+      "url": "https://pecky.cz/office/default/2748"
+    },
+    "komise-rm-mesto-pecky": {
+      "label": "Komise RM — Město Pečky",
+      "url": "https://pecky.cz/default/default/21179_komise-rm"
+    },
+    "telocvicna-jednota-sokol-pecky-rejstrik-penize-c": {
+      "label": "Tělocvičná jednota Sokol Pečky — Rejstřík.penize.cz (obchodní rejstřík)",
+      "url": "https://rejstrik.penize.cz/00664171-telocvicna-jednota-sokol-pecky"
+    },
+    "skolska-rada-3lete-funkcni-obdobi-mesto-pecky": {
+      "label": "Školská rada (3leté funkční období) — Město Pečky",
+      "url": "https://pecky.cz/default/default/21305_skolska-rada-3-lete-funkcni-obdobi"
+    },
+    "zus-kontakty": {
+      "label": "Kontakty — Základní umělecká škola Pečky (zuspecky.cz)",
+      "url": "https://zuspecky.cz/kontakty/"
+    },
+    "zs-ucitele-1-stupen": {
+      "label": "Učitelé 1. stupně — Základní škola Pečky, okres Kolín (zspecky.cz)",
+      "url": "https://www.zspecky.cz/1-stupen/ucitele/"
+    },
+    "zs-ucitele-2-stupen": {
+      "label": "Učitelé 2. stupně — Základní škola Pečky, okres Kolín (zspecky.cz)",
+      "url": "https://www.zspecky.cz/2-stupen/ucitele/"
+    },
+    "i-oddeleni-skolni-druziny-zakladni-skola-pecky-o": {
+      "label": "I. oddělení školní družiny — Základní škola Pečky, okres Kolín (zspecky.cz)",
+      "url": "https://www.zspecky.cz/druzina/skolni-druzina/i-oddeleni/"
+    },
+    "iii-oddeleni-skolni-druziny-zakladni-skola-pecky": {
+      "label": "III. oddělení školní družiny — Základní škola Pečky, okres Kolín (zspecky.cz)",
+      "url": "https://www.zspecky.cz/druzina/skolni-druzina/iii-oddeleni/"
+    },
+    "iv-oddeleni-skolni-druziny-zakladni-skola-pecky": {
+      "label": "IV. oddělení školní družiny — Základní škola Pečky, okres Kolín (zspecky.cz)",
+      "url": "https://www.zspecky.cz/druzina/skolni-druzina/iv-oddeleni/"
+    },
+    "v-oddeleni-skolni-druziny-zakladni-skola-pecky-o": {
+      "label": "V. oddělení školní družiny — Základní škola Pečky, okres Kolín (zspecky.cz)",
+      "url": "https://www.zspecky.cz/druzina/skolni-druzina/v-oddeleni/"
+    },
+    "vi-oddeleni-skolni-druziny-zakladni-skola-pecky": {
+      "label": "VI. oddělení školní družiny — Základní škola Pečky, okres Kolín (zspecky.cz)",
+      "url": "https://www.zspecky.cz/druzina/skolni-druzina/vi-oddeleni/"
+    },
+    "vii-oddeleni-skolni-druziny-zakladni-skola-pecky": {
+      "label": "VII. oddělení školní družiny — Základní škola Pečky, okres Kolín (zspecky.cz)",
+      "url": "https://www.zspecky.cz/druzina/skolni-druzina/vii-oddeleni/"
+    },
+    "trida-beruska-ms-masinka-pecky-msmasinkapecky-cz": {
+      "label": "Třída Beruška — MŠ MAŠINKA Pečky (msmasinkapecky.cz)",
+      "url": "https://www.msmasinkapecky.cz/nase-tridy/beruska/"
+    },
+    "trida-domecek-ms-masinka-pecky-msmasinkapecky-cz": {
+      "label": "Třída Domeček — MŠ MAŠINKA Pečky (msmasinkapecky.cz)",
+      "url": "https://www.msmasinkapecky.cz/nase-tridy/domecek/"
+    },
+    "trida-jablicko-ms-masinka-pecky-msmasinkapecky-c": {
+      "label": "Třída Jablíčko — MŠ MAŠINKA Pečky (msmasinkapecky.cz)",
+      "url": "https://www.msmasinkapecky.cz/nase-tridy/jablicko/"
+    },
+    "trida-kyticka-ms-masinka-pecky-msmasinkapecky-cz": {
+      "label": "Třída Kytička — MŠ MAŠINKA Pečky (msmasinkapecky.cz)",
+      "url": "https://www.msmasinkapecky.cz/nase-tridy/kyticka/"
+    },
+    "trida-listicka-ms-masinka-pecky-msmasinkapecky-c": {
+      "label": "Třída Lištička — MŠ MAŠINKA Pečky (msmasinkapecky.cz)",
+      "url": "https://www.msmasinkapecky.cz/nase-tridy/listicka/"
+    },
+    "trida-slunicko-ms-masinka-pecky-msmasinkapecky-c": {
+      "label": "Třída Sluníčko — MŠ MAŠINKA Pečky (msmasinkapecky.cz)",
+      "url": "https://www.msmasinkapecky.cz/nase-tridy/slunicko/"
+    },
+    "trida-zabicka-ms-masinka-pecky-msmasinkapecky-cz": {
+      "label": "Třída Žabička — MŠ MAŠINKA Pečky (msmasinkapecky.cz)",
+      "url": "https://www.msmasinkapecky.cz/nase-tridy/zabicka/"
+    },
+    "clenove-spolku-szm-pecky-szmpecky-webnode-cz": {
+      "label": "Členové spolku — SŽM Pečky (szmpecky.webnode.cz)",
+      "url": "https://szmpecky.webnode.cz/nas-tym/"
+    },
+    "kontakt-szm-pecky-szmpecky-webnode-cz": {
+      "label": "Kontakt — SŽM Pečky (szmpecky.webnode.cz)",
+      "url": "https://szmpecky.webnode.cz/kontakt/"
+    },
+    "minigolfclub-dracata-pecky-z-s-ares-verejny-rejs": {
+      "label": "Minigolfclub - Dráčata Pečky, z.s. — ARES (veřejný rejstřík)",
+      "url": "https://ares.gov.cz/ekonomicke-subjekty?ico=22690662"
+    },
+    "sluzby-minigolf-pecky-minigolf-pecky-webnode-cz": {
+      "label": "Služby — Minigolf Pečky (minigolf-pecky.webnode.cz)",
+      "url": "https://minigolf-pecky.webnode.cz/sluzby/"
+    },
+    "pececke-noviny-9-2025-str-14-velky-uspech-minigo": {
+      "label": "Pečecké noviny 9/2025, str. 14 — Velký úspěch minigolfového hráče a trenéra z Peček",
+      "url": "https://pecky.cz/files/pecky/gallery/18744/69a0129aec807_pecky-noviny-9-2025.pdf"
+    },
+    "pececky-okraslovaci-spolek-obchodni-rejstrik-rej": {
+      "label": "Pečecký okrašlovací spolek — Obchodní rejstřík (rejstrik.penize.cz, data justice.cz)",
+      "url": "https://rejstrik.penize.cz/21001634-pececky-okraslovaci-spolek"
+    },
+    "realizacni-tym-mladsi-zaci-afk-pecky-afkpecky-cz": {
+      "label": "Realizační tým — Mladší žáci, AFK Pečky (afkpecky.cz)",
+      "url": "https://www.afkpecky.cz/mladsi-zaci/realizacni-tym/"
+    },
+    "realizacni-tym-a-tym-afk-pecky-afkpecky-cz": {
+      "label": "Realizační tým — A tým, AFK Pečky (afkpecky.cz)",
+      "url": "https://www.afkpecky.cz/a-tym/realizacni-tym/"
+    },
+    "realizacni-tym-starsi-dorost-afk-pecky-afkpecky": {
+      "label": "Realizační tým — Starší dorost, AFK Pečky (afkpecky.cz)",
+      "url": "https://www.afkpecky.cz/starsi-dorost/realizacni-tym/"
+    },
+    "realizacni-tym-starsi-pripravka-afk-pecky-afkpec": {
+      "label": "Realizační tým — Starší přípravka, AFK Pečky (afkpecky.cz)",
+      "url": "https://www.afkpecky.cz/starsi-pripravka/realizacni-tym/"
+    },
+    "amatersky-fotbalovy-klub-pecky-z-s-rejstrik-peni": {
+      "label": "Amatérský fotbalový klub Pečky, z.s. — Rejstřík.penize.cz (obchodní rejstřík)",
+      "url": "https://rejstrik.penize.cz/62994417-amatersky-fotbalovy-klub-pecky-z-s"
+    },
+    "maminky-sobe-z-s-rejstrik-penize-cz-obchodni-rej": {
+      "label": "Maminky sobě, z.s. — Rejstřík.penize.cz (obchodní rejstřík)",
+      "url": "https://rejstrik.penize.cz/27033431-maminky-sobe-z-s"
+    },
+    "pececka-desitka-propozice-a-kontakty-pecky10km-c": {
+      "label": "Pečecká desítka — propozice a kontakty (pecky10km.cz)",
+      "url": "https://www.pecky10km.cz"
+    },
+    "rozvrh-krouzku-vzdelavaci-centrum-pecky-pececke": {
+      "label": "Rozvrh kroužků — Vzdělávací centrum Pečky (Pečecké noviny)",
+      "url": "https://www.vzcentrum.cz"
+    },
+    "rada-mesta-zvoleni-redakcni-rady-pececkych-novin": {
+      "label": "Rada města — zvolení Redakční rady Pečeckých novin (UR-57-5/23, 6. 2. 2023)",
+      "url": "https://mesto-pecky.usneseni.cz/verejne/"
+    },
+    "kontakty-pececke-sluzby-s-r-o-pececkesluzby-cz": {
+      "label": "Kontakty — Pečecké služby, s.r.o. (pececkesluzby.cz)",
+      "url": "https://pececkesluzby.cz/office/"
+    },
+    "obchodni-rejstrik-pececke-sluzby-s-r-o-justice-c-2": {
+      "label": "Obchodní rejstřík — Pečecké služby, s.r.o. (justice.cz)",
+      "url": "https://or.justice.cz/ias/ui/rejstrik-firma.vysledky?subjektId=97126&typ=UPLNY"
+    },
+    "pececke-noviny-3-2019-vybrano-z-unoroveho-zastup": {
+      "label": "Pečecké noviny 3/2019 — „Vybráno z únorového zastupitelstva města“",
+      "url": "https://jakubspanihel.github.io/pecky.online/noviny/"
+    },
+    "usneseni-ur-442-45-22-rm-45-2022-14-11-2022": {
+      "label": "Usnesení UR-442-45/22 — RM 45/2022 (14. 11. 2022)",
+      "url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/28072?mod=rada"
+    },
+    "usneseni-ur-440-45-22-rm-45-2022-14-11-2022": {
+      "label": "Usnesení UR-440-45/22 — RM 45/2022 (14. 11. 2022)",
+      "url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/28070?mod=rada"
+    },
+    "usneseni-ur-484-48-22-rm-48-2022-5-12-2022": {
+      "label": "Usnesení UR-484-48/22 — RM 48/2022 (5. 12. 2022)",
+      "url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/29867?mod=rada"
+    },
+    "usneseni-ur-2-1-23-rm-1-2023-9-1-2023": {
+      "label": "Usnesení UR-2-1/23 — RM 1/2023 (9. 1. 2023)",
+      "url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/31389?mod=rada"
+    },
+    "komise-sportovni-stary-web-mesta-pecky-as4u-cz": {
+      "label": "Komise sportovní — starý web města (pecky.as4u.cz)",
+      "url": "https://pecky.as4u.cz/cs/mesto/vybory-a-komise/komise-sportovni/"
+    },
+    "usneseni-ur-232-25-25-rm-25-2025-30-6-2025": {
+      "label": "Usnesení UR-232-25/25 — RM 25/2025 (30. 6. 2025)",
+      "url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/102892?mod=rada"
+    },
+    "usneseni-ur-436-45-22-rm-45-2022-14-11-2022": {
+      "label": "Usnesení UR-436-45/22 — RM 45/2022 (14. 11. 2022)",
+      "url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/28066?mod=rada"
+    },
+    "zapis-z-jednani-skolske-rady-14-4-2011-web-zs-pe": {
+      "label": "Zápis z jednání školské rady 14. 4. 2011 — web ZŠ Pečky",
+      "url": "https://www.zspecky.cz/skola/skolska-rada/zapisy-a-dokumenty-sr/zapis-z-jednani-skolske-rady-ze-dne-1442011-35.html"
+    },
+    "vysledky-volby-zastupce-z-rad-rodicu-do-skolske": {
+      "label": "Výsledky volby zástupce z řad rodičů do školské rady (11. 3. 2011) — web ZŠ Pečky",
+      "url": "https://www.zspecky.cz/skola/skolska-rada/zapisy-a-dokumenty-sr/vysledky-voleb-zastupce-zakonnych-zastupcu-zaku-33.html"
+    },
+    "vysledky-doplnovacich-voleb-do-skolske-rady-23-1": {
+      "label": "Výsledky doplňovacích voleb do školské rady (23. 10. 2014) — web ZŠ Pečky",
+      "url": "https://www.zspecky.cz/skola/skolska-rada/zapisy-a-dokumenty-sr/vysledky-voleb-clenu-skolske-rady-z-rad-zakonnych-zastupcu-nezletilych-zaku-116.html"
+    },
+    "zapis-z-jednani-skolske-rady-15-6-2015-web-zs-pe": {
+      "label": "Zápis z jednání školské rady 15. 6. 2015 — web ZŠ Pečky",
+      "url": "https://www.zspecky.cz/skola/skolska-rada/zapisy-a-dokumenty-sr/zapis-z-jednani-skolske-rady-ze-dne-1562015-128.html"
+    },
+    "zapis-z-jednani-skolske-rady-17-1-2023-web-zs-pe": {
+      "label": "Zápis z jednání školské rady 17. 1. 2023 — web ZŠ Pečky",
+      "url": "https://www.zspecky.cz/skola/skolska-rada/zapisy-a-dokumenty-sr/zapis-z-jednani-skolske-rady-ze-dne-1712023-279.html"
+    },
+    "zapis-z-jednani-skolske-rady-5-11-2025-web-zs-pe": {
+      "label": "Zápis z jednání školské rady 5. 11. 2025 — web ZŠ Pečky",
+      "url": "https://www.zspecky.cz/skola/skolska-rada/zapisy-a-dokumenty-sr/zapis-z-jednani-skolske-rady-dne-5-11-2025-324.html"
+    },
+    "zapis-z-jednani-skolske-rady-20-2-2025-web-zs-pe": {
+      "label": "Zápis z jednání školské rady 20. 2. 2025 — web ZŠ Pečky",
+      "url": "https://www.zspecky.cz/skola/skolska-rada/zapisy-a-dokumenty-sr/zapis-z-jednani-skolske-rady-dne-20022025-317.html"
+    },
+    "vysledky-doplnovacich-voleb-do-skolske-rady-14-9": {
+      "label": "Výsledky doplňovacích voleb do školské rady (14. 9. 2009) — web ZŠ Pečky",
+      "url": "https://www.zspecky.cz/skola/skolska-rada/zapisy-a-dokumenty-sr/doplnovaci-volby-2009-27.html"
+    },
+    "pececke-noviny-4-2008-rm-konkurzni-komise-na-red": {
+      "label": "Pečecké noviny 4/2008 — RM: konkurzní komise na ředitele ZŠ (za školskou radu Mgr. Vlastimil Procházka)",
+      "url": "https://jakubspanihel.github.io/pecky.online/noviny/"
+    },
+    "vysledky-doplnovacich-voleb-do-skolske-rady-14-9-2": {
+      "label": "Výsledky doplňovacích voleb do školské rady (14. 9. 2009), přísedící z řad pedagogů — web ZŠ Pečky",
+      "url": "https://www.zspecky.cz/skola/skolska-rada/zapisy-a-dokumenty-sr/doplnovaci-volby-2009-27.html"
+    },
+    "zapis-z-jednani-skolske-rady-7-9-2009-web-zs-pec": {
+      "label": "Zápis z jednání školské rady 7. 9. 2009 — web ZŠ Pečky",
+      "url": "https://www.zspecky.cz/skola/skolska-rada/zapisy-a-dokumenty-sr/zapis-2009-10-25.html"
+    },
+    "noviny-2018-12-komise": {
+      "label": "Pečecké noviny 12/2018, s. 3 — komise rady města na volební období 2018–2022 (RM listopad 2018)",
+      "url": "https://jakubspanihel.github.io/pecky.online/noviny/"
+    },
+    "zapis-stavebne-dopravni-komise-6-12-2018-pecky-c": {
+      "label": "Zápis Stavebně-dopravní komise 6. 12. 2018 — pecky.cz",
+      "url": "https://pecky.cz/files/pecky/gallery/19066/69c3eff14c6ea_zapis-6.12.18.pdf"
+    },
+    "usneseni-ur-437-45-22-rm-45-2022-14-11-2022-nove": {
+      "label": "Usnesení UR-437-45/22 — RM 45/2022 (14. 11. 2022), nové komise 2022–2026",
+      "url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/28067?mod=rada"
+    },
+    "zapis-stavebne-dopravni-komise-23-9-2020-pecky-c": {
+      "label": "Zápis Stavebně-dopravní komise 23. 9. 2020 — pecky.cz",
+      "url": "https://pecky.cz/files/pecky/gallery/19066/69c3f014756e9_23.9.2020.pdf"
+    },
+    "zapis-kulturni-komise-13-12-2018-pecky-cz": {
+      "label": "Zápis Kulturní komise 13. 12. 2018 — pecky.cz",
+      "url": "https://pecky.cz/files/pecky/gallery/19065/69c3eba6d5e79_13.12.2018-skolska-a-kulturni-komise.pdf"
+    },
+    "usneseni-ur-438-45-22-rm-45-2022-14-11-2022-nove": {
+      "label": "Usnesení UR-438-45/22 — RM 45/2022 (14. 11. 2022), nové komise 2022–2026",
+      "url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/28068?mod=rada"
+    },
+    "zapis-sportovni-komise-13-12-2018-pecky-cz": {
+      "label": "Zápis Sportovní komise 13. 12. 2018 — pecky.cz",
+      "url": "https://pecky.cz/files/pecky/gallery/19734/69e5ee606cd0d_13.12.2018.pdf"
+    },
+    "usneseni-ur-439-45-22-rm-45-2022-14-11-2022-nove": {
+      "label": "Usnesení UR-439-45/22 — RM 45/2022 (14. 11. 2022), nové komise 2022–2026",
+      "url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/28069?mod=rada"
+    },
+    "zapis-sbor-pro-obcanske-zalezitosti-13-12-2018-p": {
+      "label": "Zápis Sbor pro občanské záležitosti 13. 12. 2018 — pecky.cz",
+      "url": "https://pecky.cz/files/pecky/gallery/19067/69c3f79f91842_zapis-z-jednani-13.12.2018-spoz.pdf"
+    },
+    "usneseni-ur-441-45-22-rm-45-2022-14-11-2022-nove": {
+      "label": "Usnesení UR-441-45/22 — RM 45/2022 (14. 11. 2022), nové komise 2022–2026",
+      "url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/28071?mod=rada"
+    },
+    "pececke-noviny-1-2015-s-34-rada-mesta-8-12-2014": {
+      "label": "Pečecké noviny 1/2015, s. 3–4 — Rada města 8. 12. 2014 „jmenuje konečné obsazení jednotlivých komisí“",
+      "url": "https://jakubspanihel.github.io/pecky.online/noviny/"
+    },
+    "zdravotnictvi-pecky-cz-prispevkove-organizace-a": {
+      "label": "Zdravotnictví — pecky.cz (Příspěvkové organizace a služby)",
+      "url": "https://pecky.cz/default/default/22003_zdravotnictvi"
+    },
+    "lekarny-pecky-cz": {
+      "label": "Lékárny — pecky.cz",
+      "url": "https://pecky.cz/default/default/22004_lekarny"
+    },
+    "usneseni-uz-90-7-22": {
+      "label": "Usnesení UZ-90-7/22",
+      "url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/26765?mod=zastupitelstvo"
+    },
+    "csu-vysledky-2022": {
+      "label": "Výsledky voleb 2022 — ČSÚ, volby.gov.cz (obec 537641 Pečky)",
+      "url": "https://volby.gov.cz/pls/kv2022/vysledky_obec?datumvoleb=20220923&cislo_obce=537641"
+    },
+    "usneseni-uz-91-7-22": {
+      "label": "Usnesení UZ-91-7/22",
+      "url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/26766?mod=zastupitelstvo"
+    },
+    "usneseni-uz-92-7-22": {
+      "label": "Usnesení UZ-92-7/22",
+      "url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/27055?mod=zastupitelstvo"
+    },
+    "usneseni-uz-93-7-22": {
+      "label": "Usnesení UZ-93-7/22",
+      "url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/26768?mod=zastupitelstvo"
+    },
+    "usneseni-uz-94-7-22": {
+      "label": "Usnesení UZ-94-7/22",
+      "url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/26925?mod=zastupitelstvo"
+    },
+    "usneseni-uz-95-7-22": {
+      "label": "Usnesení UZ-95-7/22",
+      "url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/26926?mod=zastupitelstvo"
+    },
+    "usneseni-uz-96-7-22": {
+      "label": "Usnesení UZ-96-7/22",
+      "url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/26927?mod=zastupitelstvo"
+    },
+    "ustavujici-zasedani-zm-7-2022-vsech-33-usneseni": {
+      "label": "Ustavující zasedání ZM 7/2022 — všech 33 usnesení",
+      "url": "https://mesto-pecky.usneseni.cz/verejne/bb54aa80-499b-11ed-9329-4b042f767445/usneseni/?page=14"
+    },
+    "usneseni-uz-3-1-25-zm-1-2025": {
+      "label": "Usnesení UZ-3-1/25 (ZM 1/2025)",
+      "url": "https://mesto-pecky.usneseni.cz/verejne/"
+    },
+    "usneseni-uz-98-7-22-ustavujici-zasedani-zm-7-202": {
+      "label": "Usnesení UZ-98-7/22 — Ustavující zasedání ZM 7/2022 (20. 10. 2022)",
+      "url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/26763?mod=zastupitelstvo"
+    },
+    "financni-vybor-slozeni-na-webu-mesta-pecky": {
+      "label": "Finanční výbor — složení na webu města Pečky",
+      "url": "https://pecky.cz/default/default/21145_financni-vybor"
+    },
+    "usneseni-uz-99-7-22-ustavujici-zasedani-zm-7-202": {
+      "label": "Usnesení UZ-99-7/22 — Ustavující zasedání ZM 7/2022 (20. 10. 2022)",
+      "url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/27053?mod=zastupitelstvo"
+    },
+    "usneseni-uz-100-7-22-ustavujici-zasedani-zm-7-20": {
+      "label": "Usnesení UZ-100-7/22 — Ustavující zasedání ZM 7/2022 (20. 10. 2022)",
+      "url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/27204?mod=zastupitelstvo"
+    },
+    "usneseni-uz-101-7-22-ustavujici-zasedani-zm-7-20": {
+      "label": "Usnesení UZ-101-7/22 — Ustavující zasedání ZM 7/2022 (20. 10. 2022)",
+      "url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/27205?mod=zastupitelstvo"
+    },
+    "usneseni-uz-102-7-22-ustavujici-zasedani-zm-7-20": {
+      "label": "Usnesení UZ-102-7/22 — Ustavující zasedání ZM 7/2022 (20. 10. 2022)",
+      "url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/27206?mod=zastupitelstvo"
+    },
+    "usneseni-uz-103-7-22-ustavujici-zasedani-zm-7-20": {
+      "label": "Usnesení UZ-103-7/22 — Ustavující zasedání ZM 7/2022 (20. 10. 2022)",
+      "url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/27208?mod=zastupitelstvo"
+    },
+    "usneseni-uz-104-7-22-ustavujici-zasedani-zm-7-20": {
+      "label": "Usnesení UZ-104-7/22 — Ustavující zasedání ZM 7/2022 (20. 10. 2022)",
+      "url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/27319?mod=zastupitelstvo"
+    },
+    "usneseni-uz-106-7-22-ustavujici-zasedani-zm-7-20": {
+      "label": "Usnesení UZ-106-7/22 — Ustavující zasedání ZM 7/2022 (20. 10. 2022)",
+      "url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/27054?mod=zastupitelstvo"
+    },
+    "kontrolni-vybor-slozeni-na-webu-mesta-pecky": {
+      "label": "Kontrolní výbor — složení na webu města Pečky",
+      "url": "https://pecky.cz/default/default/21141_kontrolni-vybor"
+    },
+    "usneseni-uz-107-7-22-ustavujici-zasedani-zm-7-20": {
+      "label": "Usnesení UZ-107-7/22 — Ustavující zasedání ZM 7/2022 (20. 10. 2022)",
+      "url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/27215?mod=zastupitelstvo"
+    },
+    "usneseni-uz-108-7-22-ustavujici-zasedani-zm-7-20": {
+      "label": "Usnesení UZ-108-7/22 — Ustavující zasedání ZM 7/2022 (20. 10. 2022)",
+      "url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/27217?mod=zastupitelstvo"
+    },
+    "usneseni-uz-109-7-22-ustavujici-zasedani-zm-7-20": {
+      "label": "Usnesení UZ-109-7/22 — Ustavující zasedání ZM 7/2022 (20. 10. 2022)",
+      "url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/27218?mod=zastupitelstvo"
+    },
+    "usneseni-uz-110-7-22-ustavujici-zasedani-zm-7-20": {
+      "label": "Usnesení UZ-110-7/22 — Ustavující zasedání ZM 7/2022 (20. 10. 2022)",
+      "url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/27321?mod=zastupitelstvo"
+    },
+    "usneseni-uz-111-7-22-ustavujici-zasedani-zm-7-20": {
+      "label": "Usnesení UZ-111-7/22 — Ustavující zasedání ZM 7/2022 (20. 10. 2022)",
+      "url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/27322?mod=zastupitelstvo"
+    },
+    "usneseni-uz-47-5-24-zm-5-2024-13-11-2024": {
+      "label": "Usnesení UZ-47-5/24 — ZM 5/2024 (13. 11. 2024)",
+      "url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/76947?mod=zastupitelstvo"
+    },
+    "usneseni-uz-2-1-25-zm-1-2025-26-2-2025": {
+      "label": "Usnesení UZ-2-1/25 — ZM 1/2025 (26. 2. 2025)",
+      "url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/88446?mod=zastupitelstvo"
+    },
+    "noviny-2018-12-nove-vedeni": {
+      "label": "Pečecké noviny 12/2018, str. 3 — „Máme nové vedení našeho města“ (ustavující zasedání ZM 14. 11. 2018)",
+      "url": "https://jakubspanihel.github.io/pecky.online/noviny/"
+    },
+    "financni-vybor-zapisy-20182022-na-webu-mesta-pec": {
+      "label": "Finanční výbor — zápisy 2018–2022 na webu města Pečky",
+      "url": "https://pecky.cz/default/default/21145_financni-vybor"
+    },
+    "kontrolni-vybor-zapisy-20202021-na-webu-mesta-pe": {
+      "label": "Kontrolní výbor — zápisy 2020–2021 na webu města Pečky",
+      "url": "https://pecky.cz/default/default/21141_kontrolni-vybor"
+    },
+    "csu-kandidati-2018": {
+      "label": "Kandidátní listina, volby 2018 — ČSÚ, volby.gov.cz (obec 537641 Pečky)",
+      "url": "https://volby.gov.cz/pls/kv2018/vysledky_obec?datumvoleb=20181005&cislo_obce=537641"
+    },
+    "csu-kandidati-2022": {
+      "label": "Kandidátní listina, volby 2022 — ČSÚ, volby.gov.cz (obec 537641 Pečky)",
+      "url": "https://volby.gov.cz/pls/kv2022/vysledky_obec?datumvoleb=20220923&cislo_obce=537641"
+    },
+    "csu-jmenne-seznamy-2026": {
+      "label": "Jmenné seznamy a přehledy — volby.gov.cz (ČSÚ, data generována 26. 8. 2026)",
+      "url": "https://volby.gov.cz/app/kv2026/cs/20261009/name-lists/!_0_1_2100_2104_537641"
+    },
+    "kulturni-stredisko-mesta-pecky-hlidac-statu": {
+      "label": "Kulturní středisko města Pečky — Hlídač státu",
+      "url": "https://www.hlidacstatu.cz/subjekt/70927022"
+    },
+    "usneseni-ur-439-45-22-rm-45-2022-14-11-2022": {
+      "label": "Usnesení UR-439-45/22 — RM 45/2022 (14. 11. 2022)",
+      "url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/28069?mod=rada"
+    },
+    "komise-sportovni-mesto-pecky": {
+      "label": "Komise sportovní — Město Pečky",
+      "url": "https://pecky.cz/default/default/21200_komise-sportovni"
+    },
+    "usneseni-ur-438-45-22-rm-45-2022-14-11-2022": {
+      "label": "Usnesení UR-438-45/22 — RM 45/2022 (14. 11. 2022)",
+      "url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/28068?mod=rada"
+    },
+    "kulturni-komise-mesto-pecky": {
+      "label": "Kulturní komise — Město Pečky",
+      "url": "https://pecky.cz/default/default/21204_kulturni-komise"
+    },
+    "usneseni-ur-441-45-22-rm-45-2022-14-11-2022": {
+      "label": "Usnesení UR-441-45/22 — RM 45/2022 (14. 11. 2022)",
+      "url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/28071?mod=rada"
+    },
+    "sbor-pro-obcanske-zalezitosti-mesto-pecky": {
+      "label": "Sbor pro občanské záležitosti — Město Pečky",
+      "url": "https://pecky.cz/default/default/21206_sbor-pro-obcanske-zalezitosti"
+    },
+    "usneseni-ur-437-45-22-rm-45-2022-14-11-2022": {
+      "label": "Usnesení UR-437-45/22 — RM 45/2022 (14. 11. 2022)",
+      "url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/28067?mod=rada"
+    },
+    "komise-stavebne-dopravni-a-zp-mesto-pecky": {
+      "label": "Komise stavebně-dopravní a ŽP — Město Pečky",
+      "url": "https://pecky.cz/default/default/21208_komise-stavebne-dopravni-a-zp"
+    },
+    "komise-pro-otazky-socialni-zdravotni-a-bytove-me": {
+      "label": "Komise pro otázky sociální, zdravotní a bytové — Město Pečky",
+      "url": "https://pecky.cz/default/default/21304_komise-pro-otazky-socialni-zdravotni-a-bytove"
+    },
+    "usneseni-ur-163-15-24-rm-15-2024-22-4-2024": {
+      "label": "Usnesení UR-163-15/24 — RM 15/2024 (22. 4. 2024)",
+      "url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/63430?mod=rada"
+    },
+    "zapis-z-jednani-skolske-rady-23-9-2010-web-zs-pe": {
+      "label": "Zápis z jednání školské rady 23. 9. 2010 — web ZŠ Pečky",
+      "url": "https://www.zspecky.cz/skola/skolska-rada/zapisy-a-dokumenty-sr/zapis-2010-11-26.html"
+    },
+    "rm-1-2026-5-1-2026-bod-15-slozeni-skolske-rady-z": {
+      "label": "RM 1/2026 (5. 1. 2026), bod 15 „Složení školské rady“ — zápis",
+      "url": "https://mesto-pecky.usneseni.cz/verejne/bc807521-dbf7-11f0-9458-00505683238f/zapis/?page=3"
+    },
+    "volebni-rad-pro-volby-do-skolske-rady-schvalen-u": {
+      "label": "Volební řád pro volby do školské rady (schválen usnesením RM UR-365-42/25, 10. 11. 2025) — web ZŠ Pečky",
+      "url": "https://www.zspecky.cz/skola/skolska-rada/zapisy-a-dokumenty-sr/volebni-rad-pro-volby-do-skolske-rady-322.html"
+    },
+    "zapis-z-jednani-skolske-rady-5-2-2026-web-zs-pec": {
+      "label": "Zápis z jednání školské rady 5. 2. 2026 — web ZŠ Pečky",
+      "url": "https://www.zspecky.cz/skola/skolska-rada/zapisy-a-dokumenty-sr/zapis-z-jednani-skolske-rady-dne-5-2-2026-329.html"
+    },
+    "usneseni-ur-364-42-25-rm-42-2025-10-11-2025": {
+      "label": "Usnesení UR-364-42/25 — RM 42/2025 (10. 11. 2025)",
+      "url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/114023?mod=rada"
+    },
+    "ii-oddeleni-skolni-druziny-zakladni-skola-pecky": {
+      "label": "II. oddělení školní družiny — Základní škola Pečky, okres Kolín (zspecky.cz)",
+      "url": "https://www.zspecky.cz/druzina/skolni-druzina/ii-oddeleni/"
+    },
+    "minigolfclub-dracata-pecky-z-s-hlidac-statu": {
+      "label": "Minigolfclub - Dráčata Pečky, z.s. — Hlídač státu",
+      "url": "https://www.hlidacstatu.cz/subjekt/22690662"
+    },
+    "pececke-noviny-9-2025-str-14": {
+      "label": "Pečecké noviny 9/2025, str. 14",
+      "url": "https://pecky.cz/files/pecky/gallery/18744/69a0129aec807_pecky-noviny-9-2025.pdf"
+    },
+    "o-nas-minigolf-pecky": {
+      "label": "O nás — Minigolf Pečky",
+      "url": "https://minigolf-pecky.webnode.cz/o-nas/"
+    },
+    "historie-pececka-desitka-pecky10km-cz": {
+      "label": "Historie — Pečecká desítka (pecky10km.cz)",
+      "url": "https://www.pecky10km.cz/domains/pecky10km.cz/index.php/historie"
+    },
+    "bk-pecky-z-s-hlidac-statu": {
+      "label": "BK Pečky z.s. — Hlídač státu",
+      "url": "https://www.hlidacstatu.cz/subjekt/27031250"
+    },
+    "komise-rady-mesta-fond-rozvoje-bydleni-stary-web": {
+      "label": "Komise rady města (Fond rozvoje bydlení) — starý web města, stav 18. 2. 2025",
+      "url": "https://pecky.as4u.cz/cs/mesto/vybory-a-komise/komise-rady-mesta-volebni-obdobi-2022-2026.html"
+    },
+    "usneseni-ur-22-2-26-zruseni-pracovni-skupiny-rm": {
+      "label": "Usnesení UR-22-2/26 — zrušení pracovní skupiny (RM 2/2026, 12. 1. 2026)",
+      "url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/121821?mod=rada"
+    },
+    "komise-rady-mesta-stary-web-mesta-stav-18-2-2025": {
+      "label": "Komise rady města — starý web města, stav 18. 2. 2025",
+      "url": "https://pecky.as4u.cz/cs/mesto/vybory-a-komise/komise-rady-mesta-volebni-obdobi-2022-2026.html"
+    },
+    "usneseni-ur-363-37-24-rm-37-2024-21-10-2024": {
+      "label": "Usnesení UR-363-37/24 — RM 37/2024 (21. 10. 2024)",
+      "url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/76467?mod=rada"
+    },
+    "usneseni-ur-362-37-24-rm-37-2024-21-10-2024": {
+      "label": "Usnesení UR-362-37/24 — RM 37/2024 (21. 10. 2024)",
+      "url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/76461?mod=rada"
+    },
+    "pececke-noviny-1-2011-rada-mesta-pecky-29-11-201": {
+      "label": "Pečecké noviny 1/2011 — Rada města Pečky 29. 11. 2010 a 13. 12. 2010 (jmenování komisí a členů školské rady)",
+      "url": "https://jakubspanihel.github.io/pecky.online/noviny/"
+    },
+    "pececke-noviny-1-2015-rada-mesta-pecky-24-11-201": {
+      "label": "Pečecké noviny 1/2015 — Rada města Pečky 24. 11. 2014 (odvolání a jmenování členů školské rady, komise na období 2014–2018)",
+      "url": "https://jakubspanihel.github.io/pecky.online/noviny/"
+    },
+    "zapis-z-jednani-skolske-rady-22-10-2019-web-zs-p": {
+      "label": "Zápis z jednání školské rady 22. 10. 2019 — web ZŠ Pečky",
+      "url": "https://www.zspecky.cz/skola/skolska-rada/zapisy-a-dokumenty-sr/zapis-z-jednani-skolske-rady-ze-dne-22102019-241.html"
+    },
+    "zapis-z-jednani-skolske-rady-29-8-2022-web-zs-pe": {
+      "label": "Zápis z jednání školské rady 29. 8. 2022 — web ZŠ Pečky",
+      "url": "https://www.zspecky.cz/skola/skolska-rada/zapisy-a-dokumenty-sr/zapis-z-jednani-skolske-rady-ze-dne-2982022-278.html"
+    },
+    "zapis-z-jednani-skolske-rady-9-10-2014-web-zs-pe": {
+      "label": "Zápis z jednání školské rady 9. 10. 2014 — web ZŠ Pečky",
+      "url": "https://www.zspecky.cz/skola/skolska-rada/zapisy-a-dokumenty-sr/zapis-z-jednani-skolske-rady-ze-dne-9-10-2014-115.html"
+    },
+    "pececke-noviny-10-2014-rada-mesta-pecky-8-9-2014": {
+      "label": "Pečecké noviny 10/2014 — Rada města Pečky 8. 9. 2014 (návrh člena školské rady)",
+      "url": "https://jakubspanihel.github.io/pecky.online/noviny/"
+    },
+    "zapis-z-jednani-skolske-rady-2-9-2021-web-zs-pec": {
+      "label": "Zápis z jednání školské rady 2. 9. 2021 — web ZŠ Pečky",
+      "url": "https://www.zspecky.cz/skola/skolska-rada/zapisy-a-dokumenty-sr/zapis-z-jednani-skolske-rady-ze-dne-292021-280.html"
+    },
+    "zapis-z-volby-zastupce-z-rad-rodicu-do-skolske-r": {
+      "label": "Zápis z volby zástupce z řad rodičů do školské rady (11. 3. 2011) — web ZŠ Pečky",
+      "url": "https://www.zspecky.cz/skola/skolska-rada/zapisy-a-dokumenty-sr/vysledky-voleb-zastupce-zakonnych-zastupcu-zaku-33.html"
+    },
+    "zapis-z-jednani-skolske-rady-16-10-2012-web-zs-p": {
+      "label": "Zápis z jednání školské rady 16. 10. 2012 — web ZŠ Pečky",
+      "url": "https://www.zspecky.cz/skola/skolska-rada/zapisy-a-dokumenty-sr/zapis-z-jednani-skolske-rady-dne-16102012-56.html"
+    },
+    "zapis-z-jednani-skolske-rady-4-9-2017-web-zs-pec": {
+      "label": "Zápis z jednání školské rady 4. 9. 2017 — web ZŠ Pečky",
+      "url": "https://www.zspecky.cz/skola/skolska-rada/zapisy-a-dokumenty-sr/zapis-z-jednani-skolske-rady-ze-dne-492017-233.html"
+    },
+    "zapis-z-jednani-skolske-rady-13-10-2009-web-zs-p": {
+      "label": "Zápis z jednání školské rady 13. 10. 2009 — web ZŠ Pečky",
+      "url": "https://www.zspecky.cz/skola/skolska-rada/zapisy-a-dokumenty-sr/zapis-2009-10-25.html"
+    },
+    "zapis-sportovni-komise-15-6-2022-pecky-cz": {
+      "label": "Zápis Sportovní komise 15. 6. 2022 — pecky.cz",
+      "url": "https://pecky.cz/files/pecky/gallery/19734/69e5ee831927c_15.6.2022.pdf"
+    },
+    "zapis-kulturni-komise-4-11-2021-pecky-cz": {
+      "label": "Zápis Kulturní komise 4. 11. 2021 — pecky.cz",
+      "url": "https://pecky.cz/files/pecky/gallery/19065/69c3ed0b1cf4e_4.11.2021.pdf"
+    },
+    "zapis-stavebne-dopravni-komise-24-1-2019-pecky-c": {
+      "label": "Zápis Stavebně-dopravní komise 24. 1. 2019 — pecky.cz",
+      "url": "https://pecky.cz/files/pecky/gallery/19066/69c3eff8c5a3b_zapis-24.1.2019.pdf"
+    },
+    "zapis-sportovni-komise-14-9-2021-pecky-cz": {
+      "label": "Zápis Sportovní komise 14. 9. 2021 — pecky.cz",
+      "url": "https://pecky.cz/files/pecky/gallery/19734/69e5ee7fd659c_14.9.2021.pdf"
+    },
+    "zapis-kulturni-komise-7-2-2019-pecky-cz": {
+      "label": "Zápis Kulturní komise 7. 2. 2019 — pecky.cz",
+      "url": "https://pecky.cz/files/pecky/gallery/19065/69c3ebb146ab8_7.2.2019.pdf"
+    },
+    "pececke-noviny-1-2011-rada-mesta-pecky-29-11-201-2": {
+      "label": "Pečecké noviny 1/2011 — Rada města Pečky 29. 11. 2010: jmenování členů komisí (Komise bytová)",
+      "url": "https://jakubspanihel.github.io/pecky.online/noviny/"
+    },
+    "pececke-noviny-1-2015-s-2-rada-mesta-pecky-24-11": {
+      "label": "Pečecké noviny 1/2015, s. 2 — Rada města Pečky 24. 11. 2014: komise na volební období 2014–2018 (předseda Komise bytové)",
+      "url": "https://jakubspanihel.github.io/pecky.online/noviny/"
+    },
+    "pececke-noviny-9-2019-s-2-z-prazdninovych-jednan": {
+      "label": "Pečecké noviny 9/2019, s. 2 — „Z prázdninových jednání Rady města“: zrušení bytové komise a komise pro sociální oblast a zdravotnictví, zřízení komise pro otázky sociální, zdravotní a bytové",
+      "url": "https://jakubspanihel.github.io/pecky.online/noviny/"
+    },
+    "mesto-pecky-hlidac-statu": {
+      "label": "Město Pečky — Hlídač státu",
+      "url": "https://www.hlidacstatu.cz/subjekt/00239607"
+    },
+    "mesto-pecky-rejstrik-penize-cz-ares-rzp": {
+      "label": "Město Pečky — Rejstřík.penize.cz (ARES/RŽP)",
+      "url": "https://rejstrik.penize.cz/rzp/00239607-mesto-pecky"
+    },
+    "csu-kandidati-2018-2": {
+      "label": "Výsledky voleb 2018 — ČSÚ, volby.gov.cz (obec 537641 Pečky)",
+      "url": "https://volby.gov.cz/pls/kv2018/vysledky_obec?datumvoleb=20181005&cislo_obce=537641"
+    },
+    "registrace-kandidatnich-listin-pro-volby-2026-ur": {
+      "label": "Registrace kandidátních listin pro volby 2026 — úřední deska města",
+      "url": "https://www.pecky.cz/"
+    },
+    "materska-skola-masinka-pecky-rejstrik-penize-cz": {
+      "label": "Mateřská škola MAŠINKA Pečky — Rejstřík.penize.cz (ARES)",
+      "url": "https://rejstrik.penize.cz/ares/49862359-materska-skola-masinka-pecky"
+    },
+    "zakladni-skola-pecky-okres-kolin-rejstrik-penize": {
+      "label": "Základní škola Pečky, okres Kolín — Rejstřík.penize.cz (ARES)",
+      "url": "https://rejstrik.penize.cz/ares/49862456-zakladni-skola-pecky-okres-kolin"
+    },
+    "pececke-sluzby-s-r-o-kontakty-firemni-web-neaktu": {
+      "label": "Pečecké služby, s.r.o. — Kontakty (firemní web, neaktuální jméno jednatele)",
+      "url": "https://pececkesluzby.cz/office/"
+    },
+    "telocvicna-jednota-sokol-pecky-hlidac-statu": {
+      "label": "Tělocvičná jednota Sokol Pečky — Hlídač státu",
+      "url": "https://www.hlidacstatu.cz/subjekt/00664171"
+    },
+    "tj-sokol-pecky-oficialni-web": {
+      "label": "TJ Sokol Pečky — oficiální web",
+      "url": "https://www.sokolpecky.cz/"
+    },
+    "amatersky-fotbalovy-klub-pecky-z-s-ares": {
+      "label": "Amatérský fotbalový klub Pečky, z.s. — ARES",
+      "url": "https://ares.gov.cz/ekonomicke-subjekty?ico=62994417"
+    },
+    "afk-pecky-oficialni-web": {
+      "label": "AFK Pečky — oficiální web",
+      "url": "https://www.afkpecky.cz/"
+    },
+    "pececky-okraslovaci-spolek-hlidac-statu": {
+      "label": "Pečecký okrašlovací spolek — Hlídač státu",
+      "url": "https://www.hlidacstatu.cz/subjekt/21001634"
+    },
+    "instagram-hospoda-na-hristi": {
+      "label": "Instagram — Hospoda na hřišti",
+      "url": "https://www.instagram.com/hospoda_na_hristi_pecky/"
+    },
+    "vzdelavaci-centrum-pecky-vzcentrum-cz": {
+      "label": "Vzdělávací centrum Pečky — vzcentrum.cz",
+      "url": "https://www.vzcentrum.cz"
+    },
+    "maminky-sobe-z-s-hlidac-statu": {
+      "label": "Maminky sobě, z.s. — Hlídač státu",
+      "url": "https://www.hlidacstatu.cz/subjekt/27033431"
+    },
+    "komunitni-centrum-praminek-dobrichov-mcpraminek": {
+      "label": "Komunitní centrum Pramínek Dobřichov — mcpraminek.cz",
+      "url": "https://www.mcpraminek.cz"
+    },
+    "spolek-zeleznicnich-modelaru-pecky-hlidac-statu": {
+      "label": "Spolek železničních modelářů Pečky — Hlídač státu",
+      "url": "https://www.hlidacstatu.cz/subjekt/27028861"
+    },
+    "szm-pecky-oficialni-web": {
+      "label": "SŽM Pečky — oficiální web",
+      "url": "https://szmpecky.webnode.cz/"
+    },
+    "minigolf-pecky-oficialni-web": {
+      "label": "Minigolf Pečky — oficiální web",
+      "url": "https://minigolf-pecky.webnode.cz/"
+    },
+    "facebook-fitpecky-cz": {
+      "label": "Facebook — FitPecky.cz",
+      "url": "https://www.facebook.com/fitpecky.cz"
+    },
+    "fitpecky-cz-oficialni-web": {
+      "label": "FitPecky.cz — oficiální web",
+      "url": "http://www.fitpecky.cz/"
+    },
+    "instagram-nejen-kavarna-u-radu": {
+      "label": "Instagram — Nejen kavárna u Radu",
+      "url": "https://www.instagram.com/nejenkavarnauradu"
+    },
+    "pececka-desitka-oficialni-web": {
+      "label": "Pečecká desítka — oficiální web",
+      "url": "https://www.pecky10km.cz"
+    },
+    "dsa-planany-z-s-hlidac-statu": {
+      "label": "DSA Plaňany, z.s. — Hlídač státu",
+      "url": "https://www.hlidacstatu.cz/subjekt/17387884"
+    },
+    "studio-anet-oficialni-web": {
+      "label": "Studio Anet — oficiální web",
+      "url": "https://www.studioanet.cz/"
+    },
+    "dc-glow-z-s-hlidac-statu": {
+      "label": "DC GLOW, z.s. — Hlídač státu",
+      "url": "https://www.hlidacstatu.cz/subjekt/21862184"
+    },
+    "dc-glow-oficialni-web": {
+      "label": "DC Glow — oficiální web",
+      "url": "https://www.dcglow.cz"
+    },
+    "facebook-hasici-pecky-jpo-ii": {
+      "label": "Facebook — Hasiči Pečky JPO II",
+      "url": "https://www.facebook.com/p/Hasi%C4%8Di-Pe%C4%8Dky-JPO-II-100064313364366/"
+    }
+  }
+}

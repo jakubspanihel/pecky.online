@@ -116,8 +116,22 @@ function pcPhoneLinks(phone){
     .map(num => `<a href="tel:${jEscapeHtml(num.replace(/[^\d+]/g, ''))}">${jEscapeHtml(num)}</a>`)
     .join(' · ');
 }
+// Zdroje osob, vazeb a organizací jsou v datech jen id z lide/sources.json
+// (SPEC §3.8). Číselník se načte jednou přes pcLoadSources() — stránka ho
+// přidá do svého Promise.all s people/affiliations/organizations.
+const PC_SOURCES = {};
+let PC_SOURCES_LOADING = null;
+function pcLoadSources(){
+  if (!PC_SOURCES_LOADING) {
+    PC_SOURCES_LOADING = fetch('/lide/sources.json')
+      .then(r => { if (!r.ok) throw new Error('sources.json: HTTP ' + r.status); return r.json(); })
+      .then(doc => { Object.assign(PC_SOURCES, doc.sources || {}); return PC_SOURCES; });
+  }
+  return PC_SOURCES_LOADING;
+}
 function pcSourceLinks(sources){
-  return (sources || []).filter(s => s && s.url)
+  return (sources || []).map(s => typeof s === 'string' ? PC_SOURCES[s] : s)
+    .filter(s => s && s.url)
     .map(s => `<a href="${jEscapeHtml(s.url)}" target="_blank" rel="noopener">${jEscapeHtml(s.label || s.url)} ↗</a>`)
     .join('');
 }
