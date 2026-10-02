@@ -55,12 +55,16 @@
   <section class="panel active" id="panel-zpravodaj">
     <p class="lastmod" data-date="2026-09-16">Aktualizováno: 16. 9. 2026</p>
     <h2 class="title display">Pečecké noviny</h2>
-    <p class="lede" id="noviny-lede">Archiv se právě načítá…</p>
-    <div class="search-bar">
-      <input type="search" id="noviny-search" placeholder="Hledat" autocomplete="off" aria-label="Hledat v novinách">
+    <p class="lede" id="noviny-lede">Tady najdete obálky a PDF měsíčníku Pečecké noviny. Stačí zadat slovo a zobrazí se, na kterých stranách kterého vydání se objevilo.</p>
+    <div class="list-control">
+      <div class="search-bar">
+        <input type="search" id="noviny-search" placeholder="Hledat" autocomplete="off" aria-label="Hledat v novinách">
+      </div>
     </div>
-    <p class="search-status" id="noviny-status">Načítám archiv textu…</p>
+    <h3 class="search-status" id="noviny-status" aria-live="polite"><span class="spinner" aria-hidden="true"></span>Načítám archiv…</h3>
     <div id="noviny-results"></div>
+
+    <div id="noviny-archive">
 
     <h3 class="display" style="margin:30px 0 4px;">2026</h3>
     <div class="noviny-grid">
@@ -1009,6 +1013,7 @@
       <li><strong>2025:</strong> leden</li>
     </ul>
     <p class="program-note">Rok 2026 průběžně pokračuje (zatím vydáno do čísla červenec–srpen) — chybějící pozdější měsíce nejsou mezera, ještě nevyšly. U vydání 2001-06 a 2006-01 (dohromady 8 stran) byl extrahovaný text z PDF nepoužitelný (poškozené vlastní kódování fontů z tehdejšího DTP softwaru) — fulltext pro tato dvě čísla proto pochází z OCR (Tesseract, čeština), ne z přímé extrakce jako zbytek archivu; ojedinělá chyba rozpoznání v hustě sázených tabulkách je proto pravděpodobnější než jinde. Celý ročník 2012–2015 (44 vydání) jsou čisté naskenované obrázky bez textové vrstvy — fulltext pro celou tuhle dávku proto pochází z OCR stejně jako u zmíněných dvou čísel.</p>
+    </div>
   </section>
 
 <script>
@@ -1033,16 +1038,10 @@
           });
         });
         NOVINY_DB = data;
-        const ledeEl = document.getElementById('noviny-lede');
-        if (ledeEl) {
-          const years = data.editions.map(ed => ed.year).filter(Boolean);
-          const yearRange = years.length ? `${Math.min(...years)}–${Math.max(...years)}` : '';
-          ledeEl.innerHTML = `Archiv obsahuje <strong>${data.meta.editions_count} vydání</strong> z let ${yearRange}.`;
-        }
         nRunSearch();
         return data;
       } catch (e) {
-        statusEl.textContent = 'Archiv novin se nepodařilo načíst (' + e.message + '). Zkuste stránku obnovit.';
+        statusEl.textContent = 'Archiv se nepodařilo načíst (' + e.message + '). Zkuste stránku obnovit.';
         throw e;
       }
     })();
@@ -1081,10 +1080,13 @@
     const words = jNorm(rawQuery).split(/\s+/).filter(w => w.length > 1);
     const statusEl = document.getElementById('noviny-status');
     const resultsEl = document.getElementById('noviny-results');
+    const archiveEl = document.getElementById('noviny-archive');
+    archiveEl.hidden = !!words.length;
 
     if (!words.length) {
-      statusEl.textContent = `Prohledáno ${NOVINY_DB.meta.editions_count} vydání (${NOVINY_DB.meta.pages_total} stran) — hledá se bez ohledu na diakritiku a velikost písmen, napříč jednotlivými stránkami.`;
+      statusEl.textContent = `${NOVINY_DB.meta.editions_count} vydání`;
       resultsEl.innerHTML = '';
+      archiveEl.hidden = false;
       return;
     }
 
