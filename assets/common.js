@@ -382,3 +382,12 @@ document.querySelectorAll('.exp-row').forEach(row => {
   set();
   window.addEventListener('resize', set);
 })();
+
+// ===== Výška sticky lišty hledání (--lc-h) — sticky podnadpisy se lepí pod ni =====
+(function () {
+  const lc = document.querySelector('.panel.active .list-control');
+  if (!lc) return;
+  const set = () => document.documentElement.style.setProperty('--lc-h', lc.offsetHeight + 'px');
+  set();
+  window.addEventListener('resize', set);
+})();

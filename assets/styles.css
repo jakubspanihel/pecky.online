@@ -434,6 +434,9 @@
 
   .card-grid{display:grid; grid-template-columns:repeat(auto-fill,minmax(220px,1fr)); gap:14px; margin-top:18px;}
 
+  /* nadpisy ročníků zůstávají při scrollu pod lištou hledání */
+  #noviny-archive > h3.display, #noviny-results > h3.display{position:sticky; top:calc(var(--title-h,0px) + var(--lc-h,0px)); z-index:8; background:var(--parchment); padding:6px 0; margin-bottom:0 !important;}
+  @media (min-width:768px){ #noviny-archive > h3.display, #noviny-results > h3.display{top:calc(var(--nav-h,0px) + var(--title-h,0px) + var(--lc-h,0px));} }
   .noviny-grid{display:grid; grid-template-columns:repeat(6,1fr); gap:16px; margin-top:16px;}
   @media (max-width:960px){.noviny-grid{grid-template-columns:repeat(4,1fr);}}
   @media (max-width:640px){.noviny-grid{grid-template-columns:repeat(2,1fr);}}
