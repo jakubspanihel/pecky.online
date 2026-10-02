@@ -1050,6 +1050,18 @@ seznam místo rozházených poznámek po repu.
     Záložka Události bez nadcházejících (minulé: Chvalovický kotlík
     1. 8., Pálení čarodějnic 30. 4.); poslední příspěvek 26. 9. 2026
     zval na „Rozloučení s létem" 27. 9. — už proběhlo. Nic k zápisu.
+    **2. 10. 2026 znovu projito na žádost uživatele** (Události: bez
+    nadcházejících; záložka Multimédia → Fotky, plakáty čtené okem):
+    zapsáno posledních 5 proběhlých akcí (Rozloučení s létem 27. 9.,
+    Food Festival 19. 9. — už byl z programu KD, upraven pořadatel na
+    Pečecký okrašlovací spolek —, Šipkový turnaj DartsCup.cz 16. 9.,
+    Podzimní stezka skřítka Kaštánka 12. 9. od Sokola Velké Chvalovice,
+    Pečecké filmové léto 14. 8. — už existovalo, přidán jen doklad) a 2
+    nadcházející (Burčákový pochod Mutěnice 10. 10., Halloween 31. 10.).
+    Pořadatel hospůdky je `organizer: null` + `organizer_name` (vztah k
+    `hospoda-na-hristi-pecky` nebyl ověřen). Plakát „Kytarista zahraje
+    táborákové písně“ (22. 9.) nemá datum — nezapsán. Chvalovický kotlík
+    1. 8. (jen Událost, plakát v mřížce nenalezen) zapsán nebyl.
     Příště číst záložku Události a nejnovější příspěvky.
   - **FitPecky.cz** (`facebook-fitpecky-cz`, 1,2 tis. sledujících,
     přidáno uživatelem 25. 9. 2026) — prodejna zdravé výživy, bezobalu

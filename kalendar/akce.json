@@ -1,7 +1,7 @@
 {
  "meta": {
   "description": "Kulturní a společenské akce v Pečkách a okolí. U každé akce je pořadatel (id do lide/organizations.json) a doklady, ze kterých je přepsaná (evidence[] — zdroj je id do kořenového sources.json). Zdroj sekce Kalendář — do udalosti.json a kalendar.ics je promítá kalendar/scripts/update-kalendar.py.",
-  "updated": "2026-10-01",
+  "updated": "2026-10-02",
   "note": "Jednání rady a zastupitelstva do tohohle souboru nepatří, i když je plakát KD uvádí — ta má kalendář z jednani/pecky-jednani.json a zapsáním sem by v mřížce vznikly duplicity. Pořadatel je vždy ten, kdo akci pořádá, ne ten, od koho o ní víme — to je evidence[].source."
  },
  "events": [
@@ -46,6 +46,14 @@
      "label": "Plakát Pečecké filmové léto 2026",
      "published": "2026-06-30",
      "retrieved": "2026-09-20"
+    },
+    {
+     "source": "facebook-group-hospudka-na-hristi",
+     "kind": "plakat",
+     "url": "https://www.facebook.com/photo/?fbid=38623444843921378&set=g.302811704063917",
+     "label": "Plakát Pečecké filmové léto (příspěvek ve skupině)",
+     "published": "2026-08-09",
+     "retrieved": "2026-10-02"
     }
    ]
   },
@@ -3366,16 +3374,24 @@
   },
   {
    "id": "akce-2026-09-19-food-festival-velke-chvalovice",
-   "title": "Food festival Velké Chvalovice",
+   "title": "Food Festival 2026 (7. ročník)",
    "date": "2026-09-19",
    "time": "11:00",
    "category": "akce",
-   "place": "Hřiště Velké Chvalovice",
-   "organizer": "kulturni-stredisko-pecky",
+   "place": "U fotbalového hřiště, Velké Chvalovice",
+   "organizer": "pececky-okraslovaci-spolek",
    "organizer_name": null,
-   "description": null,
-   "note": null,
+   "description": "11:00–14:00. Každý může přinést a nabídnout vlastní dobroty za svou cenu; stoly, ubrusy, přípojení k el. síti a odpadkové koše zajištěny, misky a příbory si každý přináší sám. Informace: Lucie Houdková, tel. 605 120 918. Lze přispět na dobrou věc.",
+   "note": "Program KD uváděl akci bez pořadatele; samostatný plakát (příspěvek ve skupině Hospůdka na hřišti) uvádí jako pořadatele Pečecký okrašlovací spolek („7. ročník Food Festivalu“) — pořadatel upraven podle něj.",
    "evidence": [
+    {
+     "source": "facebook-group-hospudka-na-hristi",
+     "kind": "plakat",
+     "url": "https://www.facebook.com/photo/?fbid=39615188278080358&set=g.302811704063917",
+     "label": "Plakát Food Festival 2026",
+     "published": "2026-09-18",
+     "retrieved": "2026-10-02"
+    },
     {
      "source": "facebook-kspecky",
      "kind": "plakat",
@@ -76192,6 +76208,50 @@
    ]
   },
   {
+   "id": "akce-2026-09-12-podzimni-stezku-skritka-kastanka",
+   "title": "Podzimní stezka skřítka Kaštánka",
+   "date": "2026-09-12",
+   "time": "13:00",
+   "category": "akce",
+   "place": "Start na hřišti, Velké Chvalovice",
+   "organizer": null,
+   "organizer_name": "Sokol Velké Chvalovice",
+   "description": null,
+   "note": "13:00–14:30. Plakát: „Sokol Velké Chvalovice vás zve“ — jde o místní sokol ve Velkých Chvalovicích, ne o TJ Sokol Pečky. Plakát má štítek Facebooku „AI obsah“.",
+   "evidence": [
+    {
+     "source": "facebook-group-hospudka-na-hristi",
+     "kind": "plakat",
+     "url": "https://www.facebook.com/photo/?fbid=39448884598044061&set=g.302811704063917",
+     "label": "Plakát Podzimní stezka skřítka Kaštánka",
+     "published": "2026-09-12",
+     "retrieved": "2026-10-02"
+    }
+   ]
+  },
+  {
+   "id": "akce-2026-09-16-turnaj-v-sipkach-dartscup",
+   "title": "Šipkový turnaj DartsCup.cz",
+   "date": "2026-09-16",
+   "time": "18:30",
+   "category": "akce",
+   "place": "Hřiště, Ke hřišti 193, Velké Chvalovice",
+   "organizer": null,
+   "organizer_name": "DartsCup.cz",
+   "description": null,
+   "note": "Plakát uvádí „Zveme vás na turnaj“ s logem DartsCup.cz; kontakty Luke Tucker 731 593 336, Jiří Konrad 724 883 229. Pořadatele plakát výslovně nejmenuje, je odvozen z loga.",
+   "evidence": [
+    {
+     "source": "facebook-group-hospudka-na-hristi",
+     "kind": "plakat",
+     "url": "https://www.facebook.com/photo/?fbid=39365317519734103&set=g.302811704063917",
+     "label": "Plakát turnaje DartsCup.cz",
+     "published": "2026-09-09",
+     "retrieved": "2026-10-02"
+    }
+   ]
+  },
+  {
    "id": "akce-2027-03-13-pececka-desitka",
    "title": "Pečecká desítka",
    "date": "2027-03-13",
@@ -77038,6 +77098,28 @@
      "label": "vzcentrum.cz — Víkendovky: Ateliér",
      "published": "2026-09-25",
      "retrieved": "2026-09-25"
+    }
+   ]
+  },
+  {
+   "id": "akce-2026-09-27-rozlouceni-s-letem",
+   "title": "Rozloučení s létem",
+   "date": "2026-09-27",
+   "time": "14:00",
+   "category": "akce",
+   "place": "Hospůdka na hřišti, Velké Chvalovice",
+   "organizer": null,
+   "organizer_name": "Hospůdka na hřišti Velké Chvalovice",
+   "description": "Pečené makrely na ohni, grilované maso, hudební doprovod, táborák; pro děti skákací hrad zdarma a dětská výtvarná dílnička.",
+   "note": "Vstupné dobrovolné. Pořadatel odvozen z plakátu („v Hospůdce na hřišti Velké Chvalovice“); vztah k Instagramu „Hospoda na hřišti“ nebyl ověřen, proto bez vazby na pořadatele v rejstříku.",
+   "evidence": [
+    {
+     "source": "facebook-group-hospudka-na-hristi",
+     "kind": "plakat",
+     "url": "https://www.facebook.com/photo/?fbid=39820254947573689&set=g.302811704063917",
+     "label": "Plakát Rozloučení s létem",
+     "published": "2026-09-26",
+     "retrieved": "2026-10-02"
     }
    ]
   },
@@ -85159,6 +85241,28 @@
    ]
   },
   {
+   "id": "akce-2026-10-10-burcakovy-pochod-mutenice",
+   "title": "Burčákový pochod Mutěnice",
+   "date": "2026-10-10",
+   "time": "07:00",
+   "category": "akce",
+   "place": "Odjezd z Velkých Chvalovic (popřípadě dle domluvy i z Peček), pochod v Mutěnicích",
+   "organizer": null,
+   "organizer_name": null,
+   "description": "Trasu lze zvolit 5–13 km, stánky s burčákem a pochutinami, otevřené sklípky.",
+   "note": "Autobusový odjezd v 7:00, odjezd z Mutěnic kolem 18:00. Cena 550 Kč za autobusovou dopravu, vstupné na pochod se neplatí. Info tel. 773 083 273. Plakát pořadatele neuvádí. Plakát má štítek Facebooku „AI obsah“.",
+   "evidence": [
+    {
+     "source": "facebook-group-hospudka-na-hristi",
+     "kind": "plakat",
+     "url": "https://www.facebook.com/photo/?fbid=38551452754453921&set=g.302811704063917",
+     "label": "Plakát Burčákový pochod Mutěnice",
+     "published": "2026-08-06",
+     "retrieved": "2026-10-02"
+    }
+   ]
+  },
+  {
    "id": "kurz-2026-10-15-tanec-hlavaci-ctvrtek",
    "title": "Taneční oddíl — Hlaváci (DSA)",
    "date": "2026-10-15",
@@ -85217,6 +85321,28 @@
      "label": "DANCE Studio Anet Plaňany — plakát náboru, rozpis ÚTERÝ v KS Pečky",
      "published": "2026-08-27",
      "retrieved": "2026-09-25"
+    }
+   ]
+  },
+  {
+   "id": "akce-2026-10-31-halloween-hospudka",
+   "title": "Halloween v Hospůdce na hřišti",
+   "date": "2026-10-31",
+   "time": "15:00",
+   "category": "akce",
+   "place": "Hospůdka na hřišti, Velké Chvalovice",
+   "organizer": null,
+   "organizer_name": "Hospůdka na hřišti Velké Chvalovice",
+   "description": "Halloween pro děti 15:00–18:00 (skákací hrad, laboratoř slizu, malování na obličej, soutěž o nejlepší kostým); Halloweenská party pro dospělé od 20:00 (koktejly, hudba, beer pong, vyhlášení 3 nejlepších kostýmů).",
+   "note": "Vstupné 50 Kč, přijít v kostýmu. Pořadatel podle hlavičky plakátu „Hospůdka na hřišti Velké Chvalovice“.",
+   "evidence": [
+    {
+     "source": "facebook-group-hospudka-na-hristi",
+     "kind": "plakat",
+     "url": "https://www.facebook.com/photo/?fbid=1075324201874917&set=g.302811704063917",
+     "label": "Plakát Halloween 31. 10.",
+     "published": "2026-09-21",
+     "retrieved": "2026-10-02"
     }
    ]
   },
