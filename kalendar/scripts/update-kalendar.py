@@ -24,6 +24,8 @@ D) Zápasy AFK Pečky — z kalendar/afk-zapasy.json, které stahuje
    zápasy hrané v Pečkách, všech týmů). Tenhle skript sám nic nestahuje -
    pracuje s posledním uloženým souborem, viz kalendar/README.md ->
    "Zápasy AFK Pečky".
+F) Pravidelné provozní doby — kalendar/sberny-dvur.json a mestsky-urad.json, otevírací doba
+   bez konce (rozepisuje se na horizont meta.horizon), kategorie 'svoz'.
 E) Svoz odpadů — z kalendar/svoz-odpadu.json (harmonogram města, vytěžený
    z PDF skriptem kalendar/scripts/extract-svoz-odpadu.py), kategorie
    'svoz', jedna celodenní událost na typ svozu a den.
@@ -66,6 +68,8 @@ AKCE_JSON = ROOT / 'kalendar' / 'akce.json'
 VOLBY_JSON = ROOT / 'kalendar' / 'udalosti-rucni.json'
 AFK_JSON = ROOT / 'kalendar' / 'afk-zapasy.json'
 SVOZ_JSON = ROOT / 'kalendar' / 'svoz-odpadu.json'
+PROVOZNI_DOBY_JSON = [ROOT / 'kalendar' / 'sberny-dvur.json',
+                      ROOT / 'kalendar' / 'mestsky-urad.json']
 ORGANIZACE_JSON = ROOT / 'lide' / 'organizations.json'
 OUT_JSON = ROOT / 'kalendar' / 'udalosti.json'
 OUT_ICS = ROOT / 'kalendar' / 'kalendar.ics'
@@ -338,6 +342,52 @@ def build_svoz_events():
     return events
 
 
+def build_provozni_doby_events():
+    """Pravidelné provozní doby (sběrný dvůr, městský úřad) -> společné schéma.
+
+    Každý soubor z PROVOZNI_DOBY_JSON má pravidla (den v týdnu + od-do), která
+    platí od meta.from bez konce; rozepisují se po meta.horizon (ISO datum),
+    horizont se čas od času posouvá a generátor se spouští znovu. Událost nese
+    'time_end' (volitelné pole schématu -> DTEND v .ics a konec v Google
+    Kalendáři) a 'tag' (štítek v Seznamu, jinak se použije štítek kategorie).
+    """
+    org = nazvy_organizaci()
+    events = []
+    for path in PROVOZNI_DOBY_JSON:
+        if not path.exists():
+            continue
+        data = json.loads(path.read_text(encoding='utf-8'))
+        meta = data['meta']
+        org_id = meta.get('organizer')
+        d = datetime.strptime(meta['from'], '%Y-%m-%d').date()
+        last = datetime.strptime(meta['horizon'], '%Y-%m-%d').date()
+        while d <= last:
+            for r in data['rules']:
+                if d.weekday() == r['weekday']:
+                    eid = f'{meta["id"]}-{d.isoformat()}' + (f'-{r["from"].replace(":", "")}' if meta.get('id_s_casem') else '')
+                    events.append({
+                        'id': eid,
+                        'title': meta['title'],
+                        'tag': meta.get('tag', ''),  # '' = bez štítku (ne štítek kategorie)
+                        'date': d.isoformat(),
+                        'date_end': None,
+                        'time': r['from'],
+                        'time_end': r['to'],
+                        'all_day': False,
+                        'category': 'svoz',
+                        'link': meta['evidence']['url'],
+                        'description': f'{meta["description_prefix"]} {r["from"]}–{r["to"]}',
+                        'place': meta['place'],
+                        'organizer': org_id,
+                        'organizer_name': org.get(org_id) if org_id else None,
+                        'image': None,
+                        'note': None,
+                        'source_ref': eid,
+                    })
+            d += timedelta(days=1)
+    return events
+
+
 # ---------------------------------------------------------------- iCalendar
 
 def ics_escape(text):
@@ -381,6 +431,9 @@ def event_to_vevent(ev, dtstamp):
         local = datetime.strptime(f'{ev["date"]} {ev["time"]}', '%Y-%m-%d %H:%M').replace(tzinfo=PRAGUE)
         start_utc = local.astimezone(timezone.utc)
         lines.append(f'DTSTART:{start_utc.strftime("%Y%m%dT%H%M%SZ")}')
+        if ev.get('time_end'):
+            end_local = datetime.strptime(f'{ev["date"]} {ev["time_end"]}', '%Y-%m-%d %H:%M').replace(tzinfo=PRAGUE)
+            lines.append(f'DTEND:{end_local.astimezone(timezone.utc).strftime("%Y%m%dT%H%M%SZ")}')
     lines.append(ics_fold(f'SUMMARY:{ics_escape(ev["title"])}'))
     popis = [t for t in (ev.get('description'),
                          f'Pořádá {ev["organizer_name"]}' if ev.get('organizer_name') else None)
@@ -421,7 +474,8 @@ def main():
     volby = build_volby_events()
     afk = build_afk_events()
     svoz = build_svoz_events()
-    events = jednani + vybory + akce + volby + afk + svoz
+    sberny = build_provozni_doby_events()
+    events = jednani + vybory + akce + volby + afk + svoz + sberny
     events.sort(key=lambda e: (e['date'], e['time'] or ''))
 
     OUT_JSON.write_text(json.dumps({
@@ -431,7 +485,8 @@ def main():
                                f'kalendar/akce.json ({len(akce)} akcí), '
                                f'kalendar/udalosti-rucni.json ({len(volby)} termínů), '
                                f'kalendar/afk-zapasy.json ({len(afk)} zápasů v Pečkách), '
-                               f'kalendar/svoz-odpadu.json ({len(svoz)} svozů)'),
+                               f'kalendar/svoz-odpadu.json ({len(svoz)} svozů), '
+                               f'kalendar/sberny-dvur.json + mestsky-urad.json ({len(sberny)} termínů provozních dob)'),
             'updated': datetime.now(PRAGUE).strftime('%Y-%m-%d'),
         },
         'events': events,

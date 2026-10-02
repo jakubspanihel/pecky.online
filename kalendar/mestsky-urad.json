@@ -1,0 +1,70 @@
+{
+ "meta": {
+  "description": "Pracovní doba Městského úřadu Pečky (úřední hodiny). Pravidlo platí od data `from` bez konce; update-kalendar.py ho rozepisuje do data `horizon`, které je třeba čas od času posunout.",
+  "id": "mestsky-urad",
+  "id_s_casem": true,
+  "title": "Městský úřad",
+  "tag": "",
+  "description_prefix": "Úřední hodiny",
+  "place": "Městský úřad Pečky, Masarykovo nám. 78",
+  "organizer": "mesto-pecky",
+  "from": "2026-10-03",
+  "horizon": "2027-12-31",
+  "updated": "2026-10-03",
+  "evidence": {
+   "source": "pecky-cz-pracovni-doba",
+   "kind": "web",
+   "url": "https://pecky.cz/default/default/21281_pracovni-doba",
+   "label": "Pracovní doba Městského úřadu (pecky.cz)",
+   "published": null,
+   "retrieved": "2026-10-03"
+  }
+ },
+ "rules": [
+  {
+   "weekday": 0,
+   "from": "06:30",
+   "to": "11:00"
+  },
+  {
+   "weekday": 0,
+   "from": "11:30",
+   "to": "17:00"
+  },
+  {
+   "weekday": 1,
+   "from": "06:30",
+   "to": "11:00"
+  },
+  {
+   "weekday": 1,
+   "from": "11:30",
+   "to": "15:00"
+  },
+  {
+   "weekday": 2,
+   "from": "06:30",
+   "to": "11:00"
+  },
+  {
+   "weekday": 2,
+   "from": "11:30",
+   "to": "17:00"
+  },
+  {
+   "weekday": 3,
+   "from": "06:30",
+   "to": "11:00"
+  },
+  {
+   "weekday": 3,
+   "from": "11:30",
+   "to": "15:00"
+  },
+  {
+   "weekday": 4,
+   "from": "07:00",
+   "to": "11:00"
+  }
+ ]
+}

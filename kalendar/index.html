@@ -53,7 +53,7 @@
 
 <main>
   <section class="panel active" id="panel-kalendar">
-    <p class="lastmod" data-date="2026-10-02">Aktualizováno: 2. 10. 2026</p>
+    <p class="lastmod" data-date="2026-10-03">Aktualizováno: 3. 10. 2026</p>
     <h2 class="title display">Kalendář</h2>
 
     <div class="kal-toolbar" style="display:flex; align-items:center; gap:8px; margin:22px 0 4px; flex-wrap:wrap;">
@@ -243,7 +243,8 @@
         ? `<span class="tag${relTag === 'DNES' ? ' kal-dnes' : ' kal-blizko'}">${relTag}</span> ` : '';
       // čas jen když ho zdroj uvádí — jinak se o čase nepíše nic
       const cas = e.time ? `<span class="akce-cas">${kalEsc(e.time)}</span>` : '';
-      const stitek = e.category === 'kurz' ? ' <span class="tag">kurz</span>'
+      const stitek = e.tag != null ? (e.tag ? ` <span class="tag">${kalEsc(e.tag)}</span>` : '')
+        : e.category === 'kurz' ? ' <span class="tag">kurz</span>'
         : e.category === 'svoz' ? ' <span class="tag">svoz</span>' : '';
       const cizi = e.link && /^https?:\/\//.test(e.link) ? ' target="_blank" rel="noopener"' : '';
       const nazev = e.link

@@ -88,7 +88,10 @@ def rozsah(ev):
         konec = datetime.strptime(ev['date_end'] or ev['date'], '%Y-%m-%d').date() + timedelta(days=1)
         return {'date': zacatek.isoformat()}, {'date': konec.isoformat()}
     zacatek = datetime.strptime(f'{ev["date"]} {ev["time"]}', '%Y-%m-%d %H:%M').replace(tzinfo=PRAGUE)
-    konec = zacatek + timedelta(minutes=DEFAULT_DURATION_MIN)
+    if ev.get('time_end'):
+        konec = datetime.strptime(f'{ev["date"]} {ev["time_end"]}', '%Y-%m-%d %H:%M').replace(tzinfo=PRAGUE)
+    else:
+        konec = zacatek + timedelta(minutes=DEFAULT_DURATION_MIN)
     return ({'dateTime': zacatek.isoformat(), 'timeZone': 'Europe/Prague'},
             {'dateTime': konec.isoformat(), 'timeZone': 'Europe/Prague'})
 

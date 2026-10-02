@@ -188,7 +188,8 @@
         ? `<span class="tag${relTag === 'DNES' ? ' kal-dnes' : ' kal-blizko'}">${relTag}</span> ` : '';
       // čas jen když ho zdroj uvádí — jinak se o čase nepíše nic
       const cas = e.time ? `<span class="akce-cas">${kalEsc(e.time)}</span>` : '';
-      const stitek = e.category === 'kurz' ? ' <span class="tag">kurz</span>'
+      const stitek = e.tag != null ? (e.tag ? ` <span class="tag">${kalEsc(e.tag)}</span>` : '')
+        : e.category === 'kurz' ? ' <span class="tag">kurz</span>'
         : e.category === 'svoz' ? ' <span class="tag">svoz</span>' : '';
       const cizi = e.link && /^https?:\/\//.test(e.link) ? ' target="_blank" rel="noopener"' : '';
       const nazev = e.link

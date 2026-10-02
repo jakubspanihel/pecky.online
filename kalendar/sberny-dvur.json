@@ -1,0 +1,34 @@
+{
+ "meta": {
+  "description": "Pravidelná otevírací doba sběrného dvora Pečeckých služeb. Pravidlo platí od data `from` bez konce (do odvolání); update-kalendar.py ho rozepisuje na jednotlivé termíny do data `horizon`, které je potřeba čas od času posunout dál (a znovu spustit generátor + sync-google.py).",
+  "title": "Sběrný dvůr",
+  "place": "Sběrný dvůr, Pečecké služby, s.r.o.",
+  "organizer": "pececke-sluzby",
+  "from": "2026-10-03",
+  "horizon": "2027-12-31",
+  "updated": "2026-10-03",
+  "evidence": {
+   "source": "pececke-sluzby-sberny-dvur",
+   "kind": "web",
+   "url": "https://pececkesluzby.cz/default/default/20745_sberny-dvur",
+   "label": "Sběrný dvůr (pececkesluzby.cz)",
+   "published": null,
+   "retrieved": "2026-10-03"
+  },
+  "id": "sberny-dvur",
+  "tag": "",
+  "description_prefix": "Otevřeno"
+ },
+ "rules": [
+  {
+   "weekday": 2,
+   "from": "13:00",
+   "to": "16:00"
+  },
+  {
+   "weekday": 5,
+   "from": "08:00",
+   "to": "14:00"
+  }
+ ]
+}

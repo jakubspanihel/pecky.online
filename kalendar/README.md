@@ -1304,6 +1304,33 @@ seznam místo rozházených poznámek po repu.
   a `sync-google.py`. Změna během roku (např. mimořádný svoz) se píše
   ručně do `dates[]`.
 
+### Provozní doby: Sběrný dvůr a Městský úřad — aktivní (od 3. 10. 2026)
+
+- **Data:** `kalendar/sberny-dvur.json` a `kalendar/mestsky-urad.json`
+  (`meta` + `rules[]` = `weekday` 0=po…6=ne, `from`/`to`), funkce
+  `build_provozni_doby_events()` (seznam souborů `PROVOZNI_DOBY_JSON`).
+  Pravidlo platí od `meta.from` **bez konce, do odvolání** (zadal
+  uživatel 3. 10. 2026), do `udalosti.json` a Google Kalendáře se ale musí
+  rozepsat na konkrétní termíny — po `meta.horizon` (31. 12. 2027).
+  **Horizont je třeba čas od času posunout** (nejpozději koncem roku 2027)
+  a spustit `update-kalendar.py`. Změní-li se doba, upravit `rules[]`.
+- **Sběrný dvůr:** název „Sběrný dvůr“, bez štítku (zkoušený štítek OTEVŘENO
+  3. 10. 2026 zrušen na žádost uživatele); středa
+  13:00–16:00, sobota 08:00–14:00. Zdroj `pececke-sluzby-sberny-dvur`
+  (pececkesluzby.cz), pořadatel Pečecké služby.
+- **Městský úřad:** název „Městský úřad“, bez štítku (zkoušený štítek
+  „Úřední hodiny“ zrušen tamtéž); po a st
+  6:30–11:00 + 11:30–17:00, út a čt 6:30–11:00 + 11:30–15:00, pá
+  7:00–11:00 (dopoledne a odpoledne jako dvě události, `id_s_casem`).
+  Zdroj `pecky-cz-pracovni-doba` (pecky.cz), pořadatel `mesto-pecky`.
+- **Kategorie** obou je `svoz` (stylování jako u svozu odpadu), ale Seznam
+  místo štítku „svoz“ nic neukáže: `tag: ""` v `meta` = bez štítku.
+- **Schéma:** nová volitelná pole `time_end` (HH:MM; `DTEND` v `.ics`,
+  konec v Google Kalendáři) a `tag` (štítek v Seznamu, prázdný řetězec = žádný). Ostatní zdroje
+  je nemají. Google Kalendář štítek nezobrazuje.
+- **Kontrola:** při týdenní kontrole kalendáře ověřit, že se doby
+  na obou stránkách nezměnily.
+
 ### Kalendář akcí z webu města — zapojeno 23. 9. 2026
 
 Původně plánované jako vlastní scraper (`build_akce_events()` nad

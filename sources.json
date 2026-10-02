@@ -423,6 +423,24 @@
    "note": "Odkaz dodal uživatel 24. 9. 2026, PDF stažené běžným curl. Vytěženo týž den do sekce Kalendář (kategorie svoz, 186 termínů v kalendar/svoz-odpadu.json) skriptem kalendar/scripts/extract-svoz-odpadu.py, který čte barvy buněk. Pořadatele PDF neuvádí — Pečecké služby, s.r.o. jako pořadatele zadal uživatel."
   },
   {
+   "id": "pececke-sluzby-sberny-dvur",
+   "name": "Sběrný dvůr (pececkesluzby.cz)",
+   "url": "https://pececkesluzby.cz/default/default/20745_sberny-dvur",
+   "category": "oficiální",
+   "description": "Stránka Pečeckých služeb, s.r.o. se sběrným dvorem: otevírací doba (středa 13:00–16:00, sobota 08:00–14:00), pravidla pro ukládání odpadu a poplatky.",
+   "status": "ověřeno",
+   "note": "Odkaz dodal uživatel 3. 10. 2026. Otevírací doba zapsána do sekce Kalendář jako opakovaná událost „Sběrný dvůr OTEVŘENO“ bez konce (kalendar/sberny-dvur.json). Poplatky a seznam odpadů zatím nepoužity."
+  },
+  {
+   "id": "pecky-cz-pracovni-doba",
+   "name": "Pracovní doba Městského úřadu (pecky.cz)",
+   "url": "https://pecky.cz/default/default/21281_pracovni-doba",
+   "category": "oficiální",
+   "description": "Pracovní doba Městského úřadu Pečky po dnech v týdnu, dopoledne a odpoledne (pondělí a středa 6:30–11:00 a 11:30–17:00, úterý a čtvrtek 6:30–11:00 a 11:30–15:00, pátek 7:00–11:00).",
+   "status": "ověřeno",
+   "note": "Odkaz dodal uživatel 3. 10. 2026. Zapsáno do sekce Kalendář jako opakovaná událost „Městský úřad“ se štítkem „Úřední hodiny“ bez konce (kalendar/mestsky-urad.json)."
+  },
+  {
    "id": "pecky-cz-akcni-plan-2024-2026",
    "name": "Akční plán rozvoje města Pečky 2024–2026 (pecky.cz)",
    "url": "https://pecky.cz/files/pecky/gallery/18710/699ed77c67d43_Akcni-plan-2024-2026.xlsx.pdf",
