@@ -68,6 +68,9 @@ níže) s odkazem na originál na Facebooku, pod ním
 `👍 reakce 💬 komentáře ♺ sdílení typ: …`. Text příspěvku se na web
 nepřenáší, takže se tam nedostanou jména ani telefony z původních textů.
 
+Hned za perexem je statický SVG sloupcový graf počtu příspěvků po měsících (osa x čas, osa y počet; `render_chart` v `summary.py`,
+bez externích knihoven, barvy z proměnných webu, maximum zvýrazněno).
+
 Od 3. 10. 2026 je tabulka rozdělená po letech: každý rok má vlastní sticky `h3` „2026 (189 příspěvků)“ a vlastní tabulku měsíců,
 navíc pod tabulkami je řádek „Celkem“ (viz `render_page` v `summary.py`).
 

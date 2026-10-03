@@ -105,6 +105,50 @@ def num(v):
     return '–' if v is None else str(v)
 
 
+def render_chart(months):
+    """Statický SVG sloupcový graf: počet příspěvků po měsících (osa x čas, osa y počet).
+    months: [(yyyy-mm, summary, posts, counts_as_of)] libovolně seřazené."""
+    data = sorted((ym, sm['posts']) for ym, sm, _, _ in months)
+    W, H, L, R, T, B = 960, 300, 44, 10, 22, 30
+    ymax = max(10, -(-max(n for _, n in data) // 10) * 10)
+    pw, ph = W - L - R, H - T - B
+    slot = pw / len(data)
+    bw = max(2.0, slot * 0.78)
+    peak = max(n for _, n in data)
+    parts = []
+    for v in range(0, ymax + 1, 10):
+        y = T + ph - ph * v / ymax
+        parts.append(f'<line x1="{L}" x2="{W - R}" y1="{y:.1f}" y2="{y:.1f}" stroke="var(--line)" stroke-width="1"/>')
+        parts.append(f'<text x="{L - 6}" y="{y + 4:.1f}" text-anchor="end" font-size="11" fill="var(--ink-soft)">{v}</text>')
+    parts.append(f'<text x="2" y="12" text-anchor="start" font-size="11" fill="var(--ink-soft)">příspěvků</text>')
+    for i, (ym, n) in enumerate(data):
+        x = L + i * slot + (slot - bw) / 2
+        h = ph * n / ymax
+        y = T + ph - h
+        fill = 'var(--burgundy)' if n == peak else 'var(--slate)'
+        y_, m_ = ym.split('-')
+        tip = f'{MONTHS[int(m_) - 1].lower()} {y_}: {n} {plural(n)}'
+        parts.append(f'<rect x="{x:.1f}" y="{y:.1f}" width="{bw:.1f}" height="{h:.1f}" fill="{fill}"><title>{escape(tip)}</title></rect>')
+        if n == peak:
+            parts.append(f'<text x="{x + bw / 2:.1f}" y="{y - 4:.1f}" text-anchor="middle" font-size="11" font-weight="600" fill="var(--burgundy)">{n}</text>')
+        if m_ == '01':
+            cx = x + bw / 2
+            parts.append(f'<line x1="{cx:.1f}" x2="{cx:.1f}" y1="{T + ph}" y2="{T + ph + 4}" stroke="var(--ink-soft)"/>')
+            parts.append(f'<text x="{cx:.1f}" y="{H - 10}" text-anchor="middle" font-size="11" fill="var(--ink-soft)">{y_}</text>')
+    pk = [ym for ym, n in data if n == peak][0]
+    pk_txt = f'{MONTHS[int(pk[5:]) - 1].lower()} {pk[:4]}'
+    svg = '\n      '.join(parts)
+    return f'''    <figure class="fb-chart">
+      <svg viewBox="0 0 {W} {H}" width="100%" role="img" aria-labelledby="fb-chart-t fb-chart-d">
+      <title id="fb-chart-t">Počet příspěvků po měsících</title>
+      <desc id="fb-chart-d">Sloupcový graf: osa x čas po měsících, osa y počet příspěvků. Nejvíc příspěvků vyšlo v měsíci {pk_txt} ({peak}).</desc>
+      {svg}
+      </svg>
+      <figcaption class="meta-note">Počet příspěvků po měsících. Nejvíc jich vyšlo v měsíci {pk_txt} ({peak}), zvýrazněno. Po najetí na sloupec se zobrazí měsíc a počet.</figcaption>
+    </figure>
+'''
+
+
 def render_month(idx, ym, s, posts, counts_as_of, events=()):
     typy = ' · '.join(f'{TYPE_LABELS.get(t, t)} {s["by_type"][t]}'
                       for t in TYPE_ORDER if s['by_type'].get(t))
@@ -179,11 +223,15 @@ def render_page(months):
     #panel-fbmonitoring h3.fb-year{{position:sticky; top:calc(var(--title-h,0px) + var(--lc-h,0px)); z-index:8; background:var(--parchment); padding:6px 0; margin:26px 0 0;}}
     @media (min-width:768px){{ #panel-fbmonitoring h3.fb-year{{top:calc(var(--nav-h,0px) + var(--title-h,0px) + var(--lc-h,0px));}} }}
     .fb-total{{margin:16px 0 0;}}
+    .fb-chart{{margin:18px 0 4px;}}
+    .fb-chart svg{{display:block; max-width:100%; height:auto;}}
+    .fb-chart figcaption{{margin-top:4px;}}
   </style>
   <section class="panel active" id="panel-fbmonitoring">
     <h2 class="title display">Monitoring Facebooku: Město Pečky</h2>
     <p class="lede">Příspěvky z oficiálního facebookového profilu Města Pečky od {od_txt} po měsících. U každého měsíce je počet příspěvků, po rozkliknutí rozpad podle typu a seznam příspěvků s odkazy na Facebook.</p>
 
+{render_chart(months)}
 {body}
 
     <p class="fb-total"><strong>Celkem {total} {plural(total)}</strong> ve {len(months)} měsících.</p>

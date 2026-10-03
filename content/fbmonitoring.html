@@ -12,10 +12,152 @@
     #panel-fbmonitoring h3.fb-year{position:sticky; top:calc(var(--title-h,0px) + var(--lc-h,0px)); z-index:8; background:var(--parchment); padding:6px 0; margin:26px 0 0;}
     @media (min-width:768px){ #panel-fbmonitoring h3.fb-year{top:calc(var(--nav-h,0px) + var(--title-h,0px) + var(--lc-h,0px));} }
     .fb-total{margin:16px 0 0;}
+    .fb-chart{margin:18px 0 4px;}
+    .fb-chart svg{display:block; max-width:100%; height:auto;}
+    .fb-chart figcaption{margin-top:4px;}
   </style>
   <section class="panel active" id="panel-fbmonitoring">
     <h2 class="title display">Monitoring Facebooku: Město Pečky</h2>
     <p class="lede">Příspěvky z oficiálního facebookového profilu Města Pečky od listopadu 2018 po měsících. U každého měsíce je počet příspěvků, po rozkliknutí rozpad podle typu a seznam příspěvků s odkazy na Facebook.</p>
+
+    <figure class="fb-chart">
+      <svg viewBox="0 0 960 300" width="100%" role="img" aria-labelledby="fb-chart-t fb-chart-d">
+      <title id="fb-chart-t">Počet příspěvků po měsících</title>
+      <desc id="fb-chart-d">Sloupcový graf: osa x čas po měsících, osa y počet příspěvků. Nejvíc příspěvků vyšlo v měsíci březen 2020 (73).</desc>
+      <line x1="44" x2="950" y1="270.0" y2="270.0" stroke="var(--line)" stroke-width="1"/>
+      <text x="38" y="274.0" text-anchor="end" font-size="11" fill="var(--ink-soft)">0</text>
+      <line x1="44" x2="950" y1="239.0" y2="239.0" stroke="var(--line)" stroke-width="1"/>
+      <text x="38" y="243.0" text-anchor="end" font-size="11" fill="var(--ink-soft)">10</text>
+      <line x1="44" x2="950" y1="208.0" y2="208.0" stroke="var(--line)" stroke-width="1"/>
+      <text x="38" y="212.0" text-anchor="end" font-size="11" fill="var(--ink-soft)">20</text>
+      <line x1="44" x2="950" y1="177.0" y2="177.0" stroke="var(--line)" stroke-width="1"/>
+      <text x="38" y="181.0" text-anchor="end" font-size="11" fill="var(--ink-soft)">30</text>
+      <line x1="44" x2="950" y1="146.0" y2="146.0" stroke="var(--line)" stroke-width="1"/>
+      <text x="38" y="150.0" text-anchor="end" font-size="11" fill="var(--ink-soft)">40</text>
+      <line x1="44" x2="950" y1="115.0" y2="115.0" stroke="var(--line)" stroke-width="1"/>
+      <text x="38" y="119.0" text-anchor="end" font-size="11" fill="var(--ink-soft)">50</text>
+      <line x1="44" x2="950" y1="84.0" y2="84.0" stroke="var(--line)" stroke-width="1"/>
+      <text x="38" y="88.0" text-anchor="end" font-size="11" fill="var(--ink-soft)">60</text>
+      <line x1="44" x2="950" y1="53.0" y2="53.0" stroke="var(--line)" stroke-width="1"/>
+      <text x="38" y="57.0" text-anchor="end" font-size="11" fill="var(--ink-soft)">70</text>
+      <line x1="44" x2="950" y1="22.0" y2="22.0" stroke="var(--line)" stroke-width="1"/>
+      <text x="38" y="26.0" text-anchor="end" font-size="11" fill="var(--ink-soft)">80</text>
+      <text x="2" y="12" text-anchor="start" font-size="11" fill="var(--ink-soft)">příspěvků</text>
+      <rect x="45.0" y="242.1" width="7.4" height="27.9" fill="var(--slate)"><title>listopad 2018: 9 příspěvků</title></rect>
+      <rect x="54.6" y="195.6" width="7.4" height="74.4" fill="var(--slate)"><title>prosinec 2018: 24 příspěvků</title></rect>
+      <rect x="64.1" y="183.2" width="7.4" height="86.8" fill="var(--slate)"><title>leden 2019: 28 příspěvků</title></rect>
+      <line x1="67.8" x2="67.8" y1="270" y2="274" stroke="var(--ink-soft)"/>
+      <text x="67.8" y="290" text-anchor="middle" font-size="11" fill="var(--ink-soft)">2019</text>
+      <rect x="73.7" y="201.8" width="7.4" height="68.2" fill="var(--slate)"><title>únor 2019: 22 příspěvků</title></rect>
+      <rect x="83.2" y="201.8" width="7.4" height="68.2" fill="var(--slate)"><title>březen 2019: 22 příspěvků</title></rect>
+      <rect x="92.7" y="161.5" width="7.4" height="108.5" fill="var(--slate)"><title>duben 2019: 35 příspěvků</title></rect>
+      <rect x="102.3" y="139.8" width="7.4" height="130.2" fill="var(--slate)"><title>květen 2019: 42 příspěvků</title></rect>
+      <rect x="111.8" y="192.5" width="7.4" height="77.5" fill="var(--slate)"><title>červen 2019: 25 příspěvků</title></rect>
+      <rect x="121.3" y="223.5" width="7.4" height="46.5" fill="var(--slate)"><title>červenec 2019: 15 příspěvků</title></rect>
+      <rect x="130.9" y="214.2" width="7.4" height="55.8" fill="var(--slate)"><title>srpen 2019: 18 příspěvků</title></rect>
+      <rect x="140.4" y="183.2" width="7.4" height="86.8" fill="var(--slate)"><title>září 2019: 28 příspěvků</title></rect>
+      <rect x="150.0" y="192.5" width="7.4" height="77.5" fill="var(--slate)"><title>říjen 2019: 25 příspěvků</title></rect>
+      <rect x="159.5" y="170.8" width="7.4" height="99.2" fill="var(--slate)"><title>listopad 2019: 32 příspěvků</title></rect>
+      <rect x="169.0" y="217.3" width="7.4" height="52.7" fill="var(--slate)"><title>prosinec 2019: 17 příspěvků</title></rect>
+      <rect x="178.6" y="204.9" width="7.4" height="65.1" fill="var(--slate)"><title>leden 2020: 21 příspěvků</title></rect>
+      <line x1="182.3" x2="182.3" y1="270" y2="274" stroke="var(--ink-soft)"/>
+      <text x="182.3" y="290" text-anchor="middle" font-size="11" fill="var(--ink-soft)">2020</text>
+      <rect x="188.1" y="177.0" width="7.4" height="93.0" fill="var(--slate)"><title>únor 2020: 30 příspěvků</title></rect>
+      <rect x="197.6" y="43.7" width="7.4" height="226.3" fill="var(--burgundy)"><title>březen 2020: 73 příspěvků</title></rect>
+      <text x="201.4" y="39.7" text-anchor="middle" font-size="11" font-weight="600" fill="var(--burgundy)">73</text>
+      <rect x="207.2" y="146.0" width="7.4" height="124.0" fill="var(--slate)"><title>duben 2020: 40 příspěvků</title></rect>
+      <rect x="216.7" y="170.8" width="7.4" height="99.2" fill="var(--slate)"><title>květen 2020: 32 příspěvků</title></rect>
+      <rect x="226.2" y="201.8" width="7.4" height="68.2" fill="var(--slate)"><title>červen 2020: 22 příspěvků</title></rect>
+      <rect x="235.8" y="226.6" width="7.4" height="43.4" fill="var(--slate)"><title>červenec 2020: 14 příspěvků</title></rect>
+      <rect x="245.3" y="201.8" width="7.4" height="68.2" fill="var(--slate)"><title>srpen 2020: 22 příspěvků</title></rect>
+      <rect x="254.9" y="211.1" width="7.4" height="58.9" fill="var(--slate)"><title>září 2020: 19 příspěvků</title></rect>
+      <rect x="264.4" y="189.4" width="7.4" height="80.6" fill="var(--slate)"><title>říjen 2020: 26 příspěvků</title></rect>
+      <rect x="273.9" y="220.4" width="7.4" height="49.6" fill="var(--slate)"><title>listopad 2020: 16 příspěvků</title></rect>
+      <rect x="283.5" y="242.1" width="7.4" height="27.9" fill="var(--slate)"><title>prosinec 2020: 9 příspěvků</title></rect>
+      <rect x="293.0" y="232.8" width="7.4" height="37.2" fill="var(--slate)"><title>leden 2021: 12 příspěvků</title></rect>
+      <line x1="296.7" x2="296.7" y1="270" y2="274" stroke="var(--ink-soft)"/>
+      <text x="296.7" y="290" text-anchor="middle" font-size="11" fill="var(--ink-soft)">2021</text>
+      <rect x="302.5" y="195.6" width="7.4" height="74.4" fill="var(--slate)"><title>únor 2021: 24 příspěvků</title></rect>
+      <rect x="312.1" y="177.0" width="7.4" height="93.0" fill="var(--slate)"><title>březen 2021: 30 příspěvků</title></rect>
+      <rect x="321.6" y="223.5" width="7.4" height="46.5" fill="var(--slate)"><title>duben 2021: 15 příspěvků</title></rect>
+      <rect x="331.2" y="235.9" width="7.4" height="34.1" fill="var(--slate)"><title>květen 2021: 11 příspěvků</title></rect>
+      <rect x="340.7" y="195.6" width="7.4" height="74.4" fill="var(--slate)"><title>červen 2021: 24 příspěvků</title></rect>
+      <rect x="350.2" y="223.5" width="7.4" height="46.5" fill="var(--slate)"><title>červenec 2021: 15 příspěvků</title></rect>
+      <rect x="359.8" y="229.7" width="7.4" height="40.3" fill="var(--slate)"><title>srpen 2021: 13 příspěvků</title></rect>
+      <rect x="369.3" y="164.6" width="7.4" height="105.4" fill="var(--slate)"><title>září 2021: 34 příspěvků</title></rect>
+      <rect x="378.8" y="198.7" width="7.4" height="71.3" fill="var(--slate)"><title>říjen 2021: 23 příspěvků</title></rect>
+      <rect x="388.4" y="170.8" width="7.4" height="99.2" fill="var(--slate)"><title>listopad 2021: 32 příspěvků</title></rect>
+      <rect x="397.9" y="214.2" width="7.4" height="55.8" fill="var(--slate)"><title>prosinec 2021: 18 příspěvků</title></rect>
+      <rect x="407.4" y="192.5" width="7.4" height="77.5" fill="var(--slate)"><title>leden 2022: 25 příspěvků</title></rect>
+      <line x1="411.2" x2="411.2" y1="270" y2="274" stroke="var(--ink-soft)"/>
+      <text x="411.2" y="290" text-anchor="middle" font-size="11" fill="var(--ink-soft)">2022</text>
+      <rect x="417.0" y="186.3" width="7.4" height="83.7" fill="var(--slate)"><title>únor 2022: 27 příspěvků</title></rect>
+      <rect x="426.5" y="149.1" width="7.4" height="120.9" fill="var(--slate)"><title>březen 2022: 39 příspěvků</title></rect>
+      <rect x="436.1" y="170.8" width="7.4" height="99.2" fill="var(--slate)"><title>duben 2022: 32 příspěvků</title></rect>
+      <rect x="445.6" y="167.7" width="7.4" height="102.3" fill="var(--slate)"><title>květen 2022: 33 příspěvků</title></rect>
+      <rect x="455.1" y="161.5" width="7.4" height="108.5" fill="var(--slate)"><title>červen 2022: 35 příspěvků</title></rect>
+      <rect x="464.7" y="201.8" width="7.4" height="68.2" fill="var(--slate)"><title>červenec 2022: 22 příspěvků</title></rect>
+      <rect x="474.2" y="204.9" width="7.4" height="65.1" fill="var(--slate)"><title>srpen 2022: 21 příspěvků</title></rect>
+      <rect x="483.7" y="189.4" width="7.4" height="80.6" fill="var(--slate)"><title>září 2022: 26 příspěvků</title></rect>
+      <rect x="493.3" y="245.2" width="7.4" height="24.8" fill="var(--slate)"><title>říjen 2022: 8 příspěvků</title></rect>
+      <rect x="502.8" y="186.3" width="7.4" height="83.7" fill="var(--slate)"><title>listopad 2022: 27 příspěvků</title></rect>
+      <rect x="512.4" y="177.0" width="7.4" height="93.0" fill="var(--slate)"><title>prosinec 2022: 30 příspěvků</title></rect>
+      <rect x="521.9" y="223.5" width="7.4" height="46.5" fill="var(--slate)"><title>leden 2023: 15 příspěvků</title></rect>
+      <line x1="525.6" x2="525.6" y1="270" y2="274" stroke="var(--ink-soft)"/>
+      <text x="525.6" y="290" text-anchor="middle" font-size="11" fill="var(--ink-soft)">2023</text>
+      <rect x="531.4" y="232.8" width="7.4" height="37.2" fill="var(--slate)"><title>únor 2023: 12 příspěvků</title></rect>
+      <rect x="541.0" y="177.0" width="7.4" height="93.0" fill="var(--slate)"><title>březen 2023: 30 příspěvků</title></rect>
+      <rect x="550.5" y="232.8" width="7.4" height="37.2" fill="var(--slate)"><title>duben 2023: 12 příspěvků</title></rect>
+      <rect x="560.0" y="211.1" width="7.4" height="58.9" fill="var(--slate)"><title>květen 2023: 19 příspěvků</title></rect>
+      <rect x="569.6" y="226.6" width="7.4" height="43.4" fill="var(--slate)"><title>červen 2023: 14 příspěvků</title></rect>
+      <rect x="579.1" y="245.2" width="7.4" height="24.8" fill="var(--slate)"><title>červenec 2023: 8 příspěvků</title></rect>
+      <rect x="588.6" y="217.3" width="7.4" height="52.7" fill="var(--slate)"><title>srpen 2023: 17 příspěvků</title></rect>
+      <rect x="598.2" y="220.4" width="7.4" height="49.6" fill="var(--slate)"><title>září 2023: 16 příspěvků</title></rect>
+      <rect x="607.7" y="226.6" width="7.4" height="43.4" fill="var(--slate)"><title>říjen 2023: 14 příspěvků</title></rect>
+      <rect x="617.3" y="214.2" width="7.4" height="55.8" fill="var(--slate)"><title>listopad 2023: 18 příspěvků</title></rect>
+      <rect x="626.8" y="211.1" width="7.4" height="58.9" fill="var(--slate)"><title>prosinec 2023: 19 příspěvků</title></rect>
+      <rect x="636.3" y="239.0" width="7.4" height="31.0" fill="var(--slate)"><title>leden 2024: 10 příspěvků</title></rect>
+      <line x1="640.1" x2="640.1" y1="270" y2="274" stroke="var(--ink-soft)"/>
+      <text x="640.1" y="290" text-anchor="middle" font-size="11" fill="var(--ink-soft)">2024</text>
+      <rect x="645.9" y="248.3" width="7.4" height="21.7" fill="var(--slate)"><title>únor 2024: 7 příspěvků</title></rect>
+      <rect x="655.4" y="229.7" width="7.4" height="40.3" fill="var(--slate)"><title>březen 2024: 13 příspěvků</title></rect>
+      <rect x="664.9" y="214.2" width="7.4" height="55.8" fill="var(--slate)"><title>duben 2024: 18 příspěvků</title></rect>
+      <rect x="674.5" y="198.7" width="7.4" height="71.3" fill="var(--slate)"><title>květen 2024: 23 příspěvků</title></rect>
+      <rect x="684.0" y="232.8" width="7.4" height="37.2" fill="var(--slate)"><title>červen 2024: 12 příspěvků</title></rect>
+      <rect x="693.6" y="239.0" width="7.4" height="31.0" fill="var(--slate)"><title>červenec 2024: 10 příspěvků</title></rect>
+      <rect x="703.1" y="220.4" width="7.4" height="49.6" fill="var(--slate)"><title>srpen 2024: 16 příspěvků</title></rect>
+      <rect x="712.6" y="180.1" width="7.4" height="89.9" fill="var(--slate)"><title>září 2024: 29 příspěvků</title></rect>
+      <rect x="722.2" y="251.4" width="7.4" height="18.6" fill="var(--slate)"><title>říjen 2024: 6 příspěvků</title></rect>
+      <rect x="731.7" y="208.0" width="7.4" height="62.0" fill="var(--slate)"><title>listopad 2024: 20 příspěvků</title></rect>
+      <rect x="741.2" y="245.2" width="7.4" height="24.8" fill="var(--slate)"><title>prosinec 2024: 8 příspěvků</title></rect>
+      <rect x="750.8" y="223.5" width="7.4" height="46.5" fill="var(--slate)"><title>leden 2025: 15 příspěvků</title></rect>
+      <line x1="754.5" x2="754.5" y1="270" y2="274" stroke="var(--ink-soft)"/>
+      <text x="754.5" y="290" text-anchor="middle" font-size="11" fill="var(--ink-soft)">2025</text>
+      <rect x="760.3" y="208.0" width="7.4" height="62.0" fill="var(--slate)"><title>únor 2025: 20 příspěvků</title></rect>
+      <rect x="769.8" y="170.8" width="7.4" height="99.2" fill="var(--slate)"><title>březen 2025: 32 příspěvků</title></rect>
+      <rect x="779.4" y="186.3" width="7.4" height="83.7" fill="var(--slate)"><title>duben 2025: 27 příspěvků</title></rect>
+      <rect x="788.9" y="201.8" width="7.4" height="68.2" fill="var(--slate)"><title>květen 2025: 22 příspěvků</title></rect>
+      <rect x="798.5" y="201.8" width="7.4" height="68.2" fill="var(--slate)"><title>červen 2025: 22 příspěvků</title></rect>
+      <rect x="808.0" y="239.0" width="7.4" height="31.0" fill="var(--slate)"><title>červenec 2025: 10 příspěvků</title></rect>
+      <rect x="817.5" y="204.9" width="7.4" height="65.1" fill="var(--slate)"><title>srpen 2025: 21 příspěvků</title></rect>
+      <rect x="827.1" y="201.8" width="7.4" height="68.2" fill="var(--slate)"><title>září 2025: 22 příspěvků</title></rect>
+      <rect x="836.6" y="208.0" width="7.4" height="62.0" fill="var(--slate)"><title>říjen 2025: 20 příspěvků</title></rect>
+      <rect x="846.1" y="164.6" width="7.4" height="105.4" fill="var(--slate)"><title>listopad 2025: 34 příspěvků</title></rect>
+      <rect x="855.7" y="189.4" width="7.4" height="80.6" fill="var(--slate)"><title>prosinec 2025: 26 příspěvků</title></rect>
+      <rect x="865.2" y="211.1" width="7.4" height="58.9" fill="var(--slate)"><title>leden 2026: 19 příspěvků</title></rect>
+      <line x1="868.9" x2="868.9" y1="270" y2="274" stroke="var(--ink-soft)"/>
+      <text x="868.9" y="290" text-anchor="middle" font-size="11" fill="var(--ink-soft)">2026</text>
+      <rect x="874.8" y="232.8" width="7.4" height="37.2" fill="var(--slate)"><title>únor 2026: 12 příspěvků</title></rect>
+      <rect x="884.3" y="201.8" width="7.4" height="68.2" fill="var(--slate)"><title>březen 2026: 22 příspěvků</title></rect>
+      <rect x="893.8" y="201.8" width="7.4" height="68.2" fill="var(--slate)"><title>duben 2026: 22 příspěvků</title></rect>
+      <rect x="903.4" y="211.1" width="7.4" height="58.9" fill="var(--slate)"><title>květen 2026: 19 příspěvků</title></rect>
+      <rect x="912.9" y="204.9" width="7.4" height="65.1" fill="var(--slate)"><title>červen 2026: 21 příspěvků</title></rect>
+      <rect x="922.4" y="226.6" width="7.4" height="43.4" fill="var(--slate)"><title>červenec 2026: 14 příspěvků</title></rect>
+      <rect x="932.0" y="192.5" width="7.4" height="77.5" fill="var(--slate)"><title>srpen 2026: 25 příspěvků</title></rect>
+      <rect x="941.5" y="161.5" width="7.4" height="108.5" fill="var(--slate)"><title>září 2026: 35 příspěvků</title></rect>
+      </svg>
+      <figcaption class="meta-note">Počet příspěvků po měsících. Nejvíc jich vyšlo v měsíci březen 2020 (73), zvýrazněno. Po najetí na sloupec se zobrazí měsíc a počet.</figcaption>
+    </figure>
 
     <h3 class="display fb-year">2026 (189 příspěvků)</h3>
     <div class="table-scroll">
