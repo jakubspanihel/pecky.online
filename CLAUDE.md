@@ -62,6 +62,23 @@ příslušný `content/<sekce>.html` a přepsat všechny odkazy, pak spustit
 - České pevné mezery (jednopísmenné předložky, číslo + jednotka, data, tituly,
   zkratky) doplňuje build automaticky — ve zdrojích psát běžné mezery;
   pravidla a implementace v `TYPOGRAFIE.md`.
+- **Zmínky jednání jsou vždy odkazy** přímo v textu věty: „ZM 6/2026“,
+  „RM 35/2026“, komise, výbory, školská rada → `/jednani/#<id>` (zastupitelstvo
+  `#zastupitelstvo-RRRR-MM-DD`, rada `#rada-RRRR-MM-DD`, ostatní id z
+  `jednani/komise.json` / `vybory.json` / `skolska-rada.json`). Platí i pro
+  „RM 14. 11. 2022“ (datumový zápis), usnesení „UR-288-32/26“ / „UZ-35-6/26“
+  (→ jednání, na kterém bylo přijato) a pro „Pečecké noviny 12/2018[, s. 3]“
+  → PDF `/noviny/Data/PN%20RRRR/<slug>.pdf[#page=N]` (slug z `noviny/issues.json`,
+  generuje build). Texty z JSON dat (Lidé: poznámky, bio, zdroj fotky) se
+  odkazují v JS přes `jLinkRefs()` v `assets/helpers.js`; ve statickém HTML ručně.
+- **Zmínky konkrétního příspěvku/zdroje v textu** („3. 9. 2026, na Facebooku
+  města“, „podle příspěvku na Facebooku“) jsou odkazem na ten příspěvek
+  (URL z řádku/štítku vedle); formulace se liší, hledat i varianty.
+- **Budoucí datum v tabulkách a výpisech** má vedle sebe vždy chip s relativním
+  údajem (dnes / zítra / pozítří / za 3 dny / za 2 týdny): v HTML
+  `<span class="tag probiha fut-chip" data-date="YYYY-MM-DD">plánováno</span>`,
+  text dopočítá `relBudouci()` v `assets/common.js` (v JS rendererech volat
+  přímo). Ne holé „plánováno“.
 - **Perex sekce (`p.lede` pod nadpisem) psát jako profesionální copywriter.**
   Krátké a jednoduché věty. Popisuje, co na stránce *je* — ne obecný výklad
   tématu. Přesnost má přednost před svižností: nic, co se nedá doložit daty

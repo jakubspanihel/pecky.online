@@ -208,6 +208,17 @@ def esc(s):
              .replace('"', '&quot;'))
 
 
+def build_noviny_issues():
+    """Vygeneruje noviny/issues.json (slug + rok vydání) z pecky-noviny.json.
+    Malý číselník pro odkazy typu „Pečecké noviny 12/2018“ (assets/helpers.js,
+    jLinkRefs) — samotný pecky-noviny.json je kvůli textu stránek příliš velký."""
+    import json
+    src = json.loads((ROOT / 'noviny/pecky-noviny.json').read_text(encoding='utf-8'))
+    issues = [{'slug': e['slug'], 'year': e['year']} for e in src.get('editions', []) if e.get('slug')]
+    (ROOT / 'noviny/issues.json').write_text(
+        json.dumps({'issues': issues}, ensure_ascii=False, separators=(',', ':')) + '\n', encoding='utf-8')
+
+
 def build_org_colors():
     """Vygeneruje assets/org-colors.css z lide/organizations.json.
 
@@ -838,6 +849,7 @@ def validate(written):
 
 if __name__ == '__main__':
     build_org_colors()
+    build_noviny_issues()
     stav_rows = parse_stav_sekci()
     written, extra_written, extra_indexed = build_all(stav_rows)
     build_sitemap(written, stav_rows, extra_indexed)

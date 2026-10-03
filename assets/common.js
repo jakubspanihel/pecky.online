@@ -130,6 +130,36 @@ function relDatum(iso) {
   return 'před ' + Math.max(2, Math.floor(n / 365.25)) + ' lety';
 }
 
+// ===== Budoucí datum -> chip "dnes/zítra/pozítří/za N dní" =====
+// Pravidlo: v tabulkách a výpisech vždy vedle budoucího data chip
+// <span class="tag probiha fut-chip" data-date="YYYY-MM-DD">plánováno</span>
+// (text uvnitř je jen záloha bez JS). Výrazný (kal-dnes) je jen dnešek, jinak třída `probiha` jako u Jednání.
+function relBudouci(iso) {
+  const m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(iso || '');
+  if (!m) return null;
+  const d = new Date(+m[1], +m[2] - 1, +m[3]);
+  if (isNaN(d)) return null;
+  const dnes = new Date();
+  dnes.setHours(0, 0, 0, 0);
+  const n = Math.round((d - dnes) / 86400000);
+  if (n < 0) return null;                 // už proběhlo — chip se skryje
+  if (n === 0) return 'dnes';
+  if (n === 1) return 'zítra';
+  if (n === 2) return 'pozítří';
+  if (n < 14) return 'za ' + n + (n < 5 ? ' dny' : ' dní');
+  if (n < 60) return 'za ' + Math.floor(n / 7) + (n < 35 ? ' týdny' : ' týdnů');
+  return 'za ' + Math.floor(n / 30.4) + (n < 152 ? ' měsíce' : ' měsíců');
+}
+(function () {
+  document.querySelectorAll('.fut-chip[data-date]').forEach(el => {
+    const t = relBudouci(el.getAttribute('data-date'));
+    if (t === null) { el.hidden = true; return; }
+    el.title = el.getAttribute('data-date');
+    el.textContent = t;
+    if (t === 'dnes') el.classList.replace('probiha', 'kal-dnes');
+  });
+})();
+
 // ===== Chip s relativním stářím minulého data (karty událostí) =====
 // <span class="tag rel-chip" data-date="YYYY-MM-DD"></span> — text dopočítá
 // relDatum() v prohlížeči; bez JS (nebo u budoucího data) chip zůstane prázdný a skrytý.

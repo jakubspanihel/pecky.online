@@ -724,7 +724,7 @@
       const dividerHtml = jTermDividerHtml(meetings[i - 1], m);
       const future = jIsFutureMeeting(m.date);
       const isToday = jIsTodayMeeting(m.date);
-      const chip = future ? '<span class="tag probiha">plánováno</span>'
+      const chip = future ? `<span class="tag probiha">${relBudouci(m.date) || 'plánováno'}</span>`
         : isToday ? `<span class="tag probiha">dnes${m.time ? `, ${jEscapeHtml(m.time)}` : ''}</span>` : '';
       const venueHtml = m.venue ? `<span class="meeting-venue">📍 ${jEscapeHtml(m.venue)}</span>` : '';
       const vybor = jIsVybor(m);

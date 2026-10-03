@@ -131,11 +131,64 @@ const PC_SOURCES = {};
 let PC_SOURCES_LOADING = null;
 function pcLoadSources(){
   if (!PC_SOURCES_LOADING) {
-    PC_SOURCES_LOADING = fetch('/lide/sources.json')
-      .then(r => { if (!r.ok) throw new Error('sources.json: HTTP ' + r.status); return r.json(); })
-      .then(doc => { Object.assign(PC_SOURCES, doc.sources || {}); return PC_SOURCES; });
+    PC_SOURCES_LOADING = Promise.all([
+      fetch('/lide/sources.json')
+        .then(r => { if (!r.ok) throw new Error('sources.json: HTTP ' + r.status); return r.json(); })
+        .then(doc => { Object.assign(PC_SOURCES, doc.sources || {}); }),
+      jLoadRefs()
+    ]).then(() => PC_SOURCES);
   }
   return PC_SOURCES_LOADING;
+}
+
+// ===== Zmínky jednání a Pečeckých novin v textu -> odkazy =====
+// Pravidlo webu: zmínka je vždy odkaz přímo na text ve větě. jLinkRefs()
+// bere už escapovaný HTML text a obalí: "ZM 6/2026", "RM 14. 11. 2022",
+// "Pečecké noviny 12/2018[, s. 3]", "UR-288-32/26" (usnesení -> jednání). Mapy se načtou v jLoadRefs() (volá ji
+// pcLoadSources); co se nenajde, zůstane prostým textem.
+const J_REFS = {meet: {}, dates: {}, issues: {}};   // meet['ZM 6/2026'] = ISO; dates['RM 2022-11-14'] = true
+let J_REFS_LOADING = null;
+function jLoadRefs(){
+  if (!J_REFS_LOADING) {
+    const pre = {Zastupitelstvo: 'ZM', Rada: 'RM'};
+    J_REFS_LOADING = Promise.all([
+      fetch('/jednani/pecky-jednani.json').then(r => r.ok ? r.json() : null).catch(() => null),
+      fetch('/noviny/issues.json').then(r => r.ok ? r.json() : null).catch(() => null)
+    ]).then(([jed, nov]) => {
+      ((jed && jed.meetings) || []).forEach(m => {
+        const k = pre[m.type];
+        if (!k) return;
+        if (m.number) J_REFS.meet[k + ' ' + m.number + '/' + m.date.slice(0, 4)] = m.date;
+        J_REFS.dates[k + ' ' + m.date] = true;
+      });
+      ((nov && nov.issues) || []).forEach(e => {
+        const [y, a, b] = e.slug.split('-').map(Number);
+        for (let mo = a; mo <= (b || a); mo++) J_REFS.issues[mo + '/' + y] = e.slug;
+      });
+    });
+  }
+  return J_REFS_LOADING;
+}
+const J_REF_RE = /\b(?:(ZM|RM) (?:(\d{1,2})\/(20\d\d)|(\d{1,2})\. (\d{1,2})\. (20\d\d))|Pečecké noviny (\d{1,2})\/((?:19|20)\d\d)(?:, (?:s|str)\. (\d+))?|(U[RZ])-\d+-(\d{1,2})\/(\d{2}))/g;
+function jLinkRefs(html){
+  return (html || '').replace(J_REF_RE, (all, kind, n, y, d, mo, y2, issue, iy, page, ures, un, uy) => {
+    const meetHref = iso => `${jWithBase('/jednani/')}#${kind === 'ZM' || ures === 'UZ' ? 'zastupitelstvo' : 'rada'}-${iso}`;
+    if (ures) {
+      // usnesení UR-288-32/26 / UZ-35-6/26 -> jednání, na kterém bylo přijato
+      kind = ures === 'UZ' ? 'ZM' : 'RM';
+      const iso = J_REFS.meet[kind + ' ' + un + '/20' + uy];
+      return iso ? `<a href="${meetHref(iso)}">${all}</a>` : all;
+    }
+    if (kind) {
+      const iso = n ? J_REFS.meet[kind + ' ' + n + '/' + y]
+        : (y2 + '-' + String(mo).padStart(2, '0') + '-' + String(d).padStart(2, '0'));
+      if (!iso || (!n && !J_REFS.dates[kind + ' ' + iso])) return all;
+      return `<a href="${meetHref(iso)}">${all}</a>`;
+    }
+    const slug = J_REFS.issues[issue + '/' + iy];
+    if (!slug) return all;
+    return `<a href="${jWithBase('/noviny/Data/PN%20' + iy + '/' + slug + '.pdf')}${page ? '#page=' + page : ''}" target="_blank" rel="noopener">${all}</a>`;
+  });
 }
 function pcSourceLinks(sources){
   return (sources || []).map(s => typeof s === 'string' ? PC_SOURCES[s] : s)
@@ -200,7 +253,7 @@ function pcDetailHtml(p, opts){
           <span class="tl-role">${jEscapeHtml(pcRoleLabel(a.role))}</span>
           <span class="tl-org">· ${orgHtml}</span>
           <span class="tl-range">${jEscapeHtml(pcRange(a))}${a.verified ? '' : ' · neověřeno'}</span>
-          ${a.note ? `<p class="tl-note">${jEscapeHtml(a.note)}</p>` : ''}
+          ${a.note ? `<p class="tl-note">${jLinkRefs(jEscapeHtml(a.note))}</p>` : ''}
           ${a._extraHtml || ''}
           ${src ? `<p class="tl-src">${src}</p>` : ''}
         </li>`;
@@ -229,7 +282,7 @@ function pcDetailHtml(p, opts){
   // víc fotek na osobu (lide/SPEC.md §3.7) — všechny, ne jen ta aktuální na kartičce
   const photosHtml = (p.photos || []).length
     ? `<p class="detail-meta">Fotografie: ${p.photos.map(ph =>
-        `${jEscapeHtml(String(ph.year))} — ${jEscapeHtml(ph.photo_source || '')}`
+        `${jEscapeHtml(String(ph.year))} — ${jLinkRefs(jEscapeHtml(ph.photo_source || ''))}`
       ).join(' · ')}</p>`
     : '';
 
@@ -242,7 +295,7 @@ function pcDetailHtml(p, opts){
               : ''}</span>
           <button type="button" class="detail-close" ${closeAttr}>zavřít ✕</button>
         </div>
-        ${p.bio ? `<p class="detail-bio">${jEscapeHtml(p.bio)}</p>` : ''}
+        ${p.bio ? `<p class="detail-bio">${jLinkRefs(jEscapeHtml(p.bio))}</p>` : ''}
         ${occupation}
         ${contacts ? `<p class="detail-bio">${contacts}</p>` : ''}
         <ul class="timeline">${items || '<li class="tl-item tl-item--past">Žádná doložená vazba.</li>'}</ul>

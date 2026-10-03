@@ -713,3 +713,7 @@
   table.absence-tabulka tr.absence-detail-row > td{padding:0; border-bottom:1px solid var(--line);}
   table.absence-tabulka tr.absence-detail-row:hover > td{background:none;}
   table.absence-tabulka tr.absence-detail-row .person-detail{border-left:none; border-right:none;}
+  details.collapsible > summary::-webkit-details-marker{display:none;}
+  details.collapsible > summary{margin-bottom:8px;}
+  details.collapsible .collapsible-arrow{display:inline-block; color:var(--burgundy); font-size:0.8em; margin-left:4px; transition:transform .15s;}
+  details.collapsible:not([open]) .collapsible-arrow{transform:rotate(-90deg);}

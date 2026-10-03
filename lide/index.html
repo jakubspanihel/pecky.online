@@ -449,7 +449,7 @@
       <div class="org-head">
         <div class="org-name">${dot}${jEscapeHtml(o.name)}</div>
         ${(o.former_names || []).length ? `<p class="org-former">dříve: ${jEscapeHtml(o.former_names.join(' · '))}</p>` : ''}
-        ${o.note ? `<p class="org-note">${jEscapeHtml(o.note)}</p>` : ''}
+        ${o.note ? `<p class="org-note">${jLinkRefs(jEscapeHtml(o.note))}</p>` : ''}
         ${links ? `<p class="org-links">${links}</p>` : ''}
         <p class="org-links"><button type="button" class="chip-clear" data-lide-clear>zpět na celý adresář</button></p>
       </div>`;
