@@ -20,17 +20,18 @@ Obsah panelu žije v `content/owebu.html` (žádná samostatná datová sada).
 
 ## Struktura stránky (podzáložky)
 
-Od 19. 9. 2026 je obsah rozdělený do podzáložek (`.subtabs` /
+Od 19. 9. 2026 je obsah rozdělený do 2 podzáložek (`.subtabs` /
 `.subpanel`, stejný vzor jako u Pozemků nebo Volby 2022 — viz
-`assets/common.js`, trvalý odkaz na URL hashi jako `/o-webu/#owebu-zdroje`):
+`assets/common.js`, trvalý odkaz na URL hashi jako `/o-webu/#owebu-socialni`):
 
-(Čtvrtá podzáložka „Historie změn na webu“ se 3. 10. 2026 přesunula na
-samostatnou stránku, viz níže.)
+(Podzáložka „Historie změn na webu“ se 3. 10. 2026 přesunula na
+samostatnou stránku, viz níže. Podzáložka „Zdroje“ (tabulka „Zdroje a stav
+sekcí“) se 3. 10. 2026 zrušila: zdroje jsou uvedeny přímo u dat na stránkách
+jednotlivých sekcí — nový zdroj proto vždy citovat tam, ne centrálně.)
 
 1. **Odkazy** (`subpanel-owebu-odkazy`) — oficiální kanály a otevřená
    data (`h3` Odkazy) + „Další nezávislé zdroje" v témže panelu.
 2. **Sociální sítě** (`subpanel-owebu-socialni`)
-3. **Zdroje** (`subpanel-owebu-zdroje`) — tabulka „Zdroje a stav sekcí"
 
 ## Historie změn na webu (`/o-webu/changelog.html`)
 

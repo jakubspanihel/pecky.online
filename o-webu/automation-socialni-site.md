@@ -30,7 +30,7 @@ pevný výčet by tu rychle zastaral. Pro orientaci: 9. 9. 2026 jich bylo
 YouTube). Aktuální počet i seznam vypíše:
 
 ```bash
-grep -c 'class="qlink"' <(awk '/id="subpanel-owebu-socialni"/,/id="subpanel-owebu-zdroje"/' content/owebu.html)
+grep -c 'class="qlink"' <(awk '/id="subpanel-owebu-socialni"/,/class="footer-note"/' content/owebu.html)
 ```
 
 Nově přidaný účet může mít jen `follower-count` bez řádku `url-meta`
