@@ -31,8 +31,8 @@ zdroje jsou uvedeny přímo u dat na stránkách sekcí — nový zdroj proto v�
 citovat tam, ne centrálně.)
 
 1. **Webové stránky** (`#subpanel-owebu-odkazy`, `data-group="odkazy"`) —
-   oficiální kanály a otevřená data (`h3` Odkazy) + „Další nezávislé
-   zdroje“ v téže skupině.
+   oficiální kanály a otevřená data + další nezávislé zdroje, dva
+   bloky `div.quicklinks` bez vlastních nadpisů.
 2. **Sociální sítě** (`#subpanel-owebu-socialni`, `data-group="socialni"`)
 
 ## Historie změn na webu (`/o-webu/changelog.html`)
