@@ -221,23 +221,21 @@ def render_month(idx, ym, s, posts, counts_as_of, events=()):
         meta = (f'👍 {num(p["reactions"])} 💬 {num(p["comments"])} ♺ {num(p["shares"])} '
                 f'typ: {escape(p["type"])}')
         rows.append(
-            f'            <tr data-date="{day}"{did}><td>{cz_date(p["published"])}</td><td>'
-            f'<a href="{escape(p["url"], quote=True)}" target="_blank" rel="noopener">{escape(popis(p))}</a>'
-            f'<br><span class="fb-meta">{meta}</span></td></tr>')
+            f'            <li class="fb-card" data-date="{day}"{did}>'
+            f'<time class="fb-date" datetime="{day}">{cz_date(p["published"])}</time>'
+            f'<a class="fb-title" href="{escape(p["url"], quote=True)}" target="_blank" rel="noopener">{escape(popis(p))}</a>'
+            f'<span class="fb-meta">{meta}</span></li>')
     for d, text in events:  # milník = nejstarší řádek měsíce, bez odkazu a bez počtů
         rows.append(
-            f'            <tr class="fb-event"><td>{cz_date(d + "T00:00")}</td><td>'
-            f'<strong>{escape(text)}</strong><br><span class="fb-meta">událost profilu, není příspěvek</span></td></tr>')
+            f'            <li class="fb-card fb-event"><time class="fb-date" datetime="{d}">{cz_date(d + "T00:00")}</time>'
+            f'<strong class="fb-title">{escape(text)}</strong><span class="fb-meta">událost profilu, není příspěvek</span></li>')
     rows = '\n'.join(rows)
     return f'''        <tr class="fb-row" id="fb-{ym}" tabindex="0" role="button" aria-expanded="false" aria-controls="fb-m{idx}"><td><span class="fb-chev" aria-hidden="true">▸</span> {month_label(ym)}</td><td>{s["posts"]}</td></tr>
         <tr class="fb-detail" id="fb-m{idx}" hidden><td colspan="2">
           <p class="fb-sum"><strong>Podle typu:</strong> {escape(typy)}<br><strong>Sdílení z cizích profilů:</strong> {s["shared_from_other_pages"]}</p>
-          <table class="register fb-posts">
-            <thead><tr><th>Datum</th><th>Obsah</th></tr></thead>
-            <tbody>
+          <ul class="fb-cards">
 {rows}
-            </tbody>
-          </table>
+          </ul>
         </td></tr>'''
 
 
@@ -266,6 +264,31 @@ def render_page(months):
     </table>
     </div>''')
     body = '\n\n'.join(bloky)
+    strom = []
+    for k, (rok, ms) in enumerate(roky):
+        n = sum(m[1]['posts'] for _, m in ms)
+        tl = '\n'.join(
+            f'            <li><button type="button" class="fb-tm" data-ym="{ym}" data-target="fb-m{i}" '
+            f'data-label="{MONTHS[int(ym[5:]) - 1].lower()} {ym[:4]}">'
+            f'<span>{MONTHS[int(ym[5:]) - 1]}</span><span class="fb-tn">{sm["posts"]}</span></button></li>'
+            for i, (ym, sm, _, _) in ms)
+        strom.append(f'''        <details class="fb-ty" data-year="{rok}"{' open' if k == 0 else ''}>
+          <summary>{rok} <span class="fb-tn">{n}</span></summary>
+          <ul>
+{tl}
+          </ul>
+        </details>''')
+    strom = '\n'.join(strom)
+    body = f'''    <div class="fb-years">
+{body}
+    </div>
+
+    <div class="fb-split">
+      <nav class="fb-tree" id="fb-tree" aria-label="Měsíce podle let">
+{strom}
+      </nav>
+      <div class="fb-pane" id="fb-pane" aria-live="polite"></div>
+    </div>'''
     counts = max((c for *_, c in months if c), default=None)
     counts_cz = cz_date(counts + 'T00:00') if counts else 'neuvedeno'
     prvni, posledni = months[-1][0], months[0][0]  # months jsou sestupně
@@ -279,9 +302,14 @@ def render_page(months):
     .fb-detail td{{padding:6px 0 18px;}}
     .fb-detail[hidden]{{display:none;}}
     .fb-sum{{margin:8px 10px 12px; font-size:13.5px;}}
-    .fb-posts{{margin:0;}}
+    #panel-fbmonitoring .table-scroll table.register{{min-width:0;}}
+    .fb-cards{{list-style:none; margin:0; padding:0; display:grid; grid-template-columns:minmax(0,1fr); gap:12px;}}
+    .fb-card{{display:flex; flex-direction:column; gap:6px; padding:12px 14px; border:1px solid var(--line); border-radius:8px; background:rgba(255,255,255,0.5);}}
+    .fb-card .fb-date{{font-size:12px; color:var(--ink-soft); font-weight:600;}}
+    .fb-card .fb-title{{line-height:1.35; overflow-wrap:anywhere;}}
+    .fb-card .fb-meta{{margin-top:auto;}}
     .fb-meta{{font-size:12px; color:var(--ink-soft);}}
-    .fb-event td{{background:var(--parchment-deep);}}
+    .fb-card.fb-event{{background:var(--parchment-deep);}}
     #panel-fbmonitoring h3.fb-year{{position:sticky; top:calc(var(--title-h,0px) + var(--lc-h,0px)); z-index:8; background:var(--parchment); padding:6px 0; margin:26px 0 0;}}
     @media (min-width:768px){{ #panel-fbmonitoring h3.fb-year{{top:calc(var(--nav-h,0px) + var(--title-h,0px) + var(--lc-h,0px));}} }}
     .fb-total{{margin:16px 0 0;}}
@@ -293,9 +321,30 @@ def render_page(months):
     .fb-bar{{cursor:pointer;}}
     .fb-bar:hover rect,.fb-bar:focus-visible rect{{opacity:.78;}}
     .fb-bar:focus-visible{{outline:2px solid var(--gold); outline-offset:1px;}}
-    #panel-fbmonitoring .fb-row,#panel-fbmonitoring h3.fb-year,#panel-fbmonitoring .fb-detail tr[id]{{scroll-margin-top:190px;}}
-    #panel-fbmonitoring .fb-hit td{{background:rgba(173,122,42,0.22) !important;}}
+    #panel-fbmonitoring .fb-row,#panel-fbmonitoring h3.fb-year,#panel-fbmonitoring .fb-card[id]{{scroll-margin-top:190px;}}
+    #panel-fbmonitoring .fb-row.fb-hit td,#panel-fbmonitoring .fb-card.fb-hit{{background:rgba(173,122,42,0.22) !important;}}
     #panel-fbmonitoring h3.fb-hit{{color:var(--burgundy);}}
+    .fb-split{{display:none;}}
+    @media (min-width:768px){{
+      #panel-fbmonitoring .fb-years{{display:none;}}
+      .fb-split{{display:grid; grid-template-columns:minmax(190px,250px) minmax(0,1fr); gap:28px; align-items:start; margin-top:22px;}}
+      .fb-tree{{position:sticky; top:calc(var(--nav-h,0px) + var(--title-h,0px) + var(--lc-h,0px) + 8px); max-height:calc(100vh - var(--nav-h,0px) - var(--title-h,0px) - var(--lc-h,0px) - 24px); overflow-y:auto; border-right:1px solid var(--line); padding-right:12px;}}
+      .fb-ty summary{{cursor:pointer; font-family:var(--font-display,inherit); font-weight:700; padding:6px 0; list-style:none; display:flex; justify-content:space-between; gap:8px;}}
+      .fb-ty summary::-webkit-details-marker{{display:none;}}
+      .fb-ty summary::after{{content:'▸'; order:3; color:var(--ink-soft);}}
+      .fb-ty[open] summary::after{{content:'▾';}}
+      .fb-ty summary .fb-tn{{margin-left:auto;}}
+      .fb-ty ul{{list-style:none; margin:0 0 8px; padding:0;}}
+      .fb-tm{{all:unset; box-sizing:border-box; width:100%; display:flex; justify-content:space-between; gap:8px; padding:4px 8px; cursor:pointer; border-radius:3px; font-size:14px;}}
+      .fb-tm:hover{{background:var(--parchment-deep);}}
+      .fb-tm:focus-visible{{outline:2px solid var(--gold); outline-offset:1px;}}
+      .fb-tm.active{{background:var(--burgundy); color:#fff;}}
+      .fb-tn{{font-size:12.5px; color:var(--ink-soft); font-weight:400;}}
+      .fb-tm.active .fb-tn{{color:#fff;}}
+      .fb-pane h3{{margin:0 0 4px;}}
+      .fb-pane .fb-sum{{margin-left:0;}}
+      .fb-pane .fb-card[id]{{scroll-margin-top:calc(var(--nav-h,0px) + var(--title-h,0px) + var(--lc-h,0px) + 16px);}}
+    }}
   </style>
   <section class="panel active" id="panel-fbmonitoring">
     <h2 class="title display">Monitoring Facebooku: Město Pečky</h2>
@@ -345,14 +394,59 @@ def render_page(months):
         if (e.key === 'Enter' || e.key === ' ') {{ e.preventDefault(); toggle(); }}
       }});
     }});
+    var fbMq = window.matchMedia('(min-width:768px)');
+    var fbCur = null;
+    function fbBack() {{
+      var pane = document.getElementById('fb-pane');
+      if (!fbCur) return;
+      var td = document.querySelector('#' + fbCur.target + ' td');
+      while (pane.firstChild) {{ if (pane.firstChild.tagName === 'H3') pane.removeChild(pane.firstChild); else td.appendChild(pane.firstChild); }}
+      fbCur = null;
+    }}
+    function fbSelect(btn, store) {{
+      var pane = document.getElementById('fb-pane');
+      fbBack();
+      var td = document.querySelector('#' + btn.getAttribute('data-target') + ' td');
+      var h = document.createElement('h3');
+      h.className = 'display';
+      h.textContent = btn.getAttribute('data-label').replace(/^./, function (c) {{ return c.toUpperCase(); }}) + ' (' + btn.querySelector('.fb-tn').textContent + ')';
+      pane.appendChild(h);
+      while (td.firstChild) pane.appendChild(td.firstChild);
+      fbCur = {{ target: btn.getAttribute('data-target') }};
+      document.querySelectorAll('#fb-tree .fb-tm').forEach(function (x) {{ x.classList.toggle('active', x === btn); }});
+      btn.closest('details').open = true;
+      if (store) history.replaceState(null, '', location.pathname + location.search + '#fb-' + btn.getAttribute('data-ym'));
+    }}
+    function fbSplit() {{
+      if (!fbMq.matches) {{ fbBack(); return; }}
+      if (!fbCur) fbSelect(document.querySelector('#fb-tree .fb-tm'), false);
+    }}
+    document.querySelectorAll('#fb-tree .fb-tm').forEach(function (b) {{
+      b.addEventListener('click', function () {{ fbSelect(b, true); }});
+    }});
+    fbMq.addEventListener('change', fbSplit);
+    function fbMonthBtn(id) {{
+      var m = /^fb-(?:d-)?(\d{{4}}-\d{{2}})/.exec(id), y = /^fb-y-(\d{{4}})$/.exec(id);
+      if (m) return document.querySelector('#fb-tree .fb-tm[data-ym="' + m[1] + '"]');
+      if (y) return document.querySelector('#fb-tree details[data-year="' + y[1] + '"] .fb-tm');
+      return null;
+    }}
     function fbGo(id) {{
+      if (id.indexOf('fb-') !== 0) return false;
+      var desk = fbMq.matches;
+      if (desk) {{
+        var btn = fbMonthBtn(id);
+        if (!btn) return false;
+        fbSelect(btn, false);
+      }}
       var el = document.getElementById(id);
-      if (!el || id.indexOf('fb-') !== 0) return false;
+      if (!el) return false;
+      if (desk && !el.closest('#fb-pane')) el = document.querySelector('#fb-pane h3');
       var row = el.classList.contains('fb-row') ? el : null;
       if (!row && el.closest('.fb-detail')) row = el.closest('.fb-detail').previousElementSibling;
-      if (row && row.classList.contains('fb-row')) fbSet(row, true);
+      if (!desk && row && row.classList.contains('fb-row')) fbSet(row, true);
       document.querySelectorAll('#panel-fbmonitoring .fb-hit').forEach(function (x) {{ x.classList.remove('fb-hit'); }});
-      el.classList.add('fb-hit');
+      if (!desk || el.tagName !== 'H3') el.classList.add('fb-hit');
       el.scrollIntoView({{ block: 'start', behavior: 'smooth' }});
       return true;
     }}
@@ -363,6 +457,7 @@ def render_page(months):
       }});
     }});
     window.addEventListener('hashchange', function () {{ fbGo(location.hash.slice(1)); }});
+    fbSplit();
     if (location.hash) setTimeout(function () {{ fbGo(location.hash.slice(1)); }}, 50);
     </script>
   </section>
