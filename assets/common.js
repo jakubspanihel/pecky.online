@@ -130,6 +130,23 @@ function relDatum(iso) {
   return 'před ' + Math.max(2, Math.floor(n / 365.25)) + ' lety';
 }
 
+// ===== Chip s relativním stářím minulého data (karty událostí) =====
+// <span class="tag rel-chip" data-date="YYYY-MM-DD"></span> — text dopočítá
+// relDatum() v prohlížeči; bez JS (nebo u budoucího data) chip zůstane prázdný a skrytý.
+(function () {
+  document.querySelectorAll('.rel-chip[data-date]').forEach(el => {
+    const iso = el.getAttribute('data-date');
+    let t = relDatum(iso);
+    if (t === null || t === 'plánováno') return;
+    // relDatum() od 4 týdnů zaokrouhluje na „před měsícem“ — u karet je detail týdnů čitelnější
+    const m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(iso);
+    const n = Math.round((new Date().setHours(0, 0, 0, 0) - new Date(+m[1], +m[2] - 1, +m[3])) / 86400000);
+    if (n >= 28 && n < 90) t = 'před ' + Math.floor(n / 7) + ' týdny';
+    el.title = iso;
+    el.textContent = t;
+  });
+})();
+
 // ===== Stav sekcí: absolutní datum -> relativní stáří =====
 // Zdroj pravdy je tabulka "Stav sekcí" v kořenovém README.md, která drží
 // absolutní datumy. Build je vysype do data-date (ISO) a jako viditelný
