@@ -182,6 +182,17 @@ def render_chart(months):
                  f'Sloupcový graf: osa x dny od {days[0].day}. {days[0].month}. do {end.day}. {end.month}. {end.year}, osa y počet příspěvků za den.')
     cap3 = (f'Počet příspěvků po dnech za 30 dní do posledního zachyceného příspěvku: {days[0].day}. {days[0].month}. – {end.day}. {end.month}. {end.year}.')
     return f'''    <figure class="fb-chart" id="fb-chart">
+      <div class="fb-chart-head">
+        <h3 class="display fb-chart-title">Počet příspěvků na Facebooku města</h3>
+        <div class="segmented-control fb-chart-ctl">
+          <span class="segmented-label">Rozsah</span>
+          <div class="segmented-group" role="group" aria-label="Rozsah dat grafu">
+            <button type="button" class="segmented-btn active" data-fbc="1" aria-pressed="true">Od začátku</button>
+            <button type="button" class="segmented-btn" data-fbc="2" aria-pressed="false">Po letech</button>
+            <button type="button" class="segmented-btn" data-fbc="3" aria-pressed="false">Poslední měsíc</button>
+          </div>
+        </div>
+      </div>
       <div class="fb-chart-view" data-fbc-view="1">
       {v1}
       <figcaption class="meta-note">{cap1}</figcaption>
@@ -195,14 +206,6 @@ def render_chart(months):
       <figcaption class="meta-note">{cap3}</figcaption>
       </div>
 
-      <div class="segmented-control fb-chart-ctl">
-        <span class="segmented-label">Rozsah</span>
-        <div class="segmented-group" role="group" aria-label="Rozsah dat grafu">
-          <button type="button" class="segmented-btn active" data-fbc="1" aria-pressed="true">Od začátku</button>
-          <button type="button" class="segmented-btn" data-fbc="2" aria-pressed="false">Po letech</button>
-          <button type="button" class="segmented-btn" data-fbc="3" aria-pressed="false">Posledních 30 dní</button>
-        </div>
-      </div>
     </figure>
 '''
 
@@ -316,7 +319,9 @@ def render_page(months):
     .fb-chart{{margin:18px 0 4px;}}
     .fb-chart svg{{display:block; max-width:100%; height:auto;}}
     .fb-chart figcaption{{margin-top:4px;}}
-    .fb-chart-ctl{{margin:12px 0 4px;}}
+    .fb-chart-head{{display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:8px 16px; margin-bottom:6px;}}
+    .fb-chart-title{{margin:0;}}
+    .fb-chart-ctl{{margin:0;}}
     .fb-chart-view[hidden]{{display:none;}}
     .fb-bar{{cursor:pointer;}}
     .fb-bar:hover rect,.fb-bar:focus-visible rect{{opacity:.78;}}
