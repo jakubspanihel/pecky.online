@@ -200,6 +200,12 @@ K ověření příště: zda a s jakým výsledkem byla dotace NSA podána.
 u každého); stránka Monitoring má teď 93 měsíců (2019-01 až 2026-09), 2 035 příspěvků. Přenos dat opět jedním staženým souborem
 (smazán po běhu).
 
+3. října 2026, noc (Monitoring Facebooku, rozsah grafu v adrese; na žádost uživatele). Zvolený rozsah se ukládá do URL: `?graf=roky`, `?graf=30dni`
+(výchozí „Od začátku“ bez parametru); lze kombinovat s kotvou (`?graf=roky#fb-y-2022`).
+
+3. října 2026, noc (Monitoring Facebooku, kotvy v grafu; na žádost uživatele). Sloupec grafu je odkaz na měsíc (`#fb-yyyy-mm`), rok (`#fb-y-yyyy`)
+nebo den (`#fb-d-yyyy-mm-dd`): skript rozbalí měsíc, zvýrazní cíl a posune ho pod sticky nadpisy; fungují i kotvy v adrese.
+
 3. října 2026, noc (Monitoring Facebooku, přepínač grafu; na žádost uživatele). Pod grafem segmentový přepínač rozsahu: Od začátku (měsíce) /
 Po letech / Posledních 30 dní (dny do posledního zachyceného příspěvku, 30. 9. 2026). Osa y má dílky podle rozsahu dat (`bar_svg` v `summary.py`).
 

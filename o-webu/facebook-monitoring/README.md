@@ -69,7 +69,7 @@ níže) s odkazem na originál na Facebooku, pod ním
 nepřenáší, takže se tam nedostanou jména ani telefony z původních textů.
 
 Hned za perexem je statický SVG sloupcový graf počtu příspěvků po měsících (osa x čas, osa y počet; `render_chart` v `summary.py`,
-bez externích knihoven, barvy z proměnných webu, maximum zvýrazněno). Pod grafem je segmentový přepínač rozsahu „Od začátku“ (měsíce) / „Po letech“ / „Posledních 30 dní“ (dny do posledního zachyceného příspěvku, ne do dneška); všechny tři SVG jsou předrenderované, přepínač jen ukazuje/skrývá.
+bez externích knihoven, barvy z proměnných webu, maximum zvýrazněno). Pod grafem je segmentový přepínač rozsahu „Od začátku“ (měsíce) / „Po letech“ / „Posledních 30 dní“ (dny do posledního zachyceného příspěvku, ne do dneška); všechny tři SVG jsou předrenderované, přepínač jen ukazuje/skrývá. Sloupec grafu je odkaz (kotva): měsíc → řádek měsíce `#fb-yyyy-mm`, rok → nadpis `#fb-y-yyyy`, den → první příspěvek dne `#fb-d-yyyy-mm-dd` (dny bez příspěvku vedou na měsíc). Skript stránky rozbalí příslušný měsíc, zvýrazní cíl a posune ho pod sticky nadpisy; kotvy fungují i z adresy (`…/#fb-2020-03`). Zvolený rozsah grafu se ukládá do adresy parametrem `?graf=roky` / `?graf=30dni` (výchozí „Od začátku“ bez parametru), takže jde poslat odkaz rovnou na „Po letech“; parametr jde zkombinovat s kotvou (`?graf=roky#fb-y-2022`).
 
 Od 3. 10. 2026 je tabulka rozdělená po letech: každý rok má vlastní sticky `h3` „2026 (189 příspěvků)“ a vlastní tabulku měsíců,
 navíc pod tabulkami je řádek „Celkem“ (viz `render_page` v `summary.py`).

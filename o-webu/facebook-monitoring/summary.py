@@ -106,27 +106,29 @@ def num(v):
 
 
 def bar_svg(items, uid, title, desc, labels_on_bars=False):
-    """Statický SVG sloupcový graf. items: [(tooltip, hodnota, popisek osy x | None)]."""
+    """Statický SVG sloupcový graf. items: [(tooltip, hodnota, popisek osy x | None, kotva "#id")].
+    Sloupec je odkaz na kotvu v tabulkách pod grafem (rozbalení + posun řeší skript stránky)."""
     W, H, L, R, T, B = 960, 300, 44, 10, 22, 30
-    mx = max(n for _, n, _ in items)
+    mx = max(n for _, n, _, _ in items)
     step = next(st for st in (1, 2, 5, 10, 20, 50, 100) if mx / st <= 8)  # nejvýš ~8 dílků osy y
     ymax = max(step * 2, -(-mx // step) * step)
     pw, ph = W - L - R, H - T - B
     slot = pw / len(items)
     bw = min(max(2.0, slot * 0.78), 60.0)
-    peak = max(n for _, n, _ in items)
+    peak = max(n for _, n, _, _ in items)
     parts = []
     for v in range(0, ymax + 1, step):
         y = T + ph - ph * v / ymax
         parts.append(f'<line x1="{L}" x2="{W - R}" y1="{y:.1f}" y2="{y:.1f}" stroke="var(--line)" stroke-width="1"/>')
         parts.append(f'<text x="{L - 6}" y="{y + 4:.1f}" text-anchor="end" font-size="11" fill="var(--ink-soft)">{v}</text>')
     parts.append('<text x="2" y="12" text-anchor="start" font-size="11" fill="var(--ink-soft)">příspěvků</text>')
-    for i, (tip, n, xl) in enumerate(items):
+    for i, (tip, n, xl, href) in enumerate(items):
         x = L + i * slot + (slot - bw) / 2
         h = ph * n / ymax
         y = T + ph - h
         fill = 'var(--burgundy)' if n == peak else 'var(--slate)'
-        parts.append(f'<rect x="{x:.1f}" y="{y:.1f}" width="{bw:.1f}" height="{h:.1f}" fill="{fill}"><title>{escape(tip)}</title></rect>')
+        parts.append(f'<a class="fb-bar" href="{href}"><rect x="{x:.1f}" y="{y:.1f}" width="{bw:.1f}" height="{max(h, 0):.1f}" fill="{fill}"><title>{escape(tip)}</title></rect>'
+                     f'<rect x="{x - (slot - bw) / 2:.1f}" y="{T}" width="{slot:.1f}" height="{ph}" fill="transparent"/></a>')
         if n == peak or labels_on_bars:
             col = 'var(--burgundy)' if n == peak else 'var(--ink-soft)'
             parts.append(f'<text x="{x + bw / 2:.1f}" y="{y - 4:.1f}" text-anchor="middle" font-size="11" font-weight="600" fill="{col}">{n}</text>')
@@ -151,7 +153,7 @@ def render_chart(months):
     items = []
     for ym, n in mc:
         y_, m_ = ym.split('-')
-        items.append((f'{MONTHS[int(m_) - 1].lower()} {y_}: {n} {plural(n)}', n, y_ if m_ == '01' else None))
+        items.append((f'{MONTHS[int(m_) - 1].lower()} {y_}: {n} {plural(n)}', n, y_ if m_ == '01' else None, f'#fb-{ym}'))
     v1 = bar_svg(items, 'fbc1', 'Počet příspěvků po měsících',
                  f'Sloupcový graf: osa x čas po měsících, osa y počet příspěvků. Nejvíc příspěvků vyšlo v měsíci {pk_txt} ({pk_n}).')
     cap1 = f'Počet příspěvků po měsících. Nejvíc jich vyšlo v měsíci {pk_txt} ({pk_n}), zvýrazněno. Po najetí na sloupec se zobrazí měsíc a počet.'
@@ -161,7 +163,7 @@ def render_chart(months):
         ys[ym[:4]] = ys.get(ym[:4], 0) + n
     first = min(p['published'] for p in allposts)
     last = max(p['published'] for p in allposts)
-    items = [(f'{y}: {n} {plural(n)}', n, y) for y, n in sorted(ys.items())]
+    items = [(f'{y}: {n} {plural(n)}', n, y, f'#fb-y-{y}') for y, n in sorted(ys.items())]
     ypk = max(ys.items(), key=lambda t: t[1])
     v2 = bar_svg(items, 'fbc2', 'Počet příspěvků po letech',
                  f'Sloupcový graf: osa x roky, osa y počet příspěvků. Nejvíc příspěvků vyšlo v roce {ypk[0]} ({ypk[1]}).', labels_on_bars=True)
@@ -174,7 +176,8 @@ def render_chart(months):
     items = []
     for i, d in enumerate(days):
         n = cnt.get(d.isoformat(), 0)
-        items.append((f'{d.day}. {d.month}. {d.year}: {n} {plural(n)}', n, f'{d.day}. {d.month}.' if i % 5 == 0 or i == 29 else None))
+        href = f'#fb-d-{d.isoformat()}' if n else f'#fb-{d.isoformat()[:7]}'
+        items.append((f'{d.day}. {d.month}. {d.year}: {n} {plural(n)}', n, f'{d.day}. {d.month}.' if i % 5 == 0 or i == 29 else None, href))
     v3 = bar_svg(items, 'fbc3', 'Počet příspěvků po dnech za posledních 30 dní',
                  f'Sloupcový graf: osa x dny od {days[0].day}. {days[0].month}. do {end.day}. {end.month}. {end.year}, osa y počet příspěvků za den.')
     cap3 = (f'Počet příspěvků po dnech za 30 dní do posledního zachyceného příspěvku: {days[0].day}. {days[0].month}. – {end.day}. {end.month}. {end.year}.')
@@ -210,11 +213,15 @@ def render_month(idx, ym, s, posts, counts_as_of, events=()):
     extra = [t for t in s['by_type'] if t not in TYPE_ORDER]  # neznámý typ nesmí zmizet
     typy += ''.join(f' · {t} {s["by_type"][t]}' for t in extra)
     rows = []
+    seen_days = set()
     for p in sorted(posts, key=lambda x: x['published'], reverse=True):
+        day = p['published'][:10]
+        did = '' if day in seen_days else f' id="fb-d-{day}"'
+        seen_days.add(day)
         meta = (f'👍 {num(p["reactions"])} 💬 {num(p["comments"])} ♺ {num(p["shares"])} '
                 f'typ: {escape(p["type"])}')
         rows.append(
-            f'            <tr><td>{cz_date(p["published"])}</td><td>'
+            f'            <tr data-date="{day}"{did}><td>{cz_date(p["published"])}</td><td>'
             f'<a href="{escape(p["url"], quote=True)}" target="_blank" rel="noopener">{escape(popis(p))}</a>'
             f'<br><span class="fb-meta">{meta}</span></td></tr>')
     for d, text in events:  # milník = nejstarší řádek měsíce, bez odkazu a bez počtů
@@ -222,7 +229,7 @@ def render_month(idx, ym, s, posts, counts_as_of, events=()):
             f'            <tr class="fb-event"><td>{cz_date(d + "T00:00")}</td><td>'
             f'<strong>{escape(text)}</strong><br><span class="fb-meta">událost profilu, není příspěvek</span></td></tr>')
     rows = '\n'.join(rows)
-    return f'''        <tr class="fb-row" tabindex="0" role="button" aria-expanded="false" aria-controls="fb-m{idx}"><td><span class="fb-chev" aria-hidden="true">▸</span> {month_label(ym)}</td><td>{s["posts"]}</td></tr>
+    return f'''        <tr class="fb-row" id="fb-{ym}" tabindex="0" role="button" aria-expanded="false" aria-controls="fb-m{idx}"><td><span class="fb-chev" aria-hidden="true">▸</span> {month_label(ym)}</td><td>{s["posts"]}</td></tr>
         <tr class="fb-detail" id="fb-m{idx}" hidden><td colspan="2">
           <p class="fb-sum"><strong>Podle typu:</strong> {escape(typy)}<br><strong>Sdílení z cizích profilů:</strong> {s["shared_from_other_pages"]}</p>
           <table class="register fb-posts">
@@ -249,7 +256,7 @@ def render_page(months):
     for rok, ms in roky:
         n = sum(m[1]['posts'] for _, m in ms)
         radky = '\n'.join(render_month(i, ym, sm, posts, c, ev.get(ym, ())) for i, (ym, sm, posts, c) in ms)
-        bloky.append(f'''    <h3 class="display fb-year">{rok} ({n} {plural(n)})</h3>
+        bloky.append(f'''    <h3 class="display fb-year" id="fb-y-{rok}">{rok} ({n} {plural(n)})</h3>
     <div class="table-scroll">
     <table class="register">
       <thead><tr><th>Měsíc</th><th>Příspěvků</th></tr></thead>
@@ -283,6 +290,12 @@ def render_page(months):
     .fb-chart figcaption{{margin-top:4px;}}
     .fb-chart-ctl{{margin:12px 0 4px;}}
     .fb-chart-view[hidden]{{display:none;}}
+    .fb-bar{{cursor:pointer;}}
+    .fb-bar:hover rect,.fb-bar:focus-visible rect{{opacity:.78;}}
+    .fb-bar:focus-visible{{outline:2px solid var(--gold); outline-offset:1px;}}
+    #panel-fbmonitoring .fb-row,#panel-fbmonitoring h3.fb-year,#panel-fbmonitoring .fb-detail tr[id]{{scroll-margin-top:190px;}}
+    #panel-fbmonitoring .fb-hit td{{background:rgba(173,122,42,0.22) !important;}}
+    #panel-fbmonitoring h3.fb-hit{{color:var(--burgundy);}}
   </style>
   <section class="panel active" id="panel-fbmonitoring">
     <h2 class="title display">Monitoring Facebooku: Město Pečky</h2>
@@ -295,31 +308,62 @@ def render_page(months):
 
     <p class="meta-note">Data pocházejí z veřejného profilu <a href="{SOURCE_URL}" target="_blank" rel="noopener">facebook.com/mestopecky</a> a řadí se podle data zveřejnění. Počítají se všechny příspěvky profilu v daném měsíci, včetně sdílení příspěvků jiných profilů a změn úvodní fotky. U každého příspěvku je jen krátký popis s odkazem na originál na Facebooku; počty reakcí (👍), komentářů (💬) a sdílení (♺) jsou stav k {counts_cz}. Přehled pokrývá období od {od_txt} do {do_txt}. Dřívější a pozdější měsíce v něm zatím nejsou. Zpět na <a href="/o-webu/#owebu-socialni">Sociální sítě</a>. <span class="stamp">ověřeno</span></p>
     <script>
-    document.querySelectorAll('#fb-chart [data-fbc]').forEach(function (b) {{
-      b.addEventListener('click', function () {{
-        document.querySelectorAll('#fb-chart [data-fbc]').forEach(function (x) {{
-          var on = x === b;
-          x.classList.toggle('active', on);
-          x.setAttribute('aria-pressed', String(on));
-        }});
-        document.querySelectorAll('#fb-chart [data-fbc-view]').forEach(function (v) {{
-          v.hidden = v.getAttribute('data-fbc-view') !== b.getAttribute('data-fbc');
-        }});
+    var FBC = {{ '1': 'mesice', '2': 'roky', '3': '30dni' }};
+    function fbView(k, store) {{
+      document.querySelectorAll('#fb-chart [data-fbc]').forEach(function (x) {{
+        var on = x.getAttribute('data-fbc') === k;
+        x.classList.toggle('active', on);
+        x.setAttribute('aria-pressed', String(on));
       }});
-    }});
-    document.querySelectorAll('#panel-fbmonitoring .fb-row').forEach(function (tr) {{
-      function toggle() {{
-        var d = document.getElementById(tr.getAttribute('aria-controls'));
-        var open = tr.getAttribute('aria-expanded') === 'true';
-        tr.setAttribute('aria-expanded', String(!open));
-        tr.querySelector('.fb-chev').textContent = open ? '▸' : '▾';
-        d.hidden = open;
+      document.querySelectorAll('#fb-chart [data-fbc-view]').forEach(function (v) {{
+        v.hidden = v.getAttribute('data-fbc-view') !== k;
+      }});
+      if (store) {{
+        var q = new URLSearchParams(location.search);
+        if (k === '1') q.delete('graf'); else q.set('graf', FBC[k]);
+        var qs = q.toString();
+        history.replaceState(null, '', location.pathname + (qs ? '?' + qs : '') + location.hash);
       }}
+    }}
+    document.querySelectorAll('#fb-chart [data-fbc]').forEach(function (b) {{
+      b.addEventListener('click', function () {{ fbView(b.getAttribute('data-fbc'), true); }});
+    }});
+    (function () {{
+      var g = new URLSearchParams(location.search).get('graf');
+      Object.keys(FBC).forEach(function (k) {{ if (FBC[k] === g) fbView(k, false); }});
+    }})();
+    function fbSet(tr, open) {{
+      var d = document.getElementById(tr.getAttribute('aria-controls'));
+      tr.setAttribute('aria-expanded', String(open));
+      tr.querySelector('.fb-chev').textContent = open ? '▾' : '▸';
+      d.hidden = !open;
+    }}
+    document.querySelectorAll('#panel-fbmonitoring .fb-row').forEach(function (tr) {{
+      function toggle() {{ fbSet(tr, tr.getAttribute('aria-expanded') !== 'true'); }}
       tr.addEventListener('click', function (e) {{ if (!e.target.closest('a')) toggle(); }});
       tr.addEventListener('keydown', function (e) {{
         if (e.key === 'Enter' || e.key === ' ') {{ e.preventDefault(); toggle(); }}
       }});
     }});
+    function fbGo(id) {{
+      var el = document.getElementById(id);
+      if (!el || id.indexOf('fb-') !== 0) return false;
+      var row = el.classList.contains('fb-row') ? el : null;
+      if (!row && el.closest('.fb-detail')) row = el.closest('.fb-detail').previousElementSibling;
+      if (row && row.classList.contains('fb-row')) fbSet(row, true);
+      document.querySelectorAll('#panel-fbmonitoring .fb-hit').forEach(function (x) {{ x.classList.remove('fb-hit'); }});
+      el.classList.add('fb-hit');
+      el.scrollIntoView({{ block: 'start', behavior: 'smooth' }});
+      return true;
+    }}
+    document.querySelectorAll('#fb-chart a.fb-bar').forEach(function (a) {{
+      a.addEventListener('click', function (e) {{
+        var id = a.getAttribute('href').slice(1);
+        if (fbGo(id)) {{ e.preventDefault(); history.replaceState(null, '', location.pathname + location.search + '#' + id); }}
+      }});
+    }});
+    window.addEventListener('hashchange', function () {{ fbGo(location.hash.slice(1)); }});
+    if (location.hash) setTimeout(function () {{ fbGo(location.hash.slice(1)); }}, 50);
     </script>
   </section>
 '''
