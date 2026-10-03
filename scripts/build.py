@@ -346,28 +346,33 @@ def parse_cz_date(cell):
 
 
 def render_stav_sekci(rows):
-    """Vyrenderuje tabulku do HTML. Buňky s datem nesou data-date (ISO);
-    text uvnitř je absolutní datum jako fallback, JS ho přepíše na stáří."""
-    out = ['<table class="register stav-sekci">',
-           '<thead><tr><th>Sekce</th><th>Režim</th><th>Kontrola</th>'
-           '<th>Změna</th><th>Co naposledy</th></tr></thead>',
-           '<tbody>']
+    """Vyrenderuje „Stav sekcí“ jako karty (details). Ve složeném stavu je vidět
+    název sekce a stáří poslední změny, po rozbalení kontrola, režim, text
+    „Co naposledy“ a odkaz do sekce. Datumy nesou data-date (ISO); text uvnitř
+    je absolutní datum jako fallback, JS ho přepíše na stáří."""
+    def datum(d, popisek):
+        if d is None:
+            return (f'<span class="stav-none" title="tahle sekce nemá externí '
+                    f'zdroj ke kontrole">{popisek}: —</span>')
+        odhad = ' data-odhad="1"' if d['odhad'] else ''
+        title = ' title="odhad, přesné datum nedoloženo"' if d['odhad'] else ''
+        return (f'{popisek}: <span data-date="{d["iso"]}"{odhad}{title}>'
+                f'{esc(d["raw"])}{"&nbsp;?" if d["odhad"] else ""}</span>')
+
+    out = ['<div class="stav-sekci">']
     for r in rows:
-        cells = [f'<td><a href="{r["url"]}">{esc(r["name"])}</a></td>',
-                 f'<td><span class="tag">{esc(r["rezim"])}</span></td>']
-        for key in ('kontrola', 'zmena'):
-            d = r[key]
-            if d is None:
-                cells.append('<td class="stav-none" title="tahle sekce nemá '
-                             'externí zdroj ke kontrole">—</td>')
-            else:
-                odhad = ' data-odhad="1"' if d['odhad'] else ''
-                title = (' title="odhad, přesné datum nedoloženo"' if d['odhad'] else '')
-                cells.append(f'<td data-date="{d["iso"]}"{odhad}{title}>'
-                             f'{esc(d["raw"])}{"&nbsp;?" if d["odhad"] else ""}</td>')
-        cells.append(f'<td>{esc(r["co"])}</td>')
-        out.append('<tr>' + ''.join(cells) + '</tr>')
-    out += ['</tbody>', '</table>']
+        out.append(
+            '<details class="stav-card">'
+            f'<summary><span class="stav-name">{esc(r["name"])}</span>'
+            f'<span class="stav-zmena">{datum(r["zmena"], "Změna")}</span>'
+            '<span class="collapsible-arrow" aria-hidden="true">▾</span></summary>'
+            '<div class="stav-body">'
+            f'<p class="stav-meta"><span class="tag">{esc(r["rezim"])}</span> '
+            f'{datum(r["kontrola"], "Kontrola")}</p>'
+            f'<p class="stav-co">{esc(r["co"])}</p>'
+            f'<p class="stav-link"><a href="{r["url"]}">Otevřít sekci →</a></p>'
+            '</div></details>')
+    out.append('</div>')
     return '\n'.join(out)
 
 

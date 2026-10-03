@@ -337,9 +337,19 @@
   table.register td{padding:11px 10px; border-bottom:1px solid var(--line); vertical-align:top;}
   table.register tr:hover td{background:rgba(124,47,43,0.035);}
   /* Stav sekcí (Domů) — datum/stáří monospace, pomlčka tlumeně, ať nevypadá jako chyba */
-  table.stav-sekci td[data-date]{font-family:var(--font-mono); font-size:12.5px; white-space:nowrap;}
-  table.stav-sekci td.stav-none{color:var(--line); text-align:center;}
-  table.stav-sekci td:first-child{font-weight:600;}
+  .stav-sekci{display:flex; flex-direction:column; gap:10px;}
+  .stav-card{border:1px solid var(--line); border-radius:12px; background:rgba(255,255,255,0.35); padding:12px 16px;}
+  .stav-card > summary{list-style:none; cursor:pointer; display:flex; align-items:baseline; gap:12px; flex-wrap:wrap;}
+  .stav-card > summary::-webkit-details-marker{display:none;}
+  .stav-card .stav-name{font-weight:600; flex:1 1 auto;}
+  .stav-card .stav-zmena{font-family:var(--font-mono); font-size:12.5px; white-space:nowrap;}
+  .stav-card .collapsible-arrow{display:inline-block; color:var(--burgundy); font-size:0.8em; transition:transform .15s;}
+  .stav-card:not([open]) .collapsible-arrow{transform:rotate(-90deg);}
+  .stav-card:hover{border-color:var(--burgundy);}
+  .stav-card .stav-body{margin-top:10px; padding-top:10px; border-top:1px solid var(--line);}
+  .stav-card .stav-body p{margin:0 0 8px;}
+  .stav-card .stav-meta{font-family:var(--font-mono); font-size:12.5px;}
+  .stav-card .stav-none{color:var(--ink-soft, inherit); opacity:.7;}
   .swatch{display:inline-block; width:10px; height:10px; border-radius:50%; margin-right:8px; vertical-align:middle;}
   .tag{font-family:var(--font-mono); font-size:10.5px; text-transform:uppercase; padding:2px 7px; border:1px solid var(--line); border-radius:2px; color:var(--ink-soft);}
   .tag-sm{font-size:9px; padding:1px 5px;}

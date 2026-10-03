@@ -182,7 +182,7 @@ function relBudouci(iso) {
 // absolutní datumy. Build je vysype do data-date (ISO) a jako viditelný
 // text nechá původní datum.
 (function () {
-  const cells = document.querySelectorAll('.stav-sekci td[data-date]');
+  const cells = document.querySelectorAll('.stav-sekci [data-date]');
   if (!cells.length) return;
   cells.forEach(td => {
     const stari = relDatum(td.getAttribute('data-date'));
