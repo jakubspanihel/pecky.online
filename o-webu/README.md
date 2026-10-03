@@ -20,18 +20,20 @@ Obsah panelu žije v `content/owebu.html` (žádná samostatná datová sada).
 
 ## Struktura stránky (podzáložky)
 
-Od 19. 9. 2026 je obsah rozdělený do 2 panelů s přepínačem vpravo nahoře (segmented-control, `.subtabs.subtabs-seg` /
-`.subpanel`, stejný vzor jako u Pozemků nebo Volby 2022 — viz
-`assets/common.js`, trvalý odkaz na URL hashi jako `/o-webu/#owebu-socialni`):
+Stránka je jeden seznam zdrojů se dvěma skupinami (`.owebu-group`) a filtrem
+nahoře: vlevo `h3` s počtem zobrazených zdrojů (počet `a.qlink` ve viditelných
+skupinách, dopočítá JS na konci `content/owebu.html`), vpravo přepínač
+(segmented-control) **Vše** (výchozí) / **Webové stránky** / **Sociální sítě**.
+Odkaz na skupinu: `/o-webu/#owebu-odkazy`, `/o-webu/#owebu-socialni`.
+(Do 3. 10. 2026 šlo o podzáložky; „Historie změn na webu“ se přesunula na
+samostatnou stránku, viz níže, a tabulka „Zdroje a stav sekcí“ se zrušila:
+zdroje jsou uvedeny přímo u dat na stránkách sekcí — nový zdroj proto vždy
+citovat tam, ne centrálně.)
 
-(Podzáložka „Historie změn na webu“ se 3. 10. 2026 přesunula na
-samostatnou stránku, viz níže. Podzáložka „Zdroje“ (tabulka „Zdroje a stav
-sekcí“) se 3. 10. 2026 zrušila: zdroje jsou uvedeny přímo u dat na stránkách
-jednotlivých sekcí — nový zdroj proto vždy citovat tam, ne centrálně.)
-
-1. **Webové stránky** (`subpanel-owebu-odkazy`, dřív „Odkazy“) — oficiální kanály a otevřená
-   data (`h3` Odkazy) + „Další nezávislé zdroje" v témže panelu.
-2. **Sociální sítě** (`subpanel-owebu-socialni`)
+1. **Webové stránky** (`#subpanel-owebu-odkazy`, `data-group="odkazy"`) —
+   oficiální kanály a otevřená data (`h3` Odkazy) + „Další nezávislé
+   zdroje“ v téže skupině.
+2. **Sociální sítě** (`#subpanel-owebu-socialni`, `data-group="socialni"`)
 
 ## Historie změn na webu (`/o-webu/changelog.html`)
 
@@ -45,12 +47,12 @@ Ručně se do ní nezapisuje — zápis běhu = přepsání řádku ve „Stav s
 v `README.md` (viz `CLAUDE.md`) a `python3 scripts/build.py`.
 
 Obecný disclaimer (`div.footer-note`, „Tento web nezastupuje Město
-Pečky…") je záměrně mimo podzáložky (za posledním `.subpanel`), aby byl
+Pečky…") je záměrně mimo skupiny (za poslední `.owebu-group`), aby byl
 vidět nezávisle na vybrané záložce.
 
 ## Sociální sítě
 
-Sekce „Sociální sítě" (podzáložka `subpanel-owebu-socialni`, blok
+Sekce „Sociální sítě" (skupina `subpanel-owebu-socialni`, blok
 `div.quicklinks`) shrnuje všechny
 facebookové/instagramové/YouTube účty zmiňované na webu, u každého počet
 sledujících/členů/odběratelů a datum posledního příspěvku/videa (ukazatel

@@ -2,14 +2,16 @@
     <h2 class="title display">O webu</h2>
     <p class="lede">Do Peček . cz je neoficiální, nezávislý občanský projekt. Cílem je zpřehlednit veřejně dostupné informace o samosprávě města Pečky.</p>
 
-    <div class="subtabs subtabs-seg" role="tablist" aria-label="Části stránky O webu">
-      <div class="segmented-group">
-        <button class="subtablink segmented-btn active" type="button" data-subpanel="owebu-odkazy">Webové stránky</button>
-        <button class="subtablink segmented-btn" type="button" data-subpanel="owebu-socialni">Sociální sítě</button>
+    <div class="owebu-toolbar">
+      <h3 class="display" id="owebu-count" aria-live="polite"></h3>
+      <div class="segmented-group" role="group" aria-label="Zobrazit zdroje">
+        <button class="segmented-btn active" type="button" data-owebu-filter="vse">Vše</button>
+        <button class="segmented-btn" type="button" data-owebu-filter="odkazy">Webové stránky</button>
+        <button class="segmented-btn" type="button" data-owebu-filter="socialni">Sociální sítě</button>
       </div>
     </div>
 
-    <div class="subpanel active" id="subpanel-owebu-odkazy">
+    <div class="owebu-group" id="subpanel-owebu-odkazy" data-group="odkazy">
     <h3 class="display" style="margin:0 0 4px;">Odkazy</h3>
     <p class="lede" style="margin-bottom:16px;">Oficiální kanály města a související otevřená data.</p>
     <div class="quicklinks">
@@ -117,7 +119,7 @@
     </div>
     </div>
 
-    <div class="subpanel" id="subpanel-owebu-socialni">
+    <div class="owebu-group" id="subpanel-owebu-socialni" data-group="socialni" style="margin-top:34px;">
     <h3 class="display" style="margin:0 0 4px;">Sociální sítě</h3>
     <p class="lede" style="margin-bottom:16px;">Všechny facebookové, instagramové a YouTube účty zmiňované na tomto webu na jednom místě, seřazené sestupně podle počtu sledujících (u Facebooku po zaokrouhlení, jak je zobrazuje samotná platforma; u YouTube odběratelé, u FB skupiny členové) — u každého i datum posledního příspěvku/videa jako ukazatel, jak moc je účet aktivní. Označené jako „oficiální“ jsou kanály spravované městem — zbytek jsou nezávislé účty uskupení, politiků a komunitních iniciativ mimo kontrolu tohoto webu. Aktualizuje se týdně. Snímek k 28. 9. 2026, časem se mění. <span class="stamp">ověřeno</span></p>
     <div class="quicklinks">
@@ -257,3 +259,31 @@
       Poslední aktualizace: 18. srpna 2026 (sekce Zpravodaj: doplněn lokální archiv Pečeckých novin 2008–2011, 43 vydání s fulltextem a náhledy stránek). Tento web nezastupuje Město Pečky ani žádnou politickou stranu. Chyby a doplnění vítány — pošli zdroj a opravím.
     </div>
   </section>
+
+  <script>
+    // ===== O webu: filtr zdrojů (Vše / Webové stránky / Sociální sítě) + počet =====
+    (function(){
+      var btns = document.querySelectorAll('[data-owebu-filter]');
+      var groups = document.querySelectorAll('.owebu-group');
+      var countEl = document.getElementById('owebu-count');
+      function pocet(n){ return n + (n === 1 ? ' zdroj' : n >= 2 && n <= 4 ? ' zdroje' : ' zdrojů'); }
+      function apply(f){
+        var n = 0;
+        groups.forEach(function(g){
+          var show = f === 'vse' || g.dataset.group === f;
+          g.hidden = !show;
+          if (show) n += g.querySelectorAll('a.qlink').length;
+        });
+        btns.forEach(function(b){ b.classList.toggle('active', b.dataset.owebuFilter === f); });
+        countEl.textContent = pocet(n);
+      }
+      btns.forEach(function(b){
+        b.addEventListener('click', function(){
+          apply(b.dataset.owebuFilter);
+          history.replaceState(null, '', b.dataset.owebuFilter === 'vse' ? location.pathname : '#owebu-' + b.dataset.owebuFilter);
+        });
+      });
+      var h = location.hash.replace('#owebu-', '');
+      apply(h === 'odkazy' || h === 'socialni' ? h : 'vse');
+    })();
+  </script>
