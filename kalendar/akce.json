@@ -1,7 +1,7 @@
 {
  "meta": {
   "description": "Kulturní a společenské akce v Pečkách a okolí. U každé akce je pořadatel (id do lide/organizations.json) a doklady, ze kterých je přepsaná (evidence[] — zdroj je id do kořenového sources.json). Zdroj sekce Kalendář — do udalosti.json a kalendar.ics je promítá kalendar/scripts/update-kalendar.py.",
-  "updated": "2026-10-02",
+  "updated": "2026-10-03",
   "note": "Jednání rady a zastupitelstva do tohohle souboru nepatří, i když je plakát KD uvádí — ta má kalendář z jednani/pecky-jednani.json a zapsáním sem by v mřížce vznikly duplicity. Pořadatel je vždy ten, kdo akci pořádá, ne ten, od koho o ní víme — to je evidence[].source."
  },
  "events": [
@@ -6767,7 +6767,7 @@
    "place": "Komunitní centrum Pramínek, Dobřichov 24",
    "organizer": "maminky-sobe",
    "organizer_name": null,
-   "description": "Dopoledne pro rodiče s batolaty. Blok 9:00–12:00.",
+   "description": "Dopoledne pro rodiče s batolaty. Blok 9:00–12:00. Podle plakátu na říjen: s Helčou.",
    "note": "Web přesný začátek sezóny neuvádí — zapsáno od nejbližšího nadcházejícího čtvrtku po datu kontroly (23. 9. 2026).",
    "evidence": [
     {
@@ -6777,6 +6777,14 @@
      "label": "mcpraminek.cz — Hrátky s batolátky",
      "published": "2026-09-23",
      "retrieved": "2026-09-23"
+    },
+    {
+     "source": "web-mcpraminek-cz",
+     "kind": "plakat",
+     "url": "https://www.facebook.com/photo.php?fbid=1390961633204193",
+     "label": "Plakát Říjen v komunitním centru Pramínek (Facebook Komunitní centrum Dobřichov Pramínek)",
+     "published": "2026-09-30",
+     "retrieved": "2026-10-03"
     }
    ]
   },
@@ -7182,6 +7190,14 @@
      "label": "Plakát Kaštanová mast (přes pecky.cz/default/report/486752_kastanova-mast)",
      "published": "2026-09-23",
      "retrieved": "2026-09-23"
+    },
+    {
+     "source": "web-mcpraminek-cz",
+     "kind": "plakat",
+     "url": "https://www.facebook.com/photo.php?fbid=1390961633204193",
+     "label": "Plakát Říjen v komunitním centru Pramínek (Facebook Komunitní centrum Dobřichov Pramínek)",
+     "published": "2026-09-30",
+     "retrieved": "2026-10-03"
     }
    ]
   },
@@ -7354,6 +7370,14 @@
      "label": "pecky.cz — Kalendář událostí: Kožedělná dílna",
      "published": "2026-09-23",
      "retrieved": "2026-09-23"
+    },
+    {
+     "source": "web-mcpraminek-cz",
+     "kind": "plakat",
+     "url": "https://www.facebook.com/photo.php?fbid=1390961633204193",
+     "label": "Plakát Říjen v komunitním centru Pramínek (Facebook Komunitní centrum Dobřichov Pramínek)",
+     "published": "2026-09-30",
+     "retrieved": "2026-10-03"
     }
    ]
   },
@@ -7377,6 +7401,14 @@
      "label": "pecky.cz — Kalendář událostí: Komunitní kavárna otevřena",
      "published": "2026-09-23",
      "retrieved": "2026-09-23"
+    },
+    {
+     "source": "web-mcpraminek-cz",
+     "kind": "plakat",
+     "url": "https://www.facebook.com/photo.php?fbid=1390961633204193",
+     "label": "Plakát Říjen v komunitním centru Pramínek (Facebook Komunitní centrum Dobřichov Pramínek)",
+     "published": "2026-09-30",
+     "retrieved": "2026-10-03"
     }
    ]
   },
@@ -7490,6 +7522,29 @@
      "label": "Pečecké noviny 9/2026, str. 19 — Rozvrh hodin sokolovny, školní rok 2026/2027",
      "published": "2026-09-01",
      "retrieved": "2026-09-21"
+    }
+   ]
+  },
+  {
+   "id": "akce-2026-10-05-mozkovy-jogging-a-mozek",
+   "title": "Mozkový jogging a Mozek jako appka",
+   "date": "2026-10-05",
+   "date_end": null,
+   "time": null,
+   "category": "akce",
+   "place": "Komunitní centrum Pramínek, Dobřichov 24",
+   "organizer": "maminky-sobe",
+   "organizer_name": null,
+   "description": "Plakát uvádí jen datum.",
+   "note": "Plakát uvádí jen data (5. 10. a 19. 10.), bez času.",
+   "evidence": [
+    {
+     "source": "web-mcpraminek-cz",
+     "kind": "plakat",
+     "url": "https://www.facebook.com/photo.php?fbid=1390961633204193",
+     "label": "Plakát Říjen v komunitním centru Pramínek (Facebook Komunitní centrum Dobřichov Pramínek)",
+     "published": "2026-09-30",
+     "retrieved": "2026-10-03"
     }
    ]
   },
@@ -7889,6 +7944,29 @@
      "label": "Pečecké noviny 9/2026, str. 19 — Rozvrh hodin sokolovny, školní rok 2026/2027",
      "published": "2026-09-01",
      "retrieved": "2026-09-21"
+    }
+   ]
+  },
+  {
+   "id": "akce-2026-10-05-bandovani",
+   "title": "Bandování",
+   "date": "2026-10-05",
+   "date_end": null,
+   "time": "19:00",
+   "category": "akce",
+   "place": "Komunitní centrum Pramínek, Dobřichov 24",
+   "organizer": "maminky-sobe",
+   "organizer_name": null,
+   "description": "Blok 19:00–20:30.",
+   "note": null,
+   "evidence": [
+    {
+     "source": "web-mcpraminek-cz",
+     "kind": "plakat",
+     "url": "https://www.facebook.com/photo.php?fbid=1390961633204193",
+     "label": "Plakát Říjen v komunitním centru Pramínek (Facebook Komunitní centrum Dobřichov Pramínek)",
+     "published": "2026-09-30",
+     "retrieved": "2026-10-03"
     }
    ]
   },
@@ -8863,7 +8941,7 @@
    "place": "Komunitní centrum Pramínek, Dobřichov 24",
    "organizer": "maminky-sobe",
    "organizer_name": null,
-   "description": "Dopoledne pro rodiče s batolaty. Blok 9:00–12:00.",
+   "description": "Dopoledne pro rodiče s batolaty. Blok 9:00–12:00. Podle plakátu na říjen: s Míšou.",
    "note": "Web přesný začátek sezóny neuvádí — zapsáno od nejbližšího nadcházejícího čtvrtku po datu kontroly (23. 9. 2026).",
    "evidence": [
     {
@@ -8873,6 +8951,14 @@
      "label": "mcpraminek.cz — Hrátky s batolátky",
      "published": "2026-09-23",
      "retrieved": "2026-09-23"
+    },
+    {
+     "source": "web-mcpraminek-cz",
+     "kind": "plakat",
+     "url": "https://www.facebook.com/photo.php?fbid=1390961633204193",
+     "label": "Plakát Říjen v komunitním centru Pramínek (Facebook Komunitní centrum Dobřichov Pramínek)",
+     "published": "2026-09-30",
+     "retrieved": "2026-10-03"
     }
    ]
   },
@@ -9093,6 +9179,28 @@
      "label": "Pečecké noviny 9/2026, str. 19 — Rozvrh hodin sokolovny, školní rok 2026/2027",
      "published": "2026-09-01",
      "retrieved": "2026-09-21"
+    }
+   ]
+  },
+  {
+   "id": "kurz-2026-10-08-ukulele",
+   "title": "Ukulele",
+   "date": "2026-10-08",
+   "time": "17:30",
+   "category": "kurz",
+   "place": "Komunitní centrum Pramínek, Dobřichov 24",
+   "organizer": "maminky-sobe",
+   "organizer_name": null,
+   "description": "Blok 17:30–18:30.",
+   "note": null,
+   "evidence": [
+    {
+     "source": "web-mcpraminek-cz",
+     "kind": "plakat",
+     "url": "https://www.facebook.com/photo.php?fbid=1390961633204193",
+     "label": "Plakát Říjen v komunitním centru Pramínek (Facebook Komunitní centrum Dobřichov Pramínek)",
+     "published": "2026-09-30",
+     "retrieved": "2026-10-03"
     }
    ]
   },
@@ -9448,6 +9556,29 @@
      "label": "Pečecké noviny 9/2026, str. 19 — Rozvrh hodin sokolovny, školní rok 2026/2027",
      "published": "2026-09-01",
      "retrieved": "2026-09-21"
+    }
+   ]
+  },
+  {
+   "id": "akce-2026-10-12-tvoreni-s-jitkou",
+   "title": "Tvoření s Jitkou",
+   "date": "2026-10-12",
+   "date_end": null,
+   "time": null,
+   "category": "akce",
+   "place": "Komunitní centrum Pramínek, Dobřichov 24",
+   "organizer": "maminky-sobe",
+   "organizer_name": null,
+   "description": "Technika Kimekomi. Nutné přihlášení.",
+   "note": "Plakát čas neuvádí.",
+   "evidence": [
+    {
+     "source": "web-mcpraminek-cz",
+     "kind": "plakat",
+     "url": "https://www.facebook.com/photo.php?fbid=1390961633204193",
+     "label": "Plakát Říjen v komunitním centru Pramínek (Facebook Komunitní centrum Dobřichov Pramínek)",
+     "published": "2026-09-30",
+     "retrieved": "2026-10-03"
     }
    ]
   },
@@ -10805,7 +10936,7 @@
    "place": "Komunitní centrum Pramínek, Dobřichov 24",
    "organizer": "maminky-sobe",
    "organizer_name": null,
-   "description": "Dopoledne pro rodiče s batolaty. Blok 9:00–12:00.",
+   "description": "Dopoledne pro rodiče s batolaty. Blok 9:00–12:00. Podle plakátu na říjen: volná herna.",
    "note": "Web přesný začátek sezóny neuvádí — zapsáno od nejbližšího nadcházejícího čtvrtku po datu kontroly (23. 9. 2026).",
    "evidence": [
     {
@@ -10815,6 +10946,14 @@
      "label": "mcpraminek.cz — Hrátky s batolátky",
      "published": "2026-09-23",
      "retrieved": "2026-09-23"
+    },
+    {
+     "source": "web-mcpraminek-cz",
+     "kind": "plakat",
+     "url": "https://www.facebook.com/photo.php?fbid=1390961633204193",
+     "label": "Plakát Říjen v komunitním centru Pramínek (Facebook Komunitní centrum Dobřichov Pramínek)",
+     "published": "2026-09-30",
+     "retrieved": "2026-10-03"
     }
    ]
   },
@@ -11061,6 +11200,29 @@
    ]
   },
   {
+   "id": "akce-2026-10-15-zpivani-a-muzicirovani-pro",
+   "title": "Zpívání a muzicírování pro všechny",
+   "date": "2026-10-15",
+   "date_end": null,
+   "time": "17:30",
+   "category": "akce",
+   "place": "Komunitní centrum Pramínek, Dobřichov 24",
+   "organizer": "maminky-sobe",
+   "organizer_name": null,
+   "description": "Blok 17:30–19:00.",
+   "note": null,
+   "evidence": [
+    {
+     "source": "web-mcpraminek-cz",
+     "kind": "plakat",
+     "url": "https://www.facebook.com/photo.php?fbid=1390961633204193",
+     "label": "Plakát Říjen v komunitním centru Pramínek (Facebook Komunitní centrum Dobřichov Pramínek)",
+     "published": "2026-09-30",
+     "retrieved": "2026-10-03"
+    }
+   ]
+  },
+  {
    "id": "kurz-2026-10-15-volejbal-radim-dospeli",
    "title": "Volejbal Radim — dospělí",
    "date": "2026-10-15",
@@ -11215,6 +11377,29 @@
    ]
   },
   {
+   "id": "akce-2026-10-17-komunitni-kavarna-otevrena",
+   "title": "Komunitní kavárna otevřena",
+   "date": "2026-10-17",
+   "date_end": null,
+   "time": null,
+   "category": "akce",
+   "place": "Komunitní centrum Pramínek, Dobřichov 24",
+   "organizer": "maminky-sobe",
+   "organizer_name": null,
+   "description": "Posezení v komunitní kavárně v Pramínku.",
+   "note": "Plakát čas neuvádí.",
+   "evidence": [
+    {
+     "source": "web-mcpraminek-cz",
+     "kind": "plakat",
+     "url": "https://www.facebook.com/photo.php?fbid=1390961633204193",
+     "label": "Plakát Říjen v komunitním centru Pramínek (Facebook Komunitní centrum Dobřichov Pramínek)",
+     "published": "2026-09-30",
+     "retrieved": "2026-10-03"
+    }
+   ]
+  },
+  {
    "id": "akce-2026-10-17-street-food-festivalek-pecky",
    "title": "Street Food Festiválek Pečky",
    "date": "2026-10-17",
@@ -11234,6 +11419,29 @@
      "label": "Facebook událost — Street Food Festiválek Pečky",
      "published": "2026-09-23",
      "retrieved": "2026-09-23"
+    }
+   ]
+  },
+  {
+   "id": "akce-2026-10-17-drakiada",
+   "title": "Drakiáda",
+   "date": "2026-10-17",
+   "date_end": null,
+   "time": "14:00",
+   "category": "akce",
+   "place": "na Píchoře",
+   "organizer": "maminky-sobe",
+   "organizer_name": null,
+   "description": "Podzimní stezka s úkoly pro děti, soutěž o létající vyrobený drak, společné vyrábění co nejdelšího ocasu, malování broučků na kameny, ohýnek na opékání buřtíků (vzít si s sebou), popcorn. Blok 14:00–16:00.",
+   "note": "Plakát uvádí místo jen „na Píchoře“; společné místo konání plakátu je býv. fara Dobřichov 24.",
+   "evidence": [
+    {
+     "source": "web-mcpraminek-cz",
+     "kind": "plakat",
+     "url": "https://www.facebook.com/photo.php?fbid=1390961633204193",
+     "label": "Plakát Říjen v komunitním centru Pramínek (Facebook Komunitní centrum Dobřichov Pramínek)",
+     "published": "2026-09-30",
+     "retrieved": "2026-10-03"
     }
    ]
   },
@@ -11278,6 +11486,29 @@
      "label": "vzcentrum.cz — Kroužky 2026/2027",
      "published": "2026-09-22",
      "retrieved": "2026-09-22"
+    }
+   ]
+  },
+  {
+   "id": "akce-2026-10-17-uspavani-brouccku",
+   "title": "Uspávání broučků",
+   "date": "2026-10-17",
+   "date_end": null,
+   "time": "17:00",
+   "category": "akce",
+   "place": "u fary (býv. fara Dobřichov 24)",
+   "organizer": "maminky-sobe",
+   "organizer_name": null,
+   "description": "Broučkovo divadélko, cesta po světýlkách do Broučkovy zahrady, společná ukolébavka pro broučky.",
+   "note": null,
+   "evidence": [
+    {
+     "source": "web-mcpraminek-cz",
+     "kind": "plakat",
+     "url": "https://www.facebook.com/photo.php?fbid=1390961633204193",
+     "label": "Plakát Říjen v komunitním centru Pramínek (Facebook Komunitní centrum Dobřichov Pramínek)",
+     "published": "2026-09-30",
+     "retrieved": "2026-10-03"
     }
    ]
   },
@@ -11382,6 +11613,29 @@
      "label": "Pečecké noviny 9/2026, str. 19 — Rozvrh hodin sokolovny, školní rok 2026/2027",
      "published": "2026-09-01",
      "retrieved": "2026-09-21"
+    }
+   ]
+  },
+  {
+   "id": "akce-2026-10-19-mozkovy-jogging-a-mozek",
+   "title": "Mozkový jogging a Mozek jako appka",
+   "date": "2026-10-19",
+   "date_end": null,
+   "time": null,
+   "category": "akce",
+   "place": "Komunitní centrum Pramínek, Dobřichov 24",
+   "organizer": "maminky-sobe",
+   "organizer_name": null,
+   "description": "Plakát uvádí jen datum.",
+   "note": "Plakát uvádí jen data (5. 10. a 19. 10.), bez času.",
+   "evidence": [
+    {
+     "source": "web-mcpraminek-cz",
+     "kind": "plakat",
+     "url": "https://www.facebook.com/photo.php?fbid=1390961633204193",
+     "label": "Plakát Říjen v komunitním centru Pramínek (Facebook Komunitní centrum Dobřichov Pramínek)",
+     "published": "2026-09-30",
+     "retrieved": "2026-10-03"
     }
    ]
   },
@@ -12725,7 +12979,7 @@
    "place": "Komunitní centrum Pramínek, Dobřichov 24",
    "organizer": "maminky-sobe",
    "organizer_name": null,
-   "description": "Dopoledne pro rodiče s batolaty. Blok 9:00–12:00.",
+   "description": "Dopoledne pro rodiče s batolaty. Blok 9:00–12:00. Podle plakátu na říjen: s Míšou.",
    "note": "Web přesný začátek sezóny neuvádí — zapsáno od nejbližšího nadcházejícího čtvrtku po datu kontroly (23. 9. 2026).",
    "evidence": [
     {
@@ -12735,6 +12989,14 @@
      "label": "mcpraminek.cz — Hrátky s batolátky",
      "published": "2026-09-23",
      "retrieved": "2026-09-23"
+    },
+    {
+     "source": "web-mcpraminek-cz",
+     "kind": "plakat",
+     "url": "https://www.facebook.com/photo.php?fbid=1390961633204193",
+     "label": "Plakát Říjen v komunitním centru Pramínek (Facebook Komunitní centrum Dobřichov Pramínek)",
+     "published": "2026-09-30",
+     "retrieved": "2026-10-03"
     }
    ]
   },
@@ -12955,6 +13217,28 @@
      "label": "Pečecké noviny 9/2026, str. 19 — Rozvrh hodin sokolovny, školní rok 2026/2027",
      "published": "2026-09-01",
      "retrieved": "2026-09-21"
+    }
+   ]
+  },
+  {
+   "id": "kurz-2026-10-22-ukulele",
+   "title": "Ukulele",
+   "date": "2026-10-22",
+   "time": "17:30",
+   "category": "kurz",
+   "place": "Komunitní centrum Pramínek, Dobřichov 24",
+   "organizer": "maminky-sobe",
+   "organizer_name": null,
+   "description": "Blok 17:30–18:30.",
+   "note": null,
+   "evidence": [
+    {
+     "source": "web-mcpraminek-cz",
+     "kind": "plakat",
+     "url": "https://www.facebook.com/photo.php?fbid=1390961633204193",
+     "label": "Plakát Říjen v komunitním centru Pramínek (Facebook Komunitní centrum Dobřichov Pramínek)",
+     "published": "2026-09-30",
+     "retrieved": "2026-10-03"
     }
    ]
   },
@@ -13236,6 +13520,29 @@
      "label": "msmasinkapecky.cz — Akce školy: Canisterapie",
      "published": "2026-09-14",
      "retrieved": "2026-09-22"
+    }
+   ]
+  },
+  {
+   "id": "akce-2026-10-26-tvoreni-s-jitkou",
+   "title": "Tvoření s Jitkou",
+   "date": "2026-10-26",
+   "date_end": null,
+   "time": null,
+   "category": "akce",
+   "place": "Komunitní centrum Pramínek, Dobřichov 24",
+   "organizer": "maminky-sobe",
+   "organizer_name": null,
+   "description": "Technika Ring string. Nutné přihlášení.",
+   "note": "Plakát čas neuvádí.",
+   "evidence": [
+    {
+     "source": "web-mcpraminek-cz",
+     "kind": "plakat",
+     "url": "https://www.facebook.com/photo.php?fbid=1390961633204193",
+     "label": "Plakát Říjen v komunitním centru Pramínek (Facebook Komunitní centrum Dobřichov Pramínek)",
+     "published": "2026-09-30",
+     "retrieved": "2026-10-03"
     }
    ]
   },
