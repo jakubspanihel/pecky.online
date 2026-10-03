@@ -200,6 +200,9 @@ K ověření příště: zda a s jakým výsledkem byla dotace NSA podána.
 u každého); stránka Monitoring má teď 93 měsíců (2019-01 až 2026-09), 2 035 příspěvků. Přenos dat opět jedním staženým souborem
 (smazán po běhu).
 
+3. října 2026, noc (Monitoring Facebooku, přepínač grafu; na žádost uživatele). Pod grafem segmentový přepínač rozsahu: Od začátku (měsíce) /
+Po letech / Posledních 30 dní (dny do posledního zachyceného příspěvku, 30. 9. 2026). Osa y má dílky podle rozsahu dat (`bar_svg` v `summary.py`).
+
 3. října 2026, noc (Monitoring Facebooku, graf; na žádost uživatele). Na stránce Monitoring hned za perexem statický SVG graf počtu příspěvků
 po měsících (osa x čas, osa y počet, maximum březen 2020 zvýrazněno; `render_chart` v `summary.py`, bez externích knihoven).
 

@@ -105,46 +105,101 @@ def num(v):
     return '–' if v is None else str(v)
 
 
-def render_chart(months):
-    """Statický SVG sloupcový graf: počet příspěvků po měsících (osa x čas, osa y počet).
-    months: [(yyyy-mm, summary, posts, counts_as_of)] libovolně seřazené."""
-    data = sorted((ym, sm['posts']) for ym, sm, _, _ in months)
+def bar_svg(items, uid, title, desc, labels_on_bars=False):
+    """Statický SVG sloupcový graf. items: [(tooltip, hodnota, popisek osy x | None)]."""
     W, H, L, R, T, B = 960, 300, 44, 10, 22, 30
-    ymax = max(10, -(-max(n for _, n in data) // 10) * 10)
+    mx = max(n for _, n, _ in items)
+    step = next(st for st in (1, 2, 5, 10, 20, 50, 100) if mx / st <= 8)  # nejvýš ~8 dílků osy y
+    ymax = max(step * 2, -(-mx // step) * step)
     pw, ph = W - L - R, H - T - B
-    slot = pw / len(data)
-    bw = max(2.0, slot * 0.78)
-    peak = max(n for _, n in data)
+    slot = pw / len(items)
+    bw = min(max(2.0, slot * 0.78), 60.0)
+    peak = max(n for _, n, _ in items)
     parts = []
-    for v in range(0, ymax + 1, 10):
+    for v in range(0, ymax + 1, step):
         y = T + ph - ph * v / ymax
         parts.append(f'<line x1="{L}" x2="{W - R}" y1="{y:.1f}" y2="{y:.1f}" stroke="var(--line)" stroke-width="1"/>')
         parts.append(f'<text x="{L - 6}" y="{y + 4:.1f}" text-anchor="end" font-size="11" fill="var(--ink-soft)">{v}</text>')
-    parts.append(f'<text x="2" y="12" text-anchor="start" font-size="11" fill="var(--ink-soft)">příspěvků</text>')
-    for i, (ym, n) in enumerate(data):
+    parts.append('<text x="2" y="12" text-anchor="start" font-size="11" fill="var(--ink-soft)">příspěvků</text>')
+    for i, (tip, n, xl) in enumerate(items):
         x = L + i * slot + (slot - bw) / 2
         h = ph * n / ymax
         y = T + ph - h
         fill = 'var(--burgundy)' if n == peak else 'var(--slate)'
-        y_, m_ = ym.split('-')
-        tip = f'{MONTHS[int(m_) - 1].lower()} {y_}: {n} {plural(n)}'
         parts.append(f'<rect x="{x:.1f}" y="{y:.1f}" width="{bw:.1f}" height="{h:.1f}" fill="{fill}"><title>{escape(tip)}</title></rect>')
-        if n == peak:
-            parts.append(f'<text x="{x + bw / 2:.1f}" y="{y - 4:.1f}" text-anchor="middle" font-size="11" font-weight="600" fill="var(--burgundy)">{n}</text>')
-        if m_ == '01':
+        if n == peak or labels_on_bars:
+            col = 'var(--burgundy)' if n == peak else 'var(--ink-soft)'
+            parts.append(f'<text x="{x + bw / 2:.1f}" y="{y - 4:.1f}" text-anchor="middle" font-size="11" font-weight="600" fill="{col}">{n}</text>')
+        if xl:
             cx = x + bw / 2
             parts.append(f'<line x1="{cx:.1f}" x2="{cx:.1f}" y1="{T + ph}" y2="{T + ph + 4}" stroke="var(--ink-soft)"/>')
-            parts.append(f'<text x="{cx:.1f}" y="{H - 10}" text-anchor="middle" font-size="11" fill="var(--ink-soft)">{y_}</text>')
-    pk = [ym for ym, n in data if n == peak][0]
-    pk_txt = f'{MONTHS[int(pk[5:]) - 1].lower()} {pk[:4]}'
-    svg = '\n      '.join(parts)
-    return f'''    <figure class="fb-chart">
-      <svg viewBox="0 0 {W} {H}" width="100%" role="img" aria-labelledby="fb-chart-t fb-chart-d">
-      <title id="fb-chart-t">Počet příspěvků po měsících</title>
-      <desc id="fb-chart-d">Sloupcový graf: osa x čas po měsících, osa y počet příspěvků. Nejvíc příspěvků vyšlo v měsíci {pk_txt} ({peak}).</desc>
-      {svg}
-      </svg>
-      <figcaption class="meta-note">Počet příspěvků po měsících. Nejvíc jich vyšlo v měsíci {pk_txt} ({peak}), zvýrazněno. Po najetí na sloupec se zobrazí měsíc a počet.</figcaption>
+            parts.append(f'<text x="{cx:.1f}" y="{H - 10}" text-anchor="middle" font-size="11" fill="var(--ink-soft)">{escape(xl)}</text>')
+    body = '\n        '.join(parts)
+    return (f'<svg viewBox="0 0 {W} {H}" width="100%" role="img" aria-labelledby="{uid}-t {uid}-d">\n'
+            f'        <title id="{uid}-t">{escape(title)}</title>\n        <desc id="{uid}-d">{escape(desc)}</desc>\n        {body}\n      </svg>')
+
+
+def render_chart(months):
+    """Graf za perexem se segmentovým přepínačem rozsahu: Od začátku (měsíce) /
+    Po letech / Posledních 30 dní (dny do posledního zachyceného příspěvku).
+    Všechny tři SVG jsou předrenderované; přepínač (JS) jen ukazuje/skrývá."""
+    mc = sorted((ym, sm['posts']) for ym, sm, _, _ in months)
+    allposts = [p for _, _, ps, _ in months for p in ps]
+    pk_ym, pk_n = max(mc, key=lambda t: t[1])
+    pk_txt = f'{MONTHS[int(pk_ym[5:]) - 1].lower()} {pk_ym[:4]}'
+    # 1) po měsících
+    items = []
+    for ym, n in mc:
+        y_, m_ = ym.split('-')
+        items.append((f'{MONTHS[int(m_) - 1].lower()} {y_}: {n} {plural(n)}', n, y_ if m_ == '01' else None))
+    v1 = bar_svg(items, 'fbc1', 'Počet příspěvků po měsících',
+                 f'Sloupcový graf: osa x čas po měsících, osa y počet příspěvků. Nejvíc příspěvků vyšlo v měsíci {pk_txt} ({pk_n}).')
+    cap1 = f'Počet příspěvků po měsících. Nejvíc jich vyšlo v měsíci {pk_txt} ({pk_n}), zvýrazněno. Po najetí na sloupec se zobrazí měsíc a počet.'
+    # 2) po letech
+    ys = {}
+    for ym, n in mc:
+        ys[ym[:4]] = ys.get(ym[:4], 0) + n
+    first = min(p['published'] for p in allposts)
+    last = max(p['published'] for p in allposts)
+    items = [(f'{y}: {n} {plural(n)}', n, y) for y, n in sorted(ys.items())]
+    ypk = max(ys.items(), key=lambda t: t[1])
+    v2 = bar_svg(items, 'fbc2', 'Počet příspěvků po letech',
+                 f'Sloupcový graf: osa x roky, osa y počet příspěvků. Nejvíc příspěvků vyšlo v roce {ypk[0]} ({ypk[1]}).', labels_on_bars=True)
+    cap2 = (f'Počet příspěvků v jednotlivých letech. Rok {first[:4]} je započtený od {cz_date(first)}, rok {last[:4]} do {cz_date(last)}.')
+    # 3) posledních 30 dní (do posledního zachyceného příspěvku)
+    from datetime import date, timedelta
+    end = date.fromisoformat(last[:10])
+    days = [end - timedelta(days=29 - i) for i in range(30)]
+    cnt = Counter(p['published'][:10] for p in allposts)
+    items = []
+    for i, d in enumerate(days):
+        n = cnt.get(d.isoformat(), 0)
+        items.append((f'{d.day}. {d.month}. {d.year}: {n} {plural(n)}', n, f'{d.day}. {d.month}.' if i % 5 == 0 or i == 29 else None))
+    v3 = bar_svg(items, 'fbc3', 'Počet příspěvků po dnech za posledních 30 dní',
+                 f'Sloupcový graf: osa x dny od {days[0].day}. {days[0].month}. do {end.day}. {end.month}. {end.year}, osa y počet příspěvků za den.')
+    cap3 = (f'Počet příspěvků po dnech za 30 dní do posledního zachyceného příspěvku: {days[0].day}. {days[0].month}. – {end.day}. {end.month}. {end.year}.')
+    return f'''    <figure class="fb-chart" id="fb-chart">
+      <div class="fb-chart-view" data-fbc-view="1">
+      {v1}
+      <figcaption class="meta-note">{cap1}</figcaption>
+      </div>
+      <div class="fb-chart-view" data-fbc-view="2" hidden>
+      {v2}
+      <figcaption class="meta-note">{cap2}</figcaption>
+      </div>
+      <div class="fb-chart-view" data-fbc-view="3" hidden>
+      {v3}
+      <figcaption class="meta-note">{cap3}</figcaption>
+      </div>
+
+      <div class="segmented-control fb-chart-ctl">
+        <span class="segmented-label">Rozsah</span>
+        <div class="segmented-group" role="group" aria-label="Rozsah dat grafu">
+          <button type="button" class="segmented-btn active" data-fbc="1" aria-pressed="true">Od začátku</button>
+          <button type="button" class="segmented-btn" data-fbc="2" aria-pressed="false">Po letech</button>
+          <button type="button" class="segmented-btn" data-fbc="3" aria-pressed="false">Posledních 30 dní</button>
+        </div>
+      </div>
     </figure>
 '''
 
@@ -226,6 +281,8 @@ def render_page(months):
     .fb-chart{{margin:18px 0 4px;}}
     .fb-chart svg{{display:block; max-width:100%; height:auto;}}
     .fb-chart figcaption{{margin-top:4px;}}
+    .fb-chart-ctl{{margin:12px 0 4px;}}
+    .fb-chart-view[hidden]{{display:none;}}
   </style>
   <section class="panel active" id="panel-fbmonitoring">
     <h2 class="title display">Monitoring Facebooku: Město Pečky</h2>
@@ -238,6 +295,18 @@ def render_page(months):
 
     <p class="meta-note">Data pocházejí z veřejného profilu <a href="{SOURCE_URL}" target="_blank" rel="noopener">facebook.com/mestopecky</a> a řadí se podle data zveřejnění. Počítají se všechny příspěvky profilu v daném měsíci, včetně sdílení příspěvků jiných profilů a změn úvodní fotky. U každého příspěvku je jen krátký popis s odkazem na originál na Facebooku; počty reakcí (👍), komentářů (💬) a sdílení (♺) jsou stav k {counts_cz}. Přehled pokrývá období od {od_txt} do {do_txt}. Dřívější a pozdější měsíce v něm zatím nejsou. Zpět na <a href="/o-webu/#owebu-socialni">Sociální sítě</a>. <span class="stamp">ověřeno</span></p>
     <script>
+    document.querySelectorAll('#fb-chart [data-fbc]').forEach(function (b) {{
+      b.addEventListener('click', function () {{
+        document.querySelectorAll('#fb-chart [data-fbc]').forEach(function (x) {{
+          var on = x === b;
+          x.classList.toggle('active', on);
+          x.setAttribute('aria-pressed', String(on));
+        }});
+        document.querySelectorAll('#fb-chart [data-fbc-view]').forEach(function (v) {{
+          v.hidden = v.getAttribute('data-fbc-view') !== b.getAttribute('data-fbc');
+        }});
+      }});
+    }});
     document.querySelectorAll('#panel-fbmonitoring .fb-row').forEach(function (tr) {{
       function toggle() {{
         var d = document.getElementById(tr.getAttribute('aria-controls'));
