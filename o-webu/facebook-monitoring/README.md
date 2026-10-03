@@ -4,6 +4,13 @@ Podrobný archiv příspěvků z facebookových profilů, které web sleduje. Sl
 jako zdroj pro ostatní sekce (Kalendář, Tělocvična, Zakázky, Jednání…) — ne
 jako veřejný obsah webu.
 
+## Milníky profilu
+
+Nejstarší událost profilu — **Založení facebooku města, 20. listopadu 2018** (zadal uživatel 3. 10. 2026).
+Souhlasí s monitoringem: 20. 11. 2018 jsou nejstarší dostupné příspěvky (9:14–9:19, čtyři „aktualizace stavu“ s nedostupným obsahem),
+dřívější se na profilu nenačítají. Milník není příspěvek — v `summary.py` je v konstantě `EVENTS` a na veřejné stránce Monitoring
+je jako řádek bez odkazu na konci detailu měsíce 2018-11 (nezapočítává se do počtů příspěvků). Další milníky se přidávají tamtéž.
+
 ## Struktura
 
 ```
@@ -18,7 +25,7 @@ Zdroje:
 
 | ID zdroje | Profil | Stav |
 |---|---|---|
-| `facebook-mestopecky` | https://www.facebook.com/mestopecky (Město Pečky) | ruční běhy, 2021-01 až 2026-09 |
+| `facebook-mestopecky` | https://www.facebook.com/mestopecky (Město Pečky), založeno 20. 11. 2018 | ruční běhy, 2018-11 (nejstarší dostupné) až 2026-09 |
 
 **Soubory `*.json` a `media/` jsou v `.gitignore`** — jsou jen lokální pracovní
 data, do gitu ani na GitHub Pages nejdou. V gitu je jen tento README.
@@ -60,6 +67,9 @@ Datum | Obsah — obsah je **krátký popis příspěvku** (pole `popis`, viz
 níže) s odkazem na originál na Facebooku, pod ním
 `👍 reakce 💬 komentáře ♺ sdílení typ: …`. Text příspěvku se na web
 nepřenáší, takže se tam nedostanou jména ani telefony z původních textů.
+
+Od 3. 10. 2026 je tabulka rozdělená po letech: každý rok má vlastní sticky `h3` „2026 (189 příspěvků)“ a vlastní tabulku měsíců,
+navíc pod tabulkami je řádek „Celkem“ (viz `render_page` v `summary.py`).
 
 Příspěvek (řazeno od nejnovějšího):
 

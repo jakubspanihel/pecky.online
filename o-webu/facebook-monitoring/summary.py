@@ -66,6 +66,14 @@ def month_label(ym):
     return f'{y} {MONTHS[int(m) - 1]}'
 
 
+# Milníky profilu, které nejsou příspěvky (nezapočítávají se do počtů).
+# Klíč = měsíc yyyy-mm; hodnota = [(datum ISO, text)]. Zobrazí se v detailu měsíce.
+EVENTS = {
+    'facebook-mestopecky': {
+        '2018-11': [('2018-11-20', 'Založení facebooku města')],
+    },
+}
+
 TYPE_ORDER = ['text', 'odkaz', 'foto', 'album', 'video', 'sdílený příspěvek',
               'událost', 'změna úvodní fotky']  # pevné pořadí v rozpadu podle typu
 def cz_date(iso):
@@ -89,11 +97,15 @@ def popis(p):
             'změna úvodní fotky': 'Změna úvodní fotky'}.get(typ, 'Příspěvek')
 
 
+def plural(n):
+    return 'příspěvek' if n == 1 else 'příspěvky' if 2 <= n <= 4 else 'příspěvků'
+
+
 def num(v):
     return '–' if v is None else str(v)
 
 
-def render_month(idx, ym, s, posts, counts_as_of):
+def render_month(idx, ym, s, posts, counts_as_of, events=()):
     typy = ' · '.join(f'{TYPE_LABELS.get(t, t)} {s["by_type"][t]}'
                       for t in TYPE_ORDER if s['by_type'].get(t))
     extra = [t for t in s['by_type'] if t not in TYPE_ORDER]  # neznámý typ nesmí zmizet
@@ -106,6 +118,10 @@ def render_month(idx, ym, s, posts, counts_as_of):
             f'            <tr><td>{cz_date(p["published"])}</td><td>'
             f'<a href="{escape(p["url"], quote=True)}" target="_blank" rel="noopener">{escape(popis(p))}</a>'
             f'<br><span class="fb-meta">{meta}</span></td></tr>')
+    for d, text in events:  # milník = nejstarší řádek měsíce, bez odkazu a bez počtů
+        rows.append(
+            f'            <tr class="fb-event"><td>{cz_date(d + "T00:00")}</td><td>'
+            f'<strong>{escape(text)}</strong><br><span class="fb-meta">událost profilu, není příspěvek</span></td></tr>')
     rows = '\n'.join(rows)
     return f'''        <tr class="fb-row" tabindex="0" role="button" aria-expanded="false" aria-controls="fb-m{idx}"><td><span class="fb-chev" aria-hidden="true">▸</span> {month_label(ym)}</td><td>{s["posts"]}</td></tr>
         <tr class="fb-detail" id="fb-m{idx}" hidden><td colspan="2">
@@ -122,8 +138,28 @@ def render_month(idx, ym, s, posts, counts_as_of):
 def render_page(months):
     """months: [(yyyy-mm, summary, posts, counts_as_of)] -> obsah panelu."""
     months = sorted(months, key=lambda x: x[0], reverse=True)  # nejnovější nahoře
-    body = '\n'.join(render_month(i, ym, s, posts, c) for i, (ym, s, posts, c) in enumerate(months))
+    ev = EVENTS.get(SOURCE, {})
+    ev = EVENTS.get(SOURCE, {})
     total = sum(s['posts'] for _, s, _, _ in months)
+    roky = []  # [(rok, [(idx, měsíc, ...)])] sestupně
+    for i, m in enumerate(months):
+        if not roky or roky[-1][0] != m[0][:4]:
+            roky.append((m[0][:4], []))
+        roky[-1][1].append((i, m))
+    bloky = []
+    for rok, ms in roky:
+        n = sum(m[1]['posts'] for _, m in ms)
+        radky = '\n'.join(render_month(i, ym, sm, posts, c, ev.get(ym, ())) for i, (ym, sm, posts, c) in ms)
+        bloky.append(f'''    <h3 class="display fb-year">{rok} ({n} {plural(n)})</h3>
+    <div class="table-scroll">
+    <table class="register">
+      <thead><tr><th>Měsíc</th><th>Příspěvků</th></tr></thead>
+      <tbody>
+{radky}
+      </tbody>
+    </table>
+    </div>''')
+    body = '\n\n'.join(bloky)
     counts = max((c for *_, c in months if c), default=None)
     counts_cz = cz_date(counts + 'T00:00') if counts else 'neuvedeno'
     prvni, posledni = months[-1][0], months[0][0]  # months jsou sestupně
@@ -139,20 +175,18 @@ def render_page(months):
     .fb-sum{{margin:8px 10px 12px; font-size:13.5px;}}
     .fb-posts{{margin:0;}}
     .fb-meta{{font-size:12px; color:var(--ink-soft);}}
+    .fb-event td{{background:var(--parchment-deep);}}
+    #panel-fbmonitoring h3.fb-year{{position:sticky; top:calc(var(--title-h,0px) + var(--lc-h,0px)); z-index:8; background:var(--parchment); padding:6px 0; margin:26px 0 0;}}
+    @media (min-width:768px){{ #panel-fbmonitoring h3.fb-year{{top:calc(var(--nav-h,0px) + var(--title-h,0px) + var(--lc-h,0px));}} }}
+    .fb-total{{margin:16px 0 0;}}
   </style>
   <section class="panel active" id="panel-fbmonitoring">
     <h2 class="title display">Monitoring Facebooku: Město Pečky</h2>
     <p class="lede">Příspěvky z oficiálního facebookového profilu Města Pečky od {od_txt} po měsících. U každého měsíce je počet příspěvků, po rozkliknutí rozpad podle typu a seznam příspěvků s odkazy na Facebook.</p>
 
-    <div class="table-scroll">
-    <table class="register">
-      <thead><tr><th>Měsíc</th><th>Příspěvků</th></tr></thead>
-      <tbody>
 {body}
-        <tr><td><strong>Celkem</strong></td><td><strong>{total}</strong></td></tr>
-      </tbody>
-    </table>
-    </div>
+
+    <p class="fb-total"><strong>Celkem {total} {plural(total)}</strong> ve {len(months)} měsících.</p>
 
     <p class="meta-note">Data pocházejí z veřejného profilu <a href="{SOURCE_URL}" target="_blank" rel="noopener">facebook.com/mestopecky</a> a řadí se podle data zveřejnění. Počítají se všechny příspěvky profilu v daném měsíci, včetně sdílení příspěvků jiných profilů a změn úvodní fotky. U každého příspěvku je jen krátký popis s odkazem na originál na Facebooku; počty reakcí (👍), komentářů (💬) a sdílení (♺) jsou stav k {counts_cz}. Přehled pokrývá období od {od_txt} do {do_txt}. Dřívější a pozdější měsíce v něm zatím nejsou. Zpět na <a href="/o-webu/#owebu-socialni">Sociální sítě</a>. <span class="stamp">ověřeno</span></p>
     <script>
