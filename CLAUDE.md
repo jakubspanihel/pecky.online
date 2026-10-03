@@ -31,6 +31,7 @@ jako první):
 | Kalendář | `/kalendar/` | `kalendar/README.md` (+ `automation-plakat-akce.md`) |
 | Pečecké noviny | `/noviny/` | `noviny/README.md` |
 | O webu | `/o-webu/` | `o-webu/README.md` (+ `automation-socialni-site.md`) |
+| Historie změn na webu | `/o-webu/changelog.html` | podstránka O webu, tabulka „Stav sekcí“ z `README.md`; odkaz v patičce |
 
 **Needit přímo vygenerované `<sekce>/index.html` soubory ani kořenový
 `index.html`** (výstup pro Domů). Místo toho:
@@ -119,7 +120,8 @@ příslušný `content/<sekce>.html` a přepsat všechny odkazy, pak spustit
   souboru jednou větou, co a proč se změnilo. Sekce, kde kontrola nic
   nenašla, se hlásí výslovně jako „zkontrolováno, beze změny“, ne mlčením.
 - Po každé kontrole nebo změně obsahu sekce (automatické i ručně vyvolané)
-  přepsat její řádek v tabulce `README.md` → „Stav sekcí": datum kontroly
+  přepsat její řádek v tabulce `README.md` → „Stav sekcí" (build ji vykreslí na
+  stránce `/o-webu/changelog.html` — Historie změn na webu; ručně se tam nepíše): datum kontroly
   vždy, datum změny a sloupec „Co naposledy" jen při reálné změně obsahu;
   pak řádek přesunout na správné místo v řazení (nejnovější změna nahoře).
   Datumy se drží absolutní — relativní stáří se dopočítává až při čtení,

@@ -175,6 +175,15 @@ EXTRA_PAGES = {
         # (statický snímek tabulky; zdrojová JSON jsou v .gitignore). Po každém
         # novém měsíci: pustit summary.py, build a přepsat lastmod níže.
         False, 'owebu', '2026-10-02'),
+    'changelog': (
+        '/o-webu/changelog.html', 'Historie změn na webu — Do Peček . cz',
+        'Přehled sekcí webu Do Peček . cz: kdy byl u každé naposledy '
+        'zkontrolován zdroj a kdy se změnil obsah.',
+        # Odkázaná z patičky každé stránky. Obsah content/changelog.html je
+        # tabulka {{STAV_SEKCI}} (generuje build z README.md -> "Stav sekcí").
+        # lastmod 'auto' = nejnovější datum "Změna" ze "Stav sekcí" (dopočítá
+        # build_all), takže se nepíše ručně.
+        False, 'owebu', 'auto'),
 }
 
 
@@ -708,7 +717,11 @@ def build_all(stav_rows=None):
     stranky += [(slug, path, title, desc, helpers, nav_slug, True, lastmod)
                 for slug, (path, title, desc, helpers, nav_slug, lastmod) in EXTRA_PAGES.items()]
 
+    nejnovejsi_zmena = max((r['zmena']['iso'] for r in rows if r['zmena'] is not None), default=None)
+
     for slug, path, title, desc, needs_helpers, nav_slug, je_extra, extra_lastmod in stranky:
+        if extra_lastmod == 'auto':
+            extra_lastmod = nejnovejsi_zmena
         content = read(f'content/{slug}.html')
         content = content.replace('{{STAV_SEKCI}}', stav_sekci)
         if je_extra:

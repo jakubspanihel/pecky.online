@@ -20,16 +20,28 @@ Obsah panelu žije v `content/owebu.html` (žádná samostatná datová sada).
 
 ## Struktura stránky (podzáložky)
 
-Od 19. 9. 2026 je obsah rozdělený do 4 podzáložek (`.subtabs` /
+Od 19. 9. 2026 je obsah rozdělený do podzáložek (`.subtabs` /
 `.subpanel`, stejný vzor jako u Pozemků nebo Volby 2022 — viz
 `assets/common.js`, trvalý odkaz na URL hashi jako `/o-webu/#owebu-zdroje`):
+
+(Čtvrtá podzáložka „Historie změn na webu“ se 3. 10. 2026 přesunula na
+samostatnou stránku, viz níže.)
 
 1. **Odkazy** (`subpanel-owebu-odkazy`) — oficiální kanály a otevřená
    data (`h3` Odkazy) + „Další nezávislé zdroje" v témže panelu.
 2. **Sociální sítě** (`subpanel-owebu-socialni`)
 3. **Zdroje** (`subpanel-owebu-zdroje`) — tabulka „Zdroje a stav sekcí"
-4. **Historie změn na webu** (`subpanel-owebu-historie`) — tabulka
-   „Stav sekcí" ({{STAV_SEKCI}})
+
+## Historie změn na webu (`/o-webu/changelog.html`)
+
+Samostatná podstránka (`EXTRA_PAGES['changelog']` v `scripts/build.py`,
+zdroj `content/changelog.html`) s tabulkou „Stav sekcí“ (`{{STAV_SEKCI}}`),
+kterou build generuje z tabulky v kořenovém `README.md` → „Stav sekcí“.
+Odkaz je v patičce každé stránky (`assets/footer.html`), na stránku se
+neodkazuje z podzáložek O webu. Datum „Aktualizováno“ je nejnovější datum
+„Změna“ ze „Stav sekcí“ (`lastmod: 'auto'`) a stránka je v sitemapě.
+Ručně se do ní nezapisuje — zápis běhu = přepsání řádku ve „Stav sekcí“
+v `README.md` (viz `CLAUDE.md`) a `python3 scripts/build.py`.
 
 Obecný disclaimer (`div.footer-note`, „Tento web nezastupuje Město
 Pečky…") je záměrně mimo podzáložky (za posledním `.subpanel`), aby byl
