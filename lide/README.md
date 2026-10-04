@@ -58,7 +58,7 @@ tahle kapitola je provozní — jak s daty pracovat.
 
 ```
 foto/                portréty z jiných zdrojů než z voleb (viz níž)
-people.json          381 osob (21 aktuálních zastupitelů + 2 bývalí s plným
+people.json          384 osob (21 aktuálních zastupitelů + 2 bývalí s plným
                       profilem, 206 dalších kandidátů ze všech kandidátek
                       2018/2022/2026 s minimálním záznamem (SPEC.md §3.6),
                       13 vedení úřadu/příspěvkovek/firem (fáze 5b, §7),
@@ -68,13 +68,13 @@ people.json          381 osob (21 aktuálních zastupitelů + 2 bývalí s plný
                       Pečeckého okrašlovacího spolku, 16 nových z AFK Pečky — viz níž)
 sources.json         číselník zdrojů (id → label + url), odkazují se na něj
                       osoby, vazby i organizace v poli `sources` (SPEC.md §3.8)
-organizations.json   24 organizací (Město Pečky + 8 volebních uskupení +
-                      7 příspěvkovek + 2 firmy + 6 spolků — poslední
+organizations.json   25 organizací (Město Pečky + 8 volebních uskupení +
+                      7 příspěvkovek + 2 firmy + 7 spolků (4. 10. 2026 přibyl Volejbal Pečky, z.s.) — poslední
                       4 spolky/firmy založeny jinou souběžnou session
                       pro sekci Kalendář; vazby na osoby mají
                       Pečecký okrašlovací spolek, SŽM Pečky, Minigolfclub
                       Dráčata a AFK Pečky)
-affiliations.json   615 vazeb osoba–organizace
+affiliations.json   618 vazeb osoba–organizace
 validate.mjs         validátor
 ```
 

@@ -157,7 +157,7 @@
             return `<a class="kal-ev kal-ev-${e.category}${cont}" href="${e.link || '#'}" title="${kalEsc(tip)}"${barva}${cizi}>${kalEsc(e.title)}</a>`;
           }).join('') + '</div>';
         }
-        html += `<td class="${dateStr === todayStr ? 'today' : ''}"><span class="day-num">${d}</span>${evHtml}</td>`;
+        html += `<td class="${dateStr === todayStr ? 'today' : ''}"><span class="day-num">${d}</span>${dateStr === todayStr ? '<span class="today-chip">Dnes</span>' : ''}${evHtml}</td>`;
       }
       html += '</tr>';
     }
