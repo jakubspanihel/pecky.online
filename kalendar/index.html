@@ -90,7 +90,19 @@
     </table>
     <div id="kal-list" style="display:none;"></div>
 
-    <p class="lede" style="margin-top:22px;">Kalendář můžete <a href="webcal://calendar.google.com/calendar/ical/a81de8fe68a5e6d118ceeea3614ba159febf695e65b164cade86b682d58ef726%40group.calendar.google.com/public/basic.ics">odebírat v aplikaci Kalendář</a> (Apple, Outlook), nové akce se budou doplňovat samy.</p>
+    <div class="kal-banner-min" id="kal-banner-min" hidden>Přihlaste se k odběru kalendáře. <a href="#" id="kal-banner-open">Více informací</a></div>
+    <aside class="kal-banner" id="kal-banner">
+      <button type="button" class="kal-banner-close" id="kal-banner-close" aria-label="Zavřít banner" title="Zavřít">×</button>
+      <div class="kal-banner-text">
+        <h3 class="kal-banner-title">Akce z Peček v mobilu</h3>
+        <p>Kalendář můžete mít stále po ruce přímo ve vašem mobilu. Nové akce budou přibývat automaticky.</p>
+        <p class="kal-banner-note">Na velkém počítači to funguje taky.</p>
+        <a class="kal-banner-cta" href="webcal://calendar.google.com/calendar/ical/a81de8fe68a5e6d118ceeea3614ba159febf695e65b164cade86b682d58ef726%40group.calendar.google.com/public/basic.ics">Odebírat kalendář</a>
+      </div>
+      <img class="kal-banner-img" src="/kalendar/img/mobil-2026-10.png" width="1125" height="2436" alt="Kalendář Peček v aplikaci Kalendář na iPhonu" loading="lazy">
+    </aside>
+
+    <p class="lede" style="margin:18px 0 0;">Pro publikování akce v tomto kalendáři stačí poslat plakát na <a href="mailto:dopecek@gmail.com?subject=Akce%20do%20kalend%C3%A1%C5%99e">dopecek@gmail.com</a>.</p>
 
     <p class="lede" style="margin:18px 0 0;">Související: <a href="/o-webu/facebook-monitoring/facebook-mestopecky/">Monitoring Facebooku města</a></p>
   </section>
@@ -476,6 +488,17 @@
     this.classList.toggle('active', !expanded);
     document.getElementById('kal-filter-org').hidden = expanded;
   });
+
+  // Banner odběru: křížek ho sbalí do jednořádkového pruhu, odkaz „Více informací“
+  // ho zase rozbalí. Volba se pamatuje v prohlížeči (bez úložiště banner zůstane otevřený).
+  function kalBannerSet(zavreny, ulozit){
+    document.getElementById('kal-banner').hidden = zavreny;
+    document.getElementById('kal-banner-min').hidden = !zavreny;
+    if (ulozit) { try { localStorage.setItem('kal-banner-zavreny', zavreny ? '1' : '0'); } catch (e) {} }
+  }
+  document.getElementById('kal-banner-close').addEventListener('click', () => kalBannerSet(true, true));
+  document.getElementById('kal-banner-open').addEventListener('click', ev => { ev.preventDefault(); kalBannerSet(false, true); });
+  try { if (localStorage.getItem('kal-banner-zavreny') === '1') kalBannerSet(true, false); } catch (e) {}
 
   fetch('/kalendar/udalosti.json')
     .then(r => r.json())
