@@ -66,6 +66,7 @@
         <p class="kal-banner-note">Na velkém počítači to funguje taky.</p>
         <a class="kal-banner-cta" href="webcal://calendar.google.com/calendar/ical/a81de8fe68a5e6d118ceeea3614ba159febf695e65b164cade86b682d58ef726%40group.calendar.google.com/public/basic.ics">Odebírat kalendář</a>
       </div>
+      <p class="meta-note kal-banner-count" id="kal-banner-count" hidden><svg class="kal-ico" viewBox="0 0 16 16" width="13" height="13" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="8" cy="8" r="6.5"/><path d="M8 7.2v4M8 4.8h.01" stroke-width="1.8"/></svg><span id="kal-banner-count-text"></span></p>
       <img class="kal-banner-img" src="/kalendar/img/mobil-2026-10.png" width="1125" height="2436" alt="Kalendář Peček v aplikaci Kalendář na iPhonu" loading="lazy">
     </aside>
 
@@ -501,6 +502,22 @@
   document.getElementById('kal-banner-open').addEventListener('click', ev => { ev.preventDefault(); kalBannerSet(false, true); });
   try { if (localStorage.getItem('kal-banner-zavreny') === '1') kalBannerSet(true, false); } catch (e) {}
 
+  // Odstavec v banneru: počet budoucích akcí do konce následujícího měsíce
+  // (bez pravidelných kurzů, svozů a rady; zastupitelstvo a volby se počítají).
+  function kalBannerPocet(events){
+    const mesice = ['ledna','února','března','dubna','května','června','července','srpna','září','října','listopadu','prosince'];
+    const dnes = new Date();
+    const konec = new Date(dnes.getFullYear(), dnes.getMonth() + 2, 0);
+    const iso = d => d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0') + '-' + String(d.getDate()).padStart(2, '0');
+    const od = iso(dnes), do_ = iso(konec);
+    const n = events.filter(e => (e.category === 'akce' || e.category === 'zastupitelstvo' || e.category === 'volby') && e.date >= od && e.date <= do_).length;
+    if (!n) return;
+    const el = document.getElementById('kal-banner-count');
+    document.getElementById('kal-banner-count-text').innerHTML =
+      'Do konce ' + mesice[konec.getMonth()] + ' se ' + (n >= 2 && n <= 4 ? 'chystají' : 'chystá') + ' ještě <strong>' + n + (n === 1 ? ' akce' : n <= 4 ? ' akce' : ' akcí') + '</strong>.';
+    el.hidden = false;
+  }
+
   fetch('/kalendar/udalosti.json')
     .then(r => r.json())
     .then(data => {
@@ -510,6 +527,7 @@
           (KAL_EVENTS_BY_DATE[ds] = KAL_EVENTS_BY_DATE[ds] || []).push(e);
         });
       });
+      kalBannerPocet(KAL_ALL_EVENTS);
       document.getElementById('kal-status').style.display = 'none';
       kalRenderOrgChips(KAL_ALL_EVENTS);
       kalShowView(KAL_VIEW);

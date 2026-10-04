@@ -195,12 +195,16 @@
   .kal-banner .kal-banner-title{margin:0 0 8px; font-family:var(--font-display); font-size:26px; line-height:1.2; color:#fff;}
   .kal-banner-text p{margin:0 0 18px; font-size:16px; line-height:1.5; color:rgba(255,255,255,0.88);}
   .kal-banner-text p.kal-banner-note{font-size:14px; margin-bottom:18px;}
+  .kal-banner p.kal-banner-count{position:absolute; left:30px; bottom:10px; margin:0; display:flex; align-items:center; gap:6px; font-size:12px; color:rgba(255,255,255,0.88);}
+  .kal-banner p.kal-banner-count[hidden]{display:none;}
+  .kal-banner-count .kal-ico{flex:0 0 auto;}
   .kal-banner-cta{display:inline-block; padding:12px 24px; background:#fff; color:var(--burgundy); font-weight:700; font-size:16px; border-radius:999px; text-decoration:none; box-shadow:0 2px 0 rgba(0,0,0,0.2); transition:transform .15s;}
   .kal-banner-cta:hover{transform:translateY(-1px); text-decoration:none; background:var(--parchment);}
   .kal-banner-img{flex:0 0 auto; align-self:flex-end; box-sizing:border-box; width:210px; height:340px; object-fit:cover; object-position:top; background:#fff; border:7px solid #111; border-bottom:0; border-radius:30px 30px 0 0; box-shadow:0 0 0 1px rgba(255,255,255,0.15);}
   @media (max-width:600px){
     .kal-banner{flex-direction:column; padding:22px 20px 0; gap:18px;}
     .kal-banner-text{padding-bottom:0;}
+    .kal-banner p.kal-banner-count{position:static;}
     .kal-banner-img{align-self:center; width:220px; height:300px;}
   }
   .kal-arrow{width:40px; height:40px; padding:0; margin:0; text-align:center; line-height:1;}
