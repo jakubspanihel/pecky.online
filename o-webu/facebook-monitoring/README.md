@@ -65,7 +65,7 @@ pořadí text, odkaz, foto, album, video, sdílený příspěvek, událost, změ
 úvodní fotky; jen nenulové) a sdílení z cizích profilů, pak tabulka
 Datum | Obsah — obsah je **krátký popis příspěvku** (pole `popis`, viz
 níže) s odkazem na originál na Facebooku, pod ním
-`👍 reakce 💬 komentáře ♺ sdílení typ: …`. Text příspěvku se na web
+`👍 reakce 💬 komentáře ♺ sdílení`; za datem je chip s typem příspěvku v barvě skupiny z legendy grafu (`TYPE_GROUPS`). Text příspěvku se na web
 nepřenáší, takže se tam nedostanou jména ani telefony z původních textů.
 
 Hned za perexem je statický SVG skládaný sloupcový graf počtu příspěvků po měsících (sloupec je rozdělený podle typu příspěvku do pěti skupin `TYPE_GROUPS` v `summary.py`: foto a alba, texty a odkazy, video, sdílené příspěvky, události a změny úvodní fotky; legenda nad grafem, rozpad v tooltipu) (osa x čas, osa y počet; `render_chart` v `summary.py`,

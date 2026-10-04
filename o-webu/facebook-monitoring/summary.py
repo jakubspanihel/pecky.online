@@ -262,11 +262,12 @@ def render_month(idx, ym, s, posts, counts_as_of, events=()):
         day = p['published'][:10]
         did = '' if day in seen_days else f' id="fb-d-{day}"'
         seen_days.add(day)
-        meta = (f'👍 {num(p["reactions"])} 💬 {num(p["comments"])} ♺ {num(p["shares"])} '
-                f'typ: {escape(p["type"])}')
+        meta = f'👍 {num(p["reactions"])} 💬 {num(p["comments"])} ♺ {num(p["shares"])}'
+        gi = next((i for i, (_, types, _) in enumerate(TYPE_GROUPS) if p['type'] in types), len(TYPE_GROUPS) - 1)
         rows.append(
             f'            <li class="fb-card" data-date="{day}"{did}>'
-            f'<time class="fb-date" datetime="{day}">{cz_date(p["published"])}</time>'
+            f'<span class="fb-head"><time class="fb-date" datetime="{day}">{cz_date(p["published"])}</time>'
+            f'<span class="fb-chip fb-t{gi}">{escape(p["type"])}</span></span>'
             f'<a class="fb-title" href="{escape(p["url"], quote=True)}" target="_blank" rel="noopener">{escape(popis(p))}</a>'
             f'<span class="fb-meta">{meta}</span></li>')
     for d, text in events:  # milník = nejstarší řádek měsíce, bez odkazu a bez počtů
@@ -338,6 +339,8 @@ def render_page(months):
     prvni, posledni = months[-1][0], months[0][0]  # months jsou sestupně
     od_txt = f'{MONTHS_GEN[int(prvni[5:]) - 1]} {prvni[:4]}'
     do_txt = f'{MONTHS_GEN[int(posledni[5:]) - 1]} {posledni[:4]}'
+    chipcss = '\n'.join('    .fb-t%d{background:%s;%s}' % (i, c, ' color:var(--ink);' if i == len(TYPE_GROUPS) - 1 else '')
+                        for i, (_, _, c) in enumerate(TYPE_GROUPS))
     return f'''  <style>
     .fb-row{{cursor:pointer;}}
     .fb-row:hover td,.fb-row:focus-visible td{{background:var(--parchment-deep);}}
@@ -349,6 +352,9 @@ def render_page(months):
     #panel-fbmonitoring .table-scroll table.register{{min-width:0;}}
     .fb-cards{{list-style:none; margin:0; padding:0; display:grid; grid-template-columns:minmax(0,1fr); gap:12px;}}
     .fb-card{{display:flex; flex-direction:column; gap:6px; padding:12px 14px; border:1px solid var(--line); border-radius:8px; background:rgba(255,255,255,0.5);}}
+    .fb-head{{display:flex; flex-wrap:wrap; align-items:center; gap:6px;}}
+    .fb-chip{{display:inline-block; font-size:11px; line-height:1.5; padding:0 7px; border-radius:9px; color:#fff; white-space:nowrap;}}
+{chipcss}
     .fb-card .fb-date{{font-size:12px; color:var(--ink-soft); font-weight:600;}}
     .fb-card .fb-title{{line-height:1.35; overflow-wrap:anywhere;}}
     .fb-card .fb-meta{{margin-top:auto;}}
