@@ -114,7 +114,7 @@ MANIFEST = {
         'Na co město Pečky utrácí: rozpočet a hospodaření srozumitelně.',
         False),
     'kalendar': (
-        '/kalendar/', 'Kalendář — Do Peček . cz',
+        '/kalendar/', 'Co se děje v Pečkách — Do Peček . cz',
         'Kalendář termínů týkajících se města Pečky.',
         False),
     'owebu': (

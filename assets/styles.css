@@ -182,6 +182,9 @@
   .kal-toolbar .kal-ico{vertical-align:-2px; margin-right:6px;}
   .kal-toolbar #kal-filter-toggle, .search-bar #lide-filter-toggle{padding:7px 11px; border-radius:3px; text-decoration:none; font-size:11.5px; border:1px solid transparent;}
   .kal-toolbar #kal-filter-toggle.active, .search-bar #lide-filter-toggle.active{background:var(--burgundy); color:#fff; border-color:var(--burgundy);}
+  .kal-searchrow{display:flex; flex-wrap:wrap; align-items:center; gap:8px 16px; margin:6px 0 12px;}
+  .kal-search{flex:0 1 280px; min-width:0; box-sizing:border-box; padding:7px 10px; border:1px solid var(--ink); background:rgba(255,255,255,0.65); font-family:inherit; font-size:13px; border-radius:2px; color:var(--ink);}
+  .kal-search::placeholder{color:var(--ink-soft);}
   .kal-arrow{width:40px; height:40px; padding:0; margin:0; text-align:center; line-height:1;}
   .kal-arrow + .kal-arrow{margin-left:-1px;}
   @media (max-width:600px){
@@ -394,6 +397,7 @@
   table.calendar-table td.today{background:rgba(124,47,43,0.08); border-color:var(--burgundy);}
   table.calendar-table .day-num{font-family:var(--font-mono); font-size:13px; color:var(--ink-soft);}
   table.calendar-table td.today .day-num{color:var(--burgundy); font-weight:600;}
+  table.calendar-table .today-chip{display:inline-block; margin-left:6px; padding:1px 7px; border-radius:2px; background:var(--burgundy); color:#fff; font-family:var(--font-mono); font-size:10.5px; font-weight:700; letter-spacing:.04em; text-transform:uppercase; vertical-align:1px;}
   table.calendar-table .kal-events{margin-top:4px; display:flex; flex-direction:column; gap:2px;}
   table.calendar-table .kal-ev{
     display:block; font-family:var(--font-mono); font-size:10px; line-height:1.3;
@@ -434,6 +438,7 @@
   .akce-blok-volby{border-left-color:var(--slate);}
   .akce-blok-akce{border-left-color:var(--org-c, var(--gold-deep));}
   .akce-blok .akce-kdy, .akce-blok .akce-kdekdy{margin:0; font-family:var(--font-mono); font-size:12.5px; color:var(--ink-soft);}
+  .akce-blok .akce-kdy .akce-rozsah{font-size:11.5px;}
   .akce-blok .akce-kdy strong{color:var(--ink); font-size:var(--fs-h3);}
   .akce-blok .akce-kdekdy{margin-top:2px;}
   .akce-blok .akce-kdekdy .meta-note{display:inline; margin:0; font-size:inherit;}
@@ -442,6 +447,11 @@
   .akce-blok .akce-nazev{margin:4px 0 0; font-family:var(--font-display); font-size:var(--fs-h4); line-height:1.3;}
   .akce-blok .akce-popis{margin:4px 0 0; font-size:14px;}
   .akce-blok .akce-pozn{font-style:italic;}
+  .akce-blok .akce-pozn[hidden]{display:none;}
+  .akce-blok .akce-pati{display:flex; align-items:center; justify-content:space-between; gap:8px;}
+  .akce-blok .akce-pati .akce-poradatel{margin-right:auto;}
+  .akce-blok .akce-info{margin:6px 0 0 auto; padding:2px; border:0; background:none; color:var(--ink-soft); cursor:pointer; line-height:0; border-radius:50%;}
+  .akce-blok .akce-info:hover, .akce-blok .akce-info.active{color:var(--burgundy);}
 
   /* ===== rozklikávací řádky tabulky (výdaje podle kategorií) ===== */
   .exp-row{cursor:pointer;}
