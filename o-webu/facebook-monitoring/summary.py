@@ -12,9 +12,12 @@
    po spuštění pustit `python3 scripts/build.py` a podle potřeby přepsat
    lastmod v EXTRA_PAGES['fbmonitoring'].
 """
-import glob, json, os
+import glob, json, os, sys
 from collections import Counter
 from html import escape
+
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from analyza import render_analysis
 
 BASE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(os.path.dirname(BASE))
@@ -105,29 +108,57 @@ def num(v):
     return '–' if v is None else str(v)
 
 
+# Skupiny typů pro skládaný graf (zespodu nahoru): (popisek, typy v datech, barva)
+TYPE_GROUPS = [
+    ('Foto a alba', ('foto', 'album'), 'var(--slate)'),
+    ('Texty a odkazy', ('text', 'odkaz'), 'var(--gold)'),
+    ('Video', ('video',), 'var(--burgundy)'),
+    ('Sdílené příspěvky', ('sdílený příspěvek',), 'var(--field)'),
+    ('Události a změny úvodní fotky', ('událost', 'změna úvodní fotky'), 'var(--line)'),
+]
+
+
+def seg(posts):
+    """Počty příspěvků po skupinách typů (v pořadí TYPE_GROUPS)."""
+    c = Counter(p['type'] for p in posts)
+    return [sum(c[t] for t in types) for _, types, _ in TYPE_GROUPS]
+
+
+def seg_tip(segs):
+    return ', '.join(f'{g[0].lower()} {n}' for g, n in zip(TYPE_GROUPS, segs) if n)
+
+
 def bar_svg(items, uid, title, desc, labels_on_bars=False):
-    """Statický SVG sloupcový graf. items: [(tooltip, hodnota, popisek osy x | None, kotva "#id")].
+    """Statický SVG skládaný sloupcový graf. items: [(tooltip, hodnota, popisek osy x | None, kotva "#id", počty po skupinách typů)].
     Sloupec je odkaz na kotvu v tabulkách pod grafem (rozbalení + posun řeší skript stránky)."""
     W, H, L, R, T, B = 960, 300, 44, 10, 22, 30
-    mx = max(n for _, n, _, _ in items)
+    mx = max(n for _, n, _, _, _ in items)
     step = next(st for st in (1, 2, 5, 10, 20, 50, 100) if mx / st <= 8)  # nejvýš ~8 dílků osy y
     ymax = max(step * 2, -(-mx // step) * step)
     pw, ph = W - L - R, H - T - B
     slot = pw / len(items)
     bw = min(max(2.0, slot * 0.78), 60.0)
-    peak = max(n for _, n, _, _ in items)
+    peak = mx
     parts = []
     for v in range(0, ymax + 1, step):
         y = T + ph - ph * v / ymax
         parts.append(f'<line x1="{L}" x2="{W - R}" y1="{y:.1f}" y2="{y:.1f}" stroke="var(--line)" stroke-width="1"/>')
         parts.append(f'<text x="{L - 6}" y="{y + 4:.1f}" text-anchor="end" font-size="11" fill="var(--ink-soft)">{v}</text>')
     parts.append('<text x="2" y="12" text-anchor="start" font-size="11" fill="var(--ink-soft)">příspěvků</text>')
-    for i, (tip, n, xl, href) in enumerate(items):
+    for i, (tip, n, xl, href, segs) in enumerate(items):
         x = L + i * slot + (slot - bw) / 2
         h = ph * n / ymax
         y = T + ph - h
-        fill = 'var(--burgundy)' if n == peak else 'var(--slate)'
-        parts.append(f'<a class="fb-bar" href="{href}"><rect x="{x:.1f}" y="{y:.1f}" width="{bw:.1f}" height="{max(h, 0):.1f}" fill="{fill}"><title>{escape(tip)}</title></rect>'
+        gap = 'stroke="#fff" stroke-width="1"' if bw >= 6 else ''
+        rects = []
+        yy = T + ph
+        for (_, _, colr), k in zip(TYPE_GROUPS, segs):
+            if not k:
+                continue
+            hh = ph * k / ymax
+            yy -= hh
+            rects.append(f'<rect x="{x:.1f}" y="{yy:.1f}" width="{bw:.1f}" height="{hh:.1f}" fill="{colr}" {gap}/>')
+        parts.append(f'<a class="fb-bar" href="{href}"><title>{escape(tip)}</title>' + ''.join(rects) +
                      f'<rect x="{x - (slot - bw) / 2:.1f}" y="{T}" width="{slot:.1f}" height="{ph}" fill="transparent"/></a>')
         if n == peak or labels_on_bars:
             col = 'var(--burgundy)' if n == peak else 'var(--ink-soft)'
@@ -146,6 +177,7 @@ def render_chart(months):
     Po letech / Posledních 30 dní (dny do posledního zachyceného příspěvku).
     Všechny tři SVG jsou předrenderované; přepínač (JS) jen ukazuje/skrývá."""
     mc = sorted((ym, sm['posts']) for ym, sm, _, _ in months)
+    mposts = {ym: ps for ym, _, ps, _ in months}
     allposts = [p for _, _, ps, _ in months for p in ps]
     pk_ym, pk_n = max(mc, key=lambda t: t[1])
     pk_txt = f'{MONTHS[int(pk_ym[5:]) - 1].lower()} {pk_ym[:4]}'
@@ -153,20 +185,24 @@ def render_chart(months):
     items = []
     for ym, n in mc:
         y_, m_ = ym.split('-')
-        items.append((f'{MONTHS[int(m_) - 1].lower()} {y_}: {n} {plural(n)}', n, y_ if m_ == '01' else None, f'#fb-{ym}'))
+        sg = seg(mposts[ym])
+        items.append((f'{MONTHS[int(m_) - 1].lower()} {y_}: {n} {plural(n)} ({seg_tip(sg)})', n, y_ if m_ == '01' else None, f'#fb-{ym}', sg))
     v1 = bar_svg(items, 'fbc1', 'Počet příspěvků po měsících',
-                 f'Sloupcový graf: osa x čas po měsících, osa y počet příspěvků. Nejvíc příspěvků vyšlo v měsíci {pk_txt} ({pk_n}).')
-    cap1 = f'Počet příspěvků po měsících. Nejvíc jich vyšlo v měsíci {pk_txt} ({pk_n}), zvýrazněno. Po najetí na sloupec se zobrazí měsíc a počet.'
+                 f'Sloupcový graf: osa x čas po měsících, osa y počet příspěvků, sloupce rozdělené podle typu příspěvku. Nejvíc příspěvků vyšlo v měsíci {pk_txt} ({pk_n}).')
+    cap1 = f'Počet příspěvků po měsících. Nejvíc jich vyšlo v měsíci {pk_txt} ({pk_n}), počet je nad sloupcem. Sloupec je rozdělený podle typu příspěvku; po najetí na něj se zobrazí měsíc, počet a rozpad.'
     # 2) po letech
     ys = {}
     for ym, n in mc:
         ys[ym[:4]] = ys.get(ym[:4], 0) + n
     first = min(p['published'] for p in allposts)
     last = max(p['published'] for p in allposts)
-    items = [(f'{y}: {n} {plural(n)}', n, y, f'#fb-y-{y}') for y, n in sorted(ys.items())]
+    items = []
+    for y, n in sorted(ys.items()):
+        sg = seg([p for p in allposts if p['published'][:4] == y])
+        items.append((f'{y}: {n} {plural(n)} ({seg_tip(sg)})', n, y, f'#fb-y-{y}', sg))
     ypk = max(ys.items(), key=lambda t: t[1])
     v2 = bar_svg(items, 'fbc2', 'Počet příspěvků po letech',
-                 f'Sloupcový graf: osa x roky, osa y počet příspěvků. Nejvíc příspěvků vyšlo v roce {ypk[0]} ({ypk[1]}).', labels_on_bars=True)
+                 f'Sloupcový graf: osa x roky, osa y počet příspěvků, sloupce rozdělené podle typu příspěvku. Nejvíc příspěvků vyšlo v roce {ypk[0]} ({ypk[1]}).', labels_on_bars=True)
     cap2 = (f'Počet příspěvků v jednotlivých letech. Rok {first[:4]} je započtený od {cz_date(first)}, rok {last[:4]} do {cz_date(last)}.')
     # 3) posledních 30 dní (do posledního zachyceného příspěvku)
     from datetime import date, timedelta
@@ -177,10 +213,12 @@ def render_chart(months):
     for i, d in enumerate(days):
         n = cnt.get(d.isoformat(), 0)
         href = f'#fb-d-{d.isoformat()}' if n else f'#fb-{d.isoformat()[:7]}'
-        items.append((f'{d.day}. {d.month}. {d.year}: {n} {plural(n)}', n, f'{d.day}. {d.month}.' if i % 5 == 0 or i == 29 else None, href))
+        sg = seg([p for p in allposts if p['published'][:10] == d.isoformat()])
+        items.append((f'{d.day}. {d.month}. {d.year}: {n} {plural(n)}' + (f' ({seg_tip(sg)})' if n else ''), n, f'{d.day}. {d.month}.' if i % 5 == 0 or i == 29 else None, href, sg))
     v3 = bar_svg(items, 'fbc3', 'Počet příspěvků po dnech za posledních 30 dní',
                  f'Sloupcový graf: osa x dny od {days[0].day}. {days[0].month}. do {end.day}. {end.month}. {end.year}, osa y počet příspěvků za den.')
     cap3 = (f'Počet příspěvků po dnech za 30 dní do posledního zachyceného příspěvku: {days[0].day}. {days[0].month}. – {end.day}. {end.month}. {end.year}.')
+    legend = '\n'.join(f'        <li><span class="fb-sw" style="background:{c}"></span>{g}</li>' for g, _, c in TYPE_GROUPS)
     return f'''    <figure class="fb-chart" id="fb-chart">
       <div class="fb-chart-head">
         <h3 class="display fb-chart-title">Počet příspěvků na Facebooku města</h3>
@@ -193,6 +231,9 @@ def render_chart(months):
           </div>
         </div>
       </div>
+      <ul class="fb-legend" aria-label="Typy příspěvků">
+{legend}
+      </ul>
       <div class="fb-chart-view" data-fbc-view="1">
       {v1}
       <figcaption class="meta-note">{cap1}</figcaption>
@@ -316,12 +357,29 @@ def render_page(months):
     #panel-fbmonitoring h3.fb-year{{position:sticky; top:calc(var(--title-h,0px) + var(--lc-h,0px)); z-index:8; background:var(--parchment); padding:6px 0; margin:26px 0 0;}}
     @media (min-width:768px){{ #panel-fbmonitoring h3.fb-year{{top:calc(var(--nav-h,0px) + var(--title-h,0px) + var(--lc-h,0px));}} }}
     .fb-total{{margin:16px 0 0;}}
+    .fb-an-btn{{font-family:var(--font-mono); font-size:11.5px; padding:8px 14px; border:1px solid var(--burgundy); border-radius:3px; background:none; color:var(--burgundy); cursor:pointer; margin:28px 0 0;}}
+    .fb-an-btn[aria-expanded="true"]{{background:var(--burgundy); color:#fff;}}
+    .fb-an-btn:focus-visible{{outline:2px solid var(--gold); outline-offset:2px;}}
+    .fb-an-btn .fb-an-arrow{{display:inline-block; margin-left:4px; transition:transform .15s;}}
+    .fb-an-btn[aria-expanded="false"] .fb-an-arrow{{transform:rotate(-90deg);}}
+    .fb-analysis{{margin-top:18px; padding-top:6px; border-top:1px solid var(--line);}}
+    .fb-analysis[hidden]{{display:none;}}
+    .fb-analysis h3{{margin:12px 0 6px;}}
+    .fb-analysis h4{{margin:26px 0 6px;}}
+    .fb-an-list{{margin:8px 0 0; padding-left:20px;}}
+    .fb-an-list li{{margin:0 0 6px;}}
+    .fb-an-table td.num,.fb-an-table th.num{{text-align:right; white-space:nowrap;}}
+    .fb-an-table tr.fb-an-sum td{{border-top:2px solid var(--line);}}
+    #panel-fbmonitoring .table-scroll table.fb-an-table{{min-width:520px;}}
     .fb-chart{{margin:18px 0 4px;}}
     .fb-chart svg{{display:block; max-width:100%; height:auto;}}
     .fb-chart figcaption{{margin-top:4px;}}
     .fb-chart-head{{display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:8px 16px; margin-bottom:6px;}}
     .fb-chart-title{{margin:0;}}
     .fb-chart-ctl{{margin:0;}}
+    .fb-legend{{list-style:none; margin:0 0 6px; padding:0; display:flex; flex-wrap:wrap; gap:4px 16px; font-size:12.5px; color:var(--ink-soft);}}
+    .fb-legend li{{display:inline-flex; align-items:center; gap:6px;}}
+    .fb-sw{{display:inline-block; width:12px; height:12px; border-radius:2px;}}
     .fb-chart-view[hidden]{{display:none;}}
     .fb-bar{{cursor:pointer;}}
     .fb-bar:hover rect,.fb-bar:focus-visible rect{{opacity:.78;}}
@@ -361,7 +419,9 @@ def render_page(months):
     <p class="fb-total"><strong>Celkem {total} {plural(total)}</strong> ve {len(months)} měsících.</p>
 
     <p class="meta-note">Data pocházejí z veřejného profilu <a href="{SOURCE_URL}" target="_blank" rel="noopener">facebook.com/mestopecky</a> a řadí se podle data zveřejnění. Počítají se všechny příspěvky profilu v daném měsíci, včetně sdílení příspěvků jiných profilů a změn úvodní fotky. U každého příspěvku je jen krátký popis s odkazem na originál na Facebooku; počty reakcí (👍), komentářů (💬) a sdílení (♺) jsou stav k {counts_cz}. Přehled pokrývá období od {od_txt} do {do_txt}. Dřívější a pozdější měsíce v něm zatím nejsou. Zpět na <a href="/o-webu/#owebu-socialni">Sociální sítě</a>. <span class="stamp">ověřeno</span></p>
-    <script>
+
+    <button type="button" class="fb-an-btn" id="fb-an-btn" aria-expanded="false" aria-controls="fb-analyza">Analýza: Co město na Facebooku publikuje <span class="fb-an-arrow" aria-hidden="true">▾</span></button>
+{render_analysis(months)}    <script>
     var FBC = {{ '1': 'mesice', '2': 'roky', '3': '30dni' }};
     function fbView(k, store) {{
       document.querySelectorAll('#fb-chart [data-fbc]').forEach(function (x) {{
@@ -385,6 +445,14 @@ def render_page(months):
     (function () {{
       var g = new URLSearchParams(location.search).get('graf');
       Object.keys(FBC).forEach(function (k) {{ if (FBC[k] === g) fbView(k, false); }});
+    }})();
+    (function () {{
+      var b = document.getElementById('fb-an-btn'), s = document.getElementById('fb-analyza');
+      b.addEventListener('click', function () {{
+        var open = b.getAttribute('aria-expanded') !== 'true';
+        b.setAttribute('aria-expanded', String(open));
+        s.hidden = !open;
+      }});
     }})();
     function fbSet(tr, open) {{
       var d = document.getElementById(tr.getAttribute('aria-controls'));

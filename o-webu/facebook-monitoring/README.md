@@ -68,8 +68,14 @@ níže) s odkazem na originál na Facebooku, pod ním
 `👍 reakce 💬 komentáře ♺ sdílení typ: …`. Text příspěvku se na web
 nepřenáší, takže se tam nedostanou jména ani telefony z původních textů.
 
-Hned za perexem je statický SVG sloupcový graf počtu příspěvků po měsících (osa x čas, osa y počet; `render_chart` v `summary.py`,
+Hned za perexem je statický SVG skládaný sloupcový graf počtu příspěvků po měsících (sloupec je rozdělený podle typu příspěvku do pěti skupin `TYPE_GROUPS` v `summary.py`: foto a alba, texty a odkazy, video, sdílené příspěvky, události a změny úvodní fotky; legenda nad grafem, rozpad v tooltipu) (osa x čas, osa y počet; `render_chart` v `summary.py`,
 bez externích knihoven, barvy z proměnných webu, maximum zvýrazněno). Nad grafem vpravo (na řádku s nadpisem „Počet příspěvků na Facebooku města“) je segmentový přepínač rozsahu „Od začátku“ (měsíce) / „Po letech“ / „Poslední měsíc“ (posledních 30 dní) (dny do posledního zachyceného příspěvku, ne do dneška); všechny tři SVG jsou předrenderované, přepínač jen ukazuje/skrývá. Sloupec grafu je odkaz (kotva): měsíc → řádek měsíce `#fb-yyyy-mm`, rok → nadpis `#fb-y-yyyy`, den → první příspěvek dne `#fb-d-yyyy-mm-dd` (dny bez příspěvku vedou na měsíc). Skript stránky rozbalí příslušný měsíc, zvýrazní cíl a posune ho pod sticky nadpisy; kotvy fungují i z adresy (`…/#fb-2020-03`). Zvolený rozsah grafu se ukládá do adresy parametrem `?graf=roky` / `?graf=30dni` (výchozí „Od začátku“ bez parametru), takže jde poslat odkaz rovnou na „Po letech“; parametr jde zkombinovat s kotvou (`?graf=roky#fb-y-2022`).
+
+**Analýza obsahu.** Na konci stránky je tlačítko „Analýza: Co město na Facebooku publikuje“, které rozbalí skrytou sekci `#fb-analyza`
+(období dělená komunálními volbami 1. 10. 2022 — po nich se změnil správce profilu: četnost v bodech, tabulka témat se shrnutím, srovnání).
+Generuje ji `analyza.py` (volá `summary.py`): každý příspěvek jde podle klíčových slov v poli `popis` do jedné skupiny (pravidla `R`,
+pořadí = přednost; zařazení orientační, ≈ 85 % správně). Při změně pravidel nebo po novém měsíci stačí pustit `summary.py` a `scripts/build.py`;
+bodová shrnutí používají počty spočtené z dat, jen vyprávěcí věty jsou psané ručně a je třeba je po novém měsíci zkontrolovat.
 
 **Rozložení stránky.** Od šířky 768 px jsou pod grafem dva sloupce: vlevo strom roků a měsíců (`nav#fb-tree`, rozbalený je nejnovější rok), vpravo příspěvky vybraného měsíce (`#fb-pane`, výchozí je nejnovější měsíc). Obsah měsíce se z mobilní tabulky do pravého sloupce **přesouvá** (nekopíruje), takže id kotev zůstávají jedinečná; při zúžení pod 768 px se vrací zpět. Do 767 px zůstává původní akordeon roků a měsíců. Kotvy `#fb-yyyy-mm`, `#fb-d-…` i `#fb-y-yyyy` (rok → jeho nejnovější měsíc) vyberou měsíc; ruční výběr měsíce zapíše `#fb-yyyy-mm` do adresy.
 
