@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Denní menu v Pečkách — Do Peček . cz</title>
+<meta name="description" content="Poslední denní menu pečeckých restaurací U Marka, Siňorita a Hostinec U Stříkačky podle jejich facebookových stránek.">
+<link rel="canonical" href="https://dopecek.cz/naobed/">
+<meta property="og:title" content="Denní menu v Pečkách — Do Peček . cz">
+<meta property="og:description" content="Poslední denní menu pečeckých restaurací U Marka, Siňorita a Hostinec U Stříkačky podle jejich facebookových stránek.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://dopecek.cz/naobed/">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" type="image/png" sizes="32x32" href="/img/favicons/favicon-32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/img/favicons/icon-192.png">
+<link rel="apple-touch-icon" href="/img/favicons/apple-touch-icon.png">
+<link rel="stylesheet" href="/assets/org-colors.css">
+<link rel="stylesheet" href="/assets/styles.css">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-1CW9XK1VJY"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-1CW9XK1VJY');
+</script>
+
+</head>
+<body>
+<script>window.SITE_BASE_PATH = '';</script>
+<header class="site">
+  <div class="header-inner">
+    <div class="brand-row">
+      <a class="brand" href="/">
+        <img class="brand-logo" src="/img/favicons/icon-192.png" alt="" width="44" height="44">
+        <h1>Do Peček . cz</h1>
+      </a>
+      <button type="button" class="info-fab" id="infoFab" title="Menu" aria-label="Otevřít menu" aria-controls="overlayMenu" hidden>☰</button>
+    </div>
+  </div>
+  <nav class="tabs header-nav" id="tabs">
+    <a class="navlink active" href="/naobed/">🍽️ Na oběd</a>
+    <a class="navlink" href="/kalendar/">📅 Kalendář</a>
+    <a class="navlink" href="/jednani/">📄 Jednání</a>
+    <a class="navlink" href="/noviny/">📰 Pečecké noviny</a>
+    <a class="navlink" href="/lide/">Lidé</a>
+    <a class="navlink" href="/telocvicna/">Tělocvična</a>
+    <a class="navlink" href="/volby/">Volby</a>
+  </nav>
+</header>
+<div class="overlay-menu" id="overlayMenu" role="dialog" aria-modal="true" aria-label="Menu" hidden>
+  <button type="button" class="overlay-close" id="overlayClose" aria-label="Zavřít menu">✕</button>
+  <nav class="overlay-links" id="overlayLinks"></nav>
+</div>
+
+<main>
+  <section class="panel active" id="panel-naobed">
+    <p class="lastmod" data-date="2026-10-04">Aktualizováno: 4. 10. 2026</p>
+    <h2 class="title display">Denní menu v Pečkách</h2>
+    <p class="lede">Poslední jídelní lístky tří pečeckých restaurací. Fotografie pocházejí z jejich facebookových stránek.</p>
+
+    <h3 class="search-status" id="naobed-status"><span class="spinner" aria-hidden="true"></span>Načítám menu…</h3>
+    <div id="naobed-list" class="naobed-list"></div>
+
+    <h3 class="display" style="margin:34px 0 8px;">Další restaurace (nezveřejňují „denní menu“)</h3>
+    <ul id="naobed-dalsi" class="naobed-dalsi"></ul>
+  </section>
+
+  <style>
+    .naobed-list{display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:18px; margin-top:14px; align-items:start;}
+    .naobed-card{display:flex; flex-direction:column; background:var(--parchment); border:1px solid var(--line); border-radius:6px; overflow:hidden;}
+    .naobed-photo{position:relative; background:var(--parchment-deep); min-height:200px;}
+    .naobed-photo a{display:block;}
+    .naobed-photo img{display:block; width:100%; height:auto;}
+    .naobed-tag{position:absolute; top:10px; right:10px; padding:3px 9px; border-radius:4px; background:rgba(241,234,217,0.94); border:1px solid var(--line); color:var(--ink-soft); font-size:12px; line-height:1.3; box-shadow:0 1px 3px rgba(42,36,32,0.25);}
+    .naobed-tag.dnes{background:var(--burgundy); border-color:var(--burgundy); color:#fff; font-size:14px; font-weight:700; letter-spacing:.08em; padding:5px 13px;}
+    .naobed-info{padding:16px 18px 18px; display:flex; flex-direction:column; gap:7px;}
+    .naobed-info h3{margin:0; font-family:var(--font-display); font-size:21px; color:var(--ink);}
+    .naobed-info p{margin:0; color:var(--ink-soft); font-size:15px;}
+    .naobed-actions{display:flex; flex-wrap:wrap; gap:8px; align-items:center; margin-top:6px;}
+    .naobed-btn{display:inline-block; padding:7px 14px; border-radius:4px; background:var(--burgundy); color:#fff; font-size:14px; font-weight:600; text-decoration:none;}
+    .naobed-btn:hover{filter:brightness(1.15);}
+    .naobed-dalsi{margin:0; padding-left:20px; color:var(--ink-soft); font-size:15px; line-height:1.7;}
+    .naobed-dalsi li{margin-bottom:6px;}
+    .naobed-dalsi strong{color:var(--ink);}
+    .naobed-empty{padding:60px 20px; color:var(--ink-soft); font-size:15px; text-align:center;}
+    @media (max-width:900px){ .naobed-list{grid-template-columns:1fr; max-width:520px;} }
+  </style>
+
+  <script>
+  (function () {
+    var statusEl = document.getElementById('naobed-status');
+    var listEl = document.getElementById('naobed-list');
+    function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]; }); }
+    function cz(iso) { var p = iso.split('-'); return +p[2] + '. ' + +p[1] + '. ' + p[0]; }
+    function today() { var d = new Date(); return d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0') + '-' + String(d.getDate()).padStart(2, '0'); }
+
+    Promise.all([
+      fetch('/naobed/restaurace.json').then(function (r) { return r.json(); }),
+      fetch('/naobed/menu.json').then(function (r) { return r.json(); })
+    ]).then(function (res) {
+      var rest = res[0].restaurace, menu = res[1].restaurace || {}, dnes = today(), nalezeno = 0;
+      listEl.innerHTML = rest.map(function (r) {
+        var m = menu[r.id];
+        var photo, tag = '';
+        if (m && m.file) {
+          nalezeno++;
+          var url = '/naobed/' + m.file;
+          tag = m.date === dnes
+            ? '<span class="naobed-tag dnes">DNES</span>'
+            : '<span class="naobed-tag">menu z ' + esc(cz(m.date)) + '</span>';
+          photo = '<a href="' + esc(url) + '" target="_blank" rel="noopener"><img src="' + esc(url) + '" alt="Denní menu ' + esc(r.name) + ' z ' + esc(cz(m.date)) + '" loading="lazy"></a>' + tag;
+        } else {
+          photo = '<div class="naobed-empty">Fotografie menu zatím není k dispozici.</div>';
+        }
+        var tel = r.phone ? '<a class="naobed-btn" href="callto://+420' + esc(r.phone.replace(/\D/g, '')) + '">📞 ' + esc(r.phone) + '</a>' : '';
+        var odkazy = '<a href="' + esc(r.facebook) + '" target="_blank" rel="noopener">Facebook ↗</a>' +
+          (r.web ? ' · <a href="' + esc(r.web) + '" target="_blank" rel="noopener">Web ↗</a>' : '');
+        return '<article class="naobed-card" id="' + esc(r.id) + '">' +
+          '<div class="naobed-photo">' + photo + '</div>' +
+          '<div class="naobed-info"><h3>' + esc(r.name) + '</h3>' +
+          (r.address ? '<p>📍 ' + esc(r.address) + '</p>' : '') +
+          '<div class="naobed-actions">' + tel + '<span>' + odkazy + '</span></div></div></article>';
+      }).join('');
+      document.getElementById('naobed-dalsi').innerHTML = (res[0].dalsi || []).map(function (r) {
+        var casti = [];
+        if (r.note) casti.push(esc(r.note));
+        if (r.address) casti.push('📍 ' + esc(r.address));
+        if (r.phone) casti.push('<a href="callto://+420' + esc(r.phone.replace(/\D/g, '')) + '">' + esc(r.phone) + '</a>');
+        if (r.link) casti.push('<a href="' + esc(r.link) + '" target="_blank" rel="noopener">' + esc(r.linkLabel || 'Odkaz') + ' ↗</a>');
+        return '<li><strong>' + esc(r.name) + '</strong> — ' + casti.join(' · ') + '</li>';
+      }).join('');
+      statusEl.textContent = rest.length + ' restaurace';
+    }).catch(function () {
+      statusEl.textContent = 'Menu se nepodařilo načíst.';
+    });
+  })();
+  </script>
+
+</main>
+<footer class="site">
+  <nav class="tabs tabs-secondary header-nav" id="tabsSecondary" aria-label="Další sekce">
+    <a class="navlink" href="/plan/">Plán</a>
+    <a class="navlink" href="/smlouvy/">Smlouvy</a>
+    <a class="navlink" href="/zakazky/">Zakázky</a>
+    <a class="navlink" href="/pozemky/">Pozemky</a>
+    <a class="navlink" href="/pokladna/">Pokladna</a>
+    <a class="navlink" href="/o-webu/">O webu</a>
+  </nav>
+  <div class="footer-inner footer-credits">
+    <p style="margin:0 0 8px;">👋 Ahoj, já jsem PečkyBot.</p>
+    <img class="peckybot" src="/img/peckybot/welcome.png" alt="PečkyBot">
+    <p style="margin:8px 0 0;">Web je sestaven s pomocí AI. Robot čerpá informace z veřejných dat dostupných na internetu. <a href="/o-webu/changelog.html">Historie změn na webu</a>.</p>
+  </div>
+  <div class="footer-inner footer-credits">
+    <p style="margin:0;">Našli jste nepřesnost? Máte tip na nějaké téma ke zpracování? Zajímá vás něco o Pečkách? Pište na: <a href="mailto:dopecek@gmail.com">dopecek@gmail.com</a>.</p>
+  </div>
+</footer>
+
+<script src="/assets/common.js"></script>
+</body>
+</html>

@@ -117,6 +117,11 @@ MANIFEST = {
         '/kalendar/', 'Co se děje v Pečkách — Do Peček . cz',
         'Kalendář termínů týkajících se města Pečky.',
         False),
+    'naobed': (
+        '/naobed/', 'Denní menu v Pečkách — Do Peček . cz',
+        'Poslední denní menu pečeckých restaurací U Marka, Siňorita a '
+        'Hostinec U Stříkačky podle jejich facebookových stránek.',
+        False),
     'owebu': (
         '/o-webu/', 'O webu — Do Peček . cz',
         'Co je Do Peček . cz, kdo a jak ho dělá, a odkazy na oficiální '
@@ -198,6 +203,7 @@ README_TO_SLUG = {
     'telocvicna': 'telocvicna',
     'pokladna': 'pokladna',
     'kalendar': 'kalendar',
+    'naobed': 'naobed',
     'pozemky': 'pozemky',
     'smlouvy': 'smlouvy',
     'zakazky': 'zakazky',
