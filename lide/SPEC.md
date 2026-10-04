@@ -186,6 +186,7 @@ Jednání a Pečecké noviny. Lokálně `python3 -m http.server`.
 | `color_bg` | `#RRGGBB` \| `null` | ✅ u `politicke` | světlé pozadí (kartička, kurz v kalendáři); jen spolu s `color`; generuje `--org-<id>-bg` |
 | `css_class` | string \| `null` | ✅ u `politicke` | `party-*`, existující třída v `index.html` |
 | `former_names` | string[] | ✅ | dřívější názvy s ročníkem; může být `[]` |
+| `opening_hours` | objekt | — | jen provozovny (restaurace): `{hours: {po,ut,st,ct,pa,so,ne: "HH:MM-HH:MM" \| null (zavřeno)}, note, source (id zdroje), checked (RRRR-MM-DD)}`; chybí-li pole, otevírací doba není známá; používá ji stránka `/naobed/` („Dnes: …“) |
 
 **Uskupení jsou jedna organizace napříč ročníky**, i když se jim mění název —
 proto `former_names`. Barva je vlastnost uskupení, ne kartičky: paleta dnes

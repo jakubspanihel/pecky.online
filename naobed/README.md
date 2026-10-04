@@ -16,6 +16,17 @@ zobrazuje poslední stažený snímek u každé z nich.
 Přidání restaurace: záznam do `lide/organizations.json` (+ zdroj do
 `lide/sources.json`), řádek do `naobed/restaurace.json`, pak skill.
 
+## Otevírací doba
+
+Týdenní otevírací doba je u organizace v `lide/organizations.json`
+(`opening_hours`, popis polí v `lide/SPEC.md`); stránka z ní ukazuje řádek
+„Dnes otevřeno …“ / „Dnes zavřeno“, celý týden je v tooltipu. Zdroje:
+web podniku (Western Saloon, Pizza Maximo) nebo Mapy.com (U Marka, Siňorita,
+Samer Kebab; na Facebooku je jen „teď je zavřeno“). Hostinec U Stříkačky: Facebook (dialog „Otevřeno“ v levém sloupci profilu),
+údaj starý asi 3 roky. U Asia&Wok je doba jen v poznámce (stránka je
+zastaralá, podnik se přestěhoval) a u Hospůdky Velké Chvalovice se nenašla —
+řádek se nezobrazuje.
+
 ## Postup aktualizace
 
 Skill `pecky-online-obedy` (`.claude/skills/pecky-online-obedy/SKILL.md`):

@@ -92,13 +92,25 @@
     var listEl = document.getElementById('naobed-list');
     function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]; }); }
     function cz(iso) { var p = iso.split('-'); return +p[2] + '. ' + +p[1] + '. ' + p[0]; }
+    var DNY = ['ne', 'po', 'ut', 'st', 'ct', 'pa', 'so'];
+    var DNY_CZ = {po: 'Pondělí', ut: 'Úterý', st: 'Středa', ct: 'Čtvrtek', pa: 'Pátek', so: 'Sobota', ne: 'Neděle'};
+    function hod(r) { return r.replace(/-/g, '–').replace(/(^|[–])0(\d:)/g, '$1$2'); }
+    function dnesOtevreno(oh) {
+      if (!oh || !oh.hours) return '';
+      var h = oh.hours[DNY[new Date().getDay()]];
+      var tydne = Object.keys(DNY_CZ).map(function (d) { return DNY_CZ[d] + ' ' + (oh.hours[d] ? hod(oh.hours[d]) : 'zavřeno'); }).join('\n');
+      return '<span title="' + esc(tydne + (oh.note ? '\n' + oh.note : '')) + '">🕒 Dnes ' + (h ? 'otevřeno ' + esc(hod(h)) : 'zavřeno') + '</span>';
+    }
     function today() { var d = new Date(); return d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0') + '-' + String(d.getDate()).padStart(2, '0'); }
 
     Promise.all([
       fetch('/naobed/restaurace.json').then(function (r) { return r.json(); }),
-      fetch('/naobed/menu.json').then(function (r) { return r.json(); })
+      fetch('/naobed/menu.json').then(function (r) { return r.json(); }),
+      fetch('/lide/organizations.json').then(function (r) { return r.json(); })
     ]).then(function (res) {
       var rest = res[0].restaurace, menu = res[1].restaurace || {}, dnes = today(), nalezeno = 0;
+      var orgs = {};
+      (res[2].organizations || []).forEach(function (o) { orgs[o.id] = o; });
       listEl.innerHTML = rest.map(function (r) {
         var m = menu[r.id];
         var photo, tag = '';
@@ -119,12 +131,15 @@
           '<div class="naobed-photo">' + photo + '</div>' +
           '<div class="naobed-info"><h3>' + esc(r.name) + '</h3>' +
           (r.address ? '<p>📍 ' + esc(r.address) + '</p>' : '') +
+          (dnesOtevreno((orgs[r.id] || {}).opening_hours) ? '<p>' + dnesOtevreno((orgs[r.id] || {}).opening_hours) + '</p>' : '') +
           '<div class="naobed-actions">' + tel + '<span>' + odkazy + '</span></div></div></article>';
       }).join('');
       document.getElementById('naobed-dalsi').innerHTML = (res[0].dalsi || []).map(function (r) {
         var casti = [];
         if (r.note) casti.push(esc(r.note));
         if (r.address) casti.push('📍 ' + esc(r.address));
+        var oh = dnesOtevreno((orgs[r.id] || {}).opening_hours);
+        if (oh) casti.push(oh);
         if (r.phone) casti.push('<a href="callto://+420' + esc(r.phone.replace(/\D/g, '')) + '">' + esc(r.phone) + '</a>');
         if (r.link) casti.push('<a href="' + esc(r.link) + '" target="_blank" rel="noopener">' + esc(r.linkLabel || 'Odkaz') + ' ↗</a>');
         return '<li><strong>' + esc(r.name) + '</strong> — ' + casti.join(' · ') + '</li>';
