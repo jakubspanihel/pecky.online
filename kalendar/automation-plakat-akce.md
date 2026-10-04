@@ -113,6 +113,38 @@ nezakládej: `organizer: null` a `organizer_name: "…"` textem.
   16. 9. 2026.)
 - Akce bez data (celoroční nabídka, otevírací doba, kontakty).
 
+## 4b. Plakát bez konkrétního data — pravidelná akce nebo kurz
+
+Plakát, který neuvádí jedno konkrétní datum, ale pravidelný rytmus („každé
+úterý a pátek od 15 hodin", „každou středu od 19:00"), se **nezahazuje**.
+Pokus o zápis pravidelné akce se dělá vždy, když na plakátu není žádná
+jednorázová akce s datem:
+
+- `category: kurz` (pravidelné tréninky, kroužky, kurzy, hospodské kvízy).
+- **Rytmus a čas přepsat doslova** (dny, hodina, místo, cílová skupina);
+  do `description` jen to, co plakát říká (např. „Primárně pro děti
+  1. až 3. tříd."). Kontakty do záznamu nepatří.
+- **Začátek série:** uvádí-li plakát první termín, použít ho. Neuvádí-li,
+  vzít první výskyt dne po datu přijetí e-mailu a do `note` napsat, že
+  plakát začátek neuvádí a termín je dopočtený. Neznámé datum zveřejnění
+  plakátu nevymýšlet.
+- **Konec série:** výchozí horizont podle `kalendar/README.md` → „Kategorie"
+  (konec školního roku 30. 6. 2027, prázdniny vynechat podle MŠMT); u
+  plakátu bez vazby na školní rok a bez uvedeného konce platí variantu
+  „Negarantováno" z téhož README (8 týdnů dopředu, každý záznam s poznámkou
+  „Negarantováno").
+- **Pořadatel** jako v kroku 3b (z plakátu, odvozený z názvu nebo loga
+  vysvětlit v `note`). Chybí-li v `lide/organizations.json`, navrhnout jeho
+  založení, ale nezakládat ho bez schválení.
+- **Duplicity:** porovnat podle pořadatele, dne v týdnu, času a názvu s už
+  zapsanými `kurz` záznamy (např. rozvrh TJ Sokol z Pečeckých novin). Shoda
+  → nový záznam nevzniká, jen se navrhne doplnit `evidence`.
+- V návrhu pro schválení uvést řádek „pravidelná akce": rytmus, první a poslední
+  termín, počet vygenerovaných záznamů, jistota (čitelné / nejisté / dopočtené).
+  Zápis jen po schválení stejně jako u jednorázových akcí.
+- Nedá-li se z plakátu určit ani den, ani čas, zapsat nic nenavrhovat a výslovně
+  napsat proč.
+
 ## 5. Porovnat s tím, co už v `akce.json` je
 
 Shoda se hledá podle dvojice `date` + název:
