@@ -1,7 +1,7 @@
 {
  "meta": {
   "description": "Kulturní a společenské akce v Pečkách a okolí. U každé akce je pořadatel (id do lide/organizations.json) a doklady, ze kterých je přepsaná (evidence[] — zdroj je id do kořenového sources.json). Zdroj sekce Kalendář — do udalosti.json a kalendar.ics je promítá kalendar/scripts/update-kalendar.py.",
-  "updated": "2026-10-04",
+  "updated": "2026-10-05",
   "note": "Jednání rady a zastupitelstva do tohohle souboru nepatří, i když je plakát KD uvádí — ta má kalendář z jednani/pecky-jednani.json a zapsáním sem by v mřížce vznikly duplicity. Pořadatel je vždy ten, kdo akci pořádá, ne ten, od koho o ní víme — to je evidence[].source."
  },
  "events": [
@@ -12761,6 +12761,29 @@
      "label": "vzcentrum.cz — Angličtina dospělí B2",
      "published": "2026-09-22",
      "retrieved": "2026-09-25"
+    }
+   ]
+  },
+  {
+   "id": "akce-2026-10-20-vitaci-koncert-zus-pecky",
+   "title": "Vítací koncert v ZUŠ Pečky",
+   "date": "2026-10-20",
+   "date_end": null,
+   "time": "17:30",
+   "category": "akce",
+   "place": "Sál ZUŠ Pečky",
+   "organizer": "zus-pecky",
+   "organizer_name": null,
+   "description": "Vítací koncert v sále ZUŠ Pečky od 17:30.",
+   "note": "Oznámení uvádí jen datum, čas a místo (sál ZUŠ); pořadatel dovozen z názvu a místa.",
+   "evidence": [
+    {
+     "source": "pecky-cz",
+     "kind": "web",
+     "url": "https://pecky.cz/default/report/489735_vitaci-koncert-v-zus-pecky",
+     "label": "Aktuality města — Vítací koncert v ZUŠ Pečky",
+     "published": null,
+     "retrieved": "2026-10-05"
     }
    ]
   },

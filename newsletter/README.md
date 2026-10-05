@@ -8,21 +8,38 @@ vycházet při tvorbě dalších čísel (tón, struktura, už zmíněná témat
 
 ```
 newsletter/
-├── README.md                       tento soubor
-└── RRRR-MM-DD-<slug>.md            jedno odeslané číslo = jeden soubor
+├── README.md                          tento soubor
+├── export.py                          index.html → email.html (absolutní URL obrázků)
+├── RRRR-MM-DD-<slug>.md               starší čísla: jen text (od 2. 10. 2026)
+└── RRRR-MM-DD-<slug>/                 HTML čísla: jedna složka = jedno číslo
+    ├── index.html                     zdroj e-mailu (tabulky + inline CSS, 600 px)
+    ├── text.txt                       prostý text (alternativa pro Gmail / rozesílač)
+    ├── email.html                     export pro odeslání (generuje export.py)
+    └── img/                           obrázky tohoto čísla (graf, banner, závěrečný obrázek)
 ```
 
-- Název souboru: datum odeslání (ISO) + krátký slug tématu.
-- Každý soubor začíná hlavičkou (datum a čas odeslání, odesílatel, přílohy),
-  pak následuje text mailu v Markdownu tak, jak odešel. Odkazy jsou zachované.
-- Do souboru patří **odeslané** znění, ne koncepty. Opravy po odeslání se
-  nepřepisují — případnou poznámku přidat na konec souboru.
+- Název: datum odeslání (ISO) + krátký slug tématu.
+- Zdroj pravdy je `index.html` (náhled otevřít přímo v prohlížeči, obrázky mají
+  relativní cesty). Před odesláním `python3 newsletter/export.py newsletter/<číslo>`
+  — vznikne `email.html` s adresami `https://dopecek.cz/newsletter/<číslo>/img/…`.
+  Obrázky proto musí být nejdřív pushnuté, jinak se v mailu nezobrazí.
+- Do složky patří **odeslané** znění, ne koncepty. Opravy po odeslání se
+  nepřepisují — případnou poznámku přidat na konec.
 - Adresáty (e-maily třetích stran) do archivu nezapisovat.
+- Pravidla pro HTML: tabulky, inline styly, šířka 600 px, jen systémová písma,
+  žádný JavaScript. Odkazy `webcal://` a `mailto:` s předvyplněním se
+  v e-mailech ruší — tlačítko k odběru kalendáře vede na `https://dopecek.cz/kalendar/`.
+  Každý obrázek má `alt`.
+- **Závěrečný obrázek** je v každém čísle jiný (koťátko z čísla 1 se neopakuje).
+  Do `img/zaver.*` do cca 1 MB, šířka 528 px; v `index.html` doplnit `alt`
+  a řádek se zdrojem a licencí. Jen obrázky s volnou licencí (Wikimedia Commons,
+  Unsplash, vlastní foto z Peček) — ne cizí memy a GIFy bez povolení.
 
 ## Odeslaná čísla
 
 | Datum | Soubor | Téma |
 |---|---|---|
+| 5. 10. 2026 (připraveno, neodesláno) | [2026-10-05-kalendar-facebook/](2026-10-05-kalendar-facebook/index.html) | Odběr kalendáře v mobilu, Monitoring Facebooku s grafem |
 | 2. 10. 2026 | [2026-10-02-novy-web.md](2026-10-02-novy-web.md) | Představení webu: archiv jednání, kalendář, noviny, přehled sekcí |
 
 Při přidání nového čísla doplnit řádek do této tabulky (nejnovější nahoře).

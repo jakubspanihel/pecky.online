@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="x-apple-disable-message-reformatting">
+<title>Kalendář Peček v mobilu a Monitoring Facebooku</title>
+<!--
+  E-mailové HTML: tabulky + inline styly, šířka 600 px, jen systémová písma.
+  Obrázky: relativní cesty img/… (náhled v prohlížeči); export.py je před
+  odesláním přepíše na absolutní https://dopecek.cz/newsletter/…
+  Odkaz "webcal://" se v e-mailu NEPOUŽÍVÁ (Gmail a spol. ho odstraní) — tlačítko vede na /kalendar/.
+-->
+<style>
+  @media (max-width:620px){
+    .wrap{width:100% !important}
+    .col{display:block !important; width:100% !important}
+    .pad{padding-left:20px !important; padding-right:20px !important}
+    .phone{width:70% !important; margin:0 auto !important}
+  }
+</style>
+</head>
+<body style="margin:0; padding:0; background:#E9E0CB; -webkit-text-size-adjust:100%;">
+
+<!-- preheader (náhled v seznamu zpráv) -->
+<div style="display:none; max-height:0; overflow:hidden; opacity:0; color:transparent;">
+  Akce z Peček máte v mobilu. A podívejte se, jak často píše město na Facebooku.
+</div>
+
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" bgcolor="#E9E0CB" style="background:#E9E0CB;">
+<tr><td align="center" style="padding:24px 12px;">
+
+<table role="presentation" class="wrap" width="600" cellpadding="0" cellspacing="0" border="0" bgcolor="#F1EAD9" style="width:600px; max-width:600px; background:#F1EAD9; border-radius:14px;">
+
+  <!-- hlavička -->
+  <tr><td class="pad" style="padding:28px 36px 8px; font-family:system-ui,-apple-system,'Segoe UI',Roboto,Arial,sans-serif;">
+    <a href="https://dopecek.cz/" style="text-decoration:none; color:#5B5347; font-size:26px; font-weight:900; letter-spacing:-0.5px;">Do Peček<span style="color:#7C2F2B;">.</span>cz</a>
+    <div style="font-family:ui-serif,Georgia,'Times New Roman',serif; font-size:14px; color:#5B5347; padding-top:4px;">Veřejné informace o Pečkách na jednom místě</div>
+  </td></tr>
+
+  <!-- úvod -->
+  <tr><td class="pad" style="padding:20px 36px 8px; font-family:system-ui,-apple-system,'Segoe UI',Roboto,Arial,sans-serif; font-size:16px; line-height:1.55; color:#2A2420;">
+    <p style="margin:0 0 14px;">Ahoj Pečáci!</p>
+    <p style="margin:0 0 14px;">Web dopecek.cz se od minulého mailu rozrostl. Dnes dvě věci: <strong>kalendář akcí, který můžete mít přímo v mobilu</strong>, a <strong>Monitoring Facebooku</strong>, tedy přehled toho, co a jak často zveřejňuje město.</p>
+  </td></tr>
+
+  <!-- ===== Banner: kalendář ===== -->
+  <tr><td class="pad" style="padding:12px 36px 8px;">
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" bgcolor="#7C2F2B" style="background:#7C2F2B; border-radius:14px;">
+      <tr>
+        <td class="col" valign="top" style="padding:26px 26px 22px; font-family:system-ui,-apple-system,'Segoe UI',Roboto,Arial,sans-serif; color:#ffffff;">
+          <div style="font-family:ui-serif,Georgia,'Times New Roman',serif; font-size:24px; line-height:1.2; font-weight:700; color:#ffffff;">Akce z Peček v mobilu</div>
+          <p style="margin:12px 0 0; font-size:15px; line-height:1.5; color:#ffffff;">Kalendář můžete mít stále po ruce přímo ve vašem mobilu. Nové akce budou přibývat automaticky.</p>
+          <p style="margin:8px 0 0; font-size:13px; line-height:1.5; color:#E9D9C0;">Na velkém počítači to funguje taky.</p>
+          <table role="presentation" cellpadding="0" cellspacing="0" border="0" style="margin-top:18px;"><tr>
+            <td bgcolor="#F1EAD9" style="background:#F1EAD9; border-radius:8px;">
+              <a href="https://dopecek.cz/kalendar/" style="display:inline-block; padding:12px 22px; font-family:system-ui,-apple-system,'Segoe UI',Roboto,Arial,sans-serif; font-size:15px; font-weight:700; color:#5E211E; text-decoration:none;">Odebírat kalendář</a>
+            </td>
+          </tr></table>
+          <p style="margin:10px 0 0; font-size:12px; line-height:1.5; color:#E9D9C0;">Tlačítko otevře kalendář na webu. Nahoře je banner s odkazem „Odebírat kalendář“.</p>
+        </td>
+        <td class="col" valign="bottom" align="center" style="padding:20px 26px 0 0;">
+          <img class="phone" src="img/kalendar-mobil.png" width="190" alt="Kalendář Peček v aplikaci Kalendář na iPhonu" style="display:block; width:190px; height:auto; border:0; border-radius:12px 12px 0 0;">
+        </td>
+      </tr>
+    </table>
+  </td></tr>
+
+  <tr><td class="pad" style="padding:14px 36px 8px; font-family:system-ui,-apple-system,'Segoe UI',Roboto,Arial,sans-serif; font-size:16px; line-height:1.55; color:#2A2420;">
+    <p style="margin:0;">Akce se v Pečkách zveřejňují na desítkách míst. Kalendář je sbírá za vás: město, knihovna, kluby, spolky i jednání rady, zastupitelstva a komisí. Po přihlášení k odběru se nové akce objeví v kalendáři ve vašem telefonu samy.</p>
+  </td></tr>
+
+  <!-- oddělovač -->
+  <tr><td class="pad" style="padding:22px 36px 6px;"><div style="border-top:1px solid #C9BA98; line-height:1px; height:1px;">&nbsp;</div></td></tr>
+
+  <!-- ===== Monitoring Facebooku ===== -->
+  <tr><td class="pad" style="padding:6px 36px 4px; font-family:system-ui,-apple-system,'Segoe UI',Roboto,Arial,sans-serif; color:#2A2420;">
+    <div style="font-family:ui-serif,Georgia,'Times New Roman',serif; font-size:24px; line-height:1.2; font-weight:700;">Monitoring Facebooku</div>
+    <p style="margin:12px 0 0; font-size:16px; line-height:1.55;">Oficiální profil Města Pečky je jedním z hlavních zdrojů novinek. Monitoring ukazuje jeho příspěvky <strong>od založení 20. listopadu 2018</strong>, rozdělené po měsících. U každého měsíce je počet příspěvků a po rozkliknutí rozpad podle typu (foto a alba, texty a odkazy, video, sdílené příspěvky, události) i seznam příspěvků s odkazem na Facebook.</p>
+  </td></tr>
+
+  <tr><td class="pad" style="padding:14px 36px 4px;">
+    <a href="https://dopecek.cz/o-webu/facebook-monitoring/facebook-mestopecky/"><img src="img/facebook-graf.png" width="528" alt="Sloupcový graf: počet příspěvků na Facebooku města Pečky po letech 2018 až 2026. Nejvíc jich bylo v roce 2022 (325), nejméně od roku 2019 v roce 2024 (172)." style="display:block; width:100%; max-width:528px; height:auto; border:1px solid #C9BA98; border-radius:8px; background:#ffffff;"></a>
+  </td></tr>
+
+  <tr><td class="pad" style="padding:10px 36px 8px; font-family:system-ui,-apple-system,'Segoe UI',Roboto,Arial,sans-serif; font-size:16px; line-height:1.55; color:#2A2420;">
+    <p style="margin:0 0 10px;">Co z grafu vyplývá:</p>
+    <ul style="margin:0; padding-left:20px;">
+      <li style="margin-bottom:6px;">Celkem je zachyceno <strong>2&nbsp;068 příspěvků</strong> (stav k 2. 10. 2026).</li>
+      <li style="margin-bottom:6px;">Nejvíc příspěvků vyšlo v roce 2022 (325), nejméně v roce 2024 (172).</li>
+      <li style="margin-bottom:6px;">Za devět měsíců letošního roku jich je 189, tedy víc než za celý rok 2024.</li>
+      <li style="margin-bottom:6px;">Nejrušnější měsíc byl březen 2020 s 73 příspěvky.</li>
+    </ul>
+    <table role="presentation" cellpadding="0" cellspacing="0" border="0" style="margin-top:16px;"><tr>
+      <td bgcolor="#7C2F2B" style="background:#7C2F2B; border-radius:8px;">
+        <a href="https://dopecek.cz/o-webu/facebook-monitoring/facebook-mestopecky/" style="display:inline-block; padding:12px 22px; font-family:system-ui,-apple-system,'Segoe UI',Roboto,Arial,sans-serif; font-size:15px; font-weight:700; color:#ffffff; text-decoration:none;">Otevřít Monitoring Facebooku</a>
+      </td>
+    </tr></table>
+  </td></tr>
+
+  <!-- oddělovač -->
+  <tr><td class="pad" style="padding:22px 36px 6px;"><div style="border-top:1px solid #C9BA98; line-height:1px; height:1px;">&nbsp;</div></td></tr>
+
+  <!-- závěr -->
+  <tr><td class="pad" style="padding:6px 36px 4px; font-family:system-ui,-apple-system,'Segoe UI',Roboto,Arial,sans-serif; font-size:16px; line-height:1.55; color:#2A2420;">
+    <p style="margin:0 0 12px;">Jestli máte tip na zlepšení nebo téma ke zpracování, ozvěte se. Stejně tak když najdete chybu, nepřesnost nebo neozdrojovanou informaci.</p>
+    <p style="margin:0 0 12px;">Mějte se hezky.</p>
+    <p style="margin:0 0 12px;">Napsal 🤖 PečkyBot z webu <a href="https://dopecek.cz/" style="color:#7C2F2B;">Do Peček.cz</a></p>
+    <p style="margin:0 0 12px;">PS. Tento mail samozřejmě přepošlete všem, koho by mohlo dění v Pečkách zajímat.</p>
+    <p style="margin:0;">A na závěr obrázek na dobrou náladu:</p>
+  </td></tr>
+
+  <!-- ===== Závěrečný obrázek (pokaždé jiný) ===== -->
+  <tr><td class="pad" align="center" style="padding:12px 36px 8px;">
+    <!-- TODO: vybrat obrázek/GIF → img/zaver.jpg|gif (do ~1 MB, šířka 528 px), doplnit alt a zdroj -->
+    <img src="img/zaver.gif" width="528" alt="DOPLNIT: popis obrázku" style="display:block; width:100%; max-width:528px; height:auto; border:0; border-radius:8px;">
+    <div style="font-family:system-ui,-apple-system,'Segoe UI',Roboto,Arial,sans-serif; font-size:11px; color:#5B5347; padding-top:6px;">DOPLNIT: autor / zdroj / licence</div>
+  </td></tr>
+
+  <!-- patička -->
+  <tr><td class="pad" style="padding:20px 36px 28px; font-family:system-ui,-apple-system,'Segoe UI',Roboto,Arial,sans-serif; font-size:12px; line-height:1.5; color:#5B5347;">
+    Neoficiální nezávislý občanský projekt. Není spojen s městem Pečky ani s žádným politickým uskupením.
+    <a href="https://dopecek.cz/" style="color:#7C2F2B;">dopecek.cz</a>
+  </td></tr>
+
+</table>
+</td></tr></table>
+</body>
+</html>
