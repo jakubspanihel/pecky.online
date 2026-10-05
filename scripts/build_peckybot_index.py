@@ -7,7 +7,7 @@ k dotazu návštěvníka. Zdroje jsou jen data, která už na webu jsou:
 
   - jednání zastupitelstva a rady (jednani/pecky-jednani.json) — bod programu
     + důvodová zpráva + usnesení
-  - lidé s vyplněným životopisem (lide/people.json)
+  - lidé s životopisem nebo kontaktem (lide/people.json)
   - statické texty sekcí (content/<sekce>.html)
 
 Formát (verze 1) — rozdělený na malý rejstřík a dávky s texty, aby Worker při
@@ -122,19 +122,39 @@ def chunks_jednani():
     return out
 
 
+ROLE_TAGY = {
+    'vedeni-mesta': 'vedení města', 'zastupitel': 'člen zastupitelstva', 'rada': 'člen rady města',
+    'komise': 'člen komise', 'urednik': 'zaměstnanec městského úřadu', 'vedeni-uradu': 'vedení úřadu',
+    'skolstvi': 'školství', 'kultura': 'kultura', 'sport': 'sport', 'spolky': 'spolky',
+    'socialni-sluzby': 'sociální služby', 'zdravotnictvi': 'zdravotnictví',
+}
+
+
 def chunks_lide():
     data = json.loads((ROOT / 'lide/people.json').read_text(encoding='utf-8'))
     out = []
     for p in data['people']:
         bio = (p.get('bio') or '').strip()
-        if not bio:
+        email = (p.get('email') or '').strip()
+        phone = (p.get('phone') or '').strip()
+        # kontakty jsou v indexu i u lidí bez životopisu
+        if not (bio or email or phone):
             continue
-        jmeno = f"{p.get('first_name', '')} {p.get('last_name', '')}".strip()
-        parts = [f'{jmeno}.', clip(bio, 600)]
-        if p.get('email'):
-            parts.append(f"E-mail: {p['email']}.")
-        if p.get('phone'):
-            parts.append(f"Telefon: {p['phone']}.")
+        jmeno = ' '.join(x for x in (p.get('title_before'), p.get('first_name'), p.get('last_name'),
+                                     p.get('title_after')) if x).strip()
+        parts = [f'{jmeno}.']
+        if bio:
+            parts.append(clip(bio, 600))
+        role = [ROLE_TAGY[t] for t in p.get('tags', []) if t in ROLE_TAGY]
+        if role:
+            parts.append(f"Působení: {', '.join(role)}.")
+        occ = sorted(p.get('occupations') or [], key=lambda o: o.get('year', 0), reverse=True)
+        if occ and not bio:
+            parts.append(f"Zaměstnání: {occ[0]['value']}.")
+        if email:
+            parts.append(f'E-mail: {email}.')
+        if phone:
+            parts.append(f'Telefon: {phone}.')
         out.append({'u': '/lide/', 't': f'Lidé — {jmeno}', 'x': ' '.join(parts)})
     return out
 

@@ -30,7 +30,7 @@ odpověď {answer, sources}
 
 ### Co je v indexu
 - jednání zastupitelstva a rady (`jednani/pecky-jednani.json`): bod programu, důvodová zpráva, usnesení s hlasováním; odkaz `/jednani/#<id>`
-- lidé s vyplněným životopisem (`lide/people.json`)
+- lidé s životopisem nebo kontaktem (`lide/people.json`): jméno s tituly, působení, bio, e-mail, telefon
 - statické texty sekcí Plán, Tělocvična, Pozemky, Pokladna, Smlouvy, Zakázky, Volby, O webu
 
 Mimo index zatím jsou Pečecké noviny, kalendář, komise, výbory a školská rada.
