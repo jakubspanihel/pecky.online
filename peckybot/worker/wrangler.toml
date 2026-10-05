@@ -1,0 +1,24 @@
+name = "peckybot"
+main = "src/index.ts"
+compatibility_date = "2026-09-01"
+
+# Veřejná, neshodná s tajemstvími. API klíč se NEPÍŠE sem, ale:
+#   npx wrangler secret put ANTHROPIC_API_KEY
+[vars]
+MODEL = "claude-sonnet-5-5"
+# odkud se stahuje znalostní index (peckybot/index.json + peckybot/chunks/*.json)
+SITE_URL = "https://dopecek.cz"
+# odkud smí prohlížeč volat Worker (oddělené čárkou)
+ALLOWED_ORIGINS = "https://dopecek.cz,https://www.dopecek.cz"
+# měsíční strop odhadované útraty za API v USD (zbytek rozpočtu 10 USD je rezerva)
+MONTHLY_BUDGET_USD = "8"
+# dotazů na jednu IP za den / dotazů celkem za den
+DAILY_PER_IP = "15"
+DAILY_GLOBAL = "250"
+
+# KV pro počítadla (útrata, dotazy na IP). Vytvořit:
+#   npx wrangler kv namespace create BUDGET
+# a vložit vypsané id sem.
+[[kv_namespaces]]
+binding = "BUDGET"
+id = "DOPLNIT_ID_Z_WRANGLER_KV_NAMESPACE_CREATE"

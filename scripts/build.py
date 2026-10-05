@@ -23,6 +23,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from typografie import nbsp_html  # noqa: E402
+from build_peckybot_index import main as build_peckybot_index  # noqa: E402
 
 ROOT = Path(__file__).resolve().parent.parent
 
@@ -122,6 +123,12 @@ MANIFEST = {
         'Poslední denní menu pečeckých restaurací U Marka, Siňorita a '
         'Hostinec U Stříkačky podle jejich facebookových stránek.',
         False),
+    'peckybot': (
+        '/peckybot/', 'PečkyBot — Do Peček . cz',
+        'Chatbot, který odpovídá na otázky z dat na webu — jednání '
+        'zastupitelstva a rady, lidé ve veřejných funkcích a texty sekcí — '
+        'a u každé odpovědi uvádí odkaz na zdroj.',
+        False),
     'owebu': (
         '/o-webu/', 'O webu — Do Peček . cz',
         'Co je Do Peček . cz, kdo a jak ho dělá, a odkazy na oficiální '
@@ -199,6 +206,7 @@ README_TO_SLUG = {
     'lide': 'lide',
     'noviny': 'zpravodaj',
     'o-webu': 'owebu',
+    'peckybot': 'peckybot',
     'plan': 'plan',
     'telocvicna': 'telocvicna',
     'pokladna': 'pokladna',
@@ -874,6 +882,7 @@ def validate(written):
 if __name__ == '__main__':
     build_org_colors()
     build_noviny_issues()
+    build_peckybot_index()
     stav_rows = parse_stav_sekci()
     written, extra_written, extra_indexed = build_all(stav_rows)
     build_sitemap(written, stav_rows, extra_indexed)
