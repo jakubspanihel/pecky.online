@@ -32,10 +32,17 @@ export function tokenize(text: string): string[] {
   return out;
 }
 
+// Dotaz na kontakt (telefon, e-mail) míří na osobu: úryvky „Lidé —“ dostanou vyšší váhu,
+// aby je nepřebil šum z jednání (např. „odkoupení mobilního telefonu“).
+const CONTACT_TOKENS = new Set(["telefo", "mail", "kontak", "mobil", "email"]);
+const PEOPLE_BOOST = 1.8;
+
 export function search(index: Index, query: string, k: number): Hit[] {
   const n = index.chunks.length;
   const scores = new Map<number, number>();
-  for (const tok of new Set(tokenize(query))) {
+  const tokens = new Set(tokenize(query));
+  const wantsContact = [...tokens].some((t) => CONTACT_TOKENS.has(t));
+  for (const tok of tokens) {
     const list = index.post[tok];
     if (!list) continue;
     const idf = Math.log(1 + n / (list.length / 2));
@@ -46,7 +53,10 @@ export function search(index: Index, query: string, k: number): Hit[] {
     }
   }
   return [...scores.entries()]
-    .map(([id, score]) => ({ id, score }))
+    .map(([id, score]) => ({
+      id,
+      score: wantsContact && index.chunks[id].t.startsWith("Lidé —") ? score * PEOPLE_BOOST : score,
+    }))
     .sort((a, b) => b.score - a.score || b.id - a.id) // při shodě novější úryvek
     .slice(0, k);
 }

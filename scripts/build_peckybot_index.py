@@ -151,6 +151,8 @@ def chunks_lide():
         occ = sorted(p.get('occupations') or [], key=lambda o: o.get('year', 0), reverse=True)
         if occ and not bio:
             parts.append(f"Zaměstnání: {occ[0]['value']}.")
+        if email or phone:
+            parts.append('Kontakt:')
         if email:
             parts.append(f'E-mail: {email}.')
         if phone:

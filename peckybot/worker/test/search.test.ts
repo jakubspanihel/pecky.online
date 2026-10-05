@@ -30,3 +30,8 @@ test("vyhledávání: tělocvična vrátí úryvky o tělocvičně", () => {
 test("vyhledávání: neznámý dotaz nevrátí nic", () => {
   assert.equal(search(index, "xqzvwk", 8).length, 0);
 });
+
+test("vyhledávání: telefon na starostu vrátí kontakt osoby mezi prvními zdroji", () => {
+  const hits = search(index, "telefonní číslo na starostu", 8);
+  assert.equal(index.chunks[hits[0].id].t, "Lidé — Milan Paluska");
+});
