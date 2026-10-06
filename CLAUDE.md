@@ -80,6 +80,15 @@ příslušný `content/<sekce>.html` a přepsat všechny odkazy, pak spustit
   `<span class="tag probiha fut-chip" data-date="YYYY-MM-DD">plánováno</span>`,
   text dopočítá `relBudouci()` v `assets/common.js` (v JS rendererech volat
   přímo). Ne holé „plánováno“.
+- **Bannery (výrazný blok s CTA)** stavět na sdíleném `.banner` v `assets/styles.css`
+  (vzor: banner Kalendáře `.kal-banner` a banner příštího zasedání na Domů,
+  `_dash_zastupitelstvo()` v `scripts/build.py`): bordó přechod, vnitřní padding
+  `26px 30px` (mobil `22px 20px`), nadpis `.banner-title`, ikonové řádky
+  `.banner-meta-item` (📅 datum, pin místo), odstavce `.banner-text`, hlavní CTA
+  bílá pilulka `.banner-cta` (s ikonou) v `.banner-actions`; varianta `.banner--slate`,
+  barvy přes `--banner-from/-to/-accent`. Nové CSS pro banner nepsat od nuly.
+  Po buildu vždy zkontrolovat screenshotem — hlavně vnitřní odsazení
+  (kolize s `.dash-list`, který nuluje padding).
 - **Perex sekce (`p.lede` pod nadpisem) psát jako profesionální copywriter.**
   Krátké a jednoduché věty. Popisuje, co na stránce *je* — ne obecný výklad
   tématu. Přesnost má přednost před svižností: nic, co se nedá doložit daty

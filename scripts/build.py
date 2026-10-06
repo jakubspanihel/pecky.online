@@ -501,15 +501,17 @@ ZM_DEN_CZ = ['v pondělí', 'v úterý', 've středu', 've čtvrtek', 'v pátek'
 
 
 def _zm_kdy(dny, weekday):
-    """Text za "Příští zastupitelstvo": dnes / zítra / název dne (méně než
-    7 dní) / za N dní. Stejná logika je v assets/common.js (přepočet v prohlížeči)."""
-    if dny == 0:
-        return 'je dnes'
+    """Titulek banneru se zasedáním: "Dnes/Už zítra/Už pozítří/Za N dní bude
+    zasedání města". Stejná logika je v assets/common.js (přepočet v prohlížeči)."""
+    if dny <= 0:
+        return 'Dnes bude zasedání města'
     if dny == 1:
-        return 'je zítra'
-    if dny < 7:
-        return 'je ' + ZM_DEN_CZ[weekday]
-    return f'za {dny} {"dny" if dny < 5 else "dní"}'
+        return 'Už zítra bude zasedání města'
+    if dny == 2:
+        return 'Už pozítří bude zasedání města'
+    if dny < 14:
+        return f'Za {dny} {"dny" if dny < 5 else "dní"} bude zasedání města'
+    return f'Za {dny // 7} {"týdny" if dny < 35 else "týdnů"} bude zasedání města'
 
 
 def _volby_kdy(dny, probiha):
@@ -521,18 +523,28 @@ def _volby_kdy(dny, probiha):
     return f'Volby už za {dny} {"dny" if dny < 5 else "dní"}'
 
 
-def _zm_odkazy(m, odkaz):
-    """Řádek odkazů pod zasedáním: "Program jednání" (jen je-li program znám
-    z pozvánky = neprázdné `agenda`) -> detail jednání v /jednani/, a
-    "Živé vysílání od HH:MM" (jen je-li známý odkaz na livestream i čas)."""
-    odkazy = []
-    if m.get('agenda'):
-        odkazy.append(f'<a href="{odkaz}">Program jednání</a>')
+ICO_KAL = ('<svg class="kal-ico" viewBox="0 0 16 16" width="16" height="16" fill="none" stroke="currentColor" '
+           'stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">'
+           '<rect x="2" y="3" width="12" height="11" rx="1.5"/><path d="M2 6.5h12M5 1.5v3M11 1.5v3"/></svg>')
+ICO_PIN = ('<svg class="kal-ico" viewBox="0 0 16 16" width="16" height="16" fill="none" stroke="currentColor" '
+           'stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">'
+           '<path d="M8 14.5s4.5-4.2 4.5-7.8a4.5 4.5 0 0 0-9 0C3.5 10.3 8 14.5 8 14.5z"/><circle cx="8" cy="6.7" r="1.6"/></svg>')
+ICO_YT = ('<svg class="kal-ico" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">'
+          '<path fill="#FF0000" d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2C0 8.1 0 12 0 12s0 3.9.5 5.8a3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1c.5-1.9.5-5.8.5-5.8s0-3.9-.5-5.8z"/>'
+          '<path fill="#fff" d="M9.6 15.6V8.4l6.2 3.6z"/></svg>')
+
+
+def _zm_akce(m, odkaz):
+    """Tlačítka banneru: hlavní CTA "Živé vysílání…" (jen je-li známý odkaz na
+    livestream) a vedle něj odkaz na program jednání (jen je-li znám z pozvánky)."""
+    out = []
     live = (m.get('links') or {}).get('livestream')
-    if live and m.get('time'):
-        odkazy.append(f'<a href="{esc(live)}" target="_blank" rel="noopener">'
-                      f'Živé vysílání od {esc(m["time"])} ↗</a>')
-    return f'<span class="dash-zm-odkazy">{" · ".join(odkazy)}</span>' if odkazy else ''
+    if live:
+        out.append(f'<a class="banner-cta" href="{esc(live)}" target="_blank" rel="noopener">'
+                   f'{ICO_YT}Živé vysílání{" od " + esc(m["time"]) if m.get("time") else ""}</a>')
+    if m.get('agenda'):
+        out.append(f'<a class="banner-link" href="{odkaz}">Program jednání</a>')
+    return f'<div class="banner-actions">{"".join(out)}</div>' if out else ''
 
 
 def _dash_zastupitelstvo(dnes):
@@ -552,18 +564,22 @@ def _dash_zastupitelstvo(dnes):
         return ''
     out = ['<div class="dash-zm">']
     if zm:
-        out.append('  <ul class="dash-list dash-zm-blok dash-zm-blok--zm" data-max="1">')
+        out.append('  <ul class="dash-list banner" data-max="1">')
     for i, m in enumerate(zm):
-        kdy = iso_to_cz(m['date']) + (f' v {m["time"]}' if m.get('time') else '')
-        misto = f' · {esc(m["venue"])}' if m.get('venue') else ''
+        den = ['Pondělí', 'Úterý', 'Středa', 'Čtvrtek', 'Pátek', 'Sobota', 'Neděle'][_date.fromisoformat(m['date']).weekday()]
+        kdy = f'{den}, {iso_to_cz(m["date"])}' + (f' v {m["time"]}' if m.get('time') else '')
         odkaz = f'/jednani/#zastupitelstvo-{m["date"]}'
         dny = (_date.fromisoformat(m['date']) - _date.fromisoformat(dnes)).days
         # výchozí text z doby buildu; common.js ho v prohlížeči přepočítá
         za = _zm_kdy(dny, _date.fromisoformat(m['date']).weekday())
+        misto = (f'<span class="banner-meta-item">{ICO_PIN}<span>{esc(m["venue"].split(",")[0].strip())}</span></span>'
+                 if m.get('venue') else '')
         out.append(f'    <li data-until="{m["date"]}"{" hidden" if i else ""}>'
-                   f'<h3 class="display"><a href="{odkaz}">Příští zasedání zastupitelstva '
-                   f'<span class="dash-zm-kdy">{za}</span></a></h3>'
-                   f'<span class="meta-note">{esc(kdy)}{misto}</span>{_zm_odkazy(m, odkaz)}</li>')
+                   f'<h3 class="banner-title"><span class="dash-zm-kdy">{za}</span></h3>'
+                   f'<p class="banner-meta"><span class="banner-meta-item">{ICO_KAL}<span>{esc(kdy)}</span></span>{misto}</p>'
+                   f'<p class="banner-text">Jednání je veřejné. Můžete se přijít podívat, jak vaši zastupitelé jednají.</p>'
+                   f'{_zm_akce(m, odkaz)}'
+                   f'<p class="banner-note">Ze zasedání bude dostupný audio i video záznam.</p></li>')
     if zm:
         out.append('  </ul>')
     for e in volby:

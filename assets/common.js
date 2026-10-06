@@ -388,13 +388,13 @@ document.querySelectorAll('.exp-row').forEach(row => {
   const zmKdy = document.querySelector('.dash-zm li:not([hidden]) .dash-zm-kdy');
   if (zmKdy) {
     const dny = dnu(zmKdy.closest('li').getAttribute('data-until'));
-    // méně než 7 dní: název dne (stejná logika jako _zm_kdy() ve scripts/build.py)
-    const DEN = ['v neděli', 'v pondělí', 'v úterý', 've středu', 've čtvrtek', 'v pátek', 'v sobotu'];  // getUTCDay() 0 = ne
     if (dny >= 0) {
-      const iso = zmKdy.closest('li').getAttribute('data-until');
-      zmKdy.textContent = dny === 0 ? 'je dnes' : dny === 1 ? 'je zítra'
-        : dny < 7 ? 'je ' + DEN[new Date(utc(iso)).getUTCDay()]
-        : `za ${sklon(dny)}`;
+      // stejná logika jako _zm_kdy() ve scripts/build.py
+      zmKdy.textContent = dny === 0 ? 'Dnes bude zasedání města'
+        : dny === 1 ? 'Už zítra bude zasedání města'
+        : dny === 2 ? 'Už pozítří bude zasedání města'
+        : dny < 14 ? `Za ${sklon(dny)} bude zasedání města`
+        : `Za ${Math.floor(dny / 7)} ${dny < 35 ? 'týdny' : 'týdnů'} bude zasedání města`;
     }
   }
 
