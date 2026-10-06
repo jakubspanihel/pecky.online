@@ -466,13 +466,14 @@ stavby v roce 2026“.
   pilot — zápis RM 4/2015 potvrdil aspoň firmu a rok, ale ne
   konkrétní osobu ani to, že šlo o „kolaudační“ dokumentaci, jak tvrdí
   Švejnohová. Dosud nedohledáno, viz „Historie projektu“.
-- Zhotovitel/dodavatel samotné stavby vývařovny (2015–2016, ne
-  zpracovatel PD) — jméno se v prohledaných Pečeckých novinách
-  nenašlo. Pokud přibudou další ročníky novin, hledat i tohle.
-- Jestli/kdy proběhla formální kolaudace vývařovny — v novinách 2015–
-  2016 nedohledána (jen „finišuje“ v 8/2016), a hodila by se pro
-  přesné porovnání s tvrzením Švejnohové o „kolaudační dokumentaci
-  z roku 2015“.
+- Zhotovitel stavby vývařovny: **DMC CZ, s.r.o., Brno** (viz „Doplněno
+  6. 10. 2026“). Nedohledáno zůstává, kdo z firmy/subdodavatelů prováděl
+  základy a piloty — ověřit např. na Hlídači státu (smlouva 2015) nebo
+  ve stavebním archivu.
+- Jestli/kdy proběhla formální kolaudace vývařovny — v novinách ani
+  v zápisech Rady 2015–2016 nedohledána (rada předává dílo k 31. 8. 2016,
+  kolaudace se nezmiňuje), a hodila by se pro přesné porovnání s tvrzením
+  Švejnohové o „kolaudační dokumentaci z roku 2015“.
 
 ## Doplněno 2. 10. 2026: Facebook města k zasedání ZM 1/2026 (monitoring FB)
 
@@ -572,3 +573,26 @@ oprava střechy nad jídelnou); dál se čeká na nové projektové řešení. V
 - Příspěvek neuvádí orgán, kterému bylo oznámení podáno, ani cenu dodatečných prací; nespojuje je výslovně
   s Dodatkem č. 2 k SoD (bod 3 ZM 7/2026) — na stránce to tak zůstává, ověřit ze zápisu ZM 7/2026.
 - Komentář A. Švejnohové pod příspěvkem (vítá krok k objasnění odpovědnosti) se nepromítá — jen reakce.
+
+## Doplněno 6. 10. 2026 (2): starší zápisy Rady 2015–2016 z úřední desky (kuchyně)
+
+Zdroj: `jednani/starsi-jednani.json` (zápisy RM 2015–2016, usnesení ZM
+2015–2021 z úřední desky, plný text; viz `jednani/README.md`). Prohledáno na
+tělocvičnu, vývařovnu/kuchyni, A11, DMC, piloty. Výsledek: zápisy 2015–2016
+nezmiňují piloty ani základy, ale poprvé pojmenovávají aktéry stavby kuchyně.
+
+- **Zhotovitel: DMC CZ, s.r.o., Brno** (IČO 25574710). Řízení vypsala RM
+  13. 7. 2015 (26,5 mil. Kč bez DPH; v komisi místostarosta Paluska),
+  vítěz RM 25. 9. 2015: 20 314 346 Kč bez DPH. Dodatek č. 1 (RM 29. 8. 2016):
+  předání 31. 8. 2016, cena 20 005 523 Kč bez DPH, hlasování 4 pro – 2 zdrželi.
+- **Technický dozor:** Luděk Hejduk (RM 24. 8. 2015, 187 000 Kč).
+- **A11, Dodatek č. 1 (RM 29. 8. 2016):** „PD skutečného provedení“ kuchyně,
+  +192 654 Kč bez DPH. Možný kandidát na dokument, o kterém píše Švejnohová —
+  zápis to ale netvrdí, jde jen o hypotézu, na stránce neuvedená.
+- **Financování:** úvěr 18 mil. Kč od ČSOB (RM 2. 11., ZM 18. 11. 2015).
+- **ZM 5/2016 (9. 11. 2016):** příprava PD tělocvičny s aulou přesunuta na 2017.
+- Nenalezeno: kolaudace kuchyně, jakákoli zmínka o pilotách.
+
+Promítnuto do `content/telocvicna.html`: sedm nových řádků v „Historii
+projektu“, upravený úvod a gap-callout pod tabulkou, věta v prvním callout
+„Otevřené otázky“. Stat-grid, perex ani časová osa 2026 se neměnily.
