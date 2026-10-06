@@ -17,9 +17,9 @@
     .naobed-photo a{display:block;}
     .naobed-photo img{display:block; width:100%; height:auto;}
     .naobed-photo img.stare{filter:grayscale(1);}
-    .naobed-tag{position:absolute; top:10px; right:10px; padding:3px 9px; border-radius:4px; background:rgba(241,234,217,0.94); border:1px solid var(--line); color:var(--ink-soft); font-size:12px; line-height:1.3; box-shadow:0 1px 3px rgba(42,36,32,0.25);}
-    .naobed-tag.datum{right:auto; left:10px; text-align:center; line-height:1.35;}
-    .naobed-tag.dnes{background:var(--burgundy); border-color:var(--burgundy); color:#fff; font-size:14px; font-weight:700; letter-spacing:.08em; padding:5px 13px;}
+    .naobed-tag{position:absolute; top:10px; left:10px; padding:3px 9px; border-radius:4px; background:rgba(241,234,217,0.94); border:1px solid var(--line); color:var(--ink-soft); font-size:12px; line-height:1.3; box-shadow:0 1px 3px rgba(42,36,32,0.25);}
+    .naobed-tag.datum{text-align:center; line-height:1.35;}
+    .naobed-tag.dnes{background:var(--burgundy); border-color:var(--burgundy); color:#fff; font-size:14px; font-weight:700; letter-spacing:.02em; padding:5px 13px;}
     .naobed-info{padding:16px 18px 18px; display:flex; flex-direction:column; gap:7px;}
     .naobed-info p{margin:0; color:var(--ink-soft); font-size:15px;}
     .naobed-actions{display:flex; flex-wrap:wrap; gap:8px; align-items:center; margin-top:6px;}
@@ -71,8 +71,9 @@
           if (dj) {
             nalezeno++;
             var alg = function (s) { return esc(s).replace(/\s*\(([\d, a-z]+)\)/g, ' <span class="alg">($1)</span>'); };
-            tag = '<span class="naobed-tag datum">' + esc(denNazev(dj.date)) + '<br>' + esc(cz(dj.date)) + '</span>' +
-              (dj.date === dnes ? '<span class="naobed-tag dnes">DNES</span>' : '');
+            tag = dj.date === dnes
+              ? '<span class="naobed-tag dnes">Dnešní menu</span>'
+              : '<span class="naobed-tag datum">' + esc(denNazev(dj.date)) + '<br>' + esc(cz(dj.date)) + '</span>';
             photo = '<div class="naobed-text' + (dj.date === dnes ? '' : ' stare') + '"><h4>Polévka</h4><p>' + alg(dj.polevka) + '</p><h4>Hlavní jídla</h4>' +
               dj.jidla.map(function (j, i) { return '<p>' + (i + 1) + ') ' + alg(j) + '</p>'; }).join('') + '</div>' + tag;
           } else {
@@ -81,8 +82,9 @@
         } else if (m && m.file) {
           nalezeno++;
           var url = '/naobed/' + m.file;
-          tag = '<span class="naobed-tag datum">' + esc(denNazev(m.date)) + '<br>' + esc(cz(m.date)) + '</span>' +
-            (m.date === dnes ? '<span class="naobed-tag dnes">DNES</span>' : '');
+          tag = m.date === dnes
+              ? '<span class="naobed-tag dnes">Dnešní menu</span>'
+              : '<span class="naobed-tag datum">' + esc(denNazev(m.date)) + '<br>' + esc(cz(m.date)) + '</span>';
           photo = '<a href="' + esc(url) + '" target="_blank" rel="noopener"><img' + (m.date === dnes ? '' : ' class="stare"') + ' src="' + esc(url) + '" alt="Denní menu ' + esc(r.name) + ' z ' + esc(cz(m.date)) + '" loading="lazy"></a>' + tag;
         } else {
           photo = '<div class="naobed-empty">Fotografie menu zatím není k dispozici.</div>';
