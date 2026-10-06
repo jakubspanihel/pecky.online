@@ -26,35 +26,23 @@ sám s daty sekcí při každém `python3 scripts/build.py`.
 | └ Odkazy pod zasedáním | `agenda` (program z pozvánky), `links.livestream` + `time` | „Program jednání“ → detail jednání v `/jednani/` (jen je-li `agenda` neprázdná); „Živé vysílání od HH:MM ↗“ → livestream (jen je-li znám odkaz i čas) |
 | └ Volby v pásu „Příští zastupitelstvo“ | `kalendar/udalosti.json` → nejbližší událost kategorie `volby` (konec ≥ dnes) | druhý řádek pásu „Volby už za N dní“ / „jsou už zítra“ / „právě probíhají“ (počítá se k prvnímu dni hlasování), odkaz `/volby/`; pás se schová, až nezbude žádná položka |
 | Pečecké noviny | `noviny/pecky-noviny.json` → `editions` (nejvyšší `slug`) | titulní strana (`noviny/pages/<slug>/1.jpg`, je-li) + odkaz na PDF |
-| Naposledy aktualizováno | `README.md` → „Stav sekcí“, nový sloupec „Widget“ (od 29. 9. 2026) | max 3 položky, každá jako jeden odkaz s krátkým čtenářským popiskem — ne sloupec „Co naposledy“ (ten zůstává interní pracovní log, sem se nedává) |
+| Nově na webu (`#flashnews`) | `domu/flashnews.json` — ručně vedený seznam | banner 50 % šířky nad Nadcházejícími akcemi: jedna položka na řádku, po 5 s fade na další, klik rozbalí všechny pod sebe (zastaví střídání a pulzování) |
 
 Počty a vybrané kategorie jsou konstanty `DASH_*` na začátku bloku v
 `scripts/build.py`. Styl: `.dash-*` v `assets/styles.css`.
 
-### Sloupec „Widget" v tabulce Stav sekcí (od 29. 9. 2026)
-Šestý sloupec tabulky „Stav sekcí" — buňka je buď `—`, nebo
-`[krátký popisek](/cesta/ke/konkrétní/stránce)` (markdown odkaz, cíl
-klidně hlouběji než kořen sekce, např. `/jednani/absence.html`, ne jen
-`/jednani/`). Parsuje ho `parse_widget_cell()` ve `scripts/build.py`.
-Nerenderuje se ve veřejné tabulce na `/o-webu/` (tam zůstává jen
-původních 5 sloupců) — slouží výhradně kartě „Naposledy aktualizováno"
-na homepage.
+### Banner „Nově na webu“ (`#flashnews`, plně ruční správa od 7. 10. 2026)
+Položky jsou v `domu/flashnews.json`: pole objektů
+`{"emoji": "🗓️", "text": "Kalendář akcí", "url": "/kalendar/"}`; pořadí v souboru
+= pořadí střídání. **Nic se neodvozuje automaticky** (ani z tabulky Stav sekcí,
+sloupec Widget už neexistuje) — na co se odkazuje, vybírá vždy vlastník webu.
+Na pokyn se jen zapíše text a odkaz.
 
-Popisek psát jako copywriter: krátká věta, žádná ID v zpětných
-apostrofech, žádné „dřív (týž den)" řetězení z interního logu — úplný
-opak stylu sloupce „Co naposledy". Vyplňovat jen u sekcí, které si teď
-tenhle prostor na homepage zaslouží (ne u každé změny automaticky).
-**Co do widgetu patří (pravidlo od 30. 9. 2026):** jen důležité
-aktualizace — nový typ obsahu nebo nová funkce (nový zdroj dat, nový
-přehled, nová skupina jednání). Nepatří sem týdenní kontroly a rutinní
-počty, opravy, změny vzhledu a UI, doplnění řádku či drobné informace do
-existující tabulky ani technické detaily (synchronizace, build). Při
-každém zápisu do „Stav sekcí“ zvážit, jestli změna toto kritérium splňuje;
-nesplňuje-li, sloupec Widget neměnit.
-
-Karta zobrazuje nejvýš `DASH_ZMENY` (3) nejnovějších podle data
-„Změna" — **má-li vyplněný widget víc než `DASH_ZMENY` řádků, smazat
-zpátky na `—` ten nejstarší**, ať se homepage nezacpe starými odkazy.
+Pravidla textu: **3–4 slova**, před textem jedno emoji, věcně a neosobně
+(copywriting pravidla z CLAUDE.md), `url` klidně hlouběji než kořen sekce
+(např. `/jednani/absence.html`, `/volby/2026/#sliby2026` pro záložku).
+Počet položek není omezen; rendering `_dash_zmeny()` ve `scripts/build.py`,
+střídání a rozbalení `assets/common.js`, styl `.dash-nove*` v `assets/styles.css`.
 
 ### Budoucí položky a zastarávání mezi buildy
 Ohlášená jednání a akce nesou `data-until` (ISO datum konce). Build jich

@@ -54,9 +54,9 @@
 
 <main>
   <section class="panel active" id="panel-naobed">
-    <p class="lastmod" data-date="2026-10-05">Aktualizováno: 5. 10. 2026</p>
+    <p class="lastmod" data-date="2026-10-06">Aktualizováno: 6. 10. 2026</p>
     <h2 class="title display">Denní menu v Pečkách</h2>
-    <p class="lede">Poslední jídelní lístky tří pečeckých restaurací. Fotografie pocházejí z jejich facebookových stránek.</p>
+    <p class="lede">Poslední jídelní lístky tří pečeckých restaurací a odkaz na jídelníček školní jídelny. Fotografie pocházejí z facebookových stránek restaurací.</p>
 
     <h3 class="search-status" id="naobed-status"><span class="spinner" aria-hidden="true"></span>Načítám menu…</h3>
     <div id="naobed-list" class="naobed-list"></div>
@@ -66,17 +66,17 @@
   </section>
 
   <style>
-    .naobed-list{display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:18px; margin-top:14px; align-items:start;}
-    .naobed-card{display:flex; flex-direction:column; background:var(--parchment); border:1px solid var(--line); border-radius:6px; overflow:hidden;}
-    .naobed-photo{position:relative; background:var(--parchment-deep); min-height:200px;}
+    .naobed-list{display:flex; gap:18px; margin-top:14px; overflow-x:auto; scroll-snap-type:x proximity; padding-bottom:12px; -webkit-overflow-scrolling:touch;}
+    .naobed-card{flex:0 0 min(380px,86vw); scroll-snap-align:start; display:flex; flex-direction:column; background:var(--parchment); border:1px solid var(--line); border-radius:6px; overflow:hidden;}
+    .naobed-card>h3{margin:0; padding:14px 18px 12px; font-family:var(--font-display); font-size:22px; color:var(--ink); border-bottom:1px solid var(--line);}
+    .naobed-photo{position:relative; background:var(--parchment-deep); min-height:200px; flex:1 1 auto;}
     .naobed-photo a{display:block;}
     .naobed-photo img{display:block; width:100%; height:auto;}
     .naobed-photo img.stare{filter:grayscale(1);}
-    .naobed-tag{position:absolute; top:10px; right:10px; padding:3px 9px; border-radius:4px; background:rgba(241,234,217,0.94); border:1px solid var(--line); color:var(--ink-soft); font-size:12px; line-height:1.3; box-shadow:0 1px 3px rgba(42,36,32,0.25);}
-    .naobed-tag.datum{right:auto; left:10px; text-align:center; line-height:1.35;}
-    .naobed-tag.dnes{background:var(--burgundy); border-color:var(--burgundy); color:#fff; font-size:14px; font-weight:700; letter-spacing:.08em; padding:5px 13px;}
+    .naobed-tag{position:absolute; top:10px; left:10px; padding:3px 9px; border-radius:4px; background:rgba(241,234,217,0.94); border:1px solid var(--line); color:var(--ink-soft); font-size:12px; line-height:1.3; box-shadow:0 1px 3px rgba(42,36,32,0.25);}
+    .naobed-tag.datum{text-align:center; line-height:1.35;}
+    .naobed-tag.dnes{background:var(--burgundy); border-color:var(--burgundy); color:#fff; font-size:14px; font-weight:700; letter-spacing:.02em; padding:5px 13px;}
     .naobed-info{padding:16px 18px 18px; display:flex; flex-direction:column; gap:7px;}
-    .naobed-info h3{margin:0; font-family:var(--font-display); font-size:21px; color:var(--ink);}
     .naobed-info p{margin:0; color:var(--ink-soft); font-size:15px;}
     .naobed-actions{display:flex; flex-wrap:wrap; gap:8px; align-items:center; margin-top:6px;}
     .naobed-btn{display:inline-block; padding:7px 14px; border-radius:4px; background:var(--burgundy); color:#fff; font-size:14px; font-weight:600; text-decoration:none;}
@@ -85,7 +85,11 @@
     .naobed-dalsi li{margin-bottom:6px;}
     .naobed-dalsi strong{color:var(--ink);}
     .naobed-empty{padding:60px 20px; color:var(--ink-soft); font-size:15px; text-align:center;}
-    @media (max-width:900px){ .naobed-list{grid-template-columns:1fr; max-width:520px;} }
+    .naobed-text{padding:52px 18px 16px; font-size:15px; color:var(--ink);}
+    .naobed-text h4{margin:0 0 4px; font-size:13px; text-transform:uppercase; letter-spacing:.06em; color:var(--ink-soft);}
+    .naobed-text p{margin:0 0 12px; line-height:1.45;}
+    .naobed-text .alg{color:var(--ink-soft); font-size:12px; white-space:nowrap;}
+    .naobed-text .stare{color:var(--ink-soft);}
   </style>
 
   <script>
@@ -109,29 +113,44 @@
     Promise.all([
       fetch('/naobed/restaurace.json').then(function (r) { return r.json(); }),
       fetch('/naobed/menu.json').then(function (r) { return r.json(); }),
-      fetch('/lide/organizations.json').then(function (r) { return r.json(); })
+      fetch('/lide/organizations.json').then(function (r) { return r.json(); }),
+      fetch('/naobed/jidelna.json').then(function (r) { return r.json(); })
     ]).then(function (res) {
       var rest = res[0].restaurace, menu = res[1].restaurace || {}, dnes = today(), nalezeno = 0;
-      var orgs = {};
+      var jid = res[3] || {}, orgs = {};
       (res[2].organizations || []).forEach(function (o) { orgs[o.id] = o; });
       listEl.innerHTML = rest.map(function (r) {
         var m = menu[r.id];
         var photo, tag = '';
-        if (m && m.file) {
+        if (r.jidelnicek) {
+          var dj = (jid.dny || []).filter(function (d) { return d.date >= dnes; })[0] || (jid.dny || []).slice(-1)[0];
+          if (dj) {
+            nalezeno++;
+            var alg = function (s) { return esc(s).replace(/\s*\(([\d, a-z]+)\)/g, ' <span class="alg">($1)</span>'); };
+            tag = dj.date === dnes
+              ? '<span class="naobed-tag dnes">Dnešní menu</span>'
+              : '<span class="naobed-tag datum">' + esc(denNazev(dj.date)) + '<br>' + esc(cz(dj.date)) + '</span>';
+            photo = '<div class="naobed-text' + (dj.date === dnes ? '' : ' stare') + '"><h4>Polévka</h4><p>' + alg(dj.polevka) + '</p><h4>Hlavní jídla</h4>' +
+              dj.jidla.map(function (j, i) { return '<p>' + (i + 1) + ') ' + alg(j) + '</p>'; }).join('') + '</div>' + tag;
+          } else {
+            photo = '<div class="naobed-empty">Jídelníček zatím není k dispozici.</div>';
+          }
+        } else if (m && m.file) {
           nalezeno++;
           var url = '/naobed/' + m.file;
-          tag = '<span class="naobed-tag datum">' + esc(denNazev(m.date)) + '<br>' + esc(cz(m.date)) + '</span>' +
-            (m.date === dnes ? '<span class="naobed-tag dnes">DNES</span>' : '');
+          tag = m.date === dnes
+              ? '<span class="naobed-tag dnes">Dnešní menu</span>'
+              : '<span class="naobed-tag datum">' + esc(denNazev(m.date)) + '<br>' + esc(cz(m.date)) + '</span>';
           photo = '<a href="' + esc(url) + '" target="_blank" rel="noopener"><img' + (m.date === dnes ? '' : ' class="stare"') + ' src="' + esc(url) + '" alt="Denní menu ' + esc(r.name) + ' z ' + esc(cz(m.date)) + '" loading="lazy"></a>' + tag;
         } else {
           photo = '<div class="naobed-empty">Fotografie menu zatím není k dispozici.</div>';
         }
         var tel = r.phone ? '<a class="naobed-btn" href="callto://+420' + esc(r.phone.replace(/\D/g, '')) + '">📞 ' + esc(r.phone) + '</a>' : '';
         var odkazy = '<a href="' + esc(r.facebook) + '" target="_blank" rel="noopener">Facebook ↗</a>' +
-          (r.web ? ' · <a href="' + esc(r.web) + '" target="_blank" rel="noopener">Web ↗</a>' : '');
+          (r.web ? ' · <a href="' + esc(r.web) + '" target="_blank" rel="noopener">' + esc(r.webLabel || 'Web') + ' ↗</a>' : '');
         return '<article class="naobed-card" id="' + esc(r.id) + '">' +
-          '<div class="naobed-photo">' + photo + '</div>' +
-          '<div class="naobed-info"><h3>' + esc(r.name) + '</h3>' +
+          '<h3>' + esc(r.name) + '</h3><div class="naobed-photo">' + photo + '</div>' +
+          '<div class="naobed-info">' +
           (r.address ? '<p>📍 ' + esc(r.address) + '</p>' : '') +
           (dnesOtevreno((orgs[r.id] || {}).opening_hours) ? '<p>' + dnesOtevreno((orgs[r.id] || {}).opening_hours) + '</p>' : '') +
           '<div class="naobed-actions">' + tel + '<span>' + odkazy + '</span></div></div></article>';
@@ -146,7 +165,7 @@
         if (r.link) casti.push('<a href="' + esc(r.link) + '" target="_blank" rel="noopener">' + esc(r.linkLabel || 'Odkaz') + ' ↗</a>');
         return '<li><strong>' + esc(r.name) + '</strong> — ' + casti.join(' · ') + '</li>';
       }).join('');
-      statusEl.textContent = rest.length + ' restaurace';
+      statusEl.remove();
     }).catch(function () {
       statusEl.textContent = 'Menu se nepodařilo načíst.';
     });
@@ -160,6 +179,7 @@
     <a class="navlink" href="/smlouvy/">Smlouvy</a>
     <a class="navlink" href="/zakazky/">Zakázky</a>
     <a class="navlink" href="/pozemky/">Pozemky</a>
+    <a class="navlink" href="/prostory/">Prostory</a>
     <a class="navlink" href="/pokladna/">Pokladna</a>
     <a class="navlink" href="/o-webu/">O webu</a>
   </nav>

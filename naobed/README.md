@@ -8,7 +8,7 @@ zobrazuje poslední stažený snímek u každé z nich.
 
 | Soubor | Účel |
 |---|---|
-| `content/naobed.html` | tělo stránky (3 horizontální karty, vykreslené JS z JSON níže) |
+| `content/naobed.html` | tělo stránky (horizontálně posuvné karty stejné výšky, vykreslené JS z JSON níže) |
 | `naobed/restaurace.json` | seznam restaurací na stránce: `id` (= `id` v `lide/organizations.json`), název, adresa, telefon, Facebook, web |
 | `naobed/menu.json` | poslední stažené menu pro každé `id`: `file` (cesta od `naobed/`), `date` (den, pro který menu platí), `checked` (den kontroly) |
 | `naobed/img/<id>/RRRR-MM-DD.jpg` | stažené fotografie menu; datum v názvu = den, který je na lístku (ne den stažení) |
@@ -36,6 +36,11 @@ a spustí `python3 scripts/build.py`.
 
 ## Poznámky
 
+- Školní jídelna (`skolni-jidelna-pecky`, v `restaurace.json` s `jidelnicek: true`) nemá fotografii: karta vypisuje
+  dnešní (jinak nejbližší další) den z `naobed/jidelna.json`, který se přepisuje z textu na
+  https://www.zspecky.cz/jidelna/jidelnicek/ (polévka, 2 hlavní jídla, alergeny v závorce)
+  skriptem `python3 naobed/scripts/update-jidelna.py` (`--check` jen ověří, jestli soubor
+  má dnešek; dny starší 7 dní zahodí). Spouští ho ranní rutina spolu se skillem.
 - Staré fotografie se nemažou (archiv menu); stránka ukazuje jen tu z
   `menu.json`.
 - Je-li `date` jiné než dnešní, karta má štítek „menu z <datum>“ místo

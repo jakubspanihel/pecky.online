@@ -385,17 +385,15 @@ document.querySelectorAll('.exp-row').forEach(row => {
   const dnu = iso => Math.round((utc(iso) - dnes) / 86400000);
   const sklon = n => `${n} ${n < 5 ? 'dny' : 'dní'}`;
 
+  // stejná logika jako _kdy_za() ve scripts/build.py
+  const kdyZa = dny => dny <= 0 ? 'už dnes' : dny === 1 ? 'už zítra' : dny === 2 ? 'pozítří'
+    : dny < 14 ? `za ${sklon(dny)}`
+    : `za ${Math.floor(dny / 7)} ${dny < 35 ? 'týdny' : 'týdnů'}`;
+
   const zmKdy = document.querySelector('.dash-zm li:not([hidden]) .dash-zm-kdy');
   if (zmKdy) {
     const dny = dnu(zmKdy.closest('li').getAttribute('data-until'));
-    // méně než 7 dní: název dne (stejná logika jako _zm_kdy() ve scripts/build.py)
-    const DEN = ['v neděli', 'v pondělí', 'v úterý', 've středu', 've čtvrtek', 'v pátek', 'v sobotu'];  // getUTCDay() 0 = ne
-    if (dny >= 0) {
-      const iso = zmKdy.closest('li').getAttribute('data-until');
-      zmKdy.textContent = dny === 0 ? 'je dnes' : dny === 1 ? 'je zítra'
-        : dny < 7 ? 'je ' + DEN[new Date(utc(iso)).getUTCDay()]
-        : `za ${sklon(dny)}`;
-    }
+    if (dny >= 0) zmKdy.innerHTML = `Zasedání zastupitelstva <mark class="banner-hl">${kdyZa(dny)}</mark>`;
   }
 
   // volby: odpočet k prvnímu dni, během hlasování "právě probíhají"
@@ -404,12 +402,18 @@ document.querySelectorAll('.exp-row').forEach(row => {
     const li = vKdy.closest('li');
     const dny = dnu(li.getAttribute('data-from'));
     if (dnu(li.getAttribute('data-until')) >= 0)
-      vKdy.textContent = dny <= 0 ? 'Volby právě probíhají' : dny === 1 ? 'Volby jsou už zítra' : `Volby už za ${sklon(dny)}`;
+      vKdy.innerHTML = dny < 0
+        ? 'Volby do zastupitelstva města <mark class="banner-hl">právě probíhají</mark>'
+        : `Volby do zastupitelstva města budou <mark class="banner-hl">${kdyZa(dny)}</mark>`;
   }
 
   // widget bez jediné viditelné položky schovat celý
   document.querySelectorAll('.dash-zm').forEach(z => {
     z.hidden = !z.querySelector('li:not([hidden])');
+  });
+  // bento mřížka: řádek pro banner voleb jen když je banner vidět
+  document.querySelectorAll('.dash-bento').forEach(g => {
+    g.classList.toggle('dash-bento--volby', !!g.querySelector('.dash-zm--volby:not([hidden])'));
   });
 })();
 
@@ -437,4 +441,31 @@ document.querySelectorAll('.exp-row').forEach(row => {
   const set = () => document.documentElement.style.setProperty('--lc-h', lc.offsetHeight + 'px');
   set();
   window.addEventListener('resize', set);
+})();
+
+// ===== Dashboard: banner „Nově na webu“ — jedna položka, každých 5 s fade na další =====
+(function () {
+  const items = document.querySelectorAll('.dash-nove-list li');
+  if (!items.length) return;
+  let i = 0, pauza = false;
+  items[0].classList.add('on');
+  if (items.length < 2) return;
+  const box = document.querySelector('.dash-nove');
+  const btn = box.querySelector('.dash-nove-toggle');
+  box.addEventListener('mouseenter', () => { pauza = true; });
+  box.addEventListener('mouseleave', () => { pauza = false; });
+  box.addEventListener('focusin', () => { pauza = true; });
+  box.addEventListener('focusout', () => { pauza = false; });
+  // klik (mimo odkazy) rozbalí všechny položky pod sebe a zastaví střídání i pulzování
+  box.addEventListener('click', e => {
+    if (e.target.closest('a')) return;
+    const open = box.classList.toggle('is-open');
+    btn.setAttribute('aria-expanded', open);
+  });
+  setInterval(() => {
+    if (pauza || box.classList.contains('is-open')) return;
+    items[i].classList.remove('on');
+    i = (i + 1) % items.length;
+    items[i].classList.add('on');
+  }, 5000);
 })();
