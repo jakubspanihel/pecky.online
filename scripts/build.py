@@ -638,7 +638,9 @@ def _zm_akce(m, odkaz):
 
 def _dash_zastupitelstvo(dnes):
     """Samostatný widget na úplném začátku Domů: ohlášené zastupitelstvo
-    (jen ZM, ne Rada) a nejbližší volby z kalendáře. Bez obojího vrací ''.
+    (jen ZM, ne Rada) a nejbližší volby z kalendáře. Vrací dvojici
+    (banner zasedání, banner voleb); banner voleb se vkládá do bento mřížky.
+    Chybějící část je ''.
     Budoucí ZM se vypíše víc (rezerva), common.js ukáže první, které ještě
     neproběhlo, a nezbyde-li žádná položka, schová celý widget - neshnije
     mezi buildy."""
@@ -650,9 +652,10 @@ def _dash_zastupitelstvo(dnes):
     volby = sorted((e for e in events if e['category'] == 'volby'
                     and (e.get('date_end') or e['date']) >= dnes), key=lambda e: e['date'])[:1]
     if not zm and not volby:
-        return ''
+        return '', ''
     avatary = _zm_avatary()
-    out = ['<div class="dash-zm">']
+    out = ['<div class="dash-zm">'] if zm else []
+    out_v = []
     if zm:
         out.append('  <ul class="dash-list banner" data-max="1">')
     for i, m in enumerate(zm):
@@ -673,6 +676,7 @@ def _dash_zastupitelstvo(dnes):
                    f'<p class="banner-note">Jednání je veřejné. Ze zasedání bude dostupný audio i video záznam.</p></li>')
     if zm:
         out.append('  </ul>')
+        out.append('</div>')
     for e in volby:
         konec = e.get('date_end') or e['date']
         dny = (_date.fromisoformat(e['date']) - _date.fromisoformat(dnes)).days
@@ -682,14 +686,13 @@ def _dash_zastupitelstvo(dnes):
         dny_txt = (dnu[d1.weekday()] if d1 == d2 else
                    f'{dnu[d1.weekday()]} a {dnu[d2.weekday()].lower()}' if (d2 - d1).days == 1 else
                    f'{dnu[d1.weekday()]} až {dnu[d2.weekday()].lower()}')
-        out.append(f'  <ul class="dash-list banner banner--slate">\n    <li data-from="{e["date"]}" data-until="{konec}">'
+        out_v.append(f'<div class="dash-zm dash-zm--volby">\n  <ul class="dash-list banner banner--slate">\n    <li data-from="{e["date"]}" data-until="{konec}">'
                    f'<div class="banner-body"><h3 class="banner-title">'
                    f'<span class="dash-volby-kdy">{_volby_kdy(dny, dny < 0)}</span></h3>'
                    f'<p class="banner-meta"><span class="banner-meta-item">{ICO_KAL}<span>{dny_txt}, {esc(rozsah)}</span></span></p>'
                    f'<div class="banner-actions"><a class="banner-cta" href="/volby/">Jak se volí v Pečkách?</a></div>'
-                   f'</div></li>\n  </ul>')
-    out.append('</div>')
-    return '\n'.join(out)
+                   f'</div></li>\n  </ul>\n</div>')
+    return '\n'.join(out), '\n'.join(out_v)
 
 
 def _dash_kalendar(dnes):
@@ -759,8 +762,11 @@ def render_dashboard(stav_rows):
     from datetime import date
     dnes = date.today().isoformat()
     karty = [_dash_kalendar(dnes), _dash_jednani(dnes), _dash_noviny(), _dash_zmeny(stav_rows)]
-    return (_dash_zastupitelstvo(dnes) + '\n'
-            + '<div class="dash-grid dash-bento">\n' + '\n'.join(karty) + '\n</div>')
+    zm, volby = _dash_zastupitelstvo(dnes)
+    # banner voleb je dlaždice bento mřížky (grid-area "vol"), banner zasedání pás nad ní
+    return (zm + '\n'
+            + f'<div class="dash-grid dash-bento{" dash-bento--volby" if volby else ""}">\n'
+            + '\n'.join(([volby] if volby else []) + karty) + '\n</div>')
 
 
 # Znovupoužitelná komponenta "rozcestník volebních ročníků" - řádek buttonů,

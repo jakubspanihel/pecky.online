@@ -411,6 +411,10 @@ document.querySelectorAll('.exp-row').forEach(row => {
   document.querySelectorAll('.dash-zm').forEach(z => {
     z.hidden = !z.querySelector('li:not([hidden])');
   });
+  // bento mřížka: řádek pro banner voleb jen když je banner vidět
+  document.querySelectorAll('.dash-bento').forEach(g => {
+    g.classList.toggle('dash-bento--volby', !!g.querySelector('.dash-zm--volby:not([hidden])'));
+  });
 })();
 
 // ===== Menu v hlavičce: aktivní položku dorolovat do viditelné části lišty =====

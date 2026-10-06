@@ -298,6 +298,8 @@
      jednání, noviny, změny) — rozložení řídí grid-template-areas */
   .dash-bento{grid-template-columns:repeat(4,minmax(0,1fr)); grid-template-areas:"jed jed kal kal" "jed jed nov zme"; gap:14px;}
   .dash-bento .dash-card{border-radius:12px;}
+  .dash-bento--volby{grid-template-areas:"vol vol kal kal" "jed jed kal kal" "jed jed nov zme";}
+  .dash-bento > .dash-zm--volby{grid-area:vol; margin:0;}
   .dash-card--jednani{grid-area:jed; background:rgba(255,255,255,0.5);}
   .dash-card--kalendar{grid-area:kal;}
   .dash-bento .dash-list{margin-bottom:14px;}
@@ -307,8 +309,8 @@
   .dash-card--noviny .dash-noviny{flex-direction:column; align-items:flex-start;}
   .dash-card--noviny .dash-noviny img{width:100%; max-width:none; height:auto;}
   .dash-card--noviny .dash-noviny{align-items:stretch; gap:10px;}
-  @media (max-width:980px){.dash-bento{grid-template-columns:repeat(2,minmax(0,1fr)); grid-template-areas:"jed kal" "jed nov" "zme zme";}}
-  @media (max-width:720px){.dash-bento{grid-template-columns:1fr; grid-template-areas:"kal" "jed" "nov" "zme";}}
+  @media (max-width:980px){.dash-bento{grid-template-columns:repeat(2,minmax(0,1fr)); grid-template-areas:"jed kal" "jed nov" "zme zme";} .dash-bento--volby{grid-template-areas:"vol vol" "jed kal" "jed nov" "zme zme";}}
+  @media (max-width:720px){.dash-bento{grid-template-columns:1fr; grid-template-areas:"kal" "jed" "nov" "zme";} .dash-bento--volby{grid-template-areas:"vol" "kal" "jed" "nov" "zme";}}
   /* Příští zastupitelstvo: samostatný pás nad mřížkou karet, jen je-li ohlášené */
   /* každá položka (zasedání, volby) je samostatný blok; barvy stejné jako
      v Kalendáři: zastupitelstvo = bordó (--burgundy), volby = břidlicová (--slate) */
