@@ -501,17 +501,19 @@ ZM_DEN_CZ = ['v pondělí', 'v úterý', 've středu', 've čtvrtek', 'v pátek'
 
 
 def _zm_kdy(dny, weekday):
-    """Titulek banneru se zasedáním: "Dnes/Už zítra/Už pozítří/Za N dní bude
-    zasedání města". Stejná logika je v assets/common.js (přepočet v prohlížeči)."""
+    """Titulek banneru: "Zasedání zastupitelstva už dnes / už zítra / pozítří /
+    za N dní". Stejná logika je v assets/common.js (přepočet v prohlížeči)."""
     if dny <= 0:
-        return 'Dnes bude zasedání města'
-    if dny == 1:
-        return 'Už zítra bude zasedání města'
-    if dny == 2:
-        return 'Už pozítří bude zasedání města'
-    if dny < 14:
-        return f'Za {dny} {"dny" if dny < 5 else "dní"} bude zasedání města'
-    return f'Za {dny // 7} {"týdny" if dny < 35 else "týdnů"} bude zasedání města'
+        kdy = 'už dnes'
+    elif dny == 1:
+        kdy = 'už zítra'
+    elif dny == 2:
+        kdy = 'pozítří'
+    elif dny < 14:
+        kdy = f'za {dny} {"dny" if dny < 5 else "dní"}'
+    else:
+        kdy = f'za {dny // 7} {"týdny" if dny < 35 else "týdnů"}'
+    return f'Zasedání zastupitelstva <mark class="banner-hl">{kdy}</mark>'
 
 
 def _volby_kdy(dny, probiha):
@@ -532,6 +534,80 @@ ICO_PIN = ('<svg class="kal-ico" viewBox="0 0 16 16" width="16" height="16" fill
 ICO_YT = ('<svg class="kal-ico" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">'
           '<path fill="#FF0000" d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2C0 8.1 0 12 0 12s0 3.9.5 5.8a3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1c.5-1.9.5-5.8.5-5.8s0-3.9-.5-5.8z"/>'
           '<path fill="#fff" d="M9.6 15.6V8.4l6.2 3.6z"/></svg>')
+
+
+def _zm_avatary():
+    """Blok avatarů 21 současných zastupitelů do banneru: starosta, ostatní
+    radní (místostarostové, pak radní), nakonec zbylí zastupitelé. Zdroj:
+    lide/people.json + affiliations.json (current = zdroj pravdy). Bez fotky
+    iniciálový kroužek; každý avatar odkazuje na kartu osoby v Lidech."""
+    people = {p['id']: p for p in json.loads(read('lide/people.json'))['people']}
+    aff = json.loads(read('lide/affiliations.json'))['affiliations']
+    poradi = {'starosta': 0, 'mistostarosta': 1, 'rada': 2}
+    role = {}
+    for a in aff:
+        if a.get('current') and a['person_id'] in people:
+            if a['role_type'] in poradi:
+                role[a['person_id']] = min(role.get(a['person_id'], 9), poradi[a['role_type']])
+            elif a['role_type'] == 'zastupitel':
+                role.setdefault(a['person_id'], 3)
+    lide = sorted(role, key=lambda pid: (role[pid], people[pid]['last_name'], people[pid]['first_name']))
+    if not lide:
+        return ''
+    out = []
+    for pid in lide:
+        p = people[pid]
+        jmeno = f'{p["first_name"]} {p["last_name"]}'
+        popis = {0: 'starosta', 1: 'místostarosta', 2: 'radní', 3: 'zastupitel'}[role[pid]]
+        if p['gender'] == 'f':
+            popis = {'starosta': 'starostka', 'místostarosta': 'místostarostka', 'radní': 'radní',
+                     'zastupitel': 'zastupitelka'}[popis]
+        foto = (p.get('photos') or [{}])[0].get('url')
+        if foto:
+            vnitrek = f'<img src="{esc(foto)}" alt="{esc(jmeno)}" loading="lazy" width="56" height="56">'
+        else:
+            vnitrek = f'<span class="banner-av-init" aria-hidden="true">{esc(p["first_name"][0] + p["last_name"][0])}</span>'
+        cls = ' banner-av--rada' if role[pid] < 3 else ''
+        out.append(f'<a class="banner-av{cls}" href="/lide/#lide/osoba/{esc(pid)}" '
+                   f'title="{esc(jmeno)} — {popis}" aria-label="{esc(jmeno)}, {popis}">{vnitrek}</a>')
+    return ('<div class="banner-side"><p class="banner-side-title">Zastupitelstvo města</p>'
+            f'<div class="banner-avatars">{"".join(out)}</div></div>')
+
+
+# Témata, o kterých se na zastupitelstvu historicky jedná nejdéle (medián/průměr
+# délky bodu z jednani/pecky-jednani.json, zasedání s videozáznamem). Slouží
+# k výběru bodů do řádku "Bude se jednat o …" v banneru: (regex nad názvem bodu,
+# fráze ve 6. pádu, váha ~ průměrná délka v minutách). Procedurální body
+# (volba komisí, program, kontrola usnesení, diskuse, úkoly) se vynechávají.
+ZM_TEMATA = [
+    (r'tělocvičn', 'tělocvičně', 27),
+    (r'úvěr', 'úvěru', 25),
+    (r'^rozpočet \d{4}', None, 25),          # fráze se doplní z roku
+    (r'\b(dodatek|dodatku|sod|smlouv)', 'dodatku ke smlouvě', 9),
+    (r'rozpočtov\w+ opatření', 'rozpočtových opatřeních', 8),
+    (r'pozemk', 'pozemcích', 6),
+    (r'dotac', 'dotacích', 4),
+]
+
+
+def _zm_hot(m):
+    """Řádek "🔥 Bude se jednat o …" z nejdelších témat na programu (max. 3,
+    od nejdelšího) nebo '' když pozvánka žádné takové téma neobsahuje."""
+    nalezeno = {}
+    for a in m.get('agenda') or []:
+        t = a['t'].lower()
+        for rx, fraze, vaha in ZM_TEMATA:
+            hit = re.search(rx, t)
+            if not hit:
+                continue
+            if fraze is None:
+                fraze = f'rozpočtu na rok {hit.group(0)[-4:]}'
+            nalezeno[fraze] = max(nalezeno.get(fraze, 0), vaha)
+    temata = sorted(nalezeno, key=lambda f: -nalezeno[f])[:3]
+    if not temata:
+        return ''
+    text = ', '.join(temata[:-1]) + (' a ' if len(temata) > 1 else '') + temata[-1]
+    return f'<p class="banner-hot">🔥 Bude se jednat o {esc(text)}</p>'
 
 
 def _zm_akce(m, odkaz):
@@ -562,6 +638,7 @@ def _dash_zastupitelstvo(dnes):
                     and (e.get('date_end') or e['date']) >= dnes), key=lambda e: e['date'])[:1]
     if not zm and not volby:
         return ''
+    avatary = _zm_avatary()
     out = ['<div class="dash-zm">']
     if zm:
         out.append('  <ul class="dash-list banner" data-max="1">')
@@ -575,11 +652,12 @@ def _dash_zastupitelstvo(dnes):
         misto = (f'<span class="banner-meta-item">{ICO_PIN}<span>{esc(m["venue"].split(",")[0].strip())}</span></span>'
                  if m.get('venue') else '')
         out.append(f'    <li data-until="{m["date"]}"{" hidden" if i else ""}>'
+                   f'<div class="banner-body">'
                    f'<h3 class="banner-title"><span class="dash-zm-kdy">{za}</span></h3>'
                    f'<p class="banner-meta"><span class="banner-meta-item">{ICO_KAL}<span>{esc(kdy)}</span></span>{misto}</p>'
-                   f'<p class="banner-text">Jednání je veřejné. Můžete se přijít podívat, jak vaši zastupitelé jednají.</p>'
-                   f'{_zm_akce(m, odkaz)}'
-                   f'<p class="banner-note">Ze zasedání bude dostupný audio i video záznam.</p></li>')
+                   f'{_zm_hot(m)}{_zm_akce(m, odkaz)}'
+                   f'<p class="banner-note">Jednání je veřejné. Ze zasedání bude dostupný audio i video záznam.</p></div>'
+                   f'{avatary}</li>')
     if zm:
         out.append('  </ul>')
     for e in volby:

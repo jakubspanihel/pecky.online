@@ -390,11 +390,11 @@ document.querySelectorAll('.exp-row').forEach(row => {
     const dny = dnu(zmKdy.closest('li').getAttribute('data-until'));
     if (dny >= 0) {
       // stejná logika jako _zm_kdy() ve scripts/build.py
-      zmKdy.textContent = dny === 0 ? 'Dnes bude zasedání města'
-        : dny === 1 ? 'Už zítra bude zasedání města'
-        : dny === 2 ? 'Už pozítří bude zasedání města'
-        : dny < 14 ? `Za ${sklon(dny)} bude zasedání města`
-        : `Za ${Math.floor(dny / 7)} ${dny < 35 ? 'týdny' : 'týdnů'} bude zasedání města`;
+      zmKdy.innerHTML = 'Zasedání zastupitelstva <mark class="banner-hl">' + (dny === 0 ? 'už dnes'
+        : dny === 1 ? 'už zítra'
+        : dny === 2 ? 'pozítří'
+        : dny < 14 ? `za ${sklon(dny)}`
+        : `za ${Math.floor(dny / 7)} ${dny < 35 ? 'týdny' : 'týdnů'}`) + '</mark>';
     }
   }
 
