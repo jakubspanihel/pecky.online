@@ -549,7 +549,7 @@ ICO_YT = ('<svg class="kal-ico" viewBox="0 0 24 24" width="20" height="20" aria-
           '<path fill="#fff" d="M9.6 15.6V8.4l6.2 3.6z"/></svg>')
 
 
-def _zm_avatary(poznamka=''):
+def _zm_avatary():
     """Blok avatarů 21 současných zastupitelů do banneru: starosta, ostatní
     radní (místostarostové, pak radní), nakonec zbylí zastupitelé. Zdroj:
     lide/people.json + affiliations.json (current = zdroj pravdy). Bez fotky
@@ -584,7 +584,7 @@ def _zm_avatary(poznamka=''):
         out.append(f'<a class="banner-av{cls}" href="/lide/#lide/osoba/{esc(pid)}" '
                    f'title="{esc(jmeno)} — {popis}" aria-label="{esc(jmeno)}, {popis}">{vnitrek}</a>')
     return ('<div class="banner-side"><p class="banner-side-title">Zastupitelstvo města</p>'
-            f'<div class="banner-avatars">{"".join(out)}</div>{poznamka}</div>')
+            f'<div class="banner-avatars">{"".join(out)}</div></div>')
 
 
 # Témata, o kterých se na zastupitelstvu historicky jedná nejdéle (medián/průměr
@@ -651,7 +651,7 @@ def _dash_zastupitelstvo(dnes):
                     and (e.get('date_end') or e['date']) >= dnes), key=lambda e: e['date'])[:1]
     if not zm and not volby:
         return ''
-    avatary = _zm_avatary('<p class="banner-note">Jednání je veřejné. Ze zasedání bude dostupný audio i video záznam.</p>')
+    avatary = _zm_avatary()
     out = ['<div class="dash-zm">']
     if zm:
         out.append('  <ul class="dash-list banner" data-max="1">')
@@ -669,7 +669,8 @@ def _dash_zastupitelstvo(dnes):
                    f'<h3 class="banner-title"><span class="dash-zm-kdy">{za}</span></h3>'
                    f'<p class="banner-meta"><span class="banner-meta-item">{ICO_KAL}<span>{esc(kdy)}</span></span>{misto}</p>'
                    f'{_zm_hot(m)}{_zm_akce(m, odkaz)}</div>'
-                   f'{avatary}</li>')
+                   f'{avatary}'
+                   f'<p class="banner-note">Jednání je veřejné. Ze zasedání bude dostupný audio i video záznam.</p></li>')
     if zm:
         out.append('  </ul>')
     for e in volby:
