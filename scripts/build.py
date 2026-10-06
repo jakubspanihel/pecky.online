@@ -312,8 +312,8 @@ def parse_stav_sekci():
         if not line.startswith('| ['):
             continue
         cells = [c.strip() for c in line.split('|')[1:-1]]
-        if len(cells) != 6:
-            raise SystemExit(f'CHYBA: řádek tabulky "Stav sekcí" nemá 6 sloupců: {line}')
+        if len(cells) != 5:
+            raise SystemExit(f'CHYBA: řádek tabulky "Stav sekcí" nemá 5 sloupců: {line}')
         name_m = re.match(r'\[([^\]]+)\]\(([^)]+)\)', cells[0])
         if not name_m:
             raise SystemExit(f'CHYBA: nečitelný odkaz v tabulce "Stav sekcí": {cells[0]}')
@@ -330,28 +330,11 @@ def parse_stav_sekci():
             'kontrola': parse_cz_date(cells[2]),
             'zmena': parse_cz_date(cells[3]),
             'co': cells[4],
-            'widget': parse_widget_cell(cells[5]),
         })
 
     if not rows:
         raise SystemExit('CHYBA: tabulka "Stav sekcí" v README.md je prázdná.')
     return rows
-
-
-def parse_widget_cell(cell):
-    """'[text](url)' -> {'text', 'url'}, '—' -> None.
-
-    Sloupec "Widget" je ručně psaný, čtenářský popisek pro kartu "Naposledy
-    aktualizováno" na homepage (na rozdíl od "Co naposledy", což je interní
-    pracovní log) - vyplňuje se jen u sekcí, které mají jít do widgetu
-    (nejvýš DASH_ZMENY najednou, viz render_dashboard). Prázdné = "—".
-    """
-    if cell in ('—', '-', ''):
-        return None
-    m = re.match(r'^\[([^\]]+)\]\(([^)]+)\)$', cell)
-    if not m:
-        raise SystemExit(f'CHYBA: sloupec "Widget" v tabulce "Stav sekcí" čeká "[text](url)" nebo "—": {cell!r}')
-    return {'text': m.group(1), 'url': m.group(2)}
 
 
 def parse_cz_date(cell):
@@ -439,9 +422,8 @@ def apply_lastmod(content, lastmod):
 # (nadbytečné mají hidden), a common.js v prohlížeči skryje ty, co mezitím
 # proběhly, a doplní další v pořadí - homepage tak nezastará mezi buildy.
 DASH_KALENDAR_KATEGORIE = ('akce', 'volby')  # kurzy a svoz odpadu by zahltily výpis
-DASH_AKCE_VIDET, DASH_AKCE_REZERVA = 5, 25  # rezerva ~ týden bez buildu
+DASH_AKCE_VIDET, DASH_AKCE_REZERVA = 8, 25  # rezerva ~ týden bez buildu
 DASH_JEDNANI_PROBEHLA = 3
-DASH_ZMENY = 3
 DNY_CZ = ['po', 'út', 'st', 'čt', 'pá', 'so', 'ne']
 
 
@@ -454,10 +436,11 @@ def _den_cz(iso):
 
 def _dash_card(title, href, link_text, body, key):
     # key = název dlaždice v bento mřížce (grid-area v assets/styles.css)
+    title_html = esc(title).replace('\n', '<br>')  # \n v titulku = konec řádku
     return (f'<div class="dash-card dash-card--{key}">\n'
-            f'  <h3 class="display"><a href="{href}">{esc(title)}</a></h3>\n'
+            f'  <h3 class="display"><a href="{href}">{title_html}</a></h3>\n'
             f'{body}\n'
-            f'  <a class="dash-more" href="{href}">{esc(link_text)} →</a>\n'
+            + (f'  <a class="dash-more" href="{href}">{esc(link_text)} →</a>\n' if link_text else '') +
             f'</div>')
 
 
@@ -505,7 +488,7 @@ def _dash_jednani(dnes):
             out.append(f'    <li><span><a href="/jednani/#{slug(m)}">{esc(nazev(m))}</a></span>'
                        f'<span class="rel-date" data-date="{m["date"]}">{esc(iso_to_cz(m["date"]))}</span></li>')
         out.append('  </ul>')
-    return _dash_card('Proběhlá jednání rady, zastupitelstva, výborů a komisí', '/jednani/', 'Všechna jednání', '\n'.join(out), 'jednani')
+    return _dash_card('Poslední proběhlá jednání.\nRady, zastupitelstva i výborů', '/jednani/', 'Všechna jednání', '\n'.join(out), 'jednani')
 
 
 ZM_DEN_CZ = ['v pondělí', 'v úterý', 've středu', 've čtvrtek', 'v pátek', 'v sobotu', 'v neděli']  # weekday() 0 = po
@@ -742,31 +725,36 @@ def _dash_noviny():
     return _dash_card('Pečecké noviny', '/noviny/', 'Archiv a vyhledávání', body, 'noviny')
 
 
-def _dash_zmeny(stav_rows):
-    # Jen sekce s ručně vyplněným sloupcem "Widget" (viz parse_widget_cell) -
-    # krátký čtenářský popisek + přesný odkaz, na rozdíl od "Co naposledy"
-    # (interní pracovní log, sem se nedává). Řadí se podle data "Změna",
-    # ale zobrazuje se jen DASH_ZMENY nejnovějších - u víc než DASH_ZMENY
-    # vyplněných widgetů je na dalším běhu kontroly smazat ten nejstarší
-    # zpátky na "—", ať se widget nezacpe.
-    rows = [r for r in stav_rows if r['widget'] is not None and r['zmena'] is not None]
-    rows.sort(key=lambda r: r['zmena']['iso'], reverse=True)
-    out = ['  <ul class="dash-list">']
-    for r in rows[:DASH_ZMENY]:
-        out.append(f'    <li><a href="{r["widget"]["url"]}">{esc(r["widget"]["text"])}</a></li>')
-    out.append('  </ul>')
-    return _dash_card('Naposledy aktualizováno', '/o-webu/', 'Stav všech sekcí', '\n'.join(out), 'zmeny')
+def _dash_zmeny():
+    # Banner "Nově na webu" (#flashnews) se spravuje plně ručně v
+    # domu/flashnews.json: [{"emoji", "text" (3-4 slova), "url"}], pořadí = pořadí
+    # střídání. Nic se neodvozuje z jiných dat - odkazy vybírá vlastník webu.
+    items = json.loads(read('domu/flashnews.json'))
+    out = ['<div id="flashnews" class="banner banner--slate dash-nove dash-card--zmeny">',
+           '  <h3 class="dash-nove-title"><button type="button" class="dash-nove-toggle" aria-expanded="false" title="Zobrazit všechny novinky">Nově na webu</button></h3>',
+           '  <ul class="dash-nove-list">']
+    for it in items:
+        out.append(f'    <li><a href="{it["url"]}">{it["emoji"]} {esc(it["text"])}</a></li>')
+    out += ['  </ul>',
+            '  <svg class="dash-nove-chevron" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">'
+            '<path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>',
+            '</div>']
+    return '\n'.join(out)
 
 
 def render_dashboard(stav_rows):
     from datetime import date
     dnes = date.today().isoformat()
-    karty = [_dash_kalendar(dnes), _dash_jednani(dnes), _dash_noviny(), _dash_zmeny(stav_rows)]
     zm, volby = _dash_zastupitelstvo(dnes)
-    # banner voleb je dlaždice bento mřížky (grid-area "vol"), banner zasedání pás nad ní
+    # dva samostatné sloupce (vlevo banner voleb + jednání, vpravo flashnews, akce,
+    # noviny): sloupce se nenatahují podle sebe, takže mezi bloky nevznikají mezery;
+    # na užších displejích se sloupce rozpustí do mřížky (grid-area v styles.css)
+    levy = ([volby] if volby else []) + [_dash_jednani(dnes)]
+    pravy = [_dash_zmeny(), _dash_kalendar(dnes), _dash_noviny()]
+    sloupec = lambda karty: '<div class="dash-col">\n' + '\n'.join(karty) + '\n</div>'
     return (zm + '\n'
             + f'<div class="dash-grid dash-bento{" dash-bento--volby" if volby else ""}">\n'
-            + '\n'.join(([volby] if volby else []) + karty) + '\n</div>')
+            + sloupec(levy) + '\n' + sloupec(pravy) + '\n</div>')
 
 
 # Znovupoužitelná komponenta "rozcestník volebních ročníků" - řádek buttonů,

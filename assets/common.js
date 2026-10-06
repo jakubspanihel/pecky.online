@@ -442,3 +442,30 @@ document.querySelectorAll('.exp-row').forEach(row => {
   set();
   window.addEventListener('resize', set);
 })();
+
+// ===== Dashboard: banner „Nově na webu“ — jedna položka, každých 5 s fade na další =====
+(function () {
+  const items = document.querySelectorAll('.dash-nove-list li');
+  if (!items.length) return;
+  let i = 0, pauza = false;
+  items[0].classList.add('on');
+  if (items.length < 2) return;
+  const box = document.querySelector('.dash-nove');
+  const btn = box.querySelector('.dash-nove-toggle');
+  box.addEventListener('mouseenter', () => { pauza = true; });
+  box.addEventListener('mouseleave', () => { pauza = false; });
+  box.addEventListener('focusin', () => { pauza = true; });
+  box.addEventListener('focusout', () => { pauza = false; });
+  // klik (mimo odkazy) rozbalí všechny položky pod sebe a zastaví střídání i pulzování
+  box.addEventListener('click', e => {
+    if (e.target.closest('a')) return;
+    const open = box.classList.toggle('is-open');
+    btn.setAttribute('aria-expanded', open);
+  });
+  setInterval(() => {
+    if (pauza || box.classList.contains('is-open')) return;
+    items[i].classList.remove('on');
+    i = (i + 1) % items.length;
+    items[i].classList.add('on');
+  }, 5000);
+})();
