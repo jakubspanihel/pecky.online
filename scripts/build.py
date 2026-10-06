@@ -511,29 +511,31 @@ def _dash_jednani(dnes):
 ZM_DEN_CZ = ['v pondělí', 'v úterý', 've středu', 've čtvrtek', 'v pátek', 'v sobotu', 'v neděli']  # weekday() 0 = po
 
 
-def _zm_kdy(dny, weekday):
-    """Titulek banneru: "Zasedání zastupitelstva už dnes / už zítra / pozítří /
-    za N dní". Stejná logika je v assets/common.js (přepočet v prohlížeči)."""
+def _kdy_za(dny):
+    """Doba do události: už dnes / už zítra / pozítří / za N dní / za N týdny.
+    Stejná logika je v assets/common.js (přepočet v prohlížeči)."""
     if dny <= 0:
-        kdy = 'už dnes'
-    elif dny == 1:
-        kdy = 'už zítra'
-    elif dny == 2:
-        kdy = 'pozítří'
-    elif dny < 14:
-        kdy = f'za {dny} {"dny" if dny < 5 else "dní"}'
-    else:
-        kdy = f'za {dny // 7} {"týdny" if dny < 35 else "týdnů"}'
-    return f'Zasedání zastupitelstva <mark class="banner-hl">{kdy}</mark>'
+        return 'už dnes'
+    if dny == 1:
+        return 'už zítra'
+    if dny == 2:
+        return 'pozítří'
+    if dny < 14:
+        return f'za {dny} {"dny" if dny < 5 else "dní"}'
+    return f'za {dny // 7} {"týdny" if dny < 35 else "týdnů"}'
+
+
+def _zm_kdy(dny, weekday):
+    """Titulek banneru zasedání: "Zasedání zastupitelstva už zítra" (doba zvýrazněná)."""
+    return f'Zasedání zastupitelstva <mark class="banner-hl">{_kdy_za(dny)}</mark>'
 
 
 def _volby_kdy(dny, probiha):
-    """Text "Volby ..." do widgetu; stejná logika je v assets/common.js."""
+    """Titulek banneru voleb: "Volby do zastupitelstva města budou už zítra"
+    (doba zvýrazněná), během hlasování "… právě probíhají"."""
     if probiha:
-        return 'Volby právě probíhají'
-    if dny == 1:
-        return 'Volby jsou už zítra'
-    return f'Volby už za {dny} {"dny" if dny < 5 else "dní"}'
+        return 'Volby do zastupitelstva města <mark class="banner-hl">právě probíhají</mark>'
+    return f'Volby do zastupitelstva města budou <mark class="banner-hl">{_kdy_za(dny)}</mark>'
 
 
 ICO_KAL = ('<svg class="kal-ico" viewBox="0 0 16 16" width="16" height="16" fill="none" stroke="currentColor" '
@@ -547,7 +549,7 @@ ICO_YT = ('<svg class="kal-ico" viewBox="0 0 24 24" width="20" height="20" aria-
           '<path fill="#fff" d="M9.6 15.6V8.4l6.2 3.6z"/></svg>')
 
 
-def _zm_avatary():
+def _zm_avatary(poznamka=''):
     """Blok avatarů 21 současných zastupitelů do banneru: starosta, ostatní
     radní (místostarostové, pak radní), nakonec zbylí zastupitelé. Zdroj:
     lide/people.json + affiliations.json (current = zdroj pravdy). Bez fotky
@@ -582,7 +584,7 @@ def _zm_avatary():
         out.append(f'<a class="banner-av{cls}" href="/lide/#lide/osoba/{esc(pid)}" '
                    f'title="{esc(jmeno)} — {popis}" aria-label="{esc(jmeno)}, {popis}">{vnitrek}</a>')
     return ('<div class="banner-side"><p class="banner-side-title">Zastupitelstvo města</p>'
-            f'<div class="banner-avatars">{"".join(out)}</div></div>')
+            f'<div class="banner-avatars">{"".join(out)}</div>{poznamka}</div>')
 
 
 # Témata, o kterých se na zastupitelstvu historicky jedná nejdéle (medián/průměr
@@ -649,7 +651,7 @@ def _dash_zastupitelstvo(dnes):
                     and (e.get('date_end') or e['date']) >= dnes), key=lambda e: e['date'])[:1]
     if not zm and not volby:
         return ''
-    avatary = _zm_avatary()
+    avatary = _zm_avatary('<p class="banner-note">Jednání je veřejné. Ze zasedání bude dostupný audio i video záznam.</p>')
     out = ['<div class="dash-zm">']
     if zm:
         out.append('  <ul class="dash-list banner" data-max="1">')
@@ -666,8 +668,7 @@ def _dash_zastupitelstvo(dnes):
                    f'<div class="banner-body">'
                    f'<h3 class="banner-title"><span class="dash-zm-kdy">{za}</span></h3>'
                    f'<p class="banner-meta"><span class="banner-meta-item">{ICO_KAL}<span>{esc(kdy)}</span></span>{misto}</p>'
-                   f'{_zm_hot(m)}{_zm_akce(m, odkaz)}'
-                   f'<p class="banner-note">Jednání je veřejné. Ze zasedání bude dostupný audio i video záznam.</p></div>'
+                   f'{_zm_hot(m)}{_zm_akce(m, odkaz)}</div>'
                    f'{avatary}</li>')
     if zm:
         out.append('  </ul>')
@@ -675,10 +676,17 @@ def _dash_zastupitelstvo(dnes):
         konec = e.get('date_end') or e['date']
         dny = (_date.fromisoformat(e['date']) - _date.fromisoformat(dnes)).days
         rozsah = (f'{int(e["date"][8:])}.–{iso_to_cz(konec)}' if konec != e['date'] else iso_to_cz(e['date']))
-        out.append(f'  <ul class="dash-list dash-zm-blok dash-zm-blok--volby">\n    <li data-from="{e["date"]}" data-until="{konec}">'
-                   f'<h3 class="display"><a href="/volby/">'
-                   f'<span class="dash-volby-kdy">{_volby_kdy(dny, dny <= 0)}</span></a></h3>'
-                   f'<span class="meta-note">{esc(rozsah)}</span></li>\n  </ul>')
+        dnu = ['Pondělí', 'Úterý', 'Středa', 'Čtvrtek', 'Pátek', 'Sobota', 'Neděle']
+        d1, d2 = _date.fromisoformat(e['date']), _date.fromisoformat(konec)
+        dny_txt = (dnu[d1.weekday()] if d1 == d2 else
+                   f'{dnu[d1.weekday()]} a {dnu[d2.weekday()].lower()}' if (d2 - d1).days == 1 else
+                   f'{dnu[d1.weekday()]} až {dnu[d2.weekday()].lower()}')
+        out.append(f'  <ul class="dash-list banner banner--slate">\n    <li data-from="{e["date"]}" data-until="{konec}">'
+                   f'<div class="banner-body"><h3 class="banner-title">'
+                   f'<span class="dash-volby-kdy">{_volby_kdy(dny, dny < 0)}</span></h3>'
+                   f'<p class="banner-meta"><span class="banner-meta-item">{ICO_KAL}<span>{dny_txt}, {esc(rozsah)}</span></span></p>'
+                   f'<div class="banner-actions"><a class="banner-cta" href="/volby/">Jak se volí v Pečkách?</a></div>'
+                   f'</div></li>\n  </ul>')
     out.append('</div>')
     return '\n'.join(out)
 
@@ -724,9 +732,9 @@ def _dash_noviny():
     obalka = f'noviny/pages/{ed["slug"]}/1.jpg'
     img = (f'<img src="/{obalka}" alt="Titulní strana Pečeckých novin {esc(ed["label"])}" loading="lazy">'
            if (ROOT / obalka).exists() else '')
-    body = (f'  <a class="dash-noviny" href="{pdf}">{img}'
+    body = (f'  <a class="dash-noviny" href="{pdf}">'
             f'<span class="cap">{esc(ed["label"])}'
-            f'<span class="meta-note">{ed["page_count"]} stran · PDF</span></span></a>')
+            f'<span class="meta-note">{ed["page_count"]} stran</span></span>{img}</a>')
     return _dash_card('Pečecké noviny', '/noviny/', 'Archiv a vyhledávání', body, 'noviny')
 
 
