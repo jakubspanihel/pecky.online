@@ -1,0 +1,162 @@
+  <section class="panel active" id="panel-peckybot">
+    <h2 class="title display">Zeptejte se PečkyBota</h2>
+    <p class="lede">PečkyBot odpovídá na otázky z dat, která jsou na tomto webu: jednání zastupitelstva a rady, lidé ve veřejných funkcích a texty sekcí. U odpovědi je vždy odkaz na zdroj.</p>
+
+    <div class="callout">
+      <strong>Odpovídá umělá inteligence.</strong> Odpověď může být nepřesná, ověřte ji proto v odkazovaném zdroji. PečkyBot nemluví za město a nedává právní rady.
+      Dotazy se posílají ke zpracování službě Claude společnosti Anthropic, do dotazu proto nepište osobní údaje. Kvůli ochraně před zneužitím se počet dotazů eviduje podle IP adresy nejvýš dva dny.
+    </div>
+
+    <div class="pb-chat" id="pb-chat">
+      <div class="pb-log" id="pb-log" role="log" aria-live="polite" aria-label="Konverzace s PečkyBotem">
+        <div class="pb-msg pb-bot">
+          <img class="pb-avatar" src="/img/peckybot/welcome.png" alt="" width="44" height="44">
+          <div class="pb-bubble">Ahoj, já jsem PečkyBot. Zeptejte se třeba na usnesení rady a zastupitelstva, na stavbu tělocvičny nebo na to, kdo v Pečkách zastává jakou funkci.</div>
+        </div>
+      </div>
+
+      <h3 class="search-status" id="pb-status" hidden><span class="spinner" aria-hidden="true"></span>PečkyBot hledá ve zdrojích…</h3>
+
+      <div class="pb-examples" id="pb-examples">
+        <button type="button" class="pb-chip">Jak to vypadá se stavbou tělocvičny?</button>
+        <button type="button" class="pb-chip">Co rada naposledy schválila?</button>
+        <button type="button" class="pb-chip">Kdo je starosta a jak ho kontaktovat?</button>
+        <button type="button" class="pb-chip">Jaké pozemky město prodává?</button>
+      </div>
+
+      <form class="pb-form" id="pb-form" autocomplete="off">
+        <label class="pb-label" for="pb-input">Váš dotaz</label>
+        <div class="pb-row">
+          <input type="text" id="pb-input" maxlength="600" placeholder="Napište otázku…" required>
+          <button type="submit" id="pb-send" class="pb-send">Odeslat</button>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <style>
+    .pb-chat{margin-top:18px; max-width:760px;}
+    .pb-log{display:flex; flex-direction:column; gap:14px; margin-bottom:16px;}
+    .pb-msg{display:flex; gap:12px; align-items:flex-start;}
+    .pb-msg.pb-user{flex-direction:row-reverse;}
+    .pb-avatar{flex:0 0 44px; width:44px; height:44px; object-fit:contain;}
+    .pb-bubble{background:var(--parchment); border:1px solid var(--line); border-radius:6px; padding:11px 15px; font-size:15px; line-height:1.55; color:var(--ink); max-width:100%; overflow-wrap:anywhere;}
+    .pb-user .pb-bubble{background:var(--parchment-deep);}
+    .pb-error .pb-bubble{border-color:var(--burgundy); background:rgba(124,47,43,0.06);}
+    .pb-bubble p{margin:0 0 8px;}
+    .pb-bubble p:last-child{margin-bottom:0;}
+    .pb-bubble a.pb-ref{font-size:12px; vertical-align:super; text-decoration:none; font-weight:600; padding:0 1px;}
+    .pb-zdroje{margin:10px 0 0; padding:8px 0 0; border-top:1px solid var(--line); font-size:13px; color:var(--ink-soft); list-style:none;}
+    .pb-zdroje li{margin:2px 0;}
+    .pb-examples{display:flex; flex-wrap:wrap; gap:8px; margin:0 0 14px;}
+    .pb-chip{font:inherit; font-size:13.5px; padding:6px 12px; border-radius:16px; border:1px solid var(--line); background:var(--parchment); color:var(--ink); cursor:pointer;}
+    .pb-chip:hover{border-color:var(--burgundy); color:var(--burgundy);}
+    .pb-label{display:block; font-size:12.5px; color:var(--ink-soft); margin-bottom:4px;}
+    .pb-row{display:flex; gap:8px;}
+    .pb-row input{flex:1; min-width:0; font:inherit; font-size:15px; padding:9px 12px; border:1px solid var(--line); border-radius:4px; background:#fff; color:var(--ink);}
+    .pb-send{font:inherit; font-size:14px; font-weight:600; padding:9px 18px; border:0; border-radius:4px; background:var(--burgundy); color:#fff; cursor:pointer;}
+    .pb-send:hover{filter:brightness(1.15);}
+    .pb-send[disabled]{opacity:.55; cursor:default; filter:none;}
+    #pb-status[hidden], .pb-examples[hidden]{display:none;}
+    @media (max-width:600px){ .pb-row{flex-direction:column;} .pb-send{width:100%;} }
+  </style>
+
+  <script>
+  (function () {
+    var log = document.getElementById('pb-log');
+    var form = document.getElementById('pb-form');
+    var input = document.getElementById('pb-input');
+    var send = document.getElementById('pb-send');
+    var status = document.getElementById('pb-status');
+    var examples = document.getElementById('pb-examples');
+    var history = [];
+    var apiUrl = null;
+    var busy = false;
+
+    function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]; }); }
+
+    function addMsg(kind, html, img) {
+      var d = document.createElement('div');
+      d.className = 'pb-msg ' + (kind === 'user' ? 'pb-user' : 'pb-bot') + (kind === 'error' ? ' pb-error' : '');
+      d.innerHTML = (kind === 'user' ? '' : '<img class="pb-avatar" src="/img/peckybot/' + (img || 'welcome') + '.png" alt="" width="44" height="44">') +
+        '<div class="pb-bubble">' + html + '</div>';
+      log.appendChild(d);
+      d.scrollIntoView({block: 'nearest', behavior: 'smooth'});
+      return d;
+    }
+
+    // Odpověď modelu: prostý text s odkazy na zdroje ve tvaru [n].
+    function renderAnswer(text, sources) {
+      var byN = {};
+      sources.forEach(function (s) { byN[s.n] = s; });
+      var paras = esc(text).split(/\n{2,}/).map(function (p) {
+        p = p.replace(/\[(\d+)\]/g, function (m, n) {
+          var s = byN[n];
+          return s ? '<a class="pb-ref" href="' + esc(s.url) + '" title="' + esc(s.title) + '">[' + n + ']</a>' : m;
+        });
+        return '<p>' + p.replace(/\n/g, '<br>') + '</p>';
+      });
+      var out = paras.join('');
+      if (sources.length) {
+        out += '<ul class="pb-zdroje">' + sources.map(function (s) {
+          return '<li>[' + s.n + '] <a href="' + esc(s.url) + '">' + esc(s.title) + '</a></li>';
+        }).join('') + '</ul>';
+      }
+      return out;
+    }
+
+    function setBusy(b) {
+      busy = b;
+      send.disabled = b || !apiUrl;
+      status.hidden = !b;
+    }
+
+    function ask(question) {
+      if (busy || !apiUrl) return;
+      question = question.trim();
+      if (!question) return;
+      examples.hidden = true;
+      addMsg('user', '<p>' + esc(question) + '</p>');
+      history.push({role: 'user', content: question});
+      input.value = '';
+      setBusy(true);
+      var thinking = addMsg('bot', '<p>…</p>', 'thinking');
+      fetch(apiUrl, {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({messages: history.slice(-6)})
+      }).then(function (r) {
+        return r.json().then(function (j) { return {ok: r.ok, body: j}; });
+      }).then(function (res) {
+        thinking.remove();
+        if (!res.ok) {
+          history.pop();
+          addMsg('error', '<p>' + esc(res.body.error || 'PečkyBot teď neodpovídá. Zkuste to prosím později.') + '</p>', 'error');
+          return;
+        }
+        history.push({role: 'assistant', content: res.body.answer});
+        addMsg('bot', renderAnswer(res.body.answer, res.body.sources || []));
+      }).catch(function () {
+        thinking.remove();
+        history.pop();
+        addMsg('error', '<p>Spojení s PečkyBotem se nezdařilo. Zkuste to prosím znovu.</p>', 'error');
+      }).then(function () { setBusy(false); input.focus(); });
+    }
+
+    form.addEventListener('submit', function (e) { e.preventDefault(); ask(input.value); });
+    examples.addEventListener('click', function (e) {
+      if (e.target.classList.contains('pb-chip')) ask(e.target.textContent);
+    });
+
+    // Adresa Workeru je v peckybot/config.json, ať se dá spustit a vypnout bez buildu.
+    send.disabled = true;
+    fetch('/peckybot/config.json').then(function (r) { return r.json(); }).then(function (c) {
+      if (c && c.api) { apiUrl = c.api; send.disabled = false; return; }
+      throw new Error('vypnuto');
+    }).catch(function () {
+      input.disabled = true;
+      examples.hidden = true;
+      addMsg('error', '<p>PečkyBot zatím není spuštěný. Zkuste to prosím později.</p>', 'error');
+    });
+  })();
+  </script>
