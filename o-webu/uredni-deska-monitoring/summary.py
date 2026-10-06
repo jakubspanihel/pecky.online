@@ -20,6 +20,8 @@ from html import escape
 BASE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(os.path.dirname(BASE))
 DETAIL = 'https://pecky.cz/default/report/'
+DETAIL_AS4U = ('https://pecky.as4u.cz/redakce/index.php?lanG=cs&clanek=106922&slozka=106925'
+               '&detail_claim=')
 BOARD_URL = 'https://pecky.cz/office/board'
 
 MONTHS = ['Leden', 'Únor', 'Březen', 'Duben', 'Květen', 'Červen',
@@ -68,8 +70,17 @@ def load():
                 if not line or line.startswith('#'):
                     continue
                 slug, v, s, typ, name = line.split('|')
-                docs.append({'slug': slug, 'from': iso(v), 'to': iso(s) if s else None,
-                             'type': typ or 'Úřední deska', 'title': name,
+                if slug.startswith('as4u:'):
+                    url, as4u = DETAIL_AS4U + slug[5:], True
+                else:
+                    url, as4u = DETAIL + slug, False
+                to = iso(s) if s and s != 'do odvolání' else None
+                bad_end = bool(to and to < iso(v))  # chyba ve zdroji: sejmutí před vyvěšením
+                if bad_end:
+                    to = None
+                docs.append({'slug': slug, 'url': url, 'as4u': as4u, 'open_end': s == 'do odvolání',
+                             'bad_end': bad_end, 'from': iso(v), 'to': to,
+                             'type': typ if typ and typ != '-----' else 'Úřední deska', 'title': name,
                              'group': group_of(name)})
     docs.sort(key=lambda d: (d['from'], d['slug']), reverse=True)
     return docs
@@ -220,12 +231,16 @@ def render_month(ym, docs):
         did = '' if d['from'] in seen else f' id="ud-d-{d["from"]}"'
         seen.add(d['from'])
         typ = '' if d['type'] == 'Úřední deska' else f' · {escape(d["type"])}'
-        sejmuto = f'sejmuto {cz_date(d["to"])}' if d['to'] else 'sejmutí neuvedeno'
+        sejmuto = (f'sejmuto {cz_date(d["to"])}' if d['to'] else
+                   'vyvěšeno do odvolání' if d['open_end'] else
+                   'datum sejmutí je ve zdroji chybné' if d['bad_end'] else 'sejmutí neuvedeno')
+        if d['as4u']:
+            sejmuto += ' · starý web města'
         cards.append(
             f'        <li class="ud-card" data-date="{d["from"]}"{did}>'
             f'<span class="ud-head"><time class="ud-date" datetime="{d["from"]}">{cz_date(d["from"])}</time>'
             f'<span class="ud-chip ud-t{d["group"]}">{GROUPS[d["group"]][0]}</span></span>'
-            f'<a class="ud-title" href="{DETAIL}{escape(d["slug"], quote=True)}" target="_blank" rel="noopener">{escape(d["title"])}</a>'
+            f'<a class="ud-title" href="{escape(d["url"], quote=True)}" target="_blank" rel="noopener">{escape(d["title"])}</a>'
             f'<span class="ud-meta">{sejmuto}{typ}</span></li>')
     cards = '\n'.join(cards)
     return f'''    <details class="collapsible ud-month" id="ud-{ym}">
@@ -246,6 +261,8 @@ def render_page(docs):
     od_txt = f'{MONTHS_GEN[int(first_m[5:]) - 1]} {first_m[:4]}'
     do_txt = f'{MONTHS_GEN[int(last_m[5:]) - 1]} {last_m[:4]}'
     last_day = max(d['from'] for d in docs)
+    first_day = min(d['from'] for d in docs)
+    n_as4u = sum(1 for d in docs if d['as4u'])
     blocks = '\n'.join(render_month(ym, [d for d in docs if d['from'][:7] == ym]) for ym in reversed(months))
     years = sorted({ym[:4] for ym in months}, reverse=True)
     tree = []
@@ -333,7 +350,17 @@ def render_page(docs):
 
     <p class="ud-total"><strong>Celkem {total} {plural(total)}</strong> v {len(months)} měsících.</p>
 
-    <p class="meta-note">Data pocházejí z archivu <a href="{BOARD_URL}" target="_blank" rel="noopener">úřední desky na pecky.cz</a> (Hledání / Archiv, dokumenty vyvěšené od 1. 1. {months[0][:4]}), stav k {cz_date(last_day)}. Řadí se podle data vyvěšení. Téma dokumentu je určené podle názvu, zařazení je orientační. Do přehledu patří i oznámení jiných úřadů, která město vyvěšuje na svou desku (např. Městský úřad Poděbrady, Středočeský kraj). Dokumenty vyvěšené před rokem {months[0][:4]} přehled neobsahuje. Archiv není za všechny roky stejně úplný: za roky 2016 až 2018 a 2021 až 2022 obsahuje jen několik až několik desítek dokumentů (hlavně smlouvy o dotacích) a pozvánky na zasedání zastupitelstva jsou v něm jen z let 2019, 2020 a 2026. Počty dokumentů a témat proto nejsou mezi roky srovnatelné.</p>
+    <p class="meta-note">Data pocházejí z archivu <a href="{BOARD_URL}" target="_blank" rel="noopener">úřední desky na pecky.cz</a> (Hledání / Archiv, nejstarší dokument z {cz_date(first_day)}),
+    stav k {cz_date(last_day)}.
+    Archiv na pecky.cz je neúplný (za roky 2016 až 2018 a 2021 až 2022 obsahuje jen zlomek dokumentů, pozvánky na zasedání zastupitelstva jsou v něm jen z let 2019, 2020 a 2026),
+    proto jsou doplněné dokumenty ze starého webu města (<a href="https://pecky.as4u.cz/cs/mestsky-urad/uredni-deska-2.html" target="_blank" rel="noopener">pecky.as4u.cz</a>, Úřední deska včetně archivu, data od roku 2015): celkem {n_as4u} z {total} dokumentů.
+    Odkaz u takového dokumentu vede na starý web a je označený; dokument, který je na obou webech, je uvedený jednou s odkazem na pecky.cz.
+    Starý web se od března 2026 neaktualizuje.
+    Řadí se podle data vyvěšení.
+    Téma dokumentu je určené podle názvu, zařazení je orientační.
+    Do přehledu patří i oznámení jiných úřadů, která město vyvěšuje na svou desku (např.
+    Městský úřad Poděbrady, Středočeský kraj).
+    Dokumenty vyvěšené před rokem 2015 přehled neobsahuje.</p>
 
     <script>
     function udView(k) {{

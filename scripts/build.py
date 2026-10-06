@@ -190,7 +190,7 @@ EXTRA_PAGES = {
     'udmonitoring': (
         '/o-webu/uredni-deska-monitoring/',
         'Monitoring úřední desky města Pečky — Do Peček . cz',
-        'Dokumenty vyvěšené na úřední desce města Pečky od roku 2016 po '
+        'Dokumenty vyvěšené na úřední desce města Pečky od roku 2015 po '
         'měsících: téma, datum vyvěšení a sejmutí, odkaz na detail na webu města.',
         # Odkázaná z O webu -> Odkazy (u položky "Oficiální web města") od
         # 6. 10. 2026 — proto má lastmod a jde do sitemapy. Obsah
