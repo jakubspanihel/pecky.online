@@ -38,7 +38,9 @@ a spustí `python3 scripts/build.py`.
 
 - Školní jídelna (`skolni-jidelna-pecky`, v `restaurace.json` s `jidelnicek: true`) nemá fotografii: karta vypisuje
   dnešní (jinak nejbližší další) den z `naobed/jidelna.json`, který se přepisuje z textu na
-  https://www.zspecky.cz/jidelna/jidelnicek/ (polévka, 2 hlavní jídla, alergeny v závorce).
+  https://www.zspecky.cz/jidelna/jidelnicek/ (polévka, 2 hlavní jídla, alergeny v závorce)
+  skriptem `python3 naobed/scripts/update-jidelna.py` (`--check` jen ověří, jestli soubor
+  má dnešek; dny starší 7 dní zahodí). Spouští ho ranní rutina spolu se skillem.
 - Staré fotografie se nemažou (archiv menu); stránka ukazuje jen tu z
   `menu.json`.
 - Je-li `date` jiné než dnešní, karta má štítek „menu z <datum>“ místo
