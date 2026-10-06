@@ -187,6 +187,17 @@ EXTRA_PAGES = {
         # (statický snímek tabulky; zdrojová JSON jsou v .gitignore). Po každém
         # novém měsíci: pustit summary.py, build a přepsat lastmod níže.
         False, 'owebu', '2026-10-04'),
+    'udmonitoring': (
+        '/o-webu/uredni-deska-monitoring/',
+        'Monitoring úřední desky města Pečky — Do Peček . cz',
+        'Dokumenty vyvěšené na úřední desce města Pečky od roku 2016 po '
+        'měsících: téma, datum vyvěšení a sejmutí, odkaz na detail na webu města.',
+        # Odkázaná z O webu -> Odkazy (u položky "Oficiální web města") od
+        # 6. 10. 2026 — proto má lastmod a jde do sitemapy. Obsah
+        # content/udmonitoring.html GENERUJE o-webu/uredni-deska-monitoring/summary.py
+        # ze souboru <rok>.txt (statický snímek). Po každé kontrole desky:
+        # doplnit dokumenty do .txt, pustit summary.py, build a přepsat lastmod níže.
+        False, 'owebu', '2026-10-06'),
     'changelog': (
         '/o-webu/changelog.html', 'Historie změn na webu — Do Peček . cz',
         'Přehled sekcí webu Do Peček . cz: kdy byl u každé naposledy '
