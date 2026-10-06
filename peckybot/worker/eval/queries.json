@@ -1,0 +1,561 @@
+[
+ {
+  "q": "Jaký je e-mail na starostu?",
+  "expect": {
+   "titleRegex": "^Lidé — Milan Paluska",
+   "inTop": 3
+  },
+  "category": "Lidé",
+  "note": "people.json paluskam: milan.paluska@pecky.cz"
+ },
+ {
+  "q": "telefon na starostu Peček",
+  "expect": {
+   "titleRegex": "^Lidé — Milan Paluska",
+   "inTop": 3
+  },
+  "category": "Lidé",
+  "note": "+420 321 785 050 / 606 609 572"
+ },
+ {
+  "q": "Kdo je místostarosta?",
+  "expect": {
+   "titleRegex": "^Lidé — (Zdeněk Fejfar|Ing\\. Martin Jedlička)",
+   "inTop": 3
+  },
+  "category": "Lidé",
+  "note": "1. místostarosta Fejfar, 2. Jedlička"
+ },
+ {
+  "q": "kontakt na pana Fejfara",
+  "expect": {
+   "titleRegex": "^Lidé — Zdeněk Fejfar",
+   "inTop": 1
+  },
+  "category": "Lidé",
+  "note": "e-mail zdenek.fejfar@pecky.cz"
+ },
+ {
+  "q": "mail na Jedličku",
+  "expect": {
+   "titleRegex": "^Lidé — Ing\\. Martin Jedlička",
+   "inTop": 3
+  },
+  "category": "Lidé",
+  "note": "martin.jedlicka@pecky.cz; dotaz bez diakritiky/skloňování"
+ },
+ {
+  "q": "Kdo je předsedkyně kontrolního výboru?",
+  "expect": {
+   "titleRegex": "^Lidé — Mgr\\. Alena Švejnohová",
+   "inTop": 3
+  },
+  "category": "Lidé",
+  "note": "bio: od února 2025 předsedkyně kontrolního výboru"
+ },
+ {
+  "q": "Kdo zastupuje ČSSD v zastupitelstvu?",
+  "expect": {
+   "titleRegex": "^Lidé — (Ing\\. Petr Dürr|Ladislav Kejda)",
+   "inTop": 8
+  },
+  "category": "Lidé",
+  "note": "tags cssd: Dürr, Kejda (zkratka ČSSD musí být v textu)"
+ },
+ {
+  "q": "Kdo jsou zastupitelé za SPD?",
+  "expect": {
+   "titleRegex": "^Lidé — (Lubomír Metelák|Tomáš Růžička|Jaroslava Vosecká)",
+   "inTop": 8
+  },
+  "category": "Lidé",
+  "note": "tags lide-pro-pecky-spd"
+ },
+ {
+  "q": "Kdo nastoupil do zastupitelstva jako náhradník po Ivetě Dvořákové?",
+  "expect": {
+   "titleRegex": "^Lidé — Ondřej Schulz",
+   "inTop": 3
+  },
+  "category": "Lidé",
+  "note": "bio: slib 26. 2. 2025 po Bc. Ivetě Dvořákové"
+ },
+ {
+  "q": "kdy zemrela zastupitelka Triskova",
+  "expect": {
+   "titleRegex": "^Lidé — Lenka Třísková",
+   "inTop": 3
+  },
+  "category": "Lidé",
+  "note": "zemřela 27. 7. 2024; dotaz bez diakritiky"
+ },
+ {
+  "q": "Kdo byl první místostarostkou v letech 2018 až 2022?",
+  "expect": {
+   "titleRegex": "^Lidé — Bc\\. Iveta Dvořáková",
+   "inTop": 3
+  },
+  "category": "Lidé",
+  "note": "bio: 1. místostarostka 2018–2022, dříve Minaříková"
+ },
+ {
+  "q": "jak kontaktovat zastupitele Vodicku",
+  "expect": {
+   "titleRegex": "^Lidé — Tomáš Vodička",
+   "inTop": 3
+  },
+  "category": "Lidé",
+  "note": "tomas.vodicka@pecky.cz; bez diakritiky, 4. pád"
+ },
+ {
+  "q": "Kdo sedí v radě města?",
+  "expect": {
+   "titleRegex": "^Lidé —",
+   "inTop": 8,
+   "textRegex": "člen rady města"
+  },
+  "category": "Lidé",
+  "note": "člen rady města má řada lidí; textRegex ověřuje formulaci"
+ },
+ {
+  "q": "Kdo je za Naše Pečky v zastupitelstvu?",
+  "expect": {
+   "titleRegex": "^Lidé — (Václav Drška|Šárka Horynová|Jiří Katrnoška|Ondřej Schulz|Mgr\\. Alena Švejnohová|Tomáš Vodička|Jaroslav Železný)",
+   "inTop": 8
+  },
+  "category": "Lidé",
+  "note": "tag nasepecky"
+ },
+ {
+  "q": "Co schválilo zastupitelstvo 16. září 2026?",
+  "expect": {
+   "titleRegex": "^ZM 6/2026",
+   "inTop": 8
+  },
+  "category": "Jednání",
+  "note": "ZM 6/2026 = zastupitelstvo-2026-09-16"
+ },
+ {
+  "q": "kolárna u nádraží",
+  "expect": {
+   "titleRegex": "^ZM 6/2026 — .*[Kk]olárn",
+   "inTop": 3
+  },
+  "category": "Jednání",
+  "note": "ZM 6/2026 body 309–311"
+ },
+ {
+  "q": "prohlášení lípy na náměstí za památný strom",
+  "expect": {
+   "titleRegex": "^ZM 6/2026 — Prohlášení lípy",
+   "inTop": 3
+  },
+  "category": "Jednání",
+  "note": "ZM 6/2026"
+ },
+ {
+  "q": "darovací smlouva General Property X",
+  "expect": {
+   "titleRegex": "^ZM 6/2026 — .*General Property X",
+   "inTop": 3
+  },
+  "category": "Jednání",
+  "note": "ZM 6/2026 body 312–314"
+ },
+ {
+  "q": "Jak hospodaří Pečecké služby?",
+  "expect": {
+   "titleRegex": "Pečecké služby",
+   "inTop": 8
+  },
+  "category": "Jednání",
+  "note": "ZM 6/2026 — Pečecké služby, s.r.o. - hospodaření společnosti"
+ },
+ {
+  "q": "Kolik se platí za odpad? poplatek za popelnice",
+  "expect": {
+   "titleRegex": "místním poplatku za (obecní systém )?odpad",
+   "inTop": 8
+  },
+  "category": "Jednání",
+  "note": "OZV o místním poplatku za odpady; synonymum popelnice/odpad"
+ },
+ {
+  "q": "Fond obnovy kanalizace",
+  "expect": {
+   "titleRegex": "Fond obnovy kanalizace",
+   "inTop": 3
+  },
+  "category": "Jednání",
+  "note": "ZM 6/2023 Založení fondu"
+ },
+ {
+  "q": "Kde je kamera na čp. 172?",
+  "expect": {
+   "titleRegex": "pohyblivá kamera",
+   "inTop": 3
+  },
+  "category": "Jednání",
+  "note": "RM 12/2023 nájemní smlouva – pohyblivá kamera na čp. 172"
+ },
+ {
+  "q": "odkup pozemku v Dobřichově podíl devítina",
+  "expect": {
+   "titleRegex": "Odkoupení pozemku č\\. parc\\. 500",
+   "inTop": 3
+  },
+  "category": "Jednání",
+  "note": "ZM 6/2022 / RM 34/2022"
+ },
+ {
+  "q": "prodej pozemku parcela 1273/5",
+  "expect": {
+   "titleRegex": "Prodej pozemku č\\. parc\\. 1273/5",
+   "inTop": 3
+  },
+  "category": "Pozemky",
+  "note": "RM 29/2022, ZM 5/2022"
+ },
+ {
+  "q": "Dotace pro Svaz tělesně postižených",
+  "expect": {
+   "titleRegex": "Žádost o dotaci - Svaz tělesně postižených",
+   "inTop": 3
+  },
+  "category": "Jednání",
+  "note": "RM 10/2026"
+ },
+ {
+  "q": "Rekonstrukce dětského hřiště v parku",
+  "expect": {
+   "titleRegex": "dětského hřiště v parku",
+   "inTop": 3
+  },
+  "category": "Jednání",
+  "note": "RM 21/2026 Zadání VZMR"
+ },
+ {
+  "q": "zapis deti do skolky",
+  "expect": {
+   "titleRegex": "(MŠ - zápis dětí|Zápis dětí do MŠ)",
+   "inTop": 8
+  },
+  "category": "Jednání",
+  "note": "RM 46/2025, RM 10/2022; bez diakritiky, hovorové skolka=MŠ"
+ },
+ {
+  "q": "vyvěšení vlajky Sokol 8. října",
+  "expect": {
+   "titleRegex": "vlajky České obce sokolské",
+   "inTop": 3
+  },
+  "category": "Jednání",
+  "note": "RM 37/2025"
+ },
+ {
+  "q": "koordinátor BOZP čistírna odpadních vod",
+  "expect": {
+   "titleRegex": "Koordinátora BOZP.*Intenzifikace ČOV",
+   "inTop": 8
+  },
+  "category": "Jednání",
+  "note": "RM 18/2022; synonymum ČOV = čistírna odpadních vod"
+ },
+ {
+  "q": "příspěvek na péči o toulavé kočky",
+  "expect": {
+   "titleRegex": "toulavé kočky",
+   "inTop": 3
+  },
+  "category": "Jednání",
+  "note": "RM 28/2022"
+ },
+ {
+  "q": "Kolik stojí dostavba tělocvičny?",
+  "expect": {
+   "titleRegex": "^Web — Tělocvična",
+   "inTop": 3,
+   "textRegex": "211,5"
+  },
+  "category": "Tělocvična",
+  "note": "211,5 mil. Kč po dodatku č. 1"
+ },
+ {
+  "q": "Proč je zastavená stavba tělocvičny?",
+  "expect": {
+   "titleRegex": "^Web — Tělocvična",
+   "inTop": 3,
+   "textRegex": "pilot"
+  },
+  "category": "Tělocvična",
+  "note": "piloty kratší než dokumentace"
+ },
+ {
+  "q": "Kdy začala stavba tělocvičny u školy?",
+  "expect": {
+   "titleRegex": "^Web — Tělocvična",
+   "inTop": 8,
+   "textRegex": "3\\. 6\\. 2026"
+  },
+  "category": "Tělocvična",
+  "note": "zahájení 3. 6. 2026"
+ },
+ {
+  "q": "Informace o stavební akci Dostavba učeben a tělocvičny na zastupitelstvu",
+  "expect": {
+   "titleRegex": "^ZM 6/2026 — Informace o stavební akci",
+   "inTop": 3
+  },
+  "category": "Tělocvična",
+  "note": "ZM 6/2026 bod 3302"
+ },
+ {
+  "q": "co se děje u školy, proč tam stojí bagry",
+  "expect": {
+   "titleRegex": "(Tělocvična|Dostavba učeben)",
+   "inTop": 8
+  },
+  "category": "Tělocvična",
+  "note": "vágní formulace, žádná shoda na slova tělocvična/stavba"
+ },
+ {
+  "q": "Jaká byla volební účast v roce 2022?",
+  "expect": {
+   "titleRegex": "^Web — Volby 2022",
+   "inTop": 3,
+   "textRegex": "52,36"
+  },
+  "category": "Volby",
+  "note": "52,36 %"
+ },
+ {
+  "q": "Kdy jsou komunální volby 2026?",
+  "expect": {
+   "titleRegex": "^Web — Volby 2026",
+   "inTop": 3,
+   "textRegex": "9\\.\\W+10\\. října"
+  },
+  "category": "Volby",
+  "note": "9.–10. října 2026"
+ },
+ {
+  "q": "Kolik uskupení kandiduje ve volbách 2026?",
+  "expect": {
+   "titleRegex": "^Web — Volby 2026",
+   "inTop": 3,
+   "textRegex": "(pěti|Pět) uskupení"
+  },
+  "category": "Volby",
+  "note": "pět uskupení, 21 mandátů"
+ },
+ {
+  "q": "Kdo uzavřel koalici po volbách 2022?",
+  "expect": {
+   "titleRegex": "^Web — Volby 2022",
+   "inTop": 8,
+   "textRegex": "koalic"
+  },
+  "category": "Volby",
+  "note": "koalice SNK Pečky Pečákům a ČSSD"
+ },
+ {
+  "q": "kandidatka SPD volby 2026",
+  "expect": {
+   "titleRegex": "^Web — Volby 2026",
+   "inTop": 8,
+   "textRegex": "Lidé pro Pečky a Velké Chvalovice"
+  },
+  "category": "Volby",
+  "note": "Lidé pro Pečky a Velké Chvalovice s podporou SPD"
+ },
+ {
+  "q": "volebni programy 2018 skolstvi",
+  "expect": {
+   "titleRegex": "^Web — Volby 2018",
+   "inTop": 8,
+   "textRegex": "Školství"
+  },
+  "category": "Volby",
+  "note": "tabulka Školství v Volby 2018"
+ },
+ {
+  "q": "Kolik smluv má město v registru smluv?",
+  "expect": {
+   "titleRegex": "^Web — Smlouvy",
+   "inTop": 3,
+   "textRegex": "182 smluv"
+  },
+  "category": "Smlouvy/zakázky/finance/plán",
+  "note": "182 smluv skupina"
+ },
+ {
+  "q": "Která veřejná zakázka je největší?",
+  "expect": {
+   "titleRegex": "^Web — Zakázky",
+   "inTop": 3,
+   "textRegex": "168"
+  },
+  "category": "Smlouvy/zakázky/finance/plán",
+  "note": "168 614 851 Kč dostavba"
+ },
+ {
+  "q": "Má město dluhy nebo úvěr?",
+  "expect": {
+   "titleRegex": "^Web — Pokladna",
+   "inTop": 3,
+   "textRegex": "úvěr"
+  },
+  "category": "Smlouvy/zakázky/finance/plán",
+  "note": "0 Kč dluhová služba, žádný úvěr"
+ },
+ {
+  "q": "Na co město utrácí peníze z rozpočtu za platy?",
+  "expect": {
+   "titleRegex": "^Web — Pokladna",
+   "inTop": 3,
+   "textRegex": "Platy"
+  },
+  "category": "Smlouvy/zakázky/finance/plán",
+  "note": "Platy 16 %"
+ },
+ {
+  "q": "Strategický plán rozvoje obchvat a cyklostezky",
+  "expect": {
+   "titleRegex": "^Web — Strategický plán",
+   "inTop": 3,
+   "textRegex": "(obchvat|Obchvat)"
+  },
+  "category": "Smlouvy/zakázky/finance/plán",
+  "note": "plán 2016–2026"
+ },
+ {
+  "q": "Jaké akce budou tento týden v Pečkách?",
+  "expect": {
+   "titleRegex": "^(Kalendář|Akce|Událost)",
+   "inTop": 8
+  },
+  "category": "Chybějící zdroj (pending)",
+  "note": "kalendar/udalosti.json (akce, kurzy); titleRegex pending dotazů je odhad budoucího tvaru titulku (zakotvený ^) – upravit podle skutečných titulků nových zdrojů",
+  "pending": true
+ },
+ {
+  "q": "Kdy je svoz plastů a popelnic?",
+  "expect": {
+   "titleRegex": "^(Kalendář|Svoz)",
+   "inTop": 8
+  },
+  "category": "Chybějící zdroj (pending)",
+  "note": "kalendar/svoz-odpadu.json; titleRegex pending dotazů je odhad budoucího tvaru titulku (zakotvený ^) – upravit podle skutečných titulků nových zdrojů",
+  "pending": true
+ },
+ {
+  "q": "Kdy se schází stavebně dopravní komise?",
+  "expect": {
+   "titleRegex": "^(Stavebně-dopravní komise|Komise)",
+   "inTop": 8
+  },
+  "category": "Chybějící zdroj (pending)",
+  "note": "jednani/komise.json; titleRegex pending dotazů je odhad budoucího tvaru titulku (zakotvený ^) – upravit podle skutečných titulků nových zdrojů",
+  "pending": true
+ },
+ {
+  "q": "Co řešil finanční výbor naposledy?",
+  "expect": {
+   "titleRegex": "^(Finanční výbor|Výbor)",
+   "inTop": 8
+  },
+  "category": "Chybějící zdroj (pending)",
+  "note": "jednani/vybory.json; titleRegex pending dotazů je odhad budoucího tvaru titulku (zakotvený ^) – upravit podle skutečných titulků nových zdrojů",
+  "pending": true
+ },
+ {
+  "q": "Zápis ze školské rady ZŠ",
+  "expect": {
+   "titleRegex": "^Školská rada",
+   "inTop": 8
+  },
+  "category": "Chybějící zdroj (pending)",
+  "note": "jednani/skolska-rada.json; titleRegex pending dotazů je odhad budoucího tvaru titulku (zakotvený ^) – upravit podle skutečných titulků nových zdrojů",
+  "pending": true
+ },
+ {
+  "q": "Kdy je otevřený sběrný dvůr?",
+  "expect": {
+   "titleRegex": "^(Kalendář|Sběrný dvůr)",
+   "inTop": 8
+  },
+  "category": "Chybějící zdroj (pending)",
+  "note": "kalendar/sberny-dvur.json; titleRegex pending dotazů je odhad budoucího tvaru titulku (zakotvený ^) – upravit podle skutečných titulků nových zdrojů",
+  "pending": true
+ },
+ {
+  "q": "Pečecké noviny 12/2018",
+  "expect": {
+   "titleRegex": "^(Pečecké noviny|Noviny)",
+   "inTop": 8
+  },
+  "category": "Chybějící zdroj (pending)",
+  "note": "noviny/issues.json; titleRegex pending dotazů je odhad budoucího tvaru titulku (zakotvený ^) – upravit podle skutečných titulků nových zdrojů",
+  "pending": true
+ },
+ {
+  "q": "Co mají dnes k obědu v restauraci U Marka?",
+  "expect": {
+   "titleRegex": "^(Na oběd|Denní menu|Obědy)",
+   "inTop": 8
+  },
+  "category": "Chybějící zdroj (pending)",
+  "note": "naobed/menu.json; titleRegex pending dotazů je odhad budoucího tvaru titulku (zakotvený ^) – upravit podle skutečných titulků nových zdrojů",
+  "pending": true
+ },
+ {
+  "q": "Kdy hraje AFK Pečky doma?",
+  "expect": {
+   "titleRegex": "^(Kalendář|AFK|Zápas)",
+   "inTop": 8
+  },
+  "category": "Chybějící zdroj (pending)",
+  "note": "kalendar/afk-zapasy.json; titleRegex pending dotazů je odhad budoucího tvaru titulku (zakotvený ^) – upravit podle skutečných titulků nových zdrojů",
+  "pending": true
+ },
+ {
+  "q": "Kdo pořádá hospodský kvíz o Pečkách?",
+  "expect": {
+   "titleRegex": "^(Kalendář|Akce)",
+   "inTop": 8
+  },
+  "category": "Chybějící zdroj (pending)",
+  "note": "kalendar akce 6. 10. 2026, pořadatel NAŠE PEČKY; titleRegex pending dotazů je odhad budoucího tvaru titulku (zakotvený ^) – upravit podle skutečných titulků nových zdrojů",
+  "pending": true
+ },
+ {
+  "q": "Jaký je kontakt na městskou knihovnu?",
+  "expect": {
+   "titleRegex": "^(Organizace|Městská knihovna|Knihovna)",
+   "inTop": 8
+  },
+  "category": "Chybějící zdroj (pending)",
+  "note": "organizations.json mestska-knihovna-pecky; titleRegex pending dotazů je odhad budoucího tvaru titulku (zakotvený ^) – upravit podle skutečných titulků nových zdrojů",
+  "pending": true
+ },
+ {
+  "q": "Jaké spolky působí v Pečkách, třeba Sokol?",
+  "expect": {
+   "titleRegex": "^(Organizace|Spolek|TJ Sokol)",
+   "inTop": 8
+  },
+  "category": "Chybějící zdroj (pending)",
+  "note": "organizations.json tj-sokol-pecky; titleRegex pending dotazů je odhad budoucího tvaru titulku (zakotvený ^) – upravit podle skutečných titulků nových zdrojů",
+  "pending": true
+ },
+ {
+  "q": "Kdy má otevřeno městský úřad?",
+  "expect": {
+   "titleRegex": "^(Kalendář|Městský úřad|Úřední hodiny)",
+   "inTop": 8
+  },
+  "category": "Chybějící zdroj (pending)",
+  "note": "kalendar/mestsky-urad.json; titleRegex pending dotazů je odhad budoucího tvaru titulku (zakotvený ^) – upravit podle skutečných titulků nových zdrojů",
+  "pending": true
+ }
+]

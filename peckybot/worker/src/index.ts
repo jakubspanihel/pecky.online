@@ -188,9 +188,11 @@ async function answer(env: Env, messages: ChatMessage[], month: string) {
 
   // dotaz pro vyhledávání = poslední otázka + předchozí (kvůli navazujícím dotazům „a kdo to navrhl?“)
   const users = messages.filter((m) => m.role === "user");
-  const query = users.slice(-2).map((m) => m.content).join(" ");
+  // nejnovější otázka má plnou váhu, předchozí jen poloviční (viz search.ts)
+  const query = users[users.length - 1].content;
+  const context = users.length > 1 ? users[users.length - 2].content : undefined;
   const index = await getIndex(env);
-  const hits = search(index, query, TOP_K);
+  const hits = search(index, query, TOP_K, { context });
   const texts = await getTexts(env, index, hits.map((h) => h.id));
   const sources = hits.map((h, i) => ({
     n: i + 1,

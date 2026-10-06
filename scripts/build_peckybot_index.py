@@ -87,32 +87,60 @@ def cz_date(iso):
     return f'{int(d)}. {int(m)}. {y}'
 
 
+MESIC_NOM = ['', 'leden', 'únor', 'březen', 'duben', 'květen', 'červen', 'červenec', 'srpen',
+             'září', 'říjen', 'listopad', 'prosinec']
+MESIC_GEN = ['', 'ledna', 'února', 'března', 'dubna', 'května', 'června', 'července', 'srpna',
+             'září', 'října', 'listopadu', 'prosince']
+
+
+def meeting_context(m, short):
+    """Úvod úryvku: druh jednání slovy + datum ve více zápisech (dotazy typu
+    „zasedání zastupitelstva 26. srpna“ musí najít slova přímo v textu)."""
+    y, mo, d = m['date'].split('-')
+    mo_i, d_i = int(mo), int(d)
+    kdy = f"{d_i}. {mo_i}. {y}"
+    if m['type'] == 'Zastupitelstvo':
+        druh = f"Zasedání zastupitelstva města, {short}"
+    else:
+        druh = f"Schůze rady města, {short}"
+    return (f"{druh}, konané {kdy} ({d_i}. {MESIC_GEN[mo_i]} {y}, {MESIC_NOM[mo_i]} {y})")
+
+
 def chunks_jednani():
     data = json.loads((ROOT / 'jednani/pecky-jednani.json').read_text(encoding='utf-8'))
     out = []
     for m in sorted(data['meetings'], key=lambda x: x['date']):
         short, url = meeting_ref(m)
-        kdy = cz_date(m['date'])
-        head = f"{short} ({kdy})"
+        head = meeting_context(m, short)
         used = set()
+        # přehled jednání: kdy, kde, co je na programu
+        ag = m.get('agenda', [])
+        pr = [head + '.']
+        if m.get('venue'):
+            pr.append(f"Místo: {clip(m['venue'], 70)}.")
+        if m.get('time'):
+            pr.append(f"Začátek: {m['time']}.")
+        if ag:
+            pr.append(f"Program ({len(ag)} bodů): " + clip('; '.join(f"{a['n']}. {a['t']}" for a in ag), 380))
+        out.append({'u': url, 't': f'{short} — přehled jednání', 'x': clip(' '.join(pr), 560)})
         # usnesení podle názvu bodu
         by_item = {}
         for r in m.get('resolutions', []):
             by_item.setdefault(r['item'], []).append(r)
-        for a in m.get('agenda', []):
+        for a in ag:
             parts = [f"{head}, bod {a['n']}: {a['t']}."]
             if a.get('predkladatel'):
                 parts.append(f"Předkládá: {a['predkladatel']}.")
             if a.get('duvodova_zprava'):
-                parts.append('Důvodová zpráva: ' + clip(a['duvodova_zprava'], 320))
+                parts.append('Důvodová zpráva: ' + clip(a['duvodova_zprava'], 300))
             for r in by_item.get(a['t'], []):
                 used.add(a['t'])
                 hlasy = ''
                 if r.get('pro') is not None:
                     hlasy = f" (pro {r['pro']}, proti {r.get('proti', 0)}, zdrželo se {r.get('zdrzel', 0)})"
-                parts.append(f"Usnesení {r['n']}: {clip(r['text'], 380)}{hlasy}")
-            text = clip(' '.join(parts), MAX_CHUNK)
-            if len(text) < MIN_CHUNK:
+                parts.append(f"Usnesení {r['n']}: {clip(r['text'], 360)}{hlasy}")
+            text = clip(' '.join(parts), MAX_CHUNK + 90)
+            if len(text) < MIN_CHUNK + 90:
                 continue
             out.append({'u': url, 't': f'{short} — {a["t"]}', 'x': text})
         for item, rs in by_item.items():
@@ -120,8 +148,8 @@ def chunks_jednani():
                 continue
             parts = [f"{head}, bod: {item}."]
             for r in rs:
-                parts.append(f"Usnesení {r['n']}: {clip(r['text'], 380)}")
-            out.append({'u': url, 't': f'{short} — {item}', 'x': clip(' '.join(parts), MAX_CHUNK)})
+                parts.append(f"Usnesení {r['n']}: {clip(r['text'], 360)}")
+            out.append({'u': url, 't': f'{short} — {item}', 'x': clip(' '.join(parts), MAX_CHUNK + 90)})
     return out
 
 
@@ -133,34 +161,88 @@ ROLE_TAGY = {
 }
 
 
+USTREDNA = re.sub(r'\D', '', '+420 321 785 051')
+# role_type -> slova, která lidé hledají (doplňují text role z affiliations.json)
+ROLE_SLOVA = {
+    'starosta': 'starosta města, starostka',
+    'mistostarosta': 'místostarosta, místostarostka',
+    'rada': 'radní, člen rady města',
+    'zastupitel': 'zastupitel, zastupitelka, člen zastupitelstva města',
+    'vedeni-organizace': 'vedení organizace, ředitel, ředitelka',
+    'vedeni-urad': 'vedení městského úřadu, tajemník, vedoucí odboru',
+}
+FUNKCNI = {'starosta', 'mistostarosta', 'rada', 'zastupitel', 'komise', 'vedeni-organizace',
+           'vedeni-urad', 'clen'}
+
+
+def clean_phone(phone):
+    """Ústředna úřadu není osobní kontakt (lide/SPEC.md §3.6b)."""
+    nums = [x.strip() for x in phone.split('·')]
+    return ' · '.join(x for x in nums if x and re.sub(r'\D', '', x) != USTREDNA)
+
+
 def chunks_lide():
     data = json.loads((ROOT / 'lide/people.json').read_text(encoding='utf-8'))
+    orgs = {o['id']: o for o in json.loads(
+        (ROOT / 'lide/organizations.json').read_text(encoding='utf-8'))['organizations']}
+    aff = {}
+    for a in json.loads((ROOT / 'lide/affiliations.json').read_text(encoding='utf-8'))['affiliations']:
+        aff.setdefault(a['person_id'], []).append(a)
     out = []
     for p in data['people']:
         bio = (p.get('bio') or '').strip()
         email = (p.get('email') or '').strip()
-        phone = (p.get('phone') or '').strip()
-        # kontakty jsou v indexu i u lidí bez životopisu
-        if not (bio or email or phone):
-            continue
+        phone = clean_phone((p.get('phone') or '').strip())
+        mine = aff.get(p['id'], [])
+        funkce = [a for a in mine if a['current'] and a['role_type'] in FUNKCNI]
+        # každý člověk má aspoň jméno (hledání podle jména); kontakty a funkce i bez životopisu
         jmeno = ' '.join(x for x in (p.get('title_before'), p.get('first_name'), p.get('last_name'),
                                      p.get('title_after')) if x).strip()
         parts = [f'{jmeno}.']
+        stare = list(p.get('former_last_names') or [])
+        if stare:
+            parts.append(f"Dříve příjmením {', '.join(stare)}.")
         if bio:
             parts.append(clip(bio, 600))
-        role = [ROLE_TAGY[t] for t in p.get('tags', []) if t in ROLE_TAGY]
-        if role:
-            parts.append(f"Působení: {', '.join(role)}.")
+        # funkce: text role + hledaná slova + název organizace
+        fl, slova, videno = [], [], set()
+        for a in funkce:
+            org = orgs.get(a['organization_id'], {}).get('name', '')
+            key = (a['role'], org)
+            if key in videno:
+                continue
+            videno.add(key)
+            fl.append(f"{a['role']} ({org})" if org else a['role'])
+            slova.append(ROLE_SLOVA.get(a['role_type'], ''))
+        if fl:
+            parts.append('Funkce: ' + '; '.join(fl[:6]) + '.')
+            sl = ', '.join(sorted({w for x in slova for w in x.split(', ') if w}))
+            if sl:
+                parts.append(f'({sl}).')
+        else:
+            role = [ROLE_TAGY[t] for t in p.get('tags', []) if t in ROLE_TAGY]
+            if role:
+                parts.append(f"Působení: {', '.join(role)}.")
+        strany = []
+        for a in mine:
+            o = orgs.get(a['organization_id'], {})
+            if o.get('type') == 'politicke' and o['name'] not in strany:
+                strany.append(o['name'])
+        if strany:
+            parts.append('Politické uskupení: ' + '; '.join(strany) + '.')
         occ = sorted(p.get('occupations') or [], key=lambda o: o.get('year', 0), reverse=True)
         if occ and not bio:
             parts.append(f"Zaměstnání: {occ[0]['value']}.")
+        if len(parts) == 1 + bool(stare) and not mine:
+            parts.append('Osoba evidovaná v sekci Lidé.')
         if email or phone:
             parts.append('Kontakt:')
         if email:
             parts.append(f'E-mail: {email}.')
         if phone:
             parts.append(f'Telefon: {phone}.')
-        out.append({'u': '/lide/', 't': f'Lidé — {jmeno}', 'x': ' '.join(parts)})
+        t = f'Lidé — {jmeno}'
+        out.append({'u': '/lide/', 't': t, 'x': ' '.join(parts)})
     return out
 
 
@@ -181,14 +263,46 @@ STATICKE = {
 }
 
 
-def html_to_text(src):
+HEAD_MARK = '\x01'
+
+
+def html_to_lines(src):
+    """Text stránky po řádcích; nadpisy (h2–h4, summary bez nadpisu uvnitř) mají prefix HEAD_MARK."""
     src = re.sub(r'<(script|style)\b.*?</\1>', ' ', src, flags=re.S | re.I)
     src = re.sub(r'\{\{[^}]*\}\}', ' ', src)
-    src = re.sub(r'<br\s*/?>|</(p|li|tr|div|h[1-6]|section)>', '\n', src, flags=re.I)
+
+    def summary(m):
+        inner = m.group(1)
+        return m.group(0) if re.search(r'<h[1-6]', inner, re.I) else f'<h4>{inner}</h4>'
+    src = re.sub(r'<summary\b[^>]*>(.*?)</summary>', summary, src, flags=re.S | re.I)
+    src = re.sub(r'<h([2-4])\b[^>]*>(.*?)</h\1>', lambda m: '\n' + HEAD_MARK + re.sub(r'<[^>]+>', '', m.group(2)) + '\n',
+                 src, flags=re.S | re.I)
+    src = re.sub(r'<br\s*/?>|</(p|li|tr|div|section)>', '\n', src, flags=re.I)
     src = re.sub(r'</t[dh]>', ' | ', src, flags=re.I)
     src = re.sub(r'<[^>]+>', '', src)
     src = html.unescape(src).replace('\xa0', ' ')
-    return [re.sub(r'[ \t]+', ' ', ln).strip() for ln in src.splitlines() if ln.strip()]
+    out = []
+    for ln in src.splitlines():
+        head = ln.startswith(HEAD_MARK)
+        ln = re.sub(r'\s+', ' ', ln.lstrip(HEAD_MARK)).strip(' |')
+        if ln:
+            out.append((HEAD_MARK if head else '') + ln)
+    return out
+
+
+def split_long(ln, n):
+    """Dlouhý řádek rozdělí na věty, aby žádný úryvek nezačínal uprostřed věty."""
+    if len(ln) <= n:
+        return [ln]
+    res, cur = [], ''
+    for sent in re.split(r'(?<=[.!?])\s+', ln):
+        if cur and len(cur) + len(sent) + 1 > n:
+            res.append(cur)
+            cur = ''
+        cur = (cur + ' ' + sent).strip()
+    if cur:
+        res.append(cur)
+    return res
 
 
 def chunks_stranky():
@@ -197,16 +311,35 @@ def chunks_stranky():
         path = ROOT / 'content' / f'{slug}.html'
         if not path.exists():
             continue
-        buf = ''
-        for ln in html_to_text(path.read_text(encoding='utf-8')):
+        h2 = ''          # hlavní nadpis stránky
+        sekce = ''       # aktuální podnadpis
+        buf = []
+
+        def flush():
+            body = '\n'.join(buf).strip()
+            buf.clear()
+            if len(body) < 40:
+                return
+            kde = nazev + (f' — {sekce}' if sekce and sekce != nazev else '')
+            t = f'Web — {kde}'
+            out.append({'u': url, 't': t, 'x': f'{kde}: {body}'})
+
+        size = 0
+        for ln in html_to_lines(path.read_text(encoding='utf-8')):
+            if ln.startswith(HEAD_MARK):
+                flush()
+                size = 0
+                sekce = clip(ln[1:].replace('▾', '').replace('▸', ''), 90).strip()
+                continue
             if len(ln) < 3:
                 continue
-            if buf and len(buf) + len(ln) > MAX_CHUNK:
-                out.append({'u': url, 't': f'Web — {nazev}', 'x': buf.strip()})
-                buf = ''
-            buf += ln + '\n'
-        if buf.strip():
-            out.append({'u': url, 't': f'Web — {nazev}', 'x': buf.strip()})
+            for part in split_long(ln, MAX_CHUNK):
+                if buf and size + len(part) > MAX_CHUNK:
+                    flush()
+                    size = 0
+                buf.append(part)
+                size += len(part) + 1
+        flush()
     return out
 
 
