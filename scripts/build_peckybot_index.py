@@ -252,6 +252,7 @@ STATICKE = {
     'plan': ('/plan/', 'Strategický plán'),
     'telocvicna': ('/telocvicna/', 'Tělocvična'),
     'pozemky': ('/pozemky/', 'Pozemky'),
+    'prostory': ('/prostory/', 'Prostory'),
     'pokladna': ('/pokladna/', 'Pokladna'),
     'smlouvy': ('/smlouvy/', 'Smlouvy'),
     'zakazky': ('/zakazky/', 'Zakázky'),

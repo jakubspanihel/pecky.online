@@ -110,6 +110,11 @@ MANIFEST = {
         'Pozemky, které město Pečky kupuje nebo prodává, s odkazy na '
         'katastr nemovitostí.',
         False),
+    'prostory': (
+        '/prostory/', 'Prostory k pronájmu — Do Peček . cz',
+        'Nebytové prostory města Pečky: záměry pronájmu, smlouvy a jejich '
+        'ukončení podle usnesení rady města.',
+        False),
     'pokladna': (
         '/pokladna/', 'Pokladna — Do Peček . cz',
         'Na co město Pečky utrácí: rozpočet a hospodaření srozumitelně.',
@@ -224,6 +229,7 @@ README_TO_SLUG = {
     'kalendar': 'kalendar',
     'naobed': 'naobed',
     'pozemky': 'pozemky',
+    'prostory': 'prostory',
     'smlouvy': 'smlouvy',
     'zakazky': 'zakazky',
     'volby': 'volby',

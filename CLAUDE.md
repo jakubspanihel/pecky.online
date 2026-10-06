@@ -27,6 +27,7 @@ jako první):
 | Smlouvy | `/smlouvy/` | `smlouvy/README.md` |
 | Zakázky | `/zakazky/` | `zakazky/README.md` |
 | Pozemky | `/pozemky/` | `pozemky/README.md` |
+| Prostory | `/prostory/` | `prostory/README.md` (+ `prostory.json`, generátor `prostory/update-prostory.py`) |
 | Pokladna | `/pokladna/` | `pokladna/README.md` |
 | Kalendář | `/kalendar/` | `kalendar/README.md` (+ `automation-plakat-akce.md`) |
 | Pečecké noviny | `/noviny/` | `noviny/README.md` |

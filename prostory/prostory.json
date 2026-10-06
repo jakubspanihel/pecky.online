@@ -1,0 +1,383 @@
+{
+  "meta": {"stav_k": "2026-10-06", "zdroj": "jednani/pecky-jednani.json (usnesení rady města)", "poznamka": "Událost = usnesení rady (pole n). Datum a odkaz na jednání dopočítá update-prostory.py. Pole pozn je ručně přepsané z textu usnesení; jména fyzických osob nikdy neuvádět."},
+  "typy": {"zamer": "záměr pronájmu", "zamer_vyp": "záměr výpůjčky", "smlouva": "smlouva", "vypujcka": "výpůjčka", "dodatek": "dodatek", "ukonceni": "ukončení", "podnajem": "podnájem"},
+  "premises": [
+    {
+      "id": "zs-logopedie",
+      "budova": "Zdravotní středisko, V. B. Třebízského čp. 292",
+      "nazev": "Ordinace logopedie",
+      "plocha": "38,3 m²",
+      "forma": "pronájem",
+      "stav": "zamer",
+      "stav_text": "záměr zveřejněn",
+      "uzaverka": "2026-10-07",
+      "uzaverka_cas": "10:00",
+      "podminky": "min. 5 100 Kč + služby 2 000 Kč měsíčně; nájem od 30. 10. 2026 na dobu neurčitou",
+      "nabidka": "Nabídka se podává v zapečetěné obálce s názvem „Pronájem NP v čp. 292“. Při více zájemcích rozhoduje nejvyšší nabídnutá cena.",
+      "events": [
+        {"n": "UR-304-34/26", "typ": "zamer", "pozn": "pouze za účelem ordinace logopedie; min. nájemné 5 100 Kč + služby 2 000 Kč/měsíc; od 30. 10. 2026 na dobu neurčitou, výpovědní lhůta 3 měsíce; nabídky do 7. 10. 2026 (10:00)", "deska": "486359"},
+        {"n": "UR-305-34/26", "typ": "smlouva", "pozn": "přechodně jiné prostory (denní místnost + hala): na dobu určitou 1.–29. 10. 2026, 1 020 Kč + služby 650 Kč/měsíc; nájemkyně je fyzická osoba (OSVČ)"},
+        {"n": "UR-280-31/26", "typ": "smlouva", "pozn": "přechodně: na dobu určitou 1.–30. 9. 2026, 1 020 Kč + služby 650 Kč/měsíc; nájemce je fyzická osoba (jméno v usnesení začerněno)"}
+      ]
+    },
+    {
+      "id": "zs-zubni",
+      "budova": "Zdravotní středisko, V. B. Třebízského čp. 292",
+      "nazev": "Ordinace zubního lékaře",
+      "plocha": "56,3 m²",
+      "forma": "pronájem",
+      "stav": "pronajato",
+      "stav_text": "pronajato od 1. 4. 2026",
+      "najemce": "Denttechnik, s.r.o. (Poděbrady)",
+      "podminky": "6 000 Kč + služby 2 500 Kč měsíčně; na dobu neurčitou",
+      "poznamka_stav": "Usnesení o smlouvě (UR-111-12/26) uvádí jen „prostor ve Zdravotním středisku“; k ordinaci zubního lékaře je přiřazeno podle toho, že navazuje na poslední záměr z 2. 3. 2026.",
+      "events": [
+        {"n": "UR-111-12/26", "typ": "smlouva", "pozn": "Denttechnik, s.r.o., od 1. 4. 2026 na dobu neurčitou, 6 000 Kč + služby 2 500 Kč/měsíc"},
+        {"n": "UR-79-9/26", "typ": "zamer", "pozn": "ordinace zubního lékaře nebo dentální hygieny; min. nájemné 5 067 Kč + služby 2 500 Kč/měsíc; od 1. 4. 2026", "deska": "384853"},
+        {"n": "UR-53-5/26", "typ": "zamer", "pozn": "opakovaný záměr; min. nájemné 5 067 Kč + služby 2 500 Kč/měsíc; od 1. 4. 2026", "deska": "382779"},
+        {"n": "UR-17-2/26", "typ": "zamer", "pozn": "opakovaný záměr; od nejdříve 1. 3. 2026", "deska": "382785"},
+        {"n": "UR-396-44/25", "typ": "vypujcka", "pozn": "zubní ordinace: na dobu určitou od 1. 12. 2025 do 31. 3. 2026; výpůjčitel fyzická osoba"},
+        {"n": "UR-385-43/25", "typ": "zamer", "pozn": "opakovaný záměr; od 2. 1. 2026", "deska": "382807"},
+        {"n": "UR-367-42/25", "typ": "zamer_vyp", "pozn": "zubní ordinace: výpůjčka od 1. 12. 2025 do 31. 3. 2026, energie hradí město", "deska": "382813"},
+        {"n": "UR-353-41/25", "typ": "vypujcka", "pozn": "zubní ordinace: krátkodobá výpůjčka 4.–30. 11. 2025"},
+        {"n": "UR-352-41/25", "typ": "zamer", "pozn": "opakovaný záměr; od 1. 12. 2025", "deska": "382819"},
+        {"n": "UR-325-38/25", "typ": "zamer", "pozn": "opakovaný záměr; od 1. 11. 2025", "deska": "382827"},
+        {"n": "UR-272-30/25", "typ": "zamer", "pozn": "pouze za účelem ordinace zubního lékaře; min. nájemné 5 067 Kč + služby 2 500 Kč/měsíc; od 1. 11. 2025", "deska": "382845"},
+        {"deska": "as4u:88780", "typ": "zamer", "pozn": "ordinace zubního lékaře v 1. patře, 55,5 m²; 900 Kč/m²/rok + služby 5 000 Kč/měsíc; na dobu neurčitou (rada 18. 12. 2017)"}
+      ]
+    },
+    {
+      "id": "zs-ordinace-5455",
+      "budova": "Zdravotní středisko, V. B. Třebízského čp. 292",
+      "nazev": "Ordinace lékaře",
+      "plocha": "54,55 m²",
+      "forma": "pronájem",
+      "stav": "pronajato",
+      "stav_text": "pronajato od 1. 8. 2025",
+      "najemce": "lékař (fyzická osoba)",
+      "podminky": "4 910 Kč + služby 5 000 Kč měsíčně; na dobu neurčitou",
+      "events": [
+        {"n": "UR-212-23/25", "typ": "smlouva", "pozn": "od 1. 8. 2025 na dobu neurčitou, 4 910 Kč + služby 5 000 Kč/měsíc"},
+        {"n": "UR-185-20/25", "typ": "zamer", "pozn": "min. nájemné 4 910 Kč + služby 5 000 Kč/měsíc; od 1. 8. 2025; nabídky do 11. 6. 2025", "deska": "382886"}
+      ]
+    },
+    {
+      "id": "zs-gynekologie",
+      "budova": "Zdravotní středisko, V. B. Třebízského čp. 292",
+      "nazev": "Gynekologická ordinace",
+      "plocha": "70,5 m²",
+      "forma": "pronájem",
+      "stav": "pronajato",
+      "stav_text": "pronajato od 1. 5. 2021",
+      "najemce": "Gynekologie Klumpar, s.r.o. (Písková Lhota)",
+      "podminky": "5 382,50 Kč + služby 6 000 Kč měsíčně (od 1. 10. 2026)",
+      "events": [
+        {"n": "UR-306-34/26", "typ": "dodatek", "pozn": "dodatek č. 2: od 1. 10. 2026 nájemné 5 382,50 Kč + služby 6 000 Kč/měsíc"},
+        {"n": "UR-26-2/21", "typ": "smlouva", "pozn": "od 1. 5. 2021 na dobu neurčitou, 5 288 Kč + služby 6 000 Kč/měsíc"},
+        {"deska": "as4u:136382", "typ": "zamer", "pozn": "gynekologická ordinace 70,5 m²; 900 Kč/m²/rok + služby 6 000 Kč/měsíc; od 15. 4. 2021 na dobu neurčitou (rada 29. 3. 2021)"}
+      ]
+    },
+    {
+      "id": "zs-ohd",
+      "budova": "Zdravotní středisko, V. B. Třebízského čp. 292",
+      "nazev": "Prostor užívaný Odbytovým a hospodářským družstvem Kolín",
+      "plocha": "neuvedeno",
+      "forma": "pronájem",
+      "stav": "ukonceno",
+      "stav_text": "smlouva ukončena k 31. 8. 2026",
+      "podminky": "nový záměr v usneseních zatím není",
+      "events": [
+        {"n": "UR-180-20/26", "typ": "ukonceni", "pozn": "ukončení smlouvy z 19. 6. 2019 (včetně dodatku č. 1 z 1. 12. 2022) s Odbytovým a hospodářským družstvem Kolín k 31. 8. 2026"}
+      ]
+    },
+    {
+      "id": "zs-ukonceno-2026",
+      "budova": "Zdravotní středisko, V. B. Třebízského čp. 292",
+      "nazev": "Další prostor ve zdravotním středisku",
+      "plocha": "neuvedeno",
+      "forma": "pronájem",
+      "stav": "ukonceno",
+      "stav_text": "smlouva ukončena k 30. 6. 2026",
+      "podminky": "nový záměr v usneseních zatím není; nájemce byl fyzická osoba",
+      "events": [
+        {"n": "UR-216-23/26", "typ": "ukonceni", "pozn": "zkrácení výpovědní doby ze 3 měsíců na 1 měsíc, ukončení k 30. 6. 2026"}
+      ]
+    },
+    {
+      "id": "ds-obuv",
+      "budova": "Dům služeb, J. A. Komenského čp. 184",
+      "nazev": "Prostor v přízemí (dříve prodejna obuvi)",
+      "plocha": "76 m²",
+      "forma": "pronájem",
+      "stav": "pronajato",
+      "stav_text": "pronajato od 1. 1. 2025",
+      "najemce": "fyzická osoba (jméno v usnesení začerněno)",
+      "podminky": "6 207 Kč + služby 3 800 Kč měsíčně; na dobu neurčitou",
+      "events": [
+        {"n": "UR-400-42/24", "typ": "smlouva", "pozn": "od 1. 1. 2025 na dobu neurčitou, 6 207 Kč + služby 3 800 Kč/měsíc"},
+        {"n": "UR-375-38/24", "typ": "zamer", "pozn": "6 207 Kč + služby 3 800 Kč/měsíc; město uvítá zachování prodejny obuvi; nabídky do 21. 11. 2024", "deska": "382983"},
+        {"n": "UR-374-38/24", "typ": "ukonceni", "pozn": "dohodou k 31. 12. 2024 ukončena nájemní smlouva z 30. 4. 1996 (včetně dodatků č. 1–6)"}
+      ]
+    },
+    {
+      "id": "ds-ordinace",
+      "budova": "Dům služeb, J. A. Komenského čp. 184",
+      "nazev": "Ordinace lékařky",
+      "plocha": "104,5 m²",
+      "forma": "pronájem",
+      "stav": "pronajato",
+      "stav_text": "pronajato (smlouva z 6. 8. 2018)",
+      "najemce": "lékařka (fyzická osoba)",
+      "podminky": "výše nájemného v usnesení neuvedena",
+      "poznamka_stav": "Plocha je z úředního záměru z 15. 6. 2018, který časově navazuje na smlouvu z 6. 8. 2018. Usnesení rady z té doby web nemá.",
+      "events": [
+        {"n": "UR-113-11/25", "typ": "dodatek", "pozn": "dodatek č. 2 ke smlouvě z 6. 8. 2018: od 1. 4. 2025 úprava úhrad za služby a převod elektroměru na nájemce"},
+        {"deska": "as4u:93979", "typ": "zamer", "pozn": "ordinace obvodního lékaře s možností rehabilitace v přízemí, 104,5 m²; 900 Kč/m²/rok (7 838 Kč/měsíc) + služby 4 500 Kč/měsíc; od 1. 8. 2018 (rada 11. 6. 2018)"}
+      ]
+    },
+    {
+      "id": "ds-31",
+      "budova": "Dům služeb, J. A. Komenského čp. 184",
+      "nazev": "Prostor v přízemí",
+      "plocha": "31 m²",
+      "forma": "pronájem",
+      "stav": "pronajato",
+      "stav_text": "pronajato od 1. 3. 2022",
+      "najemce": "fyzická osoba (jméno v usnesení začerněno)",
+      "podminky": "min. 3 000 Kč + služby 1 200 Kč měsíčně; na dobu neurčitou",
+      "poznamka_stav": "Pozdější změna smlouvy v usneseních není. Usnesení o ukončení kadeřnictví (6/2026) neuvádí, zda jde o tento prostor.",
+      "events": [
+        {"n": "UR-53-5/22", "typ": "smlouva", "pozn": "od 1. 3. 2022 na dobu neurčitou, min. nájemné 3 000 Kč + služby 1 200 Kč/měsíc"},
+        {"n": "UR-16-2/22", "typ": "zamer", "pozn": "min. nájemné 3 000 Kč + služby 1 200 Kč/měsíc, výpovědní doba 3 měsíce", "deska": "as4u:152016"},
+        {"deska": "as4u:93034", "typ": "zamer", "pozn": "31 m² v přízemí; 3 000 Kč + služby 1 200 Kč/měsíc; od 1. 7. 2018 na dobu neurčitou (rada 14. 5. 2018)"}
+      ]
+    },
+    {
+      "id": "ds-kadernictvi",
+      "budova": "Dům služeb, J. A. Komenského čp. 184",
+      "nazev": "Kadeřnictví",
+      "plocha": "neuvedeno",
+      "forma": "pronájem",
+      "stav": "ukonceno",
+      "stav_text": "smlouva ukončena k 30. 6. 2026",
+      "podminky": "nový záměr v usneseních zatím není",
+      "events": [
+        {"n": "UR-241-25/26", "typ": "ukonceni", "pozn": "ukončení smlouvy a zkrácení výpovědní doby k 30. 6. 2026; nájemkyně fyzická osoba"}
+      ]
+    },
+    {
+      "id": "tr-431",
+      "budova": "Tř. 5. května čp. 431",
+      "nazev": "Prostor v přízemí",
+      "plocha": "74,04 m²",
+      "forma": "pronájem",
+      "stav": "volne",
+      "stav_text": "bez nájemce podle usnesení",
+      "podminky": "poslední záměr (6. 10. 2025): min. 11 106 Kč + služby 300 Kč měsíčně; nabídky byly do 30. 10. 2025",
+      "poznamka_stav": "K poslednímu záměru z 6. 10. 2025 usnesení o uzavření smlouvy chybí. Záměry uvádějí, že prostory jsou určeny k rekonstrukci a lze je přizpůsobit budoucímu druhu podnikání.",
+      "events": [
+        {"n": "UR-324-38/25", "typ": "zamer", "pozn": "74,04 m², min. 11 106 Kč + služby 300 Kč/měsíc, od 1. 4. 2026; nabídky do 30. 10. 2025", "deska": "382828"},
+        {"n": "UR-180-19/25", "typ": "zamer", "pozn": "opakovaný záměr, od 1. 8. 2025; nabídky do 4. 6. 2025", "deska": "382888"},
+        {"n": "UR-424-43/24", "typ": "zamer", "pozn": "74,04 m², min. 11 106 Kč + služby 300 Kč/měsíc, od 1. 5. 2025; nabídky do 3. 1. 2025", "deska": "382972"},
+        {"n": "UR-276-32/23", "typ": "zamer", "pozn": "70 m², min. 6 000 Kč + služby 200 Kč/měsíc, od 16. 10. 2023; nabídky do 5. 10. 2023", "deska": "383166"},
+        {"n": "UR-37-4/23", "typ": "smlouva", "pozn": "od 1. 2. 2023 na dobu neurčitou, 6 000 Kč/měsíc; nájemce fyzická osoba"},
+        {"n": "UR-496-50/22", "typ": "zamer", "pozn": "70 m², min. 6 000 Kč/měsíc, od 1. 2. 2023", "deska": "383285"},
+        {"n": "UR-479-48/22", "typ": "ukonceni", "pozn": "předchozí smlouva ukončena k 31. 1. 2023 (výpovědní lhůta zkrácena o 1 měsíc)"},
+        {"deska": "384235", "typ": "zamer", "pozn": "prodejna a WC v přízemí, 70 m²; 4 500 Kč/měsíc; na dobu neurčitou (rada 9. 12. 2019)"},
+        {"deska": "384092", "typ": "zamer", "pozn": "pronájem prostor sloužících podnikání (na desce jen název záměru, bez přílohy)"}
+      ]
+    },
+    {
+      "id": "bezruce-139",
+      "budova": "P. Bezruče čp. 139",
+      "nazev": "Prodejna potravin",
+      "plocha": "226 m²",
+      "forma": "pronájem",
+      "stav": "pronajato",
+      "stav_text": "pronajato od dubna 2023",
+      "najemce": "fyzická osoba (jméno v usnesení začerněno)",
+      "podminky": "8 400 Kč + služby 300 Kč měsíčně; na dobu neurčitou",
+      "events": [
+        {"n": "UR-121-12/23", "typ": "smlouva", "pozn": "na dobu neurčitou, 8 400 Kč + služby 300 Kč/měsíc"},
+        {"n": "UR-66-6/23", "typ": "smlouva", "pozn": "krátkodobá smlouva 15. 2.–15. 3. 2023, 8 400 Kč + služby 300 Kč/měsíc"},
+        {"n": "UR-27-3/23", "typ": "zamer", "pozn": "8 400 Kč + služby 300 Kč/měsíc, na dobu neurčitou", "deska": "383263"},
+        {"deska": "384151", "typ": "zamer", "pozn": "prodejna 71 m², sklady 88 m², rampa a vjezd 67 m²; 7 000 Kč/měsíc; nabídky do 15. 6. 2020 (rada 25. 5. 2020)"},
+        {"deska": "384072", "typ": "zamer", "pozn": "samoobsluha, celkem 226 m²; 5 000 Kč + služby 200 Kč/měsíc (rada 14. 10. 2019)"},
+        {"deska": "as4u:77951", "typ": "zamer", "pozn": "opakovaný záměr; 7 000 Kč/měsíc (rada 11. 9. 2017)"},
+        {"deska": "as4u:73596", "typ": "zamer", "pozn": "prodejna 71 m², sklady 88 m², rampa a vjezd 67 m²; 7 000 Kč/měsíc; nabídky do 10. 5. 2017 (rada 19. 4. 2017)"}
+      ]
+    },
+    {
+      "id": "cp218-puda",
+      "budova": "Tř. 5. května čp. 218",
+      "nazev": "Část půdního prostoru a střechy",
+      "plocha": "cca 1 m²",
+      "forma": "pronájem",
+      "stav": "pronajato",
+      "stav_text": "pronajato od 4. 11. 2025",
+      "najemce": "JiriVana.NET, s.r.o. (Pečky)",
+      "podminky": "200 Kč + DPH měsíčně; na dobu neurčitou",
+      "events": [
+        {"n": "UR-351-41/25", "typ": "smlouva", "pozn": "JiriVana.NET, s.r.o.: od 4. 11. 2025 na dobu neurčitou, 200 Kč + DPH/měsíc"},
+        {"n": "UR-326-38/25", "typ": "zamer", "pozn": "část půdy a střechy (cca 1 m²), 200 Kč + DPH/měsíc, od 1. 11. 2025", "deska": "382829"}
+      ]
+    },
+    {
+      "id": "vodarna-ochoz",
+      "budova": "Vodárenská věž v Pečkách",
+      "nazev": "Část ochozu vodárenské věže",
+      "plocha": "část ochozu",
+      "forma": "pronájem",
+      "stav": "pronajato",
+      "stav_text": "pronajato do 31. 12. 2026",
+      "najemce": "Vantage Towers s.r.o. (Praha)",
+      "podminky": "75 000 Kč + DPH za 6 měsíců (1. 7.–31. 12. 2026)",
+      "poznamka_stav": "Vantage Towers pronajímá ochoz podle nájemní smlouvy č. 10305 ze 4. 9. 2001, kterou rada prodlužuje dodatky na dobu určitou (rok 2025, poté půlroční období). Další smlouvy k ochozu (KOMS Mělník, INSET) jsou z let 2021–2022.",
+      "events": [
+        {"n": "UR-240-25/26", "typ": "dodatek", "pozn": "dodatek č. 22 s Vantage Towers: 1. 7.–31. 12. 2026, 75 000 Kč + DPH za 6 měsíců"},
+        {"n": "UR-209-22/26", "typ": "zamer", "pozn": "1. 7.–31. 12. 2026, 75 000 Kč + DPH za 6 měsíců", "deska": "432348"},
+        {"n": "UR-397-44/25", "typ": "dodatek", "pozn": "dodatek č. 21 s Vantage Towers: 1. 1.–30. 6. 2026, 100 000 Kč + DPH za 6 měsíců"},
+        {"n": "UR-368-42/25", "typ": "zamer", "pozn": "1. 1.–30. 6. 2026, 100 000 Kč + DPH za 6 měsíců", "deska": "382812"},
+        {"n": "UR-306-30/24", "typ": "dodatek", "pozn": "dodatek č. 20 s Vantage Towers: rok 2025, 153 000 Kč/rok + DPH"},
+        {"n": "UR-285-28/24", "typ": "zamer", "pozn": "rok 2025, 153 000 Kč/rok + DPH", "deska": "383013"},
+        {"n": "UR-104-10/22", "typ": "smlouva", "pozn": "INSET s.r.o. (Praha): 1. 4.–31. 7. 2022, 5 000 Kč + DPH/měsíc"},
+        {"n": "UR-72-7/22", "typ": "smlouva", "pozn": "INSET s.r.o.: krátkodobě 1.–28. 3. 2022, 5 000 Kč + DPH/měsíc"},
+        {"n": "UR-71-7/22", "typ": "zamer", "pozn": "4.–7. 2022, 5 000 Kč + DPH/měsíc; podmínkou souhlas stávajících nájemců věže", "deska": "as4u:154226"},
+        {"n": "UR-136-12/21", "typ": "smlouva", "pozn": "KOMS Mělník, a.s.: od 20. 7. 2021 na dobu neurčitou, 10 000 Kč + DPH/měsíc"},
+        {"n": "UR-106-9/21", "typ": "smlouva", "pozn": "KOMS Mělník, a.s.: krátkodobě 22. 6.–19. 7. 2021, 10 000 Kč + DPH/měsíc"},
+        {"n": "UR-107-9/21", "typ": "zamer", "pozn": "na dobu neurčitou, 10 000 Kč + DPH/měsíc", "deska": "as4u:140362"},
+        {"deska": "as4u:126931", "typ": "zamer", "pozn": "nájem od 5. 9. 2021 do 31. 12. 2024; 127 705 Kč/rok + DPH (rada 31. 8. 2020)"},
+        {"deska": "as4u:67039", "typ": "zamer", "pozn": "část ochozu pro telekomunikační zařízení; 5 let, 127 705 Kč/rok + DPH (rada 29. 8. 2016)"}
+      ]
+    },
+    {
+      "id": "radnice-k11",
+      "budova": "Radnice, Masarykovo nám. (1. NP)",
+      "nazev": "Kancelář č. 11",
+      "plocha": "22,7 m²",
+      "forma": "výpůjčka",
+      "stav": "ukonceno",
+      "stav_text": "poslední výpůjčka skončila 31. 12. 2023",
+      "podminky": "výpůjčka je bezplatná; novější usnesení k prostoru není",
+      "events": [
+        {"n": "UR-294-35/23", "typ": "vypujcka", "pozn": "Respondeo, z.s. (Nymburk): 18. 10.–31. 12. 2023"},
+        {"n": "UR-275-32/23", "typ": "zamer_vyp", "pozn": "výpůjčka do 31. 12. 2023", "deska": "383167"},
+        {"n": "UR-274-32/23", "typ": "vypujcka", "pozn": "Respondeo, z.s.: krátkodobě 19. 9.–17. 10. 2023"},
+        {"n": "UR-91-9/23", "typ": "vypujcka", "pozn": "Člověk v tísni, o.p.s.: sdílení kanceláře od 15. 3. 2023 na dobu neurčitou"},
+        {"n": "UR-68-6/23", "typ": "zamer_vyp", "pozn": "výpůjčka na dobu neurčitou, výpovědní lhůta 3 měsíce", "deska": "383257"},
+        {"n": "UR-67-6/23", "typ": "vypujcka", "pozn": "Člověk v tísni, o.p.s.: krátkodobě 14. 2.–14. 3. 2023"}
+      ]
+    },
+    {
+      "id": "vch-166",
+      "budova": "Velké Chvalovice čp. 166",
+      "nazev": "Nebytový prostor",
+      "plocha": "24 m²",
+      "forma": "výpůjčka",
+      "stav": "vypujceno",
+      "stav_text": "vypůjčeno od 2. 7. 2024",
+      "najemce": "fyzická osoba (jméno v usnesení začerněno)",
+      "podminky": "na dobu neurčitou; výpůjčitel hradí poměrnou část energií",
+      "events": [
+        {"n": "UR-248-25/24", "typ": "vypujcka", "pozn": "od 2. 7. 2024 na dobu neurčitou, výpovědní lhůta 3 měsíce"},
+        {"n": "UR-221-22/24", "typ": "zamer_vyp", "pozn": "od 1. 7. 2024 na dobu neurčitou; znovu zveřejněn po revokaci předchozího usnesení", "deska": "383037"},
+        {"n": "UR-203-21/24", "typ": "zamer_vyp", "pozn": "první záměr; usnesení bylo 10. 6. 2024 revokováno (UR-221-22/24 ho nahrazuje)"}
+      ]
+    },
+    {
+      "id": "zs-zamery-starsi",
+      "budova": "Zdravotní středisko, V. B. Třebízského čp. 292",
+      "nazev": "Další prostory (záměry 2017–2020)",
+      "plocha": "neuvedeno",
+      "forma": "pronájem a výpůjčka",
+      "stav": "neznamy",
+      "stav_text": "výsledek záměrů není v datech",
+      "podminky": "záměry z let 2017–2020; usnesení a smlouvy z té doby web nemá",
+      "events": [
+        {"deska": "as4u:123215", "typ": "zamer_vyp", "pozn": "25 m² v 1. patře; do 31. 12. 2020; pro veřejně prospěšné služby (rada 29. 6. 2020)"},
+        {"deska": "384170", "typ": "zamer", "pozn": "pronájem prostor v čp. 292 pro umístění rouškomatu (na desce jen název, bez přílohy)"},
+        {"deska": "384140", "typ": "zamer", "pozn": "pronájem prostor v suterénu (na desce jen název, bez přílohy)"},
+        {"deska": "383993", "typ": "zamer", "pozn": "pronájem prostor ve zdravotním středisku (na desce jen název, bez přílohy)"},
+        {"deska": "as4u:70586", "typ": "zamer", "pozn": "38,25 m² v 1. patře; 900 Kč/m²/rok + služby 4 500 Kč/měsíc; na dobu neurčitou; nabídky do 15. 2. 2017 (rada 9. 1. 2017)"}
+      ]
+    },
+    {
+      "id": "ds-zamery-starsi",
+      "budova": "Dům služeb, J. A. Komenského čp. 184",
+      "nazev": "Další prostory (záměry 2016–2020)",
+      "plocha": "4,8–48 m²",
+      "forma": "pronájem a výpůjčka",
+      "stav": "neznamy",
+      "stav_text": "výsledek záměrů není v datech",
+      "podminky": "záměry z let 2016–2020; usnesení a smlouvy z té doby web nemá",
+      "events": [
+        {"deska": "384194", "typ": "zamer", "pozn": "48 m² v 1. patře; 5 000 Kč + služby 1 500 Kč/měsíc; na dobu neurčitou (rada 1. 4. 2020)"},
+        {"deska": "384124", "typ": "zamer", "pozn": "pronájem prostor sloužících podnikání (na desce jen název, bez přílohy)"},
+        {"deska": "383992", "typ": "zamer_vyp", "pozn": "bezúplatné používání 4,8 m² v přízemí, na dobu neurčitou (rada 18. 3. 2019)"},
+        {"deska": "as4u:92637", "typ": "zamer", "pozn": "24 m² v 1. patře; 19 200 Kč/rok (800 Kč/m²/rok) + služby 2 300 Kč/měsíc (rada 2. 5. 2018)"},
+        {"deska": "as4u:58098", "typ": "zamer", "pozn": "28 m² v přízemí; 2 100 Kč + služby 1 200 Kč/měsíc; od 1. 8. 2016; nabídky do 5. 7. 2016 (rada 23. 5. 2016)"}
+      ]
+    },
+    {
+      "id": "klub-255",
+      "budova": "Kulturní dům, Tř. Jana Švermy čp. 255",
+      "nazev": "Restaurace Klub (přízemí)",
+      "plocha": "168,53 m²",
+      "forma": "pronájem",
+      "stav": "neznamy",
+      "stav_text": "výsledek záměrů není v datech",
+      "podminky": "poslední záměr z roku 2016: 6 000 Kč + služby 4 000 Kč měsíčně, provozní doba do 22:00",
+      "poznamka_stav": "Z úřední desky jsou čtyři záměry z let 2015–2016. Smlouva a nájemce nejsou v dostupných datech.",
+      "events": [
+        {"deska": "as4u:57254", "typ": "zamer", "pozn": "snížené nájemné 6 000 Kč + služby 4 000 Kč/měsíc; provozní doba do 22:00; provoz baru u hlavního sálu podle potřeby (rada 25. 4. 2016)"},
+        {"deska": "as4u:56675", "typ": "zamer", "pozn": "opakovaný záměr, 8 000 Kč + služby 5 000 Kč/měsíc (rada 7. 3. 2016)"},
+        {"deska": "as4u:55921", "typ": "zamer", "pozn": "8 000 Kč + služby 5 000 Kč/měsíc; součástí provoz baru u hlavního sálu (rada 7. 3. 2016)"},
+        {"deska": "as4u:51879", "typ": "zamer", "pozn": "8 000 Kč + služby 5 000 Kč/měsíc; provozní doba do 22:00 (rada 24. 8. 2015)"}
+      ]
+    },
+    {
+      "id": "hasicarna-vch",
+      "budova": "Hasičská zbrojnice, Velké Chvalovice",
+      "nazev": "Hasičská zbrojnice",
+      "plocha": "72 m² (zastavěná plocha a nádvoří)",
+      "forma": "pronájem",
+      "stav": "neznamy",
+      "stav_text": "výsledek záměrů není v datech",
+      "podminky": "nájemné podle nejvyšší nabídky (obálková metoda); na dobu neurčitou",
+      "poznamka_stav": "Na desce jsou dva záměry z let 2020 a 2021; smlouva v dostupných datech není.",
+      "events": [
+        {"deska": "as4u:135393", "typ": "zamer", "pozn": "nájemné podle nejvyšší nabídky; na dobu neurčitou s výpovědní dobou 3 měsíce; nabídky do 26. 3. 2021 (rada 8. 3. 2021)"},
+        {"deska": "as4u:124753", "typ": "zamer", "pozn": "nájemné podle nejvyšší nabídky; na dobu neurčitou s výpovědní dobou 3 měsíce; nabídky do 31. 8. 2020 (rada 3. 8. 2020)"}
+      ]
+    },
+    {
+      "id": "chata-benesak",
+      "budova": "Rybník Benešák",
+      "nazev": "Dřevěná chata u rybníka",
+      "plocha": "57 m²",
+      "forma": "pronájem",
+      "stav": "neznamy",
+      "stav_text": "výsledek záměru není v datech",
+      "podminky": "800 Kč + zálohy na elektřinu 500 Kč měsíčně; určeno pro spolky, organizace nebo sdružení",
+      "poznamka_stav": "Smlouva na chatu v dostupných datech není.",
+      "events": [
+        {"deska": "as4u:135391", "typ": "zamer", "pozn": "pro zájmové spolky, organizace nebo sdružení; údržba zeleně nájemcem; spoluúčast na údržbě 2 000 Kč s ročním limitem 20 tis. Kč; na dobu neurčitou; nabídky do 26. 3. 2021 (rada 8. 3. 2021)"}
+      ]
+    },
+    {
+      "id": "vch-193",
+      "budova": "Velké Chvalovice čp. 193",
+      "nazev": "Nebytové prostory (kabiny)",
+      "plocha": "neuvedeno",
+      "forma": "výpůjčka a podnájem",
+      "stav": "neznamy",
+      "stav_text": "podnájem kabin schválen 13. 4. 2026",
+      "podminky": "záměr výpůjčky z roku 2019 a podnájem z roku 2026 se týkají stejného čísla popisného",
+      "poznamka_stav": "Záměr z roku 2019 a usnesení z roku 2026 uvádějí stejné číslo popisné, výslovně se ale nepropojují.",
+      "events": [
+        {"n": "UR-136-14/26", "typ": "podnajem", "pozn": "souhlas rady s podnájemní smlouvou v kabinách čp. 193 mezi TJ Sokol Velké Chvalovice a fyzickou osobou"},
+        {"deska": "384011", "typ": "zamer_vyp", "pozn": "výpůjčka (bezúplatné používání) nebytových prostor čp. 193 (na desce jen název, bez přílohy)"}
+      ]
+    }
+  ]
+}
