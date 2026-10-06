@@ -53,6 +53,9 @@ STOPWORDS = {
 }
 
 
+from peckybot_sources import chunks_extra  # noqa: E402
+
+
 def tokenize(text):
     s = unicodedata.normalize('NFD', text.lower())
     s = ''.join(c for c in s if unicodedata.category(c) != 'Mn')
@@ -232,7 +235,7 @@ def write_if_changed(path, obj):
 
 
 def main():
-    chunks = chunks_jednani() + chunks_lide() + chunks_stranky()
+    chunks = chunks_jednani() + chunks_lide() + chunks_stranky() + chunks_extra()
     idx = build_index(chunks)
     OUT.parent.mkdir(parents=True, exist_ok=True)
     SHARD_DIR.mkdir(exist_ok=True)
