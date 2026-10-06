@@ -107,7 +107,7 @@
         if (r.link) casti.push('<a href="' + esc(r.link) + '" target="_blank" rel="noopener">' + esc(r.linkLabel || 'Odkaz') + ' ↗</a>');
         return '<li><strong>' + esc(r.name) + '</strong> — ' + casti.join(' · ') + '</li>';
       }).join('');
-      statusEl.textContent = rest.length + ' restaurace';
+      statusEl.remove();
     }).catch(function () {
       statusEl.textContent = 'Menu se nepodařilo načíst.';
     });
