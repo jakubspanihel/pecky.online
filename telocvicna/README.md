@@ -442,8 +442,8 @@ stavby v roce 2026“.
 - Jestli a jak vedení města zareaguje konkrétně na tvrzení Švejnohové
   (rok 2015, jména, odepřené podklady) — vyjádření z 4. 9. 2026 na ně
   nereagovalo vůbec.
-- Jestli případně dojde k trestnímu oznámení, které Švejnohová
-  požaduje, a s jakým výsledkem.
+- Trestní oznámení město podalo 6. 10. 2026 (na neznámého pachatele,
+  viz níže) — sledovat jeho výsledek a jestli se objeví v zápisech.
 - Stanovisko právní kanceláře k dalšímu postupu — k 21. 9. 2026 (zápisy
   RM 33/2026 i ZM 6/2026) se na něj pořád jen čeká, žádný z dosud
   dohledaných zápisů ho neobsahuje. Sledovat další zápisy RM/ZM.
@@ -558,3 +558,17 @@ prezentaci dokumentace 23. 9. 2021; tvrzení města o chybějící tělocvičně
 tvrzení z příspěvku). Příspěvky z 30. 3. 2021 (dotace kraje na Mlýnský náhon, dešťovou vodu, stezku v ul. Milčická) a
 4. 1. 2021 (smlouva na budovu u nádraží) s tělocvičnou nesouvisejí. Roky 2022 a 2023 v monitoringu žádný příspěvek
 k tělocvičně neobsahují.
+
+## Doplněno 6. 10. 2026: Facebook města — trestní oznámení a práce před zimou
+Na žádost uživatele promítnut příspěvek města „INFORMACE O DALŠÍM POSTUPU STAVBY“ z 6. 10. 2026 (permalink
+`https://www.facebook.com/mestopecky/posts/pfbid0UxXVwLJbeN6YfmRAMTrWfciKnixxpzXMPRHSHwfcWqJVnT7Trz7wRXzx8vPWyiLcl`,
+čteno v Chrome, plný text po „Zobrazit víc“). Obsah: město podalo trestní oznámení na neznámého pachatele pro
+podezření z trestného činu podvodu a obecného ohrožení z nedbalosti; zastupitelstvu předloží ke schválení dodatečné
+stavební práce na zabezpečení objektu před zimou (zakonzervování kuchyně, zemní práce a zabezpečení venkovních ploch,
+oprava střechy nad jídelnou); dál se čeká na nové projektové řešení. V `content/telocvicna.html`: nový řádek
+„6. 10. 2026“ v „Posledních událostech“, karta v časové ose „Utržené piloty a zastavení stavby“, věta v callout
+„Otevřené otázky“ (výzva Švejnohové k trestnímu oznámení) a věta v řádku ZM 7/2026.
+
+- Příspěvek neuvádí orgán, kterému bylo oznámení podáno, ani cenu dodatečných prací; nespojuje je výslovně
+  s Dodatkem č. 2 k SoD (bod 3 ZM 7/2026) — na stránce to tak zůstává, ověřit ze zápisu ZM 7/2026.
+- Komentář A. Švejnohové pod příspěvkem (vítá krok k objasnění odpovědnosti) se nepromítá — jen reakce.
