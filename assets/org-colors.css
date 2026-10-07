@@ -2,6 +2,9 @@
    Barvu organizace měnit v organizations.json (pole color / color_bg),
    pak spustit python3 scripts/build.py. */
 :root{
+  /* Město Pečky */
+  --org-mesto-pecky:#7C2F2B;
+  --org-mesto-pecky-bg:#EBD6D4;
   /* NAŠE PEČKY */
   --org-nasepecky:#4A4A4A;
   --org-nasepecky-bg:#DADADA;
@@ -42,12 +45,21 @@
   --org-pecky-srdcem-bg:#D1E2D2;
   --party-peckysrdcem:var(--org-pecky-srdcem);
   --party-peckysrdcem-bg:var(--org-pecky-srdcem-bg);
+  /* MŠ MAŠINKA Pečky */
+  --org-msmasinka-pecky:#E36397;
+  --org-msmasinka-pecky-bg:#F8DCE7;
+  /* ZŠ Pečky */
+  --org-zs-pecky:#E08A00;
+  --org-zs-pecky-bg:#F6E3C4;
   /* ZUŠ Pečky */
   --org-zus-pecky:#7550A8;
   --org-zus-pecky-bg:#E6E0EF;
   /* Kulturní středisko */
   --org-kulturni-stredisko-pecky:#B5561C;
   --org-kulturni-stredisko-pecky-bg:#F2E1D6;
+  /* Městská knihovna */
+  --org-mestska-knihovna-pecky:#5E6C84;
+  --org-mestska-knihovna-pecky-bg:#DEE2E8;
   /* Pečovatelská služba */
   --org-pecovatelska-sluzba-pecky:#727A10;
   --org-pecovatelska-sluzba-pecky-bg:#E6E7D4;
@@ -60,10 +72,19 @@
   /* AFK Pečky */
   --org-afk-pecky:#1010E0;
   --org-afk-pecky-bg:#D8D8F9;
+  /* Okrašlovací spolek */
+  --org-pececky-okraslovaci-spolek:#4F9D69;
+  --org-pececky-okraslovaci-spolek-bg:#D9EADF;
   /* Vzdělávací centrum */
   --org-vzdelavaci-centrum-pecky:#177568;
   --org-vzdelavaci-centrum-pecky-bg:#D5E6E4;
   /* Pramínek Dobřichov */
   --org-maminky-sobe:#1580A0;
   --org-maminky-sobe-bg:#D5E8EE;
+  /* SŽM Pečky */
+  --org-szm-pecky:#7D8F69;
+  --org-szm-pecky-bg:#E2E8DC;
+  /* Běžecký klub Pečky */
+  --org-bk-pecky:#264653;
+  --org-bk-pecky-bg:#D6DEE1;
 }

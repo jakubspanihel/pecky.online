@@ -291,8 +291,7 @@ def _chunks_provoz():
     """Úřední hodiny, sběrný dvůr a svoz odpadu — z pravidel/harmonogramu, ne z tisíců dat."""
     out = []
     for fn, nazev, dopl in (
-            ('kalendar/mestsky-urad.json', 'Městský úřad Pečky — úřední hodiny', 'Kdy je otevřeno, pracovní doba úřadu'),
-            ('kalendar/sberny-dvur.json', 'Sběrný dvůr Pečecké služby — otevírací doba', 'Kdy je otevřeno, sběrný dvůr')):
+            ('kalendar/sberny-dvur.json', 'Sběrný dvůr Pečecké služby — otevírací doba', 'Kdy je otevřeno, sběrný dvůr'),):
         d = _load(fn)
         meta = d['meta']
         dny = defaultdict(list)

@@ -302,6 +302,82 @@ function relBudouci(iso) {
   });
 })();
 
+// ===== Dashboard: karty událostí v "Nadcházející akce" =====
+// Build vypíše víc událostí, než je vidět (data-max); tady se skryjí proběhlé,
+// odkryjí další a každé kartě se doplní chip dnes / zítra / za N dní. U probíhající
+// vícedenní akce je chip "dnes".
+(function () {
+  const ul = document.querySelector('.dash-akce');
+  if (!ul) return;
+  const pad = n => String(n).padStart(2, '0');
+  const d = new Date();
+  const dnes = d.getFullYear() + '-' + pad(d.getMonth() + 1) + '-' + pad(d.getDate());
+  const max = parseInt(ul.getAttribute('data-max'), 10);
+  // pořadí podle dnešního dne: nejdřív akce, které teprve začnou (v rámci dne ty
+  // s přesným časem napřed), pak probíhající vícedenní pod nadpisem "Probíhající"
+  const li0 = [...ul.querySelectorAll('.dash-event')];
+  const bezi = li => !!li.dataset.denEnd && li.dataset.from < dnes;
+  // skupiny: 0 = akce dnešního dne, 1 = probíhající (začaly před dneškem), 2 = další dny
+  const klic = li => bezi(li)
+    ? ['1', li.dataset.until, li.dataset.from, li.dataset.time ? '0' : '1', li.dataset.time || '']
+    : [(li.dataset.from || li.dataset.until) <= dnes ? '0' : '2', li.dataset.from || li.dataset.until,
+       li.dataset.time ? '0' : '1', li.dataset.time || ''];
+  li0.sort((a, b) => klic(a).join('|').localeCompare(klic(b).join('|')));
+  const empty0 = ul.querySelector('.dash-empty');
+  const nadpis = ul.querySelector('.dash-group--bezi');
+  const nadpisDalsi = ul.querySelector('.dash-group--dalsi');
+  li0.forEach(li => ul.insertBefore(li, empty0));
+  // z max míst má probíhající až data-max-bezi (jinak je vytlačí akce s časem)
+  const maxBezi = parseInt(ul.getAttribute('data-max-bezi'), 10) || 0;
+  const nBezi = li0.filter(li => li.dataset.until >= dnes && bezi(li)).length;
+  const maxNove = max - Math.min(nBezi, maxBezi);
+  let shown = 0, nNove = 0, nBeziShown = 0, prvniBezi = null, prvniDalsi = null;
+  ul.querySelectorAll('.dash-event').forEach(li => {
+    const jeBezi = bezi(li);
+    const ok = li.dataset.until >= dnes && (isNaN(max) ||
+      (jeBezi ? nBeziShown < maxBezi : nNove < maxNove));
+    li.hidden = !ok;
+    if (!ok) return;
+    shown++;
+    if (jeBezi) nBeziShown++; else nNove++;
+    if (bezi(li) && !prvniBezi) prvniBezi = li;
+    if (!bezi(li) && (li.dataset.from || li.dataset.until) > dnes && !prvniDalsi) prvniDalsi = li;
+    const chip = li.querySelector('.fut-chip');
+    const datum = li.querySelector('.ev-date');
+    const od = li.dataset.from || li.dataset.until;
+    const cas = li.dataset.timeText || li.dataset.time || '';  // např. 13:00–16:00
+    const t = relBudouci(od < dnes ? dnes : od);
+    if (!chip || t === null) return;
+    chip.hidden = false;  // obecný .fut-chip skript skryl chip s datem v minulosti (probíhající vícedenní akce)
+    chip.textContent = t;
+    chip.title = od;
+    chip.classList.toggle('kal-dnes', t === 'dnes');
+    chip.classList.toggle('probiha', t !== 'dnes');
+    chip.hidden = jeBezi;  // probíhající vícedenní akce chip nemá (stačí nadpis "Probíhající")
+    // text data: rozsah, který už začal, je "trvá do …" (bez pomlčky); dnešní
+    // jednodenní akce datum nevypisuje (stačí chip); čas mimo "dnes" patří k datu
+    let txt;
+    if (li.dataset.denEnd) {
+      txt = od <= dnes ? 'trvá do ' + li.dataset.denEnd
+                       : li.dataset.den + ' – ' + li.dataset.denEnd + (cas ? ' ' + cas : '');
+    } else {
+      txt = t === 'dnes' ? cas : li.dataset.den + (cas ? ' ' + cas : '');
+    }
+    datum.textContent = txt;
+    datum.hidden = !txt;
+  });
+  if (nadpis) {
+    nadpis.hidden = !prvniBezi;
+    if (prvniBezi) ul.insertBefore(nadpis, prvniBezi);
+  }
+  if (nadpisDalsi) {
+    nadpisDalsi.hidden = !prvniDalsi;
+    if (prvniDalsi) ul.insertBefore(nadpisDalsi, prvniDalsi);
+  }
+  const empty = ul.querySelector('.dash-empty');
+  if (empty) empty.hidden = shown > 0;
+})();
+
 // ===== Rozklikávací řádky tabulky (např. Pokladna: na co město utrácí) =====
 document.querySelectorAll('.exp-row').forEach(row => {
   row.addEventListener('click', () => {

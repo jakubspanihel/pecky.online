@@ -24,7 +24,7 @@ D) Zápasy AFK Pečky — z kalendar/afk-zapasy.json, které stahuje
    zápasy hrané v Pečkách, všech týmů). Tenhle skript sám nic nestahuje -
    pracuje s posledním uloženým souborem, viz kalendar/README.md ->
    "Zápasy AFK Pečky".
-F) Pravidelné provozní doby — kalendar/sberny-dvur.json a mestsky-urad.json, otevírací doba
+F) Pravidelné provozní doby — kalendar/sberny-dvur.json, otevírací doba
    bez konce (rozepisuje se na horizont meta.horizon), kategorie 'svoz'.
 E) Svoz odpadů — z kalendar/svoz-odpadu.json (harmonogram města, vytěžený
    z PDF skriptem kalendar/scripts/extract-svoz-odpadu.py), kategorie
@@ -68,8 +68,7 @@ AKCE_JSON = ROOT / 'kalendar' / 'akce.json'
 VOLBY_JSON = ROOT / 'kalendar' / 'udalosti-rucni.json'
 AFK_JSON = ROOT / 'kalendar' / 'afk-zapasy.json'
 SVOZ_JSON = ROOT / 'kalendar' / 'svoz-odpadu.json'
-PROVOZNI_DOBY_JSON = [ROOT / 'kalendar' / 'sberny-dvur.json',
-                      ROOT / 'kalendar' / 'mestsky-urad.json']
+PROVOZNI_DOBY_JSON = [ROOT / 'kalendar' / 'sberny-dvur.json']
 ORGANIZACE_JSON = ROOT / 'lide' / 'organizations.json'
 OUT_JSON = ROOT / 'kalendar' / 'udalosti.json'
 OUT_ICS = ROOT / 'kalendar' / 'kalendar.ics'
@@ -486,7 +485,7 @@ def main():
                                f'kalendar/udalosti-rucni.json ({len(volby)} termínů), '
                                f'kalendar/afk-zapasy.json ({len(afk)} zápasů v Pečkách), '
                                f'kalendar/svoz-odpadu.json ({len(svoz)} svozů), '
-                               f'kalendar/sberny-dvur.json + mestsky-urad.json ({len(sberny)} termínů provozních dob)'),
+                               f'kalendar/sberny-dvur.json ({len(sberny)} termínů provozních dob)'),
             'updated': datetime.now(PRAGUE).strftime('%Y-%m-%d'),
         },
         'events': events,

@@ -124,7 +124,7 @@ MANIFEST = {
         'Kalendář termínů týkajících se města Pečky.',
         False),
     'naobed': (
-        '/naobed/', 'Denní menu v Pečkách — Do Peček . cz',
+        '/naobed/', 'Kam na oběd v Pečkách? — Do Peček . cz',
         'Poslední denní menu pečeckých restaurací U Marka, Siňorita a '
         'Hostinec U Stříkačky podle jejich facebookových stránek.',
         False),
@@ -376,7 +376,7 @@ def render_stav_sekci(rows):
     out = ['<div class="stav-sekci">']
     for r in rows:
         out.append(
-            '<details class="stav-card">'
+            '<details class="card stav-card">'
             f'<summary><span class="stav-name">{esc(r["name"])}</span>'
             f'<span class="stav-zmena">{datum(r["zmena"], "Změna")}</span>'
             '<span class="collapsible-arrow" aria-hidden="true">▾</span></summary>'
@@ -427,8 +427,9 @@ def apply_lastmod(content, lastmod):
 # nadcházející akce) nesou data-until: build jich vypíše víc, než je vidět
 # (nadbytečné mají hidden), a common.js v prohlížeči skryje ty, co mezitím
 # proběhly, a doplní další v pořadí - homepage tak nezastará mezi buildy.
-DASH_KALENDAR_KATEGORIE = ('akce', 'volby')  # kurzy a svoz odpadu by zahltily výpis
-DASH_AKCE_VIDET, DASH_AKCE_REZERVA = 8, 25  # rezerva ~ týden bez buildu
+DASH_KALENDAR_KATEGORIE = ('akce', 'volby', 'svoz', 'zastupitelstvo')  # kurzy by výpis zahltily
+DASH_AKCE_VIDET, DASH_AKCE_REZERVA = 20, 25  # rezerva ~ týden bez buildu
+DASH_AKCE_BEZI = 5  # max. míst z DASH_AKCE_VIDET pro probíhající vícedenní akce
 DASH_JEDNANI_PROBEHLA = 3
 DNY_CZ = ['po', 'út', 'st', 'čt', 'pá', 'so', 'ne']
 
@@ -440,11 +441,15 @@ def _den_cz(iso):
     return f'{DNY_CZ[date(y, m, d).weekday()]} {d}. {m}.'
 
 
-def _dash_card(title, href, link_text, body, key):
+def _dash_card(title, href, link_text, body, key, head_link=None):
     # key = název dlaždice v bento mřížce (grid-area v assets/styles.css)
     title_html = esc(title).replace('\n', '<br>')  # \n v titulku = konec řádku
-    return (f'<div class="dash-card dash-card--{key}">\n'
-            f'  <h3 class="display"><a href="{href}">{title_html}</a></h3>\n'
+    h3 = f'<h3 class="display"><a href="{href}">{title_html}</a></h3>'
+    if head_link:  # odkaz vpravo na řádku s nadpisem
+        h3 = (f'<div class="dash-card-head">{h3}'
+              f'<a class="dash-head-link" href="{href}">{esc(head_link)} →</a></div>')
+    return (f'<div class="card dash-card dash-card--{key}">\n'
+            f'  {h3}\n'
             f'{body}\n'
             + (f'  <a class="dash-more" href="{href}">{esc(link_text)} →</a>\n' if link_text else '') +
             f'</div>')
@@ -684,38 +689,75 @@ def _dash_zastupitelstvo(dnes):
     return '\n'.join(out), '\n'.join(out_v)
 
 
+def _dash_akce_li(e, i, hidden=False):
+    vicedenni = e.get('date_end') and e['date_end'] != e['date']
+    cas = e['time'] if e.get('time') and not e.get('all_day') else ''
+    cas_txt = f'{cas}–{e["time_end"]}' if cas and e.get('time_end') else cas  # např. sběrný dvůr 13:00–16:00
+    kdy = (f'{_den_cz(e["date"])} – {_den_cz(e["date_end"])}' if vicedenni else _den_cz(e['date']))
+    if cas_txt:
+        kdy += f' {cas_txt}'
+    kdo = f'<span class="ev-org">{esc(e["organizer_name"])}</span>' if e.get('organizer_name') else ''
+    # odkaz vede na originální zdroj události; bez něj na kalendář
+    zdroj = e.get('link') or f'/kalendar/#{e["date"][:7]}/seznam'
+    cizi = ' target="_blank" rel="noopener"' if zdroj.startswith('http') else ''
+    data_from = f' data-from="{e["date"]}"' if vicedenni else ''
+    data_cas = f' data-time="{esc(cas)}" data-time-text="{esc(cas_txt)}"' if cas else ''
+    # chip (dnes 17:00 / zítra / za N dní) a text data (trvá do …) složí common.js
+    # podle dnešního dne; popisky dnů předává build (jediný zdroj českých zkratek)
+    popisky = f' data-den="{_den_cz(e["date"])}" data-den-end="{_den_cz(e["date_end"]) if vicedenni else ""}"'
+    org = e.get('organizer')
+    # barva podle pořadatele (--org-<id> z assets/org-colors.css); bez barvy fallback v CSS
+    barva = f' style="--org-c:var(--org-{org});--org-c-bg:var(--org-{org}-bg)"' if org else ''
+    return (f'    <li class="dash-event"{barva} data-until="{e.get("date_end") or e["date"]}"'
+            f'{data_from}{data_cas}{popisky}{" hidden" if hidden else ""}>'
+            f'<a class="card" href="{esc(zdroj)}"{cizi}>'
+            f'<span class="ev-when"><span class="tag probiha fut-chip" data-date="{e["date"]}">plánováno</span>'
+            f'<span class="ev-date">{esc(kdy)}</span></span>'
+            f'<span class="ev-what"><span class="ev-title">{esc(e["title"])}</span>{kdo}</span></a></li>')
+
+
 def _dash_kalendar(dnes):
     events = json.loads(read('kalendar/udalosti.json'))['events']
-    akce = sorted((e for e in events
-                   if e['category'] in DASH_KALENDAR_KATEGORIE
-                   and (e.get('date_end') or e['date']) >= dnes),
-                  key=lambda e: (e['date'], e.get('time') or ''))[:DASH_AKCE_VIDET + DASH_AKCE_REZERVA]
-    out = [f'  <ul class="dash-list" data-max="{DASH_AKCE_VIDET}">']
-    for i, e in enumerate(akce):
-        vicedenni = e.get('date_end') and e['date_end'] != e['date']
-        if vicedenni and e['date'] < dnes:
-            kdy = f'probíhá do {_den_cz(e["date_end"])}'
+    budouci = [e for e in events if e['category'] in DASH_KALENDAR_KATEGORIE
+               and (e.get('date_end') or e['date']) >= dnes]
+    def probiha(e):
+        return bool(e.get('date_end')) and e['date'] < dnes
+    def cas(e):
+        return e['time'] if e.get('time') and not e.get('all_day') else ''
+    # pořadí: akce dnešního dne (s přesným časem napřed), pak "Probíhající" vícedenní
+    # (začaly před dneškem), pak další dny; common.js řadí stejně podle dne v prohlížeči
+    nove = sorted((e for e in budouci if not probiha(e)),
+                  key=lambda e: (e['date'] > dnes, e['date'], not cas(e), cas(e)))
+    bezi = sorted((e for e in budouci if probiha(e)),
+                  key=lambda e: (e['date_end'], e['date'], not cas(e), cas(e)))
+    nove = nove[:DASH_AKCE_VIDET + DASH_AKCE_REZERVA]
+    bezi = bezi[:DASH_AKCE_REZERVA]
+    dnesni = [e for e in nove if e['date'] <= dnes]
+    pozdeji = [e for e in nove if e['date'] > dnes]
+    pool = dnesni + bezi + pozdeji
+    # z celkových 20 míst jich má "Probíhající" vyhrazeno až DASH_AKCE_BEZI (jinak by je
+    # akce s časem vždy vytlačily); common.js počítá stejně
+    mist_nove = DASH_AKCE_VIDET - min(len(bezi), DASH_AKCE_BEZI)
+    out = [f'  <ul class="dash-akce" data-max="{DASH_AKCE_VIDET}" data-max-bezi="{DASH_AKCE_BEZI}">']
+    n_nove = n_bezi = n_pozdeji = 0
+    for i, e in enumerate(pool):
+        je_bezi = probiha(e)
+        if je_bezi and n_bezi == 0:
+            out.append('    <li class="dash-group dash-group--bezi">Probíhající</li>')
+        if e['date'] > dnes and not je_bezi and not n_pozdeji:
+            out.append('    <li class="dash-group dash-group--dalsi">Další akce</li>')
+        n_pozdeji += e['date'] > dnes
+        if je_bezi:
+            skryt = n_bezi >= DASH_AKCE_BEZI
+            n_bezi += 1
         else:
-            kdy = _den_cz(e['date']) + (f' – {_den_cz(e["date_end"])}' if vicedenni else '')
-        if e.get('time') and not e.get('all_day'):
-            kdy += f' v {e["time"]}'
-        kdo = f' · {esc(e["organizer_name"])}' if e.get('organizer_name') else ''
-        mesic = e['date'][:7]
-        hidden = ' hidden' if i >= DASH_AKCE_VIDET else ''
-        # data-from jen u vícedenní akce (jinak stejné jako data-until) — čte ho
-        # štítek DNES/ZÍTRA/POZÍTŘÍ v common.js, ať probíhající vícedenní akce
-        # ukáže DNES i mimo první den
-        data_from = f' data-from="{e["date"]}"' if vicedenni else ''
-        # odkaz vede na originální zdroj události; bez něj na kalendář
-        zdroj = e.get('link') or f'/kalendar/#{mesic}/seznam'
-        cizi = ' target="_blank" rel="noopener"' if zdroj.startswith('http') else ''
-        out.append(f'    <li data-until="{e.get("date_end") or e["date"]}"{data_from}{hidden}>'
-                   f'<a href="{esc(zdroj)}"{cizi}>{esc(e["title"])}</a>'
-                   f'<span class="meta-note">{esc(kdy)}{kdo}</span></li>')
-    out.append('    <li class="dash-empty"' + ('' if not akce else ' hidden') +
+            skryt = n_nove >= mist_nove
+            n_nove += 1
+        out.append(_dash_akce_li(e, i, hidden=skryt))
+    out.append('    <li class="dash-empty"' + ('' if not pool else ' hidden') +
                '>Žádná nadcházející akce zatím není v kalendáři zapsaná.</li>')
     out.append('  </ul>')
-    return _dash_card('Nadcházející akce', '/kalendar/', 'Celý kalendář', '\n'.join(out), 'kalendar')
+    return _dash_card('Aktuality', '/kalendar/', None, '\n'.join(out), 'kalendar', head_link='📅 Celý kalendář')
 
 
 def _dash_noviny():
@@ -752,11 +794,10 @@ def render_dashboard(stav_rows):
     from datetime import date
     dnes = date.today().isoformat()
     zm, volby = _dash_zastupitelstvo(dnes)
-    # dva samostatné sloupce (vlevo banner voleb + jednání, vpravo flashnews, akce,
-    # noviny): sloupce se nenatahují podle sebe, takže mezi bloky nevznikají mezery;
+    # dva samostatné sloupce (vlevo banner voleb + jednání + noviny, vpravo flashnews, akce): sloupce se nenatahují podle sebe, takže mezi bloky nevznikají mezery;
     # na užších displejích se sloupce rozpustí do mřížky (grid-area v styles.css)
-    levy = ([volby] if volby else []) + [_dash_jednani(dnes)]
-    pravy = [_dash_zmeny(), _dash_kalendar(dnes), _dash_noviny()]
+    levy = ([volby] if volby else []) + [_dash_jednani(dnes), _dash_noviny()]
+    pravy = [_dash_zmeny(), _dash_kalendar(dnes)]
     sloupec = lambda karty: '<div class="dash-col">\n' + '\n'.join(karty) + '\n</div>'
     return (zm + '\n'
             + f'<div class="dash-grid dash-bento{" dash-bento--volby" if volby else ""}">\n'

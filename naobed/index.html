@@ -3,10 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Denní menu v Pečkách — Do Peček . cz</title>
+<title>Kam na oběd v Pečkách? — Do Peček . cz</title>
 <meta name="description" content="Poslední denní menu pečeckých restaurací U Marka, Siňorita a Hostinec U Stříkačky podle jejich facebookových stránek.">
 <link rel="canonical" href="https://dopecek.cz/naobed/">
-<meta property="og:title" content="Denní menu v Pečkách — Do Peček . cz">
+<meta property="og:title" content="Kam na oběd v Pečkách? — Do Peček . cz">
 <meta property="og:description" content="Poslední denní menu pečeckých restaurací U Marka, Siňorita a Hostinec U Stříkačky podle jejich facebookových stránek.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://dopecek.cz/naobed/">
@@ -16,7 +16,7 @@
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Denní menu v Pečkách — Do Peček . cz">
+<meta name="twitter:title" content="Kam na oběd v Pečkách? — Do Peček . cz">
 <meta name="twitter:description" content="Poslední denní menu pečeckých restaurací U Marka, Siňorita a Hostinec U Stříkačky podle jejich facebookových stránek.">
 <meta name="twitter:image" content="https://dopecek.cz/img/og-image.png">
 <link rel="icon" href="/favicon.ico" sizes="48x48">
@@ -64,20 +64,26 @@
 <main>
   <section class="panel active" id="panel-naobed">
     <p class="lastmod" data-date="2026-10-07">Aktualizováno: 7. 10. 2026</p>
-    <h2 class="title display">Denní menu v Pečkách</h2>
-    <p class="lede">Poslední jídelní lístky tří pečeckých restaurací a odkaz na jídelníček školní jídelny. Fotografie pocházejí z facebookových stránek restaurací.</p>
+    <h2 class="title display">Kam na oběd v Pečkách?</h2>
 
     <h3 class="search-status" id="naobed-status"><span class="spinner" aria-hidden="true"></span>Načítám menu…</h3>
     <div id="naobed-list" class="naobed-list"></div>
 
-    <h3 class="display" style="margin:34px 0 8px;">Další restaurace (nezveřejňují „denní menu“)</h3>
-    <ul id="naobed-dalsi" class="naobed-dalsi"></ul>
+    <h3 class="display" style="margin:34px 0 8px;">Další restaurace</h3>
+    <div id="naobed-dalsi" class="naobed-dalsi"></div>
   </section>
 
   <style>
     .naobed-list{display:flex; gap:18px; margin-top:14px; overflow-x:auto; scroll-snap-type:x proximity; padding-bottom:12px; -webkit-overflow-scrolling:touch;}
-    .naobed-card{flex:0 0 min(380px,86vw); scroll-snap-align:start; display:flex; flex-direction:column; background:var(--parchment); border:1px solid var(--line); border-radius:6px; overflow:hidden;}
-    .naobed-card>h3{margin:0; padding:14px 18px 12px; font-family:var(--font-display); font-size:22px; color:var(--ink); border-bottom:1px solid var(--line);}
+    .naobed-card{flex:0 0 min(380px,86vw); scroll-snap-align:start; display:flex; flex-direction:column; background:rgba(255,255,255,0.55); overflow:hidden;}
+    @media (max-width:600px){.naobed-card{flex-basis:min(380px,68vw);}}
+    .naobed-card>h3{margin:0; font-family:var(--font-display); font-size:22px; color:var(--ink); border-bottom:1px solid var(--line);}
+    .naobed-toggle{all:unset; box-sizing:border-box; width:100%; display:flex; align-items:center; justify-content:space-between; gap:10px; padding:14px 18px 12px; cursor:pointer; font:inherit; color:inherit;}
+    .naobed-toggle:focus-visible{outline:2px solid var(--burgundy); outline-offset:-2px;}
+    .naobed-chevron{flex:0 0 auto; color:var(--ink-soft); transition:transform .25s ease;}
+    .naobed-toggle[aria-expanded="true"] .naobed-chevron{transform:rotate(180deg);}
+    .naobed-info[hidden]{display:none;}
+    .naobed-card>.naobed-info{border-bottom:1px solid var(--line);}
     .naobed-photo{position:relative; background:var(--parchment-deep); min-height:200px; flex:1 1 auto;}
     .naobed-photo a{display:block;}
     .naobed-photo img{display:block; width:100%; height:auto;}
@@ -90,9 +96,11 @@
     .naobed-actions{display:flex; flex-wrap:wrap; gap:8px; align-items:center; margin-top:6px;}
     .naobed-btn{display:inline-block; padding:7px 14px; border-radius:4px; background:var(--burgundy); color:#fff; font-size:14px; font-weight:600; text-decoration:none;}
     .naobed-btn:hover{filter:brightness(1.15);}
-    .naobed-dalsi{margin:0; padding-left:20px; color:var(--ink-soft); font-size:15px; line-height:1.7;}
-    .naobed-dalsi li{margin-bottom:6px;}
-    .naobed-dalsi strong{color:var(--ink);}
+    .naobed-dalsi{display:grid; grid-template-columns:repeat(auto-fill,minmax(250px,1fr)); gap:14px;}
+    .naobed-mini{display:flex; flex-direction:column; gap:6px; padding:14px 18px 16px; background:rgba(255,255,255,0.55); color:var(--ink-soft); font-size:15px;}
+    .naobed-mini h4{margin:0; font-family:var(--font-display); font-size:18px; color:var(--ink);}
+    .naobed-mini p{margin:0;}
+    .naobed-mini .naobed-actions{margin-top:auto; padding-top:6px;}
     .naobed-empty{padding:60px 20px; color:var(--ink-soft); font-size:15px; text-align:center;}
     .naobed-text{padding:52px 18px 16px; font-size:15px; color:var(--ink);}
     .naobed-text h4{margin:0 0 4px; font-size:13px; text-transform:uppercase; letter-spacing:.06em; color:var(--ink-soft);}
@@ -157,22 +165,34 @@
         var tel = r.phone ? '<a class="naobed-btn" href="callto://+420' + esc(r.phone.replace(/\D/g, '')) + '">📞 ' + esc(r.phone) + '</a>' : '';
         var odkazy = '<a href="' + esc(r.facebook) + '" target="_blank" rel="noopener">Facebook ↗</a>' +
           (r.web ? ' · <a href="' + esc(r.web) + '" target="_blank" rel="noopener">' + esc(r.webLabel || 'Web') + ' ↗</a>' : '');
-        return '<article class="naobed-card" id="' + esc(r.id) + '">' +
-          '<h3>' + esc(r.name) + '</h3><div class="naobed-photo">' + photo + '</div>' +
-          '<div class="naobed-info">' +
+        var info = '<div class="naobed-info" id="info-' + esc(r.id) + '" hidden>' +
           (r.address ? '<p>📍 ' + esc(r.address) + '</p>' : '') +
           (dnesOtevreno((orgs[r.id] || {}).opening_hours) ? '<p>' + dnesOtevreno((orgs[r.id] || {}).opening_hours) + '</p>' : '') +
-          '<div class="naobed-actions">' + tel + '<span>' + odkazy + '</span></div></div></article>';
+          '<div class="naobed-actions">' + tel + '<span>' + odkazy + '</span></div></div>';
+        return '<article class="card naobed-card" id="' + esc(r.id) + '">' +
+          '<h3><button type="button" class="naobed-toggle" aria-expanded="false" aria-controls="info-' + esc(r.id) + '">' +
+          '<span>' + esc(r.name) + '</span>' +
+          '<svg class="naobed-chevron" viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>' +
+          '</button></h3>' + info + '<div class="naobed-photo">' + photo + '</div></article>';
       }).join('');
+      listEl.querySelectorAll('.naobed-toggle').forEach(function (b) {
+        b.addEventListener('click', function () {
+          var info = document.getElementById(b.getAttribute('aria-controls'));
+          var open = b.getAttribute('aria-expanded') !== 'true';
+          b.setAttribute('aria-expanded', open ? 'true' : 'false');
+          info.hidden = !open;
+        });
+      });
       document.getElementById('naobed-dalsi').innerHTML = (res[0].dalsi || []).map(function (r) {
-        var casti = [];
-        if (r.note) casti.push(esc(r.note));
-        if (r.address) casti.push('📍 ' + esc(r.address));
         var oh = dnesOtevreno((orgs[r.id] || {}).opening_hours);
-        if (oh) casti.push(oh);
-        if (r.phone) casti.push('<a href="callto://+420' + esc(r.phone.replace(/\D/g, '')) + '">' + esc(r.phone) + '</a>');
-        if (r.link) casti.push('<a href="' + esc(r.link) + '" target="_blank" rel="noopener">' + esc(r.linkLabel || 'Odkaz') + ' ↗</a>');
-        return '<li><strong>' + esc(r.name) + '</strong> — ' + casti.join(' · ') + '</li>';
+        var tel = r.phone ? '<a class="naobed-btn" href="callto://+420' + esc(r.phone.replace(/\D/g, '')) + '">📞 ' + esc(r.phone) + '</a>' : '';
+        var odkaz = r.link ? '<a href="' + esc(r.link) + '" target="_blank" rel="noopener">' + esc(r.linkLabel || 'Odkaz') + ' ↗</a>' : '';
+        return '<article class="card naobed-mini"><h4>' + esc(r.name) + '</h4>' +
+          (r.note ? '<p>' + esc(r.note) + '</p>' : '') +
+          (r.address ? '<p>📍 ' + esc(r.address) + '</p>' : '') +
+          (oh ? '<p>' + oh + '</p>' : '') +
+          (tel || odkaz ? '<div class="naobed-actions">' + tel + (odkaz ? '<span>' + odkaz + '</span>' : '') + '</div>' : '') +
+          '</article>';
       }).join('');
       statusEl.remove();
     }).catch(function () {
