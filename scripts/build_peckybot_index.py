@@ -28,6 +28,7 @@ malá písmena, bez diakritiky, slova od 3 znaků, zkrácená na prvních 6 znak
 
 Spouští ho scripts/build.py; samostatně: python3 scripts/build_peckybot_index.py
 """
+import hashlib
 import html
 import json
 import math
@@ -528,7 +529,9 @@ def build_index(chunks):
     max_df = max(20, int(n * MAX_DF_RATIO))
     post = {t: v for t, v in sorted(post.items()) if len(v) // 2 <= max_df}
     meta = [{'u': c['u'], 't': c['t']} for c in chunks]
-    return {'v': 1, 'shard': SHARD, 'chunks': meta, 'post': post}
+    # otisk obsahu: Worker s ním stahuje dávky textů, takže se nikdy nespojí nový rejstřík se starými texty
+    h = hashlib.sha1(json.dumps([c['x'] for c in chunks], ensure_ascii=False).encode('utf-8')).hexdigest()[:12]
+    return {'v': 1, 'h': h, 'shard': SHARD, 'chunks': meta, 'post': post}
 
 
 def write_if_changed(path, obj):

@@ -87,10 +87,11 @@ async function bump(kv: KVNamespace, key: string, ttlSeconds: number): Promise<n
 
 let indexCache: { index: Index; at: number } | null = null;
 const shardCache = new Map<number, { texts: string[]; at: number }>();
-const INDEX_TTL_MS = 60 * 60 * 1000;
+// rejstřík se obnovuje často (nové jednání, přegenerování); dávky textů jsou vázané na otisk obsahu
+const INDEX_TTL_MS = 5 * 60 * 1000;
 
-async function fetchJson<T>(url: string): Promise<T> {
-  const r = await fetch(url, { cf: { cacheTtl: 3600, cacheEverything: true } });
+async function fetchJson<T>(url: string, cacheTtl = 300): Promise<T> {
+  const r = await fetch(url, { cf: { cacheTtl, cacheEverything: true } });
   if (!r.ok) throw new HttpError(502, "index", `Index ${url} vrátil ${r.status}`);
   return (await r.json()) as T;
 }
@@ -109,7 +110,10 @@ async function getTexts(env: Env, index: Index, ids: number[]): Promise<Map<numb
     shards.map(async (k) => {
       const hit = shardCache.get(k);
       if (hit && Date.now() - hit.at < INDEX_TTL_MS) return;
-      const texts = await fetchJson<string[]>(`${env.SITE_URL}/peckybot/chunks/${k}.json`);
+      const texts = await fetchJson<string[]>(
+        `${env.SITE_URL}/peckybot/chunks/${k}.json${index.h ? `?h=${index.h}` : ""}`,
+        index.h ? 86400 : 300,
+      );
       shardCache.set(k, { texts, at: Date.now() });
     }),
   );

@@ -6,6 +6,7 @@ import { SYNONYM_GROUPS } from "./synonyms.ts";
 
 export interface Index {
   v: number;
+  h?: string; // otisk obsahu, přidává se k URL dávek textů (cache)
   shard: number;
   chunks: { u: string; t: string }[];
   post: Record<string, number[]>; // token -> [idx, tf, idx, tf, ...]
