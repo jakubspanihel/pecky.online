@@ -331,10 +331,25 @@ function relBudouci(iso) {
   const maxBezi = parseInt(ul.getAttribute('data-max-bezi'), 10) || 0;
   const nBezi = li0.filter(li => li.dataset.until >= dnes && bezi(li)).length;
   const maxNove = max - Math.min(nBezi, maxBezi);
+  // "Další akce" = jen jediný den (nejbližší po dnešku, kde něco zbylo); je-li
+  // dohromady míň než 5 karet, přidávají se další dny (celé), dokud jich není 5
+  const MIN_KARET = 5;
+  const kandidati = li0.filter(li => !bezi(li) && li.dataset.until >= dnes);
+  const dnesniPocet = kandidati.filter(li => (li.dataset.from || li.dataset.until) <= dnes).length;
+  const beziPocet = Math.min(li0.filter(li => li.dataset.until >= dnes && bezi(li)).length, parseInt(ul.getAttribute('data-max-bezi'), 10) || 0);
+  const dny = [...new Set(kandidati.map(li => li.dataset.from || li.dataset.until).filter(d => d > dnes))].sort();
+  const povoleneDny = new Set();
+  let pocet = dnesniPocet + beziPocet;
+  dny.forEach(den => {
+    if (povoleneDny.size && pocet >= MIN_KARET) return;
+    povoleneDny.add(den);
+    pocet += kandidati.filter(li => (li.dataset.from || li.dataset.until) === den).length;
+  });
   let shown = 0, nNove = 0, nBeziShown = 0, prvniBezi = null, prvniDalsi = null;
   ul.querySelectorAll('.dash-event').forEach(li => {
     const jeBezi = bezi(li);
-    const ok = li.dataset.until >= dnes && (isNaN(max) ||
+    const odDne = li.dataset.from || li.dataset.until;
+    const ok = li.dataset.until >= dnes && (jeBezi || odDne <= dnes || povoleneDny.has(odDne)) && (isNaN(max) ||
       (jeBezi ? nBeziShown < maxBezi : nNove < maxNove));
     li.hidden = !ok;
     if (!ok) return;

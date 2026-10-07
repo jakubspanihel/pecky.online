@@ -432,6 +432,7 @@
   .dash-list .dash-empty{color:var(--ink-soft); font-style:italic;}
   .dash-more{margin-top:auto; align-self:flex-start; font-family:var(--font-mono); font-size:12px; font-weight:700; letter-spacing:0.02em; padding:7px 14px; border:1px solid var(--line); border-radius:3px; color:var(--ink); background:var(--parchment-deep); text-decoration:none; transition:border-color .15s, color .15s;}
   .dash-list + .dash-more, .dash-noviny + .dash-more{margin-top:14px;}
+  .dash-more--center{align-self:center; margin-top:16px;}
   .dash-more:hover{border-color:var(--burgundy); color:var(--burgundy); text-decoration:none;}
   .dash-noviny{display:flex; gap:14px; align-items:flex-start; text-decoration:none; color:inherit;}
   .dash-noviny img{width:110px; aspect-ratio:380/538; object-fit:cover; border:1px solid var(--line); background:#fff; flex-shrink:0; transition:border-color .15s;}

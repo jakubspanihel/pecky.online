@@ -20,7 +20,7 @@ sám s daty sekcí při každém `python3 scripts/build.py`.
 
 | Karta | Zdroj | Co ukazuje |
 |---|---|---|
-| Nadcházející akce | `kalendar/udalosti.json` → `events`, jen kategorie `akce` a `volby` (kurzy a svoz odpadu by výpis zahltily) | 5 nejbližších akcí, odkaz na měsíc `/kalendar/#RRRR-MM/seznam`; DNES/ZÍTRA/POZÍTŘÍ štítek u toho, co je v dohledu (viz níže) |
+| Aktuality (dřív „Nadcházející akce“) | `kalendar/udalosti.json` → `events`, kategorie `akce`, `volby`, `svoz`, `zastupitelstvo` (kurzy by výpis zahltily) | až 20 karet po skupinách, pravidla viz „Aktuality — co se zobrazuje“ níže; odkaz „Celý kalendář“ v záhlaví a tlačítko „Další ...“ pod výpisem |
 | Jednání rady, zastupitelstva a výborů | `jednani/pecky-jednani.json` + `jednani/vybory.json` → `meetings` | jen proběhlá jednání (ohlášená tu od 30. 9. 2026 nejsou): „Naposledy“: 3 poslední proběhlá jednání Rady/ZM s počtem usnesení, odkaz `/jednani/#rada-RRRR-MM-DD`; „Výbory — poslední zveřejněný zápis“ (od 29. 9. 2026): poslední proběhlé jednání finančního a kontrolního výboru zvlášť, odkaz `/jednani/#financni-vybor-RRRR-MM-DD` — výbory zveřejňují zápisy se zpožděním, mezi „Naposledy“ by se skoro nedostaly |
 | Příští zastupitelstvo (samostatný pás nad mřížkou, od 30. 9. 2026) | `jednani/pecky-jednani.json` → nejbližší `Zastupitelstvo` s `date` ≥ dnes (Rada ne); bez ohlášeného ZM se nevygeneruje | titulek-odkaz „Příští zastupitelstvo za N dní“ (7 a víc dní) / „je v pátek“ (2–6 dní, název dne) / „je zítra“ / „je dnes“ (odkaz na jednání) + datum, čas, místo (odpočet počítá `assets/common.js` v prohlížeči; po proběhnutí ZM se pás schová) |
 | └ Odkazy pod zasedáním | `agenda` (program z pozvánky), `links.livestream` + `time` | „Program jednání“ → detail jednání v `/jednani/` (jen je-li `agenda` neprázdná); „Živé vysílání od HH:MM ↗“ → livestream (jen je-li znám odkaz i čas) |
@@ -54,6 +54,37 @@ i s nadpisem.
 
 Vícedenní akce, která v době buildu už běží, má text „probíhá do …“ —
 ten se počítá při buildu, ne v prohlížeči.
+
+### Aktuality — co se zobrazuje
+Pravidla jsou na dvou místech, která musí zůstat shodná: build
+(`_dash_kalendar()` v `scripts/build.py` — výchozí HTML) a prohlížeč
+(`assets/common.js`, blok „Dashboard: karty událostí“ — přepočet podle
+dnešního dne, ať stránka nezastará mezi buildy).
+
+1. **Pořadí a skupiny:** nejdřív akce dnešního dne (v rámci dne ty s přesným
+   časem napřed), pak skupina **Probíhající**, pak **Další akce**.
+2. **Probíhající** = vícedenní akce, které začaly před dneškem. Nemají chip,
+   místo data je „trvá do …“ (bez pomlčky). Vícedenní akce, která začíná dnes,
+   patří mezi dnešní akce.
+3. **Další akce** = události z **jediného dne**: nejbližšího dne po dnešku, na
+   který nějaká akce zbývá (často zítřek, o víkendu i pondělí apod.). Další
+   dny se nevypisují — jsou za tlačítkem „Další ...“ v Kalendáři.
+   **Výjimka:** je-li dohromady (dnešní + probíhající + Další akce) méně než
+   5 karet (`DASH_AKCE_MIN`), přidávají se další dny (celé), dokud jich není
+   aspoň 5; kvůli tomu může jít o víc dní.
+4. **Limit:** celkem 20 karet (`DASH_AKCE_VIDET`); z nich má „Probíhající“
+   vyhrazeno až 5 míst (`DASH_AKCE_BEZI`), aby je akce s časem nevytlačily.
+5. **Chip** (dnes / zítra / pozítří / za N dní) je u dnešních a dalších akcí;
+   čas není v chipu, ale v řádku pod ním („13:00–16:00“, u jiných dnů
+   „čt 8. 10. 18:00“); u dnešní jednodenní akce se datum nevypisuje.
+6. **Barva karty** = barva pořadatele (`lide/organizations.json`); pořadatel
+   bez barvy má neutrální kartu.
+7. **Prázdné skupiny zmizí i s nadpisem.** Nic dnes ani zítra → výpis začíná
+   „Probíhající“ nebo „Další akce“; nic v žádné skupině → hláška „Žádná
+   nadcházející akce zatím není v kalendáři zapsaná.“ (tlačítko „Další ...“
+   zůstává).
+8. **Zásoba:** build vypíše zásobu událostí (cca týden dopředu); po delší
+   době bez buildu se výpis ztenčí a nakonec zůstane jen hláška z bodu 7.
 
 ### Štítek DNES/ZÍTRA/POZÍTŘÍ (doplněno 29. 9. 2026 na žádost uživatele)
 Každá `<li data-until="…">` v obou kartách („Nadcházející akce“ i

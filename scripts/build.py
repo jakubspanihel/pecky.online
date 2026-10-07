@@ -429,6 +429,7 @@ def apply_lastmod(content, lastmod):
 # proběhly, a doplní další v pořadí - homepage tak nezastará mezi buildy.
 DASH_KALENDAR_KATEGORIE = ('akce', 'volby', 'svoz', 'zastupitelstvo')  # kurzy by výpis zahltily
 DASH_AKCE_VIDET, DASH_AKCE_REZERVA = 20, 25  # rezerva ~ týden bez buildu
+DASH_AKCE_MIN = 5  # aspoň tolik karet celkem (jinak se přidávají další dny do Dalších akcí)
 DASH_AKCE_BEZI = 5  # max. míst z DASH_AKCE_VIDET pro probíhající vícedenní akce
 DASH_JEDNANI_PROBEHLA = 3
 DNY_CZ = ['po', 'út', 'st', 'čt', 'pá', 'so', 'ne']
@@ -738,6 +739,15 @@ def _dash_kalendar(dnes):
     # z celkových 20 míst jich má "Probíhající" vyhrazeno až DASH_AKCE_BEZI (jinak by je
     # akce s časem vždy vytlačily); common.js počítá stejně
     mist_nove = DASH_AKCE_VIDET - min(len(bezi), DASH_AKCE_BEZI)
+    # "Další akce" jen z jediného dne (nejbližšího po dnešku, kde něco je); je-li
+    # dohromady míň než DASH_AKCE_MIN karet, přidávají se další dny (celé), dokud
+    # jich není aspoň tolik. common.js počítá stejně.
+    povolene_dny, pocet = set(), len(dnesni) + min(len(bezi), DASH_AKCE_BEZI)
+    for den in sorted({e['date'] for e in pozdeji}):
+        if povolene_dny and pocet >= DASH_AKCE_MIN:
+            break
+        povolene_dny.add(den)
+        pocet += sum(1 for e in pozdeji if e['date'] == den)
     out = [f'  <ul class="dash-akce" data-max="{DASH_AKCE_VIDET}" data-max-bezi="{DASH_AKCE_BEZI}">']
     n_nove = n_bezi = n_pozdeji = 0
     for i, e in enumerate(pool):
@@ -751,12 +761,13 @@ def _dash_kalendar(dnes):
             skryt = n_bezi >= DASH_AKCE_BEZI
             n_bezi += 1
         else:
-            skryt = n_nove >= mist_nove
+            skryt = n_nove >= mist_nove or (e['date'] > dnes and e['date'] not in povolene_dny)
             n_nove += 1
         out.append(_dash_akce_li(e, i, hidden=skryt))
     out.append('    <li class="dash-empty"' + ('' if not pool else ' hidden') +
                '>Žádná nadcházející akce zatím není v kalendáři zapsaná.</li>')
     out.append('  </ul>')
+    out.append('  <a class="dash-more dash-more--center" href="/kalendar/">Další ...</a>')
     return _dash_card('Aktuality', '/kalendar/', None, '\n'.join(out), 'kalendar', head_link='📅 Celý kalendář')
 
 
