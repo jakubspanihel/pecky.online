@@ -736,7 +736,7 @@ def _dash_zmeny():
     # domu/flashnews.json: [{"emoji", "text" (3-4 slova), "url"}], pořadí = pořadí
     # střídání. Nic se neodvozuje z jiných dat - odkazy vybírá vlastník webu.
     items = json.loads(read('domu/flashnews.json'))
-    out = ['<div id="flashnews" class="banner banner--slate dash-nove dash-card--zmeny">',
+    out = ['<div id="flashnews" class="banner banner--yellow dash-nove dash-card--zmeny">',
            '  <h3 class="dash-nove-title"><button type="button" class="dash-nove-toggle" aria-expanded="false" title="Zobrazit všechny novinky">Nově na webu</button></h3>',
            '  <ul class="dash-nove-list">']
     for it in items:

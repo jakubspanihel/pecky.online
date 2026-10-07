@@ -186,20 +186,21 @@
   .kal-searchrow{display:flex; flex-wrap:wrap; align-items:center; gap:8px 16px; margin:6px 0 12px;}
   .kal-search{flex:0 1 280px; min-width:0; box-sizing:border-box; padding:7px 10px; border:1px solid var(--ink); background:rgba(255,255,255,0.65); font-family:inherit; font-size:13px; border-radius:2px; color:var(--ink);}
   .kal-search::placeholder{color:var(--ink-soft);}
-  .kal-banner{display:flex; align-items:stretch; justify-content:space-between; gap:24px; margin:28px 0 8px; padding:26px 30px 0; background:linear-gradient(135deg,var(--burgundy) 0%,var(--burgundy-deep) 100%); color:#fff; border-radius:14px; overflow:hidden; box-shadow:0 2px 10px rgba(42,36,32,0.18);}
+  .kal-banner{display:flex; align-items:stretch; justify-content:space-between; gap:24px; margin:28px 0 8px; padding:26px 30px 0; background:linear-gradient(135deg,var(--banner-from,var(--burgundy)) 0%,var(--banner-to,var(--burgundy-deep)) 100%); color:var(--banner-fg,#fff); border-radius:14px; overflow:hidden; box-shadow:0 2px 10px rgba(42,36,32,0.18);}
   .kal-banner{position:relative;}
   .kal-banner[hidden], .kal-banner-min[hidden]{display:none;}
-  .kal-banner-close{position:absolute; top:10px; right:12px; width:32px; height:32px; padding:0; border:0; border-radius:50%; background:rgba(255,255,255,0.15); color:#fff; font-size:22px; line-height:1; cursor:pointer; z-index:1;}
-  .kal-banner-close:hover{background:rgba(255,255,255,0.3);}
-  .kal-banner-min{display:flex; justify-content:space-between; gap:12px; width:100%; box-sizing:border-box; margin:28px 0 8px; padding:9px 14px; background:var(--parchment-deep); border:1px solid var(--line); border-radius:8px; font-size:14px; color:var(--ink-soft);}
+  .kal-banner-close{position:absolute; top:10px; right:12px; width:32px; height:32px; padding:0; border:0; border-radius:50%; background:var(--banner-btn-bg,rgba(255,255,255,0.15)); color:var(--banner-fg,#fff); font-size:22px; line-height:1; cursor:pointer; z-index:1;}
+  .kal-banner-close:hover{background:var(--banner-btn-bg-hover,rgba(255,255,255,0.3));}
+  .kal-banner-min{display:inline-block; vertical-align:middle; margin:0 0 0 10px; padding:4px 12px; background:linear-gradient(135deg,var(--banner-from) 0%,var(--banner-to) 100%); border-radius:999px; font-family:var(--font-body); font-size:13px; font-weight:600; line-height:1.4; color:var(--banner-fg); box-shadow:0 1px 4px rgba(42,36,32,0.18);}
+  .kal-banner-min a{color:var(--banner-fg); text-decoration:underline; white-space:nowrap;}
   .kal-banner-text{flex:1 1 auto; align-self:center; padding-bottom:26px; max-width:480px;}
-  .kal-banner .kal-banner-title{margin:0 0 8px; font-family:var(--font-display); font-size:26px; line-height:1.2; color:#fff;}
-  .kal-banner-text p{margin:0 0 18px; font-size:16px; line-height:1.5; color:rgba(255,255,255,0.88);}
+  .kal-banner .kal-banner-title{margin:0 0 8px; font-family:var(--font-display); font-size:26px; line-height:1.2; color:var(--banner-fg,#fff);}
+  .kal-banner-text p{margin:0 0 18px; font-size:16px; line-height:1.5; color:var(--banner-fg-soft,rgba(255,255,255,0.88));}
   .kal-banner-text p.kal-banner-note{font-size:14px; margin-bottom:18px;}
-  .kal-banner p.kal-banner-count{position:absolute; left:30px; bottom:10px; margin:0; display:flex; align-items:center; gap:6px; font-size:12px; color:rgba(255,255,255,0.88);}
+  .kal-banner p.kal-banner-count{position:absolute; left:30px; bottom:10px; margin:0; display:flex; align-items:center; gap:6px; font-size:12px; color:var(--banner-fg-soft,rgba(255,255,255,0.88));}
   .kal-banner p.kal-banner-count[hidden]{display:none;}
   .kal-banner-count .kal-ico{flex:0 0 auto;}
-  .kal-banner-cta{display:inline-block; padding:12px 24px; background:#fff; color:var(--burgundy); font-weight:700; font-size:16px; border-radius:999px; text-decoration:none; box-shadow:0 2px 0 rgba(0,0,0,0.2); transition:transform .15s;}
+  .kal-banner-cta{display:inline-block; padding:12px 24px; background:#fff; color:var(--banner-accent,var(--burgundy)); font-weight:700; font-size:16px; border-radius:999px; text-decoration:none; box-shadow:0 2px 0 rgba(0,0,0,0.2); transition:transform .15s;}
   .kal-banner-cta:hover{transform:translateY(-1px); text-decoration:none; background:var(--parchment);}
   .kal-banner-img{flex:0 0 auto; align-self:flex-end; box-sizing:border-box; width:210px; height:340px; object-fit:cover; object-position:top; background:#fff; border:7px solid #111; border-bottom:0; border-radius:30px 30px 0 0; box-shadow:0 0 0 1px rgba(255,255,255,0.15);}
   @media (max-width:600px){
@@ -307,7 +308,7 @@
   .dash-bento .dash-list + .dash-more, .dash-bento .dash-noviny + .dash-more{margin-top:auto;}
   .dash-card--noviny{grid-area:nov; background:var(--parchment-deep);}
   .dash-card--zmeny{grid-area:zme;}
-  .banner.dash-nove{--banner-from:#f6cf4a; --banner-to:#e8b320; color:var(--ink); animation:dash-nove-puls 1s ease-in-out infinite alternate; display:flex; align-items:center; gap:14px; padding:14px 22px; border-radius:12px; min-width:0;}
+  .banner.dash-nove{animation:dash-nove-puls 1s ease-in-out infinite alternate; display:flex; align-items:center; gap:14px; padding:14px 22px; border-radius:12px; min-width:0;}
   .dash-nove-title{margin:0; flex:0 0 auto; font-family:var(--font-body); font-size:15px; font-weight:700; white-space:nowrap;}
   .dash-nove-toggle{all:unset; box-sizing:border-box; cursor:pointer; color:var(--ink); font:inherit; white-space:nowrap;}
   .dash-nove-toggle:focus-visible{outline:2px solid var(--ink); outline-offset:3px; border-radius:4px;}
@@ -349,6 +350,8 @@
      Barvy řídí --banner-from/--banner-to/--banner-accent. */
   .banner{--banner-from:var(--burgundy); --banner-to:var(--burgundy-deep); --banner-accent:var(--burgundy); display:block; list-style:none; margin:0; padding:26px 30px; background:linear-gradient(135deg,var(--banner-from) 0%,var(--banner-to) 100%); color:#fff; border-radius:14px; box-shadow:0 2px 10px rgba(42,36,32,0.18);}
   .banner--slate{--banner-from:var(--slate); --banner-to:var(--slate-deep); --banner-accent:var(--slate);}
+  /* Žlutá varianta (flashnews na Domů, banner Kalendáře): tmavý text na žlutém přechodu. */
+  .banner--yellow{--banner-from:#f6cf4a; --banner-to:#e8b320; --banner-accent:var(--ink); --banner-fg:var(--ink); --banner-fg-soft:var(--ink); --banner-btn-bg:rgba(0,0,0,0.1); --banner-btn-bg-hover:rgba(0,0,0,0.2); color:var(--ink);}
   .banner[hidden], .banner [hidden]{display:none;}
   .banner-body{max-width:640px;}
   .banner .banner-title{margin:0 0 10px; font-family:var(--font-display); font-size:26px; line-height:1.2; font-weight:600; color:#fff;}
