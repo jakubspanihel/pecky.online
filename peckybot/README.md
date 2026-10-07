@@ -29,11 +29,18 @@ odpověď {answer, sources}
 | `worker/` | kód Cloudflare Workeru + testy, postup nasazení v `worker/README.md` |
 
 ### Co je v indexu
-- jednání zastupitelstva a rady (`jednani/pecky-jednani.json`): bod programu, důvodová zpráva, usnesení s hlasováním; odkaz `/jednani/#<id>`
-- lidé s životopisem nebo kontaktem (`lide/people.json`): jméno s tituly, působení, bio, e-mail, telefon
-- statické texty sekcí Plán, Tělocvična, Pozemky, Pokladna, Smlouvy, Zakázky, Volby, O webu
+Zdroje, které generuje `scripts/build_peckybot_index.py` (jednání, lidé, sekce) a `scripts/peckybot_sources.py` (ostatní):
+- **jednání** zastupitelstva a rady (`jednani/pecky-jednani.json`): bod programu, důvodová zpráva, usnesení s hlasováním, přehled každého jednání s programem; odkaz `/jednani/#<id>`
+- **lidé** (`lide/people.json`): všech 444 osob; jméno s tituly, funkce, uskupení, dřívější příjmení, bio, e-mail, telefon (ústředna se nezapisuje)
+- **statické texty sekcí** Plán, Tělocvična, Pozemky, Pokladna, Smlouvy, Zakázky, Volby 2018/2022/2026, O webu; dělené podle nadpisů
+- **komise, výbory, školská rada** (`jednani/komise.json`, `vybory.json`, `skolska-rada.json`): hlavička jednání, docházka, shrnutí a usnesení s hlasováním
+- **kalendář** (`kalendar/udalosti.json` a pravidla): akce, opakované kurzy po sériích, svoz odpadu, hodiny úřadu a sběrného dvora; tituly „Kalendář — …“
+- **organizace** (`lide/organizations.json`): adresa, IČO, web, hodiny, propojení lidé; tituly „Organizace — …“
+- **Pečecké noviny** (`noviny/`): jeden úryvek na číslo s odkazem na PDF
+- **Na oběd**: restaurace a další podniky s adresou, telefonem a hodinami (bez menu)
+- **absence zastupitelů** (`jednani/absence.json`)
 
-Mimo index zatím jsou Pečecké noviny, kalendář, komise, výbory a školská rada.
+Mimo index zůstává úřední deska, plné texty novin a denní menu. Odpověď vzniká ze 8 úryvků, takže PečkyBot **nespočítá a nesečte** (na „kolik…“ nedá spolehlivý počet).
 Index se přegeneruje při každém `python3 scripts/build.py`; kolik úryvků se zapsalo,
 vypíše build. Soubory se přepisují jen při změně obsahu a nová jednání přibývají na
 konec, takže v gitu se mění hlavně rejstřík a poslední dávky.
@@ -59,3 +66,7 @@ Pravidla pro model jsou v `worker/src/prompt.ts` (odpovídat jen ze zdrojů, uv�
 ### Ověření
 - `cd peckybot/worker && npm test` — vyhledávání, shoda tokenizace s Pythonem, limity, rozpočet (volání Claude API je v testu napodobené).
 - `npm run typecheck`.
+- `npm run eval` — offline měření kvality hledání: 59 dotazů v `worker/eval/queries.json` s očekávaným zdrojem mezi prvními osmi (výsledek podle kategorií a MRR; stav 6. 10. 2026: 41/46 běžných a 12/13 dotazů na nové zdroje). Po každé změně indexu nebo `src/search.ts` pustit a hlídat, že čísla neklesla; nový typ dotazu, který selhal, přidat do `queries.json`.
+
+### Hledání
+`worker/src/search.ts`: slova bez diakritiky zkrácená na 6 znaků, váha TF-IDF, titulek má dvojnásobnou váhu. Navíc synonyma (`src/synonyms.ts`, 18 skupin, váha 0,5), předpony pro tvary slov, zvýhodnění podle záměru dotazu (kontakt, „kdo je“, kalendář, číslo jednání, datum) a nejvýš 4 výsledky ze stejného jednání. `tokenize()` musí zůstat shodná s Pythonem (hlídá test).
