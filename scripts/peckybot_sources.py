@@ -207,6 +207,9 @@ def chunks_kalendar():
         if cat == 'akce':
             kdy = rozsah(e['date'], e.get('date_end'))
             t = [f"Akce v Pečkách: {e['title']}. Kdy, datum: {kdy}."]
+            wk = _d(e['date']).weekday()
+            if wk >= 5 or (e.get('date_end') and _d(e['date_end']).weekday() >= 5 and wk >= 4):
+                t.append('Koná se o víkendu (sobota, neděle).')
             if e.get('time'):
                 t.append(f"Začátek v {e['time']}.")
             elif e.get('all_day'):
@@ -255,7 +258,32 @@ def chunks_kalendar():
             t.append(_clip(e0['description'], 160))
         out.append({'u': '/kalendar/', 't': f"Kalendář — kurz {titul}" + (f' ({poradatel})' if poradatel else ''),
                     'x': _clip(' '.join(t), MAX)})
+    out += _chunks_pristi(data)
     out += _chunks_provoz()
+    return out
+
+
+def _chunks_pristi(data):
+    """Příští jednání po dnešku (podle data sestavení indexu)."""
+    dnes = date.today().isoformat()
+    jedn = [e for e in data if e['category'] in ('rada', 'zastupitelstvo', 'vybor') and e['date'] >= dnes]
+    jedn.sort(key=lambda e: (e['date'], e['title']))
+    out = []
+    if jedn:
+        kusy = [f"{e['title']} — {datum_tvary(e['date'])}" + (f", od {e['time']}" if e.get('time') else '')
+                for e in jedn[:10]]
+        out.append({'u': '/jednani/', 't': 'Kalendář — Příští jednání',
+                    'x': _clip('Příští jednání, kdy je další zasedání zastupitelstva, rady, komise nebo výboru: '
+                               + '; '.join(kusy) + '.', MAX + 400)})
+    for cat, nazev in (('zastupitelstvo', 'zastupitelstva'), ('rada', 'rady města')):
+        z = [e for e in jedn if e['category'] == cat]
+        if z:
+            e = z[0]
+            out.append({'u': e['link'] if e.get('link', '').startswith('/') else '/jednani/',
+                        't': f"Kalendář — Příští zasedání {nazev} ({e['title']}, {cz(e['date'])})",
+                        'x': f"Příští zasedání {nazev}: {e['title']}, kdy: {datum_tvary(e['date'])}"
+                             + (f", začátek v {e['time']}" if e.get('time') else '')
+                             + ". Další jednání, příští schůze, termín."})
     return out
 
 
@@ -290,6 +318,45 @@ def _chunks_provoz():
 
 # ---------------------------------------------------------------- 3. organizace
 
+TYP_SLOVA = {
+    'urad': 'úřad, radnice, městský úřad, instituce města',
+    'spolek': 'spolek, spolky, kluby, sdružení, zájmový kroužek, volnočasové aktivity',
+    'politicke': 'politické uskupení, strana, hnutí, kandidátka, volby, uskupení, sdružení kandidátů',
+    'prispevkova': 'příspěvková organizace, organizace města, zřizovatel město',
+    'firma': 'firma, podnik, služby, společnost',
+    'jine': 'organizace, instituce',
+}
+PODKAT = [  # (klíč, regex nad jménem+poznámkou, slova, přehledový titulek)
+    ('jidlo', r'hospod|hostinec|restaurac|kebab|pizz|wok|saloon|kavárn|bar\b|siňorit|marka|stříkačk',
+     'restaurace, hospoda, hostinec, kavárna, kde se najíst, kde se dobře najíst, jídlo, oběd, pivo, bar, občerstvení',
+     'Restaurace, hospody a kavárny — kde se najíst'),
+    ('skola', r'(?<!ní )škol|mašink|vzdělávací',
+     'škola, školka, mateřská škola, základní škola, vzdělávání, děti, žáci, školní jídelna, kroužky',
+     'Školy, školky a vzdělávání'),
+    ('sport', r'fotbal|volejbal|sokol|minigolf|bk pečky|dsa|glow|fit|tělocvičn|hasič',
+     'sport, sportovní klub, sportovní kluby, oddíl, trénink, cvičení, tanec',
+     'Sportovní kluby a oddíly'),
+    ('kultura', r'knihovn|kulturní|umělecká|okrašlovací|modelář',
+     'kultura, knihovna, kulturní dům, kulturní středisko, umění, akce, zájmové spolky',
+     'Kultura, knihovna a zájmové spolky'),
+]
+
+
+def _podkat(o):
+    hay = (o['name'] + ' ' + (o.get('note') or '')).lower()
+    return [k for k in PODKAT if re.search(k[1], hay) and not (o['type'] == 'politicke')]
+
+
+def _titul_dopl(o, typy):
+    dop = [typy.get(o['type'], 'organizace').split(' (')[0]]
+    sn = o.get('short_name')
+    if sn and sn != o['name'] and sn.lower() not in o['name'].lower():
+        dop.append(sn)
+    if re.search('mateřsk', o['name'], re.I):
+        dop.append('školka')
+    return ' (' + ', '.join(dop) + ')'
+
+
 def chunks_organizace():
     orgs = _load('lide/organizations.json')['organizations']
     people = {p['id']: p for p in _load('lide/people.json')['people']}
@@ -304,7 +371,9 @@ def chunks_organizace():
         t = [f"Organizace: {o['name']}."]
         if o.get('short_name') and o['short_name'] != o['name']:
             t.append(f"Zkratka, krátký název: {o['short_name']}.")
-        t.append(f"Typ: {typy.get(o['type'], o['type'])}.")
+        t.append(f"Typ: {typy.get(o['type'], o['type'])}. Kategorie: {TYP_SLOVA.get(o['type'], '')}.")
+        for k in _podkat(o):
+            t.append(k[2] + '.')
         if o.get('address'):
             t.append(f"Adresa, sídlo: {o['address']}.")
         if o.get('ico'):
@@ -336,8 +405,33 @@ def chunks_organizace():
                 break
         if jm:
             t.append('Spojení lidé, členové a funkce: ' + ', '.join(jm) + (' a další.' if len(videno) < len(by_org.get(o['id'], [])) else '.'))
-        out.append({'u': '/lide/', 't': f"Organizace — {o['name']} ({typy.get(o['type'], 'organizace').split(' (')[0]})", 'x': _clip(' '.join(t), MAX + 250)})
+        out.append({'u': '/lide/', 't': f"Organizace — {o['name']}" + _titul_dopl(o, typy), 'x': _clip(' '.join(t), MAX + 250)})
+    out += _prehledy_organizaci(orgs, typy)
     return out
+
+
+def _prehledy_organizaci(orgs, typy):
+    out = []
+    skupiny = []
+    skupiny.append(('Spolky a kluby v Pečkách', TYP_SLOVA['spolek'], [o for o in orgs if o['type'] == 'spolek']))
+    skupiny.append(('Politická uskupení a strany v Pečkách', TYP_SLOVA['politicke'],
+                    [o for o in orgs if o['type'] == 'politicke']))
+    skupiny.append(('Příspěvkové organizace města Pečky', TYP_SLOVA['prispevkova'],
+                    [o for o in orgs if o['type'] == 'prispevkova']))
+    skupiny.append(('Firmy a podniky v Pečkách', TYP_SLOVA['firma'], [o for o in orgs if o['type'] == 'firma']))
+    for k in PODKAT:
+        skupiny.append((k[3], k[2], [o for o in orgs if k in _podkat(o)]))
+    for nazev, slova, lst in skupiny:
+        if not lst:
+            continue
+        jm = '; '.join(o['name'] + (f" ({o['address']})" if o.get('address') and k_adr(nazev) else '') for o in lst)
+        out.append({'u': '/lide/', 't': f'Organizace — {nazev}',
+                    'x': _clip(f'{nazev}. Přehled, seznam, jaké existují, kdo působí: {slova}. Organizace: {jm}.', MAX + 400)})
+    return out
+
+
+def k_adr(nazev):
+    return 'najíst' in nazev or 'Školy' in nazev
 
 
 # ---------------------------------------------------------------- 4. Pečecké noviny
