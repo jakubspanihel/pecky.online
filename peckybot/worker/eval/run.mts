@@ -3,6 +3,7 @@
 import { readFileSync } from "node:fs";
 import { search, type Index } from "../src/search.ts";
 
+const TODAY = "2026-10-07"; // pevné datum, aby byly dotazy na víkend/dnes deterministické
 const K = 8; // stejné jako TOP_K v src/index.ts
 const root = new URL("../../", import.meta.url);
 const index: Index = JSON.parse(readFileSync(new URL("index.json", root), "utf8"));
@@ -25,7 +26,7 @@ function matches(e: any, id: number): boolean {
 interface Row { cat: string; pending: boolean; pass: boolean; rr: number }
 const rows: Row[] = [];
 for (const [n, item] of queries.entries()) {
-  const hits = search(index, item.q, K);
+  const hits = search(index, item.q, K, { today: TODAY });
   const rank = hits.findIndex((h) => matches(item.expect, h.id)) + 1; // 0 = nenalezeno
   const pass = rank > 0 && rank <= item.expect.inTop;
   // kontrola očekávání: existuje vůbec v indexu nějaký odpovídající úryvek?
