@@ -237,14 +237,14 @@ def render_month(ym, docs):
         if d['as4u']:
             sejmuto += ' · starý web města'
         cards.append(
-            f'        <li class="ud-card" data-date="{d["from"]}"{did}>'
+            f'        <li class="ud-card" data-date="{d["from"]}" data-g="{d["group"]}"{did}>'
             f'<span class="ud-head"><time class="ud-date" datetime="{d["from"]}">{cz_date(d["from"])}</time>'
             f'<span class="ud-chip ud-t{d["group"]}">{GROUPS[d["group"]][0]}</span></span>'
             f'<a class="ud-title" href="{escape(d["url"], quote=True)}" target="_blank" rel="noopener">{escape(d["title"])}</a>'
             f'<span class="ud-meta">{sejmuto}{typ}</span></li>')
     cards = '\n'.join(cards)
     return f'''    <details class="collapsible ud-month" id="ud-{ym}">
-    <summary style="cursor:pointer; list-style:none;"><h3 class="display" style="margin:0 0 4px; display:inline;">{MONTHS[int(ym[5:]) - 1]} {ym[:4]} ({n}) <span class="collapsible-arrow" aria-hidden="true">▾</span></h3></summary>
+    <summary style="cursor:pointer; list-style:none;"><h3 class="display" style="margin:0 0 4px; display:inline;">{MONTHS[int(ym[5:]) - 1]} {ym[:4]} (<span class="ud-mn">{n}</span>) <span class="collapsible-arrow" aria-hidden="true">▾</span></h3></summary>
       <div class="ud-body" id="ud-b-{ym}">
       <p class="ud-sum"><strong>Podle tématu:</strong> {escape(sumtxt)}</p>
       <ul class="ud-cards">
@@ -270,7 +270,7 @@ def render_page(docs):
         ms = [ym for ym in reversed(months) if ym[:4] == y]
         n = sum(1 for d in docs if d['from'][:4] == y)
         items = '\n'.join(
-            f'            <li><button type="button" class="ud-tm" data-ym="{ym}" data-label="{MONTHS[int(ym[5:]) - 1].lower()} {ym[:4]}">'
+            f'            <li class="ud-tm-li"><button type="button" class="ud-tm" data-ym="{ym}" data-label="{MONTHS[int(ym[5:]) - 1].lower()} {ym[:4]}">'
             f'<span>{MONTHS[int(ym[5:]) - 1]}</span><span class="ud-tn">{sum(1 for d in docs if d["from"][:7] == ym)}</span></button></li>'
             for ym in ms)
         tree.append(f'''        <details class="ud-ty" data-year="{y}"{' open' if k == 0 else ''}>
@@ -280,7 +280,19 @@ def render_page(docs):
           </ul>
         </details>''')
     tree = '\n'.join(tree)
-    body = f'''    <div class="ud-months">
+    gcnt = Counter(d['group'] for d in docs)
+    opts = '\n'.join(f'          <option value="{i}">{g[0]} ({gcnt[i]})</option>' for i, g in enumerate(GROUPS))
+    body = f'''    <div class="list-filters ud-filter">
+      <div class="filter-row">
+        <label class="segmented-label" for="ud-theme">Téma</label>
+        <select id="ud-theme" aria-label="Filtr výpisu podle tématu dokumentu">
+          <option value="">Všechna témata ({total})</option>
+{opts}
+        </select>
+        <button type="button" class="chip-clear" id="ud-theme-clear" hidden>Vymazat filtr</button>
+      </div>
+    </div>
+    <div class="ud-months">
 {blocks}
     </div>
 
@@ -295,6 +307,10 @@ def render_page(docs):
     return f'''  <style>
     .ud-month{{margin-top:22px;}}
     .ud-sum{{margin:6px 0 12px; font-size:13.5px;}}
+    .ud-filter{{margin:22px 0 0;}}
+    .ud-filter .filter-row{{justify-content:flex-end;}}
+    .ud-filter + .ud-months{{margin-top:0;}}
+    .ud-card[hidden],.ud-tm-li[hidden],.ud-ty[hidden],.ud-month[hidden]{{display:none;}}
     .ud-cards{{list-style:none; margin:0; padding:0; display:grid; grid-template-columns:minmax(0,1fr); gap:12px;}}
     .ud-split{{display:none;}}
     @media (min-width:768px){{
@@ -398,10 +414,51 @@ def render_page(docs):
       btn.closest('details').open = true;
       if (store) history.replaceState(null, '', location.pathname + location.search + '#ud-' + ym);
     }}
+    function udFirstTm() {{
+      return document.querySelector('#ud-tree .ud-tm-li:not([hidden]) .ud-tm');
+    }}
     function udSplit() {{
       if (!udMq.matches) {{ udBack(); return; }}
-      if (!udCur) udSelect(document.querySelector('#ud-tree .ud-tm'), false);
+      if (!udCur && udFirstTm()) udSelect(udFirstTm(), false);
     }}
+    var udTheme = document.getElementById('ud-theme');
+    var udThemeClear = document.getElementById('ud-theme-clear');
+    function udFilter() {{
+      var g = udTheme.value, per = {{}}, perY = {{}};
+      document.querySelectorAll('#panel-udmonitoring .ud-card').forEach(function (c) {{
+        var show = g === '' || c.getAttribute('data-g') === g;
+        c.hidden = !show;
+        if (show) {{
+          var ym = c.getAttribute('data-date').slice(0, 7);
+          per[ym] = (per[ym] || 0) + 1;
+          perY[ym.slice(0, 4)] = (perY[ym.slice(0, 4)] || 0) + 1;
+        }}
+      }});
+      document.querySelectorAll('#ud-tree .ud-tm').forEach(function (b) {{
+        var n = per[b.getAttribute('data-ym')] || 0;
+        b.querySelector('.ud-tn').textContent = n;
+        b.closest('li').hidden = n === 0;
+      }});
+      document.querySelectorAll('#ud-tree .ud-ty').forEach(function (y) {{
+        var n = perY[y.getAttribute('data-year')] || 0;
+        y.querySelector('summary .ud-tn').textContent = n;
+        y.hidden = n === 0;
+      }});
+      document.querySelectorAll('#panel-udmonitoring details.ud-month').forEach(function (m) {{
+        var n = per[m.id.slice(3)] || 0;
+        m.querySelector('.ud-mn').textContent = n;
+        m.hidden = n === 0;
+      }});
+      document.querySelectorAll('#panel-udmonitoring .ud-sum').forEach(function (sm) {{ sm.hidden = g !== ''; }});
+      udThemeClear.hidden = g === '';
+      if (udMq.matches) {{
+        var cur = udCur && document.querySelector('#ud-tree .ud-tm[data-ym="' + udCur + '"]');
+        if (cur && !cur.closest('li').hidden) udSelect(cur, false);
+        else {{ udBack(); if (udFirstTm()) udSelect(udFirstTm(), false); }}
+      }}
+    }}
+    udTheme.addEventListener('change', udFilter);
+    udThemeClear.addEventListener('click', function () {{ udTheme.value = ''; udFilter(); }});
     document.querySelectorAll('#ud-tree .ud-tm').forEach(function (b) {{
       b.addEventListener('click', function () {{ udSelect(b, true); }});
     }});
@@ -409,6 +466,7 @@ def render_page(docs):
     function udGo(id) {{
       var m = /^ud-(?:d-)?(\d{{4}}-\d{{2}})/.exec(id);
       if (!m) return false;
+      if (udTheme.value !== '') {{ udTheme.value = ''; udFilter(); }}
       var desk = udMq.matches;
       if (desk) udSelect(document.querySelector('#ud-tree .ud-tm[data-ym="' + m[1] + '"]'), false);
       var el = document.getElementById(id);
