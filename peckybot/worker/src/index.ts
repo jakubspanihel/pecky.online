@@ -192,7 +192,7 @@ async function answer(env: Env, messages: ChatMessage[], month: string) {
   const query = users[users.length - 1].content;
   const context = users.length > 1 ? users[users.length - 2].content : undefined;
   const index = await getIndex(env);
-  const hits = search(index, query, TOP_K, { context });
+  const hits = search(index, query, TOP_K, { context, today: pragueDate() });
   const texts = await getTexts(env, index, hits.map((h) => h.id));
   const sources = hits.map((h, i) => ({
     n: i + 1,
