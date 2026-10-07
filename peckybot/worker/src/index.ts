@@ -98,7 +98,10 @@ async function fetchJson<T>(url: string, cacheTtl = 300): Promise<T> {
 
 async function getIndex(env: Env): Promise<Index> {
   if (indexCache && Date.now() - indexCache.at < INDEX_TTL_MS) return indexCache.index;
-  const index = await fetchJson<Index>(`${env.SITE_URL}/peckybot/index.json`);
+  const index = await fetchJson<Index>(
+    // časový klíč po 5 minutách = nová položka v cache Cloudflare; GitHub Pages query ignoruje
+    `${env.SITE_URL}/peckybot/index.json?t=${Math.floor(Date.now() / INDEX_TTL_MS)}`,
+  );
   indexCache = { index, at: Date.now() };
   shardCache.clear(); // nový rejstřík = nové číslování dávek
   return index;
