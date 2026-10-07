@@ -372,8 +372,8 @@ document.querySelectorAll('.exp-row').forEach(row => {
     h.setAttribute('tabindex', '0');
     h.setAttribute('title', 'Nahoru');
     const up = () => window.scrollTo({top: 0, behavior: reduce ? 'auto' : 'smooth'});
-    h.addEventListener('click', up);
-    h.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); up(); } });
+    h.addEventListener('click', e => { if (!e.target.closest('a')) up(); });
+    h.addEventListener('keydown', e => { if (e.target.closest('a')) return; if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); up(); } });
   });
 })();
 
