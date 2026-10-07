@@ -13,14 +13,21 @@ uskupení (záložka „Předvolební sliby") a rozbor, jak se naplnily (zálož
 dobový tisk / Seznam Zprávy, Novinky.cz (viz kořenový `README.md` →
 „Zdroje dat").
 
-## Ustavující zasedání — mezera v datech
+## Ustavující zasedání — mezera v datech (částečně doplněno 6. 10. 2026)
 Pravidlo „Zvolení zástupci patří do Výsledků voleb"
 ([`volby/README.md`](../README.md)) se u tohoto ročníku dá naplnit
 jen částečně. Ustavující zasedání po volbách 2018 (a stejně tak 2014) se
 konalo dřív, než kam sahá systém usneseni.cz — ten začíná až **dubnem
-2021**, takže archiv jednání ho neobsahuje. Nedohledatelný je proto jak
-přesný poměr hlasů pro/proti/zdržel se při volbě starostky a radních,
-tak číslo a datum samotného zasedání; dobový tisk je neuvádí.
+2021**, takže archiv jednání ho neobsahuje. **Datum se ale dohledalo
+v Pečeckých novinách:** ustavující zasedání 2018 se konalo **14. 11. 2018**
+(posunuté kvůli návrhu na neplatnost voleb, který soud 30. 10. 2018 zamítl;
+PN 11/2018 s. 3 a PN 12/2018 s. 3 — tam i složení vedení a rady) a
+ustavující zasedání 2014 **5. 11. 2014** (PN 12/2014 s. 2–3, usnesení
+zasedání). Obě data jsou zapsaná v `jednani/volebni-obdobi.json` (dělicí čára
+volebních období ve výpisu Jednání). Usnesení z ustavujícího zasedání 2018
+na úřední desce není. Nedohledatelný zůstává přesný poměr hlasů
+pro/proti/zdržel se při volbě starostky a radních a číslo zasedání; dobový
+tisk je neuvádí.
 
 Jména zvoleného vedení lze doplnit z dobového tisku a z webu města, ale
 **hlasování ne** — takový údaj neodhadovat ani nedopočítávat, označit ho

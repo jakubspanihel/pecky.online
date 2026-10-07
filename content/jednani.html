@@ -32,6 +32,8 @@
     </div>
     <h3 class="search-status" id="jednani-status"><span class="spinner" aria-hidden="true"></span>Načítám archiv…</h3>
     <div id="jednani-results"></div>
+    <style>.starsi-text{white-space:pre-wrap; max-height:420px; overflow:auto; font-size:12.5px; line-height:1.45; background:rgba(255,255,255,0.5); border:1px solid var(--line); border-radius:6px; padding:10px 12px; margin:6px 0 12px;}</style>
+
 
     <div class="callout">
       Jednání <strong>finančního a kontrolního výboru</strong> zastupitelstva nejsou na usneseni.cz — jejich zápisy
@@ -77,6 +79,10 @@
       oznamuje novou záložku „Rozhlasové relace a zápisy z komisí“. Je to nejstarší takový příspěvek ve sledovaném
       profilu města a odpovídá tomu, že nejstarší zápisy komisí v archivu jsou z prosince 2018.
     </div>
+    <div class="callout">
+      <strong>Starší jednání z úřední desky.</strong> Jednání před dubnem 2021 archiv usneseni.cz nemá. Ve výpisu jsou proto zápisy a usnesení, která město vyvěšilo na úřední desku, označená štítkem „z úřední desky“: <strong>38 zápisů rady města</strong> z let 2015–2016 a <strong>36 usnesení zastupitelstva</strong> z let 2015 až dubna 2021 (u zastupitelstva jen usnesení, bez hlasování a rozpravy). Chybí usnesení zastupitelstva č. 3/2017, 1/2018 a 4/2020 (č. 1/2015 a 2/2015 vznikla před začátkem dostupného archivu desky v červnu 2015), u č. 6/2018 a 7/2019 je na desce jen záznam bez souboru, a zápisy rady z let 2017 až března 2021 na desce nejsou vůbec. Text skenovaných dokumentů vznikl rozpoznáním (OCR) a může obsahovat chyby v písmenech. Zdroj: <a href="/o-webu/uredni-deska-monitoring/">Monitoring úřední desky</a>.
+    </div>
+
     <p class="lede" style="margin:18px 0 0;">Související: <a href="/jednani/absence.html">Docházka zastupitelů</a> · <a href="/jednani/nejdelsi.html">Nejdelší body jednání zastupitelstva</a> · <a href="/jednani/odpracovano.html">Kolik času zastupitelé odpracovali</a></p>
   </section>
 
@@ -271,14 +277,15 @@
     if (JEDNANI_LOADING) return JEDNANI_LOADING;
     JEDNANI_LOADING = (async () => {
       try {
-        const [res, parcelRes, peopleRes, termRes, vyboryRes, komiseRes, srRes] = await Promise.all([
+        const [res, parcelRes, peopleRes, termRes, vyboryRes, komiseRes, srRes, starsiRes] = await Promise.all([
           fetch('/jednani/pecky-jednani.json'),
           fetch('/jednani/parcely-odkazy.json').catch(() => null),
           fetch('/lide/people.json').catch(() => null),
           fetch('/jednani/volebni-obdobi.json').catch(() => null),
           fetch('/jednani/vybory.json').catch(() => null),
           fetch('/jednani/komise.json').catch(() => null),
-          fetch('/jednani/skolska-rada.json').catch(() => null)
+          fetch('/jednani/skolska-rada.json').catch(() => null),
+          fetch('/jednani/starsi-jednani.json').catch(() => null)
         ]);
         if (!res.ok) throw new Error('HTTP ' + res.status);
         if (parcelRes && parcelRes.ok) {
@@ -330,6 +337,25 @@
             data.meetings = data.meetings.concat(sr)
               .sort((a, b) => (b.date || '').localeCompare(a.date || ''));
           } catch (e) { /* bez školské rady */ }
+        }
+        // starší jednání z úřední desky (jednani/starsi-jednani.json): zápisy Rady 2015–2016
+        // a usnesení ZM 2015–4/2021, tedy před začátkem archivu usneseni.cz. Mají jen
+        // text dokumentu (bez bodů programu, usnesení po jedné a hlasování), proto
+        // prázdné `agenda` / `resolutions`, `_starsi` pro vlastní vykreslení a hledání
+        data._starsiCount = 0;
+        if (starsiRes && starsiRes.ok) {
+          try {
+            const st = (await starsiRes.json()).meetings || [];
+            st.forEach(m => {
+              m._starsi = true;
+              m.agenda = [];
+              m.resolutions = [];
+              m._textNorm = jNorm((m.doc_title || '') + ' ' + (m.text || ''));
+            });
+            data._starsiCount = st.length;
+            data.meetings = data.meetings.concat(st)
+              .sort((a, b) => (b.date || '').localeCompare(a.date || ''));
+          } catch (e) { /* bez starších jednání */ }
         }
         const years = new Set();
         const resByNumber = {};
@@ -400,7 +426,7 @@
   // od minulého zasedání téhož orgánu; když žádné nebylo, poslední předchozí.
   const J_VYBOR_ITEM_RE = /(zápis|zpráv|informac)[^]*?(finančního|kontrolního) výboru/i;
   function jLinkVyborItems(meetings){
-    const byType = t => meetings.filter(m => m.type === t).sort((a, b) => a.date.localeCompare(b.date));
+    const byType = t => meetings.filter(m => m.type === t && !m._starsi).sort((a, b) => a.date.localeCompare(b.date));
     const vybory = {'finančního': byType('Finanční výbor'), 'kontrolního': byType('Kontrolní výbor')};
     ['Rada', 'Zastupitelstvo'].forEach(t => {
       const list = byType(t);
@@ -669,6 +695,36 @@
       : '';
   }
 
+  // starší jednání z úřední desky: řádek = datum + název dokumentu, vpravo štítek
+  // „z úřední desky“, po rozkliknutí text usnesení / zápisu (jednani/starsi-jednani.json)
+  function jRenderStarsiRow(m, dividerHtml){
+    const slug = jSlugForMeeting(m);
+    const notes = [];
+    if (m.ocr) notes.push('Text vznikl rozpoznáním skenu (OCR) a může obsahovat chyby v písmenech.');
+    if (!m.file) notes.push('Na úřední desce je u tohoto dokumentu jen záznam bez přiloženého souboru.');
+    return `
+      ${dividerHtml}
+      <div class="meeting-row" data-uuid="${jEscapeHtml(m.id)}" data-slug="${slug}">
+        <div class="meeting-row-main">
+          <span class="meeting-label">
+            <a class="meeting-permalink" href="#${slug}" title="Trvalý odkaz na toto jednání">
+              ${jFormatDateZeroPad(m.date)} | ${jEscapeHtml(m.doc_title)}
+            </a>
+          </span>
+          <span class="meeting-info">
+            <span class="tag" title="Dokument vyvěšený na úřední desce města">z úřední desky</span>
+            <span class="meeting-toggle">+</span>
+          </span>
+        </div>
+        <div class="meeting-row-detail" hidden>
+          ${notes.length ? `<p class="lede lede-sm" style="margin:6px 0 10px; color:var(--ink-soft);">${jEscapeHtml(notes.join(' '))}</p>` : ''}
+          ${m.text ? `<div class="starsi-text">${jEscapeHtml(m.text)}</div>` : ''}
+          <div class="meeting-links">
+            <a class="toggle-details" href="${jEscapeHtml(m.links.minutes)}" target="_blank" rel="noopener" style="margin:0;">${m.doc_kind === 'zápis' ? 'Zápis' : 'Usnesení'} na úřední desce ↗</a>
+          </div>
+        </div>
+      </div>`;
+  }
   function jRenderMeetingList(meetings){
     if (!meetings.length) return '<p class="lede">Žádná jednání neodpovídají filtru.</p>';
     const rows = meetings.map((m, i) => {
@@ -683,6 +739,7 @@
       const attendanceHtml = avatarsHtml
         ? `<span class="people-avatars meeting-row-avatars">${avatarsHtml}</span>`
         : (jFormatAttendance(m) ? `<span class="meeting-count">${jEscapeHtml(jFormatAttendance(m))}</span>` : '');
+      if (m._starsi) return jRenderStarsiRow(m, dividerHtml);
       const pastNoMinutes = !future && !isToday && !m.links.minutes;
       const daysAgoHtml = pastNoMinutes
         ? `<span class="meeting-count">${jFormatDaysAgo(m.date)}, <span class="no-minutes-warning">zápis zatím není k dispozici</span>${m.links.youtube ? ` · <a href="${m.links.youtube}" target="_blank" rel="noopener">K dispozici je video ↗</a>` : ''}</span>`
@@ -813,6 +870,27 @@
   function jRenderHit(h, rawQuery){
     const m = h.m;
     const typeTag = `<span class="tag${m.type === 'Zastupitelstvo' ? ' role' : jIsVybor(m) ? ' vybor' : ''}">${jEscapeHtml(m.type || '')}</span>`;
+    if (h.kind === 'doc') {
+      // úryvek: první řádek textu, ve kterém jsou všechna hledaná slova (jinak první se shodou)
+      const ws = jNorm(rawQuery).split(/\s+/).filter(w => w.length > 1);
+      const lines = (m.text || '').split(/\n+/).map(l => l.trim()).filter(Boolean);
+      let at = lines.findIndex(l => ws.every(w => jNorm(l).includes(w)));
+      if (at < 0) at = lines.findIndex(l => ws.some(w => jNorm(l).includes(w)));
+      const snippet = (at >= 0 ? lines.slice(at, at + 3).join(' ') : lines.slice(0, 2).join(' ')).slice(0, 420);
+      return `<div class="hit-card">
+        <div class="hit-meta">
+          ${typeTag}
+          <span class="hit-label">${jEscapeHtml(m.doc_title || m.label || '')}</span>
+          <span class="hit-date">${jFormatDate(m.date)}</span>
+          <span class="tag">z úřední desky</span>
+        </div>
+        <div class="hit-text">${jHighlightLinked(snippet, rawQuery)}</div>
+        <div class="hit-footer">
+          <a href="${jEscapeHtml(m.links.minutes)}" target="_blank" rel="noopener">${m.doc_kind === 'zápis' ? 'zápis' : 'usnesení'} na úřední desce ↗</a>
+          <a href="#${jSlugForMeeting(m)}">celý text</a>
+        </div>
+      </div>`;
+    }
     if (h.kind === 'res') {
       const r = h.r;
       const hasVote = r.pro !== null && r.pro !== undefined;
@@ -869,6 +947,10 @@
 
     const hits = [];
     meetings.forEach(m => {
+      if (m._starsi) {
+        if (words.every(w => m._textNorm.includes(w))) hits.push({ m, kind: 'doc' });
+        return;
+      }
       const resItemTexts = new Set(m.resolutions.map(r => r.item));
       m.resolutions.forEach(r => {
         if (words.every(w => r._norm.includes(w))) hits.push({ m, r, kind: 'res' });

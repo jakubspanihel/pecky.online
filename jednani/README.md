@@ -1179,3 +1179,32 @@ Finančního i Kontrolního výboru na `/jednani/absence.html` je rozbalovací
 blok „Předchozí volební období 2018–2022" (tatáž `tabulka()` + vlastní
 výhrada o mezerách v zápisech; `content/absence.html`, `VYHRADA_PREDCHOZI`).
 Rada a Zastupitelstvo dál ukazují jen 2022–2026. Datový model se neměnil.
+
+## Starší jednání z úřední desky (od 6. 10. 2026)
+
+Archiv z usneseni.cz začíná v dubnu 2021 (Rada 12. 4., ZM 16. 6. 2021). Starší jednání, která byla vyvěšena
+na úřední desce města, jsou **mimo `pecky-jednani.json`** (ten je přesný export a živí docházku, žebříčky
+i PečkyBota) v samostatném souboru `jednani/starsi-jednani.json` — tvar záznamu jako `komise.json`
+(`group: "starsi"`), navíc `doc_kind` (`zápis` / `usnesení`), `doc_title`, `posted`, `file`, `ocr`, `text`
+(úroveň A: bez parsování hlasování a přítomných).
+- **Obsah (74):** zápisy Rady 6/2015–12/2016 (38) + usnesení ZM 7/2015–4/2021 (36; ZM od 6/2021 už je v archivu).
+- **Generuje** `python3 jednani/scripts/starsi-jednani.py` z dat Monitoringu úřední desky
+  (`o-webu/uredni-deska-monitoring/<rok>.txt`, `Data/`, `Text/`). Ke každému jednání zkopíruje **jediný** soubor do
+  `jednani/Data/<datum>-<rada|zastupitelstvo>/zapis.*` resp. `usneseni.*` (`Data/` je v `.gitignore`).
+- **Stránka:** záznamy jsou **zamíchané do hlavního výpisu** (`content/jednani.html`, `jRenderStarsiRow`): řádek
+  = datum + název dokumentu, vpravo štítek „z úřední desky“ místo seznamu osob, po rozkliknutí text usnesení /
+  zápisu (`.starsi-text`) a odkaz na dokument. Načtou se jako `m._starsi` s prázdným `agenda`/`resolutions`;
+  filtry Vše / Rada / Zastupitelstvo je zahrnují, fulltext hledá v jejich textu (`m._textNorm`, karta `hit-card`
+  s úryvkem), hash `#rada-2015-06-08` / `#zastupitelstvo-2016-03-02` funguje jako u ostatních. Vazba výborů na
+  „předchozí jednání“ (`jLinkVyborItems`) je záměrně ignoruje. Pod výpisem je vysvětlující callout s mezerami
+  (hardcodovaný text — po změně dat přepsat).
+- **Mezery:** ZM č. 1/2015 a 2/2015 (před začátkem desky), 3/2017, 1/2018, 4/2020 na desce nejsou; ZM 6/2018 a 7/2019
+  mají na desce jen záznam bez souboru; Rada 2017–3/2021 na desce není vůbec. Duplicitní záznam ZM 2/2019 je uveden jednou.
+- **Případné rozšíření (úroveň B):** z textu zápisů RM vytáhnout přítomné a hlasování po jménech, z usnesení ZM seznam
+  usnesení (I.–IV.); u OCR skenů (5 dokumentů) jména ručně zkontrolovat.
+
+**Hranice volebních období (`volebni-obdobi.json`, doplněno 6. 10. 2026):** kromě ustavujícího zasedání 20. 10. 2022
+jsou zapsaná i **14. 11. 2018** (PN 11/2018 a 12/2018, s. 3; zasedání se posunulo kvůli návrhu na neplatnost
+voleb) a **5. 11. 2014** (PN 12/2014, s. 2–3, usnesení ustavujícího zasedání). Zdroje jsou odkazy na PDF novin
+s `#page=N`. Díky tomu se i mezi staršími jednáními z úřední desky zobrazí dělicí čára „Ustavující zasedání 2018“
+a „… 2014“. Ustavující zasedání 2010 a starší se nehledala (výpis nesahá před červen 2015).
