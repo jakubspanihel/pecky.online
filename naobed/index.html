@@ -124,6 +124,7 @@
       var tydne = Object.keys(DNY_CZ).map(function (d) { return DNY_CZ[d] + ' ' + (oh.hours[d] ? hod(oh.hours[d]) : 'zavřeno'); }).join('\n');
       return '<span title="' + esc(tydne + (oh.note ? '\n' + oh.note : '')) + '">🕒 Dnes ' + (h ? 'otevřeno ' + esc(hod(h)) : 'zavřeno') + '</span>';
     }
+    function adresa(a) { return '<a href="https://mapy.com/?q=' + encodeURIComponent(a) + '" target="_blank" rel="noopener">' + esc(a) + '</a>'; }
     function denNazev(iso) { var p = iso.split('-'); return DNY_CZ[DNY[new Date(+p[0], +p[1] - 1, +p[2], 12).getDay()]]; }
     function today() { var d = new Date(); return d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0') + '-' + String(d.getDate()).padStart(2, '0'); }
 
@@ -166,7 +167,7 @@
         var odkazy = '<a href="' + esc(r.facebook) + '" target="_blank" rel="noopener">Facebook ↗</a>' +
           (r.web ? ' · <a href="' + esc(r.web) + '" target="_blank" rel="noopener">' + esc(r.webLabel || 'Web') + ' ↗</a>' : '');
         var info = '<div class="naobed-info" id="info-' + esc(r.id) + '" hidden>' +
-          (r.address ? '<p>📍 ' + esc(r.address) + '</p>' : '') +
+          (r.address ? '<p>📍 ' + adresa(r.address) + '</p>' : '') +
           (dnesOtevreno((orgs[r.id] || {}).opening_hours) ? '<p>' + dnesOtevreno((orgs[r.id] || {}).opening_hours) + '</p>' : '') +
           '<div class="naobed-actions">' + tel + '<span>' + odkazy + '</span></div></div>';
         return '<article class="card naobed-card" id="' + esc(r.id) + '">' +
@@ -189,7 +190,7 @@
         var odkaz = r.link ? '<a href="' + esc(r.link) + '" target="_blank" rel="noopener">' + esc(r.linkLabel || 'Odkaz') + ' ↗</a>' : '';
         return '<article class="card naobed-mini"><h4>' + esc(r.name) + '</h4>' +
           (r.note ? '<p>' + esc(r.note) + '</p>' : '') +
-          (r.address ? '<p>📍 ' + esc(r.address) + '</p>' : '') +
+          (r.address ? '<p>📍 ' + adresa(r.address) + '</p>' : '') +
           (oh ? '<p>' + oh + '</p>' : '') +
           (tel || odkaz ? '<div class="naobed-actions">' + tel + (odkaz ? '<span>' + odkaz + '</span>' : '') + '</div>' : '') +
           '</article>';

@@ -356,7 +356,7 @@
   .dash-card--noviny .dash-noviny{flex-direction:column; align-items:flex-start;}
   .dash-card--noviny .dash-noviny img{width:100%; max-width:none; height:auto;}
   .dash-card--noviny .dash-noviny{align-items:stretch; gap:10px;}
-  @media (max-width:980px){.dash-col{display:contents;} .dash-bento{display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); grid-template-areas:"zme zme" "jed kal" "jed nov";} .dash-bento--volby{grid-template-areas:"vol vol" "zme zme" "jed kal" "jed nov";}}
+  @media (max-width:980px){.dash-col{display:contents;} .dash-bento .dash-card--noviny{align-self:start;} .dash-bento{display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); grid-template-areas:"zme zme" "jed kal" "nov kal";} .dash-bento--volby{grid-template-areas:"vol vol" "zme zme" "jed kal" "nov kal";}}
   @media (max-width:720px){.dash-bento{grid-template-columns:1fr; grid-template-areas:"zme" "kal" "jed" "nov";} .dash-bento--volby{grid-template-areas:"vol" "zme" "kal" "jed" "nov";}}
   /* Příští zastupitelstvo: samostatný pás nad mřížkou karet, jen je-li ohlášené */
   /* každá položka (zasedání, volby) je samostatný blok; barvy stejné jako
