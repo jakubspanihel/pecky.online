@@ -118,3 +118,33 @@ test("CPU: hledání nad celým indexem je řádově do milisekund", () => {
   for (let i = 0; i < 200; i++) search(index, qs[i % qs.length], 8);
   assert.ok((performance.now() - t) / 200 < 5);
 });
+
+test("relativeDates: dnes, zítra, víkend, týden vůči zadanému datu (st 2026-10-07)", async () => {
+  const { relativeDates } = await import("../src/search.ts");
+  assert.deepEqual(relativeDates("co je zitra", "2026-10-07"), ["2026-10-08"]);
+  assert.deepEqual(relativeDates("tento vikend", "2026-10-07"), ["2026-10-10", "2026-10-11"]);
+  assert.deepEqual(relativeDates("tento tyden", "2026-10-07"), ["2026-10-07", "2026-10-08", "2026-10-09", "2026-10-10", "2026-10-11"]);
+  assert.deepEqual(relativeDates("pristi tyden", "2026-10-07").length, 7);
+});
+
+test("boost: kalendářová akce z dnešního data se zvedne; dotaz na organizaci boostuje Organizace, ne Lidé", () => {
+  const cal: Index = {
+    v: 1, shard: 100,
+    chunks: [
+      { u: "/kalendar/", t: "Kalendář — Koncert A (3. 10. 2026)" },
+      { u: "/kalendar/", t: "Kalendář — Koncert B (8. 10. 2026)" },
+      { u: "/lide/", t: "Lidé — Jana Knihovníková" },
+      { u: "/lide/", t: "Organizace — Městská knihovna (příspěvková organizace)" },
+    ],
+    post: { koncer: [0, 1, 1, 1], kontak: [2, 1, 3, 1], knihov: [2, 1, 3, 1] },
+  };
+  assert.equal(search(cal, "koncert zítra", 4, { today: "2026-10-07" })[0].id, 1);
+  assert.equal(search(cal, "kontakt knihovna", 4)[0].id, 3);
+});
+
+test("roster/number záměry: Složení a shrnutí web", () => {
+  const it = detectIntent("Kdo sedí v radě města?");
+  assert.ok(it.roster);
+  assert.ok(detectIntent("Kolik stojí tělocvična?").number);
+  assert.ok(!detectIntent("kontakt knihovna").who);
+});

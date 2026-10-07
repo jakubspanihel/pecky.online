@@ -28,6 +28,7 @@ malá písmena, bez diakritiky, slova od 3 znaků, zkrácená na prvních 6 znak
 
 Spouští ho scripts/build.py; samostatně: python3 scripts/build_peckybot_index.py
 """
+import hashlib
 import html
 import json
 import math
@@ -246,6 +247,177 @@ def chunks_lide():
     return out
 
 
+def _lide_data():
+    people = {p['id']: p for p in json.loads((ROOT / 'lide/people.json').read_text(encoding='utf-8'))['people']}
+    orgs = {o['id']: o for o in json.loads(
+        (ROOT / 'lide/organizations.json').read_text(encoding='utf-8'))['organizations']}
+    aff = json.loads((ROOT / 'lide/affiliations.json').read_text(encoding='utf-8'))['affiliations']
+    return people, orgs, aff
+
+
+def _full_name(p):
+    return ' '.join(x for x in (p.get('title_before'), p.get('first_name'), p.get('last_name'),
+                                p.get('title_after')) if x).strip()
+
+
+def _d_from(v):
+    """'2014' -> '2014-01-01' (začátek), plná data beze změny."""
+    return v if v and len(v) > 4 else (f'{v}-01-01' if v else '0000-00-00')
+
+
+def _d_to(v):
+    return v if v is None or len(v) > 4 else f'{v}-12-31'
+
+
+def _party(pid, at, orgs, aff):
+    """Politické uskupení, za které osoba kandidovala naposledy před datem `at`."""
+    best = None
+    for a in aff:
+        o = orgs.get(a['organization_id'], {})
+        if a['person_id'] == pid and o.get('type') == 'politicke' and _d_from(a['from']) <= at:
+            if best is None or _d_from(a['from']) > best[0]:
+                best = (_d_from(a['from']), o['name'])
+    return best[1] if best else ''
+
+
+def _entry(pid, role, at, people, orgs, aff):
+    party = _party(pid, at, orgs, aff)
+    return f"{_full_name(people[pid])} ({role}{', ' + party if party else ''})"
+
+
+def chunks_slozeni():
+    """Složení rady, zastupitelstva, výborů a komisí a přehled starostů — z lide/*.json."""
+    people, orgs, aff = _lide_data()
+    mp = [a for a in aff if a['organization_id'] == 'mesto-pecky']
+    out = []
+    # volební období podle začátku mandátu rady
+    starts = sorted({a['from'] for a in mp if a['role_type'] == 'rada'})
+    terms = []
+    for i, st in enumerate(starts):
+        terms.append((_d_from(st), starts[i + 1] if i + 1 < len(starts) else None))
+    for st, end in reversed(terms):
+        cur = end is None
+        at = st
+        def covers(a, st=st, end=end):
+            return _d_from(a['from']) <= st and (_d_to(a['to']) is None or _d_to(a['to']) > st)
+        roles = [a for a in mp if a['role_type'] in ('starosta', 'mistostarosta', 'rada') and covers(a)]
+        order = {'starosta': 0, 'mistostarosta': 1, 'rada': 2}
+        roles.sort(key=lambda a: (order[a['role_type']], a['role']))
+        seen, names = set(), []
+        for a in roles:
+            if a['person_id'] in seen:
+                continue
+            seen.add(a['person_id'])
+            role = a['role'] if a['role_type'] != 'rada' else 'radní'
+            names.append(_entry(a['person_id'], role, at, people, orgs, aff))
+        if not names:
+            continue
+        od = cz_date(st) if len(st) > 4 else st
+        od = od.replace('1. 1. ', '')
+        if cur:
+            x = (f"Složení rady města (současná rada, od {od}): počet členů: {len(names)}. Kdo je v radě města, "
+                 f"kdo je starosta, místostarosta a radní: " + '; '.join(names) + '.')
+            t = 'Složení rady města — současné'
+        else:
+            do = cz_date(end) if len(end) > 4 else end
+            x = (f"Složení rady města v období {od} – {do} (v datech uvedeno {len(names)} osob): "
+                 + '; '.join(names) + '.')
+            t = f'Složení rady města — {od[-4:] if len(st) > 4 else od}–{do[-4:]}'
+        out.append({'u': '/lide/', 't': t, 'x': clip(x, 900)})
+        # zastupitelstvo: jen aktuální období (starší období nejsou v datech úplná)
+        if cur:
+            zs = [a for a in mp if a['role_type'] == 'zastupitel' and a['current']]
+            zn = []
+            for a in sorted(zs, key=lambda a: people[a['person_id']]['last_name']):
+                zn.append(_entry(a['person_id'], 'zastupitel', at, people, orgs, aff))
+            by_party = {}
+            for a in zs:
+                by_party[_party(a['person_id'], at, orgs, aff) or 'bez uvedení'] = \
+                    by_party.get(_party(a['person_id'], at, orgs, aff) or 'bez uvedení', 0) + 1
+            sp = ', '.join(f'{k} {v}' for k, v in sorted(by_party.items(), key=lambda kv: -kv[1]))
+            x1 = (f"Složení zastupitelstva města (současné období od {od}): počet zastupitelů: {len(zs)}. "
+                  f"Kolik je zastupitelů a kdo v zastupitelstvu sedí. Podle uskupení: {sp}. "
+                  + '; '.join(zn) + '.')
+            out.append({'u': '/lide/', 't': 'Složení zastupitelstva města — současné', 'x': clip(x1, 1400)})
+    # starostové a místostarostové v čase
+    for rt, titul, slovo in (('starosta', 'Starostové', 'starosta'), ('mistostarosta', 'Místostarostové', 'místostarosta')):
+        rows = sorted((a for a in mp if a['role_type'] == rt), key=lambda a: _d_from(a['from']))
+        if not rows:
+            continue
+        parts = []
+        for a in rows:
+            f = cz_date(a['from']) if len(a['from']) > 4 else a['from']
+            to = 'dosud' if a['to'] is None else (cz_date(a['to']) if len(a['to']) > 4 else a['to'])
+            parts.append(f"{f} – {to}: {_full_name(people[a['person_id']])} ({a['role']})")
+        out.append({'u': '/lide/', 't': 'Starostové a místostarostové' if rt == 'starosta' else 'Místostarostové Peček v čase',
+                    'x': clip(f"{titul} Peček v čase (od roku {rows[0]['from'][:4]}), kdo byl {slovo}: "
+                              + '; '.join(parts) + '.', 900)})
+    # výbory a komise (aktuální členové)
+    funkce = re.compile(r'^(člen|členka|předseda|předsedkyně|místopředseda|místopředsedkyně)\s+', re.I)
+    groups = {}
+    for a in aff:
+        if a['role_type'] != 'komise' or not a['current']:
+            continue
+        m = funkce.match(a['role'])
+        body = a['role'][m.end():] if m else a['role']
+        fn = m.group(1).lower() if m else 'člen'
+        key = (a['organization_id'], body[0].lower() + body[1:])
+        groups.setdefault(key, []).append((fn, a['person_id']))
+    for (oid, body), mem in sorted(groups.items()):
+        if len(mem) < 2:
+            continue
+        mem.sort(key=lambda m: (m[0] == 'člen' or m[0] == 'členka', people[m[1]]['last_name']))
+        org = orgs.get(oid, {}).get('name', '')
+        zast = ' zastupitelstva města' if 'výbor' in body else ''
+        kde = f" ({org})" if oid != 'mesto-pecky' and org else ''
+        nm = '; '.join(f"{_full_name(people[pid])} ({fn})" for fn, pid in mem)
+        out.append({'u': '/lide/', 't': f'Složení — {body}{kde}',
+                    'x': clip(f"Složení {body}{zast}{kde}: počet členů: {len(mem)}, kdo je členem, předseda. " + nm + '.', 800)})
+    return out
+
+
+# Číselné údaje ze statických stránek: (sekce, štítek, otázkové fráze, regulární výraz řádku, jen věta?)
+# Text úryvku se doslova přebírá ze stránky; když se řádek nenajde, úryvek se nevytvoří.
+FAKTA = [
+    ('telocvicna', 'cena dostavby školy a tělocvičny', 'Kolik stojí dostavba školy a tělocvičny? Cena, částka, rozpočet stavby.',
+     r'^Stavba nové tělocvičny a učeben .* rozpočtem [\d,]+ mil\. Kč', 1),
+    ('telocvicna', 'cena díla po dodatku', 'Kolik stojí tělocvična? Cena díla, aktuální cena, částka.',
+     r'^\d+\. \d+\. \d{4} \| [\d,]+ mil\. Kč bez DPH \([\d,]+ mil\. Kč s DPH\) \| Cena díla', 1),
+    ('telocvicna', 'úvěr na dostavbu', 'Úvěr na stavbu tělocvičny, výše úvěru, půjčka, dluh města.',
+     r'^\d+\. \d+\. 2026 \| (Zastupitelstvo|Rada) \(.*úvěr', 3),
+    ('pokladna', 'dluh, úvěr a přebytek města', 'Má město dluhy nebo úvěr? Dluh, úvěr, hospodaření, přebytek.',
+     r'^Stručně: ', 1),
+    ('pokladna', 'rozpočet a výdaje města', 'Kolik město utrácí? Rozpočet, výdaje, částka, investice.',
+     r'^(Na co město utrácí \(rok \d+, celkem|z toho \d+ % \([\d,]+ mil\. Kč\) běžný provoz)', 2),
+    ('pokladna', 'zůstatek na účtech', 'Kolik má město peněz na účtech? Zůstatek, částka, fondy.',
+     r'^Souhrnný zůstatek na všech účtech', 1),
+]
+
+
+def chunks_fakta():
+    out = []
+    cache = {}
+    for slug, stitek, lead, pat, kolik in FAKTA:
+        url, nazev = STATICKE[slug]
+        if slug not in cache:
+            path = ROOT / 'content' / f'{slug}.html'
+            cache[slug] = [ln.lstrip(HEAD_MARK) for ln in html_to_lines(path.read_text(encoding='utf-8'))] \
+                if path.exists() else []
+        hits = []
+        for ln in cache[slug]:
+            if re.search(pat, ln):
+                if kolik == 0:   # jen věta s údajem
+                    m = re.search(r'[^.]*?' + pat + r'[^.]*\.', ln)
+                    ln = m.group(0).strip() if m else ln
+                hits.append(ln)
+        if not hits:
+            continue
+        body = ' '.join(clip(h, 250) for h in hits[:max(kolik, 1)])
+        out.append({'u': url, 't': f'Web — {nazev} — shrnutí: {stitek}',
+                    'x': clip(f'{nazev} — shrnutí: {stitek}. {lead} {body}', 760)})
+    return out
+
+
 # statické sekce -> (URL, název); dynamické sekce (jednání, noviny, kalendář)
 # mají v content/*.html jen kostru, data jsou v JSON
 STATICKE = {
@@ -357,7 +529,9 @@ def build_index(chunks):
     max_df = max(20, int(n * MAX_DF_RATIO))
     post = {t: v for t, v in sorted(post.items()) if len(v) // 2 <= max_df}
     meta = [{'u': c['u'], 't': c['t']} for c in chunks]
-    return {'v': 1, 'shard': SHARD, 'chunks': meta, 'post': post}
+    # otisk obsahu: Worker s ním stahuje dávky textů, takže se nikdy nespojí nový rejstřík se starými texty
+    h = hashlib.sha1(json.dumps([c['x'] for c in chunks], ensure_ascii=False).encode('utf-8')).hexdigest()[:12]
+    return {'v': 1, 'h': h, 'shard': SHARD, 'chunks': meta, 'post': post}
 
 
 def write_if_changed(path, obj):
@@ -369,7 +543,7 @@ def write_if_changed(path, obj):
 
 
 def main():
-    chunks = chunks_jednani() + chunks_lide() + chunks_stranky() + chunks_extra()
+    chunks = chunks_jednani() + chunks_lide() + chunks_slozeni() + chunks_stranky() + chunks_fakta() + chunks_extra()
     idx = build_index(chunks)
     OUT.parent.mkdir(parents=True, exist_ok=True)
     SHARD_DIR.mkdir(exist_ok=True)
