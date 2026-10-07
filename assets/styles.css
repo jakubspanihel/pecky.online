@@ -771,6 +771,13 @@
   .meeting-yt-icon{width:13px; height:13px; border-radius:3px; object-fit:contain; vertical-align:-2px;}
   .meeting-count{font-family:var(--font-mono); font-size:11px; color:var(--ink-soft); min-width:0;}
   .no-minutes-warning{color:var(--burgundy); font-weight:600;}
+  .prostory-tabulka .prostor-row{cursor:pointer;}
+  .prostory-tabulka .prostor-row:hover > td, .prostory-tabulka .prostor-row--expanded > td{background:#ffffff;}
+  .prostor-toggle{display:inline-block; width:18px; text-align:center; color:var(--burgundy); font-weight:600;}
+  .prostor-budova{display:block; padding-left:18px;}
+  .prostory-tabulka tr.prostor-detail > td{padding:4px 12px 14px; background:#ffffff; border-bottom:1px solid var(--line);}
+  .prostory-tabulka tr.prostor-detail:hover > td{background:#ffffff;}
+  .prostory-tabulka tr.prostor-detail .table-scroll{margin:6px 0 0;}
   .meeting-toggle{width:18px; text-align:center; color:var(--burgundy); font-weight:600; flex-shrink:0;}
   .meeting-row-detail{padding:2px 4px 18px 4px;}
   .res-list{margin:6px 0 12px; padding-left:0; list-style:none; font-size:13px;}

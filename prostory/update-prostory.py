@@ -151,7 +151,7 @@ def render(data, res, desky, dnes):
     if problems:
         sys.exit('CHYBA:\n  ' + '\n  '.join(problems))
 
-    prem = sorted(prem, key=lambda p: STAV[p['stav']][0])  # stabilní: v rámci skupiny pořadí z JSON
+    prem = sorted(prem, key=lambda p: p['_ev'][0]['date'], reverse=True)  # podle data posledního usnesení/záměru, nejnovější nahoře
     out = []
 
     # --- banner: právě vyhlášené záměry
@@ -185,9 +185,10 @@ def render(data, res, desky, dnes):
         f'<div class="stat-card"><div class="stat-num">{pocty["volne"] + pocty["ukonceno"] + pocty["neznamy"]}</div><div class="stat-label">bez nájemce<br>nebo bez známého výsledku záměru</div></div>'
         '</div>')
 
-    # --- přehledová tabulka
+    # --- přehledová tabulka; historie prostoru se rozbaluje pod řádkem
     out.append('<h3 class="display" style="margin:30px 0 4px;">Přehled prostorů</h3>')
-    out.append('<div class="table-scroll"><table class="register">'
+    out.append('<p class="meta-note">Kliknutím na řádek se pod ním zobrazí všechna nalezená usnesení rady a záměry z úřední desky k danému prostoru, od nejnovějšího.</p>')
+    out.append('<div class="table-scroll"><table class="register prostory-tabulka">'
                '<thead><tr><th>Prostor</th><th>Plocha</th><th>Forma</th><th>Stav</th><th>Podmínky</th><th>Poslední usnesení</th></tr></thead><tbody>')
     for p in prem:
         cls = STAV[p['stav']][1]
@@ -197,35 +198,26 @@ def render(data, res, desky, dnes):
         najemce = f'<br><span class="muted-note">{esc(p["najemce"])}</span>' if p.get('najemce') else ''
         e0 = p['_ev'][0]
         out.append(
-            f'<tr><td><a href="#prostor-{p["id"]}"><strong>{esc(p["nazev"])}</strong></a><br>'
-            f'<span class="muted-note">{esc(p["budova"])}</span></td>'
+            f'<tr class="prostor-row" id="prostor-{p["id"]}" tabindex="0" role="button" aria-expanded="false" aria-controls="prostor-{p["id"]}-detail">'
+            f'<td><span class="prostor-toggle" aria-hidden="true">+</span><strong>{esc(p["nazev"])}</strong>'
+            f'<span class="muted-note prostor-budova">{esc(p["budova"])}</span></td>'
             f'<td style="white-space:nowrap;">{esc(p["plocha"])}</td><td>{esc(p["forma"])}</td>'
             f'<td>{stav}{najemce}</td><td>{esc(p["podminky"])}</td>'
             f'<td style="white-space:nowrap;">{cz(e0["date"])}<br>{odkazy(e0)}</td></tr>')
-    out.append('</tbody></table></div>')
-
-    # --- historie po prostorech
-    out.append('<h3 class="display" style="margin:34px 0 6px;">Historie jednotlivých prostorů</h3>')
-    out.append('<p class="meta-note">Rozbalením se zobrazí všechna nalezená usnesení rady a záměry z úřední desky k danému prostoru, od nejnovějšího.</p>')
-    for p in prem:
-        cls = STAV[p['stav']][1]
-        out.append(
-            f'<details class="collapsible" id="prostor-{p["id"]}">'
-            f'<summary style="cursor:pointer; list-style:none;"><h4 class="display" style="margin:12px 0 2px; display:inline;">'
-            f'{esc(p["nazev"])} <span class="collapsible-arrow" aria-hidden="true">▾</span></h4></summary>'
-            f'<p class="muted-note" style="margin:0 0 8px;">{esc(p["budova"])} · {esc(p["plocha"])} · '
-            f'<span class="{cls}">{esc(p["stav_text"])}</span></p>')
+        det = []
         if p.get('poznamka_stav'):
-            out.append(f'<p class="meta-note">{esc(p["poznamka_stav"])}</p>')
-        out.append('<div class="table-scroll"><table class="register"><thead><tr><th>Datum</th><th>Co se stalo</th><th>Zdroj</th></tr></thead><tbody>')
+            det.append(f'<p class="meta-note">{esc(p["poznamka_stav"])}</p>')
+        det.append('<div class="table-scroll"><table class="register"><thead><tr><th>Datum</th><th>Co se stalo</th><th>Zdroj</th></tr></thead><tbody>')
         for e in p['_ev']:
-            out.append(
+            det.append(
                 f'<tr><td style="white-space:nowrap;">{cz(e["date"])}</td>'
                 f'<td><span class="{TYP_TAG[e["typ"]]}">{esc(typy[e["typ"]])}</span> {esc(e["pozn"])}'
                 + (f' <span class="muted-note">(na desce {cz(e["dk"]["vyveseno"])}–{cz(e["dk"]["sejmuto"])})</span>' if e.get('dk') and e['dk'].get('sejmuto') else '')
                 + '</td>'
                 f'<td style="white-space:nowrap;">{odkazy(e)}</td></tr>')
-        out.append('</tbody></table></div></details>')
+        det.append('</tbody></table></div>')
+        out.append(f'<tr class="prostor-detail" id="prostor-{p["id"]}-detail" hidden><td colspan="6">' + ''.join(det) + '</td></tr>')
+    out.append('</tbody></table></div>')
     return '\n'.join(out)
 
 
