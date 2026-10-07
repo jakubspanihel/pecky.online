@@ -55,6 +55,15 @@ i s nadpisem.
 Vícedenní akce, která v době buildu už běží, má text „probíhá do …“ —
 ten se počítá při buildu, ne v prohlížeči.
 
+### Pruh „Zastupitelstvo proběhlo“ (od 7. 10. 2026)
+Po konání zastupitelstva se na Domů (pod bannerem zasedání, nad bannerem voleb)
+ukáže slabý bordó pruh: „Zastupitelstvo N/RRRR proběhlo včera · zápis zatím
+nezveřejněn / přijato N usnesení / zápis je zveřejněný“ + tlačítko „Detail
+jednání →“ (`/jednani/#zastupitelstvo-RRRR-MM-DD`). Visí `DASH_ZM_PO_DNI` (5) dní
+po konání (od dne po zasedání), pak zmizí. Build vypíše okno pro každé ZM a
+`assets/common.js` (blok „pruh Zastupitelstvo proběhlo“) ukáže jen to, jehož okno
+zahrnuje dnešek — ať zůstane správně i dny po buildu.
+
 ### Aktuality — co se zobrazuje
 Pravidla jsou na dvou místech, která musí zůstat shodná: build
 (`_dash_kalendar()` v `scripts/build.py` — výchozí HTML) a prohlížeč

@@ -302,6 +302,30 @@ function relBudouci(iso) {
   });
 })();
 
+// ===== Dashboard: pruh „Zastupitelstvo proběhlo“ (pár dní po konání) =====
+// Build vypíše pruh pro ZM v okně [datum + 1 den, datum + DASH_ZM_PO_DNI]; tady se
+// ukáže první, jehož okno zahrnuje dnešek (data-od ≤ dnes ≤ data-do), a doplní se
+// „proběhlo včera / předevčírem / před N dny“.
+(function () {
+  const box = document.querySelector('.dash-zmpo');
+  if (!box) return;
+  const pad = n => String(n).padStart(2, '0');
+  const d = new Date();
+  const dnes = d.getFullYear() + '-' + pad(d.getMonth() + 1) + '-' + pad(d.getDate());
+  const zacatek = new Date(d.getFullYear(), d.getMonth(), d.getDate());
+  let ukazano = false;
+  box.querySelectorAll('li[data-od]').forEach(li => {
+    const ok = !ukazano && li.dataset.od <= dnes && dnes <= li.dataset.do;
+    li.hidden = !ok;
+    if (!ok) return;
+    ukazano = true;
+    const p = li.dataset.date.split('-');
+    const dny = Math.round((zacatek - new Date(+p[0], +p[1] - 1, +p[2])) / 86400000);
+    li.querySelector('.zmpo-kdy').textContent = dny === 1 ? 'proběhlo včera' : dny === 2 ? 'proběhlo předevčírem' : 'proběhlo před ' + dny + ' dny';
+  });
+  box.hidden = !ukazano;
+})();
+
 // ===== Dashboard: karty událostí v "Nadcházející akce" =====
 // Build vypíše víc událostí, než je vidět (data-max); tady se skryjí proběhlé,
 // odkryjí další a každé kartě se doplní chip dnes / zítra / za N dní. U probíhající

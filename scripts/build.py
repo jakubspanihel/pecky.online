@@ -432,6 +432,7 @@ DASH_AKCE_VIDET, DASH_AKCE_REZERVA = 20, 25  # rezerva ~ týden bez buildu
 DASH_AKCE_MIN = 5  # aspoň tolik karet celkem (jinak se přidávají další dny do Dalších akcí)
 DASH_AKCE_BEZI = 5  # max. míst z DASH_AKCE_VIDET pro probíhající vícedenní akce
 DASH_JEDNANI_PROBEHLA = 3
+DASH_ZM_PO_DNI = 5  # pruh „Zastupitelstvo proběhlo“ visí na Domů tolik dní po konání
 DNY_CZ = ['po', 'út', 'st', 'čt', 'pá', 'so', 'ne']
 
 
@@ -646,7 +647,8 @@ def _dash_zastupitelstvo(dnes):
     events = json.loads(read('kalendar/udalosti.json'))['events']
     volby = sorted((e for e in events if e['category'] == 'volby'
                     and (e.get('date_end') or e['date']) >= dnes), key=lambda e: e['date'])[:1]
-    if not zm and not volby:
+    po = _dash_zm_po(meetings, dnes)
+    if not zm and not volby and not po:
         return '', ''
     avatary = _zm_avatary()
     out = ['<div class="dash-zm">'] if zm else []
@@ -687,7 +689,52 @@ def _dash_zastupitelstvo(dnes):
                    f'<p class="banner-meta"><span class="banner-meta-item">{ICO_KAL}<span>{dny_txt}, {esc(rozsah)}</span></span></p>'
                    f'<div class="banner-actions"><a class="banner-cta" href="/volby/">Jak se volí v Pečkách?</a></div>'
                    f'</div></li>\n  </ul>\n</div>')
-    return '\n'.join(out), '\n'.join(out_v)
+    return '\n'.join(out + ([po] if po else [])), '\n'.join(out_v)
+
+
+def _zm_po_kdy(dny):
+    """„proběhlo včera / předevčírem / před N dny“ (dny = kolik dní je po zasedání)."""
+    if dny <= 0:
+        return 'proběhlo dnes'
+    if dny == 1:
+        return 'proběhlo včera'
+    if dny == 2:
+        return 'proběhlo předevčírem'
+    return f'proběhlo před {dny} dny'
+
+
+def _dash_zm_po(meetings, dnes):
+    """Pruh pod bannerem zasedání: po konání zastupitelstva visí DASH_ZM_PO_DNI dní
+    a odkazuje na detail jednání (zápis a usnesení). Vypíše se každé ZM, které
+    bylo nebo teprve bude v tomto okně; common.js ukáže jen to, jehož okno
+    (data-od až data-do) zahrnuje dnešek, takže pruh nezastará mezi buildy."""
+    from datetime import date as _date, timedelta
+    d0 = _date.fromisoformat(dnes)
+    kand = sorted((m for m in meetings if m['type'] == 'Zastupitelstvo'
+                   and _date.fromisoformat(m['date']) >= d0 - timedelta(days=DASH_ZM_PO_DNI)),
+                  key=lambda m: m['date'])[:4]
+    if not kand:
+        return ''
+    out = ['<div class="dash-zmpo" hidden>', '  <ul class="dash-zmpo-list">']
+    for m in kand:
+        dm = _date.fromisoformat(m['date'])
+        od, do = dm + timedelta(days=1), dm + timedelta(days=DASH_ZM_PO_DNI)
+        links = m.get('links') or {}
+        if links.get('minutes'):
+            stav = 'zápis je zveřejněný'
+        elif m.get('resolutions'):
+            stav = f'přijato {len(m["resolutions"])} usnesení'
+        else:
+            stav = 'zápis zatím nezveřejněn'
+        nazev = f'Zastupitelstvo {m["number"]}/{m["year"]}'
+        out.append(
+            f'    <li data-date="{m["date"]}" data-od="{od.isoformat()}" data-do="{do.isoformat()}" hidden>'
+            f'<a class="dash-zmpo-link" href="/jednani/#zastupitelstvo-{m["date"]}">'
+            f'<span class="zmpo-text"><strong>{esc(nazev)}</strong> <span class="zmpo-kdy">{_zm_po_kdy((d0 - dm).days)}</span>'
+            f' · <span class="zmpo-stav">{stav}</span></span>'
+            f'<span class="zmpo-sipka" aria-hidden="true">→</span></a></li>')
+    out += ['  </ul>', '</div>']
+    return '\n'.join(out)
 
 
 def _dash_akce_li(e, i, hidden=False):
