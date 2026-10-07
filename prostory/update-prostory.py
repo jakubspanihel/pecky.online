@@ -23,6 +23,7 @@ import re
 import sys
 from datetime import date
 from html import escape as esc
+from urllib.parse import quote
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -34,6 +35,15 @@ ICO_KAL = ('<svg class="kal-ico" viewBox="0 0 16 16" width="16" height="16" fill
 ICO_PIN = ('<svg class="kal-ico" viewBox="0 0 16 16" width="16" height="16" fill="none" stroke="currentColor" '
            'stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">'
            '<path d="M8 14.5s4.5-4.2 4.5-7.8a4.5 4.5 0 0 0-9 0C3.5 10.3 8 14.5 8 14.5z"/><circle cx="8" cy="6.7" r="1.6"/></svg>')
+
+def mapa(budova):
+    """Adresa (budova) jako odkaz na vyhledávání na mapy.com."""
+    q = re.sub(r'\s*\([^)]*\)', '', budova)  # závorky (např. „(1. NP)“) hledání spíš kazí
+    if not re.search(r'Pečk|Chvalovic', q):
+        q += ', Pečky'
+    return (f'<a href="https://mapy.com/?q={quote(q, safe="")}" target="_blank" rel="noopener">'
+            f'{esc(budova)}</a>')
+
 
 # pořadí skupin v přehledu a CSS třída štítku stavu
 STAV = {
@@ -163,7 +173,7 @@ def render(data, res, desky, dnes):
             '<aside class="banner" aria-label="Právě vyhlášený záměr pronájmu">'
             '<div class="banner-body">'
             f'<h3 class="banner-title">Záměr pronájmu: {esc(p["nazev"].lower())}</h3>'
-            f'<p class="banner-meta"><span class="banner-meta-item">{ICO_PIN}<span>{esc(p["budova"])}, {esc(p["plocha"])}</span></span>'
+            f'<p class="banner-meta"><span class="banner-meta-item">{ICO_PIN}<span>{mapa(p["budova"])}, {esc(p["plocha"])}</span></span>'
             f'<span class="banner-meta-item">{ICO_KAL}<span>Nabídky nejpozději do {esc(kdy)} '
             f'<span class="tag probiha fut-chip" data-date="{p["uzaverka"]}">plánováno</span></span></span></p>'
             f'<p class="banner-text">{esc(p["podminky"][0].upper() + p["podminky"][1:])}.'
@@ -200,7 +210,7 @@ def render(data, res, desky, dnes):
         out.append(
             f'<tr class="prostor-row" id="prostor-{p["id"]}" tabindex="0" role="button" aria-expanded="false" aria-controls="prostor-{p["id"]}-detail">'
             f'<td><span class="prostor-toggle" aria-hidden="true">+</span><strong>{esc(p["nazev"])}</strong>'
-            f'<span class="muted-note prostor-budova">{esc(p["budova"])}</span></td>'
+            f'<span class="muted-note prostor-budova">{mapa(p["budova"])}</span></td>'
             f'<td style="white-space:nowrap;">{esc(p["plocha"])}</td><td>{esc(p["forma"])}</td>'
             f'<td>{stav}{najemce}</td><td>{esc(p["podminky"])}</td>'
             f'<td style="white-space:nowrap;">{cz(e0["date"])}<br>{odkazy(e0)}</td></tr>')

@@ -370,6 +370,9 @@
      </div></aside>
      Barvy řídí --banner-from/--banner-to/--banner-accent. */
   .banner{--banner-from:var(--burgundy); --banner-to:var(--burgundy-deep); --banner-accent:var(--burgundy); display:block; list-style:none; margin:0; padding:26px 30px; background:linear-gradient(135deg,var(--banner-from) 0%,var(--banner-to) 100%); color:#fff; border-radius:14px; box-shadow:0 2px 10px rgba(42,36,32,0.18);}
+  /* odkaz v barevném banneru přebírá barvu textu banneru (bílá / u žlutého tmavá) a je
+     podtržený — globální bordó odkaz (a{color:var(--burgundy)}) by na bordó či modrém podkladu zmizel */
+  .banner a:not(.banner-cta):not(.dash-more), .kal-banner a:not(.kal-banner-cta){color:inherit; text-decoration:underline;}
   .banner--slate{--banner-from:var(--slate); --banner-to:var(--slate-deep); --banner-accent:var(--slate);}
   /* Žlutá varianta (flashnews na Domů, banner Kalendáře): tmavý text na žlutém přechodu. */
   .banner--yellow{--banner-from:#f6cf4a; --banner-to:#e8b320; --banner-accent:var(--ink); --banner-fg:var(--ink); --banner-fg-soft:var(--ink); --banner-btn-bg:rgba(0,0,0,0.1); --banner-btn-bg-hover:rgba(0,0,0,0.2); color:var(--ink);}
