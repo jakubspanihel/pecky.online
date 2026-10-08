@@ -698,8 +698,9 @@ zobrazí jako „Premiéra"/naplánované video ještě před začátkem).
 - Po jednání se `links.livestream` stává zbytečným — stejné video pak
   najde a do `links.youtube` doplní běžný krok 6 kontroly (spárování podle
   data v popisku). `links.livestream` u proběhlého jednání se dá smazat,
-  ale není to nutné (`future` podmínka ve frontendu ho stejně přestane
-  používat, jakmile datum jednání mine).
+  ale není to nutné. Od 8. 10. 2026 frontend `links.livestream` po jednání
+  používá jako záložní odkaz na video (když chybí `links.youtube`), takže
+  video je vidět i před doplněním záznamu a před zveřejněním zápisu.
 - Zdrojová logika: `livestreamHtml`/`videoUrl` v `jRenderMeetingList`,
   `content/jednani.html`.
 

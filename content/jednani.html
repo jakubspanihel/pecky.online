@@ -741,13 +741,15 @@
         : (jFormatAttendance(m) ? `<span class="meeting-count">${jEscapeHtml(jFormatAttendance(m))}</span>` : '');
       if (m._starsi) return jRenderStarsiRow(m, dividerHtml);
       const pastNoMinutes = !future && !isToday && !m.links.minutes;
+      // Po skončení přenosu je záznam na stejné URL jako živé vysílání
+      const pastVideo = m.links.youtube || m.links.livestream || '';
       const daysAgoHtml = pastNoMinutes
-        ? `<span class="meeting-count">${jFormatDaysAgo(m.date)}, <span class="no-minutes-warning">zápis zatím není k dispozici</span>${m.links.youtube ? ` · <a href="${m.links.youtube}" target="_blank" rel="noopener">K dispozici je video ↗</a>` : ''}</span>`
+        ? `<span class="meeting-count">${jFormatDaysAgo(m.date)}, <span class="no-minutes-warning">zápis zatím není k dispozici</span>${pastVideo ? ` · <a href="${pastVideo}" target="_blank" rel="noopener">K dispozici je video ↗</a>` : ''}</span>`
         : '';
       const livestreamHtml = future && m.type === 'Zastupitelstvo' && m.links.livestream && m.time
         ? `<span class="meeting-live-note">📺 <a href="${m.links.livestream}" target="_blank" rel="noopener">Živé vysílání od ${jEscapeHtml(m.time)}</a></span>`
         : '';
-      const videoUrl = m.links.youtube || (future && m.links.livestream) || '';
+      const videoUrl = m.links.youtube || m.links.livestream || '';
       const detailTopHtml = vybor ? jRenderVyborGuests(m)
         : m.type === 'Rada'
         ? (m.resolutions.length ? `<p class="lede lede-sm" style="margin:2px 0 12px; font-family:var(--font-mono); color:var(--ink-soft);">Přijato ${m.resolutions.length} usnesení</p>` : '')
