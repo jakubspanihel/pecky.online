@@ -39,7 +39,7 @@ newsletter/
 
 | Datum | Soubor | Téma |
 |---|---|---|
-| 5. 10. 2026 (připraveno, neodesláno) | [2026-10-05-kalendar-facebook/](2026-10-05-kalendar-facebook/index.html) | Odběr kalendáře v mobilu, Monitoring Facebooku s grafem |
+| 8. 10. 2026 (návrh, neodesláno) | [2026-10-08-tyden1.md](2026-10-08-tyden1.md) | Přehled novinek: kalendář, Na oběd, zasedání zastupitelstva, Jednání, Monitoring Facebooku a úřední desky, Prostory, PečkyBot na Instagramu |
 | 2. 10. 2026 | [2026-10-02-novy-web.md](2026-10-02-novy-web.md) | Představení webu: archiv jednání, kalendář, noviny, přehled sekcí |
 
 Při přidání nového čísla doplnit řádek do této tabulky (nejnovější nahoře).

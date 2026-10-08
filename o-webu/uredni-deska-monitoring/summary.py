@@ -149,17 +149,17 @@ def month_range(first, last):
     return out
 
 
-def render_chart(docs, months):
+def chart_views(docs, months, last, sfx):
+    """Tři pohledy grafu (měsíce, roky, 30 dní) nad daným výběrem dokumentů; osa zůstává stejná jako u všech dokumentů."""
     have = set(months)
-    months = month_range(months[0], months[-1])
     mdocs = {ym: [d for d in docs if d['from'][:7] == ym] for ym in months}
     mx_ym = max(months, key=lambda ym: len(mdocs[ym]))
     items = []
     for ym in months:
         n, sg = len(mdocs[ym]), seg(mdocs[ym])
-        items.append((f'{MONTHS[int(ym[5:]) - 1].lower()} {ym[:4]}: {n} {plural(n)} ({seg_tip(sg)})',
+        items.append((f'{MONTHS[int(ym[5:]) - 1].lower()} {ym[:4]}: {n} {plural(n)}' + (f' ({seg_tip(sg)})' if n else ''),
                       n, (MONTHS[int(ym[5:]) - 1][:3].lower() + (f' {ym[2:4]}' if ym[5:] == '01' else '') if len(months) <= 36 else (ym[:4] if ym[5:] == '01' else None)), (f'#ud-{ym}' if ym in have else '#ud-chart'), sg))
-    v1 = bar_svg(items, 'udc1', 'Počet dokumentů na úřední desce po měsících',
+    v1 = bar_svg(items, 'udc1' + sfx, 'Počet dokumentů na úřední desce po měsících',
                  f'Sloupcový graf: osa x měsíce, osa y počet vyvěšených dokumentů, sloupce rozdělené podle tématu. '
                  f'Nejvíc dokumentů bylo vyvěšeno v měsíci {MONTHS[int(mx_ym[5:]) - 1].lower()} {mx_ym[:4]} ({len(mdocs[mx_ym])}).')
     cap1 = (f'Počet dokumentů vyvěšených v jednotlivých měsících. Nejvíc jich bylo vyvěšeno v měsíci '
@@ -169,12 +169,11 @@ def render_chart(docs, months):
     for y in sorted({ym[:4] for ym in months}):
         yd = [d for d in docs if d['from'][:4] == y]
         n, sg = len(yd), seg(yd)
-        yitems.append((f'{y}: {n} {plural(n)} ({seg_tip(sg)})', n, y, f'#ud-{max(m for m in months if m[:4] == y)}', sg))
-    vy = bar_svg(yitems, 'udcy', 'Počet dokumentů na úřední desce po letech',
+        yitems.append((f'{y}: {n} {plural(n)}' + (f' ({seg_tip(sg)})' if n else ''), n, y, f'#ud-{max(m for m in months if m[:4] == y)}', sg))
+    vy = bar_svg(yitems, 'udcy' + sfx, 'Počet dokumentů na úřední desce po letech',
                  'Sloupcový graf: osa x roky, osa y počet vyvěšených dokumentů, sloupce rozdělené podle tématu.')
     capy = ('Počet dokumentů vyvěšených v jednotlivých letech. Rok ' + months[-1][:4] + ' je započtený do ' +
-            cz_date(max(d['from'] for d in docs)) + '. Kliknutím na sloupec se otevře nejnovější měsíc roku.')
-    last = max(d['from'] for d in docs)
+            cz_date(last) + '. Kliknutím na sloupec se otevře nejnovější měsíc roku.')
     end = date.fromisoformat(last)
     days = [end - timedelta(days=29 - i) for i in range(30)]
     cnt = Counter(d['from'] for d in docs)
@@ -186,10 +185,19 @@ def render_chart(docs, months):
         href = f'#ud-d-{ds}' if n else f'#ud-{ds[:7]}'
         items.append((f'{d.day}. {d.month}. {d.year}: {n} {plural(n)}' + (f' ({seg_tip(sg)})' if n else ''),
                       n, f'{d.day}. {d.month}.' if i % 5 == 0 or i == 29 else None, href, sg))
-    v2 = bar_svg(items, 'udc2', 'Počet dokumentů na úřední desce po dnech za posledních 30 dní',
+    v2 = bar_svg(items, 'udc2' + sfx, 'Počet dokumentů na úřední desce po dnech za posledních 30 dní',
                  f'Sloupcový graf: osa x dny od {days[0].day}. {days[0].month}. do {end.day}. {end.month}. {end.year}, osa y počet dokumentů vyvěšených v daný den.')
     cap2 = (f'Počet dokumentů vyvěšených po dnech za 30 dní do posledního zachyceného dokumentu: '
             f'{days[0].day}. {days[0].month}. – {end.day}. {end.month}. {end.year}.')
+    return v1, cap1, vy, capy, v2, cap2
+
+
+def render_chart(docs, months):
+    months = month_range(months[0], months[-1])
+    last = max(d['from'] for d in docs)
+    new_docs = [d for d in docs if not d['as4u']]
+    A = chart_views(docs, months, last, '')
+    N = chart_views(new_docs, months, last, 'n')
     legend = '\n'.join(f'        <li><span class="ud-sw" style="background:{c}"></span>{g}</li>' for g, _, c in GROUPS)
     return f'''    <figure class="ud-chart" id="ud-chart">
       <div class="ud-chart-head">
@@ -206,18 +214,35 @@ def render_chart(docs, months):
       <ul class="ud-legend" aria-label="Témata dokumentů">
 {legend}
       </ul>
+      <div data-udc-src="all">
       <div class="ud-chart-view" data-udc-view="1">
-      {v1}
-      <figcaption class="meta-note">{cap1}</figcaption>
+      {A[0]}
+      <figcaption class="meta-note">{A[1]}</figcaption>
       </div>
       <div class="ud-chart-view" data-udc-view="2" hidden>
-      {vy}
-      <figcaption class="meta-note">{capy}</figcaption>
+      {A[2]}
+      <figcaption class="meta-note">{A[3]}</figcaption>
       </div>
       <div class="ud-chart-view" data-udc-view="3" hidden>
-      {v2}
-      <figcaption class="meta-note">{cap2}</figcaption>
+      {A[4]}
+      <figcaption class="meta-note">{A[5]}</figcaption>
       </div>
+      </div>
+      <div data-udc-src="new" hidden>
+      <div class="ud-chart-view" data-udc-view="1">
+      {N[0]}
+      <figcaption class="meta-note">{N[1]}</figcaption>
+      </div>
+      <div class="ud-chart-view" data-udc-view="2" hidden>
+      {N[2]}
+      <figcaption class="meta-note">{N[3]}</figcaption>
+      </div>
+      <div class="ud-chart-view" data-udc-view="3" hidden>
+      {N[4]}
+      <figcaption class="meta-note">{N[5]}</figcaption>
+      </div>
+      </div>
+      <label class="checkbox-label ud-arch"><input type="checkbox" id="ud-arch" checked> včetně archivu ze starého webu</label>
     </figure>
 '''
 
@@ -350,7 +375,8 @@ def render_page(docs):
     .ud-legend{{list-style:none; margin:0 0 6px; padding:0; display:flex; flex-wrap:wrap; gap:4px 16px; font-size:12.5px; color:var(--ink-soft);}}
     .ud-legend li{{display:inline-flex; align-items:center; gap:6px;}}
     .ud-sw{{display:inline-block; width:12px; height:12px; border-radius:2px;}}
-    .ud-chart-view[hidden]{{display:none;}}
+    .ud-chart-view[hidden],[data-udc-src][hidden]{{display:none;}}
+    .ud-arch{{display:flex; justify-content:flex-end; margin:6px 0 0;}}
     .ud-bar{{cursor:pointer;}}
     .ud-bar:hover rect,.ud-bar:focus-visible rect{{opacity:.78;}}
     .ud-bar:focus-visible{{outline:2px solid var(--gold); outline-offset:1px;}}
@@ -391,6 +417,10 @@ def render_page(docs):
     }}
     document.querySelectorAll('#ud-chart [data-udc]').forEach(function (b) {{
       b.addEventListener('click', function () {{ udView(b.getAttribute('data-udc')); }});
+    }});
+    document.getElementById('ud-arch').addEventListener('change', function () {{
+      document.querySelector('#ud-chart [data-udc-src=all]').hidden = !this.checked;
+      document.querySelector('#ud-chart [data-udc-src=new]').hidden = this.checked;
     }});
     var udMq = window.matchMedia('(min-width:768px)');
     var udCur = null;
