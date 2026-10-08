@@ -353,7 +353,7 @@
     .dash-nove-list{grid-area:list;}
   }
   @media (max-width:980px){.dash-col{display:contents;} .dash-bento .dash-card--noviny{align-self:start;} .dash-bento{display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); grid-template-areas:"zme zme" "nov kal" "jed kal";} .dash-bento--volby{grid-template-areas:"vol vol" "zme zme" "nov kal" "jed kal";}}
-  @media (max-width:720px){.dash-bento{grid-template-columns:1fr; grid-template-areas:"zme" "kal" "nov" "jed";} .dash-bento--volby{grid-template-areas:"vol" "zme" "kal" "nov" "jed";}}
+  @media (max-width:720px){.dash-bento{grid-template-columns:minmax(0,1fr); grid-template-areas:"zme" "kal" "nov" "jed";} .dash-bento--volby{grid-template-areas:"vol" "zme" "kal" "nov" "jed";}}
   /* Příští zastupitelstvo: samostatný pás nad mřížkou karet, jen je-li ohlášené */
   /* každá položka (zasedání, volby) je samostatný blok; barvy stejné jako
      v Kalendáři: zastupitelstvo = bordó (--burgundy), volby = břidlicová (--slate) */
