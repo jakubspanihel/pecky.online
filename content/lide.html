@@ -242,6 +242,17 @@
     else window.location.hash = h;
   }
 
+  // Otevřená karta (odkaz zvenku, Zpět/Vpřed) se má dostat do zorného pole.
+  // Když už je celá vidět (klik uvnitř panelu), se stránkou se nehýbe.
+  function lScrollToOpen(){
+    if (!L_STATE.open) return;
+    const el = document.querySelector('[data-person="' + (window.CSS && CSS.escape ? CSS.escape(L_STATE.open) : L_STATE.open) + '"]');
+    if (!el) return;
+    const r = el.getBoundingClientRect();
+    if (r.top >= 80 && r.bottom <= window.innerHeight) return;
+    el.scrollIntoView({block: 'center', behavior: 'smooth'});
+  }
+
   function lApplyRoute(){
     const r = lParseHash();
     // od migrace na vícestránkový web (ARCHITEKTURA-MIGRACE.md) je tahle
@@ -272,6 +283,7 @@
     lSyncChips();
     lRenderResults();
     if (alias) lSyncHash(false);
+    lScrollToOpen();
   }
 
   /* ---------- filtrování ---------- */
@@ -294,8 +306,12 @@
   function lListed(p){
     return !!(p._mandate || p._exec || p._office || p._lastRole);
   }
+  // Odkaz na konkrétní osobu (#lide/osoba/{id}) ji ukáže i mimo výchozí
+  // pohled (bývalí, členové komisí, redakce…) — bez toho by karta neexistovala
+  // a nebylo by kam scrollovat ani co rozbalit.
   function lMatches(p){
     if (!lListed(p)) return false;
+    if (L_STATE.open === p.id) return true;
     if (!lInScope(p)) return false;
     if (lDefaultView() && !(p._mandate || p._exec)) return false;
     // pozor: ne podle p._party (to je jen první kandidátka v pořadí), ale podle

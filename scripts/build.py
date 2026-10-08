@@ -203,6 +203,13 @@ EXTRA_PAGES = {
         # ze souboru <rok>.txt (statický snímek). Po každé kontrole desky:
         # doplnit dokumenty do .txt, pustit summary.py, build a přepsat lastmod níže.
         False, 'owebu', '2026-10-06'),
+    'redakce': (
+        '/noviny/redakce.html', 'Kdo vede Pečecké noviny? — Do Peček . cz',
+        'Kdo vedl redakci Pečeckých novin a kdo seděl v redakční radě '
+        'od roku 2006 — podle tiráže jednotlivých čísel.',
+        # Odkázaná z /noviny/ (odstavec "Související") od 8. 10. 2026 —
+        # proto má lastmod a jde do sitemapy. Statická tabulka z tiráží novin.
+        False, 'zpravodaj', '2026-10-08'),
     'changelog': (
         '/o-webu/changelog.html', 'Historie změn na webu — Do Peček . cz',
         'Přehled sekcí webu Do Peček . cz: kdy byl u každé naposledy '
@@ -540,6 +547,8 @@ ICO_KAL = ('<svg class="kal-ico" viewBox="0 0 16 16" width="16" height="16" fill
 ICO_PIN = ('<svg class="kal-ico" viewBox="0 0 16 16" width="16" height="16" fill="none" stroke="currentColor" '
            'stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">'
            '<path d="M8 14.5s4.5-4.2 4.5-7.8a4.5 4.5 0 0 0-9 0C3.5 10.3 8 14.5 8 14.5z"/><circle cx="8" cy="6.7" r="1.6"/></svg>')
+ICO_LUPA = ('<svg class="kal-ico" viewBox="0 0 16 16" width="16" height="16" fill="none" stroke="currentColor" '
+            'stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="6.8" cy="6.8" r="4.6"/><path d="M10.3 10.3L14 14"/></svg>')
 ICO_YT = ('<svg class="kal-ico" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">'
           '<path fill="#FF0000" d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2C0 8.1 0 12 0 12s0 3.9.5 5.8a3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1c.5-1.9.5-5.8.5-5.8s0-3.9-.5-5.8z"/>'
           '<path fill="#fff" d="M9.6 15.6V8.4l6.2 3.6z"/></svg>')
@@ -819,16 +828,25 @@ def _dash_kalendar(dnes):
 
 
 def _dash_noviny():
+    """Zelený banner Pečeckých novin na Domů: obálka posledního čísla vlevo,
+    počet vydání v archivu, tlačítko do vyhledávání a odkaz na redakci."""
     editions = json.loads(read('noviny/pecky-noviny.json'))['editions']
     ed = max(editions, key=lambda e: e['slug'])
     pdf = ed['url'] or f'/noviny/Data/PN%20{ed["year"]}/{ed["slug"]}.pdf'
     obalka = f'noviny/pages/{ed["slug"]}/1.jpg'
-    img = (f'<img src="/{obalka}" alt="Titulní strana Pečeckých novin {esc(ed["label"])}" loading="lazy">'
+    img = (f'<a class="banner-media" href="{pdf}" title="Nejnovější číslo: {esc(ed["label"])}">'
+           f'<img src="/{obalka}" alt="Titulní strana Pečeckých novin {esc(ed["label"])}" loading="lazy"></a>'
            if (ROOT / obalka).exists() else '')
-    body = (f'  <a class="dash-noviny" href="{pdf}">'
-            f'<span class="cap">{esc(ed["label"])}'
-            f'<span class="meta-note">{ed["page_count"]} stran</span></span>{img}</a>')
-    return _dash_card('Pečecké noviny', '/noviny/', 'Archiv a vyhledávání', body, 'noviny')
+    return ('<div class="banner banner--green banner--media dash-card--noviny">\n'
+            f'  {img}\n'
+            '  <div class="banner-body">\n'
+            f'    <h3 class="banner-title"><span class="banner-hl">{len(editions)} vydání</span> novin v archivu</h3>\n'
+            '    <p class="banner-text">který se dá prohledávat</p>\n'
+            '    <div class="banner-actions">'
+            f'<a class="banner-cta" href="/noviny/">{ICO_LUPA}Hledat v novinách</a>'
+            '<a class="banner-link" href="/noviny/redakce.html">Redakce</a></div>\n'
+            '  </div>\n'
+            '</div>')
 
 
 def _dash_zmeny():
@@ -854,7 +872,7 @@ def render_dashboard(stav_rows):
     zm, volby = _dash_zastupitelstvo(dnes)
     # dva samostatné sloupce (vlevo banner voleb + jednání + noviny, vpravo flashnews, akce): sloupce se nenatahují podle sebe, takže mezi bloky nevznikají mezery;
     # na užších displejích se sloupce rozpustí do mřížky (grid-area v styles.css)
-    levy = ([volby] if volby else []) + [_dash_jednani(dnes), _dash_noviny()]
+    levy = ([volby] if volby else []) + [_dash_noviny(), _dash_jednani(dnes)]
     pravy = [_dash_zmeny(), _dash_kalendar(dnes)]
     sloupec = lambda karty: '<div class="dash-col">\n' + '\n'.join(karty) + '\n</div>'
     return (zm + '\n'

@@ -29,8 +29,12 @@ obsahem.
 - Vydavatel: Město Pečky
 - Redakce: Alena Brantová, kontakt `noviny@pecky.cz`
 
-## Stav archivu (aktuální, k 14. 9. 2026)
-**205 vydání, 2001, 2005–2026** (2002–2004 chybí) — tři různé zdroje:
+## Stav archivu
+**Rozsah: 2001, 2005–2026** (2002–2004 chybí) — tři různé zdroje. Celkový počet
+vydání se tady záměrně nepíše: počítá se při buildu z `pecky-noviny.json`
+(banner Pečeckých novin na Domů, `_dash_noviny()` v `scripts/build.py`),
+takže se po přidání čísla aktualizuje sám — stačí pustit build.
+Počty u jednotlivých zdrojů níže:
 - **2020–2026: 68/68 vydání**, nejnovější je Červenec–srpen 2026. Zrcadlené
   z pecky.cz — dřívější blokáda botů na archivní rozcestníkové stránce (viz
   níže) byla obejita jednorázově, výsledek je uložený lokálně a dál se z něj
@@ -158,7 +162,7 @@ jen sejmutí popisných přípisků v původním názvu souboru (`(1st page)`,
 | Obálky vydání (náhledy v gridu) | `noviny/img/{slug}.jpg` | JPG, 1. strana, `pdftoppm -r 46 -jpegopt quality=75` (~380 px šířka, odpovídá `aspect-ratio:380/538` v CSS); u stránek jiné fyzické velikosti než A4 (viz „Dávka 2001/2005/2006") místo pevného DPI `-scale-to-x 380 -scale-to-y -1` |
 | Fulltext obsahu pro vyhledávání | `noviny/pecky-noviny.json` | JSON: `{meta, editions:[{label, year, url, file, slug, pages:[string], page_count}]}`, extrakce `pdftotext -layout`; u 46 vydání (`2001-06`, `2006-01` a celá dávka 2012–2015, 44 vydání) OCR přes `tesseract -l ces` místo toho, viz „Dávka 2001/2005/2006" a „Dávka 2012–2015" |
 | Přímé PDF odkazy na pecky.cz | `url` pole v `noviny/pecky-noviny.json` — `null` u vydání 2001, 2005–2006 a 2008–2019 (nejsou na pecky.cz, viz mezery výše) | — |
-| **Lokální kopie všech PDF** | `noviny/Data/PN {rok}/{slug}.pdf` (**pozor:** v HTML/JS hrefech se mezera v `PN {rok}` píše jako `PN%20{rok}`, na disku je to reálná mezera ve jménu složky) | PDF, ~1,8 GB / 205 souborů (68 staženo `noviny/download.py`, 137 z lokálního archivu — 2001, 2005–2006, 2008–2019; skenované PDF dávky 2012–2015 jsou výrazně větší na vydání než textové PDF zbytku archivu) |
+| **Lokální kopie všech PDF** | `noviny/Data/PN {rok}/{slug}.pdf` (**pozor:** v HTML/JS hrefech se mezera v `PN {rok}` píše jako `PN%20{rok}`, na disku je to reálná mezera ve jménu složky) | PDF, ~1,8 GB (68 staženo `noviny/download.py`, 137 z lokálního archivu — 2001, 2005–2006, 2008–2019; skenované PDF dávky 2012–2015 jsou výrazně větší na vydání než textové PDF zbytku archivu) |
 | **Náhledy jednotlivých stránek** (pro preview ve výsledcích hledání) | `noviny/pages/{slug}/{page}.jpg` | JPG, **všechny** strany, 40 DPI/kvalita 60 (~32 KB/strana, ~100 MB/3140 stran), vygenerováno `noviny/render_pages.py` |
 
 `slug` = `{RRRR}-{MM}` (`{RRRR}-{MM}-{MM}` pro červenec–srpen dvojčíslo,
@@ -300,6 +304,11 @@ Claude Code lokálně.
 8. Ověřit datum poslední aktualizace v odkazu na zdroj archivu v
    `content/zpravodaj.html` (hledat text „Zdroj: … archiv PDF
    zpravodaje").
+9. **Spustit `python3 scripts/build.py`** (na konci kontroly). Promítne se
+   tím i banner Pečeckých novin na Domů: počet vydání v nadpisu („N vydání
+   novin v archivu“) a obálka nejnovějšího čísla se berou z
+   `pecky-noviny.json` při buildu, ručně se nepíšou. Bez buildu zůstane
+   na Domů starý počet i stará obálka.
 
 Vyhledávání (včetně náhledů stránek z kroku 5) se generuje za běhu z
 `pecky-noviny.json` — žádný další ruční krok navíc, stačí krok 3.
@@ -335,7 +344,8 @@ Když uživatel dodá další skupinu PDF mimo pecky.cz, postup:
    stávající `<h3>` roky, ne za poslední existující sekci. Do společné
    „Zdroj: lokální archiv…" poznámky pod gridem aktualizovat celkový
    počet a rozsah let a upravit `<meta name="description">`, pak spustit
-   `python3 scripts/build.py`. Perex (`#noviny-lede`) se dopočítává
+   `python3 scripts/build.py` (aktualizuje i počet vydání a obálku v
+   banneru na Domů). Perex (`#noviny-lede`) se dopočítává
    automaticky z `pecky-noviny.json`, needit ho ručně.
    (Přesně tímhle postupem byla 14. 9. 2026 doplněna dávka 2012–2015 — viz
    „Dávka 2012–2015" výše.)
