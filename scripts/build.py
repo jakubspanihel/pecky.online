@@ -181,6 +181,13 @@ EXTRA_PAGES = {
         # proto má lastmod a jde do sitemapy. Statický snímek k datu lastmod.
         # helpers.js: avatary a vizitka osoby (pcAvatarHtml/pcDetailHtml)
         True, 'jednani', '2026-09-30'),
+    'youtube': (
+        '/jednani/youtube.html', 'Zhlédnutí záznamů zastupitelstva — Do Peček . cz',
+        'Počet zhlédnutí videozáznamů jednání zastupitelstva města Pečky '
+        'na YouTube od roku 2022, s vyznačeným ustavujícím zasedáním.',
+        # Odkázaná z /jednani/ (odstavec "Související") od 8. 10. 2026.
+        # Statický snímek k datu lastmod.
+        False, 'jednani', '2026-10-08'),
     'fbmonitoring': (
         '/o-webu/facebook-monitoring/facebook-mestopecky/',
         'Monitoring Facebooku města Pečky — Do Peček . cz',

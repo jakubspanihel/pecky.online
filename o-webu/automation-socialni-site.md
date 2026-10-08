@@ -235,6 +235,28 @@ osoba…) na Volby 2026 nepatří — nejsou volební uskupení. Přibude-li
 v O webu další účet některého z pěti kandidujících uskupení, patří
 i sem — pak rozšiř výčet výše.
 
+### 4a. Zhlédnutí záznamů zastupitelstva (YouTube)
+
+Stránka `/jednani/youtube.html` (graf + tabulka zhlédnutí videozáznamů
+zastupitelstva) je statický snímek — počty se samy neobnovují. Při každé
+kontrole sociálních sítí ji obnov:
+
+1. `python3 jednani/update-youtube.py` — přečte z veřejných stránek videí
+   aktuální zhlédnutí všech záznamů zastupitelstva s odkazem na YouTube
+   v `jednani/pecky-jednani.json` a přepíše `content/youtube.html`
+   (bez Chrome, jen HTTP). Skript vypíše počet záznamů a součet; hlásí-li
+   `CHYBA: nelze přečíst zhlédnutí`, ten záznam v grafu chybí — nahlásit
+   jako mezeru.
+2. Přibylo-li nové jednání zastupitelstva s videem, skript ho zařadí sám
+   (číslování bere z dat Jednání); není-li video v `pecky-jednani.json`,
+   nejdřív doplnit tam (skill `pecky-online-jednani-check`).
+3. V `scripts/build.py` přepsat `lastmod` záznamu `youtube`
+   v `EXTRA_PAGES` na dnešní datum, spustit build a přepsat řádek
+   Jednání ve „Stav sekcí“ (`README.md`): změna jen když se čísla
+   skutečně změnila.
+4. V hlášení uvést: nový součet zhlédnutí, o kolik se změnil, nové
+   záznamy a největší nárůst u konkrétního videa.
+
 ### 5. Přegeneruj a ověř
 
 Spusť `python3 scripts/build.py`, otevři `/o-webu/` a (pokud se
