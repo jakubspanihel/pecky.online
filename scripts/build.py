@@ -742,6 +742,9 @@ def _dash_zm_po(meetings, dnes):
             stav = f'přijato {len(m["resolutions"])} usnesení'
         else:
             stav = 'zápis zatím nezveřejněn'
+        # po konání je záznam na YouTube (odkaz 'youtube', případně původní livestream)
+        if m['date'] < dnes and (links.get('youtube') or links.get('livestream')):
+            stav += ' · video ze zasedání je k dispozici'
         nazev = f'Zastupitelstvo {m["number"]}/{m["year"]}'
         out.append(
             f'    <li data-date="{m["date"]}" data-od="{od.isoformat()}" data-do="{do.isoformat()}" hidden>'
