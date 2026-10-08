@@ -476,6 +476,25 @@
     letter-spacing:0.04em; color:var(--ink-soft); border-bottom:1px solid var(--ink); padding:8px 10px;
   }
   table.register td{padding:11px 10px; border-bottom:1px solid var(--line); vertical-align:top;}
+  /* časová osa (Redakce): svisle, nejnovější nahoře; výška řádku ~ délka období */
+  .tl{margin:18px 0 22px; min-width:560px;}
+  .tl-heads,.tl-grid{display:grid; grid-template-columns:130px 1fr 1fr; column-gap:6px;}
+  .tl-heads{margin-bottom:6px; font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:.04em; color:var(--ink);}
+  .tl-grid{row-gap:3px;}
+  .tl-per{display:flex; flex-direction:column; justify-content:space-between; gap:4px; font-size:13px; font-weight:700; color:var(--ink); white-space:nowrap;}
+  .tl-per span{display:flex; align-items:center; gap:8px; line-height:1.2;}
+  .tl-per span::before{content:""; flex:0 0 auto; width:8px; height:8px; border-radius:50%; background:#A89B7E;}
+  .tl-per:first-child span::before{background:var(--burgundy);}
+  .tl-cell.tl-gap .tl-gap-h{font-weight:700;}
+  .tl-cell{box-sizing:border-box; display:flex; flex-direction:column; justify-content:center; padding:6px 10px; border-radius:6px; font-size:13px; line-height:1.35; font-weight:600;}
+  .tl-cell.tl-jmeno{background:var(--line); color:var(--ink);}
+  .tl-cell.tl-jmeno.tl-aktualni{background:var(--burgundy); color:#fff;}
+  .tl-cell.tl-none{background:var(--parchment-deep); color:var(--ink); box-shadow:inset 0 0 0 1px var(--line);}
+  .tl-cell.tl-gap{background:repeating-linear-gradient(45deg,#fff 0 4px,var(--line) 4px 6px); box-shadow:inset 0 0 0 1px var(--line);}
+  .tl-cell.tl-jmeno a{color:inherit; text-decoration:underline; text-underline-offset:2px;}
+  .tl-cell.tl-gap{align-items:flex-start; gap:3px; text-align:left; color:var(--ink);}
+  .tl-cell.tl-gap span{background:#fff; padding:1px 8px; border-radius:4px;}
+  .tl-cell.tl-gap a[title]{text-decoration-style:dotted; cursor:help;}
   table.register tr:hover td{background:rgba(124,47,43,0.035);}
   /* Stav sekcí (Domů) — datum/stáří monospace, pomlčka tlumeně, ať nevypadá jako chyba */
   .stav-sekci{display:flex; flex-direction:column; gap:10px;}
