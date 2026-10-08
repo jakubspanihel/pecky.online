@@ -133,7 +133,7 @@ def bar_svg(items, uid, title, desc, labels_on_bars=False):
     Sloupec je odkaz na kotvu v tabulkách pod grafem (rozbalení + posun řeší skript stránky)."""
     W, H, L, R, T, B = 960, 300, 44, 10, 22, 30
     mx = max(n for _, n, _, _, _ in items)
-    step = next(st for st in (1, 2, 5, 10, 20, 50, 100) if mx / st <= 8)  # nejvýš ~8 dílků osy y
+    step = next(st for st in (1, 2, 5, 10, 20, 50, 100, 200, 500, 1000, 2000, 5000) if mx / st <= 8)  # nejvýš ~8 dílků osy y
     ymax = max(step * 2, -(-mx // step) * step)
     pw, ph = W - L - R, H - T - B
     slot = pw / len(items)
@@ -174,7 +174,7 @@ def bar_svg(items, uid, title, desc, labels_on_bars=False):
 
 def render_chart(months):
     """Graf za perexem se segmentovým přepínačem rozsahu: Od začátku (měsíce) /
-    Po letech / Posledních 30 dní (dny do posledního zachyceného příspěvku).
+    Volební období / Posledních 30 dní (dny do posledního zachyceného příspěvku).
     Všechny tři SVG jsou předrenderované; přepínač (JS) jen ukazuje/skrývá."""
     mc = sorted((ym, sm['posts']) for ym, sm, _, _ in months)
     mposts = {ym: ps for ym, _, ps, _ in months}
@@ -190,20 +190,35 @@ def render_chart(months):
     v1 = bar_svg(items, 'fbc1', 'Počet příspěvků po měsících',
                  f'Sloupcový graf: osa x čas po měsících, osa y počet příspěvků, sloupce rozdělené podle typu příspěvku. Nejvíc příspěvků vyšlo v měsíci {pk_txt} ({pk_n}).')
     cap1 = f'Počet příspěvků po měsících. Nejvíc jich vyšlo v měsíci {pk_txt} ({pk_n}), počet je nad sloupcem. Sloupec je rozdělený podle typu příspěvku; po najetí na něj se zobrazí měsíc, počet a rozpad.'
-    # 2) po letech
-    ys = {}
-    for ym, n in mc:
-        ys[ym[:4]] = ys.get(ym[:4], 0) + n
+    # 2) po volebních obdobích (hranice = ustavující zasedání, jednani/volebni-obdobi.json)
     first = min(p['published'] for p in allposts)
     last = max(p['published'] for p in allposts)
+    starts = sorted(o['date'] for o in json.load(open(os.path.join(ROOT, 'jednani', 'volebni-obdobi.json'), encoding='utf-8'))['obdobi'])
+    terms = []  # (od, do | None)
+    for i, st in enumerate(starts):
+        terms.append((st, starts[i + 1] if i + 1 < len(starts) else None))
     items = []
-    for y, n in sorted(ys.items()):
-        sg = seg([p for p in allposts if p['published'][:4] == y])
-        items.append((f'{y}: {n} {plural(n)} ({seg_tip(sg)})', n, y, f'#fb-y-{y}', sg))
-    ypk = max(ys.items(), key=lambda t: t[1])
-    v2 = bar_svg(items, 'fbc2', 'Počet příspěvků po letech',
-                 f'Sloupcový graf: osa x roky, osa y počet příspěvků, sloupce rozdělené podle typu příspěvku. Nejvíc příspěvků vyšlo v roce {ypk[0]} ({ypk[1]}).', labels_on_bars=True)
-    cap2 = (f'Počet příspěvků v jednotlivých letech. Rok {first[:4]} je započtený od {cz_date(first)}, rok {last[:4]} do {cz_date(last)}.')
+    tinfo = []
+    for st, en in terms:
+        tp = [p for p in allposts if p['published'][:10] >= st and (en is None or p['published'][:10] < en)]
+        if not tp:
+            continue
+        n = len(tp)
+        sg = seg(tp)
+        y0 = st[:4]
+        label = f'{y0}–{en[:4]}' if en else f'od {y0}'
+        od = max(st, first[:10])
+        do_txt = f'do {cz_date(en + "T0")}' if en else 'dosud'
+        first_ym = min(p['published'][:7] for p in tp)
+        items.append((f'volební období {label} (od {cz_date(od + "T0")} {do_txt}): {n} {plural(n)} ({seg_tip(sg)})', n, label, f'#fb-{first_ym}', sg))
+        tinfo.append((label, st, en))
+    tpk = max(items, key=lambda t: t[1])
+    v2 = bar_svg(items, 'fbc2', 'Počet příspěvků po volebních obdobích',
+                 f'Sloupcový graf: osa x volební období, osa y počet příspěvků, sloupce rozdělené podle typu příspěvku. Nejvíc příspěvků vyšlo ve volebním období {tpk[2]} ({tpk[1]}).', labels_on_bars=True)
+    cap2 = ('Počet příspěvků v jednotlivých volebních obdobích. Období začíná ustavujícím zasedáním zastupitelstva: '
+            + '; '.join(f'{l.replace("od ", "") + " a dál" if l.startswith("od ") else l}: od {cz_date(st + "T0")}' for l, st, _ in tinfo)
+            + f'. První období je započtené od {cz_date(first)} (začátek sledování), poslední do {cz_date(last)}. '
+            'Komunální volby se konají 9.–10. 10. 2026, další období začne ustavujícím zasedáním zvoleného zastupitelstva.')
     # 3) posledních 30 dní (do posledního zachyceného příspěvku)
     from datetime import date, timedelta
     end = date.fromisoformat(last[:10])
@@ -226,7 +241,7 @@ def render_chart(months):
           <span class="segmented-label">Rozsah</span>
           <div class="segmented-group" role="group" aria-label="Rozsah dat grafu">
             <button type="button" class="segmented-btn active" data-fbc="1" aria-pressed="true">Od začátku</button>
-            <button type="button" class="segmented-btn" data-fbc="2" aria-pressed="false">Po letech</button>
+            <button type="button" class="segmented-btn" data-fbc="2" aria-pressed="false">Volební období</button>
             <button type="button" class="segmented-btn" data-fbc="3" aria-pressed="false">Poslední měsíc</button>
           </div>
         </div>
@@ -428,7 +443,7 @@ def render_page(months):
 
     <button type="button" class="fb-an-btn" id="fb-an-btn" aria-expanded="false" aria-controls="fb-analyza">Analýza: Co město na Facebooku publikuje <span class="fb-an-arrow" aria-hidden="true">▾</span></button>
 {render_analysis(months)}    <script>
-    var FBC = {{ '1': 'mesice', '2': 'roky', '3': '30dni' }};
+    var FBC = {{ '1': 'mesice', '2': 'obdobi', '3': '30dni' }};
     function fbView(k, store) {{
       document.querySelectorAll('#fb-chart [data-fbc]').forEach(function (x) {{
         var on = x.getAttribute('data-fbc') === k;
