@@ -18,8 +18,9 @@
     .naobed-chevron{flex:0 0 auto; color:var(--ink-soft); transition:transform .25s ease;}
     .naobed-toggle[aria-expanded="true"] .naobed-chevron{transform:rotate(180deg);}
     .naobed-info[hidden]{display:none;}
-    .naobed-chip{flex:0 0 auto; margin-left:auto; padding:2px 9px; border-radius:999px; background:#fbe3dd; border:1px solid #d9a79b; color:#7a1f10; font-family:system-ui,sans-serif; font-size:12px; font-weight:700; line-height:1.4; white-space:nowrap;}
-    .naobed-notice{padding:12px 18px; background:#fdf1ee; border-bottom:1px solid var(--line); font-size:15px; color:var(--ink);}
+    .naobed-chip{align-self:flex-start; padding:3px 11px; border-radius:999px; background:#b3261e; border:1px solid #8f1d17; color:#fff; font-family:system-ui,sans-serif; font-size:12px; font-weight:700; line-height:1.4; white-space:nowrap;}
+    .naobed-photo:has(.naobed-notice){display:flex;}
+    .naobed-notice{flex:1; display:flex; flex-direction:column; gap:10px; min-height:200px; padding:52px 18px 18px; background:#fdf1ee; font-size:16px; color:var(--ink);}
     .naobed-notice p{margin:0 0 6px; line-height:1.45;}
     .naobed-notice a{font-size:14px;}
     .naobed-card>.naobed-info{border-bottom:1px solid var(--line);}
@@ -106,17 +107,20 @@
         var odkazy = '<a href="' + esc(r.facebook) + '" target="_blank" rel="noopener">Facebook ↗</a>' +
           (r.web ? ' · <a href="' + esc(r.web) + '" target="_blank" rel="noopener">' + esc(r.webLabel || 'Web') + ' ↗</a>' : '');
         var nt = (m && m.notice && m.notice.date === dnes) ? m.notice : null;
-        var chip = nt ? '<span class="naobed-chip">' + esc(nt.chip) + '</span>' : '';
-        var notice = nt ? '<div class="naobed-notice"><p>„' + esc(nt.text) + '“</p><a href="' + esc(nt.url) + '" target="_blank" rel="noopener">Příspěvek na Facebooku ↗</a></div>' : '';
+        if (nt) {
+          photo = '<div class="naobed-notice"><span class="naobed-chip">' + esc(nt.chip) + '</span><p>„' + esc(nt.text) + '“</p>' +
+            '<a href="' + esc(nt.url) + '" target="_blank" rel="noopener">Příspěvek na Facebooku ↗</a></div>' +
+            '<span class="naobed-tag datum">' + esc(denNazev(dnes)) + '<br>' + esc(cz(dnes)) + '</span>';
+        }
         var info = '<div class="naobed-info" id="info-' + esc(r.id) + '" hidden>' +
           (r.address ? '<p>📍 ' + adresa(r.address) + '</p>' : '') +
           (dnesOtevreno((orgs[r.id] || {}).opening_hours) ? '<p>' + dnesOtevreno((orgs[r.id] || {}).opening_hours) + '</p>' : '') +
           '<div class="naobed-actions">' + tel + '<span>' + odkazy + '</span></div></div>';
         return '<article class="card naobed-card" id="' + esc(r.id) + '">' +
           '<h3><button type="button" class="naobed-toggle" aria-expanded="false" aria-controls="info-' + esc(r.id) + '">' +
-          '<span>' + esc(r.name) + '</span>' + chip +
+          '<span>' + esc(r.name) + '</span>' +
           '<svg class="naobed-chevron" viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>' +
-          '</button></h3>' + notice + info + '<div class="naobed-photo">' + photo + '</div></article>';
+          '</button></h3>' + info + '<div class="naobed-photo">' + photo + '</div></article>';
       }).join('');
       listEl.querySelectorAll('.naobed-toggle').forEach(function (b) {
         b.addEventListener('click', function () {
