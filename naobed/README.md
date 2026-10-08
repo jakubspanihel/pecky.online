@@ -41,6 +41,11 @@ a spustí `python3 scripts/build.py`.
   https://www.zspecky.cz/jidelna/jidelnicek/ (polévka, 2 hlavní jídla, alergeny v závorce)
   skriptem `python3 naobed/scripts/update-jidelna.py` (`--check` jen ověří, jestli soubor
   má dnešek; dny starší 7 dní zahodí). Spouští ho ranní rutina spolu se skillem.
+- Oznámení restaurace (zavřeno, nevaří, změna): položka `notice` u restaurace v `menu.json`
+  (`date` = den platnosti, `chip` = krátká informace, `text` = text příspěvku, případně zkrácený,
+  `url` = odkaz na příspěvek). Karta ji ukazuje jen v den `date`: chip v záhlaví a blok s textem
+  a odkazem nad fotografií. Skill při neúspěšném hledání menu projde poslední příspěvky a takové
+  oznámení zapíše.
 - Staré fotografie se nemažou (archiv menu); stránka ukazuje jen tu z
   `menu.json`.
 - Je-li `date` jiné než dnešní, karta má štítek „menu z <datum>“ místo
