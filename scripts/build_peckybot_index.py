@@ -154,6 +154,30 @@ def chunks_jednani():
     return out
 
 
+def chunks_starsi_jednani():
+    """Starší jednání z úřední desky (jednani/starsi-jednani.json): zápisy rady 2015–2016
+    a usnesení zastupitelstva 2015–2021. Plný text po větách do úryvků; přibývají na konec indexu."""
+    path = ROOT / 'jednani/starsi-jednani.json'
+    if not path.exists():
+        return []
+    out = []
+    for m in sorted(json.loads(path.read_text(encoding='utf-8'))['meetings'], key=lambda x: x['date']):
+        text = re.sub(r'_{3,}', ' ', m.get('text') or '')
+        text = re.sub(r'\s+', ' ', text).strip()
+        if len(text) < MIN_CHUNK:
+            continue
+        zm = m['type'] == 'Zastupitelstvo'
+        anchor = ('zastupitelstvo-' if zm else 'rada-') + m['date']
+        kind = m.get('doc_kind') or 'zápis'
+        kde = f"{m['label']} — {kind} z úřední desky"
+        parts = split_long(text, MAX_CHUNK - 120)
+        for i, part in enumerate(parts, 1):
+            cast = f' ({i}/{len(parts)})' if len(parts) > 1 else ''
+            out.append({'u': f'/jednani/#{anchor}', 't': f'{kde}{cast}',
+                        'x': clip(f'{kde}{cast}, {cz_date(m["date"])}: {part}', MAX_CHUNK + 90)})
+    return out
+
+
 ROLE_TAGY = {
     'vedeni-mesta': 'vedení města', 'zastupitel': 'člen zastupitelstva', 'rada': 'člen rady města',
     'komise': 'člen komise', 'urednik': 'zaměstnanec městského úřadu', 'vedeni-uradu': 'vedení úřadu',
@@ -433,6 +457,10 @@ STATICKE = {
     'volby2022': ('/volby/2022/', 'Volby 2022'),
     'volby2026': ('/volby/2026/', 'Volby 2026'),
     'owebu': ('/o-webu/', 'O webu'),
+    'redakce': ('/noviny/redakce.html', 'Kdo vede Pečecké noviny'),
+    'youtube': ('/jednani/youtube.html', 'Zhlédnutí záznamů zastupitelstva'),
+    'odpracovano': ('/jednani/odpracovano.html', 'Kolik času zastupitelé odpracovali'),
+    'nejdelsi': ('/jednani/nejdelsi.html', 'Nejdelší body jednání zastupitelstva'),
 }
 
 
@@ -543,7 +571,7 @@ def write_if_changed(path, obj):
 
 
 def main():
-    chunks = chunks_jednani() + chunks_lide() + chunks_slozeni() + chunks_stranky() + chunks_fakta() + chunks_extra()
+    chunks = chunks_jednani() + chunks_lide() + chunks_slozeni() + chunks_stranky() + chunks_fakta() + chunks_extra() + chunks_starsi_jednani()
     idx = build_index(chunks)
     OUT.parent.mkdir(parents=True, exist_ok=True)
     SHARD_DIR.mkdir(exist_ok=True)

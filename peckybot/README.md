@@ -31,8 +31,9 @@ odpověď {answer, sources}
 ### Co je v indexu
 Zdroje, které generuje `scripts/build_peckybot_index.py` (jednání, lidé, sekce) a `scripts/peckybot_sources.py` (ostatní):
 - **jednání** zastupitelstva a rady (`jednani/pecky-jednani.json`): bod programu, důvodová zpráva, usnesení s hlasováním, přehled každého jednání s programem; odkaz `/jednani/#<id>`
+- **starší jednání z úřední desky** (`jednani/starsi-jednani.json`, od 8. 10. 2026): zápisy rady 2015–2016 a usnesení zastupitelstva 2015–2021 (72 ze 74, u dvou chybí soubor) po úryvcích (≈ 900), tituly „… — zápis/usnesení z úřední desky (i/n)“; přibývají na konec indexu
 - **lidé** (`lide/people.json`): všech 444 osob; jméno s tituly, funkce, uskupení, dřívější příjmení, bio, e-mail, telefon (ústředna se nezapisuje)
-- **statické texty sekcí** Plán, Tělocvična, Pozemky, Pokladna, Smlouvy, Zakázky, Volby 2018/2022/2026, O webu; dělené podle nadpisů
+- **statické texty sekcí** Plán, Tělocvična, Pozemky, Prostory, Pokladna, Smlouvy, Zakázky, Volby 2018/2022/2026, O webu a podstránky Kdo vede Pečecké noviny, Zhlédnutí záznamů zastupitelstva, Odpracované hodiny, Nejdelší body jednání; dělené podle nadpisů
 - **komise, výbory, školská rada** (`jednani/komise.json`, `vybory.json`, `skolska-rada.json`): hlavička jednání, docházka, shrnutí a usnesení s hlasováním
 - **kalendář** (`kalendar/udalosti.json` a pravidla): akce, opakované kurzy po sériích, svoz odpadu, hodiny úřadu a sběrného dvora; tituly „Kalendář — …“
 - **organizace** (`lide/organizations.json`): adresa, IČO, web, hodiny, propojení lidé; tituly „Organizace — …“
