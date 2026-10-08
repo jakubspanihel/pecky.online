@@ -97,19 +97,19 @@ patřil na společnou stránku, ne do jednoho ročníku. V `content/volby2022.ht
 už není. Dokumentace grafu zůstává tady, dokud je 2022 poslední ročník
 v grafu — viz i [`volby/README.md`](../README.md) → „Rozcestník `/volby/`".
 
-Místo tabulky používá
-ručně psaný inline SVG liniový graf — žádná JS knihovna, konzistentní
-s pravidlem „žádné závislosti kromě Google Fonts" v kořenovém `CLAUDE.md`.
-Bordó linka (`var(--burgundy)`, širší tah `stroke-width="4"`) = Pečky,
-šedá (`var(--ink-soft)`, `stroke-width="2.5"`) = průměr ČR, roky zleva
-doprava od nejstaršího (2014) po nejnovější (2022). Přesné hodnoty jsou
-popsané i v `<desc>` uvnitř SVG (čtečky obrazovky, fulltext) a jako čísla
-přímo u datových bodů — při změně čísel (revize dat ČSÚ) je nutné
-přepočítat i souřadnice bodů (`y = 220 - (hodnota - 35) * 10`, `x`
-100/480/860 pro 2014/2018/2022, `viewBox` `0 0 940 260`) ručně, žádný
-generátor grafu v projektu není. (Barva a šířka linky Pečky i rozteč osy
-X upraveny 8. 9. 2026 — dřív černá `var(--ink)`, `stroke-width="2.5"`,
-`x` 100/330/560, `viewBox` `0 0 660 260`.)
+Místo tabulky používá ručně psaný inline SVG sloupcový graf — žádná JS
+knihovna, konzistentní s pravidlem „žádné závislosti" v kořenovém
+`CLAUDE.md`. Zobrazuje jen účast v Pečkách: jeden bordó sloupec
+(`var(--burgundy)`, šířka 120) na ročník, roky zleva doprava od
+nejstaršího (2014) po nejnovější (2022), hodnota nad sloupcem. Celostátní
+průměr ČR (44,46 / 47,34 / 46,07 %) je jen v textu pod grafem, ne v
+grafu; legenda není (jediná řada). Přesné hodnoty jsou i v `<desc>`
+uvnitř SVG (čtečky obrazovky, fulltext). Osa y začíná od 0 % (sloupce
+nesmí mít oříznutou osu) a končí na 60 %; při změně čísel (revize dat
+ČSÚ) je nutné přepočítat výšky sloupců ručně (`výška = 200 * hodnota / 60`,
+`y = 220 - výška`, základna `y = 220`, středy skupin `x` 227/480/733 pro
+2014/2018/2022, sloupec `x = střed - 60`, `viewBox` `0 0 940 260`),
+žádný generátor grafu v projektu není.
 
 Jinak žádná další zvláštní pravidla nad rámec obecných konvencí v
 kořenovém `CLAUDE.md` a v [`volby/README.md`](../README.md).

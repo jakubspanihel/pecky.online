@@ -50,8 +50,8 @@ kam odkazovat, když už na cíli je.
 záznam v `MANIFEST`) popsaného níže.
 
 Pod rozcestníkem ročníků je od 9. 9. 2026 i blok „Volební účast
-stoupá" — ručně psaný inline SVG liniový graf účasti v Pečkách vs.
-celostátní průměr ČR (2014–2022), přesunutý sem ze záložky „Rozbor" na
+stoupá" — ručně psaný inline SVG sloupcový graf účasti v Pečkách (2014–2022;
+celostátní průměr ČR je jen v textu pod grafem), přesunutý sem ze záložky „Rozbor" na
 `/volby/2022/`, protože srovnává napříč ročníky, ne jen ten jeden. Žije
 v `content/volby.html` (ne v `content/volby2022.html`); dokumentace grafu
 (barvy, souřadnice, vzorec pro přepočet při revizi dat ČSÚ) zůstává v
@@ -63,8 +63,7 @@ podle potřeby přesune sem.
 Graf je (od 9. 9. 2026) trvale viditelný, bez rozbalovacího tlačítka
 `.toggle-details` — na rozdíl od podobných bloků „Více informací" jinde
 na webu tenhle blok patří k perexu sekce, ne k volitelnému detailu.
-Pořadí uvnitř bloku: nadpis → jedna věta („K volebním urnám přichází
-pouze přibližně polovina oprávněných obyvatel.") → graf → delší
+Graf nemá legendu (jediná řada dat). Pořadí uvnitř bloku: nadpis → jedna věta („Přesto k volebním urnám přichází zhruba polovina oprávněných obyvatel.") → graf → delší
 vysvětlující odstavec → zdroje. Delší odstavec je záměrně až pod
 grafem, ne nad ním — čtenář nejdřív vidí data, pak kontext k nim.
 
