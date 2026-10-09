@@ -1,7 +1,7 @@
 {
  "meta": {
   "description": "Kulturní a společenské akce v Pečkách a okolí. U každé akce je pořadatel (id do lide/organizations.json) a doklady, ze kterých je přepsaná (evidence[] — zdroj je id do kořenového sources.json). Zdroj sekce Kalendář — do udalosti.json a kalendar.ics je promítá kalendar/scripts/update-kalendar.py.",
-  "updated": "2026-10-05",
+  "updated": "2026-10-09",
   "note": "Jednání rady a zastupitelstva do tohohle souboru nepatří, i když je plakát KD uvádí — ta má kalendář z jednani/pecky-jednani.json a zapsáním sem by v mřížce vznikly duplicity. Pořadatel je vždy ten, kdo akci pořádá, ne ten, od koho o ní víme — to je evidence[].source."
  },
  "events": [
@@ -11648,16 +11648,24 @@
   },
   {
    "id": "akce-2026-10-16-divadlo-pro-dospele",
-   "title": "Divadlo pro dospělé",
+   "title": "HOMOLKOVI - DIVADLO PRO DOSPĚLÉ",
    "date": "2026-10-16",
    "time": "19:30",
    "category": "akce",
    "place": "Velký sál Kulturního domu Pečky",
    "organizer": "kulturni-stredisko-pecky",
    "organizer_name": null,
-   "description": null,
-   "note": null,
+   "description": "D. S. Hálek Nymburk uvádí divadelní zpracování známé filmové trilogie HOMOL…",
+   "note": "Program KD Pečky 9–12/2026 uvádí akci jen jako „Divadlo pro dospělé“; název „HOMOLKOVI - DIVADLO PRO DOSPĚLÉ“ je z Facebookové události Kulturního střediska (9. 10. 2026), která místo uvádí jako „Tř. Jana Švermy 255, Pecky“. Popis na události je zkrácený („Zobrazit víc“), proto končí na „HOMOL…“.",
    "evidence": [
+    {
+     "source": "facebook-kspecky",
+     "kind": "web",
+     "url": "https://www.facebook.com/events/1789134129081299",
+     "label": "Facebook událost — HOMOLKOVI - DIVADLO PRO DOSPĚLÉ",
+     "published": null,
+     "retrieved": "2026-10-09"
+    },
     {
      "source": "facebook-kspecky",
      "kind": "plakat",
