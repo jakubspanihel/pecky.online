@@ -596,3 +596,20 @@ nezmiňují piloty ani základy, ale poprvé pojmenovávají aktéry stavby kuch
 Promítnuto do `content/telocvicna.html`: sedm nových řádků v „Historii
 projektu“, upravený úvod a gap-callout pod tabulkou, věta v prvním callout
 „Otevřené otázky“. Stat-grid, perex ani časová osa 2026 se neměnily.
+
+## Doplněno 9. 10. 2026: ZM 7/2026 a RM 35/2026 (zápisy z usneseni.cz)
+
+- **ZM 7/2026 (7. 10. 2026):** Dodatek č. 2 ke smlouvě o dílo schválen
+  (UZ-48-7/26, 19 pro – 0 proti – 1 zdržel se). Tři změnové listy: ZL 14
+  zakonzervování kuchyně, ZL 15 zaměření nových pilot a zabezpečení
+  venkovních ploch, ZL 16 oprava střechy nad jídelnou (podle důvodové zprávy
+  bez přímé souvislosti s piloty). Změny celkem 5 325 683,91 Kč bez DPH,
+  cena díla 174 765 820,14 → 180 091 504,05 Kč bez DPH. Nový termín
+  dokončení zápis neuvádí. Nový řádek v tabulce „Zastavení stavby v roce 2026“
+  a karta na časové ose; hodnota 211,5 mil. Kč v perexu a stat-gridu zůstává
+  „po dodatku č. 1“ (částka s DPH po dodatku č. 2 se nedopočítává).
+- **RM 35/2026 (5. 10. 2026):** informace vedení města (Atelier 99 připravuje
+  nabídku na studii proveditelnosti; trestní oznámení), Dodatek č. 2 jen
+  jako informace, Dodatky č. 1 k příkazním smlouvám TDS a KBOZP (ARCHA,
+  UR-320 a UR-321-35/26, 5–0–1, bez dopadu na celkovou cenu).
+- **RM 36/2026 (12. 10. 2026):** pozvánka bez bodu ke stavbě.

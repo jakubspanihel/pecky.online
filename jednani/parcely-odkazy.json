@@ -1,6 +1,6 @@
 {
  "_comment": "Plochá mapa \"číslo parcely\" -> URL detailu na vdp.cuzk.gov.cz pro obecné prolinkování zmínek \"parc. NNNN\" v textu usnesení a bodů programu kdekoli na webu (jLinkParcely() v content/jednani.html, fetch v loadJednani()). Nahrazuje dřívější katastr-odkazy.json (smazaný 23. 8. 2026 — obsahoval prokázanou chybu u kolidujících čísel, viz AUTOMATION.md). Číslo, u kterého se katastr nepodařilo jednoznačně určit nebo koliduje mezi více katastry, se sem záměrně nepřidává — raději nepodlinkovat, než odkázat na špatnou parcelu. Generuje jednani/scripts/update-pozemky.py.",
- "count": 165,
+ "count": 167,
  "skipped_unknown_katastr": 50,
  "skipped_collision": [
   {
@@ -168,6 +168,8 @@
   "415/2": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1606199204",
   "420": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1606207204",
   "422/6": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1889808204",
+  "462/49": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/2483969204",
+  "462/53": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/2483973204",
   "462/57": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/2483977204",
   "47/1": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1605769204",
   "47/2": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1605770204",
