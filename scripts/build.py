@@ -187,7 +187,7 @@ EXTRA_PAGES = {
         'na YouTube od roku 2022, s vyznačeným ustavujícím zasedáním.',
         # Odkázaná z /jednani/ (odstavec "Související") od 8. 10. 2026.
         # Statický snímek k datu lastmod.
-        False, 'jednani', '2026-10-08'),
+        False, 'jednani', '2026-10-09'),
     'fbmonitoring': (
         '/o-webu/facebook-monitoring/facebook-mestopecky/',
         'Monitoring Facebooku města Pečky — Do Peček . cz',
