@@ -372,14 +372,6 @@
       el.setAttribute('aria-pressed', el.dataset.kalOrg === KAL_ORG ? 'true' : 'false'));
   }
 
-  // toolbar se lepí pod sticky nadpisem sekce — výšku nadpisu měříme za běhu
-  function kalStickyTop(){
-    const h = document.querySelector('#panel-kalendar h2.title');
-    if (h) document.getElementById('panel-kalendar').style.setProperty('--kal-top', h.offsetHeight + 'px');
-  }
-  kalStickyTop();
-  window.addEventListener('resize', kalStickyTop);
-
   document.getElementById('kal-prev').addEventListener('click', () => {
     kalMonth--; if (kalMonth < 0) { kalMonth = 11; kalYear--; }
     kalShowView(KAL_VIEW);

@@ -584,3 +584,23 @@ document.querySelectorAll('.exp-row').forEach(row => {
     items[i].classList.add('on');
   }, 5000);
 })();
+
+// ===== Karty uskupení: tlačítko „…“ rozbalí nezvolené kandidáty =====
+document.addEventListener('click', e => {
+  const b = e.target.closest('.av-more');
+  if (!b) return;
+  const rest = b.nextElementSibling;
+  const open = b.getAttribute('aria-expanded') !== 'true';
+  b.setAttribute('aria-expanded', open);
+  if (rest) rest.hidden = !open;
+});
+
+// ===== Volby: výška sticky lišty ročníků (subtabs se lepí pod ni) =====
+(function () {
+  const yn = document.querySelector('.year-nav');
+  if (!yn) return;
+  const set = () => document.documentElement.style.setProperty('--yearnav-h', yn.offsetHeight + 'px');
+  set();
+  window.addEventListener('resize', set);
+  window.addEventListener('load', set);
+})();
