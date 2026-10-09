@@ -502,7 +502,7 @@ bez data konce, `meta.example: true`.
 
 ## 5. UI sekce „Lidé"
 
-Zachovat vizuální jazyk projektu — `--parchment` / `--ink` / `--burgundy` /
+Zachovat vizuální jazyk projektu — `--material` / `--ink` / `--burgundy` /
 `--gold` / `--line`, `--font-display` pro nadpisy, `--font-mono` pro metadata,
 `.callout` a `.stamp` beze změny. Barvy kartiček brát z `organization.color`
 a `organization.css_class`, ne z nové palety.

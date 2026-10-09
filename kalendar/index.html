@@ -43,21 +43,21 @@
         <img class="brand-logo" src="/img/favicons/icon-192.png" alt="" width="44" height="44">
         <h1>Do Peček . cz</h1>
       </a>
-      <button type="button" class="info-fab" id="infoFab" title="Menu" aria-label="Otevřít menu" aria-controls="overlayMenu" hidden>☰</button>
     </div>
   </div>
   <nav class="tabs header-nav" id="tabs">
-    <a class="navlink" href="/naobed/">🍽️ Na oběd</a>
-    <a class="navlink active" href="/kalendar/">📅 Kalendář</a>
-    <a class="navlink" href="/jednani/">📄 Jednání</a>
-    <a class="navlink" href="/noviny/">📰 Pečecké noviny</a>
+    <a class="navlink" href="/naobed/">Na oběd</a>
+    <a class="navlink active" href="/kalendar/">Kalendář</a>
+    <a class="navlink" href="/noviny/">Pečecké noviny</a>
+    <a class="navlink" href="/jednani/">Jednání</a>
     <a class="navlink" href="/lide/">Lidé</a>
     <a class="navlink" href="/telocvicna/">Tělocvična</a>
     <a class="navlink" href="/volby/">Volby</a>
+    <button type="button" class="navlink navlink-more" id="infoFab" aria-controls="overlayMenu" aria-haspopup="dialog">Více...</button>
   </nav>
 </header>
 <div class="overlay-menu" id="overlayMenu" role="dialog" aria-modal="true" aria-label="Menu" hidden>
-  <button type="button" class="overlay-close" id="overlayClose" aria-label="Zavřít menu">✕</button>
+  <button type="button" class="overlay-close" id="overlayClose" aria-label="Zavřít menu">Zavřít</button>
   <nav class="overlay-links" id="overlayLinks"></nav>
 </div>
 
@@ -93,7 +93,7 @@
         <button type="button" class="year-btn kal-arrow" id="kal-prev" aria-label="Předchozí měsíc">◀</button>
         <button type="button" class="year-btn kal-arrow" id="kal-next" aria-label="Následující měsíc">▶</button>
       </div>
-      <strong id="kal-month-label" style="font-family:var(--font-display, ui-serif, Georgia, serif); font-size:20px; margin:0 6px;">…</strong>
+      <strong id="kal-month-label" style="font-family:var(--font-display); font-size:20px; margin:0 6px;">…</strong>
       <button type="button" class="text-toggle" id="kal-today" style="display:none;">Dnes</button>
     </div>
 
@@ -436,14 +436,6 @@
     document.querySelectorAll('[data-kal-org]').forEach(el =>
       el.setAttribute('aria-pressed', el.dataset.kalOrg === KAL_ORG ? 'true' : 'false'));
   }
-
-  // toolbar se lepí pod sticky nadpisem sekce — výšku nadpisu měříme za běhu
-  function kalStickyTop(){
-    const h = document.querySelector('#panel-kalendar h2.title');
-    if (h) document.getElementById('panel-kalendar').style.setProperty('--kal-top', h.offsetHeight + 'px');
-  }
-  kalStickyTop();
-  window.addEventListener('resize', kalStickyTop);
 
   document.getElementById('kal-prev').addEventListener('click', () => {
     kalMonth--; if (kalMonth < 0) { kalMonth = 11; kalYear--; }

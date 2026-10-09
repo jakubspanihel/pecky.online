@@ -37,7 +37,7 @@ GROUPS = [
     ('Výběrová řízení', r'výběrov|vyhlášení vř|oznámení o vyhlášení vr|\bvř\b|konkurz|konkurs', 'var(--gold-deep)'),
     ('Doprava', r'provozu|dopravního značení|uzavírka', 'var(--slate)'),
     ('Dotace a rozpočet', r'dotace|rozpočt|závěrečného účtu|závěrečný účet|250/2000|daň z nemovit', 'var(--field)'),
-    ('Majetek města', r'záměr|pronájem|výpůjčka|práva stavby', 'color-mix(in srgb, var(--field) 45%, var(--parchment))'),
+    ('Majetek města', r'záměr|pronájem|výpůjčka|práva stavby', 'color-mix(in srgb, var(--field) 45%, var(--material))'),
     ('Stavby a pozemky', r'povolení stavby|odstranění stavby|kopú|kpú|pozemkov|územního|zjišťovac|podklady rozhodnutí|kabelov', 'var(--ink-soft)'),
     ('Ostatní', r'', 'var(--line)'),
 ]
@@ -349,7 +349,7 @@ def render_page(docs):
       .ud-ty summary .ud-tn{{margin-left:auto;}}
       .ud-ty ul{{list-style:none; margin:0 0 8px; padding:0;}}
       .ud-tm{{all:unset; box-sizing:border-box; width:100%; display:flex; justify-content:space-between; gap:8px; padding:4px 8px; cursor:pointer; border-radius:3px; font-size:14px;}}
-      .ud-tm:hover{{background:var(--parchment-deep);}}
+      .ud-tm:hover{{background:var(--material-deep);}}
       .ud-tm:focus-visible{{outline:2px solid var(--gold); outline-offset:1px;}}
       .ud-tm.active{{background:var(--burgundy); color:#fff;}}
       .ud-tn{{font-size:12.5px; color:var(--ink-soft); font-weight:400;}}

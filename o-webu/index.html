@@ -43,21 +43,21 @@
         <img class="brand-logo" src="/img/favicons/icon-192.png" alt="" width="44" height="44">
         <h1>Do Peček . cz</h1>
       </a>
-      <button type="button" class="info-fab" id="infoFab" title="Menu" aria-label="Otevřít menu" aria-controls="overlayMenu" hidden>☰</button>
     </div>
   </div>
   <nav class="tabs header-nav" id="tabs">
-    <a class="navlink" href="/naobed/">🍽️ Na oběd</a>
-    <a class="navlink" href="/kalendar/">📅 Kalendář</a>
-    <a class="navlink" href="/jednani/">📄 Jednání</a>
-    <a class="navlink" href="/noviny/">📰 Pečecké noviny</a>
+    <a class="navlink" href="/naobed/">Na oběd</a>
+    <a class="navlink" href="/kalendar/">Kalendář</a>
+    <a class="navlink" href="/noviny/">Pečecké noviny</a>
+    <a class="navlink" href="/jednani/">Jednání</a>
     <a class="navlink" href="/lide/">Lidé</a>
     <a class="navlink" href="/telocvicna/">Tělocvična</a>
     <a class="navlink" href="/volby/">Volby</a>
+    <button type="button" class="navlink navlink-more" id="infoFab" aria-controls="overlayMenu" aria-haspopup="dialog">Více...</button>
   </nav>
 </header>
 <div class="overlay-menu" id="overlayMenu" role="dialog" aria-modal="true" aria-label="Menu" hidden>
-  <button type="button" class="overlay-close" id="overlayClose" aria-label="Zavřít menu">✕</button>
+  <button type="button" class="overlay-close" id="overlayClose" aria-label="Zavřít menu">Zavřít</button>
   <nav class="overlay-links" id="overlayLinks"></nav>
 </div>
 
@@ -81,7 +81,7 @@
       <a class="qlink" href="http://pecky.cz" target="_blank" rel="noopener">
         <span class="qlink-main"><img class="qlink-icon" src="/img/favicons/pecky-cz.png" alt="" loading="lazy"><span class="lbl">Oficiální web města</span></span><span class="url">pecky.cz ↗</span>
       </a>
-      <div class="qlink-sub" style="margin:-6px 0 0 28px; padding:9px 16px; border:1px solid var(--line); border-top:0; background:var(--parchment); font-size:13px;">
+      <div class="qlink-sub" style="margin:-6px 0 0 28px; padding:9px 16px; border:1px solid var(--line); border-top:0; background:var(--material); font-size:13px;">
         ↳ <a href="/o-webu/uredni-deska-monitoring/">Monitoring úřední desky</a> — dokumenty vyvěšené na úřední desce města po měsících
       </div>
       <a class="qlink" href="https://pecky.as4u.cz" target="_blank" rel="noopener">
@@ -94,7 +94,7 @@
         <span class="qlink-main"><img class="qlink-icon" src="/img/favicons/usneseni-cz.png" alt="" loading="lazy"><span class="lbl">Zápisy a usnesení ZM/RM</span></span><span class="url">usneseni.cz ↗</span>
       </a>
       <a class="qlink" href="https://smlouvy.gov.cz/vyhledavani?dotaz=M%C4%9Bsto%20Pe%C4%8Dky" target="_blank" rel="noopener">
-        <span class="qlink-main"><span class="qlink-icon-fallback" style="background:#7C2F2B;">RS</span><span class="lbl">Registr smluv</span></span><span class="url">smlouvy.gov.cz ↗</span>
+        <span class="qlink-main"><span class="qlink-icon-fallback" style="background:#BD253F;">RS</span><span class="lbl">Registr smluv</span></span><span class="url">smlouvy.gov.cz ↗</span>
       </a>
       <a class="qlink" href="https://www.hlidacstatu.cz/verejnezakazky/hledat?Q=00239607" target="_blank" rel="noopener">
         <span class="qlink-main"><img class="qlink-icon" src="/img/favicons/hlidacstatu-cz.png" alt="" loading="lazy"><span class="lbl">Hlídač veřejných zakázek</span></span><span class="url">hlidacstatu.cz ↗</span>
@@ -151,7 +151,7 @@
         <span class="qlink-main"><span class="qlink-icon-fallback" style="background:#5B5347;">KD</span><span class="lbl">Kolínský deník (regionální zpravodajství)</span></span><span class="url">kolinsky.denik.cz ↗</span>
       </a>
       <a class="qlink" href="https://www.sokolpecky.cz/" target="_blank" rel="noopener">
-        <span class="qlink-main"><span class="qlink-icon-fallback" style="background:#7C2F2B;">SP</span><span class="lbl">TJ Sokol Pečky (sportovní klub, vlastní sokolovna)</span></span><span class="url">sokolpecky.cz ↗</span>
+        <span class="qlink-main"><span class="qlink-icon-fallback" style="background:#BD253F;">SP</span><span class="lbl">TJ Sokol Pečky (sportovní klub, vlastní sokolovna)</span></span><span class="url">sokolpecky.cz ↗</span>
       </a>
       <a class="qlink" href="https://volejbalpecky.cz/" target="_blank" rel="noopener">
         <span class="qlink-main"><span class="qlink-icon-fallback" style="background:#54624A;">VP</span><span class="lbl">Volejbal Pečky, z.s. (volejbalový spolek, nábor dětí)</span></span><span class="url">volejbalpecky.cz ↗</span>
@@ -208,7 +208,7 @@
       <a class="qlink" href="https://www.facebook.com/mestopecky" target="_blank" rel="noopener">
         <span class="qlink-main"><img class="qlink-icon" src="/img/favicons/facebook-com.png" alt="" loading="lazy"><span class="lbl">Facebook — Město Pečky (oficiální)</span></span><span class="url"><span class="follower-count">3 tis. sledujících</span><span class="url-meta">poslední příspěvek <span data-date="2026-10-09">9. 10. 2026</span></span></span>
       </a>
-      <div class="qlink-sub" style="margin:-6px 0 0 28px; padding:9px 16px; border:1px solid var(--line); border-top:0; background:var(--parchment); font-size:13px;">
+      <div class="qlink-sub" style="margin:-6px 0 0 28px; padding:9px 16px; border:1px solid var(--line); border-top:0; background:var(--material); font-size:13px;">
         ↳ <a href="/o-webu/facebook-monitoring/facebook-mestopecky/">Monitoring</a> — příspěvky tohoto profilu po měsících
       </div>
       <a class="qlink" href="https://www.facebook.com/p/PE%C4%8CKY-m%C4%9Bsto-v-Polab%C3%AD-100052652660749" target="_blank" rel="noopener">

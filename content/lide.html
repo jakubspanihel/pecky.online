@@ -474,11 +474,11 @@
     // neznámé id v hashi nemá tiše zmizet
     let notice = '';
     if (L_STATE.open && !db.people.some(p => p.id === L_STATE.open)) {
-      notice = `<div class="callout" style="border-left-color:var(--burgundy); background:rgba(124,47,43,0.06);">Osobu <code>${jEscapeHtml(L_STATE.open)}</code> se nepodařilo najít.</div>`;
+      notice = `<div class="callout" style="border-left-color:var(--burgundy); background:rgba(189,37,63,0.06);">Osobu <code>${jEscapeHtml(L_STATE.open)}</code> se nepodařilo najít.</div>`;
       L_STATE.open = '';
     }
     if (L_STATE.orgView && !db.orgById[L_STATE.orgView]) {
-      notice = `<div class="callout" style="border-left-color:var(--burgundy); background:rgba(124,47,43,0.06);">Uskupení <code>${jEscapeHtml(L_STATE.orgView)}</code> se nepodařilo najít.</div>`;
+      notice = `<div class="callout" style="border-left-color:var(--burgundy); background:rgba(189,37,63,0.06);">Uskupení <code>${jEscapeHtml(L_STATE.orgView)}</code> se nepodařilo najít.</div>`;
       L_STATE.orgView = '';
       L_STATE.orgs.clear();
     }
@@ -816,7 +816,7 @@
         const host = document.getElementById('lide-results');
         if (host) {
           host.innerHTML = `
-            <div class="callout" style="border-left-color:var(--burgundy); background:rgba(124,47,43,0.06);">
+            <div class="callout" style="border-left-color:var(--burgundy); background:rgba(189,37,63,0.06);">
               <strong>Adresář se nepodařilo načíst.</strong> ${jEscapeHtml(e.message || '')}
               Data leží v <a href="/lide/people.json" target="_blank" rel="noopener">lide/people.json</a>,
               <a href="/lide/organizations.json" target="_blank" rel="noopener">organizations.json</a> a

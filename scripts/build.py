@@ -39,7 +39,7 @@ GA_MEASUREMENT_ID = 'G-1CW9XK1VJY'
 
 # Slogan webu: jediný zdroj pravdy. Použije se jako <title>/og:title homepage
 # i jako podtitulek v hlavičce homepage (viz build_nav). Změna se projeví na obou místech.
-SLOGAN = 'Abyste vždycky věděli, co se v Pečkách děje'
+SLOGAN = 'Abyste věděli, co se v Pečkách děje'
 
 # slug -> (výstupní cesta, title, meta description, potřebuje assets/helpers.js)
 MANIFEST = {
@@ -947,7 +947,7 @@ def apply_active(html, current_slug):
 
 def build_nav(current_slug):
     # Slogan v hlavičce jen na homepage
-    tagline = (f'    <p class="tagline">{SLOGAN}</p>\n'
+    tagline = (f'<small class="tagline">{SLOGAN}</small>'
                if current_slug == 'domu' else '')
     return apply_active(read('assets/nav.html').replace('{{TAGLINE}}', tagline), current_slug)
 

@@ -43,21 +43,21 @@
         <img class="brand-logo" src="/img/favicons/icon-192.png" alt="" width="44" height="44">
         <h1>Do Peček . cz</h1>
       </a>
-      <button type="button" class="info-fab" id="infoFab" title="Menu" aria-label="Otevřít menu" aria-controls="overlayMenu" hidden>☰</button>
     </div>
   </div>
   <nav class="tabs header-nav" id="tabs">
-    <a class="navlink" href="/naobed/">🍽️ Na oběd</a>
-    <a class="navlink" href="/kalendar/">📅 Kalendář</a>
-    <a class="navlink" href="/jednani/">📄 Jednání</a>
-    <a class="navlink" href="/noviny/">📰 Pečecké noviny</a>
+    <a class="navlink" href="/naobed/">Na oběd</a>
+    <a class="navlink" href="/kalendar/">Kalendář</a>
+    <a class="navlink" href="/noviny/">Pečecké noviny</a>
+    <a class="navlink" href="/jednani/">Jednání</a>
     <a class="navlink active" href="/lide/">Lidé</a>
     <a class="navlink" href="/telocvicna/">Tělocvična</a>
     <a class="navlink" href="/volby/">Volby</a>
+    <button type="button" class="navlink navlink-more" id="infoFab" aria-controls="overlayMenu" aria-haspopup="dialog">Více...</button>
   </nav>
 </header>
 <div class="overlay-menu" id="overlayMenu" role="dialog" aria-modal="true" aria-label="Menu" hidden>
-  <button type="button" class="overlay-close" id="overlayClose" aria-label="Zavřít menu">✕</button>
+  <button type="button" class="overlay-close" id="overlayClose" aria-label="Zavřít menu">Zavřít</button>
   <nav class="overlay-links" id="overlayLinks"></nav>
 </div>
 
@@ -539,11 +539,11 @@
     // neznámé id v hashi nemá tiše zmizet
     let notice = '';
     if (L_STATE.open && !db.people.some(p => p.id === L_STATE.open)) {
-      notice = `<div class="callout" style="border-left-color:var(--burgundy); background:rgba(124,47,43,0.06);">Osobu <code>${jEscapeHtml(L_STATE.open)}</code> se nepodařilo najít.</div>`;
+      notice = `<div class="callout" style="border-left-color:var(--burgundy); background:rgba(189,37,63,0.06);">Osobu <code>${jEscapeHtml(L_STATE.open)}</code> se nepodařilo najít.</div>`;
       L_STATE.open = '';
     }
     if (L_STATE.orgView && !db.orgById[L_STATE.orgView]) {
-      notice = `<div class="callout" style="border-left-color:var(--burgundy); background:rgba(124,47,43,0.06);">Uskupení <code>${jEscapeHtml(L_STATE.orgView)}</code> se nepodařilo najít.</div>`;
+      notice = `<div class="callout" style="border-left-color:var(--burgundy); background:rgba(189,37,63,0.06);">Uskupení <code>${jEscapeHtml(L_STATE.orgView)}</code> se nepodařilo najít.</div>`;
       L_STATE.orgView = '';
       L_STATE.orgs.clear();
     }
@@ -881,7 +881,7 @@
         const host = document.getElementById('lide-results');
         if (host) {
           host.innerHTML = `
-            <div class="callout" style="border-left-color:var(--burgundy); background:rgba(124,47,43,0.06);">
+            <div class="callout" style="border-left-color:var(--burgundy); background:rgba(189,37,63,0.06);">
               <strong>Adresář se nepodařilo načíst.</strong> ${jEscapeHtml(e.message || '')}
               Data leží v <a href="/lide/people.json" target="_blank" rel="noopener">lide/people.json</a>,
               <a href="/lide/organizations.json" target="_blank" rel="noopener">organizations.json</a> a

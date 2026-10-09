@@ -30,7 +30,7 @@ vykresluje se přes placeholder `{{VOLBY_ROCNIKY}}` v
   stránky ročníku, aktuální ročník zvýrazněný (`.year-btn.active`)
 
 **Vizuál (od 9. 9. 2026).** Buttony mají plnou pergamenovou výplň
-(`var(--parchment-deep)`) a tučné písmo — vizuálně „bytelnější" než
+(`var(--material-deep)`) a tučné písmo — vizuálně „bytelnější" než
 prostý odkaz, konzistentní s ostatními akčními prvky webu (`.tag`,
 `.toggle-details`). Aktivní/aktuální ročník je zvýrazněný plnou bordó
 výplní s bílým textem, stejný vzor jako `.segmented-btn.active` a

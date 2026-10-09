@@ -5,8 +5,7 @@
 // volebních programů, rozbalovací bloky. Logika specifická pro jednu sekci
 // (Jednání, Pečecké noviny, Lidé) žije přímo v příslušném content/<sekce>.html.
 
-// ===== Hamburger (info-fab) + overlay-menu =====
-// Hamburger je vidět jen když lišta menu v hlavičce není na obrazovce.
+// ===== Tlačítko „Více...“ (#infoFab, poslední položka lišty menu) + overlay-menu =====
 (function () {
   const fab = document.getElementById('infoFab');
   const tabs = document.getElementById('tabs');
@@ -14,32 +13,43 @@
   const links = document.getElementById('overlayLinks');
   const closeBtn = document.getElementById('overlayClose');
   if (!fab || !tabs || !overlay || !links) return;
+  // dva sloupce (na velkých obrazovkách vedle sebe): hlavní položky | sekundární („Více...“)
+  const colMain = document.createElement('div');
+  colMain.className = 'overlay-col';
+  const colMore = document.createElement('div');
+  colMore.className = 'overlay-col';
   const home = document.createElement('a');
   home.className = 'navlink';
   home.href = '/';
-  home.textContent = '🤖 Do Peček';
-  links.appendChild(home);
-  document.querySelectorAll('#tabs .navlink, #tabsSecondary .navlink').forEach(a => {
+  home.textContent = 'Hlavní stránka';
+  colMain.appendChild(home);
+  document.querySelectorAll('#tabs a.navlink, #tabsSecondary .navlink').forEach(a => {
     const clone = a.cloneNode(true);
-    if (a.closest('#tabsSecondary')) clone.classList.add('secondary');
-    links.appendChild(clone);
+    if (a.closest('#tabsSecondary')) {
+      clone.classList.add('secondary');
+      if (!colMore.firstChild) {
+        const label = document.createElement('div');
+        label.className = 'overlay-label';
+        label.textContent = 'Více...';
+        colMore.appendChild(label);
+      }
+      colMore.appendChild(clone);
+    } else {
+      colMain.appendChild(clone);
+    }
   });
+  links.appendChild(colMain);
+  if (colMore.firstChild) links.appendChild(colMore);
   const open = () => { overlay.hidden = false; document.body.style.overflow = 'hidden'; };
   const close = () => { overlay.hidden = true; document.body.style.overflow = ''; };
   fab.addEventListener('click', open);
   closeBtn.addEventListener('click', close);
   overlay.addEventListener('click', e => { if (e.target === overlay) close(); });
   document.addEventListener('keydown', e => { if (e.key === 'Escape' && !overlay.hidden) close(); });
-  // výška sticky lišty (jen desktop) — odsazení pro sticky nadpisy sekcí
-  const mq = window.matchMedia('(min-width:768px)');
-  const setNavH = () => document.documentElement.style.setProperty('--nav-h', mq.matches ? tabs.offsetHeight + 'px' : '0px');
+  // výška sticky lišty — odsazení pro sticky nadpisy sekcí
+  const setNavH = () => document.documentElement.style.setProperty('--nav-h', tabs.offsetHeight + 'px');
   setNavH();
   window.addEventListener('resize', setNavH);
-  if ('IntersectionObserver' in window) {
-    new IntersectionObserver(([en]) => { fab.hidden = en.isIntersecting; }).observe(tabs);
-  } else {
-    fab.hidden = false;
-  }
 })();
 
 // ===== Responzivní tabulky: zabalit register tabulky do scrollovatelného obalu =====
@@ -205,11 +215,6 @@ function relBudouci(iso) {
     if (stari === null) return;
     el.title = el.textContent.trim();
     el.textContent = 'Aktualizováno ' + stari;
-    // semafor: do 7 dní zelená, do 31 dní žlutá, starší červená
-    const m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(el.getAttribute('data-date'));
-    const dnes = new Date(); dnes.setHours(0, 0, 0, 0);
-    const n = Math.round((dnes - new Date(+m[1], +m[2] - 1, +m[3])) / 86400000);
-    if (n >= 0) el.classList.add(n <= 7 ? 'age-fresh' : n <= 31 ? 'age-month' : 'age-old');
   });
 })();
 
@@ -540,14 +545,8 @@ document.querySelectorAll('.exp-row').forEach(row => {
   });
 })();
 
-// ===== Výška sticky nadpisu sekce (--title-h) — sticky ovládací prvky se lepí pod něj =====
-(function () {
-  const h = document.querySelector('.panel.active h2.title');
-  if (!h) return;
-  const set = () => document.documentElement.style.setProperty('--title-h', h.offsetHeight + 'px');
-  set();
-  window.addEventListener('resize', set);
-})();
+// ===== Nadpis sekce už není sticky: --title-h = 0, sticky ovládací prvky se lepí přímo pod lištu menu =====
+document.documentElement.style.setProperty('--title-h', '0px');
 
 // ===== Výška sticky lišty hledání (--lc-h) — sticky podnadpisy se lepí pod ni =====
 (function () {

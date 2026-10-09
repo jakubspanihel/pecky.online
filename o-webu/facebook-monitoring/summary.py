@@ -360,7 +360,7 @@ def render_page(months):
                         for i, (_, _, c) in enumerate(TYPE_GROUPS))
     return f'''  <style>
     .fb-row{{cursor:pointer;}}
-    .fb-row:hover td,.fb-row:focus-visible td{{background:var(--parchment-deep);}}
+    .fb-row:hover td,.fb-row:focus-visible td{{background:var(--material-deep);}}
     #panel-fbmonitoring .fb-detail:hover td,#panel-fbmonitoring .fb-detail tr:hover td{{background:none;}}
     .fb-row .fb-chev{{display:inline-block; width:1em; color:var(--ink-soft);}}
     .fb-detail td{{padding:6px 0 18px;}}
@@ -376,8 +376,8 @@ def render_page(months):
     .fb-card .fb-title{{line-height:1.35; overflow-wrap:anywhere;}}
     .fb-card .fb-meta{{margin-top:auto;}}
     .fb-meta{{font-size:12px; color:var(--ink-soft);}}
-    .fb-card.fb-event{{background:var(--parchment-deep);}}
-    #panel-fbmonitoring h3.fb-year{{position:sticky; top:calc(var(--title-h,0px) + var(--lc-h,0px)); z-index:8; background:var(--parchment); padding:6px 0; margin:26px 0 0;}}
+    .fb-card.fb-event{{background:var(--material-deep);}}
+    #panel-fbmonitoring h3.fb-year{{position:sticky; top:calc(var(--title-h,0px) + var(--lc-h,0px)); z-index:8; background:var(--material); padding:6px 0; margin:26px 0 0;}}
     @media (min-width:768px){{ #panel-fbmonitoring h3.fb-year{{top:calc(var(--nav-h,0px) + var(--title-h,0px) + var(--lc-h,0px));}} }}
     .fb-total{{margin:16px 0 0;}}
     .fb-an-btn{{font-family:var(--font-mono); font-size:11.5px; padding:8px 14px; border:1px solid var(--burgundy); border-radius:3px; background:none; color:var(--burgundy); cursor:pointer; margin:28px 0 0;}}
@@ -426,7 +426,7 @@ def render_page(months):
       .fb-ty summary .fb-tn{{margin-left:auto;}}
       .fb-ty ul{{list-style:none; margin:0 0 8px; padding:0;}}
       .fb-tm{{all:unset; box-sizing:border-box; width:100%; display:flex; justify-content:space-between; gap:8px; padding:4px 8px; cursor:pointer; border-radius:3px; font-size:14px;}}
-      .fb-tm:hover{{background:var(--parchment-deep);}}
+      .fb-tm:hover{{background:var(--material-deep);}}
       .fb-tm:focus-visible{{outline:2px solid var(--gold); outline-offset:1px;}}
       .fb-tm.active{{background:var(--burgundy); color:#fff;}}
       .fb-tn{{font-size:12.5px; color:var(--ink-soft); font-weight:400;}}
