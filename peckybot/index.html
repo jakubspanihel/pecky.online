@@ -43,21 +43,21 @@
         <img class="brand-logo" src="/img/favicons/icon-192.png" alt="" width="44" height="44">
         <h1>Do Peček . cz</h1>
       </a>
-      <button type="button" class="info-fab" id="infoFab" title="Menu" aria-label="Otevřít menu" aria-controls="overlayMenu" hidden>☰</button>
     </div>
   </div>
   <nav class="tabs header-nav" id="tabs">
-    <a class="navlink" href="/naobed/">🍽️ Na oběd</a>
-    <a class="navlink" href="/kalendar/">📅 Kalendář</a>
-    <a class="navlink" href="/jednani/">📄 Jednání</a>
-    <a class="navlink" href="/noviny/">📰 Pečecké noviny</a>
+    <a class="navlink" href="/naobed/">Na oběd</a>
+    <a class="navlink" href="/kalendar/">Kalendář</a>
+    <a class="navlink" href="/noviny/">Pečecké noviny</a>
+    <a class="navlink" href="/jednani/">Jednání</a>
     <a class="navlink" href="/lide/">Lidé</a>
     <a class="navlink" href="/telocvicna/">Tělocvična</a>
     <a class="navlink" href="/volby/">Volby</a>
+    <button type="button" class="navlink navlink-more" id="infoFab" aria-controls="overlayMenu" aria-haspopup="dialog">Více...</button>
   </nav>
 </header>
 <div class="overlay-menu" id="overlayMenu" role="dialog" aria-modal="true" aria-label="Menu" hidden>
-  <button type="button" class="overlay-close" id="overlayClose" aria-label="Zavřít menu">✕</button>
+  <button type="button" class="overlay-close" id="overlayClose" aria-label="Zavřít menu">Zavřít</button>
   <nav class="overlay-links" id="overlayLinks"></nav>
 </div>
 
@@ -105,16 +105,16 @@
     .pb-msg{display:flex; gap:12px; align-items:flex-start;}
     .pb-msg.pb-user{flex-direction:row-reverse;}
     .pb-avatar{flex:0 0 44px; width:44px; height:44px; object-fit:contain;}
-    .pb-bubble{background:var(--parchment); border:1px solid var(--line); border-radius:6px; padding:11px 15px; font-size:15px; line-height:1.55; color:var(--ink); max-width:100%; overflow-wrap:anywhere;}
-    .pb-user .pb-bubble{background:var(--parchment-deep);}
-    .pb-error .pb-bubble{border-color:var(--burgundy); background:rgba(124,47,43,0.06);}
+    .pb-bubble{background:var(--material); border:1px solid var(--line); border-radius:6px; padding:11px 15px; font-size:15px; line-height:1.55; color:var(--ink); max-width:100%; overflow-wrap:anywhere;}
+    .pb-user .pb-bubble{background:var(--material-deep);}
+    .pb-error .pb-bubble{border-color:var(--burgundy); background:rgba(189,37,63,0.06);}
     .pb-bubble p{margin:0 0 8px;}
     .pb-bubble p:last-child{margin-bottom:0;}
     .pb-bubble a.pb-ref{font-size:12px; vertical-align:super; text-decoration:none; font-weight:600; padding:0 1px;}
     .pb-zdroje{margin:10px 0 0; padding:8px 0 0; border-top:1px solid var(--line); font-size:13px; color:var(--ink-soft); list-style:none;}
     .pb-zdroje li{margin:2px 0;}
     .pb-examples{display:flex; flex-wrap:wrap; gap:8px; margin:0 0 14px;}
-    .pb-chip{font:inherit; font-size:13.5px; padding:6px 12px; border-radius:16px; border:1px solid var(--line); background:var(--parchment); color:var(--ink); cursor:pointer;}
+    .pb-chip{font:inherit; font-size:13.5px; padding:6px 12px; border-radius:16px; border:1px solid var(--line); background:var(--material); color:var(--ink); cursor:pointer;}
     .pb-chip:hover{border-color:var(--burgundy); color:var(--burgundy);}
     .pb-label{display:block; font-size:12.5px; color:var(--ink-soft); margin-bottom:4px;}
     .pb-row{display:flex; gap:8px;}
