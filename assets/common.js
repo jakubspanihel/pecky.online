@@ -525,6 +525,12 @@ document.querySelectorAll('.exp-row').forEach(row => {
     if (dny >= 0) zmKdy.innerHTML = `Zasedání zastupitelstva <mark class="banner-hl">${kdyZa(dny)}</mark>`;
   }
 
+  const rKdy = document.querySelector('.dash-zm--rada li:not([hidden]) .dash-rada-kdy');
+  if (rKdy) {
+    const dny = dnu(rKdy.closest('li').getAttribute('data-until'));
+    if (dny >= 0) rKdy.textContent = `Rada č. ${rKdy.dataset.cislo} se sejde ${kdyZa(dny)}.`;
+  }
+
   // volby: odpočet k prvnímu dni, během hlasování "právě probíhají"
   const vKdy = document.querySelector('.dash-zm li:not([hidden]) .dash-volby-kdy');
   if (vKdy) {

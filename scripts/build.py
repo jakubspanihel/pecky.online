@@ -550,6 +550,11 @@ def _zm_kdy(dny, weekday):
     return f'Zasedání zastupitelstva <mark class="banner-hl">{_kdy_za(dny)}</mark>'
 
 
+def _rada_kdy(cislo, dny):
+    """Text pruhu rady: "Rada č. 36 bude pozítří." (stejná logika jako _kdy_za)."""
+    return f'Rada č. {cislo} se sejde {_kdy_za(dny)}.'
+
+
 def _volby_kdy(dny, probiha):
     """Titulek banneru voleb: "Volby do zastupitelstva města budou už zítra"
     (doba zvýrazněná), během hlasování "… právě probíhají"."""
@@ -674,7 +679,8 @@ def _dash_zastupitelstvo(dnes):
     volby = sorted((e for e in events if e['category'] == 'volby'
                     and (e.get('date_end') or e['date']) >= dnes), key=lambda e: e['date'])[:1]
     po = _dash_zm_po(meetings, dnes)
-    if not zm and not volby and not po:
+    rada = _dash_rada(dnes)
+    if not zm and not volby and not po and not rada:
         return '', ''
     avatary = _zm_avatary()
     out = ['<div class="dash-zm">'] if zm else []
@@ -715,7 +721,31 @@ def _dash_zastupitelstvo(dnes):
                    f'<p class="banner-meta"><span class="banner-meta-item">{ICO_KAL}<span>{dny_txt}, {esc(rozsah)}</span></span></p>'
                    f'<div class="banner-actions"><a class="banner-cta" href="/volby/">Jak se volí v Pečkách?</a></div>'
                    f'</div></li>\n  </ul>\n</div>')
-    return '\n'.join(out + ([po] if po else [])), '\n'.join(out_v)
+    return '\n'.join(out + ([po] if po else []) + ([rada] if rada else [])), '\n'.join(out_v)
+
+
+def _dash_rada(dnes):
+    """Banner plánovaného zasedání rady města (pod bannerem ZM). Stejná logika
+    jako u zastupitelstva: vypíše se víc budoucích jednání, common.js ukáže první,
+    které ještě neproběhlo, a bez položky schová celý widget."""
+    from datetime import date as _date
+    meetings = json.loads(read('jednani/pecky-jednani.json'))['meetings']
+    rm = sorted((m for m in meetings if m['type'] == 'Rada' and m['date'] >= dnes),
+                key=lambda m: m['date'])[:3]
+    if not rm:
+        return ''
+    out = ['<div class="dash-zm dash-zm--rada">', '  <ul class="dash-zmpo-list">']
+    for i, m in enumerate(rm):
+        d = _date.fromisoformat(m['date'])
+        dny = (d - _date.fromisoformat(dnes)).days
+        program = ' <span class="zmpo-stav">Program je k dispozici.</span>' if m.get('agenda') else ''
+        out.append(f'    <li data-until="{m["date"]}"{" hidden" if i else ""}>'
+                   f'<a class="dash-zmpo-link" href="/jednani/#rada-{m["date"]}">'
+                   f'<span class="zmpo-text"><strong class="dash-rada-kdy" data-cislo="{m["number"]}">'
+                   f'{_rada_kdy(m["number"], dny)}</strong>{program}</span>'
+                   f'<span class="zmpo-sipka" aria-hidden="true">→</span></a></li>')
+    out += ['  </ul>', '</div>']
+    return '\n'.join(out)
 
 
 def _zm_po_kdy(dny):
