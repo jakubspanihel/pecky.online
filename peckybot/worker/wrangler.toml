@@ -22,3 +22,10 @@ DAILY_GLOBAL = "250"
 [[kv_namespaces]]
 binding = "BUDGET"
 id = "dc9de59ac3b84b6ab90aeaec7b6467b3"
+
+# D1 pro anonymní záznamy dotazů a hodnocení odpovědí (schéma: schema.sql). Vytvořeno:
+#   npx wrangler d1 create peckybot-log
+[[d1_databases]]
+binding = "LOG"
+database_name = "peckybot-log"
+database_id = "d43c60b0-6508-498b-ad1a-ee3c146e1043"
