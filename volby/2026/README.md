@@ -8,17 +8,24 @@ ročník.
 ## Účel sekce
 Komunální volby v Pečkách se konaly 9.–10. října 2026. Registrační úřad
 (Městský úřad Pečky) 18. 8. 2026 zaregistroval kandidátní listiny pěti
-uskupení, která usilují o 21 mandátů (105 kandidátů celkem). Od 10. 10. 2026
-je první záložka „Výsledky voleb“ s **průběžnými výsledky** z
-[volby.gov.cz](https://volby.gov.cz/app/kv2026/cs/20261009/results/!_0_1_2100_2104_537641):
-tabulka osobních hlasů všech kandidátů (hlasy po kandidátech jsou na
-stránce výsledků po rozkliknutí kandidátní listiny — `…537641____1` až
-`____5`) a karty uskupení s podíly hlasů. Stav k 10. 10. 2026 16:59:
-zpracováno 5 ze 6 okrsků. **Až ČSÚ zveřejní konečné výsledky (6 ze 6 okrsků)**:
-přepsat čísla, doplnit mandáty a zvolené (označit v tabulce, funkce až po
-ustavujícím zasedání), odstranit atribut `hidden` u banneru „Hlasy
-spočítány. Co bude dál?“ v `content/volby2026.html` a upravit perex.
-Volební programy jsou v záložce Předvolební sliby.
+uskupení, která usilovala o 21 mandátů (105 kandidátů celkem). První
+záložka „Výsledky voleb“ ukazuje **výsledky ze všech 6 okrsků** (stav
+ČSÚ k 10. 10. 2026 17:33): volební účast 53,68 % (1 964 lidí z 3 659),
+tabulku 21 zvolených podle osobních hlasů, sbalený seznam osobních hlasů
+všech 104 kandidátů a karty uskupení s podíly a mandáty (ODS 10, NAŠE
+PEČKY 6, Pečky srdcem 2, PEČKY PEČÁKŮM 2, SPD 1). Banner „Hlasy
+spočítány. Co bude dál?“ je zobrazený nad záložkami.
+
+Zdroj výsledků: [volby.gov.cz](https://volby.gov.cz/app/kv2026/cs/20261009/results/!_0_1_2100_2104_537641).
+Hlasy po kandidátech jsou po rozkliknutí kandidátní listiny
+(`…537641____1` až `____5`; sloupce „Mandát“ a „Pořadí“ — označení
+zvolených a pořadí náhradníků, včetně přeskočení kandidátů přes hranici
+preferenčních hlasů). Odkazy „Zvolení členové zastupitelstva“,
+„Náhradníci“ a PDF zápisu na stránce výsledků 10. 10. 2026 vracely 404,
+proto se zvolení berou ze sloupce „Mandát“. Až bude dostupný oficiální
+zápis o výsledku voleb, ověřit shodu a doplnit odkaz (jako u Voleb 2022).
+Funkce zvolených (starosta, místostarosté, rada) doplnit až po
+ustavujícím zasedání. Volební programy jsou v záložce Předvolební sliby.
 
 Zdroje (viz `sources.json`): Ministerstvo vnitra ČR (termíny), Úřední
 deska města Pečky na pecky.cz (registrace, seznam uskupení) — číst přes
