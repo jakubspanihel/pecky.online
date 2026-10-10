@@ -12,9 +12,9 @@ Tento layout platí pro všechny monitoringy.
 `<rok>.txt` — jeden řádek na dokument, pole oddělená svislítkem:
 `id_slug | vyvěšeno | sejmuto | typ | název`. Prázdný typ = „Úřední deska“.
 Detail dokumentu je `https://pecky.cz/default/report/<id_slug>`. Soubory jsou
-v gitu (data jsou veřejná). Aktuálně `2015.txt` až `2026.txt` — dokumenty vyvěšené od června 2015 do 6. 10. 2026,
-celkem 1 919 záznamů (2015: 62, 2016: 185, 2017: 154, 2018: 142, 2019: 166, 2020: 194, 2021: 192,
-2022: 198, 2023: 163, 2024: 149, 2025: 177, 2026: 137).
+v gitu (data jsou veřejná). Aktuálně `2015.txt` až `2026.txt` — dokumenty vyvěšené od června 2015 do 9. 10. 2026,
+celkem 1 920 záznamů (2015: 62, 2016: 185, 2017: 154, 2018: 142, 2019: 166, 2020: 194, 2021: 192,
+2022: 198, 2023: 163, 2024: 149, 2025: 177, 2026: 138).
 
 **Dva zdroje.** Základ je archiv na pecky.cz (nejstarší záznam 15. 3. 2016), který je za řadu let
 neúplný (2016–2018 a 2021–2022 jen zlomek). Doplněn je starým webem `pecky.as4u.cz` (Úřední deska →

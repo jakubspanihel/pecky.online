@@ -31,7 +31,7 @@ jako první):
 | Pokladna | `/pokladna/` | `pokladna/README.md` |
 | Kalendář | `/kalendar/` | `kalendar/README.md` (+ `automation-plakat-akce.md`) |
 | Pečecké noviny | `/noviny/` | `noviny/README.md` |
-| O webu | `/o-webu/` | `o-webu/README.md` (+ `automation-socialni-site.md`) |
+| O webu | `/o-webu/` | `o-webu/README.md` (+ `automation-socialni-site.md`; Monitoring úřední desky `o-webu/uredni-deska-monitoring/README.md`, skill `pecky-online-uredni-deska-check`) |
 | Historie změn na webu | `/o-webu/changelog.html` | podstránka O webu, tabulka „Stav sekcí“ z `README.md`; odkaz v patičce |
 
 **Needit přímo vygenerované `<sekce>/index.html` soubory ani kořenový

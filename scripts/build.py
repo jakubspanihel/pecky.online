@@ -214,7 +214,7 @@ EXTRA_PAGES = {
         # content/udmonitoring.html GENERUJE o-webu/uredni-deska-monitoring/summary.py
         # ze souboru <rok>.txt (statický snímek). Po každé kontrole desky:
         # doplnit dokumenty do .txt, pustit summary.py, build a přepsat lastmod níže.
-        False, 'owebu', '2026-10-06'),
+        False, 'owebu', '2026-10-10'),
     'redakce': (
         '/noviny/redakce.html', 'Kdo vede Pečecké noviny? — Do Peček . cz',
         'Kdo vedl redakci Pečeckých novin a kdo seděl v redakční radě '
