@@ -671,13 +671,13 @@ def _dash_zastupitelstvo(dnes):
     Budoucí ZM se vypíše víc (rezerva), common.js ukáže první, které ještě
     neproběhlo, a nezbyde-li žádná položka, schová celý widget - neshnije
     mezi buildy."""
-    from datetime import date as _date
+    from datetime import date as _date, timedelta
     meetings = json.loads(read('jednani/pecky-jednani.json'))['meetings']
     zm = sorted((m for m in meetings if m['type'] == 'Zastupitelstvo' and m['date'] >= dnes),
                 key=lambda m: m['date'])[:3]
     events = json.loads(read('kalendar/udalosti.json'))['events']
     volby = sorted((e for e in events if e['category'] == 'volby'
-                    and (e.get('date_end') or e['date']) >= dnes), key=lambda e: e['date'])[:1]
+                    and (_date.fromisoformat(e.get('date_end') or e['date']) + timedelta(days=2)).isoformat() >= dnes), key=lambda e: e['date'])[:1]
     po = _dash_zm_po(meetings, dnes)
     rada = _dash_rada(dnes)
     if not zm and not volby and not po and not rada:
@@ -708,6 +708,7 @@ def _dash_zastupitelstvo(dnes):
         out.append('</div>')
     for e in volby:
         konec = e.get('date_end') or e['date']
+        konec2 = (_date.fromisoformat(konec) + timedelta(days=2)).isoformat()  # banner s výsledky ještě 2 dny po konci hlasování
         dny = (_date.fromisoformat(e['date']) - _date.fromisoformat(dnes)).days
         rozsah = (f'{int(e["date"][8:])}.–{iso_to_cz(konec)}' if konec != e['date'] else iso_to_cz(e['date']))
         dnu = ['Pondělí', 'Úterý', 'Středa', 'Čtvrtek', 'Pátek', 'Sobota', 'Neděle']
@@ -715,11 +716,11 @@ def _dash_zastupitelstvo(dnes):
         dny_txt = (dnu[d1.weekday()] if d1 == d2 else
                    f'{dnu[d1.weekday()]} a {dnu[d2.weekday()].lower()}' if (d2 - d1).days == 1 else
                    f'{dnu[d1.weekday()]} až {dnu[d2.weekday()].lower()}')
-        out_v.append(f'<div class="dash-zm dash-zm--volby">\n  <ul class="dash-list banner banner--slate">\n    <li data-from="{e["date"]}" data-until="{konec}">'
+        out_v.append(f'<div class="dash-zm dash-zm--volby">\n  <ul class="dash-list banner banner--slate">\n    <li data-until="{konec2}">'
                    f'<div class="banner-body"><h3 class="banner-title">'
-                   f'<span class="dash-volby-kdy">{_volby_kdy(dny, dny < 0)}</span></h3>'
-                   f'<p class="banner-meta"><span class="banner-meta-item">{ICO_KAL}<span>{dny_txt}, {esc(rozsah)}</span></span></p>'
-                   f'<div class="banner-actions"><a class="banner-cta" href="/volby/">Jak se volí v Pečkách?</a></div>'
+                   f'Hlasování ukončeno, <mark class="banner-hl">teď se bude počítat…</mark></h3>'
+                   f'<p class="banner-text">Výsledky voleb budou známé v řádu hodin.</p>'
+                   f'<div class="banner-actions"><a class="banner-cta" href="/volby/">Jak se volilo v Pečkách?</a></div>'
                    f'</div></li>\n  </ul>\n</div>')
     return '\n'.join(out + ([po] if po else []) + ([rada] if rada else [])), '\n'.join(out_v)
 
