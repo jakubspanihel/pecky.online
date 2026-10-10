@@ -128,7 +128,30 @@ def seg_tip(segs):
     return ', '.join(f'{g[0].lower()} {n}' for g, n in zip(TYPE_GROUPS, segs) if n)
 
 
-def bar_svg(items, uid, title, desc, labels_on_bars=False):
+# Komunální volby v období sledování: (první den, poslední den)
+VOLBY = [('2018-10-05', '2018-10-06'), ('2022-09-23', '2022-09-24'), ('2026-10-09', '2026-10-10')]
+
+
+def volby_marks(kind, items_keys):
+    """Pozice svislých čar voleb: [(pozice v jednotkách slotů, popisek)]. kind 'm' = klíče 'RRRR-MM', 'd' = klíče ISO dat."""
+    import calendar
+    from datetime import date
+    out = []
+    for od, do in VOLBY:
+        d = date.fromisoformat(do)
+        lab = f'volby {date.fromisoformat(od).day}.–{d.day}. {d.month}. {d.year}'
+        if kind == 'm' and do[:7] < items_keys[0]:
+            out.append((0, lab + ' (před začátkem sledování)', d.year))  # čára na levém okraji grafu
+        elif kind == 'm':
+            k = do[:7]
+            if k in items_keys:
+                out.append((items_keys.index(k) + d.day / calendar.monthrange(d.year, d.month)[1], lab, d.year))
+        elif do in items_keys:
+            out.append((items_keys.index(do) + 0.5, lab, d.year))
+    return out
+
+
+def bar_svg(items, uid, title, desc, labels_on_bars=False, marks=()):
     """Statický SVG skládaný sloupcový graf. items: [(tooltip, hodnota, popisek osy x | None, kotva "#id", počty po skupinách typů)].
     Sloupec je odkaz na kotvu v tabulkách pod grafem (rozbalení + posun řeší skript stránky)."""
     W, H, L, R, T, B = 960, 300, 44, 10, 22, 30
@@ -167,6 +190,11 @@ def bar_svg(items, uid, title, desc, labels_on_bars=False):
             cx = x + bw / 2
             parts.append(f'<line x1="{cx:.1f}" x2="{cx:.1f}" y1="{T + ph}" y2="{T + ph + 4}" stroke="var(--ink-soft)"/>')
             parts.append(f'<text x="{cx:.1f}" y="{H - 10}" text-anchor="middle" font-size="11" fill="var(--ink-soft)">{escape(xl)}</text>')
+    for pos, lab, yr in marks:
+        mx_ = L + pos * slot
+        parts.append(f'<g class="fb-volby"><title>{escape(lab)}</title><line x1="{mx_:.1f}" x2="{mx_:.1f}" y1="{T - 6}" y2="{T + ph}" stroke="#d1242f" stroke-width="1"/>'
+                     f'<text x="{mx_ + 3:.1f}" y="{T + 2}" font-size="10" fill="#d1242f">volby</text>'
+                     f'<text x="{mx_ + 3:.1f}" y="{T + 13}" font-size="10" fill="#d1242f">{yr}</text></g>')
     body = '\n        '.join(parts)
     return (f'<svg viewBox="0 0 {W} {H}" width="100%" role="img" aria-labelledby="{uid}-t {uid}-d">\n'
             f'        <title id="{uid}-t">{escape(title)}</title>\n        <desc id="{uid}-d">{escape(desc)}</desc>\n        {body}\n      </svg>')
@@ -188,8 +216,9 @@ def render_chart(months):
         sg = seg(mposts[ym])
         items.append((f'{MONTHS[int(m_) - 1].lower()} {y_}: {n} {plural(n)} ({seg_tip(sg)})', n, y_ if m_ == '01' else None, f'#fb-{ym}', sg))
     v1 = bar_svg(items, 'fbc1', 'Počet příspěvků po měsících',
-                 f'Sloupcový graf: osa x čas po měsících, osa y počet příspěvků, sloupce rozdělené podle typu příspěvku. Nejvíc příspěvků vyšlo v měsíci {pk_txt} ({pk_n}).')
-    cap1 = f'Počet příspěvků po měsících. Nejvíc jich vyšlo v měsíci {pk_txt} ({pk_n}), počet je nad sloupcem. Sloupec je rozdělený podle typu příspěvku; po najetí na něj se zobrazí měsíc, počet a rozpad.'
+                 f'Sloupcový graf: osa x čas po měsících, osa y počet příspěvků, sloupce rozdělené podle typu příspěvku. Nejvíc příspěvků vyšlo v měsíci {pk_txt} ({pk_n}).',
+                 marks=volby_marks('m', [ym for ym, _ in mc]))
+    cap1 = f'Počet příspěvků po měsících. Nejvíc jich vyšlo v měsíci {pk_txt} ({pk_n}), počet je nad sloupcem. Sloupec je rozdělený podle typu příspěvku; po najetí na něj se zobrazí měsíc, počet a rozpad. Tenká červená svislá čára označuje komunální volby (5.–6. 10. 2018, 23.–24. 9. 2022, 9.–10. 10. 2026); volby 2018 proběhly před začátkem sledování, čára je proto na levém okraji grafu.'
     # 2) po volebních obdobích (hranice = ustavující zasedání, jednani/volebni-obdobi.json)
     first = min(p['published'] for p in allposts)
     last = max(p['published'] for p in allposts)
@@ -231,8 +260,9 @@ def render_chart(months):
         sg = seg([p for p in allposts if p['published'][:10] == d.isoformat()])
         items.append((f'{d.day}. {d.month}. {d.year}: {n} {plural(n)}' + (f' ({seg_tip(sg)})' if n else ''), n, f'{d.day}. {d.month}.' if i % 5 == 0 or i == 29 else None, href, sg))
     v3 = bar_svg(items, 'fbc3', 'Počet příspěvků po dnech za posledních 30 dní',
-                 f'Sloupcový graf: osa x dny od {days[0].day}. {days[0].month}. do {end.day}. {end.month}. {end.year}, osa y počet příspěvků za den.')
-    cap3 = (f'Počet příspěvků po dnech za 30 dní do posledního zachyceného příspěvku: {days[0].day}. {days[0].month}. – {end.day}. {end.month}. {end.year}.')
+                 f'Sloupcový graf: osa x dny od {days[0].day}. {days[0].month}. do {end.day}. {end.month}. {end.year}, osa y počet příspěvků za den.',
+                 marks=volby_marks('d', [d.isoformat() for d in days]))
+    cap3 = (f'Počet příspěvků po dnech za 30 dní do posledního zachyceného příspěvku: {days[0].day}. {days[0].month}. – {end.day}. {end.month}. {end.year}. Tenká červená svislá čára označuje den voleb, pokud do období spadá.')
     legend = '\n'.join(f'        <li><span class="fb-sw" style="background:{c}"></span>{g}</li>' for g, _, c in TYPE_GROUPS)
     return f'''    <figure class="fb-chart" id="fb-chart">
       <div class="fb-chart-head">
