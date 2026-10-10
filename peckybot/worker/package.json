@@ -9,7 +9,9 @@
     "deploy": "wrangler deploy",
     "typecheck": "tsc --noEmit",
     "test": "node --experimental-strip-types --test test/*.test.ts",
-    "eval": "node eval/run.mts"
+    "eval": "node eval/run.mts",
+    "stats": "node scripts/stats.mts",
+    "export-failures": "node scripts/stats.mts --export-failures"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.131.0"

@@ -1,6 +1,8 @@
 export interface Env {
   ANTHROPIC_API_KEY: string;
   BUDGET: KVNamespace;
+  LOG?: D1Database; // anonymní záznamy a cache odpovědí (schema.sql); bez něj Worker jen odpovídá
+  EVAL_TOKEN?: string; // secret: hlavička X-Eval-Token obejde limit na IP a cache (měření kvality)
   MODEL?: string;
   SITE_URL: string;
   ALLOWED_ORIGINS: string;

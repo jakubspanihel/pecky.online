@@ -1,0 +1,16 @@
+[
+  { "tool": "slozeni", "input": { "organ": "rada" }, "mustInclude": ["Paluska", "starosta"], "note": "současná rada" },
+  { "tool": "slozeni", "input": { "organ": "zastupitelstvo" }, "mustInclude": ["Paluska", "Zastupitelstvo"], "minLength": 1500 },
+  { "tool": "slozeni", "input": { "organ": "finanční výbor" }, "mustInclude": ["Finanční"] },
+  { "tool": "slozeni", "input": { "organ": "kontrolní výbor" }, "mustInclude": ["Kontrolní"] },
+  { "tool": "slozeni", "input": { "organ": "starostové" }, "mustInclude": ["Paluska", "1990"] },
+  { "tool": "osoba", "input": { "jmeno": "místostarosta" }, "mustInclude": ["Fejfar"] },
+  { "tool": "osoba", "input": { "jmeno": "Paluska" }, "mustInclude": ["Milan Paluska", "starosta"] },
+  { "tool": "osoba", "input": { "jmeno": "Fejfara" }, "mustInclude": ["Fejfar"] },
+  { "tool": "kalendar", "input": { "od": "2026-10-10", "do": "2026-10-11" }, "mustInclude": ["AFK Pečky", "2026-10-1"], "note": "víkend" },
+  { "tool": "kalendar", "input": { "od": "2026-10-01", "do": "2026-10-31", "hledej": "fotbal" }, "mustInclude": ["Fotbal"] },
+  { "tool": "pocet_bodu", "input": { "klicova_slova": "tělocvična" }, "minCount": 1, "mustInclude": ["po_letech", "BODY PROGRAMU"] },
+  { "tool": "pocet_bodu", "input": { "klicova_slova": "tělocvična", "typ": "zastupitelstvo" }, "minCount": 1 },
+  { "tool": "jednani", "input": { "typ": "zastupitelstvo", "od": "2024-01-01", "do": "2024-12-31" }, "mustInclude": ["ZM"], "note": "jednání ZM v roce 2024" },
+  { "tool": "jednani", "input": { "typ": "rada" }, "mustInclude": ["RM"] }
+]

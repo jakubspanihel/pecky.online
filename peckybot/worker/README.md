@@ -19,7 +19,14 @@ npx wrangler kv namespace create BUDGET
 # 2. API klíč jako secret (nikdy do gitu ani do wrangler.toml)
 npx wrangler secret put ANTHROPIC_API_KEY
 
-# 3. nasazení; vypíše adresu https://peckybot.<účet>.workers.dev
+# 3. D1 pro záznamy, hodnocení a cache (databázi vytvořit jen poprvé: npx wrangler d1 create peckybot-log);
+#    schéma lze spustit opakovaně
+npx wrangler d1 execute peckybot-log --remote --file=schema.sql
+
+# 3b. volitelně: tajný token pro měřicí dotazy (obejde limit na IP a cache, ne rozpočet)
+npx wrangler secret put EVAL_TOKEN
+
+# 4. nasazení; vypíše adresu https://peckybot.<účet>.workers.dev
 npx wrangler deploy
 ```
 
@@ -42,7 +49,7 @@ do `ALLOWED_ORIGINS` a do `config.json` dát `http://localhost:8787/chat`.
 
 ## Bezpečnost a provoz
 - API klíč je jen secret Workeru. Worker odmítá požadavky bez povoleného `Origin`.
-- Do logů Workeru se neukládá obsah dotazů, jen chyby.
+- Do logů Workeru se neukládá obsah dotazů, jen chyby. Anonymní záznamy dotazů jsou v D1 (viz `../README.md` → „Záznamy a hodnocení“).
 - V Cloudflare doporučeno přidat pravidlo Rate Limiting na `/chat` (např. 10 požadavků za minutu na IP); počítadla v KV chrání rozpočet, ne před zahlcením.
 - KV počítadla nejsou atomická, odhad útraty se může při souběhu lehce rozejít; proto rezerva ve stropu a tvrdý limit u Anthropic.
 - Zhroutí-li se kvůli limitu CPU na Free plánu načtení indexu (v logu chyba „exceeded CPU“), přejít na Workers Paid (5 USD/měsíc) nebo zmenšit index (`MAX_CHUNK`, `MIN_CHUNK` v `scripts/build_peckybot_index.py`).

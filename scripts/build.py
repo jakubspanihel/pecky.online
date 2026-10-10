@@ -24,6 +24,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from typografie import nbsp_html  # noqa: E402
 from build_peckybot_index import main as build_peckybot_index  # noqa: E402
+from build_peckybot_tools import main as build_peckybot_tools  # noqa: E402
 
 ROOT = Path(__file__).resolve().parent.parent
 
@@ -1160,6 +1161,7 @@ if __name__ == '__main__':
     build_org_colors()
     build_noviny_issues()
     build_peckybot_index()
+    build_peckybot_tools()
     stav_rows = parse_stav_sekci()
     written, extra_written, extra_indexed = build_all(stav_rows)
     build_sitemap(written, stav_rows, extra_indexed)

@@ -1,0 +1,232 @@
+[
+ {
+  "q": "Kolik bodů o tělocvičně bylo na jednáních od roku 2022?",
+  "tools": [
+   "pocet_bodu"
+  ],
+  "mustInclude": [
+   "\\d+"
+  ]
+ },
+ {
+  "q": "Kolik jednání zastupitelstva bylo v roce 2024?",
+  "tools": [
+   "jednani",
+   "pocet_bodu"
+  ],
+  "mustInclude": [
+   "\\b\\d{1,2}\\b"
+  ]
+ },
+ {
+  "q": "Kolikrát se řešila tělocvična na zastupitelstvu?",
+  "tools": [
+   "pocet_bodu"
+  ],
+  "mustInclude": [
+   "\\d+"
+  ]
+ },
+ {
+  "q": "Kolik bodů o pozemcích bylo projednáno v roce 2025?",
+  "tools": [
+   "pocet_bodu"
+  ],
+  "mustInclude": [
+   "\\d+",
+   "bod"
+  ]
+ },
+ {
+  "q": "Kolik bodů o školce je v zápisech rady?",
+  "tools": [
+   "pocet_bodu"
+  ],
+  "mustInclude": [
+   "\\d+"
+  ]
+ },
+ {
+  "q": "Kdo je místostarosta?",
+  "tools": [
+   "osoba",
+   "slozeni"
+  ],
+  "mustInclude": [
+   "Fejfar|Jedlička"
+  ]
+ },
+ {
+  "q": "Kdo je starosta Peček?",
+  "tools": [],
+  "mustInclude": [
+   "Paluska"
+  ]
+ },
+ {
+  "q": "Kdo sedí v radě města?",
+  "tools": [
+   "slozeni"
+  ],
+  "mustInclude": [
+   "Paluska",
+   "Fejfar"
+  ]
+ },
+ {
+  "q": "Jací jsou členové finančního výboru?",
+  "tools": [
+   "slozeni"
+  ],
+  "mustInclude": [
+   "výbor"
+  ]
+ },
+ {
+  "q": "Kdo je v kontrolním výboru?",
+  "tools": [
+   "slozeni"
+  ],
+  "mustInclude": [
+   "výbor"
+  ]
+ },
+ {
+  "q": "Kdo je členem školské rady?",
+  "tools": [
+   "slozeni"
+  ],
+  "mustInclude": [
+   "školsk"
+  ]
+ },
+ {
+  "q": "Kolik je zastupitelů v Pečkách?",
+  "tools": [
+   "slozeni"
+  ],
+  "mustInclude": [
+   "21"
+  ]
+ },
+ {
+  "q": "Kdo byl starostou před Paluskou?",
+  "tools": [
+   "slozeni"
+  ],
+  "mustInclude": [
+   "starost"
+  ]
+ },
+ {
+  "q": "Jaký je kontakt na starostu?",
+  "tools": [
+   "osoba"
+  ],
+  "mustInclude": [
+   "@|\\+?\\d{3}"
+  ]
+ },
+ {
+  "q": "Jaký e-mail má místostarosta Fejfar?",
+  "tools": [
+   "osoba"
+  ],
+  "mustInclude": [
+   "@"
+  ]
+ },
+ {
+  "q": "Kdo je členem sportovní komise?",
+  "tools": [
+   "slozeni"
+  ],
+  "mustInclude": [
+   "komis"
+  ]
+ },
+ {
+  "q": "Kdy je příští zastupitelstvo?",
+  "tools": [
+   "jednani",
+   "kalendar"
+  ],
+  "mustInclude": [
+   "\\d{1,2}\\. ?\\d{1,2}\\. ?20"
+  ]
+ },
+ {
+  "q": "Co se děje tento víkend?",
+  "tools": [
+   "kalendar"
+  ],
+  "mustInclude": [
+   "10\\. ?10\\.|11\\. ?10\\."
+  ]
+ },
+ {
+  "q": "Co se bude dít příští týden v Pečkách?",
+  "tools": [
+   "kalendar"
+  ],
+  "mustInclude": [
+   "1[2-8]\\. ?10\\."
+  ]
+ },
+ {
+  "q": "Je tento týden nějaký koncert?",
+  "tools": [
+   "kalendar"
+  ],
+  "mustInclude": [
+   "."
+  ]
+ },
+ {
+  "q": "Kdy se sváží papír?",
+  "tools": [
+   "kalendar",
+   "hledej_text"
+  ],
+  "mustInclude": [
+   "papír"
+  ]
+ },
+ {
+  "q": "Kdy bylo poslední zasedání rady?",
+  "tools": [
+   "jednani"
+  ],
+  "mustInclude": [
+   "RM"
+  ]
+ },
+ {
+  "q": "Jaké akce jsou v Pečkách dnes?",
+  "tools": [
+   "kalendar"
+  ],
+  "mustInclude": [
+   "."
+  ]
+ },
+ {
+  "q": "Kdo je ředitel základní školy?",
+  "tools": [
+   "osoba",
+   "hledej_text"
+  ],
+  "mustInclude": [
+   "."
+  ]
+ },
+ {
+  "q": "Najdi mi kontakt na vedoucí stavebního odboru",
+  "tools": [
+   "osoba"
+  ],
+  "mustInclude": [
+   "Čížek|@|\\d{3}"
+  ]
+ }
+]

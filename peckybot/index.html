@@ -63,6 +63,7 @@
           <input type="text" id="pb-input" aria-label="Váš dotaz" maxlength="600" placeholder="Napište otázku…" required>
           <button type="submit" id="pb-send" class="pb-send">Odeslat</button>
         </div>
+        <p class="pb-privacy">Dotazy se anonymně ukládají 90 dní, aby bylo možné zlepšovat odpovědi. Neukládá se IP adresa. Nezadávejte osobní údaje.</p>
       </form>
     </div>
   </section>
@@ -87,6 +88,12 @@
     .pb-chip{font:inherit; font-size:13.5px; padding:6px 12px; border-radius:16px; border:1px solid var(--line); background:var(--material); color:var(--ink); cursor:pointer;}
     .pb-chip:hover{border-color:var(--burgundy); color:var(--burgundy);}
     .pb-form{position:fixed; z-index:100; left:0; right:0; bottom:0; padding:12px 16px; background:var(--material-deep); border-top:1px solid var(--line);}
+    .pb-privacy{max-width:760px; margin:6px auto 0; font-size:12px; line-height:1.4; color:var(--ink-soft);}
+    .pb-vote{display:flex; align-items:center; gap:6px; margin:10px 0 0; font-size:13px; color:var(--ink-soft);}
+    .pb-vote button{font:inherit; font-size:15px; line-height:1; padding:4px 9px; border:1px solid var(--line); border-radius:14px; background:var(--material); color:var(--ink); cursor:pointer;}
+    .pb-vote button:hover, .pb-vote button:focus-visible{border-color:var(--burgundy);}
+    .pb-vote button[disabled]{opacity:.55; cursor:default;}
+    .pb-vote button[aria-pressed="true"]{background:var(--burgundy); border-color:var(--burgundy); color:#fff;}
     .pb-row{display:flex; gap:8px; max-width:760px; margin:0 auto;}
     .pb-row input{flex:1; min-width:0; font:inherit; font-size:15px; padding:9px 12px; border:1px solid var(--line); border-radius:4px; background:#fff; color:var(--ink);}
     .pb-send{font:inherit; font-size:14px; font-weight:600; padding:9px 18px; border:0; border-radius:4px; background:var(--burgundy); color:#fff; cursor:pointer;}
@@ -139,6 +146,38 @@
       return out;
     }
 
+    // Hodnocení odpovědi: POST {apiBase}/feedback {id, hlas}; poslední hlas platí.
+    function feedbackUrl() { return apiUrl.replace(/\/chat\/?$/, '/feedback'); }
+
+    function addVote(msgEl, id) {
+      var bubble = msgEl.querySelector('.pb-bubble');
+      var box = document.createElement('div');
+      box.className = 'pb-vote';
+      box.innerHTML = '<button type="button" data-hlas="1" aria-pressed="false" aria-label="Odpověď pomohla" title="Odpověď pomohla">👍</button>' +
+        '<button type="button" data-hlas="-1" aria-pressed="false" aria-label="Odpověď nepomohla" title="Odpověď nepomohla">👎</button>' +
+        '<span class="pb-vote-msg" role="status"></span>';
+      var note = box.querySelector('.pb-vote-msg');
+      box.addEventListener('click', function (e) {
+        var b = e.target.closest('button');
+        if (!b) return;
+        var hlas = Number(b.getAttribute('data-hlas'));
+        var btns = box.querySelectorAll('button');
+        btns.forEach(function (x) { x.disabled = true; });
+        fetch(feedbackUrl(), {
+          method: 'POST',
+          headers: {'Content-Type': 'application/json'},
+          body: JSON.stringify({id: id, hlas: hlas})
+        }).then(function (r) {
+          if (!r.ok) throw new Error('hodnocení');
+          btns.forEach(function (x) { x.setAttribute('aria-pressed', x === b ? 'true' : 'false'); });
+          note.textContent = 'Hodnocení uloženo.';
+        }).catch(function () {
+          note.textContent = 'Hodnocení se nepodařilo uložit.';
+        }).then(function () { btns.forEach(function (x) { x.disabled = false; }); });
+      });
+      bubble.appendChild(box);
+    }
+
     function setBusy(b) {
       busy = b;
       send.disabled = b || !apiUrl;
@@ -169,7 +208,8 @@
           return;
         }
         history.push({role: 'assistant', content: res.body.answer});
-        addMsg('bot', renderAnswer(res.body.answer, res.body.sources || []));
+        var el = addMsg('bot', renderAnswer(res.body.answer, res.body.sources || []));
+        if (res.body.id) addVote(el, res.body.id);
       }).catch(function () {
         thinking.remove();
         history.pop();
