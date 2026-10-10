@@ -140,9 +140,6 @@
   .year-btn{display:inline-block; font-family:var(--font-mono); font-size:13px; font-weight:700; letter-spacing:0.02em; padding:9px 20px; margin:0; border:1px solid var(--line); border-radius:3px; color:var(--ink); background:var(--material-deep); text-decoration:none; transition:border-color .15s, color .15s, background-color .15s;}
   .year-btn:hover{border-color:var(--cyan-deep); color:var(--cyan-deep); text-decoration:none;}
   .year-btn.active{background:var(--cyan-deep); border-color:var(--cyan-deep); color:#fff;}
-  .year-btn-label{background:none; border-color:var(--cyan-deep); color:var(--cyan-deep);}
-  a.year-btn-label:hover{background:rgba(0,115,143,0.08); color:var(--cyan-deep);}
-  span.year-btn-label{cursor:default; opacity:0.85;}
 
   .text-toggle{display:inline-flex; align-items:center; white-space:nowrap; flex-shrink:0; font-family:var(--font-mono); font-size:13px; font-weight:700; letter-spacing:0.02em; margin:2px; padding:9px 2px; border:none; background:none; color:var(--cyan-deep); cursor:pointer; text-decoration:underline;}
   .text-toggle:hover{color:var(--cyan-deep);}
@@ -533,7 +530,7 @@
   .res-outcome{margin-right:6px;}
 
   .callout{
-    border-left:3px solid var(--gold); background:rgba(173,122,42,0.08);
+    border-left:3px solid var(--cyan); background:#FFFABB;
     padding:14px 18px; font-size:13.5px; color:var(--ink-soft); margin:22px 0;
   }
   .callout strong{color:var(--ink);}
@@ -713,7 +710,7 @@
   .people-avatars .attendance-sep{width:1px; align-self:stretch; background:var(--line); margin:0 2px; flex-shrink:0;}
   /* karty volebních uskupení (Volby 2018/2022/2026) */
   .party-cards{display:flex; flex-direction:column; gap:12px; margin-top:6px;}
-  .party-card{background:rgba(255,255,255,0.35); border:1px solid var(--line);
+  .party-card{background:var(--material-deep); border:1px solid var(--line);
     border-left:4px solid var(--org-c, var(--line)); border-radius:12px; padding:14px 18px;}
   .party-card .party-name{font-family:var(--font-display); font-size:19px; font-weight:600; margin:0 0 10px;}
   .party-card .party-body{margin:0; display:grid; gap:10px; font-size:14px;}
@@ -723,8 +720,26 @@
   .party-card .people-avatars .av-init{font-size:13px;}
   .party-card .av-link{display:inline-flex; border-radius:50%; text-decoration:none; transition:transform .12s;}
   .party-card .av-link:hover, .party-card .av-link:focus-visible{transform:scale(1.1);}
-  .party-card .party-result{margin:-4px 0 12px; font-family:var(--font-banner); font-style:italic; font-size:28px; line-height:1.2; color:var(--cyan-deep);}
+  .party-card .party-result{margin:-4px 0 12px; font-family:var(--font-banner); font-style:italic; font-size:23px; line-height:1.2; color:var(--cyan-deep);}
   .party-card .party-outcome{margin-top:2px;}
+  .hist-starosta{display:flex; align-items:center; gap:10px; min-width:200px;}
+  .hist-starosta .hist-av{width:40px; height:40px; border-radius:50%; object-fit:cover; display:block; flex-shrink:0;}
+  .vol-legend{list-style:none; margin:10px 0 0; padding:0; display:flex; flex-wrap:wrap; gap:4px 16px; font-size:12.5px; color:var(--ink-soft);}
+  .vol-legend li{display:inline-flex; align-items:center; gap:6px;}
+  table.register tr.vol-funkce td{background:rgba(189,37,63,0.07);}
+  table.register tr.vol-funkce .tag{color:var(--ink); background:var(--yellow); border-color:var(--yellow-deep); font-weight:600;}
+  .party-card{position:relative;}
+  .party-card .party-name{padding-right:96px;}
+  .party-card .party-outcome .tag{position:absolute; top:14px; right:18px; font-weight:600;}
+  .party-card .party-outcome .tag.opozice{color:#fff; background:var(--cyan-deep); border-color:var(--cyan-deep);}
+  .party-card .party-outcome .tag.koalice{color:var(--ink); background:var(--yellow); border-color:var(--yellow-deep);}
+  @media (min-width:900px){
+    .party-card{display:grid; grid-template-columns:1fr 1fr; grid-template-rows:auto auto 1fr; column-gap:28px;}
+    .party-card .party-name, .party-card .party-result{grid-column:1;}
+    .party-card .party-body{grid-column:2; grid-row:1 / span 3; align-content:start; padding-top:26px;}
+    .party-cards--stack .party-card{display:block;}
+    .party-cards--stack .party-card .party-body{padding-top:0;}
+  }
   .party-card .av-rest{display:contents;}
   .party-card .av-rest[hidden]{display:none;}
   .party-card .av-more{width:44px; height:44px; border-radius:50%; border:1px solid var(--line); background:var(--material-deep); color:inherit; font-size:18px; line-height:1; cursor:pointer; padding:0;}
@@ -908,3 +923,25 @@
   details.collapsible > summary{margin-bottom:8px;}
   details.collapsible .collapsible-arrow{display:inline-block; color:var(--burgundy); font-size:0.8em; margin-left:4px; transition:transform .15s;}
   details.collapsible:not([open]) .collapsible-arrow{transform:rotate(-90deg);}
+
+  /* ===== Greybox: šedý informační box s malým štítkem, velkým nadpisem a krátkým textem =====
+     Použití: <div class="greybox-red"><p class="greybox-label">Štítek</p>
+     <h3 class="greybox-title">Nadpis</h3><p class="greybox-text">Text</p></div>
+     Varianty podle barvy textu: greybox-black / -red / -green / -blue.
+     Barvu řídí --greybox-fg, pozadí --greybox-bg. */
+  .greybox-black,.greybox-red,.greybox-green,.greybox-blue{
+    --greybox-bg:var(--material-deep); --greybox-fg:var(--ink);
+    box-sizing:border-box; max-width:330px; margin:0 0 16px; padding:22px;
+    background:var(--greybox-bg); color:var(--greybox-fg); border-radius:8px;
+    font-family:var(--font-body); line-height:1.3;
+  }
+  .greybox-red{--greybox-fg:var(--burgundy);}
+  .greybox-green{--greybox-fg:#1B7A3E;}
+  .greybox-blue{--greybox-fg:var(--cyan-deep);}
+  .greybox-label{margin:0 0 4px; font-size:16px; font-weight:500; line-height:1.3; text-transform:uppercase; color:inherit;}
+  .greybox-title{margin:0 0 6px; font-family:var(--font-body); font-size:40px; font-weight:700; line-height:1.1; letter-spacing:-0.01em; color:inherit;}
+  .greybox-text{margin:0; font-size:18px; font-weight:400; line-height:1.3; color:inherit;}
+  @media (max-width:600px){
+    .greybox-black,.greybox-red,.greybox-green,.greybox-blue{max-width:none; padding:18px;}
+    .greybox-title{font-size:32px;}
+  }

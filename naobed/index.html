@@ -107,9 +107,9 @@
     .naobed-actions{display:flex; flex-wrap:wrap; gap:8px; align-items:center; margin-top:6px;}
     .naobed-btn{display:inline-block; padding:7px 14px; border-radius:4px; background:var(--burgundy); color:#fff; font-size:14px; font-weight:600; text-decoration:none;}
     .naobed-btn:hover{filter:brightness(1.15);}
-    .naobed-dalsi{display:grid; grid-template-columns:repeat(auto-fill,minmax(250px,1fr)); gap:14px;}
-    .naobed-mini{display:flex; flex-direction:column; gap:6px; padding:14px 18px 16px; background:rgba(255,255,255,0.55); color:var(--ink-soft); font-size:15px;}
-    .naobed-mini h4{margin:0; font-family:var(--font-display); font-size:18px; color:var(--ink);}
+    .naobed-dalsi{display:grid; grid-template-columns:repeat(auto-fill,minmax(280px,1fr)); gap:14px;}
+    .naobed-mini{display:flex; flex-direction:column; gap:6px; max-width:none; margin:0; font-size:15px;}
+    .naobed-mini .greybox-title{font-size:30px; overflow-wrap:anywhere;}
     .naobed-mini p{margin:0;}
     .naobed-mini .naobed-actions{margin-top:auto; padding-top:6px;}
     .naobed-empty{padding:60px 20px; color:var(--ink-soft); font-size:15px; text-align:center;}
@@ -135,7 +135,7 @@
       var tydne = Object.keys(DNY_CZ).map(function (d) { return DNY_CZ[d] + ' ' + (oh.hours[d] ? hod(oh.hours[d]) : 'zavřeno'); }).join('\n');
       return '<span title="' + esc(tydne + (oh.note ? '\n' + oh.note : '')) + '">🕒 Dnes ' + (h ? 'otevřeno ' + esc(hod(h)) : 'zavřeno') + '</span>';
     }
-    function adresa(a) { return '<a href="https://mapy.com/?q=' + encodeURIComponent(a) + '" target="_blank" rel="noopener">' + esc(a) + '</a>'; }
+    function adresa(a) { return '<a href="https://mapy.com/?q=' + encodeURIComponent(/Pečky/.test(a) ? a : a + ', Pečky') + '" target="_blank" rel="noopener">' + esc(a) + '</a>'; }
     function denNazev(iso) { var p = iso.split('-'); return DNY_CZ[DNY[new Date(+p[0], +p[1] - 1, +p[2], 12).getDay()]]; }
     function today() { var d = new Date(); return d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0') + '-' + String(d.getDate()).padStart(2, '0'); }
 
@@ -205,8 +205,9 @@
         var oh = dnesOtevreno((orgs[r.id] || {}).opening_hours);
         var tel = r.phone ? '<a class="naobed-btn" href="callto://+420' + esc(r.phone.replace(/\D/g, '')) + '">📞 ' + esc(r.phone) + '</a>' : '';
         var odkaz = r.link ? '<a href="' + esc(r.link) + '" target="_blank" rel="noopener">' + esc(r.linkLabel || 'Odkaz') + ' ↗</a>' : '';
-        return '<article class="card naobed-mini"><h4>' + esc(r.name) + '</h4>' +
-          (r.note ? '<p>' + esc(r.note) + '</p>' : '') +
+        return '<article class="greybox-black naobed-mini">' +
+          (r.note ? '<p class="greybox-label">' + esc(r.note) + '</p>' : '') +
+          '<h4 class="greybox-title">' + esc(r.name) + '</h4>' +
           (r.address ? '<p>📍 ' + adresa(r.address) + '</p>' : '') +
           (oh ? '<p>' + oh + '</p>' : '') +
           (tel || odkaz ? '<div class="naobed-actions">' + tel + (odkaz ? '<span>' + odkaz + '</span>' : '') + '</div>' : '') +

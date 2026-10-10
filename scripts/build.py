@@ -79,7 +79,12 @@ MANIFEST = {
     'volby': (
         '/volby/', 'Volby do zastupitelstva — Do Peček . cz',
         'Přehled komunálních voleb do zastupitelstva města Pečky: '
-        'ročníky 2018, 2022 a 2026.',
+        'ročníky 2014, 2018, 2022 a 2026.',
+        False),
+    'volby2014': (
+        '/volby/2014/', 'Volby 2014 — Do Peček . cz',
+        'Komunální volby 2014 v Pečkách: výsledky uskupení, osobní hlasy '
+        'zvolených zastupitelů a jejich funkce.',
         False),
     'volby2018': (
         '/volby/2018/', 'Volby 2018 — Do Peček . cz',
@@ -251,6 +256,7 @@ README_TO_SLUG = {
     'smlouvy': 'smlouvy',
     'zakazky': 'zakazky',
     'volby': 'volby',
+    'volby/2014': 'volby2014',
     'volby/2018': 'volby2018',
     'volby/2022': 'volby2022',
     'volby/2026': 'volby2026',
@@ -901,19 +907,13 @@ def render_dashboard(stav_rows):
 # zvýrazní aktivní rok. Zdroj pravdy pro seznam ročníků je tenhle slovník -
 # při založení dalšího ročníku (po 2026) přidat sem, do MANIFEST i do
 # volby/README.md.
-VOLBY_ROCNIKY = ['2026', '2022', '2018']  # nejnovější -> nejstarší
-VOLBY_SLUG_TO_ROK = {'volby2026': '2026', 'volby2022': '2022', 'volby2018': '2018'}
+VOLBY_ROCNIKY = ['2026', '2022', '2018', '2014']  # nejnovější -> nejstarší
+VOLBY_SLUG_TO_ROK = {'volby2026': '2026', 'volby2022': '2022', 'volby2018': '2018', 'volby2014': '2014'}
 
 
 def render_volby_rocniky(current_slug):
     current_rok = VOLBY_SLUG_TO_ROK.get(current_slug)
     items = []
-    # První položka je popisek/odkaz zpět na rozcestník /volby/ - na
-    # samotném rozcestníku není kam odkazovat, takže tam není klikací.
-    if current_slug == 'volby':
-        items.append('<span class="year-btn year-btn-label" aria-current="page">Volby:</span>')
-    else:
-        items.append('<a class="year-btn year-btn-label" href="/volby/">Volby:</a>')
     for rok in VOLBY_ROCNIKY:
         cls = 'year-btn active' if rok == current_rok else 'year-btn'
         items.append(f'<a class="{cls}" href="/volby/{rok}/">{rok}</a>')
@@ -944,7 +944,7 @@ def apply_active(html, current_slug):
     """Nahradí {{ACTIVE:slug}} placeholdery (navlinky žijí v assets/footer.html)."""
     def repl(m):
         slug = m.group(1)
-        is_election_page = current_slug in {'volby', 'volby2018', 'volby2022', 'volby2026'}
+        is_election_page = current_slug in {'volby', 'volby2014', 'volby2018', 'volby2022', 'volby2026'}
         return ' active' if slug == current_slug or (slug == 'volby' and is_election_page) else ''
     return re.sub(r'\{\{ACTIVE:([a-z0-9]+)\}\}', repl, html)
 

@@ -453,6 +453,7 @@ STATICKE = {
     'smlouvy': ('/smlouvy/', 'Smlouvy'),
     'zakazky': ('/zakazky/', 'Zakázky'),
     'volby': ('/volby/', 'Volby'),
+    'volby2014': ('/volby/2014/', 'Volby 2014'),
     'volby2018': ('/volby/2018/', 'Volby 2018'),
     'volby2022': ('/volby/2022/', 'Volby 2022'),
     'volby2026': ('/volby/2026/', 'Volby 2026'),
