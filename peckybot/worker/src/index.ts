@@ -108,7 +108,8 @@ export default {
       const messages = parseMessages(body);
       const ip = request.headers.get("CF-Connecting-IP") ?? "unknown";
       const { month } = await enforceLimits(env, ip);
-      return json(await answer(env, messages, month), 200, origin);
+      const { meta: _meta, ...result } = await answer(env, messages, month);
+      return json(result, 200, origin);
     } catch (err) {
       if (err instanceof HttpError) {
         return json({ error: err.message, code: err.code }, err.status, origin);

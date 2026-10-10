@@ -60,3 +60,17 @@ export async function bump(kv: KVNamespace, key: string, ttlSeconds: number): Pr
   return n;
 }
 
+
+/** Výsledek answer(); `meta` slouží záznamům a hodnocení (log.ts), neodesílá se do prohlížeče. */
+export interface AnswerResult {
+  answer: string;
+  sources: { n: number; title: string; url: string }[];
+  meta: {
+    model: string;
+    inputTokens: number;
+    outputTokens: number;
+    costMicro: number; // mikro-USD, součet všech volání modelu v jednom dotazu
+    tools: string[]; // názvy nástrojů v pořadí volání (prázdné = jen úryvky)
+    retrieved: string[]; // titulky úryvků dodaných modelu
+  };
+}

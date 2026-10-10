@@ -8,6 +8,7 @@ import {
   TOP_K,
   czDate,
   pragueDate,
+  type AnswerResult,
   type ChatMessage,
   type Env,
 } from "./common.ts";
@@ -66,7 +67,7 @@ export async function recordSpend(env: Env, month: string, model: string, inTok:
   await env.BUDGET.put(key, String(total), { expirationTtl: 40 * 86400 });
 }
 
-export async function answer(env: Env, messages: ChatMessage[], month: string) {
+export async function answer(env: Env, messages: ChatMessage[], month: string): Promise<AnswerResult> {
   const model = env.MODEL || "claude-sonnet-5-5";
   const modern = MODERN_MODEL.test(model);
 
@@ -113,8 +114,17 @@ export async function answer(env: Env, messages: ChatMessage[], month: string) {
 
   await recordSpend(env, month, model, response.usage.input_tokens, response.usage.output_tokens);
 
+  const [pin, pout] = PRICES[model] ?? FALLBACK_PRICE;
+  const meta: AnswerResult["meta"] = {
+    model,
+    inputTokens: response.usage.input_tokens,
+    outputTokens: response.usage.output_tokens,
+    costMicro: Math.round(response.usage.input_tokens * pin + response.usage.output_tokens * pout),
+    tools: [],
+    retrieved: sources.map((s) => s.title),
+  };
   if (response.stop_reason === "refusal") {
-    return { answer: "Na tuhle otázku PečkyBot odpovědět nemůže. Zkuste ji prosím formulovat jinak.", sources: [] };
+    return { answer: "Na tuhle otázku PečkyBot odpovědět nemůže. Zkuste ji prosím formulovat jinak.", sources: [], meta };
   }
   const text = response.content
     .flatMap((b) => (b.type === "text" ? [b.text] : []))
@@ -125,6 +135,7 @@ export async function answer(env: Env, messages: ChatMessage[], month: string) {
   return {
     answer: text || "PečkyBot teď nedokázal odpovědět. Zkuste to prosím znovu.",
     sources: sources.filter((s) => cited.has(s.n)).map(({ n, title, url }) => ({ n, title, url })),
+    meta,
   };
 }
 
