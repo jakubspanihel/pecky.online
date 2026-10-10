@@ -82,6 +82,9 @@
     <div class="callout">
       <strong>Starší jednání z úřední desky.</strong> Jednání před dubnem 2021 archiv usneseni.cz nemá. Ve výpisu jsou proto zápisy a usnesení, která město vyvěšilo na úřední desku, označená štítkem „z úřední desky“: <strong>38 zápisů rady města</strong> z let 2015–2016 a <strong>36 usnesení zastupitelstva</strong> z let 2015 až dubna 2021 (u zastupitelstva jen usnesení, bez hlasování a rozpravy). Chybí usnesení zastupitelstva č. 3/2017, 1/2018 a 4/2020 (č. 1/2015 a 2/2015 vznikla před začátkem dostupného archivu desky v červnu 2015), u č. 6/2018 a 7/2019 je na desce jen záznam bez souboru, a zápisy rady z let 2017 až března 2021 na desce nejsou vůbec. Text skenovaných dokumentů vznikl rozpoznáním (OCR) a může obsahovat chyby v písmenech. Zdroj: <a href="/o-webu/uredni-deska-monitoring/">Monitoring úřední desky</a>.
     </div>
+    <div class="callout">
+      <strong>Jednání z Pečeckých novin.</strong> Zápisy a usnesení před rokem 2015 otiskoval i měsíčník <a href="/noviny/">Pečecké noviny</a>. Ve výpisu je jich <strong>165 zápisů rady města</strong> a <strong>30 usnesení zastupitelstva</strong> z let 2001 až června 2015 (zápisy z úřední desky navazují od 8. 6. 2015). Označuje je štítek „z novin“ a odkaz na stranu s PDF. Vybraná čísla se v archivu novin nedochovala: chybí roky 2002 až 2004 a 2007, z let 2001 a 2005–2006 je jen několik čísel a z let 2008–2015 například čísla 2/2011 a 3/2011. Soupis proto není úplný. Text je strojový přepis stránky (u skenů z let 2012–2015 po rozpoznání písmen, OCR), takže může obsahovat chyby v písmenech i řádky z okolních článků; závazná je vždy tištěná strana. U rady noviny přetiskly body „rada bere na vědomí“, „schvaluje“ a „ukládá“, u zastupitelstva jen usnesení, bez hlasování a rozpravy.
+    </div>
 
     <p class="lede" style="margin:18px 0 0;">Související: <a href="/jednani/absence.html">Docházka zastupitelů</a> · <a href="/jednani/nejdelsi.html">Nejdelší body jednání zastupitelstva</a> · <a href="/jednani/odpracovano.html">Kolik času zastupitelé odpracovali</a> · <a href="/jednani/youtube.html">Zhlédnutí záznamů zastupitelstva</a></p>
   </section>
@@ -277,7 +280,7 @@
     if (JEDNANI_LOADING) return JEDNANI_LOADING;
     JEDNANI_LOADING = (async () => {
       try {
-        const [res, parcelRes, peopleRes, termRes, vyboryRes, komiseRes, srRes, starsiRes] = await Promise.all([
+        const [res, parcelRes, peopleRes, termRes, vyboryRes, komiseRes, srRes, starsiRes, novinyRes] = await Promise.all([
           fetch('/jednani/pecky-jednani.json'),
           fetch('/jednani/parcely-odkazy.json').catch(() => null),
           fetch('/lide/people.json').catch(() => null),
@@ -285,7 +288,8 @@
           fetch('/jednani/vybory.json').catch(() => null),
           fetch('/jednani/komise.json').catch(() => null),
           fetch('/jednani/skolska-rada.json').catch(() => null),
-          fetch('/jednani/starsi-jednani.json').catch(() => null)
+          fetch('/jednani/starsi-jednani.json').catch(() => null),
+          fetch('/jednani/noviny-jednani.json').catch(() => null)
         ]);
         if (!res.ok) throw new Error('HTTP ' + res.status);
         if (parcelRes && parcelRes.ok) {
@@ -356,6 +360,24 @@
             data.meetings = data.meetings.concat(st)
               .sort((a, b) => (b.date || '').localeCompare(a.date || ''));
           } catch (e) { /* bez starších jednání */ }
+        }
+        // jednání přetištěná v Pečeckých novinách 2001–6/2015 (jednani/noviny-jednani.json):
+        // stejný tvar jako starší jednání z úřední desky, štítek „z novin“
+        data._novinyCount = 0;
+        if (novinyRes && novinyRes.ok) {
+          try {
+            const nv = (await novinyRes.json()).meetings || [];
+            nv.forEach(m => {
+              m._starsi = true;
+              m._noviny = true;
+              m.agenda = [];
+              m.resolutions = [];
+              m._textNorm = jNorm((m.doc_title || '') + ' ' + (m.text || ''));
+            });
+            data._novinyCount = nv.length;
+            data.meetings = data.meetings.concat(nv)
+              .sort((a, b) => (b.date || '').localeCompare(a.date || ''));
+          } catch (e) { /* bez jednání z novin */ }
         }
         const years = new Set();
         const resByNumber = {};
@@ -700,8 +722,13 @@
   function jRenderStarsiRow(m, dividerHtml){
     const slug = jSlugForMeeting(m);
     const notes = [];
-    if (m.ocr) notes.push('Text vznikl rozpoznáním skenu (OCR) a může obsahovat chyby v písmenech.');
-    if (!m.file) notes.push('Na úřední desce je u tohoto dokumentu jen záznam bez přiloženého souboru.');
+    if (m._noviny) {
+      notes.push('Strojový přepis stránky Pečeckých novin' + (m.ocr ? ' (sken, text vznikl rozpoznáním — OCR)' : '') + ': může obsahovat chyby v písmenech a vsuvky z okolních článků. Závazná je tištěná strana (odkaz níže).');
+      if (m.text_note) notes.push(m.text_note);
+    } else {
+      if (m.ocr) notes.push('Text vznikl rozpoznáním skenu (OCR) a může obsahovat chyby v písmenech.');
+      if (!m.file) notes.push('Na úřední desce je u tohoto dokumentu jen záznam bez přiloženého souboru.');
+    }
     return `
       ${dividerHtml}
       <div class="meeting-row" data-uuid="${jEscapeHtml(m.id)}" data-slug="${slug}">
@@ -712,7 +739,9 @@
             </a>
           </span>
           <span class="meeting-info">
-            <span class="tag" title="Dokument vyvěšený na úřední desce města">z úřední desky</span>
+            ${m._noviny
+              ? '<span class="tag" title="Zápis nebo usnesení otištěné v Pečeckých novinách">z novin</span>'
+              : '<span class="tag" title="Dokument vyvěšený na úřední desce města">z úřední desky</span>'}
             <span class="meeting-toggle">+</span>
           </span>
         </div>
@@ -720,7 +749,7 @@
           ${notes.length ? `<p class="lede lede-sm" style="margin:6px 0 10px; color:var(--ink-soft);">${jEscapeHtml(notes.join(' '))}</p>` : ''}
           ${m.text ? `<div class="starsi-text">${jEscapeHtml(m.text)}</div>` : ''}
           <div class="meeting-links">
-            <a class="toggle-details" href="${jEscapeHtml(m.links.minutes)}" target="_blank" rel="noopener" style="margin:0;">${m.doc_kind === 'zápis' ? 'Zápis' : 'Usnesení'} na úřední desce ↗</a>
+            <a class="toggle-details" href="${jEscapeHtml(m.links.minutes)}" target="_blank" rel="noopener" style="margin:0;">${m._noviny ? jEscapeHtml(m.source) + ' (PDF)' : (m.doc_kind === 'zápis' ? 'Zápis' : 'Usnesení') + ' na úřední desce'} ↗</a>
           </div>
         </div>
       </div>`;
@@ -884,11 +913,11 @@
           ${typeTag}
           <span class="hit-label">${jEscapeHtml(m.doc_title || m.label || '')}</span>
           <span class="hit-date">${jFormatDate(m.date)}</span>
-          <span class="tag">z úřední desky</span>
+          <span class="tag">${m._noviny ? 'z novin' : 'z úřední desky'}</span>
         </div>
         <div class="hit-text">${jHighlightLinked(snippet, rawQuery)}</div>
         <div class="hit-footer">
-          <a href="${jEscapeHtml(m.links.minutes)}" target="_blank" rel="noopener">${m.doc_kind === 'zápis' ? 'zápis' : 'usnesení'} na úřední desce ↗</a>
+          <a href="${jEscapeHtml(m.links.minutes)}" target="_blank" rel="noopener">${m._noviny ? jEscapeHtml(m.source) : (m.doc_kind === 'zápis' ? 'zápis' : 'usnesení') + ' na úřední desce'} ↗</a>
           <a href="#${jSlugForMeeting(m)}">celý text</a>
         </div>
       </div>`;

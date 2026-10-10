@@ -1204,6 +1204,30 @@ i PečkyBota) v samostatném souboru `jednani/starsi-jednani.json` — tvar záz
 - **Případné rozšíření (úroveň B):** z textu zápisů RM vytáhnout přítomné a hlasování po jménech, z usnesení ZM seznam
   usnesení (I.–IV.); u OCR skenů (5 dokumentů) jména ručně zkontrolovat.
 
+## Jednání z Pečeckých novin (od 10. 10. 2026)
+
+Zápisy Rady a usnesení Zastupitelstva, která vyšla v Pečeckých novinách **před** zápisy na úřední desce (první je RM
+8. 6. 2015), jsou v samostatném souboru `jednani/noviny-jednani.json` (tvar jako `starsi-jednani.json`, `group: "noviny"`).
+- **Obsah (195):** 165 zápisů Rady a 30 usnesení ZM z 6/2001, 2005–2006 a 11/2007–7/2015 (nejstarší RM 4. 6. 2001,
+  nejmladší ZM 3. 6. 2015). Čísla 6/2015 a 7/2015 jsou zahrnuta jen u jednání před 8. 6. 2015 (RM 27. 4., 13. 5., 25. 5.,
+  ZM 2/2015 3. 6.). Po 8. 6. 2015 platí úřední deska.
+- **Generuje** `python3 jednani/scripts/noviny-jednani.py` z `noviny/Data/PN RRRR/*.pdf` (textová vrstva `pdftotext`, 2001–2011;
+  u 2001 a 2008–2011 s opravami níže) a z OCR textu v `noviny/pecky-noviny.json` (skeny 2012–2015). Pro rychlejší ladění
+  `NOVINY_CACHE=/cesta/k/cache`; `--review` vypíše začátek/konec každého jednání, `--tail N id…` posledních N řádků.
+- **Postup:** nadpis „Rada města Pečky / konaná dne …“ resp. „Usnesení č. … z veřejného zasedání Zastupitelstva“ určí začátek
+  a datum, konec určí (1) další nadpis, (2) OCR značka konce článku (■ čtené jako `m`, `=`, `B`, `L`), (3) první odstavec,
+  který už není zápis (nadpis, VERZÁLKY, po prázdném řádku), u ZM podpisy ověřovatelů. Zalomené řádky se slepí (`reflow`).
+- **Ruční opravy v skriptu** (vždy ověřeno v PDF): `TEXT_FIXES` (poškozená data nadpisů, např. „1%. dubna 201%“ → 14. 4. 2014),
+  `DATE_OVERRIDE` (RM v 4/2014 má v nadpisu chybně „3. února“, z textu vyplývá 3. 3. 2014), `CUT` (konec, kde za zápisem
+  následuje jiný článek), `DROP`/`TRIM` (vsunuté rámečky a řádky), `PARTIAL` (poznámka u zkráceného přepisu).
+  Překlep v novinách: RM 15. 6. 2009 má v nadpisu „2008“ (uživatel potvrdil, že jde o 2009).
+- **Stránka:** záznamy se načítají v `content/jednani.html` stejně jako starší jednání z úřední desky (`m._starsi`, navíc
+  `m._noviny`): štítek „z novin“, po rozkliknutí text + odkaz na stranu PDF novin (`#page=N`), fulltext, hash
+  (`#rada-2010-08-23`), filtry. Pod výpisem je vysvětlující callout (hardcodovaný text a počty — po změně dat přepsat).
+- **Mezery a spolehlivost:** archiv novin nemá 2002–2004 a 2007, z 2001/2005–2006 jen několik čísel, z 2008–2015 chybí např. 2/2011,
+  3/2011. Text je strojový přepis; u skenů mohou být vsuvky z okolních článků a chyby OCR, u několika jednání je přepis zkrácený
+  (`text_note`). Ustavující zasedání 2010, 2006 a 2002 se ve `volebni-obdobi.json` nehledala (výpis nemá dělicí čáru).
+
 **Hranice volebních období (`volebni-obdobi.json`, doplněno 6. 10. 2026):** kromě ustavujícího zasedání 20. 10. 2022
 jsou zapsaná i **14. 11. 2018** (PN 11/2018 a 12/2018, s. 3; zasedání se posunulo kvůli návrhu na neplatnost
 voleb) a **5. 11. 2014** (PN 12/2014, s. 2–3, usnesení ustavujícího zasedání). Zdroje jsou odkazy na PDF novin
