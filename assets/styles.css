@@ -946,3 +946,9 @@
     .greybox-black,.greybox-red,.greybox-green,.greybox-blue{max-width:none; padding:18px;}
     .greybox-title{font-size:32px;}
   }
+
+/* Sloupce grafu účasti (Volby) jako odkazy na stránky ročníků */
+.chart-bar-link { cursor: pointer; }
+.chart-bar-link rect { transition: opacity .15s; }
+.chart-bar-link:hover rect, .chart-bar-link:focus-visible rect { opacity: .8; }
+.chart-bar-link:focus-visible { outline: 2px solid var(--cyan-deep); }
