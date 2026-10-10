@@ -229,6 +229,10 @@ EXTRA_PAGES = {
 }
 
 
+# Stránky bez hlavičky a patičky (celoobrazovkové, se samostatným tlačítkem Zavřít)
+BEZ_RAMCE = {'peckybot'}
+
+
 # cesta k README sekce (jak je zapsaná v tabulce "Stav sekcí") -> slug v MANIFEST
 README_TO_SLUG = {
     'domu': 'domu',
@@ -996,6 +1000,8 @@ def build_all(stav_rows=None):
             content = content.replace('{{VOLBY_ROCNIKY}}', render_volby_rocniky(slug))
         nav = build_nav(nav_slug)
         footer = apply_active(footer_tpl, nav_slug)
+        if slug in BEZ_RAMCE:
+            nav = footer = ''
         head_scripts = '<script src="/assets/helpers.js"></script>' if needs_helpers else ''
         if je_extra and extra_lastmod is None:
             head_scripts = '<meta name="robots" content="noindex">\n' + head_scripts

@@ -36,47 +36,10 @@
 </head>
 <body>
 <script>window.SITE_BASE_PATH = '';</script>
-<header class="site">
-  <div class="header-inner">
-    <div class="brand-row">
-      <a class="brand" href="/">
-        <img class="brand-logo" src="/img/favicons/icon-192.png" alt="" width="44" height="44">
-        <h1>Do Peček . cz</h1>
-      </a>
-    </div>
-  </div>
-  <nav class="tabs header-nav" id="tabs">
-    <a class="navlink" href="/naobed/">Na oběd</a>
-    <a class="navlink" href="/kalendar/">Kalendář</a>
-    <a class="navlink" href="/noviny/">Pečecké noviny</a>
-    <a class="navlink" href="/jednani/">Jednání</a>
-    <a class="navlink" href="/lide/">Lidé</a>
-    <a class="navlink" href="/telocvicna/">Tělocvična</a>
-    <a class="navlink" href="/volby/">Volby</a>
-    <button type="button" class="navlink navlink-more" id="infoFab" aria-controls="overlayMenu" aria-haspopup="dialog">Více...</button>
-  </nav>
-</header>
-<div class="overlay-menu" id="overlayMenu" role="dialog" aria-modal="true" aria-label="Menu" hidden>
-  <button type="button" class="overlay-close" id="overlayClose" aria-label="Zavřít menu">Zavřít</button>
-  <nav class="overlay-links" id="overlayLinks"></nav>
-  <template id="overlayMonitoring">
-    <a class="navlink secondary small" href="/o-webu/facebook-monitoring/facebook-mestopecky/">Facebook města</a>
-    <a class="navlink secondary small" href="/o-webu/uredni-deska-monitoring/">Úřední deska</a>
-    <a class="navlink secondary small" href="/jednani/absence.html">Docházka zastupitelů</a>
-    <a class="navlink secondary small" href="/jednani/youtube.html">YouTube města</a>
-  </template>
-</div>
 
 <main>
   <section class="panel active" id="panel-peckybot">
-    <p class="lastmod" data-date="2026-10-08">Aktualizováno: 8. 10. 2026</p>
-    <h2 class="title display">Zeptejte se PečkyBota</h2>
-    <p class="lede">PečkyBot odpovídá na otázky z dat, která jsou na tomto webu: jednání zastupitelstva a rady, lidé ve veřejných funkcích a texty sekcí. U odpovědi je vždy odkaz na zdroj.</p>
-
-    <div class="callout">
-      <strong>Odpovídá umělá inteligence.</strong> Odpověď může být nepřesná, ověřte ji proto v odkazovaném zdroji. PečkyBot nemluví za město a nedává právní rady.
-      Dotazy se posílají ke zpracování službě Claude společnosti Anthropic, do dotazu proto nepište osobní údaje. Kvůli ochraně před zneužitím se počet dotazů eviduje podle IP adresy nejvýš dva dny.
-    </div>
+    <a class="overlay-close" href="/" aria-label="Zavřít a přejít na hlavní stránku">Zavřít</a>
 
     <div class="pb-chat" id="pb-chat">
       <div class="pb-log" id="pb-log" role="log" aria-live="polite" aria-label="Konverzace s PečkyBotem">
@@ -96,9 +59,8 @@
       </div>
 
       <form class="pb-form" id="pb-form" autocomplete="off">
-        <label class="pb-label" for="pb-input">Váš dotaz</label>
         <div class="pb-row">
-          <input type="text" id="pb-input" maxlength="600" placeholder="Napište otázku…" required>
+          <input type="text" id="pb-input" aria-label="Váš dotaz" maxlength="600" placeholder="Napište otázku…" required>
           <button type="submit" id="pb-send" class="pb-send">Odeslat</button>
         </div>
       </form>
@@ -106,6 +68,8 @@
   </section>
 
   <style>
+    a.overlay-close{display:inline-block; text-decoration:none;}
+    #panel-peckybot{padding-top:44px; padding-bottom:80px;}
     .pb-chat{margin-top:18px; max-width:760px;}
     .pb-log{display:flex; flex-direction:column; gap:14px; margin-bottom:16px;}
     .pb-msg{display:flex; gap:12px; align-items:flex-start;}
@@ -122,14 +86,13 @@
     .pb-examples{display:flex; flex-wrap:wrap; gap:8px; margin:0 0 14px;}
     .pb-chip{font:inherit; font-size:13.5px; padding:6px 12px; border-radius:16px; border:1px solid var(--line); background:var(--material); color:var(--ink); cursor:pointer;}
     .pb-chip:hover{border-color:var(--burgundy); color:var(--burgundy);}
-    .pb-label{display:block; font-size:12.5px; color:var(--ink-soft); margin-bottom:4px;}
-    .pb-row{display:flex; gap:8px;}
+    .pb-form{position:fixed; z-index:100; left:0; right:0; bottom:0; padding:12px 16px; background:var(--material-deep); border-top:1px solid var(--line);}
+    .pb-row{display:flex; gap:8px; max-width:760px; margin:0 auto;}
     .pb-row input{flex:1; min-width:0; font:inherit; font-size:15px; padding:9px 12px; border:1px solid var(--line); border-radius:4px; background:#fff; color:var(--ink);}
     .pb-send{font:inherit; font-size:14px; font-weight:600; padding:9px 18px; border:0; border-radius:4px; background:var(--burgundy); color:#fff; cursor:pointer;}
     .pb-send:hover{filter:brightness(1.15);}
     .pb-send[disabled]{opacity:.55; cursor:default; filter:none;}
     #pb-status[hidden], .pb-examples[hidden]{display:none;}
-    @media (max-width:600px){ .pb-row{flex-direction:column;} .pb-send{width:100%;} }
   </style>
 
   <script>
@@ -233,27 +196,6 @@
   </script>
 
 </main>
-<footer class="site">
-  <nav class="tabs tabs-secondary header-nav" id="tabsSecondary" aria-label="Další sekce">
-    <a class="navlink" href="/plan/">Plán</a>
-    <a class="navlink" href="/smlouvy/">Smlouvy</a>
-    <a class="navlink" href="/zakazky/">Zakázky</a>
-    <a class="navlink" href="/pozemky/">Pozemky</a>
-    <a class="navlink" href="/prostory/">Prostory</a>
-    <a class="navlink" href="/pokladna/">Pokladna</a>
-    <a class="navlink" href="/o-webu/">O webu</a>
-  </nav>
-  <div class="footer-inner footer-credits">
-    <p style="margin:0 0 8px;">👋 Ahoj, já jsem PečkyBot.</p>
-    <img class="peckybot" src="/img/peckybot/welcome.png" alt="PečkyBot">
-    <p style="margin:6px 0 0;"><a href="https://www.instagram.com/peckybot/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" style="vertical-align:-3px;margin-right:6px;" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>PečkyBot na Instagramu</a></p>
-    <p style="margin:8px 0 0;">Web je sestaven s pomocí AI. Robot čerpá informace z veřejných dat dostupných na internetu.</p>
-    <p style="margin:6px 0 0;"><a href="/o-webu/changelog.html">Historie změn na webu</a></p>
-  </div>
-  <div class="footer-inner footer-credits">
-    <p style="margin:0;">Našli jste nepřesnost? Máte tip na nějaké téma ke zpracování? Zajímá vás něco o Pečkách? Pište na: <a href="mailto:dopecek@gmail.com">dopecek@gmail.com</a>.</p>
-  </div>
-</footer>
 
 <script src="/assets/common.js"></script>
 </body>
