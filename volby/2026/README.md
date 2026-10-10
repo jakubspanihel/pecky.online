@@ -6,14 +6,19 @@ webu pecky.online. Doplňuje obecné instrukce projektu i společný rozcestník
 ročník.
 
 ## Účel sekce
-Příští komunální volby v Pečkách (9.–10. října 2026, dosud neproběhly).
-Registrační úřad (Městský úřad Pečky) 18. 8. 2026 zaregistroval kandidátní
-listiny pěti uskupení, která budou v Pečkách usilovat o 21 mandátů —
-přehled i kompletní kandidátní listiny (pořadí a jména kandidátů,
-105 celkem) jsou v tabulce „Volební uskupení". Volební programy zatím
-zveřejněné nejsou — doplnit stejným způsobem jako u Voleb 2022, jakmile
-budou k dispozici (typicky volební inzerce v Pečeckých novinách těsně
-před volbami).
+Komunální volby v Pečkách se konaly 9.–10. října 2026. Registrační úřad
+(Městský úřad Pečky) 18. 8. 2026 zaregistroval kandidátní listiny pěti
+uskupení, která usilují o 21 mandátů (105 kandidátů celkem). Od 10. 10. 2026
+je první záložka „Výsledky voleb“ s **průběžnými výsledky** z
+[volby.gov.cz](https://volby.gov.cz/app/kv2026/cs/20261009/results/!_0_1_2100_2104_537641):
+tabulka osobních hlasů všech kandidátů (hlasy po kandidátech jsou na
+stránce výsledků po rozkliknutí kandidátní listiny — `…537641____1` až
+`____5`) a karty uskupení s podíly hlasů. Stav k 10. 10. 2026 16:59:
+zpracováno 5 ze 6 okrsků. **Až ČSÚ zveřejní konečné výsledky (6 ze 6 okrsků)**:
+přepsat čísla, doplnit mandáty a zvolené (označit v tabulce, funkce až po
+ustavujícím zasedání), odstranit atribut `hidden` u banneru „Hlasy
+spočítány. Co bude dál?“ v `content/volby2026.html` a upravit perex.
+Volební programy jsou v záložce Předvolební sliby.
 
 Zdroje (viz `sources.json`): Ministerstvo vnitra ČR (termíny), Úřední
 deska města Pečky na pecky.cz (registrace, seznam uskupení) — číst přes
