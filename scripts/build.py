@@ -719,9 +719,9 @@ def _dash_zastupitelstvo(dnes):
                    f'{dnu[d1.weekday()]} až {dnu[d2.weekday()].lower()}')
         out_v.append(f'<div class="dash-zm dash-zm--volby">\n  <ul class="dash-list banner banner--slate">\n    <li data-until="{konec2}">'
                    f'<div class="banner-body"><h3 class="banner-title">'
-                   f'Hlasování ukončeno, <mark class="banner-hl">teď se bude počítat…</mark></h3>'
-                   f'<p class="banner-text">Výsledky voleb budou známé v řádu hodin.</p>'
-                   f'<div class="banner-actions"><a class="banner-cta" href="/volby/">Jak se volilo v Pečkách?</a></div>'
+                   f'Hlasy spočítány. <mark class="banner-hl">Co teď?</mark></h3>'
+                   f'<p class="banner-text">Nové zastupitelstvo zvoleno.</p>'
+                   f'<div class="banner-actions"><a class="banner-cta" href="/volby/2026/">Co bude dál?</a></div>'
                    f'</div></li>\n  </ul>\n</div>')
     return '\n'.join(out + ([po] if po else []) + ([rada] if rada else [])), '\n'.join(out_v)
 
