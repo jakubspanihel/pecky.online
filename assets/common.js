@@ -38,6 +38,15 @@
       colMain.appendChild(clone);
     }
   });
+  // seznam „Monitoring“ (šablona v assets/nav.html) pod „Více...“
+  const mon = document.getElementById('overlayMonitoring');
+  if (mon) {
+    const label = document.createElement('div');
+    label.className = 'overlay-label';
+    label.textContent = 'Monitoring';
+    colMore.appendChild(label);
+    colMore.appendChild(mon.content.cloneNode(true));
+  }
   links.appendChild(colMain);
   if (colMore.firstChild) links.appendChild(colMore);
   const open = () => { overlay.hidden = false; document.body.style.overflow = 'hidden'; };
