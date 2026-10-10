@@ -123,9 +123,10 @@ příslušný `content/<sekce>.html` a přepsat všechny odkazy, pak spustit
   do Jednání. Konkrétně: bod nebo usnesení ke stavbě tělocvičny („Dostavba
   učeben a tělocvičny v ZŠ Pečky“, piloty, statické zajištění, dodatky ke
   SoD) vždy aktualizuje i sekci Tělocvična (přes `content/telocvicna.html`
-  + build), bod k prodeji/nákupu pozemku sekci Pozemky. Postupy:
+  + build), bod k prodeji/nákupu pozemku sekci Pozemky, usnesení k pronájmu/výpůjčce nebytových prostor sekci
+  Prostory. Postupy:
   `telocvicna/README.md` → „Pracovní postup: týdenní kontrola“ a
-  `jednani/automation-katastr-parcely.md`.
+  `jednani/automation-katastr-parcely.md`, `prostory/README.md`.
 - Každý běh kontroly končí výpisem provedených změn — u každého dotčeného
   souboru jednou větou, co a proč se změnilo. Sekce, kde kontrola nic
   nenašla, se hlásí výslovně jako „zkontrolováno, beze změny“, ne mlčením.

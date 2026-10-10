@@ -12,6 +12,13 @@ dopočítá odkaz /jednani/#rada-RRRR-MM-DD) + o-webu/uredni-deska-monitoring/
 (starý web). Událost s `n` i `deska` je záměr schválený radou a vyvěšený na
 desce; událost jen s `deska` je záměr, ke kterému usnesení v datech není.
 
+`na_programu` u prostoru = [{"jednani": "rada-RRRR-MM-DD", "bod": N, "co": "..."}]:
+bod programu jednání, které ještě nemá zápis ani usnesení (zdroj: Pozvánka).
+Generátor z něj dopočítá banner „Na programu …“, štítek v tabulce a řádek
+v historii prostoru. Jakmile jednání dostane zápis (`links.minutes`) nebo
+usnesení, záznam se přestane zobrazovat — ruční mazání není nutné, ale bod
+se má do té doby přepsat na skutečnou událost (`events`).
+
 Přepíše jen část content/prostory.html mezi značkami
 <!-- PROSTORY:START --> a <!-- PROSTORY:END -->. Perex a calloutu kolem nich
 jsou psané ručně. Po běhu vždy spustit `python3 scripts/build.py`.
@@ -77,6 +84,20 @@ def load_resolutions():
     return out
 
 
+def load_meetings():
+    """id jednání (rada-RRRR-MM-DD) -> záznam jednání"""
+    meetings = json.loads((ROOT / 'jednani/pecky-jednani.json').read_text(encoding='utf-8'))['meetings']
+    return {('zastupitelstvo' if m['type'] == 'Zastupitelstvo' else 'rada') + '-' + m['date']: m for m in meetings}
+
+
+def zkratka(m):
+    return f'{"ZM" if m["type"] == "Zastupitelstvo" else "RM"} {m["number"]}/{m["year"]}'
+
+
+def prostoru(n):
+    return f'{n} prostor' if n == 1 else f'{n} prostory' if n < 5 else f'{n} prostorů'
+
+
 def load_deska():
     """id (číslo nebo as4u:<id>) -> dict(vyveseno, sejmuto, typ, nazev, url)"""
     out = {}
@@ -125,7 +146,7 @@ def odkazy(e):
     return '<br>'.join(out)
 
 
-def render(data, res, desky, dnes):
+def render(data, res, desky, dnes, meetings):
     typy = data['typy']
     prem = data['premises']
     problems = []
@@ -156,12 +177,30 @@ def render(data, res, desky, dnes):
             evs.append({**e, 'date': d, 'hash': hid, 'dk': dk})
         evs.sort(key=lambda x: (x['date'], x.get('n') or x.get('deska')), reverse=True)
         p['_ev'] = evs
+        prog = []
+        for np_ in p.get('na_programu', []):
+            m = meetings.get(np_['jednani'])
+            if not m:
+                problems.append(f'{p["id"]}: na_programu odkazuje na neexistující jednání {np_["jednani"]}')
+                continue
+            bod = next((a for a in m.get('agenda', []) if a['n'] == np_['bod']), None)
+            if not bod:
+                problems.append(f'{p["id"]}: jednání {np_["jednani"]} nemá v programu bod {np_["bod"]}')
+                continue
+            if m['links'].get('minutes') or m.get('resolutions'):
+                print(f'POZOR: {p["id"]}: jednání {np_["jednani"]} už má zápis/usnesení — na_programu se nezobrazí, bod {np_["bod"]} přepsat na událost v events')
+                continue
+            prog.append({**np_, 'm': m, 'bod_t': bod['t'], 'date': m['date']})
+        p['_prog'] = prog
+        if not evs and not prog:
+            problems.append(f'{p["id"]}: prostor nemá žádnou událost ani bod na programu')
         if p['stav'] not in STAV:
             problems.append(f'{p["id"]}: neznámý stav {p["stav"]}')
     if problems:
         sys.exit('CHYBA:\n  ' + '\n  '.join(problems))
 
-    prem = sorted(prem, key=lambda p: p['_ev'][0]['date'], reverse=True)  # podle data posledního usnesení/záměru, nejnovější nahoře
+    # podle data posledního usnesení/záměru nebo nadcházejícího jednání, nejnovější nahoře
+    prem = sorted(prem, key=lambda p: max([e['date'] for e in p['_ev']] + [g['date'] for g in p['_prog']]), reverse=True)
     out = []
 
     # --- banner: právě vyhlášené záměry
@@ -182,6 +221,32 @@ def render(data, res, desky, dnes):
             + (f'<a class="banner-link" href="{esc(ev["dk"]["url"])}" target="_blank" rel="noopener">Záměr na úřední desce</a>' if ev.get('dk') else '')
             + f'<a class="banner-link" href="#prostor-{p["id"]}">Historie prostoru</a></div>'
             '</div></aside>')
+
+    # --- banner: prostory na programu nadcházejícího jednání (zdroj: Pozvánka)
+    po_jednanich = {}
+    for p in prem:
+        for g in p['_prog']:
+            if g['date'] >= dnes:
+                po_jednanich.setdefault(g['jednani'], []).append((p, g))
+    for jid, polozky in sorted(po_jednanich.items(), key=lambda kv: kv[1][0][1]['date']):
+        m = polozky[0][1]['m']
+        kdy = cz(m['date']) + (f' v {m["time"]}' if m.get('time') else '')
+        misto = (f'<span class="banner-meta-item">{ICO_PIN}<span>{esc(m["venue"])}</span></span>' if m.get('venue') else '')
+        texty = ''.join(
+            f'<p class="banner-text"><strong>Bod {g["bod"]}: {esc(p["nazev"])}</strong> ({esc(p["budova"])}) – {esc(g["co"])}.</p>'
+            for p, g in sorted(polozky, key=lambda x: x[1]['bod']))
+        odkazy_p = ''.join(f'<a class="banner-link" href="#prostor-{p["id"]}">{esc(p["nazev"])}</a>'
+                           for p, g in sorted(polozky, key=lambda x: x[1]['bod']))
+        out.append(
+            '<aside class="banner banner--slate" aria-label="Prostory na programu jednání">'
+            '<div class="banner-body">'
+            f'<h3 class="banner-title">Na programu {zkratka(m)}: {prostoru(len(polozky))}</h3>'
+            f'<p class="banner-meta"><span class="banner-meta-item">{ICO_KAL}<span>{esc(kdy)} '
+            f'<span class="tag probiha fut-chip" data-date="{m["date"]}">plánováno</span></span></span>{misto}</p>'
+            + texty +
+            '<p class="banner-text">Program pochází z pozvánky na jednání. Rozhodnutí bude známé po zveřejnění zápisu.</p>'
+            f'<div class="banner-actions"><a class="banner-cta" href="/jednani/#{jid}">Program {zkratka(m)}</a>'
+            + odkazy_p + '</div></div></aside>')
 
     # --- souhrn
     pocty = {k: sum(1 for p in prem if p['stav'] == k) for k in STAV}
@@ -206,18 +271,30 @@ def render(data, res, desky, dnes):
         if p['stav'] == 'zamer' and p.get('uzaverka', '') >= dnes:
             stav += f' <span class="tag probiha fut-chip" data-date="{p["uzaverka"]}">plánováno</span>'
         najemce = f'<br><span class="muted-note">{esc(p["najemce"])}</span>' if p.get('najemce') else ''
-        e0 = p['_ev'][0]
+        for g in p['_prog']:
+            st = (f'<span class="tag probiha fut-chip" data-date="{g["date"]}">plánováno</span>' if g['date'] >= dnes
+                  else '<span class="tag">zápis zatím chybí</span>')
+            najemce += (f'<br><span class="tag probiha">na programu <a href="/jednani/#{g["jednani"]}">'
+                        f'{zkratka(g["m"])}</a></span> {st}')
+        e0 = p['_ev'][0] if p['_ev'] else None
+        posledni = f'{cz(e0["date"])}<br>{odkazy(e0)}' if e0 else '—'
         out.append(
             f'<tr class="prostor-row" id="prostor-{p["id"]}" tabindex="0" role="button" aria-expanded="false" aria-controls="prostor-{p["id"]}-detail">'
             f'<td><span class="prostor-toggle" aria-hidden="true">+</span><strong>{esc(p["nazev"])}</strong>'
             f'<span class="muted-note prostor-budova">{mapa(p["budova"])}</span></td>'
             f'<td style="white-space:nowrap;">{esc(p["plocha"])}</td><td>{esc(p["forma"])}</td>'
             f'<td>{stav}{najemce}</td><td>{esc(p["podminky"])}</td>'
-            f'<td style="white-space:nowrap;">{cz(e0["date"])}<br>{odkazy(e0)}</td></tr>')
+            f'<td style="white-space:nowrap;">{posledni}</td></tr>')
         det = []
         if p.get('poznamka_stav'):
             det.append(f'<p class="meta-note">{esc(p["poznamka_stav"])}</p>')
         det.append('<div class="table-scroll"><table class="register"><thead><tr><th>Datum</th><th>Co se stalo</th><th>Zdroj</th></tr></thead><tbody>')
+        for g in sorted(p['_prog'], key=lambda x: x['date'], reverse=True):
+            det.append(
+                f'<tr><td style="white-space:nowrap;">{cz(g["date"])}</td>'
+                f'<td><span class="tag probiha">na programu</span> bod {g["bod"]}: {esc(g["co"])} '
+                f'<span class="muted-note">({esc(g["bod_t"])}). Zdroj: pozvánka na jednání; do zveřejnění zápisu nejde o rozhodnutí.</span></td>'
+                f'<td style="white-space:nowrap;"><span class="tag"><a href="/jednani/#{g["jednani"]}">{zkratka(g["m"])}</a></span></td></tr>')
         for e in p['_ev']:
             det.append(
                 f'<tr><td style="white-space:nowrap;">{cz(e["date"])}</td>'
@@ -234,7 +311,7 @@ def render(data, res, desky, dnes):
 def main():
     data = json.loads((ROOT / 'prostory/prostory.json').read_text(encoding='utf-8'))
     dnes = date.today().isoformat()
-    html = render(data, load_resolutions(), load_deska(), dnes)
+    html = render(data, load_resolutions(), load_deska(), dnes, load_meetings())
     path = ROOT / 'content/prostory.html'
     text = path.read_text(encoding='utf-8')
     if START not in text or END not in text:

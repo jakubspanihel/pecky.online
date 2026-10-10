@@ -26,6 +26,18 @@ půjčení sálů a Parkhaly.
   datum vyvěšení liší od usnesení o víc než 21 dní.
 - Fulltext příloh desky (`o-webu/uredni-deska-monitoring/Text/`) je jen lokální
   (v `.gitignore`) — z něj se čísla přepisují ručně, generátor ho nečte.
+- **Nadcházející jednání (`na_programu`, od 10. 10. 2026).** Ví-li se z
+  Pozvánky, že se na budoucím jednání bude projednávat prostor, zapíše se do
+  jeho záznamu `"na_programu": [{"jednani": "rada-RRRR-MM-DD", "bod": N,
+  "co": "uzavření smlouvy o pronájmu"}]` (`bod` musí existovat v `agenda`
+  jednání). Generátor z toho vykreslí banner „Na programu RM N/RRRR“ (datum,
+  čas a místo z jednání, chip „za N dní“), štítek „na programu“ v řádku
+  prostoru a řádek v jeho historii. Jednání, ke kterému prostor patří, ale
+  ještě nemá zápis ani usnesení; jakmile je dostane, `na_programu` se
+  přestane zobrazovat (generátor to vypíše jako POZOR) a bod se přepíše na
+  skutečnou událost v `events`. Prostor, ke kterému zatím není žádné usnesení
+  (např. vinotéka v Domě služeb), může mít `events: []` — pak musí mít
+  `na_programu`. Pozvánka není rozhodnutí: v textu se nikdy netvrdí výsledek.
 - `prostory/update-prostory.py` — přegeneruje část `content/prostory.html`
   mezi `<!-- PROSTORY:START -->` a `<!-- PROSTORY:END -->` (banner právě
   vyhlášeného záměru, souhrn, přehledová tabulka, historie po prostorech).
@@ -50,6 +62,10 @@ python3 scripts/build.py
   po týdenní kontrole Jednání proto skript pouštět vždy.
 
 ## Postup při nové kontrole
+0. Projít i **program nadcházejících jednání** (rady i zastupitelstva, i když
+   mají zatím jen Pozvánku) stejnými hledanými výrazy v názvech bodů a
+   zapsat je do `na_programu` (viz „Datový tok“). Bod, který už má
+   usnesení, patří do `events`, ne do `na_programu`.
 1. Po aktualizaci Jednání projít nová usnesení rady hledáním: „prostor
    sloužící podnikání“, „nebytov“, „výpůjčk“, „ochoz vodárenské věže“,
    „záměr na pronájem“ (ne pozemky ani byty).

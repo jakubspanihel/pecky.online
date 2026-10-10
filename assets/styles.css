@@ -366,6 +366,7 @@
      podtržený — globální bordó odkaz (a{color:var(--burgundy)}) by na bordó či modrém podkladu zmizel */
   .banner a:not(.banner-cta):not(.dash-more), .kal-banner a:not(.kal-banner-cta){color:inherit; text-decoration:underline;}
   .banner--slate{--banner-from:var(--cyan); --banner-to:var(--cyan); --banner-accent:var(--cyan);}
+  .banner--slate .tag.fut-chip{background:var(--yellow); border-color:var(--yellow-deep); color:var(--ink); font-weight:700;}
   .banner--green{--banner-from:#3F8A55; --banner-to:#2A5E3A; --banner-accent:#2A5E3A;}
   /* banner s obrázkem vlevo (Domů: Pečecké noviny) — obálka + text a tlačítko */
   .banner--media{display:flex; align-items:center; gap:22px; padding:22px 26px;}

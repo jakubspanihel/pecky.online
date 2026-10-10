@@ -10,7 +10,9 @@ Součástí postupu je i kontrola záznamů
 zastupitelstva na YouTube (krok 6), časových značek jednotlivých bodů
 u těch videí (krok 7), přegenerování dat sekce
 [/kalendar/](../kalendar/README.md) (krok 8b), přepočet docházky pro
-sekci [/jednani/absence.html](absence.html) (krok 8c) a promítnutí bodů
+sekci [/jednani/absence.html](absence.html) (krok 8c), promítnutí usnesení
+o pronájmech a výpůjčkách do sekce [/prostory/](../prostory/README.md)
+(krok 8e) a promítnutí bodů
 týkajících se stavby tělocvičny do sekce
 [/telocvicna/](../telocvicna/README.md) (krok 9) — všechno dělat
 při každém běhu, ne jen jednorázově.
@@ -395,6 +397,37 @@ pokud ano, přepočítat žebříček nad aktuálním `pecky-jednani.json` (filt
 tabulky v `content/nejdelsi.html`. U Rady se nekontroluje — stránka
 sleduje jen zastupitelstvo.
 
+### 8e. Prostory — POVINNÉ při každém běhu
+
+Sekce [/prostory/](../prostory/README.md) eviduje pronájmy a výpůjčky
+nebytových prostor a každá její událost odkazuje na usnesení rady v
+Jednání. Po doplnění usnesení v kroku 5 proto **projdi nová usnesení
+rady** (hledané výrazy: „prostor sloužící podnikání“, „nebytov“,
+„výpůjčk“, „ochoz vodárenské věže“, „záměr na pronájem“; ne pozemky ani
+byty) a postupuj podle `prostory/README.md` → „Postup při nové kontrole“
+(skill `pecky-online-prostory-check`):
+
+0. **Program nadcházejících jednání:** projdi názvy bodů i jednání, která
+   mají zatím jen Pozvánku, stejnými výrazy. Najdeš-li bod k prostoru, zapiš
+   ho do `na_programu` daného prostoru (nebo založ prostor s `events: []`) —
+   generátor z toho vykreslí banner „Na programu …“, štítek v tabulce a řádek
+   v historii. Bod z jednání, které už má zápis, přepiš na událost v `events`
+   a `na_programu` smaž (viz `prostory/README.md` → „Datový tok“).
+1. Úprava `prostory/prostory.json` — nová událost do `events`
+   stávajícího prostoru, nebo nový prostor; přepsat `stav` / `stav_text`
+   / `podminky`. Bez jmen fyzických osob.
+2. Spustit `python3 prostory/update-prostory.py` (selže, pokud usnesení
+   `n` v datech jednání neexistuje — to je záměrná kontrola odkazů).
+   Spouští se **vždy**, i bez nového usnesení: banner s uzávěrkou záměru
+   se vykresluje jen při běhu generátoru.
+3. Záměry z úřední desky se hledají podle sekce „Úřední deska“ v
+   `prostory/README.md`.
+4. Přepsat řádek Prostory v tabulce `README.md` → „Stav sekcí“.
+
+Netýká-li se žádné nové usnesení prostor, do shrnutí (krok 11) napiš
+„Prostory: zkontrolováno, beze změny“. Mlčení není totéž co „nic tam
+nebylo“.
+
 ### 9. Tělocvična (pokud relevantní) — POVINNÉ při každém běhu
 
 Stavbu „Dostavba učeben a tělocvičny v ZŠ Pečky“ sleduje vlastní sekce
@@ -453,9 +486,9 @@ nevymýšlet — pokud web nic nového neukazuje, říct to přímo.
 
 **Vždy jmenovitě vypiš, co jsi změnil** — u každého dotčeného souboru
 (`jednani/pecky-jednani.json`, `kalendar/udalosti.json`,
-`kalendar/kalendar.ics`, `content/telocvicna.html`, `README.md`,
+`kalendar/kalendar.ics`, `prostory/prostory.json`, `content/telocvicna.html`, `README.md`,
 `sources.json` …) jednou větou, co se v něm změnilo a proč. Sekce
-Tělocvična (krok 9) má v tomto výpisu vlastní řádek vždy, i když se
+Prostory (krok 8e) a Tělocvična (krok 9) mají v tomto výpisu vlastní řádek vždy, i když se
 nezměnila — pak s poznámkou „zkontrolováno, beze změny“.
 
 ## Příklad (Rada 30/2026, 24. 8. 2026 → doplněno 27. 8. 2026)
