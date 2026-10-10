@@ -242,7 +242,7 @@ def render_chart(months):
           <div class="segmented-group" role="group" aria-label="Rozsah dat grafu">
             <button type="button" class="segmented-btn active" data-fbc="1" aria-pressed="true">Od začátku</button>
             <button type="button" class="segmented-btn" data-fbc="2" aria-pressed="false">Volební období</button>
-            <button type="button" class="segmented-btn" data-fbc="3" aria-pressed="false">Poslední měsíc</button>
+            <button type="button" class="segmented-btn" data-fbc="3" aria-pressed="false">Posledních 30 dní</button>
           </div>
         </div>
       </div>
