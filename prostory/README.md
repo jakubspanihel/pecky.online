@@ -67,8 +67,10 @@ python3 scripts/build.py
    zapsat je do `na_programu` (viz „Datový tok“). Bod, který už má
    usnesení, patří do `events`, ne do `na_programu`.
 1. Po aktualizaci Jednání projít nová usnesení rady hledáním: „prostor
-   sloužící podnikání“, „nebytov“, „výpůjčk“, „ochoz vodárenské věže“,
-   „záměr na pronájem“ (ne pozemky ani byty).
+   sloužící podnikání“, „prostoru sloužícího“ (jiný pád), „nájmu prostoru“,
+   „nebytov“, „výpůjčk“, „ochoz vodárenské věže“, „záměr na pronájem“,
+   případně i „Dům služeb“ a „zdravotní středisko“ (ne pozemky ani byty).
+   Názvy bodů se skloňují, proto hledat kmen, ne celou frázi.
 2. Nová událost → přidat do `events` stávajícího prostoru, nový prostor →
    nový záznam; přehodit `stav` / `stav_text` / `podminky`.
 3. Spustit generátor a build, zapsat řádek do `README.md` → „Stav sekcí“.

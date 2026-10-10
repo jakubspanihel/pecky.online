@@ -402,9 +402,10 @@ sleduje jen zastupitelstvo.
 Sekce [/prostory/](../prostory/README.md) eviduje pronájmy a výpůjčky
 nebytových prostor a každá její událost odkazuje na usnesení rady v
 Jednání. Po doplnění usnesení v kroku 5 proto **projdi nová usnesení
-rady** (hledané výrazy: „prostor sloužící podnikání“, „nebytov“,
-„výpůjčk“, „ochoz vodárenské věže“, „záměr na pronájem“; ne pozemky ani
-byty) a postupuj podle `prostory/README.md` → „Postup při nové kontrole“
+rady** (hledané výrazy: „prostor sloužící podnikání“, „prostoru sloužícího“,
+„nájmu prostoru“, „nebytov“, „výpůjčk“, „ochoz vodárenské věže“, „záměr
+na pronájem“, „Dům služeb“, „zdravotní středisko“; názvy bodů se skloňují,
+hledat kmen; ne pozemky ani byty) a postupuj podle `prostory/README.md` → „Postup při nové kontrole“
 (skill `pecky-online-prostory-check`):
 
 0. **Program nadcházejících jednání:** projdi názvy bodů i jednání, která
