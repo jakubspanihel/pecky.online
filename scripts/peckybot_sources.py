@@ -446,7 +446,9 @@ def chunks_noviny():
         pages = e.get('pages') or []
         if pages:
             titulni = re.sub(r'\s+', ' ', pages[0]).strip()
-        t = [f"Pečecké noviny, číslo {e['label']} (rok {e['year']})."]
+        mm = re.match(r'\d{4}-(\d{2})', e['slug'])
+        cis = f" Označení čísla {int(mm.group(1))}/{e['year']}." if mm else ''
+        t = [f"Pečecké noviny, číslo {e['label']} (rok {e['year']}).{cis}"]
         if e.get('page_count'):
             t.append(f"Počet stran: {e['page_count']}.")
         if titulni:

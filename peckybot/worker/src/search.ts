@@ -24,6 +24,7 @@ const STOPWORDS = new Set([
   "ten", "the", "toho", "tom", "tato", "tyto", "byl", "byla", "bylo", "byt",
   "bude", "jsem", "jste", "jsme", "mesto", "mesta", "mestem", "pecky", "pecek",
   "peckach", "cislo", "cisl", "dle", "ode", "napr", "tzn", "atd",
+  "kolik", "jaky", "jaka", "jake", "jaci", "maji", "nejaky", "nejaka", "nejake", "pripadne",
 ]);
 
 export function tokenize(text: string): string[] {
@@ -107,6 +108,7 @@ const WEB_NUMBER_BOOST = 1.0; // ostatní “Web —” úryvky beze změny (zv�
 const ROSTER_BOOST = 2.2;
 const JEDNANI_PENALTY = 0.75; // jednání při dotazu na osobu/složení
 const PAKT_PENALTY = 0.5;
+const QUESTION_PENALTY = 0.65;
 const CALENDAR_BOOST = 1.5;
 const CAL_DATE_BOOST = 2.2;
 const CAL_FUTURE_BOOST = 1.25;
@@ -223,6 +225,7 @@ function chunkBoost(c: { u: string; t: string }, it: Intent, today?: string): nu
   if (c.t.startsWith("Kalendář") && it.number && !it.calendar) f *= 0.6;
   if (personIntent && isMeeting) f *= JEDNANI_PENALTY;
   if (personIntent && /Pakt/.test(c.t)) f *= PAKT_PENALTY;
+  if (c.t.startsWith("Web —") && c.t.endsWith("?")) f *= QUESTION_PENALTY; // nadpisy-otázky vyhrávají na obecná slova
   if (c.t.startsWith("Kalendář")) {
     if (it.calendar) f *= CALENDAR_BOOST;
     const m = c.t.match(/\((\d{1,2})\. (\d{1,2})\. (\d{4})\)\s*$/);

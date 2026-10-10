@@ -51,6 +51,7 @@ STOPWORDS = {
     'ten', 'the', 'toho', 'tom', 'tato', 'tyto', 'byl', 'byla', 'bylo', 'byt',
     'bude', 'jsem', 'jste', 'jsme', 'mesto', 'mesta', 'mestem', 'pecky', 'pecek',
     'peckach', 'cislo', 'cisl', 'dle', 'ode', 'ani', 'napr', 'tzn', 'atd',
+    'kolik', 'jaky', 'jaka', 'jake', 'jaci', 'maji', 'nejaky', 'nejaka', 'nejake', 'pripadne',
 }
 
 

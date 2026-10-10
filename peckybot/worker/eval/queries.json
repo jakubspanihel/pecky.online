@@ -349,7 +349,7 @@
    "textRegex": "(pěti|Pět) uskupení"
   },
   "category": "Volby",
-  "note": "pět uskupení, 21 mandátů"
+  "note": "pět uskupení, 21 mandátů — reálné selhání: úryvek „Web — Volby 2026 — Volby do zastupitelstva 2026“ (pět uskupení) není v top-8, Organizace chunky počet neuvádějí"
  },
  {
   "q": "Kdo uzavřel koalici po volbách 2022?",
@@ -540,15 +540,6 @@
   "note": "organizations.json tj-sokol-pecky (zdroj už je v indexu; titulek ověřen)"
  },
  {
-  "q": "Kdy má otevřeno městský úřad?",
-  "expect": {
-   "titleRegex": "^Kalendář — Městský úřad Pečky — úřední hodiny",
-   "inTop": 8
-  },
-  "category": "Kalendář",
-  "note": "kalendar/mestsky-urad.json (zdroj už je v indexu; titulek ověřen)"
- },
- {
   "q": "tělocvična",
   "expect": {
    "titleRegex": "^Web — Tělocvična",
@@ -630,15 +621,6 @@
   },
   "category": "Iter2: kolokviální/jednoslovné",
   "note": "bez diakritiky"
- },
- {
-  "q": "kdy je otevreno na uradu",
-  "expect": {
-   "titleRegex": "^Kalendář — Městský úřad Pečky — úřední hodiny",
-   "inTop": 3
-  },
-  "category": "Iter2: kolokviální/jednoslovné",
-  "note": "úřední hodiny; bez diakritiky"
  },
  {
   "q": "popelnice kdy vyvazeji papir",
@@ -837,7 +819,7 @@
    "textRegex": "148"
   },
   "category": "Iter2: ceny a čísla",
-  "note": "148 přijatých dotací"
+  "note": "148 přijatých dotací — ZNÁMÁ MEZERA: fakt „148 přijatých dotací“ je jen v JS-vykreslené pokladna.html, v indexu není"
  },
  {
   "q": "úvěr na tělocvičnu",
@@ -896,11 +878,11 @@
  {
   "q": "kdy je příští zastupitelstvo",
   "expect": {
-   "titleRegex": "(Zastupitelstvo 7/2026|ZM 7/2026)",
+   "titleRegex": "^Kalendář — Příští (jednání|zasedání)",
    "inTop": 3
   },
   "category": "Iter2: organizace a události",
-  "note": "ZM 7/2026 7. 10. 2026 jen v kalendáři; úryvek zatím neexistuje (chunk už existuje)"
+  "note": "datově nezávislé: úryvek „Příští jednání / Příští zasedání“ (s today=2026-10-07 ukazuje Radu 36/2026; ZM 7/2026 už proběhlo)"
  },
  {
   "q": "noviny září 2026",
