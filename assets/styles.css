@@ -687,7 +687,7 @@
   .timeline{list-style:none; margin:16px 0 0; padding:0 0 0 4px; border-left:2px solid var(--line);}
   .tl-item{position:relative; padding:0 0 15px 16px;}
   .tl-item:last-child{padding-bottom:0;}
-  .tl-item::before{content:""; position:absolute; left:-7px; top:4px; width:10px; height:10px; border-radius:50%; background:var(--material); border:2px solid var(--line); box-sizing:border-box;}
+  .tl-item::before{content:""; position:absolute; left:-10px; top:4px; width:10px; height:10px; border-radius:50%; background:var(--material); border:2px solid var(--line); box-sizing:border-box;}
   .tl-item--current::before{background:var(--field); border-color:var(--field);}
   .tl-item--past{color:var(--ink-soft);}
   .tl-role{font-weight:600; font-size:13.5px;}

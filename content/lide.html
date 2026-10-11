@@ -88,11 +88,13 @@
   // nezvolení kandidáti jednotlivých voleb (kandidátní vazba daného roku bez „zvolen“)
   const L_CAND_YEARS = ['2026', '2022', '2018', '2014'];
   // zvolení se poznají podle role „zvolen…“ nebo podle mandátu, který začal v období po těchto volbách
+  // kandidátní vazba má v závorce „(zvolen/a)“ nebo „(nezvolen/a)“
+  const lJeZvolen = a => /\((zvolen|zvolena)\)\s*$/.test(a.role);
   const L_ELECTIONS = {'2014': ['2014-10-10', '2018-10-05'], '2018': ['2018-10-05', '2022-09-23'], '2022': ['2022-09-23', '2026-10-09'], '2026': ['2026-10-09', '9999']};
   const lCandAff = (p, y) => {
     const e = L_ELECTIONS[y];
     if (p._affs.some(a => a.role_type === 'zastupitel' && a.from >= e[0] && a.from < e[1])) return null;
-    return p._affs.find(a => a.role_type === 'kandidatka' && a.from.slice(0, 4) === y && !/^zvolen/i.test(a.role)) || null;
+    return p._affs.find(a => a.role_type === 'kandidatka' && a.from.slice(0, 4) === y && !lJeZvolen(a)) || null;
   };
   const lTerm = () => L_TERMS.find(x => x[0] === L_STATE.term) || null;
 
@@ -340,7 +342,7 @@
   // poslední kandidátka před začátkem období
   function lPartyFor(p, term){
     if (term[0] === '2026') {
-      const k = p._affs.find(a => a.role_type === 'kandidatka' && /^zvolen/i.test(a.role) && a.from >= term[2]);
+      const k = p._affs.find(a => a.role_type === 'kandidatka' && lJeZvolen(a) && a.from >= term[2]);
       return k ? k._org : null;
     }
     const m = p._affs.find(a => a.role_type === 'zastupitel' && a.from >= term[2] && a.from < term[3]);
@@ -358,7 +360,7 @@
     if (L_STATE.cand) return !!lCandAff(p, L_STATE.cand) && lTermText(p);
     const term = lTerm();
     if (term) return p._affs.some(a => (term[0] === '2026'
-      ? (a.role_type === 'kandidatka' && /^zvolen/i.test(a.role) && a.from >= term[2])
+      ? (a.role_type === 'kandidatka' && lJeZvolen(a) && a.from >= term[2])
       : (a.role_type === 'zastupitel' && a.from >= term[2] && a.from < term[3]))) && lTermText(p);
     if (!lListed(p)) return false;
     if (L_STATE.open === p.id) return true;
@@ -550,9 +552,9 @@
     // uskupení na kartičce a řazení patří k vybranému období, ne k první kandidátce v pořadí
     db.people.forEach(p => {
       p._party = term ? lPartyFor(p, term) : p._party0;
-      // kdo dnes nemá funkci, má u zvolených 2026 stát „zvolen za kandidátku ve volbách 2026“, ne kandidatura z roku 2022
+      // kdo dnes nemá funkci, má u zvolených 2026 stát „Kandidát do zastupitelstva 2026 (zvolen)“, ne kandidatura z roku 2022
       const z = term && term[0] === '2026' && !(p._exec || p._mandate || p._office)
-        ? p._affs.find(a => a.role_type === 'kandidatka' && /^zvolen/i.test(a.role) && a.from >= term[2]) : null;
+        ? p._affs.find(a => a.role_type === 'kandidatka' && lJeZvolen(a) && a.from >= term[2]) : null;
       p._displayRole = z ? z.role : p._displayRole0;
     });
     const shown = db.people.filter(lMatches);

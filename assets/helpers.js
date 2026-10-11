@@ -197,17 +197,31 @@ function pcSourceLinks(sources){
     .join('');
 }
 
-// vazby dané osoby (affiliations) seřazené pro timeline v detailu — aktuální
-// nahoru, uvnitř podle váhy funkce a pak od nejnovější; každá vazba dostane
+// Holé adresy v textu zdroje (už escapovaném) — „ods.cz/…", „facebook.com/…",
+// „volby/2018/…" — se změní na odkazy. U zkrácené adresy („…") vede odkaz
+// jen na část před výpustkou.
+function pcLinkUrls(html){
+  return String(html)
+    .replace(/(^|[\s(])(volby\/\d{4}\/[^\s)]+)/g, (m, pre, path) =>
+      `${pre}<a href="${jWithBase('/' + path)}" target="_blank" rel="noopener">${path}</a>`)
+    .replace(/(^|[\s(])((?:https?:\/\/)?(?:[a-z0-9-]+\.)+(?:cz|com|org|eu)(?:\/[^\s)]*)?)/gi, (m, pre, url) => {
+      const href = url.split('…')[0].replace(/[.,;]+$/, '');
+      const full = /^https?:/i.test(href) ? href : 'https://' + href;
+      return `${pre}<a href="${full}" target="_blank" rel="noopener">${url}</a>`;
+    });
+}
+
+// vazby dané osoby (affiliations) seřazené pro timeline v detailu — všechny
+// události (funkce i kandidatury) podle data začátku od nejnovější, při shodě
+// podle váhy funkce; každá vazba dostane
 // rozvinutou organizaci (`_org`)
 function pcBuildTimeline(personId, affs, orgById){
   return (affs || [])
     .filter(a => a.person_id === personId)
     .map(a => Object.assign({}, a, {_org: (orgById && orgById[a.organization_id]) || a._org || null}))
     .sort((x, y) =>
-      (Number(pcActive(y)) - Number(pcActive(x))) ||
-      (pcTlRank(x.role_type) - pcTlRank(y.role_type)) ||
-      pcDateKey(y.from).localeCompare(pcDateKey(x.from)));
+      pcDateKey(y.from).localeCompare(pcDateKey(x.from)) ||
+      (pcTlRank(x.role_type) - pcTlRank(y.role_type)));
 }
 
 // avatar osoby (fotka, nebo barevný kroužek s iniciálami) — pro kartičku
@@ -274,15 +288,22 @@ function pcDetailHtml(p, opts){
     pcPhoneLinks(p.phone)
   ].filter(Boolean).join(' · ');
 
+  // zdroj osoby, který už je uvedený u některé události v timeline, se nezopakuje
+  // (porovnává se podle odkazu, ne podle id — různá id mohou vést na stejnou adresu)
+  const srcUrl = s => { const o = typeof s === 'string' ? PC_SOURCES[s] : s; return (o && o.url) || String(s); };
+  const shown = new Set();
+  timeline.forEach(a => (a.sources || []).forEach(s => shown.add(srcUrl(s))));
+  const ownSources = (p.sources || []).filter(s => !shown.has(srcUrl(s)));
+
   const meta = [
     p.verified ? `<span class="stamp">ověřeno</span> ${jEscapeHtml(pcFormatDate(p.verified))}` : '',
-    pcSourceLinks(p.sources)
+    pcSourceLinks(ownSources)
   ].filter(Boolean).join(' · ');
 
   // víc fotek na osobu (lide/SPEC.md §3.7) — všechny, ne jen ta aktuální na kartičce
   const photosHtml = (p.photos || []).length
     ? `<p class="detail-meta">Fotografie: ${p.photos.map(ph =>
-        `${jEscapeHtml(String(ph.year))} — ${jLinkRefs(jEscapeHtml(ph.photo_source || ''))}`
+        `${jEscapeHtml(String(ph.year))} — ${jLinkRefs(pcLinkUrls(jEscapeHtml(ph.photo_source || '')))}`
       ).join(' · ')}</p>`
     : '';
 

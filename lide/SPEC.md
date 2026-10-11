@@ -307,7 +307,7 @@ nic nerozbíjí):
   "id": "novakj--nasepecky--1",
   "person_id": "novakj",
   "organization_id": "nasepecky",
-  "role": "Kandidát do zastupitelstva 2022",
+  "role": "Kandidát do zastupitelstva 2022 (nezvolen)",
   "role_type": "kandidatka",
   "from": "2022-09-23",
   "to": null,
@@ -318,9 +318,12 @@ nic nerozbíjí):
 }
 ```
 
-`role` je záměrně neutrální „Kandidát/ka do zastupitelstva {rok}", ne
-„zvolen/a" — o zvolení a mandátu vypovídá samostatná vazba `zastupitel`
-(pokud existuje), tahle jen dokládá účast na listině.
+`role` má tvar „Kandidát/ka do zastupitelstva {rok} (zvolen/a)" nebo
+„… (nezvolen/a)" — výsledek podle ČSÚ (u 2026 podle výsledků voleb), stejně
+pro všechny ročníky 2014–2026. Kdo se mandátu ujal jako náhradník, má
+u kandidatury „(nezvolen/a)" a mandát zvlášť; o mandátu vypovídá samostatná
+vazba `zastupitel`. Filtr „Nezvolení kandidáti" na stránce Lidé vynechává
+i náhradníky, kteří mandát dostali.
 
 **Proč je to takhle a ne přísněji podle §3.2/§3.4:**
 - `sources: []` na osobě je v pořádku — zdroj (kandidátní listina) je na
