@@ -985,6 +985,59 @@ def render_volby_rocniky(current_slug):
             + '\n  '.join(items) + '\n</nav>')
 
 
+def render_volby_zastupitele(current_slug):
+    """Vystředěný výpis avatarů zvolených zastupitelů ročníku (7 na řádek).
+    Zvolení = vazby `kandidatka` s rolí „(zvolen…)“ z lide/affiliations.json;
+    pořadí podle osobních hlasů z tabulky „Hlasů“ ve stránce ročníku."""
+    rok = VOLBY_SLUG_TO_ROK.get(current_slug)
+    if not rok:
+        return ''
+    affs = json.loads(read('lide/affiliations.json'))['affiliations']
+    people = {p['id']: p for p in json.loads(read('lide/people.json'))['people']}
+    elected = [(a['person_id'], a['organization_id']) for a in affs
+               if a['role_type'] == 'kandidatka' and a['from'].startswith(rok)
+               and '(zvolen' in a['role'] and a['person_id'] in people]
+    # pořadí podle tabulky s hlasy
+    src = read(f'content/{current_slug}.html')
+    order = []
+    for t in re.findall(r'<table class="register">.*?</table>', src, re.S):
+        if '<th>Hlasů</th>' in t:
+            for row in re.findall(r'<tr[^>]*>\s*<td>[\d\s\u00a0]+</td>\s*<td>(.*?)</td>', t, re.S):
+                tag = re.search(r'<span class="tag">([^<]*)</span>', row)
+                funkce = tag.group(1).strip() if tag else ''
+                if not re.search(r'starost|radní', funkce, re.I):
+                    funkce = ''
+                order.append((re.sub(r'<[^>]+>', '', row).replace('&nbsp;', ' ').replace('\u00a0', ' '), funkce))
+            break
+
+    def pos(pid):
+        p = people[pid]
+        for i, (n, _) in enumerate(order):
+            if any(f"{p['first_name']} {ln}" in n
+                   for ln in [p['last_name']] + list(p.get('former_last_names') or [])):
+                return i
+        return len(order)
+    elected.sort(key=lambda e: pos(e[0]))
+    items = []
+    for pid, oid in elected:
+        p = people[pid]
+        name = ' '.join(x for x in (p.get('title_before'), p['first_name'], p['last_name']) if x)
+        ph = [x for x in p.get('photos', []) if x.get('year') == int(rok)] or p.get('photos', [])
+        color = f'var(--org-{oid})'
+        if ph:
+            inner = (f'<img class="av-img" src="{esc(ph[0]["url"])}" alt="{esc(name)}" '
+                     f'title="{esc(name)}" loading="lazy" style="border-color:{color};">')
+        else:
+            ini = (p['first_name'][:1] + p['last_name'][:1]).upper()
+            inner = f'<span class="av-init" style="background:{color};" title="{esc(name)}">{ini}</span>'
+        i = pos(pid)
+        funkce = order[i][1] if i < len(order) else ''
+        chip = f'<span class="tag vz-funkce">{esc(funkce)}</span>' if funkce else ''
+        items.append(f'<a class="av-link" href="/lide/#lide/osoba/{pid}">{inner}{chip}</a>')
+    return ('<div class="volby-zastupitele" aria-label="Zvolení zastupitelé">\n  '
+            + '\n  '.join(items) + '\n</div>')
+
+
 def apply_base_path(html):
     """Přepíše kořenově-absolutní interní odkazy (href="/...", src="/...",
     fetch('/...')) tak, aby fungovaly i při nasazení na GitHub Pages
@@ -1062,6 +1115,7 @@ def build_all(stav_rows=None):
             content = content.replace('{{DASHBOARD}}', render_dashboard(rows))
         if slug in VOLBY_SLUG_TO_ROK or slug == 'volby':
             content = content.replace('{{VOLBY_ROCNIKY}}', render_volby_rocniky(slug))
+            content = content.replace('{{VOLBY_ZASTUPITELE}}', render_volby_zastupitele(slug))
         nav = build_nav(nav_slug)
         footer = apply_active(footer_tpl, nav_slug)
         if slug in BEZ_RAMCE:

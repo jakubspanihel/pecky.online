@@ -49,6 +49,15 @@ kam odkazovat, když už na cíli je.
 `scripts/build.py`, vedle běžného postupu (nová podsložka `volby/{rok}/`,
 záznam v `MANIFEST`) popsaného níže.
 
+## Výpis zvolených zastupitelů (`{{VOLBY_ZASTUPITELE}}`)
+
+Na stránkách ročníků hned za perexem: vystředěné avatary všech 21 zvolených
+(7 na řádek), generuje `render_volby_zastupitele()` ve `scripts/build.py`.
+Zvolení = vazby `kandidatka` s „(zvolen…)“ v `lide/affiliations.json`, pořadí
+podle tabulky „Hlasů“ ve stránce, fotka z daného ročníku (jinak nejnovější,
+jinak iniciály v barvě uskupení), odkaz na detail osoby v Lidech. Při
+nesouladu jmen mezi tabulkou a `people.json` jdou dotčení na konec výpisu.
+
 Pod rozcestníkem ročníků je od 9. 9. 2026 i blok „Volební účast
 stoupá" — ručně psaný inline SVG sloupcový graf účasti v Pečkách (2014–2022;
 celostátní průměr ČR je jen v textu pod grafem), přesunutý sem ze záložky „Rozbor" na

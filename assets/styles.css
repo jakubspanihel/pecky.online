@@ -728,7 +728,7 @@
   .vol-legend{list-style:none; margin:10px 0 0; padding:0; display:flex; flex-wrap:wrap; gap:4px 16px; font-size:12.5px; color:var(--ink-soft);}
   .vol-legend li{display:inline-flex; align-items:center; gap:6px;}
   table.register tr.vol-funkce td{background:rgba(189,37,63,0.07);}
-  table.register tr.vol-funkce .tag{color:var(--ink); background:var(--yellow); border-color:var(--yellow-deep); font-weight:600;}
+  table.register tr.vol-funkce .tag{font-size:9px; line-height:1.2; padding:2px 6px; background:var(--burgundy); color:#fff; border-color:transparent;}
   .party-card{position:relative;}
   .party-card .party-name{padding-right:96px;}
   .party-card .party-outcome .tag{position:absolute; top:14px; right:18px; font-weight:600;}
@@ -968,3 +968,11 @@
 .chart-bar-link rect { transition: opacity .15s; }
 .chart-bar-link:hover rect, .chart-bar-link:focus-visible rect { opacity: .8; }
 .chart-bar-link:focus-visible { outline: 2px solid var(--cyan-deep); }
+
+/* Volby: vystředěný výpis avatarů zvolených zastupitelů, 7 na řádek */
+.volby-zastupitele{display:grid; grid-template-columns:repeat(7, 56px); justify-content:center; gap:10px 10px; row-gap:20px; margin:6px 0 26px;}
+.volby-zastupitele .av-link{display:block; line-height:0; position:relative;}
+.volby-zastupitele .vz-funkce{position:absolute; left:50%; bottom:-8px; transform:translateX(-50%); white-space:nowrap; line-height:1.2; font-size:9px; padding:2px 6px; background:var(--burgundy, #7a1f2b); color:#fff; border-color:transparent; pointer-events:none;}
+.volby-zastupitele .av-img{width:56px; height:56px; border-radius:50%; object-fit:cover; border:3px solid var(--line); background:var(--material-deep);}
+.volby-zastupitele .av-init{width:56px; height:56px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-family:var(--font-mono); font-weight:600; font-size:16px; color:#fff; line-height:1;}
+@media (max-width:520px){ .volby-zastupitele{grid-template-columns:repeat(7, 1fr); gap:6px;} .volby-zastupitele .av-img,.volby-zastupitele .av-init{width:100%; height:auto; aspect-ratio:1; font-size:12px;} }
