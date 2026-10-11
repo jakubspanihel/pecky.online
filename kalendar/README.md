@@ -44,6 +44,14 @@ vede rovnou na zdroj" v „Jak to funguje" níže.
   je callout **„Kalendář čerpá z těchto zdrojů"** — bulletkový seznam
   všech zapojených zdrojů, každý jako odkaz na svůj profil/web (viz
   „Zdroje" níže).
+  - **Seznam od 11. 10. 2026 (karty jako na Domů):** v aktuálním měsíci řazen
+    jako výpis na Domů — nejdřív dnešní akce (s časem napřed), pak
+    „Probíhající“ vícedenní (začaly dřív, `trvá do …`), pak „Další akce“
+    do konce měsíce a nakonec „Proběhlo“ (jen bez „Pouze budoucí“). Karta
+    `.akce-karta` (CSS na konci `assets/styles.css`) = chip `relBudouci()`
+    + datum vlevo, název, pořadatel, popis, 📍 místo a poznámka vpravo.
+    Jiné měsíce: chronologicky. Níže popsané `.akce-blok` bloky tím jsou
+    nahrazené (`.akce-blok-<kategorie>` zůstaly jako modifikátor barvy).
   - **Přepínač „Zobrazit jako: Kalendář / Seznam"** (`segmented-control`,
     doplněno 24. 9. 2026 na žádost uživatele, na stejném řádku jako
     navigace měsícem, zarovnané vpravo přes `margin-left:auto`) —

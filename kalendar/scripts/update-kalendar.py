@@ -508,6 +508,46 @@ def build_ics(events):
     return '\r\n'.join(lines) + '\r\n'
 
 
+# Sjednocení různých zápisů téhož místa (zdroje je píšou pokaždé jinak) — klíč je
+# zápis ze zdroje, hodnota jednotný název. Místa, o kterých není jisté, že jde
+# o totéž (sály ZUŠ), se neslučují.
+MISTA = {
+    'Sokolovna Pečky': 'Sokolovna',
+    'Sokolovna (Sokolská 330)': 'Sokolovna',
+    'Sokolovna Pečky (galerie)': 'Sokolovna (galerie)',
+    'Sokolovna Pečky (klubovna)': 'Sokolovna (klubovna)',
+    'Sportovní hala': 'Hala',
+    'Hala (Barákova 1039)': 'Hala',
+    'Park Hala Pečky (sportovní hala)': 'Hala',
+    'Městská knihovna Svatopluka Čecha Pečky': 'Knihovna',
+    'Městská knihovna Svatopluka Čecha v Pečkách': 'Knihovna',
+    'Městská knihovna Svatopluka Čecha v Pečkách, tř. 5. května 241': 'Knihovna',
+    'Městská knihovna Svatopluka Čecha, 5. května 241, Pečky': 'Knihovna',
+    'Kulturní dům Pečky': 'Kulturní dům',
+    'Kulturní dům, Pečky': 'Kulturní dům',
+    'Kulturní středisko Pečky': 'Kulturní dům',
+    'Městský úřad Pečky': 'Městský úřad',
+    'MěÚ Pečky': 'Městský úřad',
+    'Fotbalové hřiště AFK Pečky': 'Hřiště (fotbalové)',
+    'Fotbalové hřiště AFK Pečky, Barákova ul., Pečky': 'Hřiště (fotbalové)',
+    'Základní škola Pečky, okres Kolín, Tř. Jana Švermy 342, Pečky': 'Základní škola',
+    'ZŠ Pečky': 'Základní škola',
+    'Mateřská škola MAŠINKA Pečky, Tř. Jana Švermy 825, Pečky': 'Mateřská škola',
+    'MŠ MAŠINKA Pečky': 'Mateřská škola',
+    'U rybníka Benešák, Pečky': 'U Benešáku',
+    'Minigolfové hřiště u rybníka Benešáku, Pečky': 'Minigolfové hřiště',
+}
+
+
+def sjednot_mista(events):
+    for e in events:
+        puvodni = e.get('place')
+        if puvodni in MISTA:
+            e['place'] = MISTA[puvodni]
+            if e.get('description') == puvodni:
+                e['description'] = e['place']
+
+
 def main():
     jednani = build_jednani_events()
     vybory = build_vybory_events()
@@ -518,6 +558,7 @@ def main():
     sberny = build_provozni_doby_events()
     hala = build_hala_events()
     events = jednani + vybory + akce + volby + afk + svoz + sberny + hala
+    sjednot_mista(events)
     events.sort(key=lambda e: (e['date'], e['time'] or ''))
 
     OUT_JSON.write_text(json.dumps({

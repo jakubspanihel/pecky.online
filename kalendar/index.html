@@ -296,60 +296,78 @@
     const list = document.getElementById('kal-list');
     const ym = `${kalYear}-${kalPad(kalMonth + 1)}`;
     const dny = ['neděle', 'pondělí', 'úterý', 'středa', 'čtvrtek', 'pátek', 'sobota'];
+    const dnyKratce = ['ne', 'po', 'út', 'st', 'čt', 'pá', 'so'];
+    const jeTentoMesic = ym === KAL_TODAY_STR.slice(0, 7);
+    const konec = e => e.date_end || e.date;
+    const poCase = (a, b) => (!!b.time - !!a.time) || (a.time || '').localeCompare(b.time || '');
+    // události měsíce; v aktuálním měsíci i vícedenní akce, které začaly dřív a stále trvají
     const evs = KAL_ALL_EVENTS
-      .filter(e => e.date.slice(0, 7) === ym)
-      .filter(kalVidet)
-      .sort((a, b) => a.date === b.date
-        ? (a.time || '').localeCompare(b.time || '')
-        : a.date.localeCompare(b.date));
+      .filter(e => e.date.slice(0, 7) === ym ||
+        (jeTentoMesic && e.date < KAL_TODAY_STR && konec(e) >= KAL_TODAY_STR))
+      .filter(kalVidet);
 
     if (!evs.length) {
       list.innerHTML = '<div class="callout">Pro zvolený filtr a měsíc nejsou žádné akce.</div>';
       return;
     }
 
-    const bloky = evs.map(e => {
+    // Karta: levý sloupec = chip + datum (jako na Domů), vpravo název, pořadatel, popis a místo
+    function karta(e, skupina){
       const [, mm, dd] = e.date.split('-');
-      const datum = kalFmtRange(e) || `${parseInt(dd, 10)}. ${parseInt(mm, 10)}.`;
-      const relTag = kalRelTag(e);
-      const relStitek = relTag
-        ? `<span class="tag${relTag === 'DNES' ? ' kal-dnes' : ' kal-blizko'}">${relTag}</span> ` : '';
-      // čas jen když ho zdroj uvádí — jinak se o čase nepíše nic
-      const cas = e.time ? `<span class="akce-cas">${kalEsc(e.time)}</span>` : '';
+      const od = e.date < KAL_TODAY_STR && konec(e) >= KAL_TODAY_STR ? KAL_TODAY_STR : e.date;
+      const rel = typeof relBudouci === 'function' ? relBudouci(od) : null;
+      const den = d => { const x = new Date(d + 'T12:00:00'); return `${dnyKratce[x.getDay()]} ${x.getDate()}. ${x.getMonth() + 1}.`; };
+      let chip = '', kdy;
+      if (skupina === 'bezi') {
+        kdy = `trvá do ${den(konec(e))}`;
+      } else {
+        if (rel) chip = `<span class="tag ${rel === 'dnes' ? 'kal-dnes' : 'probiha'}" title="${e.date}">${rel}</span>`;
+        kdy = e.date_end && e.date_end !== e.date ? `${den(e.date)} – ${den(e.date_end)}` : den(e.date);
+        if (skupina === 'dnes' && !(e.date_end && e.date_end !== e.date)) kdy = '';
+      }
+      if (e.time && skupina !== 'bezi') kdy += (kdy ? ' ' : '') + kalEsc(e.time);
       const stitek = e.tag != null ? (e.tag ? ` <span class="tag">${kalEsc(e.tag)}</span>` : '')
         : e.category === 'kurz' ? ' <span class="tag">kurz</span>'
         : e.category === 'svoz' ? ' <span class="tag">svoz</span>' : '';
       const cizi = e.link && /^https?:\/\//.test(e.link) ? ' target="_blank" rel="noopener"' : '';
-      const nazev = e.link
-        ? `<a href="${e.link}"${cizi}>${kalEsc(e.title)}</a>`
-        : kalEsc(e.title);
-      // popis shodný s místem (typicky svoz) nezobrazovat dvakrát
-      const popis = e.description && e.description !== e.place ? `<p class="akce-popis">${kalEsc(e.description)}</p>` : '';
-      // pořadatel jako prostý řádek na konci bloku (jen u akcí/kurzů/svozů —
-      // u jednání a voleb je pořadatelem vždy město)
+      const nazev = e.link ? `<a class="ev-title" href="${e.link}"${cizi}>${kalEsc(e.title)}</a>`
+        : `<span class="ev-title">${kalEsc(e.title)}</span>`;
       const porada = kalMaPoradatele(e) && e.organizer_name
-        ? `<p class="akce-poradatel"><span class="dot"></span>Pořádá: ${kalEsc(e.organizer_name)}</p>` : '';
-      // čas a místo konání na vlastním řádku pod datem, oddělené tečkou
-      const misto = e.place ? `<span class="meta-note"><span aria-hidden="true">📍</span> ${kalEsc(kalMistoBezAdresy(e.place))}</span>` : '';
-      const kdeKdy = [cas, misto].filter(Boolean).join(' · ');
-      const meta = kdeKdy ? `<div class="akce-kdekdy">${kdeKdy}</div>` : '';
-      const pozn = e.note ? `<span class="meta-note akce-pozn" hidden>${kalEsc(e.note)}</span>` : '';
+        ? `<span class="ev-org">Pořádá: ${kalEsc(e.organizer_name)}</span>` : '';
+      const popis = e.description && e.description !== e.place ? `<span class="ev-popis">${kalEsc(e.description)}</span>` : '';
+      const misto = e.place ? `<span class="ev-misto"><span aria-hidden="true">📍</span> ${kalEsc(kalMistoBezAdresy(e.place))}</span>` : '';
+      const pozn = e.note ? `<span class="ev-popis akce-pozn" hidden>${kalEsc(e.note)}</span>` : '';
       const infoBtn = e.note
         ? '<button type="button" class="akce-info" aria-label="Zobrazit poznámku" aria-expanded="false" title="Poznámka">'
           + '<svg viewBox="0 0 16 16" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><circle cx="8" cy="8" r="6.5"/><path d="M8 7.2V11.5M8 4.6h.01" stroke-width="1.8"/></svg></button>' : '';
       const barva = kalMaPoradatele(e) && e.organizer ? ` style="${kalOrgStyle(e.organizer)}"` : '';
-      return `<article class="akce-blok akce-blok-${e.category}"${barva}>
-        <div class="akce-kdy">${relStitek}<strong>${datum}</strong> ${kalDenPopis(e, dny)}</div>
-        ${meta}
-        <h3 class="akce-nazev">${nazev}${stitek}</h3>
-        ${popis}${pozn}${porada || infoBtn ? `<div class="akce-pati">${porada}${infoBtn}</div>` : ''}
+      return `<article class="akce-karta akce-blok-${e.category}"${barva}>
+        <div class="ev-when">${chip}<span class="ev-date">${kdy}</span></div>
+        <div class="ev-what">${nazev.replace('</', stitek + '</')}
+          ${porada}${popis}${misto}${pozn}</div>${infoBtn}
       </article>`;
-    }).join('');
+    }
 
-    list.innerHTML = `<div class="akce-bloky">${bloky}</div>`;
+    // skupiny jako na Domů: dnešek (s časem napřed) → probíhající → další dny do konce měsíce
+    let skupiny;
+    if (jeTentoMesic) {
+      const dnes = evs.filter(e => e.date === KAL_TODAY_STR).sort(poCase);
+      const bezi = evs.filter(e => e.date < KAL_TODAY_STR && konec(e) >= KAL_TODAY_STR)
+        .sort((a, b) => konec(a).localeCompare(konec(b)) || a.date.localeCompare(b.date) || poCase(a, b));
+      const dalsi = evs.filter(e => e.date > KAL_TODAY_STR)
+        .sort((a, b) => a.date.localeCompare(b.date) || poCase(a, b));
+      const bylo = evs.filter(e => e.date < KAL_TODAY_STR && konec(e) < KAL_TODAY_STR)
+        .sort((a, b) => a.date.localeCompare(b.date) || poCase(a, b));
+      skupiny = [['Dnes', 'dnes', dnes], ['Probíhající', 'bezi', bezi], ['Další akce', 'dalsi', dalsi], ['Proběhlo', 'bylo', bylo]];
+    } else {
+      skupiny = [['', 'dalsi', evs.slice().sort((a, b) => a.date.localeCompare(b.date) || poCase(a, b))]];
+    }
+    list.innerHTML = skupiny.filter(g => g[2].length).map(([nadpis, kod, pole]) =>
+      (nadpis ? `<h4 class="akce-skupina">${nadpis}</h4>` : '') +
+      `<div class="akce-karty">${pole.map(e => karta(e, kod)).join('')}</div>`).join('');
     list.querySelectorAll('.akce-info').forEach(btn => {
       btn.addEventListener('click', () => {
-        const pozn = btn.closest('.akce-blok').querySelector('.akce-pozn');
+        const pozn = btn.closest('.akce-karta').querySelector('.akce-pozn');
         pozn.hidden = !pozn.hidden;
         btn.setAttribute('aria-expanded', String(!pozn.hidden));
         btn.classList.toggle('active', !pozn.hidden);

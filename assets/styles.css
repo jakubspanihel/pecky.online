@@ -969,6 +969,30 @@
 .chart-bar-link:hover rect, .chart-bar-link:focus-visible rect { opacity: .8; }
 .chart-bar-link:focus-visible { outline: 2px solid var(--cyan-deep); }
 
+  /* ===== karty akcí (pohled Seznam na /kalendar/) — vzor: .dash-event na Domů ===== */
+  .akce-skupina{margin:18px 0 8px; font-family:var(--font-mono); font-size:11px; font-weight:500; text-transform:uppercase; letter-spacing:0.04em; color:var(--ink-soft);}
+  .akce-skupina:first-child{margin-top:4px;}
+  .akce-karty{display:flex; flex-direction:column; gap:8px;}
+  .akce-karta{display:grid; grid-template-columns:96px minmax(0,1fr) auto; gap:12px; align-items:start; padding:10px 12px; font-size:14px; line-height:1.35;
+    background:var(--org-c-bg, var(--material)); border:1px solid color-mix(in srgb, var(--org-c, var(--line)) 40%, var(--line)); box-shadow:inset 4px 0 0 var(--org-c, transparent);}
+  .akce-karta.akce-blok-zastupitelstvo{--org-c:var(--burgundy);}
+  .akce-karta.akce-blok-rada{--org-c:var(--field);}
+  .akce-karta.akce-blok-vybor{--org-c:var(--gold);}
+  .akce-karta.akce-blok-volby{--org-c:var(--slate);}
+  .akce-karta .ev-when{display:flex; flex-direction:column; align-items:flex-start; gap:4px;}
+  .akce-karta .ev-date{font-family:var(--font-mono); font-size:12px; font-weight:700; color:var(--burgundy); line-height:1.3;}
+  .akce-karta .ev-date:empty{display:none;}
+  .akce-karta .ev-what{display:flex; flex-direction:column; gap:2px; min-width:0;}
+  .akce-karta .ev-title{font-weight:600; color:var(--ink);}
+  .akce-karta a.ev-title:hover{color:var(--cyan-deep);}
+  .akce-karta .ev-org, .akce-karta .ev-misto{font-size:12px; color:var(--ink-soft);}
+  .akce-karta .ev-popis{font-size:13px;}
+  .akce-karta .akce-pozn{font-style:italic;}
+  .akce-karta .akce-pozn[hidden]{display:none;}
+  .akce-karta .akce-info{padding:2px; border:0; background:none; color:var(--ink-soft); cursor:pointer; line-height:0; border-radius:50%;}
+  .akce-karta .akce-info:hover, .akce-karta .akce-info.active{color:var(--burgundy);}
+  @media (max-width:600px){.akce-karta{grid-template-columns:78px minmax(0,1fr) auto; gap:8px;}}
+
 /* Volby: vystředěný výpis avatarů zvolených zastupitelů, 7 na řádek */
 .volby-zastupitele{display:grid; grid-template-columns:repeat(7, 56px); justify-content:center; gap:10px 10px; row-gap:20px; margin:6px 0 26px;}
 .volby-zastupitele .av-link{display:block; line-height:0; position:relative;}
