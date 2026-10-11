@@ -742,6 +742,13 @@
     .party-cards--stack .party-card{display:block;}
     .party-cards--stack .party-card .party-body{padding-top:0;}
   }
+  /* Výsledky voleb: karty vedle sebe, 6 sloupců, vodorovné posouvání */
+  .party-cards--row{flex-direction:row; overflow-x:auto; padding-bottom:10px; scroll-snap-type:x proximity; -webkit-overflow-scrolling:touch;}
+  .party-cards--row .party-card{flex:0 0 max(200px, calc((100% - 5 * 12px) / 6)); display:block; scroll-snap-align:start; box-sizing:border-box;}
+  .party-cards--row .party-card .party-name{padding-right:0; font-size:16px;}
+  .party-cards--row .party-card .party-result{font-size:19px;}
+  .party-cards--row .party-card .party-body{padding-top:0;}
+  .party-cards--row .party-card .party-outcome .tag{position:static; display:inline-block; margin-top:4px;}
   .party-card .av-rest{display:contents;}
   .party-card .av-rest[hidden]{display:none;}
   .party-card .av-more{width:44px; height:44px; border-radius:50%; border:1px solid var(--line); background:var(--material-deep); color:inherit; font-size:18px; line-height:1; cursor:pointer; padding:0;}
