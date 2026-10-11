@@ -584,15 +584,17 @@ def _zvoleni_avatary():
     na její kartu v Lidech."""
     h = read('content/volby2026.html')
     jmena = []
-    for _, n in re.findall(r'<tr><td>(\d+)</td><td><span class="swatch"[^>]*></span>(.*?)</td></tr>', h):
+    for _, strana, n in re.findall(r'<tr><td>(\d+)</td><td><span class="swatch" style="background:var\(--party-([a-z0-9-]+)\);?"></span>(.*?)</td></tr>', h):
         if 'zvolen' in n:
             n = re.sub(r'<.*?>', '', n)
             n = re.sub(r'\s*\(\d+\.\)\s*zvolen\s*$', '', n).split(',')[0]
-            jmena.append([w for w in n.split() if not w.endswith('.')])
+            jmena.append((strana, [w for w in n.split() if not w.endswith('.')]))
     people = json.loads(read('lide/people.json'))['people']
     out = []
-    for w in jmena:
-        p = next((x for x in people if (x['first_name'], x['last_name']) == (w[0], ' '.join(w[1:]))), None)
+    for strana, w in jmena:
+        # příjmení v people.json může nést „ml.“/„st.“; shodu rozhoduje uskupení (tag)
+        shoda = [x for x in people if (x['first_name'], re.sub(r'\s+(ml|st)\.$', '', x['last_name'])) == (w[0], ' '.join(w[1:]))]
+        p = next((x for x in shoda if strana in x.get('tags', [])), shoda[0] if len(shoda) == 1 else None)
         if not p:  # zvolený bez záznamu v Lidech: avatar s iniciálami bez odkazu
             n = ' '.join(w)
             out.append(f'<span class="banner-av" title="{esc(n)}" aria-label="{esc(n)}"><span class="banner-av-init" aria-hidden="true">{esc(w[0][0] + w[-1][0])}</span></span>')
