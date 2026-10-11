@@ -5,16 +5,13 @@
     <div class="list-control">
       <div class="search-bar">
         <input type="search" id="lide-search" placeholder="Hledat" autocomplete="off" aria-label="Hledat v adresáři">
-        <button type="button" class="text-toggle" id="lide-filter-toggle" title="Filtr" aria-expanded="false" aria-controls="lide-filters"><svg class="kal-ico" viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 3h12l-4.5 5.5V13l-3-1.5V8.5z"/></svg><span class="kal-lbl">Filtr</span></button>
-      </div>
-      <div id="lide-filters" class="list-filters" hidden>
-        <div class="filter-row">
-          <select id="lide-filter-org" aria-label="Filtr podle role, orgánu, uskupení nebo organizace"></select>
-          <label class="checkbox-label">
-            <input type="checkbox" id="lide-show-history">
-            Zobrazovat i historické záznamy
-          </label>
-          <button type="button" class="chip-clear" id="lide-clear" hidden>Vymazat filtry</button>
+        <select id="lide-filter-org" aria-label="Filtr podle role, orgánu, uskupení nebo organizace"></select>
+        <div class="filter-menu-wrap">
+          <button type="button" class="text-toggle" id="lide-filter-toggle" title="Filtr" aria-expanded="false" aria-haspopup="menu" aria-controls="lide-filter-menu"><svg class="kal-ico" viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 3h12l-4.5 5.5V13l-3-1.5V8.5z"/></svg><span class="kal-lbl">Filtr</span></button>
+          <div id="lide-filter-menu" class="filter-menu" role="menu" hidden>
+            <button type="button" role="menuitemcheckbox" aria-checked="false" id="lide-show-history">Zapnout i historické záznamy</button>
+            <button type="button" role="menuitem" id="lide-clear" hidden>Vymazat filtry</button>
+          </div>
         </div>
       </div>
     </div>
@@ -79,7 +76,25 @@
   const lPhoneLinks = pcPhoneLinks;
   const lSourceLinks = pcSourceLinks;
 
-  const L_STATE = {q: '', orgs: new Set(), roles: new Set(), organs: new Set(), scope: 'current', open: '', orgView: '', all: false};
+  const L_STATE = {q: '', orgs: new Set(), roles: new Set(), organs: new Set(), scope: 'current', open: '', orgView: '', all: false, term: '', cand: '', everyone: false};
+
+  // dřívější volební období zastupitelstva (mandát patří do období, v jehož mezích začal;
+  // dnešní období je výchozí pohled, proto tu není)
+  const L_TERMS = [
+    ['2026', 'Zastupitelstvo 2026–2030', '2026-01-01', '9999'],
+    ['2018', 'Zastupitelstvo 2018–2022', '2018-11-14', '2022-10-20'],
+    ['2014', 'Zastupitelstvo 2014–2018', '2014-11-05', '2018-11-14']
+  ];
+  // nezvolení kandidáti jednotlivých voleb (kandidátní vazba daného roku bez „zvolen“)
+  const L_CAND_YEARS = ['2026', '2022', '2018', '2014'];
+  // zvolení se poznají podle role „zvolen…“ nebo podle mandátu, který začal v období po těchto volbách
+  const L_ELECTIONS = {'2014': ['2014-10-10', '2018-10-05'], '2018': ['2018-10-05', '2022-09-23'], '2022': ['2022-09-23', '2026-10-09'], '2026': ['2026-10-09', '9999']};
+  const lCandAff = (p, y) => {
+    const e = L_ELECTIONS[y];
+    if (p._affs.some(a => a.role_type === 'zastupitel' && a.from >= e[0] && a.from < e[1])) return null;
+    return p._affs.find(a => a.role_type === 'kandidatka' && a.from.slice(0, 4) === y && !/^zvolen/i.test(a.role)) || null;
+  };
+  const lTerm = () => L_TERMS.find(x => x[0] === L_STATE.term) || null;
 
   // orgány, podle kterých jde filtrovat. Vazba do orgánu patří podle role_type
   // (zastupitelstvo, rada) nebo podle znění role (výbory a komise nemají vlastní
@@ -121,7 +136,11 @@
       p._affs = byPerson[p.id] || [];
       const list = p._affs.find(a => a.role_type === 'kandidatka');
       p._party = list ? list._org : null;
-      p._mandate = p._affs.find(a => a.role_type === 'zastupitel' && a.current) || null;
+      p._party0 = p._party;
+      // výchozí pohled „Zastupitelé“ = mandáty platné k dnešnímu dni (podle dat od–do),
+      // ne podle ručně držené příznaku current
+      const dnes = new Date().toISOString().slice(0, 10);
+      p._mandate = p._affs.find(a => a.role_type === 'zastupitel' && a.from <= dnes && (!a.to || a.to > dnes)) || null;
       p._exec = p._affs.find(a => a.current && L_EXEC_RANK[a.role_type] !== undefined) || null;
       // vedení úřadu/příspěvkových organizací a městských firem (fáze 5b, SPEC.md
       // §7) — mimo zastupitelstvo/radu, proto samostatné pole, ne součást _exec
@@ -178,6 +197,7 @@
           : (p._office ? p._office.role
           : (p._lastRole ? p._lastRole.role
           : (list ? list.role : ''))));
+      p._displayRole0 = p._displayRole;
 
       // timeline pro detail (pcBuildTimeline, assets/helpers.js): aktuální vazby
       // nahoru, uvnitř podle váhy funkce a pak od nejnovější. Váha musí být před
@@ -227,6 +247,9 @@
     if (L_STATE.roles.size) q.set('role', [...L_STATE.roles].join(','));
     if (L_STATE.organs.size) q.set('organ', [...L_STATE.organs].join(','));
     if (L_STATE.all) q.set('all', '1');
+    if (L_STATE.term) q.set('term', L_STATE.term);
+    if (L_STATE.cand) q.set('cand', L_STATE.cand);
+    if (L_STATE.everyone) q.set('everyone', '1');
     if (L_STATE.scope === 'all') q.set('scope', 'all');
     const s = q.toString();
     return '#' + path + (s ? '?' + s : '');
@@ -265,6 +288,9 @@
     L_STATE.roles = new Set((r.query.get('role') || '').split(',').filter(Boolean));
     L_STATE.organs = new Set((r.query.get('organ') || '').split(',').filter(Boolean));
     L_STATE.all = r.query.get('all') === '1';
+    L_STATE.everyone = r.query.get('everyone') === '1';
+    L_STATE.cand = L_CAND_YEARS.includes(r.query.get('cand')) ? r.query.get('cand') : '';
+    L_STATE.term = L_TERMS.some(x => x[0] === r.query.get('term')) ? r.query.get('term') : '';
     L_STATE.scope = r.query.get('scope') === 'all' ? 'all' : 'current';
     L_STATE.orgView = r.kind === 'uskupeni' ? r.id : '';
     L_STATE.open = r.kind === 'osoba' ? r.id : '';
@@ -289,7 +315,7 @@
   /* ---------- filtrování ---------- */
 
   function lFilterActive(){
-    return !!(L_STATE.q.trim() || L_STATE.orgs.size || L_STATE.roles.size || L_STATE.organs.size || L_STATE.all);
+    return !!(L_STATE.q.trim() || L_STATE.orgs.size || L_STATE.roles.size || L_STATE.organs.size || L_STATE.all || L_STATE.term || L_STATE.cand || L_STATE.everyone);
   }
   // Výchozí pohled (bez hledání, filtru i volby „Vše"): jen zastupitelé a rada.
   function lDefaultView(){ return !lFilterActive(); }
@@ -309,7 +335,31 @@
   // Odkaz na konkrétní osobu (#lide/osoba/{id}) ji ukáže i mimo výchozí
   // pohled (bývalí, členové komisí, redakce…) — bez toho by karta neexistovala
   // a nebylo by kam scrollovat ani co rozbalit.
+  // za které uskupení člověk v daném období zasedal: zvolená kandidátka (2026),
+  // pole list_org u mandátu (2014, 2018; prázdné = uskupení bez záznamu), jinak
+  // poslední kandidátka před začátkem období
+  function lPartyFor(p, term){
+    if (term[0] === '2026') {
+      const k = p._affs.find(a => a.role_type === 'kandidatka' && /^zvolen/i.test(a.role) && a.from >= term[2]);
+      return k ? k._org : null;
+    }
+    const m = p._affs.find(a => a.role_type === 'zastupitel' && a.from >= term[2] && a.from < term[3]);
+    if (m && m.list_org !== undefined) return LIDE_DB.orgById[m.list_org] || null;
+    const k = p._affs.filter(a => a.role_type === 'kandidatka' && a.from <= term[2])
+      .sort((x, y) => y.from.localeCompare(x.from))[0];
+    return k ? k._org : null;
+  }
+  function lTermText(p){
+    const words = jNorm(L_STATE.q).split(/\s+/).filter(w => w.length > 1);
+    return !words.length || words.every(w => p._haystack.includes(w));
+  }
   function lMatches(p){
+    if (L_STATE.everyone) return lTermText(p);
+    if (L_STATE.cand) return !!lCandAff(p, L_STATE.cand) && lTermText(p);
+    const term = lTerm();
+    if (term) return p._affs.some(a => (term[0] === '2026'
+      ? (a.role_type === 'kandidatka' && /^zvolen/i.test(a.role) && a.from >= term[2])
+      : (a.role_type === 'zastupitel' && a.from >= term[2] && a.from < term[3]))) && lTermText(p);
     if (!lListed(p)) return false;
     if (L_STATE.open === p.id) return true;
     if (!lInScope(p)) return false;
@@ -368,15 +418,6 @@
     const open = L_STATE.open === p.id;
     const avatar = pcAvatarHtml(p, {ring: org ? lOrgColor(org) : null});
     const until = p._until ? `<span class="tag until">do ${jEscapeHtml(lFormatDate(p._until))}</span>` : '';
-    // Popiska je jen text, ne ovládací prvek: celá kartička je role="button",
-    // který otevírá detail, a druhý klikací cíl uvnitř něj mátl myš i čtečky.
-    // Na uskupení/organizaci se prokliká z timeline v detailu, kde je z toho
-    // pravý odkaz. U vedení úřadu není kandidátka — místo ní se ukazuje
-    // organizace, kterou vedou.
-    const badge = org || (p._office ? p._office._org : null);
-    const party = badge
-      ? `<div class="party">${jEscapeHtml(badge.short_name || badge.name)}</div>`
-      : '<div class="party">—</div>';
     return `
         <div class="person-card${cls}" data-person="${jEscapeHtml(p.id)}" role="button" tabindex="0"
              aria-expanded="${open}" aria-controls="lide-detail-${jEscapeHtml(p.id)}">
@@ -385,7 +426,6 @@
             <div class="pc-info">
               <div class="name">${pcDisplayNameHtml(p)}</div>
               <div class="role">${jEscapeHtml(lActiveRolesLabel(p))}</div>
-              ${party}
             </div>
           </div>
           ${until}
@@ -483,7 +523,47 @@
       L_STATE.orgs.clear();
     }
 
+    if (L_STATE.everyone) {
+      db.people.forEach(p => { p._party = p._party0; p._displayRole = p._displayRole0; });
+      const everyone = db.people.filter(lMatches).sort((a, b) => a.last_name.localeCompare(b.last_name, 'cs') || a.first_name.localeCompare(b.first_name, 'cs'));
+      host.innerHTML = notice + (everyone.length
+        ? lGroup('Všichni v adresáři', everyone, 'Všechny osoby v adresáři podle abecedy: zastupitelé a členové rady, úřad a organizace, členové komisí i kandidáti ve volbách 2014, 2018, 2022 a 2026.')
+        : '<div class="callout"><strong>Nikdo neodpovídá zadání.</strong> Zkus jiné slovo, nebo <button type="button" class="chip-clear" data-lide-clear>vymaž filtry</button>.</div>');
+      lRenderStatus(everyone, [], [], [], []);
+      return;
+    }
+    if (L_STATE.cand) {
+      const y = L_STATE.cand;
+      db.people.forEach(p => { const a = lCandAff(p, y); if (a) { p._party = a._org; p._displayRole = (p._exec || p._mandate || p._office) ? p._displayRole0 : a.role; } else { p._party = p._party0; p._displayRole = p._displayRole0; } });
+      const cands = db.people.filter(lMatches);
+      const byOrg = new Map();
+      cands.forEach(p => { const k = p._party ? p._party.id : ''; if (!byOrg.has(k)) byOrg.set(k, []); byOrg.get(k).push(p); });
+      const orgs = [...byOrg.keys()].map(k => db.orgById[k]).filter(Boolean).sort((a, b) => a._order - b._order);
+      host.innerHTML = notice + (cands.length
+        ? '<p class="lede" style="margin-bottom:6px;">Kandidáti ve volbách ' + y + ', kteří nezískali mandát. Zvolení jsou v přehledu příslušného volebního období. Zdroj: kandidátní listiny, ČSÚ (<a href="/volby/' + y + '/">Volby ' + y + '</a>).</p>' +
+          orgs.map(o => lGroup(o.name, byOrg.get(o.id).sort((a, b) => a.last_name.localeCompare(b.last_name, 'cs')))).join('')
+        : '<div class="callout"><strong>Nikdo neodpovídá zadání.</strong> Zkus jiné slovo, nebo <button type="button" class="chip-clear" data-lide-clear>vymaž filtry</button>.</div>');
+      lRenderStatus(cands, [], [], [], []);
+      return;
+    }
+    const term = lTerm();
+    // uskupení na kartičce a řazení patří k vybranému období, ne k první kandidátce v pořadí
+    db.people.forEach(p => {
+      p._party = term ? lPartyFor(p, term) : p._party0;
+      // kdo dnes nemá funkci, má u zvolených 2026 stát „zvolen za kandidátku ve volbách 2026“, ne kandidatura z roku 2022
+      const z = term && term[0] === '2026' && !(p._exec || p._mandate || p._office)
+        ? p._affs.find(a => a.role_type === 'kandidatka' && /^zvolen/i.test(a.role) && a.from >= term[2]) : null;
+      p._displayRole = z ? z.role : p._displayRole0;
+    });
     const shown = db.people.filter(lMatches);
+    if (term) {
+      const members = shown.sort(lSortParty);
+      host.innerHTML = notice + (members.length
+        ? lGroup(term[1], members, term[0] === '2026' ? 'Zvolení ve volbách 2026. Mandát vznikne až ustavujícím zasedáním zastupitelstva, na kterém zvolení složí slib. Seřazeno podle uskupení. Zdroj: výsledky voleb ČSÚ, viz sekce <a href="/volby/2026/">Volby 2026</a>.' : 'Všichni, kdo v období od ' + term[2].split('-').reverse().map(Number).join('. ') + ' do ' + term[3].split('-').reverse().map(Number).join('. ') + ' získali mandát zastupitele, včetně náhradníků. Seřazeno podle uskupení. Zdroj: seznam zastupitelů v Pečeckých novinách a výsledky voleb ČSÚ, viz sekce <a href="/volby/">Volby</a>.')
+        : '<div class="callout"><strong>Nikdo neodpovídá zadání.</strong> Zkus jiné slovo, nebo <button type="button" class="chip-clear" data-lide-clear>vymaž filtry</button>.</div>');
+      lRenderStatus(shown, [], [], [], []);
+      return;
+    }
     const rada = shown.filter(p => p._exec).sort(lSortExec);
     const ostatni = shown.filter(p => p._mandate && !p._exec).sort(lSortParty);
     // „bývalí" = mají doloženou ukončenou funkci a žádnou aktuální. Kromě lidí,
@@ -538,9 +618,6 @@
     } else {
       host.innerHTML = notice + orgHead +
         lGroup('Rada města', rada) +
-        // href míří rovnou na cílový panel (ne na "#"): kdyby posluchač
-        // níž nestihl zabrat, hash přepne prohlížeč sám — místo aby ho vymazal
-        (rada.length ? `<div class="callout" style="margin-top:18px;">Zdroj složení: usnesení ustavujícího zasedání zastupitelstva 7/2022, viz sekce <a href="#volby2022" data-goto="volby2022">Volby 2022</a>.</div>` : '') +
         lGroup('Ostatní členové zastupitelstva', ostatni,
                'Bez funkce v radě — rozložení mandátů níže na této stránce, výsledky voleb v sekci Volby.') +
         lGroup('Úřad města', vedeniUrad,
@@ -574,7 +651,10 @@
     const pl = (n, one, few, many) => `${n} ${n === 1 ? one : n >= 2 && n <= 4 ? few : many}`;
     const total = db.people.filter(lListed).length;
     statusEl.textContent = `${pl(total, 'osoba', 'osoby', 'osob')} s funkcí. ` +
-      (lDefaultView()
+      (L_STATE.everyone ? `Všichni v adresáři: ${pl(shown.length, 'osoba', 'osoby', 'osob')}.`
+        : L_STATE.cand ? `Nezvolení kandidáti ve volbách ${L_STATE.cand}: ${pl(shown.length, 'osoba', 'osoby', 'osob')}.`
+        : L_STATE.term ? `${lTerm()[1]}: ${pl(shown.length, 'zastupitel', 'zastupitelé', 'zastupitelů')}.`
+        : lDefaultView()
         ? `Zobrazeno pouze ${pl(shown.length, 'zastupitel', 'zastupitelé', 'zastupitelů')}.`
         : `Zobrazeno ${pl(shown.length, 'osoba', 'osoby', 'osob')}.`);
 
@@ -605,7 +685,7 @@
     const orgTypes = [['urad', 'Úřad'], ['prispevkova', 'Příspěvkové organizace'],
                       ['firma', 'Firmy'], ['spolek', 'Spolky'], ['jine', 'Ostatní'], ['politicke', 'Politická uskupení']];
     const usedOrgs = new Set(db.affs.map(a => a.organization_id));
-    orgSel.innerHTML = '<option value="">Zastupitelstvo</option><option value="all">Všichni s funkcí</option>' +
+    orgSel.innerHTML = '<option value="all">Všichni s funkcí</option>' +
       `<optgroup label="Role">${roles.map(([k, label]) => `<option value="role:${jEscapeHtml(k)}">${jEscapeHtml(label)}</option>`).join('')}</optgroup>` +
       orgTypes.map(([t, label]) => {
       const opts = db.orgs.filter(o => o.type === t && usedOrgs.has(o.id))
@@ -614,14 +694,17 @@
       const bodies = t === 'urad'
         ? usedBodies.filter(b => b[0] !== 'zastupitelstvo').map(b => `<option value="organ:${jEscapeHtml(b[0])}">${jEscapeHtml(b[1])}</option>`).join('') : '';
       return opts || bodies ? `<optgroup label="${label}">${opts}${bodies}</optgroup>` : '';
-    }).join('');
+    }).join('') +
+      '<optgroup label="Zastupitelstvo"><option value="">Zastupitelé</option>' +
+      L_TERMS.map(x => `<option value="term:${x[0]}">${jEscapeHtml(x[1])}</option>`).join('') + '</optgroup>' +
+      '<optgroup label="Nezvolení kandidáti">' + L_CAND_YEARS.map(y => `<option value="cand:${y}">Kandidáti ${y}</option>`).join('') + '</optgroup>' +
+      '<option value="everyone">Všichni</option>';
   }
 
   function lSetFilterOpen(open){
-    const t = document.getElementById('lide-filter-toggle'), box = document.getElementById('lide-filters');
+    const t = document.getElementById('lide-filter-toggle'), box = document.getElementById('lide-filter-menu');
     if (!t || !box) return;
     t.setAttribute('aria-expanded', String(open));
-    t.classList.toggle('active', open);
     box.hidden = !open;
   }
 
@@ -630,12 +713,19 @@
       el.setAttribute('aria-pressed', L_STATE.orgs.has(el.dataset.lideOrg) ? 'true' : 'false'));
     const orgSel = document.getElementById('lide-filter-org');
     if (orgSel) orgSel.value = L_STATE.all ? 'all' : L_STATE.roles.size ? 'role:' + [...L_STATE.roles][0]
+      : L_STATE.everyone ? 'everyone'
+      : L_STATE.cand ? 'cand:' + L_STATE.cand
+      : L_STATE.term ? 'term:' + L_STATE.term
       : L_STATE.organs.size ? 'organ:' + [...L_STATE.organs][0]
       : L_STATE.orgs.size === 1 ? [...L_STATE.orgs][0] : '';
-    const hist = document.getElementById('lide-show-history');
-    if (hist) hist.checked = L_STATE.scope === 'all';
-    // aktivní filtr (role / historie) nesmí zůstat schovaný
-    if (L_STATE.roles.size || L_STATE.organs.size || L_STATE.orgs.size || L_STATE.all || L_STATE.scope === 'all') lSetFilterOpen(true);
+    // tlačítko Filtr je inverzní, když jsou zapnuté historické záznamy
+    const hist = document.getElementById('lide-show-history'), on = L_STATE.scope === 'all';
+    if (hist) {
+      hist.setAttribute('aria-checked', String(on));
+      hist.textContent = on ? 'Vypnout historické záznamy' : 'Zapnout i historické záznamy';
+    }
+    const ft = document.getElementById('lide-filter-toggle');
+    if (ft) ft.classList.toggle('active', on);
   }
 
   /* ---------- posluchače (registrují se jednou, i před načtením dat) ---------- */
@@ -646,19 +736,19 @@
         L_STATE.orgs.clear();
         L_STATE.organs.clear();
         L_STATE.roles.clear();
+        L_STATE.term = ''; L_STATE.cand = ''; L_STATE.everyone = false; L_STATE.autoEveryone = false;
         const v = e.target.value;
         L_STATE.all = v === 'all';
         if (v === 'all') { /* bez dalšího filtru */ }
+        else if (v === 'everyone') L_STATE.everyone = true;
+        else if (v.startsWith('cand:')) L_STATE.cand = v.slice(5);
+        else if (v.startsWith('term:')) L_STATE.term = v.slice(5);
         else if (v.startsWith('role:')) L_STATE.roles.add(v.slice(5));
         else if (v.startsWith('organ:')) L_STATE.organs.add(v.slice(6));
         else if (v) L_STATE.orgs.add(v);
         L_STATE.orgView = '';
         afterFilter();
         return;
-      }
-      if (e.target && e.target.id === 'lide-show-history') {
-        L_STATE.scope = e.target.checked ? 'all' : 'current';
-        afterFilter();
       }
     });
     const input = document.getElementById('lide-search');
@@ -667,6 +757,18 @@
     let timer = null;
     input.addEventListener('input', () => {
       L_STATE.q = input.value;
+      // hledání prochází všechny osoby, ne jen aktuální pohled — select se přepne na „Všichni“
+      // a po vymazání hledání se vrátí na výchozí pohled (jen když ho přepnulo hledání samo)
+      if (L_STATE.q.trim()) {
+        if (!L_STATE.everyone) {
+          L_STATE.orgs.clear(); L_STATE.roles.clear(); L_STATE.organs.clear();
+          L_STATE.all = false; L_STATE.term = ''; L_STATE.cand = ''; L_STATE.orgView = '';
+          L_STATE.everyone = true; L_STATE.autoEveryone = true;
+        }
+      } else if (L_STATE.autoEveryone) {
+        L_STATE.everyone = false; L_STATE.autoEveryone = false;
+      }
+      lSyncChips();
       clearTimeout(timer);
       timer = setTimeout(() => { lRenderResults(); lSyncHash(false); }, 150);
     });
@@ -682,8 +784,9 @@
       if (close) { L_STATE.open = ''; lSyncHash(true); return; }
 
       if (t.closest('#lide-clear') || t.closest('[data-lide-clear]')) {
-        L_STATE.q = ''; L_STATE.orgs.clear(); L_STATE.roles.clear(); L_STATE.organs.clear(); L_STATE.orgView = ''; L_STATE.all = false;
+        L_STATE.q = ''; L_STATE.orgs.clear(); L_STATE.roles.clear(); L_STATE.organs.clear(); L_STATE.orgView = ''; L_STATE.all = false; L_STATE.term = ''; L_STATE.cand = ''; L_STATE.everyone = false; L_STATE.everyone = false;
         input.value = '';
+        lSetFilterOpen(false);
         lSyncChips(); lRenderResults(); lSyncHash(true);
         return;
       }
@@ -695,6 +798,15 @@
 
       const ft = t.closest('#lide-filter-toggle');
       if (ft) { lSetFilterOpen(ft.getAttribute('aria-expanded') !== 'true'); return; }
+
+      if (t.closest('#lide-show-history')) {
+        L_STATE.scope = L_STATE.scope === 'all' ? 'current' : 'all';
+        lSetFilterOpen(false);
+        afterFilter();
+        return;
+      }
+      // klik mimo menu ho zavře
+      if (!t.closest('#lide-filter-menu')) lSetFilterOpen(false);
 
       const orgBtn = t.closest('[data-lide-org]');
       if (orgBtn) {
@@ -715,6 +827,7 @@
 
     // kartička je role="button" — musí jít otevřít i klávesnicí
     document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') lSetFilterOpen(false);
       if (e.key === 'Escape' && L_STATE.open) { L_STATE.open = ''; lSyncHash(true); return; }
       if (e.key !== 'Enter' && e.key !== ' ') return;
       const t = e.target;

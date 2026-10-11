@@ -16,6 +16,7 @@ obsah v `content/volby2014.html`.
 Koaliční dohoda ani poměr hlasů při volbě starosty a rady v dostupných
 zdrojích nejsou. Označení „koalice“ u KDU-ČSL vychází jen ze složení rady
 (5× ODS, 2× KDU-ČSL). Kartám chybí úplné kandidátky (jen zvolení) a fotky.
-Barvy: KDU-ČSL používá paletu `lidovci`, SNK Evropští demokraté paletu `snk`
-(návaznost přes Jedličku a Pečenku) — v `lide/organizations.json` zatím
-nejsou vlastní uskupení.
+Barvy: KDU-ČSL používá paletu `lidovci`, SNK Evropští demokraté mají od
+11. 10. 2026 vlastní organizaci `snk-evropsti-demokrati` (`party-snked`,
+fialová blízká PEČKY PEČÁKŮM) a kandidátní vazby obou zvolených (Jedlička,
+Pečenka) v `lide/`.

@@ -87,7 +87,7 @@ celoweb: `img/favicons/`, `img/peckybot/`):
 | `volby/2018/volebni-programy-2018/` | 6 skenů volební inzerce z Pečeckých novin 9/2018 |
 | `volby/2022/volebni-programy-2022/` | 6 skenů volební inzerce z Pečeckých novin 9/2022 |
 | `volby/2022/zastupitele/` | 42 portrétů zastupitelů zvolených 2022 (používá i panel Lidé) |
-| `volby/2026/zastupitele/` | 15 portrétů kandidátů ODS Pečky 2026, staženo z ods.cz (používá i panel Lidé) |
+| `volby/2026/zastupitele/` | 20 portrétů kandidátů ODS Pečky 2026 (15 z ods.cz, 5 výřezů z grafik příspěvků ODS: Šátková, Pavlásek, Holub, Hrušková, Konůpek) (používá i panel Lidé) |
 
 V `content/<sekce>.html` se na ně odkazuje absolutní cestou od kořene
 webu (se zúvodním lomítkem, funguje z libovolné hloubky URL), např.
@@ -163,6 +163,7 @@ opakovaně, si barvu drží, i když se mu mění název.
 | LIDOVCI A NEZÁVISLÍ → Lidovci a nezávislí | `party-lidovci` | `#EBB91E` | `#F7E6B8` | 2018, 2022 |
 | Komunistická strana Čech a Moravy | `party-kscm` | `#C1272D` | `#F1CFD1` | 2018 |
 | Pečky srdcem | `party-peckysrdcem` | `#2E7D32` | `#D1E2D2` | 2026 |
+| SNK Evropští demokraté | `party-snked` | `#6F3A8C` | `#E2D6EA` | 2014 |
 
 **Kde barvy žijí v kódu** (od 24. 9. 2026). Jediný zdroj jsou pole
 `color` (zvýrazňovací barva) a `color_bg` (pozadí kartičky) v
