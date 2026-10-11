@@ -577,6 +577,36 @@ ICO_YT = ('<svg class="kal-ico" viewBox="0 0 24 24" width="20" height="20" aria-
           '<path fill="#fff" d="M9.6 15.6V8.4l6.2 3.6z"/></svg>')
 
 
+def _zvoleni_avatary():
+    """Avatary 21 zastupitelů zvolených ve volbách 2026, seřazení podle osobních
+    hlasů (pořadí řádků s tagem „zvolen“ v tabulce content/volby2026.html).
+    Osoba se páruje podle jména a příjmení s lide/people.json; avatar odkazuje
+    na její kartu v Lidech."""
+    h = read('content/volby2026.html')
+    jmena = []
+    for _, n in re.findall(r'<tr><td>(\d+)</td><td><span class="swatch"[^>]*></span>(.*?)</td></tr>', h):
+        if 'zvolen' in n:
+            n = re.sub(r'<.*?>', '', n)
+            n = re.sub(r'\s*\(\d+\.\)\s*zvolen\s*$', '', n).split(',')[0]
+            jmena.append([w for w in n.split() if not w.endswith('.')])
+    people = json.loads(read('lide/people.json'))['people']
+    out = []
+    for w in jmena:
+        p = next((x for x in people if (x['first_name'], x['last_name']) == (w[0], ' '.join(w[1:]))), None)
+        if not p:  # zvolený bez záznamu v Lidech: avatar s iniciálami bez odkazu
+            n = ' '.join(w)
+            out.append(f'<span class="banner-av" title="{esc(n)}" aria-label="{esc(n)}"><span class="banner-av-init" aria-hidden="true">{esc(w[0][0] + w[-1][0])}</span></span>')
+            continue
+        jmeno = f'{p["first_name"]} {p["last_name"]}'
+        foto = (p.get('photos') or [{}])[0].get('url')
+        if foto:
+            vnitrek = f'<img src="{esc(foto)}" alt="{esc(jmeno)}" loading="lazy" width="56" height="56">'
+        else:
+            vnitrek = f'<span class="banner-av-init" aria-hidden="true">{esc(p["first_name"][0] + p["last_name"][0])}</span>'
+        out.append(f'<a class="banner-av" href="/lide/#lide/osoba/{esc(p["id"])}" title="{esc(jmeno)}" aria-label="{esc(jmeno)}">{vnitrek}</a>')
+    return f'<div class="banner-avatars">{"".join(out)}</div>' if out else ''
+
+
 def _zm_avatary():
     """Blok avatarů 21 současných zastupitelů do banneru: starosta, ostatní
     radní (místostarostové, pak radní), nakonec zbylí zastupitelé. Zdroj:
@@ -719,8 +749,8 @@ def _dash_zastupitelstvo(dnes):
                    f'{dnu[d1.weekday()]} až {dnu[d2.weekday()].lower()}')
         out_v.append(f'<div class="dash-zm dash-zm--volby">\n  <ul class="dash-list banner banner--slate">\n    <li data-until="{konec2}">'
                    f'<div class="banner-body"><h3 class="banner-title">'
-                   f'Hlasy spočítány. <mark class="banner-hl">Co teď?</mark></h3>'
-                   f'<p class="banner-text">Nové zastupitelstvo zvoleno.</p>'
+                   f'Nové zastupitelstvo</h3>'
+                   f'{_zvoleni_avatary()}'
                    f'<div class="banner-actions"><a class="banner-cta" href="/volby/2026/">Co bude dál?</a></div>'
                    f'</div></li>\n  </ul>\n</div>')
     return '\n'.join(out + ([po] if po else []) + ([rada] if rada else [])), '\n'.join(out_v)
