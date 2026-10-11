@@ -47,7 +47,9 @@ Použití:
 """
 import json
 import os
+import re
 import sys
+import unicodedata
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from zoneinfo import ZoneInfo
@@ -68,6 +70,7 @@ AKCE_JSON = ROOT / 'kalendar' / 'akce.json'
 VOLBY_JSON = ROOT / 'kalendar' / 'udalosti-rucni.json'
 AFK_JSON = ROOT / 'kalendar' / 'afk-zapasy.json'
 SVOZ_JSON = ROOT / 'kalendar' / 'svoz-odpadu.json'
+HALA_JSON = ROOT / 'kalendar' / 'sportovni-hala.json'
 PROVOZNI_DOBY_JSON = [ROOT / 'kalendar' / 'sberny-dvur.json']
 ORGANIZACE_JSON = ROOT / 'lide' / 'organizations.json'
 OUT_JSON = ROOT / 'kalendar' / 'udalosti.json'
@@ -213,6 +216,45 @@ def build_akce_events():
             'image': a.get('image'),
             'note': a.get('note'),
             'source_ref': a['id'],  # id v akce.json je stabilní -> drží UID v .ics
+        })
+    return events
+
+
+def build_hala_events():
+    """Rezervace sportovní haly (ParkHala) z kalendar/sportovni-hala.json -> společné schéma.
+
+    Soubor se stahuje ručně z rezervačního systému na pecky.cz (postup v
+    kalendar/README.md -> „Rezervace sportovní haly“). Nepotvrzená rezervace
+    dostane za název „ (nepotvrzeno)“ (zadání uživatele 11. 10. 2026); id ani
+    source_ref stav neobsahují, takže potvrzení jen přepíše titulek téže události.
+    """
+    if not HALA_JSON.exists():
+        return []
+    data = json.loads(HALA_JSON.read_text(encoding='utf-8'))
+    meta = data['meta']
+    org = nazvy_organizaci()
+    events = []
+    for r in data['events']:
+        org_id = r.get('organizer') or meta.get('organizer')  # výjimka na úrovni rezervace (např. FBC Charisma)
+        slug = re.sub(r'[^a-z0-9]+', '-', unicodedata.normalize('NFKD', r['title']).encode('ascii', 'ignore').decode().lower()).strip('-')
+        eid = f'hala-{r["date"]}-{r["time"].replace(":", "")}-{slug}'
+        events.append({
+            'id': eid,
+            'title': r['title'] + (' (nepotvrzeno)' if r.get('status') == 'nepotvrzeno' else ''),
+            'date': r['date'],
+            'date_end': None,
+            'time': r['time'],
+            'time_end': r.get('time_end'),
+            'all_day': False,
+            'category': r['category'],  # 'akce' / 'kurz'
+            'link': meta['evidence']['url'],
+            'description': meta['place'],
+            'place': meta['place'],
+            'organizer': org_id,
+            'organizer_name': org.get(org_id) if org_id else None,
+            'image': None,
+            'note': None,
+            'source_ref': eid,
         })
     return events
 
@@ -474,7 +516,8 @@ def main():
     afk = build_afk_events()
     svoz = build_svoz_events()
     sberny = build_provozni_doby_events()
-    events = jednani + vybory + akce + volby + afk + svoz + sberny
+    hala = build_hala_events()
+    events = jednani + vybory + akce + volby + afk + svoz + sberny + hala
     events.sort(key=lambda e: (e['date'], e['time'] or ''))
 
     OUT_JSON.write_text(json.dumps({
@@ -485,7 +528,8 @@ def main():
                                f'kalendar/udalosti-rucni.json ({len(volby)} termínů), '
                                f'kalendar/afk-zapasy.json ({len(afk)} zápasů v Pečkách), '
                                f'kalendar/svoz-odpadu.json ({len(svoz)} svozů), '
-                               f'kalendar/sberny-dvur.json ({len(sberny)} termínů provozních dob)'),
+                               f'kalendar/sberny-dvur.json ({len(sberny)} termínů provozních dob), '
+                               f'kalendar/sportovni-hala.json ({len(hala)} rezervací sportovní haly)'),
             'updated': datetime.now(PRAGUE).strftime('%Y-%m-%d'),
         },
         'events': events,

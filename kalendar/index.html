@@ -69,7 +69,7 @@
 
 <main>
   <section class="panel active" id="panel-kalendar">
-    <p class="lastmod" data-date="2026-10-09">Aktualizováno: 9. 10. 2026</p>
+    <p class="lastmod" data-date="2026-10-11">Aktualizováno: 11. 10. 2026</p>
     <h2 class="title display">Co se děje v Pečkách <small class="kal-banner-min banner--yellow" id="kal-banner-min" hidden><a href="#" id="kal-banner-open">iCal</a></small></h2>
 
     <aside class="kal-banner banner--yellow" id="kal-banner">
@@ -86,14 +86,11 @@
 
     <div class="kal-toolbar" style="display:flex; align-items:center; gap:8px; margin:22px 0 4px; flex-wrap:wrap;">
       <div class="segmented-control">
-        <button type="button" class="text-toggle" id="kal-filter-toggle" title="Pořadatel" aria-expanded="false" aria-controls="kal-filter-org"><svg class="kal-ico" viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 3h12l-4.5 5.5V13l-3-1.5V8.5z"/></svg><span class="kal-lbl">Pořadatel</span></button>
+        <select id="kal-org-select" class="kal-org-select" aria-label="Pořadatel" hidden></select>
         <div class="segmented-group" role="group" aria-label="Zobrazení kalendáře">
           <button type="button" class="segmented-btn active" data-kal-view="kalendar" title="Kalendář"><svg class="kal-ico" viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="3" width="12" height="11" rx="1.5"/><path d="M2 6.5h12M5 1.5v3M11 1.5v3"/></svg><span class="kal-lbl">Kalendář</span></button>
           <button type="button" class="segmented-btn" data-kal-view="seznam" title="Seznam"><svg class="kal-ico" viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5.5 4h8M5.5 8h8M5.5 12h8"/><path d="M2.5 4h.01M2.5 8h.01M2.5 12h.01" stroke-width="2"/></svg><span class="kal-lbl">Seznam</span></button>
         </div>
-      </div>
-      <div class="filter-chips" id="kal-filter-org" role="group" aria-label="Pořadatel" hidden>
-        <span id="kal-org-chips-inner"></span>
       </div>
       <div style="display:inline-flex;">
         <button type="button" class="year-btn kal-arrow" id="kal-prev" aria-label="Předchozí měsíc">◀</button>
@@ -414,33 +411,25 @@
     document.getElementById('kal-only-future').checked = val;
   }
 
-  function kalRenderOrgChips(events){
-    const box = document.getElementById('kal-org-chips-inner');
-    const poradatele = new Map();   // id -> název, v pořadí prvního výskytu
+  function kalRenderOrgSelect(events){
+    const sel = document.getElementById('kal-org-select');
+    const poradatele = new Map();   // id -> název
     events.forEach(e => {
       if (e.organizer && e.organizer_name && !poradatele.has(e.organizer)) {
         poradatele.set(e.organizer, e.organizer_name);
       }
     });
     // s jediným pořadatelem nemá výběr co nabídnout
-    if (poradatele.size < 2) { box.innerHTML = ''; return; }
-    box.innerHTML = '<button type="button" class="chip" data-kal-org="" aria-pressed="true">Všichni</button>' +
-      [...poradatele].map(([id, nazev]) =>
-        `<button type="button" class="chip" data-kal-org="${kalEsc(id)}" aria-pressed="false" style="${kalOrgStyle(id)}">`
-        + `<span class="dot"></span>${kalEsc(nazev)}</button>`).join('');
-
-    box.querySelectorAll('[data-kal-org]').forEach(btn => {
-      btn.addEventListener('click', function(){
-        KAL_ORG = this.dataset.kalOrg;
-        kalSyncOrgChips();
-        kalShowView(KAL_VIEW);
-      });
+    if (poradatele.size < 2) { sel.innerHTML = ''; sel.hidden = true; return; }
+    const razene = [...poradatele].sort((a, b) => a[1].localeCompare(b[1], 'cs'));
+    sel.innerHTML = '<option value="">Všichni pořadatelé</option>' +
+      razene.map(([id, nazev]) => `<option value="${kalEsc(id)}">${kalEsc(nazev)}</option>`).join('');
+    sel.hidden = false;
+    sel.value = KAL_ORG;
+    sel.addEventListener('change', function(){
+      KAL_ORG = this.value;
+      kalShowView(KAL_VIEW);
     });
-  }
-
-  function kalSyncOrgChips(){
-    document.querySelectorAll('[data-kal-org]').forEach(el =>
-      el.setAttribute('aria-pressed', el.dataset.kalOrg === KAL_ORG ? 'true' : 'false'));
   }
 
   document.getElementById('kal-prev').addEventListener('click', () => {
@@ -469,7 +458,15 @@
 
   // hned při načtení (ještě před stažením dat) — /kalendar/ se tak přepíše
   // na /kalendar/#RRRR-MM aktuálního měsíce
-  kalReadHash();
+  // Na malém displeji (mobil) je výchozí pohled Seznam — mřížka se tam nevejde.
+  // Platí jen při příchodu bez platného hashe; odkaz s #RRRR-MM (mřížka)
+  // i #RRRR-MM/seznam volbu respektuje.
+  if (!kalReadHash() && window.matchMedia('(max-width:600px)').matches) {
+    KAL_VIEW = 'seznam';
+    kalSetOnlyFuture(true);
+    document.querySelectorAll('#panel-kalendar .segmented-btn[data-kal-view]')
+      .forEach(x => x.classList.toggle('active', x.dataset.kalView === KAL_VIEW));
+  }
   kalWriteHash();
   window.addEventListener('hashchange', () => {
     if (kalReadHash()) kalShowView(KAL_VIEW); else kalWriteHash();
@@ -486,15 +483,6 @@
   document.getElementById('kal-only-future').addEventListener('change', function(){
     KAL_ONLY_FUTURE = this.checked;
     kalShowView(KAL_VIEW);
-  });
-
-  // Tlačítko "Pořadatel" jen schovává/ukazuje panel (#kal-filter-org) —
-  // samotné filtrování dál řídí checkbox a čipy pořadatele uvnitř.
-  document.getElementById('kal-filter-toggle').addEventListener('click', function(){
-    const expanded = this.getAttribute('aria-expanded') === 'true';
-    this.setAttribute('aria-expanded', String(!expanded));
-    this.classList.toggle('active', !expanded);
-    document.getElementById('kal-filter-org').hidden = expanded;
   });
 
   // Banner odběru: křížek ho sbalí do jednořádkového pruhu, odkaz „Více informací“
@@ -535,7 +523,7 @@
       });
       kalBannerPocet(KAL_ALL_EVENTS);
       document.getElementById('kal-status').style.display = 'none';
-      kalRenderOrgChips(KAL_ALL_EVENTS);
+      kalRenderOrgSelect(KAL_ALL_EVENTS);
       kalShowView(KAL_VIEW);
     })
     .catch(() => {

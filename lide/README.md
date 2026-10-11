@@ -667,6 +667,20 @@ také evidovat") je přesto v rejstříku jako pořadatel akcí v Kalendáři �
 vazba na Pečky je přes spolupráci s Farností Pečky, viz `kalendar/README.md`.
 První případ pořadatele mimo katastr města.
 
+Od 11. 10. 2026 přibyl `fbc-charisma-pecky` (`type: "spolek"`, IČO 01830589) —
+samostatný florbalový klub v Pečkách (ne součást TJ Sokol), pořadatel
+pravidelných pondělních rezervací sportovní haly v Kalendáři. Na rozdíl od
+ostatních spolků má vazby na 3 lidi z registru klubu na ceskyflorbal.cz
+(`/club/detail/overview/946`): předseda a zmocněnec Jiří Lazar (`lazarji`),
+zmocněnci Jan Dřízhal (`drizhalj`, existující záznam — trenér AFK a kandidát
+ČSSD 2022; totožnost je jen podle shody jména, uvedeno v poznámce vazby)
+a Richard Vavřich (`vavrichr`). `role_type`: předseda `vedeni-organizace`,
+zmocněnci `jine`. Registr uvádí i telefon a soukromé e-maily na seznam.cz;
+ty se **nepřebírají** (soukromá spojení spolkových funkcionářů, ne služební
+kontakt). Klub nemá vlastní web, `web` ukazuje na jeho stránku v registru;
+datum zahájení funkcí registr neuvádí (`from: null`). Soupisky hráčů
+(40 členů) se nepřebírají.
+
 ### Povolání
 
 `occupations` je pole seřazené od nejnovějšího ročníku, každá položka nese

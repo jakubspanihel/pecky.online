@@ -87,22 +87,17 @@ vede rovnou na zdroj" v „Jak to funguje" níže.
     a v posluchači `hashchange` (ruční úprava adresy, odkaz zvenku).
     Neplatný hash (`#nesmysl`, `#2026-13`) se ignoruje a přepíše
     aktuálním stavem.
-  - **Odkaz „Filtr"** (`#kal-filter-toggle`, doplněno 24. 9. 2026 na
-    žádost uživatele, na řádku navigace měsícem hned za tlačítkem „Dnes" —
-    přesunuto tamtéž ze zprvu zvolené pozice za přepínačem „Zobrazit jako",
-    na druhou žádost uživatele týž den) — jen schovává/ukazuje panel filtrů
-    (`#kal-filter-org`), samotné filtrování dál řídí checkbox a čipy
-    pořadatele uvnitř. Sémanticky `<button>`, vizuálně obyčejný textový
-    odkaz (`.text-toggle` v `assets/styles.css`: bez rámečku/pozadí,
-    podtržený, barva `--burgundy`/`--burgundy-deep` v aktivním stavu — na
-    žádost uživatele nahradilo původní stylování jako `.year-btn`). Ne přes
-    sdílený `.toggle-details` vzor z `assets/common.js` — ten by na klik
-    přepisoval text tlačítka na „Méně informací", což pro „Filtr" nedává
-    smysl; stav nese `aria-expanded` + `.active` s vlastním handlerem. Panel
-    je defaultně skrytý (`hidden`) a leží **těsně před tabulkou/seznamem**
-    (`#kal-status`), ne u navigace měsícem — přesunuto z původního umístění
-    24. 9. 2026 na žádost uživatele spolu s přidáním tlačítka Filtr.
-  - **Panel filtrů `#kal-filter-org`** — obsahuje tři prvky, všechny se
+    **Mobil (od 11. 10. 2026, na žádost uživatele):** při příchodu bez platného
+    hashe na displeji do 600 px (`matchMedia('(max-width:600px)')`) je výchozí
+    pohled Seznam (`#RRRR-MM/seznam`, „Pouze budoucí“ zaškrtnuté), na větším
+    displeji mřížka. Odkaz s explicitním `#RRRR-MM` (mřížka) nebo
+    `#RRRR-MM/seznam` zvolený pohled respektuje; po přepnutí uživatelem se
+    volba zapisuje do hashe jako dřív.
+  - **Selectbox „Pořadatel“** (`#kal-org-select`, od 11. 10. 2026 na žádost uživatele
+    přímo v řádku nástrojů vlevo od přepínače Kalendář/Seznam). Nahradil odkaz „Filtr“
+    (`#kal-filter-toggle`) a panel `#kal-filter-org`, které byly zrušeny spolu s jejich
+    CSS a handlerem. Podrobnosti viz „Výběr pořadatele“ níže.
+  - **Filtry** (checkboxy pod řádkem nástrojů a selectbox; panel `#kal-filter-org` už neexistuje) — všechny se
     zapisují do sdíleného stavu čteného oběma pohledy (mřížka i Seznam):
     - **Checkbox „Pravidelné akce, kurzy a tréninky"** (`#kal-show-kurz`,
       doplněno 24. 9. 2026 na žádost uživatele, přesunuto do panelu
@@ -135,12 +130,15 @@ vede rovnou na zdroj" v „Jak to funguje" níže.
       den co samotný checkbox) se sám zase odškrtne. Navigace měsícem
       uvnitř téhož pohledu checkbox nemění, jen samotné přepnutí
       Kalendář/Seznam.
-    - **Čipy pořadatele** — vykreslené `kalRenderOrgChips()` do vnořeného
-      `#kal-org-chips-inner` (ne přímo do `#kal-filter-org`, aby render
-      nesmazal sousední checkbox); viditelnost samotného panelu řídí
-      výhradně tlačítko Filtr, ne počet pořadatelů — s < 2 pořadateli
-      `kalRenderOrgChips()` vykreslí prázdný `#kal-org-chips-inner`
-      (checkbox zůstává).
+    - **Výběr pořadatele** (selectbox `#kal-org-select`, od 11. 10. 2026 na
+      žádost uživatele místo čipů) — vykreslený `kalRenderOrgSelect()`:
+      první volba „Všichni pořadatelé“, dál pořadatelé z dat řazení podle
+      abecedy (`localeCompare` `cs`). Změna hodnoty nastaví `KAL_ORG` a zavolá
+      `kalShowView()`. S < 2 pořadateli zůstane select skrytý (checkboxy
+      zůstávají); select je vidět vždy, s méně než 2 pořadateli je skrytý.
+      Barevná tečka u pořadatele (dřív v čipu) se v selectu nezobrazuje —
+      nativní `<option>` barvu nenese; barva pořadatele zůstává v mřížce
+      a Seznamu.
     - CSS pozn.: `.filter-chips{display:flex}` v `assets/styles.css`
       přebíjí výchozí UA pravidlo `[hidden]{display:none}` (autorský
       styl na `display` má přednost bez ohledu na atribut `hidden`) —
@@ -1327,6 +1325,84 @@ seznam místo rozházených poznámek po repu.
   je nemají. Google Kalendář štítek nezobrazuje.
 - **Kontrola:** při týdenní kontrole kalendáře ověřit, že se doba
   sběrného dvora nezměnila.
+
+### Rezervace sportovní haly (ParkHala) — aktivní (od 11. 10. 2026)
+
+- **Zdroj:** [pecky.cz/default/default/21405_rezervacni-system](https://pecky.cz/default/default/21405_rezervacni-system)
+  — rezervační systém městské sportovní haly „ParkHala“ (provozní doba 7–22 h;
+  v červenci a srpnu 2026 uzavřena kvůli opravě podlahy). Do `sources.json`
+  přidat jako nový zdroj a podle pravidla výše i do quicklinks v O webu → Odkazy.
+- **Zadání uživatele:** `place` = **Sportovní hala**, `organizer` = **TJ Sokol Pečky**
+  (`tj-sokol-pecky`). Pozor: systém rezervuje hala pro víc subjektů a rezervace
+  nenesou jméno oddílu ani pořadatele — jsou jen „čas + název“ (Basket U11,
+  Volejbal – žákyně, Florbal Charisma Pečky, „Podzimní běh v parku“ …). Zadaný
+  pořadatel TJ Sokol je tedy převzaté rozhodnutí, ne údaj ze zdroje; kdyby se
+  ukázalo, že některé rezervace (např. Florbal Charisma) patří jinému subjektu,
+  rozlišit pořadatele podle názvu.
+- **Co stránka ukazuje (ověřeno 11. 10. 2026):** nadpis „Rezervační systém —
+  ParkHala“, záložky Přehled / Nová rezervace / Informace, měsíční a týdenní
+  mřížka (přepínač Měsíc/Týden, šipky ◀ ▶ na další měsíc, „Nyní“). Každá
+  rezervace je zelený odkaz s textem **`<čas začátku> <název>`** (např.
+  „16:30 Basket U12“) — **konec ani délka v mřížce není**, odkaz se po kliknutí
+  neotevře do detailu. Legenda: Potvrzeno / Nepotvrzeno (rozlišeno barvou).
+  Obsah se vykresluje JavaScriptem; `WebFetch` vrací 403, `javascript_tool`
+  přes DOM/skripty je blokovaný → číst jen přes claude-in-chrome.
+- **Jak data přebírat (postup) — doplněno 11. 10. 2026 po ověření týdenního
+  zobrazení:** měsíční mřížka konec rezervace neukazuje, **týdenní ano**
+  („18:30 – 20:00“) → číst vždy týden po týdnu.
+  1. `navigate` na URL výše, tlačítko **Týden** (`find` „Týden button“),
+     šipky ◀ ▶ nad mřížkou listují po týdnech (po kliku na Týden stránku
+     odscrollovat, ať jsou šipky vidět; souřadnice šipek po scrollu o 5 ticků
+     ≈ (199, 414) / (240, 414), ověřit screenshotem).
+  2. **Stav rezervace se pozná jen podle barvy** (text ho neobsahuje):
+     zelená `rgb(51,181,94)` = Potvrzeno (`reservation-label-confirmed`),
+     modrá `rgb(45,143,206)` = Nepotvrzeno (`reservation-label-unconfirmed`).
+     `get_page_text` barvu ani den neřekne (prázdné dny vynechá, přiřazení
+     ke dni je nejisté). Proto na každém týdnu spustit `javascript_tool`
+     — čtení DOM funguje (blokuje se jen výpis skriptů/cookies): pro každý
+     `.fc-event` vzít `innerText` (první řádek čas od–do, zbytek název),
+     `getComputedStyle(e).backgroundColor` a den podle toho, do kterého
+     sloupce `th` (hlavička „Po 26. 10.“) padne `getBoundingClientRect().left`.
+     Výstup `den|čas|název|P/N` na řádek.
+  3. Týdny listovat dopředu, dokud nejsou prázdné (rezervace bývají na 1–2
+     měsíce dopředu); zpětně ne (proběhlé už nejsou potřeba). Měsíc nikdy
+     neslučovat s týdnem — týden 26. 10. – 1. 11. zasahuje do dvou měsíců.
+  4. Záložku „Informace“ stačí zkontrolovat při týdenní kontrole kvůli
+     upozornění o uzavření haly (léto, opravy) — uzavření se do kalendáře
+     nezapisuje, jen se podle něj nesmí generovat termíny.
+  5. Zavřít záložku (`tabs_close_mcp`).
+- **Data a generátor:** `kalendar/sportovni-hala.json` (`meta` + `events[]` =
+  `date`, `time`, `time_end`, `title`, `status` potvrzeno/nepotvrzeno, `category`),
+  funkce `build_hala_events()`. Každé stažení soubor **celý přepíše** (převod
+  výstupu z kroku 2 postupu výše: den `d.m.` → ISO 2026, čas doplnit na `HH:MM`).
+  Kategorie se při převodu určuje podle názvu: `akce` = utkání, „NS …“, liga,
+  turnaje/volejbal U14/U16, „Podzimní běh v parku“; ostatní (tréninky) `kurz`.
+  Generátor skládá `id`/`source_ref` jako `hala-RRRR-MM-DD-HHMM-<slug názvu>`
+  (stav v něm není), `title` = název + „ (nepotvrzeno)“ u nepotvrzených,
+  `place` = Sportovní hala, `organizer` = `tj-sokol-pecky` (výchozí z `meta`; u
+  jednotlivé rezervace jde přepsat polem `organizer` — „Florbal Charisma Pečky“
+  má od 11. 10. 2026 `fbc-charisma-pecky`, samostatný klub, ne TJ Sokol), `link` = URL
+  rezervačního systému, `time_end` vyplněn.
+- **Rozpor × Rozvrh sokolovny:** TJ Sokol už má v kalendáři rozvrh sokolovny
+  z Pečeckých novin (`kurz`, 893 záznamů). Jde o jiné místo (sokolovna ×
+  sportovní hala), ale u basketu a volejbalu se mohou termíny překrývat —
+  před zápisem srovnat, ať nevznikne duplicita téhož tréninku.
+- **Nepotvrzené rezervace** (rozhodnutí uživatele 11. 10. 2026): zapisovat
+  i je, **za název události přidat „ (nepotvrzeno)“**. Stav se při dalším běhu
+  mění (nepotvrzená → potvrzená), proto `source_ref` stav neobsahuje a
+  titulek se při přegenerování přepíše. K 11. 10. 2026 jsou nepotvrzené jen
+  rezervace od 27. 10. (8 z 16 v týdnu 26. 10.), vše dřív je potvrzené.
+- **Čas konce:** týdenní zobrazení ho má → `time_end` vyplnit (původní
+  poznámka o chybějícím konci výše platí jen pro měsíční mřížku).
+- **Aktualizace:** týdenní kontrola kalendáře (krok 3 „Pracovní postup“),
+  rezervace se mění často (utkání, zrušení) → při každém běhu porovnat
+  budoucí termíny a změny promítnout, zrušené smazat.
+- **Stav k 11. 10. 2026:** staženy týdny od 24. 8. do 6. 12., do souboru zapsáno
+  září–listopad 2026 (195 rezervací, z toho 37 nepotvrzených — všechny od
+  27. 10.; 14 `akce`, 181 `kurz`). Zdroj je v `sources.json`
+  (`pecky-cz-rezervace-parkhala`) a v O webu → Odkazy. Systém k datu stažení
+  uváděl rezervace jen do 30. 11. 2026. Příští stažení: týdenní kontrola
+  (listopad se bude potvrzovat, prosinec přibude).
 
 ### Kalendář akcí z webu města — zapojeno 23. 9. 2026
 

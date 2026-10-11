@@ -432,6 +432,15 @@
    "note": "Odkaz dodal uživatel 3. 10. 2026. Otevírací doba zapsána do sekce Kalendář jako opakovaná událost „Sběrný dvůr OTEVŘENO“ bez konce (kalendar/sberny-dvur.json). Poplatky a seznam odpadů zatím nepoužity."
   },
   {
+   "id": "pecky-cz-rezervace-parkhala",
+   "name": "Rezervační systém sportovní haly ParkHala (pecky.cz)",
+   "url": "https://pecky.cz/default/default/21405_rezervacni-system",
+   "category": "oficiální",
+   "description": "Rezervační kalendář městské sportovní haly: rezervace po dnech a hodinách (týdenní a měsíční zobrazení), stav potvrzeno/nepotvrzeno, ceník pronájmu (290 / 380 / 700 Kč za hodinu) a provozní doba 7–22 h.",
+   "status": "ověřeno",
+   "note": "Odkaz dodal uživatel 11. 10. 2026. Rezervace od 1. 9. do 30. 11. 2026 (195) zapsány do sekce Kalendář (kalendar/sportovni-hala.json) s místem Sportovní hala a pořadatelem TJ Sokol Pečky (zadání uživatele; systém jméno pořadatele neuvádí). Nepotvrzené rezervace mají v názvu „(nepotvrzeno)“. Ceník a pravidla rezervace zatím nepoužity. Stránka je vykreslovaná JavaScriptem, číst přes claude-in-chrome — postup v kalendar/README.md."
+  },
+  {
    "id": "pecky-cz-pracovni-doba",
    "name": "Pracovní doba Městského úřadu (pecky.cz)",
    "url": "https://pecky.cz/default/default/21281_pracovni-doba",
@@ -862,6 +871,15 @@
    "description": "Web spolku Volejbal Pečky: novinky, výsledky družstev a nábor dětí. Od 4. 10. 2026 zdroj sekce Kalendář — pravidelné tréninky pro děti (úterý a pátek od 15:00) se z něj přepisují do kalendar/akce.json.",
    "status": "ověřeno",
    "note": "Doplněno 4. 10. 2026 podle plakátu „Od přehazované k volejbalu!“ na vývěsce; stejné údaje má příspěvek „Hledáme nové talenty!“ z 1. 9. 2026. Spolek je v rejstříku pod IČO 23653540 (Hlídač státu)."
+  },
+  {
+   "id": "ceskyflorbal-fbc-charisma-pecky",
+   "name": "FBC Charisma Pečky — Český florbal",
+   "url": "https://www.ceskyflorbal.cz/club/detail/overview/946",
+   "category": "oficiální · spolek",
+   "description": "Registr klubu u Českého florbalu: ID klubu 946, rok registrace 2013, 40 členů, jeden tým (muži, PH A SČ soutěž mužů), kontaktní adresa, předseda a zmocněnci, rozpis zápasů.",
+   "status": "ověřeno",
+   "note": "Odkaz dodal uživatel 11. 10. 2026. FBC Charisma Pečky je samostatný florbalový klub (IČO 01830589), ne součást TJ Sokol — založen v lide/organizations.json (id fbc-charisma-pecky), vazby na 3 lidi z registru (předseda Jiří Lazar, zmocněnci Jan Dřízhal a Richard Vavřich) v lide/affiliations.json. Telefony a e-maily z registru se do webu nepřebírají (soukromé adresy a číslo spolkových funkcionářů, ne služební spojení). Zápasy v registru jsou zatím jen venku (Beroun, 8. 11. 2026) a do Kalendáře nepatří; domácí tréninky v Pečkách jsou v rezervacích sportovní haly (pondělí 20:00–21:30). Stránka je vykreslovaná JavaScriptem, číst přes claude-in-chrome (get_page_text vrací jen články, celé údaje dá javascript_tool document.body.innerText)."
   }
  ]
 }
