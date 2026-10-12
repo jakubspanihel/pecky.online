@@ -193,7 +193,7 @@ EXTRA_PAGES = {
         'na YouTube od roku 2022, s vyznačeným ustavujícím zasedáním.',
         # Odkázaná z /jednani/ (odstavec "Související") od 8. 10. 2026.
         # Statický snímek k datu lastmod.
-        False, 'jednani', '2026-10-11'),
+        False, 'jednani', '2026-10-12'),
     'fbmonitoring': (
         '/o-webu/facebook-monitoring/facebook-mestopecky/',
         'Monitoring Facebooku města Pečky — Do Peček . cz',
@@ -223,6 +223,15 @@ EXTRA_PAGES = {
         # Odkázaná z /noviny/ (odstavec "Související") od 8. 10. 2026 —
         # proto má lastmod a jde do sitemapy. Statická tabulka z tiráží novin.
         False, 'zpravodaj', '2026-10-08'),
+    'analyza': (
+        '/noviny/analyza.html', 'Jak se dařilo Pečeckým novinám — Do Peček . cz',
+        'Rozsah čísel Pečeckých novin a podíl zpráv z jednání rady a '
+        'zastupitelstva v době jednotlivých redakcí od února 2016.',
+        # Zatím bez odkazu odjinud (10. 10. 2026 rozpracováno): lastmod None =
+        # noindex, mimo sitemapu. Obsah content/analyza.html GENERUJE
+        # noviny/analyza.py z noviny/pecky-noviny.json (statický snímek).
+        # Po zveřejnění odkazu: doplnit lastmod.
+        False, 'zpravodaj', None),
     'changelog': (
         '/o-webu/changelog.html', 'Historie změn na webu — Do Peček . cz',
         'Přehled sekcí webu Do Peček . cz: kdy byl u každé naposledy '
