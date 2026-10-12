@@ -324,6 +324,8 @@ def chunks_slozeni():
         cur = end is None
         at = st
         def covers(a, st=st, end=end):
+            if not a['from'] and a['to'] is None:  # neznámé období (nedoložený začátek i konec)
+                return False
             return _d_from(a['from']) <= st and (_d_to(a['to']) is None or _d_to(a['to']) > st)
         roles = [a for a in mp if a['role_type'] in ('starosta', 'mistostarosta', 'rada') and covers(a)]
         order = {'starosta': 0, 'mistostarosta': 1, 'rada': 2}
@@ -371,11 +373,11 @@ def chunks_slozeni():
             continue
         parts = []
         for a in rows:
-            f = cz_date(a['from']) if len(a['from']) > 4 else a['from']
-            to = 'dosud' if a['to'] is None else (cz_date(a['to']) if len(a['to']) > 4 else a['to'])
+            f = '?' if not a['from'] else (cz_date(a['from']) if len(a['from']) > 4 else a['from'])
+            to = ('dosud' if a['current'] else '?') if a['to'] is None else (cz_date(a['to']) if len(a['to']) > 4 else a['to'])
             parts.append(f"{f} – {to}: {_full_name(people[a['person_id']])} ({a['role']})")
         out.append({'u': '/lide/', 't': 'Starostové a místostarostové' if rt == 'starosta' else 'Místostarostové Peček v čase',
-                    'x': clip(f"{titul} Peček v čase (od roku {rows[0]['from'][:4]}), kdo byl {slovo}: "
+                    'x': clip(f"{titul} Peček v čase (od roku {next(r['from'][:4] for r in rows if r['from'])}), kdo byl {slovo}: "
                               + '; '.join(parts) + '.', 900)})
     # výbory a komise (aktuální členové)
     funkce = re.compile(r'^(člen|členka|předseda|předsedkyně|místopředseda|místopředsedkyně)\s+', re.I)

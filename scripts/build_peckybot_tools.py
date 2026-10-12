@@ -109,6 +109,8 @@ def build_slozeni():
         cur = end is None
 
         def covers(a, st=st):
+            if not a['from'] and a['to'] is None:  # neznámé období (nedoložený začátek i konec)
+                return False
             return _d_from(a['from']) <= st and (_d_to(a['to']) is None or _d_to(a['to']) > st)
         roles = [a for a in mp if a['role_type'] in order and covers(a)]
         roles.sort(key=lambda a: (order[a['role_type']], a['role']))
