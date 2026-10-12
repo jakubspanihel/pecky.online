@@ -474,25 +474,41 @@
     letter-spacing:0.04em; color:var(--ink-soft); border-bottom:1px solid var(--ink); padding:8px 10px;
   }
   table.register td{padding:11px 10px; border-bottom:1px solid var(--line); vertical-align:top;}
-  /* časová osa (Redakce): svisle, nejnovější nahoře; výška řádku ~ délka období */
-  .tl{margin:18px 0 22px; min-width:560px;}
-  .tl-heads,.tl-grid{display:grid; grid-template-columns:130px 1fr 1fr; column-gap:6px;}
-  .tl-heads{margin-bottom:6px; font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:.04em; color:var(--ink);}
-  .tl-grid{row-gap:3px;}
-  .tl-per{display:flex; flex-direction:column; justify-content:space-between; gap:4px; font-size:13px; font-weight:700; color:var(--ink); white-space:nowrap;}
-  .tl-per span{display:flex; align-items:center; gap:8px; line-height:1.2;}
-  .tl-per span::before{content:""; flex:0 0 auto; width:8px; height:8px; border-radius:50%; background:#A89B7E;}
-  .tl-per:first-child span::before{background:var(--burgundy);}
-  .tl-cell.tl-gap .tl-gap-h{font-weight:700;}
-  .tl-cell{box-sizing:border-box; display:flex; flex-direction:column; justify-content:center; padding:6px 10px; border-radius:6px; font-size:13px; line-height:1.35; font-weight:600;}
-  .tl-cell.tl-jmeno{background:var(--line); color:var(--ink);}
-  .tl-cell.tl-jmeno.tl-aktualni{background:var(--burgundy); color:#fff;}
-  .tl-cell.tl-none{background:var(--material-deep); color:var(--ink); box-shadow:inset 0 0 0 1px var(--line);}
-  .tl-cell.tl-gap{background:repeating-linear-gradient(45deg,#fff 0 4px,var(--line) 4px 6px); box-shadow:inset 0 0 0 1px var(--line);}
-  .tl-cell.tl-jmeno a{color:inherit; text-decoration:underline; text-underline-offset:2px;}
-  .tl-cell.tl-gap{align-items:flex-start; gap:3px; text-align:left; color:var(--ink);}
-  .tl-cell.tl-gap span{background:#fff; padding:1px 8px; border-radius:4px;}
-  .tl-cell.tl-gap a[title]{text-decoration-style:dotted; cursor:help;}
+  /* Redakce Pečeckých novin: karty jednotlivých redakcí, mezi nimi callout se změnou */
+  .red-cards{display:flex; flex-direction:column; gap:12px; margin:18px 0;}
+  .red-card{background:#fff; border:1px solid var(--line); border-radius:8px; padding:16px 20px;}
+  .red-card--aktualni{border-color:var(--burgundy); box-shadow:inset 4px 0 0 var(--burgundy);}
+  .red-card header{display:grid; grid-template-columns:1fr auto; column-gap:12px; row-gap:4px; align-items:center;}
+  .red-card header h3,.red-card header .red-period{grid-column:1;}
+  .red-card header .red-count{grid-column:2; grid-row:1 / span 2; justify-self:end;}
+  .red-card h3{margin:0; font-family:var(--font-display); font-size:18px; color:var(--ink);}
+  .red-card .tag.red-count{font-family:var(--font-banner); font-size:24px; font-weight:600; line-height:1.2; text-transform:none; letter-spacing:0; padding:4px 14px; border-radius:6px; color:var(--ink);}
+  .red-period{margin:0; font-size:13.5px; color:var(--ink-soft);}
+  .red-person-name small{display:block; font-weight:400; font-size:12px; color:var(--ink-soft);}
+  .red-note{margin:12px 0 0; font-size:13px; color:var(--ink-soft);}
+  .red-card{display:grid; grid-template-columns:minmax(0,1fr); gap:0;}
+  .red-body{display:flex; flex-direction:row; flex-wrap:wrap; align-items:flex-start; gap:18px 48px; margin-top:12px;}
+  .red-group{padding:0;}
+  .red-group h4{margin:0 0 8px; font-size:11px; text-transform:uppercase; letter-spacing:.05em; color:var(--ink-soft);}
+  .red-people{display:flex; flex-direction:row; flex-wrap:wrap; align-items:flex-start; gap:14px 10px;}
+  .red-person{display:inline-flex; flex-direction:column; align-items:center; text-align:center; width:110px; gap:6px; color:var(--ink); text-decoration:none; font-size:14px; font-weight:600;}
+  a.red-person:hover .red-person-name, a.red-person:focus-visible .red-person-name{text-decoration:underline;}
+  .red-av-img,.red-av-init{width:48px; height:48px; border-radius:50%; flex-shrink:0; border:1px solid var(--line);}
+  .red-av-img{object-fit:cover; background:var(--material-deep);}
+  .red-av-init{display:flex; align-items:center; justify-content:center; background:#5B5347; color:#fff; font-family:var(--font-display); font-weight:600; font-size:16px;}
+  .red-card--aktualni .red-av-init{background:var(--burgundy);}
+  .red-none{margin:0; font-size:13.5px; color:var(--ink-soft);}
+  /* rozbor redakce uvnitř karty, přes celou šířku karty */
+  .red-card > .red-analyza{grid-column:1 / -1; margin-top:16px; padding-top:14px; border-top:1px solid var(--line); font-size:14.5px;}
+  .red-analyza h4{margin:14px 0 4px; font-size:14px;}
+  .red-analyza h4:first-child{margin-top:0;}
+  .red-analyza p{margin:0 0 10px;}
+  .red-analyza .an-when{font-size:12.5px; color:var(--ink-soft);}
+  .red-ukazka{list-style:none; margin:10px 0 16px; padding:0 0 16px; border-bottom:1px solid var(--line); display:flex; flex-wrap:wrap; gap:12px;}
+  .red-ukazka a{display:block; width:112px; text-decoration:none; color:var(--ink); font-size:12.5px; text-align:center;}
+  .red-ukazka img{display:block; width:100%; aspect-ratio:380/538; object-fit:cover; background:#fff; border:1px solid var(--line); border-radius:3px;}
+  .red-ukazka a:hover img, .red-ukazka a:focus-visible img{border-color:var(--burgundy);}
+  .red-ukazka span{display:block; margin-top:4px; font-family:var(--font-mono);}
   table.register tr:hover td{background:rgba(189,37,63,0.035);}
   /* Stav sekcí (Domů) — datum/stáří monospace, pomlčka tlumeně, ať nevypadá jako chyba */
   .stav-sekci{display:flex; flex-direction:column; gap:10px;}
