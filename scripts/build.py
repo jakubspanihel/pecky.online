@@ -718,8 +718,14 @@ def _dash_zastupitelstvo(dnes):
     zm = sorted((m for m in meetings if m['type'] == 'Zastupitelstvo' and m['date'] >= dnes),
                 key=lambda m: m['date'])[:3]
     events = json.loads(read('kalendar/udalosti.json'))['events']
-    volby = sorted((e for e in events if e['category'] == 'volby'
-                    and (_date.fromisoformat(e.get('date_end') or e['date']) + timedelta(days=2)).isoformat() >= dnes), key=lambda e: e['date'])[:1]
+    def _volby_do(e):
+        # banner voleb se drží do ustavujícího zasedání = první zastupitelstvo po konci voleb
+        # (poslední den zobrazení je den zasedání); dokud není v datech jednání, zůstává bez konce
+        konec = e.get('date_end') or e['date']
+        po_volbach = sorted(m['date'] for m in meetings if m['type'] == 'Zastupitelstvo' and m['date'] > konec)
+        return po_volbach[0] if po_volbach else '2099-12-31'
+    volby = sorted((e for e in events if e['category'] == 'volby' and _volby_do(e) >= dnes),
+                   key=lambda e: e['date'])[:1]
     po = _dash_zm_po(meetings, dnes)
     rada = _dash_rada(dnes)
     if not zm and not volby and not po and not rada:
@@ -750,7 +756,7 @@ def _dash_zastupitelstvo(dnes):
         out.append('</div>')
     for e in volby:
         konec = e.get('date_end') or e['date']
-        konec2 = (_date.fromisoformat(konec) + timedelta(days=2)).isoformat()  # banner s výsledky ještě 2 dny po konci hlasování
+        konec2 = _volby_do(e)
         dny = (_date.fromisoformat(e['date']) - _date.fromisoformat(dnes)).days
         rozsah = (f'{int(e["date"][8:])}.–{iso_to_cz(konec)}' if konec != e['date'] else iso_to_cz(e['date']))
         dnu = ['Pondělí', 'Úterý', 'Středa', 'Čtvrtek', 'Pátek', 'Sobota', 'Neděle']
