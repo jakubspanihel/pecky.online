@@ -233,6 +233,11 @@
 
     let html = '';
     for (let i = 0; i < cells.length; i += 7) {
+      // „Jen budoucí“: týden, který celý skončil před dneškem, se nevykreslí vůbec
+      if (KAL_ONLY_FUTURE) {
+        const posledniDen = Math.max(...cells.slice(i, i + 7).filter(d => d !== null));
+        if (kalDateStr(kalYear, kalMonth, posledniDen) < todayStr) continue;
+      }
       html += '<tr>';
       for (let j = i; j < i + 7; j++) {
         const d = cells[j];
@@ -516,6 +521,13 @@
     document.getElementById('kal-find-toggle').classList.toggle('has-filter', maFiltr);
     document.getElementById('kal-clear').hidden = !maFiltr;
     document.getElementById('kal-month-label').textContent = `${KAL_MONTHS[kalMonth]} ${kalYear}`;
+    // tooltip tlačítka měsíce: počet akcí po aplikaci filtrů (stejný výběr jako v Seznamu)
+    const ym = `${kalYear}-${kalPad(kalMonth + 1)}`;
+    const jeTentoMesic = ym === KAL_TODAY_STR.slice(0, 7);
+    const pocet = KAL_ALL_EVENTS.filter(e => e.date.slice(0, 7) === ym ||
+      (jeTentoMesic && e.date < KAL_TODAY_STR && (e.date_end || e.date) >= KAL_TODAY_STR)).filter(kalVidet).length;
+    const slovo = pocet >= 1 && pocet <= 4 ? 'akce' : 'akcí';
+    document.getElementById('kal-month-btn').title = `${KAL_MONTHS[kalMonth]} ${kalYear}: ${pocet} ${slovo}`;
     const grid = document.getElementById('kal-grid');
     const list = document.getElementById('kal-list');
     if (view === 'seznam') {
