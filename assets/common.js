@@ -223,8 +223,29 @@ function relBudouci(iso) {
     const stari = relDatum(el.getAttribute('data-date'));
     if (stari === null) return;
     el.title = el.textContent.trim();
-    el.textContent = 'Aktualizováno ' + stari;
+    el.textContent = stari;
   });
+  // čára pod údajem je stejně dlouhá jako text nadpisu sekce (bez odznaků v nadpisu)
+  function sladCaru() {
+    els.forEach(el => {
+      const h2 = el.nextElementSibling;
+      if (!h2 || !h2.matches('h2.title')) return;
+      const r = document.createRange();
+      let sirka = 0;
+      h2.childNodes.forEach(n => {
+        if (n.nodeType !== 3 || !n.textContent.trim()) return;
+        r.setStart(n, 0);
+        r.setEnd(n, n.textContent.trimEnd().length);
+        const b = r.getBoundingClientRect();
+        sirka = Math.max(sirka, b.right - h2.getBoundingClientRect().left);
+      });
+      if (sirka > 0) { el.style.boxSizing = 'border-box'; el.style.width = Math.ceil(sirka) + 'px'; }
+    });
+  }
+  sladCaru();
+  window.addEventListener('resize', sladCaru);
+  window.addEventListener('load', sladCaru);
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(sladCaru);
 })();
 
 // ===== Sociální sítě (Volby 2026 i O webu): absolutní datum -> relativní stáří =====
@@ -240,6 +261,27 @@ function relBudouci(iso) {
     el.title = el.textContent.trim();
     el.textContent = stari;
   });
+  // čára pod údajem je stejně dlouhá jako text nadpisu sekce (bez odznaků v nadpisu)
+  function sladCaru() {
+    els.forEach(el => {
+      const h2 = el.nextElementSibling;
+      if (!h2 || !h2.matches('h2.title')) return;
+      const r = document.createRange();
+      let sirka = 0;
+      h2.childNodes.forEach(n => {
+        if (n.nodeType !== 3 || !n.textContent.trim()) return;
+        r.setStart(n, 0);
+        r.setEnd(n, n.textContent.trimEnd().length);
+        const b = r.getBoundingClientRect();
+        sirka = Math.max(sirka, b.right - h2.getBoundingClientRect().left);
+      });
+      if (sirka > 0) { el.style.boxSizing = 'border-box'; el.style.width = Math.ceil(sirka) + 'px'; }
+    });
+  }
+  sladCaru();
+  window.addEventListener('resize', sladCaru);
+  window.addEventListener('load', sladCaru);
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(sladCaru);
 })();
 
 // ===== Dashboard na homepage: proběhlé položky pryč, datum změny -> stáří =====
@@ -253,6 +295,8 @@ function relBudouci(iso) {
   const dnes = d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0') + '-' + String(d.getDate()).padStart(2, '0');
   lists.forEach(ul => {
     const max = parseInt(ul.getAttribute('data-max'), 10);
+  const dalsi = document.querySelector('a[data-kal-dalsi]');
+  if (dalsi) dalsi.href = '/kalendar/#' + dnes.slice(0, 7) + '/seznam/dalsi';
     const items = ul.querySelectorAll('li[data-until]');
     if (!items.length) return;
     let shown = 0;
@@ -409,15 +453,20 @@ function relBudouci(iso) {
     chip.hidden = jeBezi;  // probíhající vícedenní akce chip nemá (stačí nadpis "Probíhající")
     // text data: rozsah, který už začal, je "trvá do …" (bez pomlčky); dnešní
     // jednodenní akce datum nevypisuje (stačí chip); čas mimo "dnes" patří k datu
+    // čas je v samostatném bloku (.ev-time, formát G:i); u probíhajících akcí se nezobrazuje
     let txt;
     if (li.dataset.denEnd) {
-      txt = od <= dnes ? 'trvá do ' + li.dataset.denEnd
-                       : li.dataset.den + ' – ' + li.dataset.denEnd + (cas ? ' ' + cas : '');
+      txt = od <= dnes ? 'trvá do\n' + li.dataset.denEnd : li.dataset.den + ' –\n' + li.dataset.denEnd;
     } else {
-      txt = t === 'dnes' ? cas : li.dataset.den + (cas ? ' ' + cas : '');
+      txt = t === 'dnes' ? '' : li.dataset.den;
     }
     datum.textContent = txt;
     datum.hidden = !txt;
+    const casEl = li.querySelector('.ev-time');
+    if (casEl) {
+      casEl.textContent = jeBezi ? '' : cas.replace(/\b0(\d:\d{2})/g, '$1');
+      casEl.hidden = !casEl.textContent;
+    }
   });
   if (nadpis) {
     nadpis.hidden = !prvniBezi;

@@ -467,14 +467,14 @@ DASH_AKCE_MIN = 5  # aspoň tolik karet celkem (jinak se přidávají další dn
 DASH_AKCE_BEZI = 5  # max. míst z DASH_AKCE_VIDET pro probíhající vícedenní akce
 DASH_JEDNANI_PROBEHLA = 3
 DASH_ZM_PO_DNI = 5  # pruh „Zastupitelstvo proběhlo“ visí na Domů tolik dní po konání
-DNY_CZ = ['po', 'út', 'st', 'čt', 'pá', 'so', 'ne']
+DNY_CZ = ['pondělí', 'úterý', 'středa', 'čtvrtek', 'pátek', 'sobota', 'neděle']
 
 
 def _den_cz(iso):
-    """'2026-10-07' -> 'st 7. 10.' (krátký zápis do výpisu)."""
+    """'2026-10-07' -> 'středa 7. 10.' (zápis dne do karty akce)."""
     from datetime import date
     y, m, d = (int(x) for x in iso.split('-'))
-    return f'{DNY_CZ[date(y, m, d).weekday()]} {d}. {m}.'
+    return f'{DNY_CZ[date(y, m, d).weekday()]}\n{d}. {m}.'  # název dne vždy na vlastním řádku (white-space:pre-line)
 
 
 def _dash_card(title, href, link_text, body, key, head_link=None):
@@ -845,30 +845,46 @@ def _dash_zm_po(meetings, dnes):
     return '\n'.join(out)
 
 
+def _cas_gi(t):
+    """'08:30' -> '8:30', '08:00–09:00' -> '8:00–9:00' (formát G:i, bez úvodní nuly hodin)."""
+    return re.sub(r'\b0(\d:\d{2})', r'\1', t)
+
+
+def _akce_stitek(e):
+    """Štítek karty akce (pod časem): vlastní tag události, jinak podle kategorie."""
+    if e.get('tag') is not None:
+        txt = e['tag']
+    else:
+        txt = {'kurz': 'Pravidelně', 'svoz': 'svoz'}.get(e.get('category'), '')
+    return f'<span class="tag ev-stitek">{esc(txt)}</span>' if txt else ''
+
+
 def _dash_akce_li(e, i, hidden=False):
+    # Karta má stejnou šablonu a CSS (.akce-karta) jako pohled Seznam na /kalendar/
+    # (assets/styles.css, renderer kalRenderList v content/kalendar.html).
     vicedenni = e.get('date_end') and e['date_end'] != e['date']
     cas = e['time'] if e.get('time') and not e.get('all_day') else ''
     cas_txt = f'{cas}–{e["time_end"]}' if cas and e.get('time_end') else cas  # např. sběrný dvůr 13:00–16:00
-    kdy = (f'{_den_cz(e["date"])} – {_den_cz(e["date_end"])}' if vicedenni else _den_cz(e['date']))
-    if cas_txt:
-        kdy += f' {cas_txt}'
-    kdo = f'<span class="ev-org">{esc(e["organizer_name"])}</span>' if e.get('organizer_name') else ''
+    kdy = (f'{_den_cz(e["date"])} –\n{_den_cz(e["date_end"])}' if vicedenni else _den_cz(e['date']))
+    kdo = (f'<span class="ev-meta"><span class="ev-org"><span class="ev-dot" aria-hidden="true"></span>'
+           f'{esc(e["organizer_name"])}</span></span>') if e.get('organizer_name') else ''
     # odkaz vede na originální zdroj události; bez něj na kalendář
     zdroj = e.get('link') or f'/kalendar/#{e["date"][:7]}/seznam'
     cizi = ' target="_blank" rel="noopener"' if zdroj.startswith('http') else ''
     data_from = f' data-from="{e["date"]}"' if vicedenni else ''
     data_cas = f' data-time="{esc(cas)}" data-time-text="{esc(cas_txt)}"' if cas else ''
-    # chip (dnes 17:00 / zítra / za N dní) a text data (trvá do …) složí common.js
-    # podle dnešního dne; popisky dnů předává build (jediný zdroj českých zkratek)
+    # chip (dnes / zítra / za N dní) a text data (trvá do …) složí common.js
+    # podle dnešního dne; popisky dnů předává build (jediný zdroj českých názvů dnů)
     popisky = f' data-den="{_den_cz(e["date"])}" data-den-end="{_den_cz(e["date_end"]) if vicedenni else ""}"'
     org = e.get('organizer')
     # barva podle pořadatele (--org-<id> z assets/org-colors.css); bez barvy fallback v CSS
     barva = f' style="--org-c:var(--org-{org});--org-c-bg:var(--org-{org}-bg)"' if org else ''
     return (f'    <li class="dash-event"{barva} data-until="{e.get("date_end") or e["date"]}"'
             f'{data_from}{data_cas}{popisky}{" hidden" if hidden else ""}>'
-            f'<a class="card" href="{esc(zdroj)}"{cizi}>'
+            f'<a class="card akce-karta" href="{esc(zdroj)}"{cizi}>'
             f'<span class="ev-when"><span class="tag probiha fut-chip" data-date="{e["date"]}">plánováno</span>'
-            f'<span class="ev-date">{esc(kdy)}</span></span>'
+            f'<span class="ev-date">{esc(kdy)}</span>'
+            f'<span class="ev-time">{esc(_cas_gi(cas_txt))}</span>{_akce_stitek(e)}</span>'
             f'<span class="ev-what"><span class="ev-title">{esc(e["title"])}</span>{kdo}</span></a></li>')
 
 
@@ -922,7 +938,8 @@ def _dash_kalendar(dnes):
     out.append('    <li class="dash-empty"' + ('' if not pool else ' hidden') +
                '>Žádná nadcházející akce zatím není v kalendáři zapsaná.</li>')
     out.append('  </ul>')
-    out.append('  <a class="dash-more dash-more--center" href="/kalendar/">Další ...</a>')
+    # odkaz vede na skupinu „Další akce“ v seznamu Kalendáře; měsíc v odkazu přepíše common.js podle dnešního dne
+    out.append(f'  <a class="dash-more dash-more--center" data-kal-dalsi href="/kalendar/#{dnes[:7]}/seznam/dalsi">Další ...</a>')
     return _dash_card('Aktuality', '/kalendar/', None, '\n'.join(out), 'kalendar', head_link='📅 Celý kalendář')
 
 

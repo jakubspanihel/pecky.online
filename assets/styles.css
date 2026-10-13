@@ -11,7 +11,7 @@
     /* velikosti nadpisů */
     --fs-title-mobile:26px;  /* h1 v hlavičce + h2.title do 600 px */
     --fs-title:34px;         /* h1 v hlavičce + h2.title od 601 px */
-    --fs-h3:19px;
+    --fs-h3:21px;
     --fs-h4:15px;
     --font-mono:ui-monospace, "SF Mono", SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
     --material:#F3F4F6;
@@ -146,15 +146,15 @@
   .text-toggle:hover{color:var(--cyan-deep);}
   .text-toggle.active{color:var(--cyan-deep);}
 
-  .lastmod{display:inline-block; font-family:var(--font-mono); font-size:10.5px; text-transform:uppercase; letter-spacing:0.03em; line-height:1.4; color:var(--cyan); margin:0 0 -0.5lh; position:relative; z-index:11; padding:0; border-bottom:2pt solid var(--cyan);}
+  .lastmod{display:inline-block; font-family:var(--font-mono); font-size:10.5px; text-transform:uppercase; letter-spacing:0.03em; line-height:1.4; color:var(--cyan-deep); margin:0 0 -0.5lh; position:relative; z-index:11; padding:0; border-bottom:2pt solid var(--cyan);}
 
   .toggle-details{display:inline-flex; align-items:center; gap:5px; font-family:var(--font-mono); font-size:12px; text-transform:uppercase; letter-spacing:0.03em; color:var(--cyan-deep); border:1px solid var(--cyan-deep); background:none; padding:0 14px; box-sizing:border-box; min-height:var(--ctl-h); cursor:pointer; margin:0 0 22px; text-decoration:none;}
   .toggle-details:hover{background:rgba(0,115,143,0.06);}
   .toggle-details[aria-expanded="true"]{background:var(--cyan-deep); color:#fff;}
   .details-block[hidden]{display:none;}
 
-  .checkbox-label{display:inline-flex; align-items:center; gap:6px; font-family:var(--font-mono); font-size:11.5px; color:var(--ink-soft); cursor:pointer;}
-  .checkbox-label input{accent-color:var(--cyan-deep); width:14px; height:14px; cursor:pointer; margin:0;}
+  .checkbox-label{display:inline-flex; align-items:center; gap:6px; font-family:var(--font-body); font-size:14px; color:var(--ink-soft); cursor:pointer;}
+  .checkbox-label input{accent-color:var(--cyan-deep); width:16px; height:16px; cursor:pointer; margin:0;}
 
   .segmented-control{display:inline-flex; align-items:center; gap:8px;}
   .segmented-label{font-family:var(--font-mono); font-size:11px; text-transform:uppercase; letter-spacing:0.03em; color:var(--ink-soft);}
@@ -180,16 +180,20 @@
   .kal-find-btn.active{background:var(--cyan-deep); color:#fff;}
   .kal-find-btn.has-filter::after{content:''; position:absolute; top:-3px; right:-3px; width:8px; height:8px; border-radius:50%; background:var(--burgundy);}
   .kal-searchrow[hidden]{display:none;}
-  .kal-clear{margin:0; padding:0; min-height:0;}
+  .kal-clear{margin:0; padding:0; min-height:0; color:var(--burgundy);}
+  .kal-clear:hover{color:var(--burgundy-deep);}
   .kal-clear[hidden]{display:none;}
-  .kal-org-source{flex:1 1 100%; margin:0;}
+  .kal-org-source{flex:1 1 100%; margin:0; padding:8px 12px; background:var(--material-deep); border-radius:3px;}
   .kal-org-source[hidden]{display:none;}
   #kal-filters{position:sticky; top:calc(var(--nav-h,0px) + var(--kal-toolbar-h,0px)); z-index:8; background:var(--material); margin:0; padding:6px 0 12px;}
   .kal-ico{vertical-align:-2px; margin-right:6px; flex-shrink:0;}
   .kal-toolbar .kal-ico{vertical-align:-2px; margin-right:6px;}
   .search-bar #lide-filter-toggle{align-items:center; box-sizing:border-box; min-height:var(--ctl-h); padding:0 11px; border-radius:3px; text-decoration:none; font-size:11.5px; border:1px solid transparent;}
   .search-bar #lide-filter-toggle.active{background:var(--cyan-deep); color:#fff; border-color:var(--cyan-deep);}
-  .kal-checks{display:flex; flex-wrap:wrap; align-items:center; gap:4px 14px; margin-left:auto;}
+  .kal-checks{display:flex; flex-wrap:wrap; align-items:center; gap:6px 8px; margin-left:auto;}
+  .kal-checks .checkbox-label{box-sizing:border-box; height:var(--ctl-h); padding:0 10px; border:1px solid var(--cyan-deep); border-radius:3px; color:var(--cyan-deep);}
+  .kal-checks .checkbox-label:hover{background:rgba(0,115,143,0.08);}
+  .kal-checks .checkbox-label:has(input:checked){background:rgba(0,115,143,0.12);}
   .kal-searchrow{display:flex; flex-wrap:wrap; align-items:center; gap:8px 16px; margin:6px 0 12px;}
   .kal-month-btn{display:inline-flex; align-items:center; gap:4px; background:none; border:none; padding:4px 6px; margin:0 0 0 -6px; cursor:pointer; color:var(--ink); border-radius:3px;}
   .kal-month-btn:hover{background:rgba(0,115,143,0.08);}
@@ -204,7 +208,7 @@
   .kal-banner[hidden], .kal-banner-min[hidden]{display:none;}
   .kal-banner-close{position:absolute; top:10px; right:12px; width:32px; height:32px; padding:0; border:0; border-radius:50%; background:var(--banner-btn-bg,rgba(255,255,255,0.15)); color:var(--banner-fg,#fff); font-size:22px; line-height:1; cursor:pointer; z-index:1;}
   .kal-banner-close:hover{background:var(--banner-btn-bg-hover,rgba(255,255,255,0.3));}
-  .kal-banner-min{display:inline-block; vertical-align:middle; margin:0 0 0 10px; padding:4px 12px; background:linear-gradient(135deg,var(--banner-from) 0%,var(--banner-to) 100%); border-radius:999px; font-family:var(--font-body); font-size:13px; font-weight:600; line-height:1.4; color:var(--banner-fg); box-shadow:0 1px 4px rgba(42,36,32,0.18);}
+  .kal-banner-min{display:inline-flex; align-items:center; box-sizing:border-box; min-height:32px; vertical-align:middle; margin:0 0 0 10px; padding:4px 12px; background:linear-gradient(135deg,var(--banner-from) 0%,var(--banner-to) 100%); border-radius:999px; font-family:var(--font-body); font-size:13px; font-weight:600; line-height:1.4; color:var(--banner-fg); box-shadow:0 1px 4px rgba(42,36,32,0.18);}
   .kal-banner-min a{color:var(--banner-fg); text-decoration:underline; white-space:nowrap;}
   .kal-banner-text{flex:1 1 auto; align-self:center; padding-bottom:26px; max-width:480px;}
   .kal-banner .kal-banner-title{margin:0 0 8px; font-family:var(--font-banner); font-size:26px; line-height:1.2; color:var(--banner-fg,#fff);}
@@ -224,13 +228,16 @@
   }
   .kal-arrow{width:var(--ctl-h); height:var(--ctl-h); min-height:0; padding:0; margin:0; text-align:center; line-height:1;}
   .kal-arrow + .kal-arrow{margin-left:-1px;}
+  @media (max-width:720px){
+    .kal-toolbar .kal-checks{order:99; flex:1 1 100%; margin-left:0;}
+    .kal-toolbar .kal-checks .checkbox-label{flex:1 1 calc(50% - 4px); justify-content:center;}
+  }
   @media (max-width:600px){
     .segmented-control{flex-wrap:wrap; max-width:100%;}
     .segmented-group{flex-wrap:wrap; max-width:100%;}
     .segmented-btn{flex:1 1 auto; margin:0 -1px -1px 0; border-bottom:1px solid var(--cyan-deep);}
     #kal-filters .kal-search, #kal-filters .kal-org-select{flex:1 1 100%; width:100%;}
     .kal-toolbar .kal-lbl{display:none;}
-    .kal-toolbar .kal-checks{order:99; flex:1 1 100%; margin-left:0;}
   }
 
   .promises-grid{display:grid; grid-template-columns:repeat(6,1fr); gap:12px; margin:20px 0 24px;}
@@ -253,7 +260,7 @@
   h2, h2.display{font-family:var(--font-banner);}
   h2.title{font-size:var(--fs-title-mobile); margin:0 0 8px; font-weight:600; background:var(--material); padding:8px 0; margin-top:-8px; cursor:pointer;}
   @media (min-width:601px){h2.title{font-size:var(--fs-title);}}
-  h3{font-size:var(--fs-h3);}
+  h3{font-size:var(--fs-h3); font-weight:600; line-height:1.3;}
   h4{font-size:var(--fs-h4);}
   /* drobné texty — dřív inline style="font-size:…" v content/*.html */
   .muted-note{color:var(--ink-soft); font-size:12px;}
@@ -320,9 +327,8 @@
   .dash-card--jednani{grid-area:jed; background:rgba(255,255,255,0.5);}
   .dash-card--kalendar{grid-area:kal;}
   /* Aktuality: bez rámečku a podkladu karty, nadpis se při rolování drží pod navigací */
-  .dash-bento .dash-card--kalendar{background:none; border:none; padding:0 40px 36px;}
-  @media (max-width:600px){.dash-bento .dash-card--kalendar{padding:0 20px 18px;}}
-  .dash-card-head{display:flex; justify-content:space-between; align-items:baseline; gap:12px; margin:0; position:sticky; top:var(--nav-h,0px); z-index:9; background:var(--material); padding:8px 0 12px;}
+  .dash-bento .dash-card--kalendar{background:none; border:none; padding:0;}
+  .dash-card-head{display:flex; justify-content:space-between; align-items:baseline; gap:12px; margin:0; position:sticky; top:var(--nav-h,0px); z-index:9; background:var(--material); padding:12px;}
   .dash-card-head h3{margin:0;}
   .dash-head-link{font-family:var(--font-mono); font-size:12px; font-weight:700; color:var(--cyan-deep); text-decoration:none; white-space:nowrap;}
   .dash-head-link:hover{text-decoration:underline;}
@@ -330,16 +336,7 @@
   .dash-akce li[hidden]{display:none;}
   .dash-akce .dash-group{margin:8px 0 0; font-family:var(--font-mono); font-size:11px; font-weight:500; text-transform:uppercase; letter-spacing:0.04em; color:var(--ink-soft);}
   .dash-akce .dash-empty{color:var(--ink-soft); font-style:italic; font-size:14px;}
-  .dash-event a{display:grid; grid-template-columns:96px minmax(0,1fr); gap:12px; align-items:start; padding:10px 12px; background:var(--material); color:var(--ink); text-decoration:none; font-size:14px; line-height:1.35; transition:border-color .15s;}
-  .dash-event a:hover{border-color:var(--cyan-deep);}
-  /* pozadí karty podle pořadatele: build nastaví na li --org-c / --org-c-bg
-     (z lide/organizations.json); pořadatel bez barvy spadne na neutrální */
-  .dash-event a{background:var(--org-c-bg, var(--material)); border-color:color-mix(in srgb, var(--org-c, var(--line)) 40%, var(--line)); box-shadow:inset 4px 0 0 var(--org-c, transparent);}
-  .dash-event .ev-when{display:flex; flex-direction:column; align-items:flex-start; gap:4px;}
-  .dash-event .ev-date{font-family:var(--font-mono); font-size:12px; font-weight:700; color:var(--burgundy); line-height:1.3;}
-  .dash-event .ev-what{display:flex; flex-direction:column; gap:2px; min-width:0;}
-  .dash-event .ev-title{font-weight:600;}
-  .dash-event .ev-org{font-size:12px; color:var(--ink-soft);}
+  /* karty akcí na Domů: sdílená šablona .akce-karta (viz níže, „karty akcí“) */
   .dash-bento .dash-list{margin-bottom:14px;}
   .dash-bento .dash-list + .dash-more{margin-top:auto;}
   .dash-card--noviny{grid-area:nov;}
@@ -398,6 +395,16 @@
   /* Žlutá varianta (flashnews na Domů, banner Kalendáře): tmavý text na žlutém přechodu. */
   .banner--yellow{--banner-from:var(--yellow); --banner-to:var(--yellow-deep); --banner-accent:var(--ink); --banner-fg:var(--ink); --banner-fg-soft:var(--ink); --banner-btn-bg:rgba(0,0,0,0.1); --banner-btn-bg-hover:rgba(0,0,0,0.2); color:var(--ink);}
   .banner[hidden], .banner [hidden]{display:none;}
+  /* Banner „Pořádáte akci?“ v Kalendáři (výchozí bordó banner). */
+  .banner.kal-add{position:relative; margin:16px 0 8px;}
+  .kal-add .banner-body{padding-right:36px;}
+  .kal-add-min{display:inline-flex; align-items:center; justify-content:center; box-sizing:border-box; min-height:32px; vertical-align:middle; margin:0 0 0 6px; padding:4px 12px; border:0; background:linear-gradient(135deg,var(--burgundy) 0%,var(--burgundy-deep) 100%); border-radius:999px; font-family:var(--font-body); font-size:13px; font-weight:600; line-height:1.4; color:#fff; cursor:pointer; box-shadow:0 1px 4px rgba(42,36,32,0.18);}
+  .kal-add-min:hover{background:var(--burgundy-deep);}
+  .kal-add-min[hidden]{display:none;}
+  /* sbalené bannery v nadpisu Kalendáře: zarovnané doprava */
+  h2.kal-title{display:flex; align-items:center; gap:6px;}
+  .kal-title .kal-banner-min, .kal-title .kal-add-min{margin:0;}
+  .kal-title .kal-banner-min:not([hidden]), .kal-title .kal-banner-min[hidden] + .kal-add-min{margin-left:auto;}
   .banner-body{max-width:640px;}
   .banner .banner-title{margin:0 0 10px; font-family:var(--font-banner); font-size:26px; line-height:1.2; font-weight:600; color:#fff;}
   .banner .banner-hl{padding:1px 10px 3px; border-radius:8px; background:#fff; color:var(--banner-accent); white-space:nowrap;}
@@ -454,7 +461,7 @@
   /* společný základ všech karet (rámeček + zaoblení); barvy a výplň řeší konkrétní komponenta */
   .card{border:1px solid var(--line); border-radius:12px;}
   .dash-card{background:rgba(255,255,255,0.35); padding:18px 20px; display:flex; flex-direction:column; min-width:0;}
-  .dash-card h3{margin:0 0 10px; font-weight:600;}
+  .dash-card h3{margin:0; font-weight:600;}
   .dash-card h3 a{color:var(--ink); text-decoration:none;}
   .dash-card h3 a:hover{color:var(--cyan-deep);}
   .dash-card h4{margin:12px 0 2px; font-family:var(--font-mono); font-size:11px; font-weight:500; text-transform:uppercase; letter-spacing:0.04em; color:var(--ink-soft);}
@@ -543,7 +550,7 @@
   .stav-card .stav-meta{font-family:var(--font-mono); font-size:12.5px;}
   .stav-card .stav-none{color:var(--ink-soft, inherit); opacity:.7;}
   .swatch{display:inline-block; width:10px; height:10px; border-radius:50%; margin-right:8px; vertical-align:middle;}
-  .tag{font-family:var(--font-mono); font-size:10.5px; text-transform:uppercase; padding:2px 7px; border:1px solid var(--line); border-radius:2px; color:var(--ink-soft);}
+  .tag{font-family:var(--font-body); font-size:10.5px; text-transform:uppercase; padding:2px 7px; border:1px solid var(--line); border-radius:2px; color:var(--ink-soft);}
   .tag-sm{font-size:9px; padding:1px 5px;}
   /* .meta-note je neutrální jméno téhož stylu; .pozemek-jednani-meta je jeho
      starší, sekcí pojmenovaná varianta v content/pozemky.html — až se přepíše,
@@ -841,7 +848,6 @@
   .list-control > .list-filters{flex:1 0 100%; margin:0;}
   .list-control > .list-filters[hidden]{display:none;}
   .list-filters .filter-row{display:flex; flex-wrap:wrap; gap:8px 12px; align-items:center;}
-  .list-filters .checkbox-label{font-size:13px;}
   .list-control > .search-bar{flex:1 1 260px; margin:0; flex-wrap:nowrap;}
   .list-control > .search-bar input[type=search]{min-width:0;}
   .list-control > .segmented-control{margin-left:auto;}
@@ -1003,21 +1009,30 @@
 .chart-bar-link:hover rect, .chart-bar-link:focus-visible rect { opacity: .8; }
 .chart-bar-link:focus-visible { outline: 2px solid var(--cyan-deep); }
 
-  /* ===== karty akcí (pohled Seznam na /kalendar/) — vzor: .dash-event na Domů ===== */
+  /* ===== karty akcí: pohled Seznam na /kalendar/ (article) i výpis akcí na Domů (a.card) — jedna šablona ===== */
   .akce-skupina{margin:18px 0 8px; font-family:var(--font-mono); font-size:11px; font-weight:500; text-transform:uppercase; letter-spacing:0.04em; color:var(--ink-soft);}
   .akce-skupina:first-child{margin-top:4px;}
   .akce-karty{display:flex; flex-direction:column; gap:8px;}
-  .akce-karta{display:grid; grid-template-columns:96px minmax(0,1fr) auto; gap:12px; align-items:start; padding:10px 12px; font-size:18px; line-height:1.35; border-radius:8px;
+  .akce-karta{display:grid; grid-template-columns:120px minmax(0,1fr); gap:12px; align-items:start; padding:10px 12px; font-size:18px; line-height:1.35; border-radius:8px;
     background:var(--org-c-bg, var(--material)); border:1px solid color-mix(in srgb, var(--org-c, var(--line)) 40%, var(--line)); box-shadow:inset 4px 0 0 var(--org-c, transparent);}
+  a.akce-karta{color:var(--ink); text-decoration:none; transition:border-color .15s;}
+  a.akce-karta:hover{border-color:var(--cyan-deep);}
+  a.akce-karta .ev-title{text-decoration:underline;}
+  .akce-karta .ev-when > [hidden], .akce-karta .ev-time[hidden]{display:none;}
   .akce-karta.akce-blok-zastupitelstvo{--org-c:var(--burgundy);}
   .akce-karta.akce-blok-rada{--org-c:var(--field);}
   .akce-karta.akce-blok-vybor{--org-c:var(--gold);}
   .akce-karta.akce-blok-volby{--org-c:var(--slate);}
-  .akce-karta .ev-when{display:flex; flex-direction:column; align-items:flex-start; gap:4px;}
-  .akce-karta .ev-date{font-family:var(--font-mono); font-size:14px; font-weight:700; color:var(--burgundy); line-height:1.3;}
+  .akce-karta .ev-when{display:flex; flex-direction:column; align-items:flex-start; gap:4px; align-self:stretch; margin:-10px 12px -10px -12px; padding:10px 12px; background:var(--org-c, var(--ink-soft)); border-radius:7px 0 0 7px;}
+  .akce-karta .ev-date{white-space:pre-line; font-family:var(--font-mono); font-size:16.8px; font-weight:700; color:#fff; line-height:1.3;}
   .akce-karta .ev-date:empty{display:none;}
-  .akce-karta .ev-what{display:flex; flex-direction:column; gap:2px; min-width:0;}
-  .akce-karta .ev-title{font-weight:600; color:var(--ink);}
+  .akce-karta .ev-time{font-family:var(--font-mono); font-size:25.2px; font-weight:700; color:#fff; line-height:1.2;}
+  .akce-karta .ev-time:empty{display:none;}
+  .akce-karta .ev-when > .tag:not(.ev-stitek){align-self:stretch; box-sizing:border-box; margin:-10px -12px 4px; padding:6px 12px; font-size:21px; font-weight:800; letter-spacing:0.05em; line-height:1.15; border-radius:7px 0 0 0; white-space:normal;}
+  .akce-karta .ev-when > .tag:not(.ev-stitek):not(.kal-dnes){background:var(--yellow); border-color:var(--yellow); color:var(--cyan-deep);}
+  .akce-karta .ev-stitek{box-sizing:border-box; max-width:100%; padding:2px 4px; font-size:9.5px; letter-spacing:0; background:rgba(255,255,255,0.18); border-color:rgba(255,255,255,0.55); color:#fff;}
+  .akce-karta .ev-what{display:flex; flex-direction:column; gap:8px; min-width:0;}
+  .akce-karta .ev-title{font-size:21px; line-height:1.3; font-weight:600; color:var(--ink);}
   .akce-karta a.ev-title:hover{color:var(--cyan-deep);}
   .akce-karta .ev-org, .akce-karta .ev-misto{font-size:16px; color:var(--ink-soft);}
   .akce-karta .ev-meta{display:flex; flex-wrap:wrap; align-items:center; gap:2px 14px;}
@@ -1026,9 +1041,9 @@
   .akce-karta .ev-popis{font-size:17px;}
   .akce-karta .akce-pozn{font-style:italic;}
   .akce-karta .akce-pozn[hidden]{display:none;}
-  .akce-karta .akce-info{padding:2px; border:0; background:none; color:var(--ink-soft); cursor:pointer; line-height:0; border-radius:50%;}
-  .akce-karta .akce-info:hover, .akce-karta .akce-info.active{color:var(--burgundy);}
-  @media (max-width:600px){.akce-karta{grid-template-columns:78px minmax(0,1fr) auto; gap:8px;}}
+  .akce-karta .akce-info{display:inline-flex; align-items:center; justify-content:center; box-sizing:border-box; width:32px; height:22px; padding:0; border:0; border-radius:11px; background:var(--material-deep); color:var(--ink-soft); line-height:0; cursor:pointer;}
+  .akce-karta .akce-info:hover, .akce-karta .akce-info.active{background:var(--org-c, var(--ink-soft)); color:#fff;}
+  @media (max-width:600px){.akce-karta{grid-template-columns:120px minmax(0,1fr); gap:8px;}}
 
 /* Volby: vystředěný výpis avatarů zvolených zastupitelů, 7 na řádek */
 .volby-zastupitele{display:grid; grid-template-columns:repeat(7, 56px); justify-content:center; gap:10px 10px; row-gap:20px; margin:6px 0 26px;}
