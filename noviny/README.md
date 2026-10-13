@@ -304,7 +304,18 @@ Claude Code lokálně.
 8. Ověřit datum poslední aktualizace v odkazu na zdroj archivu v
    `content/zpravodaj.html` (hledat text „Zdroj: … archiv PDF
    zpravodaje").
-9. **Spustit `python3 scripts/build.py`** (na konci kontroly). Promítne se
+9. **Zkontrolovat tiráž: redakci a redakční radu.** U každého nového čísla
+   přečíst z textu poslední strany (`pages[-1]` v `pecky-noviny.json`, řádky
+   „Redakční rada:" a „Redakce:") jména a porovnat je s aktuální poslední
+   redakcí na stránce `/noviny/redakce.html` (karta „Redakce Aleny Brantové":
+   redakce Alena Brantová, rada Petr Zavřel, Jana Kusá, Miroslav Hartman).
+   **Při jakékoli změně** (jiná redaktorka, přidané/odebrané jméno v radě,
+   změna e-mailu nebo kontaktu) to uživateli výslovně oznámit na začátku
+   výpisu změn: co tiráž uvádí, v čem se liší od stránky a ve kterém čísle.
+   Stránku `redakce.html` ani adresář Lidé v tomhle kroku bez pokynu
+   nepřepisovat. Beze změny: do výpisu napsat „tiráž: redakce a rada beze
+   změny".
+10. **Spustit `python3 scripts/build.py`** (na konci kontroly). Promítne se
    tím i banner Pečeckých novin na Domů: počet vydání v nadpisu („N vydání
    novin v archivu“) a obálka nejnovějšího čísla se berou z
    `pecky-noviny.json` při buildu, ručně se nepíšou. Bez buildu zůstane

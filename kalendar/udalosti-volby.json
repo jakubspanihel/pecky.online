@@ -1,7 +1,7 @@
 {
  "meta": {
-  "description": "Ručně psané jednorázové termíny bez vlastního scraperu — zatím jen termín voleb (viz kalendar/README.md → „Volby“). Zdroj sekce Kalendář — do udalosti.json a kalendar.ics je promítá kalendar/scripts/update-kalendar.py.",
-  "updated": "2026-09-20"
+  "description": "Termíny voleb — zdroj sekce Kalendář. Termín se ověřuje proti volby.gov.cz (viz kalendar/README.md → „Volby“). Do udalosti.json a kalendar.ics je promítá kalendar/scripts/update-kalendar.py.",
+  "updated": "2026-10-14"
  },
  "events": [
   {
@@ -17,7 +17,7 @@
    "description": "Komunální volby, hlasování probíhá dva dny",
    "link": "/volby/2026/",
    "note": null,
-   "source": "csu-informace-vyhlasene-volby"
+   "source": "volby-gov-cz"
   }
  ]
 }

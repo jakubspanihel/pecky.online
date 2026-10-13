@@ -222,16 +222,7 @@ EXTRA_PAGES = {
         'od roku 2006 — podle tiráže jednotlivých čísel.',
         # Odkázaná z /noviny/ (odstavec "Související") od 8. 10. 2026 —
         # proto má lastmod a jde do sitemapy. Statická tabulka z tiráží novin.
-        False, 'zpravodaj', '2026-10-08'),
-    'analyza': (
-        '/noviny/analyza.html', 'Jak se dařilo Pečeckým novinám — Do Peček . cz',
-        'Rozsah čísel Pečeckých novin a podíl zpráv z jednání rady a '
-        'zastupitelstva v době jednotlivých redakcí od února 2016.',
-        # Zatím bez odkazu odjinud (10. 10. 2026 rozpracováno): lastmod None =
-        # noindex, mimo sitemapu. Obsah content/analyza.html GENERUJE
-        # noviny/analyza.py z noviny/pecky-noviny.json (statický snímek).
-        # Po zveřejnění odkazu: doplnit lastmod.
-        False, 'zpravodaj', None),
+        False, 'zpravodaj', '2026-10-12'),
     'changelog': (
         '/o-webu/changelog.html', 'Historie změn na webu — Do Peček . cz',
         'Přehled sekcí webu Do Peček . cz: kdy byl u každé naposledy '
