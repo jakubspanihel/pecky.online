@@ -474,7 +474,7 @@ def _den_cz(iso):
     """'2026-10-07' -> 'středa 7. 10.' (zápis dne do karty akce)."""
     from datetime import date
     y, m, d = (int(x) for x in iso.split('-'))
-    return f'{DNY_CZ[date(y, m, d).weekday()]}\n{d}. {m}.'  # název dne vždy na vlastním řádku (white-space:pre-line)
+    return f'<b class="ev-den">{DNY_CZ[date(y, m, d).weekday()]}</b>\n{d}. {m}.'  # název dne vždy na vlastním řádku (white-space:pre-line)
 
 
 def _dash_card(title, href, link_text, body, key, head_link=None):
@@ -850,6 +850,23 @@ def _cas_gi(t):
     return re.sub(r'\b0(\d:\d{2})', r'\1', t)
 
 
+def _misto_bez_adresy(place):
+    """Místo konání bez ulice a čísla popisného — shodné s kalMistoBezAdresy() v content/kalendar.html."""
+    obce = re.compile(r'^(Pečky|Velké Chvalovice|Dobřichov)$')
+    p = re.sub(r'\s*\([^)(,]*\d+[a-z]?\)', '', place)
+    p = re.sub(r',\s*[^,()]*\d+[a-z]?\)', ')', p)
+    casti = [x.strip() for x in re.split(r',\s*(?![^(]*\))', p) if x.strip()]
+    def jadro_ok(c):
+        if '(' in c:
+            return True
+        if re.search(r'patro', c, re.I) or re.match(r'učebna', c, re.I):
+            return True
+        return not (re.search(r'\d', c) or re.search(r'\b(ul\.|tř\.)', c, re.I) or re.match(r'okres ', c, re.I))
+    jadro = [c for c in casti if jadro_ok(c)]
+    bez_obce = [c for c in jadro if not obce.match(c)]
+    return ', '.join(bez_obce or jadro or [place])
+
+
 def _akce_stitek(e):
     """Štítek karty akce (pod časem): vlastní tag události, jinak podle kategorie."""
     if e.get('tag') is not None:
@@ -866,16 +883,17 @@ def _dash_akce_li(e, i, hidden=False):
     cas = e['time'] if e.get('time') and not e.get('all_day') else ''
     cas_txt = f'{cas}–{e["time_end"]}' if cas and e.get('time_end') else cas  # např. sběrný dvůr 13:00–16:00
     kdy = (f'{_den_cz(e["date"])} –\n{_den_cz(e["date_end"])}' if vicedenni else _den_cz(e['date']))
-    kdo = (f'<span class="ev-meta"><span class="ev-org"><span class="ev-dot" aria-hidden="true"></span>'
-           f'{esc(e["organizer_name"])}</span></span>') if e.get('organizer_name') else ''
+    # místo konání (bez adresy) s ikonou 📍; pořadatel je rozlišený barvou karty
+    kdo = (f'<span class="ev-meta"><span class="ev-misto"><span aria-hidden="true">📍</span> '
+           f'{esc(_misto_bez_adresy(e["place"]))}</span></span>') if e.get('place') else ''
     # odkaz vede na originální zdroj události; bez něj na kalendář
     zdroj = e.get('link') or f'/kalendar/#{e["date"][:7]}/seznam'
     cizi = ' target="_blank" rel="noopener"' if zdroj.startswith('http') else ''
     data_from = f' data-from="{e["date"]}"' if vicedenni else ''
     data_cas = f' data-time="{esc(cas)}" data-time-text="{esc(cas_txt)}"' if cas else ''
-    # chip (dnes / zítra / za N dní) a text data (trvá do …) složí common.js
+    # chip (dnes / zítra / za N dní) a text data („do …“) složí common.js
     # podle dnešního dne; popisky dnů předává build (jediný zdroj českých názvů dnů)
-    popisky = f' data-den="{_den_cz(e["date"])}" data-den-end="{_den_cz(e["date_end"]) if vicedenni else ""}"'
+    popisky = f' data-den="{esc(_den_cz(e["date"]))}" data-den-end="{esc(_den_cz(e["date_end"])) if vicedenni else ""}"'
     org = e.get('organizer')
     # barva podle pořadatele (--org-<id> z assets/org-colors.css); bez barvy fallback v CSS
     barva = f' style="--org-c:var(--org-{org});--org-c-bg:var(--org-{org}-bg)"' if org else ''
@@ -883,7 +901,7 @@ def _dash_akce_li(e, i, hidden=False):
             f'{data_from}{data_cas}{popisky}{" hidden" if hidden else ""}>'
             f'<a class="card akce-karta" href="{esc(zdroj)}"{cizi}>'
             f'<span class="ev-when"><span class="tag probiha fut-chip" data-date="{e["date"]}">plánováno</span>'
-            f'<span class="ev-date">{esc(kdy)}</span>'
+            f'<span class="ev-date">{kdy}</span>'
             f'<span class="ev-time">{esc(_cas_gi(cas_txt))}</span>{_akce_stitek(e)}</span>'
             f'<span class="ev-what"><span class="ev-title">{esc(e["title"])}</span>{kdo}</span></a></li>')
 

@@ -450,17 +450,22 @@ function relBudouci(iso) {
     chip.title = od;
     chip.classList.toggle('kal-dnes', t === 'dnes');
     chip.classList.toggle('probiha', t !== 'dnes');
-    chip.hidden = jeBezi;  // probíhající vícedenní akce chip nemá (stačí nadpis "Probíhající")
-    // text data: rozsah, který už začal, je "trvá do …" (bez pomlčky); dnešní
+    if (jeBezi) {  // probíhající vícedenní akce: chip „probíhá“, pod ním „do <den> <datum>“
+      chip.textContent = 'probíhá';
+      chip.title = li.dataset.from;
+      chip.classList.remove('probiha');
+      chip.classList.add('kal-dnes');   // červený jako „dnes“
+    }
+    // text data: rozsah, který už začal, je „do …“ (chip „probíhá“ je nad ním); dnešní
     // jednodenní akce datum nevypisuje (stačí chip); čas mimo "dnes" patří k datu
     // čas je v samostatném bloku (.ev-time, formát G:i); u probíhajících akcí se nezobrazuje
     let txt;
     if (li.dataset.denEnd) {
-      txt = od <= dnes ? 'trvá do\n' + li.dataset.denEnd : li.dataset.den + ' –\n' + li.dataset.denEnd;
+      txt = od <= dnes ? 'do\n' + li.dataset.denEnd : li.dataset.den + ' –\n' + li.dataset.denEnd;
     } else {
       txt = t === 'dnes' ? '' : li.dataset.den;
     }
-    datum.textContent = txt;
+    datum.innerHTML = txt;   // obsahuje <b class="ev-den"> z buildu (název dne)
     datum.hidden = !txt;
     const casEl = li.querySelector('.ev-time');
     if (casEl) {

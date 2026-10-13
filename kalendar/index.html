@@ -446,10 +446,11 @@
       const [, mm, dd] = e.date.split('-');
       const od = e.date < KAL_TODAY_STR && konec(e) >= KAL_TODAY_STR ? KAL_TODAY_STR : e.date;
       const rel = typeof relBudouci === 'function' ? relBudouci(od) : null;
-      const den = d => { const x = new Date(d + 'T12:00:00'); return `${dny[x.getDay()]}\n${x.getDate()}. ${x.getMonth() + 1}.`; };   // název dne vždy na vlastním řádku
+      const den = d => { const x = new Date(d + 'T12:00:00'); return `<b class="ev-den">${dny[x.getDay()]}</b>\n${x.getDate()}. ${x.getMonth() + 1}.`; };   // název dne vždy na vlastním řádku
       let chip = '', kdy;
       if (skupina === 'bezi') {
-        kdy = `trvá do\n${den(konec(e))}`;
+        chip = `<span class="tag kal-dnes" title="${e.date}">probíhá</span>`;
+        kdy = `do\n${den(konec(e))}`;
       } else {
         if (rel) chip = `<span class="tag ${rel === 'dnes' ? 'kal-dnes' : 'probiha'}" title="${e.date}">${rel}</span>`;
         kdy = e.date_end && e.date_end !== e.date ? `${den(e.date)} –\n${den(e.date_end)}` : den(e.date);
