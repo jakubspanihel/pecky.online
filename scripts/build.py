@@ -974,10 +974,10 @@ def _dash_noviny():
     return ('<div class="banner banner--green banner--media dash-card--noviny">\n'
             f'  {img}\n'
             '  <div class="banner-body">\n'
-            f'    <h3 class="banner-title"><span class="banner-hl">{len(editions)} vydání</span> novin v archivu</h3>\n'
-            '    <p class="banner-text">který se dá prohledávat</p>\n'
+            f'    <h3 class="banner-title">Pečecké noviny</h3>\n'
+            f'    <p class="banner-text">{len(editions)} vydání v archivu</p>\n'
             '    <div class="banner-actions">'
-            f'<a class="banner-cta" href="/noviny/">{ICO_LUPA}Hledat v novinách</a>'
+            f'<a class="banner-cta" href="/noviny/">{ICO_LUPA}Prohledat noviny</a>'
             '<a class="banner-link" href="/noviny/redakce.html">Redakce</a></div>\n'
             '  </div>\n'
             '</div>')
