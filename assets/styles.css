@@ -1,5 +1,6 @@
   html{scroll-behavior:smooth;}
   :root{
+    --ctl-h:34px;   /* jednotná výška tlačítek, přepínačů, výběrů a vyhledávacích polí */
     /* písma — jen systémová, nic se nestahuje; měnit jen tady.
        Patková (ui-serif = New York na Apple, Georgia/Cambria na Windows,
        Noto Serif na Androidu) jen v bannerech (--font-banner); nadpisy
@@ -137,7 +138,7 @@
   .subpanel.active{display:block; animation:fade .25s ease;}
 
   .year-nav{display:flex; justify-content:center; align-items:center; gap:6px; flex-wrap:wrap; margin:0 0 26px; padding:8px 0; position:sticky; top:var(--nav-h,0px); z-index:9; background:var(--material);}
-  .year-btn{display:inline-block; font-family:var(--font-mono); font-size:13px; font-weight:700; letter-spacing:0.02em; padding:9px 20px; margin:0; border:1px solid var(--line); border-radius:3px; color:var(--ink); background:var(--material-deep); text-decoration:none; transition:border-color .15s, color .15s, background-color .15s;}
+  .year-btn{display:inline-flex; align-items:center; justify-content:center; box-sizing:border-box; min-height:var(--ctl-h); font-family:var(--font-mono); font-size:13px; font-weight:700; letter-spacing:0.02em; padding:0 20px; margin:0; border:1px solid var(--line); border-radius:3px; color:var(--ink); background:var(--material-deep); text-decoration:none; transition:border-color .15s, color .15s, background-color .15s;}
   .year-btn:hover{border-color:var(--cyan-deep); color:var(--cyan-deep); text-decoration:none;}
   .year-btn.active{background:var(--cyan-deep); border-color:var(--cyan-deep); color:#fff;}
 
@@ -147,7 +148,7 @@
 
   .lastmod{display:inline-block; font-family:var(--font-mono); font-size:10.5px; text-transform:uppercase; letter-spacing:0.03em; line-height:1.4; color:var(--cyan); margin:0 0 -0.5lh; position:relative; z-index:11; padding:0; border-bottom:2pt solid var(--cyan);}
 
-  .toggle-details{display:inline-flex; align-items:center; gap:5px; font-family:var(--font-mono); font-size:12px; text-transform:uppercase; letter-spacing:0.03em; color:var(--cyan-deep); border:1px solid var(--cyan-deep); background:none; padding:8px 14px; cursor:pointer; margin:0 0 22px; text-decoration:none;}
+  .toggle-details{display:inline-flex; align-items:center; gap:5px; font-family:var(--font-mono); font-size:12px; text-transform:uppercase; letter-spacing:0.03em; color:var(--cyan-deep); border:1px solid var(--cyan-deep); background:none; padding:0 14px; box-sizing:border-box; min-height:var(--ctl-h); cursor:pointer; margin:0 0 22px; text-decoration:none;}
   .toggle-details:hover{background:rgba(0,115,143,0.06);}
   .toggle-details[aria-expanded="true"]{background:var(--cyan-deep); color:#fff;}
   .details-block[hidden]{display:none;}
@@ -157,8 +158,8 @@
 
   .segmented-control{display:inline-flex; align-items:center; gap:8px;}
   .segmented-label{font-family:var(--font-mono); font-size:11px; text-transform:uppercase; letter-spacing:0.03em; color:var(--ink-soft);}
-  .segmented-group{display:inline-flex; border:1px solid var(--cyan-deep); border-radius:3px;}
-  .segmented-btn{font-family:var(--font-mono); font-size:11.5px; padding:7px 13px; border:none; border-right:1px solid var(--cyan-deep); background:none; color:var(--cyan-deep); cursor:pointer;}
+  .segmented-group{display:inline-flex; box-sizing:border-box; min-height:var(--ctl-h); border:1px solid var(--cyan-deep); border-radius:3px;}
+  .segmented-btn{display:inline-flex; align-items:center; justify-content:center; font-family:var(--font-mono); font-size:11.5px; line-height:1; padding:0 13px; border:none; border-right:1px solid var(--cyan-deep); background:none; color:var(--cyan-deep); cursor:pointer;}
   .segmented-more{position:relative; display:inline-flex;}
   .segmented-btn:first-child{border-radius:2px 0 0 2px;}
   .segmented-more-btn{border-right:none; border-radius:0 2px 2px 0;}
@@ -173,15 +174,29 @@
   /* úzký displej: víc tlačítek (Jednání má 5) se zalomí do řádků místo
      přetečení přes okraj; záporný okraj schová zdvojené hrany pod rámečkem skupiny */
   .kal-toolbar{position:sticky; top:0; z-index:9; background:var(--material); padding:8px 0; margin-top:14px !important;}
-  .kal-toolbar > .segmented-control{order:1; margin-left:auto;}
+  .kal-find-btn{margin-left:auto; position:relative; display:inline-flex; align-items:center; justify-content:center; box-sizing:border-box; height:var(--ctl-h); min-width:var(--ctl-h); padding:0 9px; border:1px solid var(--cyan-deep); border-radius:3px; background:none; color:var(--cyan-deep); cursor:pointer;}
+  .kal-toolbar .kal-find-btn .kal-ico{margin-right:0;}
+  .kal-find-btn:hover:not(.active){background:rgba(0,115,143,0.08);}
+  .kal-find-btn.active{background:var(--cyan-deep); color:#fff;}
+  .kal-find-btn.has-filter::after{content:''; position:absolute; top:-3px; right:-3px; width:8px; height:8px; border-radius:50%; background:var(--burgundy);}
+  .kal-searchrow[hidden]{display:none;}
+  .kal-clear{margin:0; padding:0; min-height:0;}
+  .kal-clear[hidden]{display:none;}
+  .kal-org-source{flex:1 1 100%; margin:0;}
+  .kal-org-source[hidden]{display:none;}
+  #kal-filters{position:sticky; top:calc(var(--nav-h,0px) + var(--kal-toolbar-h,0px)); z-index:8; background:var(--material); margin:0; padding:6px 0 12px;}
   .kal-ico{vertical-align:-2px; margin-right:6px; flex-shrink:0;}
   .kal-toolbar .kal-ico{vertical-align:-2px; margin-right:6px;}
-  .search-bar #lide-filter-toggle{padding:7px 11px; border-radius:3px; text-decoration:none; font-size:11.5px; border:1px solid transparent;}
+  .search-bar #lide-filter-toggle{align-items:center; box-sizing:border-box; min-height:var(--ctl-h); padding:0 11px; border-radius:3px; text-decoration:none; font-size:11.5px; border:1px solid transparent;}
   .search-bar #lide-filter-toggle.active{background:var(--cyan-deep); color:#fff; border-color:var(--cyan-deep);}
   .kal-searchrow{display:flex; flex-wrap:wrap; align-items:center; gap:8px 16px; margin:6px 0 12px;}
-  .kal-search{flex:0 1 280px; min-width:0; box-sizing:border-box; padding:7px 10px; border:1px solid var(--ink); background:rgba(255,255,255,0.65); font-family:inherit; font-size:13px; border-radius:2px; color:var(--ink);}
+  .kal-month-btn{display:inline-flex; align-items:center; gap:4px; background:none; border:none; padding:4px 6px; margin:0 0 0 -6px; cursor:pointer; color:var(--ink); border-radius:3px;}
+  .kal-month-btn:hover{background:rgba(0,115,143,0.08);}
+  .kal-month-btn[aria-expanded="true"] .kal-chevron{transform:rotate(180deg);}
+  .kal-month-menu{right:auto; left:0; min-width:180px;}
+  .kal-search{flex:0 1 280px; min-width:0; box-sizing:border-box; height:var(--ctl-h); padding:0 10px; border:1px solid var(--ink); background:rgba(255,255,255,0.65); font-family:inherit; font-size:13px; border-radius:2px; color:var(--ink);}
   .kal-search::placeholder{color:var(--ink-soft);}
-  .kal-org-select{max-width:100%; padding:7px 10px; border:1px solid var(--ink); background:rgba(255,255,255,0.65); font-family:inherit; font-size:13px; border-radius:2px; color:var(--ink);}
+  .kal-org-select{max-width:100%; box-sizing:border-box; height:var(--ctl-h); padding:0 10px; border:1px solid var(--ink); background:rgba(255,255,255,0.65); font-family:inherit; font-size:13px; border-radius:2px; color:var(--ink);}
   .kal-org-select[hidden]{display:none;}
   .kal-banner{display:flex; align-items:stretch; justify-content:space-between; gap:24px; margin:28px 0 8px; padding:26px 30px 0; background:linear-gradient(135deg,var(--banner-from,var(--burgundy)) 0%,var(--banner-to,var(--burgundy-deep)) 100%); color:var(--banner-fg,#fff); border-radius:14px; overflow:hidden; box-shadow:0 2px 10px rgba(42,36,32,0.18);}
   .kal-banner{position:relative;}
@@ -206,13 +221,14 @@
     .kal-banner p.kal-banner-count{position:static;}
     .kal-banner-img{align-self:center; width:220px; height:300px;}
   }
-  .kal-arrow{width:40px; height:40px; padding:0; margin:0; text-align:center; line-height:1;}
+  .kal-arrow{width:var(--ctl-h); height:var(--ctl-h); min-height:0; padding:0; margin:0; text-align:center; line-height:1;}
   .kal-arrow + .kal-arrow{margin-left:-1px;}
   @media (max-width:600px){
-    .kal-toolbar > .segmented-control{order:-1; margin-left:0; width:100%; justify-content:flex-end;}
     .segmented-control{flex-wrap:wrap; max-width:100%;}
     .segmented-group{flex-wrap:wrap; max-width:100%;}
     .segmented-btn{flex:1 1 auto; margin:0 -1px -1px 0; border-bottom:1px solid var(--cyan-deep);}
+    #kal-filters .kal-search, #kal-filters .kal-org-select{flex:1 1 100%; width:100%;}
+    .kal-toolbar .kal-lbl{display:none;}
   }
 
   .promises-grid{display:grid; grid-template-columns:repeat(6,1fr); gap:12px; margin:20px 0 24px;}
@@ -803,7 +819,7 @@
   /* ===== Jednání (archiv + fulltext hledání) ===== */
   .search-bar{display:flex; gap:10px; flex-wrap:wrap; margin:22px 0 6px;}
   .search-bar input[type=search]{
-    flex:1 1 260px; padding:11px 13px; border:1px solid var(--ink);
+    flex:1 1 260px; box-sizing:border-box; height:var(--ctl-h); padding:0 13px; border:1px solid var(--ink);
     background:rgba(255,255,255,0.65); font-family:inherit;
     font-size:14px; border-radius:2px; color:var(--ink);
   }
@@ -816,7 +832,7 @@
   .filter-menu button:hover, .filter-menu button:focus-visible{background:var(--material-deep);}
   .list-control > .search-bar select{flex:0 1 240px; min-width:0; max-width:240px;}
   .search-bar select, .list-filters select{
-    padding:10px 10px; border:1px solid var(--line); background:var(--material-deep);
+    box-sizing:border-box; height:var(--ctl-h); padding:0 10px; border:1px solid var(--line); background:var(--material-deep);
     font-family:var(--font-mono); font-size:12px; border-radius:2px; color:var(--ink-soft);
   }
   .list-control{position:sticky; top:var(--title-h,0px); z-index:9; background:var(--material); display:flex; align-items:center; justify-content:space-between; gap:12px; margin:14px 0; padding:8px 0; flex-wrap:wrap;}
