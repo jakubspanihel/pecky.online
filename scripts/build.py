@@ -135,7 +135,7 @@ MANIFEST = {
         'Hostinec U Stříkačky podle jejich facebookových stránek.',
         False),
     'peckybot': (
-        '/peckybot/', 'PečkyBot — Do Peček . cz',
+        '/peckybot/', 'PečkyBot',
         'Chatbot, který odpovídá na otázky z dat na webu — jednání '
         'zastupitelstva a rady, lidé ve veřejných funkcích a texty sekcí — '
         'a u každé odpovědi uvádí odkaz na zdroj.',
