@@ -189,6 +189,7 @@
   .kal-toolbar .kal-ico{vertical-align:-2px; margin-right:6px;}
   .search-bar #lide-filter-toggle{align-items:center; box-sizing:border-box; min-height:var(--ctl-h); padding:0 11px; border-radius:3px; text-decoration:none; font-size:11.5px; border:1px solid transparent;}
   .search-bar #lide-filter-toggle.active{background:var(--cyan-deep); color:#fff; border-color:var(--cyan-deep);}
+  .kal-checks{display:flex; flex-wrap:wrap; align-items:center; gap:4px 14px; margin-left:auto;}
   .kal-searchrow{display:flex; flex-wrap:wrap; align-items:center; gap:8px 16px; margin:6px 0 12px;}
   .kal-month-btn{display:inline-flex; align-items:center; gap:4px; background:none; border:none; padding:4px 6px; margin:0 0 0 -6px; cursor:pointer; color:var(--ink); border-radius:3px;}
   .kal-month-btn:hover{background:rgba(0,115,143,0.08);}
@@ -229,6 +230,7 @@
     .segmented-btn{flex:1 1 auto; margin:0 -1px -1px 0; border-bottom:1px solid var(--cyan-deep);}
     #kal-filters .kal-search, #kal-filters .kal-org-select{flex:1 1 100%; width:100%;}
     .kal-toolbar .kal-lbl{display:none;}
+    .kal-toolbar .kal-checks{order:99; flex:1 1 100%; margin-left:0;}
   }
 
   .promises-grid{display:grid; grid-template-columns:repeat(6,1fr); gap:12px; margin:20px 0 24px;}

@@ -92,6 +92,10 @@
         </button>
         <div class="segmented-menu kal-month-menu" id="kal-month-menu" role="menu" hidden></div>
       </div>
+      <div class="kal-checks">
+        <label class="checkbox-label"><input type="checkbox" id="kal-show-kurz" checked> I pravidelné</label>
+        <label class="checkbox-label"><input type="checkbox" id="kal-only-future"> Jen budoucí</label>
+      </div>
       <button type="button" class="kal-find-btn" id="kal-find-toggle" title="Hledat a filtrovat" aria-label="Hledat a filtrovat" aria-expanded="false" aria-controls="kal-filters"><svg class="kal-ico" viewBox="0 0 16 16" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="7" cy="7" r="4.5"/><path d="M10.5 10.5L14 14"/></svg></button>
       <div class="segmented-control">
         <div class="segmented-group" role="group" aria-label="Zobrazení kalendáře">
@@ -103,8 +107,6 @@
 
     <div class="kal-searchrow" id="kal-filters" hidden>
       <input type="search" id="kal-search" class="kal-search" placeholder="Hledat" autocomplete="off" aria-label="Hledat v kalendáři">
-      <label class="checkbox-label"><input type="checkbox" id="kal-show-kurz" checked> Zobrazit pravidelné</label>
-      <label class="checkbox-label"><input type="checkbox" id="kal-only-future"> Pouze budoucí</label>
       <select id="kal-org-select" class="kal-org-select" aria-label="Pořadatel" hidden></select>
       <select id="kal-misto-select" class="kal-org-select" aria-label="Místo konání" hidden></select>
       <button type="button" class="text-toggle kal-clear" id="kal-clear" hidden>Vymazat filtry</button>
