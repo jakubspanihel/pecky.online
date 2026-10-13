@@ -1150,6 +1150,11 @@ def build_all(stav_rows=None):
         html = html.replace('{{CONTENT}}', content)
         html = html.replace('{{FOOTER}}', footer)
         html = html.replace('{{SITE_BASE_PATH}}', SITE_BASE_PATH)
+        if slug == 'peckybot':  # vlastní ikona: stejná jako web, na černém pozadí
+            html = html.replace('<link rel="icon" href="/favicon.ico" sizes="48x48">\n', '')
+            html = html.replace('/img/favicons/favicon-32.png', '/img/favicons/peckybot-favicon-32.png')
+            html = html.replace('/img/favicons/icon-192.png', '/img/favicons/peckybot-icon-192.png')
+            html = html.replace('/img/favicons/apple-touch-icon.png', '/img/favicons/peckybot-apple-touch-icon.png')
         html = nbsp_html(html)  # české pevné mezery, viz TYPOGRAFIE.md
         html = apply_base_path(html)
 
