@@ -194,9 +194,9 @@
   .kal-month-btn:hover{background:rgba(0,115,143,0.08);}
   .kal-month-btn[aria-expanded="true"] .kal-chevron{transform:rotate(180deg);}
   .kal-month-menu{right:auto; left:0; min-width:180px;}
-  .kal-search{flex:0 1 280px; min-width:0; box-sizing:border-box; height:var(--ctl-h); padding:0 10px; border:1px solid var(--ink); background:rgba(255,255,255,0.65); font-family:inherit; font-size:13px; border-radius:2px; color:var(--ink);}
+  .kal-search{flex:0 1 150px; min-width:0; box-sizing:border-box; height:var(--ctl-h); padding:0 10px; border:1px solid var(--ink); background:rgba(255,255,255,0.65); font-family:inherit; font-size:13px; border-radius:2px; color:var(--ink);}
   .kal-search::placeholder{color:var(--ink-soft);}
-  .kal-org-select{max-width:100%; box-sizing:border-box; height:var(--ctl-h); padding:0 10px; border:1px solid var(--ink); background:rgba(255,255,255,0.65); font-family:inherit; font-size:13px; border-radius:2px; color:var(--ink);}
+  .kal-org-select{max-width:100%; min-width:0; text-overflow:ellipsis; box-sizing:border-box; height:var(--ctl-h); padding:0 10px; border:1px solid var(--ink); background:rgba(255,255,255,0.65); font-family:inherit; font-size:13px; border-radius:2px; color:var(--ink);}
   .kal-org-select[hidden]{display:none;}
   .kal-banner{display:flex; align-items:stretch; justify-content:space-between; gap:24px; margin:28px 0 8px; padding:26px 30px 0; background:linear-gradient(135deg,var(--banner-from,var(--burgundy)) 0%,var(--banner-to,var(--burgundy-deep)) 100%); color:var(--banner-fg,#fff); border-radius:14px; overflow:hidden; box-shadow:0 2px 10px rgba(42,36,32,0.18);}
   .kal-banner{position:relative;}
@@ -1005,20 +1005,23 @@
   .akce-skupina{margin:18px 0 8px; font-family:var(--font-mono); font-size:11px; font-weight:500; text-transform:uppercase; letter-spacing:0.04em; color:var(--ink-soft);}
   .akce-skupina:first-child{margin-top:4px;}
   .akce-karty{display:flex; flex-direction:column; gap:8px;}
-  .akce-karta{display:grid; grid-template-columns:96px minmax(0,1fr) auto; gap:12px; align-items:start; padding:10px 12px; font-size:14px; line-height:1.35;
+  .akce-karta{display:grid; grid-template-columns:96px minmax(0,1fr) auto; gap:12px; align-items:start; padding:10px 12px; font-size:18px; line-height:1.35; border-radius:8px;
     background:var(--org-c-bg, var(--material)); border:1px solid color-mix(in srgb, var(--org-c, var(--line)) 40%, var(--line)); box-shadow:inset 4px 0 0 var(--org-c, transparent);}
   .akce-karta.akce-blok-zastupitelstvo{--org-c:var(--burgundy);}
   .akce-karta.akce-blok-rada{--org-c:var(--field);}
   .akce-karta.akce-blok-vybor{--org-c:var(--gold);}
   .akce-karta.akce-blok-volby{--org-c:var(--slate);}
   .akce-karta .ev-when{display:flex; flex-direction:column; align-items:flex-start; gap:4px;}
-  .akce-karta .ev-date{font-family:var(--font-mono); font-size:12px; font-weight:700; color:var(--burgundy); line-height:1.3;}
+  .akce-karta .ev-date{font-family:var(--font-mono); font-size:14px; font-weight:700; color:var(--burgundy); line-height:1.3;}
   .akce-karta .ev-date:empty{display:none;}
   .akce-karta .ev-what{display:flex; flex-direction:column; gap:2px; min-width:0;}
   .akce-karta .ev-title{font-weight:600; color:var(--ink);}
   .akce-karta a.ev-title:hover{color:var(--cyan-deep);}
-  .akce-karta .ev-org, .akce-karta .ev-misto{font-size:12px; color:var(--ink-soft);}
-  .akce-karta .ev-popis{font-size:13px;}
+  .akce-karta .ev-org, .akce-karta .ev-misto{font-size:16px; color:var(--ink-soft);}
+  .akce-karta .ev-meta{display:flex; flex-wrap:wrap; align-items:center; gap:2px 14px;}
+  .akce-karta .ev-org{display:inline-flex; align-items:center; gap:6px;}
+  .akce-karta .ev-dot{flex:none; width:10px; height:10px; border-radius:50%; background:var(--org-c, var(--ink-soft));}
+  .akce-karta .ev-popis{font-size:17px;}
   .akce-karta .akce-pozn{font-style:italic;}
   .akce-karta .akce-pozn[hidden]{display:none;}
   .akce-karta .akce-info{padding:2px; border:0; background:none; color:var(--ink-soft); cursor:pointer; line-height:0; border-radius:50%;}
@@ -1032,3 +1035,6 @@
 .volby-zastupitele .av-img{width:56px; height:56px; border-radius:50%; object-fit:cover; border:3px solid var(--line); background:var(--material-deep);}
 .volby-zastupitele .av-init{width:56px; height:56px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-family:var(--font-mono); font-weight:600; font-size:16px; color:#fff; line-height:1;}
 @media (max-width:520px){ .volby-zastupitele{grid-template-columns:repeat(7, 1fr); gap:6px;} .volby-zastupitele .av-img,.volby-zastupitele .av-init{width:100%; height:auto; aspect-ratio:1; font-size:12px;} }
+
+/* iOS Safari přibližuje stránku při fokusu pole s písmem menším než 16 px */
+input:not([type=checkbox]):not([type=radio]), select, textarea{font-size:16px !important;}

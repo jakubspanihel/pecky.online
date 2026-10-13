@@ -377,13 +377,13 @@
       }
       if (e.time && skupina !== 'bezi') kdy += (kdy ? ' ' : '') + kalEsc(e.time);
       const stitek = e.tag != null ? (e.tag ? ` <span class="tag">${kalEsc(e.tag)}</span>` : '')
-        : e.category === 'kurz' ? ' <span class="tag">kurz</span>'
+        : e.category === 'kurz' ? ' <span class="tag">Pravidelně</span>'
         : e.category === 'svoz' ? ' <span class="tag">svoz</span>' : '';
       const cizi = e.link && /^https?:\/\//.test(e.link) ? ' target="_blank" rel="noopener"' : '';
       const nazev = e.link ? `<a class="ev-title" href="${e.link}"${cizi}>${kalEsc(e.title)}</a>`
         : `<span class="ev-title">${kalEsc(e.title)}</span>`;
       const porada = kalMaPoradatele(e) && e.organizer_name
-        ? `<span class="ev-org">Pořádá: ${kalEsc(e.organizer_name)}</span>` : '';
+        ? `<span class="ev-org"><span class="ev-dot" aria-hidden="true"></span>${kalEsc(e.organizer_name)}</span>` : '';
       const popis = e.description && e.description !== e.place ? `<span class="ev-popis">${kalEsc(e.description)}</span>` : '';
       const misto = e.place ? `<span class="ev-misto"><span aria-hidden="true">📍</span> ${kalEsc(kalMistoBezAdresy(e.place))}</span>` : '';
       const pozn = e.note ? `<span class="ev-popis akce-pozn" hidden>${kalEsc(e.note)}</span>` : '';
@@ -394,7 +394,7 @@
       return `<article class="akce-karta akce-blok-${e.category}"${barva}>
         <div class="ev-when">${chip}<span class="ev-date">${kdy}</span></div>
         <div class="ev-what">${nazev.replace('</', stitek + '</')}
-          ${porada}${popis}${misto}${pozn}</div>${infoBtn}
+          ${popis}${(misto || porada) ? `<div class="ev-meta">${misto}${porada}</div>` : ''}${pozn}</div>${infoBtn}
       </article>`;
     }
 
