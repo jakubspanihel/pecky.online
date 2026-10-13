@@ -15,9 +15,9 @@ A) Jednání rady a zastupitelstva — z jednani/pecky-jednani.json (stejný
 B) Kulturní a společenské akce — z kalendar/akce.json, které plní
    skill pecky-online-kalendar-plakat z plakátů Kulturního střediska
    města Pečky (kategorie 'akce' a 'kurz').
-C) Volby — z kalendar/udalosti-rucni.json, ručně psaný soubor bez
+C) Volby — z kalendar/udalosti-volby.json, ručně psaný soubor bez
    vlastního scraperu (termín voleb se nemění často). Datum vždy ověřit
-   proti sources.json -> csu-informace-vyhlasene-volby (viz
+   proti volby.gov.cz (sources.json -> volby-gov-cz; viz
    kalendar/README.md -> "Volby").
 D) Zápasy AFK Pečky — z kalendar/afk-zapasy.json, které stahuje
    kalendar/scripts/fetch-afk-zapasy.py z afkpecky.cz (do kalendáře jen
@@ -67,7 +67,7 @@ VYBORY_JSON = ROOT / 'jednani' / 'vybory.json'
 KOMISE_JSON = ROOT / 'jednani' / 'komise.json'
 SKOLSKA_RADA_JSON = ROOT / 'jednani' / 'skolska-rada.json'
 AKCE_JSON = ROOT / 'kalendar' / 'akce.json'
-VOLBY_JSON = ROOT / 'kalendar' / 'udalosti-rucni.json'
+VOLBY_JSON = ROOT / 'kalendar' / 'udalosti-volby.json'
 AFK_JSON = ROOT / 'kalendar' / 'afk-zapasy.json'
 SVOZ_JSON = ROOT / 'kalendar' / 'svoz-odpadu.json'
 HALA_JSON = ROOT / 'kalendar' / 'sportovni-hala.json'
@@ -260,14 +260,13 @@ def build_hala_events():
 
 
 def build_volby_events():
-    """Ručně psané jednorázové termíny z kalendar/udalosti-rucni.json -> společné schéma.
+    """Termíny voleb z kalendar/udalosti-volby.json -> společné schéma.
 
     Na rozdíl od Jednání a Akcí nemá tenhle zdroj vlastní scraper - termín
     voleb se nemění často, soubor se aktualizuje ručně po ověření proti
-    sources.json -> csu-informace-vyhlasene-volby (viz kalendar/README.md
-    -> "Volby"). Stejný soubor může v budoucnu nést i další jednorázové
-    ručně psané termíny, ne jen volby - proto stejné společné schéma
-    jako u ostatních zdrojů, ne zvláštní volební pole.
+    volby.gov.cz (sources.json -> volby-gov-cz; viz kalendar/README.md
+    -> "Volby"). Schéma je společné s ostatními zdroji, ne zvláštní
+    volební pole.
     """
     if not VOLBY_JSON.exists():
         return []
@@ -566,7 +565,7 @@ def main():
             'generated_from': (f'jednani/pecky-jednani.json ({len(jednani)} jednání), '
                                f'jednani/vybory.json + komise.json + skolska-rada.json ({len(vybory)} jednání výborů, komisí a školské rady), '
                                f'kalendar/akce.json ({len(akce)} akcí), '
-                               f'kalendar/udalosti-rucni.json ({len(volby)} termínů), '
+                               f'kalendar/udalosti-volby.json ({len(volby)} termínů), '
                                f'kalendar/afk-zapasy.json ({len(afk)} zápasů v Pečkách), '
                                f'kalendar/svoz-odpadu.json ({len(svoz)} svozů), '
                                f'kalendar/sberny-dvur.json ({len(sberny)} termínů provozních dob), '

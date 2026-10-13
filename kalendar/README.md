@@ -1254,21 +1254,21 @@ seznam místo rozházených poznámek po repu.
 
 ### Volby — aktivní
 
-- **Data:** `kalendar/udalosti-rucni.json`, funkce `build_volby_events()`.
-  Ručně psaný soubor bez vlastního scraperu — na rozdíl od Jednání a Akcí
-  se termín voleb nemění často. Stejný soubor může v budoucnu nést
-  i další jednorázové ručně psané termíny, ne jen volby.
+- **Data:** `kalendar/udalosti-volby.json` (do 14. 10. 2026
+  `udalosti-rucni.json`), funkce `build_volby_events()`. Ručně psaný soubor
+  bez vlastního scraperu — na rozdíl od Jednání a Akcí se termín voleb
+  nemění často.
 - **Kategorie:** `volby`.
-- **Zdroj termínu:** [csu.gov.cz/informace-k-aktualne-vyhlasenym-volbam](https://csu.gov.cz/informace-k-aktualne-vyhlasenym-volbam)
-  → sekce „Aktuálně vyhlášené volby" (proklik na konkrétní ročník, např.
-  `csu.gov.cz/volby-2026`) — viz `sources.json` →
-  `csu-informace-vyhlasene-volby`. K 20. 9. 2026 odtud potvrzeno: volby
-  do zastupitelstev obcí (a souběžně do Senátu) 9.–10. října 2026,
-  vyhlášeny rozhodnutím prezidenta republiky č. 117/2026 Sb. — shoduje
-  se s dřívějším zdrojem mv.gov.cz citovaným v `content/volby2026.html`.
-  Záznam v `udalosti-rucni.json` má `date: "2026-10-09"` a
-  `date_end: "2026-10-10"` (oba volební dny). Od 21. 9. 2026 mřížka
-  víckadenní události skutečně rozkresluje na každý den v rozsahu
+- **Zdroj termínu a validace:** [volby.gov.cz](https://volby.gov.cz/)
+  (ČSÚ; `sources.json` → `volby-gov-cz`) — termín se ověřuje proti hlavičce
+  stránek výsledků a kandidátních listin příslušných voleb
+  (např. `volby.gov.cz/app/kv2026/cs/20261009/…`: „Volby do zastupitelstev
+  obcí konané 09.10. - 10.10.2026“). Ověřeno 14. 10. 2026. Záznam
+  v `udalosti-volby.json` má `date: "2026-10-09"` a `date_end: "2026-10-10"`
+  (oba volební dny) a `source: "volby-gov-cz"`. Dřívější zdroj ČSÚ
+  (`csu-informace-vyhlasene-volby`, rozhodnutí prezidenta republiky
+  č. 117/2026 Sb.) zůstává v `sources.json`. Od 21. 9. 2026 mřížka
+  víckadenní události rozkresluje na každý den v rozsahu
   (`kalDateRange()` v `content/kalendar.html`, viz „Schéma jedné
   události" → `date_end`) — odznak je vidět v pátek i sobotu, dny 2+
   mají tlumenější (šrafovaný) odstín, ať je jasné, že jde o pokračování,
@@ -1281,8 +1281,8 @@ seznam místo rozházených poznámek po repu.
   čipu „Pořadatel", ne zvlášť.
 - **Aktualizace:** ruční — termín voleb se nemění často, netřeba
   zapojovat do týdenní kontroly. Před zápisem/změnou data vždy ověřit
-  proti zdroji ČSÚ výše, ne jen převzít z `content/volby2026.html`.
-  Ručně po jakékoli úpravě `udalosti-rucni.json`:
+  na volby.gov.cz (viz výše), ne jen převzít z `content/volby2026.html`.
+  Ručně po jakékoli úpravě `udalosti-volby.json`:
   ```
   python3 kalendar/scripts/update-kalendar.py
   ```
