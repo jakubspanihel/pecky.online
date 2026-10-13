@@ -1029,7 +1029,6 @@
   .akce-karta .ev-date:empty{display:none;}
   .akce-karta .ev-time{font-family:var(--font-banner); font-size:14px; font-weight:700; color:#fff; line-height:1.2;}
   .akce-karta .ev-time:empty{display:none;}
-  .akce-karta .ev-when > .tag:not(.ev-stitek){align-self:stretch; box-sizing:border-box; margin:-10px -12px 4px; padding:6px 12px; font-size:17px; font-weight:800; letter-spacing:0.05em; line-height:1.15; border-radius:7px 0 0 0; white-space:normal;}
   .akce-karta .ev-when > .tag:not(.ev-stitek):not(.kal-dnes){background:var(--yellow); border-color:var(--yellow); color:var(--cyan-deep);}
   .akce-karta .ev-stitek{box-sizing:border-box; max-width:100%; padding:2px 4px; font-size:9.5px; letter-spacing:0; background:rgba(255,255,255,0.18); border-color:rgba(255,255,255,0.55); color:#fff;}
   .akce-karta .ev-what{display:flex; flex-direction:column; gap:8px; min-width:0;}

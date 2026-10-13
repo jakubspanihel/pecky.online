@@ -88,7 +88,7 @@
       <button type="button" class="kal-banner-close" id="kal-add-close" aria-label="Zavřít banner" title="Zavřít">×</button>
       <div class="banner-body">
         <h3 class="banner-title">Pořádáte akci v Pečkách?</h3>
-        <p class="banner-text">Pro publikování akce v tomto kalendáři stačí poslat fotku (plakát, banner, screenshot) na e-mailovou adresu <a href="mailto:dopecek@gmail.com?subject=Plak%C3%A1t%20akce"><strong>dopecek@gmail.com</strong></a>.</p>
+        <p class="banner-text">Pro publikování akce v tomto kalendáři <strong>stačí poslat fotku</strong> (plakát, banner, screenshot) na e-mailovou adresu <a href="mailto:dopecek@gmail.com?subject=Plak%C3%A1t%20akce"><strong>dopecek@gmail.com</strong></a>.</p>
         <div class="banner-actions"><a class="banner-cta" href="mailto:dopecek@gmail.com?subject=Plak%C3%A1t%20akce">Poslat plakát Do Peček</a></div>
       </div>
     </aside>
@@ -102,7 +102,7 @@
         <div class="segmented-menu kal-month-menu" id="kal-month-menu" role="menu" hidden></div>
       </div>
       <div class="kal-checks">
-        <label class="checkbox-label"><input type="checkbox" id="kal-show-kurz" checked> I pravidelné</label>
+        <label class="checkbox-label"><input type="checkbox" id="kal-show-kurz"> I pravidelné</label>
         <label class="checkbox-label"><input type="checkbox" id="kal-only-future"> Jen budoucí</label>
       </div>
       <button type="button" class="kal-find-btn" id="kal-find-toggle" title="Hledat a filtrovat" aria-label="Hledat a filtrovat" aria-expanded="false" aria-controls="kal-filters"><svg class="kal-ico" viewBox="0 0 16 16" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="7" cy="7" r="4.5"/><path d="M10.5 10.5L14 14"/></svg></button>
@@ -145,7 +145,7 @@
   let KAL_MISTO = '';   // sloučené místo konání (viz kalMistoSkupina), '' = všechna
   let KAL_ORG = '';   // id pořadatele z lide/organizations.json, '' = všichni
   let KAL_VIEW = 'kalendar';   // 'kalendar' = mřížka, 'seznam' = bloky akcí vybraného měsíce
-  let KAL_SHOW_KURZ = true;   // false = skrýt kategorii 'kurz' (checkbox "Pravidelné akce, kurzy a tréninky")
+  let KAL_SHOW_KURZ = false;   // false (výchozí) = skrýt kategorii 'kurz' (checkbox "I pravidelné")
   let KAL_ONLY_FUTURE = false;   // true = skrýt už proběhlé události (checkbox "Pouze budoucí události")
   const kalNow = new Date();
   let kalYear = kalNow.getFullYear();
@@ -512,7 +512,7 @@
   function kalShowView(view){
     kalWriteHash();
     kalRenderOrgZdroj();
-    const maFiltr = !!(KAL_QUERY || KAL_ORG || KAL_MISTO || !KAL_SHOW_KURZ);
+    const maFiltr = !!(KAL_QUERY || KAL_ORG || KAL_MISTO || KAL_SHOW_KURZ);
     document.getElementById('kal-find-toggle').classList.toggle('has-filter', maFiltr);
     document.getElementById('kal-clear').hidden = !maFiltr;
     document.getElementById('kal-month-label').textContent = `${KAL_MONTHS[kalMonth]} ${kalYear}`;
@@ -662,11 +662,11 @@
   // „Vymazat filtry“: hledání, pořadatel, místo a „Zobrazit pravidelné“ zpět na výchozí
   // hodnoty („Pouze budoucí“ se řídí zobrazením, proto zůstává)
   document.getElementById('kal-clear').addEventListener('click', function(){
-    KAL_QUERY = ''; KAL_ORG = ''; KAL_MISTO = ''; KAL_SHOW_KURZ = true;
+    KAL_QUERY = ''; KAL_ORG = ''; KAL_MISTO = ''; KAL_SHOW_KURZ = false;
     document.getElementById('kal-search').value = '';
     document.getElementById('kal-org-select').value = '';
     document.getElementById('kal-misto-select').value = '';
-    document.getElementById('kal-show-kurz').checked = true;
+    document.getElementById('kal-show-kurz').checked = false;
     // panel filtrů se po vymazání sbalí (lupa zpět do neaktivního stavu)
     document.getElementById('kal-filters').hidden = true;
     const lupa = document.getElementById('kal-find-toggle');
