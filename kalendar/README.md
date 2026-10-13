@@ -417,6 +417,14 @@ Facebooku/Instagramu (krok 3, skill `pecky-online-kalendar-plakat`).
    facebookové a instagramové, viz „Zdroje" níže). Hledají se jen akce
    s budoucím datem, které ještě nejsou v `akce.json`; už zapsané se
    křížově ověřují (změna termínu, zrušení).
+3b. **Rezervační systém FitPečky** (od 13. 10. 2026 na žádost uživatele):
+   otevřít [výpis kalendáře](https://fitpecky.inrs.cz/rs/kalendar_vypis/index_kalendar_vypis_zrychleny)
+   (`sources.json` → `web-fitpecky-inrs`) a zapsat lekce, které ještě nejsou
+   v `akce.json` (`kategorie` `kurz`, `organizer` `fitpecky-cz`). Stránka je
+   vykreslená na serveru, jde ji číst i `curl`em / `WebFetch`. Ukazuje jen
+   aktuální týden, proto ji kontrolovat při každém běhu; případně využít
+   přepínače „30 Dnů“ v rozhraní. Změna času/místa u už zapsané lekce se
+   přepíše, zmizelá lekce se jen nahlásí.
 4. **Přegenerovat:** `python3 kalendar/scripts/update-kalendar.py`
    (a `python3 scripts/build.py`, jen pokud se změnil `content/kalendar.html`).
 5. **Výpis a Stav sekcí** podle `CLAUDE.md` → „Konvence": změny
@@ -540,6 +548,13 @@ seznam místo rozházených poznámek po repu.
       níže. Příští běh může narazit na jiný soubor zdrojů, podle toho, co
       mezitím do `sources.json` přibylo jinde na webu.
 
+  - **FitPečky (FitPecky.cz)** — zapojeno 13. 10. 2026 na žádost uživatele.
+    Zdroj: [výpis kalendáře rezervačního systému inRS](https://fitpecky.inrs.cz/rs/kalendar_vypis/index_kalendar_vypis_zrychleny)
+    (`sources.json` → `web-fitpecky-inrs`, `evidence[].kind: "web"`), pořadatel
+    `fitpecky-cz`. Pravidelné lekce cvičení → kategorie `kurz`. Výpis ukazuje
+    jen aktuální týden (13. 10.: 12.–19. 10. 2026, 3× „Posilování celé
+    figury/Tabata“, lektorka Katerina Svoboda, 120 Kč, tentokrát v Městské
+    knihovně). Dál dopředu nejde bez kontroly v dalším týdnu zapsat.
   - **Kulturní středisko** — [facebook.com/kspecky](https://www.facebook.com/kspecky).
     Program vychází vždy na několik měsíců dopředu jako souhrnný plakát
     (např. „Program 9–12/2026" ve dvou příspěvcích: září+říjen,

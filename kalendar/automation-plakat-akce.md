@@ -36,6 +36,11 @@ zdroj pravdy o schématu.
   s filtrem `interactive` vypíše odkazy `photo.php?fbid=…` na jednotlivé
   fotky v pořadí od nejnovější; projdi je `navigate` + `screenshot`.
 
+- **Web FitPečky (rezervační systém inRS)** — kromě sociálních sítí vždy
+  zkontrolovat i `https://fitpecky.inrs.cz/rs/kalendar_vypis/index_kalendar_vypis_zrychleny`
+  (`sources.json` → `web-fitpecky-inrs`). Lekce cvičení jako `kurz`,
+  pořadatel `fitpecky-cz`, doklad `kind: "web"`. Ukazuje jen aktuální týden.
+
 Program kulturního domu vychází ve dvou plakátech (září+říjen
 a listopad+prosinec jako dva příspěvky téhož dne) — po zpracování prvního
 vždy zkontroluj, jestli existuje pokračování, jinak polovina programu tiše

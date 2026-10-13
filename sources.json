@@ -1,7 +1,7 @@
 {
  "project": "Do Peček . cz",
  "description": "Seznam zdrojů, ze kterých Do Peček . cz čerpá nebo může čerpat informace o samosprávě města Pečky.",
- "last_updated": "2026-10-04",
+ "last_updated": "2026-10-13",
  "sources": [
   {
    "id": "pecky-cz",
@@ -745,6 +745,15 @@
    "description": "Facebookový profil prodejny FitPecky.cz — zdravá výživa, bezobalové zboží, ekodrogerie Tierra Verde, lowcarb a bezlepkové pečení, občerstvení (1,2 tis. sledujících k 25. 9. 2026). Masarykovo náměstí / V. B. Třebízského 656, Pečky. Provozovatelka Radana Honsová (dle vlastních zásad ochrany osobních údajů na fitpecky.cz) — stejná osoba jako u instagram-nejenkavarnauradu, jiná provozovna. Soukromý podnik, ne městská ani spolková organizace.",
    "status": "nevytěženo",
    "note": "Přidáno uživatelem 25. 9. 2026. Zkontrolováno pro sekci Kalendář týž den: záložka Události má jen proběhlé přednášky a workshopy (naposled „Imagine Medicine“ a „Umění degustace“, dále zpět „Aby záda nebolela“, „Reflexní terapie pro každý den“, „Jóga se snídaní“, cyklovýlet, běžecká akce), žádná záložka „Nadcházející“; poslední vlastní příspěvek 5. 7. 2026. Podnik přednášky/workshopy občas pořádá, jen zrovna žádný nemá ohlášený — nic k zápisu do kalendar/akce.json, zkontrolovat znovu při další kontrole (viz kalendar/README.md → „Kulturní a společenské akce\")."
+  },
+  {
+   "id": "web-fitpecky-inrs",
+   "name": "FitPečky — rezervační systém (výpis kalendáře)",
+   "url": "https://fitpecky.inrs.cz/rs/kalendar_vypis/index_kalendar_vypis_zrychleny",
+   "category": "web · podnik",
+   "description": "Veřejný výpis kalendáře rezervačního systému inRS, přes který FitPecky.cz (Zdravá výživa & FitStudio) vypisuje lekce cvičení a přijímá rezervace. Zobrazuje jen aktuální týden. Pořadatel FitPecky.cz — viz lide/organizations.json → fitpecky-cz. Soukromý podnik, ne městská ani spolková organizace.",
+   "status": "ověřeno",
+   "note": "Přidáno uživatelem 13. 10. 2026 jako zdroj Kalendáře a součást pravidelné kontroly akcí. Výpis ukazuje jen aktuální týden (13. 10.: 12.–19. 10. 2026, 3 lekce „Posilování celé figury/Tabata“, Městská knihovna) — dál dopředu se musí kontrolovat opakovaně (viz kalendar/README.md → „Kulturní a společenské akce“)."
   },
   {
    "id": "instagram-nejenkavarnauradu",
