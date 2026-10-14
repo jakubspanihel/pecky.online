@@ -223,6 +223,12 @@ EXTRA_PAGES = {
         # Odkázaná z /noviny/ (odstavec "Související") od 8. 10. 2026 —
         # proto má lastmod a jde do sitemapy. Statická tabulka z tiráží novin.
         False, 'zpravodaj', '2026-10-12'),
+    'kalendar-today': (
+        '/kalendar/today.html', 'Dnes v Pečkách — Do Peček . cz',
+        'Dnešní akce v Pečkách na jedné obrazovce, ve formátu 1080 × 1350 px.',
+        # Celoobrazovkový blok bez hlavičky a patičky (BEZ_RAMCE), určený pro
+        # snímek obrazovky. Nikam nelinkovaná -> lastmod None: noindex, mimo sitemapu.
+        False, 'kalendar', None),
     'changelog': (
         '/o-webu/changelog.html', 'Historie změn na webu — Do Peček . cz',
         'Přehled sekcí webu Do Peček . cz: kdy byl u každé naposledy '
@@ -236,7 +242,7 @@ EXTRA_PAGES = {
 
 
 # Stránky bez hlavičky a patičky (celoobrazovkové, se samostatným tlačítkem Zavřít)
-BEZ_RAMCE = {'peckybot'}
+BEZ_RAMCE = {'peckybot', 'kalendar-today'}
 
 
 # cesta k README sekce (jak je zapsaná v tabulce "Stav sekcí") -> slug v MANIFEST

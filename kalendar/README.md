@@ -85,6 +85,17 @@ vede rovnou na zdroj" v „Jak to funguje" níže.
       `.checkbox-label` nastavují vlastní `display` a atribut `hidden` by
       přebily — proto jsou v `assets/styles.css` pravidla `…[hidden]
       {display:none}`.
+  - **Podstránka `/kalendar/today.html`** (14. 10. 2026, na žádost uživatele;
+    `content/kalendar-today.html`, `EXTRA_PAGES` + `BEZ_RAMCE` v `scripts/build.py`):
+    jediný sloupec „dnes“ z pohledu „3 dny“ (stejný obsah a stejné třídy `.k3-*`
+    i logika karet, vlastní kopie funkcí v inline skriptu stránky) v bloku
+    1080 × 1350 px přesně uprostřed obrazovky, na pozadí `--ink`, bez hlavičky
+    a patičky, jen tlačítko Zavřít vpravo nahoře (`.overlay-close`, vede na
+    `/kalendar/`). Určená pro snímek obrazovky; na menší obrazovce se blok zmenší
+    (`--today-scale`), aby se vešel celý. Filtry nemá — pravidelné jsou skryté
+    s odkazem „N tréninků, kurzů apod.“ jako ve „3 dny“. Nikam nelinkovaná →
+    `noindex`, mimo sitemapu. Změní-li se vzhled karet ve „3 dny“
+    (`kalRender3Dny()`), promítnout i sem.
   - **Přepínač „Zobrazit jako: Kalendář / Seznam"** (`segmented-control`,
     doplněno 24. 9. 2026 na žádost uživatele, na stejném řádku jako
     navigace měsícem, zarovnané vpravo přes `margin-left:auto`) —

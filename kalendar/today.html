@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dnes v Pečkách — Do Peček . cz</title>
+<meta name="description" content="Dnešní akce v Pečkách na jedné obrazovce, ve formátu 1080 × 1350 px.">
+<link rel="canonical" href="https://dopecek.cz/kalendar/today.html">
+<meta property="og:title" content="Dnes v Pečkách — Do Peček . cz">
+<meta property="og:description" content="Dnešní akce v Pečkách na jedné obrazovce, ve formátu 1080 × 1350 px.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://dopecek.cz/kalendar/today.html">
+<meta property="og:site_name" content="Do Peček . cz">
+<meta property="og:locale" content="cs_CZ">
+<meta property="og:image" content="https://dopecek.cz/img/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Dnes v Pečkách — Do Peček . cz">
+<meta name="twitter:description" content="Dnešní akce v Pečkách na jedné obrazovce, ve formátu 1080 × 1350 px.">
+<meta name="twitter:image" content="https://dopecek.cz/img/og-image.png">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" type="image/png" sizes="32x32" href="/img/favicons/favicon-32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/img/favicons/icon-192.png">
+<link rel="apple-touch-icon" href="/img/favicons/apple-touch-icon.png">
+<link rel="stylesheet" href="/assets/org-colors.css">
+<link rel="stylesheet" href="/assets/styles.css">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-1CW9XK1VJY"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-1CW9XK1VJY');
+</script>
+<meta name="robots" content="noindex">
+
+</head>
+<body>
+<script>window.SITE_BASE_PATH = '';</script>
+
+<main>
+  <a class="overlay-close" href="/kalendar/" aria-label="Zavřít a vrátit se do kalendáře">Zavřít</a>
+
+  <section class="panel active" id="panel-today" aria-label="Dnešní akce v Pečkách">
+    <div class="today-box" id="today-box">
+      <h3 class="search-status" id="today-status"><span class="spinner" aria-hidden="true"></span>Načítám kalendář…</h3>
+      <table class="calendar-table kal-3dny" id="today-tabulka" style="display:none;">
+        <thead>
+          <tr class="kal-3dny-date" id="today-hlavicka"></tr>
+        </thead>
+        <tbody><tr id="today-telo"></tr></tbody>
+      </table>
+    </div>
+  </section>
+
+  <style>
+    /* Jediný blok 1080 × 1350 px přesně uprostřed obrazovky na inkoustovém pozadí; bez hlavičky a patičky. */
+    html,body{background:var(--ink);}
+    main{max-width:none; margin:0; padding:0;}
+    #panel-today{position:static;}
+    .today-box{
+      position:fixed; left:50%; top:50%; z-index:1;
+      width:1080px; height:1350px; overflow:auto;
+      padding:28px 32px;
+      background:var(--material);
+      transform:translate(-50%, -50%) scale(var(--today-scale, 1));
+      transform-origin:center center;
+    }
+    .today-box table.calendar-table{margin-top:0;}
+    .today-box .search-status{margin:0;}
+    a.overlay-close{display:inline-block; text-decoration:none;}
+  </style>
+
+<script>
+  // ===== Dnes: jeden sloupec pohledu „3 dny“ z kalendar/udalosti.json =====
+  let KAL_SHOW_KURZ = false;   // stejně jako ve „3 dny“: pravidelné jsou skryté, dokud je čtenář nezapne
+  const KAL_NOW = new Date();
+  const KAL_DNES = `${KAL_NOW.getFullYear()}-${String(KAL_NOW.getMonth() + 1).padStart(2, '0')}-${String(KAL_NOW.getDate()).padStart(2, '0')}`;
+  let KAL_EVENTS = [];
+  const KAL_PRAVIDELNE_TIP = 'Tréninky, kurzy, ...';
+
+  function kalEsc(s){
+    return (s || '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+  }
+  // CSS proměnné barvy pořadatele (--org-<id> generuje build z organizations.json)
+  function kalOrgStyle(id){
+    if (!id) return '';
+    const s = kalEsc(id);
+    return `--org-c:var(--org-${s});--org-c-bg:var(--org-${s}-bg);--chip:var(--org-${s});`;
+  }
+  // kategorie, které se barví podle pořadatele a ukazují „pořádá …“
+  function kalMaPoradatele(e){ return e.category === 'akce' || e.category === 'kurz' || e.category === 'svoz'; }
+  // rozsah „1. 9.–30. 9.“ pro vícedenní akce, jinak null
+  function kalFmtRange(e){
+    if (!e.date_end || e.date_end === e.date) return null;
+    const fmt = ds => { const [, m, d] = ds.split('-'); return `${parseInt(d, 10)}. ${parseInt(m, 10)}.`; };
+    return `${fmt(e.date)}–${fmt(e.date_end)}`;
+  }
+  // místo konání bez adresy: z „Vzdělávací centrum Pečky, Tř. Jana Švermy 141, Pečky“ zbyde „Vzdělávací centrum Pečky“
+  function kalMistoBezAdresy(place){
+    const obce = /^(Pečky|Velké Chvalovice|Dobřichov)$/;
+    const casti = place
+      .replace(/\s*\([^)(,]*\d+[a-z]?\)/g, '')
+      .replace(/,\s*[^,()]*\d+[a-z]?\)/g, ')')
+      .split(/,\s*(?![^(]*\))/).map(x => x.trim()).filter(Boolean);
+    const jadro = casti.filter(c => {
+      if (/\(/.test(c)) return true;
+      if (/patro/i.test(c) || /^učebna/i.test(c)) return true;
+      return !(/\d/.test(c) || /\b(ul\.|tř\.)/i.test(c) || /^okres /i.test(c));
+    });
+    const bezObce = jadro.filter(c => !obce.test(c));
+    return (bezObce.length ? bezObce : jadro.length ? jadro : [place]).join(', ');
+  }
+
+  function kalPravidelneBlok(pocetSkryte, karty){
+    const h = `<h4 class="akce-skupina k3-skupina" data-skupina="pravidelne" title="${KAL_PRAVIDELNE_TIP}">Pravidelné</h4>`;
+    if (KAL_SHOW_KURZ) {
+      return karty ? h + karty + '<p class="kal-pravidelne-link"><a href="#" data-kal-kurz="0">Pravidelné skrýt</a></p>' : '';
+    }
+    return pocetSkryte ? h + `<p class="kal-pravidelne-link"><a href="#" data-kal-kurz="1">${pocetSkryte} tréninků, kurzů apod.</a></p>` : '';
+  }
+  document.addEventListener('click', ev => {
+    const b = ev.target.closest('[data-kal-kurz]');
+    if (!b) return;
+    ev.preventDefault();
+    KAL_SHOW_KURZ = b.dataset.kalKurz === '1';
+    kalRenderDnes();
+  });
+
+  function kalRenderDnes(){
+    const dny = ['neděle', 'pondělí', 'úterý', 'středa', 'čtvrtek', 'pátek', 'sobota'];
+    const ds = KAL_DNES;
+    const x = new Date(ds + 'T12:00:00');
+    const den = dny[x.getDay()][0].toUpperCase() + dny[x.getDay()].slice(1);
+    document.getElementById('today-hlavicka').innerHTML =
+      `<th><span class="tag kal-dnes" title="${ds}">dnes</span><b class="k3-den">${den}</b><span class="k3-datum">${x.getDate()}. ${x.getMonth() + 1}.</span></th>`;
+
+    const zaklad = KAL_EVENTS.filter(e => e.date <= ds && (e.date_end || e.date) >= ds);
+    const evs = zaklad.filter(e => KAL_SHOW_KURZ || e.category !== 'kurz')
+      .sort((a, b) => (!!b.time - !!a.time) || (a.time || '').localeCompare(b.time || ''));
+    const karta = e => {
+      const range = kalFmtRange(e);
+      const cas = e.time ? kalEsc(e.time).replace(/\b0(\d:\d{2})/g, '$1') : '';
+      const tip = kalMaPoradatele(e) && e.organizer_name ? ` title="Pořádá: ${kalEsc(e.organizer_name)}"` : '';
+      const misto = e.place ? `<span class="k3-misto"><span aria-hidden="true">📍</span> ${kalEsc(kalMistoBezAdresy(e.place))}</span>` : '';
+      const barva = kalMaPoradatele(e) ? ` style="${kalOrgStyle(e.organizer)}"` : '';
+      const cizi = e.link && /^https?:\/\//.test(e.link) ? ' target="_blank" rel="noopener"' : '';
+      const cont = range && ds !== e.date ? ' kal-ev-cont' : '';
+      return `<a class="kal-ev kal-ev-${e.category} k3-karta${cont}" href="${e.link || '#'}"${barva}${tip}${cizi}>` +
+        (cas ? `<span class="k3-cas">${cas}</span>` : '') +
+        `<span class="k3-nazev">${kalEsc(e.title)}</span>` +
+        (range ? `<span class="k3-misto">${range}</span>` : '') + misto + `</a>`;
+    };
+    const vice = e => e.date_end && e.date_end !== e.date;
+    const pravidelne = evs.filter(e => e.category === 'kurz').map(karta).join('');
+    const jednoDenni = evs.filter(e => e.category !== 'kurz' && !vice(e)).map(karta).join('');
+    const probihajici = evs.filter(e => e.category !== 'kurz' && vice(e)).map(karta).join('');
+    document.getElementById('today-telo').innerHTML = `<td class="today"><div class="kal-events">${jednoDenni}` +
+      (probihajici ? `<h4 class="akce-skupina k3-skupina">Probíhající</h4>${probihajici}` : '') +
+      kalPravidelneBlok(zaklad.filter(e => e.category === 'kurz').length, pravidelne) +
+      (!evs.length && !zaklad.length ? '<span class="k3-prazdno">Žádné akce</span>' : '') + '</div></td>';
+  }
+
+  // blok 1080 × 1350 px se na menší obrazovce zmenší, aby se vešel celý
+  function kalMeritko(){
+    const s = Math.min(1, window.innerWidth / 1080, window.innerHeight / 1350);
+    document.getElementById('today-box').style.setProperty('--today-scale', s);
+  }
+  window.addEventListener('resize', kalMeritko);
+  kalMeritko();
+
+  fetch('/kalendar/udalosti.json')
+    .then(r => r.json())
+    .then(data => {
+      KAL_EVENTS = data.events || [];
+      document.getElementById('today-status').style.display = 'none';
+      document.getElementById('today-tabulka').style.display = '';
+      kalRenderDnes();
+    })
+    .catch(() => {
+      document.getElementById('today-status').textContent = 'Kalendář se nepodařilo načíst.';
+    });
+</script>
+
+</main>
+
+<script src="/assets/common.js"></script>
+</body>
+</html>
