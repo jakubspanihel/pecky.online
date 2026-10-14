@@ -156,7 +156,7 @@
   let KAL_QUERY = '';   // hledaný text (normalizovaný), '' = bez hledání
   let KAL_MISTO = '';   // sloučené místo konání (viz kalMistoSkupina), '' = všechna
   let KAL_ORG = '';   // id pořadatele z lide/organizations.json, '' = všichni
-  let KAL_VIEW = 'kalendar';   // 'kalendar' = mřížka, 'seznam' = bloky akcí vybraného měsíce
+  let KAL_VIEW = '3dny';   // '3dny' (výchozí) = dnes/zítra/pozítří, 'kalendar' = mřížka, 'seznam' = karty akcí vybraného měsíce
   let KAL_SHOW_KURZ = false;   // false (výchozí) = skrýt kategorii 'kurz' (checkbox "I pravidelné")
   let KAL_ONLY_FUTURE = false;   // true = skrýt už proběhlé události (checkbox "Pouze budoucí události")
   const kalNow = new Date();
@@ -771,12 +771,9 @@
 
   // hned při načtení (ještě před stažením dat) — /kalendar/ se tak přepíše
   // na /kalendar/#RRRR-MM aktuálního měsíce
-  // Na malém displeji (mobil) je výchozí pohled Seznam — mřížka se tam nevejde.
-  // Platí jen při příchodu bez platného hashe; odkaz s #RRRR-MM (mřížka)
-  // i #RRRR-MM/seznam volbu respektuje.
-  if (!kalReadHash() && window.matchMedia('(max-width:600px)').matches) {
-    KAL_VIEW = 'seznam';
-    kalSetOnlyFuture(true);
+  // Výchozí pohled je „3 dny“ (na mobilu i na počítači). Odkaz s platným hashem
+  // (#RRRR-MM = mřížka, #RRRR-MM/seznam, #RRRR-MM/3dny) zvolený pohled respektuje.
+  if (!kalReadHash()) {
     document.querySelectorAll('#panel-kalendar .segmented-btn[data-kal-view]')
       .forEach(x => x.classList.toggle('active', x.dataset.kalView === KAL_VIEW));
   }

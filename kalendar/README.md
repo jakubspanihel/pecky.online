@@ -13,8 +13,8 @@ nevznikají dva zdroje pravdy, co se rozejdou (viz „Seznam zdrojů pod
 mřížkou musí být vždy kompletní" v „Jak to funguje" níže).
 
 Celá sekce žije na jediné stránce **`/kalendar/`** (`content/kalendar.html`)
-ve dvou pohledech — mřížka a Seznam, přepínatelné bez reloadu (viz
-„Přepínač „Zobrazit jako"" níže). Samostatná podstránka `/kalendar/akce/`
+ve třech pohledech — **3 dny** (výchozí), mřížka a Seznam, přepínatelné
+bez reloadu (viz „Pohled „3 dny"" a „Přepínač „Zobrazit jako"" níže). Samostatná podstránka `/kalendar/akce/`
 existovala do 24. 9. 2026 (`content/kalendar-akce.html`, měsíční tabulka
 akcí) — na žádost uživatele zrušena, protože ji plně nahradil pohled
 Seznam. **Odkazy na jednotlivou akci/kurz uvnitř webu neexistují vůbec**
@@ -52,10 +52,44 @@ vede rovnou na zdroj" v „Jak to funguje" níže.
     + datum vlevo, název, pořadatel, popis, 📍 místo a poznámka vpravo.
     Jiné měsíce: chronologicky. Níže popsané `.akce-blok` bloky tím jsou
     nahrazené (`.akce-blok-<kategorie>` zůstaly jako modifikátor barvy).
+  - **Pohled „3 dny“ (od 14. 10. 2026, na žádost uživatele — výchozí pohled
+    sekce, na počítači i mobilu):** třetí tlačítko přepínače, tabulka
+    `#kal-3dny` (`kalRender3Dny()`) se třemi sloupci, vykreslená z týchž
+    dat a filtrů jako ostatní pohledy.
+    - **Záhlaví** (první řádek, lepivé pod menu, lištou nástrojů a — je-li
+      otevřený — panelem filtrů; pozici počítá `kalStickyZahlavi()`): chip
+      `dnes` / `zítra` / `pozítří` (jen pro tyto tři dny, dál bez chipu,
+      design jako chipy v Seznamu), pod ním název dne s velkým písmenem
+      a tučné datum (patkové písmo). Pozadí záhlaví je neprůhledné.
+    - **Tělo:** v každém sloupci karty akcí (`.k3-karta`, plná barva
+      pořadatele, bílý text, systémové písmo): čas, název (odkaz na zdroj),
+      📍 místo (u vícedenní rozsah dat). Pořadatel se nevypisuje, je v tooltipu
+      „Pořádá: …“. Pořadí: jednodenní akce (včetně svozů) → nadpis
+      **Probíhající** (vícedenní, ztlumené se šrafováním) → nadpis
+      **Pravidelné** (kategorie `kurz`). Prázdný den = červené „Žádné akce“.
+      Čáry jsou jen mezi sloupci, bez obrysu tabulky; dnešní sloupec má
+      růžové podbarvení.
+    - **Pravidelné:** nadpis „Pravidelné“ (tooltip „Tréninky, kurzy, ...“)
+      zůstává i při vypnutém filtru „I pravidelné“; pod ním je odkaz „N
+      tréninků, kurzů apod.“ (počet při platných ostatních filtrech), který
+      filtr zapne. Při zapnutém filtru je pod výpisem odkaz „Pravidelné
+      skrýt“. Totéž platí pro Seznam (`kalPravidelneBlok()`). Checkbox „I
+      pravidelné“ je v tomto pohledu přesunutý do panelu filtrů
+      (`#kal-filters`, nad pole Hledat), jinde je v řádku nástrojů.
+    - **Ovládání:** místo výběru měsíce šipky ‹ › (`#kal-3dny-nav`) —
+      posun vždy o 3 dny (`KAL_3DNY_OFFSET`, neukládá se do URL; po posunu
+      chipy v záhlaví mizí), odkaz „Dnes“ (`#kal-3dny-dnes`) se zobrazuje
+      jen při posunutém pohledu. Checkbox „Jen budoucí“ je v tomto pohledu
+      skrytý (pohled ukazuje i proběhlé dny). Hash `#RRRR-MM/3dny`.
+    - Pozor na `hidden`: třídy `.segmented-group`, `.text-toggle` a
+      `.checkbox-label` nastavují vlastní `display` a atribut `hidden` by
+      přebily — proto jsou v `assets/styles.css` pravidla `…[hidden]
+      {display:none}`.
   - **Přepínač „Zobrazit jako: Kalendář / Seznam"** (`segmented-control`,
     doplněno 24. 9. 2026 na žádost uživatele, na stejném řádku jako
     navigace měsícem, zarovnané vpravo přes `margin-left:auto`) —
-    Kalendář je výchozí, stejná mřížka jako dřív. Seznam přepne na
+    (od 14. 10. 2026 má přepínač i třetí volbu „3 dny“, která je výchozí;
+    Kalendář = mřížka jako dřív). Seznam přepne na
     výpis vybraného měsíce (`#kal-list`) — od 25. 9. 2026 (na žádost
     uživatele) místo tabulky jako **bloky** (`.akce-blok` v
     `.akce-bloky`): první řádek den v týdnu + datum (u vícedenních
@@ -95,12 +129,11 @@ vede rovnou na zdroj" v „Jak to funguje" níže.
     a v posluchači `hashchange` (ruční úprava adresy, odkaz zvenku).
     Neplatný hash (`#nesmysl`, `#2026-13`) se ignoruje a přepíše
     aktuálním stavem.
-    **Mobil (od 11. 10. 2026, na žádost uživatele):** při příchodu bez platného
-    hashe na displeji do 600 px (`matchMedia('(max-width:600px)')`) je výchozí
-    pohled Seznam (`#RRRR-MM/seznam`, „Pouze budoucí“ zaškrtnuté), na větším
-    displeji mřížka. Odkaz s explicitním `#RRRR-MM` (mřížka) nebo
-    `#RRRR-MM/seznam` zvolený pohled respektuje; po přepnutí uživatelem se
-    volba zapisuje do hashe jako dřív.
+    **Výchozí pohled (od 14. 10. 2026):** příchod bez platného hashe = „3 dny“
+    (`#RRRR-MM/3dny`) na počítači i mobilu (dřívější výchozí Seznam na mobilu
+    z 11. 10. 2026 je zrušený). Odkaz s explicitním `#RRRR-MM` (mřížka),
+    `#RRRR-MM/seznam` nebo `#RRRR-MM/3dny` zvolený pohled respektuje; po
+    přepnutí uživatelem se volba zapisuje do hashe jako dřív.
   - **Selectbox „Pořadatel“** (`#kal-org-select`, od 11. 10. 2026 na žádost uživatele
     přímo v řádku nástrojů vlevo od přepínače Kalendář/Seznam). Nahradil odkaz „Filtr“
     (`#kal-filter-toggle`) a panel `#kal-filter-org`, které byly zrušeny spolu s jejich
@@ -129,15 +162,14 @@ vede rovnou na zdroj" v „Jak to funguje" níže.
       zmizí události, které už skončily — u vícedenní akce rozhoduje
       `date_end`, ne `date` (první den akce se tak hned netváří jako
       proběhlá). Kombinuje se s ostatními filtry stejně jako `KAL_SHOW_KURZ`
-      přes sdílenou `kalVidet(e)`. **Sleduje přepínač Kalendář/Seznam**
-      (`kalSetOnlyFuture()`, volané z kliku na segmented-btn i z
-      `kalReadHash()` při příchodu na `#RRRR-MM`/`#RRRR-MM/seznam`):
-      přepnutím na Seznam se sám zaškrtne (dlouhý seznam všech proběhlých
-      i budoucích termínů měsíce by jinak zbytečně zabíral úvod nejstarší
-      historií), přepnutím zpátky na Kalendář (doplněno 29. 9. 2026, tentýž
-      den co samotný checkbox) se sám zase odškrtne. Navigace měsícem
-      uvnitř téhož pohledu checkbox nemění, jen samotné přepnutí
-      Kalendář/Seznam.
+      přes sdílenou `kalVidet(e)`. **Od 14. 10. 2026 je výchozí stav
+      zaškrtnutý ve všech pohledech** (`kalSetOnlyFuture(true)` při načtení,
+      při přepnutí pohledu i z `kalReadHash()`; dřívější vypínání při
+      přepnutí na Kalendář z 29. 9. 2026 je zrušené) — uživatel ho může
+      odškrtnout a volba platí do dalšího přepnutí pohledu. V pohledu „3 dny“
+      je checkbox skrytý. Pole formulářů mají `autocomplete="off"`, aby je
+      prohlížeč po reloadu neobnovil do stavu, který nesedí s proměnnými
+      (`KAL_SHOW_KURZ`, filtry).
     - **Výběr pořadatele** (selectbox `#kal-org-select`, od 11. 10. 2026 na
       žádost uživatele místo čipů) — vykreslený `kalRenderOrgSelect()`:
       první volba „Všichni pořadatelé“, dál pořadatelé z dat řazení podle
