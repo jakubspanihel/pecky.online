@@ -173,6 +173,8 @@ function relBudouci(iso) {
   document.querySelectorAll('.fut-chip[data-date]').forEach(el => {
     const t = relBudouci(el.getAttribute('data-date'));
     if (t === null) { el.hidden = true; return; }
+    // karty akcí (.akce-karta): chip jen pro dnes / zítra / pozítří, dál už ne
+    if (el.closest('.akce-karta') && !['dnes', 'zítra', 'pozítří'].includes(t)) { el.hidden = true; return; }
     el.title = el.getAttribute('data-date');
     el.textContent = t;
     if (t === 'dnes') el.classList.replace('probiha', 'kal-dnes');
@@ -445,7 +447,8 @@ function relBudouci(iso) {
     const cas = li.dataset.timeText || li.dataset.time || '';  // např. 13:00–16:00
     const t = relBudouci(od < dnes ? dnes : od);
     if (!chip || t === null) return;
-    chip.hidden = false;  // obecný .fut-chip skript skryl chip s datem v minulosti (probíhající vícedenní akce)
+    // chip jen pro probíhající a pro dnes / zítra / pozítří
+    chip.hidden = !jeBezi && !['dnes', 'zítra', 'pozítří'].includes(t);  // obecný .fut-chip skript skryl chip s datem v minulosti (probíhající vícedenní akce)
     chip.textContent = t;
     chip.title = od;
     chip.classList.toggle('kal-dnes', t === 'dnes');

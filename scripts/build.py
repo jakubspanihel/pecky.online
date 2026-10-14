@@ -880,6 +880,9 @@ def _dash_akce_li(e, i, hidden=False):
     # odkaz vede na originální zdroj události; bez něj na kalendář
     zdroj = e.get('link') or f'/kalendar/#{e["date"][:7]}/seznam'
     cizi = ' target="_blank" rel="noopener"' if zdroj.startswith('http') else ''
+    # tooltip s pořadatelem jen u akcí/kurzů/svozů (u jednání je jím vždy město)
+    tip = (f' title="Pořádá: {esc(e["organizer_name"])}"'
+           if e.get('organizer_name') and e.get('category') in ('akce', 'kurz', 'svoz') else '')
     data_from = f' data-from="{e["date"]}"' if vicedenni else ''
     data_cas = f' data-time="{esc(cas)}" data-time-text="{esc(cas_txt)}"' if cas else ''
     # chip (dnes / zítra / za N dní) a text data („do …“) složí common.js
@@ -890,7 +893,7 @@ def _dash_akce_li(e, i, hidden=False):
     barva = f' style="--org-c:var(--org-{org});--org-c-bg:var(--org-{org}-bg)"' if org else ''
     return (f'    <li class="dash-event"{barva} data-until="{e.get("date_end") or e["date"]}"'
             f'{data_from}{data_cas}{popisky}{" hidden" if hidden else ""}>'
-            f'<a class="card akce-karta" href="{esc(zdroj)}"{cizi}>'
+            f'<a class="card akce-karta" href="{esc(zdroj)}"{cizi}{tip}>'
             f'<span class="ev-when"><span class="tag probiha fut-chip" data-date="{e["date"]}">plánováno</span>'
             f'<span class="ev-date">{kdy}</span>'
             f'<span class="ev-time">{esc(_cas_gi(cas_txt))}</span>{_akce_stitek(e)}</span>'
