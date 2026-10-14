@@ -1,42 +1,263 @@
   <a class="overlay-close" href="/kalendar/" aria-label="Zavřít a vrátit se do kalendáře">Zavřít</a>
 
   <section class="panel active" id="panel-today" aria-label="Dnešní akce v Pečkách">
+    <div class="today-frame" id="Frame">
+      <span class="today-frame-popisek" aria-hidden="true">Frame</span>
     <div class="today-box" id="today-box">
       <h3 class="search-status" id="today-status"><span class="spinner" aria-hidden="true"></span>Načítám kalendář…</h3>
-      <table class="calendar-table kal-3dny" id="today-tabulka" style="display:none;">
-        <thead>
-          <tr class="kal-3dny-date" id="today-hlavicka"></tr>
-        </thead>
-        <tbody><tr id="today-telo"></tr></tbody>
-      </table>
+      <div class="today-card" id="today-card" hidden>
+        <span class="today-chip">Z kalendáře</span>
+        <b class="today-den" id="today-den"></b>
+        <span class="today-datum" id="today-datum"></span>
+        <ul class="today-seznam" id="today-seznam" contenteditable="true" spellcheck="false" aria-label="Seznam akcí, po kliknutí jde upravit"></ul>
+        <span class="today-pata"><span class="today-hlava"><img src="/img/peckybot/welcome.png" alt="" width="1014" height="1014"></span>DoPecek.cz/kalendar</span>
+      </div>
+    </div>
+      <div class="today-barvy" role="group" aria-label="Barva karty">
+        <button type="button" class="today-barva" data-t="yellow" style="background:var(--yellow)" aria-label="Žlutá"></button>
+        <button type="button" class="today-barva" data-t="white" style="background:#fff" aria-label="Bílá"></button>
+        <button type="button" class="today-barva" data-t="burgundy" style="background:var(--burgundy)" aria-label="Bordó"></button>
+        <button type="button" class="today-barva" data-t="cyan" style="background:var(--cyan)" aria-label="Azurová"></button>
+        <button type="button" class="today-barva" data-t="field" style="background:var(--field)" aria-label="Zelená"></button>
+        <button type="button" class="today-barva" data-t="ink" style="background:var(--ink)" aria-label="Tmavá"></button>
+        <span class="today-barvy-cara" aria-hidden="true"></span>
+        <button type="button" class="today-barva today-nahodne" id="today-nahodne" aria-label="Náhodná kombinace barev"></button>
+      </div>
+      <div class="today-akce">
+        <div class="today-radek">
+          <div class="today-pismo" role="group" aria-label="Velikost písma">
+            <button type="button" class="today-pismo-btn" id="today-pismo-mensi" aria-label="Zmenšit písmo">A−</button>
+            <button type="button" class="today-pismo-btn" id="today-pismo-reset">Reset</button>
+            <button type="button" class="today-pismo-btn" id="today-pismo-vetsi" aria-label="Zvětšit písmo">A+</button>
+          </div>
+          <div class="today-dny" role="group" aria-label="Změna dne">
+            <button type="button" class="today-pismo-btn" id="today-predchozi" aria-label="Předchozí den">‹</button>
+            <button type="button" class="today-pismo-btn" id="today-dnes">Dnes</button>
+            <button type="button" class="today-pismo-btn" id="today-dalsi" aria-label="Další den">›</button>
+          </div>
+        </div>
+        <div class="today-akce-tl">
+          <button type="button" class="today-uloz-btn" id="today-uloz">Uložit ...</button>
+          <button type="button" class="today-uloz-btn" id="today-sdilet">Sdílet na Instagram</button>
+        </div>
+        <span class="today-stav" id="today-stav" role="status"></span>
+      </div>
     </div>
   </section>
 
   <style>
-    /* Jediný blok 1080 × 1350 px přesně uprostřed obrazovky na inkoustovém pozadí; bez hlavičky a patičky. */
+    /* Rám 327 px široký (poměr stran 4:5 jako 1080 × 1350) ve stylu příspěvků z Instagramu: tři barevné varianty se střídají po dnech;
+       uprostřed obrazovky (vodorovně i svisle; na nízké obrazovce se stránka posouvá) na inkoustovém pozadí; bez hlavičky a patičky. */
     html,body{background:var(--ink);}
     main{max-width:none; margin:0; padding:0;}
-    #panel-today{position:static;}
-    .today-box{
-      position:fixed; left:50%; top:50%; z-index:1;
-      width:1080px; height:1350px; overflow:auto;
-      padding:28px 32px;
-      background:var(--material);
-      transform:translate(-50%, -50%) scale(var(--today-scale, 1));
-      transform-origin:center center;
+    #panel-today{position:static; display:flex; align-items:center; justify-content:center; min-height:100vh; box-sizing:border-box; padding:110px 0 190px;}
+    .today-frame{position:relative; flex:none; --k0:.74; --k:.9; box-sizing:border-box; width:327px; aspect-ratio:4 / 5; margin:12px; padding:10px; background:var(--ink);}  /* poměr 4:5 jako Instagram (export 1080 × 1350) */
+    /* pozadí rámu kontrastuje s barvou karty (všechno barvy projektu) */
+    .today-frame.t-yellow{background:var(--burgundy);}
+    .today-frame.t-white{background:var(--cyan);}
+    .today-frame.t-burgundy{background:var(--yellow);}
+    .today-frame.t-cyan{background:var(--slate);}
+    .today-frame.t-field{background:var(--yellow);}
+    .today-frame.t-ink{background:var(--yellow);}
+    .today-frame-popisek{position:absolute; left:0; bottom:100%; margin-bottom:15px; white-space:nowrap; font:600 12px/1 var(--font-body); color:#D63FD6; pointer-events:none;}
+    .today-box{position:relative; z-index:1; width:100%; height:100%; color:var(--ink);}
+    .today-box .search-status{margin:0; color:#fff;}
+    .today-card{
+      --t-bg:var(--yellow); --t-den:var(--cyan); --t-datum:var(--ink); --t-text:var(--ink); --t-chip-bg:var(--ink); --t-chip-fg:#fff;
+      box-sizing:border-box; width:100%; height:100%; display:flex; flex-direction:column; align-items:flex-start;
+      padding:calc(22px * var(--k0)) calc(22px * var(--k0)) calc(14px * var(--k0)); border-radius:calc(16px * var(--k0)); background:var(--t-bg);
     }
-    .today-box table.calendar-table{margin-top:0;}
-    .today-box .search-status{margin:0;}
+    .today-card[hidden]{display:none;}
+    .today-card.t-white{--t-bg:#fff; --t-den:var(--burgundy); --t-datum:var(--cyan); --t-chip-bg:var(--cyan); --t-chip-fg:var(--ink);}
+    .today-card.t-burgundy{--t-bg:var(--burgundy); --t-den:#fff; --t-datum:rgba(255,255,255,.85); --t-text:#fff; --t-chip-bg:#fff; --t-chip-fg:var(--ink); }
+    .today-card.t-cyan{--t-bg:var(--cyan); --t-den:#fff; --t-datum:var(--ink); --t-text:var(--ink); --t-chip-bg:var(--ink); --t-chip-fg:#fff;}
+    .today-card.t-field{--t-bg:var(--field); --t-den:var(--yellow); --t-datum:#fff; --t-text:#fff; --t-chip-bg:#fff; --t-chip-fg:var(--ink);}
+    .today-card.t-ink{--t-bg:var(--ink); --t-den:var(--yellow); --t-datum:#fff; --t-text:#fff; --t-chip-bg:#fff; --t-chip-fg:var(--ink);}
+    .today-chip{
+      font:900 calc(10.5px * var(--k0))/1 var(--font-body); letter-spacing:.05em; text-transform:uppercase;
+      padding:calc(6px * var(--k0)) calc(11px * var(--k0)); border-radius:99px; background:var(--t-chip-bg); color:var(--t-chip-fg);
+    }
+    .today-den{font:700 calc(66px * var(--k0))/1 var(--font-banner); color:var(--t-den); margin-top:calc(22px * var(--k0)); letter-spacing:-.01em;}
+    .today-datum{font:700 calc(52px * var(--k0))/1 var(--font-banner); color:var(--t-datum); margin-top:calc(-11px * var(--k0));}
+    .today-seznam{
+      list-style:disc; margin:auto 0 calc(18px * var(--k0)); padding:calc(14px * var(--k0)) 0 0 calc(22px * var(--k0)); width:100%; box-sizing:border-box; overflow:auto;
+      font:700 calc(16px * var(--k))/1.25 var(--font-body); color:var(--t-text);
+    }
+    .today-seznam{min-height:1.4em; cursor:text;}
+    .today-seznam:focus{outline:1px dashed var(--t-text); outline-offset:4px;}
+    .today-seznam li{margin:0 0 calc(6px * var(--k0)); padding-left:2px;}
+    .today-seznam li::marker{color:var(--t-text);}
+    .today-seznam li span{color:var(--t-text);}
+    /* barvy pořadatelů jen na světlém podkladu, kde mají dost kontrastu */
+    .today-card.t-yellow .today-seznam li span, .today-card.t-white .today-seznam li span{color:var(--org-c, var(--t-text));}
+    .today-seznam .prazdno{list-style:none; margin-left:-20px;}
+    /* jen hlava PečkyBota: výřez z celé postavy (img/peckybot/welcome.png) */
+    .today-hlava{position:relative; flex:none; display:block; overflow:hidden; width:calc(26px * var(--k0)); height:calc(24.8px * var(--k0));}
+    .today-hlava img{position:absolute; left:calc(-5.7px * var(--k0)); top:calc(-2.2px * var(--k0)); width:calc(46.2px * var(--k0)); height:auto; max-width:none;}
+    .today-pata{align-self:flex-end; display:flex; align-items:center; gap:calc(4px * var(--k0)); font:700 calc(13px * var(--k0))/1 var(--font-body); color:var(--t-text);}
+    .today-barvy{position:absolute; bottom:100%; left:0; right:0; margin-bottom:40px; display:flex; justify-content:center; gap:12px;}
+    .today-barva{width:28px; height:28px; padding:0; border-radius:50%; border:2px solid rgba(255,255,255,.55); cursor:pointer;}
+    .today-radek{display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;}
+    .today-pismo, .today-dny{display:flex; gap:8px;}
+    .today-pismo-btn{min-width:34px; height:26px; padding:0 8px; border-radius:99px; border:1px solid rgba(255,255,255,.55); background:transparent; color:#fff; font:700 13px/1 var(--font-body); cursor:pointer;}
+    .today-pismo-btn:hover{border-color:#fff; background:rgba(255,255,255,.12);}
+    .today-barvy-cara{width:1px; align-self:stretch; background:rgba(255,255,255,.35);}
+    .today-nahodne{background:conic-gradient(red, yellow, lime, aqua, blue, magenta, red);}
+    .today-barva:hover{border-color:#fff;}
+    .today-barva[aria-pressed="true"]{border-color:#fff; box-shadow:0 0 0 2px var(--ink), 0 0 0 4px #fff;}
+    .today-barva:focus-visible{outline:2px solid var(--cyan); outline-offset:3px;}
+    .today-akce{position:absolute; top:100%; left:0; right:0; margin-top:16px;}
+    .today-akce-tl{display:flex; gap:10px; justify-content:center;}
+    .today-stav{display:block; margin-top:10px; text-align:center; font:400 13px/1.3 var(--font-body); color:#fff; min-height:1.3em;}
+    .today-uloz-btn{white-space:nowrap; border:none; border-radius:0; background:var(--burgundy); color:#fff; font-family:var(--font-body); font-size:15px; font-weight:700; line-height:1; padding:12px 16px; cursor:pointer;}
+    .today-uloz-btn:hover{background:var(--burgundy-deep);}
+    #today-sdilet{background:color-mix(in srgb, var(--cyan) 55%, #fff); color:var(--ink);}
+    #today-sdilet:hover{background:color-mix(in srgb, var(--cyan) 70%, #fff);}
+    .today-uloz-btn:disabled{opacity:.6; cursor:wait;}
     a.overlay-close{display:inline-block; text-decoration:none;}
   </style>
 
 <script>
-  // ===== Dnes: jeden sloupec pohledu „3 dny“ z kalendar/udalosti.json =====
-  let KAL_SHOW_KURZ = false;   // stejně jako ve „3 dny“: pravidelné jsou skryté, dokud je čtenář nezapne
+  // ===== Dnes: karta s dnešními akcemi z kalendar/udalosti.json =====
   const KAL_NOW = new Date();
-  const KAL_DNES = `${KAL_NOW.getFullYear()}-${String(KAL_NOW.getMonth() + 1).padStart(2, '0')}-${String(KAL_NOW.getDate()).padStart(2, '0')}`;
+  const kalIso = d => `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
+  let KAL_DNES = kalIso(KAL_NOW);   // zobrazený den; šipky ho posouvají o den
+  let KAL_RUCNE = false;            // true po ruční volbě barvy: pak se barva při změně dne nemění
   let KAL_EVENTS = [];
-  const KAL_PRAVIDELNE_TIP = 'Tréninky, kurzy, ...';
+  let KAL_TEMA = '';   // barva karty: výchozí se střídá po dnech, kolečka ji přepíšou
+
+  function kalNastavTema(t){
+    KAL_TEMA = t;
+    const card = document.getElementById('today-card'), frame = document.querySelector('.today-frame');
+    card.className = 'today-card t-' + t;
+    frame.className = 'today-frame t-' + t;
+    if (t !== 'random') { card.removeAttribute('style'); frame.style.removeProperty('background'); }
+    document.querySelectorAll('.today-barva').forEach(b => b.setAttribute('aria-pressed', b.dataset.t === t ? 'true' : 'false'));
+    document.getElementById('today-nahodne').setAttribute('aria-pressed', 'false');
+  }
+  document.querySelectorAll('.today-barva[data-t]').forEach(b => b.addEventListener('click', () => { KAL_RUCNE = true; kalNastavTema(b.dataset.t); }));
+
+  // velikost písma seznamu akcí: krok 0,06 v rozsahu 0,5–1,1 (proměnná --k na rámu)
+  function kalPismo(krok){
+    const f = document.getElementById('Frame');
+    const k = Math.min(1.1, Math.max(0.5, (parseFloat(getComputedStyle(f).getPropertyValue('--k')) || 0.9) + krok));
+    f.style.setProperty('--k', k.toFixed(2));
+  }
+  document.getElementById('today-pismo-reset').addEventListener('click', () => document.getElementById('Frame').style.removeProperty('--k'));
+  document.getElementById('today-pismo-mensi').addEventListener('click', () => kalPismo(-0.06));
+  document.getElementById('today-pismo-vetsi').addEventListener('click', () => kalPismo(0.06));
+
+  // export bloku #Frame do PNG 1080 × 1350: klon s vloženými vypočtenými styly → SVG foreignObject → canvas
+  async function kalFramePng(){
+    const orig = document.getElementById('Frame');
+    const clone = orig.cloneNode(true);
+    clone.querySelectorAll('.today-frame-popisek, .today-sipka, .today-pismo, .today-barvy, .today-akce').forEach(n => n.remove());
+    const o = [orig, ...orig.querySelectorAll('*')], c = [clone, ...clone.querySelectorAll('*')];
+    // odstranění prvků v klonu posune indexy, proto se páruje podle pořadí zbylých prvků originálu
+    const origZbyle = o.filter(n => !n.closest('.today-frame-popisek, .today-sipka, .today-pismo, .today-barvy, .today-akce'));
+    origZbyle.forEach((n, i) => {
+      const cs = getComputedStyle(n), t = c[i];
+      for (const name of cs) t.style.setProperty(name, cs.getPropertyValue(name));
+    });
+    clone.style.position = 'static'; clone.style.margin = '0';
+    for (const img of clone.querySelectorAll('img')) {
+      const blob = await (await fetch(img.src)).blob();
+      img.src = await new Promise(res => { const r = new FileReader(); r.onload = () => res(r.result); r.readAsDataURL(blob); });
+    }
+    clone.setAttribute('xmlns', 'http://www.w3.org/1999/xhtml');
+    const w = orig.offsetWidth, h = orig.offsetHeight;
+    const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${w}" height="${h}"><foreignObject width="100%" height="100%">${new XMLSerializer().serializeToString(clone)}</foreignObject></svg>`;
+    const img = new Image();
+    await new Promise((res, rej) => { img.onload = res; img.onerror = rej; img.src = 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(svg); });
+    const canvas = document.createElement('canvas');
+    canvas.width = 1080; canvas.height = 1350;
+    canvas.getContext('2d').drawImage(img, 0, 0, 1080, 1350);
+    return new Promise(res => canvas.toBlob(res, 'image/png'));
+  }
+  function kalStav(t){ document.getElementById('today-stav').textContent = t; }
+  function kalStahni(blob, nazev){
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = nazev;
+    document.body.appendChild(a); a.click(); a.remove();
+    setTimeout(() => URL.revokeObjectURL(a.href), 2000);
+  }
+  document.getElementById('today-uloz').addEventListener('click', async ev => {
+    const b = ev.currentTarget;
+    b.disabled = true; kalStav('');
+    try {
+      kalStahni(await kalFramePng(), `instagram-kalendar-${KAL_DNES}.png`);
+    } catch (e) {
+      kalStav('Obrázek se nepodařilo vytvořit.');
+    }
+    b.disabled = false;
+  });
+  // sdílení: na telefonu předá PNG systémovému sdílení (včetně Instagramu), jinde obrázek stáhne
+  document.getElementById('today-sdilet').addEventListener('click', async ev => {
+    const b = ev.currentTarget, nazev = `instagram-kalendar-${KAL_DNES}.png`;
+    b.disabled = true; kalStav('');
+    try {
+      const blob = await kalFramePng();
+      const soubor = new File([blob], nazev, {type: 'image/png'});
+      if (navigator.canShare && navigator.canShare({files: [soubor]})) {
+        await navigator.share({files: [soubor]});
+      } else {
+        kalStahni(blob, nazev);
+        kalStav('Sdílení není v tomto zařízení dostupné. Obrázek je stažený, nahrajte ho v aplikaci Instagram.');
+      }
+    } catch (e) {
+      if (e && e.name !== 'AbortError') kalStav('Obrázek se nepodařilo sdílet.');
+    }
+    b.disabled = false;
+  });
+
+  // náhodná kombinace jen z barev projektu; text ≥ 4,5 : 1, nadpis a datum ≥ 3 : 1, rám odlišný od karty (≥ 1,6 : 1)
+  function kalNahodneBarvy(){
+    const css = getComputedStyle(document.documentElement);
+    const pal = ['--yellow', '--burgundy', '--burgundy-deep', '--cyan', '--cyan-deep', '--field', '--slate', '--slate-deep', '--ink', '--material']
+      .map(v => css.getPropertyValue(v).trim()).filter(c => /^#[0-9a-f]{6}$/i.test(c)).concat('#FFFFFF');
+    const lum = c => {
+      const k = [1, 3, 5].map(i => parseInt(c.substr(i, 2), 16) / 255).map(v => v <= 0.03928 ? v / 12.92 : Math.pow((v + 0.055) / 1.055, 2.4));
+      return 0.2126 * k[0] + 0.7152 * k[1] + 0.0722 * k[2];
+    };
+    const kontrast = (a, b) => { const x = lum(a), y = lum(b); return (Math.max(x, y) + 0.05) / (Math.min(x, y) + 0.05); };
+    const vyber = a => a[Math.floor(Math.random() * a.length)];
+    let bg, text;
+    do { bg = vyber(pal); text = pal.filter(c => kontrast(c, bg) >= 4.5); } while (!text.length);
+    const nadp = pal.filter(c => kontrast(c, bg) >= 3);
+    const inkBg = css.getPropertyValue('--ink').trim().toLowerCase();   // rám v barvě pozadí stránky by splynul se stránkou
+    const ram = pal.filter(c => c !== bg && c.toLowerCase() !== inkBg && kontrast(c, bg) >= 1.6);
+    const t = vyber(text), den = vyber(nadp), datum = vyber(nadp);
+    const card = document.getElementById('today-card'), frame = document.querySelector('.today-frame');
+    KAL_RUCNE = true;
+    kalNastavTema('random');
+    card.setAttribute('style', `--t-bg:${bg};--t-den:${den};--t-datum:${datum};--t-text:${t};--t-chip-bg:${t};--t-chip-fg:${bg};}`);
+    frame.style.background = vyber(ram.length ? ram : pal.filter(c => c !== bg && c.toLowerCase() !== inkBg));
+    document.getElementById('today-nahodne').setAttribute('aria-pressed', 'true');
+  }
+  // text seznamu se upravuje přímo na kartě (kliknutím); vkládá se jen prostý text
+  document.getElementById('today-seznam').addEventListener('paste', ev => {
+    ev.preventDefault();
+    document.execCommand('insertText', false, (ev.clipboardData || window.clipboardData).getData('text/plain'));
+  });
+
+  function kalPosun(dny){
+    const x = new Date(KAL_DNES + 'T12:00:00');
+    x.setDate(x.getDate() + dny);
+    KAL_DNES = kalIso(x);
+    kalRenderDnes();
+    kalNahodnaTema();
+  }
+  // při změně dne se vybere náhodná z šesti barev, jiná než právě zobrazená
+  function kalNahodnaTema(){
+    const temata = ['yellow', 'white', 'burgundy', 'cyan', 'field', 'ink'].filter(t => t !== KAL_TEMA);
+    KAL_RUCNE = true;
+    kalNastavTema(temata[Math.floor(Math.random() * temata.length)]);
+  }
+  document.getElementById('today-predchozi').addEventListener('click', () => kalPosun(-1));
+  document.getElementById('today-dalsi').addEventListener('click', () => kalPosun(1));
+  document.getElementById('today-dnes').addEventListener('click', () => { KAL_DNES = kalIso(new Date()); kalRenderDnes(); kalNahodnaTema(); });
+  document.getElementById('today-nahodne').addEventListener('click', kalNahodneBarvy);
 
   function kalEsc(s){
     return (s || '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
@@ -47,93 +268,42 @@
     const s = kalEsc(id);
     return `--org-c:var(--org-${s});--org-c-bg:var(--org-${s}-bg);--chip:var(--org-${s});`;
   }
-  // kategorie, které se barví podle pořadatele a ukazují „pořádá …“
-  function kalMaPoradatele(e){ return e.category === 'akce' || e.category === 'kurz' || e.category === 'svoz'; }
-  // rozsah „1. 9.–30. 9.“ pro vícedenní akce, jinak null
-  function kalFmtRange(e){
-    if (!e.date_end || e.date_end === e.date) return null;
-    const fmt = ds => { const [, m, d] = ds.split('-'); return `${parseInt(d, 10)}. ${parseInt(m, 10)}.`; };
-    return `${fmt(e.date)}–${fmt(e.date_end)}`;
-  }
-  // místo konání bez adresy: z „Vzdělávací centrum Pečky, Tř. Jana Švermy 141, Pečky“ zbyde „Vzdělávací centrum Pečky“
-  function kalMistoBezAdresy(place){
-    const obce = /^(Pečky|Velké Chvalovice|Dobřichov)$/;
-    const casti = place
-      .replace(/\s*\([^)(,]*\d+[a-z]?\)/g, '')
-      .replace(/,\s*[^,()]*\d+[a-z]?\)/g, ')')
-      .split(/,\s*(?![^(]*\))/).map(x => x.trim()).filter(Boolean);
-    const jadro = casti.filter(c => {
-      if (/\(/.test(c)) return true;
-      if (/patro/i.test(c) || /^učebna/i.test(c)) return true;
-      return !(/\d/.test(c) || /\b(ul\.|tř\.)/i.test(c) || /^okres /i.test(c));
-    });
-    const bezObce = jadro.filter(c => !obce.test(c));
-    return (bezObce.length ? bezObce : jadro.length ? jadro : [place]).join(', ');
-  }
-
-  function kalPravidelneBlok(pocetSkryte, karty){
-    const h = `<h4 class="akce-skupina k3-skupina" data-skupina="pravidelne" title="${KAL_PRAVIDELNE_TIP}">Pravidelné</h4>`;
-    if (KAL_SHOW_KURZ) {
-      return karty ? h + karty + '<p class="kal-pravidelne-link"><a href="#" data-kal-kurz="0">Pravidelné skrýt</a></p>' : '';
-    }
-    return pocetSkryte ? h + `<p class="kal-pravidelne-link"><a href="#" data-kal-kurz="1">${pocetSkryte} tréninků, kurzů apod.</a></p>` : '';
-  }
-  document.addEventListener('click', ev => {
-    const b = ev.target.closest('[data-kal-kurz]');
-    if (!b) return;
-    ev.preventDefault();
-    KAL_SHOW_KURZ = b.dataset.kalKurz === '1';
-    kalRenderDnes();
-  });
-
   function kalRenderDnes(){
     const dny = ['neděle', 'pondělí', 'úterý', 'středa', 'čtvrtek', 'pátek', 'sobota'];
     const ds = KAL_DNES;
     const x = new Date(ds + 'T12:00:00');
-    const den = dny[x.getDay()][0].toUpperCase() + dny[x.getDay()].slice(1);
-    document.getElementById('today-hlavicka').innerHTML =
-      `<th><span class="tag kal-dnes" title="${ds}">dnes</span><b class="k3-den">${den}</b><span class="k3-datum">${x.getDate()}. ${x.getMonth() + 1}.</span></th>`;
+    document.getElementById('today-den').textContent = dny[x.getDay()][0].toUpperCase() + dny[x.getDay()].slice(1);
+    document.getElementById('today-datum').textContent = `${x.getDate()}. ${x.getMonth() + 1}.`;
+    // barevná varianta se střídá po dnech (13. 10. 2026 = žlutá, 14. 10. bílá, 15. 10. bordó)
+    const n = Math.round((Date.UTC(x.getFullYear(), x.getMonth(), x.getDate()) - Date.UTC(2026, 9, 13)) / 864e5);
+    if (!KAL_RUCNE) kalNastavTema(['yellow', 'white', 'burgundy'][((n % 3) + 3) % 3]);
 
-    const zaklad = KAL_EVENTS.filter(e => e.date <= ds && (e.date_end || e.date) >= ds);
-    const evs = zaklad.filter(e => KAL_SHOW_KURZ || e.category !== 'kurz')
-      .sort((a, b) => (!!b.time - !!a.time) || (a.time || '').localeCompare(b.time || ''));
-    const karta = e => {
-      const range = kalFmtRange(e);
-      const cas = e.time ? kalEsc(e.time).replace(/\b0(\d:\d{2})/g, '$1') : '';
-      const tip = kalMaPoradatele(e) && e.organizer_name ? ` title="Pořádá: ${kalEsc(e.organizer_name)}"` : '';
-      const misto = e.place ? `<span class="k3-misto"><span aria-hidden="true">📍</span> ${kalEsc(kalMistoBezAdresy(e.place))}</span>` : '';
-      const barva = kalMaPoradatele(e) ? ` style="${kalOrgStyle(e.organizer)}"` : '';
-      const cizi = e.link && /^https?:\/\//.test(e.link) ? ' target="_blank" rel="noopener"' : '';
-      const cont = range && ds !== e.date ? ' kal-ev-cont' : '';
-      return `<a class="kal-ev kal-ev-${e.category} k3-karta${cont}" href="${e.link || '#'}"${barva}${tip}${cizi}>` +
-        (cas ? `<span class="k3-cas">${cas}</span>` : '') +
-        `<span class="k3-nazev">${kalEsc(e.title)}</span>` +
-        (range ? `<span class="k3-misto">${range}</span>` : '') + misto + `</a>`;
-    };
     const vice = e => e.date_end && e.date_end !== e.date;
-    const pravidelne = evs.filter(e => e.category === 'kurz').map(karta).join('');
-    const jednoDenni = evs.filter(e => e.category !== 'kurz' && !vice(e)).map(karta).join('');
-    const probihajici = evs.filter(e => e.category !== 'kurz' && vice(e)).map(karta).join('');
-    document.getElementById('today-telo').innerHTML = `<td class="today"><div class="kal-events">${jednoDenni}` +
-      (probihajici ? `<h4 class="akce-skupina k3-skupina">Probíhající</h4>${probihajici}` : '') +
-      kalPravidelneBlok(zaklad.filter(e => e.category === 'kurz').length, pravidelne) +
-      (!evs.length && !zaklad.length ? '<span class="k3-prazdno">Žádné akce</span>' : '') + '</div></td>';
+    // pravidelné tréninky a kurzy (category „kurz“) se na kartě nezobrazují, stejně jako ve výchozím pohledu „3 dny“
+    const evs = KAL_EVENTS.filter(e => e.category !== 'kurz' && e.date <= ds && (e.date_end || e.date) >= ds)
+      .sort((a, b) => (vice(a) - vice(b)) || (!!b.time - !!a.time) || (a.time || '').localeCompare(b.time || ''));
+    const dodatek = e => {
+      if (vice(e)) {
+        const k = new Date(e.date_end + 'T12:00:00');
+        const konecMesice = new Date(k.getFullYear(), k.getMonth() + 1, 0).getDate() === k.getDate();
+        return konecMesice ? ' (do konce měsíce)' : ` (do ${k.getDate()}. ${k.getMonth() + 1}.)`;
+      }
+      return e.time ? ` (od ${kalEsc(e.time).replace(/^0/, '')})` : '';
+    };
+    document.getElementById('today-seznam').innerHTML = evs.length
+      ? evs.map(e => {
+          const barva = e.organizer ? ` style="${kalOrgStyle(e.organizer)}"` : '';
+          return `<li><span${barva}>${kalEsc(e.title)}${dodatek(e)}</span></li>`;
+        }).join('')
+      : '<li class="prazdno">Žádné akce</li>';
   }
-
-  // blok 1080 × 1350 px se na menší obrazovce zmenší, aby se vešel celý
-  function kalMeritko(){
-    const s = Math.min(1, window.innerWidth / 1080, window.innerHeight / 1350);
-    document.getElementById('today-box').style.setProperty('--today-scale', s);
-  }
-  window.addEventListener('resize', kalMeritko);
-  kalMeritko();
 
   fetch('/kalendar/udalosti.json')
     .then(r => r.json())
     .then(data => {
       KAL_EVENTS = data.events || [];
       document.getElementById('today-status').style.display = 'none';
-      document.getElementById('today-tabulka').style.display = '';
+      document.getElementById('today-card').hidden = false;
       kalRenderDnes();
     })
     .catch(() => {
