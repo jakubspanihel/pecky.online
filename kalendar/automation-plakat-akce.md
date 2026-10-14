@@ -12,6 +12,36 @@ Datový model a pravidla zdroje popisuje `kalendar/README.md` → „Kulturní
 a společenské akce — aktivní". Tenhle soubor je jen postup, ne druhý
 zdroj pravdy o schématu.
 
+## 0. Plakát z e-mailu — jen nanečisto, zápis až po schválení
+
+Plakáty chodí i e-mailem (schránka `dopecek@gmail.com`, předmět typu
+„Plakát akce“, plakát jako příloha). Při kontrole e-mailu platí:
+
+1. **Nezapisovat nic.** Do `kalendar/akce.json` (ani do `udalosti.json`,
+   `kalendar.ics`, `sources.json`, `lide/organizations.json`) se nesahá,
+   dokud uživatel výslovně neschválí, co se má zapsat. Nespouští se
+   `update-kalendar.py` ani `build.py` a nesynchronizuje se Google
+   kalendář. Soubory se nanečisto nemění ani dočasně.
+2. **Získat údaje nanečisto.** Příloha se stáhne do scratchpadu
+   (Gmail `get_message` s `RAW` ukládá výstup do souboru; přílohu z něj
+   vybrat skriptem), přepíše se podle kroků 2–4 níže a porovná s tím, co už
+   je v `akce.json` a `kalendar/afk-zapasy.json` (krok 5). Čtení souborů
+   v repu je v pořádku.
+3. **Vypsat výsledek do chatu** a zeptat se, co dál. Výpis obsahuje: odkud
+   plakát je (odesílatel, datum, předmět), přepsané akce (datum, čas, název,
+   místo, pořadatel, kategorie), u každé stav — nová / už v kalendáři / liší
+   se v čase či místě / zdvojuje automaticky generované zápasy AFK — a navržený
+   zápis (nový záznam, doplnění `evidence`, nebo nic). Případné nejasnosti
+   (nečitelný údaj, pořadatel mimo rejstřík, rozpor mezi zdroji) se uvedou
+   výslovně.
+4. **Počkat na odpověď.** Teprve po schválení se provedou kroky 6–8 níže
+   (zápis, generátor, build, „Stav sekcí“, výpis změn). E-mail se
+   neoznačuje jako přečtený, nearchivuje ani nemaže bez pokynu.
+5. **Commit a push** se při kontrole e-mailu nedělá, dokud nebyl zápis
+   schválen; při pouhém nanečisto běhu není co commitovat. Řádek Kalendáře
+   ve „Stav sekcí“ se při takovém běhu také nepřepisuje — upraví se až při
+   schváleném zápisu.
+
 ## 1. Získat obrázek — a nejdřív zkontrolovat sociální sítě podle `sources.json`
 
 - **Před ručním zpracováním jednoho plakátu: projít všechny facebookové
