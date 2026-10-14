@@ -173,7 +173,7 @@
   .segmented-btn.active{background:var(--cyan-deep); color:#fff;}
   /* úzký displej: víc tlačítek (Jednání má 5) se zalomí do řádků místo
      přetečení přes okraj; záporný okraj schová zdvojené hrany pod rámečkem skupiny */
-  .kal-toolbar{position:sticky; top:0; z-index:9; background:var(--material); padding:8px 0; margin-top:14px !important;}
+  .kal-toolbar{position:sticky; top:0; z-index:9; background:var(--material); padding:8px 0; margin:0;}
   .kal-find-btn{margin-left:auto; position:relative; display:inline-flex; align-items:center; justify-content:center; box-sizing:border-box; height:var(--ctl-h); min-width:var(--ctl-h); padding:0 9px; border:1px solid var(--cyan-deep); border-radius:3px; background:none; color:var(--cyan-deep); cursor:pointer;}
   .kal-toolbar .kal-find-btn .kal-ico{margin-right:0;}
   .kal-find-btn:hover:not(.active){background:rgba(0,115,143,0.08);}
@@ -191,9 +191,9 @@
   .search-bar #lide-filter-toggle{align-items:center; box-sizing:border-box; min-height:var(--ctl-h); padding:0 11px; border-radius:3px; text-decoration:none; font-size:11.5px; border:1px solid transparent;}
   .search-bar #lide-filter-toggle.active{background:var(--cyan-deep); color:#fff; border-color:var(--cyan-deep);}
   .kal-checks{display:flex; flex-wrap:wrap; align-items:center; gap:6px 8px; margin-left:auto;}
-  .kal-checks .checkbox-label{box-sizing:border-box; height:var(--ctl-h); padding:0 10px; border:1px solid var(--cyan-deep); border-radius:3px; color:var(--cyan-deep);}
-  .kal-checks .checkbox-label:hover{background:rgba(0,115,143,0.08);}
-  .kal-checks .checkbox-label:has(input:checked){background:rgba(0,115,143,0.12);}
+  .kal-checks .checkbox-label,.kal-searchrow .checkbox-label{box-sizing:border-box; height:var(--ctl-h); padding:0 10px; border:1px solid var(--cyan-deep); border-radius:3px; color:var(--cyan-deep);}
+  .kal-checks .checkbox-label:hover,.kal-searchrow .checkbox-label:hover{background:rgba(0,115,143,0.08);}
+  .kal-checks .checkbox-label:has(input:checked),.kal-searchrow .checkbox-label:has(input:checked){background:rgba(0,115,143,0.12);}
   .kal-searchrow{display:flex; flex-wrap:wrap; align-items:center; gap:8px 16px; margin:6px 0 12px;}
   .kal-month-btn{display:inline-flex; align-items:center; gap:4px; background:none; border:none; padding:4px 6px; margin:0 0 0 -6px; cursor:pointer; color:var(--ink); border-radius:3px;}
   .kal-month-btn:hover{background:rgba(0,115,143,0.08);}
@@ -604,12 +604,10 @@
      (= --org-<id> z assets/org-colors.css); pořadatel bez barvy spadne na fallback.
      Akce plnou barvou, kurzy (opakované, je jich většina) světlým podkladem s proužkem. */
   table.calendar-table .kal-ev-akce{background:var(--org-c, var(--gold-deep));}
-  table.calendar-table .kal-ev-kurz{background:var(--org-c-bg, var(--material-deep)); color:var(--ink);
-    box-shadow:inset 3px 0 0 var(--org-c, var(--ink-soft));}
+  table.calendar-table .kal-ev-kurz{background:var(--org-c, var(--ink-soft));}
   table.calendar-table .kal-ev-volby{background:var(--slate);}
   /* svoz odpadů: stejně tlumeně jako kurz (opakuje se každý týden) */
-  table.calendar-table .kal-ev-svoz{background:var(--org-c-bg, var(--material-deep)); color:var(--ink);
-    box-shadow:inset 3px 0 0 var(--org-c, var(--ink-soft));}
+  table.calendar-table .kal-ev-svoz{background:var(--org-c, var(--ink-soft));}
   /* pokračování vícedenní akce (den 2+ v date_end rozsahu) - tlumenější, ať je jasné, že
      nejde o novou samostatnou akci ten den, ale o pokračování zahájené dřív */
   table.calendar-table .kal-ev-cont{opacity:0.65; background-image:repeating-linear-gradient(
@@ -1014,8 +1012,8 @@
   .akce-skupina:first-child{margin-top:4px;}
   .akce-karty{display:flex; flex-direction:column; gap:8px;}
   .akce-karta{display:grid; grid-template-columns:120px minmax(0,1fr); gap:12px; align-items:start; padding:10px 12px; font-size:18px; line-height:1.35; border-radius:8px;
-    background:var(--org-c-bg, var(--material)); border:1px solid color-mix(in srgb, var(--org-c, var(--line)) 40%, var(--line)); box-shadow:inset 4px 0 0 var(--org-c, transparent);}
-  a.akce-karta{color:var(--ink); text-decoration:none; transition:border-color .15s;}
+    background:var(--org-c, var(--ink-soft)); border:1px solid var(--org-c, var(--ink-soft)); color:#fff;}   /* celá karta v barvě pořadatele/kategorie */
+  a.akce-karta{color:#fff; text-decoration:none; transition:border-color .15s;}
   a.akce-karta:hover{border-color:var(--cyan-deep);}
   a.akce-karta .ev-title{text-decoration:underline;}
   .akce-karta .ev-when > [hidden], .akce-karta .ev-time[hidden]{display:none;}
@@ -1023,26 +1021,27 @@
   .akce-karta.akce-blok-rada{--org-c:var(--field);}
   .akce-karta.akce-blok-vybor{--org-c:var(--gold);}
   .akce-karta.akce-blok-volby{--org-c:var(--slate);}
-  .akce-karta .ev-when{display:flex; flex-direction:column; align-items:flex-start; gap:4px; align-self:stretch; margin:-10px 12px -10px -12px; padding:10px 12px; background:var(--org-c, var(--ink-soft)); border-radius:7px 0 0 7px;}
-  .akce-karta .ev-date{white-space:pre-line; font-family:var(--font-banner); font-size:14px; font-weight:700; color:#fff; line-height:1.3;}
-  .akce-karta .ev-den{font-size:18px;}
+  .akce-karta .ev-when{display:flex; flex-direction:column; align-items:flex-start; gap:4px; align-self:stretch; margin:-10px 12px -10px -12px; padding:10px 12px; background:var(--material-deep); border-radius:7px 0 0 7px;}
+  .akce-karta .ev-date{white-space:pre-line; font-family:var(--font-banner); font-size:14px; font-weight:700; color:var(--ink); line-height:1.3;}
+  .akce-karta .ev-den{font-size:18px; display:inline-block;}
+  .akce-karta .ev-den::first-letter{text-transform:uppercase;}   /* název dne s velkým počátečním písmenem */
   .akce-karta .ev-date:empty{display:none;}
-  .akce-karta .ev-time{font-family:var(--font-banner); font-size:14px; font-weight:700; color:#fff; line-height:1.2;}
+  .akce-karta .ev-time{font-family:var(--font-banner); font-size:14px; font-weight:700; color:var(--ink); line-height:1.2;}
   .akce-karta .ev-time:empty{display:none;}
-  .akce-karta .ev-when > .tag:not(.ev-stitek):not(.kal-dnes){background:var(--yellow); border-color:var(--yellow); color:var(--cyan-deep);}
-  .akce-karta .ev-stitek{box-sizing:border-box; max-width:100%; padding:2px 4px; font-size:9.5px; letter-spacing:0; background:rgba(255,255,255,0.18); border-color:rgba(255,255,255,0.55); color:#fff;}
+  .akce-karta .ev-stitek{box-sizing:border-box; max-width:100%; padding:2px 4px; font-size:9.5px; letter-spacing:0; background:rgba(0,0,0,0.06); border-color:var(--line); color:var(--ink-soft);}
   .akce-karta .ev-what{display:flex; flex-direction:column; gap:8px; min-width:0;}
-  .akce-karta .ev-title{font-size:21px; line-height:1.3; font-weight:600; color:var(--ink);}
-  .akce-karta a.ev-title:hover{color:var(--cyan-deep);}
-  .akce-karta .ev-org, .akce-karta .ev-misto{font-size:16px; color:var(--ink-soft);}
+  .akce-karta .ev-title{font-size:21px; line-height:1.3; font-weight:600; color:#fff;}
+  .akce-karta a.ev-title:hover{color:#fff;}
+  .akce-karta .ev-org, .akce-karta .ev-misto{font-size:16px; color:rgba(255,255,255,0.92);}
   .akce-karta .ev-meta{display:flex; flex-wrap:wrap; align-items:center; gap:2px 14px;}
   .akce-karta .ev-org{display:inline-flex; align-items:center; gap:6px;}
   .akce-karta .ev-dot{flex:none; width:10px; height:10px; border-radius:50%; background:var(--org-c, var(--ink-soft));}
-  .akce-karta .ev-popis{font-size:17px;}
+  .akce-karta .ev-popis{font-size:17px; color:rgba(255,255,255,0.92);}
   .akce-karta .akce-pozn{font-style:italic;}
   .akce-karta .akce-pozn[hidden]{display:none;}
-  .akce-karta .akce-info{display:inline-flex; align-items:center; justify-content:center; box-sizing:border-box; width:32px; height:22px; padding:0; border:0; border-radius:11px; background:var(--material-deep); color:var(--ink-soft); line-height:0; cursor:pointer;}
-  .akce-karta .akce-info:hover, .akce-karta .akce-info.active{background:var(--org-c, var(--ink-soft)); color:#fff;}
+  .akce-karta .akce-info{align-self:flex-start; display:inline-flex; align-items:center; justify-content:center; box-sizing:border-box; width:32px; height:22px; padding:0; border:0; border-radius:11px; background:rgba(255,255,255,0.2); color:#fff; line-height:0; cursor:pointer;}
+  .akce-karta .akce-info:hover, .akce-karta .akce-info.active{background:#fff; color:var(--ink);}
+  .akce-karta.akce-blok-vybor, .akce-karta.akce-blok-vybor .ev-title, .akce-karta.akce-blok-vybor .ev-misto, .akce-karta.akce-blok-vybor .ev-popis{color:var(--ink);}   /* zlatá: tmavý text */
   @media (max-width:600px){.akce-karta{grid-template-columns:120px minmax(0,1fr); gap:8px;}}
 
 /* Volby: vystředěný výpis avatarů zvolených zastupitelů, 7 na řádek */
@@ -1055,3 +1054,43 @@
 
 /* iOS Safari přibližuje stránku při fokusu pole s písmem menším než 16 px */
 input:not([type=checkbox]):not([type=radio]), select, textarea{font-size:16px !important;}
+
+/* Kalendář: pohled „3 dny“ */
+table.calendar-table.kal-3dny tr.kal-3dny-date th{font-weight:600; font-size:15px; text-transform:none; letter-spacing:0; border-top:0; padding:8px 6px;}
+table.calendar-table.kal-3dny td{padding:10px 8px;}
+table.calendar-table.kal-3dny .kal-events{gap:6px; margin-top:0;}
+table.calendar-table.kal-3dny .k3-karta{display:flex; flex-direction:column; gap:2px; padding:7px 9px; font-size:13px; line-height:1.3; white-space:normal;}
+table.calendar-table.kal-3dny .k3-cas{font-family:var(--font-mono); font-weight:700; font-size:12px;}
+table.calendar-table.kal-3dny .k3-nazev{font-weight:600;}
+table.calendar-table.kal-3dny .k3-misto,table.calendar-table.kal-3dny .k3-org{font-size:11.5px; opacity:.85;}
+table.calendar-table.kal-3dny .k3-prazdno{color:var(--ink-soft); font-size:13px;}
+@media (max-width:600px){
+  table.calendar-table.kal-3dny .k3-karta{font-size:11px; padding:5px 6px;}
+  table.calendar-table.kal-3dny .k3-misto,table.calendar-table.kal-3dny .k3-org{font-size:10px;}
+}
+table.calendar-table.kal-3dny tr.kal-3dny-date th{display:table-cell; vertical-align:top; padding:12px 8px; text-align:left;}
+table.calendar-table.kal-3dny .k3-den,table.calendar-table.kal-3dny .k3-datum{display:block; font-family:var(--font-banner); text-transform:none; letter-spacing:0; color:var(--ink);}
+table.calendar-table.kal-3dny .k3-den{font-size:17px; margin-top:6px;}
+table.calendar-table.kal-3dny .k3-datum{font-size:15px; font-weight:400; color:var(--ink-soft);}
+table.calendar-table.kal-3dny .k3-skupina{margin:10px 0 0;}
+table.calendar-table.kal-3dny .k3-den{font-weight:700;}
+.kal-3dny-dnes[hidden],.kal-3dny-nav[hidden]{display:none;}
+#kal-only-future-label[hidden]{display:none;}
+.kal-pravidelne-link{margin:4px 0 0;}
+.kal-pravidelne-link a{display:inline-block; font-family:var(--font-mono); font-size:13px; font-weight:700; line-height:1.4; color:var(--cyan-deep); text-decoration:underline; padding:4px 0; overflow-wrap:anywhere;}
+
+/* Měsíční mřížka: skupiny akcí v buňce (akce / probíhající / pravidelné) oddělené čárou */
+table.calendar-table .kal-skupina{display:flex; flex-direction:column; gap:2px;}
+table.calendar-table .kal-skupina + .kal-skupina{border-top:1px solid var(--ink-soft); padding-top:4px; margin-top:2px;}
+/* „3 dny“: řádek záhlaví (dnes / zítra / pozítří + datum) zůstává při scrollu viditelný */
+table.calendar-table.kal-3dny thead th{position:sticky; top:var(--kal-3dny-top, 0px); z-index:7; background:var(--material);}
+/* „3 dny“: čáry jen mezi sloupci, bez obrysu tabulky a vodorovných čar */
+table.calendar-table.kal-3dny th,table.calendar-table.kal-3dny td,table.calendar-table.kal-3dny td.today{border:0; border-left:1px solid var(--line);}
+table.calendar-table.kal-3dny th:first-child,table.calendar-table.kal-3dny td:first-child{border-left:0;}
+table.calendar-table.kal-3dny .k3-den{line-height:1.2;}
+table.calendar-table.kal-3dny .k3-datum{font-weight:700; line-height:1.2; margin-top:1px;}
+table.calendar-table.kal-3dny .k3-karta,table.calendar-table.kal-3dny .k3-cas{font-family:var(--font-body);}
+table.calendar-table.kal-3dny .k3-prazdno{color:var(--burgundy);}
+table.calendar-table .kal-ev{font-family:var(--font-body);}
+/* měsíční mřížka: název akce na 2 řádky, zbytek se ořízne */
+#kal-grid .kal-ev{display:-webkit-box; -webkit-box-orient:vertical; -webkit-line-clamp:2; line-clamp:2; white-space:normal; overflow:hidden; text-overflow:ellipsis; overflow-wrap:anywhere;}
