@@ -187,24 +187,13 @@
       }
       var unit = rUnit(sm, name);
       out += '<text x="' + L + '" y="' + (T - 8) + '" fill="var(--ink-soft)">' + esc(name) + (unit ? ' (' + esc(unit) + ')' : '') + '</text>';
-      // milníky úpravny vody (viz upravna.json: události 22. 5. 2019, 22. 9. 2022, 20. 3. 2024)
-      [
-        {t: Date.UTC(2019, 4, 22), l1: 'Začátek', l2: 'projektu', title: 'Začátek projektu úpravny vody (první kroky: zkouška vydatnosti pramene a nabídka na projekt, 22. 5. 2019)'},
-        {t: Date.UTC(2019, 7, 27), l1: 'Smlouva na', l2: 'projekt', dolu: true, dy: 30, title: 'Podpis smlouvy na projektovou dokumentaci úpravny vody (27. 8. 2019)'},
-        {t: Date.UTC(2022, 4, 5), l1: 'Výběrové řízení', l2: 'na stavbu', vlevo: true, title: 'Výběrové řízení na zhotovitele stavby úpravny vody zveřejněno (5. 5. 2022, profil zadavatele)'},
-        {t: Date.UTC(2022, 8, 22), l1: 'Začátek', l2: 'stavby', title: 'Začátek stavby úpravny vody (předání staveniště 22. 9. 2022)'},
-        {t: Date.UTC(2024, 2, 20), l1: 'Úpravna vody', l2: 'v provozu', title: 'Úpravna vody v provozu (stavba převzata 20. 3. 2024)'}
-        ,
-        {t: Date.UTC(2018, 9, 5), l1: 'Volby', l2: '2018', volby: true, title: 'Komunální volby 2018 (5.–6. 10. 2018)'},
-        {t: Date.UTC(2022, 8, 23), l1: 'Volby', l2: '2022', volby: true, title: 'Komunální volby 2022 (23.–24. 9. 2022)'},
-        {t: Date.UTC(2026, 9, 9), l1: 'Volby', l2: '2026', volby: true, title: 'Komunální volby 2026 (9.–10. 10. 2026)'}
-      ].forEach(function (ms) {
-        if (ms.t < t0 || ms.t > t1) return;
-        var x = X(ms.t), dole = ms.volby || ms.dolu, y = dole ? H - B - 24 - (ms.dy || 0) : T + 8, lev = dole || ms.vlevo, tx = lev ? x - 3 : x + 3, anchor = lev ? 'end' : 'start';
-        out += '<g><title>' + esc(ms.title) + '</title><line x1="' + x + '" x2="' + x + '" y1="' + T + '" y2="' + (H - B) + '" stroke="#d1242f" stroke-width="1"' + (ms.volby ? ' stroke-dasharray="4 3"' : '') + '/>' +
-          '<text x="' + tx + '" y="' + y + '" text-anchor="' + anchor + '" font-size="10" fill="#d1242f">' + ms.l1 + '</text>' +
-          '<text x="' + tx + '" y="' + (y + 11) + '" text-anchor="' + anchor + '" font-size="10" fill="#d1242f">' + ms.l2 + '</text></g>';
-      });
+      // milník úpravny vody (viz upravna.json: stavba převzata 20. 3. 2024)
+      var tUv = Date.UTC(2024, 2, 20);
+      if (tUv >= t0 && tUv <= t1) {
+        out += '<g><title>Úpravna vody v provozu (stavba převzata 20. 3. 2024)</title><line x1="' + X(tUv) + '" x2="' + X(tUv) + '" y1="' + T + '" y2="' + (H - B) + '" stroke="#d1242f" stroke-width="1"/>' +
+          '<text x="' + (X(tUv) + 3) + '" y="' + (T + 8) + '" font-size="10" fill="#d1242f">Úpravna vody</text>' +
+          '<text x="' + (X(tUv) + 3) + '" y="' + (T + 19) + '" font-size="10" fill="#d1242f">v provozu</text></g>';
+      }
       RZ.mista.forEach(function (m, i) {
         var mp = pts.filter(function (s) { return s.misto === m; }).sort(function (a, b) { return rCas(a) - rCas(b); });
         var c = BARVY[i % BARVY.length];
