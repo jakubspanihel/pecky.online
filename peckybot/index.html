@@ -80,6 +80,9 @@
     .pb-error .pb-bubble{border-color:var(--burgundy); background:rgba(189,37,63,0.06);}
     .pb-bubble p{margin:0 0 8px;}
     .pb-bubble p:last-child{margin-bottom:0;}
+    .pb-bubble ul,.pb-bubble ol{margin:0 0 8px; padding-left:20px;}
+    .pb-bubble li{margin:0 0 4px;}
+    .pb-bubble ul.pb-zdroje{list-style:none; padding-left:0;}
     .pb-bubble a.pb-ref{font-size:12px; vertical-align:super; text-decoration:none; font-weight:600; padding:0 1px;}
     .pb-zdroje{margin:10px 0 0; padding:8px 0 0; border-top:1px solid var(--line); font-size:13px; color:var(--ink-soft); list-style:none;}
     .pb-zdroje li{margin:2px 0;}
@@ -125,17 +128,39 @@
       return d;
     }
 
-    // Odpověď modelu: prostý text s odkazy na zdroje ve tvaru [n].
+    // Odpověď modelu: jednoduché formátování (tučné **x**, kurzíva *x*, odrážky „- “, číslovaný seznam „1. “)
+    // a odkazy na zdroje ve tvaru [n]. Text se nejdřív escapuje, takže se nikdy nevkládá cizí HTML.
     function renderAnswer(text, sources) {
       var byN = {};
       sources.forEach(function (s) { byN[s.n] = s; });
-      var paras = esc(text).split(/\n{2,}/).map(function (p) {
-        p = p.replace(/\[(\d+)\]/g, function (m, n) {
+      function inline(t) {
+        t = esc(t)
+          .replace(/\*\*([^*\n]+?)\*\*/g, '<strong>$1</strong>')
+          .replace(/(^|[\s(])\*([^*\s][^*\n]*?)\*(?=[\s).,;:!?]|$)/g, '$1<em>$2</em>');
+        return t.replace(/\[(\d+)\]/g, function (m, n) {
           var s = byN[n];
           return s ? '<a class="pb-ref" href="' + esc(s.url) + '" title="' + esc(s.title) + '">[' + n + ']</a>' : m;
         });
-        return '<p>' + p.replace(/\n/g, '<br>') + '</p>';
+      }
+      var paras = [], list = null, ptxt = [];
+      function flushP() { if (ptxt.length) { paras.push('<p>' + ptxt.map(inline).join('<br>') + '</p>'); ptxt = []; } }
+      function flushL() { if (list) { paras.push('<' + list.tag + '>' + list.items.join('') + '</' + list.tag + '>'); list = null; } }
+      String(text).split('\n').forEach(function (line) {
+        var ul = line.match(/^\s*(?:[-*\u2022])\s+(.*)$/), ol = line.match(/^\s*\d+[.)]\s+(.*)$/);
+        var m = ul || ol;
+        if (m) {
+          flushP();
+          var tag = ul ? 'ul' : 'ol';
+          if (list && list.tag !== tag) flushL();
+          if (!list) list = { tag: tag, items: [] };
+          list.items.push('<li>' + inline(m[1]) + '</li>');
+        } else if (!line.trim()) {
+          flushP(); flushL();
+        } else {
+          flushL(); ptxt.push(line);
+        }
       });
+      flushP(); flushL();
       var out = paras.join('');
       if (sources.length) {
         out += '<ul class="pb-zdroje">' + sources.map(function (s) {
