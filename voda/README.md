@@ -15,9 +15,8 @@ vodovody a vodojem (tabulka projektů + osy) → úpravna (osa) → majetek (tab
 → dešťová voda (osa). Každý blok má vlastní „Co zdroje neříkají“.
 
 ## Stav
-- Stránka je dostupná na `/voda/`, ale **není zařazená v žádném menu**
-  (ani v hlavní navigaci, ani v sekundárním menu v `assets/footer.html`).
-  Zařazení do menu je samostatné rozhodnutí.
+- Stránka je dostupná na `/voda/` a je zařazená v sekundárním menu v patičce
+  (`assets/footer.html`, mezi Pokladnou a O webu); v hlavní navigaci není.
 - Obsah panelu žije v `content/voda.html`; data a obrázky patří do této
   složky (`voda/`). Datové sady: `ceny.json`, `upravna.json`, `rozbory.json`
   (+ `rozbory-sken.json`), `infrastruktura.json`.

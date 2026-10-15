@@ -29,7 +29,7 @@ jako první):
 | Pozemky | `/pozemky/` | `pozemky/README.md` |
 | Prostory | `/prostory/` | `prostory/README.md` (+ `prostory.json`, generátor `prostory/update-prostory.py`) |
 | Pokladna | `/pokladna/` | `pokladna/README.md` |
-| Voda | `/voda/` | `voda/README.md` (bez zařazení v menu) |
+| Voda | `/voda/` | `voda/README.md` (v sekundárním menu v patičce) |
 | Kalendář | `/kalendar/` | `kalendar/README.md` (+ `automation-plakat-akce.md`) |
 | Pečecké noviny | `/noviny/` | `noviny/README.md` |
 | O webu | `/o-webu/` | `o-webu/README.md` (+ `automation-socialni-site.md`; Monitoring úřední desky `o-webu/uredni-deska-monitoring/README.md`, skill `pecky-online-uredni-deska-check`) |
