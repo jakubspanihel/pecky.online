@@ -12,5 +12,14 @@
   { "tool": "pocet_bodu", "input": { "klicova_slova": "tělocvična" }, "minCount": 1, "mustInclude": ["po_letech", "BODY PROGRAMU"] },
   { "tool": "pocet_bodu", "input": { "klicova_slova": "tělocvična", "typ": "zastupitelstvo" }, "minCount": 1 },
   { "tool": "jednani", "input": { "typ": "zastupitelstvo", "od": "2024-01-01", "do": "2024-12-31" }, "mustInclude": ["ZM"], "note": "jednání ZM v roce 2024" },
-  { "tool": "jednani", "input": { "typ": "rada" }, "mustInclude": ["RM"] }
+  { "tool": "jednani", "input": { "typ": "rada" }, "mustInclude": ["RM"] },
+  {"tool": "jednani", "input": {"typ": "rada", "nejnovejsi": true}, "mustInclude": ["RM 36/2026", "dostupne", "cti_dokument"], "note": "poslední rada"},
+  {"tool": "cti_dokument", "input": {"id": "rada-2026-10-12"}, "mustInclude": ["UR-323-36/26", "hlasovani", "Šeda"], "minLength": 3000, "note": "celé jednání RM 36/2026"},
+  {"tool": "cti_dokument", "input": {"id": "rada-2026-10-12", "bod": 4}, "mustInclude": ["logopedie", "UR-323-36/26"], "note": "jeden bod podrobně"},
+  {"tool": "cti_dokument", "input": {"id": "zastupitelstvo-2026-06-24"}, "mustInclude": ["usneseni"], "note": "velké ZM zkráceno"},
+  {"tool": "cti_dokument", "input": {"id": "rada-2026-04-13"}, "minLength": 2000, "note": "největší soubor"},
+  {"tool": "cti_dokument", "input": {"id": "sportovni-komise-2026-02-10"}, "mustInclude": ["Dotace"], "note": "komise"},
+  {"tool": "cti_dokument", "input": {"id": "zastupitelstvo-2021-04-21"}, "mustInclude": ["text_dokumentu"], "note": "starší jednání jen s textem"},
+  {"tool": "uredni_deska", "input": {"hledej": "záměr pronájem", "od": "2026-01-01", "do": "2026-10-15"}, "mustInclude": ["záměr","vyveseno"], "note": "záměry z úřední desky"},
+  {"tool": "uredni_deska", "input": {"hledej": "zápis zasedání zastupitelstva", "od": "2025-01-01", "do": "2026-12-31"}, "mustInclude": ["Zápis"]}
 ]

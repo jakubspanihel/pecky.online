@@ -61,11 +61,13 @@ Odpověď má dvě fáze (`worker/src/answer.ts`): nejdřív se jako dosud vyhle
 | `osoba(jmeno)` | `data/osoby.json` | fuzzy (bez diakritiky, skloňování) podle jména/funkce; kontakty |
 | `slozeni(organ)` | `data/slozeni.json` | rada, zastupitelstvo, výbory, komise, školská rada, starostové |
 | `kalendar(od, do, hledej?)` | `data/kalendar.json` | akce v rozmezí ISO dat (i vícedenní), max 25, série zvlášť |
-| `jednani(typ?, od?, do?, hledej?)` | `data/jednani.json` | seznam jednání, max 15, od nejnovějšího |
+| `jednani(typ?, od?, do?, hledej?, nejnovejsi?)` | `data/jednani.json` | seznam jednání, max 15, od nejnovějšího, s `id` a `dostupne`; `nejnovejsi: true` = poslední jednání (s typem dvě, bez typu od každého druhu) → pak `cti_dokument` |
+| `cti_dokument(id, bod?)` | `data/jednani/<id>.json` | obsah jednoho jednání: body, zprávy, usnesení, hlasování; s `bod` jeden bod podrobně; jen pozvánka → `poznamka` a `dostupne:["pozvanka"]` |
+| `uredni_deska(hledej?, od?, do?)` | `data/uredni-deska/<rok>.json` | názvy, data a odkazy dokumentů úřední desky od 2015, max 20, rozsah nejvýš 3 roky, výchozí poslední rok |
 | `pocet_bodu(klicova_slova, od?, do?, typ?)` | `data/jednani.json` | počet BODŮ PROGRAMU s danými slovy, po letech + příklady |
 
 - Data generuje `scripts/build_peckybot_tools.py` (viz `data/SCHEMA.md`); Worker je stahuje s `?h=<otisk rejstříku>` a drží v paměti 5 minut, vždy jen soubor, který nástroj potřebuje (CPU limit 10 ms na požadavek).
-- Výsledky jsou JSON do ≈ 1 500 tokenů (tvrdý řez 6 000 znaků). Každá položka nese číslo zdroje `n`, které navazuje na úvodní úryvky; stránce se vrací jen zdroje, na které odpověď odkazuje.
+- Výsledky jsou JSON do ≈ 1 500 tokenů (tvrdý řez 6 000 znaků); `cti_dokument` do ≈ 5 000 tokenů (13 000 znaků): celé jednání se postupně zkracuje (zprávy 900 → 350 → 150 → 0 znaků, usnesení 500 → 120), pak ubývají body od konce; detail bodu přes `bod`. Čtení jednání přidá ≈ 0,01 USD za každé další kolo (vstup 2 USD / M tokenů), tedy ≲ 0,02 USD; strop 0,06 USD na dotaz a 3 kola platí dál. Soubor jednání se stahuje s `?h=` a drží v paměti Workeru 5 minut (nejvýš 24 souborů); CPU jako u ostatních dat (jeden malý soubor na volání). Každá položka nese číslo zdroje `n`, které navazuje na úvodní úryvky; stránce se vrací jen zdroje, na které odpověď odkazuje.
 - Pojistky: cena jednoho dotazu se sčítá přes všechna volání a po překročení 0,06 USD se další kola nespouštějí; útrata se zapisuje (`recordSpend`) po každém volání. Chybný nebo neznámý nástroj se vrátí modelu jako `is_error`. `meta` (tokeny, cena, `tools[]`, `retrieved[]`) sčítá všechna volání.
 - Systémový prompt a definice nástrojů mají `cache_control`; do ceny se zápis do cache počítá 1,25×, čtení 0,1×.
 - Odhad ceny: bez nástrojů ≈ 0,014 USD; s jedním nástrojem ≈ 0,02–0,03 USD (druhé volání má úvodní úryvky + výsledek); se 3 koly nejvýš ≈ 0,06 USD.

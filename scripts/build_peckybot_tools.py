@@ -214,33 +214,203 @@ def build_kalendar():
 _ORGAN_VYBOR = {'Finanční výbor', 'Kontrolní výbor'}
 _cache = {}
 
+# dokumenty jednání (peckybot/data/jednani/<id>.json)
+DOC_DIR = OUT_DIR / 'jednani'
+MAX_ZPRAVA = 900
+MAX_USNESENI = 500
+MAX_DOC_BYTES = 25_000
+MAX_STARE_TEXT = 3000
+POZVANKA_POZNAMKA = ('K jednání je zveřejněna jen pozvánka s programem; zápis a usnesení zatím nevyšly. '
+                     'Výsledky hlasování ani přijatá usnesení tedy nejsou k dispozici.')
+BEZ_PROGRAMU_POZNAMKA = 'Program ani zápis k tomuto jednání zatím nejsou zveřejněné.'
+
+
+def _hlasovani(r):
+    cast = []
+    for klic, popis in (('pro', 'pro'), ('proti', 'proti'), ('zdrzel', 'zdržel se')):
+        if r.get(klic) is not None:
+            cast.append(f'{popis} {r[klic]}')
+    return ', '.join(cast)
+
+
+def _usneseni(r, n_max=MAX_USNESENI):
+    out = {'cislo': r.get('n') or '', 'text': clip(r.get('text'), n_max)}
+    h = _hlasovani(r)
+    if h:
+        out['hlasovani'] = h
+    if r.get('adopted') is False:
+        out['neprijato'] = True
+    if r.get('note'):
+        out['poznamka'] = clip(r['note'], 200)
+    return out
+
+
+def _odkazy(links):
+    links = links or {}
+    o = {}
+    for klic, zdroj in (('zapis', 'minutes'), ('usneseni', 'resolutions'), ('pozvanka', 'invitation'),
+                        ('pdf', 'pdf')):
+        if links.get(zdroj):
+            o[klic] = links[zdroj]
+    return o
+
+
+def _doc_meeting(jid, oznaceni, m, typ):
+    """Dokument jednání z položky pecky-jednani/komise/vybory/skolska-rada.json."""
+    links = m.get('links') or {}
+    agenda = m.get('agenda') or []
+    res = m.get('resolutions') or []
+    dostupne = []
+    if links.get('invitation') and agenda:
+        dostupne.append('pozvanka')
+    if links.get('minutes'):
+        dostupne.append('zapis')
+    if res:
+        dostupne.append('usneseni')
+    body = []
+    used = set()
+    for a in agenda:
+        b = {'n': a['n'], 'nazev': clip(a['t'], MAX_BODY)}
+        if a.get('predkladatel'):
+            b['predkladatel'] = a['predkladatel']
+        if a.get('duvodova_zprava'):
+            b['zprava'] = clip(a['duvodova_zprava'], MAX_ZPRAVA)
+        us = []
+        for i, r in enumerate(res):
+            if i not in used and r.get('item') and r['item'] == a['t']:
+                us.append(_usneseni(r))
+                used.add(i)
+        if us:
+            b['usneseni'] = us
+        body.append(b)
+    doc = {'v': 1, 'id': jid, 'oznaceni': oznaceni, 'datum': m['date'], 'typ': typ}
+    if m.get('time'):
+        doc['cas'] = m['time']
+    if m.get('venue'):
+        doc['misto'] = m['venue']
+    doc['odkazy'] = _odkazy(links)
+    doc['dostupne'] = dostupne
+    if dostupne == ['pozvanka']:
+        doc['poznamka'] = POZVANKA_POZNAMKA
+    elif not dostupne:
+        doc['poznamka'] = BEZ_PROGRAMU_POZNAMKA
+    doc['body'] = body
+    zbyla = [_usneseni(r) for i, r in enumerate(res) if i not in used]
+    if zbyla:
+        doc['usneseni_ostatni'] = zbyla
+    return doc
+
+
+def _doc_size(doc):
+    return len(dump(doc).encode('utf-8'))
+
+
+def _fit_doc(doc):
+    """Zkrátí nejdelší texty (zprávy, pak usnesení), dokud soubor nevejde do MAX_DOC_BYTES."""
+    for pole, spodek in (('zprava', 150), ('text', 150)):
+        while _doc_size(doc) > MAX_DOC_BYTES:
+            polozky = []
+            if pole == 'zprava':
+                polozky = [b for b in doc['body'] if len(b.get('zprava', '')) > spodek]
+                klic = 'zprava'
+            else:
+                polozky = [u for b in doc['body'] for u in b.get('usneseni', []) if len(u['text']) > spodek]
+                polozky += [u for u in doc.get('usneseni_ostatni', []) if len(u['text']) > spodek]
+                klic = 'text'
+            if not polozky:
+                break
+            nejdelsi = max(polozky, key=lambda x: len(x[klic]))
+            nejdelsi[klic] = clip(nejdelsi[klic], max(spodek, int(len(nejdelsi[klic]) * 0.7)))
+    # poslední záchrana: odříznout zprávy úplně od konce
+    for b in reversed(doc['body']):
+        if _doc_size(doc) <= MAX_DOC_BYTES:
+            break
+        b.pop('zprava', None)
+    if _doc_size(doc) > MAX_DOC_BYTES:
+        raise SystemExit(f"jednani/{doc['id']}.json: {_doc_size(doc)} B překračuje strop {MAX_DOC_BYTES} B")
+    return doc
+
 
 def build_jednani():
     if 'j' in _cache:
         return _cache['j']
-    out = []
+    out, docs = [], {}
+
+    def add(entry, doc):
+        entry['dostupne'] = doc['dostupne']
+        out.append(entry)
+        docs[entry['id']] = _fit_doc(doc)
+
     for m in _load('jednani/pecky-jednani.json')['meetings']:
         zm = m['type'] == 'Zastupitelstvo'
         short, _ = meeting_ref(m)
-        out.append({'id': ('zastupitelstvo-' if zm else 'rada-') + m['date'],
-                    'typ': 'zastupitelstvo' if zm else 'rada',
-                    'organ': 'Zastupitelstvo města' if zm else 'Rada města',
-                    'oznaceni': short, 'datum': m['date'],
-                    'body': [clip(a['t'], MAX_BODY) for a in m.get('agenda', [])]})
+        jid = ('zastupitelstvo-' if zm else 'rada-') + m['date']
+        typ = 'zastupitelstvo' if zm else 'rada'
+        doc = _doc_meeting(jid, short, m, typ)
+        add({'id': jid, 'typ': typ, 'organ': 'Zastupitelstvo města' if zm else 'Rada města',
+             'oznaceni': short, 'datum': m['date'],
+             'body': [clip(a['t'], MAX_BODY) for a in m.get('agenda', [])]}, doc)
     for m in _load('jednani/starsi-jednani.json')['meetings']:
         zm = m['type'] == 'Zastupitelstvo'
-        out.append({'id': m.get('id') or (('zastupitelstvo-' if zm else 'rada-') + m['date']),
-                    'typ': 'zastupitelstvo' if zm else 'rada',
-                    'organ': 'Zastupitelstvo města' if zm else 'Rada města',
-                    'oznaceni': m['label'].split(' (')[0], 'datum': m['date'], 'body': []})
+        jid = m.get('id') or (('zastupitelstvo-' if zm else 'rada-') + m['date'])
+        typ = 'zastupitelstvo' if zm else 'rada'
+        oznaceni = m['label'].split(' (')[0]
+        druh = 'usneseni' if m.get('doc_kind') == 'usnesení' else 'zapis'
+        doc = {'v': 1, 'id': jid, 'oznaceni': oznaceni, 'datum': m['date'], 'typ': typ,
+               'odkazy': {druh: (m.get('links') or {}).get('minutes')} if (m.get('links') or {}).get('minutes') else {},
+               'dostupne': [druh],
+               'poznamka': 'Starší jednání z úřední desky: k dispozici je jen text dokumentu '
+                           f'({m.get("doc_title") or druh}), bez rozdělení na body.',
+               'body': []}
+        text = clip(m.get('text'), MAX_STARE_TEXT)
+        if text:
+            doc['text_dokumentu'] = text
+        add({'id': jid, 'typ': typ, 'organ': 'Zastupitelstvo města' if zm else 'Rada města',
+             'oznaceni': oznaceni, 'datum': m['date'], 'body': []}, doc)
     for fn, typ in (('komise', 'komise'), ('vybory', 'vybor'), ('skolska-rada', 'skolska-rada')):
         for m in _load(f'jednani/{fn}.json')['meetings']:
-            out.append({'id': m['id'], 'typ': typ, 'organ': m['type'], 'oznaceni': m['type'],
-                        'datum': m['date'],
-                        'body': [clip(a['t'], MAX_BODY) for a in m.get('agenda', [])]})
+            doc = _doc_meeting(m['id'], m['type'], m, typ)
+            # u komisí a výborů je zápis jediný zdroj; pozvánka neexistuje
+            add({'id': m['id'], 'typ': typ, 'organ': m['type'], 'oznaceni': m['type'],
+                 'datum': m['date'],
+                 'body': [clip(a['t'], MAX_BODY) for a in m.get('agenda', [])]}, doc)
     out.sort(key=lambda j: (j['datum'], j['typ'], j['id']))
+    posledni = {}
+    for j in out:
+        posledni[j['typ']] = j['id']
+    for j in out:
+        if posledni[j['typ']] == j['id']:
+            j['je_posledni'] = True
+            docs[j['id']]['je_posledni'] = True
     _cache['j'] = {'v': 1, 'jednani': out}
+    _cache['docs'] = docs
     return _cache['j']
+
+
+def build_jednani_docs():
+    build_jednani()
+    return _cache['docs']
+
+
+def write_jednani_docs():
+    """Zapíše data/jednani/<id>.json, smaže zastaralé. Vrací (změněno, počet, celková velikost)."""
+    docs = build_jednani_docs()
+    DOC_DIR.mkdir(parents=True, exist_ok=True)
+    zmeneno, total = False, 0
+    for jid, doc in docs.items():
+        if not re.fullmatch(r'[a-z0-9-]{3,80}', jid):
+            raise SystemExit(f'Neplatné id jednání: {jid!r}')
+        path = DOC_DIR / f'{jid}.json'
+        data = dump(doc)
+        total += len(data.encode('utf-8'))
+        if not (path.exists() and path.read_text(encoding='utf-8') == data):
+            path.write_text(data, encoding='utf-8')
+            zmeneno = True
+    for f in DOC_DIR.glob('*.json'):
+        if f.stem not in docs:
+            f.unlink()
+            zmeneno = True
+    return zmeneno, len(docs), total
 
 
 # ---------------------------------------------------------------- statistiky
@@ -259,6 +429,58 @@ def build_statistiky():
     return {'v': 1, 'absence': ab, 'pocty': {'jednani_podle_typu_a_roku': pocty}}
 
 
+# ---------------------------------------------------------------- úřední deska
+
+UD_DIR = ROOT / 'o-webu' / 'uredni-deska-monitoring'
+UD_OUT = OUT_DIR / 'uredni-deska'
+_UD_DATE = re.compile(r'^(\d{2})\.(\d{2})\.(\d{4})$')
+
+
+def _ud_iso(v):
+    m = _UD_DATE.match(v.strip())
+    return f'{m.group(3)}-{m.group(2)}-{m.group(1)}' if m else ''
+
+
+def build_uredni_deska():
+    """rok → {v, rok, d:[[vyvěšeno, sejmuto, typ, název, id]]}; id = jen číslo, je-li zbytek
+    odvoditelný z názvu (slug), jinak celé id_slug; as4u:<id> beze změny."""
+    out = {}
+    for f in sorted(UD_DIR.glob('20??.txt')):
+        rows = []
+        for line in f.read_text(encoding='utf-8').splitlines():
+            if not line.strip() or line.startswith('#'):
+                continue
+            r = line.split('|')
+            if len(r) != 5:
+                continue
+            rid, od, do, typ, nazev = (x.strip() for x in r)
+            num, _, sl = rid.partition('_')
+            if not rid.startswith('as4u:') and sl == slug(nazev) and len(nazev) <= 200:
+                rid = num
+            rows.append([_ud_iso(od), _ud_iso(do), '' if typ == '-----' else typ, clip(nazev, 200), rid])
+        rows.sort(key=lambda x: (x[0], x[4]), reverse=True)
+        out[f.stem] = {'v': 1, 'rok': int(f.stem), 'd': rows}
+    return out
+
+
+def write_uredni_deska():
+    docs = build_uredni_deska()
+    UD_OUT.mkdir(parents=True, exist_ok=True)
+    zmeneno, total = False, 0
+    for rok, doc in docs.items():
+        data = dump(doc)
+        total += len(data.encode('utf-8'))
+        path = UD_OUT / f'{rok}.json'
+        if not (path.exists() and path.read_text(encoding='utf-8') == data):
+            path.write_text(data, encoding='utf-8')
+            zmeneno = True
+    for f in UD_OUT.glob('*.json'):
+        if f.stem not in docs:
+            f.unlink()
+            zmeneno = True
+    return zmeneno, len(docs), total
+
+
 SCHEMA_NOTE = 'peckybot/data/SCHEMA.md'
 
 
@@ -268,6 +490,12 @@ def main():
                ('kalendar.json', build_kalendar()), ('jednani.json', build_jednani()),
                ('statistiky.json', build_statistiky()))
     zmeneno, popis = False, []
+    zm_doc, pocet, velikost = write_jednani_docs()
+    zmeneno |= zm_doc
+    zm_ud, n_ud, vel_ud = write_uredni_deska()
+    zmeneno |= zm_ud
+    popis.append(f'uredni-deska/*.json {n_ud} souborů, {vel_ud / 1024:.0f} kB')
+    popis.append(f'jednani/*.json {pocet} souborů, {velikost / 1024 / 1024:.1f} MB')
     for name, obj in soubory:
         zmeneno |= write_if_changed(OUT_DIR / name, obj)
         popis.append(f'{name} {(OUT_DIR / name).stat().st_size / 1024:.0f} kB')

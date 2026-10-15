@@ -72,6 +72,21 @@ async function loadData(env: Env, index: Index, file: DataFile): Promise<any> {
   return data;
 }
 
+// malé dokumenty (jedno jednání, jeden rok úřední desky): paměť Workeru, nejvýš 24 položek
+const docCache = new Map<string, { data: unknown; at: number }>();
+const DOC_CACHE_MAX = 24;
+
+async function loadDoc(env: Env, index: Index, path: string): Promise<any> {
+  if (!/^(jednani|uredni-deska)\/[a-z0-9-]{3,80}$/.test(path)) throw new Error("neplatná cesta dokumentu");
+  const hit = docCache.get(path);
+  if (hit && Date.now() - hit.at < INDEX_TTL_MS) return hit.data;
+  const q = index.h ? `h=${index.h}` : `t=${Math.floor(Date.now() / INDEX_TTL_MS)}`;
+  const data = await fetchJson<unknown>(`${env.SITE_URL}/peckybot/data/${path}.json?${q}`, index.h ? 86400 : 300);
+  if (docCache.size >= DOC_CACHE_MAX) docCache.delete(docCache.keys().next().value!);
+  docCache.set(path, { data, at: Date.now() });
+  return data;
+}
+
 export async function recordSpend(env: Env, month: string, model: string, inTok: number, outTok: number) {
   const [pin, pout] = PRICES[model] ?? FALLBACK_PRICE;
   const micro = Math.round(inTok * pin + outTok * pout); // USD/1M tokenů × tokeny = mikro-USD
@@ -127,6 +142,7 @@ export async function answer(env: Env, messages: ChatMessage[], month: string): 
     today,
     cite,
     load: (file) => loadData(env, index, file),
+    loadDoc: (path) => loadDoc(env, index, path),
     async searchText(dotaz, typ) {
       const re = typFilter(typ);
       const found = search(index, dotaz, re ? 60 : 6, { today });

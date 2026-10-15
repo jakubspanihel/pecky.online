@@ -8,6 +8,8 @@ import { tokenize } from "./search.ts";
 export interface ToolContext {
   today: string; // RRRR-MM-DD (Praha)
   load(file: "osoby" | "slozeni" | "kalendar" | "jednani" | "statistiky"): Promise<any>;
+  /** malý soubor s dokumentem: „jednani/<id>“ nebo „uredni-deska/<rok>“ (data/…json, cache v answer.ts) */
+  loadDoc(path: string): Promise<any>;
   searchText(dotaz: string, typ?: string): Promise<{ title: string; url: string; text: string }[]>;
   /** zaregistruje zdroj a vrátí jeho číslo [n] (stejný titulek+odkaz = stejné číslo) */
   cite(title: string, url: string): number;
@@ -288,10 +290,21 @@ interface Jednani {
   oznaceni?: string;
   datum: string;
   body?: string[];
+  dostupne?: string[];
+  je_posledni?: boolean;
 }
+
+// jednoslovné druhy jednání se porovnávají přesně (jinak by „rada“ chytla i „školskou radu“)
+const TYP_EXACT: Record<string, string> = {
+  rada: "rada", rady: "rada", radu: "rada", "rada mesta": "rada", rm: "rada",
+  zastupitelstvo: "zastupitelstvo", zastupitelstva: "zastupitelstvo", zm: "zastupitelstvo", "zastupitelstvo mesta": "zastupitelstvo",
+  komise: "komise", vybor: "vybor", vybory: "vybor",
+};
 
 function typMatch(j: Jednani, typ?: string): boolean {
   if (!typ) return true;
+  const exact = TYP_EXACT[fold(typ).trim()];
+  if (exact) return j.typ === exact;
   const hay = fold(`${j.typ ?? ""} ${j.organ ?? ""}`);
   return words(typ).every((w) => hay.includes(stem(ORGAN_ALIAS[w] ?? w)));
 }
@@ -352,6 +365,7 @@ async function jednaniTool(input: any, ctx: ToolContext) {
   const od = isoOrUndef(input.od, "od");
   const doo = isoOrUndef(input.do, "do");
   const hledej = str(input.hledej, "hledej");
+  const nejnovejsi = input.nejnovejsi === true;
   const data = await ctx.load("jednani");
   const kws = hledej ? keywordStems(hledej) : [];
   let list = ((data.jednani ?? []) as Jednani[])
@@ -365,7 +379,11 @@ async function jednaniTool(input: any, ctx: ToolContext) {
       return n > 0;
     });
   }
-  const shown = list.slice(0, 15);
+  if (nejnovejsi) {
+    // s typem dvě nejnovější (nejnovější může mít jen pozvánku), bez typu nejnovější od každého druhu
+    list = typ ? list.slice(0, 2) : list.filter((j) => j.je_posledni);
+  }
+  const shown = list.slice(0, nejnovejsi ? 6 : 15);
   return {
     celkem: list.length,
     ...(list.length > shown.length ? { zobrazeno: shown.length } : {}),
@@ -376,10 +394,94 @@ async function jednaniTool(input: any, ctx: ToolContext) {
         oznaceni: j.oznaceni,
         organ: j.organ,
         datum: j.datum,
+        stav: j.datum > ctx.today ? "plánováno (ještě se nekonalo)" : undefined,
         bodu: j.body?.length ?? 0,
+        dostupne: j.dostupne,
         shodnych_bodu: matches.get(j.id),
       }),
     ),
+    ...(nejnovejsi || list.length ? { dalsi_krok: "Obsah jednání (body, usnesení, hlasování) přečteš nástrojem cti_dokument(id)." } : {}),
+  };
+}
+
+// ---------- cti_dokument ----------
+
+export const DOC_MAX_CHARS = 13000; // ≈ 5 000 tokenů češtiny v JSONu; čtení stojí ≲ 0,01 USD za každé další kolo
+const DOC_LEVELS: [number, number][] = [[900, 500], [350, 300], [150, 200], [0, 120]]; // [zpráva, usnesení]
+const ID_RE = /^[a-z0-9-]{3,80}$/;
+
+function docItem(b: any, z: number, u: number) {
+  return clean({
+    n: b.n,
+    nazev: b.nazev,
+    predkladatel: b.predkladatel,
+    zprava: z && b.zprava ? short(b.zprava, z) : undefined,
+    usneseni: b.usneseni?.length
+      ? b.usneseni.map((r: any) => clean({ cislo: r.cislo, text: short(r.text, u), hlasovani: r.hlasovani, neprijato: r.neprijato, poznamka: r.poznamka }))
+      : undefined,
+  });
+}
+
+async function ctiDokumentTool(input: any, ctx: ToolContext) {
+  const id = str(input.id, "id", true)!;
+  if (!ID_RE.test(id)) throw new Error("Neplatné id jednání (např. „rada-2026-10-12“, id vrací nástroj jednani).");
+  const bodRaw = input.bod;
+  const bodNum = bodRaw === undefined || bodRaw === null || bodRaw === "" ? undefined : Number(bodRaw);
+  if (bodNum !== undefined && !Number.isInteger(bodNum)) throw new Error("Parametr bod musí být číslo bodu programu.");
+  let doc: any;
+  try {
+    doc = await ctx.loadDoc(`jednani/${id}`);
+  } catch {
+    throw new Error(`Jednání „${id}“ nenalezeno. Správné id zjistíš nástrojem jednani.`);
+  }
+  const titulek = `${doc.oznaceni ?? id} (${czd(doc.datum)}) — program a usnesení${bodNum !== undefined ? `, bod ${bodNum}` : ""}`;
+  const head = clean({
+    n: ctx.cite(titulek, `/jednani/#${doc.id ?? id}`),
+    id: doc.id ?? id,
+    oznaceni: doc.oznaceni,
+    datum: doc.datum,
+    stav: doc.datum > ctx.today ? "plánováno (ještě se nekonalo)" : undefined,
+    misto: doc.misto,
+    dostupne: doc.dostupne,
+    poznamka: doc.poznamka,
+  });
+  const body: any[] = doc.body ?? [];
+  const extra = {
+    ...(doc.text_dokumentu ? { text_dokumentu: short(doc.text_dokumentu, 3000) } : {}),
+  };
+
+  if (bodNum !== undefined) {
+    const b = body.find((x) => x.n === bodNum);
+    if (!b) {
+      const cisla = body.map((x) => x.n).join(", ");
+      throw new Error(`Bod ${bodNum} v jednání ${doc.oznaceni ?? id} neexistuje. Body: ${cisla || "žádné"}.`);
+    }
+    return { ...head, bod: docItem(b, 900, 500), ...extra };
+  }
+
+  const ostatni: any[] = doc.usneseni_ostatni ?? [];
+  const ostatniOut = (u: number) =>
+    ostatni.length
+      ? ostatni.map((r) => clean({ cislo: r.cislo, text: short(r.text, u), hlasovani: r.hlasovani, neprijato: r.neprijato, poznamka: r.poznamka }))
+      : undefined;
+  for (const [z, u] of DOC_LEVELS) {
+    const out = { ...head, body: body.map((b) => docItem(b, z, u)), usneseni_ostatni: ostatniOut(u), ...extra };
+    if (!out.usneseni_ostatni) delete (out as any).usneseni_ostatni;
+    if (JSON.stringify(out).length <= DOC_MAX_CHARS) return z < 900 ? { ...out, poznamka_zkraceni: "Dlouhé texty jsou zkrácené; detail bodu: cti_dokument(id, bod)." } : out;
+  }
+  // i nejstručnější verze je dlouhá: bez zpráv, bodů ubývá od konce
+  const [z, u] = DOC_LEVELS[DOC_LEVELS.length - 1];
+  const items = body.map((b) => docItem(b, z, u));
+  while (items.length > 1) {
+    const out = { ...head, body: items, ...extra };
+    if (JSON.stringify(out).length <= DOC_MAX_CHARS - 200) break;
+    items.pop();
+  }
+  return {
+    ...head,
+    body: items,
+    ...extra,
+    zkraceno: `Zobrazeno ${items.length} z ${body.length} bodů; další jsou dostupné přes cti_dokument(id, bod).`,
   };
 }
 
@@ -405,6 +507,75 @@ async function pocetBoduTool(input: any, ctx: ToolContext) {
     })),
     poznamka:
       "Počítají se BODY PROGRAMU jednání, jejichž název obsahuje všechna slova (bez ohledu na diakritiku a skloňování). Není to počet povolení, smluv ani jiných věcí; jeden bod může být opakovaný na více jednáních.",
+  };
+}
+
+// ---------- uredni_deska ----------
+
+const UD_MAX = 20;
+const UD_MAX_YEARS = 3;
+
+function slugCz(t: string): string {
+  return fold(t).replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "");
+}
+
+/** odkaz na detail dokumentu: číslo → pecky.cz/default/report/<číslo>_<slug názvu>, as4u:<id> → starý web */
+export function udUrl(id: string, nazev: string): string {
+  if (id.startsWith("as4u:"))
+    return `https://pecky.as4u.cz/redakce/index.php?lanG=cs&clanek=106922&slozka=106925&detail_claim=${id.slice(5)}`;
+  return `https://pecky.cz/default/report/${id.includes("_") ? id : `${id}_${slugCz(nazev)}`}`;
+}
+
+function addDays(iso: string, days: number): string {
+  const d = new Date(iso + "T12:00:00Z");
+  d.setUTCDate(d.getUTCDate() + days);
+  return d.toISOString().slice(0, 10);
+}
+
+async function uredniDeskaTool(input: any, ctx: ToolContext) {
+  const hledej = str(input.hledej, "hledej");
+  let doo = isoOrUndef(input.do, "do") ?? ctx.today;
+  let od = isoOrUndef(input.od, "od") ?? addDays(doo, -365);
+  if (doo < od) [od, doo] = [doo, od];
+  const y0 = Number(od.slice(0, 4));
+  const y1 = Number(doo.slice(0, 4));
+  if (y1 - y0 + 1 > UD_MAX_YEARS) throw new Error(`Rozsah od–do může zasahovat nejvýš do ${UD_MAX_YEARS} roků.`);
+  const kws = hledej ? keywordStems(hledej) : [];
+  const rows: any[][] = [];
+  for (let y = y1; y >= Math.max(y0, 2015); y--) {
+    let doc: any;
+    try {
+      doc = await ctx.loadDoc(`uredni-deska/${y}`);
+    } catch {
+      continue; // rok bez dat
+    }
+    for (const r of (doc.d ?? []) as any[][]) {
+      if (!r[0] || r[0] < od || r[0] > doo) continue;
+      if (kws.length) {
+        const hay = fold(`${r[3]} ${r[2]}`);
+        if (!kws.every((k) => hay.includes(k))) continue;
+      }
+      rows.push(r);
+    }
+  }
+  rows.sort((a, b) => b[0].localeCompare(a[0]));
+  const shown = rows.slice(0, UD_MAX);
+  return {
+    od,
+    do: doo,
+    celkem: rows.length,
+    ...(rows.length > shown.length ? { zobrazeno: shown.length } : {}),
+    dokumenty: shown.map((r) =>
+      clean({
+        n: ctx.cite(`Úřední deska — ${short(r[3], 80)} (${czd(r[0])})`, udUrl(String(r[4]), String(r[3]))),
+        vyveseno: r[0],
+        sejmuto: r[1],
+        typ: r[2],
+        nazev: short(r[3], 140),
+      }),
+    ),
+    poznamka:
+      "Úřední deska od června 2015, jen názvy a data (ne obsah dokumentů); starší roky mohou být neúplné. Obsah zasedání: jednani + cti_dokument.",
   };
 }
 
@@ -467,7 +638,7 @@ export const TOOL_DEFS = [
   {
     name: "jednani",
     description:
-      "Seznam jednání (zastupitelstvo, rada, komise, výbory, školská rada) od nejnovějšího, nejvýš 15, s označením, datem a počtem bodů. Volitelně filtr typu, období a slov v názvech bodů.",
+      "Seznam jednání (zastupitelstvo, rada, komise, výbory, školská rada) od nejnovějšího, nejvýš 15, s id, označením, datem, počtem bodů a příznakem dostupne (pozvanka/zapis/usneseni). Jen názvy bodů, ne obsah. Pro „poslední rada/zasedání“, „co se probíralo naposledy“ použij nejnovejsi=true (s typem vrátí dvě nejnovější, protože nejnovější může mít zatím jen pozvánku) a potom zavolej cti_dokument(id). Volitelně filtr typu, období a slov v názvech bodů.",
     input_schema: {
       type: "object",
       properties: {
@@ -475,6 +646,35 @@ export const TOOL_DEFS = [
         od: { type: "string", description: "RRRR-MM-DD" },
         do: { type: "string", description: "RRRR-MM-DD" },
         hledej: { type: "string", description: "Slova z názvu bodu programu." },
+        nejnovejsi: { type: "boolean", description: "true = jen nejnovější jednání (s typem dvě, bez typu nejnovější od každého druhu)." },
+      },
+      additionalProperties: false,
+    },
+  },
+  {
+    name: "cti_dokument",
+    description:
+      "Přečte obsah jednání podle jeho id (z nástroje jednani): všechny body programu s předkladatelem, důvodovou zprávou, usneseními a výsledky hlasování. S parametrem bod vrátí jeden bod podrobně. Pole dostupne říká, co je zveřejněno; když je jen pozvanka, zápis a usnesení ještě nevyšly. Použij na otázky, co se na jednání probíralo, schválilo nebo jak se hlasovalo, a po nástroji jednani.",
+    input_schema: {
+      type: "object",
+      properties: {
+        id: { type: "string", description: "Id jednání, např. „rada-2026-10-12“ nebo „zastupitelstvo-2026-10-07“." },
+        bod: { type: "integer", description: "Volitelně číslo bodu programu pro podrobný výpis jen tohoto bodu." },
+      },
+      required: ["id"],
+      additionalProperties: false,
+    },
+  },
+  {
+    name: "uredni_deska",
+    description:
+      "Dokumenty z úřední desky města (od 2015) podle slov v názvu a data vyvěšení: záměry pronájmu a prodeje, veřejné vyhlášky, výběrová řízení, rozpočty, pozvánky a zápisy. Jen názvy, data a odkazy; nejvýš 20 nejnovějších. Bez dat hledá v posledním roce; rozsah nejvýš 3 roky. Data RRRR-MM-DD.",
+    input_schema: {
+      type: "object",
+      properties: {
+        hledej: { type: "string", description: "Slova z názvu dokumentu, např. „záměr pronájem“." },
+        od: { type: "string", description: "Vyvěšeno od, RRRR-MM-DD." },
+        do: { type: "string", description: "Vyvěšeno do, RRRR-MM-DD." },
       },
       additionalProperties: false,
     },
@@ -503,6 +703,8 @@ const EXEC: Record<string, Exec> = {
   slozeni: slozeniTool,
   kalendar: kalendarTool,
   jednani: jednaniTool,
+  cti_dokument: ctiDokumentTool,
+  uredni_deska: uredniDeskaTool,
   pocet_bodu: pocetBoduTool,
 };
 
@@ -511,6 +713,7 @@ export function isKnownTool(name: string): boolean {
 }
 
 export const MAX_RESULT_CHARS = 6000; // ≈ 1500 tokenů
+const RESULT_LIMIT: Record<string, number> = { cti_dokument: DOC_MAX_CHARS + 500 }; // čtení celého jednání
 
 /** Vykoná nástroj; vždy vrací text pro tool_result (chyby jako is_error). */
 export async function executeTool(
@@ -523,7 +726,8 @@ export async function executeTool(
     const inp = input && typeof input === "object" ? input : {};
     const out = await EXEC[name](inp, ctx);
     let s = JSON.stringify(out);
-    if (s.length > MAX_RESULT_CHARS) s = s.slice(0, MAX_RESULT_CHARS) + "…[výsledek zkrácen]";
+    const limit = RESULT_LIMIT[name] ?? MAX_RESULT_CHARS;
+    if (s.length > limit) s = s.slice(0, limit) + "…[výsledek zkrácen]";
     return { content: s, isError: false };
   } catch (e) {
     return { content: `Nástroj selhal: ${e instanceof Error ? e.message : String(e)}`, isError: true };

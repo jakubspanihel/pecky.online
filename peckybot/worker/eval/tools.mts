@@ -18,6 +18,7 @@ const ctx: ToolContext = {
     if (!cache.has(f)) cache.set(f, JSON.parse(readFileSync(new URL(`${f}.json`, dataDir), "utf8")));
     return cache.get(f);
   },
+  loadDoc: async (p) => JSON.parse(readFileSync(new URL(`${p}.json`, dataDir), "utf8")),
   searchText: async () => [],
   cite: (() => { const seen: string[] = []; return (t: string, u: string) => { const k = t + u; let i = seen.indexOf(k); if (i < 0) i = seen.push(k) - 1; return i + 1; }; })(),
 };
@@ -34,7 +35,9 @@ for (const c of cases) {
     for (const s of c.mustInclude ?? []) if (!r.content.includes(s)) problems.push(`chybí „${s}“`);
     if (c.minLength && r.content.length < c.minLength) problems.push(`krátký výsledek (${r.content.length})`);
     if (c.minCount && !(JSON.parse(r.content).pocet_bodu >= c.minCount)) problems.push("pocet_bodu < " + c.minCount);
-    if (r.content.length > 6100) problems.push(`výsledek příliš velký (${r.content.length})`);
+    const max = c.tool === "cti_dokument" ? 13600 : 6100; // cti_dokument ≈ 5 000 tokenů
+    if (r.content.length > max) problems.push(`výsledek příliš velký (${r.content.length})`);
+    if (c.tool === "jednani" && c.input.nejnovejsi && !JSON.parse(r.content).jednani[0].dostupne) problems.push("chybí dostupne");
   }
   if (problems.length) fail++;
   console.log(`${problems.length ? "FAIL" : "PASS"} ${c.tool}(${JSON.stringify(c.input)}) ${r.content.length} zn., ${ms.toFixed(1)} ms${problems.length ? "\n      " + problems.join("; ") : ""}`);

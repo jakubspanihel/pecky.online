@@ -269,6 +269,25 @@ def _chunks_pristi(data):
     jedn = [e for e in data if e['category'] in ('rada', 'zastupitelstvo', 'vybor') and e['date'] >= dnes]
     jedn.sort(key=lambda e: (e['date'], e['title']))
     out = []
+    do = date.fromordinal(date.today().toordinal() + 14).isoformat()
+    bl = [e for e in data if e['category'] in ('akce', 'volby', 'zastupitelstvo', 'rada')
+          and dnes <= (e.get('date_end') or e['date']) and e['date'] <= do]
+    bl.sort(key=lambda e: (e['date'], e.get('time') or ''))
+    if bl:
+        r = []
+        for e in bl[:20]:
+            x = f"{DNY[_d(e['date']).weekday()]} {_d(e['date']).day}. {_d(e['date']).month}."
+            if e.get('date_end') and e['date_end'] != e['date']:
+                x += f"–{cz(e['date_end'])}"
+            if e.get('time'):
+                x += f" {e['time']}"
+            x += f" {e['title']}"
+            if e.get('place'):
+                x += f" ({e['place']})"
+            r.append(x)
+        out.append({'u': '/kalendar/', 't': 'Kalendář — Nejbližší akce',
+                    'x': _clip('Nejbližší akce, co se děje v Pečkách, co nového, program na příští dva týdny, '
+                               'kulturní a společenské akce, víkend, tento týden: ' + '; '.join(r) + '.', 1800)})
     if jedn:
         kusy = [f"{e['title']} — {datum_tvary(e['date'])}" + (f", od {e['time']}" if e.get('time') else '')
                 for e in jedn[:10]]
@@ -327,8 +346,8 @@ TYP_SLOVA = {
 }
 PODKAT = [  # (klíč, regex nad jménem+poznámkou, slova, přehledový titulek)
     ('jidlo', r'hospod|hostinec|restaurac|kebab|pizz|wok|saloon|kavárn|bar\b|siňorit|marka|stříkačk',
-     'restaurace, hospoda, hostinec, kavárna, kde se najíst, kde se dobře najíst, jídlo, oběd, pivo, bar, občerstvení',
-     'Restaurace, hospody a kavárny — kde se najíst'),
+     'restaurace, hospoda, hostinec, kavárna, kde se najíst, kde se dobře najíst, jídlo, oběd, pivo, na pivo, bar, občerstvení',
+     'Restaurace, hospody a kavárny — kde si dát pivo, oběd a jídlo'),
     ('skola', r'(?<!ní )škol|mašink|vzdělávací',
      'škola, školka, mateřská škola, základní škola, vzdělávání, děti, žáci, školní jídelna, kroužky',
      'Školy, školky a vzdělávání'),
@@ -423,10 +442,34 @@ def _prehledy_organizaci(orgs, typy):
     for nazev, slova, lst in skupiny:
         if not lst:
             continue
+        if 'pivo' in nazev:
+            jm = '; '.join(_radek_jidlo(o) for o in lst)
+            out.append({'u': '/lide/', 't': f'Organizace — {nazev}',
+                        'x': _clip(f'{nazev}. Kde se najíst, kam na pivo, hospoda, restaurace, hostinec, kavárna, jídlo, '
+                                   f'oběd, otevírací doba, adresa. Podniky: {jm}.', 1500)})
+            continue
         jm = '; '.join(o['name'] + (f" ({o['address']})" if o.get('address') and k_adr(nazev) else '') for o in lst)
         out.append({'u': '/lide/', 't': f'Organizace — {nazev}',
                     'x': _clip(f'{nazev}. Přehled, seznam, jaké existují, kdo působí: {slova}. Organizace: {jm}.', MAX + 400)})
     return out
+
+
+def _hodiny_kratce(oh):
+    if not oh or not oh.get('hours'):
+        return ''
+    h = oh['hours']
+    c = Counter(v for v in h.values() if v)
+    if not c:
+        return ''
+    typ, _ = c.most_common(1)[0]
+    zav = [DNY[i] for i, k in enumerate(['po', 'ut', 'st', 'ct', 'pa', 'so', 'ne']) if not h[k]]
+    return 'otevřeno ' + typ.replace('-', '–') + (f', zavřeno {", ".join(zav)}' if zav else '')
+
+
+def _radek_jidlo(o):
+    x = o['name']
+    det = [d for d in (o.get('address'), _hodiny_kratce(o.get('opening_hours'))) if d]
+    return x + (f" ({'; '.join(det)})" if det else '')
 
 
 def k_adr(nazev):
@@ -466,7 +509,7 @@ def chunks_naobed():
     out = []
     for skup, hlavni in (('restaurace', True), ('dalsi', False)):
         for r in d.get(skup, []):
-            t = [f"{r['name']} — restaurace, hospoda, jídlo v Pečkách" + (f" ({r['note']})" if r.get('note') else '') + '.']
+            t = [f"{r['name']} — restaurace, hospoda, kde se najíst, pivo, jídlo, oběd v Pečkách" + (f" ({r['note']})" if r.get('note') else '') + '.']
             if hlavni:
                 t.append('Denní menu, polední menu, co dnes k obědu, je na stránce Na oběd.')
             if r.get('address'):
