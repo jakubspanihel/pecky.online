@@ -1,0 +1,861 @@
+{
+ "_comment": "Parcela (katastr|číslo) -> číslo LV z REST API KN ČÚZK. Generuje jednani/scripts/parcely-lv.py; LV je jednoznačné jen spolu s katastrálním územím (lv_katastr).",
+ "count": 171,
+ "parcely": {
+  "Blinka|327": {
+   "rid": "34277565010",
+   "lv": 1533,
+   "lv_katastr": "Blinka"
+  },
+  "Dobřichov|164": {
+   "rid": "34411757010",
+   "lv": 834,
+   "lv_katastr": "Dobřichov"
+  },
+  "Dobřichov|213/12": {
+   "rid": "34411846010",
+   "lv": 455,
+   "lv_katastr": "Dobřichov"
+  },
+  "Dobřichov|500": {
+   "rid": "34412377010",
+   "lv": 135,
+   "lv_katastr": "Dobřichov"
+  },
+  "Pečky|1056": {
+   "rid": "1603163204",
+   "lv": 10001,
+   "lv_katastr": "Pečky"
+  },
+  "Pečky|11": {
+   "rid": "1601981204",
+   "lv": 10001,
+   "lv_katastr": "Pečky"
+  },
+  "Pečky|1273/3": {
+   "rid": "1662601204",
+   "lv": 10001,
+   "lv_katastr": "Pečky"
+  },
+  "Pečky|1273/5": {
+   "rid": "91598680010",
+   "lv": 924,
+   "lv_katastr": "Pečky"
+  },
+  "Pečky|1276/5": {
+   "rid": "1933261204",
+   "lv": 10001,
+   "lv_katastr": "Pečky"
+  },
+  "Pečky|1449/118": {
+   "rid": "1603624204",
+   "lv": 10001,
+   "lv_katastr": "Pečky"
+  },
+  "Pečky|1449/195": {
+   "rid": "2133352204",
+   "lv": 10001,
+   "lv_katastr": "Pečky"
+  },
+  "Pečky|1449/205": {
+   "rid": "2254439204",
+   "lv": 10001,
+   "lv_katastr": "Pečky"
+  },
+  "Pečky|1449/206": {
+   "rid": "2254440204",
+   "lv": 10001,
+   "lv_katastr": "Pečky"
+  },
+  "Pečky|1449/221": {
+   "rid": "2254443204",
+   "lv": 10001,
+   "lv_katastr": "Pečky"
+  },
+  "Pečky|1449/242": {
+   "rid": "76071878010",
+   "lv": 10001,
+   "lv_katastr": "Pečky"
+  },
+  "Pečky|1449/43": {
+   "rid": "1603571204",
+   "lv": 10001,
+   "lv_katastr": "Pečky"
+  },
+  "Pečky|1449/60": {
+   "rid": "1603573204",
+   "lv": 10001,
+   "lv_katastr": "Pečky"
+  },
+  "Pečky|1460/12": {
+   "rid": "1933306204",
+   "lv": 10001,
+   "lv_katastr": "Pečky"
+  },
+  "Pečky|1467/1": {
+   "rid": "2301367204",
+   "lv": 10001,
+   "lv_katastr": "Pečky"
+  },
+  "Pečky|1468/16": {
+   "rid": "1933379204",
+   "lv": 10001,
+   "lv_katastr": "Pečky"
+  },
+  "Pečky|1468/24": {
+   "rid": "1933387204",
+   "lv": 10001,
+   "lv_katastr": "Pečky"
+  },
+  "Pečky|1468/25": {
+   "rid": "1933388204",
+   "lv": 10001,
+   "lv_katastr": "Pečky"
+  },
+  "Pečky|1468/4": {
+   "rid": "1933367204",
+   "lv": 10001,
+   "lv_katastr": "Pečky"
+  },
+  "Pečky|1585/1": {
+   "rid": "1603825204",
+   "lv": 10001,
+   "lv_katastr": "Pečky"
+  },
+  "Pečky|1586/1": {
+   "rid": "1603827204",
+   "lv": 10001,
+   "lv_katastr": "Pečky"
+  },
+  "Pečky|1622/1": {
+   "rid": "1603864204",
+   "lv": 10001,
+   "lv_katastr": "Pečky"
+  },
+  "Pečky|1632": {
+   "rid": "1603875204",
+   "lv": 371,
+   "lv_katastr": "Pečky"
+  },
+  "Pečky|1649": {
+   "rid": "1603892204",
+   "lv": 10001,
+   "lv_katastr": "Pečky"
+  },
+  "Pečky|1652": {
+   "rid": "1603896204",
+   "lv": 10001,
+   "lv_katastr": "Pečky"
+  },
+  "Pečky|1655/1": {
+   "rid": "1603899204",
+   "lv": 10001,
+   "lv_katastr": "Pečky"
+  },
+  "Pečky|1661/1": {
+   "rid": "1908884204",
+   "lv": 1900,
+   "lv_katastr": "Pečky"
+  },
+  "Pečky|1661/4": {
+   "rid": "92553140010",
+   "lv": 10001,
+   "lv_katastr": "Pečky"
+  },
+  "Pečky|1661/5": {
+   "rid": "94893794010",
+   "lv": 10001,
+   "lv_katastr": "Pečky"
+  },
+  "Pečky|1680": {
+   "rid": "1603936204",
+   "lv": 10001,
+   "lv_katastr": "Pečky"
+  },
+  "Pečky|1841/3": {
+   "rid": "2361573204",
+   "lv": 10001,
+   "lv_katastr": "Pečky"
+  },
+  "Pečky|1843/1": {
+   "rid": "29889503010",
+   "lv": 10001,
+   "lv_katastr": "Pečky"
+  },
+  "Pečky|1843/2": {
+   "rid": "29889504010",
+   "lv": 10001,
+   "lv_katastr": "Pečky"
+  },
+  "Pečky|1854": {
+   "rid": "1604121204",
+   "lv": 10001,
+   "lv_katastr": "Pečky"
+  },
+  "Pečky|1858/1": {
+   "rid": "1604125204",
+   "lv": 10001,
+   "lv_katastr": "Pečky"
+  },
+  "Pečky|19": {
+   "rid": "1601989204",
+   "lv": 10001,
+   "lv_katastr": "Pečky"
+  },
+  "Pečky|1927/1": {
+   "rid": "1604196204",
+   "lv": 10001,
+   "lv_katastr": "Pečky"
+  },
+  "Pečky|1934/2": {
+   "rid": "1933428204",
+   "lv": 10001,
+   "lv_katastr": "Pečky"
+  },
+  "Pečky|1957/18": {
+   "rid": "1933467204",
+   "lv": 10001,
+   "lv_katastr": "Pečky"
+  },
+  "Pečky|1958/21": {
+   "rid": "1933479204",
+   "lv": 10001,
+   "lv_katastr": "Pečky"
+  },
+  "Pečky|1992/11": {
+   "rid": "1933548204",
+   "lv": 10001,
+   "lv_katastr": "Pečky"
+  },
+  "Pečky|1992/3": {
+   "rid": "1933540204",
+   "lv": 610,
+   "lv_katastr": "Pečky"
+  },
+  "Pečky|1992/8": {
+   "rid": "1933545204",
+   "lv": 10001,
+   "lv_katastr": "Pečky"
+  },
+  "Pečky|2007/14": {
+   "rid": "1933576204",
+   "lv": 10001,
+   "lv_katastr": "Pečky"
+  },
+  "Pečky|2007/2": {
+   "rid": "1933564204",
+   "lv": 10001,
+   "lv_katastr": "Pečky"
+  },
+  "Pečky|2022/1": {
+   "rid": "1604340204",
+   "lv": 10001,
+   "lv_katastr": "Pečky"
+  },
+  "Pečky|2022/3": {
+   "rid": "1933589204",
+   "lv": 10001,
+   "lv_katastr": "Pečky"
+  },
+  "Pečky|2022/4": {
+   "rid": "1933590204",
+   "lv": 10001,
+   "lv_katastr": "Pečky"
+  },
+  "Pečky|2022/7": {
+   "rid": "1933593204",
+   "lv": 10001,
+   "lv_katastr": "Pečky"
+  },
+  "Pečky|2024/1": {
+   "rid": "1604345204",
+   "lv": 10001,
+   "lv_katastr": "Pečky"
+  },
+  "Pečky|2024/5": {
+   "rid": "1933598204",
+   "lv": 10001,
+   "lv_katastr": "Pečky"
+  },
+  "Pečky|214": {
+   "rid": "1602186204",
+   "lv": 10001,
+   "lv_katastr": "Pečky"
+  },
+  "Pečky|2157/34": {
+   "rid": "1933610204",
+   "lv": 10001,
+   "lv_katastr": "Pečky"
+  },
+  "Pečky|2157/35": {
+   "rid": "1933611204",
+   "lv": 10001,
+   "lv_katastr": "Pečky"
+  },
+  "Pečky|2169/1": {
+   "rid": "1604510204",
+   "lv": 10001,
+   "lv_katastr": "Pečky"
+  },
+  "Pečky|2169/25": {
+   "rid": "98973336010",
+   "lv": 10001,
+   "lv_katastr": "Pečky"
+  },
+  "Pečky|2178/10": {
+   "rid": "1933641204",
+   "lv": 2628,
+   "lv_katastr": "Pečky"
+  },
+  "Pečky|2178/14": {
+   "rid": "1933645204",
+   "lv": 2629,
+   "lv_katastr": "Pečky"
+  },
+  "Pečky|2227/7": {
+   "rid": "1933693204",
+   "lv": 10001,
+   "lv_katastr": "Pečky"
+  },
+  "Pečky|2244/2": {
+   "rid": "1933936204",
+   "lv": 10001,
+   "lv_katastr": "Pečky"
+  },
+  "Pečky|2246/30": {
+   "rid": "1933967204",
+   "lv": 2656,
+   "lv_katastr": "Pečky"
+  },
+  "Pečky|2247/24": {
+   "rid": "1934016204",
+   "lv": 2656,
+   "lv_katastr": "Pečky"
+  },
+  "Pečky|2247/31": {
+   "rid": "1934023204",
+   "lv": 2656,
+   "lv_katastr": "Pečky"
+  },
+  "Pečky|2253/13": {
+   "rid": "1934050204",
+   "lv": 10001,
+   "lv_katastr": "Pečky"
+  },
+  "Pečky|2253/2": {
+   "rid": "1735370204",
+   "lv": 10001,
+   "lv_katastr": "Pečky"
+  },
+  "Pečky|2253/6": {
+   "rid": "1934043204",
+   "lv": 588,
+   "lv_katastr": "Pečky"
+  },
+  "Pečky|2262/4": {
+   "rid": "1934131204",
+   "lv": 824,
+   "lv_katastr": "Pečky"
+  },
+  "Pečky|2265/102": {
+   "rid": "1934145204",
+   "lv": 824,
+   "lv_katastr": "Pečky"
+  },
+  "Pečky|2265/106": {
+   "rid": "1934149204",
+   "lv": 824,
+   "lv_katastr": "Pečky"
+  },
+  "Pečky|2265/11": {
+   "rid": "1604656204",
+   "lv": 1784,
+   "lv_katastr": "Pečky"
+  },
+  "Pečky|2265/111": {
+   "rid": "1934154204",
+   "lv": 824,
+   "lv_katastr": "Pečky"
+  },
+  "Pečky|2265/34": {
+   "rid": "1841458204",
+   "lv": 10001,
+   "lv_katastr": "Pečky"
+  },
+  "Pečky|2265/4": {
+   "rid": "1604649204",
+   "lv": 10001,
+   "lv_katastr": "Pečky"
+  },
+  "Pečky|2271/1": {
+   "rid": "1604675204",
+   "lv": 461,
+   "lv_katastr": "Pečky"
+  },
+  "Pečky|2271/4": {
+   "rid": "1934180204",
+   "lv": 10001,
+   "lv_katastr": "Pečky"
+  },
+  "Pečky|2272/4": {
+   "rid": "1934186204",
+   "lv": 146,
+   "lv_katastr": "Pečky"
+  },
+  "Pečky|2273/25": {
+   "rid": "1934195204",
+   "lv": 2467,
+   "lv_katastr": "Pečky"
+  },
+  "Pečky|2273/27": {
+   "rid": "1934197204",
+   "lv": 10001,
+   "lv_katastr": "Pečky"
+  },
+  "Pečky|2273/3": {
+   "rid": "1604678204",
+   "lv": 10001,
+   "lv_katastr": "Pečky"
+  },
+  "Pečky|2274/4": {
+   "rid": "1934209204",
+   "lv": 146,
+   "lv_katastr": "Pečky"
+  },
+  "Pečky|2274/7": {
+   "rid": "1934212204",
+   "lv": 10001,
+   "lv_katastr": "Pečky"
+  },
+  "Pečky|2289/2": {
+   "rid": "1604704204",
+   "lv": 10001,
+   "lv_katastr": "Pečky"
+  },
+  "Pečky|2305/2": {
+   "rid": "1934293204",
+   "lv": 497,
+   "lv_katastr": "Pečky"
+  },
+  "Pečky|2307/6": {
+   "rid": "1934300204",
+   "lv": 2649,
+   "lv_katastr": "Pečky"
+  },
+  "Pečky|2307/7": {
+   "rid": "1934301204",
+   "lv": 497,
+   "lv_katastr": "Pečky"
+  },
+  "Pečky|2307/9": {
+   "rid": "1934303204",
+   "lv": 2649,
+   "lv_katastr": "Pečky"
+  },
+  "Pečky|2309/1": {
+   "rid": "1934316204",
+   "lv": 10001,
+   "lv_katastr": "Pečky"
+  },
+  "Pečky|2341": {
+   "rid": "1604764204",
+   "lv": 10001,
+   "lv_katastr": "Pečky"
+  },
+  "Pečky|248/1": {
+   "rid": "1602222204",
+   "lv": 10001,
+   "lv_katastr": "Pečky"
+  },
+  "Pečky|306/1": {
+   "rid": "1841623204",
+   "lv": 10001,
+   "lv_katastr": "Pečky"
+  },
+  "Pečky|306/31": {
+   "rid": "1933014204",
+   "lv": 10001,
+   "lv_katastr": "Pečky"
+  },
+  "Pečky|306/36": {
+   "rid": "1933019204",
+   "lv": 10001,
+   "lv_katastr": "Pečky"
+  },
+  "Pečky|308/39": {
+   "rid": "1933058204",
+   "lv": 1946,
+   "lv_katastr": "Pečky"
+  },
+  "Pečky|308/47": {
+   "rid": "1933066204",
+   "lv": 10001,
+   "lv_katastr": "Pečky"
+  },
+  "Pečky|308/53": {
+   "rid": "1933072204",
+   "lv": 1946,
+   "lv_katastr": "Pečky"
+  },
+  "Pečky|308/54": {
+   "rid": "1933073204",
+   "lv": 1946,
+   "lv_katastr": "Pečky"
+  },
+  "Pečky|308/8": {
+   "rid": "1933027204",
+   "lv": 2656,
+   "lv_katastr": "Pečky"
+  },
+  "Pečky|366": {
+   "rid": "1602346204",
+   "lv": 15,
+   "lv_katastr": "Pečky"
+  },
+  "Pečky|368/1": {
+   "rid": "1602348204",
+   "lv": 2625,
+   "lv_katastr": "Pečky"
+  },
+  "Pečky|400/1": {
+   "rid": "1933082204",
+   "lv": 10001,
+   "lv_katastr": "Pečky"
+  },
+  "Pečky|497/2": {
+   "rid": "1602484204",
+   "lv": 10001,
+   "lv_katastr": "Pečky"
+  },
+  "Pečky|519/1": {
+   "rid": "1933100204",
+   "lv": 10001,
+   "lv_katastr": "Pečky"
+  },
+  "Pečky|521/40": {
+   "rid": "1933127204",
+   "lv": 10001,
+   "lv_katastr": "Pečky"
+  },
+  "Pečky|531": {
+   "rid": "98114311010",
+   "lv": 1777,
+   "lv_katastr": "Pečky"
+  },
+  "Pečky|531/1": {
+   "rid": "98114311010",
+   "lv": 1777,
+   "lv_katastr": "Pečky"
+  },
+  "Pečky|536/1": {
+   "rid": "1933143204",
+   "lv": 10001,
+   "lv_katastr": "Pečky"
+  },
+  "Pečky|536/3": {
+   "rid": "1933145204",
+   "lv": 146,
+   "lv_katastr": "Pečky"
+  },
+  "Pečky|538/2": {
+   "rid": "1933149204",
+   "lv": 10001,
+   "lv_katastr": "Pečky"
+  },
+  "Pečky|554/1": {
+   "rid": "1602586204",
+   "lv": 1855,
+   "lv_katastr": "Pečky"
+  },
+  "Pečky|554/36": {
+   "rid": "1933177204",
+   "lv": 10001,
+   "lv_katastr": "Pečky"
+  },
+  "Pečky|554/68": {
+   "rid": "75572186010",
+   "lv": 2056,
+   "lv_katastr": "Pečky"
+  },
+  "Pečky|574/2": {
+   "rid": "1933185204",
+   "lv": 10001,
+   "lv_katastr": "Pečky"
+  },
+  "Pečky|575": {
+   "rid": "1602610204",
+   "lv": 10001,
+   "lv_katastr": "Pečky"
+  },
+  "Pečky|632": {
+   "rid": "1602667204",
+   "lv": 10001,
+   "lv_katastr": "Pečky"
+  },
+  "Pečky|700/1": {
+   "rid": "1602739204",
+   "lv": 10001,
+   "lv_katastr": "Pečky"
+  },
+  "Pečky|700/5": {
+   "rid": "90305999010",
+   "lv": 2650,
+   "lv_katastr": "Pečky"
+  },
+  "Pečky|832/34": {
+   "rid": "1933217204",
+   "lv": 10001,
+   "lv_katastr": "Pečky"
+  },
+  "Pečky|832/35": {
+   "rid": "1933218204",
+   "lv": 10001,
+   "lv_katastr": "Pečky"
+  },
+  "Pečky|832/45": {
+   "rid": "1933228204",
+   "lv": 2665,
+   "lv_katastr": "Pečky"
+  },
+  "Pečky|832/82": {
+   "rid": "87554908010",
+   "lv": 10001,
+   "lv_katastr": "Pečky"
+  },
+  "Pečky|832/96": {
+   "rid": "87554909010",
+   "lv": 2667,
+   "lv_katastr": "Pečky"
+  },
+  "Pečky|832/97": {
+   "rid": "87554910010",
+   "lv": 1777,
+   "lv_katastr": "Pečky"
+  },
+  "Pečky|832/98": {
+   "rid": "87554911010",
+   "lv": 10001,
+   "lv_katastr": "Pečky"
+  },
+  "Pečky|832/99": {
+   "rid": "88686927010",
+   "lv": 2723,
+   "lv_katastr": "Pečky"
+  },
+  "Pečky|993": {
+   "rid": "1603097204",
+   "lv": 10001,
+   "lv_katastr": "Pečky"
+  },
+  "Plaňany|527/3": {
+   "rid": "33047092010",
+   "lv": 1477,
+   "lv_katastr": "Plaňany"
+  },
+  "Radim|183/22": {
+   "rid": "31971176010",
+   "lv": 540,
+   "lv_katastr": "Radim u Kolína"
+  },
+  "Radim|388/140": {
+   "rid": "31971473010",
+   "lv": 601,
+   "lv_katastr": "Radim u Kolína"
+  },
+  "Tatce|462/49": {
+   "rid": "2483969204",
+   "lv": 32,
+   "lv_katastr": "Tatce"
+  },
+  "Tatce|462/53": {
+   "rid": "2483973204",
+   "lv": 267,
+   "lv_katastr": "Tatce"
+  },
+  "Tatce|462/57": {
+   "rid": "2483977204",
+   "lv": 171,
+   "lv_katastr": "Tatce"
+  },
+  "Velké Chvalovice|171/1": {
+   "rid": "1889165204",
+   "lv": 10001,
+   "lv_katastr": "Velké Chvalovice"
+  },
+  "Velké Chvalovice|171/4": {
+   "rid": "1889168204",
+   "lv": 173,
+   "lv_katastr": "Velké Chvalovice"
+  },
+  "Velké Chvalovice|172/15": {
+   "rid": "1889185204",
+   "lv": 10001,
+   "lv_katastr": "Velké Chvalovice"
+  },
+  "Velké Chvalovice|172/18": {
+   "rid": "91269326010",
+   "lv": 173,
+   "lv_katastr": "Velké Chvalovice"
+  },
+  "Velké Chvalovice|172/4": {
+   "rid": "1889174204",
+   "lv": 173,
+   "lv_katastr": "Velké Chvalovice"
+  },
+  "Velké Chvalovice|19/1": {
+   "rid": "1889043204",
+   "lv": 10001,
+   "lv_katastr": "Velké Chvalovice"
+  },
+  "Velké Chvalovice|21": {
+   "rid": "1605741204",
+   "lv": 10001,
+   "lv_katastr": "Velké Chvalovice"
+  },
+  "Velké Chvalovice|215/3": {
+   "rid": "1605967204",
+   "lv": 10001,
+   "lv_katastr": "Velké Chvalovice"
+  },
+  "Velké Chvalovice|254": {
+   "rid": "103482869010",
+   "lv": 239,
+   "lv_katastr": "Velké Chvalovice"
+  },
+  "Velké Chvalovice|342/32": {
+   "rid": "1889254204",
+   "lv": 228,
+   "lv_katastr": "Velké Chvalovice"
+  },
+  "Velké Chvalovice|342/41": {
+   "rid": "1889263204",
+   "lv": 10001,
+   "lv_katastr": "Velké Chvalovice"
+  },
+  "Velké Chvalovice|343/1": {
+   "rid": "1718195204",
+   "lv": 10001,
+   "lv_katastr": "Velké Chvalovice"
+  },
+  "Velké Chvalovice|346/9": {
+   "rid": "91118409010",
+   "lv": 10001,
+   "lv_katastr": "Velké Chvalovice"
+  },
+  "Velké Chvalovice|348/2": {
+   "rid": "1889271204",
+   "lv": 10001,
+   "lv_katastr": "Velké Chvalovice"
+  },
+  "Velké Chvalovice|348/3": {
+   "rid": "1889272204",
+   "lv": 10001,
+   "lv_katastr": "Velké Chvalovice"
+  },
+  "Velké Chvalovice|348/9": {
+   "rid": "78316218010",
+   "lv": 494,
+   "lv_katastr": "Velké Chvalovice"
+  },
+  "Velké Chvalovice|356/6": {
+   "rid": "1889279204",
+   "lv": 228,
+   "lv_katastr": "Velké Chvalovice"
+  },
+  "Velké Chvalovice|357/25": {
+   "rid": "1889303204",
+   "lv": 541,
+   "lv_katastr": "Velké Chvalovice"
+  },
+  "Velké Chvalovice|359/212": {
+   "rid": "2226004204",
+   "lv": 10001,
+   "lv_katastr": "Velké Chvalovice"
+  },
+  "Velké Chvalovice|359/229": {
+   "rid": "78316202010",
+   "lv": 494,
+   "lv_katastr": "Velké Chvalovice"
+  },
+  "Velké Chvalovice|359/239": {
+   "rid": "78316210010",
+   "lv": 10001,
+   "lv_katastr": "Velké Chvalovice"
+  },
+  "Velké Chvalovice|359/245": {
+   "rid": "78316216010",
+   "lv": 494,
+   "lv_katastr": "Velké Chvalovice"
+  },
+  "Velké Chvalovice|359/247": {
+   "rid": "78316223010",
+   "lv": 10001,
+   "lv_katastr": "Velké Chvalovice"
+  },
+  "Velké Chvalovice|359/27": {
+   "rid": "1889335204",
+   "lv": 71,
+   "lv_katastr": "Velké Chvalovice"
+  },
+  "Velké Chvalovice|359/5": {
+   "rid": "1606124204",
+   "lv": 10001,
+   "lv_katastr": "Velké Chvalovice"
+  },
+  "Velké Chvalovice|359/9": {
+   "rid": "1606128204",
+   "lv": 10001,
+   "lv_katastr": "Velké Chvalovice"
+  },
+  "Velké Chvalovice|370/18": {
+   "rid": "1889610204",
+   "lv": 10001,
+   "lv_katastr": "Velké Chvalovice"
+  },
+  "Velké Chvalovice|396/9": {
+   "rid": "1889740204",
+   "lv": 27,
+   "lv_katastr": "Velké Chvalovice"
+  },
+  "Velké Chvalovice|411/2": {
+   "rid": "1889785204",
+   "lv": 10001,
+   "lv_katastr": "Velké Chvalovice"
+  },
+  "Velké Chvalovice|411/3": {
+   "rid": "1889786204",
+   "lv": 10001,
+   "lv_katastr": "Velké Chvalovice"
+  },
+  "Velké Chvalovice|415/2": {
+   "rid": "1606199204",
+   "lv": 319,
+   "lv_katastr": "Velké Chvalovice"
+  },
+  "Velké Chvalovice|420": {
+   "rid": "1606207204",
+   "lv": 445,
+   "lv_katastr": "Velké Chvalovice"
+  },
+  "Velké Chvalovice|422/6": {
+   "rid": "1889808204",
+   "lv": 10001,
+   "lv_katastr": "Velké Chvalovice"
+  },
+  "Velké Chvalovice|47/1": {
+   "rid": "1605769204",
+   "lv": 10001,
+   "lv_katastr": "Velké Chvalovice"
+  },
+  "Velké Chvalovice|47/2": {
+   "rid": "1605770204",
+   "lv": 10001,
+   "lv_katastr": "Velké Chvalovice"
+  },
+  "Velké Chvalovice|85/4": {
+   "rid": "1889088204",
+   "lv": 10001,
+   "lv_katastr": "Velké Chvalovice"
+  }
+ }
+}

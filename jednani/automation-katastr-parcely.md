@@ -121,3 +121,15 @@ absolutním odkazům.
 Při dalších úpravách skriptu **needit** vracet zpět na
 `data-jednani-uuid`/`pozemek-jednani-link` vzor — je to slepá větev,
 která na samostatné stránce Pozemky nikdy nefungovala.
+
+## Parcely podle LV (PečkyBot)
+
+`jednani/scripts/parcely-lv.py` ke každé parcele z `parcely-pozemky.json` dohledá číslo jejího listu
+vlastnictví přes REST API KN ČÚZK (klíč v `.katastr-api-key`, limit 500 volání za den) a zapíše
+`jednani/parcely-lv.json` (`katastr|číslo` → LV). Je inkrementální — znovu se volají jen nové parcely,
+takže po každém `update-pozemky.py`, který přidá parcely, stačí spustit
+`python3 jednani/scripts/parcely-lv.py`. API samo parcely podle LV nevrací, proto stránka PečkyBot
+(`content/peckybot.html`) u zmínky „LV 228“ ukáže jen parcely, které web zná z usnesení: odkaz vede na
+detail parcely (stejné RUIAN ID jako v Pozemky), jen když je katastr jednoznačný (uvedené k.ú. nebo číslo
+LV existuje v jediném katastru) a LV má nejvýš 6 známých parcel (městský LV 10001 jich má přes 80).
+Číslo LV je jednoznačné jen spolu s katastrálním územím.
