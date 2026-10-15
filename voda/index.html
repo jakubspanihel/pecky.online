@@ -71,7 +71,30 @@
   <section class="panel active" id="panel-voda">
     <p class="lastmod" data-date="2026-10-15">Aktualizováno: 15. 10. 2026</p>
     <h2 class="title display">Voda</h2>
-    <p class="lede perex">Ceník vodného a stočného v Pečkách podle let, laboratorní rozbory pitné vody od února 2016 a údaje o úpravně vody. Ceny jsou v korunách za metr krychlový, bez DPH i s DPH.</p>
+    <p class="lede perex">Přehled městské vody v Pečkách. Ceník vodného a stočného od roku 2011. Laboratorní rozbory pitné vody od února 2016. Úpravna vody, čistírna odpadních vod, vodovody, majetek s fondy obnovy a dešťová voda. Ceny jsou v korunách za metr krychlový.</p>
+
+    <div class="stat-grid">
+      <div class="stat-card">
+        <div class="stat-num">143,92 Kč</div>
+        <div class="stat-label">vodné a stočné za 1 m³ s DPH<br>platí od 1. 1. 2026</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">48,05 mil.</div>
+        <div class="stat-label">Kč náklady úpravny vody<br>dotace 34,31 mil. Kč</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">9,4 mil.</div>
+        <div class="stat-label">Kč kupní cena vodovodů a kanalizací<br>koupilo město 20. 12. 2023</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">32</div>
+        <div class="stat-label">protokolů o rozboru vody<br>23 z vodojemu, 2016–2025</div>
+      </div>
+    </div>
+
+    <div class="callout">
+      <strong>Kde to teď stojí.</strong> <span class="stamp">ověřeno</span> Poslední schválená cena platí od 1. 1. 2026 (informace o ceně: <a href="/jednani/#zastupitelstvo-2025-12-17">ZM 6/2025</a>, 17. 12. 2025). Nejnovější zápis o vodě je <a href="/jednani/#rada-2026-10-05">RM 35/2026</a> z 5. 10. 2026: dodatek č. 4 ke stavbě vodovodu a komunikací na Bačově (3. a 4. etapa), která snižuje cenu díla na 32,70 mil. Kč bez DPH.
+    </div>
 
     <h3 class="search-status" id="voda-status"><span class="spinner" aria-hidden="true"></span>Načítám ceník…</h3>
     <div id="voda-graf-box" hidden>
@@ -101,6 +124,14 @@
       </details>
     </div>
 
+    <h3 class="display" style="margin-top:36px;" id="infrastruktura">Čistírna, vodovody a vodojem</h3>
+    <p>Čtyři projekty z jednání rady a zastupitelstva od roku 2021: čistírna odpadních vod, vodovod na Bačově, přivaděč z Tatců a vodojem. Každý má časovou osu s odkazy na zápisy. Částky jsou jen tam, kde je zápisy uvádějí.</p>
+    <h3 class="search-status" id="infra-status"><span class="spinner" aria-hidden="true"></span>Načítám projekty…</h3>
+    <div id="infra-box" hidden>
+      <div class="table-scroll"><table class="register"><thead><tr><th>Projekt</th><th>Roky</th><th>Stav podle posledního zápisu</th></tr></thead><tbody id="infra-prehled"></tbody></table></div>
+      <div id="infra-projekty"></div>
+    </div>
+
     <h3 class="display" style="margin-top:36px;">Úpravna vody</h3>
     <h3 class="search-status" id="upravna-status"><span class="spinner" aria-hidden="true"></span>Načítám údaje o úpravně…</h3>
     <div id="upravna-box" hidden>
@@ -111,6 +142,26 @@
         <summary style="cursor:pointer; list-style:none;"><h3 class="display" style="margin:0 0 4px; display:inline;" id="upravna-udalosti-nadpis">Časová osa <span class="collapsible-arrow" aria-hidden="true">▾</span></h3></summary>
         <div class="table-scroll"><table class="register"><thead><tr><th>Datum</th><th>Událost</th><th>Zdroj</th></tr></thead><tbody id="upravna-udalosti"></tbody></table></div>
       </details>
+    </div>
+
+    <h3 class="display" style="margin-top:36px;" id="majetek">Majetek a provozovatel</h3>
+    <h3 class="search-status" id="majetek-status"><span class="spinner" aria-hidden="true"></span>Načítám majetek…</h3>
+    <div id="majetek-box" hidden>
+      <div class="table-scroll"><table class="register" style="min-width:0;"><tbody id="majetek-fakta"></tbody></table></div>
+      <div id="majetek-text"></div>
+      <h4 style="margin:26px 0 2px;">Roční nájemné za vodohospodářský majetek</h4>
+      <div class="table-scroll"><table class="register" style="min-width:0;"><thead><tr><th>Rok</th><th>Nájemné bez DPH</th><th>Zdroj</th></tr></thead><tbody id="majetek-najemne"></tbody></table></div>
+      <h4 style="margin:26px 0 2px;">Fondy obnovy vodovodů a kanalizace</h4>
+      <div class="table-scroll"><table class="register"><thead><tr><th>Datum</th><th>Fond</th><th>Co zastupitelstvo schválilo</th><th>Částka</th><th>Zdroj</th></tr></thead><tbody id="majetek-fondy"></tbody></table></div>
+      <div class="callout" id="majetek-gaps"></div>
+    </div>
+
+    <h3 class="display" style="margin-top:36px;" id="destova-voda">Dešťová voda</h3>
+    <h3 class="search-status" id="destova-status"><span class="spinner" aria-hidden="true"></span>Načítám dešťovou vodu…</h3>
+    <div id="destova-box" hidden>
+      <div id="destova-text"></div>
+      <div class="table-scroll"><table class="register"><thead><tr><th>Datum</th><th>Událost</th><th>Zdroj</th></tr></thead><tbody id="destova-udalosti"></tbody></table></div>
+      <div class="callout" id="destova-gaps"></div>
     </div>
   </section>
 
@@ -382,6 +433,63 @@
     }).catch(function (e) {
       console.error(e);
       document.getElementById('upravna-status').textContent = 'Údaje o úpravně se nepodařilo načíst.';
+    });
+
+    function cz(n) { return String(Math.abs(Math.round(n))).replace(/\B(?=(\d{3})+(?!\d))/g, '\u00a0'); }
+    function radky(ev) {
+      return ev.map(function (e) {
+        return '<tr><td style="white-space:nowrap;">' + datum(e.date) + '</td><td><strong>' + esc(e.title) + '</strong><br>' + esc(e.text) + '</td><td>' +
+          e.sources.map(zdroj).join('<br>') + '</td></tr>';
+      }).join('');
+    }
+    function mezery(g) { return '<strong>Co zdroje neříkají:</strong><ul>' + g.map(function (x) { return '<li>' + esc(x) + '</li>'; }).join('') + '</ul>'; }
+    fetch('/voda/infrastruktura.json').then(function (r) { return r.json(); }).then(function (d) {
+      var pr = d.projekty, pocet = 0;
+      document.getElementById('infra-prehled').innerHTML = pr.map(function (p) {
+        pocet += p.events.length;
+        return '<tr><td><a href="#infra-' + esc(p.id) + '"><strong>' + esc(p.title) + '</strong></a></td><td style="white-space:nowrap;">' + esc(p.rok) + '</td><td>' + esc(p.stav) + '</td></tr>';
+      }).join('');
+      document.getElementById('infra-projekty').innerHTML = pr.map(function (p) {
+        var ev = p.events.slice().sort(function (a, b) { return a.date < b.date ? 1 : a.date > b.date ? -1 : 0; });
+        return '<details class="collapsible" id="infra-' + esc(p.id) + '" style="margin-top:26px;"><summary style="cursor:pointer; list-style:none;"><h4 style="margin:0 0 2px; display:inline;">' + esc(p.title) +
+          ' (' + ev.length + ' událostí) <span class="collapsible-arrow" aria-hidden="true">▾</span></h4></summary><p>' + esc(p.text) + '</p>' +
+          '<div class="table-scroll"><table class="register"><thead><tr><th>Datum</th><th>Událost</th><th>Zdroj</th></tr></thead><tbody>' + radky(ev) + '</tbody></table></div>' +
+          '<div class="callout">' + mezery(p.gaps) + '</div></details>';
+      }).join('');
+      document.getElementById('infra-box').hidden = false;
+      function otevri(id) { var el = id && document.getElementById(id); if (el && el.tagName === 'DETAILS') el.open = true; }
+      document.getElementById('infra-prehled').addEventListener('click', function (ev) {
+        var a = ev.target.closest('a'); if (a) otevri(a.getAttribute('href').slice(1));
+      });
+      otevri(location.hash.slice(1));
+      document.getElementById('infra-status').textContent = pr.length + ' projekty, ' + pocet + ' událostí';
+
+      var m = d.majetek;
+      document.getElementById('majetek-fakta').innerHTML = m.facts.map(function (f) {
+        return '<tr><th scope="row" style="white-space:nowrap;">' + esc(f.label) + '</th><td>' + esc(f.value) + '</td></tr>';
+      }).join('');
+      document.getElementById('majetek-text').innerHTML = m.text.map(function (t) { return '<p>' + esc(t) + '</p>'; }).join('');
+      document.getElementById('majetek-najemne').innerHTML = m.najemne.map(function (n) {
+        return '<tr><td>' + n.year + '</td><td style="white-space:nowrap;">' + cz(n.amount) + ' Kč</td><td>' + zdroj(n.source) + '</td></tr>';
+      }).join('');
+      document.getElementById('majetek-fondy').innerHTML = m.fondy.map(function (f) {
+        return '<tr><td style="white-space:nowrap;">' + datum(f.date) + '</td><td>' + esc(f.kind) + '</td><td>' + esc(f.what) + '</td><td style="white-space:nowrap;">' +
+          (f.amount < 0 ? '−' : '+') + cz(f.amount) + ' Kč</td><td>' + zdroj(f.source) + '</td></tr>';
+      }).join('');
+      document.getElementById('majetek-gaps').innerHTML = mezery(m.gaps);
+      document.getElementById('majetek-box').hidden = false;
+      document.getElementById('majetek-status').textContent = m.najemne.length + ' roky nájemného, ' + m.fondy.length + ' záznamů o fondech';
+
+      var w = d.destovka;
+      document.getElementById('destova-text').innerHTML = w.text.map(function (t) { return '<p>' + esc(t) + '</p>'; }).join('');
+      var we = w.events.slice().sort(function (a, b) { return a.date < b.date ? 1 : a.date > b.date ? -1 : 0; });
+      document.getElementById('destova-udalosti').innerHTML = radky(we);
+      document.getElementById('destova-gaps').innerHTML = mezery(w.gaps);
+      document.getElementById('destova-box').hidden = false;
+      document.getElementById('destova-status').textContent = we.length + ' událostí od roku ' + we[we.length - 1].date.slice(0, 4);
+    }).catch(function (e) {
+      console.error(e);
+      ['infra', 'majetek', 'destova'].forEach(function (k) { document.getElementById(k + '-status').textContent = 'Údaje se nepodařilo načíst.'; });
     });
   })();
   </script>

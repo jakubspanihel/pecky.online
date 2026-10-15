@@ -6,15 +6,21 @@ Referenční dokument pro práci na panelu `panel-voda` v
 tohle je detail jen pro tuhle jednu sekci.
 
 ## Účel sekce
-Voda ve městě Pečky. Rozsah obsahu zatím není určen; stránka je založená
-jako prázdná kostra.
+Přehled městské vody v Pečkách: ceník vodného a stočného, laboratorní rozbory,
+úpravna vody, čistírna odpadních vod, vodovody a vodojem, majetek a provozovatel
+(Pečecké služby, fondy obnovy) a dešťová voda. Typ stránky: tematický rozcestník
+(více samostatných příběhů), ne jedna časová osa. Pořadí na stránce: perex →
+stat-grid → „Kde to teď stojí“ → ceník (graf) → rozbory (graf) → čistírna,
+vodovody a vodojem (tabulka projektů + osy) → úpravna (osa) → majetek (tabulky)
+→ dešťová voda (osa). Každý blok má vlastní „Co zdroje neříkají“.
 
 ## Stav
 - Stránka je dostupná na `/voda/`, ale **není zařazená v žádném menu**
   (ani v hlavní navigaci, ani v sekundárním menu v `assets/footer.html`).
   Zařazení do menu je samostatné rozhodnutí.
-- Obsah panelu žije v `content/voda.html`; žádná samostatná datová sada
-  zatím neexistuje. Data a obrázky patří do této složky (`voda/`).
+- Obsah panelu žije v `content/voda.html`; data a obrázky patří do této
+  složky (`voda/`). Datové sady: `ceny.json`, `upravna.json`, `rozbory.json`
+  (+ `rozbory-sken.json`), `infrastruktura.json`.
 
 ## Data: `ceny.json`
 Ceník vodného a stočného po letech (Kč/m³, bez DPH a s DPH). Jeden záznam
@@ -66,7 +72,40 @@ přečte text PDF (`pdftotext -layout`) a vygeneruje `rozbory.json`
 - Nové protokoly: stáhnout PDF do `voda/rozbory/`, doplnit řádek do
   `_WORKING/voda-rozbory/index.json`, spustit generátor a build.
 
+## Data: `infrastruktura.json`
+Tři bloky, vznikl 15. 10. 2026 průchodem bodů programu a usnesení rady
+a zastupitelstva (`jednani/*.json`) a Hlídače státu.
+- `projekty[]` — čistírna (`cov`), Bačov (`bacov`), přivaděč Tatce–Pečky
+  (`privadec`), vodojem (`vodojem`): `title`, `rok`, `stav` (jedna věta podle
+  posledního zápisu), `text`, `gaps`, `events[]` (`date`, `title`, `text`,
+  `sources[]` = `{label, url}`; odkazy na `/jednani/#rada-RRRR-MM-DD` nebo
+  `#zastupitelstvo-RRRR-MM-DD`).
+- `majetek` — `facts`, `text`, `najemne[]` (roční nájemné za vodohospodářský
+  majetek bez DPH, 2022–2025), `fondy[]` (kladná částka = vklad, záporná =
+  schválené maximum čerpání), `gaps`.
+- `destovka` — `text`, `events[]`, `gaps` (program Dešťovka a stavba
+  „Hospodaření s dešťovou vodou“, 1. a 2. etapa; dotace SFŽP z Hlídače státu).
+- Ověřeno zápisy. Nepoužité/neověřené: částky smluv o dílo a dodatků
+  u čistírny a Bačova (1.–2. etapa), termín dokončení Intenzifikace ČOV,
+  nájemné za vodohospodářský majetek 2026, pachtovné, zůstatky fondů —
+  jsou uvedené jako mezery.
+- Hlídač státu: u čistírny, Bačova a dešťové vody hledání podle názvu akce
+  vrátilo jen dvě dotační smlouvy SFŽP (dešťová voda); smlouvy o dílo
+  v Registru smluv nenalezeny.
+
 ## Postup práce
 Obecná pravidla (needitovat vygenerovaný `voda/index.html`, upravit
 `content/voda.html` a spustit `python3 scripts/build.py`) jsou v
-kořenovém `CLAUDE.md`. Zdroje a zvláštní pravidla doplnit sem, až vzniknou.
+kořenovém `CLAUDE.md`. Postup pro nové téma: skill `pecky-online-nove-tema`.
+
+### Kontrola při týdenním běhu jednání
+Klíčová slova v `agenda[].t` a `resolutions[].text`: vodné, stočné,
+úpravna vody, Tatce, ČOV, kalolis, Intenzifikace, vodovod, vodovodní řad,
+přivaděč, kanalizace, vodojem, Pečecké služby, vodohospodářský majetek,
+pachtovní smlouva, Fond obnovy, Dešťovka, Hospodaření s dešťovou vodou, Bačov.
+Nález zapsat do `ceny.json` (cena), `upravna.json` / `infrastruktura.json`
+(události), případně do `gaps`. Zvlášť hlídat: ZM v prosinci (informace o ceně
+na další rok), RM v lednu (nájemné za vodohospodářský majetek), dodatky ke
+smlouvě o dílo na Bačov (3. a 4. etapa), nájem vodojemu pro Vantage Towers,
+nová poptávka na věžový vodojem. Běh končí řádkem „Voda: zkontrolováno,
+beze změny“ nebo výpisem změn.
