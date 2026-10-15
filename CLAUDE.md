@@ -152,6 +152,33 @@ příslušný `content/<sekce>.html` a přepsat všechny odkazy, pak spustit
   ruční přepsání toho pole ve `scripts/build.py` funguje stejně jako
   přepsání řádku ve „Stav sekcí" jinde.
 
+## Design systém
+Vizuální pravidla webu (barvy, písma, mezery, zaoblení, bannery, štítky,
+loga) jsou v design systému **DoPeček.cz** — soukromém artefaktu na claude.ai:
+https://claude.ai/artifact/DwEbaA4VMfiDfjauCZ9dc8. Web ho za běhu nečte;
+zdrojem pravdy pro hodnoty zůstává `assets/styles.css` a
+`lide/organizations.json`.
+- Před úpravou stylů, nového banneru nebo nové stránky přečíst přes nástroj
+  Artifact (akce `read`) `project/README.md` systému, podle potřeby
+  `project/tokens.json` (hodnoty) a `project/api/tokens.md`.
+- Slovo „apply“ od uživatele = přenést úpravy z design systému do repa:
+  hodnoty tokenů do `assets/styles.css` (barvy, písma, `--space-*`,
+  `--radius-*`, `--shadow-*`, `--fs-*`, `--fw-*`, `--ctl-h`) a barvy organizací
+  do `lide/organizations.json`, pak `python3 scripts/build.py`, bez commitu
+  (náhled na localhostu). Měnit jen hodnotu proměnné v `:root`, ne pravidla.
+  Nepřenáší se, co proměnnou nemá: složené textové styly (velikost + tloušťka
+  + řádkování najednou), `line-height`, `letter-spacing`, zvláštní hodnoty
+  zapsané přímo v pravidlech a inline styly v `content/*.html`; takové změny
+  jen vypsat.
+- Nové CSS psát přes tyto proměnné (`padding:var(--space-4)`,
+  `border-radius:var(--radius-sm)`, `font-size:var(--fs-5)`), pevné číslo jen
+  tam, kde pro hodnotu token není.
+- Po větší změně vzhledu webu systém znovu sesynchronizovat s repem
+  (tokeny, README, cover) a nové tokeny, které zdroj už nedefinuje, jen
+  vypsat — neodstraňovat bez souhlasu.
+- Systém je soukromý; jiným lidem nebo agentům je třeba ho nasdílet
+  (Share na stránce artefaktu).
+
 ## Poznámky k datům
 - Hlídač státu MCP: použij ICO_of_holding_structure (celá skupina),
   ne jen ICOs_of_contracting_party (jen úřad)
