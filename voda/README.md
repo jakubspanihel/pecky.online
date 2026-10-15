@@ -10,11 +10,11 @@ Voda ve městě Pečky. Rozsah obsahu zatím není určen; stránka je založen�
 jako prázdná kostra.
 
 ## Stav
-- Stránka je dostupná na `/voda/`, ale **není zařazená v žádném menu**
-  (ani v hlavní navigaci, ani v sekundárním menu v `assets/footer.html`).
-  Zařazení do menu je samostatné rozhodnutí.
-- Obsah panelu žije v `content/voda.html`; žádná samostatná datová sada
-  zatím neexistuje. Data a obrázky patří do této složky (`voda/`).
+- Stránka je dostupná na `/voda/` a je zařazená v sekundárním menu
+  v patičce (`assets/footer.html`, za Pokladnou); do overlay menu „Více...“
+  se odkaz doplní automaticky ze stejného seznamu (`assets/common.js`).
+- Obsah panelu žije v `content/voda.html`; data (`ceny.json`, `upravna.json`,
+  `rozbory.json`) a obrázky patří do této složky (`voda/`).
 
 ## Data: `ceny.json`
 Ceník vodného a stočného po letech (Kč/m³, bez DPH a s DPH). Jeden záznam
