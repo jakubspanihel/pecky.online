@@ -114,8 +114,8 @@
       <div class="segmented-control">
         <div class="segmented-group" role="group" aria-label="Zobrazení kalendáře">
           <button type="button" class="segmented-btn active" data-kal-view="kalendar" title="Kalendář"><svg class="kal-ico" viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="3" width="12" height="11" rx="1.5"/><path d="M2 6.5h12M5 1.5v3M11 1.5v3"/></svg><span class="kal-lbl">Kalendář</span></button>
-          <button type="button" class="segmented-btn" data-kal-view="seznam" title="Seznam"><svg class="kal-ico" viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5.5 4h8M5.5 8h8M5.5 12h8"/><path d="M2.5 4h.01M2.5 8h.01M2.5 12h.01" stroke-width="2"/></svg><span class="kal-lbl">Seznam</span></button>
           <button type="button" class="segmented-btn" data-kal-view="3dny" title="3 dny"><svg class="kal-ico" viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="3" width="12" height="10" rx="1.5"/><path d="M6.2 3v10M9.8 3v10"/></svg><span class="kal-lbl">3 dny</span></button>
+          <button type="button" class="segmented-btn" data-kal-view="seznam" title="Seznam"><svg class="kal-ico" viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5.5 4h8M5.5 8h8M5.5 12h8"/><path d="M2.5 4h.01M2.5 8h.01M2.5 12h.01" stroke-width="2"/></svg><span class="kal-lbl">Seznam</span></button>
         </div>
       </div>
     </div>
@@ -546,23 +546,22 @@
       return;
     }
 
-    // Karta: levý sloupec = chip + datum (jako na Domů), vpravo název, pořadatel, popis a místo
+    // Datum je nadpis nad skupinou akcí jednoho dne (stejně jako záhlaví pohledu „3 dny“: chip, den, datum).
+    // Karta: vpravo název, čas (+ štítek), místo, popis a poznámka.
+    const denKrat = d => { const x = new Date(d + 'T12:00:00'); return `${dny[x.getDay()]} ${x.getDate()}. ${x.getMonth() + 1}.`; };
+    function denNadpis(ds){
+      const x = new Date(ds + 'T12:00:00');
+      const rel = typeof relBudouci === 'function' ? relBudouci(ds) : null;
+      const chip = rel && ['dnes', 'zítra', 'pozítří'].includes(rel)
+        ? `<span class="tag ${rel === 'dnes' ? 'kal-dnes' : 'probiha'}" title="${ds}">${rel}</span>` : '';
+      const den = dny[x.getDay()][0].toUpperCase() + dny[x.getDay()].slice(1);
+      return `<h4 class="akce-den" data-date="${ds}">${chip}<b class="k3-den">${den}</b><span class="k3-datum">${x.getDate()}. ${x.getMonth() + 1}.</span></h4>`;
+    }
     function karta(e, skupina){
-      const [, mm, dd] = e.date.split('-');
-      const od = e.date < KAL_TODAY_STR && konec(e) >= KAL_TODAY_STR ? KAL_TODAY_STR : e.date;
-      const rel = typeof relBudouci === 'function' ? relBudouci(od) : null;
-      const den = d => { const x = new Date(d + 'T12:00:00'); return `<b class="ev-den">${dny[x.getDay()]}</b>\n${x.getDate()}. ${x.getMonth() + 1}.`; };   // název dne vždy na vlastním řádku
-      let chip = '', kdy;
-      if (skupina === 'bezi') {
-        chip = `<span class="tag kal-dnes" title="${e.date}">probíhá</span>`;
-        kdy = `do\n${den(konec(e))}`;
-      } else {
-        if (rel && ['dnes', 'zítra', 'pozítří'].includes(rel)) chip = `<span class="tag ${rel === 'dnes' ? 'kal-dnes' : 'probiha'}" title="${e.date}">${rel}</span>`;
-        kdy = e.date_end && e.date_end !== e.date ? `${den(e.date)} –\n${den(e.date_end)}` : den(e.date);
-        if (skupina === 'dnes' && !(e.date_end && e.date_end !== e.date)) kdy = '';
-      }
-      // čas ve formátu G:i (bez úvodní nuly u hodin), v samostatném bloku
-      const cas = e.time && skupina !== 'bezi' ? kalEsc(e.time).replace(/\b0(\d:\d{2})/g, '$1') : '';
+      const vicedenni = e.date_end && e.date_end !== e.date;
+      // čas ve formátu G:i (bez úvodní nuly u hodin); u vícedenních akcí rozsah dnů
+      let cas = e.time && skupina !== 'bezi' ? kalEsc(e.time).replace(/\b0(\d:\d{2})/g, '$1') : '';
+      if (vicedenni) cas = (skupina === 'bezi' ? `do ${denKrat(konec(e))}` : `do ${denKrat(e.date_end)}`) + (cas ? `, ${cas}` : '');
       const stitek = e.tag != null ? (e.tag ? `<span class="tag ev-stitek">${kalEsc(e.tag)}</span>` : '')
         : e.category === 'kurz' ? '<span class="tag ev-stitek">Pravidelně</span>'
         : e.category === 'svoz' ? '<span class="tag ev-stitek">svoz</span>' : '';
@@ -576,11 +575,20 @@
         ? '<button type="button" class="akce-info" aria-label="Zobrazit poznámku" aria-expanded="false" title="Poznámka"><svg viewBox="0 0 16 16" width="16" height="16" fill="currentColor" aria-hidden="true"><circle cx="3" cy="8" r="1.5"/><circle cx="8" cy="8" r="1.5"/><circle cx="13" cy="8" r="1.5"/></svg></button>' : '';
       const barva = kalMaPoradatele(e) && e.organizer ? ` style="${kalOrgStyle(e.organizer)}"` : '';
       const tip = kalMaPoradatele(e) && e.organizer_name ? ` title="Pořádá: ${kalEsc(e.organizer_name)}"` : '';
+      const radek = cas || stitek ? `<div class="ev-line">${cas ? `<span class="ev-time">${cas}</span>` : ''}${stitek}</div>` : '';
       return `<article class="akce-karta akce-blok-${e.category}"${barva}${tip}>
-        <div class="ev-when">${chip}<span class="ev-date">${kdy}</span><span class="ev-time">${cas}</span>${stitek}</div>
-        <div class="ev-what">${nazev}
-          ${misto ? `<div class="ev-meta">${misto}</div>` : ''}${popis}${vice}${pozn}</div>
+        <div class="ev-what">${radek}
+          ${nazev}${misto ? `<div class="ev-meta">${misto}</div>` : ''}${popis}${vice}${pozn}</div>
       </article>`;
+    }
+    // karty seskupené po dnech (nadpis dne + karty); „bezi“ je bez nadpisů dnů
+    function bloky(pole, kod){
+      if (kod === 'bezi') return `<div class="akce-karty">${pole.map(e => karta(e, kod)).join('')}</div>`;
+      let out = '', last = null, buf = [];
+      const flush = () => { if (buf.length) out += denNadpis(last) + `<div class="akce-karty">${buf.join('')}</div>`; buf = []; };
+      pole.forEach(e => { if (e.date !== last) { flush(); last = e.date; } buf.push(karta(e, kod)); });
+      flush();
+      return out;
     }
 
     // skupiny: proběhlé (jen když je odškrtnuto „Jen budoucí“) → dnešek (s časem napřed) → probíhající → další dny do konce měsíce
@@ -598,9 +606,9 @@
       skupiny = [['', 'dalsi', evs.slice().sort((a, b) => a.date.localeCompare(b.date) || poCase(a, b))]];
     }
     list.innerHTML = skupiny.filter(g => g[2].length).map(([nadpis, kod, pole]) =>
-      (nadpis ? `<h4 class="akce-skupina" data-skupina="${kod}">${nadpis}</h4>` : '') +
-      `<div class="akce-karty">${pole.map(e => karta(e, kod)).join('')}</div>`).join('') +
-      kalPravidelneBlok(pocetKurzu, pravidelne.length ? `<div class="akce-karty">${pravidelne.map(e => karta(e, 'dalsi')).join('')}</div>` : '', '');
+      (nadpis && kod !== 'dnes' ? `<h4 class="akce-skupina" data-skupina="${kod}">${nadpis}</h4>` : '') +
+      bloky(pole, kod)).join('') +
+      kalPravidelneBlok(pocetKurzu, pravidelne.length ? bloky(pravidelne, 'dalsi') : '', '');
     list.querySelectorAll('.akce-info').forEach(btn => {
       btn.addEventListener('click', () => {
         const pozn = btn.closest('.akce-karta').querySelector('.akce-pozn');
@@ -741,7 +749,9 @@
     const f = document.getElementById('kal-filters');
     const nav = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--nav-h')) || 0;
     const bar = document.querySelector('#panel-kalendar .kal-toolbar').offsetHeight;
-    document.getElementById('kal-3dny').style.setProperty('--kal-3dny-top', (nav + bar + (f.hidden ? 0 : f.offsetHeight)) + 'px');
+    const top = (nav + bar + (f.hidden ? 0 : f.offsetHeight)) + 'px';
+    document.getElementById('kal-3dny').style.setProperty('--kal-3dny-top', top);
+    document.getElementById('kal-list').style.setProperty('--kal-3dny-top', top);
   }
   if (window.ResizeObserver) {
     const ro = new ResizeObserver(kalStickyZahlavi);

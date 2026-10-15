@@ -441,48 +441,45 @@ function relBudouci(iso) {
     if (jeBezi) nBeziShown++; else nNove++;
     if (bezi(li) && !prvniBezi) prvniBezi = li;
     if (!bezi(li) && (li.dataset.from || li.dataset.until) > dnes && !prvniDalsi) prvniDalsi = li;
-    const chip = li.querySelector('.fut-chip');
-    const datum = li.querySelector('.ev-date');
-    const od = li.dataset.from || li.dataset.until;
-    const cas = li.dataset.timeText || li.dataset.time || '';  // např. 13:00–16:00
-    const t = relBudouci(od < dnes ? dnes : od);
-    if (!chip || t === null) return;
-    // chip jen pro probíhající a pro dnes / zítra / pozítří
-    chip.hidden = !jeBezi && !['dnes', 'zítra', 'pozítří'].includes(t);  // obecný .fut-chip skript skryl chip s datem v minulosti (probíhající vícedenní akce)
-    chip.textContent = t;
-    chip.title = od;
-    chip.classList.toggle('kal-dnes', t === 'dnes');
-    chip.classList.toggle('probiha', t !== 'dnes');
-    if (jeBezi) {  // probíhající vícedenní akce: chip „probíhá“, pod ním „do <den> <datum>“
-      chip.textContent = 'probíhá';
-      chip.title = li.dataset.from;
-      chip.classList.remove('probiha');
-      chip.classList.add('kal-dnes');   // červený jako „dnes“
-    }
-    // text data: rozsah, který už začal, je „do …“ (chip „probíhá“ je nad ním); dnešní
-    // jednodenní akce datum nevypisuje (stačí chip); čas mimo "dnes" patří k datu
-    // čas je v samostatném bloku (.ev-time, formát G:i); u probíhajících akcí se nezobrazuje
-    let txt;
-    if (li.dataset.denEnd) {
-      txt = od <= dnes ? 'do\n' + li.dataset.denEnd : li.dataset.den + ' –\n' + li.dataset.denEnd;
-    } else {
-      txt = t === 'dnes' ? '' : li.dataset.den;
-    }
-    datum.innerHTML = txt;   // obsahuje <b class="ev-den"> z buildu (název dne)
-    datum.hidden = !txt;
+    // čas (G:i) je v .ev-time; u vícedenních akcí před něj přibyde „do <den> <datum>“
     const casEl = li.querySelector('.ev-time');
     if (casEl) {
-      casEl.textContent = jeBezi ? '' : cas.replace(/\b0(\d:\d{2})/g, '$1');
-      casEl.hidden = !casEl.textContent;
+      const cas = (li.dataset.timeText || li.dataset.time || '').replace(/\b0(\d:\d{2})/g, '$1');
+      const doDne = li.dataset.denEnd ? 'do ' + li.dataset.denEnd : '';
+      casEl.textContent = [doDne, jeBezi ? '' : cas].filter(Boolean).join(', ');
     }
   });
+  // datum jako sticky nadpis nad skupinou akcí jednoho dne (chip, den, datum; jako pohled „3 dny“ v Kalendáři)
+  ul.querySelectorAll('.dash-den').forEach(h => h.remove());
+  const dnyTxt = ['neděle', 'pondělí', 'úterý', 'středa', 'čtvrtek', 'pátek', 'sobota'];
+  let posledniDen = null;
+  ul.querySelectorAll('.dash-event:not([hidden])').forEach(li => {
+    if (bezi(li)) { posledniDen = null; return; }
+    const den = (li.dataset.from || li.dataset.until) < dnes ? dnes : (li.dataset.from || li.dataset.until);
+    if (den === posledniDen) return;
+    posledniDen = den;
+    const x = new Date(den + 'T12:00:00');
+    const rel = relBudouci(den);
+    const chip = ['dnes', 'zítra', 'pozítří'].includes(rel)
+      ? `<span class="tag ${rel === 'dnes' ? 'kal-dnes' : 'probiha'}" title="${den}">${rel}</span>` : '';
+    const h = document.createElement('li');
+    h.className = 'dash-den';
+    h.innerHTML = `${chip}<b class="k3-den">${dnyTxt[x.getDay()][0].toUpperCase() + dnyTxt[x.getDay()].slice(1)}</b><span class="k3-datum">${x.getDate()}. ${x.getMonth() + 1}.</span>`;
+    ul.insertBefore(h, li);
+  });
+  // sticky nadpis dne se lepí pod sticky hlavičku karty
+  const hlava = ul.closest('.dash-card, section, div')?.querySelector('.dash-card-head');
+  ul.style.setProperty('--dash-head-h', (hlava ? hlava.offsetHeight : 0) + 'px');
   if (nadpis) {
     nadpis.hidden = !prvniBezi;
     if (prvniBezi) ul.insertBefore(nadpis, prvniBezi);
   }
   if (nadpisDalsi) {
     nadpisDalsi.hidden = !prvniDalsi;
-    if (prvniDalsi) ul.insertBefore(nadpisDalsi, prvniDalsi);
+    if (prvniDalsi) {
+      const pred = prvniDalsi.previousElementSibling;
+      ul.insertBefore(nadpisDalsi, pred && pred.classList.contains('dash-den') ? pred : prvniDalsi);
+    }
   }
   const empty = ul.querySelector('.dash-empty');
   if (empty) empty.hidden = shown > 0;
