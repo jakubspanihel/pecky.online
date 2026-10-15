@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Voda — Do Peček . cz</title>
+<meta name="description" content="Voda ve městě Pečky.">
+<link rel="canonical" href="https://dopecek.cz/voda/">
+<meta property="og:title" content="Voda — Do Peček . cz">
+<meta property="og:description" content="Voda ve městě Pečky.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://dopecek.cz/voda/">
+<meta property="og:site_name" content="Do Peček . cz">
+<meta property="og:locale" content="cs_CZ">
+<meta property="og:image" content="https://dopecek.cz/img/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Voda — Do Peček . cz">
+<meta name="twitter:description" content="Voda ve městě Pečky.">
+<meta name="twitter:image" content="https://dopecek.cz/img/og-image.png">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" type="image/png" sizes="32x32" href="/img/favicons/favicon-32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/img/favicons/icon-192.png">
+<link rel="apple-touch-icon" href="/img/favicons/apple-touch-icon.png">
+<link rel="stylesheet" href="/assets/org-colors.css">
+<link rel="stylesheet" href="/assets/styles.css">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-1CW9XK1VJY"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-1CW9XK1VJY');
+</script>
+
+</head>
+<body>
+<script>window.SITE_BASE_PATH = '';</script>
+<header class="site">
+  <div class="header-inner">
+    <div class="brand-row">
+      <a class="brand" href="/">
+        <img class="brand-logo" src="/img/favicons/icon-192.png" alt="" width="44" height="44">
+        <h1>Do Peček . cz</h1>
+      </a>
+    </div>
+  </div>
+  <nav class="tabs header-nav" id="tabs">
+    <a class="navlink" href="/naobed/">Na oběd</a>
+    <a class="navlink" href="/kalendar/">Kalendář</a>
+    <a class="navlink" href="/noviny/">Pečecké noviny</a>
+    <a class="navlink" href="/jednani/">Jednání</a>
+    <a class="navlink" href="/lide/">Lidé</a>
+    <a class="navlink" href="/telocvicna/">Tělocvična</a>
+    <a class="navlink" href="/volby/">Volby</a>
+    <button type="button" class="navlink navlink-more" id="infoFab" aria-controls="overlayMenu" aria-haspopup="dialog">Více...</button>
+  </nav>
+</header>
+<div class="overlay-menu" id="overlayMenu" role="dialog" aria-modal="true" aria-label="Menu" hidden>
+  <button type="button" class="overlay-close" id="overlayClose" aria-label="Zavřít menu">Zavřít</button>
+  <nav class="overlay-links" id="overlayLinks"></nav>
+  <template id="overlayMonitoring">
+    <a class="navlink secondary small" href="/o-webu/facebook-monitoring/facebook-mestopecky/">Facebook města</a>
+    <a class="navlink secondary small" href="/o-webu/uredni-deska-monitoring/">Úřední deska</a>
+    <a class="navlink secondary small" href="/jednani/absence.html">Docházka zastupitelů</a>
+    <a class="navlink secondary small" href="/jednani/youtube.html">YouTube města</a>
+  </template>
+</div>
+
+<main>
+  <section class="panel active" id="panel-voda">
+    <p class="lastmod" data-date="2026-10-15">Aktualizováno: 15. 10. 2026</p>
+    <h2 class="title display">Voda</h2>
+    <p class="lede perex">Ceník vodného a stočného v Pečkách podle let, laboratorní rozbory pitné vody od února 2016 a údaje o úpravně vody. Ceny jsou v korunách za metr krychlový, bez DPH i s DPH.</p>
+
+    <h3 class="search-status" id="voda-status"><span class="spinner" aria-hidden="true"></span>Načítám ceník…</h3>
+    <div id="voda-graf-box" hidden>
+      <h3>Vývoj ceny s DPH</h3>
+      <div id="voda-graf" role="img" aria-label="Graf vývoje ceny vodného, stočného a celkové ceny s DPH podle let"></div>
+      <div class="chart-legend" id="voda-legenda"></div>
+    </div>
+    <div id="voda-ceny"></div>
+
+    <h3 class="display" style="margin-top:36px;">Rozbory pitné vody – Pečky, vodojem</h3>
+    <p>Laboratorní protokoly o zkoušce pitné vody odebrané ve vodojemu v Pečkách, podle data odběru. Každý řádek odkazuje na PDF protokolu. Graf zobrazuje stejné řádky, jaké jsou vidět v tabulce, a ukazatel v něm jde přepnout.</p>
+    <h3 class="search-status" id="rozbory-status"><span class="spinner" aria-hidden="true"></span>Načítám rozbory…</h3>
+    <div id="rozbory-box" hidden>
+      <div style="display:flex; flex-wrap:wrap; gap:var(--space-3); align-items:center;">
+        <label for="rozbory-param" class="chip-label">Ukazatel</label>
+        <select id="rozbory-param" style="font-family:var(--font-mono); font-size:var(--fs-4); padding:5px 11px; border:1px solid var(--line); border-radius:var(--radius-sm); background:rgba(255,255,255,0.4); color:var(--ink);"></select>
+        <button type="button" id="rozbory-predchozi" class="chip" title="Předchozí ukazatel" aria-label="Předchozí ukazatel" style="padding:5px 14px;">←</button>
+        <button type="button" id="rozbory-dalsi" class="chip" title="Další ukazatel" aria-label="Další ukazatel" style="padding:5px 14px;">→</button>
+      </div>
+      <h3 id="rozbory-graf-nadpis" style="margin-top:var(--space-5);"></h3>
+      <div id="rozbory-graf" role="img" aria-label="Graf naměřených hodnot vybraných ukazatelů podle data odběru"></div>
+      <div class="chart-legend" id="rozbory-legenda" style="flex-wrap:wrap;"></div>
+      <details class="collapsible" id="rozbory-detail" style="margin-top:var(--space-7);">
+        <summary style="cursor:pointer; list-style:none;"><h3 class="display" style="margin:0 0 4px; display:inline;" id="rozbory-tabulka-nadpis">Přehled protokolů <span class="collapsible-arrow" aria-hidden="true">▾</span></h3></summary>
+        <div class="table-scroll"><table class="register" id="rozbory-tabulka"><thead id="rozbory-hlavicka"></thead><tbody id="rozbory-telo"></tbody></table></div>
+        <div class="callout" id="rozbory-pozn"></div>
+      </details>
+    </div>
+
+    <h3 class="display" style="margin-top:36px;">Úpravna vody</h3>
+    <h3 class="search-status" id="upravna-status"><span class="spinner" aria-hidden="true"></span>Načítám údaje o úpravně…</h3>
+    <div id="upravna-box" hidden>
+      <div class="table-scroll"><table class="register" style="min-width:0;"><tbody id="upravna-fakta"></tbody></table></div>
+      <div id="upravna-text"></div>
+      <div class="callout" id="upravna-gaps"></div>
+      <details class="collapsible" style="margin-top:26px;">
+        <summary style="cursor:pointer; list-style:none;"><h3 class="display" style="margin:0 0 4px; display:inline;" id="upravna-udalosti-nadpis">Časová osa <span class="collapsible-arrow" aria-hidden="true">▾</span></h3></summary>
+        <div class="table-scroll"><table class="register"><thead><tr><th>Datum</th><th>Událost</th><th>Zdroj</th></tr></thead><tbody id="upravna-udalosti"></tbody></table></div>
+      </details>
+    </div>
+  </section>
+
+  <script>
+  (function () {
+    var statusEl = document.getElementById('voda-status');
+    var box = document.getElementById('voda-ceny');
+    function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]; }); }
+    function kc(n) { return n == null ? '—' : n.toFixed(2).replace('.', ',') + ' Kč'; }
+    var SERIE = [
+      {k: 'celkem', label: 'Celkem', color: 'var(--burgundy)'},
+      {k: 'vodne', label: 'Vodné', color: 'var(--cyan-deep)'},
+      {k: 'stocne', label: 'Stočné', color: 'var(--ink-soft)'}
+    ];
+    function graf(years) {
+      var asc = years.filter(function (y) { return y.items.celkem.s_dph != null; })
+        .sort(function (a, b) { return a.year - b.year; });
+      var W = 640, H = 300, L = 52, R = 62, T = 22, B = 34;
+      var y0 = asc[0].year, y1 = asc[asc.length - 1].year;
+      var max = 0;
+      asc.forEach(function (y) { max = Math.max(max, y.items.celkem.s_dph); });
+      var step = 40;
+      var top = Math.ceil(max / step) * step;
+      function X(yr) { return y1 === y0 ? L + (W - L - R) / 2 : L + (yr - y0) * (W - L - R) / (y1 - y0); }
+      function Y(v) { return T + (1 - v / top) * (H - T - B); }
+      var out = '<svg viewBox="0 0 ' + W + ' ' + H + '" style="width:100%;height:auto;font-family:var(--font-mono);font-size:12px;">';
+      for (var v = 0; v <= top; v += step) {
+        out += '<line x1="' + L + '" x2="' + (W - R) + '" y1="' + Y(v) + '" y2="' + Y(v) + '" stroke="var(--line)"/>' +
+          '<text x="' + (L - 8) + '" y="' + (Y(v) + 4) + '" text-anchor="end" fill="var(--ink-soft)">' + v + '</text>';
+      }
+      out += '<text x="' + L + '" y="' + (T - 10) + '" fill="var(--ink-soft)">Kč/m³ s DPH</text>';
+      for (var yr = y0; yr <= y1; yr++) {
+        out += '<line x1="' + X(yr) + '" x2="' + X(yr) + '" y1="' + (H - B) + '" y2="' + (H - B + 4) + '" stroke="var(--ink-soft)"/>';
+        if ((y1 - yr) % 2 === 0) out += '<text x="' + X(yr) + '" y="' + (H - 10) + '" text-anchor="middle" fill="var(--ink-soft)">' + yr + '</text>';
+      }
+      // úpravna vody: stavba převzata 20. 3. 2024 (den v roce 80 z 366)
+      var PROVOZ = 2024 + 79 / 366;
+      if (PROVOZ >= y0 && PROVOZ <= y1) {
+        out += '<g><title>Úpravna vody v provozu (stavba převzata 20. 3. 2024)</title><line x1="' + X(PROVOZ) + '" x2="' + X(PROVOZ) + '" y1="' + T + '" y2="' + (H - B) + '" stroke="#d1242f" stroke-width="1"/>' +
+          '<text x="' + (X(PROVOZ) + 3) + '" y="' + (T + 8) + '" font-size="10" fill="#d1242f">Úpravna vody</text>' +
+          '<text x="' + (X(PROVOZ) + 3) + '" y="' + (T + 19) + '" font-size="10" fill="#d1242f">v provozu</text></g>';
+      }
+      SERIE.forEach(function (s) {
+        var pts = asc.filter(function (y) { return y.items[s.k].s_dph != null; });
+        for (var i = 1; i < pts.length; i++) {
+          var gap = pts[i].year - pts[i - 1].year > 1;
+          out += '<line x1="' + X(pts[i - 1].year) + '" y1="' + Y(pts[i - 1].items[s.k].s_dph) + '" x2="' + X(pts[i].year) + '" y2="' + Y(pts[i].items[s.k].s_dph) +
+            '" stroke="' + s.color + '" stroke-width="2.5"' + (gap ? ' stroke-dasharray="2 6" stroke-linecap="round"' : '') + '/>';
+        }
+        pts.forEach(function (y) {
+          var val = y.items[s.k].s_dph;
+          out += '<circle cx="' + X(y.year) + '" cy="' + Y(val) + '" r="4" fill="' + s.color + '"><title>' + s.label + ' ' + y.year + ': ' + kc(val) + '/m³ s DPH</title></circle>';
+        });
+        var last = pts[pts.length - 1];
+        out += '<text x="' + (X(last.year) + 9) + '" y="' + (Y(last.items[s.k].s_dph) + 4) + '" fill="' + s.color + '" font-weight="700">' + kc(last.items[s.k].s_dph).replace(' Kč', '') + '</text>';
+      });
+      return out + '</svg>';
+    }
+    fetch('/voda/ceny.json').then(function (r) { return r.json(); }).then(function (d) {
+      var years = d.years.slice().sort(function (a, b) { return b.year - a.year; });
+      document.getElementById('voda-graf').innerHTML = graf(years);
+      document.getElementById('voda-legenda').innerHTML = SERIE.map(function (s) {
+        return '<span><span style="display:inline-block;width:10px;height:10px;border-radius:50%;background:' + s.color + ';margin-right:6px;"></span>' + s.label + '</span>';
+      }).join('') + '<span>Tečkovaná čára = roky bez údaje o ceně s DPH</span>';
+      document.getElementById('voda-graf-box').hidden = false;
+      var rows = years.map(function (y) {
+        var i = y.items;
+        return '<tr><td style="white-space:nowrap;">' + y.year + '</td><td>' + (y.vat_rate == null ? '—' : y.vat_rate + ' %') + '</td>' +
+          ['vodne', 'stocne', 'celkem'].map(function (k) { return '<td>' + kc(i[k].bez_dph) + '</td><td>' + kc(i[k].s_dph) + '</td>'; }).join('') +
+          '<td><a href="' + esc(y.source.url) + '">' + esc(y.source.label) + '</a>' + (y.note ? '<br>' + esc(y.note) : '') + '</td></tr>';
+      }).join('');
+      box.innerHTML = '<details class="collapsible" style="margin-top:26px;"><summary style="cursor:pointer; list-style:none;"><h3 class="display" style="margin:0 0 4px; display:inline;">Ceník po letech (Kč/m³) <span class="collapsible-arrow" aria-hidden="true">▾</span></h3></summary><div class="table-scroll"><table class="register"><thead><tr><th>Rok</th><th>DPH</th>' +
+        '<th>Vodné bez DPH</th><th>Vodné s DPH</th><th>Stočné bez DPH</th><th>Stočné s DPH</th><th>Celkem bez DPH</th><th>Celkem s DPH</th><th>Zdroj</th></tr></thead><tbody>' + rows + '</tbody></table></div>' +
+        (d.gaps ? '<div class="callout">' + esc(d.gaps) + '</div>' : '') + '</details>';
+      statusEl.textContent = years.length + ' ' + (years.length === 1 ? 'rok' : years.length < 5 ? 'roky' : 'let') + ' v ceníku';
+    }).catch(function (e) {
+      console.error(e);
+      statusEl.textContent = 'Ceník se nepodařilo načíst.';
+    });
+
+    // ===== Rozbory pitné vody =====
+    var MESICE = ['leden','únor','březen','duben','květen','červen','červenec','srpen','září','říjen','listopad','prosinec'];
+    var JADRO = ['Escherichia coli','Koliformní bakterie','Dusičnany','Konduktivita','pH','Zákal','Chlor volný','Teplota','Železo'];
+    var BARVY = ['var(--burgundy)','var(--cyan-deep)','var(--gold)','var(--field)','var(--ink-soft)','var(--burgundy-deep)','var(--cyan)'];
+    var MISTO = 'Pečky – vodojem (VDJ)';
+    var RZ = {samples: [], mista: [], params: ['Dusičnany'], dostupne: []};
+    function rDatum(s) {
+      var p = s.date.split('-');
+      if (p.length === 2) return MESICE[+p[1] - 1] + ' ' + p[0];
+      return +p[2] + '. ' + +p[1] + '. ' + p[0];
+    }
+    function rCas(s) { var d = s.date.length === 7 ? s.date + '-15' : s.date; return new Date(d + 'T12:00:00Z').getTime(); }
+    function rHod(p) {
+      if (!p) return '—';
+      if (typeof p.v === 'number') return (p.op || '') + String(p.v).replace('.', ',');
+      return esc(p.v);
+    }
+    function rUnit(sm, name) {
+      for (var i = 0; i < sm.length; i++) if (sm[i].params[name] && sm[i].params[name].u) return sm[i].params[name].u;
+      return '';
+    }
+    function rLimit(sm, name) {
+      var vals = {};
+      sm.forEach(function (s) {
+        var p = s.params[name];
+        var m = p && p.limit && /^max\.\s*([\d,]+)/.exec(p.limit);
+        if (m) vals[m[1]] = 1;
+      });
+      var k = Object.keys(vals);
+      return k.length === 1 ? parseFloat(k[0].replace(',', '.')) : null;
+    }
+    function rViditelne() {
+      return RZ.samples;
+    }
+    function rGraf(sm, name) {
+      var pts = sm.filter(function (s) { return s.params[name] && typeof s.params[name].v === 'number'; });
+      if (!pts.length) return '<p>Pro vybraná místa není u tohoto ukazatele žádná číselná hodnota.</p>';
+      var W = 720, H = 320, L = 58, R = 20, T = 20, B = 34;
+      var t0 = Infinity, t1 = -Infinity, max = 0, lim = rLimit(sm, name);
+      pts.forEach(function (s) { max = Math.max(max, s.params[name].v); });
+      var rokOd = new Date(Math.min.apply(null, RZ.samples.map(rCas))).getUTCFullYear();
+      var rokDo = Math.max(new Date().getFullYear(), new Date(Math.max.apply(null, RZ.samples.map(rCas))).getUTCFullYear());
+      t0 = Date.UTC(rokOd, 0, 1); t1 = Date.UTC(rokDo + 1, 0, 1);
+      if (lim != null) max = Math.max(max, lim);
+      if (max <= 0) max = 1;
+      var mag = Math.pow(10, Math.floor(Math.log(max) / Math.LN10));
+      var step = [1, 2, 2.5, 5, 10].map(function (f) { return f * mag; }).filter(function (x) { return max / x <= 6; })[0] || mag * 10;
+      var top = Math.ceil(max / step - 1e-9) * step;
+      function X(t) { return L + (t - t0) / (t1 - t0) * (W - L - R); }
+      function Y(v) { return T + (1 - v / top) * (H - T - B); }
+      var out = '<svg viewBox="0 0 ' + W + ' ' + H + '" style="width:100%;height:auto;font-family:var(--font-mono);font-size:12px;">';
+      for (var v = 0; v <= top + step / 1000; v += step) {
+        out += '<line x1="' + L + '" x2="' + (W - R) + '" y1="' + Y(v) + '" y2="' + Y(v) + '" stroke="var(--line)"/>' +
+          '<text x="' + (L - 8) + '" y="' + (Y(v) + 4) + '" text-anchor="end" fill="var(--ink-soft)">' + String(+v.toFixed(6)).replace('.', ',') + '</text>';
+      }
+      for (var yr = rokOd; yr <= rokDo; yr++) {
+        var tx = Date.UTC(yr, 0, 1);
+        out += '<line x1="' + X(tx) + '" x2="' + X(tx) + '" y1="' + (H - B) + '" y2="' + (H - B + 4) + '" stroke="var(--ink-soft)"/>' +
+          '<text x="' + (X(tx) + (X(Date.UTC(yr + 1, 0, 1)) - X(tx)) / 2) + '" y="' + (H - 12) + '" text-anchor="middle" fill="var(--ink-soft)">' + yr + '</text>';
+      }
+      out += '<line x1="' + X(t1) + '" x2="' + X(t1) + '" y1="' + (H - B) + '" y2="' + (H - B + 4) + '" stroke="var(--ink-soft)"/>';
+      if (lim != null) {
+        out += '<line x1="' + L + '" x2="' + (W - R) + '" y1="' + Y(lim) + '" y2="' + Y(lim) + '" stroke="var(--burgundy)" stroke-dasharray="6 4"/>' +
+          '<text x="' + (W - R) + '" y="' + (Y(lim) - 5) + '" text-anchor="end" fill="var(--burgundy)">limit ' + String(lim).replace('.', ',') + '</text>';
+      }
+      var unit = rUnit(sm, name);
+      out += '<text x="' + L + '" y="' + (T - 8) + '" fill="var(--ink-soft)">' + esc(name) + (unit ? ' (' + esc(unit) + ')' : '') + '</text>';
+      // milníky úpravny vody (viz upravna.json: události 22. 5. 2019, 22. 9. 2022, 20. 3. 2024)
+      [
+        {t: Date.UTC(2019, 4, 22), l1: 'Začátek', l2: 'projektu', title: 'Začátek projektu úpravny vody (první kroky: zkouška vydatnosti pramene a nabídka na projekt, 22. 5. 2019)'},
+        {t: Date.UTC(2019, 7, 27), l1: 'Smlouva na', l2: 'projekt', dolu: true, dy: 30, title: 'Podpis smlouvy na projektovou dokumentaci úpravny vody (27. 8. 2019)'},
+        {t: Date.UTC(2022, 4, 5), l1: 'Výběrové řízení', l2: 'na stavbu', vlevo: true, title: 'Výběrové řízení na zhotovitele stavby úpravny vody zveřejněno (5. 5. 2022, profil zadavatele)'},
+        {t: Date.UTC(2022, 8, 22), l1: 'Začátek', l2: 'stavby', title: 'Začátek stavby úpravny vody (předání staveniště 22. 9. 2022)'},
+        {t: Date.UTC(2024, 2, 20), l1: 'Úpravna vody', l2: 'v provozu', title: 'Úpravna vody v provozu (stavba převzata 20. 3. 2024)'}
+        ,
+        {t: Date.UTC(2018, 9, 5), l1: 'Volby', l2: '2018', volby: true, title: 'Komunální volby 2018 (5.–6. 10. 2018)'},
+        {t: Date.UTC(2022, 8, 23), l1: 'Volby', l2: '2022', volby: true, title: 'Komunální volby 2022 (23.–24. 9. 2022)'},
+        {t: Date.UTC(2026, 9, 9), l1: 'Volby', l2: '2026', volby: true, title: 'Komunální volby 2026 (9.–10. 10. 2026)'}
+      ].forEach(function (ms) {
+        if (ms.t < t0 || ms.t > t1) return;
+        var x = X(ms.t), dole = ms.volby || ms.dolu, y = dole ? H - B - 24 - (ms.dy || 0) : T + 8, lev = dole || ms.vlevo, tx = lev ? x - 3 : x + 3, anchor = lev ? 'end' : 'start';
+        out += '<g><title>' + esc(ms.title) + '</title><line x1="' + x + '" x2="' + x + '" y1="' + T + '" y2="' + (H - B) + '" stroke="#d1242f" stroke-width="1"' + (ms.volby ? ' stroke-dasharray="4 3"' : '') + '/>' +
+          '<text x="' + tx + '" y="' + y + '" text-anchor="' + anchor + '" font-size="10" fill="#d1242f">' + ms.l1 + '</text>' +
+          '<text x="' + tx + '" y="' + (y + 11) + '" text-anchor="' + anchor + '" font-size="10" fill="#d1242f">' + ms.l2 + '</text></g>';
+      });
+      RZ.mista.forEach(function (m, i) {
+        var mp = pts.filter(function (s) { return s.misto === m; }).sort(function (a, b) { return rCas(a) - rCas(b); });
+        var c = BARVY[i % BARVY.length];
+        for (var k = 1; k < mp.length; k++) {
+          out += '<line x1="' + X(rCas(mp[k - 1])) + '" y1="' + Y(mp[k - 1].params[name].v) + '" x2="' + X(rCas(mp[k])) + '" y2="' + Y(mp[k].params[name].v) + '" stroke="' + c + '" stroke-width="1.5" opacity="0.55"/>';
+        }
+        mp.forEach(function (s) {
+          var p = s.params[name], less = p.op === '<';
+          out += '<circle cx="' + X(rCas(s)) + '" cy="' + Y(p.v) + '" r="4.5" fill="' + (less ? 'var(--paper, #fff)' : c) + '" stroke="' + c + '" stroke-width="2"><title>' +
+            esc(s.misto) + ', ' + rDatum(s) + ': ' + rHod(p) + (unit ? ' ' + esc(unit) : '') + '</title></circle>';
+        });
+      });
+      return out + '</svg>';
+    }
+    function rVykresli() {
+      var sm = rViditelne();
+      var ps = RZ.params;
+      document.getElementById('rozbory-graf-nadpis').textContent =
+        ps[0] + (rUnit(RZ.samples, ps[0]) ? ' (' + rUnit(RZ.samples, ps[0]) + ')' : '') + ' podle data odběru';
+      document.getElementById('rozbory-graf').innerHTML = rGraf(sm, ps[0]);
+      document.getElementById('rozbory-legenda').innerHTML = '<span>Prázdný bod = hodnota pod mezí stanovitelnosti (&lt;)</span>';
+      document.getElementById('rozbory-param').value = ps[0];
+      var cols = JADRO.slice();
+      ps.forEach(function (n) { if (cols.indexOf(n) < 0) cols.push(n); });
+      document.getElementById('rozbory-hlavicka').innerHTML = '<tr><th>Datum odběru</th><th>Místo odběru</th><th>Dokument</th>' + cols.map(function (c) {
+        var u = rUnit(RZ.samples, c);
+        return '<th' + (ps.indexOf(c) >= 0 ? ' style="background:var(--material-deep);"' : '') + '><button type="button" data-param="' + esc(c) + '" title="Zobrazit v grafu" style="all:inherit;cursor:pointer;padding:0;text-decoration:underline dotted;">' + esc(c) + '</button>' + (u ? '<br><span style="font-weight:400;">' + esc(u) + '</span>' : '') + '</th>';
+      }).join('') + '<th>Mimo limit</th></tr>';
+      document.getElementById('rozbory-telo').innerHTML = sm.map(function (s) {
+        var bad = Object.keys(s.params).filter(function (k) { return s.params[k].ok === false; });
+        return '<tr><td style="white-space:nowrap;">' + rDatum(s) + (s.date_approx ? '*' : '') + '</td><td>' + esc(s.misto) + '</td>' +
+          '<td style="white-space:nowrap;"><a href="' + esc(s.pdf) + '" target="_blank" rel="noopener">Protokol ' + esc(s.protokol) + '</a></td>' +
+          cols.map(function (c) {
+            var p = s.params[c];
+            return '<td' + (p && p.ok === false ? ' style="color:var(--burgundy);font-weight:700;"' : '') + '>' + rHod(p) + '</td>';
+          }).join('') + '<td>' + (bad.length ? esc(bad.join(', ')) : '—') + '</td></tr>';
+      }).join('') || '<tr><td colspan="' + (cols.length + 4) + '">Žádný protokol pro vybraná místa.</td></tr>';
+      var hasApprox = sm.some(function (s) { return s.date_approx; });
+      var pn = document.getElementById('rozbory-pozn');
+      pn.hidden = false;
+      pn.innerHTML = (hasApprox ? '* U protokolů z let 2017–2019 není na zveřejněné straně uvedeno datum odběru; je uveden měsíc z názvu dokumentu a v grafu je bod položen na 15. den měsíce.<br>' : '') +
+        'Červeně jsou hodnoty, které protokol vyhodnotil jako nevyhovující vyhlášce č. 252/2004 Sb.; sloupec „Mimo limit“ vypisuje všechny takové ukazatele z protokolu. Protokoly obsahují i další ukazatele (kovy, pesticidy, organické látky), úplný výčet je v PDF.';
+      document.getElementById('rozbory-tabulka-nadpis').firstChild.nodeValue = 'Přehled protokolů (' + sm.length + ') ';
+      document.getElementById('rozbory-status').textContent = sm.length + ' ' + (sm.length === 1 ? 'protokol' : sm.length < 5 ? 'protokoly' : 'protokolů') + ' od ' + rDatum(RZ.samples[RZ.samples.length - 1]) + ' do ' + rDatum(RZ.samples[0]);
+    }
+    fetch('/voda/rozbory.json').then(function (r) { return r.json(); }).then(function (d) {
+      RZ.samples = d.samples.filter(function (x) { return x.misto === MISTO; });
+      RZ.mista = [MISTO];
+      var pc = {};
+      RZ.samples.forEach(function (s) { Object.keys(s.params).forEach(function (k) { if (typeof s.params[k].v === 'number') pc[k] = (pc[k] || 0) + 1; }); });
+      RZ.dostupne = Object.keys(pc).filter(function (k) { return pc[k] >= 2; }).sort(function (a, b) {
+        var ia = JADRO.indexOf(a), ib = JADRO.indexOf(b);
+        return (ia < 0 ? 99 : ia) - (ib < 0 ? 99 : ib) || a.localeCompare(b, 'cs');
+      });
+      var sel = document.getElementById('rozbory-param');
+      sel.innerHTML = RZ.dostupne.map(function (k) { return '<option>' + esc(k) + '</option>'; }).join('');
+      sel.addEventListener('change', function () { RZ.params = [sel.value]; rVykresli(); });
+      document.getElementById('rozbory-predchozi').addEventListener('click', function () {
+        RZ.params = [RZ.dostupne[(RZ.dostupne.indexOf(RZ.params[0]) - 1 + RZ.dostupne.length) % RZ.dostupne.length]];
+        rVykresli();
+      });
+      document.getElementById('rozbory-dalsi').addEventListener('click', function () {
+        RZ.params = [RZ.dostupne[(RZ.dostupne.indexOf(RZ.params[0]) + 1) % RZ.dostupne.length]];
+        rVykresli();
+      });
+      document.getElementById('rozbory-hlavicka').addEventListener('click', function (e) {
+        var b = e.target.closest('button[data-param]');
+        if (!b) return;
+        RZ.params = [b.getAttribute('data-param')];
+        rVykresli();
+        document.getElementById('rozbory-graf-nadpis').scrollIntoView({block: 'center'});
+      });
+      document.getElementById('rozbory-box').hidden = false;
+      rVykresli();
+    }).catch(function (e) {
+      console.error(e);
+      document.getElementById('rozbory-status').textContent = 'Rozbory se nepodařilo načíst.';
+    });
+
+    function datum(d) {
+      var p = d.split('-');
+      if (p.length === 2) return +p[1] + '/' + p[0];
+      return +p[2] + '. ' + +p[1] + '. ' + p[0];
+    }
+    function zdroj(z) {
+      var ext = /^https?:/.test(z.url) ? ' target="_blank" rel="noopener"' : '';
+      return '<a href="' + esc(z.url) + '"' + ext + '>' + esc(z.label) + '</a>';
+    }
+    fetch('/voda/upravna.json').then(function (r) { return r.json(); }).then(function (u) {
+      var sm = u.summary;
+      document.getElementById('upravna-fakta').innerHTML = sm.facts.map(function (f) {
+        return '<tr><th scope="row" style="white-space:nowrap;">' + esc(f.label) + '</th><td>' + esc(f.value) + '</td></tr>';
+      }).join('');
+      document.getElementById('upravna-text').innerHTML = sm.text.map(function (t) { return '<p>' + esc(t) + '</p>'; }).join('');
+      document.getElementById('upravna-gaps').innerHTML = '<strong>Co zdroje neříkají:</strong><ul>' + sm.gaps.map(function (g) { return '<li>' + esc(g) + '</li>'; }).join('') + '</ul>';
+      var ev = u.events.slice().sort(function (a, b) { return a.date < b.date ? 1 : a.date > b.date ? -1 : 0; });
+      document.getElementById('upravna-udalosti').innerHTML = ev.map(function (e) {
+        return '<tr><td style="white-space:nowrap;">' + datum(e.date) + '</td><td><strong>' + esc(e.title) + '</strong><br>' + esc(e.text) + '</td><td>' +
+          e.sources.map(zdroj).join('<br>') + '</td></tr>';
+      }).join('');
+      document.getElementById('upravna-udalosti-nadpis').firstChild.nodeValue = 'Časová osa (' + ev.length + ' událostí) ';
+      document.getElementById('upravna-box').hidden = false;
+      document.getElementById('upravna-status').textContent = ev.length + ' událostí od roku ' + ev[ev.length - 1].date.slice(0, 4);
+    }).catch(function (e) {
+      console.error(e);
+      document.getElementById('upravna-status').textContent = 'Údaje o úpravně se nepodařilo načíst.';
+    });
+  })();
+  </script>
+
+</main>
+<footer class="site">
+  <nav class="tabs tabs-secondary header-nav" id="tabsSecondary" aria-label="Další sekce">
+    <a class="navlink" href="/plan/">Plán</a>
+    <a class="navlink" href="/smlouvy/">Smlouvy</a>
+    <a class="navlink" href="/zakazky/">Zakázky</a>
+    <a class="navlink" href="/pozemky/">Pozemky</a>
+    <a class="navlink" href="/prostory/">Prostory</a>
+    <a class="navlink" href="/pokladna/">Pokladna</a>
+    <a class="navlink" href="/o-webu/">O webu</a>
+  </nav>
+  <div class="footer-inner footer-credits">
+    <p style="margin:0 0 8px;">👋 Ahoj, já jsem PečkyBot.</p>
+    <img class="peckybot" src="/img/peckybot/welcome.png" alt="PečkyBot">
+    <p style="margin:6px 0 0;"><a href="https://www.instagram.com/peckybot/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" style="vertical-align:-3px;margin-right:6px;" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>PečkyBot na Instagramu</a></p>
+    <p style="margin:8px 0 0;">Web je sestaven s pomocí AI. Robot čerpá informace z veřejných dat dostupných na internetu.</p>
+    <p style="margin:6px 0 0;"><a href="/o-webu/changelog.html">Historie změn na webu</a></p>
+  </div>
+  <div class="footer-inner footer-credits">
+    <p style="margin:0;">Našli jste nepřesnost? Máte tip na nějaké téma ke zpracování? Zajímá vás něco o Pečkách? Pište na: <a href="mailto:dopecek@gmail.com">dopecek@gmail.com</a>.</p>
+  </div>
+</footer>
+
+<script src="/assets/common.js"></script>
+</body>
+</html>

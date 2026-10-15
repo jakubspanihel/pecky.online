@@ -125,6 +125,10 @@ MANIFEST = {
         '/pokladna/', 'Pokladna — Do Peček . cz',
         'Na co město Pečky utrácí: rozpočet a hospodaření srozumitelně.',
         False),
+    'voda': (
+        '/voda/', 'Voda — Do Peček . cz',
+        'Voda ve městě Pečky.',
+        False),
     'kalendar': (
         '/kalendar/', 'Co se děje v Pečkách — Do Peček . cz',
         'Kalendář termínů týkajících se města Pečky.',
@@ -256,6 +260,7 @@ README_TO_SLUG = {
     'plan': 'plan',
     'telocvicna': 'telocvicna',
     'pokladna': 'pokladna',
+    'voda': 'voda',
     'kalendar': 'kalendar',
     'naobed': 'naobed',
     'pozemky': 'pozemky',
