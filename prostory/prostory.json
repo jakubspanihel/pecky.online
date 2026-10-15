@@ -1,5 +1,5 @@
 {
-  "meta": {"stav_k": "2026-10-06", "zdroj": "jednani/pecky-jednani.json (usnesení rady města)", "poznamka": "Událost = usnesení rady (pole n). Datum a odkaz na jednání dopočítá update-prostory.py. Pole pozn je ručně přepsané z textu usnesení; jména fyzických osob nikdy neuvádět."},
+  "meta": {"stav_k": "2026-10-15", "zdroj": "jednani/pecky-jednani.json (usnesení rady města)", "poznamka": "Událost = usnesení rady (pole n). Datum a odkaz na jednání dopočítá update-prostory.py. Pole pozn je ručně přepsané z textu usnesení; jména fyzických osob nikdy neuvádět."},
   "typy": {"zamer": "záměr pronájmu", "zamer_vyp": "záměr výpůjčky", "smlouva": "smlouva", "vypujcka": "výpůjčka", "dodatek": "dodatek", "ukonceni": "ukončení", "podnajem": "podnájem"},
   "premises": [
     {
@@ -8,20 +8,17 @@
       "nazev": "Ordinace logopedie",
       "plocha": "38,3 m²",
       "forma": "pronájem",
-      "stav": "neznamy",
-      "stav_text": "lhůta pro nabídky skončila",
-      "poznamka_stav": "Nabídky se přijímaly do 7. 10. 2026 do 10:00. Usnesení o výběru nájemce a uzavření smlouvy zatím v datech jednání není.",
+      "stav": "pronajato",
+      "stav_text": "pronajato od 30. 10. 2026",
       "uzaverka": "2026-10-07",
       "uzaverka_cas": "10:00",
-      "podminky": "min. 5 100 Kč + služby 2 000 Kč měsíčně; nájem od 30. 10. 2026 na dobu neurčitou",
+      "podminky": "5 100 Kč měsíčně (při využití 2 dny v týdnu 1 020 Kč) + služby 2 000 Kč měsíčně; od 30. 10. 2026 na dobu neurčitou, výpovědní lhůta 3 měsíce",
       "nabidka": "Nabídka se podává v zapečetěné obálce s názvem „Pronájem NP v čp. 292“. Při více zájemcích rozhoduje nejvyšší nabídnutá cena.",
       "events": [
+        {"n": "UR-323-36/26", "typ": "smlouva", "pozn": "jediná nabídka, souhlasí s podmínkami záměru; plocha 38,3 m²; nájem 5 100 Kč/měsíc, při využití 2 dny v týdnu (20 %) 1 020 Kč + služby 2 000 Kč/měsíc; od 30. 10. 2026 na dobu neurčitou, výpovědní lhůta 3 měsíce; nájemkyně je podnikající fyzická osoba (ordinace ambulantní logopedie)"},
         {"n": "UR-304-34/26", "typ": "zamer", "pozn": "pouze za účelem ordinace logopedie; min. nájemné 5 100 Kč + služby 2 000 Kč/měsíc; od 30. 10. 2026 na dobu neurčitou, výpovědní lhůta 3 měsíce; nabídky do 7. 10. 2026 (10:00)", "deska": "486359"},
         {"n": "UR-305-34/26", "typ": "smlouva", "pozn": "přechodně jiné prostory (denní místnost + hala): na dobu určitou 1.–29. 10. 2026, 1 020 Kč + služby 650 Kč/měsíc; nájemkyně je fyzická osoba (OSVČ)"},
         {"n": "UR-280-31/26", "typ": "smlouva", "pozn": "přechodně: na dobu určitou 1.–30. 9. 2026, 1 020 Kč + služby 650 Kč/měsíc; nájemce je fyzická osoba (jméno v usnesení začerněno)"}
-      ],
-      "na_programu": [
-        {"jednani": "rada-2026-10-12", "bod": 4, "co": "uzavření smlouvy o pronájmu"}
       ]
     },
     {
@@ -30,13 +27,11 @@
       "nazev": "Vinotéka",
       "plocha": "neuvedeno",
       "forma": "pronájem",
-      "stav": "neznamy",
-      "stav_text": "zatím bez usnesení v datech",
-      "podminky": "neuvedeno",
-      "poznamka_stav": "Usnesení ani záměr k vinotéce zatím v datech jednání nejsou. Program rady uvádí smlouvu o nájmu prostoru sloužícího podnikání včetně dodatku č. 1, bez bližšího určení prostoru; nelze tedy říct, zda jde o některý z prostorů v Domě služeb níže.",
-      "events": [],
-      "na_programu": [
-        {"jednani": "rada-2026-10-12", "bod": 6, "co": "ukončení smlouvy o nájmu včetně dodatku č. 1"}
+      "stav": "ukonceno",
+      "stav_text": "smlouva ukončena dohodou k 31. 12. 2026",
+      "podminky": "nový záměr v usneseních zatím není",
+      "events": [
+        {"n": "UR-325-36/26", "typ": "ukonceni", "pozn": "ukončení smlouvy o nájmu prostoru sloužícího podnikání z 16. 2. 2022 včetně dodatku č. 1 z 1. 12. 2022 dohodou k 31. 12. 2026 (výpověď doručena 2. 10. 2026, tj. o měsíc kratší než 3měsíční lhůta); nájemkyně fyzická osoba (jméno v usnesení začerněno)"}
       ]
     },
     {

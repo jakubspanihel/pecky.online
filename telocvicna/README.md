@@ -613,3 +613,14 @@ projektu“, upravený úvod a gap-callout pod tabulkou, věta v prvním callout
   jako informace, Dodatky č. 1 k příkazním smlouvám TDS a KBOZP (ARCHA,
   UR-320 a UR-321-35/26, 5–0–1, bez dopadu na celkovou cenu).
 - **RM 36/2026 (12. 10. 2026):** pozvánka bez bodu ke stavbě.
+
+## Doplněno 15. 10. 2026: zápis RM 36/2026
+
+Zdroj: zápis rady města 36/2026 z 12. 10. 2026 (usneseni.cz). Bod 3
+(aktuální informace vedení města): starosta informoval o průběhu
+kontrolního dne na stavbě, o stavu přípravy a realizace prací na sanaci
+školní kuchyně a o zapojení soudního znalce z ČVUT do odborného posouzení
+stavební problematiky. Rada vzala informace na vědomí, bez usnesení.
+Zápis neuvádí datum kontrolního dne, rozsah ani cenu sanace, předmět a
+termín posudku ani zadavatele znalce — v `content/telocvicna.html` nový
+řádek „12. 10. 2026“ v tabulce „Zastavení stavby v roce 2026“.
