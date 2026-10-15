@@ -1,3 +1,7 @@
+  <style>
+    .rozbory-scroll{overflow:auto; max-height:calc(100vh - var(--nav-h,0px) - var(--space-10));}
+    #rozbory-tabulka thead th{position:sticky; top:0; z-index:2; background:var(--material);}
+  </style>
   <section class="panel active" id="panel-voda">
     <h2 class="title display">Voda</h2>
     <p class="lede perex">Ceník vodného a stočného v Pečkách podle let, laboratorní rozbory pitné vody od února 2016 a údaje o úpravně vody. Ceny jsou v korunách za metr krychlový, bez DPH i s DPH.</p>
@@ -14,18 +18,22 @@
     <p>Laboratorní protokoly o zkoušce pitné vody odebrané ve vodojemu v Pečkách, podle data odběru. Každý řádek odkazuje na PDF protokolu. Graf zobrazuje stejné řádky, jaké jsou vidět v tabulce, a ukazatel v něm jde přepnout.</p>
     <h3 class="search-status" id="rozbory-status"><span class="spinner" aria-hidden="true"></span>Načítám rozbory…</h3>
     <div id="rozbory-box" hidden>
-      <div style="display:flex; flex-wrap:wrap; gap:var(--space-3); align-items:center;">
-        <label for="rozbory-param" class="chip-label">Ukazatel</label>
-        <select id="rozbory-param" style="font-family:var(--font-mono); font-size:var(--fs-4); padding:5px 11px; border:1px solid var(--line); border-radius:var(--radius-sm); background:rgba(255,255,255,0.4); color:var(--ink);"></select>
-        <button type="button" id="rozbory-predchozi" class="chip" title="Předchozí ukazatel" aria-label="Předchozí ukazatel" style="padding:5px 14px;">←</button>
-        <button type="button" id="rozbory-dalsi" class="chip" title="Další ukazatel" aria-label="Další ukazatel" style="padding:5px 14px;">→</button>
+      <div style="display:flex; flex-wrap:wrap; gap:var(--space-3) var(--space-6); align-items:center; justify-content:space-between; margin-top:var(--space-5);">
+        <h3 id="rozbory-graf-nadpis" style="margin:0;"></h3>
+        <div style="display:flex; flex-wrap:wrap; gap:var(--space-3); align-items:center; margin-left:auto;">
+          <label for="rozbory-param" class="chip-label">Ukazatel</label>
+          <select id="rozbory-param" class="kal-org-select"></select>
+          <div class="segmented-group" role="group" aria-label="Přepnutí ukazatele">
+            <button type="button" class="segmented-btn" id="rozbory-predchozi" title="Předchozí ukazatel" aria-label="Předchozí ukazatel"><svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 3l-5 5 5 5"/></svg></button>
+            <button type="button" class="segmented-btn" id="rozbory-dalsi" title="Další ukazatel" aria-label="Další ukazatel"><svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3l5 5-5 5"/></svg></button>
+          </div>
+        </div>
       </div>
-      <h3 id="rozbory-graf-nadpis" style="margin-top:var(--space-5);"></h3>
       <div id="rozbory-graf" role="img" aria-label="Graf naměřených hodnot vybraných ukazatelů podle data odběru"></div>
       <div class="chart-legend" id="rozbory-legenda" style="flex-wrap:wrap;"></div>
       <details class="collapsible" id="rozbory-detail" style="margin-top:var(--space-7);">
         <summary style="cursor:pointer; list-style:none;"><h3 class="display" style="margin:0 0 4px; display:inline;" id="rozbory-tabulka-nadpis">Přehled protokolů <span class="collapsible-arrow" aria-hidden="true">▾</span></h3></summary>
-        <div class="table-scroll"><table class="register" id="rozbory-tabulka"><thead id="rozbory-hlavicka"></thead><tbody id="rozbory-telo"></tbody></table></div>
+        <div class="table-scroll rozbory-scroll"><table class="register" id="rozbory-tabulka"><thead id="rozbory-hlavicka"></thead><tbody id="rozbory-telo"></tbody></table></div>
         <div class="callout" id="rozbory-pozn"></div>
       </details>
     </div>
@@ -105,15 +113,7 @@
         return '<span><span style="display:inline-block;width:10px;height:10px;border-radius:50%;background:' + s.color + ';margin-right:6px;"></span>' + s.label + '</span>';
       }).join('') + '<span>Tečkovaná čára = roky bez údaje o ceně s DPH</span>';
       document.getElementById('voda-graf-box').hidden = false;
-      var rows = years.map(function (y) {
-        var i = y.items;
-        return '<tr><td style="white-space:nowrap;">' + y.year + '</td><td>' + (y.vat_rate == null ? '—' : y.vat_rate + ' %') + '</td>' +
-          ['vodne', 'stocne', 'celkem'].map(function (k) { return '<td>' + kc(i[k].bez_dph) + '</td><td>' + kc(i[k].s_dph) + '</td>'; }).join('') +
-          '<td><a href="' + esc(y.source.url) + '">' + esc(y.source.label) + '</a>' + (y.note ? '<br>' + esc(y.note) : '') + '</td></tr>';
-      }).join('');
-      box.innerHTML = '<details class="collapsible" style="margin-top:26px;"><summary style="cursor:pointer; list-style:none;"><h3 class="display" style="margin:0 0 4px; display:inline;">Ceník po letech (Kč/m³) <span class="collapsible-arrow" aria-hidden="true">▾</span></h3></summary><div class="table-scroll"><table class="register"><thead><tr><th>Rok</th><th>DPH</th>' +
-        '<th>Vodné bez DPH</th><th>Vodné s DPH</th><th>Stočné bez DPH</th><th>Stočné s DPH</th><th>Celkem bez DPH</th><th>Celkem s DPH</th><th>Zdroj</th></tr></thead><tbody>' + rows + '</tbody></table></div>' +
-        (d.gaps ? '<div class="callout">' + esc(d.gaps) + '</div>' : '') + '</details>';
+      box.innerHTML = d.gaps ? '<div class="callout">' + esc(d.gaps) + '</div>' : '';
       statusEl.textContent = years.length + ' ' + (years.length === 1 ? 'rok' : years.length < 5 ? 'roky' : 'let') + ' v ceníku';
     }).catch(function (e) {
       console.error(e);
@@ -212,25 +212,25 @@
       var sm = rViditelne();
       var ps = RZ.params;
       document.getElementById('rozbory-graf-nadpis').textContent =
-        ps[0] + (rUnit(RZ.samples, ps[0]) ? ' (' + rUnit(RZ.samples, ps[0]) + ')' : '') + ' podle data odběru';
+        ps[0] + (rUnit(RZ.samples, ps[0]) ? ' (' + rUnit(RZ.samples, ps[0]) + ')' : '');
       document.getElementById('rozbory-graf').innerHTML = rGraf(sm, ps[0]);
       document.getElementById('rozbory-legenda').innerHTML = '<span>Prázdný bod = hodnota pod mezí stanovitelnosti (&lt;)</span>';
       document.getElementById('rozbory-param').value = ps[0];
       var cols = JADRO.slice();
       ps.forEach(function (n) { if (cols.indexOf(n) < 0) cols.push(n); });
-      document.getElementById('rozbory-hlavicka').innerHTML = '<tr><th>Datum odběru</th><th>Místo odběru</th><th>Dokument</th>' + cols.map(function (c) {
+      document.getElementById('rozbory-hlavicka').innerHTML = '<tr><th>Datum odběru</th><th>Dokument</th>' + cols.map(function (c) {
         var u = rUnit(RZ.samples, c);
         return '<th' + (ps.indexOf(c) >= 0 ? ' style="background:var(--material-deep);"' : '') + '><button type="button" data-param="' + esc(c) + '" title="Zobrazit v grafu" style="all:inherit;cursor:pointer;padding:0;text-decoration:underline dotted;">' + esc(c) + '</button>' + (u ? '<br><span style="font-weight:400;">' + esc(u) + '</span>' : '') + '</th>';
       }).join('') + '<th>Mimo limit</th></tr>';
       document.getElementById('rozbory-telo').innerHTML = sm.map(function (s) {
         var bad = Object.keys(s.params).filter(function (k) { return s.params[k].ok === false; });
-        return '<tr><td style="white-space:nowrap;">' + rDatum(s) + (s.date_approx ? '*' : '') + '</td><td>' + esc(s.misto) + '</td>' +
+        return '<tr><td style="white-space:nowrap;">' + rDatum(s) + (s.date_approx ? '*' : '') + '</td>' +
           '<td style="white-space:nowrap;"><a href="' + esc(s.pdf) + '" target="_blank" rel="noopener">Protokol ' + esc(s.protokol) + '</a></td>' +
           cols.map(function (c) {
             var p = s.params[c];
             return '<td' + (p && p.ok === false ? ' style="color:var(--burgundy);font-weight:700;"' : '') + '>' + rHod(p) + '</td>';
           }).join('') + '<td>' + (bad.length ? esc(bad.join(', ')) : '—') + '</td></tr>';
-      }).join('') || '<tr><td colspan="' + (cols.length + 4) + '">Žádný protokol pro vybraná místa.</td></tr>';
+      }).join('') || '<tr><td colspan="' + (cols.length + 3) + '">Žádný protokol pro vybraná místa.</td></tr>';
       var hasApprox = sm.some(function (s) { return s.date_approx; });
       var pn = document.getElementById('rozbory-pozn');
       pn.hidden = false;
