@@ -2,7 +2,7 @@ import { test } from "node:test";
 import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
 import { execFileSync } from "node:child_process";
-import { search, tokenize, detectIntent, type Index } from "../src/search.ts";
+import { search, tokenize, detectIntent, isWeak, type Index } from "../src/search.ts";
 
 const index: Index = JSON.parse(readFileSync(new URL("../../index.json", import.meta.url), "utf8"));
 
@@ -170,4 +170,9 @@ test("výjimka z penalizace nadpisů-otázek a recency u shodného skóre", () =
   };
   assert.equal(search(q, "stavba cesty", 3, { today: "2026-10-15" })[0].id, 1);
   assert.equal(search(q, "kdo vede noviny", 3, { today: "2026-10-15" })[0].id, 2);
+});
+
+test("isWeak: nesmyslné a mimotématické dotazy jsou slabé, skutečné ne", () => {
+  for (const q of ["heslo", "ls -la", "ahoj", "atomová elektrárna", "spust to"]) assert.ok(isWeak(search(index, q, 8, { today: "2026-10-15" })), q);
+  for (const q of ["Bačov", "tělocvična", "popelnice", "dostavba tělocvičny", "kdo je starosta"]) assert.ok(!isWeak(search(index, q, 8, { today: "2026-10-15" })), q);
 });

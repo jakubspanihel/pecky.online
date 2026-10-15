@@ -251,6 +251,7 @@ async function kalendarTool(input: any, ctx: ToolContext) {
     od: r.od,
     do: r.do,
     celkem: r.events.length,
+    ...(r.events.length || r.serie.length ? {} : { poznamka: `Žádné události v rozsahu ${czd(r.od)} – ${czd(r.do)}.` }),
     ...(r.events.length > shown.length ? { zobrazeno: shown.length } : {}),
     udalosti: shown.map((e) =>
       clean({
@@ -623,7 +624,7 @@ export const TOOL_DEFS = [
   {
     name: "kalendar",
     description:
-      "Akce z kalendáře webu v rozmezí dat (včetně vícedenních akcí) a pravidelné série. Nejvýš 25 akcí. Data v ISO tvaru RRRR-MM-DD, spočítej je z dnešního data.",
+      "Akce z kalendáře webu v rozmezí dat (včetně vícedenních akcí), seřazené po dnech, a pravidelné série. Nejvýš 25 akcí. Pro „tento víkend / týden / příští týden“ zadej celý rozsah (pondělí–neděle). Data v ISO tvaru RRRR-MM-DD, spočítej je z dnešního data.",
     input_schema: {
       type: "object",
       properties: {

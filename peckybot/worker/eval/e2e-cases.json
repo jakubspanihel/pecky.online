@@ -5,7 +5,7 @@
    "pocet_bodu"
   ],
   "mustInclude": [
-   "\\d+"
+   "\\b26\\b"
   ]
  },
  {
@@ -15,16 +15,17 @@
    "pocet_bodu"
   ],
   "mustInclude": [
-   "\\b\\d{1,2}\\b"
+   "\\b6\\b|šest"
   ]
  },
  {
-  "q": "Kolikrát se řešila tělocvična na zastupitelstvu?",
+  "q": "Kolik jednání rady bylo v roce 2025?",
   "tools": [
+   "jednani",
    "pocet_bodu"
   ],
   "mustInclude": [
-   "\\d+"
+   "\\b46\\b"
   ]
  },
  {
@@ -33,17 +34,7 @@
    "pocet_bodu"
   ],
   "mustInclude": [
-   "\\d+",
-   "bod"
-  ]
- },
- {
-  "q": "Kolik bodů o školce je v zápisech rady?",
-  "tools": [
-   "pocet_bodu"
-  ],
-  "mustInclude": [
-   "\\d+"
+   "\\b46\\b"
   ]
  },
  {
@@ -53,14 +44,8 @@
    "slozeni"
   ],
   "mustInclude": [
-   "Fejfar|Jedlička"
-  ]
- },
- {
-  "q": "Kdo je starosta Peček?",
-  "tools": [],
-  "mustInclude": [
-   "Paluska"
+   "Fejfar",
+   "Jedlička"
   ]
  },
  {
@@ -70,7 +55,12 @@
   ],
   "mustInclude": [
    "Paluska",
-   "Fejfar"
+   "Fejfar",
+   "Jedlička",
+   "Krištoufek",
+   "Kuprov",
+   "Trčkov",
+   "Dürr"
   ]
  },
  {
@@ -79,16 +69,9 @@
    "slozeni"
   ],
   "mustInclude": [
-   "výbor"
-  ]
- },
- {
-  "q": "Kdo je v kontrolním výboru?",
-  "tools": [
-   "slozeni"
-  ],
-  "mustInclude": [
-   "výbor"
+   "Krištoufek",
+   "Železn",
+   "Vodič"
   ]
  },
  {
@@ -97,7 +80,9 @@
    "slozeni"
   ],
   "mustInclude": [
-   "školsk"
+   "Kuprov",
+   "Houdkov",
+   "Píšov|Vinohradníkov"
   ]
  },
  {
@@ -106,7 +91,7 @@
    "slozeni"
   ],
   "mustInclude": [
-   "21"
+   "\\b21\\b"
   ]
  },
  {
@@ -115,7 +100,25 @@
    "slozeni"
   ],
   "mustInclude": [
-   "starost"
+   "Švejnohov"
+  ]
+ },
+ {
+  "q": "Kdo byl první místostarostkou 2018–2022?",
+  "tools": [
+   "slozeni"
+  ],
+  "mustInclude": [
+   "Dvořáková"
+  ]
+ },
+ {
+  "q": "Kdo byl starostou Peček v letech 2006 až 2018?",
+  "tools": [
+   "slozeni"
+  ],
+  "mustInclude": [
+   "Urban"
   ]
  },
  {
@@ -124,90 +127,7 @@
    "osoba"
   ],
   "mustInclude": [
-   "@|\\+?\\d{3}"
-  ]
- },
- {
-  "q": "Jaký e-mail má místostarosta Fejfar?",
-  "tools": [
-   "osoba"
-  ],
-  "mustInclude": [
-   "@"
-  ]
- },
- {
-  "q": "Kdo je členem sportovní komise?",
-  "tools": [
-   "slozeni"
-  ],
-  "mustInclude": [
-   "komis"
-  ]
- },
- {
-  "q": "Kdy je příští zastupitelstvo?",
-  "tools": [
-   "jednani",
-   "kalendar"
-  ],
-  "mustInclude": [
-   "\\d{1,2}\\. ?\\d{1,2}\\. ?20"
-  ]
- },
- {
-  "q": "Co se děje tento víkend?",
-  "tools": [
-   "kalendar"
-  ],
-  "mustInclude": [
-   "10\\. ?10\\.|11\\. ?10\\."
-  ]
- },
- {
-  "q": "Co se bude dít příští týden v Pečkách?",
-  "tools": [
-   "kalendar"
-  ],
-  "mustInclude": [
-   "1[2-8]\\. ?10\\."
-  ]
- },
- {
-  "q": "Je tento týden nějaký koncert?",
-  "tools": [
-   "kalendar"
-  ],
-  "mustInclude": [
-   "."
-  ]
- },
- {
-  "q": "Kdy se sváží papír?",
-  "tools": [
-   "kalendar",
-   "hledej_text"
-  ],
-  "mustInclude": [
-   "papír"
-  ]
- },
- {
-  "q": "Kdy bylo poslední zasedání rady?",
-  "tools": [
-   "jednani"
-  ],
-  "mustInclude": [
-   "RM"
-  ]
- },
- {
-  "q": "Jaké akce jsou v Pečkách dnes?",
-  "tools": [
-   "kalendar"
-  ],
-  "mustInclude": [
-   "."
+   "milan\\.paluska@pecky\\.cz"
   ]
  },
  {
@@ -217,7 +137,7 @@
    "hledej_text"
   ],
   "mustInclude": [
-   "."
+   "Flašík"
   ]
  },
  {
@@ -226,7 +146,180 @@
    "osoba"
   ],
   "mustInclude": [
-   "Čížek|@|\\d{3}"
+   "Hoznauerov",
+   "marie\\.hoznauerova@pecky\\.cz|702 ?190 ?607"
   ]
+ },
+ {
+  "q": "Kdy je příští zastupitelstvo?",
+  "tools": [
+   "jednani",
+   "kalendar"
+  ],
+  "mustInclude": [
+   "7\\. ?10\\. ?2026|ZM 7/2026"
+  ],
+  "note": "V datech není po ZM 7/2026 (7. 10. 2026) naplánováno další; správná odpověď přizná, že termín není zveřejněn, a uvede poslední zasedání."
+ },
+ {
+  "q": "Kdy bylo poslední zasedání rady?",
+  "tools": [
+   "jednani"
+  ],
+  "mustInclude": [
+   "RM 36/2026",
+   "12\\. ?10\\."
+  ]
+ },
+ {
+  "q": "Co se probíralo na poslední radě?",
+  "tools": [
+   "cti_dokument",
+   "jednani"
+  ],
+  "mustInclude": [
+   "logoped|nebytov",
+   "hřišt",
+   "Mašink"
+  ],
+  "real": true
+ },
+ {
+  "q": "Co se projednávalo na RM 36/2026 a jak se hlasovalo?",
+  "tools": [
+   "cti_dokument"
+  ],
+  "mustInclude": [
+   "logoped|nebytov",
+   "hřišt",
+   "Mašink",
+   "\\b5\\b",
+   "\\b6\\b"
+  ]
+ },
+ {
+  "q": "Jak se hlasovalo o přerušení provozu MŠ Mašinka na RM 36/2026?",
+  "tools": [
+   "cti_dokument"
+  ],
+  "mustInclude": [
+   "\\b5\\b",
+   "vánoč|23\\. ?12\\."
+  ]
+ },
+ {
+  "q": "Co je nového na úřední desce?",
+  "tools": [
+   "uredni_deska"
+  ],
+  "mustInclude": [
+   "zastupitelstv|ZM 7|7/2026",
+   "stavebn|stavby"
+  ]
+ },
+ {
+  "q": "Projekt bačov už je hotový?",
+  "tools": [
+   "jednani",
+   "cti_dokument",
+   "hledej_text"
+  ],
+  "mustInclude": [
+   "23\\. ?9\\.|předáno|převzat",
+   "Dodatek č\\. ?4|RM 35/2026|32 ?699"
+  ],
+  "real": true,
+  "note": "RM 35/2026: dílo předáno 23. 9. 2026 s drobnými vadami; Dodatek č. 4 snižuje cenu na 32 699 740,75 Kč bez DPH.",
+  "mustNotInclude": [
+   "nevypadá, že by byl hotov|neobsahují potvrzení|zatím nevypadá"
+  ]
+ },
+ {
+  "q": "Co se děje tento víkend?",
+  "tools": [
+   "kalendar"
+  ],
+  "mustInclude": [
+   "{{SOBOTA}}|{{NEDELE}}"
+  ],
+  "kalendarAny": "vikend"
+ },
+ {
+  "q": "Co se bude dít příští týden v Pečkách?",
+  "tools": [
+   "kalendar"
+  ],
+  "mustInclude": [
+   "{{PRISTI_TYDEN_ANY}}"
+  ],
+  "kalendarAny": "pristi-tyden",
+  "mustNotInclude": [
+   "nic není|nic tam není|žádné akce|žádný program"
+  ]
+ },
+ {
+  "q": "Je tento týden nějaký koncert?",
+  "tools": [
+   "kalendar"
+  ],
+  "mustInclude": [
+   "koncert"
+  ],
+  "mustNotInclude": [
+   "^\\s*Ano\\b"
+  ],
+  "onlyIf": "bezKoncertuTentoTyden",
+  "note": "Spouští se jen když v kalendar.json není tento týden žádný koncert; odpověď nesmí začínat „Ano“."
+ },
+ {
+  "q": "Jaké akce jsou v Pečkách dnes?",
+  "tools": [
+   "kalendar"
+  ],
+  "mustInclude": [
+   "{{DNES}}|dnes"
+  ],
+  "kalendarAny": "dnes"
+ },
+ {
+  "q": "Co se děje v Pečkách?",
+  "tools": [
+   "kalendar"
+  ],
+  "mustInclude": [
+   "{{DNES}}|{{PRISTI_TYDEN_ANY}}|{{SOBOTA}}|{{NEDELE}}"
+  ],
+  "kalendarAny": "7dni",
+  "real": true
+ },
+ {
+  "q": "Kdy se sváží papír?",
+  "tools": [
+   "kalendar",
+   "hledej_text"
+  ],
+  "mustInclude": [
+   "první pátek|6\\. ?11\\."
+  ]
+ },
+ {
+  "q": "Jaká jsou místa k pronájmu v pečkách?",
+  "tools": [
+   "hledej_text"
+  ],
+  "mustInclude": [
+   "prostor|nebytov"
+  ],
+  "real": true
+ },
+ {
+  "q": "kde si muzu zajit na pivo az budu v peckach",
+  "tools": [
+   "hledej_text"
+  ],
+  "mustInclude": [
+   "Stříkačk|hospod|restaurac|hostinec"
+  ],
+  "real": true
  }
 ]

@@ -396,3 +396,15 @@ test("smyčka: čtení dokumentu přidá nejvýš ≈ 0,02 USD (limit výsledku 
   const tokens = r.content.length / 2.3; // pesimistický odhad pro češtinu v JSONu
   assert.ok((tokens * 2) / 1e6 * 2 < 0.02, `${tokens} tokenů`); // 2 další volání × 2 USD/M
 });
+
+test("kalendar: prázdný rozsah vrátí výslovnou poznámku s rozsahem", async () => {
+  const r = await run("kalendar", { od: "2031-01-01", do: "2031-01-07" }, mkCtx({ load: async () => ({ udalosti: [], serie: [] }) }));
+  assert.equal(r.json.celkem, 0);
+  assert.match(r.json.poznamka, /Žádné události v rozsahu 1\. 1\. 2031 – 7\. 1\. 2031/);
+});
+
+test("prompt: pravidla pro stav, kalendář, soukromí a zastaralé údaje", async () => {
+  const { systemPrompt } = await import("../src/prompt.ts");
+  const p = systemPrompt("15. 10. 2026");
+  for (const re of [/cti_dokument/, /CELÉHO rozsahu/, /„Ano“ jen když/, /Soukromé osoby/, /nejnovější údaj/, /otevírací dobu/]) assert.match(p, re);
+});
