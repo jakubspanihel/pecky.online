@@ -33,7 +33,9 @@ ne konvence pro obsah webu — ty jsou v `CLAUDE.md`.
   o macOS sandbox/TCC omezení konkrétního launcher procesu, který
   `preview_start` interně používá — ne chybu v `serve.py` ani v repu
   (stejný soubor se bez problému spustí ručně přes Bash tool). Neřeší se
-  úpravou skriptu/configu. **Obejití:** spustit server ručně přes Bash
+  úpravou skriptu. Od 15. 10. 2026 je `.claude/launch.json` jen „attach“
+  konfigurace (`url` + `port`, bez příkazu), takže `preview_start` s `name`
+  už nepadá, ale server je pořád nutné nejdřív pustit přes Bash. **Obejití:** spustit server ručně přes Bash
   (`python3 scripts/serve.py`, typicky na pozadí), pak zavolat
   `preview_start` s `url` (`http://localhost:8000`) místo `name` — Browser
   pane se tak napojí na už běžící server, aniž by ho sám spouštěl. `serve.py`
