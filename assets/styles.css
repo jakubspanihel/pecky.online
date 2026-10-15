@@ -239,8 +239,7 @@
   .kal-search::placeholder{color:var(--ink-soft);}
   .kal-org-select{max-width:100%; min-width:0; text-overflow:ellipsis; box-sizing:border-box; height:var(--ctl-h); padding:0 var(--space-4); border:1px solid var(--ink); background:var(--white-a65); font-family:inherit; font-size:var(--fs-7); border-radius:var(--radius-xs); color:var(--ink);}
   .kal-org-select[hidden]{display:none;}
-  .kal-banner{display:flex; align-items:stretch; justify-content:space-between; gap:var(--space-11); margin:28px 0 var(--space-3); padding:var(--space-12) var(--space-13) 0; background:linear-gradient(135deg,var(--banner-from,var(--burgundy)) 0%,var(--banner-to,var(--burgundy-deep)) 100%); color:var(--banner-fg,var(--white)); border-radius:var(--radius-xl); overflow:hidden; box-shadow:var(--shadow-banner);}
-  .kal-banner{position:relative;}
+  .kal-banner{display:flex; align-items:stretch; justify-content:space-between; gap:var(--space-11); margin:28px 0 var(--space-3); padding:var(--space-12) var(--space-13) 0; background:linear-gradient(135deg,var(--banner-from,var(--burgundy)) 0%,var(--banner-to,var(--burgundy-deep)) 100%); color:var(--banner-fg,var(--white)); border-radius:var(--radius-xl); overflow:hidden; box-shadow:var(--shadow-banner); position:relative;}
   .kal-banner[hidden], .kal-banner-min[hidden]{display:none;}
   .kal-banner-close{position:absolute; top:10px; right:12px; width:32px; height:32px; padding:0; border:0; border-radius:var(--radius-round); background:var(--banner-btn-bg,var(--white-a15)); color:var(--banner-fg,var(--white)); font-size:22px; line-height:1; cursor:pointer; z-index:1;}
   .kal-banner-close:hover{background:var(--banner-btn-bg-hover,rgba(255,255,255,0.3));}
@@ -441,7 +440,7 @@
   h2.kal-title{display:flex; align-items:center; gap:var(--space-2);}
   .kal-title .kal-banner-min, .kal-title .kal-add-min{margin:0;}
   .kal-title .kal-banner-min:not([hidden]), .kal-title .kal-banner-min[hidden] + .kal-add-min{margin-left:auto;}
-  .banner-body{max-width:640px;}
+  .banner-body{max-width:640px; flex:1 1 auto; min-width:0;}
   .banner .banner-title{margin:0 0 var(--space-4); font-family:var(--font-banner); font-size:26px; line-height:1.2; font-weight:var(--fw-semibold); color:var(--white);}
   .banner .banner-hl{padding:1px var(--space-4) 3px; border-radius:var(--radius-box); background:var(--white); color:var(--banner-accent); white-space:nowrap;}
   .banner .banner-title a{color:var(--white); text-decoration:none;}
@@ -462,7 +461,6 @@
   .banner.dash-list{padding:var(--space-12) var(--space-13); margin:0;}
   /* pravá část banneru (.banner-side): blok s avatary; li s .banner-body + .banner-side se rozloží do řádku */
   .banner > li:has(> .banner-side){display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:var(--space-6) 28px;}
-  .banner-body{flex:1 1 auto; min-width:0;}
   .banner > li:has(> .banner-side) > .banner-body{flex:1 1 0; min-width:240px;}
   .banner-side{flex:0 0 392px; box-sizing:border-box; padding:var(--space-7) var(--space-8); background:rgba(255,255,255,0.12); border-radius:var(--radius-lg);}
   .banner .banner-side-title{margin:0 0 var(--space-4); font-size:var(--fs-5); font-weight:var(--fw-bold); letter-spacing:.06em; text-transform:uppercase; color:var(--white-a80);}
@@ -692,8 +690,7 @@
   .card-grid{display:grid; grid-template-columns:repeat(auto-fill,minmax(220px,1fr)); gap:var(--space-6); margin-top:var(--space-8);}
 
   /* nadpisy ročníků zůstávají při scrollu pod lištou hledání */
-  #noviny-archive > h3.display, #noviny-results > h3.display{position:sticky; top:calc(var(--title-h,0px) + var(--lc-h,0px)); z-index:8; background:var(--material); padding:var(--space-2) 0; margin-bottom:0 !important;}
-  #noviny-archive > h3.display, #noviny-results > h3.display{top:calc(var(--nav-h,0px) + var(--title-h,0px) + var(--lc-h,0px));}
+  #noviny-archive > h3.display, #noviny-results > h3.display{position:sticky; z-index:8; background:var(--material); padding:var(--space-2) 0; margin-bottom:0 !important; top:calc(var(--nav-h,0px) + var(--title-h,0px) + var(--lc-h,0px));}
   .noviny-grid{display:grid; grid-template-columns:repeat(6,1fr); gap:var(--space-7); margin-top:var(--space-7);}
   @media (max-width:960px){.noviny-grid{grid-template-columns:repeat(4,1fr);}}
   @media (max-width:640px){.noviny-grid{grid-template-columns:repeat(2,1fr);}}
@@ -787,8 +784,8 @@
   /* karty volebních uskupení (Volby 2018/2022/2026) */
   .party-cards{display:flex; flex-direction:column; gap:var(--space-5); margin-top:var(--space-2);}
   .party-card{background:var(--material-deep); border:1px solid var(--line);
-    border-left:4px solid var(--org-c, var(--line)); border-radius:var(--radius-lg); padding:var(--space-6) var(--space-8);}
-  .party-card .party-name{font-family:var(--font-display); font-size:19px; font-weight:var(--fw-semibold); margin:0 0 var(--space-4);}
+    border-left:4px solid var(--org-c, var(--line)); border-radius:var(--radius-lg); padding:var(--space-6) var(--space-8); position:relative;}
+  .party-card .party-name{font-family:var(--font-display); font-size:19px; font-weight:var(--fw-semibold); margin:0 0 var(--space-4); padding-right:96px;}
   .party-card .party-body{margin:0; display:grid; gap:var(--space-4); font-size:var(--fs-9);}
   .party-card .party-row{line-height:1.55;}
   .party-card .people-avatars{max-width:none; gap:var(--space-2);}
@@ -804,8 +801,6 @@
   .vol-legend li{display:inline-flex; align-items:center; gap:var(--space-2);}
   table.register tr.vol-funkce td{background:rgba(189,37,63,0.07);}
   table.register tr.vol-funkce .tag{font-size:var(--fs-1); line-height:1.2; padding:2px var(--space-2); background:var(--burgundy); color:var(--white); border-color:transparent;}
-  .party-card{position:relative;}
-  .party-card .party-name{padding-right:96px;}
   .party-card .party-outcome .tag{position:absolute; top:14px; right:18px; font-weight:var(--fw-semibold);}
   .party-card .party-outcome .tag.opozice{color:var(--white); background:var(--cyan-deep); border-color:var(--cyan-deep);}
   .party-card .party-outcome .tag.koalice{color:var(--ink); background:var(--yellow); border-color:var(--yellow-deep);}
@@ -990,9 +985,8 @@
 
   /* ---- Absence na jednáních (/jednani/absence.html) ---- */
   /* jen dva sloupce — Docházka (+ "přítomen X z Y" pod procentem) a Jméno (+ poznámka pod ním) */
-  table.absence-tabulka th.num, table.absence-tabulka td.num{text-align:right; white-space:nowrap; vertical-align:top;}
+  table.absence-tabulka th.num, table.absence-tabulka td.num{text-align:right; white-space:nowrap; vertical-align:top; padding-right:var(--space-10);}
   table.absence-tabulka td{vertical-align:top;}
-  table.absence-tabulka th.num, table.absence-tabulka td.num{padding-right:var(--space-10);}
   .absence-mandat{display:block; margin-top:3px; font-family:'IBM Plex Mono',monospace; font-size:var(--fs-4); color:var(--ink-soft); font-weight:var(--fw-regular);}
   .absence-poznamka-text, .absence-poznamka-list{font-size:var(--fs-6); color:var(--ink-soft);}
   .absence-poznamka-text{margin:var(--space-2) 0 var(--space-1);}
@@ -1118,7 +1112,7 @@ table.calendar-table.kal-3dny .k3-prazdno{color:var(--ink-soft); font-size:var(-
 }
 table.calendar-table.kal-3dny tr.kal-3dny-date th{display:table-cell; vertical-align:top; padding:var(--space-5) var(--space-3); text-align:left;}
 table.calendar-table.kal-3dny .k3-den,table.calendar-table.kal-3dny .k3-datum{display:block; font-family:var(--font-banner); text-transform:none; letter-spacing:0; color:var(--ink);}
-table.calendar-table.kal-3dny .k3-den{font-size:17px; margin-top:var(--space-2);}
+table.calendar-table.kal-3dny .k3-den{font-size:17px; margin-top:var(--space-2); line-height:1.2;}
 table.calendar-table.kal-3dny .k3-datum{font-size:var(--fs-10); font-weight:var(--fw-regular); color:var(--ink-soft);}
 table.calendar-table.kal-3dny .k3-skupina{margin:var(--space-4) 0 0;}
 table.calendar-table.kal-3dny .k3-den{font-weight:var(--fw-bold);}
@@ -1135,7 +1129,6 @@ table.calendar-table.kal-3dny thead th{position:sticky; top:var(--kal-3dny-top, 
 /* „3 dny“: čáry jen mezi sloupci, bez obrysu tabulky a vodorovných čar */
 table.calendar-table.kal-3dny th,table.calendar-table.kal-3dny td,table.calendar-table.kal-3dny td.today{border:0; border-left:1px solid var(--line);}
 table.calendar-table.kal-3dny th:first-child,table.calendar-table.kal-3dny td:first-child{border-left:0;}
-table.calendar-table.kal-3dny .k3-den{line-height:1.2;}
 table.calendar-table.kal-3dny .k3-datum{font-weight:var(--fw-bold); line-height:1.2; margin-top:1px;}
 table.calendar-table.kal-3dny .k3-karta,table.calendar-table.kal-3dny .k3-cas{font-family:var(--font-body);}
 table.calendar-table.kal-3dny .k3-prazdno{color:var(--burgundy);}
