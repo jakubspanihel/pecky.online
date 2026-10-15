@@ -227,8 +227,8 @@ EXTRA_PAGES = {
         # Odkázaná z /noviny/ (odstavec "Související") od 8. 10. 2026 —
         # proto má lastmod a jde do sitemapy. Statická tabulka z tiráží novin.
         False, 'zpravodaj', '2026-10-12'),
-    'kalendar-today': (
-        '/kalendar/today.html', 'Dnes v Pečkách — Do Peček . cz',
+    'kalendar-insta': (
+        '/kalendar/insta.html', 'Dnes v Pečkách — Do Peček . cz',
         'Dnešní akce v Pečkách na jedné obrazovce, ve formátu 1080 × 1350 px.',
         # Celoobrazovkový blok bez hlavičky a patičky (BEZ_RAMCE), určený pro
         # snímek obrazovky. Nikam nelinkovaná -> lastmod None: noindex, mimo sitemapu.
@@ -246,7 +246,7 @@ EXTRA_PAGES = {
 
 
 # Stránky bez hlavičky a patičky (celoobrazovkové, se samostatným tlačítkem Zavřít)
-BEZ_RAMCE = {'peckybot', 'kalendar-today'}
+BEZ_RAMCE = {'peckybot', 'kalendar-insta'}
 
 
 # cesta k README sekce (jak je zapsaná v tabulce "Stav sekcí") -> slug v MANIFEST
@@ -1185,6 +1185,8 @@ def build_all(stav_rows=None):
             head_scripts = '<meta name="robots" content="noindex">\n' + head_scripts
 
         html = page_tpl
+        if slug == 'kalendar-insta':   # nástrojová stránka: bez přibližování na mobilu
+            html = html.replace('initial-scale=1"', 'initial-scale=1, maximum-scale=1, user-scalable=no"', 1)
         html = html.replace('{{TITLE}}', title)
         html = html.replace('{{DESCRIPTION}}', desc)
         html = html.replace('{{PATH}}', path)

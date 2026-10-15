@@ -1,56 +1,20 @@
-<!DOCTYPE html>
-<html lang="cs">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Dnes v Pečkách — Do Peček . cz</title>
-<meta name="description" content="Dnešní akce v Pečkách na jedné obrazovce, ve formátu 1080 × 1350 px.">
-<link rel="canonical" href="https://dopecek.cz/kalendar/today.html">
-<meta property="og:title" content="Dnes v Pečkách — Do Peček . cz">
-<meta property="og:description" content="Dnešní akce v Pečkách na jedné obrazovce, ve formátu 1080 × 1350 px.">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://dopecek.cz/kalendar/today.html">
-<meta property="og:site_name" content="Do Peček . cz">
-<meta property="og:locale" content="cs_CZ">
-<meta property="og:image" content="https://dopecek.cz/img/og-image.png">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Dnes v Pečkách — Do Peček . cz">
-<meta name="twitter:description" content="Dnešní akce v Pečkách na jedné obrazovce, ve formátu 1080 × 1350 px.">
-<meta name="twitter:image" content="https://dopecek.cz/img/og-image.png">
-<link rel="icon" href="/favicon.ico" sizes="48x48">
-<link rel="icon" type="image/png" sizes="32x32" href="/img/favicons/favicon-32.png">
-<link rel="icon" type="image/png" sizes="192x192" href="/img/favicons/icon-192.png">
-<link rel="apple-touch-icon" href="/img/favicons/apple-touch-icon.png">
-<link rel="stylesheet" href="/assets/org-colors.css">
-<link rel="stylesheet" href="/assets/styles.css">
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-1CW9XK1VJY"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-1CW9XK1VJY');
-</script>
-<meta name="robots" content="noindex">
-
-</head>
-<body>
-<script>window.SITE_BASE_PATH = '';</script>
-
-<main>
   <a class="overlay-close" href="/kalendar/" aria-label="Zavřít a vrátit se do kalendáře">Zavřít</a>
 
   <section class="panel active" id="panel-today" aria-label="Dnešní akce v Pečkách">
     <div class="today-frame" id="Frame">
       <span class="today-frame-popisek" aria-hidden="true">Frame</span>
+      <div class="today-format" role="group" aria-label="Formát obrázku">
+        <button type="button" class="today-format-btn" data-f="1:1" aria-pressed="false" title="Čtverec, 1080 × 1080 px">1:1</button>
+        <button type="button" class="today-format-btn" data-f="4:5" aria-pressed="true" title="Na výšku, 1080 × 1350 px">4:5</button>
+        <button type="button" class="today-format-btn" data-f="3:4" aria-pressed="false" title="Vysoký, 1080 × 1440 px">3:4</button>
+      </div>
     <div class="today-box" id="today-box">
       <h3 class="search-status" id="today-status"><span class="spinner" aria-hidden="true"></span>Načítám kalendář…</h3>
       <div class="today-card" id="today-card" hidden>
         <b class="today-den" id="today-den"></b>
         <span class="today-datum" id="today-datum"></span>
         <ul class="today-seznam" id="today-seznam" contenteditable="true" spellcheck="false" aria-label="Seznam akcí, po kliknutí jde upravit"></ul>
-        <span class="today-pata"><span class="today-hlava"><img src="/img/peckybot/welcome.png" alt="" width="1014" height="1014"></span>DoPecek.cz/kalendar</span>
+        <span class="today-pata">DoPecek.cz/kalendar</span>
       </div>
     </div>
       <div class="today-barvy" role="group" aria-label="Barva karty">
@@ -78,7 +42,7 @@
         </div>
         <div class="today-akce-tl">
           <button type="button" class="today-uloz-btn" id="today-uloz">Uložit ...</button>
-          <button type="button" class="today-uloz-btn" id="today-sdilet">Sdílet na Instagram</button>
+          <button type="button" class="today-uloz-btn" id="today-sdilet">Sdílet na Instagram</button>
         </div>
         <span class="today-stav" id="today-stav" role="status"></span>
       </div>
@@ -88,10 +52,10 @@
   <style>
     /* Rám 327 px široký (poměr stran 4:5 jako 1080 × 1350) ve stylu příspěvků z Instagramu: tři barevné varianty se střídají po dnech;
        uprostřed obrazovky (vodorovně i svisle; na nízké obrazovce se stránka posouvá) na inkoustovém pozadí; bez hlavičky a patičky. */
-    html,body{background:var(--ink);}
+    html,body{background:var(--ink); touch-action:manipulation;}  /* bez zoomu dvojitým klepnutím */
     main{max-width:none; margin:0; padding:0;}
     #panel-today{position:static; display:flex; align-items:center; justify-content:center; min-height:100vh; box-sizing:border-box; padding:110px 0 190px;}
-    .today-frame{position:relative; flex:none; --k0:.74; --k:.9; box-sizing:border-box; width:327px; aspect-ratio:4 / 5; margin:12px; padding:10px; background:var(--ink);}  /* poměr 4:5 jako Instagram (export 1080 × 1350) */
+    .today-frame{position:relative; flex:none; --k0:.74; --k:.9; box-sizing:border-box; width:327px; aspect-ratio:var(--pomer,4 / 5); margin:12px; padding:10px; background:var(--ink);}  /* poměr 4:5 jako Instagram (export 1080 × 1350) */
     /* pozadí rámu kontrastuje s barvou karty (všechno barvy projektu) */
     .today-frame.t-yellow{background:var(--burgundy);}
     .today-frame.t-white{background:var(--cyan);}
@@ -99,7 +63,7 @@
     .today-frame.t-cyan{background:var(--slate);}
     .today-frame.t-field{background:var(--yellow);}
     .today-frame.t-ink{background:var(--yellow);}
-    .today-frame-popisek{position:absolute; left:0; bottom:100%; margin-bottom:15px; white-space:nowrap; font:600 12px/1 var(--font-body); color:#D63FD6; pointer-events:none;}
+    .today-frame-popisek{position:absolute; left:0; bottom:100%; margin-bottom:12px; white-space:nowrap; font:600 18px/1 var(--font-body); color:#D63FD6; pointer-events:none;}
     .today-box{position:relative; z-index:1; width:100%; height:100%; color:var(--ink);}
     .today-box .search-status{margin:0; color:#fff;}
     .today-card{
@@ -127,12 +91,15 @@
     /* barvy pořadatelů jen na světlém podkladu, kde mají dost kontrastu */
     .today-card.t-yellow .today-seznam li span, .today-card.t-white .today-seznam li span{color:var(--org-c, var(--t-text));}
     .today-seznam .prazdno{list-style:none; margin-left:-20px;}
-    /* jen hlava PečkyBota: výřez z celé postavy (img/peckybot/welcome.png) */
-    .today-hlava{position:relative; flex:none; display:block; overflow:hidden; width:calc(26px * var(--k0)); height:calc(24.8px * var(--k0));}
-    .today-hlava img{position:absolute; left:calc(-5.7px * var(--k0)); top:calc(-2.2px * var(--k0)); width:calc(46.2px * var(--k0)); height:auto; max-width:none;}
     .today-pata{align-self:flex-end; display:flex; align-items:center; gap:calc(4px * var(--k0)); font:700 calc(13px * var(--k0))/1 var(--font-body); color:var(--t-text);}
     .today-barvy{position:absolute; bottom:100%; left:0; right:0; margin-bottom:40px; display:flex; justify-content:center; gap:12px;}
     .today-barva{width:28px; height:28px; padding:0; border-radius:50%; border:2px solid rgba(255,255,255,.55); cursor:pointer;}
+    .today-format{position:absolute; right:0; bottom:100%; margin-bottom:7px; display:flex;}
+    .today-format-btn{min-width:56px; height:28px; padding:0 14px; border:1px solid rgba(255,255,255,.55); border-right-width:0; background:transparent; color:#fff; font:700 13px/1 var(--font-body); cursor:pointer;}
+    .today-format-btn:first-child{border-radius:99px 0 0 99px;}
+    .today-format-btn:last-child{border-radius:0 99px 99px 0; border-right-width:1px;}
+    .today-format-btn:hover{background:rgba(255,255,255,.12);}
+    .today-format-btn[aria-pressed="true"]{background:#fff; color:var(--ink);}
     .today-radek{display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;}
     .today-pismo, .today-dny{display:flex; gap:8px;}
     .today-pismo-btn{min-width:34px; height:26px; padding:0 8px; border-radius:99px; border:1px solid rgba(255,255,255,.55); background:transparent; color:#fff; font:700 13px/1 var(--font-body); cursor:pointer;}
@@ -156,8 +123,11 @@
 <script>
   // ===== Dnes: karta s dnešními akcemi z kalendar/udalosti.json =====
   const KAL_NOW = new Date();
+  // iOS Safari ignoruje user-scalable=no, gesto štípnutí se proto blokuje ručně
+  ['gesturestart', 'gesturechange'].forEach(t => document.addEventListener(t, ev => ev.preventDefault()));
   const kalIso = d => `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
-  let KAL_DNES = kalIso(KAL_NOW);   // zobrazený den; šipky ho posouvají o den
+  const KAL_HASH = (location.hash.match(/^#(\d{4}-\d{2}-\d{2})$/) || [])[1];
+  let KAL_DNES = KAL_HASH || kalIso(KAL_NOW);   // zobrazený den (#RRRR-MM-DD z odkazu); šipky ho posouvají o den
   let KAL_RUCNE = false;            // true po ruční volbě barvy: pak se barva při změně dne nemění
   let KAL_EVENTS = [];
   let KAL_TEMA = '';   // barva karty: výchozí se střídá po dnech, kolečka ji přepíšou
@@ -183,14 +153,23 @@
   document.getElementById('today-pismo-mensi').addEventListener('click', () => kalPismo(-0.06));
   document.getElementById('today-pismo-vetsi').addEventListener('click', () => kalPismo(0.06));
 
-  // export bloku #Frame do PNG 1080 × 1350: klon s vloženými vypočtenými styly → SVG foreignObject → canvas
+  // formáty obrázku: poměr stran rámu a rozlišení exportu (Instagram)
+  const KAL_FORMATY = {'1:1': [1080, 1080], '4:5': [1080, 1350], '3:4': [1080, 1440]};
+  let KAL_FORMAT = '4:5';
+  document.querySelectorAll('.today-format-btn').forEach(b => b.addEventListener('click', () => {
+    KAL_FORMAT = b.dataset.f;
+    const [w, h] = KAL_FORMATY[KAL_FORMAT];
+    document.getElementById('Frame').style.setProperty('--pomer', w + ' / ' + h);
+    document.querySelectorAll('.today-format-btn').forEach(x => x.setAttribute('aria-pressed', x === b ? 'true' : 'false'));
+  }));
+  // export bloku #Frame do PNG v rozlišení zvoleného formátu (výchozí 1080 × 1350): klon s vloženými vypočtenými styly → SVG foreignObject → canvas
   async function kalFramePng(){
     const orig = document.getElementById('Frame');
     const clone = orig.cloneNode(true);
-    clone.querySelectorAll('.today-frame-popisek, .today-sipka, .today-pismo, .today-barvy, .today-akce').forEach(n => n.remove());
+    clone.querySelectorAll('.today-frame-popisek, .today-sipka, .today-pismo, .today-barvy, .today-format, .today-akce').forEach(n => n.remove());
     const o = [orig, ...orig.querySelectorAll('*')], c = [clone, ...clone.querySelectorAll('*')];
     // odstranění prvků v klonu posune indexy, proto se páruje podle pořadí zbylých prvků originálu
-    const origZbyle = o.filter(n => !n.closest('.today-frame-popisek, .today-sipka, .today-pismo, .today-barvy, .today-akce'));
+    const origZbyle = o.filter(n => !n.closest('.today-frame-popisek, .today-sipka, .today-pismo, .today-barvy, .today-format, .today-akce'));
     origZbyle.forEach((n, i) => {
       const cs = getComputedStyle(n), t = c[i];
       for (const name of cs) t.style.setProperty(name, cs.getPropertyValue(name));
@@ -206,8 +185,9 @@
     const img = new Image();
     await new Promise((res, rej) => { img.onload = res; img.onerror = rej; img.src = 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(svg); });
     const canvas = document.createElement('canvas');
-    canvas.width = 1080; canvas.height = 1350;
-    canvas.getContext('2d').drawImage(img, 0, 0, 1080, 1350);
+    const [cw, ch] = KAL_FORMATY[KAL_FORMAT];
+    canvas.width = cw; canvas.height = ch;
+    canvas.getContext('2d').drawImage(img, 0, 0, cw, ch);
     return new Promise(res => canvas.toBlob(res, 'image/png'));
   }
   function kalStav(t){ document.getElementById('today-stav').textContent = t; }
@@ -346,9 +326,3 @@
       document.getElementById('today-status').textContent = 'Kalendář se nepodařilo načíst.';
     });
 </script>
-
-</main>
-
-<script src="/assets/common.js"></script>
-</body>
-</html>

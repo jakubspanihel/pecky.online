@@ -85,8 +85,8 @@ vede rovnou na zdroj" v „Jak to funguje" níže.
       `.checkbox-label` nastavují vlastní `display` a atribut `hidden` by
       přebily — proto jsou v `assets/styles.css` pravidla `…[hidden]
       {display:none}`.
-  - **Podstránka `/kalendar/today.html`** (14. 10. 2026, na žádost uživatele;
-    `content/kalendar-today.html`, `EXTRA_PAGES` + `BEZ_RAMCE` v `scripts/build.py`):
+  - **Podstránka `/kalendar/insta.html`** (14. 10. 2026, na žádost uživatele;
+    `content/kalendar-insta.html`, `EXTRA_PAGES` + `BEZ_RAMCE` v `scripts/build.py`):
     jediný sloupec „dnes“ z pohledu „3 dny“ (stejný obsah a stejné třídy `.k3-*`
     i logika karet, vlastní kopie funkcí v inline skriptu stránky) v bloku
     1080 × 1350 px přesně uprostřed obrazovky, na pozadí `--ink`, bez hlavičky

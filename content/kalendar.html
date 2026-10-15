@@ -1,5 +1,5 @@
   <section class="panel active" id="panel-kalendar">
-    <h2 class="title display kal-title">Co se děje? <small class="kal-banner-min banner--yellow" id="kal-banner-min" hidden><a href="#" id="kal-banner-open">iCal</a></small><button type="button" class="kal-add-min" id="kal-add-min" aria-label="Zobrazit, jak přidat akci do kalendáře" title="Jak přidat akci do kalendáře" hidden>+</button></h2>
+    <h2 class="title display kal-title">Co se děje? <small class="kal-banner-min banner--yellow" id="kal-banner-min" hidden><a href="#" id="kal-banner-open">iCal</a></small><button type="button" class="kal-add-min" id="kal-add-min" aria-label="Zobrazit, jak přidat akci do kalendáře" title="Jak přidat akci do kalendáře">+</button></h2>
 
     <aside class="kal-banner banner--yellow" id="kal-banner">
       <button type="button" class="kal-banner-close" id="kal-banner-close" aria-label="Zavřít banner" title="Zavřít">×</button>
@@ -13,7 +13,7 @@
       <img class="kal-banner-img" src="/kalendar/img/mobil-2026-10.png" width="1125" height="2436" alt="Kalendář Peček v aplikaci Kalendář na iPhonu" loading="lazy">
     </aside>
 
-    <aside class="banner kal-add" id="kal-add">
+    <aside class="banner kal-add" id="kal-add" hidden>
       <button type="button" class="kal-banner-close" id="kal-add-close" aria-label="Zavřít banner" title="Zavřít">×</button>
       <div class="banner-body">
         <h3 class="banner-title">Přidat akci do kalendáře</h3>
@@ -418,7 +418,7 @@
       // chip jen pro dnes / zítra / pozítří, dál už ne
       const chip = n >= 0 && n <= 2
         ? `<span class="tag ${n === 0 ? 'kal-dnes' : 'probiha'}" title="${ds}">${['dnes', 'zítra', 'pozítří'][n]}</span>` : '';
-      hd += `<th>${chip}<b class="k3-den">${den}</b><span class="k3-datum">${x.getDate()}. ${x.getMonth() + 1}.</span></th>`;
+      hd += `<th><a class="akce-den-odkaz" href="/kalendar/insta.html#${ds}" title="Otevřít den jako obrázek pro Instagram">${chip}<b class="k3-den">${den}</b><span class="k3-datum">${x.getDate()}. ${x.getMonth() + 1}.</span></a></th>`;
       const zaklad = (KAL_EVENTS_BY_DATE[ds] || []).filter(e => kalShoda(e) && (!KAL_ORG || e.organizer === KAL_ORG) &&
         (!KAL_MISTO || kalMistoSkupina(e) === KAL_MISTO));
       const evs = zaklad.filter(e => KAL_SHOW_KURZ || e.category !== 'kurz')
@@ -484,7 +484,7 @@
       const chip = rel && ['dnes', 'zítra', 'pozítří'].includes(rel)
         ? `<span class="tag ${rel === 'dnes' ? 'kal-dnes' : 'probiha'}" title="${ds}">${rel}</span>` : '';
       const den = dny[x.getDay()][0].toUpperCase() + dny[x.getDay()].slice(1);
-      return `<h4 class="akce-den" data-date="${ds}">${chip}<b class="k3-den">${den}</b><span class="k3-datum">${x.getDate()}. ${x.getMonth() + 1}.</span></h4>`;
+      return `<h4 class="akce-den" data-date="${ds}"><a class="akce-den-odkaz" href="/kalendar/insta.html#${ds}" title="Otevřít den jako obrázek pro Instagram">${chip}<b class="k3-den">${den}</b><span class="k3-datum">${x.getDate()}. ${x.getMonth() + 1}.</span></a></h4>`;
     }
     function karta(e, skupina){
       const vicedenni = e.date_end && e.date_end !== e.date;
@@ -776,7 +776,7 @@
   document.getElementById('kal-banner-open').addEventListener('click', ev => { ev.preventDefault(); kalBannerSet(false, true); });
   try { if (localStorage.getItem('kal-banner-zavreny') === '1') kalBannerSet(true, false); } catch (e) {}
 
-  // Banner „Přidat akci do kalendáře“: křížek ho sbalí na tlačítko „+“, to ho zase rozbalí
+  // Banner „Přidat akci do kalendáře“: ve výchozím stavu sbalený na tlačítko „+“; křížek ho sbalí, „+“ rozbalí
   // (a banner iCal se přitom sbalí).
   function kalAddSet(zavreny, ulozit){
     document.getElementById('kal-add').hidden = zavreny;
@@ -786,7 +786,8 @@
   }
   document.getElementById('kal-add-close').addEventListener('click', () => kalAddSet(true, true));
   document.getElementById('kal-add-min').addEventListener('click', () => kalAddSet(false, true));
-  try { if (localStorage.getItem('kal-add-zavreny') === '1') kalAddSet(true, false); } catch (e) {}
+  // ve výchozím stavu je banner sbalený; rozbalený zůstane jen po ručním otevření („+“)
+  try { if (localStorage.getItem('kal-add-zavreny') === '0') kalAddSet(false, false); } catch (e) {}
 
   // Odstavec v banneru: počet budoucích akcí do konce následujícího měsíce
   // (bez pravidelných kurzů, svozů a rady; zastupitelstvo a volby se počítají).

@@ -1085,6 +1085,9 @@
   .akce-skupina + .akce-den{margin-top:var(--space-3);}
   .akce-den .k3-den, .dash-den .k3-den{font-family:var(--font-banner); font-weight:var(--fw-bold); color:var(--ink);}
   .akce-den .k3-datum, .dash-den .k3-datum{font-family:var(--font-banner); font-weight:var(--fw-regular); color:var(--ink-soft);}
+  .akce-den .akce-den-odkaz{display:flex; flex-wrap:wrap; align-items:center; gap:inherit; color:inherit; text-decoration:none;}
+  table.calendar-table.kal-3dny th .akce-den-odkaz{color:inherit; text-decoration:none;}
+  .akce-den .akce-den-odkaz:hover .k3-den, table.calendar-table.kal-3dny th .akce-den-odkaz:hover .k3-den{text-decoration:underline;}
 
 /* Volby: vystředěný výpis avatarů zvolených zastupitelů, 7 na řádek */
 .volby-zastupitele{display:grid; grid-template-columns:repeat(7, 56px); justify-content:center; gap:var(--space-4) var(--space-4); row-gap:var(--space-9); margin:var(--space-2) 0 var(--space-12);}
