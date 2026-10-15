@@ -1071,6 +1071,18 @@
   .akce-karta.akce-blok-vybor, .akce-karta.akce-blok-vybor .ev-title, .akce-karta.akce-blok-vybor .ev-misto, .akce-karta.akce-blok-vybor .ev-popis{color:var(--ink);}   /* zlatá: tmavý text */
   @media (max-width:600px){.akce-karta{grid-template-columns:120px minmax(0,1fr); gap:var(--space-3);}}
 
+/* Seznam na /kalendar/: datum jako sticky nadpis dne (vzor: záhlaví pohledu „3 dny“), karta bez levého sloupce */
+  .akce-karta{grid-template-columns:minmax(0,1fr);}
+  .akce-karta .ev-line{display:flex; flex-wrap:wrap; align-items:center; gap:var(--space-2) var(--space-4);}
+  .akce-karta .ev-line:not(:has(.ev-stitek)):has(.ev-time:empty){display:none;}
+  .akce-karta .ev-time{color:#fff;}
+  .akce-karta.akce-blok-vybor .ev-time{color:var(--ink);}
+  .akce-den, .dash-akce .dash-den{position:sticky; top:var(--kal-3dny-top,0px); z-index:7; display:flex; flex-wrap:wrap; align-items:center; gap:var(--space-2) var(--space-4); margin:var(--space-6) 0 var(--space-3); padding:var(--space-3) 0; background:var(--material); border-bottom:1px solid var(--line); font-size:var(--fs-10); font-weight:var(--fw-semibold); text-transform:none; letter-spacing:0;}
+  .dash-akce .dash-den{top:calc(var(--nav-h,0px) + var(--dash-head-h,0px)); margin:var(--space-2) 0 0; list-style:none;}
+  .akce-skupina + .akce-den{margin-top:var(--space-3);}
+  .akce-den .k3-den, .dash-den .k3-den{font-family:var(--font-banner); font-weight:var(--fw-bold); color:var(--ink);}
+  .akce-den .k3-datum, .dash-den .k3-datum{font-family:var(--font-banner); font-weight:var(--fw-regular); color:var(--ink-soft);}
+
 /* Volby: vystředěný výpis avatarů zvolených zastupitelů, 7 na řádek */
 .volby-zastupitele{display:grid; grid-template-columns:repeat(7, 56px); justify-content:center; gap:var(--space-4) var(--space-4); row-gap:var(--space-9); margin:var(--space-2) 0 var(--space-12);}
 .volby-zastupitele .av-link{display:block; line-height:0; position:relative;}

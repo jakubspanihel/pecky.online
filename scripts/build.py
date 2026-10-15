@@ -479,6 +479,13 @@ def _den_cz(iso):
     return f'<b class="ev-den">{DNY_CZ[date(y, m, d).weekday()]}</b>\n{d}. {m}.'  # název dne vždy na vlastním řádku (white-space:pre-line)
 
 
+def _den_txt(iso):
+    """'2026-10-07' -> 'středa 7. 10.' (prostý text, např. „do pátek 30. 10.“)."""
+    from datetime import date
+    y, m, d = (int(x) for x in iso.split('-'))
+    return f'{DNY_CZ[date(y, m, d).weekday()]} {d}. {m}.'
+
+
 def _dash_card(title, href, link_text, body, key, head_link=None):
     # key = název dlaždice v bento mřížce (grid-area v assets/styles.css)
     title_html = esc(title).replace('\n', '<br>')  # \n v titulku = konec řádku
@@ -884,7 +891,6 @@ def _dash_akce_li(e, i, hidden=False):
     vicedenni = e.get('date_end') and e['date_end'] != e['date']
     cas = e['time'] if e.get('time') and not e.get('all_day') else ''
     cas_txt = f'{cas}–{e["time_end"]}' if cas and e.get('time_end') else cas  # např. sběrný dvůr 13:00–16:00
-    kdy = (f'{_den_cz(e["date"])} –\n{_den_cz(e["date_end"])}' if vicedenni else _den_cz(e['date']))
     # místo konání (bez adresy) s ikonou 📍; pořadatel je rozlišený barvou karty
     kdo = (f'<span class="ev-meta"><span class="ev-misto"><span aria-hidden="true">📍</span> '
            f'{esc(_misto_bez_adresy(e["place"]))}</span></span>') if e.get('place') else ''
@@ -898,17 +904,16 @@ def _dash_akce_li(e, i, hidden=False):
     data_cas = f' data-time="{esc(cas)}" data-time-text="{esc(cas_txt)}"' if cas else ''
     # chip (dnes / zítra / za N dní) a text data („do …“) složí common.js
     # podle dnešního dne; popisky dnů předává build (jediný zdroj českých názvů dnů)
-    popisky = f' data-den="{esc(_den_cz(e["date"]))}" data-den-end="{esc(_den_cz(e["date_end"])) if vicedenni else ""}"'
+    popisky = f' data-den-end="{esc(_den_txt(e["date_end"])) if vicedenni else ""}"'
     org = e.get('organizer')
     # barva podle pořadatele (--org-<id> z assets/org-colors.css); bez barvy fallback v CSS
     barva = f' style="--org-c:var(--org-{org});--org-c-bg:var(--org-{org}-bg)"' if org else ''
     return (f'    <li class="dash-event"{barva} data-until="{e.get("date_end") or e["date"]}"'
             f'{data_from}{data_cas}{popisky}{" hidden" if hidden else ""}>'
             f'<a class="card akce-karta" href="{esc(zdroj)}"{cizi}{tip}>'
-            f'<span class="ev-when"><span class="tag probiha fut-chip" data-date="{e["date"]}">plánováno</span>'
-            f'<span class="ev-date">{kdy}</span>'
-            f'<span class="ev-time">{esc(_cas_gi(cas_txt))}</span>{_akce_stitek(e)}</span>'
-            f'<span class="ev-what"><span class="ev-title">{esc(e["title"])}</span>{kdo}</span></a></li>')
+            f'<span class="ev-what">'
+            f'<span class="ev-line"><span class="ev-time">{esc(_cas_gi(cas_txt))}</span>{_akce_stitek(e)}</span>'
+            f'<span class="ev-title">{esc(e["title"])}</span>{kdo}</span></a></li>')
 
 
 def _dash_kalendar(dnes):
