@@ -47,7 +47,6 @@
     <div class="today-box" id="today-box">
       <h3 class="search-status" id="today-status"><span class="spinner" aria-hidden="true"></span>Načítám kalendář…</h3>
       <div class="today-card" id="today-card" hidden>
-        <span class="today-chip">Z kalendáře</span>
         <b class="today-den" id="today-den"></b>
         <span class="today-datum" id="today-datum"></span>
         <ul class="today-seznam" id="today-seznam" contenteditable="true" spellcheck="false" aria-label="Seznam akcí, po kliknutí jde upravit"></ul>
@@ -114,11 +113,7 @@
     .today-card.t-cyan{--t-bg:var(--cyan); --t-den:#fff; --t-datum:var(--ink); --t-text:var(--ink); --t-chip-bg:var(--ink); --t-chip-fg:#fff;}
     .today-card.t-field{--t-bg:var(--field); --t-den:var(--yellow); --t-datum:#fff; --t-text:#fff; --t-chip-bg:#fff; --t-chip-fg:var(--ink);}
     .today-card.t-ink{--t-bg:var(--ink); --t-den:var(--yellow); --t-datum:#fff; --t-text:#fff; --t-chip-bg:#fff; --t-chip-fg:var(--ink);}
-    .today-chip{
-      font:900 calc(10.5px * var(--k0))/1 var(--font-body); letter-spacing:.05em; text-transform:uppercase;
-      padding:calc(6px * var(--k0)) calc(11px * var(--k0)); border-radius:99px; background:var(--t-chip-bg); color:var(--t-chip-fg);
-    }
-    .today-den{font:700 calc(66px * var(--k0))/1 var(--font-banner); color:var(--t-den); margin-top:calc(22px * var(--k0)); letter-spacing:-.01em;}
+    .today-den{font:700 calc(66px * var(--k0))/1 var(--font-banner); color:var(--t-den); margin-top:calc(6px * var(--k0)); letter-spacing:-.01em;}
     .today-datum{font:700 calc(52px * var(--k0))/1 var(--font-banner); color:var(--t-datum); margin-top:calc(-11px * var(--k0));}
     .today-seznam{
       list-style:disc; margin:auto 0 calc(18px * var(--k0)); padding:calc(14px * var(--k0)) 0 0 calc(22px * var(--k0)); width:100%; box-sizing:border-box; overflow:auto;
