@@ -162,7 +162,7 @@ Ze `zápis` textu:
   pozor, jméno musí končit až na `, přítomno`, ne na první tečce, jinak se
   utne na titulu („Ing."). Jméno pak projít stejným úklidem jako prezenci
   (nezlomitelné mezery, poznámka za pomlčkou — `INSTRUKCE-absence.md` §5).
-  U jednání, která jsou ve velkém `archive-*.json`, tohle všechno udělá
+  U jednání, která jsou v archivu `archive/`, tohle všechno udělá
   `jednani/scripts/doplnit-prubeznou-prezenci.py`; ručně se doplňují jen
   jednání novější než snímek archivu.
 - Po doplnění `links.minutes`/`resolutions`/`agenda`/`duration_seconds`
@@ -429,6 +429,23 @@ Netýká-li se žádné nové usnesení prostor, do shrnutí (krok 11) napiš
 „Prostory: zkontrolováno, beze změny“. Mlčení není totéž co „nic tam
 nebylo“.
 
+### 8f. Shrnutí jednání — POVINNÉ pro každé nově přidané jednání
+
+Pro každé jednání, které tento běh nově přidal do `pecky-jednani.json`
+(nebo u kterého doplnil zápis/usnesení), vypracuj shrnutí podle
+[`INSTRUKCE-shrnuti-schuzky.md`](INSTRUKCE-shrnuti-schuzky.md): bloky
+**Nejdůležitější témata** a **Shrnutí**. Vstupem je odkaz na to jednání
+(`/jednani/#rada-RRRR-MM-DD`, resp. `#zastupitelstvo-…`). Dělej to až
+po krocích 4–8e, kdy jsou data kompletní. Jednání jen s Pozvánkou (bez
+zápisu) se shrnuje jen podle programu a výslovně se uvede, že zápis
+chybí. Výstup ulož **do nového souboru** `jednani/shrnuti/{datum}-{typ}.md`
+(např. `2026-10-12-rada.md`; pravidla názvu a formát v §1b instrukce).
+U **Rady města** tím vznikne banner „Z poslední Rady města“ na Domů
+(nejdůležitější témata + tlačítko na detail jednání) — spusť
+`python3 scripts/build.py` a zkontroluj Domů screenshotem. V sekci Jednání
+se shrnutí nezobrazuje. Build ho zároveň předá PečkyBotovi (fulltext + `cti_dokument`),
+nic dalšího se nedělá. Shrnutí jde i do výpisu v kroku 11.
+
 ### 9. Tělocvična (pokud relevantní) — POVINNÉ při každém běhu
 
 Stavbu „Dostavba učeben a tělocvičny v ZŠ Pečky“ sleduje vlastní sekce
@@ -484,6 +501,9 @@ smysl — proto se výsledek nesmí slepě důvěřovat, vždy zkontrolovat.
 
 Stručně: co bylo nové/doplněné, co zůstává čekat na publikaci webem. Nic
 nevymýšlet — pokud web nic nového neukazuje, říct to přímo.
+
+**U každého nového jednání připoj shrnutí z kroku 8f** (Nejdůležitější
+témata + Shrnutí).
 
 **Vždy jmenovitě vypiš, co jsi změnil** — u každého dotčeného souboru
 (`jednani/pecky-jednani.json`, `kalendar/udalosti.json`,

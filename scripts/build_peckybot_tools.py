@@ -25,7 +25,7 @@ from build_peckybot_index import (  # noqa: E402
     FUNKCNI, ROLE_TAGY, _d_from, _d_to, _full_name, _lide_data, _party, clean_phone, clip,
     cz_date, meeting_ref,
 )
-from peckybot_sources import _load, _org_names, _vzorec_serie  # noqa: E402
+from peckybot_sources import _load, _org_names, _vzorec_serie, shrnuti_jednani  # noqa: E402
 
 ROOT = Path(__file__).resolve().parent.parent
 OUT_DIR = ROOT / 'peckybot' / 'data'
@@ -294,6 +294,9 @@ def _doc_meeting(jid, oznaceni, m, typ):
         doc['poznamka'] = POZVANKA_POZNAMKA
     elif not dostupne:
         doc['poznamka'] = BEZ_PROGRAMU_POZNAMKA
+    s = shrnuti_jednani(jid)
+    if s:
+        doc['shrnuti_jednani'] = s
     doc['body'] = body
     zbyla = [_usneseni(r) for i, r in enumerate(res) if i not in used]
     if zbyla:

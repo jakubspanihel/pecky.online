@@ -128,6 +128,15 @@ příslušný `content/<sekce>.html` a přepsat všechny odkazy, pak spustit
   Prostory. Postupy:
   `telocvicna/README.md` → „Pracovní postup: týdenní kontrola“ a
   `jednani/automation-katastr-parcely.md`, `prostory/README.md`.
+- **Každé nově přidané jednání** (rada, zastupitelstvo, komise, výbory,
+  školská rada) dostane při přidání do seznamu shrnutí podle
+  `jednani/INSTRUKCE-shrnuti-schuzky.md` (Nejdůležitější témata + Shrnutí),
+  uložené do **nového souboru** `jednani/shrnuti/{datum}-{typ}.md`
+  (název začíná datem, např. `2026-10-12-rada.md`). U Rady města z něj build
+  sestaví banner „Z poslední Rady města“ na Domů; v sekci Jednání se
+  shrnutí nezobrazuje; build ho předá i PečkyBotovi (fulltext a `cti_dokument`). Zařazeno do kroku 8f
+  `jednani/automation-kontrola-usneseni-cz.md` a do postupů komisí a výborů
+  v `jednani/README.md`; do výpisu běhu.
 - Každý běh kontroly končí výpisem provedených změn — u každého dotčeného
   souboru jednou větou, co a proč se změnilo. Sekce, kde kontrola nic
   nenašla, se hlásí výslovně jako „zkontrolováno, beze změny“, ne mlčením.

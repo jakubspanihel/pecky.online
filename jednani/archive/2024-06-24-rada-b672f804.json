@@ -1,0 +1,948 @@
+{
+ "uuid": "b672f804-2e30-11ef-89f7-00505683238f",
+ "body_type_raw": "Rada",
+ "label_raw": "24/2024 (24. 6. 2024)",
+ "number": 24,
+ "year": 2024,
+ "date_iso": "2024-06-24",
+ "links": {
+  "invitation": "https://mesto-pecky.usneseni.cz/verejne/?uuid=b672f804-2e30-11ef-89f7-00505683238f&page=8&do=printPublicInvitation",
+  "minutes": "https://mesto-pecky.usneseni.cz/verejne/b672f804-2e30-11ef-89f7-00505683238f/zapis/?page=8",
+  "signed_minutes_pdf": "https://mesto-pecky.usneseni.cz/verejne/?meetingReportControl-uuid=b672f804-2e30-11ef-89f7-00505683238f&page=8&do=meetingReportControl-getSignedReportPdf",
+  "resolutions": "https://mesto-pecky.usneseni.cz/verejne/b672f804-2e30-11ef-89f7-00505683238f/usneseni/?page=8",
+  "audio": null
+ },
+ "link_texts": {
+  "invitation": "Pozvánka",
+  "minutes": "zápis",
+  "signed_minutes_pdf": "podepsaný zápis",
+  "resolutions": "přijatá usnesení"
+ },
+ "status": "ok",
+ "invitation": {
+  "status": "site_error",
+  "error": "status=200 ct=text/html; charset=utf-8 flash='<a href=\"\" class=\"close\" data-dismiss=\"alert\" aria-label=\"close\">&times;'",
+  "url": "https://mesto-pecky.usneseni.cz/verejne/?uuid=b672f804-2e30-11ef-89f7-00505683238f&do=printPublicInvitation",
+  "fetched_at": "2026-08-04T15:00:14.842359+00:00"
+ },
+ "minutes": {
+  "status": "ok",
+  "url": "https://mesto-pecky.usneseni.cz/verejne/b672f804-2e30-11ef-89f7-00505683238f/zapis/",
+  "fetched_at": "2026-08-04T13:48:16.408608+00:00",
+  "title_raw": "ZÁPIS ze schůze rady č. 24/2024 Město Pečky datum: 24. 6. 2024, čas: 15:00 ​",
+  "date_raw": "24. 6. 2024",
+  "date_iso": "2024-06-24",
+  "time_raw": "15:00",
+  "presence": {
+   "raw_text": "Prezence:\nPřítomni:\n(4) Ing. Karel Krištoufek, Ing. Petr Dürr, Ing. Martin Jedlička, Ing. Hana Kuprová\nOmluveni:\n(3) Milan Paluska, Zdeněk Fejfar, Ivana Trčková\nNepřítomni:\n(0)\nHosté:\nZapisovatel/ka:\nEva Strnadová\nPřítomno je 5 členů a rada je usnášeníschopná.\nJednání zahájeno 24.06.2024 v 15:12:06",
+   "pritomni": {
+    "count": 4,
+    "names": [
+     "Ing. Karel Krištoufek",
+     "Ing. Petr Dürr",
+     "Ing. Martin Jedlička",
+     "Ing. Hana Kuprová"
+    ],
+    "raw": "(4) Ing. Karel Krištoufek, Ing. Petr Dürr, Ing. Martin Jedlička, Ing. Hana Kuprová"
+   },
+   "omluveni": {
+    "count": 3,
+    "names": [
+     "Milan Paluska",
+     "Zdeněk Fejfar",
+     "Ivana Trčková"
+    ],
+    "raw": "(3) Milan Paluska, Zdeněk Fejfar, Ivana Trčková"
+   },
+   "nepritomni": {
+    "count": 0,
+    "names": [],
+    "raw": "(0)"
+   },
+   "predsedajici": null,
+   "quorum_raw": "Přítomno je 5 členů a rada je usnášeníschopná."
+  },
+  "header_raw": "Prezence:\nPřítomni:\n(4) Ing. Karel Krištoufek, Ing. Petr Dürr, Ing. Martin Jedlička, Ing. Hana Kuprová\nOmluveni:\n(3) Milan Paluska, Zdeněk Fejfar, Ivana Trčková\nNepřítomni:\n(0)\nHosté:\nZapisovatel/ka:\nEva Strnadová\nPřítomno je 5 členů a rada je usnášeníschopná.\nJednání zahájeno 24.06.2024 v 15:12:06",
+  "agenda_items": [
+   {
+    "number": 1,
+    "title_raw": "Určení zapisovatelů, předsedajícího, příp. ověřovatelů",
+    "heading_raw": "1. Určení zapisovatelů, předsedajícího, příp. ověřovatelů (bod číslo 1)",
+    "predkladatel": null,
+    "votes": [],
+    "resolution_numbers_mentioned": [],
+    "raw_text": "Projednávání bodu bylo zahájeno v 15:12:15\n\nPředsedající navrhl jednotlivé členy pracovních komisí\nOvěřovatelé:\nIng. Hana Kuprová, Ing. Karel Krištoufek\nPředsedající:\nIng. Martin Jedlička\nDiskuze zahájena v 15:12:16\nK tomuto bodu se vyjádřili: Ing. Martin Jedlička\nProjednávání bodu bylo ukončeno v 15:13:46"
+   },
+   {
+    "number": 2,
+    "title_raw": "Schválení programu jednání",
+    "heading_raw": "2. Schválení programu jednání (bod číslo 2)",
+    "predkladatel": null,
+    "votes": [
+     {
+      "raw_text": "pro:\n(4) Ing. Petr Dürr, Ing. Martin Jedlička, Ing. Hana Kuprová, Ing. Karel Krištoufek\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)",
+      "pro": {
+       "count": 4,
+       "names": [
+        "Ing. Petr Dürr",
+        "Ing. Martin Jedlička",
+        "Ing. Hana Kuprová",
+        "Ing. Karel Krištoufek"
+       ],
+       "raw": "(4) Ing. Petr Dürr, Ing. Martin Jedlička, Ing. Hana Kuprová, Ing. Karel Krištoufek"
+      },
+      "proti": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "zdrzel_se": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "nehlasoval": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "result_raw": "Návrh byl přijat jako usnesení číslo: UR-237-24/24",
+      "adopted_resolution_number": "UR-237-24/24"
+     }
+    ],
+    "resolution_numbers_mentioned": [
+     "UR-237-24/24"
+    ],
+    "raw_text": "Projednávání bodu bylo zahájeno v 15:13:51\n\nProgram jednání\n1. Určení zapisovatelů, předsedajícího, příp. ověřovatelů\n2. Schválení programu jednání\n3. Aktuální informace vedení města\n4. Kontrola průběhu investičních akcí\n5. FRB - II. kolo\n6. Změna odpisového plánu ZŠ , vyřazení majetku\n7. Jmenování členů a náhradníků do komise pro posouzení uchazeče o pracovní místo Samostatný referent/referentka odboru výstavby\n8. Pracovní řád Městského úřadu Pečky\n9. Výběr dodavatele na plnění veřejné zakázky část 1 \"Technický dozor investora na stavbě Rekonstrukce místních komunikací a vodovodní řad v části Bačov v Pečkách – 1. a 2. etapa\" a uzavření příkazní smlouvy\n10. Výběr dodavatele na plnění veřejné zakázky část 2 \"Koordinátor BOZP na stavbě Rekonstrukce místních komunikací a vodovodní řad v části Bačov v Pečkách – 1. a 2. etapa\" a uzavření příkazní smlouvy\n11. Vyhlášení zjednodušeného podlimitního řízení na zhotovitele stavby \"Hospodaření s dešťovou vodou - Město Pečky - 2. etapa\" a ustanovení komise\n12. Kontrola plnění usnesení\n13. Diskuse, různé\n14. Úkoly vyplývající z jednání rady města\nDiskuze zahájena v 15:13:52\nK tomuto bodu se vyjádřili: Ing. Martin Jedlička\nV 15:16:40 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Zdeněk Fejfar\") v tomto znění:\nRada\nměsta schvaluje návrh programu jednání s touto změnou:\n- přesouvá se bod č. 4. - Kontrola průběhu investičních akcí\nHlasování\npro:\n(4) Ing. Petr Dürr, Ing. Martin Jedlička, Ing. Hana Kuprová, Ing. Karel Krištoufek\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-237-24/24\nzodpovídá:\ntermín:\nIHNED\n(24. 6. 2024)\nProjednávání bodu bylo ukončeno v 15:16:48\nV 15:17:46 odešel Ivana Trčková, přítomni 4 radní.\nAktualizovaný stav prezence:\nPřítomni:\n(4) Ing. Karel Krištoufek, Ing. Petr Dürr, Ing. Martin Jedlička, Ing. Hana Kuprová\nOmluveni:\n(2) Milan Paluska, Zdeněk Fejfar\nNepřítomni:\n(1) Ivana Trčková"
+   },
+   {
+    "number": 3,
+    "title_raw": "Aktuální informace vedení města",
+    "heading_raw": "3. Aktuální informace vedení města (bod číslo 3)",
+    "predkladatel": null,
+    "votes": [],
+    "resolution_numbers_mentioned": [],
+    "raw_text": "Projednávání bodu bylo zahájeno v 15:18:22\n\nDůvodová zpráva:\nmístostarosta města\n- informace o zaslané žádosti Mgr.\nŽertové\no dohled na bezpečnost provozu lékárny, zajištění ostrahy objektu strážníky MP\n- informace o konání sportovního dne na hřišti v parku pro žáky 1. stupně základní školy ve dnech 20. - 21.6.2024\nDiskuze zahájena v 15:18:23\nK tomuto bodu se vyjádřili: Ing. Martin Jedlička, Pavlína Nepovímová\nRada bere materiály předložené k bodu č. 3 -\nAktuální informace vedení města\nna vědomí.\nProjednávání bodu bylo ukončeno v 15:32:34"
+   },
+   {
+    "number": 5,
+    "title_raw": "FRB - II. kolo",
+    "heading_raw": "4. FRB - II. kolo (bod číslo 5)",
+    "predkladatel": null,
+    "votes": [
+     {
+      "raw_text": "pro:\n(4) Ing. Karel Krištoufek, Ing. Martin Jedlička, Ing. Petr Dürr, Ing. Hana Kuprová\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)",
+      "pro": {
+       "count": 4,
+       "names": [
+        "Ing. Karel Krištoufek",
+        "Ing. Martin Jedlička",
+        "Ing. Petr Dürr",
+        "Ing. Hana Kuprová"
+       ],
+       "raw": "(4) Ing. Karel Krištoufek, Ing. Martin Jedlička, Ing. Petr Dürr, Ing. Hana Kuprová"
+      },
+      "proti": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "zdrzel_se": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "nehlasoval": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "result_raw": "Návrh byl přijat jako usnesení číslo: UR-238-24/24",
+      "adopted_resolution_number": "UR-238-24/24"
+     }
+    ],
+    "resolution_numbers_mentioned": [
+     "UR-238-24/24"
+    ],
+    "raw_text": "Projednávání bodu bylo zahájeno v 15:32:52\n\nDůvodová zpráva:\nKomise FRB ze dne 17.6.2024 doporučuje RM vyhlásit II. kolo výběrového řízení na poskytnutí půjček z Fondu rozvoje bydlení na rok 2024 s úrokovou sazbou ve výši 3,375 % p.a..\nDiskuze zahájena v 15:32:53\nK tomuto bodu se vyjádřili: Ing. Martin Jedlička\nV 15:35:27 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Marcela Bahníková\") v tomto znění:\nRada\nměsta vyhlášuje II. kolo výběrového řízení na poskytnutí půjček z Fondu rozvoje bydlení na rok 2024 s úrokovou sazbou ve výši 3,375 % p.a..\nHlasování\npro:\n(4) Ing. Karel Krištoufek, Ing. Martin Jedlička, Ing. Petr Dürr, Ing. Hana Kuprová\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-238-24/24\nzodpovídá:\nMarcela Bahníková\ntermín:\n31. 7. 2024\nProjednávání bodu bylo ukončeno v 15:35:35"
+   },
+   {
+    "number": 6,
+    "title_raw": "Změna odpisového plánu ZŠ , vyřazení majetku",
+    "heading_raw": "5. Změna odpisového plánu ZŠ , vyřazení majetku (bod číslo 6)",
+    "predkladatel": null,
+    "votes": [
+     {
+      "raw_text": "pro:\n(4) Ing. Petr Dürr, Ing. Hana Kuprová, Ing. Martin Jedlička, Ing. Karel Krištoufek\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)",
+      "pro": {
+       "count": 4,
+       "names": [
+        "Ing. Petr Dürr",
+        "Ing. Hana Kuprová",
+        "Ing. Martin Jedlička",
+        "Ing. Karel Krištoufek"
+       ],
+       "raw": "(4) Ing. Petr Dürr, Ing. Hana Kuprová, Ing. Martin Jedlička, Ing. Karel Krištoufek"
+      },
+      "proti": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "zdrzel_se": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "nehlasoval": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "result_raw": "Návrh byl přijat jako usnesení číslo: UR-239-24/24",
+      "adopted_resolution_number": "UR-239-24/24"
+     },
+     {
+      "raw_text": "pro:\n(4) Ing. Petr Dürr, Ing. Martin Jedlička, Ing. Karel Krištoufek, Ing. Hana Kuprová\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)",
+      "pro": {
+       "count": 4,
+       "names": [
+        "Ing. Petr Dürr",
+        "Ing. Martin Jedlička",
+        "Ing. Karel Krištoufek",
+        "Ing. Hana Kuprová"
+       ],
+       "raw": "(4) Ing. Petr Dürr, Ing. Martin Jedlička, Ing. Karel Krištoufek, Ing. Hana Kuprová"
+      },
+      "proti": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "zdrzel_se": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "nehlasoval": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "result_raw": "Návrh byl přijat jako usnesení číslo: UR-240-24/24",
+      "adopted_resolution_number": "UR-240-24/24"
+     }
+    ],
+    "resolution_numbers_mentioned": [
+     "UR-239-24/24",
+     "UR-240-24/24"
+    ],
+    "raw_text": "Projednávání bodu bylo zahájeno v 15:35:45\n\nDůvodová zpráva:\nZŠ Pečky předkládá zřizovateli žádost o změnu odpisových plánů DDHM - kráječ a el. kompostér, v obou případech se jedná o prodloužení doby odepisování o 6 let a žádost o souhlas s vyřazením plně odepsaného DDHM - server DellPowerEdge T420 z roku 2013.\nDiskuze zahájena v 15:35:46\nK tomuto bodu se vyjádřili: Ing. Martin Jedlička, Ing. Karel Krištoufek\nV 15:40:16 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Marcela Bahníková\") v tomto znění:\nRada\nměsta schvaluje ZŠ Pečky změnu odpisových plánů DDHM inv. č. 31/022 - kráječ a inv.č. 30/022 - el. kompostér.\nHlasování\npro:\n(4) Ing. Petr Dürr, Ing. Hana Kuprová, Ing. Martin Jedlička, Ing. Karel Krištoufek\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-239-24/24\nzodpovídá:\ntermín:\nIHNED\n(24. 6. 2024)\nV 15:40:35 předsedající zahájil hlasování o návrhu usnesení \"B\" (navrhovatel: \"Marcela Bahníková\") v tomto znění:\nRada\nměsta schvaluje ZŠ Pečky vyřazení DDHM inv. č.028/022 - server s příslušenstvím likvidací.\nHlasování\npro:\n(4) Ing. Petr Dürr, Ing. Martin Jedlička, Ing. Karel Krištoufek, Ing. Hana Kuprová\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-240-24/24\nzodpovídá:\ntermín:\nIHNED\n(24. 6. 2024)\nProjednávání bodu bylo ukončeno v 15:40:47"
+   },
+   {
+    "number": 7,
+    "title_raw": "Jmenování členů a náhradníků do komise pro posouzení uchazeče o pracovní místo Samostatný referent/referentka odboru výstavby",
+    "heading_raw": "6. Jmenování členů a náhradníků do komise pro posouzení uchazeče o pracovní místo Samostatný referent/referentka odboru výstavby (bod číslo 7)",
+    "predkladatel": null,
+    "votes": [
+     {
+      "raw_text": "pro:\n(4) Ing. Petr Dürr, Ing. Martin Jedlička, Ing. Hana Kuprová, Ing. Karel Krištoufek\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)",
+      "pro": {
+       "count": 4,
+       "names": [
+        "Ing. Petr Dürr",
+        "Ing. Martin Jedlička",
+        "Ing. Hana Kuprová",
+        "Ing. Karel Krištoufek"
+       ],
+       "raw": "(4) Ing. Petr Dürr, Ing. Martin Jedlička, Ing. Hana Kuprová, Ing. Karel Krištoufek"
+      },
+      "proti": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "zdrzel_se": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "nehlasoval": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "result_raw": "Návrh byl přijat jako usnesení číslo: UR-241-24/24",
+      "adopted_resolution_number": "UR-241-24/24"
+     }
+    ],
+    "resolution_numbers_mentioned": [
+     "UR-241-24/24"
+    ],
+    "raw_text": "Projednávání bodu bylo zahájeno v 15:40:57\n\nDůvodová zpráva:\nNa pozici \"Samostatný referent/referentka odboru výstavby \" bylo vypsáno výběrové řízení. Předpoklady a kvalitu uchazeče o tuto pozici posoudí výběrová komise na svém zasedání dne 04.07.2024 od 10:00 hodin.\nDiskuze zahájena v 15:40:58\nK tomuto bodu se vyjádřili: Ing. Martin Jedlička, Pavlína Nepovímová\nV 15:51:48 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Pavlína Nepovímová\") v tomto znění:\nRada\nměsta schvaluje členy a náhradníky výběrové komise na obsazení pracovního místa \" Samostatný referent/ referentka odboru výstavby \".\nPředseda:\nMilan\nPaluska\n- starosta\nČlenové:\nBc.\nPavlína\nNepovímová\n, DiS. – tajemnice\nMarie\nHoznauerová\n– zástupce vedoucí odboru stavebního\nMarcela\nBahníková\n– vedoucí Odboru ekonomicko -správního\nPetra\nKůtová\n– zástupce za Odborovou organizaci\nNáhradníci:\nZdeněk\nFejfar\n– místostarosta\nŠárka Kosinová\nHlasování\npro:\n(4) Ing. Petr Dürr, Ing. Martin Jedlička, Ing. Hana Kuprová, Ing. Karel Krištoufek\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-241-24/24\nzodpovídá:\ntermín:\nIHNED\n(24. 6. 2024)\nProjednávání bodu bylo ukončeno v 15:52:00"
+   },
+   {
+    "number": 8,
+    "title_raw": "Pracovní řád Městského úřadu Pečky",
+    "heading_raw": "7. Pracovní řád Městského úřadu Pečky (bod číslo 8)",
+    "predkladatel": null,
+    "votes": [
+     {
+      "raw_text": "pro:\n(4) Ing. Petr Dürr, Ing. Hana Kuprová, Ing. Karel Krištoufek, Ing. Martin Jedlička\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)",
+      "pro": {
+       "count": 4,
+       "names": [
+        "Ing. Petr Dürr",
+        "Ing. Hana Kuprová",
+        "Ing. Karel Krištoufek",
+        "Ing. Martin Jedlička"
+       ],
+       "raw": "(4) Ing. Petr Dürr, Ing. Hana Kuprová, Ing. Karel Krištoufek, Ing. Martin Jedlička"
+      },
+      "proti": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "zdrzel_se": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "nehlasoval": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "result_raw": "Návrh byl přijat jako usnesení číslo: UR-242-24/24",
+      "adopted_resolution_number": "UR-242-24/24"
+     }
+    ],
+    "resolution_numbers_mentioned": [
+     "UR-242-24/24"
+    ],
+    "raw_text": "Projednávání bodu bylo zahájeno v 15:54:27\n\nDůvodová zpráva:\nV souladu s ustanovením §§ 305 a 306 zákona č. 262/2006 Sb., zákoník práce, ve znění pozdějších předpisů, a v souladu s § 110 odst. 3 a odst. 4 písm. e) zákona č. 128/2000 Sb., o obcích (obecní zřízení), ve znění pozdějších předpisů se aktualizuje pracovní řád Městského úřadu Pečky 2/2024.\nDiskuze zahájena v 15:54:28\nK tomuto bodu se vyjádřili: Ing. Martin Jedlička, Pavlína Nepovímová\nV 15:59:55 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Pavlína Nepovímová\") v tomto znění:\nRada\nměsta schvaluje aktualizaci pracovního řádu Městského úřadu Pečky 2/2024.\nHlasování\npro:\n(4) Ing. Petr Dürr, Ing. Hana Kuprová, Ing. Karel Krištoufek, Ing. Martin Jedlička\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-242-24/24\nzodpovídá:\ntermín:\nIHNED\n(24. 6. 2024)\nProjednávání bodu bylo ukončeno v 16:00:07"
+   },
+   {
+    "number": 9,
+    "title_raw": "Výběr dodavatele na plnění veřejné zakázky část 1 \"Technický dozor investora na stavbě Rekonstrukce místních komunikací a vodovodní řad v části Bačov v Pečkách – 1. a 2. etapa\" a uzavření příkazní smlouvy",
+    "heading_raw": "8. Výběr dodavatele na plnění veřejné zakázky část 1 \"Technický dozor investora na stavbě Rekonstrukce místních komunikací a vodovodní řad v části Bačov v Pečkách – 1. a 2. etapa\" a uzavření příkazní smlouvy (bod číslo 9)",
+    "predkladatel": null,
+    "votes": [
+     {
+      "raw_text": "pro:\n(4) Ing. Hana Kuprová, Ing. Martin Jedlička, Ing. Karel Krištoufek, Ing. Petr Dürr\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)",
+      "pro": {
+       "count": 4,
+       "names": [
+        "Ing. Hana Kuprová",
+        "Ing. Martin Jedlička",
+        "Ing. Karel Krištoufek",
+        "Ing. Petr Dürr"
+       ],
+       "raw": "(4) Ing. Hana Kuprová, Ing. Martin Jedlička, Ing. Karel Krištoufek, Ing. Petr Dürr"
+      },
+      "proti": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "zdrzel_se": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "nehlasoval": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "result_raw": "Návrh byl přijat jako usnesení číslo: UR-243-24/24",
+      "adopted_resolution_number": "UR-243-24/24"
+     }
+    ],
+    "resolution_numbers_mentioned": [
+     "UR-243-24/24"
+    ],
+    "raw_text": "Projednávání bodu bylo zahájeno v 16:00:18\n\nDůvodová zpráva:\nRozhodnutí o výběru dodavatele na plnění veřejné zakázky malého rozsahu na služby část 1 \"Technický dozor investora na stavbě Rekonstrukce místních komunikací a vodovodní řad v části Bačov v Pečkách - 1. a 2. etapa\", zadávané mimo režim zákona č. 134/2016 Sb., o zadávání veřejných zakázek, ve znění pozdějších předpisů, v poptávkovém řízení - uzavřené výzvě dle čl. 5 Směrnice města Pečky k zadávání veřejných zakázek malého rozsahu, v souladu s doporučením hodnotící komise - viz Rozhodnutí a oznámení o výběru dodavatele v příloze, a uzavření příkazní smlouvy s vybraným dodavatelem ARCHA – inženýrská agentura, a.s., se sídlem: V Zídkách 450, 280 02\nKolín\n, IČ: 25638262, po poskytnutí součinnosti vybraného dodavatele před podpisem smlouvy.\nDiskuze zahájena v 16:00:19\nK tomuto bodu se vyjádřili: Ing. Martin Jedlička, Ing. Karel Krištoufek, Ing. Petr Dürr\nV 16:01:52 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Zdeněk Fejfar\") v tomto znění:\nRada\nměsta schvaluje Rozhodnutí o výběru dodavatele na plnění veřejné zakázky malého rozsahu na služby část 1 \"Technický dozor investora na stavbě Rekonstrukce místních komunikací a vodovodní řad v části Bačov v Pečkách - 1. a 2. etapa\", zadávané mimo režim zákona č. 134/2016 Sb., o zadávání veřejných zakázek, ve znění pozdějších předpisů, v poptávkovém řízení - uzavřené výzvě dle čl. 5 Směrnice města Pečky k zadávání veřejných zakázek malého rozsahu, v souladu s doporučením hodnotící komise, a uzavření příkazní smlouvy mezi městem Pečky a vybraným dodavatelem ARCHA – inženýrská agentura, a.s., se sídlem: V Zídkách 450, 280 02\nKolín\n, IČ: 25638262, po poskytnutí součinnosti vybraného dodavatele před podpisem smlouvy.\nHlasování\npro:\n(4) Ing. Hana Kuprová, Ing. Martin Jedlička, Ing. Karel Krištoufek, Ing. Petr Dürr\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-243-24/24\nzodpovídá:\nMichala Dekiská\ntermín:\n8. 7. 2024\nProjednávání bodu bylo ukončeno v 16:02:00"
+   },
+   {
+    "number": 10,
+    "title_raw": "Výběr dodavatele na plnění veřejné zakázky část 2 \"Koordinátor BOZP na stavbě Rekonstrukce místních komunikací a vodovodní řad v části Bačov v Pečkách – 1. a 2. etapa\" a uzavření příkazní smlouvy",
+    "heading_raw": "9. Výběr dodavatele na plnění veřejné zakázky část 2 \"Koordinátor BOZP na stavbě Rekonstrukce místních komunikací a vodovodní řad v části Bačov v Pečkách – 1. a 2. etapa\" a uzavření příkazní smlouvy (bod číslo 10)",
+    "predkladatel": null,
+    "votes": [
+     {
+      "raw_text": "pro:\n(4) Ing. Petr Dürr, Ing. Martin Jedlička, Ing. Hana Kuprová, Ing. Karel Krištoufek\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)",
+      "pro": {
+       "count": 4,
+       "names": [
+        "Ing. Petr Dürr",
+        "Ing. Martin Jedlička",
+        "Ing. Hana Kuprová",
+        "Ing. Karel Krištoufek"
+       ],
+       "raw": "(4) Ing. Petr Dürr, Ing. Martin Jedlička, Ing. Hana Kuprová, Ing. Karel Krištoufek"
+      },
+      "proti": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "zdrzel_se": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "nehlasoval": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "result_raw": "Návrh byl přijat jako usnesení číslo: UR-244-24/24",
+      "adopted_resolution_number": "UR-244-24/24"
+     }
+    ],
+    "resolution_numbers_mentioned": [
+     "UR-244-24/24"
+    ],
+    "raw_text": "Projednávání bodu bylo zahájeno v 16:02:16\n\nDůvodová zpráva:\nRozhodnutí o výběru dodavatele na plnění veřejné zakázky malého rozsahu na služby část 2 \"Koordinátor BOZP na stavbě Rekonstrukce místních komunikací a vodovodní řad v části Bačov v Pečkách - 1. a 2. etapa\", zadávané mimo režim zákona č. 134/2016 Sb., o zadávání veřejných zakázek, ve znění pozdějších předpisů, v poptávkovém řízení - uzavřené výzvě dle čl. 5 Směrnice města Pečky k zadávání veřejných zakázek malého rozsahu, v souladu s doporučením hodnotící komise - viz Rozhodnutí a oznámení o výběru dodavatele v příloze, a uzavření příkazní smlouvy s vybraným dodavatelem ARCHA – inženýrská agentura, a.s., se sídlem: V Zídkách 450, 280 02\nKolín\n, IČ: 25638262, po poskytnutí součinnosti vybraného dodavatele před podpisem smlouvy.\nDiskuze zahájena v 16:02:17\nK tomuto bodu se vyjádřili: Ing. Martin Jedlička, Ing. Karel Krištoufek\nV 16:04:52 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Zdeněk Fejfar\") v tomto znění:\nRada\nměsta schvaluje Rozhodnutí o výběru dodavatele na plnění veřejné zakázky malého rozsahu na služby část 2 \"Koordinátor BOZP na stavbě Rekonstrukce místních komunikací a vodovodní řad v části Bačov v Pečkách - 1. a 2. etapa\", zadávané mimo režim zákona č. 134/2016 Sb., o zadávání veřejných zakázek, ve znění pozdějších předpisů, v poptávkovém řízení - uzavřené výzvě dle čl. 5 Směrnice města Pečky k zadávání veřejných zakázek malého rozsahu, v souladu s doporučením hodnotící komise, a uzavření příkazní smlouvy mezi městem Pečky a vybraným dodavatelem ARCHA – inženýrská agentura, a.s., se sídlem: V Zídkách 450, 280 02\nKolín\n, IČ: 25638262, po poskytnutí součinnosti vybraného dodavatele před podpisem smlouvy.\nHlasování\npro:\n(4) Ing. Petr Dürr, Ing. Martin Jedlička, Ing. Hana Kuprová, Ing. Karel Krištoufek\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-244-24/24\nzodpovídá:\nMichala Dekiská\ntermín:\n8. 7. 2024\nProjednávání bodu bylo ukončeno v 16:07:40"
+   },
+   {
+    "number": 11,
+    "title_raw": "Vyhlášení zjednodušeného podlimitního řízení na zhotovitele stavby \"Hospodaření s dešťovou vodou - Město Pečky - 2. etapa\" a ustanovení komise",
+    "heading_raw": "10. Vyhlášení zjednodušeného podlimitního řízení na zhotovitele stavby \"Hospodaření s dešťovou vodou - Město Pečky - 2. etapa\" a ustanovení komise (bod číslo 11)",
+    "predkladatel": null,
+    "votes": [
+     {
+      "raw_text": "pro:\n(4) Ing. Petr Dürr, Ing. Martin Jedlička, Ing. Karel Krištoufek, Ing. Hana Kuprová\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)",
+      "pro": {
+       "count": 4,
+       "names": [
+        "Ing. Petr Dürr",
+        "Ing. Martin Jedlička",
+        "Ing. Karel Krištoufek",
+        "Ing. Hana Kuprová"
+       ],
+       "raw": "(4) Ing. Petr Dürr, Ing. Martin Jedlička, Ing. Karel Krištoufek, Ing. Hana Kuprová"
+      },
+      "proti": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "zdrzel_se": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "nehlasoval": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "result_raw": "Návrh byl přijat jako usnesení číslo: UR-245-24/24",
+      "adopted_resolution_number": "UR-245-24/24"
+     }
+    ],
+    "resolution_numbers_mentioned": [
+     "UR-245-24/24"
+    ],
+    "raw_text": "Projednávání bodu bylo zahájeno v 16:08:01\n\nDůvodová zpráva:\nVyhlášení zjednodušeného podlimitního řízení na stavební práce \"Hospodaření s dešťovou vodou - Město Pečky - 2. etapa\" (budovy: ZUŠ čp. 700 Barákova, MŠ čp. 825 Tř.\nJana\nŠvermy, hasičská zbrojnice čp. 1140 V.B.Třebízského) dle zákona č. 134/2016Sb., o zadávání veřejných zakázek, ve znění pozdějších předpisů.\nSložení hodnotící komise:\nčlenové: Ing. Věra\nRůžičková\n- vedoucí odboru SMM a BH,\nJiří\nMoravec\n- referent přípravy a realizace investic, Ing.\nAdam\nBrant\n- jednatel Služby města Pečky s.r.o.,\nnáhradníci:\nMilan\nPaluska\n- starosta,\nPetra\nKutová\n- investiční technik , Ing.\nJana\nZindrová\n- referent oddělení dopravy\nVydáno Rozhodnutí č. 5211000249 o poskytnutí finančních prostředků ve výši 2 934 511,94 Kč ze Státního fondu životního prostředí ČR v rámci Národního plánu obnovy, výzva č. 10/2021.\nPro\nuzavření Smlouvy o poskytnutí podpory je třeba doložit ve stanoveném termínu mj. smlouvu o dílo se zhotovitelem stavby. Výše podpory může být ponížena v závislosti na výši smluvní ceny.\nDiskuze zahájena v 16:08:02\nK tomuto bodu se vyjádřili: Ing. Martin Jedlička, Ing. Karel Krištoufek, Jiří Moravec, Ing. Hana Kuprová\nV 16:22:43 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Zdeněk Fejfar\") v tomto znění:\nRada\nměsta schvaluje vyhlášení zjednodušeného podlimitního řízení na stavební práce \"Hospodaření s dešťovou vodou - Město Pečky - 2. etapa\" (budovy: ZUŠ čp. 700 Barákova, MŠ čp. 825 Tř.\nJana\nŠvermy, hasičská zbrojnice čp. 1140 V.B.Třebízského) dle zákona č. 134/2016Sb., o zadávání veřejných zakázek, ve znění pozdějších předpisů, a ustanovení komise ve složení:\nčlenové: Ing. Věra\nRůžičková\n- vedoucí odboru SMM a BH,\nJiří\nMoravec\n- referent přípravy a realizace investic, Ing.\nAdam\nBrant\n- jednatel Služby města Pečky s.r.o.,\nnáhradníci:\nMilan\nPaluska\n- starosta,\nPetra\nKutová\n- investiční technik , Ing.\nJana\nZindrová\n- referent oddělení dopravy\nHlasování\npro:\n(4) Ing. Petr Dürr, Ing. Martin Jedlička, Ing. Karel Krištoufek, Ing. Hana Kuprová\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-245-24/24\nzodpovídá:\nMichala Dekiská\ntermín:\n8. 7. 2024\nProjednávání bodu bylo ukončeno v 16:22:50"
+   },
+   {
+    "number": 12,
+    "title_raw": "Kontrola plnění usnesení",
+    "heading_raw": "11. Kontrola plnění usnesení (bod číslo 12)",
+    "predkladatel": null,
+    "votes": [],
+    "resolution_numbers_mentioned": [],
+    "raw_text": "Projednávání bodu bylo zahájeno v 16:23:04\nDiskuze zahájena v 16:23:05\nK tomuto bodu se vyjádřili: Ing. Martin Jedlička, Pavlína Nepovímová\nRada bere materiály předložené k bodu č. 12 -\nKontrola plnění usnesení\nna vědomí.\nProjednávání bodu bylo ukončeno v 16:25:23"
+   },
+   {
+    "number": 13,
+    "title_raw": "Diskuse, různé",
+    "heading_raw": "12. Diskuse, různé (bod číslo 13)",
+    "predkladatel": null,
+    "votes": [],
+    "resolution_numbers_mentioned": [],
+    "raw_text": "Projednávání bodu bylo zahájeno v 16:25:46\nDiskuze zahájena v 16:25:47\nK tomuto bodu se vyjádřili: Ing. Martin Jedlička\nRada bere materiály předložené k bodu č. 13 -\nDiskuse, různé\nna vědomí.\nProjednávání bodu bylo ukončeno v 16:27:33"
+   },
+   {
+    "number": 14,
+    "title_raw": "Úkoly vyplývající z jednání rady města",
+    "heading_raw": "13. Úkoly vyplývající z jednání rady města (bod číslo 14)",
+    "predkladatel": null,
+    "votes": [],
+    "resolution_numbers_mentioned": [],
+    "raw_text": "Projednávání bodu bylo zahájeno v 16:29:24\nDiskuze zahájena v 16:29:25\nK tomuto bodu se vyjádřili: Ing. Martin Jedlička\nRada bere materiály předložené k bodu č. 14 -\nÚkoly vyplývající z jednání rady města\nna vědomí.\nProjednávání bodu bylo ukončeno v 16:29:40"
+   },
+   {
+    "number": 4,
+    "title_raw": "Kontrola průběhu investičních akcí",
+    "heading_raw": "14. Kontrola průběhu investičních akcí (bod číslo 4)",
+    "predkladatel": null,
+    "votes": [],
+    "resolution_numbers_mentioned": [],
+    "raw_text": "Jednání ukončeno 24.06.2024 v 16:30:02"
+   }
+  ],
+  "full_text": "ZÁPIS ze schůze rady č. 24/2024\nMěsto Pečky\ndatum: 24. 6. 2024, čas: 15:00\n​\nPrezence:\nPřítomni:\n(4) Ing. Karel Krištoufek, Ing. Petr Dürr, Ing. Martin Jedlička, Ing. Hana Kuprová\nOmluveni:\n(3) Milan Paluska, Zdeněk Fejfar, Ivana Trčková\nNepřítomni:\n(0)\nHosté:\nZapisovatel/ka:\nEva Strnadová\nPřítomno je 5 členů a rada je usnášeníschopná.\nJednání zahájeno 24.06.2024 v 15:12:06\n1. Určení zapisovatelů, předsedajícího, příp. ověřovatelů (bod číslo 1)\nPředkladatel: Zdeněk Fejfar\nProjednávání bodu bylo zahájeno v 15:12:15\nPředsedající navrhl jednotlivé členy pracovních komisí\nOvěřovatelé:\nIng. Hana Kuprová, Ing. Karel Krištoufek\nPředsedající:\nIng. Martin Jedlička\nBod byl přijat bez hlasování.\nDiskuze zahájena v 15:12:16\nK tomuto bodu se vyjádřili: Ing. Martin Jedlička\nProjednávání bodu bylo ukončeno v 15:13:46\n2. Schválení programu jednání (bod číslo 2)\nPředkladatel: Zdeněk Fejfar\nProjednávání bodu bylo zahájeno v 15:13:51\nProgram jednání\n1. Určení zapisovatelů, předsedajícího, příp. ověřovatelů\n2. Schválení programu jednání\n3. Aktuální informace vedení města\n4. Kontrola průběhu investičních akcí\n5. FRB - II. kolo\n6. Změna odpisového plánu ZŠ , vyřazení majetku\n7. Jmenování členů a náhradníků do komise pro posouzení uchazeče o pracovní místo Samostatný referent/referentka odboru výstavby\n8. Pracovní řád Městského úřadu Pečky\n9. Výběr dodavatele na plnění veřejné zakázky část 1 \"Technický dozor investora na stavbě Rekonstrukce místních komunikací a vodovodní řad v části Bačov v Pečkách – 1. a 2. etapa\" a uzavření příkazní smlouvy\n10. Výběr dodavatele na plnění veřejné zakázky část 2 \"Koordinátor BOZP na stavbě Rekonstrukce místních komunikací a vodovodní řad v části Bačov v Pečkách – 1. a 2. etapa\" a uzavření příkazní smlouvy\n11. Vyhlášení zjednodušeného podlimitního řízení na zhotovitele stavby \"Hospodaření s dešťovou vodou - Město Pečky - 2. etapa\" a ustanovení komise\n12. Kontrola plnění usnesení\n13. Diskuse, různé\n14. Úkoly vyplývající z jednání rady města\nDiskuze zahájena v 15:13:52\nK tomuto bodu se vyjádřili: Ing. Martin Jedlička\nV 15:16:40 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Zdeněk Fejfar\") v tomto znění:\nRada\nměsta schvaluje návrh programu jednání s touto změnou:\n- přesouvá se bod č. 4. - Kontrola průběhu investičních akcí\nHlasování\npro:\n(4) Ing. Petr Dürr, Ing. Martin Jedlička, Ing. Hana Kuprová, Ing. Karel Krištoufek\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-237-24/24\nzodpovídá:\ntermín:\nIHNED\n(24. 6. 2024)\nProjednávání bodu bylo ukončeno v 15:16:48\nV 15:17:46 odešel Ivana Trčková, přítomni 4 radní.\nAktualizovaný stav prezence:\nPřítomni:\n(4) Ing. Karel Krištoufek, Ing. Petr Dürr, Ing. Martin Jedlička, Ing. Hana Kuprová\nOmluveni:\n(2) Milan Paluska, Zdeněk Fejfar\nNepřítomni:\n(1) Ivana Trčková\n3. Aktuální informace vedení města (bod číslo 3)\nPředkladatel: Zdeněk Fejfar\nProjednávání bodu bylo zahájeno v 15:18:22\nDůvodová zpráva:\nmístostarosta města\n- informace o zaslané žádosti Mgr.\nŽertové\no dohled na bezpečnost provozu lékárny, zajištění ostrahy objektu strážníky MP\n- informace o konání sportovního dne na hřišti v parku pro žáky 1. stupně základní školy ve dnech 20. - 21.6.2024\nDiskuze zahájena v 15:18:23\nK tomuto bodu se vyjádřili: Ing. Martin Jedlička, Pavlína Nepovímová\nRada bere materiály předložené k bodu č. 3 -\nAktuální informace vedení města\nna vědomí.\nProjednávání bodu bylo ukončeno v 15:32:34\n4. FRB - II. kolo (bod číslo 5)\nPředkladatel: Ing. Martin Jedlička\nProjednávání bodu bylo zahájeno v 15:32:52\nDůvodová zpráva:\nKomise FRB ze dne 17.6.2024 doporučuje RM vyhlásit II. kolo výběrového řízení na poskytnutí půjček z Fondu rozvoje bydlení na rok 2024 s úrokovou sazbou ve výši 3,375 % p.a..\nDiskuze zahájena v 15:32:53\nK tomuto bodu se vyjádřili: Ing. Martin Jedlička\nV 15:35:27 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Marcela Bahníková\") v tomto znění:\nRada\nměsta vyhlášuje II. kolo výběrového řízení na poskytnutí půjček z Fondu rozvoje bydlení na rok 2024 s úrokovou sazbou ve výši 3,375 % p.a..\nHlasování\npro:\n(4) Ing. Karel Krištoufek, Ing. Martin Jedlička, Ing. Petr Dürr, Ing. Hana Kuprová\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-238-24/24\nzodpovídá:\nMarcela Bahníková\ntermín:\n31. 7. 2024\nProjednávání bodu bylo ukončeno v 15:35:35\n5. Změna odpisového plánu ZŠ , vyřazení majetku (bod číslo 6)\nPředkladatel: Zdeněk Fejfar\nProjednávání bodu bylo zahájeno v 15:35:45\nDůvodová zpráva:\nZŠ Pečky předkládá zřizovateli žádost o změnu odpisových plánů DDHM - kráječ a el. kompostér, v obou případech se jedná o prodloužení doby odepisování o 6 let a žádost o souhlas s vyřazením plně odepsaného DDHM - server DellPowerEdge T420 z roku 2013.\nDiskuze zahájena v 15:35:46\nK tomuto bodu se vyjádřili: Ing. Martin Jedlička, Ing. Karel Krištoufek\nV 15:40:16 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Marcela Bahníková\") v tomto znění:\nRada\nměsta schvaluje ZŠ Pečky změnu odpisových plánů DDHM inv. č. 31/022 - kráječ a inv.č. 30/022 - el. kompostér.\nHlasování\npro:\n(4) Ing. Petr Dürr, Ing. Hana Kuprová, Ing. Martin Jedlička, Ing. Karel Krištoufek\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-239-24/24\nzodpovídá:\ntermín:\nIHNED\n(24. 6. 2024)\nV 15:40:35 předsedající zahájil hlasování o návrhu usnesení \"B\" (navrhovatel: \"Marcela Bahníková\") v tomto znění:\nRada\nměsta schvaluje ZŠ Pečky vyřazení DDHM inv. č.028/022 - server s příslušenstvím likvidací.\nHlasování\npro:\n(4) Ing. Petr Dürr, Ing. Martin Jedlička, Ing. Karel Krištoufek, Ing. Hana Kuprová\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-240-24/24\nzodpovídá:\ntermín:\nIHNED\n(24. 6. 2024)\nProjednávání bodu bylo ukončeno v 15:40:47\n6. Jmenování členů a náhradníků do komise pro posouzení uchazeče o pracovní místo Samostatný referent/referentka odboru výstavby (bod číslo 7)\nPředkladatel: Pavlína Nepovímová\nProjednávání bodu bylo zahájeno v 15:40:57\nDůvodová zpráva:\nNa pozici \"Samostatný referent/referentka odboru výstavby \" bylo vypsáno výběrové řízení. Předpoklady a kvalitu uchazeče o tuto pozici posoudí výběrová komise na svém zasedání dne 04.07.2024 od 10:00 hodin.\nDiskuze zahájena v 15:40:58\nK tomuto bodu se vyjádřili: Ing. Martin Jedlička, Pavlína Nepovímová\nV 15:51:48 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Pavlína Nepovímová\") v tomto znění:\nRada\nměsta schvaluje členy a náhradníky výběrové komise na obsazení pracovního místa \" Samostatný referent/ referentka odboru výstavby \".\nPředseda:\nMilan\nPaluska\n- starosta\nČlenové:\nBc.\nPavlína\nNepovímová\n, DiS. – tajemnice\nMarie\nHoznauerová\n– zástupce vedoucí odboru stavebního\nMarcela\nBahníková\n– vedoucí Odboru ekonomicko -správního\nPetra\nKůtová\n– zástupce za Odborovou organizaci\nNáhradníci:\nZdeněk\nFejfar\n– místostarosta\nŠárka Kosinová\nHlasování\npro:\n(4) Ing. Petr Dürr, Ing. Martin Jedlička, Ing. Hana Kuprová, Ing. Karel Krištoufek\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-241-24/24\nzodpovídá:\ntermín:\nIHNED\n(24. 6. 2024)\nProjednávání bodu bylo ukončeno v 15:52:00\n7. Pracovní řád Městského úřadu Pečky (bod číslo 8)\nPředkladatel: Pavlína Nepovímová\nProjednávání bodu bylo zahájeno v 15:54:27\nDůvodová zpráva:\nV souladu s ustanovením §§ 305 a 306 zákona č. 262/2006 Sb., zákoník práce, ve znění pozdějších předpisů, a v souladu s § 110 odst. 3 a odst. 4 písm. e) zákona č. 128/2000 Sb., o obcích (obecní zřízení), ve znění pozdějších předpisů se aktualizuje pracovní řád Městského úřadu Pečky 2/2024.\nDiskuze zahájena v 15:54:28\nK tomuto bodu se vyjádřili: Ing. Martin Jedlička, Pavlína Nepovímová\nV 15:59:55 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Pavlína Nepovímová\") v tomto znění:\nRada\nměsta schvaluje aktualizaci pracovního řádu Městského úřadu Pečky 2/2024.\nHlasování\npro:\n(4) Ing. Petr Dürr, Ing. Hana Kuprová, Ing. Karel Krištoufek, Ing. Martin Jedlička\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-242-24/24\nzodpovídá:\ntermín:\nIHNED\n(24. 6. 2024)\nProjednávání bodu bylo ukončeno v 16:00:07\n8. Výběr dodavatele na plnění veřejné zakázky část 1 \"Technický dozor investora na stavbě Rekonstrukce místních komunikací a vodovodní řad v části Bačov v Pečkách – 1. a 2. etapa\" a uzavření příkazní smlouvy (bod číslo 9)\nPředkladatel: Zdeněk Fejfar\nProjednávání bodu bylo zahájeno v 16:00:18\nDůvodová zpráva:\nRozhodnutí o výběru dodavatele na plnění veřejné zakázky malého rozsahu na služby část 1 \"Technický dozor investora na stavbě Rekonstrukce místních komunikací a vodovodní řad v části Bačov v Pečkách - 1. a 2. etapa\", zadávané mimo režim zákona č. 134/2016 Sb., o zadávání veřejných zakázek, ve znění pozdějších předpisů, v poptávkovém řízení - uzavřené výzvě dle čl. 5 Směrnice města Pečky k zadávání veřejných zakázek malého rozsahu, v souladu s doporučením hodnotící komise - viz Rozhodnutí a oznámení o výběru dodavatele v příloze, a uzavření příkazní smlouvy s vybraným dodavatelem ARCHA – inženýrská agentura, a.s., se sídlem: V Zídkách 450, 280 02\nKolín\n, IČ: 25638262, po poskytnutí součinnosti vybraného dodavatele před podpisem smlouvy.\nDiskuze zahájena v 16:00:19\nK tomuto bodu se vyjádřili: Ing. Martin Jedlička, Ing. Karel Krištoufek, Ing. Petr Dürr\nV 16:01:52 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Zdeněk Fejfar\") v tomto znění:\nRada\nměsta schvaluje Rozhodnutí o výběru dodavatele na plnění veřejné zakázky malého rozsahu na služby část 1 \"Technický dozor investora na stavbě Rekonstrukce místních komunikací a vodovodní řad v části Bačov v Pečkách - 1. a 2. etapa\", zadávané mimo režim zákona č. 134/2016 Sb., o zadávání veřejných zakázek, ve znění pozdějších předpisů, v poptávkovém řízení - uzavřené výzvě dle čl. 5 Směrnice města Pečky k zadávání veřejných zakázek malého rozsahu, v souladu s doporučením hodnotící komise, a uzavření příkazní smlouvy mezi městem Pečky a vybraným dodavatelem ARCHA – inženýrská agentura, a.s., se sídlem: V Zídkách 450, 280 02\nKolín\n, IČ: 25638262, po poskytnutí součinnosti vybraného dodavatele před podpisem smlouvy.\nHlasování\npro:\n(4) Ing. Hana Kuprová, Ing. Martin Jedlička, Ing. Karel Krištoufek, Ing. Petr Dürr\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-243-24/24\nzodpovídá:\nMichala Dekiská\ntermín:\n8. 7. 2024\nProjednávání bodu bylo ukončeno v 16:02:00\n9. Výběr dodavatele na plnění veřejné zakázky část 2 \"Koordinátor BOZP na stavbě Rekonstrukce místních komunikací a vodovodní řad v části Bačov v Pečkách – 1. a 2. etapa\" a uzavření příkazní smlouvy (bod číslo 10)\nPředkladatel: Zdeněk Fejfar\nProjednávání bodu bylo zahájeno v 16:02:16\nDůvodová zpráva:\nRozhodnutí o výběru dodavatele na plnění veřejné zakázky malého rozsahu na služby část 2 \"Koordinátor BOZP na stavbě Rekonstrukce místních komunikací a vodovodní řad v části Bačov v Pečkách - 1. a 2. etapa\", zadávané mimo režim zákona č. 134/2016 Sb., o zadávání veřejných zakázek, ve znění pozdějších předpisů, v poptávkovém řízení - uzavřené výzvě dle čl. 5 Směrnice města Pečky k zadávání veřejných zakázek malého rozsahu, v souladu s doporučením hodnotící komise - viz Rozhodnutí a oznámení o výběru dodavatele v příloze, a uzavření příkazní smlouvy s vybraným dodavatelem ARCHA – inženýrská agentura, a.s., se sídlem: V Zídkách 450, 280 02\nKolín\n, IČ: 25638262, po poskytnutí součinnosti vybraného dodavatele před podpisem smlouvy.\nDiskuze zahájena v 16:02:17\nK tomuto bodu se vyjádřili: Ing. Martin Jedlička, Ing. Karel Krištoufek\nV 16:04:52 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Zdeněk Fejfar\") v tomto znění:\nRada\nměsta schvaluje Rozhodnutí o výběru dodavatele na plnění veřejné zakázky malého rozsahu na služby část 2 \"Koordinátor BOZP na stavbě Rekonstrukce místních komunikací a vodovodní řad v části Bačov v Pečkách - 1. a 2. etapa\", zadávané mimo režim zákona č. 134/2016 Sb., o zadávání veřejných zakázek, ve znění pozdějších předpisů, v poptávkovém řízení - uzavřené výzvě dle čl. 5 Směrnice města Pečky k zadávání veřejných zakázek malého rozsahu, v souladu s doporučením hodnotící komise, a uzavření příkazní smlouvy mezi městem Pečky a vybraným dodavatelem ARCHA – inženýrská agentura, a.s., se sídlem: V Zídkách 450, 280 02\nKolín\n, IČ: 25638262, po poskytnutí součinnosti vybraného dodavatele před podpisem smlouvy.\nHlasování\npro:\n(4) Ing. Petr Dürr, Ing. Martin Jedlička, Ing. Hana Kuprová, Ing. Karel Krištoufek\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-244-24/24\nzodpovídá:\nMichala Dekiská\ntermín:\n8. 7. 2024\nProjednávání bodu bylo ukončeno v 16:07:40\n10. Vyhlášení zjednodušeného podlimitního řízení na zhotovitele stavby \"Hospodaření s dešťovou vodou - Město Pečky - 2. etapa\" a ustanovení komise (bod číslo 11)\nPředkladatel: Zdeněk Fejfar\nProjednávání bodu bylo zahájeno v 16:08:01\nDůvodová zpráva:\nVyhlášení zjednodušeného podlimitního řízení na stavební práce \"Hospodaření s dešťovou vodou - Město Pečky - 2. etapa\" (budovy: ZUŠ čp. 700 Barákova, MŠ čp. 825 Tř.\nJana\nŠvermy, hasičská zbrojnice čp. 1140 V.B.Třebízského) dle zákona č. 134/2016Sb., o zadávání veřejných zakázek, ve znění pozdějších předpisů.\nSložení hodnotící komise:\nčlenové: Ing. Věra\nRůžičková\n- vedoucí odboru SMM a BH,\nJiří\nMoravec\n- referent přípravy a realizace investic, Ing.\nAdam\nBrant\n- jednatel Služby města Pečky s.r.o.,\nnáhradníci:\nMilan\nPaluska\n- starosta,\nPetra\nKutová\n- investiční technik , Ing.\nJana\nZindrová\n- referent oddělení dopravy\nVydáno Rozhodnutí č. 5211000249 o poskytnutí finančních prostředků ve výši 2 934 511,94 Kč ze Státního fondu životního prostředí ČR v rámci Národního plánu obnovy, výzva č. 10/2021.\nPro\nuzavření Smlouvy o poskytnutí podpory je třeba doložit ve stanoveném termínu mj. smlouvu o dílo se zhotovitelem stavby. Výše podpory může být ponížena v závislosti na výši smluvní ceny.\nDiskuze zahájena v 16:08:02\nK tomuto bodu se vyjádřili: Ing. Martin Jedlička, Ing. Karel Krištoufek, Jiří Moravec, Ing. Hana Kuprová\nV 16:22:43 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Zdeněk Fejfar\") v tomto znění:\nRada\nměsta schvaluje vyhlášení zjednodušeného podlimitního řízení na stavební práce \"Hospodaření s dešťovou vodou - Město Pečky - 2. etapa\" (budovy: ZUŠ čp. 700 Barákova, MŠ čp. 825 Tř.\nJana\nŠvermy, hasičská zbrojnice čp. 1140 V.B.Třebízského) dle zákona č. 134/2016Sb., o zadávání veřejných zakázek, ve znění pozdějších předpisů, a ustanovení komise ve složení:\nčlenové: Ing. Věra\nRůžičková\n- vedoucí odboru SMM a BH,\nJiří\nMoravec\n- referent přípravy a realizace investic, Ing.\nAdam\nBrant\n- jednatel Služby města Pečky s.r.o.,\nnáhradníci:\nMilan\nPaluska\n- starosta,\nPetra\nKutová\n- investiční technik , Ing.\nJana\nZindrová\n- referent oddělení dopravy\nHlasování\npro:\n(4) Ing. Petr Dürr, Ing. Martin Jedlička, Ing. Karel Krištoufek, Ing. Hana Kuprová\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-245-24/24\nzodpovídá:\nMichala Dekiská\ntermín:\n8. 7. 2024\nProjednávání bodu bylo ukončeno v 16:22:50\n11. Kontrola plnění usnesení (bod číslo 12)\nPředkladatel: Zdeněk Fejfar\nProjednávání bodu bylo zahájeno v 16:23:04\nDiskuze zahájena v 16:23:05\nK tomuto bodu se vyjádřili: Ing. Martin Jedlička, Pavlína Nepovímová\nRada bere materiály předložené k bodu č. 12 -\nKontrola plnění usnesení\nna vědomí.\nProjednávání bodu bylo ukončeno v 16:25:23\n12. Diskuse, různé (bod číslo 13)\nPředkladatel: Zdeněk Fejfar\nProjednávání bodu bylo zahájeno v 16:25:46\nDiskuze zahájena v 16:25:47\nK tomuto bodu se vyjádřili: Ing. Martin Jedlička\nRada bere materiály předložené k bodu č. 13 -\nDiskuse, různé\nna vědomí.\nProjednávání bodu bylo ukončeno v 16:27:33\n13. Úkoly vyplývající z jednání rady města (bod číslo 14)\nPředkladatel: Zdeněk Fejfar\nProjednávání bodu bylo zahájeno v 16:29:24\nDiskuze zahájena v 16:29:25\nK tomuto bodu se vyjádřili: Ing. Martin Jedlička\nRada bere materiály předložené k bodu č. 14 -\nÚkoly vyplývající z jednání rady města\nna vědomí.\nProjednávání bodu bylo ukončeno v 16:29:40\n14. Kontrola průběhu investičních akcí (bod číslo 4)\nProjednání bodu bylo odloženo.\nJednání ukončeno 24.06.2024 v 16:30:02"
+ },
+ "resolutions": {
+  "status": "ok",
+  "url": "https://mesto-pecky.usneseni.cz/verejne/b672f804-2e30-11ef-89f7-00505683238f/usneseni/",
+  "fetched_at": "2026-08-04T13:48:22.912635+00:00",
+  "items": [
+   {
+    "number_raw": "UR-237-24/24",
+    "detail_id": 68514,
+    "detail_url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/68514?mod=rada",
+    "agenda_item_raw": "Schválení programu jednání",
+    "text_verbatim": "Rada\nměsta schvaluje návrh programu jednání s touto změnou:\n- přesouvá se bod č. 4. - Kontrola průběhu investičních akcí",
+    "cell_text_raw": "Bod programu:\nSchválení programu jednání\nText přijatého usnesení:\nRada\nměsta schvaluje návrh programu jednání s touto změnou:\n- přesouvá se bod č. 4. - Kontrola průběhu investičních akcí",
+    "date_raw": "24. 6. 2024",
+    "date_iso": "2024-06-24",
+    "responsible_raw": "",
+    "deadline_raw": "IHNED (24. 6. 2024)",
+    "vote": {
+     "raw_text": "pro: 4 proti: 0 zdržel se: 0",
+     "pro": {
+      "count": 4,
+      "names": null,
+      "raw": "4"
+     },
+     "proti": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     },
+     "zdrzel_se": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     }
+    },
+    "detail": {
+     "number_raw": "UR-237-24/24",
+     "text_verbatim": "Rada města schvaluje návrh programu jednání s touto změnou: - přesouvá se bod č. 4. - Kontrola průběhu investičních akcí",
+     "typ_raw": null,
+     "zodpovida_raw": "",
+     "prijato_raw": "24. 6. 2024 na jednání č. 24/2024",
+     "prijato_date_iso": "2024-06-24",
+     "prijato_meeting_label": "24/2024",
+     "termin_raw": "IHNED (24. 6. 2024)",
+     "ukonceno_raw": "24. 6. 2024",
+     "ukonceno_date_iso": "2024-06-24",
+     "fields_raw": {
+      "Číslo usnesení": "UR-237-24/24",
+      "Text usnesení": "Rada města schvaluje návrh programu jednání s touto změnou: - přesouvá se bod č. 4. - Kontrola průběhu investičních akcí",
+      "Zodpovídá": "",
+      "Přijato": "24. 6. 2024 na jednání č. 24/2024",
+      "Termín": "IHNED (24. 6. 2024)",
+      "Ukončeno": "24. 6. 2024"
+     }
+    }
+   },
+   {
+    "number_raw": "UR-238-24/24",
+    "detail_id": 68702,
+    "detail_url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/68702?mod=rada",
+    "agenda_item_raw": "FRB - II. kolo",
+    "text_verbatim": "Rada\nměsta vyhlášuje II. kolo výběrového řízení na poskytnutí půjček z Fondu rozvoje bydlení na rok 2024 s úrokovou sazbou ve výši 3,375 % p.a..",
+    "cell_text_raw": "Bod programu:\nFRB - II. kolo\nText přijatého usnesení:\nRada\nměsta vyhlášuje II. kolo výběrového řízení na poskytnutí půjček z Fondu rozvoje bydlení na rok 2024 s úrokovou sazbou ve výši 3,375 % p.a..",
+    "date_raw": "24. 6. 2024",
+    "date_iso": "2024-06-24",
+    "responsible_raw": "Marcela Bahníková",
+    "deadline_raw": "31. 7. 2024",
+    "vote": {
+     "raw_text": "pro: 4 proti: 0 zdržel se: 0",
+     "pro": {
+      "count": 4,
+      "names": null,
+      "raw": "4"
+     },
+     "proti": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     },
+     "zdrzel_se": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     }
+    },
+    "detail": {
+     "number_raw": "UR-238-24/24",
+     "text_verbatim": "Rada města vyhlášuje II. kolo výběrového řízení na poskytnutí půjček z Fondu rozvoje bydlení na rok 2024 s úrokovou sazbou ve výši 3,375 % p.a..",
+     "typ_raw": null,
+     "zodpovida_raw": "Marcela Bahníková",
+     "prijato_raw": "24. 6. 2024 na jednání č. 24/2024",
+     "prijato_date_iso": "2024-06-24",
+     "prijato_meeting_label": "24/2024",
+     "termin_raw": "31. 7. 2024",
+     "ukonceno_raw": "18. 7. 2024",
+     "ukonceno_date_iso": "2024-07-18",
+     "fields_raw": {
+      "Číslo usnesení": "UR-238-24/24",
+      "Text usnesení": "Rada města vyhlášuje II. kolo výběrového řízení na poskytnutí půjček z Fondu rozvoje bydlení na rok 2024 s úrokovou sazbou ve výši 3,375 % p.a..",
+      "Zodpovídá": "Marcela Bahníková",
+      "Přijato": "24. 6. 2024 na jednání č. 24/2024",
+      "Termín": "31. 7. 2024",
+      "Ukončeno": "18. 7. 2024"
+     }
+    }
+   },
+   {
+    "number_raw": "UR-239-24/24",
+    "detail_id": 68703,
+    "detail_url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/68703?mod=rada",
+    "agenda_item_raw": "Změna odpisového plánu ZŠ , vyřazení majetku",
+    "text_verbatim": "Rada\nměsta schvaluje ZŠ Pečky změnu odpisových plánů DDHM inv. č. 31/022 - kráječ a inv.č. 30/022 - el. kompostér.",
+    "cell_text_raw": "Bod programu:\nZměna odpisového plánu ZŠ , vyřazení majetku\nText přijatého usnesení:\nRada\nměsta schvaluje ZŠ Pečky změnu odpisových plánů DDHM inv. č. 31/022 - kráječ a inv.č. 30/022 - el. kompostér.",
+    "date_raw": "24. 6. 2024",
+    "date_iso": "2024-06-24",
+    "responsible_raw": "",
+    "deadline_raw": "IHNED (24. 6. 2024)",
+    "vote": {
+     "raw_text": "pro: 4 proti: 0 zdržel se: 0",
+     "pro": {
+      "count": 4,
+      "names": null,
+      "raw": "4"
+     },
+     "proti": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     },
+     "zdrzel_se": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     }
+    },
+    "detail": {
+     "number_raw": "UR-239-24/24",
+     "text_verbatim": "Rada města schvaluje ZŠ Pečky změnu odpisových plánů DDHM inv. č. 31/022 - kráječ a inv.č. 30/022 - el. kompostér.",
+     "typ_raw": null,
+     "zodpovida_raw": "",
+     "prijato_raw": "24. 6. 2024 na jednání č. 24/2024",
+     "prijato_date_iso": "2024-06-24",
+     "prijato_meeting_label": "24/2024",
+     "termin_raw": "IHNED (24. 6. 2024)",
+     "ukonceno_raw": "24. 6. 2024",
+     "ukonceno_date_iso": "2024-06-24",
+     "fields_raw": {
+      "Číslo usnesení": "UR-239-24/24",
+      "Text usnesení": "Rada města schvaluje ZŠ Pečky změnu odpisových plánů DDHM inv. č. 31/022 - kráječ a inv.č. 30/022 - el. kompostér.",
+      "Zodpovídá": "",
+      "Přijato": "24. 6. 2024 na jednání č. 24/2024",
+      "Termín": "IHNED (24. 6. 2024)",
+      "Ukončeno": "24. 6. 2024"
+     }
+    }
+   },
+   {
+    "number_raw": "UR-240-24/24",
+    "detail_id": 68704,
+    "detail_url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/68704?mod=rada",
+    "agenda_item_raw": "Změna odpisového plánu ZŠ , vyřazení majetku",
+    "text_verbatim": "Rada\nměsta schvaluje ZŠ Pečky vyřazení DDHM inv. č.028/022 - server s příslušenstvím likvidací.",
+    "cell_text_raw": "Bod programu:\nZměna odpisového plánu ZŠ , vyřazení majetku\nText přijatého usnesení:\nRada\nměsta schvaluje ZŠ Pečky vyřazení DDHM inv. č.028/022 - server s příslušenstvím likvidací.",
+    "date_raw": "24. 6. 2024",
+    "date_iso": "2024-06-24",
+    "responsible_raw": "",
+    "deadline_raw": "IHNED (24. 6. 2024)",
+    "vote": {
+     "raw_text": "pro: 4 proti: 0 zdržel se: 0",
+     "pro": {
+      "count": 4,
+      "names": null,
+      "raw": "4"
+     },
+     "proti": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     },
+     "zdrzel_se": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     }
+    },
+    "detail": {
+     "number_raw": "UR-240-24/24",
+     "text_verbatim": "Rada města schvaluje ZŠ Pečky vyřazení DDHM inv. č.028/022 - server s příslušenstvím likvidací.",
+     "typ_raw": null,
+     "zodpovida_raw": "",
+     "prijato_raw": "24. 6. 2024 na jednání č. 24/2024",
+     "prijato_date_iso": "2024-06-24",
+     "prijato_meeting_label": "24/2024",
+     "termin_raw": "IHNED (24. 6. 2024)",
+     "ukonceno_raw": "24. 6. 2024",
+     "ukonceno_date_iso": "2024-06-24",
+     "fields_raw": {
+      "Číslo usnesení": "UR-240-24/24",
+      "Text usnesení": "Rada města schvaluje ZŠ Pečky vyřazení DDHM inv. č.028/022 - server s příslušenstvím likvidací.",
+      "Zodpovídá": "",
+      "Přijato": "24. 6. 2024 na jednání č. 24/2024",
+      "Termín": "IHNED (24. 6. 2024)",
+      "Ukončeno": "24. 6. 2024"
+     }
+    }
+   },
+   {
+    "number_raw": "UR-241-24/24",
+    "detail_id": 68731,
+    "detail_url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/68731?mod=rada",
+    "agenda_item_raw": "Jmenování členů a náhradníků do komise pro posouzení uchazeče o pracovní místo Samostatný referent/referentka odboru výstavby",
+    "text_verbatim": "Rada\nměsta schvaluje členy a náhradníky výběrové komise na obsazení pracovního místa \" Samostatný referent/ referentka odboru výstavby \".\nPředseda:\nMilan\nPaluska\n- starosta\nČlenové:\nBc.\nPavlína\nNepovímová\n, DiS. – tajemnice\nMarie\nHoznauerová\n– zástupce vedoucí odboru stavebního\nMarcela\nBahníková\n– vedoucí Odboru ekonomicko -správního\nPetra\nKůtová\n– zástupce za Odborovou organizaci\nNáhradníci:\nZdeněk\nFejfar\n– místostarosta\nŠárka Kosinová",
+    "cell_text_raw": "Bod programu:\nJmenování členů a náhradníků do komise pro posouzení uchazeče o pracovní místo Samostatný referent/referentka odboru výstavby\nText přijatého usnesení:\nRada\nměsta schvaluje členy a náhradníky výběrové komise na obsazení pracovního místa \" Samostatný referent/ referentka odboru výstavby \".\nPředseda:\nMilan\nPaluska\n- starosta\nČlenové:\nBc.\nPavlína\nNepovímová\n, DiS. – tajemnice\nMarie\nHoznauerová\n– zástupce vedoucí odboru stavebního\nMarcela\nBahníková\n– vedoucí Odboru ekonomicko -správního\nPetra\nKůtová\n– zástupce za Odborovou organizaci\nNáhradníci:\nZdeněk\nFejfar\n– místostarosta\nŠárka Kosinová",
+    "date_raw": "24. 6. 2024",
+    "date_iso": "2024-06-24",
+    "responsible_raw": "",
+    "deadline_raw": "IHNED (24. 6. 2024)",
+    "vote": {
+     "raw_text": "pro: 4 proti: 0 zdržel se: 0",
+     "pro": {
+      "count": 4,
+      "names": null,
+      "raw": "4"
+     },
+     "proti": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     },
+     "zdrzel_se": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     }
+    },
+    "detail": {
+     "number_raw": "UR-241-24/24",
+     "text_verbatim": "Rada města schvaluje členy a náhradníky výběrové komise na obsazení pracovního místa \" Samostatný referent/ referentka odboru výstavby \". Předseda: Milan Paluska - starosta Členové: Bc. Pavlína Nepovímová , DiS. – tajemnice Marie Hoznauerová – zástupce vedoucí odboru stavebního Marcela Bahníková – vedoucí Odboru ekonomicko -správního Petra Kůtová – zástupce za Odborovou organizaci Náhradníci: Zdeněk Fejfar – místostarosta Šárka Kosinová",
+     "typ_raw": null,
+     "zodpovida_raw": "",
+     "prijato_raw": "24. 6. 2024 na jednání č. 24/2024",
+     "prijato_date_iso": "2024-06-24",
+     "prijato_meeting_label": "24/2024",
+     "termin_raw": "IHNED (24. 6. 2024)",
+     "ukonceno_raw": "24. 6. 2024",
+     "ukonceno_date_iso": "2024-06-24",
+     "fields_raw": {
+      "Číslo usnesení": "UR-241-24/24",
+      "Text usnesení": "Rada města schvaluje členy a náhradníky výběrové komise na obsazení pracovního místa \" Samostatný referent/ referentka odboru výstavby \". Předseda: Milan Paluska - starosta Členové: Bc. Pavlína Nepovímová , DiS. – tajemnice Marie Hoznauerová – zástupce vedoucí odboru stavebního Marcela Bahníková – vedoucí Odboru ekonomicko -správního Petra Kůtová – zástupce za Odborovou organizaci Náhradníci: Zdeněk Fejfar – místostarosta Šárka Kosinová",
+      "Zodpovídá": "",
+      "Přijato": "24. 6. 2024 na jednání č. 24/2024",
+      "Termín": "IHNED (24. 6. 2024)",
+      "Ukončeno": "24. 6. 2024"
+     }
+    }
+   },
+   {
+    "number_raw": "UR-242-24/24",
+    "detail_id": 68733,
+    "detail_url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/68733?mod=rada",
+    "agenda_item_raw": "Pracovní řád Městského úřadu Pečky",
+    "text_verbatim": "Rada\nměsta schvaluje aktualizaci pracovního řádu Městského úřadu Pečky 2/2024.",
+    "cell_text_raw": "Bod programu:\nPracovní řád Městského úřadu Pečky\nText přijatého usnesení:\nRada\nměsta schvaluje aktualizaci pracovního řádu Městského úřadu Pečky 2/2024.",
+    "date_raw": "24. 6. 2024",
+    "date_iso": "2024-06-24",
+    "responsible_raw": "",
+    "deadline_raw": "IHNED (24. 6. 2024)",
+    "vote": {
+     "raw_text": "pro: 4 proti: 0 zdržel se: 0",
+     "pro": {
+      "count": 4,
+      "names": null,
+      "raw": "4"
+     },
+     "proti": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     },
+     "zdrzel_se": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     }
+    },
+    "detail": {
+     "number_raw": "UR-242-24/24",
+     "text_verbatim": "Rada města schvaluje aktualizaci pracovního řádu Městského úřadu Pečky 2/2024.",
+     "typ_raw": null,
+     "zodpovida_raw": "",
+     "prijato_raw": "24. 6. 2024 na jednání č. 24/2024",
+     "prijato_date_iso": "2024-06-24",
+     "prijato_meeting_label": "24/2024",
+     "termin_raw": "IHNED (24. 6. 2024)",
+     "ukonceno_raw": "24. 6. 2024",
+     "ukonceno_date_iso": "2024-06-24",
+     "fields_raw": {
+      "Číslo usnesení": "UR-242-24/24",
+      "Text usnesení": "Rada města schvaluje aktualizaci pracovního řádu Městského úřadu Pečky 2/2024.",
+      "Zodpovídá": "",
+      "Přijato": "24. 6. 2024 na jednání č. 24/2024",
+      "Termín": "IHNED (24. 6. 2024)",
+      "Ukončeno": "24. 6. 2024"
+     }
+    }
+   },
+   {
+    "number_raw": "UR-243-24/24",
+    "detail_id": 68615,
+    "detail_url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/68615?mod=rada",
+    "agenda_item_raw": "Výběr dodavatele na plnění veřejné zakázky část 1 \"Technický dozor investora na stavbě Rekonstrukce místních komunikací a vodovodní řad v části Bačov v Pečkách – 1. a 2. etapa\" a uzavření příkazní smlouvy",
+    "text_verbatim": "Rada\nměsta schvaluje Rozhodnutí o výběru dodavatele na plnění veřejné zakázky malého rozsahu na služby část 1 \"Technický dozor investora na stavbě Rekonstrukce místních komunikací a vodovodní řad v části Bačov v Pečkách - 1. a 2. etapa\", zadávané mimo režim zákona č. 134/2016 Sb., o zadávání veřejných zakázek, ve znění pozdějších předpisů, v poptávkovém řízení - uzavřené výzvě dle čl. 5 Směrnice města Pečky k zadávání veřejných zakázek malého rozsahu, v souladu s doporučením hodnotící komise, a uzavření příkazní smlouvy mezi městem Pečky a vybraným dodavatelem ARCHA – inženýrská agentura, a.s., se sídlem: V Zídkách 450, 280 02\nKolín\n, IČ: 25638262, po poskytnutí součinnosti vybraného dodavatele před podpisem smlouvy.",
+    "cell_text_raw": "Bod programu:\nVýběr dodavatele na plnění veřejné zakázky část 1 \"Technický dozor investora na stavbě Rekonstrukce místních komunikací a vodovodní řad v části Bačov v Pečkách – 1. a 2. etapa\" a uzavření příkazní smlouvy\nText přijatého usnesení:\nRada\nměsta schvaluje Rozhodnutí o výběru dodavatele na plnění veřejné zakázky malého rozsahu na služby část 1 \"Technický dozor investora na stavbě Rekonstrukce místních komunikací a vodovodní řad v části Bačov v Pečkách - 1. a 2. etapa\", zadávané mimo režim zákona č. 134/2016 Sb., o zadávání veřejných zakázek, ve znění pozdějších předpisů, v poptávkovém řízení - uzavřené výzvě dle čl. 5 Směrnice města Pečky k zadávání veřejných zakázek malého rozsahu, v souladu s doporučením hodnotící komise, a uzavření příkazní smlouvy mezi městem Pečky a vybraným dodavatelem ARCHA – inženýrská agentura, a.s., se sídlem: V Zídkách 450, 280 02\nKolín\n, IČ: 25638262, po poskytnutí součinnosti vybraného dodavatele před podpisem smlouvy.",
+    "date_raw": "24. 6. 2024",
+    "date_iso": "2024-06-24",
+    "responsible_raw": "Michala Dekiská",
+    "deadline_raw": "8. 7. 2024",
+    "vote": {
+     "raw_text": "pro: 4 proti: 0 zdržel se: 0",
+     "pro": {
+      "count": 4,
+      "names": null,
+      "raw": "4"
+     },
+     "proti": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     },
+     "zdrzel_se": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     }
+    },
+    "detail": {
+     "number_raw": "UR-243-24/24",
+     "text_verbatim": "Rada města schvaluje Rozhodnutí o výběru dodavatele na plnění veřejné zakázky malého rozsahu na služby část 1 \"Technický dozor investora na stavbě Rekonstrukce místních komunikací a vodovodní řad v části Bačov v Pečkách - 1. a 2. etapa\", zadávané mimo režim zákona č. 134/2016 Sb., o zadávání veřejných zakázek, ve znění pozdějších předpisů, v poptávkovém řízení - uzavřené výzvě dle čl. 5 Směrnice města Pečky k zadávání veřejných zakázek malého rozsahu, v souladu s doporučením hodnotící komise, a uzavření příkazní smlouvy mezi městem Pečky a vybraným dodavatelem ARCHA – inženýrská agentura, a.s., se sídlem: V Zídkách 450, 280 02 Kolín , IČ: 25638262, po poskytnutí součinnosti vybraného dodavatele před podpisem smlouvy.",
+     "typ_raw": null,
+     "zodpovida_raw": "Michala Dekiská",
+     "prijato_raw": "24. 6. 2024 na jednání č. 24/2024",
+     "prijato_date_iso": "2024-06-24",
+     "prijato_meeting_label": "24/2024",
+     "termin_raw": "8. 7. 2024",
+     "ukonceno_raw": "9. 7. 2024",
+     "ukonceno_date_iso": "2024-07-09",
+     "fields_raw": {
+      "Číslo usnesení": "UR-243-24/24",
+      "Text usnesení": "Rada města schvaluje Rozhodnutí o výběru dodavatele na plnění veřejné zakázky malého rozsahu na služby část 1 \"Technický dozor investora na stavbě Rekonstrukce místních komunikací a vodovodní řad v části Bačov v Pečkách - 1. a 2. etapa\", zadávané mimo režim zákona č. 134/2016 Sb., o zadávání veřejných zakázek, ve znění pozdějších předpisů, v poptávkovém řízení - uzavřené výzvě dle čl. 5 Směrnice města Pečky k zadávání veřejných zakázek malého rozsahu, v souladu s doporučením hodnotící komise, a uzavření příkazní smlouvy mezi městem Pečky a vybraným dodavatelem ARCHA – inženýrská agentura, a.s., se sídlem: V Zídkách 450, 280 02 Kolín , IČ: 25638262, po poskytnutí součinnosti vybraného dodavatele před podpisem smlouvy.",
+      "Zodpovídá": "Michala Dekiská",
+      "Přijato": "24. 6. 2024 na jednání č. 24/2024",
+      "Termín": "8. 7. 2024",
+      "Ukončeno": "9. 7. 2024"
+     }
+    }
+   },
+   {
+    "number_raw": "UR-244-24/24",
+    "detail_id": 68617,
+    "detail_url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/68617?mod=rada",
+    "agenda_item_raw": "Výběr dodavatele na plnění veřejné zakázky část 2 \"Koordinátor BOZP na stavbě Rekonstrukce místních komunikací a vodovodní řad v části Bačov v Pečkách – 1. a 2. etapa\" a uzavření příkazní smlouvy",
+    "text_verbatim": "Rada\nměsta schvaluje Rozhodnutí o výběru dodavatele na plnění veřejné zakázky malého rozsahu na služby část 2 \"Koordinátor BOZP na stavbě Rekonstrukce místních komunikací a vodovodní řad v části Bačov v Pečkách - 1. a 2. etapa\", zadávané mimo režim zákona č. 134/2016 Sb., o zadávání veřejných zakázek, ve znění pozdějších předpisů, v poptávkovém řízení - uzavřené výzvě dle čl. 5 Směrnice města Pečky k zadávání veřejných zakázek malého rozsahu, v souladu s doporučením hodnotící komise, a uzavření příkazní smlouvy mezi městem Pečky a vybraným dodavatelem ARCHA – inženýrská agentura, a.s., se sídlem: V Zídkách 450, 280 02\nKolín\n, IČ: 25638262, po poskytnutí součinnosti vybraného dodavatele před podpisem smlouvy.",
+    "cell_text_raw": "Bod programu:\nVýběr dodavatele na plnění veřejné zakázky část 2 \"Koordinátor BOZP na stavbě Rekonstrukce místních komunikací a vodovodní řad v části Bačov v Pečkách – 1. a 2. etapa\" a uzavření příkazní smlouvy\nText přijatého usnesení:\nRada\nměsta schvaluje Rozhodnutí o výběru dodavatele na plnění veřejné zakázky malého rozsahu na služby část 2 \"Koordinátor BOZP na stavbě Rekonstrukce místních komunikací a vodovodní řad v části Bačov v Pečkách - 1. a 2. etapa\", zadávané mimo režim zákona č. 134/2016 Sb., o zadávání veřejných zakázek, ve znění pozdějších předpisů, v poptávkovém řízení - uzavřené výzvě dle čl. 5 Směrnice města Pečky k zadávání veřejných zakázek malého rozsahu, v souladu s doporučením hodnotící komise, a uzavření příkazní smlouvy mezi městem Pečky a vybraným dodavatelem ARCHA – inženýrská agentura, a.s., se sídlem: V Zídkách 450, 280 02\nKolín\n, IČ: 25638262, po poskytnutí součinnosti vybraného dodavatele před podpisem smlouvy.",
+    "date_raw": "24. 6. 2024",
+    "date_iso": "2024-06-24",
+    "responsible_raw": "Michala Dekiská",
+    "deadline_raw": "8. 7. 2024",
+    "vote": {
+     "raw_text": "pro: 4 proti: 0 zdržel se: 0",
+     "pro": {
+      "count": 4,
+      "names": null,
+      "raw": "4"
+     },
+     "proti": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     },
+     "zdrzel_se": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     }
+    },
+    "detail": {
+     "number_raw": "UR-244-24/24",
+     "text_verbatim": "Rada města schvaluje Rozhodnutí o výběru dodavatele na plnění veřejné zakázky malého rozsahu na služby část 2 \"Koordinátor BOZP na stavbě Rekonstrukce místních komunikací a vodovodní řad v části Bačov v Pečkách - 1. a 2. etapa\", zadávané mimo režim zákona č. 134/2016 Sb., o zadávání veřejných zakázek, ve znění pozdějších předpisů, v poptávkovém řízení - uzavřené výzvě dle čl. 5 Směrnice města Pečky k zadávání veřejných zakázek malého rozsahu, v souladu s doporučením hodnotící komise, a uzavření příkazní smlouvy mezi městem Pečky a vybraným dodavatelem ARCHA – inženýrská agentura, a.s., se sídlem: V Zídkách 450, 280 02 Kolín , IČ: 25638262, po poskytnutí součinnosti vybraného dodavatele před podpisem smlouvy.",
+     "typ_raw": null,
+     "zodpovida_raw": "Michala Dekiská",
+     "prijato_raw": "24. 6. 2024 na jednání č. 24/2024",
+     "prijato_date_iso": "2024-06-24",
+     "prijato_meeting_label": "24/2024",
+     "termin_raw": "8. 7. 2024",
+     "ukonceno_raw": "9. 7. 2024",
+     "ukonceno_date_iso": "2024-07-09",
+     "fields_raw": {
+      "Číslo usnesení": "UR-244-24/24",
+      "Text usnesení": "Rada města schvaluje Rozhodnutí o výběru dodavatele na plnění veřejné zakázky malého rozsahu na služby část 2 \"Koordinátor BOZP na stavbě Rekonstrukce místních komunikací a vodovodní řad v části Bačov v Pečkách - 1. a 2. etapa\", zadávané mimo režim zákona č. 134/2016 Sb., o zadávání veřejných zakázek, ve znění pozdějších předpisů, v poptávkovém řízení - uzavřené výzvě dle čl. 5 Směrnice města Pečky k zadávání veřejných zakázek malého rozsahu, v souladu s doporučením hodnotící komise, a uzavření příkazní smlouvy mezi městem Pečky a vybraným dodavatelem ARCHA – inženýrská agentura, a.s., se sídlem: V Zídkách 450, 280 02 Kolín , IČ: 25638262, po poskytnutí součinnosti vybraného dodavatele před podpisem smlouvy.",
+      "Zodpovídá": "Michala Dekiská",
+      "Přijato": "24. 6. 2024 na jednání č. 24/2024",
+      "Termín": "8. 7. 2024",
+      "Ukončeno": "9. 7. 2024"
+     }
+    }
+   },
+   {
+    "number_raw": "UR-245-24/24",
+    "detail_id": 68717,
+    "detail_url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/68717?mod=rada",
+    "agenda_item_raw": "Vyhlášení zjednodušeného podlimitního řízení na zhotovitele stavby \"Hospodaření s dešťovou vodou - Město Pečky - 2. etapa\" a ustanovení komise",
+    "text_verbatim": "Rada\nměsta schvaluje vyhlášení zjednodušeného podlimitního řízení na stavební práce \"Hospodaření s dešťovou vodou - Město Pečky - 2. etapa\" (budovy: ZUŠ čp. 700 Barákova, MŠ čp. 825 Tř.\nJana\nŠvermy, hasičská zbrojnice čp. 1140 V.B.Třebízského) dle zákona č. 134/2016Sb., o zadávání veřejných zakázek, ve znění pozdějších předpisů, a ustanovení komise ve složení:\nčlenové: Ing. Věra\nRůžičková\n- vedoucí odboru SMM a BH,\nJiří\nMoravec\n- referent přípravy a realizace investic, Ing.\nAdam\nBrant\n- jednatel Služby města Pečky s.r.o.,\nnáhradníci:\nMilan\nPaluska\n- starosta,\nPetra\nKutová\n- investiční technik , Ing.\nJana\nZindrová\n- referent oddělení dopravy",
+    "cell_text_raw": "Bod programu:\nVyhlášení zjednodušeného podlimitního řízení na zhotovitele stavby \"Hospodaření s dešťovou vodou - Město Pečky - 2. etapa\" a ustanovení komise\nText přijatého usnesení:\nRada\nměsta schvaluje vyhlášení zjednodušeného podlimitního řízení na stavební práce \"Hospodaření s dešťovou vodou - Město Pečky - 2. etapa\" (budovy: ZUŠ čp. 700 Barákova, MŠ čp. 825 Tř.\nJana\nŠvermy, hasičská zbrojnice čp. 1140 V.B.Třebízského) dle zákona č. 134/2016Sb., o zadávání veřejných zakázek, ve znění pozdějších předpisů, a ustanovení komise ve složení:\nčlenové: Ing. Věra\nRůžičková\n- vedoucí odboru SMM a BH,\nJiří\nMoravec\n- referent přípravy a realizace investic, Ing.\nAdam\nBrant\n- jednatel Služby města Pečky s.r.o.,\nnáhradníci:\nMilan\nPaluska\n- starosta,\nPetra\nKutová\n- investiční technik , Ing.\nJana\nZindrová\n- referent oddělení dopravy",
+    "date_raw": "24. 6. 2024",
+    "date_iso": "2024-06-24",
+    "responsible_raw": "Michala Dekiská",
+    "deadline_raw": "8. 7. 2024",
+    "vote": {
+     "raw_text": "pro: 4 proti: 0 zdržel se: 0",
+     "pro": {
+      "count": 4,
+      "names": null,
+      "raw": "4"
+     },
+     "proti": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     },
+     "zdrzel_se": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     }
+    },
+    "detail": {
+     "number_raw": "UR-245-24/24",
+     "text_verbatim": "Rada města schvaluje vyhlášení zjednodušeného podlimitního řízení na stavební práce \"Hospodaření s dešťovou vodou - Město Pečky - 2. etapa\" (budovy: ZUŠ čp. 700 Barákova, MŠ čp. 825 Tř. Jana Švermy, hasičská zbrojnice čp. 1140 V.B.Třebízského) dle zákona č. 134/2016Sb., o zadávání veřejných zakázek, ve znění pozdějších předpisů, a ustanovení komise ve složení: členové: Ing. Věra Růžičková - vedoucí odboru SMM a BH, Jiří Moravec - referent přípravy a realizace investic, Ing. Adam Brant - jednatel Služby města Pečky s.r.o., náhradníci: Milan Paluska - starosta, Petra Kutová - investiční technik , Ing. Jana Zindrová - referent oddělení dopravy",
+     "typ_raw": null,
+     "zodpovida_raw": "Michala Dekiská",
+     "prijato_raw": "24. 6. 2024 na jednání č. 24/2024",
+     "prijato_date_iso": "2024-06-24",
+     "prijato_meeting_label": "24/2024",
+     "termin_raw": "8. 7. 2024",
+     "ukonceno_raw": "26. 6. 2024",
+     "ukonceno_date_iso": "2024-06-26",
+     "fields_raw": {
+      "Číslo usnesení": "UR-245-24/24",
+      "Text usnesení": "Rada města schvaluje vyhlášení zjednodušeného podlimitního řízení na stavební práce \"Hospodaření s dešťovou vodou - Město Pečky - 2. etapa\" (budovy: ZUŠ čp. 700 Barákova, MŠ čp. 825 Tř. Jana Švermy, hasičská zbrojnice čp. 1140 V.B.Třebízského) dle zákona č. 134/2016Sb., o zadávání veřejných zakázek, ve znění pozdějších předpisů, a ustanovení komise ve složení: členové: Ing. Věra Růžičková - vedoucí odboru SMM a BH, Jiří Moravec - referent přípravy a realizace investic, Ing. Adam Brant - jednatel Služby města Pečky s.r.o., náhradníci: Milan Paluska - starosta, Petra Kutová - investiční technik , Ing. Jana Zindrová - referent oddělení dopravy",
+      "Zodpovídá": "Michala Dekiská",
+      "Přijato": "24. 6. 2024 na jednání č. 24/2024",
+      "Termín": "8. 7. 2024",
+      "Ukončeno": "26. 6. 2024"
+     }
+    }
+   }
+  ]
+ }
+}

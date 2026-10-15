@@ -1,0 +1,975 @@
+{
+ "uuid": "9a995fb6-eb9f-11f0-9458-00505683238f",
+ "body_type_raw": "Rada",
+ "label_raw": "2/2026 (12. 1. 2026)",
+ "number": 2,
+ "year": 2026,
+ "date_iso": "2026-01-12",
+ "links": {
+  "invitation": "https://mesto-pecky.usneseni.cz/verejne/?uuid=9a995fb6-eb9f-11f0-9458-00505683238f&page=2&do=printPublicInvitation",
+  "minutes": "https://mesto-pecky.usneseni.cz/verejne/9a995fb6-eb9f-11f0-9458-00505683238f/zapis/?page=2",
+  "signed_minutes_pdf": "https://mesto-pecky.usneseni.cz/verejne/?meetingReportControl-uuid=9a995fb6-eb9f-11f0-9458-00505683238f&page=2&do=meetingReportControl-getSignedReportPdf",
+  "resolutions": "https://mesto-pecky.usneseni.cz/verejne/9a995fb6-eb9f-11f0-9458-00505683238f/usneseni/?page=2",
+  "audio": null
+ },
+ "link_texts": {
+  "invitation": "Pozvánka",
+  "minutes": "zápis",
+  "signed_minutes_pdf": "podepsaný zápis",
+  "resolutions": "přijatá usnesení"
+ },
+ "status": "ok",
+ "invitation": {
+  "status": "site_error",
+  "error": "status=200 ct=text/html; charset=utf-8 flash='<a href=\"\" class=\"close\" data-dismiss=\"alert\" aria-label=\"close\">&times;'",
+  "url": "https://mesto-pecky.usneseni.cz/verejne/?uuid=9a995fb6-eb9f-11f0-9458-00505683238f&do=printPublicInvitation",
+  "fetched_at": "2026-08-04T14:52:44.708176+00:00"
+ },
+ "minutes": {
+  "status": "ok",
+  "url": "https://mesto-pecky.usneseni.cz/verejne/9a995fb6-eb9f-11f0-9458-00505683238f/zapis/",
+  "fetched_at": "2026-08-04T13:20:56.677392+00:00",
+  "title_raw": "ZÁPIS ze schůze rady č. 2/2026 Město Pečky datum: 12. 1. 2026, čas: 15:00 ​",
+  "date_raw": "12. 1. 2026",
+  "date_iso": "2026-01-12",
+  "time_raw": "15:00",
+  "presence": {
+   "raw_text": "Úvodní prezence:\nPřítomni:\n(6) Ing. Petr Dürr, Zdeněk Fejfar, Ing. Martin Jedlička, Ing. Karel Krištoufek, Ing. Hana Kuprová, Ivana Trčková\nOmluveni:\n(1) Milan Paluska\nNepřítomni:\n(0)\nDalší přítomní a hosté:\nZapisovatel/ka:\nEva Strnadová\nPřítomno je 6 z 7 členů a rada je usnášeníschopná.\nJednání zahájeno 12.01.2026 v 15:22:32",
+   "pritomni": {
+    "count": 6,
+    "names": [
+     "Ing. Petr Dürr",
+     "Zdeněk Fejfar",
+     "Ing. Martin Jedlička",
+     "Ing. Karel Krištoufek",
+     "Ing. Hana Kuprová",
+     "Ivana Trčková"
+    ],
+    "raw": "(6) Ing. Petr Dürr, Zdeněk Fejfar, Ing. Martin Jedlička, Ing. Karel Krištoufek, Ing. Hana Kuprová, Ivana Trčková"
+   },
+   "omluveni": {
+    "count": 1,
+    "names": [
+     "Milan Paluska"
+    ],
+    "raw": "(1) Milan Paluska"
+   },
+   "nepritomni": {
+    "count": 0,
+    "names": [],
+    "raw": "(0)"
+   },
+   "predsedajici": null,
+   "quorum_raw": "Přítomno je 6 z 7 členů a rada je usnášeníschopná."
+  },
+  "header_raw": "Úvodní prezence:\nPřítomni:\n(6) Ing. Petr Dürr, Zdeněk Fejfar, Ing. Martin Jedlička, Ing. Karel Krištoufek, Ing. Hana Kuprová, Ivana Trčková\nOmluveni:\n(1) Milan Paluska\nNepřítomni:\n(0)\nDalší přítomní a hosté:\nZapisovatel/ka:\nEva Strnadová\nPřítomno je 6 z 7 členů a rada je usnášeníschopná.\nJednání zahájeno 12.01.2026 v 15:22:32",
+  "agenda_items": [
+   {
+    "number": 1,
+    "title_raw": "Určení zapisovatelů, předsedajícího, příp. ověřovatelů",
+    "heading_raw": "1. Určení zapisovatelů, předsedajícího, příp. ověřovatelů (bod číslo 1)",
+    "predkladatel": "Zdeněk Fejfar",
+    "votes": [],
+    "resolution_numbers_mentioned": [],
+    "raw_text": "Předkladatel: Zdeněk Fejfar\nProjednávání bodu bylo zahájeno v 15:22:37\nPředsedající navrhl jednotlivé členy pracovních komisí\nOvěřovatelé:\nIvana Trčková, Ing. Karel Krištoufek\nPředsedající:\nZdeněk Fejfar\nBod byl přijat bez hlasování.\nDiskuze zahájena v 15:22:37\nK tomuto bodu se vyjádřili:\nZdeněk Fejfar\nProjednávání bodu bylo ukončeno v 15:23:54"
+   },
+   {
+    "number": 2,
+    "title_raw": "Schválení programu jednání",
+    "heading_raw": "2. Schválení programu jednání (bod číslo 2)",
+    "predkladatel": "Zdeněk Fejfar",
+    "votes": [
+     {
+      "raw_text": "pro:\n6\nproti\n0\nzdržel se:\n0\nnehlasoval:\n0",
+      "pro": {
+       "count": 6,
+       "names": null,
+       "raw": "6"
+      },
+      "proti": {
+       "count": 0,
+       "names": null,
+       "raw": "0"
+      },
+      "zdrzel_se": {
+       "count": 0,
+       "names": null,
+       "raw": "0"
+      },
+      "nehlasoval": {
+       "count": 0,
+       "names": null,
+       "raw": "0"
+      },
+      "result_raw": "Návrh A. byl přijat jako usnesení číslo: UR-16-2/26",
+      "adopted_resolution_number": "UR-16-2/26"
+     }
+    ],
+    "resolution_numbers_mentioned": [
+     "UR-16-2/26",
+     "UR-426-46/25"
+    ],
+    "raw_text": "Předkladatel: Zdeněk Fejfar\nProjednávání bodu bylo zahájeno v 15:23:59\nProgram jednání\n1. Určení zapisovatelů, předsedajícího, příp. ověřovatelů\n2. Schválení programu jednání\n3. Aktuální informace vedení města\n4. Úkol UR-426-46/25\n5. Zveřejnění záměru – pronájem prostor sloužících podnikání v čp. 292 (zubní)\n6. Zrušení poptávkového řízení \"PROJEKTOVÁ PŘÍPRAVA akcí souvisejících s připojením obce Tatce a rekonstrukcí křižovatky Tř. 5. května a P. Bezruče\"\n7. Vyhlášení výběrového řízení na služby \"PROJEKTOVÁ PŘÍPRAVA akcí souvisejících s připojením obce Tatce a rekonstrukcí křižovatky Tř. 5. května a P. Bezruče\" a ustanovení komise\n8. Doplnění Pravidel pro zveřejňování příspěvků na komunikačních kanálech města Pečky\n9. Vyhlášení poptávkového řízení na poskytovatele právních služeb - město\n10. Zrušení pracovní skupiny pro oslavy 100 let povýšení Peček na město\n11. Kontrola plnění usnesení\n12. Diskuse, různé\n13. Úkoly vyplývající z jednání rady města\nDiskuze zahájena v 15:23:59\nK tomuto bodu se vyjádřili:\nZdeněk Fejfar, Ing. Karel Krištoufek, Ing. Hana Kuprová, Ivana Trčková\nV 15:54:17 předsedající zahájil hlasování o návrhu usnesení \"A\" v tomto znění:\nNavrhovatel: Zdeněk Fejfar\nRada\nměsta schvaluje návrh programu jednání.\nHlasování\npro:\n6\nproti\n0\nzdržel se:\n0\nnehlasoval:\n0\nNávrh A. byl přijat jako usnesení číslo: UR-16-2/26\nzodpovídá:\ntermín:\nIHNED\n(12. 1. 2026)\nProjednávání bodu bylo ukončeno v 15:54:21"
+   },
+   {
+    "number": 3,
+    "title_raw": "Aktuální informace vedení města",
+    "heading_raw": "3. Aktuální informace vedení města (bod číslo 3)",
+    "predkladatel": "Zdeněk Fejfar",
+    "votes": [],
+    "resolution_numbers_mentioned": [],
+    "raw_text": "Předkladatel: Zdeněk Fejfar\nProjednávání bodu bylo zahájeno v 15:54:28\nDůvodová zpráva:\nmístostarosta města\nZdeněk\nFejfar\n- informace o přerušení stavebních prací akce \"Rekonstrukce místních komunikací a vodovodní řad v části Bačov v Pečkách – 3. a 4. etapa a MŠ Mašinka - oplocení - 2. etapa\" z důvodu nepříznivých klimatických podmínek /nízké teploty, mráz a sněžení/. Práce budou obnoveny, jakmile to povětrnostní podmínky dovolí.\n- informace o pokračování výběru zhotovitele pro realizaci akce \"Dostavba učeben a tělocvičny v ZŠ Pečky\"\n- informace o krocích k zajištění dofinancování akce „Dostavba učeben a tělocvičny v ZŠ Pečky“\n- informace o proběhlé schůzce se zástupci Národního památkového ústavu a provozovatele přenosových věží Vantage Towers s.r.o. - revitalizace vodojemu\n- informace o úklidu sněhu zajišťovaném společností Služby města Pečky, s.r.o.\n- informace o opravě havarijního stavu vodovodu v lokalitě Pečky – jih\nDiskuze zahájena v 15:54:28\nK tomuto bodu se vyjádřili:\nZdeněk Fejfar, Ivana Trčková, Ing. Martin Jedlička\nRada bere informace k bodu č. 3 -\nAktuální informace vedení města\nna vědomí.\nProjednávání bodu bylo ukončeno v 16:04:39"
+   },
+   {
+    "number": 4,
+    "title_raw": "Úkol UR-426-46/25",
+    "heading_raw": "4. Úkol UR-426-46/25 (bod číslo 4)",
+    "predkladatel": "Jana Najbrtová",
+    "votes": [],
+    "resolution_numbers_mentioned": [
+     "UR-426-46/25"
+    ],
+    "raw_text": "Předkladatel: Jana Najbrtová\nProjednávání bodu bylo zahájeno v 16:04:43\nDůvodová zpráva:\nPředkládáme radě města:\nSmlouvu o nájmu pozemku čj.: 1093/2007 uzavřenou dne 11. dubna 2007, která se týká pozemku č. parc. 2289/2 (3.923 m\n2\n) v obci a k.ú. Pečky (na zřízení deponie).\nNájemné je stanoveno na 1,-Kč/m\n2\n/rok tzn. 3.923,- Kč/rok.\nPronajímatel je oprávněn na základě rozhodnutí rady města upravovat výši nájemného (formou dodatku ke smlouvě a je tudíž v kompetenci rady rozhodnout o navýšení nájemného) – meziroční navyšování ceny o míru inflace není nasmlouváno.\nCena\nnájemného se za téměř 20 let nezměnila.\nDiskuze zahájena v 16:04:43\nK tomuto bodu se vyjádřili:\nZdeněk Fejfar, Ing. Karel Krištoufek, Ing. Hana Kuprová, Ing. Petr Dürr\nRada bere informace k bodu č. 4 -\nÚkol UR-426-46/25\nna vědomí.\nProjednávání bodu bylo ukončeno v 16:23:17"
+   },
+   {
+    "number": 5,
+    "title_raw": "Zveřejnění záměru – pronájem prostor sloužících podnikání v čp. 292 (zubní)",
+    "heading_raw": "5. Zveřejnění záměru – pronájem prostor sloužících podnikání v čp. 292 (zubní) (bod číslo 5)",
+    "predkladatel": "Jana Najbrtová",
+    "votes": [
+     {
+      "raw_text": "pro:\n6\nproti\n0\nzdržel se:\n0\nnehlasoval:\n0",
+      "pro": {
+       "count": 6,
+       "names": null,
+       "raw": "6"
+      },
+      "proti": {
+       "count": 0,
+       "names": null,
+       "raw": "0"
+      },
+      "zdrzel_se": {
+       "count": 0,
+       "names": null,
+       "raw": "0"
+      },
+      "nehlasoval": {
+       "count": 0,
+       "names": null,
+       "raw": "0"
+      },
+      "result_raw": "Návrh A. byl přijat jako usnesení číslo: UR-17-2/26",
+      "adopted_resolution_number": "UR-17-2/26"
+     }
+    ],
+    "resolution_numbers_mentioned": [
+     "UR-17-2/26"
+    ],
+    "raw_text": "Předkladatel: Jana Najbrtová\nProjednávání bodu bylo zahájeno v 16:23:27\nDůvodová zpráva:\nDoporučujeme znovu zveřejnit záměr na pronájem prostoru sloužícího podnikání v čp. 292 – zdravotní středisko.\nPoslední\nzáměr byl zveřejněn 25.11.2025 a nabídky jsme očekávali do 11.12.2025 do 10.00 hod. V tomto termínu nebyla doručena žádná nabídka.\nJedná se o nebytové prostory současného zubního oddělení. Navrhujeme nájemné ve stejné výši jako měl\n█​█​█​█​█​█​█​█​█​█​█​█\ntzn. 1.080,- Kč/m\n2\n/rok (tzn. 60.804,-Kč/rok) a služby ve výši 2.500,- Kč/měsíc.\nDiskuze zahájena v 16:23:27\nK tomuto bodu se vyjádřili:\nIng. Karel Krištoufek, Ing. Martin Jedlička\nV 16:24:50 předsedající zahájil hlasování o návrhu usnesení \"A\" v tomto znění:\nNavrhovatel: Jana Najbrtová\nRada\nměsta schvaluje zveřejnit záměr na pronájem prostoru sloužícího podnikání v Pečkách, čp. 292 – zdravotní středisko (ordinace zubního lékaře) o celkové výměře 56,3 m\n2\nza těchto podmínek:\n- prostory se pronajímají pouze za účelem provozování ordinace zubního lékaře\n- minimální nájemné činí 5.067,- Kč (+ služby 2.500,- Kč)/měsíc\n- smlouva bude uzavřena nejdříve od 1. března 2026 na dobu neurčitou s výpovědní lhůtou 3 měsíce\n- spolehlivost nájemce\n- pronajímatel zajistí sepsání smlouvy\n- nabídku očekáváme nejpozději do 28. ledna 2026 (do 17.00 hod.) v zapečetěné obálce s názvem „Pronájem NP v čp. 292“\n- při vyšším počtu zájemců bude upřednostněna nejvyšší nabídnutá cena, v případě více zájemců se stejnou nabídnutou cenou budou uchazeči vyzváni k předložení nových nabídek\nHlasování\npro:\n6\nproti\n0\nzdržel se:\n0\nnehlasoval:\n0\nNávrh A. byl přijat jako usnesení číslo: UR-17-2/26\nzodpovídá:\nJana Najbrtová\ntermín:\n21. 1. 2026\nProjednávání bodu bylo ukončeno v 16:24:54"
+   },
+   {
+    "number": 6,
+    "title_raw": "Zrušení poptávkového řízení \"PROJEKTOVÁ PŘÍPRAVA akcí souvisejících s připojením obce Tatce a rekonstrukcí křižovatky Tř. 5. května a P. Bezruče\"",
+    "heading_raw": "6. Zrušení poptávkového řízení \"PROJEKTOVÁ PŘÍPRAVA akcí souvisejících s připojením obce Tatce a rekonstrukcí křižovatky Tř. 5. května a P. Bezruče\" (bod číslo 6)",
+    "predkladatel": "Michala Dekiská",
+    "votes": [
+     {
+      "raw_text": "pro:\n6\nproti\n0\nzdržel se:\n0\nnehlasoval:\n0",
+      "pro": {
+       "count": 6,
+       "names": null,
+       "raw": "6"
+      },
+      "proti": {
+       "count": 0,
+       "names": null,
+       "raw": "0"
+      },
+      "zdrzel_se": {
+       "count": 0,
+       "names": null,
+       "raw": "0"
+      },
+      "nehlasoval": {
+       "count": 0,
+       "names": null,
+       "raw": "0"
+      },
+      "result_raw": "Návrh A. byl přijat jako usnesení číslo: UR-18-2/26",
+      "adopted_resolution_number": "UR-18-2/26"
+     }
+    ],
+    "resolution_numbers_mentioned": [
+     "UR-18-2/26"
+    ],
+    "raw_text": "Předkladatel: Michala Dekiská\nProjednávání bodu bylo zahájeno v 16:25:00\nDůvodová zpráva:\nVe lhůtě pro podání nabídek byla zadavateli doručena jediná nabídka. V průběhu vyhodnocování bylo zjištěno, že nabídková cena jediného účastníka je mimo rozsah předpokládané hodnoty pro zadání v poptávkovém řízení – uzavřené výzvě – stanovenou Pravidly k VZMR v platném znění. Podrobněji viz Zpráva o hodnocení nabídek.\nNa základě těchto skutečností komise doporučuje zadavateli toto výběrové řízení zrušit - viz Rozhodnutí a oznámení o zrušení výběrového řízení.\nDiskuze zahájena v 16:25:00\nK tomuto bodu se vyjádřili:\nZdeněk Fejfar, Ing. Karel Krištoufek, Ing. Hana Kuprová, Ivana Trčková\nV 16:30:24 předsedající zahájil hlasování o návrhu usnesení \"A\" v tomto znění:\nNavrhovatel: Michala Dekiská\nRada\nměsta schvaluje zrušení výběrového řízení (poptávkového řízení - uzavřená výzva) na dodavatele služeb \"PROJEKTOVÁ PŘÍPRAVA akcí souvisejících s připojením obce Tatce a rekonstrukcí křižovatky Tř. 5. května a P. Bezruče\" z důvodu, že ve výběrovém řízení je jediný účastník a vyskytly se důvody zvláštního zřetele.\nHlasování\npro:\n6\nproti\n0\nzdržel se:\n0\nnehlasoval:\n0\nNávrh A. byl přijat jako usnesení číslo: UR-18-2/26\nzodpovídá:\nMichala Dekiská\ntermín:\n15. 1. 2026\nProjednávání bodu bylo ukončeno v 16:30:54"
+   },
+   {
+    "number": 7,
+    "title_raw": "Vyhlášení výběrového řízení na služby \"PROJEKTOVÁ PŘÍPRAVA akcí souvisejících s připojením obce Tatce a rekonstrukcí křižovatky Tř. 5. května a P. Bezruče\" a ustanovení komise",
+    "heading_raw": "7. Vyhlášení výběrového řízení na služby \"PROJEKTOVÁ PŘÍPRAVA akcí souvisejících s připojením obce Tatce a rekonstrukcí křižovatky Tř. 5. května a P. Bezruče\" a ustanovení komise (bod číslo 7)",
+    "predkladatel": "Michala Dekiská",
+    "votes": [
+     {
+      "raw_text": "pro:\n6\nproti\n0\nzdržel se:\n0\nnehlasoval:\n0",
+      "pro": {
+       "count": 6,
+       "names": null,
+       "raw": "6"
+      },
+      "proti": {
+       "count": 0,
+       "names": null,
+       "raw": "0"
+      },
+      "zdrzel_se": {
+       "count": 0,
+       "names": null,
+       "raw": "0"
+      },
+      "nehlasoval": {
+       "count": 0,
+       "names": null,
+       "raw": "0"
+      },
+      "result_raw": "Návrh A. byl přijat jako usnesení číslo: UR-19-2/26",
+      "adopted_resolution_number": "UR-19-2/26"
+     }
+    ],
+    "resolution_numbers_mentioned": [
+     "UR-19-2/26"
+    ],
+    "raw_text": "Předkladatel: Michala Dekiská\nProjednávání bodu bylo zahájeno v 16:31:12\nDůvodová zpráva:\nS ohledem na zrušení výběrového řízení (poptávkové řízení - uzavřená výzva) z důvodu jediného účastníka ve výběrovém řízení a dodržení postupů dle výše předpokládaných hodnot stanovených interními Pravidly k VZMR, bylo doporučeno vyhlášení výběrového řízení na dodavatele služeb \"PROJEKTOVÁ PŘÍPRAVA akcí souvisejících s připojením obce Tatce a rekonstrukcí křižovatky Tř. 5. května a P. Bezruče\" mimo režim zákona č.134/2016 Sb., o zadávání veřejných zakázek, ve znění pozdějších předpisů, v souladu s čl. 3 a 6 Pravidel Města Pečky k zadávání veřejných zakázek malého rozsahu, v platném znění, a to prostřednictvím otevřené výzvy, tj. uveřejněním na profilu zadavatele, čímž bude osloven neomezený okruh uchazečů.\nProjektová příprava zahrnuje dílčí akce:\nObnova vodovodu a kanalizace v ul. Tř. 5. května a\nPetra\nBezruče\n, Pečky jih\nObnova vodovodu a kanalizace v ul. Tř. 5. května a J. A.\nKomenského\n, Pečky sever\nRozšíření dimenze vodovodního přivaděče Pečky –\nVelké\nChvalovice a výstavba posilující ATS pro vodovod\nVelké\nChvalovice-Milčice-Tatce\nProjektová příprava bude probíhat pro každou dílčí akci samostatně.\nNávrh složení hodnotící komise:\nčlenové:\nZdeněk\nFejfar\n– 1. místostarosta,\nJiří\nMoravec\n– referent přípravy a realizace investic, Ing.\nAdam\nBrant\n– jednatel, Pečecké služby, s.r.o.\nnáhradníci:\nMilan\nPaluska\n– starosta, Ing.\nPetra\nŠimpachová\n– referent odboru IAR, Luboš\nHanzelín\n–vedoucí provozu, Pečecké služby, s.r.o.\nDiskuze zahájena v 16:31:12\nK tomuto bodu se vyjádřili:\nZdeněk Fejfar\nV 16:32:08 předsedající zahájil hlasování o návrhu usnesení \"A\" v tomto znění:\nNavrhovatel: Michala Dekiská\nRada\nměsta schvaluje vyhlášení výběrového řízení, prostřednictvím otevřené výzvy uveřejněním na profilu zadavatele, na služby \"PROJEKTOVÁ PŘÍPRAVA akcí souvisejících s připojením obce Tatce a rekonstrukcí křižovatky Tř. 5. května a P. Bezruče\" mimo režim zákona č. 134/2016 Sb., o zadávání veřejných zakázek, ve znění pozdějších předpisů, v souladu s čl. 3 a 6 Pravidel Města Pečky k zadávání veřejných zakázek malého rozsahu, v platném znění, a ustanovení komise ve složení:\nčlenové:\nZdeněk\nFejfar\n– 1. místostarosta,\nJiří\nMoravec\n– referent přípravy a realizace investic, Ing.\nAdam\nBrant\n– jednatel, Pečecké služby, s.r.o.\nnáhradníci:\nMilan\nPaluska\n– starosta, Ing.\nPetra\nŠimpachová\n– referent odboru IAR, Luboš\nHanzelín\n– vedoucí provozu, Pečecké služby, s.r.o.\nHlasování\npro:\n6\nproti\n0\nzdržel se:\n0\nnehlasoval:\n0\nNávrh A. byl přijat jako usnesení číslo: UR-19-2/26\nzodpovídá:\nMichala Dekiská\ntermín:\n16. 1. 2026\nProjednávání bodu bylo ukončeno v 16:32:12"
+   },
+   {
+    "number": 8,
+    "title_raw": "Doplnění Pravidel pro zveřejňování příspěvků na komunikačních kanálech města Pečky",
+    "heading_raw": "8. Doplnění Pravidel pro zveřejňování příspěvků na komunikačních kanálech města Pečky (bod číslo 8)",
+    "predkladatel": "Zdeněk Fejfar",
+    "votes": [
+     {
+      "raw_text": "pro:\n6\nproti\n0\nzdržel se:\n0\nnehlasoval:\n0",
+      "pro": {
+       "count": 6,
+       "names": null,
+       "raw": "6"
+      },
+      "proti": {
+       "count": 0,
+       "names": null,
+       "raw": "0"
+      },
+      "zdrzel_se": {
+       "count": 0,
+       "names": null,
+       "raw": "0"
+      },
+      "nehlasoval": {
+       "count": 0,
+       "names": null,
+       "raw": "0"
+      },
+      "result_raw": "Návrh A. byl přijat jako usnesení číslo: UR-20-2/26",
+      "adopted_resolution_number": "UR-20-2/26"
+     }
+    ],
+    "resolution_numbers_mentioned": [
+     "UR-20-2/26",
+     "UR-399-44/25"
+    ],
+    "raw_text": "Předkladatel: Zdeněk Fejfar\nProjednávání bodu bylo zahájeno v 16:32:18\nDůvodová zpráva:\nCílem navrženého doplnění je upřesnit možnost zveřejňování akcí a informací občanů, spolků, klubů, neziskových organizací a dalších subjektů, zejména v kalendáři akcí na webových stránkách města, a současně jasně vymezit, že zveřejnění těchto příspěvků není nárokové. Dále doplnění informací pro občany v bodě 2.\nDiskuze zahájena v 16:32:18\nK tomuto bodu se vyjádřili:\nZdeněk Fejfar, Pavlína Nepovímová, Ing. Hana Kuprová, Ing. Karel Krištoufek\nV 16:40:14 předsedající zahájil hlasování o návrhu usnesení \"A\" v tomto znění:\nNavrhovatel: Zdeněk Fejfar\nRada\nměsta schvaluje doplnění \"Pravidel pro zveřejňování příspěvků a informací na komunikačních kanálech města Pečky\", schválených usnesením č. UR-399-44/25 ze dne 1. 12. 2025, v předloženém znění.\nHlasování\npro:\n6\nproti\n0\nzdržel se:\n0\nnehlasoval:\n0\nNávrh A. byl přijat jako usnesení číslo: UR-20-2/26\nzodpovídá:\ntermín:\nIHNED\n(12. 1. 2026)\nProjednávání bodu bylo ukončeno v 16:40:19"
+   },
+   {
+    "number": 9,
+    "title_raw": "Vyhlášení poptávkového řízení na poskytovatele právních služeb - město",
+    "heading_raw": "9. Vyhlášení poptávkového řízení na poskytovatele právních služeb - město (bod číslo 9)",
+    "predkladatel": "Zdeněk Fejfar",
+    "votes": [
+     {
+      "raw_text": "pro:\n6\nproti\n0\nzdržel se:\n0\nnehlasoval:\n0",
+      "pro": {
+       "count": 6,
+       "names": null,
+       "raw": "6"
+      },
+      "proti": {
+       "count": 0,
+       "names": null,
+       "raw": "0"
+      },
+      "zdrzel_se": {
+       "count": 0,
+       "names": null,
+       "raw": "0"
+      },
+      "nehlasoval": {
+       "count": 0,
+       "names": null,
+       "raw": "0"
+      },
+      "result_raw": "Návrh A. byl přijat jako usnesení číslo: UR-21-2/26",
+      "adopted_resolution_number": "UR-21-2/26"
+     }
+    ],
+    "resolution_numbers_mentioned": [
+     "UR-21-2/26"
+    ],
+    "raw_text": "Předkladatel: Zdeněk Fejfar\nProjednávání bodu bylo zahájeno v 16:40:23\nDůvodová zpráva:\nVyhlášení poptávkového řízení na poskytovatele právních služeb „Poskytování specializovaných právních služeb souvisejících se stavebním právem a developerskými projekty ve městě Pečky“, zadávané mimo režim zákona č. 134/2016 Sb., o zadávání veřejných zakázek, ve znění pozdějších předpisů, v poptávkovém řízení – uzavřené výzvě dle čl. 5 Pravidla VZMR.\nDiskuze zahájena v 16:40:23\nK tomuto bodu se vyjádřili:\nZdeněk Fejfar, Pavlína Nepovímová\nV 16:43:01 předsedající zahájil hlasování o návrhu usnesení \"A\" v tomto znění:\nNavrhovatel: Milan Paluska\nRada\nměsta schvaluje vyhlášení poptávkového řízení na poskytovatele právních služeb „Poskytování specializovaných právních služeb souvisejících se stavebním právem a developerskými projekty ve městě Pečky“, zadávané mimo režim zákona č. 134/2016 Sb., o zadávání veřejných zakázek, ve znění pozdějších předpisů, v poptávkovém řízení – uzavřené výzvě dle čl. 5 Pravidla VZMR.\nHlasování\npro:\n6\nproti\n0\nzdržel se:\n0\nnehlasoval:\n0\nNávrh A. byl přijat jako usnesení číslo: UR-21-2/26\nzodpovídá:\nPavlína Nepovímová\ntermín:\n22. 1. 2026\nProjednávání bodu bylo ukončeno v 16:43:06"
+   },
+   {
+    "number": 10,
+    "title_raw": "Zrušení pracovní skupiny pro oslavy 100 let povýšení Peček na město",
+    "heading_raw": "10. Zrušení pracovní skupiny pro oslavy 100 let povýšení Peček na město (bod číslo 10)",
+    "predkladatel": "Zdeněk Fejfar",
+    "votes": [
+     {
+      "raw_text": "pro:\n5\nproti\n0\nzdržel se:\n1\nnehlasoval:\n0",
+      "pro": {
+       "count": 5,
+       "names": null,
+       "raw": "5"
+      },
+      "proti": {
+       "count": 0,
+       "names": null,
+       "raw": "0"
+      },
+      "zdrzel_se": {
+       "count": 1,
+       "names": null,
+       "raw": "1"
+      },
+      "nehlasoval": {
+       "count": 0,
+       "names": null,
+       "raw": "0"
+      },
+      "result_raw": "Návrh A. byl přijat jako usnesení číslo: UR-22-2/26",
+      "adopted_resolution_number": "UR-22-2/26"
+     }
+    ],
+    "resolution_numbers_mentioned": [
+     "UR-22-2/26",
+     "UR-424-44/22"
+    ],
+    "raw_text": "Předkladatel: Zdeněk Fejfar\nProjednávání bodu bylo zahájeno v 16:43:15\nDůvodová zpráva:\nPracovní skupina pro oslavy 100 let povýšení\nPeček\nna město byla zřízena usnesením Rady města Pečky č. UR-424-44/22 za účelem zajištění aktivit souvisejících s tímto výročím. Aktivity, pro které byla pracovní skupina zřízena, byly ukončeny rokem 2025. Z tohoto důvodu je navrhováno její zrušení.\nDiskuze zahájena v 16:43:15\nK tomuto bodu se vyjádřili:\nZdeněk Fejfar, Ing. Martin Jedlička, Ing. Hana Kuprová\nV 16:46:26 předsedající zahájil hlasování o návrhu usnesení \"A\" v tomto znění:\nNavrhovatel: Zdeněk Fejfar\nRada\nměsta schvaluje ukončení činnosti pracovní skupiny \"Pracovní skupina pro oslavy 100 let povýšení\nPeček\nna město\", zřízenou usnesením Rady města Pečky č. UR-424-44/22.\nHlasování\npro:\n5\nproti\n0\nzdržel se:\n1\nnehlasoval:\n0\nNávrh A. byl přijat jako usnesení číslo: UR-22-2/26\nzodpovídá:\ntermín:\nIHNED\n(12. 1. 2026)\nProjednávání bodu bylo ukončeno v 16:46:31"
+   },
+   {
+    "number": 11,
+    "title_raw": "Kontrola plnění usnesení",
+    "heading_raw": "11. Kontrola plnění usnesení (bod číslo 11)",
+    "predkladatel": "Zdeněk Fejfar",
+    "votes": [],
+    "resolution_numbers_mentioned": [],
+    "raw_text": "Předkladatel: Zdeněk Fejfar\nProjednávání bodu bylo zahájeno v 16:46:35\nDiskuze zahájena v 16:46:35\nK tomuto bodu se vyjádřili:\nZdeněk Fejfar, Pavlína Nepovímová\nRada bere informace k bodu č. 11 -\nKontrola plnění usnesení\nna vědomí.\nProjednávání bodu bylo ukončeno v 16:48:49"
+   },
+   {
+    "number": 12,
+    "title_raw": "Diskuse, různé",
+    "heading_raw": "12. Diskuse, různé (bod číslo 12)",
+    "predkladatel": "Zdeněk Fejfar",
+    "votes": [],
+    "resolution_numbers_mentioned": [],
+    "raw_text": "Předkladatel: Zdeněk Fejfar\nProjednávání bodu bylo zahájeno v 16:48:52\nDiskuze zahájena v 16:48:52\nK tomuto bodu se vyjádřili:\nZdeněk Fejfar, Ing. Karel Krištoufek, Ing. Hana Kuprová, Ivana Trčková\nRada bere informace k bodu č. 12 -\nDiskuse, různé\nna vědomí.\nProjednávání bodu bylo ukončeno v 17:05:59"
+   },
+   {
+    "number": 13,
+    "title_raw": "Úkoly vyplývající z jednání rady města",
+    "heading_raw": "13. Úkoly vyplývající z jednání rady města (bod číslo 13)",
+    "predkladatel": "Zdeněk Fejfar",
+    "votes": [
+     {
+      "raw_text": "pro:\n5\nproti\n0\nzdržel se:\n0\nnehlasoval:\n1",
+      "pro": {
+       "count": 5,
+       "names": null,
+       "raw": "5"
+      },
+      "proti": {
+       "count": 0,
+       "names": null,
+       "raw": "0"
+      },
+      "zdrzel_se": {
+       "count": 0,
+       "names": null,
+       "raw": "0"
+      },
+      "nehlasoval": {
+       "count": 1,
+       "names": null,
+       "raw": "1"
+      },
+      "result_raw": "Návrh A. byl přijat jako usnesení číslo: UR-23-2/26",
+      "adopted_resolution_number": "UR-23-2/26"
+     },
+     {
+      "raw_text": "pro:\n5\nproti\n0\nzdržel se:\n0\nnehlasoval:\n0",
+      "pro": {
+       "count": 5,
+       "names": null,
+       "raw": "5"
+      },
+      "proti": {
+       "count": 0,
+       "names": null,
+       "raw": "0"
+      },
+      "zdrzel_se": {
+       "count": 0,
+       "names": null,
+       "raw": "0"
+      },
+      "nehlasoval": {
+       "count": 0,
+       "names": null,
+       "raw": "0"
+      },
+      "result_raw": "Návrh B. byl přijat jako usnesení číslo: UR-24-2/26",
+      "adopted_resolution_number": "UR-24-2/26"
+     },
+     {
+      "raw_text": "pro:\n5\nproti\n0\nzdržel se:\n0\nnehlasoval:\n0",
+      "pro": {
+       "count": 5,
+       "names": null,
+       "raw": "5"
+      },
+      "proti": {
+       "count": 0,
+       "names": null,
+       "raw": "0"
+      },
+      "zdrzel_se": {
+       "count": 0,
+       "names": null,
+       "raw": "0"
+      },
+      "nehlasoval": {
+       "count": 0,
+       "names": null,
+       "raw": "0"
+      },
+      "result_raw": "Návrh C. byl přijat jako usnesení číslo: UR-25-2/26",
+      "adopted_resolution_number": "UR-25-2/26"
+     }
+    ],
+    "resolution_numbers_mentioned": [
+     "UR-23-2/26",
+     "UR-24-2/26",
+     "UR-25-2/26"
+    ],
+    "raw_text": "Předkladatel: Zdeněk Fejfar\nProjednávání bodu bylo zahájeno v 17:06:02\nDiskuze zahájena v 17:06:02\nK tomuto bodu se vyjádřili:\nZdeněk Fejfar, Ing. Karel Krištoufek, Ivana Trčková, Ing. Hana Kuprová\nV 17:31:47 předsedající zahájil hlasování o návrhu usnesení \"A\" v tomto znění:\nNavrhovatel: Zdeněk Fejfar\nRada\nměsta ukládá vedení města a vedoucí Odboru ekonomicko-správního požádat bankovní domy /ČS, KB, ČSOB, Raiffeisenbank,\nMoneta\n, UniCreditBank/ o indikativní nabídku na investiční úvěr pro akci \"Dostavba učeben a tělocvičny v ZŠ\" ve variantách výše úvěrového rámce 50 mil. Kč a 100 mil. Kč, s délkou splácení 8, 10, 12 a 15 let ve variantách s pevnou a pohyblivou úrokovou sazbou.\nHlasování\npro:\n5\nproti\n0\nzdržel se:\n0\nnehlasoval:\n1\nNávrh A. byl přijat jako usnesení číslo: UR-23-2/26\nzodpovídá:\nZdeněk Fejfar\ntermín:\n28. 2. 2026\nV 17:31:56 odešel Ing. Martin Jedlička, přítomno 5 z 7 radních.\nAktualizovaný stav prezence:\nPřítomni:\n(5) Ing. Petr Dürr, Zdeněk Fejfar, Ing. Karel Krištoufek, Ing. Hana Kuprová, Ivana Trčková\nOmluveni:\n(1) Milan Paluska\nNepřítomni:\n(1) Ing. Martin Jedlička\nV 17:33:38 předsedající zahájil hlasování o návrhu usnesení \"B\" v tomto znění:\nNavrhovatel: Zdeněk Fejfar\nRada\nměsta ukládá vedení města a vedoucí Odboru ekonomicko-správního oslovit Národní rozvojovou banku s dotazem na bezúročné či jinak výhodné možnosti částečného úvěrového financování akce \"Dostavba učeben a tělocvičny v ZŠ Pečky\".\nHlasování\npro:\n5\nproti\n0\nzdržel se:\n0\nnehlasoval:\n0\nNávrh B. byl přijat jako usnesení číslo: UR-24-2/26\nzodpovídá:\nZdeněk Fejfar\ntermín:\n28. 2. 2026\nV 17:36:41 předsedající zahájil hlasování o návrhu usnesení \"C\" v tomto znění:\nNavrhovatel: Zdeněk Fejfar\nRada\nměsta ukládá referentce odboru správy majetku města a BH J.\nNajbrtové\npřipravit návrh dodatku s navýšenou cenou, včetně inflační doložky, na pozemek č. parc. 2289/2 /deponie/ v k.ú. Pečky.\nHlasování\npro:\n5\nproti\n0\nzdržel se:\n0\nnehlasoval:\n0\nNávrh C. byl přijat jako usnesení číslo: UR-25-2/26\nzodpovídá:\nZdeněk Fejfar\ntermín:\n31. 1. 2026\nProjednávání bodu bylo ukončeno v 17:38:45\nJednání ukončeno 12.01.2026 v 17:39:01"
+   }
+  ],
+  "full_text": "ZÁPIS ze schůze rady č. 2/2026\nMěsto Pečky\ndatum: 12. 1. 2026, čas: 15:00\n​\nÚvodní prezence:\nPřítomni:\n(6) Ing. Petr Dürr, Zdeněk Fejfar, Ing. Martin Jedlička, Ing. Karel Krištoufek, Ing. Hana Kuprová, Ivana Trčková\nOmluveni:\n(1) Milan Paluska\nNepřítomni:\n(0)\nDalší přítomní a hosté:\nZapisovatel/ka:\nEva Strnadová\nPřítomno je 6 z 7 členů a rada je usnášeníschopná.\nJednání zahájeno 12.01.2026 v 15:22:32\n1. Určení zapisovatelů, předsedajícího, příp. ověřovatelů (bod číslo 1)\nPředkladatel: Zdeněk Fejfar\nProjednávání bodu bylo zahájeno v 15:22:37\nPředsedající navrhl jednotlivé členy pracovních komisí\nOvěřovatelé:\nIvana Trčková, Ing. Karel Krištoufek\nPředsedající:\nZdeněk Fejfar\nBod byl přijat bez hlasování.\nDiskuze zahájena v 15:22:37\nK tomuto bodu se vyjádřili:\nZdeněk Fejfar\nProjednávání bodu bylo ukončeno v 15:23:54\n2. Schválení programu jednání (bod číslo 2)\nPředkladatel: Zdeněk Fejfar\nProjednávání bodu bylo zahájeno v 15:23:59\nProgram jednání\n1. Určení zapisovatelů, předsedajícího, příp. ověřovatelů\n2. Schválení programu jednání\n3. Aktuální informace vedení města\n4. Úkol UR-426-46/25\n5. Zveřejnění záměru – pronájem prostor sloužících podnikání v čp. 292 (zubní)\n6. Zrušení poptávkového řízení \"PROJEKTOVÁ PŘÍPRAVA akcí souvisejících s připojením obce Tatce a rekonstrukcí křižovatky Tř. 5. května a P. Bezruče\"\n7. Vyhlášení výběrového řízení na služby \"PROJEKTOVÁ PŘÍPRAVA akcí souvisejících s připojením obce Tatce a rekonstrukcí křižovatky Tř. 5. května a P. Bezruče\" a ustanovení komise\n8. Doplnění Pravidel pro zveřejňování příspěvků na komunikačních kanálech města Pečky\n9. Vyhlášení poptávkového řízení na poskytovatele právních služeb - město\n10. Zrušení pracovní skupiny pro oslavy 100 let povýšení Peček na město\n11. Kontrola plnění usnesení\n12. Diskuse, různé\n13. Úkoly vyplývající z jednání rady města\nDiskuze zahájena v 15:23:59\nK tomuto bodu se vyjádřili:\nZdeněk Fejfar, Ing. Karel Krištoufek, Ing. Hana Kuprová, Ivana Trčková\nV 15:54:17 předsedající zahájil hlasování o návrhu usnesení \"A\" v tomto znění:\nNavrhovatel: Zdeněk Fejfar\nRada\nměsta schvaluje návrh programu jednání.\nHlasování\npro:\n6\nproti\n0\nzdržel se:\n0\nnehlasoval:\n0\nNávrh A. byl přijat jako usnesení číslo: UR-16-2/26\nzodpovídá:\ntermín:\nIHNED\n(12. 1. 2026)\nProjednávání bodu bylo ukončeno v 15:54:21\n3. Aktuální informace vedení města (bod číslo 3)\nPředkladatel: Zdeněk Fejfar\nProjednávání bodu bylo zahájeno v 15:54:28\nDůvodová zpráva:\nmístostarosta města\nZdeněk\nFejfar\n- informace o přerušení stavebních prací akce \"Rekonstrukce místních komunikací a vodovodní řad v části Bačov v Pečkách – 3. a 4. etapa a MŠ Mašinka - oplocení - 2. etapa\" z důvodu nepříznivých klimatických podmínek /nízké teploty, mráz a sněžení/. Práce budou obnoveny, jakmile to povětrnostní podmínky dovolí.\n- informace o pokračování výběru zhotovitele pro realizaci akce \"Dostavba učeben a tělocvičny v ZŠ Pečky\"\n- informace o krocích k zajištění dofinancování akce „Dostavba učeben a tělocvičny v ZŠ Pečky“\n- informace o proběhlé schůzce se zástupci Národního památkového ústavu a provozovatele přenosových věží Vantage Towers s.r.o. - revitalizace vodojemu\n- informace o úklidu sněhu zajišťovaném společností Služby města Pečky, s.r.o.\n- informace o opravě havarijního stavu vodovodu v lokalitě Pečky – jih\nDiskuze zahájena v 15:54:28\nK tomuto bodu se vyjádřili:\nZdeněk Fejfar, Ivana Trčková, Ing. Martin Jedlička\nRada bere informace k bodu č. 3 -\nAktuální informace vedení města\nna vědomí.\nProjednávání bodu bylo ukončeno v 16:04:39\n4. Úkol UR-426-46/25 (bod číslo 4)\nPředkladatel: Jana Najbrtová\nProjednávání bodu bylo zahájeno v 16:04:43\nDůvodová zpráva:\nPředkládáme radě města:\nSmlouvu o nájmu pozemku čj.: 1093/2007 uzavřenou dne 11. dubna 2007, která se týká pozemku č. parc. 2289/2 (3.923 m\n2\n) v obci a k.ú. Pečky (na zřízení deponie).\nNájemné je stanoveno na 1,-Kč/m\n2\n/rok tzn. 3.923,- Kč/rok.\nPronajímatel je oprávněn na základě rozhodnutí rady města upravovat výši nájemného (formou dodatku ke smlouvě a je tudíž v kompetenci rady rozhodnout o navýšení nájemného) – meziroční navyšování ceny o míru inflace není nasmlouváno.\nCena\nnájemného se za téměř 20 let nezměnila.\nDiskuze zahájena v 16:04:43\nK tomuto bodu se vyjádřili:\nZdeněk Fejfar, Ing. Karel Krištoufek, Ing. Hana Kuprová, Ing. Petr Dürr\nRada bere informace k bodu č. 4 -\nÚkol UR-426-46/25\nna vědomí.\nProjednávání bodu bylo ukončeno v 16:23:17\n5. Zveřejnění záměru – pronájem prostor sloužících podnikání v čp. 292 (zubní) (bod číslo 5)\nPředkladatel: Jana Najbrtová\nProjednávání bodu bylo zahájeno v 16:23:27\nDůvodová zpráva:\nDoporučujeme znovu zveřejnit záměr na pronájem prostoru sloužícího podnikání v čp. 292 – zdravotní středisko.\nPoslední\nzáměr byl zveřejněn 25.11.2025 a nabídky jsme očekávali do 11.12.2025 do 10.00 hod. V tomto termínu nebyla doručena žádná nabídka.\nJedná se o nebytové prostory současného zubního oddělení. Navrhujeme nájemné ve stejné výši jako měl\n█​█​█​█​█​█​█​█​█​█​█​█​\ntzn. 1.080,- Kč/m\n2\n/rok (tzn. 60.804,-Kč/rok) a služby ve výši 2.500,- Kč/měsíc.\nDiskuze zahájena v 16:23:27\nK tomuto bodu se vyjádřili:\nIng. Karel Krištoufek, Ing. Martin Jedlička\nV 16:24:50 předsedající zahájil hlasování o návrhu usnesení \"A\" v tomto znění:\nNavrhovatel: Jana Najbrtová\nRada\nměsta schvaluje zveřejnit záměr na pronájem prostoru sloužícího podnikání v Pečkách, čp. 292 – zdravotní středisko (ordinace zubního lékaře) o celkové výměře 56,3 m\n2\nza těchto podmínek:\n- prostory se pronajímají pouze za účelem provozování ordinace zubního lékaře\n- minimální nájemné činí 5.067,- Kč (+ služby 2.500,- Kč)/měsíc\n- smlouva bude uzavřena nejdříve od 1. března 2026 na dobu neurčitou s výpovědní lhůtou 3 měsíce\n- spolehlivost nájemce\n- pronajímatel zajistí sepsání smlouvy\n- nabídku očekáváme nejpozději do 28. ledna 2026 (do 17.00 hod.) v zapečetěné obálce s názvem „Pronájem NP v čp. 292“\n- při vyšším počtu zájemců bude upřednostněna nejvyšší nabídnutá cena, v případě více zájemců se stejnou nabídnutou cenou budou uchazeči vyzváni k předložení nových nabídek\nHlasování\npro:\n6\nproti\n0\nzdržel se:\n0\nnehlasoval:\n0\nNávrh A. byl přijat jako usnesení číslo: UR-17-2/26\nzodpovídá:\nJana Najbrtová\ntermín:\n21. 1. 2026\nProjednávání bodu bylo ukončeno v 16:24:54\n6. Zrušení poptávkového řízení \"PROJEKTOVÁ PŘÍPRAVA akcí souvisejících s připojením obce Tatce a rekonstrukcí křižovatky Tř. 5. května a P. Bezruče\" (bod číslo 6)\nPředkladatel: Michala Dekiská\nProjednávání bodu bylo zahájeno v 16:25:00\nDůvodová zpráva:\nVe lhůtě pro podání nabídek byla zadavateli doručena jediná nabídka. V průběhu vyhodnocování bylo zjištěno, že nabídková cena jediného účastníka je mimo rozsah předpokládané hodnoty pro zadání v poptávkovém řízení – uzavřené výzvě – stanovenou Pravidly k VZMR v platném znění. Podrobněji viz Zpráva o hodnocení nabídek.\nNa základě těchto skutečností komise doporučuje zadavateli toto výběrové řízení zrušit - viz Rozhodnutí a oznámení o zrušení výběrového řízení.\nDiskuze zahájena v 16:25:00\nK tomuto bodu se vyjádřili:\nZdeněk Fejfar, Ing. Karel Krištoufek, Ing. Hana Kuprová, Ivana Trčková\nV 16:30:24 předsedající zahájil hlasování o návrhu usnesení \"A\" v tomto znění:\nNavrhovatel: Michala Dekiská\nRada\nměsta schvaluje zrušení výběrového řízení (poptávkového řízení - uzavřená výzva) na dodavatele služeb \"PROJEKTOVÁ PŘÍPRAVA akcí souvisejících s připojením obce Tatce a rekonstrukcí křižovatky Tř. 5. května a P. Bezruče\" z důvodu, že ve výběrovém řízení je jediný účastník a vyskytly se důvody zvláštního zřetele.\nHlasování\npro:\n6\nproti\n0\nzdržel se:\n0\nnehlasoval:\n0\nNávrh A. byl přijat jako usnesení číslo: UR-18-2/26\nzodpovídá:\nMichala Dekiská\ntermín:\n15. 1. 2026\nProjednávání bodu bylo ukončeno v 16:30:54\n7. Vyhlášení výběrového řízení na služby \"PROJEKTOVÁ PŘÍPRAVA akcí souvisejících s připojením obce Tatce a rekonstrukcí křižovatky Tř. 5. května a P. Bezruče\" a ustanovení komise (bod číslo 7)\nPředkladatel: Michala Dekiská\nProjednávání bodu bylo zahájeno v 16:31:12\nDůvodová zpráva:\nS ohledem na zrušení výběrového řízení (poptávkové řízení - uzavřená výzva) z důvodu jediného účastníka ve výběrovém řízení a dodržení postupů dle výše předpokládaných hodnot stanovených interními Pravidly k VZMR, bylo doporučeno vyhlášení výběrového řízení na dodavatele služeb \"PROJEKTOVÁ PŘÍPRAVA akcí souvisejících s připojením obce Tatce a rekonstrukcí křižovatky Tř. 5. května a P. Bezruče\" mimo režim zákona č.134/2016 Sb., o zadávání veřejných zakázek, ve znění pozdějších předpisů, v souladu s čl. 3 a 6 Pravidel Města Pečky k zadávání veřejných zakázek malého rozsahu, v platném znění, a to prostřednictvím otevřené výzvy, tj. uveřejněním na profilu zadavatele, čímž bude osloven neomezený okruh uchazečů.\nProjektová příprava zahrnuje dílčí akce:\nObnova vodovodu a kanalizace v ul. Tř. 5. května a\nPetra\nBezruče\n, Pečky jih\nObnova vodovodu a kanalizace v ul. Tř. 5. května a J. A.\nKomenského\n, Pečky sever\nRozšíření dimenze vodovodního přivaděče Pečky –\nVelké\nChvalovice a výstavba posilující ATS pro vodovod\nVelké\nChvalovice-Milčice-Tatce\nProjektová příprava bude probíhat pro každou dílčí akci samostatně.\nNávrh složení hodnotící komise:\nčlenové:\nZdeněk\nFejfar\n– 1. místostarosta,\nJiří\nMoravec\n– referent přípravy a realizace investic, Ing.\nAdam\nBrant\n– jednatel, Pečecké služby, s.r.o.\nnáhradníci:\nMilan\nPaluska\n– starosta, Ing.\nPetra\nŠimpachová\n– referent odboru IAR, Luboš\nHanzelín\n–vedoucí provozu, Pečecké služby, s.r.o.\nDiskuze zahájena v 16:31:12\nK tomuto bodu se vyjádřili:\nZdeněk Fejfar\nV 16:32:08 předsedající zahájil hlasování o návrhu usnesení \"A\" v tomto znění:\nNavrhovatel: Michala Dekiská\nRada\nměsta schvaluje vyhlášení výběrového řízení, prostřednictvím otevřené výzvy uveřejněním na profilu zadavatele, na služby \"PROJEKTOVÁ PŘÍPRAVA akcí souvisejících s připojením obce Tatce a rekonstrukcí křižovatky Tř. 5. května a P. Bezruče\" mimo režim zákona č. 134/2016 Sb., o zadávání veřejných zakázek, ve znění pozdějších předpisů, v souladu s čl. 3 a 6 Pravidel Města Pečky k zadávání veřejných zakázek malého rozsahu, v platném znění, a ustanovení komise ve složení:\nčlenové:\nZdeněk\nFejfar\n– 1. místostarosta,\nJiří\nMoravec\n– referent přípravy a realizace investic, Ing.\nAdam\nBrant\n– jednatel, Pečecké služby, s.r.o.\nnáhradníci:\nMilan\nPaluska\n– starosta, Ing.\nPetra\nŠimpachová\n– referent odboru IAR, Luboš\nHanzelín\n– vedoucí provozu, Pečecké služby, s.r.o.\nHlasování\npro:\n6\nproti\n0\nzdržel se:\n0\nnehlasoval:\n0\nNávrh A. byl přijat jako usnesení číslo: UR-19-2/26\nzodpovídá:\nMichala Dekiská\ntermín:\n16. 1. 2026\nProjednávání bodu bylo ukončeno v 16:32:12\n8. Doplnění Pravidel pro zveřejňování příspěvků na komunikačních kanálech města Pečky (bod číslo 8)\nPředkladatel: Zdeněk Fejfar\nProjednávání bodu bylo zahájeno v 16:32:18\nDůvodová zpráva:\nCílem navrženého doplnění je upřesnit možnost zveřejňování akcí a informací občanů, spolků, klubů, neziskových organizací a dalších subjektů, zejména v kalendáři akcí na webových stránkách města, a současně jasně vymezit, že zveřejnění těchto příspěvků není nárokové. Dále doplnění informací pro občany v bodě 2.\nDiskuze zahájena v 16:32:18\nK tomuto bodu se vyjádřili:\nZdeněk Fejfar, Pavlína Nepovímová, Ing. Hana Kuprová, Ing. Karel Krištoufek\nV 16:40:14 předsedající zahájil hlasování o návrhu usnesení \"A\" v tomto znění:\nNavrhovatel: Zdeněk Fejfar\nRada\nměsta schvaluje doplnění \"Pravidel pro zveřejňování příspěvků a informací na komunikačních kanálech města Pečky\", schválených usnesením č. UR-399-44/25 ze dne 1. 12. 2025, v předloženém znění.\nHlasování\npro:\n6\nproti\n0\nzdržel se:\n0\nnehlasoval:\n0\nNávrh A. byl přijat jako usnesení číslo: UR-20-2/26\nzodpovídá:\ntermín:\nIHNED\n(12. 1. 2026)\nProjednávání bodu bylo ukončeno v 16:40:19\n9. Vyhlášení poptávkového řízení na poskytovatele právních služeb - město (bod číslo 9)\nPředkladatel: Zdeněk Fejfar\nProjednávání bodu bylo zahájeno v 16:40:23\nDůvodová zpráva:\nVyhlášení poptávkového řízení na poskytovatele právních služeb „Poskytování specializovaných právních služeb souvisejících se stavebním právem a developerskými projekty ve městě Pečky“, zadávané mimo režim zákona č. 134/2016 Sb., o zadávání veřejných zakázek, ve znění pozdějších předpisů, v poptávkovém řízení – uzavřené výzvě dle čl. 5 Pravidla VZMR.\nDiskuze zahájena v 16:40:23\nK tomuto bodu se vyjádřili:\nZdeněk Fejfar, Pavlína Nepovímová\nV 16:43:01 předsedající zahájil hlasování o návrhu usnesení \"A\" v tomto znění:\nNavrhovatel: Milan Paluska\nRada\nměsta schvaluje vyhlášení poptávkového řízení na poskytovatele právních služeb „Poskytování specializovaných právních služeb souvisejících se stavebním právem a developerskými projekty ve městě Pečky“, zadávané mimo režim zákona č. 134/2016 Sb., o zadávání veřejných zakázek, ve znění pozdějších předpisů, v poptávkovém řízení – uzavřené výzvě dle čl. 5 Pravidla VZMR.\nHlasování\npro:\n6\nproti\n0\nzdržel se:\n0\nnehlasoval:\n0\nNávrh A. byl přijat jako usnesení číslo: UR-21-2/26\nzodpovídá:\nPavlína Nepovímová\ntermín:\n22. 1. 2026\nProjednávání bodu bylo ukončeno v 16:43:06\n10. Zrušení pracovní skupiny pro oslavy 100 let povýšení Peček na město (bod číslo 10)\nPředkladatel: Zdeněk Fejfar\nProjednávání bodu bylo zahájeno v 16:43:15\nDůvodová zpráva:\nPracovní skupina pro oslavy 100 let povýšení\nPeček\nna město byla zřízena usnesením Rady města Pečky č. UR-424-44/22 za účelem zajištění aktivit souvisejících s tímto výročím. Aktivity, pro které byla pracovní skupina zřízena, byly ukončeny rokem 2025. Z tohoto důvodu je navrhováno její zrušení.\nDiskuze zahájena v 16:43:15\nK tomuto bodu se vyjádřili:\nZdeněk Fejfar, Ing. Martin Jedlička, Ing. Hana Kuprová\nV 16:46:26 předsedající zahájil hlasování o návrhu usnesení \"A\" v tomto znění:\nNavrhovatel: Zdeněk Fejfar\nRada\nměsta schvaluje ukončení činnosti pracovní skupiny \"Pracovní skupina pro oslavy 100 let povýšení\nPeček\nna město\", zřízenou usnesením Rady města Pečky č. UR-424-44/22.\nHlasování\npro:\n5\nproti\n0\nzdržel se:\n1\nnehlasoval:\n0\nNávrh A. byl přijat jako usnesení číslo: UR-22-2/26\nzodpovídá:\ntermín:\nIHNED\n(12. 1. 2026)\nProjednávání bodu bylo ukončeno v 16:46:31\n11. Kontrola plnění usnesení (bod číslo 11)\nPředkladatel: Zdeněk Fejfar\nProjednávání bodu bylo zahájeno v 16:46:35\nDiskuze zahájena v 16:46:35\nK tomuto bodu se vyjádřili:\nZdeněk Fejfar, Pavlína Nepovímová\nRada bere informace k bodu č. 11 -\nKontrola plnění usnesení\nna vědomí.\nProjednávání bodu bylo ukončeno v 16:48:49\n12. Diskuse, různé (bod číslo 12)\nPředkladatel: Zdeněk Fejfar\nProjednávání bodu bylo zahájeno v 16:48:52\nDiskuze zahájena v 16:48:52\nK tomuto bodu se vyjádřili:\nZdeněk Fejfar, Ing. Karel Krištoufek, Ing. Hana Kuprová, Ivana Trčková\nRada bere informace k bodu č. 12 -\nDiskuse, různé\nna vědomí.\nProjednávání bodu bylo ukončeno v 17:05:59\n13. Úkoly vyplývající z jednání rady města (bod číslo 13)\nPředkladatel: Zdeněk Fejfar\nProjednávání bodu bylo zahájeno v 17:06:02\nDiskuze zahájena v 17:06:02\nK tomuto bodu se vyjádřili:\nZdeněk Fejfar, Ing. Karel Krištoufek, Ivana Trčková, Ing. Hana Kuprová\nV 17:31:47 předsedající zahájil hlasování o návrhu usnesení \"A\" v tomto znění:\nNavrhovatel: Zdeněk Fejfar\nRada\nměsta ukládá vedení města a vedoucí Odboru ekonomicko-správního požádat bankovní domy /ČS, KB, ČSOB, Raiffeisenbank,\nMoneta\n, UniCreditBank/ o indikativní nabídku na investiční úvěr pro akci \"Dostavba učeben a tělocvičny v ZŠ\" ve variantách výše úvěrového rámce 50 mil. Kč a 100 mil. Kč, s délkou splácení 8, 10, 12 a 15 let ve variantách s pevnou a pohyblivou úrokovou sazbou.\nHlasování\npro:\n5\nproti\n0\nzdržel se:\n0\nnehlasoval:\n1\nNávrh A. byl přijat jako usnesení číslo: UR-23-2/26\nzodpovídá:\nZdeněk Fejfar\ntermín:\n28. 2. 2026\nV 17:31:56 odešel Ing. Martin Jedlička, přítomno 5 z 7 radních.\nAktualizovaný stav prezence:\nPřítomni:\n(5) Ing. Petr Dürr, Zdeněk Fejfar, Ing. Karel Krištoufek, Ing. Hana Kuprová, Ivana Trčková\nOmluveni:\n(1) Milan Paluska\nNepřítomni:\n(1) Ing. Martin Jedlička\nV 17:33:38 předsedající zahájil hlasování o návrhu usnesení \"B\" v tomto znění:\nNavrhovatel: Zdeněk Fejfar\nRada\nměsta ukládá vedení města a vedoucí Odboru ekonomicko-správního oslovit Národní rozvojovou banku s dotazem na bezúročné či jinak výhodné možnosti částečného úvěrového financování akce \"Dostavba učeben a tělocvičny v ZŠ Pečky\".\nHlasování\npro:\n5\nproti\n0\nzdržel se:\n0\nnehlasoval:\n0\nNávrh B. byl přijat jako usnesení číslo: UR-24-2/26\nzodpovídá:\nZdeněk Fejfar\ntermín:\n28. 2. 2026\nV 17:36:41 předsedající zahájil hlasování o návrhu usnesení \"C\" v tomto znění:\nNavrhovatel: Zdeněk Fejfar\nRada\nměsta ukládá referentce odboru správy majetku města a BH J.\nNajbrtové\npřipravit návrh dodatku s navýšenou cenou, včetně inflační doložky, na pozemek č. parc. 2289/2 /deponie/ v k.ú. Pečky.\nHlasování\npro:\n5\nproti\n0\nzdržel se:\n0\nnehlasoval:\n0\nNávrh C. byl přijat jako usnesení číslo: UR-25-2/26\nzodpovídá:\nZdeněk Fejfar\ntermín:\n31. 1. 2026\nProjednávání bodu bylo ukončeno v 17:38:45\nJednání ukončeno 12.01.2026 v 17:39:01"
+ },
+ "resolutions": {
+  "status": "ok",
+  "url": "https://mesto-pecky.usneseni.cz/verejne/9a995fb6-eb9f-11f0-9458-00505683238f/usneseni/",
+  "fetched_at": "2026-08-04T13:21:06.203567+00:00",
+  "items": [
+   {
+    "number_raw": "UR-16-2/26",
+    "detail_id": 121347,
+    "detail_url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/121347?mod=rada",
+    "agenda_item_raw": "Schválení programu jednání",
+    "text_verbatim": "Rada\nměsta schvaluje návrh programu jednání.",
+    "cell_text_raw": "Bod programu:\nSchválení programu jednání\nText přijatého usnesení:\nRada\nměsta schvaluje návrh programu jednání.",
+    "date_raw": "12. 1. 2026",
+    "date_iso": "2026-01-12",
+    "responsible_raw": "",
+    "deadline_raw": "IHNED (12. 1. 2026)",
+    "vote": {
+     "raw_text": "pro: 6 proti: 0 zdržel se: 0",
+     "pro": {
+      "count": 6,
+      "names": null,
+      "raw": "6"
+     },
+     "proti": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     },
+     "zdrzel_se": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     }
+    },
+    "detail": {
+     "number_raw": "UR-16-2/26",
+     "text_verbatim": "Rada města schvaluje návrh programu jednání.",
+     "typ_raw": null,
+     "zodpovida_raw": "",
+     "prijato_raw": "12. 1. 2026 na jednání č. 2/2026",
+     "prijato_date_iso": "2026-01-12",
+     "prijato_meeting_label": "2/2026",
+     "termin_raw": "IHNED (12. 1. 2026)",
+     "ukonceno_raw": "12. 1. 2026",
+     "ukonceno_date_iso": "2026-01-12",
+     "fields_raw": {
+      "Číslo usnesení": "UR-16-2/26",
+      "Text usnesení": "Rada města schvaluje návrh programu jednání.",
+      "Zodpovídá": "",
+      "Přijato": "12. 1. 2026 na jednání č. 2/2026",
+      "Termín": "IHNED (12. 1. 2026)",
+      "Ukončeno": "12. 1. 2026"
+     }
+    }
+   },
+   {
+    "number_raw": "UR-17-2/26",
+    "detail_id": 121529,
+    "detail_url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/121529?mod=rada",
+    "agenda_item_raw": "Zveřejnění záměru – pronájem prostor sloužících podnikání v čp. 292 (zubní)",
+    "text_verbatim": "Rada\nměsta schvaluje zveřejnit záměr na pronájem prostoru sloužícího podnikání v Pečkách, čp. 292 – zdravotní středisko (ordinace zubního lékaře) o celkové výměře 56,3 m\n2\nza těchto podmínek:\n- prostory se pronajímají pouze za účelem provozování ordinace zubního lékaře\n- minimální nájemné činí 5.067,- Kč (+ služby 2.500,- Kč)/měsíc\n- smlouva bude uzavřena nejdříve od 1. března 2026 na dobu neurčitou s výpovědní lhůtou 3 měsíce\n- spolehlivost nájemce\n- pronajímatel zajistí sepsání smlouvy\n- nabídku očekáváme nejpozději do 28. ledna 2026 (do 17.00 hod.) v zapečetěné obálce s názvem „Pronájem NP v čp. 292“\n- při vyšším počtu zájemců bude upřednostněna nejvyšší nabídnutá cena, v případě více zájemců se stejnou nabídnutou cenou budou uchazeči vyzváni k předložení nových nabídek",
+    "cell_text_raw": "Bod programu:\nZveřejnění záměru – pronájem prostor sloužících podnikání v čp. 292 (zubní)\nText přijatého usnesení:\nRada\nměsta schvaluje zveřejnit záměr na pronájem prostoru sloužícího podnikání v Pečkách, čp. 292 – zdravotní středisko (ordinace zubního lékaře) o celkové výměře 56,3 m\n2\nza těchto podmínek:\n- prostory se pronajímají pouze za účelem provozování ordinace zubního lékaře\n- minimální nájemné činí 5.067,- Kč (+ služby 2.500,- Kč)/měsíc\n- smlouva bude uzavřena nejdříve od 1. března 2026 na dobu neurčitou s výpovědní lhůtou 3 měsíce\n- spolehlivost nájemce\n- pronajímatel zajistí sepsání smlouvy\n- nabídku očekáváme nejpozději do 28. ledna 2026 (do 17.00 hod.) v zapečetěné obálce s názvem „Pronájem NP v čp. 292“\n- při vyšším počtu zájemců bude upřednostněna nejvyšší nabídnutá cena, v případě více zájemců se stejnou nabídnutou cenou budou uchazeči vyzváni k předložení nových nabídek",
+    "date_raw": "12. 1. 2026",
+    "date_iso": "2026-01-12",
+    "responsible_raw": "Jana Najbrtová",
+    "deadline_raw": "21. 1. 2026",
+    "vote": {
+     "raw_text": "pro: 6 proti: 0 zdržel se: 0",
+     "pro": {
+      "count": 6,
+      "names": null,
+      "raw": "6"
+     },
+     "proti": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     },
+     "zdrzel_se": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     }
+    },
+    "detail": {
+     "number_raw": "UR-17-2/26",
+     "text_verbatim": "Rada města schvaluje zveřejnit záměr na pronájem prostoru sloužícího podnikání v Pečkách, čp. 292 – zdravotní středisko (ordinace zubního lékaře) o celkové výměře 56,3 m 2 za těchto podmínek:\n- prostory se pronajímají pouze za účelem provozování ordinace zubního lékaře\n- minimální nájemné činí 5.067,- Kč (+ služby 2.500,- Kč)/měsíc\n- smlouva bude uzavřena nejdříve od 1. března 2026 na dobu neurčitou s výpovědní lhůtou 3 měsíce\n- spolehlivost nájemce\n- pronajímatel zajistí sepsání smlouvy\n- nabídku očekáváme nejpozději do 28. ledna 2026 (do 17.00 hod.) v zapečetěné obálce s názvem „Pronájem NP v čp. 292“\n- při vyšším počtu zájemců bude upřednostněna nejvyšší nabídnutá cena, v případě více zájemců se stejnou nabídnutou cenou budou uchazeči vyzváni k předložení nových nabídek",
+     "typ_raw": null,
+     "zodpovida_raw": "Jana Najbrtová",
+     "prijato_raw": "12. 1. 2026 na jednání č. 2/2026",
+     "prijato_date_iso": "2026-01-12",
+     "prijato_meeting_label": "2/2026",
+     "termin_raw": "21. 1. 2026",
+     "ukonceno_raw": "14. 1. 2026",
+     "ukonceno_date_iso": "2026-01-14",
+     "fields_raw": {
+      "Číslo usnesení": "UR-17-2/26",
+      "Text usnesení": "Rada města schvaluje zveřejnit záměr na pronájem prostoru sloužícího podnikání v Pečkách, čp. 292 – zdravotní středisko (ordinace zubního lékaře) o celkové výměře 56,3 m 2 za těchto podmínek:\n- prostory se pronajímají pouze za účelem provozování ordinace zubního lékaře\n- minimální nájemné činí 5.067,- Kč (+ služby 2.500,- Kč)/měsíc\n- smlouva bude uzavřena nejdříve od 1. března 2026 na dobu neurčitou s výpovědní lhůtou 3 měsíce\n- spolehlivost nájemce\n- pronajímatel zajistí sepsání smlouvy\n- nabídku očekáváme nejpozději do 28. ledna 2026 (do 17.00 hod.) v zapečetěné obálce s názvem „Pronájem NP v čp. 292“\n- při vyšším počtu zájemců bude upřednostněna nejvyšší nabídnutá cena, v případě více zájemců se stejnou nabídnutou cenou budou uchazeči vyzváni k předložení nových nabídek",
+      "Zodpovídá": "Jana Najbrtová",
+      "Přijato": "12. 1. 2026 na jednání č. 2/2026",
+      "Termín": "21. 1. 2026",
+      "Ukončeno": "14. 1. 2026"
+     }
+    }
+   },
+   {
+    "number_raw": "UR-18-2/26",
+    "detail_id": 121673,
+    "detail_url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/121673?mod=rada",
+    "agenda_item_raw": "Zrušení poptávkového řízení \"PROJEKTOVÁ PŘÍPRAVA akcí souvisejících s připojením obce Tatce a rekonstrukcí křižovatky Tř. 5. května a P. Bezruče\"",
+    "text_verbatim": "Rada\nměsta schvaluje zrušení výběrového řízení (poptávkového řízení - uzavřená výzva) na dodavatele služeb \"PROJEKTOVÁ PŘÍPRAVA akcí souvisejících s připojením obce Tatce a rekonstrukcí křižovatky Tř. 5. května a P. Bezruče\" z důvodu, že ve výběrovém řízení je jediný účastník a vyskytly se důvody zvláštního zřetele.",
+    "cell_text_raw": "Bod programu:\nZrušení poptávkového řízení \"PROJEKTOVÁ PŘÍPRAVA akcí souvisejících s připojením obce Tatce a rekonstrukcí křižovatky Tř. 5. května a P. Bezruče\"\nText přijatého usnesení:\nRada\nměsta schvaluje zrušení výběrového řízení (poptávkového řízení - uzavřená výzva) na dodavatele služeb \"PROJEKTOVÁ PŘÍPRAVA akcí souvisejících s připojením obce Tatce a rekonstrukcí křižovatky Tř. 5. května a P. Bezruče\" z důvodu, že ve výběrovém řízení je jediný účastník a vyskytly se důvody zvláštního zřetele.",
+    "date_raw": "12. 1. 2026",
+    "date_iso": "2026-01-12",
+    "responsible_raw": "Michala Dekiská",
+    "deadline_raw": "15. 1. 2026",
+    "vote": {
+     "raw_text": "pro: 6 proti: 0 zdržel se: 0",
+     "pro": {
+      "count": 6,
+      "names": null,
+      "raw": "6"
+     },
+     "proti": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     },
+     "zdrzel_se": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     }
+    },
+    "detail": {
+     "number_raw": "UR-18-2/26",
+     "text_verbatim": "Rada města schvaluje zrušení výběrového řízení (poptávkového řízení - uzavřená výzva) na dodavatele služeb \"PROJEKTOVÁ PŘÍPRAVA akcí souvisejících s připojením obce Tatce a rekonstrukcí křižovatky Tř. 5. května a P. Bezruče\" z důvodu, že ve výběrovém řízení je jediný účastník a vyskytly se důvody zvláštního zřetele.",
+     "typ_raw": null,
+     "zodpovida_raw": "Michala Dekiská",
+     "prijato_raw": "12. 1. 2026 na jednání č. 2/2026",
+     "prijato_date_iso": "2026-01-12",
+     "prijato_meeting_label": "2/2026",
+     "termin_raw": "15. 1. 2026",
+     "ukonceno_raw": "14. 1. 2026",
+     "ukonceno_date_iso": "2026-01-14",
+     "fields_raw": {
+      "Číslo usnesení": "UR-18-2/26",
+      "Text usnesení": "Rada města schvaluje zrušení výběrového řízení (poptávkového řízení - uzavřená výzva) na dodavatele služeb \"PROJEKTOVÁ PŘÍPRAVA akcí souvisejících s připojením obce Tatce a rekonstrukcí křižovatky Tř. 5. května a P. Bezruče\" z důvodu, že ve výběrovém řízení je jediný účastník a vyskytly se důvody zvláštního zřetele.",
+      "Zodpovídá": "Michala Dekiská",
+      "Přijato": "12. 1. 2026 na jednání č. 2/2026",
+      "Termín": "15. 1. 2026",
+      "Ukončeno": "14. 1. 2026"
+     }
+    }
+   },
+   {
+    "number_raw": "UR-19-2/26",
+    "detail_id": 121757,
+    "detail_url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/121757?mod=rada",
+    "agenda_item_raw": "Vyhlášení výběrového řízení na služby \"PROJEKTOVÁ PŘÍPRAVA akcí souvisejících s připojením obce Tatce a rekonstrukcí křižovatky Tř. 5. května a P. Bezruče\" a ustanovení komise",
+    "text_verbatim": "Rada\nměsta schvaluje vyhlášení výběrového řízení, prostřednictvím otevřené výzvy uveřejněním na profilu zadavatele, na služby \"PROJEKTOVÁ PŘÍPRAVA akcí souvisejících s připojením obce Tatce a rekonstrukcí křižovatky Tř. 5. května a P. Bezruče\" mimo režim zákona č. 134/2016 Sb., o zadávání veřejných zakázek, ve znění pozdějších předpisů, v souladu s čl. 3 a 6 Pravidel Města Pečky k zadávání veřejných zakázek malého rozsahu, v platném znění, a ustanovení komise ve složení:\nčlenové:\nZdeněk\nFejfar\n– 1. místostarosta,\nJiří\nMoravec\n– referent přípravy a realizace investic, Ing.\nAdam\nBrant\n– jednatel, Pečecké služby, s.r.o.\nnáhradníci:\nMilan\nPaluska\n– starosta, Ing.\nPetra\nŠimpachová\n– referent odboru IAR, Luboš\nHanzelín\n– vedoucí provozu, Pečecké služby, s.r.o.",
+    "cell_text_raw": "Bod programu:\nVyhlášení výběrového řízení na služby \"PROJEKTOVÁ PŘÍPRAVA akcí souvisejících s připojením obce Tatce a rekonstrukcí křižovatky Tř. 5. května a P. Bezruče\" a ustanovení komise\nText přijatého usnesení:\nRada\nměsta schvaluje vyhlášení výběrového řízení, prostřednictvím otevřené výzvy uveřejněním na profilu zadavatele, na služby \"PROJEKTOVÁ PŘÍPRAVA akcí souvisejících s připojením obce Tatce a rekonstrukcí křižovatky Tř. 5. května a P. Bezruče\" mimo režim zákona č. 134/2016 Sb., o zadávání veřejných zakázek, ve znění pozdějších předpisů, v souladu s čl. 3 a 6 Pravidel Města Pečky k zadávání veřejných zakázek malého rozsahu, v platném znění, a ustanovení komise ve složení:\nčlenové:\nZdeněk\nFejfar\n– 1. místostarosta,\nJiří\nMoravec\n– referent přípravy a realizace investic, Ing.\nAdam\nBrant\n– jednatel, Pečecké služby, s.r.o.\nnáhradníci:\nMilan\nPaluska\n– starosta, Ing.\nPetra\nŠimpachová\n– referent odboru IAR, Luboš\nHanzelín\n– vedoucí provozu, Pečecké služby, s.r.o.",
+    "date_raw": "12. 1. 2026",
+    "date_iso": "2026-01-12",
+    "responsible_raw": "Michala Dekiská",
+    "deadline_raw": "16. 1. 2026",
+    "vote": {
+     "raw_text": "pro: 6 proti: 0 zdržel se: 0",
+     "pro": {
+      "count": 6,
+      "names": null,
+      "raw": "6"
+     },
+     "proti": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     },
+     "zdrzel_se": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     }
+    },
+    "detail": {
+     "number_raw": "UR-19-2/26",
+     "text_verbatim": "Rada města schvaluje vyhlášení výběrového řízení, prostřednictvím otevřené výzvy uveřejněním na profilu zadavatele, na služby \"PROJEKTOVÁ PŘÍPRAVA akcí souvisejících s připojením obce Tatce a rekonstrukcí křižovatky Tř. 5. května a P. Bezruče\" mimo režim zákona č. 134/2016 Sb., o zadávání veřejných zakázek, ve znění pozdějších předpisů, v souladu s čl. 3 a 6 Pravidel Města Pečky k zadávání veřejných zakázek malého rozsahu, v platném znění, a ustanovení komise ve složení:\nčlenové: Zdeněk Fejfar – 1. místostarosta, Jiří Moravec – referent přípravy a realizace investic, Ing. Adam Brant – jednatel, Pečecké služby, s.r.o.\nnáhradníci: Milan Paluska – starosta, Ing. Petra Šimpachová – referent odboru IAR, Luboš Hanzelín – vedoucí provozu, Pečecké služby, s.r.o.",
+     "typ_raw": null,
+     "zodpovida_raw": "Michala Dekiská",
+     "prijato_raw": "12. 1. 2026 na jednání č. 2/2026",
+     "prijato_date_iso": "2026-01-12",
+     "prijato_meeting_label": "2/2026",
+     "termin_raw": "16. 1. 2026",
+     "ukonceno_raw": "19. 1. 2026",
+     "ukonceno_date_iso": "2026-01-19",
+     "fields_raw": {
+      "Číslo usnesení": "UR-19-2/26",
+      "Text usnesení": "Rada města schvaluje vyhlášení výběrového řízení, prostřednictvím otevřené výzvy uveřejněním na profilu zadavatele, na služby \"PROJEKTOVÁ PŘÍPRAVA akcí souvisejících s připojením obce Tatce a rekonstrukcí křižovatky Tř. 5. května a P. Bezruče\" mimo režim zákona č. 134/2016 Sb., o zadávání veřejných zakázek, ve znění pozdějších předpisů, v souladu s čl. 3 a 6 Pravidel Města Pečky k zadávání veřejných zakázek malého rozsahu, v platném znění, a ustanovení komise ve složení:\nčlenové: Zdeněk Fejfar – 1. místostarosta, Jiří Moravec – referent přípravy a realizace investic, Ing. Adam Brant – jednatel, Pečecké služby, s.r.o.\nnáhradníci: Milan Paluska – starosta, Ing. Petra Šimpachová – referent odboru IAR, Luboš Hanzelín – vedoucí provozu, Pečecké služby, s.r.o.",
+      "Zodpovídá": "Michala Dekiská",
+      "Přijato": "12. 1. 2026 na jednání č. 2/2026",
+      "Termín": "16. 1. 2026",
+      "Ukončeno": "19. 1. 2026"
+     }
+    }
+   },
+   {
+    "number_raw": "UR-20-2/26",
+    "detail_id": 121803,
+    "detail_url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/121803?mod=rada",
+    "agenda_item_raw": "Doplnění Pravidel pro zveřejňování příspěvků na komunikačních kanálech města Pečky",
+    "text_verbatim": "Rada\nměsta schvaluje doplnění \"Pravidel pro zveřejňování příspěvků a informací na komunikačních kanálech města Pečky\", schválených usnesením č.\nUR-399-44/25\nze dne 1. 12. 2025, v předloženém znění.",
+    "cell_text_raw": "Bod programu:\nDoplnění Pravidel pro zveřejňování příspěvků na komunikačních kanálech města Pečky\nText přijatého usnesení:\nRada\nměsta schvaluje doplnění \"Pravidel pro zveřejňování příspěvků a informací na komunikačních kanálech města Pečky\", schválených usnesením č.\nUR-399-44/25\nze dne 1. 12. 2025, v předloženém znění.",
+    "date_raw": "12. 1. 2026",
+    "date_iso": "2026-01-12",
+    "responsible_raw": "",
+    "deadline_raw": "IHNED (12. 1. 2026)",
+    "vote": {
+     "raw_text": "pro: 6 proti: 0 zdržel se: 0",
+     "pro": {
+      "count": 6,
+      "names": null,
+      "raw": "6"
+     },
+     "proti": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     },
+     "zdrzel_se": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     }
+    },
+    "detail": {
+     "number_raw": "UR-20-2/26",
+     "text_verbatim": "Rada města schvaluje doplnění \"Pravidel pro zveřejňování příspěvků a informací na komunikačních kanálech města Pečky\", schválených usnesením č. UR-399-44/25 ze dne 1. 12. 2025, v předloženém znění.",
+     "typ_raw": null,
+     "zodpovida_raw": "",
+     "prijato_raw": "12. 1. 2026 na jednání č. 2/2026",
+     "prijato_date_iso": "2026-01-12",
+     "prijato_meeting_label": "2/2026",
+     "termin_raw": "IHNED (12. 1. 2026)",
+     "ukonceno_raw": "12. 1. 2026",
+     "ukonceno_date_iso": "2026-01-12",
+     "fields_raw": {
+      "Číslo usnesení": "UR-20-2/26",
+      "Text usnesení": "Rada města schvaluje doplnění \"Pravidel pro zveřejňování příspěvků a informací na komunikačních kanálech města Pečky\", schválených usnesením č. UR-399-44/25 ze dne 1. 12. 2025, v předloženém znění.",
+      "Zodpovídá": "",
+      "Přijato": "12. 1. 2026 na jednání č. 2/2026",
+      "Termín": "IHNED (12. 1. 2026)",
+      "Ukončeno": "12. 1. 2026"
+     }
+    }
+   },
+   {
+    "number_raw": "UR-21-2/26",
+    "detail_id": 121762,
+    "detail_url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/121762?mod=rada",
+    "agenda_item_raw": "Vyhlášení poptávkového řízení na poskytovatele právních služeb - město",
+    "text_verbatim": "Rada\nměsta schvaluje vyhlášení poptávkového řízení na poskytovatele právních služeb „Poskytování specializovaných právních služeb souvisejících se stavebním právem a developerskými projekty ve městě Pečky“, zadávané mimo režim zákona č. 134/2016 Sb., o zadávání veřejných zakázek, ve znění pozdějších předpisů, v poptávkovém řízení – uzavřené výzvě dle čl. 5  Pravidla VZMR.",
+    "cell_text_raw": "Bod programu:\nVyhlášení poptávkového řízení na poskytovatele právních služeb - město\nText přijatého usnesení:\nRada\nměsta schvaluje vyhlášení poptávkového řízení na poskytovatele právních služeb „Poskytování specializovaných právních služeb souvisejících se stavebním právem a developerskými projekty ve městě Pečky“, zadávané mimo režim zákona č. 134/2016 Sb., o zadávání veřejných zakázek, ve znění pozdějších předpisů, v poptávkovém řízení – uzavřené výzvě dle čl. 5  Pravidla VZMR.",
+    "date_raw": "12. 1. 2026",
+    "date_iso": "2026-01-12",
+    "responsible_raw": "Pavlína Nepovímová",
+    "deadline_raw": "22. 1. 2026",
+    "vote": {
+     "raw_text": "pro: 6 proti: 0 zdržel se: 0",
+     "pro": {
+      "count": 6,
+      "names": null,
+      "raw": "6"
+     },
+     "proti": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     },
+     "zdrzel_se": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     }
+    },
+    "detail": {
+     "number_raw": "UR-21-2/26",
+     "text_verbatim": "Rada města schvaluje vyhlášení poptávkového řízení na poskytovatele právních služeb „Poskytování specializovaných právních služeb souvisejících se stavebním právem a developerskými projekty ve městě Pečky“, zadávané mimo režim zákona č. 134/2016 Sb., o zadávání veřejných zakázek, ve znění pozdějších předpisů, v poptávkovém řízení – uzavřené výzvě dle čl. 5  Pravidla VZMR.",
+     "typ_raw": null,
+     "zodpovida_raw": "Pavlína Nepovímová",
+     "prijato_raw": "12. 1. 2026 na jednání č. 2/2026",
+     "prijato_date_iso": "2026-01-12",
+     "prijato_meeting_label": "2/2026",
+     "termin_raw": "22. 1. 2026",
+     "ukonceno_raw": "26. 1. 2026",
+     "ukonceno_date_iso": "2026-01-26",
+     "fields_raw": {
+      "Číslo usnesení": "UR-21-2/26",
+      "Text usnesení": "Rada města schvaluje vyhlášení poptávkového řízení na poskytovatele právních služeb „Poskytování specializovaných právních služeb souvisejících se stavebním právem a developerskými projekty ve městě Pečky“, zadávané mimo režim zákona č. 134/2016 Sb., o zadávání veřejných zakázek, ve znění pozdějších předpisů, v poptávkovém řízení – uzavřené výzvě dle čl. 5  Pravidla VZMR.",
+      "Zodpovídá": "Pavlína Nepovímová",
+      "Přijato": "12. 1. 2026 na jednání č. 2/2026",
+      "Termín": "22. 1. 2026",
+      "Ukončeno": "26. 1. 2026"
+     }
+    }
+   },
+   {
+    "number_raw": "UR-22-2/26",
+    "detail_id": 121821,
+    "detail_url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/121821?mod=rada",
+    "agenda_item_raw": "Zrušení pracovní skupiny pro oslavy 100 let povýšení Peček na město",
+    "text_verbatim": "Rada\nměsta schvaluje ukončení činnosti pracovní skupiny \"Pracovní skupina pro oslavy 100 let povýšení\nPeček\nna město\", zřízenou usnesením Rady města Pečky č.\nUR-424-44/22\n.",
+    "cell_text_raw": "Bod programu:\nZrušení pracovní skupiny pro oslavy 100 let povýšení Peček na město\nText přijatého usnesení:\nRada\nměsta schvaluje ukončení činnosti pracovní skupiny \"Pracovní skupina pro oslavy 100 let povýšení\nPeček\nna město\", zřízenou usnesením Rady města Pečky č.\nUR-424-44/22\n.",
+    "date_raw": "12. 1. 2026",
+    "date_iso": "2026-01-12",
+    "responsible_raw": "",
+    "deadline_raw": "IHNED (12. 1. 2026)",
+    "vote": {
+     "raw_text": "pro: 5 proti: 0 zdržel se: 1",
+     "pro": {
+      "count": 5,
+      "names": null,
+      "raw": "5"
+     },
+     "proti": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     },
+     "zdrzel_se": {
+      "count": 1,
+      "names": null,
+      "raw": "1"
+     }
+    },
+    "detail": {
+     "number_raw": "UR-22-2/26",
+     "text_verbatim": "Rada města schvaluje ukončení činnosti pracovní skupiny \"Pracovní skupina pro oslavy 100 let povýšení Peček na město\", zřízenou usnesením Rady města Pečky č. UR-424-44/22 .",
+     "typ_raw": null,
+     "zodpovida_raw": "",
+     "prijato_raw": "12. 1. 2026 na jednání č. 2/2026",
+     "prijato_date_iso": "2026-01-12",
+     "prijato_meeting_label": "2/2026",
+     "termin_raw": "IHNED (12. 1. 2026)",
+     "ukonceno_raw": "12. 1. 2026",
+     "ukonceno_date_iso": "2026-01-12",
+     "fields_raw": {
+      "Číslo usnesení": "UR-22-2/26",
+      "Text usnesení": "Rada města schvaluje ukončení činnosti pracovní skupiny \"Pracovní skupina pro oslavy 100 let povýšení Peček na město\", zřízenou usnesením Rady města Pečky č. UR-424-44/22 .",
+      "Zodpovídá": "",
+      "Přijato": "12. 1. 2026 na jednání č. 2/2026",
+      "Termín": "IHNED (12. 1. 2026)",
+      "Ukončeno": "12. 1. 2026"
+     }
+    }
+   },
+   {
+    "number_raw": "UR-23-2/26",
+    "detail_id": 122214,
+    "detail_url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/122214?mod=rada",
+    "agenda_item_raw": "Úkoly vyplývající z jednání rady města",
+    "text_verbatim": "Rada\nměsta ukládá vedení města a vedoucí Odboru ekonomicko-správního požádat bankovní domy /ČS, KB, ČSOB, Raiffeisenbank,\nMoneta\n, UniCreditBank/ o indikativní nabídku na investiční úvěr pro akci \"Dostavba učeben a tělocvičny v ZŠ\" ve variantách výše úvěrového rámce 50 mil. Kč a 100 mil. Kč, s délkou splácení 8, 10, 12 a 15 let ve variantách s pevnou a pohyblivou úrokovou sazbou.",
+    "cell_text_raw": "Bod programu:\nÚkoly vyplývající z jednání rady města\nText přijatého usnesení:\nRada\nměsta ukládá vedení města a vedoucí Odboru ekonomicko-správního požádat bankovní domy /ČS, KB, ČSOB, Raiffeisenbank,\nMoneta\n, UniCreditBank/ o indikativní nabídku na investiční úvěr pro akci \"Dostavba učeben a tělocvičny v ZŠ\" ve variantách výše úvěrového rámce 50 mil. Kč a 100 mil. Kč, s délkou splácení 8, 10, 12 a 15 let ve variantách s pevnou a pohyblivou úrokovou sazbou.",
+    "date_raw": "12. 1. 2026",
+    "date_iso": "2026-01-12",
+    "responsible_raw": "Zdeněk Fejfar",
+    "deadline_raw": "28. 2. 2026",
+    "vote": {
+     "raw_text": "pro: 5 proti: 0 zdržel se: 0",
+     "pro": {
+      "count": 5,
+      "names": null,
+      "raw": "5"
+     },
+     "proti": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     },
+     "zdrzel_se": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     }
+    },
+    "detail": {
+     "number_raw": "UR-23-2/26",
+     "text_verbatim": "Rada města ukládá vedení města a vedoucí Odboru ekonomicko-správního požádat bankovní domy /ČS, KB, ČSOB, Raiffeisenbank, Moneta , UniCreditBank/ o indikativní nabídku na investiční úvěr pro akci \"Dostavba učeben a tělocvičny v ZŠ\" ve variantách výše úvěrového rámce 50 mil. Kč a 100 mil. Kč, s délkou splácení 8, 10, 12 a 15 let ve variantách s pevnou a pohyblivou úrokovou sazbou.",
+     "typ_raw": null,
+     "zodpovida_raw": "Zdeněk Fejfar",
+     "prijato_raw": "12. 1. 2026 na jednání č. 2/2026",
+     "prijato_date_iso": "2026-01-12",
+     "prijato_meeting_label": "2/2026",
+     "termin_raw": "28. 2. 2026",
+     "ukonceno_raw": "2. 3. 2026",
+     "ukonceno_date_iso": "2026-03-02",
+     "fields_raw": {
+      "Číslo usnesení": "UR-23-2/26",
+      "Text usnesení": "Rada města ukládá vedení města a vedoucí Odboru ekonomicko-správního požádat bankovní domy /ČS, KB, ČSOB, Raiffeisenbank, Moneta , UniCreditBank/ o indikativní nabídku na investiční úvěr pro akci \"Dostavba učeben a tělocvičny v ZŠ\" ve variantách výše úvěrového rámce 50 mil. Kč a 100 mil. Kč, s délkou splácení 8, 10, 12 a 15 let ve variantách s pevnou a pohyblivou úrokovou sazbou.",
+      "Zodpovídá": "Zdeněk Fejfar",
+      "Přijato": "12. 1. 2026 na jednání č. 2/2026",
+      "Termín": "28. 2. 2026",
+      "Ukončeno": "2. 3. 2026"
+     }
+    }
+   },
+   {
+    "number_raw": "UR-24-2/26",
+    "detail_id": 122222,
+    "detail_url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/122222?mod=rada",
+    "agenda_item_raw": "Úkoly vyplývající z jednání rady města",
+    "text_verbatim": "Rada\nměsta ukládá vedení města a vedoucí Odboru ekonomicko-správního oslovit Národní rozvojovou banku s dotazem na bezúročné či jinak výhodné možnosti částečného úvěrového financování akce \"Dostavba učeben a tělocvičny v ZŠ Pečky\".",
+    "cell_text_raw": "Bod programu:\nÚkoly vyplývající z jednání rady města\nText přijatého usnesení:\nRada\nměsta ukládá vedení města a vedoucí Odboru ekonomicko-správního oslovit Národní rozvojovou banku s dotazem na bezúročné či jinak výhodné možnosti částečného úvěrového financování akce \"Dostavba učeben a tělocvičny v ZŠ Pečky\".",
+    "date_raw": "12. 1. 2026",
+    "date_iso": "2026-01-12",
+    "responsible_raw": "Zdeněk Fejfar",
+    "deadline_raw": "28. 2. 2026",
+    "vote": {
+     "raw_text": "pro: 5 proti: 0 zdržel se: 0",
+     "pro": {
+      "count": 5,
+      "names": null,
+      "raw": "5"
+     },
+     "proti": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     },
+     "zdrzel_se": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     }
+    },
+    "detail": {
+     "number_raw": "UR-24-2/26",
+     "text_verbatim": "Rada města ukládá vedení města a vedoucí Odboru ekonomicko-správního oslovit Národní rozvojovou banku s dotazem na bezúročné či jinak výhodné možnosti částečného úvěrového financování akce \"Dostavba učeben a tělocvičny v ZŠ Pečky\".",
+     "typ_raw": null,
+     "zodpovida_raw": "Zdeněk Fejfar",
+     "prijato_raw": "12. 1. 2026 na jednání č. 2/2026",
+     "prijato_date_iso": "2026-01-12",
+     "prijato_meeting_label": "2/2026",
+     "termin_raw": "28. 2. 2026",
+     "ukonceno_raw": "2. 3. 2026",
+     "ukonceno_date_iso": "2026-03-02",
+     "fields_raw": {
+      "Číslo usnesení": "UR-24-2/26",
+      "Text usnesení": "Rada města ukládá vedení města a vedoucí Odboru ekonomicko-správního oslovit Národní rozvojovou banku s dotazem na bezúročné či jinak výhodné možnosti částečného úvěrového financování akce \"Dostavba učeben a tělocvičny v ZŠ Pečky\".",
+      "Zodpovídá": "Zdeněk Fejfar",
+      "Přijato": "12. 1. 2026 na jednání č. 2/2026",
+      "Termín": "28. 2. 2026",
+      "Ukončeno": "2. 3. 2026"
+     }
+    }
+   },
+   {
+    "number_raw": "UR-25-2/26",
+    "detail_id": 122232,
+    "detail_url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/122232?mod=rada",
+    "agenda_item_raw": "Úkoly vyplývající z jednání rady města",
+    "text_verbatim": "Rada\nměsta ukládá referentce odboru správy majetku města a BH J.\nNajbrtové\npřipravit návrh dodatku s navýšenou cenou, včetně inflační doložky, na pozemek č. parc. 2289/2 /deponie/ v k.ú. Pečky.",
+    "cell_text_raw": "Bod programu:\nÚkoly vyplývající z jednání rady města\nText přijatého usnesení:\nRada\nměsta ukládá referentce odboru správy majetku města a BH J.\nNajbrtové\npřipravit návrh dodatku s navýšenou cenou, včetně inflační doložky, na pozemek č. parc. 2289/2 /deponie/ v k.ú. Pečky.",
+    "date_raw": "12. 1. 2026",
+    "date_iso": "2026-01-12",
+    "responsible_raw": "Zdeněk Fejfar",
+    "deadline_raw": "31. 1. 2026",
+    "vote": {
+     "raw_text": "pro: 5 proti: 0 zdržel se: 0",
+     "pro": {
+      "count": 5,
+      "names": null,
+      "raw": "5"
+     },
+     "proti": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     },
+     "zdrzel_se": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     }
+    },
+    "detail": {
+     "number_raw": "UR-25-2/26",
+     "text_verbatim": "Rada města ukládá referentce odboru správy majetku města a BH J. Najbrtové připravit návrh dodatku s navýšenou cenou, včetně inflační doložky, na pozemek č. parc. 2289/2 /deponie/ v k.ú. Pečky.",
+     "typ_raw": null,
+     "zodpovida_raw": "Zdeněk Fejfar",
+     "prijato_raw": "12. 1. 2026 na jednání č. 2/2026",
+     "prijato_date_iso": "2026-01-12",
+     "prijato_meeting_label": "2/2026",
+     "termin_raw": "31. 1. 2026",
+     "ukonceno_raw": "20. 4. 2026",
+     "ukonceno_date_iso": "2026-04-20",
+     "fields_raw": {
+      "Číslo usnesení": "UR-25-2/26",
+      "Text usnesení": "Rada města ukládá referentce odboru správy majetku města a BH J. Najbrtové připravit návrh dodatku s navýšenou cenou, včetně inflační doložky, na pozemek č. parc. 2289/2 /deponie/ v k.ú. Pečky.",
+      "Zodpovídá": "Zdeněk Fejfar",
+      "Přijato": "12. 1. 2026 na jednání č. 2/2026",
+      "Termín": "31. 1. 2026",
+      "Ukončeno": "20. 4. 2026"
+     }
+    }
+   }
+  ]
+ }
+}

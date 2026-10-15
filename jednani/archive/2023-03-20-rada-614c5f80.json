@@ -1,0 +1,501 @@
+{
+ "uuid": "614c5f80-c22f-11ed-b328-36b95207cde4",
+ "body_type_raw": "Rada",
+ "label_raw": "10/2023 (20. 3. 2023)",
+ "number": 10,
+ "year": 2023,
+ "date_iso": "2023-03-20",
+ "links": {
+  "invitation": "https://mesto-pecky.usneseni.cz/verejne/?uuid=614c5f80-c22f-11ed-b328-36b95207cde4&page=12&do=printPublicInvitation",
+  "minutes": "https://mesto-pecky.usneseni.cz/verejne/614c5f80-c22f-11ed-b328-36b95207cde4/zapis/?page=12",
+  "signed_minutes_pdf": "https://mesto-pecky.usneseni.cz/verejne/?meetingReportControl-uuid=614c5f80-c22f-11ed-b328-36b95207cde4&page=12&do=meetingReportControl-getSignedReportPdf",
+  "resolutions": "https://mesto-pecky.usneseni.cz/verejne/614c5f80-c22f-11ed-b328-36b95207cde4/usneseni/?page=12",
+  "audio": null
+ },
+ "link_texts": {
+  "invitation": "Pozvánka",
+  "minutes": "zápis",
+  "signed_minutes_pdf": "podepsaný zápis",
+  "resolutions": "přijatá usnesení"
+ },
+ "status": "ok",
+ "invitation": {
+  "status": "site_error",
+  "error": "status=200 ct=text/html; charset=utf-8 flash='<a href=\"\" class=\"close\" data-dismiss=\"alert\" aria-label=\"close\">&times;'",
+  "url": "https://mesto-pecky.usneseni.cz/verejne/?uuid=614c5f80-c22f-11ed-b328-36b95207cde4&do=printPublicInvitation",
+  "fetched_at": "2026-08-04T15:07:06.208752+00:00"
+ },
+ "minutes": {
+  "status": "ok",
+  "url": "https://mesto-pecky.usneseni.cz/verejne/614c5f80-c22f-11ed-b328-36b95207cde4/zapis/",
+  "fetched_at": "2026-08-04T14:12:23.771348+00:00",
+  "title_raw": "ZÁPIS ze schůze rady č. 10/2023 Město Pečky datum: 20. 3. 2023, čas: 15:00 ​",
+  "date_raw": "20. 3. 2023",
+  "date_iso": "2023-03-20",
+  "time_raw": "15:00",
+  "presence": {
+   "raw_text": "Prezence:\nPřítomni:\n(5) Zdeněk Fejfar, Milan Paluska, Ing. Martin Jedlička, Ivana Trčková, Ing. Karel Krištoufek\nOmluveni:\n(0)\nNepřítomni:\n(2) Ing. Petr Dürr, Ing. Hana Kuprová\nHosté:\nIng. Adam Brant\nZapisovatel/ka:\nEva Strnadová\nPřítomno je 5 členů a rada je usnášeníschopná.\nJednání zahájeno 20.03.2023 v 15:04:22",
+   "pritomni": {
+    "count": 5,
+    "names": [
+     "Zdeněk Fejfar",
+     "Milan Paluska",
+     "Ing. Martin Jedlička",
+     "Ivana Trčková",
+     "Ing. Karel Krištoufek"
+    ],
+    "raw": "(5) Zdeněk Fejfar, Milan Paluska, Ing. Martin Jedlička, Ivana Trčková, Ing. Karel Krištoufek"
+   },
+   "omluveni": {
+    "count": 0,
+    "names": [],
+    "raw": "(0)"
+   },
+   "nepritomni": {
+    "count": 2,
+    "names": [
+     "Ing. Petr Dürr",
+     "Ing. Hana Kuprová"
+    ],
+    "raw": "(2) Ing. Petr Dürr, Ing. Hana Kuprová"
+   },
+   "predsedajici": null,
+   "quorum_raw": "Přítomno je 5 členů a rada je usnášeníschopná."
+  },
+  "header_raw": "Prezence:\nPřítomni:\n(5) Zdeněk Fejfar, Milan Paluska, Ing. Martin Jedlička, Ivana Trčková, Ing. Karel Krištoufek\nOmluveni:\n(0)\nNepřítomni:\n(2) Ing. Petr Dürr, Ing. Hana Kuprová\nHosté:\nIng. Adam Brant\nZapisovatel/ka:\nEva Strnadová\nPřítomno je 5 členů a rada je usnášeníschopná.\nJednání zahájeno 20.03.2023 v 15:04:22",
+  "agenda_items": [
+   {
+    "number": 1,
+    "title_raw": "Určení zapisovatelů, předsedajícího, příp. ověřovatelů",
+    "heading_raw": "1. Určení zapisovatelů, předsedajícího, příp. ověřovatelů (bod číslo 1)",
+    "predkladatel": "Milan Paluska",
+    "votes": [],
+    "resolution_numbers_mentioned": [],
+    "raw_text": "Předkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 15:04:30\nPředsedající navrhl jednotlivé členy pracovních komisí\nOvěřovatelé:\nIng. Karel Krištoufek, Ing. Martin Jedlička\nPředsedající:\nMilan Paluska\nBod byl přijat bez hlasování.\nDiskuze zahájena v 15:04:30\nK tomuto bodu se vyjádřili: Milan Paluska\nProjednávání bodu bylo ukončeno v 15:04:55"
+   },
+   {
+    "number": 2,
+    "title_raw": "Schválení programu jednání",
+    "heading_raw": "2. Schválení programu jednání (bod číslo 2)",
+    "predkladatel": "Milan Paluska",
+    "votes": [
+     {
+      "raw_text": "pro:\n(5) Ing. Martin Jedlička, Zdeněk Fejfar, Ing. Karel Krištoufek, Milan Paluska, Ivana Trčková\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)",
+      "pro": {
+       "count": 5,
+       "names": [
+        "Ing. Martin Jedlička",
+        "Zdeněk Fejfar",
+        "Ing. Karel Krištoufek",
+        "Milan Paluska",
+        "Ivana Trčková"
+       ],
+       "raw": "(5) Ing. Martin Jedlička, Zdeněk Fejfar, Ing. Karel Krištoufek, Milan Paluska, Ivana Trčková"
+      },
+      "proti": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "zdrzel_se": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "nehlasoval": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "result_raw": "Návrh byl přijat jako usnesení číslo: UR-100-10/23",
+      "adopted_resolution_number": "UR-100-10/23"
+     }
+    ],
+    "resolution_numbers_mentioned": [
+     "UR-100-10/23"
+    ],
+    "raw_text": "Předkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 15:05:04\nProgram jednání\n1. Určení zapisovatelů, předsedajícího, příp. ověřovatelů\n2. Schválení programu jednání\n3. Aktuální informace vedení města\n4. Uzavření „Smlouvy o nájmu pozemku pro instalaci a provoz dobíjecích stanic pro elektromobily“\n5. Žádost o prodej části pozemku č. parc. 497/2 ( cca 160 m2) v obci a k.ú. Pečky\n6. Valná hromada Pečeckých služeb, s.r.o.\n7. Uzavření Dodatku č. 1 ke SOD -Smlouva na sazbu a grafickou úpravu Pečeckých novin\n8. Odměna ředitelce MŠ Mašinka Pečky\n9. Kontrola plnění usnesení\nDiskuze zahájena v 15:05:04\nK tomuto bodu se vyjádřili: Milan Paluska\nV 15:06:09 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Milan Paluska\") v tomto znění:\nRada\nměsta schvaluje návrh programu jednání.\nHlasování\npro:\n(5) Ing. Martin Jedlička, Zdeněk Fejfar, Ing. Karel Krištoufek, Milan Paluska, Ivana Trčková\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-100-10/23\nzodpovídá:\ntermín:\nIHNED\n(20. 3. 2023)\nProjednávání bodu bylo ukončeno v 15:06:16"
+   },
+   {
+    "number": 3,
+    "title_raw": "Aktuální informace vedení města",
+    "heading_raw": "3. Aktuální informace vedení města (bod číslo 3)",
+    "predkladatel": "Milan Paluska",
+    "votes": [],
+    "resolution_numbers_mentioned": [],
+    "raw_text": "Předkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 15:06:21\nDůvodová zpráva\nstarosta města\n- informace o přidělení dotace na úpravnu vody - 70% způsobilých výdajů projektu\n- informace o přidělení dotace na intenzifikaci ČOV\n- informace o harmonogramu prací v Kulturním středisku Pečky, dílčí nesoulad a nejasnosti v projektové dokumentaci /instalace klimatizačních jednotek, ukázka vzduchotechniky/\n- informace o přeložce sítí vysokého napětí na Bačově firmou\nElektro\nMartínek s.r.o.,\nKolín\n, příprava žádosti o dotaci /veřejné prostranství, komunikace/, v současné době vydáno stavební povolení, akce rozdělena na 4 etapy\n- informace o zahájení realizace stavby plotu u Mateřské školy Mašinka Pečky, zadat geodetické zaměření, ohlášení stavby, prohlídka na místě\n- výborová schůze AFK Pečky - vydány povolenky pro vjezd do areálu\n- informace o konání\nValné\nhromady TJ\nSokol\nPečky\n- informace o akci Ukliďme svět ve Velkých Chvalovicích dne 18.3.2023\n- informace o neutěšeném personálním stavu na stavebním odboru, vypsat výběrové řízení na pozici samostatný referent stavebního odboru\nDiskuze zahájena v 15:06:21\nK tomuto bodu se vyjádřili: Milan Paluska, Ing. Martin Jedlička, Ing. Karel Krištoufek, Ivana Trčková\nV 15:08:14 přišel Ing. Petr Dürr, přítomno 6 radních.\nAktualizovaný stav prezence:\nPřítomni:\n(6) Zdeněk Fejfar, Milan Paluska, Ing. Martin Jedlička, Ivana Trčková, Ing. Karel Krištoufek, Ing. Petr Dürr\nOmluveni:\n(0)\nNepřítomni:\n(1) Ing. Hana Kuprová\nV 15:31:13 přišel Ing. Hana Kuprová, přítomno 7 radních.\nAktualizovaný stav prezence:\nPřítomni:\n(7) Zdeněk Fejfar, Milan Paluska, Ing. Martin Jedlička, Ivana Trčková, Ing. Karel Krištoufek, Ing. Petr Dürr, Ing. Hana Kuprová\nOmluveni:\n(0)\nNepřítomni:\n(0)\nProjednávání bodu bylo ukončeno v 15:44:40"
+   },
+   {
+    "number": 4,
+    "title_raw": "Uzavření „Smlouvy o nájmu pozemku pro instalaci a provoz dobíjecích stanic pro elektromobily“",
+    "heading_raw": "4. Uzavření „Smlouvy o nájmu pozemku pro instalaci a provoz dobíjecích stanic pro elektromobily“ (bod číslo 4)",
+    "predkladatel": "Jana Najbrtová",
+    "votes": [
+     {
+      "raw_text": "pro:\n(7) Zdeněk Fejfar, Ing. Hana Kuprová, Ing. Petr Dürr, Ing. Karel Krištoufek, Milan Paluska, Ing. Martin Jedlička, Ivana Trčková\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)",
+      "pro": {
+       "count": 7,
+       "names": [
+        "Zdeněk Fejfar",
+        "Ing. Hana Kuprová",
+        "Ing. Petr Dürr",
+        "Ing. Karel Krištoufek",
+        "Milan Paluska",
+        "Ing. Martin Jedlička",
+        "Ivana Trčková"
+       ],
+       "raw": "(7) Zdeněk Fejfar, Ing. Hana Kuprová, Ing. Petr Dürr, Ing. Karel Krištoufek, Milan Paluska, Ing. Martin Jedlička, Ivana Trčková"
+      },
+      "proti": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "zdrzel_se": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "nehlasoval": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "result_raw": "Návrh byl přijat jako usnesení číslo: UR-101-10/23",
+      "adopted_resolution_number": "UR-101-10/23"
+     }
+    ],
+    "resolution_numbers_mentioned": [
+     "UR-101-10/23"
+    ],
+    "raw_text": "Předkladatel: Jana Najbrtová\nProjednávání bodu bylo zahájeno v 15:44:45\nDůvodová zpráva\nDoporučujeme uzavřít „Smlouvu o nájmu pozemku pro instalaci a provoz dobíjecích stanic pro elektromobily“. Žadatel souhlasí s podmínkami ve zveřejněném záměru na část pozemku č. parc. 993 v obci a k.ú. Pečky.\nDiskuze zahájena v 15:44:45\nK tomuto bodu se vyjádřili: Milan Paluska\nV 15:45:36 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Jana Najbrtová\") v tomto znění:\nRada\nměsta schvaluje uzavření „Smlouvy o nájmu pozemku pro instalaci a provoz dobíjecích stanic pro elektromobily“, která bude uzavřena s fy. ČEZ, a.s. se sídlem\nPraha\n4,\nDuhová\n2/1444. Smlouva bude uzavřena na část pozemku č. parc. 993 v obci a k.ú. Pečky a to na dobu určitou od 1.4. 2023 do 31.3. 2038 tzn. 15 let. Nájemné je stanoveno na 3.000,- Kč+DPH/rok.\nHlasování\npro:\n(7) Zdeněk Fejfar, Ing. Hana Kuprová, Ing. Petr Dürr, Ing. Karel Krištoufek, Milan Paluska, Ing. Martin Jedlička, Ivana Trčková\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-101-10/23\nzodpovídá:\nJana Najbrtová\ntermín:\n31. 5. 2023\nProjednávání bodu bylo ukončeno v 15:45:43"
+   },
+   {
+    "number": 5,
+    "title_raw": "Žádost o prodej části pozemku č. parc. 497/2 ( cca 160 m2) v obci a k.ú. Pečky",
+    "heading_raw": "5. Žádost o prodej části pozemku č. parc. 497/2 ( cca 160 m2) v obci a k.ú. Pečky (bod číslo 5)",
+    "predkladatel": "Jana Najbrtová",
+    "votes": [],
+    "resolution_numbers_mentioned": [],
+    "raw_text": "Předkladatel: Jana Najbrtová\nProjednávání bodu bylo zahájeno v 15:45:48\nDůvodová zpráva\nŽádost předložil\n█​█​█​█​█​█​█​█​█​█​█​█​█\n-předseda SVJ čp.1076 v Pečkách. Doporučujeme upřednostnit dlouhodobý pronájem pozemku (cca 20let) před prodejem. Pozemek je zatížen VBř, snímek sítí je v příloze a rovněž zákres části pozemku, který je předmětem žádosti.\nBylo\nby vhodnější, kdyby se žadatel obrátil na vlastníka sousedního pozemku č. parc. 497/8, dohodl se s ním a nechal si zřídit VBř-chůze a jízdy. Část pozemku, kterou chtějí odkoupit je poměrně strmá a přístupová komunikace by se zde špatně budovala.\nKupující zajistí vypracování geometrického plánu a poté předloží k projednání Radě města.\nDiskuze zahájena v 15:45:48\nK tomuto bodu se vyjádřili: Milan Paluska, Ing. Karel Krištoufek, Zdeněk Fejfar, Ivana Trčková, Ing. Petr Dürr\nRada bere materiály předložené k bodu č. 5 -\nŽádost o prodej části pozemku č. parc. 497/2 ( cca 160 m2) v obci a k.ú. Pečky\nna vědomí.\nProjednávání bodu bylo ukončeno v 16:10:48"
+   },
+   {
+    "number": 6,
+    "title_raw": "Valná hromada Pečeckých služeb, s.r.o.",
+    "heading_raw": "6. Valná hromada Pečeckých služeb, s.r.o. (bod číslo 6)",
+    "predkladatel": "Adam Brant",
+    "votes": [],
+    "resolution_numbers_mentioned": [],
+    "raw_text": "Předkladatel: Adam Brant\nProjednávání bodu bylo zahájeno v 16:11:53\nDůvodová zpráva\nValná\nhromada Pečeckých služeb, s.r.o. Pečky.\nStanoviska a doporučení poradních orgánů/odborů\nDiskuze zahájena v 16:11:53\nK tomuto bodu se vyjádřili: Milan Paluska, Ing. Adam Brant, Ing. Karel Krištoufek\nRada bere materiály předložené k bodu č. 6 -\nValná hromada Pečeckých služeb, s.r.o.\nna vědomí.\nProjednávání bodu bylo ukončeno v 16:32:13"
+   },
+   {
+    "number": 7,
+    "title_raw": "Uzavření Dodatku č. 1 ke SOD -Smlouva na sazbu a grafickou úpravu Pečeckých novin",
+    "heading_raw": "7. Uzavření Dodatku č. 1 ke SOD -Smlouva na sazbu a grafickou úpravu Pečeckých novin (bod číslo 7)",
+    "predkladatel": "Zdeněk Fejfar",
+    "votes": [
+     {
+      "raw_text": "pro:\n(7) Zdeněk Fejfar, Milan Paluska, Ing. Karel Krištoufek, Ing. Hana Kuprová, Ing. Petr Dürr, Ing. Martin Jedlička, Ivana Trčková\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)",
+      "pro": {
+       "count": 7,
+       "names": [
+        "Zdeněk Fejfar",
+        "Milan Paluska",
+        "Ing. Karel Krištoufek",
+        "Ing. Hana Kuprová",
+        "Ing. Petr Dürr",
+        "Ing. Martin Jedlička",
+        "Ivana Trčková"
+       ],
+       "raw": "(7) Zdeněk Fejfar, Milan Paluska, Ing. Karel Krištoufek, Ing. Hana Kuprová, Ing. Petr Dürr, Ing. Martin Jedlička, Ivana Trčková"
+      },
+      "proti": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "zdrzel_se": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "nehlasoval": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "result_raw": "Návrh byl přijat jako usnesení číslo: UR-102-10/23",
+      "adopted_resolution_number": "UR-102-10/23"
+     }
+    ],
+    "resolution_numbers_mentioned": [
+     "UR-102-10/23"
+    ],
+    "raw_text": "Předkladatel: Zdeněk Fejfar\nProjednávání bodu bylo zahájeno v 16:36:25\nDůvodová zpráva\nS novým vydáním Pečeckých novin se mění úprava předmětu smlouvy a doba, místo plnění. Z tohoto důvodu žádám o schválení Dodatku č. 1 ke SOD \"Smlouva na sazbu a grafickou úpravu Pečeckých novin\" ze dne 23.8.2021 s firmou\nJan\nPošík\n- POSH, Na Vinohradech 197, Cerhenice, IČ: 40011658.\nDiskuze zahájena v 16:36:25\nK tomuto bodu se vyjádřili: Zdeněk Fejfar\nV 16:41:19 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Zdeněk Fejfar\") v tomto znění:\nRada\nměsta schvaluje uzavření Dodatku č. 1 ke Smlouvě o dílo \"Smlouva na sazbu a grafickou úpravu Pečeckých novin\" ze dne 23.8.2021 mezi městem Pečky a firmou\nJan\nPošík\n- POSH, Na Vinohradech 197, Cerhenice, IČ: 40011658, a pověřuje starostu města podpisem dodatku.\nHlasování\npro:\n(7) Zdeněk Fejfar, Milan Paluska, Ing. Karel Krištoufek, Ing. Hana Kuprová, Ing. Petr Dürr, Ing. Martin Jedlička, Ivana Trčková\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-102-10/23\nzodpovídá:\nZdeněk Fejfar\ntermín:\n3. 4. 2023\nProjednávání bodu bylo ukončeno v 16:41:27"
+   },
+   {
+    "number": 8,
+    "title_raw": "Odměna ředitelce MŠ Mašinka Pečky",
+    "heading_raw": "8. Odměna ředitelce MŠ Mašinka Pečky (bod číslo 8)",
+    "predkladatel": "Pavlína Nepovímová",
+    "votes": [
+     {
+      "raw_text": "pro:\n(6) Ing. Hana Kuprová, Ing. Karel Krištoufek, Ing. Martin Jedlička, Milan Paluska, Ing. Petr Dürr, Ivana Trčková\nproti\n(0)\nzdržel se:\n(1) Zdeněk Fejfar\nnehlasoval:\n(0)",
+      "pro": {
+       "count": 6,
+       "names": [
+        "Ing. Hana Kuprová",
+        "Ing. Karel Krištoufek",
+        "Ing. Martin Jedlička",
+        "Milan Paluska",
+        "Ing. Petr Dürr",
+        "Ivana Trčková"
+       ],
+       "raw": "(6) Ing. Hana Kuprová, Ing. Karel Krištoufek, Ing. Martin Jedlička, Milan Paluska, Ing. Petr Dürr, Ivana Trčková"
+      },
+      "proti": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "zdrzel_se": {
+       "count": 1,
+       "names": [
+        "Zdeněk Fejfar"
+       ],
+       "raw": "(1) Zdeněk Fejfar"
+      },
+      "nehlasoval": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "result_raw": "Návrh byl přijat jako usnesení číslo: UR-103-10/23",
+      "adopted_resolution_number": "UR-103-10/23"
+     }
+    ],
+    "resolution_numbers_mentioned": [
+     "UR-103-10/23"
+    ],
+    "raw_text": "Předkladatel: Pavlína Nepovímová\nProjednávání bodu bylo zahájeno v 16:41:32\nDůvodová zpráva\nPaní Bc.\nKvěta\nBubeníčková\nbyla pověřena bývalou paní ředitelkou k vedení MŠ MAŠINKA Pečky. Za dobré finanční hospodaření a zajišťování provozu MŠ v době pověření vedení a nyní z pozice ředitelky navrhuji odměnu.\nDiskuze zahájena v 16:41:32\nK tomuto bodu se vyjádřili: Milan Paluska, Ing. Karel Krištoufek, Pavlína Nepovímová, Zdeněk Fejfar\nV 16:56:46 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Pavlína Nepovímová\") v tomto znění:\nRada\nměsta schvaluje odměnu ředitelce PO Mateřská škola Mašinka Pečky Bc. Květě\nBubeníčkové\nve výši\n█​█​█​█​█​█​█​█​█​█​█\nHlasování\npro:\n(6) Ing. Hana Kuprová, Ing. Karel Krištoufek, Ing. Martin Jedlička, Milan Paluska, Ing. Petr Dürr, Ivana Trčková\nproti\n(0)\nzdržel se:\n(1) Zdeněk Fejfar\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-103-10/23\nzodpovídá:\ntermín:\nIHNED\n(20. 3. 2023)\nProjednávání bodu bylo ukončeno v 16:56:55"
+   },
+   {
+    "number": 9,
+    "title_raw": "Kontrola plnění usnesení",
+    "heading_raw": "9. Kontrola plnění usnesení (bod číslo 9)",
+    "predkladatel": "Pavlína Nepovímová",
+    "votes": [],
+    "resolution_numbers_mentioned": [],
+    "raw_text": "Předkladatel: Pavlína Nepovímová\nProjednávání bodu bylo zahájeno v 17:09:48\nDiskuze zahájena v 17:09:48\nK tomuto bodu se vyjádřili: Milan Paluska, Pavlína Nepovímová\nRada bere materiály předložené k bodu č. 9 -\nKontrola plnění usnesení\nna vědomí.\nProjednávání bodu bylo ukončeno v 17:12:02\nJednání ukončeno 20.03.2023 v 17:12:16\n\nOvěřeno ověřovateli:\n1)\n22. 3. 2023 08:42\nIng. Martin Jedlička\n2)\n22. 3. 2023 14:22\nIng. Karel Krištoufek"
+   }
+  ],
+  "full_text": "ZÁPIS ze schůze rady č. 10/2023\nMěsto Pečky\ndatum: 20. 3. 2023, čas: 15:00\n​\nPrezence:\nPřítomni:\n(5) Zdeněk Fejfar, Milan Paluska, Ing. Martin Jedlička, Ivana Trčková, Ing. Karel Krištoufek\nOmluveni:\n(0)\nNepřítomni:\n(2) Ing. Petr Dürr, Ing. Hana Kuprová\nHosté:\nIng. Adam Brant\nZapisovatel/ka:\nEva Strnadová\nPřítomno je 5 členů a rada je usnášeníschopná.\nJednání zahájeno 20.03.2023 v 15:04:22\n1. Určení zapisovatelů, předsedajícího, příp. ověřovatelů (bod číslo 1)\nPředkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 15:04:30\nPředsedající navrhl jednotlivé členy pracovních komisí\nOvěřovatelé:\nIng. Karel Krištoufek, Ing. Martin Jedlička\nPředsedající:\nMilan Paluska\nBod byl přijat bez hlasování.\nDiskuze zahájena v 15:04:30\nK tomuto bodu se vyjádřili: Milan Paluska\nProjednávání bodu bylo ukončeno v 15:04:55\n2. Schválení programu jednání (bod číslo 2)\nPředkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 15:05:04\nProgram jednání\n1. Určení zapisovatelů, předsedajícího, příp. ověřovatelů\n2. Schválení programu jednání\n3. Aktuální informace vedení města\n4. Uzavření „Smlouvy o nájmu pozemku pro instalaci a provoz dobíjecích stanic pro elektromobily“\n5. Žádost o prodej části pozemku č. parc. 497/2 ( cca 160 m2) v obci a k.ú. Pečky\n6. Valná hromada Pečeckých služeb, s.r.o.\n7. Uzavření Dodatku č. 1 ke SOD -Smlouva na sazbu a grafickou úpravu Pečeckých novin\n8. Odměna ředitelce MŠ Mašinka Pečky\n9. Kontrola plnění usnesení\nDiskuze zahájena v 15:05:04\nK tomuto bodu se vyjádřili: Milan Paluska\nV 15:06:09 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Milan Paluska\") v tomto znění:\nRada\nměsta schvaluje návrh programu jednání.\nHlasování\npro:\n(5) Ing. Martin Jedlička, Zdeněk Fejfar, Ing. Karel Krištoufek, Milan Paluska, Ivana Trčková\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-100-10/23\nzodpovídá:\ntermín:\nIHNED\n(20. 3. 2023)\nProjednávání bodu bylo ukončeno v 15:06:16\n3. Aktuální informace vedení města (bod číslo 3)\nPředkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 15:06:21\nDůvodová zpráva\nstarosta města\n- informace o přidělení dotace na úpravnu vody - 70% způsobilých výdajů projektu\n- informace o přidělení dotace na intenzifikaci ČOV\n- informace o harmonogramu prací v Kulturním středisku Pečky, dílčí nesoulad a nejasnosti v projektové dokumentaci /instalace klimatizačních jednotek, ukázka vzduchotechniky/\n- informace o přeložce sítí vysokého napětí na Bačově firmou\nElektro\nMartínek s.r.o.,\nKolín\n, příprava žádosti o dotaci /veřejné prostranství, komunikace/, v současné době vydáno stavební povolení, akce rozdělena na 4 etapy\n- informace o zahájení realizace stavby plotu u Mateřské školy Mašinka Pečky, zadat geodetické zaměření, ohlášení stavby, prohlídka na místě\n- výborová schůze AFK Pečky - vydány povolenky pro vjezd do areálu\n- informace o konání\nValné\nhromady TJ\nSokol\nPečky\n- informace o akci Ukliďme svět ve Velkých Chvalovicích dne 18.3.2023\n- informace o neutěšeném personálním stavu na stavebním odboru, vypsat výběrové řízení na pozici samostatný referent stavebního odboru\nDiskuze zahájena v 15:06:21\nK tomuto bodu se vyjádřili: Milan Paluska, Ing. Martin Jedlička, Ing. Karel Krištoufek, Ivana Trčková\nV 15:08:14 přišel Ing. Petr Dürr, přítomno 6 radních.\nAktualizovaný stav prezence:\nPřítomni:\n(6) Zdeněk Fejfar, Milan Paluska, Ing. Martin Jedlička, Ivana Trčková, Ing. Karel Krištoufek, Ing. Petr Dürr\nOmluveni:\n(0)\nNepřítomni:\n(1) Ing. Hana Kuprová\nV 15:31:13 přišel Ing. Hana Kuprová, přítomno 7 radních.\nAktualizovaný stav prezence:\nPřítomni:\n(7) Zdeněk Fejfar, Milan Paluska, Ing. Martin Jedlička, Ivana Trčková, Ing. Karel Krištoufek, Ing. Petr Dürr, Ing. Hana Kuprová\nOmluveni:\n(0)\nNepřítomni:\n(0)\nProjednávání bodu bylo ukončeno v 15:44:40\n4. Uzavření „Smlouvy o nájmu pozemku pro instalaci a provoz dobíjecích stanic pro elektromobily“ (bod číslo 4)\nPředkladatel: Jana Najbrtová\nProjednávání bodu bylo zahájeno v 15:44:45\nDůvodová zpráva\nDoporučujeme uzavřít „Smlouvu o nájmu pozemku pro instalaci a provoz dobíjecích stanic pro elektromobily“. Žadatel souhlasí s podmínkami ve zveřejněném záměru na část pozemku č. parc. 993 v obci a k.ú. Pečky.\nDiskuze zahájena v 15:44:45\nK tomuto bodu se vyjádřili: Milan Paluska\nV 15:45:36 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Jana Najbrtová\") v tomto znění:\nRada\nměsta schvaluje uzavření „Smlouvy o nájmu pozemku pro instalaci a provoz dobíjecích stanic pro elektromobily“, která bude uzavřena s fy. ČEZ, a.s. se sídlem\nPraha\n4,\nDuhová\n2/1444. Smlouva bude uzavřena na část pozemku č. parc. 993 v obci a k.ú. Pečky a to na dobu určitou od 1.4. 2023 do 31.3. 2038 tzn. 15 let. Nájemné je stanoveno na 3.000,- Kč+DPH/rok.\nHlasování\npro:\n(7) Zdeněk Fejfar, Ing. Hana Kuprová, Ing. Petr Dürr, Ing. Karel Krištoufek, Milan Paluska, Ing. Martin Jedlička, Ivana Trčková\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-101-10/23\nzodpovídá:\nJana Najbrtová\ntermín:\n31. 5. 2023\nProjednávání bodu bylo ukončeno v 15:45:43\n5. Žádost o prodej části pozemku č. parc. 497/2 ( cca 160 m2) v obci a k.ú. Pečky (bod číslo 5)\nPředkladatel: Jana Najbrtová\nProjednávání bodu bylo zahájeno v 15:45:48\nDůvodová zpráva\nŽádost předložil\n█​█​█​█​█​█​█​█​█​█​█​█​█​\n-předseda SVJ čp.1076 v Pečkách. Doporučujeme upřednostnit dlouhodobý pronájem pozemku (cca 20let) před prodejem. Pozemek je zatížen VBř, snímek sítí je v příloze a rovněž zákres části pozemku, který je předmětem žádosti.\nBylo\nby vhodnější, kdyby se žadatel obrátil na vlastníka sousedního pozemku č. parc. 497/8, dohodl se s ním a nechal si zřídit VBř-chůze a jízdy. Část pozemku, kterou chtějí odkoupit je poměrně strmá a přístupová komunikace by se zde špatně budovala.\nKupující zajistí vypracování geometrického plánu a poté předloží k projednání Radě města.\nDiskuze zahájena v 15:45:48\nK tomuto bodu se vyjádřili: Milan Paluska, Ing. Karel Krištoufek, Zdeněk Fejfar, Ivana Trčková, Ing. Petr Dürr\nRada bere materiály předložené k bodu č. 5 -\nŽádost o prodej části pozemku č. parc. 497/2 ( cca 160 m2) v obci a k.ú. Pečky\nna vědomí.\nProjednávání bodu bylo ukončeno v 16:10:48\n6. Valná hromada Pečeckých služeb, s.r.o. (bod číslo 6)\nPředkladatel: Adam Brant\nProjednávání bodu bylo zahájeno v 16:11:53\nDůvodová zpráva\nValná\nhromada Pečeckých služeb, s.r.o. Pečky.\nStanoviska a doporučení poradních orgánů/odborů\nDiskuze zahájena v 16:11:53\nK tomuto bodu se vyjádřili: Milan Paluska, Ing. Adam Brant, Ing. Karel Krištoufek\nRada bere materiály předložené k bodu č. 6 -\nValná hromada Pečeckých služeb, s.r.o.\nna vědomí.\nProjednávání bodu bylo ukončeno v 16:32:13\n7. Uzavření Dodatku č. 1 ke SOD -Smlouva na sazbu a grafickou úpravu Pečeckých novin (bod číslo 7)\nPředkladatel: Zdeněk Fejfar\nProjednávání bodu bylo zahájeno v 16:36:25\nDůvodová zpráva\nS novým vydáním Pečeckých novin se mění úprava předmětu smlouvy a doba, místo plnění. Z tohoto důvodu žádám o schválení Dodatku č. 1 ke SOD \"Smlouva na sazbu a grafickou úpravu Pečeckých novin\" ze dne 23.8.2021 s firmou\nJan\nPošík\n- POSH, Na Vinohradech 197, Cerhenice, IČ: 40011658.\nDiskuze zahájena v 16:36:25\nK tomuto bodu se vyjádřili: Zdeněk Fejfar\nV 16:41:19 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Zdeněk Fejfar\") v tomto znění:\nRada\nměsta schvaluje uzavření Dodatku č. 1 ke Smlouvě o dílo \"Smlouva na sazbu a grafickou úpravu Pečeckých novin\" ze dne 23.8.2021 mezi městem Pečky a firmou\nJan\nPošík\n- POSH, Na Vinohradech 197, Cerhenice, IČ: 40011658, a pověřuje starostu města podpisem dodatku.\nHlasování\npro:\n(7) Zdeněk Fejfar, Milan Paluska, Ing. Karel Krištoufek, Ing. Hana Kuprová, Ing. Petr Dürr, Ing. Martin Jedlička, Ivana Trčková\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-102-10/23\nzodpovídá:\nZdeněk Fejfar\ntermín:\n3. 4. 2023\nProjednávání bodu bylo ukončeno v 16:41:27\n8. Odměna ředitelce MŠ Mašinka Pečky (bod číslo 8)\nPředkladatel: Pavlína Nepovímová\nProjednávání bodu bylo zahájeno v 16:41:32\nDůvodová zpráva\nPaní Bc.\nKvěta\nBubeníčková\nbyla pověřena bývalou paní ředitelkou k vedení MŠ MAŠINKA Pečky. Za dobré finanční hospodaření a zajišťování provozu MŠ v době pověření vedení a nyní z pozice ředitelky navrhuji odměnu.\nDiskuze zahájena v 16:41:32\nK tomuto bodu se vyjádřili: Milan Paluska, Ing. Karel Krištoufek, Pavlína Nepovímová, Zdeněk Fejfar\nV 16:56:46 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Pavlína Nepovímová\") v tomto znění:\nRada\nměsta schvaluje odměnu ředitelce PO Mateřská škola Mašinka Pečky Bc. Květě\nBubeníčkové\nve výši\n█​█​█​█​█​█​█​█​█​█​█​\nHlasování\npro:\n(6) Ing. Hana Kuprová, Ing. Karel Krištoufek, Ing. Martin Jedlička, Milan Paluska, Ing. Petr Dürr, Ivana Trčková\nproti\n(0)\nzdržel se:\n(1) Zdeněk Fejfar\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-103-10/23\nzodpovídá:\ntermín:\nIHNED\n(20. 3. 2023)\nProjednávání bodu bylo ukončeno v 16:56:55\n9. Kontrola plnění usnesení (bod číslo 9)\nPředkladatel: Pavlína Nepovímová\nProjednávání bodu bylo zahájeno v 17:09:48\nDiskuze zahájena v 17:09:48\nK tomuto bodu se vyjádřili: Milan Paluska, Pavlína Nepovímová\nRada bere materiály předložené k bodu č. 9 -\nKontrola plnění usnesení\nna vědomí.\nProjednávání bodu bylo ukončeno v 17:12:02\nJednání ukončeno 20.03.2023 v 17:12:16\nOvěřeno ověřovateli:\n1)\n22. 3. 2023 08:42\nIng. Martin Jedlička\n2)\n22. 3. 2023 14:22\nIng. Karel Krištoufek"
+ },
+ "resolutions": {
+  "status": "ok",
+  "url": "https://mesto-pecky.usneseni.cz/verejne/614c5f80-c22f-11ed-b328-36b95207cde4/usneseni/",
+  "fetched_at": "2026-08-04T14:12:32.724184+00:00",
+  "items": [
+   {
+    "number_raw": "UR-100-10/23",
+    "detail_id": 35179,
+    "detail_url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/35179?mod=rada",
+    "agenda_item_raw": "Schválení programu jednání",
+    "text_verbatim": "Rada\nměsta schvaluje návrh programu jednání.",
+    "cell_text_raw": "Bod programu:\nSchválení programu jednání\nText přijatého usnesení:\nRada\nměsta schvaluje návrh programu jednání.",
+    "date_raw": "20. 3. 2023",
+    "date_iso": "2023-03-20",
+    "responsible_raw": "",
+    "deadline_raw": "IHNED (20. 3. 2023)",
+    "vote": {
+     "raw_text": "pro: 5 proti: 0 zdržel se: 0",
+     "pro": {
+      "count": 5,
+      "names": null,
+      "raw": "5"
+     },
+     "proti": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     },
+     "zdrzel_se": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     }
+    },
+    "detail": {
+     "number_raw": "UR-100-10/23",
+     "text_verbatim": "Rada města schvaluje návrh programu jednání.",
+     "typ_raw": null,
+     "zodpovida_raw": "",
+     "prijato_raw": "20. 3. 2023 na jednání č. 10/2023",
+     "prijato_date_iso": "2023-03-20",
+     "prijato_meeting_label": "10/2023",
+     "termin_raw": "IHNED (20. 3. 2023)",
+     "ukonceno_raw": "20. 3. 2023",
+     "ukonceno_date_iso": "2023-03-20",
+     "fields_raw": {
+      "Číslo usnesení": "UR-100-10/23",
+      "Text usnesení": "Rada města schvaluje návrh programu jednání.",
+      "Zodpovídá": "",
+      "Přijato": "20. 3. 2023 na jednání č. 10/2023",
+      "Termín": "IHNED (20. 3. 2023)",
+      "Ukončeno": "20. 3. 2023"
+     }
+    }
+   },
+   {
+    "number_raw": "UR-101-10/23",
+    "detail_id": 35326,
+    "detail_url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/35326?mod=rada",
+    "agenda_item_raw": "Uzavření „Smlouvy o nájmu pozemku pro instalaci a provoz dobíjecích stanic pro elektromobily“",
+    "text_verbatim": "Rada\nměsta schvaluje uzavření „Smlouvy o nájmu pozemku pro instalaci a provoz dobíjecích stanic pro elektromobily“, která bude uzavřena s fy. ČEZ, a.s. se sídlem\nPraha\n4,\nDuhová\n2/1444. Smlouva bude uzavřena na část pozemku č. parc. 993 v obci a k.ú. Pečky a to na dobu určitou od 1.4. 2023 do 31.3. 2038 tzn. 15 let. Nájemné je stanoveno na 3.000,- Kč+DPH/rok.",
+    "cell_text_raw": "Bod programu:\nUzavření „Smlouvy o nájmu pozemku pro instalaci a provoz dobíjecích stanic pro elektromobily“\nText přijatého usnesení:\nRada\nměsta schvaluje uzavření „Smlouvy o nájmu pozemku pro instalaci a provoz dobíjecích stanic pro elektromobily“, která bude uzavřena s fy. ČEZ, a.s. se sídlem\nPraha\n4,\nDuhová\n2/1444. Smlouva bude uzavřena na část pozemku č. parc. 993 v obci a k.ú. Pečky a to na dobu určitou od 1.4. 2023 do 31.3. 2038 tzn. 15 let. Nájemné je stanoveno na 3.000,- Kč+DPH/rok.",
+    "date_raw": "20. 3. 2023",
+    "date_iso": "2023-03-20",
+    "responsible_raw": "Jana Najbrtová",
+    "deadline_raw": "31. 5. 2023",
+    "vote": {
+     "raw_text": "pro: 7 proti: 0 zdržel se: 0",
+     "pro": {
+      "count": 7,
+      "names": null,
+      "raw": "7"
+     },
+     "proti": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     },
+     "zdrzel_se": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     }
+    },
+    "detail": {
+     "number_raw": "UR-101-10/23",
+     "text_verbatim": "Rada města schvaluje uzavření „Smlouvy o nájmu pozemku pro instalaci a provoz dobíjecích stanic pro elektromobily“, která bude uzavřena s fy. ČEZ, a.s. se sídlem Praha 4, Duhová 2/1444. Smlouva bude uzavřena na část pozemku č. parc. 993 v obci a k.ú. Pečky a to na dobu určitou od 1.4. 2023 do 31.3. 2038 tzn. 15 let. Nájemné je stanoveno na 3.000,- Kč+DPH/rok.",
+     "typ_raw": null,
+     "zodpovida_raw": "Jana Najbrtová",
+     "prijato_raw": "20. 3. 2023 na jednání č. 10/2023",
+     "prijato_date_iso": "2023-03-20",
+     "prijato_meeting_label": "10/2023",
+     "termin_raw": "31. 5. 2023",
+     "ukonceno_raw": "24. 4. 2023",
+     "ukonceno_date_iso": "2023-04-24",
+     "fields_raw": {
+      "Číslo usnesení": "UR-101-10/23",
+      "Text usnesení": "Rada města schvaluje uzavření „Smlouvy o nájmu pozemku pro instalaci a provoz dobíjecích stanic pro elektromobily“, která bude uzavřena s fy. ČEZ, a.s. se sídlem Praha 4, Duhová 2/1444. Smlouva bude uzavřena na část pozemku č. parc. 993 v obci a k.ú. Pečky a to na dobu určitou od 1.4. 2023 do 31.3. 2038 tzn. 15 let. Nájemné je stanoveno na 3.000,- Kč+DPH/rok.",
+      "Zodpovídá": "Jana Najbrtová",
+      "Přijato": "20. 3. 2023 na jednání č. 10/2023",
+      "Termín": "31. 5. 2023",
+      "Ukončeno": "24. 4. 2023"
+     }
+    }
+   },
+   {
+    "number_raw": "UR-102-10/23",
+    "detail_id": 35463,
+    "detail_url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/35463?mod=rada",
+    "agenda_item_raw": "Uzavření Dodatku č. 1 ke SOD -Smlouva na sazbu a grafickou úpravu Pečeckých novin",
+    "text_verbatim": "Rada\nměsta schvaluje uzavření Dodatku č. 1 ke Smlouvě o dílo \"Smlouva na sazbu a grafickou úpravu Pečeckých novin\" ze dne 23.8.2021 mezi městem Pečky a firmou\nJan\nPošík\n- POSH, Na Vinohradech 197, Cerhenice, IČ: 40011658, a pověřuje starostu města podpisem dodatku.",
+    "cell_text_raw": "Bod programu:\nUzavření Dodatku č. 1 ke SOD -Smlouva na sazbu a grafickou úpravu Pečeckých novin\nText přijatého usnesení:\nRada\nměsta schvaluje uzavření Dodatku č. 1 ke Smlouvě o dílo \"Smlouva na sazbu a grafickou úpravu Pečeckých novin\" ze dne 23.8.2021 mezi městem Pečky a firmou\nJan\nPošík\n- POSH, Na Vinohradech 197, Cerhenice, IČ: 40011658, a pověřuje starostu města podpisem dodatku.",
+    "date_raw": "20. 3. 2023",
+    "date_iso": "2023-03-20",
+    "responsible_raw": "Zdeněk Fejfar",
+    "deadline_raw": "3. 4. 2023",
+    "vote": {
+     "raw_text": "pro: 7 proti: 0 zdržel se: 0",
+     "pro": {
+      "count": 7,
+      "names": null,
+      "raw": "7"
+     },
+     "proti": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     },
+     "zdrzel_se": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     }
+    },
+    "detail": {
+     "number_raw": "UR-102-10/23",
+     "text_verbatim": "Rada města schvaluje uzavření Dodatku č. 1 ke Smlouvě o dílo \"Smlouva na sazbu a grafickou úpravu Pečeckých novin\" ze dne 23.8.2021 mezi městem Pečky a firmou Jan Pošík - POSH, Na Vinohradech 197, Cerhenice, IČ: 40011658, a pověřuje starostu města podpisem dodatku.",
+     "typ_raw": null,
+     "zodpovida_raw": "Zdeněk Fejfar",
+     "prijato_raw": "20. 3. 2023 na jednání č. 10/2023",
+     "prijato_date_iso": "2023-03-20",
+     "prijato_meeting_label": "10/2023",
+     "termin_raw": "3. 4. 2023",
+     "ukonceno_raw": "3. 4. 2023",
+     "ukonceno_date_iso": "2023-04-03",
+     "fields_raw": {
+      "Číslo usnesení": "UR-102-10/23",
+      "Text usnesení": "Rada města schvaluje uzavření Dodatku č. 1 ke Smlouvě o dílo \"Smlouva na sazbu a grafickou úpravu Pečeckých novin\" ze dne 23.8.2021 mezi městem Pečky a firmou Jan Pošík - POSH, Na Vinohradech 197, Cerhenice, IČ: 40011658, a pověřuje starostu města podpisem dodatku.",
+      "Zodpovídá": "Zdeněk Fejfar",
+      "Přijato": "20. 3. 2023 na jednání č. 10/2023",
+      "Termín": "3. 4. 2023",
+      "Ukončeno": "3. 4. 2023"
+     }
+    }
+   },
+   {
+    "number_raw": "UR-103-10/23",
+    "detail_id": 35436,
+    "detail_url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/35436?mod=rada",
+    "agenda_item_raw": "Odměna ředitelce MŠ Mašinka Pečky",
+    "text_verbatim": "Rada\nměsta schvaluje odměnu ředitelce PO Mateřská škola Mašinka Pečky Bc. Květě\nBubeníčkové\nve výši\n█​█​█​█​█​█​█​█​█​█​█​",
+    "cell_text_raw": "Bod programu:\nOdměna ředitelce MŠ Mašinka Pečky\nText přijatého usnesení:\nRada\nměsta schvaluje odměnu ředitelce PO Mateřská škola Mašinka Pečky Bc. Květě\nBubeníčkové\nve výši\n█​█​█​█​█​█​█​█​█​█​█​",
+    "date_raw": "20. 3. 2023",
+    "date_iso": "2023-03-20",
+    "responsible_raw": "",
+    "deadline_raw": "IHNED (20. 3. 2023)",
+    "vote": {
+     "raw_text": "pro: 6 proti: 0 zdržel se: 1",
+     "pro": {
+      "count": 6,
+      "names": null,
+      "raw": "6"
+     },
+     "proti": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     },
+     "zdrzel_se": {
+      "count": 1,
+      "names": null,
+      "raw": "1"
+     }
+    },
+    "detail": {
+     "number_raw": "UR-103-10/23",
+     "text_verbatim": "Rada města schvaluje odměnu ředitelce PO Mateřská škola Mašinka Pečky Bc. Květě Bubeníčkové ve výši █​█​█​█​█​█​█​█​█​█​█​",
+     "typ_raw": null,
+     "zodpovida_raw": "",
+     "prijato_raw": "20. 3. 2023 na jednání č. 10/2023",
+     "prijato_date_iso": "2023-03-20",
+     "prijato_meeting_label": "10/2023",
+     "termin_raw": "IHNED (20. 3. 2023)",
+     "ukonceno_raw": "20. 3. 2023",
+     "ukonceno_date_iso": "2023-03-20",
+     "fields_raw": {
+      "Číslo usnesení": "UR-103-10/23",
+      "Text usnesení": "Rada města schvaluje odměnu ředitelce PO Mateřská škola Mašinka Pečky Bc. Květě Bubeníčkové ve výši █​█​█​█​█​█​█​█​█​█​█​",
+      "Zodpovídá": "",
+      "Přijato": "20. 3. 2023 na jednání č. 10/2023",
+      "Termín": "IHNED (20. 3. 2023)",
+      "Ukončeno": "20. 3. 2023"
+     }
+    }
+   }
+  ]
+ }
+}

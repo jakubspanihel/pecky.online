@@ -1,0 +1,794 @@
+{
+ "uuid": "2d7462cd-2768-11ef-89f7-00505683238f",
+ "body_type_raw": "Rada",
+ "label_raw": "23/2024 (17. 6. 2024)",
+ "number": 23,
+ "year": 2024,
+ "date_iso": "2024-06-17",
+ "links": {
+  "invitation": "https://mesto-pecky.usneseni.cz/verejne/?uuid=2d7462cd-2768-11ef-89f7-00505683238f&page=8&do=printPublicInvitation",
+  "minutes": "https://mesto-pecky.usneseni.cz/verejne/2d7462cd-2768-11ef-89f7-00505683238f/zapis/?page=8",
+  "signed_minutes_pdf": "https://mesto-pecky.usneseni.cz/verejne/?meetingReportControl-uuid=2d7462cd-2768-11ef-89f7-00505683238f&page=8&do=meetingReportControl-getSignedReportPdf",
+  "resolutions": "https://mesto-pecky.usneseni.cz/verejne/2d7462cd-2768-11ef-89f7-00505683238f/usneseni/?page=8",
+  "audio": null
+ },
+ "link_texts": {
+  "invitation": "Pozvánka",
+  "minutes": "zápis",
+  "signed_minutes_pdf": "podepsaný zápis",
+  "resolutions": "přijatá usnesení"
+ },
+ "status": "ok",
+ "invitation": {
+  "status": "site_error",
+  "error": "status=200 ct=text/html; charset=utf-8 flash='<a href=\"\" class=\"close\" data-dismiss=\"alert\" aria-label=\"close\">&times;'",
+  "url": "https://mesto-pecky.usneseni.cz/verejne/?uuid=2d7462cd-2768-11ef-89f7-00505683238f&do=printPublicInvitation",
+  "fetched_at": "2026-08-04T15:00:25.954238+00:00"
+ },
+ "minutes": {
+  "status": "ok",
+  "url": "https://mesto-pecky.usneseni.cz/verejne/2d7462cd-2768-11ef-89f7-00505683238f/zapis/",
+  "fetched_at": "2026-08-04T13:48:58.191945+00:00",
+  "title_raw": "ZÁPIS ze schůze rady č. 23/2024 Město Pečky datum: 17. 6. 2024, čas: 15:00 ​",
+  "date_raw": "17. 6. 2024",
+  "date_iso": "2024-06-17",
+  "time_raw": "15:00",
+  "presence": {
+   "raw_text": "Prezence:\nPřítomni:\n(6) Milan Paluska, Zdeněk Fejfar, Ing. Karel Krištoufek, Ing. Martin Jedlička, Ing. Hana Kuprová, Ivana Trčková\nOmluveni:\n(1) Ing. Petr Dürr\nNepřítomni:\n(0)\nHosté:\nZapisovatel/ka:\nEva Strnadová\nPřítomno je 6 členů a rada je usnášeníschopná.\nJednání zahájeno 17.06.2024 v 15:05:23",
+   "pritomni": {
+    "count": 6,
+    "names": [
+     "Milan Paluska",
+     "Zdeněk Fejfar",
+     "Ing. Karel Krištoufek",
+     "Ing. Martin Jedlička",
+     "Ing. Hana Kuprová",
+     "Ivana Trčková"
+    ],
+    "raw": "(6) Milan Paluska, Zdeněk Fejfar, Ing. Karel Krištoufek, Ing. Martin Jedlička, Ing. Hana Kuprová, Ivana Trčková"
+   },
+   "omluveni": {
+    "count": 1,
+    "names": [
+     "Ing. Petr Dürr"
+    ],
+    "raw": "(1) Ing. Petr Dürr"
+   },
+   "nepritomni": {
+    "count": 0,
+    "names": [],
+    "raw": "(0)"
+   },
+   "predsedajici": null,
+   "quorum_raw": "Přítomno je 6 členů a rada je usnášeníschopná."
+  },
+  "header_raw": "Prezence:\nPřítomni:\n(6) Milan Paluska, Zdeněk Fejfar, Ing. Karel Krištoufek, Ing. Martin Jedlička, Ing. Hana Kuprová, Ivana Trčková\nOmluveni:\n(1) Ing. Petr Dürr\nNepřítomni:\n(0)\nHosté:\nZapisovatel/ka:\nEva Strnadová\nPřítomno je 6 členů a rada je usnášeníschopná.\nJednání zahájeno 17.06.2024 v 15:05:23",
+  "agenda_items": [
+   {
+    "number": 1,
+    "title_raw": "Určení zapisovatelů, předsedajícího, příp. ověřovatelů",
+    "heading_raw": "1. Určení zapisovatelů, předsedajícího, příp. ověřovatelů (bod číslo 1)",
+    "predkladatel": null,
+    "votes": [],
+    "resolution_numbers_mentioned": [],
+    "raw_text": "Projednávání bodu bylo zahájeno v 15:05:49\n\nPředsedající navrhl jednotlivé členy pracovních komisí\nOvěřovatelé:\nIvana Trčková, Ing. Hana Kuprová\nPředsedající:\nMilan Paluska\nDiskuze zahájena v 15:05:50\nK tomuto bodu se vyjádřili: Milan Paluska\nProjednávání bodu bylo ukončeno v 15:06:20"
+   },
+   {
+    "number": 2,
+    "title_raw": "Schválení programu jednání",
+    "heading_raw": "2. Schválení programu jednání (bod číslo 2)",
+    "predkladatel": null,
+    "votes": [
+     {
+      "raw_text": "pro:\n(6) Ivana Trčková, Ing. Hana Kuprová, Ing. Karel Krištoufek, Milan Paluska, Zdeněk Fejfar, Ing. Martin Jedlička\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)",
+      "pro": {
+       "count": 6,
+       "names": [
+        "Ivana Trčková",
+        "Ing. Hana Kuprová",
+        "Ing. Karel Krištoufek",
+        "Milan Paluska",
+        "Zdeněk Fejfar",
+        "Ing. Martin Jedlička"
+       ],
+       "raw": "(6) Ivana Trčková, Ing. Hana Kuprová, Ing. Karel Krištoufek, Milan Paluska, Zdeněk Fejfar, Ing. Martin Jedlička"
+      },
+      "proti": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "zdrzel_se": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "nehlasoval": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "result_raw": "Návrh byl přijat jako usnesení číslo: UR-230-23/24",
+      "adopted_resolution_number": "UR-230-23/24"
+     }
+    ],
+    "resolution_numbers_mentioned": [
+     "UR-229-22/24",
+     "UR-230-23/24"
+    ],
+    "raw_text": "Projednávání bodu bylo zahájeno v 15:06:25\n\nProgram jednání\n1. Určení zapisovatelů, předsedajícího, příp. ověřovatelů\n2. Schválení programu jednání\n3. Aktuální informace vedení města\n4. Informace o využívání vkladových účtů\n5. Dodatek č. 1 Příkazní smlouvy na služby k projektu Rekonstrukce veřejného osvětlení města Pečky\n6. Vyhlášení zjednodušeného podlimitního řízení na dodávky \"Rekonstrukce veřejného osvětlení města Pečky\" a ustanovení komise\n7. Cenová nabídka na nákup 4 ks defibrilátorů - úkol UR-229-22/24\n8. Výběr dodavatele na plnění veřejné zakázky \"Energetický management Pečky\" a uzavření smlouvy o dílo\n9. Cenové podmínky pro „Řešení správy dat TIVSP – Geovap DTM STORAGE pro město Pečky\"\n10. Řešení DTM ČR pro město Pečky\n11. Kontrola plnění usnesení\n12. Diskuse, různé\n13. Úkoly vyplývající z jednání rady města\nDiskuze zahájena v 15:06:26\nK tomuto bodu se vyjádřili: Milan Paluska\nV 15:09:33 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Milan Paluska\") v tomto znění:\nRada\nměsta schvaluje návrh programu jednání.\nHlasování\npro:\n(6) Ivana Trčková, Ing. Hana Kuprová, Ing. Karel Krištoufek, Milan Paluska, Zdeněk Fejfar, Ing. Martin Jedlička\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-230-23/24\nzodpovídá:\ntermín:\nIHNED\n(17. 6. 2024)\nProjednávání bodu bylo ukončeno v 15:09:40"
+   },
+   {
+    "number": 3,
+    "title_raw": "Aktuální informace vedení města",
+    "heading_raw": "3. Aktuální informace vedení města (bod číslo 3)",
+    "predkladatel": null,
+    "votes": [],
+    "resolution_numbers_mentioned": [],
+    "raw_text": "Projednávání bodu bylo zahájeno v 15:09:44\n\nDůvodová zpráva:\nstarosta města\n- informace o kontrole z Ministerstva obrany - obnova válečných hrobů\n- informace o kontrolním dni na stavbě \" Rekonstrukce kabin AFK Pečky\"- dokončující práce /betonové stěrky, hotové dlažby, venkovní fasáda, střecha, vzduchotechnika apd./ - 18.6.2024 od 9.00 hodin kontrolní den na stavbě\n- informace o pietním odhalení kamene zmizelých dne 18.6.2024 před domem čp. 388 ul.\nMoravská\n, Pečky\n- informace o otevírání obálek a hodnocení nabídek akce - plot u MŠ Pečky\n- informace o opětovném umístění dřevěné lávky přes Výrovku /zajištění lávky v případě zvýšení hladiny vodního toku/\n- informace o termínech zasedání RM o letních prázdninách - 1.7., 15.7., 29.7., 12.8., 26.8., 2.9.2024\nZdeněk\nFejfar\n- informace o návrhu řešení akce \"Cyklostezka ve Velkých Chvalovicích, ul. Milčická\" - nevyhovující podmínky zasakování dešťových vod\nDiskuze zahájena v 15:09:45\nK tomuto bodu se vyjádřili: Milan Paluska, Ing. Karel Krištoufek, Ivana Trčková, Ing. Hana Kuprová\nRada bere materiály předložené k bodu č. 3 -\nAktuální informace vedení města\nna vědomí.\nProjednávání bodu bylo ukončeno v 15:52:28"
+   },
+   {
+    "number": 4,
+    "title_raw": "Informace o využívání vkladových účtů",
+    "heading_raw": "4. Informace o využívání vkladových účtů (bod číslo 4)",
+    "predkladatel": null,
+    "votes": [],
+    "resolution_numbers_mentioned": [],
+    "raw_text": "Projednávání bodu bylo zahájeno v 15:52:32\n\nDůvodová zpráva:\nInformace o využívání vkladových účtů.\nDiskuze zahájena v 15:52:33\nK tomuto bodu se vyjádřili: Milan Paluska, Ing. Karel Krištoufek, Ing. Hana Kuprová\nRada bere materiály předložené k bodu č. 4 -\nInformace o využívání vkladových účtů\nna vědomí.\nProjednávání bodu bylo ukončeno v 16:03:21"
+   },
+   {
+    "number": 5,
+    "title_raw": "Dodatek č. 1 Příkazní smlouvy na služby k projektu Rekonstrukce veřejného osvětlení města Pečky",
+    "heading_raw": "5. Dodatek č. 1 Příkazní smlouvy na služby k projektu Rekonstrukce veřejného osvětlení města Pečky (bod číslo 5)",
+    "predkladatel": null,
+    "votes": [
+     {
+      "raw_text": "pro:\n(6) Ing. Martin Jedlička, Milan Paluska, Ing. Hana Kuprová, Ivana Trčková, Ing. Karel Krištoufek, Zdeněk Fejfar\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)",
+      "pro": {
+       "count": 6,
+       "names": [
+        "Ing. Martin Jedlička",
+        "Milan Paluska",
+        "Ing. Hana Kuprová",
+        "Ivana Trčková",
+        "Ing. Karel Krištoufek",
+        "Zdeněk Fejfar"
+       ],
+       "raw": "(6) Ing. Martin Jedlička, Milan Paluska, Ing. Hana Kuprová, Ivana Trčková, Ing. Karel Krištoufek, Zdeněk Fejfar"
+      },
+      "proti": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "zdrzel_se": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "nehlasoval": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "result_raw": "Návrh byl přijat jako usnesení číslo: UR-231-23/24",
+      "adopted_resolution_number": "UR-231-23/24"
+     }
+    ],
+    "resolution_numbers_mentioned": [
+     "UR-231-23/24",
+     "UR-322-38/23"
+    ],
+    "raw_text": "Projednávání bodu bylo zahájeno v 16:03:25\n\nDůvodová zpráva:\nZúžení rozsahu plnění - předmětu Příkazní smlouvy s MAS Podlipansko, o.p.s., schválené dne 13.11.2023 usnesením č. UR-322-38/23, uzavřené dne 06.12.2023, interní číslo 909 - podrobněji viz příloha.\nDiskuze zahájena v 16:03:26\nK tomuto bodu se vyjádřili: Milan Paluska\nV 16:05:15 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Milan Paluska\") v tomto znění:\nRada\nměsta schvaluje uzavření Dodatku č. 1 k Příkazní smlouvě uzavřené dne 06.12.2023, interní číslo 909, mezi městem Pečky a MAS Podlipansko, o.p.s., o zúžení rozsahu plnění - předmětu smlouvy.\nHlasování\npro:\n(6) Ing. Martin Jedlička, Milan Paluska, Ing. Hana Kuprová, Ivana Trčková, Ing. Karel Krištoufek, Zdeněk Fejfar\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-231-23/24\nzodpovídá:\nMichala Dekiská\ntermín:\n1. 7. 2024\nProjednávání bodu bylo ukončeno v 16:05:22"
+   },
+   {
+    "number": 6,
+    "title_raw": "Vyhlášení zjednodušeného podlimitního řízení na dodávky \"Rekonstrukce veřejného osvětlení města Pečky\" a ustanovení komise",
+    "heading_raw": "6. Vyhlášení zjednodušeného podlimitního řízení na dodávky \"Rekonstrukce veřejného osvětlení města Pečky\" a ustanovení komise (bod číslo 6)",
+    "predkladatel": null,
+    "votes": [
+     {
+      "raw_text": "pro:\n(6) Ing. Karel Krištoufek, Milan Paluska, Ing. Martin Jedlička, Ing. Hana Kuprová, Zdeněk Fejfar, Ivana Trčková\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)",
+      "pro": {
+       "count": 6,
+       "names": [
+        "Ing. Karel Krištoufek",
+        "Milan Paluska",
+        "Ing. Martin Jedlička",
+        "Ing. Hana Kuprová",
+        "Zdeněk Fejfar",
+        "Ivana Trčková"
+       ],
+       "raw": "(6) Ing. Karel Krištoufek, Milan Paluska, Ing. Martin Jedlička, Ing. Hana Kuprová, Zdeněk Fejfar, Ivana Trčková"
+      },
+      "proti": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "zdrzel_se": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "nehlasoval": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "result_raw": "Návrh byl přijat jako usnesení číslo: UR-232-23/24",
+      "adopted_resolution_number": "UR-232-23/24"
+     }
+    ],
+    "resolution_numbers_mentioned": [
+     "UR-232-23/24"
+    ],
+    "raw_text": "Projednávání bodu bylo zahájeno v 16:05:26\n\nDůvodová zpráva:\nVyhlášení zjednodušeného podlimitního řízení na dodávky \"Rekonstrukce veřejného osvětlení města Pečky\" dle zákona č. 134/2016Sb., o zadávání veřejných zakázek, ve znění pozdějších předpisů.\nSložení hodnotící komise:\nčlenové: Ing.\nJana\nZindrová\n- referent oddělení dopravy, Ing.\nAdam\nBrant\n- jednatel Služby města Pečky s.r.o., Bc.\nMartin\nJurečka\n- jednatel Sunritek s.r.o.\nnáhradníci:\nMilan\nPaluska\n- starosta,\nJiří\nMoravec\n- referent přípravy a realizace investic, Ing.\nBořil\n- provozní ředitel Sunritek s.r.o.\nNa základě akceptace žádosti o poskytnutí podpory evidované pod registračním číslem 2182000831 rezervovány finanční prostředky ve výši 4 000 000 Kč, Ministerstvo průmyslu a obchodu ČR, Národní plán obnovy, výzva č. NPO 1/2022, komponenta 2.2.2. Rekonstrukce veřejného osvětlení.\nPro\nvydání Rozhodnutí o poskytnutí dotace je mj. třeba doložit smlouvu o dílo.\nDiskuze zahájena v 16:05:27\nK tomuto bodu se vyjádřili: Milan Paluska, Ing. Hana Kuprová, Ing. Karel Krištoufek, Ivana Trčková, Zdeněk Fejfar\nV 16:14:16 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Milan Paluska\") v tomto znění:\nRada\nměsta schvaluje vyhlášení zjednodušeného podlimitního řízení na dodávky \"Rekonstrukce veřejného osvětlení města Pečky\" dle zákona č. 134/2016Sb., o zadávání veřejných zakázek, ve znění pozdějších předpisů, a ustanovení komise ve složení:\nčlenové: Ing.\nJana\nZindrová\n- referent oddělení dopravy, Ing.\nAdam\nBrant\n- jednatel Služby města Pečky s.r.o., Bc.\nMartin\nJurečka\n- jednatel Sunritek s.r.o.\nnáhradníci:\nMilan\nPaluska\n- starosta,\nJiří\nMoravec\n- referent přípravy a realizace investic, Ing.\nBořil\n- obchodní ředitel Sunritek s.r.o.\nHlasování\npro:\n(6) Ing. Karel Krištoufek, Milan Paluska, Ing. Martin Jedlička, Ing. Hana Kuprová, Zdeněk Fejfar, Ivana Trčková\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-232-23/24\nzodpovídá:\nMichala Dekiská\ntermín:\n1. 7. 2024\nProjednávání bodu bylo ukončeno v 16:14:23"
+   },
+   {
+    "number": 7,
+    "title_raw": "Cenová nabídka na nákup 4 ks defibrilátorů - úkol UR-229-22/24",
+    "heading_raw": "7. Cenová nabídka na nákup 4 ks defibrilátorů - úkol UR-229-22/24 (bod číslo 7)",
+    "predkladatel": null,
+    "votes": [],
+    "resolution_numbers_mentioned": [
+     "UR-229-22/24"
+    ],
+    "raw_text": "Projednávání bodu bylo zahájeno v 16:14:29\n\nDůvodová zpráva:\nNa základě Usnesení Rady města UR-229-22/24 předkládáme Radě města cenovou nabídku na nákup 4 ks defibrilátorů s obsluhou (tj. typ EAD\nPhilips\nHeartStart FRx), včetně dětské pojistky. Technický popis defibrilátoru je zde: https://www.bexamed.cz/p/aed-defibrilator-philips-heartstart-frx\nDle veřejně dostupných informací bylo zjištěno 5 nabídek (viz hodnotící tabulka v příloze). Nejlevnější je nabídka společnosti Bexamed, která prodává defibrilátor za cenu 30 890,- Kč bez DPH a dětskou pojistku za cenu 2 640,- Kč, tj. celkem za 4 ks defibrilátorů, včetně dětských pojistek 134 120,- Kč + 21% DPH, tj. celkem 162 285,20 Kč.\nV případě potřeby je možné poptat rovněž skříňky, ve kterých budou defibrilátory umístěny. Na výběr je několik typů, pro informaci přikládáme odkaz na typy AED skříněk, ze které je možné si vybrat: AED skřínky: https://www.bexamed.cz/aed-skrinky.\nDiskuze zahájena v 16:14:30\nK tomuto bodu se vyjádřili: Milan Paluska, Ing. Hana Kuprová, Ing. Martin Jedlička, Ivana Trčková, Zdeněk Fejfar, Ing. Karel Krištoufek\nRada bere materiály předložené k bodu č. 7 -\nCenová nabídka na nákup 4 ks defibrilátorů - úkol UR-229-22/24\nna vědomí.\nProjednávání bodu bylo ukončeno v 16:37:50"
+   },
+   {
+    "number": 8,
+    "title_raw": "Výběr dodavatele na plnění veřejné zakázky \"Energetický management Pečky\" a uzavření smlouvy o dílo",
+    "heading_raw": "8. Výběr dodavatele na plnění veřejné zakázky \"Energetický management Pečky\" a uzavření smlouvy o dílo (bod číslo 8)",
+    "predkladatel": null,
+    "votes": [
+     {
+      "raw_text": "pro:\n(5) Ing. Karel Krištoufek, Ing. Hana Kuprová, Ivana Trčková, Ing. Martin Jedlička, Milan Paluska\nproti\n(0)\nzdržel se:\n(1) Zdeněk Fejfar\nnehlasoval:\n(0)",
+      "pro": {
+       "count": 5,
+       "names": [
+        "Ing. Karel Krištoufek",
+        "Ing. Hana Kuprová",
+        "Ivana Trčková",
+        "Ing. Martin Jedlička",
+        "Milan Paluska"
+       ],
+       "raw": "(5) Ing. Karel Krištoufek, Ing. Hana Kuprová, Ivana Trčková, Ing. Martin Jedlička, Milan Paluska"
+      },
+      "proti": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "zdrzel_se": {
+       "count": 1,
+       "names": [
+        "Zdeněk Fejfar"
+       ],
+       "raw": "(1) Zdeněk Fejfar"
+      },
+      "nehlasoval": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "result_raw": "Návrh byl přijat jako usnesení číslo: UR-233-23/24",
+      "adopted_resolution_number": "UR-233-23/24"
+     }
+    ],
+    "resolution_numbers_mentioned": [
+     "UR-233-23/24"
+    ],
+    "raw_text": "Projednávání bodu bylo zahájeno v 16:37:54\n\nDůvodová zpráva:\nDoporučujeme uzavřít smlouvu o dílo. Jedná se o VZMR na služby akce \"Energetický management Pečky\". Nabídky byly rozeslány celkem 3 dodavatelům. Jeden z nich se omluvil pro nedostatek kapacity a do výběrového řízení se přihlásili dva zbylí uchazeči. Jejich nabídky byly posouzeny na základě jednání tříčlenné hodnotící komise, kterou tvořili tito členové:\nPetra\nKutová\n- investiční technik,\nJiří\nMoravec\n- referent přípravy a realizace investic a Ing.\nJana\nZindrová\n- referentka oddělení dopravy. Komise doporučuje uzavřít SOD s uchazečem, který předložil nejlevnější nabídku, tj. se společností ENERKOM Podlipansko, z.s.. Nabídka vybraného dodavatele splňuje veškeré náležitosti z hlediska prokázání splnění zadávacích podmínek a požadavků zákona.\nDiskuze zahájena v 16:37:55\nK tomuto bodu se vyjádřili: Milan Paluska, Ing. Karel Krištoufek, Ing. Hana Kuprová, Ing. Martin Jedlička\nV 16:49:43 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Petra Kutová\") v tomto znění:\nRada\nměsta schvaluje Rozhodnutí o výběru dodavatele na plnění veřejné zakázky malého rozsahu \"Energetický management Pečky\" zadávané mimo režim zákona, v souladu s doporučením hodnotící komise, a uzavření smlouvy o dílo mezi městem Pečky a vybraným dodavatelem ENERKOM Podlipansko, z.s., se sídlem: Chvalovická 1076, 289 11 Pečky, IČ: 179 63 320.\nHlasování\npro:\n(5) Ing. Karel Krištoufek, Ing. Hana Kuprová, Ivana Trčková, Ing. Martin Jedlička, Milan Paluska\nproti\n(0)\nzdržel se:\n(1) Zdeněk Fejfar\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-233-23/24\nzodpovídá:\nPetra Kutová\ntermín:\n1. 7. 2024\nProjednávání bodu bylo ukončeno v 16:49:50"
+   },
+   {
+    "number": 9,
+    "title_raw": "Cenové podmínky pro „Řešení správy dat TIVSP – Geovap DTM STORAGE pro město Pečky\"",
+    "heading_raw": "9. Cenové podmínky pro „Řešení správy dat TIVSP – Geovap DTM STORAGE pro město Pečky\" (bod číslo 9)",
+    "predkladatel": null,
+    "votes": [
+     {
+      "raw_text": "pro:\n(6) Ing. Karel Krištoufek, Milan Paluska, Ing. Hana Kuprová, Ing. Martin Jedlička, Zdeněk Fejfar, Ivana Trčková\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)",
+      "pro": {
+       "count": 6,
+       "names": [
+        "Ing. Karel Krištoufek",
+        "Milan Paluska",
+        "Ing. Hana Kuprová",
+        "Ing. Martin Jedlička",
+        "Zdeněk Fejfar",
+        "Ivana Trčková"
+       ],
+       "raw": "(6) Ing. Karel Krištoufek, Milan Paluska, Ing. Hana Kuprová, Ing. Martin Jedlička, Zdeněk Fejfar, Ivana Trčková"
+      },
+      "proti": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "zdrzel_se": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "nehlasoval": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "result_raw": "Návrh byl přijat jako usnesení číslo: UR-234-23/24",
+      "adopted_resolution_number": "UR-234-23/24"
+     }
+    ],
+    "resolution_numbers_mentioned": [
+     "UR-234-23/24"
+    ],
+    "raw_text": "Projednávání bodu bylo zahájeno v 16:49:56\n\nDůvodová zpráva:\nČeský\núřad zeměměřický a katastrální (ČÚZK) spouští od 1.7.2024 významný systém veřejné správy, informační systém digitální mapy veřejné správy (IS DMVS), který bude zastřešovat krajské systémy digitálních map (DTM).\nZákonnou povinností pro obce, které jsou vlastníky, správci a provozovateli dopravní a technické infrastruktury je přihlášení se do verifikačního registru a předávání aktualizačních údajů do DTVS. Město Pečky je vlastníkem DTM, kterou pro něj zajišťuje firma TopGis s.r.o. na základě uzavřené smlouvy o dílo z r. 2019.\nPro\nnaplňování dat do DTM spolupracuje město Pečky od r. 2000 s firmou Geovap spol. s r.o. na základě uzavřené smlouvy.\nTato\nsmlouva bude pozbývat platnosti změnou podmínek vyplývajících z nových zákonných nastavení.\nPro\nzachování možnosti přístupu k datům technické infrastruktury je potřeba uzavřít novou smlouvu mezi městem Pečky a Geovap spol. s r. o.\nSpolečnost předkládá nabídku řešení správy dat technické infrastruktury vlastníků, správců a provozovatelů (TI VSP) Storage (úložného prostoru) pro město Pečky.\nCena\nse skládá z: Jednorázové operace nutné k založení datového modelu, komunikační brány, náběrového místa – uložiště a je za cenu 11.616,- Kč s DPH. (s předpokládanou časovou náročností jeden den).\nPaušálního ročního poplatku za provoz služby, který činí 15.730,- Kč s DPH. Ceny za rozvoj systému v případě, že přijde nějaká systémová změna, která bude vyvolána např. DTM kraje, je cena stanovena na 1.452,- Kč s DPH/ hodinu práce. Poskytovatel však takové změny nepředpokládá.\nPro\ninformaci se uvádí, že spolupráce města Pečky se společností Geovap spol. s r.o. vyšla v r. 2020 na 16.460,- Kč s DPH, v r. 2021 na 19.350,- Kč s DPH, v r. 2022 na 27.400,- Kč s DPH, v r. 2023 na 21.812,- Kč s DPH.\nData od Geovap spol. s r.o. jsou poskytována do DTM města Pečky prostřednictvím společnosti TopGis s.r.o.\nPro\nfungování DTM jsou nezbytná.\nProto\nse doporučuje akceptovat předloženou nabídku na zajištění systému.\nZnění smlouvy bude od společnosti předloženo po schválení, po akceptaci cenových podmínek.\nDiskuze zahájena v 16:49:57\nK tomuto bodu se vyjádřili: Milan Paluska, Pavlína Nepovímová, Ing. Hana Kuprová, Ing. Martin Jedlička\nV 16:53:12 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Jana Zindrová\") v tomto znění:\nRada\nměsta schvaluje cenové podmínky pro „Řešení správy dat TIVSP – Geovap DTM STORAGE pro město Pečky\" od společnosti Geovap, spol. s r.o. Čechovo nábřeží 1790, 530 03 Pardubice, IČ: 15049248 a předložení návrhu smlouvy.\nJednorázová platbu za implementaci služby je ve výši 11.616,- Kč s DPH\nCena\nza roční provoz služby Storage je 15.730,- Kč s DPH\nHodinová\nsazbu v případě potřeby rozvoje systému je 1.452,- Kč s DPH\nHlasování\npro:\n(6) Ing. Karel Krištoufek, Milan Paluska, Ing. Hana Kuprová, Ing. Martin Jedlička, Zdeněk Fejfar, Ivana Trčková\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-234-23/24\nzodpovídá:\nJana Zindrová\ntermín:\n1. 7. 2024\nProjednávání bodu bylo ukončeno v 16:53:20"
+   },
+   {
+    "number": 10,
+    "title_raw": "Řešení DTM ČR pro město Pečky",
+    "heading_raw": "10. Řešení DTM ČR pro město Pečky (bod číslo 10)",
+    "predkladatel": null,
+    "votes": [
+     {
+      "raw_text": "pro:\n(6) Ing. Martin Jedlička, Zdeněk Fejfar, Milan Paluska, Ing. Hana Kuprová, Ing. Karel Krištoufek, Ivana Trčková\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)",
+      "pro": {
+       "count": 6,
+       "names": [
+        "Ing. Martin Jedlička",
+        "Zdeněk Fejfar",
+        "Milan Paluska",
+        "Ing. Hana Kuprová",
+        "Ing. Karel Krištoufek",
+        "Ivana Trčková"
+       ],
+       "raw": "(6) Ing. Martin Jedlička, Zdeněk Fejfar, Milan Paluska, Ing. Hana Kuprová, Ing. Karel Krištoufek, Ivana Trčková"
+      },
+      "proti": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "zdrzel_se": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "nehlasoval": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "result_raw": "Návrh byl přijat jako usnesení číslo: UR-235-23/24",
+      "adopted_resolution_number": "UR-235-23/24"
+     }
+    ],
+    "resolution_numbers_mentioned": [
+     "UR-235-23/24"
+    ],
+    "raw_text": "Projednávání bodu bylo zahájeno v 16:53:24\n\nDůvodová zpráva:\nŘešení DTM ČR je tvořeno dodávkou služby GEOVAP DTM Konektor, která řeší předávání dat DTI vlastníka, správce nebo provozovatele do IS DTM kraje a dodávkou aplikace GEOVAP DTM Import, která řeší import dat DTM ČR z IS DMVS i IS DTM do GIS prostředí města Pečky. Cílem je, aby vlastník, správce nebo provozovatel (VSP) technické a dopravní infrastruktury (DTI) splnil zákonnou povinnost předávání aktualizačních údajů do DMVS (digitální mapy veřejné správy, myšleno kraje).\nCeny za jednorázové operace týkající se nastavení systému:\nCena\nGEOVAP DTM Konektor (služba) – jednorázová platba: 23.232 Kč s DPH\nCena\nGEOVAP DTM Import (aplikace) – jednorázová platba: 11.616 Kč s DPH\nCeny za roční poplatek provozu služby:\nCena\nGEOVAP DTM Konektor (služba) – roční platba: 24.200 Kč s DPH\nCena\npodle délky sítě: 40 Kč bez DPH za 1 km sítě. Odhad délky sítě 50 km: 2 420,- Kč s DPH\nCena\njednorázová za dodávku aplikace GEOVAP DTM Import – (To je jako do současné doby. Umožňuje pracovat s daty ve vektorech (polohopis, sítě správců – do GISového řešení). Jde o jednorázovou platbu za licenci 24.200,- Kč s DPH.\nCena\nza rok za službu paušální technické podpory: 4.840,- Kč s DPH.\nCena\nza rozvoj systému je stanovena na 1.452,- Kč za hodinu. (Pokud dojde ke změně podmínek, nebo stanovených parametrů např. státem).\nStanoviska a doporučení poradních orgánů/odborů:\nZpracovatel těchto podkladů doporučuje schválit cenové podmínky pro uzavření smlouvy mezi městem Pečky a společností Geovap spol. s r.o. vzhledem k předešlé dlouhodobé spolupráci a vzhledem k tomu, že konkurenční nabídka na zajištění DTMVS od společnosti TopGis s.r.o. činila jednorázově 251.900,- Kč s DPH.\nDle informací z MěÚ\nKolín\nbude i město\nKolín\npři řešení DTM ČR spolupracovat se společností GEOVAP spol. s r.o.\nDiskuze zahájena v 16:53:25\nK tomuto bodu se vyjádřili: Milan Paluska, Pavlína Nepovímová, Ing. Karel Krištoufek, Ing. Hana Kuprová, Zdeněk Fejfar\nV 16:57:44 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Jana Zindrová\") v tomto znění:\nRada\nměsta schvaluje cenové podmínky pro „Řešení DTM ČR pro město Pečky od společnosti Geovap, spol. s r.o. Čechovo nábřeží 1790, 530 03 Pardubice, IČ: 15049248 a požaduje předložení návrhu smlouvy. Jednorázová platba GEOVAP DTM Konektor a Import za nastavení služby a dodávky aplikace: 23.232 + 11.616,- = 34.848,- Kč s DPH. Roční platba za provoz služby GEOVAP DTM Konektor: 24.200,- Kč s DPH a cena podle délky sítě 40,- Kč bez DPH/1km sítě. Odhad 50 km sítě, tzn. 2.420,- Kč s DPH, tj.: 26.620,- Kč s DPH.\nJednorázová platba GEOVAP DTM Import (za dodávku aplikace, cena za licenci) 24.200,- Kč s DPH.\nRoční platba za službu paušální technické kontroly 4.840,- Kč s DPH.\nHodinovou\nsazbu v případě potřeby rozvoje systému 1.452,- Kč s DPH.\nHlasování\npro:\n(6) Ing. Martin Jedlička, Zdeněk Fejfar, Milan Paluska, Ing. Hana Kuprová, Ing. Karel Krištoufek, Ivana Trčková\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-235-23/24\nzodpovídá:\nJana Zindrová\ntermín:\n1. 7. 2024\nProjednávání bodu bylo ukončeno v 16:57:51"
+   },
+   {
+    "number": 11,
+    "title_raw": "Kontrola plnění usnesení",
+    "heading_raw": "11. Kontrola plnění usnesení (bod číslo 11)",
+    "predkladatel": null,
+    "votes": [],
+    "resolution_numbers_mentioned": [],
+    "raw_text": "Projednávání bodu bylo zahájeno v 16:57:55\nDiskuze zahájena v 16:57:56\nK tomuto bodu se vyjádřili: Pavlína Nepovímová, Milan Paluska, Ing. Martin Jedlička\nRada bere materiály předložené k bodu č. 11 -\nKontrola plnění usnesení\nna vědomí.\nProjednávání bodu bylo ukončeno v 16:59:54"
+   },
+   {
+    "number": 12,
+    "title_raw": "Diskuse, různé",
+    "heading_raw": "12. Diskuse, různé (bod číslo 12)",
+    "predkladatel": null,
+    "votes": [],
+    "resolution_numbers_mentioned": [],
+    "raw_text": "Projednávání bodu bylo zahájeno v 16:59:58\nDiskuze zahájena v 16:59:59\nK tomuto bodu se vyjádřili: Milan Paluska, Ing. Karel Krištoufek, Zdeněk Fejfar, Ing. Martin Jedlička\nRada bere materiály předložené k bodu č. 12 -\nDiskuse, různé\nna vědomí.\nProjednávání bodu bylo ukončeno v 17:29:28"
+   },
+   {
+    "number": 13,
+    "title_raw": "Úkoly vyplývající z jednání rady města",
+    "heading_raw": "13. Úkoly vyplývající z jednání rady města (bod číslo 13)",
+    "predkladatel": null,
+    "votes": [
+     {
+      "raw_text": "pro:\n(6) Ing. Martin Jedlička, Ing. Hana Kuprová, Ing. Karel Krištoufek, Milan Paluska, Ivana Trčková, Zdeněk Fejfar\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)",
+      "pro": {
+       "count": 6,
+       "names": [
+        "Ing. Martin Jedlička",
+        "Ing. Hana Kuprová",
+        "Ing. Karel Krištoufek",
+        "Milan Paluska",
+        "Ivana Trčková",
+        "Zdeněk Fejfar"
+       ],
+       "raw": "(6) Ing. Martin Jedlička, Ing. Hana Kuprová, Ing. Karel Krištoufek, Milan Paluska, Ivana Trčková, Zdeněk Fejfar"
+      },
+      "proti": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "zdrzel_se": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "nehlasoval": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "result_raw": "Návrh byl přijat jako usnesení číslo: UR-236-23/24",
+      "adopted_resolution_number": "UR-236-23/24"
+     }
+    ],
+    "resolution_numbers_mentioned": [
+     "UR-236-23/24"
+    ],
+    "raw_text": "Projednávání bodu bylo zahájeno v 17:29:33\nDiskuze zahájena v 17:29:34\nK tomuto bodu se vyjádřili: Milan Paluska\nV 17:40:14 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Milan Paluska\") v tomto znění:\nRada\nměsta ukládá referentce investic Petře\nKutové\nnavrhnout ve spolupráci s řediteli příspěvkových organizací umístění 5 defibrilátorů s dětskou pojistkou typu EAD\nPhilips\nHeartStart FRx do skříněk s alarmem do předem vytipovaných objektů v majetku města /Parkhala, zdravotní středisko, areál AFK, kulturní středisko, základní škola / s termínem do 15.7.2024.\nHlasování\npro:\n(6) Ing. Martin Jedlička, Ing. Hana Kuprová, Ing. Karel Krištoufek, Milan Paluska, Ivana Trčková, Zdeněk Fejfar\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-236-23/24\nzodpovídá:\nPetra Kutová\ntermín:\n15. 7. 2024\nProjednávání bodu bylo ukončeno v 17:40:46\nJednání ukončeno 17.06.2024 v 17:41:00"
+   }
+  ],
+  "full_text": "ZÁPIS ze schůze rady č. 23/2024\nMěsto Pečky\ndatum: 17. 6. 2024, čas: 15:00\n​\nPrezence:\nPřítomni:\n(6) Milan Paluska, Zdeněk Fejfar, Ing. Karel Krištoufek, Ing. Martin Jedlička, Ing. Hana Kuprová, Ivana Trčková\nOmluveni:\n(1) Ing. Petr Dürr\nNepřítomni:\n(0)\nHosté:\nZapisovatel/ka:\nEva Strnadová\nPřítomno je 6 členů a rada je usnášeníschopná.\nJednání zahájeno 17.06.2024 v 15:05:23\n1. Určení zapisovatelů, předsedajícího, příp. ověřovatelů (bod číslo 1)\nPředkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 15:05:49\nPředsedající navrhl jednotlivé členy pracovních komisí\nOvěřovatelé:\nIvana Trčková, Ing. Hana Kuprová\nPředsedající:\nMilan Paluska\nBod byl přijat bez hlasování.\nDiskuze zahájena v 15:05:50\nK tomuto bodu se vyjádřili: Milan Paluska\nProjednávání bodu bylo ukončeno v 15:06:20\n2. Schválení programu jednání (bod číslo 2)\nPředkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 15:06:25\nProgram jednání\n1. Určení zapisovatelů, předsedajícího, příp. ověřovatelů\n2. Schválení programu jednání\n3. Aktuální informace vedení města\n4. Informace o využívání vkladových účtů\n5. Dodatek č. 1 Příkazní smlouvy na služby k projektu Rekonstrukce veřejného osvětlení města Pečky\n6. Vyhlášení zjednodušeného podlimitního řízení na dodávky \"Rekonstrukce veřejného osvětlení města Pečky\" a ustanovení komise\n7. Cenová nabídka na nákup 4 ks defibrilátorů - úkol UR-229-22/24\n8. Výběr dodavatele na plnění veřejné zakázky \"Energetický management Pečky\" a uzavření smlouvy o dílo\n9. Cenové podmínky pro „Řešení správy dat TIVSP – Geovap DTM STORAGE pro město Pečky\"\n10. Řešení DTM ČR pro město Pečky\n11. Kontrola plnění usnesení\n12. Diskuse, různé\n13. Úkoly vyplývající z jednání rady města\nDiskuze zahájena v 15:06:26\nK tomuto bodu se vyjádřili: Milan Paluska\nV 15:09:33 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Milan Paluska\") v tomto znění:\nRada\nměsta schvaluje návrh programu jednání.\nHlasování\npro:\n(6) Ivana Trčková, Ing. Hana Kuprová, Ing. Karel Krištoufek, Milan Paluska, Zdeněk Fejfar, Ing. Martin Jedlička\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-230-23/24\nzodpovídá:\ntermín:\nIHNED\n(17. 6. 2024)\nProjednávání bodu bylo ukončeno v 15:09:40\n3. Aktuální informace vedení města (bod číslo 3)\nPředkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 15:09:44\nDůvodová zpráva:\nstarosta města\n- informace o kontrole z Ministerstva obrany - obnova válečných hrobů\n- informace o kontrolním dni na stavbě \" Rekonstrukce kabin AFK Pečky\"- dokončující práce /betonové stěrky, hotové dlažby, venkovní fasáda, střecha, vzduchotechnika apd./ - 18.6.2024 od 9.00 hodin kontrolní den na stavbě\n- informace o pietním odhalení kamene zmizelých dne 18.6.2024 před domem čp. 388 ul.\nMoravská\n, Pečky\n- informace o otevírání obálek a hodnocení nabídek akce - plot u MŠ Pečky\n- informace o opětovném umístění dřevěné lávky přes Výrovku /zajištění lávky v případě zvýšení hladiny vodního toku/\n- informace o termínech zasedání RM o letních prázdninách - 1.7., 15.7., 29.7., 12.8., 26.8., 2.9.2024\nZdeněk\nFejfar\n- informace o návrhu řešení akce \"Cyklostezka ve Velkých Chvalovicích, ul. Milčická\" - nevyhovující podmínky zasakování dešťových vod\nDiskuze zahájena v 15:09:45\nK tomuto bodu se vyjádřili: Milan Paluska, Ing. Karel Krištoufek, Ivana Trčková, Ing. Hana Kuprová\nRada bere materiály předložené k bodu č. 3 -\nAktuální informace vedení města\nna vědomí.\nProjednávání bodu bylo ukončeno v 15:52:28\n4. Informace o využívání vkladových účtů (bod číslo 4)\nPředkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 15:52:32\nDůvodová zpráva:\nInformace o využívání vkladových účtů.\nDiskuze zahájena v 15:52:33\nK tomuto bodu se vyjádřili: Milan Paluska, Ing. Karel Krištoufek, Ing. Hana Kuprová\nRada bere materiály předložené k bodu č. 4 -\nInformace o využívání vkladových účtů\nna vědomí.\nProjednávání bodu bylo ukončeno v 16:03:21\n5. Dodatek č. 1 Příkazní smlouvy na služby k projektu Rekonstrukce veřejného osvětlení města Pečky (bod číslo 5)\nPředkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 16:03:25\nDůvodová zpráva:\nZúžení rozsahu plnění - předmětu Příkazní smlouvy s MAS Podlipansko, o.p.s., schválené dne 13.11.2023 usnesením č. UR-322-38/23, uzavřené dne 06.12.2023, interní číslo 909 - podrobněji viz příloha.\nDiskuze zahájena v 16:03:26\nK tomuto bodu se vyjádřili: Milan Paluska\nV 16:05:15 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Milan Paluska\") v tomto znění:\nRada\nměsta schvaluje uzavření Dodatku č. 1 k Příkazní smlouvě uzavřené dne 06.12.2023, interní číslo 909, mezi městem Pečky a MAS Podlipansko, o.p.s., o zúžení rozsahu plnění - předmětu smlouvy.\nHlasování\npro:\n(6) Ing. Martin Jedlička, Milan Paluska, Ing. Hana Kuprová, Ivana Trčková, Ing. Karel Krištoufek, Zdeněk Fejfar\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-231-23/24\nzodpovídá:\nMichala Dekiská\ntermín:\n1. 7. 2024\nProjednávání bodu bylo ukončeno v 16:05:22\n6. Vyhlášení zjednodušeného podlimitního řízení na dodávky \"Rekonstrukce veřejného osvětlení města Pečky\" a ustanovení komise (bod číslo 6)\nPředkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 16:05:26\nDůvodová zpráva:\nVyhlášení zjednodušeného podlimitního řízení na dodávky \"Rekonstrukce veřejného osvětlení města Pečky\" dle zákona č. 134/2016Sb., o zadávání veřejných zakázek, ve znění pozdějších předpisů.\nSložení hodnotící komise:\nčlenové: Ing.\nJana\nZindrová\n- referent oddělení dopravy, Ing.\nAdam\nBrant\n- jednatel Služby města Pečky s.r.o., Bc.\nMartin\nJurečka\n- jednatel Sunritek s.r.o.\nnáhradníci:\nMilan\nPaluska\n- starosta,\nJiří\nMoravec\n- referent přípravy a realizace investic, Ing.\nBořil\n- provozní ředitel Sunritek s.r.o.\nNa základě akceptace žádosti o poskytnutí podpory evidované pod registračním číslem 2182000831 rezervovány finanční prostředky ve výši 4 000 000 Kč, Ministerstvo průmyslu a obchodu ČR, Národní plán obnovy, výzva č. NPO 1/2022, komponenta 2.2.2. Rekonstrukce veřejného osvětlení.\nPro\nvydání Rozhodnutí o poskytnutí dotace je mj. třeba doložit smlouvu o dílo.\nDiskuze zahájena v 16:05:27\nK tomuto bodu se vyjádřili: Milan Paluska, Ing. Hana Kuprová, Ing. Karel Krištoufek, Ivana Trčková, Zdeněk Fejfar\nV 16:14:16 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Milan Paluska\") v tomto znění:\nRada\nměsta schvaluje vyhlášení zjednodušeného podlimitního řízení na dodávky \"Rekonstrukce veřejného osvětlení města Pečky\" dle zákona č. 134/2016Sb., o zadávání veřejných zakázek, ve znění pozdějších předpisů, a ustanovení komise ve složení:\nčlenové: Ing.\nJana\nZindrová\n- referent oddělení dopravy, Ing.\nAdam\nBrant\n- jednatel Služby města Pečky s.r.o., Bc.\nMartin\nJurečka\n- jednatel Sunritek s.r.o.\nnáhradníci:\nMilan\nPaluska\n- starosta,\nJiří\nMoravec\n- referent přípravy a realizace investic, Ing.\nBořil\n- obchodní ředitel Sunritek s.r.o.\nHlasování\npro:\n(6) Ing. Karel Krištoufek, Milan Paluska, Ing. Martin Jedlička, Ing. Hana Kuprová, Zdeněk Fejfar, Ivana Trčková\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-232-23/24\nzodpovídá:\nMichala Dekiská\ntermín:\n1. 7. 2024\nProjednávání bodu bylo ukončeno v 16:14:23\n7. Cenová nabídka na nákup 4 ks defibrilátorů - úkol UR-229-22/24 (bod číslo 7)\nPředkladatel: Petra Kutová\nProjednávání bodu bylo zahájeno v 16:14:29\nDůvodová zpráva:\nNa základě Usnesení Rady města UR-229-22/24 předkládáme Radě města cenovou nabídku na nákup 4 ks defibrilátorů s obsluhou (tj. typ EAD\nPhilips\nHeartStart FRx), včetně dětské pojistky. Technický popis defibrilátoru je zde: https://www.bexamed.cz/p/aed-defibrilator-philips-heartstart-frx\nDle veřejně dostupných informací bylo zjištěno 5 nabídek (viz hodnotící tabulka v příloze). Nejlevnější je nabídka společnosti Bexamed, která prodává defibrilátor za cenu 30 890,- Kč bez DPH a dětskou pojistku za cenu 2 640,- Kč, tj. celkem za 4 ks defibrilátorů, včetně dětských pojistek 134 120,- Kč + 21% DPH, tj. celkem 162 285,20 Kč.\nV případě potřeby je možné poptat rovněž skříňky, ve kterých budou defibrilátory umístěny. Na výběr je několik typů, pro informaci přikládáme odkaz na typy AED skříněk, ze které je možné si vybrat: AED skřínky: https://www.bexamed.cz/aed-skrinky.\nDiskuze zahájena v 16:14:30\nK tomuto bodu se vyjádřili: Milan Paluska, Ing. Hana Kuprová, Ing. Martin Jedlička, Ivana Trčková, Zdeněk Fejfar, Ing. Karel Krištoufek\nRada bere materiály předložené k bodu č. 7 -\nCenová nabídka na nákup 4 ks defibrilátorů - úkol UR-229-22/24\nna vědomí.\nProjednávání bodu bylo ukončeno v 16:37:50\n8. Výběr dodavatele na plnění veřejné zakázky \"Energetický management Pečky\" a uzavření smlouvy o dílo (bod číslo 8)\nPředkladatel: Petra Kutová\nProjednávání bodu bylo zahájeno v 16:37:54\nDůvodová zpráva:\nDoporučujeme uzavřít smlouvu o dílo. Jedná se o VZMR na služby akce \"Energetický management Pečky\". Nabídky byly rozeslány celkem 3 dodavatelům. Jeden z nich se omluvil pro nedostatek kapacity a do výběrového řízení se přihlásili dva zbylí uchazeči. Jejich nabídky byly posouzeny na základě jednání tříčlenné hodnotící komise, kterou tvořili tito členové:\nPetra\nKutová\n- investiční technik,\nJiří\nMoravec\n- referent přípravy a realizace investic a Ing.\nJana\nZindrová\n- referentka oddělení dopravy. Komise doporučuje uzavřít SOD s uchazečem, který předložil nejlevnější nabídku, tj. se společností ENERKOM Podlipansko, z.s.. Nabídka vybraného dodavatele splňuje veškeré náležitosti z hlediska prokázání splnění zadávacích podmínek a požadavků zákona.\nDiskuze zahájena v 16:37:55\nK tomuto bodu se vyjádřili: Milan Paluska, Ing. Karel Krištoufek, Ing. Hana Kuprová, Ing. Martin Jedlička\nV 16:49:43 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Petra Kutová\") v tomto znění:\nRada\nměsta schvaluje Rozhodnutí o výběru dodavatele na plnění veřejné zakázky malého rozsahu \"Energetický management Pečky\" zadávané mimo režim zákona, v souladu s doporučením hodnotící komise, a uzavření smlouvy o dílo mezi městem Pečky a vybraným dodavatelem ENERKOM Podlipansko, z.s., se sídlem: Chvalovická 1076, 289 11 Pečky, IČ: 179 63 320.\nHlasování\npro:\n(5) Ing. Karel Krištoufek, Ing. Hana Kuprová, Ivana Trčková, Ing. Martin Jedlička, Milan Paluska\nproti\n(0)\nzdržel se:\n(1) Zdeněk Fejfar\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-233-23/24\nzodpovídá:\nPetra Kutová\ntermín:\n1. 7. 2024\nProjednávání bodu bylo ukončeno v 16:49:50\n9. Cenové podmínky pro „Řešení správy dat TIVSP – Geovap DTM STORAGE pro město Pečky\" (bod číslo 9)\nPředkladatel: Jana Zindrová\nProjednávání bodu bylo zahájeno v 16:49:56\nDůvodová zpráva:\nČeský\núřad zeměměřický a katastrální (ČÚZK) spouští od 1.7.2024 významný systém veřejné správy, informační systém digitální mapy veřejné správy (IS DMVS), který bude zastřešovat krajské systémy digitálních map (DTM).\nZákonnou povinností pro obce, které jsou vlastníky, správci a provozovateli dopravní a technické infrastruktury je přihlášení se do verifikačního registru a předávání aktualizačních údajů do DTVS. Město Pečky je vlastníkem DTM, kterou pro něj zajišťuje firma TopGis s.r.o. na základě uzavřené smlouvy o dílo z r. 2019.\nPro\nnaplňování dat do DTM spolupracuje město Pečky od r. 2000 s firmou Geovap spol. s r.o. na základě uzavřené smlouvy.\nTato\nsmlouva bude pozbývat platnosti změnou podmínek vyplývajících z nových zákonných nastavení.\nPro\nzachování možnosti přístupu k datům technické infrastruktury je potřeba uzavřít novou smlouvu mezi městem Pečky a Geovap spol. s r. o.\nSpolečnost předkládá nabídku řešení správy dat technické infrastruktury vlastníků, správců a provozovatelů (TI VSP) Storage (úložného prostoru) pro město Pečky.\nCena\nse skládá z: Jednorázové operace nutné k založení datového modelu, komunikační brány, náběrového místa – uložiště a je za cenu 11.616,- Kč s DPH. (s předpokládanou časovou náročností jeden den).\nPaušálního ročního poplatku za provoz služby, který činí 15.730,- Kč s DPH. Ceny za rozvoj systému v případě, že přijde nějaká systémová změna, která bude vyvolána např. DTM kraje, je cena stanovena na 1.452,- Kč s DPH/ hodinu práce. Poskytovatel však takové změny nepředpokládá.\nPro\ninformaci se uvádí, že spolupráce města Pečky se společností Geovap spol. s r.o. vyšla v r. 2020 na 16.460,- Kč s DPH, v r. 2021 na 19.350,- Kč s DPH, v r. 2022 na 27.400,- Kč s DPH, v r. 2023 na 21.812,- Kč s DPH.\nData od Geovap spol. s r.o. jsou poskytována do DTM města Pečky prostřednictvím společnosti TopGis s.r.o.\nPro\nfungování DTM jsou nezbytná.\nProto\nse doporučuje akceptovat předloženou nabídku na zajištění systému.\nZnění smlouvy bude od společnosti předloženo po schválení, po akceptaci cenových podmínek.\nDiskuze zahájena v 16:49:57\nK tomuto bodu se vyjádřili: Milan Paluska, Pavlína Nepovímová, Ing. Hana Kuprová, Ing. Martin Jedlička\nV 16:53:12 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Jana Zindrová\") v tomto znění:\nRada\nměsta schvaluje cenové podmínky pro „Řešení správy dat TIVSP – Geovap DTM STORAGE pro město Pečky\" od společnosti Geovap, spol. s r.o. Čechovo nábřeží 1790, 530 03 Pardubice, IČ: 15049248 a předložení návrhu smlouvy.\nJednorázová platbu za implementaci služby je ve výši 11.616,- Kč s DPH\nCena\nza roční provoz služby Storage je 15.730,- Kč s DPH\nHodinová\nsazbu v případě potřeby rozvoje systému je 1.452,- Kč s DPH\nHlasování\npro:\n(6) Ing. Karel Krištoufek, Milan Paluska, Ing. Hana Kuprová, Ing. Martin Jedlička, Zdeněk Fejfar, Ivana Trčková\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-234-23/24\nzodpovídá:\nJana Zindrová\ntermín:\n1. 7. 2024\nProjednávání bodu bylo ukončeno v 16:53:20\n10. Řešení DTM ČR pro město Pečky (bod číslo 10)\nPředkladatel: Jana Zindrová\nProjednávání bodu bylo zahájeno v 16:53:24\nDůvodová zpráva:\nŘešení DTM ČR je tvořeno dodávkou služby GEOVAP DTM Konektor, která řeší předávání dat DTI vlastníka, správce nebo provozovatele do IS DTM kraje a dodávkou aplikace GEOVAP DTM Import, která řeší import dat DTM ČR z IS DMVS i IS DTM do GIS prostředí města Pečky. Cílem je, aby vlastník, správce nebo provozovatel (VSP) technické a dopravní infrastruktury (DTI) splnil zákonnou povinnost předávání aktualizačních údajů do DMVS (digitální mapy veřejné správy, myšleno kraje).\nCeny za jednorázové operace týkající se nastavení systému:\nCena\nGEOVAP DTM Konektor (služba) – jednorázová platba: 23.232 Kč s DPH\nCena\nGEOVAP DTM Import (aplikace) – jednorázová platba: 11.616 Kč s DPH\nCeny za roční poplatek provozu služby:\nCena\nGEOVAP DTM Konektor (služba) – roční platba: 24.200 Kč s DPH\nCena\npodle délky sítě: 40 Kč bez DPH za 1 km sítě. Odhad délky sítě 50 km: 2 420,- Kč s DPH\nCena\njednorázová za dodávku aplikace GEOVAP DTM Import – (To je jako do současné doby. Umožňuje pracovat s daty ve vektorech (polohopis, sítě správců – do GISového řešení). Jde o jednorázovou platbu za licenci 24.200,- Kč s DPH.\nCena\nza rok za službu paušální technické podpory: 4.840,- Kč s DPH.\nCena\nza rozvoj systému je stanovena na 1.452,- Kč za hodinu. (Pokud dojde ke změně podmínek, nebo stanovených parametrů např. státem).\nStanoviska a doporučení poradních orgánů/odborů:\nZpracovatel těchto podkladů doporučuje schválit cenové podmínky pro uzavření smlouvy mezi městem Pečky a společností Geovap spol. s r.o. vzhledem k předešlé dlouhodobé spolupráci a vzhledem k tomu, že konkurenční nabídka na zajištění DTMVS od společnosti TopGis s.r.o. činila jednorázově 251.900,- Kč s DPH.\nDle informací z MěÚ\nKolín\nbude i město\nKolín\npři řešení DTM ČR spolupracovat se společností GEOVAP spol. s r.o.\nDiskuze zahájena v 16:53:25\nK tomuto bodu se vyjádřili: Milan Paluska, Pavlína Nepovímová, Ing. Karel Krištoufek, Ing. Hana Kuprová, Zdeněk Fejfar\nV 16:57:44 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Jana Zindrová\") v tomto znění:\nRada\nměsta schvaluje cenové podmínky pro „Řešení DTM ČR pro město Pečky od společnosti Geovap, spol. s r.o. Čechovo nábřeží 1790, 530 03 Pardubice, IČ: 15049248 a požaduje předložení návrhu smlouvy. Jednorázová platba GEOVAP DTM Konektor a Import za nastavení služby a dodávky aplikace: 23.232 + 11.616,- = 34.848,- Kč s DPH. Roční platba za provoz služby GEOVAP DTM Konektor: 24.200,- Kč s DPH a cena podle délky sítě 40,- Kč bez DPH/1km sítě. Odhad 50 km sítě, tzn. 2.420,- Kč s DPH, tj.: 26.620,- Kč s DPH.\nJednorázová platba GEOVAP DTM Import (za dodávku aplikace, cena za licenci) 24.200,- Kč s DPH.\nRoční platba za službu paušální technické kontroly 4.840,- Kč s DPH.\nHodinovou\nsazbu v případě potřeby rozvoje systému 1.452,- Kč s DPH.\nHlasování\npro:\n(6) Ing. Martin Jedlička, Zdeněk Fejfar, Milan Paluska, Ing. Hana Kuprová, Ing. Karel Krištoufek, Ivana Trčková\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-235-23/24\nzodpovídá:\nJana Zindrová\ntermín:\n1. 7. 2024\nProjednávání bodu bylo ukončeno v 16:57:51\n11. Kontrola plnění usnesení (bod číslo 11)\nPředkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 16:57:55\nDiskuze zahájena v 16:57:56\nK tomuto bodu se vyjádřili: Pavlína Nepovímová, Milan Paluska, Ing. Martin Jedlička\nRada bere materiály předložené k bodu č. 11 -\nKontrola plnění usnesení\nna vědomí.\nProjednávání bodu bylo ukončeno v 16:59:54\n12. Diskuse, různé (bod číslo 12)\nPředkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 16:59:58\nDiskuze zahájena v 16:59:59\nK tomuto bodu se vyjádřili: Milan Paluska, Ing. Karel Krištoufek, Zdeněk Fejfar, Ing. Martin Jedlička\nRada bere materiály předložené k bodu č. 12 -\nDiskuse, různé\nna vědomí.\nProjednávání bodu bylo ukončeno v 17:29:28\n13. Úkoly vyplývající z jednání rady města (bod číslo 13)\nPředkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 17:29:33\nDiskuze zahájena v 17:29:34\nK tomuto bodu se vyjádřili: Milan Paluska\nV 17:40:14 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Milan Paluska\") v tomto znění:\nRada\nměsta ukládá referentce investic Petře\nKutové\nnavrhnout ve spolupráci s řediteli příspěvkových organizací umístění 5 defibrilátorů s dětskou pojistkou typu EAD\nPhilips\nHeartStart FRx do skříněk s alarmem do předem vytipovaných objektů v majetku města /Parkhala, zdravotní středisko, areál AFK, kulturní středisko, základní škola / s termínem do 15.7.2024.\nHlasování\npro:\n(6) Ing. Martin Jedlička, Ing. Hana Kuprová, Ing. Karel Krištoufek, Milan Paluska, Ivana Trčková, Zdeněk Fejfar\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-236-23/24\nzodpovídá:\nPetra Kutová\ntermín:\n15. 7. 2024\nProjednávání bodu bylo ukončeno v 17:40:46\nJednání ukončeno 17.06.2024 v 17:41:00"
+ },
+ "resolutions": {
+  "status": "ok",
+  "url": "https://mesto-pecky.usneseni.cz/verejne/2d7462cd-2768-11ef-89f7-00505683238f/usneseni/",
+  "fetched_at": "2026-08-04T13:49:06.387835+00:00",
+  "items": [
+   {
+    "number_raw": "UR-230-23/24",
+    "detail_id": 67755,
+    "detail_url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/67755?mod=rada",
+    "agenda_item_raw": "Schválení programu jednání",
+    "text_verbatim": "Rada\nměsta schvaluje návrh programu jednání.",
+    "cell_text_raw": "Bod programu:\nSchválení programu jednání\nText přijatého usnesení:\nRada\nměsta schvaluje návrh programu jednání.",
+    "date_raw": "17. 6. 2024",
+    "date_iso": "2024-06-17",
+    "responsible_raw": "",
+    "deadline_raw": "IHNED (17. 6. 2024)",
+    "vote": {
+     "raw_text": "pro: 6 proti: 0 zdržel se: 0",
+     "pro": {
+      "count": 6,
+      "names": null,
+      "raw": "6"
+     },
+     "proti": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     },
+     "zdrzel_se": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     }
+    },
+    "detail": {
+     "number_raw": "UR-230-23/24",
+     "text_verbatim": "Rada města schvaluje návrh programu jednání.",
+     "typ_raw": null,
+     "zodpovida_raw": "",
+     "prijato_raw": "17. 6. 2024 na jednání č. 23/2024",
+     "prijato_date_iso": "2024-06-17",
+     "prijato_meeting_label": "23/2024",
+     "termin_raw": "IHNED (17. 6. 2024)",
+     "ukonceno_raw": "17. 6. 2024",
+     "ukonceno_date_iso": "2024-06-17",
+     "fields_raw": {
+      "Číslo usnesení": "UR-230-23/24",
+      "Text usnesení": "Rada města schvaluje návrh programu jednání.",
+      "Zodpovídá": "",
+      "Přijato": "17. 6. 2024 na jednání č. 23/2024",
+      "Termín": "IHNED (17. 6. 2024)",
+      "Ukončeno": "17. 6. 2024"
+     }
+    }
+   },
+   {
+    "number_raw": "UR-231-23/24",
+    "detail_id": 67995,
+    "detail_url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/67995?mod=rada",
+    "agenda_item_raw": "Dodatek č. 1 Příkazní smlouvy na služby k projektu Rekonstrukce veřejného osvětlení města Pečky",
+    "text_verbatim": "Rada\nměsta schvaluje uzavření Dodatku č. 1 k Příkazní smlouvě uzavřené dne 06.12.2023, interní číslo 909, mezi městem Pečky a MAS Podlipansko, o.p.s., o zúžení rozsahu plnění - předmětu smlouvy.",
+    "cell_text_raw": "Bod programu:\nDodatek č. 1 Příkazní smlouvy na služby k projektu Rekonstrukce veřejného osvětlení města Pečky\nText přijatého usnesení:\nRada\nměsta schvaluje uzavření Dodatku č. 1 k Příkazní smlouvě uzavřené dne 06.12.2023, interní číslo 909, mezi městem Pečky a MAS Podlipansko, o.p.s., o zúžení rozsahu plnění - předmětu smlouvy.",
+    "date_raw": "17. 6. 2024",
+    "date_iso": "2024-06-17",
+    "responsible_raw": "Michala Dekiská",
+    "deadline_raw": "1. 7. 2024",
+    "vote": {
+     "raw_text": "pro: 6 proti: 0 zdržel se: 0",
+     "pro": {
+      "count": 6,
+      "names": null,
+      "raw": "6"
+     },
+     "proti": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     },
+     "zdrzel_se": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     }
+    },
+    "detail": {
+     "number_raw": "UR-231-23/24",
+     "text_verbatim": "Rada města schvaluje uzavření Dodatku č. 1 k Příkazní smlouvě uzavřené dne 06.12.2023, interní číslo 909, mezi městem Pečky a MAS Podlipansko, o.p.s., o zúžení rozsahu plnění - předmětu smlouvy.",
+     "typ_raw": null,
+     "zodpovida_raw": "Michala Dekiská",
+     "prijato_raw": "17. 6. 2024 na jednání č. 23/2024",
+     "prijato_date_iso": "2024-06-17",
+     "prijato_meeting_label": "23/2024",
+     "termin_raw": "1. 7. 2024",
+     "ukonceno_raw": "26. 6. 2024",
+     "ukonceno_date_iso": "2024-06-26",
+     "fields_raw": {
+      "Číslo usnesení": "UR-231-23/24",
+      "Text usnesení": "Rada města schvaluje uzavření Dodatku č. 1 k Příkazní smlouvě uzavřené dne 06.12.2023, interní číslo 909, mezi městem Pečky a MAS Podlipansko, o.p.s., o zúžení rozsahu plnění - předmětu smlouvy.",
+      "Zodpovídá": "Michala Dekiská",
+      "Přijato": "17. 6. 2024 na jednání č. 23/2024",
+      "Termín": "1. 7. 2024",
+      "Ukončeno": "26. 6. 2024"
+     }
+    }
+   },
+   {
+    "number_raw": "UR-232-23/24",
+    "detail_id": 68068,
+    "detail_url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/68068?mod=rada",
+    "agenda_item_raw": "Vyhlášení zjednodušeného podlimitního řízení na dodávky \"Rekonstrukce veřejného osvětlení města Pečky\" a ustanovení komise",
+    "text_verbatim": "Rada\nměsta schvaluje vyhlášení zjednodušeného podlimitního řízení na dodávky \"Rekonstrukce veřejného osvětlení města Pečky\" dle zákona č. 134/2016Sb., o zadávání veřejných zakázek, ve znění pozdějších předpisů, a ustanovení komise ve složení:\nčlenové: Ing.\nJana\nZindrová\n- referent oddělení dopravy, Ing.\nAdam\nBrant\n- jednatel Služby města Pečky s.r.o., Bc.\nMartin\nJurečka\n- jednatel Sunritek s.r.o.\nnáhradníci:\nMilan\nPaluska\n- starosta,\nJiří\nMoravec\n- referent přípravy a realizace investic, Ing.\nBořil\n- obchodní ředitel Sunritek s.r.o.",
+    "cell_text_raw": "Bod programu:\nVyhlášení zjednodušeného podlimitního řízení na dodávky \"Rekonstrukce veřejného osvětlení města Pečky\" a ustanovení komise\nText přijatého usnesení:\nRada\nměsta schvaluje vyhlášení zjednodušeného podlimitního řízení na dodávky \"Rekonstrukce veřejného osvětlení města Pečky\" dle zákona č. 134/2016Sb., o zadávání veřejných zakázek, ve znění pozdějších předpisů, a ustanovení komise ve složení:\nčlenové: Ing.\nJana\nZindrová\n- referent oddělení dopravy, Ing.\nAdam\nBrant\n- jednatel Služby města Pečky s.r.o., Bc.\nMartin\nJurečka\n- jednatel Sunritek s.r.o.\nnáhradníci:\nMilan\nPaluska\n- starosta,\nJiří\nMoravec\n- referent přípravy a realizace investic, Ing.\nBořil\n- obchodní ředitel Sunritek s.r.o.",
+    "date_raw": "17. 6. 2024",
+    "date_iso": "2024-06-17",
+    "responsible_raw": "Michala Dekiská",
+    "deadline_raw": "1. 7. 2024",
+    "vote": {
+     "raw_text": "pro: 6 proti: 0 zdržel se: 0",
+     "pro": {
+      "count": 6,
+      "names": null,
+      "raw": "6"
+     },
+     "proti": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     },
+     "zdrzel_se": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     }
+    },
+    "detail": {
+     "number_raw": "UR-232-23/24",
+     "text_verbatim": "Rada města schvaluje vyhlášení zjednodušeného podlimitního řízení na dodávky \"Rekonstrukce veřejného osvětlení města Pečky\" dle zákona č. 134/2016Sb., o zadávání veřejných zakázek, ve znění pozdějších předpisů, a ustanovení komise ve složení: členové: Ing. Jana Zindrová - referent oddělení dopravy, Ing. Adam Brant - jednatel Služby města Pečky s.r.o., Bc. Martin Jurečka - jednatel Sunritek s.r.o. náhradníci: Milan Paluska - starosta, Jiří Moravec - referent přípravy a realizace investic, Ing. Bořil - obchodní ředitel Sunritek s.r.o.",
+     "typ_raw": null,
+     "zodpovida_raw": "Michala Dekiská",
+     "prijato_raw": "17. 6. 2024 na jednání č. 23/2024",
+     "prijato_date_iso": "2024-06-17",
+     "prijato_meeting_label": "23/2024",
+     "termin_raw": "1. 7. 2024",
+     "ukonceno_raw": "19. 6. 2024",
+     "ukonceno_date_iso": "2024-06-19",
+     "fields_raw": {
+      "Číslo usnesení": "UR-232-23/24",
+      "Text usnesení": "Rada města schvaluje vyhlášení zjednodušeného podlimitního řízení na dodávky \"Rekonstrukce veřejného osvětlení města Pečky\" dle zákona č. 134/2016Sb., o zadávání veřejných zakázek, ve znění pozdějších předpisů, a ustanovení komise ve složení: členové: Ing. Jana Zindrová - referent oddělení dopravy, Ing. Adam Brant - jednatel Služby města Pečky s.r.o., Bc. Martin Jurečka - jednatel Sunritek s.r.o. náhradníci: Milan Paluska - starosta, Jiří Moravec - referent přípravy a realizace investic, Ing. Bořil - obchodní ředitel Sunritek s.r.o.",
+      "Zodpovídá": "Michala Dekiská",
+      "Přijato": "17. 6. 2024 na jednání č. 23/2024",
+      "Termín": "1. 7. 2024",
+      "Ukončeno": "19. 6. 2024"
+     }
+    }
+   },
+   {
+    "number_raw": "UR-233-23/24",
+    "detail_id": 67933,
+    "detail_url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/67933?mod=rada",
+    "agenda_item_raw": "Výběr dodavatele na plnění veřejné zakázky \"Energetický management Pečky\" a uzavření smlouvy o dílo",
+    "text_verbatim": "Rada\nměsta schvaluje Rozhodnutí o výběru dodavatele na plnění veřejné zakázky malého rozsahu \"Energetický management Pečky\" zadávané mimo režim zákona, v souladu s doporučením hodnotící komise, a uzavření smlouvy o dílo mezi městem Pečky a vybraným dodavatelem ENERKOM Podlipansko, z.s., se sídlem: Chvalovická 1076, 289 11 Pečky, IČ: 179 63 320.",
+    "cell_text_raw": "Bod programu:\nVýběr dodavatele na plnění veřejné zakázky \"Energetický management Pečky\" a uzavření smlouvy o dílo\nText přijatého usnesení:\nRada\nměsta schvaluje Rozhodnutí o výběru dodavatele na plnění veřejné zakázky malého rozsahu \"Energetický management Pečky\" zadávané mimo režim zákona, v souladu s doporučením hodnotící komise, a uzavření smlouvy o dílo mezi městem Pečky a vybraným dodavatelem ENERKOM Podlipansko, z.s., se sídlem: Chvalovická 1076, 289 11 Pečky, IČ: 179 63 320.",
+    "date_raw": "17. 6. 2024",
+    "date_iso": "2024-06-17",
+    "responsible_raw": "Petra Kutová",
+    "deadline_raw": "1. 7. 2024",
+    "vote": {
+     "raw_text": "pro: 5 proti: 0 zdržel se: 1",
+     "pro": {
+      "count": 5,
+      "names": null,
+      "raw": "5"
+     },
+     "proti": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     },
+     "zdrzel_se": {
+      "count": 1,
+      "names": null,
+      "raw": "1"
+     }
+    },
+    "detail": {
+     "number_raw": "UR-233-23/24",
+     "text_verbatim": "Rada města schvaluje Rozhodnutí o výběru dodavatele na plnění veřejné zakázky malého rozsahu \"Energetický management Pečky\" zadávané mimo režim zákona, v souladu s doporučením hodnotící komise, a uzavření smlouvy o dílo mezi městem Pečky a vybraným dodavatelem ENERKOM Podlipansko, z.s., se sídlem: Chvalovická 1076, 289 11 Pečky, IČ: 179 63 320.",
+     "typ_raw": null,
+     "zodpovida_raw": "Petra Kutová",
+     "prijato_raw": "17. 6. 2024 na jednání č. 23/2024",
+     "prijato_date_iso": "2024-06-17",
+     "prijato_meeting_label": "23/2024",
+     "termin_raw": "1. 7. 2024",
+     "ukonceno_raw": "1. 7. 2024",
+     "ukonceno_date_iso": "2024-07-01",
+     "fields_raw": {
+      "Číslo usnesení": "UR-233-23/24",
+      "Text usnesení": "Rada města schvaluje Rozhodnutí o výběru dodavatele na plnění veřejné zakázky malého rozsahu \"Energetický management Pečky\" zadávané mimo režim zákona, v souladu s doporučením hodnotící komise, a uzavření smlouvy o dílo mezi městem Pečky a vybraným dodavatelem ENERKOM Podlipansko, z.s., se sídlem: Chvalovická 1076, 289 11 Pečky, IČ: 179 63 320.",
+      "Zodpovídá": "Petra Kutová",
+      "Přijato": "17. 6. 2024 na jednání č. 23/2024",
+      "Termín": "1. 7. 2024",
+      "Ukončeno": "1. 7. 2024"
+     }
+    }
+   },
+   {
+    "number_raw": "UR-234-23/24",
+    "detail_id": 68055,
+    "detail_url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/68055?mod=rada",
+    "agenda_item_raw": "Cenové podmínky pro „Řešení správy dat TIVSP – Geovap DTM STORAGE pro město Pečky\"",
+    "text_verbatim": "Rada\nměsta schvaluje cenové podmínky pro „Řešení správy dat TIVSP – Geovap DTM STORAGE pro město Pečky\" od společnosti Geovap, spol. s r.o. Čechovo nábřeží 1790, 530 03 Pardubice, IČ: 15049248 a předložení návrhu smlouvy.\nJednorázová platbu za implementaci služby je ve výši 11.616,- Kč s DPH\nCena\nza roční provoz služby Storage je 15.730,- Kč s DPH\nHodinová\nsazbu v případě potřeby rozvoje systému je 1.452,- Kč s DPH",
+    "cell_text_raw": "Bod programu:\nCenové podmínky pro „Řešení správy dat TIVSP – Geovap DTM STORAGE pro město Pečky\"\nText přijatého usnesení:\nRada\nměsta schvaluje cenové podmínky pro „Řešení správy dat TIVSP – Geovap DTM STORAGE pro město Pečky\" od společnosti Geovap, spol. s r.o. Čechovo nábřeží 1790, 530 03 Pardubice, IČ: 15049248 a předložení návrhu smlouvy.\nJednorázová platbu za implementaci služby je ve výši 11.616,- Kč s DPH\nCena\nza roční provoz služby Storage je 15.730,- Kč s DPH\nHodinová\nsazbu v případě potřeby rozvoje systému je 1.452,- Kč s DPH",
+    "date_raw": "17. 6. 2024",
+    "date_iso": "2024-06-17",
+    "responsible_raw": "Jana Zindrová",
+    "deadline_raw": "1. 7. 2024",
+    "vote": {
+     "raw_text": "pro: 6 proti: 0 zdržel se: 0",
+     "pro": {
+      "count": 6,
+      "names": null,
+      "raw": "6"
+     },
+     "proti": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     },
+     "zdrzel_se": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     }
+    },
+    "detail": {
+     "number_raw": "UR-234-23/24",
+     "text_verbatim": "Rada města schvaluje cenové podmínky pro „Řešení správy dat TIVSP – Geovap DTM STORAGE pro město Pečky\" od společnosti Geovap, spol. s r.o. Čechovo nábřeží 1790, 530 03 Pardubice, IČ: 15049248 a předložení návrhu smlouvy. Jednorázová platbu za implementaci služby je ve výši 11.616,- Kč s DPH Cena za roční provoz služby Storage je 15.730,- Kč s DPH Hodinová sazbu v případě potřeby rozvoje systému je 1.452,- Kč s DPH",
+     "typ_raw": null,
+     "zodpovida_raw": "Jana Zindrová",
+     "prijato_raw": "17. 6. 2024 na jednání č. 23/2024",
+     "prijato_date_iso": "2024-06-17",
+     "prijato_meeting_label": "23/2024",
+     "termin_raw": "1. 7. 2024",
+     "ukonceno_raw": "27. 6. 2024",
+     "ukonceno_date_iso": "2024-06-27",
+     "fields_raw": {
+      "Číslo usnesení": "UR-234-23/24",
+      "Text usnesení": "Rada města schvaluje cenové podmínky pro „Řešení správy dat TIVSP – Geovap DTM STORAGE pro město Pečky\" od společnosti Geovap, spol. s r.o. Čechovo nábřeží 1790, 530 03 Pardubice, IČ: 15049248 a předložení návrhu smlouvy. Jednorázová platbu za implementaci služby je ve výši 11.616,- Kč s DPH Cena za roční provoz služby Storage je 15.730,- Kč s DPH Hodinová sazbu v případě potřeby rozvoje systému je 1.452,- Kč s DPH",
+      "Zodpovídá": "Jana Zindrová",
+      "Přijato": "17. 6. 2024 na jednání č. 23/2024",
+      "Termín": "1. 7. 2024",
+      "Ukončeno": "27. 6. 2024"
+     }
+    }
+   },
+   {
+    "number_raw": "UR-235-23/24",
+    "detail_id": 68057,
+    "detail_url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/68057?mod=rada",
+    "agenda_item_raw": "Řešení DTM ČR pro město Pečky",
+    "text_verbatim": "Rada\nměsta schvaluje cenové podmínky pro „Řešení DTM ČR pro město Pečky od společnosti Geovap, spol. s r.o. Čechovo nábřeží 1790, 530 03 Pardubice, IČ: 15049248 a požaduje předložení návrhu smlouvy. Jednorázová platba GEOVAP DTM Konektor a Import za nastavení služby a dodávky aplikace: 23.232 + 11.616,- = 34.848,- Kč s DPH. Roční platba za provoz služby GEOVAP DTM Konektor: 24.200,- Kč s DPH a cena podle délky sítě 40,- Kč bez DPH/1km sítě. Odhad 50 km sítě, tzn. 2.420,- Kč s DPH, tj.: 26.620,- Kč s DPH.\nJednorázová platba GEOVAP DTM Import (za dodávku aplikace, cena za licenci) 24.200,- Kč s DPH.\nRoční platba za službu paušální technické kontroly 4.840,- Kč s DPH.\nHodinovou\nsazbu v případě potřeby rozvoje systému 1.452,- Kč s DPH.",
+    "cell_text_raw": "Bod programu:\nŘešení DTM ČR pro město Pečky\nText přijatého usnesení:\nRada\nměsta schvaluje cenové podmínky pro „Řešení DTM ČR pro město Pečky od společnosti Geovap, spol. s r.o. Čechovo nábřeží 1790, 530 03 Pardubice, IČ: 15049248 a požaduje předložení návrhu smlouvy. Jednorázová platba GEOVAP DTM Konektor a Import za nastavení služby a dodávky aplikace: 23.232 + 11.616,- = 34.848,- Kč s DPH. Roční platba za provoz služby GEOVAP DTM Konektor: 24.200,- Kč s DPH a cena podle délky sítě 40,- Kč bez DPH/1km sítě. Odhad 50 km sítě, tzn. 2.420,- Kč s DPH, tj.: 26.620,- Kč s DPH.\nJednorázová platba GEOVAP DTM Import (za dodávku aplikace, cena za licenci) 24.200,- Kč s DPH.\nRoční platba za službu paušální technické kontroly 4.840,- Kč s DPH.\nHodinovou\nsazbu v případě potřeby rozvoje systému 1.452,- Kč s DPH.",
+    "date_raw": "17. 6. 2024",
+    "date_iso": "2024-06-17",
+    "responsible_raw": "Jana Zindrová",
+    "deadline_raw": "1. 7. 2024",
+    "vote": {
+     "raw_text": "pro: 6 proti: 0 zdržel se: 0",
+     "pro": {
+      "count": 6,
+      "names": null,
+      "raw": "6"
+     },
+     "proti": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     },
+     "zdrzel_se": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     }
+    },
+    "detail": {
+     "number_raw": "UR-235-23/24",
+     "text_verbatim": "Rada města schvaluje cenové podmínky pro „Řešení DTM ČR pro město Pečky od společnosti Geovap, spol. s r.o. Čechovo nábřeží 1790, 530 03 Pardubice, IČ: 15049248 a požaduje předložení návrhu smlouvy. Jednorázová platba GEOVAP DTM Konektor a Import za nastavení služby a dodávky aplikace: 23.232 + 11.616,- = 34.848,- Kč s DPH. Roční platba za provoz služby GEOVAP DTM Konektor: 24.200,- Kč s DPH a cena podle délky sítě 40,- Kč bez DPH/1km sítě. Odhad 50 km sítě, tzn. 2.420,- Kč s DPH, tj.: 26.620,- Kč s DPH. Jednorázová platba GEOVAP DTM Import (za dodávku aplikace, cena za licenci) 24.200,- Kč s DPH. Roční platba za službu paušální technické kontroly 4.840,- Kč s DPH. Hodinovou sazbu v případě potřeby rozvoje systému 1.452,- Kč s DPH.",
+     "typ_raw": null,
+     "zodpovida_raw": "Jana Zindrová",
+     "prijato_raw": "17. 6. 2024 na jednání č. 23/2024",
+     "prijato_date_iso": "2024-06-17",
+     "prijato_meeting_label": "23/2024",
+     "termin_raw": "1. 7. 2024",
+     "ukonceno_raw": "27. 6. 2024",
+     "ukonceno_date_iso": "2024-06-27",
+     "fields_raw": {
+      "Číslo usnesení": "UR-235-23/24",
+      "Text usnesení": "Rada města schvaluje cenové podmínky pro „Řešení DTM ČR pro město Pečky od společnosti Geovap, spol. s r.o. Čechovo nábřeží 1790, 530 03 Pardubice, IČ: 15049248 a požaduje předložení návrhu smlouvy. Jednorázová platba GEOVAP DTM Konektor a Import za nastavení služby a dodávky aplikace: 23.232 + 11.616,- = 34.848,- Kč s DPH. Roční platba za provoz služby GEOVAP DTM Konektor: 24.200,- Kč s DPH a cena podle délky sítě 40,- Kč bez DPH/1km sítě. Odhad 50 km sítě, tzn. 2.420,- Kč s DPH, tj.: 26.620,- Kč s DPH. Jednorázová platba GEOVAP DTM Import (za dodávku aplikace, cena za licenci) 24.200,- Kč s DPH. Roční platba za službu paušální technické kontroly 4.840,- Kč s DPH. Hodinovou sazbu v případě potřeby rozvoje systému 1.452,- Kč s DPH.",
+      "Zodpovídá": "Jana Zindrová",
+      "Přijato": "17. 6. 2024 na jednání č. 23/2024",
+      "Termín": "1. 7. 2024",
+      "Ukončeno": "27. 6. 2024"
+     }
+    }
+   },
+   {
+    "number_raw": "UR-236-23/24",
+    "detail_id": 68322,
+    "detail_url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/68322?mod=rada",
+    "agenda_item_raw": "Úkoly vyplývající z jednání rady města",
+    "text_verbatim": "Rada\nměsta ukládá referentce investic Petře\nKutové\nnavrhnout ve spolupráci s řediteli příspěvkových organizací umístění 5 defibrilátorů s dětskou pojistkou typu EAD\nPhilips\nHeartStart FRx do skříněk s alarmem do předem vytipovaných objektů v majetku města /Parkhala, zdravotní středisko, areál AFK, kulturní středisko, základní škola / s termínem do 15.7.2024.",
+    "cell_text_raw": "Bod programu:\nÚkoly vyplývající z jednání rady města\nText přijatého usnesení:\nRada\nměsta ukládá referentce investic Petře\nKutové\nnavrhnout ve spolupráci s řediteli příspěvkových organizací umístění 5 defibrilátorů s dětskou pojistkou typu EAD\nPhilips\nHeartStart FRx do skříněk s alarmem do předem vytipovaných objektů v majetku města /Parkhala, zdravotní středisko, areál AFK, kulturní středisko, základní škola / s termínem do 15.7.2024.",
+    "date_raw": "17. 6. 2024",
+    "date_iso": "2024-06-17",
+    "responsible_raw": "Petra Kutová",
+    "deadline_raw": "15. 7. 2024",
+    "vote": {
+     "raw_text": "pro: 6 proti: 0 zdržel se: 0",
+     "pro": {
+      "count": 6,
+      "names": null,
+      "raw": "6"
+     },
+     "proti": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     },
+     "zdrzel_se": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     }
+    },
+    "detail": {
+     "number_raw": "UR-236-23/24",
+     "text_verbatim": "Rada města ukládá referentce investic Petře Kutové navrhnout ve spolupráci s řediteli příspěvkových organizací umístění 5 defibrilátorů s dětskou pojistkou typu EAD Philips HeartStart FRx do skříněk s alarmem do předem vytipovaných objektů v majetku města /Parkhala, zdravotní středisko, areál AFK, kulturní středisko, základní škola / s termínem do 15.7.2024.",
+     "typ_raw": null,
+     "zodpovida_raw": "Petra Kutová",
+     "prijato_raw": "17. 6. 2024 na jednání č. 23/2024",
+     "prijato_date_iso": "2024-06-17",
+     "prijato_meeting_label": "23/2024",
+     "termin_raw": "15. 7. 2024",
+     "ukonceno_raw": "12. 7. 2024",
+     "ukonceno_date_iso": "2024-07-12",
+     "fields_raw": {
+      "Číslo usnesení": "UR-236-23/24",
+      "Text usnesení": "Rada města ukládá referentce investic Petře Kutové navrhnout ve spolupráci s řediteli příspěvkových organizací umístění 5 defibrilátorů s dětskou pojistkou typu EAD Philips HeartStart FRx do skříněk s alarmem do předem vytipovaných objektů v majetku města /Parkhala, zdravotní středisko, areál AFK, kulturní středisko, základní škola / s termínem do 15.7.2024.",
+      "Zodpovídá": "Petra Kutová",
+      "Přijato": "17. 6. 2024 na jednání č. 23/2024",
+      "Termín": "15. 7. 2024",
+      "Ukončeno": "12. 7. 2024"
+     }
+    }
+   }
+  ]
+ }
+}

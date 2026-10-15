@@ -1,0 +1,1851 @@
+{
+ "uuid": "e5d73357-ac8b-11ef-9543-00505683238f",
+ "body_type_raw": "Rada",
+ "label_raw": "42/2024 (2. 12. 2024)",
+ "number": 42,
+ "year": 2024,
+ "date_iso": "2024-12-02",
+ "links": {
+  "invitation": "https://mesto-pecky.usneseni.cz/verejne/?uuid=e5d73357-ac8b-11ef-9543-00505683238f&page=6&do=printPublicInvitation",
+  "minutes": "https://mesto-pecky.usneseni.cz/verejne/e5d73357-ac8b-11ef-9543-00505683238f/zapis/?page=6",
+  "signed_minutes_pdf": "https://mesto-pecky.usneseni.cz/verejne/?meetingReportControl-uuid=e5d73357-ac8b-11ef-9543-00505683238f&page=6&do=meetingReportControl-getSignedReportPdf",
+  "resolutions": "https://mesto-pecky.usneseni.cz/verejne/e5d73357-ac8b-11ef-9543-00505683238f/usneseni/?page=6",
+  "audio": null
+ },
+ "link_texts": {
+  "invitation": "Pozvánka",
+  "minutes": "zápis",
+  "signed_minutes_pdf": "podepsaný zápis",
+  "resolutions": "přijatá usnesení"
+ },
+ "status": "ok",
+ "invitation": {
+  "status": "site_error",
+  "error": "status=200 ct=text/html; charset=utf-8 flash='<a href=\"\" class=\"close\" data-dismiss=\"alert\" aria-label=\"close\">&times;'",
+  "url": "https://mesto-pecky.usneseni.cz/verejne/?uuid=e5d73357-ac8b-11ef-9543-00505683238f&do=printPublicInvitation",
+  "fetched_at": "2026-08-04T14:58:22.787021+00:00"
+ },
+ "minutes": {
+  "status": "ok",
+  "url": "https://mesto-pecky.usneseni.cz/verejne/e5d73357-ac8b-11ef-9543-00505683238f/zapis/",
+  "fetched_at": "2026-08-04T13:41:10.522199+00:00",
+  "title_raw": "ZÁPIS ze schůze rady č. 42/2024 Město Pečky datum: 2. 12. 2024, čas: 15:00 ​",
+  "date_raw": "2. 12. 2024",
+  "date_iso": "2024-12-02",
+  "time_raw": "15:00",
+  "presence": {
+   "raw_text": "Prezence:\nPřítomni:\n(5) Milan Paluska, Ing. Karel Krištoufek, Ing. Martin Jedlička, Ing. Hana Kuprová, Ivana Trčková\nOmluveni:\n(1) Zdeněk Fejfar\nNepřítomni:\n(1) Ing. Petr Dürr\nHosté:\nZapisovatel/ka:\nEva Strnadová\nPřítomno je 5 členů a rada je usnášeníschopná.\nJednání zahájeno 02.12.2024 v 15:09:18",
+   "pritomni": {
+    "count": 5,
+    "names": [
+     "Milan Paluska",
+     "Ing. Karel Krištoufek",
+     "Ing. Martin Jedlička",
+     "Ing. Hana Kuprová",
+     "Ivana Trčková"
+    ],
+    "raw": "(5) Milan Paluska, Ing. Karel Krištoufek, Ing. Martin Jedlička, Ing. Hana Kuprová, Ivana Trčková"
+   },
+   "omluveni": {
+    "count": 1,
+    "names": [
+     "Zdeněk Fejfar"
+    ],
+    "raw": "(1) Zdeněk Fejfar"
+   },
+   "nepritomni": {
+    "count": 1,
+    "names": [
+     "Ing. Petr Dürr"
+    ],
+    "raw": "(1) Ing. Petr Dürr"
+   },
+   "predsedajici": null,
+   "quorum_raw": "Přítomno je 5 členů a rada je usnášeníschopná."
+  },
+  "header_raw": "Prezence:\nPřítomni:\n(5) Milan Paluska, Ing. Karel Krištoufek, Ing. Martin Jedlička, Ing. Hana Kuprová, Ivana Trčková\nOmluveni:\n(1) Zdeněk Fejfar\nNepřítomni:\n(1) Ing. Petr Dürr\nHosté:\nZapisovatel/ka:\nEva Strnadová\nPřítomno je 5 členů a rada je usnášeníschopná.\nJednání zahájeno 02.12.2024 v 15:09:18",
+  "agenda_items": [
+   {
+    "number": 1,
+    "title_raw": "Určení zapisovatelů, předsedajícího, příp. ověřovatelů",
+    "heading_raw": "1. Určení zapisovatelů, předsedajícího, příp. ověřovatelů (bod číslo 1)",
+    "predkladatel": null,
+    "votes": [],
+    "resolution_numbers_mentioned": [],
+    "raw_text": "Projednávání bodu bylo zahájeno v 15:09:39\n\nPředsedající navrhl jednotlivé členy pracovních komisí\nOvěřovatelé:\nIvana Trčková, Ing. Hana Kuprová\nPředsedající:\nMilan Paluska\nDiskuze zahájena v 15:09:39\nK tomuto bodu se vyjádřili:\nMilan Paluska\nProjednávání bodu bylo ukončeno v 15:09:56"
+   },
+   {
+    "number": 2,
+    "title_raw": "Schválení programu jednání",
+    "heading_raw": "2. Schválení programu jednání (bod číslo 2)",
+    "predkladatel": null,
+    "votes": [
+     {
+      "raw_text": "pro:\n(5) Ing. Karel Krištoufek, Milan Paluska, Ing. Martin Jedlička, Ing. Hana Kuprová, Ivana Trčková\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)",
+      "pro": {
+       "count": 5,
+       "names": [
+        "Ing. Karel Krištoufek",
+        "Milan Paluska",
+        "Ing. Martin Jedlička",
+        "Ing. Hana Kuprová",
+        "Ivana Trčková"
+       ],
+       "raw": "(5) Ing. Karel Krištoufek, Milan Paluska, Ing. Martin Jedlička, Ing. Hana Kuprová, Ivana Trčková"
+      },
+      "proti": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "zdrzel_se": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "nehlasoval": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "result_raw": "Návrh byl přijat jako usnesení číslo: UR-399-42/24",
+      "adopted_resolution_number": "UR-399-42/24"
+     }
+    ],
+    "resolution_numbers_mentioned": [
+     "UR-399-42/24"
+    ],
+    "raw_text": "Projednávání bodu bylo zahájeno v 15:10:04\n\nProgram jednání\n1. Určení zapisovatelů, předsedajícího, příp. ověřovatelů\n2. Schválení programu jednání\n3. Aktuální informace vedení města\n4. Pronájem nebytového prostoru v čp. 184 (Dům služeb – obuv) - uzavření smlouvy\n5. Uzavření \"Smlouvy o smlouvě budoucí o zřízení služebnosti inženýrské sítě č. SMLO-2475/00066001/2024-KH/SO/SB“\n6. Změna Organizační struktury Městského úřadu Pečky\n7. Vyhodnocení schůzek s řediteli příspěvkových organizací města Pečky\n8. Hodnocení ředitelů PO za druhé pololetí 2024\n9. Změna mobilní aplikace pro komunikaci s občany\n10. Žádost o schválení navýšení kapacity ZUŠ a otevření oboru \"Hra na housle\"\n11. Změna závazných ukazatelů - ZŠ Pečky\n12. Žádost o čerpání rez. fondu - knihovna\n13. OZV - pravidla pro pohyb psů na veř. prostranství\n14. Rozpočtové opatření č. 13/2024\n15. Souhlas zřizovatele s žádostí o dotaci - knihovna\n16. Kontrola plnění usnesení\n17. Diskuse, různé\n18. Úkoly vyplývající z jednání rady města\nDiskuze zahájena v 15:10:04\nK tomuto bodu se vyjádřili:\nMilan Paluska\nV 15:10:28 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Milan Paluska\") v tomto znění:\nRada\nměsta schvaluje návrh programu jednání.\ns těmito změnami:\n- doplňuje se bod č. 19 -\nCena\nkalendářů PEČKY 2025\nHlasování\npro:\n(5) Ing. Karel Krištoufek, Milan Paluska, Ing. Martin Jedlička, Ing. Hana Kuprová, Ivana Trčková\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-399-42/24\nzodpovídá:\ntermín:\nIHNED\n(2. 12. 2024)\nProjednávání bodu bylo ukončeno v 15:10:38"
+   },
+   {
+    "number": 3,
+    "title_raw": "Aktuální informace vedení města",
+    "heading_raw": "3. Aktuální informace vedení města (bod číslo 3)",
+    "predkladatel": null,
+    "votes": [],
+    "resolution_numbers_mentioned": [],
+    "raw_text": "Projednávání bodu bylo zahájeno v 15:10:43\n\nDůvodová zpráva:\nstarosta města:\n- informace o postupu dláždění v ul.\nMlýnská\n, kompletní přepojení kanalizace na Bačově, akce „Rekonstrukce místních komunikací a vodovodní řad v části Bačov v Pečkách – 1. a 2. etapa“,\n- informace o ukončení stavební akce \"Oplocení MŠ Mašinka Pečky na ul. Tř.\nJana\nŠvermy, č.p. 825, Pečky - I.etapa\" - odstranění vad a nedodělků\n- informace o průběhu výměny světelných bodů v Pečkách\n- informace o zahájení \"Adventu\" - poděkování hasičům a organizátorům kulturní akce\n- informace o pietním aktu, položení květin na významném hrobě\nŠtěpána\nHovorky\n- informace o termínech zasedání ZM v roce 2025 - 26.2., 23.4., 18.6., 17.9., 12.11., 17.12.2025\nDiskuze zahájena v 15:10:43\nK tomuto bodu se vyjádřili:\nMilan Paluska, Ing. Karel Krištoufek, Ivana Trčková, Ing. Hana Kuprová\nV 15:19:20 přišel Ing. Petr Dürr, přítomno 6 radních.\nAktualizovaný stav prezence:\nPřítomni:\n(6) Milan Paluska, Ing. Karel Krištoufek, Ing. Martin Jedlička, Ing. Hana Kuprová, Ivana Trčková, Ing. Petr Dürr\nOmluveni:\n(1) Zdeněk Fejfar\nNepřítomni:\n(0)\nRada bere informace k bodu č. 3 -\nAktuální informace vedení města\nna vědomí.\nProjednávání bodu bylo ukončeno v 15:29:28"
+   },
+   {
+    "number": 4,
+    "title_raw": "Pronájem nebytového prostoru v čp. 184 (Dům služeb – obuv) - uzavření smlouvy",
+    "heading_raw": "4. Pronájem nebytového prostoru v čp. 184 (Dům služeb – obuv) - uzavření smlouvy (bod číslo 4)",
+    "predkladatel": null,
+    "votes": [
+     {
+      "raw_text": "pro:\n(6) Ing. Hana Kuprová, Ing. Petr Dürr, Milan Paluska, Ivana Trčková, Ing. Martin Jedlička, Ing. Karel Krištoufek\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)",
+      "pro": {
+       "count": 6,
+       "names": [
+        "Ing. Hana Kuprová",
+        "Ing. Petr Dürr",
+        "Milan Paluska",
+        "Ivana Trčková",
+        "Ing. Martin Jedlička",
+        "Ing. Karel Krištoufek"
+       ],
+       "raw": "(6) Ing. Hana Kuprová, Ing. Petr Dürr, Milan Paluska, Ivana Trčková, Ing. Martin Jedlička, Ing. Karel Krištoufek"
+      },
+      "proti": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "zdrzel_se": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "nehlasoval": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "result_raw": "Návrh byl přijat jako usnesení číslo: UR-400-42/24",
+      "adopted_resolution_number": "UR-400-42/24"
+     }
+    ],
+    "resolution_numbers_mentioned": [
+     "UR-400-42/24"
+    ],
+    "raw_text": "Projednávání bodu bylo zahájeno v 15:29:33\n\nDůvodová zpráva:\nDle zveřejněného záměru byla předložena jediná nabídka od\n█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█\na ta souhlasí s podmínkami ve zveřejněném záměru ze dne 5.11. 2024 tzn. nájem ve výši 6.207,- Kč/měsíc + zálohy na služby 3.800,-Kč/měsíc.\n█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█\nzachová prodej obuvi. Smlouva na pronájem prostor sloužících podnikání bude uzavřena od 1.1. 2025 na dobu neurčitou a výpovědní lhůta činí 3 měsíce.\nStanoviska a doporučení poradních orgánů/odborů:\nNeprobíralo se\nDiskuze zahájena v 15:29:33\nK tomuto bodu se vyjádřili:\nMilan Paluska, Ing. Hana Kuprová, Ing. Petr Dürr, Ivana Trčková\nV 15:31:28 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Jana Najbrtová\") v tomto znění:\nRada\nměsta schvaluje uzavření „Smlouvy na pronájem prostor sloužících podnikání“ – nebytový prostor v Domě služeb v Pečkách, ul. J.A.\nKomenského\nčp. 184, celková výměra 76 m\n2\n. Smlouva bude uzavřena s\n█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█\nod 1.1. 2025 na dobu neurčitou s výpovědní lhůtou 3 měsíce. Nájem činí 6.207,- Kč/měsíc + zálohy na služby 3.800,-Kč/měsíc.\nHlasování\npro:\n(6) Ing. Hana Kuprová, Ing. Petr Dürr, Milan Paluska, Ivana Trčková, Ing. Martin Jedlička, Ing. Karel Krištoufek\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-400-42/24\nzodpovídá:\nJana Najbrtová\ntermín:\n6. 1. 2025\nProjednávání bodu bylo ukončeno v 15:31:35"
+   },
+   {
+    "number": 5,
+    "title_raw": "Uzavření \"Smlouvy o smlouvě budoucí o zřízení služebnosti inženýrské sítě č. SMLO-2475/00066001/2024-KH/SO/SB“",
+    "heading_raw": "5. Uzavření \"Smlouvy o smlouvě budoucí o zřízení služebnosti inženýrské sítě č. SMLO-2475/00066001/2024-KH/SO/SB“ (bod číslo 5)",
+    "predkladatel": null,
+    "votes": [
+     {
+      "raw_text": "pro:\n(6) Milan Paluska, Ing. Martin Jedlička, Ivana Trčková, Ing. Petr Dürr, Ing. Karel Krištoufek, Ing. Hana Kuprová\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)",
+      "pro": {
+       "count": 6,
+       "names": [
+        "Milan Paluska",
+        "Ing. Martin Jedlička",
+        "Ivana Trčková",
+        "Ing. Petr Dürr",
+        "Ing. Karel Krištoufek",
+        "Ing. Hana Kuprová"
+       ],
+       "raw": "(6) Milan Paluska, Ing. Martin Jedlička, Ivana Trčková, Ing. Petr Dürr, Ing. Karel Krištoufek, Ing. Hana Kuprová"
+      },
+      "proti": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "zdrzel_se": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "nehlasoval": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "result_raw": "Návrh byl přijat jako usnesení číslo: UR-401-42/24",
+      "adopted_resolution_number": "UR-401-42/24"
+     }
+    ],
+    "resolution_numbers_mentioned": [
+     "UR-401-42/24"
+    ],
+    "raw_text": "Projednávání bodu bylo zahájeno v 15:31:39\n\nDůvodová zpráva:\nDoporučujeme uzavřít uvedenou smlouvu, která podléhá schválení ZM. Jedná se o uložení inženýrských sítí v ul.\nMilčická\nve Velkých Chvalovicích-(cca 700 bm), která je v majetku KSÚS\nPraha\n. Náhrada za zřízení VBř je stanovena dle Ceníku Středočeského kraje – náhrady za zřízení služebnosti inženýrské sítě a za omezené užívání silnic II. a III. tříd. VBř bude vedeno v zeleném pásu a podvrtem pod komunikací.\nStanoviska a doporučení poradních orgánů/odborů:\nNeprobíralo se\nDiskuze zahájena v 15:31:39\nK tomuto bodu se vyjádřili:\nMilan Paluska, Ing. Hana Kuprová, Ing. Karel Krištoufek, Ing. Martin Jedlička\nV 15:33:17 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Jana Najbrtová\") v tomto znění:\nRada\nměsta doporučuje zastupitelstvu města schválit uzavření \"Smlouvy o smlouvě budoucí o zřízení služebnosti inženýrské sítě č. SMLO-2475/00066001/2024-KH/SO/SB“ mezi smluvními stranami KSÚS,\nPraha\n5, ul.\nZborovská\n11 (budoucí povinný) a Městem Pečky (budoucí oprávněný) – ul.\nMilčická\n,\nVelké\nChvalovice v rámci akce „Dobudování stezky pro pěší a cyklisty v ul.\nMilčická\nve Velkých Chvalovicích“. Jedná se o uložení inženýrských sítí do pozemků v majetku KSÚS,\nPraha\n, ul.\nZborovská\n11 - č. parc. 171/4,172/4,175/1 a 176/1 (k.ú.\nVelké\nChvalovice). Celková délka činí cca 700 bm za celkovou cenu 37.355,- Kč (45.199,55 s DPH)-dle ceníku KSÚS.\nHlasování\npro:\n(6) Milan Paluska, Ing. Martin Jedlička, Ivana Trčková, Ing. Petr Dürr, Ing. Karel Krištoufek, Ing. Hana Kuprová\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-401-42/24\nzodpovídá:\nJana Najbrtová\ntermín:\n30. 6. 2025\nProjednávání bodu bylo ukončeno v 15:33:24"
+   },
+   {
+    "number": 6,
+    "title_raw": "Změna Organizační struktury Městského úřadu Pečky",
+    "heading_raw": "6. Změna Organizační struktury Městského úřadu Pečky (bod číslo 6)",
+    "predkladatel": null,
+    "votes": [
+     {
+      "raw_text": "pro:\n(6) Ing. Petr Dürr, Milan Paluska, Ing. Martin Jedlička, Ivana Trčková, Ing. Karel Krištoufek, Ing. Hana Kuprová\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)",
+      "pro": {
+       "count": 6,
+       "names": [
+        "Ing. Petr Dürr",
+        "Milan Paluska",
+        "Ing. Martin Jedlička",
+        "Ivana Trčková",
+        "Ing. Karel Krištoufek",
+        "Ing. Hana Kuprová"
+       ],
+       "raw": "(6) Ing. Petr Dürr, Milan Paluska, Ing. Martin Jedlička, Ivana Trčková, Ing. Karel Krištoufek, Ing. Hana Kuprová"
+      },
+      "proti": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "zdrzel_se": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "nehlasoval": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "result_raw": "Návrh byl přijat jako usnesení číslo: UR-402-42/24",
+      "adopted_resolution_number": "UR-402-42/24"
+     },
+     {
+      "raw_text": "pro:\n(6) Ing. Martin Jedlička, Ing. Petr Dürr, Ing. Hana Kuprová, Ivana Trčková, Milan Paluska, Ing. Karel Krištoufek\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)",
+      "pro": {
+       "count": 6,
+       "names": [
+        "Ing. Martin Jedlička",
+        "Ing. Petr Dürr",
+        "Ing. Hana Kuprová",
+        "Ivana Trčková",
+        "Milan Paluska",
+        "Ing. Karel Krištoufek"
+       ],
+       "raw": "(6) Ing. Martin Jedlička, Ing. Petr Dürr, Ing. Hana Kuprová, Ivana Trčková, Milan Paluska, Ing. Karel Krištoufek"
+      },
+      "proti": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "zdrzel_se": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "nehlasoval": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "result_raw": "Návrh byl přijat jako usnesení číslo: UR-403-42/24",
+      "adopted_resolution_number": "UR-403-42/24"
+     }
+    ],
+    "resolution_numbers_mentioned": [
+     "UR-402-42/24",
+     "UR-403-42/24"
+    ],
+    "raw_text": "Projednávání bodu bylo zahájeno v 15:33:28\n\nDůvodová zpráva:\nZměna organizační struktury města Pečky je z důvodu zřízení nového odboru investic a rozvoje, a zařazení koordinátora projektu, referenta přípravy a realizace investic do tohoto odboru, další změnou je samostatné zařazení sociální práce.\nTento krok vychází z následujícího důvodu:\nS ohledem na rostoucí potřebu efektivního řízení investičních projektů města, zajištění systematického plánování, realizace a kontroly investic, je navrženo zřízení samostatného odboru investic v rámci organizační struktury městského úřadu.\nZvýšení efektivity řízení projektů:\nDosavadní model řízení investic, který je rozdělen mezi jednotlivé odbory, naráží na omezené kapacity a nedostatečnou koordinaci. Zřízení specializovaného odboru umožní centralizaci všech klíčových činností spojených s investicemi, což povede ke zlepšení kontroly, dodržování termínů a optimalizaci využívání finančních prostředků.\nRostoucí objem investičních aktivit:\nPlánované investiční akce v příštích letech, ať už jde o rekonstrukce infrastruktury, výstavbu veřejných budov nebo modernizaci technologií, vyžadují zajištění profesionálního projektového managementu a specifické odborné kapacity.\nNáklady na zřízení odboru:\nZřízení odboru bude znamenat navýšení personálních kapacit o vedoucího, zároveň dojde k přesunu koordinátora projektu a referenta přípravy a realizaci investic z kanceláře tajemníka do nového odboru. Předpokládá se, že tyto náklady budou kompenzovány efektivnějším využíváním finančních prostředků a vyšší kvalitou práce díky zlepšené kontrole a organizaci.\nPřínosy pro město:\n- Větší přehlednost a kontrola nad investicemi.\n- Posílení odborného zázemí pro strategické rozhodování.\n- Možnost lepšího využití externích zdrojů financování (dotace, granty).\nDiskuze zahájena v 15:33:28\nK tomuto bodu se vyjádřili:\nMilan Paluska, Pavlína Nepovímová, Ing. Karel Krištoufek, Ing. Petr Dürr\nV 15:37:27 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Pavlína Nepovímová\") v tomto znění:\nRada\nměsta schvaluje zřízení nového Odboru investic a rozvoje v rámci organizační struktury městského úřadu Pečky, a to s účinností od 1.1.2025.\nHlasování\npro:\n(6) Ing. Petr Dürr, Milan Paluska, Ing. Martin Jedlička, Ivana Trčková, Ing. Karel Krištoufek, Ing. Hana Kuprová\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-402-42/24\nzodpovídá:\ntermín:\nIHNED\n(2. 12. 2024)\nV 15:39:42 předsedající zahájil hlasování o návrhu usnesení \"B\" (navrhovatel: \"Pavlína Nepovímová\") v tomto znění:\nRada\nměsta schvaluje změny:\n- v Organizační struktuře Městského úřadu Pečky\n- v Organizačním řádu Městského úřadu Pečky\nHlasování\npro:\n(6) Ing. Martin Jedlička, Ing. Petr Dürr, Ing. Hana Kuprová, Ivana Trčková, Milan Paluska, Ing. Karel Krištoufek\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-403-42/24\nzodpovídá:\ntermín:\nIHNED\n(2. 12. 2024)\nProjednávání bodu bylo ukončeno v 15:39:54"
+   },
+   {
+    "number": 7,
+    "title_raw": "Vyhodnocení schůzek s řediteli příspěvkových organizací města Pečky",
+    "heading_raw": "7. Vyhodnocení schůzek s řediteli příspěvkových organizací města Pečky (bod číslo 7)",
+    "predkladatel": null,
+    "votes": [],
+    "resolution_numbers_mentioned": [],
+    "raw_text": "Projednávání bodu bylo zahájeno v 15:40:00\n\nDůvodová zpráva:\nV rámci prvních schůzek s řediteli a ředitelkami příspěvkových organizací města, které probíhaly pravidelně v souvislosti s jejich účastí na zasedáních rady města, byly projednány klíčové otázky týkající se organizace činnosti a personálních záležitostí.\nBěhem těchto schůzek bylo zjištěno, že ředitel ZŠ Pečky, okres\nKolín\n, stejně jako někteří zaměstnanci školy, nečerpal dovolenou v souladu s platnými předpisy, a to v rozporu s povinnostmi vyplývajícími z zákoníku práce (zákon č. 262/2006 Sb., § 217–223).\nV souvislosti s čerpáním dovolené bylo zjištěno, že:\nŘeditel ZŠ Pečky, okres\nKolín\nnečerpal dovolenou v souladu s pracovněprávními předpisy. Podle § 217 odst. 1 zákoníku práce je zaměstnavatel povinen zajistit čerpání dovolené svým zaměstnancům v příslušném kalendářním roce. V případě ředitele školy se jednalo o nečerpání dovolené za několik let.\nZaměstnanci školy rovněž nečerpali dovolenou v odpovídajícím rozsahu. Podle § 218 zákoníku práce musí být dovolená čerpána v souladu s plánem čerpání dovolené, který má být přizpůsoben potřebám organizace a oprávněným zájmům zaměstnanců.\nPožadavky k doložení a upřesnění, pro ředitele základní školy:\n- doložit soupis čerpání dovolené za poslední 3 roky\n- předložit plán čerpání dovolené na následující období\nOpatření pro zajištění pravidelných kontrol čerpání dovolené\nVzhledem k významu správného a včasného čerpání dovolené a zajištění souladu s pracovním právem, jsou nastavené pravidelné schůzky mezi radou města a řediteli příspěvkových organizací. Tyto schůzky budou sloužit:\n- ke kontrole plnění pracovněprávních povinností, včetně čerpání dovolené,\n- k diskusi o provozních otázkách a personálních záležitostech,\n- včasnému identifikování potenciálních problémů v organizacích, které je třeba řešit\nTyto schůzky budou probíhat pravidelně 2x do roka a budou k zajištění řádného fungování příspěvkových organizací a souladu s právními předpisy.\nU ostatních schůzek příspěvkových organizací nebyla během těchto setkání zjištěna žádná pochybení ohledně čerpání dovolené ani jiných pracovněprávních záležitostí. Provoz příspěvkových organizací a čerpání dotací se pravidelně zjišťuje a sleduje, aby bylo zajištěno jejich správné fungování a soulad s předpisy.\nDiskuze zahájena v 15:40:00\nK tomuto bodu se vyjádřili:\nMilan Paluska, Pavlína Nepovímová, Ing. Karel Krištoufek, Ing. Hana Kuprová, Ing. Martin Jedlička, Ing. Petr Dürr, Ivana Trčková\nRada bere informace k bodu č. 7 -\nVyhodnocení schůzek s řediteli příspěvkových organizací města Pečky\nna vědomí.\nProjednávání bodu bylo ukončeno v 15:46:20"
+   },
+   {
+    "number": 8,
+    "title_raw": "Hodnocení ředitelů PO za druhé pololetí 2024",
+    "heading_raw": "8. Hodnocení ředitelů PO za druhé pololetí 2024 (bod číslo 8)",
+    "predkladatel": null,
+    "votes": [
+     {
+      "raw_text": "pro:\n(6) Ing. Petr Dürr, Ing. Martin Jedlička, Ivana Trčková, Milan Paluska, Ing. Hana Kuprová, Ing. Karel Krištoufek\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)",
+      "pro": {
+       "count": 6,
+       "names": [
+        "Ing. Petr Dürr",
+        "Ing. Martin Jedlička",
+        "Ivana Trčková",
+        "Milan Paluska",
+        "Ing. Hana Kuprová",
+        "Ing. Karel Krištoufek"
+       ],
+       "raw": "(6) Ing. Petr Dürr, Ing. Martin Jedlička, Ivana Trčková, Milan Paluska, Ing. Hana Kuprová, Ing. Karel Krištoufek"
+      },
+      "proti": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "zdrzel_se": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "nehlasoval": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "result_raw": "Návrh byl přijat jako usnesení číslo: UR-404-42/24",
+      "adopted_resolution_number": "UR-404-42/24"
+     },
+     {
+      "raw_text": "pro:\n(6) Ing. Martin Jedlička, Ing. Hana Kuprová, Ivana Trčková, Milan Paluska, Ing. Petr Dürr, Ing. Karel Krištoufek\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)",
+      "pro": {
+       "count": 6,
+       "names": [
+        "Ing. Martin Jedlička",
+        "Ing. Hana Kuprová",
+        "Ivana Trčková",
+        "Milan Paluska",
+        "Ing. Petr Dürr",
+        "Ing. Karel Krištoufek"
+       ],
+       "raw": "(6) Ing. Martin Jedlička, Ing. Hana Kuprová, Ivana Trčková, Milan Paluska, Ing. Petr Dürr, Ing. Karel Krištoufek"
+      },
+      "proti": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "zdrzel_se": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "nehlasoval": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "result_raw": "Návrh byl přijat jako usnesení číslo: UR-405-42/24",
+      "adopted_resolution_number": "UR-405-42/24"
+     },
+     {
+      "raw_text": "pro:\n(6) Ing. Petr Dürr, Ing. Hana Kuprová, Milan Paluska, Ivana Trčková, Ing. Karel Krištoufek, Ing. Martin Jedlička\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)",
+      "pro": {
+       "count": 6,
+       "names": [
+        "Ing. Petr Dürr",
+        "Ing. Hana Kuprová",
+        "Milan Paluska",
+        "Ivana Trčková",
+        "Ing. Karel Krištoufek",
+        "Ing. Martin Jedlička"
+       ],
+       "raw": "(6) Ing. Petr Dürr, Ing. Hana Kuprová, Milan Paluska, Ivana Trčková, Ing. Karel Krištoufek, Ing. Martin Jedlička"
+      },
+      "proti": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "zdrzel_se": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "nehlasoval": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "result_raw": "Návrh byl přijat jako usnesení číslo: UR-406-42/24",
+      "adopted_resolution_number": "UR-406-42/24"
+     },
+     {
+      "raw_text": "pro:\n(6) Ing. Martin Jedlička, Milan Paluska, Ing. Hana Kuprová, Ivana Trčková, Ing. Petr Dürr, Ing. Karel Krištoufek\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)",
+      "pro": {
+       "count": 6,
+       "names": [
+        "Ing. Martin Jedlička",
+        "Milan Paluska",
+        "Ing. Hana Kuprová",
+        "Ivana Trčková",
+        "Ing. Petr Dürr",
+        "Ing. Karel Krištoufek"
+       ],
+       "raw": "(6) Ing. Martin Jedlička, Milan Paluska, Ing. Hana Kuprová, Ivana Trčková, Ing. Petr Dürr, Ing. Karel Krištoufek"
+      },
+      "proti": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "zdrzel_se": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "nehlasoval": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "result_raw": "Návrh byl přijat jako usnesení číslo: UR-407-42/24",
+      "adopted_resolution_number": "UR-407-42/24"
+     },
+     {
+      "raw_text": "pro:\n(6) Ing. Martin Jedlička, Ing. Karel Krištoufek, Ivana Trčková, Ing. Hana Kuprová, Ing. Petr Dürr, Milan Paluska\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)",
+      "pro": {
+       "count": 6,
+       "names": [
+        "Ing. Martin Jedlička",
+        "Ing. Karel Krištoufek",
+        "Ivana Trčková",
+        "Ing. Hana Kuprová",
+        "Ing. Petr Dürr",
+        "Milan Paluska"
+       ],
+       "raw": "(6) Ing. Martin Jedlička, Ing. Karel Krištoufek, Ivana Trčková, Ing. Hana Kuprová, Ing. Petr Dürr, Milan Paluska"
+      },
+      "proti": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "zdrzel_se": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "nehlasoval": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "result_raw": "Návrh byl přijat jako usnesení číslo: UR-408-42/24",
+      "adopted_resolution_number": "UR-408-42/24"
+     },
+     {
+      "raw_text": "pro:\n(6) Ing. Hana Kuprová, Ivana Trčková, Ing. Martin Jedlička, Ing. Karel Krištoufek, Ing. Petr Dürr, Milan Paluska\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)",
+      "pro": {
+       "count": 6,
+       "names": [
+        "Ing. Hana Kuprová",
+        "Ivana Trčková",
+        "Ing. Martin Jedlička",
+        "Ing. Karel Krištoufek",
+        "Ing. Petr Dürr",
+        "Milan Paluska"
+       ],
+       "raw": "(6) Ing. Hana Kuprová, Ivana Trčková, Ing. Martin Jedlička, Ing. Karel Krištoufek, Ing. Petr Dürr, Milan Paluska"
+      },
+      "proti": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "zdrzel_se": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "nehlasoval": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "result_raw": "Návrh byl přijat jako usnesení číslo: UR-409-42/24",
+      "adopted_resolution_number": "UR-409-42/24"
+     }
+    ],
+    "resolution_numbers_mentioned": [
+     "UR-404-42/24",
+     "UR-405-42/24",
+     "UR-406-42/24",
+     "UR-407-42/24",
+     "UR-408-42/24",
+     "UR-409-42/24"
+    ],
+    "raw_text": "Projednávání bodu bylo zahájeno v 15:46:26\n\nDůvodová zpráva:\nRada\nměsta stanovuje výši mimořádných odměn, které mohou být ředitelům příspěvkových organizací přiznány na základě splnění stanovených kritérií ve druhé polovině roku 2024.\nDiskuze zahájena v 15:46:26\nK tomuto bodu se vyjádřili:\nMilan Paluska, Ing. Petr Dürr, Ing. Martin Jedlička, Ing. Karel Krištoufek, Ing. Hana Kuprová, Ivana Trčková\nV 16:24:18 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Pavlína Nepovímová\") v tomto znění:\nRada\nměsta schvaluje mimořádnou odměnu řediteli Základní školy Pečky Mgr. Ing. Luboši\nZajícovi\nMBA ve výši\n█​█​█​█​█​█​█​█​█\n█​█\nHlasování\npro:\n(6) Ing. Petr Dürr, Ing. Martin Jedlička, Ivana Trčková, Milan Paluska, Ing. Hana Kuprová, Ing. Karel Krištoufek\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-404-42/24\nzodpovídá:\ntermín:\nIHNED\n(2. 12. 2024)\nV 16:24:48 předsedající zahájil hlasování o návrhu usnesení \"B\" (navrhovatel: \"Pavlína Nepovímová\") v tomto znění:\nRada\nměsta schvaluje mimořádnou odměnu ředitelce Mateřské školy MAŠINKA Pečky, Bc. Květě\nBubeníčkové\nve výši\n█​█​█​█​█​█​█​█\n█​█​█\nHlasování\npro:\n(6) Ing. Martin Jedlička, Ing. Hana Kuprová, Ivana Trčková, Milan Paluska, Ing. Petr Dürr, Ing. Karel Krištoufek\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-405-42/24\nzodpovídá:\ntermín:\nIHNED\n(2. 12. 2024)\nV 16:25:19 předsedající zahájil hlasování o návrhu usnesení \"C\" (navrhovatel: \"Pavlína Nepovímová\") v tomto znění:\nRada\nměsta schvaluje mimořádnou odměnu ředitelce Městské knihovny\nSvatopluka\nČecha\npí. Vladimíře\nKrulišové\nve výši\n█​█​█​█​█​█​█​█\n█​█​█\nHlasování\npro:\n(6) Ing. Petr Dürr, Ing. Hana Kuprová, Milan Paluska, Ivana Trčková, Ing. Karel Krištoufek, Ing. Martin Jedlička\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-406-42/24\nzodpovídá:\ntermín:\nIHNED\n(2. 12. 2024)\nV 16:26:30 předsedající zahájil hlasování o návrhu usnesení \"D\" (navrhovatel: \"Pavlína Nepovímová\") v tomto znění:\nRada\nměsta schvaluje mimořádnou odměnu ředitelce Základní umělecké školy Pečky, okres\nKolín\npí. Petře\nVorlíčkové\n, DiS. ve výši\n█​█​█​█​█​█​█​█\n█​█​█\nHlasování\npro:\n(6) Ing. Martin Jedlička, Milan Paluska, Ing. Hana Kuprová, Ivana Trčková, Ing. Petr Dürr, Ing. Karel Krištoufek\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-407-42/24\nzodpovídá:\ntermín:\nIHNED\n(2. 12. 2024)\nV 16:27:20 předsedající zahájil hlasování o návrhu usnesení \"E\" (navrhovatel: \"Pavlína Nepovímová\") v tomto znění:\nRada\nměsta schvaluje mimořádnou odměnu ředitelce Pečovatelské služby města Pečky Mgr. Petře\nČermákové\nve výši\n█​█​█​█​█​█​█​█\n█​█​█\nHlasování\npro:\n(6) Ing. Martin Jedlička, Ing. Karel Krištoufek, Ivana Trčková, Ing. Hana Kuprová, Ing. Petr Dürr, Milan Paluska\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-408-42/24\nzodpovídá:\ntermín:\nIHNED\n(2. 12. 2024)\nV 16:27:41 předsedající zahájil hlasování o návrhu usnesení \"F\" (navrhovatel: \"Pavlína Nepovímová\") v tomto znění:\nRada\nměsta schvaluje schvaluje mimořádnou odměnu řediteli Kulturního střediska města Pečky p. Lukáši\nHanzelínovi\nve výši\n█​█​█​█​█​█​█​█\n█​█​█\nHlasování\npro:\n(6) Ing. Hana Kuprová, Ivana Trčková, Ing. Martin Jedlička, Ing. Karel Krištoufek, Ing. Petr Dürr, Milan Paluska\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-409-42/24\nzodpovídá:\ntermín:\nIHNED\n(2. 12. 2024)\nProjednávání bodu bylo ukončeno v 16:28:57"
+   },
+   {
+    "number": 9,
+    "title_raw": "Změna mobilní aplikace pro komunikaci s občany",
+    "heading_raw": "9. Změna mobilní aplikace pro komunikaci s občany (bod číslo 9)",
+    "predkladatel": null,
+    "votes": [],
+    "resolution_numbers_mentioned": [],
+    "raw_text": "Projednávání bodu bylo zahájeno v 16:29:02\n\nDůvodová zpráva:\nMěsto Pečky v současné době využívá mobilní aplikaci Munipolis jako nástroj pro komunikaci s občany.\nTato\naplikace slouží pro zasílání důležitých informací, oznámení a dalších zpráv občanům. V průběhu užívání byly identifikovány finanční náročnost a některé funkční omezení tohoto systému. Z tohoto důvodu byla oslovena společnost Urbitech, která městu nabídla výhodnější podmínky, včetně:\n- nižších provozních nákladů na poskytování služby\n- rozšíření funkcionality aplikace, zejména o rezervační systém a možnost dalších individuálních úprav podle potřeb města\nSpolečnost Urbitech nabízí také větší flexibilitu při přizpůsobení aplikace specifickým požadavkům města, což může dále zefektivnit komunikaci s občany.\nDiskuze zahájena v 16:29:02\nK tomuto bodu se vyjádřili:\nMilan Paluska, Pavlína Nepovímová\nRada bere informace k bodu č. 9 -\nZměna mobilní aplikace pro komunikaci s občany\nna vědomí.\nProjednávání bodu bylo ukončeno v 16:37:56"
+   },
+   {
+    "number": 10,
+    "title_raw": "Žádost o schválení navýšení kapacity ZUŠ a otevření oboru \"Hra na housle\"",
+    "heading_raw": "10. Žádost o schválení navýšení kapacity ZUŠ a otevření oboru \"Hra na housle\" (bod číslo 10)",
+    "predkladatel": null,
+    "votes": [
+     {
+      "raw_text": "pro:\n(6) Ing. Petr Dürr, Ing. Martin Jedlička, Ing. Hana Kuprová, Ing. Karel Krištoufek, Milan Paluska, Ivana Trčková\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)",
+      "pro": {
+       "count": 6,
+       "names": [
+        "Ing. Petr Dürr",
+        "Ing. Martin Jedlička",
+        "Ing. Hana Kuprová",
+        "Ing. Karel Krištoufek",
+        "Milan Paluska",
+        "Ivana Trčková"
+       ],
+       "raw": "(6) Ing. Petr Dürr, Ing. Martin Jedlička, Ing. Hana Kuprová, Ing. Karel Krištoufek, Milan Paluska, Ivana Trčková"
+      },
+      "proti": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "zdrzel_se": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "nehlasoval": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "result_raw": "Návrh byl přijat jako usnesení číslo: UR-410-42/24",
+      "adopted_resolution_number": "UR-410-42/24"
+     }
+    ],
+    "resolution_numbers_mentioned": [
+     "UR-410-42/24"
+    ],
+    "raw_text": "Projednávání bodu bylo zahájeno v 16:38:00\n\nDůvodová zpráva:\nŽádost o navýšení kapacity o 30 žáků od 1. 9. 2025 z důvodu velkého zájmu o hudební vzdělávání, zejména o nově plánované studijní zaměření – „Hra na housle“. Tento obor rozšiřuje nabídku Základní umělecké školy Pečky, okres\nKolína\na umožní uspokojit poptávku rodičů a žáků v našem regionu.\nDiskuze zahájena v 16:38:00\nK tomuto bodu se vyjádřili:\nMilan Paluska, Ing. Karel Krištoufek, Ivana Trčková, Ing. Hana Kuprová\nV 16:40:31 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Pavlína Nepovímová\") v tomto znění:\nRada\nměsta schvaluje zaslání žádosti o navýšení kapacity Základní umělecké školy Pečky, okres\nKolín\no 30 žáků s účinností od 1. 9. 2025 v souvislosti s plánovaným otevřením nového studijního zaměření „Hra na housle“.\nHlasování\npro:\n(6) Ing. Petr Dürr, Ing. Martin Jedlička, Ing. Hana Kuprová, Ing. Karel Krištoufek, Milan Paluska, Ivana Trčková\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-410-42/24\nzodpovídá:\ntermín:\nIHNED\n(2. 12. 2024)\nProjednávání bodu bylo ukončeno v 16:41:01"
+   },
+   {
+    "number": 11,
+    "title_raw": "Změna závazných ukazatelů - ZŠ Pečky",
+    "heading_raw": "11. Změna závazných ukazatelů - ZŠ Pečky (bod číslo 11)",
+    "predkladatel": null,
+    "votes": [
+     {
+      "raw_text": "pro:\n(6) Ing. Karel Krištoufek, Ing. Petr Dürr, Ing. Hana Kuprová, Ivana Trčková, Ing. Martin Jedlička, Milan Paluska\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)",
+      "pro": {
+       "count": 6,
+       "names": [
+        "Ing. Karel Krištoufek",
+        "Ing. Petr Dürr",
+        "Ing. Hana Kuprová",
+        "Ivana Trčková",
+        "Ing. Martin Jedlička",
+        "Milan Paluska"
+       ],
+       "raw": "(6) Ing. Karel Krištoufek, Ing. Petr Dürr, Ing. Hana Kuprová, Ivana Trčková, Ing. Martin Jedlička, Milan Paluska"
+      },
+      "proti": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "zdrzel_se": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "nehlasoval": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "result_raw": "Návrh byl přijat jako usnesení číslo: UR-411-42/24",
+      "adopted_resolution_number": "UR-411-42/24"
+     }
+    ],
+    "resolution_numbers_mentioned": [
+     "UR-411-42/24"
+    ],
+    "raw_text": "Projednávání bodu bylo zahájeno v 16:41:06\n\nDůvodová zpráva:\nNa základě žádosti ZŠ Pečky předkládáme úpravu závazných ukazatelů pro rok 2024 :\n- celkový příspěvek zřizovatele se nemění\n- snížení účelového příspěvku na energie o 150 000 Kč (z 2 900 000 Kč na 2 750 000 Kč),\n- zvýšení min. nákladů na opravy o 100 000 Kč (z 1 400 000 kč na 1 500 000 Kč)\nPro\nrok 2024 příspěvková organizace ZŠ Pečky předpokládá přebytek z příspěvku na spotřebu energií (plynu a el. energie) zhruba 550 000 Kč,\nčást této úspory plánuje použít na opravu kompostéru ve ŠJ ( 80 tis. Kč) a vyšších nákladů na vodné (70 tis. Kč).\nDiskuze zahájena v 16:41:06\nK tomuto bodu se vyjádřili:\nMilan Paluska\nV 16:45:10 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Milan Paluska\") v tomto znění:\nRada\nměsta schvaluje změnu závazných ukazatelů pro rok 2024 příspěvkové organizaci Základní škola Pečky.\nHlasování\npro:\n(6) Ing. Karel Krištoufek, Ing. Petr Dürr, Ing. Hana Kuprová, Ivana Trčková, Ing. Martin Jedlička, Milan Paluska\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-411-42/24\nzodpovídá:\ntermín:\nIHNED\n(2. 12. 2024)\nProjednávání bodu bylo ukončeno v 16:45:17"
+   },
+   {
+    "number": 12,
+    "title_raw": "Žádost o čerpání rezervního fondu - knihovna",
+    "heading_raw": "12. Žádost o čerpání rezervního fondu - knihovna (bod číslo 12)",
+    "predkladatel": null,
+    "votes": [
+     {
+      "raw_text": "pro:\n(6) Ing. Karel Krištoufek, Ivana Trčková, Ing. Martin Jedlička, Ing. Petr Dürr, Milan Paluska, Ing. Hana Kuprová\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)",
+      "pro": {
+       "count": 6,
+       "names": [
+        "Ing. Karel Krištoufek",
+        "Ivana Trčková",
+        "Ing. Martin Jedlička",
+        "Ing. Petr Dürr",
+        "Milan Paluska",
+        "Ing. Hana Kuprová"
+       ],
+       "raw": "(6) Ing. Karel Krištoufek, Ivana Trčková, Ing. Martin Jedlička, Ing. Petr Dürr, Milan Paluska, Ing. Hana Kuprová"
+      },
+      "proti": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "zdrzel_se": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "nehlasoval": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "result_raw": "Návrh byl přijat jako usnesení číslo: UR-412-42/24",
+      "adopted_resolution_number": "UR-412-42/24"
+     }
+    ],
+    "resolution_numbers_mentioned": [
+     "UR-412-42/24"
+    ],
+    "raw_text": "Projednávání bodu bylo zahájeno v 16:45:22\n\nDůvodová zpráva:\nMěstská knihovna žádá zřizovatele o souhlas s čerpáním rezervního fondu do výše 32 000 Kč na pořízení poštovního serveru.\nStav\nRF je 245 922 Kč.\nDiskuze zahájena v 16:45:22\nK tomuto bodu se vyjádřili:\nMilan Paluska, Ivana Trčková, Ing. Karel Krištoufek, Ing. Hana Kuprová\nV 16:50:32 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Marcela Bahníková\") v tomto znění:\nRada\nměsta schvaluje Městské knihovně\nSvatopluka\nČecha\nčerpání rezervního fondu do výše 32 000 Kč na pořízení serveru.\nHlasování\npro:\n(6) Ing. Karel Krištoufek, Ivana Trčková, Ing. Martin Jedlička, Ing. Petr Dürr, Milan Paluska, Ing. Hana Kuprová\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-412-42/24\nzodpovídá:\ntermín:\nIHNED\n(2. 12. 2024)\nProjednávání bodu bylo ukončeno v 16:50:39"
+   },
+   {
+    "number": 13,
+    "title_raw": "OZV - pravidla pro pohyb psů na veřejném prostranství",
+    "heading_raw": "13. OZV - pravidla pro pohyb psů na veřejném prostranství (bod číslo 13)",
+    "predkladatel": null,
+    "votes": [
+     {
+      "raw_text": "pro:\n(6) Ing. Karel Krištoufek, Ing. Martin Jedlička, Ing. Hana Kuprová, Ing. Petr Dürr, Milan Paluska, Ivana Trčková\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)",
+      "pro": {
+       "count": 6,
+       "names": [
+        "Ing. Karel Krištoufek",
+        "Ing. Martin Jedlička",
+        "Ing. Hana Kuprová",
+        "Ing. Petr Dürr",
+        "Milan Paluska",
+        "Ivana Trčková"
+       ],
+       "raw": "(6) Ing. Karel Krištoufek, Ing. Martin Jedlička, Ing. Hana Kuprová, Ing. Petr Dürr, Milan Paluska, Ivana Trčková"
+      },
+      "proti": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "zdrzel_se": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "nehlasoval": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "result_raw": "Návrh byl přijat jako usnesení číslo: UR-413-42/24",
+      "adopted_resolution_number": "UR-413-42/24"
+     }
+    ],
+    "resolution_numbers_mentioned": [
+     "UR-413-42/24"
+    ],
+    "raw_text": "Projednávání bodu bylo zahájeno v 16:50:45\n\nDůvodová zpráva:\nNa základě d\noporučení MV ČR je předl\nožena přepracovaná OZV upravující pohyb psů na veřejných prostranství ve městě Pečky, tato vyhláška nahradí OZV 3/2005.\nDiskuze zahájena v 16:50:45\nK tomuto bodu se vyjádřili:\nMilan Paluska, Pavlína Nepovímová\nV 16:54:15 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Marcela Bahníková\") v tomto znění:\nRada\nměsta doporučuje zastupitelstvu města schválit OZV města Pečky, kterou se stanovují pravidla pro pohyb psů na veřejných prostranství ve městě Pečky\nHlasování\npro:\n(6) Ing. Karel Krištoufek, Ing. Martin Jedlička, Ing. Hana Kuprová, Ing. Petr Dürr, Milan Paluska, Ivana Trčková\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-413-42/24\nzodpovídá:\nMarcela Bahníková\ntermín:\n18. 12. 2024\nProjednávání bodu bylo ukončeno v 16:54:22"
+   },
+   {
+    "number": 14,
+    "title_raw": "Rozpočtové opatření č. 14/2024",
+    "heading_raw": "14. Rozpočtové opatření č. 14/2024 (bod číslo 14)",
+    "predkladatel": null,
+    "votes": [
+     {
+      "raw_text": "pro:\n(6) Ing. Hana Kuprová, Milan Paluska, Ing. Martin Jedlička, Ing. Petr Dürr, Ivana Trčková, Ing. Karel Krištoufek\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)",
+      "pro": {
+       "count": 6,
+       "names": [
+        "Ing. Hana Kuprová",
+        "Milan Paluska",
+        "Ing. Martin Jedlička",
+        "Ing. Petr Dürr",
+        "Ivana Trčková",
+        "Ing. Karel Krištoufek"
+       ],
+       "raw": "(6) Ing. Hana Kuprová, Milan Paluska, Ing. Martin Jedlička, Ing. Petr Dürr, Ivana Trčková, Ing. Karel Krištoufek"
+      },
+      "proti": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "zdrzel_se": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "nehlasoval": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "result_raw": "Návrh byl přijat jako usnesení číslo: UR-414-42/24",
+      "adopted_resolution_number": "UR-414-42/24"
+     }
+    ],
+    "resolution_numbers_mentioned": [
+     "UR-414-42/24"
+    ],
+    "raw_text": "Projednávání bodu bylo zahájeno v 16:54:25\n\nDůvodová zpráva:\nPředkládáme rozpočtová opatření č. 14/2024 - přesuny výdajů v kompetenci RM, snížení dotace na volby dle vyúčtování výdajů.\nDiskuze zahájena v 16:54:25\nK tomuto bodu se vyjádřili:\nMilan Paluska\nV 16:54:50 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Milan Paluska\") v tomto znění:\nRada\nměsta schvaluje rozpočtová opatření č. 14/2024.\nHlasování\npro:\n(6) Ing. Hana Kuprová, Milan Paluska, Ing. Martin Jedlička, Ing. Petr Dürr, Ivana Trčková, Ing. Karel Krištoufek\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-414-42/24\nzodpovídá:\ntermín:\nIHNED\n(2. 12. 2024)\nProjednávání bodu bylo ukončeno v 16:54:58"
+   },
+   {
+    "number": 15,
+    "title_raw": "Souhlas zřizovatele s žádostí o dotaci - knihovna",
+    "heading_raw": "15. Souhlas zřizovatele s žádostí o dotaci - knihovna (bod číslo 15)",
+    "predkladatel": null,
+    "votes": [
+     {
+      "raw_text": "pro:\n(6) Milan Paluska, Ivana Trčková, Ing. Petr Dürr, Ing. Hana Kuprová, Ing. Martin Jedlička, Ing. Karel Krištoufek\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)",
+      "pro": {
+       "count": 6,
+       "names": [
+        "Milan Paluska",
+        "Ivana Trčková",
+        "Ing. Petr Dürr",
+        "Ing. Hana Kuprová",
+        "Ing. Martin Jedlička",
+        "Ing. Karel Krištoufek"
+       ],
+       "raw": "(6) Milan Paluska, Ivana Trčková, Ing. Petr Dürr, Ing. Hana Kuprová, Ing. Martin Jedlička, Ing. Karel Krištoufek"
+      },
+      "proti": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "zdrzel_se": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "nehlasoval": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "result_raw": "Návrh byl přijat jako usnesení číslo: UR-415-42/24",
+      "adopted_resolution_number": "UR-415-42/24"
+     }
+    ],
+    "resolution_numbers_mentioned": [
+     "UR-415-42/24"
+    ],
+    "raw_text": "Projednávání bodu bylo zahájeno v 16:55:02\n\nDůvodová zpráva:\nMěstská knihovna žádá zřizovatele o souhlas s podáním žádosti o dotaci z rozpočtu Středočeského kraje.\nÚčel dotace: vybavení interiéru, skříně\nPožadovaná dotace: 70 000 Kč\nSpoluúčast : 44 000 Kč, financována z RF organizace ( předpokládaný stav RF 214 tis. ).\nDiskuze zahájena v 16:55:02\nK tomuto bodu se vyjádřili:\nMilan Paluska, Ivana Trčková, Ing. Hana Kuprová\nV 16:58:29 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Milan Paluska\") v tomto znění:\nRada\nměsta souhlasí s podáním žádosti o dotaci z rozpočtu Středočeského kraje Městskou knihovnou\nSvatopluka\nČecha\nna dovybavení interiéru.\nHlasování\npro:\n(6) Milan Paluska, Ivana Trčková, Ing. Petr Dürr, Ing. Hana Kuprová, Ing. Martin Jedlička, Ing. Karel Krištoufek\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-415-42/24\nzodpovídá:\ntermín:\nIHNED\n(2. 12. 2024)\nProjednávání bodu bylo ukončeno v 16:58:36"
+   },
+   {
+    "number": 16,
+    "title_raw": "Kontrola plnění usnesení",
+    "heading_raw": "16. Kontrola plnění usnesení (bod číslo 16)",
+    "predkladatel": null,
+    "votes": [],
+    "resolution_numbers_mentioned": [],
+    "raw_text": "Projednávání bodu bylo zahájeno v 16:58:40\nDiskuze zahájena v 16:58:40\nK tomuto bodu se vyjádřili:\nMilan Paluska, Pavlína Nepovímová\nRada bere informace k bodu č. 16 -\nKontrola plnění usnesení\nna vědomí.\nProjednávání bodu bylo ukončeno v 16:59:57"
+   },
+   {
+    "number": 17,
+    "title_raw": "Diskuse, různé",
+    "heading_raw": "17. Diskuse, různé (bod číslo 17)",
+    "predkladatel": null,
+    "votes": [],
+    "resolution_numbers_mentioned": [],
+    "raw_text": "Projednávání bodu bylo zahájeno v 17:00:01\nDiskuze zahájena v 17:00:01\nK tomuto bodu se vyjádřili:\nMilan Paluska, Ing. Karel Krištoufek\nRada bere informace k bodu č. 17 -\nDiskuse, různé\nna vědomí.\nProjednávání bodu bylo ukončeno v 17:14:34"
+   },
+   {
+    "number": 18,
+    "title_raw": "Úkoly vyplývající z jednání rady města",
+    "heading_raw": "18. Úkoly vyplývající z jednání rady města (bod číslo 18)",
+    "predkladatel": null,
+    "votes": [
+     {
+      "raw_text": "pro:\n(6) Ing. Karel Krištoufek, Ing. Hana Kuprová, Milan Paluska, Ing. Petr Dürr, Ing. Martin Jedlička, Ivana Trčková\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)",
+      "pro": {
+       "count": 6,
+       "names": [
+        "Ing. Karel Krištoufek",
+        "Ing. Hana Kuprová",
+        "Milan Paluska",
+        "Ing. Petr Dürr",
+        "Ing. Martin Jedlička",
+        "Ivana Trčková"
+       ],
+       "raw": "(6) Ing. Karel Krištoufek, Ing. Hana Kuprová, Milan Paluska, Ing. Petr Dürr, Ing. Martin Jedlička, Ivana Trčková"
+      },
+      "proti": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "zdrzel_se": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "nehlasoval": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "result_raw": "Návrh byl přijat jako usnesení číslo: UR-416-42/24",
+      "adopted_resolution_number": "UR-416-42/24"
+     }
+    ],
+    "resolution_numbers_mentioned": [
+     "UR-416-42/24"
+    ],
+    "raw_text": "Projednávání bodu bylo zahájeno v 17:14:52\nDiskuze zahájena v 17:14:52\nK tomuto bodu se vyjádřili:\nMilan Paluska\nV 17:18:12 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Milan Paluska\") v tomto znění:\nRada\nměsta ukládá tajemnici MěÚ Bc. Pavlíně\nNepovímové\nvyhlásit výběrové řízení na vedoucího Odboru investic a rozvoje.\nHlasování\npro:\n(6) Ing. Karel Krištoufek, Ing. Hana Kuprová, Milan Paluska, Ing. Petr Dürr, Ing. Martin Jedlička, Ivana Trčková\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-416-42/24\nzodpovídá:\nPavlína Nepovímová\ntermín:\n31. 12. 2024\nProjednávání bodu bylo ukončeno v 17:18:22"
+   },
+   {
+    "number": 19,
+    "title_raw": "Cena kalendářů PEČKY 2025",
+    "heading_raw": "19. Cena kalendářů PEČKY 2025 (bod číslo 19)",
+    "predkladatel": null,
+    "votes": [
+     {
+      "raw_text": "pro:\n(6) Ing. Hana Kuprová, Milan Paluska, Ing. Martin Jedlička, Ivana Trčková, Ing. Petr Dürr, Ing. Karel Krištoufek\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)",
+      "pro": {
+       "count": 6,
+       "names": [
+        "Ing. Hana Kuprová",
+        "Milan Paluska",
+        "Ing. Martin Jedlička",
+        "Ivana Trčková",
+        "Ing. Petr Dürr",
+        "Ing. Karel Krištoufek"
+       ],
+       "raw": "(6) Ing. Hana Kuprová, Milan Paluska, Ing. Martin Jedlička, Ivana Trčková, Ing. Petr Dürr, Ing. Karel Krištoufek"
+      },
+      "proti": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "zdrzel_se": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "nehlasoval": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "result_raw": "Návrh byl přijat jako usnesení číslo: UR-417-42/24",
+      "adopted_resolution_number": "UR-417-42/24"
+     }
+    ],
+    "resolution_numbers_mentioned": [
+     "UR-417-42/24"
+    ],
+    "raw_text": "Projednávání bodu bylo zahájeno v 17:18:26\n\nDůvodová zpráva:\nMěsto objednalo tisk 400 ks kalendářů PEČKY 2025, pořizovací cena 1 ks včetně DPH je 77,-Kč.\n150 ks bude použito jako dar, 250 ks je určeno k prodeji.\nNavrhujeme stanovit prodejní cenu za 1 ks kalendáře 100 Kč vč. DPH.\nVeškeré fotografické práce provedla zastupitelka\nIvana\nTrčková\nbez nároku na honorář.\nDiskuze zahájena v 17:18:26\nK tomuto bodu se vyjádřili:\nMilan Paluska, Ing. Martin Jedlička, Ing. Hana Kuprová, Ivana Trčková, Ing. Karel Krištoufek\nV 17:30:45 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Milan Paluska\") v tomto znění:\nRada\nměsta stanovuje prodejní cenu za kalendář PEČKY 2025 ve výši 100,- Kč vč. DPH.\nHlasování\npro:\n(6) Ing. Hana Kuprová, Milan Paluska, Ing. Martin Jedlička, Ivana Trčková, Ing. Petr Dürr, Ing. Karel Krištoufek\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-417-42/24\nzodpovídá:\ntermín:\nIHNED\n(2. 12. 2024)\nProjednávání bodu bylo ukončeno v 17:30:53\nJednání ukončeno 02.12.2024 v 17:31:32"
+   }
+  ],
+  "full_text": "ZÁPIS ze schůze rady č. 42/2024\nMěsto Pečky\ndatum: 2. 12. 2024, čas: 15:00\n​\nPrezence:\nPřítomni:\n(5) Milan Paluska, Ing. Karel Krištoufek, Ing. Martin Jedlička, Ing. Hana Kuprová, Ivana Trčková\nOmluveni:\n(1) Zdeněk Fejfar\nNepřítomni:\n(1) Ing. Petr Dürr\nHosté:\nZapisovatel/ka:\nEva Strnadová\nPřítomno je 5 členů a rada je usnášeníschopná.\nJednání zahájeno 02.12.2024 v 15:09:18\n1. Určení zapisovatelů, předsedajícího, příp. ověřovatelů (bod číslo 1)\nPředkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 15:09:39\nPředsedající navrhl jednotlivé členy pracovních komisí\nOvěřovatelé:\nIvana Trčková, Ing. Hana Kuprová\nPředsedající:\nMilan Paluska\nBod byl přijat bez hlasování.\nDiskuze zahájena v 15:09:39\nK tomuto bodu se vyjádřili:\nMilan Paluska\nProjednávání bodu bylo ukončeno v 15:09:56\n2. Schválení programu jednání (bod číslo 2)\nPředkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 15:10:04\nProgram jednání\n1. Určení zapisovatelů, předsedajícího, příp. ověřovatelů\n2. Schválení programu jednání\n3. Aktuální informace vedení města\n4. Pronájem nebytového prostoru v čp. 184 (Dům služeb – obuv) - uzavření smlouvy\n5. Uzavření \"Smlouvy o smlouvě budoucí o zřízení služebnosti inženýrské sítě č. SMLO-2475/00066001/2024-KH/SO/SB“\n6. Změna Organizační struktury Městského úřadu Pečky\n7. Vyhodnocení schůzek s řediteli příspěvkových organizací města Pečky\n8. Hodnocení ředitelů PO za druhé pololetí 2024\n9. Změna mobilní aplikace pro komunikaci s občany\n10. Žádost o schválení navýšení kapacity ZUŠ a otevření oboru \"Hra na housle\"\n11. Změna závazných ukazatelů - ZŠ Pečky\n12. Žádost o čerpání rez. fondu - knihovna\n13. OZV - pravidla pro pohyb psů na veř. prostranství\n14. Rozpočtové opatření č. 13/2024\n15. Souhlas zřizovatele s žádostí o dotaci - knihovna\n16. Kontrola plnění usnesení\n17. Diskuse, různé\n18. Úkoly vyplývající z jednání rady města\nDiskuze zahájena v 15:10:04\nK tomuto bodu se vyjádřili:\nMilan Paluska\nV 15:10:28 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Milan Paluska\") v tomto znění:\nRada\nměsta schvaluje návrh programu jednání.\ns těmito změnami:\n- doplňuje se bod č. 19 -\nCena\nkalendářů PEČKY 2025\nHlasování\npro:\n(5) Ing. Karel Krištoufek, Milan Paluska, Ing. Martin Jedlička, Ing. Hana Kuprová, Ivana Trčková\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-399-42/24\nzodpovídá:\ntermín:\nIHNED\n(2. 12. 2024)\nProjednávání bodu bylo ukončeno v 15:10:38\n3. Aktuální informace vedení města (bod číslo 3)\nPředkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 15:10:43\nDůvodová zpráva:\nstarosta města:\n- informace o postupu dláždění v ul.\nMlýnská\n, kompletní přepojení kanalizace na Bačově, akce „Rekonstrukce místních komunikací a vodovodní řad v části Bačov v Pečkách – 1. a 2. etapa“,\n- informace o ukončení stavební akce \"Oplocení MŠ Mašinka Pečky na ul. Tř.\nJana\nŠvermy, č.p. 825, Pečky - I.etapa\" - odstranění vad a nedodělků\n- informace o průběhu výměny světelných bodů v Pečkách\n- informace o zahájení \"Adventu\" - poděkování hasičům a organizátorům kulturní akce\n- informace o pietním aktu, položení květin na významném hrobě\nŠtěpána\nHovorky\n- informace o termínech zasedání ZM v roce 2025 - 26.2., 23.4., 18.6., 17.9., 12.11., 17.12.2025\nDiskuze zahájena v 15:10:43\nK tomuto bodu se vyjádřili:\nMilan Paluska, Ing. Karel Krištoufek, Ivana Trčková, Ing. Hana Kuprová\nV 15:19:20 přišel Ing. Petr Dürr, přítomno 6 radních.\nAktualizovaný stav prezence:\nPřítomni:\n(6) Milan Paluska, Ing. Karel Krištoufek, Ing. Martin Jedlička, Ing. Hana Kuprová, Ivana Trčková, Ing. Petr Dürr\nOmluveni:\n(1) Zdeněk Fejfar\nNepřítomni:\n(0)\nRada bere informace k bodu č. 3 -\nAktuální informace vedení města\nna vědomí.\nProjednávání bodu bylo ukončeno v 15:29:28\n4. Pronájem nebytového prostoru v čp. 184 (Dům služeb – obuv) - uzavření smlouvy (bod číslo 4)\nPředkladatel: Jana Najbrtová\nProjednávání bodu bylo zahájeno v 15:29:33\nDůvodová zpráva:\nDle zveřejněného záměru byla předložena jediná nabídka od\n█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​\na ta souhlasí s podmínkami ve zveřejněném záměru ze dne 5.11. 2024 tzn. nájem ve výši 6.207,- Kč/měsíc + zálohy na služby 3.800,-Kč/měsíc.\n█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​\nzachová prodej obuvi. Smlouva na pronájem prostor sloužících podnikání bude uzavřena od 1.1. 2025 na dobu neurčitou a výpovědní lhůta činí 3 měsíce.\nStanoviska a doporučení poradních orgánů/odborů:\nNeprobíralo se\nDiskuze zahájena v 15:29:33\nK tomuto bodu se vyjádřili:\nMilan Paluska, Ing. Hana Kuprová, Ing. Petr Dürr, Ivana Trčková\nV 15:31:28 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Jana Najbrtová\") v tomto znění:\nRada\nměsta schvaluje uzavření „Smlouvy na pronájem prostor sloužících podnikání“ – nebytový prostor v Domě služeb v Pečkách, ul. J.A.\nKomenského\nčp. 184, celková výměra 76 m\n2\n. Smlouva bude uzavřena s\n█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​\nod 1.1. 2025 na dobu neurčitou s výpovědní lhůtou 3 měsíce. Nájem činí 6.207,- Kč/měsíc + zálohy na služby 3.800,-Kč/měsíc.\nHlasování\npro:\n(6) Ing. Hana Kuprová, Ing. Petr Dürr, Milan Paluska, Ivana Trčková, Ing. Martin Jedlička, Ing. Karel Krištoufek\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-400-42/24\nzodpovídá:\nJana Najbrtová\ntermín:\n6. 1. 2025\nProjednávání bodu bylo ukončeno v 15:31:35\n5. Uzavření \"Smlouvy o smlouvě budoucí o zřízení služebnosti inženýrské sítě č. SMLO-2475/00066001/2024-KH/SO/SB“ (bod číslo 5)\nPředkladatel: Jana Najbrtová\nProjednávání bodu bylo zahájeno v 15:31:39\nDůvodová zpráva:\nDoporučujeme uzavřít uvedenou smlouvu, která podléhá schválení ZM. Jedná se o uložení inženýrských sítí v ul.\nMilčická\nve Velkých Chvalovicích-(cca 700 bm), která je v majetku KSÚS\nPraha\n. Náhrada za zřízení VBř je stanovena dle Ceníku Středočeského kraje – náhrady za zřízení služebnosti inženýrské sítě a za omezené užívání silnic II. a III. tříd. VBř bude vedeno v zeleném pásu a podvrtem pod komunikací.\nStanoviska a doporučení poradních orgánů/odborů:\nNeprobíralo se\nDiskuze zahájena v 15:31:39\nK tomuto bodu se vyjádřili:\nMilan Paluska, Ing. Hana Kuprová, Ing. Karel Krištoufek, Ing. Martin Jedlička\nV 15:33:17 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Jana Najbrtová\") v tomto znění:\nRada\nměsta doporučuje zastupitelstvu města schválit uzavření \"Smlouvy o smlouvě budoucí o zřízení služebnosti inženýrské sítě č. SMLO-2475/00066001/2024-KH/SO/SB“ mezi smluvními stranami KSÚS,\nPraha\n5, ul.\nZborovská\n11 (budoucí povinný) a Městem Pečky (budoucí oprávněný) – ul.\nMilčická\n,\nVelké\nChvalovice v rámci akce „Dobudování stezky pro pěší a cyklisty v ul.\nMilčická\nve Velkých Chvalovicích“. Jedná se o uložení inženýrských sítí do pozemků v majetku KSÚS,\nPraha\n, ul.\nZborovská\n11 - č. parc. 171/4,172/4,175/1 a 176/1 (k.ú.\nVelké\nChvalovice). Celková délka činí cca 700 bm za celkovou cenu 37.355,- Kč (45.199,55 s DPH)-dle ceníku KSÚS.\nHlasování\npro:\n(6) Milan Paluska, Ing. Martin Jedlička, Ivana Trčková, Ing. Petr Dürr, Ing. Karel Krištoufek, Ing. Hana Kuprová\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-401-42/24\nzodpovídá:\nJana Najbrtová\ntermín:\n30. 6. 2025\nProjednávání bodu bylo ukončeno v 15:33:24\n6. Změna Organizační struktury Městského úřadu Pečky (bod číslo 6)\nPředkladatel: Pavlína Nepovímová\nProjednávání bodu bylo zahájeno v 15:33:28\nDůvodová zpráva:\nZměna organizační struktury města Pečky je z důvodu zřízení nového odboru investic a rozvoje, a zařazení koordinátora projektu, referenta přípravy a realizace investic do tohoto odboru, další změnou je samostatné zařazení sociální práce.\nTento krok vychází z následujícího důvodu:\nS ohledem na rostoucí potřebu efektivního řízení investičních projektů města, zajištění systematického plánování, realizace a kontroly investic, je navrženo zřízení samostatného odboru investic v rámci organizační struktury městského úřadu.\nZvýšení efektivity řízení projektů:\nDosavadní model řízení investic, který je rozdělen mezi jednotlivé odbory, naráží na omezené kapacity a nedostatečnou koordinaci. Zřízení specializovaného odboru umožní centralizaci všech klíčových činností spojených s investicemi, což povede ke zlepšení kontroly, dodržování termínů a optimalizaci využívání finančních prostředků.\nRostoucí objem investičních aktivit:\nPlánované investiční akce v příštích letech, ať už jde o rekonstrukce infrastruktury, výstavbu veřejných budov nebo modernizaci technologií, vyžadují zajištění profesionálního projektového managementu a specifické odborné kapacity.\nNáklady na zřízení odboru:\nZřízení odboru bude znamenat navýšení personálních kapacit o vedoucího, zároveň dojde k přesunu koordinátora projektu a referenta přípravy a realizaci investic z kanceláře tajemníka do nového odboru. Předpokládá se, že tyto náklady budou kompenzovány efektivnějším využíváním finančních prostředků a vyšší kvalitou práce díky zlepšené kontrole a organizaci.\nPřínosy pro město:\n- Větší přehlednost a kontrola nad investicemi.\n- Posílení odborného zázemí pro strategické rozhodování.\n- Možnost lepšího využití externích zdrojů financování (dotace, granty).\nDiskuze zahájena v 15:33:28\nK tomuto bodu se vyjádřili:\nMilan Paluska, Pavlína Nepovímová, Ing. Karel Krištoufek, Ing. Petr Dürr\nV 15:37:27 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Pavlína Nepovímová\") v tomto znění:\nRada\nměsta schvaluje zřízení nového Odboru investic a rozvoje v rámci organizační struktury městského úřadu Pečky, a to s účinností od 1.1.2025.\nHlasování\npro:\n(6) Ing. Petr Dürr, Milan Paluska, Ing. Martin Jedlička, Ivana Trčková, Ing. Karel Krištoufek, Ing. Hana Kuprová\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-402-42/24\nzodpovídá:\ntermín:\nIHNED\n(2. 12. 2024)\nV 15:39:42 předsedající zahájil hlasování o návrhu usnesení \"B\" (navrhovatel: \"Pavlína Nepovímová\") v tomto znění:\nRada\nměsta schvaluje změny:\n- v Organizační struktuře Městského úřadu Pečky\n- v Organizačním řádu Městského úřadu Pečky\nHlasování\npro:\n(6) Ing. Martin Jedlička, Ing. Petr Dürr, Ing. Hana Kuprová, Ivana Trčková, Milan Paluska, Ing. Karel Krištoufek\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-403-42/24\nzodpovídá:\ntermín:\nIHNED\n(2. 12. 2024)\nProjednávání bodu bylo ukončeno v 15:39:54\n7. Vyhodnocení schůzek s řediteli příspěvkových organizací města Pečky (bod číslo 7)\nPředkladatel: Pavlína Nepovímová\nProjednávání bodu bylo zahájeno v 15:40:00\nDůvodová zpráva:\nV rámci prvních schůzek s řediteli a ředitelkami příspěvkových organizací města, které probíhaly pravidelně v souvislosti s jejich účastí na zasedáních rady města, byly projednány klíčové otázky týkající se organizace činnosti a personálních záležitostí.\nBěhem těchto schůzek bylo zjištěno, že ředitel ZŠ Pečky, okres\nKolín\n, stejně jako někteří zaměstnanci školy, nečerpal dovolenou v souladu s platnými předpisy, a to v rozporu s povinnostmi vyplývajícími z zákoníku práce (zákon č. 262/2006 Sb., § 217–223).\nV souvislosti s čerpáním dovolené bylo zjištěno, že:\nŘeditel ZŠ Pečky, okres\nKolín\nnečerpal dovolenou v souladu s pracovněprávními předpisy. Podle § 217 odst. 1 zákoníku práce je zaměstnavatel povinen zajistit čerpání dovolené svým zaměstnancům v příslušném kalendářním roce. V případě ředitele školy se jednalo o nečerpání dovolené za několik let.\nZaměstnanci školy rovněž nečerpali dovolenou v odpovídajícím rozsahu. Podle § 218 zákoníku práce musí být dovolená čerpána v souladu s plánem čerpání dovolené, který má být přizpůsoben potřebám organizace a oprávněným zájmům zaměstnanců.\nPožadavky k doložení a upřesnění, pro ředitele základní školy:\n- doložit soupis čerpání dovolené za poslední 3 roky\n- předložit plán čerpání dovolené na následující období\nOpatření pro zajištění pravidelných kontrol čerpání dovolené\nVzhledem k významu správného a včasného čerpání dovolené a zajištění souladu s pracovním právem, jsou nastavené pravidelné schůzky mezi radou města a řediteli příspěvkových organizací. Tyto schůzky budou sloužit:\n- ke kontrole plnění pracovněprávních povinností, včetně čerpání dovolené,\n- k diskusi o provozních otázkách a personálních záležitostech,\n- včasnému identifikování potenciálních problémů v organizacích, které je třeba řešit\nTyto schůzky budou probíhat pravidelně 2x do roka a budou k zajištění řádného fungování příspěvkových organizací a souladu s právními předpisy.\nU ostatních schůzek příspěvkových organizací nebyla během těchto setkání zjištěna žádná pochybení ohledně čerpání dovolené ani jiných pracovněprávních záležitostí. Provoz příspěvkových organizací a čerpání dotací se pravidelně zjišťuje a sleduje, aby bylo zajištěno jejich správné fungování a soulad s předpisy.\nDiskuze zahájena v 15:40:00\nK tomuto bodu se vyjádřili:\nMilan Paluska, Pavlína Nepovímová, Ing. Karel Krištoufek, Ing. Hana Kuprová, Ing. Martin Jedlička, Ing. Petr Dürr, Ivana Trčková\nRada bere informace k bodu č. 7 -\nVyhodnocení schůzek s řediteli příspěvkových organizací města Pečky\nna vědomí.\nProjednávání bodu bylo ukončeno v 15:46:20\n8. Hodnocení ředitelů PO za druhé pololetí 2024 (bod číslo 8)\nPředkladatel: Pavlína Nepovímová\nProjednávání bodu bylo zahájeno v 15:46:26\nDůvodová zpráva:\nRada\nměsta stanovuje výši mimořádných odměn, které mohou být ředitelům příspěvkových organizací přiznány na základě splnění stanovených kritérií ve druhé polovině roku 2024.\nDiskuze zahájena v 15:46:26\nK tomuto bodu se vyjádřili:\nMilan Paluska, Ing. Petr Dürr, Ing. Martin Jedlička, Ing. Karel Krištoufek, Ing. Hana Kuprová, Ivana Trčková\nV 16:24:18 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Pavlína Nepovímová\") v tomto znění:\nRada\nměsta schvaluje mimořádnou odměnu řediteli Základní školy Pečky Mgr. Ing. Luboši\nZajícovi\nMBA ve výši\n█​█​█​█​█​█​█​█​█​\n█​█​\nHlasování\npro:\n(6) Ing. Petr Dürr, Ing. Martin Jedlička, Ivana Trčková, Milan Paluska, Ing. Hana Kuprová, Ing. Karel Krištoufek\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-404-42/24\nzodpovídá:\ntermín:\nIHNED\n(2. 12. 2024)\nV 16:24:48 předsedající zahájil hlasování o návrhu usnesení \"B\" (navrhovatel: \"Pavlína Nepovímová\") v tomto znění:\nRada\nměsta schvaluje mimořádnou odměnu ředitelce Mateřské školy MAŠINKA Pečky, Bc. Květě\nBubeníčkové\nve výši\n█​█​█​█​█​█​█​█​\n█​█​█​\nHlasování\npro:\n(6) Ing. Martin Jedlička, Ing. Hana Kuprová, Ivana Trčková, Milan Paluska, Ing. Petr Dürr, Ing. Karel Krištoufek\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-405-42/24\nzodpovídá:\ntermín:\nIHNED\n(2. 12. 2024)\nV 16:25:19 předsedající zahájil hlasování o návrhu usnesení \"C\" (navrhovatel: \"Pavlína Nepovímová\") v tomto znění:\nRada\nměsta schvaluje mimořádnou odměnu ředitelce Městské knihovny\nSvatopluka\nČecha\npí. Vladimíře\nKrulišové\nve výši\n█​█​█​█​█​█​█​█​\n█​█​█​\nHlasování\npro:\n(6) Ing. Petr Dürr, Ing. Hana Kuprová, Milan Paluska, Ivana Trčková, Ing. Karel Krištoufek, Ing. Martin Jedlička\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-406-42/24\nzodpovídá:\ntermín:\nIHNED\n(2. 12. 2024)\nV 16:26:30 předsedající zahájil hlasování o návrhu usnesení \"D\" (navrhovatel: \"Pavlína Nepovímová\") v tomto znění:\nRada\nměsta schvaluje mimořádnou odměnu ředitelce Základní umělecké školy Pečky, okres\nKolín\npí. Petře\nVorlíčkové\n, DiS. ve výši\n█​█​█​█​█​█​█​█​\n█​█​█​\nHlasování\npro:\n(6) Ing. Martin Jedlička, Milan Paluska, Ing. Hana Kuprová, Ivana Trčková, Ing. Petr Dürr, Ing. Karel Krištoufek\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-407-42/24\nzodpovídá:\ntermín:\nIHNED\n(2. 12. 2024)\nV 16:27:20 předsedající zahájil hlasování o návrhu usnesení \"E\" (navrhovatel: \"Pavlína Nepovímová\") v tomto znění:\nRada\nměsta schvaluje mimořádnou odměnu ředitelce Pečovatelské služby města Pečky Mgr. Petře\nČermákové\nve výši\n█​█​█​█​█​█​█​█​\n█​█​█​\nHlasování\npro:\n(6) Ing. Martin Jedlička, Ing. Karel Krištoufek, Ivana Trčková, Ing. Hana Kuprová, Ing. Petr Dürr, Milan Paluska\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-408-42/24\nzodpovídá:\ntermín:\nIHNED\n(2. 12. 2024)\nV 16:27:41 předsedající zahájil hlasování o návrhu usnesení \"F\" (navrhovatel: \"Pavlína Nepovímová\") v tomto znění:\nRada\nměsta schvaluje schvaluje mimořádnou odměnu řediteli Kulturního střediska města Pečky p. Lukáši\nHanzelínovi\nve výši\n█​█​█​█​█​█​█​█​\n█​█​█​\nHlasování\npro:\n(6) Ing. Hana Kuprová, Ivana Trčková, Ing. Martin Jedlička, Ing. Karel Krištoufek, Ing. Petr Dürr, Milan Paluska\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-409-42/24\nzodpovídá:\ntermín:\nIHNED\n(2. 12. 2024)\nProjednávání bodu bylo ukončeno v 16:28:57\n9. Změna mobilní aplikace pro komunikaci s občany (bod číslo 9)\nPředkladatel: Pavlína Nepovímová\nProjednávání bodu bylo zahájeno v 16:29:02\nDůvodová zpráva:\nMěsto Pečky v současné době využívá mobilní aplikaci Munipolis jako nástroj pro komunikaci s občany.\nTato\naplikace slouží pro zasílání důležitých informací, oznámení a dalších zpráv občanům. V průběhu užívání byly identifikovány finanční náročnost a některé funkční omezení tohoto systému. Z tohoto důvodu byla oslovena společnost Urbitech, která městu nabídla výhodnější podmínky, včetně:\n- nižších provozních nákladů na poskytování služby\n- rozšíření funkcionality aplikace, zejména o rezervační systém a možnost dalších individuálních úprav podle potřeb města\nSpolečnost Urbitech nabízí také větší flexibilitu při přizpůsobení aplikace specifickým požadavkům města, což může dále zefektivnit komunikaci s občany.\nDiskuze zahájena v 16:29:02\nK tomuto bodu se vyjádřili:\nMilan Paluska, Pavlína Nepovímová\nRada bere informace k bodu č. 9 -\nZměna mobilní aplikace pro komunikaci s občany\nna vědomí.\nProjednávání bodu bylo ukončeno v 16:37:56\n10. Žádost o schválení navýšení kapacity ZUŠ a otevření oboru \"Hra na housle\" (bod číslo 10)\nPředkladatel: Pavlína Nepovímová\nProjednávání bodu bylo zahájeno v 16:38:00\nDůvodová zpráva:\nŽádost o navýšení kapacity o 30 žáků od 1. 9. 2025 z důvodu velkého zájmu o hudební vzdělávání, zejména o nově plánované studijní zaměření – „Hra na housle“. Tento obor rozšiřuje nabídku Základní umělecké školy Pečky, okres\nKolína\na umožní uspokojit poptávku rodičů a žáků v našem regionu.\nDiskuze zahájena v 16:38:00\nK tomuto bodu se vyjádřili:\nMilan Paluska, Ing. Karel Krištoufek, Ivana Trčková, Ing. Hana Kuprová\nV 16:40:31 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Pavlína Nepovímová\") v tomto znění:\nRada\nměsta schvaluje zaslání žádosti o navýšení kapacity Základní umělecké školy Pečky, okres\nKolín\no 30 žáků s účinností od 1. 9. 2025 v souvislosti s plánovaným otevřením nového studijního zaměření „Hra na housle“.\nHlasování\npro:\n(6) Ing. Petr Dürr, Ing. Martin Jedlička, Ing. Hana Kuprová, Ing. Karel Krištoufek, Milan Paluska, Ivana Trčková\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-410-42/24\nzodpovídá:\ntermín:\nIHNED\n(2. 12. 2024)\nProjednávání bodu bylo ukončeno v 16:41:01\n11. Změna závazných ukazatelů - ZŠ Pečky (bod číslo 11)\nPředkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 16:41:06\nDůvodová zpráva:\nNa základě žádosti ZŠ Pečky předkládáme úpravu závazných ukazatelů pro rok 2024 :\n- celkový příspěvek zřizovatele se nemění\n- snížení účelového příspěvku na energie o 150 000 Kč (z 2 900 000 Kč na 2 750 000 Kč),\n- zvýšení min. nákladů na opravy o 100 000 Kč (z 1 400 000 kč na 1 500 000 Kč)\nPro\nrok 2024 příspěvková organizace ZŠ Pečky předpokládá přebytek z příspěvku na spotřebu energií (plynu a el. energie) zhruba 550 000 Kč,\nčást této úspory plánuje použít na opravu kompostéru ve ŠJ ( 80 tis. Kč) a vyšších nákladů na vodné (70 tis. Kč).\nDiskuze zahájena v 16:41:06\nK tomuto bodu se vyjádřili:\nMilan Paluska\nV 16:45:10 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Milan Paluska\") v tomto znění:\nRada\nměsta schvaluje změnu závazných ukazatelů pro rok 2024 příspěvkové organizaci Základní škola Pečky.\nHlasování\npro:\n(6) Ing. Karel Krištoufek, Ing. Petr Dürr, Ing. Hana Kuprová, Ivana Trčková, Ing. Martin Jedlička, Milan Paluska\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-411-42/24\nzodpovídá:\ntermín:\nIHNED\n(2. 12. 2024)\nProjednávání bodu bylo ukončeno v 16:45:17\n12. Žádost o čerpání rezervního fondu - knihovna (bod číslo 12)\nPředkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 16:45:22\nDůvodová zpráva:\nMěstská knihovna žádá zřizovatele o souhlas s čerpáním rezervního fondu do výše 32 000 Kč na pořízení poštovního serveru.\nStav\nRF je 245 922 Kč.\nDiskuze zahájena v 16:45:22\nK tomuto bodu se vyjádřili:\nMilan Paluska, Ivana Trčková, Ing. Karel Krištoufek, Ing. Hana Kuprová\nV 16:50:32 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Marcela Bahníková\") v tomto znění:\nRada\nměsta schvaluje Městské knihovně\nSvatopluka\nČecha\nčerpání rezervního fondu do výše 32 000 Kč na pořízení serveru.\nHlasování\npro:\n(6) Ing. Karel Krištoufek, Ivana Trčková, Ing. Martin Jedlička, Ing. Petr Dürr, Milan Paluska, Ing. Hana Kuprová\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-412-42/24\nzodpovídá:\ntermín:\nIHNED\n(2. 12. 2024)\nProjednávání bodu bylo ukončeno v 16:50:39\n13. OZV - pravidla pro pohyb psů na veřejném prostranství (bod číslo 13)\nPředkladatel: Marcela Bahníková\nProjednávání bodu bylo zahájeno v 16:50:45\nDůvodová zpráva:\nNa základě d\noporučení MV ČR je předl\nožena přepracovaná OZV upravující pohyb psů na veřejných prostranství ve městě Pečky, tato vyhláška nahradí OZV 3/2005.\nDiskuze zahájena v 16:50:45\nK tomuto bodu se vyjádřili:\nMilan Paluska, Pavlína Nepovímová\nV 16:54:15 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Marcela Bahníková\") v tomto znění:\nRada\nměsta doporučuje zastupitelstvu města schválit OZV města Pečky, kterou se stanovují pravidla pro pohyb psů na veřejných prostranství ve městě Pečky\nHlasování\npro:\n(6) Ing. Karel Krištoufek, Ing. Martin Jedlička, Ing. Hana Kuprová, Ing. Petr Dürr, Milan Paluska, Ivana Trčková\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-413-42/24\nzodpovídá:\nMarcela Bahníková\ntermín:\n18. 12. 2024\nProjednávání bodu bylo ukončeno v 16:54:22\n14. Rozpočtové opatření č. 14/2024 (bod číslo 14)\nPředkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 16:54:25\nDůvodová zpráva:\nPředkládáme rozpočtová opatření č. 14/2024 - přesuny výdajů v kompetenci RM, snížení dotace na volby dle vyúčtování výdajů.\nDiskuze zahájena v 16:54:25\nK tomuto bodu se vyjádřili:\nMilan Paluska\nV 16:54:50 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Milan Paluska\") v tomto znění:\nRada\nměsta schvaluje rozpočtová opatření č. 14/2024.\nHlasování\npro:\n(6) Ing. Hana Kuprová, Milan Paluska, Ing. Martin Jedlička, Ing. Petr Dürr, Ivana Trčková, Ing. Karel Krištoufek\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-414-42/24\nzodpovídá:\ntermín:\nIHNED\n(2. 12. 2024)\nProjednávání bodu bylo ukončeno v 16:54:58\n15. Souhlas zřizovatele s žádostí o dotaci - knihovna (bod číslo 15)\nPředkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 16:55:02\nDůvodová zpráva:\nMěstská knihovna žádá zřizovatele o souhlas s podáním žádosti o dotaci z rozpočtu Středočeského kraje.\nÚčel dotace: vybavení interiéru, skříně\nPožadovaná dotace: 70 000 Kč\nSpoluúčast : 44 000 Kč, financována z RF organizace ( předpokládaný stav RF 214 tis. ).\nDiskuze zahájena v 16:55:02\nK tomuto bodu se vyjádřili:\nMilan Paluska, Ivana Trčková, Ing. Hana Kuprová\nV 16:58:29 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Milan Paluska\") v tomto znění:\nRada\nměsta souhlasí s podáním žádosti o dotaci z rozpočtu Středočeského kraje Městskou knihovnou\nSvatopluka\nČecha\nna dovybavení interiéru.\nHlasování\npro:\n(6) Milan Paluska, Ivana Trčková, Ing. Petr Dürr, Ing. Hana Kuprová, Ing. Martin Jedlička, Ing. Karel Krištoufek\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-415-42/24\nzodpovídá:\ntermín:\nIHNED\n(2. 12. 2024)\nProjednávání bodu bylo ukončeno v 16:58:36\n16. Kontrola plnění usnesení (bod číslo 16)\nPředkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 16:58:40\nDiskuze zahájena v 16:58:40\nK tomuto bodu se vyjádřili:\nMilan Paluska, Pavlína Nepovímová\nRada bere informace k bodu č. 16 -\nKontrola plnění usnesení\nna vědomí.\nProjednávání bodu bylo ukončeno v 16:59:57\n17. Diskuse, různé (bod číslo 17)\nPředkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 17:00:01\nDiskuze zahájena v 17:00:01\nK tomuto bodu se vyjádřili:\nMilan Paluska, Ing. Karel Krištoufek\nRada bere informace k bodu č. 17 -\nDiskuse, různé\nna vědomí.\nProjednávání bodu bylo ukončeno v 17:14:34\n18. Úkoly vyplývající z jednání rady města (bod číslo 18)\nPředkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 17:14:52\nDiskuze zahájena v 17:14:52\nK tomuto bodu se vyjádřili:\nMilan Paluska\nV 17:18:12 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Milan Paluska\") v tomto znění:\nRada\nměsta ukládá tajemnici MěÚ Bc. Pavlíně\nNepovímové\nvyhlásit výběrové řízení na vedoucího Odboru investic a rozvoje.\nHlasování\npro:\n(6) Ing. Karel Krištoufek, Ing. Hana Kuprová, Milan Paluska, Ing. Petr Dürr, Ing. Martin Jedlička, Ivana Trčková\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-416-42/24\nzodpovídá:\nPavlína Nepovímová\ntermín:\n31. 12. 2024\nProjednávání bodu bylo ukončeno v 17:18:22\n19. Cena kalendářů PEČKY 2025 (bod číslo 19)\nPředkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 17:18:26\nDůvodová zpráva:\nMěsto objednalo tisk 400 ks kalendářů PEČKY 2025, pořizovací cena 1 ks včetně DPH je 77,-Kč.\n150 ks bude použito jako dar, 250 ks je určeno k prodeji.\nNavrhujeme stanovit prodejní cenu za 1 ks kalendáře 100 Kč vč. DPH.\nVeškeré fotografické práce provedla zastupitelka\nIvana\nTrčková\nbez nároku na honorář.\nDiskuze zahájena v 17:18:26\nK tomuto bodu se vyjádřili:\nMilan Paluska, Ing. Martin Jedlička, Ing. Hana Kuprová, Ivana Trčková, Ing. Karel Krištoufek\nV 17:30:45 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Milan Paluska\") v tomto znění:\nRada\nměsta stanovuje prodejní cenu za kalendář PEČKY 2025 ve výši 100,- Kč vč. DPH.\nHlasování\npro:\n(6) Ing. Hana Kuprová, Milan Paluska, Ing. Martin Jedlička, Ivana Trčková, Ing. Petr Dürr, Ing. Karel Krištoufek\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-417-42/24\nzodpovídá:\ntermín:\nIHNED\n(2. 12. 2024)\nProjednávání bodu bylo ukončeno v 17:30:53\nJednání ukončeno 02.12.2024 v 17:31:32"
+ },
+ "resolutions": {
+  "status": "ok",
+  "url": "https://mesto-pecky.usneseni.cz/verejne/e5d73357-ac8b-11ef-9543-00505683238f/usneseni/",
+  "fetched_at": "2026-08-04T13:41:19.492169+00:00",
+  "items": [
+   {
+    "number_raw": "UR-399-42/24",
+    "detail_id": 80594,
+    "detail_url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/80594?mod=rada",
+    "agenda_item_raw": "Schválení programu jednání",
+    "text_verbatim": "Rada\nměsta schvaluje návrh programu jednání.\ns těmito změnami:\n- doplňuje se bod č. 19 -\nCena\nkalendářů PEČKY 2025",
+    "cell_text_raw": "Bod programu:\nSchválení programu jednání\nText přijatého usnesení:\nRada\nměsta schvaluje návrh programu jednání.\ns těmito změnami:\n- doplňuje se bod č. 19 -\nCena\nkalendářů PEČKY 2025",
+    "date_raw": "2. 12. 2024",
+    "date_iso": "2024-12-02",
+    "responsible_raw": "",
+    "deadline_raw": "IHNED (2. 12. 2024)",
+    "vote": {
+     "raw_text": "pro: 5 proti: 0 zdržel se: 0",
+     "pro": {
+      "count": 5,
+      "names": null,
+      "raw": "5"
+     },
+     "proti": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     },
+     "zdrzel_se": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     }
+    },
+    "detail": {
+     "number_raw": "UR-399-42/24",
+     "text_verbatim": "Rada města schvaluje návrh programu jednání.\ns těmito změnami: - doplňuje se bod č. 19 - Cena kalendářů PEČKY 2025",
+     "typ_raw": null,
+     "zodpovida_raw": "",
+     "prijato_raw": "2. 12. 2024 na jednání č. 42/2024",
+     "prijato_date_iso": "2024-12-02",
+     "prijato_meeting_label": "42/2024",
+     "termin_raw": "IHNED (2. 12. 2024)",
+     "ukonceno_raw": "2. 12. 2024",
+     "ukonceno_date_iso": "2024-12-02",
+     "fields_raw": {
+      "Číslo usnesení": "UR-399-42/24",
+      "Text usnesení": "Rada města schvaluje návrh programu jednání.\ns těmito změnami: - doplňuje se bod č. 19 - Cena kalendářů PEČKY 2025",
+      "Zodpovídá": "",
+      "Přijato": "2. 12. 2024 na jednání č. 42/2024",
+      "Termín": "IHNED (2. 12. 2024)",
+      "Ukončeno": "2. 12. 2024"
+     }
+    }
+   },
+   {
+    "number_raw": "UR-400-42/24",
+    "detail_id": 80625,
+    "detail_url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/80625?mod=rada",
+    "agenda_item_raw": "Pronájem nebytového prostoru v čp. 184 (Dům služeb – obuv) - uzavření smlouvy",
+    "text_verbatim": "Rada\nměsta schvaluje uzavření „Smlouvy na pronájem prostor sloužících podnikání“ – nebytový prostor v Domě služeb v Pečkách, ul. J.A.\nKomenského\nčp. 184, celková výměra 76 m\n2\n. Smlouva bude uzavřena s\n█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​\nod 1.1. 2025 na dobu neurčitou s výpovědní lhůtou 3 měsíce. Nájem činí 6.207,- Kč/měsíc + zálohy na služby 3.800,-Kč/měsíc.",
+    "cell_text_raw": "Bod programu:\nPronájem nebytového prostoru v čp. 184 (Dům služeb – obuv) - uzavření smlouvy\nText přijatého usnesení:\nRada\nměsta schvaluje uzavření „Smlouvy na pronájem prostor sloužících podnikání“ – nebytový prostor v Domě služeb v Pečkách, ul. J.A.\nKomenského\nčp. 184, celková výměra 76 m\n2\n. Smlouva bude uzavřena s\n█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​\nod 1.1. 2025 na dobu neurčitou s výpovědní lhůtou 3 měsíce. Nájem činí 6.207,- Kč/měsíc + zálohy na služby 3.800,-Kč/měsíc.",
+    "date_raw": "2. 12. 2024",
+    "date_iso": "2024-12-02",
+    "responsible_raw": "Jana Najbrtová",
+    "deadline_raw": "6. 1. 2025",
+    "vote": {
+     "raw_text": "pro: 6 proti: 0 zdržel se: 0",
+     "pro": {
+      "count": 6,
+      "names": null,
+      "raw": "6"
+     },
+     "proti": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     },
+     "zdrzel_se": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     }
+    },
+    "detail": {
+     "number_raw": "UR-400-42/24",
+     "text_verbatim": "Rada města schvaluje uzavření „Smlouvy na pronájem prostor sloužících podnikání“ – nebytový prostor v Domě služeb v Pečkách, ul. J.A. Komenského čp. 184, celková výměra 76 m 2 . Smlouva bude uzavřena s █​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​ od 1.1. 2025 na dobu neurčitou s výpovědní lhůtou 3 měsíce. Nájem činí 6.207,- Kč/měsíc + zálohy na služby 3.800,-Kč/měsíc.",
+     "typ_raw": null,
+     "zodpovida_raw": "Jana Najbrtová",
+     "prijato_raw": "2. 12. 2024 na jednání č. 42/2024",
+     "prijato_date_iso": "2024-12-02",
+     "prijato_meeting_label": "42/2024",
+     "termin_raw": "6. 1. 2025",
+     "ukonceno_raw": "2. 1. 2025",
+     "ukonceno_date_iso": "2025-01-02",
+     "fields_raw": {
+      "Číslo usnesení": "UR-400-42/24",
+      "Text usnesení": "Rada města schvaluje uzavření „Smlouvy na pronájem prostor sloužících podnikání“ – nebytový prostor v Domě služeb v Pečkách, ul. J.A. Komenského čp. 184, celková výměra 76 m 2 . Smlouva bude uzavřena s █​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​ od 1.1. 2025 na dobu neurčitou s výpovědní lhůtou 3 měsíce. Nájem činí 6.207,- Kč/měsíc + zálohy na služby 3.800,-Kč/měsíc.",
+      "Zodpovídá": "Jana Najbrtová",
+      "Přijato": "2. 12. 2024 na jednání č. 42/2024",
+      "Termín": "6. 1. 2025",
+      "Ukončeno": "2. 1. 2025"
+     }
+    }
+   },
+   {
+    "number_raw": "UR-401-42/24",
+    "detail_id": 80629,
+    "detail_url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/80629?mod=rada",
+    "agenda_item_raw": "Uzavření \"Smlouvy o smlouvě budoucí o zřízení služebnosti inženýrské sítě č. SMLO-2475/00066001/2024-KH/SO/SB“",
+    "text_verbatim": "Rada\nměsta doporučuje zastupitelstvu města schválit uzavření \"Smlouvy o smlouvě budoucí o zřízení služebnosti inženýrské sítě č. SMLO-2475/00066001/2024-KH/SO/SB“ mezi smluvními stranami KSÚS,\nPraha\n5, ul.\nZborovská\n11 (budoucí povinný) a Městem Pečky (budoucí oprávněný) – ul.\nMilčická\n,\nVelké\nChvalovice v rámci akce „Dobudování stezky pro pěší a cyklisty v ul.\nMilčická\nve Velkých Chvalovicích“. Jedná se o uložení inženýrských sítí do pozemků v majetku KSÚS,\nPraha\n, ul.\nZborovská\n11 - č. parc. 171/4,172/4,175/1 a 176/1 (k.ú.\nVelké\nChvalovice). Celková délka činí cca 700 bm za celkovou cenu 37.355,- Kč (45.199,55 s DPH)-dle ceníku KSÚS.",
+    "cell_text_raw": "Bod programu:\nUzavření \"Smlouvy o smlouvě budoucí o zřízení služebnosti inženýrské sítě č. SMLO-2475/00066001/2024-KH/SO/SB“\nText přijatého usnesení:\nRada\nměsta doporučuje zastupitelstvu města schválit uzavření \"Smlouvy o smlouvě budoucí o zřízení služebnosti inženýrské sítě č. SMLO-2475/00066001/2024-KH/SO/SB“ mezi smluvními stranami KSÚS,\nPraha\n5, ul.\nZborovská\n11 (budoucí povinný) a Městem Pečky (budoucí oprávněný) – ul.\nMilčická\n,\nVelké\nChvalovice v rámci akce „Dobudování stezky pro pěší a cyklisty v ul.\nMilčická\nve Velkých Chvalovicích“. Jedná se o uložení inženýrských sítí do pozemků v majetku KSÚS,\nPraha\n, ul.\nZborovská\n11 - č. parc. 171/4,172/4,175/1 a 176/1 (k.ú.\nVelké\nChvalovice). Celková délka činí cca 700 bm za celkovou cenu 37.355,- Kč (45.199,55 s DPH)-dle ceníku KSÚS.",
+    "date_raw": "2. 12. 2024",
+    "date_iso": "2024-12-02",
+    "responsible_raw": "Jana Najbrtová",
+    "deadline_raw": "30. 6. 2025",
+    "vote": {
+     "raw_text": "pro: 6 proti: 0 zdržel se: 0",
+     "pro": {
+      "count": 6,
+      "names": null,
+      "raw": "6"
+     },
+     "proti": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     },
+     "zdrzel_se": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     }
+    },
+    "detail": {
+     "number_raw": "UR-401-42/24",
+     "text_verbatim": "Rada města doporučuje zastupitelstvu města schválit uzavření \"Smlouvy o smlouvě budoucí o zřízení služebnosti inženýrské sítě č. SMLO-2475/00066001/2024-KH/SO/SB“ mezi smluvními stranami KSÚS, Praha 5, ul. Zborovská 11 (budoucí povinný) a Městem Pečky (budoucí oprávněný) – ul. Milčická , Velké Chvalovice v rámci akce „Dobudování stezky pro pěší a cyklisty v ul. Milčická ve Velkých Chvalovicích“. Jedná se o uložení inženýrských sítí do pozemků v majetku KSÚS, Praha , ul. Zborovská 11 - č. parc. 171/4,172/4,175/1 a 176/1 (k.ú. Velké Chvalovice). Celková délka činí cca 700 bm za celkovou cenu 37.355,- Kč (45.199,55 s DPH)-dle ceníku KSÚS.",
+     "typ_raw": null,
+     "zodpovida_raw": "Jana Najbrtová",
+     "prijato_raw": "2. 12. 2024 na jednání č. 42/2024",
+     "prijato_date_iso": "2024-12-02",
+     "prijato_meeting_label": "42/2024",
+     "termin_raw": "30. 6. 2025",
+     "ukonceno_raw": "16. 1. 2025",
+     "ukonceno_date_iso": "2025-01-16",
+     "fields_raw": {
+      "Číslo usnesení": "UR-401-42/24",
+      "Text usnesení": "Rada města doporučuje zastupitelstvu města schválit uzavření \"Smlouvy o smlouvě budoucí o zřízení služebnosti inženýrské sítě č. SMLO-2475/00066001/2024-KH/SO/SB“ mezi smluvními stranami KSÚS, Praha 5, ul. Zborovská 11 (budoucí povinný) a Městem Pečky (budoucí oprávněný) – ul. Milčická , Velké Chvalovice v rámci akce „Dobudování stezky pro pěší a cyklisty v ul. Milčická ve Velkých Chvalovicích“. Jedná se o uložení inženýrských sítí do pozemků v majetku KSÚS, Praha , ul. Zborovská 11 - č. parc. 171/4,172/4,175/1 a 176/1 (k.ú. Velké Chvalovice). Celková délka činí cca 700 bm za celkovou cenu 37.355,- Kč (45.199,55 s DPH)-dle ceníku KSÚS.",
+      "Zodpovídá": "Jana Najbrtová",
+      "Přijato": "2. 12. 2024 na jednání č. 42/2024",
+      "Termín": "30. 6. 2025",
+      "Ukončeno": "16. 1. 2025"
+     }
+    }
+   },
+   {
+    "number_raw": "UR-402-42/24",
+    "detail_id": 80687,
+    "detail_url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/80687?mod=rada",
+    "agenda_item_raw": "Změna Organizační struktury Městského úřadu Pečky",
+    "text_verbatim": "Rada\nměsta schvaluje zřízení nového Odboru investic a rozvoje v rámci organizační struktury městského úřadu Pečky, a to s účinností od 1.1.2025.",
+    "cell_text_raw": "Bod programu:\nZměna Organizační struktury Městského úřadu Pečky\nText přijatého usnesení:\nRada\nměsta schvaluje zřízení nového Odboru investic a rozvoje v rámci organizační struktury městského úřadu Pečky, a to s účinností od 1.1.2025.",
+    "date_raw": "2. 12. 2024",
+    "date_iso": "2024-12-02",
+    "responsible_raw": "",
+    "deadline_raw": "IHNED (2. 12. 2024)",
+    "vote": {
+     "raw_text": "pro: 6 proti: 0 zdržel se: 0",
+     "pro": {
+      "count": 6,
+      "names": null,
+      "raw": "6"
+     },
+     "proti": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     },
+     "zdrzel_se": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     }
+    },
+    "detail": {
+     "number_raw": "UR-402-42/24",
+     "text_verbatim": "Rada města schvaluje zřízení nového Odboru investic a rozvoje v rámci organizační struktury městského úřadu Pečky, a to s účinností od 1.1.2025.",
+     "typ_raw": null,
+     "zodpovida_raw": "",
+     "prijato_raw": "2. 12. 2024 na jednání č. 42/2024",
+     "prijato_date_iso": "2024-12-02",
+     "prijato_meeting_label": "42/2024",
+     "termin_raw": "IHNED (2. 12. 2024)",
+     "ukonceno_raw": "2. 12. 2024",
+     "ukonceno_date_iso": "2024-12-02",
+     "fields_raw": {
+      "Číslo usnesení": "UR-402-42/24",
+      "Text usnesení": "Rada města schvaluje zřízení nového Odboru investic a rozvoje v rámci organizační struktury městského úřadu Pečky, a to s účinností od 1.1.2025.",
+      "Zodpovídá": "",
+      "Přijato": "2. 12. 2024 na jednání č. 42/2024",
+      "Termín": "IHNED (2. 12. 2024)",
+      "Ukončeno": "2. 12. 2024"
+     }
+    }
+   },
+   {
+    "number_raw": "UR-403-42/24",
+    "detail_id": 81336,
+    "detail_url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/81336?mod=rada",
+    "agenda_item_raw": "Změna Organizační struktury Městského úřadu Pečky",
+    "text_verbatim": "Rada\nměsta schvaluje změny:\n- v Organizační struktuře Městského úřadu Pečky\n- v Organizačním řádu Městského úřadu Pečky",
+    "cell_text_raw": "Bod programu:\nZměna Organizační struktury Městského úřadu Pečky\nText přijatého usnesení:\nRada\nměsta schvaluje změny:\n- v Organizační struktuře Městského úřadu Pečky\n- v Organizačním řádu Městského úřadu Pečky",
+    "date_raw": "2. 12. 2024",
+    "date_iso": "2024-12-02",
+    "responsible_raw": "",
+    "deadline_raw": "IHNED (2. 12. 2024)",
+    "vote": {
+     "raw_text": "pro: 6 proti: 0 zdržel se: 0",
+     "pro": {
+      "count": 6,
+      "names": null,
+      "raw": "6"
+     },
+     "proti": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     },
+     "zdrzel_se": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     }
+    },
+    "detail": {
+     "number_raw": "UR-403-42/24",
+     "text_verbatim": "Rada města schvaluje změny: - v Organizační struktuře Městského úřadu Pečky - v Organizačním řádu Městského úřadu Pečky",
+     "typ_raw": null,
+     "zodpovida_raw": "",
+     "prijato_raw": "2. 12. 2024 na jednání č. 42/2024",
+     "prijato_date_iso": "2024-12-02",
+     "prijato_meeting_label": "42/2024",
+     "termin_raw": "IHNED (2. 12. 2024)",
+     "ukonceno_raw": "2. 12. 2024",
+     "ukonceno_date_iso": "2024-12-02",
+     "fields_raw": {
+      "Číslo usnesení": "UR-403-42/24",
+      "Text usnesení": "Rada města schvaluje změny: - v Organizační struktuře Městského úřadu Pečky - v Organizačním řádu Městského úřadu Pečky",
+      "Zodpovídá": "",
+      "Přijato": "2. 12. 2024 na jednání č. 42/2024",
+      "Termín": "IHNED (2. 12. 2024)",
+      "Ukončeno": "2. 12. 2024"
+     }
+    }
+   },
+   {
+    "number_raw": "UR-404-42/24",
+    "detail_id": 80818,
+    "detail_url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/80818?mod=rada",
+    "agenda_item_raw": "Hodnocení ředitelů PO za druhé pololetí 2024",
+    "text_verbatim": "Rada\nměsta schvaluje mimořádnou odměnu řediteli Základní školy Pečky Mgr. Ing. Luboši\nZajícovi\nMBA ve výši\n█​█​█​█​█​█​█​█​█​\n█​█​",
+    "cell_text_raw": "Bod programu:\nHodnocení ředitelů PO za druhé pololetí 2024\nText přijatého usnesení:\nRada\nměsta schvaluje mimořádnou odměnu řediteli Základní školy Pečky Mgr. Ing. Luboši\nZajícovi\nMBA ve výši\n█​█​█​█​█​█​█​█​█​\n█​█​",
+    "date_raw": "2. 12. 2024",
+    "date_iso": "2024-12-02",
+    "responsible_raw": "",
+    "deadline_raw": "IHNED (2. 12. 2024)",
+    "vote": {
+     "raw_text": "pro: 6 proti: 0 zdržel se: 0",
+     "pro": {
+      "count": 6,
+      "names": null,
+      "raw": "6"
+     },
+     "proti": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     },
+     "zdrzel_se": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     }
+    },
+    "detail": {
+     "number_raw": "UR-404-42/24",
+     "text_verbatim": "Rada města schvaluje mimořádnou odměnu řediteli Základní školy Pečky Mgr. Ing. Luboši Zajícovi MBA ve výši █​█​█​█​█​█​█​█​█​ █​█​",
+     "typ_raw": null,
+     "zodpovida_raw": "",
+     "prijato_raw": "2. 12. 2024 na jednání č. 42/2024",
+     "prijato_date_iso": "2024-12-02",
+     "prijato_meeting_label": "42/2024",
+     "termin_raw": "IHNED (2. 12. 2024)",
+     "ukonceno_raw": "2. 12. 2024",
+     "ukonceno_date_iso": "2024-12-02",
+     "fields_raw": {
+      "Číslo usnesení": "UR-404-42/24",
+      "Text usnesení": "Rada města schvaluje mimořádnou odměnu řediteli Základní školy Pečky Mgr. Ing. Luboši Zajícovi MBA ve výši █​█​█​█​█​█​█​█​█​ █​█​",
+      "Zodpovídá": "",
+      "Přijato": "2. 12. 2024 na jednání č. 42/2024",
+      "Termín": "IHNED (2. 12. 2024)",
+      "Ukončeno": "2. 12. 2024"
+     }
+    }
+   },
+   {
+    "number_raw": "UR-405-42/24",
+    "detail_id": 80826,
+    "detail_url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/80826?mod=rada",
+    "agenda_item_raw": "Hodnocení ředitelů PO za druhé pololetí 2024",
+    "text_verbatim": "Rada\nměsta schvaluje mimořádnou odměnu ředitelce Mateřské školy MAŠINKA Pečky, Bc. Květě\nBubeníčkové\nve výši\n█​█​█​█​█​█​█​█​\n█​█​█​",
+    "cell_text_raw": "Bod programu:\nHodnocení ředitelů PO za druhé pololetí 2024\nText přijatého usnesení:\nRada\nměsta schvaluje mimořádnou odměnu ředitelce Mateřské školy MAŠINKA Pečky, Bc. Květě\nBubeníčkové\nve výši\n█​█​█​█​█​█​█​█​\n█​█​█​",
+    "date_raw": "2. 12. 2024",
+    "date_iso": "2024-12-02",
+    "responsible_raw": "",
+    "deadline_raw": "IHNED (2. 12. 2024)",
+    "vote": {
+     "raw_text": "pro: 6 proti: 0 zdržel se: 0",
+     "pro": {
+      "count": 6,
+      "names": null,
+      "raw": "6"
+     },
+     "proti": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     },
+     "zdrzel_se": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     }
+    },
+    "detail": {
+     "number_raw": "UR-405-42/24",
+     "text_verbatim": "Rada města schvaluje mimořádnou odměnu ředitelce Mateřské školy MAŠINKA Pečky, Bc. Květě Bubeníčkové ve výši █​█​█​█​█​█​█​█​ █​█​█​",
+     "typ_raw": null,
+     "zodpovida_raw": "",
+     "prijato_raw": "2. 12. 2024 na jednání č. 42/2024",
+     "prijato_date_iso": "2024-12-02",
+     "prijato_meeting_label": "42/2024",
+     "termin_raw": "IHNED (2. 12. 2024)",
+     "ukonceno_raw": "2. 12. 2024",
+     "ukonceno_date_iso": "2024-12-02",
+     "fields_raw": {
+      "Číslo usnesení": "UR-405-42/24",
+      "Text usnesení": "Rada města schvaluje mimořádnou odměnu ředitelce Mateřské školy MAŠINKA Pečky, Bc. Květě Bubeníčkové ve výši █​█​█​█​█​█​█​█​ █​█​█​",
+      "Zodpovídá": "",
+      "Přijato": "2. 12. 2024 na jednání č. 42/2024",
+      "Termín": "IHNED (2. 12. 2024)",
+      "Ukončeno": "2. 12. 2024"
+     }
+    }
+   },
+   {
+    "number_raw": "UR-406-42/24",
+    "detail_id": 80824,
+    "detail_url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/80824?mod=rada",
+    "agenda_item_raw": "Hodnocení ředitelů PO za druhé pololetí 2024",
+    "text_verbatim": "Rada\nměsta schvaluje mimořádnou odměnu ředitelce Městské knihovny\nSvatopluka\nČecha\npí. Vladimíře\nKrulišové\nve výši\n█​█​█​█​█​█​█​█​\n█​█​█​",
+    "cell_text_raw": "Bod programu:\nHodnocení ředitelů PO za druhé pololetí 2024\nText přijatého usnesení:\nRada\nměsta schvaluje mimořádnou odměnu ředitelce Městské knihovny\nSvatopluka\nČecha\npí. Vladimíře\nKrulišové\nve výši\n█​█​█​█​█​█​█​█​\n█​█​█​",
+    "date_raw": "2. 12. 2024",
+    "date_iso": "2024-12-02",
+    "responsible_raw": "",
+    "deadline_raw": "IHNED (2. 12. 2024)",
+    "vote": {
+     "raw_text": "pro: 6 proti: 0 zdržel se: 0",
+     "pro": {
+      "count": 6,
+      "names": null,
+      "raw": "6"
+     },
+     "proti": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     },
+     "zdrzel_se": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     }
+    },
+    "detail": {
+     "number_raw": "UR-406-42/24",
+     "text_verbatim": "Rada města schvaluje mimořádnou odměnu ředitelce Městské knihovny Svatopluka Čecha pí. Vladimíře Krulišové ve výši █​█​█​█​█​█​█​█​ █​█​█​",
+     "typ_raw": null,
+     "zodpovida_raw": "",
+     "prijato_raw": "2. 12. 2024 na jednání č. 42/2024",
+     "prijato_date_iso": "2024-12-02",
+     "prijato_meeting_label": "42/2024",
+     "termin_raw": "IHNED (2. 12. 2024)",
+     "ukonceno_raw": "2. 12. 2024",
+     "ukonceno_date_iso": "2024-12-02",
+     "fields_raw": {
+      "Číslo usnesení": "UR-406-42/24",
+      "Text usnesení": "Rada města schvaluje mimořádnou odměnu ředitelce Městské knihovny Svatopluka Čecha pí. Vladimíře Krulišové ve výši █​█​█​█​█​█​█​█​ █​█​█​",
+      "Zodpovídá": "",
+      "Přijato": "2. 12. 2024 na jednání č. 42/2024",
+      "Termín": "IHNED (2. 12. 2024)",
+      "Ukončeno": "2. 12. 2024"
+     }
+    }
+   },
+   {
+    "number_raw": "UR-407-42/24",
+    "detail_id": 80821,
+    "detail_url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/80821?mod=rada",
+    "agenda_item_raw": "Hodnocení ředitelů PO za druhé pololetí 2024",
+    "text_verbatim": "Rada\nměsta schvaluje mimořádnou odměnu ředitelce Základní umělecké školy Pečky, okres\nKolín\npí. Petře\nVorlíčkové\n, DiS. ve výši\n█​█​█​█​█​█​█​█​\n█​█​█​",
+    "cell_text_raw": "Bod programu:\nHodnocení ředitelů PO za druhé pololetí 2024\nText přijatého usnesení:\nRada\nměsta schvaluje mimořádnou odměnu ředitelce Základní umělecké školy Pečky, okres\nKolín\npí. Petře\nVorlíčkové\n, DiS. ve výši\n█​█​█​█​█​█​█​█​\n█​█​█​",
+    "date_raw": "2. 12. 2024",
+    "date_iso": "2024-12-02",
+    "responsible_raw": "",
+    "deadline_raw": "IHNED (2. 12. 2024)",
+    "vote": {
+     "raw_text": "pro: 6 proti: 0 zdržel se: 0",
+     "pro": {
+      "count": 6,
+      "names": null,
+      "raw": "6"
+     },
+     "proti": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     },
+     "zdrzel_se": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     }
+    },
+    "detail": {
+     "number_raw": "UR-407-42/24",
+     "text_verbatim": "Rada města schvaluje mimořádnou odměnu ředitelce Základní umělecké školy Pečky, okres Kolín pí. Petře Vorlíčkové , DiS. ve výši █​█​█​█​█​█​█​█​ █​█​█​",
+     "typ_raw": null,
+     "zodpovida_raw": "",
+     "prijato_raw": "2. 12. 2024 na jednání č. 42/2024",
+     "prijato_date_iso": "2024-12-02",
+     "prijato_meeting_label": "42/2024",
+     "termin_raw": "IHNED (2. 12. 2024)",
+     "ukonceno_raw": "2. 12. 2024",
+     "ukonceno_date_iso": "2024-12-02",
+     "fields_raw": {
+      "Číslo usnesení": "UR-407-42/24",
+      "Text usnesení": "Rada města schvaluje mimořádnou odměnu ředitelce Základní umělecké školy Pečky, okres Kolín pí. Petře Vorlíčkové , DiS. ve výši █​█​█​█​█​█​█​█​ █​█​█​",
+      "Zodpovídá": "",
+      "Přijato": "2. 12. 2024 na jednání č. 42/2024",
+      "Termín": "IHNED (2. 12. 2024)",
+      "Ukončeno": "2. 12. 2024"
+     }
+    }
+   },
+   {
+    "number_raw": "UR-408-42/24",
+    "detail_id": 80819,
+    "detail_url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/80819?mod=rada",
+    "agenda_item_raw": "Hodnocení ředitelů PO za druhé pololetí 2024",
+    "text_verbatim": "Rada\nměsta schvaluje mimořádnou odměnu ředitelce Pečovatelské služby města Pečky Mgr. Petře\nČermákové\nve výši\n█​█​█​█​█​█​█​█​\n█​█​█​",
+    "cell_text_raw": "Bod programu:\nHodnocení ředitelů PO za druhé pololetí 2024\nText přijatého usnesení:\nRada\nměsta schvaluje mimořádnou odměnu ředitelce Pečovatelské služby města Pečky Mgr. Petře\nČermákové\nve výši\n█​█​█​█​█​█​█​█​\n█​█​█​",
+    "date_raw": "2. 12. 2024",
+    "date_iso": "2024-12-02",
+    "responsible_raw": "",
+    "deadline_raw": "IHNED (2. 12. 2024)",
+    "vote": {
+     "raw_text": "pro: 6 proti: 0 zdržel se: 0",
+     "pro": {
+      "count": 6,
+      "names": null,
+      "raw": "6"
+     },
+     "proti": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     },
+     "zdrzel_se": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     }
+    },
+    "detail": {
+     "number_raw": "UR-408-42/24",
+     "text_verbatim": "Rada města schvaluje mimořádnou odměnu ředitelce Pečovatelské služby města Pečky Mgr. Petře Čermákové ve výši █​█​█​█​█​█​█​█​ █​█​█​",
+     "typ_raw": null,
+     "zodpovida_raw": "",
+     "prijato_raw": "2. 12. 2024 na jednání č. 42/2024",
+     "prijato_date_iso": "2024-12-02",
+     "prijato_meeting_label": "42/2024",
+     "termin_raw": "IHNED (2. 12. 2024)",
+     "ukonceno_raw": "2. 12. 2024",
+     "ukonceno_date_iso": "2024-12-02",
+     "fields_raw": {
+      "Číslo usnesení": "UR-408-42/24",
+      "Text usnesení": "Rada města schvaluje mimořádnou odměnu ředitelce Pečovatelské služby města Pečky Mgr. Petře Čermákové ve výši █​█​█​█​█​█​█​█​ █​█​█​",
+      "Zodpovídá": "",
+      "Přijato": "2. 12. 2024 na jednání č. 42/2024",
+      "Termín": "IHNED (2. 12. 2024)",
+      "Ukončeno": "2. 12. 2024"
+     }
+    }
+   },
+   {
+    "number_raw": "UR-409-42/24",
+    "detail_id": 80822,
+    "detail_url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/80822?mod=rada",
+    "agenda_item_raw": "Hodnocení ředitelů PO za druhé pololetí 2024",
+    "text_verbatim": "Rada\nměsta schvaluje schvaluje mimořádnou odměnu řediteli Kulturního střediska města Pečky p. Lukáši\nHanzelínovi\nve výši\n█​█​█​█​█​█​█​█​\n█​█​█​",
+    "cell_text_raw": "Bod programu:\nHodnocení ředitelů PO za druhé pololetí 2024\nText přijatého usnesení:\nRada\nměsta schvaluje schvaluje mimořádnou odměnu řediteli Kulturního střediska města Pečky p. Lukáši\nHanzelínovi\nve výši\n█​█​█​█​█​█​█​█​\n█​█​█​",
+    "date_raw": "2. 12. 2024",
+    "date_iso": "2024-12-02",
+    "responsible_raw": "",
+    "deadline_raw": "IHNED (2. 12. 2024)",
+    "vote": {
+     "raw_text": "pro: 6 proti: 0 zdržel se: 0",
+     "pro": {
+      "count": 6,
+      "names": null,
+      "raw": "6"
+     },
+     "proti": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     },
+     "zdrzel_se": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     }
+    },
+    "detail": {
+     "number_raw": "UR-409-42/24",
+     "text_verbatim": "Rada města schvaluje schvaluje mimořádnou odměnu řediteli Kulturního střediska města Pečky p. Lukáši Hanzelínovi ve výši █​█​█​█​█​█​█​█​ █​█​█​",
+     "typ_raw": null,
+     "zodpovida_raw": "",
+     "prijato_raw": "2. 12. 2024 na jednání č. 42/2024",
+     "prijato_date_iso": "2024-12-02",
+     "prijato_meeting_label": "42/2024",
+     "termin_raw": "IHNED (2. 12. 2024)",
+     "ukonceno_raw": "2. 12. 2024",
+     "ukonceno_date_iso": "2024-12-02",
+     "fields_raw": {
+      "Číslo usnesení": "UR-409-42/24",
+      "Text usnesení": "Rada města schvaluje schvaluje mimořádnou odměnu řediteli Kulturního střediska města Pečky p. Lukáši Hanzelínovi ve výši █​█​█​█​█​█​█​█​ █​█​█​",
+      "Zodpovídá": "",
+      "Přijato": "2. 12. 2024 na jednání č. 42/2024",
+      "Termín": "IHNED (2. 12. 2024)",
+      "Ukončeno": "2. 12. 2024"
+     }
+    }
+   },
+   {
+    "number_raw": "UR-410-42/24",
+    "detail_id": 81039,
+    "detail_url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/81039?mod=rada",
+    "agenda_item_raw": "Žádost o schválení navýšení kapacity ZUŠ a otevření oboru \"Hra na housle\"",
+    "text_verbatim": "Rada\nměsta schvaluje zaslání žádosti o navýšení kapacity Základní umělecké školy Pečky, okres\nKolín\no 30 žáků s účinností od 1. 9. 2025 v souvislosti s plánovaným otevřením nového studijního zaměření „Hra na housle“.",
+    "cell_text_raw": "Bod programu:\nŽádost o schválení navýšení kapacity ZUŠ a otevření oboru \"Hra na housle\"\nText přijatého usnesení:\nRada\nměsta schvaluje zaslání žádosti o navýšení kapacity Základní umělecké školy Pečky, okres\nKolín\no 30 žáků s účinností od 1. 9. 2025 v souvislosti s plánovaným otevřením nového studijního zaměření „Hra na housle“.",
+    "date_raw": "2. 12. 2024",
+    "date_iso": "2024-12-02",
+    "responsible_raw": "",
+    "deadline_raw": "IHNED (2. 12. 2024)",
+    "vote": {
+     "raw_text": "pro: 6 proti: 0 zdržel se: 0",
+     "pro": {
+      "count": 6,
+      "names": null,
+      "raw": "6"
+     },
+     "proti": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     },
+     "zdrzel_se": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     }
+    },
+    "detail": {
+     "number_raw": "UR-410-42/24",
+     "text_verbatim": "Rada města schvaluje zaslání žádosti o navýšení kapacity Základní umělecké školy Pečky, okres Kolín o 30 žáků s účinností od 1. 9. 2025 v souvislosti s plánovaným otevřením nového studijního zaměření „Hra na housle“.",
+     "typ_raw": null,
+     "zodpovida_raw": "",
+     "prijato_raw": "2. 12. 2024 na jednání č. 42/2024",
+     "prijato_date_iso": "2024-12-02",
+     "prijato_meeting_label": "42/2024",
+     "termin_raw": "IHNED (2. 12. 2024)",
+     "ukonceno_raw": "2. 12. 2024",
+     "ukonceno_date_iso": "2024-12-02",
+     "fields_raw": {
+      "Číslo usnesení": "UR-410-42/24",
+      "Text usnesení": "Rada města schvaluje zaslání žádosti o navýšení kapacity Základní umělecké školy Pečky, okres Kolín o 30 žáků s účinností od 1. 9. 2025 v souvislosti s plánovaným otevřením nového studijního zaměření „Hra na housle“.",
+      "Zodpovídá": "",
+      "Přijato": "2. 12. 2024 na jednání č. 42/2024",
+      "Termín": "IHNED (2. 12. 2024)",
+      "Ukončeno": "2. 12. 2024"
+     }
+    }
+   },
+   {
+    "number_raw": "UR-411-42/24",
+    "detail_id": 80927,
+    "detail_url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/80927?mod=rada",
+    "agenda_item_raw": "Změna závazných ukazatelů - ZŠ Pečky",
+    "text_verbatim": "Rada\nměsta schvaluje změnu závazných ukazatelů pro rok 2024 příspěvkové organizaci Základní škola Pečky.",
+    "cell_text_raw": "Bod programu:\nZměna závazných ukazatelů - ZŠ Pečky\nText přijatého usnesení:\nRada\nměsta schvaluje změnu závazných ukazatelů pro rok 2024 příspěvkové organizaci Základní škola Pečky.",
+    "date_raw": "2. 12. 2024",
+    "date_iso": "2024-12-02",
+    "responsible_raw": "",
+    "deadline_raw": "IHNED (2. 12. 2024)",
+    "vote": {
+     "raw_text": "pro: 6 proti: 0 zdržel se: 0",
+     "pro": {
+      "count": 6,
+      "names": null,
+      "raw": "6"
+     },
+     "proti": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     },
+     "zdrzel_se": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     }
+    },
+    "detail": {
+     "number_raw": "UR-411-42/24",
+     "text_verbatim": "Rada města schvaluje změnu závazných ukazatelů pro rok 2024 příspěvkové organizaci Základní škola Pečky.",
+     "typ_raw": null,
+     "zodpovida_raw": "",
+     "prijato_raw": "2. 12. 2024 na jednání č. 42/2024",
+     "prijato_date_iso": "2024-12-02",
+     "prijato_meeting_label": "42/2024",
+     "termin_raw": "IHNED (2. 12. 2024)",
+     "ukonceno_raw": "2. 12. 2024",
+     "ukonceno_date_iso": "2024-12-02",
+     "fields_raw": {
+      "Číslo usnesení": "UR-411-42/24",
+      "Text usnesení": "Rada města schvaluje změnu závazných ukazatelů pro rok 2024 příspěvkové organizaci Základní škola Pečky.",
+      "Zodpovídá": "",
+      "Přijato": "2. 12. 2024 na jednání č. 42/2024",
+      "Termín": "IHNED (2. 12. 2024)",
+      "Ukončeno": "2. 12. 2024"
+     }
+    }
+   },
+   {
+    "number_raw": "UR-412-42/24",
+    "detail_id": 81109,
+    "detail_url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/81109?mod=rada",
+    "agenda_item_raw": "Žádost o čerpání rezervního fondu - knihovna",
+    "text_verbatim": "Rada\nměsta schvaluje Městské knihovně\nSvatopluka\nČecha\nčerpání rezervního fondu do výše 32 000 Kč na pořízení serveru.",
+    "cell_text_raw": "Bod programu:\nŽádost o čerpání rezervního fondu - knihovna\nText přijatého usnesení:\nRada\nměsta schvaluje Městské knihovně\nSvatopluka\nČecha\nčerpání rezervního fondu do výše 32 000 Kč na pořízení serveru.",
+    "date_raw": "2. 12. 2024",
+    "date_iso": "2024-12-02",
+    "responsible_raw": "",
+    "deadline_raw": "IHNED (2. 12. 2024)",
+    "vote": {
+     "raw_text": "pro: 6 proti: 0 zdržel se: 0",
+     "pro": {
+      "count": 6,
+      "names": null,
+      "raw": "6"
+     },
+     "proti": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     },
+     "zdrzel_se": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     }
+    },
+    "detail": {
+     "number_raw": "UR-412-42/24",
+     "text_verbatim": "Rada města schvaluje Městské knihovně Svatopluka Čecha čerpání rezervního fondu do výše 32 000 Kč na pořízení serveru.",
+     "typ_raw": null,
+     "zodpovida_raw": "",
+     "prijato_raw": "2. 12. 2024 na jednání č. 42/2024",
+     "prijato_date_iso": "2024-12-02",
+     "prijato_meeting_label": "42/2024",
+     "termin_raw": "IHNED (2. 12. 2024)",
+     "ukonceno_raw": "2. 12. 2024",
+     "ukonceno_date_iso": "2024-12-02",
+     "fields_raw": {
+      "Číslo usnesení": "UR-412-42/24",
+      "Text usnesení": "Rada města schvaluje Městské knihovně Svatopluka Čecha čerpání rezervního fondu do výše 32 000 Kč na pořízení serveru.",
+      "Zodpovídá": "",
+      "Přijato": "2. 12. 2024 na jednání č. 42/2024",
+      "Termín": "IHNED (2. 12. 2024)",
+      "Ukončeno": "2. 12. 2024"
+     }
+    }
+   },
+   {
+    "number_raw": "UR-413-42/24",
+    "detail_id": 80932,
+    "detail_url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/80932?mod=rada",
+    "agenda_item_raw": "OZV - pravidla pro pohyb psů na veřejném prostranství",
+    "text_verbatim": "Rada\nměsta doporučuje zastupitelstvu města schválit OZV města Pečky, kterou se stanovují pravidla pro pohyb psů na veřejných prostranství ve městě Pečky",
+    "cell_text_raw": "Bod programu:\nOZV - pravidla pro pohyb psů na veřejném prostranství\nText přijatého usnesení:\nRada\nměsta doporučuje zastupitelstvu města schválit OZV města Pečky, kterou se stanovují pravidla pro pohyb psů na veřejných prostranství ve městě Pečky",
+    "date_raw": "2. 12. 2024",
+    "date_iso": "2024-12-02",
+    "responsible_raw": "Marcela Bahníková",
+    "deadline_raw": "18. 12. 2024",
+    "vote": {
+     "raw_text": "pro: 6 proti: 0 zdržel se: 0",
+     "pro": {
+      "count": 6,
+      "names": null,
+      "raw": "6"
+     },
+     "proti": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     },
+     "zdrzel_se": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     }
+    },
+    "detail": {
+     "number_raw": "UR-413-42/24",
+     "text_verbatim": "Rada města doporučuje zastupitelstvu města schválit OZV města Pečky, kterou se stanovují pravidla pro pohyb psů na veřejných prostranství ve městě Pečky",
+     "typ_raw": null,
+     "zodpovida_raw": "Marcela Bahníková",
+     "prijato_raw": "2. 12. 2024 na jednání č. 42/2024",
+     "prijato_date_iso": "2024-12-02",
+     "prijato_meeting_label": "42/2024",
+     "termin_raw": "18. 12. 2024",
+     "ukonceno_raw": "18. 12. 2024",
+     "ukonceno_date_iso": "2024-12-18",
+     "fields_raw": {
+      "Číslo usnesení": "UR-413-42/24",
+      "Text usnesení": "Rada města doporučuje zastupitelstvu města schválit OZV města Pečky, kterou se stanovují pravidla pro pohyb psů na veřejných prostranství ve městě Pečky",
+      "Zodpovídá": "Marcela Bahníková",
+      "Přijato": "2. 12. 2024 na jednání č. 42/2024",
+      "Termín": "18. 12. 2024",
+      "Ukončeno": "18. 12. 2024"
+     }
+    }
+   },
+   {
+    "number_raw": "UR-414-42/24",
+    "detail_id": 81074,
+    "detail_url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/81074?mod=rada",
+    "agenda_item_raw": "Rozpočtové opatření č. 14/2024",
+    "text_verbatim": "Rada\nměsta schvaluje rozpočtová opatření č. 14/2024.",
+    "cell_text_raw": "Bod programu:\nRozpočtové opatření č. 14/2024\nText přijatého usnesení:\nRada\nměsta schvaluje rozpočtová opatření č. 14/2024.",
+    "date_raw": "2. 12. 2024",
+    "date_iso": "2024-12-02",
+    "responsible_raw": "",
+    "deadline_raw": "IHNED (2. 12. 2024)",
+    "vote": {
+     "raw_text": "pro: 6 proti: 0 zdržel se: 0",
+     "pro": {
+      "count": 6,
+      "names": null,
+      "raw": "6"
+     },
+     "proti": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     },
+     "zdrzel_se": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     }
+    },
+    "detail": {
+     "number_raw": "UR-414-42/24",
+     "text_verbatim": "Rada města schvaluje rozpočtová opatření č. 14/2024.",
+     "typ_raw": null,
+     "zodpovida_raw": "",
+     "prijato_raw": "2. 12. 2024 na jednání č. 42/2024",
+     "prijato_date_iso": "2024-12-02",
+     "prijato_meeting_label": "42/2024",
+     "termin_raw": "IHNED (2. 12. 2024)",
+     "ukonceno_raw": "2. 12. 2024",
+     "ukonceno_date_iso": "2024-12-02",
+     "fields_raw": {
+      "Číslo usnesení": "UR-414-42/24",
+      "Text usnesení": "Rada města schvaluje rozpočtová opatření č. 14/2024.",
+      "Zodpovídá": "",
+      "Přijato": "2. 12. 2024 na jednání č. 42/2024",
+      "Termín": "IHNED (2. 12. 2024)",
+      "Ukončeno": "2. 12. 2024"
+     }
+    }
+   },
+   {
+    "number_raw": "UR-415-42/24",
+    "detail_id": 81110,
+    "detail_url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/81110?mod=rada",
+    "agenda_item_raw": "Souhlas zřizovatele s žádostí o dotaci - knihovna",
+    "text_verbatim": "Rada\nměsta souhlasí s podáním žádosti o dotaci z rozpočtu Středočeského kraje Městskou knihovnou\nSvatopluka\nČecha\nna dovybavení interiéru.",
+    "cell_text_raw": "Bod programu:\nSouhlas zřizovatele s žádostí o dotaci - knihovna\nText přijatého usnesení:\nRada\nměsta souhlasí s podáním žádosti o dotaci z rozpočtu Středočeského kraje Městskou knihovnou\nSvatopluka\nČecha\nna dovybavení interiéru.",
+    "date_raw": "2. 12. 2024",
+    "date_iso": "2024-12-02",
+    "responsible_raw": "",
+    "deadline_raw": "IHNED (2. 12. 2024)",
+    "vote": {
+     "raw_text": "pro: 6 proti: 0 zdržel se: 0",
+     "pro": {
+      "count": 6,
+      "names": null,
+      "raw": "6"
+     },
+     "proti": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     },
+     "zdrzel_se": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     }
+    },
+    "detail": {
+     "number_raw": "UR-415-42/24",
+     "text_verbatim": "Rada města souhlasí s podáním žádosti o dotaci z rozpočtu Středočeského kraje Městskou knihovnou Svatopluka Čecha na dovybavení interiéru.",
+     "typ_raw": null,
+     "zodpovida_raw": "",
+     "prijato_raw": "2. 12. 2024 na jednání č. 42/2024",
+     "prijato_date_iso": "2024-12-02",
+     "prijato_meeting_label": "42/2024",
+     "termin_raw": "IHNED (2. 12. 2024)",
+     "ukonceno_raw": "2. 12. 2024",
+     "ukonceno_date_iso": "2024-12-02",
+     "fields_raw": {
+      "Číslo usnesení": "UR-415-42/24",
+      "Text usnesení": "Rada města souhlasí s podáním žádosti o dotaci z rozpočtu Středočeského kraje Městskou knihovnou Svatopluka Čecha na dovybavení interiéru.",
+      "Zodpovídá": "",
+      "Přijato": "2. 12. 2024 na jednání č. 42/2024",
+      "Termín": "IHNED (2. 12. 2024)",
+      "Ukončeno": "2. 12. 2024"
+     }
+    }
+   },
+   {
+    "number_raw": "UR-416-42/24",
+    "detail_id": 81337,
+    "detail_url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/81337?mod=rada",
+    "agenda_item_raw": "Úkoly vyplývající z jednání rady města",
+    "text_verbatim": "Rada\nměsta ukládá tajemnici MěÚ Bc. Pavlíně\nNepovímové\nvyhlásit výběrové řízení na vedoucího Odboru investic a rozvoje.",
+    "cell_text_raw": "Bod programu:\nÚkoly vyplývající z jednání rady města\nText přijatého usnesení:\nRada\nměsta ukládá tajemnici MěÚ Bc. Pavlíně\nNepovímové\nvyhlásit výběrové řízení na vedoucího Odboru investic a rozvoje.",
+    "date_raw": "2. 12. 2024",
+    "date_iso": "2024-12-02",
+    "responsible_raw": "Pavlína Nepovímová",
+    "deadline_raw": "31. 12. 2024",
+    "vote": {
+     "raw_text": "pro: 6 proti: 0 zdržel se: 0",
+     "pro": {
+      "count": 6,
+      "names": null,
+      "raw": "6"
+     },
+     "proti": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     },
+     "zdrzel_se": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     }
+    },
+    "detail": {
+     "number_raw": "UR-416-42/24",
+     "text_verbatim": "Rada města ukládá tajemnici MěÚ Bc. Pavlíně Nepovímové vyhlásit výběrové řízení na vedoucího Odboru investic a rozvoje.",
+     "typ_raw": null,
+     "zodpovida_raw": "Pavlína Nepovímová",
+     "prijato_raw": "2. 12. 2024 na jednání č. 42/2024",
+     "prijato_date_iso": "2024-12-02",
+     "prijato_meeting_label": "42/2024",
+     "termin_raw": "31. 12. 2024",
+     "ukonceno_raw": "6. 1. 2025",
+     "ukonceno_date_iso": "2025-01-06",
+     "fields_raw": {
+      "Číslo usnesení": "UR-416-42/24",
+      "Text usnesení": "Rada města ukládá tajemnici MěÚ Bc. Pavlíně Nepovímové vyhlásit výběrové řízení na vedoucího Odboru investic a rozvoje.",
+      "Zodpovídá": "Pavlína Nepovímová",
+      "Přijato": "2. 12. 2024 na jednání č. 42/2024",
+      "Termín": "31. 12. 2024",
+      "Ukončeno": "6. 1. 2025"
+     }
+    }
+   },
+   {
+    "number_raw": "UR-417-42/24",
+    "detail_id": 81112,
+    "detail_url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/81112?mod=rada",
+    "agenda_item_raw": "Cena kalendářů PEČKY 2025",
+    "text_verbatim": "Rada\nměsta stanovuje prodejní cenu za kalendář PEČKY 2025 ve výši 100,- Kč vč. DPH.",
+    "cell_text_raw": "Bod programu:\nCena kalendářů PEČKY 2025\nText přijatého usnesení:\nRada\nměsta stanovuje prodejní cenu za kalendář PEČKY 2025 ve výši 100,- Kč vč. DPH.",
+    "date_raw": "2. 12. 2024",
+    "date_iso": "2024-12-02",
+    "responsible_raw": "",
+    "deadline_raw": "IHNED (2. 12. 2024)",
+    "vote": {
+     "raw_text": "pro: 6 proti: 0 zdržel se: 0",
+     "pro": {
+      "count": 6,
+      "names": null,
+      "raw": "6"
+     },
+     "proti": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     },
+     "zdrzel_se": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     }
+    },
+    "detail": {
+     "number_raw": "UR-417-42/24",
+     "text_verbatim": "Rada města stanovuje prodejní cenu za kalendář PEČKY 2025 ve výši 100,- Kč vč. DPH.",
+     "typ_raw": null,
+     "zodpovida_raw": "",
+     "prijato_raw": "2. 12. 2024 na jednání č. 42/2024",
+     "prijato_date_iso": "2024-12-02",
+     "prijato_meeting_label": "42/2024",
+     "termin_raw": "IHNED (2. 12. 2024)",
+     "ukonceno_raw": "2. 12. 2024",
+     "ukonceno_date_iso": "2024-12-02",
+     "fields_raw": {
+      "Číslo usnesení": "UR-417-42/24",
+      "Text usnesení": "Rada města stanovuje prodejní cenu za kalendář PEČKY 2025 ve výši 100,- Kč vč. DPH.",
+      "Zodpovídá": "",
+      "Přijato": "2. 12. 2024 na jednání č. 42/2024",
+      "Termín": "IHNED (2. 12. 2024)",
+      "Ukončeno": "2. 12. 2024"
+     }
+    }
+   }
+  ]
+ }
+}

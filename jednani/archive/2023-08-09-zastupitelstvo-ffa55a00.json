@@ -1,0 +1,611 @@
+{
+ "uuid": "ffa55a00-3044-11ee-b0da-442b95e919b3",
+ "body_type_raw": "Zastupitelstvo",
+ "label_raw": "4/2023 (9. 8. 2023)",
+ "number": 4,
+ "year": 2023,
+ "date_iso": "2023-08-09",
+ "links": {
+  "invitation": "https://mesto-pecky.usneseni.cz/verejne/?uuid=ffa55a00-3044-11ee-b0da-442b95e919b3&page=11&do=printPublicInvitation",
+  "minutes": "https://mesto-pecky.usneseni.cz/verejne/ffa55a00-3044-11ee-b0da-442b95e919b3/zapis/?page=11",
+  "signed_minutes_pdf": "https://mesto-pecky.usneseni.cz/verejne/?meetingReportControl-uuid=ffa55a00-3044-11ee-b0da-442b95e919b3&page=11&do=meetingReportControl-getSignedReportPdf",
+  "resolutions": "https://mesto-pecky.usneseni.cz/verejne/ffa55a00-3044-11ee-b0da-442b95e919b3/usneseni/?page=11",
+  "audio": "https://mesto-pecky.usneseni.cz#"
+ },
+ "link_texts": {
+  "invitation": "Pozvánka",
+  "minutes": "zápis",
+  "signed_minutes_pdf": "podepsaný zápis",
+  "resolutions": "přijatá usnesení",
+  "audio": "Zvukový záznam"
+ },
+ "status": "ok",
+ "invitation": {
+  "status": "site_error",
+  "error": "status=200 ct=text/html; charset=utf-8 flash='<a href=\"\" class=\"close\" data-dismiss=\"alert\" aria-label=\"close\">&times;'",
+  "url": "https://mesto-pecky.usneseni.cz/verejne/?uuid=ffa55a00-3044-11ee-b0da-442b95e919b3&do=printPublicInvitation",
+  "fetched_at": "2026-08-04T15:05:00.221594+00:00"
+ },
+ "minutes": {
+  "status": "ok",
+  "url": "https://mesto-pecky.usneseni.cz/verejne/ffa55a00-3044-11ee-b0da-442b95e919b3/zapis/",
+  "fetched_at": "2026-08-04T14:05:59.316669+00:00",
+  "title_raw": "ZÁPIS ze zasedání zastupitelstva č. 4/2023 Město Pečky datum: 9. 8. 2023, čas: 17:30 ​",
+  "date_raw": "9. 8. 2023",
+  "date_iso": "2023-08-09",
+  "time_raw": "17:30",
+  "presence": {
+   "raw_text": "Prezence:\nPřítomni:\n(18) Mgr. Alena Švejnohová, Bc. Iveta Dvořáková, Šárka Horynová, Jaroslav Železný, Jiří Katrnoška, Zdeněk Fejfar, Milan Paluska, Ing. Petr Dürr, Milan Pečenka, Pavel Sedláček, Ladislav Kejda, Milan Urban, Václav Drška, Ivana Trčková, Ing. Hana Kuprová, Lenka Třísková, Tomáš Růžička, Ing. Karel Krištoufek\nOmluveni:\n(3) Tomáš Vodička, Ing. Martin Jedlička, Lubomír Metelák\nNepřítomni:\n(0)\nHosté:\nPředsedající:\nMilan Paluska\nPřítomno je 18 členů a zastupitelstvo je usnášeníschopné.\nJednání zahájeno 09.08.2023 v 17:29:24",
+   "pritomni": {
+    "count": 18,
+    "names": [
+     "Mgr. Alena Švejnohová",
+     "Bc. Iveta Dvořáková",
+     "Šárka Horynová",
+     "Jaroslav Železný",
+     "Jiří Katrnoška",
+     "Zdeněk Fejfar",
+     "Milan Paluska",
+     "Ing. Petr Dürr",
+     "Milan Pečenka",
+     "Pavel Sedláček",
+     "Ladislav Kejda",
+     "Milan Urban",
+     "Václav Drška",
+     "Ivana Trčková",
+     "Ing. Hana Kuprová",
+     "Lenka Třísková",
+     "Tomáš Růžička",
+     "Ing. Karel Krištoufek"
+    ],
+    "raw": "(18) Mgr. Alena Švejnohová, Bc. Iveta Dvořáková, Šárka Horynová, Jaroslav Železný, Jiří Katrnoška, Zdeněk Fejfar, Milan Paluska, Ing. Petr Dürr, Milan Pečenka, Pavel Sedláček, Ladislav Kejda, Milan Urban, Václav Drška, Ivana Trčková, Ing. Hana Kuprová, Lenka Třísková, Tomáš Růžička, Ing. Karel Krištoufek"
+   },
+   "omluveni": {
+    "count": 3,
+    "names": [
+     "Tomáš Vodička",
+     "Ing. Martin Jedlička",
+     "Lubomír Metelák"
+    ],
+    "raw": "(3) Tomáš Vodička, Ing. Martin Jedlička, Lubomír Metelák"
+   },
+   "nepritomni": {
+    "count": 0,
+    "names": [],
+    "raw": "(0)"
+   },
+   "predsedajici": "Milan Paluska",
+   "quorum_raw": "Přítomno je 18 členů a zastupitelstvo je usnášeníschopné."
+  },
+  "header_raw": "Prezence:\nPřítomni:\n(18) Mgr. Alena Švejnohová, Bc. Iveta Dvořáková, Šárka Horynová, Jaroslav Železný, Jiří Katrnoška, Zdeněk Fejfar, Milan Paluska, Ing. Petr Dürr, Milan Pečenka, Pavel Sedláček, Ladislav Kejda, Milan Urban, Václav Drška, Ivana Trčková, Ing. Hana Kuprová, Lenka Třísková, Tomáš Růžička, Ing. Karel Krištoufek\nOmluveni:\n(3) Tomáš Vodička, Ing. Martin Jedlička, Lubomír Metelák\nNepřítomni:\n(0)\nHosté:\nPředsedající:\nMilan Paluska\nPřítomno je 18 členů a zastupitelstvo je usnášeníschopné.\nJednání zahájeno 09.08.2023 v 17:29:24",
+  "agenda_items": [
+   {
+    "number": 1,
+    "title_raw": "Volba pracovních komisí",
+    "heading_raw": "1. Volba pracovních komisí (bod číslo 1)",
+    "predkladatel": "Milan Paluska",
+    "votes": [
+     {
+      "raw_text": "pro:\n(18) Bc. Iveta Dvořáková, Tomáš Růžička, Václav Drška, Milan Urban, Ing. Hana Kuprová, Jiří Katrnoška, Zdeněk Fejfar, Pavel Sedláček, Ivana Trčková, Šárka Horynová, Lenka Třísková, Ing. Petr Dürr, Milan Paluska, Jaroslav Železný, Milan Pečenka, Mgr. Alena Švejnohová, Ing. Karel Krištoufek, Ladislav Kejda\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)",
+      "pro": {
+       "count": 18,
+       "names": [
+        "Bc. Iveta Dvořáková",
+        "Tomáš Růžička",
+        "Václav Drška",
+        "Milan Urban",
+        "Ing. Hana Kuprová",
+        "Jiří Katrnoška",
+        "Zdeněk Fejfar",
+        "Pavel Sedláček",
+        "Ivana Trčková",
+        "Šárka Horynová",
+        "Lenka Třísková",
+        "Ing. Petr Dürr",
+        "Milan Paluska",
+        "Jaroslav Železný",
+        "Milan Pečenka",
+        "Mgr. Alena Švejnohová",
+        "Ing. Karel Krištoufek",
+        "Ladislav Kejda"
+       ],
+       "raw": "(18) Bc. Iveta Dvořáková, Tomáš Růžička, Václav Drška, Milan Urban, Ing. Hana Kuprová, Jiří Katrnoška, Zdeněk Fejfar, Pavel Sedláček, Ivana Trčková, Šárka Horynová, Lenka Třísková, Ing. Petr Dürr, Milan Paluska, Jaroslav Železný, Milan Pečenka, Mgr. Alena Švejnohová, Ing. Karel Krištoufek, Ladislav Kejda"
+      },
+      "proti": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "zdrzel_se": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "nehlasoval": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "result_raw": "Návrh byl přijat",
+      "adopted_resolution_number": null
+     }
+    ],
+    "resolution_numbers_mentioned": [],
+    "raw_text": "Předkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 17:29:32 (zvuk. záznam 0:00:00 - 0:03:31)\nPředsedající navrhl jednotlivé členy pracovních komisí\nNávrhová komise:\nLenka Třísková, Ivana Trčková, Milan Pečenka, Bc. Iveta Dvořáková, Ing. Petr Dürr\nMandátová a volební komise:\nOvěřovatelé:\nIng. Hana Kuprová, Šárka Horynová\nDiskuze zahájena v 17:29:32\nK tomuto bodu se vyjádřili: Milan Paluska\nHlasování\npro:\n(18) Bc. Iveta Dvořáková, Tomáš Růžička, Václav Drška, Milan Urban, Ing. Hana Kuprová, Jiří Katrnoška, Zdeněk Fejfar, Pavel Sedláček, Ivana Trčková, Šárka Horynová, Lenka Třísková, Ing. Petr Dürr, Milan Paluska, Jaroslav Železný, Milan Pečenka, Mgr. Alena Švejnohová, Ing. Karel Krištoufek, Ladislav Kejda\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat\nProjednávání bodu bylo ukončeno v 17:33:05"
+   },
+   {
+    "number": 2,
+    "title_raw": "Schválení programu jednání",
+    "heading_raw": "2. Schválení programu jednání (bod číslo 2)",
+    "predkladatel": "Milan Paluska",
+    "votes": [
+     {
+      "raw_text": "pro:\n(18) Bc. Iveta Dvořáková, Jaroslav Železný, Ing. Hana Kuprová, Mgr. Alena Švejnohová, Václav Drška, Jiří Katrnoška, Milan Pečenka, Ivana Trčková, Ing. Karel Krištoufek, Ing. Petr Dürr, Tomáš Růžička, Lenka Třísková, Zdeněk Fejfar, Šárka Horynová, Milan Paluska, Milan Urban, Pavel Sedláček, Ladislav Kejda\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)",
+      "pro": {
+       "count": 18,
+       "names": [
+        "Bc. Iveta Dvořáková",
+        "Jaroslav Železný",
+        "Ing. Hana Kuprová",
+        "Mgr. Alena Švejnohová",
+        "Václav Drška",
+        "Jiří Katrnoška",
+        "Milan Pečenka",
+        "Ivana Trčková",
+        "Ing. Karel Krištoufek",
+        "Ing. Petr Dürr",
+        "Tomáš Růžička",
+        "Lenka Třísková",
+        "Zdeněk Fejfar",
+        "Šárka Horynová",
+        "Milan Paluska",
+        "Milan Urban",
+        "Pavel Sedláček",
+        "Ladislav Kejda"
+       ],
+       "raw": "(18) Bc. Iveta Dvořáková, Jaroslav Železný, Ing. Hana Kuprová, Mgr. Alena Švejnohová, Václav Drška, Jiří Katrnoška, Milan Pečenka, Ivana Trčková, Ing. Karel Krištoufek, Ing. Petr Dürr, Tomáš Růžička, Lenka Třísková, Zdeněk Fejfar, Šárka Horynová, Milan Paluska, Milan Urban, Pavel Sedláček, Ladislav Kejda"
+      },
+      "proti": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "zdrzel_se": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "nehlasoval": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "result_raw": "Návrh byl přijat jako usnesení číslo: UZ-30-4/23",
+      "adopted_resolution_number": "UZ-30-4/23"
+     }
+    ],
+    "resolution_numbers_mentioned": [
+     "UZ-30-4/23"
+    ],
+    "raw_text": "Předkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 17:33:10 (zvuk. záznam 0:03:36 - 0:04:26)\nProgram jednání\n1. Volba pracovních komisí\n2. Schválení programu jednání\n3. Informace vedení města o aktuální situaci ve městě\n4. Odkoupení pozemků v k.ú. Velké Chvalovice – č. parc. 411/3 a č. parc. 85/4\n5. Odkoupení pozemků z LV 2656 a LV 2628 – id. podíl ve výši 1/8 v k.ú. Pečky\n6. Pověření pro Radu města při jednáních o rezervacích či dražbách pozemků\n7. Kontrola plnění usnesení\n8. Dotazy a připomínky občanů\n9. Různé, diskuse\nDiskuze zahájena v 17:33:10\nK tomuto bodu se vyjádřili: Milan Paluska\nV 17:33:52 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Milan Paluska\") v tomto znění:\nZastupitelstvo města schvaluje návrh programu jednání ze zveřejněné pozvánky.\nHlasování\npro:\n(18) Bc. Iveta Dvořáková, Jaroslav Železný, Ing. Hana Kuprová, Mgr. Alena Švejnohová, Václav Drška, Jiří Katrnoška, Milan Pečenka, Ivana Trčková, Ing. Karel Krištoufek, Ing. Petr Dürr, Tomáš Růžička, Lenka Třísková, Zdeněk Fejfar, Šárka Horynová, Milan Paluska, Milan Urban, Pavel Sedláček, Ladislav Kejda\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UZ-30-4/23\nzodpovídá:\ntermín:\nIHNED (9. 8. 2023)\nProjednávání bodu bylo ukončeno v 17:34:00"
+   },
+   {
+    "number": 3,
+    "title_raw": "Informace vedení města o aktuální situaci ve městě",
+    "heading_raw": "3. Informace vedení města o aktuální situaci ve městě (bod číslo 3)",
+    "predkladatel": "Milan Paluska",
+    "votes": [],
+    "resolution_numbers_mentioned": [],
+    "raw_text": "Předkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 17:34:06 (zvuk. záznam 0:04:32 - 0:13:04)\nDiskuze zahájena v 17:34:06\nK tomuto bodu se vyjádřili: Milan Paluska\nZastupitelstvo bere materiály předložené k bodu č. 3 -\nInformace vedení města o aktuální situaci ve městě\nna vědomí.\nProjednávání bodu bylo ukončeno v 17:42:38"
+   },
+   {
+    "number": 4,
+    "title_raw": "Odkoupení pozemků v k.ú. Velké Chvalovice – č. parc. 411/3 a č. parc. 85/4",
+    "heading_raw": "4. Odkoupení pozemků v k.ú. Velké Chvalovice – č. parc. 411/3 a č. parc. 85/4 (bod číslo 4)",
+    "predkladatel": "Milan Paluska",
+    "votes": [
+     {
+      "raw_text": "pro:\n(18) Lenka Třísková, Tomáš Růžička, Zdeněk Fejfar, Ing. Petr Dürr, Václav Drška, Mgr. Alena Švejnohová, Jiří Katrnoška, Šárka Horynová, Pavel Sedláček, Ing. Karel Krištoufek, Bc. Iveta Dvořáková, Milan Pečenka, Milan Urban, Ivana Trčková, Ing. Hana Kuprová, Jaroslav Železný, Milan Paluska, Ladislav Kejda\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)",
+      "pro": {
+       "count": 18,
+       "names": [
+        "Lenka Třísková",
+        "Tomáš Růžička",
+        "Zdeněk Fejfar",
+        "Ing. Petr Dürr",
+        "Václav Drška",
+        "Mgr. Alena Švejnohová",
+        "Jiří Katrnoška",
+        "Šárka Horynová",
+        "Pavel Sedláček",
+        "Ing. Karel Krištoufek",
+        "Bc. Iveta Dvořáková",
+        "Milan Pečenka",
+        "Milan Urban",
+        "Ivana Trčková",
+        "Ing. Hana Kuprová",
+        "Jaroslav Železný",
+        "Milan Paluska",
+        "Ladislav Kejda"
+       ],
+       "raw": "(18) Lenka Třísková, Tomáš Růžička, Zdeněk Fejfar, Ing. Petr Dürr, Václav Drška, Mgr. Alena Švejnohová, Jiří Katrnoška, Šárka Horynová, Pavel Sedláček, Ing. Karel Krištoufek, Bc. Iveta Dvořáková, Milan Pečenka, Milan Urban, Ivana Trčková, Ing. Hana Kuprová, Jaroslav Železný, Milan Paluska, Ladislav Kejda"
+      },
+      "proti": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "zdrzel_se": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "nehlasoval": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "result_raw": "Návrh byl přijat jako usnesení číslo: UZ-31-4/23",
+      "adopted_resolution_number": "UZ-31-4/23"
+     }
+    ],
+    "resolution_numbers_mentioned": [
+     "UZ-31-4/23"
+    ],
+    "raw_text": "Předkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 17:42:42 (zvuk. záznam 0:13:08 - 0:17:09)\nDůvodová zpráva:\nDoporučujeme odkoupit oba pozemky v k.ú.\nVelké\nChvalovice. Jedná se o část Chvalovického potoku (č. parc. 85/4) a dále o část komunikace-příkopu (č. parc. 411/3), který bude součástí budoucího obchvatu. Při stanovení ceny vycházíme ze znaleckých posudků, podle kterých byly odkoupeny obdobné pozemky v minulosti.\nDiskuze zahájena v 17:42:42\nK tomuto bodu se vyjádřili: Milan Paluska\nV 17:46:35 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Milan Paluska\") v tomto znění:\nZastupitelstvo města schvaluje odkoupení pozemku č. parc. 411/3 (421 m\n2\n)-ostatní plocha, silnice za cenu 110,50 Kč/m\n2\na pozemku č. parc. 85/4 (569 m\n2\n)-vodní plocha, koryto vodního toku umělé (Chvalovický potok-část) za cenu 56,64 Kč//m\n2\n. Celková kupní cena tedy činí 78.748,66 Kč. Pozemky budou odkoupeny od pana\n█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█\n,\n█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█\n– ideální podíl ½ vůči celku (KC-39.374,33 Kč) a pana\n█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█\n– ideální podíl ½ vůči celku (KC-39.374,33 Kč). Město jako kupující uhradí poplatek spojený s převodem u K.Ú. v Kolíně a zajistí sepsání kupní smlouvy.\nHlasování\npro:\n(18) Lenka Třísková, Tomáš Růžička, Zdeněk Fejfar, Ing. Petr Dürr, Václav Drška, Mgr. Alena Švejnohová, Jiří Katrnoška, Šárka Horynová, Pavel Sedláček, Ing. Karel Krištoufek, Bc. Iveta Dvořáková, Milan Pečenka, Milan Urban, Ivana Trčková, Ing. Hana Kuprová, Jaroslav Železný, Milan Paluska, Ladislav Kejda\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UZ-31-4/23\nzodpovídá:\nJana Najbrtová\ntermín:\n31. 12. 2023\nProjednávání bodu bylo ukončeno v 17:46:43"
+   },
+   {
+    "number": 5,
+    "title_raw": "Odkoupení pozemků z LV 2656 a LV 2628 – id. podíl ve výši 1/8 v k.ú. Pečky",
+    "heading_raw": "5. Odkoupení pozemků z LV 2656 a LV 2628 – id. podíl ve výši 1/8 v k.ú. Pečky (bod číslo 5)",
+    "predkladatel": "Milan Paluska",
+    "votes": [
+     {
+      "raw_text": "pro:\n(0)\nproti\n(14) Milan Paluska, Milan Urban, Ing. Karel Krištoufek, Ivana Trčková, Ladislav Kejda, Milan Pečenka, Václav Drška, Zdeněk Fejfar, Tomáš Růžička, Pavel Sedláček, Ing. Petr Dürr, Lenka Třísková, Šárka Horynová, Ing. Hana Kuprová\nzdržel se:\n(4) Bc. Iveta Dvořáková, Jiří Katrnoška, Jaroslav Železný, Mgr. Alena Švejnohová\nnehlasoval:\n(0)",
+      "pro": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "proti": {
+       "count": 14,
+       "names": [
+        "Milan Paluska",
+        "Milan Urban",
+        "Ing. Karel Krištoufek",
+        "Ivana Trčková",
+        "Ladislav Kejda",
+        "Milan Pečenka",
+        "Václav Drška",
+        "Zdeněk Fejfar",
+        "Tomáš Růžička",
+        "Pavel Sedláček",
+        "Ing. Petr Dürr",
+        "Lenka Třísková",
+        "Šárka Horynová",
+        "Ing. Hana Kuprová"
+       ],
+       "raw": "(14) Milan Paluska, Milan Urban, Ing. Karel Krištoufek, Ivana Trčková, Ladislav Kejda, Milan Pečenka, Václav Drška, Zdeněk Fejfar, Tomáš Růžička, Pavel Sedláček, Ing. Petr Dürr, Lenka Třísková, Šárka Horynová, Ing. Hana Kuprová"
+      },
+      "zdrzel_se": {
+       "count": 4,
+       "names": [
+        "Bc. Iveta Dvořáková",
+        "Jiří Katrnoška",
+        "Jaroslav Železný",
+        "Mgr. Alena Švejnohová"
+       ],
+       "raw": "(4) Bc. Iveta Dvořáková, Jiří Katrnoška, Jaroslav Železný, Mgr. Alena Švejnohová"
+      },
+      "nehlasoval": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "result_raw": "Návrh nebyl přijat",
+      "adopted_resolution_number": null
+     },
+     {
+      "raw_text": "pro:\n(18) Milan Urban, Bc. Iveta Dvořáková, Milan Pečenka, Ing. Petr Dürr, Ing. Karel Krištoufek, Ladislav Kejda, Šárka Horynová, Václav Drška, Mgr. Alena Švejnohová, Zdeněk Fejfar, Tomáš Růžička, Ing. Hana Kuprová, Pavel Sedláček, Ivana Trčková, Jiří Katrnoška, Milan Paluska, Lenka Třísková, Jaroslav Železný\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)",
+      "pro": {
+       "count": 18,
+       "names": [
+        "Milan Urban",
+        "Bc. Iveta Dvořáková",
+        "Milan Pečenka",
+        "Ing. Petr Dürr",
+        "Ing. Karel Krištoufek",
+        "Ladislav Kejda",
+        "Šárka Horynová",
+        "Václav Drška",
+        "Mgr. Alena Švejnohová",
+        "Zdeněk Fejfar",
+        "Tomáš Růžička",
+        "Ing. Hana Kuprová",
+        "Pavel Sedláček",
+        "Ivana Trčková",
+        "Jiří Katrnoška",
+        "Milan Paluska",
+        "Lenka Třísková",
+        "Jaroslav Železný"
+       ],
+       "raw": "(18) Milan Urban, Bc. Iveta Dvořáková, Milan Pečenka, Ing. Petr Dürr, Ing. Karel Krištoufek, Ladislav Kejda, Šárka Horynová, Václav Drška, Mgr. Alena Švejnohová, Zdeněk Fejfar, Tomáš Růžička, Ing. Hana Kuprová, Pavel Sedláček, Ivana Trčková, Jiří Katrnoška, Milan Paluska, Lenka Třísková, Jaroslav Železný"
+      },
+      "proti": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "zdrzel_se": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "nehlasoval": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "result_raw": "Návrh byl přijat jako usnesení číslo: UZ-32-4/23",
+      "adopted_resolution_number": "UZ-32-4/23"
+     }
+    ],
+    "resolution_numbers_mentioned": [
+     "UZ-32-4/23"
+    ],
+    "raw_text": "Předkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 17:46:48 (zvuk. záznam 0:17:14 - 0:32:59)\nDůvodová zpráva:\nPodíl ve výši 1/8 na pozemcích z LV 2656 a LV 2628 nabízí realitní kancelář za cenu 26,- Kč/m\n2\n(!!!), ale při celkové výměře všech pozemků 13.826 m\n2\nby město odkupovalo pouze podíl ve výši 1/8 vůči celku tzn. pouze 1.728 m\n2\n. KC činí 356.000,- Kč : 1.728 m\n2\n=\n206,- Kč/m\n2\n!!! a ne inzerovaných 26,- Kč/m\n2\n. Na LV č. 2656 vlastní město podíl ve výši 1/8 a na LV č. 2628 vlastní město podíl ve výši 4/8. Tyto podíly jsme v roce 2020 odkoupili od pana\n█​█​█​█​█\nza cenu 20,- Kč/m\n2\n!!!\nDiskuze zahájena v 17:46:48\nK tomuto bodu se vyjádřili: Milan Paluska, Mgr. Alena Švejnohová, Ing. Karel Krištoufek, Bc. Iveta Dvořáková\nV 18:01:53 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Milan Paluska\") v tomto znění:\nZastupitelstvo města schvaluje odkoupení pozemků z LV č. 2656  a to - č. parc. 308/8 (17 m\n2\n)-silnice, ost.plocha, č. parc. 2173/1 (6.756 m\n2\n)- orná půda, č. parc. 2173/8 (54 m\n2\n)- orná půda, č. parc. 2246/30 (1.908 m\n2\n)- orná půda, č. parc. 2247/24 (1.934 m\n2\n)- orná půda, č. parc. 2247/31 (1.818 m\n2\n)- orná půda. U všech pozemků se jedná o id. podíl ve výši ⅛ vůči celku. Dále pozemek z LV 2628 – č. parc. 2178/10 (339 m\n2\n)-koryto vodního toku  umělé, vodní plocha - id. podíl ve výši ⅛ vůči celku. Podíly na výše uvedených pozemcích budou odkoupeny od pana\n█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█\nza celkovou kupní cenu ve výši 356.000,- Kč (tzn. 206,- Kč/m\n2\n). Veškerý právní servis bude zajištěn prostřednictvím RK M&M reality holding a.s., se sídlem\nPraha\n,\nKrakovská\n583/9, PSČ 110 00.\nHlasování\npro:\n(0)\nproti\n(14) Milan Paluska, Milan Urban, Ing. Karel Krištoufek, Ivana Trčková, Ladislav Kejda, Milan Pečenka, Václav Drška, Zdeněk Fejfar, Tomáš Růžička, Pavel Sedláček, Ing. Petr Dürr, Lenka Třísková, Šárka Horynová, Ing. Hana Kuprová\nzdržel se:\n(4) Bc. Iveta Dvořáková, Jiří Katrnoška, Jaroslav Železný, Mgr. Alena Švejnohová\nnehlasoval:\n(0)\nNávrh nebyl přijat\nV 18:02:24 předsedající zahájil hlasování o návrhu usnesení \"B\" (navrhovatel: \"Milan Paluska\") v tomto znění:\nZastupitelstvo města ukládá starostovi města jednat s realitní kanceláří M&M reality holding a.s., se sídlem\nPraha\n,\nKrakovská\n583/9, o snížení ceny, která se pohybuje za cenu v místě obvyklou.\nHlasování\npro:\n(18) Milan Urban, Bc. Iveta Dvořáková, Milan Pečenka, Ing. Petr Dürr, Ing. Karel Krištoufek, Ladislav Kejda, Šárka Horynová, Václav Drška, Mgr. Alena Švejnohová, Zdeněk Fejfar, Tomáš Růžička, Ing. Hana Kuprová, Pavel Sedláček, Ivana Trčková, Jiří Katrnoška, Milan Paluska, Lenka Třísková, Jaroslav Železný\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UZ-32-4/23\nzodpovídá:\nJana Najbrtová\ntermín:\n31. 12. 2023\nProjednávání bodu bylo ukončeno v 18:02:33"
+   },
+   {
+    "number": 6,
+    "title_raw": "Pověření pro Radu města při jednáních o rezervacích či dražbách pozemků",
+    "heading_raw": "6. Pověření pro Radu města při jednáních o rezervacích či dražbách pozemků (bod číslo 6)",
+    "predkladatel": "Milan Paluska",
+    "votes": [],
+    "resolution_numbers_mentioned": [],
+    "raw_text": "Předkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 18:02:39 (zvuk. záznam 0:33:05 - 0:44:33)\nDůvodová zpráva:\nMateriál k uvedenému bodu bude doplněn dodatečně do textu \"Usnesení.cz\" zítra 3.8.2023, včetně důvodové zprávy a textu usnesení po vyjádření právního zástupce. Vyjádření právního zástupce bude ústně projednáno na zasedání zastupitelstva města.\nDiskuze zahájena v 18:02:39\nK tomuto bodu se vyjádřili: Milan Paluska, Ing. Karel Krištoufek, Mgr. Alena Švejnohová\nZastupitelstvo bere materiály předložené k bodu č. 6 -\nPověření pro Radu města při jednáních o rezervacích či dražbách pozemků\nna vědomí.\nProjednávání bodu bylo ukončeno v 18:14:07"
+   },
+   {
+    "number": 7,
+    "title_raw": "Kontrola plnění usnesení",
+    "heading_raw": "7. Kontrola plnění usnesení (bod číslo 7)",
+    "predkladatel": "Milan Paluska",
+    "votes": [],
+    "resolution_numbers_mentioned": [],
+    "raw_text": "Předkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 18:14:11 (zvuk. záznam 0:44:37 - 0:45:05)\nDiskuze zahájena v 18:14:11\nK tomuto bodu se vyjádřili: Milan Paluska, Pavlína Nepovímová\nZastupitelstvo bere materiály předložené k bodu č. 7 -\nKontrola plnění usnesení\nna vědomí.\nProjednávání bodu bylo ukončeno v 18:14:39"
+   },
+   {
+    "number": 8,
+    "title_raw": "Dotazy a připomínky občanů",
+    "heading_raw": "8. Dotazy a připomínky občanů (bod číslo 8)",
+    "predkladatel": "Milan Paluska",
+    "votes": [],
+    "resolution_numbers_mentioned": [],
+    "raw_text": "Předkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 18:14:43 (zvuk. záznam 0:45:09 - 0:51:28)\nDiskuze zahájena v 18:14:43\nK tomuto bodu se vyjádřili: Milan Paluska, Ondřej Schulz, Ing. Karel Krištoufek\nZastupitelstvo bere materiály předložené k bodu č. 8 -\nDotazy a připomínky občanů\nna vědomí.\nProjednávání bodu bylo ukončeno v 18:21:02"
+   },
+   {
+    "number": 9,
+    "title_raw": "Různé, diskuse",
+    "heading_raw": "9. Různé, diskuse (bod číslo 9)",
+    "predkladatel": "Milan Paluska",
+    "votes": [],
+    "resolution_numbers_mentioned": [],
+    "raw_text": "Předkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 18:21:06 (zvuk. záznam 0:51:32 - 1:06:31)\nDiskuze zahájena v 18:21:06\nK tomuto bodu se vyjádřili: Milan Paluska, Mgr. Alena Švejnohová, Bc. Iveta Dvořáková, Pavlína Nepovímová, Ing. Petr Dürr, Mgr. Petra Čermáková\nV 18:36:03 odešel Lenka Třísková, přítomno 17 zastupitelů.\nAktualizovaný stav prezence:\nPřítomni:\n(17) Mgr. Alena Švejnohová, Bc. Iveta Dvořáková, Šárka Horynová, Jaroslav Železný, Jiří Katrnoška, Zdeněk Fejfar, Milan Paluska, Ing. Petr Dürr, Milan Pečenka, Pavel Sedláček, Ladislav Kejda, Milan Urban, Václav Drška, Ivana Trčková, Ing. Hana Kuprová, Tomáš Růžička, Ing. Karel Krištoufek\nOmluveni:\n(3) Tomáš Vodička, Ing. Martin Jedlička, Lubomír Metelák\nNepřítomni:\n(1) Lenka Třísková\nZastupitelstvo bere materiály předložené k bodu č. 9 -\nRůzné, diskuse\nna vědomí.\nProjednávání bodu bylo ukončeno v 18:36:05\nJednání ukončeno 09.08.2023 v 18:36:49\n\nOvěřeno ověřovateli:\n1)\n11. 8. 2023 08:53\nIng. Hana Kuprová\n2)\n10. 8. 2023 18:48\nŠárka Horynová"
+   }
+  ],
+  "full_text": "ZÁPIS ze zasedání zastupitelstva č. 4/2023\nMěsto Pečky\ndatum: 9. 8. 2023, čas: 17:30\n​\nPrezence:\nPřítomni:\n(18) Mgr. Alena Švejnohová, Bc. Iveta Dvořáková, Šárka Horynová, Jaroslav Železný, Jiří Katrnoška, Zdeněk Fejfar, Milan Paluska, Ing. Petr Dürr, Milan Pečenka, Pavel Sedláček, Ladislav Kejda, Milan Urban, Václav Drška, Ivana Trčková, Ing. Hana Kuprová, Lenka Třísková, Tomáš Růžička, Ing. Karel Krištoufek\nOmluveni:\n(3) Tomáš Vodička, Ing. Martin Jedlička, Lubomír Metelák\nNepřítomni:\n(0)\nHosté:\nPředsedající:\nMilan Paluska\nPřítomno je 18 členů a zastupitelstvo je usnášeníschopné.\nJednání zahájeno 09.08.2023 v 17:29:24\n1. Volba pracovních komisí (bod číslo 1)\nPředkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 17:29:32 (zvuk. záznam 0:00:00 - 0:03:31)\nPředsedající navrhl jednotlivé členy pracovních komisí\nNávrhová komise:\nLenka Třísková, Ivana Trčková, Milan Pečenka, Bc. Iveta Dvořáková, Ing. Petr Dürr\nMandátová a volební komise:\nOvěřovatelé:\nIng. Hana Kuprová, Šárka Horynová\nDiskuze zahájena v 17:29:32\nK tomuto bodu se vyjádřili: Milan Paluska\nHlasování\npro:\n(18) Bc. Iveta Dvořáková, Tomáš Růžička, Václav Drška, Milan Urban, Ing. Hana Kuprová, Jiří Katrnoška, Zdeněk Fejfar, Pavel Sedláček, Ivana Trčková, Šárka Horynová, Lenka Třísková, Ing. Petr Dürr, Milan Paluska, Jaroslav Železný, Milan Pečenka, Mgr. Alena Švejnohová, Ing. Karel Krištoufek, Ladislav Kejda\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat\nProjednávání bodu bylo ukončeno v 17:33:05\n2. Schválení programu jednání (bod číslo 2)\nPředkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 17:33:10 (zvuk. záznam 0:03:36 - 0:04:26)\nProgram jednání\n1. Volba pracovních komisí\n2. Schválení programu jednání\n3. Informace vedení města o aktuální situaci ve městě\n4. Odkoupení pozemků v k.ú. Velké Chvalovice – č. parc. 411/3 a č. parc. 85/4\n5. Odkoupení pozemků z LV 2656 a LV 2628 – id. podíl ve výši 1/8 v k.ú. Pečky\n6. Pověření pro Radu města při jednáních o rezervacích či dražbách pozemků\n7. Kontrola plnění usnesení\n8. Dotazy a připomínky občanů\n9. Různé, diskuse\nDiskuze zahájena v 17:33:10\nK tomuto bodu se vyjádřili: Milan Paluska\nV 17:33:52 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Milan Paluska\") v tomto znění:\nZastupitelstvo města schvaluje návrh programu jednání ze zveřejněné pozvánky.\nHlasování\npro:\n(18) Bc. Iveta Dvořáková, Jaroslav Železný, Ing. Hana Kuprová, Mgr. Alena Švejnohová, Václav Drška, Jiří Katrnoška, Milan Pečenka, Ivana Trčková, Ing. Karel Krištoufek, Ing. Petr Dürr, Tomáš Růžička, Lenka Třísková, Zdeněk Fejfar, Šárka Horynová, Milan Paluska, Milan Urban, Pavel Sedláček, Ladislav Kejda\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UZ-30-4/23\nzodpovídá:\ntermín:\nIHNED (9. 8. 2023)\nProjednávání bodu bylo ukončeno v 17:34:00\n3. Informace vedení města o aktuální situaci ve městě (bod číslo 3)\nPředkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 17:34:06 (zvuk. záznam 0:04:32 - 0:13:04)\nDiskuze zahájena v 17:34:06\nK tomuto bodu se vyjádřili: Milan Paluska\nZastupitelstvo bere materiály předložené k bodu č. 3 -\nInformace vedení města o aktuální situaci ve městě\nna vědomí.\nProjednávání bodu bylo ukončeno v 17:42:38\n4. Odkoupení pozemků v k.ú. Velké Chvalovice – č. parc. 411/3 a č. parc. 85/4 (bod číslo 4)\nPředkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 17:42:42 (zvuk. záznam 0:13:08 - 0:17:09)\nDůvodová zpráva:\nDoporučujeme odkoupit oba pozemky v k.ú.\nVelké\nChvalovice. Jedná se o část Chvalovického potoku (č. parc. 85/4) a dále o část komunikace-příkopu (č. parc. 411/3), který bude součástí budoucího obchvatu. Při stanovení ceny vycházíme ze znaleckých posudků, podle kterých byly odkoupeny obdobné pozemky v minulosti.\nDiskuze zahájena v 17:42:42\nK tomuto bodu se vyjádřili: Milan Paluska\nV 17:46:35 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Milan Paluska\") v tomto znění:\nZastupitelstvo města schvaluje odkoupení pozemku č. parc. 411/3 (421 m\n2\n)-ostatní plocha, silnice za cenu 110,50 Kč/m\n2\na pozemku č. parc. 85/4 (569 m\n2\n)-vodní plocha, koryto vodního toku umělé (Chvalovický potok-část) za cenu 56,64 Kč//m\n2\n. Celková kupní cena tedy činí 78.748,66 Kč. Pozemky budou odkoupeny od pana\n█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​\n,\n█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​\n– ideální podíl ½ vůči celku (KC-39.374,33 Kč) a pana\n█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​\n– ideální podíl ½ vůči celku (KC-39.374,33 Kč). Město jako kupující uhradí poplatek spojený s převodem u K.Ú. v Kolíně a zajistí sepsání kupní smlouvy.\nHlasování\npro:\n(18) Lenka Třísková, Tomáš Růžička, Zdeněk Fejfar, Ing. Petr Dürr, Václav Drška, Mgr. Alena Švejnohová, Jiří Katrnoška, Šárka Horynová, Pavel Sedláček, Ing. Karel Krištoufek, Bc. Iveta Dvořáková, Milan Pečenka, Milan Urban, Ivana Trčková, Ing. Hana Kuprová, Jaroslav Železný, Milan Paluska, Ladislav Kejda\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UZ-31-4/23\nzodpovídá:\nJana Najbrtová\ntermín:\n31. 12. 2023\nProjednávání bodu bylo ukončeno v 17:46:43\n5. Odkoupení pozemků z LV 2656 a LV 2628 – id. podíl ve výši 1/8 v k.ú. Pečky (bod číslo 5)\nPředkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 17:46:48 (zvuk. záznam 0:17:14 - 0:32:59)\nDůvodová zpráva:\nPodíl ve výši 1/8 na pozemcích z LV 2656 a LV 2628 nabízí realitní kancelář za cenu 26,- Kč/m\n2\n(!!!), ale při celkové výměře všech pozemků 13.826 m\n2\nby město odkupovalo pouze podíl ve výši 1/8 vůči celku tzn. pouze 1.728 m\n2\n. KC činí 356.000,- Kč : 1.728 m\n2\n=\n206,- Kč/m\n2\n!!! a ne inzerovaných 26,- Kč/m\n2\n. Na LV č. 2656 vlastní město podíl ve výši 1/8 a na LV č. 2628 vlastní město podíl ve výši 4/8. Tyto podíly jsme v roce 2020 odkoupili od pana\n█​█​█​█​█​\nza cenu 20,- Kč/m\n2\n!!!\nDiskuze zahájena v 17:46:48\nK tomuto bodu se vyjádřili: Milan Paluska, Mgr. Alena Švejnohová, Ing. Karel Krištoufek, Bc. Iveta Dvořáková\nV 18:01:53 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Milan Paluska\") v tomto znění:\nZastupitelstvo města schvaluje odkoupení pozemků z LV č. 2656  a to - č. parc. 308/8 (17 m\n2\n)-silnice, ost.plocha, č. parc. 2173/1 (6.756 m\n2\n)- orná půda, č. parc. 2173/8 (54 m\n2\n)- orná půda, č. parc. 2246/30 (1.908 m\n2\n)- orná půda, č. parc. 2247/24 (1.934 m\n2\n)- orná půda, č. parc. 2247/31 (1.818 m\n2\n)- orná půda. U všech pozemků se jedná o id. podíl ve výši ⅛ vůči celku. Dále pozemek z LV 2628 – č. parc. 2178/10 (339 m\n2\n)-koryto vodního toku  umělé, vodní plocha - id. podíl ve výši ⅛ vůči celku. Podíly na výše uvedených pozemcích budou odkoupeny od pana\n█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​\nza celkovou kupní cenu ve výši 356.000,- Kč (tzn. 206,- Kč/m\n2\n). Veškerý právní servis bude zajištěn prostřednictvím RK M&M reality holding a.s., se sídlem\nPraha\n,\nKrakovská\n583/9, PSČ 110 00.\nHlasování\npro:\n(0)\nproti\n(14) Milan Paluska, Milan Urban, Ing. Karel Krištoufek, Ivana Trčková, Ladislav Kejda, Milan Pečenka, Václav Drška, Zdeněk Fejfar, Tomáš Růžička, Pavel Sedláček, Ing. Petr Dürr, Lenka Třísková, Šárka Horynová, Ing. Hana Kuprová\nzdržel se:\n(4) Bc. Iveta Dvořáková, Jiří Katrnoška, Jaroslav Železný, Mgr. Alena Švejnohová\nnehlasoval:\n(0)\nNávrh nebyl přijat\nV 18:02:24 předsedající zahájil hlasování o návrhu usnesení \"B\" (navrhovatel: \"Milan Paluska\") v tomto znění:\nZastupitelstvo města ukládá starostovi města jednat s realitní kanceláří M&M reality holding a.s., se sídlem\nPraha\n,\nKrakovská\n583/9, o snížení ceny, která se pohybuje za cenu v místě obvyklou.\nHlasování\npro:\n(18) Milan Urban, Bc. Iveta Dvořáková, Milan Pečenka, Ing. Petr Dürr, Ing. Karel Krištoufek, Ladislav Kejda, Šárka Horynová, Václav Drška, Mgr. Alena Švejnohová, Zdeněk Fejfar, Tomáš Růžička, Ing. Hana Kuprová, Pavel Sedláček, Ivana Trčková, Jiří Katrnoška, Milan Paluska, Lenka Třísková, Jaroslav Železný\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UZ-32-4/23\nzodpovídá:\nJana Najbrtová\ntermín:\n31. 12. 2023\nProjednávání bodu bylo ukončeno v 18:02:33\n6. Pověření pro Radu města při jednáních o rezervacích či dražbách pozemků (bod číslo 6)\nPředkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 18:02:39 (zvuk. záznam 0:33:05 - 0:44:33)\nDůvodová zpráva:\nMateriál k uvedenému bodu bude doplněn dodatečně do textu \"Usnesení.cz\" zítra 3.8.2023, včetně důvodové zprávy a textu usnesení po vyjádření právního zástupce. Vyjádření právního zástupce bude ústně projednáno na zasedání zastupitelstva města.\nDiskuze zahájena v 18:02:39\nK tomuto bodu se vyjádřili: Milan Paluska, Ing. Karel Krištoufek, Mgr. Alena Švejnohová\nZastupitelstvo bere materiály předložené k bodu č. 6 -\nPověření pro Radu města při jednáních o rezervacích či dražbách pozemků\nna vědomí.\nProjednávání bodu bylo ukončeno v 18:14:07\n7. Kontrola plnění usnesení (bod číslo 7)\nPředkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 18:14:11 (zvuk. záznam 0:44:37 - 0:45:05)\nDiskuze zahájena v 18:14:11\nK tomuto bodu se vyjádřili: Milan Paluska, Pavlína Nepovímová\nZastupitelstvo bere materiály předložené k bodu č. 7 -\nKontrola plnění usnesení\nna vědomí.\nProjednávání bodu bylo ukončeno v 18:14:39\n8. Dotazy a připomínky občanů (bod číslo 8)\nPředkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 18:14:43 (zvuk. záznam 0:45:09 - 0:51:28)\nDiskuze zahájena v 18:14:43\nK tomuto bodu se vyjádřili: Milan Paluska, Ondřej Schulz, Ing. Karel Krištoufek\nZastupitelstvo bere materiály předložené k bodu č. 8 -\nDotazy a připomínky občanů\nna vědomí.\nProjednávání bodu bylo ukončeno v 18:21:02\n9. Různé, diskuse (bod číslo 9)\nPředkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 18:21:06 (zvuk. záznam 0:51:32 - 1:06:31)\nDiskuze zahájena v 18:21:06\nK tomuto bodu se vyjádřili: Milan Paluska, Mgr. Alena Švejnohová, Bc. Iveta Dvořáková, Pavlína Nepovímová, Ing. Petr Dürr, Mgr. Petra Čermáková\nV 18:36:03 odešel Lenka Třísková, přítomno 17 zastupitelů.\nAktualizovaný stav prezence:\nPřítomni:\n(17) Mgr. Alena Švejnohová, Bc. Iveta Dvořáková, Šárka Horynová, Jaroslav Železný, Jiří Katrnoška, Zdeněk Fejfar, Milan Paluska, Ing. Petr Dürr, Milan Pečenka, Pavel Sedláček, Ladislav Kejda, Milan Urban, Václav Drška, Ivana Trčková, Ing. Hana Kuprová, Tomáš Růžička, Ing. Karel Krištoufek\nOmluveni:\n(3) Tomáš Vodička, Ing. Martin Jedlička, Lubomír Metelák\nNepřítomni:\n(1) Lenka Třísková\nZastupitelstvo bere materiály předložené k bodu č. 9 -\nRůzné, diskuse\nna vědomí.\nProjednávání bodu bylo ukončeno v 18:36:05\nJednání ukončeno 09.08.2023 v 18:36:49\nOvěřeno ověřovateli:\n1)\n11. 8. 2023 08:53\nIng. Hana Kuprová\n2)\n10. 8. 2023 18:48\nŠárka Horynová"
+ },
+ "resolutions": {
+  "status": "ok",
+  "url": "https://mesto-pecky.usneseni.cz/verejne/ffa55a00-3044-11ee-b0da-442b95e919b3/usneseni/",
+  "fetched_at": "2026-08-04T14:06:07.572850+00:00",
+  "items": [
+   {
+    "number_raw": "UZ-30-4/23",
+    "detail_id": 43719,
+    "detail_url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/43719?mod=zastupitelstvo",
+    "agenda_item_raw": "Schválení programu jednání",
+    "text_verbatim": "Zastupitelstvo města schvaluje návrh programu jednání ze zveřejněné pozvánky.",
+    "cell_text_raw": "Bod programu:\nSchválení programu jednání\nText přijatého usnesení:\nZastupitelstvo města schvaluje návrh programu jednání ze zveřejněné pozvánky.",
+    "date_raw": "9. 8. 2023",
+    "date_iso": "2023-08-09",
+    "responsible_raw": "",
+    "deadline_raw": "IHNED (9. 8. 2023)",
+    "vote": {
+     "raw_text": "pro: (18) Bc. Iveta Dvořáková, Jaroslav Železný, Ing. Hana Kuprová, Mgr. Alena Švejnohová, Václav Drška, Jiří Katrnoška, Milan Pečenka, Ivana Trčková, Ing. Karel Krištoufek, Ing. Petr Dürr, Tomáš Růžička, Lenka Třísková, Zdeněk Fejfar, Šárka Horynová, Milan Paluska, Milan Urban, Pavel Sedláček, Ladislav Kejda proti: (0) zdržel se: (0)",
+     "pro": {
+      "count": 18,
+      "names": [
+       "Bc. Iveta Dvořáková",
+       "Jaroslav Železný",
+       "Ing. Hana Kuprová",
+       "Mgr. Alena Švejnohová",
+       "Václav Drška",
+       "Jiří Katrnoška",
+       "Milan Pečenka",
+       "Ivana Trčková",
+       "Ing. Karel Krištoufek",
+       "Ing. Petr Dürr",
+       "Tomáš Růžička",
+       "Lenka Třísková",
+       "Zdeněk Fejfar",
+       "Šárka Horynová",
+       "Milan Paluska",
+       "Milan Urban",
+       "Pavel Sedláček",
+       "Ladislav Kejda"
+      ],
+      "raw": "(18) Bc. Iveta Dvořáková, Jaroslav Železný, Ing. Hana Kuprová, Mgr. Alena Švejnohová, Václav Drška, Jiří Katrnoška, Milan Pečenka, Ivana Trčková, Ing. Karel Krištoufek, Ing. Petr Dürr, Tomáš Růžička, Lenka Třísková, Zdeněk Fejfar, Šárka Horynová, Milan Paluska, Milan Urban, Pavel Sedláček, Ladislav Kejda"
+     },
+     "proti": {
+      "count": 0,
+      "names": [],
+      "raw": "(0)"
+     },
+     "zdrzel_se": {
+      "count": 0,
+      "names": [],
+      "raw": "(0)"
+     }
+    },
+    "detail": {
+     "number_raw": "UZ-30-4/23",
+     "text_verbatim": "Zastupitelstvo města schvaluje návrh programu jednání ze zveřejněné pozvánky.",
+     "typ_raw": null,
+     "zodpovida_raw": "",
+     "prijato_raw": "9. 8. 2023 na jednání č. 4/2023",
+     "prijato_date_iso": "2023-08-09",
+     "prijato_meeting_label": "4/2023",
+     "termin_raw": "IHNED (9. 8. 2023)",
+     "ukonceno_raw": "9. 8. 2023",
+     "ukonceno_date_iso": "2023-08-09",
+     "fields_raw": {
+      "Číslo usnesení": "UZ-30-4/23",
+      "Text usnesení": "Zastupitelstvo města schvaluje návrh programu jednání ze zveřejněné pozvánky.",
+      "Zodpovídá": "",
+      "Přijato": "9. 8. 2023 na jednání č. 4/2023",
+      "Termín": "IHNED (9. 8. 2023)",
+      "Ukončeno": "9. 8. 2023"
+     }
+    }
+   },
+   {
+    "number_raw": "UZ-31-4/23",
+    "detail_id": 43722,
+    "detail_url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/43722?mod=zastupitelstvo",
+    "agenda_item_raw": "Odkoupení pozemků v k.ú. Velké Chvalovice – č. parc. 411/3 a č. parc. 85/4",
+    "text_verbatim": "Zastupitelstvo města schvaluje odkoupení pozemku č. parc. 411/3 (421 m\n2\n)-ostatní plocha, silnice za cenu 110,50 Kč/m\n2\na pozemku č. parc. 85/4 (569 m\n2\n)-vodní plocha, koryto vodního toku umělé (Chvalovický potok-část) za cenu 56,64 Kč//m\n2\n. Celková kupní cena tedy činí 78.748,66 Kč. Pozemky budou odkoupeny od pana\n█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​\n,\n█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​\n– ideální podíl ½ vůči celku (KC-39.374,33 Kč) a pana\n█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​\n– ideální podíl ½ vůči celku (KC-39.374,33 Kč). Město jako kupující uhradí poplatek spojený s převodem u K.Ú. v Kolíně a zajistí sepsání kupní smlouvy.",
+    "cell_text_raw": "Bod programu:\nOdkoupení pozemků v k.ú. Velké Chvalovice – č. parc. 411/3 a č. parc. 85/4\nText přijatého usnesení:\nZastupitelstvo města schvaluje odkoupení pozemku č. parc. 411/3 (421 m\n2\n)-ostatní plocha, silnice za cenu 110,50 Kč/m\n2\na pozemku č. parc. 85/4 (569 m\n2\n)-vodní plocha, koryto vodního toku umělé (Chvalovický potok-část) za cenu 56,64 Kč//m\n2\n. Celková kupní cena tedy činí 78.748,66 Kč. Pozemky budou odkoupeny od pana\n█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​\n,\n█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​\n– ideální podíl ½ vůči celku (KC-39.374,33 Kč) a pana\n█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​\n– ideální podíl ½ vůči celku (KC-39.374,33 Kč). Město jako kupující uhradí poplatek spojený s převodem u K.Ú. v Kolíně a zajistí sepsání kupní smlouvy.",
+    "date_raw": "9. 8. 2023",
+    "date_iso": "2023-08-09",
+    "responsible_raw": "Jana Najbrtová",
+    "deadline_raw": "31. 12. 2023",
+    "vote": {
+     "raw_text": "pro: (18) Lenka Třísková, Tomáš Růžička, Zdeněk Fejfar, Ing. Petr Dürr, Václav Drška, Mgr. Alena Švejnohová, Jiří Katrnoška, Šárka Horynová, Pavel Sedláček, Ing. Karel Krištoufek, Bc. Iveta Dvořáková, Milan Pečenka, Milan Urban, Ivana Trčková, Ing. Hana Kuprová, Jaroslav Železný, Milan Paluska, Ladislav Kejda proti: (0) zdržel se: (0)",
+     "pro": {
+      "count": 18,
+      "names": [
+       "Lenka Třísková",
+       "Tomáš Růžička",
+       "Zdeněk Fejfar",
+       "Ing. Petr Dürr",
+       "Václav Drška",
+       "Mgr. Alena Švejnohová",
+       "Jiří Katrnoška",
+       "Šárka Horynová",
+       "Pavel Sedláček",
+       "Ing. Karel Krištoufek",
+       "Bc. Iveta Dvořáková",
+       "Milan Pečenka",
+       "Milan Urban",
+       "Ivana Trčková",
+       "Ing. Hana Kuprová",
+       "Jaroslav Železný",
+       "Milan Paluska",
+       "Ladislav Kejda"
+      ],
+      "raw": "(18) Lenka Třísková, Tomáš Růžička, Zdeněk Fejfar, Ing. Petr Dürr, Václav Drška, Mgr. Alena Švejnohová, Jiří Katrnoška, Šárka Horynová, Pavel Sedláček, Ing. Karel Krištoufek, Bc. Iveta Dvořáková, Milan Pečenka, Milan Urban, Ivana Trčková, Ing. Hana Kuprová, Jaroslav Železný, Milan Paluska, Ladislav Kejda"
+     },
+     "proti": {
+      "count": 0,
+      "names": [],
+      "raw": "(0)"
+     },
+     "zdrzel_se": {
+      "count": 0,
+      "names": [],
+      "raw": "(0)"
+     }
+    },
+    "detail": {
+     "number_raw": "UZ-31-4/23",
+     "text_verbatim": "Zastupitelstvo města schvaluje odkoupení pozemku č. parc. 411/3 (421 m 2 )-ostatní plocha, silnice za cenu 110,50 Kč/m 2 a pozemku č. parc. 85/4 (569 m 2 )-vodní plocha, koryto vodního toku umělé (Chvalovický potok-část) za cenu 56,64 Kč//m 2 . Celková kupní cena tedy činí 78.748,66 Kč. Pozemky budou odkoupeny od pana █​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​ , █​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​ – ideální podíl ½ vůči celku (KC-39.374,33 Kč) a pana █​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​ – ideální podíl ½ vůči celku (KC-39.374,33 Kč). Město jako kupující uhradí poplatek spojený s převodem u K.Ú. v Kolíně a zajistí sepsání kupní smlouvy.",
+     "typ_raw": null,
+     "zodpovida_raw": "Jana Najbrtová",
+     "prijato_raw": "9. 8. 2023 na jednání č. 4/2023",
+     "prijato_date_iso": "2023-08-09",
+     "prijato_meeting_label": "4/2023",
+     "termin_raw": "31. 12. 2023",
+     "ukonceno_raw": "24. 8. 2023",
+     "ukonceno_date_iso": "2023-08-24",
+     "fields_raw": {
+      "Číslo usnesení": "UZ-31-4/23",
+      "Text usnesení": "Zastupitelstvo města schvaluje odkoupení pozemku č. parc. 411/3 (421 m 2 )-ostatní plocha, silnice za cenu 110,50 Kč/m 2 a pozemku č. parc. 85/4 (569 m 2 )-vodní plocha, koryto vodního toku umělé (Chvalovický potok-část) za cenu 56,64 Kč//m 2 . Celková kupní cena tedy činí 78.748,66 Kč. Pozemky budou odkoupeny od pana █​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​ , █​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​ – ideální podíl ½ vůči celku (KC-39.374,33 Kč) a pana █​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​ – ideální podíl ½ vůči celku (KC-39.374,33 Kč). Město jako kupující uhradí poplatek spojený s převodem u K.Ú. v Kolíně a zajistí sepsání kupní smlouvy.",
+      "Zodpovídá": "Jana Najbrtová",
+      "Přijato": "9. 8. 2023 na jednání č. 4/2023",
+      "Termín": "31. 12. 2023",
+      "Ukončeno": "24. 8. 2023"
+     }
+    }
+   },
+   {
+    "number_raw": "UZ-32-4/23",
+    "detail_id": 43776,
+    "detail_url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/43776?mod=zastupitelstvo",
+    "agenda_item_raw": "Odkoupení pozemků z LV 2656 a LV 2628 – id. podíl ve výši 1/8 v k.ú. Pečky",
+    "text_verbatim": "Zastupitelstvo města ukládá starostovi města jednat s realitní kanceláří M&M reality holding a.s., se sídlem\nPraha\n,\nKrakovská\n583/9, o snížení ceny, která se pohybuje za cenu v místě obvyklou.",
+    "cell_text_raw": "Bod programu:\nOdkoupení pozemků z LV 2656 a LV 2628 – id. podíl ve výši 1/8 v k.ú. Pečky\nText přijatého usnesení:\nZastupitelstvo města ukládá starostovi města jednat s realitní kanceláří M&M reality holding a.s., se sídlem\nPraha\n,\nKrakovská\n583/9, o snížení ceny, která se pohybuje za cenu v místě obvyklou.",
+    "date_raw": "9. 8. 2023",
+    "date_iso": "2023-08-09",
+    "responsible_raw": "Jana Najbrtová",
+    "deadline_raw": "31. 12. 2023",
+    "vote": {
+     "raw_text": "pro: (18) Milan Urban, Bc. Iveta Dvořáková, Milan Pečenka, Ing. Petr Dürr, Ing. Karel Krištoufek, Ladislav Kejda, Šárka Horynová, Václav Drška, Mgr. Alena Švejnohová, Zdeněk Fejfar, Tomáš Růžička, Ing. Hana Kuprová, Pavel Sedláček, Ivana Trčková, Jiří Katrnoška, Milan Paluska, Lenka Třísková, Jaroslav Železný proti: (0) zdržel se: (0)",
+     "pro": {
+      "count": 18,
+      "names": [
+       "Milan Urban",
+       "Bc. Iveta Dvořáková",
+       "Milan Pečenka",
+       "Ing. Petr Dürr",
+       "Ing. Karel Krištoufek",
+       "Ladislav Kejda",
+       "Šárka Horynová",
+       "Václav Drška",
+       "Mgr. Alena Švejnohová",
+       "Zdeněk Fejfar",
+       "Tomáš Růžička",
+       "Ing. Hana Kuprová",
+       "Pavel Sedláček",
+       "Ivana Trčková",
+       "Jiří Katrnoška",
+       "Milan Paluska",
+       "Lenka Třísková",
+       "Jaroslav Železný"
+      ],
+      "raw": "(18) Milan Urban, Bc. Iveta Dvořáková, Milan Pečenka, Ing. Petr Dürr, Ing. Karel Krištoufek, Ladislav Kejda, Šárka Horynová, Václav Drška, Mgr. Alena Švejnohová, Zdeněk Fejfar, Tomáš Růžička, Ing. Hana Kuprová, Pavel Sedláček, Ivana Trčková, Jiří Katrnoška, Milan Paluska, Lenka Třísková, Jaroslav Železný"
+     },
+     "proti": {
+      "count": 0,
+      "names": [],
+      "raw": "(0)"
+     },
+     "zdrzel_se": {
+      "count": 0,
+      "names": [],
+      "raw": "(0)"
+     }
+    },
+    "detail": {
+     "number_raw": "UZ-32-4/23",
+     "text_verbatim": "Zastupitelstvo města ukládá starostovi města jednat s realitní kanceláří M&M reality holding a.s., se sídlem Praha , Krakovská 583/9, o snížení ceny, která se pohybuje za cenu v místě obvyklou.",
+     "typ_raw": null,
+     "zodpovida_raw": "Jana Najbrtová",
+     "prijato_raw": "9. 8. 2023 na jednání č. 4/2023",
+     "prijato_date_iso": "2023-08-09",
+     "prijato_meeting_label": "4/2023",
+     "termin_raw": "31. 12. 2023",
+     "ukonceno_raw": "24. 8. 2023",
+     "ukonceno_date_iso": "2023-08-24",
+     "fields_raw": {
+      "Číslo usnesení": "UZ-32-4/23",
+      "Text usnesení": "Zastupitelstvo města ukládá starostovi města jednat s realitní kanceláří M&M reality holding a.s., se sídlem Praha , Krakovská 583/9, o snížení ceny, která se pohybuje za cenu v místě obvyklou.",
+      "Zodpovídá": "Jana Najbrtová",
+      "Přijato": "9. 8. 2023 na jednání č. 4/2023",
+      "Termín": "31. 12. 2023",
+      "Ukončeno": "24. 8. 2023"
+     }
+    }
+   }
+  ]
+ }
+}

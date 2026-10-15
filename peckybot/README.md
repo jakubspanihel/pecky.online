@@ -39,6 +39,7 @@ Zdroje, které generuje `scripts/build_peckybot_index.py` (jednání, lidé, sek
 - **organizace** (`lide/organizations.json`): adresa, IČO, web, hodiny, propojení lidé; tituly „Organizace — …“
 - **Pečecké noviny** (`noviny/`): jeden úryvek na číslo s odkazem na PDF
 - **Na oběd**: restaurace a další podniky s adresou, telefonem a hodinami (bez menu)
+- **shrnutí jednání** (`jednani/shrnuti/*.md`, od 15. 10. 2026): nejdůležitější témata a shrnutí jednání; v `cti_dokument` jako pole `shrnuti_jednani`
 - **absence zastupitelů** (`jednani/absence.json`)
 
 Mimo index zůstává úřední deska, plné texty novin a denní menu. Odpověď vzniká ze 8 úryvků, takže PečkyBot **nespočítá a nesečte** (na „kolik…“ nedá spolehlivý počet).

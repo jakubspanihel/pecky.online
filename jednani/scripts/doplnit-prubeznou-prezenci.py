@@ -2,7 +2,8 @@
 """Doplní do jednani/pecky-jednani.json pole attendance.changes — příchody,
 odchody a distanční připojení zaznamenané v průběhu jednání.
 
-Zdroj: minutes.full_text ve velkém archive-*.json. Zápis vede vedle úvodní
+Zdroj: minutes.full_text v archivu jednani/archive/ (jedno jednání = jeden soubor;
+starý tvar jediného archive-*.json se čte také). Zápis vede vedle úvodní
 prezence i každou změnu během jednání ("V 15:45:53 přišel Ing. Petr Dürr,
 přítomno 7 z 7 radních."); bez těchhle vět vypadá pozdní příchod jako
 celodenní absence. Viz jednani/INSTRUKCE-absence.md §3.
@@ -12,11 +13,15 @@ podle jednani/automation-kontrola-usneseni-cz.md, krok 4.
 
 Použití:
     python3 jednani/scripts/doplnit-prubeznou-prezenci.py \
-        jednani/archive-2026-08-04.json jednani/pecky-jednani.json [--zapsat]
+        jednani/archive jednani/pecky-jednani.json [--zapsat]
 
 Bez --zapsat jen vypíše, co by se změnilo.
 """
 import json, re, sys, unicodedata
+from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from archive_split import load_archive  # noqa: E402
 
 UDALOST = re.compile(
     r'V (\d{1,2}:\d{2}:\d{2}) '
@@ -67,7 +72,7 @@ def zmeny_ze_zapisu(full_text):
 
 
 def main(cesta_archiv, cesta_data, zapsat):
-    archiv = json.load(open(cesta_archiv, encoding='utf-8'))
+    archiv = load_archive(cesta_archiv)
     data = json.load(open(cesta_data, encoding='utf-8'))
 
     ze_zapisu = {}

@@ -13,7 +13,7 @@ zbytku sboru. Poprvé použito 4. 9. 2026 na Mgr. Alenu Švejnohovou
 
 ## 1. Zdroj dat
 
-`jednani/archive-2026-08-04.json` — pole
+`jednani/archive/` — pole
 `meetings[].minutes.agenda_items[].votes[]`, kde každý blok
 (`pro`, `proti`, `zdrzel_se`, `nehlasoval`) nese `count` i `names`.
 
@@ -26,8 +26,8 @@ Omezení, která se musí přiznat ve výstupu:
   drží jen počty (`pro`/`proti`/`zdrzel`), **ne jména** — na tuhle analýzu
   tedy nestačí. Novější jednání se musí buď dohledat ručně ze stránky
   `/verejne/<uuid>/zapis/`, nebo počkat na nový běh scraperu.
-- Velký `archive-*.json` se z připojené složky občas nedá číst přímo
-  (`OSError: [Errno 35]`). Nejdřív `cp` do `/tmp`, pak pracovat s kopií.
+- Archiv je rozdělený na jednání (`jednani/archive/`, načítání přes `load_archive()` v
+  `jednani/scripts/archive_split.py`); dřívější problém s čtením jediného velkého souboru odpadl.
 
 ## 2. Identifikace osoby
 

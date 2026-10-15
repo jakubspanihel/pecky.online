@@ -1,6 +1,6 @@
 # Zadání: novinářský článek z jednoho bodu jednání
 
-Jak z archivu jednání (`pecky-jednani.json` + `archive-*.json`) vyrobit krátký
+Jak z archivu jednání (`pecky-jednani.json` + `archive/`) vyrobit krátký
 faktický text o jednom projednávaném bodu — pro řadového občana Peček, který
 zápis sám číst nebude.
 
@@ -44,9 +44,8 @@ Postup: v `pecky-jednani.json` najdi jednání podle `type` + `number` + `year`,
 vezmi `uuid`, tím dohledej záznam ve velkém archivu a v něm `agenda_items`
 s odpovídajícím `number`.
 
-**Technická past:** velké `archive-*.json` čtené přímo z připojené složky občas
-skončí `OSError: [Errno 35] Resource deadlock avoided`. Nejdřív
-`cp archive-*.json /tmp/`, pak pracovat s kopií.
+**Poznámka:** archiv je rozdělený na jednání (`jednani/archive/`), čtení přes `load_archive()` v
+`jednani/scripts/archive_split.py`; dřívější problém s velkým souborem odpadl.
 
 ---
 

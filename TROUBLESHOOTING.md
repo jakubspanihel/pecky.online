@@ -3,13 +3,10 @@
 Technická obejití specifická pro prostředí (sandbox, mounty, dev server),
 ne konvence pro obsah webu — ty jsou v `CLAUDE.md`.
 
-- Velké soubory v `jednani/` (`archive-*.json`) čtené přímo z cesty
-  přes připojenou složku občas skončí `OSError: [Errno 35] Resource
-  deadlock avoided` (Python `open()`, `cat`, `head`...). Obejití: nejdřív
-  `cp soubor /tmp/kopie.json`, pak pracovat s kopií — `cp` samo selhání
-  nemělo. Pozn. 9. 9. 2026: při kontrolním testu se chyba nezopakovala
-  (3/3 přímá načtení `archive-2026-08-04.json` prošla), ale protože šlo
-  vždy o občasnou chybu, postup přes kopii zůstává doporučený.
+- ~~Velké soubory v `jednani/` (`archive-*.json`) čtené přímo z cesty přes připojenou složku občas
+  skončí `OSError: [Errno 35] Resource deadlock avoided`~~ — **VYŘEŠENO 15. 10. 2026** rozdělením
+  24MB snímku na jednotlivá jednání (`jednani/archive/`, největší soubor 0,27 MB). Obejití přes
+  `cp` do `/tmp` platí jen pro případné nové velké soubory.
 - ~~Git přes připojenou složku je nespolehlivý na čtení objektů~~ —
   **VYŘEŠENO 9. 9. 2026.** Příčinou nebyl git, ale to, že připojená
   složka odmítala `unlink` („Operation not permitted"): git po sobě

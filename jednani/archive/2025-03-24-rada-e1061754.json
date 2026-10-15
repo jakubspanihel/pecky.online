@@ -1,0 +1,1005 @@
+{
+ "uuid": "e1061754-03f1-11f0-9479-00505683238f",
+ "body_type_raw": "Rada",
+ "label_raw": "12/2025 (24. 3. 2025)",
+ "number": 12,
+ "year": 2025,
+ "date_iso": "2025-03-24",
+ "links": {
+  "invitation": "https://mesto-pecky.usneseni.cz/verejne/?uuid=e1061754-03f1-11f0-9479-00505683238f&page=5&do=printPublicInvitation",
+  "minutes": "https://mesto-pecky.usneseni.cz/verejne/e1061754-03f1-11f0-9479-00505683238f/zapis/?page=5",
+  "signed_minutes_pdf": "https://mesto-pecky.usneseni.cz/verejne/?meetingReportControl-uuid=e1061754-03f1-11f0-9479-00505683238f&page=5&do=meetingReportControl-getSignedReportPdf",
+  "resolutions": "https://mesto-pecky.usneseni.cz/verejne/e1061754-03f1-11f0-9479-00505683238f/usneseni/?page=5",
+  "audio": null
+ },
+ "link_texts": {
+  "invitation": "Pozvánka",
+  "minutes": "zápis",
+  "signed_minutes_pdf": "podepsaný zápis",
+  "resolutions": "přijatá usnesení"
+ },
+ "status": "ok",
+ "invitation": {
+  "status": "site_error",
+  "error": "status=200 ct=text/html; charset=utf-8 flash='<a href=\"\" class=\"close\" data-dismiss=\"alert\" aria-label=\"close\">&times;'",
+  "url": "https://mesto-pecky.usneseni.cz/verejne/?uuid=e1061754-03f1-11f0-9479-00505683238f&do=printPublicInvitation",
+  "fetched_at": "2026-08-04T14:56:43.493025+00:00"
+ },
+ "minutes": {
+  "status": "ok",
+  "url": "https://mesto-pecky.usneseni.cz/verejne/e1061754-03f1-11f0-9479-00505683238f/zapis/",
+  "fetched_at": "2026-08-04T13:35:25.200021+00:00",
+  "title_raw": "ZÁPIS ze schůze rady č. 12/2025 Město Pečky datum: 24. 3. 2025, čas: 15:00 ​",
+  "date_raw": "24. 3. 2025",
+  "date_iso": "2025-03-24",
+  "time_raw": "15:00",
+  "presence": {
+   "raw_text": "Prezence:\nPřítomni:\n(7) Milan Paluska, Zdeněk Fejfar, Ing. Karel Krištoufek, Ing. Petr Dürr, Ing. Martin Jedlička, Ing. Hana Kuprová, Ivana Trčková\nOmluveni:\n(0)\nNepřítomni:\n(0)\nHosté:\nZapisovatel/ka:\nEva Strnadová\nPřítomno je 7 členů a rada je usnášeníschopná.\nJednání zahájeno 24.03.2025 v 15:05:23",
+   "pritomni": {
+    "count": 7,
+    "names": [
+     "Milan Paluska",
+     "Zdeněk Fejfar",
+     "Ing. Karel Krištoufek",
+     "Ing. Petr Dürr",
+     "Ing. Martin Jedlička",
+     "Ing. Hana Kuprová",
+     "Ivana Trčková"
+    ],
+    "raw": "(7) Milan Paluska, Zdeněk Fejfar, Ing. Karel Krištoufek, Ing. Petr Dürr, Ing. Martin Jedlička, Ing. Hana Kuprová, Ivana Trčková"
+   },
+   "omluveni": {
+    "count": 0,
+    "names": [],
+    "raw": "(0)"
+   },
+   "nepritomni": {
+    "count": 0,
+    "names": [],
+    "raw": "(0)"
+   },
+   "predsedajici": null,
+   "quorum_raw": "Přítomno je 7 členů a rada je usnášeníschopná."
+  },
+  "header_raw": "Prezence:\nPřítomni:\n(7) Milan Paluska, Zdeněk Fejfar, Ing. Karel Krištoufek, Ing. Petr Dürr, Ing. Martin Jedlička, Ing. Hana Kuprová, Ivana Trčková\nOmluveni:\n(0)\nNepřítomni:\n(0)\nHosté:\nZapisovatel/ka:\nEva Strnadová\nPřítomno je 7 členů a rada je usnášeníschopná.\nJednání zahájeno 24.03.2025 v 15:05:23",
+  "agenda_items": [
+   {
+    "number": 1,
+    "title_raw": "Určení zapisovatelů, předsedajícího, příp. ověřovatelů",
+    "heading_raw": "1. Určení zapisovatelů, předsedajícího, příp. ověřovatelů (bod číslo 1)",
+    "predkladatel": null,
+    "votes": [],
+    "resolution_numbers_mentioned": [],
+    "raw_text": "Projednávání bodu bylo zahájeno v 15:05:31\n\nPředsedající navrhl jednotlivé členy pracovních komisí\nOvěřovatelé:\nIvana Trčková, Ing. Petr Dürr\nPředsedající:\nMilan Paluska\nDiskuze zahájena v 15:05:31\nK tomuto bodu se vyjádřili:\nMilan Paluska\nProjednávání bodu bylo ukončeno v 15:06:48"
+   },
+   {
+    "number": 2,
+    "title_raw": "Schválení programu jednání",
+    "heading_raw": "2. Schválení programu jednání (bod číslo 2)",
+    "predkladatel": null,
+    "votes": [
+     {
+      "raw_text": "pro:\n(7) Zdeněk Fejfar, Ing. Karel Krištoufek, Ivana Trčková, Ing. Petr Dürr, Ing. Hana Kuprová, Milan Paluska, Ing. Martin Jedlička\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)",
+      "pro": {
+       "count": 7,
+       "names": [
+        "Zdeněk Fejfar",
+        "Ing. Karel Krištoufek",
+        "Ivana Trčková",
+        "Ing. Petr Dürr",
+        "Ing. Hana Kuprová",
+        "Milan Paluska",
+        "Ing. Martin Jedlička"
+       ],
+       "raw": "(7) Zdeněk Fejfar, Ing. Karel Krištoufek, Ivana Trčková, Ing. Petr Dürr, Ing. Hana Kuprová, Milan Paluska, Ing. Martin Jedlička"
+      },
+      "proti": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "zdrzel_se": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "nehlasoval": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "result_raw": "Návrh byl přijat jako usnesení číslo: UR-115-12/25",
+      "adopted_resolution_number": "UR-115-12/25"
+     }
+    ],
+    "resolution_numbers_mentioned": [
+     "UR-115-12/25",
+     "UZ-38-5/21"
+    ],
+    "raw_text": "Projednávání bodu bylo zahájeno v 15:06:52\n\nProgram jednání\n1. Určení zapisovatelů, předsedajícího, příp. ověřovatelů\n2. Schválení programu jednání\n3. Aktuální informace vedení města\n4. Návrh na udělení Čestného občanství a Pamětní medaile k výročí města Pečky\n5. Žádosti o dotace - Spolek železničních modelářů\n6. Revokace usnesení UZ-38-5/21 ze dne 8.12. 2021\n7. Žádosti o odkoupení pozemků – č.parc. 1449/205, 1449/206\n8. Uzavření „Smlouvy o výpůjčce“ s firmou CE-DA servis s.r.o., Velký Osek\n9. Zadání VZMR na dodávky \"Solární osvětlení u rybníka Benešák v k.ú. Pečky\"\n10. Informace o průzkumu trhu k VZMR na stavební práce \"Pečky – rekonstrukce ul. Prokopa Holého a Letohradská – BD ul. Letohradská – etapa A\"\n11. Termín a program ZM dne 2.4.2025\n12. Kontrola plnění usnesení\n13. Diskuse, různé\n14. Úkoly vyplývající z jednání rady města\nDiskuze zahájena v 15:06:52\nK tomuto bodu se vyjádřili:\nMilan Paluska\nV 15:08:40 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Milan Paluska\") v tomto znění:\nRada\nměsta schvaluje návrh programu jednání.\ns těmito změnami:\n- doplňuje se bod č. 15 - Kontrola průběhu investičních akcí\n- doplňuje se bod č. 16 - Plnění rozpočtu k 28.2.2025\n- doplňuje se bod č. 17 - Rozpočtové opatření č. 2/2025\nHlasování\npro:\n(7) Zdeněk Fejfar, Ing. Karel Krištoufek, Ivana Trčková, Ing. Petr Dürr, Ing. Hana Kuprová, Milan Paluska, Ing. Martin Jedlička\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-115-12/25\nzodpovídá:\ntermín:\nIHNED\n(24. 3. 2025)\nProjednávání bodu bylo ukončeno v 15:08:47"
+   },
+   {
+    "number": 3,
+    "title_raw": "Aktuální informace vedení města",
+    "heading_raw": "3. Aktuální informace vedení města (bod číslo 3)",
+    "predkladatel": null,
+    "votes": [],
+    "resolution_numbers_mentioned": [],
+    "raw_text": "Projednávání bodu bylo zahájeno v 15:08:51\n\nDůvodová zpráva:\nstarosta města\n- informace o přezkumu hospodaření města Pečky a DSO Pečecký region za rok 2024 Středočeským krajem\n- informace o postupu dílčích, závěrečných prací akce \"Rekonstrukce místních komunikací a vodovodní řad v části Bačov v Pečkách – 1. a 2. etapa\" - dodláždění retardérů, vjezdů, dláždění krajní plochy u obrubníků, asfaltování povrchů\n- informace o zahájení stavebních prací akce \"Dobudování stezky pro pěší a cyklisty v ul.\nMilčická\nve Velkých Chvalovicích\" - předpoklad od 2.4.2025\nZdeněk\nFejfar\n- informace o opravě vstupního portálu u smuteční síně na hřbitově v Pečkách, oprava vstupních dveří, oken apd.\n- informace o předložené cenové nabídce na rekonstrukci ordinace praktického lékaře ve zdravotním středisku\n- informace o schůzce s MUDr. Klumparem ve věci plánovaných stavebních úpravách ordinace ženského lékaře ve zdravotním středisku\nDiskuze zahájena v 15:08:51\nK tomuto bodu se vyjádřili:\nMilan Paluska, Zdeněk Fejfar, Ivana Trčková, Ing. Petr Dürr\nRada bere informace k bodu č. 3 -\nAktuální informace vedení města\nna vědomí.\nProjednávání bodu bylo ukončeno v 15:28:20"
+   },
+   {
+    "number": 4,
+    "title_raw": "Návrh na udělení Čestného občanství a Pamětní medaile k výročí města Pečky",
+    "heading_raw": "4. Návrh na udělení Čestného občanství a Pamětní medaile k výročí města Pečky (bod číslo 4)",
+    "predkladatel": null,
+    "votes": [],
+    "resolution_numbers_mentioned": [],
+    "raw_text": "Projednávání bodu bylo zahájeno v 15:28:24\n\nDůvodová zpráva:\nDne 18. března 2025 se uskutečnilo jednání Komise pro udělování čestného občanství, na kterém byly projednány jednotlivé návrhy na udělení Čestného občanství a návrhy na udělení Pamětní medaile k výročí města Pečky.\nKomise při svém rozhodování postupovala v souladu s Pravidly pro udělování Čestného občanství, Pamětní medaile k výročí města a Ceny starosty města.\nNa základě projednání návrhů komise doporučuje udělení či odebrání ocenění.\nTato\nzáležitost spadá do pravomoci Zastupitelstva města Pečky, kterému bude návrh předložen k projednání dne 2. dubna 2025.\nDiskuze zahájena v 15:28:24\nK tomuto bodu se vyjádřili:\nMilan Paluska, Ing. Karel Krištoufek, Ivana Trčková, Ing. Hana Kuprová, Ing. Martin Jedlička, Zdeněk Fejfar, Ing. Petr Dürr\nRada bere informace k bodu č. 4 -\nNávrh na udělení Čestného občanství a Pamětní medaile k výročí města Pečky\nna vědomí.\nProjednávání bodu bylo ukončeno v 15:49:12"
+   },
+   {
+    "number": 5,
+    "title_raw": "Žádosti o dotace - Spolek železničních modelářů",
+    "heading_raw": "5. Žádosti o dotace - Spolek železničních modelářů (bod číslo 5)",
+    "predkladatel": null,
+    "votes": [
+     {
+      "raw_text": "pro:\n(7) Ing. Karel Krištoufek, Ing. Petr Dürr, Ing. Martin Jedlička, Milan Paluska, Zdeněk Fejfar, Ing. Hana Kuprová, Ivana Trčková\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)",
+      "pro": {
+       "count": 7,
+       "names": [
+        "Ing. Karel Krištoufek",
+        "Ing. Petr Dürr",
+        "Ing. Martin Jedlička",
+        "Milan Paluska",
+        "Zdeněk Fejfar",
+        "Ing. Hana Kuprová",
+        "Ivana Trčková"
+       ],
+       "raw": "(7) Ing. Karel Krištoufek, Ing. Petr Dürr, Ing. Martin Jedlička, Milan Paluska, Zdeněk Fejfar, Ing. Hana Kuprová, Ivana Trčková"
+      },
+      "proti": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "zdrzel_se": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "nehlasoval": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "result_raw": "Návrh byl přijat jako usnesení číslo: UR-116-12/25",
+      "adopted_resolution_number": "UR-116-12/25"
+     },
+     {
+      "raw_text": "pro:\n(7) Ing. Martin Jedlička, Ing. Petr Dürr, Milan Paluska, Zdeněk Fejfar, Ivana Trčková, Ing. Hana Kuprová, Ing. Karel Krištoufek\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)",
+      "pro": {
+       "count": 7,
+       "names": [
+        "Ing. Martin Jedlička",
+        "Ing. Petr Dürr",
+        "Milan Paluska",
+        "Zdeněk Fejfar",
+        "Ivana Trčková",
+        "Ing. Hana Kuprová",
+        "Ing. Karel Krištoufek"
+       ],
+       "raw": "(7) Ing. Martin Jedlička, Ing. Petr Dürr, Milan Paluska, Zdeněk Fejfar, Ivana Trčková, Ing. Hana Kuprová, Ing. Karel Krištoufek"
+      },
+      "proti": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "zdrzel_se": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "nehlasoval": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "result_raw": "Návrh byl přijat jako usnesení číslo: UR-117-12/25",
+      "adopted_resolution_number": "UR-117-12/25"
+     }
+    ],
+    "resolution_numbers_mentioned": [
+     "UR-116-12/25",
+     "UR-117-12/25"
+    ],
+    "raw_text": "Projednávání bodu bylo zahájeno v 15:49:16\n\nDůvodová zpráva:\nSpolek\nželezničních modelářů žádá o dotaci na činnost ve výši 50 000 Kč a o dotaci na jízdu historického vlaku ve výši 30 000 Kč. V roce 2024 byly poskytnuty dotace 50 000 Kč a 27 000 Kč.\nDiskuze zahájena v 15:49:16\nK tomuto bodu se vyjádřili:\nMilan Paluska, Zdeněk Fejfar, Ing. Hana Kuprová, Ivana Trčková\nV 15:54:07 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Milan Paluska\") v tomto znění:\nRada\nměsta schvaluje poskytnutí dotace\nSpolku\nželezničních modelářů Pečky, IČO 27028861, ve výši 50 000 Kč na činnost spolku a uzavření veřejnoprávní smlouvy o poskytnutí dotace.\nHlasování\npro:\n(7) Ing. Karel Krištoufek, Ing. Petr Dürr, Ing. Martin Jedlička, Milan Paluska, Zdeněk Fejfar, Ing. Hana Kuprová, Ivana Trčková\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-116-12/25\nzodpovídá:\nMarcela Bahníková\ntermín:\n31. 3. 2025\nV 15:54:37 předsedající zahájil hlasování o návrhu usnesení \"B\" (navrhovatel: \"Milan Paluska\") v tomto znění:\nRada\nměsta schvaluje poskytnutí dotace\nSpolku\nželezničních modelářů Pečky, IČO 27028861, ve výši 30 000 Kč na financování jízdy historických vlaků a uzavření veřejnoprávní smlouvy o poskytnutí dotace.\nHlasování\npro:\n(7) Ing. Martin Jedlička, Ing. Petr Dürr, Milan Paluska, Zdeněk Fejfar, Ivana Trčková, Ing. Hana Kuprová, Ing. Karel Krištoufek\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-117-12/25\nzodpovídá:\nMarcela Bahníková\ntermín:\n31. 3. 2025\nProjednávání bodu bylo ukončeno v 15:54:44"
+   },
+   {
+    "number": 6,
+    "title_raw": "Revokace usnesení UZ-38-5/21 ze dne 8.12. 2021",
+    "heading_raw": "6. Revokace usnesení UZ-38-5/21 ze dne 8.12. 2021 (bod číslo 6)",
+    "predkladatel": null,
+    "votes": [
+     {
+      "raw_text": "pro:\n(7) Ing. Martin Jedlička, Ing. Petr Dürr, Ing. Karel Krištoufek, Milan Paluska, Zdeněk Fejfar, Ing. Hana Kuprová, Ivana Trčková\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)",
+      "pro": {
+       "count": 7,
+       "names": [
+        "Ing. Martin Jedlička",
+        "Ing. Petr Dürr",
+        "Ing. Karel Krištoufek",
+        "Milan Paluska",
+        "Zdeněk Fejfar",
+        "Ing. Hana Kuprová",
+        "Ivana Trčková"
+       ],
+       "raw": "(7) Ing. Martin Jedlička, Ing. Petr Dürr, Ing. Karel Krištoufek, Milan Paluska, Zdeněk Fejfar, Ing. Hana Kuprová, Ivana Trčková"
+      },
+      "proti": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "zdrzel_se": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "nehlasoval": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "result_raw": "Návrh byl přijat jako usnesení číslo: UR-118-12/25 a bylo jím revokováno usnesení UZ-38-5/21",
+      "adopted_resolution_number": "UR-118-12/25"
+     }
+    ],
+    "resolution_numbers_mentioned": [
+     "UR-118-12/25",
+     "UZ-38-5/21"
+    ],
+    "raw_text": "Projednávání bodu bylo zahájeno v 15:54:48\n\nDůvodová zpráva:\nDovolujeme si navrhnout revokovat usnesení UZ-38-5/21, kde se uvádí následující:\nZastupitelstvo města pověřuje vedení města přípravou projektu na stavebních pozemcích firmy KUTA a.s. 1449/203, 1449/204,1449/205, 1449/206 a 1449/207 tak, že entita, která bude projekt výstavby zajišťovat, zajistí zároveň vybudování chybějících komunikací Fr.\nVoláka\n,\nMikoláše\nAlše a U Náhonu, v majetku firmy KUTA a.s.\nOd roku 2021 vedení města žádný projekt nezačalo připravovat, pozemky nejsou v majetku firmy KUTA a.s., ale v majetku města Pečky.\nDiskuze zahájena v 15:54:48\nK tomuto bodu se vyjádřili:\nMilan Paluska, Zdeněk Fejfar, Ivana Trčková, Ing. Hana Kuprová, Ing. Karel Krištoufek, Ing. Petr Dürr\nV 16:19:47 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Jana Najbrtová\") v tomto znění:\nRada\nměsta doporučuje zastupitelstvu města revokovat usnesení UZ-38-5/21 z důvodu aktuální neplatnosti.\nHlasování\npro:\n(7) Ing. Martin Jedlička, Ing. Petr Dürr, Ing. Karel Krištoufek, Milan Paluska, Zdeněk Fejfar, Ing. Hana Kuprová, Ivana Trčková\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-118-12/25 a bylo jím revokováno usnesení UZ-38-5/21\nzodpovídá:\ntermín:\nIHNED\n(24. 3. 2025)\nProjednávání bodu bylo ukončeno v 16:19:57"
+   },
+   {
+    "number": 7,
+    "title_raw": "Žádosti o odkoupení pozemků – č.parc. 1449/205, 1449/206",
+    "heading_raw": "7. Žádosti o odkoupení pozemků – č.parc. 1449/205, 1449/206 (bod číslo 7)",
+    "predkladatel": null,
+    "votes": [
+     {
+      "raw_text": "pro:\n(7) Milan Paluska, Ing. Karel Krištoufek, Ing. Martin Jedlička, Ing. Petr Dürr, Ing. Hana Kuprová, Zdeněk Fejfar, Ivana Trčková\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)",
+      "pro": {
+       "count": 7,
+       "names": [
+        "Milan Paluska",
+        "Ing. Karel Krištoufek",
+        "Ing. Martin Jedlička",
+        "Ing. Petr Dürr",
+        "Ing. Hana Kuprová",
+        "Zdeněk Fejfar",
+        "Ivana Trčková"
+       ],
+       "raw": "(7) Milan Paluska, Ing. Karel Krištoufek, Ing. Martin Jedlička, Ing. Petr Dürr, Ing. Hana Kuprová, Zdeněk Fejfar, Ivana Trčková"
+      },
+      "proti": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "zdrzel_se": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "nehlasoval": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "result_raw": "Návrh byl přijat jako usnesení číslo: UR-119-12/25",
+      "adopted_resolution_number": "UR-119-12/25"
+     }
+    ],
+    "resolution_numbers_mentioned": [
+     "UR-119-12/25"
+    ],
+    "raw_text": "Projednávání bodu bylo zahájeno v 16:20:01\n\nDůvodová zpráva:\nPředkládáme radě města doručené žádosti týkající se odkoupení pozemků č. parc. 1449/205 a 1449/206 a navrhujeme tyto žádosti předložit zastupitelstvu města, které rozhodne, zda se zveřejní záměr na prodej a případně za jakých podmínek.\nDiskuze zahájena v 16:20:01\nK tomuto bodu se vyjádřili:\nMilan Paluska, Zdeněk Fejfar, Ing. Karel Krištoufek, Ivana Trčková, Ing. Martin Jedlička\nV 16:22:59 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Jana Najbrtová\") v tomto znění:\nRada\nměsta nedoporučuje zastupitelstvu města zveřejnit záměr na prodej pozemků č. parc. 1449/205 (976 m\n2\n-trvalý travní porost) a č. parc. 1449/206 (987 m\n2\n-trvalý travní porost) vše v obci a k.ú. Pečky.\nHlasování\npro:\n(7) Milan Paluska, Ing. Karel Krištoufek, Ing. Martin Jedlička, Ing. Petr Dürr, Ing. Hana Kuprová, Zdeněk Fejfar, Ivana Trčková\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-119-12/25\nzodpovídá:\nJana Najbrtová\ntermín:\n30. 6. 2025\nProjednávání bodu bylo ukončeno v 16:23:05"
+   },
+   {
+    "number": 8,
+    "title_raw": "Uzavření „Smlouvy o výpůjčce“ s firmou CE-DA servis s.r.o., Velký Osek",
+    "heading_raw": "8. Uzavření „Smlouvy o výpůjčce“ s firmou CE-DA servis s.r.o., Velký Osek (bod číslo 8)",
+    "predkladatel": null,
+    "votes": [
+     {
+      "raw_text": "pro:\n(7) Ing. Martin Jedlička, Milan Paluska, Zdeněk Fejfar, Ing. Petr Dürr, Ing. Hana Kuprová, Ivana Trčková, Ing. Karel Krištoufek\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)",
+      "pro": {
+       "count": 7,
+       "names": [
+        "Ing. Martin Jedlička",
+        "Milan Paluska",
+        "Zdeněk Fejfar",
+        "Ing. Petr Dürr",
+        "Ing. Hana Kuprová",
+        "Ivana Trčková",
+        "Ing. Karel Krištoufek"
+       ],
+       "raw": "(7) Ing. Martin Jedlička, Milan Paluska, Zdeněk Fejfar, Ing. Petr Dürr, Ing. Hana Kuprová, Ivana Trčková, Ing. Karel Krištoufek"
+      },
+      "proti": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "zdrzel_se": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "nehlasoval": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "result_raw": "Návrh byl přijat jako usnesení číslo: UR-120-12/25",
+      "adopted_resolution_number": "UR-120-12/25"
+     }
+    ],
+    "resolution_numbers_mentioned": [
+     "UR-120-12/25"
+    ],
+    "raw_text": "Projednávání bodu bylo zahájeno v 16:23:25\n\nDůvodová zpráva:\nDoporučujeme uzavřít Smlouvu o výpůjčce, která se týká částí pozemků na deponii dle zákresu v mapě (v k.ú. Pečky-cca 2.000 m\n2\n) a buňkoviště (v k.ú. V.Ch.-cca 200 m\n2\n). Tyto pozemky budou využity stavební firmou CE-DA servis s.r.o.,\nVelký\nOsek na realizaci stavby „Dobudování stezky pro pěší a cyklisty v ul.\nMilčická\nve Velkých Chvalovicích“. Firma souhlasí s podmínkami ve zveřejněném záměru.\nDiskuze zahájena v 16:23:25\nK tomuto bodu se vyjádřili:\nMilan Paluska, Ivana Trčková, Ing. Petr Dürr, Ing. Karel Krištoufek\nV 16:26:26 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Jana Najbrtová\") v tomto znění:\nRada\nměsta schvaluje uzavřít „Smlouvu o výpůjčce pozemků“, která se týká částí pozemků na deponii-č.parc. 2273/3, 2273/27 (v k.ú. Pečky-cca 2.000 m\n2\n) a na buňkoviště č. parc. 422/6 (v k.ú. V.Ch.-cca 200 m\n2\n). Smlouva bude uzavřena s firmou CE-DA servis s.r.o.,\nVelký\nOsek od 1.4. 2025 na dobu neurčitou s výpovědní lhůtou 1 měsíc.\nHlasování\npro:\n(7) Ing. Martin Jedlička, Milan Paluska, Zdeněk Fejfar, Ing. Petr Dürr, Ing. Hana Kuprová, Ivana Trčková, Ing. Karel Krištoufek\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-120-12/25\nzodpovídá:\nJana Najbrtová\ntermín:\n30. 4. 2025\nProjednávání bodu bylo ukončeno v 16:26:32"
+   },
+   {
+    "number": 9,
+    "title_raw": "Zadání VZMR na dodávky \"Solární osvětlení u rybníka Benešák v k.ú. Pečky\"",
+    "heading_raw": "9. Zadání VZMR na dodávky \"Solární osvětlení u rybníka Benešák v k.ú. Pečky\" (bod číslo 9)",
+    "predkladatel": null,
+    "votes": [
+     {
+      "raw_text": "pro:\n(6) Milan Paluska, Ing. Martin Jedlička, Ing. Petr Dürr, Ing. Hana Kuprová, Zdeněk Fejfar, Ivana Trčková\nproti\n(0)\nzdržel se:\n(1) Ing. Karel Krištoufek\nnehlasoval:\n(0)",
+      "pro": {
+       "count": 6,
+       "names": [
+        "Milan Paluska",
+        "Ing. Martin Jedlička",
+        "Ing. Petr Dürr",
+        "Ing. Hana Kuprová",
+        "Zdeněk Fejfar",
+        "Ivana Trčková"
+       ],
+       "raw": "(6) Milan Paluska, Ing. Martin Jedlička, Ing. Petr Dürr, Ing. Hana Kuprová, Zdeněk Fejfar, Ivana Trčková"
+      },
+      "proti": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "zdrzel_se": {
+       "count": 1,
+       "names": [
+        "Ing. Karel Krištoufek"
+       ],
+       "raw": "(1) Ing. Karel Krištoufek"
+      },
+      "nehlasoval": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "result_raw": "Návrh byl přijat jako usnesení číslo: UR-121-12/25",
+      "adopted_resolution_number": "UR-121-12/25"
+     }
+    ],
+    "resolution_numbers_mentioned": [
+     "UR-121-12/25",
+     "UR-396-41/24"
+    ],
+    "raw_text": "Projednávání bodu bylo zahájeno v 16:26:36\n\nDůvodová zpráva:\nZa účelem zjištění nabízených cenových a technických parametrů solárního osvětlení, v souladu se závaznými technickými podmínkami zadavatele, proveden průzkum trhu oslovením možných dodavatelů. Porovnáním nabízených technických a cenových parametrů (viz příloha) navrhujeme uzavření objednávky mezi Městem Pečky a PTtrade s.r.o., IČ: 10897453, v souladu s čl. 3 a 4 Pravidel Města Pečky k zadávání veřejných zakázek malého rozsahu schválených usnesením RM Pečky č. UR-396-41/24 dne 25.11.2024 nabývajících účinnosti dnem 01.12.2024.\nDiskuze zahájena v 16:26:36\nK tomuto bodu se vyjádřili:\nMilan Paluska, Zdeněk Fejfar, Ivana Trčková, Ing. Petr Dürr, Ing. Karel Krištoufek, Ing. Hana Kuprová\nV 16:37:21 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Michala Dekiská\") v tomto znění:\nRada\nměsta schvaluje uzavření objednávky mezi městem Pečky a dodavatelem PTtrade s.r.o., se sídlem: Korunní 2569/108, Vinohrady, 101 00\nPraha\n10, IČ: 10897453, na plnění veřejné zakázky malého rozsahu na dodávky \"Solární osvětlení u rybníka Benešák v k.ú. Pečky\" dle cenové nabídky ze dne 10.02.2025.\nHlasování\npro:\n(6) Milan Paluska, Ing. Martin Jedlička, Ing. Petr Dürr, Ing. Hana Kuprová, Zdeněk Fejfar, Ivana Trčková\nproti\n(0)\nzdržel se:\n(1) Ing. Karel Krištoufek\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-121-12/25\nzodpovídá:\nMichala Dekiská\ntermín:\n7. 4. 2025\nProjednávání bodu bylo ukončeno v 16:37:30"
+   },
+   {
+    "number": 10,
+    "title_raw": "Informace o průzkumu trhu k VZMR na stavební práce \"Pečky – rekonstrukce ul. Prokopa Holého a Letohradská – BD ul. Letohradská – etapa A\"",
+    "heading_raw": "10. Informace o průzkumu trhu k VZMR na stavební práce \"Pečky – rekonstrukce ul. Prokopa Holého a Letohradská – BD ul. Letohradská – etapa A\" (bod číslo 10)",
+    "predkladatel": null,
+    "votes": [],
+    "resolution_numbers_mentioned": [],
+    "raw_text": "Projednávání bodu bylo zahájeno v 16:37:35\n\nDůvodová zpráva:\nInformace o provedeném průzkumu trhu - diskuze.\nDiskuze zahájena v 16:37:35\nK tomuto bodu se vyjádřili:\nMilan Paluska, Zdeněk Fejfar, Ing. Petr Dürr, Ing. Martin Jedlička, Ing. Hana Kuprová, Ivana Trčková, Ing. Karel Krištoufek\nRada bere informace k bodu č. 10 -\nInformace o průzkumu trhu k VZMR na stavební práce \"Pečky – rekonstrukce ul. Prokopa Holého a Letohradská – BD ul. Letohradská – etapa A\"\nna vědomí.\nProjednávání bodu bylo ukončeno v 18:05:53"
+   },
+   {
+    "number": 11,
+    "title_raw": "Termín a program ZM dne 2.4.2025",
+    "heading_raw": "11. Termín a program ZM dne 2.4.2025 (bod číslo 11)",
+    "predkladatel": null,
+    "votes": [
+     {
+      "raw_text": "pro:\n(7) Ing. Petr Dürr, Ing. Karel Krištoufek, Ing. Martin Jedlička, Ing. Hana Kuprová, Milan Paluska, Zdeněk Fejfar, Ivana Trčková\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)",
+      "pro": {
+       "count": 7,
+       "names": [
+        "Ing. Petr Dürr",
+        "Ing. Karel Krištoufek",
+        "Ing. Martin Jedlička",
+        "Ing. Hana Kuprová",
+        "Milan Paluska",
+        "Zdeněk Fejfar",
+        "Ivana Trčková"
+       ],
+       "raw": "(7) Ing. Petr Dürr, Ing. Karel Krištoufek, Ing. Martin Jedlička, Ing. Hana Kuprová, Milan Paluska, Zdeněk Fejfar, Ivana Trčková"
+      },
+      "proti": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "zdrzel_se": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "nehlasoval": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "result_raw": "Návrh byl přijat jako usnesení číslo: UR-122-12/25",
+      "adopted_resolution_number": "UR-122-12/25"
+     }
+    ],
+    "resolution_numbers_mentioned": [
+     "UR-122-12/25"
+    ],
+    "raw_text": "Projednávání bodu bylo zahájeno v 18:05:57\n\nDůvodová zpráva:\nProjednání termínu a programu zasedání ZM dne 2.4.2025.\nDiskuze zahájena v 18:05:57\nK tomuto bodu se vyjádřili:\nMilan Paluska, Ing. Hana Kuprová, Ing. Karel Krištoufek, Ivana Trčková\nV 18:19:09 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Milan Paluska\") v tomto znění:\nRada\nměsta schvaluje termín a program zasedání ZM dne 2.4.2025 od 17.30 hodin v Kulturním domě Pečky, Tř.\nJana\nŠvermy čp. 255, Pečky.\nHlasování\npro:\n(7) Ing. Petr Dürr, Ing. Karel Krištoufek, Ing. Martin Jedlička, Ing. Hana Kuprová, Milan Paluska, Zdeněk Fejfar, Ivana Trčková\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-122-12/25\nzodpovídá:\nMilan Paluska\ntermín:\n2. 4. 2025\nProjednávání bodu bylo ukončeno v 18:19:16"
+   },
+   {
+    "number": 17,
+    "title_raw": "Rozpočtové opatření č. 2/2025",
+    "heading_raw": "12. Rozpočtové opatření č. 2/2025 (bod číslo 17)",
+    "predkladatel": null,
+    "votes": [
+     {
+      "raw_text": "pro:\n(7) Ing. Martin Jedlička, Zdeněk Fejfar, Milan Paluska, Ing. Petr Dürr, Ing. Karel Krištoufek, Ivana Trčková, Ing. Hana Kuprová\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)",
+      "pro": {
+       "count": 7,
+       "names": [
+        "Ing. Martin Jedlička",
+        "Zdeněk Fejfar",
+        "Milan Paluska",
+        "Ing. Petr Dürr",
+        "Ing. Karel Krištoufek",
+        "Ivana Trčková",
+        "Ing. Hana Kuprová"
+       ],
+       "raw": "(7) Ing. Martin Jedlička, Zdeněk Fejfar, Milan Paluska, Ing. Petr Dürr, Ing. Karel Krištoufek, Ivana Trčková, Ing. Hana Kuprová"
+      },
+      "proti": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "zdrzel_se": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "nehlasoval": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "result_raw": "Návrh byl přijat jako usnesení číslo: UR-123-12/25",
+      "adopted_resolution_number": "UR-123-12/25"
+     }
+    ],
+    "resolution_numbers_mentioned": [
+     "UR-123-12/25"
+    ],
+    "raw_text": "Projednávání bodu bylo zahájeno v 18:19:57\n\nDůvodová zpráva:\nPředkládáme návrh rozpočtového opatření č. 2/2025, kterým se zvyšují příjmy i výdaje u průtokových dotací pro Pečovatelskou službu a ZŠ a příjmy i výdaje u daně z příjmu města - jedná se o daň z příjmů za rok 2024, kterou odvádí město do svého rozpočtu. Zvýšení výdajů o 100 000 Kč na oslavy 100 let města - jedná se především o výdaje na vydání knihy.\nDiskuze zahájena v 18:19:57\nK tomuto bodu se vyjádřili:\nMilan Paluska, Ivana Trčková, Ing. Karel Krištoufek\nV 18:23:34 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Milan Paluska\") v tomto znění:\nRada\nměsta doporučuje zastupitelstvu města schválit rozpočtová opatření č. 2/2025.\nHlasování\npro:\n(7) Ing. Martin Jedlička, Zdeněk Fejfar, Milan Paluska, Ing. Petr Dürr, Ing. Karel Krištoufek, Ivana Trčková, Ing. Hana Kuprová\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-123-12/25\nzodpovídá:\nMarcela Bahníková\ntermín:\n2. 4. 2025\nProjednávání bodu bylo ukončeno v 18:23:41"
+   },
+   {
+    "number": 16,
+    "title_raw": "Plnění rozpočtu k 28.2.2025",
+    "heading_raw": "13. Plnění rozpočtu k 28.2.2025 (bod číslo 16)",
+    "predkladatel": null,
+    "votes": [],
+    "resolution_numbers_mentioned": [],
+    "raw_text": "Projednávání bodu bylo zahájeno v 18:23:59\n\nDůvodová zpráva:\nPředkládáme přehled o plnění rozpočtu k 28.2.2025.\nDiskuze zahájena v 18:23:59\nK tomuto bodu se vyjádřili:\nMilan Paluska, Ing. Karel Krištoufek, Zdeněk Fejfar, Ivana Trčková\nRada bere informace k bodu č. 16 -\nPlnění rozpočtu k 28.2.2025\nna vědomí.\nProjednávání bodu bylo ukončeno v 18:29:09"
+   },
+   {
+    "number": 12,
+    "title_raw": "Kontrola plnění usnesení",
+    "heading_raw": "14. Kontrola plnění usnesení (bod číslo 12)",
+    "predkladatel": null,
+    "votes": [],
+    "resolution_numbers_mentioned": [],
+    "raw_text": "Projednávání bodu bylo zahájeno v 18:29:17\nDiskuze zahájena v 18:29:17\nK tomuto bodu se vyjádřili:\nMilan Paluska, Pavlína Nepovímová\nRada bere informace k bodu č. 12 -\nKontrola plnění usnesení\nna vědomí.\nProjednávání bodu bylo ukončeno v 18:29:36"
+   },
+   {
+    "number": 13,
+    "title_raw": "Diskuse, různé",
+    "heading_raw": "15. Diskuse, různé (bod číslo 13)",
+    "predkladatel": null,
+    "votes": [],
+    "resolution_numbers_mentioned": [],
+    "raw_text": "Projednávání bodu bylo zahájeno v 18:29:40\nDiskuze zahájena v 18:29:40\nK tomuto bodu se vyjádřili:\nMilan Paluska, Ivana Trčková, Ing. Martin Jedlička, Ing. Karel Krištoufek\nRada bere informace k bodu č. 13 -\nDiskuse, různé\nna vědomí.\nProjednávání bodu bylo ukončeno v 18:39:58"
+   },
+   {
+    "number": 14,
+    "title_raw": "Úkoly vyplývající z jednání rady města",
+    "heading_raw": "16. Úkoly vyplývající z jednání rady města (bod číslo 14)",
+    "predkladatel": null,
+    "votes": [],
+    "resolution_numbers_mentioned": [],
+    "raw_text": "Projednávání bodu bylo zahájeno v 18:40:03\nDiskuze zahájena v 18:40:03\nK tomuto bodu se vyjádřili:\nMilan Paluska\nRada bere informace k bodu č. 14 -\nÚkoly vyplývající z jednání rady města\nna vědomí.\nProjednávání bodu bylo ukončeno v 18:40:13"
+   },
+   {
+    "number": 15,
+    "title_raw": "Kontrola průběhu investičních akcí",
+    "heading_raw": "17. Kontrola průběhu investičních akcí (bod číslo 15)",
+    "predkladatel": null,
+    "votes": [],
+    "resolution_numbers_mentioned": [],
+    "raw_text": "Jednání ukončeno 24.03.2025 v 18:40:30"
+   }
+  ],
+  "full_text": "ZÁPIS ze schůze rady č. 12/2025\nMěsto Pečky\ndatum: 24. 3. 2025, čas: 15:00\n​\nPrezence:\nPřítomni:\n(7) Milan Paluska, Zdeněk Fejfar, Ing. Karel Krištoufek, Ing. Petr Dürr, Ing. Martin Jedlička, Ing. Hana Kuprová, Ivana Trčková\nOmluveni:\n(0)\nNepřítomni:\n(0)\nHosté:\nZapisovatel/ka:\nEva Strnadová\nPřítomno je 7 členů a rada je usnášeníschopná.\nJednání zahájeno 24.03.2025 v 15:05:23\n1. Určení zapisovatelů, předsedajícího, příp. ověřovatelů (bod číslo 1)\nPředkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 15:05:31\nPředsedající navrhl jednotlivé členy pracovních komisí\nOvěřovatelé:\nIvana Trčková, Ing. Petr Dürr\nPředsedající:\nMilan Paluska\nBod byl přijat bez hlasování.\nDiskuze zahájena v 15:05:31\nK tomuto bodu se vyjádřili:\nMilan Paluska\nProjednávání bodu bylo ukončeno v 15:06:48\n2. Schválení programu jednání (bod číslo 2)\nPředkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 15:06:52\nProgram jednání\n1. Určení zapisovatelů, předsedajícího, příp. ověřovatelů\n2. Schválení programu jednání\n3. Aktuální informace vedení města\n4. Návrh na udělení Čestného občanství a Pamětní medaile k výročí města Pečky\n5. Žádosti o dotace - Spolek železničních modelářů\n6. Revokace usnesení UZ-38-5/21 ze dne 8.12. 2021\n7. Žádosti o odkoupení pozemků – č.parc. 1449/205, 1449/206\n8. Uzavření „Smlouvy o výpůjčce“ s firmou CE-DA servis s.r.o., Velký Osek\n9. Zadání VZMR na dodávky \"Solární osvětlení u rybníka Benešák v k.ú. Pečky\"\n10. Informace o průzkumu trhu k VZMR na stavební práce \"Pečky – rekonstrukce ul. Prokopa Holého a Letohradská – BD ul. Letohradská – etapa A\"\n11. Termín a program ZM dne 2.4.2025\n12. Kontrola plnění usnesení\n13. Diskuse, různé\n14. Úkoly vyplývající z jednání rady města\nDiskuze zahájena v 15:06:52\nK tomuto bodu se vyjádřili:\nMilan Paluska\nV 15:08:40 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Milan Paluska\") v tomto znění:\nRada\nměsta schvaluje návrh programu jednání.\ns těmito změnami:\n- doplňuje se bod č. 15 - Kontrola průběhu investičních akcí\n- doplňuje se bod č. 16 - Plnění rozpočtu k 28.2.2025\n- doplňuje se bod č. 17 - Rozpočtové opatření č. 2/2025\nHlasování\npro:\n(7) Zdeněk Fejfar, Ing. Karel Krištoufek, Ivana Trčková, Ing. Petr Dürr, Ing. Hana Kuprová, Milan Paluska, Ing. Martin Jedlička\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-115-12/25\nzodpovídá:\ntermín:\nIHNED\n(24. 3. 2025)\nProjednávání bodu bylo ukončeno v 15:08:47\n3. Aktuální informace vedení města (bod číslo 3)\nPředkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 15:08:51\nDůvodová zpráva:\nstarosta města\n- informace o přezkumu hospodaření města Pečky a DSO Pečecký region za rok 2024 Středočeským krajem\n- informace o postupu dílčích, závěrečných prací akce \"Rekonstrukce místních komunikací a vodovodní řad v části Bačov v Pečkách – 1. a 2. etapa\" - dodláždění retardérů, vjezdů, dláždění krajní plochy u obrubníků, asfaltování povrchů\n- informace o zahájení stavebních prací akce \"Dobudování stezky pro pěší a cyklisty v ul.\nMilčická\nve Velkých Chvalovicích\" - předpoklad od 2.4.2025\nZdeněk\nFejfar\n- informace o opravě vstupního portálu u smuteční síně na hřbitově v Pečkách, oprava vstupních dveří, oken apd.\n- informace o předložené cenové nabídce na rekonstrukci ordinace praktického lékaře ve zdravotním středisku\n- informace o schůzce s MUDr. Klumparem ve věci plánovaných stavebních úpravách ordinace ženského lékaře ve zdravotním středisku\nDiskuze zahájena v 15:08:51\nK tomuto bodu se vyjádřili:\nMilan Paluska, Zdeněk Fejfar, Ivana Trčková, Ing. Petr Dürr\nRada bere informace k bodu č. 3 -\nAktuální informace vedení města\nna vědomí.\nProjednávání bodu bylo ukončeno v 15:28:20\n4. Návrh na udělení Čestného občanství a Pamětní medaile k výročí města Pečky (bod číslo 4)\nPředkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 15:28:24\nDůvodová zpráva:\nDne 18. března 2025 se uskutečnilo jednání Komise pro udělování čestného občanství, na kterém byly projednány jednotlivé návrhy na udělení Čestného občanství a návrhy na udělení Pamětní medaile k výročí města Pečky.\nKomise při svém rozhodování postupovala v souladu s Pravidly pro udělování Čestného občanství, Pamětní medaile k výročí města a Ceny starosty města.\nNa základě projednání návrhů komise doporučuje udělení či odebrání ocenění.\nTato\nzáležitost spadá do pravomoci Zastupitelstva města Pečky, kterému bude návrh předložen k projednání dne 2. dubna 2025.\nDiskuze zahájena v 15:28:24\nK tomuto bodu se vyjádřili:\nMilan Paluska, Ing. Karel Krištoufek, Ivana Trčková, Ing. Hana Kuprová, Ing. Martin Jedlička, Zdeněk Fejfar, Ing. Petr Dürr\nRada bere informace k bodu č. 4 -\nNávrh na udělení Čestného občanství a Pamětní medaile k výročí města Pečky\nna vědomí.\nProjednávání bodu bylo ukončeno v 15:49:12\n5. Žádosti o dotace - Spolek železničních modelářů (bod číslo 5)\nPředkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 15:49:16\nDůvodová zpráva:\nSpolek\nželezničních modelářů žádá o dotaci na činnost ve výši 50 000 Kč a o dotaci na jízdu historického vlaku ve výši 30 000 Kč. V roce 2024 byly poskytnuty dotace 50 000 Kč a 27 000 Kč.\nDiskuze zahájena v 15:49:16\nK tomuto bodu se vyjádřili:\nMilan Paluska, Zdeněk Fejfar, Ing. Hana Kuprová, Ivana Trčková\nV 15:54:07 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Milan Paluska\") v tomto znění:\nRada\nměsta schvaluje poskytnutí dotace\nSpolku\nželezničních modelářů Pečky, IČO 27028861, ve výši 50 000 Kč na činnost spolku a uzavření veřejnoprávní smlouvy o poskytnutí dotace.\nHlasování\npro:\n(7) Ing. Karel Krištoufek, Ing. Petr Dürr, Ing. Martin Jedlička, Milan Paluska, Zdeněk Fejfar, Ing. Hana Kuprová, Ivana Trčková\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-116-12/25\nzodpovídá:\nMarcela Bahníková\ntermín:\n31. 3. 2025\nV 15:54:37 předsedající zahájil hlasování o návrhu usnesení \"B\" (navrhovatel: \"Milan Paluska\") v tomto znění:\nRada\nměsta schvaluje poskytnutí dotace\nSpolku\nželezničních modelářů Pečky, IČO 27028861, ve výši 30 000 Kč na financování jízdy historických vlaků a uzavření veřejnoprávní smlouvy o poskytnutí dotace.\nHlasování\npro:\n(7) Ing. Martin Jedlička, Ing. Petr Dürr, Milan Paluska, Zdeněk Fejfar, Ivana Trčková, Ing. Hana Kuprová, Ing. Karel Krištoufek\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-117-12/25\nzodpovídá:\nMarcela Bahníková\ntermín:\n31. 3. 2025\nProjednávání bodu bylo ukončeno v 15:54:44\n6. Revokace usnesení UZ-38-5/21 ze dne 8.12. 2021 (bod číslo 6)\nPředkladatel: Jana Najbrtová\nProjednávání bodu bylo zahájeno v 15:54:48\nDůvodová zpráva:\nDovolujeme si navrhnout revokovat usnesení UZ-38-5/21, kde se uvádí následující:\nZastupitelstvo města pověřuje vedení města přípravou projektu na stavebních pozemcích firmy KUTA a.s. 1449/203, 1449/204,1449/205, 1449/206 a 1449/207 tak, že entita, která bude projekt výstavby zajišťovat, zajistí zároveň vybudování chybějících komunikací Fr.\nVoláka\n,\nMikoláše\nAlše a U Náhonu, v majetku firmy KUTA a.s.\nOd roku 2021 vedení města žádný projekt nezačalo připravovat, pozemky nejsou v majetku firmy KUTA a.s., ale v majetku města Pečky.\nDiskuze zahájena v 15:54:48\nK tomuto bodu se vyjádřili:\nMilan Paluska, Zdeněk Fejfar, Ivana Trčková, Ing. Hana Kuprová, Ing. Karel Krištoufek, Ing. Petr Dürr\nV 16:19:47 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Jana Najbrtová\") v tomto znění:\nRada\nměsta doporučuje zastupitelstvu města revokovat usnesení UZ-38-5/21 z důvodu aktuální neplatnosti.\nHlasování\npro:\n(7) Ing. Martin Jedlička, Ing. Petr Dürr, Ing. Karel Krištoufek, Milan Paluska, Zdeněk Fejfar, Ing. Hana Kuprová, Ivana Trčková\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-118-12/25 a bylo jím revokováno usnesení UZ-38-5/21\nzodpovídá:\ntermín:\nIHNED\n(24. 3. 2025)\nProjednávání bodu bylo ukončeno v 16:19:57\n7. Žádosti o odkoupení pozemků – č.parc. 1449/205, 1449/206 (bod číslo 7)\nPředkladatel: Jana Najbrtová\nProjednávání bodu bylo zahájeno v 16:20:01\nDůvodová zpráva:\nPředkládáme radě města doručené žádosti týkající se odkoupení pozemků č. parc. 1449/205 a 1449/206 a navrhujeme tyto žádosti předložit zastupitelstvu města, které rozhodne, zda se zveřejní záměr na prodej a případně za jakých podmínek.\nDiskuze zahájena v 16:20:01\nK tomuto bodu se vyjádřili:\nMilan Paluska, Zdeněk Fejfar, Ing. Karel Krištoufek, Ivana Trčková, Ing. Martin Jedlička\nV 16:22:59 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Jana Najbrtová\") v tomto znění:\nRada\nměsta nedoporučuje zastupitelstvu města zveřejnit záměr na prodej pozemků č. parc. 1449/205 (976 m\n2\n-trvalý travní porost) a č. parc. 1449/206 (987 m\n2\n-trvalý travní porost) vše v obci a k.ú. Pečky.\nHlasování\npro:\n(7) Milan Paluska, Ing. Karel Krištoufek, Ing. Martin Jedlička, Ing. Petr Dürr, Ing. Hana Kuprová, Zdeněk Fejfar, Ivana Trčková\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-119-12/25\nzodpovídá:\nJana Najbrtová\ntermín:\n30. 6. 2025\nProjednávání bodu bylo ukončeno v 16:23:05\n8. Uzavření „Smlouvy o výpůjčce“ s firmou CE-DA servis s.r.o., Velký Osek (bod číslo 8)\nPředkladatel: Jana Najbrtová\nProjednávání bodu bylo zahájeno v 16:23:25\nDůvodová zpráva:\nDoporučujeme uzavřít Smlouvu o výpůjčce, která se týká částí pozemků na deponii dle zákresu v mapě (v k.ú. Pečky-cca 2.000 m\n2\n) a buňkoviště (v k.ú. V.Ch.-cca 200 m\n2\n). Tyto pozemky budou využity stavební firmou CE-DA servis s.r.o.,\nVelký\nOsek na realizaci stavby „Dobudování stezky pro pěší a cyklisty v ul.\nMilčická\nve Velkých Chvalovicích“. Firma souhlasí s podmínkami ve zveřejněném záměru.\nDiskuze zahájena v 16:23:25\nK tomuto bodu se vyjádřili:\nMilan Paluska, Ivana Trčková, Ing. Petr Dürr, Ing. Karel Krištoufek\nV 16:26:26 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Jana Najbrtová\") v tomto znění:\nRada\nměsta schvaluje uzavřít „Smlouvu o výpůjčce pozemků“, která se týká částí pozemků na deponii-č.parc. 2273/3, 2273/27 (v k.ú. Pečky-cca 2.000 m\n2\n) a na buňkoviště č. parc. 422/6 (v k.ú. V.Ch.-cca 200 m\n2\n). Smlouva bude uzavřena s firmou CE-DA servis s.r.o.,\nVelký\nOsek od 1.4. 2025 na dobu neurčitou s výpovědní lhůtou 1 měsíc.\nHlasování\npro:\n(7) Ing. Martin Jedlička, Milan Paluska, Zdeněk Fejfar, Ing. Petr Dürr, Ing. Hana Kuprová, Ivana Trčková, Ing. Karel Krištoufek\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-120-12/25\nzodpovídá:\nJana Najbrtová\ntermín:\n30. 4. 2025\nProjednávání bodu bylo ukončeno v 16:26:32\n9. Zadání VZMR na dodávky \"Solární osvětlení u rybníka Benešák v k.ú. Pečky\" (bod číslo 9)\nPředkladatel: Michala Dekiská\nProjednávání bodu bylo zahájeno v 16:26:36\nDůvodová zpráva:\nZa účelem zjištění nabízených cenových a technických parametrů solárního osvětlení, v souladu se závaznými technickými podmínkami zadavatele, proveden průzkum trhu oslovením možných dodavatelů. Porovnáním nabízených technických a cenových parametrů (viz příloha) navrhujeme uzavření objednávky mezi Městem Pečky a PTtrade s.r.o., IČ: 10897453, v souladu s čl. 3 a 4 Pravidel Města Pečky k zadávání veřejných zakázek malého rozsahu schválených usnesením RM Pečky č. UR-396-41/24 dne 25.11.2024 nabývajících účinnosti dnem 01.12.2024.\nDiskuze zahájena v 16:26:36\nK tomuto bodu se vyjádřili:\nMilan Paluska, Zdeněk Fejfar, Ivana Trčková, Ing. Petr Dürr, Ing. Karel Krištoufek, Ing. Hana Kuprová\nV 16:37:21 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Michala Dekiská\") v tomto znění:\nRada\nměsta schvaluje uzavření objednávky mezi městem Pečky a dodavatelem PTtrade s.r.o., se sídlem: Korunní 2569/108, Vinohrady, 101 00\nPraha\n10, IČ: 10897453, na plnění veřejné zakázky malého rozsahu na dodávky \"Solární osvětlení u rybníka Benešák v k.ú. Pečky\" dle cenové nabídky ze dne 10.02.2025.\nHlasování\npro:\n(6) Milan Paluska, Ing. Martin Jedlička, Ing. Petr Dürr, Ing. Hana Kuprová, Zdeněk Fejfar, Ivana Trčková\nproti\n(0)\nzdržel se:\n(1) Ing. Karel Krištoufek\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-121-12/25\nzodpovídá:\nMichala Dekiská\ntermín:\n7. 4. 2025\nProjednávání bodu bylo ukončeno v 16:37:30\n10. Informace o průzkumu trhu k VZMR na stavební práce \"Pečky – rekonstrukce ul. Prokopa Holého a Letohradská – BD ul. Letohradská – etapa A\" (bod číslo 10)\nPředkladatel: Michala Dekiská\nProjednávání bodu bylo zahájeno v 16:37:35\nDůvodová zpráva:\nInformace o provedeném průzkumu trhu - diskuze.\nDiskuze zahájena v 16:37:35\nK tomuto bodu se vyjádřili:\nMilan Paluska, Zdeněk Fejfar, Ing. Petr Dürr, Ing. Martin Jedlička, Ing. Hana Kuprová, Ivana Trčková, Ing. Karel Krištoufek\nRada bere informace k bodu č. 10 -\nInformace o průzkumu trhu k VZMR na stavební práce \"Pečky – rekonstrukce ul. Prokopa Holého a Letohradská – BD ul. Letohradská – etapa A\"\nna vědomí.\nProjednávání bodu bylo ukončeno v 18:05:53\n11. Termín a program ZM dne 2.4.2025 (bod číslo 11)\nPředkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 18:05:57\nDůvodová zpráva:\nProjednání termínu a programu zasedání ZM dne 2.4.2025.\nDiskuze zahájena v 18:05:57\nK tomuto bodu se vyjádřili:\nMilan Paluska, Ing. Hana Kuprová, Ing. Karel Krištoufek, Ivana Trčková\nV 18:19:09 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Milan Paluska\") v tomto znění:\nRada\nměsta schvaluje termín a program zasedání ZM dne 2.4.2025 od 17.30 hodin v Kulturním domě Pečky, Tř.\nJana\nŠvermy čp. 255, Pečky.\nHlasování\npro:\n(7) Ing. Petr Dürr, Ing. Karel Krištoufek, Ing. Martin Jedlička, Ing. Hana Kuprová, Milan Paluska, Zdeněk Fejfar, Ivana Trčková\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-122-12/25\nzodpovídá:\nMilan Paluska\ntermín:\n2. 4. 2025\nProjednávání bodu bylo ukončeno v 18:19:16\n12. Rozpočtové opatření č. 2/2025 (bod číslo 17)\nPředkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 18:19:57\nDůvodová zpráva:\nPředkládáme návrh rozpočtového opatření č. 2/2025, kterým se zvyšují příjmy i výdaje u průtokových dotací pro Pečovatelskou službu a ZŠ a příjmy i výdaje u daně z příjmu města - jedná se o daň z příjmů za rok 2024, kterou odvádí město do svého rozpočtu. Zvýšení výdajů o 100 000 Kč na oslavy 100 let města - jedná se především o výdaje na vydání knihy.\nDiskuze zahájena v 18:19:57\nK tomuto bodu se vyjádřili:\nMilan Paluska, Ivana Trčková, Ing. Karel Krištoufek\nV 18:23:34 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Milan Paluska\") v tomto znění:\nRada\nměsta doporučuje zastupitelstvu města schválit rozpočtová opatření č. 2/2025.\nHlasování\npro:\n(7) Ing. Martin Jedlička, Zdeněk Fejfar, Milan Paluska, Ing. Petr Dürr, Ing. Karel Krištoufek, Ivana Trčková, Ing. Hana Kuprová\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-123-12/25\nzodpovídá:\nMarcela Bahníková\ntermín:\n2. 4. 2025\nProjednávání bodu bylo ukončeno v 18:23:41\n13. Plnění rozpočtu k 28.2.2025 (bod číslo 16)\nPředkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 18:23:59\nDůvodová zpráva:\nPředkládáme přehled o plnění rozpočtu k 28.2.2025.\nDiskuze zahájena v 18:23:59\nK tomuto bodu se vyjádřili:\nMilan Paluska, Ing. Karel Krištoufek, Zdeněk Fejfar, Ivana Trčková\nRada bere informace k bodu č. 16 -\nPlnění rozpočtu k 28.2.2025\nna vědomí.\nProjednávání bodu bylo ukončeno v 18:29:09\n14. Kontrola plnění usnesení (bod číslo 12)\nPředkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 18:29:17\nDiskuze zahájena v 18:29:17\nK tomuto bodu se vyjádřili:\nMilan Paluska, Pavlína Nepovímová\nRada bere informace k bodu č. 12 -\nKontrola plnění usnesení\nna vědomí.\nProjednávání bodu bylo ukončeno v 18:29:36\n15. Diskuse, různé (bod číslo 13)\nPředkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 18:29:40\nDiskuze zahájena v 18:29:40\nK tomuto bodu se vyjádřili:\nMilan Paluska, Ivana Trčková, Ing. Martin Jedlička, Ing. Karel Krištoufek\nRada bere informace k bodu č. 13 -\nDiskuse, různé\nna vědomí.\nProjednávání bodu bylo ukončeno v 18:39:58\n16. Úkoly vyplývající z jednání rady města (bod číslo 14)\nPředkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 18:40:03\nDiskuze zahájena v 18:40:03\nK tomuto bodu se vyjádřili:\nMilan Paluska\nRada bere informace k bodu č. 14 -\nÚkoly vyplývající z jednání rady města\nna vědomí.\nProjednávání bodu bylo ukončeno v 18:40:13\n17. Kontrola průběhu investičních akcí (bod číslo 15)\nProjednání bodu bylo odloženo.\nJednání ukončeno 24.03.2025 v 18:40:30"
+ },
+ "resolutions": {
+  "status": "ok",
+  "url": "https://mesto-pecky.usneseni.cz/verejne/e1061754-03f1-11f0-9479-00505683238f/usneseni/",
+  "fetched_at": "2026-08-04T13:35:35.627541+00:00",
+  "items": [
+   {
+    "number_raw": "UR-115-12/25",
+    "detail_id": 91789,
+    "detail_url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/91789?mod=rada",
+    "agenda_item_raw": "Schválení programu jednání",
+    "text_verbatim": "Rada\nměsta schvaluje návrh programu jednání.\ns těmito změnami:\n- doplňuje se bod č. 15 - Kontrola průběhu investičních akcí\n- doplňuje se bod č. 16 - Plnění rozpočtu k 28.2.2025\n- doplňuje se bod č. 17 - Rozpočtové opatření č. 2/2025",
+    "cell_text_raw": "Bod programu:\nSchválení programu jednání\nText přijatého usnesení:\nRada\nměsta schvaluje návrh programu jednání.\ns těmito změnami:\n- doplňuje se bod č. 15 - Kontrola průběhu investičních akcí\n- doplňuje se bod č. 16 - Plnění rozpočtu k 28.2.2025\n- doplňuje se bod č. 17 - Rozpočtové opatření č. 2/2025",
+    "date_raw": "24. 3. 2025",
+    "date_iso": "2025-03-24",
+    "responsible_raw": "",
+    "deadline_raw": "IHNED (24. 3. 2025)",
+    "vote": {
+     "raw_text": "pro: 7 proti: 0 zdržel se: 0",
+     "pro": {
+      "count": 7,
+      "names": null,
+      "raw": "7"
+     },
+     "proti": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     },
+     "zdrzel_se": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     }
+    },
+    "detail": {
+     "number_raw": "UR-115-12/25",
+     "text_verbatim": "Rada města schvaluje návrh programu jednání.\ns těmito změnami: - doplňuje se bod č. 15 - Kontrola průběhu investičních akcí - doplňuje se bod č. 16 - Plnění rozpočtu k 28.2.2025 - doplňuje se bod č. 17 - Rozpočtové opatření č. 2/2025",
+     "typ_raw": null,
+     "zodpovida_raw": "",
+     "prijato_raw": "24. 3. 2025 na jednání č. 12/2025",
+     "prijato_date_iso": "2025-03-24",
+     "prijato_meeting_label": "12/2025",
+     "termin_raw": "IHNED (24. 3. 2025)",
+     "ukonceno_raw": "24. 3. 2025",
+     "ukonceno_date_iso": "2025-03-24",
+     "fields_raw": {
+      "Číslo usnesení": "UR-115-12/25",
+      "Text usnesení": "Rada města schvaluje návrh programu jednání.\ns těmito změnami: - doplňuje se bod č. 15 - Kontrola průběhu investičních akcí - doplňuje se bod č. 16 - Plnění rozpočtu k 28.2.2025 - doplňuje se bod č. 17 - Rozpočtové opatření č. 2/2025",
+      "Zodpovídá": "",
+      "Přijato": "24. 3. 2025 na jednání č. 12/2025",
+      "Termín": "IHNED (24. 3. 2025)",
+      "Ukončeno": "24. 3. 2025"
+     }
+    }
+   },
+   {
+    "number_raw": "UR-116-12/25",
+    "detail_id": 92120,
+    "detail_url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/92120?mod=rada",
+    "agenda_item_raw": "Žádosti o dotace - Spolek železničních modelářů",
+    "text_verbatim": "Rada\nměsta schvaluje poskytnutí dotace\nSpolku\nželezničních modelářů Pečky, IČO 27028861, ve výši 50 000 Kč na činnost spolku a uzavření veřejnoprávní smlouvy o poskytnutí dotace.",
+    "cell_text_raw": "Bod programu:\nŽádosti o dotace - Spolek železničních modelářů\nText přijatého usnesení:\nRada\nměsta schvaluje poskytnutí dotace\nSpolku\nželezničních modelářů Pečky, IČO 27028861, ve výši 50 000 Kč na činnost spolku a uzavření veřejnoprávní smlouvy o poskytnutí dotace.",
+    "date_raw": "24. 3. 2025",
+    "date_iso": "2025-03-24",
+    "responsible_raw": "Marcela Bahníková",
+    "deadline_raw": "31. 3. 2025",
+    "vote": {
+     "raw_text": "pro: 7 proti: 0 zdržel se: 0",
+     "pro": {
+      "count": 7,
+      "names": null,
+      "raw": "7"
+     },
+     "proti": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     },
+     "zdrzel_se": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     }
+    },
+    "detail": {
+     "number_raw": "UR-116-12/25",
+     "text_verbatim": "Rada města schvaluje poskytnutí dotace Spolku železničních modelářů Pečky, IČO 27028861, ve výši 50 000 Kč na činnost spolku a uzavření veřejnoprávní smlouvy o poskytnutí dotace.",
+     "typ_raw": null,
+     "zodpovida_raw": "Marcela Bahníková",
+     "prijato_raw": "24. 3. 2025 na jednání č. 12/2025",
+     "prijato_date_iso": "2025-03-24",
+     "prijato_meeting_label": "12/2025",
+     "termin_raw": "31. 3. 2025",
+     "ukonceno_raw": "1. 4. 2025",
+     "ukonceno_date_iso": "2025-04-01",
+     "fields_raw": {
+      "Číslo usnesení": "UR-116-12/25",
+      "Text usnesení": "Rada města schvaluje poskytnutí dotace Spolku železničních modelářů Pečky, IČO 27028861, ve výši 50 000 Kč na činnost spolku a uzavření veřejnoprávní smlouvy o poskytnutí dotace.",
+      "Zodpovídá": "Marcela Bahníková",
+      "Přijato": "24. 3. 2025 na jednání č. 12/2025",
+      "Termín": "31. 3. 2025",
+      "Ukončeno": "1. 4. 2025"
+     }
+    }
+   },
+   {
+    "number_raw": "UR-117-12/25",
+    "detail_id": 92121,
+    "detail_url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/92121?mod=rada",
+    "agenda_item_raw": "Žádosti o dotace - Spolek železničních modelářů",
+    "text_verbatim": "Rada\nměsta schvaluje poskytnutí dotace\nSpolku\nželezničních modelářů Pečky, IČO 27028861, ve výši 30 000 Kč na financování jízdy historických vlaků a uzavření veřejnoprávní smlouvy o poskytnutí dotace.",
+    "cell_text_raw": "Bod programu:\nŽádosti o dotace - Spolek železničních modelářů\nText přijatého usnesení:\nRada\nměsta schvaluje poskytnutí dotace\nSpolku\nželezničních modelářů Pečky, IČO 27028861, ve výši 30 000 Kč na financování jízdy historických vlaků a uzavření veřejnoprávní smlouvy o poskytnutí dotace.",
+    "date_raw": "24. 3. 2025",
+    "date_iso": "2025-03-24",
+    "responsible_raw": "Marcela Bahníková",
+    "deadline_raw": "31. 3. 2025",
+    "vote": {
+     "raw_text": "pro: 7 proti: 0 zdržel se: 0",
+     "pro": {
+      "count": 7,
+      "names": null,
+      "raw": "7"
+     },
+     "proti": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     },
+     "zdrzel_se": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     }
+    },
+    "detail": {
+     "number_raw": "UR-117-12/25",
+     "text_verbatim": "Rada města schvaluje poskytnutí dotace Spolku železničních modelářů Pečky, IČO 27028861, ve výši 30 000 Kč na financování jízdy historických vlaků a uzavření veřejnoprávní smlouvy o poskytnutí dotace.",
+     "typ_raw": null,
+     "zodpovida_raw": "Marcela Bahníková",
+     "prijato_raw": "24. 3. 2025 na jednání č. 12/2025",
+     "prijato_date_iso": "2025-03-24",
+     "prijato_meeting_label": "12/2025",
+     "termin_raw": "31. 3. 2025",
+     "ukonceno_raw": "1. 4. 2025",
+     "ukonceno_date_iso": "2025-04-01",
+     "fields_raw": {
+      "Číslo usnesení": "UR-117-12/25",
+      "Text usnesení": "Rada města schvaluje poskytnutí dotace Spolku železničních modelářů Pečky, IČO 27028861, ve výši 30 000 Kč na financování jízdy historických vlaků a uzavření veřejnoprávní smlouvy o poskytnutí dotace.",
+      "Zodpovídá": "Marcela Bahníková",
+      "Přijato": "24. 3. 2025 na jednání č. 12/2025",
+      "Termín": "31. 3. 2025",
+      "Ukončeno": "1. 4. 2025"
+     }
+    }
+   },
+   {
+    "number_raw": "UR-118-12/25",
+    "detail_id": 91925,
+    "detail_url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/91925?mod=rada",
+    "agenda_item_raw": "Revokace usnesení UZ-38-5/21 ze dne 8.12. 2021",
+    "text_verbatim": "Rada\nměsta doporučuje zastupitelstvu města revokovat usnesení\nUZ-38-5/21\nz důvodu aktuální neplatnosti.",
+    "cell_text_raw": "Bod programu:\nRevokace usnesení UZ-38-5/21 ze dne 8.12. 2021\nText přijatého usnesení:\nRada\nměsta doporučuje zastupitelstvu města revokovat usnesení\nUZ-38-5/21\nz důvodu aktuální neplatnosti.",
+    "date_raw": "24. 3. 2025",
+    "date_iso": "2025-03-24",
+    "responsible_raw": "",
+    "deadline_raw": "IHNED (24. 3. 2025)",
+    "vote": {
+     "raw_text": "pro: 7 proti: 0 zdržel se: 0",
+     "pro": {
+      "count": 7,
+      "names": null,
+      "raw": "7"
+     },
+     "proti": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     },
+     "zdrzel_se": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     }
+    },
+    "detail": {
+     "number_raw": "UR-118-12/25",
+     "text_verbatim": "Rada města doporučuje zastupitelstvu města revokovat usnesení UZ-38-5/21 z důvodu aktuální neplatnosti.",
+     "typ_raw": null,
+     "zodpovida_raw": "",
+     "prijato_raw": "24. 3. 2025 na jednání č. 12/2025",
+     "prijato_date_iso": "2025-03-24",
+     "prijato_meeting_label": "12/2025",
+     "termin_raw": "IHNED (24. 3. 2025)",
+     "ukonceno_raw": "24. 3. 2025",
+     "ukonceno_date_iso": "2025-03-24",
+     "fields_raw": {
+      "Číslo usnesení": "UR-118-12/25",
+      "Text usnesení": "Rada města doporučuje zastupitelstvu města revokovat usnesení UZ-38-5/21 z důvodu aktuální neplatnosti.",
+      "Zodpovídá": "",
+      "Přijato": "24. 3. 2025 na jednání č. 12/2025",
+      "Termín": "IHNED (24. 3. 2025)",
+      "Ukončeno": "24. 3. 2025"
+     }
+    }
+   },
+   {
+    "number_raw": "UR-119-12/25",
+    "detail_id": 91927,
+    "detail_url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/91927?mod=rada",
+    "agenda_item_raw": "Žádosti o odkoupení pozemků – č.parc. 1449/205, 1449/206",
+    "text_verbatim": "Rada\nměsta nedoporučuje zastupitelstvu města zveřejnit záměr na prodej pozemků č. parc. 1449/205 (976 m\n2\n-trvalý travní porost) a č. parc. 1449/206 (987 m\n2\n-trvalý travní porost) vše v obci a k.ú. Pečky.",
+    "cell_text_raw": "Bod programu:\nŽádosti o odkoupení pozemků – č.parc. 1449/205, 1449/206\nText přijatého usnesení:\nRada\nměsta nedoporučuje zastupitelstvu města zveřejnit záměr na prodej pozemků č. parc. 1449/205 (976 m\n2\n-trvalý travní porost) a č. parc. 1449/206 (987 m\n2\n-trvalý travní porost) vše v obci a k.ú. Pečky.",
+    "date_raw": "24. 3. 2025",
+    "date_iso": "2025-03-24",
+    "responsible_raw": "Jana Najbrtová",
+    "deadline_raw": "30. 6. 2025",
+    "vote": {
+     "raw_text": "pro: 7 proti: 0 zdržel se: 0",
+     "pro": {
+      "count": 7,
+      "names": null,
+      "raw": "7"
+     },
+     "proti": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     },
+     "zdrzel_se": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     }
+    },
+    "detail": {
+     "number_raw": "UR-119-12/25",
+     "text_verbatim": "Rada města nedoporučuje zastupitelstvu města zveřejnit záměr na prodej pozemků č. parc. 1449/205 (976 m 2 -trvalý travní porost) a č. parc. 1449/206 (987 m 2 -trvalý travní porost) vše v obci a k.ú. Pečky.",
+     "typ_raw": null,
+     "zodpovida_raw": "Jana Najbrtová",
+     "prijato_raw": "24. 3. 2025 na jednání č. 12/2025",
+     "prijato_date_iso": "2025-03-24",
+     "prijato_meeting_label": "12/2025",
+     "termin_raw": "30. 6. 2025",
+     "ukonceno_raw": "7. 4. 2025",
+     "ukonceno_date_iso": "2025-04-07",
+     "fields_raw": {
+      "Číslo usnesení": "UR-119-12/25",
+      "Text usnesení": "Rada města nedoporučuje zastupitelstvu města zveřejnit záměr na prodej pozemků č. parc. 1449/205 (976 m 2 -trvalý travní porost) a č. parc. 1449/206 (987 m 2 -trvalý travní porost) vše v obci a k.ú. Pečky.",
+      "Zodpovídá": "Jana Najbrtová",
+      "Přijato": "24. 3. 2025 na jednání č. 12/2025",
+      "Termín": "30. 6. 2025",
+      "Ukončeno": "7. 4. 2025"
+     }
+    }
+   },
+   {
+    "number_raw": "UR-120-12/25",
+    "detail_id": 91950,
+    "detail_url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/91950?mod=rada",
+    "agenda_item_raw": "Uzavření „Smlouvy o výpůjčce“ s firmou CE-DA servis s.r.o., Velký Osek",
+    "text_verbatim": "Rada\nměsta schvaluje uzavřít „Smlouvu o výpůjčce pozemků“, která se týká částí pozemků na deponii-č.parc. 2273/3, 2273/27 (v k.ú. Pečky-cca 2.000 m\n2\n) a na buňkoviště č. parc. 422/6 (v k.ú.\nV.Ch.-cca\n200 m\n2\n). Smlouva bude uzavřena s firmou CE-DA servis s.r.o.,\nVelký\nOsek od 1.4. 2025 na dobu neurčitou s výpovědní lhůtou 1 měsíc.",
+    "cell_text_raw": "Bod programu:\nUzavření „Smlouvy o výpůjčce“ s firmou CE-DA servis s.r.o., Velký Osek\nText přijatého usnesení:\nRada\nměsta schvaluje uzavřít „Smlouvu o výpůjčce pozemků“, která se týká částí pozemků na deponii-č.parc. 2273/3, 2273/27 (v k.ú. Pečky-cca 2.000 m\n2\n) a na buňkoviště č. parc. 422/6 (v k.ú.\nV.Ch.-cca\n200 m\n2\n). Smlouva bude uzavřena s firmou CE-DA servis s.r.o.,\nVelký\nOsek od 1.4. 2025 na dobu neurčitou s výpovědní lhůtou 1 měsíc.",
+    "date_raw": "24. 3. 2025",
+    "date_iso": "2025-03-24",
+    "responsible_raw": "Jana Najbrtová",
+    "deadline_raw": "30. 4. 2025",
+    "vote": {
+     "raw_text": "pro: 7 proti: 0 zdržel se: 0",
+     "pro": {
+      "count": 7,
+      "names": null,
+      "raw": "7"
+     },
+     "proti": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     },
+     "zdrzel_se": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     }
+    },
+    "detail": {
+     "number_raw": "UR-120-12/25",
+     "text_verbatim": "Rada města schvaluje uzavřít „Smlouvu o výpůjčce pozemků“, která se týká částí pozemků na deponii-č.parc. 2273/3, 2273/27 (v k.ú. Pečky-cca 2.000 m 2 ) a na buňkoviště č. parc. 422/6 (v k.ú. V.Ch.-cca 200 m 2 ). Smlouva bude uzavřena s firmou CE-DA servis s.r.o., Velký Osek od 1.4. 2025 na dobu neurčitou s výpovědní lhůtou 1 měsíc.",
+     "typ_raw": null,
+     "zodpovida_raw": "Jana Najbrtová",
+     "prijato_raw": "24. 3. 2025 na jednání č. 12/2025",
+     "prijato_date_iso": "2025-03-24",
+     "prijato_meeting_label": "12/2025",
+     "termin_raw": "30. 4. 2025",
+     "ukonceno_raw": "27. 3. 2025",
+     "ukonceno_date_iso": "2025-03-27",
+     "fields_raw": {
+      "Číslo usnesení": "UR-120-12/25",
+      "Text usnesení": "Rada města schvaluje uzavřít „Smlouvu o výpůjčce pozemků“, která se týká částí pozemků na deponii-č.parc. 2273/3, 2273/27 (v k.ú. Pečky-cca 2.000 m 2 ) a na buňkoviště č. parc. 422/6 (v k.ú. V.Ch.-cca 200 m 2 ). Smlouva bude uzavřena s firmou CE-DA servis s.r.o., Velký Osek od 1.4. 2025 na dobu neurčitou s výpovědní lhůtou 1 měsíc.",
+      "Zodpovídá": "Jana Najbrtová",
+      "Přijato": "24. 3. 2025 na jednání č. 12/2025",
+      "Termín": "30. 4. 2025",
+      "Ukončeno": "27. 3. 2025"
+     }
+    }
+   },
+   {
+    "number_raw": "UR-121-12/25",
+    "detail_id": 92149,
+    "detail_url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/92149?mod=rada",
+    "agenda_item_raw": "Zadání VZMR na dodávky \"Solární osvětlení u rybníka Benešák v k.ú. Pečky\"",
+    "text_verbatim": "Rada\nměsta schvaluje uzavření objednávky mezi městem Pečky a dodavatelem PTtrade s.r.o., se sídlem: Korunní 2569/108, Vinohrady, 101 00\nPraha\n10, IČ: 10897453, na plnění veřejné zakázky malého rozsahu na dodávky \"Solární osvětlení u rybníka Benešák v k.ú. Pečky\" dle cenové nabídky ze dne 10.02.2025.",
+    "cell_text_raw": "Bod programu:\nZadání VZMR na dodávky \"Solární osvětlení u rybníka Benešák v k.ú. Pečky\"\nText přijatého usnesení:\nRada\nměsta schvaluje uzavření objednávky mezi městem Pečky a dodavatelem PTtrade s.r.o., se sídlem: Korunní 2569/108, Vinohrady, 101 00\nPraha\n10, IČ: 10897453, na plnění veřejné zakázky malého rozsahu na dodávky \"Solární osvětlení u rybníka Benešák v k.ú. Pečky\" dle cenové nabídky ze dne 10.02.2025.",
+    "date_raw": "24. 3. 2025",
+    "date_iso": "2025-03-24",
+    "responsible_raw": "Michala Dekiská",
+    "deadline_raw": "7. 4. 2025",
+    "vote": {
+     "raw_text": "pro: 6 proti: 0 zdržel se: 1",
+     "pro": {
+      "count": 6,
+      "names": null,
+      "raw": "6"
+     },
+     "proti": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     },
+     "zdrzel_se": {
+      "count": 1,
+      "names": null,
+      "raw": "1"
+     }
+    },
+    "detail": {
+     "number_raw": "UR-121-12/25",
+     "text_verbatim": "Rada města schvaluje uzavření objednávky mezi městem Pečky a dodavatelem PTtrade s.r.o., se sídlem: Korunní 2569/108, Vinohrady, 101 00 Praha 10, IČ: 10897453, na plnění veřejné zakázky malého rozsahu na dodávky \"Solární osvětlení u rybníka Benešák v k.ú. Pečky\" dle cenové nabídky ze dne 10.02.2025.",
+     "typ_raw": null,
+     "zodpovida_raw": "Michala Dekiská",
+     "prijato_raw": "24. 3. 2025 na jednání č. 12/2025",
+     "prijato_date_iso": "2025-03-24",
+     "prijato_meeting_label": "12/2025",
+     "termin_raw": "7. 4. 2025",
+     "ukonceno_raw": "3. 4. 2025",
+     "ukonceno_date_iso": "2025-04-03",
+     "fields_raw": {
+      "Číslo usnesení": "UR-121-12/25",
+      "Text usnesení": "Rada města schvaluje uzavření objednávky mezi městem Pečky a dodavatelem PTtrade s.r.o., se sídlem: Korunní 2569/108, Vinohrady, 101 00 Praha 10, IČ: 10897453, na plnění veřejné zakázky malého rozsahu na dodávky \"Solární osvětlení u rybníka Benešák v k.ú. Pečky\" dle cenové nabídky ze dne 10.02.2025.",
+      "Zodpovídá": "Michala Dekiská",
+      "Přijato": "24. 3. 2025 na jednání č. 12/2025",
+      "Termín": "7. 4. 2025",
+      "Ukončeno": "3. 4. 2025"
+     }
+    }
+   },
+   {
+    "number_raw": "UR-122-12/25",
+    "detail_id": 91791,
+    "detail_url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/91791?mod=rada",
+    "agenda_item_raw": "Termín a program ZM dne 2.4.2025",
+    "text_verbatim": "Rada\nměsta schvaluje termín a program zasedání ZM dne 2.4.2025 od 17.30 hodin v Kulturním domě Pečky, Tř.\nJana\nŠvermy čp. 255, Pečky.",
+    "cell_text_raw": "Bod programu:\nTermín a program ZM dne 2.4.2025\nText přijatého usnesení:\nRada\nměsta schvaluje termín a program zasedání ZM dne 2.4.2025 od 17.30 hodin v Kulturním domě Pečky, Tř.\nJana\nŠvermy čp. 255, Pečky.",
+    "date_raw": "24. 3. 2025",
+    "date_iso": "2025-03-24",
+    "responsible_raw": "Milan Paluska",
+    "deadline_raw": "2. 4. 2025",
+    "vote": {
+     "raw_text": "pro: 7 proti: 0 zdržel se: 0",
+     "pro": {
+      "count": 7,
+      "names": null,
+      "raw": "7"
+     },
+     "proti": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     },
+     "zdrzel_se": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     }
+    },
+    "detail": {
+     "number_raw": "UR-122-12/25",
+     "text_verbatim": "Rada města schvaluje termín a program zasedání ZM dne 2.4.2025 od 17.30 hodin v Kulturním domě Pečky, Tř. Jana Švermy čp. 255, Pečky.",
+     "typ_raw": null,
+     "zodpovida_raw": "Milan Paluska",
+     "prijato_raw": "24. 3. 2025 na jednání č. 12/2025",
+     "prijato_date_iso": "2025-03-24",
+     "prijato_meeting_label": "12/2025",
+     "termin_raw": "2. 4. 2025",
+     "ukonceno_raw": "7. 4. 2025",
+     "ukonceno_date_iso": "2025-04-07",
+     "fields_raw": {
+      "Číslo usnesení": "UR-122-12/25",
+      "Text usnesení": "Rada města schvaluje termín a program zasedání ZM dne 2.4.2025 od 17.30 hodin v Kulturním domě Pečky, Tř. Jana Švermy čp. 255, Pečky.",
+      "Zodpovídá": "Milan Paluska",
+      "Přijato": "24. 3. 2025 na jednání č. 12/2025",
+      "Termín": "2. 4. 2025",
+      "Ukončeno": "7. 4. 2025"
+     }
+    }
+   },
+   {
+    "number_raw": "UR-123-12/25",
+    "detail_id": 92424,
+    "detail_url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/92424?mod=rada",
+    "agenda_item_raw": "Rozpočtové opatření č. 2/2025",
+    "text_verbatim": "Rada\nměsta doporučuje zastupitelstvu města schválit rozpočtová opatření č. 2/2025.",
+    "cell_text_raw": "Bod programu:\nRozpočtové opatření č. 2/2025\nText přijatého usnesení:\nRada\nměsta doporučuje zastupitelstvu města schválit rozpočtová opatření č. 2/2025.",
+    "date_raw": "24. 3. 2025",
+    "date_iso": "2025-03-24",
+    "responsible_raw": "Marcela Bahníková",
+    "deadline_raw": "2. 4. 2025",
+    "vote": {
+     "raw_text": "pro: 7 proti: 0 zdržel se: 0",
+     "pro": {
+      "count": 7,
+      "names": null,
+      "raw": "7"
+     },
+     "proti": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     },
+     "zdrzel_se": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     }
+    },
+    "detail": {
+     "number_raw": "UR-123-12/25",
+     "text_verbatim": "Rada města doporučuje zastupitelstvu města schválit rozpočtová opatření č. 2/2025.",
+     "typ_raw": null,
+     "zodpovida_raw": "Marcela Bahníková",
+     "prijato_raw": "24. 3. 2025 na jednání č. 12/2025",
+     "prijato_date_iso": "2025-03-24",
+     "prijato_meeting_label": "12/2025",
+     "termin_raw": "2. 4. 2025",
+     "ukonceno_raw": "2. 4. 2025",
+     "ukonceno_date_iso": "2025-04-02",
+     "fields_raw": {
+      "Číslo usnesení": "UR-123-12/25",
+      "Text usnesení": "Rada města doporučuje zastupitelstvu města schválit rozpočtová opatření č. 2/2025.",
+      "Zodpovídá": "Marcela Bahníková",
+      "Přijato": "24. 3. 2025 na jednání č. 12/2025",
+      "Termín": "2. 4. 2025",
+      "Ukončeno": "2. 4. 2025"
+     }
+    }
+   }
+  ]
+ }
+}

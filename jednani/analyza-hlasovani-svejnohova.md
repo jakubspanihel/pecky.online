@@ -1,6 +1,6 @@
 # Analýza hlasování: Mgr. Alena Švejnohová (Zastupitelstvo města Pečky)
 
-**Zdroj:** `jednani/archive-2026-08-04.json` — jmenovitá hlasování ze zápisů
+**Zdroj:** `jednani/archive/` — jmenovitá hlasování ze zápisů
 zastupitelstva (u rady web jména neuvádí, proto rada v analýze není).
 **Rozsah:** 38 jednání ZM, 2021-09-15 – 2026-06-24, celkem 494 hlasování se
 jmény. Jednání ZM 5/2026 (26. 8. 2026) není zahrnuto — Švejnohová byla

@@ -1,0 +1,684 @@
+{
+ "uuid": "78984e80-40e5-11ee-9637-7d69fdb185b7",
+ "body_type_raw": "Rada",
+ "label_raw": "29/2023 (28. 8. 2023)",
+ "number": 29,
+ "year": 2023,
+ "date_iso": "2023-08-28",
+ "links": {
+  "invitation": "https://mesto-pecky.usneseni.cz/verejne/?uuid=78984e80-40e5-11ee-9637-7d69fdb185b7&page=11&do=printPublicInvitation",
+  "minutes": "https://mesto-pecky.usneseni.cz/verejne/78984e80-40e5-11ee-9637-7d69fdb185b7/zapis/?page=11",
+  "signed_minutes_pdf": "https://mesto-pecky.usneseni.cz/verejne/?meetingReportControl-uuid=78984e80-40e5-11ee-9637-7d69fdb185b7&page=11&do=meetingReportControl-getSignedReportPdf",
+  "resolutions": "https://mesto-pecky.usneseni.cz/verejne/78984e80-40e5-11ee-9637-7d69fdb185b7/usneseni/?page=11",
+  "audio": null
+ },
+ "link_texts": {
+  "invitation": "Pozvánka",
+  "minutes": "zápis",
+  "signed_minutes_pdf": "podepsaný zápis",
+  "resolutions": "přijatá usnesení"
+ },
+ "status": "ok",
+ "invitation": {
+  "status": "site_error",
+  "error": "status=200 ct=text/html; charset=utf-8 flash='<a href=\"\" class=\"close\" data-dismiss=\"alert\" aria-label=\"close\">&times;'",
+  "url": "https://mesto-pecky.usneseni.cz/verejne/?uuid=78984e80-40e5-11ee-9637-7d69fdb185b7&do=printPublicInvitation",
+  "fetched_at": "2026-08-04T15:04:41.750511+00:00"
+ },
+ "minutes": {
+  "status": "ok",
+  "url": "https://mesto-pecky.usneseni.cz/verejne/78984e80-40e5-11ee-9637-7d69fdb185b7/zapis/",
+  "fetched_at": "2026-08-04T14:04:59.322667+00:00",
+  "title_raw": "ZÁPIS ze schůze rady č. 29/2023 Město Pečky datum: 28. 8. 2023, čas: 15:00 ​",
+  "date_raw": "28. 8. 2023",
+  "date_iso": "2023-08-28",
+  "time_raw": "15:00",
+  "presence": {
+   "raw_text": "Prezence:\nPřítomni:\n(5) Zdeněk Fejfar, Milan Paluska, Ing. Martin Jedlička, Ivana Trčková, Ing. Karel Krištoufek\nOmluveni:\n(0)\nNepřítomni:\n(2) Ing. Petr Dürr, Ing. Hana Kuprová\nHosté:\nIng. Adam Brant\nZapisovatel/ka:\nPavlína Nepovímová\nPřítomno je 5 členů a rada je usnášeníschopná.\nJednání zahájeno 28.08.2023 v 15:03:08\nV 15:03:19 přišel Ing. Petr Dürr, přítomno 6 radních.\nAktualizovaný stav prezence:\nPřítomni:\n(6) Zdeněk Fejfar, Milan Paluska, Ing. Martin Jedlička, Ivana Trčková, Ing. Karel Krištoufek, Ing. Petr Dürr\nOmluveni:\n(0)\nNepřítomni:\n(1) Ing. Hana Kuprová\nV 15:05:43 přišla Ing. Hana Kuprová, přítomno 7 radních.\nAktualizovaný stav prezence:\nPřítomni:\n(7) Zdeněk Fejfar, Milan Paluska, Ing. Martin Jedlička, Ivana Trčková, Ing. Karel Krištoufek, Ing. Petr Dürr, Ing. Hana Kuprová\nOmluveni:\n(0)\nNepřítomni:\n(0)",
+   "pritomni": {
+    "count": 5,
+    "names": [
+     "Zdeněk Fejfar",
+     "Milan Paluska",
+     "Ing. Martin Jedlička",
+     "Ivana Trčková",
+     "Ing. Karel Krištoufek"
+    ],
+    "raw": "(5) Zdeněk Fejfar, Milan Paluska, Ing. Martin Jedlička, Ivana Trčková, Ing. Karel Krištoufek"
+   },
+   "omluveni": {
+    "count": 0,
+    "names": [],
+    "raw": "(0)"
+   },
+   "nepritomni": {
+    "count": 2,
+    "names": [
+     "Ing. Petr Dürr",
+     "Ing. Hana Kuprová"
+    ],
+    "raw": "(2) Ing. Petr Dürr, Ing. Hana Kuprová"
+   },
+   "predsedajici": null,
+   "quorum_raw": "Přítomno je 5 členů a rada je usnášeníschopná."
+  },
+  "header_raw": "Prezence:\nPřítomni:\n(5) Zdeněk Fejfar, Milan Paluska, Ing. Martin Jedlička, Ivana Trčková, Ing. Karel Krištoufek\nOmluveni:\n(0)\nNepřítomni:\n(2) Ing. Petr Dürr, Ing. Hana Kuprová\nHosté:\nIng. Adam Brant\nZapisovatel/ka:\nPavlína Nepovímová\nPřítomno je 5 členů a rada je usnášeníschopná.\nJednání zahájeno 28.08.2023 v 15:03:08\nV 15:03:19 přišel Ing. Petr Dürr, přítomno 6 radních.\nAktualizovaný stav prezence:\nPřítomni:\n(6) Zdeněk Fejfar, Milan Paluska, Ing. Martin Jedlička, Ivana Trčková, Ing. Karel Krištoufek, Ing. Petr Dürr\nOmluveni:\n(0)\nNepřítomni:\n(1) Ing. Hana Kuprová\nV 15:05:43 přišla Ing. Hana Kuprová, přítomno 7 radních.\nAktualizovaný stav prezence:\nPřítomni:\n(7) Zdeněk Fejfar, Milan Paluska, Ing. Martin Jedlička, Ivana Trčková, Ing. Karel Krištoufek, Ing. Petr Dürr, Ing. Hana Kuprová\nOmluveni:\n(0)\nNepřítomni:\n(0)",
+  "agenda_items": [
+   {
+    "number": 1,
+    "title_raw": "Určení zapisovatelů, předsedajícího, příp. ověřovatelů",
+    "heading_raw": "1. Určení zapisovatelů, předsedajícího, příp. ověřovatelů (bod číslo 1)",
+    "predkladatel": "Milan Paluska",
+    "votes": [],
+    "resolution_numbers_mentioned": [],
+    "raw_text": "Předkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 15:06:52\nPředsedající navrhl jednotlivé členy pracovních komisí\nOvěřovatelé:\nIng. Karel Krištoufek, Zdeněk Fejfar\nPředsedající:\nMilan Paluska\nBod byl přijat bez hlasování.\nDiskuze zahájena v 15:06:52\nProjednávání bodu bylo ukončeno v 15:07:13"
+   },
+   {
+    "number": 2,
+    "title_raw": "Schválení programu jednání",
+    "heading_raw": "2. Schválení programu jednání (bod číslo 2)",
+    "predkladatel": "Milan Paluska",
+    "votes": [
+     {
+      "raw_text": "pro:\n(7) Zdeněk Fejfar, Ing. Hana Kuprová, Ing. Karel Krištoufek, Ing. Petr Dürr, Ivana Trčková, Milan Paluska, Ing. Martin Jedlička\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)",
+      "pro": {
+       "count": 7,
+       "names": [
+        "Zdeněk Fejfar",
+        "Ing. Hana Kuprová",
+        "Ing. Karel Krištoufek",
+        "Ing. Petr Dürr",
+        "Ivana Trčková",
+        "Milan Paluska",
+        "Ing. Martin Jedlička"
+       ],
+       "raw": "(7) Zdeněk Fejfar, Ing. Hana Kuprová, Ing. Karel Krištoufek, Ing. Petr Dürr, Ivana Trčková, Milan Paluska, Ing. Martin Jedlička"
+      },
+      "proti": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "zdrzel_se": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "nehlasoval": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "result_raw": "Návrh byl přijat jako usnesení číslo: UR-249-29/23",
+      "adopted_resolution_number": "UR-249-29/23"
+     }
+    ],
+    "resolution_numbers_mentioned": [
+     "UR-249-29/23"
+    ],
+    "raw_text": "Předkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 15:07:25\nProgram jednání\n1. Určení zapisovatelů, předsedajícího, příp. ověřovatelů\n2. Schválení programu jednání\n3. Aktuální informace vedení města\n4. Přijetí dotace z rozpočtu Středočeského kraje ze Středočeského Fondu podpory dobrovolných hasičů a složek IZS a uzavření VPS\n5. Rozpočtové opatření č. 5/2023\n6. Souhlas zřizovatele s přijetím daru - Základní škola Pečky\n7. Valná hromada Pečeckých služeb, s.r.o.\n8. Uzavření SOD na zhotovení statiky střech na vybraných budovách pro umístění FVE\n9. Prodej nepojízdného os. automobilu\n10. Kontrola plnění usnesení\nDiskuze zahájena v 15:07:25\nV 15:09:03 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Milan Paluska\") v tomto znění:\nRada\nměsta schvaluje návrh programu jednání.\nHlasování\npro:\n(7) Zdeněk Fejfar, Ing. Hana Kuprová, Ing. Karel Krištoufek, Ing. Petr Dürr, Ivana Trčková, Milan Paluska, Ing. Martin Jedlička\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-249-29/23\nzodpovídá:\ntermín:\nIHNED\n(28. 8. 2023)\nProjednávání bodu bylo ukončeno v 15:09:14"
+   },
+   {
+    "number": 3,
+    "title_raw": "Aktuální informace vedení města",
+    "heading_raw": "3. Aktuální informace vedení města (bod číslo 3)",
+    "predkladatel": "Milan Paluska",
+    "votes": [],
+    "resolution_numbers_mentioned": [],
+    "raw_text": "Předkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 15:09:31\nDůvodová zpráva:\nstarosta\n- schůzka se zástupci samospráv sídliště Pečky a zástupci\nCetinu\n- bude se pokládat nový optický kabel\n- kontrolní den v KS\n- informace o nedodržení termínu dokončení prací na elektrorozvodech v ZŠ Pečky\n- schůzka s panem Pávem, ohledně práce na jezu\n- schůzka s právníkem a zástupci stavitelů obchodního domu\nBilla - projednání koordinační situace\n- informace o plánované účasti na zahájení školního roku 2023/2024 v jednotlivých školách\nDiskuze zahájena v 15:09:31\nK tomuto bodu se vyjádřili: Milan Paluska, Ing. Martin Jedlička, Ing. Karel Krištoufek, Zdeněk Fejfar, Ivana Trčková\nRada bere materiály předložené k bodu č. 3 -\nAktuální informace vedení města\nna vědomí.\nProjednávání bodu bylo ukončeno v 15:45:26"
+   },
+   {
+    "number": 4,
+    "title_raw": "Přijetí dotace z rozpočtu Středočeského kraje ze Středočeského Fondu podpory dobrovolných hasičů a složek IZS a uzavření VPS",
+    "heading_raw": "4. Přijetí dotace z rozpočtu Středočeského kraje ze Středočeského Fondu podpory dobrovolných hasičů a složek IZS a uzavření VPS (bod číslo 4)",
+    "predkladatel": "Ing. Martin Jedlička",
+    "votes": [
+     {
+      "raw_text": "pro:\n(7) Ing. Petr Dürr, Ing. Karel Krištoufek, Ing. Hana Kuprová, Ing. Martin Jedlička, Milan Paluska, Zdeněk Fejfar, Ivana Trčková\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)",
+      "pro": {
+       "count": 7,
+       "names": [
+        "Ing. Petr Dürr",
+        "Ing. Karel Krištoufek",
+        "Ing. Hana Kuprová",
+        "Ing. Martin Jedlička",
+        "Milan Paluska",
+        "Zdeněk Fejfar",
+        "Ivana Trčková"
+       ],
+       "raw": "(7) Ing. Petr Dürr, Ing. Karel Krištoufek, Ing. Hana Kuprová, Ing. Martin Jedlička, Milan Paluska, Zdeněk Fejfar, Ivana Trčková"
+      },
+      "proti": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "zdrzel_se": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "nehlasoval": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "result_raw": "Návrh byl přijat jako usnesení číslo: UR-250-29/23",
+      "adopted_resolution_number": "UR-250-29/23"
+     }
+    ],
+    "resolution_numbers_mentioned": [
+     "UR-250-29/23"
+    ],
+    "raw_text": "Předkladatel: Ing. Martin Jedlička\nProjednávání bodu bylo zahájeno v 15:45:31\nDůvodová zpráva:\nDne 12.07.2023 bylo doručeno Oznámení o rozhodnutí Zastupitelstva Středočeského kraje ve věci žádosti o poskytnutí dotace prostřednictvím veřejnoprávní smlouvy z Programu 2023 pro poskytování dotací z rozpočtu Středočeského kraje ze Středočeského Fondu podpory dobrovolných hasičů a složek IZS, evidenční číslo žádosti: HAS/DOP/049370/2023, název Akce/Projektu: Pořízení dopravního automobilu pro JSDH Pečky JPO-II, tematické zadání: Kofinancování účelových investičních akcí/projektů z rozpočtu Středočeského kraje vázaných na program zabezpečovaný MV GŘ HZS ČR Dotace pro jednotky SDH obcí.\nZastupitelstvo Středočeského kraje na svém zasedání dne 26.06.2023 projednalo poskytnutí dotací z výše uvedeného Programu a usnesením č. 0478-26/2023/ZK SCHVÁLILO poskytnutí dotace na základě Vaší žádosti o poskytnutí dotace prostřednictvím veřejnoprávní smlouvy z výše uvedeného Programu, evidenční číslo HAS/DOP/049370/2023, a to ve výši 300 000 Kč.\nPro\npřípravu a následné uzavření veřejnoprávní smlouvy je třeba doložit usnesení Rady města o schválení přijetí dotace z rozpočtu Středočeského kraje a uzavření veřejnoprávní smlouvy o poskytnutí dotace.\nNa pořízení dopravního automobilu pro JSDH Pečky JPO-II schváleno také poskytnutí dotace 450 tis. Kč z Ministerstva vnitra, útvar MV- GŘ HZS ČR, identifikační číslo 014D262003047, identifikační číslo EIS JSDHJSDH-V2V2-20232023-00516, schváleno tedy poskytnutí dotace v celkové výši 750 tis. Kč.\nDiskuze zahájena v 15:45:31\nK tomuto bodu se vyjádřili: Milan Paluska, Ing. Martin Jedlička\nV 15:47:49 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Martin Jedlička\") v tomto znění:\nRada\nměsta schvaluje přijetí dotace z rozpočtu Středočeského kraje ze Středočeského Fondu podpory dobrovolných hasičů a složek IZS a uzavření veřejnoprávní smlouvy o poskytnutí dotace k projektu \"Pořízení dopravního automobilu pro JSDH Pečky JPO-II, evidenční číslo žádosti HAS/DOP/049370/2023.\nHlasování\npro:\n(7) Ing. Petr Dürr, Ing. Karel Krištoufek, Ing. Hana Kuprová, Ing. Martin Jedlička, Milan Paluska, Zdeněk Fejfar, Ivana Trčková\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-250-29/23\nzodpovídá:\nMichala Dekiská\ntermín:\n30. 9. 2023\nProjednávání bodu bylo ukončeno v 15:47:59"
+   },
+   {
+    "number": 5,
+    "title_raw": "Rozpočtové opatření č. 5/2023",
+    "heading_raw": "5. Rozpočtové opatření č. 5/2023 (bod číslo 5)",
+    "predkladatel": "Milan Paluska",
+    "votes": [
+     {
+      "raw_text": "pro:\n(7) Ing. Karel Krištoufek, Ing. Hana Kuprová, Ing. Martin Jedlička, Ivana Trčková, Zdeněk Fejfar, Ing. Petr Dürr, Milan Paluska\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)",
+      "pro": {
+       "count": 7,
+       "names": [
+        "Ing. Karel Krištoufek",
+        "Ing. Hana Kuprová",
+        "Ing. Martin Jedlička",
+        "Ivana Trčková",
+        "Zdeněk Fejfar",
+        "Ing. Petr Dürr",
+        "Milan Paluska"
+       ],
+       "raw": "(7) Ing. Karel Krištoufek, Ing. Hana Kuprová, Ing. Martin Jedlička, Ivana Trčková, Zdeněk Fejfar, Ing. Petr Dürr, Milan Paluska"
+      },
+      "proti": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "zdrzel_se": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "nehlasoval": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "result_raw": "Návrh byl přijat jako usnesení číslo: UR-251-29/23",
+      "adopted_resolution_number": "UR-251-29/23"
+     }
+    ],
+    "resolution_numbers_mentioned": [
+     "UR-251-29/23"
+    ],
+    "raw_text": "Předkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 15:48:33\nDůvodová zpráva:\nPředkládáme rozpočtové opaření v kompetenci RM, jedná se zvýšení příjmů a výdajů o průtokové dotace pro příspěvkové organizace.\nDiskuze zahájena v 15:48:33\nK tomuto bodu se vyjádřili: Ing. Karel Krištoufek, Ing. Hana Kuprová, Milan Paluska\nV 15:50:24 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Milan Paluska\") v tomto znění:\nRada\nměsta schvaluje rozpočtová opatření č.5/2023.\nHlasování\npro:\n(7) Ing. Karel Krištoufek, Ing. Hana Kuprová, Ing. Martin Jedlička, Ivana Trčková, Zdeněk Fejfar, Ing. Petr Dürr, Milan Paluska\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-251-29/23\nzodpovídá:\nMarcela Bahníková\ntermín:\n31. 8. 2023\nProjednávání bodu bylo ukončeno v 15:50:34"
+   },
+   {
+    "number": 6,
+    "title_raw": "Souhlas zřizovatele s přijetím daru - Základní škola Pečky",
+    "heading_raw": "6. Souhlas zřizovatele s přijetím daru - Základní škola Pečky (bod číslo 6)",
+    "predkladatel": "Milan Paluska",
+    "votes": [
+     {
+      "raw_text": "pro:\n(7) Ing. Petr Dürr, Zdeněk Fejfar, Ing. Martin Jedlička, Ing. Karel Krištoufek, Ivana Trčková, Milan Paluska, Ing. Hana Kuprová\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)",
+      "pro": {
+       "count": 7,
+       "names": [
+        "Ing. Petr Dürr",
+        "Zdeněk Fejfar",
+        "Ing. Martin Jedlička",
+        "Ing. Karel Krištoufek",
+        "Ivana Trčková",
+        "Milan Paluska",
+        "Ing. Hana Kuprová"
+       ],
+       "raw": "(7) Ing. Petr Dürr, Zdeněk Fejfar, Ing. Martin Jedlička, Ing. Karel Krištoufek, Ivana Trčková, Milan Paluska, Ing. Hana Kuprová"
+      },
+      "proti": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "zdrzel_se": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "nehlasoval": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "result_raw": "Návrh byl přijat jako usnesení číslo: UR-252-29/23",
+      "adopted_resolution_number": "UR-252-29/23"
+     }
+    ],
+    "resolution_numbers_mentioned": [
+     "UR-252-29/23"
+    ],
+    "raw_text": "Předkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 15:50:38\nDůvodová zpráva:\nZŠ žádá zřizovatele o souhlas s přijetím účelově určeného daru na úhradu obědů pro žáky ve školním roce 2023/2024.\nDiskuze zahájena v 15:50:38\nK tomuto bodu se vyjádřili: Milan Paluska\nV 15:51:14 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Milan Paluska\") v tomto znění:\nRada\nměsta schvaluje přijetí finančního daru určeného na úhradu stravného pro celkem 15 žáků ve výši 97 658,-Kč příspěvkovou organizací Základní škola Pečky, okres\nKolín\nod společnosti WOMEN FOR WOMEN, o.p.s., IČ: 24231509.\nŠkola\nuzavře se společností Women for Women 2 darovací smlouvy, 1. část daru ve výši 38 456,-Kč na období od 9-12/2023 a 2. část daru ve výši 59 202,-Kč na období 1-6/2024.\nHlasování\npro:\n(7) Ing. Petr Dürr, Zdeněk Fejfar, Ing. Martin Jedlička, Ing. Karel Krištoufek, Ivana Trčková, Milan Paluska, Ing. Hana Kuprová\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-252-29/23\nzodpovídá:\nMarcela Bahníková\ntermín:\n31. 8. 2023\nProjednávání bodu bylo ukončeno v 15:51:24"
+   },
+   {
+    "number": 8,
+    "title_raw": "Uzavření SOD na zhotovení statiky střech na vybraných budovách pro umístění FVE",
+    "heading_raw": "7. Uzavření SOD na zhotovení statiky střech na vybraných budovách pro umístění FVE (bod číslo 8)",
+    "predkladatel": "Věra Růžičková",
+    "votes": [
+     {
+      "raw_text": "pro:\n(6) Ing. Hana Kuprová, Ing. Karel Krištoufek, Ing. Martin Jedlička, Ing. Petr Dürr, Ivana Trčková, Milan Paluska\nproti\n(0)\nzdržel se:\n(1) Zdeněk Fejfar\nnehlasoval:\n(0)",
+      "pro": {
+       "count": 6,
+       "names": [
+        "Ing. Hana Kuprová",
+        "Ing. Karel Krištoufek",
+        "Ing. Martin Jedlička",
+        "Ing. Petr Dürr",
+        "Ivana Trčková",
+        "Milan Paluska"
+       ],
+       "raw": "(6) Ing. Hana Kuprová, Ing. Karel Krištoufek, Ing. Martin Jedlička, Ing. Petr Dürr, Ivana Trčková, Milan Paluska"
+      },
+      "proti": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "zdrzel_se": {
+       "count": 1,
+       "names": [
+        "Zdeněk Fejfar"
+       ],
+       "raw": "(1) Zdeněk Fejfar"
+      },
+      "nehlasoval": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "result_raw": "Návrh byl přijat jako usnesení číslo: UR-253-29/23",
+      "adopted_resolution_number": "UR-253-29/23"
+     }
+    ],
+    "resolution_numbers_mentioned": [
+     "UR-253-29/23"
+    ],
+    "raw_text": "Předkladatel: Věra Růžičková\nProjednávání bodu bylo zahájeno v 15:51:59\nDůvodová zpráva:\nK podání žádostí o dotace v rámci výzvy MODF-RES+Č.4/2022 vyhlášeného Ministerstvem životního prostředí  prostřednictvím SFŽP jsou potřebné prvotní dokumenty, které stanoví na jaké budovy je možné fotovoltaické výrobny umístit.\nJedná se o:\n- posouzení statiky střech\n- studie - již objednáno\n- souhlas ČEZu s připojením-  již objednáno\ntěchto vybraných objektů:\nčp. 993 a 1045  AFK, čp. 1042 DPS, čp. 1140- budova JPO2, čp. 346- zázemí Pečeckých služeb, čp. 78- budova MěÚ, čp. 825 MŠ, čp. 141 Vzdělávací centrum, čp. 292 Zdravotní středisko, čp. 700 ZUŠ\nZahájili jsme jednání s firmou CZECHIA GROUP s.r.o., se kterou jsme již dříve spolupracovali na zateplení ZŠ, MŠ a Kulturního střediska a nadále i spolupracujeme na zajištění udržitelnosti zateplení Kulturního střediska podáváním MZ o udržitelnosti projektu. Ceny za zpracování podkladů pro podání žádostí o dotace jsou v místě a čase obvyklé, proto jsme neprováděli cenový průzkum a doporučujeme uzavření smlouvy na zajištění posouzení statiky střech s touto firmou. Po zpracování těchto podkladů budeme teprve vědět na které objekty budeme moci dotace čerpat. Výzva a návrh SOD přílohou. Termín podání žádostí o dotace byl prodloužen z 30.6. 2023 do 29. 9. 2023.\nDiskuze zahájena v 15:51:59\nK tomuto bodu se vyjádřili: Milan Paluska, Ivana Trčková, Zdeněk Fejfar, Ing. Karel Krištoufek\nV 16:08:10 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Věra Růžičková\") v tomto znění:\nRada\nměsta schvaluje uzavření SOD mezi městem Pečky a CZECHIA GROUP s.r.o., V Jámě 699/1, 110 00\nNové\nMěsto na zpracování posouzení statiky střech na vybraných 10ti budovách pro umístění fotovoltaických  výroben za cenu 200 000,- Kč bez DPH.\nHlasování\npro:\n(6) Ing. Hana Kuprová, Ing. Karel Krištoufek, Ing. Martin Jedlička, Ing. Petr Dürr, Ivana Trčková, Milan Paluska\nproti\n(0)\nzdržel se:\n(1) Zdeněk Fejfar\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-253-29/23\nzodpovídá:\nVěra Růžičková\ntermín:\n11. 9. 2023\nProjednávání bodu bylo ukončeno v 16:08:20"
+   },
+   {
+    "number": 7,
+    "title_raw": "Valná hromada Pečeckých služeb, s.r.o.",
+    "heading_raw": "8. Valná hromada Pečeckých služeb, s.r.o. (bod číslo 7)",
+    "predkladatel": "Adam Brant",
+    "votes": [],
+    "resolution_numbers_mentioned": [],
+    "raw_text": "Předkladatel: Adam Brant\nProjednávání bodu bylo zahájeno v 16:09:48\nDůvodová zpráva:\nValná\nhromada Pečeckých služeb, s.r.o.\nDiskuze zahájena v 16:09:48\nK tomuto bodu se vyjádřili: Milan Paluska, Ing. Adam Brant, Ing. Martin Jedlička, Ivana Trčková, Ing. Karel Krištoufek, Zdeněk Fejfar\nRada bere materiály předložené k bodu č. 7 -\nValná hromada Pečeckých služeb, s.r.o.\nna vědomí.\nProjednávání bodu bylo ukončeno v 16:23:01"
+   },
+   {
+    "number": 9,
+    "title_raw": "Prodej nepojízdného os. automobilu",
+    "heading_raw": "9. Prodej nepojízdného os. automobilu (bod číslo 9)",
+    "predkladatel": "Lukáš Hanzelín",
+    "votes": [
+     {
+      "raw_text": "pro:\n(7) Ing. Martin Jedlička, Ing. Karel Krištoufek, Ing. Hana Kuprová, Ing. Petr Dürr, Zdeněk Fejfar, Ivana Trčková, Milan Paluska\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)",
+      "pro": {
+       "count": 7,
+       "names": [
+        "Ing. Martin Jedlička",
+        "Ing. Karel Krištoufek",
+        "Ing. Hana Kuprová",
+        "Ing. Petr Dürr",
+        "Zdeněk Fejfar",
+        "Ivana Trčková",
+        "Milan Paluska"
+       ],
+       "raw": "(7) Ing. Martin Jedlička, Ing. Karel Krištoufek, Ing. Hana Kuprová, Ing. Petr Dürr, Zdeněk Fejfar, Ivana Trčková, Milan Paluska"
+      },
+      "proti": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "zdrzel_se": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "nehlasoval": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "result_raw": "Návrh byl přijat jako usnesení číslo: UR-254-29/23",
+      "adopted_resolution_number": "UR-254-29/23"
+     }
+    ],
+    "resolution_numbers_mentioned": [
+     "UR-254-29/23"
+    ],
+    "raw_text": "Předkladatel: Lukáš Hanzelín\nProjednávání bodu bylo zahájeno v 16:24:43\nDůvodová zpráva:\nVe vozidle škoda Roomster došlo na základě špatného vyhodnocení olejových čidel k zadření motoru, tím pádem došlo k nepojízdnosti vozidla. Oprava je vzhledem k nutnosti repasu celého motoru nerentabilní.\nDiskuze zahájena v 16:24:43\nK tomuto bodu se vyjádřili: Milan Paluska, Zdeněk Fejfar, Ing. Karel Krištoufek\nV 16:32:37 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Lukáš Hanzelín\") v tomto znění:\nRada\nměsta schvaluje prodej nepojízdného osobního vozidla\nŠkoda\nROOMSTER SPZ 1SF2246 od příspěvkové organizace Kulturní středisko Pečky, Tř.\nJana\nŠvermy 255, 289 11 Pečky, spol. Jedná se o trvale nepotřebný majetek, který příspěvková organizace přednostně nabídla zřizovateli ( §27 odst. 8 , Zák. 250/2000 Sb.). Autocentrum\nŘíha\n, zastoupený panem Dušanem Říhou, IČ: 4467953, Pečecká 5,\nVelké\nChvalovice, 289 11 Pečky za částku deset tisíc korun českých na základě kupní smlouvy.\nHlasování\npro:\n(7) Ing. Martin Jedlička, Ing. Karel Krištoufek, Ing. Hana Kuprová, Ing. Petr Dürr, Zdeněk Fejfar, Ivana Trčková, Milan Paluska\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-254-29/23\nzodpovídá:\ntermín:\nIHNED\n(28. 8. 2023)\nProjednávání bodu bylo ukončeno v 16:32:55"
+   },
+   {
+    "number": 10,
+    "title_raw": "Kontrola plnění usnesení",
+    "heading_raw": "10. Kontrola plnění usnesení (bod číslo 10)",
+    "predkladatel": "Milan Paluska",
+    "votes": [],
+    "resolution_numbers_mentioned": [],
+    "raw_text": "Předkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 16:33:04\nDiskuze zahájena v 16:33:04\nK tomuto bodu se vyjádřili: Milan Paluska, Pavlína Nepovímová\nRada bere materiály předložené k bodu č. 10 -\nKontrola plnění usnesení\nna vědomí.\nProjednávání bodu bylo ukončeno v 16:34:49\nJednání ukončeno 28.08.2023 v 16:38:19"
+   }
+  ],
+  "full_text": "ZÁPIS ze schůze rady č. 29/2023\nMěsto Pečky\ndatum: 28. 8. 2023, čas: 15:00\n​\nPrezence:\nPřítomni:\n(5) Zdeněk Fejfar, Milan Paluska, Ing. Martin Jedlička, Ivana Trčková, Ing. Karel Krištoufek\nOmluveni:\n(0)\nNepřítomni:\n(2) Ing. Petr Dürr, Ing. Hana Kuprová\nHosté:\nIng. Adam Brant\nZapisovatel/ka:\nPavlína Nepovímová\nPřítomno je 5 členů a rada je usnášeníschopná.\nJednání zahájeno 28.08.2023 v 15:03:08\nV 15:03:19 přišel Ing. Petr Dürr, přítomno 6 radních.\nAktualizovaný stav prezence:\nPřítomni:\n(6) Zdeněk Fejfar, Milan Paluska, Ing. Martin Jedlička, Ivana Trčková, Ing. Karel Krištoufek, Ing. Petr Dürr\nOmluveni:\n(0)\nNepřítomni:\n(1) Ing. Hana Kuprová\nV 15:05:43 přišla Ing. Hana Kuprová, přítomno 7 radních.\nAktualizovaný stav prezence:\nPřítomni:\n(7) Zdeněk Fejfar, Milan Paluska, Ing. Martin Jedlička, Ivana Trčková, Ing. Karel Krištoufek, Ing. Petr Dürr, Ing. Hana Kuprová\nOmluveni:\n(0)\nNepřítomni:\n(0)\n1. Určení zapisovatelů, předsedajícího, příp. ověřovatelů (bod číslo 1)\nPředkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 15:06:52\nPředsedající navrhl jednotlivé členy pracovních komisí\nOvěřovatelé:\nIng. Karel Krištoufek, Zdeněk Fejfar\nPředsedající:\nMilan Paluska\nBod byl přijat bez hlasování.\nDiskuze zahájena v 15:06:52\nProjednávání bodu bylo ukončeno v 15:07:13\n2. Schválení programu jednání (bod číslo 2)\nPředkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 15:07:25\nProgram jednání\n1. Určení zapisovatelů, předsedajícího, příp. ověřovatelů\n2. Schválení programu jednání\n3. Aktuální informace vedení města\n4. Přijetí dotace z rozpočtu Středočeského kraje ze Středočeského Fondu podpory dobrovolných hasičů a složek IZS a uzavření VPS\n5. Rozpočtové opatření č. 5/2023\n6. Souhlas zřizovatele s přijetím daru - Základní škola Pečky\n7. Valná hromada Pečeckých služeb, s.r.o.\n8. Uzavření SOD na zhotovení statiky střech na vybraných budovách pro umístění FVE\n9. Prodej nepojízdného os. automobilu\n10. Kontrola plnění usnesení\nDiskuze zahájena v 15:07:25\nV 15:09:03 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Milan Paluska\") v tomto znění:\nRada\nměsta schvaluje návrh programu jednání.\nHlasování\npro:\n(7) Zdeněk Fejfar, Ing. Hana Kuprová, Ing. Karel Krištoufek, Ing. Petr Dürr, Ivana Trčková, Milan Paluska, Ing. Martin Jedlička\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-249-29/23\nzodpovídá:\ntermín:\nIHNED\n(28. 8. 2023)\nProjednávání bodu bylo ukončeno v 15:09:14\n3. Aktuální informace vedení města (bod číslo 3)\nPředkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 15:09:31\nDůvodová zpráva:\nstarosta\n- schůzka se zástupci samospráv sídliště Pečky a zástupci\nCetinu\n- bude se pokládat nový optický kabel\n- kontrolní den v KS\n- informace o nedodržení termínu dokončení prací na elektrorozvodech v ZŠ Pečky\n- schůzka s panem Pávem, ohledně práce na jezu\n- schůzka s právníkem a zástupci stavitelů obchodního domu\nBilla - projednání koordinační situace\n- informace o plánované účasti na zahájení školního roku 2023/2024 v jednotlivých školách\nDiskuze zahájena v 15:09:31\nK tomuto bodu se vyjádřili: Milan Paluska, Ing. Martin Jedlička, Ing. Karel Krištoufek, Zdeněk Fejfar, Ivana Trčková\nRada bere materiály předložené k bodu č. 3 -\nAktuální informace vedení města\nna vědomí.\nProjednávání bodu bylo ukončeno v 15:45:26\n4. Přijetí dotace z rozpočtu Středočeského kraje ze Středočeského Fondu podpory dobrovolných hasičů a složek IZS a uzavření VPS (bod číslo 4)\nPředkladatel: Ing. Martin Jedlička\nProjednávání bodu bylo zahájeno v 15:45:31\nDůvodová zpráva:\nDne 12.07.2023 bylo doručeno Oznámení o rozhodnutí Zastupitelstva Středočeského kraje ve věci žádosti o poskytnutí dotace prostřednictvím veřejnoprávní smlouvy z Programu 2023 pro poskytování dotací z rozpočtu Středočeského kraje ze Středočeského Fondu podpory dobrovolných hasičů a složek IZS, evidenční číslo žádosti: HAS/DOP/049370/2023, název Akce/Projektu: Pořízení dopravního automobilu pro JSDH Pečky JPO-II, tematické zadání: Kofinancování účelových investičních akcí/projektů z rozpočtu Středočeského kraje vázaných na program zabezpečovaný MV GŘ HZS ČR Dotace pro jednotky SDH obcí.\nZastupitelstvo Středočeského kraje na svém zasedání dne 26.06.2023 projednalo poskytnutí dotací z výše uvedeného Programu a usnesením č. 0478-26/2023/ZK SCHVÁLILO poskytnutí dotace na základě Vaší žádosti o poskytnutí dotace prostřednictvím veřejnoprávní smlouvy z výše uvedeného Programu, evidenční číslo HAS/DOP/049370/2023, a to ve výši 300 000 Kč.\nPro\npřípravu a následné uzavření veřejnoprávní smlouvy je třeba doložit usnesení Rady města o schválení přijetí dotace z rozpočtu Středočeského kraje a uzavření veřejnoprávní smlouvy o poskytnutí dotace.\nNa pořízení dopravního automobilu pro JSDH Pečky JPO-II schváleno také poskytnutí dotace 450 tis. Kč z Ministerstva vnitra, útvar MV- GŘ HZS ČR, identifikační číslo 014D262003047, identifikační číslo EIS JSDHJSDH-V2V2-20232023-00516, schváleno tedy poskytnutí dotace v celkové výši 750 tis. Kč.\nDiskuze zahájena v 15:45:31\nK tomuto bodu se vyjádřili: Milan Paluska, Ing. Martin Jedlička\nV 15:47:49 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Martin Jedlička\") v tomto znění:\nRada\nměsta schvaluje přijetí dotace z rozpočtu Středočeského kraje ze Středočeského Fondu podpory dobrovolných hasičů a složek IZS a uzavření veřejnoprávní smlouvy o poskytnutí dotace k projektu \"Pořízení dopravního automobilu pro JSDH Pečky JPO-II, evidenční číslo žádosti HAS/DOP/049370/2023.\nHlasování\npro:\n(7) Ing. Petr Dürr, Ing. Karel Krištoufek, Ing. Hana Kuprová, Ing. Martin Jedlička, Milan Paluska, Zdeněk Fejfar, Ivana Trčková\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-250-29/23\nzodpovídá:\nMichala Dekiská\ntermín:\n30. 9. 2023\nProjednávání bodu bylo ukončeno v 15:47:59\n5. Rozpočtové opatření č. 5/2023 (bod číslo 5)\nPředkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 15:48:33\nDůvodová zpráva:\nPředkládáme rozpočtové opaření v kompetenci RM, jedná se zvýšení příjmů a výdajů o průtokové dotace pro příspěvkové organizace.\nDiskuze zahájena v 15:48:33\nK tomuto bodu se vyjádřili: Ing. Karel Krištoufek, Ing. Hana Kuprová, Milan Paluska\nV 15:50:24 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Milan Paluska\") v tomto znění:\nRada\nměsta schvaluje rozpočtová opatření č.5/2023.\nHlasování\npro:\n(7) Ing. Karel Krištoufek, Ing. Hana Kuprová, Ing. Martin Jedlička, Ivana Trčková, Zdeněk Fejfar, Ing. Petr Dürr, Milan Paluska\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-251-29/23\nzodpovídá:\nMarcela Bahníková\ntermín:\n31. 8. 2023\nProjednávání bodu bylo ukončeno v 15:50:34\n6. Souhlas zřizovatele s přijetím daru - Základní škola Pečky (bod číslo 6)\nPředkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 15:50:38\nDůvodová zpráva:\nZŠ žádá zřizovatele o souhlas s přijetím účelově určeného daru na úhradu obědů pro žáky ve školním roce 2023/2024.\nDiskuze zahájena v 15:50:38\nK tomuto bodu se vyjádřili: Milan Paluska\nV 15:51:14 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Milan Paluska\") v tomto znění:\nRada\nměsta schvaluje přijetí finančního daru určeného na úhradu stravného pro celkem 15 žáků ve výši 97 658,-Kč příspěvkovou organizací Základní škola Pečky, okres\nKolín\nod společnosti WOMEN FOR WOMEN, o.p.s., IČ: 24231509.\nŠkola\nuzavře se společností Women for Women 2 darovací smlouvy, 1. část daru ve výši 38 456,-Kč na období od 9-12/2023 a 2. část daru ve výši 59 202,-Kč na období 1-6/2024.\nHlasování\npro:\n(7) Ing. Petr Dürr, Zdeněk Fejfar, Ing. Martin Jedlička, Ing. Karel Krištoufek, Ivana Trčková, Milan Paluska, Ing. Hana Kuprová\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-252-29/23\nzodpovídá:\nMarcela Bahníková\ntermín:\n31. 8. 2023\nProjednávání bodu bylo ukončeno v 15:51:24\n7. Uzavření SOD na zhotovení statiky střech na vybraných budovách pro umístění FVE (bod číslo 8)\nPředkladatel: Věra Růžičková\nProjednávání bodu bylo zahájeno v 15:51:59\nDůvodová zpráva:\nK podání žádostí o dotace v rámci výzvy MODF-RES+Č.4/2022 vyhlášeného Ministerstvem životního prostředí  prostřednictvím SFŽP jsou potřebné prvotní dokumenty, které stanoví na jaké budovy je možné fotovoltaické výrobny umístit.\nJedná se o:\n- posouzení statiky střech\n- studie - již objednáno\n- souhlas ČEZu s připojením-  již objednáno\ntěchto vybraných objektů:\nčp. 993 a 1045  AFK, čp. 1042 DPS, čp. 1140- budova JPO2, čp. 346- zázemí Pečeckých služeb, čp. 78- budova MěÚ, čp. 825 MŠ, čp. 141 Vzdělávací centrum, čp. 292 Zdravotní středisko, čp. 700 ZUŠ\nZahájili jsme jednání s firmou CZECHIA GROUP s.r.o., se kterou jsme již dříve spolupracovali na zateplení ZŠ, MŠ a Kulturního střediska a nadále i spolupracujeme na zajištění udržitelnosti zateplení Kulturního střediska podáváním MZ o udržitelnosti projektu. Ceny za zpracování podkladů pro podání žádostí o dotace jsou v místě a čase obvyklé, proto jsme neprováděli cenový průzkum a doporučujeme uzavření smlouvy na zajištění posouzení statiky střech s touto firmou. Po zpracování těchto podkladů budeme teprve vědět na které objekty budeme moci dotace čerpat. Výzva a návrh SOD přílohou. Termín podání žádostí o dotace byl prodloužen z 30.6. 2023 do 29. 9. 2023.\nDiskuze zahájena v 15:51:59\nK tomuto bodu se vyjádřili: Milan Paluska, Ivana Trčková, Zdeněk Fejfar, Ing. Karel Krištoufek\nV 16:08:10 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Věra Růžičková\") v tomto znění:\nRada\nměsta schvaluje uzavření SOD mezi městem Pečky a CZECHIA GROUP s.r.o., V Jámě 699/1, 110 00\nNové\nMěsto na zpracování posouzení statiky střech na vybraných 10ti budovách pro umístění fotovoltaických  výroben za cenu 200 000,- Kč bez DPH.\nHlasování\npro:\n(6) Ing. Hana Kuprová, Ing. Karel Krištoufek, Ing. Martin Jedlička, Ing. Petr Dürr, Ivana Trčková, Milan Paluska\nproti\n(0)\nzdržel se:\n(1) Zdeněk Fejfar\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-253-29/23\nzodpovídá:\nVěra Růžičková\ntermín:\n11. 9. 2023\nProjednávání bodu bylo ukončeno v 16:08:20\n8. Valná hromada Pečeckých služeb, s.r.o. (bod číslo 7)\nPředkladatel: Adam Brant\nProjednávání bodu bylo zahájeno v 16:09:48\nDůvodová zpráva:\nValná\nhromada Pečeckých služeb, s.r.o.\nDiskuze zahájena v 16:09:48\nK tomuto bodu se vyjádřili: Milan Paluska, Ing. Adam Brant, Ing. Martin Jedlička, Ivana Trčková, Ing. Karel Krištoufek, Zdeněk Fejfar\nRada bere materiály předložené k bodu č. 7 -\nValná hromada Pečeckých služeb, s.r.o.\nna vědomí.\nProjednávání bodu bylo ukončeno v 16:23:01\n9. Prodej nepojízdného os. automobilu (bod číslo 9)\nPředkladatel: Lukáš Hanzelín\nProjednávání bodu bylo zahájeno v 16:24:43\nDůvodová zpráva:\nVe vozidle škoda Roomster došlo na základě špatného vyhodnocení olejových čidel k zadření motoru, tím pádem došlo k nepojízdnosti vozidla. Oprava je vzhledem k nutnosti repasu celého motoru nerentabilní.\nDiskuze zahájena v 16:24:43\nK tomuto bodu se vyjádřili: Milan Paluska, Zdeněk Fejfar, Ing. Karel Krištoufek\nV 16:32:37 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Lukáš Hanzelín\") v tomto znění:\nRada\nměsta schvaluje prodej nepojízdného osobního vozidla\nŠkoda\nROOMSTER SPZ 1SF2246 od příspěvkové organizace Kulturní středisko Pečky, Tř.\nJana\nŠvermy 255, 289 11 Pečky, spol. Jedná se o trvale nepotřebný majetek, který příspěvková organizace přednostně nabídla zřizovateli ( §27 odst. 8 , Zák. 250/2000 Sb.). Autocentrum\nŘíha\n, zastoupený panem Dušanem Říhou, IČ: 4467953, Pečecká 5,\nVelké\nChvalovice, 289 11 Pečky za částku deset tisíc korun českých na základě kupní smlouvy.\nHlasování\npro:\n(7) Ing. Martin Jedlička, Ing. Karel Krištoufek, Ing. Hana Kuprová, Ing. Petr Dürr, Zdeněk Fejfar, Ivana Trčková, Milan Paluska\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-254-29/23\nzodpovídá:\ntermín:\nIHNED\n(28. 8. 2023)\nProjednávání bodu bylo ukončeno v 16:32:55\n10. Kontrola plnění usnesení (bod číslo 10)\nPředkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 16:33:04\nDiskuze zahájena v 16:33:04\nK tomuto bodu se vyjádřili: Milan Paluska, Pavlína Nepovímová\nRada bere materiály předložené k bodu č. 10 -\nKontrola plnění usnesení\nna vědomí.\nProjednávání bodu bylo ukončeno v 16:34:49\nJednání ukončeno 28.08.2023 v 16:38:19"
+ },
+ "resolutions": {
+  "status": "ok",
+  "url": "https://mesto-pecky.usneseni.cz/verejne/78984e80-40e5-11ee-9637-7d69fdb185b7/usneseni/",
+  "fetched_at": "2026-08-04T14:05:05.929748+00:00",
+  "items": [
+   {
+    "number_raw": "UR-249-29/23",
+    "detail_id": 44704,
+    "detail_url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/44704?mod=rada",
+    "agenda_item_raw": "Schválení programu jednání",
+    "text_verbatim": "Rada\nměsta schvaluje návrh programu jednání.",
+    "cell_text_raw": "Bod programu:\nSchválení programu jednání\nText přijatého usnesení:\nRada\nměsta schvaluje návrh programu jednání.",
+    "date_raw": "28. 8. 2023",
+    "date_iso": "2023-08-28",
+    "responsible_raw": "",
+    "deadline_raw": "IHNED (28. 8. 2023)",
+    "vote": {
+     "raw_text": "pro: 7 proti: 0 zdržel se: 0",
+     "pro": {
+      "count": 7,
+      "names": null,
+      "raw": "7"
+     },
+     "proti": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     },
+     "zdrzel_se": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     }
+    },
+    "detail": {
+     "number_raw": "UR-249-29/23",
+     "text_verbatim": "Rada města schvaluje návrh programu jednání.",
+     "typ_raw": null,
+     "zodpovida_raw": "",
+     "prijato_raw": "28. 8. 2023 na jednání č. 29/2023",
+     "prijato_date_iso": "2023-08-28",
+     "prijato_meeting_label": "29/2023",
+     "termin_raw": "IHNED (28. 8. 2023)",
+     "ukonceno_raw": "28. 8. 2023",
+     "ukonceno_date_iso": "2023-08-28",
+     "fields_raw": {
+      "Číslo usnesení": "UR-249-29/23",
+      "Text usnesení": "Rada města schvaluje návrh programu jednání.",
+      "Zodpovídá": "",
+      "Přijato": "28. 8. 2023 na jednání č. 29/2023",
+      "Termín": "IHNED (28. 8. 2023)",
+      "Ukončeno": "28. 8. 2023"
+     }
+    }
+   },
+   {
+    "number_raw": "UR-250-29/23",
+    "detail_id": 44722,
+    "detail_url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/44722?mod=rada",
+    "agenda_item_raw": "Přijetí dotace z rozpočtu Středočeského kraje ze Středočeského Fondu podpory dobrovolných hasičů a složek IZS a uzavření VPS",
+    "text_verbatim": "Rada\nměsta schvaluje přijetí dotace z rozpočtu Středočeského kraje ze Středočeského Fondu podpory dobrovolných hasičů a složek IZS a uzavření veřejnoprávní smlouvy o poskytnutí dotace k projektu \"Pořízení dopravního automobilu pro JSDH Pečky JPO-II, evidenční číslo žádosti HAS/DOP/049370/2023.",
+    "cell_text_raw": "Bod programu:\nPřijetí dotace z rozpočtu Středočeského kraje ze Středočeského Fondu podpory dobrovolných hasičů a složek IZS a uzavření VPS\nText přijatého usnesení:\nRada\nměsta schvaluje přijetí dotace z rozpočtu Středočeského kraje ze Středočeského Fondu podpory dobrovolných hasičů a složek IZS a uzavření veřejnoprávní smlouvy o poskytnutí dotace k projektu \"Pořízení dopravního automobilu pro JSDH Pečky JPO-II, evidenční číslo žádosti HAS/DOP/049370/2023.",
+    "date_raw": "28. 8. 2023",
+    "date_iso": "2023-08-28",
+    "responsible_raw": "Michala Dekiská",
+    "deadline_raw": "30. 9. 2023",
+    "vote": {
+     "raw_text": "pro: 7 proti: 0 zdržel se: 0",
+     "pro": {
+      "count": 7,
+      "names": null,
+      "raw": "7"
+     },
+     "proti": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     },
+     "zdrzel_se": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     }
+    },
+    "detail": {
+     "number_raw": "UR-250-29/23",
+     "text_verbatim": "Rada města schvaluje přijetí dotace z rozpočtu Středočeského kraje ze Středočeského Fondu podpory dobrovolných hasičů a složek IZS a uzavření veřejnoprávní smlouvy o poskytnutí dotace k projektu \"Pořízení dopravního automobilu pro JSDH Pečky JPO-II, evidenční číslo žádosti HAS/DOP/049370/2023.",
+     "typ_raw": null,
+     "zodpovida_raw": "Michala Dekiská",
+     "prijato_raw": "28. 8. 2023 na jednání č. 29/2023",
+     "prijato_date_iso": "2023-08-28",
+     "prijato_meeting_label": "29/2023",
+     "termin_raw": "30. 9. 2023",
+     "ukonceno_raw": "5. 9. 2023",
+     "ukonceno_date_iso": "2023-09-05",
+     "fields_raw": {
+      "Číslo usnesení": "UR-250-29/23",
+      "Text usnesení": "Rada města schvaluje přijetí dotace z rozpočtu Středočeského kraje ze Středočeského Fondu podpory dobrovolných hasičů a složek IZS a uzavření veřejnoprávní smlouvy o poskytnutí dotace k projektu \"Pořízení dopravního automobilu pro JSDH Pečky JPO-II, evidenční číslo žádosti HAS/DOP/049370/2023.",
+      "Zodpovídá": "Michala Dekiská",
+      "Přijato": "28. 8. 2023 na jednání č. 29/2023",
+      "Termín": "30. 9. 2023",
+      "Ukončeno": "5. 9. 2023"
+     }
+    }
+   },
+   {
+    "number_raw": "UR-251-29/23",
+    "detail_id": 44871,
+    "detail_url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/44871?mod=rada",
+    "agenda_item_raw": "Rozpočtové opatření č. 5/2023",
+    "text_verbatim": "Rada\nměsta schvaluje rozpočtová opatření č.5/2023.",
+    "cell_text_raw": "Bod programu:\nRozpočtové opatření č. 5/2023\nText přijatého usnesení:\nRada\nměsta schvaluje rozpočtová opatření č.5/2023.",
+    "date_raw": "28. 8. 2023",
+    "date_iso": "2023-08-28",
+    "responsible_raw": "Marcela Bahníková",
+    "deadline_raw": "31. 8. 2023",
+    "vote": {
+     "raw_text": "pro: 7 proti: 0 zdržel se: 0",
+     "pro": {
+      "count": 7,
+      "names": null,
+      "raw": "7"
+     },
+     "proti": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     },
+     "zdrzel_se": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     }
+    },
+    "detail": {
+     "number_raw": "UR-251-29/23",
+     "text_verbatim": "Rada města schvaluje rozpočtová opatření č.5/2023.",
+     "typ_raw": null,
+     "zodpovida_raw": "Marcela Bahníková",
+     "prijato_raw": "28. 8. 2023 na jednání č. 29/2023",
+     "prijato_date_iso": "2023-08-28",
+     "prijato_meeting_label": "29/2023",
+     "termin_raw": "31. 8. 2023",
+     "ukonceno_raw": "4. 9. 2023",
+     "ukonceno_date_iso": "2023-09-04",
+     "fields_raw": {
+      "Číslo usnesení": "UR-251-29/23",
+      "Text usnesení": "Rada města schvaluje rozpočtová opatření č.5/2023.",
+      "Zodpovídá": "Marcela Bahníková",
+      "Přijato": "28. 8. 2023 na jednání č. 29/2023",
+      "Termín": "31. 8. 2023",
+      "Ukončeno": "4. 9. 2023"
+     }
+    }
+   },
+   {
+    "number_raw": "UR-252-29/23",
+    "detail_id": 44870,
+    "detail_url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/44870?mod=rada",
+    "agenda_item_raw": "Souhlas zřizovatele s přijetím daru - Základní škola Pečky",
+    "text_verbatim": "Rada\nměsta schvaluje přijetí finančního daru určeného na úhradu stravného pro celkem 15 žáků ve výši 97 658,-Kč příspěvkovou organizací Základní škola Pečky, okres\nKolín\nod společnosti WOMEN FOR WOMEN, o.p.s., IČ: 24231509.\nŠkola\nuzavře se společností Women for Women 2 darovací smlouvy, 1. část daru ve výši 38 456,-Kč na období od 9-12/2023 a 2. část daru ve výši 59 202,-Kč na období 1-6/2024.",
+    "cell_text_raw": "Bod programu:\nSouhlas zřizovatele s přijetím daru - Základní škola Pečky\nText přijatého usnesení:\nRada\nměsta schvaluje přijetí finančního daru určeného na úhradu stravného pro celkem 15 žáků ve výši 97 658,-Kč příspěvkovou organizací Základní škola Pečky, okres\nKolín\nod společnosti WOMEN FOR WOMEN, o.p.s., IČ: 24231509.\nŠkola\nuzavře se společností Women for Women 2 darovací smlouvy, 1. část daru ve výši 38 456,-Kč na období od 9-12/2023 a 2. část daru ve výši 59 202,-Kč na období 1-6/2024.",
+    "date_raw": "28. 8. 2023",
+    "date_iso": "2023-08-28",
+    "responsible_raw": "Marcela Bahníková",
+    "deadline_raw": "31. 8. 2023",
+    "vote": {
+     "raw_text": "pro: 7 proti: 0 zdržel se: 0",
+     "pro": {
+      "count": 7,
+      "names": null,
+      "raw": "7"
+     },
+     "proti": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     },
+     "zdrzel_se": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     }
+    },
+    "detail": {
+     "number_raw": "UR-252-29/23",
+     "text_verbatim": "Rada města schvaluje přijetí finančního daru určeného na úhradu stravného pro celkem 15 žáků ve výši 97 658,-Kč příspěvkovou organizací Základní škola Pečky, okres Kolín od společnosti WOMEN FOR WOMEN, o.p.s., IČ: 24231509. Škola uzavře se společností Women for Women 2 darovací smlouvy, 1. část daru ve výši 38 456,-Kč na období od 9-12/2023 a 2. část daru ve výši 59 202,-Kč na období 1-6/2024.",
+     "typ_raw": null,
+     "zodpovida_raw": "Marcela Bahníková",
+     "prijato_raw": "28. 8. 2023 na jednání č. 29/2023",
+     "prijato_date_iso": "2023-08-28",
+     "prijato_meeting_label": "29/2023",
+     "termin_raw": "31. 8. 2023",
+     "ukonceno_raw": "4. 9. 2023",
+     "ukonceno_date_iso": "2023-09-04",
+     "fields_raw": {
+      "Číslo usnesení": "UR-252-29/23",
+      "Text usnesení": "Rada města schvaluje přijetí finančního daru určeného na úhradu stravného pro celkem 15 žáků ve výši 97 658,-Kč příspěvkovou organizací Základní škola Pečky, okres Kolín od společnosti WOMEN FOR WOMEN, o.p.s., IČ: 24231509. Škola uzavře se společností Women for Women 2 darovací smlouvy, 1. část daru ve výši 38 456,-Kč na období od 9-12/2023 a 2. část daru ve výši 59 202,-Kč na období 1-6/2024.",
+      "Zodpovídá": "Marcela Bahníková",
+      "Přijato": "28. 8. 2023 na jednání č. 29/2023",
+      "Termín": "31. 8. 2023",
+      "Ukončeno": "4. 9. 2023"
+     }
+    }
+   },
+   {
+    "number_raw": "UR-253-29/23",
+    "detail_id": 44912,
+    "detail_url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/44912?mod=rada",
+    "agenda_item_raw": "Uzavření SOD na zhotovení statiky střech na vybraných budovách pro umístění FVE",
+    "text_verbatim": "Rada\nměsta schvaluje uzavření SOD mezi městem Pečky a CZECHIA GROUP s.r.o., V Jámě 699/1, 110 00\nNové\nMěsto na zpracování posouzení statiky střech na vybraných 10ti budovách pro umístění fotovoltaických  výroben za cenu 200 000,- Kč bez DPH.",
+    "cell_text_raw": "Bod programu:\nUzavření SOD na zhotovení statiky střech na vybraných budovách pro umístění FVE\nText přijatého usnesení:\nRada\nměsta schvaluje uzavření SOD mezi městem Pečky a CZECHIA GROUP s.r.o., V Jámě 699/1, 110 00\nNové\nMěsto na zpracování posouzení statiky střech na vybraných 10ti budovách pro umístění fotovoltaických  výroben za cenu 200 000,- Kč bez DPH.",
+    "date_raw": "28. 8. 2023",
+    "date_iso": "2023-08-28",
+    "responsible_raw": "Věra Růžičková",
+    "deadline_raw": "11. 9. 2023",
+    "vote": {
+     "raw_text": "pro: 6 proti: 0 zdržel se: 1",
+     "pro": {
+      "count": 6,
+      "names": null,
+      "raw": "6"
+     },
+     "proti": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     },
+     "zdrzel_se": {
+      "count": 1,
+      "names": null,
+      "raw": "1"
+     }
+    },
+    "detail": {
+     "number_raw": "UR-253-29/23",
+     "text_verbatim": "Rada města schvaluje uzavření SOD mezi městem Pečky a CZECHIA GROUP s.r.o., V Jámě 699/1, 110 00 Nové Město na zpracování posouzení statiky střech na vybraných 10ti budovách pro umístění fotovoltaických  výroben za cenu 200 000,- Kč bez DPH.",
+     "typ_raw": null,
+     "zodpovida_raw": "Věra Růžičková",
+     "prijato_raw": "28. 8. 2023 na jednání č. 29/2023",
+     "prijato_date_iso": "2023-08-28",
+     "prijato_meeting_label": "29/2023",
+     "termin_raw": "11. 9. 2023",
+     "ukonceno_raw": "4. 9. 2023",
+     "ukonceno_date_iso": "2023-09-04",
+     "fields_raw": {
+      "Číslo usnesení": "UR-253-29/23",
+      "Text usnesení": "Rada města schvaluje uzavření SOD mezi městem Pečky a CZECHIA GROUP s.r.o., V Jámě 699/1, 110 00 Nové Město na zpracování posouzení statiky střech na vybraných 10ti budovách pro umístění fotovoltaických  výroben za cenu 200 000,- Kč bez DPH.",
+      "Zodpovídá": "Věra Růžičková",
+      "Přijato": "28. 8. 2023 na jednání č. 29/2023",
+      "Termín": "11. 9. 2023",
+      "Ukončeno": "4. 9. 2023"
+     }
+    }
+   },
+   {
+    "number_raw": "UR-254-29/23",
+    "detail_id": 44901,
+    "detail_url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/44901?mod=rada",
+    "agenda_item_raw": "Prodej nepojízdného os. automobilu",
+    "text_verbatim": "Rada\nměsta schvaluje prodej nepojízdného osobního vozidla\nŠkoda\nROOMSTER SPZ 1SF2246 od příspěvkové organizace Kulturní středisko Pečky, Tř.\nJana\nŠvermy 255, 289 11 Pečky, spol. Jedná se o trvale nepotřebný majetek, který příspěvková organizace přednostně nabídla zřizovateli ( §27 odst. 8 , Zák. 250/2000 Sb.). Autocentrum\nŘíha\n, zastoupený panem Dušanem Říhou, IČ: 4467953, Pečecká 5,\nVelké\nChvalovice, 289 11 Pečky za částku deset tisíc korun českých na základě kupní smlouvy.",
+    "cell_text_raw": "Bod programu:\nProdej nepojízdného os. automobilu\nText přijatého usnesení:\nRada\nměsta schvaluje prodej nepojízdného osobního vozidla\nŠkoda\nROOMSTER SPZ 1SF2246 od příspěvkové organizace Kulturní středisko Pečky, Tř.\nJana\nŠvermy 255, 289 11 Pečky, spol. Jedná se o trvale nepotřebný majetek, který příspěvková organizace přednostně nabídla zřizovateli ( §27 odst. 8 , Zák. 250/2000 Sb.). Autocentrum\nŘíha\n, zastoupený panem Dušanem Říhou, IČ: 4467953, Pečecká 5,\nVelké\nChvalovice, 289 11 Pečky za částku deset tisíc korun českých na základě kupní smlouvy.",
+    "date_raw": "28. 8. 2023",
+    "date_iso": "2023-08-28",
+    "responsible_raw": "",
+    "deadline_raw": "IHNED (28. 8. 2023)",
+    "vote": {
+     "raw_text": "pro: 7 proti: 0 zdržel se: 0",
+     "pro": {
+      "count": 7,
+      "names": null,
+      "raw": "7"
+     },
+     "proti": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     },
+     "zdrzel_se": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     }
+    },
+    "detail": {
+     "number_raw": "UR-254-29/23",
+     "text_verbatim": "Rada města schvaluje prodej nepojízdného osobního vozidla Škoda ROOMSTER SPZ 1SF2246 od příspěvkové organizace Kulturní středisko Pečky, Tř. Jana Švermy 255, 289 11 Pečky, spol. Jedná se o trvale nepotřebný majetek, který příspěvková organizace přednostně nabídla zřizovateli ( §27 odst. 8 , Zák. 250/2000 Sb.). Autocentrum Říha , zastoupený panem Dušanem Říhou, IČ: 4467953, Pečecká 5, Velké Chvalovice, 289 11 Pečky za částku deset tisíc korun českých na základě kupní smlouvy.",
+     "typ_raw": null,
+     "zodpovida_raw": "",
+     "prijato_raw": "28. 8. 2023 na jednání č. 29/2023",
+     "prijato_date_iso": "2023-08-28",
+     "prijato_meeting_label": "29/2023",
+     "termin_raw": "IHNED (28. 8. 2023)",
+     "ukonceno_raw": "28. 8. 2023",
+     "ukonceno_date_iso": "2023-08-28",
+     "fields_raw": {
+      "Číslo usnesení": "UR-254-29/23",
+      "Text usnesení": "Rada města schvaluje prodej nepojízdného osobního vozidla Škoda ROOMSTER SPZ 1SF2246 od příspěvkové organizace Kulturní středisko Pečky, Tř. Jana Švermy 255, 289 11 Pečky, spol. Jedná se o trvale nepotřebný majetek, který příspěvková organizace přednostně nabídla zřizovateli ( §27 odst. 8 , Zák. 250/2000 Sb.). Autocentrum Říha , zastoupený panem Dušanem Říhou, IČ: 4467953, Pečecká 5, Velké Chvalovice, 289 11 Pečky za částku deset tisíc korun českých na základě kupní smlouvy.",
+      "Zodpovídá": "",
+      "Přijato": "28. 8. 2023 na jednání č. 29/2023",
+      "Termín": "IHNED (28. 8. 2023)",
+      "Ukončeno": "28. 8. 2023"
+     }
+    }
+   }
+  ]
+ }
+}

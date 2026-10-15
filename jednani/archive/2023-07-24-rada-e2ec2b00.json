@@ -1,0 +1,501 @@
+{
+ "uuid": "e2ec2b00-254a-11ee-8534-a696327373ec",
+ "body_type_raw": "Rada",
+ "label_raw": "24/2023 (24. 7. 2023)",
+ "number": 24,
+ "year": 2023,
+ "date_iso": "2023-07-24",
+ "links": {
+  "invitation": "https://mesto-pecky.usneseni.cz/verejne/?uuid=e2ec2b00-254a-11ee-8534-a696327373ec&page=11&do=printPublicInvitation",
+  "minutes": "https://mesto-pecky.usneseni.cz/verejne/e2ec2b00-254a-11ee-8534-a696327373ec/zapis/?page=11",
+  "signed_minutes_pdf": "https://mesto-pecky.usneseni.cz/verejne/?meetingReportControl-uuid=e2ec2b00-254a-11ee-8534-a696327373ec&page=11&do=meetingReportControl-getSignedReportPdf",
+  "resolutions": "https://mesto-pecky.usneseni.cz/verejne/e2ec2b00-254a-11ee-8534-a696327373ec/usneseni/?page=11",
+  "audio": null
+ },
+ "link_texts": {
+  "invitation": "Pozvánka",
+  "minutes": "zápis",
+  "signed_minutes_pdf": "podepsaný zápis",
+  "resolutions": "přijatá usnesení"
+ },
+ "status": "ok",
+ "invitation": {
+  "status": "site_error",
+  "error": "status=200 ct=text/html; charset=utf-8 flash='<a href=\"\" class=\"close\" data-dismiss=\"alert\" aria-label=\"close\">&times;'",
+  "url": "https://mesto-pecky.usneseni.cz/verejne/?uuid=e2ec2b00-254a-11ee-8534-a696327373ec&do=printPublicInvitation",
+  "fetched_at": "2026-08-04T15:05:20.729749+00:00"
+ },
+ "minutes": {
+  "status": "ok",
+  "url": "https://mesto-pecky.usneseni.cz/verejne/e2ec2b00-254a-11ee-8534-a696327373ec/zapis/",
+  "fetched_at": "2026-08-04T14:07:02.635270+00:00",
+  "title_raw": "ZÁPIS ze schůze rady č. 24/2023 Město Pečky datum: 24. 7. 2023, čas: 15:00 ​",
+  "date_raw": "24. 7. 2023",
+  "date_iso": "2023-07-24",
+  "time_raw": "15:00",
+  "presence": {
+   "raw_text": "Prezence:\nPřítomni:\n(7) Zdeněk Fejfar, Milan Paluska, Ing. Martin Jedlička, Ing. Petr Dürr, Ivana Trčková, Ing. Hana Kuprová, Ing. Karel Krištoufek\nOmluveni:\n(0)\nNepřítomni:\n(0)\nHosté:\nIng. Adam Brant\nZapisovatel/ka:\nEva Strnadová\nPřítomno je 7 členů a rada je usnášeníschopná.\nJednání zahájeno 24.07.2023 v 15:06:40",
+   "pritomni": {
+    "count": 7,
+    "names": [
+     "Zdeněk Fejfar",
+     "Milan Paluska",
+     "Ing. Martin Jedlička",
+     "Ing. Petr Dürr",
+     "Ivana Trčková",
+     "Ing. Hana Kuprová",
+     "Ing. Karel Krištoufek"
+    ],
+    "raw": "(7) Zdeněk Fejfar, Milan Paluska, Ing. Martin Jedlička, Ing. Petr Dürr, Ivana Trčková, Ing. Hana Kuprová, Ing. Karel Krištoufek"
+   },
+   "omluveni": {
+    "count": 0,
+    "names": [],
+    "raw": "(0)"
+   },
+   "nepritomni": {
+    "count": 0,
+    "names": [],
+    "raw": "(0)"
+   },
+   "predsedajici": null,
+   "quorum_raw": "Přítomno je 7 členů a rada je usnášeníschopná."
+  },
+  "header_raw": "Prezence:\nPřítomni:\n(7) Zdeněk Fejfar, Milan Paluska, Ing. Martin Jedlička, Ing. Petr Dürr, Ivana Trčková, Ing. Hana Kuprová, Ing. Karel Krištoufek\nOmluveni:\n(0)\nNepřítomni:\n(0)\nHosté:\nIng. Adam Brant\nZapisovatel/ka:\nEva Strnadová\nPřítomno je 7 členů a rada je usnášeníschopná.\nJednání zahájeno 24.07.2023 v 15:06:40",
+  "agenda_items": [
+   {
+    "number": 1,
+    "title_raw": "Určení zapisovatelů, předsedajícího, příp. ověřovatelů",
+    "heading_raw": "1. Určení zapisovatelů, předsedajícího, příp. ověřovatelů (bod číslo 1)",
+    "predkladatel": "Milan Paluska",
+    "votes": [],
+    "resolution_numbers_mentioned": [],
+    "raw_text": "Předkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 15:06:45\nPředsedající navrhl jednotlivé členy pracovních komisí\nOvěřovatelé:\nIng. Hana Kuprová, Ing. Martin Jedlička\nPředsedající:\nMilan Paluska\nBod byl přijat bez hlasování.\nDiskuze zahájena v 15:06:45\nK tomuto bodu se vyjádřili: Milan Paluska\nProjednávání bodu bylo ukončeno v 15:07:27"
+   },
+   {
+    "number": 2,
+    "title_raw": "Schválení programu jednání",
+    "heading_raw": "2. Schválení programu jednání (bod číslo 2)",
+    "predkladatel": "Milan Paluska",
+    "votes": [
+     {
+      "raw_text": "pro:\n(7) Ing. Petr Dürr, Ing. Hana Kuprová, Zdeněk Fejfar, Ing. Martin Jedlička, Ing. Karel Krištoufek, Ivana Trčková, Milan Paluska\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)",
+      "pro": {
+       "count": 7,
+       "names": [
+        "Ing. Petr Dürr",
+        "Ing. Hana Kuprová",
+        "Zdeněk Fejfar",
+        "Ing. Martin Jedlička",
+        "Ing. Karel Krištoufek",
+        "Ivana Trčková",
+        "Milan Paluska"
+       ],
+       "raw": "(7) Ing. Petr Dürr, Ing. Hana Kuprová, Zdeněk Fejfar, Ing. Martin Jedlička, Ing. Karel Krištoufek, Ivana Trčková, Milan Paluska"
+      },
+      "proti": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "zdrzel_se": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "nehlasoval": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "result_raw": "Návrh byl přijat jako usnesení číslo: UR-217-24/23",
+      "adopted_resolution_number": "UR-217-24/23"
+     }
+    ],
+    "resolution_numbers_mentioned": [
+     "UR-217-24/23"
+    ],
+    "raw_text": "Předkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 15:07:32\nProgram jednání\n1. Určení zapisovatelů, předsedajícího, příp. ověřovatelů\n2. Schválení programu jednání\n3. Aktuální informace vedení města\n4. Vyhlášení výběrového řízení na stavební práce akce \"Změna zdroje tepla v bytovém domě č.p. 218 Tř, 5. května, 289 11 Pečky\"\n5. Vyjádření města Pečky k námitkám k podání návrhu na zavedení obousměrného provozu v ul. V Kaštánkách a Nymburská v Pečkách\n6. Valná hromada Pečeckých služeb, s.r.o.\n7. Žádost T.J. Sokol Velké Chvalovice\n8. Kontrola plnění usnesení\nDiskuze zahájena v 15:07:32\nK tomuto bodu se vyjádřili: Milan Paluska\nV 15:08:43 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Milan Paluska\") v tomto znění:\nRada města\nschvaluje návrh programu jednání.\ns těmito změnami:\n- doplňuje se bod č. 9 - Uzavření Rezervační smlouvy s M&M Reality,\nPraha\n(pozemky na LV 2656)\nHlasování\npro:\n(7) Ing. Petr Dürr, Ing. Hana Kuprová, Zdeněk Fejfar, Ing. Martin Jedlička, Ing. Karel Krištoufek, Ivana Trčková, Milan Paluska\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-217-24/23\nzodpovídá:\ntermín:\nIHNED\n(24. 7. 2023)\nProjednávání bodu bylo ukončeno v 15:08:51"
+   },
+   {
+    "number": 3,
+    "title_raw": "Aktuální informace vedení města",
+    "heading_raw": "3. Aktuální informace vedení města (bod číslo 3)",
+    "predkladatel": "Milan Paluska",
+    "votes": [],
+    "resolution_numbers_mentioned": [],
+    "raw_text": "Předkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 15:08:55\nDůvodová zpráva\nstarosta města\n- informace o průběhu stavebních akcí - KS /osazení vzduchotechnických jednotek/, objednávka na vstupní dveře\n- informace o opravě štítů na domech v majetku města čp. 46 a čp. 139\n- informace o výměně topení v Domě služeb čp. 184\n- informace o opravě podlahy v hasičské zbrojnici\n- informace o průběhu projekčních prací opravy plotu u MŠ Mašinka Pečky\n- informace o stavu vodojemu v Pečkách\n- informace o kontrolním dni na úpravně vody, bude provedena těsnící zkouška, na podzim montáž technologických zařízení\nZdeněk\nFejfar\n- informace o kontrolním dni - výstavba 19 ŘD ve Velkých Chvalovicích\n- informace o kontrolním dni v ZŠ Pečky - rekonstrukce elektroinstalace a obnova, doplnění datové sítě v budově Základní školy Pečky, Tř.\nJana\nŠvermy 342\nIng.\nMartin\nJedlička\n- informace o setkání Pracovní skupiny 100 let povýšení\nPeček\nna město\nDiskuze zahájena v 15:08:55\nK tomuto bodu se vyjádřili: Milan Paluska, Zdeněk Fejfar, Ing. Karel Krištoufek, Ing. Martin Jedlička, Ivana Trčková, Ing. Hana Kuprová\nRada bere materiály předložené k bodu č. 3 -\nAktuální informace vedení města\nna vědomí.\nProjednávání bodu bylo ukončeno v 15:52:37"
+   },
+   {
+    "number": 4,
+    "title_raw": "Vyhlášení výběrového řízení na stavební práce akce \"Změna zdroje tepla v bytovém domě č.p. 218 Tř, 5. května, 289 11 Pečky\"",
+    "heading_raw": "4. Vyhlášení výběrového řízení na stavební práce akce \"Změna zdroje tepla v bytovém domě č.p. 218 Tř, 5. května, 289 11 Pečky\" (bod číslo 4)",
+    "predkladatel": "Petra Kutová",
+    "votes": [
+     {
+      "raw_text": "pro:\n(7) Ing. Martin Jedlička, Ing. Petr Dürr, Ing. Karel Krištoufek, Milan Paluska, Ivana Trčková, Ing. Hana Kuprová, Zdeněk Fejfar\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)",
+      "pro": {
+       "count": 7,
+       "names": [
+        "Ing. Martin Jedlička",
+        "Ing. Petr Dürr",
+        "Ing. Karel Krištoufek",
+        "Milan Paluska",
+        "Ivana Trčková",
+        "Ing. Hana Kuprová",
+        "Zdeněk Fejfar"
+       ],
+       "raw": "(7) Ing. Martin Jedlička, Ing. Petr Dürr, Ing. Karel Krištoufek, Milan Paluska, Ivana Trčková, Ing. Hana Kuprová, Zdeněk Fejfar"
+      },
+      "proti": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "zdrzel_se": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "nehlasoval": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "result_raw": "Návrh byl přijat jako usnesení číslo: UR-218-24/23",
+      "adopted_resolution_number": "UR-218-24/23"
+     }
+    ],
+    "resolution_numbers_mentioned": [
+     "UR-218-24/23"
+    ],
+    "raw_text": "Předkladatel: Petra Kutová\nProjednávání bodu bylo zahájeno v 15:52:41\nDůvodová zpráva\nZ důvodu nutné rekonstrukce zastaralé strojovny z roku 1996 (nefunkční řídící jednotka, systém nelze regulovat), žádáme o schválení uveřejnění vyhlášení výběrového řízení na stavební práce akce \"Změna zdroje tepla v bytovém domě č. p. 218 Tř. 5. května, 289 11 Pečky\".\nDiskuze zahájena v 15:52:41\nK tomuto bodu se vyjádřili: Milan Paluska, Ing. Karel Krištoufek, Ivana Trčková\nV 15:55:26 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Petra Kutová\") v tomto znění:\nRada\nměsta schvaluje vyhlášení výběrového řízení na stavební práce akce \"Změna zdroje tepla v bytovém domě č. p. 218 Tř. 5. května, 289 11 Pečky\", zadávaného mimo režim zákona č. 134/2016 Sb., o zadávání veřejných zakázek, ve znění pozdějších předpisů, a ustanovení komise ve složení:\nčlenové:\nZdeněk\nFejfar\n- místostarosta, Ing. Věra\nRůžičková\n- vedoucí odboru správy majetku města a BH, Ing.\nJana\nZindrová\n- oddělení dopravy kanceláře tajemníka MěÚ Pečky\nnáhradníci:\nMilan\nPaluska\n- starosta,\nPetra\nKutová\n- investiční technik,\nMartina\nHrázská\n- referentka odboru majetku města a BH\nHlasování\npro:\n(7) Ing. Martin Jedlička, Ing. Petr Dürr, Ing. Karel Krištoufek, Milan Paluska, Ivana Trčková, Ing. Hana Kuprová, Zdeněk Fejfar\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-218-24/23\nzodpovídá:\nPetra Kutová\ntermín:\n24. 9. 2023\nProjednávání bodu bylo ukončeno v 15:55:34"
+   },
+   {
+    "number": 5,
+    "title_raw": "Vyjádření města Pečky k námitkám k podání návrhu na zavedení obousměrného provozu v ul. V Kaštánkách a Nymburská v Pečkách",
+    "heading_raw": "5. Vyjádření města Pečky k námitkám k podání návrhu na zavedení obousměrného provozu v ul. V Kaštánkách a Nymburská v Pečkách (bod číslo 5)",
+    "predkladatel": "Jana Zindrová",
+    "votes": [
+     {
+      "raw_text": "pro:\n(7) Zdeněk Fejfar, Milan Paluska, Ivana Trčková, Ing. Martin Jedlička, Ing. Karel Krištoufek, Ing. Petr Dürr, Ing. Hana Kuprová\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)",
+      "pro": {
+       "count": 7,
+       "names": [
+        "Zdeněk Fejfar",
+        "Milan Paluska",
+        "Ivana Trčková",
+        "Ing. Martin Jedlička",
+        "Ing. Karel Krištoufek",
+        "Ing. Petr Dürr",
+        "Ing. Hana Kuprová"
+       ],
+       "raw": "(7) Zdeněk Fejfar, Milan Paluska, Ivana Trčková, Ing. Martin Jedlička, Ing. Karel Krištoufek, Ing. Petr Dürr, Ing. Hana Kuprová"
+      },
+      "proti": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "zdrzel_se": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "nehlasoval": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "result_raw": "Návrh byl přijat jako usnesení číslo: UR-219-24/23",
+      "adopted_resolution_number": "UR-219-24/23"
+     }
+    ],
+    "resolution_numbers_mentioned": [
+     "UR-219-24/23"
+    ],
+    "raw_text": "Předkladatel: Jana Zindrová\nProjednávání bodu bylo zahájeno v 15:55:41\nDůvodová zpráva\nK oznámení o návrhu místní úpravy provozu na místní komunikaci ze dne 19.5.2023, čj.: MUKOLIN/OD 50120/23-vol (zavadení obousměrného provozu v ul. V Kaštánkách a\nNymburská\nv Pečkách) byly ze stran účastníků řízení vzneseny námitky. Město Pečky se do řízení k těmto námitkám vyjadřuje.\nDiskuze zahájena v 15:55:41\nK tomuto bodu se vyjádřili: Milan Paluska, Ing. Karel Krištoufek, Zdeněk Fejfar, Ing. Hana Kuprová, Ivana Trčková\nV 16:01:51 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Jana Zindrová\") v tomto znění:\nRada\nměsta schvaluje znění textu vyjádření města Pečky k námitkám účastníků řízení ve věci návrhu místní úpravy provozu na pozemní komunikaci ze dne 19.5.2023 vydaného MěÚ\nKolín\n, odborem dopravy, čj.: MUKOLIN/OD 50120/23-vol (Zavedení obousměrného provozu v ulicích V Kaštánkách a\nNymburská\nv Pečkách).\nHlasování\npro:\n(7) Zdeněk Fejfar, Milan Paluska, Ivana Trčková, Ing. Martin Jedlička, Ing. Karel Krištoufek, Ing. Petr Dürr, Ing. Hana Kuprová\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-219-24/23\nzodpovídá:\nJana Zindrová\ntermín:\n7. 8. 2023\nProjednávání bodu bylo ukončeno v 16:02:01"
+   },
+   {
+    "number": 6,
+    "title_raw": "Valná hromada Pečeckých služeb, s.r.o.",
+    "heading_raw": "6. Valná hromada Pečeckých služeb, s.r.o. (bod číslo 6)",
+    "predkladatel": "Adam Brant",
+    "votes": [],
+    "resolution_numbers_mentioned": [],
+    "raw_text": "Předkladatel: Adam Brant\nProjednávání bodu bylo zahájeno v 16:02:59\nDůvodová zpráva\nValná\nhromada Pečeckých služeb, s.r.o.\nDiskuze zahájena v 16:02:59\nK tomuto bodu se vyjádřili: Ing. Adam Brant, Ivana Trčková\nRada bere materiály předložené k bodu č. 6 -\nValná hromada Pečeckých služeb, s.r.o.\nna vědomí.\nProjednávání bodu bylo ukončeno v 16:27:57"
+   },
+   {
+    "number": 7,
+    "title_raw": "Žádost T.J. Sokol Velké Chvalovice",
+    "heading_raw": "7. Žádost T.J. Sokol Velké Chvalovice (bod číslo 7)",
+    "predkladatel": "Pavlína Nepovímová",
+    "votes": [],
+    "resolution_numbers_mentioned": [],
+    "raw_text": "Předkladatel: Pavlína Nepovímová\nProjednávání bodu bylo zahájeno v 16:28:11\nDůvodová zpráva\nT.J.\nSokol\nVelké\nChvalovice žádá město o financování nákupu nové traktorové sekačky, vertikutátor, žací ústrojí a další přídavné zařízení, předpokládaná cena  213 066 tis. Kč. Podpora města může být  formou dotace, finančního daru nebo přímého nákupu a následně pronájem, zápůjčka nebo bezúplatný převod (dar). Schválení je vždy v kompetenci ZM.\nRada\nměsta bere na vědomí žádost o nákup traktorové sekačky, včetně příslušenství na mulčování a vertikulaci k údržbě sportovního areálu\nVelké\nChvalovice. Dotační výzvy na tento druh nákupu budou vyhlášené až na konci roku 2023. V případě, že nebude vypsána dotační výzva, bude nákup zařazen do návrhu rozpočtu roku 2024.\nDiskuze zahájena v 16:28:11\nK tomuto bodu se vyjádřili: Milan Paluska, Zdeněk Fejfar, Ivana Trčková, Ing. Hana Kuprová, Ing. Karel Krištoufek\nRada bere materiály předložené k bodu č. 7 -\nŽádost T.J. Sokol Velké Chvalovice\nna vědomí.\nProjednávání bodu bylo ukončeno v 16:43:17"
+   },
+   {
+    "number": 8,
+    "title_raw": "Kontrola plnění usnesení",
+    "heading_raw": "8. Kontrola plnění usnesení (bod číslo 8)",
+    "predkladatel": "Milan Paluska",
+    "votes": [],
+    "resolution_numbers_mentioned": [],
+    "raw_text": "Předkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 16:43:20\nDiskuze zahájena v 16:43:20\nK tomuto bodu se vyjádřili: Milan Paluska\nRada bere materiály předložené k bodu č. 8 -\nKontrola plnění usnesení\nna vědomí.\nProjednávání bodu bylo ukončeno v 16:43:34"
+   },
+   {
+    "number": 9,
+    "title_raw": "Uzavření Rezervační smlouvy s M&M Reality, Praha (pozemky na LV 2656)",
+    "heading_raw": "9. Uzavření Rezervační smlouvy s M&M Reality, Praha (pozemky na LV 2656) (bod číslo 9)",
+    "predkladatel": "Jana Najbrtová",
+    "votes": [
+     {
+      "raw_text": "pro:\n(7) Ing. Hana Kuprová, Milan Paluska, Zdeněk Fejfar, Ing. Karel Krištoufek, Ivana Trčková, Ing. Petr Dürr, Ing. Martin Jedlička\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)",
+      "pro": {
+       "count": 7,
+       "names": [
+        "Ing. Hana Kuprová",
+        "Milan Paluska",
+        "Zdeněk Fejfar",
+        "Ing. Karel Krištoufek",
+        "Ivana Trčková",
+        "Ing. Petr Dürr",
+        "Ing. Martin Jedlička"
+       ],
+       "raw": "(7) Ing. Hana Kuprová, Milan Paluska, Zdeněk Fejfar, Ing. Karel Krištoufek, Ivana Trčková, Ing. Petr Dürr, Ing. Martin Jedlička"
+      },
+      "proti": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "zdrzel_se": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "nehlasoval": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "result_raw": "Návrh byl přijat jako usnesení číslo: UR-220-24/23",
+      "adopted_resolution_number": "UR-220-24/23"
+     }
+    ],
+    "resolution_numbers_mentioned": [
+     "UR-220-24/23"
+    ],
+    "raw_text": "Předkladatel: Jana Najbrtová\nProjednávání bodu bylo zahájeno v 16:43:38\nDůvodová zpráva\nDoporučujeme uzavřít Rezervační smlouvu na odkoupení id. podílu ve výši 1/8 pozemků evidovaných na LV 2656. Jedná se o ornou půdu a ost. plochu, silnici. Na výše uvedeném LV vlastní město již podíl ve výši 1/8, bylo by vhodné abychom v odkoupení pokračovali.\nZáloha\nčiní 70.000,-Kč. Uzavření kupní smlouvy by se schvalovalo v září na zastupitelstvu.\nDiskuze zahájena v 16:43:38\nK tomuto bodu se vyjádřili: Milan Paluska, Ing. Karel Krištoufek, Ing. Martin Jedlička, Ing. Hana Kuprová, Zdeněk Fejfar, Marcela Bahníková\nV 17:56:46 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Jana Najbrtová\") v tomto znění:\nRada\nměsta doporučuje zastupitelstvu města ke schválení nákup pozemku, celkem 13.487m\n2\nna LV 2656 – id. podíl ve výši 1/8 vůči celku, k.ú. Pečky.\nHlasování\npro:\n(7) Ing. Hana Kuprová, Milan Paluska, Zdeněk Fejfar, Ing. Karel Krištoufek, Ivana Trčková, Ing. Petr Dürr, Ing. Martin Jedlička\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-220-24/23\nzodpovídá:\nJana Najbrtová\ntermín:\n7. 8. 2023\nProjednávání bodu bylo ukončeno v 17:56:53\nJednání ukončeno 24.07.2023 v 17:57:04"
+   }
+  ],
+  "full_text": "ZÁPIS ze schůze rady č. 24/2023\nMěsto Pečky\ndatum: 24. 7. 2023, čas: 15:00\n​\nPrezence:\nPřítomni:\n(7) Zdeněk Fejfar, Milan Paluska, Ing. Martin Jedlička, Ing. Petr Dürr, Ivana Trčková, Ing. Hana Kuprová, Ing. Karel Krištoufek\nOmluveni:\n(0)\nNepřítomni:\n(0)\nHosté:\nIng. Adam Brant\nZapisovatel/ka:\nEva Strnadová\nPřítomno je 7 členů a rada je usnášeníschopná.\nJednání zahájeno 24.07.2023 v 15:06:40\n1. Určení zapisovatelů, předsedajícího, příp. ověřovatelů (bod číslo 1)\nPředkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 15:06:45\nPředsedající navrhl jednotlivé členy pracovních komisí\nOvěřovatelé:\nIng. Hana Kuprová, Ing. Martin Jedlička\nPředsedající:\nMilan Paluska\nBod byl přijat bez hlasování.\nDiskuze zahájena v 15:06:45\nK tomuto bodu se vyjádřili: Milan Paluska\nProjednávání bodu bylo ukončeno v 15:07:27\n2. Schválení programu jednání (bod číslo 2)\nPředkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 15:07:32\nProgram jednání\n1. Určení zapisovatelů, předsedajícího, příp. ověřovatelů\n2. Schválení programu jednání\n3. Aktuální informace vedení města\n4. Vyhlášení výběrového řízení na stavební práce akce \"Změna zdroje tepla v bytovém domě č.p. 218 Tř, 5. května, 289 11 Pečky\"\n5. Vyjádření města Pečky k námitkám k podání návrhu na zavedení obousměrného provozu v ul. V Kaštánkách a Nymburská v Pečkách\n6. Valná hromada Pečeckých služeb, s.r.o.\n7. Žádost T.J. Sokol Velké Chvalovice\n8. Kontrola plnění usnesení\nDiskuze zahájena v 15:07:32\nK tomuto bodu se vyjádřili: Milan Paluska\nV 15:08:43 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Milan Paluska\") v tomto znění:\nRada města\nschvaluje návrh programu jednání.\ns těmito změnami:\n- doplňuje se bod č. 9 - Uzavření Rezervační smlouvy s M&M Reality,\nPraha\n(pozemky na LV 2656)\nHlasování\npro:\n(7) Ing. Petr Dürr, Ing. Hana Kuprová, Zdeněk Fejfar, Ing. Martin Jedlička, Ing. Karel Krištoufek, Ivana Trčková, Milan Paluska\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-217-24/23\nzodpovídá:\ntermín:\nIHNED\n(24. 7. 2023)\nProjednávání bodu bylo ukončeno v 15:08:51\n3. Aktuální informace vedení města (bod číslo 3)\nPředkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 15:08:55\nDůvodová zpráva\nstarosta města\n- informace o průběhu stavebních akcí - KS /osazení vzduchotechnických jednotek/, objednávka na vstupní dveře\n- informace o opravě štítů na domech v majetku města čp. 46 a čp. 139\n- informace o výměně topení v Domě služeb čp. 184\n- informace o opravě podlahy v hasičské zbrojnici\n- informace o průběhu projekčních prací opravy plotu u MŠ Mašinka Pečky\n- informace o stavu vodojemu v Pečkách\n- informace o kontrolním dni na úpravně vody, bude provedena těsnící zkouška, na podzim montáž technologických zařízení\nZdeněk\nFejfar\n- informace o kontrolním dni - výstavba 19 ŘD ve Velkých Chvalovicích\n- informace o kontrolním dni v ZŠ Pečky - rekonstrukce elektroinstalace a obnova, doplnění datové sítě v budově Základní školy Pečky, Tř.\nJana\nŠvermy 342\nIng.\nMartin\nJedlička\n- informace o setkání Pracovní skupiny 100 let povýšení\nPeček\nna město\nDiskuze zahájena v 15:08:55\nK tomuto bodu se vyjádřili: Milan Paluska, Zdeněk Fejfar, Ing. Karel Krištoufek, Ing. Martin Jedlička, Ivana Trčková, Ing. Hana Kuprová\nRada bere materiály předložené k bodu č. 3 -\nAktuální informace vedení města\nna vědomí.\nProjednávání bodu bylo ukončeno v 15:52:37\n4. Vyhlášení výběrového řízení na stavební práce akce \"Změna zdroje tepla v bytovém domě č.p. 218 Tř, 5. května, 289 11 Pečky\" (bod číslo 4)\nPředkladatel: Petra Kutová\nProjednávání bodu bylo zahájeno v 15:52:41\nDůvodová zpráva\nZ důvodu nutné rekonstrukce zastaralé strojovny z roku 1996 (nefunkční řídící jednotka, systém nelze regulovat), žádáme o schválení uveřejnění vyhlášení výběrového řízení na stavební práce akce \"Změna zdroje tepla v bytovém domě č. p. 218 Tř. 5. května, 289 11 Pečky\".\nDiskuze zahájena v 15:52:41\nK tomuto bodu se vyjádřili: Milan Paluska, Ing. Karel Krištoufek, Ivana Trčková\nV 15:55:26 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Petra Kutová\") v tomto znění:\nRada\nměsta schvaluje vyhlášení výběrového řízení na stavební práce akce \"Změna zdroje tepla v bytovém domě č. p. 218 Tř. 5. května, 289 11 Pečky\", zadávaného mimo režim zákona č. 134/2016 Sb., o zadávání veřejných zakázek, ve znění pozdějších předpisů, a ustanovení komise ve složení:\nčlenové:\nZdeněk\nFejfar\n- místostarosta, Ing. Věra\nRůžičková\n- vedoucí odboru správy majetku města a BH, Ing.\nJana\nZindrová\n- oddělení dopravy kanceláře tajemníka MěÚ Pečky\nnáhradníci:\nMilan\nPaluska\n- starosta,\nPetra\nKutová\n- investiční technik,\nMartina\nHrázská\n- referentka odboru majetku města a BH\nHlasování\npro:\n(7) Ing. Martin Jedlička, Ing. Petr Dürr, Ing. Karel Krištoufek, Milan Paluska, Ivana Trčková, Ing. Hana Kuprová, Zdeněk Fejfar\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-218-24/23\nzodpovídá:\nPetra Kutová\ntermín:\n24. 9. 2023\nProjednávání bodu bylo ukončeno v 15:55:34\n5. Vyjádření města Pečky k námitkám k podání návrhu na zavedení obousměrného provozu v ul. V Kaštánkách a Nymburská v Pečkách (bod číslo 5)\nPředkladatel: Jana Zindrová\nProjednávání bodu bylo zahájeno v 15:55:41\nDůvodová zpráva\nK oznámení o návrhu místní úpravy provozu na místní komunikaci ze dne 19.5.2023, čj.: MUKOLIN/OD 50120/23-vol (zavadení obousměrného provozu v ul. V Kaštánkách a\nNymburská\nv Pečkách) byly ze stran účastníků řízení vzneseny námitky. Město Pečky se do řízení k těmto námitkám vyjadřuje.\nDiskuze zahájena v 15:55:41\nK tomuto bodu se vyjádřili: Milan Paluska, Ing. Karel Krištoufek, Zdeněk Fejfar, Ing. Hana Kuprová, Ivana Trčková\nV 16:01:51 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Jana Zindrová\") v tomto znění:\nRada\nměsta schvaluje znění textu vyjádření města Pečky k námitkám účastníků řízení ve věci návrhu místní úpravy provozu na pozemní komunikaci ze dne 19.5.2023 vydaného MěÚ\nKolín\n, odborem dopravy, čj.: MUKOLIN/OD 50120/23-vol (Zavedení obousměrného provozu v ulicích V Kaštánkách a\nNymburská\nv Pečkách).\nHlasování\npro:\n(7) Zdeněk Fejfar, Milan Paluska, Ivana Trčková, Ing. Martin Jedlička, Ing. Karel Krištoufek, Ing. Petr Dürr, Ing. Hana Kuprová\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-219-24/23\nzodpovídá:\nJana Zindrová\ntermín:\n7. 8. 2023\nProjednávání bodu bylo ukončeno v 16:02:01\n6. Valná hromada Pečeckých služeb, s.r.o. (bod číslo 6)\nPředkladatel: Adam Brant\nProjednávání bodu bylo zahájeno v 16:02:59\nDůvodová zpráva\nValná\nhromada Pečeckých služeb, s.r.o.\nDiskuze zahájena v 16:02:59\nK tomuto bodu se vyjádřili: Ing. Adam Brant, Ivana Trčková\nRada bere materiály předložené k bodu č. 6 -\nValná hromada Pečeckých služeb, s.r.o.\nna vědomí.\nProjednávání bodu bylo ukončeno v 16:27:57\n7. Žádost T.J. Sokol Velké Chvalovice (bod číslo 7)\nPředkladatel: Pavlína Nepovímová\nProjednávání bodu bylo zahájeno v 16:28:11\nDůvodová zpráva\nT.J.\nSokol\nVelké\nChvalovice žádá město o financování nákupu nové traktorové sekačky, vertikutátor, žací ústrojí a další přídavné zařízení, předpokládaná cena  213 066 tis. Kč. Podpora města může být  formou dotace, finančního daru nebo přímého nákupu a následně pronájem, zápůjčka nebo bezúplatný převod (dar). Schválení je vždy v kompetenci ZM.\nRada\nměsta bere na vědomí žádost o nákup traktorové sekačky, včetně příslušenství na mulčování a vertikulaci k údržbě sportovního areálu\nVelké\nChvalovice. Dotační výzvy na tento druh nákupu budou vyhlášené až na konci roku 2023. V případě, že nebude vypsána dotační výzva, bude nákup zařazen do návrhu rozpočtu roku 2024.\nDiskuze zahájena v 16:28:11\nK tomuto bodu se vyjádřili: Milan Paluska, Zdeněk Fejfar, Ivana Trčková, Ing. Hana Kuprová, Ing. Karel Krištoufek\nRada bere materiály předložené k bodu č. 7 -\nŽádost T.J. Sokol Velké Chvalovice\nna vědomí.\nProjednávání bodu bylo ukončeno v 16:43:17\n8. Kontrola plnění usnesení (bod číslo 8)\nPředkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 16:43:20\nDiskuze zahájena v 16:43:20\nK tomuto bodu se vyjádřili: Milan Paluska\nRada bere materiály předložené k bodu č. 8 -\nKontrola plnění usnesení\nna vědomí.\nProjednávání bodu bylo ukončeno v 16:43:34\n9. Uzavření Rezervační smlouvy s M&M Reality, Praha (pozemky na LV 2656) (bod číslo 9)\nPředkladatel: Jana Najbrtová\nProjednávání bodu bylo zahájeno v 16:43:38\nDůvodová zpráva\nDoporučujeme uzavřít Rezervační smlouvu na odkoupení id. podílu ve výši 1/8 pozemků evidovaných na LV 2656. Jedná se o ornou půdu a ost. plochu, silnici. Na výše uvedeném LV vlastní město již podíl ve výši 1/8, bylo by vhodné abychom v odkoupení pokračovali.\nZáloha\nčiní 70.000,-Kč. Uzavření kupní smlouvy by se schvalovalo v září na zastupitelstvu.\nDiskuze zahájena v 16:43:38\nK tomuto bodu se vyjádřili: Milan Paluska, Ing. Karel Krištoufek, Ing. Martin Jedlička, Ing. Hana Kuprová, Zdeněk Fejfar, Marcela Bahníková\nV 17:56:46 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Jana Najbrtová\") v tomto znění:\nRada\nměsta doporučuje zastupitelstvu města ke schválení nákup pozemku, celkem 13.487m\n2\nna LV 2656 – id. podíl ve výši 1/8 vůči celku, k.ú. Pečky.\nHlasování\npro:\n(7) Ing. Hana Kuprová, Milan Paluska, Zdeněk Fejfar, Ing. Karel Krištoufek, Ivana Trčková, Ing. Petr Dürr, Ing. Martin Jedlička\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-220-24/23\nzodpovídá:\nJana Najbrtová\ntermín:\n7. 8. 2023\nProjednávání bodu bylo ukončeno v 17:56:53\nJednání ukončeno 24.07.2023 v 17:57:04"
+ },
+ "resolutions": {
+  "status": "ok",
+  "url": "https://mesto-pecky.usneseni.cz/verejne/e2ec2b00-254a-11ee-8534-a696327373ec/usneseni/",
+  "fetched_at": "2026-08-04T14:07:09.909000+00:00",
+  "items": [
+   {
+    "number_raw": "UR-217-24/23",
+    "detail_id": 43095,
+    "detail_url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/43095?mod=rada",
+    "agenda_item_raw": "Schválení programu jednání",
+    "text_verbatim": "Rada města\nschvaluje návrh programu jednání.\ns těmito změnami:\n- doplňuje se bod č. 9 - Uzavření Rezervační smlouvy s M&M Reality,\nPraha\n(pozemky na LV 2656)",
+    "cell_text_raw": "Bod programu:\nSchválení programu jednání\nText přijatého usnesení:\nRada města\nschvaluje návrh programu jednání.\ns těmito změnami:\n- doplňuje se bod č. 9 - Uzavření Rezervační smlouvy s M&M Reality,\nPraha\n(pozemky na LV 2656)",
+    "date_raw": "24. 7. 2023",
+    "date_iso": "2023-07-24",
+    "responsible_raw": "",
+    "deadline_raw": "IHNED (24. 7. 2023)",
+    "vote": {
+     "raw_text": "pro: 7 proti: 0 zdržel se: 0",
+     "pro": {
+      "count": 7,
+      "names": null,
+      "raw": "7"
+     },
+     "proti": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     },
+     "zdrzel_se": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     }
+    },
+    "detail": {
+     "number_raw": "UR-217-24/23",
+     "text_verbatim": "Rada města schvaluje návrh programu jednání.\ns těmito změnami: - doplňuje se bod č. 9 - Uzavření Rezervační smlouvy s M&M Reality, Praha (pozemky na LV 2656)",
+     "typ_raw": null,
+     "zodpovida_raw": "",
+     "prijato_raw": "24. 7. 2023 na jednání č. 24/2023",
+     "prijato_date_iso": "2023-07-24",
+     "prijato_meeting_label": "24/2023",
+     "termin_raw": "IHNED (24. 7. 2023)",
+     "ukonceno_raw": "24. 7. 2023",
+     "ukonceno_date_iso": "2023-07-24",
+     "fields_raw": {
+      "Číslo usnesení": "UR-217-24/23",
+      "Text usnesení": "Rada města schvaluje návrh programu jednání.\ns těmito změnami: - doplňuje se bod č. 9 - Uzavření Rezervační smlouvy s M&M Reality, Praha (pozemky na LV 2656)",
+      "Zodpovídá": "",
+      "Přijato": "24. 7. 2023 na jednání č. 24/2023",
+      "Termín": "IHNED (24. 7. 2023)",
+      "Ukončeno": "24. 7. 2023"
+     }
+    }
+   },
+   {
+    "number_raw": "UR-218-24/23",
+    "detail_id": 43213,
+    "detail_url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/43213?mod=rada",
+    "agenda_item_raw": "Vyhlášení výběrového řízení na stavební práce akce \"Změna zdroje tepla v bytovém domě č.p. 218 Tř, 5. května, 289 11 Pečky\"",
+    "text_verbatim": "Rada\nměsta schvaluje vyhlášení výběrového řízení na stavební práce akce \"Změna zdroje tepla v bytovém domě č. p. 218 Tř. 5. května, 289 11 Pečky\", zadávaného mimo režim zákona č. 134/2016 Sb., o zadávání veřejných zakázek, ve znění pozdějších předpisů, a ustanovení komise ve složení:\nčlenové:\nZdeněk\nFejfar\n- místostarosta, Ing. Věra\nRůžičková\n- vedoucí odboru správy majetku města a BH, Ing.\nJana\nZindrová\n- oddělení dopravy kanceláře tajemníka MěÚ Pečky\nnáhradníci:\nMilan\nPaluska\n- starosta,\nPetra\nKutová\n- investiční technik,\nMartina\nHrázská\n- referentka odboru majetku města a BH",
+    "cell_text_raw": "Bod programu:\nVyhlášení výběrového řízení na stavební práce akce \"Změna zdroje tepla v bytovém domě č.p. 218 Tř, 5. května, 289 11 Pečky\"\nText přijatého usnesení:\nRada\nměsta schvaluje vyhlášení výběrového řízení na stavební práce akce \"Změna zdroje tepla v bytovém domě č. p. 218 Tř. 5. května, 289 11 Pečky\", zadávaného mimo režim zákona č. 134/2016 Sb., o zadávání veřejných zakázek, ve znění pozdějších předpisů, a ustanovení komise ve složení:\nčlenové:\nZdeněk\nFejfar\n- místostarosta, Ing. Věra\nRůžičková\n- vedoucí odboru správy majetku města a BH, Ing.\nJana\nZindrová\n- oddělení dopravy kanceláře tajemníka MěÚ Pečky\nnáhradníci:\nMilan\nPaluska\n- starosta,\nPetra\nKutová\n- investiční technik,\nMartina\nHrázská\n- referentka odboru majetku města a BH",
+    "date_raw": "24. 7. 2023",
+    "date_iso": "2023-07-24",
+    "responsible_raw": "Petra Kutová",
+    "deadline_raw": "24. 9. 2023",
+    "vote": {
+     "raw_text": "pro: 7 proti: 0 zdržel se: 0",
+     "pro": {
+      "count": 7,
+      "names": null,
+      "raw": "7"
+     },
+     "proti": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     },
+     "zdrzel_se": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     }
+    },
+    "detail": {
+     "number_raw": "UR-218-24/23",
+     "text_verbatim": "Rada města schvaluje vyhlášení výběrového řízení na stavební práce akce \"Změna zdroje tepla v bytovém domě č. p. 218 Tř. 5. května, 289 11 Pečky\", zadávaného mimo režim zákona č. 134/2016 Sb., o zadávání veřejných zakázek, ve znění pozdějších předpisů, a ustanovení komise ve složení: členové: Zdeněk Fejfar - místostarosta, Ing. Věra Růžičková - vedoucí odboru správy majetku města a BH, Ing. Jana Zindrová - oddělení dopravy kanceláře tajemníka MěÚ Pečky náhradníci: Milan Paluska - starosta, Petra Kutová - investiční technik, Martina Hrázská - referentka odboru majetku města a BH",
+     "typ_raw": null,
+     "zodpovida_raw": "Petra Kutová",
+     "prijato_raw": "24. 7. 2023 na jednání č. 24/2023",
+     "prijato_date_iso": "2023-07-24",
+     "prijato_meeting_label": "24/2023",
+     "termin_raw": "24. 9. 2023",
+     "ukonceno_raw": "5. 9. 2023",
+     "ukonceno_date_iso": "2023-09-05",
+     "fields_raw": {
+      "Číslo usnesení": "UR-218-24/23",
+      "Text usnesení": "Rada města schvaluje vyhlášení výběrového řízení na stavební práce akce \"Změna zdroje tepla v bytovém domě č. p. 218 Tř. 5. května, 289 11 Pečky\", zadávaného mimo režim zákona č. 134/2016 Sb., o zadávání veřejných zakázek, ve znění pozdějších předpisů, a ustanovení komise ve složení: členové: Zdeněk Fejfar - místostarosta, Ing. Věra Růžičková - vedoucí odboru správy majetku města a BH, Ing. Jana Zindrová - oddělení dopravy kanceláře tajemníka MěÚ Pečky náhradníci: Milan Paluska - starosta, Petra Kutová - investiční technik, Martina Hrázská - referentka odboru majetku města a BH",
+      "Zodpovídá": "Petra Kutová",
+      "Přijato": "24. 7. 2023 na jednání č. 24/2023",
+      "Termín": "24. 9. 2023",
+      "Ukončeno": "5. 9. 2023"
+     }
+    }
+   },
+   {
+    "number_raw": "UR-219-24/23",
+    "detail_id": 43147,
+    "detail_url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/43147?mod=rada",
+    "agenda_item_raw": "Vyjádření města Pečky k námitkám k podání návrhu  na zavedení obousměrného provozu v ul. V Kaštánkách a Nymburská v Pečkách",
+    "text_verbatim": "Rada\nměsta schvaluje znění textu vyjádření města Pečky k námitkám účastníků řízení ve věci návrhu místní úpravy provozu na pozemní komunikaci ze dne 19.5.2023 vydaného MěÚ\nKolín\n, odborem dopravy, čj.: MUKOLIN/OD 50120/23-vol (Zavedení obousměrného provozu v ulicích V Kaštánkách a\nNymburská\nv Pečkách).",
+    "cell_text_raw": "Bod programu:\nVyjádření města Pečky k námitkám k podání návrhu  na zavedení obousměrného provozu v ul. V Kaštánkách a Nymburská v Pečkách\nText přijatého usnesení:\nRada\nměsta schvaluje znění textu vyjádření města Pečky k námitkám účastníků řízení ve věci návrhu místní úpravy provozu na pozemní komunikaci ze dne 19.5.2023 vydaného MěÚ\nKolín\n, odborem dopravy, čj.: MUKOLIN/OD 50120/23-vol (Zavedení obousměrného provozu v ulicích V Kaštánkách a\nNymburská\nv Pečkách).",
+    "date_raw": "24. 7. 2023",
+    "date_iso": "2023-07-24",
+    "responsible_raw": "Jana Zindrová",
+    "deadline_raw": "7. 8. 2023",
+    "vote": {
+     "raw_text": "pro: 7 proti: 0 zdržel se: 0",
+     "pro": {
+      "count": 7,
+      "names": null,
+      "raw": "7"
+     },
+     "proti": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     },
+     "zdrzel_se": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     }
+    },
+    "detail": {
+     "number_raw": "UR-219-24/23",
+     "text_verbatim": "Rada města schvaluje znění textu vyjádření města Pečky k námitkám účastníků řízení ve věci návrhu místní úpravy provozu na pozemní komunikaci ze dne 19.5.2023 vydaného MěÚ Kolín , odborem dopravy, čj.: MUKOLIN/OD 50120/23-vol (Zavedení obousměrného provozu v ulicích V Kaštánkách a Nymburská v Pečkách).",
+     "typ_raw": null,
+     "zodpovida_raw": "Jana Zindrová",
+     "prijato_raw": "24. 7. 2023 na jednání č. 24/2023",
+     "prijato_date_iso": "2023-07-24",
+     "prijato_meeting_label": "24/2023",
+     "termin_raw": "7. 8. 2023",
+     "ukonceno_raw": "27. 7. 2023",
+     "ukonceno_date_iso": "2023-07-27",
+     "fields_raw": {
+      "Číslo usnesení": "UR-219-24/23",
+      "Text usnesení": "Rada města schvaluje znění textu vyjádření města Pečky k námitkám účastníků řízení ve věci návrhu místní úpravy provozu na pozemní komunikaci ze dne 19.5.2023 vydaného MěÚ Kolín , odborem dopravy, čj.: MUKOLIN/OD 50120/23-vol (Zavedení obousměrného provozu v ulicích V Kaštánkách a Nymburská v Pečkách).",
+      "Zodpovídá": "Jana Zindrová",
+      "Přijato": "24. 7. 2023 na jednání č. 24/2023",
+      "Termín": "7. 8. 2023",
+      "Ukončeno": "27. 7. 2023"
+     }
+    }
+   },
+   {
+    "number_raw": "UR-220-24/23",
+    "detail_id": 43410,
+    "detail_url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/43410?mod=rada",
+    "agenda_item_raw": "Uzavření Rezervační smlouvy s M&M Reality, Praha (pozemky na LV 2656)",
+    "text_verbatim": "Rada\nměsta doporučuje zastupitelstvu města ke schválení nákup pozemku, celkem 13.487m\n2\nna LV 2656 – id. podíl ve výši 1/8 vůči celku, k.ú. Pečky.",
+    "cell_text_raw": "Bod programu:\nUzavření Rezervační smlouvy s M&M Reality, Praha (pozemky na LV 2656)\nText přijatého usnesení:\nRada\nměsta doporučuje zastupitelstvu města ke schválení nákup pozemku, celkem 13.487m\n2\nna LV 2656 – id. podíl ve výši 1/8 vůči celku, k.ú. Pečky.",
+    "date_raw": "24. 7. 2023",
+    "date_iso": "2023-07-24",
+    "responsible_raw": "Jana Najbrtová",
+    "deadline_raw": "7. 8. 2023",
+    "vote": {
+     "raw_text": "pro: 7 proti: 0 zdržel se: 0",
+     "pro": {
+      "count": 7,
+      "names": null,
+      "raw": "7"
+     },
+     "proti": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     },
+     "zdrzel_se": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     }
+    },
+    "detail": {
+     "number_raw": "UR-220-24/23",
+     "text_verbatim": "Rada města doporučuje zastupitelstvu města ke schválení nákup pozemku, celkem 13.487m 2 na LV 2656 – id. podíl ve výši 1/8 vůči celku, k.ú. Pečky.",
+     "typ_raw": null,
+     "zodpovida_raw": "Jana Najbrtová",
+     "prijato_raw": "24. 7. 2023 na jednání č. 24/2023",
+     "prijato_date_iso": "2023-07-24",
+     "prijato_meeting_label": "24/2023",
+     "termin_raw": "7. 8. 2023",
+     "ukonceno_raw": "7. 8. 2023",
+     "ukonceno_date_iso": "2023-08-07",
+     "fields_raw": {
+      "Číslo usnesení": "UR-220-24/23",
+      "Text usnesení": "Rada města doporučuje zastupitelstvu města ke schválení nákup pozemku, celkem 13.487m 2 na LV 2656 – id. podíl ve výši 1/8 vůči celku, k.ú. Pečky.",
+      "Zodpovídá": "Jana Najbrtová",
+      "Přijato": "24. 7. 2023 na jednání č. 24/2023",
+      "Termín": "7. 8. 2023",
+      "Ukončeno": "7. 8. 2023"
+     }
+    }
+   }
+  ]
+ }
+}

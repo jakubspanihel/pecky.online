@@ -1,0 +1,865 @@
+{
+ "uuid": "a90c38cd-82b4-11ee-962e-00505683238f",
+ "body_type_raw": "Rada",
+ "label_raw": "40/2023 (20. 11. 2023)",
+ "number": 40,
+ "year": 2023,
+ "date_iso": "2023-11-20",
+ "links": {
+  "invitation": "https://mesto-pecky.usneseni.cz/verejne/?uuid=a90c38cd-82b4-11ee-962e-00505683238f&page=10&do=printPublicInvitation",
+  "minutes": "https://mesto-pecky.usneseni.cz/verejne/a90c38cd-82b4-11ee-962e-00505683238f/zapis/?page=10",
+  "signed_minutes_pdf": "https://mesto-pecky.usneseni.cz/verejne/?meetingReportControl-uuid=a90c38cd-82b4-11ee-962e-00505683238f&page=10&do=meetingReportControl-getSignedReportPdf",
+  "resolutions": "https://mesto-pecky.usneseni.cz/verejne/a90c38cd-82b4-11ee-962e-00505683238f/usneseni/?page=10",
+  "audio": null
+ },
+ "link_texts": {
+  "invitation": "Pozvánka",
+  "minutes": "zápis",
+  "signed_minutes_pdf": "podepsaný zápis",
+  "resolutions": "přijatá usnesení"
+ },
+ "status": "ok",
+ "invitation": {
+  "status": "site_error",
+  "error": "status=200 ct=text/html; charset=utf-8 flash='<a href=\"\" class=\"close\" data-dismiss=\"alert\" aria-label=\"close\">&times;'",
+  "url": "https://mesto-pecky.usneseni.cz/verejne/?uuid=a90c38cd-82b4-11ee-962e-00505683238f&do=printPublicInvitation",
+  "fetched_at": "2026-08-04T15:03:26.860143+00:00"
+ },
+ "minutes": {
+  "status": "ok",
+  "url": "https://mesto-pecky.usneseni.cz/verejne/a90c38cd-82b4-11ee-962e-00505683238f/zapis/",
+  "fetched_at": "2026-08-04T14:00:24.406643+00:00",
+  "title_raw": "ZÁPIS ze schůze rady č. 40/2023 Město Pečky datum: 20. 11. 2023, čas: 15:00 ​",
+  "date_raw": "20. 11. 2023",
+  "date_iso": "2023-11-20",
+  "time_raw": "15:00",
+  "presence": {
+   "raw_text": "Prezence:\nPřítomni:\n(7) Zdeněk Fejfar, Milan Paluska, Ing. Martin Jedlička, Ing. Petr Dürr, Ivana Trčková, Ing. Hana Kuprová, Ing. Karel Krištoufek\nOmluveni:\n(0)\nNepřítomni:\n(0)\nHosté:\nZapisovatel/ka:\nEva Strnadová\nPřítomno je 7 členů a rada je usnášeníschopná.\nJednání zahájeno 20.11.2023 v 15:09:51",
+   "pritomni": {
+    "count": 7,
+    "names": [
+     "Zdeněk Fejfar",
+     "Milan Paluska",
+     "Ing. Martin Jedlička",
+     "Ing. Petr Dürr",
+     "Ivana Trčková",
+     "Ing. Hana Kuprová",
+     "Ing. Karel Krištoufek"
+    ],
+    "raw": "(7) Zdeněk Fejfar, Milan Paluska, Ing. Martin Jedlička, Ing. Petr Dürr, Ivana Trčková, Ing. Hana Kuprová, Ing. Karel Krištoufek"
+   },
+   "omluveni": {
+    "count": 0,
+    "names": [],
+    "raw": "(0)"
+   },
+   "nepritomni": {
+    "count": 0,
+    "names": [],
+    "raw": "(0)"
+   },
+   "predsedajici": null,
+   "quorum_raw": "Přítomno je 7 členů a rada je usnášeníschopná."
+  },
+  "header_raw": "Prezence:\nPřítomni:\n(7) Zdeněk Fejfar, Milan Paluska, Ing. Martin Jedlička, Ing. Petr Dürr, Ivana Trčková, Ing. Hana Kuprová, Ing. Karel Krištoufek\nOmluveni:\n(0)\nNepřítomni:\n(0)\nHosté:\nZapisovatel/ka:\nEva Strnadová\nPřítomno je 7 členů a rada je usnášeníschopná.\nJednání zahájeno 20.11.2023 v 15:09:51",
+  "agenda_items": [
+   {
+    "number": 1,
+    "title_raw": "Určení zapisovatelů, předsedajícího, příp. ověřovatelů",
+    "heading_raw": "1. Určení zapisovatelů, předsedajícího, příp. ověřovatelů (bod číslo 1)",
+    "predkladatel": "Milan Paluska",
+    "votes": [],
+    "resolution_numbers_mentioned": [],
+    "raw_text": "Předkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 15:09:57\nPředsedající navrhl jednotlivé členy pracovních komisí\nOvěřovatelé:\nIng. Karel Krištoufek, Zdeněk Fejfar\nPředsedající:\nMilan Paluska\nBod byl přijat bez hlasování.\nDiskuze zahájena v 15:09:57\nK tomuto bodu se vyjádřili: Milan Paluska\nProjednávání bodu bylo ukončeno v 15:11:09"
+   },
+   {
+    "number": 2,
+    "title_raw": "Schválení programu jednání",
+    "heading_raw": "2. Schválení programu jednání (bod číslo 2)",
+    "predkladatel": "Milan Paluska",
+    "votes": [
+     {
+      "raw_text": "pro:\n(7) Ing. Hana Kuprová, Milan Paluska, Ing. Martin Jedlička, Ing. Petr Dürr, Ivana Trčková, Zdeněk Fejfar, Ing. Karel Krištoufek\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)",
+      "pro": {
+       "count": 7,
+       "names": [
+        "Ing. Hana Kuprová",
+        "Milan Paluska",
+        "Ing. Martin Jedlička",
+        "Ing. Petr Dürr",
+        "Ivana Trčková",
+        "Zdeněk Fejfar",
+        "Ing. Karel Krištoufek"
+       ],
+       "raw": "(7) Ing. Hana Kuprová, Milan Paluska, Ing. Martin Jedlička, Ing. Petr Dürr, Ivana Trčková, Zdeněk Fejfar, Ing. Karel Krištoufek"
+      },
+      "proti": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "zdrzel_se": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "nehlasoval": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "result_raw": "Návrh byl přijat jako usnesení číslo: UR-334-40/23",
+      "adopted_resolution_number": "UR-334-40/23"
+     }
+    ],
+    "resolution_numbers_mentioned": [
+     "UR-334-40/23"
+    ],
+    "raw_text": "Předkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 15:11:14\nProgram jednání\n1. Určení zapisovatelů, předsedajícího, příp. ověřovatelů\n2. Schválení programu jednání\n3. Aktuální informace vedení města\n4. Zveřejnění záměru na pronájem části pozemku č. parc. 1927/1 v obci a k.ú. Pečky\n5. Termín a program ZM dne 29.11.2023\n6. Obnovení obousměrného provozu v ul. V Kaštánkách, K.Ú. Pečky\n7. Pracovní pozice - sociální pracovník\n8. Žádost o dotaci - Farní sbor ČCE\n9. Pečovatelská služba - závazné ukazatele\n10. Žádost o příspěvek RYTMUS o.p.s.\n11. Žádost o souhlas s podáním žádosti o dotaci - Knihovna\n12. Kontrola plnění usnesení\nDiskuze zahájena v 15:11:14\nK tomuto bodu se vyjádřili: Milan Paluska\nV 15:12:29 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Milan Paluska\") v tomto znění:\nRada\nměsta schvaluje návrh programu jednání.\ns těmito změnami:\n- stahuje se bod č. 9 - Pečovatelská služba - závazné ukazatele\nHlasování\npro:\n(7) Ing. Hana Kuprová, Milan Paluska, Ing. Martin Jedlička, Ing. Petr Dürr, Ivana Trčková, Zdeněk Fejfar, Ing. Karel Krištoufek\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-334-40/23\nzodpovídá:\ntermín:\nIHNED\n(20. 11. 2023)\nProjednávání bodu bylo ukončeno v 15:12:38"
+   },
+   {
+    "number": 3,
+    "title_raw": "Aktuální informace vedení města",
+    "heading_raw": "3. Aktuální informace vedení města (bod číslo 3)",
+    "predkladatel": "Milan Paluska",
+    "votes": [],
+    "resolution_numbers_mentioned": [],
+    "raw_text": "Předkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 15:13:06\nDůvodová zpráva:\nstarosta města\n- informace o kontrolním dni akce - dopravní ostrůvek ve V. Chvalovicích - nutná sanace podloží, předložen změnový list na zasedání ZM\n- informace o kontrolním dni akce - kabiny AFK Pečky\n- informace o schůzce se starostkou obce Tatce a starostou obce\nMilčice\nve věci připojení obce Tatce na pečecký vodovod\n- informace o schůzce s p. Kaplanem, majitelem pozemku v lokalitě\nPod\nDrahou ve věci výstavby RD\n- informace o přípravě rozpočtu na rok 2024\nDiskuze zahájena v 15:13:06\nK tomuto bodu se vyjádřili: Milan Paluska, Zdeněk Fejfar, Ing. Karel Krištoufek, Ing. Petr Dürr, Ivana Trčková\nRada bere materiály předložené k bodu č. 3 -\nAktuální informace vedení města\nna vědomí.\nProjednávání bodu bylo ukončeno v 16:01:11"
+   },
+   {
+    "number": 4,
+    "title_raw": "Zveřejnění záměru na pronájem části pozemku č. parc. 1927/1 v obci a k.ú. Pečky",
+    "heading_raw": "4. Zveřejnění záměru na pronájem části pozemku č. parc. 1927/1 v obci a k.ú. Pečky (bod číslo 4)",
+    "predkladatel": "Jana Najbrtová",
+    "votes": [
+     {
+      "raw_text": "pro:\n(5) Ing. Karel Krištoufek, Ing. Petr Dürr, Ing. Hana Kuprová, Ivana Trčková, Milan Paluska\nproti\n(0)\nzdržel se:\n(2) Ing. Martin Jedlička, Zdeněk Fejfar\nnehlasoval:\n(0)",
+      "pro": {
+       "count": 5,
+       "names": [
+        "Ing. Karel Krištoufek",
+        "Ing. Petr Dürr",
+        "Ing. Hana Kuprová",
+        "Ivana Trčková",
+        "Milan Paluska"
+       ],
+       "raw": "(5) Ing. Karel Krištoufek, Ing. Petr Dürr, Ing. Hana Kuprová, Ivana Trčková, Milan Paluska"
+      },
+      "proti": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "zdrzel_se": {
+       "count": 2,
+       "names": [
+        "Ing. Martin Jedlička",
+        "Zdeněk Fejfar"
+       ],
+       "raw": "(2) Ing. Martin Jedlička, Zdeněk Fejfar"
+      },
+      "nehlasoval": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "result_raw": "Návrh byl přijat jako usnesení číslo: UR-335-40/23",
+      "adopted_resolution_number": "UR-335-40/23"
+     }
+    ],
+    "resolution_numbers_mentioned": [
+     "UR-335-40/23"
+    ],
+    "raw_text": "Předkladatel: Jana Najbrtová\nProjednávání bodu bylo zahájeno v 16:01:15\nDůvodová zpráva:\nNavrhujeme zveřejnit záměr na pronájem pozemku na dobu neurčitou. Doposud byl záměr zveřejněn vždy na konci roku a smlouva byla uzavřena na dobu určitou tzn.1 rok. Při uzavírání jednoleté smlouvy se musí vždy zveřejňovat záměr. V případě uzavření smlouvy na dobu neurčitou s výpovědní lhůtou 2 měsíce by tento krok odpadl.\nDiskuze zahájena v 16:01:15\nK tomuto bodu se vyjádřili: Milan Paluska, Ing. Martin Jedlička, Ing. Petr Dürr, Ing. Karel Krištoufek, Jana Najbrtová\nV 16:16:04 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Jana Najbrtová\") v tomto znění:\nRada\nměsta schvaluje zveřejnění záměru na pronájem části pozemku č. parc. 1927/1  (cca 20 m\n2\n) v obci a k.ú. Pečky u bytového domu  čp. 746-748 v ul. Přátelství za těchto podmínek:\n- pronájem se týká části pozemku pod plechovou garáží u domu čp. 746-748 do cca 20 m\n2\n- nájem činí 200,- Kč/garáž/měsíc (tzn. 2.400,- Kč/rok)\n- nájemní smlouva bude uzavřena od 1. 1. 2024 na dobu neurčitou s 2 měsíční výpovědní lhůtou\n- pronajímatel zajistí sepsání nájemní smlouvy\nHlasování\npro:\n(5) Ing. Karel Krištoufek, Ing. Petr Dürr, Ing. Hana Kuprová, Ivana Trčková, Milan Paluska\nproti\n(0)\nzdržel se:\n(2) Ing. Martin Jedlička, Zdeněk Fejfar\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-335-40/23\nzodpovídá:\nJana Najbrtová\ntermín:\n31. 1. 2024\nProjednávání bodu bylo ukončeno v 16:16:17"
+   },
+   {
+    "number": 5,
+    "title_raw": "Termín a program ZM dne 29.11.2023",
+    "heading_raw": "5. Termín a program ZM dne 29.11.2023 (bod číslo 5)",
+    "predkladatel": "Milan Paluska",
+    "votes": [
+     {
+      "raw_text": "pro:\n(7) Ing. Martin Jedlička, Milan Paluska, Ing. Petr Dürr, Ing. Karel Krištoufek, Ing. Hana Kuprová, Zdeněk Fejfar, Ivana Trčková\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)",
+      "pro": {
+       "count": 7,
+       "names": [
+        "Ing. Martin Jedlička",
+        "Milan Paluska",
+        "Ing. Petr Dürr",
+        "Ing. Karel Krištoufek",
+        "Ing. Hana Kuprová",
+        "Zdeněk Fejfar",
+        "Ivana Trčková"
+       ],
+       "raw": "(7) Ing. Martin Jedlička, Milan Paluska, Ing. Petr Dürr, Ing. Karel Krištoufek, Ing. Hana Kuprová, Zdeněk Fejfar, Ivana Trčková"
+      },
+      "proti": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "zdrzel_se": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "nehlasoval": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "result_raw": "Návrh byl přijat jako usnesení číslo: UR-336-40/23",
+      "adopted_resolution_number": "UR-336-40/23"
+     }
+    ],
+    "resolution_numbers_mentioned": [
+     "UR-336-40/23"
+    ],
+    "raw_text": "Předkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 16:16:21\nDůvodová zpráva:\nProjednání termínu a programu zasedání ZM dne 29.11.2023 od 17.30 hodin v Kulturním domě Pečky.\nDiskuze zahájena v 16:16:21\nK tomuto bodu se vyjádřili: Milan Paluska, Zdeněk Fejfar, Ing. Karel Krištoufek, Ing. Hana Kuprová, Pavlína Nepovímová, Ivana Trčková\nV 16:29:45 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Milan Paluska\") v tomto znění:\nRada\nměsta schvaluje termín a program zasedání ZM dne 29.11.2023 od 17.30 hodin v Kulturním domě Pečky, Tř.\nJana\nŠvermy, čp. 255, Pečky.\nHlasování\npro:\n(7) Ing. Martin Jedlička, Milan Paluska, Ing. Petr Dürr, Ing. Karel Krištoufek, Ing. Hana Kuprová, Zdeněk Fejfar, Ivana Trčková\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-336-40/23\nzodpovídá:\nMilan Paluska\ntermín:\n4. 12. 2023\nProjednávání bodu bylo ukončeno v 16:29:53"
+   },
+   {
+    "number": 6,
+    "title_raw": "Obnovení obousměrného provozu v ul. V Kaštánkách, K.Ú. Pečky",
+    "heading_raw": "6. Obnovení obousměrného provozu v ul. V Kaštánkách, K.Ú. Pečky (bod číslo 6)",
+    "predkladatel": "Pavlína Nepovímová",
+    "votes": [
+     {
+      "raw_text": "pro:\n(7) Milan Paluska, Ing. Petr Dürr, Ing. Martin Jedlička, Ing. Karel Krištoufek, Ivana Trčková, Ing. Hana Kuprová, Zdeněk Fejfar\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)",
+      "pro": {
+       "count": 7,
+       "names": [
+        "Milan Paluska",
+        "Ing. Petr Dürr",
+        "Ing. Martin Jedlička",
+        "Ing. Karel Krištoufek",
+        "Ivana Trčková",
+        "Ing. Hana Kuprová",
+        "Zdeněk Fejfar"
+       ],
+       "raw": "(7) Milan Paluska, Ing. Petr Dürr, Ing. Martin Jedlička, Ing. Karel Krištoufek, Ivana Trčková, Ing. Hana Kuprová, Zdeněk Fejfar"
+      },
+      "proti": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "zdrzel_se": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "nehlasoval": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "result_raw": "Návrh byl přijat jako usnesení číslo: UR-337-40/23",
+      "adopted_resolution_number": "UR-337-40/23"
+     }
+    ],
+    "resolution_numbers_mentioned": [
+     "UR-219-24/23",
+     "UR-337-40/23"
+    ],
+    "raw_text": "Předkladatel: Pavlína Nepovímová\nProjednávání bodu bylo zahájeno v 16:29:57\nDůvodová zpráva:\nPředkládám situaci na úpravu provozu pozemní komunikaci v ul. Kaštánkách. Vedení města se vypořádalo s námitkami obyvatel dotčených ulic (v Kaštánkách a Nymburská), jejich připomínky byly zapracované a schválené radou města UR-219-24/23. Vyjádření bylo zaslané 27.7.2023 na MěÚ\nKolín\n, Odbor dopravy.\nDiskuze zahájena v 16:29:58\nK tomuto bodu se vyjádřili: Milan Paluska, Ing. Martin Jedlička, Ing. Karel Krištoufek, Ing. Hana Kuprová\nV 16:34:58 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Pavlína Nepovímová\") v tomto znění:\nRada\nměsta doporučuje zastupitelstvu města schválit obnovení obousměrného provozu v ulici V Kaštánkách, Pečky.\nHlasování\npro:\n(7) Milan Paluska, Ing. Petr Dürr, Ing. Martin Jedlička, Ing. Karel Krištoufek, Ivana Trčková, Ing. Hana Kuprová, Zdeněk Fejfar\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-337-40/23\nzodpovídá:\ntermín:\nIHNED\n(20. 11. 2023)\nProjednávání bodu bylo ukončeno v 16:35:04"
+   },
+   {
+    "number": 7,
+    "title_raw": "Pracovní pozice - sociální pracovník",
+    "heading_raw": "7. Pracovní pozice - sociální pracovník (bod číslo 7)",
+    "predkladatel": "Pavlína Nepovímová",
+    "votes": [
+     {
+      "raw_text": "pro:\n(7) Ing. Martin Jedlička, Ing. Hana Kuprová, Ing. Petr Dürr, Milan Paluska, Ivana Trčková, Zdeněk Fejfar, Ing. Karel Krištoufek\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)",
+      "pro": {
+       "count": 7,
+       "names": [
+        "Ing. Martin Jedlička",
+        "Ing. Hana Kuprová",
+        "Ing. Petr Dürr",
+        "Milan Paluska",
+        "Ivana Trčková",
+        "Zdeněk Fejfar",
+        "Ing. Karel Krištoufek"
+       ],
+       "raw": "(7) Ing. Martin Jedlička, Ing. Hana Kuprová, Ing. Petr Dürr, Milan Paluska, Ivana Trčková, Zdeněk Fejfar, Ing. Karel Krištoufek"
+      },
+      "proti": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "zdrzel_se": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "nehlasoval": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "result_raw": "Návrh byl přijat jako usnesení číslo: UR-338-40/23",
+      "adopted_resolution_number": "UR-338-40/23"
+     }
+    ],
+    "resolution_numbers_mentioned": [
+     "UR-338-40/23"
+    ],
+    "raw_text": "Předkladatel: Pavlína Nepovímová\nProjednávání bodu bylo zahájeno v 16:35:08\nDůvodová zpráva:\nPředkládám požadavek na znovu zveřejnění inzerátu na pracovní pozici \"Sociální pracovník\".\nDiskuze zahájena v 16:35:08\nK tomuto bodu se vyjádřili: Milan Paluska, Pavlína Nepovímová, Ing. Martin Jedlička, Ing. Karel Krištoufek\nV 16:39:28 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Pavlína Nepovímová\") v tomto znění:\nRada\nměsta schvaluje uveřejnění inzerátu na pozici \"Sociální pracovník\".\nHlasování\npro:\n(7) Ing. Martin Jedlička, Ing. Hana Kuprová, Ing. Petr Dürr, Milan Paluska, Ivana Trčková, Zdeněk Fejfar, Ing. Karel Krištoufek\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-338-40/23\nzodpovídá:\ntermín:\nIHNED\n(20. 11. 2023)\nProjednávání bodu bylo ukončeno v 16:40:18"
+   },
+   {
+    "number": 8,
+    "title_raw": "Žádost o dotaci - Farní sbor ČCE",
+    "heading_raw": "8. Žádost o dotaci - Farní sbor ČCE (bod číslo 8)",
+    "predkladatel": "Marcela Bahníková",
+    "votes": [
+     {
+      "raw_text": "pro:\n(7) Milan Paluska, Ing. Martin Jedlička, Ing. Petr Dürr, Ing. Karel Krištoufek, Zdeněk Fejfar, Ing. Hana Kuprová, Ivana Trčková\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)",
+      "pro": {
+       "count": 7,
+       "names": [
+        "Milan Paluska",
+        "Ing. Martin Jedlička",
+        "Ing. Petr Dürr",
+        "Ing. Karel Krištoufek",
+        "Zdeněk Fejfar",
+        "Ing. Hana Kuprová",
+        "Ivana Trčková"
+       ],
+       "raw": "(7) Milan Paluska, Ing. Martin Jedlička, Ing. Petr Dürr, Ing. Karel Krištoufek, Zdeněk Fejfar, Ing. Hana Kuprová, Ivana Trčková"
+      },
+      "proti": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "zdrzel_se": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "nehlasoval": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "result_raw": "Návrh byl přijat jako usnesení číslo: UR-339-40/23",
+      "adopted_resolution_number": "UR-339-40/23"
+     }
+    ],
+    "resolution_numbers_mentioned": [
+     "UR-339-40/23"
+    ],
+    "raw_text": "Předkladatel: Marcela Bahníková\nProjednávání bodu bylo zahájeno v 16:40:29\nDůvodová zpráva:\nFarní sbor ČCE žádá o dotaci 15 000 Kč na uspořádání koncertu pro veřejnost dne 10.12.2023 v evangelickém kostele v Pečkách. V letošním roce byla již poskytnuta dotace 15 000 Kč na koncert v březnu.\nDiskuze zahájena v 16:40:29\nK tomuto bodu se vyjádřili: Milan Paluska\nV 16:45:40 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Marcela Bahníková\") v tomto znění:\nRada\nměsta schvaluje poskytnutí dotace ve výši 15 000 Kč Farnímu sboru Českobratrské církve evangelické v Pečkách, IČO 45826609, na uspořádání koncertu a uzavření veřejnoprávní smlouvy o poskytnutí dotace.\nHlasování\npro:\n(7) Milan Paluska, Ing. Martin Jedlička, Ing. Petr Dürr, Ing. Karel Krištoufek, Zdeněk Fejfar, Ing. Hana Kuprová, Ivana Trčková\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-339-40/23\nzodpovídá:\nMarcela Bahníková\ntermín:\n4. 12. 2023\nProjednávání bodu bylo ukončeno v 16:45:48"
+   },
+   {
+    "number": 10,
+    "title_raw": "Žádost o příspěvek RYTMUS o.p.s.",
+    "heading_raw": "9. Žádost o příspěvek RYTMUS o.p.s. (bod číslo 10)",
+    "predkladatel": "Marcela Bahníková",
+    "votes": [
+     {
+      "raw_text": "pro:\n(7) Ing. Martin Jedlička, Milan Paluska, Ing. Petr Dürr, Ivana Trčková, Zdeněk Fejfar, Ing. Karel Krištoufek, Ing. Hana Kuprová\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)",
+      "pro": {
+       "count": 7,
+       "names": [
+        "Ing. Martin Jedlička",
+        "Milan Paluska",
+        "Ing. Petr Dürr",
+        "Ivana Trčková",
+        "Zdeněk Fejfar",
+        "Ing. Karel Krištoufek",
+        "Ing. Hana Kuprová"
+       ],
+       "raw": "(7) Ing. Martin Jedlička, Milan Paluska, Ing. Petr Dürr, Ivana Trčková, Zdeněk Fejfar, Ing. Karel Krištoufek, Ing. Hana Kuprová"
+      },
+      "proti": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "zdrzel_se": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "nehlasoval": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "result_raw": "Návrh byl přijat jako usnesení číslo: UR-340-40/23",
+      "adopted_resolution_number": "UR-340-40/23"
+     }
+    ],
+    "resolution_numbers_mentioned": [
+     "UR-340-40/23"
+    ],
+    "raw_text": "Předkladatel: Marcela Bahníková\nProjednávání bodu bylo zahájeno v 16:45:54\nDůvodová zpráva:\nRYTMUS Stř. Čechy o.p.s. žádá o příspěvek na poskytování sociálních služeb. Služby společnosti v roce 2023 jsou poskytovány i 2 občanům z\nPeček\n. Navrhujeme poskytnout dar ve výši 10 000 Kč.\nDiskuze zahájena v 16:45:54\nK tomuto bodu se vyjádřili: Milan Paluska, Ing. Karel Krištoufek\nV 16:49:57 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Marcela Bahníková\") v tomto znění:\nRada\nměsta schvaluje poskytnutí  daru 10 000 Kč  společnosti RYTMUS Střední Čechy o.p.s., IČO 27903508.\nHlasování\npro:\n(7) Ing. Martin Jedlička, Milan Paluska, Ing. Petr Dürr, Ivana Trčková, Zdeněk Fejfar, Ing. Karel Krištoufek, Ing. Hana Kuprová\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-340-40/23\nzodpovídá:\nMarcela Bahníková\ntermín:\n4. 12. 2023\nProjednávání bodu bylo ukončeno v 16:50:04"
+   },
+   {
+    "number": 11,
+    "title_raw": "Žádost o souhlas s podáním žádosti o dotaci - Knihovna",
+    "heading_raw": "10. Žádost o souhlas s podáním žádosti o dotaci - Knihovna (bod číslo 11)",
+    "predkladatel": "Marcela Bahníková",
+    "votes": [
+     {
+      "raw_text": "pro:\n(7) Ing. Martin Jedlička, Ing. Petr Dürr, Ing. Hana Kuprová, Ivana Trčková, Zdeněk Fejfar, Ing. Karel Krištoufek, Milan Paluska\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)",
+      "pro": {
+       "count": 7,
+       "names": [
+        "Ing. Martin Jedlička",
+        "Ing. Petr Dürr",
+        "Ing. Hana Kuprová",
+        "Ivana Trčková",
+        "Zdeněk Fejfar",
+        "Ing. Karel Krištoufek",
+        "Milan Paluska"
+       ],
+       "raw": "(7) Ing. Martin Jedlička, Ing. Petr Dürr, Ing. Hana Kuprová, Ivana Trčková, Zdeněk Fejfar, Ing. Karel Krištoufek, Milan Paluska"
+      },
+      "proti": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "zdrzel_se": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "nehlasoval": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "result_raw": "Návrh byl přijat jako usnesení číslo: UR-341-40/23",
+      "adopted_resolution_number": "UR-341-40/23"
+     }
+    ],
+    "resolution_numbers_mentioned": [
+     "UR-341-40/23"
+    ],
+    "raw_text": "Předkladatel: Marcela Bahníková\nProjednávání bodu bylo zahájeno v 16:50:14\nDůvodová zpráva:\nMěstská knihovna žádá zřizovatele o souhlas s podáním žádosti o dotaci na vydání knihy o malíři\nKulveitovi\n- viz příloha.\nDiskuze zahájena v 16:50:14\nK tomuto bodu se vyjádřili: Milan Paluska\nV 16:51:29 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Marcela Bahníková\") v tomto znění:\nRada\nměsta souhlasí s podáním žádosti o dotaci od Středočeského kraje na vydání publikace o B.\nKulveitovi\nMěstskou knihovnou\nSvatopluka\nČecha\n.\nHlasování\npro:\n(7) Ing. Martin Jedlička, Ing. Petr Dürr, Ing. Hana Kuprová, Ivana Trčková, Zdeněk Fejfar, Ing. Karel Krištoufek, Milan Paluska\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-341-40/23\nzodpovídá:\nMarcela Bahníková\ntermín:\n4. 12. 2023\nProjednávání bodu bylo ukončeno v 16:51:37"
+   },
+   {
+    "number": 12,
+    "title_raw": "Kontrola plnění usnesení",
+    "heading_raw": "11. Kontrola plnění usnesení (bod číslo 12)",
+    "predkladatel": "Milan Paluska",
+    "votes": [],
+    "resolution_numbers_mentioned": [],
+    "raw_text": "Předkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 16:51:44\nDiskuze zahájena v 16:51:44\nK tomuto bodu se vyjádřili: Milan Paluska, Pavlína Nepovímová\nRada bere materiály předložené k bodu č. 12 -\nKontrola plnění usnesení\nna vědomí.\nProjednávání bodu bylo ukončeno v 16:52:22\nJednání ukončeno 20.11.2023 v 16:52:52"
+   }
+  ],
+  "full_text": "ZÁPIS ze schůze rady č. 40/2023\nMěsto Pečky\ndatum: 20. 11. 2023, čas: 15:00\n​\nPrezence:\nPřítomni:\n(7) Zdeněk Fejfar, Milan Paluska, Ing. Martin Jedlička, Ing. Petr Dürr, Ivana Trčková, Ing. Hana Kuprová, Ing. Karel Krištoufek\nOmluveni:\n(0)\nNepřítomni:\n(0)\nHosté:\nZapisovatel/ka:\nEva Strnadová\nPřítomno je 7 členů a rada je usnášeníschopná.\nJednání zahájeno 20.11.2023 v 15:09:51\n1. Určení zapisovatelů, předsedajícího, příp. ověřovatelů (bod číslo 1)\nPředkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 15:09:57\nPředsedající navrhl jednotlivé členy pracovních komisí\nOvěřovatelé:\nIng. Karel Krištoufek, Zdeněk Fejfar\nPředsedající:\nMilan Paluska\nBod byl přijat bez hlasování.\nDiskuze zahájena v 15:09:57\nK tomuto bodu se vyjádřili: Milan Paluska\nProjednávání bodu bylo ukončeno v 15:11:09\n2. Schválení programu jednání (bod číslo 2)\nPředkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 15:11:14\nProgram jednání\n1. Určení zapisovatelů, předsedajícího, příp. ověřovatelů\n2. Schválení programu jednání\n3. Aktuální informace vedení města\n4. Zveřejnění záměru na pronájem části pozemku č. parc. 1927/1 v obci a k.ú. Pečky\n5. Termín a program ZM dne 29.11.2023\n6. Obnovení obousměrného provozu v ul. V Kaštánkách, K.Ú. Pečky\n7. Pracovní pozice - sociální pracovník\n8. Žádost o dotaci - Farní sbor ČCE\n9. Pečovatelská služba - závazné ukazatele\n10. Žádost o příspěvek RYTMUS o.p.s.\n11. Žádost o souhlas s podáním žádosti o dotaci - Knihovna\n12. Kontrola plnění usnesení\nDiskuze zahájena v 15:11:14\nK tomuto bodu se vyjádřili: Milan Paluska\nV 15:12:29 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Milan Paluska\") v tomto znění:\nRada\nměsta schvaluje návrh programu jednání.\ns těmito změnami:\n- stahuje se bod č. 9 - Pečovatelská služba - závazné ukazatele\nHlasování\npro:\n(7) Ing. Hana Kuprová, Milan Paluska, Ing. Martin Jedlička, Ing. Petr Dürr, Ivana Trčková, Zdeněk Fejfar, Ing. Karel Krištoufek\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-334-40/23\nzodpovídá:\ntermín:\nIHNED\n(20. 11. 2023)\nProjednávání bodu bylo ukončeno v 15:12:38\n3. Aktuální informace vedení města (bod číslo 3)\nPředkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 15:13:06\nDůvodová zpráva:\nstarosta města\n- informace o kontrolním dni akce - dopravní ostrůvek ve V. Chvalovicích - nutná sanace podloží, předložen změnový list na zasedání ZM\n- informace o kontrolním dni akce - kabiny AFK Pečky\n- informace o schůzce se starostkou obce Tatce a starostou obce\nMilčice\nve věci připojení obce Tatce na pečecký vodovod\n- informace o schůzce s p. Kaplanem, majitelem pozemku v lokalitě\nPod\nDrahou ve věci výstavby RD\n- informace o přípravě rozpočtu na rok 2024\nDiskuze zahájena v 15:13:06\nK tomuto bodu se vyjádřili: Milan Paluska, Zdeněk Fejfar, Ing. Karel Krištoufek, Ing. Petr Dürr, Ivana Trčková\nRada bere materiály předložené k bodu č. 3 -\nAktuální informace vedení města\nna vědomí.\nProjednávání bodu bylo ukončeno v 16:01:11\n4. Zveřejnění záměru na pronájem části pozemku č. parc. 1927/1 v obci a k.ú. Pečky (bod číslo 4)\nPředkladatel: Jana Najbrtová\nProjednávání bodu bylo zahájeno v 16:01:15\nDůvodová zpráva:\nNavrhujeme zveřejnit záměr na pronájem pozemku na dobu neurčitou. Doposud byl záměr zveřejněn vždy na konci roku a smlouva byla uzavřena na dobu určitou tzn.1 rok. Při uzavírání jednoleté smlouvy se musí vždy zveřejňovat záměr. V případě uzavření smlouvy na dobu neurčitou s výpovědní lhůtou 2 měsíce by tento krok odpadl.\nDiskuze zahájena v 16:01:15\nK tomuto bodu se vyjádřili: Milan Paluska, Ing. Martin Jedlička, Ing. Petr Dürr, Ing. Karel Krištoufek, Jana Najbrtová\nV 16:16:04 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Jana Najbrtová\") v tomto znění:\nRada\nměsta schvaluje zveřejnění záměru na pronájem části pozemku č. parc. 1927/1  (cca 20 m\n2\n) v obci a k.ú. Pečky u bytového domu  čp. 746-748 v ul. Přátelství za těchto podmínek:\n- pronájem se týká části pozemku pod plechovou garáží u domu čp. 746-748 do cca 20 m\n2\n- nájem činí 200,- Kč/garáž/měsíc (tzn. 2.400,- Kč/rok)\n- nájemní smlouva bude uzavřena od 1. 1. 2024 na dobu neurčitou s 2 měsíční výpovědní lhůtou\n- pronajímatel zajistí sepsání nájemní smlouvy\nHlasování\npro:\n(5) Ing. Karel Krištoufek, Ing. Petr Dürr, Ing. Hana Kuprová, Ivana Trčková, Milan Paluska\nproti\n(0)\nzdržel se:\n(2) Ing. Martin Jedlička, Zdeněk Fejfar\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-335-40/23\nzodpovídá:\nJana Najbrtová\ntermín:\n31. 1. 2024\nProjednávání bodu bylo ukončeno v 16:16:17\n5. Termín a program ZM dne 29.11.2023 (bod číslo 5)\nPředkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 16:16:21\nDůvodová zpráva:\nProjednání termínu a programu zasedání ZM dne 29.11.2023 od 17.30 hodin v Kulturním domě Pečky.\nDiskuze zahájena v 16:16:21\nK tomuto bodu se vyjádřili: Milan Paluska, Zdeněk Fejfar, Ing. Karel Krištoufek, Ing. Hana Kuprová, Pavlína Nepovímová, Ivana Trčková\nV 16:29:45 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Milan Paluska\") v tomto znění:\nRada\nměsta schvaluje termín a program zasedání ZM dne 29.11.2023 od 17.30 hodin v Kulturním domě Pečky, Tř.\nJana\nŠvermy, čp. 255, Pečky.\nHlasování\npro:\n(7) Ing. Martin Jedlička, Milan Paluska, Ing. Petr Dürr, Ing. Karel Krištoufek, Ing. Hana Kuprová, Zdeněk Fejfar, Ivana Trčková\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-336-40/23\nzodpovídá:\nMilan Paluska\ntermín:\n4. 12. 2023\nProjednávání bodu bylo ukončeno v 16:29:53\n6. Obnovení obousměrného provozu v ul. V Kaštánkách, K.Ú. Pečky (bod číslo 6)\nPředkladatel: Pavlína Nepovímová\nProjednávání bodu bylo zahájeno v 16:29:57\nDůvodová zpráva:\nPředkládám situaci na úpravu provozu pozemní komunikaci v ul. Kaštánkách. Vedení města se vypořádalo s námitkami obyvatel dotčených ulic (v Kaštánkách a Nymburská), jejich připomínky byly zapracované a schválené radou města UR-219-24/23. Vyjádření bylo zaslané 27.7.2023 na MěÚ\nKolín\n, Odbor dopravy.\nDiskuze zahájena v 16:29:58\nK tomuto bodu se vyjádřili: Milan Paluska, Ing. Martin Jedlička, Ing. Karel Krištoufek, Ing. Hana Kuprová\nV 16:34:58 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Pavlína Nepovímová\") v tomto znění:\nRada\nměsta doporučuje zastupitelstvu města schválit obnovení obousměrného provozu v ulici V Kaštánkách, Pečky.\nHlasování\npro:\n(7) Milan Paluska, Ing. Petr Dürr, Ing. Martin Jedlička, Ing. Karel Krištoufek, Ivana Trčková, Ing. Hana Kuprová, Zdeněk Fejfar\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-337-40/23\nzodpovídá:\ntermín:\nIHNED\n(20. 11. 2023)\nProjednávání bodu bylo ukončeno v 16:35:04\n7. Pracovní pozice - sociální pracovník (bod číslo 7)\nPředkladatel: Pavlína Nepovímová\nProjednávání bodu bylo zahájeno v 16:35:08\nDůvodová zpráva:\nPředkládám požadavek na znovu zveřejnění inzerátu na pracovní pozici \"Sociální pracovník\".\nDiskuze zahájena v 16:35:08\nK tomuto bodu se vyjádřili: Milan Paluska, Pavlína Nepovímová, Ing. Martin Jedlička, Ing. Karel Krištoufek\nV 16:39:28 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Pavlína Nepovímová\") v tomto znění:\nRada\nměsta schvaluje uveřejnění inzerátu na pozici \"Sociální pracovník\".\nHlasování\npro:\n(7) Ing. Martin Jedlička, Ing. Hana Kuprová, Ing. Petr Dürr, Milan Paluska, Ivana Trčková, Zdeněk Fejfar, Ing. Karel Krištoufek\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-338-40/23\nzodpovídá:\ntermín:\nIHNED\n(20. 11. 2023)\nProjednávání bodu bylo ukončeno v 16:40:18\n8. Žádost o dotaci - Farní sbor ČCE (bod číslo 8)\nPředkladatel: Marcela Bahníková\nProjednávání bodu bylo zahájeno v 16:40:29\nDůvodová zpráva:\nFarní sbor ČCE žádá o dotaci 15 000 Kč na uspořádání koncertu pro veřejnost dne 10.12.2023 v evangelickém kostele v Pečkách. V letošním roce byla již poskytnuta dotace 15 000 Kč na koncert v březnu.\nDiskuze zahájena v 16:40:29\nK tomuto bodu se vyjádřili: Milan Paluska\nV 16:45:40 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Marcela Bahníková\") v tomto znění:\nRada\nměsta schvaluje poskytnutí dotace ve výši 15 000 Kč Farnímu sboru Českobratrské církve evangelické v Pečkách, IČO 45826609, na uspořádání koncertu a uzavření veřejnoprávní smlouvy o poskytnutí dotace.\nHlasování\npro:\n(7) Milan Paluska, Ing. Martin Jedlička, Ing. Petr Dürr, Ing. Karel Krištoufek, Zdeněk Fejfar, Ing. Hana Kuprová, Ivana Trčková\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-339-40/23\nzodpovídá:\nMarcela Bahníková\ntermín:\n4. 12. 2023\nProjednávání bodu bylo ukončeno v 16:45:48\n9. Žádost o příspěvek RYTMUS o.p.s. (bod číslo 10)\nPředkladatel: Marcela Bahníková\nProjednávání bodu bylo zahájeno v 16:45:54\nDůvodová zpráva:\nRYTMUS Stř. Čechy o.p.s. žádá o příspěvek na poskytování sociálních služeb. Služby společnosti v roce 2023 jsou poskytovány i 2 občanům z\nPeček\n. Navrhujeme poskytnout dar ve výši 10 000 Kč.\nDiskuze zahájena v 16:45:54\nK tomuto bodu se vyjádřili: Milan Paluska, Ing. Karel Krištoufek\nV 16:49:57 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Marcela Bahníková\") v tomto znění:\nRada\nměsta schvaluje poskytnutí  daru 10 000 Kč  společnosti RYTMUS Střední Čechy o.p.s., IČO 27903508.\nHlasování\npro:\n(7) Ing. Martin Jedlička, Milan Paluska, Ing. Petr Dürr, Ivana Trčková, Zdeněk Fejfar, Ing. Karel Krištoufek, Ing. Hana Kuprová\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-340-40/23\nzodpovídá:\nMarcela Bahníková\ntermín:\n4. 12. 2023\nProjednávání bodu bylo ukončeno v 16:50:04\n10. Žádost o souhlas s podáním žádosti o dotaci - Knihovna (bod číslo 11)\nPředkladatel: Marcela Bahníková\nProjednávání bodu bylo zahájeno v 16:50:14\nDůvodová zpráva:\nMěstská knihovna žádá zřizovatele o souhlas s podáním žádosti o dotaci na vydání knihy o malíři\nKulveitovi\n- viz příloha.\nDiskuze zahájena v 16:50:14\nK tomuto bodu se vyjádřili: Milan Paluska\nV 16:51:29 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Marcela Bahníková\") v tomto znění:\nRada\nměsta souhlasí s podáním žádosti o dotaci od Středočeského kraje na vydání publikace o B.\nKulveitovi\nMěstskou knihovnou\nSvatopluka\nČecha\n.\nHlasování\npro:\n(7) Ing. Martin Jedlička, Ing. Petr Dürr, Ing. Hana Kuprová, Ivana Trčková, Zdeněk Fejfar, Ing. Karel Krištoufek, Milan Paluska\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-341-40/23\nzodpovídá:\nMarcela Bahníková\ntermín:\n4. 12. 2023\nProjednávání bodu bylo ukončeno v 16:51:37\n11. Kontrola plnění usnesení (bod číslo 12)\nPředkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 16:51:44\nDiskuze zahájena v 16:51:44\nK tomuto bodu se vyjádřili: Milan Paluska, Pavlína Nepovímová\nRada bere materiály předložené k bodu č. 12 -\nKontrola plnění usnesení\nna vědomí.\nProjednávání bodu bylo ukončeno v 16:52:22\nJednání ukončeno 20.11.2023 v 16:52:52"
+ },
+ "resolutions": {
+  "status": "ok",
+  "url": "https://mesto-pecky.usneseni.cz/verejne/a90c38cd-82b4-11ee-962e-00505683238f/usneseni/",
+  "fetched_at": "2026-08-04T14:00:34.567003+00:00",
+  "items": [
+   {
+    "number_raw": "UR-334-40/23",
+    "detail_id": 50200,
+    "detail_url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/50200?mod=rada",
+    "agenda_item_raw": "Schválení programu jednání",
+    "text_verbatim": "Rada\nměsta schvaluje návrh programu jednání.\ns těmito změnami:\n- stahuje se bod č. 9 - Pečovatelská služba - závazné ukazatele",
+    "cell_text_raw": "Bod programu:\nSchválení programu jednání\nText přijatého usnesení:\nRada\nměsta schvaluje návrh programu jednání.\ns těmito změnami:\n- stahuje se bod č. 9 - Pečovatelská služba - závazné ukazatele",
+    "date_raw": "20. 11. 2023",
+    "date_iso": "2023-11-20",
+    "responsible_raw": "",
+    "deadline_raw": "IHNED (20. 11. 2023)",
+    "vote": {
+     "raw_text": "pro: 7 proti: 0 zdržel se: 0",
+     "pro": {
+      "count": 7,
+      "names": null,
+      "raw": "7"
+     },
+     "proti": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     },
+     "zdrzel_se": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     }
+    },
+    "detail": {
+     "number_raw": "UR-334-40/23",
+     "text_verbatim": "Rada města schvaluje návrh programu jednání.\ns těmito změnami: - stahuje se bod č. 9 - Pečovatelská služba - závazné ukazatele",
+     "typ_raw": null,
+     "zodpovida_raw": "",
+     "prijato_raw": "20. 11. 2023 na jednání č. 40/2023",
+     "prijato_date_iso": "2023-11-20",
+     "prijato_meeting_label": "40/2023",
+     "termin_raw": "IHNED (20. 11. 2023)",
+     "ukonceno_raw": "20. 11. 2023",
+     "ukonceno_date_iso": "2023-11-20",
+     "fields_raw": {
+      "Číslo usnesení": "UR-334-40/23",
+      "Text usnesení": "Rada města schvaluje návrh programu jednání.\ns těmito změnami: - stahuje se bod č. 9 - Pečovatelská služba - závazné ukazatele",
+      "Zodpovídá": "",
+      "Přijato": "20. 11. 2023 na jednání č. 40/2023",
+      "Termín": "IHNED (20. 11. 2023)",
+      "Ukončeno": "20. 11. 2023"
+     }
+    }
+   },
+   {
+    "number_raw": "UR-335-40/23",
+    "detail_id": 50256,
+    "detail_url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/50256?mod=rada",
+    "agenda_item_raw": "Zveřejnění záměru na pronájem části pozemku č. parc. 1927/1 v obci a k.ú. Pečky",
+    "text_verbatim": "Rada\nměsta schvaluje zveřejnění záměru na pronájem části pozemku č. parc. 1927/1  (cca 20 m\n2\n) v obci a k.ú. Pečky u bytového domu  čp. 746-748 v ul. Přátelství za těchto podmínek:\n- pronájem se týká části pozemku pod plechovou garáží u domu čp. 746-748 do cca 20 m\n2\n- nájem činí 200,- Kč/garáž/měsíc (tzn. 2.400,- Kč/rok)\n- nájemní smlouva bude uzavřena od 1. 1. 2024 na dobu neurčitou s 2 měsíční výpovědní lhůtou\n- pronajímatel zajistí sepsání nájemní smlouvy",
+    "cell_text_raw": "Bod programu:\nZveřejnění záměru na pronájem části pozemku č. parc. 1927/1 v obci a k.ú. Pečky\nText přijatého usnesení:\nRada\nměsta schvaluje zveřejnění záměru na pronájem části pozemku č. parc. 1927/1  (cca 20 m\n2\n) v obci a k.ú. Pečky u bytového domu  čp. 746-748 v ul. Přátelství za těchto podmínek:\n- pronájem se týká části pozemku pod plechovou garáží u domu čp. 746-748 do cca 20 m\n2\n- nájem činí 200,- Kč/garáž/měsíc (tzn. 2.400,- Kč/rok)\n- nájemní smlouva bude uzavřena od 1. 1. 2024 na dobu neurčitou s 2 měsíční výpovědní lhůtou\n- pronajímatel zajistí sepsání nájemní smlouvy",
+    "date_raw": "20. 11. 2023",
+    "date_iso": "2023-11-20",
+    "responsible_raw": "Jana Najbrtová",
+    "deadline_raw": "31. 1. 2024",
+    "vote": {
+     "raw_text": "pro: 5 proti: 0 zdržel se: 2",
+     "pro": {
+      "count": 5,
+      "names": null,
+      "raw": "5"
+     },
+     "proti": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     },
+     "zdrzel_se": {
+      "count": 2,
+      "names": null,
+      "raw": "2"
+     }
+    },
+    "detail": {
+     "number_raw": "UR-335-40/23",
+     "text_verbatim": "Rada města schvaluje zveřejnění záměru na pronájem části pozemku č. parc. 1927/1  (cca 20 m 2 ) v obci a k.ú. Pečky u bytového domu  čp. 746-748 v ul. Přátelství za těchto podmínek: - pronájem se týká části pozemku pod plechovou garáží u domu čp. 746-748 do cca 20 m 2 - nájem činí 200,- Kč/garáž/měsíc (tzn. 2.400,- Kč/rok) - nájemní smlouva bude uzavřena od 1. 1. 2024 na dobu neurčitou s 2 měsíční výpovědní lhůtou - pronajímatel zajistí sepsání nájemní smlouvy",
+     "typ_raw": null,
+     "zodpovida_raw": "Jana Najbrtová",
+     "prijato_raw": "20. 11. 2023 na jednání č. 40/2023",
+     "prijato_date_iso": "2023-11-20",
+     "prijato_meeting_label": "40/2023",
+     "termin_raw": "31. 1. 2024",
+     "ukonceno_raw": "6. 12. 2023",
+     "ukonceno_date_iso": "2023-12-06",
+     "fields_raw": {
+      "Číslo usnesení": "UR-335-40/23",
+      "Text usnesení": "Rada města schvaluje zveřejnění záměru na pronájem části pozemku č. parc. 1927/1  (cca 20 m 2 ) v obci a k.ú. Pečky u bytového domu  čp. 746-748 v ul. Přátelství za těchto podmínek: - pronájem se týká části pozemku pod plechovou garáží u domu čp. 746-748 do cca 20 m 2 - nájem činí 200,- Kč/garáž/měsíc (tzn. 2.400,- Kč/rok) - nájemní smlouva bude uzavřena od 1. 1. 2024 na dobu neurčitou s 2 měsíční výpovědní lhůtou - pronajímatel zajistí sepsání nájemní smlouvy",
+      "Zodpovídá": "Jana Najbrtová",
+      "Přijato": "20. 11. 2023 na jednání č. 40/2023",
+      "Termín": "31. 1. 2024",
+      "Ukončeno": "6. 12. 2023"
+     }
+    }
+   },
+   {
+    "number_raw": "UR-336-40/23",
+    "detail_id": 50448,
+    "detail_url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/50448?mod=rada",
+    "agenda_item_raw": "Termín a program ZM dne 29.11.2023",
+    "text_verbatim": "Rada\nměsta schvaluje termín a program zasedání ZM dne 29.11.2023 od 17.30 hodin v Kulturním domě Pečky, Tř.\nJana\nŠvermy, čp. 255, Pečky.",
+    "cell_text_raw": "Bod programu:\nTermín a program ZM dne 29.11.2023\nText přijatého usnesení:\nRada\nměsta schvaluje termín a program zasedání ZM dne 29.11.2023 od 17.30 hodin v Kulturním domě Pečky, Tř.\nJana\nŠvermy, čp. 255, Pečky.",
+    "date_raw": "20. 11. 2023",
+    "date_iso": "2023-11-20",
+    "responsible_raw": "Milan Paluska",
+    "deadline_raw": "4. 12. 2023",
+    "vote": {
+     "raw_text": "pro: 7 proti: 0 zdržel se: 0",
+     "pro": {
+      "count": 7,
+      "names": null,
+      "raw": "7"
+     },
+     "proti": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     },
+     "zdrzel_se": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     }
+    },
+    "detail": {
+     "number_raw": "UR-336-40/23",
+     "text_verbatim": "Rada města schvaluje termín a program zasedání ZM dne 29.11.2023 od 17.30 hodin v Kulturním domě Pečky, Tř. Jana Švermy, čp. 255, Pečky.",
+     "typ_raw": null,
+     "zodpovida_raw": "Milan Paluska",
+     "prijato_raw": "20. 11. 2023 na jednání č. 40/2023",
+     "prijato_date_iso": "2023-11-20",
+     "prijato_meeting_label": "40/2023",
+     "termin_raw": "4. 12. 2023",
+     "ukonceno_raw": "5. 12. 2023",
+     "ukonceno_date_iso": "2023-12-05",
+     "fields_raw": {
+      "Číslo usnesení": "UR-336-40/23",
+      "Text usnesení": "Rada města schvaluje termín a program zasedání ZM dne 29.11.2023 od 17.30 hodin v Kulturním domě Pečky, Tř. Jana Švermy, čp. 255, Pečky.",
+      "Zodpovídá": "Milan Paluska",
+      "Přijato": "20. 11. 2023 na jednání č. 40/2023",
+      "Termín": "4. 12. 2023",
+      "Ukončeno": "5. 12. 2023"
+     }
+    }
+   },
+   {
+    "number_raw": "UR-337-40/23",
+    "detail_id": 50426,
+    "detail_url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/50426?mod=rada",
+    "agenda_item_raw": "Obnovení obousměrného provozu v ul. V Kaštánkách, K.Ú. Pečky",
+    "text_verbatim": "Rada\nměsta doporučuje zastupitelstvu města schválit obnovení obousměrného provozu v ulici V Kaštánkách, Pečky.",
+    "cell_text_raw": "Bod programu:\nObnovení obousměrného provozu v ul. V Kaštánkách, K.Ú. Pečky\nText přijatého usnesení:\nRada\nměsta doporučuje zastupitelstvu města schválit obnovení obousměrného provozu v ulici V Kaštánkách, Pečky.",
+    "date_raw": "20. 11. 2023",
+    "date_iso": "2023-11-20",
+    "responsible_raw": "",
+    "deadline_raw": "IHNED (20. 11. 2023)",
+    "vote": {
+     "raw_text": "pro: 7 proti: 0 zdržel se: 0",
+     "pro": {
+      "count": 7,
+      "names": null,
+      "raw": "7"
+     },
+     "proti": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     },
+     "zdrzel_se": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     }
+    },
+    "detail": {
+     "number_raw": "UR-337-40/23",
+     "text_verbatim": "Rada města doporučuje zastupitelstvu města schválit obnovení obousměrného provozu v ulici V Kaštánkách, Pečky.",
+     "typ_raw": null,
+     "zodpovida_raw": "",
+     "prijato_raw": "20. 11. 2023 na jednání č. 40/2023",
+     "prijato_date_iso": "2023-11-20",
+     "prijato_meeting_label": "40/2023",
+     "termin_raw": "IHNED (20. 11. 2023)",
+     "ukonceno_raw": "20. 11. 2023",
+     "ukonceno_date_iso": "2023-11-20",
+     "fields_raw": {
+      "Číslo usnesení": "UR-337-40/23",
+      "Text usnesení": "Rada města doporučuje zastupitelstvu města schválit obnovení obousměrného provozu v ulici V Kaštánkách, Pečky.",
+      "Zodpovídá": "",
+      "Přijato": "20. 11. 2023 na jednání č. 40/2023",
+      "Termín": "IHNED (20. 11. 2023)",
+      "Ukončeno": "20. 11. 2023"
+     }
+    }
+   },
+   {
+    "number_raw": "UR-338-40/23",
+    "detail_id": 50447,
+    "detail_url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/50447?mod=rada",
+    "agenda_item_raw": "Pracovní pozice - sociální pracovník",
+    "text_verbatim": "Rada\nměsta schvaluje uveřejnění inzerátu na pozici \"Sociální pracovník\".",
+    "cell_text_raw": "Bod programu:\nPracovní pozice - sociální pracovník\nText přijatého usnesení:\nRada\nměsta schvaluje uveřejnění inzerátu na pozici \"Sociální pracovník\".",
+    "date_raw": "20. 11. 2023",
+    "date_iso": "2023-11-20",
+    "responsible_raw": "",
+    "deadline_raw": "IHNED (20. 11. 2023)",
+    "vote": {
+     "raw_text": "pro: 7 proti: 0 zdržel se: 0",
+     "pro": {
+      "count": 7,
+      "names": null,
+      "raw": "7"
+     },
+     "proti": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     },
+     "zdrzel_se": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     }
+    },
+    "detail": {
+     "number_raw": "UR-338-40/23",
+     "text_verbatim": "Rada města schvaluje uveřejnění inzerátu na pozici \"Sociální pracovník\".",
+     "typ_raw": null,
+     "zodpovida_raw": "",
+     "prijato_raw": "20. 11. 2023 na jednání č. 40/2023",
+     "prijato_date_iso": "2023-11-20",
+     "prijato_meeting_label": "40/2023",
+     "termin_raw": "IHNED (20. 11. 2023)",
+     "ukonceno_raw": "20. 11. 2023",
+     "ukonceno_date_iso": "2023-11-20",
+     "fields_raw": {
+      "Číslo usnesení": "UR-338-40/23",
+      "Text usnesení": "Rada města schvaluje uveřejnění inzerátu na pozici \"Sociální pracovník\".",
+      "Zodpovídá": "",
+      "Přijato": "20. 11. 2023 na jednání č. 40/2023",
+      "Termín": "IHNED (20. 11. 2023)",
+      "Ukončeno": "20. 11. 2023"
+     }
+    }
+   },
+   {
+    "number_raw": "UR-339-40/23",
+    "detail_id": 50591,
+    "detail_url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/50591?mod=rada",
+    "agenda_item_raw": "Žádost o dotaci - Farní sbor ČCE",
+    "text_verbatim": "Rada\nměsta schvaluje poskytnutí dotace ve výši 15 000 Kč Farnímu sboru Českobratrské církve evangelické v Pečkách, IČO 45826609, na uspořádání koncertu a uzavření veřejnoprávní smlouvy o poskytnutí dotace.",
+    "cell_text_raw": "Bod programu:\nŽádost o dotaci - Farní sbor ČCE\nText přijatého usnesení:\nRada\nměsta schvaluje poskytnutí dotace ve výši 15 000 Kč Farnímu sboru Českobratrské církve evangelické v Pečkách, IČO 45826609, na uspořádání koncertu a uzavření veřejnoprávní smlouvy o poskytnutí dotace.",
+    "date_raw": "20. 11. 2023",
+    "date_iso": "2023-11-20",
+    "responsible_raw": "Marcela Bahníková",
+    "deadline_raw": "4. 12. 2023",
+    "vote": {
+     "raw_text": "pro: 7 proti: 0 zdržel se: 0",
+     "pro": {
+      "count": 7,
+      "names": null,
+      "raw": "7"
+     },
+     "proti": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     },
+     "zdrzel_se": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     }
+    },
+    "detail": {
+     "number_raw": "UR-339-40/23",
+     "text_verbatim": "Rada města schvaluje poskytnutí dotace ve výši 15 000 Kč Farnímu sboru Českobratrské církve evangelické v Pečkách, IČO 45826609, na uspořádání koncertu a uzavření veřejnoprávní smlouvy o poskytnutí dotace.",
+     "typ_raw": null,
+     "zodpovida_raw": "Marcela Bahníková",
+     "prijato_raw": "20. 11. 2023 na jednání č. 40/2023",
+     "prijato_date_iso": "2023-11-20",
+     "prijato_meeting_label": "40/2023",
+     "termin_raw": "4. 12. 2023",
+     "ukonceno_raw": "4. 12. 2023",
+     "ukonceno_date_iso": "2023-12-04",
+     "fields_raw": {
+      "Číslo usnesení": "UR-339-40/23",
+      "Text usnesení": "Rada města schvaluje poskytnutí dotace ve výši 15 000 Kč Farnímu sboru Českobratrské církve evangelické v Pečkách, IČO 45826609, na uspořádání koncertu a uzavření veřejnoprávní smlouvy o poskytnutí dotace.",
+      "Zodpovídá": "Marcela Bahníková",
+      "Přijato": "20. 11. 2023 na jednání č. 40/2023",
+      "Termín": "4. 12. 2023",
+      "Ukončeno": "4. 12. 2023"
+     }
+    }
+   },
+   {
+    "number_raw": "UR-340-40/23",
+    "detail_id": 50593,
+    "detail_url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/50593?mod=rada",
+    "agenda_item_raw": "Žádost o příspěvek  RYTMUS o.p.s.",
+    "text_verbatim": "Rada\nměsta schvaluje poskytnutí  daru 10 000 Kč  společnosti RYTMUS Střední Čechy o.p.s., IČO 27903508.",
+    "cell_text_raw": "Bod programu:\nŽádost o příspěvek  RYTMUS o.p.s.\nText přijatého usnesení:\nRada\nměsta schvaluje poskytnutí  daru 10 000 Kč  společnosti RYTMUS Střední Čechy o.p.s., IČO 27903508.",
+    "date_raw": "20. 11. 2023",
+    "date_iso": "2023-11-20",
+    "responsible_raw": "Marcela Bahníková",
+    "deadline_raw": "4. 12. 2023",
+    "vote": {
+     "raw_text": "pro: 7 proti: 0 zdržel se: 0",
+     "pro": {
+      "count": 7,
+      "names": null,
+      "raw": "7"
+     },
+     "proti": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     },
+     "zdrzel_se": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     }
+    },
+    "detail": {
+     "number_raw": "UR-340-40/23",
+     "text_verbatim": "Rada města schvaluje poskytnutí  daru 10 000 Kč  společnosti RYTMUS Střední Čechy o.p.s., IČO 27903508.",
+     "typ_raw": null,
+     "zodpovida_raw": "Marcela Bahníková",
+     "prijato_raw": "20. 11. 2023 na jednání č. 40/2023",
+     "prijato_date_iso": "2023-11-20",
+     "prijato_meeting_label": "40/2023",
+     "termin_raw": "4. 12. 2023",
+     "ukonceno_raw": "29. 11. 2023",
+     "ukonceno_date_iso": "2023-11-29",
+     "fields_raw": {
+      "Číslo usnesení": "UR-340-40/23",
+      "Text usnesení": "Rada města schvaluje poskytnutí  daru 10 000 Kč  společnosti RYTMUS Střední Čechy o.p.s., IČO 27903508.",
+      "Zodpovídá": "Marcela Bahníková",
+      "Přijato": "20. 11. 2023 na jednání č. 40/2023",
+      "Termín": "4. 12. 2023",
+      "Ukončeno": "29. 11. 2023"
+     }
+    }
+   },
+   {
+    "number_raw": "UR-341-40/23",
+    "detail_id": 50598,
+    "detail_url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/50598?mod=rada",
+    "agenda_item_raw": "Žádost  o souhlas s podáním žádosti o dotaci - Knihovna",
+    "text_verbatim": "Rada\nměsta souhlasí s podáním žádosti o dotaci od Středočeského kraje na vydání publikace o B.\nKulveitovi\nMěstskou knihovnou\nSvatopluka\nČecha\n.",
+    "cell_text_raw": "Bod programu:\nŽádost  o souhlas s podáním žádosti o dotaci - Knihovna\nText přijatého usnesení:\nRada\nměsta souhlasí s podáním žádosti o dotaci od Středočeského kraje na vydání publikace o B.\nKulveitovi\nMěstskou knihovnou\nSvatopluka\nČecha\n.",
+    "date_raw": "20. 11. 2023",
+    "date_iso": "2023-11-20",
+    "responsible_raw": "Marcela Bahníková",
+    "deadline_raw": "4. 12. 2023",
+    "vote": {
+     "raw_text": "pro: 7 proti: 0 zdržel se: 0",
+     "pro": {
+      "count": 7,
+      "names": null,
+      "raw": "7"
+     },
+     "proti": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     },
+     "zdrzel_se": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     }
+    },
+    "detail": {
+     "number_raw": "UR-341-40/23",
+     "text_verbatim": "Rada města souhlasí s podáním žádosti o dotaci od Středočeského kraje na vydání publikace o B. Kulveitovi Městskou knihovnou Svatopluka Čecha .",
+     "typ_raw": null,
+     "zodpovida_raw": "Marcela Bahníková",
+     "prijato_raw": "20. 11. 2023 na jednání č. 40/2023",
+     "prijato_date_iso": "2023-11-20",
+     "prijato_meeting_label": "40/2023",
+     "termin_raw": "4. 12. 2023",
+     "ukonceno_raw": "27. 11. 2023",
+     "ukonceno_date_iso": "2023-11-27",
+     "fields_raw": {
+      "Číslo usnesení": "UR-341-40/23",
+      "Text usnesení": "Rada města souhlasí s podáním žádosti o dotaci od Středočeského kraje na vydání publikace o B. Kulveitovi Městskou knihovnou Svatopluka Čecha .",
+      "Zodpovídá": "Marcela Bahníková",
+      "Přijato": "20. 11. 2023 na jednání č. 40/2023",
+      "Termín": "4. 12. 2023",
+      "Ukončeno": "27. 11. 2023"
+     }
+    }
+   }
+  ]
+ }
+}

@@ -806,6 +806,55 @@ def _dash_rada(dnes):
     return '\n'.join(out)
 
 
+def _rel_minule(dny):
+    """Záloha textu chipu minulého data bez JS; stejná logika jako relDatum()
+    v assets/common.js (ten ji v prohlížeči přepočítá)."""
+    if dny <= 0:
+        return 'dnes'
+    if dny == 1:
+        return 'včera'
+    if dny < 14:
+        return f'před {dny} dny'
+    if dny < 28:
+        return f'před {dny // 7} týdny'
+    if dny < 60:
+        return 'před měsícem'
+    if dny < 365:
+        return f'před {max(2, int(dny / 30.4))} měsíci'
+    return 'před rokem' if dny < 730 else f'před {max(2, int(dny / 365.25))} lety'
+
+
+def _dash_rada_shrnuti():
+    """Banner „Z poslední Rady města“ pod bannery zasedání: nejdůležitější témata
+    z nejnovějšího jednání rady, které má soubor jednani/shrnuti/{datum}-rada.md
+    (blok „## Nejdůležitější témata“, číslované položky `**Název** — věta.`),
+    s tlačítkem na detail jednání. Bez souboru je výstup ''. Postup:
+    jednani/INSTRUKCE-shrnuti-schuzky.md."""
+    from datetime import date, date as _date
+    meetings = json.loads(read('jednani/pecky-jednani.json'))['meetings']
+    for m in sorted((m for m in meetings if m['type'] == 'Rada'), key=lambda m: m['date'], reverse=True):
+        cesta = f'jednani/shrnuti/{m["date"]}-rada.md'
+        if not (ROOT / cesta).exists():
+            continue
+        md = read(cesta)
+        blok = re.search(r'^##\s+Nejdůležitější témata\s*\n(.*?)(?=^##\s|\Z)', md, re.S | re.M)
+        pol = re.findall(r'^\d+\.\s+(.+)$', blok.group(1), re.M) if blok else []
+        if not pol:
+            return ''
+        li = ''.join('<li>' + re.sub(r'\*\*(.+?)\*\*', r'<strong>\1</strong>', esc(t)) + '</li>' for t in pol)
+        return ('<div class="dash-zm dash-zm--shrnuti">\n'
+                '  <aside class="banner"><div class="banner-body">'
+                '<h3 class="banner-title">Z poslední Rady města</h3>'
+                f'<p class="banner-meta"><span class="banner-meta-item">{ICO_KAL}<span>'
+                f'Jednání č. {m["number"]}/{m["year"]}, {iso_to_cz(m["date"])} '
+                f'<span class="tag rel-chip" data-date="{m["date"]}">'
+                f'{_rel_minule((date.today() - _date.fromisoformat(m["date"])).days)}</span></span></span></p>'
+                f'<ul class="banner-topics">{li}</ul>'
+                f'<div class="banner-actions"><a class="banner-cta" href="/jednani/#rada-{m["date"]}">'
+                'Detail jednání</a></div></div></aside>\n</div>')
+    return ''
+
+
 def _zm_po_kdy(dny):
     """„proběhlo včera / předevčírem / před N dny“ (dny = kolik dní je po zasedání)."""
     if dny <= 0:
@@ -1016,11 +1065,12 @@ def render_dashboard(stav_rows):
     zm, volby = _dash_zastupitelstvo(dnes)
     # dva samostatné sloupce (vlevo banner voleb + jednání + noviny, vpravo flashnews, akce): sloupce se nenatahují podle sebe, takže mezi bloky nevznikají mezery;
     # na užších displejích se sloupce rozpustí do mřížky (grid-area v styles.css)
-    levy = ([volby] if volby else []) + [_dash_noviny(), _dash_jednani(dnes)]
+    shrnuti = _dash_rada_shrnuti()
+    levy = ([volby] if volby else []) + ([shrnuti] if shrnuti else []) + [_dash_noviny(), _dash_jednani(dnes)]
     pravy = [_dash_zmeny(), _dash_kalendar(dnes)]
     sloupec = lambda karty: '<div class="dash-col">\n' + '\n'.join(karty) + '\n</div>'
     return (zm + '\n'
-            + f'<div class="dash-grid dash-bento{" dash-bento--volby" if volby else ""}">\n'
+            + f'<div class="dash-grid dash-bento{" dash-bento--volby" if volby else ""}{" dash-bento--rada" if shrnuti else ""}">\n'
             + sloupec(levy) + '\n' + sloupec(pravy) + '\n</div>')
 
 

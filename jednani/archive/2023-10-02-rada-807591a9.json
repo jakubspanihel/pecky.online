@@ -1,0 +1,386 @@
+{
+ "uuid": "807591a9-5c5e-11ee-962e-00505683238f",
+ "body_type_raw": "Rada",
+ "label_raw": "34/2023 (2. 10. 2023)",
+ "number": 34,
+ "year": 2023,
+ "date_iso": "2023-10-02",
+ "links": {
+  "invitation": "https://mesto-pecky.usneseni.cz/verejne/?uuid=807591a9-5c5e-11ee-962e-00505683238f&page=10&do=printPublicInvitation",
+  "minutes": "https://mesto-pecky.usneseni.cz/verejne/807591a9-5c5e-11ee-962e-00505683238f/zapis/?page=10",
+  "signed_minutes_pdf": "https://mesto-pecky.usneseni.cz/verejne/?meetingReportControl-uuid=807591a9-5c5e-11ee-962e-00505683238f&page=10&do=meetingReportControl-getSignedReportPdf",
+  "resolutions": "https://mesto-pecky.usneseni.cz/verejne/807591a9-5c5e-11ee-962e-00505683238f/usneseni/?page=10",
+  "audio": null
+ },
+ "link_texts": {
+  "invitation": "Pozvánka",
+  "minutes": "zápis",
+  "signed_minutes_pdf": "podepsaný zápis",
+  "resolutions": "přijatá usnesení"
+ },
+ "status": "ok",
+ "invitation": {
+  "status": "site_error",
+  "error": "status=200 ct=text/html; charset=utf-8 flash='<a href=\"\" class=\"close\" data-dismiss=\"alert\" aria-label=\"close\">&times;'",
+  "url": "https://mesto-pecky.usneseni.cz/verejne/?uuid=807591a9-5c5e-11ee-962e-00505683238f&do=printPublicInvitation",
+  "fetched_at": "2026-08-04T15:04:08.971690+00:00"
+ },
+ "minutes": {
+  "status": "ok",
+  "url": "https://mesto-pecky.usneseni.cz/verejne/807591a9-5c5e-11ee-962e-00505683238f/zapis/",
+  "fetched_at": "2026-08-04T14:02:52.909456+00:00",
+  "title_raw": "ZÁPIS ze schůze rady č. 34/2023 Město Pečky datum: 2. 10. 2023, čas: 15:00 ​",
+  "date_raw": "2. 10. 2023",
+  "date_iso": "2023-10-02",
+  "time_raw": "15:00",
+  "presence": {
+   "raw_text": "Prezence:\nPřítomni:\n(6) Zdeněk Fejfar, Milan Paluska, Ing. Martin Jedlička, Ing. Petr Dürr, Ivana Trčková, Ing. Karel Krištoufek\nOmluveni:\n(0)\nNepřítomni:\n(1) Ing. Hana Kuprová\nHosté:\nZapisovatel/ka:\nPavlína Nepovímová\nPřítomno je 6 členů a rada je usnášeníschopná.\nJednání zahájeno 02.10.2023 v 15:05:59",
+   "pritomni": {
+    "count": 6,
+    "names": [
+     "Zdeněk Fejfar",
+     "Milan Paluska",
+     "Ing. Martin Jedlička",
+     "Ing. Petr Dürr",
+     "Ivana Trčková",
+     "Ing. Karel Krištoufek"
+    ],
+    "raw": "(6) Zdeněk Fejfar, Milan Paluska, Ing. Martin Jedlička, Ing. Petr Dürr, Ivana Trčková, Ing. Karel Krištoufek"
+   },
+   "omluveni": {
+    "count": 0,
+    "names": [],
+    "raw": "(0)"
+   },
+   "nepritomni": {
+    "count": 1,
+    "names": [
+     "Ing. Hana Kuprová"
+    ],
+    "raw": "(1) Ing. Hana Kuprová"
+   },
+   "predsedajici": null,
+   "quorum_raw": "Přítomno je 6 členů a rada je usnášeníschopná."
+  },
+  "header_raw": "Prezence:\nPřítomni:\n(6) Zdeněk Fejfar, Milan Paluska, Ing. Martin Jedlička, Ing. Petr Dürr, Ivana Trčková, Ing. Karel Krištoufek\nOmluveni:\n(0)\nNepřítomni:\n(1) Ing. Hana Kuprová\nHosté:\nZapisovatel/ka:\nPavlína Nepovímová\nPřítomno je 6 členů a rada je usnášeníschopná.\nJednání zahájeno 02.10.2023 v 15:05:59",
+  "agenda_items": [
+   {
+    "number": 1,
+    "title_raw": "Určení zapisovatelů, předsedajícího, příp. ověřovatelů",
+    "heading_raw": "1. Určení zapisovatelů, předsedajícího, příp. ověřovatelů (bod číslo 1)",
+    "predkladatel": "Milan Paluska",
+    "votes": [],
+    "resolution_numbers_mentioned": [],
+    "raw_text": "Předkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 15:06:28\nPředsedající navrhl jednotlivé členy pracovních komisí\nOvěřovatelé:\nIvana Trčková, Ing. Martin Jedlička\nPředsedající:\nMilan Paluska\nBod byl přijat bez hlasování.\nDiskuze zahájena v 15:06:28\nProjednávání bodu bylo ukončeno v 15:06:46"
+   },
+   {
+    "number": 2,
+    "title_raw": "Schválení programu jednání",
+    "heading_raw": "2. Schválení programu jednání (bod číslo 2)",
+    "predkladatel": "Milan Paluska",
+    "votes": [
+     {
+      "raw_text": "pro:\n(6) Ing. Martin Jedlička, Milan Paluska, Ing. Karel Krištoufek, Ing. Petr Dürr, Zdeněk Fejfar, Ivana Trčková\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)",
+      "pro": {
+       "count": 6,
+       "names": [
+        "Ing. Martin Jedlička",
+        "Milan Paluska",
+        "Ing. Karel Krištoufek",
+        "Ing. Petr Dürr",
+        "Zdeněk Fejfar",
+        "Ivana Trčková"
+       ],
+       "raw": "(6) Ing. Martin Jedlička, Milan Paluska, Ing. Karel Krištoufek, Ing. Petr Dürr, Zdeněk Fejfar, Ivana Trčková"
+      },
+      "proti": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "zdrzel_se": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "nehlasoval": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "result_raw": "Návrh byl přijat jako usnesení číslo: UR-290-34/23",
+      "adopted_resolution_number": "UR-290-34/23"
+     }
+    ],
+    "resolution_numbers_mentioned": [
+     "UR-290-34/23"
+    ],
+    "raw_text": "Předkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 15:06:53\nProgram jednání\n1. Určení zapisovatelů, předsedajícího, příp. ověřovatelů\n2. Schválení programu jednání\n3. Aktuální informace vedení města\n4. Uzavření \"Smlouvy o zřízení VBř-služebnosti č. IV-12-6029522/VB/02“\n5. Zrušení výběrového řízení na dodavatele předmětu plnění VZMR \"Pořízení dopravního automobilu pro JSDH Pečky JPO-II\"\n6. Kontrola plnění usnesení\nDiskuze zahájena v 15:06:53\nV 15:07:15 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Milan Paluska\") v tomto znění:\nRada\nměsta schvaluje návrh programu jednání.\nHlasování\npro:\n(6) Ing. Martin Jedlička, Milan Paluska, Ing. Karel Krištoufek, Ing. Petr Dürr, Zdeněk Fejfar, Ivana Trčková\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-290-34/23\nzodpovídá:\ntermín:\nIHNED\n(2. 10. 2023)\nProjednávání bodu bylo ukončeno v 15:25:20"
+   },
+   {
+    "number": 3,
+    "title_raw": "Aktuální informace vedení města",
+    "heading_raw": "3. Aktuální informace vedení města (bod číslo 3)",
+    "predkladatel": "Milan Paluska",
+    "votes": [],
+    "resolution_numbers_mentioned": [],
+    "raw_text": "Předkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 15:25:27\nDůvodová zpráva:\nStarosta\nměsta\n-  informace o zrušení vodácké akce \"Vavřinecký potok\" z důvodu stavebních prací na mostu v Doubravčanech\n-  informace o opravě silnice v ulici\nHálkova\na Letohradská - opravu provádí Středočeský kraj, město Pečky vybuduje nové kanalizační vpusti a nový chodník\n-  informace o dokončení stavebních prací v kulturním středisku, kolaudace stavby dne 12.10.2023\n-  informace o nedodělcích stavebních prací v základní škole\n-  informace o vypsání VŘ na zhotovitele stavby akce - nové oplocení kolem Mateřské školy Mašinka Pečky\n-  informace o výročí 110 let od vysvěcení kostela - 14.10.2023\n-  informace o schůzce s PČR, MP, ředitelem Základní školy Pečky /hlavním tématem bezpečnost dětí/\nZdeněk\nFejfar\n-  informace o předání stavby spol. PKbau - ostrůvek ve Velkých Chvalovicích - začátek prací 23.10.2023\nDiskuze zahájena v 15:25:27\nK tomuto bodu se vyjádřili: Milan Paluska, Ing. Karel Krištoufek\nRada bere materiály předložené k bodu č. 3 -\nAktuální informace vedení města\nna vědomí.\nProjednávání bodu bylo ukončeno v 15:39:00"
+   },
+   {
+    "number": 4,
+    "title_raw": "Uzavření \"Smlouvy o zřízení VBř-služebnosti č. IV-12-6029522/VB/02“",
+    "heading_raw": "4. Uzavření \"Smlouvy o zřízení VBř-služebnosti č. IV-12-6029522/VB/02“ (bod číslo 4)",
+    "predkladatel": "Jana Najbrtová",
+    "votes": [
+     {
+      "raw_text": "pro:\n(6) Ing. Petr Dürr, Ing. Martin Jedlička, Ing. Karel Krištoufek, Zdeněk Fejfar, Ivana Trčková, Milan Paluska\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)",
+      "pro": {
+       "count": 6,
+       "names": [
+        "Ing. Petr Dürr",
+        "Ing. Martin Jedlička",
+        "Ing. Karel Krištoufek",
+        "Zdeněk Fejfar",
+        "Ivana Trčková",
+        "Milan Paluska"
+       ],
+       "raw": "(6) Ing. Petr Dürr, Ing. Martin Jedlička, Ing. Karel Krištoufek, Zdeněk Fejfar, Ivana Trčková, Milan Paluska"
+      },
+      "proti": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "zdrzel_se": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "nehlasoval": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "result_raw": "Návrh byl přijat jako usnesení číslo: UR-291-34/23",
+      "adopted_resolution_number": "UR-291-34/23"
+     }
+    ],
+    "resolution_numbers_mentioned": [
+     "UR-291-34/23"
+    ],
+    "raw_text": "Předkladatel: Jana Najbrtová\nProjednávání bodu bylo zahájeno v 15:39:08\nDůvodová zpráva:\nDoporučujeme schválit výše uvedenou smlouvu. Smlouva budoucí byla uzavřena v lednu 2022.\nDiskuze zahájena v 15:39:08\nK tomuto bodu se vyjádřili: Milan Paluska, Zdeněk Fejfar, Ing. Karel Krištoufek\nV 15:49:18 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Jana Najbrtová\") v tomto znění:\nRada\nměsta schvaluje uzavřít „Smlouvu o zřízení VBř-služebnosti č. IV-12-6029522/VB/02“ mezi Městem Pečky a firmou ČEZ Distribuce, a.s. se sídlem Děčín – IV Podmokly,\nTeplická\n874/8, která se týká části pozemku v majetku města č. parc. 1449/195 v obci a k.ú. Pečky (v ul. M. Alše). Smlouva bude uzavřena za celkovou cenu  ve výši  4.700,-Kč + DPH – podle zákona č. 151/1997 Sb. a prováděcí vyhlášky MF ČR č. 441/2013 Sb. v platném znění.\nHlasování\npro:\n(6) Ing. Petr Dürr, Ing. Martin Jedlička, Ing. Karel Krištoufek, Zdeněk Fejfar, Ivana Trčková, Milan Paluska\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-291-34/23\nzodpovídá:\nJana Najbrtová\ntermín:\n31. 10. 2023\nProjednávání bodu bylo ukončeno v 15:49:37"
+   },
+   {
+    "number": 5,
+    "title_raw": "Zrušení výběrového řízení na dodavatele předmětu plnění VZMR \"Pořízení dopravního automobilu pro JSDH Pečky JPO-II\"",
+    "heading_raw": "5. Zrušení výběrového řízení na dodavatele předmětu plnění VZMR \"Pořízení dopravního automobilu pro JSDH Pečky JPO-II\" (bod číslo 5)",
+    "predkladatel": "Ing. Martin Jedlička",
+    "votes": [
+     {
+      "raw_text": "pro:\n(6) Ing. Petr Dürr, Milan Paluska, Zdeněk Fejfar, Ing. Martin Jedlička, Ing. Karel Krištoufek, Ivana Trčková\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)",
+      "pro": {
+       "count": 6,
+       "names": [
+        "Ing. Petr Dürr",
+        "Milan Paluska",
+        "Zdeněk Fejfar",
+        "Ing. Martin Jedlička",
+        "Ing. Karel Krištoufek",
+        "Ivana Trčková"
+       ],
+       "raw": "(6) Ing. Petr Dürr, Milan Paluska, Zdeněk Fejfar, Ing. Martin Jedlička, Ing. Karel Krištoufek, Ivana Trčková"
+      },
+      "proti": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "zdrzel_se": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "nehlasoval": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "result_raw": "Návrh byl přijat jako usnesení číslo: UR-292-34/23",
+      "adopted_resolution_number": "UR-292-34/23"
+     }
+    ],
+    "resolution_numbers_mentioned": [
+     "UR-292-34/23"
+    ],
+    "raw_text": "Předkladatel: Ing. Martin Jedlička\nProjednávání bodu bylo zahájeno v 15:52:00\nDůvodová zpráva:\nPo vyhlášení výběrového řízení - v průběhu lhůty pro podání nabídek zjištěno, že se v technických podmínkách pro dopravní automobil (příloha č. 1 ZD), které jsou přílohou zadávací dokumentace a podkladem pro zpracování nabídek, vyskytla chyba, která má zásadní vliv na zpracování nabídek a okruh možných účastníků výběrového řízení.\nS ohledem na povinnost schválení dokladů o dodržení technických podmínek poskytovatelem dotace před zahájením výběrového řízení na dodavatele pro pořízení dopravního automobilu není možné toto pochybení řešit jinou cestou (např. změnou zadávacích podmínek před uplynutím lhůty pro podání nabídek).\nDiskuze zahájena v 15:52:00\nK tomuto bodu se vyjádřili: Ing. Martin Jedlička, Milan Paluska, Ing. Petr Dürr, Ing. Karel Krištoufek\nV 15:56:19 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Martin Jedlička\") v tomto znění:\nRada\nměsta schvaluje zrušení výběrového řízení na dodavatele předmětu plnění veřejné zakázky malého rozsahu na dodávky \"Pořízení dopravního automobilu pro JSDH Pečky JPO-II\" v souladu s ust. bodu 7 Zadávací dokumentace uvedené veřejné zakázky.\nHlasování\npro:\n(6) Ing. Petr Dürr, Milan Paluska, Zdeněk Fejfar, Ing. Martin Jedlička, Ing. Karel Krištoufek, Ivana Trčková\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-292-34/23\nzodpovídá:\nMichala Dekiská\ntermín:\n6. 10. 2023\nProjednávání bodu bylo ukončeno v 15:56:53"
+   },
+   {
+    "number": 6,
+    "title_raw": "Kontrola plnění usnesení",
+    "heading_raw": "6. Kontrola plnění usnesení (bod číslo 6)",
+    "predkladatel": "Milan Paluska",
+    "votes": [],
+    "resolution_numbers_mentioned": [],
+    "raw_text": "Předkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 15:57:02\nDiskuze zahájena v 15:57:02\nK tomuto bodu se vyjádřili: Milan Paluska\nRada bere materiály předložené k bodu č. 6 -\nKontrola plnění usnesení\nna vědomí.\nProjednávání bodu bylo ukončeno v 15:58:07\nJednání ukončeno 02.10.2023 v 16:04:23"
+   }
+  ],
+  "full_text": "ZÁPIS ze schůze rady č. 34/2023\nMěsto Pečky\ndatum: 2. 10. 2023, čas: 15:00\n​\nPrezence:\nPřítomni:\n(6) Zdeněk Fejfar, Milan Paluska, Ing. Martin Jedlička, Ing. Petr Dürr, Ivana Trčková, Ing. Karel Krištoufek\nOmluveni:\n(0)\nNepřítomni:\n(1) Ing. Hana Kuprová\nHosté:\nZapisovatel/ka:\nPavlína Nepovímová\nPřítomno je 6 členů a rada je usnášeníschopná.\nJednání zahájeno 02.10.2023 v 15:05:59\n1. Určení zapisovatelů, předsedajícího, příp. ověřovatelů (bod číslo 1)\nPředkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 15:06:28\nPředsedající navrhl jednotlivé členy pracovních komisí\nOvěřovatelé:\nIvana Trčková, Ing. Martin Jedlička\nPředsedající:\nMilan Paluska\nBod byl přijat bez hlasování.\nDiskuze zahájena v 15:06:28\nProjednávání bodu bylo ukončeno v 15:06:46\n2. Schválení programu jednání (bod číslo 2)\nPředkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 15:06:53\nProgram jednání\n1. Určení zapisovatelů, předsedajícího, příp. ověřovatelů\n2. Schválení programu jednání\n3. Aktuální informace vedení města\n4. Uzavření \"Smlouvy o zřízení VBř-služebnosti č. IV-12-6029522/VB/02“\n5. Zrušení výběrového řízení na dodavatele předmětu plnění VZMR \"Pořízení dopravního automobilu pro JSDH Pečky JPO-II\"\n6. Kontrola plnění usnesení\nDiskuze zahájena v 15:06:53\nV 15:07:15 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Milan Paluska\") v tomto znění:\nRada\nměsta schvaluje návrh programu jednání.\nHlasování\npro:\n(6) Ing. Martin Jedlička, Milan Paluska, Ing. Karel Krištoufek, Ing. Petr Dürr, Zdeněk Fejfar, Ivana Trčková\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-290-34/23\nzodpovídá:\ntermín:\nIHNED\n(2. 10. 2023)\nProjednávání bodu bylo ukončeno v 15:25:20\n3. Aktuální informace vedení města (bod číslo 3)\nPředkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 15:25:27\nDůvodová zpráva:\nStarosta\nměsta\n-  informace o zrušení vodácké akce \"Vavřinecký potok\" z důvodu stavebních prací na mostu v Doubravčanech\n-  informace o opravě silnice v ulici\nHálkova\na Letohradská - opravu provádí Středočeský kraj, město Pečky vybuduje nové kanalizační vpusti a nový chodník\n-  informace o dokončení stavebních prací v kulturním středisku, kolaudace stavby dne 12.10.2023\n-  informace o nedodělcích stavebních prací v základní škole\n-  informace o vypsání VŘ na zhotovitele stavby akce - nové oplocení kolem Mateřské školy Mašinka Pečky\n-  informace o výročí 110 let od vysvěcení kostela - 14.10.2023\n-  informace o schůzce s PČR, MP, ředitelem Základní školy Pečky /hlavním tématem bezpečnost dětí/\nZdeněk\nFejfar\n-  informace o předání stavby spol. PKbau - ostrůvek ve Velkých Chvalovicích - začátek prací 23.10.2023\nDiskuze zahájena v 15:25:27\nK tomuto bodu se vyjádřili: Milan Paluska, Ing. Karel Krištoufek\nRada bere materiály předložené k bodu č. 3 -\nAktuální informace vedení města\nna vědomí.\nProjednávání bodu bylo ukončeno v 15:39:00\n4. Uzavření \"Smlouvy o zřízení VBř-služebnosti č. IV-12-6029522/VB/02“ (bod číslo 4)\nPředkladatel: Jana Najbrtová\nProjednávání bodu bylo zahájeno v 15:39:08\nDůvodová zpráva:\nDoporučujeme schválit výše uvedenou smlouvu. Smlouva budoucí byla uzavřena v lednu 2022.\nDiskuze zahájena v 15:39:08\nK tomuto bodu se vyjádřili: Milan Paluska, Zdeněk Fejfar, Ing. Karel Krištoufek\nV 15:49:18 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Jana Najbrtová\") v tomto znění:\nRada\nměsta schvaluje uzavřít „Smlouvu o zřízení VBř-služebnosti č. IV-12-6029522/VB/02“ mezi Městem Pečky a firmou ČEZ Distribuce, a.s. se sídlem Děčín – IV Podmokly,\nTeplická\n874/8, která se týká části pozemku v majetku města č. parc. 1449/195 v obci a k.ú. Pečky (v ul. M. Alše). Smlouva bude uzavřena za celkovou cenu  ve výši  4.700,-Kč + DPH – podle zákona č. 151/1997 Sb. a prováděcí vyhlášky MF ČR č. 441/2013 Sb. v platném znění.\nHlasování\npro:\n(6) Ing. Petr Dürr, Ing. Martin Jedlička, Ing. Karel Krištoufek, Zdeněk Fejfar, Ivana Trčková, Milan Paluska\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-291-34/23\nzodpovídá:\nJana Najbrtová\ntermín:\n31. 10. 2023\nProjednávání bodu bylo ukončeno v 15:49:37\n5. Zrušení výběrového řízení na dodavatele předmětu plnění VZMR \"Pořízení dopravního automobilu pro JSDH Pečky JPO-II\" (bod číslo 5)\nPředkladatel: Ing. Martin Jedlička\nProjednávání bodu bylo zahájeno v 15:52:00\nDůvodová zpráva:\nPo vyhlášení výběrového řízení - v průběhu lhůty pro podání nabídek zjištěno, že se v technických podmínkách pro dopravní automobil (příloha č. 1 ZD), které jsou přílohou zadávací dokumentace a podkladem pro zpracování nabídek, vyskytla chyba, která má zásadní vliv na zpracování nabídek a okruh možných účastníků výběrového řízení.\nS ohledem na povinnost schválení dokladů o dodržení technických podmínek poskytovatelem dotace před zahájením výběrového řízení na dodavatele pro pořízení dopravního automobilu není možné toto pochybení řešit jinou cestou (např. změnou zadávacích podmínek před uplynutím lhůty pro podání nabídek).\nDiskuze zahájena v 15:52:00\nK tomuto bodu se vyjádřili: Ing. Martin Jedlička, Milan Paluska, Ing. Petr Dürr, Ing. Karel Krištoufek\nV 15:56:19 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Martin Jedlička\") v tomto znění:\nRada\nměsta schvaluje zrušení výběrového řízení na dodavatele předmětu plnění veřejné zakázky malého rozsahu na dodávky \"Pořízení dopravního automobilu pro JSDH Pečky JPO-II\" v souladu s ust. bodu 7 Zadávací dokumentace uvedené veřejné zakázky.\nHlasování\npro:\n(6) Ing. Petr Dürr, Milan Paluska, Zdeněk Fejfar, Ing. Martin Jedlička, Ing. Karel Krištoufek, Ivana Trčková\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-292-34/23\nzodpovídá:\nMichala Dekiská\ntermín:\n6. 10. 2023\nProjednávání bodu bylo ukončeno v 15:56:53\n6. Kontrola plnění usnesení (bod číslo 6)\nPředkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 15:57:02\nDiskuze zahájena v 15:57:02\nK tomuto bodu se vyjádřili: Milan Paluska\nRada bere materiály předložené k bodu č. 6 -\nKontrola plnění usnesení\nna vědomí.\nProjednávání bodu bylo ukončeno v 15:58:07\nJednání ukončeno 02.10.2023 v 16:04:23"
+ },
+ "resolutions": {
+  "status": "ok",
+  "url": "https://mesto-pecky.usneseni.cz/verejne/807591a9-5c5e-11ee-962e-00505683238f/usneseni/",
+  "fetched_at": "2026-08-04T14:03:00.802699+00:00",
+  "items": [
+   {
+    "number_raw": "UR-290-34/23",
+    "detail_id": 47019,
+    "detail_url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/47019?mod=rada",
+    "agenda_item_raw": "Schválení programu jednání",
+    "text_verbatim": "Rada\nměsta schvaluje návrh programu jednání.",
+    "cell_text_raw": "Bod programu:\nSchválení programu jednání\nText přijatého usnesení:\nRada\nměsta schvaluje návrh programu jednání.",
+    "date_raw": "2. 10. 2023",
+    "date_iso": "2023-10-02",
+    "responsible_raw": "",
+    "deadline_raw": "IHNED (2. 10. 2023)",
+    "vote": {
+     "raw_text": "pro: 6 proti: 0 zdržel se: 0",
+     "pro": {
+      "count": 6,
+      "names": null,
+      "raw": "6"
+     },
+     "proti": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     },
+     "zdrzel_se": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     }
+    },
+    "detail": {
+     "number_raw": "UR-290-34/23",
+     "text_verbatim": "Rada města schvaluje návrh programu jednání.",
+     "typ_raw": null,
+     "zodpovida_raw": "",
+     "prijato_raw": "2. 10. 2023 na jednání č. 34/2023",
+     "prijato_date_iso": "2023-10-02",
+     "prijato_meeting_label": "34/2023",
+     "termin_raw": "IHNED (2. 10. 2023)",
+     "ukonceno_raw": "2. 10. 2023",
+     "ukonceno_date_iso": "2023-10-02",
+     "fields_raw": {
+      "Číslo usnesení": "UR-290-34/23",
+      "Text usnesení": "Rada města schvaluje návrh programu jednání.",
+      "Zodpovídá": "",
+      "Přijato": "2. 10. 2023 na jednání č. 34/2023",
+      "Termín": "IHNED (2. 10. 2023)",
+      "Ukončeno": "2. 10. 2023"
+     }
+    }
+   },
+   {
+    "number_raw": "UR-291-34/23",
+    "detail_id": 47117,
+    "detail_url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/47117?mod=rada",
+    "agenda_item_raw": "Uzavření \"Smlouvy o zřízení VBř-služebnosti č. IV-12-6029522/VB/02“",
+    "text_verbatim": "Rada\nměsta schvaluje uzavřít „Smlouvu o zřízení VBř-služebnosti č. IV-12-6029522/VB/02“ mezi Městem Pečky a firmou ČEZ Distribuce, a.s. se sídlem Děčín – IV Podmokly,\nTeplická\n874/8, která se týká části pozemku v majetku města č. parc. 1449/195 v obci a k.ú. Pečky (v ul. M. Alše). Smlouva bude uzavřena za celkovou cenu  ve výši  4.700,-Kč + DPH – podle zákona č. 151/1997 Sb. a prováděcí vyhlášky MF ČR č. 441/2013 Sb. v platném znění.",
+    "cell_text_raw": "Bod programu:\nUzavření \"Smlouvy o zřízení VBř-služebnosti č. IV-12-6029522/VB/02“\nText přijatého usnesení:\nRada\nměsta schvaluje uzavřít „Smlouvu o zřízení VBř-služebnosti č. IV-12-6029522/VB/02“ mezi Městem Pečky a firmou ČEZ Distribuce, a.s. se sídlem Děčín – IV Podmokly,\nTeplická\n874/8, která se týká části pozemku v majetku města č. parc. 1449/195 v obci a k.ú. Pečky (v ul. M. Alše). Smlouva bude uzavřena za celkovou cenu  ve výši  4.700,-Kč + DPH – podle zákona č. 151/1997 Sb. a prováděcí vyhlášky MF ČR č. 441/2013 Sb. v platném znění.",
+    "date_raw": "2. 10. 2023",
+    "date_iso": "2023-10-02",
+    "responsible_raw": "Jana Najbrtová",
+    "deadline_raw": "31. 10. 2023",
+    "vote": {
+     "raw_text": "pro: 6 proti: 0 zdržel se: 0",
+     "pro": {
+      "count": 6,
+      "names": null,
+      "raw": "6"
+     },
+     "proti": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     },
+     "zdrzel_se": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     }
+    },
+    "detail": {
+     "number_raw": "UR-291-34/23",
+     "text_verbatim": "Rada města schvaluje uzavřít „Smlouvu o zřízení VBř-služebnosti č. IV-12-6029522/VB/02“ mezi Městem Pečky a firmou ČEZ Distribuce, a.s. se sídlem Děčín – IV Podmokly, Teplická 874/8, která se týká části pozemku v majetku města č. parc. 1449/195 v obci a k.ú. Pečky (v ul. M. Alše). Smlouva bude uzavřena za celkovou cenu  ve výši  4.700,-Kč + DPH – podle zákona č. 151/1997 Sb. a prováděcí vyhlášky MF ČR č. 441/2013 Sb. v platném znění.",
+     "typ_raw": null,
+     "zodpovida_raw": "Jana Najbrtová",
+     "prijato_raw": "2. 10. 2023 na jednání č. 34/2023",
+     "prijato_date_iso": "2023-10-02",
+     "prijato_meeting_label": "34/2023",
+     "termin_raw": "31. 10. 2023",
+     "ukonceno_raw": "4. 10. 2023",
+     "ukonceno_date_iso": "2023-10-04",
+     "fields_raw": {
+      "Číslo usnesení": "UR-291-34/23",
+      "Text usnesení": "Rada města schvaluje uzavřít „Smlouvu o zřízení VBř-služebnosti č. IV-12-6029522/VB/02“ mezi Městem Pečky a firmou ČEZ Distribuce, a.s. se sídlem Děčín – IV Podmokly, Teplická 874/8, která se týká části pozemku v majetku města č. parc. 1449/195 v obci a k.ú. Pečky (v ul. M. Alše). Smlouva bude uzavřena za celkovou cenu  ve výši  4.700,-Kč + DPH – podle zákona č. 151/1997 Sb. a prováděcí vyhlášky MF ČR č. 441/2013 Sb. v platném znění.",
+      "Zodpovídá": "Jana Najbrtová",
+      "Přijato": "2. 10. 2023 na jednání č. 34/2023",
+      "Termín": "31. 10. 2023",
+      "Ukončeno": "4. 10. 2023"
+     }
+    }
+   },
+   {
+    "number_raw": "UR-292-34/23",
+    "detail_id": 47132,
+    "detail_url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/47132?mod=rada",
+    "agenda_item_raw": "Zrušení výběrového řízení na dodavatele předmětu plnění VZMR \"Pořízení dopravního automobilu pro JSDH Pečky JPO-II\"",
+    "text_verbatim": "Rada\nměsta schvaluje zrušení výběrového řízení na dodavatele předmětu plnění veřejné zakázky malého rozsahu na dodávky \"Pořízení dopravního automobilu pro JSDH Pečky JPO-II\" v souladu s ust. bodu 7 Zadávací dokumentace uvedené veřejné zakázky.",
+    "cell_text_raw": "Bod programu:\nZrušení výběrového řízení na dodavatele předmětu plnění VZMR \"Pořízení dopravního automobilu pro JSDH Pečky JPO-II\"\nText přijatého usnesení:\nRada\nměsta schvaluje zrušení výběrového řízení na dodavatele předmětu plnění veřejné zakázky malého rozsahu na dodávky \"Pořízení dopravního automobilu pro JSDH Pečky JPO-II\" v souladu s ust. bodu 7 Zadávací dokumentace uvedené veřejné zakázky.",
+    "date_raw": "2. 10. 2023",
+    "date_iso": "2023-10-02",
+    "responsible_raw": "Michala Dekiská",
+    "deadline_raw": "6. 10. 2023",
+    "vote": {
+     "raw_text": "pro: 6 proti: 0 zdržel se: 0",
+     "pro": {
+      "count": 6,
+      "names": null,
+      "raw": "6"
+     },
+     "proti": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     },
+     "zdrzel_se": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     }
+    },
+    "detail": {
+     "number_raw": "UR-292-34/23",
+     "text_verbatim": "Rada města schvaluje zrušení výběrového řízení na dodavatele předmětu plnění veřejné zakázky malého rozsahu na dodávky \"Pořízení dopravního automobilu pro JSDH Pečky JPO-II\" v souladu s ust. bodu 7 Zadávací dokumentace uvedené veřejné zakázky.",
+     "typ_raw": null,
+     "zodpovida_raw": "Michala Dekiská",
+     "prijato_raw": "2. 10. 2023 na jednání č. 34/2023",
+     "prijato_date_iso": "2023-10-02",
+     "prijato_meeting_label": "34/2023",
+     "termin_raw": "6. 10. 2023",
+     "ukonceno_raw": "4. 10. 2023",
+     "ukonceno_date_iso": "2023-10-04",
+     "fields_raw": {
+      "Číslo usnesení": "UR-292-34/23",
+      "Text usnesení": "Rada města schvaluje zrušení výběrového řízení na dodavatele předmětu plnění veřejné zakázky malého rozsahu na dodávky \"Pořízení dopravního automobilu pro JSDH Pečky JPO-II\" v souladu s ust. bodu 7 Zadávací dokumentace uvedené veřejné zakázky.",
+      "Zodpovídá": "Michala Dekiská",
+      "Přijato": "2. 10. 2023 na jednání č. 34/2023",
+      "Termín": "6. 10. 2023",
+      "Ukončeno": "4. 10. 2023"
+     }
+    }
+   }
+  ]
+ }
+}

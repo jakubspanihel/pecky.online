@@ -1,0 +1,680 @@
+{
+ "uuid": "1f06c08d-181a-11ef-95ef-00505683238f",
+ "body_type_raw": "Rada",
+ "label_raw": "20/2024 (27. 5. 2024)",
+ "number": 20,
+ "year": 2024,
+ "date_iso": "2024-05-27",
+ "links": {
+  "invitation": "https://mesto-pecky.usneseni.cz/verejne/?uuid=1f06c08d-181a-11ef-95ef-00505683238f&page=8&do=printPublicInvitation",
+  "minutes": "https://mesto-pecky.usneseni.cz/verejne/1f06c08d-181a-11ef-95ef-00505683238f/zapis/?page=8",
+  "signed_minutes_pdf": "https://mesto-pecky.usneseni.cz/verejne/?meetingReportControl-uuid=1f06c08d-181a-11ef-95ef-00505683238f&page=8&do=meetingReportControl-getSignedReportPdf",
+  "resolutions": "https://mesto-pecky.usneseni.cz/verejne/1f06c08d-181a-11ef-95ef-00505683238f/usneseni/?page=8",
+  "audio": null
+ },
+ "link_texts": {
+  "invitation": "Pozvánka",
+  "minutes": "zápis",
+  "signed_minutes_pdf": "podepsaný zápis",
+  "resolutions": "přijatá usnesení"
+ },
+ "status": "ok",
+ "invitation": {
+  "status": "site_error",
+  "error": "status=200 ct=text/html; charset=utf-8 flash='<a href=\"\" class=\"close\" data-dismiss=\"alert\" aria-label=\"close\">&times;'",
+  "url": "https://mesto-pecky.usneseni.cz/verejne/?uuid=1f06c08d-181a-11ef-95ef-00505683238f&do=printPublicInvitation",
+  "fetched_at": "2026-08-04T15:00:44.270590+00:00"
+ },
+ "minutes": {
+  "status": "ok",
+  "url": "https://mesto-pecky.usneseni.cz/verejne/1f06c08d-181a-11ef-95ef-00505683238f/zapis/",
+  "fetched_at": "2026-08-04T13:50:07.442515+00:00",
+  "title_raw": "ZÁPIS ze schůze rady č. 20/2024 Město Pečky datum: 27. 5. 2024, čas: 15:00 ​",
+  "date_raw": "27. 5. 2024",
+  "date_iso": "2024-05-27",
+  "time_raw": "15:00",
+  "presence": {
+   "raw_text": "Prezence:\nPřítomni:\n(7) Milan Paluska, Zdeněk Fejfar, Ing. Karel Krištoufek, Ing. Petr Dürr, Ing. Martin Jedlička, Ing. Hana Kuprová, Ivana Trčková\nOmluveni:\n(0)\nNepřítomni:\n(0)\nHosté:\nZapisovatel/ka:\nEva Strnadová\nPřítomno je 7 členů a rada je usnášeníschopná.\nJednání zahájeno 27.05.2024 v 15:08:32",
+   "pritomni": {
+    "count": 7,
+    "names": [
+     "Milan Paluska",
+     "Zdeněk Fejfar",
+     "Ing. Karel Krištoufek",
+     "Ing. Petr Dürr",
+     "Ing. Martin Jedlička",
+     "Ing. Hana Kuprová",
+     "Ivana Trčková"
+    ],
+    "raw": "(7) Milan Paluska, Zdeněk Fejfar, Ing. Karel Krištoufek, Ing. Petr Dürr, Ing. Martin Jedlička, Ing. Hana Kuprová, Ivana Trčková"
+   },
+   "omluveni": {
+    "count": 0,
+    "names": [],
+    "raw": "(0)"
+   },
+   "nepritomni": {
+    "count": 0,
+    "names": [],
+    "raw": "(0)"
+   },
+   "predsedajici": null,
+   "quorum_raw": "Přítomno je 7 členů a rada je usnášeníschopná."
+  },
+  "header_raw": "Prezence:\nPřítomni:\n(7) Milan Paluska, Zdeněk Fejfar, Ing. Karel Krištoufek, Ing. Petr Dürr, Ing. Martin Jedlička, Ing. Hana Kuprová, Ivana Trčková\nOmluveni:\n(0)\nNepřítomni:\n(0)\nHosté:\nZapisovatel/ka:\nEva Strnadová\nPřítomno je 7 členů a rada je usnášeníschopná.\nJednání zahájeno 27.05.2024 v 15:08:32",
+  "agenda_items": [
+   {
+    "number": 1,
+    "title_raw": "Určení zapisovatelů, předsedajícího, příp. ověřovatelů",
+    "heading_raw": "1. Určení zapisovatelů, předsedajícího, příp. ověřovatelů (bod číslo 1)",
+    "predkladatel": null,
+    "votes": [],
+    "resolution_numbers_mentioned": [],
+    "raw_text": "Projednávání bodu bylo zahájeno v 15:08:37\n\nPředsedající navrhl jednotlivé členy pracovních komisí\nOvěřovatelé:\nIng. Hana Kuprová, Zdeněk Fejfar\nPředsedající:\nMilan Paluska\nDiskuze zahájena v 15:08:38\nK tomuto bodu se vyjádřili: Milan Paluska\nProjednávání bodu bylo ukončeno v 15:11:03"
+   },
+   {
+    "number": 2,
+    "title_raw": "Schválení programu jednání",
+    "heading_raw": "2. Schválení programu jednání (bod číslo 2)",
+    "predkladatel": null,
+    "votes": [
+     {
+      "raw_text": "pro:\n(7) Ing. Petr Dürr, Ing. Hana Kuprová, Ivana Trčková, Zdeněk Fejfar, Ing. Martin Jedlička, Ing. Karel Krištoufek, Milan Paluska\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)",
+      "pro": {
+       "count": 7,
+       "names": [
+        "Ing. Petr Dürr",
+        "Ing. Hana Kuprová",
+        "Ivana Trčková",
+        "Zdeněk Fejfar",
+        "Ing. Martin Jedlička",
+        "Ing. Karel Krištoufek",
+        "Milan Paluska"
+       ],
+       "raw": "(7) Ing. Petr Dürr, Ing. Hana Kuprová, Ivana Trčková, Zdeněk Fejfar, Ing. Martin Jedlička, Ing. Karel Krištoufek, Milan Paluska"
+      },
+      "proti": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "zdrzel_se": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "nehlasoval": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "result_raw": "Návrh byl přijat jako usnesení číslo: UR-195-20/24",
+      "adopted_resolution_number": "UR-195-20/24"
+     }
+    ],
+    "resolution_numbers_mentioned": [
+     "UR-195-20/24"
+    ],
+    "raw_text": "Projednávání bodu bylo zahájeno v 15:11:42\n\nProgram jednání\n1. Určení zapisovatelů, předsedajícího, příp. ověřovatelů\n2. Schválení programu jednání\n3. Aktuální informace vedení města\n4. Uzavření „Dodatku č.1 ke smlouvě pro umístění Z-BOXU“ – Zásilkovna s.r.o., Praha 9\n5. OZV - koeficient daně z nemovitostí\n6. Účetní závěrka 2023 - projednání\n7. Výběr dodavatele na plnění veřejné zakázky \"Rekonstrukce místních komunikací a vodovodní řad v části Bačov v Pečkách - 1. a 2. etapa\" a uzavření smlouvy o dílo\n8. Kontrola plnění usnesení\n9. Diskuse, různé\n10. Úkoly vyplývající z jednání rady města\nDiskuze zahájena v 15:11:43\nK tomuto bodu se vyjádřili: Milan Paluska\nV 15:15:10 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Milan Paluska\") v tomto znění:\nRada\nměsta schvaluje návrh programu jednání.\nHlasování\npro:\n(7) Ing. Petr Dürr, Ing. Hana Kuprová, Ivana Trčková, Zdeněk Fejfar, Ing. Martin Jedlička, Ing. Karel Krištoufek, Milan Paluska\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-195-20/24\nzodpovídá:\ntermín:\nIHNED\n(27. 5. 2024)\nProjednávání bodu bylo ukončeno v 15:15:18"
+   },
+   {
+    "number": 3,
+    "title_raw": "Aktuální informace vedení města",
+    "heading_raw": "3. Aktuální informace vedení města (bod číslo 3)",
+    "predkladatel": null,
+    "votes": [],
+    "resolution_numbers_mentioned": [],
+    "raw_text": "Projednávání bodu bylo zahájeno v 15:15:22\n\nDůvodová zpráva:\nstarosta města\n- informace o setkání starostů Středočeského kraje v Čestlicích dne 21.5.2024\n- informace o přeložce společnosti ČEZ pro plánovanou cyklostezku v k.ú.\nVelké\nChvalovice\n- informace o pokládce optických kabelů na sídlišti\n- informace o postupu prací na kabinách AFK Pečky\n- informace o konání Župního sletu v Pečkách na hřišti AFK Pečky, organizační zajištění akce, dne 2.6.2024 předvedení sletových skladeb\n- informace o průběhu a zhodnocení rodinné pouti Mašinka dne 25.5.2024, poděkování spolkům a organizátorům akce\n- informace o závadě na úpravně vody - řešení situace, schůzka s jednatelem společnosti Pečecké služby, s.r.o. Pečky\n- informace o zápisu dětí do Mateřské školy Mašinka Pečky pro školní rok 2024/2025\nZdeněk\nFejfar\n- informace o hutnící zkoušce v ulici Za Statkem ve V. Chvalovicích - v nejbližší době dojde k převzetí nových komunikací\nDiskuze zahájena v 15:15:23\nK tomuto bodu se vyjádřili: Milan Paluska, Ing. Martin Jedlička, Ing. Hana Kuprová, Ivana Trčková, Ing. Petr Dürr, Zdeněk Fejfar\nRada bere materiály předložené k bodu č. 3 -\nAktuální informace vedení města\nna vědomí.\nProjednávání bodu bylo ukončeno v 15:52:31"
+   },
+   {
+    "number": 4,
+    "title_raw": "Uzavření „Dodatku č.1 ke smlouvě pro umístění Z-BOXU“ – Zásilkovna s.r.o., Praha 9",
+    "heading_raw": "4. Uzavření „Dodatku č.1 ke smlouvě pro umístění Z-BOXU“ – Zásilkovna s.r.o., Praha 9 (bod číslo 4)",
+    "predkladatel": null,
+    "votes": [
+     {
+      "raw_text": "pro:\n(7) Ing. Petr Dürr, Zdeněk Fejfar, Ing. Martin Jedlička, Milan Paluska, Ing. Hana Kuprová, Ing. Karel Krištoufek, Ivana Trčková\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)",
+      "pro": {
+       "count": 7,
+       "names": [
+        "Ing. Petr Dürr",
+        "Zdeněk Fejfar",
+        "Ing. Martin Jedlička",
+        "Milan Paluska",
+        "Ing. Hana Kuprová",
+        "Ing. Karel Krištoufek",
+        "Ivana Trčková"
+       ],
+       "raw": "(7) Ing. Petr Dürr, Zdeněk Fejfar, Ing. Martin Jedlička, Milan Paluska, Ing. Hana Kuprová, Ing. Karel Krištoufek, Ivana Trčková"
+      },
+      "proti": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "zdrzel_se": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "nehlasoval": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "result_raw": "Návrh byl přijat jako usnesení číslo: UR-196-20/24",
+      "adopted_resolution_number": "UR-196-20/24"
+     }
+    ],
+    "resolution_numbers_mentioned": [
+     "UR-196-20/24"
+    ],
+    "raw_text": "Projednávání bodu bylo zahájeno v 15:52:35\n\nDůvodová zpráva:\nDoporučujeme uzavřít dodatek ke smlouvě. Firma Zásilkovna, s.r.o. souhlasí s podmínkami uvedenými ve zveřejněném záměru.\nDiskuze zahájena v 15:52:36\nK tomuto bodu se vyjádřili: Milan Paluska, Ing. Hana Kuprová, Ing. Petr Dürr, Ing. Karel Krištoufek\nV 16:02:46 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Jana Najbrtová\") v tomto znění:\nRada\nměsta schvaluje uzavření „Dodatku č.1 ke smlouvě pro umístění Z-BOXU“ – na části pozemku č.parc. 47/2 (u čp. 183) - k.ú.\nVelké\nChvalovice s firmou Zásilkovna, s.r.o.,\nPraha\n9, Českomoravská 2408/1a. Smlouva bude uzavřena od 1.6. 2024 na dobu neurčitou s výpovědní lhůtou 3 měsíce za cenu 2.400,- Kč/rok/6 sloupců+DPH. Úhrada nájemného bude prováděna vždy 1x ročně do 31. března. Za rok 2024 bude uhrazena poměrná část (za 6.-12./24) nejpozději do 17.6. 2024.\nHlasování\npro:\n(7) Ing. Petr Dürr, Zdeněk Fejfar, Ing. Martin Jedlička, Milan Paluska, Ing. Hana Kuprová, Ing. Karel Krištoufek, Ivana Trčková\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-196-20/24\nzodpovídá:\nJana Najbrtová\ntermín:\n31. 7. 2024\nProjednávání bodu bylo ukončeno v 16:02:58"
+   },
+   {
+    "number": 5,
+    "title_raw": "OZV - koeficient daně z nemovitostí",
+    "heading_raw": "5. OZV - koeficient daně z nemovitostí (bod číslo 5)",
+    "predkladatel": null,
+    "votes": [],
+    "resolution_numbers_mentioned": [],
+    "raw_text": "Projednávání bodu bylo zahájeno v 16:03:02\n\nDůvodová zpráva:\nMěsto Pečky má od roku 2005 OZV stanoveno zvýšení koeficientu dle velikosti obce pro katastrální území Pečky ( z 1,4 na 1,6 ) u stavebních pozemků, obytných budov a ostatních staveb a dále zvýšení koeficientem 1,5 daně z garáží, rekreačních staveb a staveb a jednotek k podnikání a to na katastrálním území Pečky i\nVelké\nChvalovice. Od roku 2025 bude v zákoně č.338/1992 tento koeficient zrušen, k navýšení daně je možno využít stanovení místního koeficientu dle § 12 uvedeného zákona. Předkládáme OZV účinnou od 1.1.2025, která vychází v aktualizovaného znění zákona č.338/1992 a upravuje navýšení daně z nemovitých věcí\nve stejném rozsahu\njako dosud platná vyhláška.\nRada\nměsta bere na vědomí informaci o koeficientu daně z nemovitostí.\nDiskuze zahájena v 16:03:03\nK tomuto bodu se vyjádřili: Milan Paluska, Pavlína Nepovímová, Ivana Trčková, Ing. Karel Krištoufek, Ing. Martin Jedlička\nRada bere materiály předložené k bodu č. 5 -\nOZV - koeficient daně z nemovitostí\nna vědomí.\nProjednávání bodu bylo ukončeno v 16:34:01"
+   },
+   {
+    "number": 6,
+    "title_raw": "Účetní závěrka 2023 - projednání",
+    "heading_raw": "6. Účetní závěrka 2023 - projednání (bod číslo 6)",
+    "predkladatel": null,
+    "votes": [
+     {
+      "raw_text": "pro:\n(7) Ing. Petr Dürr, Ing. Hana Kuprová, Ing. Martin Jedlička, Milan Paluska, Ivana Trčková, Ing. Karel Krištoufek, Zdeněk Fejfar\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)",
+      "pro": {
+       "count": 7,
+       "names": [
+        "Ing. Petr Dürr",
+        "Ing. Hana Kuprová",
+        "Ing. Martin Jedlička",
+        "Milan Paluska",
+        "Ivana Trčková",
+        "Ing. Karel Krištoufek",
+        "Zdeněk Fejfar"
+       ],
+       "raw": "(7) Ing. Petr Dürr, Ing. Hana Kuprová, Ing. Martin Jedlička, Milan Paluska, Ivana Trčková, Ing. Karel Krištoufek, Zdeněk Fejfar"
+      },
+      "proti": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "zdrzel_se": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "nehlasoval": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "result_raw": "Návrh byl přijat jako usnesení číslo: UR-197-20/24",
+      "adopted_resolution_number": "UR-197-20/24"
+     }
+    ],
+    "resolution_numbers_mentioned": [
+     "UR-197-20/24"
+    ],
+    "raw_text": "Projednávání bodu bylo zahájeno v 16:34:05\n\nDůvodová zpráva:\nÚčetní závěrku schvaluje zastupitelstvo města nejpozději do 30.6. následujícího roku. Dle Směrnice 2/2014 předkládá vedoucí ekonomicko - správního odboru podklady k účetní závěrce radě města, poté je projedná FV a předloží zprávu zastupitelstvu města. V příloze předkládám účetní výkazy sestavené k 31.12.2023, rozbor a zprávu o přezkoumání hospodaření , inventarizační zpráva bude k nahlédnutí na jednání rady města.\nDiskuze zahájena v 16:34:06\nK tomuto bodu se vyjádřili: Milan Paluska, Ing. Karel Krištoufek, Ing. Hana Kuprová, Zdeněk Fejfar\nV 16:38:51 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Milan Paluska\") v tomto znění:\nRada\nměsta projednala v souladu se Směrnicí č. 2/2014 účetní závěrku města sestavenou k 31.12.2023.\nHlasování\npro:\n(7) Ing. Petr Dürr, Ing. Hana Kuprová, Ing. Martin Jedlička, Milan Paluska, Ivana Trčková, Ing. Karel Krištoufek, Zdeněk Fejfar\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-197-20/24\nzodpovídá:\nMarcela Bahníková\ntermín:\n31. 5. 2024\nProjednávání bodu bylo ukončeno v 16:38:59"
+   },
+   {
+    "number": 7,
+    "title_raw": "Výběr dodavatele na plnění veřejné zakázky \"Rekonstrukce místních komunikací a vodovodní řad v části Bačov v Pečkách - 1. a 2. etapa\" a uzavření smlouvy o dílo",
+    "heading_raw": "7. Výběr dodavatele na plnění veřejné zakázky \"Rekonstrukce místních komunikací a vodovodní řad v části Bačov v Pečkách - 1. a 2. etapa\" a uzavření smlouvy o dílo (bod číslo 7)",
+    "predkladatel": null,
+    "votes": [
+     {
+      "raw_text": "pro:\n(7) Ing. Hana Kuprová, Ing. Petr Dürr, Ivana Trčková, Ing. Karel Krištoufek, Ing. Martin Jedlička, Zdeněk Fejfar, Milan Paluska\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)",
+      "pro": {
+       "count": 7,
+       "names": [
+        "Ing. Hana Kuprová",
+        "Ing. Petr Dürr",
+        "Ivana Trčková",
+        "Ing. Karel Krištoufek",
+        "Ing. Martin Jedlička",
+        "Zdeněk Fejfar",
+        "Milan Paluska"
+       ],
+       "raw": "(7) Ing. Hana Kuprová, Ing. Petr Dürr, Ivana Trčková, Ing. Karel Krištoufek, Ing. Martin Jedlička, Zdeněk Fejfar, Milan Paluska"
+      },
+      "proti": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "zdrzel_se": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "nehlasoval": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "result_raw": "Návrh byl přijat jako usnesení číslo: UR-198-20/24",
+      "adopted_resolution_number": "UR-198-20/24"
+     }
+    ],
+    "resolution_numbers_mentioned": [
+     "UR-198-20/24"
+    ],
+    "raw_text": "Projednávání bodu bylo zahájeno v 16:39:03\n\nDůvodová zpráva:\nRozhodnutí o výběru dodavatele na plnění podlimitní veřejné zakázky \"Rekonstrukce místních komunikací a vodovodní řad v části Bačov v Pečkách - 1. a 2. etapa\", zadávané v režimu zákona č.134/2016 Sb., o zadávání veřejných zakázek, ve znění pozdějších předpisů (dále jen \"zákon\") ve zjednodušeném podlimitním řízení, na základě ust. § 122 zákona, v souladu s doporučením hodnotící komise - viz Rozhodnutí a oznámení o výběru dodavatele v příloze, a uzavření smlouvy o dílo s vybraným dodavatelem ZEPRIS s.r.o., se sídlem: Mezi Vodami 639/27, 143 20\nPraha\n4, IČ: 25117947, po poskytnutí součinnosti vybraného dodavatele před podpisem smlouvy a po uplynutí lhůty pro podání námitek.\nDiskuze zahájena v 16:39:05\nK tomuto bodu se vyjádřili: Zdeněk Fejfar, Milan Paluska, Ing. Karel Krištoufek, Ing. Hana Kuprová\nV 16:49:16 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Zdeněk Fejfar\") v tomto znění:\nRada\nměsta schvaluje Rozhodnutí o výběru dodavatele na plnění podlimitní veřejné zakázky \"Rekonstrukce místních komunikací a vodovodní řad v části Bačov v Pečkách – 1. a 2. etapa\", zadávané v režimu zákona č. 134/2016 Sb., o zadávání veřejných zakázek, ve znění pozdějších předpisů (dále jen \"zákon\"), na základě ust. § 122 zákona, v souladu s doporučením hodnotící komise, a uzavření smlouvy o dílo mezi městem Pečky a vybraným dodavatelem ZEPRIS s.r.o., se sídlem: Mezi Vodami 639/27, 143 20\nPraha\n4, IČ: 25117947, po poskytnutí součinnosti vybraného dodavatele před podpisem smlouvy a po uplynutí lhůty pro podání námitek.\nHlasování\npro:\n(7) Ing. Hana Kuprová, Ing. Petr Dürr, Ivana Trčková, Ing. Karel Krištoufek, Ing. Martin Jedlička, Zdeněk Fejfar, Milan Paluska\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-198-20/24\nzodpovídá:\nMichala Dekiská\ntermín:\n25. 6. 2024\nProjednávání bodu bylo ukončeno v 16:49:23"
+   },
+   {
+    "number": 8,
+    "title_raw": "Kontrola plnění usnesení",
+    "heading_raw": "8. Kontrola plnění usnesení (bod číslo 8)",
+    "predkladatel": null,
+    "votes": [],
+    "resolution_numbers_mentioned": [],
+    "raw_text": "Projednávání bodu bylo zahájeno v 16:51:59\nDiskuze zahájena v 16:52:00\nK tomuto bodu se vyjádřili: Milan Paluska, Pavlína Nepovímová, Ing. Martin Jedlička, Zdeněk Fejfar\nRada bere materiály předložené k bodu č. 8 -\nKontrola plnění usnesení\nna vědomí.\nProjednávání bodu bylo ukončeno v 17:17:38"
+   },
+   {
+    "number": 10,
+    "title_raw": "Úkoly vyplývající z jednání rady města",
+    "heading_raw": "9. Úkoly vyplývající z jednání rady města (bod číslo 10)",
+    "predkladatel": null,
+    "votes": [
+     {
+      "raw_text": "pro:\n(7) Ing. Martin Jedlička, Ing. Karel Krištoufek, Ing. Hana Kuprová, Ing. Petr Dürr, Milan Paluska, Zdeněk Fejfar, Ivana Trčková\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)",
+      "pro": {
+       "count": 7,
+       "names": [
+        "Ing. Martin Jedlička",
+        "Ing. Karel Krištoufek",
+        "Ing. Hana Kuprová",
+        "Ing. Petr Dürr",
+        "Milan Paluska",
+        "Zdeněk Fejfar",
+        "Ivana Trčková"
+       ],
+       "raw": "(7) Ing. Martin Jedlička, Ing. Karel Krištoufek, Ing. Hana Kuprová, Ing. Petr Dürr, Milan Paluska, Zdeněk Fejfar, Ivana Trčková"
+      },
+      "proti": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "zdrzel_se": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "nehlasoval": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "result_raw": "Návrh byl přijat jako usnesení číslo: UR-199-20/24",
+      "adopted_resolution_number": "UR-199-20/24"
+     },
+     {
+      "raw_text": "pro:\n(7) Ing. Petr Dürr, Ing. Martin Jedlička, Ing. Karel Krištoufek, Zdeněk Fejfar, Ing. Hana Kuprová, Milan Paluska, Ivana Trčková\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)",
+      "pro": {
+       "count": 7,
+       "names": [
+        "Ing. Petr Dürr",
+        "Ing. Martin Jedlička",
+        "Ing. Karel Krištoufek",
+        "Zdeněk Fejfar",
+        "Ing. Hana Kuprová",
+        "Milan Paluska",
+        "Ivana Trčková"
+       ],
+       "raw": "(7) Ing. Petr Dürr, Ing. Martin Jedlička, Ing. Karel Krištoufek, Zdeněk Fejfar, Ing. Hana Kuprová, Milan Paluska, Ivana Trčková"
+      },
+      "proti": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "zdrzel_se": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "nehlasoval": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "result_raw": "Návrh byl přijat jako usnesení číslo: UR-200-20/24",
+      "adopted_resolution_number": "UR-200-20/24"
+     }
+    ],
+    "resolution_numbers_mentioned": [
+     "UR-199-20/24",
+     "UR-200-20/24"
+    ],
+    "raw_text": "Projednávání bodu bylo zahájeno v 17:18:00\nDiskuze zahájena v 17:18:01\nK tomuto bodu se vyjádřili: Milan Paluska, Ing. Karel Krištoufek, Ing. Martin Jedlička, Ing. Hana Kuprová\nV 17:26:35 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Milan Paluska\") v tomto znění:\nRada\nměsta ukládá M.\nBahníkové\n- vedoucí ekonomicko - správního odboru připravit dvě varianty s výsledným efektem při zvýšení koeficientu daně z nemovitosti.\nHlasování\npro:\n(7) Ing. Martin Jedlička, Ing. Karel Krištoufek, Ing. Hana Kuprová, Ing. Petr Dürr, Milan Paluska, Zdeněk Fejfar, Ivana Trčková\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-199-20/24\nzodpovídá:\nMilan Paluska\ntermín:\n3. 6. 2024\nV 17:50:31 předsedající zahájil hlasování o návrhu usnesení \"B\" (navrhovatel: \"Milan Paluska\") v tomto znění:\nRada\nměsta ukládá Ing. Věře\nRůžičkové\n- vedoucí odboru správy majetku města a BH dokončit přípravu výběrového řízení na zhotovení plotu u Mateřské školy Mašinka Pečky bez zadní části sousedící s lokalitou Bačov.\nHlasování\npro:\n(7) Ing. Petr Dürr, Ing. Martin Jedlička, Ing. Karel Krištoufek, Zdeněk Fejfar, Ing. Hana Kuprová, Milan Paluska, Ivana Trčková\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-200-20/24\nzodpovídá:\nVěra Růžičková\ntermín:\n30. 5. 2024\nProjednávání bodu bylo ukončeno v 17:50:56"
+   },
+   {
+    "number": 9,
+    "title_raw": "Diskuse, různé",
+    "heading_raw": "10. Diskuse, různé (bod číslo 9)",
+    "predkladatel": null,
+    "votes": [],
+    "resolution_numbers_mentioned": [],
+    "raw_text": "Projednávání bodu bylo zahájeno v 17:51:12\nDiskuze zahájena v 17:51:13\nK tomuto bodu se vyjádřili: Milan Paluska\nRada bere materiály předložené k bodu č. 9 -\nDiskuse, různé\nna vědomí.\nProjednávání bodu bylo ukončeno v 17:51:47\nJednání ukončeno 27.05.2024 v 17:52:01"
+   }
+  ],
+  "full_text": "ZÁPIS ze schůze rady č. 20/2024\nMěsto Pečky\ndatum: 27. 5. 2024, čas: 15:00\n​\nPrezence:\nPřítomni:\n(7) Milan Paluska, Zdeněk Fejfar, Ing. Karel Krištoufek, Ing. Petr Dürr, Ing. Martin Jedlička, Ing. Hana Kuprová, Ivana Trčková\nOmluveni:\n(0)\nNepřítomni:\n(0)\nHosté:\nZapisovatel/ka:\nEva Strnadová\nPřítomno je 7 členů a rada je usnášeníschopná.\nJednání zahájeno 27.05.2024 v 15:08:32\n1. Určení zapisovatelů, předsedajícího, příp. ověřovatelů (bod číslo 1)\nPředkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 15:08:37\nPředsedající navrhl jednotlivé členy pracovních komisí\nOvěřovatelé:\nIng. Hana Kuprová, Zdeněk Fejfar\nPředsedající:\nMilan Paluska\nBod byl přijat bez hlasování.\nDiskuze zahájena v 15:08:38\nK tomuto bodu se vyjádřili: Milan Paluska\nProjednávání bodu bylo ukončeno v 15:11:03\n2. Schválení programu jednání (bod číslo 2)\nPředkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 15:11:42\nProgram jednání\n1. Určení zapisovatelů, předsedajícího, příp. ověřovatelů\n2. Schválení programu jednání\n3. Aktuální informace vedení města\n4. Uzavření „Dodatku č.1 ke smlouvě pro umístění Z-BOXU“ – Zásilkovna s.r.o., Praha 9\n5. OZV - koeficient daně z nemovitostí\n6. Účetní závěrka 2023 - projednání\n7. Výběr dodavatele na plnění veřejné zakázky \"Rekonstrukce místních komunikací a vodovodní řad v části Bačov v Pečkách - 1. a 2. etapa\" a uzavření smlouvy o dílo\n8. Kontrola plnění usnesení\n9. Diskuse, různé\n10. Úkoly vyplývající z jednání rady města\nDiskuze zahájena v 15:11:43\nK tomuto bodu se vyjádřili: Milan Paluska\nV 15:15:10 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Milan Paluska\") v tomto znění:\nRada\nměsta schvaluje návrh programu jednání.\nHlasování\npro:\n(7) Ing. Petr Dürr, Ing. Hana Kuprová, Ivana Trčková, Zdeněk Fejfar, Ing. Martin Jedlička, Ing. Karel Krištoufek, Milan Paluska\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-195-20/24\nzodpovídá:\ntermín:\nIHNED\n(27. 5. 2024)\nProjednávání bodu bylo ukončeno v 15:15:18\n3. Aktuální informace vedení města (bod číslo 3)\nPředkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 15:15:22\nDůvodová zpráva:\nstarosta města\n- informace o setkání starostů Středočeského kraje v Čestlicích dne 21.5.2024\n- informace o přeložce společnosti ČEZ pro plánovanou cyklostezku v k.ú.\nVelké\nChvalovice\n- informace o pokládce optických kabelů na sídlišti\n- informace o postupu prací na kabinách AFK Pečky\n- informace o konání Župního sletu v Pečkách na hřišti AFK Pečky, organizační zajištění akce, dne 2.6.2024 předvedení sletových skladeb\n- informace o průběhu a zhodnocení rodinné pouti Mašinka dne 25.5.2024, poděkování spolkům a organizátorům akce\n- informace o závadě na úpravně vody - řešení situace, schůzka s jednatelem společnosti Pečecké služby, s.r.o. Pečky\n- informace o zápisu dětí do Mateřské školy Mašinka Pečky pro školní rok 2024/2025\nZdeněk\nFejfar\n- informace o hutnící zkoušce v ulici Za Statkem ve V. Chvalovicích - v nejbližší době dojde k převzetí nových komunikací\nDiskuze zahájena v 15:15:23\nK tomuto bodu se vyjádřili: Milan Paluska, Ing. Martin Jedlička, Ing. Hana Kuprová, Ivana Trčková, Ing. Petr Dürr, Zdeněk Fejfar\nRada bere materiály předložené k bodu č. 3 -\nAktuální informace vedení města\nna vědomí.\nProjednávání bodu bylo ukončeno v 15:52:31\n4. Uzavření „Dodatku č.1 ke smlouvě pro umístění Z-BOXU“ – Zásilkovna s.r.o., Praha 9 (bod číslo 4)\nPředkladatel: Jana Najbrtová\nProjednávání bodu bylo zahájeno v 15:52:35\nDůvodová zpráva:\nDoporučujeme uzavřít dodatek ke smlouvě. Firma Zásilkovna, s.r.o. souhlasí s podmínkami uvedenými ve zveřejněném záměru.\nDiskuze zahájena v 15:52:36\nK tomuto bodu se vyjádřili: Milan Paluska, Ing. Hana Kuprová, Ing. Petr Dürr, Ing. Karel Krištoufek\nV 16:02:46 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Jana Najbrtová\") v tomto znění:\nRada\nměsta schvaluje uzavření „Dodatku č.1 ke smlouvě pro umístění Z-BOXU“ – na části pozemku č.parc. 47/2 (u čp. 183) - k.ú.\nVelké\nChvalovice s firmou Zásilkovna, s.r.o.,\nPraha\n9, Českomoravská 2408/1a. Smlouva bude uzavřena od 1.6. 2024 na dobu neurčitou s výpovědní lhůtou 3 měsíce za cenu 2.400,- Kč/rok/6 sloupců+DPH. Úhrada nájemného bude prováděna vždy 1x ročně do 31. března. Za rok 2024 bude uhrazena poměrná část (za 6.-12./24) nejpozději do 17.6. 2024.\nHlasování\npro:\n(7) Ing. Petr Dürr, Zdeněk Fejfar, Ing. Martin Jedlička, Milan Paluska, Ing. Hana Kuprová, Ing. Karel Krištoufek, Ivana Trčková\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-196-20/24\nzodpovídá:\nJana Najbrtová\ntermín:\n31. 7. 2024\nProjednávání bodu bylo ukončeno v 16:02:58\n5. OZV - koeficient daně z nemovitostí (bod číslo 5)\nPředkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 16:03:02\nDůvodová zpráva:\nMěsto Pečky má od roku 2005 OZV stanoveno zvýšení koeficientu dle velikosti obce pro katastrální území Pečky ( z 1,4 na 1,6 ) u stavebních pozemků, obytných budov a ostatních staveb a dále zvýšení koeficientem 1,5 daně z garáží, rekreačních staveb a staveb a jednotek k podnikání a to na katastrálním území Pečky i\nVelké\nChvalovice. Od roku 2025 bude v zákoně č.338/1992 tento koeficient zrušen, k navýšení daně je možno využít stanovení místního koeficientu dle § 12 uvedeného zákona. Předkládáme OZV účinnou od 1.1.2025, která vychází v aktualizovaného znění zákona č.338/1992 a upravuje navýšení daně z nemovitých věcí\nve stejném rozsahu\njako dosud platná vyhláška.\nRada\nměsta bere na vědomí informaci o koeficientu daně z nemovitostí.\nDiskuze zahájena v 16:03:03\nK tomuto bodu se vyjádřili: Milan Paluska, Pavlína Nepovímová, Ivana Trčková, Ing. Karel Krištoufek, Ing. Martin Jedlička\nRada bere materiály předložené k bodu č. 5 -\nOZV - koeficient daně z nemovitostí\nna vědomí.\nProjednávání bodu bylo ukončeno v 16:34:01\n6. Účetní závěrka 2023 - projednání (bod číslo 6)\nPředkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 16:34:05\nDůvodová zpráva:\nÚčetní závěrku schvaluje zastupitelstvo města nejpozději do 30.6. následujícího roku. Dle Směrnice 2/2014 předkládá vedoucí ekonomicko - správního odboru podklady k účetní závěrce radě města, poté je projedná FV a předloží zprávu zastupitelstvu města. V příloze předkládám účetní výkazy sestavené k 31.12.2023, rozbor a zprávu o přezkoumání hospodaření , inventarizační zpráva bude k nahlédnutí na jednání rady města.\nDiskuze zahájena v 16:34:06\nK tomuto bodu se vyjádřili: Milan Paluska, Ing. Karel Krištoufek, Ing. Hana Kuprová, Zdeněk Fejfar\nV 16:38:51 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Milan Paluska\") v tomto znění:\nRada\nměsta projednala v souladu se Směrnicí č. 2/2014 účetní závěrku města sestavenou k 31.12.2023.\nHlasování\npro:\n(7) Ing. Petr Dürr, Ing. Hana Kuprová, Ing. Martin Jedlička, Milan Paluska, Ivana Trčková, Ing. Karel Krištoufek, Zdeněk Fejfar\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-197-20/24\nzodpovídá:\nMarcela Bahníková\ntermín:\n31. 5. 2024\nProjednávání bodu bylo ukončeno v 16:38:59\n7. Výběr dodavatele na plnění veřejné zakázky \"Rekonstrukce místních komunikací a vodovodní řad v části Bačov v Pečkách - 1. a 2. etapa\" a uzavření smlouvy o dílo (bod číslo 7)\nPředkladatel: Zdeněk Fejfar\nProjednávání bodu bylo zahájeno v 16:39:03\nDůvodová zpráva:\nRozhodnutí o výběru dodavatele na plnění podlimitní veřejné zakázky \"Rekonstrukce místních komunikací a vodovodní řad v části Bačov v Pečkách - 1. a 2. etapa\", zadávané v režimu zákona č.134/2016 Sb., o zadávání veřejných zakázek, ve znění pozdějších předpisů (dále jen \"zákon\") ve zjednodušeném podlimitním řízení, na základě ust. § 122 zákona, v souladu s doporučením hodnotící komise - viz Rozhodnutí a oznámení o výběru dodavatele v příloze, a uzavření smlouvy o dílo s vybraným dodavatelem ZEPRIS s.r.o., se sídlem: Mezi Vodami 639/27, 143 20\nPraha\n4, IČ: 25117947, po poskytnutí součinnosti vybraného dodavatele před podpisem smlouvy a po uplynutí lhůty pro podání námitek.\nDiskuze zahájena v 16:39:05\nK tomuto bodu se vyjádřili: Zdeněk Fejfar, Milan Paluska, Ing. Karel Krištoufek, Ing. Hana Kuprová\nV 16:49:16 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Zdeněk Fejfar\") v tomto znění:\nRada\nměsta schvaluje Rozhodnutí o výběru dodavatele na plnění podlimitní veřejné zakázky \"Rekonstrukce místních komunikací a vodovodní řad v části Bačov v Pečkách – 1. a 2. etapa\", zadávané v režimu zákona č. 134/2016 Sb., o zadávání veřejných zakázek, ve znění pozdějších předpisů (dále jen \"zákon\"), na základě ust. § 122 zákona, v souladu s doporučením hodnotící komise, a uzavření smlouvy o dílo mezi městem Pečky a vybraným dodavatelem ZEPRIS s.r.o., se sídlem: Mezi Vodami 639/27, 143 20\nPraha\n4, IČ: 25117947, po poskytnutí součinnosti vybraného dodavatele před podpisem smlouvy a po uplynutí lhůty pro podání námitek.\nHlasování\npro:\n(7) Ing. Hana Kuprová, Ing. Petr Dürr, Ivana Trčková, Ing. Karel Krištoufek, Ing. Martin Jedlička, Zdeněk Fejfar, Milan Paluska\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-198-20/24\nzodpovídá:\nMichala Dekiská\ntermín:\n25. 6. 2024\nProjednávání bodu bylo ukončeno v 16:49:23\n8. Kontrola plnění usnesení (bod číslo 8)\nPředkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 16:51:59\nDiskuze zahájena v 16:52:00\nK tomuto bodu se vyjádřili: Milan Paluska, Pavlína Nepovímová, Ing. Martin Jedlička, Zdeněk Fejfar\nRada bere materiály předložené k bodu č. 8 -\nKontrola plnění usnesení\nna vědomí.\nProjednávání bodu bylo ukončeno v 17:17:38\n9. Úkoly vyplývající z jednání rady města (bod číslo 10)\nPředkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 17:18:00\nDiskuze zahájena v 17:18:01\nK tomuto bodu se vyjádřili: Milan Paluska, Ing. Karel Krištoufek, Ing. Martin Jedlička, Ing. Hana Kuprová\nV 17:26:35 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Milan Paluska\") v tomto znění:\nRada\nměsta ukládá M.\nBahníkové\n- vedoucí ekonomicko - správního odboru připravit dvě varianty s výsledným efektem při zvýšení koeficientu daně z nemovitosti.\nHlasování\npro:\n(7) Ing. Martin Jedlička, Ing. Karel Krištoufek, Ing. Hana Kuprová, Ing. Petr Dürr, Milan Paluska, Zdeněk Fejfar, Ivana Trčková\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-199-20/24\nzodpovídá:\nMilan Paluska\ntermín:\n3. 6. 2024\nV 17:50:31 předsedající zahájil hlasování o návrhu usnesení \"B\" (navrhovatel: \"Milan Paluska\") v tomto znění:\nRada\nměsta ukládá Ing. Věře\nRůžičkové\n- vedoucí odboru správy majetku města a BH dokončit přípravu výběrového řízení na zhotovení plotu u Mateřské školy Mašinka Pečky bez zadní části sousedící s lokalitou Bačov.\nHlasování\npro:\n(7) Ing. Petr Dürr, Ing. Martin Jedlička, Ing. Karel Krištoufek, Zdeněk Fejfar, Ing. Hana Kuprová, Milan Paluska, Ivana Trčková\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-200-20/24\nzodpovídá:\nVěra Růžičková\ntermín:\n30. 5. 2024\nProjednávání bodu bylo ukončeno v 17:50:56\n10. Diskuse, různé (bod číslo 9)\nPředkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 17:51:12\nDiskuze zahájena v 17:51:13\nK tomuto bodu se vyjádřili: Milan Paluska\nRada bere materiály předložené k bodu č. 9 -\nDiskuse, různé\nna vědomí.\nProjednávání bodu bylo ukončeno v 17:51:47\nJednání ukončeno 27.05.2024 v 17:52:01"
+ },
+ "resolutions": {
+  "status": "ok",
+  "url": "https://mesto-pecky.usneseni.cz/verejne/1f06c08d-181a-11ef-95ef-00505683238f/usneseni/",
+  "fetched_at": "2026-08-04T13:50:13.193826+00:00",
+  "items": [
+   {
+    "number_raw": "UR-195-20/24",
+    "detail_id": 65871,
+    "detail_url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/65871?mod=rada",
+    "agenda_item_raw": "Schválení programu jednání",
+    "text_verbatim": "Rada\nměsta schvaluje návrh programu jednání.",
+    "cell_text_raw": "Bod programu:\nSchválení programu jednání\nText přijatého usnesení:\nRada\nměsta schvaluje návrh programu jednání.",
+    "date_raw": "27. 5. 2024",
+    "date_iso": "2024-05-27",
+    "responsible_raw": "",
+    "deadline_raw": "IHNED (27. 5. 2024)",
+    "vote": {
+     "raw_text": "pro: 7 proti: 0 zdržel se: 0",
+     "pro": {
+      "count": 7,
+      "names": null,
+      "raw": "7"
+     },
+     "proti": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     },
+     "zdrzel_se": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     }
+    },
+    "detail": {
+     "number_raw": "UR-195-20/24",
+     "text_verbatim": "Rada města schvaluje návrh programu jednání.",
+     "typ_raw": null,
+     "zodpovida_raw": "",
+     "prijato_raw": "27. 5. 2024 na jednání č. 20/2024",
+     "prijato_date_iso": "2024-05-27",
+     "prijato_meeting_label": "20/2024",
+     "termin_raw": "IHNED (27. 5. 2024)",
+     "ukonceno_raw": "27. 5. 2024",
+     "ukonceno_date_iso": "2024-05-27",
+     "fields_raw": {
+      "Číslo usnesení": "UR-195-20/24",
+      "Text usnesení": "Rada města schvaluje návrh programu jednání.",
+      "Zodpovídá": "",
+      "Přijato": "27. 5. 2024 na jednání č. 20/2024",
+      "Termín": "IHNED (27. 5. 2024)",
+      "Ukončeno": "27. 5. 2024"
+     }
+    }
+   },
+   {
+    "number_raw": "UR-196-20/24",
+    "detail_id": 65956,
+    "detail_url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/65956?mod=rada",
+    "agenda_item_raw": "Uzavření „Dodatku č.1 ke smlouvě pro umístění Z-BOXU“ – Zásilkovna s.r.o., Praha 9",
+    "text_verbatim": "Rada\nměsta schvaluje uzavření „Dodatku č.1 ke smlouvě pro umístění Z-BOXU“ – na části pozemku č.parc. 47/2 (u čp. 183) - k.ú.\nVelké\nChvalovice s firmou Zásilkovna, s.r.o.,\nPraha\n9, Českomoravská 2408/1a. Smlouva bude uzavřena od 1.6. 2024 na dobu neurčitou s výpovědní lhůtou 3 měsíce za cenu 2.400,- Kč/rok/6 sloupců+DPH. Úhrada nájemného bude prováděna vždy 1x ročně do 31. března. Za rok 2024 bude uhrazena poměrná část (za 6.-12./24) nejpozději do 17.6. 2024.",
+    "cell_text_raw": "Bod programu:\nUzavření „Dodatku č.1 ke smlouvě pro umístění Z-BOXU“ – Zásilkovna s.r.o., Praha 9\nText přijatého usnesení:\nRada\nměsta schvaluje uzavření „Dodatku č.1 ke smlouvě pro umístění Z-BOXU“ – na části pozemku č.parc. 47/2 (u čp. 183) - k.ú.\nVelké\nChvalovice s firmou Zásilkovna, s.r.o.,\nPraha\n9, Českomoravská 2408/1a. Smlouva bude uzavřena od 1.6. 2024 na dobu neurčitou s výpovědní lhůtou 3 měsíce za cenu 2.400,- Kč/rok/6 sloupců+DPH. Úhrada nájemného bude prováděna vždy 1x ročně do 31. března. Za rok 2024 bude uhrazena poměrná část (za 6.-12./24) nejpozději do 17.6. 2024.",
+    "date_raw": "27. 5. 2024",
+    "date_iso": "2024-05-27",
+    "responsible_raw": "Jana Najbrtová",
+    "deadline_raw": "31. 7. 2024",
+    "vote": {
+     "raw_text": "pro: 7 proti: 0 zdržel se: 0",
+     "pro": {
+      "count": 7,
+      "names": null,
+      "raw": "7"
+     },
+     "proti": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     },
+     "zdrzel_se": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     }
+    },
+    "detail": {
+     "number_raw": "UR-196-20/24",
+     "text_verbatim": "Rada města schvaluje uzavření „Dodatku č.1 ke smlouvě pro umístění Z-BOXU“ – na části pozemku č.parc. 47/2 (u čp. 183) - k.ú. Velké Chvalovice s firmou Zásilkovna, s.r.o., Praha 9, Českomoravská 2408/1a. Smlouva bude uzavřena od 1.6. 2024 na dobu neurčitou s výpovědní lhůtou 3 měsíce za cenu 2.400,- Kč/rok/6 sloupců+DPH. Úhrada nájemného bude prováděna vždy 1x ročně do 31. března. Za rok 2024 bude uhrazena poměrná část (za 6.-12./24) nejpozději do 17.6. 2024.",
+     "typ_raw": null,
+     "zodpovida_raw": "Jana Najbrtová",
+     "prijato_raw": "27. 5. 2024 na jednání č. 20/2024",
+     "prijato_date_iso": "2024-05-27",
+     "prijato_meeting_label": "20/2024",
+     "termin_raw": "31. 7. 2024",
+     "ukonceno_raw": "10. 7. 2024",
+     "ukonceno_date_iso": "2024-07-10",
+     "fields_raw": {
+      "Číslo usnesení": "UR-196-20/24",
+      "Text usnesení": "Rada města schvaluje uzavření „Dodatku č.1 ke smlouvě pro umístění Z-BOXU“ – na části pozemku č.parc. 47/2 (u čp. 183) - k.ú. Velké Chvalovice s firmou Zásilkovna, s.r.o., Praha 9, Českomoravská 2408/1a. Smlouva bude uzavřena od 1.6. 2024 na dobu neurčitou s výpovědní lhůtou 3 měsíce za cenu 2.400,- Kč/rok/6 sloupců+DPH. Úhrada nájemného bude prováděna vždy 1x ročně do 31. března. Za rok 2024 bude uhrazena poměrná část (za 6.-12./24) nejpozději do 17.6. 2024.",
+      "Zodpovídá": "Jana Najbrtová",
+      "Přijato": "27. 5. 2024 na jednání č. 20/2024",
+      "Termín": "31. 7. 2024",
+      "Ukončeno": "10. 7. 2024"
+     }
+    }
+   },
+   {
+    "number_raw": "UR-197-20/24",
+    "detail_id": 66009,
+    "detail_url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/66009?mod=rada",
+    "agenda_item_raw": "Účetní závěrka 2023 - projednání",
+    "text_verbatim": "Rada\nměsta projednala v souladu se Směrnicí č. 2/2014 účetní závěrku města sestavenou k 31.12.2023.",
+    "cell_text_raw": "Bod programu:\nÚčetní závěrka 2023 - projednání\nText přijatého usnesení:\nRada\nměsta projednala v souladu se Směrnicí č. 2/2014 účetní závěrku města sestavenou k 31.12.2023.",
+    "date_raw": "27. 5. 2024",
+    "date_iso": "2024-05-27",
+    "responsible_raw": "Marcela Bahníková",
+    "deadline_raw": "31. 5. 2024",
+    "vote": {
+     "raw_text": "pro: 7 proti: 0 zdržel se: 0",
+     "pro": {
+      "count": 7,
+      "names": null,
+      "raw": "7"
+     },
+     "proti": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     },
+     "zdrzel_se": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     }
+    },
+    "detail": {
+     "number_raw": "UR-197-20/24",
+     "text_verbatim": "Rada města projednala v souladu se Směrnicí č. 2/2014 účetní závěrku města sestavenou k 31.12.2023.",
+     "typ_raw": null,
+     "zodpovida_raw": "Marcela Bahníková",
+     "prijato_raw": "27. 5. 2024 na jednání č. 20/2024",
+     "prijato_date_iso": "2024-05-27",
+     "prijato_meeting_label": "20/2024",
+     "termin_raw": "31. 5. 2024",
+     "ukonceno_raw": "28. 5. 2024",
+     "ukonceno_date_iso": "2024-05-28",
+     "fields_raw": {
+      "Číslo usnesení": "UR-197-20/24",
+      "Text usnesení": "Rada města projednala v souladu se Směrnicí č. 2/2014 účetní závěrku města sestavenou k 31.12.2023.",
+      "Zodpovídá": "Marcela Bahníková",
+      "Přijato": "27. 5. 2024 na jednání č. 20/2024",
+      "Termín": "31. 5. 2024",
+      "Ukončeno": "28. 5. 2024"
+     }
+    }
+   },
+   {
+    "number_raw": "UR-198-20/24",
+    "detail_id": 66080,
+    "detail_url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/66080?mod=rada",
+    "agenda_item_raw": "Výběr dodavatele na plnění veřejné zakázky \"Rekonstrukce místních komunikací a vodovodní řad v části Bačov v Pečkách - 1. a 2. etapa\" a uzavření smlouvy o dílo",
+    "text_verbatim": "Rada\nměsta schvaluje Rozhodnutí o výběru dodavatele na plnění podlimitní veřejné zakázky \"Rekonstrukce místních komunikací a vodovodní řad v části Bačov v Pečkách – 1. a 2. etapa\", zadávané v režimu zákona č. 134/2016 Sb., o zadávání veřejných zakázek, ve znění pozdějších předpisů (dále jen \"zákon\"), na základě ust. § 122 zákona, v souladu s doporučením hodnotící komise, a uzavření smlouvy o dílo mezi městem Pečky a vybraným dodavatelem ZEPRIS s.r.o., se sídlem: Mezi Vodami 639/27, 143 20\nPraha\n4, IČ: 25117947, po poskytnutí součinnosti vybraného dodavatele před podpisem smlouvy a po uplynutí lhůty pro podání námitek.",
+    "cell_text_raw": "Bod programu:\nVýběr dodavatele na plnění veřejné zakázky \"Rekonstrukce místních komunikací a vodovodní řad v části Bačov v Pečkách - 1. a 2. etapa\" a uzavření smlouvy o dílo\nText přijatého usnesení:\nRada\nměsta schvaluje Rozhodnutí o výběru dodavatele na plnění podlimitní veřejné zakázky \"Rekonstrukce místních komunikací a vodovodní řad v části Bačov v Pečkách – 1. a 2. etapa\", zadávané v režimu zákona č. 134/2016 Sb., o zadávání veřejných zakázek, ve znění pozdějších předpisů (dále jen \"zákon\"), na základě ust. § 122 zákona, v souladu s doporučením hodnotící komise, a uzavření smlouvy o dílo mezi městem Pečky a vybraným dodavatelem ZEPRIS s.r.o., se sídlem: Mezi Vodami 639/27, 143 20\nPraha\n4, IČ: 25117947, po poskytnutí součinnosti vybraného dodavatele před podpisem smlouvy a po uplynutí lhůty pro podání námitek.",
+    "date_raw": "27. 5. 2024",
+    "date_iso": "2024-05-27",
+    "responsible_raw": "Michala Dekiská",
+    "deadline_raw": "25. 6. 2024",
+    "vote": {
+     "raw_text": "pro: 7 proti: 0 zdržel se: 0",
+     "pro": {
+      "count": 7,
+      "names": null,
+      "raw": "7"
+     },
+     "proti": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     },
+     "zdrzel_se": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     }
+    },
+    "detail": {
+     "number_raw": "UR-198-20/24",
+     "text_verbatim": "Rada města schvaluje Rozhodnutí o výběru dodavatele na plnění podlimitní veřejné zakázky \"Rekonstrukce místních komunikací a vodovodní řad v části Bačov v Pečkách – 1. a 2. etapa\", zadávané v režimu zákona č. 134/2016 Sb., o zadávání veřejných zakázek, ve znění pozdějších předpisů (dále jen \"zákon\"), na základě ust. § 122 zákona, v souladu s doporučením hodnotící komise, a uzavření smlouvy o dílo mezi městem Pečky a vybraným dodavatelem ZEPRIS s.r.o., se sídlem: Mezi Vodami 639/27, 143 20 Praha 4, IČ: 25117947, po poskytnutí součinnosti vybraného dodavatele před podpisem smlouvy a po uplynutí lhůty pro podání námitek.",
+     "typ_raw": null,
+     "zodpovida_raw": "Michala Dekiská",
+     "prijato_raw": "27. 5. 2024 na jednání č. 20/2024",
+     "prijato_date_iso": "2024-05-27",
+     "prijato_meeting_label": "20/2024",
+     "termin_raw": "25. 6. 2024",
+     "ukonceno_raw": "26. 6. 2024",
+     "ukonceno_date_iso": "2024-06-26",
+     "fields_raw": {
+      "Číslo usnesení": "UR-198-20/24",
+      "Text usnesení": "Rada města schvaluje Rozhodnutí o výběru dodavatele na plnění podlimitní veřejné zakázky \"Rekonstrukce místních komunikací a vodovodní řad v části Bačov v Pečkách – 1. a 2. etapa\", zadávané v režimu zákona č. 134/2016 Sb., o zadávání veřejných zakázek, ve znění pozdějších předpisů (dále jen \"zákon\"), na základě ust. § 122 zákona, v souladu s doporučením hodnotící komise, a uzavření smlouvy o dílo mezi městem Pečky a vybraným dodavatelem ZEPRIS s.r.o., se sídlem: Mezi Vodami 639/27, 143 20 Praha 4, IČ: 25117947, po poskytnutí součinnosti vybraného dodavatele před podpisem smlouvy a po uplynutí lhůty pro podání námitek.",
+      "Zodpovídá": "Michala Dekiská",
+      "Přijato": "27. 5. 2024 na jednání č. 20/2024",
+      "Termín": "25. 6. 2024",
+      "Ukončeno": "26. 6. 2024"
+     }
+    }
+   },
+   {
+    "number_raw": "UR-199-20/24",
+    "detail_id": 66314,
+    "detail_url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/66314?mod=rada",
+    "agenda_item_raw": "Úkoly vyplývající z jednání rady města",
+    "text_verbatim": "Rada\nměsta ukládá M.\nBahníkové\n- vedoucí ekonomicko - správního odboru připravit dvě varianty s výsledným efektem při zvýšení koeficientu daně z nemovitosti.",
+    "cell_text_raw": "Bod programu:\nÚkoly vyplývající z jednání rady města\nText přijatého usnesení:\nRada\nměsta ukládá M.\nBahníkové\n- vedoucí ekonomicko - správního odboru připravit dvě varianty s výsledným efektem při zvýšení koeficientu daně z nemovitosti.",
+    "date_raw": "27. 5. 2024",
+    "date_iso": "2024-05-27",
+    "responsible_raw": "Milan Paluska",
+    "deadline_raw": "3. 6. 2024",
+    "vote": {
+     "raw_text": "pro: 7 proti: 0 zdržel se: 0",
+     "pro": {
+      "count": 7,
+      "names": null,
+      "raw": "7"
+     },
+     "proti": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     },
+     "zdrzel_se": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     }
+    },
+    "detail": {
+     "number_raw": "UR-199-20/24",
+     "text_verbatim": "Rada města ukládá M. Bahníkové - vedoucí ekonomicko - správního odboru připravit dvě varianty s výsledným efektem při zvýšení koeficientu daně z nemovitosti.",
+     "typ_raw": null,
+     "zodpovida_raw": "Milan Paluska",
+     "prijato_raw": "27. 5. 2024 na jednání č. 20/2024",
+     "prijato_date_iso": "2024-05-27",
+     "prijato_meeting_label": "20/2024",
+     "termin_raw": "3. 6. 2024",
+     "ukonceno_raw": "3. 6. 2024",
+     "ukonceno_date_iso": "2024-06-03",
+     "fields_raw": {
+      "Číslo usnesení": "UR-199-20/24",
+      "Text usnesení": "Rada města ukládá M. Bahníkové - vedoucí ekonomicko - správního odboru připravit dvě varianty s výsledným efektem při zvýšení koeficientu daně z nemovitosti.",
+      "Zodpovídá": "Milan Paluska",
+      "Přijato": "27. 5. 2024 na jednání č. 20/2024",
+      "Termín": "3. 6. 2024",
+      "Ukončeno": "3. 6. 2024"
+     }
+    }
+   },
+   {
+    "number_raw": "UR-200-20/24",
+    "detail_id": 66317,
+    "detail_url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/66317?mod=rada",
+    "agenda_item_raw": "Úkoly vyplývající z jednání rady města",
+    "text_verbatim": "Rada\nměsta ukládá Ing. Věře\nRůžičkové\n- vedoucí odboru správy majetku města a BH dokončit přípravu výběrového řízení na zhotovení plotu u Mateřské školy Mašinka Pečky bez zadní části sousedící s lokalitou Bačov.",
+    "cell_text_raw": "Bod programu:\nÚkoly vyplývající z jednání rady města\nText přijatého usnesení:\nRada\nměsta ukládá Ing. Věře\nRůžičkové\n- vedoucí odboru správy majetku města a BH dokončit přípravu výběrového řízení na zhotovení plotu u Mateřské školy Mašinka Pečky bez zadní části sousedící s lokalitou Bačov.",
+    "date_raw": "27. 5. 2024",
+    "date_iso": "2024-05-27",
+    "responsible_raw": "Věra Růžičková",
+    "deadline_raw": "30. 5. 2024",
+    "vote": {
+     "raw_text": "pro: 7 proti: 0 zdržel se: 0",
+     "pro": {
+      "count": 7,
+      "names": null,
+      "raw": "7"
+     },
+     "proti": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     },
+     "zdrzel_se": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     }
+    },
+    "detail": {
+     "number_raw": "UR-200-20/24",
+     "text_verbatim": "Rada města ukládá Ing. Věře Růžičkové - vedoucí odboru správy majetku města a BH dokončit přípravu výběrového řízení na zhotovení plotu u Mateřské školy Mašinka Pečky bez zadní části sousedící s lokalitou Bačov.",
+     "typ_raw": null,
+     "zodpovida_raw": "Věra Růžičková",
+     "prijato_raw": "27. 5. 2024 na jednání č. 20/2024",
+     "prijato_date_iso": "2024-05-27",
+     "prijato_meeting_label": "20/2024",
+     "termin_raw": "30. 5. 2024",
+     "ukonceno_raw": "3. 6. 2024",
+     "ukonceno_date_iso": "2024-06-03",
+     "fields_raw": {
+      "Číslo usnesení": "UR-200-20/24",
+      "Text usnesení": "Rada města ukládá Ing. Věře Růžičkové - vedoucí odboru správy majetku města a BH dokončit přípravu výběrového řízení na zhotovení plotu u Mateřské školy Mašinka Pečky bez zadní části sousedící s lokalitou Bačov.",
+      "Zodpovídá": "Věra Růžičková",
+      "Přijato": "27. 5. 2024 na jednání č. 20/2024",
+      "Termín": "30. 5. 2024",
+      "Ukončeno": "3. 6. 2024"
+     }
+    }
+   }
+  ]
+ }
+}

@@ -1,0 +1,874 @@
+{
+ "uuid": "1f8f9a6a-dd74-11ef-9554-00505683238f",
+ "body_type_raw": "Rada",
+ "label_raw": "5/2025 (3. 2. 2025)",
+ "number": 5,
+ "year": 2025,
+ "date_iso": "2025-02-03",
+ "links": {
+  "invitation": "https://mesto-pecky.usneseni.cz/verejne/?uuid=1f8f9a6a-dd74-11ef-9554-00505683238f&page=6&do=printPublicInvitation",
+  "minutes": "https://mesto-pecky.usneseni.cz/verejne/1f8f9a6a-dd74-11ef-9554-00505683238f/zapis/?page=6",
+  "signed_minutes_pdf": "https://mesto-pecky.usneseni.cz/verejne/?meetingReportControl-uuid=1f8f9a6a-dd74-11ef-9554-00505683238f&page=6&do=meetingReportControl-getSignedReportPdf",
+  "resolutions": "https://mesto-pecky.usneseni.cz/verejne/1f8f9a6a-dd74-11ef-9554-00505683238f/usneseni/?page=6",
+  "audio": null
+ },
+ "link_texts": {
+  "invitation": "Pozvánka",
+  "minutes": "zápis",
+  "signed_minutes_pdf": "podepsaný zápis",
+  "resolutions": "přijatá usnesení"
+ },
+ "status": "ok",
+ "invitation": {
+  "status": "site_error",
+  "error": "status=200 ct=text/html; charset=utf-8 flash='<a href=\"\" class=\"close\" data-dismiss=\"alert\" aria-label=\"close\">&times;'",
+  "url": "https://mesto-pecky.usneseni.cz/verejne/?uuid=1f8f9a6a-dd74-11ef-9554-00505683238f&do=printPublicInvitation",
+  "fetched_at": "2026-08-04T14:57:37.547047+00:00"
+ },
+ "minutes": {
+  "status": "ok",
+  "url": "https://mesto-pecky.usneseni.cz/verejne/1f8f9a6a-dd74-11ef-9554-00505683238f/zapis/",
+  "fetched_at": "2026-08-04T13:38:17.928210+00:00",
+  "title_raw": "ZÁPIS ze schůze rady č. 5/2025 Město Pečky datum: 3. 2. 2025, čas: 15:00 ​",
+  "date_raw": "3. 2. 2025",
+  "date_iso": "2025-02-03",
+  "time_raw": "15:00",
+  "presence": {
+   "raw_text": "Prezence:\nPřítomni:\n(6) Milan Paluska, Zdeněk Fejfar, Ing. Karel Krištoufek, Ing. Martin Jedlička, Ing. Hana Kuprová, Ivana Trčková\nOmluveni:\n(1) Ing. Petr Dürr\nNepřítomni:\n(0)\nHosté:\nZapisovatel/ka:\nEva Strnadová\nPřítomno je 6 členů a rada je usnášeníschopná.\nJednání zahájeno 03.02.2025 v 15:04:20",
+   "pritomni": {
+    "count": 6,
+    "names": [
+     "Milan Paluska",
+     "Zdeněk Fejfar",
+     "Ing. Karel Krištoufek",
+     "Ing. Martin Jedlička",
+     "Ing. Hana Kuprová",
+     "Ivana Trčková"
+    ],
+    "raw": "(6) Milan Paluska, Zdeněk Fejfar, Ing. Karel Krištoufek, Ing. Martin Jedlička, Ing. Hana Kuprová, Ivana Trčková"
+   },
+   "omluveni": {
+    "count": 1,
+    "names": [
+     "Ing. Petr Dürr"
+    ],
+    "raw": "(1) Ing. Petr Dürr"
+   },
+   "nepritomni": {
+    "count": 0,
+    "names": [],
+    "raw": "(0)"
+   },
+   "predsedajici": null,
+   "quorum_raw": "Přítomno je 6 členů a rada je usnášeníschopná."
+  },
+  "header_raw": "Prezence:\nPřítomni:\n(6) Milan Paluska, Zdeněk Fejfar, Ing. Karel Krištoufek, Ing. Martin Jedlička, Ing. Hana Kuprová, Ivana Trčková\nOmluveni:\n(1) Ing. Petr Dürr\nNepřítomni:\n(0)\nHosté:\nZapisovatel/ka:\nEva Strnadová\nPřítomno je 6 členů a rada je usnášeníschopná.\nJednání zahájeno 03.02.2025 v 15:04:20",
+  "agenda_items": [
+   {
+    "number": 1,
+    "title_raw": "Určení zapisovatelů, předsedajícího, příp. ověřovatelů",
+    "heading_raw": "1. Určení zapisovatelů, předsedajícího, příp. ověřovatelů (bod číslo 1)",
+    "predkladatel": null,
+    "votes": [],
+    "resolution_numbers_mentioned": [],
+    "raw_text": "Projednávání bodu bylo zahájeno v 15:04:24\n\nPředsedající navrhl jednotlivé členy pracovních komisí\nOvěřovatelé:\nIng. Karel Krištoufek, Ing. Martin Jedlička\nPředsedající:\nMilan Paluska\nDiskuze zahájena v 15:04:25\nK tomuto bodu se vyjádřili:\nMilan Paluska\nProjednávání bodu bylo ukončeno v 15:05:21"
+   },
+   {
+    "number": 2,
+    "title_raw": "Schválení programu jednání",
+    "heading_raw": "2. Schválení programu jednání (bod číslo 2)",
+    "predkladatel": null,
+    "votes": [
+     {
+      "raw_text": "pro:\n(6) Ing. Hana Kuprová, Ing. Karel Krištoufek, Milan Paluska, Ivana Trčková, Zdeněk Fejfar, Ing. Martin Jedlička\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)",
+      "pro": {
+       "count": 6,
+       "names": [
+        "Ing. Hana Kuprová",
+        "Ing. Karel Krištoufek",
+        "Milan Paluska",
+        "Ivana Trčková",
+        "Zdeněk Fejfar",
+        "Ing. Martin Jedlička"
+       ],
+       "raw": "(6) Ing. Hana Kuprová, Ing. Karel Krištoufek, Milan Paluska, Ivana Trčková, Zdeněk Fejfar, Ing. Martin Jedlička"
+      },
+      "proti": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "zdrzel_se": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "nehlasoval": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "result_raw": "Návrh byl přijat jako usnesení číslo: UR-33-5/25",
+      "adopted_resolution_number": "UR-33-5/25"
+     }
+    ],
+    "resolution_numbers_mentioned": [
+     "UR-33-5/25"
+    ],
+    "raw_text": "Projednávání bodu bylo zahájeno v 15:05:25\n\nProgram jednání\n1. Určení zapisovatelů, předsedajícího, příp. ověřovatelů\n2. Schválení programu jednání\n3. Aktuální informace vedení města\n4. Změna průběhu katastrální hranice mezi k.ú. Pečky a k.ú. Velké Chvalovice\n5. Uzavření „Smlouvy o bezúplatném užívání majetku“- u domu čp. 801-803\n6. Uzavření \" Smlouvy o zřízení služebnosti inženýrské sítě“ s firmou Meteor-CS s.r.o.\n7. Odměny neuvolněných členů ZM\n8. Žádost o dar - Zdravotní klaun\n9. Žádost o dar - běžecký závod\n10. Kontrola plnění usnesení\n11. Diskuse, různé\n12. Úkoly vyplývající z jednání rady města\nDiskuze zahájena v 15:05:25\nK tomuto bodu se vyjádřili:\nMilan Paluska\nV 15:07:19 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Milan Paluska\") v tomto znění:\nRada\nměsta schvaluje návrh programu jednání s touto změnou:\n- doplňuje se bod č. 13 - Informace o končícím funkčním období ředitele Základní školy Pečky, okres Kolín\nHlasování\npro:\n(6) Ing. Hana Kuprová, Ing. Karel Krištoufek, Milan Paluska, Ivana Trčková, Zdeněk Fejfar, Ing. Martin Jedlička\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-33-5/25\nzodpovídá:\ntermín:\nIHNED\n(3. 2. 2025)\nProjednávání bodu bylo ukončeno v 15:07:25"
+   },
+   {
+    "number": 3,
+    "title_raw": "Aktuální informace vedení města",
+    "heading_raw": "3. Aktuální informace vedení města (bod číslo 3)",
+    "predkladatel": null,
+    "votes": [],
+    "resolution_numbers_mentioned": [],
+    "raw_text": "Projednávání bodu bylo zahájeno v 15:07:33\n\nDůvodová zpráva:\nstarosta města\n- informace o postupu prací dle harmonogramu akce \"Rekonstrukce místních komunikací a vodovodní řad v části Bačov v Pečkách – 1. a 2. etapa\"\n- informace o schůzce se zemědělcem Ing. J. Bartákem - plánované KoPÚ\n- informace Základní školy, Pečky, Tř.\nJana\nŠvermy 342 o uzavření školní jídelny, školní družiny, školního klubu po dobu pololetních prázdnin dne 31.1.2025\n- informace o zapojení se do úklidové akce \"Ukliďme Česko\" dne 21.3. - 23.3.2025, oslovit dobrovolnické skupiny\nmístostarosta města\n- informace o schůzce s ředitelkou pečovatelské služby ve věci požadavku na rozšíření parkovacích míst pro obyvatele DPS, zhotovení přístřešku nad vchodovými dveřmi do DPS apd. - domluveny měsíční schůzky\n- informace o schůzce s ředitelkou MAS Podlipansko, o.p.s. ve věci komunitní energetiky\ntajemnice MěÚ\n- informace o možnosti vyhlášení konkurzního řízení na ředitele Základní školy v Pečkách po uplynutí období šesti let výkonu funkce na pozici ředitele školy\nDiskuze zahájena v 15:07:33\nK tomuto bodu se vyjádřili:\nMilan Paluska, Ing. Karel Krištoufek, Ing. Hana Kuprová, Ivana Trčková, Ing. Martin Jedlička, Zdeněk Fejfar\nRada bere informace k bodu č. 3 -\nAktuální informace vedení města\nna vědomí.\nProjednávání bodu bylo ukončeno v 15:42:38"
+   },
+   {
+    "number": 4,
+    "title_raw": "Změna průběhu katastrální hranice mezi k.ú. Pečky a k.ú. Velké Chvalovice",
+    "heading_raw": "4. Změna průběhu katastrální hranice mezi k.ú. Pečky a k.ú. Velké Chvalovice (bod číslo 4)",
+    "predkladatel": null,
+    "votes": [],
+    "resolution_numbers_mentioned": [],
+    "raw_text": "Projednávání bodu bylo zahájeno v 15:42:43\n\nDůvodová zpráva:\nPři stanovení obvodu KoPÚ dospěla\nPobočka\nKolín\n, Státní pozemkový úřad k závěru, že je potřeba zarovnat katastrální hranici mezi katastrálním územím (dále pouze k. ú.) Pečky a k. ú.\nVelké\nChvalovice. Zarovnání hranice mezi těmito katastrálními územími bylo navrženo provést podle melioračního kanálu, z důvodu velké křivolakosti hranice v této oblasti.\nZměnu průběhu katastrální hranice je možné provést dle § 29 zákona č. 256/2013 Sb. o katastru nemovitostí pouze se souhlasem obecních zastupitelstev dotčených obcí a po vyjádření dotčených vlastníků. S vlastníky dotčených pozemků byla změna katastrální hranice projednána na jednání, které proběhlo dne 30. 5. 2022 v Kulturním domě v Pečkách, žádný z dotčených vlastníků proti změně katastrální hranice nepodal námitku. Následně v průběhu roku 2023 proběhla z důvodu úmrtí u těchto pozemků změna vlastnického práva, proto nyní pobočka požádala současného vlastníka pozemku p. č. KN 2258 a id.¼ pozemku p. č. KN 2259 v k. ú. Pečky o vyjádření se k tomuto záměru změny katastrální hranice mezi katastrálním územím Pečky a katastrálním územím\nVelké\nChvalovice.\nPobočka\nKolín\nopětovně žádá o projednání navržené změny průběhu katastrální hranice mezi k. ú. Pečky a k. ú.\nVelké\nChvalovice na nejbližším zasedání zastupitelstva města, jelikož se to jeví jako žádoucí vzhledem k tomu, že od posledního projednání a schválení této záležitosti uplynul již delší časový úsek a jelikož v nejbližší době má pobočka v úmyslu požádat Katastrální úřad pro Středočeský kraj, katastrální pracoviště\nKolín\no vydání rozhodnutí o změně průběhu obecní hranice, která bude zapsána do katastru nemovitostí ještě před vydáním rozhodnutí o schválení návrhu nového uspořádání pozemků v rámci KoPÚ Pečky.\nRada\nměsta vzala na vědomí informaci SPÚ, pobočky\nKolín\nve věci navržených změn průběhu katastrální hranice mezi k.ú. Pečky a k.ú.\nVelké\nChvalovice v rámci KoPÚ Pečky. Po doplňujících informacích bude opět zařazeno do programu RM a následně programu ZM.\nDiskuze zahájena v 15:42:43\nK tomuto bodu se vyjádřili:\nMilan Paluska, Ing. Karel Krištoufek, Ing. Hana Kuprová, Zdeněk Fejfar, Ing. Martin Jedlička, Ivana Trčková\nRada bere informace k bodu č. 4 -\nZměna průběhu katastrální hranice mezi k.ú. Pečky a k.ú. Velké Chvalovice\nna vědomí.\nProjednávání bodu bylo ukončeno v 15:57:09"
+   },
+   {
+    "number": 5,
+    "title_raw": "Uzavření „Smlouvy o bezúplatném užívání majetku“- u domu čp. 801-803",
+    "heading_raw": "5. Uzavření „Smlouvy o bezúplatném užívání majetku“- u domu čp. 801-803 (bod číslo 5)",
+    "predkladatel": null,
+    "votes": [
+     {
+      "raw_text": "pro:\n(6) Ing. Hana Kuprová, Ing. Martin Jedlička, Ivana Trčková, Milan Paluska, Ing. Karel Krištoufek, Zdeněk Fejfar\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)",
+      "pro": {
+       "count": 6,
+       "names": [
+        "Ing. Hana Kuprová",
+        "Ing. Martin Jedlička",
+        "Ivana Trčková",
+        "Milan Paluska",
+        "Ing. Karel Krištoufek",
+        "Zdeněk Fejfar"
+       ],
+       "raw": "(6) Ing. Hana Kuprová, Ing. Martin Jedlička, Ivana Trčková, Milan Paluska, Ing. Karel Krištoufek, Zdeněk Fejfar"
+      },
+      "proti": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "zdrzel_se": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "nehlasoval": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "result_raw": "Návrh byl přijat jako usnesení číslo: UR-34-5/25",
+      "adopted_resolution_number": "UR-34-5/25"
+     }
+    ],
+    "resolution_numbers_mentioned": [
+     "UR-34-5/25"
+    ],
+    "raw_text": "Projednávání bodu bylo zahájeno v 15:57:12\n\nDůvodová zpráva:\nDoporučujeme uzavřít Smlouvu o bezúplatném užívání majetku – týkající se částí pozemků č.parc. 2022/1 a 2022/7 (k.ú. Pečky – sídliště). Za bytový dům se vyjádřil předseda SVJ pan\nDitrych\na s podmínkami ve zveřejněném záměru souhlasí.\nDiskuze zahájena v 15:57:12\nK tomuto bodu se vyjádřili:\nMilan Paluska, Ing. Hana Kuprová, Ivana Trčková\nV 15:57:56 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Jana Najbrtová\") v tomto znění:\nRada\nměsta schvaluje uzavřít „Smlouvu o bezúplatném užívání majetku“ – části pozemků č. parc. 2022/1 a 2022/7 (k.ú. Pečky – lokalita sídliště). Smlouva bude uzavřena s SVJ v domě čp. 801, 802 a 803, zastoupené předsedou\n█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█\na to od 4. 2. 2025 na dobu neurčitou s výpovědní lhůtou 3 měsíce.\nHlasování\npro:\n(6) Ing. Hana Kuprová, Ing. Martin Jedlička, Ivana Trčková, Milan Paluska, Ing. Karel Krištoufek, Zdeněk Fejfar\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-34-5/25\nzodpovídá:\nJana Najbrtová\ntermín:\n28. 2. 2025\nProjednávání bodu bylo ukončeno v 15:58:02"
+   },
+   {
+    "number": 6,
+    "title_raw": "Uzavření \" Smlouvy o zřízení služebnosti inženýrské sítě“ s firmou Meteor-CS s.r.o.",
+    "heading_raw": "6. Uzavření \" Smlouvy o zřízení služebnosti inženýrské sítě“ s firmou Meteor-CS s.r.o. (bod číslo 6)",
+    "predkladatel": null,
+    "votes": [
+     {
+      "raw_text": "pro:\n(6) Milan Paluska, Ing. Karel Krištoufek, Ing. Hana Kuprová, Zdeněk Fejfar, Ing. Martin Jedlička, Ivana Trčková\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)",
+      "pro": {
+       "count": 6,
+       "names": [
+        "Milan Paluska",
+        "Ing. Karel Krištoufek",
+        "Ing. Hana Kuprová",
+        "Zdeněk Fejfar",
+        "Ing. Martin Jedlička",
+        "Ivana Trčková"
+       ],
+       "raw": "(6) Milan Paluska, Ing. Karel Krištoufek, Ing. Hana Kuprová, Zdeněk Fejfar, Ing. Martin Jedlička, Ivana Trčková"
+      },
+      "proti": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "zdrzel_se": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "nehlasoval": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "result_raw": "Návrh byl přijat jako usnesení číslo: UR-35-5/25",
+      "adopted_resolution_number": "UR-35-5/25"
+     }
+    ],
+    "resolution_numbers_mentioned": [
+     "UR-35-5/25"
+    ],
+    "raw_text": "Projednávání bodu bylo zahájeno v 15:58:07\n\nDůvodová zpráva:\nDoporučujeme uzavřít uvedenou smlouvu. Jednalo se o uložení optických sítí ve Velkých Chvalovicích – výstavba nových řadových domů. Smlouva budoucí byla uzavřena v listopadu 2023.\nDiskuze zahájena v 15:58:07\nK tomuto bodu se vyjádřili:\nMilan Paluska, Zdeněk Fejfar, Ivana Trčková, Ing. Karel Krištoufek\nV 16:08:15 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Jana Najbrtová\") v tomto znění:\nRada\nměsta schvaluje uzavření \"Smlouvy o zřízení služebnosti inženýrské sítě“ s firmou Meteor-CS s.r.o. se sídlem\nPraha\n9-Hrdlořezy, U Schodů 122/5, která se týká částí pozemků v majetku města č. parc. 21, 338/1, 348/2, 348/3, 342/39 a 342/40 v obci Pečky a k.ú.\nVelké\nChvalovice. Jedná se o stavbu „Optická síť Pečky – V. Chvalovice, výstavba RD“. Celková cena za zřízení VBř činí 62.400,- Kč+DPH (délka VBř činí 312 bm/200,- Kč/bm + DPH).\nHlasování\npro:\n(6) Milan Paluska, Ing. Karel Krištoufek, Ing. Hana Kuprová, Zdeněk Fejfar, Ing. Martin Jedlička, Ivana Trčková\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-35-5/25\nzodpovídá:\nJana Najbrtová\ntermín:\n28. 2. 2025\nProjednávání bodu bylo ukončeno v 16:08:21"
+   },
+   {
+    "number": 7,
+    "title_raw": "Odměny neuvolněných členů ZM",
+    "heading_raw": "7. Odměny neuvolněných členů ZM (bod číslo 7)",
+    "predkladatel": null,
+    "votes": [
+     {
+      "raw_text": "pro:\n(6) Milan Paluska, Ing. Hana Kuprová, Ing. Martin Jedlička, Ing. Karel Krištoufek, Zdeněk Fejfar, Ivana Trčková\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)",
+      "pro": {
+       "count": 6,
+       "names": [
+        "Milan Paluska",
+        "Ing. Hana Kuprová",
+        "Ing. Martin Jedlička",
+        "Ing. Karel Krištoufek",
+        "Zdeněk Fejfar",
+        "Ivana Trčková"
+       ],
+       "raw": "(6) Milan Paluska, Ing. Hana Kuprová, Ing. Martin Jedlička, Ing. Karel Krištoufek, Zdeněk Fejfar, Ivana Trčková"
+      },
+      "proti": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "zdrzel_se": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "nehlasoval": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "result_raw": "Návrh byl přijat jako usnesení číslo: UR-36-5/25",
+      "adopted_resolution_number": "UR-36-5/25"
+     }
+    ],
+    "resolution_numbers_mentioned": [
+     "UR-36-5/25"
+    ],
+    "raw_text": "Projednávání bodu bylo zahájeno v 16:08:26\n\nDůvodová zpráva:\nRM doporučuje ZM schválit zvýšení odměn neuvolněným členům zastupitelstva o 6,3%. U uvolněných zastupitelů došlo od 1.1.2025 k valorizaci odměn o 6,3%.\nDiskuze zahájena v 16:08:26\nK tomuto bodu se vyjádřili:\nMilan Paluska, Ing. Hana Kuprová, Ing. Karel Krištoufek, Ivana Trčková, Zdeněk Fejfar\nV 16:11:48 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Milan Paluska\") v tomto znění:\nRada\nměsta doporučuje zastupitelstvu města ke schválit zvýšení stávajících odměn neuvolněných členů ZM o 6,3% s účinností od 1.3.2025 - viz příloha.\nHlasování\npro:\n(6) Milan Paluska, Ing. Hana Kuprová, Ing. Martin Jedlička, Ing. Karel Krištoufek, Zdeněk Fejfar, Ivana Trčková\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-36-5/25\nzodpovídá:\nMarcela Bahníková\ntermín:\n1. 3. 2025\nProjednávání bodu bylo ukončeno v 16:11:56"
+   },
+   {
+    "number": 8,
+    "title_raw": "Žádost o dar - Zdravotní klaun",
+    "heading_raw": "8. Žádost o dar - Zdravotní klaun (bod číslo 8)",
+    "predkladatel": null,
+    "votes": [
+     {
+      "raw_text": "pro:\n(6) Milan Paluska, Zdeněk Fejfar, Ing. Martin Jedlička, Ing. Karel Krištoufek, Ing. Hana Kuprová, Ivana Trčková\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)",
+      "pro": {
+       "count": 6,
+       "names": [
+        "Milan Paluska",
+        "Zdeněk Fejfar",
+        "Ing. Martin Jedlička",
+        "Ing. Karel Krištoufek",
+        "Ing. Hana Kuprová",
+        "Ivana Trčková"
+       ],
+       "raw": "(6) Milan Paluska, Zdeněk Fejfar, Ing. Martin Jedlička, Ing. Karel Krištoufek, Ing. Hana Kuprová, Ivana Trčková"
+      },
+      "proti": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "zdrzel_se": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "nehlasoval": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "result_raw": "Návrh byl přijat jako usnesení číslo: UR-37-5/25",
+      "adopted_resolution_number": "UR-37-5/25"
+     }
+    ],
+    "resolution_numbers_mentioned": [
+     "UR-37-5/25"
+    ],
+    "raw_text": "Projednávání bodu bylo zahájeno v 16:11:59\n\nDůvodová zpráva:\nZdravotní klaun, o.p.s. žádá o poskytnutí daru na financování programů v nemocnicích a zdravotnických zařízeních. V minulých letech byl poskytován dar 5 000 Kč.\nDiskuze zahájena v 16:11:59\nK tomuto bodu se vyjádřili:\nMilan Paluska, Ing. Martin Jedlička, Ing. Hana Kuprová, Ing. Karel Krištoufek\nV 16:14:21 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Marcela Bahníková\") v tomto znění:\nRada\nměsta schvaluje poskytnutí finančního daru 5 500 Kč společnosti Zdravotní klaun, o.p.s., IČO 26547953.\nHlasování\npro:\n(6) Milan Paluska, Zdeněk Fejfar, Ing. Martin Jedlička, Ing. Karel Krištoufek, Ing. Hana Kuprová, Ivana Trčková\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-37-5/25\nzodpovídá:\nMarcela Bahníková\ntermín:\n17. 2. 2025\nProjednávání bodu bylo ukončeno v 16:14:27"
+   },
+   {
+    "number": 9,
+    "title_raw": "Žádost o dar - běžecký závod",
+    "heading_raw": "9. Žádost o dar - běžecký závod (bod číslo 9)",
+    "predkladatel": null,
+    "votes": [
+     {
+      "raw_text": "pro:\n(6) Ing. Martin Jedlička, Ing. Hana Kuprová, Ing. Karel Krištoufek, Ivana Trčková, Zdeněk Fejfar, Milan Paluska\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)",
+      "pro": {
+       "count": 6,
+       "names": [
+        "Ing. Martin Jedlička",
+        "Ing. Hana Kuprová",
+        "Ing. Karel Krištoufek",
+        "Ivana Trčková",
+        "Zdeněk Fejfar",
+        "Milan Paluska"
+       ],
+       "raw": "(6) Ing. Martin Jedlička, Ing. Hana Kuprová, Ing. Karel Krištoufek, Ivana Trčková, Zdeněk Fejfar, Milan Paluska"
+      },
+      "proti": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "zdrzel_se": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "nehlasoval": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "result_raw": "Návrh byl přijat jako usnesení číslo: UR-38-5/25",
+      "adopted_resolution_number": "UR-38-5/25"
+     }
+    ],
+    "resolution_numbers_mentioned": [
+     "UR-38-5/25"
+    ],
+    "raw_text": "Projednávání bodu bylo zahájeno v 16:14:31\n\nDůvodová zpráva:\nOrganizátorka běžeckého závodu\nKros\nPičhorou žádá o poskytnutí daru na 7. ročník závodu konaný dne 22.3.2025 v Dobřichově, v roce 2024 byl poskytnut dar 5 000 Kč.\nDiskuze zahájena v 16:14:31\nK tomuto bodu se vyjádřili:\nMilan Paluska\nV 16:18:03 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Marcela Bahníková\") v tomto znění:\nRada\nměsta schvaluje poskytnutí finančního daru ve výši 5 500 Kč paní\n█​█​█​█​█​█​█​█​█​█​█​█​█​█​█\n, bytem\n█​█​█​█​█​█​█​█​█​█​█​█​█\nna pořádání běžeckého závodu\nKros\nPičhorou.\nHlasování\npro:\n(6) Ing. Martin Jedlička, Ing. Hana Kuprová, Ing. Karel Krištoufek, Ivana Trčková, Zdeněk Fejfar, Milan Paluska\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-38-5/25\nzodpovídá:\nMarcela Bahníková\ntermín:\n17. 2. 2025\nProjednávání bodu bylo ukončeno v 16:21:44"
+   },
+   {
+    "number": 10,
+    "title_raw": "Kontrola plnění usnesení",
+    "heading_raw": "10. Kontrola plnění usnesení (bod číslo 10)",
+    "predkladatel": null,
+    "votes": [],
+    "resolution_numbers_mentioned": [],
+    "raw_text": "Projednávání bodu bylo zahájeno v 16:21:49\nDiskuze zahájena v 16:21:49\nK tomuto bodu se vyjádřili:\nMilan Paluska, Pavlína Nepovímová\nRada bere informace k bodu č. 10 -\nKontrola plnění usnesení\nna vědomí.\nProjednávání bodu bylo ukončeno v 16:22:09"
+   },
+   {
+    "number": 11,
+    "title_raw": "Diskuse, různé",
+    "heading_raw": "11. Diskuse, různé (bod číslo 11)",
+    "predkladatel": null,
+    "votes": [],
+    "resolution_numbers_mentioned": [],
+    "raw_text": "Projednávání bodu bylo zahájeno v 16:22:12\nDiskuze zahájena v 16:22:12\nK tomuto bodu se vyjádřili:\nMilan Paluska, Ing. Hana Kuprová, Ivana Trčková, Ing. Karel Krištoufek, Zdeněk Fejfar, Ing. Martin Jedlička, Pavlína Nepovímová\nRada bere informace k bodu č. 11 -\nDiskuse, různé\nna vědomí.\nProjednávání bodu bylo ukončeno v 17:13:25"
+   },
+   {
+    "number": 12,
+    "title_raw": "Úkoly vyplývající z jednání rady města",
+    "heading_raw": "12. Úkoly vyplývající z jednání rady města (bod číslo 12)",
+    "predkladatel": null,
+    "votes": [
+     {
+      "raw_text": "pro:\n(6) Milan Paluska, Ing. Karel Krištoufek, Ing. Martin Jedlička, Ing. Hana Kuprová, Zdeněk Fejfar, Ivana Trčková\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)",
+      "pro": {
+       "count": 6,
+       "names": [
+        "Milan Paluska",
+        "Ing. Karel Krištoufek",
+        "Ing. Martin Jedlička",
+        "Ing. Hana Kuprová",
+        "Zdeněk Fejfar",
+        "Ivana Trčková"
+       ],
+       "raw": "(6) Milan Paluska, Ing. Karel Krištoufek, Ing. Martin Jedlička, Ing. Hana Kuprová, Zdeněk Fejfar, Ivana Trčková"
+      },
+      "proti": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "zdrzel_se": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "nehlasoval": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "result_raw": "Návrh byl přijat jako usnesení číslo: UR-39-5/25",
+      "adopted_resolution_number": "UR-39-5/25"
+     }
+    ],
+    "resolution_numbers_mentioned": [
+     "UR-39-5/25"
+    ],
+    "raw_text": "Projednávání bodu bylo zahájeno v 17:13:31\nDiskuze zahájena v 17:13:31\nV 17:19:00 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Milan Paluska\") v tomto znění:\nRada\nměsta ukládá referentce Odboru správy majetku města a BH J.\nNajbrtové\njednat se Státním pozemkovým úřadem,\nPobočka\nKolín\nve věci KoPÚ týkající se zarovnání katastrální hranice mezi katastrálním územím k. ú. Pečky a k. ú.\nVelké\nChvalovice při zachování stávající rozlohy obou katastrálních území.\nHlasování\npro:\n(6) Milan Paluska, Ing. Karel Krištoufek, Ing. Martin Jedlička, Ing. Hana Kuprová, Zdeněk Fejfar, Ivana Trčková\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-39-5/25\nzodpovídá:\nMilan Paluska\ntermín:\n28. 2. 2025\nProjednávání bodu bylo ukončeno v 17:19:09"
+   },
+   {
+    "number": 13,
+    "title_raw": "Informace o končícím funkčním období ředitele Základní školy Pečky, okres Kolín",
+    "heading_raw": "13. Informace o končícím funkčním období ředitele Základní školy Pečky, okres Kolín (bod číslo 13)",
+    "predkladatel": null,
+    "votes": [
+     {
+      "raw_text": "pro:\n(6) Ing. Hana Kuprová, Ing. Karel Krištoufek, Ing. Martin Jedlička, Milan Paluska, Zdeněk Fejfar, Ivana Trčková\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)",
+      "pro": {
+       "count": 6,
+       "names": [
+        "Ing. Hana Kuprová",
+        "Ing. Karel Krištoufek",
+        "Ing. Martin Jedlička",
+        "Milan Paluska",
+        "Zdeněk Fejfar",
+        "Ivana Trčková"
+       ],
+       "raw": "(6) Ing. Hana Kuprová, Ing. Karel Krištoufek, Ing. Martin Jedlička, Milan Paluska, Zdeněk Fejfar, Ivana Trčková"
+      },
+      "proti": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "zdrzel_se": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "nehlasoval": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "result_raw": "Návrh byl přijat jako usnesení číslo: UR-40-5/25",
+      "adopted_resolution_number": "UR-40-5/25"
+     }
+    ],
+    "resolution_numbers_mentioned": [
+     "UR-40-5/25"
+    ],
+    "raw_text": "Projednávání bodu bylo zahájeno v 17:25:38\n\nDůvodová zpráva:\nTajemnice MěÚ předkládá RM k projednání informaci o uplynutí období šesti let výkonu funkce na pozici ředitele základní školy a možnosti vyhlášení konkurzního řízení.\nDiskuze zahájena v 17:25:38\nK tomuto bodu se vyjádřili:\nMilan Paluska, Ing. Karel Krištoufek, Zdeněk Fejfar, Ivana Trčková, Ing. Hana Kuprová\nV 17:34:02 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Pavlína Nepovímová\") v tomto znění:\nNa základě informace o končícím šestiletém funkčním období ředitele Základní školy Pečky, okres\nKolín\npověřuje rada města tajemnici MěÚ zahájením přípravných prací pro konkurzní řízení.\nHlasování\npro:\n(6) Ing. Hana Kuprová, Ing. Karel Krištoufek, Ing. Martin Jedlička, Milan Paluska, Zdeněk Fejfar, Ivana Trčková\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-40-5/25\nzodpovídá:\nPavlína Nepovímová\ntermín:\n10. 2. 2025\nProjednávání bodu bylo ukončeno v 17:34:12\nJednání ukončeno 03.02.2025 v 17:36:20"
+   }
+  ],
+  "full_text": "ZÁPIS ze schůze rady č. 5/2025\nMěsto Pečky\ndatum: 3. 2. 2025, čas: 15:00\n​\nPrezence:\nPřítomni:\n(6) Milan Paluska, Zdeněk Fejfar, Ing. Karel Krištoufek, Ing. Martin Jedlička, Ing. Hana Kuprová, Ivana Trčková\nOmluveni:\n(1) Ing. Petr Dürr\nNepřítomni:\n(0)\nHosté:\nZapisovatel/ka:\nEva Strnadová\nPřítomno je 6 členů a rada je usnášeníschopná.\nJednání zahájeno 03.02.2025 v 15:04:20\n1. Určení zapisovatelů, předsedajícího, příp. ověřovatelů (bod číslo 1)\nPředkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 15:04:24\nPředsedající navrhl jednotlivé členy pracovních komisí\nOvěřovatelé:\nIng. Karel Krištoufek, Ing. Martin Jedlička\nPředsedající:\nMilan Paluska\nBod byl přijat bez hlasování.\nDiskuze zahájena v 15:04:25\nK tomuto bodu se vyjádřili:\nMilan Paluska\nProjednávání bodu bylo ukončeno v 15:05:21\n2. Schválení programu jednání (bod číslo 2)\nPředkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 15:05:25\nProgram jednání\n1. Určení zapisovatelů, předsedajícího, příp. ověřovatelů\n2. Schválení programu jednání\n3. Aktuální informace vedení města\n4. Změna průběhu katastrální hranice mezi k.ú. Pečky a k.ú. Velké Chvalovice\n5. Uzavření „Smlouvy o bezúplatném užívání majetku“- u domu čp. 801-803\n6. Uzavření \" Smlouvy o zřízení služebnosti inženýrské sítě“ s firmou Meteor-CS s.r.o.\n7. Odměny neuvolněných členů ZM\n8. Žádost o dar - Zdravotní klaun\n9. Žádost o dar - běžecký závod\n10. Kontrola plnění usnesení\n11. Diskuse, různé\n12. Úkoly vyplývající z jednání rady města\nDiskuze zahájena v 15:05:25\nK tomuto bodu se vyjádřili:\nMilan Paluska\nV 15:07:19 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Milan Paluska\") v tomto znění:\nRada\nměsta schvaluje návrh programu jednání s touto změnou:\n- doplňuje se bod č. 13 - Informace o končícím funkčním období ředitele Základní školy Pečky, okres Kolín\nHlasování\npro:\n(6) Ing. Hana Kuprová, Ing. Karel Krištoufek, Milan Paluska, Ivana Trčková, Zdeněk Fejfar, Ing. Martin Jedlička\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-33-5/25\nzodpovídá:\ntermín:\nIHNED\n(3. 2. 2025)\nProjednávání bodu bylo ukončeno v 15:07:25\n3. Aktuální informace vedení města (bod číslo 3)\nPředkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 15:07:33\nDůvodová zpráva:\nstarosta města\n- informace o postupu prací dle harmonogramu akce \"Rekonstrukce místních komunikací a vodovodní řad v části Bačov v Pečkách – 1. a 2. etapa\"\n- informace o schůzce se zemědělcem Ing. J. Bartákem - plánované KoPÚ\n- informace Základní školy, Pečky, Tř.\nJana\nŠvermy 342 o uzavření školní jídelny, školní družiny, školního klubu po dobu pololetních prázdnin dne 31.1.2025\n- informace o zapojení se do úklidové akce \"Ukliďme Česko\" dne 21.3. - 23.3.2025, oslovit dobrovolnické skupiny\nmístostarosta města\n- informace o schůzce s ředitelkou pečovatelské služby ve věci požadavku na rozšíření parkovacích míst pro obyvatele DPS, zhotovení přístřešku nad vchodovými dveřmi do DPS apd. - domluveny měsíční schůzky\n- informace o schůzce s ředitelkou MAS Podlipansko, o.p.s. ve věci komunitní energetiky\ntajemnice MěÚ\n- informace o možnosti vyhlášení konkurzního řízení na ředitele Základní školy v Pečkách po uplynutí období šesti let výkonu funkce na pozici ředitele školy\nDiskuze zahájena v 15:07:33\nK tomuto bodu se vyjádřili:\nMilan Paluska, Ing. Karel Krištoufek, Ing. Hana Kuprová, Ivana Trčková, Ing. Martin Jedlička, Zdeněk Fejfar\nRada bere informace k bodu č. 3 -\nAktuální informace vedení města\nna vědomí.\nProjednávání bodu bylo ukončeno v 15:42:38\n4. Změna průběhu katastrální hranice mezi k.ú. Pečky a k.ú. Velké Chvalovice (bod číslo 4)\nPředkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 15:42:43\nDůvodová zpráva:\nPři stanovení obvodu KoPÚ dospěla\nPobočka\nKolín\n, Státní pozemkový úřad k závěru, že je potřeba zarovnat katastrální hranici mezi katastrálním územím (dále pouze k. ú.) Pečky a k. ú.\nVelké\nChvalovice. Zarovnání hranice mezi těmito katastrálními územími bylo navrženo provést podle melioračního kanálu, z důvodu velké křivolakosti hranice v této oblasti.\nZměnu průběhu katastrální hranice je možné provést dle § 29 zákona č. 256/2013 Sb. o katastru nemovitostí pouze se souhlasem obecních zastupitelstev dotčených obcí a po vyjádření dotčených vlastníků. S vlastníky dotčených pozemků byla změna katastrální hranice projednána na jednání, které proběhlo dne 30. 5. 2022 v Kulturním domě v Pečkách, žádný z dotčených vlastníků proti změně katastrální hranice nepodal námitku. Následně v průběhu roku 2023 proběhla z důvodu úmrtí u těchto pozemků změna vlastnického práva, proto nyní pobočka požádala současného vlastníka pozemku p. č. KN 2258 a id.¼ pozemku p. č. KN 2259 v k. ú. Pečky o vyjádření se k tomuto záměru změny katastrální hranice mezi katastrálním územím Pečky a katastrálním územím\nVelké\nChvalovice.\nPobočka\nKolín\nopětovně žádá o projednání navržené změny průběhu katastrální hranice mezi k. ú. Pečky a k. ú.\nVelké\nChvalovice na nejbližším zasedání zastupitelstva města, jelikož se to jeví jako žádoucí vzhledem k tomu, že od posledního projednání a schválení této záležitosti uplynul již delší časový úsek a jelikož v nejbližší době má pobočka v úmyslu požádat Katastrální úřad pro Středočeský kraj, katastrální pracoviště\nKolín\no vydání rozhodnutí o změně průběhu obecní hranice, která bude zapsána do katastru nemovitostí ještě před vydáním rozhodnutí o schválení návrhu nového uspořádání pozemků v rámci KoPÚ Pečky.\nRada\nměsta vzala na vědomí informaci SPÚ, pobočky\nKolín\nve věci navržených změn průběhu katastrální hranice mezi k.ú. Pečky a k.ú.\nVelké\nChvalovice v rámci KoPÚ Pečky. Po doplňujících informacích bude opět zařazeno do programu RM a následně programu ZM.\nDiskuze zahájena v 15:42:43\nK tomuto bodu se vyjádřili:\nMilan Paluska, Ing. Karel Krištoufek, Ing. Hana Kuprová, Zdeněk Fejfar, Ing. Martin Jedlička, Ivana Trčková\nRada bere informace k bodu č. 4 -\nZměna průběhu katastrální hranice mezi k.ú. Pečky a k.ú. Velké Chvalovice\nna vědomí.\nProjednávání bodu bylo ukončeno v 15:57:09\n5. Uzavření „Smlouvy o bezúplatném užívání majetku“- u domu čp. 801-803 (bod číslo 5)\nPředkladatel: Jana Najbrtová\nProjednávání bodu bylo zahájeno v 15:57:12\nDůvodová zpráva:\nDoporučujeme uzavřít Smlouvu o bezúplatném užívání majetku – týkající se částí pozemků č.parc. 2022/1 a 2022/7 (k.ú. Pečky – sídliště). Za bytový dům se vyjádřil předseda SVJ pan\nDitrych\na s podmínkami ve zveřejněném záměru souhlasí.\nDiskuze zahájena v 15:57:12\nK tomuto bodu se vyjádřili:\nMilan Paluska, Ing. Hana Kuprová, Ivana Trčková\nV 15:57:56 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Jana Najbrtová\") v tomto znění:\nRada\nměsta schvaluje uzavřít „Smlouvu o bezúplatném užívání majetku“ – části pozemků č. parc. 2022/1 a 2022/7 (k.ú. Pečky – lokalita sídliště). Smlouva bude uzavřena s SVJ v domě čp. 801, 802 a 803, zastoupené předsedou\n█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​\na to od 4. 2. 2025 na dobu neurčitou s výpovědní lhůtou 3 měsíce.\nHlasování\npro:\n(6) Ing. Hana Kuprová, Ing. Martin Jedlička, Ivana Trčková, Milan Paluska, Ing. Karel Krištoufek, Zdeněk Fejfar\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-34-5/25\nzodpovídá:\nJana Najbrtová\ntermín:\n28. 2. 2025\nProjednávání bodu bylo ukončeno v 15:58:02\n6. Uzavření \" Smlouvy o zřízení služebnosti inženýrské sítě“ s firmou Meteor-CS s.r.o. (bod číslo 6)\nPředkladatel: Jana Najbrtová\nProjednávání bodu bylo zahájeno v 15:58:07\nDůvodová zpráva:\nDoporučujeme uzavřít uvedenou smlouvu. Jednalo se o uložení optických sítí ve Velkých Chvalovicích – výstavba nových řadových domů. Smlouva budoucí byla uzavřena v listopadu 2023.\nDiskuze zahájena v 15:58:07\nK tomuto bodu se vyjádřili:\nMilan Paluska, Zdeněk Fejfar, Ivana Trčková, Ing. Karel Krištoufek\nV 16:08:15 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Jana Najbrtová\") v tomto znění:\nRada\nměsta schvaluje uzavření \"Smlouvy o zřízení služebnosti inženýrské sítě“ s firmou Meteor-CS s.r.o. se sídlem\nPraha\n9-Hrdlořezy, U Schodů 122/5, která se týká částí pozemků v majetku města č. parc. 21, 338/1, 348/2, 348/3, 342/39 a 342/40 v obci Pečky a k.ú.\nVelké\nChvalovice. Jedná se o stavbu „Optická síť Pečky – V. Chvalovice, výstavba RD“. Celková cena za zřízení VBř činí 62.400,- Kč+DPH (délka VBř činí 312 bm/200,- Kč/bm + DPH).\nHlasování\npro:\n(6) Milan Paluska, Ing. Karel Krištoufek, Ing. Hana Kuprová, Zdeněk Fejfar, Ing. Martin Jedlička, Ivana Trčková\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-35-5/25\nzodpovídá:\nJana Najbrtová\ntermín:\n28. 2. 2025\nProjednávání bodu bylo ukončeno v 16:08:21\n7. Odměny neuvolněných členů ZM (bod číslo 7)\nPředkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 16:08:26\nDůvodová zpráva:\nRM doporučuje ZM schválit zvýšení odměn neuvolněným členům zastupitelstva o 6,3%. U uvolněných zastupitelů došlo od 1.1.2025 k valorizaci odměn o 6,3%.\nDiskuze zahájena v 16:08:26\nK tomuto bodu se vyjádřili:\nMilan Paluska, Ing. Hana Kuprová, Ing. Karel Krištoufek, Ivana Trčková, Zdeněk Fejfar\nV 16:11:48 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Milan Paluska\") v tomto znění:\nRada\nměsta doporučuje zastupitelstvu města ke schválit zvýšení stávajících odměn neuvolněných členů ZM o 6,3% s účinností od 1.3.2025 - viz příloha.\nHlasování\npro:\n(6) Milan Paluska, Ing. Hana Kuprová, Ing. Martin Jedlička, Ing. Karel Krištoufek, Zdeněk Fejfar, Ivana Trčková\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-36-5/25\nzodpovídá:\nMarcela Bahníková\ntermín:\n1. 3. 2025\nProjednávání bodu bylo ukončeno v 16:11:56\n8. Žádost o dar - Zdravotní klaun (bod číslo 8)\nPředkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 16:11:59\nDůvodová zpráva:\nZdravotní klaun, o.p.s. žádá o poskytnutí daru na financování programů v nemocnicích a zdravotnických zařízeních. V minulých letech byl poskytován dar 5 000 Kč.\nDiskuze zahájena v 16:11:59\nK tomuto bodu se vyjádřili:\nMilan Paluska, Ing. Martin Jedlička, Ing. Hana Kuprová, Ing. Karel Krištoufek\nV 16:14:21 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Marcela Bahníková\") v tomto znění:\nRada\nměsta schvaluje poskytnutí finančního daru 5 500 Kč společnosti Zdravotní klaun, o.p.s., IČO 26547953.\nHlasování\npro:\n(6) Milan Paluska, Zdeněk Fejfar, Ing. Martin Jedlička, Ing. Karel Krištoufek, Ing. Hana Kuprová, Ivana Trčková\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-37-5/25\nzodpovídá:\nMarcela Bahníková\ntermín:\n17. 2. 2025\nProjednávání bodu bylo ukončeno v 16:14:27\n9. Žádost o dar - běžecký závod (bod číslo 9)\nPředkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 16:14:31\nDůvodová zpráva:\nOrganizátorka běžeckého závodu\nKros\nPičhorou žádá o poskytnutí daru na 7. ročník závodu konaný dne 22.3.2025 v Dobřichově, v roce 2024 byl poskytnut dar 5 000 Kč.\nDiskuze zahájena v 16:14:31\nK tomuto bodu se vyjádřili:\nMilan Paluska\nV 16:18:03 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Marcela Bahníková\") v tomto znění:\nRada\nměsta schvaluje poskytnutí finančního daru ve výši 5 500 Kč paní\n█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​\n, bytem\n█​█​█​█​█​█​█​█​█​█​█​█​█​\nna pořádání běžeckého závodu\nKros\nPičhorou.\nHlasování\npro:\n(6) Ing. Martin Jedlička, Ing. Hana Kuprová, Ing. Karel Krištoufek, Ivana Trčková, Zdeněk Fejfar, Milan Paluska\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-38-5/25\nzodpovídá:\nMarcela Bahníková\ntermín:\n17. 2. 2025\nProjednávání bodu bylo ukončeno v 16:21:44\n10. Kontrola plnění usnesení (bod číslo 10)\nPředkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 16:21:49\nDiskuze zahájena v 16:21:49\nK tomuto bodu se vyjádřili:\nMilan Paluska, Pavlína Nepovímová\nRada bere informace k bodu č. 10 -\nKontrola plnění usnesení\nna vědomí.\nProjednávání bodu bylo ukončeno v 16:22:09\n11. Diskuse, různé (bod číslo 11)\nPředkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 16:22:12\nDiskuze zahájena v 16:22:12\nK tomuto bodu se vyjádřili:\nMilan Paluska, Ing. Hana Kuprová, Ivana Trčková, Ing. Karel Krištoufek, Zdeněk Fejfar, Ing. Martin Jedlička, Pavlína Nepovímová\nRada bere informace k bodu č. 11 -\nDiskuse, různé\nna vědomí.\nProjednávání bodu bylo ukončeno v 17:13:25\n12. Úkoly vyplývající z jednání rady města (bod číslo 12)\nPředkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 17:13:31\nDiskuze zahájena v 17:13:31\nV 17:19:00 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Milan Paluska\") v tomto znění:\nRada\nměsta ukládá referentce Odboru správy majetku města a BH J.\nNajbrtové\njednat se Státním pozemkovým úřadem,\nPobočka\nKolín\nve věci KoPÚ týkající se zarovnání katastrální hranice mezi katastrálním územím k. ú. Pečky a k. ú.\nVelké\nChvalovice při zachování stávající rozlohy obou katastrálních území.\nHlasování\npro:\n(6) Milan Paluska, Ing. Karel Krištoufek, Ing. Martin Jedlička, Ing. Hana Kuprová, Zdeněk Fejfar, Ivana Trčková\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-39-5/25\nzodpovídá:\nMilan Paluska\ntermín:\n28. 2. 2025\nProjednávání bodu bylo ukončeno v 17:19:09\n13. Informace o končícím funkčním období ředitele Základní školy Pečky, okres Kolín (bod číslo 13)\nPředkladatel: Pavlína Nepovímová\nProjednávání bodu bylo zahájeno v 17:25:38\nDůvodová zpráva:\nTajemnice MěÚ předkládá RM k projednání informaci o uplynutí období šesti let výkonu funkce na pozici ředitele základní školy a možnosti vyhlášení konkurzního řízení.\nDiskuze zahájena v 17:25:38\nK tomuto bodu se vyjádřili:\nMilan Paluska, Ing. Karel Krištoufek, Zdeněk Fejfar, Ivana Trčková, Ing. Hana Kuprová\nV 17:34:02 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Pavlína Nepovímová\") v tomto znění:\nNa základě informace o končícím šestiletém funkčním období ředitele Základní školy Pečky, okres\nKolín\npověřuje rada města tajemnici MěÚ zahájením přípravných prací pro konkurzní řízení.\nHlasování\npro:\n(6) Ing. Hana Kuprová, Ing. Karel Krištoufek, Ing. Martin Jedlička, Milan Paluska, Zdeněk Fejfar, Ivana Trčková\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-40-5/25\nzodpovídá:\nPavlína Nepovímová\ntermín:\n10. 2. 2025\nProjednávání bodu bylo ukončeno v 17:34:12\nJednání ukončeno 03.02.2025 v 17:36:20"
+ },
+ "resolutions": {
+  "status": "ok",
+  "url": "https://mesto-pecky.usneseni.cz/verejne/1f8f9a6a-dd74-11ef-9554-00505683238f/usneseni/",
+  "fetched_at": "2026-08-04T13:38:25.053950+00:00",
+  "items": [
+   {
+    "number_raw": "UR-33-5/25",
+    "detail_id": 86194,
+    "detail_url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/86194?mod=rada",
+    "agenda_item_raw": "Schválení programu jednání",
+    "text_verbatim": "Rada\nměsta schvaluje návrh programu jednání s touto změnou:\n- doplňuje se bod č. 13 - Informace o končícím funkčním období ředitele Základní školy Pečky, okres Kolín",
+    "cell_text_raw": "Bod programu:\nSchválení programu jednání\nText přijatého usnesení:\nRada\nměsta schvaluje návrh programu jednání s touto změnou:\n- doplňuje se bod č. 13 - Informace o končícím funkčním období ředitele Základní školy Pečky, okres Kolín",
+    "date_raw": "3. 2. 2025",
+    "date_iso": "2025-02-03",
+    "responsible_raw": "",
+    "deadline_raw": "IHNED (3. 2. 2025)",
+    "vote": {
+     "raw_text": "pro: 6 proti: 0 zdržel se: 0",
+     "pro": {
+      "count": 6,
+      "names": null,
+      "raw": "6"
+     },
+     "proti": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     },
+     "zdrzel_se": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     }
+    },
+    "detail": {
+     "number_raw": "UR-33-5/25",
+     "text_verbatim": "Rada města schvaluje návrh programu jednání s touto změnou: - doplňuje se bod č. 13 - Informace o končícím funkčním období ředitele Základní školy Pečky, okres Kolín",
+     "typ_raw": null,
+     "zodpovida_raw": "",
+     "prijato_raw": "3. 2. 2025 na jednání č. 5/2025",
+     "prijato_date_iso": "2025-02-03",
+     "prijato_meeting_label": "5/2025",
+     "termin_raw": "IHNED (3. 2. 2025)",
+     "ukonceno_raw": "3. 2. 2025",
+     "ukonceno_date_iso": "2025-02-03",
+     "fields_raw": {
+      "Číslo usnesení": "UR-33-5/25",
+      "Text usnesení": "Rada města schvaluje návrh programu jednání s touto změnou: - doplňuje se bod č. 13 - Informace o končícím funkčním období ředitele Základní školy Pečky, okres Kolín",
+      "Zodpovídá": "",
+      "Přijato": "3. 2. 2025 na jednání č. 5/2025",
+      "Termín": "IHNED (3. 2. 2025)",
+      "Ukončeno": "3. 2. 2025"
+     }
+    }
+   },
+   {
+    "number_raw": "UR-34-5/25",
+    "detail_id": 86255,
+    "detail_url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/86255?mod=rada",
+    "agenda_item_raw": "Uzavření „Smlouvy o bezúplatném užívání majetku“- u domu čp. 801-803",
+    "text_verbatim": "Rada\nměsta schvaluje uzavřít „Smlouvu o bezúplatném užívání majetku“ – části pozemků č. parc. 2022/1 a 2022/7 (k.ú. Pečky – lokalita sídliště). Smlouva bude uzavřena s SVJ v domě čp. 801, 802 a 803, zastoupené předsedou\n█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​\na to od 4. 2. 2025 na dobu neurčitou s výpovědní lhůtou 3 měsíce.",
+    "cell_text_raw": "Bod programu:\nUzavření „Smlouvy o bezúplatném užívání majetku“- u domu čp. 801-803\nText přijatého usnesení:\nRada\nměsta schvaluje uzavřít „Smlouvu o bezúplatném užívání majetku“ – části pozemků č. parc. 2022/1 a 2022/7 (k.ú. Pečky – lokalita sídliště). Smlouva bude uzavřena s SVJ v domě čp. 801, 802 a 803, zastoupené předsedou\n█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​\na to od 4. 2. 2025 na dobu neurčitou s výpovědní lhůtou 3 měsíce.",
+    "date_raw": "3. 2. 2025",
+    "date_iso": "2025-02-03",
+    "responsible_raw": "Jana Najbrtová",
+    "deadline_raw": "28. 2. 2025",
+    "vote": {
+     "raw_text": "pro: 6 proti: 0 zdržel se: 0",
+     "pro": {
+      "count": 6,
+      "names": null,
+      "raw": "6"
+     },
+     "proti": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     },
+     "zdrzel_se": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     }
+    },
+    "detail": {
+     "number_raw": "UR-34-5/25",
+     "text_verbatim": "Rada města schvaluje uzavřít „Smlouvu o bezúplatném užívání majetku“ – části pozemků č. parc. 2022/1 a 2022/7 (k.ú. Pečky – lokalita sídliště). Smlouva bude uzavřena s SVJ v domě čp. 801, 802 a 803, zastoupené předsedou █​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​ a to od 4. 2. 2025 na dobu neurčitou s výpovědní lhůtou 3 měsíce.",
+     "typ_raw": null,
+     "zodpovida_raw": "Jana Najbrtová",
+     "prijato_raw": "3. 2. 2025 na jednání č. 5/2025",
+     "prijato_date_iso": "2025-02-03",
+     "prijato_meeting_label": "5/2025",
+     "termin_raw": "28. 2. 2025",
+     "ukonceno_raw": "6. 2. 2025",
+     "ukonceno_date_iso": "2025-02-06",
+     "fields_raw": {
+      "Číslo usnesení": "UR-34-5/25",
+      "Text usnesení": "Rada města schvaluje uzavřít „Smlouvu o bezúplatném užívání majetku“ – části pozemků č. parc. 2022/1 a 2022/7 (k.ú. Pečky – lokalita sídliště). Smlouva bude uzavřena s SVJ v domě čp. 801, 802 a 803, zastoupené předsedou █​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​ a to od 4. 2. 2025 na dobu neurčitou s výpovědní lhůtou 3 měsíce.",
+      "Zodpovídá": "Jana Najbrtová",
+      "Přijato": "3. 2. 2025 na jednání č. 5/2025",
+      "Termín": "28. 2. 2025",
+      "Ukončeno": "6. 2. 2025"
+     }
+    }
+   },
+   {
+    "number_raw": "UR-35-5/25",
+    "detail_id": 86294,
+    "detail_url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/86294?mod=rada",
+    "agenda_item_raw": "Uzavření \" Smlouvy o zřízení služebnosti inženýrské sítě“ s firmou Meteor-CS s.r.o.",
+    "text_verbatim": "Rada\nměsta schvaluje uzavření \"Smlouvy o zřízení služebnosti inženýrské sítě“ s firmou Meteor-CS s.r.o. se sídlem\nPraha\n9-Hrdlořezy, U Schodů 122/5, která se týká částí pozemků v majetku města č. parc. 21, 338/1, 348/2, 348/3, 342/39 a 342/40 v obci Pečky a k.ú.\nVelké\nChvalovice. Jedná se o stavbu „Optická síť Pečky – V. Chvalovice, výstavba RD“. Celková cena za zřízení VBř činí 62.400,- Kč+DPH (délka VBř činí 312 bm/200,- Kč/bm + DPH).",
+    "cell_text_raw": "Bod programu:\nUzavření \" Smlouvy o zřízení služebnosti inženýrské sítě“ s firmou Meteor-CS s.r.o.\nText přijatého usnesení:\nRada\nměsta schvaluje uzavření \"Smlouvy o zřízení služebnosti inženýrské sítě“ s firmou Meteor-CS s.r.o. se sídlem\nPraha\n9-Hrdlořezy, U Schodů 122/5, která se týká částí pozemků v majetku města č. parc. 21, 338/1, 348/2, 348/3, 342/39 a 342/40 v obci Pečky a k.ú.\nVelké\nChvalovice. Jedná se o stavbu „Optická síť Pečky – V. Chvalovice, výstavba RD“. Celková cena za zřízení VBř činí 62.400,- Kč+DPH (délka VBř činí 312 bm/200,- Kč/bm + DPH).",
+    "date_raw": "3. 2. 2025",
+    "date_iso": "2025-02-03",
+    "responsible_raw": "Jana Najbrtová",
+    "deadline_raw": "28. 2. 2025",
+    "vote": {
+     "raw_text": "pro: 6 proti: 0 zdržel se: 0",
+     "pro": {
+      "count": 6,
+      "names": null,
+      "raw": "6"
+     },
+     "proti": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     },
+     "zdrzel_se": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     }
+    },
+    "detail": {
+     "number_raw": "UR-35-5/25",
+     "text_verbatim": "Rada města schvaluje uzavření \"Smlouvy o zřízení služebnosti inženýrské sítě“ s firmou Meteor-CS s.r.o. se sídlem Praha 9-Hrdlořezy, U Schodů 122/5, která se týká částí pozemků v majetku města č. parc. 21, 338/1, 348/2, 348/3, 342/39 a 342/40 v obci Pečky a k.ú. Velké Chvalovice. Jedná se o stavbu „Optická síť Pečky – V. Chvalovice, výstavba RD“. Celková cena za zřízení VBř činí 62.400,- Kč+DPH (délka VBř činí 312 bm/200,- Kč/bm + DPH).",
+     "typ_raw": null,
+     "zodpovida_raw": "Jana Najbrtová",
+     "prijato_raw": "3. 2. 2025 na jednání č. 5/2025",
+     "prijato_date_iso": "2025-02-03",
+     "prijato_meeting_label": "5/2025",
+     "termin_raw": "28. 2. 2025",
+     "ukonceno_raw": "6. 2. 2025",
+     "ukonceno_date_iso": "2025-02-06",
+     "fields_raw": {
+      "Číslo usnesení": "UR-35-5/25",
+      "Text usnesení": "Rada města schvaluje uzavření \"Smlouvy o zřízení služebnosti inženýrské sítě“ s firmou Meteor-CS s.r.o. se sídlem Praha 9-Hrdlořezy, U Schodů 122/5, která se týká částí pozemků v majetku města č. parc. 21, 338/1, 348/2, 348/3, 342/39 a 342/40 v obci Pečky a k.ú. Velké Chvalovice. Jedná se o stavbu „Optická síť Pečky – V. Chvalovice, výstavba RD“. Celková cena za zřízení VBř činí 62.400,- Kč+DPH (délka VBř činí 312 bm/200,- Kč/bm + DPH).",
+      "Zodpovídá": "Jana Najbrtová",
+      "Přijato": "3. 2. 2025 na jednání č. 5/2025",
+      "Termín": "28. 2. 2025",
+      "Ukončeno": "6. 2. 2025"
+     }
+    }
+   },
+   {
+    "number_raw": "UR-36-5/25",
+    "detail_id": 86585,
+    "detail_url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/86585?mod=rada",
+    "agenda_item_raw": "Odměny neuvolněných členů ZM",
+    "text_verbatim": "Rada\nměsta doporučuje zastupitelstvu města ke schválit zvýšení stávajících odměn neuvolněných členů ZM o 6,3% s účinností od 1.3.2025 - viz příloha.",
+    "cell_text_raw": "Bod programu:\nOdměny neuvolněných členů ZM\nText přijatého usnesení:\nRada\nměsta doporučuje zastupitelstvu města ke schválit zvýšení stávajících odměn neuvolněných členů ZM o 6,3% s účinností od 1.3.2025 - viz příloha.",
+    "date_raw": "3. 2. 2025",
+    "date_iso": "2025-02-03",
+    "responsible_raw": "Marcela Bahníková",
+    "deadline_raw": "1. 3. 2025",
+    "vote": {
+     "raw_text": "pro: 6 proti: 0 zdržel se: 0",
+     "pro": {
+      "count": 6,
+      "names": null,
+      "raw": "6"
+     },
+     "proti": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     },
+     "zdrzel_se": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     }
+    },
+    "detail": {
+     "number_raw": "UR-36-5/25",
+     "text_verbatim": "Rada města doporučuje zastupitelstvu města ke schválit zvýšení stávajících odměn neuvolněných členů ZM o 6,3% s účinností od 1.3.2025 - viz příloha.",
+     "typ_raw": null,
+     "zodpovida_raw": "Marcela Bahníková",
+     "prijato_raw": "3. 2. 2025 na jednání č. 5/2025",
+     "prijato_date_iso": "2025-02-03",
+     "prijato_meeting_label": "5/2025",
+     "termin_raw": "1. 3. 2025",
+     "ukonceno_raw": "3. 3. 2025",
+     "ukonceno_date_iso": "2025-03-03",
+     "fields_raw": {
+      "Číslo usnesení": "UR-36-5/25",
+      "Text usnesení": "Rada města doporučuje zastupitelstvu města ke schválit zvýšení stávajících odměn neuvolněných členů ZM o 6,3% s účinností od 1.3.2025 - viz příloha.",
+      "Zodpovídá": "Marcela Bahníková",
+      "Přijato": "3. 2. 2025 na jednání č. 5/2025",
+      "Termín": "1. 3. 2025",
+      "Ukončeno": "3. 3. 2025"
+     }
+    }
+   },
+   {
+    "number_raw": "UR-37-5/25",
+    "detail_id": 86602,
+    "detail_url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/86602?mod=rada",
+    "agenda_item_raw": "Žádost o dar - Zdravotní klaun",
+    "text_verbatim": "Rada\nměsta schvaluje poskytnutí finančního daru 5 500 Kč společnosti Zdravotní klaun, o.p.s., IČO 26547953.",
+    "cell_text_raw": "Bod programu:\nŽádost o dar - Zdravotní klaun\nText přijatého usnesení:\nRada\nměsta schvaluje poskytnutí finančního daru 5 500 Kč společnosti Zdravotní klaun, o.p.s., IČO 26547953.",
+    "date_raw": "3. 2. 2025",
+    "date_iso": "2025-02-03",
+    "responsible_raw": "Marcela Bahníková",
+    "deadline_raw": "17. 2. 2025",
+    "vote": {
+     "raw_text": "pro: 6 proti: 0 zdržel se: 0",
+     "pro": {
+      "count": 6,
+      "names": null,
+      "raw": "6"
+     },
+     "proti": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     },
+     "zdrzel_se": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     }
+    },
+    "detail": {
+     "number_raw": "UR-37-5/25",
+     "text_verbatim": "Rada města schvaluje poskytnutí finančního daru 5 500 Kč společnosti Zdravotní klaun, o.p.s., IČO 26547953.",
+     "typ_raw": null,
+     "zodpovida_raw": "Marcela Bahníková",
+     "prijato_raw": "3. 2. 2025 na jednání č. 5/2025",
+     "prijato_date_iso": "2025-02-03",
+     "prijato_meeting_label": "5/2025",
+     "termin_raw": "17. 2. 2025",
+     "ukonceno_raw": "17. 2. 2025",
+     "ukonceno_date_iso": "2025-02-17",
+     "fields_raw": {
+      "Číslo usnesení": "UR-37-5/25",
+      "Text usnesení": "Rada města schvaluje poskytnutí finančního daru 5 500 Kč společnosti Zdravotní klaun, o.p.s., IČO 26547953.",
+      "Zodpovídá": "Marcela Bahníková",
+      "Přijato": "3. 2. 2025 na jednání č. 5/2025",
+      "Termín": "17. 2. 2025",
+      "Ukončeno": "17. 2. 2025"
+     }
+    }
+   },
+   {
+    "number_raw": "UR-38-5/25",
+    "detail_id": 86608,
+    "detail_url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/86608?mod=rada",
+    "agenda_item_raw": "Žádost o dar - běžecký závod",
+    "text_verbatim": "Rada\nměsta schvaluje poskytnutí finančního daru ve výši 5 500 Kč paní\n█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​\n, bytem\n█​█​█​█​█​█​█​█​█​█​█​█​█​\nna pořádání běžeckého závodu\nKros\nPičhorou.",
+    "cell_text_raw": "Bod programu:\nŽádost o dar - běžecký závod\nText přijatého usnesení:\nRada\nměsta schvaluje poskytnutí finančního daru ve výši 5 500 Kč paní\n█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​\n, bytem\n█​█​█​█​█​█​█​█​█​█​█​█​█​\nna pořádání běžeckého závodu\nKros\nPičhorou.",
+    "date_raw": "3. 2. 2025",
+    "date_iso": "2025-02-03",
+    "responsible_raw": "Marcela Bahníková",
+    "deadline_raw": "17. 2. 2025",
+    "vote": {
+     "raw_text": "pro: 6 proti: 0 zdržel se: 0",
+     "pro": {
+      "count": 6,
+      "names": null,
+      "raw": "6"
+     },
+     "proti": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     },
+     "zdrzel_se": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     }
+    },
+    "detail": {
+     "number_raw": "UR-38-5/25",
+     "text_verbatim": "Rada města schvaluje poskytnutí finančního daru ve výši 5 500 Kč paní █​█​█​█​█​█​█​█​█​█​█​█​█​█​█​ , bytem █​█​█​█​█​█​█​█​█​█​█​█​█​ na pořádání běžeckého závodu Kros Pičhorou.",
+     "typ_raw": null,
+     "zodpovida_raw": "Marcela Bahníková",
+     "prijato_raw": "3. 2. 2025 na jednání č. 5/2025",
+     "prijato_date_iso": "2025-02-03",
+     "prijato_meeting_label": "5/2025",
+     "termin_raw": "17. 2. 2025",
+     "ukonceno_raw": "17. 2. 2025",
+     "ukonceno_date_iso": "2025-02-17",
+     "fields_raw": {
+      "Číslo usnesení": "UR-38-5/25",
+      "Text usnesení": "Rada města schvaluje poskytnutí finančního daru ve výši 5 500 Kč paní █​█​█​█​█​█​█​█​█​█​█​█​█​█​█​ , bytem █​█​█​█​█​█​█​█​█​█​█​█​█​ na pořádání běžeckého závodu Kros Pičhorou.",
+      "Zodpovídá": "Marcela Bahníková",
+      "Přijato": "3. 2. 2025 na jednání č. 5/2025",
+      "Termín": "17. 2. 2025",
+      "Ukončeno": "17. 2. 2025"
+     }
+    }
+   },
+   {
+    "number_raw": "UR-39-5/25",
+    "detail_id": 86942,
+    "detail_url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/86942?mod=rada",
+    "agenda_item_raw": "Úkoly vyplývající z jednání rady města",
+    "text_verbatim": "Rada\nměsta ukládá referentce Odboru správy majetku města a BH J.\nNajbrtové\njednat se Státním pozemkovým úřadem,\nPobočka\nKolín\nve věci KoPÚ týkající se zarovnání katastrální hranice mezi katastrálním územím k. ú. Pečky a k. ú.\nVelké\nChvalovice při zachování stávající rozlohy obou katastrálních území.",
+    "cell_text_raw": "Bod programu:\nÚkoly vyplývající z jednání rady města\nText přijatého usnesení:\nRada\nměsta ukládá referentce Odboru správy majetku města a BH J.\nNajbrtové\njednat se Státním pozemkovým úřadem,\nPobočka\nKolín\nve věci KoPÚ týkající se zarovnání katastrální hranice mezi katastrálním územím k. ú. Pečky a k. ú.\nVelké\nChvalovice při zachování stávající rozlohy obou katastrálních území.",
+    "date_raw": "3. 2. 2025",
+    "date_iso": "2025-02-03",
+    "responsible_raw": "Milan Paluska",
+    "deadline_raw": "28. 2. 2025",
+    "vote": {
+     "raw_text": "pro: 6 proti: 0 zdržel se: 0",
+     "pro": {
+      "count": 6,
+      "names": null,
+      "raw": "6"
+     },
+     "proti": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     },
+     "zdrzel_se": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     }
+    },
+    "detail": {
+     "number_raw": "UR-39-5/25",
+     "text_verbatim": "Rada města ukládá referentce Odboru správy majetku města a BH J. Najbrtové jednat se Státním pozemkovým úřadem, Pobočka Kolín ve věci KoPÚ týkající se zarovnání katastrální hranice mezi katastrálním územím k. ú. Pečky a k. ú. Velké Chvalovice při zachování stávající rozlohy obou katastrálních území.",
+     "typ_raw": null,
+     "zodpovida_raw": "Milan Paluska",
+     "prijato_raw": "3. 2. 2025 na jednání č. 5/2025",
+     "prijato_date_iso": "2025-02-03",
+     "prijato_meeting_label": "5/2025",
+     "termin_raw": "28. 2. 2025",
+     "ukonceno_raw": "3. 3. 2025",
+     "ukonceno_date_iso": "2025-03-03",
+     "fields_raw": {
+      "Číslo usnesení": "UR-39-5/25",
+      "Text usnesení": "Rada města ukládá referentce Odboru správy majetku města a BH J. Najbrtové jednat se Státním pozemkovým úřadem, Pobočka Kolín ve věci KoPÚ týkající se zarovnání katastrální hranice mezi katastrálním územím k. ú. Pečky a k. ú. Velké Chvalovice při zachování stávající rozlohy obou katastrálních území.",
+      "Zodpovídá": "Milan Paluska",
+      "Přijato": "3. 2. 2025 na jednání č. 5/2025",
+      "Termín": "28. 2. 2025",
+      "Ukončeno": "3. 3. 2025"
+     }
+    }
+   },
+   {
+    "number_raw": "UR-40-5/25",
+    "detail_id": 86952,
+    "detail_url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/86952?mod=rada",
+    "agenda_item_raw": "Informace o končícím funkčním období ředitele Základní školy Pečky, okres Kolín",
+    "text_verbatim": "Na základě informace o končícím šestiletém funkčním období ředitele Základní školy Pečky, okres\nKolín\npověřuje rada města tajemnici MěÚ zahájením přípravných prací pro konkurzní řízení.",
+    "cell_text_raw": "Bod programu:\nInformace o končícím funkčním období ředitele Základní školy Pečky, okres Kolín\nText přijatého usnesení:\nNa základě informace o končícím šestiletém funkčním období ředitele Základní školy Pečky, okres\nKolín\npověřuje rada města tajemnici MěÚ zahájením přípravných prací pro konkurzní řízení.",
+    "date_raw": "3. 2. 2025",
+    "date_iso": "2025-02-03",
+    "responsible_raw": "Pavlína Nepovímová",
+    "deadline_raw": "10. 2. 2025",
+    "vote": {
+     "raw_text": "pro: 6 proti: 0 zdržel se: 0",
+     "pro": {
+      "count": 6,
+      "names": null,
+      "raw": "6"
+     },
+     "proti": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     },
+     "zdrzel_se": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     }
+    },
+    "detail": {
+     "number_raw": "UR-40-5/25",
+     "text_verbatim": "Na základě informace o končícím šestiletém funkčním období ředitele Základní školy Pečky, okres Kolín pověřuje rada města tajemnici MěÚ zahájením přípravných prací pro konkurzní řízení.",
+     "typ_raw": null,
+     "zodpovida_raw": "Pavlína Nepovímová",
+     "prijato_raw": "3. 2. 2025 na jednání č. 5/2025",
+     "prijato_date_iso": "2025-02-03",
+     "prijato_meeting_label": "5/2025",
+     "termin_raw": "10. 2. 2025",
+     "ukonceno_raw": "10. 2. 2025",
+     "ukonceno_date_iso": "2025-02-10",
+     "fields_raw": {
+      "Číslo usnesení": "UR-40-5/25",
+      "Text usnesení": "Na základě informace o končícím šestiletém funkčním období ředitele Základní školy Pečky, okres Kolín pověřuje rada města tajemnici MěÚ zahájením přípravných prací pro konkurzní řízení.",
+      "Zodpovídá": "Pavlína Nepovímová",
+      "Přijato": "3. 2. 2025 na jednání č. 5/2025",
+      "Termín": "10. 2. 2025",
+      "Ukončeno": "10. 2. 2025"
+     }
+    }
+   }
+  ]
+ }
+}

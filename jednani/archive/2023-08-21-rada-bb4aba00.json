@@ -1,0 +1,748 @@
+{
+ "uuid": "bb4aba00-3bff-11ee-8a81-c99a94699c34",
+ "body_type_raw": "Rada",
+ "label_raw": "28/2023 (21. 8. 2023)",
+ "number": 28,
+ "year": 2023,
+ "date_iso": "2023-08-21",
+ "links": {
+  "invitation": "https://mesto-pecky.usneseni.cz/verejne/?uuid=bb4aba00-3bff-11ee-8a81-c99a94699c34&page=11&do=printPublicInvitation",
+  "minutes": "https://mesto-pecky.usneseni.cz/verejne/bb4aba00-3bff-11ee-8a81-c99a94699c34/zapis/?page=11",
+  "signed_minutes_pdf": "https://mesto-pecky.usneseni.cz/verejne/?meetingReportControl-uuid=bb4aba00-3bff-11ee-8a81-c99a94699c34&page=11&do=meetingReportControl-getSignedReportPdf",
+  "resolutions": "https://mesto-pecky.usneseni.cz/verejne/bb4aba00-3bff-11ee-8a81-c99a94699c34/usneseni/?page=11",
+  "audio": null
+ },
+ "link_texts": {
+  "invitation": "Pozvánka",
+  "minutes": "zápis",
+  "signed_minutes_pdf": "podepsaný zápis",
+  "resolutions": "přijatá usnesení"
+ },
+ "status": "ok",
+ "invitation": {
+  "status": "site_error",
+  "error": "status=200 ct=text/html; charset=utf-8 flash='<a href=\"\" class=\"close\" data-dismiss=\"alert\" aria-label=\"close\">&times;'",
+  "url": "https://mesto-pecky.usneseni.cz/verejne/?uuid=bb4aba00-3bff-11ee-8a81-c99a94699c34&do=printPublicInvitation",
+  "fetched_at": "2026-08-04T15:04:46.404736+00:00"
+ },
+ "minutes": {
+  "status": "ok",
+  "url": "https://mesto-pecky.usneseni.cz/verejne/bb4aba00-3bff-11ee-8a81-c99a94699c34/zapis/",
+  "fetched_at": "2026-08-04T14:05:20.997716+00:00",
+  "title_raw": "ZÁPIS ze schůze rady č. 28/2023 Město Pečky datum: 21. 8. 2023, čas: 15:00 ​",
+  "date_raw": "21. 8. 2023",
+  "date_iso": "2023-08-21",
+  "time_raw": "15:00",
+  "presence": {
+   "raw_text": "Prezence:\nPřítomni:\n(4) Milan Paluska, Ing. Martin Jedlička, Ing. Petr Dürr, Ivana Trčková\nOmluveni:\n(3) Zdeněk Fejfar, Ing. Hana Kuprová, Ing. Karel Krištoufek\nNepřítomni:\n(0)\nHosté:\nZapisovatel/ka:\nEva Strnadová\nPřítomno je 4 členů a rada je usnášeníschopná.\nJednání zahájeno 21.08.2023 v 15:04:53",
+   "pritomni": {
+    "count": 4,
+    "names": [
+     "Milan Paluska",
+     "Ing. Martin Jedlička",
+     "Ing. Petr Dürr",
+     "Ivana Trčková"
+    ],
+    "raw": "(4) Milan Paluska, Ing. Martin Jedlička, Ing. Petr Dürr, Ivana Trčková"
+   },
+   "omluveni": {
+    "count": 3,
+    "names": [
+     "Zdeněk Fejfar",
+     "Ing. Hana Kuprová",
+     "Ing. Karel Krištoufek"
+    ],
+    "raw": "(3) Zdeněk Fejfar, Ing. Hana Kuprová, Ing. Karel Krištoufek"
+   },
+   "nepritomni": {
+    "count": 0,
+    "names": [],
+    "raw": "(0)"
+   },
+   "predsedajici": null,
+   "quorum_raw": "Přítomno je 4 členů a rada je usnášeníschopná."
+  },
+  "header_raw": "Prezence:\nPřítomni:\n(4) Milan Paluska, Ing. Martin Jedlička, Ing. Petr Dürr, Ivana Trčková\nOmluveni:\n(3) Zdeněk Fejfar, Ing. Hana Kuprová, Ing. Karel Krištoufek\nNepřítomni:\n(0)\nHosté:\nZapisovatel/ka:\nEva Strnadová\nPřítomno je 4 členů a rada je usnášeníschopná.\nJednání zahájeno 21.08.2023 v 15:04:53",
+  "agenda_items": [
+   {
+    "number": 1,
+    "title_raw": "Určení zapisovatelů, předsedajícího, příp. ověřovatelů",
+    "heading_raw": "1. Určení zapisovatelů, předsedajícího, příp. ověřovatelů (bod číslo 1)",
+    "predkladatel": "Milan Paluska",
+    "votes": [],
+    "resolution_numbers_mentioned": [],
+    "raw_text": "Předkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 15:04:58\nPředsedající navrhl jednotlivé členy pracovních komisí\nOvěřovatelé:\nIvana Trčková, Ing. Martin Jedlička\nPředsedající:\nMilan Paluska\nBod byl přijat bez hlasování.\nDiskuze zahájena v 15:04:58\nK tomuto bodu se vyjádřili: Milan Paluska\nProjednávání bodu bylo ukončeno v 15:08:01"
+   },
+   {
+    "number": 2,
+    "title_raw": "Schválení programu jednání",
+    "heading_raw": "2. Schválení programu jednání (bod číslo 2)",
+    "predkladatel": "Milan Paluska",
+    "votes": [
+     {
+      "raw_text": "pro:\n(4) Ing. Martin Jedlička, Milan Paluska, Ing. Petr Dürr, Ivana Trčková\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)",
+      "pro": {
+       "count": 4,
+       "names": [
+        "Ing. Martin Jedlička",
+        "Milan Paluska",
+        "Ing. Petr Dürr",
+        "Ivana Trčková"
+       ],
+       "raw": "(4) Ing. Martin Jedlička, Milan Paluska, Ing. Petr Dürr, Ivana Trčková"
+      },
+      "proti": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "zdrzel_se": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "nehlasoval": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "result_raw": "Návrh byl přijat jako usnesení číslo: UR-242-28/23",
+      "adopted_resolution_number": "UR-242-28/23"
+     }
+    ],
+    "resolution_numbers_mentioned": [
+     "UR-242-28/23"
+    ],
+    "raw_text": "Předkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 15:08:07\nProgram jednání\n1. Určení zapisovatelů, předsedajícího, příp. ověřovatelů\n2. Schválení programu jednání\n3. Aktuální informace vedení města\n4. Dodatek č. 4 ke smlouvě na rozšíření sběrných nádob na sběr rostlinného oleje\n5. Dodatek č. 1 Příkazní smlouvy na výkon TDI na stavbě Stavební úpravy a obnova interiéru Kulturního střediska Pečky – II. etapa\n6. Dodatek č. 1 Příkazní smlouvy na výkon Koordinátora BOZP na stavbě Stavební úpravy a obnova interiéru Kulturního střediska Pečky – II. etapa\n7. Vyhlášení výběrového řízení na zhotovitele stavby \"Dobudování stezky pro pěší a cyklisty v ul. Milčická ve Velkých Chvalovicích část DOPRAVNÍ OSTRŮVEK\" a ustanovení komise\n8. Odpisový plán - Pečovatelská služba města Pečky\n9. Uzavření SOD na rekonstrukci kotelny v čp. 218\n10. Kontrola plnění usnesení\nDiskuze zahájena v 15:08:07\nK tomuto bodu se vyjádřili: Milan Paluska\nV 15:08:47 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Milan Paluska\") v tomto znění:\nRada\nměsta schvaluje návrh programu jednání.\nHlasování\npro:\n(4) Ing. Martin Jedlička, Milan Paluska, Ing. Petr Dürr, Ivana Trčková\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-242-28/23\nzodpovídá:\ntermín:\nIHNED\n(21. 8. 2023)\nProjednávání bodu bylo ukončeno v 15:08:56"
+   },
+   {
+    "number": 3,
+    "title_raw": "Aktuální informace vedení města",
+    "heading_raw": "3. Aktuální informace vedení města (bod číslo 3)",
+    "predkladatel": "Milan Paluska",
+    "votes": [],
+    "resolution_numbers_mentioned": [],
+    "raw_text": "Předkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 15:09:01\nDůvodová zpráva:\nstarosta města\n- informace o kontrolním dni v KS - montáž akustických obkladů, dlažby, výmalba interiéru\n- informace o schůzce s projektanty ve věci plánované výstavby plotu u MŠ Mašinka Pečky\n- informace o schůzce s praktickými lékaři MUDr. Pokorným ml. a MUDr. Pokorným st. - praxe ve zdravotním středisku\n- informace o průběhu prací na úpravně vody\n- informace o kontrolním dní v Základní škole Pečky čp. 342 - postup prací rekonstrukce elektroinstalace v nové budově školy + doplnění datové sítě\n- informace o otevírání obálek - rekonstrukce otopného systému v Domě služeb čp. 184, Pečky\n- informace o stavu jezu v Radimi\nIng.\nMartin\nJedlička\n- informace o nezákonném prodeji léků uživatelům drog v místní lékárně\nDiskuze zahájena v 15:09:01\nK tomuto bodu se vyjádřili: Milan Paluska, Ivana Trčková, Ing. Martin Jedlička\nRada bere materiály předložené k bodu č. 3 -\nAktuální informace vedení města\nna vědomí.\nProjednávání bodu bylo ukončeno v 15:38:45"
+   },
+   {
+    "number": 4,
+    "title_raw": "Dodatek č. 4 ke smlouvě na rozšíření sběrných nádob na sběr rostlinného oleje",
+    "heading_raw": "4. Dodatek č. 4 ke smlouvě na rozšíření sběrných nádob na sběr rostlinného oleje (bod číslo 4)",
+    "predkladatel": "Hana Pokorná",
+    "votes": [
+     {
+      "raw_text": "pro:\n(4) Ing. Martin Jedlička, Ing. Petr Dürr, Milan Paluska, Ivana Trčková\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)",
+      "pro": {
+       "count": 4,
+       "names": [
+        "Ing. Martin Jedlička",
+        "Ing. Petr Dürr",
+        "Milan Paluska",
+        "Ivana Trčková"
+       ],
+       "raw": "(4) Ing. Martin Jedlička, Ing. Petr Dürr, Milan Paluska, Ivana Trčková"
+      },
+      "proti": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "zdrzel_se": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "nehlasoval": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "result_raw": "Návrh byl přijat jako usnesení číslo: UR-243-28/23",
+      "adopted_resolution_number": "UR-243-28/23"
+     }
+    ],
+    "resolution_numbers_mentioned": [
+     "UR-243-28/23"
+    ],
+    "raw_text": "Předkladatel: Hana Pokorná\nProjednávání bodu bylo zahájeno v 15:38:49\nDůvodová zpráva:\nMěsto Pečky, Masarykovo nám. 78, 28911 Pečky, má uzavřenou smlouvu s firmou\nČernohlávek\nGroup s.r.o., Církvice 57, 28533 Církvice, o poskytnutí služeb pro obsluhu nádob na použitý rostlinný olej, který je shromažďován v popelnicových nádobách umístěných na veřejném prostranství, do kterých olej odkládají občané města\nPeček\na Velkých Chvalovic. Počet nádob by se dle dodatku č. 4 rozšířil z 12 ks na 16 ks. Město Pečky jako původce odpadu hradí za tuto službu částku 500,- /nádobu a rok. Celková částka za 16 ks by byla 8.000,- Kč bez DPH za rok poskytnutých služeb.\nDiskuze zahájena v 15:38:49\nK tomuto bodu se vyjádřili: Milan Paluska\nV 15:39:26 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Hana Pokorná\") v tomto znění:\nRada\nměsta schvaluje Dodatek č. 4 ke smlouvě o poskytnutí služeb pro obsluhu nádob na použitý rostlinný olej, uzavřené mezi městem Pečky, Masarykovo nám. 78, 28911 Pečky a firmou\nČernohlávek\nGroup s.r.o., Církvice 57, 28533 Církvice, na rozšíření o čtyři kusy popelnicových nádob z 12 ks na 16 ks.\nHlasování\npro:\n(4) Ing. Martin Jedlička, Ing. Petr Dürr, Milan Paluska, Ivana Trčková\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-243-28/23\nzodpovídá:\nHana Pokorná\ntermín:\n4. 9. 2023\nProjednávání bodu bylo ukončeno v 15:39:35"
+   },
+   {
+    "number": 5,
+    "title_raw": "Dodatek č. 1 Příkazní smlouvy na výkon TDI na stavbě Stavební úpravy a obnova interiéru Kulturního střediska Pečky – II. etapa",
+    "heading_raw": "5. Dodatek č. 1 Příkazní smlouvy na výkon TDI na stavbě Stavební úpravy a obnova interiéru Kulturního střediska Pečky – II. etapa (bod číslo 5)",
+    "predkladatel": "Milan Paluska",
+    "votes": [
+     {
+      "raw_text": "pro:\n(4) Ing. Martin Jedlička, Ing. Petr Dürr, Milan Paluska, Ivana Trčková\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)",
+      "pro": {
+       "count": 4,
+       "names": [
+        "Ing. Martin Jedlička",
+        "Ing. Petr Dürr",
+        "Milan Paluska",
+        "Ivana Trčková"
+       ],
+       "raw": "(4) Ing. Martin Jedlička, Ing. Petr Dürr, Milan Paluska, Ivana Trčková"
+      },
+      "proti": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "zdrzel_se": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "nehlasoval": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "result_raw": "Návrh byl přijat jako usnesení číslo: UR-244-28/23",
+      "adopted_resolution_number": "UR-244-28/23"
+     }
+    ],
+    "resolution_numbers_mentioned": [
+     "UR-244-28/23"
+    ],
+    "raw_text": "Předkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 15:39:39\nDůvodová zpráva:\nZ důvodu změny termínu dokončení stavebních prací dochází k prodloužení doby plnění výkonu TDI.\nDoba\nplnění se prodlužuje nad rámec předpokládané doby plnění 10 měsíců o dobu prodloužení termínu dokončení stavebních prací a o dobu do vydání kolaudačního souhlasu/rozhodnutí. Na základě výše uvedeného navrhujeme uzavření Dodatku č. 1 k Příkazní smlouvě ze dne 29.09.2022, interní číslo příkazce 862 - viz příloha.\nDiskuze zahájena v 15:39:39\nK tomuto bodu se vyjádřili: Milan Paluska, Ivana Trčková\nV 15:45:50 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Milan Paluska\") v tomto znění:\nRada\nměsta schvaluje uzavření Dodatku č. 1 Příkazní smlouvy ze dne 29.09.2022, interní číslo příkazce 862, mezi městem Pečky a ARCHA - inženýrská agentura, a.s., IČ: 25638262 spočívajícího v prodloužení doby plnění výkonu TDI na stavbě \"Stavební úpravy a obnova interiéru Kulturního střediska Pečky – II. etapa\".\nHlasování\npro:\n(4) Ing. Martin Jedlička, Ing. Petr Dürr, Milan Paluska, Ivana Trčková\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-244-28/23\nzodpovídá:\nMichala Dekiská\ntermín:\n4. 9. 2023\nProjednávání bodu bylo ukončeno v 15:46:04"
+   },
+   {
+    "number": 6,
+    "title_raw": "Dodatek č. 1 Příkazní smlouvy na výkon Koordinátora BOZP na stavbě Stavební úpravy a obnova interiéru Kulturního střediska Pečky – II. etapa",
+    "heading_raw": "6. Dodatek č. 1 Příkazní smlouvy na výkon Koordinátora BOZP na stavbě Stavební úpravy a obnova interiéru Kulturního střediska Pečky – II. etapa (bod číslo 6)",
+    "predkladatel": "Milan Paluska",
+    "votes": [
+     {
+      "raw_text": "pro:\n(4) Ing. Martin Jedlička, Ing. Petr Dürr, Milan Paluska, Ivana Trčková\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)",
+      "pro": {
+       "count": 4,
+       "names": [
+        "Ing. Martin Jedlička",
+        "Ing. Petr Dürr",
+        "Milan Paluska",
+        "Ivana Trčková"
+       ],
+       "raw": "(4) Ing. Martin Jedlička, Ing. Petr Dürr, Milan Paluska, Ivana Trčková"
+      },
+      "proti": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "zdrzel_se": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "nehlasoval": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "result_raw": "Návrh byl přijat jako usnesení číslo: UR-245-28/23",
+      "adopted_resolution_number": "UR-245-28/23"
+     }
+    ],
+    "resolution_numbers_mentioned": [
+     "UR-245-28/23"
+    ],
+    "raw_text": "Předkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 15:46:09\nDůvodová zpráva:\nZ důvodu změny termínu dokončení stavebních prací dochází k prodloužení doby plnění výkonu koordinátora BOZP.\nDoba\nplnění se prodlužuje nad rámec předpokládané doby plnění 10 měsíců o dobu prodloužení termínu dokončení stavebních prací do předání a převzetí dokončené stavby. Na základě výše uvedeného navrhujeme uzavření Dodatku č. 1 k Příkazní smlouvě ze dne 29.09.2022, interní číslo příkazce 863 - viz příloha.\nDiskuze zahájena v 15:46:09\nK tomuto bodu se vyjádřili: Milan Paluska, Ing. Martin Jedlička\nV 15:49:05 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Milan Paluska\") v tomto znění:\nRada\nměsta schvaluje uzavření Dodatku č. 1 Příkazní smlouvy ze dne 29.09.2022, interní číslo příkazce 863, mezi městem Pečky a ARCHA - inženýrská agentura, a.s., IČ: 25638262 spočívajícího v prodloužení doby plnění výkonu koordinátora BOZP na stavbě \"Stavební úpravy a obnova interiéru Kulturního střediska Pečky – II. etapa\".\nHlasování\npro:\n(4) Ing. Martin Jedlička, Ing. Petr Dürr, Milan Paluska, Ivana Trčková\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-245-28/23\nzodpovídá:\nMichala Dekiská\ntermín:\n4. 9. 2023\nProjednávání bodu bylo ukončeno v 15:49:12"
+   },
+   {
+    "number": 7,
+    "title_raw": "Vyhlášení výběrového řízení na zhotovitele stavby \"Dobudování stezky pro pěší a cyklisty v ul. Milčická ve Velkých Chvalovicích část DOPRAVNÍ OSTRŮVEK\" a ustanovení komise",
+    "heading_raw": "7. Vyhlášení výběrového řízení na zhotovitele stavby \"Dobudování stezky pro pěší a cyklisty v ul. Milčická ve Velkých Chvalovicích část DOPRAVNÍ OSTRŮVEK\" a ustanovení komise (bod číslo 7)",
+    "predkladatel": "Milan Paluska",
+    "votes": [
+     {
+      "raw_text": "pro:\n(4) Ing. Martin Jedlička, Ing. Petr Dürr, Milan Paluska, Ivana Trčková\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)",
+      "pro": {
+       "count": 4,
+       "names": [
+        "Ing. Martin Jedlička",
+        "Ing. Petr Dürr",
+        "Milan Paluska",
+        "Ivana Trčková"
+       ],
+       "raw": "(4) Ing. Martin Jedlička, Ing. Petr Dürr, Milan Paluska, Ivana Trčková"
+      },
+      "proti": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "zdrzel_se": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "nehlasoval": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "result_raw": "Návrh byl přijat jako usnesení číslo: UR-246-28/23",
+      "adopted_resolution_number": "UR-246-28/23"
+     }
+    ],
+    "resolution_numbers_mentioned": [
+     "UR-246-28/23"
+    ],
+    "raw_text": "Předkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 15:49:20\nDůvodová zpráva:\nVyhlášení výběrového řízení na zhotovitele stavby \"Dobudování stezky pro pěší a cyklisty v ul.\nMilčická\nve Velkých Chvalovicích část DOPRAVNÍ OSTRŮVEK\" mimo režim zákona č. 134/2016 Sb., o zadávání veřejných zakázek, ve znění pozdějších předpisů, uveřejněním na profilu zadavatele.\nSložení hodnotící komise: členové:\nZdeněk\nFejfar\n- 1. místostarosta, Ing. Věra\nRůžičková\n- vedoucí odboru SMM a BH, Ing.\nJana\nZindrová\n- referent odboru V, Z, ŽP a D\nnáhradníci:\nMilan\nPaluska\n- starosta,\nPetra\nKutová\n- investiční technik, Bc.\nPavlína\nNepovímová\n, DiS. - tajemnice\nDiskuze zahájena v 15:49:20\nK tomuto bodu se vyjádřili: Milan Paluska, Ing. Martin Jedlička, Ivana Trčková\nV 15:55:05 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Milan Paluska\") v tomto znění:\nRada\nměsta schvaluje vyhlášení výběrového řízení na zhotovitele stavby \"Dobudování stezky pro pěší a cyklisty v ul.\nMilčická\nve Velkých Chvalovicích část DOPRAVNÍ OSTRŮVEK\" mimo režim zákona č. 134/2016 Sb., o zadávání veřejných zakázek, ve znění pozdějších předpisů, uveřejněním na profilu zadavatele a ustanovení komise ve složení:\nčlenové:\nZdeněk\nFejfar\n- 1. místostarosta, Ing. Věra\nRůžičková\n- vedoucí odboru SMM a BH, Ing.\nJana\nZindrová\n- referent odboru V, Z, ŽP a D\nnáhradníci:\nMilan\nPaluska\n- starosta,\nPetra\nKutová\n- investiční technik, Bc.\nPavlína\nNepovímová\n, DiS. - tajemnice\nHlasování\npro:\n(4) Ing. Martin Jedlička, Ing. Petr Dürr, Milan Paluska, Ivana Trčková\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-246-28/23\nzodpovídá:\nMichala Dekiská\ntermín:\n4. 9. 2023\nProjednávání bodu bylo ukončeno v 15:55:13"
+   },
+   {
+    "number": 8,
+    "title_raw": "Odpisový plán - Pečovatelská služba města Pečky",
+    "heading_raw": "8. Odpisový plán - Pečovatelská služba města Pečky (bod číslo 8)",
+    "predkladatel": "Milan Paluska",
+    "votes": [
+     {
+      "raw_text": "pro:\n(4) Ing. Martin Jedlička, Milan Paluska, Ivana Trčková, Ing. Petr Dürr\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)",
+      "pro": {
+       "count": 4,
+       "names": [
+        "Ing. Martin Jedlička",
+        "Milan Paluska",
+        "Ivana Trčková",
+        "Ing. Petr Dürr"
+       ],
+       "raw": "(4) Ing. Martin Jedlička, Milan Paluska, Ivana Trčková, Ing. Petr Dürr"
+      },
+      "proti": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "zdrzel_se": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "nehlasoval": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "result_raw": "Návrh byl přijat jako usnesení číslo: UR-247-28/23",
+      "adopted_resolution_number": "UR-247-28/23"
+     }
+    ],
+    "resolution_numbers_mentioned": [
+     "UR-247-28/23"
+    ],
+    "raw_text": "Předkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 15:55:17\nDůvodová zpráva:\nPečovatelská služba města Pečky žádá zřizovatele o schválení odpisových plánů, investice byly financovány z dotace (90%). Odpisy budou tvořeny z 90% z dotace a z 10% z příspěvku zřizovatele.\nDiskuze zahájena v 15:55:17\nK tomuto bodu se vyjádřili: Milan Paluska, Ing. Petr Dürr, Ivana Trčková\nV 16:04:07 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Milan Paluska\") v tomto znění:\nRada\nměsta schvaluje odpisový plán Pečovatelské službě města Pečky pro investice:\nkolejnicový zvedací systém         poř. cena 319 738 Kč, doba odepisování 84 měsíců\nos. vůz Peugeot 208 e červený    poř. cena 796 172 Kč, doba odepisování 84 měsíců\nos. vůz Peugeot 208 e-GT bílý     poř. cena 869 172 Kč, doba odepisování 84 měsíců\nHlasování\npro:\n(4) Ing. Martin Jedlička, Milan Paluska, Ivana Trčková, Ing. Petr Dürr\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-247-28/23\nzodpovídá:\nMarcela Bahníková\ntermín:\n31. 8. 2023\nProjednávání bodu bylo ukončeno v 16:04:14"
+   },
+   {
+    "number": 9,
+    "title_raw": "Uzavření SOD na rekonstrukci kotelny v čp. 218",
+    "heading_raw": "9. Uzavření SOD na rekonstrukci kotelny v čp. 218 (bod číslo 9)",
+    "predkladatel": "Věra Růžičková",
+    "votes": [
+     {
+      "raw_text": "pro:\n(4) Ing. Martin Jedlička, Milan Paluska, Ing. Petr Dürr, Ivana Trčková\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)",
+      "pro": {
+       "count": 4,
+       "names": [
+        "Ing. Martin Jedlička",
+        "Milan Paluska",
+        "Ing. Petr Dürr",
+        "Ivana Trčková"
+       ],
+       "raw": "(4) Ing. Martin Jedlička, Milan Paluska, Ing. Petr Dürr, Ivana Trčková"
+      },
+      "proti": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "zdrzel_se": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "nehlasoval": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "result_raw": "Návrh byl přijat jako usnesení číslo: UR-248-28/23",
+      "adopted_resolution_number": "UR-248-28/23"
+     }
+    ],
+    "resolution_numbers_mentioned": [
+     "UR-248-28/23"
+    ],
+    "raw_text": "Předkladatel: Věra Růžičková\nProjednávání bodu bylo zahájeno v 16:04:19\nDůvodová zpráva:\nZ důvodu zastaralé kotelny a nyní nefunkční regulaci jsme zadali zpracování PD a uveřejnili výzvu na rekonstrukci. Obdrželi jsme 4 nabídky, které komise zkontrolovala, prověřila referenční zakázky a doporučila Radě města uzavřít SOD s uchazečem, který předložil nabídku s nejnižší nabídkovou cenou, která byla hodnotícím kritériem. Protokol hodnocení nabídek je uveden v příloze, výzva a ZD byla uveřejněna na profilu zadavatele. Předpokládaná hodnota byla stanovena projektantem na 982 709,43 Kč bez DPH.\nDiskuze zahájena v 16:04:19\nK tomuto bodu se vyjádřili: Milan Paluska, Ing. Petr Dürr, Ing. Martin Jedlička\nV 16:10:10 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Věra Růžičková\") v tomto znění:\nRada\nměsta schvaluje uzavření SOD mezi městem Pečky a firmou TZB Kladno s.r.o., Třebízského 466, 273 09 Kladno na stavební práce akce: \"Změna zdroje tepla v bytovém domě čp. 218 Tř.5 května Pečky\" za cenu 694 326,36 Kč bez DPH, tj, 798 475,31 Kč vč. 15%DPH.\nHlasování\npro:\n(4) Ing. Martin Jedlička, Milan Paluska, Ing. Petr Dürr, Ivana Trčková\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-248-28/23\nzodpovídá:\nVěra Růžičková\ntermín:\n4. 9. 2023\nProjednávání bodu bylo ukončeno v 16:10:18"
+   },
+   {
+    "number": 10,
+    "title_raw": "Kontrola plnění usnesení",
+    "heading_raw": "10. Kontrola plnění usnesení (bod číslo 10)",
+    "predkladatel": "Milan Paluska",
+    "votes": [],
+    "resolution_numbers_mentioned": [],
+    "raw_text": "Předkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 16:10:23\nDiskuze zahájena v 16:10:23\nK tomuto bodu se vyjádřili: Milan Paluska, Pavlína Nepovímová\nRada bere materiály předložené k bodu č. 10 -\nKontrola plnění usnesení\nna vědomí.\nProjednávání bodu bylo ukončeno v 16:13:09\nJednání ukončeno 21.08.2023 v 16:13:30\n\nOvěřeno ověřovateli:\n1)\n22. 8. 2023 15:39\nIvana Trčková\n2)\n23. 8. 2023 13:19\nIng. Martin Jedlička"
+   }
+  ],
+  "full_text": "ZÁPIS ze schůze rady č. 28/2023\nMěsto Pečky\ndatum: 21. 8. 2023, čas: 15:00\n​\nPrezence:\nPřítomni:\n(4) Milan Paluska, Ing. Martin Jedlička, Ing. Petr Dürr, Ivana Trčková\nOmluveni:\n(3) Zdeněk Fejfar, Ing. Hana Kuprová, Ing. Karel Krištoufek\nNepřítomni:\n(0)\nHosté:\nZapisovatel/ka:\nEva Strnadová\nPřítomno je 4 členů a rada je usnášeníschopná.\nJednání zahájeno 21.08.2023 v 15:04:53\n1. Určení zapisovatelů, předsedajícího, příp. ověřovatelů (bod číslo 1)\nPředkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 15:04:58\nPředsedající navrhl jednotlivé členy pracovních komisí\nOvěřovatelé:\nIvana Trčková, Ing. Martin Jedlička\nPředsedající:\nMilan Paluska\nBod byl přijat bez hlasování.\nDiskuze zahájena v 15:04:58\nK tomuto bodu se vyjádřili: Milan Paluska\nProjednávání bodu bylo ukončeno v 15:08:01\n2. Schválení programu jednání (bod číslo 2)\nPředkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 15:08:07\nProgram jednání\n1. Určení zapisovatelů, předsedajícího, příp. ověřovatelů\n2. Schválení programu jednání\n3. Aktuální informace vedení města\n4. Dodatek č. 4 ke smlouvě na rozšíření sběrných nádob na sběr rostlinného oleje\n5. Dodatek č. 1 Příkazní smlouvy na výkon TDI na stavbě Stavební úpravy a obnova interiéru Kulturního střediska Pečky – II. etapa\n6. Dodatek č. 1 Příkazní smlouvy na výkon Koordinátora BOZP na stavbě Stavební úpravy a obnova interiéru Kulturního střediska Pečky – II. etapa\n7. Vyhlášení výběrového řízení na zhotovitele stavby \"Dobudování stezky pro pěší a cyklisty v ul. Milčická ve Velkých Chvalovicích část DOPRAVNÍ OSTRŮVEK\" a ustanovení komise\n8. Odpisový plán - Pečovatelská služba města Pečky\n9. Uzavření SOD na rekonstrukci kotelny v čp. 218\n10. Kontrola plnění usnesení\nDiskuze zahájena v 15:08:07\nK tomuto bodu se vyjádřili: Milan Paluska\nV 15:08:47 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Milan Paluska\") v tomto znění:\nRada\nměsta schvaluje návrh programu jednání.\nHlasování\npro:\n(4) Ing. Martin Jedlička, Milan Paluska, Ing. Petr Dürr, Ivana Trčková\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-242-28/23\nzodpovídá:\ntermín:\nIHNED\n(21. 8. 2023)\nProjednávání bodu bylo ukončeno v 15:08:56\n3. Aktuální informace vedení města (bod číslo 3)\nPředkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 15:09:01\nDůvodová zpráva:\nstarosta města\n- informace o kontrolním dni v KS - montáž akustických obkladů, dlažby, výmalba interiéru\n- informace o schůzce s projektanty ve věci plánované výstavby plotu u MŠ Mašinka Pečky\n- informace o schůzce s praktickými lékaři MUDr. Pokorným ml. a MUDr. Pokorným st. - praxe ve zdravotním středisku\n- informace o průběhu prací na úpravně vody\n- informace o kontrolním dní v Základní škole Pečky čp. 342 - postup prací rekonstrukce elektroinstalace v nové budově školy + doplnění datové sítě\n- informace o otevírání obálek - rekonstrukce otopného systému v Domě služeb čp. 184, Pečky\n- informace o stavu jezu v Radimi\nIng.\nMartin\nJedlička\n- informace o nezákonném prodeji léků uživatelům drog v místní lékárně\nDiskuze zahájena v 15:09:01\nK tomuto bodu se vyjádřili: Milan Paluska, Ivana Trčková, Ing. Martin Jedlička\nRada bere materiály předložené k bodu č. 3 -\nAktuální informace vedení města\nna vědomí.\nProjednávání bodu bylo ukončeno v 15:38:45\n4. Dodatek č. 4 ke smlouvě na rozšíření sběrných nádob na sběr rostlinného oleje (bod číslo 4)\nPředkladatel: Hana Pokorná\nProjednávání bodu bylo zahájeno v 15:38:49\nDůvodová zpráva:\nMěsto Pečky, Masarykovo nám. 78, 28911 Pečky, má uzavřenou smlouvu s firmou\nČernohlávek\nGroup s.r.o., Církvice 57, 28533 Církvice, o poskytnutí služeb pro obsluhu nádob na použitý rostlinný olej, který je shromažďován v popelnicových nádobách umístěných na veřejném prostranství, do kterých olej odkládají občané města\nPeček\na Velkých Chvalovic. Počet nádob by se dle dodatku č. 4 rozšířil z 12 ks na 16 ks. Město Pečky jako původce odpadu hradí za tuto službu částku 500,- /nádobu a rok. Celková částka za 16 ks by byla 8.000,- Kč bez DPH za rok poskytnutých služeb.\nDiskuze zahájena v 15:38:49\nK tomuto bodu se vyjádřili: Milan Paluska\nV 15:39:26 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Hana Pokorná\") v tomto znění:\nRada\nměsta schvaluje Dodatek č. 4 ke smlouvě o poskytnutí služeb pro obsluhu nádob na použitý rostlinný olej, uzavřené mezi městem Pečky, Masarykovo nám. 78, 28911 Pečky a firmou\nČernohlávek\nGroup s.r.o., Církvice 57, 28533 Církvice, na rozšíření o čtyři kusy popelnicových nádob z 12 ks na 16 ks.\nHlasování\npro:\n(4) Ing. Martin Jedlička, Ing. Petr Dürr, Milan Paluska, Ivana Trčková\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-243-28/23\nzodpovídá:\nHana Pokorná\ntermín:\n4. 9. 2023\nProjednávání bodu bylo ukončeno v 15:39:35\n5. Dodatek č. 1 Příkazní smlouvy na výkon TDI na stavbě Stavební úpravy a obnova interiéru Kulturního střediska Pečky – II. etapa (bod číslo 5)\nPředkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 15:39:39\nDůvodová zpráva:\nZ důvodu změny termínu dokončení stavebních prací dochází k prodloužení doby plnění výkonu TDI.\nDoba\nplnění se prodlužuje nad rámec předpokládané doby plnění 10 měsíců o dobu prodloužení termínu dokončení stavebních prací a o dobu do vydání kolaudačního souhlasu/rozhodnutí. Na základě výše uvedeného navrhujeme uzavření Dodatku č. 1 k Příkazní smlouvě ze dne 29.09.2022, interní číslo příkazce 862 - viz příloha.\nDiskuze zahájena v 15:39:39\nK tomuto bodu se vyjádřili: Milan Paluska, Ivana Trčková\nV 15:45:50 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Milan Paluska\") v tomto znění:\nRada\nměsta schvaluje uzavření Dodatku č. 1 Příkazní smlouvy ze dne 29.09.2022, interní číslo příkazce 862, mezi městem Pečky a ARCHA - inženýrská agentura, a.s., IČ: 25638262 spočívajícího v prodloužení doby plnění výkonu TDI na stavbě \"Stavební úpravy a obnova interiéru Kulturního střediska Pečky – II. etapa\".\nHlasování\npro:\n(4) Ing. Martin Jedlička, Ing. Petr Dürr, Milan Paluska, Ivana Trčková\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-244-28/23\nzodpovídá:\nMichala Dekiská\ntermín:\n4. 9. 2023\nProjednávání bodu bylo ukončeno v 15:46:04\n6. Dodatek č. 1 Příkazní smlouvy na výkon Koordinátora BOZP na stavbě Stavební úpravy a obnova interiéru Kulturního střediska Pečky – II. etapa (bod číslo 6)\nPředkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 15:46:09\nDůvodová zpráva:\nZ důvodu změny termínu dokončení stavebních prací dochází k prodloužení doby plnění výkonu koordinátora BOZP.\nDoba\nplnění se prodlužuje nad rámec předpokládané doby plnění 10 měsíců o dobu prodloužení termínu dokončení stavebních prací do předání a převzetí dokončené stavby. Na základě výše uvedeného navrhujeme uzavření Dodatku č. 1 k Příkazní smlouvě ze dne 29.09.2022, interní číslo příkazce 863 - viz příloha.\nDiskuze zahájena v 15:46:09\nK tomuto bodu se vyjádřili: Milan Paluska, Ing. Martin Jedlička\nV 15:49:05 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Milan Paluska\") v tomto znění:\nRada\nměsta schvaluje uzavření Dodatku č. 1 Příkazní smlouvy ze dne 29.09.2022, interní číslo příkazce 863, mezi městem Pečky a ARCHA - inženýrská agentura, a.s., IČ: 25638262 spočívajícího v prodloužení doby plnění výkonu koordinátora BOZP na stavbě \"Stavební úpravy a obnova interiéru Kulturního střediska Pečky – II. etapa\".\nHlasování\npro:\n(4) Ing. Martin Jedlička, Ing. Petr Dürr, Milan Paluska, Ivana Trčková\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-245-28/23\nzodpovídá:\nMichala Dekiská\ntermín:\n4. 9. 2023\nProjednávání bodu bylo ukončeno v 15:49:12\n7. Vyhlášení výběrového řízení na zhotovitele stavby \"Dobudování stezky pro pěší a cyklisty v ul. Milčická ve Velkých Chvalovicích část DOPRAVNÍ OSTRŮVEK\" a ustanovení komise (bod číslo 7)\nPředkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 15:49:20\nDůvodová zpráva:\nVyhlášení výběrového řízení na zhotovitele stavby \"Dobudování stezky pro pěší a cyklisty v ul.\nMilčická\nve Velkých Chvalovicích část DOPRAVNÍ OSTRŮVEK\" mimo režim zákona č. 134/2016 Sb., o zadávání veřejných zakázek, ve znění pozdějších předpisů, uveřejněním na profilu zadavatele.\nSložení hodnotící komise: členové:\nZdeněk\nFejfar\n- 1. místostarosta, Ing. Věra\nRůžičková\n- vedoucí odboru SMM a BH, Ing.\nJana\nZindrová\n- referent odboru V, Z, ŽP a D\nnáhradníci:\nMilan\nPaluska\n- starosta,\nPetra\nKutová\n- investiční technik, Bc.\nPavlína\nNepovímová\n, DiS. - tajemnice\nDiskuze zahájena v 15:49:20\nK tomuto bodu se vyjádřili: Milan Paluska, Ing. Martin Jedlička, Ivana Trčková\nV 15:55:05 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Milan Paluska\") v tomto znění:\nRada\nměsta schvaluje vyhlášení výběrového řízení na zhotovitele stavby \"Dobudování stezky pro pěší a cyklisty v ul.\nMilčická\nve Velkých Chvalovicích část DOPRAVNÍ OSTRŮVEK\" mimo režim zákona č. 134/2016 Sb., o zadávání veřejných zakázek, ve znění pozdějších předpisů, uveřejněním na profilu zadavatele a ustanovení komise ve složení:\nčlenové:\nZdeněk\nFejfar\n- 1. místostarosta, Ing. Věra\nRůžičková\n- vedoucí odboru SMM a BH, Ing.\nJana\nZindrová\n- referent odboru V, Z, ŽP a D\nnáhradníci:\nMilan\nPaluska\n- starosta,\nPetra\nKutová\n- investiční technik, Bc.\nPavlína\nNepovímová\n, DiS. - tajemnice\nHlasování\npro:\n(4) Ing. Martin Jedlička, Ing. Petr Dürr, Milan Paluska, Ivana Trčková\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-246-28/23\nzodpovídá:\nMichala Dekiská\ntermín:\n4. 9. 2023\nProjednávání bodu bylo ukončeno v 15:55:13\n8. Odpisový plán - Pečovatelská služba města Pečky (bod číslo 8)\nPředkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 15:55:17\nDůvodová zpráva:\nPečovatelská služba města Pečky žádá zřizovatele o schválení odpisových plánů, investice byly financovány z dotace (90%). Odpisy budou tvořeny z 90% z dotace a z 10% z příspěvku zřizovatele.\nDiskuze zahájena v 15:55:17\nK tomuto bodu se vyjádřili: Milan Paluska, Ing. Petr Dürr, Ivana Trčková\nV 16:04:07 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Milan Paluska\") v tomto znění:\nRada\nměsta schvaluje odpisový plán Pečovatelské službě města Pečky pro investice:\nkolejnicový zvedací systém         poř. cena 319 738 Kč, doba odepisování 84 měsíců\nos. vůz Peugeot 208 e červený    poř. cena 796 172 Kč, doba odepisování 84 měsíců\nos. vůz Peugeot 208 e-GT bílý     poř. cena 869 172 Kč, doba odepisování 84 měsíců\nHlasování\npro:\n(4) Ing. Martin Jedlička, Milan Paluska, Ivana Trčková, Ing. Petr Dürr\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-247-28/23\nzodpovídá:\nMarcela Bahníková\ntermín:\n31. 8. 2023\nProjednávání bodu bylo ukončeno v 16:04:14\n9. Uzavření SOD na rekonstrukci kotelny v čp. 218 (bod číslo 9)\nPředkladatel: Věra Růžičková\nProjednávání bodu bylo zahájeno v 16:04:19\nDůvodová zpráva:\nZ důvodu zastaralé kotelny a nyní nefunkční regulaci jsme zadali zpracování PD a uveřejnili výzvu na rekonstrukci. Obdrželi jsme 4 nabídky, které komise zkontrolovala, prověřila referenční zakázky a doporučila Radě města uzavřít SOD s uchazečem, který předložil nabídku s nejnižší nabídkovou cenou, která byla hodnotícím kritériem. Protokol hodnocení nabídek je uveden v příloze, výzva a ZD byla uveřejněna na profilu zadavatele. Předpokládaná hodnota byla stanovena projektantem na 982 709,43 Kč bez DPH.\nDiskuze zahájena v 16:04:19\nK tomuto bodu se vyjádřili: Milan Paluska, Ing. Petr Dürr, Ing. Martin Jedlička\nV 16:10:10 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Věra Růžičková\") v tomto znění:\nRada\nměsta schvaluje uzavření SOD mezi městem Pečky a firmou TZB Kladno s.r.o., Třebízského 466, 273 09 Kladno na stavební práce akce: \"Změna zdroje tepla v bytovém domě čp. 218 Tř.5 května Pečky\" za cenu 694 326,36 Kč bez DPH, tj, 798 475,31 Kč vč. 15%DPH.\nHlasování\npro:\n(4) Ing. Martin Jedlička, Milan Paluska, Ing. Petr Dürr, Ivana Trčková\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-248-28/23\nzodpovídá:\nVěra Růžičková\ntermín:\n4. 9. 2023\nProjednávání bodu bylo ukončeno v 16:10:18\n10. Kontrola plnění usnesení (bod číslo 10)\nPředkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 16:10:23\nDiskuze zahájena v 16:10:23\nK tomuto bodu se vyjádřili: Milan Paluska, Pavlína Nepovímová\nRada bere materiály předložené k bodu č. 10 -\nKontrola plnění usnesení\nna vědomí.\nProjednávání bodu bylo ukončeno v 16:13:09\nJednání ukončeno 21.08.2023 v 16:13:30\nOvěřeno ověřovateli:\n1)\n22. 8. 2023 15:39\nIvana Trčková\n2)\n23. 8. 2023 13:19\nIng. Martin Jedlička"
+ },
+ "resolutions": {
+  "status": "ok",
+  "url": "https://mesto-pecky.usneseni.cz/verejne/bb4aba00-3bff-11ee-8a81-c99a94699c34/usneseni/",
+  "fetched_at": "2026-08-04T14:05:28.867435+00:00",
+  "items": [
+   {
+    "number_raw": "UR-242-28/23",
+    "detail_id": 44386,
+    "detail_url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/44386?mod=rada",
+    "agenda_item_raw": "Schválení programu jednání",
+    "text_verbatim": "Rada\nměsta schvaluje návrh programu jednání.",
+    "cell_text_raw": "Bod programu:\nSchválení programu jednání\nText přijatého usnesení:\nRada\nměsta schvaluje návrh programu jednání.",
+    "date_raw": "21. 8. 2023",
+    "date_iso": "2023-08-21",
+    "responsible_raw": "",
+    "deadline_raw": "IHNED (21. 8. 2023)",
+    "vote": {
+     "raw_text": "pro: 4 proti: 0 zdržel se: 0",
+     "pro": {
+      "count": 4,
+      "names": null,
+      "raw": "4"
+     },
+     "proti": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     },
+     "zdrzel_se": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     }
+    },
+    "detail": {
+     "number_raw": "UR-242-28/23",
+     "text_verbatim": "Rada města schvaluje návrh programu jednání.",
+     "typ_raw": null,
+     "zodpovida_raw": "",
+     "prijato_raw": "21. 8. 2023 na jednání č. 28/2023",
+     "prijato_date_iso": "2023-08-21",
+     "prijato_meeting_label": "28/2023",
+     "termin_raw": "IHNED (21. 8. 2023)",
+     "ukonceno_raw": "21. 8. 2023",
+     "ukonceno_date_iso": "2023-08-21",
+     "fields_raw": {
+      "Číslo usnesení": "UR-242-28/23",
+      "Text usnesení": "Rada města schvaluje návrh programu jednání.",
+      "Zodpovídá": "",
+      "Přijato": "21. 8. 2023 na jednání č. 28/2023",
+      "Termín": "IHNED (21. 8. 2023)",
+      "Ukončeno": "21. 8. 2023"
+     }
+    }
+   },
+   {
+    "number_raw": "UR-243-28/23",
+    "detail_id": 44399,
+    "detail_url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/44399?mod=rada",
+    "agenda_item_raw": "Dodatek č. 4 ke smlouvě na rozšíření sběrných nádob na sběr rostlinného oleje",
+    "text_verbatim": "Rada\nměsta schvaluje Dodatek č. 4 ke smlouvě o poskytnutí služeb pro obsluhu nádob na použitý rostlinný olej, uzavřené mezi městem Pečky, Masarykovo nám. 78, 28911 Pečky a firmou\nČernohlávek\nGroup s.r.o., Církvice 57, 28533 Církvice, na rozšíření o čtyři kusy popelnicových nádob z 12 ks na 16 ks.",
+    "cell_text_raw": "Bod programu:\nDodatek č. 4 ke smlouvě na rozšíření sběrných nádob na sběr rostlinného oleje\nText přijatého usnesení:\nRada\nměsta schvaluje Dodatek č. 4 ke smlouvě o poskytnutí služeb pro obsluhu nádob na použitý rostlinný olej, uzavřené mezi městem Pečky, Masarykovo nám. 78, 28911 Pečky a firmou\nČernohlávek\nGroup s.r.o., Církvice 57, 28533 Církvice, na rozšíření o čtyři kusy popelnicových nádob z 12 ks na 16 ks.",
+    "date_raw": "21. 8. 2023",
+    "date_iso": "2023-08-21",
+    "responsible_raw": "Hana Pokorná",
+    "deadline_raw": "4. 9. 2023",
+    "vote": {
+     "raw_text": "pro: 4 proti: 0 zdržel se: 0",
+     "pro": {
+      "count": 4,
+      "names": null,
+      "raw": "4"
+     },
+     "proti": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     },
+     "zdrzel_se": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     }
+    },
+    "detail": {
+     "number_raw": "UR-243-28/23",
+     "text_verbatim": "Rada města schvaluje Dodatek č. 4 ke smlouvě o poskytnutí služeb pro obsluhu nádob na použitý rostlinný olej, uzavřené mezi městem Pečky, Masarykovo nám. 78, 28911 Pečky a firmou Černohlávek Group s.r.o., Církvice 57, 28533 Církvice, na rozšíření o čtyři kusy popelnicových nádob z 12 ks na 16 ks.",
+     "typ_raw": null,
+     "zodpovida_raw": "Hana Pokorná",
+     "prijato_raw": "21. 8. 2023 na jednání č. 28/2023",
+     "prijato_date_iso": "2023-08-21",
+     "prijato_meeting_label": "28/2023",
+     "termin_raw": "4. 9. 2023",
+     "ukonceno_raw": "24. 8. 2023",
+     "ukonceno_date_iso": "2023-08-24",
+     "fields_raw": {
+      "Číslo usnesení": "UR-243-28/23",
+      "Text usnesení": "Rada města schvaluje Dodatek č. 4 ke smlouvě o poskytnutí služeb pro obsluhu nádob na použitý rostlinný olej, uzavřené mezi městem Pečky, Masarykovo nám. 78, 28911 Pečky a firmou Černohlávek Group s.r.o., Církvice 57, 28533 Církvice, na rozšíření o čtyři kusy popelnicových nádob z 12 ks na 16 ks.",
+      "Zodpovídá": "Hana Pokorná",
+      "Přijato": "21. 8. 2023 na jednání č. 28/2023",
+      "Termín": "4. 9. 2023",
+      "Ukončeno": "24. 8. 2023"
+     }
+    }
+   },
+   {
+    "number_raw": "UR-244-28/23",
+    "detail_id": 44441,
+    "detail_url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/44441?mod=rada",
+    "agenda_item_raw": "Dodatek č. 1 Příkazní smlouvy na výkon TDI na stavbě Stavební úpravy a obnova interiéru Kulturního střediska Pečky – II. etapa",
+    "text_verbatim": "Rada\nměsta schvaluje uzavření Dodatku č. 1 Příkazní smlouvy ze dne 29.09.2022, interní číslo příkazce 862, mezi městem Pečky a ARCHA - inženýrská agentura, a.s., IČ: 25638262 spočívajícího v prodloužení doby plnění výkonu TDI na stavbě \"Stavební úpravy a obnova interiéru Kulturního střediska Pečky – II. etapa\".",
+    "cell_text_raw": "Bod programu:\nDodatek č. 1 Příkazní smlouvy na výkon TDI na stavbě Stavební úpravy a obnova interiéru Kulturního střediska Pečky – II. etapa\nText přijatého usnesení:\nRada\nměsta schvaluje uzavření Dodatku č. 1 Příkazní smlouvy ze dne 29.09.2022, interní číslo příkazce 862, mezi městem Pečky a ARCHA - inženýrská agentura, a.s., IČ: 25638262 spočívajícího v prodloužení doby plnění výkonu TDI na stavbě \"Stavební úpravy a obnova interiéru Kulturního střediska Pečky – II. etapa\".",
+    "date_raw": "21. 8. 2023",
+    "date_iso": "2023-08-21",
+    "responsible_raw": "Michala Dekiská",
+    "deadline_raw": "4. 9. 2023",
+    "vote": {
+     "raw_text": "pro: 4 proti: 0 zdržel se: 0",
+     "pro": {
+      "count": 4,
+      "names": null,
+      "raw": "4"
+     },
+     "proti": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     },
+     "zdrzel_se": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     }
+    },
+    "detail": {
+     "number_raw": "UR-244-28/23",
+     "text_verbatim": "Rada města schvaluje uzavření Dodatku č. 1 Příkazní smlouvy ze dne 29.09.2022, interní číslo příkazce 862, mezi městem Pečky a ARCHA - inženýrská agentura, a.s., IČ: 25638262 spočívajícího v prodloužení doby plnění výkonu TDI na stavbě \"Stavební úpravy a obnova interiéru Kulturního střediska Pečky – II. etapa\".",
+     "typ_raw": null,
+     "zodpovida_raw": "Michala Dekiská",
+     "prijato_raw": "21. 8. 2023 na jednání č. 28/2023",
+     "prijato_date_iso": "2023-08-21",
+     "prijato_meeting_label": "28/2023",
+     "termin_raw": "4. 9. 2023",
+     "ukonceno_raw": "23. 8. 2023",
+     "ukonceno_date_iso": "2023-08-23",
+     "fields_raw": {
+      "Číslo usnesení": "UR-244-28/23",
+      "Text usnesení": "Rada města schvaluje uzavření Dodatku č. 1 Příkazní smlouvy ze dne 29.09.2022, interní číslo příkazce 862, mezi městem Pečky a ARCHA - inženýrská agentura, a.s., IČ: 25638262 spočívajícího v prodloužení doby plnění výkonu TDI na stavbě \"Stavební úpravy a obnova interiéru Kulturního střediska Pečky – II. etapa\".",
+      "Zodpovídá": "Michala Dekiská",
+      "Přijato": "21. 8. 2023 na jednání č. 28/2023",
+      "Termín": "4. 9. 2023",
+      "Ukončeno": "23. 8. 2023"
+     }
+    }
+   },
+   {
+    "number_raw": "UR-245-28/23",
+    "detail_id": 44442,
+    "detail_url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/44442?mod=rada",
+    "agenda_item_raw": "Dodatek č. 1 Příkazní smlouvy na výkon Koordinátora BOZP na stavbě Stavební úpravy a obnova interiéru Kulturního střediska Pečky – II. etapa",
+    "text_verbatim": "Rada\nměsta schvaluje uzavření Dodatku č. 1 Příkazní smlouvy ze dne 29.09.2022, interní číslo příkazce 863, mezi městem Pečky a ARCHA - inženýrská agentura, a.s., IČ: 25638262 spočívajícího v prodloužení doby plnění výkonu koordinátora BOZP na stavbě \"Stavební úpravy a obnova interiéru Kulturního střediska Pečky – II. etapa\".",
+    "cell_text_raw": "Bod programu:\nDodatek č. 1 Příkazní smlouvy na výkon Koordinátora BOZP na stavbě Stavební úpravy a obnova interiéru Kulturního střediska Pečky – II. etapa\nText přijatého usnesení:\nRada\nměsta schvaluje uzavření Dodatku č. 1 Příkazní smlouvy ze dne 29.09.2022, interní číslo příkazce 863, mezi městem Pečky a ARCHA - inženýrská agentura, a.s., IČ: 25638262 spočívajícího v prodloužení doby plnění výkonu koordinátora BOZP na stavbě \"Stavební úpravy a obnova interiéru Kulturního střediska Pečky – II. etapa\".",
+    "date_raw": "21. 8. 2023",
+    "date_iso": "2023-08-21",
+    "responsible_raw": "Michala Dekiská",
+    "deadline_raw": "4. 9. 2023",
+    "vote": {
+     "raw_text": "pro: 4 proti: 0 zdržel se: 0",
+     "pro": {
+      "count": 4,
+      "names": null,
+      "raw": "4"
+     },
+     "proti": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     },
+     "zdrzel_se": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     }
+    },
+    "detail": {
+     "number_raw": "UR-245-28/23",
+     "text_verbatim": "Rada města schvaluje uzavření Dodatku č. 1 Příkazní smlouvy ze dne 29.09.2022, interní číslo příkazce 863, mezi městem Pečky a ARCHA - inženýrská agentura, a.s., IČ: 25638262 spočívajícího v prodloužení doby plnění výkonu koordinátora BOZP na stavbě \"Stavební úpravy a obnova interiéru Kulturního střediska Pečky – II. etapa\".",
+     "typ_raw": null,
+     "zodpovida_raw": "Michala Dekiská",
+     "prijato_raw": "21. 8. 2023 na jednání č. 28/2023",
+     "prijato_date_iso": "2023-08-21",
+     "prijato_meeting_label": "28/2023",
+     "termin_raw": "4. 9. 2023",
+     "ukonceno_raw": "23. 8. 2023",
+     "ukonceno_date_iso": "2023-08-23",
+     "fields_raw": {
+      "Číslo usnesení": "UR-245-28/23",
+      "Text usnesení": "Rada města schvaluje uzavření Dodatku č. 1 Příkazní smlouvy ze dne 29.09.2022, interní číslo příkazce 863, mezi městem Pečky a ARCHA - inženýrská agentura, a.s., IČ: 25638262 spočívajícího v prodloužení doby plnění výkonu koordinátora BOZP na stavbě \"Stavební úpravy a obnova interiéru Kulturního střediska Pečky – II. etapa\".",
+      "Zodpovídá": "Michala Dekiská",
+      "Přijato": "21. 8. 2023 na jednání č. 28/2023",
+      "Termín": "4. 9. 2023",
+      "Ukončeno": "23. 8. 2023"
+     }
+    }
+   },
+   {
+    "number_raw": "UR-246-28/23",
+    "detail_id": 44497,
+    "detail_url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/44497?mod=rada",
+    "agenda_item_raw": "Vyhlášení výběrového řízení na zhotovitele stavby \"Dobudování stezky pro pěší a cyklisty v ul. Milčická ve Velkých Chvalovicích část DOPRAVNÍ OSTRŮVEK\" a ustanovení komise",
+    "text_verbatim": "Rada\nměsta schvaluje vyhlášení výběrového řízení na zhotovitele stavby \"Dobudování stezky pro pěší a cyklisty v ul.\nMilčická\nve Velkých Chvalovicích část DOPRAVNÍ OSTRŮVEK\" mimo režim zákona č. 134/2016 Sb., o zadávání veřejných zakázek, ve znění pozdějších předpisů, uveřejněním na profilu zadavatele a ustanovení komise ve složení:\nčlenové:\nZdeněk\nFejfar\n- 1. místostarosta, Ing. Věra\nRůžičková\n- vedoucí odboru SMM a BH, Ing.\nJana\nZindrová\n- referent odboru V, Z, ŽP a D\nnáhradníci:\nMilan\nPaluska\n- starosta,\nPetra\nKutová\n- investiční technik, Bc.\nPavlína\nNepovímová\n, DiS. - tajemnice",
+    "cell_text_raw": "Bod programu:\nVyhlášení výběrového řízení na zhotovitele stavby \"Dobudování stezky pro pěší a cyklisty v ul. Milčická ve Velkých Chvalovicích část DOPRAVNÍ OSTRŮVEK\" a ustanovení komise\nText přijatého usnesení:\nRada\nměsta schvaluje vyhlášení výběrového řízení na zhotovitele stavby \"Dobudování stezky pro pěší a cyklisty v ul.\nMilčická\nve Velkých Chvalovicích část DOPRAVNÍ OSTRŮVEK\" mimo režim zákona č. 134/2016 Sb., o zadávání veřejných zakázek, ve znění pozdějších předpisů, uveřejněním na profilu zadavatele a ustanovení komise ve složení:\nčlenové:\nZdeněk\nFejfar\n- 1. místostarosta, Ing. Věra\nRůžičková\n- vedoucí odboru SMM a BH, Ing.\nJana\nZindrová\n- referent odboru V, Z, ŽP a D\nnáhradníci:\nMilan\nPaluska\n- starosta,\nPetra\nKutová\n- investiční technik, Bc.\nPavlína\nNepovímová\n, DiS. - tajemnice",
+    "date_raw": "21. 8. 2023",
+    "date_iso": "2023-08-21",
+    "responsible_raw": "Michala Dekiská",
+    "deadline_raw": "4. 9. 2023",
+    "vote": {
+     "raw_text": "pro: 4 proti: 0 zdržel se: 0",
+     "pro": {
+      "count": 4,
+      "names": null,
+      "raw": "4"
+     },
+     "proti": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     },
+     "zdrzel_se": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     }
+    },
+    "detail": {
+     "number_raw": "UR-246-28/23",
+     "text_verbatim": "Rada města schvaluje vyhlášení výběrového řízení na zhotovitele stavby \"Dobudování stezky pro pěší a cyklisty v ul. Milčická ve Velkých Chvalovicích část DOPRAVNÍ OSTRŮVEK\" mimo režim zákona č. 134/2016 Sb., o zadávání veřejných zakázek, ve znění pozdějších předpisů, uveřejněním na profilu zadavatele a ustanovení komise ve složení: členové: Zdeněk Fejfar - 1. místostarosta, Ing. Věra Růžičková - vedoucí odboru SMM a BH, Ing. Jana Zindrová - referent odboru V, Z, ŽP a D náhradníci: Milan Paluska - starosta, Petra Kutová - investiční technik, Bc. Pavlína Nepovímová , DiS. - tajemnice",
+     "typ_raw": null,
+     "zodpovida_raw": "Michala Dekiská",
+     "prijato_raw": "21. 8. 2023 na jednání č. 28/2023",
+     "prijato_date_iso": "2023-08-21",
+     "prijato_meeting_label": "28/2023",
+     "termin_raw": "4. 9. 2023",
+     "ukonceno_raw": "23. 8. 2023",
+     "ukonceno_date_iso": "2023-08-23",
+     "fields_raw": {
+      "Číslo usnesení": "UR-246-28/23",
+      "Text usnesení": "Rada města schvaluje vyhlášení výběrového řízení na zhotovitele stavby \"Dobudování stezky pro pěší a cyklisty v ul. Milčická ve Velkých Chvalovicích část DOPRAVNÍ OSTRŮVEK\" mimo režim zákona č. 134/2016 Sb., o zadávání veřejných zakázek, ve znění pozdějších předpisů, uveřejněním na profilu zadavatele a ustanovení komise ve složení: členové: Zdeněk Fejfar - 1. místostarosta, Ing. Věra Růžičková - vedoucí odboru SMM a BH, Ing. Jana Zindrová - referent odboru V, Z, ŽP a D náhradníci: Milan Paluska - starosta, Petra Kutová - investiční technik, Bc. Pavlína Nepovímová , DiS. - tajemnice",
+      "Zodpovídá": "Michala Dekiská",
+      "Přijato": "21. 8. 2023 na jednání č. 28/2023",
+      "Termín": "4. 9. 2023",
+      "Ukončeno": "23. 8. 2023"
+     }
+    }
+   },
+   {
+    "number_raw": "UR-247-28/23",
+    "detail_id": 44479,
+    "detail_url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/44479?mod=rada",
+    "agenda_item_raw": "Odpisový plán - Pečovatelská služba města Pečky",
+    "text_verbatim": "Rada\nměsta schvaluje odpisový plán Pečovatelské službě města Pečky pro investice:\nkolejnicový zvedací systém         poř. cena 319 738 Kč, doba odepisování 84 měsíců\nos. vůz Peugeot 208 e červený    poř. cena 796 172 Kč, doba odepisování 84 měsíců\nos. vůz Peugeot 208 e-GT bílý     poř. cena 869 172 Kč, doba odepisování 84 měsíců",
+    "cell_text_raw": "Bod programu:\nOdpisový plán - Pečovatelská služba města Pečky\nText přijatého usnesení:\nRada\nměsta schvaluje odpisový plán Pečovatelské službě města Pečky pro investice:\nkolejnicový zvedací systém         poř. cena 319 738 Kč, doba odepisování 84 měsíců\nos. vůz Peugeot 208 e červený    poř. cena 796 172 Kč, doba odepisování 84 měsíců\nos. vůz Peugeot 208 e-GT bílý     poř. cena 869 172 Kč, doba odepisování 84 měsíců",
+    "date_raw": "21. 8. 2023",
+    "date_iso": "2023-08-21",
+    "responsible_raw": "Marcela Bahníková",
+    "deadline_raw": "31. 8. 2023",
+    "vote": {
+     "raw_text": "pro: 4 proti: 0 zdržel se: 0",
+     "pro": {
+      "count": 4,
+      "names": null,
+      "raw": "4"
+     },
+     "proti": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     },
+     "zdrzel_se": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     }
+    },
+    "detail": {
+     "number_raw": "UR-247-28/23",
+     "text_verbatim": "Rada města schvaluje odpisový plán Pečovatelské službě města Pečky pro investice: kolejnicový zvedací systém         poř. cena 319 738 Kč, doba odepisování 84 měsíců os. vůz Peugeot 208 e červený    poř. cena 796 172 Kč, doba odepisování 84 měsíců os. vůz Peugeot 208 e-GT bílý     poř. cena 869 172 Kč, doba odepisování 84 měsíců",
+     "typ_raw": null,
+     "zodpovida_raw": "Marcela Bahníková",
+     "prijato_raw": "21. 8. 2023 na jednání č. 28/2023",
+     "prijato_date_iso": "2023-08-21",
+     "prijato_meeting_label": "28/2023",
+     "termin_raw": "31. 8. 2023",
+     "ukonceno_raw": "23. 8. 2023",
+     "ukonceno_date_iso": "2023-08-23",
+     "fields_raw": {
+      "Číslo usnesení": "UR-247-28/23",
+      "Text usnesení": "Rada města schvaluje odpisový plán Pečovatelské službě města Pečky pro investice: kolejnicový zvedací systém         poř. cena 319 738 Kč, doba odepisování 84 měsíců os. vůz Peugeot 208 e červený    poř. cena 796 172 Kč, doba odepisování 84 měsíců os. vůz Peugeot 208 e-GT bílý     poř. cena 869 172 Kč, doba odepisování 84 měsíců",
+      "Zodpovídá": "Marcela Bahníková",
+      "Přijato": "21. 8. 2023 na jednání č. 28/2023",
+      "Termín": "31. 8. 2023",
+      "Ukončeno": "23. 8. 2023"
+     }
+    }
+   },
+   {
+    "number_raw": "UR-248-28/23",
+    "detail_id": 44475,
+    "detail_url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/44475?mod=rada",
+    "agenda_item_raw": "Uzavření SOD na rekonstrukci kotelny v čp. 218",
+    "text_verbatim": "Rada\nměsta schvaluje uzavření SOD mezi městem Pečky a firmou TZB Kladno s.r.o., Třebízského 466, 273 09 Kladno na stavební práce akce: \"Změna zdroje tepla v bytovém domě čp. 218 Tř.5 května Pečky\" za cenu 694 326,36 Kč bez DPH, tj, 798 475,31 Kč vč. 15%DPH.",
+    "cell_text_raw": "Bod programu:\nUzavření SOD na rekonstrukci kotelny v čp. 218\nText přijatého usnesení:\nRada\nměsta schvaluje uzavření SOD mezi městem Pečky a firmou TZB Kladno s.r.o., Třebízského 466, 273 09 Kladno na stavební práce akce: \"Změna zdroje tepla v bytovém domě čp. 218 Tř.5 května Pečky\" za cenu 694 326,36 Kč bez DPH, tj, 798 475,31 Kč vč. 15%DPH.",
+    "date_raw": "21. 8. 2023",
+    "date_iso": "2023-08-21",
+    "responsible_raw": "Věra Růžičková",
+    "deadline_raw": "4. 9. 2023",
+    "vote": {
+     "raw_text": "pro: 4 proti: 0 zdržel se: 0",
+     "pro": {
+      "count": 4,
+      "names": null,
+      "raw": "4"
+     },
+     "proti": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     },
+     "zdrzel_se": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     }
+    },
+    "detail": {
+     "number_raw": "UR-248-28/23",
+     "text_verbatim": "Rada města schvaluje uzavření SOD mezi městem Pečky a firmou TZB Kladno s.r.o., Třebízského 466, 273 09 Kladno na stavební práce akce: \"Změna zdroje tepla v bytovém domě čp. 218 Tř.5 května Pečky\" za cenu 694 326,36 Kč bez DPH, tj, 798 475,31 Kč vč. 15%DPH.",
+     "typ_raw": null,
+     "zodpovida_raw": "Věra Růžičková",
+     "prijato_raw": "21. 8. 2023 na jednání č. 28/2023",
+     "prijato_date_iso": "2023-08-21",
+     "prijato_meeting_label": "28/2023",
+     "termin_raw": "4. 9. 2023",
+     "ukonceno_raw": "4. 9. 2023",
+     "ukonceno_date_iso": "2023-09-04",
+     "fields_raw": {
+      "Číslo usnesení": "UR-248-28/23",
+      "Text usnesení": "Rada města schvaluje uzavření SOD mezi městem Pečky a firmou TZB Kladno s.r.o., Třebízského 466, 273 09 Kladno na stavební práce akce: \"Změna zdroje tepla v bytovém domě čp. 218 Tř.5 května Pečky\" za cenu 694 326,36 Kč bez DPH, tj, 798 475,31 Kč vč. 15%DPH.",
+      "Zodpovídá": "Věra Růžičková",
+      "Přijato": "21. 8. 2023 na jednání č. 28/2023",
+      "Termín": "4. 9. 2023",
+      "Ukončeno": "4. 9. 2023"
+     }
+    }
+   }
+  ]
+ }
+}

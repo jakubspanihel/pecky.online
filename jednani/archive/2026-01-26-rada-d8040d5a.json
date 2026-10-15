@@ -1,0 +1,914 @@
+{
+ "uuid": "d8040d5a-f600-11f0-9614-00505683238f",
+ "body_type_raw": "Rada",
+ "label_raw": "4/2026 (26. 1. 2026)",
+ "number": 4,
+ "year": 2026,
+ "date_iso": "2026-01-26",
+ "links": {
+  "invitation": "https://mesto-pecky.usneseni.cz/verejne/?uuid=d8040d5a-f600-11f0-9614-00505683238f&page=2&do=printPublicInvitation",
+  "minutes": "https://mesto-pecky.usneseni.cz/verejne/d8040d5a-f600-11f0-9614-00505683238f/zapis/?page=2",
+  "signed_minutes_pdf": "https://mesto-pecky.usneseni.cz/verejne/?meetingReportControl-uuid=d8040d5a-f600-11f0-9614-00505683238f&page=2&do=meetingReportControl-getSignedReportPdf",
+  "resolutions": "https://mesto-pecky.usneseni.cz/verejne/d8040d5a-f600-11f0-9614-00505683238f/usneseni/?page=2",
+  "audio": null
+ },
+ "link_texts": {
+  "invitation": "Pozvánka",
+  "minutes": "zápis",
+  "signed_minutes_pdf": "podepsaný zápis",
+  "resolutions": "přijatá usnesení"
+ },
+ "status": "ok",
+ "invitation": {
+  "status": "site_error",
+  "error": "status=200 ct=text/html; charset=utf-8 flash='<a href=\"\" class=\"close\" data-dismiss=\"alert\" aria-label=\"close\">&times;'",
+  "url": "https://mesto-pecky.usneseni.cz/verejne/?uuid=d8040d5a-f600-11f0-9614-00505683238f&do=printPublicInvitation",
+  "fetched_at": "2026-08-04T14:52:32.410262+00:00"
+ },
+ "minutes": {
+  "status": "ok",
+  "url": "https://mesto-pecky.usneseni.cz/verejne/d8040d5a-f600-11f0-9614-00505683238f/zapis/",
+  "fetched_at": "2026-08-04T13:20:16.697368+00:00",
+  "title_raw": "ZÁPIS ze schůze rady č. 4/2026 Město Pečky datum: 26. 1. 2026, čas: 15:00 ​",
+  "date_raw": "26. 1. 2026",
+  "date_iso": "2026-01-26",
+  "time_raw": "15:00",
+  "presence": {
+   "raw_text": "Úvodní prezence:\nPřítomni:\n(6) Zdeněk Fejfar, Ing. Martin Jedlička, Ing. Karel Krištoufek, Ing. Hana Kuprová, Milan Paluska, Ivana Trčková\nOmluveni:\n(1) Ing. Petr Dürr\nNepřítomni:\n(0)\nDalší přítomní a hosté:\nZapisovatel/ka:\nEva Strnadová\nPřítomno je 6 z 7 členů a rada je usnášeníschopná.\nJednání zahájeno 26.01.2026 v 16:30:10",
+   "pritomni": {
+    "count": 6,
+    "names": [
+     "Zdeněk Fejfar",
+     "Ing. Martin Jedlička",
+     "Ing. Karel Krištoufek",
+     "Ing. Hana Kuprová",
+     "Milan Paluska",
+     "Ivana Trčková"
+    ],
+    "raw": "(6) Zdeněk Fejfar, Ing. Martin Jedlička, Ing. Karel Krištoufek, Ing. Hana Kuprová, Milan Paluska, Ivana Trčková"
+   },
+   "omluveni": {
+    "count": 1,
+    "names": [
+     "Ing. Petr Dürr"
+    ],
+    "raw": "(1) Ing. Petr Dürr"
+   },
+   "nepritomni": {
+    "count": 0,
+    "names": [],
+    "raw": "(0)"
+   },
+   "predsedajici": null,
+   "quorum_raw": "Přítomno je 6 z 7 členů a rada je usnášeníschopná."
+  },
+  "header_raw": "Úvodní prezence:\nPřítomni:\n(6) Zdeněk Fejfar, Ing. Martin Jedlička, Ing. Karel Krištoufek, Ing. Hana Kuprová, Milan Paluska, Ivana Trčková\nOmluveni:\n(1) Ing. Petr Dürr\nNepřítomni:\n(0)\nDalší přítomní a hosté:\nZapisovatel/ka:\nEva Strnadová\nPřítomno je 6 z 7 členů a rada je usnášeníschopná.\nJednání zahájeno 26.01.2026 v 16:30:10",
+  "agenda_items": [
+   {
+    "number": 1,
+    "title_raw": "Určení zapisovatelů, předsedajícího, příp. ověřovatelů",
+    "heading_raw": "1. Určení zapisovatelů, předsedajícího, příp. ověřovatelů (bod číslo 1)",
+    "predkladatel": "Milan Paluska",
+    "votes": [],
+    "resolution_numbers_mentioned": [],
+    "raw_text": "Předkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 16:30:16\nPředsedající navrhl jednotlivé členy pracovních komisí\nOvěřovatelé:\nIng. Martin Jedlička, Zdeněk Fejfar\nPředsedající:\nMilan Paluska\nBod byl přijat bez hlasování.\nDiskuze zahájena v 16:30:16\nK tomuto bodu se vyjádřili:\nMilan Paluska\nProjednávání bodu bylo ukončeno v 16:30:52"
+   },
+   {
+    "number": 2,
+    "title_raw": "Schválení programu jednání",
+    "heading_raw": "2. Schválení programu jednání (bod číslo 2)",
+    "predkladatel": "Milan Paluska",
+    "votes": [
+     {
+      "raw_text": "pro:\n6\nproti\n0\nzdržel se:\n0\nnehlasoval:\n0",
+      "pro": {
+       "count": 6,
+       "names": null,
+       "raw": "6"
+      },
+      "proti": {
+       "count": 0,
+       "names": null,
+       "raw": "0"
+      },
+      "zdrzel_se": {
+       "count": 0,
+       "names": null,
+       "raw": "0"
+      },
+      "nehlasoval": {
+       "count": 0,
+       "names": null,
+       "raw": "0"
+      },
+      "result_raw": "Návrh A. byl přijat jako usnesení číslo: UR-42-4/26",
+      "adopted_resolution_number": "UR-42-4/26"
+     }
+    ],
+    "resolution_numbers_mentioned": [
+     "UR-42-4/26"
+    ],
+    "raw_text": "Předkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 16:30:56\nProgram jednání\n1. Určení zapisovatelů, předsedajícího, příp. ověřovatelů\n2. Schválení programu jednání\n3. Aktuální informace vedení města\n4. Kontrola průběhu investičních akcí\n5. Uzavření „Smlouvy o výpůjčce části pozemku č. parc. 1586/1 – k.ú. Pečky“\n6. AFK Pečky – oznámení o změně nájemce v restauraci, snížení nájemného\n7. Uzavření smlouvy o poskytování právních služeb - město\n8. Vyhlášení konkursního řízení na vedoucí pracovní místo ředitele/ky Základní školy Pečky, okres Kolín\n9. Vyřazení nepotřebného majetku\n10. Přidělení bytu v Pečkách, ul. Petra Bezruče č.p. 139, Pečky\n11. Přidělení bytu v Pečkách, ul. Tř.5. května 218\n12. Přidělení bytu v Pečkách, ul. Tř. 5. května 218\n13. Kontrola plnění usnesení\n14. Diskuse, různé\n15. Úkoly vyplývající z jednání rady města\nDiskuze zahájena v 16:30:56\nK tomuto bodu se vyjádřili:\nMilan Paluska, Ivana Trčková, Pavlína Nepovímová, Ing. Karel Krištoufek\nV 16:44:22 předsedající zahájil hlasování o návrhu usnesení \"A\" v tomto znění:\nNavrhovatel: Milan Paluska\nRada\nměsta schvaluje návrh programu jednání.\nHlasování\npro:\n6\nproti\n0\nzdržel se:\n0\nnehlasoval:\n0\nNávrh A. byl přijat jako usnesení číslo: UR-42-4/26\nzodpovídá:\ntermín:\nIHNED\n(26. 1. 2026)\nProjednávání bodu bylo ukončeno v 16:44:26"
+   },
+   {
+    "number": 3,
+    "title_raw": "Aktuální informace vedení města",
+    "heading_raw": "3. Aktuální informace vedení města (bod číslo 3)",
+    "predkladatel": "Milan Paluska",
+    "votes": [],
+    "resolution_numbers_mentioned": [],
+    "raw_text": "Předkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 16:44:41\nDůvodová zpráva:\nstarosta města\n- informace o pokračování stavby akce \"Rekonstrukce místních komunikací a vodovodní řad v části Bačov v Pečkách – 3. a 4. etapa a MŠ Mašinka - oplocení - 2. etapa\"- přípojky k jednotlivým nemovitostem, stavba probíhá pomalu z důvodu nepříznivých klimatických podmínek\n- informace o výskytu kožního onemocnění na Základní škole v Pečkách a postupu hygienických opatření\nZdeněk\nFejfar\n- informace o opravě úniku pitné vody v ulici\nProkopa\nHolého, Pečky\n- informace o řešení havarijní situace související s propadem kanalizace před č. p. 31 na Masarykově náměstí v Pečkách\nDiskuze zahájena v 16:44:41\nK tomuto bodu se vyjádřili:\nMilan Paluska, Ing. Karel Krištoufek, Ing. Hana Kuprová, Ivana Trčková, Zdeněk Fejfar\nRada bere informace k bodu č. 3 -\nAktuální informace vedení města\nna vědomí.\nProjednávání bodu bylo ukončeno v 16:58:35"
+   },
+   {
+    "number": 4,
+    "title_raw": "Kontrola průběhu investičních akcí",
+    "heading_raw": "4. Kontrola průběhu investičních akcí (bod číslo 4)",
+    "predkladatel": "Milan Paluska",
+    "votes": [],
+    "resolution_numbers_mentioned": [],
+    "raw_text": "Předkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 16:58:40\nDůvodová zpráva:\nDiskuse - kontrola průběhu investic a plán investic.\nDiskuze zahájena v 16:58:40\nK tomuto bodu se vyjádřili:\nMilan Paluska, Ing. Hana Kuprová, Ing. Karel Krištoufek, Zdeněk Fejfar, Ivana Trčková\nRada bere informace k bodu č. 4 -\nKontrola průběhu investičních akcí\nna vědomí.\nProjednávání bodu bylo ukončeno v 17:30:12"
+   },
+   {
+    "number": 5,
+    "title_raw": "Uzavření „Smlouvy o výpůjčce části pozemku č. parc. 1586/1 – k.ú. Pečky“",
+    "heading_raw": "5. Uzavření „Smlouvy o výpůjčce části pozemku č. parc. 1586/1 – k.ú. Pečky“ (bod číslo 5)",
+    "predkladatel": "Jana Najbrtová",
+    "votes": [
+     {
+      "raw_text": "pro:\n6\nproti\n0\nzdržel se:\n0\nnehlasoval:\n0",
+      "pro": {
+       "count": 6,
+       "names": null,
+       "raw": "6"
+      },
+      "proti": {
+       "count": 0,
+       "names": null,
+       "raw": "0"
+      },
+      "zdrzel_se": {
+       "count": 0,
+       "names": null,
+       "raw": "0"
+      },
+      "nehlasoval": {
+       "count": 0,
+       "names": null,
+       "raw": "0"
+      },
+      "result_raw": "Návrh A. byl přijat jako usnesení číslo: UR-43-4/26",
+      "adopted_resolution_number": "UR-43-4/26"
+     }
+    ],
+    "resolution_numbers_mentioned": [
+     "UR-43-4/26"
+    ],
+    "raw_text": "Předkladatel: Jana Najbrtová\nProjednávání bodu bylo zahájeno v 17:30:18\nDůvodová zpráva:\nDoporučujeme uzavřít Smlouvu o výpůjčce s Volejbalem Pečky, z.s. a to od 1.2. 2026 na dobu neurčitou s výpovědní lhůtou 6 měsíců. Volejbalový spolek bude pozemek využívat na sportovní aktivity dětí, mládeže i dospělých, budou zde pořádat tréninky a veřejné sportovní akce. S podmínkami zveřejněného záměru souhlasí.\nDiskuze zahájena v 17:30:18\nK tomuto bodu se vyjádřili:\nZdeněk Fejfar\nV 17:31:10 předsedající zahájil hlasování o návrhu usnesení \"A\" v tomto znění:\nNavrhovatel: Jana Najbrtová\nRada\nměsta schvaluje uzavřít „Smlouvu o výpůjčce části pozemku č. parc. 1586/1 v k.ú. Pečky“ (cca 1.380 m\n2\n) - s Volejbalem Pečky, z.s. zastoupeným předsedkyní\n█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█\nse sídlem v Pečkách, ul. Chelčického čp. 428, IČ:23653540. Smlouva bude uzavřena od 1. února 2026 na dobu neurčitou s výpovědní lhůtou 6 měsíců.\nHlasování\npro:\n6\nproti\n0\nzdržel se:\n0\nnehlasoval:\n0\nNávrh A. byl přijat jako usnesení číslo: UR-43-4/26\nzodpovídá:\nJana Najbrtová\ntermín:\n4. 2. 2026\nProjednávání bodu bylo ukončeno v 17:31:14"
+   },
+   {
+    "number": 6,
+    "title_raw": "AFK Pečky – oznámení o změně nájemce v restauraci, snížení nájemného",
+    "heading_raw": "6. AFK Pečky – oznámení o změně nájemce v restauraci, snížení nájemného (bod číslo 6)",
+    "predkladatel": "Jana Najbrtová",
+    "votes": [
+     {
+      "raw_text": "pro:\n6\nproti\n0\nzdržel se:\n0\nnehlasoval:\n0",
+      "pro": {
+       "count": 6,
+       "names": null,
+       "raw": "6"
+      },
+      "proti": {
+       "count": 0,
+       "names": null,
+       "raw": "0"
+      },
+      "zdrzel_se": {
+       "count": 0,
+       "names": null,
+       "raw": "0"
+      },
+      "nehlasoval": {
+       "count": 0,
+       "names": null,
+       "raw": "0"
+      },
+      "result_raw": "Návrh A. byl přijat jako usnesení číslo: UR-44-4/26",
+      "adopted_resolution_number": "UR-44-4/26"
+     }
+    ],
+    "resolution_numbers_mentioned": [
+     "UR-44-4/26"
+    ],
+    "raw_text": "Předkladatel: Jana Najbrtová\nProjednávání bodu bylo zahájeno v 17:31:18\nDůvodová zpráva:\nDoporučujeme schválit\noznámení AFK Pečky o změně nájemce v restauraci „Na hřišti“ v Pečkách, kterým se stal od 1.1. 2026\n█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█\n.\nDiskuze zahájena v 17:31:18\nK tomuto bodu se vyjádřili:\nMilan Paluska, Zdeněk Fejfar, Ing. Martin Jedlička, Ing. Karel Krištoufek, Ivana Trčková, Ing. Hana Kuprová\nV 17:44:22 předsedající zahájil hlasování o návrhu usnesení \"A\" v tomto znění:\nNavrhovatel: Jana Najbrtová\nRada\nměsta schvaluje oznámení AFK Pečky o změně nájemce v restauraci „Na hřišti“ v Pečkách, kterým se stal od 1.1. 2026 p.\n█​█​█​█​█​█​█​█​█​█​█​█\n█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█\nHlasování\npro:\n6\nproti\n0\nzdržel se:\n0\nnehlasoval:\n0\nNávrh A. byl přijat jako usnesení číslo: UR-44-4/26\nzodpovídá:\nJana Najbrtová\ntermín:\n4. 2. 2026\nProjednávání bodu bylo ukončeno v 17:44:27"
+   },
+   {
+    "number": 7,
+    "title_raw": "Uzavření smlouvy o poskytování právních služeb - město",
+    "heading_raw": "7. Uzavření smlouvy o poskytování právních služeb - město (bod číslo 7)",
+    "predkladatel": "Pavlína Nepovímová",
+    "votes": [
+     {
+      "raw_text": "pro:\n4\nproti\n0\nzdržel se:\n2\nnehlasoval:\n0",
+      "pro": {
+       "count": 4,
+       "names": null,
+       "raw": "4"
+      },
+      "proti": {
+       "count": 0,
+       "names": null,
+       "raw": "0"
+      },
+      "zdrzel_se": {
+       "count": 2,
+       "names": null,
+       "raw": "2"
+      },
+      "nehlasoval": {
+       "count": 0,
+       "names": null,
+       "raw": "0"
+      },
+      "result_raw": "Návrh A. byl přijat jako usnesení číslo: UR-45-4/26",
+      "adopted_resolution_number": "UR-45-4/26"
+     }
+    ],
+    "resolution_numbers_mentioned": [
+     "UR-45-4/26"
+    ],
+    "raw_text": "Předkladatel: Pavlína Nepovímová\nProjednávání bodu bylo zahájeno v 17:44:34\nDůvodová zpráva:\nUzavření smlouvy o Poskytování specializovaných právních služeb souvisejících se stavebním právem a developerskými projekty ve městě Pečky, dále jen „právní služby\".\nInformace o dalších oslovených:\n-\nJUDr. Bc.\nMartin\nVlk\n- zaslána odpověď, út 21:36, že děkuji o nabídku a po nastudování podkladů se nám ozvou\n- Mgr.\nKateřina\nBártová\n- bez reakce na zaslanou nabídku\nDiskuze zahájena v 17:44:34\nK tomuto bodu se vyjádřili:\nMilan Paluska, Ing. Karel Krištoufek, Zdeněk Fejfar, Ing. Hana Kuprová, Pavlína Nepovímová\nV 17:52:21 předsedající zahájil hlasování o návrhu usnesení \"A\" v tomto znění:\nNavrhovatel: Pavlína Nepovímová\nRada\nměsta schvaluje uzavření smlouvy mezi městem Pečky a advokátkou Mgr. Annou\nKomeiserovou\ndo 31.12.2027 na poskytování specializovaných právních služeb souvisejících se stavebním právem a developerskými projekty ve městě Pečky.\nHlasování\npro:\n4\nproti\n0\nzdržel se:\n2\nnehlasoval:\n0\nNávrh A. byl přijat jako usnesení číslo: UR-45-4/26\nzodpovídá:\ntermín:\nIHNED\n(26. 1. 2026)\nProjednávání bodu bylo ukončeno v 17:52:31"
+   },
+   {
+    "number": 8,
+    "title_raw": "Vyhlášení konkursního řízení na vedoucí pracovní místo ředitele/ky Základní školy Pečky, okres Kolín",
+    "heading_raw": "8. Vyhlášení konkursního řízení na vedoucí pracovní místo ředitele/ky Základní školy Pečky, okres Kolín (bod číslo 8)",
+    "predkladatel": "Milan Paluska",
+    "votes": [
+     {
+      "raw_text": "pro:\n5\nproti\n0\nzdržel se:\n0\nnehlasoval:\n0",
+      "pro": {
+       "count": 5,
+       "names": null,
+       "raw": "5"
+      },
+      "proti": {
+       "count": 0,
+       "names": null,
+       "raw": "0"
+      },
+      "zdrzel_se": {
+       "count": 0,
+       "names": null,
+       "raw": "0"
+      },
+      "nehlasoval": {
+       "count": 0,
+       "names": null,
+       "raw": "0"
+      },
+      "result_raw": "Návrh A. byl přijat jako usnesení číslo: UR-46-4/26",
+      "adopted_resolution_number": "UR-46-4/26"
+     }
+    ],
+    "resolution_numbers_mentioned": [
+     "UR-46-4/26"
+    ],
+    "raw_text": "Předkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 17:52:36\nDůvodová zpráva:\nVyhlášení konkursního řízení na obsazení pracovního místa ředitele Základní školy Pečky v souladu s § 166 zákona č. 561/2004 Sb., školský zákon, a vyhláškou č. 54/2005 Sb., o náležitostech konkursního řízení a konkursních komisích.\nDiskuze zahájena v 17:52:36\nK tomuto bodu se vyjádřili:\nMilan Paluska, Pavlína Nepovímová, Zdeněk Fejfar, Ing. Hana Kuprová\nV 17:53:43 odešel Ing. Karel Krištoufek, přítomno 5 z 7 radních.\nAktualizovaný stav prezence:\nPřítomni:\n(5) Zdeněk Fejfar, Ing. Martin Jedlička, Ing. Hana Kuprová, Milan Paluska, Ivana Trčková\nOmluveni:\n(1) Ing. Petr Dürr\nNepřítomni:\n(1) Ing. Karel Krištoufek\nV 18:01:43 předsedající zahájil hlasování o návrhu usnesení \"A\" v tomto znění:\nNavrhovatel: Milan Paluska\nRada\nměsta schvaluje vyhlášení konkursního řízení na vedoucí pracovní místo ředitele/ky Základní školy Pečky, okres\nKolín\n, IČ: 49862456.\nHlasování\npro:\n5\nproti\n0\nzdržel se:\n0\nnehlasoval:\n0\nNávrh A. byl přijat jako usnesení číslo: UR-46-4/26\nzodpovídá:\ntermín:\nIHNED\n(26. 1. 2026)\nProjednávání bodu bylo ukončeno v 18:01:51\nV 18:02:41 přišel Ing. Karel Krištoufek, přítomno 6 z 7 radních.\nAktualizovaný stav prezence:\nPřítomni:\n(6) Zdeněk Fejfar, Ing. Martin Jedlička, Ing. Hana Kuprová, Milan Paluska, Ivana Trčková, Ing. Karel Krištoufek\nOmluveni:\n(1) Ing. Petr Dürr\nNepřítomni:\n(0)"
+   },
+   {
+    "number": 9,
+    "title_raw": "Vyřazení nepotřebného majetku",
+    "heading_raw": "9. Vyřazení nepotřebného majetku (bod číslo 9)",
+    "predkladatel": "Milan Paluska",
+    "votes": [
+     {
+      "raw_text": "pro:\n6\nproti\n0\nzdržel se:\n0\nnehlasoval:\n0",
+      "pro": {
+       "count": 6,
+       "names": null,
+       "raw": "6"
+      },
+      "proti": {
+       "count": 0,
+       "names": null,
+       "raw": "0"
+      },
+      "zdrzel_se": {
+       "count": 0,
+       "names": null,
+       "raw": "0"
+      },
+      "nehlasoval": {
+       "count": 0,
+       "names": null,
+       "raw": "0"
+      },
+      "result_raw": "Návrh A. byl přijat jako usnesení číslo: UR-47-4/26",
+      "adopted_resolution_number": "UR-47-4/26"
+     }
+    ],
+    "resolution_numbers_mentioned": [
+     "UR-47-4/26"
+    ],
+    "raw_text": "Předkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 18:03:18\nDůvodová zpráva:\nNavrhujeme vyřadit nepotřebný, nefunkční dlouhodobý hmotný a drobný dlouhodobý majetek likvidací. Přehled majetku v příloze.\nDiskuze zahájena v 18:03:18\nK tomuto bodu se vyjádřili:\nMilan Paluska, Zdeněk Fejfar, Ivana Trčková\nV 18:07:38 předsedající zahájil hlasování o návrhu usnesení \"A\" v tomto znění:\nNavrhovatel: Marcela Bahníková\nRada\nměsta schvaluje vyřazení nepotřebného dlouhodobého a drobného dlouhodobého majetku.\nHlasování\npro:\n6\nproti\n0\nzdržel se:\n0\nnehlasoval:\n0\nNávrh A. byl přijat jako usnesení číslo: UR-47-4/26\nzodpovídá:\nMarcela Bahníková\ntermín:\n28. 2. 2026\nProjednávání bodu bylo ukončeno v 18:07:46"
+   },
+   {
+    "number": 10,
+    "title_raw": "Přidělení bytu v Pečkách, ul. Petra Bezruče č.p. 139, Pečky",
+    "heading_raw": "10. Přidělení bytu v Pečkách, ul. Petra Bezruče č.p. 139, Pečky (bod číslo 10)",
+    "predkladatel": "Martina Hrázská",
+    "votes": [
+     {
+      "raw_text": "pro:\n5\nproti\n0\nzdržel se:\n0\nnehlasoval:\n1",
+      "pro": {
+       "count": 5,
+       "names": null,
+       "raw": "5"
+      },
+      "proti": {
+       "count": 0,
+       "names": null,
+       "raw": "0"
+      },
+      "zdrzel_se": {
+       "count": 0,
+       "names": null,
+       "raw": "0"
+      },
+      "nehlasoval": {
+       "count": 1,
+       "names": null,
+       "raw": "1"
+      },
+      "result_raw": "Návrh A. byl přijat jako usnesení číslo: UR-48-4/26",
+      "adopted_resolution_number": "UR-48-4/26"
+     }
+    ],
+    "resolution_numbers_mentioned": [
+     "UR-48-4/26"
+    ],
+    "raw_text": "Předkladatel: Martina Hrázská\nProjednávání bodu bylo zahájeno v 18:08:25\nDůvodová zpráva:\nZe seznamu podaných žádostí byla na jednání bytové komise dne 14.1.2025 vybrána paní\n█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█\n, Pečky. Byt č. 5, na který má být uzavřena smlouva o nájmu bytu, se nachází na adrese\nPetra\nBezruče\n139, Pečky. Výše nájmu byla stanovena na 142,04 Kč/m\n2\nza měsíc tj. 10 397,- Kč za měsíc.\nDiskuze zahájena v 18:08:25\nK tomuto bodu se vyjádřili:\nMilan Paluska\nV 18:11:23 předsedající zahájil hlasování o návrhu usnesení \"A\" v tomto znění:\nNavrhovatel: Martina Hrázská\nRada\nměsta schvaluje uzavření smlouvy o nájmu bytu na byt č. 5 v bytovém domě na adrese\nPetra\nBezruče\n139, Pečky mezi městem Pečky a paní\n█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█\n, Pečky 289 11 na dobu určitou jednoho roku s účinností od 1.2.2026. Výše nájmu byla stanovena na 142,04,- Kč/m\n2\nza měsíc tj. 10 397,- Kč. Při podpisu smlouvy bude uhrazena jistota ve výši jednoho nájmu tzn. 10 397,- Kč.\nHlasování\npro:\n5\nproti\n0\nzdržel se:\n0\nnehlasoval:\n1\nNávrh A. byl přijat jako usnesení číslo: UR-48-4/26\nzodpovídá:\nMartina Hrázská\ntermín:\n4. 2. 2026\nV 18:11:35 odešel Ing. Hana Kuprová, přítomno 5 z 7 radních.\nAktualizovaný stav prezence:\nPřítomni:\n(5) Zdeněk Fejfar, Ing. Martin Jedlička, Milan Paluska, Ivana Trčková, Ing. Karel Krištoufek\nOmluveni:\n(1) Ing. Petr Dürr\nNepřítomni:\n(1) Ing. Hana Kuprová\nProjednávání bodu bylo ukončeno v 18:12:06"
+   },
+   {
+    "number": 11,
+    "title_raw": "Přidělení bytu v Pečkách, ul. Tř.5. května 218",
+    "heading_raw": "11. Přidělení bytu v Pečkách, ul. Tř.5. května 218 (bod číslo 11)",
+    "predkladatel": "Martina Hrázská",
+    "votes": [
+     {
+      "raw_text": "pro:\n4\nproti\n0\nzdržel se:\n1\nnehlasoval:\n0",
+      "pro": {
+       "count": 4,
+       "names": null,
+       "raw": "4"
+      },
+      "proti": {
+       "count": 0,
+       "names": null,
+       "raw": "0"
+      },
+      "zdrzel_se": {
+       "count": 1,
+       "names": null,
+       "raw": "1"
+      },
+      "nehlasoval": {
+       "count": 0,
+       "names": null,
+       "raw": "0"
+      },
+      "result_raw": "Návrh A. byl přijat jako usnesení číslo: UR-49-4/26",
+      "adopted_resolution_number": "UR-49-4/26"
+     }
+    ],
+    "resolution_numbers_mentioned": [
+     "UR-49-4/26"
+    ],
+    "raw_text": "Předkladatel: Martina Hrázská\nProjednávání bodu bylo zahájeno v 18:12:11\nDůvodová zpráva:\nZe seznamu podaných žádostí byl na jednání bytové komise dne 14.1.2026 vybrán pan\n█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█\nByt č. 7, na který má být uzavřena smlouva o nájmu bytu, se nachází na ulici Tř. 5 května 218 v Pečkách. Výše nájmu byla stanovena na 142,13 Kč/m\n2\nza měsíc tj. 4 413,- Kč za měsíc.\nDiskuze zahájena v 18:12:11\nK tomuto bodu se vyjádřili:\nMilan Paluska\nV 18:13:10 předsedající zahájil hlasování o návrhu usnesení \"A\" v tomto znění:\nNavrhovatel: Martina Hrázská\nRada\nměsta schvaluje uzavření smlouvy o nájmu bytu na byt č. 7 v bytovém domě na adrese Tř. 5. května 218, Pečky mezi městem Pečky a panem\n█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█\n298 11 na dobu určitou jednoho roku s účinností od 1.2.2026. Výše nájmu byla stanovena na 142,13 Kč/m\n2\nza měsíc tj. 4 413,- Kč za měsíc. Při podpisu smlouvy bude uhrazena jistota ve výši jednoho nájmu tzn. 4 413,- Kč.\nHlasování\npro:\n4\nproti\n0\nzdržel se:\n1\nnehlasoval:\n0\nNávrh A. byl přijat jako usnesení číslo: UR-49-4/26\nzodpovídá:\nMartina Hrázská\ntermín:\n4. 2. 2026\nProjednávání bodu bylo ukončeno v 18:13:14"
+   },
+   {
+    "number": 12,
+    "title_raw": "Přidělení bytu v Pečkách, ul. Tř. 5. května 218",
+    "heading_raw": "12. Přidělení bytu v Pečkách, ul. Tř. 5. května 218 (bod číslo 12)",
+    "predkladatel": "Martina Hrázská",
+    "votes": [
+     {
+      "raw_text": "pro:\n5\nproti\n0\nzdržel se:\n0\nnehlasoval:\n0",
+      "pro": {
+       "count": 5,
+       "names": null,
+       "raw": "5"
+      },
+      "proti": {
+       "count": 0,
+       "names": null,
+       "raw": "0"
+      },
+      "zdrzel_se": {
+       "count": 0,
+       "names": null,
+       "raw": "0"
+      },
+      "nehlasoval": {
+       "count": 0,
+       "names": null,
+       "raw": "0"
+      },
+      "result_raw": "Návrh A. byl přijat jako usnesení číslo: UR-50-4/26",
+      "adopted_resolution_number": "UR-50-4/26"
+     }
+    ],
+    "resolution_numbers_mentioned": [
+     "UR-50-4/26"
+    ],
+    "raw_text": "Předkladatel: Martina Hrázská\nProjednávání bodu bylo zahájeno v 18:13:25\nDůvodová zpráva:\nZe seznamu podaných žádostí byl na jednání bytové komise dne 10.7.2025 vybrán pan\n█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█\n289 11. Byt č. 28, na který má být uzavřena smlouva o nájmu bytu, se nachází na ulici Tř. 5 května 218 v Pečkách. Nájemní smlouva se schvaluje až nyní, z důvodu rekonstrukce bytu.\nDiskuze zahájena v 18:13:25\nK tomuto bodu se vyjádřili:\nMilan Paluska, Zdeněk Fejfar, Ing. Karel Krištoufek\nV 18:19:46 předsedající zahájil hlasování o návrhu usnesení \"A\" v tomto znění:\nNavrhovatel: Martina Hrázská\nRada\nměsta schvaluje uzavření smlouvy o nájmu bytu na byt č. 28 v bytovém domě na adrese Tř. 5. května 218, Pečky mezi městem Pečky a panem\n█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█\nna dobu určitou jednoho roku s účinností od 1.2.2026. Výše nájmu byla stanovena na 142,13 Kč/m\n2\nza měsíc tj. 6.197,- Kč za měsíc. Při podpisu smlouvy bude uhrazena jistota ve výši jednoho nájmu tzn. 6.197,- Kč.\nHlasování\npro:\n5\nproti\n0\nzdržel se:\n0\nnehlasoval:\n0\nNávrh A. byl přijat jako usnesení číslo: UR-50-4/26\nzodpovídá:\nMartina Hrázská\ntermín:\n5. 2. 2026\nProjednávání bodu bylo ukončeno v 18:19:51"
+   },
+   {
+    "number": 13,
+    "title_raw": "Kontrola plnění usnesení",
+    "heading_raw": "13. Kontrola plnění usnesení (bod číslo 13)",
+    "predkladatel": "Milan Paluska",
+    "votes": [],
+    "resolution_numbers_mentioned": [],
+    "raw_text": "Předkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 18:19:57\nDiskuze zahájena v 18:19:57\nK tomuto bodu se vyjádřili:\nMilan Paluska, Pavlína Nepovímová\nRada bere informace k bodu č. 13 -\nKontrola plnění usnesení\nna vědomí.\nProjednávání bodu bylo ukončeno v 18:22:22"
+   },
+   {
+    "number": 14,
+    "title_raw": "Diskuse, různé",
+    "heading_raw": "14. Diskuse, různé (bod číslo 14)",
+    "predkladatel": "Milan Paluska",
+    "votes": [],
+    "resolution_numbers_mentioned": [],
+    "raw_text": "Předkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 18:22:26\nDiskuze zahájena v 18:22:26\nK tomuto bodu se vyjádřili:\nMilan Paluska\nRada bere informace k bodu č. 14 -\nDiskuse, různé\nna vědomí.\nProjednávání bodu bylo ukončeno v 18:23:20"
+   },
+   {
+    "number": 15,
+    "title_raw": "Úkoly vyplývající z jednání rady města",
+    "heading_raw": "15. Úkoly vyplývající z jednání rady města (bod číslo 15)",
+    "predkladatel": "Milan Paluska",
+    "votes": [],
+    "resolution_numbers_mentioned": [],
+    "raw_text": "Předkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 18:23:29\nDiskuze zahájena v 18:23:29\nK tomuto bodu se vyjádřili:\nMilan Paluska, Ing. Martin Jedlička, Ivana Trčková\nRada bere informace k bodu č. 15 -\nÚkoly vyplývající z jednání rady města\nna vědomí.\nProjednávání bodu bylo ukončeno v 18:27:51\nJednání ukončeno 26.01.2026 v 18:28:26"
+   }
+  ],
+  "full_text": "ZÁPIS ze schůze rady č. 4/2026\nMěsto Pečky\ndatum: 26. 1. 2026, čas: 15:00\n​\nÚvodní prezence:\nPřítomni:\n(6) Zdeněk Fejfar, Ing. Martin Jedlička, Ing. Karel Krištoufek, Ing. Hana Kuprová, Milan Paluska, Ivana Trčková\nOmluveni:\n(1) Ing. Petr Dürr\nNepřítomni:\n(0)\nDalší přítomní a hosté:\nZapisovatel/ka:\nEva Strnadová\nPřítomno je 6 z 7 členů a rada je usnášeníschopná.\nJednání zahájeno 26.01.2026 v 16:30:10\n1. Určení zapisovatelů, předsedajícího, příp. ověřovatelů (bod číslo 1)\nPředkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 16:30:16\nPředsedající navrhl jednotlivé členy pracovních komisí\nOvěřovatelé:\nIng. Martin Jedlička, Zdeněk Fejfar\nPředsedající:\nMilan Paluska\nBod byl přijat bez hlasování.\nDiskuze zahájena v 16:30:16\nK tomuto bodu se vyjádřili:\nMilan Paluska\nProjednávání bodu bylo ukončeno v 16:30:52\n2. Schválení programu jednání (bod číslo 2)\nPředkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 16:30:56\nProgram jednání\n1. Určení zapisovatelů, předsedajícího, příp. ověřovatelů\n2. Schválení programu jednání\n3. Aktuální informace vedení města\n4. Kontrola průběhu investičních akcí\n5. Uzavření „Smlouvy o výpůjčce části pozemku č. parc. 1586/1 – k.ú. Pečky“\n6. AFK Pečky – oznámení o změně nájemce v restauraci, snížení nájemného\n7. Uzavření smlouvy o poskytování právních služeb - město\n8. Vyhlášení konkursního řízení na vedoucí pracovní místo ředitele/ky Základní školy Pečky, okres Kolín\n9. Vyřazení nepotřebného majetku\n10. Přidělení bytu v Pečkách, ul. Petra Bezruče č.p. 139, Pečky\n11. Přidělení bytu v Pečkách, ul. Tř.5. května 218\n12. Přidělení bytu v Pečkách, ul. Tř. 5. května 218\n13. Kontrola plnění usnesení\n14. Diskuse, různé\n15. Úkoly vyplývající z jednání rady města\nDiskuze zahájena v 16:30:56\nK tomuto bodu se vyjádřili:\nMilan Paluska, Ivana Trčková, Pavlína Nepovímová, Ing. Karel Krištoufek\nV 16:44:22 předsedající zahájil hlasování o návrhu usnesení \"A\" v tomto znění:\nNavrhovatel: Milan Paluska\nRada\nměsta schvaluje návrh programu jednání.\nHlasování\npro:\n6\nproti\n0\nzdržel se:\n0\nnehlasoval:\n0\nNávrh A. byl přijat jako usnesení číslo: UR-42-4/26\nzodpovídá:\ntermín:\nIHNED\n(26. 1. 2026)\nProjednávání bodu bylo ukončeno v 16:44:26\n3. Aktuální informace vedení města (bod číslo 3)\nPředkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 16:44:41\nDůvodová zpráva:\nstarosta města\n- informace o pokračování stavby akce \"Rekonstrukce místních komunikací a vodovodní řad v části Bačov v Pečkách – 3. a 4. etapa a MŠ Mašinka - oplocení - 2. etapa\"- přípojky k jednotlivým nemovitostem, stavba probíhá pomalu z důvodu nepříznivých klimatických podmínek\n- informace o výskytu kožního onemocnění na Základní škole v Pečkách a postupu hygienických opatření\nZdeněk\nFejfar\n- informace o opravě úniku pitné vody v ulici\nProkopa\nHolého, Pečky\n- informace o řešení havarijní situace související s propadem kanalizace před č. p. 31 na Masarykově náměstí v Pečkách\nDiskuze zahájena v 16:44:41\nK tomuto bodu se vyjádřili:\nMilan Paluska, Ing. Karel Krištoufek, Ing. Hana Kuprová, Ivana Trčková, Zdeněk Fejfar\nRada bere informace k bodu č. 3 -\nAktuální informace vedení města\nna vědomí.\nProjednávání bodu bylo ukončeno v 16:58:35\n4. Kontrola průběhu investičních akcí (bod číslo 4)\nPředkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 16:58:40\nDůvodová zpráva:\nDiskuse - kontrola průběhu investic a plán investic.\nDiskuze zahájena v 16:58:40\nK tomuto bodu se vyjádřili:\nMilan Paluska, Ing. Hana Kuprová, Ing. Karel Krištoufek, Zdeněk Fejfar, Ivana Trčková\nRada bere informace k bodu č. 4 -\nKontrola průběhu investičních akcí\nna vědomí.\nProjednávání bodu bylo ukončeno v 17:30:12\n5. Uzavření „Smlouvy o výpůjčce části pozemku č. parc. 1586/1 – k.ú. Pečky“ (bod číslo 5)\nPředkladatel: Jana Najbrtová\nProjednávání bodu bylo zahájeno v 17:30:18\nDůvodová zpráva:\nDoporučujeme uzavřít Smlouvu o výpůjčce s Volejbalem Pečky, z.s. a to od 1.2. 2026 na dobu neurčitou s výpovědní lhůtou 6 měsíců. Volejbalový spolek bude pozemek využívat na sportovní aktivity dětí, mládeže i dospělých, budou zde pořádat tréninky a veřejné sportovní akce. S podmínkami zveřejněného záměru souhlasí.\nDiskuze zahájena v 17:30:18\nK tomuto bodu se vyjádřili:\nZdeněk Fejfar\nV 17:31:10 předsedající zahájil hlasování o návrhu usnesení \"A\" v tomto znění:\nNavrhovatel: Jana Najbrtová\nRada\nměsta schvaluje uzavřít „Smlouvu o výpůjčce části pozemku č. parc. 1586/1 v k.ú. Pečky“ (cca 1.380 m\n2\n) - s Volejbalem Pečky, z.s. zastoupeným předsedkyní\n█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​\nse sídlem v Pečkách, ul. Chelčického čp. 428, IČ:23653540. Smlouva bude uzavřena od 1. února 2026 na dobu neurčitou s výpovědní lhůtou 6 měsíců.\nHlasování\npro:\n6\nproti\n0\nzdržel se:\n0\nnehlasoval:\n0\nNávrh A. byl přijat jako usnesení číslo: UR-43-4/26\nzodpovídá:\nJana Najbrtová\ntermín:\n4. 2. 2026\nProjednávání bodu bylo ukončeno v 17:31:14\n6. AFK Pečky – oznámení o změně nájemce v restauraci, snížení nájemného (bod číslo 6)\nPředkladatel: Jana Najbrtová\nProjednávání bodu bylo zahájeno v 17:31:18\nDůvodová zpráva:\nDoporučujeme schválit\noznámení AFK Pečky o změně nájemce v restauraci „Na hřišti“ v Pečkách, kterým se stal od 1.1. 2026\n█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​\n.\nDiskuze zahájena v 17:31:18\nK tomuto bodu se vyjádřili:\nMilan Paluska, Zdeněk Fejfar, Ing. Martin Jedlička, Ing. Karel Krištoufek, Ivana Trčková, Ing. Hana Kuprová\nV 17:44:22 předsedající zahájil hlasování o návrhu usnesení \"A\" v tomto znění:\nNavrhovatel: Jana Najbrtová\nRada\nměsta schvaluje oznámení AFK Pečky o změně nájemce v restauraci „Na hřišti“ v Pečkách, kterým se stal od 1.1. 2026 p.\n█​█​█​█​█​█​█​█​█​█​█​█​\n█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​\nHlasování\npro:\n6\nproti\n0\nzdržel se:\n0\nnehlasoval:\n0\nNávrh A. byl přijat jako usnesení číslo: UR-44-4/26\nzodpovídá:\nJana Najbrtová\ntermín:\n4. 2. 2026\nProjednávání bodu bylo ukončeno v 17:44:27\n7. Uzavření smlouvy o poskytování právních služeb - město (bod číslo 7)\nPředkladatel: Pavlína Nepovímová\nProjednávání bodu bylo zahájeno v 17:44:34\nDůvodová zpráva:\nUzavření smlouvy o Poskytování specializovaných právních služeb souvisejících se stavebním právem a developerskými projekty ve městě Pečky, dále jen „právní služby\".\nInformace o dalších oslovených:\n-\nJUDr. Bc.\nMartin\nVlk\n- zaslána odpověď, út 21:36, že děkuji o nabídku a po nastudování podkladů se nám ozvou\n- Mgr.\nKateřina\nBártová\n- bez reakce na zaslanou nabídku\nDiskuze zahájena v 17:44:34\nK tomuto bodu se vyjádřili:\nMilan Paluska, Ing. Karel Krištoufek, Zdeněk Fejfar, Ing. Hana Kuprová, Pavlína Nepovímová\nV 17:52:21 předsedající zahájil hlasování o návrhu usnesení \"A\" v tomto znění:\nNavrhovatel: Pavlína Nepovímová\nRada\nměsta schvaluje uzavření smlouvy mezi městem Pečky a advokátkou Mgr. Annou\nKomeiserovou\ndo 31.12.2027 na poskytování specializovaných právních služeb souvisejících se stavebním právem a developerskými projekty ve městě Pečky.\nHlasování\npro:\n4\nproti\n0\nzdržel se:\n2\nnehlasoval:\n0\nNávrh A. byl přijat jako usnesení číslo: UR-45-4/26\nzodpovídá:\ntermín:\nIHNED\n(26. 1. 2026)\nProjednávání bodu bylo ukončeno v 17:52:31\n8. Vyhlášení konkursního řízení na vedoucí pracovní místo ředitele/ky Základní školy Pečky, okres Kolín (bod číslo 8)\nPředkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 17:52:36\nDůvodová zpráva:\nVyhlášení konkursního řízení na obsazení pracovního místa ředitele Základní školy Pečky v souladu s § 166 zákona č. 561/2004 Sb., školský zákon, a vyhláškou č. 54/2005 Sb., o náležitostech konkursního řízení a konkursních komisích.\nDiskuze zahájena v 17:52:36\nK tomuto bodu se vyjádřili:\nMilan Paluska, Pavlína Nepovímová, Zdeněk Fejfar, Ing. Hana Kuprová\nV 17:53:43 odešel Ing. Karel Krištoufek, přítomno 5 z 7 radních.\nAktualizovaný stav prezence:\nPřítomni:\n(5) Zdeněk Fejfar, Ing. Martin Jedlička, Ing. Hana Kuprová, Milan Paluska, Ivana Trčková\nOmluveni:\n(1) Ing. Petr Dürr\nNepřítomni:\n(1) Ing. Karel Krištoufek\nV 18:01:43 předsedající zahájil hlasování o návrhu usnesení \"A\" v tomto znění:\nNavrhovatel: Milan Paluska\nRada\nměsta schvaluje vyhlášení konkursního řízení na vedoucí pracovní místo ředitele/ky Základní školy Pečky, okres\nKolín\n, IČ: 49862456.\nHlasování\npro:\n5\nproti\n0\nzdržel se:\n0\nnehlasoval:\n0\nNávrh A. byl přijat jako usnesení číslo: UR-46-4/26\nzodpovídá:\ntermín:\nIHNED\n(26. 1. 2026)\nProjednávání bodu bylo ukončeno v 18:01:51\nV 18:02:41 přišel Ing. Karel Krištoufek, přítomno 6 z 7 radních.\nAktualizovaný stav prezence:\nPřítomni:\n(6) Zdeněk Fejfar, Ing. Martin Jedlička, Ing. Hana Kuprová, Milan Paluska, Ivana Trčková, Ing. Karel Krištoufek\nOmluveni:\n(1) Ing. Petr Dürr\nNepřítomni:\n(0)\n9. Vyřazení nepotřebného majetku (bod číslo 9)\nPředkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 18:03:18\nDůvodová zpráva:\nNavrhujeme vyřadit nepotřebný, nefunkční dlouhodobý hmotný a drobný dlouhodobý majetek likvidací. Přehled majetku v příloze.\nDiskuze zahájena v 18:03:18\nK tomuto bodu se vyjádřili:\nMilan Paluska, Zdeněk Fejfar, Ivana Trčková\nV 18:07:38 předsedající zahájil hlasování o návrhu usnesení \"A\" v tomto znění:\nNavrhovatel: Marcela Bahníková\nRada\nměsta schvaluje vyřazení nepotřebného dlouhodobého a drobného dlouhodobého majetku.\nHlasování\npro:\n6\nproti\n0\nzdržel se:\n0\nnehlasoval:\n0\nNávrh A. byl přijat jako usnesení číslo: UR-47-4/26\nzodpovídá:\nMarcela Bahníková\ntermín:\n28. 2. 2026\nProjednávání bodu bylo ukončeno v 18:07:46\n10. Přidělení bytu v Pečkách, ul. Petra Bezruče č.p. 139, Pečky (bod číslo 10)\nPředkladatel: Martina Hrázská\nProjednávání bodu bylo zahájeno v 18:08:25\nDůvodová zpráva:\nZe seznamu podaných žádostí byla na jednání bytové komise dne 14.1.2025 vybrána paní\n█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​\n, Pečky. Byt č. 5, na který má být uzavřena smlouva o nájmu bytu, se nachází na adrese\nPetra\nBezruče\n139, Pečky. Výše nájmu byla stanovena na 142,04 Kč/m\n2\nza měsíc tj. 10 397,- Kč za měsíc.\nDiskuze zahájena v 18:08:25\nK tomuto bodu se vyjádřili:\nMilan Paluska\nV 18:11:23 předsedající zahájil hlasování o návrhu usnesení \"A\" v tomto znění:\nNavrhovatel: Martina Hrázská\nRada\nměsta schvaluje uzavření smlouvy o nájmu bytu na byt č. 5 v bytovém domě na adrese\nPetra\nBezruče\n139, Pečky mezi městem Pečky a paní\n█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​\n, Pečky 289 11 na dobu určitou jednoho roku s účinností od 1.2.2026. Výše nájmu byla stanovena na 142,04,- Kč/m\n2\nza měsíc tj. 10 397,- Kč. Při podpisu smlouvy bude uhrazena jistota ve výši jednoho nájmu tzn. 10 397,- Kč.\nHlasování\npro:\n5\nproti\n0\nzdržel se:\n0\nnehlasoval:\n1\nNávrh A. byl přijat jako usnesení číslo: UR-48-4/26\nzodpovídá:\nMartina Hrázská\ntermín:\n4. 2. 2026\nV 18:11:35 odešel Ing. Hana Kuprová, přítomno 5 z 7 radních.\nAktualizovaný stav prezence:\nPřítomni:\n(5) Zdeněk Fejfar, Ing. Martin Jedlička, Milan Paluska, Ivana Trčková, Ing. Karel Krištoufek\nOmluveni:\n(1) Ing. Petr Dürr\nNepřítomni:\n(1) Ing. Hana Kuprová\nProjednávání bodu bylo ukončeno v 18:12:06\n11. Přidělení bytu v Pečkách, ul. Tř.5. května 218 (bod číslo 11)\nPředkladatel: Martina Hrázská\nProjednávání bodu bylo zahájeno v 18:12:11\nDůvodová zpráva:\nZe seznamu podaných žádostí byl na jednání bytové komise dne 14.1.2026 vybrán pan\n█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​\nByt č. 7, na který má být uzavřena smlouva o nájmu bytu, se nachází na ulici Tř. 5 května 218 v Pečkách. Výše nájmu byla stanovena na 142,13 Kč/m\n2\nza měsíc tj. 4 413,- Kč za měsíc.\nDiskuze zahájena v 18:12:11\nK tomuto bodu se vyjádřili:\nMilan Paluska\nV 18:13:10 předsedající zahájil hlasování o návrhu usnesení \"A\" v tomto znění:\nNavrhovatel: Martina Hrázská\nRada\nměsta schvaluje uzavření smlouvy o nájmu bytu na byt č. 7 v bytovém domě na adrese Tř. 5. května 218, Pečky mezi městem Pečky a panem\n█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​\n298 11 na dobu určitou jednoho roku s účinností od 1.2.2026. Výše nájmu byla stanovena na 142,13 Kč/m\n2\nza měsíc tj. 4 413,- Kč za měsíc. Při podpisu smlouvy bude uhrazena jistota ve výši jednoho nájmu tzn. 4 413,- Kč.\nHlasování\npro:\n4\nproti\n0\nzdržel se:\n1\nnehlasoval:\n0\nNávrh A. byl přijat jako usnesení číslo: UR-49-4/26\nzodpovídá:\nMartina Hrázská\ntermín:\n4. 2. 2026\nProjednávání bodu bylo ukončeno v 18:13:14\n12. Přidělení bytu v Pečkách, ul. Tř. 5. května 218 (bod číslo 12)\nPředkladatel: Martina Hrázská\nProjednávání bodu bylo zahájeno v 18:13:25\nDůvodová zpráva:\nZe seznamu podaných žádostí byl na jednání bytové komise dne 10.7.2025 vybrán pan\n█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​\n289 11. Byt č. 28, na který má být uzavřena smlouva o nájmu bytu, se nachází na ulici Tř. 5 května 218 v Pečkách. Nájemní smlouva se schvaluje až nyní, z důvodu rekonstrukce bytu.\nDiskuze zahájena v 18:13:25\nK tomuto bodu se vyjádřili:\nMilan Paluska, Zdeněk Fejfar, Ing. Karel Krištoufek\nV 18:19:46 předsedající zahájil hlasování o návrhu usnesení \"A\" v tomto znění:\nNavrhovatel: Martina Hrázská\nRada\nměsta schvaluje uzavření smlouvy o nájmu bytu na byt č. 28 v bytovém domě na adrese Tř. 5. května 218, Pečky mezi městem Pečky a panem\n█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​\nna dobu určitou jednoho roku s účinností od 1.2.2026. Výše nájmu byla stanovena na 142,13 Kč/m\n2\nza měsíc tj. 6.197,- Kč za měsíc. Při podpisu smlouvy bude uhrazena jistota ve výši jednoho nájmu tzn. 6.197,- Kč.\nHlasování\npro:\n5\nproti\n0\nzdržel se:\n0\nnehlasoval:\n0\nNávrh A. byl přijat jako usnesení číslo: UR-50-4/26\nzodpovídá:\nMartina Hrázská\ntermín:\n5. 2. 2026\nProjednávání bodu bylo ukončeno v 18:19:51\n13. Kontrola plnění usnesení (bod číslo 13)\nPředkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 18:19:57\nDiskuze zahájena v 18:19:57\nK tomuto bodu se vyjádřili:\nMilan Paluska, Pavlína Nepovímová\nRada bere informace k bodu č. 13 -\nKontrola plnění usnesení\nna vědomí.\nProjednávání bodu bylo ukončeno v 18:22:22\n14. Diskuse, různé (bod číslo 14)\nPředkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 18:22:26\nDiskuze zahájena v 18:22:26\nK tomuto bodu se vyjádřili:\nMilan Paluska\nRada bere informace k bodu č. 14 -\nDiskuse, různé\nna vědomí.\nProjednávání bodu bylo ukončeno v 18:23:20\n15. Úkoly vyplývající z jednání rady města (bod číslo 15)\nPředkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 18:23:29\nDiskuze zahájena v 18:23:29\nK tomuto bodu se vyjádřili:\nMilan Paluska, Ing. Martin Jedlička, Ivana Trčková\nRada bere informace k bodu č. 15 -\nÚkoly vyplývající z jednání rady města\nna vědomí.\nProjednávání bodu bylo ukončeno v 18:27:51\nJednání ukončeno 26.01.2026 v 18:28:26"
+ },
+ "resolutions": {
+  "status": "ok",
+  "url": "https://mesto-pecky.usneseni.cz/verejne/d8040d5a-f600-11f0-9614-00505683238f/usneseni/",
+  "fetched_at": "2026-08-04T13:20:23.877519+00:00",
+  "items": [
+   {
+    "number_raw": "UR-42-4/26",
+    "detail_id": 123204,
+    "detail_url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/123204?mod=rada",
+    "agenda_item_raw": "Schválení programu jednání",
+    "text_verbatim": "Rada\nměsta schvaluje návrh programu jednání.",
+    "cell_text_raw": "Bod programu:\nSchválení programu jednání\nText přijatého usnesení:\nRada\nměsta schvaluje návrh programu jednání.",
+    "date_raw": "26. 1. 2026",
+    "date_iso": "2026-01-26",
+    "responsible_raw": "",
+    "deadline_raw": "IHNED (26. 1. 2026)",
+    "vote": {
+     "raw_text": "pro: 6 proti: 0 zdržel se: 0",
+     "pro": {
+      "count": 6,
+      "names": null,
+      "raw": "6"
+     },
+     "proti": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     },
+     "zdrzel_se": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     }
+    },
+    "detail": {
+     "number_raw": "UR-42-4/26",
+     "text_verbatim": "Rada města schvaluje návrh programu jednání.",
+     "typ_raw": null,
+     "zodpovida_raw": "",
+     "prijato_raw": "26. 1. 2026 na jednání č. 4/2026",
+     "prijato_date_iso": "2026-01-26",
+     "prijato_meeting_label": "4/2026",
+     "termin_raw": "IHNED (26. 1. 2026)",
+     "ukonceno_raw": "26. 1. 2026",
+     "ukonceno_date_iso": "2026-01-26",
+     "fields_raw": {
+      "Číslo usnesení": "UR-42-4/26",
+      "Text usnesení": "Rada města schvaluje návrh programu jednání.",
+      "Zodpovídá": "",
+      "Přijato": "26. 1. 2026 na jednání č. 4/2026",
+      "Termín": "IHNED (26. 1. 2026)",
+      "Ukončeno": "26. 1. 2026"
+     }
+    }
+   },
+   {
+    "number_raw": "UR-43-4/26",
+    "detail_id": 123241,
+    "detail_url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/123241?mod=rada",
+    "agenda_item_raw": "Uzavření „Smlouvy o výpůjčce části pozemku č. parc. 1586/1 – k.ú. Pečky“",
+    "text_verbatim": "Rada\nměsta schvaluje uzavřít „Smlouvu o výpůjčce části pozemku č. parc. 1586/1 v k.ú. Pečky“ (cca 1.380 m\n2\n) - s Volejbalem Pečky, z.s. zastoupeným předsedkyní\n█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​\nse sídlem v Pečkách, ul. Chelčického čp. 428, IČ:23653540. Smlouva bude uzavřena od 1. února 2026 na dobu neurčitou s výpovědní lhůtou 6 měsíců.",
+    "cell_text_raw": "Bod programu:\nUzavření „Smlouvy o výpůjčce části pozemku č. parc. 1586/1 – k.ú. Pečky“\nText přijatého usnesení:\nRada\nměsta schvaluje uzavřít „Smlouvu o výpůjčce části pozemku č. parc. 1586/1 v k.ú. Pečky“ (cca 1.380 m\n2\n) - s Volejbalem Pečky, z.s. zastoupeným předsedkyní\n█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​\nse sídlem v Pečkách, ul. Chelčického čp. 428, IČ:23653540. Smlouva bude uzavřena od 1. února 2026 na dobu neurčitou s výpovědní lhůtou 6 měsíců.",
+    "date_raw": "26. 1. 2026",
+    "date_iso": "2026-01-26",
+    "responsible_raw": "Jana Najbrtová",
+    "deadline_raw": "4. 2. 2026",
+    "vote": {
+     "raw_text": "pro: 6 proti: 0 zdržel se: 0",
+     "pro": {
+      "count": 6,
+      "names": null,
+      "raw": "6"
+     },
+     "proti": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     },
+     "zdrzel_se": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     }
+    },
+    "detail": {
+     "number_raw": "UR-43-4/26",
+     "text_verbatim": "Rada města schvaluje uzavřít „Smlouvu o výpůjčce části pozemku č. parc. 1586/1 v k.ú. Pečky“ (cca 1.380 m 2 ) - s Volejbalem Pečky, z.s. zastoupeným předsedkyní █​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​ se sídlem v Pečkách, ul. Chelčického čp. 428, IČ:23653540. Smlouva bude uzavřena od 1. února 2026 na dobu neurčitou s výpovědní lhůtou 6 měsíců.",
+     "typ_raw": null,
+     "zodpovida_raw": "Jana Najbrtová",
+     "prijato_raw": "26. 1. 2026 na jednání č. 4/2026",
+     "prijato_date_iso": "2026-01-26",
+     "prijato_meeting_label": "4/2026",
+     "termin_raw": "4. 2. 2026",
+     "ukonceno_raw": "29. 1. 2026",
+     "ukonceno_date_iso": "2026-01-29",
+     "fields_raw": {
+      "Číslo usnesení": "UR-43-4/26",
+      "Text usnesení": "Rada města schvaluje uzavřít „Smlouvu o výpůjčce části pozemku č. parc. 1586/1 v k.ú. Pečky“ (cca 1.380 m 2 ) - s Volejbalem Pečky, z.s. zastoupeným předsedkyní █​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​ se sídlem v Pečkách, ul. Chelčického čp. 428, IČ:23653540. Smlouva bude uzavřena od 1. února 2026 na dobu neurčitou s výpovědní lhůtou 6 měsíců.",
+      "Zodpovídá": "Jana Najbrtová",
+      "Přijato": "26. 1. 2026 na jednání č. 4/2026",
+      "Termín": "4. 2. 2026",
+      "Ukončeno": "29. 1. 2026"
+     }
+    }
+   },
+   {
+    "number_raw": "UR-44-4/26",
+    "detail_id": 123300,
+    "detail_url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/123300?mod=rada",
+    "agenda_item_raw": "AFK Pečky – oznámení o změně nájemce v restauraci, snížení nájemného",
+    "text_verbatim": "Rada\nměsta schvaluje oznámení AFK Pečky o změně nájemce v restauraci „Na hřišti“ v Pečkách, kterým se stal od 1.1. 2026 p.\n█​█​█​█​█​█​█​█​█​█​█​█​\n█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​",
+    "cell_text_raw": "Bod programu:\nAFK Pečky – oznámení o změně nájemce v restauraci, snížení nájemného\nText přijatého usnesení:\nRada\nměsta schvaluje oznámení AFK Pečky o změně nájemce v restauraci „Na hřišti“ v Pečkách, kterým se stal od 1.1. 2026 p.\n█​█​█​█​█​█​█​█​█​█​█​█​\n█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​",
+    "date_raw": "26. 1. 2026",
+    "date_iso": "2026-01-26",
+    "responsible_raw": "Jana Najbrtová",
+    "deadline_raw": "4. 2. 2026",
+    "vote": {
+     "raw_text": "pro: 6 proti: 0 zdržel se: 0",
+     "pro": {
+      "count": 6,
+      "names": null,
+      "raw": "6"
+     },
+     "proti": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     },
+     "zdrzel_se": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     }
+    },
+    "detail": {
+     "number_raw": "UR-44-4/26",
+     "text_verbatim": "Rada města schvaluje oznámení AFK Pečky o změně nájemce v restauraci „Na hřišti“ v Pečkách, kterým se stal od 1.1. 2026 p. █​█​█​█​█​█​█​█​█​█​█​█​ █​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​",
+     "typ_raw": null,
+     "zodpovida_raw": "Jana Najbrtová",
+     "prijato_raw": "26. 1. 2026 na jednání č. 4/2026",
+     "prijato_date_iso": "2026-01-26",
+     "prijato_meeting_label": "4/2026",
+     "termin_raw": "4. 2. 2026",
+     "ukonceno_raw": "29. 1. 2026",
+     "ukonceno_date_iso": "2026-01-29",
+     "fields_raw": {
+      "Číslo usnesení": "UR-44-4/26",
+      "Text usnesení": "Rada města schvaluje oznámení AFK Pečky o změně nájemce v restauraci „Na hřišti“ v Pečkách, kterým se stal od 1.1. 2026 p. █​█​█​█​█​█​█​█​█​█​█​█​ █​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​",
+      "Zodpovídá": "Jana Najbrtová",
+      "Přijato": "26. 1. 2026 na jednání č. 4/2026",
+      "Termín": "4. 2. 2026",
+      "Ukončeno": "29. 1. 2026"
+     }
+    }
+   },
+   {
+    "number_raw": "UR-45-4/26",
+    "detail_id": 123498,
+    "detail_url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/123498?mod=rada",
+    "agenda_item_raw": "Uzavření smlouvy o poskytování právních služeb - město",
+    "text_verbatim": "Rada\nměsta schvaluje uzavření smlouvy mezi městem Pečky a advokátkou Mgr. Annou\nKomeiserovou\ndo 31.12.2027 na poskytování specializovaných právních služeb souvisejících se stavebním právem a developerskými projekty ve městě Pečky.",
+    "cell_text_raw": "Bod programu:\nUzavření smlouvy o poskytování právních služeb - město\nText přijatého usnesení:\nRada\nměsta schvaluje uzavření smlouvy mezi městem Pečky a advokátkou Mgr. Annou\nKomeiserovou\ndo 31.12.2027 na poskytování specializovaných právních služeb souvisejících se stavebním právem a developerskými projekty ve městě Pečky.",
+    "date_raw": "26. 1. 2026",
+    "date_iso": "2026-01-26",
+    "responsible_raw": "",
+    "deadline_raw": "IHNED (26. 1. 2026)",
+    "vote": {
+     "raw_text": "pro: 4 proti: 0 zdržel se: 2",
+     "pro": {
+      "count": 4,
+      "names": null,
+      "raw": "4"
+     },
+     "proti": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     },
+     "zdrzel_se": {
+      "count": 2,
+      "names": null,
+      "raw": "2"
+     }
+    },
+    "detail": {
+     "number_raw": "UR-45-4/26",
+     "text_verbatim": "Rada města schvaluje uzavření smlouvy mezi městem Pečky a advokátkou Mgr. Annou Komeiserovou do 31.12.2027 na poskytování specializovaných právních služeb souvisejících se stavebním právem a developerskými projekty ve městě Pečky.",
+     "typ_raw": null,
+     "zodpovida_raw": "",
+     "prijato_raw": "26. 1. 2026 na jednání č. 4/2026",
+     "prijato_date_iso": "2026-01-26",
+     "prijato_meeting_label": "4/2026",
+     "termin_raw": "IHNED (26. 1. 2026)",
+     "ukonceno_raw": "26. 1. 2026",
+     "ukonceno_date_iso": "2026-01-26",
+     "fields_raw": {
+      "Číslo usnesení": "UR-45-4/26",
+      "Text usnesení": "Rada města schvaluje uzavření smlouvy mezi městem Pečky a advokátkou Mgr. Annou Komeiserovou do 31.12.2027 na poskytování specializovaných právních služeb souvisejících se stavebním právem a developerskými projekty ve městě Pečky.",
+      "Zodpovídá": "",
+      "Přijato": "26. 1. 2026 na jednání č. 4/2026",
+      "Termín": "IHNED (26. 1. 2026)",
+      "Ukončeno": "26. 1. 2026"
+     }
+    }
+   },
+   {
+    "number_raw": "UR-46-4/26",
+    "detail_id": 123517,
+    "detail_url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/123517?mod=rada",
+    "agenda_item_raw": "Vyhlášení konkursního řízení na vedoucí pracovní místo ředitele/ky Základní školy Pečky, okres Kolín",
+    "text_verbatim": "Rada\nměsta schvaluje vyhlášení konkursního řízení na vedoucí pracovní místo ředitele/ky Základní školy Pečky, okres\nKolín\n, IČ: 49862456.",
+    "cell_text_raw": "Bod programu:\nVyhlášení konkursního řízení na vedoucí pracovní místo ředitele/ky Základní školy Pečky, okres Kolín\nText přijatého usnesení:\nRada\nměsta schvaluje vyhlášení konkursního řízení na vedoucí pracovní místo ředitele/ky Základní školy Pečky, okres\nKolín\n, IČ: 49862456.",
+    "date_raw": "26. 1. 2026",
+    "date_iso": "2026-01-26",
+    "responsible_raw": "",
+    "deadline_raw": "IHNED (26. 1. 2026)",
+    "vote": {
+     "raw_text": "pro: 5 proti: 0 zdržel se: 0",
+     "pro": {
+      "count": 5,
+      "names": null,
+      "raw": "5"
+     },
+     "proti": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     },
+     "zdrzel_se": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     }
+    },
+    "detail": {
+     "number_raw": "UR-46-4/26",
+     "text_verbatim": "Rada města schvaluje vyhlášení konkursního řízení na vedoucí pracovní místo ředitele/ky Základní školy Pečky, okres Kolín , IČ: 49862456.",
+     "typ_raw": null,
+     "zodpovida_raw": "",
+     "prijato_raw": "26. 1. 2026 na jednání č. 4/2026",
+     "prijato_date_iso": "2026-01-26",
+     "prijato_meeting_label": "4/2026",
+     "termin_raw": "IHNED (26. 1. 2026)",
+     "ukonceno_raw": "26. 1. 2026",
+     "ukonceno_date_iso": "2026-01-26",
+     "fields_raw": {
+      "Číslo usnesení": "UR-46-4/26",
+      "Text usnesení": "Rada města schvaluje vyhlášení konkursního řízení na vedoucí pracovní místo ředitele/ky Základní školy Pečky, okres Kolín , IČ: 49862456.",
+      "Zodpovídá": "",
+      "Přijato": "26. 1. 2026 na jednání č. 4/2026",
+      "Termín": "IHNED (26. 1. 2026)",
+      "Ukončeno": "26. 1. 2026"
+     }
+    }
+   },
+   {
+    "number_raw": "UR-47-4/26",
+    "detail_id": 122663,
+    "detail_url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/122663?mod=rada",
+    "agenda_item_raw": "Vyřazení nepotřebného majetku",
+    "text_verbatim": "Rada\nměsta schvaluje vyřazení nepotřebného dlouhodobého a drobného dlouhodobého majetku.",
+    "cell_text_raw": "Bod programu:\nVyřazení nepotřebného majetku\nText přijatého usnesení:\nRada\nměsta schvaluje vyřazení nepotřebného dlouhodobého a drobného dlouhodobého majetku.",
+    "date_raw": "26. 1. 2026",
+    "date_iso": "2026-01-26",
+    "responsible_raw": "Marcela Bahníková",
+    "deadline_raw": "28. 2. 2026",
+    "vote": {
+     "raw_text": "pro: 6 proti: 0 zdržel se: 0",
+     "pro": {
+      "count": 6,
+      "names": null,
+      "raw": "6"
+     },
+     "proti": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     },
+     "zdrzel_se": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     }
+    },
+    "detail": {
+     "number_raw": "UR-47-4/26",
+     "text_verbatim": "Rada města schvaluje vyřazení nepotřebného dlouhodobého a drobného dlouhodobého majetku.",
+     "typ_raw": null,
+     "zodpovida_raw": "Marcela Bahníková",
+     "prijato_raw": "26. 1. 2026 na jednání č. 4/2026",
+     "prijato_date_iso": "2026-01-26",
+     "prijato_meeting_label": "4/2026",
+     "termin_raw": "28. 2. 2026",
+     "ukonceno_raw": "2. 3. 2026",
+     "ukonceno_date_iso": "2026-03-02",
+     "fields_raw": {
+      "Číslo usnesení": "UR-47-4/26",
+      "Text usnesení": "Rada města schvaluje vyřazení nepotřebného dlouhodobého a drobného dlouhodobého majetku.",
+      "Zodpovídá": "Marcela Bahníková",
+      "Přijato": "26. 1. 2026 na jednání č. 4/2026",
+      "Termín": "28. 2. 2026",
+      "Ukončeno": "2. 3. 2026"
+     }
+    }
+   },
+   {
+    "number_raw": "UR-48-4/26",
+    "detail_id": 123264,
+    "detail_url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/123264?mod=rada",
+    "agenda_item_raw": "Přidělení bytu v Pečkách, ul. Petra Bezruče č.p. 139, Pečky",
+    "text_verbatim": "Rada\nměsta schvaluje uzavření smlouvy o nájmu bytu na byt č. 5 v bytovém domě na adrese\nPetra\nBezruče\n139, Pečky mezi městem Pečky a paní\n█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​\n, Pečky 289 11 na dobu určitou jednoho roku s účinností od 1.2.2026. Výše nájmu byla stanovena na 142,04,- Kč/m\n2\nza měsíc tj. 10 397,- Kč. Při podpisu smlouvy bude uhrazena jistota ve výši jednoho nájmu tzn. 10 397,- Kč.",
+    "cell_text_raw": "Bod programu:\nPřidělení bytu v Pečkách, ul. Petra Bezruče č.p. 139, Pečky\nText přijatého usnesení:\nRada\nměsta schvaluje uzavření smlouvy o nájmu bytu na byt č. 5 v bytovém domě na adrese\nPetra\nBezruče\n139, Pečky mezi městem Pečky a paní\n█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​\n, Pečky 289 11 na dobu určitou jednoho roku s účinností od 1.2.2026. Výše nájmu byla stanovena na 142,04,- Kč/m\n2\nza měsíc tj. 10 397,- Kč. Při podpisu smlouvy bude uhrazena jistota ve výši jednoho nájmu tzn. 10 397,- Kč.",
+    "date_raw": "26. 1. 2026",
+    "date_iso": "2026-01-26",
+    "responsible_raw": "Martina Hrázská",
+    "deadline_raw": "4. 2. 2026",
+    "vote": {
+     "raw_text": "pro: 5 proti: 0 zdržel se: 0",
+     "pro": {
+      "count": 5,
+      "names": null,
+      "raw": "5"
+     },
+     "proti": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     },
+     "zdrzel_se": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     }
+    },
+    "detail": {
+     "number_raw": "UR-48-4/26",
+     "text_verbatim": "Rada města schvaluje uzavření smlouvy o nájmu bytu na byt č. 5 v bytovém domě na adrese Petra Bezruče 139, Pečky mezi městem Pečky a paní █​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​ , Pečky 289 11 na dobu určitou jednoho roku s účinností od 1.2.2026. Výše nájmu byla stanovena na 142,04,- Kč/m 2 za měsíc tj. 10 397,- Kč. Při podpisu smlouvy bude uhrazena jistota ve výši jednoho nájmu tzn. 10 397,- Kč.",
+     "typ_raw": null,
+     "zodpovida_raw": "Martina Hrázská",
+     "prijato_raw": "26. 1. 2026 na jednání č. 4/2026",
+     "prijato_date_iso": "2026-01-26",
+     "prijato_meeting_label": "4/2026",
+     "termin_raw": "4. 2. 2026",
+     "ukonceno_raw": "29. 1. 2026",
+     "ukonceno_date_iso": "2026-01-29",
+     "fields_raw": {
+      "Číslo usnesení": "UR-48-4/26",
+      "Text usnesení": "Rada města schvaluje uzavření smlouvy o nájmu bytu na byt č. 5 v bytovém domě na adrese Petra Bezruče 139, Pečky mezi městem Pečky a paní █​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​ , Pečky 289 11 na dobu určitou jednoho roku s účinností od 1.2.2026. Výše nájmu byla stanovena na 142,04,- Kč/m 2 za měsíc tj. 10 397,- Kč. Při podpisu smlouvy bude uhrazena jistota ve výši jednoho nájmu tzn. 10 397,- Kč.",
+      "Zodpovídá": "Martina Hrázská",
+      "Přijato": "26. 1. 2026 na jednání č. 4/2026",
+      "Termín": "4. 2. 2026",
+      "Ukončeno": "29. 1. 2026"
+     }
+    }
+   },
+   {
+    "number_raw": "UR-49-4/26",
+    "detail_id": 123332,
+    "detail_url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/123332?mod=rada",
+    "agenda_item_raw": "Přidělení bytu v Pečkách, ul. Tř.5. května 218",
+    "text_verbatim": "Rada\nměsta schvaluje uzavření smlouvy o nájmu bytu na byt č. 7 v bytovém domě na adrese Tř. 5. května 218, Pečky mezi městem Pečky a panem\n█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​\n298 11 na dobu určitou jednoho roku s účinností od 1.2.2026. Výše nájmu byla stanovena na 142,13 Kč/m\n2\nza měsíc tj. 4 413,- Kč za měsíc. Při podpisu smlouvy bude uhrazena jistota ve výši jednoho nájmu tzn. 4 413,- Kč.",
+    "cell_text_raw": "Bod programu:\nPřidělení bytu v Pečkách, ul. Tř.5. května 218\nText přijatého usnesení:\nRada\nměsta schvaluje uzavření smlouvy o nájmu bytu na byt č. 7 v bytovém domě na adrese Tř. 5. května 218, Pečky mezi městem Pečky a panem\n█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​\n298 11 na dobu určitou jednoho roku s účinností od 1.2.2026. Výše nájmu byla stanovena na 142,13 Kč/m\n2\nza měsíc tj. 4 413,- Kč za měsíc. Při podpisu smlouvy bude uhrazena jistota ve výši jednoho nájmu tzn. 4 413,- Kč.",
+    "date_raw": "26. 1. 2026",
+    "date_iso": "2026-01-26",
+    "responsible_raw": "Martina Hrázská",
+    "deadline_raw": "4. 2. 2026",
+    "vote": {
+     "raw_text": "pro: 4 proti: 0 zdržel se: 1",
+     "pro": {
+      "count": 4,
+      "names": null,
+      "raw": "4"
+     },
+     "proti": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     },
+     "zdrzel_se": {
+      "count": 1,
+      "names": null,
+      "raw": "1"
+     }
+    },
+    "detail": {
+     "number_raw": "UR-49-4/26",
+     "text_verbatim": "Rada města schvaluje uzavření smlouvy o nájmu bytu na byt č. 7 v bytovém domě na adrese Tř. 5. května 218, Pečky mezi městem Pečky a panem █​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​ 298 11 na dobu určitou jednoho roku s účinností od 1.2.2026. Výše nájmu byla stanovena na 142,13 Kč/m 2 za měsíc tj. 4 413,- Kč za měsíc. Při podpisu smlouvy bude uhrazena jistota ve výši jednoho nájmu tzn. 4 413,- Kč.",
+     "typ_raw": null,
+     "zodpovida_raw": "Martina Hrázská",
+     "prijato_raw": "26. 1. 2026 na jednání č. 4/2026",
+     "prijato_date_iso": "2026-01-26",
+     "prijato_meeting_label": "4/2026",
+     "termin_raw": "4. 2. 2026",
+     "ukonceno_raw": "2. 2. 2026",
+     "ukonceno_date_iso": "2026-02-02",
+     "fields_raw": {
+      "Číslo usnesení": "UR-49-4/26",
+      "Text usnesení": "Rada města schvaluje uzavření smlouvy o nájmu bytu na byt č. 7 v bytovém domě na adrese Tř. 5. května 218, Pečky mezi městem Pečky a panem █​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​ 298 11 na dobu určitou jednoho roku s účinností od 1.2.2026. Výše nájmu byla stanovena na 142,13 Kč/m 2 za měsíc tj. 4 413,- Kč za měsíc. Při podpisu smlouvy bude uhrazena jistota ve výši jednoho nájmu tzn. 4 413,- Kč.",
+      "Zodpovídá": "Martina Hrázská",
+      "Přijato": "26. 1. 2026 na jednání č. 4/2026",
+      "Termín": "4. 2. 2026",
+      "Ukončeno": "2. 2. 2026"
+     }
+    }
+   },
+   {
+    "number_raw": "UR-50-4/26",
+    "detail_id": 123533,
+    "detail_url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/123533?mod=rada",
+    "agenda_item_raw": "Přidělení bytu v Pečkách, ul. Tř. 5. května 218",
+    "text_verbatim": "Rada\nměsta schvaluje uzavření smlouvy o nájmu bytu na byt č. 28 v bytovém domě na adrese Tř. 5. května 218, Pečky mezi městem Pečky a panem\n█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​\nna dobu určitou jednoho roku s účinností od 1.2.2026. Výše nájmu byla stanovena na 142,13 Kč/m\n2\nza měsíc tj. 6.197,- Kč za měsíc. Při podpisu smlouvy bude uhrazena jistota ve výši jednoho nájmu tzn. 6.197,- Kč.",
+    "cell_text_raw": "Bod programu:\nPřidělení bytu v Pečkách, ul. Tř. 5. května 218\nText přijatého usnesení:\nRada\nměsta schvaluje uzavření smlouvy o nájmu bytu na byt č. 28 v bytovém domě na adrese Tř. 5. května 218, Pečky mezi městem Pečky a panem\n█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​\nna dobu určitou jednoho roku s účinností od 1.2.2026. Výše nájmu byla stanovena na 142,13 Kč/m\n2\nza měsíc tj. 6.197,- Kč za měsíc. Při podpisu smlouvy bude uhrazena jistota ve výši jednoho nájmu tzn. 6.197,- Kč.",
+    "date_raw": "26. 1. 2026",
+    "date_iso": "2026-01-26",
+    "responsible_raw": "Martina Hrázská",
+    "deadline_raw": "5. 2. 2026",
+    "vote": {
+     "raw_text": "pro: 5 proti: 0 zdržel se: 0",
+     "pro": {
+      "count": 5,
+      "names": null,
+      "raw": "5"
+     },
+     "proti": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     },
+     "zdrzel_se": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     }
+    },
+    "detail": {
+     "number_raw": "UR-50-4/26",
+     "text_verbatim": "Rada města schvaluje uzavření smlouvy o nájmu bytu na byt č. 28 v bytovém domě na adrese Tř. 5. května 218, Pečky mezi městem Pečky a panem █​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​ na dobu určitou jednoho roku s účinností od 1.2.2026. Výše nájmu byla stanovena na 142,13 Kč/m 2 za měsíc tj. 6.197,- Kč za měsíc. Při podpisu smlouvy bude uhrazena jistota ve výši jednoho nájmu tzn. 6.197,- Kč.",
+     "typ_raw": null,
+     "zodpovida_raw": "Martina Hrázská",
+     "prijato_raw": "26. 1. 2026 na jednání č. 4/2026",
+     "prijato_date_iso": "2026-01-26",
+     "prijato_meeting_label": "4/2026",
+     "termin_raw": "5. 2. 2026",
+     "ukonceno_raw": "29. 1. 2026",
+     "ukonceno_date_iso": "2026-01-29",
+     "fields_raw": {
+      "Číslo usnesení": "UR-50-4/26",
+      "Text usnesení": "Rada města schvaluje uzavření smlouvy o nájmu bytu na byt č. 28 v bytovém domě na adrese Tř. 5. května 218, Pečky mezi městem Pečky a panem █​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​ na dobu určitou jednoho roku s účinností od 1.2.2026. Výše nájmu byla stanovena na 142,13 Kč/m 2 za měsíc tj. 6.197,- Kč za měsíc. Při podpisu smlouvy bude uhrazena jistota ve výši jednoho nájmu tzn. 6.197,- Kč.",
+      "Zodpovídá": "Martina Hrázská",
+      "Přijato": "26. 1. 2026 na jednání č. 4/2026",
+      "Termín": "5. 2. 2026",
+      "Ukončeno": "29. 1. 2026"
+     }
+    }
+   }
+  ]
+ }
+}

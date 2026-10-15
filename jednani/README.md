@@ -31,7 +31,8 @@ Pozor na cesty: `data/`, `work/` a `logs/` níže jsou složky **scraperu**
 na stroji, kde běží (`/Users/sigy/Projects/Pečky`, viz `SPEC.md`), ne
 složky tohoto repa — kořenová `data/` v repu neexistuje. Do repa se
 z toho přenáší jen snímek archivu, a to rovnou do `jednani/`
-(dnes `jednani/archive-2026-08-04.json`).
+(dnes `jednani/archive/` — snímek z 4. 8. 2026 rozdělený na jeden soubor na jednání
++ `index.json`, viz `scripts/archive_split.py`).
 
 - `data/archive-YYYY-MM-DD.json` — kompletní datovaný snímek (jeden soubor)
 - `data/report-YYYY-MM-DD.md` — report křížových kontrol a anomálií
@@ -100,7 +101,7 @@ zachycuje odkazy i na usnesení jiných jednání (revokace apod.).
 Od jednání ZM 2/2025 (2. 4. 2025) přikládá Město Pečky k YouTube záznamu
 zasedání **kapitoly** — timestampy jednotlivých bodů programu v popisku
 videa. Doplněno 20. 8. 2026 do lehkého souboru `pecky-jednani.json`
-(ne do velkého `archive-*.json`), jen pro Zastupitelstvo — Rada video
+(ne do `archive/`), jen pro Zastupitelstvo — Rada video
 nemá.
 
 **Není to jednorázová akce.** Zápis a YouTube odkaz se u jednání typicky
@@ -152,7 +153,7 @@ i zastupitelstvo, s videem i bez něj.
 
 Zdroj: text zápisu obsahuje u každého jednání přesné časové značky
 (`minutes.full_text` a `minutes.agenda_items[].raw_text` ve velkém
-`archive-*.json`, případně přímo stránka `/verejne/<uuid>/zapis/`):
+`archive/`, případně přímo stránka `/verejne/<uuid>/zapis/`):
 - `Jednání zahájeno DD.MM.RRRR v HH:MM:SS` / `Jednání ukončeno DD.MM.RRRR
   v HH:MM:SS` → rozdíl = `meetings[].duration_seconds`. Pozor na tvar „ve"
   místo „v" před některými hodinami (české skloňování, např. „ve 21:04:14").
@@ -168,7 +169,7 @@ Zdroj: text zápisu obsahuje u každého jednání přesné časové značky
 Pokrytí k 21. 8. 2026: 283/285 jednání (2 nejnovější — Zastupitelstvo 5/2026,
 Rada 30/2026 — mají zatím jen pozvánku, zápis ještě neexistuje), 3998/4046
 bodů programu (zbytek odloženo nebo bez zaznamenaného textu). 281/281 jednání
-zdrojováno z `archive-2026-08-04.json`; 2 nejnovější tou dobou v archivu
+zdrojováno z `archive/`; 2 nejnovější tou dobou v archivu
 chybějící jednání (Rada 28/2026, 29/2026) doplněna ručně stejným rozborem
 přímo ze stránky `/verejne/<uuid>/zapis/`.
 
@@ -226,7 +227,7 @@ rozbalovací. Odkázaná z `/jednani/` („Související:").
 Doplněno 21. 8. 2026 pro zobrazení "sešlo se N z/ze M radních/zastupitelů"
 ve sbaleném řádku výpisu. Zdroj: `minutes.presence.pritomni.count` a
 `minutes.presence.quorum_raw` (věta „Přítomno je N (z M) členů…") ve velkém
-`archive-2026-08-04.json` — pro 281/283 tehdy existujících jednání. Pozor:
+`archive/` — pro 281/283 tehdy existujících jednání. Pozor:
 `quorum_raw` uvádí `z M` jen když je M jiné než celý sbor; jinak jen počet
 přítomných — celkový počet (`total`) proto dopočítat z pevné velikosti
 orgánu (Rada = 7, Zastupitelstvo = 21; ověřeno konstantní napříč celým
@@ -277,7 +278,7 @@ Tvar: `[{"time":"15:45:53","event":"přišel","name":"Ing. Petr Dürr",
 `"odešel"` nebo `"distančně"`. U jednání bez jediné změny se pole
 vynechává. Pokrytí: 124 jednání z 286 (218 událostí — 140 příchodů,
 77 odchodů, 1 distanční připojení), doplněno zpětně z
-`archive-2026-08-04.json` skriptem `scripts/doplnit-prubeznou-prezenci.py`;
+`archive/` skriptem `scripts/doplnit-prubeznou-prezenci.py`;
 pět jednání novějších než snímek archivu ověřeno ručně na `/zapis/`.
 
 Zatím jde o čistě datové pole — **v UI se nezobrazuje**. Řádek s avatary
@@ -539,12 +540,10 @@ pozadí sbaleného řádku (`.meeting-row--future`). Porovnání je čistě podl
 `m.date` vs. aktuální datum v prohlížeči (`jIsFutureMeeting()`), žádné
 zvláštní pole v datech není potřeba.
 
-**Technická poznámka k velkému `archive-*.json`:** přímé čtení tohoto
-souboru z připojené složky (`open()`/`head`/`cat` na cestě přes mount)
-občas skončí `OSError: [Errno 35] Resource deadlock avoided` (viz i
-poznámka v kořenovém `CLAUDE.md`). Spolehlivé obejití: nejdřív soubor
-zkopírovat (`cp archive-*.json /tmp/…`) a pracovat s kopií — `cp` samo
-selhání nemělo, ačkoli přímé čtení stejné cesty ano.
+**Technická poznámka k archivu:** `jednani/archive/` je od 15. 10. 2026 rozdělený na jednotlivá jednání
+(největší soubor 0,27 MB), takže dřívější chyba `OSError: [Errno 35] Resource deadlock avoided` u jediného
+24MB souboru už nehrozí; kopírování do `/tmp` není potřeba. Načítání a skládání zpět umí
+`jednani/scripts/archive_split.py` (`load_archive()`, příkazy `split`/`join`/`verify`).
 
 **Verbatim zásada:** texty se nikdy nečistí (vč. nezlomitelných mezer a
 anonymizačních bloků █). Normalizovaná pole (`date_iso`, `number`) jsou vždy
@@ -635,7 +634,7 @@ v `content/jednani.html`.
 **Zatím jen u jednoho bodu** — bod 14 „Souhlas s krátkodobým užitím části
 pozemku parc. č. 1018 (Park pod vodojemem)" u Rady 34/2026 (21. 9. 2026,
 zamítnuto 1 pro : 4 proti : 2 zdržel se). Historický přepočet zbytku
-archivu (ve velkém `archive-2026-08-04.json` je zamítnutých hlasování
+archivu (v `archive/` je zamítnutých hlasování
 napříč 2021–2026 evidováno 81, žádné z nich zatím v `pecky-jednani.json`
 není) je vědomě odložený na později — viz úkol níže.
 
@@ -647,7 +646,7 @@ vědomí" bez explicitního usnesení) `rejected_vote` nedostává — jen bod,
 o kterém se reálně hlasovalo a neprošel.
 
 **Otevřený úkol:** promítnout `rejected_vote` zpětně i do starších jednání
-z velkého `archive-2026-08-04.json` (81 nalezených případů) — vědomě
+z `archive/` (81 nalezených případů) — vědomě
 odložené, viz zadání uživatele 25. 9. 2026.
 
 ## Upozornění na chybějící zápis (od 4. 9. 2026)
@@ -717,6 +716,22 @@ zobrazí jako „Premiéra"/naplánované video ještě před začátkem).
    zahodí.
 4. Formát ročníku v číslech usnesení kolísá (`…/26` vs `…/2026`) — čísla jsou
    vždy verbatim; pro spolehlivé párování používej `detail_id`.
+
+## Shrnutí jednání (`shrnuti/`)
+
+`shrnuti/{datum}-{typ}.md` — jeden Markdown soubor na jednání, název začíná
+datem (např. `2026-10-12-rada.md`, `2026-08-28-kontrolni-vybor.md`), bloky
+„Nejdůležitější témata“ a „Shrnutí“. Commituje se (na rozdíl od `Data/`).
+Vzniká při přidání každého nového jednání podle
+[`INSTRUKCE-shrnuti-schuzky.md`](INSTRUKCE-shrnuti-schuzky.md) (Rada/ZM: krok
+8f v `automation-kontrola-usneseni-cz.md`; komise a výbory: postupy níže).
+V sekci Jednání se **nezobrazuje**; z nejnovějšího `*-rada.md` build
+(`_dash_rada_shrnuti()`) sestaví banner „Z poslední Rady města“ na Domů
+(nejdůležitější témata + tlačítko na detail jednání) a všechna shrnutí se při buildu předají PečkyBotovi
+(`chunks_shrnuti()` v `scripts/peckybot_sources.py`, pole `shrnuti_jednani` v `peckybot/data/jednani/<id>.json`).
+Existuje od
+15. 10. 2026 (první: `2026-10-12-rada.md`), starší jednání zpětně doplněna
+nejsou.
 
 ## Lokální PDF archiv (`Data/`)
 
@@ -860,7 +875,11 @@ funguje i přímý `curl`, žádný prohlížeč netřeba.
    konkrétní parcely z tabulek Pozemků, callout „Kontrolní výbor
    k pozemkům“ v `content/pozemky.html` (mimo generované tabulky).
 5. `python3 kalendar/scripts/update-kalendar.py` a `python3 scripts/build.py`.
-6. Do shrnutí běhu vlastní řádek „Jednání — výbory“ (i „zkontrolováno,
+6. Pro každé nově přidané jednání výboru vypracovat shrnutí podle
+   [`INSTRUKCE-shrnuti-schuzky.md`](INSTRUKCE-shrnuti-schuzky.md)
+   a uložit ho do nového souboru `jednani/shrnuti/{datum}-{typ}.md`
+   (např. `2026-08-28-kontrolni-vybor.md`); připojit ho k výpisu běhu.
+7. Do shrnutí běhu vlastní řádek „Jednání — výbory“ (i „zkontrolováno,
    beze změny“); při změně přepsat řádek Jednání v `README.md` → „Stav
    sekcí“.
 
@@ -991,7 +1010,13 @@ Běží ve stejném týdenním běhu jako kontrola výborů; zdroj pecky.cz, sta
    a Sboru) přidá jako události kategorie `vybor` a hned je synchronizuje do Google Kalendáře (generátor
    sync spouští sám, viz `kalendar/README.md`). Pak `python3 scripts/build.py`. Domů (`_dash_jednani`)
    komise zatím nezahrnuje.
-6. Do shrnutí běhu vlastní řádek „Jednání — komise“ (i „zkontrolováno,
+6. Pro každé nově přidané jednání komise, Sboru, pracovní skupiny nebo
+   školské rady vypracovat shrnutí podle
+   [`INSTRUKCE-shrnuti-schuzky.md`](INSTRUKCE-shrnuti-schuzky.md)
+   (u nich vycházet z `summary[]`), uložit do nového souboru
+   `jednani/shrnuti/{datum}-{typ}.md` (např. `2026-02-10-sportovni-komise.md`)
+   a připojit k výpisu běhu.
+7. Do shrnutí běhu vlastní řádek „Jednání — komise“ (i „zkontrolováno,
    beze změny“); při změně přepsat řádek Jednání v `README.md` → „Stav sekcí“.
 
 ### Školská rada ZŠ Pečky (`skolska-rada.json`, `Data/{datum}-skolska-rada/`)

@@ -1,0 +1,968 @@
+{
+ "uuid": "c88fbc80-fecc-11ed-8922-e0f643d6d69c",
+ "body_type_raw": "Rada",
+ "label_raw": "19/2023 (12. 6. 2023)",
+ "number": 19,
+ "year": 2023,
+ "date_iso": "2023-06-12",
+ "links": {
+  "invitation": "https://mesto-pecky.usneseni.cz/verejne/?uuid=c88fbc80-fecc-11ed-8922-e0f643d6d69c&page=12&do=printPublicInvitation",
+  "minutes": "https://mesto-pecky.usneseni.cz/verejne/c88fbc80-fecc-11ed-8922-e0f643d6d69c/zapis/?page=12",
+  "signed_minutes_pdf": "https://mesto-pecky.usneseni.cz/verejne/?meetingReportControl-uuid=c88fbc80-fecc-11ed-8922-e0f643d6d69c&page=12&do=meetingReportControl-getSignedReportPdf",
+  "resolutions": "https://mesto-pecky.usneseni.cz/verejne/c88fbc80-fecc-11ed-8922-e0f643d6d69c/usneseni/?page=12",
+  "audio": null
+ },
+ "link_texts": {
+  "invitation": "Pozvánka",
+  "minutes": "zápis",
+  "signed_minutes_pdf": "podepsaný zápis",
+  "resolutions": "přijatá usnesení"
+ },
+ "status": "ok",
+ "invitation": {
+  "status": "site_error",
+  "error": "status=200 ct=text/html; charset=utf-8 flash='<a href=\"\" class=\"close\" data-dismiss=\"alert\" aria-label=\"close\">&times;'",
+  "url": "https://mesto-pecky.usneseni.cz/verejne/?uuid=c88fbc80-fecc-11ed-8922-e0f643d6d69c&do=printPublicInvitation",
+  "fetched_at": "2026-08-04T15:05:58.934877+00:00"
+ },
+ "minutes": {
+  "status": "ok",
+  "url": "https://mesto-pecky.usneseni.cz/verejne/c88fbc80-fecc-11ed-8922-e0f643d6d69c/zapis/",
+  "fetched_at": "2026-08-04T14:09:02.879064+00:00",
+  "title_raw": "ZÁPIS ze schůze rady č. 19/2023 Město Pečky datum: 12. 6. 2023, čas: 15:00 ​",
+  "date_raw": "12. 6. 2023",
+  "date_iso": "2023-06-12",
+  "time_raw": "15:00",
+  "presence": {
+   "raw_text": "Prezence:\nPřítomni:\n(5) Zdeněk Fejfar, Milan Paluska, Ivana Trčková, Ing. Hana Kuprová, Ing. Karel Krištoufek\nOmluveni:\n(1) Ing. Martin Jedlička\nNepřítomni:\n(1) Ing. Petr Dürr\nHosté:\nIng. Adam Brant\nZapisovatel/ka:\nEva Strnadová\nPřítomno je 5 členů a rada je usnášeníschopná.\nJednání zahájeno 12.06.2023 v 15:03:45",
+   "pritomni": {
+    "count": 5,
+    "names": [
+     "Zdeněk Fejfar",
+     "Milan Paluska",
+     "Ivana Trčková",
+     "Ing. Hana Kuprová",
+     "Ing. Karel Krištoufek"
+    ],
+    "raw": "(5) Zdeněk Fejfar, Milan Paluska, Ivana Trčková, Ing. Hana Kuprová, Ing. Karel Krištoufek"
+   },
+   "omluveni": {
+    "count": 1,
+    "names": [
+     "Ing. Martin Jedlička"
+    ],
+    "raw": "(1) Ing. Martin Jedlička"
+   },
+   "nepritomni": {
+    "count": 1,
+    "names": [
+     "Ing. Petr Dürr"
+    ],
+    "raw": "(1) Ing. Petr Dürr"
+   },
+   "predsedajici": null,
+   "quorum_raw": "Přítomno je 5 členů a rada je usnášeníschopná."
+  },
+  "header_raw": "Prezence:\nPřítomni:\n(5) Zdeněk Fejfar, Milan Paluska, Ivana Trčková, Ing. Hana Kuprová, Ing. Karel Krištoufek\nOmluveni:\n(1) Ing. Martin Jedlička\nNepřítomni:\n(1) Ing. Petr Dürr\nHosté:\nIng. Adam Brant\nZapisovatel/ka:\nEva Strnadová\nPřítomno je 5 členů a rada je usnášeníschopná.\nJednání zahájeno 12.06.2023 v 15:03:45",
+  "agenda_items": [
+   {
+    "number": 1,
+    "title_raw": "Určení zapisovatelů, předsedajícího, příp. ověřovatelů",
+    "heading_raw": "1. Určení zapisovatelů, předsedajícího, příp. ověřovatelů (bod číslo 1)",
+    "predkladatel": "Milan Paluska",
+    "votes": [],
+    "resolution_numbers_mentioned": [],
+    "raw_text": "Předkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 15:03:52\nPředsedající navrhl jednotlivé členy pracovních komisí\nOvěřovatelé:\nIng. Hana Kuprová, Ing. Karel Krištoufek\nPředsedající:\nMilan Paluska\nBod byl přijat bez hlasování.\nDiskuze zahájena v 15:03:52\nK tomuto bodu se vyjádřili: Milan Paluska\nProjednávání bodu bylo ukončeno v 15:04:50"
+   },
+   {
+    "number": 2,
+    "title_raw": "Schválení programu jednání",
+    "heading_raw": "2. Schválení programu jednání (bod číslo 2)",
+    "predkladatel": "Milan Paluska",
+    "votes": [
+     {
+      "raw_text": "pro:\n(5) Ivana Trčková, Ing. Hana Kuprová, Milan Paluska, Zdeněk Fejfar, Ing. Karel Krištoufek\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)",
+      "pro": {
+       "count": 5,
+       "names": [
+        "Ivana Trčková",
+        "Ing. Hana Kuprová",
+        "Milan Paluska",
+        "Zdeněk Fejfar",
+        "Ing. Karel Krištoufek"
+       ],
+       "raw": "(5) Ivana Trčková, Ing. Hana Kuprová, Milan Paluska, Zdeněk Fejfar, Ing. Karel Krištoufek"
+      },
+      "proti": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "zdrzel_se": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "nehlasoval": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "result_raw": "Návrh byl přijat jako usnesení číslo: UR-172-19/23",
+      "adopted_resolution_number": "UR-172-19/23"
+     }
+    ],
+    "resolution_numbers_mentioned": [
+     "UR-172-19/23"
+    ],
+    "raw_text": "Předkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 15:05:03\nProgram jednání\n1. Určení zapisovatelů, předsedajícího, příp. ověřovatelů\n2. Schválení programu jednání\n3. Aktuální informace vedení města\n4. Zápis z jednání Kontrolního výboru\n5. Termín a program ZM dne 21.6.2023\n6. Žádost ZŠ - zadání veřejné zakázky\n7. Rozpočtové opatření č. 4/2023\n8. Závěrečný účet 2022\n9. Uzavření objednávky č.2 na AD akce: Stavební úpravy a obnova interiéru Kulturního střediska Pečky-II.etapa\n10. Valná hromada Pečeckých služeb, s.r.o.\n11. Prodloužení nájemní smlouvy a uzavření splátkového kalendáře\n12. Kontrola plnění usnesení\nDiskuze zahájena v 15:05:03\nK tomuto bodu se vyjádřili: Milan Paluska\nV 15:05:46 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Milan Paluska\") v tomto znění:\nRada\nměsta schvaluje návrh programu jednání.\ns těmito změnami:\n- doplňuje se bod č. 13 - Smlouva s firmou\nJiří\nKapr\n– zahradnické služby, Na Kovárně 120, 28911 Pečky\n- doplňuje se bod č. 14 - Intenzifikace ČOV Pečky - Dodatek č. 2 k SoD uzavřené dne 17.06.2022, číslo smlouvy objednatele 860\nHlasování\npro:\n(5) Ivana Trčková, Ing. Hana Kuprová, Milan Paluska, Zdeněk Fejfar, Ing. Karel Krištoufek\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-172-19/23\nzodpovídá:\ntermín:\nIHNED\n(12. 6. 2023)\nProjednávání bodu bylo ukončeno v 15:05:59"
+   },
+   {
+    "number": 3,
+    "title_raw": "Aktuální informace vedení města",
+    "heading_raw": "3. Aktuální informace vedení města (bod číslo 3)",
+    "predkladatel": "Milan Paluska",
+    "votes": [],
+    "resolution_numbers_mentioned": [],
+    "raw_text": "Předkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 15:06:35\nDůvodová zpráva\nstarosta města\n- informace o kontrolních dnech na stavbách - KS /specifikace dveří - návštěva u výrobce dveří/, intenzifikace ČOV /uzavření dodatku o posunutí termínu plnění smlouvy/, úpravna vody /zkouška těsnosti - záplavová zkouška/\n- informace o provozu sociálního šatníku a potravinové banky\n- informace o konání Dne otevřených dveří na zkušebním okruhu v Cerhenicích\n- informace o kontrolním dni na stavbě ve V. Chvalovicích - výstavba řadových domů společností General Property X s.r.o.\n- informace o jednání ve věci solárního osvětlení u \"Benešáku\"\n- informace o jednání se zástupci společnosti Atelier Promika s.r.o.- projektové práce plánovaného obchvatu /přeložka plynu/, předložené požadavky p.\nHrázského\n- informace o jednání se společností\nBursík\nholding a.s. - stavební úpravy a obnova interiéru Kulturního střediska Pečky – II. etapa\n- informace o položkovém rozpočtu na akce -  plot u MŠ Mašinka, komunikace v ul. Přátelství, chodník ul.\nHálkova\n, chodník ul. Tř. 5. května\n- informace o setkání u Stromu Olgy\nHavlové\ndne 12.6.2023 - připomenutí si nedožitých 90. narozenin první dámy\nIng.\nKarel\nKrištoufek\n- informace o navyšujícím se počtu dětí v základní škole, město uvažuje o zavedení finančního příspěvku za žáky z okolních obcí navštěvující nespádovou základní školu, vymezení školských obvodů spádových škol\n- informace o přípravě pravidel \"Fondu oprav a obnovy vodovodní infrastruktury\" a \"Fondu oprav a obnovy kanalizační infrastruktury\" s účinností od 1.1.2024\nDiskuze zahájena v 15:06:35\nK tomuto bodu se vyjádřili: Milan Paluska, Zdeněk Fejfar, Ing. Karel Krištoufek\nV 15:09:05 přišel Ing. Petr Dürr, přítomno 6 radních.\nAktualizovaný stav prezence:\nPřítomni:\n(6) Zdeněk Fejfar, Milan Paluska, Ivana Trčková, Ing. Hana Kuprová, Ing. Karel Krištoufek, Ing. Petr Dürr\nOmluveni:\n(1) Ing. Martin Jedlička\nNepřítomni:\n(0)\nProjednávání bodu bylo ukončeno v 16:21:41 -  RM byla přerušena na cca 20 minut z důvodu připomenutí si nedožitých narozenin O. Havlové /setkání u Stromu Olgy Havlové na prostranství za kostelem u základní školy/"
+   },
+   {
+    "number": 10,
+    "title_raw": "Valná hromada Pečeckých služeb, s.r.o.",
+    "heading_raw": "4. Valná hromada Pečeckých služeb, s.r.o. (bod číslo 10)",
+    "predkladatel": "Adam Brant",
+    "votes": [],
+    "resolution_numbers_mentioned": [],
+    "raw_text": "Předkladatel: Adam Brant\nProjednávání bodu bylo zahájeno v 16:21:59\nDůvodová zpráva\nValná\nhromada Pečeckých služeb, s.r.o.\nDiskuze zahájena v 16:21:59\nK tomuto bodu se vyjádřili: Ing. Adam Brant, Ing. Karel Krištoufek\nRada bere materiály předložené k bodu č. 10 -\nValná hromada Pečeckých služeb, s.r.o.\nna vědomí.\nProjednávání bodu bylo ukončeno v 16:33:40"
+   },
+   {
+    "number": 4,
+    "title_raw": "Zápis z jednání Kontrolního výboru",
+    "heading_raw": "5. Zápis z jednání Kontrolního výboru (bod číslo 4)",
+    "predkladatel": "Milan Paluska",
+    "votes": [],
+    "resolution_numbers_mentioned": [],
+    "raw_text": "Předkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 16:33:45\nDůvodová zpráva\nPředkládáme k projednání zápis z jednání Kontrolního výboru ze dne 24.5.2023.\nRada\nměsta bere zápis na vědomí.\nDiskuze zahájena v 16:33:45\nK tomuto bodu se vyjádřili: Milan Paluska, Ivana Trčková, Ing. Karel Krištoufek, Ing. Petr Dürr, Pavlína Nepovímová\nRada bere materiály předložené k bodu č. 4 -\nZápis z jednání Kontrolního výboru\nna vědomí.\nProjednávání bodu bylo ukončeno v 16:42:39"
+   },
+   {
+    "number": 5,
+    "title_raw": "Termín a program ZM dne 21.6.2023",
+    "heading_raw": "6. Termín a program ZM dne 21.6.2023 (bod číslo 5)",
+    "predkladatel": "Milan Paluska",
+    "votes": [
+     {
+      "raw_text": "pro:\n(6) Ing. Hana Kuprová, Ing. Karel Krištoufek, Zdeněk Fejfar, Ing. Petr Dürr, Milan Paluska, Ivana Trčková\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)",
+      "pro": {
+       "count": 6,
+       "names": [
+        "Ing. Hana Kuprová",
+        "Ing. Karel Krištoufek",
+        "Zdeněk Fejfar",
+        "Ing. Petr Dürr",
+        "Milan Paluska",
+        "Ivana Trčková"
+       ],
+       "raw": "(6) Ing. Hana Kuprová, Ing. Karel Krištoufek, Zdeněk Fejfar, Ing. Petr Dürr, Milan Paluska, Ivana Trčková"
+      },
+      "proti": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "zdrzel_se": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "nehlasoval": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "result_raw": "Návrh byl přijat jako usnesení číslo: UR-173-19/23",
+      "adopted_resolution_number": "UR-173-19/23"
+     }
+    ],
+    "resolution_numbers_mentioned": [
+     "UR-173-19/23"
+    ],
+    "raw_text": "Předkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 16:42:43\nDůvodová zpráva\nProjednání termínu a programu zasedání ZM dne 21.6.2023 od 17.30 hodin v jídelně Základní školy Pečky.\nDiskuze zahájena v 16:42:43\nK tomuto bodu se vyjádřili: Milan Paluska, Zdeněk Fejfar, Ing. Karel Krištoufek\nV 16:45:35 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Milan Paluska\") v tomto znění:\nRada\nměsta schvaluje termín a program zasedání ZM dne 21.6.2023 od 17.30 hodin v jídelně Základní školy Pečky, Tř.\nJana\nŠvermy čp. 342, Pečky.\nHlasování\npro:\n(6) Ing. Hana Kuprová, Ing. Karel Krištoufek, Zdeněk Fejfar, Ing. Petr Dürr, Milan Paluska, Ivana Trčková\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-173-19/23\nzodpovídá:\nMilan Paluska\ntermín:\n21. 6. 2023\nProjednávání bodu bylo ukončeno v 16:45:43"
+   },
+   {
+    "number": 6,
+    "title_raw": "Žádost Základní školy Pečky - zadání veřejné zakázky",
+    "heading_raw": "7. Žádost Základní školy Pečky - zadání veřejné zakázky (bod číslo 6)",
+    "predkladatel": "Marcela Bahníková",
+    "votes": [
+     {
+      "raw_text": "pro:\n(6) Ing. Karel Krištoufek, Milan Paluska, Ing. Petr Dürr, Ivana Trčková, Zdeněk Fejfar, Ing. Hana Kuprová\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)",
+      "pro": {
+       "count": 6,
+       "names": [
+        "Ing. Karel Krištoufek",
+        "Milan Paluska",
+        "Ing. Petr Dürr",
+        "Ivana Trčková",
+        "Zdeněk Fejfar",
+        "Ing. Hana Kuprová"
+       ],
+       "raw": "(6) Ing. Karel Krištoufek, Milan Paluska, Ing. Petr Dürr, Ivana Trčková, Zdeněk Fejfar, Ing. Hana Kuprová"
+      },
+      "proti": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "zdrzel_se": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "nehlasoval": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "result_raw": "Návrh byl přijat jako usnesení číslo: UR-174-19/23",
+      "adopted_resolution_number": "UR-174-19/23"
+     }
+    ],
+    "resolution_numbers_mentioned": [
+     "UR-174-19/23"
+    ],
+    "raw_text": "Předkladatel: Marcela Bahníková\nProjednávání bodu bylo zahájeno v 16:45:47\nDůvodová zpráva\nZákladní škola Pečky, Tř.\nJana\nŠvermy 342, 289 11 Pečky žádá o souhlas s přímým zadáním oprav a doplnění datové sítě  ve 2 podlažích nové budovy ZŠ v ceně 280.000,-Kč bez DPH. Zakázku by provedla společnost TECHNOLOGIE BUDOV s.r.o., která na základě smlouvy s Městem Pečky provádí opravu elektroinstalace v budově školy.\nDiskuze zahájena v 16:45:47\nK tomuto bodu se vyjádřili: Milan Paluska, Ing. Karel Krištoufek, Ivana Trčková, Ing. Petr Dürr\nV 17:07:23 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Marcela Bahníková\") v tomto znění:\nRada\nměsta ukládá řediteli Základní školy Pečky Mgr. Ing. L.\nZajícovi\nMBA předložit konkurenční nabídky na obnovu a doplnění datové sítě v budově Základní školy Pečky, Tř.\nJana\nŠvermy 342, 289 11 Pečky v termínu do 16.6.2023.\nHlasování\npro:\n(6) Ing. Karel Krištoufek, Milan Paluska, Ing. Petr Dürr, Ivana Trčková, Zdeněk Fejfar, Ing. Hana Kuprová\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-174-19/23\nzodpovídá:\ntermín:\nIHNED\n(12. 6. 2023)\nProjednávání bodu bylo ukončeno v 17:07:30"
+   },
+   {
+    "number": 7,
+    "title_raw": "Rozpočtové opatření č. 4/2023",
+    "heading_raw": "8. Rozpočtové opatření č. 4/2023 (bod číslo 7)",
+    "predkladatel": "Marcela Bahníková",
+    "votes": [
+     {
+      "raw_text": "pro:\n(6) Milan Paluska, Ing. Hana Kuprová, Ing. Petr Dürr, Ivana Trčková, Ing. Karel Krištoufek, Zdeněk Fejfar\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)",
+      "pro": {
+       "count": 6,
+       "names": [
+        "Milan Paluska",
+        "Ing. Hana Kuprová",
+        "Ing. Petr Dürr",
+        "Ivana Trčková",
+        "Ing. Karel Krištoufek",
+        "Zdeněk Fejfar"
+       ],
+       "raw": "(6) Milan Paluska, Ing. Hana Kuprová, Ing. Petr Dürr, Ivana Trčková, Ing. Karel Krištoufek, Zdeněk Fejfar"
+      },
+      "proti": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "zdrzel_se": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "nehlasoval": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "result_raw": "Návrh byl přijat jako usnesení číslo: UR-175-19/23",
+      "adopted_resolution_number": "UR-175-19/23"
+     }
+    ],
+    "resolution_numbers_mentioned": [
+     "UR-175-19/23"
+    ],
+    "raw_text": "Předkladatel: Marcela Bahníková\nProjednávání bodu bylo zahájeno v 17:07:37\nDůvodová zpráva\nPředkládáme ZM ke schválení rozpočtová opatření č. 4/2023.\nDiskuze zahájena v 17:07:37\nK tomuto bodu se vyjádřili: Milan Paluska\nV 17:11:06 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Marcela Bahníková\") v tomto znění:\nRada\nměsta doporučuje zastupitelstvu města schválit rozpočtová opatření č. 4/2023.\nHlasování\npro:\n(6) Milan Paluska, Ing. Hana Kuprová, Ing. Petr Dürr, Ivana Trčková, Ing. Karel Krištoufek, Zdeněk Fejfar\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-175-19/23\nzodpovídá:\nMarcela Bahníková\ntermín:\n21. 6. 2023\nProjednávání bodu bylo ukončeno v 17:11:14"
+   },
+   {
+    "number": 8,
+    "title_raw": "Závěrečný účet 2022",
+    "heading_raw": "9. Závěrečný účet 2022 (bod číslo 8)",
+    "predkladatel": "Marcela Bahníková",
+    "votes": [
+     {
+      "raw_text": "pro:\n(6) Milan Paluska, Zdeněk Fejfar, Ing. Hana Kuprová, Ing. Petr Dürr, Ivana Trčková, Ing. Karel Krištoufek\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)",
+      "pro": {
+       "count": 6,
+       "names": [
+        "Milan Paluska",
+        "Zdeněk Fejfar",
+        "Ing. Hana Kuprová",
+        "Ing. Petr Dürr",
+        "Ivana Trčková",
+        "Ing. Karel Krištoufek"
+       ],
+       "raw": "(6) Milan Paluska, Zdeněk Fejfar, Ing. Hana Kuprová, Ing. Petr Dürr, Ivana Trčková, Ing. Karel Krištoufek"
+      },
+      "proti": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "zdrzel_se": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "nehlasoval": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "result_raw": "Návrh byl přijat jako usnesení číslo: UR-176-19/23",
+      "adopted_resolution_number": "UR-176-19/23"
+     }
+    ],
+    "resolution_numbers_mentioned": [
+     "UR-176-19/23"
+    ],
+    "raw_text": "Předkladatel: Marcela Bahníková\nProjednávání bodu bylo zahájeno v 17:12:50\nDůvodová zpráva\nNávrh závěrečného účtu byl sestaven a zveřejněn v souladu se Zákonem 250/2000 Sb.. Součástí  závěrečného účtu  je  zpráva o výsledku přezkoumání hospodaření s výrokem \" nebyly zjištěny chyby a nedostatky\". Závěrečný účet schvaluje ZM do 30.6. následujícího roku.\nDiskuze zahájena v 17:12:50\nK tomuto bodu se vyjádřili: Milan Paluska, Ing. Karel Krištoufek, Ivana Trčková\nV 17:14:41 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Marcela Bahníková\") v tomto znění:\nRada\nměsta doporučuje zastupitelstvu města schválit závěrečný účet  a celoroční hospodaření města za rok 2022 bez výhrad.\nHlasování\npro:\n(6) Milan Paluska, Zdeněk Fejfar, Ing. Hana Kuprová, Ing. Petr Dürr, Ivana Trčková, Ing. Karel Krištoufek\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-176-19/23\nzodpovídá:\nMarcela Bahníková\ntermín:\n21. 6. 2023\nProjednávání bodu bylo ukončeno v 17:14:49"
+   },
+   {
+    "number": 9,
+    "title_raw": "Uzavření objednávky č.2 na AD akce: Stavební úpravy a obnova interiéru Kulturního střediska Pečky-II.etapa",
+    "heading_raw": "10. Uzavření objednávky č.2 na AD akce: Stavební úpravy a obnova interiéru Kulturního střediska Pečky-II.etapa (bod číslo 9)",
+    "predkladatel": "Věra Růžičková",
+    "votes": [
+     {
+      "raw_text": "pro:\n(6) Ing. Karel Krištoufek, Milan Paluska, Ing. Petr Dürr, Zdeněk Fejfar, Ivana Trčková, Ing. Hana Kuprová\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)",
+      "pro": {
+       "count": 6,
+       "names": [
+        "Ing. Karel Krištoufek",
+        "Milan Paluska",
+        "Ing. Petr Dürr",
+        "Zdeněk Fejfar",
+        "Ivana Trčková",
+        "Ing. Hana Kuprová"
+       ],
+       "raw": "(6) Ing. Karel Krištoufek, Milan Paluska, Ing. Petr Dürr, Zdeněk Fejfar, Ivana Trčková, Ing. Hana Kuprová"
+      },
+      "proti": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "zdrzel_se": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "nehlasoval": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "result_raw": "Návrh byl přijat jako usnesení číslo: UR-177-19/23",
+      "adopted_resolution_number": "UR-177-19/23"
+     }
+    ],
+    "resolution_numbers_mentioned": [
+     "UR-177-19/23"
+    ],
+    "raw_text": "Předkladatel: Věra Růžičková\nProjednávání bodu bylo zahájeno v 17:14:55\nDůvodová zpráva\nNa základě nabídky projekční kanceláře byla uzavřena objednávka na zajištění autorského dozoru druhé etapy rekonstrukce kulturního střediska ve výši 150 tis.Kč.  Vzhledem k velké náročnosti zajištění autorského dozoru ve vztahu k dodávkám, subdodávkám a odsouhlasování vzorkovacích formulářů a dílenských dokumentací je již tato částka vyčerpána. Do konce stavby zbývají 4 měsíce, vč. kolaudace. Od června by probíhal autorský dozor za paušální částku ve výši 25 tis. za měsíc, bez DPH.\nDiskuze zahájena v 17:14:55\nK tomuto bodu se vyjádřili: Milan Paluska, Ing. Karel Krištoufek, Zdeněk Fejfar, Ivana Trčková\nV 17:19:20 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Věra Růžičková\") v tomto znění:\nRada\nměsta schvaluje uzavření objednávky č.2 se zhotovitelem projektové dokumentace  firmou\nBianco\narchitects s.r.o., U lužického semináře 97/18\nPraha\nna zajištění autorského dozoru na stavbu: \"Stavební úpravy a obnova interiéru Kulturního střediska Pečky-II.etapa ve výši 100 000,- Kč bez DPH, tzn. 121 000,-Kč, vč.21%DPH. Náplň práce je stanovena dle §113, odst.2 zákona č.183/2006 Sb.\nHlasování\npro:\n(6) Ing. Karel Krištoufek, Milan Paluska, Ing. Petr Dürr, Zdeněk Fejfar, Ivana Trčková, Ing. Hana Kuprová\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-177-19/23\nzodpovídá:\nVěra Růžičková\ntermín:\n26. 6. 2023\nProjednávání bodu bylo ukončeno v 17:19:27"
+   },
+   {
+    "number": 11,
+    "title_raw": "Prodloužení nájemní smlouvy a uzavření splátkového kalendáře",
+    "heading_raw": "11. Prodloužení nájemní smlouvy a uzavření splátkového kalendáře (bod číslo 11)",
+    "predkladatel": "Martina Hrázská",
+    "votes": [
+     {
+      "raw_text": "pro:\n(6) Ing. Hana Kuprová, Ing. Karel Krištoufek, Milan Paluska, Ivana Trčková, Zdeněk Fejfar, Ing. Petr Dürr\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)",
+      "pro": {
+       "count": 6,
+       "names": [
+        "Ing. Hana Kuprová",
+        "Ing. Karel Krištoufek",
+        "Milan Paluska",
+        "Ivana Trčková",
+        "Zdeněk Fejfar",
+        "Ing. Petr Dürr"
+       ],
+       "raw": "(6) Ing. Hana Kuprová, Ing. Karel Krištoufek, Milan Paluska, Ivana Trčková, Zdeněk Fejfar, Ing. Petr Dürr"
+      },
+      "proti": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "zdrzel_se": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "nehlasoval": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "result_raw": "Návrh byl přijat jako usnesení číslo: UR-178-19/23",
+      "adopted_resolution_number": "UR-178-19/23"
+     }
+    ],
+    "resolution_numbers_mentioned": [
+     "UR-178-19/23"
+    ],
+    "raw_text": "Předkladatel: Martina Hrázská\nProjednávání bodu bylo zahájeno v 17:19:31\nDůvodová zpráva\nUzavření dodatku s panem\n█​█​█​█​█​█​█​█​█​█​█​█​█\n, bytem Tř. 5. května 218, Pečky, na pronájem bytu č. 12. v 2. nadzemním podlaží domu č.p. 218, Tř. 5. května v Pečkách do 31.12.2023 a uzavření splátkového kalendáře.\nDiskuze zahájena v 17:19:31\nK tomuto bodu se vyjádřili: Milan Paluska, Ivana Trčková, Ing. Karel Krištoufek\nV 17:22:21 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Martina Hrázská\") v tomto znění:\nRada\nměsta schvaluje uzavření dodatku č. 4 na pronájem bytu č. 12 v 2. nadzemním podlaží domu č.p. 218, Tř. 5. května v Pečkách a splátkového kalendáře s panem\n█​█​█​█​█​█​█​█​█​█​█​█​█\ndo 31.12.2023.\nHlasování\npro:\n(6) Ing. Hana Kuprová, Ing. Karel Krištoufek, Milan Paluska, Ivana Trčková, Zdeněk Fejfar, Ing. Petr Dürr\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-178-19/23\nzodpovídá:\nMartina Hrázská\ntermín:\n26. 6. 2023\nProjednávání bodu bylo ukončeno v 17:22:29"
+   },
+   {
+    "number": 12,
+    "title_raw": "Kontrola plnění usnesení",
+    "heading_raw": "12. Kontrola plnění usnesení (bod číslo 12)",
+    "predkladatel": "Milan Paluska",
+    "votes": [],
+    "resolution_numbers_mentioned": [],
+    "raw_text": "Předkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 17:22:33\nDiskuze zahájena v 17:22:33\nK tomuto bodu se vyjádřili: Milan Paluska, Pavlína Nepovímová, Ing. Karel Krištoufek\nRada bere materiály předložené k bodu č. 12 -\nKontrola plnění usnesení\nna vědomí.\nProjednávání bodu bylo ukončeno v 17:23:13"
+   },
+   {
+    "number": 13,
+    "title_raw": "Smlouva s firmou Jiří Kapr – zahradnické služby, Na Kovárně 120, 28911 Pečky",
+    "heading_raw": "13. Smlouva s firmou Jiří Kapr – zahradnické služby, Na Kovárně 120, 28911 Pečky (bod číslo 13)",
+    "predkladatel": "Hana Pokorná",
+    "votes": [
+     {
+      "raw_text": "pro:\n(6) Zdeněk Fejfar, Ing. Karel Krištoufek, Milan Paluska, Ing. Petr Dürr, Ing. Hana Kuprová, Ivana Trčková\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)",
+      "pro": {
+       "count": 6,
+       "names": [
+        "Zdeněk Fejfar",
+        "Ing. Karel Krištoufek",
+        "Milan Paluska",
+        "Ing. Petr Dürr",
+        "Ing. Hana Kuprová",
+        "Ivana Trčková"
+       ],
+       "raw": "(6) Zdeněk Fejfar, Ing. Karel Krištoufek, Milan Paluska, Ing. Petr Dürr, Ing. Hana Kuprová, Ivana Trčková"
+      },
+      "proti": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "zdrzel_se": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "nehlasoval": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "result_raw": "Návrh byl přijat jako usnesení číslo: UR-179-19/23",
+      "adopted_resolution_number": "UR-179-19/23"
+     }
+    ],
+    "resolution_numbers_mentioned": [
+     "UR-179-19/23"
+    ],
+    "raw_text": "Předkladatel: Hana Pokorná\nProjednávání bodu bylo zahájeno v 17:23:18\nDůvodová zpráva\nMěsto Pečky, jako zadavatel, vypsalo dle zadávání veřejných zakázek malého rozsahu mimo režim zákona, v kategorii b) zakázku na provedení „Odborné zahradnické práce – prořez keřů“ v roce 2023. Byly osloveny tři firmy a z toho cenovou nabídku podaly dvě firmy. Protokol z otevírání obálek a hodnocení nabídek je součástí přílohy.\nDiskuze zahájena v 17:23:18\nK tomuto bodu se vyjádřili: Milan Paluska, Ing. Petr Dürr, Ing. Karel Krištoufek\nV 17:25:36 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Hana Pokorná\") v tomto znění:\nRada\nměsta schvaluje uzavření smlouvy mezi městem Pečky, Masarykovo nám. 78, 289 11 Pečky a firmou\nJiří\nKapr\n- zahradnické služby, Na Kovárně 120, 28911\nVrbová\nLhota\nna provedení „Odborné zahradnické práce – prořez keřů“ za cenu 279.000,- Kč bez DPH.\nHlasování\npro:\n(6) Zdeněk Fejfar, Ing. Karel Krištoufek, Milan Paluska, Ing. Petr Dürr, Ing. Hana Kuprová, Ivana Trčková\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-179-19/23\nzodpovídá:\nHana Pokorná\ntermín:\n26. 6. 2023\nProjednávání bodu bylo ukončeno v 17:25:44"
+   },
+   {
+    "number": 14,
+    "title_raw": "Intenzifikace ČOV Pečky - Dodatek č. 2 k SoD uzavřené dne 17.06.2022, číslo smlouvy objednatele 860",
+    "heading_raw": "14. Intenzifikace ČOV Pečky - Dodatek č. 2 k SoD uzavřené dne 17.06.2022, číslo smlouvy objednatele 860 (bod číslo 14)",
+    "predkladatel": "Zdeněk Fejfar",
+    "votes": [
+     {
+      "raw_text": "pro:\n(6) Ing. Petr Dürr, Zdeněk Fejfar, Milan Paluska, Ing. Karel Krištoufek, Ivana Trčková, Ing. Hana Kuprová\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)",
+      "pro": {
+       "count": 6,
+       "names": [
+        "Ing. Petr Dürr",
+        "Zdeněk Fejfar",
+        "Milan Paluska",
+        "Ing. Karel Krištoufek",
+        "Ivana Trčková",
+        "Ing. Hana Kuprová"
+       ],
+       "raw": "(6) Ing. Petr Dürr, Zdeněk Fejfar, Milan Paluska, Ing. Karel Krištoufek, Ivana Trčková, Ing. Hana Kuprová"
+      },
+      "proti": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "zdrzel_se": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "nehlasoval": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "result_raw": "Návrh byl přijat jako usnesení číslo: UR-180-19/23",
+      "adopted_resolution_number": "UR-180-19/23"
+     }
+    ],
+    "resolution_numbers_mentioned": [
+     "UR-180-19/23"
+    ],
+    "raw_text": "Předkladatel: Zdeněk Fejfar\nProjednávání bodu bylo zahájeno v 17:25:52\nDůvodová zpráva\nV důsledku zjištění značného opotřebení stávajících aeračních elementů dochází ke změně rozsahu a ceny díla - viz Změnový list č. 5 a Stanovisko TDI a z důvodu přetrvávajících nepříznivých klimatických podmínek, které objektivně zabraňují realizaci díla v termínu dle Dodatku č. 1, a zároveň se jedná o okolnosti, které Objednatel ani Zhotovitel nemohli rozumně předpokládat a které nezávisí na jejich vůli dochází k posunutí termínu plnění Smlouvy - podrobněji viz Odůvodnění posunu termínu vč. aktualizovaného HGM.\nNa základě výše uvedeného navrhujeme uzavření Dodatku č. 2 k SoD ze dne 17.06.2022, číslo smlouvy objednatele 860 - viz příloha.\nDiskuze zahájena v 17:25:52\nK tomuto bodu se vyjádřili: Zdeněk Fejfar, Ing. Karel Krištoufek, Ivana Trčková\nV 17:29:25 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Zdeněk Fejfar\") v tomto znění:\nRada\nměsta schvaluje uzavření Dodatku č. 2 ke Smlouvě o dílo uzavřené dne 17.06.2022, číslo smlouvy objednatele 860, mezi městem Pečky a FORTEX - AGS, a.s., IČ: 00150584, spočívajícího ve změně změně rozsahu a ceny díla a termínu plnění díla \"Intenzifikace ČOV Pečky\".\nHlasování\npro:\n(6) Ing. Petr Dürr, Zdeněk Fejfar, Milan Paluska, Ing. Karel Krištoufek, Ivana Trčková, Ing. Hana Kuprová\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-180-19/23\nzodpovídá:\nMichala Dekiská\ntermín:\n19. 6. 2023\nProjednávání bodu bylo ukončeno v 17:29:33\nJednání ukončeno 12.06.2023 v 17:37:03\n\nOvěřeno ověřovateli:\n1)\n14. 6. 2023 09:04\nIng. Hana Kuprová\n2)\n14. 6. 2023 09:24\nIng. Karel Krištoufek"
+   }
+  ],
+  "full_text": "ZÁPIS ze schůze rady č. 19/2023\nMěsto Pečky\ndatum: 12. 6. 2023, čas: 15:00\n​\nPrezence:\nPřítomni:\n(5) Zdeněk Fejfar, Milan Paluska, Ivana Trčková, Ing. Hana Kuprová, Ing. Karel Krištoufek\nOmluveni:\n(1) Ing. Martin Jedlička\nNepřítomni:\n(1) Ing. Petr Dürr\nHosté:\nIng. Adam Brant\nZapisovatel/ka:\nEva Strnadová\nPřítomno je 5 členů a rada je usnášeníschopná.\nJednání zahájeno 12.06.2023 v 15:03:45\n1. Určení zapisovatelů, předsedajícího, příp. ověřovatelů (bod číslo 1)\nPředkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 15:03:52\nPředsedající navrhl jednotlivé členy pracovních komisí\nOvěřovatelé:\nIng. Hana Kuprová, Ing. Karel Krištoufek\nPředsedající:\nMilan Paluska\nBod byl přijat bez hlasování.\nDiskuze zahájena v 15:03:52\nK tomuto bodu se vyjádřili: Milan Paluska\nProjednávání bodu bylo ukončeno v 15:04:50\n2. Schválení programu jednání (bod číslo 2)\nPředkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 15:05:03\nProgram jednání\n1. Určení zapisovatelů, předsedajícího, příp. ověřovatelů\n2. Schválení programu jednání\n3. Aktuální informace vedení města\n4. Zápis z jednání Kontrolního výboru\n5. Termín a program ZM dne 21.6.2023\n6. Žádost ZŠ - zadání veřejné zakázky\n7. Rozpočtové opatření č. 4/2023\n8. Závěrečný účet 2022\n9. Uzavření objednávky č.2 na AD akce: Stavební úpravy a obnova interiéru Kulturního střediska Pečky-II.etapa\n10. Valná hromada Pečeckých služeb, s.r.o.\n11. Prodloužení nájemní smlouvy a uzavření splátkového kalendáře\n12. Kontrola plnění usnesení\nDiskuze zahájena v 15:05:03\nK tomuto bodu se vyjádřili: Milan Paluska\nV 15:05:46 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Milan Paluska\") v tomto znění:\nRada\nměsta schvaluje návrh programu jednání.\ns těmito změnami:\n- doplňuje se bod č. 13 - Smlouva s firmou\nJiří\nKapr\n– zahradnické služby, Na Kovárně 120, 28911 Pečky\n- doplňuje se bod č. 14 - Intenzifikace ČOV Pečky - Dodatek č. 2 k SoD uzavřené dne 17.06.2022, číslo smlouvy objednatele 860\nHlasování\npro:\n(5) Ivana Trčková, Ing. Hana Kuprová, Milan Paluska, Zdeněk Fejfar, Ing. Karel Krištoufek\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-172-19/23\nzodpovídá:\ntermín:\nIHNED\n(12. 6. 2023)\nProjednávání bodu bylo ukončeno v 15:05:59\n3. Aktuální informace vedení města (bod číslo 3)\nPředkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 15:06:35\nDůvodová zpráva\nstarosta města\n- informace o kontrolních dnech na stavbách - KS /specifikace dveří - návštěva u výrobce dveří/, intenzifikace ČOV /uzavření dodatku o posunutí termínu plnění smlouvy/, úpravna vody /zkouška těsnosti - záplavová zkouška/\n- informace o provozu sociálního šatníku a potravinové banky\n- informace o konání Dne otevřených dveří na zkušebním okruhu v Cerhenicích\n- informace o kontrolním dni na stavbě ve V. Chvalovicích - výstavba řadových domů společností General Property X s.r.o.\n- informace o jednání ve věci solárního osvětlení u \"Benešáku\"\n- informace o jednání se zástupci společnosti Atelier Promika s.r.o.- projektové práce plánovaného obchvatu /přeložka plynu/, předložené požadavky p.\nHrázského\n- informace o jednání se společností\nBursík\nholding a.s. - stavební úpravy a obnova interiéru Kulturního střediska Pečky – II. etapa\n- informace o položkovém rozpočtu na akce -  plot u MŠ Mašinka, komunikace v ul. Přátelství, chodník ul.\nHálkova\n, chodník ul. Tř. 5. května\n- informace o setkání u Stromu Olgy\nHavlové\ndne 12.6.2023 - připomenutí si nedožitých 90. narozenin první dámy\nIng.\nKarel\nKrištoufek\n- informace o navyšujícím se počtu dětí v základní škole, město uvažuje o zavedení finančního příspěvku za žáky z okolních obcí navštěvující nespádovou základní školu, vymezení školských obvodů spádových škol\n- informace o přípravě pravidel \"Fondu oprav a obnovy vodovodní infrastruktury\" a \"Fondu oprav a obnovy kanalizační infrastruktury\" s účinností od 1.1.2024\nDiskuze zahájena v 15:06:35\nK tomuto bodu se vyjádřili: Milan Paluska, Zdeněk Fejfar, Ing. Karel Krištoufek\nV 15:09:05 přišel Ing. Petr Dürr, přítomno 6 radních.\nAktualizovaný stav prezence:\nPřítomni:\n(6) Zdeněk Fejfar, Milan Paluska, Ivana Trčková, Ing. Hana Kuprová, Ing. Karel Krištoufek, Ing. Petr Dürr\nOmluveni:\n(1) Ing. Martin Jedlička\nNepřítomni:\n(0)\nProjednávání bodu bylo ukončeno v 16:21:41 -  RM byla přerušena na cca 20 minut z důvodu připomenutí si nedožitých narozenin O. Havlové /setkání u Stromu Olgy Havlové na prostranství za kostelem u základní školy/\n4. Valná hromada Pečeckých služeb, s.r.o. (bod číslo 10)\nPředkladatel: Adam Brant\nProjednávání bodu bylo zahájeno v 16:21:59\nDůvodová zpráva\nValná\nhromada Pečeckých služeb, s.r.o.\nDiskuze zahájena v 16:21:59\nK tomuto bodu se vyjádřili: Ing. Adam Brant, Ing. Karel Krištoufek\nRada bere materiály předložené k bodu č. 10 -\nValná hromada Pečeckých služeb, s.r.o.\nna vědomí.\nProjednávání bodu bylo ukončeno v 16:33:40\n5. Zápis z jednání Kontrolního výboru (bod číslo 4)\nPředkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 16:33:45\nDůvodová zpráva\nPředkládáme k projednání zápis z jednání Kontrolního výboru ze dne 24.5.2023.\nRada\nměsta bere zápis na vědomí.\nDiskuze zahájena v 16:33:45\nK tomuto bodu se vyjádřili: Milan Paluska, Ivana Trčková, Ing. Karel Krištoufek, Ing. Petr Dürr, Pavlína Nepovímová\nRada bere materiály předložené k bodu č. 4 -\nZápis z jednání Kontrolního výboru\nna vědomí.\nProjednávání bodu bylo ukončeno v 16:42:39\n6. Termín a program ZM dne 21.6.2023 (bod číslo 5)\nPředkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 16:42:43\nDůvodová zpráva\nProjednání termínu a programu zasedání ZM dne 21.6.2023 od 17.30 hodin v jídelně Základní školy Pečky.\nDiskuze zahájena v 16:42:43\nK tomuto bodu se vyjádřili: Milan Paluska, Zdeněk Fejfar, Ing. Karel Krištoufek\nV 16:45:35 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Milan Paluska\") v tomto znění:\nRada\nměsta schvaluje termín a program zasedání ZM dne 21.6.2023 od 17.30 hodin v jídelně Základní školy Pečky, Tř.\nJana\nŠvermy čp. 342, Pečky.\nHlasování\npro:\n(6) Ing. Hana Kuprová, Ing. Karel Krištoufek, Zdeněk Fejfar, Ing. Petr Dürr, Milan Paluska, Ivana Trčková\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-173-19/23\nzodpovídá:\nMilan Paluska\ntermín:\n21. 6. 2023\nProjednávání bodu bylo ukončeno v 16:45:43\n7. Žádost Základní školy Pečky - zadání veřejné zakázky (bod číslo 6)\nPředkladatel: Marcela Bahníková\nProjednávání bodu bylo zahájeno v 16:45:47\nDůvodová zpráva\nZákladní škola Pečky, Tř.\nJana\nŠvermy 342, 289 11 Pečky žádá o souhlas s přímým zadáním oprav a doplnění datové sítě  ve 2 podlažích nové budovy ZŠ v ceně 280.000,-Kč bez DPH. Zakázku by provedla společnost TECHNOLOGIE BUDOV s.r.o., která na základě smlouvy s Městem Pečky provádí opravu elektroinstalace v budově školy.\nDiskuze zahájena v 16:45:47\nK tomuto bodu se vyjádřili: Milan Paluska, Ing. Karel Krištoufek, Ivana Trčková, Ing. Petr Dürr\nV 17:07:23 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Marcela Bahníková\") v tomto znění:\nRada\nměsta ukládá řediteli Základní školy Pečky Mgr. Ing. L.\nZajícovi\nMBA předložit konkurenční nabídky na obnovu a doplnění datové sítě v budově Základní školy Pečky, Tř.\nJana\nŠvermy 342, 289 11 Pečky v termínu do 16.6.2023.\nHlasování\npro:\n(6) Ing. Karel Krištoufek, Milan Paluska, Ing. Petr Dürr, Ivana Trčková, Zdeněk Fejfar, Ing. Hana Kuprová\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-174-19/23\nzodpovídá:\ntermín:\nIHNED\n(12. 6. 2023)\nProjednávání bodu bylo ukončeno v 17:07:30\n8. Rozpočtové opatření č. 4/2023 (bod číslo 7)\nPředkladatel: Marcela Bahníková\nProjednávání bodu bylo zahájeno v 17:07:37\nDůvodová zpráva\nPředkládáme ZM ke schválení rozpočtová opatření č. 4/2023.\nDiskuze zahájena v 17:07:37\nK tomuto bodu se vyjádřili: Milan Paluska\nV 17:11:06 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Marcela Bahníková\") v tomto znění:\nRada\nměsta doporučuje zastupitelstvu města schválit rozpočtová opatření č. 4/2023.\nHlasování\npro:\n(6) Milan Paluska, Ing. Hana Kuprová, Ing. Petr Dürr, Ivana Trčková, Ing. Karel Krištoufek, Zdeněk Fejfar\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-175-19/23\nzodpovídá:\nMarcela Bahníková\ntermín:\n21. 6. 2023\nProjednávání bodu bylo ukončeno v 17:11:14\n9. Závěrečný účet 2022 (bod číslo 8)\nPředkladatel: Marcela Bahníková\nProjednávání bodu bylo zahájeno v 17:12:50\nDůvodová zpráva\nNávrh závěrečného účtu byl sestaven a zveřejněn v souladu se Zákonem 250/2000 Sb.. Součástí  závěrečného účtu  je  zpráva o výsledku přezkoumání hospodaření s výrokem \" nebyly zjištěny chyby a nedostatky\". Závěrečný účet schvaluje ZM do 30.6. následujícího roku.\nDiskuze zahájena v 17:12:50\nK tomuto bodu se vyjádřili: Milan Paluska, Ing. Karel Krištoufek, Ivana Trčková\nV 17:14:41 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Marcela Bahníková\") v tomto znění:\nRada\nměsta doporučuje zastupitelstvu města schválit závěrečný účet  a celoroční hospodaření města za rok 2022 bez výhrad.\nHlasování\npro:\n(6) Milan Paluska, Zdeněk Fejfar, Ing. Hana Kuprová, Ing. Petr Dürr, Ivana Trčková, Ing. Karel Krištoufek\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-176-19/23\nzodpovídá:\nMarcela Bahníková\ntermín:\n21. 6. 2023\nProjednávání bodu bylo ukončeno v 17:14:49\n10. Uzavření objednávky č.2 na AD akce: Stavební úpravy a obnova interiéru Kulturního střediska Pečky-II.etapa (bod číslo 9)\nPředkladatel: Věra Růžičková\nProjednávání bodu bylo zahájeno v 17:14:55\nDůvodová zpráva\nNa základě nabídky projekční kanceláře byla uzavřena objednávka na zajištění autorského dozoru druhé etapy rekonstrukce kulturního střediska ve výši 150 tis.Kč.  Vzhledem k velké náročnosti zajištění autorského dozoru ve vztahu k dodávkám, subdodávkám a odsouhlasování vzorkovacích formulářů a dílenských dokumentací je již tato částka vyčerpána. Do konce stavby zbývají 4 měsíce, vč. kolaudace. Od června by probíhal autorský dozor za paušální částku ve výši 25 tis. za měsíc, bez DPH.\nDiskuze zahájena v 17:14:55\nK tomuto bodu se vyjádřili: Milan Paluska, Ing. Karel Krištoufek, Zdeněk Fejfar, Ivana Trčková\nV 17:19:20 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Věra Růžičková\") v tomto znění:\nRada\nměsta schvaluje uzavření objednávky č.2 se zhotovitelem projektové dokumentace  firmou\nBianco\narchitects s.r.o., U lužického semináře 97/18\nPraha\nna zajištění autorského dozoru na stavbu: \"Stavební úpravy a obnova interiéru Kulturního střediska Pečky-II.etapa ve výši 100 000,- Kč bez DPH, tzn. 121 000,-Kč, vč.21%DPH. Náplň práce je stanovena dle §113, odst.2 zákona č.183/2006 Sb.\nHlasování\npro:\n(6) Ing. Karel Krištoufek, Milan Paluska, Ing. Petr Dürr, Zdeněk Fejfar, Ivana Trčková, Ing. Hana Kuprová\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-177-19/23\nzodpovídá:\nVěra Růžičková\ntermín:\n26. 6. 2023\nProjednávání bodu bylo ukončeno v 17:19:27\n11. Prodloužení nájemní smlouvy a uzavření splátkového kalendáře (bod číslo 11)\nPředkladatel: Martina Hrázská\nProjednávání bodu bylo zahájeno v 17:19:31\nDůvodová zpráva\nUzavření dodatku s panem\n█​█​█​█​█​█​█​█​█​█​█​█​█​\n, bytem Tř. 5. května 218, Pečky, na pronájem bytu č. 12. v 2. nadzemním podlaží domu č.p. 218, Tř. 5. května v Pečkách do 31.12.2023 a uzavření splátkového kalendáře.\nDiskuze zahájena v 17:19:31\nK tomuto bodu se vyjádřili: Milan Paluska, Ivana Trčková, Ing. Karel Krištoufek\nV 17:22:21 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Martina Hrázská\") v tomto znění:\nRada\nměsta schvaluje uzavření dodatku č. 4 na pronájem bytu č. 12 v 2. nadzemním podlaží domu č.p. 218, Tř. 5. května v Pečkách a splátkového kalendáře s panem\n█​█​█​█​█​█​█​█​█​█​█​█​█​\ndo 31.12.2023.\nHlasování\npro:\n(6) Ing. Hana Kuprová, Ing. Karel Krištoufek, Milan Paluska, Ivana Trčková, Zdeněk Fejfar, Ing. Petr Dürr\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-178-19/23\nzodpovídá:\nMartina Hrázská\ntermín:\n26. 6. 2023\nProjednávání bodu bylo ukončeno v 17:22:29\n12. Kontrola plnění usnesení (bod číslo 12)\nPředkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 17:22:33\nDiskuze zahájena v 17:22:33\nK tomuto bodu se vyjádřili: Milan Paluska, Pavlína Nepovímová, Ing. Karel Krištoufek\nRada bere materiály předložené k bodu č. 12 -\nKontrola plnění usnesení\nna vědomí.\nProjednávání bodu bylo ukončeno v 17:23:13\n13. Smlouva s firmou Jiří Kapr – zahradnické služby, Na Kovárně 120, 28911 Pečky (bod číslo 13)\nPředkladatel: Hana Pokorná\nProjednávání bodu bylo zahájeno v 17:23:18\nDůvodová zpráva\nMěsto Pečky, jako zadavatel, vypsalo dle zadávání veřejných zakázek malého rozsahu mimo režim zákona, v kategorii b) zakázku na provedení „Odborné zahradnické práce – prořez keřů“ v roce 2023. Byly osloveny tři firmy a z toho cenovou nabídku podaly dvě firmy. Protokol z otevírání obálek a hodnocení nabídek je součástí přílohy.\nDiskuze zahájena v 17:23:18\nK tomuto bodu se vyjádřili: Milan Paluska, Ing. Petr Dürr, Ing. Karel Krištoufek\nV 17:25:36 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Hana Pokorná\") v tomto znění:\nRada\nměsta schvaluje uzavření smlouvy mezi městem Pečky, Masarykovo nám. 78, 289 11 Pečky a firmou\nJiří\nKapr\n- zahradnické služby, Na Kovárně 120, 28911\nVrbová\nLhota\nna provedení „Odborné zahradnické práce – prořez keřů“ za cenu 279.000,- Kč bez DPH.\nHlasování\npro:\n(6) Zdeněk Fejfar, Ing. Karel Krištoufek, Milan Paluska, Ing. Petr Dürr, Ing. Hana Kuprová, Ivana Trčková\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-179-19/23\nzodpovídá:\nHana Pokorná\ntermín:\n26. 6. 2023\nProjednávání bodu bylo ukončeno v 17:25:44\n14. Intenzifikace ČOV Pečky - Dodatek č. 2 k SoD uzavřené dne 17.06.2022, číslo smlouvy objednatele 860 (bod číslo 14)\nPředkladatel: Zdeněk Fejfar\nProjednávání bodu bylo zahájeno v 17:25:52\nDůvodová zpráva\nV důsledku zjištění značného opotřebení stávajících aeračních elementů dochází ke změně rozsahu a ceny díla - viz Změnový list č. 5 a Stanovisko TDI a z důvodu přetrvávajících nepříznivých klimatických podmínek, které objektivně zabraňují realizaci díla v termínu dle Dodatku č. 1, a zároveň se jedná o okolnosti, které Objednatel ani Zhotovitel nemohli rozumně předpokládat a které nezávisí na jejich vůli dochází k posunutí termínu plnění Smlouvy - podrobněji viz Odůvodnění posunu termínu vč. aktualizovaného HGM.\nNa základě výše uvedeného navrhujeme uzavření Dodatku č. 2 k SoD ze dne 17.06.2022, číslo smlouvy objednatele 860 - viz příloha.\nDiskuze zahájena v 17:25:52\nK tomuto bodu se vyjádřili: Zdeněk Fejfar, Ing. Karel Krištoufek, Ivana Trčková\nV 17:29:25 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Zdeněk Fejfar\") v tomto znění:\nRada\nměsta schvaluje uzavření Dodatku č. 2 ke Smlouvě o dílo uzavřené dne 17.06.2022, číslo smlouvy objednatele 860, mezi městem Pečky a FORTEX - AGS, a.s., IČ: 00150584, spočívajícího ve změně změně rozsahu a ceny díla a termínu plnění díla \"Intenzifikace ČOV Pečky\".\nHlasování\npro:\n(6) Ing. Petr Dürr, Zdeněk Fejfar, Milan Paluska, Ing. Karel Krištoufek, Ivana Trčková, Ing. Hana Kuprová\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-180-19/23\nzodpovídá:\nMichala Dekiská\ntermín:\n19. 6. 2023\nProjednávání bodu bylo ukončeno v 17:29:33\nJednání ukončeno 12.06.2023 v 17:37:03\nOvěřeno ověřovateli:\n1)\n14. 6. 2023 09:04\nIng. Hana Kuprová\n2)\n14. 6. 2023 09:24\nIng. Karel Krištoufek"
+ },
+ "resolutions": {
+  "status": "ok",
+  "url": "https://mesto-pecky.usneseni.cz/verejne/c88fbc80-fecc-11ed-8922-e0f643d6d69c/usneseni/",
+  "fetched_at": "2026-08-04T14:09:10.875539+00:00",
+  "items": [
+   {
+    "number_raw": "UR-172-19/23",
+    "detail_id": 40198,
+    "detail_url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/40198?mod=rada",
+    "agenda_item_raw": "Schválení programu jednání",
+    "text_verbatim": "Rada\nměsta schvaluje návrh programu jednání.\ns těmito změnami:\n- doplňuje se bod č. 13 - Smlouva s firmou\nJiří\nKapr\n– zahradnické služby, Na Kovárně 120, 28911 Pečky\n- doplňuje se bod č. 14 - Intenzifikace ČOV Pečky - Dodatek č. 2 k SoD uzavřené dne 17.06.2022, číslo smlouvy objednatele 860",
+    "cell_text_raw": "Bod programu:\nSchválení programu jednání\nText přijatého usnesení:\nRada\nměsta schvaluje návrh programu jednání.\ns těmito změnami:\n- doplňuje se bod č. 13 - Smlouva s firmou\nJiří\nKapr\n– zahradnické služby, Na Kovárně 120, 28911 Pečky\n- doplňuje se bod č. 14 - Intenzifikace ČOV Pečky - Dodatek č. 2 k SoD uzavřené dne 17.06.2022, číslo smlouvy objednatele 860",
+    "date_raw": "12. 6. 2023",
+    "date_iso": "2023-06-12",
+    "responsible_raw": "",
+    "deadline_raw": "IHNED (12. 6. 2023)",
+    "vote": {
+     "raw_text": "pro: 5 proti: 0 zdržel se: 0",
+     "pro": {
+      "count": 5,
+      "names": null,
+      "raw": "5"
+     },
+     "proti": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     },
+     "zdrzel_se": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     }
+    },
+    "detail": {
+     "number_raw": "UR-172-19/23",
+     "text_verbatim": "Rada města schvaluje návrh programu jednání.\ns těmito změnami: - doplňuje se bod č. 13 - Smlouva s firmou Jiří Kapr – zahradnické služby, Na Kovárně 120, 28911 Pečky - doplňuje se bod č. 14 - Intenzifikace ČOV Pečky - Dodatek č. 2 k SoD uzavřené dne 17.06.2022, číslo smlouvy objednatele 860",
+     "typ_raw": null,
+     "zodpovida_raw": "",
+     "prijato_raw": "12. 6. 2023 na jednání č. 19/2023",
+     "prijato_date_iso": "2023-06-12",
+     "prijato_meeting_label": "19/2023",
+     "termin_raw": "IHNED (12. 6. 2023)",
+     "ukonceno_raw": "5. 6. 2023",
+     "ukonceno_date_iso": "2023-06-05",
+     "fields_raw": {
+      "Číslo usnesení": "UR-172-19/23",
+      "Text usnesení": "Rada města schvaluje návrh programu jednání.\ns těmito změnami: - doplňuje se bod č. 13 - Smlouva s firmou Jiří Kapr – zahradnické služby, Na Kovárně 120, 28911 Pečky - doplňuje se bod č. 14 - Intenzifikace ČOV Pečky - Dodatek č. 2 k SoD uzavřené dne 17.06.2022, číslo smlouvy objednatele 860",
+      "Zodpovídá": "",
+      "Přijato": "12. 6. 2023 na jednání č. 19/2023",
+      "Termín": "IHNED (12. 6. 2023)",
+      "Ukončeno": "5. 6. 2023"
+     }
+    }
+   },
+   {
+    "number_raw": "UR-173-19/23",
+    "detail_id": 40343,
+    "detail_url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/40343?mod=rada",
+    "agenda_item_raw": "Termín a program ZM dne 21.6.2023",
+    "text_verbatim": "Rada\nměsta schvaluje termín a program zasedání ZM dne 21.6.2023 od 17.30 hodin v jídelně Základní školy Pečky, Tř.\nJana\nŠvermy čp. 342, Pečky.",
+    "cell_text_raw": "Bod programu:\nTermín a program ZM dne 21.6.2023\nText přijatého usnesení:\nRada\nměsta schvaluje termín a program zasedání ZM dne 21.6.2023 od 17.30 hodin v jídelně Základní školy Pečky, Tř.\nJana\nŠvermy čp. 342, Pečky.",
+    "date_raw": "12. 6. 2023",
+    "date_iso": "2023-06-12",
+    "responsible_raw": "Milan Paluska",
+    "deadline_raw": "21. 6. 2023",
+    "vote": {
+     "raw_text": "pro: 6 proti: 0 zdržel se: 0",
+     "pro": {
+      "count": 6,
+      "names": null,
+      "raw": "6"
+     },
+     "proti": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     },
+     "zdrzel_se": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     }
+    },
+    "detail": {
+     "number_raw": "UR-173-19/23",
+     "text_verbatim": "Rada města schvaluje termín a program zasedání ZM dne 21.6.2023 od 17.30 hodin v jídelně Základní školy Pečky, Tř. Jana Švermy čp. 342, Pečky.",
+     "typ_raw": null,
+     "zodpovida_raw": "Milan Paluska",
+     "prijato_raw": "12. 6. 2023 na jednání č. 19/2023",
+     "prijato_date_iso": "2023-06-12",
+     "prijato_meeting_label": "19/2023",
+     "termin_raw": "21. 6. 2023",
+     "ukonceno_raw": "4. 7. 2023",
+     "ukonceno_date_iso": "2023-07-04",
+     "fields_raw": {
+      "Číslo usnesení": "UR-173-19/23",
+      "Text usnesení": "Rada města schvaluje termín a program zasedání ZM dne 21.6.2023 od 17.30 hodin v jídelně Základní školy Pečky, Tř. Jana Švermy čp. 342, Pečky.",
+      "Zodpovídá": "Milan Paluska",
+      "Přijato": "12. 6. 2023 na jednání č. 19/2023",
+      "Termín": "21. 6. 2023",
+      "Ukončeno": "4. 7. 2023"
+     }
+    }
+   },
+   {
+    "number_raw": "UR-174-19/23",
+    "detail_id": 40380,
+    "detail_url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/40380?mod=rada",
+    "agenda_item_raw": "Žádost Základní školy Pečky - zadání veřejné zakázky",
+    "text_verbatim": "Rada\nměsta ukládá řediteli Základní školy Pečky Mgr. Ing. L.\nZajícovi\nMBA předložit konkurenční nabídky na obnovu a doplnění datové sítě v budově Základní školy Pečky, Tř.\nJana\nŠvermy 342, 289 11 Pečky v termínu do 16.6.2023.",
+    "cell_text_raw": "Bod programu:\nŽádost Základní školy Pečky - zadání veřejné zakázky\nText přijatého usnesení:\nRada\nměsta ukládá řediteli Základní školy Pečky Mgr. Ing. L.\nZajícovi\nMBA předložit konkurenční nabídky na obnovu a doplnění datové sítě v budově Základní školy Pečky, Tř.\nJana\nŠvermy 342, 289 11 Pečky v termínu do 16.6.2023.",
+    "date_raw": "12. 6. 2023",
+    "date_iso": "2023-06-12",
+    "responsible_raw": "",
+    "deadline_raw": "IHNED (12. 6. 2023)",
+    "vote": {
+     "raw_text": "pro: 6 proti: 0 zdržel se: 0",
+     "pro": {
+      "count": 6,
+      "names": null,
+      "raw": "6"
+     },
+     "proti": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     },
+     "zdrzel_se": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     }
+    },
+    "detail": {
+     "number_raw": "UR-174-19/23",
+     "text_verbatim": "Rada města ukládá řediteli Základní školy Pečky Mgr. Ing. L. Zajícovi MBA předložit konkurenční nabídky na obnovu a doplnění datové sítě v budově Základní školy Pečky, Tř. Jana Švermy 342, 289 11 Pečky v termínu do 16.6.2023.",
+     "typ_raw": null,
+     "zodpovida_raw": "",
+     "prijato_raw": "12. 6. 2023 na jednání č. 19/2023",
+     "prijato_date_iso": "2023-06-12",
+     "prijato_meeting_label": "19/2023",
+     "termin_raw": "IHNED (12. 6. 2023)",
+     "ukonceno_raw": "12. 6. 2023",
+     "ukonceno_date_iso": "2023-06-12",
+     "fields_raw": {
+      "Číslo usnesení": "UR-174-19/23",
+      "Text usnesení": "Rada města ukládá řediteli Základní školy Pečky Mgr. Ing. L. Zajícovi MBA předložit konkurenční nabídky na obnovu a doplnění datové sítě v budově Základní školy Pečky, Tř. Jana Švermy 342, 289 11 Pečky v termínu do 16.6.2023.",
+      "Zodpovídá": "",
+      "Přijato": "12. 6. 2023 na jednání č. 19/2023",
+      "Termín": "IHNED (12. 6. 2023)",
+      "Ukončeno": "12. 6. 2023"
+     }
+    }
+   },
+   {
+    "number_raw": "UR-175-19/23",
+    "detail_id": 40324,
+    "detail_url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/40324?mod=rada",
+    "agenda_item_raw": "Rozpočtové opatření č. 4/2023",
+    "text_verbatim": "Rada\nměsta doporučuje zastupitelstvu města schválit rozpočtová opatření č. 4/2023.",
+    "cell_text_raw": "Bod programu:\nRozpočtové opatření č. 4/2023\nText přijatého usnesení:\nRada\nměsta doporučuje zastupitelstvu města schválit rozpočtová opatření č. 4/2023.",
+    "date_raw": "12. 6. 2023",
+    "date_iso": "2023-06-12",
+    "responsible_raw": "Marcela Bahníková",
+    "deadline_raw": "21. 6. 2023",
+    "vote": {
+     "raw_text": "pro: 6 proti: 0 zdržel se: 0",
+     "pro": {
+      "count": 6,
+      "names": null,
+      "raw": "6"
+     },
+     "proti": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     },
+     "zdrzel_se": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     }
+    },
+    "detail": {
+     "number_raw": "UR-175-19/23",
+     "text_verbatim": "Rada města doporučuje zastupitelstvu města schválit rozpočtová opatření č. 4/2023.",
+     "typ_raw": null,
+     "zodpovida_raw": "Marcela Bahníková",
+     "prijato_raw": "12. 6. 2023 na jednání č. 19/2023",
+     "prijato_date_iso": "2023-06-12",
+     "prijato_meeting_label": "19/2023",
+     "termin_raw": "21. 6. 2023",
+     "ukonceno_raw": "21. 6. 2023",
+     "ukonceno_date_iso": "2023-06-21",
+     "fields_raw": {
+      "Číslo usnesení": "UR-175-19/23",
+      "Text usnesení": "Rada města doporučuje zastupitelstvu města schválit rozpočtová opatření č. 4/2023.",
+      "Zodpovídá": "Marcela Bahníková",
+      "Přijato": "12. 6. 2023 na jednání č. 19/2023",
+      "Termín": "21. 6. 2023",
+      "Ukončeno": "21. 6. 2023"
+     }
+    }
+   },
+   {
+    "number_raw": "UR-176-19/23",
+    "detail_id": 40307,
+    "detail_url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/40307?mod=rada",
+    "agenda_item_raw": "Závěrečný účet 2022",
+    "text_verbatim": "Rada\nměsta doporučuje zastupitelstvu města schválit závěrečný účet  a celoroční hospodaření města za rok 2022 bez výhrad.",
+    "cell_text_raw": "Bod programu:\nZávěrečný účet 2022\nText přijatého usnesení:\nRada\nměsta doporučuje zastupitelstvu města schválit závěrečný účet  a celoroční hospodaření města za rok 2022 bez výhrad.",
+    "date_raw": "12. 6. 2023",
+    "date_iso": "2023-06-12",
+    "responsible_raw": "Marcela Bahníková",
+    "deadline_raw": "21. 6. 2023",
+    "vote": {
+     "raw_text": "pro: 6 proti: 0 zdržel se: 0",
+     "pro": {
+      "count": 6,
+      "names": null,
+      "raw": "6"
+     },
+     "proti": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     },
+     "zdrzel_se": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     }
+    },
+    "detail": {
+     "number_raw": "UR-176-19/23",
+     "text_verbatim": "Rada města doporučuje zastupitelstvu města schválit závěrečný účet  a celoroční hospodaření města za rok 2022 bez výhrad.",
+     "typ_raw": null,
+     "zodpovida_raw": "Marcela Bahníková",
+     "prijato_raw": "12. 6. 2023 na jednání č. 19/2023",
+     "prijato_date_iso": "2023-06-12",
+     "prijato_meeting_label": "19/2023",
+     "termin_raw": "21. 6. 2023",
+     "ukonceno_raw": "21. 6. 2023",
+     "ukonceno_date_iso": "2023-06-21",
+     "fields_raw": {
+      "Číslo usnesení": "UR-176-19/23",
+      "Text usnesení": "Rada města doporučuje zastupitelstvu města schválit závěrečný účet  a celoroční hospodaření města za rok 2022 bez výhrad.",
+      "Zodpovídá": "Marcela Bahníková",
+      "Přijato": "12. 6. 2023 na jednání č. 19/2023",
+      "Termín": "21. 6. 2023",
+      "Ukončeno": "21. 6. 2023"
+     }
+    }
+   },
+   {
+    "number_raw": "UR-177-19/23",
+    "detail_id": 40824,
+    "detail_url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/40824?mod=rada",
+    "agenda_item_raw": "Uzavření objednávky č.2 na AD akce: Stavební úpravy a obnova interiéru Kulturního střediska Pečky-II.etapa",
+    "text_verbatim": "Rada\nměsta schvaluje uzavření objednávky č.2 se zhotovitelem projektové dokumentace  firmou\nBianco\narchitects s.r.o., U lužického semináře 97/18\nPraha\nna zajištění autorského dozoru na stavbu: \"Stavební úpravy a obnova interiéru Kulturního střediska Peč\nky-II.etapa\nve výši 100 000,- Kč bez DPH, tzn. 121 000,-Kč, vč.21%DPH. Náplň práce je stanovena dle §113, odst.2 zákona č.183/2006 Sb.",
+    "cell_text_raw": "Bod programu:\nUzavření objednávky č.2 na AD akce: Stavební úpravy a obnova interiéru Kulturního střediska Pečky-II.etapa\nText přijatého usnesení:\nRada\nměsta schvaluje uzavření objednávky č.2 se zhotovitelem projektové dokumentace  firmou\nBianco\narchitects s.r.o., U lužického semináře 97/18\nPraha\nna zajištění autorského dozoru na stavbu: \"Stavební úpravy a obnova interiéru Kulturního střediska Peč\nky-II.etapa\nve výši 100 000,- Kč bez DPH, tzn. 121 000,-Kč, vč.21%DPH. Náplň práce je stanovena dle §113, odst.2 zákona č.183/2006 Sb.",
+    "date_raw": "12. 6. 2023",
+    "date_iso": "2023-06-12",
+    "responsible_raw": "Věra Růžičková",
+    "deadline_raw": "26. 6. 2023",
+    "vote": {
+     "raw_text": "pro: 6 proti: 0 zdržel se: 0",
+     "pro": {
+      "count": 6,
+      "names": null,
+      "raw": "6"
+     },
+     "proti": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     },
+     "zdrzel_se": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     }
+    },
+    "detail": {
+     "number_raw": "UR-177-19/23",
+     "text_verbatim": "Rada města schvaluje uzavření objednávky č.2 se zhotovitelem projektové dokumentace  firmou Bianco architects s.r.o., U lužického semináře 97/18 Praha na zajištění autorského dozoru na stavbu: \"Stavební úpravy a obnova interiéru Kulturního střediska Peč ky-II.etapa ve výši 100 000,- Kč bez DPH, tzn. 121 000,-Kč, vč.21%DPH. Náplň práce je stanovena dle §113, odst.2 zákona č.183/2006 Sb.",
+     "typ_raw": null,
+     "zodpovida_raw": "Věra Růžičková",
+     "prijato_raw": "12. 6. 2023 na jednání č. 19/2023",
+     "prijato_date_iso": "2023-06-12",
+     "prijato_meeting_label": "19/2023",
+     "termin_raw": "26. 6. 2023",
+     "ukonceno_raw": "12. 7. 2023",
+     "ukonceno_date_iso": "2023-07-12",
+     "fields_raw": {
+      "Číslo usnesení": "UR-177-19/23",
+      "Text usnesení": "Rada města schvaluje uzavření objednávky č.2 se zhotovitelem projektové dokumentace  firmou Bianco architects s.r.o., U lužického semináře 97/18 Praha na zajištění autorského dozoru na stavbu: \"Stavební úpravy a obnova interiéru Kulturního střediska Peč ky-II.etapa ve výši 100 000,- Kč bez DPH, tzn. 121 000,-Kč, vč.21%DPH. Náplň práce je stanovena dle §113, odst.2 zákona č.183/2006 Sb.",
+      "Zodpovídá": "Věra Růžičková",
+      "Přijato": "12. 6. 2023 na jednání č. 19/2023",
+      "Termín": "26. 6. 2023",
+      "Ukončeno": "12. 7. 2023"
+     }
+    }
+   },
+   {
+    "number_raw": "UR-178-19/23",
+    "detail_id": 40844,
+    "detail_url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/40844?mod=rada",
+    "agenda_item_raw": "Prodloužení nájemní smlouvy a uzavření splátkového kalendáře",
+    "text_verbatim": "Rada\nměsta schvaluje uzavření dodatku č. 4 na pronájem bytu č. 12 v 2. nadzemním podlaží domu č.p. 218, Tř. 5. května v Pečkách a splátkového kalendáře s panem\n█​█​█​█​█​█​█​█​█​█​█​█​█​\ndo 31.12.2023.",
+    "cell_text_raw": "Bod programu:\nProdloužení nájemní smlouvy a uzavření splátkového kalendáře\nText přijatého usnesení:\nRada\nměsta schvaluje uzavření dodatku č. 4 na pronájem bytu č. 12 v 2. nadzemním podlaží domu č.p. 218, Tř. 5. května v Pečkách a splátkového kalendáře s panem\n█​█​█​█​█​█​█​█​█​█​█​█​█​\ndo 31.12.2023.",
+    "date_raw": "12. 6. 2023",
+    "date_iso": "2023-06-12",
+    "responsible_raw": "Martina Hrázská",
+    "deadline_raw": "26. 6. 2023",
+    "vote": {
+     "raw_text": "pro: 6 proti: 0 zdržel se: 0",
+     "pro": {
+      "count": 6,
+      "names": null,
+      "raw": "6"
+     },
+     "proti": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     },
+     "zdrzel_se": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     }
+    },
+    "detail": {
+     "number_raw": "UR-178-19/23",
+     "text_verbatim": "Rada města schvaluje uzavření dodatku č. 4 na pronájem bytu č. 12 v 2. nadzemním podlaží domu č.p. 218, Tř. 5. května v Pečkách a splátkového kalendáře s panem █​█​█​█​█​█​█​█​█​█​█​█​█​ do 31.12.2023.",
+     "typ_raw": null,
+     "zodpovida_raw": "Martina Hrázská",
+     "prijato_raw": "12. 6. 2023 na jednání č. 19/2023",
+     "prijato_date_iso": "2023-06-12",
+     "prijato_meeting_label": "19/2023",
+     "termin_raw": "26. 6. 2023",
+     "ukonceno_raw": "14. 6. 2023",
+     "ukonceno_date_iso": "2023-06-14",
+     "fields_raw": {
+      "Číslo usnesení": "UR-178-19/23",
+      "Text usnesení": "Rada města schvaluje uzavření dodatku č. 4 na pronájem bytu č. 12 v 2. nadzemním podlaží domu č.p. 218, Tř. 5. května v Pečkách a splátkového kalendáře s panem █​█​█​█​█​█​█​█​█​█​█​█​█​ do 31.12.2023.",
+      "Zodpovídá": "Martina Hrázská",
+      "Přijato": "12. 6. 2023 na jednání č. 19/2023",
+      "Termín": "26. 6. 2023",
+      "Ukončeno": "14. 6. 2023"
+     }
+    }
+   },
+   {
+    "number_raw": "UR-179-19/23",
+    "detail_id": 41146,
+    "detail_url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/41146?mod=rada",
+    "agenda_item_raw": "Smlouva s firmou Jiří Kapr – zahradnické služby, Na Kovárně 120, 28911 Pečky",
+    "text_verbatim": "Rada\nměsta schvaluje uzavření smlouvy mezi městem Pečky, Masarykovo nám. 78, 289 11 Pečky a firmou\nJiří\nKapr\n- zahradnické služby, Na Kovárně 120, 28911\nVrbová\nLhota\nna provedení „Odborné zahradnické práce – prořez keřů“ za cenu 279.000,- Kč bez DPH.",
+    "cell_text_raw": "Bod programu:\nSmlouva s firmou Jiří Kapr – zahradnické služby, Na Kovárně 120, 28911 Pečky\nText přijatého usnesení:\nRada\nměsta schvaluje uzavření smlouvy mezi městem Pečky, Masarykovo nám. 78, 289 11 Pečky a firmou\nJiří\nKapr\n- zahradnické služby, Na Kovárně 120, 28911\nVrbová\nLhota\nna provedení „Odborné zahradnické práce – prořez keřů“ za cenu 279.000,- Kč bez DPH.",
+    "date_raw": "12. 6. 2023",
+    "date_iso": "2023-06-12",
+    "responsible_raw": "Hana Pokorná",
+    "deadline_raw": "26. 6. 2023",
+    "vote": {
+     "raw_text": "pro: 6 proti: 0 zdržel se: 0",
+     "pro": {
+      "count": 6,
+      "names": null,
+      "raw": "6"
+     },
+     "proti": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     },
+     "zdrzel_se": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     }
+    },
+    "detail": {
+     "number_raw": "UR-179-19/23",
+     "text_verbatim": "Rada města schvaluje uzavření smlouvy mezi městem Pečky, Masarykovo nám. 78, 289 11 Pečky a firmou Jiří Kapr - zahradnické služby, Na Kovárně 120, 28911 Vrbová Lhota na provedení „Odborné zahradnické práce – prořez keřů“ za cenu 279.000,- Kč bez DPH.",
+     "typ_raw": null,
+     "zodpovida_raw": "Hana Pokorná",
+     "prijato_raw": "12. 6. 2023 na jednání č. 19/2023",
+     "prijato_date_iso": "2023-06-12",
+     "prijato_meeting_label": "19/2023",
+     "termin_raw": "26. 6. 2023",
+     "ukonceno_raw": "15. 6. 2023",
+     "ukonceno_date_iso": "2023-06-15",
+     "fields_raw": {
+      "Číslo usnesení": "UR-179-19/23",
+      "Text usnesení": "Rada města schvaluje uzavření smlouvy mezi městem Pečky, Masarykovo nám. 78, 289 11 Pečky a firmou Jiří Kapr - zahradnické služby, Na Kovárně 120, 28911 Vrbová Lhota na provedení „Odborné zahradnické práce – prořez keřů“ za cenu 279.000,- Kč bez DPH.",
+      "Zodpovídá": "Hana Pokorná",
+      "Přijato": "12. 6. 2023 na jednání č. 19/2023",
+      "Termín": "26. 6. 2023",
+      "Ukončeno": "15. 6. 2023"
+     }
+    }
+   },
+   {
+    "number_raw": "UR-180-19/23",
+    "detail_id": 41236,
+    "detail_url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/41236?mod=rada",
+    "agenda_item_raw": "Intenzifikace ČOV Pečky - Dodatek č. 2 k SoD uzavřené dne 17.06.2022, číslo smlouvy objednatele 860",
+    "text_verbatim": "Rada\nměsta schvaluje uzavření Dodatku č. 2 ke Smlouvě o dílo uzavřené dne 17.06.2022, číslo smlouvy objednatele 860, mezi městem Pečky a FORTEX - AGS, a.s., IČ: 00150584, spočívajícího ve změně změně rozsahu a ceny díla a termínu plnění díla \"Intenzifikace ČOV Pečky\".",
+    "cell_text_raw": "Bod programu:\nIntenzifikace ČOV Pečky - Dodatek č. 2 k SoD uzavřené dne 17.06.2022, číslo smlouvy objednatele 860\nText přijatého usnesení:\nRada\nměsta schvaluje uzavření Dodatku č. 2 ke Smlouvě o dílo uzavřené dne 17.06.2022, číslo smlouvy objednatele 860, mezi městem Pečky a FORTEX - AGS, a.s., IČ: 00150584, spočívajícího ve změně změně rozsahu a ceny díla a termínu plnění díla \"Intenzifikace ČOV Pečky\".",
+    "date_raw": "12. 6. 2023",
+    "date_iso": "2023-06-12",
+    "responsible_raw": "Michala Dekiská",
+    "deadline_raw": "19. 6. 2023",
+    "vote": {
+     "raw_text": "pro: 6 proti: 0 zdržel se: 0",
+     "pro": {
+      "count": 6,
+      "names": null,
+      "raw": "6"
+     },
+     "proti": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     },
+     "zdrzel_se": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     }
+    },
+    "detail": {
+     "number_raw": "UR-180-19/23",
+     "text_verbatim": "Rada města schvaluje uzavření Dodatku č. 2 ke Smlouvě o dílo uzavřené dne 17.06.2022, číslo smlouvy objednatele 860, mezi městem Pečky a FORTEX - AGS, a.s., IČ: 00150584, spočívajícího ve změně změně rozsahu a ceny díla a termínu plnění díla \"Intenzifikace ČOV Pečky\".",
+     "typ_raw": null,
+     "zodpovida_raw": "Michala Dekiská",
+     "prijato_raw": "12. 6. 2023 na jednání č. 19/2023",
+     "prijato_date_iso": "2023-06-12",
+     "prijato_meeting_label": "19/2023",
+     "termin_raw": "19. 6. 2023",
+     "ukonceno_raw": "3. 7. 2023",
+     "ukonceno_date_iso": "2023-07-03",
+     "fields_raw": {
+      "Číslo usnesení": "UR-180-19/23",
+      "Text usnesení": "Rada města schvaluje uzavření Dodatku č. 2 ke Smlouvě o dílo uzavřené dne 17.06.2022, číslo smlouvy objednatele 860, mezi městem Pečky a FORTEX - AGS, a.s., IČ: 00150584, spočívajícího ve změně změně rozsahu a ceny díla a termínu plnění díla \"Intenzifikace ČOV Pečky\".",
+      "Zodpovídá": "Michala Dekiská",
+      "Přijato": "12. 6. 2023 na jednání č. 19/2023",
+      "Termín": "19. 6. 2023",
+      "Ukončeno": "3. 7. 2023"
+     }
+    }
+   }
+  ]
+ }
+}

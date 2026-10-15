@@ -1,0 +1,419 @@
+{
+ "uuid": "65dcd74e-8e90-11ee-9584-00505683238f",
+ "body_type_raw": "Rada",
+ "label_raw": "42/2023 (4. 12. 2023)",
+ "number": 42,
+ "year": 2023,
+ "date_iso": "2023-12-04",
+ "links": {
+  "invitation": "https://mesto-pecky.usneseni.cz/verejne/?uuid=65dcd74e-8e90-11ee-9584-00505683238f&page=10&do=printPublicInvitation",
+  "minutes": "https://mesto-pecky.usneseni.cz/verejne/65dcd74e-8e90-11ee-9584-00505683238f/zapis/?page=10",
+  "signed_minutes_pdf": "https://mesto-pecky.usneseni.cz/verejne/?meetingReportControl-uuid=65dcd74e-8e90-11ee-9584-00505683238f&page=10&do=meetingReportControl-getSignedReportPdf",
+  "resolutions": "https://mesto-pecky.usneseni.cz/verejne/65dcd74e-8e90-11ee-9584-00505683238f/usneseni/?page=10",
+  "audio": null
+ },
+ "link_texts": {
+  "invitation": "Pozvánka",
+  "minutes": "zápis",
+  "signed_minutes_pdf": "podepsaný zápis",
+  "resolutions": "přijatá usnesení"
+ },
+ "status": "ok",
+ "invitation": {
+  "status": "site_error",
+  "error": "status=200 ct=text/html; charset=utf-8 flash='<a href=\"\" class=\"close\" data-dismiss=\"alert\" aria-label=\"close\">&times;'",
+  "url": "https://mesto-pecky.usneseni.cz/verejne/?uuid=65dcd74e-8e90-11ee-9584-00505683238f&do=printPublicInvitation",
+  "fetched_at": "2026-08-04T15:03:10.047138+00:00"
+ },
+ "minutes": {
+  "status": "ok",
+  "url": "https://mesto-pecky.usneseni.cz/verejne/65dcd74e-8e90-11ee-9584-00505683238f/zapis/",
+  "fetched_at": "2026-08-04T13:59:18.013396+00:00",
+  "title_raw": "ZÁPIS ze schůze rady č. 42/2023 Město Pečky datum: 4. 12. 2023, čas: 15:00 ​",
+  "date_raw": "4. 12. 2023",
+  "date_iso": "2023-12-04",
+  "time_raw": "15:00",
+  "presence": {
+   "raw_text": "Prezence:\nPřítomni:\n(4) Zdeněk Fejfar, Milan Paluska, Ivana Trčková, Ing. Karel Krištoufek\nOmluveni:\n(2) Ing. Martin Jedlička, Ing. Hana Kuprová\nNepřítomni:\n(1) Ing. Petr Dürr\nHosté:\nIng. Adam Brant\nZapisovatel/ka:\nEva Strnadová\nPřítomno je 4 členů a rada je usnášeníschopná.\nJednání zahájeno 04.12.2023 v 15:07:19",
+   "pritomni": {
+    "count": 4,
+    "names": [
+     "Zdeněk Fejfar",
+     "Milan Paluska",
+     "Ivana Trčková",
+     "Ing. Karel Krištoufek"
+    ],
+    "raw": "(4) Zdeněk Fejfar, Milan Paluska, Ivana Trčková, Ing. Karel Krištoufek"
+   },
+   "omluveni": {
+    "count": 2,
+    "names": [
+     "Ing. Martin Jedlička",
+     "Ing. Hana Kuprová"
+    ],
+    "raw": "(2) Ing. Martin Jedlička, Ing. Hana Kuprová"
+   },
+   "nepritomni": {
+    "count": 1,
+    "names": [
+     "Ing. Petr Dürr"
+    ],
+    "raw": "(1) Ing. Petr Dürr"
+   },
+   "predsedajici": null,
+   "quorum_raw": "Přítomno je 4 členů a rada je usnášeníschopná."
+  },
+  "header_raw": "Prezence:\nPřítomni:\n(4) Zdeněk Fejfar, Milan Paluska, Ivana Trčková, Ing. Karel Krištoufek\nOmluveni:\n(2) Ing. Martin Jedlička, Ing. Hana Kuprová\nNepřítomni:\n(1) Ing. Petr Dürr\nHosté:\nIng. Adam Brant\nZapisovatel/ka:\nEva Strnadová\nPřítomno je 4 členů a rada je usnášeníschopná.\nJednání zahájeno 04.12.2023 v 15:07:19",
+  "agenda_items": [
+   {
+    "number": 1,
+    "title_raw": "Určení zapisovatelů, předsedajícího, příp. ověřovatelů",
+    "heading_raw": "1. Určení zapisovatelů, předsedajícího, příp. ověřovatelů (bod číslo 1)",
+    "predkladatel": "Milan Paluska",
+    "votes": [],
+    "resolution_numbers_mentioned": [],
+    "raw_text": "Předkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 15:07:25\nPředsedající navrhl jednotlivé členy pracovních komisí\nOvěřovatelé:\nIng. Karel Krištoufek, Zdeněk Fejfar\nPředsedající:\nMilan Paluska\nBod byl přijat bez hlasování.\nDiskuze zahájena v 15:07:25\nK tomuto bodu se vyjádřili: Milan Paluska\nProjednávání bodu bylo ukončeno v 15:07:53"
+   },
+   {
+    "number": 2,
+    "title_raw": "Schválení programu jednání",
+    "heading_raw": "2. Schválení programu jednání (bod číslo 2)",
+    "predkladatel": "Milan Paluska",
+    "votes": [
+     {
+      "raw_text": "pro:\n(4) Zdeněk Fejfar, Milan Paluska, Ivana Trčková, Ing. Karel Krištoufek\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)",
+      "pro": {
+       "count": 4,
+       "names": [
+        "Zdeněk Fejfar",
+        "Milan Paluska",
+        "Ivana Trčková",
+        "Ing. Karel Krištoufek"
+       ],
+       "raw": "(4) Zdeněk Fejfar, Milan Paluska, Ivana Trčková, Ing. Karel Krištoufek"
+      },
+      "proti": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "zdrzel_se": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "nehlasoval": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "result_raw": "Návrh byl přijat jako usnesení číslo: UR-353-42/23",
+      "adopted_resolution_number": "UR-353-42/23"
+     }
+    ],
+    "resolution_numbers_mentioned": [
+     "UR-353-42/23"
+    ],
+    "raw_text": "Předkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 15:07:57\nProgram jednání\n1. Určení zapisovatelů, předsedajícího, příp. ověřovatelů\n2. Schválení programu jednání\n3. Aktuální informace vedení města\n4. Složení Povodňové komise - Město Pečky\n5. Návrh rozpočtu 2024 a střednědobého výhledu rozpočtu\n6. Valná hromada Pečeckých služeb, s.r.o.\n7. Územní studie zastavitelné plochy \"Z09\" dle platného územního plánu po změně č. 2\n8. Územní studie zastavitelné plochy \"Z19\" dle platného územního plánu po změně č. 2\n9. Kontrola plnění usnesení\nDiskuze zahájena v 15:07:57\nK tomuto bodu se vyjádřili: Milan Paluska\nV 15:09:46 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Milan Paluska\") v tomto znění:\nRada\nměsta schvaluje návrh programu jednání.\ns těmito změnami:\n- doplňuje se bod č. 10 - Zápis z jednání Finančního výboru\nHlasování\npro:\n(4) Zdeněk Fejfar, Milan Paluska, Ivana Trčková, Ing. Karel Krištoufek\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-353-42/23\nzodpovídá:\ntermín:\nIHNED\n(4. 12. 2023)\nProjednávání bodu bylo ukončeno v 15:09:54"
+   },
+   {
+    "number": 3,
+    "title_raw": "Aktuální informace vedení města",
+    "heading_raw": "3. Aktuální informace vedení města (bod číslo 3)",
+    "predkladatel": "Milan Paluska",
+    "votes": [],
+    "resolution_numbers_mentioned": [],
+    "raw_text": "Předkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 15:09:59\nDůvodová zpráva:\nstarosta města\n- informace z kontrolního dne na úpravně vody - postupné oživení jednotlivých technologických systémů, příprava na příjezdovou cestu k úpravně /nepříznivé klimatické podmínky/\n- informace z kontrolního dne  - rekonstrukce kabin AFK Pečky - probíhají bourací práce, nutno přizvat statika\n- informace o zahájení Adventu ve Velkých Chvalovicích a v Pečkách - rozsvícení vánočního stromu s kulturním programem\n- informace o schůzce s projektanty - dopravní ostrůvek ve Velkých Chvalovicích\n- informace o analýze svozu odpadu ve Velkých Chvalovicích a v Pečkách - připravuje se osvěta a beseda v souvislosti s výsledkem analýzy\n- informace o projektu \"Nevajgluj\" - zadání úkolu oddělení ŽP o prověření a vyhodnocení možnosti se do projektu zapojit\nDiskuze zahájena v 15:09:59\nK tomuto bodu se vyjádřili: Milan Paluska, Zdeněk Fejfar, Ing. Karel Krištoufek, Ivana Trčková\nV 15:26:57 přišel Ing. Petr Dürr, přítomno 5 radních.\nAktualizovaný stav prezence:\nPřítomni:\n(5) Zdeněk Fejfar, Milan Paluska, Ivana Trčková, Ing. Karel Krištoufek, Ing. Petr Dürr\nOmluveni:\n(2) Ing. Martin Jedlička, Ing. Hana Kuprová\nNepřítomni:\n(0)\nRada bere materiály předložené k bodu č. 3 -\nAktuální informace vedení města\nna vědomí.\nProjednávání bodu bylo ukončeno v 15:47:00"
+   },
+   {
+    "number": 4,
+    "title_raw": "Složení Povodňové komise - Město Pečky",
+    "heading_raw": "4. Složení Povodňové komise - Město Pečky (bod číslo 4)",
+    "predkladatel": "Milan Paluska",
+    "votes": [
+     {
+      "raw_text": "pro:\n(5) Ing. Petr Dürr, Ing. Karel Krištoufek, Milan Paluska, Ivana Trčková, Zdeněk Fejfar\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)",
+      "pro": {
+       "count": 5,
+       "names": [
+        "Ing. Petr Dürr",
+        "Ing. Karel Krištoufek",
+        "Milan Paluska",
+        "Ivana Trčková",
+        "Zdeněk Fejfar"
+       ],
+       "raw": "(5) Ing. Petr Dürr, Ing. Karel Krištoufek, Milan Paluska, Ivana Trčková, Zdeněk Fejfar"
+      },
+      "proti": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "zdrzel_se": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "nehlasoval": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "result_raw": "Návrh byl přijat jako usnesení číslo: UR-354-42/23",
+      "adopted_resolution_number": "UR-354-42/23"
+     }
+    ],
+    "resolution_numbers_mentioned": [
+     "UR-354-42/23"
+    ],
+    "raw_text": "Předkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 15:47:05\nDůvodová zpráva:\nNa základě aktualizace Povodňového informačního systému /POVIS/ Městského úřadu\nKolín\n/ORP Kolín/ předkládáme ke schválení složení Povodňové komise města Pečky.\nDiskuze zahájena v 15:47:05\nK tomuto bodu se vyjádřili: Milan Paluska, Ing. Petr Dürr, Ing. Karel Krištoufek, Zdeněk Fejfar\nV 15:53:35 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Milan Paluska\") v tomto znění:\nRada\nměsta schvaluje aktualizovanou Povodňovou komisi města Pečky ve složení:\nMilan\nPaluska\n,\nZdeněk\nFejfar\n,\nPavel\nSedláček\n, Ing.\nPetr\nDürr\n, Ing.\nMartin\nJedlička\n, Bc.\nPavlína\nNepovímová\n, DiS.\nHlasování\npro:\n(5) Ing. Petr Dürr, Ing. Karel Krištoufek, Milan Paluska, Ivana Trčková, Zdeněk Fejfar\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-354-42/23\nzodpovídá:\nMilan Paluska\ntermín:\n18. 12. 2023\nProjednávání bodu bylo ukončeno v 15:53:43"
+   },
+   {
+    "number": 5,
+    "title_raw": "Návrh rozpočtu 2024 a střednědobého výhledu rozpočtu",
+    "heading_raw": "5. Návrh rozpočtu 2024 a střednědobého výhledu rozpočtu (bod číslo 5)",
+    "predkladatel": "Milan Paluska",
+    "votes": [
+     {
+      "raw_text": "pro:\n(5) Ing. Petr Dürr, Ivana Trčková, Zdeněk Fejfar, Ing. Karel Krištoufek, Milan Paluska\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)",
+      "pro": {
+       "count": 5,
+       "names": [
+        "Ing. Petr Dürr",
+        "Ivana Trčková",
+        "Zdeněk Fejfar",
+        "Ing. Karel Krištoufek",
+        "Milan Paluska"
+       ],
+       "raw": "(5) Ing. Petr Dürr, Ivana Trčková, Zdeněk Fejfar, Ing. Karel Krištoufek, Milan Paluska"
+      },
+      "proti": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "zdrzel_se": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "nehlasoval": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "result_raw": "Návrh byl přijat jako usnesení číslo: UR-355-42/23",
+      "adopted_resolution_number": "UR-355-42/23"
+     }
+    ],
+    "resolution_numbers_mentioned": [
+     "UR-355-42/23"
+    ],
+    "raw_text": "Předkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 15:53:47\nDůvodová zpráva:\nPo projednání finančním výborem je předložen RM návrh rozpočtu na rok 2024 a návrh střednědobého výhledu rozpočtu na obd. 2024 -2026. Oba dokumenty budou před projednáváním v ZM zveřejněny v souladu se zákonem č. 250/2000 Sb.. Rozpočet města na rok 2024 je sestaven jako schodkový, schodek ve výši 78 mil. Kč bude kryt použitím prostředků předchozích let.\nDiskuze zahájena v 15:53:47\nK tomuto bodu se vyjádřili: Milan Paluska, Ing. Karel Krištoufek, Zdeněk Fejfar, Ivana Trčková, Ing. Petr Dürr\nV 16:47:27 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Milan Paluska\") v tomto znění:\nRada\nměsta doporučuje zastupitelstvu města schválit rozpočet města na rok 2024 a střednědobý výhled rozpočtu 2024 - 2026 v souladu s usnesením finančního výboru.\nHlasování\npro:\n(5) Ing. Petr Dürr, Ivana Trčková, Zdeněk Fejfar, Ing. Karel Krištoufek, Milan Paluska\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-355-42/23\nzodpovídá:\nMarcela Bahníková\ntermín:\n20. 12. 2023\nProjednávání bodu bylo ukončeno v 16:47:35"
+   },
+   {
+    "number": 6,
+    "title_raw": "Valná hromada Pečeckých služeb, s.r.o.",
+    "heading_raw": "6. Valná hromada Pečeckých služeb, s.r.o. (bod číslo 6)",
+    "predkladatel": "Adam Brant",
+    "votes": [],
+    "resolution_numbers_mentioned": [],
+    "raw_text": "Předkladatel: Adam Brant\nProjednávání bodu bylo zahájeno v 16:47:42\nDůvodová zpráva:\nValná\nhromada Pečeckých služeb, s.r.o.\nDiskuze zahájena v 16:47:42\nK tomuto bodu se vyjádřili: Milan Paluska, Ing. Adam Brant\nRada bere materiály předložené k bodu č. 6 -\nValná hromada Pečeckých služeb, s.r.o.\nna vědomí.\nProjednávání bodu bylo ukončeno v 17:03:32"
+   },
+   {
+    "number": 7,
+    "title_raw": "Územní studie zastavitelné plochy \"Z09\" dle platného územního plánu po změně č. 2",
+    "heading_raw": "7. Územní studie zastavitelné plochy \"Z09\" dle platného územního plánu po změně č. 2 (bod číslo 7)",
+    "predkladatel": "Zdeněk Fejfar",
+    "votes": [],
+    "resolution_numbers_mentioned": [],
+    "raw_text": "Předkladatel: Zdeněk Fejfar\nProjednávání bodu bylo zahájeno v 17:04:13\nDůvodová zpráva:\nPo provedení změny č.2 územního plánu města Pečky a jeho standardizace, došlo k aktivaci specifických podmínek využití. Jedna z podmínek pro plochu Z09 je nutnost prověřit plochu územní studií. S ohledem na skutečnost, že v dané ploše již probíhá výstavba RD po rozparcelování části zastavitelné plochy, na další část je již odsouhlasena studie další části zastavitelné plochy mezi firmou VPK\nSuchý\nDevelopment s.r.o. a městem Pečky (zde je i sepsána Dohoda o spolupráci), rozhodl se investor VPK\nSuchý\nDevelopment s.r.o. vypracovat tuto územní studii pro zastavitelnou plochu Z09.\nTato\nstudie byla konzultována s panem Skálou (pořizovatelem územní studie) a nyní ji předkládám RM k seznámení a na vědomí.\nDiskuze zahájena v 17:04:13\nK tomuto bodu se vyjádřili: Zdeněk Fejfar\nRada bere materiály předložené k bodu č. 7 -\nÚzemní studie zastavitelné plochy \"Z09\" dle platného územního plánu po změně č. 2\nna vědomí.\nProjednávání bodu bylo ukončeno v 17:13:45"
+   },
+   {
+    "number": 8,
+    "title_raw": "Územní studie zastavitelné plochy \"Z19\" dle platného územního plánu po změně č. 2",
+    "heading_raw": "8. Územní studie zastavitelné plochy \"Z19\" dle platného územního plánu po změně č. 2 (bod číslo 8)",
+    "predkladatel": "Zdeněk Fejfar",
+    "votes": [],
+    "resolution_numbers_mentioned": [],
+    "raw_text": "Předkladatel: Zdeněk Fejfar\nProjednávání bodu bylo zahájeno v 17:13:50\nDůvodová zpráva:\nPo provedení změny č.2 územního plánu města Pečky a jeho standardizace, došlo k aktivaci specifických podmínek využití. Jedna z podmínek pro plochu Z19 je nutnost prověřit plochu územní studií. S ohledem na skutečnost, že v dané ploše již probíhá rozparcelování části zastavitelné plochy firmou PALMA development s.r.o. dle uzavřené Dohody o spolupráci mezi PALMA development s.r.o.  a městem Pečky, rozhodl se investor PALMA development s.r.o. vypracovat tuto územní studii pro zastavitelnou plochu Z19.\nTato\nstudie byla konzultována s panem Skálou (pořizovatelem územní studie) a nyní ji předkládám RM k seznámení a na vědomí.\nDiskuze zahájena v 17:13:50\nK tomuto bodu se vyjádřili: Zdeněk Fejfar\nRada bere materiály předložené k bodu č. 8 -\nÚzemní studie zastavitelné plochy \"Z19\" dle platného územního plánu po změně č. 2\nna vědomí.\nProjednávání bodu bylo ukončeno v 17:16:32"
+   },
+   {
+    "number": 9,
+    "title_raw": "Kontrola plnění usnesení",
+    "heading_raw": "9. Kontrola plnění usnesení (bod číslo 9)",
+    "predkladatel": "Milan Paluska",
+    "votes": [],
+    "resolution_numbers_mentioned": [],
+    "raw_text": "Předkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 17:16:40\nDiskuze zahájena v 17:16:40\nK tomuto bodu se vyjádřili: Milan Paluska\nRada bere materiály předložené k bodu č. 9 -\nKontrola plnění usnesení\nna vědomí.\nProjednávání bodu bylo ukončeno v 17:16:55"
+   },
+   {
+    "number": 10,
+    "title_raw": "Zápis z jednání Finančního výboru",
+    "heading_raw": "10. Zápis z jednání Finančního výboru (bod číslo 10)",
+    "predkladatel": "Ing. Karel Krištoufek",
+    "votes": [],
+    "resolution_numbers_mentioned": [],
+    "raw_text": "Předkladatel: Ing. Karel Krištoufek\nProjednávání bodu bylo zahájeno v 17:16:59\nDůvodová zpráva:\nPředkládáme k projednání zápis z jednání Finančního výboru ze dne 30.11.2023. Finanční výbor doporučuje ZM schválit:\n- návrh rozpočtu města pro rok 2024 /rozpočet je sestaven jako deficitní s tím, že rozdíl příjmů a výdajů bude financován použitím prostředků předchozích let/\n- návrh střednědobého výhledu rozpočtu 2024 - 2026\nRada\nměsta bere zápis na vědomí.\nDiskuze zahájena v 17:16:59\nK tomuto bodu se vyjádřili: Ing. Karel Krištoufek, Zdeněk Fejfar, Ing. Petr Dürr\nRada bere materiály předložené k bodu č. 10 -\nZápis z jednání Finančního výboru\nna vědomí.\nProjednávání bodu bylo ukončeno v 17:22:20\nJednání ukončeno 04.12.2023 v 17:22:37"
+   }
+  ],
+  "full_text": "ZÁPIS ze schůze rady č. 42/2023\nMěsto Pečky\ndatum: 4. 12. 2023, čas: 15:00\n​\nPrezence:\nPřítomni:\n(4) Zdeněk Fejfar, Milan Paluska, Ivana Trčková, Ing. Karel Krištoufek\nOmluveni:\n(2) Ing. Martin Jedlička, Ing. Hana Kuprová\nNepřítomni:\n(1) Ing. Petr Dürr\nHosté:\nIng. Adam Brant\nZapisovatel/ka:\nEva Strnadová\nPřítomno je 4 členů a rada je usnášeníschopná.\nJednání zahájeno 04.12.2023 v 15:07:19\n1. Určení zapisovatelů, předsedajícího, příp. ověřovatelů (bod číslo 1)\nPředkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 15:07:25\nPředsedající navrhl jednotlivé členy pracovních komisí\nOvěřovatelé:\nIng. Karel Krištoufek, Zdeněk Fejfar\nPředsedající:\nMilan Paluska\nBod byl přijat bez hlasování.\nDiskuze zahájena v 15:07:25\nK tomuto bodu se vyjádřili: Milan Paluska\nProjednávání bodu bylo ukončeno v 15:07:53\n2. Schválení programu jednání (bod číslo 2)\nPředkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 15:07:57\nProgram jednání\n1. Určení zapisovatelů, předsedajícího, příp. ověřovatelů\n2. Schválení programu jednání\n3. Aktuální informace vedení města\n4. Složení Povodňové komise - Město Pečky\n5. Návrh rozpočtu 2024 a střednědobého výhledu rozpočtu\n6. Valná hromada Pečeckých služeb, s.r.o.\n7. Územní studie zastavitelné plochy \"Z09\" dle platného územního plánu po změně č. 2\n8. Územní studie zastavitelné plochy \"Z19\" dle platného územního plánu po změně č. 2\n9. Kontrola plnění usnesení\nDiskuze zahájena v 15:07:57\nK tomuto bodu se vyjádřili: Milan Paluska\nV 15:09:46 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Milan Paluska\") v tomto znění:\nRada\nměsta schvaluje návrh programu jednání.\ns těmito změnami:\n- doplňuje se bod č. 10 - Zápis z jednání Finančního výboru\nHlasování\npro:\n(4) Zdeněk Fejfar, Milan Paluska, Ivana Trčková, Ing. Karel Krištoufek\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-353-42/23\nzodpovídá:\ntermín:\nIHNED\n(4. 12. 2023)\nProjednávání bodu bylo ukončeno v 15:09:54\n3. Aktuální informace vedení města (bod číslo 3)\nPředkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 15:09:59\nDůvodová zpráva:\nstarosta města\n- informace z kontrolního dne na úpravně vody - postupné oživení jednotlivých technologických systémů, příprava na příjezdovou cestu k úpravně /nepříznivé klimatické podmínky/\n- informace z kontrolního dne  - rekonstrukce kabin AFK Pečky - probíhají bourací práce, nutno přizvat statika\n- informace o zahájení Adventu ve Velkých Chvalovicích a v Pečkách - rozsvícení vánočního stromu s kulturním programem\n- informace o schůzce s projektanty - dopravní ostrůvek ve Velkých Chvalovicích\n- informace o analýze svozu odpadu ve Velkých Chvalovicích a v Pečkách - připravuje se osvěta a beseda v souvislosti s výsledkem analýzy\n- informace o projektu \"Nevajgluj\" - zadání úkolu oddělení ŽP o prověření a vyhodnocení možnosti se do projektu zapojit\nDiskuze zahájena v 15:09:59\nK tomuto bodu se vyjádřili: Milan Paluska, Zdeněk Fejfar, Ing. Karel Krištoufek, Ivana Trčková\nV 15:26:57 přišel Ing. Petr Dürr, přítomno 5 radních.\nAktualizovaný stav prezence:\nPřítomni:\n(5) Zdeněk Fejfar, Milan Paluska, Ivana Trčková, Ing. Karel Krištoufek, Ing. Petr Dürr\nOmluveni:\n(2) Ing. Martin Jedlička, Ing. Hana Kuprová\nNepřítomni:\n(0)\nRada bere materiály předložené k bodu č. 3 -\nAktuální informace vedení města\nna vědomí.\nProjednávání bodu bylo ukončeno v 15:47:00\n4. Složení Povodňové komise - Město Pečky (bod číslo 4)\nPředkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 15:47:05\nDůvodová zpráva:\nNa základě aktualizace Povodňového informačního systému /POVIS/ Městského úřadu\nKolín\n/ORP Kolín/ předkládáme ke schválení složení Povodňové komise města Pečky.\nDiskuze zahájena v 15:47:05\nK tomuto bodu se vyjádřili: Milan Paluska, Ing. Petr Dürr, Ing. Karel Krištoufek, Zdeněk Fejfar\nV 15:53:35 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Milan Paluska\") v tomto znění:\nRada\nměsta schvaluje aktualizovanou Povodňovou komisi města Pečky ve složení:\nMilan\nPaluska\n,\nZdeněk\nFejfar\n,\nPavel\nSedláček\n, Ing.\nPetr\nDürr\n, Ing.\nMartin\nJedlička\n, Bc.\nPavlína\nNepovímová\n, DiS.\nHlasování\npro:\n(5) Ing. Petr Dürr, Ing. Karel Krištoufek, Milan Paluska, Ivana Trčková, Zdeněk Fejfar\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-354-42/23\nzodpovídá:\nMilan Paluska\ntermín:\n18. 12. 2023\nProjednávání bodu bylo ukončeno v 15:53:43\n5. Návrh rozpočtu 2024 a střednědobého výhledu rozpočtu (bod číslo 5)\nPředkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 15:53:47\nDůvodová zpráva:\nPo projednání finančním výborem je předložen RM návrh rozpočtu na rok 2024 a návrh střednědobého výhledu rozpočtu na obd. 2024 -2026. Oba dokumenty budou před projednáváním v ZM zveřejněny v souladu se zákonem č. 250/2000 Sb.. Rozpočet města na rok 2024 je sestaven jako schodkový, schodek ve výši 78 mil. Kč bude kryt použitím prostředků předchozích let.\nDiskuze zahájena v 15:53:47\nK tomuto bodu se vyjádřili: Milan Paluska, Ing. Karel Krištoufek, Zdeněk Fejfar, Ivana Trčková, Ing. Petr Dürr\nV 16:47:27 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Milan Paluska\") v tomto znění:\nRada\nměsta doporučuje zastupitelstvu města schválit rozpočet města na rok 2024 a střednědobý výhled rozpočtu 2024 - 2026 v souladu s usnesením finančního výboru.\nHlasování\npro:\n(5) Ing. Petr Dürr, Ivana Trčková, Zdeněk Fejfar, Ing. Karel Krištoufek, Milan Paluska\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-355-42/23\nzodpovídá:\nMarcela Bahníková\ntermín:\n20. 12. 2023\nProjednávání bodu bylo ukončeno v 16:47:35\n6. Valná hromada Pečeckých služeb, s.r.o. (bod číslo 6)\nPředkladatel: Adam Brant\nProjednávání bodu bylo zahájeno v 16:47:42\nDůvodová zpráva:\nValná\nhromada Pečeckých služeb, s.r.o.\nDiskuze zahájena v 16:47:42\nK tomuto bodu se vyjádřili: Milan Paluska, Ing. Adam Brant\nRada bere materiály předložené k bodu č. 6 -\nValná hromada Pečeckých služeb, s.r.o.\nna vědomí.\nProjednávání bodu bylo ukončeno v 17:03:32\n7. Územní studie zastavitelné plochy \"Z09\" dle platného územního plánu po změně č. 2 (bod číslo 7)\nPředkladatel: Zdeněk Fejfar\nProjednávání bodu bylo zahájeno v 17:04:13\nDůvodová zpráva:\nPo provedení změny č.2 územního plánu města Pečky a jeho standardizace, došlo k aktivaci specifických podmínek využití. Jedna z podmínek pro plochu Z09 je nutnost prověřit plochu územní studií. S ohledem na skutečnost, že v dané ploše již probíhá výstavba RD po rozparcelování části zastavitelné plochy, na další část je již odsouhlasena studie další části zastavitelné plochy mezi firmou VPK\nSuchý\nDevelopment s.r.o. a městem Pečky (zde je i sepsána Dohoda o spolupráci), rozhodl se investor VPK\nSuchý\nDevelopment s.r.o. vypracovat tuto územní studii pro zastavitelnou plochu Z09.\nTato\nstudie byla konzultována s panem Skálou (pořizovatelem územní studie) a nyní ji předkládám RM k seznámení a na vědomí.\nDiskuze zahájena v 17:04:13\nK tomuto bodu se vyjádřili: Zdeněk Fejfar\nRada bere materiály předložené k bodu č. 7 -\nÚzemní studie zastavitelné plochy \"Z09\" dle platného územního plánu po změně č. 2\nna vědomí.\nProjednávání bodu bylo ukončeno v 17:13:45\n8. Územní studie zastavitelné plochy \"Z19\" dle platného územního plánu po změně č. 2 (bod číslo 8)\nPředkladatel: Zdeněk Fejfar\nProjednávání bodu bylo zahájeno v 17:13:50\nDůvodová zpráva:\nPo provedení změny č.2 územního plánu města Pečky a jeho standardizace, došlo k aktivaci specifických podmínek využití. Jedna z podmínek pro plochu Z19 je nutnost prověřit plochu územní studií. S ohledem na skutečnost, že v dané ploše již probíhá rozparcelování části zastavitelné plochy firmou PALMA development s.r.o. dle uzavřené Dohody o spolupráci mezi PALMA development s.r.o.  a městem Pečky, rozhodl se investor PALMA development s.r.o. vypracovat tuto územní studii pro zastavitelnou plochu Z19.\nTato\nstudie byla konzultována s panem Skálou (pořizovatelem územní studie) a nyní ji předkládám RM k seznámení a na vědomí.\nDiskuze zahájena v 17:13:50\nK tomuto bodu se vyjádřili: Zdeněk Fejfar\nRada bere materiály předložené k bodu č. 8 -\nÚzemní studie zastavitelné plochy \"Z19\" dle platného územního plánu po změně č. 2\nna vědomí.\nProjednávání bodu bylo ukončeno v 17:16:32\n9. Kontrola plnění usnesení (bod číslo 9)\nPředkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 17:16:40\nDiskuze zahájena v 17:16:40\nK tomuto bodu se vyjádřili: Milan Paluska\nRada bere materiály předložené k bodu č. 9 -\nKontrola plnění usnesení\nna vědomí.\nProjednávání bodu bylo ukončeno v 17:16:55\n10. Zápis z jednání Finančního výboru (bod číslo 10)\nPředkladatel: Ing. Karel Krištoufek\nProjednávání bodu bylo zahájeno v 17:16:59\nDůvodová zpráva:\nPředkládáme k projednání zápis z jednání Finančního výboru ze dne 30.11.2023. Finanční výbor doporučuje ZM schválit:\n- návrh rozpočtu města pro rok 2024 /rozpočet je sestaven jako deficitní s tím, že rozdíl příjmů a výdajů bude financován použitím prostředků předchozích let/\n- návrh střednědobého výhledu rozpočtu 2024 - 2026\nRada\nměsta bere zápis na vědomí.\nDiskuze zahájena v 17:16:59\nK tomuto bodu se vyjádřili: Ing. Karel Krištoufek, Zdeněk Fejfar, Ing. Petr Dürr\nRada bere materiály předložené k bodu č. 10 -\nZápis z jednání Finančního výboru\nna vědomí.\nProjednávání bodu bylo ukončeno v 17:22:20\nJednání ukončeno 04.12.2023 v 17:22:37"
+ },
+ "resolutions": {
+  "status": "ok",
+  "url": "https://mesto-pecky.usneseni.cz/verejne/65dcd74e-8e90-11ee-9584-00505683238f/usneseni/",
+  "fetched_at": "2026-08-04T13:59:26.821014+00:00",
+  "items": [
+   {
+    "number_raw": "UR-353-42/23",
+    "detail_id": 51693,
+    "detail_url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/51693?mod=rada",
+    "agenda_item_raw": "Schválení programu jednání",
+    "text_verbatim": "Rada\nměsta schvaluje návrh programu jednání.\ns těmito změnami:\n- doplňuje se bod č. 10 - Zápis z jednání Finančního výboru",
+    "cell_text_raw": "Bod programu:\nSchválení programu jednání\nText přijatého usnesení:\nRada\nměsta schvaluje návrh programu jednání.\ns těmito změnami:\n- doplňuje se bod č. 10 - Zápis z jednání Finančního výboru",
+    "date_raw": "4. 12. 2023",
+    "date_iso": "2023-12-04",
+    "responsible_raw": "",
+    "deadline_raw": "IHNED (4. 12. 2023)",
+    "vote": {
+     "raw_text": "pro: 4 proti: 0 zdržel se: 0",
+     "pro": {
+      "count": 4,
+      "names": null,
+      "raw": "4"
+     },
+     "proti": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     },
+     "zdrzel_se": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     }
+    },
+    "detail": {
+     "number_raw": "UR-353-42/23",
+     "text_verbatim": "Rada města schvaluje návrh programu jednání.\ns těmito změnami: - doplňuje se bod č. 10 - Zápis z jednání Finančního výboru",
+     "typ_raw": null,
+     "zodpovida_raw": "",
+     "prijato_raw": "4. 12. 2023 na jednání č. 42/2023",
+     "prijato_date_iso": "2023-12-04",
+     "prijato_meeting_label": "42/2023",
+     "termin_raw": "IHNED (4. 12. 2023)",
+     "ukonceno_raw": "4. 12. 2023",
+     "ukonceno_date_iso": "2023-12-04",
+     "fields_raw": {
+      "Číslo usnesení": "UR-353-42/23",
+      "Text usnesení": "Rada města schvaluje návrh programu jednání.\ns těmito změnami: - doplňuje se bod č. 10 - Zápis z jednání Finančního výboru",
+      "Zodpovídá": "",
+      "Přijato": "4. 12. 2023 na jednání č. 42/2023",
+      "Termín": "IHNED (4. 12. 2023)",
+      "Ukončeno": "4. 12. 2023"
+     }
+    }
+   },
+   {
+    "number_raw": "UR-354-42/23",
+    "detail_id": 51702,
+    "detail_url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/51702?mod=rada",
+    "agenda_item_raw": "Složení Povodňové komise - Město Pečky",
+    "text_verbatim": "Rada\nměsta schvaluje aktualizovanou Povodňovou komisi města Pečky ve složení:\nMilan\nPaluska\n,\nZdeněk\nFejfar\n,\nPavel\nSedláček\n, Ing.\nPetr\nDürr\n, Ing.\nMartin\nJedlička\n, Bc.\nPavlína\nNepovímová\n, DiS.",
+    "cell_text_raw": "Bod programu:\nSložení Povodňové komise - Město Pečky\nText přijatého usnesení:\nRada\nměsta schvaluje aktualizovanou Povodňovou komisi města Pečky ve složení:\nMilan\nPaluska\n,\nZdeněk\nFejfar\n,\nPavel\nSedláček\n, Ing.\nPetr\nDürr\n, Ing.\nMartin\nJedlička\n, Bc.\nPavlína\nNepovímová\n, DiS.",
+    "date_raw": "4. 12. 2023",
+    "date_iso": "2023-12-04",
+    "responsible_raw": "Milan Paluska",
+    "deadline_raw": "18. 12. 2023",
+    "vote": {
+     "raw_text": "pro: 5 proti: 0 zdržel se: 0",
+     "pro": {
+      "count": 5,
+      "names": null,
+      "raw": "5"
+     },
+     "proti": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     },
+     "zdrzel_se": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     }
+    },
+    "detail": {
+     "number_raw": "UR-354-42/23",
+     "text_verbatim": "Rada města schvaluje aktualizovanou Povodňovou komisi města Pečky ve složení: Milan Paluska , Zdeněk Fejfar , Pavel Sedláček , Ing. Petr Dürr , Ing. Martin Jedlička , Bc. Pavlína Nepovímová , DiS.",
+     "typ_raw": null,
+     "zodpovida_raw": "Milan Paluska",
+     "prijato_raw": "4. 12. 2023 na jednání č. 42/2023",
+     "prijato_date_iso": "2023-12-04",
+     "prijato_meeting_label": "42/2023",
+     "termin_raw": "18. 12. 2023",
+     "ukonceno_raw": "5. 12. 2023",
+     "ukonceno_date_iso": "2023-12-05",
+     "fields_raw": {
+      "Číslo usnesení": "UR-354-42/23",
+      "Text usnesení": "Rada města schvaluje aktualizovanou Povodňovou komisi města Pečky ve složení: Milan Paluska , Zdeněk Fejfar , Pavel Sedláček , Ing. Petr Dürr , Ing. Martin Jedlička , Bc. Pavlína Nepovímová , DiS.",
+      "Zodpovídá": "Milan Paluska",
+      "Přijato": "4. 12. 2023 na jednání č. 42/2023",
+      "Termín": "18. 12. 2023",
+      "Ukončeno": "5. 12. 2023"
+     }
+    }
+   },
+   {
+    "number_raw": "UR-355-42/23",
+    "detail_id": 51943,
+    "detail_url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/51943?mod=rada",
+    "agenda_item_raw": "Návrh rozpočtu 2024 a střednědobého výhledu rozpočtu",
+    "text_verbatim": "Rada\nměsta doporučuje zastupitelstvu města schválit rozpočet města na rok 2024 a střednědobý výhled rozpočtu 2024 - 2026 v souladu s usnesením finančního výboru.",
+    "cell_text_raw": "Bod programu:\nNávrh rozpočtu 2024 a střednědobého výhledu rozpočtu\nText přijatého usnesení:\nRada\nměsta doporučuje zastupitelstvu města schválit rozpočet města na rok 2024 a střednědobý výhled rozpočtu 2024 - 2026 v souladu s usnesením finančního výboru.",
+    "date_raw": "4. 12. 2023",
+    "date_iso": "2023-12-04",
+    "responsible_raw": "Marcela Bahníková",
+    "deadline_raw": "20. 12. 2023",
+    "vote": {
+     "raw_text": "pro: 5 proti: 0 zdržel se: 0",
+     "pro": {
+      "count": 5,
+      "names": null,
+      "raw": "5"
+     },
+     "proti": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     },
+     "zdrzel_se": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     }
+    },
+    "detail": {
+     "number_raw": "UR-355-42/23",
+     "text_verbatim": "Rada města doporučuje zastupitelstvu města schválit rozpočet města na rok 2024 a střednědobý výhled rozpočtu 2024 - 2026 v souladu s usnesením finančního výboru.",
+     "typ_raw": null,
+     "zodpovida_raw": "Marcela Bahníková",
+     "prijato_raw": "4. 12. 2023 na jednání č. 42/2023",
+     "prijato_date_iso": "2023-12-04",
+     "prijato_meeting_label": "42/2023",
+     "termin_raw": "20. 12. 2023",
+     "ukonceno_raw": "20. 12. 2023",
+     "ukonceno_date_iso": "2023-12-20",
+     "fields_raw": {
+      "Číslo usnesení": "UR-355-42/23",
+      "Text usnesení": "Rada města doporučuje zastupitelstvu města schválit rozpočet města na rok 2024 a střednědobý výhled rozpočtu 2024 - 2026 v souladu s usnesením finančního výboru.",
+      "Zodpovídá": "Marcela Bahníková",
+      "Přijato": "4. 12. 2023 na jednání č. 42/2023",
+      "Termín": "20. 12. 2023",
+      "Ukončeno": "20. 12. 2023"
+     }
+    }
+   }
+  ]
+ }
+}

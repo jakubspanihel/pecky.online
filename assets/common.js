@@ -169,6 +169,12 @@ function relBudouci(iso) {
   if (n < 60) return 'za ' + Math.floor(n / 7) + (n < 35 ? ' týdny' : ' týdnů');
   return 'za ' + Math.floor(n / 30.4) + (n < 152 ? ' měsíce' : ' měsíců');
 }
+// ===== Minulé datum -> chip „včera / před 3 dny“ (relDatum) =====
+// <span class="tag rel-chip" data-date="YYYY-MM-DD">včera</span>; text uvnitř je záloha bez JS.
+document.querySelectorAll('.rel-chip[data-date]').forEach(el => {
+  const t = relDatum(el.getAttribute('data-date'));
+  if (t && t !== 'plánováno') el.textContent = t;
+});
 (function () {
   document.querySelectorAll('.fut-chip[data-date]').forEach(el => {
     const t = relBudouci(el.getAttribute('data-date'));

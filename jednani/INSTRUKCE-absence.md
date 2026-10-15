@@ -110,7 +110,7 @@ záhlaví se v čase změnilo — 30 starších zápisů má „Prezence:", 8 z�
 od 25. 6. 2025 „Úvodní prezence:". Kdo dorazil po zahájení, zůstane
 v `absent_names`, přestože se jednání zúčastnil.
 
-Ověřeno křížem proti jmenným hlasováním v `archive-2026-08-04.json`:
+Ověřeno křížem proti jmenným hlasováním v `archive/`:
 **12 případů na 10 zasedáních ZM**, kdy člověk chybí v úvodní prezenci,
 ale později hlasoval. Doložené případy:
 
@@ -265,8 +265,8 @@ funkci používá výpis jednání pro dohledání fotek.
 
 ## 6. Technické poznámky
 
-- Velký `archive-*.json` se z připojené složky občas nedá číst přímo
-  (`OSError: [Errno 35]`). Nejdřív `cp` do `/tmp`, pak pracovat s kopií.
+- Archiv je rozdělený na jednání (`jednani/archive/`, načítání přes `load_archive()` v
+  `jednani/scripts/archive_split.py`); dřívější problém s čtením jediného velkého souboru odpadl.
 - Archiv má **jinou strukturu** než `pecky-jednani.json`: orgán je
   `body_type_raw` (ne `type`), datum `date_iso` (ne `date`). Filtrovat
   zastupitelstvo podstringem `astupitel` v `body_type_raw`.

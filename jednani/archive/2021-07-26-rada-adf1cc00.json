@@ -1,0 +1,1929 @@
+{
+ "uuid": "adf1cc00-d7fb-11eb-a57d-fbe1f89fb344",
+ "body_type_raw": "Rada",
+ "label_raw": "12/2021 (26. 7. 2021)",
+ "number": 12,
+ "year": 2021,
+ "date_iso": "2021-07-26",
+ "links": {
+  "invitation": "https://mesto-pecky.usneseni.cz/verejne/?uuid=adf1cc00-d7fb-11eb-a57d-fbe1f89fb344&page=18&do=printPublicInvitation",
+  "minutes": "https://mesto-pecky.usneseni.cz/verejne/adf1cc00-d7fb-11eb-a57d-fbe1f89fb344/zapis/?page=18",
+  "signed_minutes_pdf": "https://mesto-pecky.usneseni.cz/verejne/?meetingReportControl-uuid=adf1cc00-d7fb-11eb-a57d-fbe1f89fb344&page=18&do=meetingReportControl-getSignedReportPdf",
+  "resolutions": "https://mesto-pecky.usneseni.cz/verejne/adf1cc00-d7fb-11eb-a57d-fbe1f89fb344/usneseni/?page=18",
+  "audio": null
+ },
+ "link_texts": {
+  "invitation": "Pozvánka",
+  "minutes": "zápis",
+  "signed_minutes_pdf": "podepsaný zápis",
+  "resolutions": "přijatá usnesení"
+ },
+ "status": "ok",
+ "invitation": {
+  "status": "site_error",
+  "error": "status=200 ct=text/html; charset=utf-8 flash='<a href=\"\" class=\"close\" data-dismiss=\"alert\" aria-label=\"close\">&times;'",
+  "url": "https://mesto-pecky.usneseni.cz/verejne/?uuid=adf1cc00-d7fb-11eb-a57d-fbe1f89fb344&do=printPublicInvitation",
+  "fetched_at": "2026-08-04T15:16:12.262810+00:00"
+ },
+ "minutes": {
+  "status": "ok",
+  "url": "https://mesto-pecky.usneseni.cz/verejne/adf1cc00-d7fb-11eb-a57d-fbe1f89fb344/zapis/",
+  "fetched_at": "2026-08-04T14:45:55.869792+00:00",
+  "title_raw": "ZÁPIS z jednání rady č. 12/2021 Město Pečky datum: 26. 7. 2021, čas: 14:30 ​",
+  "date_raw": "26. 7. 2021",
+  "date_iso": "2021-07-26",
+  "time_raw": "14:30",
+  "presence": {
+   "raw_text": "Prezence:\nPřítomni:\n(6) Mgr. Alena Švejnohová, Bc. Iveta Minaříková, Tomáš Vodička, Jiří Katrnoška, Jaroslav Železný, Mgr. Blanka Kozáková\nOmluveni:\n(1) Šárka Horynová\nNepřítomni:\nHosté:\nZapisovatel/ka:\nLudmila Renková\nPřítomno je 6 členů a rada je usnášeníschopná.\nJednání zahájeno 26.07.2021 v 14:38:29",
+   "pritomni": {
+    "count": 6,
+    "names": [
+     "Mgr. Alena Švejnohová",
+     "Bc. Iveta Minaříková",
+     "Tomáš Vodička",
+     "Jiří Katrnoška",
+     "Jaroslav Železný",
+     "Mgr. Blanka Kozáková"
+    ],
+    "raw": "(6) Mgr. Alena Švejnohová, Bc. Iveta Minaříková, Tomáš Vodička, Jiří Katrnoška, Jaroslav Železný, Mgr. Blanka Kozáková"
+   },
+   "omluveni": {
+    "count": 1,
+    "names": [
+     "Šárka Horynová"
+    ],
+    "raw": "(1) Šárka Horynová"
+   },
+   "nepritomni": null,
+   "predsedajici": null,
+   "quorum_raw": "Přítomno je 6 členů a rada je usnášeníschopná."
+  },
+  "header_raw": "Prezence:\nPřítomni:\n(6) Mgr. Alena Švejnohová, Bc. Iveta Minaříková, Tomáš Vodička, Jiří Katrnoška, Jaroslav Železný, Mgr. Blanka Kozáková\nOmluveni:\n(1) Šárka Horynová\nNepřítomni:\nHosté:\nZapisovatel/ka:\nLudmila Renková\nPřítomno je 6 členů a rada je usnášeníschopná.\nJednání zahájeno 26.07.2021 v 14:38:29",
+  "agenda_items": [
+   {
+    "number": 1,
+    "title_raw": "Určení zapisovatelů, předsedajícího, příp. ověřovatelů",
+    "heading_raw": "1. Určení zapisovatelů, předsedajícího, příp. ověřovatelů (bod číslo 1)",
+    "predkladatel": "Mgr. Alena Švejnohová",
+    "votes": [
+     {
+      "raw_text": "pro:\n(6) Tomáš Vodička, Jiří Katrnoška, Bc. Iveta Minaříková, Mgr. Alena Švejnohová, Jaroslav Železný, Mgr. Blanka Kozáková\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)",
+      "pro": {
+       "count": 6,
+       "names": [
+        "Tomáš Vodička",
+        "Jiří Katrnoška",
+        "Bc. Iveta Minaříková",
+        "Mgr. Alena Švejnohová",
+        "Jaroslav Železný",
+        "Mgr. Blanka Kozáková"
+       ],
+       "raw": "(6) Tomáš Vodička, Jiří Katrnoška, Bc. Iveta Minaříková, Mgr. Alena Švejnohová, Jaroslav Železný, Mgr. Blanka Kozáková"
+      },
+      "proti": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "zdrzel_se": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "nehlasoval": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "result_raw": "Návrh byl přijat jako usnesení číslo: UR-130-12/21",
+      "adopted_resolution_number": "UR-130-12/21"
+     }
+    ],
+    "resolution_numbers_mentioned": [
+     "UR-130-12/21"
+    ],
+    "raw_text": "Předkladatel: Mgr. Alena Švejnohová\nProjednávání bodu bylo zahájeno v 14:40:21\nPředsedající navrhl jednotlivé členy pracovních komisí\nOvěřovatelé:\nJaroslav Železný, Jiří Katrnoška\nPředsedající:\nMgr. Alena Švejnohová\nBod byl přijat bez hlasování.\nDiskuze zahájena v 14:40:21\nProjednávání bodu bylo ukončeno v 14:44:37\nV 14:49:18 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Alena Švejnohová\") v tomto znění:\nRada\nměsta schvaluje návrh programu jednání.\ns těmito změnami:\n- doplňuje se bod č. 22 - Uzavření dodatku č. 1 v SOD: \"Přeložka plynu\nVelké\nChvalovice\"\n- doplňuje se bod č. 23 - Vyhlášení výběrového řízení \"PROJEKTOVÁ DOKUMENTACE Revitalizace\nMlýnského\nnáhonu v Pečkách\"\nHlasování\npro:\n(6) Tomáš Vodička, Jiří Katrnoška, Bc. Iveta Minaříková, Mgr. Alena Švejnohová, Jaroslav Železný, Mgr. Blanka Kozáková\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-130-12/21\nzodpovídá:\ntermín:\n26. 7. 2021"
+   },
+   {
+    "number": 3,
+    "title_raw": "Aktuální informace vedení města",
+    "heading_raw": "2. Aktuální informace vedení města (bod číslo 3)",
+    "predkladatel": "Mgr. Alena Švejnohová",
+    "votes": [],
+    "resolution_numbers_mentioned": [],
+    "raw_text": "Předkladatel: Mgr. Alena Švejnohová\nProjednávání bodu bylo zahájeno v 14:49:47\nDůvodová zpráva\nSta\nrostka města\n-  informace o konání akce \"Den otevřené stavby Velim-Poříčany, BC\" dne 5.8.2021\n-  koncepce umístění laviček od sídliště ke hřbitovu\nI. místostarostka Bc.\nIveta\nMinaříková\n-  informace o II. etapě projektu na revitalizaci parku - cesty, sítě, mobiliáře\n-  informace o výběrovém řízení na zhotovitele přechodu pro chodce J. A.\nKomenského\na tř. 5. května, k.ú. Pečky - viz bod programu 24\n-  informace o veřejném projednávání změny č. I územního plánu města Pečky  dne 21.7.2021\n-  informaci o videokonferenci s firmou XTOPIX architekti, s.r.o. ohledně projektové dokumentace v parku pod vodojemem\nJiří\nKatrnoška\n-  upozornění na stav  chodníku  ul.\nHálkova\nv souvislosti s vedením objízdné trasy z důvodu stavebních úprav komunikace ve\nVrbové\nLhotě\nDiskuze zahájena v 14:49:47\nProjednávání bodu bylo ukončeno v 14:50:46"
+   },
+   {
+    "number": 4,
+    "title_raw": "Schválení Smlouvy mezi městem Pečky a firmou Elektrowin, a.s.",
+    "heading_raw": "3. Schválení Smlouvy mezi městem Pečky a firmou Elektrowin, a.s. (bod číslo 4)",
+    "predkladatel": "Hana Pokorná",
+    "votes": [
+     {
+      "raw_text": "pro:\n(6) Jiří Katrnoška, Mgr. Alena Švejnohová, Tomáš Vodička, Bc. Iveta Minaříková, Mgr. Blanka Kozáková, Jaroslav Železný\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)",
+      "pro": {
+       "count": 6,
+       "names": [
+        "Jiří Katrnoška",
+        "Mgr. Alena Švejnohová",
+        "Tomáš Vodička",
+        "Bc. Iveta Minaříková",
+        "Mgr. Blanka Kozáková",
+        "Jaroslav Železný"
+       ],
+       "raw": "(6) Jiří Katrnoška, Mgr. Alena Švejnohová, Tomáš Vodička, Bc. Iveta Minaříková, Mgr. Blanka Kozáková, Jaroslav Železný"
+      },
+      "proti": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "zdrzel_se": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "nehlasoval": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "result_raw": "Návrh byl přijat jako usnesení číslo: UR-131-12/21",
+      "adopted_resolution_number": "UR-131-12/21"
+     }
+    ],
+    "resolution_numbers_mentioned": [
+     "UR-131-12/21"
+    ],
+    "raw_text": "Předkladatel: Hana Pokorná\nProjednávání bodu bylo zahájeno v 14:50:59\nDůvodová zpráva\nMěsto Pečky má uzavřenou smlouvu s firmou ELEKTROWIN, a.s. Michelská 300/60, 140 00\nPraha\n4, provozovatelem kolektivního systému pro zpětný odběr, zpracování, využití a odstranění odpadních elektrozařízení.\nNový\nzákon o odpadech schválil mnoho změn, které se týkají odpadového hospodářství měst a obcí.\nTato\nnová právní úprava přinesla změny a povinnosti i provozovatelům kolektivních systému a také sběrným místům a jejich provozovatelům. Z tohoto důvodu firma ELEKTROWIN, a.s. připravila pro město Pečky smlouvu novou, která zcela nahrazuje obsah původní smlouvy.  Součástí smlouvy je i převedení povinností zpětného odběru ze strany obce na provozovatele sběrného místa Služby města Pečky, s.r.o., Tř.\nJana\nŠvermy 49, 28911 Pečky.\nDiskuze zahájena v 14:50:59\nV 15:20:09 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Hana Pokorná\") v tomto znění:\nRada\nměsta schvaluje uzavření smlouvy mezi městem Pečky a firmou ELEKTROWIN, a.s., Michelská 300/60, 140 00\nPraha\n4, provozovatelem kolektivního systému pro zpětný odběr, zpracování, využití a odstranění odpadních elektrozařízení a převedení povinností zpětného odběru ze strany obce na provozovatele sběrného místa Služby města Pečky, s.r.o., Tř.\nJana\nŠvermy 49, 28911 Pečky.\nHlasování\npro:\n(6) Jiří Katrnoška, Mgr. Alena Švejnohová, Tomáš Vodička, Bc. Iveta Minaříková, Mgr. Blanka Kozáková, Jaroslav Železný\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-131-12/21\nzodpovídá:\nHana Pokorná\ntermín:\n9. 8. 2021\nProjednávání bodu bylo ukončeno v 15:20:18"
+   },
+   {
+    "number": 24,
+    "title_raw": "Uzavření SOD na zhotovitele přechodu pro chodce v ul. J.A. Komenského v Pečkách",
+    "heading_raw": "4. Uzavření SOD na zhotovitele přechodu pro chodce v ul. J.A. Komenského v Pečkách (bod číslo 24)",
+    "predkladatel": "Bc. Iveta Minaříková",
+    "votes": [
+     {
+      "raw_text": "pro:\n(6) Mgr. Alena Švejnohová, Bc. Iveta Minaříková, Mgr. Blanka Kozáková, Jaroslav Železný, Jiří Katrnoška, Tomáš Vodička\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)",
+      "pro": {
+       "count": 6,
+       "names": [
+        "Mgr. Alena Švejnohová",
+        "Bc. Iveta Minaříková",
+        "Mgr. Blanka Kozáková",
+        "Jaroslav Železný",
+        "Jiří Katrnoška",
+        "Tomáš Vodička"
+       ],
+       "raw": "(6) Mgr. Alena Švejnohová, Bc. Iveta Minaříková, Mgr. Blanka Kozáková, Jaroslav Železný, Jiří Katrnoška, Tomáš Vodička"
+      },
+      "proti": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "zdrzel_se": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "nehlasoval": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "result_raw": "Návrh byl přijat jako usnesení číslo: UR-132-12/21",
+      "adopted_resolution_number": "UR-132-12/21"
+     }
+    ],
+    "resolution_numbers_mentioned": [
+     "UR-132-12/21"
+    ],
+    "raw_text": "Předkladatel: Bc. Iveta Minaříková\nProjednávání bodu bylo zahájeno v 15:25:56\nDůvodová zpráva\nVýzva pro podání nabídek na veřejnou zakázku malého rozsahu na stavební práce  “Přechod pro chodce J. A.\nKomenského\nx tř. 5. května, k.ú. Pečky” byla rozeslána osmi firmám. Nabídku předložila pouze jedna firma a to CE-DA servis s.r.o.,\nProkopa\nHolého\n586,\nVelký\nOsek.\nDiskuze zahájena v 15:25:56\nV 15:26:32 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Iveta Minaříková\") v tomto znění:\nRada\nměsta schvaluje uzavření smlouvy mezi městem Pečky a firmou CE-DA servis, s.r.o.,\nProkopa\nHoleho 586, 281 51\nVelký\nOsek, IČ: 06184520 na zhotovení díla \"Přechod pro chodce J.A.\nKomenského\nx tř 5. Května, k.ú. Pečky\" za cenu 353.197,40 Kč bez DPH, tzn. 427.368,85 Kč.\nHlasování\npro:\n(6) Mgr. Alena Švejnohová, Bc. Iveta Minaříková, Mgr. Blanka Kozáková, Jaroslav Železný, Jiří Katrnoška, Tomáš Vodička\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-132-12/21\nzodpovídá:\nJana Zindrová\ntermín:\n1. 12. 2021\nProjednávání bodu bylo ukončeno v 15:26:46"
+   },
+   {
+    "number": 5,
+    "title_raw": "Smlouva o výpůjčce nemovitostí",
+    "heading_raw": "5. Smlouva o výpůjčce nemovitostí (bod číslo 5)",
+    "predkladatel": "Cecilie Pajkrtová",
+    "votes": [
+     {
+      "raw_text": "pro:\n(6) Mgr. Alena Švejnohová, Bc. Iveta Minaříková, Jiří Katrnoška, Mgr. Blanka Kozáková, Tomáš Vodička, Jaroslav Železný\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)",
+      "pro": {
+       "count": 6,
+       "names": [
+        "Mgr. Alena Švejnohová",
+        "Bc. Iveta Minaříková",
+        "Jiří Katrnoška",
+        "Mgr. Blanka Kozáková",
+        "Tomáš Vodička",
+        "Jaroslav Železný"
+       ],
+       "raw": "(6) Mgr. Alena Švejnohová, Bc. Iveta Minaříková, Jiří Katrnoška, Mgr. Blanka Kozáková, Tomáš Vodička, Jaroslav Železný"
+      },
+      "proti": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "zdrzel_se": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "nehlasoval": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "result_raw": "Návrh byl přijat jako usnesení číslo: UR-133-12/21",
+      "adopted_resolution_number": "UR-133-12/21"
+     }
+    ],
+    "resolution_numbers_mentioned": [
+     "UR-133-12/21"
+    ],
+    "raw_text": "Předkladatel: Cecilie Pajkrtová\nProjednávání bodu bylo zahájeno v 15:33:04\nDůvodová zpráva\nMěsto má zájem umístit na pozemku p.č. 1719 v k.ú. Pečky (zahrada MŠ Mašinka) monitorovací stanici ovzduší. Zařízení ve vlastnictví Středočeského kraje lze umístit na ploše o výměře 10m\n2\nna základě smlouvy o výpůjčce. Záměr výpůjčky byl zveřejněn na úřední desce v době od 1.7. do 16.7.2021.\nDiskuze zahájena v 15:33:04\nV 15:35:28 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Cecilie Pajkrtová\") v tomto znění:\nRada\nměsta schvaluje uzavření smlouvy o výpůjčce nemovitostí č.S-/OŽP/2021 mezi městem Pečky a Středočeským krajem se sídlem\nZborovská\n11, 150 21\nPraha\n5. Smlouva se sjednává na dobu určitou od 1.12.2021 do 31.12.2022.\nHlasování\npro:\n(6) Mgr. Alena Švejnohová, Bc. Iveta Minaříková, Jiří Katrnoška, Mgr. Blanka Kozáková, Tomáš Vodička, Jaroslav Železný\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-133-12/21\nzodpovídá:\nCecilie Pajkrtová\ntermín:\n9. 8. 2021\nProjednávání bodu bylo ukončeno v 15:35:41"
+   },
+   {
+    "number": 7,
+    "title_raw": "Dotazníkový průzkum - Pečovatelská služba města Pečky",
+    "heading_raw": "6. Dotazníkový průzkum - Pečovatelská služba města Pečky (bod číslo 7)",
+    "predkladatel": "Marcela Bahníková",
+    "votes": [],
+    "resolution_numbers_mentioned": [],
+    "raw_text": "Předkladatel: Marcela Bahníková\nProjednávání bodu bylo zahájeno v 15:36:32\nDůvodová zpráva\nV rámci udržení a zvyšování kvality poskytované pečovatelské služby realizovala organizace v květnu 2021 „Průzkum spokojenosti klientů s poskytovanou pečovatelskou službu“, a to  prostřednictvím anonymního dotazníku (obsahující 9 otázek), které byly rozdány klientům Pečovatelské služby města Pečky. Dotazníkového šetření se zúčastnilo celkem 21 respondentů z 38, tj. 55,3 % dotázaných. Dotazníky nebyly distribuovány těm klientům, kterým byla pečovatelská služba poskytována krátkou dobu (do 1 měsíce). Z dotazníkového šetření vyplynulo, že s pečovatelskou službou jsou naši klienti spokojení, bylo by však vhodné zvýšit naší činnost v oblasti informovanosti o námi poskytovaných službách, v oblasti komunikace s klienty týkajících se potřebných změn v poskytované službě a ohledně případné nespokojenosti se službou.\nDiskuze zahájena v 15:36:32\nRada bere materiály předložené k bodu č. 7 -\nDotazníkový průzkum - Pečovatelská služba města Pečky\nna vědomí.\nProjednávání bodu bylo ukončeno v 15:37:25"
+   },
+   {
+    "number": 8,
+    "title_raw": "Revokace usnesení č. UR-90-7/21 Uzavření smlouvy na provedení nátěru části střechy objektu DPS č. p. 218, Tř. 5. května, Pečky",
+    "heading_raw": "7. Revokace usnesení č. UR-90-7/21 Uzavření smlouvy na provedení nátěru části střechy objektu DPS č. p. 218, Tř. 5. května, Pečky (bod číslo 8)",
+    "predkladatel": "Martina Hrázská",
+    "votes": [
+     {
+      "raw_text": "pro:\n(6) Bc. Iveta Minaříková, Mgr. Blanka Kozáková, Jaroslav Železný, Tomáš Vodička, Jiří Katrnoška, Mgr. Alena Švejnohová\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)",
+      "pro": {
+       "count": 6,
+       "names": [
+        "Bc. Iveta Minaříková",
+        "Mgr. Blanka Kozáková",
+        "Jaroslav Železný",
+        "Tomáš Vodička",
+        "Jiří Katrnoška",
+        "Mgr. Alena Švejnohová"
+       ],
+       "raw": "(6) Bc. Iveta Minaříková, Mgr. Blanka Kozáková, Jaroslav Železný, Tomáš Vodička, Jiří Katrnoška, Mgr. Alena Švejnohová"
+      },
+      "proti": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "zdrzel_se": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "nehlasoval": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "result_raw": "Návrh byl přijat jako usnesení číslo: UR-134-12/21 a bylo jím revokováno usnesení UR-90-7/21",
+      "adopted_resolution_number": "UR-134-12/21"
+     },
+     {
+      "raw_text": "pro:\n(6) Mgr. Blanka Kozáková, Bc. Iveta Minaříková, Mgr. Alena Švejnohová, Jiří Katrnoška, Tomáš Vodička, Jaroslav Železný\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)",
+      "pro": {
+       "count": 6,
+       "names": [
+        "Mgr. Blanka Kozáková",
+        "Bc. Iveta Minaříková",
+        "Mgr. Alena Švejnohová",
+        "Jiří Katrnoška",
+        "Tomáš Vodička",
+        "Jaroslav Železný"
+       ],
+       "raw": "(6) Mgr. Blanka Kozáková, Bc. Iveta Minaříková, Mgr. Alena Švejnohová, Jiří Katrnoška, Tomáš Vodička, Jaroslav Železný"
+      },
+      "proti": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "zdrzel_se": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "nehlasoval": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "result_raw": "Návrh byl přijat jako usnesení číslo: UR-135-12/21",
+      "adopted_resolution_number": "UR-135-12/21"
+     }
+    ],
+    "resolution_numbers_mentioned": [
+     "UR-134-12/21",
+     "UR-135-12/21",
+     "UR-90-7/21"
+    ],
+    "raw_text": "Předkladatel: Martina Hrázská\nProjednávání bodu bylo zahájeno v 15:37:55\nDůvodová zpráva\nRada\nměsta schválila dne 7.6.2021 uzavření smlouvy mezi městem Pečky a firmou\nMiroslav\nKronus\n, Grégrova 399,\nKolín\n3, IČO 624 75 487, na provedení nátěru části střechy 1300m\n2\nna objektu DPS č.p. 218, Pečky. Vybraný zhotovitel pan\nMiroslav\nKronus\ntuto smlouvu o dílo neuzavřel z kapacitních důvodů. Navrhuji revokaci usnesení č. UR-90-7/21 a navrhuji uzavření smlouvy s firmou S lanem s.r.o., Třebovice 236,\nČeská\nTřebová\n, IČO: 107 71 131. Smlouva bude uzavřena na částku 220.000,- Kč bez DPH. Firma S lanem s.r.o. je plátce DPH.\nDiskuze zahájena v 15:37:55\nV 15:41:20 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Martina Hrázská\") v tomto znění:\nRada města\nrevokuje usnesení UR-90-7/21 uzavření smlouvy na provedení nátěru části střechy objektu DPS č. p. 218, Tř. 5. května, Pečky s firmou\nMiroslav\nKronus\n, Grégrova 399,\nKolín\n3, IČO: 624 75 487.\nHlasování\npro:\n(6) Bc. Iveta Minaříková, Mgr. Blanka Kozáková, Jaroslav Železný, Tomáš Vodička, Jiří Katrnoška, Mgr. Alena Švejnohová\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-134-12/21 a bylo jím revokováno usnesení UR-90-7/21\nzodpovídá:\ntermín:\nIHNED\n(26. 7. 2021)\nV 15:42:12 předsedající zahájil hlasování o návrhu usnesení \"B\" (navrhovatel: \"Martina Hrázská\") v tomto znění:\nRada\nměsta schvaluje uzavření smlouvy mezi městem Pečky a firmou S lanem s.r.o., Třebovice 236,\nČeská\nTřebová\n, IČO: 107 71 131, na provedení nátěru části střechy 1300 m\n2\nna objektu DPS č. p. 218, Pečky. Smlouva bude uzavřena na částku 220.000,- Kč bez DPH. Firma S lanem s.r.o. je plátce DPH.\nHlasování\npro:\n(6) Mgr. Blanka Kozáková, Bc. Iveta Minaříková, Mgr. Alena Švejnohová, Jiří Katrnoška, Tomáš Vodička, Jaroslav Železný\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-135-12/21\nzodpovídá:\nMartina Hrázská\ntermín:\n9. 8. 2021\nProjednávání bodu bylo ukončeno v 15:42:22"
+   },
+   {
+    "number": 9,
+    "title_raw": "Uzavření Smlouvy na pronájem části ochozu vodárenské věže – fy. KOMS Mělník, a.s.",
+    "heading_raw": "8. Uzavření Smlouvy na pronájem části ochozu vodárenské věže – fy. KOMS Mělník, a.s. (bod číslo 9)",
+    "predkladatel": "Jana Najbrtová",
+    "votes": [
+     {
+      "raw_text": "pro:\n(6) Tomáš Vodička, Jaroslav Železný, Bc. Iveta Minaříková, Mgr. Alena Švejnohová, Jiří Katrnoška, Mgr. Blanka Kozáková\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)",
+      "pro": {
+       "count": 6,
+       "names": [
+        "Tomáš Vodička",
+        "Jaroslav Železný",
+        "Bc. Iveta Minaříková",
+        "Mgr. Alena Švejnohová",
+        "Jiří Katrnoška",
+        "Mgr. Blanka Kozáková"
+       ],
+       "raw": "(6) Tomáš Vodička, Jaroslav Železný, Bc. Iveta Minaříková, Mgr. Alena Švejnohová, Jiří Katrnoška, Mgr. Blanka Kozáková"
+      },
+      "proti": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "zdrzel_se": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "nehlasoval": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "result_raw": "Návrh byl přijat jako usnesení číslo: UR-136-12/21",
+      "adopted_resolution_number": "UR-136-12/21"
+     }
+    ],
+    "resolution_numbers_mentioned": [
+     "UR-136-12/21"
+    ],
+    "raw_text": "Předkladatel: Jana Najbrtová\nProjednávání bodu bylo zahájeno v 15:42:39\nDůvodová zpráva\nDoporučujeme uzavřít Smlouvu na pronájem části ochozu vodárenské věže s fy. KOMS Mělník, a.s. Smlouva bude uzavřena zpětně od 20.7.2021 - na dobu neurčitou (krátkodobá smlouva byla uzavřena do 19.7.2021). Firma souhlasí s podmínkami ve zveřejněném záměru ze dne 22.6. 2021. Měsíční nájemné činí 10.000,- Kč + DPH. Nájemné za krátkodobou smlouvu bylo uhrazeno.\nDiskuze zahájena v 15:42:39\nV 15:43:00 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Jana Najbrtová\") v tomto znění:\nRada\nměsta schvaluje uzavření smlouvy na pronájem části ochozu vodárenské věže s fy. KOMS Mělník, a.s., Na Podhradí 162. Smlouva bude uzavřena na dobu neurčitou od 20.7. 2021 s výpovědní lhůtou 3 měsíce. Nájemné činí 10.000,- Kč + DPH/měsíc.\nHlasování\npro:\n(6) Tomáš Vodička, Jaroslav Železný, Bc. Iveta Minaříková, Mgr. Alena Švejnohová, Jiří Katrnoška, Mgr. Blanka Kozáková\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-136-12/21\nzodpovídá:\nVěra Růžičková\ntermín:\n20. 8. 2021\nProjednávání bodu bylo ukončeno v 15:47:18"
+   },
+   {
+    "number": 11,
+    "title_raw": "Uzavření Smlouvy o nájmu pozemku č. parc. 164 v obci a k.ú. Dobřichov",
+    "heading_raw": "9. Uzavření Smlouvy o nájmu pozemku č. parc. 164 v obci a k.ú. Dobřichov (bod číslo 11)",
+    "predkladatel": "Jana Najbrtová",
+    "votes": [
+     {
+      "raw_text": "pro:\n(6) Jiří Katrnoška, Tomáš Vodička, Mgr. Alena Švejnohová, Mgr. Blanka Kozáková, Jaroslav Železný, Bc. Iveta Minaříková\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)",
+      "pro": {
+       "count": 6,
+       "names": [
+        "Jiří Katrnoška",
+        "Tomáš Vodička",
+        "Mgr. Alena Švejnohová",
+        "Mgr. Blanka Kozáková",
+        "Jaroslav Železný",
+        "Bc. Iveta Minaříková"
+       ],
+       "raw": "(6) Jiří Katrnoška, Tomáš Vodička, Mgr. Alena Švejnohová, Mgr. Blanka Kozáková, Jaroslav Železný, Bc. Iveta Minaříková"
+      },
+      "proti": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "zdrzel_se": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "nehlasoval": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "result_raw": "Návrh byl přijat jako usnesení číslo: UR-137-12/21",
+      "adopted_resolution_number": "UR-137-12/21"
+     }
+    ],
+    "resolution_numbers_mentioned": [
+     "UR-137-12/21"
+    ],
+    "raw_text": "Předkladatel: Jana Najbrtová\nProjednávání bodu bylo zahájeno v 15:47:35\nDůvodová zpráva\nDoporučujeme uzavřít Smlouvu o nájmu pozemku č. parc. 164 (206 m\n2\n) v obci a k.ú. Dobřichov s panem\n█​█​█​█​█​█​█​█​█​█​█​█​█​█\n. Smlouva bude uzavřena od 1.8. 2021 na 20 let tzn. do 31.7. 2041 (výpovědní lhůta činí 6 měsíců). Pozemek bude využíván pro práci s mládeží a rovněž bude využíván sportovním oddílem místního minigolfu. Nájemné bude hrazeno 1x ročně v celkové výši 21,- Kč/rok.\nDiskuze zahájena v 15:47:35\nV 15:49:12 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Jana Najbrtová\") v tomto znění:\nRada\nměsta schvaluje uzavřít Smlouvu o nájmu pozemku č. parc. 164 (206 m\n2\n) v obci a k.ú. Dobřichov s panem\n█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█\nSmlouva bude uzavřena na dobu určitou od 1.8. 2021 do 31.7. 2041 tzn. 20 let s výpovědní lhůtou 6 měsíců. Nájemné činí 21,- Kč/rok a bude hrazeno vždy k 31. březnu.\nHlasování\npro:\n(6) Jiří Katrnoška, Tomáš Vodička, Mgr. Alena Švejnohová, Mgr. Blanka Kozáková, Jaroslav Železný, Bc. Iveta Minaříková\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-137-12/21\nzodpovídá:\nJana Najbrtová\ntermín:\n20. 8. 2021\nProjednávání bodu bylo ukončeno v 15:49:18"
+   },
+   {
+    "number": 12,
+    "title_raw": "Žádost o odkoupení části pozemku č. parc. 1467/1 v k.ú. Pečky",
+    "heading_raw": "10. Žádost o odkoupení části pozemku č. parc. 1467/1 v k.ú. Pečky (bod číslo 12)",
+    "predkladatel": "Jana Najbrtová",
+    "votes": [
+     {
+      "raw_text": "pro:\n(6) Mgr. Alena Švejnohová, Tomáš Vodička, Jaroslav Železný, Jiří Katrnoška, Bc. Iveta Minaříková, Mgr. Blanka Kozáková\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)",
+      "pro": {
+       "count": 6,
+       "names": [
+        "Mgr. Alena Švejnohová",
+        "Tomáš Vodička",
+        "Jaroslav Železný",
+        "Jiří Katrnoška",
+        "Bc. Iveta Minaříková",
+        "Mgr. Blanka Kozáková"
+       ],
+       "raw": "(6) Mgr. Alena Švejnohová, Tomáš Vodička, Jaroslav Železný, Jiří Katrnoška, Bc. Iveta Minaříková, Mgr. Blanka Kozáková"
+      },
+      "proti": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "zdrzel_se": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "nehlasoval": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "result_raw": "Návrh byl přijat jako usnesení číslo: UR-138-12/21",
+      "adopted_resolution_number": "UR-138-12/21"
+     }
+    ],
+    "resolution_numbers_mentioned": [
+     "UR-138-12/21"
+    ],
+    "raw_text": "Předkladatel: Jana Najbrtová\nProjednávání bodu bylo zahájeno v 15:49:42\nDůvodová zpráva\nNedoporučujeme odprodat část pozemku č. parc. 1467/1 na výstavbu garáže. Z nákresu je patrné, že by do garáže byl vjezd po obecním pozemku. Žadatel\n█​█​█​█​█​█​█​█​█​█​█​█​█\nsice uvádí, že bydlí ve vedlejším domě, ale dle výpisu z K.N. nemá žádná vlastnická práva k nemovitosti (dům je asi rodičů). Rozhodně není vhodné oddělovat z pozemku část, tak jak je zakresleno v příloze žádosti. Dle ÚP je pozemek veden jako území smíšené obytné.\nDiskuze zahájena v 15:49:42\nV 15:50:21 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Jana Najbrtová\") v tomto znění:\nRada\nměsta nedoporučuje odprodat část pozemku č. parc. 1467/1 v obci a k.ú. Pečky dle žádosti p.\n█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█\nHlasování\npro:\n(6) Mgr. Alena Švejnohová, Tomáš Vodička, Jaroslav Železný, Jiří Katrnoška, Bc. Iveta Minaříková, Mgr. Blanka Kozáková\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-138-12/21\nzodpovídá:\nJana Najbrtová\ntermín:\n20. 8. 2021\nProjednávání bodu bylo ukončeno v 15:50:32"
+   },
+   {
+    "number": 13,
+    "title_raw": "Čerpání investičního fondu - Základní škola Pečky",
+    "heading_raw": "11. Čerpání investičního fondu - Základní škola Pečky (bod číslo 13)",
+    "predkladatel": "Marcela Bahníková",
+    "votes": [
+     {
+      "raw_text": "pro:\n(5) Mgr. Alena Švejnohová, Jiří Katrnoška, Mgr. Blanka Kozáková, Bc. Iveta Minaříková, Jaroslav Železný\nproti\n(0)\nzdržel se:\n(1) Tomáš Vodička\nnehlasoval:\n(0)",
+      "pro": {
+       "count": 5,
+       "names": [
+        "Mgr. Alena Švejnohová",
+        "Jiří Katrnoška",
+        "Mgr. Blanka Kozáková",
+        "Bc. Iveta Minaříková",
+        "Jaroslav Železný"
+       ],
+       "raw": "(5) Mgr. Alena Švejnohová, Jiří Katrnoška, Mgr. Blanka Kozáková, Bc. Iveta Minaříková, Jaroslav Železný"
+      },
+      "proti": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "zdrzel_se": {
+       "count": 1,
+       "names": [
+        "Tomáš Vodička"
+       ],
+       "raw": "(1) Tomáš Vodička"
+      },
+      "nehlasoval": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "result_raw": "Návrh byl přijat jako usnesení číslo: UR-139-12/21",
+      "adopted_resolution_number": "UR-139-12/21"
+     }
+    ],
+    "resolution_numbers_mentioned": [
+     "UR-139-12/21"
+    ],
+    "raw_text": "Předkladatel: Marcela Bahníková\nProjednávání bodu bylo zahájeno v 15:51:01\nDůvodová zpráva\nZákladní škola Pečky žádá zřizovatele o souhlas  s použitím investičního fondu  ve výši  341.961,73 Kč na nákup serveru, včetně zálohovacího řešení. Server bude pořízen od společnosti Profesia s.r.o., která předložila škole nejvýhodnější nabídku. Zůstatek IF k 30.6.2021 je 567.148,17 Kč.\nDiskuze zahájena v 15:51:01\nV 15:53:04 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Marcela Bahníková\") v tomto znění:\nRada\nměsta schvaluje čerpání investičního fondu Základní školy Pečky do výše 342.000,- Kč na pořízení serveru, včetně zálohovacího řešení.\nHlasování\npro:\n(5) Mgr. Alena Švejnohová, Jiří Katrnoška, Mgr. Blanka Kozáková, Bc. Iveta Minaříková, Jaroslav Železný\nproti\n(0)\nzdržel se:\n(1) Tomáš Vodička\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-139-12/21\nzodpovídá:\nMarcela Bahníková\ntermín:\n31. 7. 2021\nProjednávání bodu bylo ukončeno v 15:53:11"
+   },
+   {
+    "number": 14,
+    "title_raw": "Poskytnutí daru",
+    "heading_raw": "12. Poskytnutí daru (bod číslo 14)",
+    "predkladatel": "Marcela Bahníková",
+    "votes": [
+     {
+      "raw_text": "pro:\n(3) Jiří Katrnoška, Mgr. Blanka Kozáková, Mgr. Alena Švejnohová\nproti\n(3) Jaroslav Železný, Tomáš Vodička, Bc. Iveta Minaříková\nzdržel se:\n(0)\nnehlasoval:\n(0)",
+      "pro": {
+       "count": 3,
+       "names": [
+        "Jiří Katrnoška",
+        "Mgr. Blanka Kozáková",
+        "Mgr. Alena Švejnohová"
+       ],
+       "raw": "(3) Jiří Katrnoška, Mgr. Blanka Kozáková, Mgr. Alena Švejnohová"
+      },
+      "proti": {
+       "count": 3,
+       "names": [
+        "Jaroslav Železný",
+        "Tomáš Vodička",
+        "Bc. Iveta Minaříková"
+       ],
+       "raw": "(3) Jaroslav Železný, Tomáš Vodička, Bc. Iveta Minaříková"
+      },
+      "zdrzel_se": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "nehlasoval": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "result_raw": "Návrh nebyl přijat",
+      "adopted_resolution_number": null
+     }
+    ],
+    "resolution_numbers_mentioned": [],
+    "raw_text": "Předkladatel: Marcela Bahníková\nProjednávání bodu bylo zahájeno v 15:53:32\nDůvodová zpráva\nOblastní charita\nČervený\nKostelec  žádá o poskytnutí finančního příspěvku na  provoz Hospice Anežky\nČeské\nv roce 2021. Vloni ani letos nebyl v uvedeném zařízení hospitalizován žádný pacient z\nPeček\n. Navrhuji poskytnout dar ve výši 1.000,- Kč.\nDiskuze zahájena v 15:53:32\nV 15:54:25 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Marcela Bahníková\") v tomto znění:\nRada\nměsta schvaluje poskytnutí finančního daru ve výši 1.000,- Kč Oblastní Charitě\nČervený\nKostec, IČO  48623814.\nHlasování\npro:\n(3) Jiří Katrnoška, Mgr. Blanka Kozáková, Mgr. Alena Švejnohová\nproti\n(3) Jaroslav Železný, Tomáš Vodička, Bc. Iveta Minaříková\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh nebyl přijat\nProjednávání bodu bylo ukončeno v 15:56:26"
+   },
+   {
+    "number": 15,
+    "title_raw": "Vyřazení nepotřebného majetku DHM",
+    "heading_raw": "13. Vyřazení nepotřebného majetku DHM (bod číslo 15)",
+    "predkladatel": "Marcela Bahníková",
+    "votes": [
+     {
+      "raw_text": "pro:\n(6) Mgr. Blanka Kozáková, Jiří Katrnoška, Tomáš Vodička, Jaroslav Železný, Bc. Iveta Minaříková, Mgr. Alena Švejnohová\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)",
+      "pro": {
+       "count": 6,
+       "names": [
+        "Mgr. Blanka Kozáková",
+        "Jiří Katrnoška",
+        "Tomáš Vodička",
+        "Jaroslav Železný",
+        "Bc. Iveta Minaříková",
+        "Mgr. Alena Švejnohová"
+       ],
+       "raw": "(6) Mgr. Blanka Kozáková, Jiří Katrnoška, Tomáš Vodička, Jaroslav Železný, Bc. Iveta Minaříková, Mgr. Alena Švejnohová"
+      },
+      "proti": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "zdrzel_se": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "nehlasoval": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "result_raw": "Návrh byl přijat jako usnesení číslo: UR-140-12/21",
+      "adopted_resolution_number": "UR-140-12/21"
+     }
+    ],
+    "resolution_numbers_mentioned": [
+     "UR-140-12/21"
+    ],
+    "raw_text": "Předkladatel: Marcela Bahníková\nProjednávání bodu bylo zahájeno v 15:56:57\nDůvodová zpráva\nNavrhujeme vyřadit nepotřebný, nefunkční drobný dlouhodobý majetek likvidací v celkové poř. ceně 107.659,36 Kč. Přehled majetku v příloze.\nDiskuze zahájena v 15:56:57\nV 15:57:19 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Marcela Bahníková\") v tomto znění:\nRada\nměsta schvaluje vyřazení nepotřebného DDHM likvidací (účet 028-02 v celk. poř. ceně 18.431,66 Kč, účet 028-03 v celk. poř. ceně  16.329,20 Kč a účet 028-06 v celk. poř. ceně  72.898,50 Kč).\nHlasování\npro:\n(6) Mgr. Blanka Kozáková, Jiří Katrnoška, Tomáš Vodička, Jaroslav Železný, Bc. Iveta Minaříková, Mgr. Alena Švejnohová\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-140-12/21\nzodpovídá:\nMarcela Bahníková\ntermín:\n31. 8. 2021\nProjednávání bodu bylo ukončeno v 15:57:30"
+   },
+   {
+    "number": 16,
+    "title_raw": "Souhlas s přijetím darů - Pečovatelská služba města Pečky",
+    "heading_raw": "14. Souhlas s přijetím darů - Pečovatelská služba města Pečky (bod číslo 16)",
+    "predkladatel": "Marcela Bahníková",
+    "votes": [
+     {
+      "raw_text": "pro:\n(6) Tomáš Vodička, Mgr. Alena Švejnohová, Jiří Katrnoška, Bc. Iveta Minaříková, Mgr. Blanka Kozáková, Jaroslav Železný\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)",
+      "pro": {
+       "count": 6,
+       "names": [
+        "Tomáš Vodička",
+        "Mgr. Alena Švejnohová",
+        "Jiří Katrnoška",
+        "Bc. Iveta Minaříková",
+        "Mgr. Blanka Kozáková",
+        "Jaroslav Železný"
+       ],
+       "raw": "(6) Tomáš Vodička, Mgr. Alena Švejnohová, Jiří Katrnoška, Bc. Iveta Minaříková, Mgr. Blanka Kozáková, Jaroslav Železný"
+      },
+      "proti": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "zdrzel_se": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "nehlasoval": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "result_raw": "Návrh byl přijat jako usnesení číslo: UR-141-12/21",
+      "adopted_resolution_number": "UR-141-12/21"
+     }
+    ],
+    "resolution_numbers_mentioned": [
+     "UR-141-12/21"
+    ],
+    "raw_text": "Předkladatel: Marcela Bahníková\nProjednávání bodu bylo zahájeno v 15:57:49\nDůvodová zpráva\nInformace ředitelky Pečovatelské služby města Pečky o plánované přestavbě služebního vozu Peugeot Partner. Žádost o souhlas s přijímáním finančních darů určených na tuto přestavbu. Předpokládaná cena přestavby je cca 222 tis. a bude financována z investičního fondu organizace a přijatých darů.\nDiskuze zahájena v 15:57:49\nV 15:59:03 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Marcela Bahníková\") v tomto znění:\nRada\nměsta schvaluje  a uděluje souhlas Pečovatelské službě města Pečky s přijímáním finančních darů za účelem financování projektu \"Přestavba služebního vozu  Peugeot Partner\".\nHlasování\npro:\n(6) Tomáš Vodička, Mgr. Alena Švejnohová, Jiří Katrnoška, Bc. Iveta Minaříková, Mgr. Blanka Kozáková, Jaroslav Železný\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-141-12/21\nzodpovídá:\nMarcela Bahníková\ntermín:\n31. 7. 2021\nProjednávání bodu bylo ukončeno v 15:59:11"
+   },
+   {
+    "number": 17,
+    "title_raw": "Příspěvek na úhradu nákladů na přeznačení turistické zelené značky městem",
+    "heading_raw": "15. Příspěvek na úhradu nákladů na přeznačení turistické zelené značky městem (bod číslo 17)",
+    "predkladatel": "Tomáš Vodička",
+    "votes": [
+     {
+      "raw_text": "pro:\n(6) Mgr. Alena Švejnohová, Mgr. Blanka Kozáková, Jaroslav Železný, Tomáš Vodička, Bc. Iveta Minaříková, Jiří Katrnoška\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)",
+      "pro": {
+       "count": 6,
+       "names": [
+        "Mgr. Alena Švejnohová",
+        "Mgr. Blanka Kozáková",
+        "Jaroslav Železný",
+        "Tomáš Vodička",
+        "Bc. Iveta Minaříková",
+        "Jiří Katrnoška"
+       ],
+       "raw": "(6) Mgr. Alena Švejnohová, Mgr. Blanka Kozáková, Jaroslav Železný, Tomáš Vodička, Bc. Iveta Minaříková, Jiří Katrnoška"
+      },
+      "proti": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "zdrzel_se": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "nehlasoval": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "result_raw": "Návrh byl přijat jako usnesení číslo: UR-142-12/21",
+      "adopted_resolution_number": "UR-142-12/21"
+     }
+    ],
+    "resolution_numbers_mentioned": [
+     "UR-142-12/21"
+    ],
+    "raw_text": "Předkladatel: Tomáš Vodička\nProjednávání bodu bylo zahájeno v 15:59:57\nDůvodová zpráva\nV souladu s jednáním RM ze dne  4. 11. 2019 (zápis bod 4q) došlo k přeznačení zelené turistické značky v Pečkách. V portálu \"mapy.cz\" dojde k aktualizaci do 3 měsíců. V podkladech k RM 4/11/19 byly předpokládané náklady 5.000,- Kč  a informace, že Farní sbor evangelické církve může uhradit částku 3.000,- Kč. RM změnu značení schválila. Reálné náklady: 6.000,- Kč. Navrhuji uhradit městem polovinu, tj. 3.000,- Kč. Komunikace s KČT je přílohou tohoto bodu (původní podklad z roku 2019 i aktuální).\nDiskuze zahájena v 15:59:57\nV 16:00:52 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Tomáš Vodička\") v tomto znění:\nRada\nměsta schvaluje  finanční příspěvek ve výši 3.000,- Kč\nKlubu\nčeských turistů,  Revoluční 1056/8a,\nPraha\n1, IČ: 09030964 na přeznačení turistické zelené značky v Pečkách  a ukládá M.\nBahníkové\nčástku uhradit v koordinaci s Jonášem Hájkem, iniciátorem přeznačení.\nHlasování\npro:\n(6) Mgr. Alena Švejnohová, Mgr. Blanka Kozáková, Jaroslav Železný, Tomáš Vodička, Bc. Iveta Minaříková, Jiří Katrnoška\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-142-12/21\nzodpovídá:\nMarcela Bahníková\ntermín:\n30. 8. 2021\nProjednávání bodu bylo ukončeno v 16:01:05"
+   },
+   {
+    "number": 18,
+    "title_raw": "Dotace - Pečovatelská služba města Pečky",
+    "heading_raw": "16. Dotace - Pečovatelská služba města Pečky (bod číslo 18)",
+    "predkladatel": "Marcela Bahníková",
+    "votes": [
+     {
+      "raw_text": "pro:\n(6) Mgr. Alena Švejnohová, Bc. Iveta Minaříková, Mgr. Blanka Kozáková, Jiří Katrnoška, Tomáš Vodička, Jaroslav Železný\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)",
+      "pro": {
+       "count": 6,
+       "names": [
+        "Mgr. Alena Švejnohová",
+        "Bc. Iveta Minaříková",
+        "Mgr. Blanka Kozáková",
+        "Jiří Katrnoška",
+        "Tomáš Vodička",
+        "Jaroslav Železný"
+       ],
+       "raw": "(6) Mgr. Alena Švejnohová, Bc. Iveta Minaříková, Mgr. Blanka Kozáková, Jiří Katrnoška, Tomáš Vodička, Jaroslav Železný"
+      },
+      "proti": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "zdrzel_se": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "nehlasoval": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "result_raw": "Návrh byl přijat jako usnesení číslo: UR-143-12/21",
+      "adopted_resolution_number": "UR-143-12/21"
+     }
+    ],
+    "resolution_numbers_mentioned": [
+     "UR-143-12/21"
+    ],
+    "raw_text": "Předkladatel: Marcela Bahníková\nProjednávání bodu bylo zahájeno v 16:01:22\nDůvodová zpráva\nZastupitelstvo Středočeského kraje na svém zasedání dne 28.6.2021 projednalo poskytnutí dotace z Programu 2021 pro poskytování dotací z rozpočtu Středočeského kraje – Středočeský Humanitární fond a usnesením č. 028-08/2021/ZK schválilo poskytnutí dotace na základě naší žádosti o poskytnutí dotace prostřednictvím veřejnoprávní smlouvy z výše uvedeného Programu a to ve výši 500.000,- Kč. Schválení přijetí dotace zřizovatelem je nutné pro uzavření smlouvy o dotaci.\nDiskuze zahájena v 16:01:22\nV 16:04:02 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Marcela Bahníková\") v tomto znění:\nRada\nměsta schvaluje přijetí dotace Pečovatelskou službou města Pečky z Humanitárního fondu Středočeského kraje ve výši  500.000,- Kč.\nHlasování\npro:\n(6) Mgr. Alena Švejnohová, Bc. Iveta Minaříková, Mgr. Blanka Kozáková, Jiří Katrnoška, Tomáš Vodička, Jaroslav Železný\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-143-12/21\nzodpovídá:\nMarcela Bahníková\ntermín:\n31. 7. 2021\nProjednávání bodu bylo ukončeno v 16:04:10"
+   },
+   {
+    "number": 19,
+    "title_raw": "Navýšení dotace - Pečovatelská služba města Pečky",
+    "heading_raw": "17. Navýšení dotace - Pečovatelská služba města Pečky (bod číslo 19)",
+    "predkladatel": "Marcela Bahníková",
+    "votes": [
+     {
+      "raw_text": "pro:\n(6) Mgr. Alena Švejnohová, Mgr. Blanka Kozáková, Bc. Iveta Minaříková, Tomáš Vodička, Jiří Katrnoška, Jaroslav Železný\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)",
+      "pro": {
+       "count": 6,
+       "names": [
+        "Mgr. Alena Švejnohová",
+        "Mgr. Blanka Kozáková",
+        "Bc. Iveta Minaříková",
+        "Tomáš Vodička",
+        "Jiří Katrnoška",
+        "Jaroslav Železný"
+       ],
+       "raw": "(6) Mgr. Alena Švejnohová, Mgr. Blanka Kozáková, Bc. Iveta Minaříková, Tomáš Vodička, Jiří Katrnoška, Jaroslav Železný"
+      },
+      "proti": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "zdrzel_se": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "nehlasoval": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "result_raw": "Návrh byl přijat jako usnesení číslo: UR-144-12/21",
+      "adopted_resolution_number": "UR-144-12/21"
+     }
+    ],
+    "resolution_numbers_mentioned": [
+     "UR-144-12/21"
+    ],
+    "raw_text": "Předkladatel: Marcela Bahníková\nProjednávání bodu bylo zahájeno v 16:04:21\nDůvodová zpráva\nDne 12.7.2021 obdržela Pečovatelská služba města Pečky dodatek veřejnoprávní smlouvy o dotaci na poskytování sociálních služeb č. S/0743/SOC/2021/1, kterým se navyšuje dotace na pečovatelskou službu z 2.465.800,- Kč na 2.803.500,- Kč a na denní stacionář z 305.900,- Kč na 353.200,- Kč. Navýšení dotace (celkem o 385.000,- Kč) souvisí s žádostí o dotaci na dofinancování platů pracovníků sociálních služeb v souvislosti s navýšením platových tarifů s platností od 1.1.2021, které původní žádost o dotaci nezohledňovala. K uzavření dodatku je zapotřebí souhlas zřizovatele organizace.\nDiskuze zahájena v 16:04:21\nV 16:05:04 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Marcela Bahníková\") v tomto znění:\nRada\nměsta schvaluje uzavření dodatku k veřejnoprávní smlouvě o poskytnutí dotace na sociální služby č. S-0743/SOC/2021/1 mezi Pečovatelskou službou města Pečky a Středočeským krajem.\nHlasování\npro:\n(6) Mgr. Alena Švejnohová, Mgr. Blanka Kozáková, Bc. Iveta Minaříková, Tomáš Vodička, Jiří Katrnoška, Jaroslav Železný\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-144-12/21\nzodpovídá:\nMarcela Bahníková\ntermín:\n31. 7. 2021\nProjednávání bodu bylo ukončeno v 16:05:10"
+   },
+   {
+    "number": 20,
+    "title_raw": "Rozpočtová opatření č.6/2021",
+    "heading_raw": "18. Rozpočtová opatření č.6/2021 (bod číslo 20)",
+    "predkladatel": "Marcela Bahníková",
+    "votes": [
+     {
+      "raw_text": "pro:\n(6) Jaroslav Železný, Mgr. Alena Švejnohová, Bc. Iveta Minaříková, Tomáš Vodička, Mgr. Blanka Kozáková, Jiří Katrnoška\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)",
+      "pro": {
+       "count": 6,
+       "names": [
+        "Jaroslav Železný",
+        "Mgr. Alena Švejnohová",
+        "Bc. Iveta Minaříková",
+        "Tomáš Vodička",
+        "Mgr. Blanka Kozáková",
+        "Jiří Katrnoška"
+       ],
+       "raw": "(6) Jaroslav Železný, Mgr. Alena Švejnohová, Bc. Iveta Minaříková, Tomáš Vodička, Mgr. Blanka Kozáková, Jiří Katrnoška"
+      },
+      "proti": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "zdrzel_se": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "nehlasoval": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "result_raw": "Návrh byl přijat jako usnesení číslo: UR-145-12/21",
+      "adopted_resolution_number": "UR-145-12/21"
+     }
+    ],
+    "resolution_numbers_mentioned": [
+     "UR-145-12/21"
+    ],
+    "raw_text": "Předkladatel: Marcela Bahníková\nProjednávání bodu bylo zahájeno v 16:05:20\nDůvodová zpráva\nNávrh rozpočtových opatření obsahuje průtokové dotace pro Pečovatelskou službu města Pečky poskytnuté MPSV a Středočeským krajem prostřednictvím zřizovatele. Zvýšení příjmů i výdajů rozpočtu o 1.397.112,- Kč.\nDiskuze zahájena v 16:05:20\nV 16:05:57 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Marcela Bahníková\") v tomto znění:\nRada\nměsta schvaluje rozpočtová opatření č.6/2021.\nHlasování\npro:\n(6) Jaroslav Železný, Mgr. Alena Švejnohová, Bc. Iveta Minaříková, Tomáš Vodička, Mgr. Blanka Kozáková, Jiří Katrnoška\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-145-12/21\nzodpovídá:\ntermín:\nIHNED\n(26. 7. 2021)\nProjednávání bodu bylo ukončeno v 16:06:05"
+   },
+   {
+    "number": 21,
+    "title_raw": "Svolení s použitím fotografie sochy Jana Husa",
+    "heading_raw": "19. Svolení s použitím fotografie sochy Jana Husa (bod číslo 21)",
+    "predkladatel": "Tomáš Vodička",
+    "votes": [
+     {
+      "raw_text": "pro:\n(6) Tomáš Vodička, Mgr. Blanka Kozáková, Jaroslav Železný, Mgr. Alena Švejnohová, Jiří Katrnoška, Bc. Iveta Minaříková\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)",
+      "pro": {
+       "count": 6,
+       "names": [
+        "Tomáš Vodička",
+        "Mgr. Blanka Kozáková",
+        "Jaroslav Železný",
+        "Mgr. Alena Švejnohová",
+        "Jiří Katrnoška",
+        "Bc. Iveta Minaříková"
+       ],
+       "raw": "(6) Tomáš Vodička, Mgr. Blanka Kozáková, Jaroslav Železný, Mgr. Alena Švejnohová, Jiří Katrnoška, Bc. Iveta Minaříková"
+      },
+      "proti": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "zdrzel_se": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "nehlasoval": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "result_raw": "Návrh byl přijat jako usnesení číslo: UR-146-12/21",
+      "adopted_resolution_number": "UR-146-12/21"
+     }
+    ],
+    "resolution_numbers_mentioned": [
+     "UR-146-12/21"
+    ],
+    "raw_text": "Předkladatel: Tomáš Vodička\nProjednávání bodu bylo zahájeno v 16:06:38\nDůvodová zpráva\nAmerický badatel, učitel a překladatel\nAngelo\nFranklin\nžádá o svolení využít fotografii sochy\nJana\nHusa\nod S. Suchardy na obálku knihy, kterou napsal společně s prof. Janem Blahoslavem Láškem. Jedná se o překlady Husových kázání.\nKniha\nvyjde v nakladatelství Rowman and Littlefield v nákladu cca 1.000 ks. V případě udělení souhlasu dostaneme několik výtisků darem.\nDiskuze zahájena v 16:06:38\nV 16:08:21 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Tomáš Vodička\") v tomto znění:\nRada\nměsta souhlasí s využitím fotografie sochy J.\nHusa\nod S. Suchardy na obálku knihy vydavatelství Rowman and Littlefield od autorů\nAngelo\nFranklin\na J. B.\nLášek\n.\nHlasování\npro:\n(6) Tomáš Vodička, Mgr. Blanka Kozáková, Jaroslav Železný, Mgr. Alena Švejnohová, Jiří Katrnoška, Bc. Iveta Minaříková\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-146-12/21\nzodpovídá:\nTomáš Vodička\ntermín:\n9. 8. 2021\nProjednávání bodu bylo ukončeno v 16:08:35"
+   },
+   {
+    "number": 22,
+    "title_raw": "Uzavření dodatku č. 1 v SOD: \"Přeložka plynu Velké Chvalovice\"",
+    "heading_raw": "20. Uzavření dodatku č. 1 v SOD: \"Přeložka plynu Velké Chvalovice\" (bod číslo 22)",
+    "predkladatel": "Bc. Iveta Minaříková",
+    "votes": [
+     {
+      "raw_text": "pro:\n(6) Tomáš Vodička, Mgr. Blanka Kozáková, Mgr. Alena Švejnohová, Jaroslav Železný, Bc. Iveta Minaříková, Jiří Katrnoška\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)",
+      "pro": {
+       "count": 6,
+       "names": [
+        "Tomáš Vodička",
+        "Mgr. Blanka Kozáková",
+        "Mgr. Alena Švejnohová",
+        "Jaroslav Železný",
+        "Bc. Iveta Minaříková",
+        "Jiří Katrnoška"
+       ],
+       "raw": "(6) Tomáš Vodička, Mgr. Blanka Kozáková, Mgr. Alena Švejnohová, Jaroslav Železný, Bc. Iveta Minaříková, Jiří Katrnoška"
+      },
+      "proti": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "zdrzel_se": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "nehlasoval": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "result_raw": "Návrh byl přijat jako usnesení číslo: UR-147-12/21",
+      "adopted_resolution_number": "UR-147-12/21"
+     }
+    ],
+    "resolution_numbers_mentioned": [
+     "UR-147-12/21"
+    ],
+    "raw_text": "Předkladatel: Bc. Iveta Minaříková\nProjednávání bodu bylo zahájeno v 16:08:55\nDůvodová zpráva\nNa základě chybného součtu rozpočtu předloženého zhotovitelem, předkládáme radě města ke schválení, uzavření dodatku č. 1 ke smlouvě o dílo týkající se přeložky plynu ve Velkých Chvalovicích.\nDiskuze zahájena v 16:08:55\nV 16:12:29 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Iveta Minaříková\") v tomto znění:\nRada\nměsta schvaluje uzavření dodatku č. 1 ke smlouvě o dílo uzavřené  mezi městem Pečky a firmou GASKO, spol. s r.o,\nKolín\nIV, IČ: 45146454  na akci:„Přeložka plynu\nVelké\nChvalovice“.\nCena\ndíla bude navýšena o 24.169,30 Kč bez DPH a 29.244,85 Kč s DPH, konečná cena díla činí 99.674,80 Kč bez DPH a 120.606,50 Kč s DPH. Navýšení ceny nemá vliv na poptávkové řízení a jeho pořadí, jelikož jsme obdrželi jednu nabídku.\nHlasování\npro:\n(6) Tomáš Vodička, Mgr. Blanka Kozáková, Mgr. Alena Švejnohová, Jaroslav Železný, Bc. Iveta Minaříková, Jiří Katrnoška\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-147-12/21\nzodpovídá:\nPavel Krejčí\ntermín:\n9. 8. 2021\nProjednávání bodu bylo ukončeno v 16:12:43"
+   },
+   {
+    "number": 23,
+    "title_raw": "Vyhlášení výběrového řízení \"PROJEKTOVÁ DOKUMENTACE Revitalizace Mlýnského náhonu v Pečkách\"",
+    "heading_raw": "21. Vyhlášení výběrového řízení \"PROJEKTOVÁ DOKUMENTACE Revitalizace Mlýnského náhonu v Pečkách\" (bod číslo 23)",
+    "predkladatel": "Tomáš Vodička",
+    "votes": [
+     {
+      "raw_text": "pro:\n(6) Tomáš Vodička, Mgr. Alena Švejnohová, Jaroslav Železný, Mgr. Blanka Kozáková, Bc. Iveta Minaříková, Jiří Katrnoška\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)",
+      "pro": {
+       "count": 6,
+       "names": [
+        "Tomáš Vodička",
+        "Mgr. Alena Švejnohová",
+        "Jaroslav Železný",
+        "Mgr. Blanka Kozáková",
+        "Bc. Iveta Minaříková",
+        "Jiří Katrnoška"
+       ],
+       "raw": "(6) Tomáš Vodička, Mgr. Alena Švejnohová, Jaroslav Železný, Mgr. Blanka Kozáková, Bc. Iveta Minaříková, Jiří Katrnoška"
+      },
+      "proti": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "zdrzel_se": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "nehlasoval": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "result_raw": "Návrh byl přijat jako usnesení číslo: UR-148-12/21",
+      "adopted_resolution_number": "UR-148-12/21"
+     }
+    ],
+    "resolution_numbers_mentioned": [
+     "UR-148-12/21"
+    ],
+    "raw_text": "Předkladatel: Tomáš Vodička\nProjednávání bodu bylo zahájeno v 16:12:57\nDůvodová zpráva\nVyhlášení výběrového řízení \"PROJEKTOVÁ DOKUMENTACE Revitalizace\nMlýnského\nnáhonu v Pečkách\". Na zpracování sloučené dokumentace pro územní řízení a stavební povolení schválena žádost o poskytnutí dotace z Programu 2020 pro poskytování dotací z rozpočtu Středočeského kraje ze Středočeského Fondu podpory včasné přípravy projektů EU 2021+ a NIP v rámci tematického zadání Životní prostředí – vodní hospodářství.\nPro\nuzavření veřejnoprávní smlouvy o poskytnutí dotace povinnost doložit smlouvu o dílo se zhotovitelem. Rozsah zadání, účel, předmět a cíl veřejné zakázky a pravidla pro hodnocení nabídek - viz přílohy.\nNávrh na složení komise - členové: Bc.\nIveta\nMinaříková\n,\nTomáš\nVodička\n, Ing.\nJana\nZindrová,\nnáhradníci:\nJiří\nKatrnoška\n,\nHana\nPokorná\n, PaedDr.\nCecilie\nPajkrtová\nDiskuze zahájena v 16:12:57\nV 16:16:17 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Tomáš Vodička\") v tomto znění:\nRada\nměsta schvaluje vyhlášení výběrového řízení „PROJEKTOVÁ DOKUMENTACE Revitalizace\nMlýnského\nnáhonu v Pečkách“ uveřejněním na profilu zadavatele v souladu s přiloženými zadávacími podmínkami a složení hodnotící komise: Bc.\nIveta\nMinaříková\n,\nTomáš\nVodička\n, Ing.\nJana\nZindrová,\nnáhradníci:\nJiří\nKatrnoška\n,\nHana\nPokorná\n, PaedDr.\nCecilie\nPajkrtová.\nHlasování\npro:\n(6) Tomáš Vodička, Mgr. Alena Švejnohová, Jaroslav Železný, Mgr. Blanka Kozáková, Bc. Iveta Minaříková, Jiří Katrnoška\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-148-12/21\nzodpovídá:\nMichala Dekiská\ntermín:\n9. 8. 2021\nProjednávání bodu bylo ukončeno v 16:16:33"
+   },
+   {
+    "number": 6,
+    "title_raw": "Kontrola úkolů",
+    "heading_raw": "22. Kontrola úkolů (bod číslo 6)",
+    "predkladatel": null,
+    "votes": [],
+    "resolution_numbers_mentioned": [],
+    "raw_text": "Projednání bodu bylo odloženo."
+   },
+   {
+    "number": 10,
+    "title_raw": "Uzavření \"Smlouvy o budoucí smlouvě a dohodu o umístění stavby č. IZ-12-6002549/VB01“ s firmou ČEZ Distribuce, a.s. se sídlem Děčín – IV Podmokly, Teplická 874/8.",
+    "heading_raw": "23. Uzavření \"Smlouvy o budoucí smlouvě a dohodu o umístění stavby č. IZ-12-6002549/VB01“ s firmou ČEZ Distribuce, a.s. se sídlem Děčín – IV Podmokly, Teplická 874/8. (bod číslo 10)",
+    "predkladatel": null,
+    "votes": [],
+    "resolution_numbers_mentioned": [],
+    "raw_text": "Projednání bodu bylo odloženo.\nJednání ukončeno 26.07.2021 v 16:36:58\n\nOvěřeno ověřovateli:\n1)\n29. 7. 2021 08:33\nJiří Katrnoška\n2)\n29. 7. 2021 11:25\nJaroslav Železný"
+   }
+  ],
+  "full_text": "ZÁPIS z jednání rady č. 12/2021\nMěsto Pečky\ndatum: 26. 7. 2021, čas: 14:30\n​\nPrezence:\nPřítomni:\n(6) Mgr. Alena Švejnohová, Bc. Iveta Minaříková, Tomáš Vodička, Jiří Katrnoška, Jaroslav Železný, Mgr. Blanka Kozáková\nOmluveni:\n(1) Šárka Horynová\nNepřítomni:\nHosté:\nZapisovatel/ka:\nLudmila Renková\nPřítomno je 6 členů a rada je usnášeníschopná.\nJednání zahájeno 26.07.2021 v 14:38:29\n1. Určení zapisovatelů, předsedajícího, příp. ověřovatelů (bod číslo 1)\nPředkladatel: Mgr. Alena Švejnohová\nProjednávání bodu bylo zahájeno v 14:40:21\nPředsedající navrhl jednotlivé členy pracovních komisí\nOvěřovatelé:\nJaroslav Železný, Jiří Katrnoška\nPředsedající:\nMgr. Alena Švejnohová\nBod byl přijat bez hlasování.\nDiskuze zahájena v 14:40:21\nProjednávání bodu bylo ukončeno v 14:44:37\nV 14:49:18 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Alena Švejnohová\") v tomto znění:\nRada\nměsta schvaluje návrh programu jednání.\ns těmito změnami:\n- doplňuje se bod č. 22 - Uzavření dodatku č. 1 v SOD: \"Přeložka plynu\nVelké\nChvalovice\"\n- doplňuje se bod č. 23 - Vyhlášení výběrového řízení \"PROJEKTOVÁ DOKUMENTACE Revitalizace\nMlýnského\nnáhonu v Pečkách\"\nHlasování\npro:\n(6) Tomáš Vodička, Jiří Katrnoška, Bc. Iveta Minaříková, Mgr. Alena Švejnohová, Jaroslav Železný, Mgr. Blanka Kozáková\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-130-12/21\nzodpovídá:\ntermín:\n26. 7. 2021\n2. Aktuální informace vedení města (bod číslo 3)\nPředkladatel: Mgr. Alena Švejnohová\nProjednávání bodu bylo zahájeno v 14:49:47\nDůvodová zpráva\nSta\nrostka města\n-  informace o konání akce \"Den otevřené stavby Velim-Poříčany, BC\" dne 5.8.2021\n-  koncepce umístění laviček od sídliště ke hřbitovu\nI. místostarostka Bc.\nIveta\nMinaříková\n-  informace o II. etapě projektu na revitalizaci parku - cesty, sítě, mobiliáře\n-  informace o výběrovém řízení na zhotovitele přechodu pro chodce J. A.\nKomenského\na tř. 5. května, k.ú. Pečky - viz bod programu 24\n-  informace o veřejném projednávání změny č. I územního plánu města Pečky  dne 21.7.2021\n-  informaci o videokonferenci s firmou XTOPIX architekti, s.r.o. ohledně projektové dokumentace v parku pod vodojemem\nJiří\nKatrnoška\n-  upozornění na stav  chodníku  ul.\nHálkova\nv souvislosti s vedením objízdné trasy z důvodu stavebních úprav komunikace ve\nVrbové\nLhotě\nDiskuze zahájena v 14:49:47\nProjednávání bodu bylo ukončeno v 14:50:46\n3. Schválení Smlouvy mezi městem Pečky a firmou Elektrowin, a.s. (bod číslo 4)\nPředkladatel: Hana Pokorná\nProjednávání bodu bylo zahájeno v 14:50:59\nDůvodová zpráva\nMěsto Pečky má uzavřenou smlouvu s firmou ELEKTROWIN, a.s. Michelská 300/60, 140 00\nPraha\n4, provozovatelem kolektivního systému pro zpětný odběr, zpracování, využití a odstranění odpadních elektrozařízení.\nNový\nzákon o odpadech schválil mnoho změn, které se týkají odpadového hospodářství měst a obcí.\nTato\nnová právní úprava přinesla změny a povinnosti i provozovatelům kolektivních systému a také sběrným místům a jejich provozovatelům. Z tohoto důvodu firma ELEKTROWIN, a.s. připravila pro město Pečky smlouvu novou, která zcela nahrazuje obsah původní smlouvy.  Součástí smlouvy je i převedení povinností zpětného odběru ze strany obce na provozovatele sběrného místa Služby města Pečky, s.r.o., Tř.\nJana\nŠvermy 49, 28911 Pečky.\nDiskuze zahájena v 14:50:59\nV 15:20:09 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Hana Pokorná\") v tomto znění:\nRada\nměsta schvaluje uzavření smlouvy mezi městem Pečky a firmou ELEKTROWIN, a.s., Michelská 300/60, 140 00\nPraha\n4, provozovatelem kolektivního systému pro zpětný odběr, zpracování, využití a odstranění odpadních elektrozařízení a převedení povinností zpětného odběru ze strany obce na provozovatele sběrného místa Služby města Pečky, s.r.o., Tř.\nJana\nŠvermy 49, 28911 Pečky.\nHlasování\npro:\n(6) Jiří Katrnoška, Mgr. Alena Švejnohová, Tomáš Vodička, Bc. Iveta Minaříková, Mgr. Blanka Kozáková, Jaroslav Železný\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-131-12/21\nzodpovídá:\nHana Pokorná\ntermín:\n9. 8. 2021\nProjednávání bodu bylo ukončeno v 15:20:18\n4. Uzavření SOD na zhotovitele přechodu pro chodce v ul. J.A. Komenského v Pečkách (bod číslo 24)\nPředkladatel: Bc. Iveta Minaříková\nProjednávání bodu bylo zahájeno v 15:25:56\nDůvodová zpráva\nVýzva pro podání nabídek na veřejnou zakázku malého rozsahu na stavební práce  “Přechod pro chodce J. A.\nKomenského\nx tř. 5. května, k.ú. Pečky” byla rozeslána osmi firmám. Nabídku předložila pouze jedna firma a to CE-DA servis s.r.o.,\nProkopa\nHolého\n586,\nVelký\nOsek.\nDiskuze zahájena v 15:25:56\nV 15:26:32 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Iveta Minaříková\") v tomto znění:\nRada\nměsta schvaluje uzavření smlouvy mezi městem Pečky a firmou CE-DA servis, s.r.o.,\nProkopa\nHoleho 586, 281 51\nVelký\nOsek, IČ: 06184520 na zhotovení díla \"Přechod pro chodce J.A.\nKomenského\nx tř 5. Května, k.ú. Pečky\" za cenu 353.197,40 Kč bez DPH, tzn. 427.368,85 Kč.\nHlasování\npro:\n(6) Mgr. Alena Švejnohová, Bc. Iveta Minaříková, Mgr. Blanka Kozáková, Jaroslav Železný, Jiří Katrnoška, Tomáš Vodička\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-132-12/21\nzodpovídá:\nJana Zindrová\ntermín:\n1. 12. 2021\nProjednávání bodu bylo ukončeno v 15:26:46\n5. Smlouva o výpůjčce nemovitostí (bod číslo 5)\nPředkladatel: Cecilie Pajkrtová\nProjednávání bodu bylo zahájeno v 15:33:04\nDůvodová zpráva\nMěsto má zájem umístit na pozemku p.č. 1719 v k.ú. Pečky (zahrada MŠ Mašinka) monitorovací stanici ovzduší. Zařízení ve vlastnictví Středočeského kraje lze umístit na ploše o výměře 10m\n2\nna základě smlouvy o výpůjčce. Záměr výpůjčky byl zveřejněn na úřední desce v době od 1.7. do 16.7.2021.\nDiskuze zahájena v 15:33:04\nV 15:35:28 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Cecilie Pajkrtová\") v tomto znění:\nRada\nměsta schvaluje uzavření smlouvy o výpůjčce nemovitostí č.S-/OŽP/2021 mezi městem Pečky a Středočeským krajem se sídlem\nZborovská\n11, 150 21\nPraha\n5. Smlouva se sjednává na dobu určitou od 1.12.2021 do 31.12.2022.\nHlasování\npro:\n(6) Mgr. Alena Švejnohová, Bc. Iveta Minaříková, Jiří Katrnoška, Mgr. Blanka Kozáková, Tomáš Vodička, Jaroslav Železný\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-133-12/21\nzodpovídá:\nCecilie Pajkrtová\ntermín:\n9. 8. 2021\nProjednávání bodu bylo ukončeno v 15:35:41\n6. Dotazníkový průzkum - Pečovatelská služba města Pečky (bod číslo 7)\nPředkladatel: Marcela Bahníková\nProjednávání bodu bylo zahájeno v 15:36:32\nDůvodová zpráva\nV rámci udržení a zvyšování kvality poskytované pečovatelské služby realizovala organizace v květnu 2021 „Průzkum spokojenosti klientů s poskytovanou pečovatelskou službu“, a to  prostřednictvím anonymního dotazníku (obsahující 9 otázek), které byly rozdány klientům Pečovatelské služby města Pečky. Dotazníkového šetření se zúčastnilo celkem 21 respondentů z 38, tj. 55,3 % dotázaných. Dotazníky nebyly distribuovány těm klientům, kterým byla pečovatelská služba poskytována krátkou dobu (do 1 měsíce). Z dotazníkového šetření vyplynulo, že s pečovatelskou službou jsou naši klienti spokojení, bylo by však vhodné zvýšit naší činnost v oblasti informovanosti o námi poskytovaných službách, v oblasti komunikace s klienty týkajících se potřebných změn v poskytované službě a ohledně případné nespokojenosti se službou.\nDiskuze zahájena v 15:36:32\nRada bere materiály předložené k bodu č. 7 -\nDotazníkový průzkum - Pečovatelská služba města Pečky\nna vědomí.\nProjednávání bodu bylo ukončeno v 15:37:25\n7. Revokace usnesení č. UR-90-7/21 Uzavření smlouvy na provedení nátěru části střechy objektu DPS č. p. 218, Tř. 5. května, Pečky (bod číslo 8)\nPředkladatel: Martina Hrázská\nProjednávání bodu bylo zahájeno v 15:37:55\nDůvodová zpráva\nRada\nměsta schválila dne 7.6.2021 uzavření smlouvy mezi městem Pečky a firmou\nMiroslav\nKronus\n, Grégrova 399,\nKolín\n3, IČO 624 75 487, na provedení nátěru části střechy 1300m\n2\nna objektu DPS č.p. 218, Pečky. Vybraný zhotovitel pan\nMiroslav\nKronus\ntuto smlouvu o dílo neuzavřel z kapacitních důvodů. Navrhuji revokaci usnesení č. UR-90-7/21 a navrhuji uzavření smlouvy s firmou S lanem s.r.o., Třebovice 236,\nČeská\nTřebová\n, IČO: 107 71 131. Smlouva bude uzavřena na částku 220.000,- Kč bez DPH. Firma S lanem s.r.o. je plátce DPH.\nDiskuze zahájena v 15:37:55\nV 15:41:20 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Martina Hrázská\") v tomto znění:\nRada města\nrevokuje usnesení UR-90-7/21 uzavření smlouvy na provedení nátěru části střechy objektu DPS č. p. 218, Tř. 5. května, Pečky s firmou\nMiroslav\nKronus\n, Grégrova 399,\nKolín\n3, IČO: 624 75 487.\nHlasování\npro:\n(6) Bc. Iveta Minaříková, Mgr. Blanka Kozáková, Jaroslav Železný, Tomáš Vodička, Jiří Katrnoška, Mgr. Alena Švejnohová\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-134-12/21 a bylo jím revokováno usnesení UR-90-7/21\nzodpovídá:\ntermín:\nIHNED\n(26. 7. 2021)\nV 15:42:12 předsedající zahájil hlasování o návrhu usnesení \"B\" (navrhovatel: \"Martina Hrázská\") v tomto znění:\nRada\nměsta schvaluje uzavření smlouvy mezi městem Pečky a firmou S lanem s.r.o., Třebovice 236,\nČeská\nTřebová\n, IČO: 107 71 131, na provedení nátěru části střechy 1300 m\n2\nna objektu DPS č. p. 218, Pečky. Smlouva bude uzavřena na částku 220.000,- Kč bez DPH. Firma S lanem s.r.o. je plátce DPH.\nHlasování\npro:\n(6) Mgr. Blanka Kozáková, Bc. Iveta Minaříková, Mgr. Alena Švejnohová, Jiří Katrnoška, Tomáš Vodička, Jaroslav Železný\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-135-12/21\nzodpovídá:\nMartina Hrázská\ntermín:\n9. 8. 2021\nProjednávání bodu bylo ukončeno v 15:42:22\n8. Uzavření Smlouvy na pronájem části ochozu vodárenské věže – fy. KOMS Mělník, a.s. (bod číslo 9)\nPředkladatel: Jana Najbrtová\nProjednávání bodu bylo zahájeno v 15:42:39\nDůvodová zpráva\nDoporučujeme uzavřít Smlouvu na pronájem části ochozu vodárenské věže s fy. KOMS Mělník, a.s. Smlouva bude uzavřena zpětně od 20.7.2021 - na dobu neurčitou (krátkodobá smlouva byla uzavřena do 19.7.2021). Firma souhlasí s podmínkami ve zveřejněném záměru ze dne 22.6. 2021. Měsíční nájemné činí 10.000,- Kč + DPH. Nájemné za krátkodobou smlouvu bylo uhrazeno.\nDiskuze zahájena v 15:42:39\nV 15:43:00 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Jana Najbrtová\") v tomto znění:\nRada\nměsta schvaluje uzavření smlouvy na pronájem části ochozu vodárenské věže s fy. KOMS Mělník, a.s., Na Podhradí 162. Smlouva bude uzavřena na dobu neurčitou od 20.7. 2021 s výpovědní lhůtou 3 měsíce. Nájemné činí 10.000,- Kč + DPH/měsíc.\nHlasování\npro:\n(6) Tomáš Vodička, Jaroslav Železný, Bc. Iveta Minaříková, Mgr. Alena Švejnohová, Jiří Katrnoška, Mgr. Blanka Kozáková\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-136-12/21\nzodpovídá:\nVěra Růžičková\ntermín:\n20. 8. 2021\nProjednávání bodu bylo ukončeno v 15:47:18\n9. Uzavření Smlouvy o nájmu pozemku č. parc. 164 v obci a k.ú. Dobřichov (bod číslo 11)\nPředkladatel: Jana Najbrtová\nProjednávání bodu bylo zahájeno v 15:47:35\nDůvodová zpráva\nDoporučujeme uzavřít Smlouvu o nájmu pozemku č. parc. 164 (206 m\n2\n) v obci a k.ú. Dobřichov s panem\n█​█​█​█​█​█​█​█​█​█​█​█​█​█​\n. Smlouva bude uzavřena od 1.8. 2021 na 20 let tzn. do 31.7. 2041 (výpovědní lhůta činí 6 měsíců). Pozemek bude využíván pro práci s mládeží a rovněž bude využíván sportovním oddílem místního minigolfu. Nájemné bude hrazeno 1x ročně v celkové výši 21,- Kč/rok.\nDiskuze zahájena v 15:47:35\nV 15:49:12 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Jana Najbrtová\") v tomto znění:\nRada\nměsta schvaluje uzavřít Smlouvu o nájmu pozemku č. parc. 164 (206 m\n2\n) v obci a k.ú. Dobřichov s panem\n█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​\nSmlouva bude uzavřena na dobu určitou od 1.8. 2021 do 31.7. 2041 tzn. 20 let s výpovědní lhůtou 6 měsíců. Nájemné činí 21,- Kč/rok a bude hrazeno vždy k 31. březnu.\nHlasování\npro:\n(6) Jiří Katrnoška, Tomáš Vodička, Mgr. Alena Švejnohová, Mgr. Blanka Kozáková, Jaroslav Železný, Bc. Iveta Minaříková\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-137-12/21\nzodpovídá:\nJana Najbrtová\ntermín:\n20. 8. 2021\nProjednávání bodu bylo ukončeno v 15:49:18\n10. Žádost o odkoupení části pozemku č. parc. 1467/1 v k.ú. Pečky (bod číslo 12)\nPředkladatel: Jana Najbrtová\nProjednávání bodu bylo zahájeno v 15:49:42\nDůvodová zpráva\nNedoporučujeme odprodat část pozemku č. parc. 1467/1 na výstavbu garáže. Z nákresu je patrné, že by do garáže byl vjezd po obecním pozemku. Žadatel\n█​█​█​█​█​█​█​█​█​█​█​█​█​\nsice uvádí, že bydlí ve vedlejším domě, ale dle výpisu z K.N. nemá žádná vlastnická práva k nemovitosti (dům je asi rodičů). Rozhodně není vhodné oddělovat z pozemku část, tak jak je zakresleno v příloze žádosti. Dle ÚP je pozemek veden jako území smíšené obytné.\nDiskuze zahájena v 15:49:42\nV 15:50:21 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Jana Najbrtová\") v tomto znění:\nRada\nměsta nedoporučuje odprodat část pozemku č. parc. 1467/1 v obci a k.ú. Pečky dle žádosti p.\n█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​\nHlasování\npro:\n(6) Mgr. Alena Švejnohová, Tomáš Vodička, Jaroslav Železný, Jiří Katrnoška, Bc. Iveta Minaříková, Mgr. Blanka Kozáková\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-138-12/21\nzodpovídá:\nJana Najbrtová\ntermín:\n20. 8. 2021\nProjednávání bodu bylo ukončeno v 15:50:32\n11. Čerpání investičního fondu - Základní škola Pečky (bod číslo 13)\nPředkladatel: Marcela Bahníková\nProjednávání bodu bylo zahájeno v 15:51:01\nDůvodová zpráva\nZákladní škola Pečky žádá zřizovatele o souhlas  s použitím investičního fondu  ve výši  341.961,73 Kč na nákup serveru, včetně zálohovacího řešení. Server bude pořízen od společnosti Profesia s.r.o., která předložila škole nejvýhodnější nabídku. Zůstatek IF k 30.6.2021 je 567.148,17 Kč.\nDiskuze zahájena v 15:51:01\nV 15:53:04 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Marcela Bahníková\") v tomto znění:\nRada\nměsta schvaluje čerpání investičního fondu Základní školy Pečky do výše 342.000,- Kč na pořízení serveru, včetně zálohovacího řešení.\nHlasování\npro:\n(5) Mgr. Alena Švejnohová, Jiří Katrnoška, Mgr. Blanka Kozáková, Bc. Iveta Minaříková, Jaroslav Železný\nproti\n(0)\nzdržel se:\n(1) Tomáš Vodička\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-139-12/21\nzodpovídá:\nMarcela Bahníková\ntermín:\n31. 7. 2021\nProjednávání bodu bylo ukončeno v 15:53:11\n12. Poskytnutí daru (bod číslo 14)\nPředkladatel: Marcela Bahníková\nProjednávání bodu bylo zahájeno v 15:53:32\nDůvodová zpráva\nOblastní charita\nČervený\nKostelec  žádá o poskytnutí finančního příspěvku na  provoz Hospice Anežky\nČeské\nv roce 2021. Vloni ani letos nebyl v uvedeném zařízení hospitalizován žádný pacient z\nPeček\n. Navrhuji poskytnout dar ve výši 1.000,- Kč.\nDiskuze zahájena v 15:53:32\nV 15:54:25 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Marcela Bahníková\") v tomto znění:\nRada\nměsta schvaluje poskytnutí finančního daru ve výši 1.000,- Kč Oblastní Charitě\nČervený\nKostec, IČO  48623814.\nHlasování\npro:\n(3) Jiří Katrnoška, Mgr. Blanka Kozáková, Mgr. Alena Švejnohová\nproti\n(3) Jaroslav Železný, Tomáš Vodička, Bc. Iveta Minaříková\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh nebyl přijat\nProjednávání bodu bylo ukončeno v 15:56:26\n13. Vyřazení nepotřebného majetku DHM (bod číslo 15)\nPředkladatel: Marcela Bahníková\nProjednávání bodu bylo zahájeno v 15:56:57\nDůvodová zpráva\nNavrhujeme vyřadit nepotřebný, nefunkční drobný dlouhodobý majetek likvidací v celkové poř. ceně 107.659,36 Kč. Přehled majetku v příloze.\nDiskuze zahájena v 15:56:57\nV 15:57:19 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Marcela Bahníková\") v tomto znění:\nRada\nměsta schvaluje vyřazení nepotřebného DDHM likvidací (účet 028-02 v celk. poř. ceně 18.431,66 Kč, účet 028-03 v celk. poř. ceně  16.329,20 Kč a účet 028-06 v celk. poř. ceně  72.898,50 Kč).\nHlasování\npro:\n(6) Mgr. Blanka Kozáková, Jiří Katrnoška, Tomáš Vodička, Jaroslav Železný, Bc. Iveta Minaříková, Mgr. Alena Švejnohová\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-140-12/21\nzodpovídá:\nMarcela Bahníková\ntermín:\n31. 8. 2021\nProjednávání bodu bylo ukončeno v 15:57:30\n14. Souhlas s přijetím darů - Pečovatelská služba města Pečky (bod číslo 16)\nPředkladatel: Marcela Bahníková\nProjednávání bodu bylo zahájeno v 15:57:49\nDůvodová zpráva\nInformace ředitelky Pečovatelské služby města Pečky o plánované přestavbě služebního vozu Peugeot Partner. Žádost o souhlas s přijímáním finančních darů určených na tuto přestavbu. Předpokládaná cena přestavby je cca 222 tis. a bude financována z investičního fondu organizace a přijatých darů.\nDiskuze zahájena v 15:57:49\nV 15:59:03 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Marcela Bahníková\") v tomto znění:\nRada\nměsta schvaluje  a uděluje souhlas Pečovatelské službě města Pečky s přijímáním finančních darů za účelem financování projektu \"Přestavba služebního vozu  Peugeot Partner\".\nHlasování\npro:\n(6) Tomáš Vodička, Mgr. Alena Švejnohová, Jiří Katrnoška, Bc. Iveta Minaříková, Mgr. Blanka Kozáková, Jaroslav Železný\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-141-12/21\nzodpovídá:\nMarcela Bahníková\ntermín:\n31. 7. 2021\nProjednávání bodu bylo ukončeno v 15:59:11\n15. Příspěvek na úhradu nákladů na přeznačení turistické zelené značky městem (bod číslo 17)\nPředkladatel: Tomáš Vodička\nProjednávání bodu bylo zahájeno v 15:59:57\nDůvodová zpráva\nV souladu s jednáním RM ze dne  4. 11. 2019 (zápis bod 4q) došlo k přeznačení zelené turistické značky v Pečkách. V portálu \"mapy.cz\" dojde k aktualizaci do 3 měsíců. V podkladech k RM 4/11/19 byly předpokládané náklady 5.000,- Kč  a informace, že Farní sbor evangelické církve může uhradit částku 3.000,- Kč. RM změnu značení schválila. Reálné náklady: 6.000,- Kč. Navrhuji uhradit městem polovinu, tj. 3.000,- Kč. Komunikace s KČT je přílohou tohoto bodu (původní podklad z roku 2019 i aktuální).\nDiskuze zahájena v 15:59:57\nV 16:00:52 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Tomáš Vodička\") v tomto znění:\nRada\nměsta schvaluje  finanční příspěvek ve výši 3.000,- Kč\nKlubu\nčeských turistů,  Revoluční 1056/8a,\nPraha\n1, IČ: 09030964 na přeznačení turistické zelené značky v Pečkách  a ukládá M.\nBahníkové\nčástku uhradit v koordinaci s Jonášem Hájkem, iniciátorem přeznačení.\nHlasování\npro:\n(6) Mgr. Alena Švejnohová, Mgr. Blanka Kozáková, Jaroslav Železný, Tomáš Vodička, Bc. Iveta Minaříková, Jiří Katrnoška\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-142-12/21\nzodpovídá:\nMarcela Bahníková\ntermín:\n30. 8. 2021\nProjednávání bodu bylo ukončeno v 16:01:05\n16. Dotace - Pečovatelská služba města Pečky (bod číslo 18)\nPředkladatel: Marcela Bahníková\nProjednávání bodu bylo zahájeno v 16:01:22\nDůvodová zpráva\nZastupitelstvo Středočeského kraje na svém zasedání dne 28.6.2021 projednalo poskytnutí dotace z Programu 2021 pro poskytování dotací z rozpočtu Středočeského kraje – Středočeský Humanitární fond a usnesením č. 028-08/2021/ZK schválilo poskytnutí dotace na základě naší žádosti o poskytnutí dotace prostřednictvím veřejnoprávní smlouvy z výše uvedeného Programu a to ve výši 500.000,- Kč. Schválení přijetí dotace zřizovatelem je nutné pro uzavření smlouvy o dotaci.\nDiskuze zahájena v 16:01:22\nV 16:04:02 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Marcela Bahníková\") v tomto znění:\nRada\nměsta schvaluje přijetí dotace Pečovatelskou službou města Pečky z Humanitárního fondu Středočeského kraje ve výši  500.000,- Kč.\nHlasování\npro:\n(6) Mgr. Alena Švejnohová, Bc. Iveta Minaříková, Mgr. Blanka Kozáková, Jiří Katrnoška, Tomáš Vodička, Jaroslav Železný\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-143-12/21\nzodpovídá:\nMarcela Bahníková\ntermín:\n31. 7. 2021\nProjednávání bodu bylo ukončeno v 16:04:10\n17. Navýšení dotace - Pečovatelská služba města Pečky (bod číslo 19)\nPředkladatel: Marcela Bahníková\nProjednávání bodu bylo zahájeno v 16:04:21\nDůvodová zpráva\nDne 12.7.2021 obdržela Pečovatelská služba města Pečky dodatek veřejnoprávní smlouvy o dotaci na poskytování sociálních služeb č. S/0743/SOC/2021/1, kterým se navyšuje dotace na pečovatelskou službu z 2.465.800,- Kč na 2.803.500,- Kč a na denní stacionář z 305.900,- Kč na 353.200,- Kč. Navýšení dotace (celkem o 385.000,- Kč) souvisí s žádostí o dotaci na dofinancování platů pracovníků sociálních služeb v souvislosti s navýšením platových tarifů s platností od 1.1.2021, které původní žádost o dotaci nezohledňovala. K uzavření dodatku je zapotřebí souhlas zřizovatele organizace.\nDiskuze zahájena v 16:04:21\nV 16:05:04 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Marcela Bahníková\") v tomto znění:\nRada\nměsta schvaluje uzavření dodatku k veřejnoprávní smlouvě o poskytnutí dotace na sociální služby č. S-0743/SOC/2021/1 mezi Pečovatelskou službou města Pečky a Středočeským krajem.\nHlasování\npro:\n(6) Mgr. Alena Švejnohová, Mgr. Blanka Kozáková, Bc. Iveta Minaříková, Tomáš Vodička, Jiří Katrnoška, Jaroslav Železný\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-144-12/21\nzodpovídá:\nMarcela Bahníková\ntermín:\n31. 7. 2021\nProjednávání bodu bylo ukončeno v 16:05:10\n18. Rozpočtová opatření č.6/2021 (bod číslo 20)\nPředkladatel: Marcela Bahníková\nProjednávání bodu bylo zahájeno v 16:05:20\nDůvodová zpráva\nNávrh rozpočtových opatření obsahuje průtokové dotace pro Pečovatelskou službu města Pečky poskytnuté MPSV a Středočeským krajem prostřednictvím zřizovatele. Zvýšení příjmů i výdajů rozpočtu o 1.397.112,- Kč.\nDiskuze zahájena v 16:05:20\nV 16:05:57 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Marcela Bahníková\") v tomto znění:\nRada\nměsta schvaluje rozpočtová opatření č.6/2021.\nHlasování\npro:\n(6) Jaroslav Železný, Mgr. Alena Švejnohová, Bc. Iveta Minaříková, Tomáš Vodička, Mgr. Blanka Kozáková, Jiří Katrnoška\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-145-12/21\nzodpovídá:\ntermín:\nIHNED\n(26. 7. 2021)\nProjednávání bodu bylo ukončeno v 16:06:05\n19. Svolení s použitím fotografie sochy Jana Husa (bod číslo 21)\nPředkladatel: Tomáš Vodička\nProjednávání bodu bylo zahájeno v 16:06:38\nDůvodová zpráva\nAmerický badatel, učitel a překladatel\nAngelo\nFranklin\nžádá o svolení využít fotografii sochy\nJana\nHusa\nod S. Suchardy na obálku knihy, kterou napsal společně s prof. Janem Blahoslavem Láškem. Jedná se o překlady Husových kázání.\nKniha\nvyjde v nakladatelství Rowman and Littlefield v nákladu cca 1.000 ks. V případě udělení souhlasu dostaneme několik výtisků darem.\nDiskuze zahájena v 16:06:38\nV 16:08:21 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Tomáš Vodička\") v tomto znění:\nRada\nměsta souhlasí s využitím fotografie sochy J.\nHusa\nod S. Suchardy na obálku knihy vydavatelství Rowman and Littlefield od autorů\nAngelo\nFranklin\na J. B.\nLášek\n.\nHlasování\npro:\n(6) Tomáš Vodička, Mgr. Blanka Kozáková, Jaroslav Železný, Mgr. Alena Švejnohová, Jiří Katrnoška, Bc. Iveta Minaříková\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-146-12/21\nzodpovídá:\nTomáš Vodička\ntermín:\n9. 8. 2021\nProjednávání bodu bylo ukončeno v 16:08:35\n20. Uzavření dodatku č. 1 v SOD: \"Přeložka plynu Velké Chvalovice\" (bod číslo 22)\nPředkladatel: Bc. Iveta Minaříková\nProjednávání bodu bylo zahájeno v 16:08:55\nDůvodová zpráva\nNa základě chybného součtu rozpočtu předloženého zhotovitelem, předkládáme radě města ke schválení, uzavření dodatku č. 1 ke smlouvě o dílo týkající se přeložky plynu ve Velkých Chvalovicích.\nDiskuze zahájena v 16:08:55\nV 16:12:29 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Iveta Minaříková\") v tomto znění:\nRada\nměsta schvaluje uzavření dodatku č. 1 ke smlouvě o dílo uzavřené  mezi městem Pečky a firmou GASKO, spol. s r.o,\nKolín\nIV, IČ: 45146454  na akci:„Přeložka plynu\nVelké\nChvalovice“.\nCena\ndíla bude navýšena o 24.169,30 Kč bez DPH a 29.244,85 Kč s DPH, konečná cena díla činí 99.674,80 Kč bez DPH a 120.606,50 Kč s DPH. Navýšení ceny nemá vliv na poptávkové řízení a jeho pořadí, jelikož jsme obdrželi jednu nabídku.\nHlasování\npro:\n(6) Tomáš Vodička, Mgr. Blanka Kozáková, Mgr. Alena Švejnohová, Jaroslav Železný, Bc. Iveta Minaříková, Jiří Katrnoška\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-147-12/21\nzodpovídá:\nPavel Krejčí\ntermín:\n9. 8. 2021\nProjednávání bodu bylo ukončeno v 16:12:43\n21. Vyhlášení výběrového řízení \"PROJEKTOVÁ DOKUMENTACE Revitalizace Mlýnského náhonu v Pečkách\" (bod číslo 23)\nPředkladatel: Tomáš Vodička\nProjednávání bodu bylo zahájeno v 16:12:57\nDůvodová zpráva\nVyhlášení výběrového řízení \"PROJEKTOVÁ DOKUMENTACE Revitalizace\nMlýnského\nnáhonu v Pečkách\". Na zpracování sloučené dokumentace pro územní řízení a stavební povolení schválena žádost o poskytnutí dotace z Programu 2020 pro poskytování dotací z rozpočtu Středočeského kraje ze Středočeského Fondu podpory včasné přípravy projektů EU 2021+ a NIP v rámci tematického zadání Životní prostředí – vodní hospodářství.\nPro\nuzavření veřejnoprávní smlouvy o poskytnutí dotace povinnost doložit smlouvu o dílo se zhotovitelem. Rozsah zadání, účel, předmět a cíl veřejné zakázky a pravidla pro hodnocení nabídek - viz přílohy.\nNávrh na složení komise - členové: Bc.\nIveta\nMinaříková\n,\nTomáš\nVodička\n, Ing.\nJana\nZindrová,\nnáhradníci:\nJiří\nKatrnoška\n,\nHana\nPokorná\n, PaedDr.\nCecilie\nPajkrtová\nDiskuze zahájena v 16:12:57\nV 16:16:17 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Tomáš Vodička\") v tomto znění:\nRada\nměsta schvaluje vyhlášení výběrového řízení „PROJEKTOVÁ DOKUMENTACE Revitalizace\nMlýnského\nnáhonu v Pečkách“ uveřejněním na profilu zadavatele v souladu s přiloženými zadávacími podmínkami a složení hodnotící komise: Bc.\nIveta\nMinaříková\n,\nTomáš\nVodička\n, Ing.\nJana\nZindrová,\nnáhradníci:\nJiří\nKatrnoška\n,\nHana\nPokorná\n, PaedDr.\nCecilie\nPajkrtová.\nHlasování\npro:\n(6) Tomáš Vodička, Mgr. Alena Švejnohová, Jaroslav Železný, Mgr. Blanka Kozáková, Bc. Iveta Minaříková, Jiří Katrnoška\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-148-12/21\nzodpovídá:\nMichala Dekiská\ntermín:\n9. 8. 2021\nProjednávání bodu bylo ukončeno v 16:16:33\n22. Kontrola úkolů (bod číslo 6)\nProjednání bodu bylo odloženo.\n23. Uzavření \"Smlouvy o budoucí smlouvě a dohodu o umístění stavby č. IZ-12-6002549/VB01“ s firmou ČEZ Distribuce, a.s. se sídlem Děčín – IV Podmokly, Teplická 874/8. (bod číslo 10)\nProjednání bodu bylo odloženo.\nJednání ukončeno 26.07.2021 v 16:36:58\nOvěřeno ověřovateli:\n1)\n29. 7. 2021 08:33\nJiří Katrnoška\n2)\n29. 7. 2021 11:25\nJaroslav Železný"
+ },
+ "resolutions": {
+  "status": "ok",
+  "url": "https://mesto-pecky.usneseni.cz/verejne/adf1cc00-d7fb-11eb-a57d-fbe1f89fb344/usneseni/",
+  "fetched_at": "2026-08-04T14:46:02.150744+00:00",
+  "items": [
+   {
+    "number_raw": "UR-130-12/21",
+    "detail_id": 15131,
+    "detail_url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/15131?mod=rada",
+    "agenda_item_raw": "Schválení programu jednání",
+    "text_verbatim": "Rada\nměsta schvaluje návrh programu jednání.\ns těmito změnami:\n- doplňuje se bod č. 22 - Uzavření dodatku č. 1 v SOD: \"Přeložka plynu\nVelké\nChvalovice\"\n- doplňuje se bod č. 23 - Vyhlášení výběrového řízení \"PROJEKTOVÁ DOKUMENTACE Revitalizace\nMlýnského\nnáhonu v Pečkách\"",
+    "cell_text_raw": "Bod programu:\nSchválení programu jednání\nText přijatého usnesení:\nRada\nměsta schvaluje návrh programu jednání.\ns těmito změnami:\n- doplňuje se bod č. 22 - Uzavření dodatku č. 1 v SOD: \"Přeložka plynu\nVelké\nChvalovice\"\n- doplňuje se bod č. 23 - Vyhlášení výběrového řízení \"PROJEKTOVÁ DOKUMENTACE Revitalizace\nMlýnského\nnáhonu v Pečkách\"",
+    "date_raw": "26. 7. 2021",
+    "date_iso": "2021-07-26",
+    "responsible_raw": "",
+    "deadline_raw": "IHNED (26. 7. 2021)",
+    "vote": {
+     "raw_text": "pro: 6 proti: 0 zdržel se: 0",
+     "pro": {
+      "count": 6,
+      "names": null,
+      "raw": "6"
+     },
+     "proti": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     },
+     "zdrzel_se": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     }
+    },
+    "detail": {
+     "number_raw": "UR-130-12/21",
+     "text_verbatim": "Rada města schvaluje návrh programu jednání.\ns těmito změnami: - doplňuje se bod č. 22 - Uzavření dodatku č. 1 v SOD: \"Přeložka plynu Velké Chvalovice\" - doplňuje se bod č. 23 - Vyhlášení výběrového řízení \"PROJEKTOVÁ DOKUMENTACE Revitalizace Mlýnského náhonu v Pečkách\"",
+     "typ_raw": null,
+     "zodpovida_raw": "",
+     "prijato_raw": "26. 7. 2021 na jednání č. 12/2021",
+     "prijato_date_iso": "2021-07-26",
+     "prijato_meeting_label": "12/2021",
+     "termin_raw": "IHNED (26. 7. 2021)",
+     "ukonceno_raw": "26. 7. 2021",
+     "ukonceno_date_iso": "2021-07-26",
+     "fields_raw": {
+      "Číslo usnesení": "UR-130-12/21",
+      "Text usnesení": "Rada města schvaluje návrh programu jednání.\ns těmito změnami: - doplňuje se bod č. 22 - Uzavření dodatku č. 1 v SOD: \"Přeložka plynu Velké Chvalovice\" - doplňuje se bod č. 23 - Vyhlášení výběrového řízení \"PROJEKTOVÁ DOKUMENTACE Revitalizace Mlýnského náhonu v Pečkách\"",
+      "Zodpovídá": "",
+      "Přijato": "26. 7. 2021 na jednání č. 12/2021",
+      "Termín": "IHNED (26. 7. 2021)",
+      "Ukončeno": "26. 7. 2021"
+     }
+    }
+   },
+   {
+    "number_raw": "UR-131-12/21",
+    "detail_id": 15119,
+    "detail_url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/15119?mod=rada",
+    "agenda_item_raw": "Schválení Smlouvy mezi městem Pečky a firmou Elektrowin, a.s.",
+    "text_verbatim": "Rada\nměsta schvaluje uzavření smlouvy mezi městem Pečky a firmou ELEKTROWIN, a.s., Michelská 300/60, 140 00\nPraha\n4, provozovatelem kolektivního systému pro zpětný odběr, zpracování, využití a odstranění odpadních elektrozařízení a převedení povinností zpětného odběru ze strany obce na provozovatele sběrného místa Služby města Pečky, s.r.o., Tř.\nJana\nŠvermy 49, 28911 Pečky.",
+    "cell_text_raw": "Bod programu:\nSchválení Smlouvy mezi městem Pečky a firmou Elektrowin, a.s.\nText přijatého usnesení:\nRada\nměsta schvaluje uzavření smlouvy mezi městem Pečky a firmou ELEKTROWIN, a.s., Michelská 300/60, 140 00\nPraha\n4, provozovatelem kolektivního systému pro zpětný odběr, zpracování, využití a odstranění odpadních elektrozařízení a převedení povinností zpětného odběru ze strany obce na provozovatele sběrného místa Služby města Pečky, s.r.o., Tř.\nJana\nŠvermy 49, 28911 Pečky.",
+    "date_raw": "26. 7. 2021",
+    "date_iso": "2021-07-26",
+    "responsible_raw": "Hana Pokorná",
+    "deadline_raw": "9. 8. 2021",
+    "vote": {
+     "raw_text": "pro: 6 proti: 0 zdržel se: 0",
+     "pro": {
+      "count": 6,
+      "names": null,
+      "raw": "6"
+     },
+     "proti": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     },
+     "zdrzel_se": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     }
+    },
+    "detail": {
+     "number_raw": "UR-131-12/21",
+     "text_verbatim": "Rada města schvaluje uzavření smlouvy mezi městem Pečky a firmou ELEKTROWIN, a.s., Michelská 300/60, 140 00 Praha 4, provozovatelem kolektivního systému pro zpětný odběr, zpracování, využití a odstranění odpadních elektrozařízení a převedení povinností zpětného odběru ze strany obce na provozovatele sběrného místa Služby města Pečky, s.r.o., Tř. Jana Švermy 49, 28911 Pečky.",
+     "typ_raw": null,
+     "zodpovida_raw": "Hana Pokorná",
+     "prijato_raw": "26. 7. 2021 na jednání č. 12/2021",
+     "prijato_date_iso": "2021-07-26",
+     "prijato_meeting_label": "12/2021",
+     "termin_raw": "9. 8. 2021",
+     "ukonceno_raw": "30. 7. 2021",
+     "ukonceno_date_iso": "2021-07-30",
+     "fields_raw": {
+      "Číslo usnesení": "UR-131-12/21",
+      "Text usnesení": "Rada města schvaluje uzavření smlouvy mezi městem Pečky a firmou ELEKTROWIN, a.s., Michelská 300/60, 140 00 Praha 4, provozovatelem kolektivního systému pro zpětný odběr, zpracování, využití a odstranění odpadních elektrozařízení a převedení povinností zpětného odběru ze strany obce na provozovatele sběrného místa Služby města Pečky, s.r.o., Tř. Jana Švermy 49, 28911 Pečky.",
+      "Zodpovídá": "Hana Pokorná",
+      "Přijato": "26. 7. 2021 na jednání č. 12/2021",
+      "Termín": "9. 8. 2021",
+      "Ukončeno": "30. 7. 2021"
+     }
+    }
+   },
+   {
+    "number_raw": "UR-132-12/21",
+    "detail_id": 15300,
+    "detail_url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/15300?mod=rada",
+    "agenda_item_raw": "Uzavření SOD na zhotovitele přechodu pro chodce v ul. J.A. Komenského v Pečkách",
+    "text_verbatim": "Rada\nměsta schvaluje uzavření smlouvy mezi městem Pečky a firmou CE-DA servis, s.r.o.,\nProkopa\nHoleho 586, 281 51\nVelký\nOsek, IČ: 06184520 na zhotovení díla \"Přechod pro chodce J.A.\nKomenského\nx tř 5. Května, k.ú. Pečky\" za cenu 353.197,40 Kč bez DPH, tzn. 427.368,85 Kč.",
+    "cell_text_raw": "Bod programu:\nUzavření SOD na zhotovitele přechodu pro chodce v ul. J.A. Komenského v Pečkách\nText přijatého usnesení:\nRada\nměsta schvaluje uzavření smlouvy mezi městem Pečky a firmou CE-DA servis, s.r.o.,\nProkopa\nHoleho 586, 281 51\nVelký\nOsek, IČ: 06184520 na zhotovení díla \"Přechod pro chodce J.A.\nKomenského\nx tř 5. Května, k.ú. Pečky\" za cenu 353.197,40 Kč bez DPH, tzn. 427.368,85 Kč.",
+    "date_raw": "26. 7. 2021",
+    "date_iso": "2021-07-26",
+    "responsible_raw": "Jana Zindrová",
+    "deadline_raw": "1. 12. 2021",
+    "vote": {
+     "raw_text": "pro: 6 proti: 0 zdržel se: 0",
+     "pro": {
+      "count": 6,
+      "names": null,
+      "raw": "6"
+     },
+     "proti": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     },
+     "zdrzel_se": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     }
+    },
+    "detail": {
+     "number_raw": "UR-132-12/21",
+     "text_verbatim": "Rada města schvaluje uzavření smlouvy mezi městem Pečky a firmou CE-DA servis, s.r.o., Prokopa Holeho 586, 281 51 Velký Osek, IČ: 06184520 na zhotovení díla \"Přechod pro chodce J.A. Komenského x tř 5. Května, k.ú. Pečky\" za cenu 353.197,40 Kč bez DPH, tzn. 427.368,85 Kč.",
+     "typ_raw": null,
+     "zodpovida_raw": "Jana Zindrová",
+     "prijato_raw": "26. 7. 2021 na jednání č. 12/2021",
+     "prijato_date_iso": "2021-07-26",
+     "prijato_meeting_label": "12/2021",
+     "termin_raw": "1. 12. 2021",
+     "ukonceno_raw": "30. 7. 2021",
+     "ukonceno_date_iso": "2021-07-30",
+     "fields_raw": {
+      "Číslo usnesení": "UR-132-12/21",
+      "Text usnesení": "Rada města schvaluje uzavření smlouvy mezi městem Pečky a firmou CE-DA servis, s.r.o., Prokopa Holeho 586, 281 51 Velký Osek, IČ: 06184520 na zhotovení díla \"Přechod pro chodce J.A. Komenského x tř 5. Května, k.ú. Pečky\" za cenu 353.197,40 Kč bez DPH, tzn. 427.368,85 Kč.",
+      "Zodpovídá": "Jana Zindrová",
+      "Přijato": "26. 7. 2021 na jednání č. 12/2021",
+      "Termín": "1. 12. 2021",
+      "Ukončeno": "30. 7. 2021"
+     }
+    }
+   },
+   {
+    "number_raw": "UR-133-12/21",
+    "detail_id": 15178,
+    "detail_url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/15178?mod=rada",
+    "agenda_item_raw": "Smlouva o výpůjčce nemovitostí",
+    "text_verbatim": "Rada\nměsta schvaluje uzavření smlouvy o výpůjčce nemovitostí č.S-/OŽP/2021 mezi městem Pečky a Středočeským krajem se sídlem\nZborovská\n11, 150 21\nPraha\n5. Smlouva se sjednává na dobu určitou od 1.12.2021 do 31.12.2022.",
+    "cell_text_raw": "Bod programu:\nSmlouva o výpůjčce nemovitostí\nText přijatého usnesení:\nRada\nměsta schvaluje uzavření smlouvy o výpůjčce nemovitostí č.S-/OŽP/2021 mezi městem Pečky a Středočeským krajem se sídlem\nZborovská\n11, 150 21\nPraha\n5. Smlouva se sjednává na dobu určitou od 1.12.2021 do 31.12.2022.",
+    "date_raw": "26. 7. 2021",
+    "date_iso": "2021-07-26",
+    "responsible_raw": "Cecilie Pajkrtová",
+    "deadline_raw": "9. 8. 2021",
+    "vote": {
+     "raw_text": "pro: 6 proti: 0 zdržel se: 0",
+     "pro": {
+      "count": 6,
+      "names": null,
+      "raw": "6"
+     },
+     "proti": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     },
+     "zdrzel_se": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     }
+    },
+    "detail": {
+     "number_raw": "UR-133-12/21",
+     "text_verbatim": "Rada města schvaluje uzavření smlouvy o výpůjčce nemovitostí č.S-/OŽP/2021 mezi městem Pečky a Středočeským krajem se sídlem Zborovská 11, 150 21 Praha 5. Smlouva se sjednává na dobu určitou od 1.12.2021 do 31.12.2022.",
+     "typ_raw": null,
+     "zodpovida_raw": "Cecilie Pajkrtová",
+     "prijato_raw": "26. 7. 2021 na jednání č. 12/2021",
+     "prijato_date_iso": "2021-07-26",
+     "prijato_meeting_label": "12/2021",
+     "termin_raw": "9. 8. 2021",
+     "ukonceno_raw": "9. 8. 2021",
+     "ukonceno_date_iso": "2021-08-09",
+     "fields_raw": {
+      "Číslo usnesení": "UR-133-12/21",
+      "Text usnesení": "Rada města schvaluje uzavření smlouvy o výpůjčce nemovitostí č.S-/OŽP/2021 mezi městem Pečky a Středočeským krajem se sídlem Zborovská 11, 150 21 Praha 5. Smlouva se sjednává na dobu určitou od 1.12.2021 do 31.12.2022.",
+      "Zodpovídá": "Cecilie Pajkrtová",
+      "Přijato": "26. 7. 2021 na jednání č. 12/2021",
+      "Termín": "9. 8. 2021",
+      "Ukončeno": "9. 8. 2021"
+     }
+    }
+   },
+   {
+    "number_raw": "UR-134-12/21",
+    "detail_id": 15236,
+    "detail_url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/15236?mod=rada",
+    "agenda_item_raw": "Revokace usnesení č. UR-90-7/21 Uzavření smlouvy na provedení nátěru části střechy objektu DPS č. p. 218, Tř. 5. května, Pečky",
+    "text_verbatim": "Rada města\nrevokuje usnesení\nUR-90-7/21\nuzavření smlouvy na provedení nátěru části střechy objektu DPS č. p. 218, Tř. 5. května, Pečky s firmou\nMiroslav\nKronus\n, Grégrova 399,\nKolín\n3, IČO: 624 75 487.",
+    "cell_text_raw": "Bod programu:\nRevokace usnesení č. UR-90-7/21 Uzavření smlouvy na provedení nátěru části střechy objektu DPS č. p. 218, Tř. 5. května, Pečky\nText přijatého usnesení:\nRada města\nrevokuje usnesení\nUR-90-7/21\nuzavření smlouvy na provedení nátěru části střechy objektu DPS č. p. 218, Tř. 5. května, Pečky s firmou\nMiroslav\nKronus\n, Grégrova 399,\nKolín\n3, IČO: 624 75 487.",
+    "date_raw": "26. 7. 2021",
+    "date_iso": "2021-07-26",
+    "responsible_raw": "",
+    "deadline_raw": "IHNED (26. 7. 2021)",
+    "vote": {
+     "raw_text": "pro: 6 proti: 0 zdržel se: 0",
+     "pro": {
+      "count": 6,
+      "names": null,
+      "raw": "6"
+     },
+     "proti": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     },
+     "zdrzel_se": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     }
+    },
+    "detail": {
+     "number_raw": "UR-134-12/21",
+     "text_verbatim": "Rada města revokuje usnesení UR-90-7/21 uzavření smlouvy na provedení nátěru části střechy objektu DPS č. p. 218, Tř. 5. května, Pečky s firmou Miroslav Kronus , Grégrova 399, Kolín 3, IČO: 624 75 487.",
+     "typ_raw": null,
+     "zodpovida_raw": "",
+     "prijato_raw": "26. 7. 2021 na jednání č. 12/2021",
+     "prijato_date_iso": "2021-07-26",
+     "prijato_meeting_label": "12/2021",
+     "termin_raw": "IHNED (26. 7. 2021)",
+     "ukonceno_raw": "26. 7. 2021",
+     "ukonceno_date_iso": "2021-07-26",
+     "fields_raw": {
+      "Číslo usnesení": "UR-134-12/21",
+      "Text usnesení": "Rada města revokuje usnesení UR-90-7/21 uzavření smlouvy na provedení nátěru části střechy objektu DPS č. p. 218, Tř. 5. května, Pečky s firmou Miroslav Kronus , Grégrova 399, Kolín 3, IČO: 624 75 487.",
+      "Zodpovídá": "",
+      "Přijato": "26. 7. 2021 na jednání č. 12/2021",
+      "Termín": "IHNED (26. 7. 2021)",
+      "Ukončeno": "26. 7. 2021"
+     }
+    }
+   },
+   {
+    "number_raw": "UR-135-12/21",
+    "detail_id": 15237,
+    "detail_url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/15237?mod=rada",
+    "agenda_item_raw": "Revokace usnesení č. UR-90-7/21 Uzavření smlouvy na provedení nátěru části střechy objektu DPS č. p. 218, Tř. 5. května, Pečky",
+    "text_verbatim": "Rada\nměsta schvaluje uzavření smlouvy mezi městem Pečky a firmou S lanem s.r.o., Třebovice 236,\nČeská\nTřebová\n, IČO: 107 71 131, na provedení nátěru části střechy 1300 m\n2\nna objektu DPS č. p. 218, Pečky. Smlouva bude uzavřena na částku 220.000,- Kč bez DPH. Firma S lanem s.r.o. je plátce DPH.",
+    "cell_text_raw": "Bod programu:\nRevokace usnesení č. UR-90-7/21 Uzavření smlouvy na provedení nátěru části střechy objektu DPS č. p. 218, Tř. 5. května, Pečky\nText přijatého usnesení:\nRada\nměsta schvaluje uzavření smlouvy mezi městem Pečky a firmou S lanem s.r.o., Třebovice 236,\nČeská\nTřebová\n, IČO: 107 71 131, na provedení nátěru části střechy 1300 m\n2\nna objektu DPS č. p. 218, Pečky. Smlouva bude uzavřena na částku 220.000,- Kč bez DPH. Firma S lanem s.r.o. je plátce DPH.",
+    "date_raw": "26. 7. 2021",
+    "date_iso": "2021-07-26",
+    "responsible_raw": "Martina Hrázská",
+    "deadline_raw": "9. 8. 2021",
+    "vote": {
+     "raw_text": "pro: 6 proti: 0 zdržel se: 0",
+     "pro": {
+      "count": 6,
+      "names": null,
+      "raw": "6"
+     },
+     "proti": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     },
+     "zdrzel_se": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     }
+    },
+    "detail": {
+     "number_raw": "UR-135-12/21",
+     "text_verbatim": "Rada města schvaluje uzavření smlouvy mezi městem Pečky a firmou S lanem s.r.o., Třebovice 236, Česká Třebová , IČO: 107 71 131, na provedení nátěru části střechy 1300 m 2 na objektu DPS č. p. 218, Pečky. Smlouva bude uzavřena na částku 220.000,- Kč bez DPH. Firma S lanem s.r.o. je plátce DPH.",
+     "typ_raw": null,
+     "zodpovida_raw": "Martina Hrázská",
+     "prijato_raw": "26. 7. 2021 na jednání č. 12/2021",
+     "prijato_date_iso": "2021-07-26",
+     "prijato_meeting_label": "12/2021",
+     "termin_raw": "9. 8. 2021",
+     "ukonceno_raw": "9. 8. 2021",
+     "ukonceno_date_iso": "2021-08-09",
+     "fields_raw": {
+      "Číslo usnesení": "UR-135-12/21",
+      "Text usnesení": "Rada města schvaluje uzavření smlouvy mezi městem Pečky a firmou S lanem s.r.o., Třebovice 236, Česká Třebová , IČO: 107 71 131, na provedení nátěru části střechy 1300 m 2 na objektu DPS č. p. 218, Pečky. Smlouva bude uzavřena na částku 220.000,- Kč bez DPH. Firma S lanem s.r.o. je plátce DPH.",
+      "Zodpovídá": "Martina Hrázská",
+      "Přijato": "26. 7. 2021 na jednání č. 12/2021",
+      "Termín": "9. 8. 2021",
+      "Ukončeno": "9. 8. 2021"
+     }
+    }
+   },
+   {
+    "number_raw": "UR-136-12/21",
+    "detail_id": 15238,
+    "detail_url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/15238?mod=rada",
+    "agenda_item_raw": "Uzavření Smlouvy na pronájem části ochozu vodárenské věže – fy. KOMS Mělník, a.s.",
+    "text_verbatim": "Rada\nměsta schvaluje uzavření smlouvy na pronájem části ochozu vodárenské věže s fy. KOMS Mělník, a.s., Na Podhradí 162. Smlouva bude uzavřena na dobu neurčitou od 20.7. 2021 s výpovědní lhůtou 3 měsíce. Nájemné činí 10.000,- Kč + DPH/měsíc.",
+    "cell_text_raw": "Bod programu:\nUzavření Smlouvy na pronájem části ochozu vodárenské věže – fy. KOMS Mělník, a.s.\nText přijatého usnesení:\nRada\nměsta schvaluje uzavření smlouvy na pronájem části ochozu vodárenské věže s fy. KOMS Mělník, a.s., Na Podhradí 162. Smlouva bude uzavřena na dobu neurčitou od 20.7. 2021 s výpovědní lhůtou 3 měsíce. Nájemné činí 10.000,- Kč + DPH/měsíc.",
+    "date_raw": "26. 7. 2021",
+    "date_iso": "2021-07-26",
+    "responsible_raw": "Věra Růžičková",
+    "deadline_raw": "20. 8. 2021",
+    "vote": {
+     "raw_text": "pro: 6 proti: 0 zdržel se: 0",
+     "pro": {
+      "count": 6,
+      "names": null,
+      "raw": "6"
+     },
+     "proti": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     },
+     "zdrzel_se": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     }
+    },
+    "detail": {
+     "number_raw": "UR-136-12/21",
+     "text_verbatim": "Rada města schvaluje uzavření smlouvy na pronájem části ochozu vodárenské věže s fy. KOMS Mělník, a.s., Na Podhradí 162. Smlouva bude uzavřena na dobu neurčitou od 20.7. 2021 s výpovědní lhůtou 3 měsíce. Nájemné činí 10.000,- Kč + DPH/měsíc.",
+     "typ_raw": null,
+     "zodpovida_raw": "Věra Růžičková",
+     "prijato_raw": "26. 7. 2021 na jednání č. 12/2021",
+     "prijato_date_iso": "2021-07-26",
+     "prijato_meeting_label": "12/2021",
+     "termin_raw": "20. 8. 2021",
+     "ukonceno_raw": "29. 7. 2021",
+     "ukonceno_date_iso": "2021-07-29",
+     "fields_raw": {
+      "Číslo usnesení": "UR-136-12/21",
+      "Text usnesení": "Rada města schvaluje uzavření smlouvy na pronájem části ochozu vodárenské věže s fy. KOMS Mělník, a.s., Na Podhradí 162. Smlouva bude uzavřena na dobu neurčitou od 20.7. 2021 s výpovědní lhůtou 3 měsíce. Nájemné činí 10.000,- Kč + DPH/měsíc.",
+      "Zodpovídá": "Věra Růžičková",
+      "Přijato": "26. 7. 2021 na jednání č. 12/2021",
+      "Termín": "20. 8. 2021",
+      "Ukončeno": "29. 7. 2021"
+     }
+    }
+   },
+   {
+    "number_raw": "UR-137-12/21",
+    "detail_id": 15266,
+    "detail_url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/15266?mod=rada",
+    "agenda_item_raw": "Uzavření Smlouvy o nájmu pozemku č. parc. 164 v obci a k.ú. Dobřichov",
+    "text_verbatim": "Rada\nměsta schvaluje uzavřít Smlouvu o nájmu pozemku č. parc. 164 (206 m\n2\n) v obci a k.ú. Dobřichov s panem\n█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​\nSmlouva bude uzavřena na dobu určitou od 1.8. 2021 do 31.7. 2041 tzn. 20 let s výpovědní lhůtou 6 měsíců. Nájemné činí 21,- Kč/rok a bude hrazeno vždy k 31. březnu.",
+    "cell_text_raw": "Bod programu:\nUzavření Smlouvy o nájmu pozemku č. parc. 164 v obci a k.ú. Dobřichov\nText přijatého usnesení:\nRada\nměsta schvaluje uzavřít Smlouvu o nájmu pozemku č. parc. 164 (206 m\n2\n) v obci a k.ú. Dobřichov s panem\n█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​\nSmlouva bude uzavřena na dobu určitou od 1.8. 2021 do 31.7. 2041 tzn. 20 let s výpovědní lhůtou 6 měsíců. Nájemné činí 21,- Kč/rok a bude hrazeno vždy k 31. březnu.",
+    "date_raw": "26. 7. 2021",
+    "date_iso": "2021-07-26",
+    "responsible_raw": "Jana Najbrtová",
+    "deadline_raw": "20. 8. 2021",
+    "vote": {
+     "raw_text": "pro: 6 proti: 0 zdržel se: 0",
+     "pro": {
+      "count": 6,
+      "names": null,
+      "raw": "6"
+     },
+     "proti": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     },
+     "zdrzel_se": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     }
+    },
+    "detail": {
+     "number_raw": "UR-137-12/21",
+     "text_verbatim": "Rada města schvaluje uzavřít Smlouvu o nájmu pozemku č. parc. 164 (206 m 2 ) v obci a k.ú. Dobřichov s panem █​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​ Smlouva bude uzavřena na dobu určitou od 1.8. 2021 do 31.7. 2041 tzn. 20 let s výpovědní lhůtou 6 měsíců. Nájemné činí 21,- Kč/rok a bude hrazeno vždy k 31. březnu.",
+     "typ_raw": null,
+     "zodpovida_raw": "Jana Najbrtová",
+     "prijato_raw": "26. 7. 2021 na jednání č. 12/2021",
+     "prijato_date_iso": "2021-07-26",
+     "prijato_meeting_label": "12/2021",
+     "termin_raw": "20. 8. 2021",
+     "ukonceno_raw": "13. 8. 2021",
+     "ukonceno_date_iso": "2021-08-13",
+     "fields_raw": {
+      "Číslo usnesení": "UR-137-12/21",
+      "Text usnesení": "Rada města schvaluje uzavřít Smlouvu o nájmu pozemku č. parc. 164 (206 m 2 ) v obci a k.ú. Dobřichov s panem █​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​ Smlouva bude uzavřena na dobu určitou od 1.8. 2021 do 31.7. 2041 tzn. 20 let s výpovědní lhůtou 6 měsíců. Nájemné činí 21,- Kč/rok a bude hrazeno vždy k 31. březnu.",
+      "Zodpovídá": "Jana Najbrtová",
+      "Přijato": "26. 7. 2021 na jednání č. 12/2021",
+      "Termín": "20. 8. 2021",
+      "Ukončeno": "13. 8. 2021"
+     }
+    }
+   },
+   {
+    "number_raw": "UR-138-12/21",
+    "detail_id": 15244,
+    "detail_url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/15244?mod=rada",
+    "agenda_item_raw": "Žádost o odkoupení části pozemku č. parc. 1467/1 v k.ú. Pečky",
+    "text_verbatim": "Rada\nměsta nedoporučuje odprodat část pozemku č. parc. 1467/1 v obci a k.ú. Pečky dle žádosti p.\n█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​",
+    "cell_text_raw": "Bod programu:\nŽádost o odkoupení části pozemku č. parc. 1467/1 v k.ú. Pečky\nText přijatého usnesení:\nRada\nměsta nedoporučuje odprodat část pozemku č. parc. 1467/1 v obci a k.ú. Pečky dle žádosti p.\n█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​",
+    "date_raw": "26. 7. 2021",
+    "date_iso": "2021-07-26",
+    "responsible_raw": "Jana Najbrtová",
+    "deadline_raw": "20. 8. 2021",
+    "vote": {
+     "raw_text": "pro: 6 proti: 0 zdržel se: 0",
+     "pro": {
+      "count": 6,
+      "names": null,
+      "raw": "6"
+     },
+     "proti": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     },
+     "zdrzel_se": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     }
+    },
+    "detail": {
+     "number_raw": "UR-138-12/21",
+     "text_verbatim": "Rada města nedoporučuje odprodat část pozemku č. parc. 1467/1 v obci a k.ú. Pečky dle žádosti p. █​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​",
+     "typ_raw": null,
+     "zodpovida_raw": "Jana Najbrtová",
+     "prijato_raw": "26. 7. 2021 na jednání č. 12/2021",
+     "prijato_date_iso": "2021-07-26",
+     "prijato_meeting_label": "12/2021",
+     "termin_raw": "20. 8. 2021",
+     "ukonceno_raw": "13. 8. 2021",
+     "ukonceno_date_iso": "2021-08-13",
+     "fields_raw": {
+      "Číslo usnesení": "UR-138-12/21",
+      "Text usnesení": "Rada města nedoporučuje odprodat část pozemku č. parc. 1467/1 v obci a k.ú. Pečky dle žádosti p. █​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​",
+      "Zodpovídá": "Jana Najbrtová",
+      "Přijato": "26. 7. 2021 na jednání č. 12/2021",
+      "Termín": "20. 8. 2021",
+      "Ukončeno": "13. 8. 2021"
+     }
+    }
+   },
+   {
+    "number_raw": "UR-139-12/21",
+    "detail_id": 15273,
+    "detail_url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/15273?mod=rada",
+    "agenda_item_raw": "Čerpání investičního fondu - Základní škola Pečky",
+    "text_verbatim": "Rada\nměsta schvaluje čerpání investičního fondu Základní školy Pečky do výše 342.000,- Kč na pořízení serveru, včetně zálohovacího řešení.",
+    "cell_text_raw": "Bod programu:\nČerpání investičního fondu - Základní škola Pečky\nText přijatého usnesení:\nRada\nměsta schvaluje čerpání investičního fondu Základní školy Pečky do výše 342.000,- Kč na pořízení serveru, včetně zálohovacího řešení.",
+    "date_raw": "26. 7. 2021",
+    "date_iso": "2021-07-26",
+    "responsible_raw": "Marcela Bahníková",
+    "deadline_raw": "31. 7. 2021",
+    "vote": {
+     "raw_text": "pro: 5 proti: 0 zdržel se: 1",
+     "pro": {
+      "count": 5,
+      "names": null,
+      "raw": "5"
+     },
+     "proti": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     },
+     "zdrzel_se": {
+      "count": 1,
+      "names": null,
+      "raw": "1"
+     }
+    },
+    "detail": {
+     "number_raw": "UR-139-12/21",
+     "text_verbatim": "Rada města schvaluje čerpání investičního fondu Základní školy Pečky do výše 342.000,- Kč na pořízení serveru, včetně zálohovacího řešení.",
+     "typ_raw": null,
+     "zodpovida_raw": "Marcela Bahníková",
+     "prijato_raw": "26. 7. 2021 na jednání č. 12/2021",
+     "prijato_date_iso": "2021-07-26",
+     "prijato_meeting_label": "12/2021",
+     "termin_raw": "31. 7. 2021",
+     "ukonceno_raw": "30. 7. 2021",
+     "ukonceno_date_iso": "2021-07-30",
+     "fields_raw": {
+      "Číslo usnesení": "UR-139-12/21",
+      "Text usnesení": "Rada města schvaluje čerpání investičního fondu Základní školy Pečky do výše 342.000,- Kč na pořízení serveru, včetně zálohovacího řešení.",
+      "Zodpovídá": "Marcela Bahníková",
+      "Přijato": "26. 7. 2021 na jednání č. 12/2021",
+      "Termín": "31. 7. 2021",
+      "Ukončeno": "30. 7. 2021"
+     }
+    }
+   },
+   {
+    "number_raw": "UR-140-12/21",
+    "detail_id": 15278,
+    "detail_url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/15278?mod=rada",
+    "agenda_item_raw": "Vyřazení nepotřebného majetku DHM",
+    "text_verbatim": "Rada\nměsta schvaluje vyřazení nepotřebného DDHM likvidací (účet 028-02 v\ncelk.po\nř. ceně 18.431,66 Kč, účet 028-03 v celk. poř. ceně  16.329,20 Kč a účet 028-06 v celk. poř. ceně  72.898,50 Kč).",
+    "cell_text_raw": "Bod programu:\nVyřazení nepotřebného majetku DHM\nText přijatého usnesení:\nRada\nměsta schvaluje vyřazení nepotřebného DDHM likvidací (účet 028-02 v\ncelk.po\nř. ceně 18.431,66 Kč, účet 028-03 v celk. poř. ceně  16.329,20 Kč a účet 028-06 v celk. poř. ceně  72.898,50 Kč).",
+    "date_raw": "26. 7. 2021",
+    "date_iso": "2021-07-26",
+    "responsible_raw": "Marcela Bahníková",
+    "deadline_raw": "31. 8. 2021",
+    "vote": {
+     "raw_text": "pro: 6 proti: 0 zdržel se: 0",
+     "pro": {
+      "count": 6,
+      "names": null,
+      "raw": "6"
+     },
+     "proti": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     },
+     "zdrzel_se": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     }
+    },
+    "detail": {
+     "number_raw": "UR-140-12/21",
+     "text_verbatim": "Rada města schvaluje vyřazení nepotřebného DDHM likvidací (účet 028-02 v celk.po ř. ceně 18.431,66 Kč, účet 028-03 v celk. poř. ceně  16.329,20 Kč a účet 028-06 v celk. poř. ceně  72.898,50 Kč).",
+     "typ_raw": null,
+     "zodpovida_raw": "Marcela Bahníková",
+     "prijato_raw": "26. 7. 2021 na jednání č. 12/2021",
+     "prijato_date_iso": "2021-07-26",
+     "prijato_meeting_label": "12/2021",
+     "termin_raw": "31. 8. 2021",
+     "ukonceno_raw": "23. 8. 2021",
+     "ukonceno_date_iso": "2021-08-23",
+     "fields_raw": {
+      "Číslo usnesení": "UR-140-12/21",
+      "Text usnesení": "Rada města schvaluje vyřazení nepotřebného DDHM likvidací (účet 028-02 v celk.po ř. ceně 18.431,66 Kč, účet 028-03 v celk. poř. ceně  16.329,20 Kč a účet 028-06 v celk. poř. ceně  72.898,50 Kč).",
+      "Zodpovídá": "Marcela Bahníková",
+      "Přijato": "26. 7. 2021 na jednání č. 12/2021",
+      "Termín": "31. 8. 2021",
+      "Ukončeno": "23. 8. 2021"
+     }
+    }
+   },
+   {
+    "number_raw": "UR-141-12/21",
+    "detail_id": 15274,
+    "detail_url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/15274?mod=rada",
+    "agenda_item_raw": "Souhlas s přijetím darů - Pečovatelská služba města Pečky",
+    "text_verbatim": "Rada\nměsta schvaluje  a uděluje souhlas Pečovatelské službě města Pečky s přijímáním finančních darů za účelem financování projektu \"Přestavba služebního vozu  Peugeot Partner\".",
+    "cell_text_raw": "Bod programu:\nSouhlas s přijetím darů - Pečovatelská služba města Pečky\nText přijatého usnesení:\nRada\nměsta schvaluje  a uděluje souhlas Pečovatelské službě města Pečky s přijímáním finančních darů za účelem financování projektu \"Přestavba služebního vozu  Peugeot Partner\".",
+    "date_raw": "26. 7. 2021",
+    "date_iso": "2021-07-26",
+    "responsible_raw": "Marcela Bahníková",
+    "deadline_raw": "31. 7. 2021",
+    "vote": {
+     "raw_text": "pro: 6 proti: 0 zdržel se: 0",
+     "pro": {
+      "count": 6,
+      "names": null,
+      "raw": "6"
+     },
+     "proti": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     },
+     "zdrzel_se": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     }
+    },
+    "detail": {
+     "number_raw": "UR-141-12/21",
+     "text_verbatim": "Rada města schvaluje  a uděluje souhlas Pečovatelské službě města Pečky s přijímáním finančních darů za účelem financování projektu \"Přestavba služebního vozu  Peugeot Partner\".",
+     "typ_raw": null,
+     "zodpovida_raw": "Marcela Bahníková",
+     "prijato_raw": "26. 7. 2021 na jednání č. 12/2021",
+     "prijato_date_iso": "2021-07-26",
+     "prijato_meeting_label": "12/2021",
+     "termin_raw": "31. 7. 2021",
+     "ukonceno_raw": "30. 7. 2021",
+     "ukonceno_date_iso": "2021-07-30",
+     "fields_raw": {
+      "Číslo usnesení": "UR-141-12/21",
+      "Text usnesení": "Rada města schvaluje  a uděluje souhlas Pečovatelské službě města Pečky s přijímáním finančních darů za účelem financování projektu \"Přestavba služebního vozu  Peugeot Partner\".",
+      "Zodpovídá": "Marcela Bahníková",
+      "Přijato": "26. 7. 2021 na jednání č. 12/2021",
+      "Termín": "31. 7. 2021",
+      "Ukončeno": "30. 7. 2021"
+     }
+    }
+   },
+   {
+    "number_raw": "UR-142-12/21",
+    "detail_id": 15265,
+    "detail_url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/15265?mod=rada",
+    "agenda_item_raw": "Příspěvek na úhradu nákladů na přeznačení turistické zelené značky městem",
+    "text_verbatim": "Rada\nměsta schvaluje  finanční příspěvek ve výši 3.000,- Kč\nKlubu\nčeských turistů,  Revoluční 1056/8a,\nPraha\n1, IČ: 09030964 na přeznačení turistické zelené značky v Pečkách  a ukládá M.\nBahníkové\nčástku uhradit v koordinaci s Jonášem Hájkem, iniciátorem přeznačení.",
+    "cell_text_raw": "Bod programu:\nPříspěvek na úhradu nákladů na přeznačení turistické zelené značky městem\nText přijatého usnesení:\nRada\nměsta schvaluje  finanční příspěvek ve výši 3.000,- Kč\nKlubu\nčeských turistů,  Revoluční 1056/8a,\nPraha\n1, IČ: 09030964 na přeznačení turistické zelené značky v Pečkách  a ukládá M.\nBahníkové\nčástku uhradit v koordinaci s Jonášem Hájkem, iniciátorem přeznačení.",
+    "date_raw": "26. 7. 2021",
+    "date_iso": "2021-07-26",
+    "responsible_raw": "Marcela Bahníková",
+    "deadline_raw": "30. 8. 2021",
+    "vote": {
+     "raw_text": "pro: 6 proti: 0 zdržel se: 0",
+     "pro": {
+      "count": 6,
+      "names": null,
+      "raw": "6"
+     },
+     "proti": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     },
+     "zdrzel_se": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     }
+    },
+    "detail": {
+     "number_raw": "UR-142-12/21",
+     "text_verbatim": "Rada města schvaluje  finanční příspěvek ve výši 3.000,- Kč Klubu českých turistů,  Revoluční 1056/8a, Praha 1, IČ: 09030964 na přeznačení turistické zelené značky v Pečkách  a ukládá M. Bahníkové částku uhradit v koordinaci s Jonášem Hájkem, iniciátorem přeznačení.",
+     "typ_raw": null,
+     "zodpovida_raw": "Marcela Bahníková",
+     "prijato_raw": "26. 7. 2021 na jednání č. 12/2021",
+     "prijato_date_iso": "2021-07-26",
+     "prijato_meeting_label": "12/2021",
+     "termin_raw": "30. 8. 2021",
+     "ukonceno_raw": "18. 10. 2021",
+     "ukonceno_date_iso": "2021-10-18",
+     "fields_raw": {
+      "Číslo usnesení": "UR-142-12/21",
+      "Text usnesení": "Rada města schvaluje  finanční příspěvek ve výši 3.000,- Kč Klubu českých turistů,  Revoluční 1056/8a, Praha 1, IČ: 09030964 na přeznačení turistické zelené značky v Pečkách  a ukládá M. Bahníkové částku uhradit v koordinaci s Jonášem Hájkem, iniciátorem přeznačení.",
+      "Zodpovídá": "Marcela Bahníková",
+      "Přijato": "26. 7. 2021 na jednání č. 12/2021",
+      "Termín": "30. 8. 2021",
+      "Ukončeno": "18. 10. 2021"
+     }
+    }
+   },
+   {
+    "number_raw": "UR-143-12/21",
+    "detail_id": 15267,
+    "detail_url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/15267?mod=rada",
+    "agenda_item_raw": "Dotace - Pečovatelská služba města Pečky",
+    "text_verbatim": "Rada\nměsta schvaluje přijetí dotace Pečovatelskou službou města Pečky z Humanitárního fondu Středočeského kraje ve výši  500.000,- Kč.",
+    "cell_text_raw": "Bod programu:\nDotace - Pečovatelská služba města Pečky\nText přijatého usnesení:\nRada\nměsta schvaluje přijetí dotace Pečovatelskou službou města Pečky z Humanitárního fondu Středočeského kraje ve výši  500.000,- Kč.",
+    "date_raw": "26. 7. 2021",
+    "date_iso": "2021-07-26",
+    "responsible_raw": "Marcela Bahníková",
+    "deadline_raw": "31. 7. 2021",
+    "vote": {
+     "raw_text": "pro: 6 proti: 0 zdržel se: 0",
+     "pro": {
+      "count": 6,
+      "names": null,
+      "raw": "6"
+     },
+     "proti": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     },
+     "zdrzel_se": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     }
+    },
+    "detail": {
+     "number_raw": "UR-143-12/21",
+     "text_verbatim": "Rada města schvaluje přijetí dotace Pečovatelskou službou města Pečky z Humanitárního fondu Středočeského kraje ve výši  500.000,- Kč.",
+     "typ_raw": null,
+     "zodpovida_raw": "Marcela Bahníková",
+     "prijato_raw": "26. 7. 2021 na jednání č. 12/2021",
+     "prijato_date_iso": "2021-07-26",
+     "prijato_meeting_label": "12/2021",
+     "termin_raw": "31. 7. 2021",
+     "ukonceno_raw": "30. 7. 2021",
+     "ukonceno_date_iso": "2021-07-30",
+     "fields_raw": {
+      "Číslo usnesení": "UR-143-12/21",
+      "Text usnesení": "Rada města schvaluje přijetí dotace Pečovatelskou službou města Pečky z Humanitárního fondu Středočeského kraje ve výši  500.000,- Kč.",
+      "Zodpovídá": "Marcela Bahníková",
+      "Přijato": "26. 7. 2021 na jednání č. 12/2021",
+      "Termín": "31. 7. 2021",
+      "Ukončeno": "30. 7. 2021"
+     }
+    }
+   },
+   {
+    "number_raw": "UR-144-12/21",
+    "detail_id": 15268,
+    "detail_url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/15268?mod=rada",
+    "agenda_item_raw": "Navýšení dotace - Pečovatelská služba města Pečky",
+    "text_verbatim": "Rada\nměsta schvaluje uzavření dodatku k veřejnoprávní smlouvě o poskytnutí dotace na sociální služby č. S-0743/SOC/2021/1 mezi Pečovatelskou službou města Pečky a Středočeským krajem.",
+    "cell_text_raw": "Bod programu:\nNavýšení dotace - Pečovatelská služba města Pečky\nText přijatého usnesení:\nRada\nměsta schvaluje uzavření dodatku k veřejnoprávní smlouvě o poskytnutí dotace na sociální služby č. S-0743/SOC/2021/1 mezi Pečovatelskou službou města Pečky a Středočeským krajem.",
+    "date_raw": "26. 7. 2021",
+    "date_iso": "2021-07-26",
+    "responsible_raw": "Marcela Bahníková",
+    "deadline_raw": "31. 7. 2021",
+    "vote": {
+     "raw_text": "pro: 6 proti: 0 zdržel se: 0",
+     "pro": {
+      "count": 6,
+      "names": null,
+      "raw": "6"
+     },
+     "proti": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     },
+     "zdrzel_se": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     }
+    },
+    "detail": {
+     "number_raw": "UR-144-12/21",
+     "text_verbatim": "Rada města schvaluje uzavření dodatku k veřejnoprávní smlouvě o poskytnutí dotace na sociální služby č. S-0743/SOC/2021/1 mezi Pečovatelskou službou města Pečky a Středočeským krajem.",
+     "typ_raw": null,
+     "zodpovida_raw": "Marcela Bahníková",
+     "prijato_raw": "26. 7. 2021 na jednání č. 12/2021",
+     "prijato_date_iso": "2021-07-26",
+     "prijato_meeting_label": "12/2021",
+     "termin_raw": "31. 7. 2021",
+     "ukonceno_raw": "30. 7. 2021",
+     "ukonceno_date_iso": "2021-07-30",
+     "fields_raw": {
+      "Číslo usnesení": "UR-144-12/21",
+      "Text usnesení": "Rada města schvaluje uzavření dodatku k veřejnoprávní smlouvě o poskytnutí dotace na sociální služby č. S-0743/SOC/2021/1 mezi Pečovatelskou službou města Pečky a Středočeským krajem.",
+      "Zodpovídá": "Marcela Bahníková",
+      "Přijato": "26. 7. 2021 na jednání č. 12/2021",
+      "Termín": "31. 7. 2021",
+      "Ukončeno": "30. 7. 2021"
+     }
+    }
+   },
+   {
+    "number_raw": "UR-145-12/21",
+    "detail_id": 15277,
+    "detail_url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/15277?mod=rada",
+    "agenda_item_raw": "Rozpočtová opatření č.6/2021",
+    "text_verbatim": "Rada\nměsta schvaluje rozpočtová opatření č.6/2021.",
+    "cell_text_raw": "Bod programu:\nRozpočtová opatření č.6/2021\nText přijatého usnesení:\nRada\nměsta schvaluje rozpočtová opatření č.6/2021.",
+    "date_raw": "26. 7. 2021",
+    "date_iso": "2021-07-26",
+    "responsible_raw": "",
+    "deadline_raw": "IHNED (26. 7. 2021)",
+    "vote": {
+     "raw_text": "pro: 6 proti: 0 zdržel se: 0",
+     "pro": {
+      "count": 6,
+      "names": null,
+      "raw": "6"
+     },
+     "proti": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     },
+     "zdrzel_se": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     }
+    },
+    "detail": {
+     "number_raw": "UR-145-12/21",
+     "text_verbatim": "Rada města schvaluje rozpočtová opatření č.6/2021.",
+     "typ_raw": null,
+     "zodpovida_raw": "",
+     "prijato_raw": "26. 7. 2021 na jednání č. 12/2021",
+     "prijato_date_iso": "2021-07-26",
+     "prijato_meeting_label": "12/2021",
+     "termin_raw": "IHNED (26. 7. 2021)",
+     "ukonceno_raw": "26. 7. 2021",
+     "ukonceno_date_iso": "2021-07-26",
+     "fields_raw": {
+      "Číslo usnesení": "UR-145-12/21",
+      "Text usnesení": "Rada města schvaluje rozpočtová opatření č.6/2021.",
+      "Zodpovídá": "",
+      "Přijato": "26. 7. 2021 na jednání č. 12/2021",
+      "Termín": "IHNED (26. 7. 2021)",
+      "Ukončeno": "26. 7. 2021"
+     }
+    }
+   },
+   {
+    "number_raw": "UR-146-12/21",
+    "detail_id": 15283,
+    "detail_url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/15283?mod=rada",
+    "agenda_item_raw": "Svolení s použitím fotografie sochy Jana Husa",
+    "text_verbatim": "Rada\nměsta souhlasí s využitím fotografie sochy J.\nHusa\nod S. Suchardy na obálku knihy vydavatelství Rowman and Littlefield od autorů\nAngelo\nFranklin\na J. B.\nLášek\n.",
+    "cell_text_raw": "Bod programu:\nSvolení s použitím fotografie sochy Jana Husa\nText přijatého usnesení:\nRada\nměsta souhlasí s využitím fotografie sochy J.\nHusa\nod S. Suchardy na obálku knihy vydavatelství Rowman and Littlefield od autorů\nAngelo\nFranklin\na J. B.\nLášek\n.",
+    "date_raw": "26. 7. 2021",
+    "date_iso": "2021-07-26",
+    "responsible_raw": "Tomáš Vodička",
+    "deadline_raw": "9. 8. 2021",
+    "vote": {
+     "raw_text": "pro: 6 proti: 0 zdržel se: 0",
+     "pro": {
+      "count": 6,
+      "names": null,
+      "raw": "6"
+     },
+     "proti": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     },
+     "zdrzel_se": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     }
+    },
+    "detail": {
+     "number_raw": "UR-146-12/21",
+     "text_verbatim": "Rada města souhlasí s využitím fotografie sochy J. Husa od S. Suchardy na obálku knihy vydavatelství Rowman and Littlefield od autorů Angelo Franklin a J. B. Lášek .",
+     "typ_raw": null,
+     "zodpovida_raw": "Tomáš Vodička",
+     "prijato_raw": "26. 7. 2021 na jednání č. 12/2021",
+     "prijato_date_iso": "2021-07-26",
+     "prijato_meeting_label": "12/2021",
+     "termin_raw": "9. 8. 2021",
+     "ukonceno_raw": "29. 7. 2021",
+     "ukonceno_date_iso": "2021-07-29",
+     "fields_raw": {
+      "Číslo usnesení": "UR-146-12/21",
+      "Text usnesení": "Rada města souhlasí s využitím fotografie sochy J. Husa od S. Suchardy na obálku knihy vydavatelství Rowman and Littlefield od autorů Angelo Franklin a J. B. Lášek .",
+      "Zodpovídá": "Tomáš Vodička",
+      "Přijato": "26. 7. 2021 na jednání č. 12/2021",
+      "Termín": "9. 8. 2021",
+      "Ukončeno": "29. 7. 2021"
+     }
+    }
+   },
+   {
+    "number_raw": "UR-147-12/21",
+    "detail_id": 15099,
+    "detail_url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/15099?mod=rada",
+    "agenda_item_raw": "Uzavření dodatku č. 1 v SOD: \"Přeložka plynu Velké Chvalovice\"",
+    "text_verbatim": "Rada\nměsta schvaluje uzavření dodatku č. 1 ke smlouvě o dílo uzavřené  mezi městem Pečky a firmou GASKO, spol. s r.o,\nKolín\nIV, IČ: 45146454  na akci:„Přeložka plynu\nVelké\nChvalovice“.\nCena\ndíla bude navýšena o 24.169,30 Kč bez DPH a 29.244,85 Kč s DPH, konečná cena díla činí 99.674,80 Kč bez DPH a 120.606,50 Kč s DPH. Navýšení ceny nemá vliv na poptávkové řízení a jeho pořadí, jelikož jsme obdrželi jednu nabídku.",
+    "cell_text_raw": "Bod programu:\nUzavření dodatku č. 1 v SOD: \"Přeložka plynu Velké Chvalovice\"\nText přijatého usnesení:\nRada\nměsta schvaluje uzavření dodatku č. 1 ke smlouvě o dílo uzavřené  mezi městem Pečky a firmou GASKO, spol. s r.o,\nKolín\nIV, IČ: 45146454  na akci:„Přeložka plynu\nVelké\nChvalovice“.\nCena\ndíla bude navýšena o 24.169,30 Kč bez DPH a 29.244,85 Kč s DPH, konečná cena díla činí 99.674,80 Kč bez DPH a 120.606,50 Kč s DPH. Navýšení ceny nemá vliv na poptávkové řízení a jeho pořadí, jelikož jsme obdrželi jednu nabídku.",
+    "date_raw": "26. 7. 2021",
+    "date_iso": "2021-07-26",
+    "responsible_raw": "Pavel Krejčí",
+    "deadline_raw": "9. 8. 2021",
+    "vote": {
+     "raw_text": "pro: 6 proti: 0 zdržel se: 0",
+     "pro": {
+      "count": 6,
+      "names": null,
+      "raw": "6"
+     },
+     "proti": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     },
+     "zdrzel_se": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     }
+    },
+    "detail": {
+     "number_raw": "UR-147-12/21",
+     "text_verbatim": "Rada města schvaluje uzavření dodatku č. 1 ke smlouvě o dílo uzavřené  mezi městem Pečky a firmou GASKO, spol. s r.o, Kolín IV, IČ: 45146454  na akci:„Přeložka plynu Velké Chvalovice“. Cena díla bude navýšena o 24.169,30 Kč bez DPH a 29.244,85 Kč s DPH, konečná cena díla činí 99.674,80 Kč bez DPH a 120.606,50 Kč s DPH. Navýšení ceny nemá vliv na poptávkové řízení a jeho pořadí, jelikož jsme obdrželi jednu nabídku.",
+     "typ_raw": null,
+     "zodpovida_raw": "Pavel Krejčí",
+     "prijato_raw": "26. 7. 2021 na jednání č. 12/2021",
+     "prijato_date_iso": "2021-07-26",
+     "prijato_meeting_label": "12/2021",
+     "termin_raw": "9. 8. 2021",
+     "ukonceno_raw": "9. 8. 2021",
+     "ukonceno_date_iso": "2021-08-09",
+     "fields_raw": {
+      "Číslo usnesení": "UR-147-12/21",
+      "Text usnesení": "Rada města schvaluje uzavření dodatku č. 1 ke smlouvě o dílo uzavřené  mezi městem Pečky a firmou GASKO, spol. s r.o, Kolín IV, IČ: 45146454  na akci:„Přeložka plynu Velké Chvalovice“. Cena díla bude navýšena o 24.169,30 Kč bez DPH a 29.244,85 Kč s DPH, konečná cena díla činí 99.674,80 Kč bez DPH a 120.606,50 Kč s DPH. Navýšení ceny nemá vliv na poptávkové řízení a jeho pořadí, jelikož jsme obdrželi jednu nabídku.",
+      "Zodpovídá": "Pavel Krejčí",
+      "Přijato": "26. 7. 2021 na jednání č. 12/2021",
+      "Termín": "9. 8. 2021",
+      "Ukončeno": "9. 8. 2021"
+     }
+    }
+   },
+   {
+    "number_raw": "UR-148-12/21",
+    "detail_id": 15297,
+    "detail_url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/15297?mod=rada",
+    "agenda_item_raw": "Vyhlášení výběrového řízení \"PROJEKTOVÁ DOKUMENTACE Revitalizace Mlýnského náhonu v Pečkách\"",
+    "text_verbatim": "Rada\nměsta schvaluje vyhlášení výběrového řízení „PROJEKTOVÁ DOKUMENTACE Revitalizace\nMlýnského\nnáhonu v Pečkách“ uveřejněním na profilu zadavatele v souladu s přiloženými zadávacími podmínkami a složení hodnotící komise: Bc.\nIveta\nMinaříková\n,\nTomáš\nVodička\n, Ing.\nJana\nZindrová,\nnáhradníci:\nJiří\nKatrnoška\n,\nHana\nPokorná\n, PaedDr.\nCecilie\nPajkrtová.",
+    "cell_text_raw": "Bod programu:\nVyhlášení výběrového řízení \"PROJEKTOVÁ DOKUMENTACE Revitalizace Mlýnského náhonu v Pečkách\"\nText přijatého usnesení:\nRada\nměsta schvaluje vyhlášení výběrového řízení „PROJEKTOVÁ DOKUMENTACE Revitalizace\nMlýnského\nnáhonu v Pečkách“ uveřejněním na profilu zadavatele v souladu s přiloženými zadávacími podmínkami a složení hodnotící komise: Bc.\nIveta\nMinaříková\n,\nTomáš\nVodička\n, Ing.\nJana\nZindrová,\nnáhradníci:\nJiří\nKatrnoška\n,\nHana\nPokorná\n, PaedDr.\nCecilie\nPajkrtová.",
+    "date_raw": "26. 7. 2021",
+    "date_iso": "2021-07-26",
+    "responsible_raw": "Michala Dekiská",
+    "deadline_raw": "9. 8. 2021",
+    "vote": {
+     "raw_text": "pro: 6 proti: 0 zdržel se: 0",
+     "pro": {
+      "count": 6,
+      "names": null,
+      "raw": "6"
+     },
+     "proti": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     },
+     "zdrzel_se": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     }
+    },
+    "detail": {
+     "number_raw": "UR-148-12/21",
+     "text_verbatim": "Rada města schvaluje vyhlášení výběrového řízení „PROJEKTOVÁ DOKUMENTACE Revitalizace Mlýnského náhonu v Pečkách“ uveřejněním na profilu zadavatele v souladu s přiloženými zadávacími podmínkami a složení hodnotící komise: Bc. Iveta Minaříková , Tomáš Vodička , Ing. Jana Zindrová, náhradníci: Jiří Katrnoška , Hana Pokorná , PaedDr. Cecilie Pajkrtová.",
+     "typ_raw": null,
+     "zodpovida_raw": "Michala Dekiská",
+     "prijato_raw": "26. 7. 2021 na jednání č. 12/2021",
+     "prijato_date_iso": "2021-07-26",
+     "prijato_meeting_label": "12/2021",
+     "termin_raw": "9. 8. 2021",
+     "ukonceno_raw": "8. 9. 2021",
+     "ukonceno_date_iso": "2021-09-08",
+     "fields_raw": {
+      "Číslo usnesení": "UR-148-12/21",
+      "Text usnesení": "Rada města schvaluje vyhlášení výběrového řízení „PROJEKTOVÁ DOKUMENTACE Revitalizace Mlýnského náhonu v Pečkách“ uveřejněním na profilu zadavatele v souladu s přiloženými zadávacími podmínkami a složení hodnotící komise: Bc. Iveta Minaříková , Tomáš Vodička , Ing. Jana Zindrová, náhradníci: Jiří Katrnoška , Hana Pokorná , PaedDr. Cecilie Pajkrtová.",
+      "Zodpovídá": "Michala Dekiská",
+      "Přijato": "26. 7. 2021 na jednání č. 12/2021",
+      "Termín": "9. 8. 2021",
+      "Ukončeno": "8. 9. 2021"
+     }
+    }
+   }
+  ]
+ }
+}

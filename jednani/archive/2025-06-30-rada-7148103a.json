@@ -1,0 +1,733 @@
+{
+ "uuid": "7148103a-50ba-11f0-93b7-00505683238f",
+ "body_type_raw": "Rada",
+ "label_raw": "25/2025 (30. 6. 2025)",
+ "number": 25,
+ "year": 2025,
+ "date_iso": "2025-06-30",
+ "links": {
+  "invitation": "https://mesto-pecky.usneseni.cz/verejne/?uuid=7148103a-50ba-11f0-93b7-00505683238f&page=4&do=printPublicInvitation",
+  "minutes": "https://mesto-pecky.usneseni.cz/verejne/7148103a-50ba-11f0-93b7-00505683238f/zapis/?page=4",
+  "signed_minutes_pdf": "https://mesto-pecky.usneseni.cz/verejne/?meetingReportControl-uuid=7148103a-50ba-11f0-93b7-00505683238f&page=4&do=meetingReportControl-getSignedReportPdf",
+  "resolutions": "https://mesto-pecky.usneseni.cz/verejne/7148103a-50ba-11f0-93b7-00505683238f/usneseni/?page=4",
+  "audio": null
+ },
+ "link_texts": {
+  "invitation": "Pozvánka",
+  "minutes": "zápis",
+  "signed_minutes_pdf": "podepsaný zápis",
+  "resolutions": "přijatá usnesení"
+ },
+ "status": "ok",
+ "invitation": {
+  "status": "site_error",
+  "error": "status=200 ct=text/html; charset=utf-8 flash='<a href=\"\" class=\"close\" data-dismiss=\"alert\" aria-label=\"close\">&times;'",
+  "url": "https://mesto-pecky.usneseni.cz/verejne/?uuid=7148103a-50ba-11f0-93b7-00505683238f&do=printPublicInvitation",
+  "fetched_at": "2026-08-04T14:55:18.951176+00:00"
+ },
+ "minutes": {
+  "status": "ok",
+  "url": "https://mesto-pecky.usneseni.cz/verejne/7148103a-50ba-11f0-93b7-00505683238f/zapis/",
+  "fetched_at": "2026-08-04T13:30:17.646399+00:00",
+  "title_raw": "ZÁPIS ze schůze rady č. 25/2025 Město Pečky datum: 30. 6. 2025, čas: 15:00 ​",
+  "date_raw": "30. 6. 2025",
+  "date_iso": "2025-06-30",
+  "time_raw": "15:00",
+  "presence": {
+   "raw_text": "Úvodní prezence:\nPřítomni:\n(4) Ing. Martin Jedlička, Ing. Karel Krištoufek, Milan Paluska, Ivana Trčková\nOmluveni:\n(2) Zdeněk Fejfar, Ing. Hana Kuprová\nNepřítomni:\n(1) Ing. Petr Dürr\nDalší přítomní a hosté:\nZapisovatel/ka:\nEva Strnadová\nPřítomno je 4 z 7 členů a rada je usnášeníschopná.\nJednání zahájeno 30.06.2025 v 15:03:33",
+   "pritomni": {
+    "count": 4,
+    "names": [
+     "Ing. Martin Jedlička",
+     "Ing. Karel Krištoufek",
+     "Milan Paluska",
+     "Ivana Trčková"
+    ],
+    "raw": "(4) Ing. Martin Jedlička, Ing. Karel Krištoufek, Milan Paluska, Ivana Trčková"
+   },
+   "omluveni": {
+    "count": 2,
+    "names": [
+     "Zdeněk Fejfar",
+     "Ing. Hana Kuprová"
+    ],
+    "raw": "(2) Zdeněk Fejfar, Ing. Hana Kuprová"
+   },
+   "nepritomni": {
+    "count": 1,
+    "names": [
+     "Ing. Petr Dürr"
+    ],
+    "raw": "(1) Ing. Petr Dürr"
+   },
+   "predsedajici": null,
+   "quorum_raw": "Přítomno je 4 z 7 členů a rada je usnášeníschopná."
+  },
+  "header_raw": "Úvodní prezence:\nPřítomni:\n(4) Ing. Martin Jedlička, Ing. Karel Krištoufek, Milan Paluska, Ivana Trčková\nOmluveni:\n(2) Zdeněk Fejfar, Ing. Hana Kuprová\nNepřítomni:\n(1) Ing. Petr Dürr\nDalší přítomní a hosté:\nZapisovatel/ka:\nEva Strnadová\nPřítomno je 4 z 7 členů a rada je usnášeníschopná.\nJednání zahájeno 30.06.2025 v 15:03:33",
+  "agenda_items": [
+   {
+    "number": 1,
+    "title_raw": "Určení zapisovatelů, předsedajícího, příp. ověřovatelů",
+    "heading_raw": "1. Určení zapisovatelů, předsedajícího, příp. ověřovatelů (bod číslo 1)",
+    "predkladatel": "Milan Paluska",
+    "votes": [],
+    "resolution_numbers_mentioned": [],
+    "raw_text": "Předkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 15:03:40\nPředsedající navrhl jednotlivé členy pracovních komisí\nOvěřovatelé:\nIvana Trčková, Ing. Karel Krištoufek\nPředsedající:\nMilan Paluska\nBod byl přijat bez hlasování.\nDiskuze zahájena v 15:03:40\nK tomuto bodu se vyjádřili:\nMilan Paluska\nProjednávání bodu bylo ukončeno v 15:04:23"
+   },
+   {
+    "number": 2,
+    "title_raw": "Schválení programu jednání",
+    "heading_raw": "2. Schválení programu jednání (bod číslo 2)",
+    "predkladatel": "Milan Paluska",
+    "votes": [
+     {
+      "raw_text": "pro:\n4\nproti\n0\nzdržel se:\n0\nnehlasoval:\n0",
+      "pro": {
+       "count": 4,
+       "names": null,
+       "raw": "4"
+      },
+      "proti": {
+       "count": 0,
+       "names": null,
+       "raw": "0"
+      },
+      "zdrzel_se": {
+       "count": 0,
+       "names": null,
+       "raw": "0"
+      },
+      "nehlasoval": {
+       "count": 0,
+       "names": null,
+       "raw": "0"
+      },
+      "result_raw": "Návrh byl přijat jako usnesení číslo: UR-229-25/25",
+      "adopted_resolution_number": "UR-229-25/25"
+     }
+    ],
+    "resolution_numbers_mentioned": [
+     "UR-229-25/25"
+    ],
+    "raw_text": "Předkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 15:04:31\nProgram jednání\n1. Určení zapisovatelů, předsedajícího, příp. ověřovatelů\n2. Schválení programu jednání\n3. Aktuální informace vedení města\n4. Zveřejnění záměru na pronájem pozemku č. parc. 2169/13 v k.ú. Pečky\n5. Žádost o zkrácení výpovědní lhůty\n6. Aktualizace Komise pro otázky sociální, zdravotní a bytové\n7. Žádost o dotaci ( dar ) - OMS Nymburk\n8. Žádosti o finanční příspěvek - dar\n9. Kontrola plnění usnesení\n10. Diskuse, různé\n11. Úkoly vyplývající z jednání rady města\nDiskuze zahájena v 15:04:31\nK tomuto bodu se vyjádřili:\nMilan Paluska\nV 15:05:30 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Milan Paluska\") v tomto znění:\nRada\nměsta schvaluje návrh programu jednání.\ns těmito změnami:\n- doplňuje se bod č. 12 - Žádost o uzavření smlouvy o nájmu bytu č. 3 v čp. 139 ul. P.\nBezruče\n, Pečky - na měsíc červenec 2025\nHlasování\npro:\n4\nproti\n0\nzdržel se:\n0\nnehlasoval:\n0\nNávrh byl přijat jako usnesení číslo: UR-229-25/25\nzodpovídá:\ntermín:\nIHNED\n(30. 6. 2025)\nProjednávání bodu bylo ukončeno v 15:05:36"
+   },
+   {
+    "number": 3,
+    "title_raw": "Aktuální informace vedení města",
+    "heading_raw": "3. Aktuální informace vedení města (bod číslo 3)",
+    "predkladatel": "Milan Paluska",
+    "votes": [],
+    "resolution_numbers_mentioned": [],
+    "raw_text": "Předkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 15:05:41\nDůvodová zpráva:\nstarosta města\n- informace o ukončení stavebních prací zhotovení vstupního portálu smuteční síně na hřbitově v Pečkách\n- informace o zahájení stavebních prací, bourací práce - tribuna AFK Pečky\n- informace o dalším postupu stavebních prací akce \"Dobudování stezky pro pěší a cyklisty v ul.\nMilčická\nve Velkých Chvalovicích\"\n- informace o zahájení stavebních prací akce \"Pečky – rekonstrukce ul.\nProkopa\nHolého\na Letohradská – BD ul. Letohradská – etapa A\"- vytýčení sítí, objednávka kanálových vpustí\n- informace o postupu stavebních prací akce \"Rekonstrukce ordinace a zázemí lékařů ve zdravotním středisku\"\n- informace o poděkování studentovi ZUŠ\nJ.\nKubíčkovi\nza přípravu loga ke 100. výročí povýšení na město\n- informace o poděkování žákům ZŠ, ZUŠ, ZŠ příspěvkové organizaci za školní výsledky ve školním roce 2024/2025\ntajemnice\n- informace o průběhu výběrového řízení na obsazení volných pracovních pozic na odbor investic a rozvoje\nDiskuze zahájena v 15:05:41\nK tomuto bodu se vyjádřili:\nIvana Trčková, Ing. Karel Krištoufek, Pavlína Nepovímová, Milan Paluska\nV 15:21:42 přišel Ing. Petr Dürr, přítomno 5 z 7 radních.\nAktualizovaný stav prezence:\nPřítomni:\n(5) Ing. Martin Jedlička, Ing. Karel Krištoufek, Milan Paluska, Ivana Trčková, Ing. Petr Dürr\nOmluveni:\n(2) Zdeněk Fejfar, Ing. Hana Kuprová\nNepřítomni:\n(0)\n\nRada bere informace k bodu č. 3 -\nAktuální informace vedení města\nna vědomí.\nProjednávání bodu bylo ukončeno v 15:29:10"
+   },
+   {
+    "number": 4,
+    "title_raw": "Zveřejnění záměru na pronájem pozemku č. parc. 2169/13 v k.ú. Pečky",
+    "heading_raw": "4. Zveřejnění záměru na pronájem pozemku č. parc. 2169/13 v k.ú. Pečky (bod číslo 4)",
+    "predkladatel": "Jana Najbrtová",
+    "votes": [
+     {
+      "raw_text": "pro:\n5\nproti\n0\nzdržel se:\n0\nnehlasoval:\n0",
+      "pro": {
+       "count": 5,
+       "names": null,
+       "raw": "5"
+      },
+      "proti": {
+       "count": 0,
+       "names": null,
+       "raw": "0"
+      },
+      "zdrzel_se": {
+       "count": 0,
+       "names": null,
+       "raw": "0"
+      },
+      "nehlasoval": {
+       "count": 0,
+       "names": null,
+       "raw": "0"
+      },
+      "result_raw": "Návrh byl přijat jako usnesení číslo: UR-230-25/25",
+      "adopted_resolution_number": "UR-230-25/25"
+     }
+    ],
+    "resolution_numbers_mentioned": [
+     "UR-186-20/25",
+     "UR-230-25/25"
+    ],
+    "raw_text": "Předkladatel: Jana Najbrtová\nProjednávání bodu bylo zahájeno v 15:29:16\nDůvodová zpráva:\nDne 26.5. 2025 rozhodla RM svým usnesením UR-186-20/25 zveřejnit záměr na pronájem pozemku u ČOV (zahrádky). Na podmínky záměru reagovaly za zahrádkáře-p.\nBurešová\na p.\nBartáková\n. Přikládáme jejich písemné vyjádření a navrhujeme zveřejnit záměr znovu za nižších cenových podmínek, tzn. pozemek č. parc. 2169/13 v k.ú. Pečky o výměře 190 m\n2\nbudeme pronajímat za nabídnutou cenu 3,- Kč/m\n2\n/rok tzn. celkem 570,- Kč/rok.\nZa pozemek stejné kultury hradí město vlastníkovi p.\nŽeleznému\nod roku 2020 celkem 15,- Kč/m\n2\n/rok (č. parc. 2169/19 - areál ČOV).\nDiskuze zahájena v 15:29:16\nK tomuto bodu se vyjádřili:\nMilan Paluska, Ing. Martin Jedlička, Ivana Trčková, Ing. Karel Krištoufek\nV 15:37:28 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Jana Najbrtová\") v tomto znění:\nRada\nměsta schvaluje zveřejnit záměr na pronájem pozemku č. parc.2169/13 (190 m\n2\n) – orná půda – v obci a k.ú. Pečky za těchto podmínek:\n- pozemek je nabízen k pronájmu za účelem zahrádkářské činnosti\n- pronajímatel zajistí sepsání nájemní smlouvy\n- nájemní smlouva bude uzavřena na dobu neurčitou s výpovědní lhůtou 3 měsíce\n- výše nájemného je stanovena na 3,- Kč/m\n2\n/rok tzn. celkem 570,- Kč/rok\n- nájemné bude hrazeno 1x ročně vždy k 31.3.\nHlasování\npro:\n5\nproti\n0\nzdržel se:\n0\nnehlasoval:\n0\nNávrh byl přijat jako usnesení číslo: UR-230-25/25\nzodpovídá:\nJana Najbrtová\ntermín:\n30. 9. 2025\nProjednávání bodu bylo ukončeno v 15:37:34"
+   },
+   {
+    "number": 5,
+    "title_raw": "Žádost o zkrácení výpovědní lhůty",
+    "heading_raw": "5. Žádost o zkrácení výpovědní lhůty (bod číslo 5)",
+    "predkladatel": "Blanka Svatoňková",
+    "votes": [
+     {
+      "raw_text": "pro:\n5\nproti\n0\nzdržel se:\n0\nnehlasoval:\n0",
+      "pro": {
+       "count": 5,
+       "names": null,
+       "raw": "5"
+      },
+      "proti": {
+       "count": 0,
+       "names": null,
+       "raw": "0"
+      },
+      "zdrzel_se": {
+       "count": 0,
+       "names": null,
+       "raw": "0"
+      },
+      "nehlasoval": {
+       "count": 0,
+       "names": null,
+       "raw": "0"
+      },
+      "result_raw": "Návrh byl přijat jako usnesení číslo: UR-231-25/25",
+      "adopted_resolution_number": "UR-231-25/25"
+     }
+    ],
+    "resolution_numbers_mentioned": [
+     "UR-231-25/25"
+    ],
+    "raw_text": "Předkladatel: Blanka Svatoňková\nProjednávání bodu bylo zahájeno v 15:37:41\nDůvodová zpráva:\nDne 23.6.2025 zažádala paní\nČechová\nSoňa dcera paní\n█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█\no ukončení smlouvy o nájmu bytu bez výpovědní lhůty 3 měsíců k 30.6.2025. Paní\n█​█​█​█​█​█\n█​█​█​█​█​█​█​█​█\nze závažných zdravotních důvodů byt neužívá, byla umístěna do centra pro seniory Clementas Mlékovice s 24 hodinovou péčí od června 2024.\nDiskuze zahájena v 15:37:41\nK tomuto bodu se vyjádřili:\nMilan Paluska\nV 15:40:36 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Blanka Svatoňková\") v tomto znění:\nRada\nměsta schvaluje ukončení smlouvy o nájmu bytu na byt.č. 24 mezi městem Pečky a paní\n█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█\nk 30.6.2025.\nHlasování\npro:\n5\nproti\n0\nzdržel se:\n0\nnehlasoval:\n0\nNávrh byl přijat jako usnesení číslo: UR-231-25/25\nzodpovídá:\nBlanka Svatoňková\ntermín:\n14. 7. 2025\nProjednávání bodu bylo ukončeno v 15:40:47"
+   },
+   {
+    "number": 6,
+    "title_raw": "Aktualizace Komise pro otázky sociální, zdravotní a bytové",
+    "heading_raw": "6. Aktualizace Komise pro otázky sociální, zdravotní a bytové (bod číslo 6)",
+    "predkladatel": "Pavlína Nepovímová",
+    "votes": [
+     {
+      "raw_text": "pro:\n5\nproti\n0\nzdržel se:\n0\nnehlasoval:\n0",
+      "pro": {
+       "count": 5,
+       "names": null,
+       "raw": "5"
+      },
+      "proti": {
+       "count": 0,
+       "names": null,
+       "raw": "0"
+      },
+      "zdrzel_se": {
+       "count": 0,
+       "names": null,
+       "raw": "0"
+      },
+      "nehlasoval": {
+       "count": 0,
+       "names": null,
+       "raw": "0"
+      },
+      "result_raw": "Návrh byl přijat jako usnesení číslo: UR-232-25/25",
+      "adopted_resolution_number": "UR-232-25/25"
+     }
+    ],
+    "resolution_numbers_mentioned": [
+     "UR-232-25/25"
+    ],
+    "raw_text": "Předkladatel: Pavlína Nepovímová\nProjednávání bodu bylo zahájeno v 15:40:52\nDůvodová zpráva:\nNavýšení počtu členů Komise pro otázky sociální, zdravotní a bytové o jednu členku.\nDiskuze zahájena v 15:40:52\nK tomuto bodu se vyjádřili:\nMilan Paluska, Ing. Karel Krištoufek, Ing. Martin Jedlička\nV 15:42:20 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Pavlína Nepovímová\") v tomto znění:\nRada\nměsta schvaluje novou členku Komise pro otázky sociální, zdravotní a bytového paní\nBlanku\nSvatoňkovou\n- referentku Odboru správy majetku města a bytového hospodářství.\nHlasování\npro:\n5\nproti\n0\nzdržel se:\n0\nnehlasoval:\n0\nNávrh byl přijat jako usnesení číslo: UR-232-25/25\nzodpovídá:\ntermín:\nIHNED\n(30. 6. 2025)\nProjednávání bodu bylo ukončeno v 15:42:26"
+   },
+   {
+    "number": 7,
+    "title_raw": "Žádost o dotaci (dar) - OMS Nymburk",
+    "heading_raw": "7. Žádost o dotaci (dar) - OMS Nymburk (bod číslo 7)",
+    "predkladatel": "Milan Paluska",
+    "votes": [
+     {
+      "raw_text": "pro:\n5\nproti\n0\nzdržel se:\n0\nnehlasoval:\n0",
+      "pro": {
+       "count": 5,
+       "names": null,
+       "raw": "5"
+      },
+      "proti": {
+       "count": 0,
+       "names": null,
+       "raw": "0"
+      },
+      "zdrzel_se": {
+       "count": 0,
+       "names": null,
+       "raw": "0"
+      },
+      "nehlasoval": {
+       "count": 0,
+       "names": null,
+       "raw": "0"
+      },
+      "result_raw": "Návrh byl přijat jako usnesení číslo: UR-233-25/25",
+      "adopted_resolution_number": "UR-233-25/25"
+     }
+    ],
+    "resolution_numbers_mentioned": [
+     "UR-233-25/25"
+    ],
+    "raw_text": "Předkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 15:42:30\nDůvodová zpráva:\nOkresní myslivecký spolek Nymburk žádá o poskytnutí dotace 3 000 Kč na nákup medikovaného nebo mineralizovaného krmiva a soli pro zvěř, které poskytuje místním spolkům. V minulých letech bylo řešeno poskytováním daru ve výši 3 000 Kč.\nDiskuze zahájena v 15:42:30\nK tomuto bodu se vyjádřili:\nMilan Paluska\nV 15:46:36 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Milan Paluska\") v tomto znění:\nRada\nměsta schvaluje poskytnutí daru 3 000 Kč ČMMJ, z.s. Okresní myslivecký spolek Nymburk, IČO 6777473 na péči o zvěř.\nHlasování\npro:\n5\nproti\n0\nzdržel se:\n0\nnehlasoval:\n0\nNávrh byl přijat jako usnesení číslo: UR-233-25/25\nzodpovídá:\nMarcela Bahníková\ntermín:\n23. 6. 2025\nProjednávání bodu bylo ukončeno v 15:46:55"
+   },
+   {
+    "number": 8,
+    "title_raw": "Žádosti o finanční příspěvek - dar",
+    "heading_raw": "8. Žádosti o finanční příspěvek - dar (bod číslo 8)",
+    "predkladatel": "Milan Paluska",
+    "votes": [
+     {
+      "raw_text": "pro:\n4\nproti\n0\nzdržel se:\n1\nnehlasoval:\n0",
+      "pro": {
+       "count": 4,
+       "names": null,
+       "raw": "4"
+      },
+      "proti": {
+       "count": 0,
+       "names": null,
+       "raw": "0"
+      },
+      "zdrzel_se": {
+       "count": 1,
+       "names": null,
+       "raw": "1"
+      },
+      "nehlasoval": {
+       "count": 0,
+       "names": null,
+       "raw": "0"
+      },
+      "result_raw": "Návrh byl přijat jako usnesení číslo: UR-234-25/25",
+      "adopted_resolution_number": "UR-234-25/25"
+     }
+    ],
+    "resolution_numbers_mentioned": [
+     "UR-234-25/25"
+    ],
+    "raw_text": "Předkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 15:46:59\nDůvodová zpráva:\nPříspěvková organizace\nDětský\ndomov se školou SVP a ZŠ Býchory zaslala žádost o finanční podporu provozu Střediska výchovné péče (SVP) Kolíně.\nDiskuze zahájena v 15:46:59\nK tomuto bodu se vyjádřili:\nMilan Paluska, Ing. Martin Jedlička, Ivana Trčková, Ing. Karel Krištoufek, Ing. Petr Dürr\nV 16:04:48 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Milan Paluska\") v tomto znění:\nRada\nměsta schvaluje poskytnutí finančního daru ve výši 6 000,-Kč\nDětskému\ndomovu se školou, SVP a ZŠ Býchory, IČO 48665771.\nHlasování\npro:\n4\nproti\n0\nzdržel se:\n1\nnehlasoval:\n0\nNávrh byl přijat jako usnesení číslo: UR-234-25/25\nzodpovídá:\nMarcela Bahníková\ntermín:\n14. 7. 2025\nProjednávání bodu bylo ukončeno v 16:04:58"
+   },
+   {
+    "number": 12,
+    "title_raw": "Žádost o uzavření smlouvy o nájmu bytu č. 3 v čp. 139 ul. P. Bezruče, Pečky - na měsíc červenec 2025",
+    "heading_raw": "9. Žádost o uzavření smlouvy o nájmu bytu č. 3 v čp. 139 ul. P. Bezruče, Pečky - na měsíc červenec 2025 (bod číslo 12)",
+    "predkladatel": "Blanka Svatoňková",
+    "votes": [
+     {
+      "raw_text": "pro:\n5\nproti\n0\nzdržel se:\n0\nnehlasoval:\n0",
+      "pro": {
+       "count": 5,
+       "names": null,
+       "raw": "5"
+      },
+      "proti": {
+       "count": 0,
+       "names": null,
+       "raw": "0"
+      },
+      "zdrzel_se": {
+       "count": 0,
+       "names": null,
+       "raw": "0"
+      },
+      "nehlasoval": {
+       "count": 0,
+       "names": null,
+       "raw": "0"
+      },
+      "result_raw": "Návrh byl přijat jako usnesení číslo: UR-235-25/25",
+      "adopted_resolution_number": "UR-235-25/25"
+     }
+    ],
+    "resolution_numbers_mentioned": [
+     "UR-235-25/25"
+    ],
+    "raw_text": "Předkladatel: Blanka Svatoňková\nProjednávání bodu bylo zahájeno v 16:08:15\nDůvodová zpráva:\nKe dni 30.6.2025 byla paní\n█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█\nukončena smlouva o nájmu bytu z důvodu nehrazení nájemného a ani nehrazení dluhu ve splátkovém kalendáři ve výši 25.163,-Kč. Nájemní smlouva byla uzavřena s platností od 1.7.2024 na základě usnesení Rady města.\nDlužná částka ve výši 25.163,-Kč\nna nájemném byla uhrazen dne 20.6.2025 a nyní nájemkyně městu Pečky nic nedluží.\nDne 30.6.2025 si paní\n█​█​█​█​█​█​█​█​█​█​█​█​█​█\nzažádala o uzavření smlouvy o nájmu bytu na měsíc červenec 2025, důvodem je nedodržení termínu předání bytu k 30.6.2025 ve stejném stavu, v jakém byl převzat, a proto žádá o posunutí termínu a uzavření smlouvy o nájmu bytu na měsíc červenec 2025. Nájemné na tento měsíc uhradí nejpozději do 15.7.2025.\nDiskuze zahájena v 16:08:15\nK tomuto bodu se vyjádřili:\nMilan Paluska, Ing. Karel Krištoufek, Ing. Martin Jedlička\nV 16:15:18 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Blanka Svatoňková\") v tomto znění:\nRada\nměsta schvaluje uzavření smlouvy o nájmu bytu č.3, v čp. 139 ul.\nPetra\nBezruče,\nPečky mezi městem Pečky a paní\n█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█\nna dobu určitou od 1.7.2025 do 31.7.2025.\nHlasování\npro:\n5\nproti\n0\nzdržel se:\n0\nnehlasoval:\n0\nNávrh byl přijat jako usnesení číslo: UR-235-25/25\nzodpovídá:\nBlanka Svatoňková\ntermín:\n14. 7. 2025\nProjednávání bodu bylo ukončeno v 16:15:26"
+   },
+   {
+    "number": 9,
+    "title_raw": "Kontrola plnění usnesení",
+    "heading_raw": "10. Kontrola plnění usnesení (bod číslo 9)",
+    "predkladatel": "Milan Paluska",
+    "votes": [],
+    "resolution_numbers_mentioned": [],
+    "raw_text": "Předkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 16:15:34\nDiskuze zahájena v 16:15:34\nK tomuto bodu se vyjádřili:\nMilan Paluska, Pavlína Nepovímová\nRada bere informace k bodu č. 9 -\nKontrola plnění usnesení\nna vědomí.\nProjednávání bodu bylo ukončeno v 16:16:17"
+   },
+   {
+    "number": 10,
+    "title_raw": "Diskuse, různé",
+    "heading_raw": "11. Diskuse, různé (bod číslo 10)",
+    "predkladatel": "Milan Paluska",
+    "votes": [],
+    "resolution_numbers_mentioned": [],
+    "raw_text": "Předkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 16:16:21\nDiskuze zahájena v 16:16:21\nK tomuto bodu se vyjádřili:\nMilan Paluska, Ivana Trčková, Ing. Karel Krištoufek\nRada bere informace k bodu č. 10 -\nDiskuse, různé\nna vědomí.\nProjednávání bodu bylo ukončeno v 17:14:07"
+   },
+   {
+    "number": 11,
+    "title_raw": "Úkoly vyplývající z jednání rady města",
+    "heading_raw": "12. Úkoly vyplývající z jednání rady města (bod číslo 11)",
+    "predkladatel": "Milan Paluska",
+    "votes": [],
+    "resolution_numbers_mentioned": [],
+    "raw_text": "Předkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 17:14:11\nDiskuze zahájena v 17:14:11\nK tomuto bodu se vyjádřili:\nMilan Paluska\nRada bere informace k bodu č. 11 -\nÚkoly vyplývající z jednání rady města\nna vědomí.\nProjednávání bodu bylo ukončeno v 17:14:28\nJednání ukončeno 30.06.2025 v 17:14:42"
+   }
+  ],
+  "full_text": "ZÁPIS ze schůze rady č. 25/2025\nMěsto Pečky\ndatum: 30. 6. 2025, čas: 15:00\n​\nÚvodní prezence:\nPřítomni:\n(4) Ing. Martin Jedlička, Ing. Karel Krištoufek, Milan Paluska, Ivana Trčková\nOmluveni:\n(2) Zdeněk Fejfar, Ing. Hana Kuprová\nNepřítomni:\n(1) Ing. Petr Dürr\nDalší přítomní a hosté:\nZapisovatel/ka:\nEva Strnadová\nPřítomno je 4 z 7 členů a rada je usnášeníschopná.\nJednání zahájeno 30.06.2025 v 15:03:33\n1. Určení zapisovatelů, předsedajícího, příp. ověřovatelů (bod číslo 1)\nPředkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 15:03:40\nPředsedající navrhl jednotlivé členy pracovních komisí\nOvěřovatelé:\nIvana Trčková, Ing. Karel Krištoufek\nPředsedající:\nMilan Paluska\nBod byl přijat bez hlasování.\nDiskuze zahájena v 15:03:40\nK tomuto bodu se vyjádřili:\nMilan Paluska\nProjednávání bodu bylo ukončeno v 15:04:23\n2. Schválení programu jednání (bod číslo 2)\nPředkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 15:04:31\nProgram jednání\n1. Určení zapisovatelů, předsedajícího, příp. ověřovatelů\n2. Schválení programu jednání\n3. Aktuální informace vedení města\n4. Zveřejnění záměru na pronájem pozemku č. parc. 2169/13 v k.ú. Pečky\n5. Žádost o zkrácení výpovědní lhůty\n6. Aktualizace Komise pro otázky sociální, zdravotní a bytové\n7. Žádost o dotaci ( dar ) - OMS Nymburk\n8. Žádosti o finanční příspěvek - dar\n9. Kontrola plnění usnesení\n10. Diskuse, různé\n11. Úkoly vyplývající z jednání rady města\nDiskuze zahájena v 15:04:31\nK tomuto bodu se vyjádřili:\nMilan Paluska\nV 15:05:30 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Milan Paluska\") v tomto znění:\nRada\nměsta schvaluje návrh programu jednání.\ns těmito změnami:\n- doplňuje se bod č. 12 - Žádost o uzavření smlouvy o nájmu bytu č. 3 v čp. 139 ul. P.\nBezruče\n, Pečky - na měsíc červenec 2025\nHlasování\npro:\n4\nproti\n0\nzdržel se:\n0\nnehlasoval:\n0\nNávrh byl přijat jako usnesení číslo: UR-229-25/25\nzodpovídá:\ntermín:\nIHNED\n(30. 6. 2025)\nProjednávání bodu bylo ukončeno v 15:05:36\n3. Aktuální informace vedení města (bod číslo 3)\nPředkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 15:05:41\nDůvodová zpráva:\nstarosta města\n- informace o ukončení stavebních prací zhotovení vstupního portálu smuteční síně na hřbitově v Pečkách\n- informace o zahájení stavebních prací, bourací práce - tribuna AFK Pečky\n- informace o dalším postupu stavebních prací akce \"Dobudování stezky pro pěší a cyklisty v ul.\nMilčická\nve Velkých Chvalovicích\"\n- informace o zahájení stavebních prací akce \"Pečky – rekonstrukce ul.\nProkopa\nHolého\na Letohradská – BD ul. Letohradská – etapa A\"- vytýčení sítí, objednávka kanálových vpustí\n- informace o postupu stavebních prací akce \"Rekonstrukce ordinace a zázemí lékařů ve zdravotním středisku\"\n- informace o poděkování studentovi ZUŠ\nJ.\nKubíčkovi\nza přípravu loga ke 100. výročí povýšení na město\n- informace o poděkování žákům ZŠ, ZUŠ, ZŠ příspěvkové organizaci za školní výsledky ve školním roce 2024/2025\ntajemnice\n- informace o průběhu výběrového řízení na obsazení volných pracovních pozic na odbor investic a rozvoje\nDiskuze zahájena v 15:05:41\nK tomuto bodu se vyjádřili:\nIvana Trčková, Ing. Karel Krištoufek, Pavlína Nepovímová, Milan Paluska\nV 15:21:42 přišel Ing. Petr Dürr, přítomno 5 z 7 radních.\nAktualizovaný stav prezence:\nPřítomni:\n(5) Ing. Martin Jedlička, Ing. Karel Krištoufek, Milan Paluska, Ivana Trčková, Ing. Petr Dürr\nOmluveni:\n(2) Zdeněk Fejfar, Ing. Hana Kuprová\nNepřítomni:\n(0)\nRada bere informace k bodu č. 3 -\nAktuální informace vedení města\nna vědomí.\nProjednávání bodu bylo ukončeno v 15:29:10\n4. Zveřejnění záměru na pronájem pozemku č. parc. 2169/13 v k.ú. Pečky (bod číslo 4)\nPředkladatel: Jana Najbrtová\nProjednávání bodu bylo zahájeno v 15:29:16\nDůvodová zpráva:\nDne 26.5. 2025 rozhodla RM svým usnesením UR-186-20/25 zveřejnit záměr na pronájem pozemku u ČOV (zahrádky). Na podmínky záměru reagovaly za zahrádkáře-p.\nBurešová\na p.\nBartáková\n. Přikládáme jejich písemné vyjádření a navrhujeme zveřejnit záměr znovu za nižších cenových podmínek, tzn. pozemek č. parc. 2169/13 v k.ú. Pečky o výměře 190 m\n2\nbudeme pronajímat za nabídnutou cenu 3,- Kč/m\n2\n/rok tzn. celkem 570,- Kč/rok.\nZa pozemek stejné kultury hradí město vlastníkovi p.\nŽeleznému\nod roku 2020 celkem 15,- Kč/m\n2\n/rok (č. parc. 2169/19 - areál ČOV).\nDiskuze zahájena v 15:29:16\nK tomuto bodu se vyjádřili:\nMilan Paluska, Ing. Martin Jedlička, Ivana Trčková, Ing. Karel Krištoufek\nV 15:37:28 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Jana Najbrtová\") v tomto znění:\nRada\nměsta schvaluje zveřejnit záměr na pronájem pozemku č. parc.2169/13 (190 m\n2\n) – orná půda – v obci a k.ú. Pečky za těchto podmínek:\n- pozemek je nabízen k pronájmu za účelem zahrádkářské činnosti\n- pronajímatel zajistí sepsání nájemní smlouvy\n- nájemní smlouva bude uzavřena na dobu neurčitou s výpovědní lhůtou 3 měsíce\n- výše nájemného je stanovena na 3,- Kč/m\n2\n/rok tzn. celkem 570,- Kč/rok\n- nájemné bude hrazeno 1x ročně vždy k 31.3.\nHlasování\npro:\n5\nproti\n0\nzdržel se:\n0\nnehlasoval:\n0\nNávrh byl přijat jako usnesení číslo: UR-230-25/25\nzodpovídá:\nJana Najbrtová\ntermín:\n30. 9. 2025\nProjednávání bodu bylo ukončeno v 15:37:34\n5. Žádost o zkrácení výpovědní lhůty (bod číslo 5)\nPředkladatel: Blanka Svatoňková\nProjednávání bodu bylo zahájeno v 15:37:41\nDůvodová zpráva:\nDne 23.6.2025 zažádala paní\nČechová\nSoňa dcera paní\n█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​\no ukončení smlouvy o nájmu bytu bez výpovědní lhůty 3 měsíců k 30.6.2025. Paní\n█​█​█​█​█​█​\n█​█​█​█​█​█​█​█​█​\nze závažných zdravotních důvodů byt neužívá, byla umístěna do centra pro seniory Clementas Mlékovice s 24 hodinovou péčí od června 2024.\nDiskuze zahájena v 15:37:41\nK tomuto bodu se vyjádřili:\nMilan Paluska\nV 15:40:36 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Blanka Svatoňková\") v tomto znění:\nRada\nměsta schvaluje ukončení smlouvy o nájmu bytu na byt.č. 24 mezi městem Pečky a paní\n█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​\nk 30.6.2025.\nHlasování\npro:\n5\nproti\n0\nzdržel se:\n0\nnehlasoval:\n0\nNávrh byl přijat jako usnesení číslo: UR-231-25/25\nzodpovídá:\nBlanka Svatoňková\ntermín:\n14. 7. 2025\nProjednávání bodu bylo ukončeno v 15:40:47\n6. Aktualizace Komise pro otázky sociální, zdravotní a bytové (bod číslo 6)\nPředkladatel: Pavlína Nepovímová\nProjednávání bodu bylo zahájeno v 15:40:52\nDůvodová zpráva:\nNavýšení počtu členů Komise pro otázky sociální, zdravotní a bytové o jednu členku.\nDiskuze zahájena v 15:40:52\nK tomuto bodu se vyjádřili:\nMilan Paluska, Ing. Karel Krištoufek, Ing. Martin Jedlička\nV 15:42:20 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Pavlína Nepovímová\") v tomto znění:\nRada\nměsta schvaluje novou členku Komise pro otázky sociální, zdravotní a bytového paní\nBlanku\nSvatoňkovou\n- referentku Odboru správy majetku města a bytového hospodářství.\nHlasování\npro:\n5\nproti\n0\nzdržel se:\n0\nnehlasoval:\n0\nNávrh byl přijat jako usnesení číslo: UR-232-25/25\nzodpovídá:\ntermín:\nIHNED\n(30. 6. 2025)\nProjednávání bodu bylo ukončeno v 15:42:26\n7. Žádost o dotaci (dar) - OMS Nymburk (bod číslo 7)\nPředkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 15:42:30\nDůvodová zpráva:\nOkresní myslivecký spolek Nymburk žádá o poskytnutí dotace 3 000 Kč na nákup medikovaného nebo mineralizovaného krmiva a soli pro zvěř, které poskytuje místním spolkům. V minulých letech bylo řešeno poskytováním daru ve výši 3 000 Kč.\nDiskuze zahájena v 15:42:30\nK tomuto bodu se vyjádřili:\nMilan Paluska\nV 15:46:36 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Milan Paluska\") v tomto znění:\nRada\nměsta schvaluje poskytnutí daru 3 000 Kč ČMMJ, z.s. Okresní myslivecký spolek Nymburk, IČO 6777473 na péči o zvěř.\nHlasování\npro:\n5\nproti\n0\nzdržel se:\n0\nnehlasoval:\n0\nNávrh byl přijat jako usnesení číslo: UR-233-25/25\nzodpovídá:\nMarcela Bahníková\ntermín:\n23. 6. 2025\nProjednávání bodu bylo ukončeno v 15:46:55\n8. Žádosti o finanční příspěvek - dar (bod číslo 8)\nPředkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 15:46:59\nDůvodová zpráva:\nPříspěvková organizace\nDětský\ndomov se školou SVP a ZŠ Býchory zaslala žádost o finanční podporu provozu Střediska výchovné péče (SVP) Kolíně.\nDiskuze zahájena v 15:46:59\nK tomuto bodu se vyjádřili:\nMilan Paluska, Ing. Martin Jedlička, Ivana Trčková, Ing. Karel Krištoufek, Ing. Petr Dürr\nV 16:04:48 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Milan Paluska\") v tomto znění:\nRada\nměsta schvaluje poskytnutí finančního daru ve výši 6 000,-Kč\nDětskému\ndomovu se školou, SVP a ZŠ Býchory, IČO 48665771.\nHlasování\npro:\n4\nproti\n0\nzdržel se:\n1\nnehlasoval:\n0\nNávrh byl přijat jako usnesení číslo: UR-234-25/25\nzodpovídá:\nMarcela Bahníková\ntermín:\n14. 7. 2025\nProjednávání bodu bylo ukončeno v 16:04:58\n9. Žádost o uzavření smlouvy o nájmu bytu č. 3 v čp. 139 ul. P. Bezruče, Pečky - na měsíc červenec 2025 (bod číslo 12)\nPředkladatel: Blanka Svatoňková\nProjednávání bodu bylo zahájeno v 16:08:15\nDůvodová zpráva:\nKe dni 30.6.2025 byla paní\n█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​\nukončena smlouva o nájmu bytu z důvodu nehrazení nájemného a ani nehrazení dluhu ve splátkovém kalendáři ve výši 25.163,-Kč. Nájemní smlouva byla uzavřena s platností od 1.7.2024 na základě usnesení Rady města.\nDlužná částka ve výši 25.163,-Kč\nna nájemném byla uhrazen dne 20.6.2025 a nyní nájemkyně městu Pečky nic nedluží.\nDne 30.6.2025 si paní\n█​█​█​█​█​█​█​█​█​█​█​█​█​█​\nzažádala o uzavření smlouvy o nájmu bytu na měsíc červenec 2025, důvodem je nedodržení termínu předání bytu k 30.6.2025 ve stejném stavu, v jakém byl převzat, a proto žádá o posunutí termínu a uzavření smlouvy o nájmu bytu na měsíc červenec 2025. Nájemné na tento měsíc uhradí nejpozději do 15.7.2025.\nDiskuze zahájena v 16:08:15\nK tomuto bodu se vyjádřili:\nMilan Paluska, Ing. Karel Krištoufek, Ing. Martin Jedlička\nV 16:15:18 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Blanka Svatoňková\") v tomto znění:\nRada\nměsta schvaluje uzavření smlouvy o nájmu bytu č.3, v čp. 139 ul.\nPetra\nBezruče,\nPečky mezi městem Pečky a paní\n█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​\nna dobu určitou od 1.7.2025 do 31.7.2025.\nHlasování\npro:\n5\nproti\n0\nzdržel se:\n0\nnehlasoval:\n0\nNávrh byl přijat jako usnesení číslo: UR-235-25/25\nzodpovídá:\nBlanka Svatoňková\ntermín:\n14. 7. 2025\nProjednávání bodu bylo ukončeno v 16:15:26\n10. Kontrola plnění usnesení (bod číslo 9)\nPředkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 16:15:34\nDiskuze zahájena v 16:15:34\nK tomuto bodu se vyjádřili:\nMilan Paluska, Pavlína Nepovímová\nRada bere informace k bodu č. 9 -\nKontrola plnění usnesení\nna vědomí.\nProjednávání bodu bylo ukončeno v 16:16:17\n11. Diskuse, různé (bod číslo 10)\nPředkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 16:16:21\nDiskuze zahájena v 16:16:21\nK tomuto bodu se vyjádřili:\nMilan Paluska, Ivana Trčková, Ing. Karel Krištoufek\nRada bere informace k bodu č. 10 -\nDiskuse, různé\nna vědomí.\nProjednávání bodu bylo ukončeno v 17:14:07\n12. Úkoly vyplývající z jednání rady města (bod číslo 11)\nPředkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 17:14:11\nDiskuze zahájena v 17:14:11\nK tomuto bodu se vyjádřili:\nMilan Paluska\nRada bere informace k bodu č. 11 -\nÚkoly vyplývající z jednání rady města\nna vědomí.\nProjednávání bodu bylo ukončeno v 17:14:28\nJednání ukončeno 30.06.2025 v 17:14:42"
+ },
+ "resolutions": {
+  "status": "ok",
+  "url": "https://mesto-pecky.usneseni.cz/verejne/7148103a-50ba-11f0-93b7-00505683238f/usneseni/",
+  "fetched_at": "2026-08-04T13:30:24.807149+00:00",
+  "items": [
+   {
+    "number_raw": "UR-229-25/25",
+    "detail_id": 102671,
+    "detail_url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/102671?mod=rada",
+    "agenda_item_raw": "Schválení programu jednání",
+    "text_verbatim": "Rada\nměsta schvaluje návrh programu jednání.\ns těmito změnami:\n- doplňuje se bod č. 12 - Žádost o uzavření smlouvy o nájmu bytu č. 3 v čp. 139 ul. P.\nBezruče\n, Pečky - na měsíc červenec 2025",
+    "cell_text_raw": "Bod programu:\nSchválení programu jednání\nText přijatého usnesení:\nRada\nměsta schvaluje návrh programu jednání.\ns těmito změnami:\n- doplňuje se bod č. 12 - Žádost o uzavření smlouvy o nájmu bytu č. 3 v čp. 139 ul. P.\nBezruče\n, Pečky - na měsíc červenec 2025",
+    "date_raw": "30. 6. 2025",
+    "date_iso": "2025-06-30",
+    "responsible_raw": "",
+    "deadline_raw": "IHNED (30. 6. 2025)",
+    "vote": {
+     "raw_text": "pro: 4 proti: 0 zdržel se: 0",
+     "pro": {
+      "count": 4,
+      "names": null,
+      "raw": "4"
+     },
+     "proti": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     },
+     "zdrzel_se": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     }
+    },
+    "detail": {
+     "number_raw": "UR-229-25/25",
+     "text_verbatim": "Rada města schvaluje návrh programu jednání.\ns těmito změnami: - doplňuje se bod č. 12 - Žádost o uzavření smlouvy o nájmu bytu č. 3 v čp. 139 ul. P. Bezruče , Pečky - na měsíc červenec 2025",
+     "typ_raw": null,
+     "zodpovida_raw": "",
+     "prijato_raw": "30. 6. 2025 na jednání č. 25/2025",
+     "prijato_date_iso": "2025-06-30",
+     "prijato_meeting_label": "25/2025",
+     "termin_raw": "IHNED (30. 6. 2025)",
+     "ukonceno_raw": "30. 6. 2025",
+     "ukonceno_date_iso": "2025-06-30",
+     "fields_raw": {
+      "Číslo usnesení": "UR-229-25/25",
+      "Text usnesení": "Rada města schvaluje návrh programu jednání.\ns těmito změnami: - doplňuje se bod č. 12 - Žádost o uzavření smlouvy o nájmu bytu č. 3 v čp. 139 ul. P. Bezruče , Pečky - na měsíc červenec 2025",
+      "Zodpovídá": "",
+      "Přijato": "30. 6. 2025 na jednání č. 25/2025",
+      "Termín": "IHNED (30. 6. 2025)",
+      "Ukončeno": "30. 6. 2025"
+     }
+    }
+   },
+   {
+    "number_raw": "UR-230-25/25",
+    "detail_id": 102777,
+    "detail_url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/102777?mod=rada",
+    "agenda_item_raw": "Zveřejnění záměru na pronájem pozemku č. parc. 2169/13 v k.ú. Pečky",
+    "text_verbatim": "Rada\nměsta schvaluje zveřejnit záměr na pronájem pozemku č. parc.2169/13 (190 m\n2\n) – orná půda – v obci a k.ú. Pečky za těchto podmínek:\n- pozemek je nabízen k pronájmu za účelem zahrádkářské činnosti\n- pronajímatel zajistí sepsání nájemní smlouvy\n- nájemní smlouva bude uzavřena na dobu neurčitou s výpovědní lhůtou 3 měsíce\n- výše nájemného je stanovena na 3,- Kč/m\n2\n/rok tzn. celkem 570,- Kč/rok\n- nájemné bude hrazeno 1x ročně vždy k 31.3.",
+    "cell_text_raw": "Bod programu:\nZveřejnění záměru na pronájem pozemku č. parc. 2169/13 v k.ú. Pečky\nText přijatého usnesení:\nRada\nměsta schvaluje zveřejnit záměr na pronájem pozemku č. parc.2169/13 (190 m\n2\n) – orná půda – v obci a k.ú. Pečky za těchto podmínek:\n- pozemek je nabízen k pronájmu za účelem zahrádkářské činnosti\n- pronajímatel zajistí sepsání nájemní smlouvy\n- nájemní smlouva bude uzavřena na dobu neurčitou s výpovědní lhůtou 3 měsíce\n- výše nájemného je stanovena na 3,- Kč/m\n2\n/rok tzn. celkem 570,- Kč/rok\n- nájemné bude hrazeno 1x ročně vždy k 31.3.",
+    "date_raw": "30. 6. 2025",
+    "date_iso": "2025-06-30",
+    "responsible_raw": "Jana Najbrtová",
+    "deadline_raw": "30. 9. 2025",
+    "vote": {
+     "raw_text": "pro: 5 proti: 0 zdržel se: 0",
+     "pro": {
+      "count": 5,
+      "names": null,
+      "raw": "5"
+     },
+     "proti": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     },
+     "zdrzel_se": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     }
+    },
+    "detail": {
+     "number_raw": "UR-230-25/25",
+     "text_verbatim": "Rada města schvaluje zveřejnit záměr na pronájem pozemku č. parc.2169/13 (190 m 2 ) – orná půda – v obci a k.ú. Pečky za těchto podmínek:\n- pozemek je nabízen k pronájmu za účelem zahrádkářské činnosti\n- pronajímatel zajistí sepsání nájemní smlouvy\n- nájemní smlouva bude uzavřena na dobu neurčitou s výpovědní lhůtou 3 měsíce\n- výše nájemného je stanovena na 3,- Kč/m 2 /rok tzn. celkem 570,- Kč/rok\n- nájemné bude hrazeno 1x ročně vždy k 31.3.",
+     "typ_raw": null,
+     "zodpovida_raw": "Jana Najbrtová",
+     "prijato_raw": "30. 6. 2025 na jednání č. 25/2025",
+     "prijato_date_iso": "2025-06-30",
+     "prijato_meeting_label": "25/2025",
+     "termin_raw": "30. 9. 2025",
+     "ukonceno_raw": "24. 7. 2025",
+     "ukonceno_date_iso": "2025-07-24",
+     "fields_raw": {
+      "Číslo usnesení": "UR-230-25/25",
+      "Text usnesení": "Rada města schvaluje zveřejnit záměr na pronájem pozemku č. parc.2169/13 (190 m 2 ) – orná půda – v obci a k.ú. Pečky za těchto podmínek:\n- pozemek je nabízen k pronájmu za účelem zahrádkářské činnosti\n- pronajímatel zajistí sepsání nájemní smlouvy\n- nájemní smlouva bude uzavřena na dobu neurčitou s výpovědní lhůtou 3 měsíce\n- výše nájemného je stanovena na 3,- Kč/m 2 /rok tzn. celkem 570,- Kč/rok\n- nájemné bude hrazeno 1x ročně vždy k 31.3.",
+      "Zodpovídá": "Jana Najbrtová",
+      "Přijato": "30. 6. 2025 na jednání č. 25/2025",
+      "Termín": "30. 9. 2025",
+      "Ukončeno": "24. 7. 2025"
+     }
+    }
+   },
+   {
+    "number_raw": "UR-231-25/25",
+    "detail_id": 102844,
+    "detail_url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/102844?mod=rada",
+    "agenda_item_raw": "Žádost o zkrácení výpovědní lhůty",
+    "text_verbatim": "Rada\nměsta schvaluje ukončení smlouvy o nájmu bytu na byt.č. 24 mezi městem Pečky a paní\n█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​\nk 30.6.2025.",
+    "cell_text_raw": "Bod programu:\nŽádost o zkrácení výpovědní lhůty\nText přijatého usnesení:\nRada\nměsta schvaluje ukončení smlouvy o nájmu bytu na byt.č. 24 mezi městem Pečky a paní\n█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​\nk 30.6.2025.",
+    "date_raw": "30. 6. 2025",
+    "date_iso": "2025-06-30",
+    "responsible_raw": "Blanka Svatoňková",
+    "deadline_raw": "14. 7. 2025",
+    "vote": {
+     "raw_text": "pro: 5 proti: 0 zdržel se: 0",
+     "pro": {
+      "count": 5,
+      "names": null,
+      "raw": "5"
+     },
+     "proti": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     },
+     "zdrzel_se": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     }
+    },
+    "detail": {
+     "number_raw": "UR-231-25/25",
+     "text_verbatim": "Rada města schvaluje ukončení smlouvy o nájmu bytu na byt.č. 24 mezi městem Pečky a paní █​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​ k 30.6.2025.",
+     "typ_raw": null,
+     "zodpovida_raw": "Blanka Svatoňková",
+     "prijato_raw": "30. 6. 2025 na jednání č. 25/2025",
+     "prijato_date_iso": "2025-06-30",
+     "prijato_meeting_label": "25/2025",
+     "termin_raw": "14. 7. 2025",
+     "ukonceno_raw": "14. 7. 2025",
+     "ukonceno_date_iso": "2025-07-14",
+     "fields_raw": {
+      "Číslo usnesení": "UR-231-25/25",
+      "Text usnesení": "Rada města schvaluje ukončení smlouvy o nájmu bytu na byt.č. 24 mezi městem Pečky a paní █​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​ k 30.6.2025.",
+      "Zodpovídá": "Blanka Svatoňková",
+      "Přijato": "30. 6. 2025 na jednání č. 25/2025",
+      "Termín": "14. 7. 2025",
+      "Ukončeno": "14. 7. 2025"
+     }
+    }
+   },
+   {
+    "number_raw": "UR-232-25/25",
+    "detail_id": 102892,
+    "detail_url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/102892?mod=rada",
+    "agenda_item_raw": "Aktualizace Komise pro otázky sociální, zdravotní a bytové",
+    "text_verbatim": "Rada\nměsta schvaluje novou členku Komise pro otázky sociální, zdravotní a bytového paní\nBlanku\nSvatoňkovou\n- referentku Odboru správy majetku města a bytového hospodářství.",
+    "cell_text_raw": "Bod programu:\nAktualizace Komise pro otázky sociální, zdravotní a bytové\nText přijatého usnesení:\nRada\nměsta schvaluje novou členku Komise pro otázky sociální, zdravotní a bytového paní\nBlanku\nSvatoňkovou\n- referentku Odboru správy majetku města a bytového hospodářství.",
+    "date_raw": "30. 6. 2025",
+    "date_iso": "2025-06-30",
+    "responsible_raw": "",
+    "deadline_raw": "IHNED (30. 6. 2025)",
+    "vote": {
+     "raw_text": "pro: 5 proti: 0 zdržel se: 0",
+     "pro": {
+      "count": 5,
+      "names": null,
+      "raw": "5"
+     },
+     "proti": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     },
+     "zdrzel_se": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     }
+    },
+    "detail": {
+     "number_raw": "UR-232-25/25",
+     "text_verbatim": "Rada města schvaluje novou členku Komise pro otázky sociální, zdravotní a bytového paní Blanku Svatoňkovou - referentku Odboru správy majetku města a bytového hospodářství.",
+     "typ_raw": null,
+     "zodpovida_raw": "",
+     "prijato_raw": "30. 6. 2025 na jednání č. 25/2025",
+     "prijato_date_iso": "2025-06-30",
+     "prijato_meeting_label": "25/2025",
+     "termin_raw": "IHNED (30. 6. 2025)",
+     "ukonceno_raw": "30. 6. 2025",
+     "ukonceno_date_iso": "2025-06-30",
+     "fields_raw": {
+      "Číslo usnesení": "UR-232-25/25",
+      "Text usnesení": "Rada města schvaluje novou členku Komise pro otázky sociální, zdravotní a bytového paní Blanku Svatoňkovou - referentku Odboru správy majetku města a bytového hospodářství.",
+      "Zodpovídá": "",
+      "Přijato": "30. 6. 2025 na jednání č. 25/2025",
+      "Termín": "IHNED (30. 6. 2025)",
+      "Ukončeno": "30. 6. 2025"
+     }
+    }
+   },
+   {
+    "number_raw": "UR-233-25/25",
+    "detail_id": 102924,
+    "detail_url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/102924?mod=rada",
+    "agenda_item_raw": "Žádost o dotaci (dar) - OMS Nymburk",
+    "text_verbatim": "Rada\nměsta schvaluje poskytnutí daru 3 000 Kč ČMMJ, z.s. Okresní myslivecký spolek Nymburk, IČO 6777473 na péči o zvěř.",
+    "cell_text_raw": "Bod programu:\nŽádost o dotaci (dar) - OMS Nymburk\nText přijatého usnesení:\nRada\nměsta schvaluje poskytnutí daru 3 000 Kč ČMMJ, z.s. Okresní myslivecký spolek Nymburk, IČO 6777473 na péči o zvěř.",
+    "date_raw": "30. 6. 2025",
+    "date_iso": "2025-06-30",
+    "responsible_raw": "Marcela Bahníková",
+    "deadline_raw": "23. 6. 2025",
+    "vote": {
+     "raw_text": "pro: 5 proti: 0 zdržel se: 0",
+     "pro": {
+      "count": 5,
+      "names": null,
+      "raw": "5"
+     },
+     "proti": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     },
+     "zdrzel_se": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     }
+    },
+    "detail": {
+     "number_raw": "UR-233-25/25",
+     "text_verbatim": "Rada města schvaluje poskytnutí daru 3 000 Kč ČMMJ, z.s. Okresní myslivecký spolek Nymburk, IČO 6777473 na péči o zvěř.",
+     "typ_raw": null,
+     "zodpovida_raw": "Marcela Bahníková",
+     "prijato_raw": "30. 6. 2025 na jednání č. 25/2025",
+     "prijato_date_iso": "2025-06-30",
+     "prijato_meeting_label": "25/2025",
+     "termin_raw": "23. 6. 2025",
+     "ukonceno_raw": "2. 7. 2025",
+     "ukonceno_date_iso": "2025-07-02",
+     "fields_raw": {
+      "Číslo usnesení": "UR-233-25/25",
+      "Text usnesení": "Rada města schvaluje poskytnutí daru 3 000 Kč ČMMJ, z.s. Okresní myslivecký spolek Nymburk, IČO 6777473 na péči o zvěř.",
+      "Zodpovídá": "Marcela Bahníková",
+      "Přijato": "30. 6. 2025 na jednání č. 25/2025",
+      "Termín": "23. 6. 2025",
+      "Ukončeno": "2. 7. 2025"
+     }
+    }
+   },
+   {
+    "number_raw": "UR-234-25/25",
+    "detail_id": 102947,
+    "detail_url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/102947?mod=rada",
+    "agenda_item_raw": "Žádosti o finanční příspěvek -   dar",
+    "text_verbatim": "Rada\nměsta schvaluje poskytnutí finančního daru ve výši 6 000,-Kč\nDětskému\ndomovu se školou, SVP a ZŠ Býchory, IČO 48665771.",
+    "cell_text_raw": "Bod programu:\nŽádosti o finanční příspěvek -   dar\nText přijatého usnesení:\nRada\nměsta schvaluje poskytnutí finančního daru ve výši 6 000,-Kč\nDětskému\ndomovu se školou, SVP a ZŠ Býchory, IČO 48665771.",
+    "date_raw": "30. 6. 2025",
+    "date_iso": "2025-06-30",
+    "responsible_raw": "Marcela Bahníková",
+    "deadline_raw": "14. 7. 2025",
+    "vote": {
+     "raw_text": "pro: 4 proti: 0 zdržel se: 1",
+     "pro": {
+      "count": 4,
+      "names": null,
+      "raw": "4"
+     },
+     "proti": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     },
+     "zdrzel_se": {
+      "count": 1,
+      "names": null,
+      "raw": "1"
+     }
+    },
+    "detail": {
+     "number_raw": "UR-234-25/25",
+     "text_verbatim": "Rada města schvaluje poskytnutí finančního daru ve výši 6 000,-Kč Dětskému domovu se školou, SVP a ZŠ Býchory, IČO 48665771.",
+     "typ_raw": null,
+     "zodpovida_raw": "Marcela Bahníková",
+     "prijato_raw": "30. 6. 2025 na jednání č. 25/2025",
+     "prijato_date_iso": "2025-06-30",
+     "prijato_meeting_label": "25/2025",
+     "termin_raw": "14. 7. 2025",
+     "ukonceno_raw": "9. 7. 2025",
+     "ukonceno_date_iso": "2025-07-09",
+     "fields_raw": {
+      "Číslo usnesení": "UR-234-25/25",
+      "Text usnesení": "Rada města schvaluje poskytnutí finančního daru ve výši 6 000,-Kč Dětskému domovu se školou, SVP a ZŠ Býchory, IČO 48665771.",
+      "Zodpovídá": "Marcela Bahníková",
+      "Přijato": "30. 6. 2025 na jednání č. 25/2025",
+      "Termín": "14. 7. 2025",
+      "Ukončeno": "9. 7. 2025"
+     }
+    }
+   },
+   {
+    "number_raw": "UR-235-25/25",
+    "detail_id": 103065,
+    "detail_url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/103065?mod=rada",
+    "agenda_item_raw": "Žádost o uzavření smlouvy o nájmu bytu č. 3 v čp. 139 ul. P. Bezruče, Pečky -  na měsíc červenec 2025",
+    "text_verbatim": "Rada\nměsta schvaluje uzavření smlouvy o nájmu bytu č.3, v čp. 139 ul.\nPetra\nBezruče,\nPečky mezi městem Pečky a paní\n█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​\nna dobu určitou od 1.7.2025 do 31.7.2025.",
+    "cell_text_raw": "Bod programu:\nŽádost o uzavření smlouvy o nájmu bytu č. 3 v čp. 139 ul. P. Bezruče, Pečky -  na měsíc červenec 2025\nText přijatého usnesení:\nRada\nměsta schvaluje uzavření smlouvy o nájmu bytu č.3, v čp. 139 ul.\nPetra\nBezruče,\nPečky mezi městem Pečky a paní\n█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​\nna dobu určitou od 1.7.2025 do 31.7.2025.",
+    "date_raw": "30. 6. 2025",
+    "date_iso": "2025-06-30",
+    "responsible_raw": "Blanka Svatoňková",
+    "deadline_raw": "14. 7. 2025",
+    "vote": {
+     "raw_text": "pro: 5 proti: 0 zdržel se: 0",
+     "pro": {
+      "count": 5,
+      "names": null,
+      "raw": "5"
+     },
+     "proti": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     },
+     "zdrzel_se": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     }
+    },
+    "detail": {
+     "number_raw": "UR-235-25/25",
+     "text_verbatim": "Rada města schvaluje uzavření smlouvy o nájmu bytu č.3, v čp. 139 ul. Petra Bezruče, Pečky mezi městem Pečky a paní █​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​ na dobu určitou od 1.7.2025 do 31.7.2025.",
+     "typ_raw": null,
+     "zodpovida_raw": "Blanka Svatoňková",
+     "prijato_raw": "30. 6. 2025 na jednání č. 25/2025",
+     "prijato_date_iso": "2025-06-30",
+     "prijato_meeting_label": "25/2025",
+     "termin_raw": "14. 7. 2025",
+     "ukonceno_raw": "14. 7. 2025",
+     "ukonceno_date_iso": "2025-07-14",
+     "fields_raw": {
+      "Číslo usnesení": "UR-235-25/25",
+      "Text usnesení": "Rada města schvaluje uzavření smlouvy o nájmu bytu č.3, v čp. 139 ul. Petra Bezruče, Pečky mezi městem Pečky a paní █​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​ na dobu určitou od 1.7.2025 do 31.7.2025.",
+      "Zodpovídá": "Blanka Svatoňková",
+      "Přijato": "30. 6. 2025 na jednání č. 25/2025",
+      "Termín": "14. 7. 2025",
+      "Ukončeno": "14. 7. 2025"
+     }
+    }
+   }
+  ]
+ }
+}

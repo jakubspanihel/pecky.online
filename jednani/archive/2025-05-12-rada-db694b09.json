@@ -1,0 +1,902 @@
+{
+ "uuid": "db694b09-29ea-11f0-9479-00505683238f",
+ "body_type_raw": "Rada",
+ "label_raw": "18/2025 (12. 5. 2025)",
+ "number": 18,
+ "year": 2025,
+ "date_iso": "2025-05-12",
+ "links": {
+  "invitation": "https://mesto-pecky.usneseni.cz/verejne/?uuid=db694b09-29ea-11f0-9479-00505683238f&page=5&do=printPublicInvitation",
+  "minutes": "https://mesto-pecky.usneseni.cz/verejne/db694b09-29ea-11f0-9479-00505683238f/zapis/?page=5",
+  "signed_minutes_pdf": "https://mesto-pecky.usneseni.cz/verejne/?meetingReportControl-uuid=db694b09-29ea-11f0-9479-00505683238f&page=5&do=meetingReportControl-getSignedReportPdf",
+  "resolutions": "https://mesto-pecky.usneseni.cz/verejne/db694b09-29ea-11f0-9479-00505683238f/usneseni/?page=5",
+  "audio": null
+ },
+ "link_texts": {
+  "invitation": "Pozvánka",
+  "minutes": "zápis",
+  "signed_minutes_pdf": "podepsaný zápis",
+  "resolutions": "přijatá usnesení"
+ },
+ "status": "ok",
+ "invitation": {
+  "status": "site_error",
+  "error": "status=200 ct=text/html; charset=utf-8 flash='<a href=\"\" class=\"close\" data-dismiss=\"alert\" aria-label=\"close\">&times;'",
+  "url": "https://mesto-pecky.usneseni.cz/verejne/?uuid=db694b09-29ea-11f0-9479-00505683238f&do=printPublicInvitation",
+  "fetched_at": "2026-08-04T14:56:09.350109+00:00"
+ },
+ "minutes": {
+  "status": "ok",
+  "url": "https://mesto-pecky.usneseni.cz/verejne/db694b09-29ea-11f0-9479-00505683238f/zapis/",
+  "fetched_at": "2026-08-04T13:32:59.251121+00:00",
+  "title_raw": "ZÁPIS ze schůze rady č. 18/2025 Město Pečky datum: 12. 5. 2025, čas: 15:00 ​",
+  "date_raw": "12. 5. 2025",
+  "date_iso": "2025-05-12",
+  "time_raw": "15:00",
+  "presence": {
+   "raw_text": "Prezence:\nPřítomni:\n(6) Milan Paluska, Zdeněk Fejfar, Ing. Karel Krištoufek, Ing. Martin Jedlička, Ing. Hana Kuprová, Ivana Trčková\nOmluveni:\n(1) Ing. Petr Dürr\nNepřítomni:\n(0)\nHosté:\nMgr. Petra Čermáková - ředitelka Pečovatelské služby města Pečky\nZapisovatel/ka:\nEva Strnadová\nPřítomno je 6 členů a rada je usnášeníschopná.\nJednání zahájeno 12.05.2025 v 15:11:36",
+   "pritomni": {
+    "count": 6,
+    "names": [
+     "Milan Paluska",
+     "Zdeněk Fejfar",
+     "Ing. Karel Krištoufek",
+     "Ing. Martin Jedlička",
+     "Ing. Hana Kuprová",
+     "Ivana Trčková"
+    ],
+    "raw": "(6) Milan Paluska, Zdeněk Fejfar, Ing. Karel Krištoufek, Ing. Martin Jedlička, Ing. Hana Kuprová, Ivana Trčková"
+   },
+   "omluveni": {
+    "count": 1,
+    "names": [
+     "Ing. Petr Dürr"
+    ],
+    "raw": "(1) Ing. Petr Dürr"
+   },
+   "nepritomni": {
+    "count": 0,
+    "names": [],
+    "raw": "(0)"
+   },
+   "predsedajici": null,
+   "quorum_raw": "Přítomno je 6 členů a rada je usnášeníschopná."
+  },
+  "header_raw": "Prezence:\nPřítomni:\n(6) Milan Paluska, Zdeněk Fejfar, Ing. Karel Krištoufek, Ing. Martin Jedlička, Ing. Hana Kuprová, Ivana Trčková\nOmluveni:\n(1) Ing. Petr Dürr\nNepřítomni:\n(0)\nHosté:\nMgr. Petra Čermáková - ředitelka Pečovatelské služby města Pečky\nZapisovatel/ka:\nEva Strnadová\nPřítomno je 6 členů a rada je usnášeníschopná.\nJednání zahájeno 12.05.2025 v 15:11:36",
+  "agenda_items": [
+   {
+    "number": 1,
+    "title_raw": "Určení zapisovatelů, předsedajícího, příp. ověřovatelů",
+    "heading_raw": "1. Určení zapisovatelů, předsedajícího, příp. ověřovatelů (bod číslo 1)",
+    "predkladatel": null,
+    "votes": [],
+    "resolution_numbers_mentioned": [],
+    "raw_text": "Projednávání bodu bylo zahájeno v 15:11:41\n\nPředsedající navrhl jednotlivé členy pracovních komisí\nOvěřovatelé:\nIng. Karel Krištoufek, Ing. Martin Jedlička\nPředsedající:\nMilan Paluska\nDiskuze zahájena v 15:11:41\nK tomuto bodu se vyjádřili:\nMilan Paluska\nProjednávání bodu bylo ukončeno v 15:12:43"
+   },
+   {
+    "number": 2,
+    "title_raw": "Schválení programu jednání",
+    "heading_raw": "2. Schválení programu jednání (bod číslo 2)",
+    "predkladatel": null,
+    "votes": [
+     {
+      "raw_text": "pro:\n(6) Ing. Martin Jedlička, Ing. Karel Krištoufek, Ivana Trčková, Milan Paluska, Ing. Hana Kuprová, Zdeněk Fejfar\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)",
+      "pro": {
+       "count": 6,
+       "names": [
+        "Ing. Martin Jedlička",
+        "Ing. Karel Krištoufek",
+        "Ivana Trčková",
+        "Milan Paluska",
+        "Ing. Hana Kuprová",
+        "Zdeněk Fejfar"
+       ],
+       "raw": "(6) Ing. Martin Jedlička, Ing. Karel Krištoufek, Ivana Trčková, Milan Paluska, Ing. Hana Kuprová, Zdeněk Fejfar"
+      },
+      "proti": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "zdrzel_se": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "nehlasoval": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "result_raw": "Návrh byl přijat jako usnesení číslo: UR-160-18/25",
+      "adopted_resolution_number": "UR-160-18/25"
+     }
+    ],
+    "resolution_numbers_mentioned": [
+     "UR-155-16/25",
+     "UR-160-18/25"
+    ],
+    "raw_text": "Projednávání bodu bylo zahájeno v 15:12:47\n\nProgram jednání\n1. Určení zapisovatelů, předsedajícího, příp. ověřovatelů\n2. Schválení programu jednání\n3. Aktuální informace vedení města\n4. Odkoupení pozemků z LV 228 – k.ú. Velké Chvalovice (9/20 podílu)\n5. Ukončení „Smlouvy o výpůjčce čj.:391/2011“ – AFK /Pečky (dohodou)\n6. Zveřejnění záměru na pronájem části pozemku č. parc. 1449/118 v k.ú. Pečky\n7. Projektový záměr \"Konvektomaty pro školní jídelnu ZŠ Pečky, okr. Kolín\" Základní škola Pečky, okres Kolín\n8. Účetní závěrka 2024 - projednání\n9. Žádost MŠ - prázdniny\n10. Informativní schůzka s řediteli příspěvkových organizací\n11. Plnění úkolu UR-155-16/25\n12. Jmenování členů a náhradníků do komise pro posouzení uchazeče o pracovní místo referent Odboru správy majetku města a bytového hospodářství\n13. Kontrola plnění usnesení\n14. Diskuse, různé\n15. Úkoly vyplývající z jednání rady města\nDiskuze zahájena v 15:12:47\nK tomuto bodu se vyjádřili:\nMilan Paluska\nV 15:14:49 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Milan Paluska\") v tomto znění:\nRada\nměsta schvaluje návrh programu jednání s touto změnou:\n- doplňuje se bod č. 16 - Konkurzní řízení na ředitele/ku Základní školy v Pečkách\nHlasování\npro:\n(6) Ing. Martin Jedlička, Ing. Karel Krištoufek, Ivana Trčková, Milan Paluska, Ing. Hana Kuprová, Zdeněk Fejfar\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-160-18/25\nzodpovídá:\ntermín:\nIHNED\n(12. 5. 2025)\nProjednávání bodu bylo ukončeno v 15:14:55"
+   },
+   {
+    "number": 3,
+    "title_raw": "Aktuální informace vedení města",
+    "heading_raw": "3. Aktuální informace vedení města (bod číslo 3)",
+    "predkladatel": null,
+    "votes": [],
+    "resolution_numbers_mentioned": [],
+    "raw_text": "Projednávání bodu bylo zahájeno v 15:14:59\n\nDůvodová zpráva:\nstarosta města\n- informace o postupu prací při výsadbě zeleně akce \"Rekonstrukce místních komunikací a vodovodní řad v části Bačov v Pečkách – 1. a 2. etapa\"\n- informace o hutních zkouškách akce \"Dobudování stezky pro pěší a cyklisty v ul.\nMilčická\nve Velkých Chvalovicích\"\nZdeněk\nFejfar\n- informace o sdělení NSA - vyrozumění před zamítnutím žádosti o poskytnutí dotace - výzva 19/2025 Regiony 2025 - investice nad 10mil. Kč - výstavba\n- informace o pietním aktu, položení květin na významných hrobech dne 8.5.2025\n- informace o postupu prací akce - oprava schodiště u smuteční síně na hřbitově v Pečkách\nDiskuze zahájena v 15:14:59\nK tomuto bodu se vyjádřili:\nMilan Paluska, Zdeněk Fejfar, Ing. Karel Krištoufek, Ivana Trčková\nRada bere informace k bodu č. 3 -\nAktuální informace vedení města\nna vědomí.\nProjednávání bodu bylo ukončeno v 15:28:01"
+   },
+   {
+    "number": 4,
+    "title_raw": "Odkoupení pozemků z LV 228 – k.ú. Velké Chvalovice (9/20 podílu)",
+    "heading_raw": "4. Odkoupení pozemků z LV 228 – k.ú. Velké Chvalovice (9/20 podílu) (bod číslo 4)",
+    "predkladatel": null,
+    "votes": [
+     {
+      "raw_text": "pro:\n(6) Ing. Karel Krištoufek, Milan Paluska, Ing. Hana Kuprová, Ing. Martin Jedlička, Zdeněk Fejfar, Ivana Trčková\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)",
+      "pro": {
+       "count": 6,
+       "names": [
+        "Ing. Karel Krištoufek",
+        "Milan Paluska",
+        "Ing. Hana Kuprová",
+        "Ing. Martin Jedlička",
+        "Zdeněk Fejfar",
+        "Ivana Trčková"
+       ],
+       "raw": "(6) Ing. Karel Krištoufek, Milan Paluska, Ing. Hana Kuprová, Ing. Martin Jedlička, Zdeněk Fejfar, Ivana Trčková"
+      },
+      "proti": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "zdrzel_se": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "nehlasoval": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "result_raw": "Návrh byl přijat jako usnesení číslo: UR-161-18/25",
+      "adopted_resolution_number": "UR-161-18/25"
+     }
+    ],
+    "resolution_numbers_mentioned": [
+     "UR-161-18/25"
+    ],
+    "raw_text": "Projednávání bodu bylo zahájeno v 15:28:05\n\nDůvodová zpráva:\nPředkládám radě města nabídku spolumajitelů pozemků evidovaných na LV 228 v k.ú.\nVelké\nChvalovice –\n█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█\n, kteří nabízí k odprodeji svoje podíly – celkem 9/20 – na pozemcích č. parc. 342/32 (341 m\n2\n)- vodní plocha, č. parc. 356/6 (80 m\n2\n) – ost.plocha, ost. komunikace, č. parc. 357/25 (5.500 m\n2\n) – orná půda. Požadují cenu 60,- Kč/m\n2\na celková kupní cena by činila 159.867,-Kč.\nDiskuze zahájena v 15:28:05\nK tomuto bodu se vyjádřili:\nMilan Paluska, Ivana Trčková\nV 15:32:40 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Jana Najbrtová\") v tomto znění:\nRada\nměsta doporučuje zastupitelstvu města schválit odkoupení pozemků:\nč. parc. 342/32 (341 m\n2\n) - vodní plocha\nč. parc. 356/6 (80 m\n2\n) – ost. plocha, ost. komunikace\nč. parc. 357/25 (5.500 m\n2\n) – orná půda\nideální podíl ve výši 3/20 od\n█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█\n█​█​█​█​█​█​█​█​█​█​█​█​█​█​█\nza celkovou cenu ve výši 53.289,-Kč (tzn. 60,- Kč/m\n2\n)\nideální podíl ve výši 3/20 od\n█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█\n█​█​█​█​█​█​█​█​█​█​█​█​█​█​█\nza celkovou cenu ve výši 53.289,-Kč (tzn. 60,- Kč/m\n2\n)\nideální podíl ve výši 3/20 od\n█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█\n█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█\nza celkovou cenu ve výši 53.289,-Kč\n(tzn. 60,- Kč/m\n2\n)\nMěsto jako kupující uhradí poplatek spojený s převodem u K.Ú. v Kolíně a zajistí sepsání kupní smlouvy.\nHlasování\npro:\n(6) Ing. Karel Krištoufek, Milan Paluska, Ing. Hana Kuprová, Ing. Martin Jedlička, Zdeněk Fejfar, Ivana Trčková\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-161-18/25\nzodpovídá:\nJana Najbrtová\ntermín:\n31. 12. 2025\nProjednávání bodu bylo ukončeno v 15:32:46"
+   },
+   {
+    "number": 5,
+    "title_raw": "Ukončení „Smlouvy o výpůjčce čj.:391/2011“ – AFK /Pečky (dohodou)",
+    "heading_raw": "5. Ukončení „Smlouvy o výpůjčce čj.:391/2011“ – AFK /Pečky (dohodou) (bod číslo 5)",
+    "predkladatel": null,
+    "votes": [
+     {
+      "raw_text": "pro:\n(6) Zdeněk Fejfar, Milan Paluska, Ing. Hana Kuprová, Ing. Martin Jedlička, Ivana Trčková, Ing. Karel Krištoufek\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)",
+      "pro": {
+       "count": 6,
+       "names": [
+        "Zdeněk Fejfar",
+        "Milan Paluska",
+        "Ing. Hana Kuprová",
+        "Ing. Martin Jedlička",
+        "Ivana Trčková",
+        "Ing. Karel Krištoufek"
+       ],
+       "raw": "(6) Zdeněk Fejfar, Milan Paluska, Ing. Hana Kuprová, Ing. Martin Jedlička, Ivana Trčková, Ing. Karel Krištoufek"
+      },
+      "proti": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "zdrzel_se": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "nehlasoval": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "result_raw": "Návrh byl přijat jako usnesení číslo: UR-162-18/25",
+      "adopted_resolution_number": "UR-162-18/25"
+     }
+    ],
+    "resolution_numbers_mentioned": [
+     "UR-162-18/25"
+    ],
+    "raw_text": "Projednávání bodu bylo zahájeno v 15:32:54\n\nDůvodová zpráva:\nPředkládám žádost AFK Pečky, týkající se ukončení „Smlouvy o výpůjčce“ – dohodou ke dni 31.7. 2025.\nTouto\nsmlouvou byly vypůjčeny pozemky č. parc. 1586/1 a 1585/1 (vyjma bytové jednotky v čp. 993). Smlouva byla uzavřena na 20 let a ukončena měla být 14.2. 2031. Důvodem ukončení je žádost na uzavření nové smlouvy a to opět na dalších 20 let, protože původní smlouva by zůstala v platnosti už jenom 6 let. AFK podává žádosti o dotace a potřebuje, aby byla platnost smlouvy delší. Navrhujeme smlouvu ukončit dohodou, zveřejnit záměr a původní smlouvu zaktualizovat.\nDiskuze zahájena v 15:32:54\nK tomuto bodu se vyjádřili:\nMilan Paluska, Zdeněk Fejfar, Ing. Karel Krištoufek, Ivana Trčková\nV 15:41:45 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Jana Najbrtová\") v tomto znění:\nRada\nměsta schvaluje ukončit dohodou ke dni 31.7. 2025 „Smlouvu o výpůjčce čj.:391/2011“ – uzavřenou s AFK Pečky.\nHlasování\npro:\n(6) Zdeněk Fejfar, Milan Paluska, Ing. Hana Kuprová, Ing. Martin Jedlička, Ivana Trčková, Ing. Karel Krištoufek\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-162-18/25\nzodpovídá:\nJana Najbrtová\ntermín:\n31. 7. 2025\nProjednávání bodu bylo ukončeno v 15:41:51"
+   },
+   {
+    "number": 6,
+    "title_raw": "Zveřejnění záměru na pronájem části pozemku č. parc. 1449/118 v k.ú. Pečky",
+    "heading_raw": "6. Zveřejnění záměru na pronájem části pozemku č. parc. 1449/118 v k.ú. Pečky (bod číslo 6)",
+    "predkladatel": null,
+    "votes": [
+     {
+      "raw_text": "pro:\n(6) Ing. Martin Jedlička, Milan Paluska, Ing. Hana Kuprová, Ivana Trčková, Ing. Karel Krištoufek, Zdeněk Fejfar\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)",
+      "pro": {
+       "count": 6,
+       "names": [
+        "Ing. Martin Jedlička",
+        "Milan Paluska",
+        "Ing. Hana Kuprová",
+        "Ivana Trčková",
+        "Ing. Karel Krištoufek",
+        "Zdeněk Fejfar"
+       ],
+       "raw": "(6) Ing. Martin Jedlička, Milan Paluska, Ing. Hana Kuprová, Ivana Trčková, Ing. Karel Krištoufek, Zdeněk Fejfar"
+      },
+      "proti": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "zdrzel_se": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "nehlasoval": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "result_raw": "Návrh byl přijat jako usnesení číslo: UR-163-18/25",
+      "adopted_resolution_number": "UR-163-18/25"
+     }
+    ],
+    "resolution_numbers_mentioned": [
+     "UR-163-18/25"
+    ],
+    "raw_text": "Projednávání bodu bylo zahájeno v 15:41:57\n\nDůvodová zpráva:\nDoporučujeme zveřejnit záměr na pronájem části pozemku za RD čp.1080 s využitím již zřízené hospodářské činnosti, chov domácích zvířat, uskladnění dřeva, umístění plechové kůlny. Navrhujeme cenu dohodou ve výši 250,-Kč/měsíc.\nDiskuze zahájena v 15:41:57\nK tomuto bodu se vyjádřili:\nMilan Paluska, Ing. Martin Jedlička, Ivana Trčková, Ing. Hana Kuprová\nV 15:51:57 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Jana Najbrtová\") v tomto znění:\nRada\nměsta Pečky schvaluje zveřejnit záměr na pronájem části pozemku č. parc.1449/118 (188 m\n2\n) – trvalý travní porost – v obci a k.ú. Pečky za těchto podmínek:\n- pozemek je nabízen k pronájmu za účelem již zřízené hospodářské činnosti\n- pronajímatel zajistí sepsání nájemní smlouvy\n- nájemní smlouva bude uzavřena na dobu neurčitou s výpovědní lhůtou 3 měsíce\n- výše nájemného je stanovena na 250,-Kč/měsíc\nHlasování\npro:\n(6) Ing. Martin Jedlička, Milan Paluska, Ing. Hana Kuprová, Ivana Trčková, Ing. Karel Krištoufek, Zdeněk Fejfar\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-163-18/25\nzodpovídá:\nJana Najbrtová\ntermín:\n26. 5. 2025\nProjednávání bodu bylo ukončeno v 15:52:04"
+   },
+   {
+    "number": 7,
+    "title_raw": "Projektový záměr \"Konvektomaty pro školní jídelnu ZŠ Pečky, okr. Kolín\" Základní škola Pečky, okres Kolín",
+    "heading_raw": "7. Projektový záměr \"Konvektomaty pro školní jídelnu ZŠ Pečky, okr. Kolín\" Základní škola Pečky, okres Kolín (bod číslo 7)",
+    "predkladatel": null,
+    "votes": [
+     {
+      "raw_text": "pro:\n(6) Ing. Hana Kuprová, Milan Paluska, Zdeněk Fejfar, Ing. Karel Krištoufek, Ivana Trčková, Ing. Martin Jedlička\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)",
+      "pro": {
+       "count": 6,
+       "names": [
+        "Ing. Hana Kuprová",
+        "Milan Paluska",
+        "Zdeněk Fejfar",
+        "Ing. Karel Krištoufek",
+        "Ivana Trčková",
+        "Ing. Martin Jedlička"
+       ],
+       "raw": "(6) Ing. Hana Kuprová, Milan Paluska, Zdeněk Fejfar, Ing. Karel Krištoufek, Ivana Trčková, Ing. Martin Jedlička"
+      },
+      "proti": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "zdrzel_se": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "nehlasoval": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "result_raw": "Návrh byl přijat jako usnesení číslo: UR-164-18/25",
+      "adopted_resolution_number": "UR-164-18/25"
+     }
+    ],
+    "resolution_numbers_mentioned": [
+     "UR-164-18/25"
+    ],
+    "raw_text": "Projednávání bodu bylo zahájeno v 15:52:09\n\nDůvodová zpráva:\nŽádost o schválení předložení žádosti o dotaci projektového záměru „Konvektomaty pro školní jídelnu ZŠ Pečky, okr. Kolín“ žadatelem Základní škola Pečky, okres\nKolín\n, ze Strategického plánu Společné zemědělské politiky na období 2023–2027, Intervence 52.77 – LEADER, prostřednictvím 2. výzvy vyhlášené MAS Podlipansko, o.p.s., a jeho následné realizace.\nPředmětem žádosti o dotaci je výměna 1 ks konvektomatu ve školní kuchyni ve stávajícím objektu občanské vybavenosti č.p. 342, Tř.\nJana\nŠvermy, Pečky, na pozemku parc. č. st. 20 v k.ú. Pečky, ve vlastnictví Města Pečky. Stávající zařízení (rok pořízení 2016) prošlo častými opravami, přibližně 10x ročně musí přijet servisní firma, často se dostává do nečekaného poruchového stavu a dle odborného technika může v podstatě kdykoli přestat fungovat úplně. Jedná se o zařízení důležité pro provoz školní kuchyně a jídelny. Předpokládané celkové výdaje cca 1,1 mil. Kč vč. DPH, dotace ve výši až 80 % celkových způsobilých výdajů (způsobilé výdaje ve výši 1 mil. Kč). Předpokládaný termín fyzické realizace projektu 2026.\nDiskuze zahájena v 15:52:09\nK tomuto bodu se vyjádřili:\nMilan Paluska, Ivana Trčková, Ing. Karel Krištoufek, Ing. Martin Jedlička, Ing. Hana Kuprová\nV 15:59:05 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Luboš Zajíc\") v tomto znění:\nRada\nměsta schvaluje předložení žádosti o dotaci projektového záměru „Konvektomaty pro školní jídelnu ZŠ Pečky, okr. Kolín“ žadatelem Základní škola Pečky, okres\nKolín\n, ze Strategického plánu Společné zemědělské politiky na období 2023–2027, Intervence 52.77 – LEADER, prostřednictvím 2. výzvy vyhlášené MAS Podlipansko, o.p.s., a jeho následnou realizaci.\nHlasování\npro:\n(6) Ing. Hana Kuprová, Milan Paluska, Zdeněk Fejfar, Ing. Karel Krištoufek, Ivana Trčková, Ing. Martin Jedlička\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-164-18/25\nzodpovídá:\nMichala Dekiská\ntermín:\n26. 5. 2025\nProjednávání bodu bylo ukončeno v 15:59:12"
+   },
+   {
+    "number": 8,
+    "title_raw": "Účetní závěrka 2024 - projednání",
+    "heading_raw": "8. Účetní závěrka 2024 - projednání (bod číslo 8)",
+    "predkladatel": null,
+    "votes": [],
+    "resolution_numbers_mentioned": [],
+    "raw_text": "Projednávání bodu bylo zahájeno v 15:59:16\n\nDůvodová zpráva:\nÚčetní závěrku schvaluje zastupitelstvo města nejpozději do 30.6. následujícího roku. Dle Směrnice 2/2014 předkládá vedoucí ekonomicko - správního odboru podklady k účetní závěrce radě města, poté je projedná FV a předloží zprávu zastupitelstvu města. V příloze předkládám účetní výkazy sestavené k 31.12.2024, rozbor a zprávu o přezkoumání hospodaření , inventarizační zpráva bude k nahlédnutí na jednání rady města.\nRada\nměsta projednala v souladu se Směrnicí č. 2/2014 účetní závěrku města sestavenou k 31.12.2024.\nDiskuze zahájena v 15:59:16\nK tomuto bodu se vyjádřili:\nMilan Paluska, Ing. Karel Krištoufek, Zdeněk Fejfar, Ivana Trčková\nRada bere informace k bodu č. 8 -\nÚčetní závěrka 2024 - projednání\nna vědomí.\nProjednávání bodu bylo ukončeno v 16:01:59"
+   },
+   {
+    "number": 9,
+    "title_raw": "Žádost MŠ - prázdniny",
+    "heading_raw": "9. Žádost MŠ - prázdniny (bod číslo 9)",
+    "predkladatel": null,
+    "votes": [
+     {
+      "raw_text": "pro:\n(6) Milan Paluska, Ing. Martin Jedlička, Ivana Trčková, Ing. Karel Krištoufek, Zdeněk Fejfar, Ing. Hana Kuprová\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)",
+      "pro": {
+       "count": 6,
+       "names": [
+        "Milan Paluska",
+        "Ing. Martin Jedlička",
+        "Ivana Trčková",
+        "Ing. Karel Krištoufek",
+        "Zdeněk Fejfar",
+        "Ing. Hana Kuprová"
+       ],
+       "raw": "(6) Milan Paluska, Ing. Martin Jedlička, Ivana Trčková, Ing. Karel Krištoufek, Zdeněk Fejfar, Ing. Hana Kuprová"
+      },
+      "proti": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "zdrzel_se": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "nehlasoval": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "result_raw": "Návrh byl přijat jako usnesení číslo: UR-165-18/25",
+      "adopted_resolution_number": "UR-165-18/25"
+     }
+    ],
+    "resolution_numbers_mentioned": [
+     "UR-165-18/25"
+    ],
+    "raw_text": "Projednávání bodu bylo zahájeno v 16:02:06\n\nDůvodová zpráva:\nŘeditelka Mateřské školy MAŠINKA Pečky žádá zřizovatele o souhlas s přerušením provozu školy v období 21.7.- 31.8.2025. Dle vyhlášky o předškolním vzdělávání může ředitel v měsících červenec a srpen po projednání se zřizovatelem stanovit rozsah omezení nebo přerušení provozu mateřské školy.\nDiskuze zahájena v 16:02:06\nK tomuto bodu se vyjádřili:\nMilan Paluska, Ivana Trčková, Ing. Karel Krištoufek, Ing. Hana Kuprová\nV 16:05:06 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Marcela Bahníková\") v tomto znění:\nRada\nměsta souhlasí s přerušením provozu Mateřské školy MAŠINKA Pečky v období od 21.7.2025 do 31.8.2025.\nHlasování\npro:\n(6) Milan Paluska, Ing. Martin Jedlička, Ivana Trčková, Ing. Karel Krištoufek, Zdeněk Fejfar, Ing. Hana Kuprová\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-165-18/25\nzodpovídá:\nMarcela Bahníková\ntermín:\n19. 5. 2025\nProjednávání bodu bylo ukončeno v 16:05:13"
+   },
+   {
+    "number": 11,
+    "title_raw": "Plnění úkolu UR-155-16/25",
+    "heading_raw": "10. Plnění úkolu UR-155-16/25 (bod číslo 11)",
+    "predkladatel": null,
+    "votes": [
+     {
+      "raw_text": "pro:\n(6) Milan Paluska, Ing. Karel Krištoufek, Ing. Hana Kuprová, Ing. Martin Jedlička, Ivana Trčková, Zdeněk Fejfar\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)",
+      "pro": {
+       "count": 6,
+       "names": [
+        "Milan Paluska",
+        "Ing. Karel Krištoufek",
+        "Ing. Hana Kuprová",
+        "Ing. Martin Jedlička",
+        "Ivana Trčková",
+        "Zdeněk Fejfar"
+       ],
+       "raw": "(6) Milan Paluska, Ing. Karel Krištoufek, Ing. Hana Kuprová, Ing. Martin Jedlička, Ivana Trčková, Zdeněk Fejfar"
+      },
+      "proti": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "zdrzel_se": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "nehlasoval": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "result_raw": "Návrh byl přijat jako usnesení číslo: UR-166-18/25",
+      "adopted_resolution_number": "UR-166-18/25"
+     }
+    ],
+    "resolution_numbers_mentioned": [
+     "UR-166-18/25"
+    ],
+    "raw_text": "Projednávání bodu bylo zahájeno v 16:06:10\n\nDůvodová zpráva:\nNa asfaltové cestě k MŠ Pečky ze směru od parku navrhujeme umístit novou zábranu proti vjíždění motorových vozidel k MŠ Mašinka Pečky (i přes zákaz vjezdu) a především nahradit stávající, již nevzhledné dva betonové květináče za nový hezčí kus. Jako nová zábrana může sloužit květináč od firmy mmcité a.s., ve stejném designu jako odpadkové koše v parku, které mají stejný původ.\nNádoba\nna rostliny kruhového tvaru má ocelovou konstrukci a je opláštěna dřevěnými lamelami. Průměr a výška nádoby je:\n1. varianta 700 mm za cenu cca 16 671,- Kč bez DPH\n2. varianta 1000 mm za cenu cca 33 760,- Kč bez DPH\nJde o katalogové ceny a ty by byly v případě zájmu aktualizovány, upřesněny. Šířka cesty je 3 m, v rozšiřujícím se úseku do ul. V. B. Třebízského 4 m. Květináč by byl použit na vysazení zeleně, navrhujeme malý stromek na kmínku s květinovou podsadbou.\nDiskuze zahájena v 16:06:10\nK tomuto bodu se vyjádřili:\nMilan Paluska, Ing. Karel Krištoufek, Ivana Trčková, Ing. Martin Jedlička, Ing. Hana Kuprová\nV 16:17:54 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Pavlína Nepovímová\") v tomto znění:\nRada\nměsta schvaluje uzavření objednávky mezi městem Pečky a firmou mmcité a.s.,\nVinohradská\n907, Mařatice, 686 05\nUherské\nHradiště, IČ 276 70 864 na nákup 2 ks nádob na rostliny kruhového tvaru s ocelovou konstrukcí, opláštěna dřevěnými lamelami. Průměr a výška nádoby, 700 mm za cenu cca 16 671,- Kč/ks bez DPH.\nHlasování\npro:\n(6) Milan Paluska, Ing. Karel Krištoufek, Ing. Hana Kuprová, Ing. Martin Jedlička, Ivana Trčková, Zdeněk Fejfar\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-166-18/25\nzodpovídá:\nPavlína Nepovímová\ntermín:\n26. 5. 2025\nProjednávání bodu bylo ukončeno v 16:18:30"
+   },
+   {
+    "number": 12,
+    "title_raw": "Jmenování členů a náhradníků do komise pro posouzení uchazeče o pracovní místo referent Odboru správy majetku města a bytového hospodářství",
+    "heading_raw": "11. Jmenování členů a náhradníků do komise pro posouzení uchazeče o pracovní místo referent Odboru správy majetku města a bytového hospodářství (bod číslo 12)",
+    "predkladatel": null,
+    "votes": [
+     {
+      "raw_text": "pro:\n(6) Ing. Karel Krištoufek, Zdeněk Fejfar, Ing. Hana Kuprová, Milan Paluska, Ing. Martin Jedlička, Ivana Trčková\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)",
+      "pro": {
+       "count": 6,
+       "names": [
+        "Ing. Karel Krištoufek",
+        "Zdeněk Fejfar",
+        "Ing. Hana Kuprová",
+        "Milan Paluska",
+        "Ing. Martin Jedlička",
+        "Ivana Trčková"
+       ],
+       "raw": "(6) Ing. Karel Krištoufek, Zdeněk Fejfar, Ing. Hana Kuprová, Milan Paluska, Ing. Martin Jedlička, Ivana Trčková"
+      },
+      "proti": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "zdrzel_se": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "nehlasoval": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "result_raw": "Návrh byl přijat jako usnesení číslo: UR-167-18/25",
+      "adopted_resolution_number": "UR-167-18/25"
+     }
+    ],
+    "resolution_numbers_mentioned": [
+     "UR-167-18/25"
+    ],
+    "raw_text": "Projednávání bodu bylo zahájeno v 16:18:43\n\nDůvodová zpráva:\nV souladu s § 8 odst. 2 zákona č. 312/2002 Sb. je při výběrovém řízení na pracovní místo referent/referentka odboru správy majetku města a bytového hospodářství nezbytné jmenovat výběrovou komisi, která posoudí uchazeče a doporučí nejvhodnějšího kandidáta. Z důvodu efektivity a zamezení opakovaného schvalování stejného nebo obdobného složení komise navrhuji jmenovat komisi, která bude působit pro výběrová řízení až do doby opakovaného výběrového řízení na uvedenou pozici.\nDiskuze zahájena v 16:18:43\nK tomuto bodu se vyjádřili:\nMilan Paluska\nV 16:20:23 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Pavlína Nepovímová\") v tomto znění:\nRada\nměsta schvaluje v souladu s ustanovením § 8 odst. 2 zákona č. 312/2002 Sb., o úřednících územních samosprávných celků, jmenování členů výběrové komise pro výběrové řízení na obsazení pracovní pozice referent/referentka odboru správy majetku města a bytového hospodářství Městského úřadu v Pečkách ve složení:\nPředseda:\nMilan\nPaluska\n, starosta\nMístopředsedkyně:\nMartina\nHrázská\n, vedoucí odboru správy majetku města a bytového hospodářství\nČlenové:\nZdeněk\nFejfar\n– místostarosta\nMichala\nDekiská\n, vedoucí Odboru investic a rozvoje\nPavlína\nNepovímová\n, tajemnice\nNáhradník:\nMarcela\nBahníková\n, vedoucí Odboru ekonomicko-správního\nHlasování\npro:\n(6) Ing. Karel Krištoufek, Zdeněk Fejfar, Ing. Hana Kuprová, Milan Paluska, Ing. Martin Jedlička, Ivana Trčková\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-167-18/25\nzodpovídá:\ntermín:\nIHNED\n(12. 5. 2025)\nProjednávání bodu bylo ukončeno v 16:20:29"
+   },
+   {
+    "number": 13,
+    "title_raw": "Kontrola plnění usnesení",
+    "heading_raw": "12. Kontrola plnění usnesení (bod číslo 13)",
+    "predkladatel": null,
+    "votes": [],
+    "resolution_numbers_mentioned": [],
+    "raw_text": "Projednávání bodu bylo zahájeno v 16:22:02\nDiskuze zahájena v 16:22:02\nRada bere informace k bodu č. 13 -\nKontrola plnění usnesení\nna vědomí.\nProjednávání bodu bylo ukončeno v 16:23:41"
+   },
+   {
+    "number": 16,
+    "title_raw": "Konkurzní řízení na ředitele/ku Základní školy v Pečkách",
+    "heading_raw": "13. Konkurzní řízení na ředitele/ku Základní školy v Pečkách (bod číslo 16)",
+    "predkladatel": null,
+    "votes": [],
+    "resolution_numbers_mentioned": [],
+    "raw_text": "Projednávání bodu bylo zahájeno v 16:25:43\nDiskuze zahájena v 16:25:43\nK tomuto bodu se vyjádřili:\nMilan Paluska, Ing. Hana Kuprová, Ing. Karel Krištoufek, Ing. Martin Jedlička, Zdeněk Fejfar, Ivana Trčková\nRada bere informace k bodu č. 16 -\nKonkurzní řízení na ředitele/ku Základní školy v Pečkách\nna vědomí.\nProjednávání bodu bylo ukončeno v 17:12:07"
+   },
+   {
+    "number": 10,
+    "title_raw": "Informativní schůzka s řediteli příspěvkových organizací",
+    "heading_raw": "14. Informativní schůzka s řediteli příspěvkových organizací (bod číslo 10)",
+    "predkladatel": null,
+    "votes": [],
+    "resolution_numbers_mentioned": [],
+    "raw_text": "Projednávání bodu bylo zahájeno v 17:12:19\n\nDůvodová zpráva:\nSchůzka s ředitelkou Pečovatelské služby města Pečky Mgr.\nPetrou\nČermákovou\n, od 17.00 - 17.30 hodin.\nDiskuze zahájena v 17:12:19\nK tomuto bodu se vyjádřili:\nMilan Paluska, Mgr. Petra Čermáková\nRada bere informace k bodu č. 10 -\nInformativní schůzka s řediteli příspěvkových organizací\nna vědomí.\nProjednávání bodu bylo ukončeno v 17:43:22"
+   },
+   {
+    "number": 14,
+    "title_raw": "Diskuse, různé",
+    "heading_raw": "15. Diskuse, různé (bod číslo 14)",
+    "predkladatel": null,
+    "votes": [],
+    "resolution_numbers_mentioned": [],
+    "raw_text": "Projednávání bodu bylo zahájeno v 17:43:31\nDiskuze zahájena v 17:43:31\nK tomuto bodu se vyjádřili:\nMilan Paluska, Ing. Karel Krištoufek, Ing. Hana Kuprová\nRada bere informace k bodu č. 14 -\nDiskuse, různé\nna vědomí.\nProjednávání bodu bylo ukončeno v 17:53:21"
+   },
+   {
+    "number": 15,
+    "title_raw": "Úkoly vyplývající z jednání rady města",
+    "heading_raw": "16. Úkoly vyplývající z jednání rady města (bod číslo 15)",
+    "predkladatel": null,
+    "votes": [],
+    "resolution_numbers_mentioned": [],
+    "raw_text": "Projednávání bodu bylo zahájeno v 17:53:25\nDiskuze zahájena v 17:53:25\nK tomuto bodu se vyjádřili:\nMilan Paluska, Ing. Karel Krištoufek, Ing. Hana Kuprová\nRada bere informace k bodu č. 15 -\nÚkoly vyplývající z jednání rady města\nna vědomí.\nProjednávání bodu bylo ukončeno v 18:06:38\nJednání ukončeno 12.05.2025 v 18:06:52"
+   }
+  ],
+  "full_text": "ZÁPIS ze schůze rady č. 18/2025\nMěsto Pečky\ndatum: 12. 5. 2025, čas: 15:00\n​\nPrezence:\nPřítomni:\n(6) Milan Paluska, Zdeněk Fejfar, Ing. Karel Krištoufek, Ing. Martin Jedlička, Ing. Hana Kuprová, Ivana Trčková\nOmluveni:\n(1) Ing. Petr Dürr\nNepřítomni:\n(0)\nHosté:\nMgr. Petra Čermáková - ředitelka Pečovatelské služby města Pečky\nZapisovatel/ka:\nEva Strnadová\nPřítomno je 6 členů a rada je usnášeníschopná.\nJednání zahájeno 12.05.2025 v 15:11:36\n1. Určení zapisovatelů, předsedajícího, příp. ověřovatelů (bod číslo 1)\nPředkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 15:11:41\nPředsedající navrhl jednotlivé členy pracovních komisí\nOvěřovatelé:\nIng. Karel Krištoufek, Ing. Martin Jedlička\nPředsedající:\nMilan Paluska\nBod byl přijat bez hlasování.\nDiskuze zahájena v 15:11:41\nK tomuto bodu se vyjádřili:\nMilan Paluska\nProjednávání bodu bylo ukončeno v 15:12:43\n2. Schválení programu jednání (bod číslo 2)\nPředkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 15:12:47\nProgram jednání\n1. Určení zapisovatelů, předsedajícího, příp. ověřovatelů\n2. Schválení programu jednání\n3. Aktuální informace vedení města\n4. Odkoupení pozemků z LV 228 – k.ú. Velké Chvalovice (9/20 podílu)\n5. Ukončení „Smlouvy o výpůjčce čj.:391/2011“ – AFK /Pečky (dohodou)\n6. Zveřejnění záměru na pronájem části pozemku č. parc. 1449/118 v k.ú. Pečky\n7. Projektový záměr \"Konvektomaty pro školní jídelnu ZŠ Pečky, okr. Kolín\" Základní škola Pečky, okres Kolín\n8. Účetní závěrka 2024 - projednání\n9. Žádost MŠ - prázdniny\n10. Informativní schůzka s řediteli příspěvkových organizací\n11. Plnění úkolu UR-155-16/25\n12. Jmenování členů a náhradníků do komise pro posouzení uchazeče o pracovní místo referent Odboru správy majetku města a bytového hospodářství\n13. Kontrola plnění usnesení\n14. Diskuse, různé\n15. Úkoly vyplývající z jednání rady města\nDiskuze zahájena v 15:12:47\nK tomuto bodu se vyjádřili:\nMilan Paluska\nV 15:14:49 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Milan Paluska\") v tomto znění:\nRada\nměsta schvaluje návrh programu jednání s touto změnou:\n- doplňuje se bod č. 16 - Konkurzní řízení na ředitele/ku Základní školy v Pečkách\nHlasování\npro:\n(6) Ing. Martin Jedlička, Ing. Karel Krištoufek, Ivana Trčková, Milan Paluska, Ing. Hana Kuprová, Zdeněk Fejfar\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-160-18/25\nzodpovídá:\ntermín:\nIHNED\n(12. 5. 2025)\nProjednávání bodu bylo ukončeno v 15:14:55\n3. Aktuální informace vedení města (bod číslo 3)\nPředkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 15:14:59\nDůvodová zpráva:\nstarosta města\n- informace o postupu prací při výsadbě zeleně akce \"Rekonstrukce místních komunikací a vodovodní řad v části Bačov v Pečkách – 1. a 2. etapa\"\n- informace o hutních zkouškách akce \"Dobudování stezky pro pěší a cyklisty v ul.\nMilčická\nve Velkých Chvalovicích\"\nZdeněk\nFejfar\n- informace o sdělení NSA - vyrozumění před zamítnutím žádosti o poskytnutí dotace - výzva 19/2025 Regiony 2025 - investice nad 10mil. Kč - výstavba\n- informace o pietním aktu, položení květin na významných hrobech dne 8.5.2025\n- informace o postupu prací akce - oprava schodiště u smuteční síně na hřbitově v Pečkách\nDiskuze zahájena v 15:14:59\nK tomuto bodu se vyjádřili:\nMilan Paluska, Zdeněk Fejfar, Ing. Karel Krištoufek, Ivana Trčková\nRada bere informace k bodu č. 3 -\nAktuální informace vedení města\nna vědomí.\nProjednávání bodu bylo ukončeno v 15:28:01\n4. Odkoupení pozemků z LV 228 – k.ú. Velké Chvalovice (9/20 podílu) (bod číslo 4)\nPředkladatel: Jana Najbrtová\nProjednávání bodu bylo zahájeno v 15:28:05\nDůvodová zpráva:\nPředkládám radě města nabídku spolumajitelů pozemků evidovaných na LV 228 v k.ú.\nVelké\nChvalovice –\n█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​\n, kteří nabízí k odprodeji svoje podíly – celkem 9/20 – na pozemcích č. parc. 342/32 (341 m\n2\n)- vodní plocha, č. parc. 356/6 (80 m\n2\n) – ost.plocha, ost. komunikace, č. parc. 357/25 (5.500 m\n2\n) – orná půda. Požadují cenu 60,- Kč/m\n2\na celková kupní cena by činila 159.867,-Kč.\nDiskuze zahájena v 15:28:05\nK tomuto bodu se vyjádřili:\nMilan Paluska, Ivana Trčková\nV 15:32:40 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Jana Najbrtová\") v tomto znění:\nRada\nměsta doporučuje zastupitelstvu města schválit odkoupení pozemků:\nč. parc. 342/32 (341 m\n2\n) - vodní plocha\nč. parc. 356/6 (80 m\n2\n) – ost. plocha, ost. komunikace\nč. parc. 357/25 (5.500 m\n2\n) – orná půda\nideální podíl ve výši 3/20 od\n█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​\n█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​\nza celkovou cenu ve výši 53.289,-Kč (tzn. 60,- Kč/m\n2\n)\nideální podíl ve výši 3/20 od\n█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​\n█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​\nza celkovou cenu ve výši 53.289,-Kč (tzn. 60,- Kč/m\n2\n)\nideální podíl ve výši 3/20 od\n█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​\n█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​\nza celkovou cenu ve výši 53.289,-Kč\n(tzn. 60,- Kč/m\n2\n)\nMěsto jako kupující uhradí poplatek spojený s převodem u K.Ú. v Kolíně a zajistí sepsání kupní smlouvy.\nHlasování\npro:\n(6) Ing. Karel Krištoufek, Milan Paluska, Ing. Hana Kuprová, Ing. Martin Jedlička, Zdeněk Fejfar, Ivana Trčková\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-161-18/25\nzodpovídá:\nJana Najbrtová\ntermín:\n31. 12. 2025\nProjednávání bodu bylo ukončeno v 15:32:46\n5. Ukončení „Smlouvy o výpůjčce čj.:391/2011“ – AFK /Pečky (dohodou) (bod číslo 5)\nPředkladatel: Jana Najbrtová\nProjednávání bodu bylo zahájeno v 15:32:54\nDůvodová zpráva:\nPředkládám žádost AFK Pečky, týkající se ukončení „Smlouvy o výpůjčce“ – dohodou ke dni 31.7. 2025.\nTouto\nsmlouvou byly vypůjčeny pozemky č. parc. 1586/1 a 1585/1 (vyjma bytové jednotky v čp. 993). Smlouva byla uzavřena na 20 let a ukončena měla být 14.2. 2031. Důvodem ukončení je žádost na uzavření nové smlouvy a to opět na dalších 20 let, protože původní smlouva by zůstala v platnosti už jenom 6 let. AFK podává žádosti o dotace a potřebuje, aby byla platnost smlouvy delší. Navrhujeme smlouvu ukončit dohodou, zveřejnit záměr a původní smlouvu zaktualizovat.\nDiskuze zahájena v 15:32:54\nK tomuto bodu se vyjádřili:\nMilan Paluska, Zdeněk Fejfar, Ing. Karel Krištoufek, Ivana Trčková\nV 15:41:45 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Jana Najbrtová\") v tomto znění:\nRada\nměsta schvaluje ukončit dohodou ke dni 31.7. 2025 „Smlouvu o výpůjčce čj.:391/2011“ – uzavřenou s AFK Pečky.\nHlasování\npro:\n(6) Zdeněk Fejfar, Milan Paluska, Ing. Hana Kuprová, Ing. Martin Jedlička, Ivana Trčková, Ing. Karel Krištoufek\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-162-18/25\nzodpovídá:\nJana Najbrtová\ntermín:\n31. 7. 2025\nProjednávání bodu bylo ukončeno v 15:41:51\n6. Zveřejnění záměru na pronájem části pozemku č. parc. 1449/118 v k.ú. Pečky (bod číslo 6)\nPředkladatel: Jana Najbrtová\nProjednávání bodu bylo zahájeno v 15:41:57\nDůvodová zpráva:\nDoporučujeme zveřejnit záměr na pronájem části pozemku za RD čp.1080 s využitím již zřízené hospodářské činnosti, chov domácích zvířat, uskladnění dřeva, umístění plechové kůlny. Navrhujeme cenu dohodou ve výši 250,-Kč/měsíc.\nDiskuze zahájena v 15:41:57\nK tomuto bodu se vyjádřili:\nMilan Paluska, Ing. Martin Jedlička, Ivana Trčková, Ing. Hana Kuprová\nV 15:51:57 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Jana Najbrtová\") v tomto znění:\nRada\nměsta Pečky schvaluje zveřejnit záměr na pronájem části pozemku č. parc.1449/118 (188 m\n2\n) – trvalý travní porost – v obci a k.ú. Pečky za těchto podmínek:\n- pozemek je nabízen k pronájmu za účelem již zřízené hospodářské činnosti\n- pronajímatel zajistí sepsání nájemní smlouvy\n- nájemní smlouva bude uzavřena na dobu neurčitou s výpovědní lhůtou 3 měsíce\n- výše nájemného je stanovena na 250,-Kč/měsíc\nHlasování\npro:\n(6) Ing. Martin Jedlička, Milan Paluska, Ing. Hana Kuprová, Ivana Trčková, Ing. Karel Krištoufek, Zdeněk Fejfar\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-163-18/25\nzodpovídá:\nJana Najbrtová\ntermín:\n26. 5. 2025\nProjednávání bodu bylo ukončeno v 15:52:04\n7. Projektový záměr \"Konvektomaty pro školní jídelnu ZŠ Pečky, okr. Kolín\" Základní škola Pečky, okres Kolín (bod číslo 7)\nPředkladatel: Luboš Zajíc\nProjednávání bodu bylo zahájeno v 15:52:09\nDůvodová zpráva:\nŽádost o schválení předložení žádosti o dotaci projektového záměru „Konvektomaty pro školní jídelnu ZŠ Pečky, okr. Kolín“ žadatelem Základní škola Pečky, okres\nKolín\n, ze Strategického plánu Společné zemědělské politiky na období 2023–2027, Intervence 52.77 – LEADER, prostřednictvím 2. výzvy vyhlášené MAS Podlipansko, o.p.s., a jeho následné realizace.\nPředmětem žádosti o dotaci je výměna 1 ks konvektomatu ve školní kuchyni ve stávajícím objektu občanské vybavenosti č.p. 342, Tř.\nJana\nŠvermy, Pečky, na pozemku parc. č. st. 20 v k.ú. Pečky, ve vlastnictví Města Pečky. Stávající zařízení (rok pořízení 2016) prošlo častými opravami, přibližně 10x ročně musí přijet servisní firma, často se dostává do nečekaného poruchového stavu a dle odborného technika může v podstatě kdykoli přestat fungovat úplně. Jedná se o zařízení důležité pro provoz školní kuchyně a jídelny. Předpokládané celkové výdaje cca 1,1 mil. Kč vč. DPH, dotace ve výši až 80 % celkových způsobilých výdajů (způsobilé výdaje ve výši 1 mil. Kč). Předpokládaný termín fyzické realizace projektu 2026.\nDiskuze zahájena v 15:52:09\nK tomuto bodu se vyjádřili:\nMilan Paluska, Ivana Trčková, Ing. Karel Krištoufek, Ing. Martin Jedlička, Ing. Hana Kuprová\nV 15:59:05 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Luboš Zajíc\") v tomto znění:\nRada\nměsta schvaluje předložení žádosti o dotaci projektového záměru „Konvektomaty pro školní jídelnu ZŠ Pečky, okr. Kolín“ žadatelem Základní škola Pečky, okres\nKolín\n, ze Strategického plánu Společné zemědělské politiky na období 2023–2027, Intervence 52.77 – LEADER, prostřednictvím 2. výzvy vyhlášené MAS Podlipansko, o.p.s., a jeho následnou realizaci.\nHlasování\npro:\n(6) Ing. Hana Kuprová, Milan Paluska, Zdeněk Fejfar, Ing. Karel Krištoufek, Ivana Trčková, Ing. Martin Jedlička\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-164-18/25\nzodpovídá:\nMichala Dekiská\ntermín:\n26. 5. 2025\nProjednávání bodu bylo ukončeno v 15:59:12\n8. Účetní závěrka 2024 - projednání (bod číslo 8)\nPředkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 15:59:16\nDůvodová zpráva:\nÚčetní závěrku schvaluje zastupitelstvo města nejpozději do 30.6. následujícího roku. Dle Směrnice 2/2014 předkládá vedoucí ekonomicko - správního odboru podklady k účetní závěrce radě města, poté je projedná FV a předloží zprávu zastupitelstvu města. V příloze předkládám účetní výkazy sestavené k 31.12.2024, rozbor a zprávu o přezkoumání hospodaření , inventarizační zpráva bude k nahlédnutí na jednání rady města.\nRada\nměsta projednala v souladu se Směrnicí č. 2/2014 účetní závěrku města sestavenou k 31.12.2024.\nDiskuze zahájena v 15:59:16\nK tomuto bodu se vyjádřili:\nMilan Paluska, Ing. Karel Krištoufek, Zdeněk Fejfar, Ivana Trčková\nRada bere informace k bodu č. 8 -\nÚčetní závěrka 2024 - projednání\nna vědomí.\nProjednávání bodu bylo ukončeno v 16:01:59\n9. Žádost MŠ - prázdniny (bod číslo 9)\nPředkladatel: Marcela Bahníková\nProjednávání bodu bylo zahájeno v 16:02:06\nDůvodová zpráva:\nŘeditelka Mateřské školy MAŠINKA Pečky žádá zřizovatele o souhlas s přerušením provozu školy v období 21.7.- 31.8.2025. Dle vyhlášky o předškolním vzdělávání může ředitel v měsících červenec a srpen po projednání se zřizovatelem stanovit rozsah omezení nebo přerušení provozu mateřské školy.\nDiskuze zahájena v 16:02:06\nK tomuto bodu se vyjádřili:\nMilan Paluska, Ivana Trčková, Ing. Karel Krištoufek, Ing. Hana Kuprová\nV 16:05:06 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Marcela Bahníková\") v tomto znění:\nRada\nměsta souhlasí s přerušením provozu Mateřské školy MAŠINKA Pečky v období od 21.7.2025 do 31.8.2025.\nHlasování\npro:\n(6) Milan Paluska, Ing. Martin Jedlička, Ivana Trčková, Ing. Karel Krištoufek, Zdeněk Fejfar, Ing. Hana Kuprová\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-165-18/25\nzodpovídá:\nMarcela Bahníková\ntermín:\n19. 5. 2025\nProjednávání bodu bylo ukončeno v 16:05:13\n10. Plnění úkolu UR-155-16/25 (bod číslo 11)\nPředkladatel: Pavlína Nepovímová\nProjednávání bodu bylo zahájeno v 16:06:10\nDůvodová zpráva:\nNa asfaltové cestě k MŠ Pečky ze směru od parku navrhujeme umístit novou zábranu proti vjíždění motorových vozidel k MŠ Mašinka Pečky (i přes zákaz vjezdu) a především nahradit stávající, již nevzhledné dva betonové květináče za nový hezčí kus. Jako nová zábrana může sloužit květináč od firmy mmcité a.s., ve stejném designu jako odpadkové koše v parku, které mají stejný původ.\nNádoba\nna rostliny kruhového tvaru má ocelovou konstrukci a je opláštěna dřevěnými lamelami. Průměr a výška nádoby je:\n1. varianta 700 mm za cenu cca 16 671,- Kč bez DPH\n2. varianta 1000 mm za cenu cca 33 760,- Kč bez DPH\nJde o katalogové ceny a ty by byly v případě zájmu aktualizovány, upřesněny. Šířka cesty je 3 m, v rozšiřujícím se úseku do ul. V. B. Třebízského 4 m. Květináč by byl použit na vysazení zeleně, navrhujeme malý stromek na kmínku s květinovou podsadbou.\nDiskuze zahájena v 16:06:10\nK tomuto bodu se vyjádřili:\nMilan Paluska, Ing. Karel Krištoufek, Ivana Trčková, Ing. Martin Jedlička, Ing. Hana Kuprová\nV 16:17:54 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Pavlína Nepovímová\") v tomto znění:\nRada\nměsta schvaluje uzavření objednávky mezi městem Pečky a firmou mmcité a.s.,\nVinohradská\n907, Mařatice, 686 05\nUherské\nHradiště, IČ 276 70 864 na nákup 2 ks nádob na rostliny kruhového tvaru s ocelovou konstrukcí, opláštěna dřevěnými lamelami. Průměr a výška nádoby, 700 mm za cenu cca 16 671,- Kč/ks bez DPH.\nHlasování\npro:\n(6) Milan Paluska, Ing. Karel Krištoufek, Ing. Hana Kuprová, Ing. Martin Jedlička, Ivana Trčková, Zdeněk Fejfar\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-166-18/25\nzodpovídá:\nPavlína Nepovímová\ntermín:\n26. 5. 2025\nProjednávání bodu bylo ukončeno v 16:18:30\n11. Jmenování členů a náhradníků do komise pro posouzení uchazeče o pracovní místo referent Odboru správy majetku města a bytového hospodářství (bod číslo 12)\nPředkladatel: Pavlína Nepovímová\nProjednávání bodu bylo zahájeno v 16:18:43\nDůvodová zpráva:\nV souladu s § 8 odst. 2 zákona č. 312/2002 Sb. je při výběrovém řízení na pracovní místo referent/referentka odboru správy majetku města a bytového hospodářství nezbytné jmenovat výběrovou komisi, která posoudí uchazeče a doporučí nejvhodnějšího kandidáta. Z důvodu efektivity a zamezení opakovaného schvalování stejného nebo obdobného složení komise navrhuji jmenovat komisi, která bude působit pro výběrová řízení až do doby opakovaného výběrového řízení na uvedenou pozici.\nDiskuze zahájena v 16:18:43\nK tomuto bodu se vyjádřili:\nMilan Paluska\nV 16:20:23 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Pavlína Nepovímová\") v tomto znění:\nRada\nměsta schvaluje v souladu s ustanovením § 8 odst. 2 zákona č. 312/2002 Sb., o úřednících územních samosprávných celků, jmenování členů výběrové komise pro výběrové řízení na obsazení pracovní pozice referent/referentka odboru správy majetku města a bytového hospodářství Městského úřadu v Pečkách ve složení:\nPředseda:\nMilan\nPaluska\n, starosta\nMístopředsedkyně:\nMartina\nHrázská\n, vedoucí odboru správy majetku města a bytového hospodářství\nČlenové:\nZdeněk\nFejfar\n– místostarosta\nMichala\nDekiská\n, vedoucí Odboru investic a rozvoje\nPavlína\nNepovímová\n, tajemnice\nNáhradník:\nMarcela\nBahníková\n, vedoucí Odboru ekonomicko-správního\nHlasování\npro:\n(6) Ing. Karel Krištoufek, Zdeněk Fejfar, Ing. Hana Kuprová, Milan Paluska, Ing. Martin Jedlička, Ivana Trčková\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-167-18/25\nzodpovídá:\ntermín:\nIHNED\n(12. 5. 2025)\nProjednávání bodu bylo ukončeno v 16:20:29\n12. Kontrola plnění usnesení (bod číslo 13)\nPředkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 16:22:02\nDiskuze zahájena v 16:22:02\nRada bere informace k bodu č. 13 -\nKontrola plnění usnesení\nna vědomí.\nProjednávání bodu bylo ukončeno v 16:23:41\n13. Konkurzní řízení na ředitele/ku Základní školy v Pečkách (bod číslo 16)\nPředkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 16:25:43\nDiskuze zahájena v 16:25:43\nK tomuto bodu se vyjádřili:\nMilan Paluska, Ing. Hana Kuprová, Ing. Karel Krištoufek, Ing. Martin Jedlička, Zdeněk Fejfar, Ivana Trčková\nRada bere informace k bodu č. 16 -\nKonkurzní řízení na ředitele/ku Základní školy v Pečkách\nna vědomí.\nProjednávání bodu bylo ukončeno v 17:12:07\n14. Informativní schůzka s řediteli příspěvkových organizací (bod číslo 10)\nPředkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 17:12:19\nDůvodová zpráva:\nSchůzka s ředitelkou Pečovatelské služby města Pečky Mgr.\nPetrou\nČermákovou\n, od 17.00 - 17.30 hodin.\nDiskuze zahájena v 17:12:19\nK tomuto bodu se vyjádřili:\nMilan Paluska, Mgr. Petra Čermáková\nRada bere informace k bodu č. 10 -\nInformativní schůzka s řediteli příspěvkových organizací\nna vědomí.\nProjednávání bodu bylo ukončeno v 17:43:22\n15. Diskuse, různé (bod číslo 14)\nPředkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 17:43:31\nDiskuze zahájena v 17:43:31\nK tomuto bodu se vyjádřili:\nMilan Paluska, Ing. Karel Krištoufek, Ing. Hana Kuprová\nRada bere informace k bodu č. 14 -\nDiskuse, různé\nna vědomí.\nProjednávání bodu bylo ukončeno v 17:53:21\n16. Úkoly vyplývající z jednání rady města (bod číslo 15)\nPředkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 17:53:25\nDiskuze zahájena v 17:53:25\nK tomuto bodu se vyjádřili:\nMilan Paluska, Ing. Karel Krištoufek, Ing. Hana Kuprová\nRada bere informace k bodu č. 15 -\nÚkoly vyplývající z jednání rady města\nna vědomí.\nProjednávání bodu bylo ukončeno v 18:06:38\nJednání ukončeno 12.05.2025 v 18:06:52"
+ },
+ "resolutions": {
+  "status": "ok",
+  "url": "https://mesto-pecky.usneseni.cz/verejne/db694b09-29ea-11f0-9479-00505683238f/usneseni/",
+  "fetched_at": "2026-08-04T13:33:08.276085+00:00",
+  "items": [
+   {
+    "number_raw": "UR-160-18/25",
+    "detail_id": 96928,
+    "detail_url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/96928?mod=rada",
+    "agenda_item_raw": "Schválení programu jednání",
+    "text_verbatim": "Rada\nměsta schvaluje návrh programu jednání s touto změnou:\n- doplňuje se bod č. 16 - Konkurzní řízení na ředitele/ku Základní školy v Pečkách",
+    "cell_text_raw": "Bod programu:\nSchválení programu jednání\nText přijatého usnesení:\nRada\nměsta schvaluje návrh programu jednání s touto změnou:\n- doplňuje se bod č. 16 - Konkurzní řízení na ředitele/ku Základní školy v Pečkách",
+    "date_raw": "12. 5. 2025",
+    "date_iso": "2025-05-12",
+    "responsible_raw": "",
+    "deadline_raw": "IHNED (12. 5. 2025)",
+    "vote": {
+     "raw_text": "pro: 6 proti: 0 zdržel se: 0",
+     "pro": {
+      "count": 6,
+      "names": null,
+      "raw": "6"
+     },
+     "proti": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     },
+     "zdrzel_se": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     }
+    },
+    "detail": {
+     "number_raw": "UR-160-18/25",
+     "text_verbatim": "Rada města schvaluje návrh programu jednání s touto změnou: - doplňuje se bod č. 16 - Konkurzní řízení na ředitele/ku Základní školy v Pečkách",
+     "typ_raw": null,
+     "zodpovida_raw": "",
+     "prijato_raw": "12. 5. 2025 na jednání č. 18/2025",
+     "prijato_date_iso": "2025-05-12",
+     "prijato_meeting_label": "18/2025",
+     "termin_raw": "IHNED (12. 5. 2025)",
+     "ukonceno_raw": "12. 5. 2025",
+     "ukonceno_date_iso": "2025-05-12",
+     "fields_raw": {
+      "Číslo usnesení": "UR-160-18/25",
+      "Text usnesení": "Rada města schvaluje návrh programu jednání s touto změnou: - doplňuje se bod č. 16 - Konkurzní řízení na ředitele/ku Základní školy v Pečkách",
+      "Zodpovídá": "",
+      "Přijato": "12. 5. 2025 na jednání č. 18/2025",
+      "Termín": "IHNED (12. 5. 2025)",
+      "Ukončeno": "12. 5. 2025"
+     }
+    }
+   },
+   {
+    "number_raw": "UR-161-18/25",
+    "detail_id": 96929,
+    "detail_url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/96929?mod=rada",
+    "agenda_item_raw": "Odkoupení pozemků z LV 228 – k.ú. Velké Chvalovice (9/20 podílu)",
+    "text_verbatim": "Rada\nměsta doporučuje zastupitelstvu města schválit odkoupení pozemků:\nč. parc. 342/32 (341 m\n2\n) - vodní plocha\nč. parc. 356/6 (80 m\n2\n) – ost. plocha, ost. komunikace\nč. parc. 357/25 (5.500 m\n2\n) – orná půda\nideální podíl ve výši 3/20 od\n█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​\n█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​\nza celkovou cenu ve výši 53.289,-Kč (tzn. 60,- Kč/m\n2\n)\nideální podíl ve výši 3/20 od\n█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​\n█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​\nza celkovou cenu ve výši 53.289,-Kč (tzn. 60,- Kč/m\n2\n)\nideální podíl ve výši 3/20 od\n█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​\n█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​\nza celkovou cenu ve výši 53.289,-Kč\n(tzn. 60,- Kč/m\n2\n)\nMěsto jako kupující uhradí poplatek spojený s převodem u K.Ú. v Kolíně a zajistí sepsání kupní smlouvy.",
+    "cell_text_raw": "Bod programu:\nOdkoupení pozemků z LV 228 – k.ú. Velké Chvalovice (9/20 podílu)\nText přijatého usnesení:\nRada\nměsta doporučuje zastupitelstvu města schválit odkoupení pozemků:\nč. parc. 342/32 (341 m\n2\n) - vodní plocha\nč. parc. 356/6 (80 m\n2\n) – ost. plocha, ost. komunikace\nč. parc. 357/25 (5.500 m\n2\n) – orná půda\nideální podíl ve výši 3/20 od\n█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​\n█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​\nza celkovou cenu ve výši 53.289,-Kč (tzn. 60,- Kč/m\n2\n)\nideální podíl ve výši 3/20 od\n█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​\n█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​\nza celkovou cenu ve výši 53.289,-Kč (tzn. 60,- Kč/m\n2\n)\nideální podíl ve výši 3/20 od\n█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​\n█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​\nza celkovou cenu ve výši 53.289,-Kč\n(tzn. 60,- Kč/m\n2\n)\nMěsto jako kupující uhradí poplatek spojený s převodem u K.Ú. v Kolíně a zajistí sepsání kupní smlouvy.",
+    "date_raw": "12. 5. 2025",
+    "date_iso": "2025-05-12",
+    "responsible_raw": "Jana Najbrtová",
+    "deadline_raw": "31. 12. 2025",
+    "vote": {
+     "raw_text": "pro: 6 proti: 0 zdržel se: 0",
+     "pro": {
+      "count": 6,
+      "names": null,
+      "raw": "6"
+     },
+     "proti": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     },
+     "zdrzel_se": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     }
+    },
+    "detail": {
+     "number_raw": "UR-161-18/25",
+     "text_verbatim": "Rada města doporučuje zastupitelstvu města schválit odkoupení pozemků: č. parc. 342/32 (341 m 2 ) - vodní plocha č. parc. 356/6 (80 m 2 ) – ost. plocha, ost. komunikace č. parc. 357/25 (5.500 m 2 ) – orná půda ideální podíl ve výši 3/20 od █​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​ █​█​█​█​█​█​█​█​█​█​█​█​█​█​█​ za celkovou cenu ve výši 53.289,-Kč (tzn. 60,- Kč/m 2 ) ideální podíl ve výši 3/20 od █​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​ █​█​█​█​█​█​█​█​█​█​█​█​█​█​█​ za celkovou cenu ve výši 53.289,-Kč (tzn. 60,- Kč/m 2 ) ideální podíl ve výši 3/20 od █​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​ █​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​ za celkovou cenu ve výši 53.289,-Kč (tzn. 60,- Kč/m 2 ) Město jako kupující uhradí poplatek spojený s převodem u K.Ú. v Kolíně a zajistí sepsání kupní smlouvy.",
+     "typ_raw": null,
+     "zodpovida_raw": "Jana Najbrtová",
+     "prijato_raw": "12. 5. 2025 na jednání č. 18/2025",
+     "prijato_date_iso": "2025-05-12",
+     "prijato_meeting_label": "18/2025",
+     "termin_raw": "31. 12. 2025",
+     "ukonceno_raw": "21. 5. 2025",
+     "ukonceno_date_iso": "2025-05-21",
+     "fields_raw": {
+      "Číslo usnesení": "UR-161-18/25",
+      "Text usnesení": "Rada města doporučuje zastupitelstvu města schválit odkoupení pozemků: č. parc. 342/32 (341 m 2 ) - vodní plocha č. parc. 356/6 (80 m 2 ) – ost. plocha, ost. komunikace č. parc. 357/25 (5.500 m 2 ) – orná půda ideální podíl ve výši 3/20 od █​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​ █​█​█​█​█​█​█​█​█​█​█​█​█​█​█​ za celkovou cenu ve výši 53.289,-Kč (tzn. 60,- Kč/m 2 ) ideální podíl ve výši 3/20 od █​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​ █​█​█​█​█​█​█​█​█​█​█​█​█​█​█​ za celkovou cenu ve výši 53.289,-Kč (tzn. 60,- Kč/m 2 ) ideální podíl ve výši 3/20 od █​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​ █​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​ za celkovou cenu ve výši 53.289,-Kč (tzn. 60,- Kč/m 2 ) Město jako kupující uhradí poplatek spojený s převodem u K.Ú. v Kolíně a zajistí sepsání kupní smlouvy.",
+      "Zodpovídá": "Jana Najbrtová",
+      "Přijato": "12. 5. 2025 na jednání č. 18/2025",
+      "Termín": "31. 12. 2025",
+      "Ukončeno": "21. 5. 2025"
+     }
+    }
+   },
+   {
+    "number_raw": "UR-162-18/25",
+    "detail_id": 96930,
+    "detail_url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/96930?mod=rada",
+    "agenda_item_raw": "Ukončení „Smlouvy o výpůjčce čj.:391/2011“ – AFK /Pečky (dohodou)",
+    "text_verbatim": "Rada\nměsta schvaluje ukončit dohodou ke dni 31.7. 2025 „Smlouvu o výpůjčce čj.:391/2011“ – uzavřenou s AFK Pečky.",
+    "cell_text_raw": "Bod programu:\nUkončení „Smlouvy o výpůjčce čj.:391/2011“ – AFK /Pečky (dohodou)\nText přijatého usnesení:\nRada\nměsta schvaluje ukončit dohodou ke dni 31.7. 2025 „Smlouvu o výpůjčce čj.:391/2011“ – uzavřenou s AFK Pečky.",
+    "date_raw": "12. 5. 2025",
+    "date_iso": "2025-05-12",
+    "responsible_raw": "Jana Najbrtová",
+    "deadline_raw": "31. 7. 2025",
+    "vote": {
+     "raw_text": "pro: 6 proti: 0 zdržel se: 0",
+     "pro": {
+      "count": 6,
+      "names": null,
+      "raw": "6"
+     },
+     "proti": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     },
+     "zdrzel_se": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     }
+    },
+    "detail": {
+     "number_raw": "UR-162-18/25",
+     "text_verbatim": "Rada města schvaluje ukončit dohodou ke dni 31.7. 2025 „Smlouvu o výpůjčce čj.:391/2011“ – uzavřenou s AFK Pečky.",
+     "typ_raw": null,
+     "zodpovida_raw": "Jana Najbrtová",
+     "prijato_raw": "12. 5. 2025 na jednání č. 18/2025",
+     "prijato_date_iso": "2025-05-12",
+     "prijato_meeting_label": "18/2025",
+     "termin_raw": "31. 7. 2025",
+     "ukonceno_raw": "21. 5. 2025",
+     "ukonceno_date_iso": "2025-05-21",
+     "fields_raw": {
+      "Číslo usnesení": "UR-162-18/25",
+      "Text usnesení": "Rada města schvaluje ukončit dohodou ke dni 31.7. 2025 „Smlouvu o výpůjčce čj.:391/2011“ – uzavřenou s AFK Pečky.",
+      "Zodpovídá": "Jana Najbrtová",
+      "Přijato": "12. 5. 2025 na jednání č. 18/2025",
+      "Termín": "31. 7. 2025",
+      "Ukončeno": "21. 5. 2025"
+     }
+    }
+   },
+   {
+    "number_raw": "UR-163-18/25",
+    "detail_id": 96946,
+    "detail_url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/96946?mod=rada",
+    "agenda_item_raw": "Zveřejnění záměru na pronájem části pozemku č. parc. 1449/118 v k.ú. Pečky",
+    "text_verbatim": "Rada\nměsta Pečky schvaluje zveřejnit záměr na pronájem části pozemku č. parc.1449/118 (188 m\n2\n) – trvalý travní porost – v obci a k.ú. Pečky za těchto podmínek:\n- pozemek je nabízen k pronájmu za účelem již zřízené hospodářské činnosti\n- pronajímatel zajistí sepsání nájemní smlouvy\n- nájemní smlouva bude uzavřena na dobu neurčitou s výpovědní lhůtou 3 měsíce\n- výše nájemného je stanovena na 250,-Kč/měsíc",
+    "cell_text_raw": "Bod programu:\nZveřejnění záměru na pronájem části pozemku č. parc. 1449/118 v k.ú. Pečky\nText přijatého usnesení:\nRada\nměsta Pečky schvaluje zveřejnit záměr na pronájem části pozemku č. parc.1449/118 (188 m\n2\n) – trvalý travní porost – v obci a k.ú. Pečky za těchto podmínek:\n- pozemek je nabízen k pronájmu za účelem již zřízené hospodářské činnosti\n- pronajímatel zajistí sepsání nájemní smlouvy\n- nájemní smlouva bude uzavřena na dobu neurčitou s výpovědní lhůtou 3 měsíce\n- výše nájemného je stanovena na 250,-Kč/měsíc",
+    "date_raw": "12. 5. 2025",
+    "date_iso": "2025-05-12",
+    "responsible_raw": "Jana Najbrtová",
+    "deadline_raw": "26. 5. 2025",
+    "vote": {
+     "raw_text": "pro: 6 proti: 0 zdržel se: 0",
+     "pro": {
+      "count": 6,
+      "names": null,
+      "raw": "6"
+     },
+     "proti": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     },
+     "zdrzel_se": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     }
+    },
+    "detail": {
+     "number_raw": "UR-163-18/25",
+     "text_verbatim": "Rada města Pečky schvaluje zveřejnit záměr na pronájem části pozemku č. parc.1449/118 (188 m 2 ) – trvalý travní porost – v obci a k.ú. Pečky za těchto podmínek: - pozemek je nabízen k pronájmu za účelem již zřízené hospodářské činnosti - pronajímatel zajistí sepsání nájemní smlouvy - nájemní smlouva bude uzavřena na dobu neurčitou s výpovědní lhůtou 3 měsíce - výše nájemného je stanovena na 250,-Kč/měsíc",
+     "typ_raw": null,
+     "zodpovida_raw": "Jana Najbrtová",
+     "prijato_raw": "12. 5. 2025 na jednání č. 18/2025",
+     "prijato_date_iso": "2025-05-12",
+     "prijato_meeting_label": "18/2025",
+     "termin_raw": "26. 5. 2025",
+     "ukonceno_raw": "21. 5. 2025",
+     "ukonceno_date_iso": "2025-05-21",
+     "fields_raw": {
+      "Číslo usnesení": "UR-163-18/25",
+      "Text usnesení": "Rada města Pečky schvaluje zveřejnit záměr na pronájem části pozemku č. parc.1449/118 (188 m 2 ) – trvalý travní porost – v obci a k.ú. Pečky za těchto podmínek: - pozemek je nabízen k pronájmu za účelem již zřízené hospodářské činnosti - pronajímatel zajistí sepsání nájemní smlouvy - nájemní smlouva bude uzavřena na dobu neurčitou s výpovědní lhůtou 3 měsíce - výše nájemného je stanovena na 250,-Kč/měsíc",
+      "Zodpovídá": "Jana Najbrtová",
+      "Přijato": "12. 5. 2025 na jednání č. 18/2025",
+      "Termín": "26. 5. 2025",
+      "Ukončeno": "21. 5. 2025"
+     }
+    }
+   },
+   {
+    "number_raw": "UR-164-18/25",
+    "detail_id": 97087,
+    "detail_url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/97087?mod=rada",
+    "agenda_item_raw": "Projektový záměr \"Konvektomaty pro školní jídelnu ZŠ Pečky, okr. Kolín\" Základní škola Pečky, okres Kolín",
+    "text_verbatim": "Rada\nměsta schvaluje předložení žádosti o dotaci projektového záměru „Konvektomaty pro školní jídelnu ZŠ Pečky, okr. Kolín“ žadatelem Základní škola Pečky, okres\nKolín\n, ze Strategického plánu Společné zemědělské politiky na období 2023–2027, Intervence 52.77 – LEADER, prostřednictvím 2. výzvy vyhlášené MAS Podlipansko, o.p.s., a jeho následnou realizaci.",
+    "cell_text_raw": "Bod programu:\nProjektový záměr \"Konvektomaty pro školní jídelnu ZŠ Pečky, okr. Kolín\" Základní škola Pečky, okres Kolín\nText přijatého usnesení:\nRada\nměsta schvaluje předložení žádosti o dotaci projektového záměru „Konvektomaty pro školní jídelnu ZŠ Pečky, okr. Kolín“ žadatelem Základní škola Pečky, okres\nKolín\n, ze Strategického plánu Společné zemědělské politiky na období 2023–2027, Intervence 52.77 – LEADER, prostřednictvím 2. výzvy vyhlášené MAS Podlipansko, o.p.s., a jeho následnou realizaci.",
+    "date_raw": "12. 5. 2025",
+    "date_iso": "2025-05-12",
+    "responsible_raw": "Michala Dekiská",
+    "deadline_raw": "26. 5. 2025",
+    "vote": {
+     "raw_text": "pro: 6 proti: 0 zdržel se: 0",
+     "pro": {
+      "count": 6,
+      "names": null,
+      "raw": "6"
+     },
+     "proti": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     },
+     "zdrzel_se": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     }
+    },
+    "detail": {
+     "number_raw": "UR-164-18/25",
+     "text_verbatim": "Rada města schvaluje předložení žádosti o dotaci projektového záměru „Konvektomaty pro školní jídelnu ZŠ Pečky, okr. Kolín“ žadatelem Základní škola Pečky, okres Kolín , ze Strategického plánu Společné zemědělské politiky na období 2023–2027, Intervence 52.77 – LEADER, prostřednictvím 2. výzvy vyhlášené MAS Podlipansko, o.p.s., a jeho následnou realizaci.",
+     "typ_raw": null,
+     "zodpovida_raw": "Michala Dekiská",
+     "prijato_raw": "12. 5. 2025 na jednání č. 18/2025",
+     "prijato_date_iso": "2025-05-12",
+     "prijato_meeting_label": "18/2025",
+     "termin_raw": "26. 5. 2025",
+     "ukonceno_raw": "14. 5. 2025",
+     "ukonceno_date_iso": "2025-05-14",
+     "fields_raw": {
+      "Číslo usnesení": "UR-164-18/25",
+      "Text usnesení": "Rada města schvaluje předložení žádosti o dotaci projektového záměru „Konvektomaty pro školní jídelnu ZŠ Pečky, okr. Kolín“ žadatelem Základní škola Pečky, okres Kolín , ze Strategického plánu Společné zemědělské politiky na období 2023–2027, Intervence 52.77 – LEADER, prostřednictvím 2. výzvy vyhlášené MAS Podlipansko, o.p.s., a jeho následnou realizaci.",
+      "Zodpovídá": "Michala Dekiská",
+      "Přijato": "12. 5. 2025 na jednání č. 18/2025",
+      "Termín": "26. 5. 2025",
+      "Ukončeno": "14. 5. 2025"
+     }
+    }
+   },
+   {
+    "number_raw": "UR-165-18/25",
+    "detail_id": 96631,
+    "detail_url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/96631?mod=rada",
+    "agenda_item_raw": "Žádost MŠ - prázdniny",
+    "text_verbatim": "Rada\nměsta souhlasí s přerušením provozu Mateřské školy MAŠINKA Pečky v období od 21.7.2025 do 31.8.2025.",
+    "cell_text_raw": "Bod programu:\nŽádost MŠ - prázdniny\nText přijatého usnesení:\nRada\nměsta souhlasí s přerušením provozu Mateřské školy MAŠINKA Pečky v období od 21.7.2025 do 31.8.2025.",
+    "date_raw": "12. 5. 2025",
+    "date_iso": "2025-05-12",
+    "responsible_raw": "Marcela Bahníková",
+    "deadline_raw": "19. 5. 2025",
+    "vote": {
+     "raw_text": "pro: 6 proti: 0 zdržel se: 0",
+     "pro": {
+      "count": 6,
+      "names": null,
+      "raw": "6"
+     },
+     "proti": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     },
+     "zdrzel_se": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     }
+    },
+    "detail": {
+     "number_raw": "UR-165-18/25",
+     "text_verbatim": "Rada města souhlasí s přerušením provozu Mateřské školy MAŠINKA Pečky v období od 21.7.2025 do 31.8.2025.",
+     "typ_raw": null,
+     "zodpovida_raw": "Marcela Bahníková",
+     "prijato_raw": "12. 5. 2025 na jednání č. 18/2025",
+     "prijato_date_iso": "2025-05-12",
+     "prijato_meeting_label": "18/2025",
+     "termin_raw": "19. 5. 2025",
+     "ukonceno_raw": "14. 5. 2025",
+     "ukonceno_date_iso": "2025-05-14",
+     "fields_raw": {
+      "Číslo usnesení": "UR-165-18/25",
+      "Text usnesení": "Rada města souhlasí s přerušením provozu Mateřské školy MAŠINKA Pečky v období od 21.7.2025 do 31.8.2025.",
+      "Zodpovídá": "Marcela Bahníková",
+      "Přijato": "12. 5. 2025 na jednání č. 18/2025",
+      "Termín": "19. 5. 2025",
+      "Ukončeno": "14. 5. 2025"
+     }
+    }
+   },
+   {
+    "number_raw": "UR-166-18/25",
+    "detail_id": 97539,
+    "detail_url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/97539?mod=rada",
+    "agenda_item_raw": "Plnění úkolu UR-155-16/25",
+    "text_verbatim": "Rada\nměsta schvaluje uzavření objednávky mezi městem Pečky a firmou mmcité a.s.,\nVinohradská\n907, Mařatice, 686 05\nUherské\nHradiště, IČ 276 70 864 na nákup 2 ks nádob na rostliny kruhového tvaru s ocelovou konstrukcí, opláštěna dřevěnými lamelami. Průměr a výška nádoby, 700 mm za cenu cca 16 671,- Kč/ks bez DPH.",
+    "cell_text_raw": "Bod programu:\nPlnění úkolu UR-155-16/25\nText přijatého usnesení:\nRada\nměsta schvaluje uzavření objednávky mezi městem Pečky a firmou mmcité a.s.,\nVinohradská\n907, Mařatice, 686 05\nUherské\nHradiště, IČ 276 70 864 na nákup 2 ks nádob na rostliny kruhového tvaru s ocelovou konstrukcí, opláštěna dřevěnými lamelami. Průměr a výška nádoby, 700 mm za cenu cca 16 671,- Kč/ks bez DPH.",
+    "date_raw": "12. 5. 2025",
+    "date_iso": "2025-05-12",
+    "responsible_raw": "Pavlína Nepovímová",
+    "deadline_raw": "26. 5. 2025",
+    "vote": {
+     "raw_text": "pro: 6 proti: 0 zdržel se: 0",
+     "pro": {
+      "count": 6,
+      "names": null,
+      "raw": "6"
+     },
+     "proti": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     },
+     "zdrzel_se": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     }
+    },
+    "detail": {
+     "number_raw": "UR-166-18/25",
+     "text_verbatim": "Rada města schvaluje uzavření objednávky mezi městem Pečky a firmou mmcité a.s., Vinohradská 907, Mařatice, 686 05 Uherské Hradiště, IČ 276 70 864 na nákup 2 ks nádob na rostliny kruhového tvaru s ocelovou konstrukcí, opláštěna dřevěnými lamelami. Průměr a výška nádoby, 700 mm za cenu cca 16 671,- Kč/ks bez DPH.",
+     "typ_raw": null,
+     "zodpovida_raw": "Pavlína Nepovímová",
+     "prijato_raw": "12. 5. 2025 na jednání č. 18/2025",
+     "prijato_date_iso": "2025-05-12",
+     "prijato_meeting_label": "18/2025",
+     "termin_raw": "26. 5. 2025",
+     "ukonceno_raw": "26. 5. 2025",
+     "ukonceno_date_iso": "2025-05-26",
+     "fields_raw": {
+      "Číslo usnesení": "UR-166-18/25",
+      "Text usnesení": "Rada města schvaluje uzavření objednávky mezi městem Pečky a firmou mmcité a.s., Vinohradská 907, Mařatice, 686 05 Uherské Hradiště, IČ 276 70 864 na nákup 2 ks nádob na rostliny kruhového tvaru s ocelovou konstrukcí, opláštěna dřevěnými lamelami. Průměr a výška nádoby, 700 mm za cenu cca 16 671,- Kč/ks bez DPH.",
+      "Zodpovídá": "Pavlína Nepovímová",
+      "Přijato": "12. 5. 2025 na jednání č. 18/2025",
+      "Termín": "26. 5. 2025",
+      "Ukončeno": "26. 5. 2025"
+     }
+    }
+   },
+   {
+    "number_raw": "UR-167-18/25",
+    "detail_id": 97311,
+    "detail_url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/97311?mod=rada",
+    "agenda_item_raw": "Jmenování členů a náhradníků do komise pro posouzení uchazeče o pracovní místo referent Odboru správy majetku města a bytového hospodářství",
+    "text_verbatim": "Rada\nměsta schvaluje v souladu s ustanovením § 8 odst. 2 zákona č. 312/2002 Sb., o úřednících územních samosprávných celků, jmenování členů výběrové komise pro výběrové řízení na obsazení pracovní pozice referent/referentka odboru správy majetku města a bytového hospodářství Městského úřadu v Pečkách ve složení:\nPředseda:\nMilan\nPaluska\n, starosta\nMístopředsedkyně:\nMartina\nHrázská\n, vedoucí odboru správy majetku města a bytového hospodářství\nČlenové:\nZdeněk\nFejfar\n– místostarosta\nMichala\nDekiská\n, vedoucí Odboru investic a rozvoje\nPavlína\nNepovímová\n, tajemnice\nNáhradník:\nMarcela\nBahníková\n, vedoucí Odboru ekonomicko-správního",
+    "cell_text_raw": "Bod programu:\nJmenování členů a náhradníků do komise pro posouzení uchazeče o pracovní místo referent Odboru správy majetku města a bytového hospodářství\nText přijatého usnesení:\nRada\nměsta schvaluje v souladu s ustanovením § 8 odst. 2 zákona č. 312/2002 Sb., o úřednících územních samosprávných celků, jmenování členů výběrové komise pro výběrové řízení na obsazení pracovní pozice referent/referentka odboru správy majetku města a bytového hospodářství Městského úřadu v Pečkách ve složení:\nPředseda:\nMilan\nPaluska\n, starosta\nMístopředsedkyně:\nMartina\nHrázská\n, vedoucí odboru správy majetku města a bytového hospodářství\nČlenové:\nZdeněk\nFejfar\n– místostarosta\nMichala\nDekiská\n, vedoucí Odboru investic a rozvoje\nPavlína\nNepovímová\n, tajemnice\nNáhradník:\nMarcela\nBahníková\n, vedoucí Odboru ekonomicko-správního",
+    "date_raw": "12. 5. 2025",
+    "date_iso": "2025-05-12",
+    "responsible_raw": "",
+    "deadline_raw": "IHNED (12. 5. 2025)",
+    "vote": {
+     "raw_text": "pro: 6 proti: 0 zdržel se: 0",
+     "pro": {
+      "count": 6,
+      "names": null,
+      "raw": "6"
+     },
+     "proti": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     },
+     "zdrzel_se": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     }
+    },
+    "detail": {
+     "number_raw": "UR-167-18/25",
+     "text_verbatim": "Rada města schvaluje v souladu s ustanovením § 8 odst. 2 zákona č. 312/2002 Sb., o úřednících územních samosprávných celků, jmenování členů výběrové komise pro výběrové řízení na obsazení pracovní pozice referent/referentka odboru správy majetku města a bytového hospodářství Městského úřadu v Pečkách ve složení: Předseda: Milan Paluska , starosta Místopředsedkyně: Martina Hrázská , vedoucí odboru správy majetku města a bytového hospodářství Členové: Zdeněk Fejfar – místostarosta Michala Dekiská , vedoucí Odboru investic a rozvoje Pavlína Nepovímová , tajemnice Náhradník: Marcela Bahníková , vedoucí Odboru ekonomicko-správního",
+     "typ_raw": null,
+     "zodpovida_raw": "",
+     "prijato_raw": "12. 5. 2025 na jednání č. 18/2025",
+     "prijato_date_iso": "2025-05-12",
+     "prijato_meeting_label": "18/2025",
+     "termin_raw": "IHNED (12. 5. 2025)",
+     "ukonceno_raw": "12. 5. 2025",
+     "ukonceno_date_iso": "2025-05-12",
+     "fields_raw": {
+      "Číslo usnesení": "UR-167-18/25",
+      "Text usnesení": "Rada města schvaluje v souladu s ustanovením § 8 odst. 2 zákona č. 312/2002 Sb., o úřednících územních samosprávných celků, jmenování členů výběrové komise pro výběrové řízení na obsazení pracovní pozice referent/referentka odboru správy majetku města a bytového hospodářství Městského úřadu v Pečkách ve složení: Předseda: Milan Paluska , starosta Místopředsedkyně: Martina Hrázská , vedoucí odboru správy majetku města a bytového hospodářství Členové: Zdeněk Fejfar – místostarosta Michala Dekiská , vedoucí Odboru investic a rozvoje Pavlína Nepovímová , tajemnice Náhradník: Marcela Bahníková , vedoucí Odboru ekonomicko-správního",
+      "Zodpovídá": "",
+      "Přijato": "12. 5. 2025 na jednání č. 18/2025",
+      "Termín": "IHNED (12. 5. 2025)",
+      "Ukončeno": "12. 5. 2025"
+     }
+    }
+   }
+  ]
+ }
+}

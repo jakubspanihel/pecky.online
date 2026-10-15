@@ -1,0 +1,872 @@
+{
+ "uuid": "3da42b00-e33e-11ed-ad30-6f8569a25ad7",
+ "body_type_raw": "Rada",
+ "label_raw": "15/2023 (3. 5. 2023)",
+ "number": 15,
+ "year": 2023,
+ "date_iso": "2023-05-03",
+ "links": {
+  "invitation": "https://mesto-pecky.usneseni.cz/verejne/?uuid=3da42b00-e33e-11ed-ad30-6f8569a25ad7&page=12&do=printPublicInvitation",
+  "minutes": "https://mesto-pecky.usneseni.cz/verejne/3da42b00-e33e-11ed-ad30-6f8569a25ad7/zapis/?page=12",
+  "signed_minutes_pdf": "https://mesto-pecky.usneseni.cz/verejne/?meetingReportControl-uuid=3da42b00-e33e-11ed-ad30-6f8569a25ad7&page=12&do=meetingReportControl-getSignedReportPdf",
+  "resolutions": "https://mesto-pecky.usneseni.cz/verejne/3da42b00-e33e-11ed-ad30-6f8569a25ad7/usneseni/?page=12",
+  "audio": null
+ },
+ "link_texts": {
+  "invitation": "Pozvánka",
+  "minutes": "zápis",
+  "signed_minutes_pdf": "podepsaný zápis",
+  "resolutions": "přijatá usnesení"
+ },
+ "status": "ok",
+ "invitation": {
+  "status": "site_error",
+  "error": "status=200 ct=text/html; charset=utf-8 flash='<a href=\"\" class=\"close\" data-dismiss=\"alert\" aria-label=\"close\">&times;'",
+  "url": "https://mesto-pecky.usneseni.cz/verejne/?uuid=3da42b00-e33e-11ed-ad30-6f8569a25ad7&do=printPublicInvitation",
+  "fetched_at": "2026-08-04T15:06:28.243413+00:00"
+ },
+ "minutes": {
+  "status": "ok",
+  "url": "https://mesto-pecky.usneseni.cz/verejne/3da42b00-e33e-11ed-ad30-6f8569a25ad7/zapis/",
+  "fetched_at": "2026-08-04T14:10:22.769297+00:00",
+  "title_raw": "ZÁPIS ze schůze rady č. 15/2023 Město Pečky datum: 3. 5. 2023, čas: 15:00 ​",
+  "date_raw": "3. 5. 2023",
+  "date_iso": "2023-05-03",
+  "time_raw": "15:00",
+  "presence": {
+   "raw_text": "Prezence:\nPřítomni:\n(7) Zdeněk Fejfar, Milan Paluska, Ing. Martin Jedlička, Ing. Petr Dürr, Ivana Trčková, Ing. Hana Kuprová, Ing. Karel Krištoufek\nOmluveni:\n(0)\nNepřítomni:\n(0)\nHosté:\nZapisovatel/ka:\nEva Strnadová\nPřítomno je 7 členů a rada je usnášeníschopná.\nJednání zahájeno 03.05.2023 v 15:06:38",
+   "pritomni": {
+    "count": 7,
+    "names": [
+     "Zdeněk Fejfar",
+     "Milan Paluska",
+     "Ing. Martin Jedlička",
+     "Ing. Petr Dürr",
+     "Ivana Trčková",
+     "Ing. Hana Kuprová",
+     "Ing. Karel Krištoufek"
+    ],
+    "raw": "(7) Zdeněk Fejfar, Milan Paluska, Ing. Martin Jedlička, Ing. Petr Dürr, Ivana Trčková, Ing. Hana Kuprová, Ing. Karel Krištoufek"
+   },
+   "omluveni": {
+    "count": 0,
+    "names": [],
+    "raw": "(0)"
+   },
+   "nepritomni": {
+    "count": 0,
+    "names": [],
+    "raw": "(0)"
+   },
+   "predsedajici": null,
+   "quorum_raw": "Přítomno je 7 členů a rada je usnášeníschopná."
+  },
+  "header_raw": "Prezence:\nPřítomni:\n(7) Zdeněk Fejfar, Milan Paluska, Ing. Martin Jedlička, Ing. Petr Dürr, Ivana Trčková, Ing. Hana Kuprová, Ing. Karel Krištoufek\nOmluveni:\n(0)\nNepřítomni:\n(0)\nHosté:\nZapisovatel/ka:\nEva Strnadová\nPřítomno je 7 členů a rada je usnášeníschopná.\nJednání zahájeno 03.05.2023 v 15:06:38",
+  "agenda_items": [
+   {
+    "number": 1,
+    "title_raw": "Určení zapisovatelů, předsedajícího, příp. ověřovatelů",
+    "heading_raw": "1. Určení zapisovatelů, předsedajícího, příp. ověřovatelů (bod číslo 1)",
+    "predkladatel": "Milan Paluska",
+    "votes": [],
+    "resolution_numbers_mentioned": [],
+    "raw_text": "Předkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 15:06:47\nPředsedající navrhl jednotlivé členy pracovních komisí\nOvěřovatelé:\nIng. Hana Kuprová, Ing. Petr Dürr\nPředsedající:\nMilan Paluska\nBod byl přijat bez hlasování.\nDiskuze zahájena v 15:06:47\nK tomuto bodu se vyjádřili: Milan Paluska\nProjednávání bodu bylo ukončeno v 15:09:24"
+   },
+   {
+    "number": 2,
+    "title_raw": "Schválení programu jednání",
+    "heading_raw": "2. Schválení programu jednání (bod číslo 2)",
+    "predkladatel": "Milan Paluska",
+    "votes": [
+     {
+      "raw_text": "pro:\n(7) Ing. Petr Dürr, Ing. Martin Jedlička, Milan Paluska, Ing. Hana Kuprová, Ing. Karel Krištoufek, Ivana Trčková, Zdeněk Fejfar\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)",
+      "pro": {
+       "count": 7,
+       "names": [
+        "Ing. Petr Dürr",
+        "Ing. Martin Jedlička",
+        "Milan Paluska",
+        "Ing. Hana Kuprová",
+        "Ing. Karel Krištoufek",
+        "Ivana Trčková",
+        "Zdeněk Fejfar"
+       ],
+       "raw": "(7) Ing. Petr Dürr, Ing. Martin Jedlička, Milan Paluska, Ing. Hana Kuprová, Ing. Karel Krištoufek, Ivana Trčková, Zdeněk Fejfar"
+      },
+      "proti": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "zdrzel_se": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "nehlasoval": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "result_raw": "Návrh byl přijat jako usnesení číslo: UR-140-15/23",
+      "adopted_resolution_number": "UR-140-15/23"
+     }
+    ],
+    "resolution_numbers_mentioned": [
+     "UR-140-15/23"
+    ],
+    "raw_text": "Předkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 15:09:34\nProgram jednání\n1. Určení zapisovatelů, předsedajícího, příp. ověřovatelů\n2. Schválení programu jednání\n3. Aktuální informace vedení města\n4. Uzavření \"Smlouvy o zřízení VBř č. 8800097951_1/VB/P (RWE GasNet, s.r.o.)\n5. Souhlas zřizovatele s přijetím daru - ZŠ Pečky\n6. Žádost o dotaci - Mateřská škola Mašinka Pečky\n7. Smlouva o budoucí smlouvě o zřízení VBř č. 8800110549_2/BVB/P (přeložka plynovodu)\n8. Zajíšťování a financování dopravní obslužnosti\n9. Uzavření „Smlouvy o nájmu pozemku“ – část č. parc. 2169/1 (cca 200 m2) v obci a k.ú. Pečky\n10. Kontrola plnění usnesení\nDiskuze zahájena v 15:09:34\nK tomuto bodu se vyjádřili: Milan Paluska\nV 15:10:06 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Milan Paluska\") v tomto znění:\nRada\nměsta schvaluje návrh programu jednání.\ns těmito změnami:\n- doplňuje se bod č. 11 - Jmenování komise pro výběrové řízení na pozici Samostatný referent/referentka odboru stavebního\n- doplňuje se bod č. 12 - Vyřazení nepotřebného majetku prodejem - Renault Kangoo\nHlasování\npro:\n(7) Ing. Petr Dürr, Ing. Martin Jedlička, Milan Paluska, Ing. Hana Kuprová, Ing. Karel Krištoufek, Ivana Trčková, Zdeněk Fejfar\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-140-15/23\nzodpovídá:\ntermín:\nIHNED\n(3. 5. 2023)\nProjednávání bodu bylo ukončeno v 15:10:13"
+   },
+   {
+    "number": 3,
+    "title_raw": "Aktuální informace vedení města",
+    "heading_raw": "3. Aktuální informace vedení města (bod číslo 3)",
+    "predkladatel": "Milan Paluska",
+    "votes": [],
+    "resolution_numbers_mentioned": [],
+    "raw_text": "Předkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 15:10:18\nDůvodová zpráva\nstarosta města\n- informace o kontrolních dnech na stavbách - KS, ČOV - nyní probíhá 10 denní technologická odstávka, úpravna vody - změna stavby před dokončením /napojení a vzhled přivaděče/\n- informace o schůzce s projektanty - plánovaný obchvat\n- informace o pietním aktu, položení květin na významných hrobech dne 8.5.2023\ntajemnice\n- ukončení výběrového řízení na obsazení pozice - referent přípravy a realizace investic\nZdeněk\nFejfar\n- informace o veřejném projednání o návrhu změny č. 2 ÚP města Pečky dne 10.5.2023 od 16.00 hodin v obřadní síni\n- informace o konání komise sportovní dne 25.4.2023\nIng.\nKarel\nKrištoufek\n- informace o termínu jednání Finančního výboru dne 16.5.2023 od 15.00 hodin\nDiskuze zahájena v 15:10:18\nK tomuto bodu se vyjádřili: Milan Paluska, Ing. Karel Krištoufek, Zdeněk Fejfar, Ing. Hana Kuprová\nRada bere materiály předložené k bodu č. 3 -\nAktuální informace vedení města\nna vědomí.\nProjednávání bodu bylo ukončeno v 15:52:07"
+   },
+   {
+    "number": 4,
+    "title_raw": "Uzavření \"Smlouvy o zřízení VBř č. 8800097951_1/VB/P (RWE GasNet, s.r.o.)",
+    "heading_raw": "4. Uzavření \"Smlouvy o zřízení VBř č. 8800097951_1/VB/P (RWE GasNet, s.r.o.) (bod číslo 4)",
+    "predkladatel": "Jana Najbrtová",
+    "votes": [
+     {
+      "raw_text": "pro:\n(7) Zdeněk Fejfar, Ing. Hana Kuprová, Ing. Karel Krištoufek, Ing. Petr Dürr, Ivana Trčková, Ing. Martin Jedlička, Milan Paluska\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)",
+      "pro": {
+       "count": 7,
+       "names": [
+        "Zdeněk Fejfar",
+        "Ing. Hana Kuprová",
+        "Ing. Karel Krištoufek",
+        "Ing. Petr Dürr",
+        "Ivana Trčková",
+        "Ing. Martin Jedlička",
+        "Milan Paluska"
+       ],
+       "raw": "(7) Zdeněk Fejfar, Ing. Hana Kuprová, Ing. Karel Krištoufek, Ing. Petr Dürr, Ivana Trčková, Ing. Martin Jedlička, Milan Paluska"
+      },
+      "proti": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "zdrzel_se": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "nehlasoval": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "result_raw": "Návrh byl přijat jako usnesení číslo: UR-141-15/23",
+      "adopted_resolution_number": "UR-141-15/23"
+     }
+    ],
+    "resolution_numbers_mentioned": [
+     "UR-141-15/23"
+    ],
+    "raw_text": "Předkladatel: Jana Najbrtová\nProjednávání bodu bylo zahájeno v 15:52:15\nDůvodová zpráva\nDoporučujeme uzavřít výše uvedenou smlouvu. Smlouva budoucí byla uzavřena v červnu 2020. Jedná se o pozemek č. parc. 214 – ul. Hellichova, k.ú. Pečky (nová plynová přípojka pro\n█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█\n) – délka VBř činí 1,30 bm ze cenu 120,- Kč/bm+DPH tzn.celkem 156,-Kč+32,76 Kč(DPH).\nDiskuze zahájena v 15:52:15\nK tomuto bodu se vyjádřili: Milan Paluska, Ing. Karel Krištoufek\nV 15:53:42 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Jana Najbrtová\") v tomto znění:\nRada\nměsta schvaluje uzavřít „Smlouvu o zřízení věcného břemene č. 8800097951_1/VB/P“s firmou RWE GasNet, s.r.o. se sídlem v Ústí nad Labem, ul. Klíšská 940, která se týká části pozemku v majetku města č. parc. 214 v obci a k.ú. Pečky (plyn. přípojka pro čp. 601).\nCena\nza zřízení VBř činí  celkem 156,- Kč + DPH (32,76 Kč).\nHlasování\npro:\n(7) Zdeněk Fejfar, Ing. Hana Kuprová, Ing. Karel Krištoufek, Ing. Petr Dürr, Ivana Trčková, Ing. Martin Jedlička, Milan Paluska\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-141-15/23\nzodpovídá:\nJana Najbrtová\ntermín:\n30. 6. 2023\nProjednávání bodu bylo ukončeno v 15:53:52"
+   },
+   {
+    "number": 5,
+    "title_raw": "Souhlas zřizovatele s přijetím daru - Základní škola Pečky",
+    "heading_raw": "5. Souhlas zřizovatele s přijetím daru - Základní škola Pečky (bod číslo 5)",
+    "predkladatel": "Marcela Bahníková",
+    "votes": [
+     {
+      "raw_text": "pro 2 žáky v období 1.5. - 30.6.2023 příspěvkovou organizací Základní škola Pečky, okres\nKolín\nod společnosti WOMEN FOR WOMEN o.p.s. , IČ 24231509.\nHlasování\npro:\n(7) Zdeněk Fejfar, Ing. Karel Krištoufek, Ing. Petr Dürr, Ing. Hana Kuprová, Ing. Martin Jedlička, Ivana Trčková, Milan Paluska\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)",
+      "pro": {
+       "count": 7,
+       "names": [
+        "Zdeněk Fejfar",
+        "Ing. Karel Krištoufek",
+        "Ing. Petr Dürr",
+        "Ing. Hana Kuprová",
+        "Ing. Martin Jedlička",
+        "Ivana Trčková",
+        "Milan Paluska"
+       ],
+       "raw": "(7) Zdeněk Fejfar, Ing. Karel Krištoufek, Ing. Petr Dürr, Ing. Hana Kuprová, Ing. Martin Jedlička, Ivana Trčková, Milan Paluska"
+      },
+      "proti": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "zdrzel_se": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "nehlasoval": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "result_raw": "Návrh byl přijat jako usnesení číslo: UR-142-15/23",
+      "adopted_resolution_number": "UR-142-15/23"
+     }
+    ],
+    "resolution_numbers_mentioned": [
+     "UR-142-15/23"
+    ],
+    "raw_text": "Předkladatel: Marcela Bahníková\nProjednávání bodu bylo zahájeno v 15:53:55\nDůvodová zpráva\nZákladní škola Pečky, Tř.\nJana\nŠvermy 342, Pečky žádá zřizovatele o souhlas s přijetím účelově určeného daru na úhradu obědů pro žáky.\nDiskuze zahájena v 15:53:55\nK tomuto bodu se vyjádřili: Milan Paluska\nV 15:55:22 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Marcela Bahníková\") v tomto znění:\nRada\nměsta schvaluje přijetí finančního daru ve výši 2 752 Kč určeného na úhradu stravného pro 2 žáky v období 1.5. - 30.6.2023 příspěvkovou organizací Základní škola Pečky, okres\nKolín\nod společnosti WOMEN FOR WOMEN o.p.s. , IČ 24231509.\nHlasování\npro:\n(7) Zdeněk Fejfar, Ing. Karel Krištoufek, Ing. Petr Dürr, Ing. Hana Kuprová, Ing. Martin Jedlička, Ivana Trčková, Milan Paluska\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-142-15/23\nzodpovídá:\nMarcela Bahníková\ntermín:\n5. 5. 2023\nProjednávání bodu bylo ukončeno v 15:55:42"
+   },
+   {
+    "number": 6,
+    "title_raw": "Žádost o dotaci - Mateřská škola Mašinka Pečky",
+    "heading_raw": "6. Žádost o dotaci - Mateřská škola Mašinka Pečky (bod číslo 6)",
+    "predkladatel": "Květa Bubeníčková",
+    "votes": [],
+    "resolution_numbers_mentioned": [],
+    "raw_text": "Předkladatel: Květa Bubeníčková\nProjednávání bodu bylo zahájeno v 15:56:05\nDůvodová zpráva\nŘeditelka Mateřské školy Mašinka Pečky informuje zřizovatele o podání žádosti o dotaci z PRV, na pořízení moderních technologií do školní kuchyně - předpokládané výdaje  1 089 tis., dotace 800 tis., realizace 1-2/2024. Zároveň předkládá žádost na zajištění prostředků na předfinancování projektu a úhradu spoluúčasti.\nRada\nměsta bere na vědomí podání žádosti příspěvkovou organizací Mateřská škola MAŠINKA Pečky o dotaci z PRV na projekt\nPořízení technologií a dalšího vybavení pro MŠ MAŠINKA Pečky.\nV případě získání dotace budou výdaje na část spoluúčasti a na předfinancování projektu zapracovány do návrhu rozpočtu města na rok 2024. Část spoluúčasti předpokládá zřizovatel financovat z prostředků rezervního fondu Mateřské školy Mašinka Pečky.\nStanoviska a doporučení poradních orgánů/odborů\nDiskuze zahájena v 15:56:05\nK tomuto bodu se vyjádřili: Milan Paluska, Ing. Karel Krištoufek, Ing. Hana Kuprová\nRada bere materiály předložené k bodu č. 6 -\nŽádost o dotaci - Mateřská škola Mašinka Pečky\nna vědomí.\nProjednávání bodu bylo ukončeno v 15:59:06"
+   },
+   {
+    "number": 7,
+    "title_raw": "Smlouva o budoucí smlouvě o zřízení VBř č. 8800110549_2/BVB/P (přeložka plynovodu)",
+    "heading_raw": "7. Smlouva o budoucí smlouvě o zřízení VBř č. 8800110549_2/BVB/P (přeložka plynovodu) (bod číslo 7)",
+    "predkladatel": "Jana Najbrtová",
+    "votes": [
+     {
+      "raw_text": "pro:\n(7) Ing. Karel Krištoufek, Milan Paluska, Ing. Petr Dürr, Ing. Hana Kuprová, Ing. Martin Jedlička, Ivana Trčková, Zdeněk Fejfar\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)",
+      "pro": {
+       "count": 7,
+       "names": [
+        "Ing. Karel Krištoufek",
+        "Milan Paluska",
+        "Ing. Petr Dürr",
+        "Ing. Hana Kuprová",
+        "Ing. Martin Jedlička",
+        "Ivana Trčková",
+        "Zdeněk Fejfar"
+       ],
+       "raw": "(7) Ing. Karel Krištoufek, Milan Paluska, Ing. Petr Dürr, Ing. Hana Kuprová, Ing. Martin Jedlička, Ivana Trčková, Zdeněk Fejfar"
+      },
+      "proti": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "zdrzel_se": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "nehlasoval": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "result_raw": "Návrh byl přijat jako usnesení číslo: UR-143-15/23",
+      "adopted_resolution_number": "UR-143-15/23"
+     }
+    ],
+    "resolution_numbers_mentioned": [
+     "UR-143-15/23"
+    ],
+    "raw_text": "Předkladatel: Jana Najbrtová\nProjednávání bodu bylo zahájeno v 15:59:10\nDůvodová zpráva\nDoporučujeme uzavřít výše uvedenou smlouvu. Jedná se o přeložku VTL plynovodu akce: II/329 Pečky – severní obchvat.\nCena\nje stanovena na 10.000,-Kč + DPH /jedná se o cenu znaleckou/.\nDiskuze zahájena v 15:59:10\nK tomuto bodu se vyjádřili: Milan Paluska, Ing. Martin Jedlička, Ivana Trčková, Ing. Petr Dürr, Ing. Karel Krištoufek\nV 16:01:13 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Jana Najbrtová\") v tomto znění:\nRada\nměsta schvaluje uzavřít „Smlouvu o budoucí smlouvě o zřízení č. 8800110549_2/BVB/P“ s firmou GasNet, s.r.o. se sídlem v Ústí nad Labem, ul. Klíšská 940, která se týká částí pozemků v majetku města č. parc. 2273/3 a 2273/27 v obci a k.ú. Pečky (přeložka VTL plynovodu – severní obchvat).\nCena\nza zřízení VBř činí  10.000,-Kč + DPH.\nHlasování\npro:\n(7) Ing. Karel Krištoufek, Milan Paluska, Ing. Petr Dürr, Ing. Hana Kuprová, Ing. Martin Jedlička, Ivana Trčková, Zdeněk Fejfar\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-143-15/23\nzodpovídá:\nJana Najbrtová\ntermín:\n30. 6. 2023\nProjednávání bodu bylo ukončeno v 16:01:27"
+   },
+   {
+    "number": 8,
+    "title_raw": "Zajišťování a financování dopravní obslužnosti",
+    "heading_raw": "8. Zajišťování a financování dopravní obslužnosti (bod číslo 8)",
+    "predkladatel": "Milan Paluska",
+    "votes": [
+     {
+      "raw_text": "pro:\n(7) Ing. Petr Dürr, Ing. Martin Jedlička, Milan Paluska, Ing. Hana Kuprová, Zdeněk Fejfar, Ivana Trčková, Ing. Karel Krištoufek\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)",
+      "pro": {
+       "count": 7,
+       "names": [
+        "Ing. Petr Dürr",
+        "Ing. Martin Jedlička",
+        "Milan Paluska",
+        "Ing. Hana Kuprová",
+        "Zdeněk Fejfar",
+        "Ivana Trčková",
+        "Ing. Karel Krištoufek"
+       ],
+       "raw": "(7) Ing. Petr Dürr, Ing. Martin Jedlička, Milan Paluska, Ing. Hana Kuprová, Zdeněk Fejfar, Ivana Trčková, Ing. Karel Krištoufek"
+      },
+      "proti": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "zdrzel_se": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "nehlasoval": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "result_raw": "Návrh byl přijat jako usnesení číslo: UR-144-15/23",
+      "adopted_resolution_number": "UR-144-15/23"
+     }
+    ],
+    "resolution_numbers_mentioned": [
+     "UR-144-15/23"
+    ],
+    "raw_text": "Předkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 16:01:48\nDůvodová zpráva\nDopravní obslužnost se týká autobusových linek a vlakových linek\nAutobusové linky:\n426 Pečky - Poříčany -\nČeský\nBrod\n- Tuklaty\n433 (270433): Pečky - Nymburk\n498 (270498): Pečky - Poděbrady\n675 (230675): Pečky - Cerhenice -\nKolín\n678 (230678): Pečky - Cerhenice - Poděbrady\nVlakové linky:\nR41:\nPraha\n-\nČeský\nBrod\n- Pečky -\nKolín\n-\nKutná\nHora\nS1 (svazek S1 + S7):\nPraha\n-\nKolín\n+\nČeský\nBrod\n-\nPraha\n-\nBeroun\nS11: Pečky -\nKouřim\nDiskuze zahájena v 16:01:48\nK tomuto bodu se vyjádřili: Milan Paluska, Ing. Petr Dürr, Ing. Karel Krištoufek, Ing. Hana Kuprová\nV 16:09:22 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Milan Paluska\") v tomto znění:\nRada\nměsta schvaluje uzavření Smlouvy o zajišťování a financování dopravní obslužnosti mezi městem Pečky a Integrovanou dopravou Středočeského kraje, p.o., Sokolovská100/94, 186 00\nPraha\n8, IČ: 05792291 za cenu 776 242,- Kč.\nHlasování\npro:\n(7) Ing. Petr Dürr, Ing. Martin Jedlička, Milan Paluska, Ing. Hana Kuprová, Zdeněk Fejfar, Ivana Trčková, Ing. Karel Krištoufek\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-144-15/23\nzodpovídá:\nMilan Paluska\ntermín:\n30. 6. 2023\nProjednávání bodu bylo ukončeno v 16:09:31"
+   },
+   {
+    "number": 9,
+    "title_raw": "Uzavření „Smlouvy o nájmu pozemku“ – část č. parc. 2169/1 (cca 200 m2) v obci a k.ú. Pečky",
+    "heading_raw": "9. Uzavření „Smlouvy o nájmu pozemku“ – část č. parc. 2169/1 (cca 200 m2) v obci a k.ú. Pečky (bod číslo 9)",
+    "predkladatel": "Jana Najbrtová",
+    "votes": [
+     {
+      "raw_text": "pro:\n(7) Ing. Hana Kuprová, Milan Paluska, Zdeněk Fejfar, Ing. Martin Jedlička, Ing. Petr Dürr, Ivana Trčková, Ing. Karel Krištoufek\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)",
+      "pro": {
+       "count": 7,
+       "names": [
+        "Ing. Hana Kuprová",
+        "Milan Paluska",
+        "Zdeněk Fejfar",
+        "Ing. Martin Jedlička",
+        "Ing. Petr Dürr",
+        "Ivana Trčková",
+        "Ing. Karel Krištoufek"
+       ],
+       "raw": "(7) Ing. Hana Kuprová, Milan Paluska, Zdeněk Fejfar, Ing. Martin Jedlička, Ing. Petr Dürr, Ivana Trčková, Ing. Karel Krištoufek"
+      },
+      "proti": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "zdrzel_se": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "nehlasoval": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "result_raw": "Návrh byl přijat jako usnesení číslo: UR-145-15/23",
+      "adopted_resolution_number": "UR-145-15/23"
+     }
+    ],
+    "resolution_numbers_mentioned": [
+     "UR-145-15/23"
+    ],
+    "raw_text": "Předkladatel: Jana Najbrtová\nProjednávání bodu bylo zahájeno v 16:09:44\nDůvodová zpráva\nDoporučujeme uzavřít krátkodobou smlouvu (na 30 dnů max.)-uložení kamene. Zájemce se předběžně dohodl s p.\n█​█​█​█​█​█​█​█​█\nz ČOV, že by bylo umístění možné.\nDiskuze zahájena v 16:09:44\nK tomuto bodu se vyjádřili: Milan Paluska, Ing. Hana Kuprová\nV 16:12:27 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Jana Najbrtová\") v tomto znění:\nRada\nměsta schvaluje uzavřít „Smlouvu o nájmu pozemku\" - část č. parc. 2169/1 (cca 200 m\n2\n) v obci a k.ú. Pečky (za ČOV) s\n█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█\nSmlouva bude uzavřena od 4. 5. 2023 do 31.5. 2023 za cenu 1.000,- Kč s úhradou při podpisu smlouvy.\nHlasování\npro:\n(7) Ing. Hana Kuprová, Milan Paluska, Zdeněk Fejfar, Ing. Martin Jedlička, Ing. Petr Dürr, Ivana Trčková, Ing. Karel Krištoufek\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-145-15/23\nzodpovídá:\nJana Najbrtová\ntermín:\n17. 5. 2023\nProjednávání bodu bylo ukončeno v 16:12:35"
+   },
+   {
+    "number": 10,
+    "title_raw": "Kontrola plnění usnesení",
+    "heading_raw": "10. Kontrola plnění usnesení (bod číslo 10)",
+    "predkladatel": "Milan Paluska",
+    "votes": [],
+    "resolution_numbers_mentioned": [],
+    "raw_text": "Předkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 16:12:40\nDiskuze zahájena v 16:12:40\nK tomuto bodu se vyjádřili: Milan Paluska, Pavlína Nepovímová\nRada bere materiály předložené k bodu č. 10 -\nKontrola plnění usnesení\nna vědomí.\nProjednávání bodu bylo ukončeno v 16:13:23"
+   },
+   {
+    "number": 11,
+    "title_raw": "Jmenování komise pro výběrové řízení na pozici Samostatný referent/referentka odboru stavebního",
+    "heading_raw": "11. Jmenování komise pro výběrové řízení na pozici Samostatný referent/referentka odboru stavebního (bod číslo 11)",
+    "predkladatel": "Pavlína Nepovímová",
+    "votes": [
+     {
+      "raw_text": "pro:\n(7) Ing. Petr Dürr, Ing. Martin Jedlička, Ing. Karel Krištoufek, Zdeněk Fejfar, Ing. Hana Kuprová, Ivana Trčková, Milan Paluska\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)",
+      "pro": {
+       "count": 7,
+       "names": [
+        "Ing. Petr Dürr",
+        "Ing. Martin Jedlička",
+        "Ing. Karel Krištoufek",
+        "Zdeněk Fejfar",
+        "Ing. Hana Kuprová",
+        "Ivana Trčková",
+        "Milan Paluska"
+       ],
+       "raw": "(7) Ing. Petr Dürr, Ing. Martin Jedlička, Ing. Karel Krištoufek, Zdeněk Fejfar, Ing. Hana Kuprová, Ivana Trčková, Milan Paluska"
+      },
+      "proti": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "zdrzel_se": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "nehlasoval": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "result_raw": "Návrh byl přijat jako usnesení číslo: UR-146-15/23",
+      "adopted_resolution_number": "UR-146-15/23"
+     }
+    ],
+    "resolution_numbers_mentioned": [
+     "UR-146-15/23"
+    ],
+    "raw_text": "Předkladatel: Pavlína Nepovímová\nProjednávání bodu bylo zahájeno v 16:13:27\nDůvodová zpráva\nNa pozici \"Samostatný referent/referentka odboru stavebního\" bylo vypsáno výběrové řízení, které bylo ukončeno 28.4.2023. Předpoklady a kvalitu uchazeče o tuto pozici posoudí výběrová komise na svém zasedání dne 10.5.2023 od 13 hodin v kanceláři tajemnice.\nDiskuze zahájena v 16:13:27\nK tomuto bodu se vyjádřili: Milan Paluska, Pavlína Nepovímová\nV 16:18:49 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Pavlína Nepovímová\") v tomto znění:\nRada\nměsta jmenuje členy a náhradníky výběrové komise na obsazení pracovního místa \"samostatný referent/referentka odboru stavebního\".\nPředseda:\nMilan\nPaluska -\nstarosta\nČlenové:\nBc.\nPavlína\nNepovímová\n, DiS. - tajemnice\nEva\nHavlíčková -\npověřená vedením odboru výstavby Kolín\nIng. Věra\nRůžičková -\nvedoucí odboru Správy majetku města a BH\nZuzana\nVaněčková -\nzástupce odborové organizace\nNáhradník:\nPetra\nKutová -\nzástupce odborové organizace\nHlasování\npro:\n(7) Ing. Petr Dürr, Ing. Martin Jedlička, Ing. Karel Krištoufek, Zdeněk Fejfar, Ing. Hana Kuprová, Ivana Trčková, Milan Paluska\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-146-15/23\nzodpovídá:\ntermín:\nIHNED\n(3. 5. 2023)\nProjednávání bodu bylo ukončeno v 16:18:59"
+   },
+   {
+    "number": 12,
+    "title_raw": "Vyřazení nepotřebného majetku prodejem - Renault Kangoo",
+    "heading_raw": "12. Vyřazení nepotřebného majetku prodejem - Renault Kangoo (bod číslo 12)",
+    "predkladatel": "Marcela Bahníková",
+    "votes": [
+     {
+      "raw_text": "pro:\n(7) Ing. Martin Jedlička, Zdeněk Fejfar, Ing. Hana Kuprová, Ing. Karel Krištoufek, Ing. Petr Dürr, Milan Paluska, Ivana Trčková\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)",
+      "pro": {
+       "count": 7,
+       "names": [
+        "Ing. Martin Jedlička",
+        "Zdeněk Fejfar",
+        "Ing. Hana Kuprová",
+        "Ing. Karel Krištoufek",
+        "Ing. Petr Dürr",
+        "Milan Paluska",
+        "Ivana Trčková"
+       ],
+       "raw": "(7) Ing. Martin Jedlička, Zdeněk Fejfar, Ing. Hana Kuprová, Ing. Karel Krištoufek, Ing. Petr Dürr, Milan Paluska, Ivana Trčková"
+      },
+      "proti": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "zdrzel_se": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "nehlasoval": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "result_raw": "Návrh byl přijat jako usnesení číslo: UR-147-15/23",
+      "adopted_resolution_number": "UR-147-15/23"
+     }
+    ],
+    "resolution_numbers_mentioned": [
+     "UR-147-15/23"
+    ],
+    "raw_text": "Předkladatel: Marcela Bahníková\nProjednávání bodu bylo zahájeno v 16:19:07\nDůvodová zpráva\nPečovatelská služba města Pečky nabízí bezplatně zřizovateli v souladu s § 27 odst.8)\nZákona\n250/2000 Sb.  trvale nepotřebný majetek - osobní vozidlo Renault Kangoo. Pokud zřizovatel nemá zájem o převzetí majetku, navrhuje jeho vyřazení prodejem, nabízená kupní cena je 3 000 Kč.\nRok\npořízení 2005, nájezd  k 13.4.2023  109 202 km, vozidlo je ve špatném technickém stavu vyžadující investice převyšující hodnotu vozu. V současné době je vozidlo již bez platné STK (byla do 8.4.2023) a je nepojízdné.\nDiskuze zahájena v 16:19:07\nK tomuto bodu se vyjádřili: Milan Paluska, Ing. Karel Krištoufek\nV 16:21:19 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Marcela Bahníková\") v tomto znění:\nRada\nměsta souhlasí s prodejem nepojízdného osobního vozidla Renault Kangoo SPZ: 4S3 9877  příspěvkovou organizací Pečovatelská služba města Pečky za minimální cenu 3 000 Kč.\nJedná se o trvale nepotřebný majetek, který příspěvková organizace přednostně nabídla zřizovateli ( §27 odst. 8 , Zák. 250/2000 Sb.).\nHlasování\npro:\n(7) Ing. Martin Jedlička, Zdeněk Fejfar, Ing. Hana Kuprová, Ing. Karel Krištoufek, Ing. Petr Dürr, Milan Paluska, Ivana Trčková\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-147-15/23\nzodpovídá:\nMarcela Bahníková\ntermín:\n31. 5. 2023\nProjednávání bodu bylo ukončeno v 16:21:27\nJednání ukončeno 03.05.2023 v 16:23:44\n\nOvěřeno ověřovateli:\n1)\n9. 5. 2023 07:25\nIng. Petr Dürr\n2)\n5. 5. 2023 14:12\nIng. Hana Kuprová"
+   }
+  ],
+  "full_text": "ZÁPIS ze schůze rady č. 15/2023\nMěsto Pečky\ndatum: 3. 5. 2023, čas: 15:00\n​\nPrezence:\nPřítomni:\n(7) Zdeněk Fejfar, Milan Paluska, Ing. Martin Jedlička, Ing. Petr Dürr, Ivana Trčková, Ing. Hana Kuprová, Ing. Karel Krištoufek\nOmluveni:\n(0)\nNepřítomni:\n(0)\nHosté:\nZapisovatel/ka:\nEva Strnadová\nPřítomno je 7 členů a rada je usnášeníschopná.\nJednání zahájeno 03.05.2023 v 15:06:38\n1. Určení zapisovatelů, předsedajícího, příp. ověřovatelů (bod číslo 1)\nPředkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 15:06:47\nPředsedající navrhl jednotlivé členy pracovních komisí\nOvěřovatelé:\nIng. Hana Kuprová, Ing. Petr Dürr\nPředsedající:\nMilan Paluska\nBod byl přijat bez hlasování.\nDiskuze zahájena v 15:06:47\nK tomuto bodu se vyjádřili: Milan Paluska\nProjednávání bodu bylo ukončeno v 15:09:24\n2. Schválení programu jednání (bod číslo 2)\nPředkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 15:09:34\nProgram jednání\n1. Určení zapisovatelů, předsedajícího, příp. ověřovatelů\n2. Schválení programu jednání\n3. Aktuální informace vedení města\n4. Uzavření \"Smlouvy o zřízení VBř č. 8800097951_1/VB/P (RWE GasNet, s.r.o.)\n5. Souhlas zřizovatele s přijetím daru - ZŠ Pečky\n6. Žádost o dotaci - Mateřská škola Mašinka Pečky\n7. Smlouva o budoucí smlouvě o zřízení VBř č. 8800110549_2/BVB/P (přeložka plynovodu)\n8. Zajíšťování a financování dopravní obslužnosti\n9. Uzavření „Smlouvy o nájmu pozemku“ – část č. parc. 2169/1 (cca 200 m2) v obci a k.ú. Pečky\n10. Kontrola plnění usnesení\nDiskuze zahájena v 15:09:34\nK tomuto bodu se vyjádřili: Milan Paluska\nV 15:10:06 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Milan Paluska\") v tomto znění:\nRada\nměsta schvaluje návrh programu jednání.\ns těmito změnami:\n- doplňuje se bod č. 11 - Jmenování komise pro výběrové řízení na pozici Samostatný referent/referentka odboru stavebního\n- doplňuje se bod č. 12 - Vyřazení nepotřebného majetku prodejem - Renault Kangoo\nHlasování\npro:\n(7) Ing. Petr Dürr, Ing. Martin Jedlička, Milan Paluska, Ing. Hana Kuprová, Ing. Karel Krištoufek, Ivana Trčková, Zdeněk Fejfar\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-140-15/23\nzodpovídá:\ntermín:\nIHNED\n(3. 5. 2023)\nProjednávání bodu bylo ukončeno v 15:10:13\n3. Aktuální informace vedení města (bod číslo 3)\nPředkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 15:10:18\nDůvodová zpráva\nstarosta města\n- informace o kontrolních dnech na stavbách - KS, ČOV - nyní probíhá 10 denní technologická odstávka, úpravna vody - změna stavby před dokončením /napojení a vzhled přivaděče/\n- informace o schůzce s projektanty - plánovaný obchvat\n- informace o pietním aktu, položení květin na významných hrobech dne 8.5.2023\ntajemnice\n- ukončení výběrového řízení na obsazení pozice - referent přípravy a realizace investic\nZdeněk\nFejfar\n- informace o veřejném projednání o návrhu změny č. 2 ÚP města Pečky dne 10.5.2023 od 16.00 hodin v obřadní síni\n- informace o konání komise sportovní dne 25.4.2023\nIng.\nKarel\nKrištoufek\n- informace o termínu jednání Finančního výboru dne 16.5.2023 od 15.00 hodin\nDiskuze zahájena v 15:10:18\nK tomuto bodu se vyjádřili: Milan Paluska, Ing. Karel Krištoufek, Zdeněk Fejfar, Ing. Hana Kuprová\nRada bere materiály předložené k bodu č. 3 -\nAktuální informace vedení města\nna vědomí.\nProjednávání bodu bylo ukončeno v 15:52:07\n4. Uzavření \"Smlouvy o zřízení VBř č. 8800097951_1/VB/P (RWE GasNet, s.r.o.) (bod číslo 4)\nPředkladatel: Jana Najbrtová\nProjednávání bodu bylo zahájeno v 15:52:15\nDůvodová zpráva\nDoporučujeme uzavřít výše uvedenou smlouvu. Smlouva budoucí byla uzavřena v červnu 2020. Jedná se o pozemek č. parc. 214 – ul. Hellichova, k.ú. Pečky (nová plynová přípojka pro\n█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​\n) – délka VBř činí 1,30 bm ze cenu 120,- Kč/bm+DPH tzn.celkem 156,-Kč+32,76 Kč(DPH).\nDiskuze zahájena v 15:52:15\nK tomuto bodu se vyjádřili: Milan Paluska, Ing. Karel Krištoufek\nV 15:53:42 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Jana Najbrtová\") v tomto znění:\nRada\nměsta schvaluje uzavřít „Smlouvu o zřízení věcného břemene č. 8800097951_1/VB/P“s firmou RWE GasNet, s.r.o. se sídlem v Ústí nad Labem, ul. Klíšská 940, která se týká části pozemku v majetku města č. parc. 214 v obci a k.ú. Pečky (plyn. přípojka pro čp. 601).\nCena\nza zřízení VBř činí  celkem 156,- Kč + DPH (32,76 Kč).\nHlasování\npro:\n(7) Zdeněk Fejfar, Ing. Hana Kuprová, Ing. Karel Krištoufek, Ing. Petr Dürr, Ivana Trčková, Ing. Martin Jedlička, Milan Paluska\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-141-15/23\nzodpovídá:\nJana Najbrtová\ntermín:\n30. 6. 2023\nProjednávání bodu bylo ukončeno v 15:53:52\n5. Souhlas zřizovatele s přijetím daru - Základní škola Pečky (bod číslo 5)\nPředkladatel: Marcela Bahníková\nProjednávání bodu bylo zahájeno v 15:53:55\nDůvodová zpráva\nZákladní škola Pečky, Tř.\nJana\nŠvermy 342, Pečky žádá zřizovatele o souhlas s přijetím účelově určeného daru na úhradu obědů pro žáky.\nDiskuze zahájena v 15:53:55\nK tomuto bodu se vyjádřili: Milan Paluska\nV 15:55:22 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Marcela Bahníková\") v tomto znění:\nRada\nměsta schvaluje přijetí finančního daru ve výši 2 752 Kč určeného na úhradu stravného pro 2 žáky v období 1.5. - 30.6.2023 příspěvkovou organizací Základní škola Pečky, okres\nKolín\nod společnosti WOMEN FOR WOMEN o.p.s. , IČ 24231509.\nHlasování\npro:\n(7) Zdeněk Fejfar, Ing. Karel Krištoufek, Ing. Petr Dürr, Ing. Hana Kuprová, Ing. Martin Jedlička, Ivana Trčková, Milan Paluska\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-142-15/23\nzodpovídá:\nMarcela Bahníková\ntermín:\n5. 5. 2023\nProjednávání bodu bylo ukončeno v 15:55:42\n6. Žádost o dotaci - Mateřská škola Mašinka Pečky (bod číslo 6)\nPředkladatel: Květa Bubeníčková\nProjednávání bodu bylo zahájeno v 15:56:05\nDůvodová zpráva\nŘeditelka Mateřské školy Mašinka Pečky informuje zřizovatele o podání žádosti o dotaci z PRV, na pořízení moderních technologií do školní kuchyně - předpokládané výdaje  1 089 tis., dotace 800 tis., realizace 1-2/2024. Zároveň předkládá žádost na zajištění prostředků na předfinancování projektu a úhradu spoluúčasti.\nRada\nměsta bere na vědomí podání žádosti příspěvkovou organizací Mateřská škola MAŠINKA Pečky o dotaci z PRV na projekt\nPořízení technologií a dalšího vybavení pro MŠ MAŠINKA Pečky.\nV případě získání dotace budou výdaje na část spoluúčasti a na předfinancování projektu zapracovány do návrhu rozpočtu města na rok 2024. Část spoluúčasti předpokládá zřizovatel financovat z prostředků rezervního fondu Mateřské školy Mašinka Pečky.\nStanoviska a doporučení poradních orgánů/odborů\nDiskuze zahájena v 15:56:05\nK tomuto bodu se vyjádřili: Milan Paluska, Ing. Karel Krištoufek, Ing. Hana Kuprová\nRada bere materiály předložené k bodu č. 6 -\nŽádost o dotaci - Mateřská škola Mašinka Pečky\nna vědomí.\nProjednávání bodu bylo ukončeno v 15:59:06\n7. Smlouva o budoucí smlouvě o zřízení VBř č. 8800110549_2/BVB/P (přeložka plynovodu) (bod číslo 7)\nPředkladatel: Jana Najbrtová\nProjednávání bodu bylo zahájeno v 15:59:10\nDůvodová zpráva\nDoporučujeme uzavřít výše uvedenou smlouvu. Jedná se o přeložku VTL plynovodu akce: II/329 Pečky – severní obchvat.\nCena\nje stanovena na 10.000,-Kč + DPH /jedná se o cenu znaleckou/.\nDiskuze zahájena v 15:59:10\nK tomuto bodu se vyjádřili: Milan Paluska, Ing. Martin Jedlička, Ivana Trčková, Ing. Petr Dürr, Ing. Karel Krištoufek\nV 16:01:13 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Jana Najbrtová\") v tomto znění:\nRada\nměsta schvaluje uzavřít „Smlouvu o budoucí smlouvě o zřízení č. 8800110549_2/BVB/P“ s firmou GasNet, s.r.o. se sídlem v Ústí nad Labem, ul. Klíšská 940, která se týká částí pozemků v majetku města č. parc. 2273/3 a 2273/27 v obci a k.ú. Pečky (přeložka VTL plynovodu – severní obchvat).\nCena\nza zřízení VBř činí  10.000,-Kč + DPH.\nHlasování\npro:\n(7) Ing. Karel Krištoufek, Milan Paluska, Ing. Petr Dürr, Ing. Hana Kuprová, Ing. Martin Jedlička, Ivana Trčková, Zdeněk Fejfar\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-143-15/23\nzodpovídá:\nJana Najbrtová\ntermín:\n30. 6. 2023\nProjednávání bodu bylo ukončeno v 16:01:27\n8. Zajišťování a financování dopravní obslužnosti (bod číslo 8)\nPředkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 16:01:48\nDůvodová zpráva\nDopravní obslužnost se týká autobusových linek a vlakových linek\nAutobusové linky:\n426 Pečky - Poříčany -\nČeský\nBrod\n- Tuklaty\n433 (270433): Pečky - Nymburk\n498 (270498): Pečky - Poděbrady\n675 (230675): Pečky - Cerhenice -\nKolín\n678 (230678): Pečky - Cerhenice - Poděbrady\nVlakové linky:\nR41:\nPraha\n-\nČeský\nBrod\n- Pečky -\nKolín\n-\nKutná\nHora\nS1 (svazek S1 + S7):\nPraha\n-\nKolín\n+\nČeský\nBrod\n-\nPraha\n-\nBeroun\nS11: Pečky -\nKouřim\nDiskuze zahájena v 16:01:48\nK tomuto bodu se vyjádřili: Milan Paluska, Ing. Petr Dürr, Ing. Karel Krištoufek, Ing. Hana Kuprová\nV 16:09:22 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Milan Paluska\") v tomto znění:\nRada\nměsta schvaluje uzavření Smlouvy o zajišťování a financování dopravní obslužnosti mezi městem Pečky a Integrovanou dopravou Středočeského kraje, p.o., Sokolovská100/94, 186 00\nPraha\n8, IČ: 05792291 za cenu 776 242,- Kč.\nHlasování\npro:\n(7) Ing. Petr Dürr, Ing. Martin Jedlička, Milan Paluska, Ing. Hana Kuprová, Zdeněk Fejfar, Ivana Trčková, Ing. Karel Krištoufek\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-144-15/23\nzodpovídá:\nMilan Paluska\ntermín:\n30. 6. 2023\nProjednávání bodu bylo ukončeno v 16:09:31\n9. Uzavření „Smlouvy o nájmu pozemku“ – část č. parc. 2169/1 (cca 200 m2) v obci a k.ú. Pečky (bod číslo 9)\nPředkladatel: Jana Najbrtová\nProjednávání bodu bylo zahájeno v 16:09:44\nDůvodová zpráva\nDoporučujeme uzavřít krátkodobou smlouvu (na 30 dnů max.)-uložení kamene. Zájemce se předběžně dohodl s p.\n█​█​█​█​█​█​█​█​█​\nz ČOV, že by bylo umístění možné.\nDiskuze zahájena v 16:09:44\nK tomuto bodu se vyjádřili: Milan Paluska, Ing. Hana Kuprová\nV 16:12:27 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Jana Najbrtová\") v tomto znění:\nRada\nměsta schvaluje uzavřít „Smlouvu o nájmu pozemku\" - část č. parc. 2169/1 (cca 200 m\n2\n) v obci a k.ú. Pečky (za ČOV) s\n█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​\nSmlouva bude uzavřena od 4. 5. 2023 do 31.5. 2023 za cenu 1.000,- Kč s úhradou při podpisu smlouvy.\nHlasování\npro:\n(7) Ing. Hana Kuprová, Milan Paluska, Zdeněk Fejfar, Ing. Martin Jedlička, Ing. Petr Dürr, Ivana Trčková, Ing. Karel Krištoufek\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-145-15/23\nzodpovídá:\nJana Najbrtová\ntermín:\n17. 5. 2023\nProjednávání bodu bylo ukončeno v 16:12:35\n10. Kontrola plnění usnesení (bod číslo 10)\nPředkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 16:12:40\nDiskuze zahájena v 16:12:40\nK tomuto bodu se vyjádřili: Milan Paluska, Pavlína Nepovímová\nRada bere materiály předložené k bodu č. 10 -\nKontrola plnění usnesení\nna vědomí.\nProjednávání bodu bylo ukončeno v 16:13:23\n11. Jmenování komise pro výběrové řízení na pozici Samostatný referent/referentka odboru stavebního (bod číslo 11)\nPředkladatel: Pavlína Nepovímová\nProjednávání bodu bylo zahájeno v 16:13:27\nDůvodová zpráva\nNa pozici \"Samostatný referent/referentka odboru stavebního\" bylo vypsáno výběrové řízení, které bylo ukončeno 28.4.2023. Předpoklady a kvalitu uchazeče o tuto pozici posoudí výběrová komise na svém zasedání dne 10.5.2023 od 13 hodin v kanceláři tajemnice.\nDiskuze zahájena v 16:13:27\nK tomuto bodu se vyjádřili: Milan Paluska, Pavlína Nepovímová\nV 16:18:49 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Pavlína Nepovímová\") v tomto znění:\nRada\nměsta jmenuje členy a náhradníky výběrové komise na obsazení pracovního místa \"samostatný referent/referentka odboru stavebního\".\nPředseda:\nMilan\nPaluska -\nstarosta\nČlenové:\nBc.\nPavlína\nNepovímová\n, DiS. - tajemnice\nEva\nHavlíčková -\npověřená vedením odboru výstavby Kolín\nIng. Věra\nRůžičková -\nvedoucí odboru Správy majetku města a BH\nZuzana\nVaněčková -\nzástupce odborové organizace\nNáhradník:\nPetra\nKutová -\nzástupce odborové organizace\nHlasování\npro:\n(7) Ing. Petr Dürr, Ing. Martin Jedlička, Ing. Karel Krištoufek, Zdeněk Fejfar, Ing. Hana Kuprová, Ivana Trčková, Milan Paluska\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-146-15/23\nzodpovídá:\ntermín:\nIHNED\n(3. 5. 2023)\nProjednávání bodu bylo ukončeno v 16:18:59\n12. Vyřazení nepotřebného majetku prodejem - Renault Kangoo (bod číslo 12)\nPředkladatel: Marcela Bahníková\nProjednávání bodu bylo zahájeno v 16:19:07\nDůvodová zpráva\nPečovatelská služba města Pečky nabízí bezplatně zřizovateli v souladu s § 27 odst.8)\nZákona\n250/2000 Sb.  trvale nepotřebný majetek - osobní vozidlo Renault Kangoo. Pokud zřizovatel nemá zájem o převzetí majetku, navrhuje jeho vyřazení prodejem, nabízená kupní cena je 3 000 Kč.\nRok\npořízení 2005, nájezd  k 13.4.2023  109 202 km, vozidlo je ve špatném technickém stavu vyžadující investice převyšující hodnotu vozu. V současné době je vozidlo již bez platné STK (byla do 8.4.2023) a je nepojízdné.\nDiskuze zahájena v 16:19:07\nK tomuto bodu se vyjádřili: Milan Paluska, Ing. Karel Krištoufek\nV 16:21:19 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Marcela Bahníková\") v tomto znění:\nRada\nměsta souhlasí s prodejem nepojízdného osobního vozidla Renault Kangoo SPZ: 4S3 9877  příspěvkovou organizací Pečovatelská služba města Pečky za minimální cenu 3 000 Kč.\nJedná se o trvale nepotřebný majetek, který příspěvková organizace přednostně nabídla zřizovateli ( §27 odst. 8 , Zák. 250/2000 Sb.).\nHlasování\npro:\n(7) Ing. Martin Jedlička, Zdeněk Fejfar, Ing. Hana Kuprová, Ing. Karel Krištoufek, Ing. Petr Dürr, Milan Paluska, Ivana Trčková\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-147-15/23\nzodpovídá:\nMarcela Bahníková\ntermín:\n31. 5. 2023\nProjednávání bodu bylo ukončeno v 16:21:27\nJednání ukončeno 03.05.2023 v 16:23:44\nOvěřeno ověřovateli:\n1)\n9. 5. 2023 07:25\nIng. Petr Dürr\n2)\n5. 5. 2023 14:12\nIng. Hana Kuprová"
+ },
+ "resolutions": {
+  "status": "ok",
+  "url": "https://mesto-pecky.usneseni.cz/verejne/3da42b00-e33e-11ed-ad30-6f8569a25ad7/usneseni/",
+  "fetched_at": "2026-08-04T14:10:28.620953+00:00",
+  "items": [
+   {
+    "number_raw": "UR-140-15/23",
+    "detail_id": 37983,
+    "detail_url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/37983?mod=rada",
+    "agenda_item_raw": "Schválení programu jednání",
+    "text_verbatim": "Rada\nměsta schvaluje návrh programu jednání.\ns těmito změnami:\n- doplňuje se bod č. 11 - Jmenování komise pro výběrové řízení na pozici Samostatný referent/referentka odboru stavebního\n- doplňuje se bod č. 12 - Vyřazení nepotřebného majetku prodejem - Renault Kangoo",
+    "cell_text_raw": "Bod programu:\nSchválení programu jednání\nText přijatého usnesení:\nRada\nměsta schvaluje návrh programu jednání.\ns těmito změnami:\n- doplňuje se bod č. 11 - Jmenování komise pro výběrové řízení na pozici Samostatný referent/referentka odboru stavebního\n- doplňuje se bod č. 12 - Vyřazení nepotřebného majetku prodejem - Renault Kangoo",
+    "date_raw": "3. 5. 2023",
+    "date_iso": "2023-05-03",
+    "responsible_raw": "",
+    "deadline_raw": "IHNED (3. 5. 2023)",
+    "vote": {
+     "raw_text": "pro: 7 proti: 0 zdržel se: 0",
+     "pro": {
+      "count": 7,
+      "names": null,
+      "raw": "7"
+     },
+     "proti": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     },
+     "zdrzel_se": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     }
+    },
+    "detail": {
+     "number_raw": "UR-140-15/23",
+     "text_verbatim": "Rada města schvaluje návrh programu jednání.\ns těmito změnami: - doplňuje se bod č. 11 - Jmenování komise pro výběrové řízení na pozici Samostatný referent/referentka odboru stavebního - doplňuje se bod č. 12 - Vyřazení nepotřebného majetku prodejem - Renault Kangoo",
+     "typ_raw": null,
+     "zodpovida_raw": "",
+     "prijato_raw": "3. 5. 2023 na jednání č. 15/2023",
+     "prijato_date_iso": "2023-05-03",
+     "prijato_meeting_label": "15/2023",
+     "termin_raw": "IHNED (3. 5. 2023)",
+     "ukonceno_raw": "3. 5. 2023",
+     "ukonceno_date_iso": "2023-05-03",
+     "fields_raw": {
+      "Číslo usnesení": "UR-140-15/23",
+      "Text usnesení": "Rada města schvaluje návrh programu jednání.\ns těmito změnami: - doplňuje se bod č. 11 - Jmenování komise pro výběrové řízení na pozici Samostatný referent/referentka odboru stavebního - doplňuje se bod č. 12 - Vyřazení nepotřebného majetku prodejem - Renault Kangoo",
+      "Zodpovídá": "",
+      "Přijato": "3. 5. 2023 na jednání č. 15/2023",
+      "Termín": "IHNED (3. 5. 2023)",
+      "Ukončeno": "3. 5. 2023"
+     }
+    }
+   },
+   {
+    "number_raw": "UR-141-15/23",
+    "detail_id": 38053,
+    "detail_url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/38053?mod=rada",
+    "agenda_item_raw": "Uzavření \"Smlouvy o zřízení VBř č. 8800097951_1/VB/P (RWE GasNet, s.r.o.)",
+    "text_verbatim": "Rada\nměsta schvaluje uzavřít „Smlouvu o zřízení věcného břemene č. 8800097951_1/VB/P“s firmou RWE GasNet, s.r.o. se sídlem v Ústí nad Labem, ul. Klíšská 940, která se týká části pozemku v majetku města č. parc. 214 v obci a k.ú. Pečky (plyn. přípojka pro čp. 601).\nCena\nza zřízení VBř činí  celkem 156,- Kč + DPH (32,76 Kč) .",
+    "cell_text_raw": "Bod programu:\nUzavření \"Smlouvy o zřízení VBř č. 8800097951_1/VB/P (RWE GasNet, s.r.o.)\nText přijatého usnesení:\nRada\nměsta schvaluje uzavřít „Smlouvu o zřízení věcného břemene č. 8800097951_1/VB/P“s firmou RWE GasNet, s.r.o. se sídlem v Ústí nad Labem, ul. Klíšská 940, která se týká části pozemku v majetku města č. parc. 214 v obci a k.ú. Pečky (plyn. přípojka pro čp. 601).\nCena\nza zřízení VBř činí  celkem 156,- Kč + DPH (32,76 Kč) .",
+    "date_raw": "3. 5. 2023",
+    "date_iso": "2023-05-03",
+    "responsible_raw": "Jana Najbrtová",
+    "deadline_raw": "30. 6. 2023",
+    "vote": {
+     "raw_text": "pro: 7 proti: 0 zdržel se: 0",
+     "pro": {
+      "count": 7,
+      "names": null,
+      "raw": "7"
+     },
+     "proti": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     },
+     "zdrzel_se": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     }
+    },
+    "detail": {
+     "number_raw": "UR-141-15/23",
+     "text_verbatim": "Rada města schvaluje uzavřít „Smlouvu o zřízení věcného břemene č. 8800097951_1/VB/P“s firmou RWE GasNet, s.r.o. se sídlem v Ústí nad Labem, ul. Klíšská 940, která se týká části pozemku v majetku města č. parc. 214 v obci a k.ú. Pečky (plyn. přípojka pro čp. 601). Cena za zřízení VBř činí  celkem 156,- Kč + DPH (32,76 Kč) .",
+     "typ_raw": null,
+     "zodpovida_raw": "Jana Najbrtová",
+     "prijato_raw": "3. 5. 2023 na jednání č. 15/2023",
+     "prijato_date_iso": "2023-05-03",
+     "prijato_meeting_label": "15/2023",
+     "termin_raw": "30. 6. 2023",
+     "ukonceno_raw": "9. 5. 2023",
+     "ukonceno_date_iso": "2023-05-09",
+     "fields_raw": {
+      "Číslo usnesení": "UR-141-15/23",
+      "Text usnesení": "Rada města schvaluje uzavřít „Smlouvu o zřízení věcného břemene č. 8800097951_1/VB/P“s firmou RWE GasNet, s.r.o. se sídlem v Ústí nad Labem, ul. Klíšská 940, která se týká části pozemku v majetku města č. parc. 214 v obci a k.ú. Pečky (plyn. přípojka pro čp. 601). Cena za zřízení VBř činí  celkem 156,- Kč + DPH (32,76 Kč) .",
+      "Zodpovídá": "Jana Najbrtová",
+      "Přijato": "3. 5. 2023 na jednání č. 15/2023",
+      "Termín": "30. 6. 2023",
+      "Ukončeno": "9. 5. 2023"
+     }
+    }
+   },
+   {
+    "number_raw": "UR-142-15/23",
+    "detail_id": 38151,
+    "detail_url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/38151?mod=rada",
+    "agenda_item_raw": "Souhlas zřizovatele s přijetím daru - Základní škola Pečky",
+    "text_verbatim": "Rada\nměsta schvaluje přijetí finančního daru ve výši 2 752 Kč určeného na úhradu stravného pro 2 žáky v období 1.5. - 30.6.2023 příspěvkovou organizací Základní škola Pečky, okres\nKolín\nod společnosti WOMEN FOR WOMEN o.p.s. , IČ 24231509.",
+    "cell_text_raw": "Bod programu:\nSouhlas zřizovatele s přijetím daru - Základní škola Pečky\nText přijatého usnesení:\nRada\nměsta schvaluje přijetí finančního daru ve výši 2 752 Kč určeného na úhradu stravného pro 2 žáky v období 1.5. - 30.6.2023 příspěvkovou organizací Základní škola Pečky, okres\nKolín\nod společnosti WOMEN FOR WOMEN o.p.s. , IČ 24231509.",
+    "date_raw": "3. 5. 2023",
+    "date_iso": "2023-05-03",
+    "responsible_raw": "Marcela Bahníková",
+    "deadline_raw": "5. 5. 2023",
+    "vote": {
+     "raw_text": "pro: 7 proti: 0 zdržel se: 0",
+     "pro": {
+      "count": 7,
+      "names": null,
+      "raw": "7"
+     },
+     "proti": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     },
+     "zdrzel_se": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     }
+    },
+    "detail": {
+     "number_raw": "UR-142-15/23",
+     "text_verbatim": "Rada města schvaluje přijetí finančního daru ve výši 2 752 Kč určeného na úhradu stravného pro 2 žáky v období 1.5. - 30.6.2023 příspěvkovou organizací Základní škola Pečky, okres Kolín od společnosti WOMEN FOR WOMEN o.p.s. , IČ 24231509.",
+     "typ_raw": null,
+     "zodpovida_raw": "Marcela Bahníková",
+     "prijato_raw": "3. 5. 2023 na jednání č. 15/2023",
+     "prijato_date_iso": "2023-05-03",
+     "prijato_meeting_label": "15/2023",
+     "termin_raw": "5. 5. 2023",
+     "ukonceno_raw": "4. 5. 2023",
+     "ukonceno_date_iso": "2023-05-04",
+     "fields_raw": {
+      "Číslo usnesení": "UR-142-15/23",
+      "Text usnesení": "Rada města schvaluje přijetí finančního daru ve výši 2 752 Kč určeného na úhradu stravného pro 2 žáky v období 1.5. - 30.6.2023 příspěvkovou organizací Základní škola Pečky, okres Kolín od společnosti WOMEN FOR WOMEN o.p.s. , IČ 24231509.",
+      "Zodpovídá": "Marcela Bahníková",
+      "Přijato": "3. 5. 2023 na jednání č. 15/2023",
+      "Termín": "5. 5. 2023",
+      "Ukončeno": "4. 5. 2023"
+     }
+    }
+   },
+   {
+    "number_raw": "UR-143-15/23",
+    "detail_id": 38107,
+    "detail_url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/38107?mod=rada",
+    "agenda_item_raw": "Smlouva o budoucí smlouvě o zřízení VBř č. 8800110549_2/BVB/P (přeložka plynovodu)",
+    "text_verbatim": "Rada\nměsta schvaluje uzavřít „Smlouvu o budoucí smlouvě o zřízení č. 8800110549_2/BVB/P“ s firmou GasNet, s.r.o. se sídlem v Ústí nad Labem, ul. Klíšská 940, která se týká částí pozemků v majetku města č. parc. 2273/3 a 2273/27 v obci a k.ú. Pečky (přeložka VTL plynovodu – severní obchvat).\nCena\nza zřízení VBř činí  10.000,-Kč + DPH.",
+    "cell_text_raw": "Bod programu:\nSmlouva o budoucí smlouvě o zřízení VBř č. 8800110549_2/BVB/P (přeložka plynovodu)\nText přijatého usnesení:\nRada\nměsta schvaluje uzavřít „Smlouvu o budoucí smlouvě o zřízení č. 8800110549_2/BVB/P“ s firmou GasNet, s.r.o. se sídlem v Ústí nad Labem, ul. Klíšská 940, která se týká částí pozemků v majetku města č. parc. 2273/3 a 2273/27 v obci a k.ú. Pečky (přeložka VTL plynovodu – severní obchvat).\nCena\nza zřízení VBř činí  10.000,-Kč + DPH.",
+    "date_raw": "3. 5. 2023",
+    "date_iso": "2023-05-03",
+    "responsible_raw": "Jana Najbrtová",
+    "deadline_raw": "30. 6. 2023",
+    "vote": {
+     "raw_text": "pro: 7 proti: 0 zdržel se: 0",
+     "pro": {
+      "count": 7,
+      "names": null,
+      "raw": "7"
+     },
+     "proti": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     },
+     "zdrzel_se": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     }
+    },
+    "detail": {
+     "number_raw": "UR-143-15/23",
+     "text_verbatim": "Rada města schvaluje uzavřít „Smlouvu o budoucí smlouvě o zřízení č. 8800110549_2/BVB/P“ s firmou GasNet, s.r.o. se sídlem v Ústí nad Labem, ul. Klíšská 940, která se týká částí pozemků v majetku města č. parc. 2273/3 a 2273/27 v obci a k.ú. Pečky (přeložka VTL plynovodu – severní obchvat). Cena za zřízení VBř činí  10.000,-Kč + DPH.",
+     "typ_raw": null,
+     "zodpovida_raw": "Jana Najbrtová",
+     "prijato_raw": "3. 5. 2023 na jednání č. 15/2023",
+     "prijato_date_iso": "2023-05-03",
+     "prijato_meeting_label": "15/2023",
+     "termin_raw": "30. 6. 2023",
+     "ukonceno_raw": "9. 5. 2023",
+     "ukonceno_date_iso": "2023-05-09",
+     "fields_raw": {
+      "Číslo usnesení": "UR-143-15/23",
+      "Text usnesení": "Rada města schvaluje uzavřít „Smlouvu o budoucí smlouvě o zřízení č. 8800110549_2/BVB/P“ s firmou GasNet, s.r.o. se sídlem v Ústí nad Labem, ul. Klíšská 940, která se týká částí pozemků v majetku města č. parc. 2273/3 a 2273/27 v obci a k.ú. Pečky (přeložka VTL plynovodu – severní obchvat). Cena za zřízení VBř činí  10.000,-Kč + DPH.",
+      "Zodpovídá": "Jana Najbrtová",
+      "Přijato": "3. 5. 2023 na jednání č. 15/2023",
+      "Termín": "30. 6. 2023",
+      "Ukončeno": "9. 5. 2023"
+     }
+    }
+   },
+   {
+    "number_raw": "UR-144-15/23",
+    "detail_id": 38220,
+    "detail_url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/38220?mod=rada",
+    "agenda_item_raw": "Zajíšťování a financování dopravní obslužnosti",
+    "text_verbatim": "Rada\nměsta schvaluje uzavření Smlouvy o zajišťování a financování dopravní obslužnosti mezi městem Pečky a Integrovanou dopravou Středočeského kraje, p.o., Sokolovská100/94, 186 00\nPraha\n8, IČ: 05792291 za cenu 776 242,- Kč.",
+    "cell_text_raw": "Bod programu:\nZajíšťování a financování dopravní obslužnosti\nText přijatého usnesení:\nRada\nměsta schvaluje uzavření Smlouvy o zajišťování a financování dopravní obslužnosti mezi městem Pečky a Integrovanou dopravou Středočeského kraje, p.o., Sokolovská100/94, 186 00\nPraha\n8, IČ: 05792291 za cenu 776 242,- Kč.",
+    "date_raw": "3. 5. 2023",
+    "date_iso": "2023-05-03",
+    "responsible_raw": "Milan Paluska",
+    "deadline_raw": "30. 6. 2023",
+    "vote": {
+     "raw_text": "pro: 7 proti: 0 zdržel se: 0",
+     "pro": {
+      "count": 7,
+      "names": null,
+      "raw": "7"
+     },
+     "proti": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     },
+     "zdrzel_se": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     }
+    },
+    "detail": {
+     "number_raw": "UR-144-15/23",
+     "text_verbatim": "Rada města schvaluje uzavření Smlouvy o zajišťování a financování dopravní obslužnosti mezi městem Pečky a Integrovanou dopravou Středočeského kraje, p.o., Sokolovská100/94, 186 00 Praha 8, IČ: 05792291 za cenu 776 242,- Kč.",
+     "typ_raw": null,
+     "zodpovida_raw": "Milan Paluska",
+     "prijato_raw": "3. 5. 2023 na jednání č. 15/2023",
+     "prijato_date_iso": "2023-05-03",
+     "prijato_meeting_label": "15/2023",
+     "termin_raw": "30. 6. 2023",
+     "ukonceno_raw": "10. 7. 2023",
+     "ukonceno_date_iso": "2023-07-10",
+     "fields_raw": {
+      "Číslo usnesení": "UR-144-15/23",
+      "Text usnesení": "Rada města schvaluje uzavření Smlouvy o zajišťování a financování dopravní obslužnosti mezi městem Pečky a Integrovanou dopravou Středočeského kraje, p.o., Sokolovská100/94, 186 00 Praha 8, IČ: 05792291 za cenu 776 242,- Kč.",
+      "Zodpovídá": "Milan Paluska",
+      "Přijato": "3. 5. 2023 na jednání č. 15/2023",
+      "Termín": "30. 6. 2023",
+      "Ukončeno": "10. 7. 2023"
+     }
+    }
+   },
+   {
+    "number_raw": "UR-145-15/23",
+    "detail_id": 38224,
+    "detail_url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/38224?mod=rada",
+    "agenda_item_raw": "Uzavření „Smlouvy o nájmu pozemku“ – část č. parc. 2169/1 (cca 200 m2) v obci a k.ú. Pečky",
+    "text_verbatim": "Rada\nměsta schvaluje uzavřít „Smlouvu o nájmu pozemku\" - část č. parc. 2169/1 (cca 200 m\n2\n) v obci a k.ú. Pečky (za ČOV) s\n█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​\nSmlouva bude uzavřena od 4. 5. 2023 do 31.5. 2023 za cenu 1.000,- Kč s úhradou při podpisu smlouvy.",
+    "cell_text_raw": "Bod programu:\nUzavření „Smlouvy o nájmu pozemku“ – část č. parc. 2169/1 (cca 200 m2) v obci a k.ú. Pečky\nText přijatého usnesení:\nRada\nměsta schvaluje uzavřít „Smlouvu o nájmu pozemku\" - část č. parc. 2169/1 (cca 200 m\n2\n) v obci a k.ú. Pečky (za ČOV) s\n█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​\nSmlouva bude uzavřena od 4. 5. 2023 do 31.5. 2023 za cenu 1.000,- Kč s úhradou při podpisu smlouvy.",
+    "date_raw": "3. 5. 2023",
+    "date_iso": "2023-05-03",
+    "responsible_raw": "Jana Najbrtová",
+    "deadline_raw": "17. 5. 2023",
+    "vote": {
+     "raw_text": "pro: 7 proti: 0 zdržel se: 0",
+     "pro": {
+      "count": 7,
+      "names": null,
+      "raw": "7"
+     },
+     "proti": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     },
+     "zdrzel_se": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     }
+    },
+    "detail": {
+     "number_raw": "UR-145-15/23",
+     "text_verbatim": "Rada města schvaluje uzavřít „Smlouvu o nájmu pozemku\" - část č. parc. 2169/1 (cca 200 m 2 ) v obci a k.ú. Pečky (za ČOV) s █​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​ Smlouva bude uzavřena od 4. 5. 2023 do 31.5. 2023 za cenu 1.000,- Kč s úhradou při podpisu smlouvy.",
+     "typ_raw": null,
+     "zodpovida_raw": "Jana Najbrtová",
+     "prijato_raw": "3. 5. 2023 na jednání č. 15/2023",
+     "prijato_date_iso": "2023-05-03",
+     "prijato_meeting_label": "15/2023",
+     "termin_raw": "17. 5. 2023",
+     "ukonceno_raw": "9. 5. 2023",
+     "ukonceno_date_iso": "2023-05-09",
+     "fields_raw": {
+      "Číslo usnesení": "UR-145-15/23",
+      "Text usnesení": "Rada města schvaluje uzavřít „Smlouvu o nájmu pozemku\" - část č. parc. 2169/1 (cca 200 m 2 ) v obci a k.ú. Pečky (za ČOV) s █​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​ Smlouva bude uzavřena od 4. 5. 2023 do 31.5. 2023 za cenu 1.000,- Kč s úhradou při podpisu smlouvy.",
+      "Zodpovídá": "Jana Najbrtová",
+      "Přijato": "3. 5. 2023 na jednání č. 15/2023",
+      "Termín": "17. 5. 2023",
+      "Ukončeno": "9. 5. 2023"
+     }
+    }
+   },
+   {
+    "number_raw": "UR-146-15/23",
+    "detail_id": 38278,
+    "detail_url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/38278?mod=rada",
+    "agenda_item_raw": "Jmenování komise pro výběrové řízení na pozici Samostatný referent/referentka odboru stavebního",
+    "text_verbatim": "Rada\nměsta jmenuje členy a náhradníky výběrové komise na obsazení pracovního místa \"samostatný referent/referentka odboru stavebního\".\nPředseda:\nMilan\nPaluska -\nstarosta\nČlenové:\nBc.\nPavlína\nNepovímová\n, DiS. - tajemnice\nEva\nHavlíčková -\npověřená vedením odboru výstavby Kolín\nIng. Věra\nRůžičková -\nvedoucí odboru Správy majetku města a BH\nZuzana\nVaněčková -\nzástupce odborové organizace\nNáhradník:\nPetra\nKutová -\nzástupce odborové organizace",
+    "cell_text_raw": "Bod programu:\nJmenování komise pro výběrové řízení na pozici Samostatný referent/referentka odboru stavebního\nText přijatého usnesení:\nRada\nměsta jmenuje členy a náhradníky výběrové komise na obsazení pracovního místa \"samostatný referent/referentka odboru stavebního\".\nPředseda:\nMilan\nPaluska -\nstarosta\nČlenové:\nBc.\nPavlína\nNepovímová\n, DiS. - tajemnice\nEva\nHavlíčková -\npověřená vedením odboru výstavby Kolín\nIng. Věra\nRůžičková -\nvedoucí odboru Správy majetku města a BH\nZuzana\nVaněčková -\nzástupce odborové organizace\nNáhradník:\nPetra\nKutová -\nzástupce odborové organizace",
+    "date_raw": "3. 5. 2023",
+    "date_iso": "2023-05-03",
+    "responsible_raw": "",
+    "deadline_raw": "IHNED (3. 5. 2023)",
+    "vote": {
+     "raw_text": "pro: 7 proti: 0 zdržel se: 0",
+     "pro": {
+      "count": 7,
+      "names": null,
+      "raw": "7"
+     },
+     "proti": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     },
+     "zdrzel_se": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     }
+    },
+    "detail": {
+     "number_raw": "UR-146-15/23",
+     "text_verbatim": "Rada města jmenuje členy a náhradníky výběrové komise na obsazení pracovního místa \"samostatný referent/referentka odboru stavebního\".\nPředseda: Milan Paluska - starosta Členové: Bc. Pavlína Nepovímová , DiS. - tajemnice Eva Havlíčková - pověřená vedením odboru výstavby Kolín Ing. Věra Růžičková - vedoucí odboru Správy majetku města a BH Zuzana Vaněčková - zástupce odborové organizace                                     \nNáhradník: Petra Kutová - zástupce odborové organizace",
+     "typ_raw": null,
+     "zodpovida_raw": "",
+     "prijato_raw": "3. 5. 2023 na jednání č. 15/2023",
+     "prijato_date_iso": "2023-05-03",
+     "prijato_meeting_label": "15/2023",
+     "termin_raw": "IHNED (3. 5. 2023)",
+     "ukonceno_raw": "3. 5. 2023",
+     "ukonceno_date_iso": "2023-05-03",
+     "fields_raw": {
+      "Číslo usnesení": "UR-146-15/23",
+      "Text usnesení": "Rada města jmenuje členy a náhradníky výběrové komise na obsazení pracovního místa \"samostatný referent/referentka odboru stavebního\".\nPředseda: Milan Paluska - starosta Členové: Bc. Pavlína Nepovímová , DiS. - tajemnice Eva Havlíčková - pověřená vedením odboru výstavby Kolín Ing. Věra Růžičková - vedoucí odboru Správy majetku města a BH Zuzana Vaněčková - zástupce odborové organizace                                     \nNáhradník: Petra Kutová - zástupce odborové organizace",
+      "Zodpovídá": "",
+      "Přijato": "3. 5. 2023 na jednání č. 15/2023",
+      "Termín": "IHNED (3. 5. 2023)",
+      "Ukončeno": "3. 5. 2023"
+     }
+    }
+   },
+   {
+    "number_raw": "UR-147-15/23",
+    "detail_id": 38285,
+    "detail_url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/38285?mod=rada",
+    "agenda_item_raw": "Vyřazení nepotřebného majetku prodejem - Renault Kangoo",
+    "text_verbatim": "Rada\nměsta souhlasí s prodejem nepojízdného osobního vozidla Renault Kangoo SPZ: 4S3 9877  příspěvkovou organizací Pečovatelská služba města Pečky za minimální cenu 3 000 Kč.\nJedná se o trvale nepotřebný majetek, který příspěvková organizace přednostně nabídla zřizovateli ( §27 odst. 8 , Zák. 250/2000 Sb.).",
+    "cell_text_raw": "Bod programu:\nVyřazení nepotřebného majetku prodejem - Renault Kangoo\nText přijatého usnesení:\nRada\nměsta souhlasí s prodejem nepojízdného osobního vozidla Renault Kangoo SPZ: 4S3 9877  příspěvkovou organizací Pečovatelská služba města Pečky za minimální cenu 3 000 Kč.\nJedná se o trvale nepotřebný majetek, který příspěvková organizace přednostně nabídla zřizovateli ( §27 odst. 8 , Zák. 250/2000 Sb.).",
+    "date_raw": "3. 5. 2023",
+    "date_iso": "2023-05-03",
+    "responsible_raw": "Marcela Bahníková",
+    "deadline_raw": "31. 5. 2023",
+    "vote": {
+     "raw_text": "pro: 7 proti: 0 zdržel se: 0",
+     "pro": {
+      "count": 7,
+      "names": null,
+      "raw": "7"
+     },
+     "proti": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     },
+     "zdrzel_se": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     }
+    },
+    "detail": {
+     "number_raw": "UR-147-15/23",
+     "text_verbatim": "Rada města souhlasí s prodejem nepojízdného osobního vozidla Renault Kangoo SPZ: 4S3 9877  příspěvkovou organizací Pečovatelská služba města Pečky za minimální cenu 3 000 Kč. Jedná se o trvale nepotřebný majetek, který příspěvková organizace přednostně nabídla zřizovateli ( §27 odst. 8 , Zák. 250/2000 Sb.).",
+     "typ_raw": null,
+     "zodpovida_raw": "Marcela Bahníková",
+     "prijato_raw": "3. 5. 2023 na jednání č. 15/2023",
+     "prijato_date_iso": "2023-05-03",
+     "prijato_meeting_label": "15/2023",
+     "termin_raw": "31. 5. 2023",
+     "ukonceno_raw": "4. 5. 2023",
+     "ukonceno_date_iso": "2023-05-04",
+     "fields_raw": {
+      "Číslo usnesení": "UR-147-15/23",
+      "Text usnesení": "Rada města souhlasí s prodejem nepojízdného osobního vozidla Renault Kangoo SPZ: 4S3 9877  příspěvkovou organizací Pečovatelská služba města Pečky za minimální cenu 3 000 Kč. Jedná se o trvale nepotřebný majetek, který příspěvková organizace přednostně nabídla zřizovateli ( §27 odst. 8 , Zák. 250/2000 Sb.).",
+      "Zodpovídá": "Marcela Bahníková",
+      "Přijato": "3. 5. 2023 na jednání č. 15/2023",
+      "Termín": "31. 5. 2023",
+      "Ukončeno": "4. 5. 2023"
+     }
+    }
+   }
+  ]
+ }
+}

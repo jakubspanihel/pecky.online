@@ -1,0 +1,937 @@
+{
+ "uuid": "5318e700-db11-11eb-899f-a07304374d0b",
+ "body_type_raw": "Rada",
+ "label_raw": "14/2021 (23. 8. 2021)",
+ "number": 14,
+ "year": 2021,
+ "date_iso": "2021-08-23",
+ "links": {
+  "invitation": "https://mesto-pecky.usneseni.cz/verejne/?uuid=5318e700-db11-11eb-899f-a07304374d0b&page=18&do=printPublicInvitation",
+  "minutes": "https://mesto-pecky.usneseni.cz/verejne/5318e700-db11-11eb-899f-a07304374d0b/zapis/?page=18",
+  "signed_minutes_pdf": "https://mesto-pecky.usneseni.cz/verejne/?meetingReportControl-uuid=5318e700-db11-11eb-899f-a07304374d0b&page=18&do=meetingReportControl-getSignedReportPdf",
+  "resolutions": "https://mesto-pecky.usneseni.cz/verejne/5318e700-db11-11eb-899f-a07304374d0b/usneseni/?page=18",
+  "audio": null
+ },
+ "link_texts": {
+  "invitation": "Pozvánka",
+  "minutes": "zápis",
+  "signed_minutes_pdf": "podepsaný zápis",
+  "resolutions": "přijatá usnesení"
+ },
+ "status": "ok",
+ "invitation": {
+  "status": "site_error",
+  "error": "status=200 ct=text/html; charset=utf-8 flash='<a href=\"\" class=\"close\" data-dismiss=\"alert\" aria-label=\"close\">&times;'",
+  "url": "https://mesto-pecky.usneseni.cz/verejne/?uuid=5318e700-db11-11eb-899f-a07304374d0b&do=printPublicInvitation",
+  "fetched_at": "2026-08-04T15:16:00.334939+00:00"
+ },
+ "minutes": {
+  "status": "ok",
+  "url": "https://mesto-pecky.usneseni.cz/verejne/5318e700-db11-11eb-899f-a07304374d0b/zapis/",
+  "fetched_at": "2026-08-04T14:45:11.427022+00:00",
+  "title_raw": "ZÁPIS z jednání rady č. 14/2021 Město Pečky datum: 23. 8. 2021, čas: 14:00 ​",
+  "date_raw": "23. 8. 2021",
+  "date_iso": "2021-08-23",
+  "time_raw": "14:00",
+  "presence": {
+   "raw_text": "Prezence:\nPřítomni:\n(5) Mgr. Alena Švejnohová, Mgr. Blanka Kozáková, Šárka Horynová, Tomáš Vodička, Jiří Katrnoška\nOmluveni:\n(2) Bc. Iveta Minaříková, Jaroslav Železný\nNepřítomni:\nHosté:\nIng. Adam Brant - jednatel společnosti PS a SM\nZapisovatel/ka:\nEva Strnadová\nPřítomno je 5 členů a rada je usnášeníschopná.\nJednání zahájeno 23.08.2021 v 14:12:59",
+   "pritomni": {
+    "count": 5,
+    "names": [
+     "Mgr. Alena Švejnohová",
+     "Mgr. Blanka Kozáková",
+     "Šárka Horynová",
+     "Tomáš Vodička",
+     "Jiří Katrnoška"
+    ],
+    "raw": "(5) Mgr. Alena Švejnohová, Mgr. Blanka Kozáková, Šárka Horynová, Tomáš Vodička, Jiří Katrnoška"
+   },
+   "omluveni": {
+    "count": 2,
+    "names": [
+     "Bc. Iveta Minaříková",
+     "Jaroslav Železný"
+    ],
+    "raw": "(2) Bc. Iveta Minaříková, Jaroslav Železný"
+   },
+   "nepritomni": null,
+   "predsedajici": null,
+   "quorum_raw": "Přítomno je 5 členů a rada je usnášeníschopná."
+  },
+  "header_raw": "Prezence:\nPřítomni:\n(5) Mgr. Alena Švejnohová, Mgr. Blanka Kozáková, Šárka Horynová, Tomáš Vodička, Jiří Katrnoška\nOmluveni:\n(2) Bc. Iveta Minaříková, Jaroslav Železný\nNepřítomni:\nHosté:\nIng. Adam Brant - jednatel společnosti PS a SM\nZapisovatel/ka:\nEva Strnadová\nPřítomno je 5 členů a rada je usnášeníschopná.\nJednání zahájeno 23.08.2021 v 14:12:59",
+  "agenda_items": [
+   {
+    "number": 1,
+    "title_raw": "Určení zapisovatelů, předsedajícího, příp. ověřovatelů",
+    "heading_raw": "1. Určení zapisovatelů, předsedajícího, příp. ověřovatelů (bod číslo 1)",
+    "predkladatel": "Mgr. Alena Švejnohová",
+    "votes": [],
+    "resolution_numbers_mentioned": [],
+    "raw_text": "Předkladatel: Mgr. Alena Švejnohová\nProjednávání bodu bylo zahájeno v 14:13:58\nPředsedající navrhl jednotlivé členy pracovních komisí\nOvěřovatelé:\nMgr. Blanka Kozáková, Jiří Katrnoška\nPředsedající:\nMgr. Alena Švejnohová\nBod byl přijat bez hlasování.\nDiskuze zahájena v 14:13:58\nProjednávání bodu bylo ukončeno v 14:14:31"
+   },
+   {
+    "number": 2,
+    "title_raw": "Schválení programu jednání",
+    "heading_raw": "2. Schválení programu jednání (bod číslo 2)",
+    "predkladatel": "Mgr. Alena Švejnohová",
+    "votes": [
+     {
+      "raw_text": "pro:\n(5) Tomáš Vodička, Šárka Horynová, Mgr. Blanka Kozáková, Mgr. Alena Švejnohová, Jiří Katrnoška\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)",
+      "pro": {
+       "count": 5,
+       "names": [
+        "Tomáš Vodička",
+        "Šárka Horynová",
+        "Mgr. Blanka Kozáková",
+        "Mgr. Alena Švejnohová",
+        "Jiří Katrnoška"
+       ],
+       "raw": "(5) Tomáš Vodička, Šárka Horynová, Mgr. Blanka Kozáková, Mgr. Alena Švejnohová, Jiří Katrnoška"
+      },
+      "proti": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "zdrzel_se": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "nehlasoval": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "result_raw": "Návrh byl přijat jako usnesení číslo: UR-160-14/21",
+      "adopted_resolution_number": "UR-160-14/21"
+     }
+    ],
+    "resolution_numbers_mentioned": [
+     "UR-101-9/21",
+     "UR-160-14/21"
+    ],
+    "raw_text": "Předkladatel: Mgr. Alena Švejnohová\nProjednávání bodu bylo zahájeno v 14:14:41\nProgram jednání\n1. Určení zapisovatelů, předsedajícího, příp. ověřovatelů\n2. Schválení programu jednání\n3. Aktuální informace vedení města\n4. Revokace usnesení UR-101-9/21 a uzavření nové \"Smlouvy o budoucí smlouvě o zřízení VBř a dohodu o umístění stavby č. IV-12-6028454/01 Pečky. Tř. J. Švermy,kNN,čp.255 s firmou ČEZ Distribuce, a.s.\n5. Přidělení bytu Masarykovo náměstí č. p. 46, byt č. 2\n6. Schválení uzavření \"Smlouvy o smlouvě budoucí o zřízení služebnosti inženýrské sítě č. S-748/00066001/2021 – KH/So/VB“ mezi KSÚS, Praha 5 (povinný) a Městem Pečky (oprávněný)\n7. Žádost o dotaci - Modré dveře\n8. Žádost o dotaci ZUŠ Pečky\n9. Plnění rozpočtu k 30.6.2021, hospodaření PO k 30.6.2021\n10. Souhlas s uzavřením podnájemních smluv se společností Green Logistics CZ s.r.o.\n11. Uzavření Dodatku č.1 ke Smlouvě o zhotovení projektové dokumentace\n12. Kontrola úkolů\nDiskuze zahájena v 14:14:41\nV 14:15:22 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Alena Švejnohová\") v tomto znění:\nRada\nměsta schvaluje návrh programu jednání.\nHlasování\npro:\n(5) Tomáš Vodička, Šárka Horynová, Mgr. Blanka Kozáková, Mgr. Alena Švejnohová, Jiří Katrnoška\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-160-14/21\nzodpovídá:\ntermín:\n23. 8. 2021\nProjednávání bodu bylo ukončeno v 14:15:35"
+   },
+   {
+    "number": 3,
+    "title_raw": "Aktuální informace vedení města",
+    "heading_raw": "3. Aktuální informace vedení města (bod číslo 3)",
+    "predkladatel": "Mgr. Alena Švejnohová",
+    "votes": [],
+    "resolution_numbers_mentioned": [],
+    "raw_text": "Předkladatel: Mgr. Alena Švejnohová\nProjednávání bodu bylo zahájeno v 14:15:43\nDůvodová zpráva\nstarostka města\ninformace o změně využítí budovy na parc. č. 497/3 v k.ú. Pečky - Riocath Hospital, a.s.\ninformace o záměru Středočeského kraje na převod zřizovatelské kompetence k Základní umělecké škole v Pečkách\nJ.\nKatrnoška\ninformace o kulturních a sportovních akcích ve městě\nDiskuze zahájena v 14:15:43\nProjednávání bodu bylo ukončeno v 14:26:14"
+   },
+   {
+    "number": 4,
+    "title_raw": "Revokace usnesení UR-101-9/21 a uzavření nové \"Smlouvy o budoucí smlouvě o zřízení VBř a dohodu o umístění stavby č. IV-12-6028454/01 Pečky. Tř. J. Švermy,kNN,čp.255 s firmou ČEZ Distribuce, a.s.",
+    "heading_raw": "4. Revokace usnesení UR-101-9/21 a uzavření nové \"Smlouvy o budoucí smlouvě o zřízení VBř a dohodu o umístění stavby č. IV-12-6028454/01 Pečky. Tř. J. Švermy,kNN,čp.255 s firmou ČEZ Distribuce, a.s. (bod číslo 4)",
+    "predkladatel": "Jana Najbrtová",
+    "votes": [
+     {
+      "raw_text": "pro:\n(5) Mgr. Blanka Kozáková, Mgr. Alena Švejnohová, Jiří Katrnoška, Šárka Horynová, Tomáš Vodička\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)",
+      "pro": {
+       "count": 5,
+       "names": [
+        "Mgr. Blanka Kozáková",
+        "Mgr. Alena Švejnohová",
+        "Jiří Katrnoška",
+        "Šárka Horynová",
+        "Tomáš Vodička"
+       ],
+       "raw": "(5) Mgr. Blanka Kozáková, Mgr. Alena Švejnohová, Jiří Katrnoška, Šárka Horynová, Tomáš Vodička"
+      },
+      "proti": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "zdrzel_se": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "nehlasoval": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "result_raw": "Návrh byl přijat jako usnesení číslo: UR-161-14/21 a bylo jím revokováno usnesení UR-101-9/21",
+      "adopted_resolution_number": "UR-161-14/21"
+     },
+     {
+      "raw_text": "pro:\n(5) Mgr. Blanka Kozáková, Mgr. Alena Švejnohová, Tomáš Vodička, Jiří Katrnoška, Šárka Horynová\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)",
+      "pro": {
+       "count": 5,
+       "names": [
+        "Mgr. Blanka Kozáková",
+        "Mgr. Alena Švejnohová",
+        "Tomáš Vodička",
+        "Jiří Katrnoška",
+        "Šárka Horynová"
+       ],
+       "raw": "(5) Mgr. Blanka Kozáková, Mgr. Alena Švejnohová, Tomáš Vodička, Jiří Katrnoška, Šárka Horynová"
+      },
+      "proti": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "zdrzel_se": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "nehlasoval": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "result_raw": "Návrh byl přijat jako usnesení číslo: UR-162-14/21",
+      "adopted_resolution_number": "UR-162-14/21"
+     }
+    ],
+    "resolution_numbers_mentioned": [
+     "UR-101-9/21",
+     "UR-161-14/21",
+     "UR-162-14/21"
+    ],
+    "raw_text": "Předkladatel: Jana Najbrtová\nProjednávání bodu bylo zahájeno v 14:26:21\nDůvodová zpráva\nDoporučujeme revokovat Usnesení ze dne 21.6. 2021, kdy bylo radou města schváleno zřízení VBř. v lokalitě ul. Jeronýmova + KS čp. 255, dle platného ceníku města. Od projektanta jsme obdrželi vyjádření, že nově ČEZ uzavírá smlouvy na základě ocenění podle zákona č. 151/1997 Sb. a vyhlášky č. 441/2013 Sb. Jedná se o státem regulovanou cenu. Dále doporučujeme schválit novou smlouvu dle požadavků firmy ČEZ.\nDiskuze zahájena v 14:26:21\nV 14:27:09 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Jana Najbrtová\") v tomto znění:\nRada\nměsta revokuje usnesení UR-101-9/21 ze dne 21.6.2021.\nHlasování\npro:\n(5) Mgr. Blanka Kozáková, Mgr. Alena Švejnohová, Jiří Katrnoška, Šárka Horynová, Tomáš Vodička\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-161-14/21 a bylo jím revokováno usnesení UR-101-9/21\nzodpovídá:\ntermín:\n23. 8. 2021\nV 14:27:29 předsedající zahájil hlasování o návrhu usnesení \"B\" (navrhovatel: \"Jana Najbrtová\") v tomto znění:\nRada\nměsta schvaluje uzavřít Smlouvu o budoucí smlouvě o zřízení VBř. a dohodu o umístění stavby č. IV-12-6028454/01“ mezi Městem Pečky a firmou ČEZ Distribuce, a.s. se sídlem Děčín – IV Podmokly,\nTeplická\n874/8, která se týká částí pozemků v majetku města č. parc. 1858/1, 1853, 1883 a 1851 v obci a k.ú. Pečky a dále výměny rozpojovací skříně na budově kulturního domu čp. 255, tř. J. Švermy. Smlouva bude uzavřena za celkovou cenu  ve výši 2.000,-Kč + DPH – podle zákona č. 151/1997 Sb. a vyhlášky č. 441/2013 Sb.\nHlasování\npro:\n(5) Mgr. Blanka Kozáková, Mgr. Alena Švejnohová, Tomáš Vodička, Jiří Katrnoška, Šárka Horynová\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-162-14/21\nzodpovídá:\nJana Najbrtová\ntermín:\n10. 9. 2021\nProjednávání bodu bylo ukončeno v 14:27:35"
+   },
+   {
+    "number": 5,
+    "title_raw": "Přidělení bytu Masarykovo náměstí č. p. 46, byt č. 2",
+    "heading_raw": "5. Přidělení bytu Masarykovo náměstí č. p. 46, byt č. 2 (bod číslo 5)",
+    "predkladatel": "Martina Hrázská",
+    "votes": [
+     {
+      "raw_text": "pro:\n(5) Mgr. Alena Švejnohová, Mgr. Blanka Kozáková, Jiří Katrnoška, Tomáš Vodička, Šárka Horynová\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)",
+      "pro": {
+       "count": 5,
+       "names": [
+        "Mgr. Alena Švejnohová",
+        "Mgr. Blanka Kozáková",
+        "Jiří Katrnoška",
+        "Tomáš Vodička",
+        "Šárka Horynová"
+       ],
+       "raw": "(5) Mgr. Alena Švejnohová, Mgr. Blanka Kozáková, Jiří Katrnoška, Tomáš Vodička, Šárka Horynová"
+      },
+      "proti": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "zdrzel_se": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "nehlasoval": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "result_raw": "Návrh byl přijat jako usnesení číslo: UR-163-14/21",
+      "adopted_resolution_number": "UR-163-14/21"
+     }
+    ],
+    "resolution_numbers_mentioned": [
+     "UR-163-14/21"
+    ],
+    "raw_text": "Předkladatel: Martina Hrázská\nProjednávání bodu bylo zahájeno v 14:27:44\nDůvodová zpráva\nZe seznamu podaných žádostí o přidělení bytu, byla na jednání bytové komise dne 17.8.2021 na byt č. 2 v č.p. 46 Masarykovo náměstí v Pečkách, vybrána\n█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█\n, Pečky. Smlouva bude uzavřena na dobu určitou do 31.12.2022 se složením jistiny (tj. dva měsíční nájmy).\nDiskuze zahájena v 14:27:44\nV 14:30:10 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Martina Hrázská\") v tomto znění:\nRada\nměsta schvaluje uzavření smlouvy na pronájem bytu č. 2 v bytovém domě č. p. 46 Masarykovo náměstí v Pečkách mezi městem Pečky a\n█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█\ndo 31.12.2022.\nHlasování\npro:\n(5) Mgr. Alena Švejnohová, Mgr. Blanka Kozáková, Jiří Katrnoška, Tomáš Vodička, Šárka Horynová\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-163-14/21\nzodpovídá:\nMartina Hrázská\ntermín:\n4. 11. 2021\nProjednávání bodu bylo ukončeno v 14:30:17"
+   },
+   {
+    "number": 6,
+    "title_raw": "Schválení uzavření \"Smlouvy o smlouvě budoucí o zřízení služebnosti inženýrské sítě č. S-748/00066001/2021 – KH/So/VB“ mezi KSÚS, Praha 5 (povinný) a Městem Pečky (oprávněný)",
+    "heading_raw": "6. Schválení uzavření \"Smlouvy o smlouvě budoucí o zřízení služebnosti inženýrské sítě č. S-748/00066001/2021 – KH/So/VB“ mezi KSÚS, Praha 5 (povinný) a Městem Pečky (oprávněný) (bod číslo 6)",
+    "predkladatel": "Jana Najbrtová",
+    "votes": [
+     {
+      "raw_text": "pro:\n(5) Mgr. Alena Švejnohová, Tomáš Vodička, Jiří Katrnoška, Mgr. Blanka Kozáková, Šárka Horynová\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)",
+      "pro": {
+       "count": 5,
+       "names": [
+        "Mgr. Alena Švejnohová",
+        "Tomáš Vodička",
+        "Jiří Katrnoška",
+        "Mgr. Blanka Kozáková",
+        "Šárka Horynová"
+       ],
+       "raw": "(5) Mgr. Alena Švejnohová, Tomáš Vodička, Jiří Katrnoška, Mgr. Blanka Kozáková, Šárka Horynová"
+      },
+      "proti": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "zdrzel_se": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "nehlasoval": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "result_raw": "Návrh byl přijat jako usnesení číslo: UR-164-14/21",
+      "adopted_resolution_number": "UR-164-14/21"
+     }
+    ],
+    "resolution_numbers_mentioned": [
+     "UR-164-14/21"
+    ],
+    "raw_text": "Předkladatel: Jana Najbrtová\nProjednávání bodu bylo zahájeno v 14:30:33\nDůvodová zpráva\nDoporučujeme uzavřít uvedenou smlouvu, která podléhá schválení ZM. Jedná se o uložení dešťové kanalizace do komunikace v ul.\nSladkovského\n(cca 7,8 bm), která je v majetku KSÚS\nPraha\n. Náhrada za zřízení VBř. je stanovena dle Ceníku Středočeského kraje – náhrady za zřízení služebnosti inženýrské sítě a za omezené užívání silnic II. a III. tříd.\nDiskuze zahájena v 14:30:33\nV 14:31:11 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Jana Najbrtová\") v tomto znění:\nRada\nměsta doporučuje zastupitelstvu města schválit uzavření \"Smlouvy o smlouvě budoucí o zřízení služebnosti inženýrské sítě č. S-748/00066001/2021 – KH/So/VB“ mezi smluvními stranami KSÚS,\nPraha\n5 (povinný) a Městem Pečky (oprávněný) – ul.\nSladkovského\n, Pečky. Jedná se o uložení dešťové kanalizace do pozemku v majetku KSÚS,\nPraha\no délce 7,8 bm za celkovou cenu 1.170,- Kč + DPH.\nHlasování\npro:\n(5) Mgr. Alena Švejnohová, Tomáš Vodička, Jiří Katrnoška, Mgr. Blanka Kozáková, Šárka Horynová\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-164-14/21\nzodpovídá:\nJana Najbrtová\ntermín:\n30. 9. 2021\nProjednávání bodu bylo ukončeno v 14:31:17"
+   },
+   {
+    "number": 7,
+    "title_raw": "Žádost o dotaci - Modré dveře",
+    "heading_raw": "7. Žádost o dotaci - Modré dveře (bod číslo 7)",
+    "predkladatel": "Marcela Bahníková",
+    "votes": [
+     {
+      "raw_text": "pro:\n(5) Mgr. Blanka Kozáková, Šárka Horynová, Tomáš Vodička, Mgr. Alena Švejnohová, Jiří Katrnoška\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)",
+      "pro": {
+       "count": 5,
+       "names": [
+        "Mgr. Blanka Kozáková",
+        "Šárka Horynová",
+        "Tomáš Vodička",
+        "Mgr. Alena Švejnohová",
+        "Jiří Katrnoška"
+       ],
+       "raw": "(5) Mgr. Blanka Kozáková, Šárka Horynová, Tomáš Vodička, Mgr. Alena Švejnohová, Jiří Katrnoška"
+      },
+      "proti": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "zdrzel_se": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "nehlasoval": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "result_raw": "Návrh byl přijat jako usnesení číslo: UR-165-14/21",
+      "adopted_resolution_number": "UR-165-14/21"
+     }
+    ],
+    "resolution_numbers_mentioned": [
+     "UR-165-14/21"
+    ],
+    "raw_text": "Předkladatel: Marcela Bahníková\nProjednávání bodu bylo zahájeno v 14:31:21\nDůvodová zpráva\nTerapeutické centrum\nModré\ndveře, z.ú. žádá o poskytnutí dotace na činnost ve výši 30.000 Kč. V roce 2020 bylo žádáno 30.000 Kč a poskytnuto 4.500 Kč.\nPro\nrok 2021 navrhuji dotaci ve stejné výši jako vloni tj. 4.500 Kč.\nDiskuze zahájena v 14:31:21\nV 14:33:04 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Marcela Bahníková\") v tomto znění:\nRada\nměsta schvaluje poskytnutí dotace ve výši  4.500 Kč Terapeutickému centru\nModré\ndveře, z.ú, IČO: 22768602 a uzavření VPS o poskytnutí dotace.\nHlasování\npro:\n(5) Mgr. Blanka Kozáková, Šárka Horynová, Tomáš Vodička, Mgr. Alena Švejnohová, Jiří Katrnoška\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-165-14/21\nzodpovídá:\nMarcela Bahníková\ntermín:\n31. 8. 2021\nProjednávání bodu bylo ukončeno v 14:33:09"
+   },
+   {
+    "number": 8,
+    "title_raw": "Žádost o dotaci ZUŠ Pečky",
+    "heading_raw": "8. Žádost o dotaci ZUŠ Pečky (bod číslo 8)",
+    "predkladatel": "Marcela Bahníková",
+    "votes": [
+     {
+      "raw_text": "pro:\n(5) Mgr. Alena Švejnohová, Jiří Katrnoška, Mgr. Blanka Kozáková, Šárka Horynová, Tomáš Vodička\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)",
+      "pro": {
+       "count": 5,
+       "names": [
+        "Mgr. Alena Švejnohová",
+        "Jiří Katrnoška",
+        "Mgr. Blanka Kozáková",
+        "Šárka Horynová",
+        "Tomáš Vodička"
+       ],
+       "raw": "(5) Mgr. Alena Švejnohová, Jiří Katrnoška, Mgr. Blanka Kozáková, Šárka Horynová, Tomáš Vodička"
+      },
+      "proti": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "zdrzel_se": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "nehlasoval": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "result_raw": "Návrh byl přijat jako usnesení číslo: UR-166-14/21",
+      "adopted_resolution_number": "UR-166-14/21"
+     }
+    ],
+    "resolution_numbers_mentioned": [
+     "UR-166-14/21"
+    ],
+    "raw_text": "Předkladatel: Marcela Bahníková\nProjednávání bodu bylo zahájeno v 14:33:16\nDůvodová zpráva\nZákladní umělecká škola Pečky žádá o poskytnutí dotace ve výši 10.000 Kč na uspořádání koncertu profesionálních umělců (akordeon, housle) pro širší veřejnost.\nDiskuze zahájena v 14:33:16\nV 14:37:32 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Marcela Bahníková\") v tomto znění:\nRada\nměsta schvaluje poskytnutí dotace ve výši 10.000 Kč Základní umělecké škole Pečky, IČO:70836299 na uspořádání koncertu pro veřejnost a uzavření VPS o poskytnutí dotace.\nHlasování\npro:\n(5) Mgr. Alena Švejnohová, Jiří Katrnoška, Mgr. Blanka Kozáková, Šárka Horynová, Tomáš Vodička\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-166-14/21\nzodpovídá:\nMarcela Bahníková\ntermín:\n31. 8. 2021\nProjednávání bodu bylo ukončeno v 14:37:38"
+   },
+   {
+    "number": 9,
+    "title_raw": "Plnění rozpočtu k 30.6.2021, hospodaření PO k 30.6.2021",
+    "heading_raw": "9. Plnění rozpočtu k 30.6.2021, hospodaření PO k 30.6.2021 (bod číslo 9)",
+    "predkladatel": "Marcela Bahníková",
+    "votes": [],
+    "resolution_numbers_mentioned": [],
+    "raw_text": "Předkladatel: Marcela Bahníková\nProjednávání bodu bylo zahájeno v 14:38:07\nDůvodová zpráva\nPřekládám na vědomí plnění rozpočtu k 30.6.2021 a přehled hospodaření příspěvkových organizací k 30.6.2021.\nDiskuze zahájena v 14:38:07\nRada bere materiály předložené k bodu č. 9 -\nPlnění rozpočtu k 30.6.2021, hospodaření PO k 30.6.2021\nna vědomí.\nProjednávání bodu bylo ukončeno v 14:41:38"
+   },
+   {
+    "number": 10,
+    "title_raw": "Souhlas s uzavřením podnájemních smluv se společností Green Logistics CZ s.r.o.",
+    "heading_raw": "10. Souhlas s uzavřením podnájemních smluv se společností Green Logistics CZ s.r.o. (bod číslo 10)",
+    "predkladatel": "Adam Brant",
+    "votes": [
+     {
+      "raw_text": "pro:\n(5) Mgr. Blanka Kozáková, Mgr. Alena Švejnohová, Tomáš Vodička, Jiří Katrnoška, Šárka Horynová\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)",
+      "pro": {
+       "count": 5,
+       "names": [
+        "Mgr. Blanka Kozáková",
+        "Mgr. Alena Švejnohová",
+        "Tomáš Vodička",
+        "Jiří Katrnoška",
+        "Šárka Horynová"
+       ],
+       "raw": "(5) Mgr. Blanka Kozáková, Mgr. Alena Švejnohová, Tomáš Vodička, Jiří Katrnoška, Šárka Horynová"
+      },
+      "proti": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "zdrzel_se": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "nehlasoval": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "result_raw": "Návrh byl přijat jako usnesení číslo: UR-167-14/21",
+      "adopted_resolution_number": "UR-167-14/21"
+     }
+    ],
+    "resolution_numbers_mentioned": [
+     "UR-167-14/21"
+    ],
+    "raw_text": "Předkladatel: Adam Brant\nProjednávání bodu bylo zahájeno v 14:42:48\nDůvodová zpráva\nSlužby města Pečky s.r.o. obdržely nabídku zapojit se do sběrné sítě míst zpětného odběru výrobců a dovozců automobilů, kterou zajišťuje společnost GREEN Logistics CZ s.r.o. Pokud by se Služby města Pečky s.r.o. zapojili do této sběrné sítě se svým sběrným dvorem, byla by pro občany města Pečky dostupnější služba odevzdat pneumatiky zdarma. Dá se očekávat, že se tím eliminuje vznik černých skládek na katastrálním území obce. Společnost RPG Recycling s.r.o., jako smluvní zpracovatel výrobců a dovozců automobilů na náklady výrobců a dovozců tyto pneumatiky odveze a zpracuje. SMP tím odpadají náklady za likvidaci, např. při likvidaci 10 tun/rok a současných cenách cca 5.000 – 6.000 Kč/tunu se jedná o úsporu 50.000 – 60.000 Kč/rok. Dalším přínosem je, že zapojením se do zpětného odběru vykáže daná obec každoročně nižší produkci odpadů než doposud.\nDiskuze zahájena v 14:42:48\nV 14:43:12 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Adam Brant\") v tomto znění:\nRada\nměsta souhlasí s uzavřením podnájemních smluv se společností\nGreen\nLogistics CZ s.r.o. za účelem zřízení veřejného místa zpětného odběru pneumatik a automobilových baterií.\nHlasování\npro:\n(5) Mgr. Blanka Kozáková, Mgr. Alena Švejnohová, Tomáš Vodička, Jiří Katrnoška, Šárka Horynová\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-167-14/21\nzodpovídá:\nAdam Brant\ntermín:\n30. 9. 2021\nProjednávání bodu bylo ukončeno v 14:43:20"
+   },
+   {
+    "number": 11,
+    "title_raw": "Uzavření Dodatku č. 2 ke Smlouvě o zhotovení projektové dokumentace",
+    "heading_raw": "11. Uzavření Dodatku č. 2 ke Smlouvě o zhotovení projektové dokumentace (bod číslo 11)",
+    "predkladatel": "Věra Růžičková",
+    "votes": [
+     {
+      "raw_text": "pro:\n(5) Tomáš Vodička, Mgr. Alena Švejnohová, Šárka Horynová, Mgr. Blanka Kozáková, Jiří Katrnoška\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)",
+      "pro": {
+       "count": 5,
+       "names": [
+        "Tomáš Vodička",
+        "Mgr. Alena Švejnohová",
+        "Šárka Horynová",
+        "Mgr. Blanka Kozáková",
+        "Jiří Katrnoška"
+       ],
+       "raw": "(5) Tomáš Vodička, Mgr. Alena Švejnohová, Šárka Horynová, Mgr. Blanka Kozáková, Jiří Katrnoška"
+      },
+      "proti": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "zdrzel_se": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "nehlasoval": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "result_raw": "Návrh byl přijat jako usnesení číslo: UR-168-14/21",
+      "adopted_resolution_number": "UR-168-14/21"
+     }
+    ],
+    "resolution_numbers_mentioned": [
+     "UR-168-14/21"
+    ],
+    "raw_text": "Předkladatel: Věra Růžičková\nProjednávání bodu bylo zahájeno v 14:43:51\nDůvodová zpráva\nJedná se o uzavření dodatku č. 2 ke smlouvě uzavřené se zhotovitelem ov architekti, s.r.o. na zpracování architektonické studie Dostavby Základní školy Pečky - aula a tělocvična z důvodu vypořádání autorských práv. Dle uzavřené smlouvy se v odst. VII/5 se uvádí, že zhotovitel udělí městu Pečky plnou a bezvýhradní licenci k užití autorských práv ve výši 160.000,- Kč bez DPH, dohodou došlo ke snížení na 80.000,- Kč bez DPH.\nDiskuze zahájena v 14:43:51\nV 14:44:37 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Věra Růžičková\") v tomto znění:\nRada\nměsta schvaluje uzavření dodatku č. 2 ke Smlouvě o zhotovení projektové dokumentace (studie) mezi městem Pečky a ov architekti, s.r.o. Badeniho 29/5, 160 00\nPraha\n6 - Hradčany. Jedná se o snížení ceny za vypořádání autorských práv ze 160.000,- Kč na 80.000,- Kč bez DPH.\nHlasování\npro:\n(5) Tomáš Vodička, Mgr. Alena Švejnohová, Šárka Horynová, Mgr. Blanka Kozáková, Jiří Katrnoška\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-168-14/21\nzodpovídá:\nVěra Růžičková\ntermín:\n27. 9. 2021\nProjednávání bodu bylo ukončeno v 14:44:44"
+   },
+   {
+    "number": 12,
+    "title_raw": "Kontrola úkolů",
+    "heading_raw": "12. Kontrola úkolů (bod číslo 12)",
+    "predkladatel": "Cecilie Pajkrtová",
+    "votes": [],
+    "resolution_numbers_mentioned": [],
+    "raw_text": "Předkladatel: Cecilie Pajkrtová\nProjednávání bodu bylo zahájeno v 14:58:11\nDiskuze zahájena v 14:58:11\nRada bere materiály předložené k bodu č. 12 -\nKontrola úkolů\nna vědomí.\nProjednávání bodu bylo ukončeno v 15:00:50\nJednání ukončeno 23.08.2021 v 15:10:00\n\n\nOvěřeno ověřovateli:\n1)\n25. 8. 2021 15:39\nJiří Katrnoška"
+   }
+  ],
+  "full_text": "ZÁPIS z jednání rady č. 14/2021\nMěsto Pečky\ndatum: 23. 8. 2021, čas: 14:00\n​\nPrezence:\nPřítomni:\n(5) Mgr. Alena Švejnohová, Mgr. Blanka Kozáková, Šárka Horynová, Tomáš Vodička, Jiří Katrnoška\nOmluveni:\n(2) Bc. Iveta Minaříková, Jaroslav Železný\nNepřítomni:\nHosté:\nIng. Adam Brant - jednatel společnosti PS a SM\nZapisovatel/ka:\nEva Strnadová\nPřítomno je 5 členů a rada je usnášeníschopná.\nJednání zahájeno 23.08.2021 v 14:12:59\n1. Určení zapisovatelů, předsedajícího, příp. ověřovatelů (bod číslo 1)\nPředkladatel: Mgr. Alena Švejnohová\nProjednávání bodu bylo zahájeno v 14:13:58\nPředsedající navrhl jednotlivé členy pracovních komisí\nOvěřovatelé:\nMgr. Blanka Kozáková, Jiří Katrnoška\nPředsedající:\nMgr. Alena Švejnohová\nBod byl přijat bez hlasování.\nDiskuze zahájena v 14:13:58\nProjednávání bodu bylo ukončeno v 14:14:31\n2. Schválení programu jednání (bod číslo 2)\nPředkladatel: Mgr. Alena Švejnohová\nProjednávání bodu bylo zahájeno v 14:14:41\nProgram jednání\n1. Určení zapisovatelů, předsedajícího, příp. ověřovatelů\n2. Schválení programu jednání\n3. Aktuální informace vedení města\n4. Revokace usnesení UR-101-9/21 a uzavření nové \"Smlouvy o budoucí smlouvě o zřízení VBř a dohodu o umístění stavby č. IV-12-6028454/01 Pečky. Tř. J. Švermy,kNN,čp.255 s firmou ČEZ Distribuce, a.s.\n5. Přidělení bytu Masarykovo náměstí č. p. 46, byt č. 2\n6. Schválení uzavření \"Smlouvy o smlouvě budoucí o zřízení služebnosti inženýrské sítě č. S-748/00066001/2021 – KH/So/VB“ mezi KSÚS, Praha 5 (povinný) a Městem Pečky (oprávněný)\n7. Žádost o dotaci - Modré dveře\n8. Žádost o dotaci ZUŠ Pečky\n9. Plnění rozpočtu k 30.6.2021, hospodaření PO k 30.6.2021\n10. Souhlas s uzavřením podnájemních smluv se společností Green Logistics CZ s.r.o.\n11. Uzavření Dodatku č.1 ke Smlouvě o zhotovení projektové dokumentace\n12. Kontrola úkolů\nDiskuze zahájena v 14:14:41\nV 14:15:22 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Alena Švejnohová\") v tomto znění:\nRada\nměsta schvaluje návrh programu jednání.\nHlasování\npro:\n(5) Tomáš Vodička, Šárka Horynová, Mgr. Blanka Kozáková, Mgr. Alena Švejnohová, Jiří Katrnoška\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-160-14/21\nzodpovídá:\ntermín:\n23. 8. 2021\nProjednávání bodu bylo ukončeno v 14:15:35\n3. Aktuální informace vedení města (bod číslo 3)\nPředkladatel: Mgr. Alena Švejnohová\nProjednávání bodu bylo zahájeno v 14:15:43\nDůvodová zpráva\nstarostka města\ninformace o změně využítí budovy na parc. č. 497/3 v k.ú. Pečky - Riocath Hospital, a.s.\ninformace o záměru Středočeského kraje na převod zřizovatelské kompetence k Základní umělecké škole v Pečkách\nJ.\nKatrnoška\ninformace o kulturních a sportovních akcích ve městě\nDiskuze zahájena v 14:15:43\nProjednávání bodu bylo ukončeno v 14:26:14\n4. Revokace usnesení UR-101-9/21 a uzavření nové \"Smlouvy o budoucí smlouvě o zřízení VBř a dohodu o umístění stavby č. IV-12-6028454/01 Pečky. Tř. J. Švermy,kNN,čp.255 s firmou ČEZ Distribuce, a.s. (bod číslo 4)\nPředkladatel: Jana Najbrtová\nProjednávání bodu bylo zahájeno v 14:26:21\nDůvodová zpráva\nDoporučujeme revokovat Usnesení ze dne 21.6. 2021, kdy bylo radou města schváleno zřízení VBř. v lokalitě ul. Jeronýmova + KS čp. 255, dle platného ceníku města. Od projektanta jsme obdrželi vyjádření, že nově ČEZ uzavírá smlouvy na základě ocenění podle zákona č. 151/1997 Sb. a vyhlášky č. 441/2013 Sb. Jedná se o státem regulovanou cenu. Dále doporučujeme schválit novou smlouvu dle požadavků firmy ČEZ.\nDiskuze zahájena v 14:26:21\nV 14:27:09 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Jana Najbrtová\") v tomto znění:\nRada\nměsta revokuje usnesení UR-101-9/21 ze dne 21.6.2021.\nHlasování\npro:\n(5) Mgr. Blanka Kozáková, Mgr. Alena Švejnohová, Jiří Katrnoška, Šárka Horynová, Tomáš Vodička\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-161-14/21 a bylo jím revokováno usnesení UR-101-9/21\nzodpovídá:\ntermín:\n23. 8. 2021\nV 14:27:29 předsedající zahájil hlasování o návrhu usnesení \"B\" (navrhovatel: \"Jana Najbrtová\") v tomto znění:\nRada\nměsta schvaluje uzavřít Smlouvu o budoucí smlouvě o zřízení VBř. a dohodu o umístění stavby č. IV-12-6028454/01“ mezi Městem Pečky a firmou ČEZ Distribuce, a.s. se sídlem Děčín – IV Podmokly,\nTeplická\n874/8, která se týká částí pozemků v majetku města č. parc. 1858/1, 1853, 1883 a 1851 v obci a k.ú. Pečky a dále výměny rozpojovací skříně na budově kulturního domu čp. 255, tř. J. Švermy. Smlouva bude uzavřena za celkovou cenu  ve výši 2.000,-Kč + DPH – podle zákona č. 151/1997 Sb. a vyhlášky č. 441/2013 Sb.\nHlasování\npro:\n(5) Mgr. Blanka Kozáková, Mgr. Alena Švejnohová, Tomáš Vodička, Jiří Katrnoška, Šárka Horynová\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-162-14/21\nzodpovídá:\nJana Najbrtová\ntermín:\n10. 9. 2021\nProjednávání bodu bylo ukončeno v 14:27:35\n5. Přidělení bytu Masarykovo náměstí č. p. 46, byt č. 2 (bod číslo 5)\nPředkladatel: Martina Hrázská\nProjednávání bodu bylo zahájeno v 14:27:44\nDůvodová zpráva\nZe seznamu podaných žádostí o přidělení bytu, byla na jednání bytové komise dne 17.8.2021 na byt č. 2 v č.p. 46 Masarykovo náměstí v Pečkách, vybrána\n█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​\n, Pečky. Smlouva bude uzavřena na dobu určitou do 31.12.2022 se složením jistiny (tj. dva měsíční nájmy).\nDiskuze zahájena v 14:27:44\nV 14:30:10 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Martina Hrázská\") v tomto znění:\nRada\nměsta schvaluje uzavření smlouvy na pronájem bytu č. 2 v bytovém domě č. p. 46 Masarykovo náměstí v Pečkách mezi městem Pečky a\n█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​\ndo 31.12.2022.\nHlasování\npro:\n(5) Mgr. Alena Švejnohová, Mgr. Blanka Kozáková, Jiří Katrnoška, Tomáš Vodička, Šárka Horynová\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-163-14/21\nzodpovídá:\nMartina Hrázská\ntermín:\n4. 11. 2021\nProjednávání bodu bylo ukončeno v 14:30:17\n6. Schválení uzavření \"Smlouvy o smlouvě budoucí o zřízení služebnosti inženýrské sítě č. S-748/00066001/2021 – KH/So/VB“ mezi KSÚS, Praha 5 (povinný) a Městem Pečky (oprávněný) (bod číslo 6)\nPředkladatel: Jana Najbrtová\nProjednávání bodu bylo zahájeno v 14:30:33\nDůvodová zpráva\nDoporučujeme uzavřít uvedenou smlouvu, která podléhá schválení ZM. Jedná se o uložení dešťové kanalizace do komunikace v ul.\nSladkovského\n(cca 7,8 bm), která je v majetku KSÚS\nPraha\n. Náhrada za zřízení VBř. je stanovena dle Ceníku Středočeského kraje – náhrady za zřízení služebnosti inženýrské sítě a za omezené užívání silnic II. a III. tříd.\nDiskuze zahájena v 14:30:33\nV 14:31:11 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Jana Najbrtová\") v tomto znění:\nRada\nměsta doporučuje zastupitelstvu města schválit uzavření \"Smlouvy o smlouvě budoucí o zřízení služebnosti inženýrské sítě č. S-748/00066001/2021 – KH/So/VB“ mezi smluvními stranami KSÚS,\nPraha\n5 (povinný) a Městem Pečky (oprávněný) – ul.\nSladkovského\n, Pečky. Jedná se o uložení dešťové kanalizace do pozemku v majetku KSÚS,\nPraha\no délce 7,8 bm za celkovou cenu 1.170,- Kč + DPH.\nHlasování\npro:\n(5) Mgr. Alena Švejnohová, Tomáš Vodička, Jiří Katrnoška, Mgr. Blanka Kozáková, Šárka Horynová\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-164-14/21\nzodpovídá:\nJana Najbrtová\ntermín:\n30. 9. 2021\nProjednávání bodu bylo ukončeno v 14:31:17\n7. Žádost o dotaci - Modré dveře (bod číslo 7)\nPředkladatel: Marcela Bahníková\nProjednávání bodu bylo zahájeno v 14:31:21\nDůvodová zpráva\nTerapeutické centrum\nModré\ndveře, z.ú. žádá o poskytnutí dotace na činnost ve výši 30.000 Kč. V roce 2020 bylo žádáno 30.000 Kč a poskytnuto 4.500 Kč.\nPro\nrok 2021 navrhuji dotaci ve stejné výši jako vloni tj. 4.500 Kč.\nDiskuze zahájena v 14:31:21\nV 14:33:04 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Marcela Bahníková\") v tomto znění:\nRada\nměsta schvaluje poskytnutí dotace ve výši  4.500 Kč Terapeutickému centru\nModré\ndveře, z.ú, IČO: 22768602 a uzavření VPS o poskytnutí dotace.\nHlasování\npro:\n(5) Mgr. Blanka Kozáková, Šárka Horynová, Tomáš Vodička, Mgr. Alena Švejnohová, Jiří Katrnoška\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-165-14/21\nzodpovídá:\nMarcela Bahníková\ntermín:\n31. 8. 2021\nProjednávání bodu bylo ukončeno v 14:33:09\n8. Žádost o dotaci ZUŠ Pečky (bod číslo 8)\nPředkladatel: Marcela Bahníková\nProjednávání bodu bylo zahájeno v 14:33:16\nDůvodová zpráva\nZákladní umělecká škola Pečky žádá o poskytnutí dotace ve výši 10.000 Kč na uspořádání koncertu profesionálních umělců (akordeon, housle) pro širší veřejnost.\nDiskuze zahájena v 14:33:16\nV 14:37:32 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Marcela Bahníková\") v tomto znění:\nRada\nměsta schvaluje poskytnutí dotace ve výši 10.000 Kč Základní umělecké škole Pečky, IČO:70836299 na uspořádání koncertu pro veřejnost a uzavření VPS o poskytnutí dotace.\nHlasování\npro:\n(5) Mgr. Alena Švejnohová, Jiří Katrnoška, Mgr. Blanka Kozáková, Šárka Horynová, Tomáš Vodička\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-166-14/21\nzodpovídá:\nMarcela Bahníková\ntermín:\n31. 8. 2021\nProjednávání bodu bylo ukončeno v 14:37:38\n9. Plnění rozpočtu k 30.6.2021, hospodaření PO k 30.6.2021 (bod číslo 9)\nPředkladatel: Marcela Bahníková\nProjednávání bodu bylo zahájeno v 14:38:07\nDůvodová zpráva\nPřekládám na vědomí plnění rozpočtu k 30.6.2021 a přehled hospodaření příspěvkových organizací k 30.6.2021.\nDiskuze zahájena v 14:38:07\nRada bere materiály předložené k bodu č. 9 -\nPlnění rozpočtu k 30.6.2021, hospodaření PO k 30.6.2021\nna vědomí.\nProjednávání bodu bylo ukončeno v 14:41:38\n10. Souhlas s uzavřením podnájemních smluv se společností Green Logistics CZ s.r.o. (bod číslo 10)\nPředkladatel: Adam Brant\nProjednávání bodu bylo zahájeno v 14:42:48\nDůvodová zpráva\nSlužby města Pečky s.r.o. obdržely nabídku zapojit se do sběrné sítě míst zpětného odběru výrobců a dovozců automobilů, kterou zajišťuje společnost GREEN Logistics CZ s.r.o. Pokud by se Služby města Pečky s.r.o. zapojili do této sběrné sítě se svým sběrným dvorem, byla by pro občany města Pečky dostupnější služba odevzdat pneumatiky zdarma. Dá se očekávat, že se tím eliminuje vznik černých skládek na katastrálním území obce. Společnost RPG Recycling s.r.o., jako smluvní zpracovatel výrobců a dovozců automobilů na náklady výrobců a dovozců tyto pneumatiky odveze a zpracuje. SMP tím odpadají náklady za likvidaci, např. při likvidaci 10 tun/rok a současných cenách cca 5.000 – 6.000 Kč/tunu se jedná o úsporu 50.000 – 60.000 Kč/rok. Dalším přínosem je, že zapojením se do zpětného odběru vykáže daná obec každoročně nižší produkci odpadů než doposud.\nDiskuze zahájena v 14:42:48\nV 14:43:12 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Adam Brant\") v tomto znění:\nRada\nměsta souhlasí s uzavřením podnájemních smluv se společností\nGreen\nLogistics CZ s.r.o. za účelem zřízení veřejného místa zpětného odběru pneumatik a automobilových baterií.\nHlasování\npro:\n(5) Mgr. Blanka Kozáková, Mgr. Alena Švejnohová, Tomáš Vodička, Jiří Katrnoška, Šárka Horynová\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-167-14/21\nzodpovídá:\nAdam Brant\ntermín:\n30. 9. 2021\nProjednávání bodu bylo ukončeno v 14:43:20\n11. Uzavření Dodatku č. 2 ke Smlouvě o zhotovení projektové dokumentace (bod číslo 11)\nPředkladatel: Věra Růžičková\nProjednávání bodu bylo zahájeno v 14:43:51\nDůvodová zpráva\nJedná se o uzavření dodatku č. 2 ke smlouvě uzavřené se zhotovitelem ov architekti, s.r.o. na zpracování architektonické studie Dostavby Základní školy Pečky - aula a tělocvična z důvodu vypořádání autorských práv. Dle uzavřené smlouvy se v odst. VII/5 se uvádí, že zhotovitel udělí městu Pečky plnou a bezvýhradní licenci k užití autorských práv ve výši 160.000,- Kč bez DPH, dohodou došlo ke snížení na 80.000,- Kč bez DPH.\nDiskuze zahájena v 14:43:51\nV 14:44:37 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Věra Růžičková\") v tomto znění:\nRada\nměsta schvaluje uzavření dodatku č. 2 ke Smlouvě o zhotovení projektové dokumentace (studie) mezi městem Pečky a ov architekti, s.r.o. Badeniho 29/5, 160 00\nPraha\n6 - Hradčany. Jedná se o snížení ceny za vypořádání autorských práv ze 160.000,- Kč na 80.000,- Kč bez DPH.\nHlasování\npro:\n(5) Tomáš Vodička, Mgr. Alena Švejnohová, Šárka Horynová, Mgr. Blanka Kozáková, Jiří Katrnoška\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-168-14/21\nzodpovídá:\nVěra Růžičková\ntermín:\n27. 9. 2021\nProjednávání bodu bylo ukončeno v 14:44:44\n12. Kontrola úkolů (bod číslo 12)\nPředkladatel: Cecilie Pajkrtová\nProjednávání bodu bylo zahájeno v 14:58:11\nDiskuze zahájena v 14:58:11\nRada bere materiály předložené k bodu č. 12 -\nKontrola úkolů\nna vědomí.\nProjednávání bodu bylo ukončeno v 15:00:50\nJednání ukončeno 23.08.2021 v 15:10:00\nOvěřeno ověřovateli:\n1)\n25. 8. 2021 15:39\nJiří Katrnoška"
+ },
+ "resolutions": {
+  "status": "ok",
+  "url": "https://mesto-pecky.usneseni.cz/verejne/5318e700-db11-11eb-899f-a07304374d0b/usneseni/",
+  "fetched_at": "2026-08-04T14:45:21.025126+00:00",
+  "items": [
+   {
+    "number_raw": "UR-160-14/21",
+    "detail_id": 15523,
+    "detail_url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/15523?mod=rada",
+    "agenda_item_raw": "Schválení programu jednání",
+    "text_verbatim": "Rada\nměsta schvaluje návrh programu jednání.",
+    "cell_text_raw": "Bod programu:\nSchválení programu jednání\nText přijatého usnesení:\nRada\nměsta schvaluje návrh programu jednání.",
+    "date_raw": "23. 8. 2021",
+    "date_iso": "2021-08-23",
+    "responsible_raw": "",
+    "deadline_raw": "IHNED (23. 8. 2021)",
+    "vote": {
+     "raw_text": "pro: 5 proti: 0 zdržel se: 0",
+     "pro": {
+      "count": 5,
+      "names": null,
+      "raw": "5"
+     },
+     "proti": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     },
+     "zdrzel_se": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     }
+    },
+    "detail": {
+     "number_raw": "UR-160-14/21",
+     "text_verbatim": "Rada města schvaluje návrh programu jednání.",
+     "typ_raw": null,
+     "zodpovida_raw": "",
+     "prijato_raw": "23. 8. 2021 na jednání č. 14/2021",
+     "prijato_date_iso": "2021-08-23",
+     "prijato_meeting_label": "14/2021",
+     "termin_raw": "IHNED (23. 8. 2021)",
+     "ukonceno_raw": "23. 8. 2021",
+     "ukonceno_date_iso": "2021-08-23",
+     "fields_raw": {
+      "Číslo usnesení": "UR-160-14/21",
+      "Text usnesení": "Rada města schvaluje návrh programu jednání.",
+      "Zodpovídá": "",
+      "Přijato": "23. 8. 2021 na jednání č. 14/2021",
+      "Termín": "IHNED (23. 8. 2021)",
+      "Ukončeno": "23. 8. 2021"
+     }
+    }
+   },
+   {
+    "number_raw": "UR-161-14/21",
+    "detail_id": 15619,
+    "detail_url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/15619?mod=rada",
+    "agenda_item_raw": "Revokace usnesení UR-101-9/21 a uzavření nové \"Smlouvy o budoucí smlouvě o zřízení VBř a dohodu o umístění stavby č. IV-12-6028454/01 Pečky. Tř. J. Švermy,kNN,čp.255 s firmou ČEZ Distribuce, a.s.",
+    "text_verbatim": "Rada\nměsta revokuje usnesení\nUR-101-9/21\nze dne 21.6.2021.",
+    "cell_text_raw": "Bod programu:\nRevokace usnesení UR-101-9/21 a uzavření nové \"Smlouvy o budoucí smlouvě o zřízení VBř a dohodu o umístění stavby č. IV-12-6028454/01 Pečky. Tř. J. Švermy,kNN,čp.255 s firmou ČEZ Distribuce, a.s.\nText přijatého usnesení:\nRada\nměsta revokuje usnesení\nUR-101-9/21\nze dne 21.6.2021.",
+    "date_raw": "23. 8. 2021",
+    "date_iso": "2021-08-23",
+    "responsible_raw": "",
+    "deadline_raw": "IHNED (23. 8. 2021)",
+    "vote": {
+     "raw_text": "pro: 5 proti: 0 zdržel se: 0",
+     "pro": {
+      "count": 5,
+      "names": null,
+      "raw": "5"
+     },
+     "proti": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     },
+     "zdrzel_se": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     }
+    },
+    "detail": {
+     "number_raw": "UR-161-14/21",
+     "text_verbatim": "Rada města revokuje usnesení UR-101-9/21 ze dne 21.6.2021.",
+     "typ_raw": null,
+     "zodpovida_raw": "",
+     "prijato_raw": "23. 8. 2021 na jednání č. 14/2021",
+     "prijato_date_iso": "2021-08-23",
+     "prijato_meeting_label": "14/2021",
+     "termin_raw": "IHNED (23. 8. 2021)",
+     "ukonceno_raw": "23. 8. 2021",
+     "ukonceno_date_iso": "2021-08-23",
+     "fields_raw": {
+      "Číslo usnesení": "UR-161-14/21",
+      "Text usnesení": "Rada města revokuje usnesení UR-101-9/21 ze dne 21.6.2021.",
+      "Zodpovídá": "",
+      "Přijato": "23. 8. 2021 na jednání č. 14/2021",
+      "Termín": "IHNED (23. 8. 2021)",
+      "Ukončeno": "23. 8. 2021"
+     }
+    }
+   },
+   {
+    "number_raw": "UR-162-14/21",
+    "detail_id": 15620,
+    "detail_url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/15620?mod=rada",
+    "agenda_item_raw": "Revokace usnesení UR-101-9/21 a uzavření nové \"Smlouvy o budoucí smlouvě o zřízení VBř a dohodu o umístění stavby č. IV-12-6028454/01 Pečky. Tř. J. Švermy,kNN,čp.255 s firmou ČEZ Distribuce, a.s.",
+    "text_verbatim": "Rada\nměsta schvaluje uzavřít Smlouvu o budoucí smlouvě o zřízení VBř. a dohodu o umístění stavby č. IV-12-6028454/01“ mezi Městem Pečky a firmou ČEZ Distribuce, a.s. se sídlem Děčín – IV Podmokly,\nTeplická\n874/8, která se týká částí pozemků v majetku města č. parc. 1858/1, 1853, 1883 a 1851 v obci a k.ú. Pečky a dále výměny rozpojovací skříně na budově kulturního domu čp. 255, tř. J. Švermy. Smlouva bude uzavřena za celkovou cenu  ve výši 2.000,-Kč + DPH – podle zákona č. 151/1997 Sb. a vyhlášky č. 441/2013 Sb.",
+    "cell_text_raw": "Bod programu:\nRevokace usnesení UR-101-9/21 a uzavření nové \"Smlouvy o budoucí smlouvě o zřízení VBř a dohodu o umístění stavby č. IV-12-6028454/01 Pečky. Tř. J. Švermy,kNN,čp.255 s firmou ČEZ Distribuce, a.s.\nText přijatého usnesení:\nRada\nměsta schvaluje uzavřít Smlouvu o budoucí smlouvě o zřízení VBř. a dohodu o umístění stavby č. IV-12-6028454/01“ mezi Městem Pečky a firmou ČEZ Distribuce, a.s. se sídlem Děčín – IV Podmokly,\nTeplická\n874/8, která se týká částí pozemků v majetku města č. parc. 1858/1, 1853, 1883 a 1851 v obci a k.ú. Pečky a dále výměny rozpojovací skříně na budově kulturního domu čp. 255, tř. J. Švermy. Smlouva bude uzavřena za celkovou cenu  ve výši 2.000,-Kč + DPH – podle zákona č. 151/1997 Sb. a vyhlášky č. 441/2013 Sb.",
+    "date_raw": "23. 8. 2021",
+    "date_iso": "2021-08-23",
+    "responsible_raw": "Jana Najbrtová",
+    "deadline_raw": "10. 9. 2021",
+    "vote": {
+     "raw_text": "pro: 5 proti: 0 zdržel se: 0",
+     "pro": {
+      "count": 5,
+      "names": null,
+      "raw": "5"
+     },
+     "proti": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     },
+     "zdrzel_se": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     }
+    },
+    "detail": {
+     "number_raw": "UR-162-14/21",
+     "text_verbatim": "Rada města schvaluje uzavřít Smlouvu o budoucí smlouvě o zřízení VBř. a dohodu o umístění stavby č. IV-12-6028454/01“ mezi Městem Pečky a firmou ČEZ Distribuce, a.s. se sídlem Děčín – IV Podmokly, Teplická 874/8, která se týká částí pozemků v majetku města č. parc. 1858/1, 1853, 1883 a 1851 v obci a k.ú. Pečky a dále výměny rozpojovací skříně na budově kulturního domu čp. 255, tř. J. Švermy. Smlouva bude uzavřena za celkovou cenu  ve výši 2.000,-Kč + DPH – podle zákona č. 151/1997 Sb. a vyhlášky č. 441/2013 Sb.",
+     "typ_raw": null,
+     "zodpovida_raw": "Jana Najbrtová",
+     "prijato_raw": "23. 8. 2021 na jednání č. 14/2021",
+     "prijato_date_iso": "2021-08-23",
+     "prijato_meeting_label": "14/2021",
+     "termin_raw": "10. 9. 2021",
+     "ukonceno_raw": "3. 9. 2021",
+     "ukonceno_date_iso": "2021-09-03",
+     "fields_raw": {
+      "Číslo usnesení": "UR-162-14/21",
+      "Text usnesení": "Rada města schvaluje uzavřít Smlouvu o budoucí smlouvě o zřízení VBř. a dohodu o umístění stavby č. IV-12-6028454/01“ mezi Městem Pečky a firmou ČEZ Distribuce, a.s. se sídlem Děčín – IV Podmokly, Teplická 874/8, která se týká částí pozemků v majetku města č. parc. 1858/1, 1853, 1883 a 1851 v obci a k.ú. Pečky a dále výměny rozpojovací skříně na budově kulturního domu čp. 255, tř. J. Švermy. Smlouva bude uzavřena za celkovou cenu  ve výši 2.000,-Kč + DPH – podle zákona č. 151/1997 Sb. a vyhlášky č. 441/2013 Sb.",
+      "Zodpovídá": "Jana Najbrtová",
+      "Přijato": "23. 8. 2021 na jednání č. 14/2021",
+      "Termín": "10. 9. 2021",
+      "Ukončeno": "3. 9. 2021"
+     }
+    }
+   },
+   {
+    "number_raw": "UR-163-14/21",
+    "detail_id": 15625,
+    "detail_url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/15625?mod=rada",
+    "agenda_item_raw": "Přidělení bytu Masarykovo náměstí č. p. 46, byt č. 2",
+    "text_verbatim": "Rada\nměsta schvaluje uzavření smlouvy na pronájem bytu č. 2 v bytovém domě č. p. 46 Masarykovo náměstí v Pečkách mezi městem Pečky a\n█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​\ndo 31.12.2022.",
+    "cell_text_raw": "Bod programu:\nPřidělení bytu Masarykovo náměstí č. p. 46, byt č. 2\nText přijatého usnesení:\nRada\nměsta schvaluje uzavření smlouvy na pronájem bytu č. 2 v bytovém domě č. p. 46 Masarykovo náměstí v Pečkách mezi městem Pečky a\n█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​\ndo 31.12.2022.",
+    "date_raw": "23. 8. 2021",
+    "date_iso": "2021-08-23",
+    "responsible_raw": "Martina Hrázská",
+    "deadline_raw": "4. 11. 2021",
+    "vote": {
+     "raw_text": "pro: 5 proti: 0 zdržel se: 0",
+     "pro": {
+      "count": 5,
+      "names": null,
+      "raw": "5"
+     },
+     "proti": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     },
+     "zdrzel_se": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     }
+    },
+    "detail": {
+     "number_raw": "UR-163-14/21",
+     "text_verbatim": "Rada města schvaluje uzavření smlouvy na pronájem bytu č. 2 v bytovém domě č. p. 46 Masarykovo náměstí v Pečkách mezi městem Pečky a █​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​ do 31.12.2022.",
+     "typ_raw": null,
+     "zodpovida_raw": "Martina Hrázská",
+     "prijato_raw": "23. 8. 2021 na jednání č. 14/2021",
+     "prijato_date_iso": "2021-08-23",
+     "prijato_meeting_label": "14/2021",
+     "termin_raw": "4. 11. 2021",
+     "ukonceno_raw": "26. 11. 2021",
+     "ukonceno_date_iso": "2021-11-26",
+     "fields_raw": {
+      "Číslo usnesení": "UR-163-14/21",
+      "Text usnesení": "Rada města schvaluje uzavření smlouvy na pronájem bytu č. 2 v bytovém domě č. p. 46 Masarykovo náměstí v Pečkách mezi městem Pečky a █​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​ do 31.12.2022.",
+      "Zodpovídá": "Martina Hrázská",
+      "Přijato": "23. 8. 2021 na jednání č. 14/2021",
+      "Termín": "4. 11. 2021",
+      "Ukončeno": "26. 11. 2021"
+     }
+    }
+   },
+   {
+    "number_raw": "UR-164-14/21",
+    "detail_id": 15622,
+    "detail_url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/15622?mod=rada",
+    "agenda_item_raw": "Schválení uzavření \"Smlouvy o smlouvě budoucí o zřízení služebnosti inženýrské sítě č. S-748/00066001/2021 – KH/So/VB“ mezi KSÚS, Praha 5 (povinný) a Městem Pečky (oprávněný)",
+    "text_verbatim": "Rada\nměsta doporučuje zastupitelstvu města schválit uzavření \"Smlouvy o smlouvě budoucí o zřízení služebnosti inženýrské sítě č. S-748/00066001/2021 – KH/So/VB“ mezi smluvními stranami KSÚS,\nPraha\n5 (povinný) a Městem Pečky (oprávněný) – ul.\nSladkovského\n, Pečky. Jedná se o uložení dešťové kanalizace do pozemku v majetku KSÚS,\nPraha\no délce 7,8 bm za celkovou cenu 1.170,- Kč + DPH.",
+    "cell_text_raw": "Bod programu:\nSchválení uzavření \"Smlouvy o smlouvě budoucí o zřízení služebnosti inženýrské sítě č. S-748/00066001/2021 – KH/So/VB“ mezi KSÚS, Praha 5 (povinný) a Městem Pečky (oprávněný)\nText přijatého usnesení:\nRada\nměsta doporučuje zastupitelstvu města schválit uzavření \"Smlouvy o smlouvě budoucí o zřízení služebnosti inženýrské sítě č. S-748/00066001/2021 – KH/So/VB“ mezi smluvními stranami KSÚS,\nPraha\n5 (povinný) a Městem Pečky (oprávněný) – ul.\nSladkovského\n, Pečky. Jedná se o uložení dešťové kanalizace do pozemku v majetku KSÚS,\nPraha\no délce 7,8 bm za celkovou cenu 1.170,- Kč + DPH.",
+    "date_raw": "23. 8. 2021",
+    "date_iso": "2021-08-23",
+    "responsible_raw": "Jana Najbrtová",
+    "deadline_raw": "30. 9. 2021",
+    "vote": {
+     "raw_text": "pro: 5 proti: 0 zdržel se: 0",
+     "pro": {
+      "count": 5,
+      "names": null,
+      "raw": "5"
+     },
+     "proti": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     },
+     "zdrzel_se": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     }
+    },
+    "detail": {
+     "number_raw": "UR-164-14/21",
+     "text_verbatim": "Rada města doporučuje zastupitelstvu města schválit uzavření \"Smlouvy o smlouvě budoucí o zřízení služebnosti inženýrské sítě č. S-748/00066001/2021 – KH/So/VB“ mezi smluvními stranami KSÚS, Praha 5 (povinný) a Městem Pečky (oprávněný) – ul. Sladkovského , Pečky. Jedná se o uložení dešťové kanalizace do pozemku v majetku KSÚS, Praha o délce 7,8 bm za celkovou cenu 1.170,- Kč + DPH.",
+     "typ_raw": null,
+     "zodpovida_raw": "Jana Najbrtová",
+     "prijato_raw": "23. 8. 2021 na jednání č. 14/2021",
+     "prijato_date_iso": "2021-08-23",
+     "prijato_meeting_label": "14/2021",
+     "termin_raw": "30. 9. 2021",
+     "ukonceno_raw": "22. 9. 2021",
+     "ukonceno_date_iso": "2021-09-22",
+     "fields_raw": {
+      "Číslo usnesení": "UR-164-14/21",
+      "Text usnesení": "Rada města doporučuje zastupitelstvu města schválit uzavření \"Smlouvy o smlouvě budoucí o zřízení služebnosti inženýrské sítě č. S-748/00066001/2021 – KH/So/VB“ mezi smluvními stranami KSÚS, Praha 5 (povinný) a Městem Pečky (oprávněný) – ul. Sladkovského , Pečky. Jedná se o uložení dešťové kanalizace do pozemku v majetku KSÚS, Praha o délce 7,8 bm za celkovou cenu 1.170,- Kč + DPH.",
+      "Zodpovídá": "Jana Najbrtová",
+      "Přijato": "23. 8. 2021 na jednání č. 14/2021",
+      "Termín": "30. 9. 2021",
+      "Ukončeno": "22. 9. 2021"
+     }
+    }
+   },
+   {
+    "number_raw": "UR-165-14/21",
+    "detail_id": 15638,
+    "detail_url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/15638?mod=rada",
+    "agenda_item_raw": "Žádost o dotaci - Modré dveře",
+    "text_verbatim": "Rada\nměsta schvaluje poskytnutí dotace ve výši  4.500 Kč Terapeutickému centru\nModré\ndveře, z.ú, IČO: 22768602 a uzavření VPS o poskytnutí dotace.",
+    "cell_text_raw": "Bod programu:\nŽádost o dotaci - Modré dveře\nText přijatého usnesení:\nRada\nměsta schvaluje poskytnutí dotace ve výši  4.500 Kč Terapeutickému centru\nModré\ndveře, z.ú, IČO: 22768602 a uzavření VPS o poskytnutí dotace.",
+    "date_raw": "23. 8. 2021",
+    "date_iso": "2021-08-23",
+    "responsible_raw": "Marcela Bahníková",
+    "deadline_raw": "31. 8. 2021",
+    "vote": {
+     "raw_text": "pro: 5 proti: 0 zdržel se: 0",
+     "pro": {
+      "count": 5,
+      "names": null,
+      "raw": "5"
+     },
+     "proti": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     },
+     "zdrzel_se": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     }
+    },
+    "detail": {
+     "number_raw": "UR-165-14/21",
+     "text_verbatim": "Rada města schvaluje poskytnutí dotace ve výši  4.500 Kč Terapeutickému centru Modré dveře, z.ú, IČO: 22768602 a uzavření VPS o poskytnutí dotace.",
+     "typ_raw": null,
+     "zodpovida_raw": "Marcela Bahníková",
+     "prijato_raw": "23. 8. 2021 na jednání č. 14/2021",
+     "prijato_date_iso": "2021-08-23",
+     "prijato_meeting_label": "14/2021",
+     "termin_raw": "31. 8. 2021",
+     "ukonceno_raw": "31. 8. 2021",
+     "ukonceno_date_iso": "2021-08-31",
+     "fields_raw": {
+      "Číslo usnesení": "UR-165-14/21",
+      "Text usnesení": "Rada města schvaluje poskytnutí dotace ve výši  4.500 Kč Terapeutickému centru Modré dveře, z.ú, IČO: 22768602 a uzavření VPS o poskytnutí dotace.",
+      "Zodpovídá": "Marcela Bahníková",
+      "Přijato": "23. 8. 2021 na jednání č. 14/2021",
+      "Termín": "31. 8. 2021",
+      "Ukončeno": "31. 8. 2021"
+     }
+    }
+   },
+   {
+    "number_raw": "UR-166-14/21",
+    "detail_id": 15635,
+    "detail_url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/15635?mod=rada",
+    "agenda_item_raw": "Žádost o dotaci ZUŠ Pečky",
+    "text_verbatim": "Rada\nměsta schvaluje poskytnutí dotace ve výši 10.000 Kč Základní umělecké škole Pečky, IČO:70836299 na uspořádání koncertu pro veřejnost a uzavření VPS o poskytnutí dotace.",
+    "cell_text_raw": "Bod programu:\nŽádost o dotaci ZUŠ Pečky\nText přijatého usnesení:\nRada\nměsta schvaluje poskytnutí dotace ve výši 10.000 Kč Základní umělecké škole Pečky, IČO:70836299 na uspořádání koncertu pro veřejnost a uzavření VPS o poskytnutí dotace.",
+    "date_raw": "23. 8. 2021",
+    "date_iso": "2021-08-23",
+    "responsible_raw": "Marcela Bahníková",
+    "deadline_raw": "31. 8. 2021",
+    "vote": {
+     "raw_text": "pro: 5 proti: 0 zdržel se: 0",
+     "pro": {
+      "count": 5,
+      "names": null,
+      "raw": "5"
+     },
+     "proti": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     },
+     "zdrzel_se": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     }
+    },
+    "detail": {
+     "number_raw": "UR-166-14/21",
+     "text_verbatim": "Rada města schvaluje poskytnutí dotace ve výši 10.000 Kč Základní umělecké škole Pečky, IČO:70836299 na uspořádání koncertu pro veřejnost a uzavření VPS o poskytnutí dotace.",
+     "typ_raw": null,
+     "zodpovida_raw": "Marcela Bahníková",
+     "prijato_raw": "23. 8. 2021 na jednání č. 14/2021",
+     "prijato_date_iso": "2021-08-23",
+     "prijato_meeting_label": "14/2021",
+     "termin_raw": "31. 8. 2021",
+     "ukonceno_raw": "31. 8. 2021",
+     "ukonceno_date_iso": "2021-08-31",
+     "fields_raw": {
+      "Číslo usnesení": "UR-166-14/21",
+      "Text usnesení": "Rada města schvaluje poskytnutí dotace ve výši 10.000 Kč Základní umělecké škole Pečky, IČO:70836299 na uspořádání koncertu pro veřejnost a uzavření VPS o poskytnutí dotace.",
+      "Zodpovídá": "Marcela Bahníková",
+      "Přijato": "23. 8. 2021 na jednání č. 14/2021",
+      "Termín": "31. 8. 2021",
+      "Ukončeno": "31. 8. 2021"
+     }
+    }
+   },
+   {
+    "number_raw": "UR-167-14/21",
+    "detail_id": 15641,
+    "detail_url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/15641?mod=rada",
+    "agenda_item_raw": "Souhlas s uzavřením podnájemních smluv se společností Green Logistics CZ s.r.o.",
+    "text_verbatim": "Rada\nměsta souhlasí s uzavřením podnájemních smluv se společností\nGreen\nLogistics CZ s.r.o. za účelem zřízení veřejného místa zpětného odběru pneumatik a automobilových baterií.",
+    "cell_text_raw": "Bod programu:\nSouhlas s uzavřením podnájemních smluv se společností Green Logistics CZ s.r.o.\nText přijatého usnesení:\nRada\nměsta souhlasí s uzavřením podnájemních smluv se společností\nGreen\nLogistics CZ s.r.o. za účelem zřízení veřejného místa zpětného odběru pneumatik a automobilových baterií.",
+    "date_raw": "23. 8. 2021",
+    "date_iso": "2021-08-23",
+    "responsible_raw": "Adam Brant",
+    "deadline_raw": "30. 9. 2021",
+    "vote": {
+     "raw_text": "pro: 5 proti: 0 zdržel se: 0",
+     "pro": {
+      "count": 5,
+      "names": null,
+      "raw": "5"
+     },
+     "proti": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     },
+     "zdrzel_se": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     }
+    },
+    "detail": {
+     "number_raw": "UR-167-14/21",
+     "text_verbatim": "Rada města souhlasí s uzavřením podnájemních smluv se společností Green Logistics CZ s.r.o. za účelem zřízení veřejného místa zpětného odběru pneumatik a automobilových baterií.",
+     "typ_raw": null,
+     "zodpovida_raw": "Adam Brant",
+     "prijato_raw": "23. 8. 2021 na jednání č. 14/2021",
+     "prijato_date_iso": "2021-08-23",
+     "prijato_meeting_label": "14/2021",
+     "termin_raw": "30. 9. 2021",
+     "ukonceno_raw": "22. 9. 2021",
+     "ukonceno_date_iso": "2021-09-22",
+     "fields_raw": {
+      "Číslo usnesení": "UR-167-14/21",
+      "Text usnesení": "Rada města souhlasí s uzavřením podnájemních smluv se společností Green Logistics CZ s.r.o. za účelem zřízení veřejného místa zpětného odběru pneumatik a automobilových baterií.",
+      "Zodpovídá": "Adam Brant",
+      "Přijato": "23. 8. 2021 na jednání č. 14/2021",
+      "Termín": "30. 9. 2021",
+      "Ukončeno": "22. 9. 2021"
+     }
+    }
+   },
+   {
+    "number_raw": "UR-168-14/21",
+    "detail_id": 15650,
+    "detail_url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/15650?mod=rada",
+    "agenda_item_raw": "Uzavření Dodatku č.1 ke Smlouvě o zhotovení projektové dokumentace",
+    "text_verbatim": "Rada\nměsta schvaluje uzavření dodatku č. 2 ke Smlouvě o zhotovení projektové dokumentace (studie) mezi městem Pečky a ov architekti, s.r.o. Badeniho 29/5, 160 00\nPraha\n6 - Hradčany. Jedná se o snížení ceny za vypořádání autorských práv ze 160.000,- Kč na 80.000,- Kč bez DPH.",
+    "cell_text_raw": "Bod programu:\nUzavření Dodatku č.1 ke Smlouvě o zhotovení projektové dokumentace\nText přijatého usnesení:\nRada\nměsta schvaluje uzavření dodatku č. 2 ke Smlouvě o zhotovení projektové dokumentace (studie) mezi městem Pečky a ov architekti, s.r.o. Badeniho 29/5, 160 00\nPraha\n6 - Hradčany. Jedná se o snížení ceny za vypořádání autorských práv ze 160.000,- Kč na 80.000,- Kč bez DPH.",
+    "date_raw": "23. 8. 2021",
+    "date_iso": "2021-08-23",
+    "responsible_raw": "Věra Růžičková",
+    "deadline_raw": "27. 9. 2021",
+    "vote": {
+     "raw_text": "pro: 5 proti: 0 zdržel se: 0",
+     "pro": {
+      "count": 5,
+      "names": null,
+      "raw": "5"
+     },
+     "proti": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     },
+     "zdrzel_se": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     }
+    },
+    "detail": {
+     "number_raw": "UR-168-14/21",
+     "text_verbatim": "Rada města schvaluje uzavření dodatku č. 2 ke Smlouvě o zhotovení projektové dokumentace (studie) mezi městem Pečky a ov architekti, s.r.o. Badeniho 29/5, 160 00 Praha 6 - Hradčany. Jedná se o snížení ceny za vypořádání autorských práv ze 160.000,- Kč na 80.000,- Kč bez DPH.",
+     "typ_raw": null,
+     "zodpovida_raw": "Věra Růžičková",
+     "prijato_raw": "23. 8. 2021 na jednání č. 14/2021",
+     "prijato_date_iso": "2021-08-23",
+     "prijato_meeting_label": "14/2021",
+     "termin_raw": "27. 9. 2021",
+     "ukonceno_raw": "13. 9. 2021",
+     "ukonceno_date_iso": "2021-09-13",
+     "fields_raw": {
+      "Číslo usnesení": "UR-168-14/21",
+      "Text usnesení": "Rada města schvaluje uzavření dodatku č. 2 ke Smlouvě o zhotovení projektové dokumentace (studie) mezi městem Pečky a ov architekti, s.r.o. Badeniho 29/5, 160 00 Praha 6 - Hradčany. Jedná se o snížení ceny za vypořádání autorských práv ze 160.000,- Kč na 80.000,- Kč bez DPH.",
+      "Zodpovídá": "Věra Růžičková",
+      "Přijato": "23. 8. 2021 na jednání č. 14/2021",
+      "Termín": "27. 9. 2021",
+      "Ukončeno": "13. 9. 2021"
+     }
+    }
+   }
+  ]
+ }
+}

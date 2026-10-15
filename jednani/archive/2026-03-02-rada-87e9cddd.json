@@ -1,0 +1,933 @@
+{
+ "uuid": "87e9cddd-116d-11f1-9462-0242c0a80003",
+ "body_type_raw": "Rada",
+ "label_raw": "9/2026 (2. 3. 2026)",
+ "number": 9,
+ "year": 2026,
+ "date_iso": "2026-03-02",
+ "links": {
+  "invitation": "https://mesto-pecky.usneseni.cz/verejne/?uuid=87e9cddd-116d-11f1-9462-0242c0a80003&page=2&do=printPublicInvitation",
+  "minutes": "https://mesto-pecky.usneseni.cz/verejne/87e9cddd-116d-11f1-9462-0242c0a80003/zapis/?page=2",
+  "signed_minutes_pdf": "https://mesto-pecky.usneseni.cz/verejne/?meetingReportControl-uuid=87e9cddd-116d-11f1-9462-0242c0a80003&page=2&do=meetingReportControl-getSignedReportPdf",
+  "resolutions": "https://mesto-pecky.usneseni.cz/verejne/87e9cddd-116d-11f1-9462-0242c0a80003/usneseni/?page=2",
+  "audio": null
+ },
+ "link_texts": {
+  "invitation": "Pozvánka",
+  "minutes": "zápis",
+  "signed_minutes_pdf": "podepsaný zápis",
+  "resolutions": "přijatá usnesení"
+ },
+ "status": "ok",
+ "invitation": {
+  "status": "site_error",
+  "error": "status=200 ct=text/html; charset=utf-8 flash='<a href=\"\" class=\"close\" data-dismiss=\"alert\" aria-label=\"close\">&times;'",
+  "url": "https://mesto-pecky.usneseni.cz/verejne/?uuid=87e9cddd-116d-11f1-9462-0242c0a80003&do=printPublicInvitation",
+  "fetched_at": "2026-08-04T14:52:04.664859+00:00"
+ },
+ "minutes": {
+  "status": "ok",
+  "url": "https://mesto-pecky.usneseni.cz/verejne/87e9cddd-116d-11f1-9462-0242c0a80003/zapis/",
+  "fetched_at": "2026-08-04T13:18:24.717965+00:00",
+  "title_raw": "ZÁPIS ze schůze rady č. 9/2026 Město Pečky datum: 2. 3. 2026, čas: 15:00 ​",
+  "date_raw": "2. 3. 2026",
+  "date_iso": "2026-03-02",
+  "time_raw": "15:00",
+  "presence": {
+   "raw_text": "Úvodní prezence:\nPřítomni:\n(7) Ing. Petr Dürr, Zdeněk Fejfar, Ing. Martin Jedlička, Ing. Karel Krištoufek, Ing. Hana Kuprová, Milan Paluska, Ivana Trčková\nOmluveni:\n(0)\nNepřítomni:\n(0)\nDalší přítomní a hosté:\nZapisovatel/ka:\nEva Strnadová\nPřítomno je 7 z 7 členů a rada je usnášeníschopná.\nJednání zahájeno 02.03.2026 v 15:21:35",
+   "pritomni": {
+    "count": 7,
+    "names": [
+     "Ing. Petr Dürr",
+     "Zdeněk Fejfar",
+     "Ing. Martin Jedlička",
+     "Ing. Karel Krištoufek",
+     "Ing. Hana Kuprová",
+     "Milan Paluska",
+     "Ivana Trčková"
+    ],
+    "raw": "(7) Ing. Petr Dürr, Zdeněk Fejfar, Ing. Martin Jedlička, Ing. Karel Krištoufek, Ing. Hana Kuprová, Milan Paluska, Ivana Trčková"
+   },
+   "omluveni": {
+    "count": 0,
+    "names": [],
+    "raw": "(0)"
+   },
+   "nepritomni": {
+    "count": 0,
+    "names": [],
+    "raw": "(0)"
+   },
+   "predsedajici": null,
+   "quorum_raw": "Přítomno je 7 z 7 členů a rada je usnášeníschopná."
+  },
+  "header_raw": "Úvodní prezence:\nPřítomni:\n(7) Ing. Petr Dürr, Zdeněk Fejfar, Ing. Martin Jedlička, Ing. Karel Krištoufek, Ing. Hana Kuprová, Milan Paluska, Ivana Trčková\nOmluveni:\n(0)\nNepřítomni:\n(0)\nDalší přítomní a hosté:\nZapisovatel/ka:\nEva Strnadová\nPřítomno je 7 z 7 členů a rada je usnášeníschopná.\nJednání zahájeno 02.03.2026 v 15:21:35",
+  "agenda_items": [
+   {
+    "number": 1,
+    "title_raw": "Určení zapisovatelů, předsedajícího, příp. ověřovatelů",
+    "heading_raw": "1. Určení zapisovatelů, předsedajícího, příp. ověřovatelů (bod číslo 1)",
+    "predkladatel": "Milan Paluska",
+    "votes": [],
+    "resolution_numbers_mentioned": [],
+    "raw_text": "Předkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 15:21:41\nPředsedající navrhl jednotlivé členy pracovních komisí\nOvěřovatelé:\nIng. Karel Krištoufek, Ing. Petr Dürr\nPředsedající:\nMilan Paluska\nBod byl přijat bez hlasování.\nDiskuze zahájena v 15:21:41\nK tomuto bodu se vyjádřili:\nMilan Paluska\nProjednávání bodu bylo ukončeno v 15:23:33"
+   },
+   {
+    "number": 2,
+    "title_raw": "Schválení programu jednání",
+    "heading_raw": "2. Schválení programu jednání (bod číslo 2)",
+    "predkladatel": "Milan Paluska",
+    "votes": [
+     {
+      "raw_text": "pro:\n7\nproti\n0\nzdržel se:\n0\nnehlasoval:\n0",
+      "pro": {
+       "count": 7,
+       "names": null,
+       "raw": "7"
+      },
+      "proti": {
+       "count": 0,
+       "names": null,
+       "raw": "0"
+      },
+      "zdrzel_se": {
+       "count": 0,
+       "names": null,
+       "raw": "0"
+      },
+      "nehlasoval": {
+       "count": 0,
+       "names": null,
+       "raw": "0"
+      },
+      "result_raw": "Návrh A. byl přijat jako usnesení číslo: UR-77-9/26",
+      "adopted_resolution_number": "UR-77-9/26"
+     }
+    ],
+    "resolution_numbers_mentioned": [
+     "UR-77-9/26"
+    ],
+    "raw_text": "Předkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 15:23:39\nProgram jednání\n1. Určení zapisovatelů, předsedajícího, příp. ověřovatelů\n2. Schválení programu jednání\n3. Aktuální informace vedení města\n4. Uzavření \"Smlouvy o budoucí smlouvě o zřízení věcného břemene a dohodu o umístění stavby č. IV-12-6039567“ (ČEZ Distrribuce, a.s.)\n5. Zveřejnění záměru – pronájem prostor sloužících podnikání v čp. 292 (zubní, dent. hygiena)\n6. Žádost o přepis nájemní smlouvy\n7. Zadání VZMR na služby - Zeleň, záhony v intravilánu města Pečky - M.Alše, K.H.Máchy\n8. Výroční zpráva o činnosti Městské knihovny Sv. Čecha v Pečkách za rok 2025\n9. VÝROČNÍ ZPRÁVA O ČINNOSTI ŠKOLY ZA ŠKOLNÍ ROK 2024/2025\n10. Dar - Domácí hospic Srdcem\n11. Dar - Linka bezpečí\n12. Žádost o dar - Zdravotní klaun\n13. Žádost o dotaci - chovatelé poštovních holubů\n14. Zpracování úkolu\n15. Kontrola plnění usnesení\n16. Diskuse, různé\n17. Úkoly vyplývající z jednání rady města\nDiskuze zahájena v 15:23:40\nK tomuto bodu se vyjádřili:\nMilan Paluska\nV 15:24:08 předsedající zahájil hlasování o návrhu usnesení \"A\" v tomto znění:\nNavrhovatel: Milan Paluska\nRada\nměsta schvaluje návrh programu jednání.\nHlasování\npro:\n7\nproti\n0\nzdržel se:\n0\nnehlasoval:\n0\nNávrh A. byl přijat jako usnesení číslo: UR-77-9/26\nzodpovídá:\ntermín:\nIHNED\n(2. 3. 2026)\nProjednávání bodu bylo ukončeno v 15:24:14"
+   },
+   {
+    "number": 3,
+    "title_raw": "Aktuální informace vedení města",
+    "heading_raw": "3. Aktuální informace vedení města (bod číslo 3)",
+    "predkladatel": "Milan Paluska",
+    "votes": [],
+    "resolution_numbers_mentioned": [],
+    "raw_text": "Předkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 15:24:24\nDůvodová zpráva:\nstarosta města\n- informace Komise FRB o I. kole výběrového řízení pro poskytnutí půjček/zápůjček z FRB pro rok 2026 s tím, že v termínu do 28.2.2026 nebyla podána žádná žádost\n- informace o kolaudační prohlídce akce „Rekonstrukce místních komunikací v části Bačov v Pečkách – 1. a 2. etapa“\n- informace o kolaudační prohlídce akce \"Pečky – rekonstrukce ul.\nProkopa\nHolého\na Letohradská\" - část vodovodu a kanalizace\n- informace o kolaudační prohlídce akce \"Dobudování stezky pro pěší a cyklisty v ul.\nMilčická\nve Velkých Chvalovicích\"\n- informace Ing.\nHavlíčkové\n/stavební úřad MěÚ Kolín/ o vydaném územním rozhodnutí s nabytím právní moci na dostavbu obchvatu Pečky, sever\n- informace o schůzce s oblastním ředitelem společnosti MediClinic a.s. Ing. Hypešem - zajištění provozu ordinace praktických lékařů v Pečkách\n- informace o konání\nValné\nhromady TJ\nSokol\nV. Chalovice dne 28.2.2026\nZdeněk\nFejfar\n- kontrolní den na ČOV, kalolis /odvodňování kalů na čistírně odpadních vod/, dne 9.3.2026 navážení komponentů a zahájení montáže\nDiskuze zahájena v 15:24:24\nK tomuto bodu se vyjádřili:\nMilan Paluska, Zdeněk Fejfar, Ing. Martin Jedlička\nRada bere informace k bodu č. 3 -\nAktuální informace vedení města\nna vědomí.\nProjednávání bodu bylo ukončeno v 15:42:12"
+   },
+   {
+    "number": 4,
+    "title_raw": "Uzavření \"Smlouvy o budoucí smlouvě o zřízení věcného břemene a dohodu o umístění stavby č. IV-12-6039567“ (ČEZ Distrribuce, a.s.)",
+    "heading_raw": "4. Uzavření \"Smlouvy o budoucí smlouvě o zřízení věcného břemene a dohodu o umístění stavby č. IV-12-6039567“ (ČEZ Distrribuce, a.s.) (bod číslo 4)",
+    "predkladatel": "Jana Najbrtová",
+    "votes": [
+     {
+      "raw_text": "pro:\n7\nproti\n0\nzdržel se:\n0\nnehlasoval:\n0",
+      "pro": {
+       "count": 7,
+       "names": null,
+       "raw": "7"
+      },
+      "proti": {
+       "count": 0,
+       "names": null,
+       "raw": "0"
+      },
+      "zdrzel_se": {
+       "count": 0,
+       "names": null,
+       "raw": "0"
+      },
+      "nehlasoval": {
+       "count": 0,
+       "names": null,
+       "raw": "0"
+      },
+      "result_raw": "Návrh A. byl přijat jako usnesení číslo: UR-78-9/26",
+      "adopted_resolution_number": "UR-78-9/26"
+     }
+    ],
+    "resolution_numbers_mentioned": [
+     "UR-78-9/26"
+    ],
+    "raw_text": "Předkladatel: Jana Najbrtová\nProjednávání bodu bylo zahájeno v 15:42:17\nDůvodová zpráva:\nJedná se o vyvedení nového kabelového vedení z volné pojistkové sady rozpojovací skříně, která je umístěna na pozemku v majetku města Pečky č. parc. 343/1 (budoucí parkoviště).\nKabelové\nvedení povede v souběhu s hranicí/svahem tohoto pozemku a bude ukončeno v nové pojistkové skříni na hranici soukromého pozemku č. parc. 341/1. Pozemky dotčené stavbou budou uvedeny do původního stavu. Jedná se o cca 39 bm pozemku.\nDiskuze zahájena v 15:42:17\nK tomuto bodu se vyjádřili:\nMilan Paluska, Zdeněk Fejfar, Ing. Karel Krištoufek, Ing. Hana Kuprová, Ivana Trčková\nV 15:48:24 předsedající zahájil hlasování o návrhu usnesení \"A\" v tomto znění:\nNavrhovatel: Jana Najbrtová\nRada\nměsta schvaluje uzavřít \"Smlouvu o budoucí smlouvě o zřízení věcného břemene a dohodu o umístění stavby č. IV-12-6039567“ mezi Městem Pečky a firmou ČEZ Distribuce, a.s. se sídlem Děčín – IV Podmokly,\nTeplická\n874/8, která se týká části pozemku v majetku města Pečky č. parc. 343/1 v obci Pečky a k.ú.\nVelké\nChvalovice. Smlouva bude uzavřena za celkovou cenu ve výši 2.000,- Kč + DPH – podle zákona č. 151/1997 Sb. a vyhlášky č. 441/2013 Sb. v platném znění (vyhláška č. 370/2024 Sb.).\nHlasování\npro:\n7\nproti\n0\nzdržel se:\n0\nnehlasoval:\n0\nNávrh A. byl přijat jako usnesení číslo: UR-78-9/26\nzodpovídá:\nJana Najbrtová\ntermín:\n16. 3. 2026\nProjednávání bodu bylo ukončeno v 15:48:31"
+   },
+   {
+    "number": 5,
+    "title_raw": "Zveřejnění záměru – pronájem prostor sloužících podnikání v čp. 292 (zubní, dentální hygiena)",
+    "heading_raw": "5. Zveřejnění záměru – pronájem prostor sloužících podnikání v čp. 292 (zubní, dentální hygiena) (bod číslo 5)",
+    "predkladatel": "Jana Najbrtová",
+    "votes": [
+     {
+      "raw_text": "pro:\n7\nproti\n0\nzdržel se:\n0\nnehlasoval:\n0",
+      "pro": {
+       "count": 7,
+       "names": null,
+       "raw": "7"
+      },
+      "proti": {
+       "count": 0,
+       "names": null,
+       "raw": "0"
+      },
+      "zdrzel_se": {
+       "count": 0,
+       "names": null,
+       "raw": "0"
+      },
+      "nehlasoval": {
+       "count": 0,
+       "names": null,
+       "raw": "0"
+      },
+      "result_raw": "Návrh A. byl přijat jako usnesení číslo: UR-79-9/26",
+      "adopted_resolution_number": "UR-79-9/26"
+     }
+    ],
+    "resolution_numbers_mentioned": [
+     "UR-79-9/26"
+    ],
+    "raw_text": "Předkladatel: Jana Najbrtová\nProjednávání bodu bylo zahájeno v 15:48:36\nDůvodová zpráva:\nDoporučujeme znovu zveřejnit záměr na pronájem prostoru sloužícího podnikání v čp. 292 – zdravotní středisko.\nPoslední\nzáměr byl zveřejněn 3. 2. 2026 a doposud se nikdo nepřihlásil. Po osobním jednání s\n█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█\nnavrhujeme prostor po zubním lékaři nabízet i na dentální hygienu. Nájemné bude ve stejné výši jako měl\n█​█​█​█​█​█\n█​█​█​█​█​█\ntzn. 1.080,- Kč/m\n2\n/rok (tzn. 60.804,-Kč/rok) a služby ve výši 2.500,- Kč/měsíc.\nDiskuze zahájena v 15:48:36\nK tomuto bodu se vyjádřili:\nMilan Paluska, Zdeněk Fejfar, Ing. Martin Jedlička, Ing. Karel Krištoufek, Ing. Hana Kuprová, Ivana Trčková\nV 15:57:47 předsedající zahájil hlasování o návrhu usnesení \"A\" v tomto znění:\nNavrhovatel: Jana Najbrtová\nRada\nměsta schvaluje zveřejnit záměr na pronájem prostoru sloužícího podnikání v Pečkách, čp. 292 – zdravotní středisko (ordinace zubního lékaře) o celkové výměře 56,3 m\n2\nza těchto podmínek:\n- prostory se pronajímají pouze za účelem provozování ordinace zubního lékaře nebo dentální hygieny\n- minimální nájemné činí 5.067,- Kč (+ služby 2.500,- Kč/měsíc)\n- smlouva bude uzavřena od 1. dubna 2026 na dobu neurčitou s výpovědní lhůtou 3 měsíce\n- spolehlivost nájemce\n- pronajímatel zajistí sepsání smlouvy\n- nabídku očekáváme nejpozději do 19. března 2026 (do 10.00 hod.) v zapečetěné obálce s názvem „Pronájem NP v čp. 292“\n- při vyšším počtu zájemců bude upřednostněna nejvyšší nabídnutá cena, v případě více zájemců se stejnou nabídnutou cenou budou uchazeči vyzváni k předložení nových nabídek\nHlasování\npro:\n7\nproti\n0\nzdržel se:\n0\nnehlasoval:\n0\nNávrh A. byl přijat jako usnesení číslo: UR-79-9/26\nzodpovídá:\nJana Najbrtová\ntermín:\n16. 3. 2026\nProjednávání bodu bylo ukončeno v 15:57:52"
+   },
+   {
+    "number": 6,
+    "title_raw": "Žádost o přepis nájemní smlouvy",
+    "heading_raw": "6. Žádost o přepis nájemní smlouvy (bod číslo 6)",
+    "predkladatel": "Martina Hrázská",
+    "votes": [
+     {
+      "raw_text": "pro:\n5\nproti\n0\nzdržel se:\n2\nnehlasoval:\n0",
+      "pro": {
+       "count": 5,
+       "names": null,
+       "raw": "5"
+      },
+      "proti": {
+       "count": 0,
+       "names": null,
+       "raw": "0"
+      },
+      "zdrzel_se": {
+       "count": 2,
+       "names": null,
+       "raw": "2"
+      },
+      "nehlasoval": {
+       "count": 0,
+       "names": null,
+       "raw": "0"
+      },
+      "result_raw": "Návrh A. byl přijat jako usnesení číslo: UR-80-9/26",
+      "adopted_resolution_number": "UR-80-9/26"
+     }
+    ],
+    "resolution_numbers_mentioned": [
+     "UR-80-9/26"
+    ],
+    "raw_text": "Předkladatel: Martina Hrázská\nProjednávání bodu bylo zahájeno v 15:57:56\nDůvodová zpráva:\nNa základě úmrtí pana\n█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█\npodal dne 25.2.2026 pod č.j. PEC/1027/2026 pan\n█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█\nžádost o přepis smlouvy o nájmu bytu na byt č. 1, na adrese Masarykovo nám. 31, Pečky na jeho osobu. Výše nájmu byla stanovena na 127,92 Kč /m\n2\nza měsíc tj. 6396,- Kč za měsíc.\nDiskuze zahájena v 15:57:56\nK tomuto bodu se vyjádřili:\nMilan Paluska, Ing. Hana Kuprová, Ivana Trčková, Ing. Petr Dürr\nV 16:04:29 předsedající zahájil hlasování o návrhu usnesení \"A\" v tomto znění:\nNavrhovatel: Martina Hrázská\nRada\nměsta schvaluje uzavření smlouvy o nájmu bytu na byt č. 1 na adrese Masarykovo mám. 31, Pečky mezi městem Pečky a panem\n█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█\n█​█​█​█​█​█\nna dobu určitou 1 roku s účinností od 3.3.2026. Výše nájmu byla stanovena na 127,92 Kč/m\n2\nza měsíc t.j. 6.396,- Kč. Jistota ve výši 6.000,- Kč, která byla složena původním nájemcem panem\n█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█\n█​█​█​█​█​█​█​█​█​█\nbude převedena na nového nájemce\n█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█\nbude doplacen při podpisu smlouvy o nájmu bytu.\nHlasování\npro:\n5\nproti\n0\nzdržel se:\n2\nnehlasoval:\n0\nNávrh A. byl přijat jako usnesení číslo: UR-80-9/26\nzodpovídá:\nMartina Hrázská\ntermín:\n16. 3. 2026\nProjednávání bodu bylo ukončeno v 16:04:37"
+   },
+   {
+    "number": 7,
+    "title_raw": "Zadání VZMR na služby - Zeleň, záhony v intravilánu města Pečky - M.Alše, K.H.Máchy",
+    "heading_raw": "7. Zadání VZMR na služby - Zeleň, záhony v intravilánu města Pečky - M.Alše, K.H.Máchy (bod číslo 7)",
+    "predkladatel": "Ing. Petra Šimpachová",
+    "votes": [
+     {
+      "raw_text": "pro:\n6\nproti\n0\nzdržel se:\n0\nnehlasoval:\n0",
+      "pro": {
+       "count": 6,
+       "names": null,
+       "raw": "6"
+      },
+      "proti": {
+       "count": 0,
+       "names": null,
+       "raw": "0"
+      },
+      "zdrzel_se": {
+       "count": 0,
+       "names": null,
+       "raw": "0"
+      },
+      "nehlasoval": {
+       "count": 0,
+       "names": null,
+       "raw": "0"
+      },
+      "result_raw": "Návrh A. byl přijat jako usnesení číslo: UR-81-9/26",
+      "adopted_resolution_number": "UR-81-9/26"
+     }
+    ],
+    "resolution_numbers_mentioned": [
+     "UR-81-9/26"
+    ],
+    "raw_text": "Předkladatel: Ing. Petra Šimpachová\nProjednávání bodu bylo zahájeno v 16:04:41\nDůvodová zpráva:\nZa účelem zadání veřejné zakázky malého rozsahu na služby \"Zeleň, záhony v intravilánu města Pečky - M.Alše, K.H.Máchy\" doporučuje hodnotící komise zadavateli schválit rozhodnutí o výběru dodavatele (viz Rozhodnutí a oznámení o výběru dodavatele v příloze) a uzavření smlouvy o dílo s vybraným dodavatelem Bušim - péče o zeleň, s.r.o., Dvorce 22, 289 22\nLysá\nnad Labem, IČ 02000652, za cenu 1 030 924,21 Kč bez DPH. Zadání VZMR v souladu s čl. 3 a 6 Pravidel k zadávání veřejných zakázek malého rozsahu (účinnost od 15.04.2025).\nDiskuze zahájena v 16:04:41\nK tomuto bodu se vyjádřili:\nMilan Paluska, Ivana Trčková, Zdeněk Fejfar, Ing. Hana Kuprová, Ing. Karel Krištoufek\nV 16:08:12 odešel Ing. Martin Jedlička, přítomno 6 z 7 radních.\nAktualizovaný stav prezence:\nPřítomni:\n(6) Ing. Petr Dürr, Zdeněk Fejfar, Ing. Karel Krištoufek, Ing. Hana Kuprová, Milan Paluska, Ivana Trčková\nOmluveni:\n(0)\nNepřítomni:\n(1) Ing. Martin Jedlička\nV 16:12:18 předsedající zahájil hlasování o návrhu usnesení \"A\" v tomto znění:\nNavrhovatel: Ing. Petra Šimpachová\nRada\nměsta schvaluje, v souladu s doporučením hodnotící komise, Rozhodnutí o výběru dodavatele na plnění veřejné zakázky malého rozsahu na služby \"Zeleň, záhony v intravilánu města Pečky - M.Alše, K.H.Máchy\" a uzavření smlouvy o dílo mezi Městem Pečky a vybraným dodavatelem Bušim - péče o zeleň, s.r.o., Dvorce 22, 289 22\nLysá\nnad Labem, IČ 02000652, za cenu 1 030 924,21 Kč bez DPH, za podmínky zajištění dostatečného krytí v rozpočtu města.\nHlasování\npro:\n6\nproti\n0\nzdržel se:\n0\nnehlasoval:\n0\nNávrh A. byl přijat jako usnesení číslo: UR-81-9/26\nzodpovídá:\nIng. Petra Šimpachová\ntermín:\n31. 3. 2026\nProjednávání bodu bylo ukončeno v 16:12:24"
+   },
+   {
+    "number": 8,
+    "title_raw": "Výroční zpráva o činnosti Městské knihovny Sv. Čecha v Pečkách za rok 2025",
+    "heading_raw": "8. Výroční zpráva o činnosti Městské knihovny Sv. Čecha v Pečkách za rok 2025 (bod číslo 8)",
+    "predkladatel": "Milan Paluska",
+    "votes": [],
+    "resolution_numbers_mentioned": [],
+    "raw_text": "Předkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 16:12:36\nDůvodová zpráva:\nŘeditelka městské knihovny p.\nVladimíra\nKrulišová\npředkládá RM na vědomí zprávu o činnosti knihovny za rok 2025.\nDiskuze zahájena v 16:12:36\nK tomuto bodu se vyjádřili:\nMilan Paluska, Ing. Karel Krištoufek, Ing. Hana Kuprová, Zdeněk Fejfar\nRada bere informace k bodu č. 8 -\nVýroční zpráva o činnosti Městské knihovny Sv. Čecha v Pečkách za rok 2025\nna vědomí.\nProjednávání bodu bylo ukončeno v 16:15:30"
+   },
+   {
+    "number": 9,
+    "title_raw": "Výroční zpráva o činnosti ZUŠ Pečky za rok 2024/2025",
+    "heading_raw": "9. Výroční zpráva o činnosti ZUŠ Pečky za rok 2024/2025 (bod číslo 9)",
+    "predkladatel": "Milan Paluska",
+    "votes": [],
+    "resolution_numbers_mentioned": [],
+    "raw_text": "Předkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 16:15:35\nDůvodová zpráva:\nŘeditelka ZUŠ Pečky\nPetra\nVorlíčková, DiS.\npředkládá RM na vědomí zprávu o činnosti školy za rok 2024/2025.\nDiskuze zahájena v 16:15:35\nK tomuto bodu se vyjádřili:\nMilan Paluska, Ing. Hana Kuprová, Ivana Trčková, Ing. Petr Dürr\nRada bere informace k bodu č. 9 -\nVýroční zpráva o činnosti ZUŠ Pečky za rok 2024/2025\nna vědomí.\nProjednávání bodu bylo ukončeno v 16:18:00"
+   },
+   {
+    "number": 10,
+    "title_raw": "Dar - Domácí hospic Srdcem",
+    "heading_raw": "10. Dar - Domácí hospic Srdcem (bod číslo 10)",
+    "predkladatel": "Milan Paluska",
+    "votes": [
+     {
+      "raw_text": "pro:\n7\nproti\n0\nzdržel se:\n0\nnehlasoval:\n0",
+      "pro": {
+       "count": 7,
+       "names": null,
+       "raw": "7"
+      },
+      "proti": {
+       "count": 0,
+       "names": null,
+       "raw": "0"
+      },
+      "zdrzel_se": {
+       "count": 0,
+       "names": null,
+       "raw": "0"
+      },
+      "nehlasoval": {
+       "count": 0,
+       "names": null,
+       "raw": "0"
+      },
+      "result_raw": "Návrh A. byl přijat jako usnesení číslo: UR-82-9/26",
+      "adopted_resolution_number": "UR-82-9/26"
+     }
+    ],
+    "resolution_numbers_mentioned": [
+     "UR-82-9/26"
+    ],
+    "raw_text": "Předkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 16:18:05\nDůvodová zpráva:\nDomácí\nhospic Srdcem, z.ú. se sídlem v Kolíně požádal o poskytnutí daru na činnost. V roce 2024 a 2025 byl poskytnut dar 10 000 Kč.\nDiskuze zahájena v 16:18:05\nK tomuto bodu se vyjádřili:\nMilan Paluska, Zdeněk Fejfar, Ing. Hana Kuprová, Ivana Trčková\nV 16:19:20 přišel Ing. Martin Jedlička, přítomno 7 z 7 radních.\nAktualizovaný stav prezence:\nPřítomni:\n(7) Ing. Petr Dürr, Zdeněk Fejfar, Ing. Karel Krištoufek, Ing. Hana Kuprová, Milan Paluska, Ivana Trčková, Ing. Martin Jedlička\nOmluveni:\n(0)\nNepřítomni:\n(0)\nV 16:21:14 předsedající zahájil hlasování o návrhu usnesení \"A\" v tomto znění:\nNavrhovatel: Marcela Bahníková\nRada\nměsta schvaluje poskytnutí daru 10 000,- Kč neziskové organizaci\nDomácí\nhospic Srdcem, z.ú., IČO: 07043732.\nHlasování\npro:\n7\nproti\n0\nzdržel se:\n0\nnehlasoval:\n0\nNávrh A. byl přijat jako usnesení číslo: UR-82-9/26\nzodpovídá:\nMarcela Bahníková\ntermín:\n25. 3. 2026\nProjednávání bodu bylo ukončeno v 16:21:18"
+   },
+   {
+    "number": 11,
+    "title_raw": "Dar - Linka bezpečí",
+    "heading_raw": "11. Dar - Linka bezpečí (bod číslo 11)",
+    "predkladatel": "Milan Paluska",
+    "votes": [
+     {
+      "raw_text": "pro:\n7\nproti\n0\nzdržel se:\n0\nnehlasoval:\n0",
+      "pro": {
+       "count": 7,
+       "names": null,
+       "raw": "7"
+      },
+      "proti": {
+       "count": 0,
+       "names": null,
+       "raw": "0"
+      },
+      "zdrzel_se": {
+       "count": 0,
+       "names": null,
+       "raw": "0"
+      },
+      "nehlasoval": {
+       "count": 0,
+       "names": null,
+       "raw": "0"
+      },
+      "result_raw": "Návrh A. byl přijat jako usnesení číslo: UR-83-9/26",
+      "adopted_resolution_number": "UR-83-9/26"
+     }
+    ],
+    "resolution_numbers_mentioned": [
+     "UR-83-9/26"
+    ],
+    "raw_text": "Předkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 16:21:22\nDůvodová zpráva:\nNezisková organizace\nLinka\nbezpečí, z.s. žádá o poskytnutí podpory (daru)10 000 Kč na provoz dětské krizové linky. V roce 2024 byl poskytnut dar 5 000 Kč, v roce 2025 5 500 Kč.\nDiskuze zahájena v 16:21:22\nK tomuto bodu se vyjádřili:\nMilan Paluska, Ing. Hana Kuprová, Ivana Trčková, Zdeněk Fejfar\nV 16:23:08 předsedající zahájil hlasování o návrhu usnesení \"A\" v tomto znění:\nNavrhovatel: Marcela Bahníková\nRada\nměsta schvaluje poskytnutí daru 6 000 Kč spolku\nLinka\nbezpečí, z.s., IČO 61383198 na provoz dětské krizové linky.\nHlasování\npro:\n7\nproti\n0\nzdržel se:\n0\nnehlasoval:\n0\nNávrh A. byl přijat jako usnesení číslo: UR-83-9/26\nzodpovídá:\nMarcela Bahníková\ntermín:\n16. 3. 2026\nProjednávání bodu bylo ukončeno v 16:23:12"
+   },
+   {
+    "number": 12,
+    "title_raw": "Žádost o dar - Zdravotní klaun",
+    "heading_raw": "12. Žádost o dar - Zdravotní klaun (bod číslo 12)",
+    "predkladatel": "Milan Paluska",
+    "votes": [
+     {
+      "raw_text": "pro:\n7\nproti\n0\nzdržel se:\n0\nnehlasoval:\n0",
+      "pro": {
+       "count": 7,
+       "names": null,
+       "raw": "7"
+      },
+      "proti": {
+       "count": 0,
+       "names": null,
+       "raw": "0"
+      },
+      "zdrzel_se": {
+       "count": 0,
+       "names": null,
+       "raw": "0"
+      },
+      "nehlasoval": {
+       "count": 0,
+       "names": null,
+       "raw": "0"
+      },
+      "result_raw": "Návrh A. byl přijat jako usnesení číslo: UR-84-9/26",
+      "adopted_resolution_number": "UR-84-9/26"
+     }
+    ],
+    "resolution_numbers_mentioned": [
+     "UR-84-9/26"
+    ],
+    "raw_text": "Předkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 16:23:16\nDůvodová zpráva:\nZdravotní klaun, o.p.s. žádá o poskytnutí daru na financování programů v nemocnicích a zdravotnických zařízeních. V roce 2024 byl poskytnut dar 5 000 Kč, v roce 2025 5 500 Kč.\nDiskuze zahájena v 16:23:16\nK tomuto bodu se vyjádřili:\nMilan Paluska, Ing. Hana Kuprová, Zdeněk Fejfar\nV 16:25:20 předsedající zahájil hlasování o návrhu usnesení \"A\" v tomto znění:\nNavrhovatel: Marcela Bahníková\nRada\nměsta schvaluje poskytnutí finančního daru 6 000 Kč společnosti Zdravotní klaun, o.p.s., IČO 26547953.\nHlasování\npro:\n7\nproti\n0\nzdržel se:\n0\nnehlasoval:\n0\nNávrh A. byl přijat jako usnesení číslo: UR-84-9/26\nzodpovídá:\nMarcela Bahníková\ntermín:\n25. 3. 2026\nProjednávání bodu bylo ukončeno v 16:25:28"
+   },
+   {
+    "number": 13,
+    "title_raw": "Žádost o dotaci - chovatelé poštovních holubů",
+    "heading_raw": "13. Žádost o dotaci - chovatelé poštovních holubů (bod číslo 13)",
+    "predkladatel": "Milan Paluska",
+    "votes": [
+     {
+      "raw_text": "pro:\n7\nproti\n0\nzdržel se:\n0\nnehlasoval:\n0",
+      "pro": {
+       "count": 7,
+       "names": null,
+       "raw": "7"
+      },
+      "proti": {
+       "count": 0,
+       "names": null,
+       "raw": "0"
+      },
+      "zdrzel_se": {
+       "count": 0,
+       "names": null,
+       "raw": "0"
+      },
+      "nehlasoval": {
+       "count": 0,
+       "names": null,
+       "raw": "0"
+      },
+      "result_raw": "Návrh A. byl přijat jako usnesení číslo: UR-85-9/26",
+      "adopted_resolution_number": "UR-85-9/26"
+     }
+    ],
+    "resolution_numbers_mentioned": [
+     "UR-85-9/26"
+    ],
+    "raw_text": "Předkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 16:25:32\nDůvodová zpráva:\nPaní Petra\nMašínová\nžádá o poskytnutí dotace 5 000 Kč na činnost chovatelů poštovních holubů v Pečkách. \"Místní spolek\" nemá právní subjektivitu, proto příjemcem dotace je fyzická osoba. V předchozích letech byla poskytována dotace ve výši 5 000 Kč.\nŽádost předložena na aktuálním formuláři.\nDiskuze zahájena v 16:25:32\nK tomuto bodu se vyjádřili:\nMilan Paluska, Zdeněk Fejfar, Ing. Karel Krištoufek, Ivana Trčková\nV 16:26:44 předsedající zahájil hlasování o návrhu usnesení \"A\" v tomto znění:\nNavrhovatel: Marcela Bahníková\nRada\nměsta schvaluje poskytnutí dotace 5 000 Kč paní\n█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█\nna činnost chovatelů poštovních holubů v Pečkách a uzavření veřejnoprávní smlouvy.\nHlasování\npro:\n7\nproti\n0\nzdržel se:\n0\nnehlasoval:\n0\nNávrh A. byl přijat jako usnesení číslo: UR-85-9/26\nzodpovídá:\nMarcela Bahníková\ntermín:\n26. 3. 2026\nProjednávání bodu bylo ukončeno v 16:26:54"
+   },
+   {
+    "number": 14,
+    "title_raw": "Úkol UR-65-7/26",
+    "heading_raw": "14. Úkol UR-65-7/26 (bod číslo 14)",
+    "predkladatel": "Milan Paluska",
+    "votes": [],
+    "resolution_numbers_mentioned": [
+     "UR-65-7/26"
+    ],
+    "raw_text": "Předkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 16:27:01\nDůvodová zpráva:\nNa základě úkolu z RM UR-65-7/26 ze dne 16.2.2026 předkládám\nkalkulaci pro návrhy VPS o vytvoření společného školského obvodu Základní školy Pečky.\nTrvalé bydliště:\nDobřichov - 64\nTatce - 27\nChotutice - 23\nRadim\n- 68\nRatenice - 58\nMilčice\n- 6\nDiskuze zahájena v 16:27:01\nK tomuto bodu se vyjádřili:\nMilan Paluska, Ing. Karel Krištoufek, Zdeněk Fejfar, Ing. Hana Kuprová, Pavlína Nepovímová, Ing. Martin Jedlička\nRada bere informace k bodu č. 14 -\nÚkol UR-65-7/26\nna vědomí.\nProjednávání bodu bylo ukončeno v 16:43:31"
+   },
+   {
+    "number": 15,
+    "title_raw": "Kontrola plnění usnesení",
+    "heading_raw": "15. Kontrola plnění usnesení (bod číslo 15)",
+    "predkladatel": "Milan Paluska",
+    "votes": [],
+    "resolution_numbers_mentioned": [],
+    "raw_text": "Předkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 16:43:35\nDiskuze zahájena v 16:43:35\nK tomuto bodu se vyjádřili:\nMilan Paluska, Pavlína Nepovímová\nRada bere informace k bodu č. 15 -\nKontrola plnění usnesení\nna vědomí.\nProjednávání bodu bylo ukončeno v 16:46:28"
+   },
+   {
+    "number": 16,
+    "title_raw": "Diskuse, různé",
+    "heading_raw": "16. Diskuse, různé (bod číslo 16)",
+    "predkladatel": "Milan Paluska",
+    "votes": [],
+    "resolution_numbers_mentioned": [],
+    "raw_text": "Předkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 16:46:32\nDiskuze zahájena v 16:46:32\nK tomuto bodu se vyjádřili:\nMilan Paluska, Ivana Trčková, Ing. Hana Kuprová, Zdeněk Fejfar, Ing. Martin Jedlička, Ing. Karel Krištoufek, Ing. Petr Dürr\nRada bere informace k bodu č. 16 -\nDiskuse, různé\nna vědomí.\nProjednávání bodu bylo ukončeno v 18:11:33"
+   },
+   {
+    "number": 17,
+    "title_raw": "Úkoly vyplývající z jednání rady města",
+    "heading_raw": "17. Úkoly vyplývající z jednání rady města (bod číslo 17)",
+    "predkladatel": "Milan Paluska",
+    "votes": [],
+    "resolution_numbers_mentioned": [],
+    "raw_text": "Předkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 18:11:37\nDiskuze zahájena v 18:11:37\nK tomuto bodu se vyjádřili:\nMilan Paluska\nRada bere informace k bodu č. 17 -\nÚkoly vyplývající z jednání rady města\nna vědomí.\nProjednávání bodu bylo ukončeno v 18:14:21\nJednání ukončeno 02.03.2026 v 18:16:42"
+   }
+  ],
+  "full_text": "ZÁPIS ze schůze rady č. 9/2026\nMěsto Pečky\ndatum: 2. 3. 2026, čas: 15:00\n​\nÚvodní prezence:\nPřítomni:\n(7) Ing. Petr Dürr, Zdeněk Fejfar, Ing. Martin Jedlička, Ing. Karel Krištoufek, Ing. Hana Kuprová, Milan Paluska, Ivana Trčková\nOmluveni:\n(0)\nNepřítomni:\n(0)\nDalší přítomní a hosté:\nZapisovatel/ka:\nEva Strnadová\nPřítomno je 7 z 7 členů a rada je usnášeníschopná.\nJednání zahájeno 02.03.2026 v 15:21:35\n1. Určení zapisovatelů, předsedajícího, příp. ověřovatelů (bod číslo 1)\nPředkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 15:21:41\nPředsedající navrhl jednotlivé členy pracovních komisí\nOvěřovatelé:\nIng. Karel Krištoufek, Ing. Petr Dürr\nPředsedající:\nMilan Paluska\nBod byl přijat bez hlasování.\nDiskuze zahájena v 15:21:41\nK tomuto bodu se vyjádřili:\nMilan Paluska\nProjednávání bodu bylo ukončeno v 15:23:33\n2. Schválení programu jednání (bod číslo 2)\nPředkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 15:23:39\nProgram jednání\n1. Určení zapisovatelů, předsedajícího, příp. ověřovatelů\n2. Schválení programu jednání\n3. Aktuální informace vedení města\n4. Uzavření \"Smlouvy o budoucí smlouvě o zřízení věcného břemene a dohodu o umístění stavby č. IV-12-6039567“ (ČEZ Distrribuce, a.s.)\n5. Zveřejnění záměru – pronájem prostor sloužících podnikání v čp. 292 (zubní, dent. hygiena)\n6. Žádost o přepis nájemní smlouvy\n7. Zadání VZMR na služby - Zeleň, záhony v intravilánu města Pečky - M.Alše, K.H.Máchy\n8. Výroční zpráva o činnosti Městské knihovny Sv. Čecha v Pečkách za rok 2025\n9. VÝROČNÍ ZPRÁVA O ČINNOSTI ŠKOLY ZA ŠKOLNÍ ROK 2024/2025\n10. Dar - Domácí hospic Srdcem\n11. Dar - Linka bezpečí\n12. Žádost o dar - Zdravotní klaun\n13. Žádost o dotaci - chovatelé poštovních holubů\n14. Zpracování úkolu\n15. Kontrola plnění usnesení\n16. Diskuse, různé\n17. Úkoly vyplývající z jednání rady města\nDiskuze zahájena v 15:23:40\nK tomuto bodu se vyjádřili:\nMilan Paluska\nV 15:24:08 předsedající zahájil hlasování o návrhu usnesení \"A\" v tomto znění:\nNavrhovatel: Milan Paluska\nRada\nměsta schvaluje návrh programu jednání.\nHlasování\npro:\n7\nproti\n0\nzdržel se:\n0\nnehlasoval:\n0\nNávrh A. byl přijat jako usnesení číslo: UR-77-9/26\nzodpovídá:\ntermín:\nIHNED\n(2. 3. 2026)\nProjednávání bodu bylo ukončeno v 15:24:14\n3. Aktuální informace vedení města (bod číslo 3)\nPředkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 15:24:24\nDůvodová zpráva:\nstarosta města\n- informace Komise FRB o I. kole výběrového řízení pro poskytnutí půjček/zápůjček z FRB pro rok 2026 s tím, že v termínu do 28.2.2026 nebyla podána žádná žádost\n- informace o kolaudační prohlídce akce „Rekonstrukce místních komunikací v části Bačov v Pečkách – 1. a 2. etapa“\n- informace o kolaudační prohlídce akce \"Pečky – rekonstrukce ul.\nProkopa\nHolého\na Letohradská\" - část vodovodu a kanalizace\n- informace o kolaudační prohlídce akce \"Dobudování stezky pro pěší a cyklisty v ul.\nMilčická\nve Velkých Chvalovicích\"\n- informace Ing.\nHavlíčkové\n/stavební úřad MěÚ Kolín/ o vydaném územním rozhodnutí s nabytím právní moci na dostavbu obchvatu Pečky, sever\n- informace o schůzce s oblastním ředitelem společnosti MediClinic a.s. Ing. Hypešem - zajištění provozu ordinace praktických lékařů v Pečkách\n- informace o konání\nValné\nhromady TJ\nSokol\nV. Chalovice dne 28.2.2026\nZdeněk\nFejfar\n- kontrolní den na ČOV, kalolis /odvodňování kalů na čistírně odpadních vod/, dne 9.3.2026 navážení komponentů a zahájení montáže\nDiskuze zahájena v 15:24:24\nK tomuto bodu se vyjádřili:\nMilan Paluska, Zdeněk Fejfar, Ing. Martin Jedlička\nRada bere informace k bodu č. 3 -\nAktuální informace vedení města\nna vědomí.\nProjednávání bodu bylo ukončeno v 15:42:12\n4. Uzavření \"Smlouvy o budoucí smlouvě o zřízení věcného břemene a dohodu o umístění stavby č. IV-12-6039567“ (ČEZ Distrribuce, a.s.) (bod číslo 4)\nPředkladatel: Jana Najbrtová\nProjednávání bodu bylo zahájeno v 15:42:17\nDůvodová zpráva:\nJedná se o vyvedení nového kabelového vedení z volné pojistkové sady rozpojovací skříně, která je umístěna na pozemku v majetku města Pečky č. parc. 343/1 (budoucí parkoviště).\nKabelové\nvedení povede v souběhu s hranicí/svahem tohoto pozemku a bude ukončeno v nové pojistkové skříni na hranici soukromého pozemku č. parc. 341/1. Pozemky dotčené stavbou budou uvedeny do původního stavu. Jedná se o cca 39 bm pozemku.\nDiskuze zahájena v 15:42:17\nK tomuto bodu se vyjádřili:\nMilan Paluska, Zdeněk Fejfar, Ing. Karel Krištoufek, Ing. Hana Kuprová, Ivana Trčková\nV 15:48:24 předsedající zahájil hlasování o návrhu usnesení \"A\" v tomto znění:\nNavrhovatel: Jana Najbrtová\nRada\nměsta schvaluje uzavřít \"Smlouvu o budoucí smlouvě o zřízení věcného břemene a dohodu o umístění stavby č. IV-12-6039567“ mezi Městem Pečky a firmou ČEZ Distribuce, a.s. se sídlem Děčín – IV Podmokly,\nTeplická\n874/8, která se týká části pozemku v majetku města Pečky č. parc. 343/1 v obci Pečky a k.ú.\nVelké\nChvalovice. Smlouva bude uzavřena za celkovou cenu ve výši 2.000,- Kč + DPH – podle zákona č. 151/1997 Sb. a vyhlášky č. 441/2013 Sb. v platném znění (vyhláška č. 370/2024 Sb.).\nHlasování\npro:\n7\nproti\n0\nzdržel se:\n0\nnehlasoval:\n0\nNávrh A. byl přijat jako usnesení číslo: UR-78-9/26\nzodpovídá:\nJana Najbrtová\ntermín:\n16. 3. 2026\nProjednávání bodu bylo ukončeno v 15:48:31\n5. Zveřejnění záměru – pronájem prostor sloužících podnikání v čp. 292 (zubní, dentální hygiena) (bod číslo 5)\nPředkladatel: Jana Najbrtová\nProjednávání bodu bylo zahájeno v 15:48:36\nDůvodová zpráva:\nDoporučujeme znovu zveřejnit záměr na pronájem prostoru sloužícího podnikání v čp. 292 – zdravotní středisko.\nPoslední\nzáměr byl zveřejněn 3. 2. 2026 a doposud se nikdo nepřihlásil. Po osobním jednání s\n█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​\nnavrhujeme prostor po zubním lékaři nabízet i na dentální hygienu. Nájemné bude ve stejné výši jako měl\n█​█​█​█​█​█​\n█​█​█​█​█​█​\ntzn. 1.080,- Kč/m\n2\n/rok (tzn. 60.804,-Kč/rok) a služby ve výši 2.500,- Kč/měsíc.\nDiskuze zahájena v 15:48:36\nK tomuto bodu se vyjádřili:\nMilan Paluska, Zdeněk Fejfar, Ing. Martin Jedlička, Ing. Karel Krištoufek, Ing. Hana Kuprová, Ivana Trčková\nV 15:57:47 předsedající zahájil hlasování o návrhu usnesení \"A\" v tomto znění:\nNavrhovatel: Jana Najbrtová\nRada\nměsta schvaluje zveřejnit záměr na pronájem prostoru sloužícího podnikání v Pečkách, čp. 292 – zdravotní středisko (ordinace zubního lékaře) o celkové výměře 56,3 m\n2\nza těchto podmínek:\n- prostory se pronajímají pouze za účelem provozování ordinace zubního lékaře nebo dentální hygieny\n- minimální nájemné činí 5.067,- Kč (+ služby 2.500,- Kč/měsíc)\n- smlouva bude uzavřena od 1. dubna 2026 na dobu neurčitou s výpovědní lhůtou 3 měsíce\n- spolehlivost nájemce\n- pronajímatel zajistí sepsání smlouvy\n- nabídku očekáváme nejpozději do 19. března 2026 (do 10.00 hod.) v zapečetěné obálce s názvem „Pronájem NP v čp. 292“\n- při vyšším počtu zájemců bude upřednostněna nejvyšší nabídnutá cena, v případě více zájemců se stejnou nabídnutou cenou budou uchazeči vyzváni k předložení nových nabídek\nHlasování\npro:\n7\nproti\n0\nzdržel se:\n0\nnehlasoval:\n0\nNávrh A. byl přijat jako usnesení číslo: UR-79-9/26\nzodpovídá:\nJana Najbrtová\ntermín:\n16. 3. 2026\nProjednávání bodu bylo ukončeno v 15:57:52\n6. Žádost o přepis nájemní smlouvy (bod číslo 6)\nPředkladatel: Martina Hrázská\nProjednávání bodu bylo zahájeno v 15:57:56\nDůvodová zpráva:\nNa základě úmrtí pana\n█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​\npodal dne 25.2.2026 pod č.j. PEC/1027/2026 pan\n█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​\nžádost o přepis smlouvy o nájmu bytu na byt č. 1, na adrese Masarykovo nám. 31, Pečky na jeho osobu. Výše nájmu byla stanovena na 127,92 Kč /m\n2\nza měsíc tj. 6396,- Kč za měsíc.\nDiskuze zahájena v 15:57:56\nK tomuto bodu se vyjádřili:\nMilan Paluska, Ing. Hana Kuprová, Ivana Trčková, Ing. Petr Dürr\nV 16:04:29 předsedající zahájil hlasování o návrhu usnesení \"A\" v tomto znění:\nNavrhovatel: Martina Hrázská\nRada\nměsta schvaluje uzavření smlouvy o nájmu bytu na byt č. 1 na adrese Masarykovo mám. 31, Pečky mezi městem Pečky a panem\n█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​\n█​█​█​█​█​█​\nna dobu určitou 1 roku s účinností od 3.3.2026. Výše nájmu byla stanovena na 127,92 Kč/m\n2\nza měsíc t.j. 6.396,- Kč. Jistota ve výši 6.000,- Kč, která byla složena původním nájemcem panem\n█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​\n█​█​█​█​█​█​█​█​█​█​\nbude převedena na nového nájemce\n█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​\nbude doplacen při podpisu smlouvy o nájmu bytu.\nHlasování\npro:\n5\nproti\n0\nzdržel se:\n2\nnehlasoval:\n0\nNávrh A. byl přijat jako usnesení číslo: UR-80-9/26\nzodpovídá:\nMartina Hrázská\ntermín:\n16. 3. 2026\nProjednávání bodu bylo ukončeno v 16:04:37\n7. Zadání VZMR na služby - Zeleň, záhony v intravilánu města Pečky - M.Alše, K.H.Máchy (bod číslo 7)\nPředkladatel: Ing. Petra Šimpachová\nProjednávání bodu bylo zahájeno v 16:04:41\nDůvodová zpráva:\nZa účelem zadání veřejné zakázky malého rozsahu na služby \"Zeleň, záhony v intravilánu města Pečky - M.Alše, K.H.Máchy\" doporučuje hodnotící komise zadavateli schválit rozhodnutí o výběru dodavatele (viz Rozhodnutí a oznámení o výběru dodavatele v příloze) a uzavření smlouvy o dílo s vybraným dodavatelem Bušim - péče o zeleň, s.r.o., Dvorce 22, 289 22\nLysá\nnad Labem, IČ 02000652, za cenu 1 030 924,21 Kč bez DPH. Zadání VZMR v souladu s čl. 3 a 6 Pravidel k zadávání veřejných zakázek malého rozsahu (účinnost od 15.04.2025).\nDiskuze zahájena v 16:04:41\nK tomuto bodu se vyjádřili:\nMilan Paluska, Ivana Trčková, Zdeněk Fejfar, Ing. Hana Kuprová, Ing. Karel Krištoufek\nV 16:08:12 odešel Ing. Martin Jedlička, přítomno 6 z 7 radních.\nAktualizovaný stav prezence:\nPřítomni:\n(6) Ing. Petr Dürr, Zdeněk Fejfar, Ing. Karel Krištoufek, Ing. Hana Kuprová, Milan Paluska, Ivana Trčková\nOmluveni:\n(0)\nNepřítomni:\n(1) Ing. Martin Jedlička\nV 16:12:18 předsedající zahájil hlasování o návrhu usnesení \"A\" v tomto znění:\nNavrhovatel: Ing. Petra Šimpachová\nRada\nměsta schvaluje, v souladu s doporučením hodnotící komise, Rozhodnutí o výběru dodavatele na plnění veřejné zakázky malého rozsahu na služby \"Zeleň, záhony v intravilánu města Pečky - M.Alše, K.H.Máchy\" a uzavření smlouvy o dílo mezi Městem Pečky a vybraným dodavatelem Bušim - péče o zeleň, s.r.o., Dvorce 22, 289 22\nLysá\nnad Labem, IČ 02000652, za cenu 1 030 924,21 Kč bez DPH, za podmínky zajištění dostatečného krytí v rozpočtu města.\nHlasování\npro:\n6\nproti\n0\nzdržel se:\n0\nnehlasoval:\n0\nNávrh A. byl přijat jako usnesení číslo: UR-81-9/26\nzodpovídá:\nIng. Petra Šimpachová\ntermín:\n31. 3. 2026\nProjednávání bodu bylo ukončeno v 16:12:24\n8. Výroční zpráva o činnosti Městské knihovny Sv. Čecha v Pečkách za rok 2025 (bod číslo 8)\nPředkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 16:12:36\nDůvodová zpráva:\nŘeditelka městské knihovny p.\nVladimíra\nKrulišová\npředkládá RM na vědomí zprávu o činnosti knihovny za rok 2025.\nDiskuze zahájena v 16:12:36\nK tomuto bodu se vyjádřili:\nMilan Paluska, Ing. Karel Krištoufek, Ing. Hana Kuprová, Zdeněk Fejfar\nRada bere informace k bodu č. 8 -\nVýroční zpráva o činnosti Městské knihovny Sv. Čecha v Pečkách za rok 2025\nna vědomí.\nProjednávání bodu bylo ukončeno v 16:15:30\n9. Výroční zpráva o činnosti ZUŠ Pečky za rok 2024/2025 (bod číslo 9)\nPředkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 16:15:35\nDůvodová zpráva:\nŘeditelka ZUŠ Pečky\nPetra\nVorlíčková, DiS.\npředkládá RM na vědomí zprávu o činnosti školy za rok 2024/2025.\nDiskuze zahájena v 16:15:35\nK tomuto bodu se vyjádřili:\nMilan Paluska, Ing. Hana Kuprová, Ivana Trčková, Ing. Petr Dürr\nRada bere informace k bodu č. 9 -\nVýroční zpráva o činnosti ZUŠ Pečky za rok 2024/2025\nna vědomí.\nProjednávání bodu bylo ukončeno v 16:18:00\n10. Dar - Domácí hospic Srdcem (bod číslo 10)\nPředkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 16:18:05\nDůvodová zpráva:\nDomácí\nhospic Srdcem, z.ú. se sídlem v Kolíně požádal o poskytnutí daru na činnost. V roce 2024 a 2025 byl poskytnut dar 10 000 Kč.\nDiskuze zahájena v 16:18:05\nK tomuto bodu se vyjádřili:\nMilan Paluska, Zdeněk Fejfar, Ing. Hana Kuprová, Ivana Trčková\nV 16:19:20 přišel Ing. Martin Jedlička, přítomno 7 z 7 radních.\nAktualizovaný stav prezence:\nPřítomni:\n(7) Ing. Petr Dürr, Zdeněk Fejfar, Ing. Karel Krištoufek, Ing. Hana Kuprová, Milan Paluska, Ivana Trčková, Ing. Martin Jedlička\nOmluveni:\n(0)\nNepřítomni:\n(0)\nV 16:21:14 předsedající zahájil hlasování o návrhu usnesení \"A\" v tomto znění:\nNavrhovatel: Marcela Bahníková\nRada\nměsta schvaluje poskytnutí daru 10 000,- Kč neziskové organizaci\nDomácí\nhospic Srdcem, z.ú., IČO: 07043732.\nHlasování\npro:\n7\nproti\n0\nzdržel se:\n0\nnehlasoval:\n0\nNávrh A. byl přijat jako usnesení číslo: UR-82-9/26\nzodpovídá:\nMarcela Bahníková\ntermín:\n25. 3. 2026\nProjednávání bodu bylo ukončeno v 16:21:18\n11. Dar - Linka bezpečí (bod číslo 11)\nPředkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 16:21:22\nDůvodová zpráva:\nNezisková organizace\nLinka\nbezpečí, z.s. žádá o poskytnutí podpory (daru)10 000 Kč na provoz dětské krizové linky. V roce 2024 byl poskytnut dar 5 000 Kč, v roce 2025 5 500 Kč.\nDiskuze zahájena v 16:21:22\nK tomuto bodu se vyjádřili:\nMilan Paluska, Ing. Hana Kuprová, Ivana Trčková, Zdeněk Fejfar\nV 16:23:08 předsedající zahájil hlasování o návrhu usnesení \"A\" v tomto znění:\nNavrhovatel: Marcela Bahníková\nRada\nměsta schvaluje poskytnutí daru 6 000 Kč spolku\nLinka\nbezpečí, z.s., IČO 61383198 na provoz dětské krizové linky.\nHlasování\npro:\n7\nproti\n0\nzdržel se:\n0\nnehlasoval:\n0\nNávrh A. byl přijat jako usnesení číslo: UR-83-9/26\nzodpovídá:\nMarcela Bahníková\ntermín:\n16. 3. 2026\nProjednávání bodu bylo ukončeno v 16:23:12\n12. Žádost o dar - Zdravotní klaun (bod číslo 12)\nPředkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 16:23:16\nDůvodová zpráva:\nZdravotní klaun, o.p.s. žádá o poskytnutí daru na financování programů v nemocnicích a zdravotnických zařízeních. V roce 2024 byl poskytnut dar 5 000 Kč, v roce 2025 5 500 Kč.\nDiskuze zahájena v 16:23:16\nK tomuto bodu se vyjádřili:\nMilan Paluska, Ing. Hana Kuprová, Zdeněk Fejfar\nV 16:25:20 předsedající zahájil hlasování o návrhu usnesení \"A\" v tomto znění:\nNavrhovatel: Marcela Bahníková\nRada\nměsta schvaluje poskytnutí finančního daru 6 000 Kč společnosti Zdravotní klaun, o.p.s., IČO 26547953.\nHlasování\npro:\n7\nproti\n0\nzdržel se:\n0\nnehlasoval:\n0\nNávrh A. byl přijat jako usnesení číslo: UR-84-9/26\nzodpovídá:\nMarcela Bahníková\ntermín:\n25. 3. 2026\nProjednávání bodu bylo ukončeno v 16:25:28\n13. Žádost o dotaci - chovatelé poštovních holubů (bod číslo 13)\nPředkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 16:25:32\nDůvodová zpráva:\nPaní Petra\nMašínová\nžádá o poskytnutí dotace 5 000 Kč na činnost chovatelů poštovních holubů v Pečkách. \"Místní spolek\" nemá právní subjektivitu, proto příjemcem dotace je fyzická osoba. V předchozích letech byla poskytována dotace ve výši 5 000 Kč.\nŽádost předložena na aktuálním formuláři.\nDiskuze zahájena v 16:25:32\nK tomuto bodu se vyjádřili:\nMilan Paluska, Zdeněk Fejfar, Ing. Karel Krištoufek, Ivana Trčková\nV 16:26:44 předsedající zahájil hlasování o návrhu usnesení \"A\" v tomto znění:\nNavrhovatel: Marcela Bahníková\nRada\nměsta schvaluje poskytnutí dotace 5 000 Kč paní\n█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​\nna činnost chovatelů poštovních holubů v Pečkách a uzavření veřejnoprávní smlouvy.\nHlasování\npro:\n7\nproti\n0\nzdržel se:\n0\nnehlasoval:\n0\nNávrh A. byl přijat jako usnesení číslo: UR-85-9/26\nzodpovídá:\nMarcela Bahníková\ntermín:\n26. 3. 2026\nProjednávání bodu bylo ukončeno v 16:26:54\n14. Úkol UR-65-7/26 (bod číslo 14)\nPředkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 16:27:01\nDůvodová zpráva:\nNa základě úkolu z RM UR-65-7/26 ze dne 16.2.2026 předkládám\nkalkulaci pro návrhy VPS o vytvoření společného školského obvodu Základní školy Pečky.\nTrvalé bydliště:\nDobřichov - 64\nTatce - 27\nChotutice - 23\nRadim\n- 68\nRatenice - 58\nMilčice\n- 6\nDiskuze zahájena v 16:27:01\nK tomuto bodu se vyjádřili:\nMilan Paluska, Ing. Karel Krištoufek, Zdeněk Fejfar, Ing. Hana Kuprová, Pavlína Nepovímová, Ing. Martin Jedlička\nRada bere informace k bodu č. 14 -\nÚkol UR-65-7/26\nna vědomí.\nProjednávání bodu bylo ukončeno v 16:43:31\n15. Kontrola plnění usnesení (bod číslo 15)\nPředkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 16:43:35\nDiskuze zahájena v 16:43:35\nK tomuto bodu se vyjádřili:\nMilan Paluska, Pavlína Nepovímová\nRada bere informace k bodu č. 15 -\nKontrola plnění usnesení\nna vědomí.\nProjednávání bodu bylo ukončeno v 16:46:28\n16. Diskuse, různé (bod číslo 16)\nPředkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 16:46:32\nDiskuze zahájena v 16:46:32\nK tomuto bodu se vyjádřili:\nMilan Paluska, Ivana Trčková, Ing. Hana Kuprová, Zdeněk Fejfar, Ing. Martin Jedlička, Ing. Karel Krištoufek, Ing. Petr Dürr\nRada bere informace k bodu č. 16 -\nDiskuse, různé\nna vědomí.\nProjednávání bodu bylo ukončeno v 18:11:33\n17. Úkoly vyplývající z jednání rady města (bod číslo 17)\nPředkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 18:11:37\nDiskuze zahájena v 18:11:37\nK tomuto bodu se vyjádřili:\nMilan Paluska\nRada bere informace k bodu č. 17 -\nÚkoly vyplývající z jednání rady města\nna vědomí.\nProjednávání bodu bylo ukončeno v 18:14:21\nJednání ukončeno 02.03.2026 v 18:16:42"
+ },
+ "resolutions": {
+  "status": "ok",
+  "url": "https://mesto-pecky.usneseni.cz/verejne/87e9cddd-116d-11f1-9462-0242c0a80003/usneseni/",
+  "fetched_at": "2026-08-04T13:18:34.740446+00:00",
+  "items": [
+   {
+    "number_raw": "UR-77-9/26",
+    "detail_id": 128213,
+    "detail_url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/128213?mod=rada",
+    "agenda_item_raw": "Schválení programu jednání",
+    "text_verbatim": "Rada\nměsta schvaluje návrh programu jednání.",
+    "cell_text_raw": "Bod programu:\nSchválení programu jednání\nText přijatého usnesení:\nRada\nměsta schvaluje návrh programu jednání.",
+    "date_raw": "2. 3. 2026",
+    "date_iso": "2026-03-02",
+    "responsible_raw": "",
+    "deadline_raw": "IHNED (2. 3. 2026)",
+    "vote": {
+     "raw_text": "pro: 7 proti: 0 zdržel se: 0",
+     "pro": {
+      "count": 7,
+      "names": null,
+      "raw": "7"
+     },
+     "proti": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     },
+     "zdrzel_se": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     }
+    },
+    "detail": {
+     "number_raw": "UR-77-9/26",
+     "text_verbatim": "Rada města schvaluje návrh programu jednání.",
+     "typ_raw": null,
+     "zodpovida_raw": "",
+     "prijato_raw": "2. 3. 2026 na jednání č. 9/2026",
+     "prijato_date_iso": "2026-03-02",
+     "prijato_meeting_label": "9/2026",
+     "termin_raw": "IHNED (2. 3. 2026)",
+     "ukonceno_raw": "2. 3. 2026",
+     "ukonceno_date_iso": "2026-03-02",
+     "fields_raw": {
+      "Číslo usnesení": "UR-77-9/26",
+      "Text usnesení": "Rada města schvaluje návrh programu jednání.",
+      "Zodpovídá": "",
+      "Přijato": "2. 3. 2026 na jednání č. 9/2026",
+      "Termín": "IHNED (2. 3. 2026)",
+      "Ukončeno": "2. 3. 2026"
+     }
+    }
+   },
+   {
+    "number_raw": "UR-78-9/26",
+    "detail_id": 128402,
+    "detail_url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/128402?mod=rada",
+    "agenda_item_raw": "Uzavření \"Smlouvy o budoucí smlouvě o zřízení věcného břemene a dohodu o umístění stavby č. IV-12-6039567“ (ČEZ Distrribuce, a.s.)",
+    "text_verbatim": "Rada\nměsta schvaluje uzavřít \"Smlouvu o budoucí smlouvě o zřízení věcného břemene a dohodu o umístění stavby č. IV-12-6039567“ mezi Městem Pečky a firmou ČEZ Distribuce, a.s. se sídlem Děčín – IV Podmokly,\nTeplická\n874/8, která se týká části pozemku v majetku města Pečky č. parc. 343/1 v obci Pečky a k.ú.\nVelké\nChvalovice. Smlouva bude uzavřena za celkovou cenu ve výši 2.000,- Kč + DPH – podle zákona č. 151/1997 Sb. a vyhlášky č. 441/2013 Sb. v platném znění (vyhláška č. 370/2024 Sb.).",
+    "cell_text_raw": "Bod programu:\nUzavření \"Smlouvy o budoucí smlouvě o zřízení věcného břemene a dohodu o umístění stavby č. IV-12-6039567“ (ČEZ Distrribuce, a.s.)\nText přijatého usnesení:\nRada\nměsta schvaluje uzavřít \"Smlouvu o budoucí smlouvě o zřízení věcného břemene a dohodu o umístění stavby č. IV-12-6039567“ mezi Městem Pečky a firmou ČEZ Distribuce, a.s. se sídlem Děčín – IV Podmokly,\nTeplická\n874/8, která se týká části pozemku v majetku města Pečky č. parc. 343/1 v obci Pečky a k.ú.\nVelké\nChvalovice. Smlouva bude uzavřena za celkovou cenu ve výši 2.000,- Kč + DPH – podle zákona č. 151/1997 Sb. a vyhlášky č. 441/2013 Sb. v platném znění (vyhláška č. 370/2024 Sb.).",
+    "date_raw": "2. 3. 2026",
+    "date_iso": "2026-03-02",
+    "responsible_raw": "Jana Najbrtová",
+    "deadline_raw": "16. 3. 2026",
+    "vote": {
+     "raw_text": "pro: 7 proti: 0 zdržel se: 0",
+     "pro": {
+      "count": 7,
+      "names": null,
+      "raw": "7"
+     },
+     "proti": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     },
+     "zdrzel_se": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     }
+    },
+    "detail": {
+     "number_raw": "UR-78-9/26",
+     "text_verbatim": "Rada města schvaluje uzavřít \"Smlouvu o budoucí smlouvě o zřízení věcného břemene a dohodu o umístění stavby č. IV-12-6039567“ mezi Městem Pečky a firmou ČEZ Distribuce, a.s. se sídlem Děčín – IV Podmokly, Teplická 874/8, která se týká části pozemku v majetku města Pečky č. parc. 343/1 v obci Pečky a k.ú. Velké Chvalovice. Smlouva bude uzavřena za celkovou cenu ve výši 2.000,- Kč + DPH – podle zákona č. 151/1997 Sb. a vyhlášky č. 441/2013 Sb. v platném znění (vyhláška č. 370/2024 Sb.).",
+     "typ_raw": null,
+     "zodpovida_raw": "Jana Najbrtová",
+     "prijato_raw": "2. 3. 2026 na jednání č. 9/2026",
+     "prijato_date_iso": "2026-03-02",
+     "prijato_meeting_label": "9/2026",
+     "termin_raw": "16. 3. 2026",
+     "ukonceno_raw": "4. 3. 2026",
+     "ukonceno_date_iso": "2026-03-04",
+     "fields_raw": {
+      "Číslo usnesení": "UR-78-9/26",
+      "Text usnesení": "Rada města schvaluje uzavřít \"Smlouvu o budoucí smlouvě o zřízení věcného břemene a dohodu o umístění stavby č. IV-12-6039567“ mezi Městem Pečky a firmou ČEZ Distribuce, a.s. se sídlem Děčín – IV Podmokly, Teplická 874/8, která se týká části pozemku v majetku města Pečky č. parc. 343/1 v obci Pečky a k.ú. Velké Chvalovice. Smlouva bude uzavřena za celkovou cenu ve výši 2.000,- Kč + DPH – podle zákona č. 151/1997 Sb. a vyhlášky č. 441/2013 Sb. v platném znění (vyhláška č. 370/2024 Sb.).",
+      "Zodpovídá": "Jana Najbrtová",
+      "Přijato": "2. 3. 2026 na jednání č. 9/2026",
+      "Termín": "16. 3. 2026",
+      "Ukončeno": "4. 3. 2026"
+     }
+    }
+   },
+   {
+    "number_raw": "UR-79-9/26",
+    "detail_id": 128481,
+    "detail_url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/128481?mod=rada",
+    "agenda_item_raw": "Zveřejnění záměru – pronájem prostor sloužících podnikání v čp. 292 (zubní, dentální hygiena)",
+    "text_verbatim": "Rada\nměsta schvaluje zveřejnit záměr na pronájem prostoru sloužícího podnikání v Pečkách, čp. 292 – zdravotní středisko (ordinace zubního lékaře) o celkové výměře 56,3 m\n2\nza těchto podmínek:\n- prostory se pronajímají pouze za účelem provozování ordinace zubního lékaře nebo dentální hygieny\n- minimální nájemné činí 5.067,- Kč (+ služby 2.500,- Kč/měsíc)\n- smlouva bude uzavřena od 1. dubna 2026 na dobu neurčitou s výpovědní lhůtou 3 měsíce\n- spolehlivost nájemce\n- pronajímatel zajistí sepsání smlouvy\n- nabídku očekáváme nejpozději do 19. března 2026 (do 10.00 hod.) v zapečetěné obálce s názvem „Pronájem NP v čp. 292“\n- při vyšším počtu zájemců bude upřednostněna nejvyšší nabídnutá cena, v případě více zájemců se stejnou nabídnutou cenou budou uchazeči vyzváni k předložení nových nabídek",
+    "cell_text_raw": "Bod programu:\nZveřejnění záměru – pronájem prostor sloužících podnikání v čp. 292 (zubní, dentální hygiena)\nText přijatého usnesení:\nRada\nměsta schvaluje zveřejnit záměr na pronájem prostoru sloužícího podnikání v Pečkách, čp. 292 – zdravotní středisko (ordinace zubního lékaře) o celkové výměře 56,3 m\n2\nza těchto podmínek:\n- prostory se pronajímají pouze za účelem provozování ordinace zubního lékaře nebo dentální hygieny\n- minimální nájemné činí 5.067,- Kč (+ služby 2.500,- Kč/měsíc)\n- smlouva bude uzavřena od 1. dubna 2026 na dobu neurčitou s výpovědní lhůtou 3 měsíce\n- spolehlivost nájemce\n- pronajímatel zajistí sepsání smlouvy\n- nabídku očekáváme nejpozději do 19. března 2026 (do 10.00 hod.) v zapečetěné obálce s názvem „Pronájem NP v čp. 292“\n- při vyšším počtu zájemců bude upřednostněna nejvyšší nabídnutá cena, v případě více zájemců se stejnou nabídnutou cenou budou uchazeči vyzváni k předložení nových nabídek",
+    "date_raw": "2. 3. 2026",
+    "date_iso": "2026-03-02",
+    "responsible_raw": "Jana Najbrtová",
+    "deadline_raw": "16. 3. 2026",
+    "vote": {
+     "raw_text": "pro: 7 proti: 0 zdržel se: 0",
+     "pro": {
+      "count": 7,
+      "names": null,
+      "raw": "7"
+     },
+     "proti": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     },
+     "zdrzel_se": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     }
+    },
+    "detail": {
+     "number_raw": "UR-79-9/26",
+     "text_verbatim": "Rada města schvaluje zveřejnit záměr na pronájem prostoru sloužícího podnikání v Pečkách, čp. 292 – zdravotní středisko (ordinace zubního lékaře) o celkové výměře 56,3 m 2 za těchto podmínek:\n- prostory se pronajímají pouze za účelem provozování ordinace zubního lékaře nebo dentální hygieny\n- minimální nájemné činí 5.067,- Kč (+ služby 2.500,- Kč/měsíc)\n- smlouva bude uzavřena od 1. dubna 2026 na dobu neurčitou s výpovědní lhůtou 3 měsíce\n- spolehlivost nájemce\n- pronajímatel zajistí sepsání smlouvy\n- nabídku očekáváme nejpozději do 19. března 2026 (do 10.00 hod.) v zapečetěné obálce s názvem „Pronájem NP v čp. 292“\n- při vyšším počtu zájemců bude upřednostněna nejvyšší nabídnutá cena, v případě více zájemců se stejnou nabídnutou cenou budou uchazeči vyzváni k předložení nových nabídek",
+     "typ_raw": null,
+     "zodpovida_raw": "Jana Najbrtová",
+     "prijato_raw": "2. 3. 2026 na jednání č. 9/2026",
+     "prijato_date_iso": "2026-03-02",
+     "prijato_meeting_label": "9/2026",
+     "termin_raw": "16. 3. 2026",
+     "ukonceno_raw": "4. 3. 2026",
+     "ukonceno_date_iso": "2026-03-04",
+     "fields_raw": {
+      "Číslo usnesení": "UR-79-9/26",
+      "Text usnesení": "Rada města schvaluje zveřejnit záměr na pronájem prostoru sloužícího podnikání v Pečkách, čp. 292 – zdravotní středisko (ordinace zubního lékaře) o celkové výměře 56,3 m 2 za těchto podmínek:\n- prostory se pronajímají pouze za účelem provozování ordinace zubního lékaře nebo dentální hygieny\n- minimální nájemné činí 5.067,- Kč (+ služby 2.500,- Kč/měsíc)\n- smlouva bude uzavřena od 1. dubna 2026 na dobu neurčitou s výpovědní lhůtou 3 měsíce\n- spolehlivost nájemce\n- pronajímatel zajistí sepsání smlouvy\n- nabídku očekáváme nejpozději do 19. března 2026 (do 10.00 hod.) v zapečetěné obálce s názvem „Pronájem NP v čp. 292“\n- při vyšším počtu zájemců bude upřednostněna nejvyšší nabídnutá cena, v případě více zájemců se stejnou nabídnutou cenou budou uchazeči vyzváni k předložení nových nabídek",
+      "Zodpovídá": "Jana Najbrtová",
+      "Přijato": "2. 3. 2026 na jednání č. 9/2026",
+      "Termín": "16. 3. 2026",
+      "Ukončeno": "4. 3. 2026"
+     }
+    }
+   },
+   {
+    "number_raw": "UR-80-9/26",
+    "detail_id": 128572,
+    "detail_url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/128572?mod=rada",
+    "agenda_item_raw": "Žádost o přepis nájemní smlouvy",
+    "text_verbatim": "Rada\nměsta schvaluje uzavření smlouvy o nájmu bytu na byt č. 1 na adrese Masarykovo mám. 31, Pečky mezi městem Pečky a panem\n█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​\n█​█​█​█​█​█​\nna dobu určitou 1 roku s účinností od 3.3.2026. Výše nájmu byla stanovena na 127,92 Kč/m\n2\nza měsíc t.j. 6.396,- Kč. Jistota ve výši 6.000,- Kč, která byla složena původním nájemcem panem\n█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​\n█​█​█​█​█​█​█​█​█​█​\nbude převedena na nového nájemce\n█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​\nbude doplacen při podpisu smlouvy o nájmu bytu.",
+    "cell_text_raw": "Bod programu:\nŽádost o přepis nájemní smlouvy\nText přijatého usnesení:\nRada\nměsta schvaluje uzavření smlouvy o nájmu bytu na byt č. 1 na adrese Masarykovo mám. 31, Pečky mezi městem Pečky a panem\n█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​\n█​█​█​█​█​█​\nna dobu určitou 1 roku s účinností od 3.3.2026. Výše nájmu byla stanovena na 127,92 Kč/m\n2\nza měsíc t.j. 6.396,- Kč. Jistota ve výši 6.000,- Kč, která byla složena původním nájemcem panem\n█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​\n█​█​█​█​█​█​█​█​█​█​\nbude převedena na nového nájemce\n█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​\nbude doplacen při podpisu smlouvy o nájmu bytu.",
+    "date_raw": "2. 3. 2026",
+    "date_iso": "2026-03-02",
+    "responsible_raw": "Martina Hrázská",
+    "deadline_raw": "16. 3. 2026",
+    "vote": {
+     "raw_text": "pro: 5 proti: 0 zdržel se: 2",
+     "pro": {
+      "count": 5,
+      "names": null,
+      "raw": "5"
+     },
+     "proti": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     },
+     "zdrzel_se": {
+      "count": 2,
+      "names": null,
+      "raw": "2"
+     }
+    },
+    "detail": {
+     "number_raw": "UR-80-9/26",
+     "text_verbatim": "Rada města schvaluje uzavření smlouvy o nájmu bytu na byt č. 1 na adrese Masarykovo mám. 31, Pečky mezi městem Pečky a panem █​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​ █​█​█​█​█​█​ na dobu určitou 1 roku s účinností od 3.3.2026. Výše nájmu byla stanovena na 127,92 Kč/m 2 za měsíc t.j. 6.396,- Kč. Jistota ve výši 6.000,- Kč, která byla složena původním nájemcem panem █​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​ █​█​█​█​█​█​█​█​█​█​ bude převedena na nového nájemce █​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​ bude doplacen při podpisu smlouvy o nájmu bytu.",
+     "typ_raw": null,
+     "zodpovida_raw": "Martina Hrázská",
+     "prijato_raw": "2. 3. 2026 na jednání č. 9/2026",
+     "prijato_date_iso": "2026-03-02",
+     "prijato_meeting_label": "9/2026",
+     "termin_raw": "16. 3. 2026",
+     "ukonceno_raw": "5. 3. 2026",
+     "ukonceno_date_iso": "2026-03-05",
+     "fields_raw": {
+      "Číslo usnesení": "UR-80-9/26",
+      "Text usnesení": "Rada města schvaluje uzavření smlouvy o nájmu bytu na byt č. 1 na adrese Masarykovo mám. 31, Pečky mezi městem Pečky a panem █​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​ █​█​█​█​█​█​ na dobu určitou 1 roku s účinností od 3.3.2026. Výše nájmu byla stanovena na 127,92 Kč/m 2 za měsíc t.j. 6.396,- Kč. Jistota ve výši 6.000,- Kč, která byla složena původním nájemcem panem █​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​ █​█​█​█​█​█​█​█​█​█​ bude převedena na nového nájemce █​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​ bude doplacen při podpisu smlouvy o nájmu bytu.",
+      "Zodpovídá": "Martina Hrázská",
+      "Přijato": "2. 3. 2026 na jednání č. 9/2026",
+      "Termín": "16. 3. 2026",
+      "Ukončeno": "5. 3. 2026"
+     }
+    }
+   },
+   {
+    "number_raw": "UR-81-9/26",
+    "detail_id": 128684,
+    "detail_url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/128684?mod=rada",
+    "agenda_item_raw": "Zadání VZMR na služby - Zeleň, záhony v intravilánu města Pečky - M.Alše, K.H.Máchy",
+    "text_verbatim": "Rada\nměsta schvaluje, v souladu s doporučením hodnotící komise, Rozhodnutí o výběru dodavatele na plnění veřejné zakázky malého rozsahu na služby \"Zeleň, záhony v intravilánu města Pečky -\nM.Al\nše, K.H.Máchy\" a uzavření smlouvy o dílo mezi Městem Pečky a vybraným dodavatelem Bušim - péče o zeleň, s.r.o., Dvorce 22, 289 22\nLysá\nnad Labem, IČ 02000652, za cenu 1 030 924,21 Kč bez DPH, za podmínky zajištění dostatečného krytí v rozpočtu města.",
+    "cell_text_raw": "Bod programu:\nZadání VZMR na služby - Zeleň, záhony v intravilánu města Pečky - M.Alše, K.H.Máchy\nText přijatého usnesení:\nRada\nměsta schvaluje, v souladu s doporučením hodnotící komise, Rozhodnutí o výběru dodavatele na plnění veřejné zakázky malého rozsahu na služby \"Zeleň, záhony v intravilánu města Pečky -\nM.Al\nše, K.H.Máchy\" a uzavření smlouvy o dílo mezi Městem Pečky a vybraným dodavatelem Bušim - péče o zeleň, s.r.o., Dvorce 22, 289 22\nLysá\nnad Labem, IČ 02000652, za cenu 1 030 924,21 Kč bez DPH, za podmínky zajištění dostatečného krytí v rozpočtu města.",
+    "date_raw": "2. 3. 2026",
+    "date_iso": "2026-03-02",
+    "responsible_raw": "Ing. Petra Šimpachová",
+    "deadline_raw": "31. 3. 2026",
+    "vote": {
+     "raw_text": "pro: 6 proti: 0 zdržel se: 0",
+     "pro": {
+      "count": 6,
+      "names": null,
+      "raw": "6"
+     },
+     "proti": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     },
+     "zdrzel_se": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     }
+    },
+    "detail": {
+     "number_raw": "UR-81-9/26",
+     "text_verbatim": "Rada města schvaluje, v souladu s doporučením hodnotící komise, Rozhodnutí o výběru dodavatele na plnění veřejné zakázky malého rozsahu na služby \"Zeleň, záhony v intravilánu města Pečky - M.Al še, K.H.Máchy\" a uzavření smlouvy o dílo mezi Městem Pečky a vybraným dodavatelem Bušim - péče o zeleň, s.r.o., Dvorce 22, 289 22 Lysá nad Labem, IČ 02000652, za cenu 1 030 924,21 Kč bez DPH, za podmínky zajištění dostatečného krytí v rozpočtu města.",
+     "typ_raw": null,
+     "zodpovida_raw": "Ing. Petra Šimpachová",
+     "prijato_raw": "2. 3. 2026 na jednání č. 9/2026",
+     "prijato_date_iso": "2026-03-02",
+     "prijato_meeting_label": "9/2026",
+     "termin_raw": "31. 3. 2026",
+     "ukonceno_raw": "16. 3. 2026",
+     "ukonceno_date_iso": "2026-03-16",
+     "fields_raw": {
+      "Číslo usnesení": "UR-81-9/26",
+      "Text usnesení": "Rada města schvaluje, v souladu s doporučením hodnotící komise, Rozhodnutí o výběru dodavatele na plnění veřejné zakázky malého rozsahu na služby \"Zeleň, záhony v intravilánu města Pečky - M.Al še, K.H.Máchy\" a uzavření smlouvy o dílo mezi Městem Pečky a vybraným dodavatelem Bušim - péče o zeleň, s.r.o., Dvorce 22, 289 22 Lysá nad Labem, IČ 02000652, za cenu 1 030 924,21 Kč bez DPH, za podmínky zajištění dostatečného krytí v rozpočtu města.",
+      "Zodpovídá": "Ing. Petra Šimpachová",
+      "Přijato": "2. 3. 2026 na jednání č. 9/2026",
+      "Termín": "31. 3. 2026",
+      "Ukončeno": "16. 3. 2026"
+     }
+    }
+   },
+   {
+    "number_raw": "UR-82-9/26",
+    "detail_id": 128676,
+    "detail_url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/128676?mod=rada",
+    "agenda_item_raw": "Dar - Domácí hospic Srdcem",
+    "text_verbatim": "Rada\nměsta schvaluje poskytnutí daru 10 000,- Kč neziskové organizaci\nDomácí\nhospic Srdcem, z.ú., IČO: 07043732.",
+    "cell_text_raw": "Bod programu:\nDar - Domácí hospic Srdcem\nText přijatého usnesení:\nRada\nměsta schvaluje poskytnutí daru 10 000,- Kč neziskové organizaci\nDomácí\nhospic Srdcem, z.ú., IČO: 07043732.",
+    "date_raw": "2. 3. 2026",
+    "date_iso": "2026-03-02",
+    "responsible_raw": "Marcela Bahníková",
+    "deadline_raw": "25. 3. 2026",
+    "vote": {
+     "raw_text": "pro: 7 proti: 0 zdržel se: 0",
+     "pro": {
+      "count": 7,
+      "names": null,
+      "raw": "7"
+     },
+     "proti": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     },
+     "zdrzel_se": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     }
+    },
+    "detail": {
+     "number_raw": "UR-82-9/26",
+     "text_verbatim": "Rada města schvaluje poskytnutí daru 10 000,- Kč neziskové organizaci Domácí hospic Srdcem, z.ú., IČO: 07043732.",
+     "typ_raw": null,
+     "zodpovida_raw": "Marcela Bahníková",
+     "prijato_raw": "2. 3. 2026 na jednání č. 9/2026",
+     "prijato_date_iso": "2026-03-02",
+     "prijato_meeting_label": "9/2026",
+     "termin_raw": "25. 3. 2026",
+     "ukonceno_raw": "18. 3. 2026",
+     "ukonceno_date_iso": "2026-03-18",
+     "fields_raw": {
+      "Číslo usnesení": "UR-82-9/26",
+      "Text usnesení": "Rada města schvaluje poskytnutí daru 10 000,- Kč neziskové organizaci Domácí hospic Srdcem, z.ú., IČO: 07043732.",
+      "Zodpovídá": "Marcela Bahníková",
+      "Přijato": "2. 3. 2026 na jednání č. 9/2026",
+      "Termín": "25. 3. 2026",
+      "Ukončeno": "18. 3. 2026"
+     }
+    }
+   },
+   {
+    "number_raw": "UR-83-9/26",
+    "detail_id": 128680,
+    "detail_url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/128680?mod=rada",
+    "agenda_item_raw": "Dar - Linka bezpečí",
+    "text_verbatim": "Rada\nměsta schvaluje poskytnutí daru 6 000 Kč spolku\nLinka\nbezpečí, z.s., IČO 61383198 na provoz dětské krizové linky.",
+    "cell_text_raw": "Bod programu:\nDar - Linka bezpečí\nText přijatého usnesení:\nRada\nměsta schvaluje poskytnutí daru 6 000 Kč spolku\nLinka\nbezpečí, z.s., IČO 61383198 na provoz dětské krizové linky.",
+    "date_raw": "2. 3. 2026",
+    "date_iso": "2026-03-02",
+    "responsible_raw": "Marcela Bahníková",
+    "deadline_raw": "16. 3. 2026",
+    "vote": {
+     "raw_text": "pro: 7 proti: 0 zdržel se: 0",
+     "pro": {
+      "count": 7,
+      "names": null,
+      "raw": "7"
+     },
+     "proti": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     },
+     "zdrzel_se": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     }
+    },
+    "detail": {
+     "number_raw": "UR-83-9/26",
+     "text_verbatim": "Rada města schvaluje poskytnutí daru 6 000 Kč spolku Linka bezpečí, z.s., IČO 61383198 na provoz dětské krizové linky.",
+     "typ_raw": null,
+     "zodpovida_raw": "Marcela Bahníková",
+     "prijato_raw": "2. 3. 2026 na jednání č. 9/2026",
+     "prijato_date_iso": "2026-03-02",
+     "prijato_meeting_label": "9/2026",
+     "termin_raw": "16. 3. 2026",
+     "ukonceno_raw": "16. 3. 2026",
+     "ukonceno_date_iso": "2026-03-16",
+     "fields_raw": {
+      "Číslo usnesení": "UR-83-9/26",
+      "Text usnesení": "Rada města schvaluje poskytnutí daru 6 000 Kč spolku Linka bezpečí, z.s., IČO 61383198 na provoz dětské krizové linky.",
+      "Zodpovídá": "Marcela Bahníková",
+      "Přijato": "2. 3. 2026 na jednání č. 9/2026",
+      "Termín": "16. 3. 2026",
+      "Ukončeno": "16. 3. 2026"
+     }
+    }
+   },
+   {
+    "number_raw": "UR-84-9/26",
+    "detail_id": 128697,
+    "detail_url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/128697?mod=rada",
+    "agenda_item_raw": "Žádost o dar - Zdravotní klaun",
+    "text_verbatim": "Rada\nměsta schvaluje poskytnutí finančního daru 6 000 Kč společnosti Zdravotní klaun, o.p.s., IČO 26547953.",
+    "cell_text_raw": "Bod programu:\nŽádost o dar - Zdravotní klaun\nText přijatého usnesení:\nRada\nměsta schvaluje poskytnutí finančního daru 6 000 Kč společnosti Zdravotní klaun, o.p.s., IČO 26547953.",
+    "date_raw": "2. 3. 2026",
+    "date_iso": "2026-03-02",
+    "responsible_raw": "Marcela Bahníková",
+    "deadline_raw": "25. 3. 2026",
+    "vote": {
+     "raw_text": "pro: 7 proti: 0 zdržel se: 0",
+     "pro": {
+      "count": 7,
+      "names": null,
+      "raw": "7"
+     },
+     "proti": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     },
+     "zdrzel_se": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     }
+    },
+    "detail": {
+     "number_raw": "UR-84-9/26",
+     "text_verbatim": "Rada města schvaluje poskytnutí finančního daru 6 000 Kč společnosti Zdravotní klaun, o.p.s., IČO 26547953.",
+     "typ_raw": null,
+     "zodpovida_raw": "Marcela Bahníková",
+     "prijato_raw": "2. 3. 2026 na jednání č. 9/2026",
+     "prijato_date_iso": "2026-03-02",
+     "prijato_meeting_label": "9/2026",
+     "termin_raw": "25. 3. 2026",
+     "ukonceno_raw": "18. 3. 2026",
+     "ukonceno_date_iso": "2026-03-18",
+     "fields_raw": {
+      "Číslo usnesení": "UR-84-9/26",
+      "Text usnesení": "Rada města schvaluje poskytnutí finančního daru 6 000 Kč společnosti Zdravotní klaun, o.p.s., IČO 26547953.",
+      "Zodpovídá": "Marcela Bahníková",
+      "Přijato": "2. 3. 2026 na jednání č. 9/2026",
+      "Termín": "25. 3. 2026",
+      "Ukončeno": "18. 3. 2026"
+     }
+    }
+   },
+   {
+    "number_raw": "UR-85-9/26",
+    "detail_id": 128663,
+    "detail_url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/128663?mod=rada",
+    "agenda_item_raw": "Žádost o dotaci - chovatelé poštovních holubů",
+    "text_verbatim": "Rada\nměsta schvaluje poskytnutí dotace 5 000 Kč paní\n█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​\nna činnost chovatelů poštovních holubů v Pečkách a uzavření veřejnoprávní smlouvy.",
+    "cell_text_raw": "Bod programu:\nŽádost o dotaci - chovatelé poštovních holubů\nText přijatého usnesení:\nRada\nměsta schvaluje poskytnutí dotace 5 000 Kč paní\n█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​\nna činnost chovatelů poštovních holubů v Pečkách a uzavření veřejnoprávní smlouvy.",
+    "date_raw": "2. 3. 2026",
+    "date_iso": "2026-03-02",
+    "responsible_raw": "Marcela Bahníková",
+    "deadline_raw": "26. 3. 2026",
+    "vote": {
+     "raw_text": "pro: 7 proti: 0 zdržel se: 0",
+     "pro": {
+      "count": 7,
+      "names": null,
+      "raw": "7"
+     },
+     "proti": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     },
+     "zdrzel_se": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     }
+    },
+    "detail": {
+     "number_raw": "UR-85-9/26",
+     "text_verbatim": "Rada města schvaluje poskytnutí dotace 5 000 Kč paní █​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​ na činnost chovatelů poštovních holubů v Pečkách a uzavření veřejnoprávní smlouvy.",
+     "typ_raw": null,
+     "zodpovida_raw": "Marcela Bahníková",
+     "prijato_raw": "2. 3. 2026 na jednání č. 9/2026",
+     "prijato_date_iso": "2026-03-02",
+     "prijato_meeting_label": "9/2026",
+     "termin_raw": "26. 3. 2026",
+     "ukonceno_raw": "23. 3. 2026",
+     "ukonceno_date_iso": "2026-03-23",
+     "fields_raw": {
+      "Číslo usnesení": "UR-85-9/26",
+      "Text usnesení": "Rada města schvaluje poskytnutí dotace 5 000 Kč paní █​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​ na činnost chovatelů poštovních holubů v Pečkách a uzavření veřejnoprávní smlouvy.",
+      "Zodpovídá": "Marcela Bahníková",
+      "Přijato": "2. 3. 2026 na jednání č. 9/2026",
+      "Termín": "26. 3. 2026",
+      "Ukončeno": "23. 3. 2026"
+     }
+    }
+   }
+  ]
+ }
+}

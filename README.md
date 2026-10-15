@@ -25,8 +25,8 @@ o samosprávě města Pečky (okres Kolín, Středočeský kraj).
   nutný i tak — otevření vygenerovaných stránek přímo ze souboru
   (`file://`) fetch v některých prohlížečích zablokuje.
 - `jednani/` — vše k sekci „Jednání": `pecky-jednani.json` (odlehčený
-  index pro fulltextové hledání na webu), `archive-2026-08-04.json`
-  (kompletní datový snímek se všemi detaily vč. jmenovitých hlasování),
+  index pro fulltextové hledání na webu), `archive/`
+  (kompletní datový snímek po jednáních se všemi detaily vč. jmenovitých hlasování),
   `README.md`/`SPEC.md`/`automation-kontrola-usneseni-cz.md`/
   `automation-katastr-parcely.md` (zadání, rozhodnutí a postup průběžné
   aktualizace), `Data/{datum}/` (lokální archiv PDF zápisů a
@@ -74,7 +74,7 @@ o samosprávě města Pečky (okres Kolín, Středočeský kraj).
   mesto-pecky.usneseni.cz z 4. 8. 2026 — 281 jednání (243 Rada, 38
   Zastupitelstvo, 2021–2026), 2 731 usnesení. Kompletní snímek se všemi detaily
   (vč. jmenovitých hlasování a plných zápisů) je v
-  `jednani/archive-2026-08-04.json`; `jednani/pecky-jednani.json`
+  `jednani/archive/` (jedno jednání = jeden soubor); `jednani/pecky-jednani.json`
   je z něj odvozený odlehčený index pro hledání na webu. Viz
   `jednani/SPEC.md` pro popis původního exportu a
   `jednani/automation-kontrola-usneseni-cz.md` pro aktuální postup
@@ -102,7 +102,7 @@ Než o čemkoli prohlásíš, že to „v datech není“ nebo že se to „nest
 **vždy ve všech zdrojích a v jejich plné podobě**. Zkratky vedly už k prokazatelně
 chybným závěrům.
 
-1. **Vždy `jednani/archive-2026-08-04.json`, ne `jednani/pecky-jednani.json`.**
+1. **Vždy `jednani/archive/`, ne `jednani/pecky-jednani.json`.**
    Druhý jmenovaný je odlehčený index (jen názvy a texty usnesení). Plný archiv
    obsahuje kompletní zápisy včetně diskuzí, důvodových zpráv a bodů programu —
    řádově víc textu. Pozn.: plný archiv nelze číst přes `mcp__workspace__bash`

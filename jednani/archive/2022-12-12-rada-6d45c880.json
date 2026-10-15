@@ -1,0 +1,861 @@
+{
+ "uuid": "6d45c880-7540-11ed-8d0c-e441cfb81b14",
+ "body_type_raw": "Rada",
+ "label_raw": "49/2022 (12. 12. 2022)",
+ "number": 49,
+ "year": 2022,
+ "date_iso": "2022-12-12",
+ "links": {
+  "invitation": "https://mesto-pecky.usneseni.cz/verejne/?uuid=6d45c880-7540-11ed-8d0c-e441cfb81b14&page=13&do=printPublicInvitation",
+  "minutes": "https://mesto-pecky.usneseni.cz/verejne/6d45c880-7540-11ed-8d0c-e441cfb81b14/zapis/?page=13",
+  "signed_minutes_pdf": "https://mesto-pecky.usneseni.cz/verejne/?meetingReportControl-uuid=6d45c880-7540-11ed-8d0c-e441cfb81b14&page=13&do=meetingReportControl-getSignedReportPdf",
+  "resolutions": "https://mesto-pecky.usneseni.cz/verejne/6d45c880-7540-11ed-8d0c-e441cfb81b14/usneseni/?page=13",
+  "audio": null
+ },
+ "link_texts": {
+  "invitation": "Pozvánka",
+  "minutes": "zápis",
+  "signed_minutes_pdf": "podepsaný zápis",
+  "resolutions": "přijatá usnesení"
+ },
+ "status": "ok",
+ "invitation": {
+  "status": "site_error",
+  "error": "status=200 ct=text/html; charset=utf-8 flash='<a href=\"\" class=\"close\" data-dismiss=\"alert\" aria-label=\"close\">&times;'",
+  "url": "https://mesto-pecky.usneseni.cz/verejne/?uuid=6d45c880-7540-11ed-8d0c-e441cfb81b14&do=printPublicInvitation",
+  "fetched_at": "2026-08-04T15:08:28.046240+00:00"
+ },
+ "minutes": {
+  "status": "ok",
+  "url": "https://mesto-pecky.usneseni.cz/verejne/6d45c880-7540-11ed-8d0c-e441cfb81b14/zapis/",
+  "fetched_at": "2026-08-04T14:16:59.044134+00:00",
+  "title_raw": "ZÁPIS ze schůze rady č. 49/2022 Město Pečky datum: 12. 12. 2022, čas: 15:00 ​",
+  "date_raw": "12. 12. 2022",
+  "date_iso": "2022-12-12",
+  "time_raw": "15:00",
+  "presence": {
+   "raw_text": "Prezence:\nPřítomni:\n(6) Zdeněk Fejfar, Milan Paluska, Ing. Martin Jedlička, Ivana Trčková, Ing. Hana Kuprová, Ing. Karel Krištoufek\nOmluveni:\n(0)\nNepřítomni:\n(1) Ing. Petr Dürr\nHosté:\nZapisovatel/ka:\nEva Strnadová\nPřítomno je 6 členů a rada je usnášeníschopná.\nJednání zahájeno 12.12.2022 v 15:04:33",
+   "pritomni": {
+    "count": 6,
+    "names": [
+     "Zdeněk Fejfar",
+     "Milan Paluska",
+     "Ing. Martin Jedlička",
+     "Ivana Trčková",
+     "Ing. Hana Kuprová",
+     "Ing. Karel Krištoufek"
+    ],
+    "raw": "(6) Zdeněk Fejfar, Milan Paluska, Ing. Martin Jedlička, Ivana Trčková, Ing. Hana Kuprová, Ing. Karel Krištoufek"
+   },
+   "omluveni": {
+    "count": 0,
+    "names": [],
+    "raw": "(0)"
+   },
+   "nepritomni": {
+    "count": 1,
+    "names": [
+     "Ing. Petr Dürr"
+    ],
+    "raw": "(1) Ing. Petr Dürr"
+   },
+   "predsedajici": null,
+   "quorum_raw": "Přítomno je 6 členů a rada je usnášeníschopná."
+  },
+  "header_raw": "Prezence:\nPřítomni:\n(6) Zdeněk Fejfar, Milan Paluska, Ing. Martin Jedlička, Ivana Trčková, Ing. Hana Kuprová, Ing. Karel Krištoufek\nOmluveni:\n(0)\nNepřítomni:\n(1) Ing. Petr Dürr\nHosté:\nZapisovatel/ka:\nEva Strnadová\nPřítomno je 6 členů a rada je usnášeníschopná.\nJednání zahájeno 12.12.2022 v 15:04:33",
+  "agenda_items": [
+   {
+    "number": 1,
+    "title_raw": "Určení zapisovatelů, předsedajícího, příp. ověřovatelů",
+    "heading_raw": "1. Určení zapisovatelů, předsedajícího, příp. ověřovatelů (bod číslo 1)",
+    "predkladatel": "Milan Paluska",
+    "votes": [],
+    "resolution_numbers_mentioned": [],
+    "raw_text": "Předkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 15:04:44\nPředsedající navrhl jednotlivé členy pracovních komisí\nOvěřovatelé:\nIng. Hana Kuprová, Zdeněk Fejfar\nPředsedající:\nMilan Paluska\nBod byl přijat bez hlasování.\nDiskuze zahájena v 15:04:44\nK tomuto bodu se vyjádřili: Milan Paluska\nProjednávání bodu bylo ukončeno v 15:05:41"
+   },
+   {
+    "number": 2,
+    "title_raw": "Schválení programu jednání",
+    "heading_raw": "2. Schválení programu jednání (bod číslo 2)",
+    "predkladatel": "Milan Paluska",
+    "votes": [
+     {
+      "raw_text": "pro:\n(6) Ing. Karel Krištoufek, Ing. Hana Kuprová, Zdeněk Fejfar, Ing. Martin Jedlička, Ivana Trčková, Milan Paluska\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)",
+      "pro": {
+       "count": 6,
+       "names": [
+        "Ing. Karel Krištoufek",
+        "Ing. Hana Kuprová",
+        "Zdeněk Fejfar",
+        "Ing. Martin Jedlička",
+        "Ivana Trčková",
+        "Milan Paluska"
+       ],
+       "raw": "(6) Ing. Karel Krištoufek, Ing. Hana Kuprová, Zdeněk Fejfar, Ing. Martin Jedlička, Ivana Trčková, Milan Paluska"
+      },
+      "proti": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "zdrzel_se": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "nehlasoval": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "result_raw": "Návrh byl přijat jako usnesení číslo: UR-485-49/22",
+      "adopted_resolution_number": "UR-485-49/22"
+     }
+    ],
+    "resolution_numbers_mentioned": [
+     "UR-485-49/22"
+    ],
+    "raw_text": "Předkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 15:05:46\nProgram jednání\n1. Určení zapisovatelů, předsedajícího, příp. ověřovatelů\n2. Schválení programu jednání\n3. Aktuální informace vedení města\n4. Odkoupení pozemků – od fy. VPK Suchý Development s.r.o., Zásmuky\n5. Ukončení „Nájemní smlouvy čj.:3022/2012“- garáž u ZS\n6. Dohoda o ukončení spolupráce - Memorandum o spolupráci při vybudování sociálního bydlení\n7. Prodloužení nájemních smluv\n8. Pronájem místa v garáži u č.p. 176 Velké Chvalovice\n9. Odpisový plán - Pečovatelská služba\n10. Uzavření Dodatku č.1 k SOD Stavební úpravy a obnova interiéru Kulturního střediska Pečky-II.etapa\n11. Má vlast cestami proměn - účast v 15. ročníku výstavy\n12. Kontrola plnění usnesení\nDiskuze zahájena v 15:05:46\nK tomuto bodu se vyjádřili: Milan Paluska\nV 15:06:18 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Milan Paluska\") v tomto znění:\nRada\nměsta schvaluje návrh programu jednání.\nHlasování\npro:\n(6) Ing. Karel Krištoufek, Ing. Hana Kuprová, Zdeněk Fejfar, Ing. Martin Jedlička, Ivana Trčková, Milan Paluska\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-485-49/22\nzodpovídá:\ntermín:\nIHNED\n(12. 12. 2022)\nProjednávání bodu bylo ukončeno v 15:06:26"
+   },
+   {
+    "number": 3,
+    "title_raw": "Aktuální informace vedení města",
+    "heading_raw": "3. Aktuální informace vedení města (bod číslo 3)",
+    "predkladatel": "Milan Paluska",
+    "votes": [],
+    "resolution_numbers_mentioned": [],
+    "raw_text": "Předkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 15:06:30\nDůvodová zpráva\nstarosta města\n- investiční akce ve městě - průběh prací v KS (uzavření dodatku č. 1), úpravna vody, chodník v ulici\nSladkovského\n(stavební práce již dokončeny)\n- informace o konání valné hromady SDH v sobotu 10.12.22\n- informace o termínu DSO Pečecký region v pátek dne 16.12.22\n- informace o schůzce na SPÚ\nKolín\ndne 14.12.2022 - pozemkové úpravy\n- informace o součinnosti při výkupu pozemků pod plánovaným obchvatem - Ateliér PROMIKA s.r.o., termín schůzky\n1. místostarosta\nZdeněk\nFejfar\n- informace o průběhu prací akce - intenzifikace ČOV - kontrolní den 14.12.22, postup stavebních prací bude záviset na klimatických podmínkách\n- informace o plánované schůzce v lednu 2023 s létajícím pořizovatelem ÚP p. Z.\nKlenorovou\ntajemnice Bc.\nPavlína\nNepovímová\n, DiS.\n- informace o výběrovém řízení na ředitele/ku MŠ Mašinka Pečky - otevírání obálek, termín konkurzu stanoven na den 6.1.2023\nDiskuze zahájena v 15:06:30\nK tomuto bodu se vyjádřili: Milan Paluska, Zdeněk Fejfar, Ing. Karel Krištoufek, Pavlína Nepovímová\nProjednávání bodu bylo ukončeno v 15:34:33"
+   },
+   {
+    "number": 4,
+    "title_raw": "Odkoupení pozemků – od fy. VPK Suchý Development s.r.o., Zásmuky",
+    "heading_raw": "4. Odkoupení pozemků – od fy. VPK Suchý Development s.r.o., Zásmuky (bod číslo 4)",
+    "predkladatel": "Jana Najbrtová",
+    "votes": [
+     {
+      "raw_text": "pro:\n(5) Ing. Hana Kuprová, Milan Paluska, Ing. Karel Krištoufek, Ivana Trčková, Zdeněk Fejfar\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(1) Ing. Martin Jedlička",
+      "pro": {
+       "count": 5,
+       "names": [
+        "Ing. Hana Kuprová",
+        "Milan Paluska",
+        "Ing. Karel Krištoufek",
+        "Ivana Trčková",
+        "Zdeněk Fejfar"
+       ],
+       "raw": "(5) Ing. Hana Kuprová, Milan Paluska, Ing. Karel Krištoufek, Ivana Trčková, Zdeněk Fejfar"
+      },
+      "proti": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "zdrzel_se": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "nehlasoval": {
+       "count": 1,
+       "names": [
+        "Ing. Martin Jedlička"
+       ],
+       "raw": "(1) Ing. Martin Jedlička"
+      },
+      "result_raw": "Návrh byl přijat jako usnesení číslo: UR-486-49/22",
+      "adopted_resolution_number": "UR-486-49/22"
+     }
+    ],
+    "resolution_numbers_mentioned": [
+     "UR-486-49/22",
+     "UZ-12-2/22"
+    ],
+    "raw_text": "Předkladatel: Jana Najbrtová\nProjednávání bodu bylo zahájeno v 15:34:38\nDůvodová zpráva\nDoporučujeme schválit odkoupení pozemků od fy. VPK\nSuchý\n, tak jak bylo nasmlouváno v „Dohodě o spolupráci“ (schváleno na ZaM dne 30.3. 2022, UZ-12-2/22), jejíž nedílnou součástí byl návrh  „Smlouvy o koupi nemovitých věcí a veřejné infrastruktury“.\nDiskuze zahájena v 15:34:38\nK tomuto bodu se vyjádřili: Milan Paluska, Ing. Karel Krištoufek\nV 15:36:39 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Jana Najbrtová\") v tomto znění:\nRada\nměsta doporučuje zastupitelstvu města schválit odkoupení pozemků č. parc. 2265/90 (ostatní plocha ost. komunikace o výměře 3 m²), č. parc. 2265/91 (ostatní plocha ost. komunikace o výměře 42 m²), č. parc. 2265/147 (ostatní plocha ost. komunikace o výměře 1.750 m²), č. parc. 306/1 (ost. plocha o výměře 1042 m²), č. parc. 306/2 (ost.  plocha o výměře 8 m²), č. parc. 306/3 (ost. plocha o výměře 4 m²), č. parc 306/4 (ost. plocha o výměře 7 m²), č. parc. 306/27 (ost. plocha o výměře 38 m²), č. parc. 400/2 (ost. plocha o výměře 148 m²), č. parc. 400/4 ost. plocha o výměře 10 m²) vše v obci a katastrálním území Pečky. Pozemky budou odkoupeny od firmy VPK\nSuchý\nDevelopment s.r.o., se sídlem v Zásmukách,\nKomenského\nnám. 12 za celkovou kupní cenu ve výši 5.000,- Kč bez DPH (6.050,- Kč s DPH). Součástí nemovitostí je veřejná technická infrastruktura -splašková kanalizace, vodovod, vodovodní a kanalizační přípojky, veřejné osvětlení, obslužné komunikace, rozhlas.\nSmlouva bude uzavřena pouze za splnění podmínek uvedených ve vyjádření města ze dne 3.5.2022, ev. pod čj. PEC/4032/2021.\nHlasování\npro:\n(5) Ing. Hana Kuprová, Milan Paluska, Ing. Karel Krištoufek, Ivana Trčková, Zdeněk Fejfar\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(1) Ing. Martin Jedlička\nNávrh byl přijat jako usnesení číslo: UR-486-49/22\nzodpovídá:\nJana Najbrtová\ntermín:\n31. 3. 2023\nProjednávání bodu bylo ukončeno v 15:36:47\nV 15:36:56 odešel Ing. Martin Jedlička, přítomno 5 radních.\nAktualizovaný stav prezence:\nPřítomni:\n(5) Zdeněk Fejfar, Milan Paluska, Ivana Trčková, Ing. Hana Kuprová, Ing. Karel Krištoufek\nOmluveni:\n(0)\nNepřítomni:\n(2) Ing. Petr Dürr, Ing. Martin Jedlička"
+   },
+   {
+    "number": 5,
+    "title_raw": "Ukončení „Nájemní smlouvy čj.:3022/2012“- garáž u ZS",
+    "heading_raw": "5. Ukončení „Nájemní smlouvy čj.:3022/2012“- garáž u ZS (bod číslo 5)",
+    "predkladatel": "Jana Najbrtová",
+    "votes": [
+     {
+      "raw_text": "pro:\n(5) Ing. Karel Krištoufek, Ing. Hana Kuprová, Milan Paluska, Ivana Trčková, Zdeněk Fejfar\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)",
+      "pro": {
+       "count": 5,
+       "names": [
+        "Ing. Karel Krištoufek",
+        "Ing. Hana Kuprová",
+        "Milan Paluska",
+        "Ivana Trčková",
+        "Zdeněk Fejfar"
+       ],
+       "raw": "(5) Ing. Karel Krištoufek, Ing. Hana Kuprová, Milan Paluska, Ivana Trčková, Zdeněk Fejfar"
+      },
+      "proti": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "zdrzel_se": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "nehlasoval": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "result_raw": "Návrh byl přijat jako usnesení číslo: UR-487-49/22",
+      "adopted_resolution_number": "UR-487-49/22"
+     }
+    ],
+    "resolution_numbers_mentioned": [
+     "UR-487-49/22"
+    ],
+    "raw_text": "Předkladatel: Jana Najbrtová\nProjednávání bodu bylo zahájeno v 15:37:30\nDůvodová zpráva\nDoporučujeme ukončit nájemní smlouvu s\n█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█\nna pronájem garáže u ZS v Pečkách. Dle žádosti\n█​█​█​█​█​█​█​█​█​█\nbude smlouva ukončena v řádném výpovědním termínu k 31.3. 2023 (tzn. 3 měsíce).\nDiskuze zahájena v 15:37:30\nK tomuto bodu se vyjádřili: Milan Paluska\nV 15:39:40 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Jana Najbrtová\") v tomto znění:\nRada\nměsta schvaluje ukončit „Nájemní smlouvu čj.:3022/2012“ ze dne 21. 12. 2012 s\n█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█\n(garáž vedle zdravotního střediska). Smlouva bude ukončena k 31. 3. 2023.\nHlasování\npro:\n(5) Ing. Karel Krištoufek, Ing. Hana Kuprová, Milan Paluska, Ivana Trčková, Zdeněk Fejfar\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-487-49/22\nzodpovídá:\nJana Najbrtová\ntermín:\n14. 4. 2023\nProjednávání bodu bylo ukončeno v 15:39:49"
+   },
+   {
+    "number": 6,
+    "title_raw": "Dohoda o ukončení spolupráce - Memorandum o spolupráci při vybudování sociálního bydlení",
+    "heading_raw": "6. Dohoda o ukončení spolupráce - Memorandum o spolupráci při vybudování sociálního bydlení (bod číslo 6)",
+    "predkladatel": "Milan Paluska",
+    "votes": [
+     {
+      "raw_text": "pro:\n(5) Ing. Karel Krištoufek, Milan Paluska, Zdeněk Fejfar, Ing. Hana Kuprová, Ivana Trčková\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)",
+      "pro": {
+       "count": 5,
+       "names": [
+        "Ing. Karel Krištoufek",
+        "Milan Paluska",
+        "Zdeněk Fejfar",
+        "Ing. Hana Kuprová",
+        "Ivana Trčková"
+       ],
+       "raw": "(5) Ing. Karel Krištoufek, Milan Paluska, Zdeněk Fejfar, Ing. Hana Kuprová, Ivana Trčková"
+      },
+      "proti": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "zdrzel_se": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "nehlasoval": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "result_raw": "Návrh byl přijat jako usnesení číslo: UR-488-49/22",
+      "adopted_resolution_number": "UR-488-49/22"
+     }
+    ],
+    "resolution_numbers_mentioned": [
+     "UR-488-49/22"
+    ],
+    "raw_text": "Předkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 15:39:53\nDůvodová zpráva\nZ výběrového řízení na zhotovení Stavby, které Příjemce řádně vyhlásil, vzešla jediná nabídka, a to s nabídkovou cenou ve výši 17.194.108,-Kč, včetně DPH Kč. S ohledem na skutečnost, že tato částka výrazně převyšuje očekávání Příjemce a je příliš vysoká na to, aby ji byl Příjemce schopen dofinancovat z vlastních prostředků, rozhodli se Poskytovatel a Příjemce po vzájemné dohodě Stavbu nerealizovat a spolupráci ukončit.\nDiskuze zahájena v 15:39:53\nK tomuto bodu se vyjádřili: Milan Paluska, Ing. Karel Krištoufek, Ing. Hana Kuprová\nV 15:43:43 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Milan Paluska\") v tomto znění:\nRada\nměsta doporučuje zastupitelstvu města schválit Dohodu o ukončení spolupráce mezi městem Pečky a Člověkem v tísni, o.p.s. s ohledem na skutečnost, že celkové náklady na stavbu výrazně převyšují předpokládanou hodnotu uvedenou v zadávacím řízení.\nHlasování\npro:\n(5) Ing. Karel Krištoufek, Milan Paluska, Zdeněk Fejfar, Ing. Hana Kuprová, Ivana Trčková\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-488-49/22\nzodpovídá:\ntermín:\nIHNED\n(12. 12. 2022)\nProjednávání bodu bylo ukončeno v 15:43:56"
+   },
+   {
+    "number": 7,
+    "title_raw": "Prodloužení nájemních smluv",
+    "heading_raw": "7. Prodloužení nájemních smluv (bod číslo 7)",
+    "predkladatel": "Martina Hrázská",
+    "votes": [
+     {
+      "raw_text": "pro:\n(5) Ing. Karel Krištoufek, Milan Paluska, Zdeněk Fejfar, Ivana Trčková, Ing. Hana Kuprová\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)",
+      "pro": {
+       "count": 5,
+       "names": [
+        "Ing. Karel Krištoufek",
+        "Milan Paluska",
+        "Zdeněk Fejfar",
+        "Ivana Trčková",
+        "Ing. Hana Kuprová"
+       ],
+       "raw": "(5) Ing. Karel Krištoufek, Milan Paluska, Zdeněk Fejfar, Ivana Trčková, Ing. Hana Kuprová"
+      },
+      "proti": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "zdrzel_se": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "nehlasoval": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "result_raw": "Návrh byl přijat jako usnesení číslo: UR-489-49/22",
+      "adopted_resolution_number": "UR-489-49/22"
+     }
+    ],
+    "resolution_numbers_mentioned": [
+     "UR-489-49/22"
+    ],
+    "raw_text": "Předkladatel: Martina Hrázská\nProjednávání bodu bylo zahájeno v 15:44:00\nDůvodová zpráva\nUzavření dodatků na pronájem bytů:\n- s panem\n█​█​█​█​█​█​█​█​█​█​█​█​█\n, Pečky, Tř. 5. května 218, č.b. 12 do 30.6.2023 a uzavření splátkového kalendáře\n- ostatní nájemci uvedení v seznamu nedluží městu Pečky za nájemné a nenastal ani žádný jiný důvod k ukončení nájemního vztahu\nDiskuze zahájena v 15:44:00\nK tomuto bodu se vyjádřili: Milan Paluska, Ing. Karel Krištoufek, Zdeněk Fejfar, Ivana Trčková, Martina Hrázská\nV 15:59:32 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Martina Hrázská\") v tomto znění:\nRada\nměsta schvaluje uzavření dodatků na pronájem bytů:\ndo\n30.6.2023\n- pan\n█​█​█​█​█​█​█​█​█​█​█\n, byt č. 12, č.p. 218, Tř. 5. května, Pečky a uzavření splátkového kalendáře\ndo\n31.12.2023\n- dle seznamu v příloze\nHlasování\npro:\n(5) Ing. Karel Krištoufek, Milan Paluska, Zdeněk Fejfar, Ivana Trčková, Ing. Hana Kuprová\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-489-49/22\nzodpovídá:\nMartina Hrázská\ntermín:\n26. 12. 2022\nProjednávání bodu bylo ukončeno v 15:59:40"
+   },
+   {
+    "number": 8,
+    "title_raw": "Pronájem místa v garáži u č.p. 176 Velké Chvalovice",
+    "heading_raw": "8. Pronájem místa v garáži u č.p. 176 Velké Chvalovice (bod číslo 8)",
+    "predkladatel": "Martina Hrázská",
+    "votes": [
+     {
+      "raw_text": "pro:\n(5) Milan Paluska, Ing. Hana Kuprová, Zdeněk Fejfar, Ing. Karel Krištoufek, Ivana Trčková\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)",
+      "pro": {
+       "count": 5,
+       "names": [
+        "Milan Paluska",
+        "Ing. Hana Kuprová",
+        "Zdeněk Fejfar",
+        "Ing. Karel Krištoufek",
+        "Ivana Trčková"
+       ],
+       "raw": "(5) Milan Paluska, Ing. Hana Kuprová, Zdeněk Fejfar, Ing. Karel Krištoufek, Ivana Trčková"
+      },
+      "proti": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "zdrzel_se": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "nehlasoval": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "result_raw": "Návrh byl přijat jako usnesení číslo: UR-490-49/22",
+      "adopted_resolution_number": "UR-490-49/22"
+     }
+    ],
+    "resolution_numbers_mentioned": [
+     "UR-490-49/22"
+    ],
+    "raw_text": "Předkladatel: Martina Hrázská\nProjednávání bodu bylo zahájeno v 15:59:44\nDůvodová zpráva\nZ důvodu požadavku požárně bezpečnostního řešení v č.p. 176, Pečecká,\nVelké\nChvalovice, doporučujeme nájemníkům vlastnícím elektrovozíky, pronájem místa v garáži u č.p. 176, Pečecká,\nVelké\nChvalovice za účelem parkování a možností dobíjení elektrovozíku. Za pronájem místa v garáži, bude paušálně stanovena částka ve výši 200,- Kč/měs., která bude podmíněna odběrem elektrické energie na dobíjení vozíku, na dobu určitou do 31.12.2023 s výpovědní lhůtou 2 měsíce. V roce 2024 budou náklady přefakturovávány dle skutečných nákladů.\nDiskuze zahájena v 15:59:44\nK tomuto bodu se vyjádřili: Milan Paluska, Ivana Trčková, Zdeněk Fejfar\nV 16:02:47 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Martina Hrázská\") v tomto znění:\nRada\nměsta schvaluje uzavření dodatku č. 3 k nájemní smlouvě na pronájem místa v garáži Pečecká 176,\nVelké\nChvalovice od 1.1.2023 s paní\n█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█\n, Pečky, schvaluje uzavření dodatku č. 11 k nájemní smlouvě na pronájem místa v garáži Pečecká 176,\nVelké\nChvalovice od 1.1.2023 s panem\n█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█\n,\nVelké\nChvalovice. Pronájem se týká místa v garáži. Paušálně stanovena částka ve výši 200,- Kč/měs. je podmíněna odběrem elektrické energie na dobíjení elektrovozíku. Nájemní smlouva uzavřena na dobu určitou do 31.12.2023 s výpovědní lhůtou 2 měsíce. V roce 2024 budou náklady přefakturovávány dle skutečných nákladů.\nHlasování\npro:\n(5) Milan Paluska, Ing. Hana Kuprová, Zdeněk Fejfar, Ing. Karel Krištoufek, Ivana Trčková\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-490-49/22\nzodpovídá:\nMartina Hrázská\ntermín:\n26. 12. 2022\nProjednávání bodu bylo ukončeno v 16:02:56"
+   },
+   {
+    "number": 9,
+    "title_raw": "Odpisový plán - Pečovatelská služba",
+    "heading_raw": "9. Odpisový plán - Pečovatelská služba (bod číslo 9)",
+    "predkladatel": "Marcela Bahníková",
+    "votes": [
+     {
+      "raw_text": "pro:\n(5) Ivana Trčková, Ing. Hana Kuprová, Milan Paluska, Zdeněk Fejfar, Ing. Karel Krištoufek\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)",
+      "pro": {
+       "count": 5,
+       "names": [
+        "Ivana Trčková",
+        "Ing. Hana Kuprová",
+        "Milan Paluska",
+        "Zdeněk Fejfar",
+        "Ing. Karel Krištoufek"
+       ],
+       "raw": "(5) Ivana Trčková, Ing. Hana Kuprová, Milan Paluska, Zdeněk Fejfar, Ing. Karel Krištoufek"
+      },
+      "proti": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "zdrzel_se": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "nehlasoval": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "result_raw": "Návrh byl přijat jako usnesení číslo: UR-491-49/22",
+      "adopted_resolution_number": "UR-491-49/22"
+     }
+    ],
+    "resolution_numbers_mentioned": [
+     "UR-491-49/22"
+    ],
+    "raw_text": "Předkladatel: Marcela Bahníková\nProjednávání bodu bylo zahájeno v 16:03:08\nDůvodová zpráva\nPečovatelská služba města Pečky žádá zřizovatele o schválení odpisového plánu na \"kuchyňku pro zaměstnance\" viz příloha. Pořizovací cena  112 700 Kč, investice byla částečně financována z dotace, doba odepisování  7 let (84 měsíců).\nDiskuze zahájena v 16:03:08\nK tomuto bodu se vyjádřili: Milan Paluska, Ing. Hana Kuprová, Ing. Karel Krištoufek\nV 16:08:05 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Marcela Bahníková\") v tomto znění:\nRada\nměsta schvaluje odpisový plán Pečovatelské službě města Pečky pro investici \"kuchyňská linka pro zaměstnance\", poř. cena 112 700 Kč, doba odepisování 84 měsíců.\nHlasování\npro:\n(5) Ivana Trčková, Ing. Hana Kuprová, Milan Paluska, Zdeněk Fejfar, Ing. Karel Krištoufek\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-491-49/22\nzodpovídá:\ntermín:\nIHNED\n(12. 12. 2022)\nProjednávání bodu bylo ukončeno v 16:08:12"
+   },
+   {
+    "number": 10,
+    "title_raw": "Uzavření Dodatku č.1 k SOD Stavební úpravy a obnova interiéru Kulturního střediska Pečky-II.etapa",
+    "heading_raw": "10. Uzavření Dodatku č.1 k SOD Stavební úpravy a obnova interiéru Kulturního střediska Pečky-II.etapa (bod číslo 10)",
+    "predkladatel": "Věra Růžičková",
+    "votes": [
+     {
+      "raw_text": "pro:\n(5) Ing. Hana Kuprová, Zdeněk Fejfar, Ivana Trčková, Ing. Karel Krištoufek, Milan Paluska\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)",
+      "pro": {
+       "count": 5,
+       "names": [
+        "Ing. Hana Kuprová",
+        "Zdeněk Fejfar",
+        "Ivana Trčková",
+        "Ing. Karel Krištoufek",
+        "Milan Paluska"
+       ],
+       "raw": "(5) Ing. Hana Kuprová, Zdeněk Fejfar, Ivana Trčková, Ing. Karel Krištoufek, Milan Paluska"
+      },
+      "proti": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "zdrzel_se": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "nehlasoval": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "result_raw": "Návrh byl přijat jako usnesení číslo: UR-492-49/22",
+      "adopted_resolution_number": "UR-492-49/22"
+     }
+    ],
+    "resolution_numbers_mentioned": [
+     "UR-492-49/22"
+    ],
+    "raw_text": "Předkladatel: Věra Růžičková\nProjednávání bodu bylo zahájeno v 16:08:36\nDůvodová zpráva\nJedná se o uzavření dodatku k SOD na vícepráce a to zhotovení nových konstrukčních vrstev ve velkém sále. Odůvodnění je uvedeno v odsouhlaseném ZL č.1, který je podkladem pro uzavření dodatku, viz příloha.\nDiskuze zahájena v 16:08:36\nK tomuto bodu se vyjádřili: Milan Paluska, Ing. Hana Kuprová, Zdeněk Fejfar, Ivana Trčková\nV 16:25:18 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Věra Růžičková\") v tomto znění:\nRada\nměsta schvaluje uzavření Dodatku č.1 k SOD uzavřené mezi městem Pečky a\nBursík\nHolding\n,a.s., ul. Belgická 196/38,\nPraha\n2 na stavební práce akce: \"Stavební úpravy a obnova interiéru Kulturního střediska Pečky-II.etapa\".\nCena\nza dílo se zvyšuje o částku ve výši 774 362,56 bez DPH, tj. 936 978,70 Kč vč. 21% DPH, dle položkového výkazu výměr a odůvodnění uvedeném ve ZL č.1, který je nedílnou součástí dodatku.\nHlasování\npro:\n(5) Ing. Hana Kuprová, Zdeněk Fejfar, Ivana Trčková, Ing. Karel Krištoufek, Milan Paluska\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-492-49/22\nzodpovídá:\nVěra Růžičková\ntermín:\n26. 12. 2022\nProjednávání bodu bylo ukončeno v 16:25:26"
+   },
+   {
+    "number": 11,
+    "title_raw": "Má vlast cestami proměn - účast v 15. ročníku výstavy",
+    "heading_raw": "11. Má vlast cestami proměn - účast v 15. ročníku výstavy (bod číslo 11)",
+    "predkladatel": "Pavlína Nepovímová",
+    "votes": [],
+    "resolution_numbers_mentioned": [],
+    "raw_text": "Předkladatel: Pavlína Nepovímová\nProjednávání bodu bylo zahájeno v 16:25:30\nDůvodová zpráva\nZapojení se do výstavy, která bude zahájena v červnu a potrvá měsíc. Výstava setrvá přibližně měsíc, poté se rozjede v dílčích kolekcích do všech krajů naší vlasti. Přihlásit se můžeme s rekonstrukcí nebo úpravou krajiny.\nPodmínky účasti zůstávají stejné:\njeden plakát = 1 proměněné místo (výjimkou mohou být např. opravy křížků a jiných drobných staveb, které probíhaly souběžně v rámci jednoho projektu)\nodeslání přihlášky do 31. 1. 2023\nPoplatek za celoroční propagaci jedné proměny je 7 700 Kč + DPH, (celkem 9 317 Kč)\nHlásit se můžete zde: https://www.cestamipromen.cz/prihlasit-promenu\nDiskuze zahájena v 16:25:30\nK tomuto bodu se vyjádřili: Milan Paluska, Ing. Karel Krištoufek, Ing. Hana Kuprová, Ivana Trčková\nRada bere materiály předložené k bodu č. 11 -\nMá vlast cestami proměn - účast v 15. ročníku výstavy\nna vědomí.\nProjednávání bodu bylo ukončeno v 16:32:21"
+   },
+   {
+    "number": 12,
+    "title_raw": "Kontrola plnění usnesení",
+    "heading_raw": "12. Kontrola plnění usnesení (bod číslo 12)",
+    "predkladatel": "Milan Paluska",
+    "votes": [],
+    "resolution_numbers_mentioned": [],
+    "raw_text": "Předkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 16:32:24\nDiskuze zahájena v 16:32:24\nK tomuto bodu se vyjádřili: Milan Paluska, Pavlína Nepovímová\nRada bere materiály předložené k bodu č. 12 -\nKontrola plnění usnesení\nna vědomí.\nProjednávání bodu bylo ukončeno v 16:35:29\nJednání ukončeno 12.12.2022 v 16:35:42\n\nOvěřeno ověřovateli:\n1)\n13. 12. 2022 14:33\nIng. Hana Kuprová\n2)\n13. 12. 2022 10:48\nZdeněk Fejfar"
+   }
+  ],
+  "full_text": "ZÁPIS ze schůze rady č. 49/2022\nMěsto Pečky\ndatum: 12. 12. 2022, čas: 15:00\n​\nPrezence:\nPřítomni:\n(6) Zdeněk Fejfar, Milan Paluska, Ing. Martin Jedlička, Ivana Trčková, Ing. Hana Kuprová, Ing. Karel Krištoufek\nOmluveni:\n(0)\nNepřítomni:\n(1) Ing. Petr Dürr\nHosté:\nZapisovatel/ka:\nEva Strnadová\nPřítomno je 6 členů a rada je usnášeníschopná.\nJednání zahájeno 12.12.2022 v 15:04:33\n1. Určení zapisovatelů, předsedajícího, příp. ověřovatelů (bod číslo 1)\nPředkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 15:04:44\nPředsedající navrhl jednotlivé členy pracovních komisí\nOvěřovatelé:\nIng. Hana Kuprová, Zdeněk Fejfar\nPředsedající:\nMilan Paluska\nBod byl přijat bez hlasování.\nDiskuze zahájena v 15:04:44\nK tomuto bodu se vyjádřili: Milan Paluska\nProjednávání bodu bylo ukončeno v 15:05:41\n2. Schválení programu jednání (bod číslo 2)\nPředkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 15:05:46\nProgram jednání\n1. Určení zapisovatelů, předsedajícího, příp. ověřovatelů\n2. Schválení programu jednání\n3. Aktuální informace vedení města\n4. Odkoupení pozemků – od fy. VPK Suchý Development s.r.o., Zásmuky\n5. Ukončení „Nájemní smlouvy čj.:3022/2012“- garáž u ZS\n6. Dohoda o ukončení spolupráce - Memorandum o spolupráci při vybudování sociálního bydlení\n7. Prodloužení nájemních smluv\n8. Pronájem místa v garáži u č.p. 176 Velké Chvalovice\n9. Odpisový plán - Pečovatelská služba\n10. Uzavření Dodatku č.1 k SOD Stavební úpravy a obnova interiéru Kulturního střediska Pečky-II.etapa\n11. Má vlast cestami proměn - účast v 15. ročníku výstavy\n12. Kontrola plnění usnesení\nDiskuze zahájena v 15:05:46\nK tomuto bodu se vyjádřili: Milan Paluska\nV 15:06:18 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Milan Paluska\") v tomto znění:\nRada\nměsta schvaluje návrh programu jednání.\nHlasování\npro:\n(6) Ing. Karel Krištoufek, Ing. Hana Kuprová, Zdeněk Fejfar, Ing. Martin Jedlička, Ivana Trčková, Milan Paluska\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-485-49/22\nzodpovídá:\ntermín:\nIHNED\n(12. 12. 2022)\nProjednávání bodu bylo ukončeno v 15:06:26\n3. Aktuální informace vedení města (bod číslo 3)\nPředkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 15:06:30\nDůvodová zpráva\nstarosta města\n- investiční akce ve městě - průběh prací v KS (uzavření dodatku č. 1), úpravna vody, chodník v ulici\nSladkovského\n(stavební práce již dokončeny)\n- informace o konání valné hromady SDH v sobotu 10.12.22\n- informace o termínu DSO Pečecký region v pátek dne 16.12.22\n- informace o schůzce na SPÚ\nKolín\ndne 14.12.2022 - pozemkové úpravy\n- informace o součinnosti při výkupu pozemků pod plánovaným obchvatem - Ateliér PROMIKA s.r.o., termín schůzky\n1. místostarosta\nZdeněk\nFejfar\n- informace o průběhu prací akce - intenzifikace ČOV - kontrolní den 14.12.22, postup stavebních prací bude záviset na klimatických podmínkách\n- informace o plánované schůzce v lednu 2023 s létajícím pořizovatelem ÚP p. Z.\nKlenorovou\ntajemnice Bc.\nPavlína\nNepovímová\n, DiS.\n- informace o výběrovém řízení na ředitele/ku MŠ Mašinka Pečky - otevírání obálek, termín konkurzu stanoven na den 6.1.2023\nDiskuze zahájena v 15:06:30\nK tomuto bodu se vyjádřili: Milan Paluska, Zdeněk Fejfar, Ing. Karel Krištoufek, Pavlína Nepovímová\nProjednávání bodu bylo ukončeno v 15:34:33\n4. Odkoupení pozemků – od fy. VPK Suchý Development s.r.o., Zásmuky (bod číslo 4)\nPředkladatel: Jana Najbrtová\nProjednávání bodu bylo zahájeno v 15:34:38\nDůvodová zpráva\nDoporučujeme schválit odkoupení pozemků od fy. VPK\nSuchý\n, tak jak bylo nasmlouváno v „Dohodě o spolupráci“ (schváleno na ZaM dne 30.3. 2022, UZ-12-2/22), jejíž nedílnou součástí byl návrh  „Smlouvy o koupi nemovitých věcí a veřejné infrastruktury“.\nDiskuze zahájena v 15:34:38\nK tomuto bodu se vyjádřili: Milan Paluska, Ing. Karel Krištoufek\nV 15:36:39 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Jana Najbrtová\") v tomto znění:\nRada\nměsta doporučuje zastupitelstvu města schválit odkoupení pozemků č. parc. 2265/90 (ostatní plocha ost. komunikace o výměře 3 m²), č. parc. 2265/91 (ostatní plocha ost. komunikace o výměře 42 m²), č. parc. 2265/147 (ostatní plocha ost. komunikace o výměře 1.750 m²), č. parc. 306/1 (ost. plocha o výměře 1042 m²), č. parc. 306/2 (ost.  plocha o výměře 8 m²), č. parc. 306/3 (ost. plocha o výměře 4 m²), č. parc 306/4 (ost. plocha o výměře 7 m²), č. parc. 306/27 (ost. plocha o výměře 38 m²), č. parc. 400/2 (ost. plocha o výměře 148 m²), č. parc. 400/4 ost. plocha o výměře 10 m²) vše v obci a katastrálním území Pečky. Pozemky budou odkoupeny od firmy VPK\nSuchý\nDevelopment s.r.o., se sídlem v Zásmukách,\nKomenského\nnám. 12 za celkovou kupní cenu ve výši 5.000,- Kč bez DPH (6.050,- Kč s DPH). Součástí nemovitostí je veřejná technická infrastruktura -splašková kanalizace, vodovod, vodovodní a kanalizační přípojky, veřejné osvětlení, obslužné komunikace, rozhlas.\nSmlouva bude uzavřena pouze za splnění podmínek uvedených ve vyjádření města ze dne 3.5.2022, ev. pod čj. PEC/4032/2021.\nHlasování\npro:\n(5) Ing. Hana Kuprová, Milan Paluska, Ing. Karel Krištoufek, Ivana Trčková, Zdeněk Fejfar\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(1) Ing. Martin Jedlička\nNávrh byl přijat jako usnesení číslo: UR-486-49/22\nzodpovídá:\nJana Najbrtová\ntermín:\n31. 3. 2023\nProjednávání bodu bylo ukončeno v 15:36:47\nV 15:36:56 odešel Ing. Martin Jedlička, přítomno 5 radních.\nAktualizovaný stav prezence:\nPřítomni:\n(5) Zdeněk Fejfar, Milan Paluska, Ivana Trčková, Ing. Hana Kuprová, Ing. Karel Krištoufek\nOmluveni:\n(0)\nNepřítomni:\n(2) Ing. Petr Dürr, Ing. Martin Jedlička\n5. Ukončení „Nájemní smlouvy čj.:3022/2012“- garáž u ZS (bod číslo 5)\nPředkladatel: Jana Najbrtová\nProjednávání bodu bylo zahájeno v 15:37:30\nDůvodová zpráva\nDoporučujeme ukončit nájemní smlouvu s\n█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​\nna pronájem garáže u ZS v Pečkách. Dle žádosti\n█​█​█​█​█​█​█​█​█​█​\nbude smlouva ukončena v řádném výpovědním termínu k 31.3. 2023 (tzn. 3 měsíce).\nDiskuze zahájena v 15:37:30\nK tomuto bodu se vyjádřili: Milan Paluska\nV 15:39:40 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Jana Najbrtová\") v tomto znění:\nRada\nměsta schvaluje ukončit „Nájemní smlouvu čj.:3022/2012“ ze dne 21. 12. 2012 s\n█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​\n(garáž vedle zdravotního střediska). Smlouva bude ukončena k 31. 3. 2023.\nHlasování\npro:\n(5) Ing. Karel Krištoufek, Ing. Hana Kuprová, Milan Paluska, Ivana Trčková, Zdeněk Fejfar\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-487-49/22\nzodpovídá:\nJana Najbrtová\ntermín:\n14. 4. 2023\nProjednávání bodu bylo ukončeno v 15:39:49\n6. Dohoda o ukončení spolupráce - Memorandum o spolupráci při vybudování sociálního bydlení (bod číslo 6)\nPředkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 15:39:53\nDůvodová zpráva\nZ výběrového řízení na zhotovení Stavby, které Příjemce řádně vyhlásil, vzešla jediná nabídka, a to s nabídkovou cenou ve výši 17.194.108,-Kč, včetně DPH Kč. S ohledem na skutečnost, že tato částka výrazně převyšuje očekávání Příjemce a je příliš vysoká na to, aby ji byl Příjemce schopen dofinancovat z vlastních prostředků, rozhodli se Poskytovatel a Příjemce po vzájemné dohodě Stavbu nerealizovat a spolupráci ukončit.\nDiskuze zahájena v 15:39:53\nK tomuto bodu se vyjádřili: Milan Paluska, Ing. Karel Krištoufek, Ing. Hana Kuprová\nV 15:43:43 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Milan Paluska\") v tomto znění:\nRada\nměsta doporučuje zastupitelstvu města schválit Dohodu o ukončení spolupráce mezi městem Pečky a Člověkem v tísni, o.p.s. s ohledem na skutečnost, že celkové náklady na stavbu výrazně převyšují předpokládanou hodnotu uvedenou v zadávacím řízení.\nHlasování\npro:\n(5) Ing. Karel Krištoufek, Milan Paluska, Zdeněk Fejfar, Ing. Hana Kuprová, Ivana Trčková\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-488-49/22\nzodpovídá:\ntermín:\nIHNED\n(12. 12. 2022)\nProjednávání bodu bylo ukončeno v 15:43:56\n7. Prodloužení nájemních smluv (bod číslo 7)\nPředkladatel: Martina Hrázská\nProjednávání bodu bylo zahájeno v 15:44:00\nDůvodová zpráva\nUzavření dodatků na pronájem bytů:\n- s panem\n█​█​█​█​█​█​█​█​█​█​█​█​█​\n, Pečky, Tř. 5. května 218, č.b. 12 do 30.6.2023 a uzavření splátkového kalendáře\n- ostatní nájemci uvedení v seznamu nedluží městu Pečky za nájemné a nenastal ani žádný jiný důvod k ukončení nájemního vztahu\nDiskuze zahájena v 15:44:00\nK tomuto bodu se vyjádřili: Milan Paluska, Ing. Karel Krištoufek, Zdeněk Fejfar, Ivana Trčková, Martina Hrázská\nV 15:59:32 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Martina Hrázská\") v tomto znění:\nRada\nměsta schvaluje uzavření dodatků na pronájem bytů:\ndo\n30.6.2023\n- pan\n█​█​█​█​█​█​█​█​█​█​█​\n, byt č. 12, č.p. 218, Tř. 5. května, Pečky a uzavření splátkového kalendáře\ndo\n31.12.2023\n- dle seznamu v příloze\nHlasování\npro:\n(5) Ing. Karel Krištoufek, Milan Paluska, Zdeněk Fejfar, Ivana Trčková, Ing. Hana Kuprová\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-489-49/22\nzodpovídá:\nMartina Hrázská\ntermín:\n26. 12. 2022\nProjednávání bodu bylo ukončeno v 15:59:40\n8. Pronájem místa v garáži u č.p. 176 Velké Chvalovice (bod číslo 8)\nPředkladatel: Martina Hrázská\nProjednávání bodu bylo zahájeno v 15:59:44\nDůvodová zpráva\nZ důvodu požadavku požárně bezpečnostního řešení v č.p. 176, Pečecká,\nVelké\nChvalovice, doporučujeme nájemníkům vlastnícím elektrovozíky, pronájem místa v garáži u č.p. 176, Pečecká,\nVelké\nChvalovice za účelem parkování a možností dobíjení elektrovozíku. Za pronájem místa v garáži, bude paušálně stanovena částka ve výši 200,- Kč/měs., která bude podmíněna odběrem elektrické energie na dobíjení vozíku, na dobu určitou do 31.12.2023 s výpovědní lhůtou 2 měsíce. V roce 2024 budou náklady přefakturovávány dle skutečných nákladů.\nDiskuze zahájena v 15:59:44\nK tomuto bodu se vyjádřili: Milan Paluska, Ivana Trčková, Zdeněk Fejfar\nV 16:02:47 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Martina Hrázská\") v tomto znění:\nRada\nměsta schvaluje uzavření dodatku č. 3 k nájemní smlouvě na pronájem místa v garáži Pečecká 176,\nVelké\nChvalovice od 1.1.2023 s paní\n█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​\n, Pečky, schvaluje uzavření dodatku č. 11 k nájemní smlouvě na pronájem místa v garáži Pečecká 176,\nVelké\nChvalovice od 1.1.2023 s panem\n█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​\n,\nVelké\nChvalovice. Pronájem se týká místa v garáži. Paušálně stanovena částka ve výši 200,- Kč/měs. je podmíněna odběrem elektrické energie na dobíjení elektrovozíku. Nájemní smlouva uzavřena na dobu určitou do 31.12.2023 s výpovědní lhůtou 2 měsíce. V roce 2024 budou náklady přefakturovávány dle skutečných nákladů.\nHlasování\npro:\n(5) Milan Paluska, Ing. Hana Kuprová, Zdeněk Fejfar, Ing. Karel Krištoufek, Ivana Trčková\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-490-49/22\nzodpovídá:\nMartina Hrázská\ntermín:\n26. 12. 2022\nProjednávání bodu bylo ukončeno v 16:02:56\n9. Odpisový plán - Pečovatelská služba (bod číslo 9)\nPředkladatel: Marcela Bahníková\nProjednávání bodu bylo zahájeno v 16:03:08\nDůvodová zpráva\nPečovatelská služba města Pečky žádá zřizovatele o schválení odpisového plánu na \"kuchyňku pro zaměstnance\" viz příloha. Pořizovací cena  112 700 Kč, investice byla částečně financována z dotace, doba odepisování  7 let (84 měsíců).\nDiskuze zahájena v 16:03:08\nK tomuto bodu se vyjádřili: Milan Paluska, Ing. Hana Kuprová, Ing. Karel Krištoufek\nV 16:08:05 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Marcela Bahníková\") v tomto znění:\nRada\nměsta schvaluje odpisový plán Pečovatelské službě města Pečky pro investici \"kuchyňská linka pro zaměstnance\", poř. cena 112 700 Kč, doba odepisování 84 měsíců.\nHlasování\npro:\n(5) Ivana Trčková, Ing. Hana Kuprová, Milan Paluska, Zdeněk Fejfar, Ing. Karel Krištoufek\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-491-49/22\nzodpovídá:\ntermín:\nIHNED\n(12. 12. 2022)\nProjednávání bodu bylo ukončeno v 16:08:12\n10. Uzavření Dodatku č.1 k SOD Stavební úpravy a obnova interiéru Kulturního střediska Pečky-II.etapa (bod číslo 10)\nPředkladatel: Věra Růžičková\nProjednávání bodu bylo zahájeno v 16:08:36\nDůvodová zpráva\nJedná se o uzavření dodatku k SOD na vícepráce a to zhotovení nových konstrukčních vrstev ve velkém sále. Odůvodnění je uvedeno v odsouhlaseném ZL č.1, který je podkladem pro uzavření dodatku, viz příloha.\nDiskuze zahájena v 16:08:36\nK tomuto bodu se vyjádřili: Milan Paluska, Ing. Hana Kuprová, Zdeněk Fejfar, Ivana Trčková\nV 16:25:18 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Věra Růžičková\") v tomto znění:\nRada\nměsta schvaluje uzavření Dodatku č.1 k SOD uzavřené mezi městem Pečky a\nBursík\nHolding\n,a.s., ul. Belgická 196/38,\nPraha\n2 na stavební práce akce: \"Stavební úpravy a obnova interiéru Kulturního střediska Pečky-II.etapa\".\nCena\nza dílo se zvyšuje o částku ve výši 774 362,56 bez DPH, tj. 936 978,70 Kč vč. 21% DPH, dle položkového výkazu výměr a odůvodnění uvedeném ve ZL č.1, který je nedílnou součástí dodatku.\nHlasování\npro:\n(5) Ing. Hana Kuprová, Zdeněk Fejfar, Ivana Trčková, Ing. Karel Krištoufek, Milan Paluska\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-492-49/22\nzodpovídá:\nVěra Růžičková\ntermín:\n26. 12. 2022\nProjednávání bodu bylo ukončeno v 16:25:26\n11. Má vlast cestami proměn - účast v 15. ročníku výstavy (bod číslo 11)\nPředkladatel: Pavlína Nepovímová\nProjednávání bodu bylo zahájeno v 16:25:30\nDůvodová zpráva\nZapojení se do výstavy, která bude zahájena v červnu a potrvá měsíc. Výstava setrvá přibližně měsíc, poté se rozjede v dílčích kolekcích do všech krajů naší vlasti. Přihlásit se můžeme s rekonstrukcí nebo úpravou krajiny.\nPodmínky účasti zůstávají stejné:\njeden plakát = 1 proměněné místo (výjimkou mohou být např. opravy křížků a jiných drobných staveb, které probíhaly souběžně v rámci jednoho projektu)\nodeslání přihlášky do 31. 1. 2023\nPoplatek za celoroční propagaci jedné proměny je 7 700 Kč + DPH, (celkem 9 317 Kč)\nHlásit se můžete zde: https://www.cestamipromen.cz/prihlasit-promenu\nDiskuze zahájena v 16:25:30\nK tomuto bodu se vyjádřili: Milan Paluska, Ing. Karel Krištoufek, Ing. Hana Kuprová, Ivana Trčková\nRada bere materiály předložené k bodu č. 11 -\nMá vlast cestami proměn - účast v 15. ročníku výstavy\nna vědomí.\nProjednávání bodu bylo ukončeno v 16:32:21\n12. Kontrola plnění usnesení (bod číslo 12)\nPředkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 16:32:24\nDiskuze zahájena v 16:32:24\nK tomuto bodu se vyjádřili: Milan Paluska, Pavlína Nepovímová\nRada bere materiály předložené k bodu č. 12 -\nKontrola plnění usnesení\nna vědomí.\nProjednávání bodu bylo ukončeno v 16:35:29\nJednání ukončeno 12.12.2022 v 16:35:42\nOvěřeno ověřovateli:\n1)\n13. 12. 2022 14:33\nIng. Hana Kuprová\n2)\n13. 12. 2022 10:48\nZdeněk Fejfar"
+ },
+ "resolutions": {
+  "status": "ok",
+  "url": "https://mesto-pecky.usneseni.cz/verejne/6d45c880-7540-11ed-8d0c-e441cfb81b14/usneseni/",
+  "fetched_at": "2026-08-04T14:17:08.783202+00:00",
+  "items": [
+   {
+    "number_raw": "UR-485-49/22",
+    "detail_id": 29923,
+    "detail_url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/29923?mod=rada",
+    "agenda_item_raw": "Schválení programu jednání",
+    "text_verbatim": "Rada\nměsta schvaluje návrh programu jednání.",
+    "cell_text_raw": "Bod programu:\nSchválení programu jednání\nText přijatého usnesení:\nRada\nměsta schvaluje návrh programu jednání.",
+    "date_raw": "12. 12. 2022",
+    "date_iso": "2022-12-12",
+    "responsible_raw": "",
+    "deadline_raw": "IHNED (12. 12. 2022)",
+    "vote": {
+     "raw_text": "pro: 6 proti: 0 zdržel se: 0",
+     "pro": {
+      "count": 6,
+      "names": null,
+      "raw": "6"
+     },
+     "proti": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     },
+     "zdrzel_se": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     }
+    },
+    "detail": {
+     "number_raw": "UR-485-49/22",
+     "text_verbatim": "Rada města schvaluje návrh programu jednání.",
+     "typ_raw": null,
+     "zodpovida_raw": "",
+     "prijato_raw": "12. 12. 2022 na jednání č. 49/2022",
+     "prijato_date_iso": "2022-12-12",
+     "prijato_meeting_label": "49/2022",
+     "termin_raw": "IHNED (12. 12. 2022)",
+     "ukonceno_raw": "12. 12. 2022",
+     "ukonceno_date_iso": "2022-12-12",
+     "fields_raw": {
+      "Číslo usnesení": "UR-485-49/22",
+      "Text usnesení": "Rada města schvaluje návrh programu jednání.",
+      "Zodpovídá": "",
+      "Přijato": "12. 12. 2022 na jednání č. 49/2022",
+      "Termín": "IHNED (12. 12. 2022)",
+      "Ukončeno": "12. 12. 2022"
+     }
+    }
+   },
+   {
+    "number_raw": "UR-486-49/22",
+    "detail_id": 29947,
+    "detail_url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/29947?mod=rada",
+    "agenda_item_raw": "Odkoupení pozemků – od fy. VPK Suchý Development s.r.o., Zásmuky",
+    "text_verbatim": "Rada\nměsta doporučuje zastupitelstvu města schválit odkoupení pozemků č. parc. 2265/90 (ostatní plocha ost. komunikace o výměře 3 m²), č. parc. 2265/91 (ostatní plocha ost. komunikace o výměře 42 m²), č. parc. 2265/147 (ostatní plocha ost. komunikace o výměře 1.750 m²), č. parc. 306/1 (ost. plocha o výměře 1042 m²), č. parc. 306/2 (ost.  plocha o výměře 8 m²), č. parc. 306/3 (ost. plocha o výměře 4 m²), č. parc 306/4 (ost. plocha o výměře 7 m²), č. parc. 306/27 (ost. plocha o výměře 38 m²), č. parc. 400/2 (ost. plocha o výměře 148 m²), č. parc. 400/4 ost. plocha o výměře 10 m²) vše v obci a katastrálním území Pečky. Pozemky budou odkoupeny od firmy VPK\nSuchý\nDevelopment s.r.o., se sídlem v Zásmukách,\nKomenského\nnám. 12 za celkovou kupní cenu ve výši 5.000,- Kč bez DPH (6.050,- Kč s DPH). Součástí nemovitostí je veřejná technická infrastruktura -splašková kanalizace, vodovod, vodovodní a kanalizační přípojky, veřejné osvětlení, obslužné komunikace, rozhlas.\nSmlouva bude uzavřena pouze za splnění podmínek uvedených ve vyjádření města ze dne 3.5.2022, ev. pod čj. PEC/4032/2021.",
+    "cell_text_raw": "Bod programu:\nOdkoupení pozemků – od fy. VPK Suchý Development s.r.o., Zásmuky\nText přijatého usnesení:\nRada\nměsta doporučuje zastupitelstvu města schválit odkoupení pozemků č. parc. 2265/90 (ostatní plocha ost. komunikace o výměře 3 m²), č. parc. 2265/91 (ostatní plocha ost. komunikace o výměře 42 m²), č. parc. 2265/147 (ostatní plocha ost. komunikace o výměře 1.750 m²), č. parc. 306/1 (ost. plocha o výměře 1042 m²), č. parc. 306/2 (ost.  plocha o výměře 8 m²), č. parc. 306/3 (ost. plocha o výměře 4 m²), č. parc 306/4 (ost. plocha o výměře 7 m²), č. parc. 306/27 (ost. plocha o výměře 38 m²), č. parc. 400/2 (ost. plocha o výměře 148 m²), č. parc. 400/4 ost. plocha o výměře 10 m²) vše v obci a katastrálním území Pečky. Pozemky budou odkoupeny od firmy VPK\nSuchý\nDevelopment s.r.o., se sídlem v Zásmukách,\nKomenského\nnám. 12 za celkovou kupní cenu ve výši 5.000,- Kč bez DPH (6.050,- Kč s DPH). Součástí nemovitostí je veřejná technická infrastruktura -splašková kanalizace, vodovod, vodovodní a kanalizační přípojky, veřejné osvětlení, obslužné komunikace, rozhlas.\nSmlouva bude uzavřena pouze za splnění podmínek uvedených ve vyjádření města ze dne 3.5.2022, ev. pod čj. PEC/4032/2021.",
+    "date_raw": "12. 12. 2022",
+    "date_iso": "2022-12-12",
+    "responsible_raw": "Jana Najbrtová",
+    "deadline_raw": "31. 3. 2023",
+    "vote": {
+     "raw_text": "pro: 5 proti: 0 zdržel se: 0",
+     "pro": {
+      "count": 5,
+      "names": null,
+      "raw": "5"
+     },
+     "proti": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     },
+     "zdrzel_se": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     }
+    },
+    "detail": {
+     "number_raw": "UR-486-49/22",
+     "text_verbatim": "Rada města doporučuje zastupitelstvu města schválit odkoupení pozemků č. parc. 2265/90 (ostatní plocha ost. komunikace o výměře 3 m²), č. parc. 2265/91 (ostatní plocha ost. komunikace o výměře 42 m²), č. parc. 2265/147 (ostatní plocha ost. komunikace o výměře 1.750 m²), č. parc. 306/1 (ost. plocha o výměře 1042 m²), č. parc. 306/2 (ost.  plocha o výměře 8 m²), č. parc. 306/3 (ost. plocha o výměře 4 m²), č. parc 306/4 (ost. plocha o výměře 7 m²), č. parc. 306/27 (ost. plocha o výměře 38 m²), č. parc. 400/2 (ost. plocha o výměře 148 m²), č. parc. 400/4 ost. plocha o výměře 10 m²) vše v obci a katastrálním území Pečky. Pozemky budou odkoupeny od firmy VPK Suchý Development s.r.o., se sídlem v Zásmukách, Komenského nám. 12 za celkovou kupní cenu ve výši 5.000,- Kč bez DPH (6.050,- Kč s DPH). Součástí nemovitostí je veřejná technická infrastruktura -splašková kanalizace, vodovod, vodovodní a kanalizační přípojky, veřejné osvětlení, obslužné komunikace, rozhlas.\nSmlouva bude uzavřena pouze za splnění podmínek uvedených ve vyjádření města ze dne 3.5.2022, ev. pod čj. PEC/4032/2021.",
+     "typ_raw": null,
+     "zodpovida_raw": "Jana Najbrtová",
+     "prijato_raw": "12. 12. 2022 na jednání č. 49/2022",
+     "prijato_date_iso": "2022-12-12",
+     "prijato_meeting_label": "49/2022",
+     "termin_raw": "31. 3. 2023",
+     "ukonceno_raw": "13. 1. 2023",
+     "ukonceno_date_iso": "2023-01-13",
+     "fields_raw": {
+      "Číslo usnesení": "UR-486-49/22",
+      "Text usnesení": "Rada města doporučuje zastupitelstvu města schválit odkoupení pozemků č. parc. 2265/90 (ostatní plocha ost. komunikace o výměře 3 m²), č. parc. 2265/91 (ostatní plocha ost. komunikace o výměře 42 m²), č. parc. 2265/147 (ostatní plocha ost. komunikace o výměře 1.750 m²), č. parc. 306/1 (ost. plocha o výměře 1042 m²), č. parc. 306/2 (ost.  plocha o výměře 8 m²), č. parc. 306/3 (ost. plocha o výměře 4 m²), č. parc 306/4 (ost. plocha o výměře 7 m²), č. parc. 306/27 (ost. plocha o výměře 38 m²), č. parc. 400/2 (ost. plocha o výměře 148 m²), č. parc. 400/4 ost. plocha o výměře 10 m²) vše v obci a katastrálním území Pečky. Pozemky budou odkoupeny od firmy VPK Suchý Development s.r.o., se sídlem v Zásmukách, Komenského nám. 12 za celkovou kupní cenu ve výši 5.000,- Kč bez DPH (6.050,- Kč s DPH). Součástí nemovitostí je veřejná technická infrastruktura -splašková kanalizace, vodovod, vodovodní a kanalizační přípojky, veřejné osvětlení, obslužné komunikace, rozhlas.\nSmlouva bude uzavřena pouze za splnění podmínek uvedených ve vyjádření města ze dne 3.5.2022, ev. pod čj. PEC/4032/2021.",
+      "Zodpovídá": "Jana Najbrtová",
+      "Přijato": "12. 12. 2022 na jednání č. 49/2022",
+      "Termín": "31. 3. 2023",
+      "Ukončeno": "13. 1. 2023"
+     }
+    }
+   },
+   {
+    "number_raw": "UR-487-49/22",
+    "detail_id": 29955,
+    "detail_url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/29955?mod=rada",
+    "agenda_item_raw": "Ukončení „Nájemní smlouvy čj.:3022/2012“- garáž u ZS",
+    "text_verbatim": "Rada\nměsta schvaluje ukončit „Nájemní smlouvu čj.:3022/2012“ ze dne 21. 12. 2012 s\n█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​\n(garáž vedle zdravotního střediska). Smlouva bude ukončena k 31. 3. 2023.",
+    "cell_text_raw": "Bod programu:\nUkončení „Nájemní smlouvy čj.:3022/2012“- garáž u ZS\nText přijatého usnesení:\nRada\nměsta schvaluje ukončit „Nájemní smlouvu čj.:3022/2012“ ze dne 21. 12. 2012 s\n█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​\n(garáž vedle zdravotního střediska). Smlouva bude ukončena k 31. 3. 2023.",
+    "date_raw": "12. 12. 2022",
+    "date_iso": "2022-12-12",
+    "responsible_raw": "Jana Najbrtová",
+    "deadline_raw": "14. 4. 2023",
+    "vote": {
+     "raw_text": "pro: 5 proti: 0 zdržel se: 0",
+     "pro": {
+      "count": 5,
+      "names": null,
+      "raw": "5"
+     },
+     "proti": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     },
+     "zdrzel_se": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     }
+    },
+    "detail": {
+     "number_raw": "UR-487-49/22",
+     "text_verbatim": "Rada města schvaluje ukončit „Nájemní smlouvu čj.:3022/2012“ ze dne 21. 12. 2012 s █​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​ (garáž vedle zdravotního střediska). Smlouva bude ukončena k 31. 3. 2023.",
+     "typ_raw": null,
+     "zodpovida_raw": "Jana Najbrtová",
+     "prijato_raw": "12. 12. 2022 na jednání č. 49/2022",
+     "prijato_date_iso": "2022-12-12",
+     "prijato_meeting_label": "49/2022",
+     "termin_raw": "14. 4. 2023",
+     "ukonceno_raw": "29. 3. 2023",
+     "ukonceno_date_iso": "2023-03-29",
+     "fields_raw": {
+      "Číslo usnesení": "UR-487-49/22",
+      "Text usnesení": "Rada města schvaluje ukončit „Nájemní smlouvu čj.:3022/2012“ ze dne 21. 12. 2012 s █​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​ (garáž vedle zdravotního střediska). Smlouva bude ukončena k 31. 3. 2023.",
+      "Zodpovídá": "Jana Najbrtová",
+      "Přijato": "12. 12. 2022 na jednání č. 49/2022",
+      "Termín": "14. 4. 2023",
+      "Ukončeno": "29. 3. 2023"
+     }
+    }
+   },
+   {
+    "number_raw": "UR-488-49/22",
+    "detail_id": 30214,
+    "detail_url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/30214?mod=rada",
+    "agenda_item_raw": "Dohoda o ukončení spolupráce - Memorandum o spolupráci při vybudování sociálního bydlení",
+    "text_verbatim": "Rada\nměsta doporučuje zastupitelstvu města schválit Dohodu o ukončení spolupráce mezi městem Pečky a Člověkem v tísni, o.p.s. s ohledem na skutečnost, že celkové náklady na stavbu výrazně převyšují předpokládanou hodnotu uvedenou v zadávacím řízení.",
+    "cell_text_raw": "Bod programu:\nDohoda o ukončení spolupráce - Memorandum o spolupráci při vybudování sociálního bydlení\nText přijatého usnesení:\nRada\nměsta doporučuje zastupitelstvu města schválit Dohodu o ukončení spolupráce mezi městem Pečky a Člověkem v tísni, o.p.s. s ohledem na skutečnost, že celkové náklady na stavbu výrazně převyšují předpokládanou hodnotu uvedenou v zadávacím řízení.",
+    "date_raw": "12. 12. 2022",
+    "date_iso": "2022-12-12",
+    "responsible_raw": "",
+    "deadline_raw": "IHNED (12. 12. 2022)",
+    "vote": {
+     "raw_text": "pro: 5 proti: 0 zdržel se: 0",
+     "pro": {
+      "count": 5,
+      "names": null,
+      "raw": "5"
+     },
+     "proti": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     },
+     "zdrzel_se": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     }
+    },
+    "detail": {
+     "number_raw": "UR-488-49/22",
+     "text_verbatim": "Rada města doporučuje zastupitelstvu města schválit Dohodu o ukončení spolupráce mezi městem Pečky a Člověkem v tísni, o.p.s. s ohledem na skutečnost, že celkové náklady na stavbu výrazně převyšují předpokládanou hodnotu uvedenou v zadávacím řízení.",
+     "typ_raw": null,
+     "zodpovida_raw": "",
+     "prijato_raw": "12. 12. 2022 na jednání č. 49/2022",
+     "prijato_date_iso": "2022-12-12",
+     "prijato_meeting_label": "49/2022",
+     "termin_raw": "IHNED (12. 12. 2022)",
+     "ukonceno_raw": "12. 12. 2022",
+     "ukonceno_date_iso": "2022-12-12",
+     "fields_raw": {
+      "Číslo usnesení": "UR-488-49/22",
+      "Text usnesení": "Rada města doporučuje zastupitelstvu města schválit Dohodu o ukončení spolupráce mezi městem Pečky a Člověkem v tísni, o.p.s. s ohledem na skutečnost, že celkové náklady na stavbu výrazně převyšují předpokládanou hodnotu uvedenou v zadávacím řízení.",
+      "Zodpovídá": "",
+      "Přijato": "12. 12. 2022 na jednání č. 49/2022",
+      "Termín": "IHNED (12. 12. 2022)",
+      "Ukončeno": "12. 12. 2022"
+     }
+    }
+   },
+   {
+    "number_raw": "UR-489-49/22",
+    "detail_id": 30135,
+    "detail_url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/30135?mod=rada",
+    "agenda_item_raw": "Prodloužení nájemních smluv",
+    "text_verbatim": "Rada\nměsta schvaluje uzavření dodatků na pronájem bytů:\ndo\n30.6.2023\n- pan\n█​█​█​█​█​█​█​█​█​█​█​\n, byt č. 12, č.p. 218, Tř. 5. května, Pečky a uzavření splátkového kalendáře\ndo\n31.12.2023\n- dle seznamu v příloze",
+    "cell_text_raw": "Bod programu:\nProdloužení nájemních smluv\nText přijatého usnesení:\nRada\nměsta schvaluje uzavření dodatků na pronájem bytů:\ndo\n30.6.2023\n- pan\n█​█​█​█​█​█​█​█​█​█​█​\n, byt č. 12, č.p. 218, Tř. 5. května, Pečky a uzavření splátkového kalendáře\ndo\n31.12.2023\n- dle seznamu v příloze",
+    "date_raw": "12. 12. 2022",
+    "date_iso": "2022-12-12",
+    "responsible_raw": "Martina Hrázská",
+    "deadline_raw": "26. 12. 2022",
+    "vote": {
+     "raw_text": "pro: 5 proti: 0 zdržel se: 0",
+     "pro": {
+      "count": 5,
+      "names": null,
+      "raw": "5"
+     },
+     "proti": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     },
+     "zdrzel_se": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     }
+    },
+    "detail": {
+     "number_raw": "UR-489-49/22",
+     "text_verbatim": "Rada města schvaluje uzavření dodatků na pronájem bytů: do 30.6.2023 - pan █​█​█​█​█​█​█​█​█​█​█​ , byt č. 12, č.p. 218, Tř. 5. května, Pečky a uzavření splátkového kalendáře do 31.12.2023 - dle seznamu v příloze",
+     "typ_raw": null,
+     "zodpovida_raw": "Martina Hrázská",
+     "prijato_raw": "12. 12. 2022 na jednání č. 49/2022",
+     "prijato_date_iso": "2022-12-12",
+     "prijato_meeting_label": "49/2022",
+     "termin_raw": "26. 12. 2022",
+     "ukonceno_raw": "19. 12. 2022",
+     "ukonceno_date_iso": "2022-12-19",
+     "fields_raw": {
+      "Číslo usnesení": "UR-489-49/22",
+      "Text usnesení": "Rada města schvaluje uzavření dodatků na pronájem bytů: do 30.6.2023 - pan █​█​█​█​█​█​█​█​█​█​█​ , byt č. 12, č.p. 218, Tř. 5. května, Pečky a uzavření splátkového kalendáře do 31.12.2023 - dle seznamu v příloze",
+      "Zodpovídá": "Martina Hrázská",
+      "Přijato": "12. 12. 2022 na jednání č. 49/2022",
+      "Termín": "26. 12. 2022",
+      "Ukončeno": "19. 12. 2022"
+     }
+    }
+   },
+   {
+    "number_raw": "UR-490-49/22",
+    "detail_id": 30219,
+    "detail_url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/30219?mod=rada",
+    "agenda_item_raw": "Pronájem místa v garáži u č.p. 176 Velké Chvalovice",
+    "text_verbatim": "Rada\nměsta schvaluje uzavření dodatku č. 3 k nájemní smlouvě na pronájem místa v garáži Pečecká 176,\nVelké\nChvalovice od 1.1.2023 s paní\n█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​\n, Pečky, schvaluje uzavření dodatku č. 11 k nájemní smlouvě na pronájem místa v garáži Pečecká 176,\nVelké\nChvalovice od 1.1.2023 s panem\n█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​\n,\nVelké\nChvalovice. Pronájem se týká místa v garáži. Paušálně stanovena částka ve výši 200,- Kč/měs. je podmíněna odběrem elektrické energie na dobíjení elektrovozíku. Nájemní smlouva uzavřena na dobu určitou do 31.12.2023 s výpovědní lhůtou 2 měsíce. V roce 2024 budou náklady přefakturovávány dle skutečných nákladů.",
+    "cell_text_raw": "Bod programu:\nPronájem místa v garáži u č.p. 176 Velké Chvalovice\nText přijatého usnesení:\nRada\nměsta schvaluje uzavření dodatku č. 3 k nájemní smlouvě na pronájem místa v garáži Pečecká 176,\nVelké\nChvalovice od 1.1.2023 s paní\n█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​\n, Pečky, schvaluje uzavření dodatku č. 11 k nájemní smlouvě na pronájem místa v garáži Pečecká 176,\nVelké\nChvalovice od 1.1.2023 s panem\n█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​\n,\nVelké\nChvalovice. Pronájem se týká místa v garáži. Paušálně stanovena částka ve výši 200,- Kč/měs. je podmíněna odběrem elektrické energie na dobíjení elektrovozíku. Nájemní smlouva uzavřena na dobu určitou do 31.12.2023 s výpovědní lhůtou 2 měsíce. V roce 2024 budou náklady přefakturovávány dle skutečných nákladů.",
+    "date_raw": "12. 12. 2022",
+    "date_iso": "2022-12-12",
+    "responsible_raw": "Martina Hrázská",
+    "deadline_raw": "26. 12. 2022",
+    "vote": {
+     "raw_text": "pro: 5 proti: 0 zdržel se: 0",
+     "pro": {
+      "count": 5,
+      "names": null,
+      "raw": "5"
+     },
+     "proti": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     },
+     "zdrzel_se": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     }
+    },
+    "detail": {
+     "number_raw": "UR-490-49/22",
+     "text_verbatim": "Rada města schvaluje uzavření dodatku č. 3 k nájemní smlouvě na pronájem místa v garáži Pečecká 176, Velké Chvalovice od 1.1.2023 s paní █​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​ , Pečky, schvaluje uzavření dodatku č. 11 k nájemní smlouvě na pronájem místa v garáži Pečecká 176, Velké Chvalovice od 1.1.2023 s panem █​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​ , Velké Chvalovice. Pronájem se týká místa v garáži. Paušálně stanovena částka ve výši 200,- Kč/měs. je podmíněna odběrem elektrické energie na dobíjení elektrovozíku. Nájemní smlouva uzavřena na dobu určitou do 31.12.2023 s výpovědní lhůtou 2 měsíce. V roce 2024 budou náklady přefakturovávány dle skutečných nákladů.",
+     "typ_raw": null,
+     "zodpovida_raw": "Martina Hrázská",
+     "prijato_raw": "12. 12. 2022 na jednání č. 49/2022",
+     "prijato_date_iso": "2022-12-12",
+     "prijato_meeting_label": "49/2022",
+     "termin_raw": "26. 12. 2022",
+     "ukonceno_raw": "9. 1. 2023",
+     "ukonceno_date_iso": "2023-01-09",
+     "fields_raw": {
+      "Číslo usnesení": "UR-490-49/22",
+      "Text usnesení": "Rada města schvaluje uzavření dodatku č. 3 k nájemní smlouvě na pronájem místa v garáži Pečecká 176, Velké Chvalovice od 1.1.2023 s paní █​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​ , Pečky, schvaluje uzavření dodatku č. 11 k nájemní smlouvě na pronájem místa v garáži Pečecká 176, Velké Chvalovice od 1.1.2023 s panem █​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​ , Velké Chvalovice. Pronájem se týká místa v garáži. Paušálně stanovena částka ve výši 200,- Kč/měs. je podmíněna odběrem elektrické energie na dobíjení elektrovozíku. Nájemní smlouva uzavřena na dobu určitou do 31.12.2023 s výpovědní lhůtou 2 měsíce. V roce 2024 budou náklady přefakturovávány dle skutečných nákladů.",
+      "Zodpovídá": "Martina Hrázská",
+      "Přijato": "12. 12. 2022 na jednání č. 49/2022",
+      "Termín": "26. 12. 2022",
+      "Ukončeno": "9. 1. 2023"
+     }
+    }
+   },
+   {
+    "number_raw": "UR-491-49/22",
+    "detail_id": 30306,
+    "detail_url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/30306?mod=rada",
+    "agenda_item_raw": "Odpisový plán - Pečovatelská služba",
+    "text_verbatim": "Rada\nměsta schvaluje odpisový plán Pečovatelské službě města Pečky pro investici \"kuchyňská linka pro zaměstnance\", poř. cena 112 700 Kč, doba odepisování 84 měsíců.",
+    "cell_text_raw": "Bod programu:\nOdpisový plán - Pečovatelská služba\nText přijatého usnesení:\nRada\nměsta schvaluje odpisový plán Pečovatelské službě města Pečky pro investici \"kuchyňská linka pro zaměstnance\", poř. cena 112 700 Kč, doba odepisování 84 měsíců.",
+    "date_raw": "12. 12. 2022",
+    "date_iso": "2022-12-12",
+    "responsible_raw": "",
+    "deadline_raw": "IHNED (12. 12. 2022)",
+    "vote": {
+     "raw_text": "pro: 5 proti: 0 zdržel se: 0",
+     "pro": {
+      "count": 5,
+      "names": null,
+      "raw": "5"
+     },
+     "proti": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     },
+     "zdrzel_se": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     }
+    },
+    "detail": {
+     "number_raw": "UR-491-49/22",
+     "text_verbatim": "Rada města schvaluje odpisový plán Pečovatelské službě města Pečky pro investici \"kuchyňská linka pro zaměstnance\", poř. cena 112 700 Kč, doba odepisování 84 měsíců.",
+     "typ_raw": null,
+     "zodpovida_raw": "",
+     "prijato_raw": "12. 12. 2022 na jednání č. 49/2022",
+     "prijato_date_iso": "2022-12-12",
+     "prijato_meeting_label": "49/2022",
+     "termin_raw": "IHNED (12. 12. 2022)",
+     "ukonceno_raw": "12. 12. 2022",
+     "ukonceno_date_iso": "2022-12-12",
+     "fields_raw": {
+      "Číslo usnesení": "UR-491-49/22",
+      "Text usnesení": "Rada města schvaluje odpisový plán Pečovatelské službě města Pečky pro investici \"kuchyňská linka pro zaměstnance\", poř. cena 112 700 Kč, doba odepisování 84 měsíců.",
+      "Zodpovídá": "",
+      "Přijato": "12. 12. 2022 na jednání č. 49/2022",
+      "Termín": "IHNED (12. 12. 2022)",
+      "Ukončeno": "12. 12. 2022"
+     }
+    }
+   },
+   {
+    "number_raw": "UR-492-49/22",
+    "detail_id": 30307,
+    "detail_url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/30307?mod=rada",
+    "agenda_item_raw": "Uzavření Dodatku č.1 k SOD Stavební úpravy a obnova interiéru Kulturního střediska Pečky-II.etapa",
+    "text_verbatim": "Rada\nměsta schvaluje uzavření Dodatku č.1 k SOD uzavřené mezi městem Pečky a\nBursík\nHolding\n,a.s., ul. Belgická 196/38,\nPraha\n2 na stavební práce akce: \"Stavební úpravy a obnova interiéru Kulturního střediska Peč\nky-II.etapa\n\".\nCena\nza dílo se zvyšuje o částku ve výši 774 362,56 bez DPH, tj. 936 978,70 Kč vč. 21% DPH, dle položkového výkazu výměr a odůvodnění uvedeném ve ZL č.1, který je nedílnou součástí dodatku.",
+    "cell_text_raw": "Bod programu:\nUzavření Dodatku č.1 k SOD Stavební úpravy a obnova interiéru Kulturního střediska Pečky-II.etapa\nText přijatého usnesení:\nRada\nměsta schvaluje uzavření Dodatku č.1 k SOD uzavřené mezi městem Pečky a\nBursík\nHolding\n,a.s., ul. Belgická 196/38,\nPraha\n2 na stavební práce akce: \"Stavební úpravy a obnova interiéru Kulturního střediska Peč\nky-II.etapa\n\".\nCena\nza dílo se zvyšuje o částku ve výši 774 362,56 bez DPH, tj. 936 978,70 Kč vč. 21% DPH, dle položkového výkazu výměr a odůvodnění uvedeném ve ZL č.1, který je nedílnou součástí dodatku.",
+    "date_raw": "12. 12. 2022",
+    "date_iso": "2022-12-12",
+    "responsible_raw": "Věra Růžičková",
+    "deadline_raw": "26. 12. 2022",
+    "vote": {
+     "raw_text": "pro: 5 proti: 0 zdržel se: 0",
+     "pro": {
+      "count": 5,
+      "names": null,
+      "raw": "5"
+     },
+     "proti": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     },
+     "zdrzel_se": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     }
+    },
+    "detail": {
+     "number_raw": "UR-492-49/22",
+     "text_verbatim": "Rada města schvaluje uzavření Dodatku č.1 k SOD uzavřené mezi městem Pečky a Bursík Holding ,a.s., ul. Belgická 196/38, Praha 2 na stavební práce akce: \"Stavební úpravy a obnova interiéru Kulturního střediska Peč ky-II.etapa \". Cena za dílo se zvyšuje o částku ve výši 774 362,56 bez DPH, tj. 936 978,70 Kč vč. 21% DPH, dle položkového výkazu výměr a odůvodnění uvedeném ve ZL č.1, který je nedílnou součástí dodatku.",
+     "typ_raw": null,
+     "zodpovida_raw": "Věra Růžičková",
+     "prijato_raw": "12. 12. 2022 na jednání č. 49/2022",
+     "prijato_date_iso": "2022-12-12",
+     "prijato_meeting_label": "49/2022",
+     "termin_raw": "26. 12. 2022",
+     "ukonceno_raw": "14. 12. 2022",
+     "ukonceno_date_iso": "2022-12-14",
+     "fields_raw": {
+      "Číslo usnesení": "UR-492-49/22",
+      "Text usnesení": "Rada města schvaluje uzavření Dodatku č.1 k SOD uzavřené mezi městem Pečky a Bursík Holding ,a.s., ul. Belgická 196/38, Praha 2 na stavební práce akce: \"Stavební úpravy a obnova interiéru Kulturního střediska Peč ky-II.etapa \". Cena za dílo se zvyšuje o částku ve výši 774 362,56 bez DPH, tj. 936 978,70 Kč vč. 21% DPH, dle položkového výkazu výměr a odůvodnění uvedeném ve ZL č.1, který je nedílnou součástí dodatku.",
+      "Zodpovídá": "Věra Růžičková",
+      "Přijato": "12. 12. 2022 na jednání č. 49/2022",
+      "Termín": "26. 12. 2022",
+      "Ukončeno": "14. 12. 2022"
+     }
+    }
+   }
+  ]
+ }
+}

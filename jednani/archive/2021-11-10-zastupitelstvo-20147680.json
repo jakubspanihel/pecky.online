@@ -1,0 +1,803 @@
+{
+ "uuid": "20147680-c90a-11eb-bb68-3b743f6c0817",
+ "body_type_raw": "Zastupitelstvo",
+ "label_raw": "4/2021 (10. 11. 2021)",
+ "number": 4,
+ "year": 2021,
+ "date_iso": "2021-11-10",
+ "links": {
+  "invitation": "https://mesto-pecky.usneseni.cz/verejne/?uuid=20147680-c90a-11eb-bb68-3b743f6c0817&page=17&do=printPublicInvitation",
+  "minutes": "https://mesto-pecky.usneseni.cz/verejne/20147680-c90a-11eb-bb68-3b743f6c0817/zapis/?page=17",
+  "signed_minutes_pdf": "https://mesto-pecky.usneseni.cz/verejne/?meetingReportControl-uuid=20147680-c90a-11eb-bb68-3b743f6c0817&page=17&do=meetingReportControl-getSignedReportPdf",
+  "resolutions": "https://mesto-pecky.usneseni.cz/verejne/20147680-c90a-11eb-bb68-3b743f6c0817/usneseni/?page=17",
+  "audio": "https://mesto-pecky.usneseni.cz#"
+ },
+ "link_texts": {
+  "invitation": "Pozvánka",
+  "minutes": "zápis",
+  "signed_minutes_pdf": "podepsaný zápis",
+  "resolutions": "přijatá usnesení",
+  "audio": "Zvukový záznam"
+ },
+ "status": "ok",
+ "invitation": {
+  "status": "site_error",
+  "error": "status=200 ct=text/html; charset=utf-8 flash='<a href=\"\" class=\"close\" data-dismiss=\"alert\" aria-label=\"close\">&times;'",
+  "url": "https://mesto-pecky.usneseni.cz/verejne/?uuid=20147680-c90a-11eb-bb68-3b743f6c0817&do=printPublicInvitation",
+  "fetched_at": "2026-08-04T15:14:29.995284+00:00"
+ },
+ "minutes": {
+  "status": "ok",
+  "url": "https://mesto-pecky.usneseni.cz/verejne/20147680-c90a-11eb-bb68-3b743f6c0817/zapis/",
+  "fetched_at": "2026-08-04T14:40:14.131202+00:00",
+  "title_raw": "ZÁPIS z jednání zastupitelstva č. 4/2021 Město Pečky datum: 10. 11. 2021, čas: 17:30 ​",
+  "date_raw": "10. 11. 2021",
+  "date_iso": "2021-11-10",
+  "time_raw": "17:30",
+  "presence": {
+   "raw_text": "Prezence:\nPřítomni:\n(14) Mgr. Alena Švejnohová, Bc. Iveta Minaříková, Tomáš Vodička, Šárka Horynová, Jiří Katrnoška, Jaroslav Železný, Mgr. Jaroslava Heroldová DiS., Martin Homan, Viktorie Janáčková MSc., Milan Paluska, Ondřej Schulz, Ing. Karel Krištoufek, Ing. Jan Korouš Ph.D., Luděk Vinohradník\nOmluveni:\n(6) Ing. Petr Dürr, Zdeněk Fejfar, Ing. Martin Jedlička, Mgr. Věra Křížová, Jaroslav Martinec, MUDr. Věra Schürzová\nNepřítomni:\n(1) Ing. Stanislav Jiran\nHosté:\nPředsedající:\nMgr. Alena Švejnohová\nPřítomno je 14 členů a zastupitelstvo je usnášeníschopné.\nJednání zahájeno 10.11.2021 v 17:34:34",
+   "pritomni": {
+    "count": 14,
+    "names": [
+     "Mgr. Alena Švejnohová",
+     "Bc. Iveta Minaříková",
+     "Tomáš Vodička",
+     "Šárka Horynová",
+     "Jiří Katrnoška",
+     "Jaroslav Železný",
+     "Mgr. Jaroslava Heroldová DiS.",
+     "Martin Homan",
+     "Viktorie Janáčková MSc.",
+     "Milan Paluska",
+     "Ondřej Schulz",
+     "Ing. Karel Krištoufek",
+     "Ing. Jan Korouš Ph.D.",
+     "Luděk Vinohradník"
+    ],
+    "raw": "(14) Mgr. Alena Švejnohová, Bc. Iveta Minaříková, Tomáš Vodička, Šárka Horynová, Jiří Katrnoška, Jaroslav Železný, Mgr. Jaroslava Heroldová DiS., Martin Homan, Viktorie Janáčková MSc., Milan Paluska, Ondřej Schulz, Ing. Karel Krištoufek, Ing. Jan Korouš Ph.D., Luděk Vinohradník"
+   },
+   "omluveni": {
+    "count": 6,
+    "names": [
+     "Ing. Petr Dürr",
+     "Zdeněk Fejfar",
+     "Ing. Martin Jedlička",
+     "Mgr. Věra Křížová",
+     "Jaroslav Martinec",
+     "MUDr. Věra Schürzová"
+    ],
+    "raw": "(6) Ing. Petr Dürr, Zdeněk Fejfar, Ing. Martin Jedlička, Mgr. Věra Křížová, Jaroslav Martinec, MUDr. Věra Schürzová"
+   },
+   "nepritomni": {
+    "count": 1,
+    "names": [
+     "Ing. Stanislav Jiran"
+    ],
+    "raw": "(1) Ing. Stanislav Jiran"
+   },
+   "predsedajici": "Mgr. Alena Švejnohová",
+   "quorum_raw": "Přítomno je 14 členů a zastupitelstvo je usnášeníschopné."
+  },
+  "header_raw": "Prezence:\nPřítomni:\n(14) Mgr. Alena Švejnohová, Bc. Iveta Minaříková, Tomáš Vodička, Šárka Horynová, Jiří Katrnoška, Jaroslav Železný, Mgr. Jaroslava Heroldová DiS., Martin Homan, Viktorie Janáčková MSc., Milan Paluska, Ondřej Schulz, Ing. Karel Krištoufek, Ing. Jan Korouš Ph.D., Luděk Vinohradník\nOmluveni:\n(6) Ing. Petr Dürr, Zdeněk Fejfar, Ing. Martin Jedlička, Mgr. Věra Křížová, Jaroslav Martinec, MUDr. Věra Schürzová\nNepřítomni:\n(1) Ing. Stanislav Jiran\nHosté:\nPředsedající:\nMgr. Alena Švejnohová\nPřítomno je 14 členů a zastupitelstvo je usnášeníschopné.\nJednání zahájeno 10.11.2021 v 17:34:34",
+  "agenda_items": [
+   {
+    "number": 1,
+    "title_raw": "Volba pracovních komisí",
+    "heading_raw": "1. Volba pracovních komisí (bod číslo 1)",
+    "predkladatel": "Mgr. Alena Švejnohová",
+    "votes": [
+     {
+      "raw_text": "pro:\n(14) Mgr. Alena Švejnohová, Viktorie Janáčková MSc., Jaroslav Železný, Tomáš Vodička, Jiří Katrnoška, Milan Paluska, Bc. Iveta Minaříková, Luděk Vinohradník, Mgr. Jaroslava Heroldová DiS., Ing. Karel Krištoufek, Martin Homan, Ing. Jan Korouš Ph.D., Šárka Horynová, Ondřej Schulz\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)",
+      "pro": {
+       "count": 14,
+       "names": [
+        "Mgr. Alena Švejnohová",
+        "Viktorie Janáčková MSc.",
+        "Jaroslav Železný",
+        "Tomáš Vodička",
+        "Jiří Katrnoška",
+        "Milan Paluska",
+        "Bc. Iveta Minaříková",
+        "Luděk Vinohradník",
+        "Mgr. Jaroslava Heroldová DiS.",
+        "Ing. Karel Krištoufek",
+        "Martin Homan",
+        "Ing. Jan Korouš Ph.D.",
+        "Šárka Horynová",
+        "Ondřej Schulz"
+       ],
+       "raw": "(14) Mgr. Alena Švejnohová, Viktorie Janáčková MSc., Jaroslav Železný, Tomáš Vodička, Jiří Katrnoška, Milan Paluska, Bc. Iveta Minaříková, Luděk Vinohradník, Mgr. Jaroslava Heroldová DiS., Ing. Karel Krištoufek, Martin Homan, Ing. Jan Korouš Ph.D., Šárka Horynová, Ondřej Schulz"
+      },
+      "proti": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "zdrzel_se": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "nehlasoval": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "result_raw": "Návrh byl přijat",
+      "adopted_resolution_number": null
+     }
+    ],
+    "resolution_numbers_mentioned": [],
+    "raw_text": "Předkladatel: Mgr. Alena Švejnohová\nProjednávání bodu bylo zahájeno v 17:34:45 (zvuk. záznam 0:00:01 - 0:02:09)\nPředsedající navrhl jednotlivé členy pracovních komisí\nNávrhová komise:\nJaroslav Železný, Luděk Vinohradník, Milan Paluska, Jiří Katrnoška, Mgr. Jaroslava Heroldová DiS.\nMandátová a volební komise:\nOvěřovatelé:\nIng. Karel Krištoufek, Viktorie Janáčková MSc.\nDiskuze zahájena v 17:34:45\nK tomuto bodu se vyjádřili: Mgr. Alena Švejnohová\nHlasování\npro:\n(14) Mgr. Alena Švejnohová, Viktorie Janáčková MSc., Jaroslav Železný, Tomáš Vodička, Jiří Katrnoška, Milan Paluska, Bc. Iveta Minaříková, Luděk Vinohradník, Mgr. Jaroslava Heroldová DiS., Ing. Karel Krištoufek, Martin Homan, Ing. Jan Korouš Ph.D., Šárka Horynová, Ondřej Schulz\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat\nProjednávání bodu bylo ukončeno v 17:36:53"
+   },
+   {
+    "number": 2,
+    "title_raw": "Schválení programu jednání",
+    "heading_raw": "2. Schválení programu jednání (bod číslo 2)",
+    "predkladatel": "Mgr. Alena Švejnohová",
+    "votes": [
+     {
+      "raw_text": "pro:\n(14) Mgr. Alena Švejnohová, Ondřej Schulz, Viktorie Janáčková MSc., Luděk Vinohradník, Jiří Katrnoška, Ing. Karel Krištoufek, Šárka Horynová, Bc. Iveta Minaříková, Martin Homan, Jaroslav Železný, Mgr. Jaroslava Heroldová DiS., Tomáš Vodička, Milan Paluska, Ing. Jan Korouš Ph.D.\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)",
+      "pro": {
+       "count": 14,
+       "names": [
+        "Mgr. Alena Švejnohová",
+        "Ondřej Schulz",
+        "Viktorie Janáčková MSc.",
+        "Luděk Vinohradník",
+        "Jiří Katrnoška",
+        "Ing. Karel Krištoufek",
+        "Šárka Horynová",
+        "Bc. Iveta Minaříková",
+        "Martin Homan",
+        "Jaroslav Železný",
+        "Mgr. Jaroslava Heroldová DiS.",
+        "Tomáš Vodička",
+        "Milan Paluska",
+        "Ing. Jan Korouš Ph.D."
+       ],
+       "raw": "(14) Mgr. Alena Švejnohová, Ondřej Schulz, Viktorie Janáčková MSc., Luděk Vinohradník, Jiří Katrnoška, Ing. Karel Krištoufek, Šárka Horynová, Bc. Iveta Minaříková, Martin Homan, Jaroslav Železný, Mgr. Jaroslava Heroldová DiS., Tomáš Vodička, Milan Paluska, Ing. Jan Korouš Ph.D."
+      },
+      "proti": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "zdrzel_se": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "nehlasoval": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "result_raw": "Návrh byl přijat jako usnesení číslo: UZ-29-4/21",
+      "adopted_resolution_number": "UZ-29-4/21"
+     }
+    ],
+    "resolution_numbers_mentioned": [
+     "UZ-29-4/21"
+    ],
+    "raw_text": "Předkladatel: Mgr. Alena Švejnohová\nProjednávání bodu bylo zahájeno v 17:36:59 (zvuk. záznam 0:02:15 - 0:02:44)\nProgram jednání\n1. Volba pracovních komisí\n2. Schválení programu jednání\n3. Informace vedení města o aktuální situaci ve městě\n4. Plnění rozpočtu k 30.9.2021, plnění plánu hospodářské činnosti k 30.9.2021\n5. Rozpočtová opatření č. 10/2021\n6. Odkoupení pozemků od fy. KUTA a.s., Praha 4-Braník\n7. Rozpočtová opatření č. 11/2021\n8. Převod zřizovatelských kompetencí k Základní umělecké škole v Pečkách\n9. Veřejnoprávní smlouvy Městská policie Pečky\n10. Kontrola úkolů - informace \"Usnesení.cz\"\n11. Dotazy a připomínky občanů\n12. Různé, diskuse\nDiskuze zahájena v 17:36:59\nK tomuto bodu se vyjádřili: Mgr. Alena Švejnohová\nV 17:37:20 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Alena Švejnohová\") v tomto znění:\nZastupitelstvo schvaluje návrh programu jednání ze zveřejněné pozvánky.\nHlasování\npro:\n(14) Mgr. Alena Švejnohová, Ondřej Schulz, Viktorie Janáčková MSc., Luděk Vinohradník, Jiří Katrnoška, Ing. Karel Krištoufek, Šárka Horynová, Bc. Iveta Minaříková, Martin Homan, Jaroslav Železný, Mgr. Jaroslava Heroldová DiS., Tomáš Vodička, Milan Paluska, Ing. Jan Korouš Ph.D.\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UZ-29-4/21\nzodpovídá:\ntermín:\n10. 11. 2021\nProjednávání bodu bylo ukončeno v 17:37:28"
+   },
+   {
+    "number": 3,
+    "title_raw": "Informace vedení města o aktuální situaci ve městě",
+    "heading_raw": "3. Informace vedení města o aktuální situaci ve městě (bod číslo 3)",
+    "predkladatel": "Mgr. Alena Švejnohová",
+    "votes": [],
+    "resolution_numbers_mentioned": [],
+    "raw_text": "Předkladatel: Mgr. Alena Švejnohová\nProjednávání bodu bylo zahájeno v 17:37:34 (zvuk. záznam 0:02:50 - 0:10:52)\nDůvodová zpráva\nstarostka města\n- informace o situaci ve městě s ohledem na šířící se onemocnění Covid-19\n- informace o plánu zřídit bezplatnou právní poradnu pro občany města\n- pozvánka na vzpomínkové setkání před radnici dne 17.11.2021 v 9 hodin ráno\nmístostarostka města\n- informace o intenzivní spolupráci s dluhovou poradnou Člověk v tísni, pomoc bývalým klientům skupiny Bohemia Energy, návrh na schválení rozpočtového opatření ve prospěch bezúročné finanční pomoci od města, pozvání na      besedu s občany města postiženými energetickou krizí dne 16.11.2021 od 18 hodin v Kulturním středisku\n- informace o projektu Milostivé léto, spolupráce s dluhovou poradnou, pomoc klientům v exekucích\n- informace o charitativním šatníku a potravinové sbírce, spolupráce se sociální pracovnicí\nDiskuze zahájena v 17:37:34\nK tomuto bodu se vyjádřili: Mgr. Alena Švejnohová, Bc. Iveta Minaříková\nZastupitelstvo bere materiály předložené k bodu č. 3 -\nInformace vedení města o aktuální situaci ve městě\nna vědomí.\nProjednávání bodu bylo ukončeno v 17:45:36"
+   },
+   {
+    "number": 4,
+    "title_raw": "Plnění rozpočtu k 30.9.2021, plnění plánu hospodářské činnosti k 30.9.2021",
+    "heading_raw": "4. Plnění rozpočtu k 30.9.2021, plnění plánu hospodářské činnosti k 30.9.2021 (bod číslo 4)",
+    "predkladatel": "Mgr. Alena Švejnohová",
+    "votes": [],
+    "resolution_numbers_mentioned": [],
+    "raw_text": "Předkladatel: Mgr. Alena Švejnohová\nProjednávání bodu bylo zahájeno v 17:45:42 (zvuk. záznam 0:10:58 - 0:11:18)\nDůvodová zpráva\nPlnění rozpočtu k 30.9.2021 a plnění plánu hospodářské činnosti k 30.9.2021.\nDiskuze zahájena v 17:45:42\nK tomuto bodu se vyjádřili: Mgr. Alena Švejnohová\nZastupitelstvo bere materiály předložené k bodu č. 4 -\nPlnění rozpočtu k 30.9.2021, plnění plánu hospodářské činnosti k 30.9.2021\nna vědomí.\nProjednávání bodu bylo ukončeno v 17:46:02"
+   },
+   {
+    "number": 5,
+    "title_raw": "Rozpočtová opatření č. 10/2021",
+    "heading_raw": "5. Rozpočtová opatření č. 10/2021 (bod číslo 5)",
+    "predkladatel": "Mgr. Alena Švejnohová",
+    "votes": [
+     {
+      "raw_text": "pro:\n(10) Jiří Katrnoška, Bc. Iveta Minaříková, Ing. Jan Korouš Ph.D., Viktorie Janáčková MSc., Jaroslav Železný, Šárka Horynová, Mgr. Alena Švejnohová, Ondřej Schulz, Tomáš Vodička, Mgr. Jaroslava Heroldová DiS.\nproti\n(0)\nzdržel se:\n(4) Luděk Vinohradník, Martin Homan, Milan Paluska, Ing. Karel Krištoufek\nnehlasoval:\n(0)",
+      "pro": {
+       "count": 10,
+       "names": [
+        "Jiří Katrnoška",
+        "Bc. Iveta Minaříková",
+        "Ing. Jan Korouš Ph.D.",
+        "Viktorie Janáčková MSc.",
+        "Jaroslav Železný",
+        "Šárka Horynová",
+        "Mgr. Alena Švejnohová",
+        "Ondřej Schulz",
+        "Tomáš Vodička",
+        "Mgr. Jaroslava Heroldová DiS."
+       ],
+       "raw": "(10) Jiří Katrnoška, Bc. Iveta Minaříková, Ing. Jan Korouš Ph.D., Viktorie Janáčková MSc., Jaroslav Železný, Šárka Horynová, Mgr. Alena Švejnohová, Ondřej Schulz, Tomáš Vodička, Mgr. Jaroslava Heroldová DiS."
+      },
+      "proti": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "zdrzel_se": {
+       "count": 4,
+       "names": [
+        "Luděk Vinohradník",
+        "Martin Homan",
+        "Milan Paluska",
+        "Ing. Karel Krištoufek"
+       ],
+       "raw": "(4) Luděk Vinohradník, Martin Homan, Milan Paluska, Ing. Karel Krištoufek"
+      },
+      "nehlasoval": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "result_raw": "Návrh nebyl přijat",
+      "adopted_resolution_number": null
+     },
+     {
+      "raw_text": "pro:\n(13) Bc. Iveta Minaříková, Jaroslav Železný, Viktorie Janáčková MSc., Tomáš Vodička, Luděk Vinohradník, Mgr. Alena Švejnohová, Jiří Katrnoška, Milan Paluska, Šárka Horynová, Martin Homan, Ing. Jan Korouš Ph.D., Ondřej Schulz, Mgr. Jaroslava Heroldová DiS.\nproti\n(0)\nzdržel se:\n(2) Ing. Karel Krištoufek, Ing. Stanislav Jiran\nnehlasoval:\n(0)",
+      "pro": {
+       "count": 13,
+       "names": [
+        "Bc. Iveta Minaříková",
+        "Jaroslav Železný",
+        "Viktorie Janáčková MSc.",
+        "Tomáš Vodička",
+        "Luděk Vinohradník",
+        "Mgr. Alena Švejnohová",
+        "Jiří Katrnoška",
+        "Milan Paluska",
+        "Šárka Horynová",
+        "Martin Homan",
+        "Ing. Jan Korouš Ph.D.",
+        "Ondřej Schulz",
+        "Mgr. Jaroslava Heroldová DiS."
+       ],
+       "raw": "(13) Bc. Iveta Minaříková, Jaroslav Železný, Viktorie Janáčková MSc., Tomáš Vodička, Luděk Vinohradník, Mgr. Alena Švejnohová, Jiří Katrnoška, Milan Paluska, Šárka Horynová, Martin Homan, Ing. Jan Korouš Ph.D., Ondřej Schulz, Mgr. Jaroslava Heroldová DiS."
+      },
+      "proti": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "zdrzel_se": {
+       "count": 2,
+       "names": [
+        "Ing. Karel Krištoufek",
+        "Ing. Stanislav Jiran"
+       ],
+       "raw": "(2) Ing. Karel Krištoufek, Ing. Stanislav Jiran"
+      },
+      "nehlasoval": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "result_raw": "Návrh byl přijat jako usnesení číslo: UZ-30-4/21",
+      "adopted_resolution_number": "UZ-30-4/21"
+     }
+    ],
+    "resolution_numbers_mentioned": [
+     "UZ-30-4/21"
+    ],
+    "raw_text": "Předkladatel: Mgr. Alena Švejnohová\nProjednávání bodu bylo zahájeno v 17:46:08 (zvuk. záznam 0:11:24 - 0:24:13)\nDůvodová zpráva\nRM doporučuje schválit rozpočtové opatření č. 10/2021. Přesun částky 300 tis. Kč na poskytnutí půjček občanům v souvislosti se zvýšením záloh na energie při přechodu k dodavateli poslední instance z § 5312 krizové situace. Zvýšení příjmů i výdajů o stejné částky u  průtokové dotace pro ZŠ a realizace lavičky\nVladimíra\nRenčína\n.\nDiskuze zahájena v 17:46:08\nK tomuto bodu se vyjádřili: Mgr. Alena Švejnohová, Luděk Vinohradník, Ing. Karel Krištoufek, Milan Paluska, Adam Brant, Tomáš Vodička\nV 17:55:17 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Alena Švejnohová\") v tomto znění:\nZastupitelstvo města schvaluje rozpočtová opatření č. 10/2021.\nHlasování\npro:\n(10) Jiří Katrnoška, Bc. Iveta Minaříková, Ing. Jan Korouš Ph.D., Viktorie Janáčková MSc., Jaroslav Železný, Šárka Horynová, Mgr. Alena Švejnohová, Ondřej Schulz, Tomáš Vodička, Mgr. Jaroslava Heroldová DiS.\nproti\n(0)\nzdržel se:\n(4) Luděk Vinohradník, Martin Homan, Milan Paluska, Ing. Karel Krištoufek\nnehlasoval:\n(0)\nNávrh nebyl přijat\nV 17:55:37 přišel Ing. Stanislav Jiran, přítomno 15 zastupitelů.\nAktualizovaný stav prezence:\nPřítomni:\n(15) Mgr. Alena Švejnohová, Bc. Iveta Minaříková, Tomáš Vodička, Šárka Horynová, Jiří Katrnoška, Jaroslav Železný, Mgr. Jaroslava Heroldová DiS., Martin Homan, Viktorie Janáčková MSc., Milan Paluska, Ondřej Schulz, Ing. Karel Krištoufek, Ing. Jan Korouš Ph.D., Luděk Vinohradník, Ing. Stanislav Jiran\nOmluveni:\n(6) Ing. Petr Dürr, Zdeněk Fejfar, Ing. Martin Jedlička, Mgr. Věra Křížová, Jaroslav Martinec, MUDr. Věra Schürzová\nNepřítomni:\n(0)\nV 17:58:46 předsedající zahájil hlasování o návrhu usnesení \"B\" (navrhovatel: \"Alena Švejnohová\") v tomto znění:\nZastupitelstvo města schvaluje rozpočtová opatření č.10/2021 po úpravě bez zvýšení příjmů a výdajů souvisejících s realizací lavičky Vladimíra Renčína.\nHlasování\npro:\n(13) Bc. Iveta Minaříková, Jaroslav Železný, Viktorie Janáčková MSc., Tomáš Vodička, Luděk Vinohradník, Mgr. Alena Švejnohová, Jiří Katrnoška, Milan Paluska, Šárka Horynová, Martin Homan, Ing. Jan Korouš Ph.D., Ondřej Schulz, Mgr. Jaroslava Heroldová DiS.\nproti\n(0)\nzdržel se:\n(2) Ing. Karel Krištoufek, Ing. Stanislav Jiran\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UZ-30-4/21\nzodpovídá:\nMarcela Bahníková\ntermín:\n24. 11. 2021\nProjednávání bodu bylo ukončeno v 17:58:57"
+   },
+   {
+    "number": 6,
+    "title_raw": "Odkoupení pozemků od fy. KUTA a.s., Praha 4-Braník",
+    "heading_raw": "6. Odkoupení pozemků od fy. KUTA a.s., Praha 4-Braník (bod číslo 6)",
+    "predkladatel": "Bc. Iveta Minaříková",
+    "votes": [
+     {
+      "raw_text": "pro:\n(9) Bc. Iveta Minaříková, Viktorie Janáčková MSc., Ing. Jan Korouš Ph.D., Tomáš Vodička, Jiří Katrnoška, Jaroslav Železný, Mgr. Alena Švejnohová, Šárka Horynová, Ondřej Schulz\nproti\n(0)\nzdržel se:\n(6) Milan Paluska, Luděk Vinohradník, Martin Homan, Ing. Karel Krištoufek, Mgr. Jaroslava Heroldová DiS., Ing. Stanislav Jiran\nnehlasoval:\n(0)",
+      "pro": {
+       "count": 9,
+       "names": [
+        "Bc. Iveta Minaříková",
+        "Viktorie Janáčková MSc.",
+        "Ing. Jan Korouš Ph.D.",
+        "Tomáš Vodička",
+        "Jiří Katrnoška",
+        "Jaroslav Železný",
+        "Mgr. Alena Švejnohová",
+        "Šárka Horynová",
+        "Ondřej Schulz"
+       ],
+       "raw": "(9) Bc. Iveta Minaříková, Viktorie Janáčková MSc., Ing. Jan Korouš Ph.D., Tomáš Vodička, Jiří Katrnoška, Jaroslav Železný, Mgr. Alena Švejnohová, Šárka Horynová, Ondřej Schulz"
+      },
+      "proti": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "zdrzel_se": {
+       "count": 6,
+       "names": [
+        "Milan Paluska",
+        "Luděk Vinohradník",
+        "Martin Homan",
+        "Ing. Karel Krištoufek",
+        "Mgr. Jaroslava Heroldová DiS.",
+        "Ing. Stanislav Jiran"
+       ],
+       "raw": "(6) Milan Paluska, Luděk Vinohradník, Martin Homan, Ing. Karel Krištoufek, Mgr. Jaroslava Heroldová DiS., Ing. Stanislav Jiran"
+      },
+      "nehlasoval": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "result_raw": "Návrh nebyl přijat",
+      "adopted_resolution_number": null
+     }
+    ],
+    "resolution_numbers_mentioned": [],
+    "raw_text": "Předkladatel: Bc. Iveta Minaříková\nProjednávání bodu bylo zahájeno v 17:59:04 (zvuk. záznam 0:24:20 - 1:03:53)\nDůvodová zpráva\nJedná se celkem o 22.874 m\n2\npozemků v lokalitě Kandie v kultuře orná půda, trvalý travní porost, silnice, ostatní plocha, neplodná půda. Dle ÚP se jedná o stavební pozemky, veřejnou zeleň, sportovní a rekreační plochy, místní komunikace. O převodu pozemků do majetku města se jedná již několik let.  (* - TTP=trvalý travní porost)\nDiskuze zahájena v 17:59:04\nK tomuto bodu se vyjádřili: Bc. Iveta Minaříková, Ing. Karel Krištoufek, Mgr. Alena Švejnohová, Luděk Vinohradník, Mgr. Jaroslava Heroldová DiS., Tomáš Vodička, Milan Paluska, Ing. Jan Korouš Ph.D.\nV 18:33:50 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Iveta Minaříková\") v tomto znění:\nZastupitelstvo města schvaluje odkoupení pozemků č. parc.1468/16 (4.363 m\n2\n)-orná půda, 1468/19 (3.738 m\n2\n)-orná půda, 1449/203 (790 m\n2\n)-TTP*, 1449/204 (842 m\n2\n)-TTP, 1449/205 (976 m\n2\n)-TTP, 1449/206 (987 m\n2\n)-TTP, 1449/207 (282 m\n2\n)-TTP,1449/118 (4.880 m\n2\n)-TTP, 1449/119 (2.198 m\n2\n)-orná půda, 1449/60 (310 m\n2\n)-orná půda, 1449/195 (953 m\n2\n)-TTP, 1448 (697 m\n2\n)-ost.plocha,neplodná půda, 1449/242 (839 m\n2\n)-TTP, 1447/6 (57 m\n2\n)-silnice,ost.plocha, 1447/7 (407 m\n2\n)-silnice,ost.plocha, 1449/220 (279 m\n2\n)-TTP a 1449/221 (276 m\n2\n)-TTP vše v obci a k.ú. Pečky. Pozemky budou odkoupeny od firmy KUTA a.s., se sídlem v Praze 4-\nBraník\n,\nZelený\npruh 95/97, 140 00 za celkovou kupní cenu 4,900.000,-Kč. Poplatky spojené s převodem uhradí město.\nHlasování\npro:\n(9) Bc. Iveta Minaříková, Viktorie Janáčková MSc., Ing. Jan Korouš Ph.D., Tomáš Vodička, Jiří Katrnoška, Jaroslav Železný, Mgr. Alena Švejnohová, Šárka Horynová, Ondřej Schulz\nproti\n(0)\nzdržel se:\n(6) Milan Paluska, Luděk Vinohradník, Martin Homan, Ing. Karel Krištoufek, Mgr. Jaroslava Heroldová DiS., Ing. Stanislav Jiran\nnehlasoval:\n(0)\nNávrh nebyl přijat\nProjednávání bodu bylo ukončeno v 18:38:37"
+   },
+   {
+    "number": 7,
+    "title_raw": "Rozpočtová opatření č. 11/2021",
+    "heading_raw": "7. Rozpočtová opatření č. 11/2021 (bod číslo 7)",
+    "predkladatel": "Bc. Iveta Minaříková",
+    "votes": [
+     {
+      "raw_text": "pro:\n(3) Bc. Iveta Minaříková, Tomáš Vodička, Jaroslav Železný\nproti\n(0)\nzdržel se:\n(12) Ing. Jan Korouš Ph.D., Luděk Vinohradník, Viktorie Janáčková MSc., Jiří Katrnoška, Mgr. Alena Švejnohová, Šárka Horynová, Martin Homan, Ing. Karel Krištoufek, Ondřej Schulz, Milan Paluska, Mgr. Jaroslava Heroldová DiS., Ing. Stanislav Jiran\nnehlasoval:\n(0)",
+      "pro": {
+       "count": 3,
+       "names": [
+        "Bc. Iveta Minaříková",
+        "Tomáš Vodička",
+        "Jaroslav Železný"
+       ],
+       "raw": "(3) Bc. Iveta Minaříková, Tomáš Vodička, Jaroslav Železný"
+      },
+      "proti": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "zdrzel_se": {
+       "count": 12,
+       "names": [
+        "Ing. Jan Korouš Ph.D.",
+        "Luděk Vinohradník",
+        "Viktorie Janáčková MSc.",
+        "Jiří Katrnoška",
+        "Mgr. Alena Švejnohová",
+        "Šárka Horynová",
+        "Martin Homan",
+        "Ing. Karel Krištoufek",
+        "Ondřej Schulz",
+        "Milan Paluska",
+        "Mgr. Jaroslava Heroldová DiS.",
+        "Ing. Stanislav Jiran"
+       ],
+       "raw": "(12) Ing. Jan Korouš Ph.D., Luděk Vinohradník, Viktorie Janáčková MSc., Jiří Katrnoška, Mgr. Alena Švejnohová, Šárka Horynová, Martin Homan, Ing. Karel Krištoufek, Ondřej Schulz, Milan Paluska, Mgr. Jaroslava Heroldová DiS., Ing. Stanislav Jiran"
+      },
+      "nehlasoval": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "result_raw": "Návrh nebyl přijat",
+      "adopted_resolution_number": null
+     }
+    ],
+    "resolution_numbers_mentioned": [],
+    "raw_text": "Předkladatel: Bc. Iveta Minaříková\nProjednávání bodu bylo zahájeno v 18:39:30 (zvuk. záznam 1:04:46 - 1:06:14)\nDůvodová zpráva\nNa základě schválení odkoupení pozemků od spol. KUTA předkládáme rozpočt. opatření č. 11/2021 k zajištění úhrady kupní ceny v roce 2021.\nDiskuze zahájena v 18:39:30\nK tomuto bodu se vyjádřili: Bc. Iveta Minaříková, Mgr. Alena Švejnohová\nV 18:40:29 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Iveta Minaříková\") v tomto znění:\nZastupitelstvo města schvaluje rozpočtová opatření č. 11/2021.\nHlasování\npro:\n(3) Bc. Iveta Minaříková, Tomáš Vodička, Jaroslav Železný\nproti\n(0)\nzdržel se:\n(12) Ing. Jan Korouš Ph.D., Luděk Vinohradník, Viktorie Janáčková MSc., Jiří Katrnoška, Mgr. Alena Švejnohová, Šárka Horynová, Martin Homan, Ing. Karel Krištoufek, Ondřej Schulz, Milan Paluska, Mgr. Jaroslava Heroldová DiS., Ing. Stanislav Jiran\nnehlasoval:\n(0)\nNávrh nebyl přijat\nProjednávání bodu bylo ukončeno v 18:40:58"
+   },
+   {
+    "number": 8,
+    "title_raw": "Převod zřizovatelských kompetencí k Základní umělecké škole v Pečkách",
+    "heading_raw": "8. Převod zřizovatelských kompetencí k Základní umělecké škole v Pečkách (bod číslo 8)",
+    "predkladatel": "Mgr. Alena Švejnohová",
+    "votes": [
+     {
+      "raw_text": "pro:\n(15) Viktorie Janáčková MSc., Mgr. Alena Švejnohová, Bc. Iveta Minaříková, Luděk Vinohradník, Jaroslav Železný, Tomáš Vodička, Ing. Jan Korouš Ph.D., Martin Homan, Mgr. Jaroslava Heroldová DiS., Ondřej Schulz, Šárka Horynová, Ing. Karel Krištoufek, Jiří Katrnoška, Ing. Stanislav Jiran, Milan Paluska\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)",
+      "pro": {
+       "count": 15,
+       "names": [
+        "Viktorie Janáčková MSc.",
+        "Mgr. Alena Švejnohová",
+        "Bc. Iveta Minaříková",
+        "Luděk Vinohradník",
+        "Jaroslav Železný",
+        "Tomáš Vodička",
+        "Ing. Jan Korouš Ph.D.",
+        "Martin Homan",
+        "Mgr. Jaroslava Heroldová DiS.",
+        "Ondřej Schulz",
+        "Šárka Horynová",
+        "Ing. Karel Krištoufek",
+        "Jiří Katrnoška",
+        "Ing. Stanislav Jiran",
+        "Milan Paluska"
+       ],
+       "raw": "(15) Viktorie Janáčková MSc., Mgr. Alena Švejnohová, Bc. Iveta Minaříková, Luděk Vinohradník, Jaroslav Železný, Tomáš Vodička, Ing. Jan Korouš Ph.D., Martin Homan, Mgr. Jaroslava Heroldová DiS., Ondřej Schulz, Šárka Horynová, Ing. Karel Krištoufek, Jiří Katrnoška, Ing. Stanislav Jiran, Milan Paluska"
+      },
+      "proti": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "zdrzel_se": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "nehlasoval": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "result_raw": "Návrh byl přijat jako usnesení číslo: UZ-31-4/21 a byly jím změněny parametry usnesení UZ-14-2/21",
+      "adopted_resolution_number": "UZ-31-4/21"
+     }
+    ],
+    "resolution_numbers_mentioned": [
+     "UZ-14-2/21",
+     "UZ-31-4/21"
+    ],
+    "raw_text": "Předkladatel: Mgr. Alena Švejnohová\nProjednávání bodu bylo zahájeno v 18:41:11 (zvuk. záznam 1:06:27 - 1:08:29)\nDůvodová zpráva\nZastupitelstvo města schválilo dne 15.9.2021 převod zřizovatelských kompetencí k ZUŠ v Pečkách. Při převzetí je nutné učinit některé legislativní úkony (schválení zřizovatelské listiny, přidělení IČO, zapsání školy do Rejstříku škol a školských zařízení). Vzhledem k tomu, že zřizovatel nemůže ovlivnit délku správních řízení u jiné instituce, došlo ze strany\nKrajského\núřadu Středočeského kraje k časovému posunu záměru. Nyní se doporučuje převod zřizovatelských kompetencí k 1.9.2022 současně se zahájením nového školního roku.\nDiskuze zahájena v 18:41:11\nK tomuto bodu se vyjádřili: Mgr. Alena Švejnohová, Cecilie Pajkrtová\nV 18:42:55 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Alena Švejnohová\") v tomto znění:\nZastupitelstvo mění usnesení UZ-14-2/21 z termínu 31. 12. 2021 na termín 31. 5. 2022.\nHlasování\npro:\n(15) Viktorie Janáčková MSc., Mgr. Alena Švejnohová, Bc. Iveta Minaříková, Luděk Vinohradník, Jaroslav Železný, Tomáš Vodička, Ing. Jan Korouš Ph.D., Martin Homan, Mgr. Jaroslava Heroldová DiS., Ondřej Schulz, Šárka Horynová, Ing. Karel Krištoufek, Jiří Katrnoška, Ing. Stanislav Jiran, Milan Paluska\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UZ-31-4/21 a byly jím změněny parametry usnesení UZ-14-2/21\nzodpovídá:\nMgr. Alena Švejnohová\ntermín:\n31. 5. 2022\nProjednávání bodu bylo ukončeno v 18:43:13"
+   },
+   {
+    "number": 9,
+    "title_raw": "Veřejnoprávní smlouvy Městská policie Pečky",
+    "heading_raw": "9. Veřejnoprávní smlouvy Městská policie Pečky (bod číslo 9)",
+    "predkladatel": "Bc. Iveta Minaříková",
+    "votes": [
+     {
+      "raw_text": "pro:\n(12) Mgr. Alena Švejnohová, Tomáš Vodička, Mgr. Jaroslava Heroldová DiS., Jaroslav Železný, Ondřej Schulz, Ing. Jan Korouš Ph.D., Šárka Horynová, Viktorie Janáčková MSc., Luděk Vinohradník, Bc. Iveta Minaříková, Jiří Katrnoška, Ing. Stanislav Jiran\nproti\n(0)\nzdržel se:\n(3) Ing. Karel Krištoufek, Martin Homan, Milan Paluska\nnehlasoval:\n(0)",
+      "pro": {
+       "count": 12,
+       "names": [
+        "Mgr. Alena Švejnohová",
+        "Tomáš Vodička",
+        "Mgr. Jaroslava Heroldová DiS.",
+        "Jaroslav Železný",
+        "Ondřej Schulz",
+        "Ing. Jan Korouš Ph.D.",
+        "Šárka Horynová",
+        "Viktorie Janáčková MSc.",
+        "Luděk Vinohradník",
+        "Bc. Iveta Minaříková",
+        "Jiří Katrnoška",
+        "Ing. Stanislav Jiran"
+       ],
+       "raw": "(12) Mgr. Alena Švejnohová, Tomáš Vodička, Mgr. Jaroslava Heroldová DiS., Jaroslav Železný, Ondřej Schulz, Ing. Jan Korouš Ph.D., Šárka Horynová, Viktorie Janáčková MSc., Luděk Vinohradník, Bc. Iveta Minaříková, Jiří Katrnoška, Ing. Stanislav Jiran"
+      },
+      "proti": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "zdrzel_se": {
+       "count": 3,
+       "names": [
+        "Ing. Karel Krištoufek",
+        "Martin Homan",
+        "Milan Paluska"
+       ],
+       "raw": "(3) Ing. Karel Krištoufek, Martin Homan, Milan Paluska"
+      },
+      "nehlasoval": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "result_raw": "Návrh byl přijat jako usnesení číslo: UZ-32-4/21",
+      "adopted_resolution_number": "UZ-32-4/21"
+     }
+    ],
+    "resolution_numbers_mentioned": [
+     "UZ-32-4/21"
+    ],
+    "raw_text": "Předkladatel: Bc. Iveta Minaříková\nProjednávání bodu bylo zahájeno v 18:43:22 (zvuk. záznam 1:08:38 - 1:20:36)\nDůvodová zpráva\nNávrh na uzavření Veřejnoprávních smluv o výkonu úkolů městské policie Pečky s obcemi Ratenice, Tatce, Chotutice a městysem Plaňany. Úkoly budou prováděny v podobě jedné dvoučlenné hlídky v rozsahu 10 hodin nepravidelně v jednom měsíci.\nDiskuze zahájena v 18:43:22\nK tomuto bodu se vyjádřili: Bc. Iveta Minaříková, Luděk Vinohradník, Ing. Karel Krištoufek, Mgr. Alena Švejnohová\nV 18:55:11 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Iveta Minaříková\") v tomto znění:\nZastupitelstvo města schvaluje veřejnoprávní smlouvu uzavřenou mezi městem Pečky a obcí Chotutice k zajišťování výkonu činností podle zákona o obecní policii.\nZastupitelstvo města schvaluje veřejnoprávní smlouvu uzavřenou mezi městem Pečky a městysem Plaňany k zajišťování výkonu činností podle zákona o obecní policii.\nZastupitelstvo města schvaluje veřejnoprávní smlouvu uzavřenou mezi městem Pečky a obcí Ratenice k zajišťování výkonu činností podle zákona o obecní policii.\nZastupitelstvo města schvaluje veřejnoprávní smlouvu uzavřenou mezi městem Pečky a obcí Tatce k zajišťování výkonu činností podle zákona o obecní policii.\nHlasování\npro:\n(12) Mgr. Alena Švejnohová, Tomáš Vodička, Mgr. Jaroslava Heroldová DiS., Jaroslav Železný, Ondřej Schulz, Ing. Jan Korouš Ph.D., Šárka Horynová, Viktorie Janáčková MSc., Luděk Vinohradník, Bc. Iveta Minaříková, Jiří Katrnoška, Ing. Stanislav Jiran\nproti\n(0)\nzdržel se:\n(3) Ing. Karel Krištoufek, Martin Homan, Milan Paluska\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UZ-32-4/21\nzodpovídá:\nBc. Iveta Minaříková\ntermín:\n31. 12. 2021\nProjednávání bodu bylo ukončeno v 18:55:20"
+   },
+   {
+    "number": 10,
+    "title_raw": "Kontrola úkolů - informace \"Usnesení.cz\"",
+    "heading_raw": "10. Kontrola úkolů - informace \"Usnesení.cz\" (bod číslo 10)",
+    "predkladatel": "Mgr. Alena Švejnohová",
+    "votes": [],
+    "resolution_numbers_mentioned": [],
+    "raw_text": "Předkladatel: Mgr. Alena Švejnohová\nProjednávání bodu bylo zahájeno v 18:55:29 (zvuk. záznam 1:20:45 - 1:21:25)\nDůvodová zpráva\nKontrola úkolů v aplikaci \"Usnesení.cz\".\nDiskuze zahájena v 18:55:29\nK tomuto bodu se vyjádřili: Cecilie Pajkrtová, Mgr. Alena Švejnohová\nZastupitelstvo bere materiály předložené k bodu č. 10 -\nKontrola úkolů - informace \"Usnesení.cz\"\nna vědomí.\nProjednávání bodu bylo ukončeno v 18:56:09"
+   },
+   {
+    "number": 11,
+    "title_raw": "Dotazy a připomínky občanů",
+    "heading_raw": "11. Dotazy a připomínky občanů (bod číslo 11)",
+    "predkladatel": "Mgr. Alena Švejnohová",
+    "votes": [],
+    "resolution_numbers_mentioned": [],
+    "raw_text": "Předkladatel: Mgr. Alena Švejnohová\nProjednávání bodu bylo zahájeno v 18:56:14 (zvuk. záznam 1:21:30 - 1:21:43)\nDiskuze zahájena v 18:56:14\nK tomuto bodu se vyjádřili: Mgr. Alena Švejnohová\nZastupitelstvo bere materiály předložené k bodu č. 11 -\nDotazy a připomínky občanů\nna vědomí.\nProjednávání bodu bylo ukončeno v 18:56:27\nZastupitelstvo bere materiály předložené k bodu č. 12 -\nRůzné, diskuse\nna vědomí.\nProjednávání bodu bylo ukončeno v 19:17:25\nJednání ukončeno 10.11.2021 v 19:17:57\n\nOvěřeno ověřovateli:\n1)\n16. 11. 2021 08:57\nViktorie Janáčková, MSc.\n2)\n16. 11. 2021 08:35\nIng. Karel Krištoufek"
+   }
+  ],
+  "full_text": "ZÁPIS z jednání zastupitelstva č. 4/2021\nMěsto Pečky\ndatum: 10. 11. 2021, čas: 17:30\n​\nPrezence:\nPřítomni:\n(14) Mgr. Alena Švejnohová, Bc. Iveta Minaříková, Tomáš Vodička, Šárka Horynová, Jiří Katrnoška, Jaroslav Železný, Mgr. Jaroslava Heroldová DiS., Martin Homan, Viktorie Janáčková MSc., Milan Paluska, Ondřej Schulz, Ing. Karel Krištoufek, Ing. Jan Korouš Ph.D., Luděk Vinohradník\nOmluveni:\n(6) Ing. Petr Dürr, Zdeněk Fejfar, Ing. Martin Jedlička, Mgr. Věra Křížová, Jaroslav Martinec, MUDr. Věra Schürzová\nNepřítomni:\n(1) Ing. Stanislav Jiran\nHosté:\nPředsedající:\nMgr. Alena Švejnohová\nPřítomno je 14 členů a zastupitelstvo je usnášeníschopné.\nJednání zahájeno 10.11.2021 v 17:34:34\n1. Volba pracovních komisí (bod číslo 1)\nPředkladatel: Mgr. Alena Švejnohová\nProjednávání bodu bylo zahájeno v 17:34:45 (zvuk. záznam 0:00:01 - 0:02:09)\nPředsedající navrhl jednotlivé členy pracovních komisí\nNávrhová komise:\nJaroslav Železný, Luděk Vinohradník, Milan Paluska, Jiří Katrnoška, Mgr. Jaroslava Heroldová DiS.\nMandátová a volební komise:\nOvěřovatelé:\nIng. Karel Krištoufek, Viktorie Janáčková MSc.\nDiskuze zahájena v 17:34:45\nK tomuto bodu se vyjádřili: Mgr. Alena Švejnohová\nHlasování\npro:\n(14) Mgr. Alena Švejnohová, Viktorie Janáčková MSc., Jaroslav Železný, Tomáš Vodička, Jiří Katrnoška, Milan Paluska, Bc. Iveta Minaříková, Luděk Vinohradník, Mgr. Jaroslava Heroldová DiS., Ing. Karel Krištoufek, Martin Homan, Ing. Jan Korouš Ph.D., Šárka Horynová, Ondřej Schulz\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat\nProjednávání bodu bylo ukončeno v 17:36:53\n2. Schválení programu jednání (bod číslo 2)\nPředkladatel: Mgr. Alena Švejnohová\nProjednávání bodu bylo zahájeno v 17:36:59 (zvuk. záznam 0:02:15 - 0:02:44)\nProgram jednání\n1. Volba pracovních komisí\n2. Schválení programu jednání\n3. Informace vedení města o aktuální situaci ve městě\n4. Plnění rozpočtu k 30.9.2021, plnění plánu hospodářské činnosti k 30.9.2021\n5. Rozpočtová opatření č. 10/2021\n6. Odkoupení pozemků od fy. KUTA a.s., Praha 4-Braník\n7. Rozpočtová opatření č. 11/2021\n8. Převod zřizovatelských kompetencí k Základní umělecké škole v Pečkách\n9. Veřejnoprávní smlouvy Městská policie Pečky\n10. Kontrola úkolů - informace \"Usnesení.cz\"\n11. Dotazy a připomínky občanů\n12. Různé, diskuse\nDiskuze zahájena v 17:36:59\nK tomuto bodu se vyjádřili: Mgr. Alena Švejnohová\nV 17:37:20 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Alena Švejnohová\") v tomto znění:\nZastupitelstvo schvaluje návrh programu jednání ze zveřejněné pozvánky.\nHlasování\npro:\n(14) Mgr. Alena Švejnohová, Ondřej Schulz, Viktorie Janáčková MSc., Luděk Vinohradník, Jiří Katrnoška, Ing. Karel Krištoufek, Šárka Horynová, Bc. Iveta Minaříková, Martin Homan, Jaroslav Železný, Mgr. Jaroslava Heroldová DiS., Tomáš Vodička, Milan Paluska, Ing. Jan Korouš Ph.D.\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UZ-29-4/21\nzodpovídá:\ntermín:\n10. 11. 2021\nProjednávání bodu bylo ukončeno v 17:37:28\n3. Informace vedení města o aktuální situaci ve městě (bod číslo 3)\nPředkladatel: Mgr. Alena Švejnohová\nProjednávání bodu bylo zahájeno v 17:37:34 (zvuk. záznam 0:02:50 - 0:10:52)\nDůvodová zpráva\nstarostka města\n- informace o situaci ve městě s ohledem na šířící se onemocnění Covid-19\n- informace o plánu zřídit bezplatnou právní poradnu pro občany města\n- pozvánka na vzpomínkové setkání před radnici dne 17.11.2021 v 9 hodin ráno\nmístostarostka města\n- informace o intenzivní spolupráci s dluhovou poradnou Člověk v tísni, pomoc bývalým klientům skupiny Bohemia Energy, návrh na schválení rozpočtového opatření ve prospěch bezúročné finanční pomoci od města, pozvání na      besedu s občany města postiženými energetickou krizí dne 16.11.2021 od 18 hodin v Kulturním středisku\n- informace o projektu Milostivé léto, spolupráce s dluhovou poradnou, pomoc klientům v exekucích\n- informace o charitativním šatníku a potravinové sbírce, spolupráce se sociální pracovnicí\nDiskuze zahájena v 17:37:34\nK tomuto bodu se vyjádřili: Mgr. Alena Švejnohová, Bc. Iveta Minaříková\nZastupitelstvo bere materiály předložené k bodu č. 3 -\nInformace vedení města o aktuální situaci ve městě\nna vědomí.\nProjednávání bodu bylo ukončeno v 17:45:36\n4. Plnění rozpočtu k 30.9.2021, plnění plánu hospodářské činnosti k 30.9.2021 (bod číslo 4)\nPředkladatel: Mgr. Alena Švejnohová\nProjednávání bodu bylo zahájeno v 17:45:42 (zvuk. záznam 0:10:58 - 0:11:18)\nDůvodová zpráva\nPlnění rozpočtu k 30.9.2021 a plnění plánu hospodářské činnosti k 30.9.2021.\nDiskuze zahájena v 17:45:42\nK tomuto bodu se vyjádřili: Mgr. Alena Švejnohová\nZastupitelstvo bere materiály předložené k bodu č. 4 -\nPlnění rozpočtu k 30.9.2021, plnění plánu hospodářské činnosti k 30.9.2021\nna vědomí.\nProjednávání bodu bylo ukončeno v 17:46:02\n5. Rozpočtová opatření č. 10/2021 (bod číslo 5)\nPředkladatel: Mgr. Alena Švejnohová\nProjednávání bodu bylo zahájeno v 17:46:08 (zvuk. záznam 0:11:24 - 0:24:13)\nDůvodová zpráva\nRM doporučuje schválit rozpočtové opatření č. 10/2021. Přesun částky 300 tis. Kč na poskytnutí půjček občanům v souvislosti se zvýšením záloh na energie při přechodu k dodavateli poslední instance z § 5312 krizové situace. Zvýšení příjmů i výdajů o stejné částky u  průtokové dotace pro ZŠ a realizace lavičky\nVladimíra\nRenčína\n.\nDiskuze zahájena v 17:46:08\nK tomuto bodu se vyjádřili: Mgr. Alena Švejnohová, Luděk Vinohradník, Ing. Karel Krištoufek, Milan Paluska, Adam Brant, Tomáš Vodička\nV 17:55:17 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Alena Švejnohová\") v tomto znění:\nZastupitelstvo města schvaluje rozpočtová opatření č. 10/2021.\nHlasování\npro:\n(10) Jiří Katrnoška, Bc. Iveta Minaříková, Ing. Jan Korouš Ph.D., Viktorie Janáčková MSc., Jaroslav Železný, Šárka Horynová, Mgr. Alena Švejnohová, Ondřej Schulz, Tomáš Vodička, Mgr. Jaroslava Heroldová DiS.\nproti\n(0)\nzdržel se:\n(4) Luděk Vinohradník, Martin Homan, Milan Paluska, Ing. Karel Krištoufek\nnehlasoval:\n(0)\nNávrh nebyl přijat\nV 17:55:37 přišel Ing. Stanislav Jiran, přítomno 15 zastupitelů.\nAktualizovaný stav prezence:\nPřítomni:\n(15) Mgr. Alena Švejnohová, Bc. Iveta Minaříková, Tomáš Vodička, Šárka Horynová, Jiří Katrnoška, Jaroslav Železný, Mgr. Jaroslava Heroldová DiS., Martin Homan, Viktorie Janáčková MSc., Milan Paluska, Ondřej Schulz, Ing. Karel Krištoufek, Ing. Jan Korouš Ph.D., Luděk Vinohradník, Ing. Stanislav Jiran\nOmluveni:\n(6) Ing. Petr Dürr, Zdeněk Fejfar, Ing. Martin Jedlička, Mgr. Věra Křížová, Jaroslav Martinec, MUDr. Věra Schürzová\nNepřítomni:\n(0)\nV 17:58:46 předsedající zahájil hlasování o návrhu usnesení \"B\" (navrhovatel: \"Alena Švejnohová\") v tomto znění:\nZastupitelstvo města schvaluje rozpočtová opatření č.10/2021 po úpravě bez zvýšení příjmů a výdajů souvisejících s realizací lavičky Vladimíra Renčína.\nHlasování\npro:\n(13) Bc. Iveta Minaříková, Jaroslav Železný, Viktorie Janáčková MSc., Tomáš Vodička, Luděk Vinohradník, Mgr. Alena Švejnohová, Jiří Katrnoška, Milan Paluska, Šárka Horynová, Martin Homan, Ing. Jan Korouš Ph.D., Ondřej Schulz, Mgr. Jaroslava Heroldová DiS.\nproti\n(0)\nzdržel se:\n(2) Ing. Karel Krištoufek, Ing. Stanislav Jiran\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UZ-30-4/21\nzodpovídá:\nMarcela Bahníková\ntermín:\n24. 11. 2021\nProjednávání bodu bylo ukončeno v 17:58:57\n6. Odkoupení pozemků od fy. KUTA a.s., Praha 4-Braník (bod číslo 6)\nPředkladatel: Bc. Iveta Minaříková\nProjednávání bodu bylo zahájeno v 17:59:04 (zvuk. záznam 0:24:20 - 1:03:53)\nDůvodová zpráva\nJedná se celkem o 22.874 m\n2\npozemků v lokalitě Kandie v kultuře orná půda, trvalý travní porost, silnice, ostatní plocha, neplodná půda. Dle ÚP se jedná o stavební pozemky, veřejnou zeleň, sportovní a rekreační plochy, místní komunikace. O převodu pozemků do majetku města se jedná již několik let.  (* - TTP=trvalý travní porost)\nDiskuze zahájena v 17:59:04\nK tomuto bodu se vyjádřili: Bc. Iveta Minaříková, Ing. Karel Krištoufek, Mgr. Alena Švejnohová, Luděk Vinohradník, Mgr. Jaroslava Heroldová DiS., Tomáš Vodička, Milan Paluska, Ing. Jan Korouš Ph.D.\nV 18:33:50 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Iveta Minaříková\") v tomto znění:\nZastupitelstvo města schvaluje odkoupení pozemků č. parc.1468/16 (4.363 m\n2\n)-orná půda, 1468/19 (3.738 m\n2\n)-orná půda, 1449/203 (790 m\n2\n)-TTP*, 1449/204 (842 m\n2\n)-TTP, 1449/205 (976 m\n2\n)-TTP, 1449/206 (987 m\n2\n)-TTP, 1449/207 (282 m\n2\n)-TTP,1449/118 (4.880 m\n2\n)-TTP, 1449/119 (2.198 m\n2\n)-orná půda, 1449/60 (310 m\n2\n)-orná půda, 1449/195 (953 m\n2\n)-TTP, 1448 (697 m\n2\n)-ost.plocha,neplodná půda, 1449/242 (839 m\n2\n)-TTP, 1447/6 (57 m\n2\n)-silnice,ost.plocha, 1447/7 (407 m\n2\n)-silnice,ost.plocha, 1449/220 (279 m\n2\n)-TTP a 1449/221 (276 m\n2\n)-TTP vše v obci a k.ú. Pečky. Pozemky budou odkoupeny od firmy KUTA a.s., se sídlem v Praze 4-\nBraník\n,\nZelený\npruh 95/97, 140 00 za celkovou kupní cenu 4,900.000,-Kč. Poplatky spojené s převodem uhradí město.\nHlasování\npro:\n(9) Bc. Iveta Minaříková, Viktorie Janáčková MSc., Ing. Jan Korouš Ph.D., Tomáš Vodička, Jiří Katrnoška, Jaroslav Železný, Mgr. Alena Švejnohová, Šárka Horynová, Ondřej Schulz\nproti\n(0)\nzdržel se:\n(6) Milan Paluska, Luděk Vinohradník, Martin Homan, Ing. Karel Krištoufek, Mgr. Jaroslava Heroldová DiS., Ing. Stanislav Jiran\nnehlasoval:\n(0)\nNávrh nebyl přijat\nProjednávání bodu bylo ukončeno v 18:38:37\n7. Rozpočtová opatření č. 11/2021 (bod číslo 7)\nPředkladatel: Bc. Iveta Minaříková\nProjednávání bodu bylo zahájeno v 18:39:30 (zvuk. záznam 1:04:46 - 1:06:14)\nDůvodová zpráva\nNa základě schválení odkoupení pozemků od spol. KUTA předkládáme rozpočt. opatření č. 11/2021 k zajištění úhrady kupní ceny v roce 2021.\nDiskuze zahájena v 18:39:30\nK tomuto bodu se vyjádřili: Bc. Iveta Minaříková, Mgr. Alena Švejnohová\nV 18:40:29 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Iveta Minaříková\") v tomto znění:\nZastupitelstvo města schvaluje rozpočtová opatření č. 11/2021.\nHlasování\npro:\n(3) Bc. Iveta Minaříková, Tomáš Vodička, Jaroslav Železný\nproti\n(0)\nzdržel se:\n(12) Ing. Jan Korouš Ph.D., Luděk Vinohradník, Viktorie Janáčková MSc., Jiří Katrnoška, Mgr. Alena Švejnohová, Šárka Horynová, Martin Homan, Ing. Karel Krištoufek, Ondřej Schulz, Milan Paluska, Mgr. Jaroslava Heroldová DiS., Ing. Stanislav Jiran\nnehlasoval:\n(0)\nNávrh nebyl přijat\nProjednávání bodu bylo ukončeno v 18:40:58\n8. Převod zřizovatelských kompetencí k Základní umělecké škole v Pečkách (bod číslo 8)\nPředkladatel: Mgr. Alena Švejnohová\nProjednávání bodu bylo zahájeno v 18:41:11 (zvuk. záznam 1:06:27 - 1:08:29)\nDůvodová zpráva\nZastupitelstvo města schválilo dne 15.9.2021 převod zřizovatelských kompetencí k ZUŠ v Pečkách. Při převzetí je nutné učinit některé legislativní úkony (schválení zřizovatelské listiny, přidělení IČO, zapsání školy do Rejstříku škol a školských zařízení). Vzhledem k tomu, že zřizovatel nemůže ovlivnit délku správních řízení u jiné instituce, došlo ze strany\nKrajského\núřadu Středočeského kraje k časovému posunu záměru. Nyní se doporučuje převod zřizovatelských kompetencí k 1.9.2022 současně se zahájením nového školního roku.\nDiskuze zahájena v 18:41:11\nK tomuto bodu se vyjádřili: Mgr. Alena Švejnohová, Cecilie Pajkrtová\nV 18:42:55 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Alena Švejnohová\") v tomto znění:\nZastupitelstvo mění usnesení UZ-14-2/21 z termínu 31. 12. 2021 na termín 31. 5. 2022.\nHlasování\npro:\n(15) Viktorie Janáčková MSc., Mgr. Alena Švejnohová, Bc. Iveta Minaříková, Luděk Vinohradník, Jaroslav Železný, Tomáš Vodička, Ing. Jan Korouš Ph.D., Martin Homan, Mgr. Jaroslava Heroldová DiS., Ondřej Schulz, Šárka Horynová, Ing. Karel Krištoufek, Jiří Katrnoška, Ing. Stanislav Jiran, Milan Paluska\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UZ-31-4/21 a byly jím změněny parametry usnesení UZ-14-2/21\nzodpovídá:\nMgr. Alena Švejnohová\ntermín:\n31. 5. 2022\nProjednávání bodu bylo ukončeno v 18:43:13\n9. Veřejnoprávní smlouvy Městská policie Pečky (bod číslo 9)\nPředkladatel: Bc. Iveta Minaříková\nProjednávání bodu bylo zahájeno v 18:43:22 (zvuk. záznam 1:08:38 - 1:20:36)\nDůvodová zpráva\nNávrh na uzavření Veřejnoprávních smluv o výkonu úkolů městské policie Pečky s obcemi Ratenice, Tatce, Chotutice a městysem Plaňany. Úkoly budou prováděny v podobě jedné dvoučlenné hlídky v rozsahu 10 hodin nepravidelně v jednom měsíci.\nDiskuze zahájena v 18:43:22\nK tomuto bodu se vyjádřili: Bc. Iveta Minaříková, Luděk Vinohradník, Ing. Karel Krištoufek, Mgr. Alena Švejnohová\nV 18:55:11 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Iveta Minaříková\") v tomto znění:\nZastupitelstvo města schvaluje veřejnoprávní smlouvu uzavřenou mezi městem Pečky a obcí Chotutice k zajišťování výkonu činností podle zákona o obecní policii.\nZastupitelstvo města schvaluje veřejnoprávní smlouvu uzavřenou mezi městem Pečky a městysem Plaňany k zajišťování výkonu činností podle zákona o obecní policii.\nZastupitelstvo města schvaluje veřejnoprávní smlouvu uzavřenou mezi městem Pečky a obcí Ratenice k zajišťování výkonu činností podle zákona o obecní policii.\nZastupitelstvo města schvaluje veřejnoprávní smlouvu uzavřenou mezi městem Pečky a obcí Tatce k zajišťování výkonu činností podle zákona o obecní policii.\nHlasování\npro:\n(12) Mgr. Alena Švejnohová, Tomáš Vodička, Mgr. Jaroslava Heroldová DiS., Jaroslav Železný, Ondřej Schulz, Ing. Jan Korouš Ph.D., Šárka Horynová, Viktorie Janáčková MSc., Luděk Vinohradník, Bc. Iveta Minaříková, Jiří Katrnoška, Ing. Stanislav Jiran\nproti\n(0)\nzdržel se:\n(3) Ing. Karel Krištoufek, Martin Homan, Milan Paluska\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UZ-32-4/21\nzodpovídá:\nBc. Iveta Minaříková\ntermín:\n31. 12. 2021\nProjednávání bodu bylo ukončeno v 18:55:20\n10. Kontrola úkolů - informace \"Usnesení.cz\" (bod číslo 10)\nPředkladatel: Mgr. Alena Švejnohová\nProjednávání bodu bylo zahájeno v 18:55:29 (zvuk. záznam 1:20:45 - 1:21:25)\nDůvodová zpráva\nKontrola úkolů v aplikaci \"Usnesení.cz\".\nDiskuze zahájena v 18:55:29\nK tomuto bodu se vyjádřili: Cecilie Pajkrtová, Mgr. Alena Švejnohová\nZastupitelstvo bere materiály předložené k bodu č. 10 -\nKontrola úkolů - informace \"Usnesení.cz\"\nna vědomí.\nProjednávání bodu bylo ukončeno v 18:56:09\n11. Dotazy a připomínky občanů (bod číslo 11)\nPředkladatel: Mgr. Alena Švejnohová\nProjednávání bodu bylo zahájeno v 18:56:14 (zvuk. záznam 1:21:30 - 1:21:43)\nDiskuze zahájena v 18:56:14\nK tomuto bodu se vyjádřili: Mgr. Alena Švejnohová\nZastupitelstvo bere materiály předložené k bodu č. 11 -\nDotazy a připomínky občanů\nna vědomí.\nProjednávání bodu bylo ukončeno v 18:56:27\nZastupitelstvo bere materiály předložené k bodu č. 12 -\nRůzné, diskuse\nna vědomí.\nProjednávání bodu bylo ukončeno v 19:17:25\nJednání ukončeno 10.11.2021 v 19:17:57\nOvěřeno ověřovateli:\n1)\n16. 11. 2021 08:57\nViktorie Janáčková, MSc.\n2)\n16. 11. 2021 08:35\nIng. Karel Krištoufek"
+ },
+ "resolutions": {
+  "status": "ok",
+  "url": "https://mesto-pecky.usneseni.cz/verejne/20147680-c90a-11eb-bb68-3b743f6c0817/usneseni/",
+  "fetched_at": "2026-08-04T14:40:22.946887+00:00",
+  "items": [
+   {
+    "number_raw": "UZ-29-4/21",
+    "detail_id": 16975,
+    "detail_url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/16975?mod=zastupitelstvo",
+    "agenda_item_raw": "Schválení programu jednání",
+    "text_verbatim": "Zastupitelstvo schvaluje návrh programu jednání ze zveřejněné pozvánky.",
+    "cell_text_raw": "Bod programu:\nSchválení programu jednání\nText přijatého usnesení:\nZastupitelstvo schvaluje návrh programu jednání ze zveřejněné pozvánky.",
+    "date_raw": "10. 11. 2021",
+    "date_iso": "2021-11-10",
+    "responsible_raw": "",
+    "deadline_raw": "IHNED (10. 11. 2021)",
+    "vote": {
+     "raw_text": "pro: (14) Mgr. Alena Švejnohová, Ondřej Schulz, Viktorie Janáčková MSc., Luděk Vinohradník, Jiří Katrnoška, Ing. Karel Krištoufek, Šárka Horynová, Bc. Iveta Minaříková, Martin Homan, Jaroslav Železný, Mgr. Jaroslava Heroldová DiS., Tomáš Vodička, Milan Paluska, Ing. Jan Korouš Ph.D. proti: (0) zdržel se: (0)",
+     "pro": {
+      "count": 14,
+      "names": [
+       "Mgr. Alena Švejnohová",
+       "Ondřej Schulz",
+       "Viktorie Janáčková MSc.",
+       "Luděk Vinohradník",
+       "Jiří Katrnoška",
+       "Ing. Karel Krištoufek",
+       "Šárka Horynová",
+       "Bc. Iveta Minaříková",
+       "Martin Homan",
+       "Jaroslav Železný",
+       "Mgr. Jaroslava Heroldová DiS.",
+       "Tomáš Vodička",
+       "Milan Paluska",
+       "Ing. Jan Korouš Ph.D."
+      ],
+      "raw": "(14) Mgr. Alena Švejnohová, Ondřej Schulz, Viktorie Janáčková MSc., Luděk Vinohradník, Jiří Katrnoška, Ing. Karel Krištoufek, Šárka Horynová, Bc. Iveta Minaříková, Martin Homan, Jaroslav Železný, Mgr. Jaroslava Heroldová DiS., Tomáš Vodička, Milan Paluska, Ing. Jan Korouš Ph.D."
+     },
+     "proti": {
+      "count": 0,
+      "names": [],
+      "raw": "(0)"
+     },
+     "zdrzel_se": {
+      "count": 0,
+      "names": [],
+      "raw": "(0)"
+     }
+    },
+    "detail": {
+     "number_raw": "UZ-29-4/21",
+     "text_verbatim": "Zastupitelstvo schvaluje návrh programu jednání ze zveřejněné pozvánky.",
+     "typ_raw": null,
+     "zodpovida_raw": "",
+     "prijato_raw": "10. 11. 2021 na jednání č. 4/2021",
+     "prijato_date_iso": "2021-11-10",
+     "prijato_meeting_label": "4/2021",
+     "termin_raw": "IHNED (10. 11. 2021)",
+     "ukonceno_raw": "10. 11. 2021",
+     "ukonceno_date_iso": "2021-11-10",
+     "fields_raw": {
+      "Číslo usnesení": "UZ-29-4/21",
+      "Text usnesení": "Zastupitelstvo schvaluje návrh programu jednání ze zveřejněné pozvánky.",
+      "Zodpovídá": "",
+      "Přijato": "10. 11. 2021 na jednání č. 4/2021",
+      "Termín": "IHNED (10. 11. 2021)",
+      "Ukončeno": "10. 11. 2021"
+     }
+    }
+   },
+   {
+    "number_raw": "UZ-30-4/21",
+    "detail_id": 17373,
+    "detail_url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/17373?mod=zastupitelstvo",
+    "agenda_item_raw": "Rozpočtová opatření č. 10/2021",
+    "text_verbatim": "Zastupitelstvo města schvaluje rozpočtová opatření č.10/2021 po úpravě bez zvýšení příjmů a výdajů souvisejících s realizací lavičky\nVladimíra\nRenčína\n.",
+    "cell_text_raw": "Bod programu:\nRozpočtová opatření č. 10/2021\nText přijatého usnesení:\nZastupitelstvo města schvaluje rozpočtová opatření č.10/2021 po úpravě bez zvýšení příjmů a výdajů souvisejících s realizací lavičky\nVladimíra\nRenčína\n.",
+    "date_raw": "10. 11. 2021",
+    "date_iso": "2021-11-10",
+    "responsible_raw": "Marcela Bahníková",
+    "deadline_raw": "24. 11. 2021",
+    "vote": {
+     "raw_text": "pro: (13) Bc. Iveta Minaříková, Jaroslav Železný, Viktorie Janáčková MSc., Tomáš Vodička, Luděk Vinohradník, Mgr. Alena Švejnohová, Jiří Katrnoška, Milan Paluska, Šárka Horynová, Martin Homan, Ing. Jan Korouš Ph.D., Ondřej Schulz, Mgr. Jaroslava Heroldová DiS. proti: (0) zdržel se: (2) Ing. Karel Krištoufek, Ing. Stanislav Jiran",
+     "pro": {
+      "count": 13,
+      "names": [
+       "Bc. Iveta Minaříková",
+       "Jaroslav Železný",
+       "Viktorie Janáčková MSc.",
+       "Tomáš Vodička",
+       "Luděk Vinohradník",
+       "Mgr. Alena Švejnohová",
+       "Jiří Katrnoška",
+       "Milan Paluska",
+       "Šárka Horynová",
+       "Martin Homan",
+       "Ing. Jan Korouš Ph.D.",
+       "Ondřej Schulz",
+       "Mgr. Jaroslava Heroldová DiS."
+      ],
+      "raw": "(13) Bc. Iveta Minaříková, Jaroslav Železný, Viktorie Janáčková MSc., Tomáš Vodička, Luděk Vinohradník, Mgr. Alena Švejnohová, Jiří Katrnoška, Milan Paluska, Šárka Horynová, Martin Homan, Ing. Jan Korouš Ph.D., Ondřej Schulz, Mgr. Jaroslava Heroldová DiS."
+     },
+     "proti": {
+      "count": 0,
+      "names": [],
+      "raw": "(0)"
+     },
+     "zdrzel_se": {
+      "count": 2,
+      "names": [
+       "Ing. Karel Krištoufek",
+       "Ing. Stanislav Jiran"
+      ],
+      "raw": "(2) Ing. Karel Krištoufek, Ing. Stanislav Jiran"
+     }
+    },
+    "detail": {
+     "number_raw": "UZ-30-4/21",
+     "text_verbatim": "Zastupitelstvo města schvaluje rozpočtová opatření č.10/2021 po úpravě bez zvýšení příjmů a výdajů souvisejících s realizací lavičky Vladimíra Renčína .",
+     "typ_raw": null,
+     "zodpovida_raw": "Marcela Bahníková",
+     "prijato_raw": "10. 11. 2021 na jednání č. 4/2021",
+     "prijato_date_iso": "2021-11-10",
+     "prijato_meeting_label": "4/2021",
+     "termin_raw": "24. 11. 2021",
+     "ukonceno_raw": "16. 11. 2021",
+     "ukonceno_date_iso": "2021-11-16",
+     "fields_raw": {
+      "Číslo usnesení": "UZ-30-4/21",
+      "Text usnesení": "Zastupitelstvo města schvaluje rozpočtová opatření č.10/2021 po úpravě bez zvýšení příjmů a výdajů souvisejících s realizací lavičky Vladimíra Renčína .",
+      "Zodpovídá": "Marcela Bahníková",
+      "Přijato": "10. 11. 2021 na jednání č. 4/2021",
+      "Termín": "24. 11. 2021",
+      "Ukončeno": "16. 11. 2021"
+     }
+    }
+   },
+   {
+    "number_raw": "UZ-31-4/21",
+    "detail_id": 17198,
+    "detail_url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/17198?mod=zastupitelstvo",
+    "agenda_item_raw": "Převod zřizovatelských kompetencí k Základní umělecké škole v Pečkách",
+    "text_verbatim": "Zastupitelstvo mění usnesení\nUZ-14-2/21\nz termínu 31. 12. 2021 na termín 31. 5. 2022.",
+    "cell_text_raw": "Bod programu:\nPřevod zřizovatelských kompetencí k Základní umělecké škole v Pečkách\nText přijatého usnesení:\nZastupitelstvo mění usnesení\nUZ-14-2/21\nz termínu 31. 12. 2021 na termín 31. 5. 2022.",
+    "date_raw": "10. 11. 2021",
+    "date_iso": "2021-11-10",
+    "responsible_raw": "Mgr. Alena Švejnohová",
+    "deadline_raw": "31. 5. 2022",
+    "vote": {
+     "raw_text": "pro: (15) Viktorie Janáčková MSc., Mgr. Alena Švejnohová, Bc. Iveta Minaříková, Luděk Vinohradník, Jaroslav Železný, Tomáš Vodička, Ing. Jan Korouš Ph.D., Martin Homan, Mgr. Jaroslava Heroldová DiS., Ondřej Schulz, Šárka Horynová, Ing. Karel Krištoufek, Jiří Katrnoška, Ing. Stanislav Jiran, Milan Paluska proti: (0) zdržel se: (0)",
+     "pro": {
+      "count": 15,
+      "names": [
+       "Viktorie Janáčková MSc.",
+       "Mgr. Alena Švejnohová",
+       "Bc. Iveta Minaříková",
+       "Luděk Vinohradník",
+       "Jaroslav Železný",
+       "Tomáš Vodička",
+       "Ing. Jan Korouš Ph.D.",
+       "Martin Homan",
+       "Mgr. Jaroslava Heroldová DiS.",
+       "Ondřej Schulz",
+       "Šárka Horynová",
+       "Ing. Karel Krištoufek",
+       "Jiří Katrnoška",
+       "Ing. Stanislav Jiran",
+       "Milan Paluska"
+      ],
+      "raw": "(15) Viktorie Janáčková MSc., Mgr. Alena Švejnohová, Bc. Iveta Minaříková, Luděk Vinohradník, Jaroslav Železný, Tomáš Vodička, Ing. Jan Korouš Ph.D., Martin Homan, Mgr. Jaroslava Heroldová DiS., Ondřej Schulz, Šárka Horynová, Ing. Karel Krištoufek, Jiří Katrnoška, Ing. Stanislav Jiran, Milan Paluska"
+     },
+     "proti": {
+      "count": 0,
+      "names": [],
+      "raw": "(0)"
+     },
+     "zdrzel_se": {
+      "count": 0,
+      "names": [],
+      "raw": "(0)"
+     }
+    },
+    "detail": {
+     "number_raw": "UZ-31-4/21",
+     "text_verbatim": "Zastupitelstvo mění usnesení UZ-14-2/21 z termínu 31. 12. 2021 na termín 31. 5. 2022.",
+     "typ_raw": null,
+     "zodpovida_raw": "Mgr. Alena Švejnohová",
+     "prijato_raw": "10. 11. 2021 na jednání č. 4/2021",
+     "prijato_date_iso": "2021-11-10",
+     "prijato_meeting_label": "4/2021",
+     "termin_raw": "31. 5. 2022",
+     "ukonceno_raw": "3. 8. 2022",
+     "ukonceno_date_iso": "2022-08-03",
+     "fields_raw": {
+      "Číslo usnesení": "UZ-31-4/21",
+      "Text usnesení": "Zastupitelstvo mění usnesení UZ-14-2/21 z termínu 31. 12. 2021 na termín 31. 5. 2022.",
+      "Zodpovídá": "Mgr. Alena Švejnohová",
+      "Přijato": "10. 11. 2021 na jednání č. 4/2021",
+      "Termín": "31. 5. 2022",
+      "Ukončeno": "3. 8. 2022"
+     }
+    }
+   },
+   {
+    "number_raw": "UZ-32-4/21",
+    "detail_id": 17251,
+    "detail_url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/17251?mod=zastupitelstvo",
+    "agenda_item_raw": "Veřejnoprávní smlouvy Městská policie Pečky",
+    "text_verbatim": "Zastupitelstvo města schvaluje veřejnoprávní smlouvu uzavřenou mezi městem Pečky a obcí Chotutice k zajišťování výkonu činností podle zákona o obecní policii.\nZastupitelstvo města schvaluje veřejnoprávní smlouvu uzavřenou mezi městem Pečky a městysem Plaňany k zajišťování výkonu činností podle zákona o obecní policii.\nZastupitelstvo města schvaluje veřejnoprávní smlouvu uzavřenou mezi městem Pečky a obcí Ratenice k zajišťování výkonu činností podle zákona o obecní policii.\nZastupitelstvo města schvaluje veřejnoprávní smlouvu uzavřenou mezi městem Pečky a obcí Tatce k zajišťování výkonu činností podle zákona o obecní policii.",
+    "cell_text_raw": "Bod programu:\nVeřejnoprávní smlouvy Městská policie Pečky\nText přijatého usnesení:\nZastupitelstvo města schvaluje veřejnoprávní smlouvu uzavřenou mezi městem Pečky a obcí Chotutice k zajišťování výkonu činností podle zákona o obecní policii.\nZastupitelstvo města schvaluje veřejnoprávní smlouvu uzavřenou mezi městem Pečky a městysem Plaňany k zajišťování výkonu činností podle zákona o obecní policii.\nZastupitelstvo města schvaluje veřejnoprávní smlouvu uzavřenou mezi městem Pečky a obcí Ratenice k zajišťování výkonu činností podle zákona o obecní policii.\nZastupitelstvo města schvaluje veřejnoprávní smlouvu uzavřenou mezi městem Pečky a obcí Tatce k zajišťování výkonu činností podle zákona o obecní policii.",
+    "date_raw": "10. 11. 2021",
+    "date_iso": "2021-11-10",
+    "responsible_raw": "Bc. Iveta Dvořáková",
+    "deadline_raw": "31. 12. 2021",
+    "vote": {
+     "raw_text": "pro: (12) Mgr. Alena Švejnohová, Tomáš Vodička, Mgr. Jaroslava Heroldová DiS., Jaroslav Železný, Ondřej Schulz, Ing. Jan Korouš Ph.D., Šárka Horynová, Viktorie Janáčková MSc., Luděk Vinohradník, Bc. Iveta Minaříková, Jiří Katrnoška, Ing. Stanislav Jiran proti: (0) zdržel se: (3) Ing. Karel Krištoufek, Martin Homan, Milan Paluska",
+     "pro": {
+      "count": 12,
+      "names": [
+       "Mgr. Alena Švejnohová",
+       "Tomáš Vodička",
+       "Mgr. Jaroslava Heroldová DiS.",
+       "Jaroslav Železný",
+       "Ondřej Schulz",
+       "Ing. Jan Korouš Ph.D.",
+       "Šárka Horynová",
+       "Viktorie Janáčková MSc.",
+       "Luděk Vinohradník",
+       "Bc. Iveta Minaříková",
+       "Jiří Katrnoška",
+       "Ing. Stanislav Jiran"
+      ],
+      "raw": "(12) Mgr. Alena Švejnohová, Tomáš Vodička, Mgr. Jaroslava Heroldová DiS., Jaroslav Železný, Ondřej Schulz, Ing. Jan Korouš Ph.D., Šárka Horynová, Viktorie Janáčková MSc., Luděk Vinohradník, Bc. Iveta Minaříková, Jiří Katrnoška, Ing. Stanislav Jiran"
+     },
+     "proti": {
+      "count": 0,
+      "names": [],
+      "raw": "(0)"
+     },
+     "zdrzel_se": {
+      "count": 3,
+      "names": [
+       "Ing. Karel Krištoufek",
+       "Martin Homan",
+       "Milan Paluska"
+      ],
+      "raw": "(3) Ing. Karel Krištoufek, Martin Homan, Milan Paluska"
+     }
+    },
+    "detail": {
+     "number_raw": "UZ-32-4/21",
+     "text_verbatim": "Zastupitelstvo města schvaluje veřejnoprávní smlouvu uzavřenou mezi městem Pečky a obcí Chotutice k zajišťování výkonu činností podle zákona o obecní policii.\nZastupitelstvo města schvaluje veřejnoprávní smlouvu uzavřenou mezi městem Pečky a městysem Plaňany k zajišťování výkonu činností podle zákona o obecní policii.\nZastupitelstvo města schvaluje veřejnoprávní smlouvu uzavřenou mezi městem Pečky a obcí Ratenice k zajišťování výkonu činností podle zákona o obecní policii.\nZastupitelstvo města schvaluje veřejnoprávní smlouvu uzavřenou mezi městem Pečky a obcí Tatce k zajišťování výkonu činností podle zákona o obecní policii.",
+     "typ_raw": null,
+     "zodpovida_raw": "Bc. Iveta Dvořáková",
+     "prijato_raw": "10. 11. 2021 na jednání č. 4/2021",
+     "prijato_date_iso": "2021-11-10",
+     "prijato_meeting_label": "4/2021",
+     "termin_raw": "31. 12. 2021",
+     "ukonceno_raw": "7. 12. 2021",
+     "ukonceno_date_iso": "2021-12-07",
+     "fields_raw": {
+      "Číslo usnesení": "UZ-32-4/21",
+      "Text usnesení": "Zastupitelstvo města schvaluje veřejnoprávní smlouvu uzavřenou mezi městem Pečky a obcí Chotutice k zajišťování výkonu činností podle zákona o obecní policii.\nZastupitelstvo města schvaluje veřejnoprávní smlouvu uzavřenou mezi městem Pečky a městysem Plaňany k zajišťování výkonu činností podle zákona o obecní policii.\nZastupitelstvo města schvaluje veřejnoprávní smlouvu uzavřenou mezi městem Pečky a obcí Ratenice k zajišťování výkonu činností podle zákona o obecní policii.\nZastupitelstvo města schvaluje veřejnoprávní smlouvu uzavřenou mezi městem Pečky a obcí Tatce k zajišťování výkonu činností podle zákona o obecní policii.",
+      "Zodpovídá": "Bc. Iveta Dvořáková",
+      "Přijato": "10. 11. 2021 na jednání č. 4/2021",
+      "Termín": "31. 12. 2021",
+      "Ukončeno": "7. 12. 2021"
+     }
+    }
+   }
+  ]
+ }
+}

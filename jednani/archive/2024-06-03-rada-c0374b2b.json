@@ -1,0 +1,879 @@
+{
+ "uuid": "c0374b2b-1cbf-11ef-95ef-00505683238f",
+ "body_type_raw": "Rada",
+ "label_raw": "21/2024 (3. 6. 2024)",
+ "number": 21,
+ "year": 2024,
+ "date_iso": "2024-06-03",
+ "links": {
+  "invitation": "https://mesto-pecky.usneseni.cz/verejne/?uuid=c0374b2b-1cbf-11ef-95ef-00505683238f&page=8&do=printPublicInvitation",
+  "minutes": "https://mesto-pecky.usneseni.cz/verejne/c0374b2b-1cbf-11ef-95ef-00505683238f/zapis/?page=8",
+  "signed_minutes_pdf": "https://mesto-pecky.usneseni.cz/verejne/?meetingReportControl-uuid=c0374b2b-1cbf-11ef-95ef-00505683238f&page=8&do=meetingReportControl-getSignedReportPdf",
+  "resolutions": "https://mesto-pecky.usneseni.cz/verejne/c0374b2b-1cbf-11ef-95ef-00505683238f/usneseni/?page=8",
+  "audio": null
+ },
+ "link_texts": {
+  "invitation": "Pozvánka",
+  "minutes": "zápis",
+  "signed_minutes_pdf": "podepsaný zápis",
+  "resolutions": "přijatá usnesení"
+ },
+ "status": "ok",
+ "invitation": {
+  "status": "site_error",
+  "error": "status=200 ct=text/html; charset=utf-8 flash='<a href=\"\" class=\"close\" data-dismiss=\"alert\" aria-label=\"close\">&times;'",
+  "url": "https://mesto-pecky.usneseni.cz/verejne/?uuid=c0374b2b-1cbf-11ef-95ef-00505683238f&do=printPublicInvitation",
+  "fetched_at": "2026-08-04T15:00:38.928204+00:00"
+ },
+ "minutes": {
+  "status": "ok",
+  "url": "https://mesto-pecky.usneseni.cz/verejne/c0374b2b-1cbf-11ef-95ef-00505683238f/zapis/",
+  "fetched_at": "2026-08-04T13:49:44.421464+00:00",
+  "title_raw": "ZÁPIS ze schůze rady č. 21/2024 Město Pečky datum: 3. 6. 2024, čas: 15:00 ​",
+  "date_raw": "3. 6. 2024",
+  "date_iso": "2024-06-03",
+  "time_raw": "15:00",
+  "presence": {
+   "raw_text": "Prezence:\nPřítomni:\n(5) Milan Paluska, Zdeněk Fejfar, Ing. Karel Krištoufek, Ing. Martin Jedlička, Ivana Trčková\nOmluveni:\n(0)\nNepřítomni:\n(2) Ing. Petr Dürr, Ing. Hana Kuprová\nHosté:\nZapisovatel/ka:\nEva Strnadová\nPřítomno je 5 členů a rada je usnášeníschopná.\nJednání zahájeno 03.06.2024 v 15:03:39",
+   "pritomni": {
+    "count": 5,
+    "names": [
+     "Milan Paluska",
+     "Zdeněk Fejfar",
+     "Ing. Karel Krištoufek",
+     "Ing. Martin Jedlička",
+     "Ivana Trčková"
+    ],
+    "raw": "(5) Milan Paluska, Zdeněk Fejfar, Ing. Karel Krištoufek, Ing. Martin Jedlička, Ivana Trčková"
+   },
+   "omluveni": {
+    "count": 0,
+    "names": [],
+    "raw": "(0)"
+   },
+   "nepritomni": {
+    "count": 2,
+    "names": [
+     "Ing. Petr Dürr",
+     "Ing. Hana Kuprová"
+    ],
+    "raw": "(2) Ing. Petr Dürr, Ing. Hana Kuprová"
+   },
+   "predsedajici": null,
+   "quorum_raw": "Přítomno je 5 členů a rada je usnášeníschopná."
+  },
+  "header_raw": "Prezence:\nPřítomni:\n(5) Milan Paluska, Zdeněk Fejfar, Ing. Karel Krištoufek, Ing. Martin Jedlička, Ivana Trčková\nOmluveni:\n(0)\nNepřítomni:\n(2) Ing. Petr Dürr, Ing. Hana Kuprová\nHosté:\nZapisovatel/ka:\nEva Strnadová\nPřítomno je 5 členů a rada je usnášeníschopná.\nJednání zahájeno 03.06.2024 v 15:03:39",
+  "agenda_items": [
+   {
+    "number": 1,
+    "title_raw": "Určení zapisovatelů, předsedajícího, příp. ověřovatelů",
+    "heading_raw": "1. Určení zapisovatelů, předsedajícího, příp. ověřovatelů (bod číslo 1)",
+    "predkladatel": null,
+    "votes": [],
+    "resolution_numbers_mentioned": [],
+    "raw_text": "Projednávání bodu bylo zahájeno v 15:03:59\n\nPředsedající navrhl jednotlivé členy pracovních komisí\nOvěřovatelé:\nIvana Trčková, Ing. Martin Jedlička\nPředsedající:\nMilan Paluska\nDiskuze zahájena v 15:04:00\nK tomuto bodu se vyjádřili: Milan Paluska\nProjednávání bodu bylo ukončeno v 15:04:08"
+   },
+   {
+    "number": 2,
+    "title_raw": "Schválení programu jednání",
+    "heading_raw": "2. Schválení programu jednání (bod číslo 2)",
+    "predkladatel": null,
+    "votes": [
+     {
+      "raw_text": "pro:\n(5) Ing. Karel Krištoufek, Milan Paluska, Ivana Trčková, Ing. Martin Jedlička, Zdeněk Fejfar\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)",
+      "pro": {
+       "count": 5,
+       "names": [
+        "Ing. Karel Krištoufek",
+        "Milan Paluska",
+        "Ivana Trčková",
+        "Ing. Martin Jedlička",
+        "Zdeněk Fejfar"
+       ],
+       "raw": "(5) Ing. Karel Krištoufek, Milan Paluska, Ivana Trčková, Ing. Martin Jedlička, Zdeněk Fejfar"
+      },
+      "proti": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "zdrzel_se": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "nehlasoval": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "result_raw": "Návrh byl přijat jako usnesení číslo: UR-201-21/24",
+      "adopted_resolution_number": "UR-201-21/24"
+     }
+    ],
+    "resolution_numbers_mentioned": [
+     "UR-164-15/24",
+     "UR-199-20/24",
+     "UR-201-21/24"
+    ],
+    "raw_text": "Projednávání bodu bylo zahájeno v 15:04:15\n\nProgram jednání\n1. Určení zapisovatelů, předsedajícího, příp. ověřovatelů\n2. Schválení programu jednání\n3. Aktuální informace vedení města\n4. Místní koeficient daně z nemovitých věcí - úkol UR-199-20/24\n5. Seznam komunikací a chodníků - úkol UR-164-15/24\n6. Uzavření \"Smlouvy o zřízení VBř-služebnosti č. IV-12-6031943/1“ s firmou ČEZ Distribuce\n7. Zveřejnění záměru – výpůjčka nebytového prostoru ve Velkých Chvalovicích čp. 166\n8. Vyhlášení veřejné zakázky malého rozsahu na zhotovitele stavby: \"Oplocení MŠ MAŠINKA na ul. Tř. Jana Švermy čp. 825, Pečky - I.ETAPA\"\n9. Vyhlášení VŘ na poskytovatele služeb \"TDI a KBOZP na stavbě Rekonstrukce místních komunikací a vodovodní řad v části Bačov v Pečkách – 1. a 2. etapa\"\n10. Vklad do Fondu obnovy kanalizace a Fondu obnovy vodovodů\n11. Kontrola plnění usnesení\n12. Diskuse, různé\n13. Úkoly vyplývající z jednání rady města\nDiskuze zahájena v 15:04:16\nK tomuto bodu se vyjádřili: Milan Paluska\nV 15:04:44 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Milan Paluska\") v tomto znění:\nRada města\nschvaluje návrh programu jednání.\nHlasování\npro:\n(5) Ing. Karel Krištoufek, Milan Paluska, Ivana Trčková, Ing. Martin Jedlička, Zdeněk Fejfar\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-201-21/24\nzodpovídá:\ntermín:\nIHNED\n(3. 6. 2024)\nProjednávání bodu bylo ukončeno v 15:04:52"
+   },
+   {
+    "number": 3,
+    "title_raw": "Aktuální informace vedení města",
+    "heading_raw": "3. Aktuální informace vedení města (bod číslo 3)",
+    "predkladatel": null,
+    "votes": [],
+    "resolution_numbers_mentioned": [],
+    "raw_text": "Projednávání bodu bylo zahájeno v 15:04:55\n\nDůvodová zpráva:\nstarosta města\n- informace o kontrolním dni na stavbě \"Kabiny AFK Pečky\" - finalizace vzduchotechniky, pokládka dlažby a zhotovení sádrokartonů, kontrolní den 4.6.2024\n- informace o kontrolním dní na stavbě \"Pokládka optických kabelů na sídlišti\"\n- informace o sekání zeleně u silnic v okolí\nPeček\n- jednání s cestmistrem KSÚS Středočeského kraje\n- informace o konání Župního sletu v Pečkách - kladné hodnocení akce, vyčíslení ceny za poškození trávníku na hřišti AFK Pečky\n- informace o odstranění lávky přes řeku Výrovku z technických důvodů /stavební práce vedoucí ke zvýšení lávky/, poté dojde k opětovnému umístění lávky\n- informace o žádosti paní\n█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█\nve věci sezónního pronájmu prostranství v parku u kašny na náměstí k umístění posezení\n- informace o zveřejnění Návrhu závěrečného účtu za rok 2023 na úřední desce po dobu 15 dní\nZdeněk\nFejfar\n- informace o návštěvě obce Oleška ve věci prohlídky stavby z monolitické betonové konstrukce, uvažuje se o budoucí rekonstrukci objektu \"prameniště\" v Tatcích\n\nDiskuze zahájena v 15:04:56\nK tomuto bodu se vyjádřili: Milan Paluska, Ing. Karel Krištoufek, Zdeněk Fejfar, Ivana Trčková, Ing. Martin Jedlička\nV 15:25:44 přišel Ing. Petr Dürr, přítomno 6 radních.\nAktualizovaný stav prezence:\nPřítomni:\n(6) Milan Paluska, Zdeněk Fejfar, Ing. Karel Krištoufek, Ing. Martin Jedlička, Ivana Trčková, Ing. Petr Dürr\nOmluveni:\n(0)\nNepřítomni:\n(1) Ing. Hana Kuprová\nV 15:30:29 přišla Ing. Hana Kuprová, přítomno 7 radních.\nAktualizovaný stav prezence:\nPřítomni:\n(7) Milan Paluska, Zdeněk Fejfar, Ing. Karel Krištoufek, Ing. Martin Jedlička, Ivana Trčková, Ing. Petr Dürr, Ing. Hana Kuprová\nOmluveni:\n(0)\nNepřítomni:\n(0)\nRada bere materiály předložené k bodu č. 3 -\nAktuální informace vedení města\nna vědomí.\nProjednávání bodu bylo ukončeno v 15:54:09"
+   },
+   {
+    "number": 4,
+    "title_raw": "Místní koeficient daně z nemovitých věcí - úkol UR-199-20/24",
+    "heading_raw": "4. Místní koeficient daně z nemovitých věcí - úkol UR-199-20/24 (bod číslo 4)",
+    "predkladatel": null,
+    "votes": [],
+    "resolution_numbers_mentioned": [
+     "UR-199-20/24"
+    ],
+    "raw_text": "Projednávání bodu bylo zahájeno v 15:54:13\n\nDůvodová zpráva:\nOZV předložená na minulém jednání RM by zabránila poklesu výnosu daně z nemovitých věcí v roce 2025 z důvodu změny zákona ( zrušení dosavadního koeficientu 1,5 ). Předpokládaný pokles daní při neschválení vyhlášky by byl cca 1,5 mil Kč.\nZ dostupných údajů vychází vliv\nstanovení místního koeficientu u vybraných nemovitostí ( objekty k rekreaci, garáže a objekty k podnikání ) takto : z\nvýšení koeficientu o 0,1 znamená cca 300 tis. Kč.\nZvýšení celkové daně o cca 2,5 mil navíc by odpovídal koeficient 2,4. Výpočet je orientační a vychází z doložených údajů roku 2023 a nových sazeb daně roku 2024.\nRozbor daňových příjmů z roku 2023 od FÚ\nKolín\nje v příloze.\nDiskuze zahájena v 15:54:14\nK tomuto bodu se vyjádřili: Milan Paluska, Ing. Karel Krištoufek, Ing. Hana Kuprová, Ivana Trčková, Ing. Petr Dürr\nRada bere materiály předložené k bodu č. 4 -\nMístní koeficient daně z nemovitých věcí - úkol UR-199-20/24\nna vědomí.\nProjednávání bodu bylo ukončeno v 16:07:48"
+   },
+   {
+    "number": 5,
+    "title_raw": "Seznam komunikací a chodníků - úkol UR-164-15/24",
+    "heading_raw": "5. Seznam komunikací a chodníků - úkol UR-164-15/24 (bod číslo 5)",
+    "predkladatel": null,
+    "votes": [],
+    "resolution_numbers_mentioned": [
+     "UR-164-15/24"
+    ],
+    "raw_text": "Projednávání bodu bylo zahájeno v 16:07:53\n\nDůvodová zpráva:\nNa základě úkolu od Rady města předkládáme seznam chodníků a komunikací v k.ú. Pečky a\nVelké\nChvalovice, které jsou vhodné k rekonstrukci.\nRada\nměsta bere na vědomí informaci o zařazení chodníků a komunikací do plánu oprav.\nDiskuze zahájena v 16:07:54\nK tomuto bodu se vyjádřili: Milan Paluska, Ing. Karel Krištoufek, Ivana Trčková, Zdeněk Fejfar\nRada bere materiály předložené k bodu č. 5 -\nSeznam komunikací a chodníků - úkol UR-164-15/24\nna vědomí.\nProjednávání bodu bylo ukončeno v 16:17:44"
+   },
+   {
+    "number": 6,
+    "title_raw": "Uzavření \"Smlouvy o zřízení VBř-služebnosti č. IV-12-6031943/1“ s firmou ČEZ Distribuce",
+    "heading_raw": "6. Uzavření \"Smlouvy o zřízení VBř-služebnosti č. IV-12-6031943/1“ s firmou ČEZ Distribuce (bod číslo 6)",
+    "predkladatel": null,
+    "votes": [
+     {
+      "raw_text": "pro:\n(6) Ing. Martin Jedlička, Milan Paluska, Ing. Petr Dürr, Zdeněk Fejfar, Ivana Trčková, Ing. Hana Kuprová\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(1) Ing. Karel Krištoufek",
+      "pro": {
+       "count": 6,
+       "names": [
+        "Ing. Martin Jedlička",
+        "Milan Paluska",
+        "Ing. Petr Dürr",
+        "Zdeněk Fejfar",
+        "Ivana Trčková",
+        "Ing. Hana Kuprová"
+       ],
+       "raw": "(6) Ing. Martin Jedlička, Milan Paluska, Ing. Petr Dürr, Zdeněk Fejfar, Ivana Trčková, Ing. Hana Kuprová"
+      },
+      "proti": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "zdrzel_se": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "nehlasoval": {
+       "count": 1,
+       "names": [
+        "Ing. Karel Krištoufek"
+       ],
+       "raw": "(1) Ing. Karel Krištoufek"
+      },
+      "result_raw": "Návrh byl přijat jako usnesení číslo: UR-202-21/24",
+      "adopted_resolution_number": "UR-202-21/24"
+     }
+    ],
+    "resolution_numbers_mentioned": [
+     "UR-202-21/24"
+    ],
+    "raw_text": "Projednávání bodu bylo zahájeno v 16:17:47\n\nDůvodová zpráva:\nDoporučujeme schválit výše uvedenou smlouvu. Smlouva budoucí byla uzavřena v září 2022.\nDiskuze zahájena v 16:17:48\nK tomuto bodu se vyjádřili: Milan Paluska\nV 16:18:48 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Jana Najbrtová\") v tomto znění:\nRada\nměsta schvaluje uzavřít „Smlouvu o zřízení VBř-služebnosti č. IV-12-6031943/1“ mezi Městem Pečky a firmou ČEZ Distribuce, a.s. se sídlem Děčín – IV Podmokly,\nTeplická\n874/8, která se týká části pozemku v majetku města č. parc. 348/3 v k.ú.\nVelké\nChvalovice. Smlouva bude uzavřena za celkovou cenu ve výši 6.400,-Kč + DPH – podle zákona č. 151/1997 Sb. a vyhlášky č. 441/2013 Sb.\nHlasování\npro:\n(6) Ing. Martin Jedlička, Milan Paluska, Ing. Petr Dürr, Zdeněk Fejfar, Ivana Trčková, Ing. Hana Kuprová\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(1) Ing. Karel Krištoufek\nNávrh byl přijat jako usnesení číslo: UR-202-21/24\nzodpovídá:\nJana Najbrtová\ntermín:\n31. 7. 2024\nProjednávání bodu bylo ukončeno v 16:18:56"
+   },
+   {
+    "number": 7,
+    "title_raw": "Zveřejnění záměru – výpůjčka nebytového prostoru ve Velkých Chvalovicích čp. 166",
+    "heading_raw": "7. Zveřejnění záměru – výpůjčka nebytového prostoru ve Velkých Chvalovicích čp. 166 (bod číslo 7)",
+    "predkladatel": null,
+    "votes": [
+     {
+      "raw_text": "pro:\n(6) Milan Paluska, Ing. Petr Dürr, Ing. Hana Kuprová, Ing. Martin Jedlička, Ivana Trčková, Zdeněk Fejfar\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)",
+      "pro": {
+       "count": 6,
+       "names": [
+        "Milan Paluska",
+        "Ing. Petr Dürr",
+        "Ing. Hana Kuprová",
+        "Ing. Martin Jedlička",
+        "Ivana Trčková",
+        "Zdeněk Fejfar"
+       ],
+       "raw": "(6) Milan Paluska, Ing. Petr Dürr, Ing. Hana Kuprová, Ing. Martin Jedlička, Ivana Trčková, Zdeněk Fejfar"
+      },
+      "proti": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "zdrzel_se": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "nehlasoval": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "result_raw": "Návrh byl přijat jako usnesení číslo: UR-203-21/24",
+      "adopted_resolution_number": "UR-203-21/24"
+     }
+    ],
+    "resolution_numbers_mentioned": [
+     "UR-203-21/24"
+    ],
+    "raw_text": "Projednávání bodu bylo zahájeno v 16:19:20\nDůvodová zpráva:\nDoporučujeme zveřejnit záměr na výpůjčku nebytového prostoru, tak jak uvádí žadatelka ve své žádosti p.\n█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█\nNebytové prostory budou využívány na akce, které se pořádají ve Velkých Chvalovicích – dětský den, stezka odvahy, advent (pro přípravu kulturně-společenských akcí).\nDiskuze zahájena v 16:19:21\nK tomuto bodu se vyjádřili: Milan Paluska, Ing. Hana Kuprová, Ing. Petr Dürr, Ivana Trčková\nV 16:21:09 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Jana Najbrtová\") v tomto znění:\nRada\nměsta schvaluje zveřejnění záměru na výpůjčku nebytového prostoru v budově čp. 166 ve Velkých Chvalovicích (24 m\n2\n) za těchto podmínek:\nsmlouva o výpůjčce bude uzavřena od 1.7. 2024 na dobu neurčitou s výpovědní lhůtou 3 měsíce\nspolehlivost výpůjčitele\npoměrnou část za spotřebu energií hradí vypůjčitel\ndrobné úpravy provede vypůjčitel po dohodě a na vlastní náklady\nHlasování\npro:\n(6) Milan Paluska, Ing. Petr Dürr, Ing. Hana Kuprová, Ing. Martin Jedlička, Ivana Trčková, Zdeněk Fejfar\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-203-21/24\nzodpovídá:\nJana Najbrtová\ntermín:\n31. 7. 2024\nProjednávání bodu bylo ukončeno v 16:21:17"
+   },
+   {
+    "number": 8,
+    "title_raw": "Vyhlášení veřejné zakázky malého rozsahu na zhotovitele stavby: \"Oplocení MŠ MAŠINKA na ul. Tř. Jana Švermy čp. 825, Pečky - I.ETAPA\"",
+    "heading_raw": "8. Vyhlášení veřejné zakázky malého rozsahu na zhotovitele stavby: \"Oplocení MŠ MAŠINKA na ul. Tř. Jana Švermy čp. 825, Pečky - I.ETAPA\" (bod číslo 8)",
+    "predkladatel": null,
+    "votes": [
+     {
+      "raw_text": "pro:\n(6) Ing. Martin Jedlička, Ing. Petr Dürr, Ing. Hana Kuprová, Zdeněk Fejfar, Milan Paluska, Ivana Trčková\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)",
+      "pro": {
+       "count": 6,
+       "names": [
+        "Ing. Martin Jedlička",
+        "Ing. Petr Dürr",
+        "Ing. Hana Kuprová",
+        "Zdeněk Fejfar",
+        "Milan Paluska",
+        "Ivana Trčková"
+       ],
+       "raw": "(6) Ing. Martin Jedlička, Ing. Petr Dürr, Ing. Hana Kuprová, Zdeněk Fejfar, Milan Paluska, Ivana Trčková"
+      },
+      "proti": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "zdrzel_se": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "nehlasoval": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "result_raw": "Návrh byl přijat jako usnesení číslo: UR-204-21/24",
+      "adopted_resolution_number": "UR-204-21/24"
+     }
+    ],
+    "resolution_numbers_mentioned": [
+     "UR-204-21/24"
+    ],
+    "raw_text": "Projednávání bodu bylo zahájeno v 16:21:23\n\nDůvodová zpráva:\nPředkládáme Radě města ke schválení vyhlášení veřejné zakázky malého rozsahu dle Směrnice k zadávání VZMR, čl. 6\nVýběrové\nřízení - otevřená výzva. Důvodem je oslovení většího okruhu uchazečů, jelikož se jedná nejenom o zhotovení oplocení, ale i o zadláždění kamenných ploch. Přiloženy jsou všechny dokumenty výzvy. K rozdělení na dvě etapy došlo z důvodu souběhu staveb v zadní části školky a to instalace dešťové nádrže s napojením přepadu na kanalizační řád a rekonstrukce místních komunikací. V této části se jedná o etapu č.3, kde je součástí rekonstrukce i zhotovení parkovacích míst pro potřeby školky. Projektová dokumentace pro stavební povolení proto byla paní projektantkou Ing.\nTvrzovou\nupravena, je označena \"Změna\" a panem Slaničkou byl přepracován i položkový výkaz výměr. Položky označené červeně uchazeči doplní jednotně.\nNaplánování dokončení oplocení ozn. II. ETAPA , tj. vybourání zbývajícího oplocení, zhotovení nového, osazení branky, brány a doplnění zpevněné plochy není nyní možné. Předpokládaná hodnota první etapy je 2 mil. Kč bez DPH.\nPo zhotovení oplocení v první etapě vznikne téměř po celé délce v přední části místo na záhon a v polygonu u hlavního vstupu bude vysazen strom.\nDiskuze zahájena v 16:21:24\nK tomuto bodu se vyjádřili: Milan Paluska, Ing. Hana Kuprová, Ivana Trčková, Zdeněk Fejfar\nV 16:26:01 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Věra Růžičková\") v tomto znění:\nRada\nměsta schvaluje vyhlášení veřejné zakázky malého rozsahu v otevřené výzvě na zhotovitele stavby: \"Oplocení MŠ MAŠINKA na ul. Tř.\nJana\nŠvermy čp. 825, Pečky- I. ETAPA\" a ustanovení komise ve složení:\nčlenové:\nZdeněk\nFejfar\n- 1. místostarosta, Ing. Věra\nRůžičková\n- vedoucí SMM a BH, Bc.\nKvěta\nBubeníčková\n- ředitelka MŠ\nnáhradníci: Ing.\nMartin\nJedlička\n- 2. místostarosta,\nJiří\nMoravec\n- referent přípravy a realizace investic,\nLenka\nMalichová\n- zástupkyně ředitelky MŠ\nHlasování\npro:\n(6) Ing. Martin Jedlička, Ing. Petr Dürr, Ing. Hana Kuprová, Zdeněk Fejfar, Milan Paluska, Ivana Trčková\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-204-21/24\nzodpovídá:\nVěra Růžičková\ntermín:\n17. 6. 2024\nProjednávání bodu bylo ukončeno v 16:26:08"
+   },
+   {
+    "number": 9,
+    "title_raw": "Vyhlášení poptávkového řízení na poskytovatele služeb \"TDI a KBOZP na stavbě Rekonstrukce místních komunikací a vodovodní řad v části Bačov v Pečkách – 1. a 2. etapa\"",
+    "heading_raw": "9. Vyhlášení poptávkového řízení na poskytovatele služeb \"TDI a KBOZP na stavbě Rekonstrukce místních komunikací a vodovodní řad v části Bačov v Pečkách – 1. a 2. etapa\" (bod číslo 9)",
+    "predkladatel": null,
+    "votes": [
+     {
+      "raw_text": "pro:\n(6) Ing. Petr Dürr, Ing. Martin Jedlička, Milan Paluska, Zdeněk Fejfar, Ing. Hana Kuprová, Ivana Trčková\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)",
+      "pro": {
+       "count": 6,
+       "names": [
+        "Ing. Petr Dürr",
+        "Ing. Martin Jedlička",
+        "Milan Paluska",
+        "Zdeněk Fejfar",
+        "Ing. Hana Kuprová",
+        "Ivana Trčková"
+       ],
+       "raw": "(6) Ing. Petr Dürr, Ing. Martin Jedlička, Milan Paluska, Zdeněk Fejfar, Ing. Hana Kuprová, Ivana Trčková"
+      },
+      "proti": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "zdrzel_se": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "nehlasoval": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "result_raw": "Návrh byl přijat jako usnesení číslo: UR-205-21/24",
+      "adopted_resolution_number": "UR-205-21/24"
+     }
+    ],
+    "resolution_numbers_mentioned": [
+     "UR-205-21/24"
+    ],
+    "raw_text": "Projednávání bodu bylo zahájeno v 16:26:14\n\nDůvodová zpráva:\nVyhlášení poptávkového řízení na poskytovatele služeb \"Technický dozor investora a koordinátor BOZP na stavbě Rekonstrukce místních komunikací a vodovodní řad v části Bačov v Pečkách - 1. a 2. etapa\" mimo režim zákona č. 134/2016 Sb., o zadávání veřejných zakázek, ve znění pozdějších předpisů, v uzavřené výzvě dle pravidel pro VZMR 2. kategorie.\nDiskuze zahájena v 16:26:15\nK tomuto bodu se vyjádřili: Zdeněk Fejfar, Milan Paluska\nV 16:27:52 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Zdeněk Fejfar\") v tomto znění:\nRada\nměsta schvaluje vyhlášení poptávkového řízení na poskytovatele služeb \"Technický dozor investora a koordinátor BOZP na stavbě Rekonstrukce místních komunikací a vodovodní řad v části Bačov v Pečkách - 1. a 2. etapa\" mimo režim zákona č. 134/2016 Sb., o zadávání veřejných zakázek, ve znění pozdějších předpisů, v uzavřené výzvě dle pravidel pro VZMR 2. kategorie.\nHlasování\npro:\n(6) Ing. Petr Dürr, Ing. Martin Jedlička, Milan Paluska, Zdeněk Fejfar, Ing. Hana Kuprová, Ivana Trčková\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-205-21/24\nzodpovídá:\nMichala Dekiská\ntermín:\n17. 6. 2024\nProjednávání bodu bylo ukončeno v 16:28:03"
+   },
+   {
+    "number": 10,
+    "title_raw": "Vklad do Fondu obnovy kanalizace a Fondu obnovy vodovodů",
+    "heading_raw": "10. Vklad do Fondu obnovy kanalizace a Fondu obnovy vodovodů (bod číslo 10)",
+    "predkladatel": null,
+    "votes": [
+     {
+      "raw_text": "pro:\n(6) Ing. Martin Jedlička, Ing. Petr Dürr, Milan Paluska, Ing. Hana Kuprová, Ivana Trčková, Zdeněk Fejfar\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)",
+      "pro": {
+       "count": 6,
+       "names": [
+        "Ing. Martin Jedlička",
+        "Ing. Petr Dürr",
+        "Milan Paluska",
+        "Ing. Hana Kuprová",
+        "Ivana Trčková",
+        "Zdeněk Fejfar"
+       ],
+       "raw": "(6) Ing. Martin Jedlička, Ing. Petr Dürr, Milan Paluska, Ing. Hana Kuprová, Ivana Trčková, Zdeněk Fejfar"
+      },
+      "proti": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "zdrzel_se": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "nehlasoval": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "result_raw": "Návrh byl přijat jako usnesení číslo: UR-206-21/24",
+      "adopted_resolution_number": "UR-206-21/24"
+     },
+     {
+      "raw_text": "pro:\n(6) Ing. Martin Jedlička, Ivana Trčková, Ing. Hana Kuprová, Zdeněk Fejfar, Milan Paluska, Ing. Petr Dürr\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)",
+      "pro": {
+       "count": 6,
+       "names": [
+        "Ing. Martin Jedlička",
+        "Ivana Trčková",
+        "Ing. Hana Kuprová",
+        "Zdeněk Fejfar",
+        "Milan Paluska",
+        "Ing. Petr Dürr"
+       ],
+       "raw": "(6) Ing. Martin Jedlička, Ivana Trčková, Ing. Hana Kuprová, Zdeněk Fejfar, Milan Paluska, Ing. Petr Dürr"
+      },
+      "proti": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "zdrzel_se": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "nehlasoval": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "result_raw": "Návrh byl přijat jako usnesení číslo: UR-207-21/24",
+      "adopted_resolution_number": "UR-207-21/24"
+     }
+    ],
+    "resolution_numbers_mentioned": [
+     "UR-206-21/24",
+     "UR-207-21/24"
+    ],
+    "raw_text": "Projednávání bodu bylo zahájeno v 16:28:07\n\nDůvodová zpráva:\nZM schválilo Statuty fondů na obnovu vodovodů a kanalizací, dle kterých jsou prostředky fondů uloženy na samostatných bankovních účtech. Účty jsou vedeny u Raiffeissen bank, zde je možno převádět operativně prostředky na krátkodobé termínované vklady, současný úrok je 4,6 % .\nPro\nvyšší zhodnocení prostředků fondů navrhujeme schválit možnost převádět peníze fondů na TV. V roce 2024 je v rozpočtu města příjem z převodu zisku Pečeckých služeb z minulých období ve výši 5 600 000 Kč, navrhujeme tuto částku vložit do fondu obnovy kanalizací (35%) 1 960 000 Kč a fondu obnovy vodovodů (65%) 3 640 000 Kč.\nDiskuze zahájena v 16:28:08\nK tomuto bodu se vyjádřili: Milan Paluska, Zdeněk Fejfar, Ing. Hana Kuprová\nV 16:38:05 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Milan Paluska\") v tomto znění:\nRada\nměsta doporučuje zastupitelstvu města schválit mimořádný vklad do fondu obnovy kanalizací ve výši 1 960 000 Kč a mimořádný vklad do fondu obnovy vodovodů 3 640 000 Kč.\nHlasování\npro:\n(6) Ing. Martin Jedlička, Ing. Petr Dürr, Milan Paluska, Ing. Hana Kuprová, Ivana Trčková, Zdeněk Fejfar\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-206-21/24\nzodpovídá:\nMarcela Bahníková\ntermín:\n19. 6. 2024\nV 16:38:35 předsedající zahájil hlasování o návrhu usnesení \"B\" (navrhovatel: \"Milan Paluska\") v tomto znění:\nRada\nměsta doporučuje zastupitelstvu města schválit možnost ukládat volné prostředky fondů obnovy kanalizace a vodovodů na termínované vklady.\nHlasování\npro:\n(6) Ing. Martin Jedlička, Ivana Trčková, Ing. Hana Kuprová, Zdeněk Fejfar, Milan Paluska, Ing. Petr Dürr\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-207-21/24\nzodpovídá:\nMarcela Bahníková\ntermín:\n19. 6. 2024\nProjednávání bodu bylo ukončeno v 16:38:44"
+   },
+   {
+    "number": 11,
+    "title_raw": "Kontrola plnění usnesení",
+    "heading_raw": "11. Kontrola plnění usnesení (bod číslo 11)",
+    "predkladatel": null,
+    "votes": [],
+    "resolution_numbers_mentioned": [],
+    "raw_text": "Projednávání bodu bylo zahájeno v 16:38:48\nDiskuze zahájena v 16:38:49\nK tomuto bodu se vyjádřili: Milan Paluska, Pavlína Nepovímová\nRada bere materiály předložené k bodu č. 11 -\nKontrola plnění usnesení\nna vědomí.\nProjednávání bodu bylo ukončeno v 16:41:04"
+   },
+   {
+    "number": 12,
+    "title_raw": "Diskuse, různé",
+    "heading_raw": "12. Diskuse, různé (bod číslo 12)",
+    "predkladatel": null,
+    "votes": [],
+    "resolution_numbers_mentioned": [],
+    "raw_text": "Projednávání bodu bylo zahájeno v 16:41:08\nDiskuze zahájena v 16:41:09\nK tomuto bodu se vyjádřili: Milan Paluska, Ing. Martin Jedlička, Ivana Trčková\nRada bere materiály předložené k bodu č. 12 -\nDiskuse, různé\nna vědomí.\nProjednávání bodu bylo ukončeno v 16:54:04"
+   },
+   {
+    "number": 13,
+    "title_raw": "Úkoly vyplývající z jednání rady města",
+    "heading_raw": "13. Úkoly vyplývající z jednání rady města (bod číslo 13)",
+    "predkladatel": null,
+    "votes": [
+     {
+      "raw_text": "pro:\n(6) Ing. Petr Dürr, Ing. Hana Kuprová, Ing. Martin Jedlička, Ivana Trčková, Zdeněk Fejfar, Milan Paluska\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)",
+      "pro": {
+       "count": 6,
+       "names": [
+        "Ing. Petr Dürr",
+        "Ing. Hana Kuprová",
+        "Ing. Martin Jedlička",
+        "Ivana Trčková",
+        "Zdeněk Fejfar",
+        "Milan Paluska"
+       ],
+       "raw": "(6) Ing. Petr Dürr, Ing. Hana Kuprová, Ing. Martin Jedlička, Ivana Trčková, Zdeněk Fejfar, Milan Paluska"
+      },
+      "proti": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "zdrzel_se": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "nehlasoval": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "result_raw": "Návrh byl přijat jako usnesení číslo: UR-208-21/24",
+      "adopted_resolution_number": "UR-208-21/24"
+     }
+    ],
+    "resolution_numbers_mentioned": [
+     "UR-208-21/24"
+    ],
+    "raw_text": "Projednávání bodu bylo zahájeno v 16:54:08\nDiskuze zahájena v 16:54:09\nK tomuto bodu se vyjádřili: Milan Paluska, Ing. Martin Jedlička\nV 16:57:57 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Milan Paluska\") v tomto znění:\nRada\nměsta ukládá Ing. Janě\nZindrové\n, referentce oddělení dopravy kontaktovat KSÚS Středočeského kraje o zjednání nápravy odvodnění komunikace ulice Chvalovická, křižovatka ulice V Kaštánkách, Pečky.\nHlasování\npro:\n(6) Ing. Petr Dürr, Ing. Hana Kuprová, Ing. Martin Jedlička, Ivana Trčková, Zdeněk Fejfar, Milan Paluska\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-208-21/24\nzodpovídá:\nJana Zindrová\ntermín:\n31. 8. 2024\nProjednávání bodu bylo ukončeno v 17:00:22\nJednání ukončeno 03.06.2024 v 17:00:37\n\nOvěřeno ověřovateli:\n1)\n4. 6. 2024 10:26\nIvana Trčková\n2)\n4. 6. 2024 11:15\nIng. Martin Jedlička"
+   }
+  ],
+  "full_text": "ZÁPIS ze schůze rady č. 21/2024\nMěsto Pečky\ndatum: 3. 6. 2024, čas: 15:00\n​\nPrezence:\nPřítomni:\n(5) Milan Paluska, Zdeněk Fejfar, Ing. Karel Krištoufek, Ing. Martin Jedlička, Ivana Trčková\nOmluveni:\n(0)\nNepřítomni:\n(2) Ing. Petr Dürr, Ing. Hana Kuprová\nHosté:\nZapisovatel/ka:\nEva Strnadová\nPřítomno je 5 členů a rada je usnášeníschopná.\nJednání zahájeno 03.06.2024 v 15:03:39\n1. Určení zapisovatelů, předsedajícího, příp. ověřovatelů (bod číslo 1)\nPředkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 15:03:59\nPředsedající navrhl jednotlivé členy pracovních komisí\nOvěřovatelé:\nIvana Trčková, Ing. Martin Jedlička\nPředsedající:\nMilan Paluska\nBod byl přijat bez hlasování.\nDiskuze zahájena v 15:04:00\nK tomuto bodu se vyjádřili: Milan Paluska\nProjednávání bodu bylo ukončeno v 15:04:08\n2. Schválení programu jednání (bod číslo 2)\nPředkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 15:04:15\nProgram jednání\n1. Určení zapisovatelů, předsedajícího, příp. ověřovatelů\n2. Schválení programu jednání\n3. Aktuální informace vedení města\n4. Místní koeficient daně z nemovitých věcí - úkol UR-199-20/24\n5. Seznam komunikací a chodníků - úkol UR-164-15/24\n6. Uzavření \"Smlouvy o zřízení VBř-služebnosti č. IV-12-6031943/1“ s firmou ČEZ Distribuce\n7. Zveřejnění záměru – výpůjčka nebytového prostoru ve Velkých Chvalovicích čp. 166\n8. Vyhlášení veřejné zakázky malého rozsahu na zhotovitele stavby: \"Oplocení MŠ MAŠINKA na ul. Tř. Jana Švermy čp. 825, Pečky - I.ETAPA\"\n9. Vyhlášení VŘ na poskytovatele služeb \"TDI a KBOZP na stavbě Rekonstrukce místních komunikací a vodovodní řad v části Bačov v Pečkách – 1. a 2. etapa\"\n10. Vklad do Fondu obnovy kanalizace a Fondu obnovy vodovodů\n11. Kontrola plnění usnesení\n12. Diskuse, různé\n13. Úkoly vyplývající z jednání rady města\nDiskuze zahájena v 15:04:16\nK tomuto bodu se vyjádřili: Milan Paluska\nV 15:04:44 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Milan Paluska\") v tomto znění:\nRada města\nschvaluje návrh programu jednání.\nHlasování\npro:\n(5) Ing. Karel Krištoufek, Milan Paluska, Ivana Trčková, Ing. Martin Jedlička, Zdeněk Fejfar\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-201-21/24\nzodpovídá:\ntermín:\nIHNED\n(3. 6. 2024)\nProjednávání bodu bylo ukončeno v 15:04:52\n3. Aktuální informace vedení města (bod číslo 3)\nPředkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 15:04:55\nDůvodová zpráva:\nstarosta města\n- informace o kontrolním dni na stavbě \"Kabiny AFK Pečky\" - finalizace vzduchotechniky, pokládka dlažby a zhotovení sádrokartonů, kontrolní den 4.6.2024\n- informace o kontrolním dní na stavbě \"Pokládka optických kabelů na sídlišti\"\n- informace o sekání zeleně u silnic v okolí\nPeček\n- jednání s cestmistrem KSÚS Středočeského kraje\n- informace o konání Župního sletu v Pečkách - kladné hodnocení akce, vyčíslení ceny za poškození trávníku na hřišti AFK Pečky\n- informace o odstranění lávky přes řeku Výrovku z technických důvodů /stavební práce vedoucí ke zvýšení lávky/, poté dojde k opětovnému umístění lávky\n- informace o žádosti paní\n█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​\nve věci sezónního pronájmu prostranství v parku u kašny na náměstí k umístění posezení\n- informace o zveřejnění Návrhu závěrečného účtu za rok 2023 na úřední desce po dobu 15 dní\nZdeněk\nFejfar\n- informace o návštěvě obce Oleška ve věci prohlídky stavby z monolitické betonové konstrukce, uvažuje se o budoucí rekonstrukci objektu \"prameniště\" v Tatcích\nDiskuze zahájena v 15:04:56\nK tomuto bodu se vyjádřili: Milan Paluska, Ing. Karel Krištoufek, Zdeněk Fejfar, Ivana Trčková, Ing. Martin Jedlička\nV 15:25:44 přišel Ing. Petr Dürr, přítomno 6 radních.\nAktualizovaný stav prezence:\nPřítomni:\n(6) Milan Paluska, Zdeněk Fejfar, Ing. Karel Krištoufek, Ing. Martin Jedlička, Ivana Trčková, Ing. Petr Dürr\nOmluveni:\n(0)\nNepřítomni:\n(1) Ing. Hana Kuprová\nV 15:30:29 přišla Ing. Hana Kuprová, přítomno 7 radních.\nAktualizovaný stav prezence:\nPřítomni:\n(7) Milan Paluska, Zdeněk Fejfar, Ing. Karel Krištoufek, Ing. Martin Jedlička, Ivana Trčková, Ing. Petr Dürr, Ing. Hana Kuprová\nOmluveni:\n(0)\nNepřítomni:\n(0)\nRada bere materiály předložené k bodu č. 3 -\nAktuální informace vedení města\nna vědomí.\nProjednávání bodu bylo ukončeno v 15:54:09\n4. Místní koeficient daně z nemovitých věcí - úkol UR-199-20/24 (bod číslo 4)\nPředkladatel: Marcela Bahníková\nProjednávání bodu bylo zahájeno v 15:54:13\nDůvodová zpráva:\nOZV předložená na minulém jednání RM by zabránila poklesu výnosu daně z nemovitých věcí v roce 2025 z důvodu změny zákona ( zrušení dosavadního koeficientu 1,5 ). Předpokládaný pokles daní při neschválení vyhlášky by byl cca 1,5 mil Kč.\nZ dostupných údajů vychází vliv\nstanovení místního koeficientu u vybraných nemovitostí ( objekty k rekreaci, garáže a objekty k podnikání ) takto : z\nvýšení koeficientu o 0,1 znamená cca 300 tis. Kč.\nZvýšení celkové daně o cca 2,5 mil navíc by odpovídal koeficient 2,4. Výpočet je orientační a vychází z doložených údajů roku 2023 a nových sazeb daně roku 2024.\nRozbor daňových příjmů z roku 2023 od FÚ\nKolín\nje v příloze.\nDiskuze zahájena v 15:54:14\nK tomuto bodu se vyjádřili: Milan Paluska, Ing. Karel Krištoufek, Ing. Hana Kuprová, Ivana Trčková, Ing. Petr Dürr\nRada bere materiály předložené k bodu č. 4 -\nMístní koeficient daně z nemovitých věcí - úkol UR-199-20/24\nna vědomí.\nProjednávání bodu bylo ukončeno v 16:07:48\n5. Seznam komunikací a chodníků - úkol UR-164-15/24 (bod číslo 5)\nPředkladatel: Pavlína Nepovímová\nProjednávání bodu bylo zahájeno v 16:07:53\nDůvodová zpráva:\nNa základě úkolu od Rady města předkládáme seznam chodníků a komunikací v k.ú. Pečky a\nVelké\nChvalovice, které jsou vhodné k rekonstrukci.\nRada\nměsta bere na vědomí informaci o zařazení chodníků a komunikací do plánu oprav.\nDiskuze zahájena v 16:07:54\nK tomuto bodu se vyjádřili: Milan Paluska, Ing. Karel Krištoufek, Ivana Trčková, Zdeněk Fejfar\nRada bere materiály předložené k bodu č. 5 -\nSeznam komunikací a chodníků - úkol UR-164-15/24\nna vědomí.\nProjednávání bodu bylo ukončeno v 16:17:44\n6. Uzavření \"Smlouvy o zřízení VBř-služebnosti č. IV-12-6031943/1“ s firmou ČEZ Distribuce (bod číslo 6)\nPředkladatel: Jana Najbrtová\nProjednávání bodu bylo zahájeno v 16:17:47\nDůvodová zpráva:\nDoporučujeme schválit výše uvedenou smlouvu. Smlouva budoucí byla uzavřena v září 2022.\nDiskuze zahájena v 16:17:48\nK tomuto bodu se vyjádřili: Milan Paluska\nV 16:18:48 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Jana Najbrtová\") v tomto znění:\nRada\nměsta schvaluje uzavřít „Smlouvu o zřízení VBř-služebnosti č. IV-12-6031943/1“ mezi Městem Pečky a firmou ČEZ Distribuce, a.s. se sídlem Děčín – IV Podmokly,\nTeplická\n874/8, která se týká části pozemku v majetku města č. parc. 348/3 v k.ú.\nVelké\nChvalovice. Smlouva bude uzavřena za celkovou cenu ve výši 6.400,-Kč + DPH – podle zákona č. 151/1997 Sb. a vyhlášky č. 441/2013 Sb.\nHlasování\npro:\n(6) Ing. Martin Jedlička, Milan Paluska, Ing. Petr Dürr, Zdeněk Fejfar, Ivana Trčková, Ing. Hana Kuprová\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(1) Ing. Karel Krištoufek\nNávrh byl přijat jako usnesení číslo: UR-202-21/24\nzodpovídá:\nJana Najbrtová\ntermín:\n31. 7. 2024\nProjednávání bodu bylo ukončeno v 16:18:56\nV 16:19:04 odešel Ing. Karel Krištoufek, přítomno 6 radních.\nAktualizovaný stav prezence:\nPřítomni:\n(6) Milan Paluska, Zdeněk Fejfar, Ing. Martin Jedlička, Ivana Trčková, Ing. Petr Dürr, Ing. Hana Kuprová\nOmluveni:\n(0)\nNepřítomni:\n(1) Ing. Karel Krištoufek\n7. Zveřejnění záměru – výpůjčka nebytového prostoru ve Velkých Chvalovicích čp. 166 (bod číslo 7)\nPředkladatel: Jana Najbrtová\nProjednávání bodu bylo zahájeno v 16:19:20\nDůvodová zpráva:\nDoporučujeme zveřejnit záměr na výpůjčku nebytového prostoru, tak jak uvádí žadatelka ve své žádosti p.\n█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​\nNebytové prostory budou využívány na akce, které se pořádají ve Velkých Chvalovicích – dětský den, stezka odvahy, advent (pro přípravu kulturně-společenských akcí).\nDiskuze zahájena v 16:19:21\nK tomuto bodu se vyjádřili: Milan Paluska, Ing. Hana Kuprová, Ing. Petr Dürr, Ivana Trčková\nV 16:21:09 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Jana Najbrtová\") v tomto znění:\nRada\nměsta schvaluje zveřejnění záměru na výpůjčku nebytového prostoru v budově čp. 166 ve Velkých Chvalovicích (24 m\n2\n) za těchto podmínek:\nsmlouva o výpůjčce bude uzavřena od 1.7. 2024 na dobu neurčitou s výpovědní lhůtou 3 měsíce\nspolehlivost výpůjčitele\npoměrnou část za spotřebu energií hradí vypůjčitel\ndrobné úpravy provede vypůjčitel po dohodě a na vlastní náklady\nHlasování\npro:\n(6) Milan Paluska, Ing. Petr Dürr, Ing. Hana Kuprová, Ing. Martin Jedlička, Ivana Trčková, Zdeněk Fejfar\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-203-21/24\nzodpovídá:\nJana Najbrtová\ntermín:\n31. 7. 2024\nProjednávání bodu bylo ukončeno v 16:21:17\n8. Vyhlášení veřejné zakázky malého rozsahu na zhotovitele stavby: \"Oplocení MŠ MAŠINKA na ul. Tř. Jana Švermy čp. 825, Pečky - I.ETAPA\" (bod číslo 8)\nPředkladatel: Věra Růžičková\nProjednávání bodu bylo zahájeno v 16:21:23\nDůvodová zpráva:\nPředkládáme Radě města ke schválení vyhlášení veřejné zakázky malého rozsahu dle Směrnice k zadávání VZMR, čl. 6\nVýběrové\nřízení - otevřená výzva. Důvodem je oslovení většího okruhu uchazečů, jelikož se jedná nejenom o zhotovení oplocení, ale i o zadláždění kamenných ploch. Přiloženy jsou všechny dokumenty výzvy. K rozdělení na dvě etapy došlo z důvodu souběhu staveb v zadní části školky a to instalace dešťové nádrže s napojením přepadu na kanalizační řád a rekonstrukce místních komunikací. V této části se jedná o etapu č.3, kde je součástí rekonstrukce i zhotovení parkovacích míst pro potřeby školky. Projektová dokumentace pro stavební povolení proto byla paní projektantkou Ing.\nTvrzovou\nupravena, je označena \"Změna\" a panem Slaničkou byl přepracován i položkový výkaz výměr. Položky označené červeně uchazeči doplní jednotně.\nNaplánování dokončení oplocení ozn. II. ETAPA , tj. vybourání zbývajícího oplocení, zhotovení nového, osazení branky, brány a doplnění zpevněné plochy není nyní možné. Předpokládaná hodnota první etapy je 2 mil. Kč bez DPH.\nPo zhotovení oplocení v první etapě vznikne téměř po celé délce v přední části místo na záhon a v polygonu u hlavního vstupu bude vysazen strom.\nDiskuze zahájena v 16:21:24\nK tomuto bodu se vyjádřili: Milan Paluska, Ing. Hana Kuprová, Ivana Trčková, Zdeněk Fejfar\nV 16:26:01 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Věra Růžičková\") v tomto znění:\nRada\nměsta schvaluje vyhlášení veřejné zakázky malého rozsahu v otevřené výzvě na zhotovitele stavby: \"Oplocení MŠ MAŠINKA na ul. Tř.\nJana\nŠvermy čp. 825, Pečky- I. ETAPA\" a ustanovení komise ve složení:\nčlenové:\nZdeněk\nFejfar\n- 1. místostarosta, Ing. Věra\nRůžičková\n- vedoucí SMM a BH, Bc.\nKvěta\nBubeníčková\n- ředitelka MŠ\nnáhradníci: Ing.\nMartin\nJedlička\n- 2. místostarosta,\nJiří\nMoravec\n- referent přípravy a realizace investic,\nLenka\nMalichová\n- zástupkyně ředitelky MŠ\nHlasování\npro:\n(6) Ing. Martin Jedlička, Ing. Petr Dürr, Ing. Hana Kuprová, Zdeněk Fejfar, Milan Paluska, Ivana Trčková\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-204-21/24\nzodpovídá:\nVěra Růžičková\ntermín:\n17. 6. 2024\nProjednávání bodu bylo ukončeno v 16:26:08\n9. Vyhlášení poptávkového řízení na poskytovatele služeb \"TDI a KBOZP na stavbě Rekonstrukce místních komunikací a vodovodní řad v části Bačov v Pečkách – 1. a 2. etapa\" (bod číslo 9)\nPředkladatel: Zdeněk Fejfar\nProjednávání bodu bylo zahájeno v 16:26:14\nDůvodová zpráva:\nVyhlášení poptávkového řízení na poskytovatele služeb \"Technický dozor investora a koordinátor BOZP na stavbě Rekonstrukce místních komunikací a vodovodní řad v části Bačov v Pečkách - 1. a 2. etapa\" mimo režim zákona č. 134/2016 Sb., o zadávání veřejných zakázek, ve znění pozdějších předpisů, v uzavřené výzvě dle pravidel pro VZMR 2. kategorie.\nDiskuze zahájena v 16:26:15\nK tomuto bodu se vyjádřili: Zdeněk Fejfar, Milan Paluska\nV 16:27:52 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Zdeněk Fejfar\") v tomto znění:\nRada\nměsta schvaluje vyhlášení poptávkového řízení na poskytovatele služeb \"Technický dozor investora a koordinátor BOZP na stavbě Rekonstrukce místních komunikací a vodovodní řad v části Bačov v Pečkách - 1. a 2. etapa\" mimo režim zákona č. 134/2016 Sb., o zadávání veřejných zakázek, ve znění pozdějších předpisů, v uzavřené výzvě dle pravidel pro VZMR 2. kategorie.\nHlasování\npro:\n(6) Ing. Petr Dürr, Ing. Martin Jedlička, Milan Paluska, Zdeněk Fejfar, Ing. Hana Kuprová, Ivana Trčková\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-205-21/24\nzodpovídá:\nMichala Dekiská\ntermín:\n17. 6. 2024\nProjednávání bodu bylo ukončeno v 16:28:03\n10. Vklad do Fondu obnovy kanalizace a Fondu obnovy vodovodů (bod číslo 10)\nPředkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 16:28:07\nDůvodová zpráva:\nZM schválilo Statuty fondů na obnovu vodovodů a kanalizací, dle kterých jsou prostředky fondů uloženy na samostatných bankovních účtech. Účty jsou vedeny u Raiffeissen bank, zde je možno převádět operativně prostředky na krátkodobé termínované vklady, současný úrok je 4,6 % .\nPro\nvyšší zhodnocení prostředků fondů navrhujeme schválit možnost převádět peníze fondů na TV. V roce 2024 je v rozpočtu města příjem z převodu zisku Pečeckých služeb z minulých období ve výši 5 600 000 Kč, navrhujeme tuto částku vložit do fondu obnovy kanalizací (35%) 1 960 000 Kč a fondu obnovy vodovodů (65%) 3 640 000 Kč.\nDiskuze zahájena v 16:28:08\nK tomuto bodu se vyjádřili: Milan Paluska, Zdeněk Fejfar, Ing. Hana Kuprová\nV 16:38:05 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Milan Paluska\") v tomto znění:\nRada\nměsta doporučuje zastupitelstvu města schválit mimořádný vklad do fondu obnovy kanalizací ve výši 1 960 000 Kč a mimořádný vklad do fondu obnovy vodovodů 3 640 000 Kč.\nHlasování\npro:\n(6) Ing. Martin Jedlička, Ing. Petr Dürr, Milan Paluska, Ing. Hana Kuprová, Ivana Trčková, Zdeněk Fejfar\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-206-21/24\nzodpovídá:\nMarcela Bahníková\ntermín:\n19. 6. 2024\nV 16:38:35 předsedající zahájil hlasování o návrhu usnesení \"B\" (navrhovatel: \"Milan Paluska\") v tomto znění:\nRada\nměsta doporučuje zastupitelstvu města schválit možnost ukládat volné prostředky fondů obnovy kanalizace a vodovodů na termínované vklady.\nHlasování\npro:\n(6) Ing. Martin Jedlička, Ivana Trčková, Ing. Hana Kuprová, Zdeněk Fejfar, Milan Paluska, Ing. Petr Dürr\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-207-21/24\nzodpovídá:\nMarcela Bahníková\ntermín:\n19. 6. 2024\nProjednávání bodu bylo ukončeno v 16:38:44\n11. Kontrola plnění usnesení (bod číslo 11)\nPředkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 16:38:48\nDiskuze zahájena v 16:38:49\nK tomuto bodu se vyjádřili: Milan Paluska, Pavlína Nepovímová\nRada bere materiály předložené k bodu č. 11 -\nKontrola plnění usnesení\nna vědomí.\nProjednávání bodu bylo ukončeno v 16:41:04\n12. Diskuse, různé (bod číslo 12)\nPředkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 16:41:08\nDiskuze zahájena v 16:41:09\nK tomuto bodu se vyjádřili: Milan Paluska, Ing. Martin Jedlička, Ivana Trčková\nRada bere materiály předložené k bodu č. 12 -\nDiskuse, různé\nna vědomí.\nProjednávání bodu bylo ukončeno v 16:54:04\n13. Úkoly vyplývající z jednání rady města (bod číslo 13)\nPředkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 16:54:08\nDiskuze zahájena v 16:54:09\nK tomuto bodu se vyjádřili: Milan Paluska, Ing. Martin Jedlička\nV 16:57:57 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Milan Paluska\") v tomto znění:\nRada\nměsta ukládá Ing. Janě\nZindrové\n, referentce oddělení dopravy kontaktovat KSÚS Středočeského kraje o zjednání nápravy odvodnění komunikace ulice Chvalovická, křižovatka ulice V Kaštánkách, Pečky.\nHlasování\npro:\n(6) Ing. Petr Dürr, Ing. Hana Kuprová, Ing. Martin Jedlička, Ivana Trčková, Zdeněk Fejfar, Milan Paluska\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-208-21/24\nzodpovídá:\nJana Zindrová\ntermín:\n31. 8. 2024\nProjednávání bodu bylo ukončeno v 17:00:22\nJednání ukončeno 03.06.2024 v 17:00:37\nOvěřeno ověřovateli:\n1)\n4. 6. 2024 10:26\nIvana Trčková\n2)\n4. 6. 2024 11:15\nIng. Martin Jedlička"
+ },
+ "resolutions": {
+  "status": "ok",
+  "url": "https://mesto-pecky.usneseni.cz/verejne/c0374b2b-1cbf-11ef-95ef-00505683238f/usneseni/",
+  "fetched_at": "2026-08-04T13:49:53.868067+00:00",
+  "items": [
+   {
+    "number_raw": "UR-201-21/24",
+    "detail_id": 66328,
+    "detail_url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/66328?mod=rada",
+    "agenda_item_raw": "Schválení programu jednání",
+    "text_verbatim": "Rada města\nschvaluje návrh programu jednání.",
+    "cell_text_raw": "Bod programu:\nSchválení programu jednání\nText přijatého usnesení:\nRada města\nschvaluje návrh programu jednání.",
+    "date_raw": "3. 6. 2024",
+    "date_iso": "2024-06-03",
+    "responsible_raw": "",
+    "deadline_raw": "IHNED (3. 6. 2024)",
+    "vote": {
+     "raw_text": "pro: 5 proti: 0 zdržel se: 0",
+     "pro": {
+      "count": 5,
+      "names": null,
+      "raw": "5"
+     },
+     "proti": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     },
+     "zdrzel_se": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     }
+    },
+    "detail": {
+     "number_raw": "UR-201-21/24",
+     "text_verbatim": "Rada města schvaluje návrh programu jednání.",
+     "typ_raw": null,
+     "zodpovida_raw": "",
+     "prijato_raw": "3. 6. 2024 na jednání č. 21/2024",
+     "prijato_date_iso": "2024-06-03",
+     "prijato_meeting_label": "21/2024",
+     "termin_raw": "IHNED (3. 6. 2024)",
+     "ukonceno_raw": "3. 6. 2024",
+     "ukonceno_date_iso": "2024-06-03",
+     "fields_raw": {
+      "Číslo usnesení": "UR-201-21/24",
+      "Text usnesení": "Rada města schvaluje návrh programu jednání.",
+      "Zodpovídá": "",
+      "Přijato": "3. 6. 2024 na jednání č. 21/2024",
+      "Termín": "IHNED (3. 6. 2024)",
+      "Ukončeno": "3. 6. 2024"
+     }
+    }
+   },
+   {
+    "number_raw": "UR-202-21/24",
+    "detail_id": 66458,
+    "detail_url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/66458?mod=rada",
+    "agenda_item_raw": "Uzavření \"Smlouvy o zřízení VBř-služebnosti č. IV-12-6031943/1“ s firmou ČEZ Distribuce",
+    "text_verbatim": "Rada\nměsta schvaluje uzavřít „Smlouvu o zřízení VBř-služebnosti č. IV-12-6031943/1“ mezi Městem Pečky a firmou ČEZ Distribuce, a.s. se sídlem Děčín – IV Podmokly,\nTeplická\n874/8, která se týká části pozemku v majetku města č. parc. 348/3 v k.ú.\nVelké\nChvalovice. Smlouva bude uzavřena za celkovou cenu ve výši 6.400,-Kč + DPH – podle zákona č. 151/1997 Sb. a vyhlášky č. 441/2013 Sb.",
+    "cell_text_raw": "Bod programu:\nUzavření \"Smlouvy o zřízení VBř-služebnosti č. IV-12-6031943/1“ s firmou ČEZ Distribuce\nText přijatého usnesení:\nRada\nměsta schvaluje uzavřít „Smlouvu o zřízení VBř-služebnosti č. IV-12-6031943/1“ mezi Městem Pečky a firmou ČEZ Distribuce, a.s. se sídlem Děčín – IV Podmokly,\nTeplická\n874/8, která se týká části pozemku v majetku města č. parc. 348/3 v k.ú.\nVelké\nChvalovice. Smlouva bude uzavřena za celkovou cenu ve výši 6.400,-Kč + DPH – podle zákona č. 151/1997 Sb. a vyhlášky č. 441/2013 Sb.",
+    "date_raw": "3. 6. 2024",
+    "date_iso": "2024-06-03",
+    "responsible_raw": "Jana Najbrtová",
+    "deadline_raw": "31. 7. 2024",
+    "vote": {
+     "raw_text": "pro: 6 proti: 0 zdržel se: 0",
+     "pro": {
+      "count": 6,
+      "names": null,
+      "raw": "6"
+     },
+     "proti": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     },
+     "zdrzel_se": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     }
+    },
+    "detail": {
+     "number_raw": "UR-202-21/24",
+     "text_verbatim": "Rada města schvaluje uzavřít „Smlouvu o zřízení VBř-služebnosti č. IV-12-6031943/1“ mezi Městem Pečky a firmou ČEZ Distribuce, a.s. se sídlem Děčín – IV Podmokly, Teplická 874/8, která se týká části pozemku v majetku města č. parc. 348/3 v k.ú. Velké Chvalovice. Smlouva bude uzavřena za celkovou cenu ve výši 6.400,-Kč + DPH – podle zákona č. 151/1997 Sb. a vyhlášky č. 441/2013 Sb.",
+     "typ_raw": null,
+     "zodpovida_raw": "Jana Najbrtová",
+     "prijato_raw": "3. 6. 2024 na jednání č. 21/2024",
+     "prijato_date_iso": "2024-06-03",
+     "prijato_meeting_label": "21/2024",
+     "termin_raw": "31. 7. 2024",
+     "ukonceno_raw": "19. 6. 2024",
+     "ukonceno_date_iso": "2024-06-19",
+     "fields_raw": {
+      "Číslo usnesení": "UR-202-21/24",
+      "Text usnesení": "Rada města schvaluje uzavřít „Smlouvu o zřízení VBř-služebnosti č. IV-12-6031943/1“ mezi Městem Pečky a firmou ČEZ Distribuce, a.s. se sídlem Děčín – IV Podmokly, Teplická 874/8, která se týká části pozemku v majetku města č. parc. 348/3 v k.ú. Velké Chvalovice. Smlouva bude uzavřena za celkovou cenu ve výši 6.400,-Kč + DPH – podle zákona č. 151/1997 Sb. a vyhlášky č. 441/2013 Sb.",
+      "Zodpovídá": "Jana Najbrtová",
+      "Přijato": "3. 6. 2024 na jednání č. 21/2024",
+      "Termín": "31. 7. 2024",
+      "Ukončeno": "19. 6. 2024"
+     }
+    }
+   },
+   {
+    "number_raw": "UR-203-21/24",
+    "detail_id": 66460,
+    "detail_url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/66460?mod=rada",
+    "agenda_item_raw": "Zveřejnění záměru – výpůjčka nebytového prostoru ve Velkých Chvalovicích čp. 166",
+    "text_verbatim": "Rada\nměsta schvaluje zveřejnění záměru na výpůjčku nebytového prostoru v budově čp. 166 ve Velkých Chvalovicích (24 m\n2\n) za těchto podmínek:\nsmlouva o výpůjčce bude uzavřena od 1.7. 2024 na dobu neurčitou s výpovědní lhůtou 3 měsíce\nspolehlivost výpůjčitele\npoměrnou část za spotřebu energií hradí vypůjčitel\ndrobné úpravy provede vypůjčitel po dohodě a na vlastní náklady",
+    "cell_text_raw": "Bod programu:\nZveřejnění záměru – výpůjčka nebytového prostoru ve Velkých Chvalovicích čp. 166\nText přijatého usnesení:\nRada\nměsta schvaluje zveřejnění záměru na výpůjčku nebytového prostoru v budově čp. 166 ve Velkých Chvalovicích (24 m\n2\n) za těchto podmínek:\nsmlouva o výpůjčce bude uzavřena od 1.7. 2024 na dobu neurčitou s výpovědní lhůtou 3 měsíce\nspolehlivost výpůjčitele\npoměrnou část za spotřebu energií hradí vypůjčitel\ndrobné úpravy provede vypůjčitel po dohodě a na vlastní náklady",
+    "date_raw": "3. 6. 2024",
+    "date_iso": "2024-06-03",
+    "responsible_raw": "Jana Najbrtová",
+    "deadline_raw": "31. 7. 2024",
+    "vote": {
+     "raw_text": "pro: 6 proti: 0 zdržel se: 0",
+     "pro": {
+      "count": 6,
+      "names": null,
+      "raw": "6"
+     },
+     "proti": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     },
+     "zdrzel_se": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     }
+    },
+    "detail": {
+     "number_raw": "UR-203-21/24",
+     "text_verbatim": "Rada města schvaluje zveřejnění záměru na výpůjčku nebytového prostoru v budově čp. 166 ve Velkých Chvalovicích (24 m 2 ) za těchto podmínek: smlouva o výpůjčce bude uzavřena od 1.7. 2024 na dobu neurčitou s výpovědní lhůtou 3 měsíce spolehlivost výpůjčitele poměrnou část za spotřebu energií hradí vypůjčitel drobné úpravy provede vypůjčitel po dohodě a na vlastní náklady",
+     "typ_raw": null,
+     "zodpovida_raw": "Jana Najbrtová",
+     "prijato_raw": "3. 6. 2024 na jednání č. 21/2024",
+     "prijato_date_iso": "2024-06-03",
+     "prijato_meeting_label": "21/2024",
+     "termin_raw": "31. 7. 2024",
+     "ukonceno_raw": "19. 6. 2024",
+     "ukonceno_date_iso": "2024-06-19",
+     "fields_raw": {
+      "Číslo usnesení": "UR-203-21/24",
+      "Text usnesení": "Rada města schvaluje zveřejnění záměru na výpůjčku nebytového prostoru v budově čp. 166 ve Velkých Chvalovicích (24 m 2 ) za těchto podmínek: smlouva o výpůjčce bude uzavřena od 1.7. 2024 na dobu neurčitou s výpovědní lhůtou 3 měsíce spolehlivost výpůjčitele poměrnou část za spotřebu energií hradí vypůjčitel drobné úpravy provede vypůjčitel po dohodě a na vlastní náklady",
+      "Zodpovídá": "Jana Najbrtová",
+      "Přijato": "3. 6. 2024 na jednání č. 21/2024",
+      "Termín": "31. 7. 2024",
+      "Ukončeno": "19. 6. 2024"
+     }
+    }
+   },
+   {
+    "number_raw": "UR-204-21/24",
+    "detail_id": 66614,
+    "detail_url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/66614?mod=rada",
+    "agenda_item_raw": "Vyhlášení veřejné zakázky malého rozsahu na zhotovitele stavby: \"Oplocení MŠ MAŠINKA na ul. Tř. Jana Švermy čp. 825, Pečky - I.ETAPA\"",
+    "text_verbatim": "Rada\nměsta schvaluje vyhlášení veřejné zakázky malého rozsahu v otevřené výzvě na zhotovitele stavby: \"Oplocení MŠ MAŠINKA na ul. Tř.\nJana\nŠvermy čp. 825, Pečky- I. ETAPA\" a ustanovení komise ve složení:\nčlenové:\nZdeněk\nFejfar\n- 1. místostarosta, Ing. Věra\nRůžičková\n- vedoucí SMM a BH, Bc.\nKvěta\nBubeníčková\n- ředitelka MŠ\nnáhradníci: Ing.\nMartin\nJedlička\n- 2. místostarosta,\nJiří\nMoravec\n- referent přípravy a realizace investic,\nLenka\nMalichová\n- zástupkyně ředitelky MŠ",
+    "cell_text_raw": "Bod programu:\nVyhlášení veřejné zakázky malého rozsahu na zhotovitele stavby: \"Oplocení MŠ MAŠINKA na ul. Tř. Jana Švermy čp. 825, Pečky - I.ETAPA\"\nText přijatého usnesení:\nRada\nměsta schvaluje vyhlášení veřejné zakázky malého rozsahu v otevřené výzvě na zhotovitele stavby: \"Oplocení MŠ MAŠINKA na ul. Tř.\nJana\nŠvermy čp. 825, Pečky- I. ETAPA\" a ustanovení komise ve složení:\nčlenové:\nZdeněk\nFejfar\n- 1. místostarosta, Ing. Věra\nRůžičková\n- vedoucí SMM a BH, Bc.\nKvěta\nBubeníčková\n- ředitelka MŠ\nnáhradníci: Ing.\nMartin\nJedlička\n- 2. místostarosta,\nJiří\nMoravec\n- referent přípravy a realizace investic,\nLenka\nMalichová\n- zástupkyně ředitelky MŠ",
+    "date_raw": "3. 6. 2024",
+    "date_iso": "2024-06-03",
+    "responsible_raw": "Věra Růžičková",
+    "deadline_raw": "17. 6. 2024",
+    "vote": {
+     "raw_text": "pro: 6 proti: 0 zdržel se: 0",
+     "pro": {
+      "count": 6,
+      "names": null,
+      "raw": "6"
+     },
+     "proti": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     },
+     "zdrzel_se": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     }
+    },
+    "detail": {
+     "number_raw": "UR-204-21/24",
+     "text_verbatim": "Rada města schvaluje vyhlášení veřejné zakázky malého rozsahu v otevřené výzvě na zhotovitele stavby: \"Oplocení MŠ MAŠINKA na ul. Tř. Jana Švermy čp. 825, Pečky- I. ETAPA\" a ustanovení komise ve složení: členové: Zdeněk Fejfar - 1. místostarosta, Ing. Věra Růžičková - vedoucí SMM a BH, Bc. Květa Bubeníčková - ředitelka MŠ náhradníci: Ing. Martin Jedlička - 2. místostarosta, Jiří Moravec - referent přípravy a realizace investic, Lenka Malichová - zástupkyně ředitelky MŠ",
+     "typ_raw": null,
+     "zodpovida_raw": "Věra Růžičková",
+     "prijato_raw": "3. 6. 2024 na jednání č. 21/2024",
+     "prijato_date_iso": "2024-06-03",
+     "prijato_meeting_label": "21/2024",
+     "termin_raw": "17. 6. 2024",
+     "ukonceno_raw": "17. 6. 2024",
+     "ukonceno_date_iso": "2024-06-17",
+     "fields_raw": {
+      "Číslo usnesení": "UR-204-21/24",
+      "Text usnesení": "Rada města schvaluje vyhlášení veřejné zakázky malého rozsahu v otevřené výzvě na zhotovitele stavby: \"Oplocení MŠ MAŠINKA na ul. Tř. Jana Švermy čp. 825, Pečky- I. ETAPA\" a ustanovení komise ve složení: členové: Zdeněk Fejfar - 1. místostarosta, Ing. Věra Růžičková - vedoucí SMM a BH, Bc. Květa Bubeníčková - ředitelka MŠ náhradníci: Ing. Martin Jedlička - 2. místostarosta, Jiří Moravec - referent přípravy a realizace investic, Lenka Malichová - zástupkyně ředitelky MŠ",
+      "Zodpovídá": "Věra Růžičková",
+      "Přijato": "3. 6. 2024 na jednání č. 21/2024",
+      "Termín": "17. 6. 2024",
+      "Ukončeno": "17. 6. 2024"
+     }
+    }
+   },
+   {
+    "number_raw": "UR-205-21/24",
+    "detail_id": 66708,
+    "detail_url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/66708?mod=rada",
+    "agenda_item_raw": "Vyhlášení poptávkového řízení na poskytovatele služeb \"TDI a KBOZP na stavbě Rekonstrukce místních komunikací a vodovodní řad v části Bačov v Pečkách – 1. a 2. etapa\"",
+    "text_verbatim": "Rada\nměsta schvaluje vyhlášení poptávkového řízení na poskytovatele služeb \"Technický dozor investora a koordinátor BOZP na stavbě Rekonstrukce místních komunikací a vodovodní řad v části Bačov v Pečkách - 1. a 2. etapa\" mimo režim zákona č. 134/2016 Sb., o zadávání veřejných zakázek, ve znění pozdějších předpisů, v uzavřené výzvě dle pravidel pro VZMR 2. kategorie.",
+    "cell_text_raw": "Bod programu:\nVyhlášení poptávkového řízení na poskytovatele služeb \"TDI a KBOZP na stavbě Rekonstrukce místních komunikací a vodovodní řad v části Bačov v Pečkách – 1. a 2. etapa\"\nText přijatého usnesení:\nRada\nměsta schvaluje vyhlášení poptávkového řízení na poskytovatele služeb \"Technický dozor investora a koordinátor BOZP na stavbě Rekonstrukce místních komunikací a vodovodní řad v části Bačov v Pečkách - 1. a 2. etapa\" mimo režim zákona č. 134/2016 Sb., o zadávání veřejných zakázek, ve znění pozdějších předpisů, v uzavřené výzvě dle pravidel pro VZMR 2. kategorie.",
+    "date_raw": "3. 6. 2024",
+    "date_iso": "2024-06-03",
+    "responsible_raw": "Michala Dekiská",
+    "deadline_raw": "17. 6. 2024",
+    "vote": {
+     "raw_text": "pro: 6 proti: 0 zdržel se: 0",
+     "pro": {
+      "count": 6,
+      "names": null,
+      "raw": "6"
+     },
+     "proti": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     },
+     "zdrzel_se": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     }
+    },
+    "detail": {
+     "number_raw": "UR-205-21/24",
+     "text_verbatim": "Rada města schvaluje vyhlášení poptávkového řízení na poskytovatele služeb \"Technický dozor investora a koordinátor BOZP na stavbě Rekonstrukce místních komunikací a vodovodní řad v části Bačov v Pečkách - 1. a 2. etapa\" mimo režim zákona č. 134/2016 Sb., o zadávání veřejných zakázek, ve znění pozdějších předpisů, v uzavřené výzvě dle pravidel pro VZMR 2. kategorie.",
+     "typ_raw": null,
+     "zodpovida_raw": "Michala Dekiská",
+     "prijato_raw": "3. 6. 2024 na jednání č. 21/2024",
+     "prijato_date_iso": "2024-06-03",
+     "prijato_meeting_label": "21/2024",
+     "termin_raw": "17. 6. 2024",
+     "ukonceno_raw": "11. 6. 2024",
+     "ukonceno_date_iso": "2024-06-11",
+     "fields_raw": {
+      "Číslo usnesení": "UR-205-21/24",
+      "Text usnesení": "Rada města schvaluje vyhlášení poptávkového řízení na poskytovatele služeb \"Technický dozor investora a koordinátor BOZP na stavbě Rekonstrukce místních komunikací a vodovodní řad v části Bačov v Pečkách - 1. a 2. etapa\" mimo režim zákona č. 134/2016 Sb., o zadávání veřejných zakázek, ve znění pozdějších předpisů, v uzavřené výzvě dle pravidel pro VZMR 2. kategorie.",
+      "Zodpovídá": "Michala Dekiská",
+      "Přijato": "3. 6. 2024 na jednání č. 21/2024",
+      "Termín": "17. 6. 2024",
+      "Ukončeno": "11. 6. 2024"
+     }
+    }
+   },
+   {
+    "number_raw": "UR-206-21/24",
+    "detail_id": 66726,
+    "detail_url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/66726?mod=rada",
+    "agenda_item_raw": "Vklad do Fondu obnovy kanalizace a Fondu obnovy vodovodů",
+    "text_verbatim": "Rada\nměsta doporučuje zastupitelstvu města schválit mimořádný vklad do fondu obnovy kanalizací ve výši 1 960 000 Kč a mimořádný vklad do fondu obnovy vodovodů 3 640 000 Kč.",
+    "cell_text_raw": "Bod programu:\nVklad do Fondu obnovy kanalizace a Fondu obnovy vodovodů\nText přijatého usnesení:\nRada\nměsta doporučuje zastupitelstvu města schválit mimořádný vklad do fondu obnovy kanalizací ve výši 1 960 000 Kč a mimořádný vklad do fondu obnovy vodovodů 3 640 000 Kč.",
+    "date_raw": "3. 6. 2024",
+    "date_iso": "2024-06-03",
+    "responsible_raw": "Marcela Bahníková",
+    "deadline_raw": "19. 6. 2024",
+    "vote": {
+     "raw_text": "pro: 6 proti: 0 zdržel se: 0",
+     "pro": {
+      "count": 6,
+      "names": null,
+      "raw": "6"
+     },
+     "proti": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     },
+     "zdrzel_se": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     }
+    },
+    "detail": {
+     "number_raw": "UR-206-21/24",
+     "text_verbatim": "Rada města doporučuje zastupitelstvu města schválit mimořádný vklad do fondu obnovy kanalizací ve výši 1 960 000 Kč a mimořádný vklad do fondu obnovy vodovodů 3 640 000 Kč.",
+     "typ_raw": null,
+     "zodpovida_raw": "Marcela Bahníková",
+     "prijato_raw": "3. 6. 2024 na jednání č. 21/2024",
+     "prijato_date_iso": "2024-06-03",
+     "prijato_meeting_label": "21/2024",
+     "termin_raw": "19. 6. 2024",
+     "ukonceno_raw": "20. 6. 2024",
+     "ukonceno_date_iso": "2024-06-20",
+     "fields_raw": {
+      "Číslo usnesení": "UR-206-21/24",
+      "Text usnesení": "Rada města doporučuje zastupitelstvu města schválit mimořádný vklad do fondu obnovy kanalizací ve výši 1 960 000 Kč a mimořádný vklad do fondu obnovy vodovodů 3 640 000 Kč.",
+      "Zodpovídá": "Marcela Bahníková",
+      "Přijato": "3. 6. 2024 na jednání č. 21/2024",
+      "Termín": "19. 6. 2024",
+      "Ukončeno": "20. 6. 2024"
+     }
+    }
+   },
+   {
+    "number_raw": "UR-207-21/24",
+    "detail_id": 66727,
+    "detail_url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/66727?mod=rada",
+    "agenda_item_raw": "Vklad do Fondu obnovy kanalizace a Fondu obnovy vodovodů",
+    "text_verbatim": "Rada\nměsta doporučuje zastupitelstvu města schválit možnost ukládat volné prostředky fondů obnovy kanalizace a vodovodů na termínované vklady.",
+    "cell_text_raw": "Bod programu:\nVklad do Fondu obnovy kanalizace a Fondu obnovy vodovodů\nText přijatého usnesení:\nRada\nměsta doporučuje zastupitelstvu města schválit možnost ukládat volné prostředky fondů obnovy kanalizace a vodovodů na termínované vklady.",
+    "date_raw": "3. 6. 2024",
+    "date_iso": "2024-06-03",
+    "responsible_raw": "Marcela Bahníková",
+    "deadline_raw": "19. 6. 2024",
+    "vote": {
+     "raw_text": "pro: 6 proti: 0 zdržel se: 0",
+     "pro": {
+      "count": 6,
+      "names": null,
+      "raw": "6"
+     },
+     "proti": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     },
+     "zdrzel_se": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     }
+    },
+    "detail": {
+     "number_raw": "UR-207-21/24",
+     "text_verbatim": "Rada města doporučuje zastupitelstvu města schválit možnost ukládat volné prostředky fondů obnovy kanalizace a vodovodů na termínované vklady.",
+     "typ_raw": null,
+     "zodpovida_raw": "Marcela Bahníková",
+     "prijato_raw": "3. 6. 2024 na jednání č. 21/2024",
+     "prijato_date_iso": "2024-06-03",
+     "prijato_meeting_label": "21/2024",
+     "termin_raw": "19. 6. 2024",
+     "ukonceno_raw": "20. 6. 2024",
+     "ukonceno_date_iso": "2024-06-20",
+     "fields_raw": {
+      "Číslo usnesení": "UR-207-21/24",
+      "Text usnesení": "Rada města doporučuje zastupitelstvu města schválit možnost ukládat volné prostředky fondů obnovy kanalizace a vodovodů na termínované vklady.",
+      "Zodpovídá": "Marcela Bahníková",
+      "Přijato": "3. 6. 2024 na jednání č. 21/2024",
+      "Termín": "19. 6. 2024",
+      "Ukončeno": "20. 6. 2024"
+     }
+    }
+   },
+   {
+    "number_raw": "UR-208-21/24",
+    "detail_id": 66897,
+    "detail_url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/66897?mod=rada",
+    "agenda_item_raw": "Úkoly vyplývající z jednání rady města",
+    "text_verbatim": "Rada\nměsta ukládá Ing. Janě\nZindrové\n, referentce oddělení dopravy kontaktovat KSÚS Středočeského kraje o zjednání nápravy odvodnění komunikace ulice Chvalovická, křižovatka ulice V Kaštánkách, Pečky.",
+    "cell_text_raw": "Bod programu:\nÚkoly vyplývající z jednání rady města\nText přijatého usnesení:\nRada\nměsta ukládá Ing. Janě\nZindrové\n, referentce oddělení dopravy kontaktovat KSÚS Středočeského kraje o zjednání nápravy odvodnění komunikace ulice Chvalovická, křižovatka ulice V Kaštánkách, Pečky.",
+    "date_raw": "3. 6. 2024",
+    "date_iso": "2024-06-03",
+    "responsible_raw": "Jana Zindrová",
+    "deadline_raw": "31. 8. 2024",
+    "vote": {
+     "raw_text": "pro: 6 proti: 0 zdržel se: 0",
+     "pro": {
+      "count": 6,
+      "names": null,
+      "raw": "6"
+     },
+     "proti": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     },
+     "zdrzel_se": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     }
+    },
+    "detail": {
+     "number_raw": "UR-208-21/24",
+     "text_verbatim": "Rada města ukládá Ing. Janě Zindrové , referentce oddělení dopravy kontaktovat KSÚS Středočeského kraje o zjednání nápravy odvodnění komunikace ulice Chvalovická, křižovatka ulice V Kaštánkách, Pečky.",
+     "typ_raw": null,
+     "zodpovida_raw": "Jana Zindrová",
+     "prijato_raw": "3. 6. 2024 na jednání č. 21/2024",
+     "prijato_date_iso": "2024-06-03",
+     "prijato_meeting_label": "21/2024",
+     "termin_raw": "31. 8. 2024",
+     "ukonceno_raw": "24. 7. 2024",
+     "ukonceno_date_iso": "2024-07-24",
+     "fields_raw": {
+      "Číslo usnesení": "UR-208-21/24",
+      "Text usnesení": "Rada města ukládá Ing. Janě Zindrové , referentce oddělení dopravy kontaktovat KSÚS Středočeského kraje o zjednání nápravy odvodnění komunikace ulice Chvalovická, křižovatka ulice V Kaštánkách, Pečky.",
+      "Zodpovídá": "Jana Zindrová",
+      "Přijato": "3. 6. 2024 na jednání č. 21/2024",
+      "Termín": "31. 8. 2024",
+      "Ukončeno": "24. 7. 2024"
+     }
+    }
+   }
+  ]
+ }
+}

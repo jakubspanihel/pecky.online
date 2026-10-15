@@ -1,0 +1,857 @@
+{
+ "uuid": "79200457-7337-11ee-962e-00505683238f",
+ "body_type_raw": "Rada",
+ "label_raw": "37/2023 (30. 10. 2023)",
+ "number": 37,
+ "year": 2023,
+ "date_iso": "2023-10-30",
+ "links": {
+  "invitation": "https://mesto-pecky.usneseni.cz/verejne/?uuid=79200457-7337-11ee-962e-00505683238f&page=10&do=printPublicInvitation",
+  "minutes": "https://mesto-pecky.usneseni.cz/verejne/79200457-7337-11ee-962e-00505683238f/zapis/?page=10",
+  "signed_minutes_pdf": "https://mesto-pecky.usneseni.cz/verejne/?meetingReportControl-uuid=79200457-7337-11ee-962e-00505683238f&page=10&do=meetingReportControl-getSignedReportPdf",
+  "resolutions": "https://mesto-pecky.usneseni.cz/verejne/79200457-7337-11ee-962e-00505683238f/usneseni/?page=10",
+  "audio": null
+ },
+ "link_texts": {
+  "invitation": "Pozvánka",
+  "minutes": "zápis",
+  "signed_minutes_pdf": "podepsaný zápis",
+  "resolutions": "přijatá usnesení"
+ },
+ "status": "ok",
+ "invitation": {
+  "status": "site_error",
+  "error": "status=200 ct=text/html; charset=utf-8 flash='<a href=\"\" class=\"close\" data-dismiss=\"alert\" aria-label=\"close\">&times;'",
+  "url": "https://mesto-pecky.usneseni.cz/verejne/?uuid=79200457-7337-11ee-962e-00505683238f&do=printPublicInvitation",
+  "fetched_at": "2026-08-04T15:03:48.869411+00:00"
+ },
+ "minutes": {
+  "status": "ok",
+  "url": "https://mesto-pecky.usneseni.cz/verejne/79200457-7337-11ee-962e-00505683238f/zapis/",
+  "fetched_at": "2026-08-04T14:01:51.075708+00:00",
+  "title_raw": "ZÁPIS ze schůze rady č. 37/2023 Město Pečky datum: 30. 10. 2023, čas: 15:00 ​",
+  "date_raw": "30. 10. 2023",
+  "date_iso": "2023-10-30",
+  "time_raw": "15:00",
+  "presence": {
+   "raw_text": "Prezence:\nPřítomni:\n(5) Zdeněk Fejfar, Milan Paluska, Ing. Martin Jedlička, Ing. Petr Dürr, Ing. Hana Kuprová\nOmluveni:\n(2) Ivana Trčková, Ing. Karel Krištoufek\nNepřítomni:\n(0)\nHosté:\nZapisovatel/ka:\nEva |Strnadová\nPřítomno je 5 členů a rada je usnášeníschopná.\nJednání zahájeno 30.10.2023 v 15:21:42",
+   "pritomni": {
+    "count": 5,
+    "names": [
+     "Zdeněk Fejfar",
+     "Milan Paluska",
+     "Ing. Martin Jedlička",
+     "Ing. Petr Dürr",
+     "Ing. Hana Kuprová"
+    ],
+    "raw": "(5) Zdeněk Fejfar, Milan Paluska, Ing. Martin Jedlička, Ing. Petr Dürr, Ing. Hana Kuprová"
+   },
+   "omluveni": {
+    "count": 2,
+    "names": [
+     "Ivana Trčková",
+     "Ing. Karel Krištoufek"
+    ],
+    "raw": "(2) Ivana Trčková, Ing. Karel Krištoufek"
+   },
+   "nepritomni": {
+    "count": 0,
+    "names": [],
+    "raw": "(0)"
+   },
+   "predsedajici": null,
+   "quorum_raw": "Přítomno je 5 členů a rada je usnášeníschopná."
+  },
+  "header_raw": "Prezence:\nPřítomni:\n(5) Zdeněk Fejfar, Milan Paluska, Ing. Martin Jedlička, Ing. Petr Dürr, Ing. Hana Kuprová\nOmluveni:\n(2) Ivana Trčková, Ing. Karel Krištoufek\nNepřítomni:\n(0)\nHosté:\nZapisovatel/ka:\nEva |Strnadová\nPřítomno je 5 členů a rada je usnášeníschopná.\nJednání zahájeno 30.10.2023 v 15:21:42",
+  "agenda_items": [
+   {
+    "number": 1,
+    "title_raw": "Určení zapisovatelů, předsedajícího, příp. ověřovatelů",
+    "heading_raw": "1. Určení zapisovatelů, předsedajícího, příp. ověřovatelů (bod číslo 1)",
+    "predkladatel": "Milan Paluska",
+    "votes": [],
+    "resolution_numbers_mentioned": [],
+    "raw_text": "Předkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 15:21:50\nPředsedající navrhl jednotlivé členy pracovních komisí\nOvěřovatelé:\nIng. Martin Jedlička, Zdeněk Fejfar\nPředsedající:\nMilan Paluska\nBod byl přijat bez hlasování.\nDiskuze zahájena v 15:21:50\nK tomuto bodu se vyjádřili: Milan Paluska\nProjednávání bodu bylo ukončeno v 15:22:26"
+   },
+   {
+    "number": 2,
+    "title_raw": "Schválení programu jednání",
+    "heading_raw": "2. Schválení programu jednání (bod číslo 2)",
+    "predkladatel": "Milan Paluska",
+    "votes": [
+     {
+      "raw_text": "pro:\n(5) Ing. Hana Kuprová, Ing. Petr Dürr, Ing. Martin Jedlička, Zdeněk Fejfar, Milan Paluska\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)",
+      "pro": {
+       "count": 5,
+       "names": [
+        "Ing. Hana Kuprová",
+        "Ing. Petr Dürr",
+        "Ing. Martin Jedlička",
+        "Zdeněk Fejfar",
+        "Milan Paluska"
+       ],
+       "raw": "(5) Ing. Hana Kuprová, Ing. Petr Dürr, Ing. Martin Jedlička, Zdeněk Fejfar, Milan Paluska"
+      },
+      "proti": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "zdrzel_se": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "nehlasoval": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "result_raw": "Návrh byl přijat jako usnesení číslo: UR-308-37/23",
+      "adopted_resolution_number": "UR-308-37/23"
+     }
+    ],
+    "resolution_numbers_mentioned": [
+     "UR-308-37/23"
+    ],
+    "raw_text": "Předkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 15:22:34\nProgram jednání\n1. Určení zapisovatelů, předsedajícího, příp. ověřovatelů\n2. Schválení programu jednání\n3. Aktuální informace vedení města\n4. Rozpočtové opatření č. 8/2023\n5. Rozpočtové opatření č. 9/2023\n6. Uzavření nové Dohody o spolupráci s PALMA development s.r.o.- projednání nových podmínek\n7. Výběr dodavatele na plnění veřejné zakázky \"Nábytek do části 1. NP Kulturního střediska Pečky\" a uzavření kupní smlouvy\n8. Odkoupení pozemků v k.ú. Velké Chvalovice – č. parc. 370/18 a č. parc. 215/3\n9. OZV města Pečky o stanovení společného školského obvodu ZŠ\n10. Termín a program ZM dne 8.11.2023\n11. Kontrola plnění usnesení\nDiskuze zahájena v 15:22:34\nK tomuto bodu se vyjádřili: Milan Paluska\nV 15:23:51 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Milan Paluska\") v tomto znění:\nRada\nměsta schvaluje návrh programu jednání.\ns těmito změnami:\n- doplňuje se bod č. 12 - OZV města Pečky o místním poplatku za obecní systém odpadového hospodářství\nHlasování\npro:\n(5) Ing. Hana Kuprová, Ing. Petr Dürr, Ing. Martin Jedlička, Zdeněk Fejfar, Milan Paluska\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-308-37/23\nzodpovídá:\ntermín:\nIHNED\n(30. 10. 2023)\nProjednávání bodu bylo ukončeno v 15:23:59"
+   },
+   {
+    "number": 3,
+    "title_raw": "Aktuální informace vedení města",
+    "heading_raw": "3. Aktuální informace vedení města (bod číslo 3)",
+    "predkladatel": "Milan Paluska",
+    "votes": [],
+    "resolution_numbers_mentioned": [],
+    "raw_text": "Předkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 15:24:04\nDůvodová zpráva:\nstarosta města\n- informace o dokončení rekonstrukce v KS, slavnostní otevření pro veřejnost 2.11.2023\n- informace o kontrolním dni 26.10.2023 na úpravně vody, termín přepojení prameniště v Tatcích, vsakovací jímka na dešťovou vodu, terénní úpravy, komunikace apd.\n- informace o proběhlé rekonstrukci komunikace ul.\nHálkova\n, Pečky a její následné uvedení do provozu\n- informace o podzimním běhu 28.10.2023\n- informace o návrhu na případnou investici do vývařovny a prádelny v Mateřské škole Mašinka Pečky\nZdeněk\nFejfar\n- informace o kontrolním dni ve Velkých Chvalovicích - výstavba 19 ŘD,  položení optického kabelu /zřízení VBř./\nDiskuze zahájena v 15:24:04\nK tomuto bodu se vyjádřili: Milan Paluska, Ing. Hana Kuprová, Ing. Petr Dürr, Ing. Martin Jedlička, Zdeněk Fejfar\nRada bere materiály předložené k bodu č. 3 -\nAktuální informace vedení města\nna vědomí.\nProjednávání bodu bylo ukončeno v 15:47:26"
+   },
+   {
+    "number": 4,
+    "title_raw": "Rozpočtové opatření č. 8/2023",
+    "heading_raw": "4. Rozpočtové opatření č. 8/2023 (bod číslo 4)",
+    "predkladatel": "Marcela Bahníková",
+    "votes": [
+     {
+      "raw_text": "pro:\n(5) Ing. Hana Kuprová, Ing. Martin Jedlička, Ing. Petr Dürr, Milan Paluska, Zdeněk Fejfar\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)",
+      "pro": {
+       "count": 5,
+       "names": [
+        "Ing. Hana Kuprová",
+        "Ing. Martin Jedlička",
+        "Ing. Petr Dürr",
+        "Milan Paluska",
+        "Zdeněk Fejfar"
+       ],
+       "raw": "(5) Ing. Hana Kuprová, Ing. Martin Jedlička, Ing. Petr Dürr, Milan Paluska, Zdeněk Fejfar"
+      },
+      "proti": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "zdrzel_se": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "nehlasoval": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "result_raw": "Návrh byl přijat jako usnesení číslo: UR-309-37/23",
+      "adopted_resolution_number": "UR-309-37/23"
+     }
+    ],
+    "resolution_numbers_mentioned": [
+     "UR-309-37/23"
+    ],
+    "raw_text": "Předkladatel: Marcela Bahníková\nProjednávání bodu bylo zahájeno v 15:47:31\nDůvodová zpráva:\nRozpočtová opatření v kompetenci RM. Přesun mezi výdaji  a zařazení průtokové dotace pro ZŠ. Výdaje v rozpočtu na pořízení nábytku KS se zvyšují o 80 tis. po vyhodnocení nabídek dodavatelů, na vybavení bude poskytnuta dotace 400 tis.\nDiskuze zahájena v 15:47:31\nK tomuto bodu se vyjádřili: Milan Paluska, Ing. Martin Jedlička, Ing. Hana Kuprová, Ing. Petr Dürr\nV 15:57:25 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Marcela Bahníková\") v tomto znění:\nRada\nměsta schvaluje rozpočtová opatření č. 8/2023.\nHlasování\npro:\n(5) Ing. Hana Kuprová, Ing. Martin Jedlička, Ing. Petr Dürr, Milan Paluska, Zdeněk Fejfar\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-309-37/23\nzodpovídá:\nMarcela Bahníková\ntermín:\n6. 11. 2023\nProjednávání bodu bylo ukončeno v 15:57:33"
+   },
+   {
+    "number": 5,
+    "title_raw": "Rozpočtové opatření č. 9/2023",
+    "heading_raw": "5. Rozpočtové opatření č. 9/2023 (bod číslo 5)",
+    "predkladatel": "Marcela Bahníková",
+    "votes": [
+     {
+      "raw_text": "pro:\n(5) Ing. Hana Kuprová, Ing. Petr Dürr, Milan Paluska, Ing. Martin Jedlička, Zdeněk Fejfar\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)",
+      "pro": {
+       "count": 5,
+       "names": [
+        "Ing. Hana Kuprová",
+        "Ing. Petr Dürr",
+        "Milan Paluska",
+        "Ing. Martin Jedlička",
+        "Zdeněk Fejfar"
+       ],
+       "raw": "(5) Ing. Hana Kuprová, Ing. Petr Dürr, Milan Paluska, Ing. Martin Jedlička, Zdeněk Fejfar"
+      },
+      "proti": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "zdrzel_se": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "nehlasoval": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "result_raw": "Návrh byl přijat jako usnesení číslo: UR-310-37/23",
+      "adopted_resolution_number": "UR-310-37/23"
+     }
+    ],
+    "resolution_numbers_mentioned": [
+     "UR-310-37/23"
+    ],
+    "raw_text": "Předkladatel: Marcela Bahníková\nProjednávání bodu bylo zahájeno v 15:57:37\nDůvodová zpráva:\nRozpočtové opatření v kompetenci ZM. Zvýšení výdajů na nákup pozemků a zvýšení výdajů na část. realizace rekonstrukce kabin AFK, celkem 3 mil., budou přesunuty z položky na úpravu parku (letos nebude realizováno).\nDiskuze zahájena v 15:57:37\nK tomuto bodu se vyjádřili: Milan Paluska, Zdeněk Fejfar, Ing. Petr Dürr, Ing. Martin Jedlička, Ing. Hana Kuprová\nV 16:03:27 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Marcela Bahníková\") v tomto znění:\nRada\nměsta doporučuje zastupitelstvu města schválit rozpočtová opatření č. 9/2023.\nHlasování\npro:\n(5) Ing. Hana Kuprová, Ing. Petr Dürr, Milan Paluska, Ing. Martin Jedlička, Zdeněk Fejfar\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-310-37/23\nzodpovídá:\nMarcela Bahníková\ntermín:\n8. 11. 2023\nProjednávání bodu bylo ukončeno v 16:03:34"
+   },
+   {
+    "number": 6,
+    "title_raw": "Uzavření nové Dohody o spolupráci s PALMA development s.r.o.- projednání nových podmínek",
+    "heading_raw": "6. Uzavření nové Dohody o spolupráci s PALMA development s.r.o.- projednání nových podmínek (bod číslo 6)",
+    "predkladatel": "Věra Růžičková",
+    "votes": [],
+    "resolution_numbers_mentioned": [],
+    "raw_text": "Předkladatel: Věra Růžičková\nProjednávání bodu bylo zahájeno v 16:03:38\nDůvodová zpráva:\nPředkládáme radě města k projednání novou Dohodu o spolupráci z toho důvodu, že developer již nemá v úmyslu využít pozemky k výstavbě RD.\nNová\ndohoda by měla zcela nahradit dohodu uzavřenou dne 21.9. 2022.\nRada\nměsta bere na vědomí změnu podmínek spolupráce s developerem\nPalma\ndevelopment s.r.o..\nDiskuze zahájena v 16:03:38\nK tomuto bodu se vyjádřili: Milan Paluska, Zdeněk Fejfar, Ing. Hana Kuprová\nRada bere materiály předložené k bodu č. 6 -\nUzavření nové Dohody o spolupráci s PALMA development s.r.o.- projednání nových podmínek\nna vědomí.\nProjednávání bodu bylo ukončeno v 16:17:13"
+   },
+   {
+    "number": 7,
+    "title_raw": "Výběr dodavatele na plnění veřejné zakázky \"Nábytek do části 1. NP Kulturního střediska Pečky\" a uzavření kupní smlouvy",
+    "heading_raw": "7. Výběr dodavatele na plnění veřejné zakázky \"Nábytek do části 1. NP Kulturního střediska Pečky\" a uzavření kupní smlouvy (bod číslo 7)",
+    "predkladatel": "Pavlína Nepovímová",
+    "votes": [
+     {
+      "raw_text": "pro:\n(5) Milan Paluska, Ing. Petr Dürr, Zdeněk Fejfar, Ing. Martin Jedlička, Ing. Hana Kuprová\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)",
+      "pro": {
+       "count": 5,
+       "names": [
+        "Milan Paluska",
+        "Ing. Petr Dürr",
+        "Zdeněk Fejfar",
+        "Ing. Martin Jedlička",
+        "Ing. Hana Kuprová"
+       ],
+       "raw": "(5) Milan Paluska, Ing. Petr Dürr, Zdeněk Fejfar, Ing. Martin Jedlička, Ing. Hana Kuprová"
+      },
+      "proti": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "zdrzel_se": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "nehlasoval": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "result_raw": "Návrh byl přijat jako usnesení číslo: UR-311-37/23",
+      "adopted_resolution_number": "UR-311-37/23"
+     }
+    ],
+    "resolution_numbers_mentioned": [
+     "UR-311-37/23"
+    ],
+    "raw_text": "Předkladatel: Pavlína Nepovímová\nProjednávání bodu bylo zahájeno v 16:17:17\nDůvodová zpráva:\nRozhodnutí o výběru dodavatele na plnění veřejné zakázky \"Nábytek do části 1. NP Kulturního střediska Pečky\", zadávané mimo režim zákona č.134/2016 Sb., o zadávání veřejných zakázek, ve znění pozdějších předpisů, VZMR 2. kategorie, v souladu s doporučením hodnotící komise - viz Rozhodnutí a oznámení o výběru dodavatele v příloze, a uzavření kupní smlouvy s vybraným dodavatelem Kenast s.r.o., IČ: 27243397 - návrh v příloze.\nDiskuze zahájena v 16:17:17\nK tomuto bodu se vyjádřili: Milan Paluska, Ing. Hana Kuprová, Ing. Petr Dürr, Michala Dekiská, Zdeněk Fejfar\nV 16:34:32 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Pavlína Nepovímová\") v tomto znění:\nRada\nměsta schvaluje Rozhodnutí o výběru dodavatele na plnění veřejné zakázky \"Nábytek do části 1. NP Kulturního střediska Pečky\", zadávané mimo režim zákona č.134/2016 Sb., o zadávání veřejných zakázek, ve znění pozdějších předpisů, v souladu s doporučením hodnotící komise, a uzavření kupní smlouvy mezi Městem Pečky a vybraným dodavatelem Kenast s.r.o., IČ: 27243397.\nHlasování\npro:\n(5) Milan Paluska, Ing. Petr Dürr, Zdeněk Fejfar, Ing. Martin Jedlička, Ing. Hana Kuprová\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-311-37/23\nzodpovídá:\nMichala Dekiská\ntermín:\n13. 11. 2023\nProjednávání bodu bylo ukončeno v 16:34:40"
+   },
+   {
+    "number": 8,
+    "title_raw": "Odkoupení pozemků v k.ú. Velké Chvalovice – č. parc. 370/18 a č. parc. 215/3",
+    "heading_raw": "8. Odkoupení pozemků v k.ú. Velké Chvalovice – č. parc. 370/18 a č. parc. 215/3 (bod číslo 8)",
+    "predkladatel": "Jana Najbrtová",
+    "votes": [
+     {
+      "raw_text": "pro:\n(5) Milan Paluska, Ing. Petr Dürr, Ing. Hana Kuprová, Ing. Martin Jedlička, Zdeněk Fejfar\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)",
+      "pro": {
+       "count": 5,
+       "names": [
+        "Milan Paluska",
+        "Ing. Petr Dürr",
+        "Ing. Hana Kuprová",
+        "Ing. Martin Jedlička",
+        "Zdeněk Fejfar"
+       ],
+       "raw": "(5) Milan Paluska, Ing. Petr Dürr, Ing. Hana Kuprová, Ing. Martin Jedlička, Zdeněk Fejfar"
+      },
+      "proti": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "zdrzel_se": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "nehlasoval": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "result_raw": "Návrh byl přijat jako usnesení číslo: UR-312-37/23",
+      "adopted_resolution_number": "UR-312-37/23"
+     }
+    ],
+    "resolution_numbers_mentioned": [
+     "UR-312-37/23"
+    ],
+    "raw_text": "Předkladatel: Jana Najbrtová\nProjednávání bodu bylo zahájeno v 16:34:46\nDůvodová zpráva:\nDoporučujeme odkoupit oba pozemky v k.ú.\nVelké\nChvalovice, které městu nabízí jeho vlastník. Jedná se o část Chvalovického potoku (č. parc. 370/18) a dále o část břehu Ch. potoku (č. parc. 215/3). Při stanovení ceny vycházíme ze znaleckých posudků, podle kterých byly odkoupeny obdobné pozemky v minulých letech.\nDiskuze zahájena v 16:34:46\nK tomuto bodu se vyjádřili: Milan Paluska, Ing. Petr Dürr, Ing. Hana Kuprová\nV 16:36:53 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Jana Najbrtová\") v tomto znění:\nRada\nměsta doporučuje zastupitelstvu města schválit odkoupení pozemku č. parc. 370/18 (687 m\n2\n) - vodní plocha, koryto vodního toku umělé (Chvalovický potok-část) za cenu 56,64 Kč//m\n2\na pozemek č. parc. . 215/3 (76 m\n2\n) – zast.plocha a nádvoří, spol. dvůr za cenu 35,-Kč/m\n2\n– oba v obci Pečky a k.ú.\nVelké\nChvalovice. Pozemky budou odkoupeny od\n█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█\nza celkovou kupní cenu ve výši 41.572,- Kč. Město jako kupující uhradí poplatek spojený s převodem u K.Ú. v Kolíně a zajistí sepsání kupní smlouvy.\nHlasování\npro:\n(5) Milan Paluska, Ing. Petr Dürr, Ing. Hana Kuprová, Ing. Martin Jedlička, Zdeněk Fejfar\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-312-37/23\nzodpovídá:\nJana Najbrtová\ntermín:\n31. 3. 2024\nProjednávání bodu bylo ukončeno v 16:37:00"
+   },
+   {
+    "number": 9,
+    "title_raw": "OZV města Pečky o stanovení společného školského obvodu ZŠ",
+    "heading_raw": "9. OZV města Pečky o stanovení společného školského obvodu ZŠ (bod číslo 9)",
+    "predkladatel": "Milan Paluska",
+    "votes": [
+     {
+      "raw_text": "pro:\n(5) Milan Paluska, Ing. Martin Jedlička, Ing. Petr Dürr, Ing. Hana Kuprová, Zdeněk Fejfar\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)",
+      "pro": {
+       "count": 5,
+       "names": [
+        "Milan Paluska",
+        "Ing. Martin Jedlička",
+        "Ing. Petr Dürr",
+        "Ing. Hana Kuprová",
+        "Zdeněk Fejfar"
+       ],
+       "raw": "(5) Milan Paluska, Ing. Martin Jedlička, Ing. Petr Dürr, Ing. Hana Kuprová, Zdeněk Fejfar"
+      },
+      "proti": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "zdrzel_se": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "nehlasoval": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "result_raw": "Návrh byl přijat jako usnesení číslo: UR-313-37/23",
+      "adopted_resolution_number": "UR-313-37/23"
+     }
+    ],
+    "resolution_numbers_mentioned": [
+     "UR-313-37/23"
+    ],
+    "raw_text": "Předkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 16:37:05\nDůvodová zpráva:\nPo kontrole oddělení dozoru MV ČR \"Obecně závazné vyhlášky města Pečky, kterou se stanoví část společného školského obvodu základní školy\" a která nahrazuje vyhlášku z roku 2007.\nDiskuze zahájena v 16:37:05\nK tomuto bodu se vyjádřili: Milan Paluska, Zdeněk Fejfar, Ing. Petr Dürr\nV 16:51:55 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Milan Paluska\") v tomto znění:\nRada\nměsta doporučuje zastupitelstvu města schválit \"Obecně závaznou vyhlášku města Pečky, kterou se stanoví část společného školského obvodu základní školy\" a současně se ruší OZV města Pečky č.2/2007.\nHlasování\npro:\n(5) Milan Paluska, Ing. Martin Jedlička, Ing. Petr Dürr, Ing. Hana Kuprová, Zdeněk Fejfar\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-313-37/23\nzodpovídá:\nMilan Paluska\ntermín:\n13. 11. 2023\nProjednávání bodu bylo ukončeno v 16:52:03"
+   },
+   {
+    "number": 10,
+    "title_raw": "Termín a program ZM dne 8.11.2023",
+    "heading_raw": "10. Termín a program ZM dne 8.11.2023 (bod číslo 10)",
+    "predkladatel": "Milan Paluska",
+    "votes": [
+     {
+      "raw_text": "pro:\n(5) Ing. Martin Jedlička, Ing. Hana Kuprová, Milan Paluska, Zdeněk Fejfar, Ing. Petr Dürr\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)",
+      "pro": {
+       "count": 5,
+       "names": [
+        "Ing. Martin Jedlička",
+        "Ing. Hana Kuprová",
+        "Milan Paluska",
+        "Zdeněk Fejfar",
+        "Ing. Petr Dürr"
+       ],
+       "raw": "(5) Ing. Martin Jedlička, Ing. Hana Kuprová, Milan Paluska, Zdeněk Fejfar, Ing. Petr Dürr"
+      },
+      "proti": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "zdrzel_se": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "nehlasoval": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "result_raw": "Návrh byl přijat jako usnesení číslo: UR-314-37/23",
+      "adopted_resolution_number": "UR-314-37/23"
+     }
+    ],
+    "resolution_numbers_mentioned": [
+     "UR-314-37/23"
+    ],
+    "raw_text": "Předkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 16:52:06\nDůvodová zpráva:\nProjednání termínu a programu zasedání ZM dne 8.11.2023 od 17.30 hodin v Kulturním domě Pečky.\nDiskuze zahájena v 16:52:06\nK tomuto bodu se vyjádřili: Milan Paluska, Ing. Petr Dürr, Ing. Hana Kuprová, Zdeněk Fejfar\nV 17:00:23 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Milan Paluska\") v tomto znění:\nRada\nměsta schvaluje termín a program zasedání ZM dne 8.11.2023 od 17.30 hodin v Kulturním domě Pečky, Tř.\nJana\nŠvermy. čp. 255, Pečky.\nHlasování\npro:\n(5) Ing. Martin Jedlička, Ing. Hana Kuprová, Milan Paluska, Zdeněk Fejfar, Ing. Petr Dürr\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-314-37/23\nzodpovídá:\nMilan Paluska\ntermín:\n13. 11. 2023\nProjednávání bodu bylo ukončeno v 17:00:38"
+   },
+   {
+    "number": 11,
+    "title_raw": "Kontrola plnění usnesení",
+    "heading_raw": "11. Kontrola plnění usnesení (bod číslo 11)",
+    "predkladatel": "Milan Paluska",
+    "votes": [],
+    "resolution_numbers_mentioned": [],
+    "raw_text": "Předkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 17:01:58\nDiskuze zahájena v 17:01:58\nK tomuto bodu se vyjádřili: Milan Paluska\nRada bere materiály předložené k bodu č. 11 -\nKontrola plnění usnesení\nna vědomí.\nProjednávání bodu bylo ukončeno v 17:02:09"
+   },
+   {
+    "number": 12,
+    "title_raw": "OZV města Pečky o místním poplatku za obecní systém odpadového hospodářství",
+    "heading_raw": "12. OZV města Pečky o místním poplatku za obecní systém odpadového hospodářství (bod číslo 12)",
+    "predkladatel": "Hana Pokorná",
+    "votes": [
+     {
+      "raw_text": "pro:\n(5) Ing. Martin Jedlička, Ing. Petr Dürr, Zdeněk Fejfar, Ing. Hana Kuprová, Milan Paluska\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)",
+      "pro": {
+       "count": 5,
+       "names": [
+        "Ing. Martin Jedlička",
+        "Ing. Petr Dürr",
+        "Zdeněk Fejfar",
+        "Ing. Hana Kuprová",
+        "Milan Paluska"
+       ],
+       "raw": "(5) Ing. Martin Jedlička, Ing. Petr Dürr, Zdeněk Fejfar, Ing. Hana Kuprová, Milan Paluska"
+      },
+      "proti": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "zdrzel_se": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "nehlasoval": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "result_raw": "Návrh byl přijat jako usnesení číslo: UR-315-37/23",
+      "adopted_resolution_number": "UR-315-37/23"
+     }
+    ],
+    "resolution_numbers_mentioned": [
+     "UR-315-37/23"
+    ],
+    "raw_text": "Předkladatel: Hana Pokorná\nProjednávání bodu bylo zahájeno v 17:05:11\nDůvodová zpráva:\nRada\nměsta doporučuje Zastupitelstvu města Pečky schválení OZV o místním poplatku za obecní systém odpadového hospodářství, s účinností od 1.1.2024. Znění obecně závazné vyhlášky bylo překontrolováno pracovníkem MVČR.\nDiskuze zahájena v 17:05:11\nK tomuto bodu se vyjádřili: Milan Paluska, Ing. Hana Kuprová, Zdeněk Fejfar\nV 17:09:07 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Hana Pokorná\") v tomto znění:\nRada\nměsta doporučuje zastupitelstvu města schválit OZV o místním poplatku za obecní systém odpadového hospodářství, s účinností od 1.1.2024.\nHlasování\npro:\n(5) Ing. Martin Jedlička, Ing. Petr Dürr, Zdeněk Fejfar, Ing. Hana Kuprová, Milan Paluska\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-315-37/23\nzodpovídá:\nHana Pokorná\ntermín:\n13. 11. 2023\nProjednávání bodu bylo ukončeno v 17:09:14\nJednání ukončeno 30.10.2023 v 17:09:37"
+   }
+  ],
+  "full_text": "ZÁPIS ze schůze rady č. 37/2023\nMěsto Pečky\ndatum: 30. 10. 2023, čas: 15:00\n​\nPrezence:\nPřítomni:\n(5) Zdeněk Fejfar, Milan Paluska, Ing. Martin Jedlička, Ing. Petr Dürr, Ing. Hana Kuprová\nOmluveni:\n(2) Ivana Trčková, Ing. Karel Krištoufek\nNepřítomni:\n(0)\nHosté:\nZapisovatel/ka:\nEva |Strnadová\nPřítomno je 5 členů a rada je usnášeníschopná.\nJednání zahájeno 30.10.2023 v 15:21:42\n1. Určení zapisovatelů, předsedajícího, příp. ověřovatelů (bod číslo 1)\nPředkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 15:21:50\nPředsedající navrhl jednotlivé členy pracovních komisí\nOvěřovatelé:\nIng. Martin Jedlička, Zdeněk Fejfar\nPředsedající:\nMilan Paluska\nBod byl přijat bez hlasování.\nDiskuze zahájena v 15:21:50\nK tomuto bodu se vyjádřili: Milan Paluska\nProjednávání bodu bylo ukončeno v 15:22:26\n2. Schválení programu jednání (bod číslo 2)\nPředkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 15:22:34\nProgram jednání\n1. Určení zapisovatelů, předsedajícího, příp. ověřovatelů\n2. Schválení programu jednání\n3. Aktuální informace vedení města\n4. Rozpočtové opatření č. 8/2023\n5. Rozpočtové opatření č. 9/2023\n6. Uzavření nové Dohody o spolupráci s PALMA development s.r.o.- projednání nových podmínek\n7. Výběr dodavatele na plnění veřejné zakázky \"Nábytek do části 1. NP Kulturního střediska Pečky\" a uzavření kupní smlouvy\n8. Odkoupení pozemků v k.ú. Velké Chvalovice – č. parc. 370/18 a č. parc. 215/3\n9. OZV města Pečky o stanovení společného školského obvodu ZŠ\n10. Termín a program ZM dne 8.11.2023\n11. Kontrola plnění usnesení\nDiskuze zahájena v 15:22:34\nK tomuto bodu se vyjádřili: Milan Paluska\nV 15:23:51 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Milan Paluska\") v tomto znění:\nRada\nměsta schvaluje návrh programu jednání.\ns těmito změnami:\n- doplňuje se bod č. 12 - OZV města Pečky o místním poplatku za obecní systém odpadového hospodářství\nHlasování\npro:\n(5) Ing. Hana Kuprová, Ing. Petr Dürr, Ing. Martin Jedlička, Zdeněk Fejfar, Milan Paluska\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-308-37/23\nzodpovídá:\ntermín:\nIHNED\n(30. 10. 2023)\nProjednávání bodu bylo ukončeno v 15:23:59\n3. Aktuální informace vedení města (bod číslo 3)\nPředkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 15:24:04\nDůvodová zpráva:\nstarosta města\n- informace o dokončení rekonstrukce v KS, slavnostní otevření pro veřejnost 2.11.2023\n- informace o kontrolním dni 26.10.2023 na úpravně vody, termín přepojení prameniště v Tatcích, vsakovací jímka na dešťovou vodu, terénní úpravy, komunikace apd.\n- informace o proběhlé rekonstrukci komunikace ul.\nHálkova\n, Pečky a její následné uvedení do provozu\n- informace o podzimním běhu 28.10.2023\n- informace o návrhu na případnou investici do vývařovny a prádelny v Mateřské škole Mašinka Pečky\nZdeněk\nFejfar\n- informace o kontrolním dni ve Velkých Chvalovicích - výstavba 19 ŘD,  položení optického kabelu /zřízení VBř./\nDiskuze zahájena v 15:24:04\nK tomuto bodu se vyjádřili: Milan Paluska, Ing. Hana Kuprová, Ing. Petr Dürr, Ing. Martin Jedlička, Zdeněk Fejfar\nRada bere materiály předložené k bodu č. 3 -\nAktuální informace vedení města\nna vědomí.\nProjednávání bodu bylo ukončeno v 15:47:26\n4. Rozpočtové opatření č. 8/2023 (bod číslo 4)\nPředkladatel: Marcela Bahníková\nProjednávání bodu bylo zahájeno v 15:47:31\nDůvodová zpráva:\nRozpočtová opatření v kompetenci RM. Přesun mezi výdaji  a zařazení průtokové dotace pro ZŠ. Výdaje v rozpočtu na pořízení nábytku KS se zvyšují o 80 tis. po vyhodnocení nabídek dodavatelů, na vybavení bude poskytnuta dotace 400 tis.\nDiskuze zahájena v 15:47:31\nK tomuto bodu se vyjádřili: Milan Paluska, Ing. Martin Jedlička, Ing. Hana Kuprová, Ing. Petr Dürr\nV 15:57:25 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Marcela Bahníková\") v tomto znění:\nRada\nměsta schvaluje rozpočtová opatření č. 8/2023.\nHlasování\npro:\n(5) Ing. Hana Kuprová, Ing. Martin Jedlička, Ing. Petr Dürr, Milan Paluska, Zdeněk Fejfar\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-309-37/23\nzodpovídá:\nMarcela Bahníková\ntermín:\n6. 11. 2023\nProjednávání bodu bylo ukončeno v 15:57:33\n5. Rozpočtové opatření č. 9/2023 (bod číslo 5)\nPředkladatel: Marcela Bahníková\nProjednávání bodu bylo zahájeno v 15:57:37\nDůvodová zpráva:\nRozpočtové opatření v kompetenci ZM. Zvýšení výdajů na nákup pozemků a zvýšení výdajů na část. realizace rekonstrukce kabin AFK, celkem 3 mil., budou přesunuty z položky na úpravu parku (letos nebude realizováno).\nDiskuze zahájena v 15:57:37\nK tomuto bodu se vyjádřili: Milan Paluska, Zdeněk Fejfar, Ing. Petr Dürr, Ing. Martin Jedlička, Ing. Hana Kuprová\nV 16:03:27 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Marcela Bahníková\") v tomto znění:\nRada\nměsta doporučuje zastupitelstvu města schválit rozpočtová opatření č. 9/2023.\nHlasování\npro:\n(5) Ing. Hana Kuprová, Ing. Petr Dürr, Milan Paluska, Ing. Martin Jedlička, Zdeněk Fejfar\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-310-37/23\nzodpovídá:\nMarcela Bahníková\ntermín:\n8. 11. 2023\nProjednávání bodu bylo ukončeno v 16:03:34\n6. Uzavření nové Dohody o spolupráci s PALMA development s.r.o.- projednání nových podmínek (bod číslo 6)\nPředkladatel: Věra Růžičková\nProjednávání bodu bylo zahájeno v 16:03:38\nDůvodová zpráva:\nPředkládáme radě města k projednání novou Dohodu o spolupráci z toho důvodu, že developer již nemá v úmyslu využít pozemky k výstavbě RD.\nNová\ndohoda by měla zcela nahradit dohodu uzavřenou dne 21.9. 2022.\nRada\nměsta bere na vědomí změnu podmínek spolupráce s developerem\nPalma\ndevelopment s.r.o..\nDiskuze zahájena v 16:03:38\nK tomuto bodu se vyjádřili: Milan Paluska, Zdeněk Fejfar, Ing. Hana Kuprová\nRada bere materiály předložené k bodu č. 6 -\nUzavření nové Dohody o spolupráci s PALMA development s.r.o.- projednání nových podmínek\nna vědomí.\nProjednávání bodu bylo ukončeno v 16:17:13\n7. Výběr dodavatele na plnění veřejné zakázky \"Nábytek do části 1. NP Kulturního střediska Pečky\" a uzavření kupní smlouvy (bod číslo 7)\nPředkladatel: Pavlína Nepovímová\nProjednávání bodu bylo zahájeno v 16:17:17\nDůvodová zpráva:\nRozhodnutí o výběru dodavatele na plnění veřejné zakázky \"Nábytek do části 1. NP Kulturního střediska Pečky\", zadávané mimo režim zákona č.134/2016 Sb., o zadávání veřejných zakázek, ve znění pozdějších předpisů, VZMR 2. kategorie, v souladu s doporučením hodnotící komise - viz Rozhodnutí a oznámení o výběru dodavatele v příloze, a uzavření kupní smlouvy s vybraným dodavatelem Kenast s.r.o., IČ: 27243397 - návrh v příloze.\nDiskuze zahájena v 16:17:17\nK tomuto bodu se vyjádřili: Milan Paluska, Ing. Hana Kuprová, Ing. Petr Dürr, Michala Dekiská, Zdeněk Fejfar\nV 16:34:32 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Pavlína Nepovímová\") v tomto znění:\nRada\nměsta schvaluje Rozhodnutí o výběru dodavatele na plnění veřejné zakázky \"Nábytek do části 1. NP Kulturního střediska Pečky\", zadávané mimo režim zákona č.134/2016 Sb., o zadávání veřejných zakázek, ve znění pozdějších předpisů, v souladu s doporučením hodnotící komise, a uzavření kupní smlouvy mezi Městem Pečky a vybraným dodavatelem Kenast s.r.o., IČ: 27243397.\nHlasování\npro:\n(5) Milan Paluska, Ing. Petr Dürr, Zdeněk Fejfar, Ing. Martin Jedlička, Ing. Hana Kuprová\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-311-37/23\nzodpovídá:\nMichala Dekiská\ntermín:\n13. 11. 2023\nProjednávání bodu bylo ukončeno v 16:34:40\n8. Odkoupení pozemků v k.ú. Velké Chvalovice – č. parc. 370/18 a č. parc. 215/3 (bod číslo 8)\nPředkladatel: Jana Najbrtová\nProjednávání bodu bylo zahájeno v 16:34:46\nDůvodová zpráva:\nDoporučujeme odkoupit oba pozemky v k.ú.\nVelké\nChvalovice, které městu nabízí jeho vlastník. Jedná se o část Chvalovického potoku (č. parc. 370/18) a dále o část břehu Ch. potoku (č. parc. 215/3). Při stanovení ceny vycházíme ze znaleckých posudků, podle kterých byly odkoupeny obdobné pozemky v minulých letech.\nDiskuze zahájena v 16:34:46\nK tomuto bodu se vyjádřili: Milan Paluska, Ing. Petr Dürr, Ing. Hana Kuprová\nV 16:36:53 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Jana Najbrtová\") v tomto znění:\nRada\nměsta doporučuje zastupitelstvu města schválit odkoupení pozemku č. parc. 370/18 (687 m\n2\n) - vodní plocha, koryto vodního toku umělé (Chvalovický potok-část) za cenu 56,64 Kč//m\n2\na pozemek č. parc. . 215/3 (76 m\n2\n) – zast.plocha a nádvoří, spol. dvůr za cenu 35,-Kč/m\n2\n– oba v obci Pečky a k.ú.\nVelké\nChvalovice. Pozemky budou odkoupeny od\n█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​\nza celkovou kupní cenu ve výši 41.572,- Kč. Město jako kupující uhradí poplatek spojený s převodem u K.Ú. v Kolíně a zajistí sepsání kupní smlouvy.\nHlasování\npro:\n(5) Milan Paluska, Ing. Petr Dürr, Ing. Hana Kuprová, Ing. Martin Jedlička, Zdeněk Fejfar\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-312-37/23\nzodpovídá:\nJana Najbrtová\ntermín:\n31. 3. 2024\nProjednávání bodu bylo ukončeno v 16:37:00\n9. OZV města Pečky o stanovení společného školského obvodu ZŠ (bod číslo 9)\nPředkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 16:37:05\nDůvodová zpráva:\nPo kontrole oddělení dozoru MV ČR \"Obecně závazné vyhlášky města Pečky, kterou se stanoví část společného školského obvodu základní školy\" a která nahrazuje vyhlášku z roku 2007.\nDiskuze zahájena v 16:37:05\nK tomuto bodu se vyjádřili: Milan Paluska, Zdeněk Fejfar, Ing. Petr Dürr\nV 16:51:55 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Milan Paluska\") v tomto znění:\nRada\nměsta doporučuje zastupitelstvu města schválit \"Obecně závaznou vyhlášku města Pečky, kterou se stanoví část společného školského obvodu základní školy\" a současně se ruší OZV města Pečky č.2/2007.\nHlasování\npro:\n(5) Milan Paluska, Ing. Martin Jedlička, Ing. Petr Dürr, Ing. Hana Kuprová, Zdeněk Fejfar\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-313-37/23\nzodpovídá:\nMilan Paluska\ntermín:\n13. 11. 2023\nProjednávání bodu bylo ukončeno v 16:52:03\n10. Termín a program ZM dne 8.11.2023 (bod číslo 10)\nPředkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 16:52:06\nDůvodová zpráva:\nProjednání termínu a programu zasedání ZM dne 8.11.2023 od 17.30 hodin v Kulturním domě Pečky.\nDiskuze zahájena v 16:52:06\nK tomuto bodu se vyjádřili: Milan Paluska, Ing. Petr Dürr, Ing. Hana Kuprová, Zdeněk Fejfar\nV 17:00:23 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Milan Paluska\") v tomto znění:\nRada\nměsta schvaluje termín a program zasedání ZM dne 8.11.2023 od 17.30 hodin v Kulturním domě Pečky, Tř.\nJana\nŠvermy. čp. 255, Pečky.\nHlasování\npro:\n(5) Ing. Martin Jedlička, Ing. Hana Kuprová, Milan Paluska, Zdeněk Fejfar, Ing. Petr Dürr\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-314-37/23\nzodpovídá:\nMilan Paluska\ntermín:\n13. 11. 2023\nProjednávání bodu bylo ukončeno v 17:00:38\n11. Kontrola plnění usnesení (bod číslo 11)\nPředkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 17:01:58\nDiskuze zahájena v 17:01:58\nK tomuto bodu se vyjádřili: Milan Paluska\nRada bere materiály předložené k bodu č. 11 -\nKontrola plnění usnesení\nna vědomí.\nProjednávání bodu bylo ukončeno v 17:02:09\n12. OZV města Pečky o místním poplatku za obecní systém odpadového hospodářství (bod číslo 12)\nPředkladatel: Hana Pokorná\nProjednávání bodu bylo zahájeno v 17:05:11\nDůvodová zpráva:\nRada\nměsta doporučuje Zastupitelstvu města Pečky schválení OZV o místním poplatku za obecní systém odpadového hospodářství, s účinností od 1.1.2024. Znění obecně závazné vyhlášky bylo překontrolováno pracovníkem MVČR.\nDiskuze zahájena v 17:05:11\nK tomuto bodu se vyjádřili: Milan Paluska, Ing. Hana Kuprová, Zdeněk Fejfar\nV 17:09:07 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Hana Pokorná\") v tomto znění:\nRada\nměsta doporučuje zastupitelstvu města schválit OZV o místním poplatku za obecní systém odpadového hospodářství, s účinností od 1.1.2024.\nHlasování\npro:\n(5) Ing. Martin Jedlička, Ing. Petr Dürr, Zdeněk Fejfar, Ing. Hana Kuprová, Milan Paluska\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-315-37/23\nzodpovídá:\nHana Pokorná\ntermín:\n13. 11. 2023\nProjednávání bodu bylo ukončeno v 17:09:14\nJednání ukončeno 30.10.2023 v 17:09:37"
+ },
+ "resolutions": {
+  "status": "ok",
+  "url": "https://mesto-pecky.usneseni.cz/verejne/79200457-7337-11ee-962e-00505683238f/usneseni/",
+  "fetched_at": "2026-08-04T14:01:57.875716+00:00",
+  "items": [
+   {
+    "number_raw": "UR-308-37/23",
+    "detail_id": 48856,
+    "detail_url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/48856?mod=rada",
+    "agenda_item_raw": "Schválení programu jednání",
+    "text_verbatim": "Rada\nměsta schvaluje návrh programu jednání.\ns těmito změnami:\n- doplňuje se bod č. 12 - OZV města Pečky o místním poplatku za obecní systém odpadového hospodářství",
+    "cell_text_raw": "Bod programu:\nSchválení programu jednání\nText přijatého usnesení:\nRada\nměsta schvaluje návrh programu jednání.\ns těmito změnami:\n- doplňuje se bod č. 12 - OZV města Pečky o místním poplatku za obecní systém odpadového hospodářství",
+    "date_raw": "30. 10. 2023",
+    "date_iso": "2023-10-30",
+    "responsible_raw": "",
+    "deadline_raw": "IHNED (30. 10. 2023)",
+    "vote": {
+     "raw_text": "pro: 5 proti: 0 zdržel se: 0",
+     "pro": {
+      "count": 5,
+      "names": null,
+      "raw": "5"
+     },
+     "proti": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     },
+     "zdrzel_se": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     }
+    },
+    "detail": {
+     "number_raw": "UR-308-37/23",
+     "text_verbatim": "Rada města schvaluje návrh programu jednání.\ns těmito změnami: - doplňuje se bod č. 12 - OZV města Pečky o místním poplatku za obecní systém odpadového hospodářství",
+     "typ_raw": null,
+     "zodpovida_raw": "",
+     "prijato_raw": "30. 10. 2023 na jednání č. 37/2023",
+     "prijato_date_iso": "2023-10-30",
+     "prijato_meeting_label": "37/2023",
+     "termin_raw": "IHNED (30. 10. 2023)",
+     "ukonceno_raw": "30. 10. 2023",
+     "ukonceno_date_iso": "2023-10-30",
+     "fields_raw": {
+      "Číslo usnesení": "UR-308-37/23",
+      "Text usnesení": "Rada města schvaluje návrh programu jednání.\ns těmito změnami: - doplňuje se bod č. 12 - OZV města Pečky o místním poplatku za obecní systém odpadového hospodářství",
+      "Zodpovídá": "",
+      "Přijato": "30. 10. 2023 na jednání č. 37/2023",
+      "Termín": "IHNED (30. 10. 2023)",
+      "Ukončeno": "30. 10. 2023"
+     }
+    }
+   },
+   {
+    "number_raw": "UR-309-37/23",
+    "detail_id": 48936,
+    "detail_url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/48936?mod=rada",
+    "agenda_item_raw": "Rozpočtové opatření č. 8/2023",
+    "text_verbatim": "Rada\nměsta schvaluje rozpočtová opatření č. 8/2023.",
+    "cell_text_raw": "Bod programu:\nRozpočtové opatření č. 8/2023\nText přijatého usnesení:\nRada\nměsta schvaluje rozpočtová opatření č. 8/2023.",
+    "date_raw": "30. 10. 2023",
+    "date_iso": "2023-10-30",
+    "responsible_raw": "Marcela Bahníková",
+    "deadline_raw": "6. 11. 2023",
+    "vote": {
+     "raw_text": "pro: 5 proti: 0 zdržel se: 0",
+     "pro": {
+      "count": 5,
+      "names": null,
+      "raw": "5"
+     },
+     "proti": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     },
+     "zdrzel_se": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     }
+    },
+    "detail": {
+     "number_raw": "UR-309-37/23",
+     "text_verbatim": "Rada města schvaluje rozpočtová opatření č. 8/2023.",
+     "typ_raw": null,
+     "zodpovida_raw": "Marcela Bahníková",
+     "prijato_raw": "30. 10. 2023 na jednání č. 37/2023",
+     "prijato_date_iso": "2023-10-30",
+     "prijato_meeting_label": "37/2023",
+     "termin_raw": "6. 11. 2023",
+     "ukonceno_raw": "2. 11. 2023",
+     "ukonceno_date_iso": "2023-11-02",
+     "fields_raw": {
+      "Číslo usnesení": "UR-309-37/23",
+      "Text usnesení": "Rada města schvaluje rozpočtová opatření č. 8/2023.",
+      "Zodpovídá": "Marcela Bahníková",
+      "Přijato": "30. 10. 2023 na jednání č. 37/2023",
+      "Termín": "6. 11. 2023",
+      "Ukončeno": "2. 11. 2023"
+     }
+    }
+   },
+   {
+    "number_raw": "UR-310-37/23",
+    "detail_id": 48934,
+    "detail_url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/48934?mod=rada",
+    "agenda_item_raw": "Rozpočtové opatření č. 9/2023",
+    "text_verbatim": "Rada\nměsta doporučuje zastupitelstvu města schválit rozpočtová opatření č. 9/2023.",
+    "cell_text_raw": "Bod programu:\nRozpočtové opatření č. 9/2023\nText přijatého usnesení:\nRada\nměsta doporučuje zastupitelstvu města schválit rozpočtová opatření č. 9/2023.",
+    "date_raw": "30. 10. 2023",
+    "date_iso": "2023-10-30",
+    "responsible_raw": "Marcela Bahníková",
+    "deadline_raw": "8. 11. 2023",
+    "vote": {
+     "raw_text": "pro: 5 proti: 0 zdržel se: 0",
+     "pro": {
+      "count": 5,
+      "names": null,
+      "raw": "5"
+     },
+     "proti": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     },
+     "zdrzel_se": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     }
+    },
+    "detail": {
+     "number_raw": "UR-310-37/23",
+     "text_verbatim": "Rada města doporučuje zastupitelstvu města schválit rozpočtová opatření č. 9/2023.",
+     "typ_raw": null,
+     "zodpovida_raw": "Marcela Bahníková",
+     "prijato_raw": "30. 10. 2023 na jednání č. 37/2023",
+     "prijato_date_iso": "2023-10-30",
+     "prijato_meeting_label": "37/2023",
+     "termin_raw": "8. 11. 2023",
+     "ukonceno_raw": "8. 11. 2023",
+     "ukonceno_date_iso": "2023-11-08",
+     "fields_raw": {
+      "Číslo usnesení": "UR-310-37/23",
+      "Text usnesení": "Rada města doporučuje zastupitelstvu města schválit rozpočtová opatření č. 9/2023.",
+      "Zodpovídá": "Marcela Bahníková",
+      "Přijato": "30. 10. 2023 na jednání č. 37/2023",
+      "Termín": "8. 11. 2023",
+      "Ukončeno": "8. 11. 2023"
+     }
+    }
+   },
+   {
+    "number_raw": "UR-311-37/23",
+    "detail_id": 48891,
+    "detail_url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/48891?mod=rada",
+    "agenda_item_raw": "Výběr dodavatele na plnění veřejné zakázky \"Nábytek do části 1. NP Kulturního střediska Pečky\" a uzavření kupní smlouvy",
+    "text_verbatim": "Rada\nměsta schvaluje Rozhodnutí o výběru dodavatele na plnění veřejné zakázky \"Nábytek do části 1. NP Kulturního střediska Pečky\", zadávané mimo režim zákona č.134/2016 Sb., o zadávání veřejných zakázek, ve znění pozdějších předpisů, v souladu s doporučením hodnotící komise, a uzavření kupní smlouvy mezi Městem Pečky a vybraným dodavatelem Kenast s.r.o., IČ: 27243397.",
+    "cell_text_raw": "Bod programu:\nVýběr dodavatele na plnění veřejné zakázky \"Nábytek do části 1. NP Kulturního střediska Pečky\" a uzavření kupní smlouvy\nText přijatého usnesení:\nRada\nměsta schvaluje Rozhodnutí o výběru dodavatele na plnění veřejné zakázky \"Nábytek do části 1. NP Kulturního střediska Pečky\", zadávané mimo režim zákona č.134/2016 Sb., o zadávání veřejných zakázek, ve znění pozdějších předpisů, v souladu s doporučením hodnotící komise, a uzavření kupní smlouvy mezi Městem Pečky a vybraným dodavatelem Kenast s.r.o., IČ: 27243397.",
+    "date_raw": "30. 10. 2023",
+    "date_iso": "2023-10-30",
+    "responsible_raw": "Michala Dekiská",
+    "deadline_raw": "13. 11. 2023",
+    "vote": {
+     "raw_text": "pro: 5 proti: 0 zdržel se: 0",
+     "pro": {
+      "count": 5,
+      "names": null,
+      "raw": "5"
+     },
+     "proti": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     },
+     "zdrzel_se": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     }
+    },
+    "detail": {
+     "number_raw": "UR-311-37/23",
+     "text_verbatim": "Rada města schvaluje Rozhodnutí o výběru dodavatele na plnění veřejné zakázky \"Nábytek do části 1. NP Kulturního střediska Pečky\", zadávané mimo režim zákona č.134/2016 Sb., o zadávání veřejných zakázek, ve znění pozdějších předpisů, v souladu s doporučením hodnotící komise, a uzavření kupní smlouvy mezi Městem Pečky a vybraným dodavatelem Kenast s.r.o., IČ: 27243397.",
+     "typ_raw": null,
+     "zodpovida_raw": "Michala Dekiská",
+     "prijato_raw": "30. 10. 2023 na jednání č. 37/2023",
+     "prijato_date_iso": "2023-10-30",
+     "prijato_meeting_label": "37/2023",
+     "termin_raw": "13. 11. 2023",
+     "ukonceno_raw": "8. 11. 2023",
+     "ukonceno_date_iso": "2023-11-08",
+     "fields_raw": {
+      "Číslo usnesení": "UR-311-37/23",
+      "Text usnesení": "Rada města schvaluje Rozhodnutí o výběru dodavatele na plnění veřejné zakázky \"Nábytek do části 1. NP Kulturního střediska Pečky\", zadávané mimo režim zákona č.134/2016 Sb., o zadávání veřejných zakázek, ve znění pozdějších předpisů, v souladu s doporučením hodnotící komise, a uzavření kupní smlouvy mezi Městem Pečky a vybraným dodavatelem Kenast s.r.o., IČ: 27243397.",
+      "Zodpovídá": "Michala Dekiská",
+      "Přijato": "30. 10. 2023 na jednání č. 37/2023",
+      "Termín": "13. 11. 2023",
+      "Ukončeno": "8. 11. 2023"
+     }
+    }
+   },
+   {
+    "number_raw": "UR-312-37/23",
+    "detail_id": 48886,
+    "detail_url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/48886?mod=rada",
+    "agenda_item_raw": "Odkoupení pozemků v k.ú. Velké Chvalovice – č. parc. 370/18 a č. parc. 215/3",
+    "text_verbatim": "Rada\nměsta doporučuje zastupitelstvu města schválit odkoupení pozemku č. parc. 370/18 (687 m\n2\n) - vodní plocha, koryto vodního toku umělé (Chvalovický potok-část) za cenu 56,64 Kč//m\n2\na pozemek č. parc. . 215/3 (76 m\n2\n) –\nzast.plocha\na nádvoří, spol. dvůr za cenu 35,-Kč/m\n2\n– oba v obci Pečky a k.ú.\nVelké\nChvalovice. Pozemky budou odkoupeny od\n█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​\nza celkovou kupní cenu ve výši 41.572,- Kč. Město jako kupující uhradí poplatek spojený s převodem u K.Ú. v Kolíně a zajistí sepsání kupní smlouvy.",
+    "cell_text_raw": "Bod programu:\nOdkoupení pozemků v k.ú. Velké Chvalovice – č. parc. 370/18 a č. parc. 215/3\nText přijatého usnesení:\nRada\nměsta doporučuje zastupitelstvu města schválit odkoupení pozemku č. parc. 370/18 (687 m\n2\n) - vodní plocha, koryto vodního toku umělé (Chvalovický potok-část) za cenu 56,64 Kč//m\n2\na pozemek č. parc. . 215/3 (76 m\n2\n) –\nzast.plocha\na nádvoří, spol. dvůr za cenu 35,-Kč/m\n2\n– oba v obci Pečky a k.ú.\nVelké\nChvalovice. Pozemky budou odkoupeny od\n█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​\nza celkovou kupní cenu ve výši 41.572,- Kč. Město jako kupující uhradí poplatek spojený s převodem u K.Ú. v Kolíně a zajistí sepsání kupní smlouvy.",
+    "date_raw": "30. 10. 2023",
+    "date_iso": "2023-10-30",
+    "responsible_raw": "Jana Najbrtová",
+    "deadline_raw": "31. 3. 2024",
+    "vote": {
+     "raw_text": "pro: 5 proti: 0 zdržel se: 0",
+     "pro": {
+      "count": 5,
+      "names": null,
+      "raw": "5"
+     },
+     "proti": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     },
+     "zdrzel_se": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     }
+    },
+    "detail": {
+     "number_raw": "UR-312-37/23",
+     "text_verbatim": "Rada města doporučuje zastupitelstvu města schválit odkoupení pozemku č. parc. 370/18 (687 m 2 ) - vodní plocha, koryto vodního toku umělé (Chvalovický potok-část) za cenu 56,64 Kč//m 2 a pozemek č. parc. . 215/3 (76 m 2 ) – zast.plocha a nádvoří, spol. dvůr za cenu 35,-Kč/m 2 – oba v obci Pečky a k.ú. Velké Chvalovice. Pozemky budou odkoupeny od █​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​ za celkovou kupní cenu ve výši 41.572,- Kč. Město jako kupující uhradí poplatek spojený s převodem u K.Ú. v Kolíně a zajistí sepsání kupní smlouvy.",
+     "typ_raw": null,
+     "zodpovida_raw": "Jana Najbrtová",
+     "prijato_raw": "30. 10. 2023 na jednání č. 37/2023",
+     "prijato_date_iso": "2023-10-30",
+     "prijato_meeting_label": "37/2023",
+     "termin_raw": "31. 3. 2024",
+     "ukonceno_raw": "15. 1. 2024",
+     "ukonceno_date_iso": "2024-01-15",
+     "fields_raw": {
+      "Číslo usnesení": "UR-312-37/23",
+      "Text usnesení": "Rada města doporučuje zastupitelstvu města schválit odkoupení pozemku č. parc. 370/18 (687 m 2 ) - vodní plocha, koryto vodního toku umělé (Chvalovický potok-část) za cenu 56,64 Kč//m 2 a pozemek č. parc. . 215/3 (76 m 2 ) – zast.plocha a nádvoří, spol. dvůr za cenu 35,-Kč/m 2 – oba v obci Pečky a k.ú. Velké Chvalovice. Pozemky budou odkoupeny od █​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​ za celkovou kupní cenu ve výši 41.572,- Kč. Město jako kupující uhradí poplatek spojený s převodem u K.Ú. v Kolíně a zajistí sepsání kupní smlouvy.",
+      "Zodpovídá": "Jana Najbrtová",
+      "Přijato": "30. 10. 2023 na jednání č. 37/2023",
+      "Termín": "31. 3. 2024",
+      "Ukončeno": "15. 1. 2024"
+     }
+    }
+   },
+   {
+    "number_raw": "UR-313-37/23",
+    "detail_id": 48946,
+    "detail_url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/48946?mod=rada",
+    "agenda_item_raw": "OZV města Pečky o stanovení společného školského obvodu ZŠ",
+    "text_verbatim": "Rada\nměsta doporučuje zastupitelstvu města schválit \"Obecně závaznou vyhlášku města Pečky, kterou se stanoví část společného školského obvodu základní školy\" a současně se ruší OZV města Pečky č.2/2007.",
+    "cell_text_raw": "Bod programu:\nOZV města Pečky o stanovení společného školského obvodu ZŠ\nText přijatého usnesení:\nRada\nměsta doporučuje zastupitelstvu města schválit \"Obecně závaznou vyhlášku města Pečky, kterou se stanoví část společného školského obvodu základní školy\" a současně se ruší OZV města Pečky č.2/2007.",
+    "date_raw": "30. 10. 2023",
+    "date_iso": "2023-10-30",
+    "responsible_raw": "Milan Paluska",
+    "deadline_raw": "13. 11. 2023",
+    "vote": {
+     "raw_text": "pro: 5 proti: 0 zdržel se: 0",
+     "pro": {
+      "count": 5,
+      "names": null,
+      "raw": "5"
+     },
+     "proti": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     },
+     "zdrzel_se": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     }
+    },
+    "detail": {
+     "number_raw": "UR-313-37/23",
+     "text_verbatim": "Rada města doporučuje zastupitelstvu města schválit \"Obecně závaznou vyhlášku města Pečky, kterou se stanoví část společného školského obvodu základní školy\" a současně se ruší OZV města Pečky č.2/2007.",
+     "typ_raw": null,
+     "zodpovida_raw": "Milan Paluska",
+     "prijato_raw": "30. 10. 2023 na jednání č. 37/2023",
+     "prijato_date_iso": "2023-10-30",
+     "prijato_meeting_label": "37/2023",
+     "termin_raw": "13. 11. 2023",
+     "ukonceno_raw": "13. 11. 2023",
+     "ukonceno_date_iso": "2023-11-13",
+     "fields_raw": {
+      "Číslo usnesení": "UR-313-37/23",
+      "Text usnesení": "Rada města doporučuje zastupitelstvu města schválit \"Obecně závaznou vyhlášku města Pečky, kterou se stanoví část společného školského obvodu základní školy\" a současně se ruší OZV města Pečky č.2/2007.",
+      "Zodpovídá": "Milan Paluska",
+      "Přijato": "30. 10. 2023 na jednání č. 37/2023",
+      "Termín": "13. 11. 2023",
+      "Ukončeno": "13. 11. 2023"
+     }
+    }
+   },
+   {
+    "number_raw": "UR-314-37/23",
+    "detail_id": 48933,
+    "detail_url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/48933?mod=rada",
+    "agenda_item_raw": "Termín a program ZM dne 8.11.2023",
+    "text_verbatim": "Rada\nměsta schvaluje termín a program zasedání ZM dne 8.11.2023 od 17.30 hodin v Kulturním domě Pečky, Tř.\nJana\nŠvermy. čp. 255, Pečky.",
+    "cell_text_raw": "Bod programu:\nTermín a program ZM dne 8.11.2023\nText přijatého usnesení:\nRada\nměsta schvaluje termín a program zasedání ZM dne 8.11.2023 od 17.30 hodin v Kulturním domě Pečky, Tř.\nJana\nŠvermy. čp. 255, Pečky.",
+    "date_raw": "30. 10. 2023",
+    "date_iso": "2023-10-30",
+    "responsible_raw": "Milan Paluska",
+    "deadline_raw": "13. 11. 2023",
+    "vote": {
+     "raw_text": "pro: 5 proti: 0 zdržel se: 0",
+     "pro": {
+      "count": 5,
+      "names": null,
+      "raw": "5"
+     },
+     "proti": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     },
+     "zdrzel_se": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     }
+    },
+    "detail": {
+     "number_raw": "UR-314-37/23",
+     "text_verbatim": "Rada města schvaluje termín a program zasedání ZM dne 8.11.2023 od 17.30 hodin v Kulturním domě Pečky, Tř. Jana Švermy. čp. 255, Pečky.",
+     "typ_raw": null,
+     "zodpovida_raw": "Milan Paluska",
+     "prijato_raw": "30. 10. 2023 na jednání č. 37/2023",
+     "prijato_date_iso": "2023-10-30",
+     "prijato_meeting_label": "37/2023",
+     "termin_raw": "13. 11. 2023",
+     "ukonceno_raw": "13. 11. 2023",
+     "ukonceno_date_iso": "2023-11-13",
+     "fields_raw": {
+      "Číslo usnesení": "UR-314-37/23",
+      "Text usnesení": "Rada města schvaluje termín a program zasedání ZM dne 8.11.2023 od 17.30 hodin v Kulturním domě Pečky, Tř. Jana Švermy. čp. 255, Pečky.",
+      "Zodpovídá": "Milan Paluska",
+      "Přijato": "30. 10. 2023 na jednání č. 37/2023",
+      "Termín": "13. 11. 2023",
+      "Ukončeno": "13. 11. 2023"
+     }
+    }
+   },
+   {
+    "number_raw": "UR-315-37/23",
+    "detail_id": 49016,
+    "detail_url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/49016?mod=rada",
+    "agenda_item_raw": "OZV města Pečky o místním poplatku za obecní systém odpadového hospodářství",
+    "text_verbatim": "Rada\nměsta doporučuje zastupitelstvu města schválit OZV o místním poplatku za obecní systém odpadového hospodářství, s účinností od 1.1.2024.",
+    "cell_text_raw": "Bod programu:\nOZV města Pečky o místním poplatku za obecní systém odpadového hospodářství\nText přijatého usnesení:\nRada\nměsta doporučuje zastupitelstvu města schválit OZV o místním poplatku za obecní systém odpadového hospodářství, s účinností od 1.1.2024.",
+    "date_raw": "30. 10. 2023",
+    "date_iso": "2023-10-30",
+    "responsible_raw": "Hana Pokorná",
+    "deadline_raw": "13. 11. 2023",
+    "vote": {
+     "raw_text": "pro: 5 proti: 0 zdržel se: 0",
+     "pro": {
+      "count": 5,
+      "names": null,
+      "raw": "5"
+     },
+     "proti": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     },
+     "zdrzel_se": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     }
+    },
+    "detail": {
+     "number_raw": "UR-315-37/23",
+     "text_verbatim": "Rada města doporučuje zastupitelstvu města schválit OZV o místním poplatku za obecní systém odpadového hospodářství, s účinností od 1.1.2024.",
+     "typ_raw": null,
+     "zodpovida_raw": "Hana Pokorná",
+     "prijato_raw": "30. 10. 2023 na jednání č. 37/2023",
+     "prijato_date_iso": "2023-10-30",
+     "prijato_meeting_label": "37/2023",
+     "termin_raw": "13. 11. 2023",
+     "ukonceno_raw": "2. 11. 2023",
+     "ukonceno_date_iso": "2023-11-02",
+     "fields_raw": {
+      "Číslo usnesení": "UR-315-37/23",
+      "Text usnesení": "Rada města doporučuje zastupitelstvu města schválit OZV o místním poplatku za obecní systém odpadového hospodářství, s účinností od 1.1.2024.",
+      "Zodpovídá": "Hana Pokorná",
+      "Přijato": "30. 10. 2023 na jednání č. 37/2023",
+      "Termín": "13. 11. 2023",
+      "Ukončeno": "2. 11. 2023"
+     }
+    }
+   }
+  ]
+ }
+}

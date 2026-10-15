@@ -1,0 +1,803 @@
+{
+ "uuid": "94000b00-e24e-11ec-a1fc-6b15d6f8ca9c",
+ "body_type_raw": "Zastupitelstvo",
+ "label_raw": "4/2022 (15. 6. 2022)",
+ "number": 4,
+ "year": 2022,
+ "date_iso": "2022-06-15",
+ "links": {
+  "invitation": "https://mesto-pecky.usneseni.cz/verejne/?uuid=94000b00-e24e-11ec-a1fc-6b15d6f8ca9c&page=15&do=printPublicInvitation",
+  "minutes": "https://mesto-pecky.usneseni.cz/verejne/94000b00-e24e-11ec-a1fc-6b15d6f8ca9c/zapis/?page=15",
+  "signed_minutes_pdf": "https://mesto-pecky.usneseni.cz/verejne/?meetingReportControl-uuid=94000b00-e24e-11ec-a1fc-6b15d6f8ca9c&page=15&do=meetingReportControl-getSignedReportPdf",
+  "resolutions": "https://mesto-pecky.usneseni.cz/verejne/94000b00-e24e-11ec-a1fc-6b15d6f8ca9c/usneseni/?page=15",
+  "audio": "https://mesto-pecky.usneseni.cz#"
+ },
+ "link_texts": {
+  "invitation": "Pozvánka",
+  "minutes": "zápis",
+  "signed_minutes_pdf": "podepsaný zápis",
+  "resolutions": "přijatá usnesení",
+  "audio": "Zvukový záznam"
+ },
+ "status": "ok",
+ "invitation": {
+  "status": "site_error",
+  "error": "status=200 ct=text/html; charset=utf-8 flash='<a href=\"\" class=\"close\" data-dismiss=\"alert\" aria-label=\"close\">&times;'",
+  "url": "https://mesto-pecky.usneseni.cz/verejne/?uuid=94000b00-e24e-11ec-a1fc-6b15d6f8ca9c&do=printPublicInvitation",
+  "fetched_at": "2026-08-04T15:11:16.012909+00:00"
+ },
+ "minutes": {
+  "status": "ok",
+  "url": "https://mesto-pecky.usneseni.cz/verejne/94000b00-e24e-11ec-a1fc-6b15d6f8ca9c/zapis/",
+  "fetched_at": "2026-08-04T14:27:58.296754+00:00",
+  "title_raw": "ZÁPIS ze zasedání zastupitelstva č. 4/2022 Město Pečky datum: 15. 6. 2022, čas: 18:30 ​",
+  "date_raw": "15. 6. 2022",
+  "date_iso": "2022-06-15",
+  "time_raw": "18:30",
+  "presence": {
+   "raw_text": "Prezence:\nPřítomni:\n(18) Mgr. Alena Švejnohová, Bc. Iveta Minaříková, Tomáš Vodička, Šárka Horynová, Jiří Katrnoška, Jaroslav Železný, Ing. Petr Dürr, Zdeněk Fejfar, Mgr. Jaroslava Heroldová DiS., Viktorie Janáčková MSc., Ing. Martin Jedlička, Ing. Stanislav Jiran, Milan Paluska, Ondřej Schulz, MUDr. Věra Schürzová, Ing. Karel Krištoufek, Ing. Jan Korouš Ph.D., Luděk Vinohradník\nOmluveni:\n(3) Martin Homan, Mgr. Věra Křížová, Jaroslav Martinec\nNepřítomni:\n(0)\nHosté:\nJUDr. Němečková Hana\nPředsedající:\nMgr. Alena Švejnohová\nTito zastupitelé se (z)účastní distančně:\nViktorie Janáčková MSc.\nPřítomno je 18 členů a zastupitelstvo je usnášeníschopné.\nJednání zahájeno 15.06.2022 v 18:34:07",
+   "pritomni": {
+    "count": 18,
+    "names": [
+     "Mgr. Alena Švejnohová",
+     "Bc. Iveta Minaříková",
+     "Tomáš Vodička",
+     "Šárka Horynová",
+     "Jiří Katrnoška",
+     "Jaroslav Železný",
+     "Ing. Petr Dürr",
+     "Zdeněk Fejfar",
+     "Mgr. Jaroslava Heroldová DiS.",
+     "Viktorie Janáčková MSc.",
+     "Ing. Martin Jedlička",
+     "Ing. Stanislav Jiran",
+     "Milan Paluska",
+     "Ondřej Schulz",
+     "MUDr. Věra Schürzová",
+     "Ing. Karel Krištoufek",
+     "Ing. Jan Korouš Ph.D.",
+     "Luděk Vinohradník"
+    ],
+    "raw": "(18) Mgr. Alena Švejnohová, Bc. Iveta Minaříková, Tomáš Vodička, Šárka Horynová, Jiří Katrnoška, Jaroslav Železný, Ing. Petr Dürr, Zdeněk Fejfar, Mgr. Jaroslava Heroldová DiS., Viktorie Janáčková MSc., Ing. Martin Jedlička, Ing. Stanislav Jiran, Milan Paluska, Ondřej Schulz, MUDr. Věra Schürzová, Ing. Karel Krištoufek, Ing. Jan Korouš Ph.D., Luděk Vinohradník"
+   },
+   "omluveni": {
+    "count": 3,
+    "names": [
+     "Martin Homan",
+     "Mgr. Věra Křížová",
+     "Jaroslav Martinec"
+    ],
+    "raw": "(3) Martin Homan, Mgr. Věra Křížová, Jaroslav Martinec"
+   },
+   "nepritomni": {
+    "count": 0,
+    "names": [],
+    "raw": "(0)"
+   },
+   "predsedajici": "Mgr. Alena Švejnohová",
+   "quorum_raw": "Přítomno je 18 členů a zastupitelstvo je usnášeníschopné."
+  },
+  "header_raw": "Prezence:\nPřítomni:\n(18) Mgr. Alena Švejnohová, Bc. Iveta Minaříková, Tomáš Vodička, Šárka Horynová, Jiří Katrnoška, Jaroslav Železný, Ing. Petr Dürr, Zdeněk Fejfar, Mgr. Jaroslava Heroldová DiS., Viktorie Janáčková MSc., Ing. Martin Jedlička, Ing. Stanislav Jiran, Milan Paluska, Ondřej Schulz, MUDr. Věra Schürzová, Ing. Karel Krištoufek, Ing. Jan Korouš Ph.D., Luděk Vinohradník\nOmluveni:\n(3) Martin Homan, Mgr. Věra Křížová, Jaroslav Martinec\nNepřítomni:\n(0)\nHosté:\nJUDr. Němečková Hana\nPředsedající:\nMgr. Alena Švejnohová\nTito zastupitelé se (z)účastní distančně:\nViktorie Janáčková MSc.\nPřítomno je 18 členů a zastupitelstvo je usnášeníschopné.\nJednání zahájeno 15.06.2022 v 18:34:07",
+  "agenda_items": [
+   {
+    "number": 1,
+    "title_raw": "Volba pracovních komisí",
+    "heading_raw": "1. Volba pracovních komisí (bod číslo 1)",
+    "predkladatel": "Mgr. Alena Švejnohová",
+    "votes": [
+     {
+      "raw_text": "pro:\n(18) Tomáš Vodička, Viktorie Janáčková MSc., Mgr. Alena Švejnohová, Ing. Jan Korouš Ph.D., Ing. Martin Jedlička, Jaroslav Železný, MUDr. Věra Schürzová, Šárka Horynová, Bc. Iveta Minaříková, Jiří Katrnoška, Ing. Petr Dürr, Ing. Karel Krištoufek, Ing. Stanislav Jiran, Mgr. Jaroslava Heroldová DiS., Zdeněk Fejfar, Ondřej Schulz, Luděk Vinohradník, Milan Paluska\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)",
+      "pro": {
+       "count": 18,
+       "names": [
+        "Tomáš Vodička",
+        "Viktorie Janáčková MSc.",
+        "Mgr. Alena Švejnohová",
+        "Ing. Jan Korouš Ph.D.",
+        "Ing. Martin Jedlička",
+        "Jaroslav Železný",
+        "MUDr. Věra Schürzová",
+        "Šárka Horynová",
+        "Bc. Iveta Minaříková",
+        "Jiří Katrnoška",
+        "Ing. Petr Dürr",
+        "Ing. Karel Krištoufek",
+        "Ing. Stanislav Jiran",
+        "Mgr. Jaroslava Heroldová DiS.",
+        "Zdeněk Fejfar",
+        "Ondřej Schulz",
+        "Luděk Vinohradník",
+        "Milan Paluska"
+       ],
+       "raw": "(18) Tomáš Vodička, Viktorie Janáčková MSc., Mgr. Alena Švejnohová, Ing. Jan Korouš Ph.D., Ing. Martin Jedlička, Jaroslav Železný, MUDr. Věra Schürzová, Šárka Horynová, Bc. Iveta Minaříková, Jiří Katrnoška, Ing. Petr Dürr, Ing. Karel Krištoufek, Ing. Stanislav Jiran, Mgr. Jaroslava Heroldová DiS., Zdeněk Fejfar, Ondřej Schulz, Luděk Vinohradník, Milan Paluska"
+      },
+      "proti": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "zdrzel_se": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "nehlasoval": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "result_raw": "Návrh byl přijat",
+      "adopted_resolution_number": null
+     }
+    ],
+    "resolution_numbers_mentioned": [],
+    "raw_text": "Předkladatel: Mgr. Alena Švejnohová\nProjednávání bodu bylo zahájeno v 18:37:43 (zvuk. záznam 0:03:26 - 0:04:26)\nPředsedající navrhl jednotlivé členy pracovních komisí\nNávrhová komise:\nJaroslav Železný, Tomáš Vodička, Luděk Vinohradník, Milan Paluska, Ing. Petr Dürr\nMandátová a volební komise:\nOvěřovatelé:\nOndřej Schulz, Zdeněk Fejfar\nDiskuze zahájena v 18:37:43\nHlasování\npro:\n(18) Tomáš Vodička, Viktorie Janáčková MSc., Mgr. Alena Švejnohová, Ing. Jan Korouš Ph.D., Ing. Martin Jedlička, Jaroslav Železný, MUDr. Věra Schürzová, Šárka Horynová, Bc. Iveta Minaříková, Jiří Katrnoška, Ing. Petr Dürr, Ing. Karel Krištoufek, Ing. Stanislav Jiran, Mgr. Jaroslava Heroldová DiS., Zdeněk Fejfar, Ondřej Schulz, Luděk Vinohradník, Milan Paluska\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat\nProjednávání bodu bylo ukončeno v 18:38:43"
+   },
+   {
+    "number": 2,
+    "title_raw": "Schválení programu jednání",
+    "heading_raw": "2. Schválení programu jednání (bod číslo 2)",
+    "predkladatel": "Mgr. Alena Švejnohová",
+    "votes": [
+     {
+      "raw_text": "pro:\n(18) Viktorie Janáčková MSc., Mgr. Alena Švejnohová, Zdeněk Fejfar, Ing. Martin Jedlička, Ing. Petr Dürr, Jaroslav Železný, Ondřej Schulz, Jiří Katrnoška, Šárka Horynová, Tomáš Vodička, Bc. Iveta Minaříková, Milan Paluska, Luděk Vinohradník, MUDr. Věra Schürzová, Ing. Jan Korouš Ph.D., Ing. Karel Krištoufek, Mgr. Jaroslava Heroldová DiS., Ing. Stanislav Jiran\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)",
+      "pro": {
+       "count": 18,
+       "names": [
+        "Viktorie Janáčková MSc.",
+        "Mgr. Alena Švejnohová",
+        "Zdeněk Fejfar",
+        "Ing. Martin Jedlička",
+        "Ing. Petr Dürr",
+        "Jaroslav Železný",
+        "Ondřej Schulz",
+        "Jiří Katrnoška",
+        "Šárka Horynová",
+        "Tomáš Vodička",
+        "Bc. Iveta Minaříková",
+        "Milan Paluska",
+        "Luděk Vinohradník",
+        "MUDr. Věra Schürzová",
+        "Ing. Jan Korouš Ph.D.",
+        "Ing. Karel Krištoufek",
+        "Mgr. Jaroslava Heroldová DiS.",
+        "Ing. Stanislav Jiran"
+       ],
+       "raw": "(18) Viktorie Janáčková MSc., Mgr. Alena Švejnohová, Zdeněk Fejfar, Ing. Martin Jedlička, Ing. Petr Dürr, Jaroslav Železný, Ondřej Schulz, Jiří Katrnoška, Šárka Horynová, Tomáš Vodička, Bc. Iveta Minaříková, Milan Paluska, Luděk Vinohradník, MUDr. Věra Schürzová, Ing. Jan Korouš Ph.D., Ing. Karel Krištoufek, Mgr. Jaroslava Heroldová DiS., Ing. Stanislav Jiran"
+      },
+      "proti": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "zdrzel_se": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "nehlasoval": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "result_raw": "Návrh byl přijat jako usnesení číslo: UZ-45-4/22",
+      "adopted_resolution_number": "UZ-45-4/22"
+     }
+    ],
+    "resolution_numbers_mentioned": [
+     "UZ-45-4/22"
+    ],
+    "raw_text": "Předkladatel: Mgr. Alena Švejnohová\nProjednávání bodu bylo zahájeno v 18:38:57 (zvuk. záznam 0:04:40 - 0:05:35)\nProgram jednání\n1. Volba pracovních komisí\n2. Schválení programu jednání\n3. Informace vedení města o aktuální situaci ve městě\n4. Rozpočtová opatření č.8/2022\n5. Uzavření smlouvy o dílo s dodavatelem a zhotovitelem stavby \"Úpravna vody Pečky, zdroj Tatce\"\n6. Odkoupení pozemku č.p. 462/57 k.ú. Tatce\n7. Dotazy a připomínky občanů\n8. Různé, diskuse\nDiskuze zahájena v 18:38:57\nV 18:39:39 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Alena Švejnohová\") v tomto znění:\nZastupitelstvo města schvaluje návrh programu jednání ze zveřejněné pozvánky.\ns těmito změnami:\n- doplňuje se bod č. 9 - Rozpočtová opatření č. 9/2022\nHlasování\npro:\n(18) Viktorie Janáčková MSc., Mgr. Alena Švejnohová, Zdeněk Fejfar, Ing. Martin Jedlička, Ing. Petr Dürr, Jaroslav Železný, Ondřej Schulz, Jiří Katrnoška, Šárka Horynová, Tomáš Vodička, Bc. Iveta Minaříková, Milan Paluska, Luděk Vinohradník, MUDr. Věra Schürzová, Ing. Jan Korouš Ph.D., Ing. Karel Krištoufek, Mgr. Jaroslava Heroldová DiS., Ing. Stanislav Jiran\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UZ-45-4/22\nzodpovídá:\ntermín:\n15. 6. 2022\nProjednávání bodu bylo ukončeno v 18:39:52"
+   },
+   {
+    "number": 3,
+    "title_raw": "Informace vedení města o aktuální situaci ve městě",
+    "heading_raw": "3. Informace vedení města o aktuální situaci ve městě (bod číslo 3)",
+    "predkladatel": "Mgr. Alena Švejnohová",
+    "votes": [],
+    "resolution_numbers_mentioned": [],
+    "raw_text": "Předkladatel: Mgr. Alena Švejnohová\nProjednávání bodu bylo zahájeno v 18:40:52 (zvuk. záznam 0:06:35 - 0:18:18)\nDiskuze zahájena v 18:40:52\nK tomuto bodu se vyjádřili: Mgr. Alena Švejnohová, Ing. Martin Jedlička, Bc. Iveta Minaříková\nZastupitelstvo bere materiály předložené k bodu č. 3 -\nInformace vedení města o aktuální situaci ve městě\nna vědomí.\nProjednávání bodu bylo ukončeno v 18:52:35"
+   },
+   {
+    "number": 4,
+    "title_raw": "Rozpočtová opatření č.8/2022",
+    "heading_raw": "4. Rozpočtová opatření č.8/2022 (bod číslo 4)",
+    "predkladatel": "Mgr. Alena Švejnohová",
+    "votes": [
+     {
+      "raw_text": "pro:\n(18) Tomáš Vodička, Ing. Jan Korouš Ph.D., Jaroslav Železný, Šárka Horynová, Viktorie Janáčková MSc., Luděk Vinohradník, Jiří Katrnoška, Mgr. Jaroslava Heroldová DiS., Ing. Petr Dürr, Bc. Iveta Minaříková, Milan Paluska, Zdeněk Fejfar, Ing. Karel Krištoufek, MUDr. Věra Schürzová, Ondřej Schulz, Ing. Martin Jedlička, Ing. Stanislav Jiran, Mgr. Alena Švejnohová\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)",
+      "pro": {
+       "count": 18,
+       "names": [
+        "Tomáš Vodička",
+        "Ing. Jan Korouš Ph.D.",
+        "Jaroslav Železný",
+        "Šárka Horynová",
+        "Viktorie Janáčková MSc.",
+        "Luděk Vinohradník",
+        "Jiří Katrnoška",
+        "Mgr. Jaroslava Heroldová DiS.",
+        "Ing. Petr Dürr",
+        "Bc. Iveta Minaříková",
+        "Milan Paluska",
+        "Zdeněk Fejfar",
+        "Ing. Karel Krištoufek",
+        "MUDr. Věra Schürzová",
+        "Ondřej Schulz",
+        "Ing. Martin Jedlička",
+        "Ing. Stanislav Jiran",
+        "Mgr. Alena Švejnohová"
+       ],
+       "raw": "(18) Tomáš Vodička, Ing. Jan Korouš Ph.D., Jaroslav Železný, Šárka Horynová, Viktorie Janáčková MSc., Luděk Vinohradník, Jiří Katrnoška, Mgr. Jaroslava Heroldová DiS., Ing. Petr Dürr, Bc. Iveta Minaříková, Milan Paluska, Zdeněk Fejfar, Ing. Karel Krištoufek, MUDr. Věra Schürzová, Ondřej Schulz, Ing. Martin Jedlička, Ing. Stanislav Jiran, Mgr. Alena Švejnohová"
+      },
+      "proti": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "zdrzel_se": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "nehlasoval": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "result_raw": "Návrh byl přijat jako usnesení číslo: UZ-46-4/22",
+      "adopted_resolution_number": "UZ-46-4/22"
+     }
+    ],
+    "resolution_numbers_mentioned": [
+     "UZ-46-4/22"
+    ],
+    "raw_text": "Předkladatel: Mgr. Alena Švejnohová\nProjednávání bodu bylo zahájeno v 18:53:03 (zvuk. záznam 0:18:46 - 0:32:52)\nDůvodová zpráva\nRozpočtová opatření  upravují příjmy a výdaje v oblasti \" odpadů\" z důvodu změny v úhradě odměny za likvidaci od spol. EKO-KOM. Odměna od EKO-KOM byla vyplácena Pečeckých službám ( Sl. města Pečky ) a odečítána městu při fakturaci za svoz odpadů, od letošního roku bude EKO-KOM odměnu hradit přímo městu. Příjmy i výdaje se zvyšují o částku 1 mil. Kč.\nDále přesun výdajů z projektu rekonstrukce interiéru\nKult\n. střediska 1.patro ve výši 3,5 mil Kč na rekonstrukci plynové kotelny v ZŠ a solárního systému pro ohřev vody ve šk. kuchyni.\nProjekt rekonstrukce vytápění základní školy, který řeší havarijní stav kotelny. Jeden kotel přestal fungovat, opravu nelze provést, v současné době je funkční pouze druhý kotel, který je více jak 20 let starý a též dosluhuje,\nproto\ndojde k výměně zdrojů tepla ve velké  plynové kotelně a pro možnost získání dotace i doplnění  solárního systému pro ohřev TUV školní kuchyně. Součástí stavby jsou demontáže stávajících kotlů, instalace dvou nových kondenzačních kotlů o celkovém výkonu 850 až 900kW, výměna komínových těles, stavební a další instalační práce. Solární systém bude instalován v budově kuchyně, 500l solární zásobník teplé vody ve stávající technické místnosti a kolektory na střeše.\nDotační titul na výměnu zdrojů tepla zatím nebyl vyhlášen\nRM doporučuje ZM schválit rozpočtová opatření č. 8/2022.\nDiskuze zahájena v 18:53:03\nK tomuto bodu se vyjádřili: Ing. Martin Jedlička, Ing. Věra Růžičková, Mgr. Alena Švejnohová, Ing. Karel Krištoufek\nV 19:06:55 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Alena Švejnohová\") v tomto znění:\nZastupitelstvo města schvaluje rozpočtová opatření č.8/2022.\nHlasování\npro:\n(18) Tomáš Vodička, Ing. Jan Korouš Ph.D., Jaroslav Železný, Šárka Horynová, Viktorie Janáčková MSc., Luděk Vinohradník, Jiří Katrnoška, Mgr. Jaroslava Heroldová DiS., Ing. Petr Dürr, Bc. Iveta Minaříková, Milan Paluska, Zdeněk Fejfar, Ing. Karel Krištoufek, MUDr. Věra Schürzová, Ondřej Schulz, Ing. Martin Jedlička, Ing. Stanislav Jiran, Mgr. Alena Švejnohová\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UZ-46-4/22\nzodpovídá:\ntermín:\nIHNED\n(15. 6. 2022)\nProjednávání bodu bylo ukončeno v 19:07:09"
+   },
+   {
+    "number": 5,
+    "title_raw": "Uzavření smlouvy o dílo s dodavatelem a zhotovitelem stavby \"Úpravna vody Pečky, zdroj Tatce\"",
+    "heading_raw": "5. Uzavření smlouvy o dílo s dodavatelem a zhotovitelem stavby \"Úpravna vody Pečky, zdroj Tatce\" (bod číslo 5)",
+    "predkladatel": "Bc. Iveta Minaříková",
+    "votes": [
+     {
+      "raw_text": "pro:\n(16) Ing. Jan Korouš Ph.D., Viktorie Janáčková MSc., Tomáš Vodička, Mgr. Alena Švejnohová, Ondřej Schulz, Jaroslav Železný, Bc. Iveta Minaříková, Ing. Petr Dürr, Šárka Horynová, MUDr. Věra Schürzová, Mgr. Jaroslava Heroldová DiS., Ing. Martin Jedlička, Ing. Karel Krištoufek, Jiří Katrnoška, Zdeněk Fejfar, Milan Paluska\nproti\n(0)\nzdržel se:\n(2) Luděk Vinohradník, Ing. Stanislav Jiran\nnehlasoval:\n(0)",
+      "pro": {
+       "count": 16,
+       "names": [
+        "Ing. Jan Korouš Ph.D.",
+        "Viktorie Janáčková MSc.",
+        "Tomáš Vodička",
+        "Mgr. Alena Švejnohová",
+        "Ondřej Schulz",
+        "Jaroslav Železný",
+        "Bc. Iveta Minaříková",
+        "Ing. Petr Dürr",
+        "Šárka Horynová",
+        "MUDr. Věra Schürzová",
+        "Mgr. Jaroslava Heroldová DiS.",
+        "Ing. Martin Jedlička",
+        "Ing. Karel Krištoufek",
+        "Jiří Katrnoška",
+        "Zdeněk Fejfar",
+        "Milan Paluska"
+       ],
+       "raw": "(16) Ing. Jan Korouš Ph.D., Viktorie Janáčková MSc., Tomáš Vodička, Mgr. Alena Švejnohová, Ondřej Schulz, Jaroslav Železný, Bc. Iveta Minaříková, Ing. Petr Dürr, Šárka Horynová, MUDr. Věra Schürzová, Mgr. Jaroslava Heroldová DiS., Ing. Martin Jedlička, Ing. Karel Krištoufek, Jiří Katrnoška, Zdeněk Fejfar, Milan Paluska"
+      },
+      "proti": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "zdrzel_se": {
+       "count": 2,
+       "names": [
+        "Luděk Vinohradník",
+        "Ing. Stanislav Jiran"
+       ],
+       "raw": "(2) Luděk Vinohradník, Ing. Stanislav Jiran"
+      },
+      "nehlasoval": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "result_raw": "Návrh byl přijat jako usnesení číslo: UZ-47-4/22",
+      "adopted_resolution_number": "UZ-47-4/22"
+     }
+    ],
+    "resolution_numbers_mentioned": [
+     "UZ-39-5/21",
+     "UZ-47-4/22"
+    ],
+    "raw_text": "Předkladatel: Bc. Iveta Minaříková\nProjednávání bodu bylo zahájeno v 19:07:31 (zvuk. záznam 0:33:14 - 0:42:18)\nDůvodová zpráva\nUzavření smlouvy o dílo s vybraným dodavatelem \"Společnost ÚV Pečky\" sestávajícím ze společníků VPK\nSuchý\ns.r.o., IČ: 27085201, a POHL cz, a.s., IČ: 25606468, s víceletým financováním realizace díla.\nDoba\nrealizace díla je nastavena na 18 měsíců ode dne předání a převzetí staveniště (předpoklad 07/2022).\nVazba na rozpočet: ř. 63, odd., § 2310 Úpravna vody - realizace 1. část (10 mil. Kč) - Rozpočtu 2022 schváleného ZM Pečky dne 08.12.2021 usnesením UZ-39-5/21 - navýšení není vyžadováno. Financování nad částku schválenou pro rok 2022 zahrnout do rozpočtu na rok 2023, příp. 2024.\nDiskuze zahájena v 19:07:31\nK tomuto bodu se vyjádřili: Ing. Karel Krištoufek, Ing. Stanislav Jiran, Bc. Iveta Minaříková, Ing. Petr Dürr\nV 19:16:24 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Iveta Minaříková\") v tomto znění:\nZastupitelstvo města schvaluje uzavření smlouvy o dílo ve věci veřejné zakázky na stavební práce s názvem \"Úpravna vody Pečky, zdroj Tatce\" mezi Městem Pečky a vybraným dodavatelem \"Společnost ÚV Pečky\" sestávajícím ze společníků VPK\nSuchý\ns.r.o., IČ: 27085201, a POHL cz, a.s., IČ: 25606468, s víceletým financováním realizace díla. Zadávací řízení bylo realizováno formou zjednodušeného podlimitního zadávacího řízení.\nHlasování\npro:\n(16) Ing. Jan Korouš Ph.D., Viktorie Janáčková MSc., Tomáš Vodička, Mgr. Alena Švejnohová, Ondřej Schulz, Jaroslav Železný, Bc. Iveta Minaříková, Ing. Petr Dürr, Šárka Horynová, MUDr. Věra Schürzová, Mgr. Jaroslava Heroldová DiS., Ing. Martin Jedlička, Ing. Karel Krištoufek, Jiří Katrnoška, Zdeněk Fejfar, Milan Paluska\nproti\n(0)\nzdržel se:\n(2) Luděk Vinohradník, Ing. Stanislav Jiran\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UZ-47-4/22\nzodpovídá:\nBc. Iveta Minaříková\ntermín:\n31. 8. 2022\nProjednávání bodu bylo ukončeno v 19:16:35"
+   },
+   {
+    "number": 6,
+    "title_raw": "Odkoupení pozemku č.p. 462/57 k.ú. Tatce",
+    "heading_raw": "6. Odkoupení pozemku č.p. 462/57 k.ú. Tatce (bod číslo 6)",
+    "predkladatel": "Tomáš Vodička",
+    "votes": [
+     {
+      "raw_text": "pro:\n(18) Ing. Martin Jedlička, Viktorie Janáčková MSc., Tomáš Vodička, Ing. Jan Korouš Ph.D., Jaroslav Železný, Jiří Katrnoška, Ing. Petr Dürr, Mgr. Alena Švejnohová, Ondřej Schulz, Šárka Horynová, MUDr. Věra Schürzová, Milan Paluska, Luděk Vinohradník, Zdeněk Fejfar, Ing. Karel Krištoufek, Mgr. Jaroslava Heroldová DiS., Bc. Iveta Minaříková, Ing. Stanislav Jiran\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)",
+      "pro": {
+       "count": 18,
+       "names": [
+        "Ing. Martin Jedlička",
+        "Viktorie Janáčková MSc.",
+        "Tomáš Vodička",
+        "Ing. Jan Korouš Ph.D.",
+        "Jaroslav Železný",
+        "Jiří Katrnoška",
+        "Ing. Petr Dürr",
+        "Mgr. Alena Švejnohová",
+        "Ondřej Schulz",
+        "Šárka Horynová",
+        "MUDr. Věra Schürzová",
+        "Milan Paluska",
+        "Luděk Vinohradník",
+        "Zdeněk Fejfar",
+        "Ing. Karel Krištoufek",
+        "Mgr. Jaroslava Heroldová DiS.",
+        "Bc. Iveta Minaříková",
+        "Ing. Stanislav Jiran"
+       ],
+       "raw": "(18) Ing. Martin Jedlička, Viktorie Janáčková MSc., Tomáš Vodička, Ing. Jan Korouš Ph.D., Jaroslav Železný, Jiří Katrnoška, Ing. Petr Dürr, Mgr. Alena Švejnohová, Ondřej Schulz, Šárka Horynová, MUDr. Věra Schürzová, Milan Paluska, Luděk Vinohradník, Zdeněk Fejfar, Ing. Karel Krištoufek, Mgr. Jaroslava Heroldová DiS., Bc. Iveta Minaříková, Ing. Stanislav Jiran"
+      },
+      "proti": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "zdrzel_se": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "nehlasoval": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "result_raw": "Návrh byl přijat jako usnesení číslo: UZ-48-4/22",
+      "adopted_resolution_number": "UZ-48-4/22"
+     }
+    ],
+    "resolution_numbers_mentioned": [
+     "UZ-48-4/22"
+    ],
+    "raw_text": "Předkladatel: Tomáš Vodička\nProjednávání bodu bylo zahájeno v 19:16:44 (zvuk. záznam 0:42:27 - 0:48:14)\nDůvodová zpráva\nNavrhujeme odkoupení 1/3 podílu pozemku č.p. 462/57 v k.ú. Tatce od společnosti ČESKOMORAVSKÁ POZEMKOVÁ s.r.o., Pýchavková 268/3, Pitkovice, 104 00\nPraha\n10, IČO 01507575. Jedná se o ornou půdu 3563m2 (podíl 1/3 tj. 1.188m2) za cenu 51,- Kč/m2.\nNavrhujeme pozemek pořídit a nabídnout ke směně při jednáních o obchvatu, případně komplexních pozemkových úpravách (v k.ú. Tatce hospodaří např. p.\nZajíc\ni p.\nBarták\n). Nabízí se i další využití s ohledem na jeho lokaci v blízkosti našeho prameniště vody.\nCelková cena: 60.000,- Kč\nDiskuze zahájena v 19:16:44\nK tomuto bodu se vyjádřili: Tomáš Vodička, Ing. Jan Korouš Ph.D., Ing. Petr Dürr, Mgr. Alena Švejnohová\nV 19:22:06 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Tomáš Vodička\") v tomto znění:\nZastupitelstvo města schvaluje odkoupení ideálního podílu pozemku ve výši 1/3 vůči celku v k.ú. Tatce č. parc. 462/57 (1188m2).  Ideální podíl pozemku bude odkoupen od společnosti ČESKOMORAVSKÁ POZEMKOVÁ s.r.o., Pýchavková 268/3, 104 00\nPraha\n10 - Pitkovice, IČO 01507575.\nPozemek bude odkoupen za celkovou cenu ve výši 60.000,-Kč. Úhrada kupní ceny proběhne po vložení návrhu na vklad do katastru nemovitostí.\nHlasování\npro:\n(18) Ing. Martin Jedlička, Viktorie Janáčková MSc., Tomáš Vodička, Ing. Jan Korouš Ph.D., Jaroslav Železný, Jiří Katrnoška, Ing. Petr Dürr, Mgr. Alena Švejnohová, Ondřej Schulz, Šárka Horynová, MUDr. Věra Schürzová, Milan Paluska, Luděk Vinohradník, Zdeněk Fejfar, Ing. Karel Krištoufek, Mgr. Jaroslava Heroldová DiS., Bc. Iveta Minaříková, Ing. Stanislav Jiran\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UZ-48-4/22\nzodpovídá:\nTomáš Vodička\ntermín:\n31. 7. 2022\nProjednávání bodu bylo ukončeno v 19:22:31"
+   },
+   {
+    "number": 7,
+    "title_raw": "Dotazy a připomínky občanů",
+    "heading_raw": "7. Dotazy a připomínky občanů (bod číslo 7)",
+    "predkladatel": "Mgr. Alena Švejnohová",
+    "votes": [],
+    "resolution_numbers_mentioned": [],
+    "raw_text": "Předkladatel: Mgr. Alena Švejnohová\nProjednávání bodu bylo zahájeno v 19:23:56 (zvuk. záznam 0:49:39 - 0:50:50)\nDiskuze zahájena v 19:23:56\nK tomuto bodu se vyjádřili: Ing. Karel Krištoufek, Mgr. Alena Švejnohová, Milan Paluska\nZastupitelstvo bere materiály předložené k bodu č. 7 -\nDotazy a připomínky občanů\nna vědomí.\nProjednávání bodu bylo ukončeno v 19:25:07"
+   },
+   {
+    "number": 9,
+    "title_raw": "Rozpočtová opatření č. 9/2022",
+    "heading_raw": "8. Rozpočtová opatření č. 9/2022 (bod číslo 9)",
+    "predkladatel": "Mgr. Alena Švejnohová",
+    "votes": [
+     {
+      "raw_text": "pro:\n(16) Viktorie Janáčková MSc., Tomáš Vodička, Ing. Jan Korouš Ph.D., Jaroslav Železný, Ondřej Schulz, Jiří Katrnoška, Mgr. Alena Švejnohová, Šárka Horynová, Bc. Iveta Minaříková, MUDr. Věra Schürzová, Milan Paluska, Ing. Petr Dürr, Ing. Martin Jedlička, Luděk Vinohradník, Ing. Stanislav Jiran, Mgr. Jaroslava Heroldová DiS.\nproti\n(0)\nzdržel se:\n(2) Ing. Karel Krištoufek, Zdeněk Fejfar\nnehlasoval:\n(0)",
+      "pro": {
+       "count": 16,
+       "names": [
+        "Viktorie Janáčková MSc.",
+        "Tomáš Vodička",
+        "Ing. Jan Korouš Ph.D.",
+        "Jaroslav Železný",
+        "Ondřej Schulz",
+        "Jiří Katrnoška",
+        "Mgr. Alena Švejnohová",
+        "Šárka Horynová",
+        "Bc. Iveta Minaříková",
+        "MUDr. Věra Schürzová",
+        "Milan Paluska",
+        "Ing. Petr Dürr",
+        "Ing. Martin Jedlička",
+        "Luděk Vinohradník",
+        "Ing. Stanislav Jiran",
+        "Mgr. Jaroslava Heroldová DiS."
+       ],
+       "raw": "(16) Viktorie Janáčková MSc., Tomáš Vodička, Ing. Jan Korouš Ph.D., Jaroslav Železný, Ondřej Schulz, Jiří Katrnoška, Mgr. Alena Švejnohová, Šárka Horynová, Bc. Iveta Minaříková, MUDr. Věra Schürzová, Milan Paluska, Ing. Petr Dürr, Ing. Martin Jedlička, Luděk Vinohradník, Ing. Stanislav Jiran, Mgr. Jaroslava Heroldová DiS."
+      },
+      "proti": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "zdrzel_se": {
+       "count": 2,
+       "names": [
+        "Ing. Karel Krištoufek",
+        "Zdeněk Fejfar"
+       ],
+       "raw": "(2) Ing. Karel Krištoufek, Zdeněk Fejfar"
+      },
+      "nehlasoval": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "result_raw": "Návrh byl přijat jako usnesení číslo: UZ-49-4/22",
+      "adopted_resolution_number": "UZ-49-4/22"
+     }
+    ],
+    "resolution_numbers_mentioned": [
+     "UZ-49-4/22"
+    ],
+    "raw_text": "Předkladatel: Mgr. Alena Švejnohová\nProjednávání bodu bylo zahájeno v 19:25:23 (zvuk. záznam 0:51:06 - 0:55:29)\nDůvodová zpráva\nDoporučuje se schválit rozpočtová opatření, kterými se zvýší výdaje na realizaci obnovy válečných hrobů ( dotovaný projekt) na základě výsledků výběrového řízení o 200 tis. Kč.\nDiskuze zahájena v 19:25:23\nK tomuto bodu se vyjádřili: Mgr. Alena Švejnohová, Bc. Iveta Minaříková, Ing. Petr Dürr, Tomáš Vodička\nV 19:29:24 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Alena Švejnohová\") v tomto znění:\nZastupitelstvo města schvaluje rozpočtová opatření č. 9/2022.\nHlasování\npro:\n(16) Viktorie Janáčková MSc., Tomáš Vodička, Ing. Jan Korouš Ph.D., Jaroslav Železný, Ondřej Schulz, Jiří Katrnoška, Mgr. Alena Švejnohová, Šárka Horynová, Bc. Iveta Minaříková, MUDr. Věra Schürzová, Milan Paluska, Ing. Petr Dürr, Ing. Martin Jedlička, Luděk Vinohradník, Ing. Stanislav Jiran, Mgr. Jaroslava Heroldová DiS.\nproti\n(0)\nzdržel se:\n(2) Ing. Karel Krištoufek, Zdeněk Fejfar\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UZ-49-4/22\nzodpovídá:\ntermín:\n15. 6. 2022\nProjednávání bodu bylo ukončeno v 19:29:46"
+   },
+   {
+    "number": 8,
+    "title_raw": "Různé, diskuse",
+    "heading_raw": "9. Různé, diskuse (bod číslo 8)",
+    "predkladatel": "Mgr. Alena Švejnohová",
+    "votes": [],
+    "resolution_numbers_mentioned": [],
+    "raw_text": "Předkladatel: Mgr. Alena Švejnohová\nProjednávání bodu bylo zahájeno v 19:31:04 (zvuk. záznam 0:56:47 - 0:57:34)\nDiskuze zahájena v 19:31:04\nK tomuto bodu se vyjádřili: Bc. Iveta Minaříková\nProjednávání bodu bylo ukončeno v 19:31:51\nJednání ukončeno 15.06.2022 v 19:32:29\n\nOvěřeno ověřovateli:\n1)\n16. 6. 2022 20:48\nZdeněk Fejfar\n2)\n17. 6. 2022 16:53\nOndřej Schulz"
+   }
+  ],
+  "full_text": "ZÁPIS ze zasedání zastupitelstva č. 4/2022\nMěsto Pečky\ndatum: 15. 6. 2022, čas: 18:30\n​\nPrezence:\nPřítomni:\n(18) Mgr. Alena Švejnohová, Bc. Iveta Minaříková, Tomáš Vodička, Šárka Horynová, Jiří Katrnoška, Jaroslav Železný, Ing. Petr Dürr, Zdeněk Fejfar, Mgr. Jaroslava Heroldová DiS., Viktorie Janáčková MSc., Ing. Martin Jedlička, Ing. Stanislav Jiran, Milan Paluska, Ondřej Schulz, MUDr. Věra Schürzová, Ing. Karel Krištoufek, Ing. Jan Korouš Ph.D., Luděk Vinohradník\nOmluveni:\n(3) Martin Homan, Mgr. Věra Křížová, Jaroslav Martinec\nNepřítomni:\n(0)\nHosté:\nJUDr. Němečková Hana\nPředsedající:\nMgr. Alena Švejnohová\nTito zastupitelé se (z)účastní distančně:\nViktorie Janáčková MSc.\nPřítomno je 18 členů a zastupitelstvo je usnášeníschopné.\nJednání zahájeno 15.06.2022 v 18:34:07\n1. Volba pracovních komisí (bod číslo 1)\nPředkladatel: Mgr. Alena Švejnohová\nProjednávání bodu bylo zahájeno v 18:37:43 (zvuk. záznam 0:03:26 - 0:04:26)\nPředsedající navrhl jednotlivé členy pracovních komisí\nNávrhová komise:\nJaroslav Železný, Tomáš Vodička, Luděk Vinohradník, Milan Paluska, Ing. Petr Dürr\nMandátová a volební komise:\nOvěřovatelé:\nOndřej Schulz, Zdeněk Fejfar\nDiskuze zahájena v 18:37:43\nHlasování\npro:\n(18) Tomáš Vodička, Viktorie Janáčková MSc., Mgr. Alena Švejnohová, Ing. Jan Korouš Ph.D., Ing. Martin Jedlička, Jaroslav Železný, MUDr. Věra Schürzová, Šárka Horynová, Bc. Iveta Minaříková, Jiří Katrnoška, Ing. Petr Dürr, Ing. Karel Krištoufek, Ing. Stanislav Jiran, Mgr. Jaroslava Heroldová DiS., Zdeněk Fejfar, Ondřej Schulz, Luděk Vinohradník, Milan Paluska\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat\nProjednávání bodu bylo ukončeno v 18:38:43\n2. Schválení programu jednání (bod číslo 2)\nPředkladatel: Mgr. Alena Švejnohová\nProjednávání bodu bylo zahájeno v 18:38:57 (zvuk. záznam 0:04:40 - 0:05:35)\nProgram jednání\n1. Volba pracovních komisí\n2. Schválení programu jednání\n3. Informace vedení města o aktuální situaci ve městě\n4. Rozpočtová opatření č.8/2022\n5. Uzavření smlouvy o dílo s dodavatelem a zhotovitelem stavby \"Úpravna vody Pečky, zdroj Tatce\"\n6. Odkoupení pozemku č.p. 462/57 k.ú. Tatce\n7. Dotazy a připomínky občanů\n8. Různé, diskuse\nDiskuze zahájena v 18:38:57\nV 18:39:39 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Alena Švejnohová\") v tomto znění:\nZastupitelstvo města schvaluje návrh programu jednání ze zveřejněné pozvánky.\ns těmito změnami:\n- doplňuje se bod č. 9 - Rozpočtová opatření č. 9/2022\nHlasování\npro:\n(18) Viktorie Janáčková MSc., Mgr. Alena Švejnohová, Zdeněk Fejfar, Ing. Martin Jedlička, Ing. Petr Dürr, Jaroslav Železný, Ondřej Schulz, Jiří Katrnoška, Šárka Horynová, Tomáš Vodička, Bc. Iveta Minaříková, Milan Paluska, Luděk Vinohradník, MUDr. Věra Schürzová, Ing. Jan Korouš Ph.D., Ing. Karel Krištoufek, Mgr. Jaroslava Heroldová DiS., Ing. Stanislav Jiran\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UZ-45-4/22\nzodpovídá:\ntermín:\n15. 6. 2022\nProjednávání bodu bylo ukončeno v 18:39:52\n3. Informace vedení města o aktuální situaci ve městě (bod číslo 3)\nPředkladatel: Mgr. Alena Švejnohová\nProjednávání bodu bylo zahájeno v 18:40:52 (zvuk. záznam 0:06:35 - 0:18:18)\nDiskuze zahájena v 18:40:52\nK tomuto bodu se vyjádřili: Mgr. Alena Švejnohová, Ing. Martin Jedlička, Bc. Iveta Minaříková\nZastupitelstvo bere materiály předložené k bodu č. 3 -\nInformace vedení města o aktuální situaci ve městě\nna vědomí.\nProjednávání bodu bylo ukončeno v 18:52:35\n4. Rozpočtová opatření č.8/2022 (bod číslo 4)\nPředkladatel: Mgr. Alena Švejnohová\nProjednávání bodu bylo zahájeno v 18:53:03 (zvuk. záznam 0:18:46 - 0:32:52)\nDůvodová zpráva\nRozpočtová opatření  upravují příjmy a výdaje v oblasti \" odpadů\" z důvodu změny v úhradě odměny za likvidaci od spol. EKO-KOM. Odměna od EKO-KOM byla vyplácena Pečeckých službám ( Sl. města Pečky ) a odečítána městu při fakturaci za svoz odpadů, od letošního roku bude EKO-KOM odměnu hradit přímo městu. Příjmy i výdaje se zvyšují o částku 1 mil. Kč.\nDále přesun výdajů z projektu rekonstrukce interiéru\nKult\n. střediska 1.patro ve výši 3,5 mil Kč na rekonstrukci plynové kotelny v ZŠ a solárního systému pro ohřev vody ve šk. kuchyni.\nProjekt rekonstrukce vytápění základní školy, který řeší havarijní stav kotelny. Jeden kotel přestal fungovat, opravu nelze provést, v současné době je funkční pouze druhý kotel, který je více jak 20 let starý a též dosluhuje,\nproto\ndojde k výměně zdrojů tepla ve velké  plynové kotelně a pro možnost získání dotace i doplnění  solárního systému pro ohřev TUV školní kuchyně. Součástí stavby jsou demontáže stávajících kotlů, instalace dvou nových kondenzačních kotlů o celkovém výkonu 850 až 900kW, výměna komínových těles, stavební a další instalační práce. Solární systém bude instalován v budově kuchyně, 500l solární zásobník teplé vody ve stávající technické místnosti a kolektory na střeše.\nDotační titul na výměnu zdrojů tepla zatím nebyl vyhlášen\nRM doporučuje ZM schválit rozpočtová opatření č. 8/2022.\nDiskuze zahájena v 18:53:03\nK tomuto bodu se vyjádřili: Ing. Martin Jedlička, Ing. Věra Růžičková, Mgr. Alena Švejnohová, Ing. Karel Krištoufek\nV 19:06:55 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Alena Švejnohová\") v tomto znění:\nZastupitelstvo města schvaluje rozpočtová opatření č.8/2022.\nHlasování\npro:\n(18) Tomáš Vodička, Ing. Jan Korouš Ph.D., Jaroslav Železný, Šárka Horynová, Viktorie Janáčková MSc., Luděk Vinohradník, Jiří Katrnoška, Mgr. Jaroslava Heroldová DiS., Ing. Petr Dürr, Bc. Iveta Minaříková, Milan Paluska, Zdeněk Fejfar, Ing. Karel Krištoufek, MUDr. Věra Schürzová, Ondřej Schulz, Ing. Martin Jedlička, Ing. Stanislav Jiran, Mgr. Alena Švejnohová\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UZ-46-4/22\nzodpovídá:\ntermín:\nIHNED\n(15. 6. 2022)\nProjednávání bodu bylo ukončeno v 19:07:09\n5. Uzavření smlouvy o dílo s dodavatelem a zhotovitelem stavby \"Úpravna vody Pečky, zdroj Tatce\" (bod číslo 5)\nPředkladatel: Bc. Iveta Minaříková\nProjednávání bodu bylo zahájeno v 19:07:31 (zvuk. záznam 0:33:14 - 0:42:18)\nDůvodová zpráva\nUzavření smlouvy o dílo s vybraným dodavatelem \"Společnost ÚV Pečky\" sestávajícím ze společníků VPK\nSuchý\ns.r.o., IČ: 27085201, a POHL cz, a.s., IČ: 25606468, s víceletým financováním realizace díla.\nDoba\nrealizace díla je nastavena na 18 měsíců ode dne předání a převzetí staveniště (předpoklad 07/2022).\nVazba na rozpočet: ř. 63, odd., § 2310 Úpravna vody - realizace 1. část (10 mil. Kč) - Rozpočtu 2022 schváleného ZM Pečky dne 08.12.2021 usnesením UZ-39-5/21 - navýšení není vyžadováno. Financování nad částku schválenou pro rok 2022 zahrnout do rozpočtu na rok 2023, příp. 2024.\nDiskuze zahájena v 19:07:31\nK tomuto bodu se vyjádřili: Ing. Karel Krištoufek, Ing. Stanislav Jiran, Bc. Iveta Minaříková, Ing. Petr Dürr\nV 19:16:24 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Iveta Minaříková\") v tomto znění:\nZastupitelstvo města schvaluje uzavření smlouvy o dílo ve věci veřejné zakázky na stavební práce s názvem \"Úpravna vody Pečky, zdroj Tatce\" mezi Městem Pečky a vybraným dodavatelem \"Společnost ÚV Pečky\" sestávajícím ze společníků VPK\nSuchý\ns.r.o., IČ: 27085201, a POHL cz, a.s., IČ: 25606468, s víceletým financováním realizace díla. Zadávací řízení bylo realizováno formou zjednodušeného podlimitního zadávacího řízení.\nHlasování\npro:\n(16) Ing. Jan Korouš Ph.D., Viktorie Janáčková MSc., Tomáš Vodička, Mgr. Alena Švejnohová, Ondřej Schulz, Jaroslav Železný, Bc. Iveta Minaříková, Ing. Petr Dürr, Šárka Horynová, MUDr. Věra Schürzová, Mgr. Jaroslava Heroldová DiS., Ing. Martin Jedlička, Ing. Karel Krištoufek, Jiří Katrnoška, Zdeněk Fejfar, Milan Paluska\nproti\n(0)\nzdržel se:\n(2) Luděk Vinohradník, Ing. Stanislav Jiran\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UZ-47-4/22\nzodpovídá:\nBc. Iveta Minaříková\ntermín:\n31. 8. 2022\nProjednávání bodu bylo ukončeno v 19:16:35\n6. Odkoupení pozemku č.p. 462/57 k.ú. Tatce (bod číslo 6)\nPředkladatel: Tomáš Vodička\nProjednávání bodu bylo zahájeno v 19:16:44 (zvuk. záznam 0:42:27 - 0:48:14)\nDůvodová zpráva\nNavrhujeme odkoupení 1/3 podílu pozemku č.p. 462/57 v k.ú. Tatce od společnosti ČESKOMORAVSKÁ POZEMKOVÁ s.r.o., Pýchavková 268/3, Pitkovice, 104 00\nPraha\n10, IČO 01507575. Jedná se o ornou půdu 3563m2 (podíl 1/3 tj. 1.188m2) za cenu 51,- Kč/m2.\nNavrhujeme pozemek pořídit a nabídnout ke směně při jednáních o obchvatu, případně komplexních pozemkových úpravách (v k.ú. Tatce hospodaří např. p.\nZajíc\ni p.\nBarták\n). Nabízí se i další využití s ohledem na jeho lokaci v blízkosti našeho prameniště vody.\nCelková cena: 60.000,- Kč\nDiskuze zahájena v 19:16:44\nK tomuto bodu se vyjádřili: Tomáš Vodička, Ing. Jan Korouš Ph.D., Ing. Petr Dürr, Mgr. Alena Švejnohová\nV 19:22:06 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Tomáš Vodička\") v tomto znění:\nZastupitelstvo města schvaluje odkoupení ideálního podílu pozemku ve výši 1/3 vůči celku v k.ú. Tatce č. parc. 462/57 (1188m2).  Ideální podíl pozemku bude odkoupen od společnosti ČESKOMORAVSKÁ POZEMKOVÁ s.r.o., Pýchavková 268/3, 104 00\nPraha\n10 - Pitkovice, IČO 01507575.\nPozemek bude odkoupen za celkovou cenu ve výši 60.000,-Kč. Úhrada kupní ceny proběhne po vložení návrhu na vklad do katastru nemovitostí.\nHlasování\npro:\n(18) Ing. Martin Jedlička, Viktorie Janáčková MSc., Tomáš Vodička, Ing. Jan Korouš Ph.D., Jaroslav Železný, Jiří Katrnoška, Ing. Petr Dürr, Mgr. Alena Švejnohová, Ondřej Schulz, Šárka Horynová, MUDr. Věra Schürzová, Milan Paluska, Luděk Vinohradník, Zdeněk Fejfar, Ing. Karel Krištoufek, Mgr. Jaroslava Heroldová DiS., Bc. Iveta Minaříková, Ing. Stanislav Jiran\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UZ-48-4/22\nzodpovídá:\nTomáš Vodička\ntermín:\n31. 7. 2022\nProjednávání bodu bylo ukončeno v 19:22:31\n7. Dotazy a připomínky občanů (bod číslo 7)\nPředkladatel: Mgr. Alena Švejnohová\nProjednávání bodu bylo zahájeno v 19:23:56 (zvuk. záznam 0:49:39 - 0:50:50)\nDiskuze zahájena v 19:23:56\nK tomuto bodu se vyjádřili: Ing. Karel Krištoufek, Mgr. Alena Švejnohová, Milan Paluska\nZastupitelstvo bere materiály předložené k bodu č. 7 -\nDotazy a připomínky občanů\nna vědomí.\nProjednávání bodu bylo ukončeno v 19:25:07\n8. Rozpočtová opatření č. 9/2022 (bod číslo 9)\nPředkladatel: Mgr. Alena Švejnohová\nProjednávání bodu bylo zahájeno v 19:25:23 (zvuk. záznam 0:51:06 - 0:55:29)\nDůvodová zpráva\nDoporučuje se schválit rozpočtová opatření, kterými se zvýší výdaje na realizaci obnovy válečných hrobů ( dotovaný projekt) na základě výsledků výběrového řízení o 200 tis. Kč.\nDiskuze zahájena v 19:25:23\nK tomuto bodu se vyjádřili: Mgr. Alena Švejnohová, Bc. Iveta Minaříková, Ing. Petr Dürr, Tomáš Vodička\nV 19:29:24 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Alena Švejnohová\") v tomto znění:\nZastupitelstvo města schvaluje rozpočtová opatření č. 9/2022.\nHlasování\npro:\n(16) Viktorie Janáčková MSc., Tomáš Vodička, Ing. Jan Korouš Ph.D., Jaroslav Železný, Ondřej Schulz, Jiří Katrnoška, Mgr. Alena Švejnohová, Šárka Horynová, Bc. Iveta Minaříková, MUDr. Věra Schürzová, Milan Paluska, Ing. Petr Dürr, Ing. Martin Jedlička, Luděk Vinohradník, Ing. Stanislav Jiran, Mgr. Jaroslava Heroldová DiS.\nproti\n(0)\nzdržel se:\n(2) Ing. Karel Krištoufek, Zdeněk Fejfar\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UZ-49-4/22\nzodpovídá:\ntermín:\n15. 6. 2022\nProjednávání bodu bylo ukončeno v 19:29:46\n9. Různé, diskuse (bod číslo 8)\nPředkladatel: Mgr. Alena Švejnohová\nProjednávání bodu bylo zahájeno v 19:31:04 (zvuk. záznam 0:56:47 - 0:57:34)\nDiskuze zahájena v 19:31:04\nK tomuto bodu se vyjádřili: Bc. Iveta Minaříková\nProjednávání bodu bylo ukončeno v 19:31:51\nJednání ukončeno 15.06.2022 v 19:32:29\nOvěřeno ověřovateli:\n1)\n16. 6. 2022 20:48\nZdeněk Fejfar\n2)\n17. 6. 2022 16:53\nOndřej Schulz"
+ },
+ "resolutions": {
+  "status": "ok",
+  "url": "https://mesto-pecky.usneseni.cz/verejne/94000b00-e24e-11ec-a1fc-6b15d6f8ca9c/usneseni/",
+  "fetched_at": "2026-08-04T14:28:06.921883+00:00",
+  "items": [
+   {
+    "number_raw": "UZ-45-4/22",
+    "detail_id": 22877,
+    "detail_url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/22877?mod=zastupitelstvo",
+    "agenda_item_raw": "Schválení programu jednání",
+    "text_verbatim": "Zastupitelstvo města schvaluje návrh programu jednání ze zveřejněné pozvánky.\ns těmito změnami:\n- doplňuje se bod č. 9 - Rozpočtová opatření č. 9/2022",
+    "cell_text_raw": "Bod programu:\nSchválení programu jednání\nText přijatého usnesení:\nZastupitelstvo města schvaluje návrh programu jednání ze zveřejněné pozvánky.\ns těmito změnami:\n- doplňuje se bod č. 9 - Rozpočtová opatření č. 9/2022",
+    "date_raw": "15. 6. 2022",
+    "date_iso": "2022-06-15",
+    "responsible_raw": "",
+    "deadline_raw": "IHNED (15. 6. 2022)",
+    "vote": {
+     "raw_text": "pro: (18) Viktorie Janáčková MSc., Mgr. Alena Švejnohová, Zdeněk Fejfar, Ing. Martin Jedlička, Ing. Petr Dürr, Jaroslav Železný, Ondřej Schulz, Jiří Katrnoška, Šárka Horynová, Tomáš Vodička, Bc. Iveta Minaříková, Milan Paluska, Luděk Vinohradník, MUDr. Věra Schürzová, Ing. Jan Korouš Ph.D., Ing. Karel Krištoufek, Mgr. Jaroslava Heroldová DiS., Ing. Stanislav Jiran proti: (0) zdržel se: (0)",
+     "pro": {
+      "count": 18,
+      "names": [
+       "Viktorie Janáčková MSc.",
+       "Mgr. Alena Švejnohová",
+       "Zdeněk Fejfar",
+       "Ing. Martin Jedlička",
+       "Ing. Petr Dürr",
+       "Jaroslav Železný",
+       "Ondřej Schulz",
+       "Jiří Katrnoška",
+       "Šárka Horynová",
+       "Tomáš Vodička",
+       "Bc. Iveta Minaříková",
+       "Milan Paluska",
+       "Luděk Vinohradník",
+       "MUDr. Věra Schürzová",
+       "Ing. Jan Korouš Ph.D.",
+       "Ing. Karel Krištoufek",
+       "Mgr. Jaroslava Heroldová DiS.",
+       "Ing. Stanislav Jiran"
+      ],
+      "raw": "(18) Viktorie Janáčková MSc., Mgr. Alena Švejnohová, Zdeněk Fejfar, Ing. Martin Jedlička, Ing. Petr Dürr, Jaroslav Železný, Ondřej Schulz, Jiří Katrnoška, Šárka Horynová, Tomáš Vodička, Bc. Iveta Minaříková, Milan Paluska, Luděk Vinohradník, MUDr. Věra Schürzová, Ing. Jan Korouš Ph.D., Ing. Karel Krištoufek, Mgr. Jaroslava Heroldová DiS., Ing. Stanislav Jiran"
+     },
+     "proti": {
+      "count": 0,
+      "names": [],
+      "raw": "(0)"
+     },
+     "zdrzel_se": {
+      "count": 0,
+      "names": [],
+      "raw": "(0)"
+     }
+    },
+    "detail": {
+     "number_raw": "UZ-45-4/22",
+     "text_verbatim": "Zastupitelstvo města schvaluje návrh programu jednání ze zveřejněné pozvánky.\ns těmito změnami: - doplňuje se bod č. 9 - Rozpočtová opatření č. 9/2022",
+     "typ_raw": null,
+     "zodpovida_raw": "",
+     "prijato_raw": "15. 6. 2022 na jednání č. 4/2022",
+     "prijato_date_iso": "2022-06-15",
+     "prijato_meeting_label": "4/2022",
+     "termin_raw": "IHNED (15. 6. 2022)",
+     "ukonceno_raw": "15. 6. 2022",
+     "ukonceno_date_iso": "2022-06-15",
+     "fields_raw": {
+      "Číslo usnesení": "UZ-45-4/22",
+      "Text usnesení": "Zastupitelstvo města schvaluje návrh programu jednání ze zveřejněné pozvánky.\ns těmito změnami: - doplňuje se bod č. 9 - Rozpočtová opatření č. 9/2022",
+      "Zodpovídá": "",
+      "Přijato": "15. 6. 2022 na jednání č. 4/2022",
+      "Termín": "IHNED (15. 6. 2022)",
+      "Ukončeno": "15. 6. 2022"
+     }
+    }
+   },
+   {
+    "number_raw": "UZ-46-4/22",
+    "detail_id": 23038,
+    "detail_url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/23038?mod=zastupitelstvo",
+    "agenda_item_raw": "Rozpočtová opatření č.8/2022",
+    "text_verbatim": "Zastupitelstvo města schvaluje rozpočtová opatření č.8/2022.",
+    "cell_text_raw": "Bod programu:\nRozpočtová opatření č.8/2022\nText přijatého usnesení:\nZastupitelstvo města schvaluje rozpočtová opatření č.8/2022.",
+    "date_raw": "15. 6. 2022",
+    "date_iso": "2022-06-15",
+    "responsible_raw": "",
+    "deadline_raw": "IHNED (15. 6. 2022)",
+    "vote": {
+     "raw_text": "pro: (18) Tomáš Vodička, Ing. Jan Korouš Ph.D., Jaroslav Železný, Šárka Horynová, Viktorie Janáčková MSc., Luděk Vinohradník, Jiří Katrnoška, Mgr. Jaroslava Heroldová DiS., Ing. Petr Dürr, Bc. Iveta Minaříková, Milan Paluska, Zdeněk Fejfar, Ing. Karel Krištoufek, MUDr. Věra Schürzová, Ondřej Schulz, Ing. Martin Jedlička, Ing. Stanislav Jiran, Mgr. Alena Švejnohová proti: (0) zdržel se: (0)",
+     "pro": {
+      "count": 18,
+      "names": [
+       "Tomáš Vodička",
+       "Ing. Jan Korouš Ph.D.",
+       "Jaroslav Železný",
+       "Šárka Horynová",
+       "Viktorie Janáčková MSc.",
+       "Luděk Vinohradník",
+       "Jiří Katrnoška",
+       "Mgr. Jaroslava Heroldová DiS.",
+       "Ing. Petr Dürr",
+       "Bc. Iveta Minaříková",
+       "Milan Paluska",
+       "Zdeněk Fejfar",
+       "Ing. Karel Krištoufek",
+       "MUDr. Věra Schürzová",
+       "Ondřej Schulz",
+       "Ing. Martin Jedlička",
+       "Ing. Stanislav Jiran",
+       "Mgr. Alena Švejnohová"
+      ],
+      "raw": "(18) Tomáš Vodička, Ing. Jan Korouš Ph.D., Jaroslav Železný, Šárka Horynová, Viktorie Janáčková MSc., Luděk Vinohradník, Jiří Katrnoška, Mgr. Jaroslava Heroldová DiS., Ing. Petr Dürr, Bc. Iveta Minaříková, Milan Paluska, Zdeněk Fejfar, Ing. Karel Krištoufek, MUDr. Věra Schürzová, Ondřej Schulz, Ing. Martin Jedlička, Ing. Stanislav Jiran, Mgr. Alena Švejnohová"
+     },
+     "proti": {
+      "count": 0,
+      "names": [],
+      "raw": "(0)"
+     },
+     "zdrzel_se": {
+      "count": 0,
+      "names": [],
+      "raw": "(0)"
+     }
+    },
+    "detail": {
+     "number_raw": "UZ-46-4/22",
+     "text_verbatim": "Zastupitelstvo města schvaluje rozpočtová opatření č.8/2022.",
+     "typ_raw": null,
+     "zodpovida_raw": "",
+     "prijato_raw": "15. 6. 2022 na jednání č. 4/2022",
+     "prijato_date_iso": "2022-06-15",
+     "prijato_meeting_label": "4/2022",
+     "termin_raw": "IHNED (15. 6. 2022)",
+     "ukonceno_raw": "15. 6. 2022",
+     "ukonceno_date_iso": "2022-06-15",
+     "fields_raw": {
+      "Číslo usnesení": "UZ-46-4/22",
+      "Text usnesení": "Zastupitelstvo města schvaluje rozpočtová opatření č.8/2022.",
+      "Zodpovídá": "",
+      "Přijato": "15. 6. 2022 na jednání č. 4/2022",
+      "Termín": "IHNED (15. 6. 2022)",
+      "Ukončeno": "15. 6. 2022"
+     }
+    }
+   },
+   {
+    "number_raw": "UZ-47-4/22",
+    "detail_id": 23044,
+    "detail_url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/23044?mod=zastupitelstvo",
+    "agenda_item_raw": "Uzavření smlouvy o dílo s dodavatelem a zhotovitelem stavby \"Úpravna vody Pečky, zdroj Tatce\"",
+    "text_verbatim": "Zastupitelstvo města schvaluje uzavření smlouvy o dílo ve věci veřejné zakázky na stavební práce s názvem \"Úpravna vody Pečky, zdroj Tatce\" mezi Městem Pečky a vybraným dodavatelem \"Společnost ÚV Pečky\" sestávajícím ze společníků VPK\nSuchý\ns.r.o., IČ: 27085201, a POHL cz, a.s., IČ: 25606468, s víceletým financováním realizace díla. Zadávací řízení bylo realizováno formou zjednodušeného podlimitního zadávacího řízení.",
+    "cell_text_raw": "Bod programu:\nUzavření smlouvy o dílo s dodavatelem a zhotovitelem stavby \"Úpravna vody Pečky, zdroj Tatce\"\nText přijatého usnesení:\nZastupitelstvo města schvaluje uzavření smlouvy o dílo ve věci veřejné zakázky na stavební práce s názvem \"Úpravna vody Pečky, zdroj Tatce\" mezi Městem Pečky a vybraným dodavatelem \"Společnost ÚV Pečky\" sestávajícím ze společníků VPK\nSuchý\ns.r.o., IČ: 27085201, a POHL cz, a.s., IČ: 25606468, s víceletým financováním realizace díla. Zadávací řízení bylo realizováno formou zjednodušeného podlimitního zadávacího řízení.",
+    "date_raw": "15. 6. 2022",
+    "date_iso": "2022-06-15",
+    "responsible_raw": "Bc. Iveta Dvořáková",
+    "deadline_raw": "31. 8. 2022",
+    "vote": {
+     "raw_text": "pro: (16) Ing. Jan Korouš Ph.D., Viktorie Janáčková MSc., Tomáš Vodička, Mgr. Alena Švejnohová, Ondřej Schulz, Jaroslav Železný, Bc. Iveta Minaříková, Ing. Petr Dürr, Šárka Horynová, MUDr. Věra Schürzová, Mgr. Jaroslava Heroldová DiS., Ing. Martin Jedlička, Ing. Karel Krištoufek, Jiří Katrnoška, Zdeněk Fejfar, Milan Paluska proti: (0) zdržel se: (2) Luděk Vinohradník, Ing. Stanislav Jiran",
+     "pro": {
+      "count": 16,
+      "names": [
+       "Ing. Jan Korouš Ph.D.",
+       "Viktorie Janáčková MSc.",
+       "Tomáš Vodička",
+       "Mgr. Alena Švejnohová",
+       "Ondřej Schulz",
+       "Jaroslav Železný",
+       "Bc. Iveta Minaříková",
+       "Ing. Petr Dürr",
+       "Šárka Horynová",
+       "MUDr. Věra Schürzová",
+       "Mgr. Jaroslava Heroldová DiS.",
+       "Ing. Martin Jedlička",
+       "Ing. Karel Krištoufek",
+       "Jiří Katrnoška",
+       "Zdeněk Fejfar",
+       "Milan Paluska"
+      ],
+      "raw": "(16) Ing. Jan Korouš Ph.D., Viktorie Janáčková MSc., Tomáš Vodička, Mgr. Alena Švejnohová, Ondřej Schulz, Jaroslav Železný, Bc. Iveta Minaříková, Ing. Petr Dürr, Šárka Horynová, MUDr. Věra Schürzová, Mgr. Jaroslava Heroldová DiS., Ing. Martin Jedlička, Ing. Karel Krištoufek, Jiří Katrnoška, Zdeněk Fejfar, Milan Paluska"
+     },
+     "proti": {
+      "count": 0,
+      "names": [],
+      "raw": "(0)"
+     },
+     "zdrzel_se": {
+      "count": 2,
+      "names": [
+       "Luděk Vinohradník",
+       "Ing. Stanislav Jiran"
+      ],
+      "raw": "(2) Luděk Vinohradník, Ing. Stanislav Jiran"
+     }
+    },
+    "detail": {
+     "number_raw": "UZ-47-4/22",
+     "text_verbatim": "Zastupitelstvo města schvaluje uzavření smlouvy o dílo ve věci veřejné zakázky na stavební práce s názvem \"Úpravna vody Pečky, zdroj Tatce\" mezi Městem Pečky a vybraným dodavatelem \"Společnost ÚV Pečky\" sestávajícím ze společníků VPK Suchý s.r.o., IČ: 27085201, a POHL cz, a.s., IČ: 25606468, s víceletým financováním realizace díla. Zadávací řízení bylo realizováno formou zjednodušeného podlimitního zadávacího řízení.",
+     "typ_raw": null,
+     "zodpovida_raw": "Bc. Iveta Dvořáková",
+     "prijato_raw": "15. 6. 2022 na jednání č. 4/2022",
+     "prijato_date_iso": "2022-06-15",
+     "prijato_meeting_label": "4/2022",
+     "termin_raw": "31. 8. 2022",
+     "ukonceno_raw": "26. 7. 2022",
+     "ukonceno_date_iso": "2022-07-26",
+     "fields_raw": {
+      "Číslo usnesení": "UZ-47-4/22",
+      "Text usnesení": "Zastupitelstvo města schvaluje uzavření smlouvy o dílo ve věci veřejné zakázky na stavební práce s názvem \"Úpravna vody Pečky, zdroj Tatce\" mezi Městem Pečky a vybraným dodavatelem \"Společnost ÚV Pečky\" sestávajícím ze společníků VPK Suchý s.r.o., IČ: 27085201, a POHL cz, a.s., IČ: 25606468, s víceletým financováním realizace díla. Zadávací řízení bylo realizováno formou zjednodušeného podlimitního zadávacího řízení.",
+      "Zodpovídá": "Bc. Iveta Dvořáková",
+      "Přijato": "15. 6. 2022 na jednání č. 4/2022",
+      "Termín": "31. 8. 2022",
+      "Ukončeno": "26. 7. 2022"
+     }
+    }
+   },
+   {
+    "number_raw": "UZ-48-4/22",
+    "detail_id": 23047,
+    "detail_url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/23047?mod=zastupitelstvo",
+    "agenda_item_raw": "Odkoupení pozemku č.p. 462/57 k.ú. Tatce",
+    "text_verbatim": "Zastupitelstvo města schvaluje odkoupení ideálního podílu pozemku ve výši 1/3 vůči celku v k.ú. Tatce č. parc. 462/57 (1188m2).  Ideální podíl pozemku bude odkoupen od společnosti ČESKOMORAVSKÁ POZEMKOVÁ s.r.o., Pýchavková 268/3, 104 00\nPraha\n10 - Pitkovice, IČO 01507575.\nPozemek bude odkoupen za celkovou cenu ve výši 60.000,-Kč. Úhrada kupní ceny proběhne po vložení návrhu na vklad do katastru nemovitostí.",
+    "cell_text_raw": "Bod programu:\nOdkoupení pozemku č.p. 462/57 k.ú. Tatce\nText přijatého usnesení:\nZastupitelstvo města schvaluje odkoupení ideálního podílu pozemku ve výši 1/3 vůči celku v k.ú. Tatce č. parc. 462/57 (1188m2).  Ideální podíl pozemku bude odkoupen od společnosti ČESKOMORAVSKÁ POZEMKOVÁ s.r.o., Pýchavková 268/3, 104 00\nPraha\n10 - Pitkovice, IČO 01507575.\nPozemek bude odkoupen za celkovou cenu ve výši 60.000,-Kč. Úhrada kupní ceny proběhne po vložení návrhu na vklad do katastru nemovitostí.",
+    "date_raw": "15. 6. 2022",
+    "date_iso": "2022-06-15",
+    "responsible_raw": "Tomáš Vodička",
+    "deadline_raw": "31. 7. 2022",
+    "vote": {
+     "raw_text": "pro: (18) Ing. Martin Jedlička, Viktorie Janáčková MSc., Tomáš Vodička, Ing. Jan Korouš Ph.D., Jaroslav Železný, Jiří Katrnoška, Ing. Petr Dürr, Mgr. Alena Švejnohová, Ondřej Schulz, Šárka Horynová, MUDr. Věra Schürzová, Milan Paluska, Luděk Vinohradník, Zdeněk Fejfar, Ing. Karel Krištoufek, Mgr. Jaroslava Heroldová DiS., Bc. Iveta Minaříková, Ing. Stanislav Jiran proti: (0) zdržel se: (0)",
+     "pro": {
+      "count": 18,
+      "names": [
+       "Ing. Martin Jedlička",
+       "Viktorie Janáčková MSc.",
+       "Tomáš Vodička",
+       "Ing. Jan Korouš Ph.D.",
+       "Jaroslav Železný",
+       "Jiří Katrnoška",
+       "Ing. Petr Dürr",
+       "Mgr. Alena Švejnohová",
+       "Ondřej Schulz",
+       "Šárka Horynová",
+       "MUDr. Věra Schürzová",
+       "Milan Paluska",
+       "Luděk Vinohradník",
+       "Zdeněk Fejfar",
+       "Ing. Karel Krištoufek",
+       "Mgr. Jaroslava Heroldová DiS.",
+       "Bc. Iveta Minaříková",
+       "Ing. Stanislav Jiran"
+      ],
+      "raw": "(18) Ing. Martin Jedlička, Viktorie Janáčková MSc., Tomáš Vodička, Ing. Jan Korouš Ph.D., Jaroslav Železný, Jiří Katrnoška, Ing. Petr Dürr, Mgr. Alena Švejnohová, Ondřej Schulz, Šárka Horynová, MUDr. Věra Schürzová, Milan Paluska, Luděk Vinohradník, Zdeněk Fejfar, Ing. Karel Krištoufek, Mgr. Jaroslava Heroldová DiS., Bc. Iveta Minaříková, Ing. Stanislav Jiran"
+     },
+     "proti": {
+      "count": 0,
+      "names": [],
+      "raw": "(0)"
+     },
+     "zdrzel_se": {
+      "count": 0,
+      "names": [],
+      "raw": "(0)"
+     }
+    },
+    "detail": {
+     "number_raw": "UZ-48-4/22",
+     "text_verbatim": "Zastupitelstvo města schvaluje odkoupení ideálního podílu pozemku ve výši 1/3 vůči celku v k.ú. Tatce č. parc. 462/57 (1188m2).  Ideální podíl pozemku bude odkoupen od společnosti ČESKOMORAVSKÁ POZEMKOVÁ s.r.o., Pýchavková 268/3, 104 00 Praha 10 - Pitkovice, IČO 01507575. Pozemek bude odkoupen za celkovou cenu ve výši 60.000,-Kč. Úhrada kupní ceny proběhne po vložení návrhu na vklad do katastru nemovitostí.",
+     "typ_raw": null,
+     "zodpovida_raw": "Tomáš Vodička",
+     "prijato_raw": "15. 6. 2022 na jednání č. 4/2022",
+     "prijato_date_iso": "2022-06-15",
+     "prijato_meeting_label": "4/2022",
+     "termin_raw": "31. 7. 2022",
+     "ukonceno_raw": "27. 6. 2022",
+     "ukonceno_date_iso": "2022-06-27",
+     "fields_raw": {
+      "Číslo usnesení": "UZ-48-4/22",
+      "Text usnesení": "Zastupitelstvo města schvaluje odkoupení ideálního podílu pozemku ve výši 1/3 vůči celku v k.ú. Tatce č. parc. 462/57 (1188m2).  Ideální podíl pozemku bude odkoupen od společnosti ČESKOMORAVSKÁ POZEMKOVÁ s.r.o., Pýchavková 268/3, 104 00 Praha 10 - Pitkovice, IČO 01507575. Pozemek bude odkoupen za celkovou cenu ve výši 60.000,-Kč. Úhrada kupní ceny proběhne po vložení návrhu na vklad do katastru nemovitostí.",
+      "Zodpovídá": "Tomáš Vodička",
+      "Přijato": "15. 6. 2022 na jednání č. 4/2022",
+      "Termín": "31. 7. 2022",
+      "Ukončeno": "27. 6. 2022"
+     }
+    }
+   },
+   {
+    "number_raw": "UZ-49-4/22",
+    "detail_id": 23294,
+    "detail_url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/23294?mod=zastupitelstvo",
+    "agenda_item_raw": "Rozpočtová opatření č. 9/2022",
+    "text_verbatim": "Zastupitelstvo města schvaluje rozpočtová opatření č. 9/2022.",
+    "cell_text_raw": "Bod programu:\nRozpočtová opatření č. 9/2022\nText přijatého usnesení:\nZastupitelstvo města schvaluje rozpočtová opatření č. 9/2022.",
+    "date_raw": "15. 6. 2022",
+    "date_iso": "2022-06-15",
+    "responsible_raw": "",
+    "deadline_raw": "IHNED (15. 6. 2022)",
+    "vote": {
+     "raw_text": "pro: (16) Viktorie Janáčková MSc., Tomáš Vodička, Ing. Jan Korouš Ph.D., Jaroslav Železný, Ondřej Schulz, Jiří Katrnoška, Mgr. Alena Švejnohová, Šárka Horynová, Bc. Iveta Minaříková, MUDr. Věra Schürzová, Milan Paluska, Ing. Petr Dürr, Ing. Martin Jedlička, Luděk Vinohradník, Ing. Stanislav Jiran, Mgr. Jaroslava Heroldová DiS. proti: (0) zdržel se: (2) Ing. Karel Krištoufek, Zdeněk Fejfar",
+     "pro": {
+      "count": 16,
+      "names": [
+       "Viktorie Janáčková MSc.",
+       "Tomáš Vodička",
+       "Ing. Jan Korouš Ph.D.",
+       "Jaroslav Železný",
+       "Ondřej Schulz",
+       "Jiří Katrnoška",
+       "Mgr. Alena Švejnohová",
+       "Šárka Horynová",
+       "Bc. Iveta Minaříková",
+       "MUDr. Věra Schürzová",
+       "Milan Paluska",
+       "Ing. Petr Dürr",
+       "Ing. Martin Jedlička",
+       "Luděk Vinohradník",
+       "Ing. Stanislav Jiran",
+       "Mgr. Jaroslava Heroldová DiS."
+      ],
+      "raw": "(16) Viktorie Janáčková MSc., Tomáš Vodička, Ing. Jan Korouš Ph.D., Jaroslav Železný, Ondřej Schulz, Jiří Katrnoška, Mgr. Alena Švejnohová, Šárka Horynová, Bc. Iveta Minaříková, MUDr. Věra Schürzová, Milan Paluska, Ing. Petr Dürr, Ing. Martin Jedlička, Luděk Vinohradník, Ing. Stanislav Jiran, Mgr. Jaroslava Heroldová DiS."
+     },
+     "proti": {
+      "count": 0,
+      "names": [],
+      "raw": "(0)"
+     },
+     "zdrzel_se": {
+      "count": 2,
+      "names": [
+       "Ing. Karel Krištoufek",
+       "Zdeněk Fejfar"
+      ],
+      "raw": "(2) Ing. Karel Krištoufek, Zdeněk Fejfar"
+     }
+    },
+    "detail": {
+     "number_raw": "UZ-49-4/22",
+     "text_verbatim": "Zastupitelstvo města schvaluje rozpočtová opatření č. 9/2022.",
+     "typ_raw": null,
+     "zodpovida_raw": "",
+     "prijato_raw": "15. 6. 2022 na jednání č. 4/2022",
+     "prijato_date_iso": "2022-06-15",
+     "prijato_meeting_label": "4/2022",
+     "termin_raw": "IHNED (15. 6. 2022)",
+     "ukonceno_raw": "15. 6. 2022",
+     "ukonceno_date_iso": "2022-06-15",
+     "fields_raw": {
+      "Číslo usnesení": "UZ-49-4/22",
+      "Text usnesení": "Zastupitelstvo města schvaluje rozpočtová opatření č. 9/2022.",
+      "Zodpovídá": "",
+      "Přijato": "15. 6. 2022 na jednání č. 4/2022",
+      "Termín": "IHNED (15. 6. 2022)",
+      "Ukončeno": "15. 6. 2022"
+     }
+    }
+   }
+  ]
+ }
+}

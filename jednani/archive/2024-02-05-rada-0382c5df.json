@@ -1,0 +1,864 @@
+{
+ "uuid": "0382c5df-bf4d-11ee-9584-00505683238f",
+ "body_type_raw": "Rada",
+ "label_raw": "5/2024 (5. 2. 2024)",
+ "number": 5,
+ "year": 2024,
+ "date_iso": "2024-02-05",
+ "links": {
+  "invitation": "https://mesto-pecky.usneseni.cz/verejne/?uuid=0382c5df-bf4d-11ee-9584-00505683238f&page=9&do=printPublicInvitation",
+  "minutes": "https://mesto-pecky.usneseni.cz/verejne/0382c5df-bf4d-11ee-9584-00505683238f/zapis/?page=9",
+  "signed_minutes_pdf": "https://mesto-pecky.usneseni.cz/verejne/?meetingReportControl-uuid=0382c5df-bf4d-11ee-9584-00505683238f&page=9&do=meetingReportControl-getSignedReportPdf",
+  "resolutions": "https://mesto-pecky.usneseni.cz/verejne/0382c5df-bf4d-11ee-9584-00505683238f/usneseni/?page=9",
+  "audio": null
+ },
+ "link_texts": {
+  "invitation": "Pozvánka",
+  "minutes": "zápis",
+  "signed_minutes_pdf": "podepsaný zápis",
+  "resolutions": "přijatá usnesení"
+ },
+ "status": "ok",
+ "invitation": {
+  "status": "site_error",
+  "error": "status=200 ct=text/html; charset=utf-8 flash='<a href=\"\" class=\"close\" data-dismiss=\"alert\" aria-label=\"close\">&times;'",
+  "url": "https://mesto-pecky.usneseni.cz/verejne/?uuid=0382c5df-bf4d-11ee-9584-00505683238f&do=printPublicInvitation",
+  "fetched_at": "2026-08-04T15:02:17.476713+00:00"
+ },
+ "minutes": {
+  "status": "ok",
+  "url": "https://mesto-pecky.usneseni.cz/verejne/0382c5df-bf4d-11ee-9584-00505683238f/zapis/",
+  "fetched_at": "2026-08-04T13:56:01.318201+00:00",
+  "title_raw": "ZÁPIS ze schůze rady č. 5/2024 Město Pečky datum: 5. 2. 2024, čas: 15:00 ​",
+  "date_raw": "5. 2. 2024",
+  "date_iso": "2024-02-05",
+  "time_raw": "15:00",
+  "presence": {
+   "raw_text": "Prezence:\nPřítomni:\n(6) Zdeněk Fejfar, Milan Paluska, Ing. Martin Jedlička, Ivana Trčková, Ing. Hana Kuprová, Ing. Karel Krištoufek\nOmluveni:\n(0)\nNepřítomni:\n(1) Ing. Petr Dürr\nHosté:\nIng. Markéta Pošíková - MAS Podlipansko, o.p.s.\nZapisovatel/ka:\nEva Strnadová\nPřítomno je 6 členů a rada je usnášeníschopná.\nJednání zahájeno 05.02.2024 v 15:07:59",
+   "pritomni": {
+    "count": 6,
+    "names": [
+     "Zdeněk Fejfar",
+     "Milan Paluska",
+     "Ing. Martin Jedlička",
+     "Ivana Trčková",
+     "Ing. Hana Kuprová",
+     "Ing. Karel Krištoufek"
+    ],
+    "raw": "(6) Zdeněk Fejfar, Milan Paluska, Ing. Martin Jedlička, Ivana Trčková, Ing. Hana Kuprová, Ing. Karel Krištoufek"
+   },
+   "omluveni": {
+    "count": 0,
+    "names": [],
+    "raw": "(0)"
+   },
+   "nepritomni": {
+    "count": 1,
+    "names": [
+     "Ing. Petr Dürr"
+    ],
+    "raw": "(1) Ing. Petr Dürr"
+   },
+   "predsedajici": null,
+   "quorum_raw": "Přítomno je 6 členů a rada je usnášeníschopná."
+  },
+  "header_raw": "Prezence:\nPřítomni:\n(6) Zdeněk Fejfar, Milan Paluska, Ing. Martin Jedlička, Ivana Trčková, Ing. Hana Kuprová, Ing. Karel Krištoufek\nOmluveni:\n(0)\nNepřítomni:\n(1) Ing. Petr Dürr\nHosté:\nIng. Markéta Pošíková - MAS Podlipansko, o.p.s.\nZapisovatel/ka:\nEva Strnadová\nPřítomno je 6 členů a rada je usnášeníschopná.\nJednání zahájeno 05.02.2024 v 15:07:59",
+  "agenda_items": [
+   {
+    "number": 1,
+    "title_raw": "Určení zapisovatelů, předsedajícího, příp. ověřovatelů",
+    "heading_raw": "1. Určení zapisovatelů, předsedajícího, příp. ověřovatelů (bod číslo 1)",
+    "predkladatel": null,
+    "votes": [],
+    "resolution_numbers_mentioned": [],
+    "raw_text": "Projednávání bodu bylo zahájeno v 15:08:05\n\nPředsedající navrhl jednotlivé členy pracovních komisí\nOvěřovatelé:\nIvana Trčková, Ing. Martin Jedlička\nPředsedající:\nMilan Paluska\nDiskuze zahájena v 15:08:05\nK tomuto bodu se vyjádřili: Milan Paluska\nProjednávání bodu bylo ukončeno v 15:08:44"
+   },
+   {
+    "number": 2,
+    "title_raw": "Schválení programu jednání",
+    "heading_raw": "2. Schválení programu jednání (bod číslo 2)",
+    "predkladatel": null,
+    "votes": [
+     {
+      "raw_text": "pro:\n(6) Ing. Karel Krištoufek, Ing. Hana Kuprová, Ing. Martin Jedlička, Zdeněk Fejfar, Milan Paluska, Ivana Trčková\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)",
+      "pro": {
+       "count": 6,
+       "names": [
+        "Ing. Karel Krištoufek",
+        "Ing. Hana Kuprová",
+        "Ing. Martin Jedlička",
+        "Zdeněk Fejfar",
+        "Milan Paluska",
+        "Ivana Trčková"
+       ],
+       "raw": "(6) Ing. Karel Krištoufek, Ing. Hana Kuprová, Ing. Martin Jedlička, Zdeněk Fejfar, Milan Paluska, Ivana Trčková"
+      },
+      "proti": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "zdrzel_se": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "nehlasoval": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "result_raw": "Návrh byl přijat jako usnesení číslo: UR-51-5/24",
+      "adopted_resolution_number": "UR-51-5/24"
+     }
+    ],
+    "resolution_numbers_mentioned": [
+     "UR-51-5/24"
+    ],
+    "raw_text": "Projednávání bodu bylo zahájeno v 15:08:50\n\nProgram jednání\n1. Určení zapisovatelů, předsedajícího, příp. ověřovatelů\n2. Schválení programu jednání\n3. Aktuální informace vedení města\n4. Schválení uzavření „Smlouvy o zřízení VBř.“ – vodovodní přivaděč\n5. Žádost o ukončení nájemní smlouvy\n6. Zavedení systému hospodaření s energií v podobě energetického managementu.\n7. Rozpočtové opatření č. 2/2024\n8. Dar - běžecký závod\n9. Dar - stacionář\n10. Dotace - činnost místního spolku chovatelů poštovních holubů\n11. Kontrola plnění usnesení\nDiskuze zahájena v 15:08:50\nK tomuto bodu se vyjádřili: Milan Paluska\nV 15:09:42 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Milan Paluska\") v tomto znění:\nRada\nměsta schvaluje návrh programu jednání.\nHlasování\npro:\n(6) Ing. Karel Krištoufek, Ing. Hana Kuprová, Ing. Martin Jedlička, Zdeněk Fejfar, Milan Paluska, Ivana Trčková\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-51-5/24\nzodpovídá:\ntermín:\nIHNED\n(5. 2. 2024)\nProjednávání bodu bylo ukončeno v 15:09:49"
+   },
+   {
+    "number": 3,
+    "title_raw": "Aktuální informace vedení města",
+    "heading_raw": "3. Aktuální informace vedení města (bod číslo 3)",
+    "predkladatel": null,
+    "votes": [],
+    "resolution_numbers_mentioned": [],
+    "raw_text": "Projednávání bodu bylo zahájeno v 15:09:55\n\nDůvodová zpráva:\nstarosta města\n- informace o kolaudaci stavby úpravna vody - provoz bude zahájen dle zvláštního provozního řádu\n- informace o schůzce s developerem - VPK Suchý\n- informace o podání žádosti o dotaci na Ministerstvo průmyslu  a obchodu ČR - rekonstrukce VO, výměna 414 svítidel, vypsání VŘ na zhotovitele stavby, předpokládaná realizace stavby v létě 2024\n- informace o prezentaci - digitální mapa města\n- informace o videokonferenci s CzechInvest, investiční příležitosti ve městě\nZdeněk\nFejfar\n- informace o plánované schůzce se starostkou obce Tatce a starostou obce\nMilčice\nve věci připojení obce Tatce na pečecký vodovod\ntajemnice\n- informace o proběhlé kontrole na stavebním odboru ze Středočeského kraje\n- informace o nástupu nové sociální pracovnice p. L. Horkel\n- informace o kontrole požární ochrany v DPS čp. 1042 Chvalovická ul., Pečky\nDiskuze zahájena v 15:09:55\nK tomuto bodu se vyjádřili: Milan Paluska, Ing. Karel Krištoufek, Zdeněk Fejfar, Pavlína Nepovímová\nV 15:13:01 přišel Ing. Petr Dürr, přítomno 7 radních.\nAktualizovaný stav prezence:\nPřítomni:\n(7) Zdeněk Fejfar, Milan Paluska, Ing. Martin Jedlička, Ivana Trčková, Ing. Hana Kuprová, Ing. Karel Krištoufek, Ing. Petr Dürr\nOmluveni:\n(0)\nNepřítomni:\n(0)\nRada bere materiály předložené k bodu č. 3 -\nAktuální informace vedení města\nna vědomí.\nProjednávání bodu bylo ukončeno v 15:48:06"
+   },
+   {
+    "number": 4,
+    "title_raw": "Schválení uzavření „Smlouvy o zřízení VBř.“ – vodovodní přivaděč",
+    "heading_raw": "4. Schválení uzavření „Smlouvy o zřízení VBř.“ – vodovodní přivaděč (bod číslo 4)",
+    "predkladatel": null,
+    "votes": [
+     {
+      "raw_text": "pro:\n(7) Ing. Hana Kuprová, Ing. Petr Dürr, Ing. Karel Krištoufek, Milan Paluska, Ing. Martin Jedlička, Ivana Trčková, Zdeněk Fejfar\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)",
+      "pro": {
+       "count": 7,
+       "names": [
+        "Ing. Hana Kuprová",
+        "Ing. Petr Dürr",
+        "Ing. Karel Krištoufek",
+        "Milan Paluska",
+        "Ing. Martin Jedlička",
+        "Ivana Trčková",
+        "Zdeněk Fejfar"
+       ],
+       "raw": "(7) Ing. Hana Kuprová, Ing. Petr Dürr, Ing. Karel Krištoufek, Milan Paluska, Ing. Martin Jedlička, Ivana Trčková, Zdeněk Fejfar"
+      },
+      "proti": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "zdrzel_se": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "nehlasoval": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "result_raw": "Návrh byl přijat jako usnesení číslo: UR-52-5/24",
+      "adopted_resolution_number": "UR-52-5/24"
+     }
+    ],
+    "resolution_numbers_mentioned": [
+     "UR-52-5/24"
+    ],
+    "raw_text": "Projednávání bodu bylo zahájeno v 15:48:10\n\nDůvodová zpráva:\nDoporučujeme uzavřít Smlouvu o zřízení VBř., protože vodovodní přivaděč se nachází z části v pozemcích, které jsou určeny k prodeji jako stavební parcely. Nabízí je developer - firma PALMA development s.r.o., Poděbrady.\nDiskuze zahájena v 15:48:10\nK tomuto bodu se vyjádřili: Milan Paluska, Zdeněk Fejfar\nV 15:49:07 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Jana Najbrtová\") v tomto znění:\nRada\nměsta doporučuje zastupitelstvu města schválit uzavření „Smlouvy o zřízení VBř.“ s firmou PALMA development s.r.o., se sídlem v Poděbradech, T.G.\nMasaryka\n1412. VBř. bude zřízeno k pozemkům č. parc. 832/99 a 832/104 v obci a k.ú. Pečky, ve kterých je uložen vodovodní přivaděč.\nCena\nza zřízení VBř. činí celkem 17.576,- Kč bez DPH (délka VBř. = 87,88 m x 200,- Kč).\nHlasování\npro:\n(7) Ing. Hana Kuprová, Ing. Petr Dürr, Ing. Karel Krištoufek, Milan Paluska, Ing. Martin Jedlička, Ivana Trčková, Zdeněk Fejfar\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-52-5/24\nzodpovídá:\nJana Najbrtová\ntermín:\n31. 5. 2024\nProjednávání bodu bylo ukončeno v 15:49:15"
+   },
+   {
+    "number": 5,
+    "title_raw": "Žádost o ukončení nájemní smlouvy",
+    "heading_raw": "5. Žádost o ukončení nájemní smlouvy (bod číslo 5)",
+    "predkladatel": null,
+    "votes": [
+     {
+      "raw_text": "pro:\n(7) Zdeněk Fejfar, Ing. Petr Dürr, Ing. Martin Jedlička, Ivana Trčková, Milan Paluska, Ing. Hana Kuprová, Ing. Karel Krištoufek\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)",
+      "pro": {
+       "count": 7,
+       "names": [
+        "Zdeněk Fejfar",
+        "Ing. Petr Dürr",
+        "Ing. Martin Jedlička",
+        "Ivana Trčková",
+        "Milan Paluska",
+        "Ing. Hana Kuprová",
+        "Ing. Karel Krištoufek"
+       ],
+       "raw": "(7) Zdeněk Fejfar, Ing. Petr Dürr, Ing. Martin Jedlička, Ivana Trčková, Milan Paluska, Ing. Hana Kuprová, Ing. Karel Krištoufek"
+      },
+      "proti": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "zdrzel_se": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "nehlasoval": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "result_raw": "Návrh byl přijat jako usnesení číslo: UR-53-5/24",
+      "adopted_resolution_number": "UR-53-5/24"
+     }
+    ],
+    "resolution_numbers_mentioned": [
+     "UR-53-5/24"
+    ],
+    "raw_text": "Projednávání bodu bylo zahájeno v 15:49:20\n\nDůvodová zpráva:\nPan\n█​█​█​█​█​█​█​█​█\nl podal dne 24.1.2024 žádost o ukončení nájemní smlouvy na byt č. 37, Tř. 5. května 218, Pečky, která byla uzavřena dne 29.6.2018. Výpovědní doba v nájemní smlouvě je tříměsíční a pan\n█​█​█​█​█​█​█​█​█\nl žádá o zkrácení na dva měsíce a to k 31.3.2024.\nDiskuze zahájena v 15:49:20\nK tomuto bodu se vyjádřili: Milan Paluska, Ing. Karel Krištoufek, Ing. Petr Dürr\nV 15:54:18 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Martina Hrázská\") v tomto znění:\nRada\nměsta schvaluje ukončení nájemní smlouvy s panem\n█​█​█​█​█​█​█​█​█​█​█​█​█​█\nna byt č. 37, Tř. 5 května 218, Pečky k 31.3.2024.\nHlasování\npro:\n(7) Zdeněk Fejfar, Ing. Petr Dürr, Ing. Martin Jedlička, Ivana Trčková, Milan Paluska, Ing. Hana Kuprová, Ing. Karel Krištoufek\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-53-5/24\nzodpovídá:\nMartina Hrázská\ntermín:\n19. 2. 2024\nProjednávání bodu bylo ukončeno v 15:54:28"
+   },
+   {
+    "number": 7,
+    "title_raw": "Rozpočtové opatření č. 2/2024",
+    "heading_raw": "6. Rozpočtové opatření č. 2/2024 (bod číslo 7)",
+    "predkladatel": null,
+    "votes": [
+     {
+      "raw_text": "pro:\n(7) Ing. Petr Dürr, Ing. Martin Jedlička, Ing. Karel Krištoufek, Milan Paluska, Ing. Hana Kuprová, Ivana Trčková, Zdeněk Fejfar\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)",
+      "pro": {
+       "count": 7,
+       "names": [
+        "Ing. Petr Dürr",
+        "Ing. Martin Jedlička",
+        "Ing. Karel Krištoufek",
+        "Milan Paluska",
+        "Ing. Hana Kuprová",
+        "Ivana Trčková",
+        "Zdeněk Fejfar"
+       ],
+       "raw": "(7) Ing. Petr Dürr, Ing. Martin Jedlička, Ing. Karel Krištoufek, Milan Paluska, Ing. Hana Kuprová, Ivana Trčková, Zdeněk Fejfar"
+      },
+      "proti": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "zdrzel_se": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "nehlasoval": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "result_raw": "Návrh byl přijat jako usnesení číslo: UR-54-5/24",
+      "adopted_resolution_number": "UR-54-5/24"
+     }
+    ],
+    "resolution_numbers_mentioned": [
+     "UR-54-5/24"
+    ],
+    "raw_text": "Projednávání bodu bylo zahájeno v 15:55:03\n\nDůvodová zpráva:\nRozpočtová opatření v kompetenci ZM obsahují zvýšení  dotace na výkon státní správy dle rozpisu MF,  průtokovou dotaci pro ZŠ a nový výdaj na nákup traktorové sekačky. Na základě žádosti TJ\nSokol\nVelké\nChvalovice město po schválení rozpočtových opatření pořídí novou traktorovou sekačku a zapůjčí ji uvedené TJ.\nDiskuze zahájena v 15:55:03\nK tomuto bodu se vyjádřili: Milan Paluska, Ing. Hana Kuprová, Ing. Martin Jedlička, Ing. Petr Dürr, Ing. Karel Krištoufek\nV 15:59:09 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Milan Paluska\") v tomto znění:\nRada\nměsta doporučuje zastupitelstvu města schválit rozpočtová opatření č. 2/2024.\nHlasování\npro:\n(7) Ing. Petr Dürr, Ing. Martin Jedlička, Ing. Karel Krištoufek, Milan Paluska, Ing. Hana Kuprová, Ivana Trčková, Zdeněk Fejfar\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-54-5/24\nzodpovídá:\nMarcela Bahníková\ntermín:\n21. 2. 2024\nProjednávání bodu bylo ukončeno v 15:59:16"
+   },
+   {
+    "number": 8,
+    "title_raw": "Dar - běžecký závod",
+    "heading_raw": "7. Dar - běžecký závod (bod číslo 8)",
+    "predkladatel": null,
+    "votes": [
+     {
+      "raw_text": "pro:\n(7) Ing. Martin Jedlička, Ing. Karel Krištoufek, Zdeněk Fejfar, Milan Paluska, Ing. Petr Dürr, Ivana Trčková, Ing. Hana Kuprová\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)",
+      "pro": {
+       "count": 7,
+       "names": [
+        "Ing. Martin Jedlička",
+        "Ing. Karel Krištoufek",
+        "Zdeněk Fejfar",
+        "Milan Paluska",
+        "Ing. Petr Dürr",
+        "Ivana Trčková",
+        "Ing. Hana Kuprová"
+       ],
+       "raw": "(7) Ing. Martin Jedlička, Ing. Karel Krištoufek, Zdeněk Fejfar, Milan Paluska, Ing. Petr Dürr, Ivana Trčková, Ing. Hana Kuprová"
+      },
+      "proti": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "zdrzel_se": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "nehlasoval": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "result_raw": "Návrh byl přijat jako usnesení číslo: UR-55-5/24",
+      "adopted_resolution_number": "UR-55-5/24"
+     }
+    ],
+    "resolution_numbers_mentioned": [
+     "UR-55-5/24"
+    ],
+    "raw_text": "Projednávání bodu bylo zahájeno v 15:59:29\n\nDůvodová zpráva:\nOrganizátorka běžeckého závodu\nKros\nPičhorou žádá o poskytnutí daru na 6. ročník závodu konaný dne 23.3.2024 v Dobřichově.\nDiskuze zahájena v 15:59:29\nK tomuto bodu se vyjádřili: Milan Paluska, Ing. Hana Kuprová, Zdeněk Fejfar, Ivana Trčková\nV 16:01:58 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Milan Paluska\") v tomto znění:\nRada\nměsta schvaluje poskytnutí finančního daru ve výši 5 000 Kč paní\n█​█​█​█​█​█​█​█​█​█​█​█​█​█​█\n, bytem\n█​█​█​█​█​█​█​█​█​█​█​█​█\nna pořádání běžeckého závodu\nKros\nPičhorou.\nHlasování\npro:\n(7) Ing. Martin Jedlička, Ing. Karel Krištoufek, Zdeněk Fejfar, Milan Paluska, Ing. Petr Dürr, Ivana Trčková, Ing. Hana Kuprová\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-55-5/24\nzodpovídá:\nMarcela Bahníková\ntermín:\n19. 2. 2024\nProjednávání bodu bylo ukončeno v 16:02:05"
+   },
+   {
+    "number": 9,
+    "title_raw": "Dar - stacionář",
+    "heading_raw": "8. Dar - stacionář (bod číslo 9)",
+    "predkladatel": null,
+    "votes": [
+     {
+      "raw_text": "pro:\n(7) Ing. Petr Dürr, Ing. Martin Jedlička, Ivana Trčková, Ing. Karel Krištoufek, Zdeněk Fejfar, Ing. Hana Kuprová, Milan Paluska\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)",
+      "pro": {
+       "count": 7,
+       "names": [
+        "Ing. Petr Dürr",
+        "Ing. Martin Jedlička",
+        "Ivana Trčková",
+        "Ing. Karel Krištoufek",
+        "Zdeněk Fejfar",
+        "Ing. Hana Kuprová",
+        "Milan Paluska"
+       ],
+       "raw": "(7) Ing. Petr Dürr, Ing. Martin Jedlička, Ivana Trčková, Ing. Karel Krištoufek, Zdeněk Fejfar, Ing. Hana Kuprová, Milan Paluska"
+      },
+      "proti": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "zdrzel_se": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "nehlasoval": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "result_raw": "Návrh byl přijat jako usnesení číslo: UR-56-5/24",
+      "adopted_resolution_number": "UR-56-5/24"
+     }
+    ],
+    "resolution_numbers_mentioned": [
+     "UR-56-5/24"
+    ],
+    "raw_text": "Projednávání bodu bylo zahájeno v 16:02:23\n\nDůvodová zpráva:\nHandicap centrum srdce o.p.s  žádá o poskytnutí příspěvku na provoz týdenního stacionáře v roce 2024. Město poskytuje pravidelně dar ve výši 10 000 Kč na 1 klienta, v současné době využívají služeb stacionáře 2 klienti z\nPeček.\nDiskuze zahájena v 16:02:23\nK tomuto bodu se vyjádřili: Milan Paluska, Ing. Hana Kuprová, Ing. Martin Jedlička\nV 16:06:33 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Milan Paluska\") v tomto znění:\nRada\nměsta schvaluje poskytnutí daru ve výši 20 000 Kč na provoz stacionáře Handicap centrum srdce, o.p.s. , IČO: 275 76 612.\nHlasování\npro:\n(7) Ing. Petr Dürr, Ing. Martin Jedlička, Ivana Trčková, Ing. Karel Krištoufek, Zdeněk Fejfar, Ing. Hana Kuprová, Milan Paluska\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-56-5/24\nzodpovídá:\nMarcela Bahníková\ntermín:\n19. 2. 2024\nProjednávání bodu bylo ukončeno v 16:06:42"
+   },
+   {
+    "number": 10,
+    "title_raw": "Dotace - činnost místního spolku chovatelů poštovních holubů",
+    "heading_raw": "9. Dotace - činnost místního spolku chovatelů poštovních holubů (bod číslo 10)",
+    "predkladatel": null,
+    "votes": [
+     {
+      "raw_text": "pro:\n(7) Ivana Trčková, Ing. Karel Krištoufek, Zdeněk Fejfar, Milan Paluska, Ing. Petr Dürr, Ing. Martin Jedlička, Ing. Hana Kuprová\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)",
+      "pro": {
+       "count": 7,
+       "names": [
+        "Ivana Trčková",
+        "Ing. Karel Krištoufek",
+        "Zdeněk Fejfar",
+        "Milan Paluska",
+        "Ing. Petr Dürr",
+        "Ing. Martin Jedlička",
+        "Ing. Hana Kuprová"
+       ],
+       "raw": "(7) Ivana Trčková, Ing. Karel Krištoufek, Zdeněk Fejfar, Milan Paluska, Ing. Petr Dürr, Ing. Martin Jedlička, Ing. Hana Kuprová"
+      },
+      "proti": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "zdrzel_se": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "nehlasoval": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "result_raw": "Návrh byl přijat jako usnesení číslo: UR-57-5/24",
+      "adopted_resolution_number": "UR-57-5/24"
+     }
+    ],
+    "resolution_numbers_mentioned": [
+     "UR-57-5/24"
+    ],
+    "raw_text": "Projednávání bodu bylo zahájeno v 16:07:07\n\nDůvodová zpráva:\nPaní\n█\n█​█​█​█\n█​█​█​█​█​█​█​█​█\n█\nžádá o poskytnutí dotace 5 000 Kč na činnost chovatelů poštovních holubů v Pečkách. \"Místní spolek\" nemá právní subjektivitu, proto příjemcem dotace je fyzická osoba.\nDiskuze zahájena v 16:07:07\nK tomuto bodu se vyjádřili: Milan Paluska, Ing. Karel Krištoufek, Ing. Martin Jedlička, Ivana Trčková, Zdeněk Fejfar\nV 16:10:54 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Milan Paluska\") v tomto znění:\nRada\nměsta schvaluje poskytnutí dotace 5 000 Kč paní\n█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█\nna činnost chovatelů poštovních holubů v Pečkách a uzavření veřejnoprávní smlouvy\n.\nHlasování\npro:\n(7) Ivana Trčková, Ing. Karel Krištoufek, Zdeněk Fejfar, Milan Paluska, Ing. Petr Dürr, Ing. Martin Jedlička, Ing. Hana Kuprová\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-57-5/24\nzodpovídá:\nMarcela Bahníková\ntermín:\n19. 2. 2024\nProjednávání bodu bylo ukončeno v 16:11:01"
+   },
+   {
+    "number": 11,
+    "title_raw": "Kontrola plnění usnesení",
+    "heading_raw": "10. Kontrola plnění usnesení (bod číslo 11)",
+    "predkladatel": null,
+    "votes": [],
+    "resolution_numbers_mentioned": [],
+    "raw_text": "Projednávání bodu bylo zahájeno v 16:11:10\nDiskuze zahájena v 16:11:10\nK tomuto bodu se vyjádřili: Milan Paluska, Pavlína Nepovímová\nRada bere materiály předložené k bodu č. 11 -\nKontrola plnění usnesení\nna vědomí.\nProjednávání bodu bylo ukončeno v 16:19:44"
+   },
+   {
+    "number": 6,
+    "title_raw": "Zavedení systému hospodaření s energií v podobě energetického managementu",
+    "heading_raw": "11. Zavedení systému hospodaření s energií v podobě energetického managementu (bod číslo 6)",
+    "predkladatel": null,
+    "votes": [
+     {
+      "raw_text": "pro:\n(5) Ing. Martin Jedlička, Ing. Karel Krištoufek, Milan Paluska, Ivana Trčková, Ing. Hana Kuprová\nproti\n(0)\nzdržel se:\n(2) Ing. Petr Dürr, Zdeněk Fejfar\nnehlasoval:\n(0)",
+      "pro": {
+       "count": 5,
+       "names": [
+        "Ing. Martin Jedlička",
+        "Ing. Karel Krištoufek",
+        "Milan Paluska",
+        "Ivana Trčková",
+        "Ing. Hana Kuprová"
+       ],
+       "raw": "(5) Ing. Martin Jedlička, Ing. Karel Krištoufek, Milan Paluska, Ivana Trčková, Ing. Hana Kuprová"
+      },
+      "proti": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "zdrzel_se": {
+       "count": 2,
+       "names": [
+        "Ing. Petr Dürr",
+        "Zdeněk Fejfar"
+       ],
+       "raw": "(2) Ing. Petr Dürr, Zdeněk Fejfar"
+      },
+      "nehlasoval": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "result_raw": "Návrh byl přijat jako usnesení číslo: UR-58-5/24",
+      "adopted_resolution_number": "UR-58-5/24"
+     }
+    ],
+    "resolution_numbers_mentioned": [
+     "UR-58-5/24"
+    ],
+    "raw_text": "Projednávání bodu bylo zahájeno v 16:20:31\n\nDůvodová zpráva:\nPředkládáme radě města možnost podání žádosti o dotaci na zavedení systému hospodaření s energiemi pro domy se společnými plynovými kotelnami na základě nabídky Ing. M.\nPošíkové\n, MAS Podlipansko o.p.s..\nPřílohy obsahují podmínky výzvy EFEKT 2/2024 Ministerstva průmyslu a obchodu, max. výše dotace 550 tis. Kč/95%., typ dotace je v režimu de minimis, vyplacená ex ante- dopředu. Další podmínky výzvy jsou uvedeny v příloze.\nIng. M.\nPošíková\nzodpoví případné dotazy při prezentaci na jednání rady města v 16.00 hodin.\nDiskuze zahájena v 16:20:31\nK tomuto bodu se vyjádřili: Milan Paluska, Ing. Markéta Pošíková, Ing. Karel Krištoufek, Ing. Petr Dürr, Zdeněk Fejfar, Ing. Martin Jedlička, Ing. Hana Kuprová, Ivana Trčková\nV 17:41:23 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Věra Růžičková\") v tomto znění:\nRada\nměsta schvaluje uzavření smlouvy mezi městem Pečky a MAS Podlipansko, o.p.s. za cenu 16 000,-Kč na podání žádosti o dotaci na akci: \"Zavedení systému hospodaření s energií ve městě Pečky v podobě zavedení energetického managementu\" v souladu s výzvou EFEKT 2/2024, čímž uděluje souhlas s podáním žádosti o dotaci.\nHlasování\npro:\n(5) Ing. Martin Jedlička, Ing. Karel Krištoufek, Milan Paluska, Ivana Trčková, Ing. Hana Kuprová\nproti\n(0)\nzdržel se:\n(2) Ing. Petr Dürr, Zdeněk Fejfar\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-58-5/24\nzodpovídá:\nVěra Růžičková\ntermín:\n19. 2. 2024\nProjednávání bodu bylo ukončeno v 17:41:37\nJednání ukončeno 05.02.2024 v 17:42:00"
+   }
+  ],
+  "full_text": "ZÁPIS ze schůze rady č. 5/2024\nMěsto Pečky\ndatum: 5. 2. 2024, čas: 15:00\n​\nPrezence:\nPřítomni:\n(6) Zdeněk Fejfar, Milan Paluska, Ing. Martin Jedlička, Ivana Trčková, Ing. Hana Kuprová, Ing. Karel Krištoufek\nOmluveni:\n(0)\nNepřítomni:\n(1) Ing. Petr Dürr\nHosté:\nIng. Markéta Pošíková - MAS Podlipansko, o.p.s.\nZapisovatel/ka:\nEva Strnadová\nPřítomno je 6 členů a rada je usnášeníschopná.\nJednání zahájeno 05.02.2024 v 15:07:59\n1. Určení zapisovatelů, předsedajícího, příp. ověřovatelů (bod číslo 1)\nPředkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 15:08:05\nPředsedající navrhl jednotlivé členy pracovních komisí\nOvěřovatelé:\nIvana Trčková, Ing. Martin Jedlička\nPředsedající:\nMilan Paluska\nBod byl přijat bez hlasování.\nDiskuze zahájena v 15:08:05\nK tomuto bodu se vyjádřili: Milan Paluska\nProjednávání bodu bylo ukončeno v 15:08:44\n2. Schválení programu jednání (bod číslo 2)\nPředkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 15:08:50\nProgram jednání\n1. Určení zapisovatelů, předsedajícího, příp. ověřovatelů\n2. Schválení programu jednání\n3. Aktuální informace vedení města\n4. Schválení uzavření „Smlouvy o zřízení VBř.“ – vodovodní přivaděč\n5. Žádost o ukončení nájemní smlouvy\n6. Zavedení systému hospodaření s energií v podobě energetického managementu.\n7. Rozpočtové opatření č. 2/2024\n8. Dar - běžecký závod\n9. Dar - stacionář\n10. Dotace - činnost místního spolku chovatelů poštovních holubů\n11. Kontrola plnění usnesení\nDiskuze zahájena v 15:08:50\nK tomuto bodu se vyjádřili: Milan Paluska\nV 15:09:42 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Milan Paluska\") v tomto znění:\nRada\nměsta schvaluje návrh programu jednání.\nHlasování\npro:\n(6) Ing. Karel Krištoufek, Ing. Hana Kuprová, Ing. Martin Jedlička, Zdeněk Fejfar, Milan Paluska, Ivana Trčková\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-51-5/24\nzodpovídá:\ntermín:\nIHNED\n(5. 2. 2024)\nProjednávání bodu bylo ukončeno v 15:09:49\n3. Aktuální informace vedení města (bod číslo 3)\nPředkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 15:09:55\nDůvodová zpráva:\nstarosta města\n- informace o kolaudaci stavby úpravna vody - provoz bude zahájen dle zvláštního provozního řádu\n- informace o schůzce s developerem - VPK Suchý\n- informace o podání žádosti o dotaci na Ministerstvo průmyslu  a obchodu ČR - rekonstrukce VO, výměna 414 svítidel, vypsání VŘ na zhotovitele stavby, předpokládaná realizace stavby v létě 2024\n- informace o prezentaci - digitální mapa města\n- informace o videokonferenci s CzechInvest, investiční příležitosti ve městě\nZdeněk\nFejfar\n- informace o plánované schůzce se starostkou obce Tatce a starostou obce\nMilčice\nve věci připojení obce Tatce na pečecký vodovod\ntajemnice\n- informace o proběhlé kontrole na stavebním odboru ze Středočeského kraje\n- informace o nástupu nové sociální pracovnice p. L. Horkel\n- informace o kontrole požární ochrany v DPS čp. 1042 Chvalovická ul., Pečky\nDiskuze zahájena v 15:09:55\nK tomuto bodu se vyjádřili: Milan Paluska, Ing. Karel Krištoufek, Zdeněk Fejfar, Pavlína Nepovímová\nV 15:13:01 přišel Ing. Petr Dürr, přítomno 7 radních.\nAktualizovaný stav prezence:\nPřítomni:\n(7) Zdeněk Fejfar, Milan Paluska, Ing. Martin Jedlička, Ivana Trčková, Ing. Hana Kuprová, Ing. Karel Krištoufek, Ing. Petr Dürr\nOmluveni:\n(0)\nNepřítomni:\n(0)\nRada bere materiály předložené k bodu č. 3 -\nAktuální informace vedení města\nna vědomí.\nProjednávání bodu bylo ukončeno v 15:48:06\n4. Schválení uzavření „Smlouvy o zřízení VBř.“ – vodovodní přivaděč (bod číslo 4)\nPředkladatel: Jana Najbrtová\nProjednávání bodu bylo zahájeno v 15:48:10\nDůvodová zpráva:\nDoporučujeme uzavřít Smlouvu o zřízení VBř., protože vodovodní přivaděč se nachází z části v pozemcích, které jsou určeny k prodeji jako stavební parcely. Nabízí je developer - firma PALMA development s.r.o., Poděbrady.\nDiskuze zahájena v 15:48:10\nK tomuto bodu se vyjádřili: Milan Paluska, Zdeněk Fejfar\nV 15:49:07 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Jana Najbrtová\") v tomto znění:\nRada\nměsta doporučuje zastupitelstvu města schválit uzavření „Smlouvy o zřízení VBř.“ s firmou PALMA development s.r.o., se sídlem v Poděbradech, T.G.\nMasaryka\n1412. VBř. bude zřízeno k pozemkům č. parc. 832/99 a 832/104 v obci a k.ú. Pečky, ve kterých je uložen vodovodní přivaděč.\nCena\nza zřízení VBř. činí celkem 17.576,- Kč bez DPH (délka VBř. = 87,88 m x 200,- Kč).\nHlasování\npro:\n(7) Ing. Hana Kuprová, Ing. Petr Dürr, Ing. Karel Krištoufek, Milan Paluska, Ing. Martin Jedlička, Ivana Trčková, Zdeněk Fejfar\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-52-5/24\nzodpovídá:\nJana Najbrtová\ntermín:\n31. 5. 2024\nProjednávání bodu bylo ukončeno v 15:49:15\n5. Žádost o ukončení nájemní smlouvy (bod číslo 5)\nPředkladatel: Martina Hrázská\nProjednávání bodu bylo zahájeno v 15:49:20\nDůvodová zpráva:\nPan\n█​█​█​█​█​█​█​█​█​\nl podal dne 24.1.2024 žádost o ukončení nájemní smlouvy na byt č. 37, Tř. 5. května 218, Pečky, která byla uzavřena dne 29.6.2018. Výpovědní doba v nájemní smlouvě je tříměsíční a pan\n█​█​█​█​█​█​█​█​█​\nl žádá o zkrácení na dva měsíce a to k 31.3.2024.\nDiskuze zahájena v 15:49:20\nK tomuto bodu se vyjádřili: Milan Paluska, Ing. Karel Krištoufek, Ing. Petr Dürr\nV 15:54:18 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Martina Hrázská\") v tomto znění:\nRada\nměsta schvaluje ukončení nájemní smlouvy s panem\n█​█​█​█​█​█​█​█​█​█​█​█​█​█​\nna byt č. 37, Tř. 5 května 218, Pečky k 31.3.2024.\nHlasování\npro:\n(7) Zdeněk Fejfar, Ing. Petr Dürr, Ing. Martin Jedlička, Ivana Trčková, Milan Paluska, Ing. Hana Kuprová, Ing. Karel Krištoufek\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-53-5/24\nzodpovídá:\nMartina Hrázská\ntermín:\n19. 2. 2024\nProjednávání bodu bylo ukončeno v 15:54:28\n6. Rozpočtové opatření č. 2/2024 (bod číslo 7)\nPředkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 15:55:03\nDůvodová zpráva:\nRozpočtová opatření v kompetenci ZM obsahují zvýšení  dotace na výkon státní správy dle rozpisu MF,  průtokovou dotaci pro ZŠ a nový výdaj na nákup traktorové sekačky. Na základě žádosti TJ\nSokol\nVelké\nChvalovice město po schválení rozpočtových opatření pořídí novou traktorovou sekačku a zapůjčí ji uvedené TJ.\nDiskuze zahájena v 15:55:03\nK tomuto bodu se vyjádřili: Milan Paluska, Ing. Hana Kuprová, Ing. Martin Jedlička, Ing. Petr Dürr, Ing. Karel Krištoufek\nV 15:59:09 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Milan Paluska\") v tomto znění:\nRada\nměsta doporučuje zastupitelstvu města schválit rozpočtová opatření č. 2/2024.\nHlasování\npro:\n(7) Ing. Petr Dürr, Ing. Martin Jedlička, Ing. Karel Krištoufek, Milan Paluska, Ing. Hana Kuprová, Ivana Trčková, Zdeněk Fejfar\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-54-5/24\nzodpovídá:\nMarcela Bahníková\ntermín:\n21. 2. 2024\nProjednávání bodu bylo ukončeno v 15:59:16\n7. Dar - běžecký závod (bod číslo 8)\nPředkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 15:59:29\nDůvodová zpráva:\nOrganizátorka běžeckého závodu\nKros\nPičhorou žádá o poskytnutí daru na 6. ročník závodu konaný dne 23.3.2024 v Dobřichově.\nDiskuze zahájena v 15:59:29\nK tomuto bodu se vyjádřili: Milan Paluska, Ing. Hana Kuprová, Zdeněk Fejfar, Ivana Trčková\nV 16:01:58 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Milan Paluska\") v tomto znění:\nRada\nměsta schvaluje poskytnutí finančního daru ve výši 5 000 Kč paní\n█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​\n, bytem\n█​█​█​█​█​█​█​█​█​█​█​█​█​\nna pořádání běžeckého závodu\nKros\nPičhorou.\nHlasování\npro:\n(7) Ing. Martin Jedlička, Ing. Karel Krištoufek, Zdeněk Fejfar, Milan Paluska, Ing. Petr Dürr, Ivana Trčková, Ing. Hana Kuprová\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-55-5/24\nzodpovídá:\nMarcela Bahníková\ntermín:\n19. 2. 2024\nProjednávání bodu bylo ukončeno v 16:02:05\n8. Dar - stacionář (bod číslo 9)\nPředkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 16:02:23\nDůvodová zpráva:\nHandicap centrum srdce o.p.s  žádá o poskytnutí příspěvku na provoz týdenního stacionáře v roce 2024. Město poskytuje pravidelně dar ve výši 10 000 Kč na 1 klienta, v současné době využívají služeb stacionáře 2 klienti z\nPeček.\nDiskuze zahájena v 16:02:23\nK tomuto bodu se vyjádřili: Milan Paluska, Ing. Hana Kuprová, Ing. Martin Jedlička\nV 16:06:33 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Milan Paluska\") v tomto znění:\nRada\nměsta schvaluje poskytnutí daru ve výši 20 000 Kč na provoz stacionáře Handicap centrum srdce, o.p.s. , IČO: 275 76 612.\nHlasování\npro:\n(7) Ing. Petr Dürr, Ing. Martin Jedlička, Ivana Trčková, Ing. Karel Krištoufek, Zdeněk Fejfar, Ing. Hana Kuprová, Milan Paluska\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-56-5/24\nzodpovídá:\nMarcela Bahníková\ntermín:\n19. 2. 2024\nProjednávání bodu bylo ukončeno v 16:06:42\n9. Dotace - činnost místního spolku chovatelů poštovních holubů (bod číslo 10)\nPředkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 16:07:07\nDůvodová zpráva:\nPaní\n█​\n█​█​█​█​\n█​█​█​█​█​█​█​█​█​\n█​\nžádá o poskytnutí dotace 5 000 Kč na činnost chovatelů poštovních holubů v Pečkách. \"Místní spolek\" nemá právní subjektivitu, proto příjemcem dotace je fyzická osoba.\nDiskuze zahájena v 16:07:07\nK tomuto bodu se vyjádřili: Milan Paluska, Ing. Karel Krištoufek, Ing. Martin Jedlička, Ivana Trčková, Zdeněk Fejfar\nV 16:10:54 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Milan Paluska\") v tomto znění:\nRada\nměsta schvaluje poskytnutí dotace 5 000 Kč paní\n█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​\nna činnost chovatelů poštovních holubů v Pečkách a uzavření veřejnoprávní smlouvy\n.\nHlasování\npro:\n(7) Ivana Trčková, Ing. Karel Krištoufek, Zdeněk Fejfar, Milan Paluska, Ing. Petr Dürr, Ing. Martin Jedlička, Ing. Hana Kuprová\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-57-5/24\nzodpovídá:\nMarcela Bahníková\ntermín:\n19. 2. 2024\nProjednávání bodu bylo ukončeno v 16:11:01\n10. Kontrola plnění usnesení (bod číslo 11)\nPředkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 16:11:10\nDiskuze zahájena v 16:11:10\nK tomuto bodu se vyjádřili: Milan Paluska, Pavlína Nepovímová\nRada bere materiály předložené k bodu č. 11 -\nKontrola plnění usnesení\nna vědomí.\nProjednávání bodu bylo ukončeno v 16:19:44\n11. Zavedení systému hospodaření s energií v podobě energetického managementu (bod číslo 6)\nPředkladatel: Věra Růžičková\nProjednávání bodu bylo zahájeno v 16:20:31\nDůvodová zpráva:\nPředkládáme radě města možnost podání žádosti o dotaci na zavedení systému hospodaření s energiemi pro domy se společnými plynovými kotelnami na základě nabídky Ing. M.\nPošíkové\n, MAS Podlipansko o.p.s..\nPřílohy obsahují podmínky výzvy EFEKT 2/2024 Ministerstva průmyslu a obchodu, max. výše dotace 550 tis. Kč/95%., typ dotace je v režimu de minimis, vyplacená ex ante- dopředu. Další podmínky výzvy jsou uvedeny v příloze.\nIng. M.\nPošíková\nzodpoví případné dotazy při prezentaci na jednání rady města v 16.00 hodin.\nDiskuze zahájena v 16:20:31\nK tomuto bodu se vyjádřili: Milan Paluska, Ing. Markéta Pošíková, Ing. Karel Krištoufek, Ing. Petr Dürr, Zdeněk Fejfar, Ing. Martin Jedlička, Ing. Hana Kuprová, Ivana Trčková\nV 17:41:23 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Věra Růžičková\") v tomto znění:\nRada\nměsta schvaluje uzavření smlouvy mezi městem Pečky a MAS Podlipansko, o.p.s. za cenu 16 000,-Kč na podání žádosti o dotaci na akci: \"Zavedení systému hospodaření s energií ve městě Pečky v podobě zavedení energetického managementu\" v souladu s výzvou EFEKT 2/2024, čímž uděluje souhlas s podáním žádosti o dotaci.\nHlasování\npro:\n(5) Ing. Martin Jedlička, Ing. Karel Krištoufek, Milan Paluska, Ivana Trčková, Ing. Hana Kuprová\nproti\n(0)\nzdržel se:\n(2) Ing. Petr Dürr, Zdeněk Fejfar\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-58-5/24\nzodpovídá:\nVěra Růžičková\ntermín:\n19. 2. 2024\nProjednávání bodu bylo ukončeno v 17:41:37\nJednání ukončeno 05.02.2024 v 17:42:00"
+ },
+ "resolutions": {
+  "status": "ok",
+  "url": "https://mesto-pecky.usneseni.cz/verejne/0382c5df-bf4d-11ee-9584-00505683238f/usneseni/",
+  "fetched_at": "2026-08-04T13:56:11.755043+00:00",
+  "items": [
+   {
+    "number_raw": "UR-51-5/24",
+    "detail_id": 56071,
+    "detail_url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/56071?mod=rada",
+    "agenda_item_raw": "Schválení programu jednání",
+    "text_verbatim": "Rada\nměsta schvaluje návrh programu jednání.",
+    "cell_text_raw": "Bod programu:\nSchválení programu jednání\nText přijatého usnesení:\nRada\nměsta schvaluje návrh programu jednání.",
+    "date_raw": "5. 2. 2024",
+    "date_iso": "2024-02-05",
+    "responsible_raw": "",
+    "deadline_raw": "IHNED (5. 2. 2024)",
+    "vote": {
+     "raw_text": "pro: 6 proti: 0 zdržel se: 0",
+     "pro": {
+      "count": 6,
+      "names": null,
+      "raw": "6"
+     },
+     "proti": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     },
+     "zdrzel_se": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     }
+    },
+    "detail": {
+     "number_raw": "UR-51-5/24",
+     "text_verbatim": "Rada města schvaluje návrh programu jednání.",
+     "typ_raw": null,
+     "zodpovida_raw": "",
+     "prijato_raw": "5. 2. 2024 na jednání č. 5/2024",
+     "prijato_date_iso": "2024-02-05",
+     "prijato_meeting_label": "5/2024",
+     "termin_raw": "IHNED (5. 2. 2024)",
+     "ukonceno_raw": "5. 2. 2024",
+     "ukonceno_date_iso": "2024-02-05",
+     "fields_raw": {
+      "Číslo usnesení": "UR-51-5/24",
+      "Text usnesení": "Rada města schvaluje návrh programu jednání.",
+      "Zodpovídá": "",
+      "Přijato": "5. 2. 2024 na jednání č. 5/2024",
+      "Termín": "IHNED (5. 2. 2024)",
+      "Ukončeno": "5. 2. 2024"
+     }
+    }
+   },
+   {
+    "number_raw": "UR-52-5/24",
+    "detail_id": 56268,
+    "detail_url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/56268?mod=rada",
+    "agenda_item_raw": "Schválení uzavření „Smlouvy o zřízení VBř.“ – vodovodní přivaděč",
+    "text_verbatim": "Rada\nměsta doporučuje zastupitelstvu města schválit uzavření „Smlouvy o zřízení VBř.“ s firmou PALMA development s.r.o., se sídlem v Poděbradech, T.G.\nMasaryka\n1412. VBř. bude zřízeno k pozemkům č. parc. 832/99 a 832/104 v obci a k.ú. Pečky, ve kterých je uložen vodovodní přivaděč.\nCena\nza zřízení VBř. činí celkem 17.576,- Kč bez DPH (délka VBř. = 87,88 m x 200,- Kč).",
+    "cell_text_raw": "Bod programu:\nSchválení uzavření „Smlouvy o zřízení VBř.“ – vodovodní přivaděč\nText přijatého usnesení:\nRada\nměsta doporučuje zastupitelstvu města schválit uzavření „Smlouvy o zřízení VBř.“ s firmou PALMA development s.r.o., se sídlem v Poděbradech, T.G.\nMasaryka\n1412. VBř. bude zřízeno k pozemkům č. parc. 832/99 a 832/104 v obci a k.ú. Pečky, ve kterých je uložen vodovodní přivaděč.\nCena\nza zřízení VBř. činí celkem 17.576,- Kč bez DPH (délka VBř. = 87,88 m x 200,- Kč).",
+    "date_raw": "5. 2. 2024",
+    "date_iso": "2024-02-05",
+    "responsible_raw": "Jana Najbrtová",
+    "deadline_raw": "31. 5. 2024",
+    "vote": {
+     "raw_text": "pro: 7 proti: 0 zdržel se: 0",
+     "pro": {
+      "count": 7,
+      "names": null,
+      "raw": "7"
+     },
+     "proti": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     },
+     "zdrzel_se": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     }
+    },
+    "detail": {
+     "number_raw": "UR-52-5/24",
+     "text_verbatim": "Rada města doporučuje zastupitelstvu města schválit uzavření „Smlouvy o zřízení VBř.“ s firmou PALMA development s.r.o., se sídlem v Poděbradech, T.G. Masaryka 1412. VBř. bude zřízeno k pozemkům č. parc. 832/99 a 832/104 v obci a k.ú. Pečky, ve kterých je uložen vodovodní přivaděč. Cena za zřízení VBř. činí celkem 17.576,- Kč bez DPH (délka VBř. = 87,88 m x 200,- Kč).",
+     "typ_raw": null,
+     "zodpovida_raw": "Jana Najbrtová",
+     "prijato_raw": "5. 2. 2024 na jednání č. 5/2024",
+     "prijato_date_iso": "2024-02-05",
+     "prijato_meeting_label": "5/2024",
+     "termin_raw": "31. 5. 2024",
+     "ukonceno_raw": "10. 4. 2024",
+     "ukonceno_date_iso": "2024-04-10",
+     "fields_raw": {
+      "Číslo usnesení": "UR-52-5/24",
+      "Text usnesení": "Rada města doporučuje zastupitelstvu města schválit uzavření „Smlouvy o zřízení VBř.“ s firmou PALMA development s.r.o., se sídlem v Poděbradech, T.G. Masaryka 1412. VBř. bude zřízeno k pozemkům č. parc. 832/99 a 832/104 v obci a k.ú. Pečky, ve kterých je uložen vodovodní přivaděč. Cena za zřízení VBř. činí celkem 17.576,- Kč bez DPH (délka VBř. = 87,88 m x 200,- Kč).",
+      "Zodpovídá": "Jana Najbrtová",
+      "Přijato": "5. 2. 2024 na jednání č. 5/2024",
+      "Termín": "31. 5. 2024",
+      "Ukončeno": "10. 4. 2024"
+     }
+    }
+   },
+   {
+    "number_raw": "UR-53-5/24",
+    "detail_id": 56522,
+    "detail_url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/56522?mod=rada",
+    "agenda_item_raw": "Žádost o ukončení nájemní smlouvy",
+    "text_verbatim": "Rada\nměsta schvaluje ukončení nájemní smlouvy s panem\n█​█​█​█​█​█​█​█​█​█​█​█​█​█​\nna byt č. 37, Tř. 5 května 218, Pečky k 31.3.2024.",
+    "cell_text_raw": "Bod programu:\nŽádost o ukončení nájemní smlouvy\nText přijatého usnesení:\nRada\nměsta schvaluje ukončení nájemní smlouvy s panem\n█​█​█​█​█​█​█​█​█​█​█​█​█​█​\nna byt č. 37, Tř. 5 května 218, Pečky k 31.3.2024.",
+    "date_raw": "5. 2. 2024",
+    "date_iso": "2024-02-05",
+    "responsible_raw": "Martina Hrázská",
+    "deadline_raw": "19. 2. 2024",
+    "vote": {
+     "raw_text": "pro: 7 proti: 0 zdržel se: 0",
+     "pro": {
+      "count": 7,
+      "names": null,
+      "raw": "7"
+     },
+     "proti": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     },
+     "zdrzel_se": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     }
+    },
+    "detail": {
+     "number_raw": "UR-53-5/24",
+     "text_verbatim": "Rada města schvaluje ukončení nájemní smlouvy s panem █​█​█​█​█​█​█​█​█​█​█​█​█​█​ na byt č. 37, Tř. 5 května 218, Pečky k 31.3.2024.",
+     "typ_raw": null,
+     "zodpovida_raw": "Martina Hrázská",
+     "prijato_raw": "5. 2. 2024 na jednání č. 5/2024",
+     "prijato_date_iso": "2024-02-05",
+     "prijato_meeting_label": "5/2024",
+     "termin_raw": "19. 2. 2024",
+     "ukonceno_raw": "12. 2. 2024",
+     "ukonceno_date_iso": "2024-02-12",
+     "fields_raw": {
+      "Číslo usnesení": "UR-53-5/24",
+      "Text usnesení": "Rada města schvaluje ukončení nájemní smlouvy s panem █​█​█​█​█​█​█​█​█​█​█​█​█​█​ na byt č. 37, Tř. 5 května 218, Pečky k 31.3.2024.",
+      "Zodpovídá": "Martina Hrázská",
+      "Přijato": "5. 2. 2024 na jednání č. 5/2024",
+      "Termín": "19. 2. 2024",
+      "Ukončeno": "12. 2. 2024"
+     }
+    }
+   },
+   {
+    "number_raw": "UR-54-5/24",
+    "detail_id": 56521,
+    "detail_url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/56521?mod=rada",
+    "agenda_item_raw": "Rozpočtové opatření č. 2/2024",
+    "text_verbatim": "Rada\nměsta doporučuje zastupitelstvu města schválit rozpočtová opatření č. 2/2024.",
+    "cell_text_raw": "Bod programu:\nRozpočtové opatření č. 2/2024\nText přijatého usnesení:\nRada\nměsta doporučuje zastupitelstvu města schválit rozpočtová opatření č. 2/2024.",
+    "date_raw": "5. 2. 2024",
+    "date_iso": "2024-02-05",
+    "responsible_raw": "Marcela Bahníková",
+    "deadline_raw": "21. 2. 2024",
+    "vote": {
+     "raw_text": "pro: 7 proti: 0 zdržel se: 0",
+     "pro": {
+      "count": 7,
+      "names": null,
+      "raw": "7"
+     },
+     "proti": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     },
+     "zdrzel_se": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     }
+    },
+    "detail": {
+     "number_raw": "UR-54-5/24",
+     "text_verbatim": "Rada města doporučuje zastupitelstvu města schválit rozpočtová opatření č. 2/2024.",
+     "typ_raw": null,
+     "zodpovida_raw": "Marcela Bahníková",
+     "prijato_raw": "5. 2. 2024 na jednání č. 5/2024",
+     "prijato_date_iso": "2024-02-05",
+     "prijato_meeting_label": "5/2024",
+     "termin_raw": "21. 2. 2024",
+     "ukonceno_raw": "22. 2. 2024",
+     "ukonceno_date_iso": "2024-02-22",
+     "fields_raw": {
+      "Číslo usnesení": "UR-54-5/24",
+      "Text usnesení": "Rada města doporučuje zastupitelstvu města schválit rozpočtová opatření č. 2/2024.",
+      "Zodpovídá": "Marcela Bahníková",
+      "Přijato": "5. 2. 2024 na jednání č. 5/2024",
+      "Termín": "21. 2. 2024",
+      "Ukončeno": "22. 2. 2024"
+     }
+    }
+   },
+   {
+    "number_raw": "UR-55-5/24",
+    "detail_id": 56472,
+    "detail_url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/56472?mod=rada",
+    "agenda_item_raw": "Dar - běžecký závod",
+    "text_verbatim": "Rada\nměsta schvaluje poskytnutí finančního daru ve výši 5 000 Kč paní\n█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​\n, bytem\n█​█​█​█​█​█​█​█​█​█​█​█​█​\nna pořádání běžeckého závodu\nKros\nPičhorou.",
+    "cell_text_raw": "Bod programu:\nDar - běžecký závod\nText přijatého usnesení:\nRada\nměsta schvaluje poskytnutí finančního daru ve výši 5 000 Kč paní\n█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​\n, bytem\n█​█​█​█​█​█​█​█​█​█​█​█​█​\nna pořádání běžeckého závodu\nKros\nPičhorou.",
+    "date_raw": "5. 2. 2024",
+    "date_iso": "2024-02-05",
+    "responsible_raw": "Marcela Bahníková",
+    "deadline_raw": "19. 2. 2024",
+    "vote": {
+     "raw_text": "pro: 7 proti: 0 zdržel se: 0",
+     "pro": {
+      "count": 7,
+      "names": null,
+      "raw": "7"
+     },
+     "proti": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     },
+     "zdrzel_se": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     }
+    },
+    "detail": {
+     "number_raw": "UR-55-5/24",
+     "text_verbatim": "Rada města schvaluje poskytnutí finančního daru ve výši 5 000 Kč paní █​█​█​█​█​█​█​█​█​█​█​█​█​█​█​ , bytem █​█​█​█​█​█​█​█​█​█​█​█​█​ na pořádání běžeckého závodu Kros Pičhorou.",
+     "typ_raw": null,
+     "zodpovida_raw": "Marcela Bahníková",
+     "prijato_raw": "5. 2. 2024 na jednání č. 5/2024",
+     "prijato_date_iso": "2024-02-05",
+     "prijato_meeting_label": "5/2024",
+     "termin_raw": "19. 2. 2024",
+     "ukonceno_raw": "19. 2. 2024",
+     "ukonceno_date_iso": "2024-02-19",
+     "fields_raw": {
+      "Číslo usnesení": "UR-55-5/24",
+      "Text usnesení": "Rada města schvaluje poskytnutí finančního daru ve výši 5 000 Kč paní █​█​█​█​█​█​█​█​█​█​█​█​█​█​█​ , bytem █​█​█​█​█​█​█​█​█​█​█​█​█​ na pořádání běžeckého závodu Kros Pičhorou.",
+      "Zodpovídá": "Marcela Bahníková",
+      "Přijato": "5. 2. 2024 na jednání č. 5/2024",
+      "Termín": "19. 2. 2024",
+      "Ukončeno": "19. 2. 2024"
+     }
+    }
+   },
+   {
+    "number_raw": "UR-56-5/24",
+    "detail_id": 56542,
+    "detail_url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/56542?mod=rada",
+    "agenda_item_raw": "Dar - stacionář",
+    "text_verbatim": "Rada\nměsta schvaluje poskytnutí daru ve výši 20 000 Kč na provoz stacionáře Handicap centrum srdce, o.p.s. , IČO: 275 76 612.",
+    "cell_text_raw": "Bod programu:\nDar - stacionář\nText přijatého usnesení:\nRada\nměsta schvaluje poskytnutí daru ve výši 20 000 Kč na provoz stacionáře Handicap centrum srdce, o.p.s. , IČO: 275 76 612.",
+    "date_raw": "5. 2. 2024",
+    "date_iso": "2024-02-05",
+    "responsible_raw": "Marcela Bahníková",
+    "deadline_raw": "19. 2. 2024",
+    "vote": {
+     "raw_text": "pro: 7 proti: 0 zdržel se: 0",
+     "pro": {
+      "count": 7,
+      "names": null,
+      "raw": "7"
+     },
+     "proti": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     },
+     "zdrzel_se": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     }
+    },
+    "detail": {
+     "number_raw": "UR-56-5/24",
+     "text_verbatim": "Rada města schvaluje poskytnutí daru ve výši 20 000 Kč na provoz stacionáře Handicap centrum srdce, o.p.s. , IČO: 275 76 612.",
+     "typ_raw": null,
+     "zodpovida_raw": "Marcela Bahníková",
+     "prijato_raw": "5. 2. 2024 na jednání č. 5/2024",
+     "prijato_date_iso": "2024-02-05",
+     "prijato_meeting_label": "5/2024",
+     "termin_raw": "19. 2. 2024",
+     "ukonceno_raw": "15. 2. 2024",
+     "ukonceno_date_iso": "2024-02-15",
+     "fields_raw": {
+      "Číslo usnesení": "UR-56-5/24",
+      "Text usnesení": "Rada města schvaluje poskytnutí daru ve výši 20 000 Kč na provoz stacionáře Handicap centrum srdce, o.p.s. , IČO: 275 76 612.",
+      "Zodpovídá": "Marcela Bahníková",
+      "Přijato": "5. 2. 2024 na jednání č. 5/2024",
+      "Termín": "19. 2. 2024",
+      "Ukončeno": "15. 2. 2024"
+     }
+    }
+   },
+   {
+    "number_raw": "UR-57-5/24",
+    "detail_id": 56477,
+    "detail_url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/56477?mod=rada",
+    "agenda_item_raw": "Dotace - činnost místního spolku chovatelů poštovních holubů",
+    "text_verbatim": "Rada\nměsta schvaluje poskytnutí dotace 5 000 Kč paní\n█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​\nna činnost chovatelů poštovních holubů v Pečkách a uzavření veřejnoprávní smlouvy\n.",
+    "cell_text_raw": "Bod programu:\nDotace - činnost místního spolku chovatelů poštovních holubů\nText přijatého usnesení:\nRada\nměsta schvaluje poskytnutí dotace 5 000 Kč paní\n█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​\nna činnost chovatelů poštovních holubů v Pečkách a uzavření veřejnoprávní smlouvy\n.",
+    "date_raw": "5. 2. 2024",
+    "date_iso": "2024-02-05",
+    "responsible_raw": "Marcela Bahníková",
+    "deadline_raw": "19. 2. 2024",
+    "vote": {
+     "raw_text": "pro: 7 proti: 0 zdržel se: 0",
+     "pro": {
+      "count": 7,
+      "names": null,
+      "raw": "7"
+     },
+     "proti": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     },
+     "zdrzel_se": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     }
+    },
+    "detail": {
+     "number_raw": "UR-57-5/24",
+     "text_verbatim": "Rada města schvaluje poskytnutí dotace 5 000 Kč paní █​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​ na činnost chovatelů poštovních holubů v Pečkách a uzavření veřejnoprávní smlouvy .",
+     "typ_raw": null,
+     "zodpovida_raw": "Marcela Bahníková",
+     "prijato_raw": "5. 2. 2024 na jednání č. 5/2024",
+     "prijato_date_iso": "2024-02-05",
+     "prijato_meeting_label": "5/2024",
+     "termin_raw": "19. 2. 2024",
+     "ukonceno_raw": "19. 2. 2024",
+     "ukonceno_date_iso": "2024-02-19",
+     "fields_raw": {
+      "Číslo usnesení": "UR-57-5/24",
+      "Text usnesení": "Rada města schvaluje poskytnutí dotace 5 000 Kč paní █​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​ na činnost chovatelů poštovních holubů v Pečkách a uzavření veřejnoprávní smlouvy .",
+      "Zodpovídá": "Marcela Bahníková",
+      "Přijato": "5. 2. 2024 na jednání č. 5/2024",
+      "Termín": "19. 2. 2024",
+      "Ukončeno": "19. 2. 2024"
+     }
+    }
+   },
+   {
+    "number_raw": "UR-58-5/24",
+    "detail_id": 56515,
+    "detail_url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/56515?mod=rada",
+    "agenda_item_raw": "Zavedení systému hospodaření s energií v podobě energetického managementu",
+    "text_verbatim": "Rada\nměsta schvaluje uzavření smlouvy mezi městem Pečky a MAS Podlipansko, o.p.s. za cenu 16 000,-Kč na podání žádosti o dotaci na akci: \"Zavedení systému hospodaření s energií ve městě Pečky v podobě zavedení energetického managementu\" v souladu s výzvou EFEKT 2/2024, čímž uděluje souhlas s podáním žádosti o dotaci.",
+    "cell_text_raw": "Bod programu:\nZavedení systému hospodaření s energií v podobě energetického managementu\nText přijatého usnesení:\nRada\nměsta schvaluje uzavření smlouvy mezi městem Pečky a MAS Podlipansko, o.p.s. za cenu 16 000,-Kč na podání žádosti o dotaci na akci: \"Zavedení systému hospodaření s energií ve městě Pečky v podobě zavedení energetického managementu\" v souladu s výzvou EFEKT 2/2024, čímž uděluje souhlas s podáním žádosti o dotaci.",
+    "date_raw": "5. 2. 2024",
+    "date_iso": "2024-02-05",
+    "responsible_raw": "Věra Růžičková",
+    "deadline_raw": "19. 2. 2024",
+    "vote": {
+     "raw_text": "pro: 5 proti: 0 zdržel se: 2",
+     "pro": {
+      "count": 5,
+      "names": null,
+      "raw": "5"
+     },
+     "proti": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     },
+     "zdrzel_se": {
+      "count": 2,
+      "names": null,
+      "raw": "2"
+     }
+    },
+    "detail": {
+     "number_raw": "UR-58-5/24",
+     "text_verbatim": "Rada města schvaluje uzavření smlouvy mezi městem Pečky a MAS Podlipansko, o.p.s. za cenu 16 000,-Kč na podání žádosti o dotaci na akci: \"Zavedení systému hospodaření s energií ve městě Pečky v podobě zavedení energetického managementu\" v souladu s výzvou EFEKT 2/2024, čímž uděluje souhlas s podáním žádosti o dotaci.",
+     "typ_raw": null,
+     "zodpovida_raw": "Věra Růžičková",
+     "prijato_raw": "5. 2. 2024 na jednání č. 5/2024",
+     "prijato_date_iso": "2024-02-05",
+     "prijato_meeting_label": "5/2024",
+     "termin_raw": "19. 2. 2024",
+     "ukonceno_raw": "19. 2. 2024",
+     "ukonceno_date_iso": "2024-02-19",
+     "fields_raw": {
+      "Číslo usnesení": "UR-58-5/24",
+      "Text usnesení": "Rada města schvaluje uzavření smlouvy mezi městem Pečky a MAS Podlipansko, o.p.s. za cenu 16 000,-Kč na podání žádosti o dotaci na akci: \"Zavedení systému hospodaření s energií ve městě Pečky v podobě zavedení energetického managementu\" v souladu s výzvou EFEKT 2/2024, čímž uděluje souhlas s podáním žádosti o dotaci.",
+      "Zodpovídá": "Věra Růžičková",
+      "Přijato": "5. 2. 2024 na jednání č. 5/2024",
+      "Termín": "19. 2. 2024",
+      "Ukončeno": "19. 2. 2024"
+     }
+    }
+   }
+  ]
+ }
+}

@@ -1,0 +1,687 @@
+{
+ "uuid": "8f37ee3f-74e8-11ef-960d-00505683238f",
+ "body_type_raw": "Rada",
+ "label_raw": "33/2024 (23. 9. 2024)",
+ "number": 33,
+ "year": 2024,
+ "date_iso": "2024-09-23",
+ "links": {
+  "invitation": "https://mesto-pecky.usneseni.cz/verejne/?uuid=8f37ee3f-74e8-11ef-960d-00505683238f&page=7&do=printPublicInvitation",
+  "minutes": "https://mesto-pecky.usneseni.cz/verejne/8f37ee3f-74e8-11ef-960d-00505683238f/zapis/?page=7",
+  "signed_minutes_pdf": "https://mesto-pecky.usneseni.cz/verejne/?meetingReportControl-uuid=8f37ee3f-74e8-11ef-960d-00505683238f&page=7&do=meetingReportControl-getSignedReportPdf",
+  "resolutions": "https://mesto-pecky.usneseni.cz/verejne/8f37ee3f-74e8-11ef-960d-00505683238f/usneseni/?page=7",
+  "audio": null
+ },
+ "link_texts": {
+  "invitation": "Pozvánka",
+  "minutes": "zápis",
+  "signed_minutes_pdf": "podepsaný zápis",
+  "resolutions": "přijatá usnesení"
+ },
+ "status": "ok",
+ "invitation": {
+  "status": "site_error",
+  "error": "status=200 ct=text/html; charset=utf-8 flash='<a href=\"\" class=\"close\" data-dismiss=\"alert\" aria-label=\"close\">&times;'",
+  "url": "https://mesto-pecky.usneseni.cz/verejne/?uuid=8f37ee3f-74e8-11ef-960d-00505683238f&do=printPublicInvitation",
+  "fetched_at": "2026-08-04T14:59:21.284329+00:00"
+ },
+ "minutes": {
+  "status": "ok",
+  "url": "https://mesto-pecky.usneseni.cz/verejne/8f37ee3f-74e8-11ef-960d-00505683238f/zapis/",
+  "fetched_at": "2026-08-04T13:44:46.084852+00:00",
+  "title_raw": "ZÁPIS ze schůze rady č. 33/2024 Město Pečky datum: 23. 9. 2024, čas: 15:00 ​",
+  "date_raw": "23. 9. 2024",
+  "date_iso": "2024-09-23",
+  "time_raw": "15:00",
+  "presence": {
+   "raw_text": "Prezence:\nPřítomni:\n(6) Milan Paluska, Zdeněk Fejfar, Ing. Karel Krištoufek, Ing. Martin Jedlička, Ing. Hana Kuprová, Ivana Trčková\nOmluveni:\n(0)\nNepřítomni:\n(1) Ing. Petr Dürr\nHosté:\nZapisovatel/ka:\nEva Strnadová\nPřítomno je 6 členů a rada je usnášeníschopná.\nJednání zahájeno 23.09.2024 v 15:06:56",
+   "pritomni": {
+    "count": 6,
+    "names": [
+     "Milan Paluska",
+     "Zdeněk Fejfar",
+     "Ing. Karel Krištoufek",
+     "Ing. Martin Jedlička",
+     "Ing. Hana Kuprová",
+     "Ivana Trčková"
+    ],
+    "raw": "(6) Milan Paluska, Zdeněk Fejfar, Ing. Karel Krištoufek, Ing. Martin Jedlička, Ing. Hana Kuprová, Ivana Trčková"
+   },
+   "omluveni": {
+    "count": 0,
+    "names": [],
+    "raw": "(0)"
+   },
+   "nepritomni": {
+    "count": 1,
+    "names": [
+     "Ing. Petr Dürr"
+    ],
+    "raw": "(1) Ing. Petr Dürr"
+   },
+   "predsedajici": null,
+   "quorum_raw": "Přítomno je 6 členů a rada je usnášeníschopná."
+  },
+  "header_raw": "Prezence:\nPřítomni:\n(6) Milan Paluska, Zdeněk Fejfar, Ing. Karel Krištoufek, Ing. Martin Jedlička, Ing. Hana Kuprová, Ivana Trčková\nOmluveni:\n(0)\nNepřítomni:\n(1) Ing. Petr Dürr\nHosté:\nZapisovatel/ka:\nEva Strnadová\nPřítomno je 6 členů a rada je usnášeníschopná.\nJednání zahájeno 23.09.2024 v 15:06:56",
+  "agenda_items": [
+   {
+    "number": 1,
+    "title_raw": "Určení zapisovatelů, předsedajícího, příp. ověřovatelů",
+    "heading_raw": "1. Určení zapisovatelů, předsedajícího, příp. ověřovatelů (bod číslo 1)",
+    "predkladatel": null,
+    "votes": [],
+    "resolution_numbers_mentioned": [],
+    "raw_text": "Projednávání bodu bylo zahájeno v 15:07:22\n\nPředsedající navrhl jednotlivé členy pracovních komisí\nOvěřovatelé:\nIng. Hana Kuprová, Ing. Karel Krištoufek\nPředsedající:\nMilan Paluska\nDiskuze zahájena v 15:07:23\nK tomuto bodu se vyjádřili: Milan Paluska\nProjednávání bodu bylo ukončeno v 15:07:31"
+   },
+   {
+    "number": 2,
+    "title_raw": "Schválení programu jednání",
+    "heading_raw": "2. Schválení programu jednání (bod číslo 2)",
+    "predkladatel": null,
+    "votes": [
+     {
+      "raw_text": "pro:\n(6) Ing. Martin Jedlička, Ing. Hana Kuprová, Zdeněk Fejfar, Milan Paluska, Ivana Trčková, Ing. Karel Krištoufek\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)",
+      "pro": {
+       "count": 6,
+       "names": [
+        "Ing. Martin Jedlička",
+        "Ing. Hana Kuprová",
+        "Zdeněk Fejfar",
+        "Milan Paluska",
+        "Ivana Trčková",
+        "Ing. Karel Krištoufek"
+       ],
+       "raw": "(6) Ing. Martin Jedlička, Ing. Hana Kuprová, Zdeněk Fejfar, Milan Paluska, Ivana Trčková, Ing. Karel Krištoufek"
+      },
+      "proti": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "zdrzel_se": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "nehlasoval": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "result_raw": "Návrh byl přijat jako usnesení číslo: UR-331-33/24",
+      "adopted_resolution_number": "UR-331-33/24"
+     }
+    ],
+    "resolution_numbers_mentioned": [
+     "UR-331-33/24"
+    ],
+    "raw_text": "Projednávání bodu bylo zahájeno v 15:07:38\n\nProgram jednání\n1. Určení zapisovatelů, předsedajícího, příp. ověřovatelů\n2. Schválení programu jednání\n3. Aktuální informace vedení města\n4. Výběr zhotovitele a uzavření smlouvy na plnění veřejné zakázky malého rozsahu na služby „ Sídliště Pečky – Dendrologický průzkum dřevin a návrh pěstebního opatření“\n5. Ukončení \"Smlouvy o umístění věci“- DELIKOMAT,s.r.o., Modřice\n6. Uzavření \"Smlouvy o umístění nápojového automatu“- Coca-Cola HBC Česko a Slovensko, s.r.o., Praha 9-Kyje\n7. Dar obci - povodně\n8. Dar - oprava kostela\n9. Kontrola plnění usnesení\n10. Diskuse, různé\n11. Úkoly vyplývající z jednání rady města\nDiskuze zahájena v 15:07:39\nK tomuto bodu se vyjádřili: Milan Paluska\nV 15:08:53 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Milan Paluska\") v tomto znění:\nRada\nměsta schvaluje návrh programu jednání.\nHlasování\npro:\n(6) Ing. Martin Jedlička, Ing. Hana Kuprová, Zdeněk Fejfar, Milan Paluska, Ivana Trčková, Ing. Karel Krištoufek\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-331-33/24\nzodpovídá:\ntermín:\nIHNED\n(23. 9. 2024)\nProjednávání bodu bylo ukončeno v 15:09:00"
+   },
+   {
+    "number": 3,
+    "title_raw": "Aktuální informace vedení města",
+    "heading_raw": "3. Aktuální informace vedení města (bod číslo 3)",
+    "predkladatel": null,
+    "votes": [],
+    "resolution_numbers_mentioned": [],
+    "raw_text": "Projednávání bodu bylo zahájeno v 15:09:04\n\nDůvodová zpráva:\nstarosta města\n- informace o Zápisu z dílčího přezkoumání hospodaření územního celku ve dnech 16.9. - 17.9.2024, při dílčím přezkoumání hospodaření nebyly zjištěny chyby a nedostatky\n- informace o zajištění materiální sbírky pro obec Vápenná v okrese Jeseník, která byla zasažena povodní o víkendu 14.9 - 15.9.2024\n- informace o výsledcích voleb do zastupitelstev krajů ČR\n- informace o umístění a zprovozňování zasakovacích nádrží v MŠ, ZUŠ, hasičárně - program Dešťovka\n- informace o předání staveniště - výměna VO /akce Rekonstrukce VO ve městě Pečky/, koordinační schůzka se zástupci spol.\nRaisa, s.r.o. Kolín\n, Pečecké služby - předložen harmonogram stavby\n- informace o zjištění škod na budově ZŠ /oprava atiky/ - bude pozván statik\n- informace o předání sekacího traktůrku sportovcům TJ\nSokol\nVelké\nChvalovice dne 19.9.2024\n- informace o používání nového dopravního automobilu JPO II.\nDiskuze zahájena v 15:09:05\nK tomuto bodu se vyjádřili: Milan Paluska, Ing. Karel Krištoufek, Ivana Trčková, Ing. Hana Kuprová, Zdeněk Fejfar, Ing. Martin Jedlička\nRada bere materiály předložené k bodu č. 3 -\nAktuální informace vedení města\nna vědomí.\nProjednávání bodu bylo ukončeno v 15:34:36"
+   },
+   {
+    "number": 4,
+    "title_raw": "Výběr zhotovitele a uzavření smlouvy na plnění veřejné zakázky malého rozsahu na služby „ Sídliště Pečky – Dendrologický průzkum dřevin a návrh pěstebního opatření“",
+    "heading_raw": "4. Výběr zhotovitele a uzavření smlouvy na plnění veřejné zakázky malého rozsahu na služby „ Sídliště Pečky – Dendrologický průzkum dřevin a návrh pěstebního opatření“ (bod číslo 4)",
+    "predkladatel": null,
+    "votes": [
+     {
+      "raw_text": "pro:\n(4) Ing. Hana Kuprová, Milan Paluska, Ing. Martin Jedlička, Ivana Trčková\nproti\n(0)\nzdržel se:\n(2) Ing. Karel Krištoufek, Zdeněk Fejfar\nnehlasoval:\n(0)",
+      "pro": {
+       "count": 4,
+       "names": [
+        "Ing. Hana Kuprová",
+        "Milan Paluska",
+        "Ing. Martin Jedlička",
+        "Ivana Trčková"
+       ],
+       "raw": "(4) Ing. Hana Kuprová, Milan Paluska, Ing. Martin Jedlička, Ivana Trčková"
+      },
+      "proti": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "zdrzel_se": {
+       "count": 2,
+       "names": [
+        "Ing. Karel Krištoufek",
+        "Zdeněk Fejfar"
+       ],
+       "raw": "(2) Ing. Karel Krištoufek, Zdeněk Fejfar"
+      },
+      "nehlasoval": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "result_raw": "Návrh byl přijat jako usnesení číslo: UR-332-33/24",
+      "adopted_resolution_number": "UR-332-33/24"
+     }
+    ],
+    "resolution_numbers_mentioned": [
+     "UR-332-33/24"
+    ],
+    "raw_text": "Projednávání bodu bylo zahájeno v 15:34:41\n\nDůvodová zpráva:\nKomise provedla hodnocení nabídek podle jejich ekonomické výhodnosti s kritériem hodnocení nejnižší nabídková cena a předala rozhodnutí a oznámení o výběru zhotovitele a zprávu o otevírání obálek a hodnocení nabídek k posouzení a výběru zhotovitele Radě města dne 16.09.2024.\nRada\nměsta návrh Rozhodnutí o oznámení o výběru zhotovitele na veřejnou zakázku malého rozsahu na služby „Sídliště Pečky – Dendrologický průzkum dřevin a návrh pěstebního opatření“ dne 16.09.2024 neschválila.\nVe zprávě o otevírání obálek a hodnocení nabídek došlo a administrativnímu pochybení v tabulce hodnocení nabídek a to v seřazení pořadových čísel přijatých nabídek. Komise vypracovala dne 19.09.2024 novou zprávu o otevírání obálek a hodnocení nabídek – náprava administrativního pochybení a předala ji s návrhem Rozhodnutí o oznámení o výběru zhotovitele na veřejnou zakázku malého rozsahu na služby „Sídliště Pečky – Dendrologický průzkum dřevin a návrh pěstebního opatření“ a návrhem smlouvy Radě města dne 23.09.2024 k projednání a schválení.\nKomise vybrala výše uvedeného zhotovitele, tj.\nOndřeje\nValiguru\n, U Vojanky 1309/1a, 15000\nPraha\n5 a doporučuje Radě města uzavření smlouvy s tímto zhotovitelem. Nabídka vybraného zhotovitele 382.000,- Kč bez DPH byla vyhodnocena jako ekonomicky nejvýhodnější a jako nabídka, která splňuje veškeré náležitosti z hlediska prokázání splnění zadávacích podmínek.\nStanoviska a doporučení poradních orgánů/odborů:\nNebylo\nprojednáváno.\nDiskuze zahájena v 15:34:42\nK tomuto bodu se vyjádřili: Milan Paluska, Pavlína Nepovímová, Ing. Hana Kuprová, Ing. Martin Jedlička, Ing. Karel Krištoufek\nV 15:39:46 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Hana Pokorná\") v tomto znění:\nRada\nměsta schvaluje Rozhodnutí a oznámení o výběru zhotovitele na plnění veřejné zakázky malého rozsahu na služby „ Sídliště Pečky – Dendrologický průzkum dřevin a návrh pěstebního opatření“ a uzavření smlouvy o dílo mezi městem Pečky, Masarykovo nám. 78, 289 11 Pečky, IČ: 00239607 a Ing. Ondřejem Valigurou , U Vojanky 1309/1a, 15000\nPraha\n5, IČ: 06243916 na veřejnou zakázku malého rozsahu na služby „Sídliště Pečky – Dendrologický průzkum dřevin a návrh pěstebního opatření“.\nHlasování\npro:\n(4) Ing. Hana Kuprová, Milan Paluska, Ing. Martin Jedlička, Ivana Trčková\nproti\n(0)\nzdržel se:\n(2) Ing. Karel Krištoufek, Zdeněk Fejfar\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-332-33/24\nzodpovídá:\nHana Pokorná\ntermín:\n7. 10. 2024\nProjednávání bodu bylo ukončeno v 15:39:53"
+   },
+   {
+    "number": 5,
+    "title_raw": "Ukončení \"Smlouvy o umístění věci“- DELIKOMAT,s.r.o., Modřice",
+    "heading_raw": "5. Ukončení \"Smlouvy o umístění věci“- DELIKOMAT,s.r.o., Modřice (bod číslo 5)",
+    "predkladatel": null,
+    "votes": [
+     {
+      "raw_text": "pro:\n(6) Zdeněk Fejfar, Ing. Martin Jedlička, Ing. Karel Krištoufek, Ing. Hana Kuprová, Milan Paluska, Ivana Trčková\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)",
+      "pro": {
+       "count": 6,
+       "names": [
+        "Zdeněk Fejfar",
+        "Ing. Martin Jedlička",
+        "Ing. Karel Krištoufek",
+        "Ing. Hana Kuprová",
+        "Milan Paluska",
+        "Ivana Trčková"
+       ],
+       "raw": "(6) Zdeněk Fejfar, Ing. Martin Jedlička, Ing. Karel Krištoufek, Ing. Hana Kuprová, Milan Paluska, Ivana Trčková"
+      },
+      "proti": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "zdrzel_se": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "nehlasoval": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "result_raw": "Návrh byl přijat jako usnesení číslo: UR-333-33/24",
+      "adopted_resolution_number": "UR-333-33/24"
+     }
+    ],
+    "resolution_numbers_mentioned": [
+     "UR-333-33/24"
+    ],
+    "raw_text": "Projednávání bodu bylo zahájeno v 15:39:58\n\nDůvodová zpráva:\nDoporučujeme ukončit výše uvedenou smlouvu dohodou, dle žádosti fy. DELIKOMAT, s.r.o. Důvodem ukončení je malý odběr výrobků z automatu. Automat byl odvezen z haly po ukončení jarní sezóny v květnu 2024 a již ho nevrátí.\nDiskuze zahájena v 15:39:59\nK tomuto bodu se vyjádřili: Milan Paluska, Zdeněk Fejfar\nV 15:40:01 předsedající zahájil hlasování o návrhu usnesení \"B\" (navrhovatel: \"Jana Najbrtová\") v tomto znění:\nRada\nměsta schvaluje ukončit \"Smlouvu o umístění věci“- s firmou DELIKOMAT,s.r.o., se sídlem Modřice, U Vlečky 843, PSČ 664 42. Smlouva bude ukončena dohodou k 30.9. 2024.\nHlasování\npro:\n(6) Zdeněk Fejfar, Ing. Martin Jedlička, Ing. Karel Krištoufek, Ing. Hana Kuprová, Milan Paluska, Ivana Trčková\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-333-33/24\nzodpovídá:\nJana Najbrtová\ntermín:\n1. 10. 2024"
+   },
+   {
+    "number": 6,
+    "title_raw": "Uzavření \"Smlouvy o umístění nápojového automatu“- Coca-Cola HBC Česko a Slovensko, s.r.o., Praha 9-Kyje",
+    "heading_raw": "6. Uzavření \"Smlouvy o umístění nápojového automatu“- Coca-Cola HBC Česko a Slovensko, s.r.o., Praha 9-Kyje (bod číslo 6)",
+    "predkladatel": null,
+    "votes": [
+     {
+      "raw_text": "pro:\n(6) Zdeněk Fejfar, Ing. Martin Jedlička, Ing. Karel Krištoufek, Ing. Hana Kuprová, Milan Paluska, Ivana Trčková\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)",
+      "pro": {
+       "count": 6,
+       "names": [
+        "Zdeněk Fejfar",
+        "Ing. Martin Jedlička",
+        "Ing. Karel Krištoufek",
+        "Ing. Hana Kuprová",
+        "Milan Paluska",
+        "Ivana Trčková"
+       ],
+       "raw": "(6) Zdeněk Fejfar, Ing. Martin Jedlička, Ing. Karel Krištoufek, Ing. Hana Kuprová, Milan Paluska, Ivana Trčková"
+      },
+      "proti": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "zdrzel_se": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "nehlasoval": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "result_raw": "Návrh byl přijat jako usnesení číslo: UR-334-33/24",
+      "adopted_resolution_number": "UR-334-33/24"
+     }
+    ],
+    "resolution_numbers_mentioned": [
+     "UR-334-33/24"
+    ],
+    "raw_text": "Projednávání bodu bylo zahájeno v 15:45:49\n\nDůvodová zpráva:\nDoporučujeme uzavřít výše uvedenou smlouvu. Jedná se o umístění, zprovoznění a provozování nápojového automatu ve sportovní hale na dobu určitou od 1.10. 2024 do 31. 12. 2028. Automat bude v hale umístěn za úplatu ve výši 20% z prodejní ceny bez DPH z každého prodaného kusu.\nDiskuze zahájena v 15:45:50\nK tomuto bodu se vyjádřili: Milan Paluska, Zdeněk Fejfar\nV 15:46:42 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Jana Najbrtová\") v tomto znění:\nRada\nměsta schvaluje uzavření \"Smlouvy o umístění nápojového automatu“- s firmou Coca-Cola HBC Česko a Slovensko, s.r.o., se sídlem\nPraha\n9 – Kyje, l. Českobrodská 1329. Nápojový automat bude umístěn v Parkhale Pečky, ul. Barákova, čp. 1039, Pečky na dobu určitou od 1.10. 2024 do 31.12. 2028 s výpovědní lhůtou 3 měsíce za úplatu ve výši 20% z prodejní ceny bez DPH z každého prodaného kusu.\nHlasování\npro:\n(6) Zdeněk Fejfar, Ing. Martin Jedlička, Ing. Karel Krištoufek, Ing. Hana Kuprová, Milan Paluska, Ivana Trčková\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-334-33/24\nzodpovídá:\nJana Najbrtová\ntermín:\n15. 10. 2024\nProjednávání bodu bylo ukončeno v 15:46:52"
+   },
+   {
+    "number": 7,
+    "title_raw": "Dar obci - povodně",
+    "heading_raw": "7. Dar obci - povodně (bod číslo 7)",
+    "predkladatel": null,
+    "votes": [
+     {
+      "raw_text": "pro:\n(6) Milan Paluska, Ing. Karel Krištoufek, Ing. Martin Jedlička, Ing. Hana Kuprová, Ivana Trčková, Zdeněk Fejfar\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)",
+      "pro": {
+       "count": 6,
+       "names": [
+        "Milan Paluska",
+        "Ing. Karel Krištoufek",
+        "Ing. Martin Jedlička",
+        "Ing. Hana Kuprová",
+        "Ivana Trčková",
+        "Zdeněk Fejfar"
+       ],
+       "raw": "(6) Milan Paluska, Ing. Karel Krištoufek, Ing. Martin Jedlička, Ing. Hana Kuprová, Ivana Trčková, Zdeněk Fejfar"
+      },
+      "proti": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "zdrzel_se": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "nehlasoval": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "result_raw": "Návrh byl přijat jako usnesení číslo: UR-335-33/24",
+      "adopted_resolution_number": "UR-335-33/24"
+     }
+    ],
+    "resolution_numbers_mentioned": [
+     "UR-335-33/24"
+    ],
+    "raw_text": "Projednávání bodu bylo zahájeno v 15:47:03\n\nDůvodová zpráva:\nV souvislosti s povodněmi navrhujeme poskytnout peněžitý dar 50 000 Kč obci Vápenná ( okres Jeseník, počet obyv. cca 1 200 ).\nDiskuze zahájena v 15:47:04\nK tomuto bodu se vyjádřili: Milan Paluska, Ing. Karel Krištoufek, Ing. Martin Jedlička, Ivana Trčková\nV 15:50:52 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Marcela Bahníková\") v tomto znění:\nRada\nměsta schvaluje poskytnutí finančního daru 50 000 Kč obci Vápenná, ( okres Jeseník ) IČO 00303526, zasažené povodní.\nHlasování\npro:\n(6) Milan Paluska, Ing. Karel Krištoufek, Ing. Martin Jedlička, Ing. Hana Kuprová, Ivana Trčková, Zdeněk Fejfar\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-335-33/24\nzodpovídá:\nMarcela Bahníková\ntermín:\n7. 10. 2024\nProjednávání bodu bylo ukončeno v 15:51:00"
+   },
+   {
+    "number": 8,
+    "title_raw": "Dar - oprava kostela",
+    "heading_raw": "8. Dar - oprava kostela (bod číslo 8)",
+    "predkladatel": null,
+    "votes": [
+     {
+      "raw_text": "pro:\n(6) Milan Paluska, Ing. Hana Kuprová, Ing. Martin Jedlička, Zdeněk Fejfar, Ivana Trčková, Ing. Karel Krištoufek\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)",
+      "pro": {
+       "count": 6,
+       "names": [
+        "Milan Paluska",
+        "Ing. Hana Kuprová",
+        "Ing. Martin Jedlička",
+        "Zdeněk Fejfar",
+        "Ivana Trčková",
+        "Ing. Karel Krištoufek"
+       ],
+       "raw": "(6) Milan Paluska, Ing. Hana Kuprová, Ing. Martin Jedlička, Zdeněk Fejfar, Ivana Trčková, Ing. Karel Krištoufek"
+      },
+      "proti": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "zdrzel_se": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "nehlasoval": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "result_raw": "Návrh byl přijat jako usnesení číslo: UR-336-33/24",
+      "adopted_resolution_number": "UR-336-33/24"
+     }
+    ],
+    "resolution_numbers_mentioned": [
+     "UR-336-33/24"
+    ],
+    "raw_text": "Projednávání bodu bylo zahájeno v 15:51:05\n\nDůvodová zpráva:\nNa základě žádosti Římskokatolické farnosti Pečky doporučujeme poskytnutí daru na opravu katolického kostela ve výši 20 000,- Kč. Od roku 2020 poskytuje město pravidelně dary na opravu a údržbu kostelů v Pečkách, vždy po 20 tis. Kč. V rozpočtu pro rok 2024 je stanovena na tento účel částka 40 000 Kč.\nDiskuze zahájena v 15:51:06\nK tomuto bodu se vyjádřili: Milan Paluska, Ing. Hana Kuprová, Ing. Karel Krištoufek, Pavlína Nepovímová, Ing. Martin Jedlička, Zdeněk Fejfar\nV 15:54:54 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Marcela Bahníková\") v tomto znění:\nRada\nměsta schvaluje\nposkytnutí finančního daru ve výši 20.000,-Kč Římskokatolické farnosti Pečky, IČO: 61632236 na opravu a údržbu kostela.\nHlasování\npro:\n(6) Milan Paluska, Ing. Hana Kuprová, Ing. Martin Jedlička, Zdeněk Fejfar, Ivana Trčková, Ing. Karel Krištoufek\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-336-33/24\nzodpovídá:\nMarcela Bahníková\ntermín:\n7. 10. 2024\nProjednávání bodu bylo ukončeno v 15:55:01"
+   },
+   {
+    "number": 9,
+    "title_raw": "Kontrola plnění usnesení",
+    "heading_raw": "9. Kontrola plnění usnesení (bod číslo 9)",
+    "predkladatel": null,
+    "votes": [],
+    "resolution_numbers_mentioned": [],
+    "raw_text": "Projednávání bodu bylo zahájeno v 15:55:05\nDiskuze zahájena v 15:55:06\nK tomuto bodu se vyjádřili: Milan Paluska, Pavlína Nepovímová\nRada bere materiály předložené k bodu č. 9 -\nKontrola plnění usnesení\nna vědomí.\nProjednávání bodu bylo ukončeno v 15:56:19"
+   },
+   {
+    "number": 10,
+    "title_raw": "Diskuse, různé",
+    "heading_raw": "10. Diskuse, různé (bod číslo 10)",
+    "predkladatel": null,
+    "votes": [],
+    "resolution_numbers_mentioned": [],
+    "raw_text": "Projednávání bodu bylo zahájeno v 15:56:23\nDiskuze zahájena v 15:56:24\nK tomuto bodu se vyjádřili: Milan Paluska, Ing. Hana Kuprová, Ing. Martin Jedlička, Ing. Karel Krištoufek, Ivana Trčková\nRada bere materiály předložené k bodu č. 10 -\nDiskuse, různé\nna vědomí.\nProjednávání bodu bylo ukončeno v 16:41:04"
+   },
+   {
+    "number": 11,
+    "title_raw": "Úkoly vyplývající z jednání rady města",
+    "heading_raw": "11. Úkoly vyplývající z jednání rady města (bod číslo 11)",
+    "predkladatel": null,
+    "votes": [],
+    "resolution_numbers_mentioned": [],
+    "raw_text": "Projednávání bodu bylo zahájeno v 16:41:09\nDiskuze zahájena v 16:41:10\nK tomuto bodu se vyjádřili: Milan Paluska, Ing. Karel Krištoufek\nRada bere materiály předložené k bodu č. 11 -\nÚkoly vyplývající z jednání rady města\nna vědomí.\nProjednávání bodu bylo ukončeno v 16:44:20\nJednání ukončeno 23.09.2024 v 16:45:06\n\nProjednávání bodu bylo ukončeno v 16:52:09"
+   }
+  ],
+  "full_text": "ZÁPIS ze schůze rady č. 33/2024\nMěsto Pečky\ndatum: 23. 9. 2024, čas: 15:00\n​\nPrezence:\nPřítomni:\n(6) Milan Paluska, Zdeněk Fejfar, Ing. Karel Krištoufek, Ing. Martin Jedlička, Ing. Hana Kuprová, Ivana Trčková\nOmluveni:\n(0)\nNepřítomni:\n(1) Ing. Petr Dürr\nHosté:\nZapisovatel/ka:\nEva Strnadová\nPřítomno je 6 členů a rada je usnášeníschopná.\nJednání zahájeno 23.09.2024 v 15:06:56\n1. Určení zapisovatelů, předsedajícího, příp. ověřovatelů (bod číslo 1)\nPředkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 15:07:22\nPředsedající navrhl jednotlivé členy pracovních komisí\nOvěřovatelé:\nIng. Hana Kuprová, Ing. Karel Krištoufek\nPředsedající:\nMilan Paluska\nBod byl přijat bez hlasování.\nDiskuze zahájena v 15:07:23\nK tomuto bodu se vyjádřili: Milan Paluska\nProjednávání bodu bylo ukončeno v 15:07:31\n2. Schválení programu jednání (bod číslo 2)\nPředkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 15:07:38\nProgram jednání\n1. Určení zapisovatelů, předsedajícího, příp. ověřovatelů\n2. Schválení programu jednání\n3. Aktuální informace vedení města\n4. Výběr zhotovitele a uzavření smlouvy na plnění veřejné zakázky malého rozsahu na služby „ Sídliště Pečky – Dendrologický průzkum dřevin a návrh pěstebního opatření“\n5. Ukončení \"Smlouvy o umístění věci“- DELIKOMAT,s.r.o., Modřice\n6. Uzavření \"Smlouvy o umístění nápojového automatu“- Coca-Cola HBC Česko a Slovensko, s.r.o., Praha 9-Kyje\n7. Dar obci - povodně\n8. Dar - oprava kostela\n9. Kontrola plnění usnesení\n10. Diskuse, různé\n11. Úkoly vyplývající z jednání rady města\nDiskuze zahájena v 15:07:39\nK tomuto bodu se vyjádřili: Milan Paluska\nV 15:08:53 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Milan Paluska\") v tomto znění:\nRada\nměsta schvaluje návrh programu jednání.\nHlasování\npro:\n(6) Ing. Martin Jedlička, Ing. Hana Kuprová, Zdeněk Fejfar, Milan Paluska, Ivana Trčková, Ing. Karel Krištoufek\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-331-33/24\nzodpovídá:\ntermín:\nIHNED\n(23. 9. 2024)\nProjednávání bodu bylo ukončeno v 15:09:00\n3. Aktuální informace vedení města (bod číslo 3)\nPředkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 15:09:04\nDůvodová zpráva:\nstarosta města\n- informace o Zápisu z dílčího přezkoumání hospodaření územního celku ve dnech 16.9. - 17.9.2024, při dílčím přezkoumání hospodaření nebyly zjištěny chyby a nedostatky\n- informace o zajištění materiální sbírky pro obec Vápenná v okrese Jeseník, která byla zasažena povodní o víkendu 14.9 - 15.9.2024\n- informace o výsledcích voleb do zastupitelstev krajů ČR\n- informace o umístění a zprovozňování zasakovacích nádrží v MŠ, ZUŠ, hasičárně - program Dešťovka\n- informace o předání staveniště - výměna VO /akce Rekonstrukce VO ve městě Pečky/, koordinační schůzka se zástupci spol.\nRaisa, s.r.o. Kolín\n, Pečecké služby - předložen harmonogram stavby\n- informace o zjištění škod na budově ZŠ /oprava atiky/ - bude pozván statik\n- informace o předání sekacího traktůrku sportovcům TJ\nSokol\nVelké\nChvalovice dne 19.9.2024\n- informace o používání nového dopravního automobilu JPO II.\nDiskuze zahájena v 15:09:05\nK tomuto bodu se vyjádřili: Milan Paluska, Ing. Karel Krištoufek, Ivana Trčková, Ing. Hana Kuprová, Zdeněk Fejfar, Ing. Martin Jedlička\nRada bere materiály předložené k bodu č. 3 -\nAktuální informace vedení města\nna vědomí.\nProjednávání bodu bylo ukončeno v 15:34:36\n4. Výběr zhotovitele a uzavření smlouvy na plnění veřejné zakázky malého rozsahu na služby „ Sídliště Pečky – Dendrologický průzkum dřevin a návrh pěstebního opatření“ (bod číslo 4)\nPředkladatel: Hana Pokorná\nProjednávání bodu bylo zahájeno v 15:34:41\nDůvodová zpráva:\nKomise provedla hodnocení nabídek podle jejich ekonomické výhodnosti s kritériem hodnocení nejnižší nabídková cena a předala rozhodnutí a oznámení o výběru zhotovitele a zprávu o otevírání obálek a hodnocení nabídek k posouzení a výběru zhotovitele Radě města dne 16.09.2024.\nRada\nměsta návrh Rozhodnutí o oznámení o výběru zhotovitele na veřejnou zakázku malého rozsahu na služby „Sídliště Pečky – Dendrologický průzkum dřevin a návrh pěstebního opatření“ dne 16.09.2024 neschválila.\nVe zprávě o otevírání obálek a hodnocení nabídek došlo a administrativnímu pochybení v tabulce hodnocení nabídek a to v seřazení pořadových čísel přijatých nabídek. Komise vypracovala dne 19.09.2024 novou zprávu o otevírání obálek a hodnocení nabídek – náprava administrativního pochybení a předala ji s návrhem Rozhodnutí o oznámení o výběru zhotovitele na veřejnou zakázku malého rozsahu na služby „Sídliště Pečky – Dendrologický průzkum dřevin a návrh pěstebního opatření“ a návrhem smlouvy Radě města dne 23.09.2024 k projednání a schválení.\nKomise vybrala výše uvedeného zhotovitele, tj.\nOndřeje\nValiguru\n, U Vojanky 1309/1a, 15000\nPraha\n5 a doporučuje Radě města uzavření smlouvy s tímto zhotovitelem. Nabídka vybraného zhotovitele 382.000,- Kč bez DPH byla vyhodnocena jako ekonomicky nejvýhodnější a jako nabídka, která splňuje veškeré náležitosti z hlediska prokázání splnění zadávacích podmínek.\nStanoviska a doporučení poradních orgánů/odborů:\nNebylo\nprojednáváno.\nDiskuze zahájena v 15:34:42\nK tomuto bodu se vyjádřili: Milan Paluska, Pavlína Nepovímová, Ing. Hana Kuprová, Ing. Martin Jedlička, Ing. Karel Krištoufek\nV 15:39:46 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Hana Pokorná\") v tomto znění:\nRada\nměsta schvaluje Rozhodnutí a oznámení o výběru zhotovitele na plnění veřejné zakázky malého rozsahu na služby „ Sídliště Pečky – Dendrologický průzkum dřevin a návrh pěstebního opatření“ a uzavření smlouvy o dílo mezi městem Pečky, Masarykovo nám. 78, 289 11 Pečky, IČ: 00239607 a Ing. Ondřejem Valigurou , U Vojanky 1309/1a, 15000\nPraha\n5, IČ: 06243916 na veřejnou zakázku malého rozsahu na služby „Sídliště Pečky – Dendrologický průzkum dřevin a návrh pěstebního opatření“.\nHlasování\npro:\n(4) Ing. Hana Kuprová, Milan Paluska, Ing. Martin Jedlička, Ivana Trčková\nproti\n(0)\nzdržel se:\n(2) Ing. Karel Krištoufek, Zdeněk Fejfar\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-332-33/24\nzodpovídá:\nHana Pokorná\ntermín:\n7. 10. 2024\nProjednávání bodu bylo ukončeno v 15:39:53\n5. Ukončení \"Smlouvy o umístění věci“- DELIKOMAT,s.r.o., Modřice (bod číslo 5)\nPředkladatel: Jana Najbrtová\nProjednávání bodu bylo zahájeno v 15:39:58\nDůvodová zpráva:\nDoporučujeme ukončit výše uvedenou smlouvu dohodou, dle žádosti fy. DELIKOMAT, s.r.o. Důvodem ukončení je malý odběr výrobků z automatu. Automat byl odvezen z haly po ukončení jarní sezóny v květnu 2024 a již ho nevrátí.\nDiskuze zahájena v 15:39:59\nK tomuto bodu se vyjádřili: Milan Paluska, Zdeněk Fejfar\nV 15:40:01 předsedající zahájil hlasování o návrhu usnesení \"B\" (navrhovatel: \"Jana Najbrtová\") v tomto znění:\nRada\nměsta schvaluje ukončit \"Smlouvu o umístění věci“- s firmou DELIKOMAT,s.r.o., se sídlem Modřice, U Vlečky 843, PSČ 664 42. Smlouva bude ukončena dohodou k 30.9. 2024.\nHlasování\npro:\n(6) Zdeněk Fejfar, Ing. Martin Jedlička, Ing. Karel Krištoufek, Ing. Hana Kuprová, Milan Paluska, Ivana Trčková\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-333-33/24\nzodpovídá:\nJana Najbrtová\ntermín:\n1. 10. 2024\n6. Uzavření \"Smlouvy o umístění nápojového automatu“- Coca-Cola HBC Česko a Slovensko, s.r.o., Praha 9-Kyje (bod číslo 6)\nPředkladatel: Jana Najbrtová\nProjednávání bodu bylo zahájeno v 15:45:49\nDůvodová zpráva:\nDoporučujeme uzavřít výše uvedenou smlouvu. Jedná se o umístění, zprovoznění a provozování nápojového automatu ve sportovní hale na dobu určitou od 1.10. 2024 do 31. 12. 2028. Automat bude v hale umístěn za úplatu ve výši 20% z prodejní ceny bez DPH z každého prodaného kusu.\nDiskuze zahájena v 15:45:50\nK tomuto bodu se vyjádřili: Milan Paluska, Zdeněk Fejfar\nV 15:46:42 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Jana Najbrtová\") v tomto znění:\nRada\nměsta schvaluje uzavření \"Smlouvy o umístění nápojového automatu“- s firmou Coca-Cola HBC Česko a Slovensko, s.r.o., se sídlem\nPraha\n9 – Kyje, l. Českobrodská 1329. Nápojový automat bude umístěn v Parkhale Pečky, ul. Barákova, čp. 1039, Pečky na dobu určitou od 1.10. 2024 do 31.12. 2028 s výpovědní lhůtou 3 měsíce za úplatu ve výši 20% z prodejní ceny bez DPH z každého prodaného kusu.\nHlasování\npro:\n(6) Zdeněk Fejfar, Ing. Martin Jedlička, Ing. Karel Krištoufek, Ing. Hana Kuprová, Milan Paluska, Ivana Trčková\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-334-33/24\nzodpovídá:\nJana Najbrtová\ntermín:\n15. 10. 2024\nProjednávání bodu bylo ukončeno v 15:46:52\n7. Dar obci - povodně (bod číslo 7)\nPředkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 15:47:03\nDůvodová zpráva:\nV souvislosti s povodněmi navrhujeme poskytnout peněžitý dar 50 000 Kč obci Vápenná ( okres Jeseník, počet obyv. cca 1 200 ).\nDiskuze zahájena v 15:47:04\nK tomuto bodu se vyjádřili: Milan Paluska, Ing. Karel Krištoufek, Ing. Martin Jedlička, Ivana Trčková\nV 15:50:52 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Marcela Bahníková\") v tomto znění:\nRada\nměsta schvaluje poskytnutí finančního daru 50 000 Kč obci Vápenná, ( okres Jeseník ) IČO 00303526, zasažené povodní.\nHlasování\npro:\n(6) Milan Paluska, Ing. Karel Krištoufek, Ing. Martin Jedlička, Ing. Hana Kuprová, Ivana Trčková, Zdeněk Fejfar\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-335-33/24\nzodpovídá:\nMarcela Bahníková\ntermín:\n7. 10. 2024\nProjednávání bodu bylo ukončeno v 15:51:00\n8. Dar - oprava kostela (bod číslo 8)\nPředkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 15:51:05\nDůvodová zpráva:\nNa základě žádosti Římskokatolické farnosti Pečky doporučujeme poskytnutí daru na opravu katolického kostela ve výši 20 000,- Kč. Od roku 2020 poskytuje město pravidelně dary na opravu a údržbu kostelů v Pečkách, vždy po 20 tis. Kč. V rozpočtu pro rok 2024 je stanovena na tento účel částka 40 000 Kč.\nDiskuze zahájena v 15:51:06\nK tomuto bodu se vyjádřili: Milan Paluska, Ing. Hana Kuprová, Ing. Karel Krištoufek, Pavlína Nepovímová, Ing. Martin Jedlička, Zdeněk Fejfar\nV 15:54:54 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Marcela Bahníková\") v tomto znění:\nRada\nměsta schvaluje\nposkytnutí finančního daru ve výši 20.000,-Kč Římskokatolické farnosti Pečky, IČO: 61632236 na opravu a údržbu kostela.\nHlasování\npro:\n(6) Milan Paluska, Ing. Hana Kuprová, Ing. Martin Jedlička, Zdeněk Fejfar, Ivana Trčková, Ing. Karel Krištoufek\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-336-33/24\nzodpovídá:\nMarcela Bahníková\ntermín:\n7. 10. 2024\nProjednávání bodu bylo ukončeno v 15:55:01\n9. Kontrola plnění usnesení (bod číslo 9)\nPředkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 15:55:05\nDiskuze zahájena v 15:55:06\nK tomuto bodu se vyjádřili: Milan Paluska, Pavlína Nepovímová\nRada bere materiály předložené k bodu č. 9 -\nKontrola plnění usnesení\nna vědomí.\nProjednávání bodu bylo ukončeno v 15:56:19\n10. Diskuse, různé (bod číslo 10)\nPředkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 15:56:23\nDiskuze zahájena v 15:56:24\nK tomuto bodu se vyjádřili: Milan Paluska, Ing. Hana Kuprová, Ing. Martin Jedlička, Ing. Karel Krištoufek, Ivana Trčková\nRada bere materiály předložené k bodu č. 10 -\nDiskuse, různé\nna vědomí.\nProjednávání bodu bylo ukončeno v 16:41:04\n11. Úkoly vyplývající z jednání rady města (bod číslo 11)\nPředkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 16:41:09\nDiskuze zahájena v 16:41:10\nK tomuto bodu se vyjádřili: Milan Paluska, Ing. Karel Krištoufek\nRada bere materiály předložené k bodu č. 11 -\nÚkoly vyplývající z jednání rady města\nna vědomí.\nProjednávání bodu bylo ukončeno v 16:44:20\nJednání ukončeno 23.09.2024 v 16:45:06\nProjednávání bodu bylo ukončeno v 16:52:09"
+ },
+ "resolutions": {
+  "status": "ok",
+  "url": "https://mesto-pecky.usneseni.cz/verejne/8f37ee3f-74e8-11ef-960d-00505683238f/usneseni/",
+  "fetched_at": "2026-08-04T13:44:56.631917+00:00",
+  "items": [
+   {
+    "number_raw": "UR-331-33/24",
+    "detail_id": 74188,
+    "detail_url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/74188?mod=rada",
+    "agenda_item_raw": "Schválení programu jednání",
+    "text_verbatim": "Rada\nměsta schvaluje návrh programu jednání.",
+    "cell_text_raw": "Bod programu:\nSchválení programu jednání\nText přijatého usnesení:\nRada\nměsta schvaluje návrh programu jednání.",
+    "date_raw": "23. 9. 2024",
+    "date_iso": "2024-09-23",
+    "responsible_raw": "",
+    "deadline_raw": "IHNED (23. 9. 2024)",
+    "vote": {
+     "raw_text": "pro: 6 proti: 0 zdržel se: 0",
+     "pro": {
+      "count": 6,
+      "names": null,
+      "raw": "6"
+     },
+     "proti": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     },
+     "zdrzel_se": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     }
+    },
+    "detail": {
+     "number_raw": "UR-331-33/24",
+     "text_verbatim": "Rada města schvaluje návrh programu jednání.",
+     "typ_raw": null,
+     "zodpovida_raw": "",
+     "prijato_raw": "23. 9. 2024 na jednání č. 33/2024",
+     "prijato_date_iso": "2024-09-23",
+     "prijato_meeting_label": "33/2024",
+     "termin_raw": "IHNED (23. 9. 2024)",
+     "ukonceno_raw": "23. 9. 2024",
+     "ukonceno_date_iso": "2024-09-23",
+     "fields_raw": {
+      "Číslo usnesení": "UR-331-33/24",
+      "Text usnesení": "Rada města schvaluje návrh programu jednání.",
+      "Zodpovídá": "",
+      "Přijato": "23. 9. 2024 na jednání č. 33/2024",
+      "Termín": "IHNED (23. 9. 2024)",
+      "Ukončeno": "23. 9. 2024"
+     }
+    }
+   },
+   {
+    "number_raw": "UR-332-33/24",
+    "detail_id": 74357,
+    "detail_url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/74357?mod=rada",
+    "agenda_item_raw": "Výběr zhotovitele a uzavření smlouvy na plnění veřejné zakázky malého rozsahu na služby „ Sídliště Pečky – Dendrologický průzkum dřevin a návrh pěstebního opatření“",
+    "text_verbatim": "Rada\nměsta schvaluje Rozhodnutí a oznámení o výběru zhotovitele na plnění veřejné zakázky malého rozsahu na služby „ Sídliště Pečky – Dendrologický průzkum dřevin a návrh pěstebního opatření“ a uzavření smlouvy o dílo mezi městem Pečky, Masarykovo nám. 78, 289 11 Pečky, IČ: 00239607 a Ing. Ondřejem Valigurou , U Vojanky 1309/1a, 15000\nPraha\n5, IČ: 06243916 na veřejnou zakázku malého rozsahu na služby „Sídliště Pečky – Dendrologický průzkum dřevin a návrh pěstebního opatření“.",
+    "cell_text_raw": "Bod programu:\nVýběr zhotovitele a uzavření smlouvy na plnění veřejné zakázky malého rozsahu na služby „ Sídliště Pečky – Dendrologický průzkum dřevin a návrh pěstebního opatření“\nText přijatého usnesení:\nRada\nměsta schvaluje Rozhodnutí a oznámení o výběru zhotovitele na plnění veřejné zakázky malého rozsahu na služby „ Sídliště Pečky – Dendrologický průzkum dřevin a návrh pěstebního opatření“ a uzavření smlouvy o dílo mezi městem Pečky, Masarykovo nám. 78, 289 11 Pečky, IČ: 00239607 a Ing. Ondřejem Valigurou , U Vojanky 1309/1a, 15000\nPraha\n5, IČ: 06243916 na veřejnou zakázku malého rozsahu na služby „Sídliště Pečky – Dendrologický průzkum dřevin a návrh pěstebního opatření“.",
+    "date_raw": "23. 9. 2024",
+    "date_iso": "2024-09-23",
+    "responsible_raw": "Hana Pokorná",
+    "deadline_raw": "7. 10. 2024",
+    "vote": {
+     "raw_text": "pro: 4 proti: 0 zdržel se: 2",
+     "pro": {
+      "count": 4,
+      "names": null,
+      "raw": "4"
+     },
+     "proti": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     },
+     "zdrzel_se": {
+      "count": 2,
+      "names": null,
+      "raw": "2"
+     }
+    },
+    "detail": {
+     "number_raw": "UR-332-33/24",
+     "text_verbatim": "Rada města schvaluje Rozhodnutí a oznámení o výběru zhotovitele na plnění veřejné zakázky malého rozsahu na služby „ Sídliště Pečky – Dendrologický průzkum dřevin a návrh pěstebního opatření“ a uzavření smlouvy o dílo mezi městem Pečky, Masarykovo nám. 78, 289 11 Pečky, IČ: 00239607 a Ing. Ondřejem Valigurou , U Vojanky 1309/1a, 15000 Praha 5, IČ: 06243916 na veřejnou zakázku malého rozsahu na služby „Sídliště Pečky – Dendrologický průzkum dřevin a návrh pěstebního opatření“.",
+     "typ_raw": null,
+     "zodpovida_raw": "Hana Pokorná",
+     "prijato_raw": "23. 9. 2024 na jednání č. 33/2024",
+     "prijato_date_iso": "2024-09-23",
+     "prijato_meeting_label": "33/2024",
+     "termin_raw": "7. 10. 2024",
+     "ukonceno_raw": "7. 10. 2024",
+     "ukonceno_date_iso": "2024-10-07",
+     "fields_raw": {
+      "Číslo usnesení": "UR-332-33/24",
+      "Text usnesení": "Rada města schvaluje Rozhodnutí a oznámení o výběru zhotovitele na plnění veřejné zakázky malého rozsahu na služby „ Sídliště Pečky – Dendrologický průzkum dřevin a návrh pěstebního opatření“ a uzavření smlouvy o dílo mezi městem Pečky, Masarykovo nám. 78, 289 11 Pečky, IČ: 00239607 a Ing. Ondřejem Valigurou , U Vojanky 1309/1a, 15000 Praha 5, IČ: 06243916 na veřejnou zakázku malého rozsahu na služby „Sídliště Pečky – Dendrologický průzkum dřevin a návrh pěstebního opatření“.",
+      "Zodpovídá": "Hana Pokorná",
+      "Přijato": "23. 9. 2024 na jednání č. 33/2024",
+      "Termín": "7. 10. 2024",
+      "Ukončeno": "7. 10. 2024"
+     }
+    }
+   },
+   {
+    "number_raw": "UR-333-33/24",
+    "detail_id": 74531,
+    "detail_url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/74531?mod=rada",
+    "agenda_item_raw": "Ukončení \"Smlouvy o umístění věci“- DELIKOMAT,s.r.o., Modřice",
+    "text_verbatim": "Rada\nměsta schvaluje ukončit \"Smlouvu o umístění věci“- s firmou DELIKOMAT,s.r.o., se sídlem Modřice, U Vlečky 843, PSČ 664 42. Smlouva bude ukončena dohodou k 30.9. 2024.",
+    "cell_text_raw": "Bod programu:\nUkončení \"Smlouvy o umístění věci“- DELIKOMAT,s.r.o., Modřice\nText přijatého usnesení:\nRada\nměsta schvaluje ukončit \"Smlouvu o umístění věci“- s firmou DELIKOMAT,s.r.o., se sídlem Modřice, U Vlečky 843, PSČ 664 42. Smlouva bude ukončena dohodou k 30.9. 2024.",
+    "date_raw": "23. 9. 2024",
+    "date_iso": "2024-09-23",
+    "responsible_raw": "Jana Najbrtová",
+    "deadline_raw": "1. 10. 2024",
+    "vote": {
+     "raw_text": "pro: 6 proti: 0 zdržel se: 0",
+     "pro": {
+      "count": 6,
+      "names": null,
+      "raw": "6"
+     },
+     "proti": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     },
+     "zdrzel_se": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     }
+    },
+    "detail": {
+     "number_raw": "UR-333-33/24",
+     "text_verbatim": "Rada města schvaluje ukončit \"Smlouvu o umístění věci“- s firmou DELIKOMAT,s.r.o., se sídlem Modřice, U Vlečky 843, PSČ 664 42. Smlouva bude ukončena dohodou k 30.9. 2024.",
+     "typ_raw": null,
+     "zodpovida_raw": "Jana Najbrtová",
+     "prijato_raw": "23. 9. 2024 na jednání č. 33/2024",
+     "prijato_date_iso": "2024-09-23",
+     "prijato_meeting_label": "33/2024",
+     "termin_raw": "1. 10. 2024",
+     "ukonceno_raw": "30. 9. 2024",
+     "ukonceno_date_iso": "2024-09-30",
+     "fields_raw": {
+      "Číslo usnesení": "UR-333-33/24",
+      "Text usnesení": "Rada města schvaluje ukončit \"Smlouvu o umístění věci“- s firmou DELIKOMAT,s.r.o., se sídlem Modřice, U Vlečky 843, PSČ 664 42. Smlouva bude ukončena dohodou k 30.9. 2024.",
+      "Zodpovídá": "Jana Najbrtová",
+      "Přijato": "23. 9. 2024 na jednání č. 33/2024",
+      "Termín": "1. 10. 2024",
+      "Ukončeno": "30. 9. 2024"
+     }
+    }
+   },
+   {
+    "number_raw": "UR-334-33/24",
+    "detail_id": 74251,
+    "detail_url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/74251?mod=rada",
+    "agenda_item_raw": "Uzavření \"Smlouvy o umístění nápojového automatu“- Coca-Cola HBC Česko a Slovensko, s.r.o., Praha 9-Kyje",
+    "text_verbatim": "Rada\nměsta schvaluje uzavření \"Smlouvy o umístění nápojového automatu“- s firmou Coca-Cola HBC Česko a Slovensko, s.r.o., se sídlem\nPraha\n9 – Kyje, l. Českobrodská 1329. Nápojový automat bude umístěn v Parkhale Pečky, ul. Barákova, čp. 1039, Pečky na dobu určitou od 1.10. 2024 do 31.12. 2028 s výpovědní lhůtou 3 měsíce za úplatu ve výši 20% z prodejní ceny bez DPH z každého prodaného kusu.",
+    "cell_text_raw": "Bod programu:\nUzavření \"Smlouvy o umístění nápojového automatu“- Coca-Cola HBC Česko a Slovensko, s.r.o., Praha 9-Kyje\nText přijatého usnesení:\nRada\nměsta schvaluje uzavření \"Smlouvy o umístění nápojového automatu“- s firmou Coca-Cola HBC Česko a Slovensko, s.r.o., se sídlem\nPraha\n9 – Kyje, l. Českobrodská 1329. Nápojový automat bude umístěn v Parkhale Pečky, ul. Barákova, čp. 1039, Pečky na dobu určitou od 1.10. 2024 do 31.12. 2028 s výpovědní lhůtou 3 měsíce za úplatu ve výši 20% z prodejní ceny bez DPH z každého prodaného kusu.",
+    "date_raw": "23. 9. 2024",
+    "date_iso": "2024-09-23",
+    "responsible_raw": "Jana Najbrtová",
+    "deadline_raw": "15. 10. 2024",
+    "vote": {
+     "raw_text": "pro: 6 proti: 0 zdržel se: 0",
+     "pro": {
+      "count": 6,
+      "names": null,
+      "raw": "6"
+     },
+     "proti": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     },
+     "zdrzel_se": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     }
+    },
+    "detail": {
+     "number_raw": "UR-334-33/24",
+     "text_verbatim": "Rada města schvaluje uzavření \"Smlouvy o umístění nápojového automatu“- s firmou Coca-Cola HBC Česko a Slovensko, s.r.o., se sídlem Praha 9 – Kyje, l. Českobrodská 1329. Nápojový automat bude umístěn v Parkhale Pečky, ul. Barákova, čp. 1039, Pečky na dobu určitou od 1.10. 2024 do 31.12. 2028 s výpovědní lhůtou 3 měsíce za úplatu ve výši 20% z prodejní ceny bez DPH z každého prodaného kusu.",
+     "typ_raw": null,
+     "zodpovida_raw": "Jana Najbrtová",
+     "prijato_raw": "23. 9. 2024 na jednání č. 33/2024",
+     "prijato_date_iso": "2024-09-23",
+     "prijato_meeting_label": "33/2024",
+     "termin_raw": "15. 10. 2024",
+     "ukonceno_raw": "14. 10. 2024",
+     "ukonceno_date_iso": "2024-10-14",
+     "fields_raw": {
+      "Číslo usnesení": "UR-334-33/24",
+      "Text usnesení": "Rada města schvaluje uzavření \"Smlouvy o umístění nápojového automatu“- s firmou Coca-Cola HBC Česko a Slovensko, s.r.o., se sídlem Praha 9 – Kyje, l. Českobrodská 1329. Nápojový automat bude umístěn v Parkhale Pečky, ul. Barákova, čp. 1039, Pečky na dobu určitou od 1.10. 2024 do 31.12. 2028 s výpovědní lhůtou 3 měsíce za úplatu ve výši 20% z prodejní ceny bez DPH z každého prodaného kusu.",
+      "Zodpovídá": "Jana Najbrtová",
+      "Přijato": "23. 9. 2024 na jednání č. 33/2024",
+      "Termín": "15. 10. 2024",
+      "Ukončeno": "14. 10. 2024"
+     }
+    }
+   },
+   {
+    "number_raw": "UR-335-33/24",
+    "detail_id": 74360,
+    "detail_url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/74360?mod=rada",
+    "agenda_item_raw": "Dar obci - povodně",
+    "text_verbatim": "Rada\nměsta schvaluje poskytnutí finančního daru 50 000 Kč obci Vápenná, ( okres Jeseník ) IČO 00303526, zasažené povodní.",
+    "cell_text_raw": "Bod programu:\nDar obci - povodně\nText přijatého usnesení:\nRada\nměsta schvaluje poskytnutí finančního daru 50 000 Kč obci Vápenná, ( okres Jeseník ) IČO 00303526, zasažené povodní.",
+    "date_raw": "23. 9. 2024",
+    "date_iso": "2024-09-23",
+    "responsible_raw": "Marcela Bahníková",
+    "deadline_raw": "7. 10. 2024",
+    "vote": {
+     "raw_text": "pro: 6 proti: 0 zdržel se: 0",
+     "pro": {
+      "count": 6,
+      "names": null,
+      "raw": "6"
+     },
+     "proti": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     },
+     "zdrzel_se": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     }
+    },
+    "detail": {
+     "number_raw": "UR-335-33/24",
+     "text_verbatim": "Rada města schvaluje poskytnutí finančního daru 50 000 Kč obci Vápenná, ( okres Jeseník ) IČO 00303526, zasažené povodní.",
+     "typ_raw": null,
+     "zodpovida_raw": "Marcela Bahníková",
+     "prijato_raw": "23. 9. 2024 na jednání č. 33/2024",
+     "prijato_date_iso": "2024-09-23",
+     "prijato_meeting_label": "33/2024",
+     "termin_raw": "7. 10. 2024",
+     "ukonceno_raw": "7. 10. 2024",
+     "ukonceno_date_iso": "2024-10-07",
+     "fields_raw": {
+      "Číslo usnesení": "UR-335-33/24",
+      "Text usnesení": "Rada města schvaluje poskytnutí finančního daru 50 000 Kč obci Vápenná, ( okres Jeseník ) IČO 00303526, zasažené povodní.",
+      "Zodpovídá": "Marcela Bahníková",
+      "Přijato": "23. 9. 2024 na jednání č. 33/2024",
+      "Termín": "7. 10. 2024",
+      "Ukončeno": "7. 10. 2024"
+     }
+    }
+   },
+   {
+    "number_raw": "UR-336-33/24",
+    "detail_id": 74358,
+    "detail_url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/74358?mod=rada",
+    "agenda_item_raw": "Dar - oprava kostela",
+    "text_verbatim": "Rada\nměsta schvaluje\nposkytnutí finančního daru ve výši 20.000,-Kč Římskokatolické farnosti Pečky, IČO: 61632236 na opravu a údržbu kostela.",
+    "cell_text_raw": "Bod programu:\nDar - oprava kostela\nText přijatého usnesení:\nRada\nměsta schvaluje\nposkytnutí finančního daru ve výši 20.000,-Kč Římskokatolické farnosti Pečky, IČO: 61632236 na opravu a údržbu kostela.",
+    "date_raw": "23. 9. 2024",
+    "date_iso": "2024-09-23",
+    "responsible_raw": "Marcela Bahníková",
+    "deadline_raw": "7. 10. 2024",
+    "vote": {
+     "raw_text": "pro: 6 proti: 0 zdržel se: 0",
+     "pro": {
+      "count": 6,
+      "names": null,
+      "raw": "6"
+     },
+     "proti": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     },
+     "zdrzel_se": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     }
+    },
+    "detail": {
+     "number_raw": "UR-336-33/24",
+     "text_verbatim": "Rada města schvaluje poskytnutí finančního daru ve výši 20.000,-Kč Římskokatolické farnosti Pečky, IČO: 61632236 na opravu a údržbu kostela.",
+     "typ_raw": null,
+     "zodpovida_raw": "Marcela Bahníková",
+     "prijato_raw": "23. 9. 2024 na jednání č. 33/2024",
+     "prijato_date_iso": "2024-09-23",
+     "prijato_meeting_label": "33/2024",
+     "termin_raw": "7. 10. 2024",
+     "ukonceno_raw": "7. 10. 2024",
+     "ukonceno_date_iso": "2024-10-07",
+     "fields_raw": {
+      "Číslo usnesení": "UR-336-33/24",
+      "Text usnesení": "Rada města schvaluje poskytnutí finančního daru ve výši 20.000,-Kč Římskokatolické farnosti Pečky, IČO: 61632236 na opravu a údržbu kostela.",
+      "Zodpovídá": "Marcela Bahníková",
+      "Přijato": "23. 9. 2024 na jednání č. 33/2024",
+      "Termín": "7. 10. 2024",
+      "Ukončeno": "7. 10. 2024"
+     }
+    }
+   }
+  ]
+ }
+}

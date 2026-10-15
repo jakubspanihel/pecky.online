@@ -1,0 +1,674 @@
+{
+ "uuid": "ed6b3c19-62ba-11ee-962e-00505683238f",
+ "body_type_raw": "Rada",
+ "label_raw": "35/2023 (9. 10. 2023)",
+ "number": 35,
+ "year": 2023,
+ "date_iso": "2023-10-09",
+ "links": {
+  "invitation": "https://mesto-pecky.usneseni.cz/verejne/?uuid=ed6b3c19-62ba-11ee-962e-00505683238f&page=10&do=printPublicInvitation",
+  "minutes": "https://mesto-pecky.usneseni.cz/verejne/ed6b3c19-62ba-11ee-962e-00505683238f/zapis/?page=10",
+  "signed_minutes_pdf": "https://mesto-pecky.usneseni.cz/verejne/?meetingReportControl-uuid=ed6b3c19-62ba-11ee-962e-00505683238f&page=10&do=meetingReportControl-getSignedReportPdf",
+  "resolutions": "https://mesto-pecky.usneseni.cz/verejne/ed6b3c19-62ba-11ee-962e-00505683238f/usneseni/?page=10",
+  "audio": null
+ },
+ "link_texts": {
+  "invitation": "Pozvánka",
+  "minutes": "zápis",
+  "signed_minutes_pdf": "podepsaný zápis",
+  "resolutions": "přijatá usnesení"
+ },
+ "status": "ok",
+ "invitation": {
+  "status": "site_error",
+  "error": "status=200 ct=text/html; charset=utf-8 flash='<a href=\"\" class=\"close\" data-dismiss=\"alert\" aria-label=\"close\">&times;'",
+  "url": "https://mesto-pecky.usneseni.cz/verejne/?uuid=ed6b3c19-62ba-11ee-962e-00505683238f&do=printPublicInvitation",
+  "fetched_at": "2026-08-04T15:04:00.946225+00:00"
+ },
+ "minutes": {
+  "status": "ok",
+  "url": "https://mesto-pecky.usneseni.cz/verejne/ed6b3c19-62ba-11ee-962e-00505683238f/zapis/",
+  "fetched_at": "2026-08-04T14:02:36.430283+00:00",
+  "title_raw": "ZÁPIS ze schůze rady č. 35/2023 Město Pečky datum: 9. 10. 2023, čas: 15:00 ​",
+  "date_raw": "9. 10. 2023",
+  "date_iso": "2023-10-09",
+  "time_raw": "15:00",
+  "presence": {
+   "raw_text": "Prezence:\nPřítomni:\n(6) Zdeněk Fejfar, Milan Paluska, Ing. Martin Jedlička, Ivana Trčková, Ing. Hana Kuprová, Ing. Karel Krištoufek\nOmluveni:\n(0)\nNepřítomni:\n(1) Ing. Petr Dürr\nHosté:\nZapisovatel/ka:\nEva Strnadová\nPřítomno je 6 členů a rada je usnášeníschopná.\nJednání zahájeno 09.10.2023 v 15:05:51",
+   "pritomni": {
+    "count": 6,
+    "names": [
+     "Zdeněk Fejfar",
+     "Milan Paluska",
+     "Ing. Martin Jedlička",
+     "Ivana Trčková",
+     "Ing. Hana Kuprová",
+     "Ing. Karel Krištoufek"
+    ],
+    "raw": "(6) Zdeněk Fejfar, Milan Paluska, Ing. Martin Jedlička, Ivana Trčková, Ing. Hana Kuprová, Ing. Karel Krištoufek"
+   },
+   "omluveni": {
+    "count": 0,
+    "names": [],
+    "raw": "(0)"
+   },
+   "nepritomni": {
+    "count": 1,
+    "names": [
+     "Ing. Petr Dürr"
+    ],
+    "raw": "(1) Ing. Petr Dürr"
+   },
+   "predsedajici": null,
+   "quorum_raw": "Přítomno je 6 členů a rada je usnášeníschopná."
+  },
+  "header_raw": "Prezence:\nPřítomni:\n(6) Zdeněk Fejfar, Milan Paluska, Ing. Martin Jedlička, Ivana Trčková, Ing. Hana Kuprová, Ing. Karel Krištoufek\nOmluveni:\n(0)\nNepřítomni:\n(1) Ing. Petr Dürr\nHosté:\nZapisovatel/ka:\nEva Strnadová\nPřítomno je 6 členů a rada je usnášeníschopná.\nJednání zahájeno 09.10.2023 v 15:05:51",
+  "agenda_items": [
+   {
+    "number": 1,
+    "title_raw": "Určení zapisovatelů, předsedajícího, příp. ověřovatelů",
+    "heading_raw": "1. Určení zapisovatelů, předsedajícího, příp. ověřovatelů (bod číslo 1)",
+    "predkladatel": "Milan Paluska",
+    "votes": [],
+    "resolution_numbers_mentioned": [],
+    "raw_text": "Předkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 15:06:14\nPředsedající navrhl jednotlivé členy pracovních komisí\nOvěřovatelé:\nIng. Hana Kuprová, Zdeněk Fejfar\nPředsedající:\nMilan Paluska\nBod byl přijat bez hlasování.\nDiskuze zahájena v 15:06:14\nProjednávání bodu bylo ukončeno v 15:07:15"
+   },
+   {
+    "number": 2,
+    "title_raw": "Schválení programu jednání",
+    "heading_raw": "2. Schválení programu jednání (bod číslo 2)",
+    "predkladatel": "Milan Paluska",
+    "votes": [
+     {
+      "raw_text": "pro:\n(7) Ing. Martin Jedlička, Ivana Trčková, Ing. Hana Kuprová, Zdeněk Fejfar, Ing. Petr Dürr, Milan Paluska, Ing. Karel Krištoufek\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)",
+      "pro": {
+       "count": 7,
+       "names": [
+        "Ing. Martin Jedlička",
+        "Ivana Trčková",
+        "Ing. Hana Kuprová",
+        "Zdeněk Fejfar",
+        "Ing. Petr Dürr",
+        "Milan Paluska",
+        "Ing. Karel Krištoufek"
+       ],
+       "raw": "(7) Ing. Martin Jedlička, Ivana Trčková, Ing. Hana Kuprová, Zdeněk Fejfar, Ing. Petr Dürr, Milan Paluska, Ing. Karel Krištoufek"
+      },
+      "proti": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "zdrzel_se": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "nehlasoval": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "result_raw": "Návrh byl přijat jako usnesení číslo: UR-293-35/23",
+      "adopted_resolution_number": "UR-293-35/23"
+     }
+    ],
+    "resolution_numbers_mentioned": [
+     "UR-293-35/23"
+    ],
+    "raw_text": "Předkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 15:07:31\nProgram jednání\n1. Určení zapisovatelů, předsedajícího, příp. ověřovatelů\n2. Schválení programu jednání\n3. Aktuální informace vedení města\n4. Uzavření „Smlouvy o výpůjčce“ – s organizací Respondeo, z.s., Nymburk\n5. Výše místního poplatku za obecní systém odpadového hospodářství\n6. Dotace - Římskokatolická farnost Pečky\n7. Rozpočtové opatření č. 7/2023\n8. Dotace- služby tísňové péče\n9. Kontrola plnění usnesení\nDiskuze zahájena v 15:07:31\nK tomuto bodu se vyjádřili: Milan Paluska, Ing. Karel Krištoufek\nV 15:08:03 přišel Ing. Petr Dürr, přítomno 7 radních.\nAktualizovaný stav prezence:\nPřítomni:\n(7) Zdeněk Fejfar, Milan Paluska, Ing. Martin Jedlička, Ivana Trčková, Ing. Hana Kuprová, Ing. Karel Krištoufek, Ing. Petr Dürr\nOmluveni:\n(0)\nNepřítomni:\n(0)\nV 15:08:57 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Milan Paluska\") v tomto znění:\nRada\nměsta schvaluje návrh programu jednání.\nHlasování\npro:\n(7) Ing. Martin Jedlička, Ivana Trčková, Ing. Hana Kuprová, Zdeněk Fejfar, Ing. Petr Dürr, Milan Paluska, Ing. Karel Krištoufek\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-293-35/23\nzodpovídá:\ntermín:\nIHNED\n(9. 10. 2023)\nProjednávání bodu bylo ukončeno v 15:09:08"
+   },
+   {
+    "number": 3,
+    "title_raw": "Aktuální informace vedení města",
+    "heading_raw": "3. Aktuální informace vedení města (bod číslo 3)",
+    "predkladatel": "Milan Paluska",
+    "votes": [],
+    "resolution_numbers_mentioned": [],
+    "raw_text": "Předkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 15:09:15\nDůvodová zpráva:\nstarosta města\n- informace o termínu příští RM dne 23.10.2023\n- informace o kolaudaci stavby KS\n- informace o frézování povrchu komunikace a doplnění dešťové kanalizace v ulici\nHálkova\n, Pečky\n- informace o ukončené rekonstrukci otopného systému v Domě služeb, Pečky - zahájení topné sezony\n- informace o zahájení přípravných prací - Rekonstrukce kabin AFK Pečky\n- informace o schůzce se Státním pozemkovým úřadem - projednání soupisu nároků s dotčenými vlastníky v rámci provádění komplexní pozemkové úpravy\n- informace o schůzce s ředitelkou MŠ Mašinka Pečky - sledování demografického výhledu kvůli zajištění školky\nZdeněk\nFejfar\n- informace o kontrole na sběrném dvoře, hromadění nevytříděného směsného odpadu - osvěta pro občany\n- informace o dalších potřebách rekonstrukce ČOV - kalolis\nIng.\nKarel\nKrištoufek\n- revize zápisů jednotlivých komisí a výborů\n- informace o dodržování základních pravidel při jízdě cyklistů na chodníku, časté kontroly strážníky MP\nIvana\nTrčková\n- informace o následné údržbě mlatových cest v parku\nDiskuze zahájena v 15:09:15\nK tomuto bodu se vyjádřili: Milan Paluska, Zdeněk Fejfar, Ivana Trčková, Ing. Hana Kuprová, Ing. Martin Jedlička, Ing. Karel Krištoufek, Ing. Petr Dürr\nRada bere materiály předložené k bodu č. 3 -\nAktuální informace vedení města\nna vědomí.\nProjednávání bodu bylo ukončeno v 16:14:59"
+   },
+   {
+    "number": 4,
+    "title_raw": "Uzavření „Smlouvy o výpůjčce“ – s organizací Respondeo, z.s., Nymburk",
+    "heading_raw": "4. Uzavření „Smlouvy o výpůjčce“ – s organizací Respondeo, z.s., Nymburk (bod číslo 4)",
+    "predkladatel": "Jana Najbrtová",
+    "votes": [
+     {
+      "raw_text": "pro:\n(7) Ing. Karel Krištoufek, Ing. Martin Jedlička, Ing. Hana Kuprová, Ing. Petr Dürr, Ivana Trčková, Milan Paluska, Zdeněk Fejfar\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)",
+      "pro": {
+       "count": 7,
+       "names": [
+        "Ing. Karel Krištoufek",
+        "Ing. Martin Jedlička",
+        "Ing. Hana Kuprová",
+        "Ing. Petr Dürr",
+        "Ivana Trčková",
+        "Milan Paluska",
+        "Zdeněk Fejfar"
+       ],
+       "raw": "(7) Ing. Karel Krištoufek, Ing. Martin Jedlička, Ing. Hana Kuprová, Ing. Petr Dürr, Ivana Trčková, Milan Paluska, Zdeněk Fejfar"
+      },
+      "proti": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "zdrzel_se": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "nehlasoval": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "result_raw": "Návrh byl přijat jako usnesení číslo: UR-294-35/23",
+      "adopted_resolution_number": "UR-294-35/23"
+     }
+    ],
+    "resolution_numbers_mentioned": [
+     "UR-294-35/23"
+    ],
+    "raw_text": "Předkladatel: Jana Najbrtová\nProjednávání bodu bylo zahájeno v 16:15:03\nDůvodová zpráva:\nDoporučujeme uzavřít Smlouvu o výpůjčce na dobu určitou v prostoru přízemí radnice – kancelář č. 11. Zákres kanceláře je v příloze. Ředitelka organizace souhlasí s podmínkami ve zveřejněném záměru.\nDiskuze zahájena v 16:15:03\nK tomuto bodu se vyjádřili: Milan Paluska, Ing. Petr Dürr, Ing. Karel Krištoufek\nV 16:17:32 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Jana Najbrtová\") v tomto znění:\nRada\nměsta schvaluje uzavřít Smlouvu o výpůjčce s organizací Respondeo, z.s. se sídlem Nymburk, nám. Přemyslovců 14/11. Jedná se o nebytové prostory v 1. NP radnice, kancelář č. 11 o celkové výměře 22,7 m\n2\n. Smlouva o výpůjčce bude uzavřena na dobu určitou od 18. 10. 2023 do 31. 12. 2023.\nHlasování\npro:\n(7) Ing. Karel Krištoufek, Ing. Martin Jedlička, Ing. Hana Kuprová, Ing. Petr Dürr, Ivana Trčková, Milan Paluska, Zdeněk Fejfar\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-294-35/23\nzodpovídá:\nJana Najbrtová\ntermín:\n31. 10. 2023\nProjednávání bodu bylo ukončeno v 16:17:39"
+   },
+   {
+    "number": 5,
+    "title_raw": "Výše místního poplatku za obecní systém odpadového hospodářství",
+    "heading_raw": "5. Výše místního poplatku za obecní systém odpadového hospodářství (bod číslo 5)",
+    "predkladatel": "Hana Pokorná",
+    "votes": [
+     {
+      "raw_text": "pro:\n(7) Ing. Martin Jedlička, Ing. Hana Kuprová, Ing. Petr Dürr, Milan Paluska, Ivana Trčková, Ing. Karel Krištoufek, Zdeněk Fejfar\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)",
+      "pro": {
+       "count": 7,
+       "names": [
+        "Ing. Martin Jedlička",
+        "Ing. Hana Kuprová",
+        "Ing. Petr Dürr",
+        "Milan Paluska",
+        "Ivana Trčková",
+        "Ing. Karel Krištoufek",
+        "Zdeněk Fejfar"
+       ],
+       "raw": "(7) Ing. Martin Jedlička, Ing. Hana Kuprová, Ing. Petr Dürr, Milan Paluska, Ivana Trčková, Ing. Karel Krištoufek, Zdeněk Fejfar"
+      },
+      "proti": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "zdrzel_se": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "nehlasoval": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "result_raw": "Návrh byl přijat jako usnesení číslo: UR-295-35/23",
+      "adopted_resolution_number": "UR-295-35/23"
+     }
+    ],
+    "resolution_numbers_mentioned": [
+     "UR-295-35/23"
+    ],
+    "raw_text": "Předkladatel: Hana Pokorná\nProjednávání bodu bylo zahájeno v 16:17:43\nDůvodová zpráva:\nRada\nměsta schvaluje výši místního poplatku za obecní systém odpadového hospodářství.\nCelá\nOZV o místním poplatku za obecní systém odpadové hospodářství bude vypracovaná a předložená RM.\nDiskuze zahájena v 16:17:43\nK tomuto bodu se vyjádřili: Milan Paluska, Ing. Karel Krištoufek, Ing. Martin Jedlička, Ivana Trčková, Ing. Petr Dürr, Zdeněk Fejfar\nV 16:39:42 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Hana Pokorná\") v tomto znění:\nRada\nměsta schvaluje předložený návrh  místního poplatku za obecní systém odpadového hospodářství pro rok 2024 ve výši 900,- Kč pro fyzickou osobu přihlášenou v obci a vlastníka nemovitosti (bytu, rodinného domu) bez trvalého pobytu a úlevu 200,- Kč z tohoto poplatku pro osoby starší 75 let, přihlášených v obci. OZV o místním poplatku za obecní systém odpadového hospodářství, bude předložena ke schválení RM.\nHlasování\npro:\n(7) Ing. Martin Jedlička, Ing. Hana Kuprová, Ing. Petr Dürr, Milan Paluska, Ivana Trčková, Ing. Karel Krištoufek, Zdeněk Fejfar\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-295-35/23\nzodpovídá:\nHana Pokorná\ntermín:\n23. 10. 2023\nProjednávání bodu bylo ukončeno v 16:39:52"
+   },
+   {
+    "number": 6,
+    "title_raw": "Dotace - Římskokatolická farnost Pečky",
+    "heading_raw": "6. Dotace - Římskokatolická farnost Pečky (bod číslo 6)",
+    "predkladatel": "Milan Paluska",
+    "votes": [
+     {
+      "raw_text": "pro:\n(7) Ing. Hana Kuprová, Ing. Karel Krištoufek, Ing. Martin Jedlička, Ing. Petr Dürr, Milan Paluska, Ivana Trčková, Zdeněk Fejfar\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)",
+      "pro": {
+       "count": 7,
+       "names": [
+        "Ing. Hana Kuprová",
+        "Ing. Karel Krištoufek",
+        "Ing. Martin Jedlička",
+        "Ing. Petr Dürr",
+        "Milan Paluska",
+        "Ivana Trčková",
+        "Zdeněk Fejfar"
+       ],
+       "raw": "(7) Ing. Hana Kuprová, Ing. Karel Krištoufek, Ing. Martin Jedlička, Ing. Petr Dürr, Milan Paluska, Ivana Trčková, Zdeněk Fejfar"
+      },
+      "proti": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "zdrzel_se": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "nehlasoval": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "result_raw": "Návrh byl přijat jako usnesení číslo: UR-296-35/23",
+      "adopted_resolution_number": "UR-296-35/23"
+     }
+    ],
+    "resolution_numbers_mentioned": [
+     "UR-296-35/23"
+    ],
+    "raw_text": "Předkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 16:40:03\nDůvodová zpráva:\nŘímskokatolická farnost Pečky podala žádost o dotaci ve výši 10 000 Kč na  uspořádání slavnostní bohoslužby a koncertu při příležitosti 110. výročí posvěcení kostela sv.\nVáclava\nv Pečkách.\nDiskuze zahájena v 16:40:03\nK tomuto bodu se vyjádřili: Milan Paluska, Zdeněk Fejfar, Ing. Karel Krištoufek\nV 16:44:44 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Milan Paluska\") v tomto znění:\nRada\nměsta schvaluje poskytnutí dotace ve výši 10 000 Kč  Římskokatolické farnosti Pečky, IČO: 61632236,  a uzavření veřejnoprávní smlouvy. Dotace je určena na uspořádání slavnostní bohoslužby a koncertu při příležitosti 110. výročí posvěcení kostela sv. V\náclava\nv Pečkách.\nHlasování\npro:\n(7) Ing. Hana Kuprová, Ing. Karel Krištoufek, Ing. Martin Jedlička, Ing. Petr Dürr, Milan Paluska, Ivana Trčková, Zdeněk Fejfar\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-296-35/23\nzodpovídá:\nMarcela Bahníková\ntermín:\n13. 10. 2023\nProjednávání bodu bylo ukončeno v 16:44:52"
+   },
+   {
+    "number": 7,
+    "title_raw": "Rozpočtové opatření č. 7/2023",
+    "heading_raw": "7. Rozpočtové opatření č. 7/2023 (bod číslo 7)",
+    "predkladatel": "Milan Paluska",
+    "votes": [
+     {
+      "raw_text": "pro:\n(7) Milan Paluska, Ing. Karel Krištoufek, Ing. Martin Jedlička, Ing. Hana Kuprová, Ing. Petr Dürr, Ivana Trčková, Zdeněk Fejfar\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)",
+      "pro": {
+       "count": 7,
+       "names": [
+        "Milan Paluska",
+        "Ing. Karel Krištoufek",
+        "Ing. Martin Jedlička",
+        "Ing. Hana Kuprová",
+        "Ing. Petr Dürr",
+        "Ivana Trčková",
+        "Zdeněk Fejfar"
+       ],
+       "raw": "(7) Milan Paluska, Ing. Karel Krištoufek, Ing. Martin Jedlička, Ing. Hana Kuprová, Ing. Petr Dürr, Ivana Trčková, Zdeněk Fejfar"
+      },
+      "proti": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "zdrzel_se": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "nehlasoval": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "result_raw": "Návrh byl přijat jako usnesení číslo: UR-297-35/23",
+      "adopted_resolution_number": "UR-297-35/23"
+     }
+    ],
+    "resolution_numbers_mentioned": [
+     "UR-297-35/23"
+    ],
+    "raw_text": "Předkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 16:44:57\nDůvodová zpráva:\nRozpočtová opatření v kompetenci RM obsahují příjem a výdej průtokových dotací pro příspěvkové organizace - pečovatelská služba a  knihovna.\nDiskuze zahájena v 16:44:57\nK tomuto bodu se vyjádřili: Milan Paluska\nV 16:46:47 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Milan Paluska\") v tomto znění:\nRada\nměsta schvaluje rozpočtová opatření č.  7/2023.\nHlasování\npro:\n(7) Milan Paluska, Ing. Karel Krištoufek, Ing. Martin Jedlička, Ing. Hana Kuprová, Ing. Petr Dürr, Ivana Trčková, Zdeněk Fejfar\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-297-35/23\nzodpovídá:\ntermín:\nIHNED\n(9. 10. 2023)\nProjednávání bodu bylo ukončeno v 16:46:55"
+   },
+   {
+    "number": 8,
+    "title_raw": "Dotace- služby tísňové péče",
+    "heading_raw": "8. Dotace- služby tísňové péče (bod číslo 8)",
+    "predkladatel": "Milan Paluska",
+    "votes": [
+     {
+      "raw_text": "pro:\n(7) Ing. Petr Dürr, Ing. Martin Jedlička, Ing. Karel Krištoufek, Ing. Hana Kuprová, Ivana Trčková, Zdeněk Fejfar, Milan Paluska\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)",
+      "pro": {
+       "count": 7,
+       "names": [
+        "Ing. Petr Dürr",
+        "Ing. Martin Jedlička",
+        "Ing. Karel Krištoufek",
+        "Ing. Hana Kuprová",
+        "Ivana Trčková",
+        "Zdeněk Fejfar",
+        "Milan Paluska"
+       ],
+       "raw": "(7) Ing. Petr Dürr, Ing. Martin Jedlička, Ing. Karel Krištoufek, Ing. Hana Kuprová, Ivana Trčková, Zdeněk Fejfar, Milan Paluska"
+      },
+      "proti": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "zdrzel_se": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "nehlasoval": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "result_raw": "Návrh byl přijat jako usnesení číslo: UR-298-35/23",
+      "adopted_resolution_number": "UR-298-35/23"
+     }
+    ],
+    "resolution_numbers_mentioned": [
+     "UR-298-35/23"
+    ],
+    "raw_text": "Předkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 16:46:59\nDůvodová zpráva:\nPaní Sekavcová\npodala žádost o dotaci v souladu s Pravidly pro poskytování dotace na služby tísňové péče.\nDiskuze zahájena v 16:46:59\nK tomuto bodu se vyjádřili: Milan Paluska\nV 16:48:30 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Milan Paluska\") v tomto znění:\nRada\nměsta schvaluje poskytnutí dotace ve výši 200 Kč měsíčně na financování služby tísňové péče pro paní Evu Sekavcovou\n█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█\na uzavření veřejnoprávní smlouvy o poskytnutí dotace.\nHlasování\npro:\n(7) Ing. Petr Dürr, Ing. Martin Jedlička, Ing. Karel Krištoufek, Ing. Hana Kuprová, Ivana Trčková, Zdeněk Fejfar, Milan Paluska\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-298-35/23\nzodpovídá:\nMarcela Bahníková\ntermín:\n16. 10. 2023\nProjednávání bodu bylo ukončeno v 16:48:38"
+   },
+   {
+    "number": 9,
+    "title_raw": "Kontrola plnění usnesení",
+    "heading_raw": "9. Kontrola plnění usnesení (bod číslo 9)",
+    "predkladatel": "Milan Paluska",
+    "votes": [],
+    "resolution_numbers_mentioned": [],
+    "raw_text": "Předkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 16:48:42\nDiskuze zahájena v 16:48:42\nK tomuto bodu se vyjádřili: Milan Paluska, Pavlína Nepovímová\nRada bere materiály předložené k bodu č. 9 -\nKontrola plnění usnesení\nna vědomí.\nProjednávání bodu bylo ukončeno v 16:50:50\nJednání ukončeno 09.10.2023 v 16:51:14\n\nOvěřeno ověřovateli:\n1)\n11. 10. 2023 07:59\nIng. Hana Kuprová\n2)\n11. 10. 2023 07:09\nZdeněk Fejfar"
+   }
+  ],
+  "full_text": "ZÁPIS ze schůze rady č. 35/2023\nMěsto Pečky\ndatum: 9. 10. 2023, čas: 15:00\n​\nPrezence:\nPřítomni:\n(6) Zdeněk Fejfar, Milan Paluska, Ing. Martin Jedlička, Ivana Trčková, Ing. Hana Kuprová, Ing. Karel Krištoufek\nOmluveni:\n(0)\nNepřítomni:\n(1) Ing. Petr Dürr\nHosté:\nZapisovatel/ka:\nEva Strnadová\nPřítomno je 6 členů a rada je usnášeníschopná.\nJednání zahájeno 09.10.2023 v 15:05:51\n1. Určení zapisovatelů, předsedajícího, příp. ověřovatelů (bod číslo 1)\nPředkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 15:06:14\nPředsedající navrhl jednotlivé členy pracovních komisí\nOvěřovatelé:\nIng. Hana Kuprová, Zdeněk Fejfar\nPředsedající:\nMilan Paluska\nBod byl přijat bez hlasování.\nDiskuze zahájena v 15:06:14\nProjednávání bodu bylo ukončeno v 15:07:15\n2. Schválení programu jednání (bod číslo 2)\nPředkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 15:07:31\nProgram jednání\n1. Určení zapisovatelů, předsedajícího, příp. ověřovatelů\n2. Schválení programu jednání\n3. Aktuální informace vedení města\n4. Uzavření „Smlouvy o výpůjčce“ – s organizací Respondeo, z.s., Nymburk\n5. Výše místního poplatku za obecní systém odpadového hospodářství\n6. Dotace - Římskokatolická farnost Pečky\n7. Rozpočtové opatření č. 7/2023\n8. Dotace- služby tísňové péče\n9. Kontrola plnění usnesení\nDiskuze zahájena v 15:07:31\nK tomuto bodu se vyjádřili: Milan Paluska, Ing. Karel Krištoufek\nV 15:08:03 přišel Ing. Petr Dürr, přítomno 7 radních.\nAktualizovaný stav prezence:\nPřítomni:\n(7) Zdeněk Fejfar, Milan Paluska, Ing. Martin Jedlička, Ivana Trčková, Ing. Hana Kuprová, Ing. Karel Krištoufek, Ing. Petr Dürr\nOmluveni:\n(0)\nNepřítomni:\n(0)\nV 15:08:57 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Milan Paluska\") v tomto znění:\nRada\nměsta schvaluje návrh programu jednání.\nHlasování\npro:\n(7) Ing. Martin Jedlička, Ivana Trčková, Ing. Hana Kuprová, Zdeněk Fejfar, Ing. Petr Dürr, Milan Paluska, Ing. Karel Krištoufek\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-293-35/23\nzodpovídá:\ntermín:\nIHNED\n(9. 10. 2023)\nProjednávání bodu bylo ukončeno v 15:09:08\n3. Aktuální informace vedení města (bod číslo 3)\nPředkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 15:09:15\nDůvodová zpráva:\nstarosta města\n- informace o termínu příští RM dne 23.10.2023\n- informace o kolaudaci stavby KS\n- informace o frézování povrchu komunikace a doplnění dešťové kanalizace v ulici\nHálkova\n, Pečky\n- informace o ukončené rekonstrukci otopného systému v Domě služeb, Pečky - zahájení topné sezony\n- informace o zahájení přípravných prací - Rekonstrukce kabin AFK Pečky\n- informace o schůzce se Státním pozemkovým úřadem - projednání soupisu nároků s dotčenými vlastníky v rámci provádění komplexní pozemkové úpravy\n- informace o schůzce s ředitelkou MŠ Mašinka Pečky - sledování demografického výhledu kvůli zajištění školky\nZdeněk\nFejfar\n- informace o kontrole na sběrném dvoře, hromadění nevytříděného směsného odpadu - osvěta pro občany\n- informace o dalších potřebách rekonstrukce ČOV - kalolis\nIng.\nKarel\nKrištoufek\n- revize zápisů jednotlivých komisí a výborů\n- informace o dodržování základních pravidel při jízdě cyklistů na chodníku, časté kontroly strážníky MP\nIvana\nTrčková\n- informace o následné údržbě mlatových cest v parku\nDiskuze zahájena v 15:09:15\nK tomuto bodu se vyjádřili: Milan Paluska, Zdeněk Fejfar, Ivana Trčková, Ing. Hana Kuprová, Ing. Martin Jedlička, Ing. Karel Krištoufek, Ing. Petr Dürr\nRada bere materiály předložené k bodu č. 3 -\nAktuální informace vedení města\nna vědomí.\nProjednávání bodu bylo ukončeno v 16:14:59\n4. Uzavření „Smlouvy o výpůjčce“ – s organizací Respondeo, z.s., Nymburk (bod číslo 4)\nPředkladatel: Jana Najbrtová\nProjednávání bodu bylo zahájeno v 16:15:03\nDůvodová zpráva:\nDoporučujeme uzavřít Smlouvu o výpůjčce na dobu určitou v prostoru přízemí radnice – kancelář č. 11. Zákres kanceláře je v příloze. Ředitelka organizace souhlasí s podmínkami ve zveřejněném záměru.\nDiskuze zahájena v 16:15:03\nK tomuto bodu se vyjádřili: Milan Paluska, Ing. Petr Dürr, Ing. Karel Krištoufek\nV 16:17:32 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Jana Najbrtová\") v tomto znění:\nRada\nměsta schvaluje uzavřít Smlouvu o výpůjčce s organizací Respondeo, z.s. se sídlem Nymburk, nám. Přemyslovců 14/11. Jedná se o nebytové prostory v 1. NP radnice, kancelář č. 11 o celkové výměře 22,7 m\n2\n. Smlouva o výpůjčce bude uzavřena na dobu určitou od 18. 10. 2023 do 31. 12. 2023.\nHlasování\npro:\n(7) Ing. Karel Krištoufek, Ing. Martin Jedlička, Ing. Hana Kuprová, Ing. Petr Dürr, Ivana Trčková, Milan Paluska, Zdeněk Fejfar\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-294-35/23\nzodpovídá:\nJana Najbrtová\ntermín:\n31. 10. 2023\nProjednávání bodu bylo ukončeno v 16:17:39\n5. Výše místního poplatku za obecní systém odpadového hospodářství (bod číslo 5)\nPředkladatel: Hana Pokorná\nProjednávání bodu bylo zahájeno v 16:17:43\nDůvodová zpráva:\nRada\nměsta schvaluje výši místního poplatku za obecní systém odpadového hospodářství.\nCelá\nOZV o místním poplatku za obecní systém odpadové hospodářství bude vypracovaná a předložená RM.\nDiskuze zahájena v 16:17:43\nK tomuto bodu se vyjádřili: Milan Paluska, Ing. Karel Krištoufek, Ing. Martin Jedlička, Ivana Trčková, Ing. Petr Dürr, Zdeněk Fejfar\nV 16:39:42 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Hana Pokorná\") v tomto znění:\nRada\nměsta schvaluje předložený návrh  místního poplatku za obecní systém odpadového hospodářství pro rok 2024 ve výši 900,- Kč pro fyzickou osobu přihlášenou v obci a vlastníka nemovitosti (bytu, rodinného domu) bez trvalého pobytu a úlevu 200,- Kč z tohoto poplatku pro osoby starší 75 let, přihlášených v obci. OZV o místním poplatku za obecní systém odpadového hospodářství, bude předložena ke schválení RM.\nHlasování\npro:\n(7) Ing. Martin Jedlička, Ing. Hana Kuprová, Ing. Petr Dürr, Milan Paluska, Ivana Trčková, Ing. Karel Krištoufek, Zdeněk Fejfar\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-295-35/23\nzodpovídá:\nHana Pokorná\ntermín:\n23. 10. 2023\nProjednávání bodu bylo ukončeno v 16:39:52\n6. Dotace - Římskokatolická farnost Pečky (bod číslo 6)\nPředkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 16:40:03\nDůvodová zpráva:\nŘímskokatolická farnost Pečky podala žádost o dotaci ve výši 10 000 Kč na  uspořádání slavnostní bohoslužby a koncertu při příležitosti 110. výročí posvěcení kostela sv.\nVáclava\nv Pečkách.\nDiskuze zahájena v 16:40:03\nK tomuto bodu se vyjádřili: Milan Paluska, Zdeněk Fejfar, Ing. Karel Krištoufek\nV 16:44:44 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Milan Paluska\") v tomto znění:\nRada\nměsta schvaluje poskytnutí dotace ve výši 10 000 Kč  Římskokatolické farnosti Pečky, IČO: 61632236,  a uzavření veřejnoprávní smlouvy. Dotace je určena na uspořádání slavnostní bohoslužby a koncertu při příležitosti 110. výročí posvěcení kostela sv. V\náclava\nv Pečkách.\nHlasování\npro:\n(7) Ing. Hana Kuprová, Ing. Karel Krištoufek, Ing. Martin Jedlička, Ing. Petr Dürr, Milan Paluska, Ivana Trčková, Zdeněk Fejfar\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-296-35/23\nzodpovídá:\nMarcela Bahníková\ntermín:\n13. 10. 2023\nProjednávání bodu bylo ukončeno v 16:44:52\n7. Rozpočtové opatření č. 7/2023 (bod číslo 7)\nPředkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 16:44:57\nDůvodová zpráva:\nRozpočtová opatření v kompetenci RM obsahují příjem a výdej průtokových dotací pro příspěvkové organizace - pečovatelská služba a  knihovna.\nDiskuze zahájena v 16:44:57\nK tomuto bodu se vyjádřili: Milan Paluska\nV 16:46:47 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Milan Paluska\") v tomto znění:\nRada\nměsta schvaluje rozpočtová opatření č.  7/2023.\nHlasování\npro:\n(7) Milan Paluska, Ing. Karel Krištoufek, Ing. Martin Jedlička, Ing. Hana Kuprová, Ing. Petr Dürr, Ivana Trčková, Zdeněk Fejfar\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-297-35/23\nzodpovídá:\ntermín:\nIHNED\n(9. 10. 2023)\nProjednávání bodu bylo ukončeno v 16:46:55\n8. Dotace- služby tísňové péče (bod číslo 8)\nPředkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 16:46:59\nDůvodová zpráva:\nPaní Sekavcová\npodala žádost o dotaci v souladu s Pravidly pro poskytování dotace na služby tísňové péče.\nDiskuze zahájena v 16:46:59\nK tomuto bodu se vyjádřili: Milan Paluska\nV 16:48:30 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Milan Paluska\") v tomto znění:\nRada\nměsta schvaluje poskytnutí dotace ve výši 200 Kč měsíčně na financování služby tísňové péče pro paní Evu Sekavcovou\n█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​\na uzavření veřejnoprávní smlouvy o poskytnutí dotace.\nHlasování\npro:\n(7) Ing. Petr Dürr, Ing. Martin Jedlička, Ing. Karel Krištoufek, Ing. Hana Kuprová, Ivana Trčková, Zdeněk Fejfar, Milan Paluska\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-298-35/23\nzodpovídá:\nMarcela Bahníková\ntermín:\n16. 10. 2023\nProjednávání bodu bylo ukončeno v 16:48:38\n9. Kontrola plnění usnesení (bod číslo 9)\nPředkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 16:48:42\nDiskuze zahájena v 16:48:42\nK tomuto bodu se vyjádřili: Milan Paluska, Pavlína Nepovímová\nRada bere materiály předložené k bodu č. 9 -\nKontrola plnění usnesení\nna vědomí.\nProjednávání bodu bylo ukončeno v 16:50:50\nJednání ukončeno 09.10.2023 v 16:51:14\nOvěřeno ověřovateli:\n1)\n11. 10. 2023 07:59\nIng. Hana Kuprová\n2)\n11. 10. 2023 07:09\nZdeněk Fejfar"
+ },
+ "resolutions": {
+  "status": "ok",
+  "url": "https://mesto-pecky.usneseni.cz/verejne/ed6b3c19-62ba-11ee-962e-00505683238f/usneseni/",
+  "fetched_at": "2026-08-04T14:02:42.751152+00:00",
+  "items": [
+   {
+    "number_raw": "UR-293-35/23",
+    "detail_id": 47404,
+    "detail_url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/47404?mod=rada",
+    "agenda_item_raw": "Schválení programu jednání",
+    "text_verbatim": "Rada\nměsta schvaluje návrh programu jednání.",
+    "cell_text_raw": "Bod programu:\nSchválení programu jednání\nText přijatého usnesení:\nRada\nměsta schvaluje návrh programu jednání.",
+    "date_raw": "9. 10. 2023",
+    "date_iso": "2023-10-09",
+    "responsible_raw": "",
+    "deadline_raw": "IHNED (9. 10. 2023)",
+    "vote": {
+     "raw_text": "pro: 7 proti: 0 zdržel se: 0",
+     "pro": {
+      "count": 7,
+      "names": null,
+      "raw": "7"
+     },
+     "proti": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     },
+     "zdrzel_se": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     }
+    },
+    "detail": {
+     "number_raw": "UR-293-35/23",
+     "text_verbatim": "Rada města schvaluje návrh programu jednání.",
+     "typ_raw": null,
+     "zodpovida_raw": "",
+     "prijato_raw": "9. 10. 2023 na jednání č. 35/2023",
+     "prijato_date_iso": "2023-10-09",
+     "prijato_meeting_label": "35/2023",
+     "termin_raw": "IHNED (9. 10. 2023)",
+     "ukonceno_raw": "9. 10. 2023",
+     "ukonceno_date_iso": "2023-10-09",
+     "fields_raw": {
+      "Číslo usnesení": "UR-293-35/23",
+      "Text usnesení": "Rada města schvaluje návrh programu jednání.",
+      "Zodpovídá": "",
+      "Přijato": "9. 10. 2023 na jednání č. 35/2023",
+      "Termín": "IHNED (9. 10. 2023)",
+      "Ukončeno": "9. 10. 2023"
+     }
+    }
+   },
+   {
+    "number_raw": "UR-294-35/23",
+    "detail_id": 47410,
+    "detail_url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/47410?mod=rada",
+    "agenda_item_raw": "Uzavření „Smlouvy o výpůjčce“ – s organizací Respondeo, z.s., Nymburk",
+    "text_verbatim": "Rada\nměsta schvaluje uzavřít Smlouvu o výpůjčce s organizací Respondeo, z.s. se sídlem Nymburk, nám. Přemyslovců 14/11. Jedná se o nebytové prostory v 1. NP radnice, kancelář č. 11 o celkové výměře 22,7 m\n2\n. Smlouva o výpůjčce bude uzavřena na dobu určitou od 18. 10. 2023 do 31. 12. 2023.",
+    "cell_text_raw": "Bod programu:\nUzavření „Smlouvy o výpůjčce“ – s organizací Respondeo, z.s., Nymburk\nText přijatého usnesení:\nRada\nměsta schvaluje uzavřít Smlouvu o výpůjčce s organizací Respondeo, z.s. se sídlem Nymburk, nám. Přemyslovců 14/11. Jedná se o nebytové prostory v 1. NP radnice, kancelář č. 11 o celkové výměře 22,7 m\n2\n. Smlouva o výpůjčce bude uzavřena na dobu určitou od 18. 10. 2023 do 31. 12. 2023.",
+    "date_raw": "9. 10. 2023",
+    "date_iso": "2023-10-09",
+    "responsible_raw": "Jana Najbrtová",
+    "deadline_raw": "31. 10. 2023",
+    "vote": {
+     "raw_text": "pro: 7 proti: 0 zdržel se: 0",
+     "pro": {
+      "count": 7,
+      "names": null,
+      "raw": "7"
+     },
+     "proti": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     },
+     "zdrzel_se": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     }
+    },
+    "detail": {
+     "number_raw": "UR-294-35/23",
+     "text_verbatim": "Rada města schvaluje uzavřít Smlouvu o výpůjčce s organizací Respondeo, z.s. se sídlem Nymburk, nám. Přemyslovců 14/11. Jedná se o nebytové prostory v 1. NP radnice, kancelář č. 11 o celkové výměře 22,7 m 2 . Smlouva o výpůjčce bude uzavřena na dobu určitou od 18. 10. 2023 do 31. 12. 2023.",
+     "typ_raw": null,
+     "zodpovida_raw": "Jana Najbrtová",
+     "prijato_raw": "9. 10. 2023 na jednání č. 35/2023",
+     "prijato_date_iso": "2023-10-09",
+     "prijato_meeting_label": "35/2023",
+     "termin_raw": "31. 10. 2023",
+     "ukonceno_raw": "26. 10. 2023",
+     "ukonceno_date_iso": "2023-10-26",
+     "fields_raw": {
+      "Číslo usnesení": "UR-294-35/23",
+      "Text usnesení": "Rada města schvaluje uzavřít Smlouvu o výpůjčce s organizací Respondeo, z.s. se sídlem Nymburk, nám. Přemyslovců 14/11. Jedná se o nebytové prostory v 1. NP radnice, kancelář č. 11 o celkové výměře 22,7 m 2 . Smlouva o výpůjčce bude uzavřena na dobu určitou od 18. 10. 2023 do 31. 12. 2023.",
+      "Zodpovídá": "Jana Najbrtová",
+      "Přijato": "9. 10. 2023 na jednání č. 35/2023",
+      "Termín": "31. 10. 2023",
+      "Ukončeno": "26. 10. 2023"
+     }
+    }
+   },
+   {
+    "number_raw": "UR-295-35/23",
+    "detail_id": 47431,
+    "detail_url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/47431?mod=rada",
+    "agenda_item_raw": "Výše místního poplatku za obecní systém odpadového hospodářství",
+    "text_verbatim": "Rada\nměsta schvaluje předložený návrh  místního poplatku za obecní systém odpadového hospodářství pro rok 2024 ve výši 900,- Kč pro fyzickou osobu přihlášenou v obci a vlastníka nemovitosti (bytu, rodinného domu) bez trvalého pobytu a úlevu 200,- Kč z tohoto poplatku pro osoby starší 75 let, přihlášených v obci. OZV o místním poplatku za obecní systém odpadového hospodářství, bude předložena ke schválení RM.",
+    "cell_text_raw": "Bod programu:\nVýše místního poplatku za obecní systém odpadového hospodářství\nText přijatého usnesení:\nRada\nměsta schvaluje předložený návrh  místního poplatku za obecní systém odpadového hospodářství pro rok 2024 ve výši 900,- Kč pro fyzickou osobu přihlášenou v obci a vlastníka nemovitosti (bytu, rodinného domu) bez trvalého pobytu a úlevu 200,- Kč z tohoto poplatku pro osoby starší 75 let, přihlášených v obci. OZV o místním poplatku za obecní systém odpadového hospodářství, bude předložena ke schválení RM.",
+    "date_raw": "9. 10. 2023",
+    "date_iso": "2023-10-09",
+    "responsible_raw": "Hana Pokorná",
+    "deadline_raw": "23. 10. 2023",
+    "vote": {
+     "raw_text": "pro: 7 proti: 0 zdržel se: 0",
+     "pro": {
+      "count": 7,
+      "names": null,
+      "raw": "7"
+     },
+     "proti": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     },
+     "zdrzel_se": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     }
+    },
+    "detail": {
+     "number_raw": "UR-295-35/23",
+     "text_verbatim": "Rada města schvaluje předložený návrh  místního poplatku za obecní systém odpadového hospodářství pro rok 2024 ve výši 900,- Kč pro fyzickou osobu přihlášenou v obci a vlastníka nemovitosti (bytu, rodinného domu) bez trvalého pobytu a úlevu 200,- Kč z tohoto poplatku pro osoby starší 75 let, přihlášených v obci. OZV o místním poplatku za obecní systém odpadového hospodářství, bude předložena ke schválení RM.",
+     "typ_raw": null,
+     "zodpovida_raw": "Hana Pokorná",
+     "prijato_raw": "9. 10. 2023 na jednání č. 35/2023",
+     "prijato_date_iso": "2023-10-09",
+     "prijato_meeting_label": "35/2023",
+     "termin_raw": "23. 10. 2023",
+     "ukonceno_raw": "23. 10. 2023",
+     "ukonceno_date_iso": "2023-10-23",
+     "fields_raw": {
+      "Číslo usnesení": "UR-295-35/23",
+      "Text usnesení": "Rada města schvaluje předložený návrh  místního poplatku za obecní systém odpadového hospodářství pro rok 2024 ve výši 900,- Kč pro fyzickou osobu přihlášenou v obci a vlastníka nemovitosti (bytu, rodinného domu) bez trvalého pobytu a úlevu 200,- Kč z tohoto poplatku pro osoby starší 75 let, přihlášených v obci. OZV o místním poplatku za obecní systém odpadového hospodářství, bude předložena ke schválení RM.",
+      "Zodpovídá": "Hana Pokorná",
+      "Přijato": "9. 10. 2023 na jednání č. 35/2023",
+      "Termín": "23. 10. 2023",
+      "Ukončeno": "23. 10. 2023"
+     }
+    }
+   },
+   {
+    "number_raw": "UR-296-35/23",
+    "detail_id": 47473,
+    "detail_url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/47473?mod=rada",
+    "agenda_item_raw": "Dotace - Římskokatolická farnost Pečky",
+    "text_verbatim": "Rada\nměsta schvaluje poskytnutí dotace ve výši 10 000 Kč  Římskokatolické farnosti Pečky, IČO: 61632236,  a uzavření veřejnoprávní smlouvy. Dotace je určena na uspořádání slavnostní bohoslužby a koncertu při příležitosti 110. výročí posvěcení kostela sv. V\náclava\nv Pečkách.",
+    "cell_text_raw": "Bod programu:\nDotace - Římskokatolická farnost Pečky\nText přijatého usnesení:\nRada\nměsta schvaluje poskytnutí dotace ve výši 10 000 Kč  Římskokatolické farnosti Pečky, IČO: 61632236,  a uzavření veřejnoprávní smlouvy. Dotace je určena na uspořádání slavnostní bohoslužby a koncertu při příležitosti 110. výročí posvěcení kostela sv. V\náclava\nv Pečkách.",
+    "date_raw": "9. 10. 2023",
+    "date_iso": "2023-10-09",
+    "responsible_raw": "Marcela Bahníková",
+    "deadline_raw": "13. 10. 2023",
+    "vote": {
+     "raw_text": "pro: 7 proti: 0 zdržel se: 0",
+     "pro": {
+      "count": 7,
+      "names": null,
+      "raw": "7"
+     },
+     "proti": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     },
+     "zdrzel_se": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     }
+    },
+    "detail": {
+     "number_raw": "UR-296-35/23",
+     "text_verbatim": "Rada města schvaluje poskytnutí dotace ve výši 10 000 Kč  Římskokatolické farnosti Pečky, IČO: 61632236,  a uzavření veřejnoprávní smlouvy. Dotace je určena na uspořádání slavnostní bohoslužby a koncertu při příležitosti 110. výročí posvěcení kostela sv. V áclava v Pečkách.",
+     "typ_raw": null,
+     "zodpovida_raw": "Marcela Bahníková",
+     "prijato_raw": "9. 10. 2023 na jednání č. 35/2023",
+     "prijato_date_iso": "2023-10-09",
+     "prijato_meeting_label": "35/2023",
+     "termin_raw": "13. 10. 2023",
+     "ukonceno_raw": "12. 10. 2023",
+     "ukonceno_date_iso": "2023-10-12",
+     "fields_raw": {
+      "Číslo usnesení": "UR-296-35/23",
+      "Text usnesení": "Rada města schvaluje poskytnutí dotace ve výši 10 000 Kč  Římskokatolické farnosti Pečky, IČO: 61632236,  a uzavření veřejnoprávní smlouvy. Dotace je určena na uspořádání slavnostní bohoslužby a koncertu při příležitosti 110. výročí posvěcení kostela sv. V áclava v Pečkách.",
+      "Zodpovídá": "Marcela Bahníková",
+      "Přijato": "9. 10. 2023 na jednání č. 35/2023",
+      "Termín": "13. 10. 2023",
+      "Ukončeno": "12. 10. 2023"
+     }
+    }
+   },
+   {
+    "number_raw": "UR-297-35/23",
+    "detail_id": 47472,
+    "detail_url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/47472?mod=rada",
+    "agenda_item_raw": "Rozpočtové opatření č. 7/2023",
+    "text_verbatim": "Rada\nměsta schvaluje rozpočtová opatření č.  7/2023.",
+    "cell_text_raw": "Bod programu:\nRozpočtové opatření č. 7/2023\nText přijatého usnesení:\nRada\nměsta schvaluje rozpočtová opatření č.  7/2023.",
+    "date_raw": "9. 10. 2023",
+    "date_iso": "2023-10-09",
+    "responsible_raw": "",
+    "deadline_raw": "IHNED (9. 10. 2023)",
+    "vote": {
+     "raw_text": "pro: 7 proti: 0 zdržel se: 0",
+     "pro": {
+      "count": 7,
+      "names": null,
+      "raw": "7"
+     },
+     "proti": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     },
+     "zdrzel_se": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     }
+    },
+    "detail": {
+     "number_raw": "UR-297-35/23",
+     "text_verbatim": "Rada města schvaluje rozpočtová opatření č.  7/2023.",
+     "typ_raw": null,
+     "zodpovida_raw": "",
+     "prijato_raw": "9. 10. 2023 na jednání č. 35/2023",
+     "prijato_date_iso": "2023-10-09",
+     "prijato_meeting_label": "35/2023",
+     "termin_raw": "IHNED (9. 10. 2023)",
+     "ukonceno_raw": "9. 10. 2023",
+     "ukonceno_date_iso": "2023-10-09",
+     "fields_raw": {
+      "Číslo usnesení": "UR-297-35/23",
+      "Text usnesení": "Rada města schvaluje rozpočtová opatření č.  7/2023.",
+      "Zodpovídá": "",
+      "Přijato": "9. 10. 2023 na jednání č. 35/2023",
+      "Termín": "IHNED (9. 10. 2023)",
+      "Ukončeno": "9. 10. 2023"
+     }
+    }
+   },
+   {
+    "number_raw": "UR-298-35/23",
+    "detail_id": 47474,
+    "detail_url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/47474?mod=rada",
+    "agenda_item_raw": "Dotace- služby tísňové péče",
+    "text_verbatim": "Rada\nměsta schvaluje poskytnutí dotace ve výši 200 Kč měsíčně na financování služby tísňové péče pro paní Evu Sekavcovou\n█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​\na uzavření veřejnoprávní smlouvy o poskytnutí dotace.",
+    "cell_text_raw": "Bod programu:\nDotace- služby tísňové péče\nText přijatého usnesení:\nRada\nměsta schvaluje poskytnutí dotace ve výši 200 Kč měsíčně na financování služby tísňové péče pro paní Evu Sekavcovou\n█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​\na uzavření veřejnoprávní smlouvy o poskytnutí dotace.",
+    "date_raw": "9. 10. 2023",
+    "date_iso": "2023-10-09",
+    "responsible_raw": "Marcela Bahníková",
+    "deadline_raw": "16. 10. 2023",
+    "vote": {
+     "raw_text": "pro: 7 proti: 0 zdržel se: 0",
+     "pro": {
+      "count": 7,
+      "names": null,
+      "raw": "7"
+     },
+     "proti": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     },
+     "zdrzel_se": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     }
+    },
+    "detail": {
+     "number_raw": "UR-298-35/23",
+     "text_verbatim": "Rada města schvaluje poskytnutí dotace ve výši 200 Kč měsíčně na financování služby tísňové péče pro paní Evu Sekavcovou █​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​ a uzavření veřejnoprávní smlouvy o poskytnutí dotace.",
+     "typ_raw": null,
+     "zodpovida_raw": "Marcela Bahníková",
+     "prijato_raw": "9. 10. 2023 na jednání č. 35/2023",
+     "prijato_date_iso": "2023-10-09",
+     "prijato_meeting_label": "35/2023",
+     "termin_raw": "16. 10. 2023",
+     "ukonceno_raw": "12. 10. 2023",
+     "ukonceno_date_iso": "2023-10-12",
+     "fields_raw": {
+      "Číslo usnesení": "UR-298-35/23",
+      "Text usnesení": "Rada města schvaluje poskytnutí dotace ve výši 200 Kč měsíčně na financování služby tísňové péče pro paní Evu Sekavcovou █​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​ a uzavření veřejnoprávní smlouvy o poskytnutí dotace.",
+      "Zodpovídá": "Marcela Bahníková",
+      "Přijato": "9. 10. 2023 na jednání č. 35/2023",
+      "Termín": "16. 10. 2023",
+      "Ukončeno": "12. 10. 2023"
+     }
+    }
+   }
+  ]
+ }
+}

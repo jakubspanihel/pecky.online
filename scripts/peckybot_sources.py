@@ -553,9 +553,62 @@ def chunks_absence():
     return out
 
 
+# ---------------------------------------------------------------- shrnutí jednání (jednani/shrnuti/)
+
+def _md_plain(t):
+    return re.sub(r'\s+', ' ', re.sub(r'\*+', '', t)).strip()
+
+
+def shrnuti_jednani(jid):
+    """Shrnutí jednání z jednani/shrnuti/{datum}-{typ}.md (postup:
+    jednani/INSTRUKCE-shrnuti-schuzky.md) jako {'temata': [...], 'shrnuti': [...]}
+    v čistém textu; None, když soubor neexistuje. jid = hash jednání (rada-2026-10-12,
+    kontrolni-vybor-2026-08-28)."""
+    m = re.match(r'^(.*)-(\d{4}-\d{2}-\d{2})$', jid)
+    if not m:
+        return None
+    path = ROOT / 'jednani' / 'shrnuti' / f'{m.group(2)}-{m.group(1)}.md'
+    if not path.exists():
+        return None
+    out, sekce = {'temata': [], 'shrnuti': []}, None
+    for line in path.read_text(encoding='utf-8').splitlines():
+        h = re.match(r'^##\s+(.+)', line)
+        if h:
+            sekce = 'temata' if h.group(1).startswith('Nejdůležitější') else 'shrnuti'
+            continue
+        t = re.sub(r'^(\d+\.|-)\s+', '', line.strip())
+        # závěrečná kurzívní poznámka o zdroji je určena čtenáři webu, ne odpovědím
+        if t and sekce and not (line.strip().startswith('*') and not line.strip().startswith('**')):
+            out[sekce].append(_md_plain(t))
+    return out if out['temata'] or out['shrnuti'] else None
+
+
+def chunks_shrnuti():
+    """Úryvky se shrnutím jednání (nejdůležitější témata + shrnutí) pro fulltext."""
+    out = []
+    meetings = []
+    for fn in ('pecky-jednani', 'komise', 'vybory', 'skolska-rada'):
+        for m in _load(f'jednani/{fn}.json')['meetings']:
+            if m.get('id'):
+                jid, kde = m['id'], m['type']
+            else:
+                jid = ('zastupitelstvo-' if m['type'] == 'Zastupitelstvo' else 'rada-') + m['date']
+                kde = 'Zastupitelstvo města' if m['type'] == 'Zastupitelstvo' else 'Rada města'
+            meetings.append((m['date'], jid, f"{kde} {m.get('label', '')}".strip()))
+    for datum, jid, nazev in sorted(meetings):
+        s = shrnuti_jednani(jid)
+        if not s:
+            continue
+        zahlavi = f"Shrnutí jednání: {nazev}. Nejdůležitější témata, o čem se jednalo, co se projednalo."
+        kusy = (['Nejdůležitější témata: ' + ' '.join(s['temata'])] if s['temata'] else []) + s['shrnuti']
+        for x in _pack(zahlavi, kusy, MAX + 150):
+            out.append({'u': f'/jednani/#{jid}', 't': f'Shrnutí jednání — {nazev}', 'x': x})
+    return out
+
+
 def chunks_extra():
     out = []
     for fn in (chunks_komise, chunks_vybory, chunks_skolska_rada, chunks_kalendar, chunks_organizace,
-               chunks_noviny, chunks_naobed, chunks_absence):
+               chunks_noviny, chunks_naobed, chunks_absence, chunks_shrnuti):
         out += fn()
     return out

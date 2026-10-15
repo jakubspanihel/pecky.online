@@ -1,0 +1,987 @@
+{
+ "uuid": "f7e91f24-789a-11ee-962e-00505683238f",
+ "body_type_raw": "Rada",
+ "label_raw": "38/2023 (6. 11. 2023)",
+ "number": 38,
+ "year": 2023,
+ "date_iso": "2023-11-06",
+ "links": {
+  "invitation": "https://mesto-pecky.usneseni.cz/verejne/?uuid=f7e91f24-789a-11ee-962e-00505683238f&page=10&do=printPublicInvitation",
+  "minutes": "https://mesto-pecky.usneseni.cz/verejne/f7e91f24-789a-11ee-962e-00505683238f/zapis/?page=10",
+  "signed_minutes_pdf": "https://mesto-pecky.usneseni.cz/verejne/?meetingReportControl-uuid=f7e91f24-789a-11ee-962e-00505683238f&page=10&do=meetingReportControl-getSignedReportPdf",
+  "resolutions": "https://mesto-pecky.usneseni.cz/verejne/f7e91f24-789a-11ee-962e-00505683238f/usneseni/?page=10",
+  "audio": null
+ },
+ "link_texts": {
+  "invitation": "Pozvánka",
+  "minutes": "zápis",
+  "signed_minutes_pdf": "podepsaný zápis",
+  "resolutions": "přijatá usnesení"
+ },
+ "status": "ok",
+ "invitation": {
+  "status": "site_error",
+  "error": "status=200 ct=text/html; charset=utf-8 flash='<a href=\"\" class=\"close\" data-dismiss=\"alert\" aria-label=\"close\">&times;'",
+  "url": "https://mesto-pecky.usneseni.cz/verejne/?uuid=f7e91f24-789a-11ee-962e-00505683238f&do=printPublicInvitation",
+  "fetched_at": "2026-08-04T15:03:42.532058+00:00"
+ },
+ "minutes": {
+  "status": "ok",
+  "url": "https://mesto-pecky.usneseni.cz/verejne/f7e91f24-789a-11ee-962e-00505683238f/zapis/",
+  "fetched_at": "2026-08-04T14:01:32.820807+00:00",
+  "title_raw": "ZÁPIS ze schůze rady č. 38/2023 Město Pečky datum: 6. 11. 2023, čas: 15:00 ​",
+  "date_raw": "6. 11. 2023",
+  "date_iso": "2023-11-06",
+  "time_raw": "15:00",
+  "presence": {
+   "raw_text": "Prezence:\nPřítomni:\n(6) Zdeněk Fejfar, Milan Paluska, Ing. Martin Jedlička, Ing. Petr Dürr, Ivana Trčková, Ing. Karel Krištoufek\nOmluveni:\n(1) Ing. Hana Kuprová\nNepřítomni:\n(0)\nHosté:\nIng. Adam Brant\nZapisovatel/ka:\nEva Strnadová\nPřítomno je 6 členů a rada je usnášeníschopná.\nJednání zahájeno 06.11.2023 v 15:10:19",
+   "pritomni": {
+    "count": 6,
+    "names": [
+     "Zdeněk Fejfar",
+     "Milan Paluska",
+     "Ing. Martin Jedlička",
+     "Ing. Petr Dürr",
+     "Ivana Trčková",
+     "Ing. Karel Krištoufek"
+    ],
+    "raw": "(6) Zdeněk Fejfar, Milan Paluska, Ing. Martin Jedlička, Ing. Petr Dürr, Ivana Trčková, Ing. Karel Krištoufek"
+   },
+   "omluveni": {
+    "count": 1,
+    "names": [
+     "Ing. Hana Kuprová"
+    ],
+    "raw": "(1) Ing. Hana Kuprová"
+   },
+   "nepritomni": {
+    "count": 0,
+    "names": [],
+    "raw": "(0)"
+   },
+   "predsedajici": null,
+   "quorum_raw": "Přítomno je 6 členů a rada je usnášeníschopná."
+  },
+  "header_raw": "Prezence:\nPřítomni:\n(6) Zdeněk Fejfar, Milan Paluska, Ing. Martin Jedlička, Ing. Petr Dürr, Ivana Trčková, Ing. Karel Krištoufek\nOmluveni:\n(1) Ing. Hana Kuprová\nNepřítomni:\n(0)\nHosté:\nIng. Adam Brant\nZapisovatel/ka:\nEva Strnadová\nPřítomno je 6 členů a rada je usnášeníschopná.\nJednání zahájeno 06.11.2023 v 15:10:19",
+  "agenda_items": [
+   {
+    "number": 1,
+    "title_raw": "Určení zapisovatelů, předsedajícího, příp. ověřovatelů",
+    "heading_raw": "1. Určení zapisovatelů, předsedajícího, příp. ověřovatelů (bod číslo 1)",
+    "predkladatel": "Milan Paluska",
+    "votes": [],
+    "resolution_numbers_mentioned": [],
+    "raw_text": "Předkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 15:10:25\nPředsedající navrhl jednotlivé členy pracovních komisí\nOvěřovatelé:\nIvana Trčková, Ing. Karel Krištoufek\nPředsedající:\nMilan Paluska\nBod byl přijat bez hlasování.\nDiskuze zahájena v 15:10:25\nK tomuto bodu se vyjádřili: Milan Paluska\nProjednávání bodu bylo ukončeno v 15:10:55"
+   },
+   {
+    "number": 2,
+    "title_raw": "Schválení programu jednání",
+    "heading_raw": "2. Schválení programu jednání (bod číslo 2)",
+    "predkladatel": "Milan Paluska",
+    "votes": [
+     {
+      "raw_text": "pro:\n(6) Ing. Karel Krištoufek, Ing. Martin Jedlička, Ing. Petr Dürr, Zdeněk Fejfar, Ivana Trčková, Milan Paluska\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)",
+      "pro": {
+       "count": 6,
+       "names": [
+        "Ing. Karel Krištoufek",
+        "Ing. Martin Jedlička",
+        "Ing. Petr Dürr",
+        "Zdeněk Fejfar",
+        "Ivana Trčková",
+        "Milan Paluska"
+       ],
+       "raw": "(6) Ing. Karel Krištoufek, Ing. Martin Jedlička, Ing. Petr Dürr, Zdeněk Fejfar, Ivana Trčková, Milan Paluska"
+      },
+      "proti": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "zdrzel_se": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "nehlasoval": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "result_raw": "Návrh byl přijat jako usnesení číslo: UR-316-38/23",
+      "adopted_resolution_number": "UR-316-38/23"
+     }
+    ],
+    "resolution_numbers_mentioned": [
+     "UR-316-38/23"
+    ],
+    "raw_text": "Předkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 15:11:01\nProgram jednání\n1. Určení zapisovatelů, předsedajícího, příp. ověřovatelů\n2. Schválení programu jednání\n3. Aktuální informace vedení města\n4. Návrh na navýšení ceny za zřízení VBř do pozemků v majetku města\n5. Bezplatné poskytnutí zbytků dřeva za odklizení\n6. Zrušení Pravidel postupu pořizování změn územního plánu města Pečky\n7. Rekonstrukce veřejného osvětlení města Pečky – odsouhlasení podkladů pro podání žádosti o dotaci\n8. Rekonstrukce veřejného osvětlení v Pečkách - uzavření smlouvy s MAS Podlipansko na žádost o dotaci\n9. Výběrové řízení na zhotovitele, doplnění a rokonstrukce VO v ul. Františka Voláka v Pečkách\n10. Zápis z jednání Komise stavebně-dopravní a životního prostředí\n11. Valná hromada Služeb města Pečky s.r.o.\n12. Valná hromada Pečeckých služeb, s.r.o.\n13. Schválení uzavření objednávek úprav kontejnerových stání\n14. Uzavření Dodatku č.1 k SOD na akci: \"Rekonstrukce otopné soustavy vč. kotelny v Domě služeb Pečky\"\n15. Uzavření Dohody o odstoupení od SOD na stavební práce akce: \"Oprava schodiště u smuteční síně hřbitova v Pečkách\"\n16. Kontrola plnění usnesení\nDiskuze zahájena v 15:11:01\nK tomuto bodu se vyjádřili: Milan Paluska\nV 15:12:02 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Milan Paluska\") v tomto znění:\nRada\nměsta schvaluje návrh programu jednání.\nHlasování\npro:\n(6) Ing. Karel Krištoufek, Ing. Martin Jedlička, Ing. Petr Dürr, Zdeněk Fejfar, Ivana Trčková, Milan Paluska\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-316-38/23\nzodpovídá:\ntermín:\nIHNED\n(6. 11. 2023)\nProjednávání bodu bylo ukončeno v 15:12:10"
+   },
+   {
+    "number": 3,
+    "title_raw": "Aktuální informace vedení města",
+    "heading_raw": "3. Aktuální informace vedení města (bod číslo 3)",
+    "predkladatel": "Milan Paluska",
+    "votes": [],
+    "resolution_numbers_mentioned": [],
+    "raw_text": "Předkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 15:12:16\nDůvodová zpráva:\nstarosta města\n- informace o předání staveniště projektu \"Rekonstrukce kabin AFK Pečky\"\n- informace o slavnostním otevření kulturního domu a zahájení provozu\n- informace o převodu majetku VHI z Pečeckých služeb s.r.o. na město Pečky z důvodu požadavků dotace na úpravnu vody a z důvodu větší přehlednosti\nZdeněk\nFejfar\n- informace o schůzce s Ing. Skálou na MěÚ\nKolín\n, odbor územního plánování\nDiskuze zahájena v 15:12:16\nK tomuto bodu se vyjádřili: Milan Paluska, Zdeněk Fejfar, Ing. Karel Krištoufek, Ivana Trčková, Ing. Petr Dürr, Ing. Martin Jedlička\nRada bere materiály předložené k bodu č. 3 -\nAktuální informace vedení města\nna vědomí.\nProjednávání bodu bylo ukončeno v 16:30:00"
+   },
+   {
+    "number": 13,
+    "title_raw": "Schválení uzavření objednávek úprav kontejnerových stání",
+    "heading_raw": "4. Schválení uzavření objednávek úprav kontejnerových stání (bod číslo 13)",
+    "predkladatel": "Adam Brant",
+    "votes": [
+     {
+      "raw_text": "pro:\n(6) Ing. Petr Dürr, Ing. Martin Jedlička, Ivana Trčková, Ing. Karel Krištoufek, Milan Paluska, Zdeněk Fejfar\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)",
+      "pro": {
+       "count": 6,
+       "names": [
+        "Ing. Petr Dürr",
+        "Ing. Martin Jedlička",
+        "Ivana Trčková",
+        "Ing. Karel Krištoufek",
+        "Milan Paluska",
+        "Zdeněk Fejfar"
+       ],
+       "raw": "(6) Ing. Petr Dürr, Ing. Martin Jedlička, Ivana Trčková, Ing. Karel Krištoufek, Milan Paluska, Zdeněk Fejfar"
+      },
+      "proti": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "zdrzel_se": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "nehlasoval": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "result_raw": "Návrh byl přijat jako usnesení číslo: UR-317-38/23",
+      "adopted_resolution_number": "UR-317-38/23"
+     }
+    ],
+    "resolution_numbers_mentioned": [
+     "UR-317-38/23"
+    ],
+    "raw_text": "Předkladatel: Adam Brant\nProjednávání bodu bylo zahájeno v 16:32:55\nDůvodová zpráva:\nNa základě oslovení referentky Odboru výstavby, zemědělství, životního prostředí a dopravy Městského úřadu v Pečkách, paní\nPokorné\n, ohledně úprav kontejnerových stání po městě předkládáme nabídku na úpravy kontejnerových stání. Úprava kontejnerových stání spočívá v umístění aretačního systému pro umístění kontejnerových nádob s osazením paravánových zástěn s fasádním profilem Modřín Rhombus, včetně montáže.\nDojde k úpravám těchto kontejnerových stání:\n1) ul. Žerotínova v hodnotě 102.572,- Kč včetně 21 % DPH,\n2) ul.\nFrantiška\nVoláka\nv hodnotě 141.812,- Kč včetně 21 % DPH,\n3) ul.\nJiřího\nz\nPoděbrad\nv hodnotě 141.812,- Kč včetně 21 % DPH,\n4) ul. V Horkách x\nSladkovského\nv hodnotě 224.274,- Kč včetně 21 % DPH,\n5) ul. V Horkách (u garáží) v hodnotě 244.084,- Kč včetně 21 % DPH.\nCelkové náklady jsou tedy ve výši 854.554,- Kč včetně 21 % DPH.\nDiskuze zahájena v 16:32:55\nK tomuto bodu se vyjádřili: Milan Paluska, Ing. Adam Brant, Ing. Martin Jedlička, Ing. Karel Krištoufek\nV 16:48:37 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Adam Brant\") v tomto znění:\nRada\nměsta v souladu s § 11 ZZVZ objednává u spol. Služby města Pečky s.r.o., IČO: 08740844 zajištění úprav kontejnerových stání dle předložené cenové nabídky.\nHlasování\npro:\n(6) Ing. Petr Dürr, Ing. Martin Jedlička, Ivana Trčková, Ing. Karel Krištoufek, Milan Paluska, Zdeněk Fejfar\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-317-38/23\nzodpovídá:\nAdam Brant\ntermín:\n31. 12. 2023\nProjednávání bodu bylo ukončeno v 16:48:45"
+   },
+   {
+    "number": 11,
+    "title_raw": "Valná hromada Služeb města Pečky s.r.o.",
+    "heading_raw": "5. Valná hromada Služeb města Pečky s.r.o. (bod číslo 11)",
+    "predkladatel": "Adam Brant",
+    "votes": [],
+    "resolution_numbers_mentioned": [],
+    "raw_text": "Předkladatel: Adam Brant\nProjednávání bodu bylo zahájeno v 16:49:03\nDiskuze zahájena v 16:49:03\nK tomuto bodu se vyjádřili: Ing. Adam Brant\nRada bere materiály předložené k bodu č. 11 -\nValná hromada Služeb města Pečky s.r.o.\nna vědomí.\nProjednávání bodu bylo ukončeno v 16:54:16"
+   },
+   {
+    "number": 4,
+    "title_raw": "Návrh na navýšení ceny za zřízení VBř do pozemků v majetku města",
+    "heading_raw": "6. Návrh na navýšení ceny za zřízení VBř do pozemků v majetku města (bod číslo 4)",
+    "predkladatel": "Jana Najbrtová",
+    "votes": [
+     {
+      "raw_text": "pro:\n(6) Zdeněk Fejfar, Milan Paluska, Ing. Petr Dürr, Ivana Trčková, Ing. Martin Jedlička, Ing. Karel Krištoufek\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)",
+      "pro": {
+       "count": 6,
+       "names": [
+        "Zdeněk Fejfar",
+        "Milan Paluska",
+        "Ing. Petr Dürr",
+        "Ivana Trčková",
+        "Ing. Martin Jedlička",
+        "Ing. Karel Krištoufek"
+       ],
+       "raw": "(6) Zdeněk Fejfar, Milan Paluska, Ing. Petr Dürr, Ivana Trčková, Ing. Martin Jedlička, Ing. Karel Krištoufek"
+      },
+      "proti": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "zdrzel_se": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "nehlasoval": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "result_raw": "Návrh byl přijat jako usnesení číslo: UR-318-38/23",
+      "adopted_resolution_number": "UR-318-38/23"
+     }
+    ],
+    "resolution_numbers_mentioned": [
+     "UR-318-38/23"
+    ],
+    "raw_text": "Předkladatel: Jana Najbrtová\nProjednávání bodu bylo zahájeno v 16:54:25\nDůvodová zpráva:\nNavrhujeme navýšit cenu za zřízení VBř. při ukládání sítí do pozemků v majetku města.\nTato\nnavýšená cena by se týkala firem, které nepředloží znalecký posudek na zřízení VBř. Posudky pravidelně dokládají firmy ČEZ (el.energie) a GasNet (plyn). Navýšení by se tak dotýkalo takových firem, které budou chtít do pozemků v majetku města uložit např. optické sítě.\nPoslední\nnavýšení ceny bylo schváleno radou města v prosinci 2018 a cena je stanovena na 120,- Kč/bm+DPH. Z tohoto důvodu navrhujeme navýšení na 150,- Kč/bm+DPH.\nCena\nznaleckých posudků je různá a činí např. 133,- Kč/bm (sídliště), 210,- Kč/bm (Bačov), 335,- Kč/bm (\n█​█​█​█​█​█​█​█\n-Tahiti) ……….  to jsou ceny letošního roku.\nDiskuze zahájena v 16:54:25\nK tomuto bodu se vyjádřili: Milan Paluska, Zdeněk Fejfar, Ing. Petr Dürr, Ing. Karel Krištoufek\nV 16:59:22 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Jana Najbrtová\") v tomto znění:\nRada\nměsta schvaluje cenu za zřízení VBř. do pozemků v majetku města ve výši 200,- Kč/bm + DPH s účinností od 7. 11. 2023.\nHlasování\npro:\n(6) Zdeněk Fejfar, Milan Paluska, Ing. Petr Dürr, Ivana Trčková, Ing. Martin Jedlička, Ing. Karel Krištoufek\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-318-38/23\nzodpovídá:\nJana Najbrtová\ntermín:\n30. 11. 2023\nProjednávání bodu bylo ukončeno v 16:59:30"
+   },
+   {
+    "number": 5,
+    "title_raw": "Bezplatné poskytnutí zbytků dřeva za odklizení",
+    "heading_raw": "7. Bezplatné poskytnutí zbytků dřeva za odklizení (bod číslo 5)",
+    "predkladatel": "Hana Pokorná",
+    "votes": [
+     {
+      "raw_text": "pro:\n(6) Ing. Martin Jedlička, Ing. Karel Krištoufek, Ivana Trčková, Zdeněk Fejfar, Milan Paluska, Ing. Petr Dürr\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)",
+      "pro": {
+       "count": 6,
+       "names": [
+        "Ing. Martin Jedlička",
+        "Ing. Karel Krištoufek",
+        "Ivana Trčková",
+        "Zdeněk Fejfar",
+        "Milan Paluska",
+        "Ing. Petr Dürr"
+       ],
+       "raw": "(6) Ing. Martin Jedlička, Ing. Karel Krištoufek, Ivana Trčková, Zdeněk Fejfar, Milan Paluska, Ing. Petr Dürr"
+      },
+      "proti": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "zdrzel_se": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "nehlasoval": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "result_raw": "Návrh byl přijat jako usnesení číslo: UR-319-38/23",
+      "adopted_resolution_number": "UR-319-38/23"
+     }
+    ],
+    "resolution_numbers_mentioned": [
+     "UR-319-38/23"
+    ],
+    "raw_text": "Předkladatel: Hana Pokorná\nProjednávání bodu bylo zahájeno v 16:59:41\nDůvodová zpráva:\nNa Mlýnském náhonu v Pečkách na pozemku p.č. 1451/3 v k.ú. Pečky, došlo v říjnu k vyvrácení vrby.\nVrba\nbyla firmou Stromotom s.r.o., Radovesnice rozřezána a uklizena, pouze na místě zbyla spodní část kmene, kterou vzhledem k obtížnosti (velké kusy) firma neodstraňovala a které překáží v sečení traktorem kolem\nMlýnského\nnáhonu. Likvidace zbytků kmene od Služeb města\nPeček\ns.r.o., včetně uložení na skládku by bylo obtížné a nákladné.\n█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█\nby za bezplatné poskytnutí, kusy dřeva rozřezal a uklidil.\nDiskuze zahájena v 16:59:41\nK tomuto bodu se vyjádřili: Milan Paluska, Ing. Karel Krištoufek, Ing. Martin Jedlička\nV 17:01:40 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Hana Pokorná\") v tomto znění:\nRada\nměsta schvaluje bezplatné poskytnutí zbytků dřeva (vrby) z vyvráceného stromu na Mlýnském náhonu v Pečkách na pozemku p.č. 1451/3 v k.ú. Pečky,\n█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█\na to za úklid.\nHlasování\npro:\n(6) Ing. Martin Jedlička, Ing. Karel Krištoufek, Ivana Trčková, Zdeněk Fejfar, Milan Paluska, Ing. Petr Dürr\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-319-38/23\nzodpovídá:\nHana Pokorná\ntermín:\n20. 11. 2023\nProjednávání bodu bylo ukončeno v 17:01:47"
+   },
+   {
+    "number": 6,
+    "title_raw": "Zrušení Pravidel postupu pořizování změn územního plánu města Pečky",
+    "heading_raw": "8. Zrušení Pravidel postupu pořizování změn územního plánu města Pečky (bod číslo 6)",
+    "predkladatel": "Zdeněk Fejfar",
+    "votes": [
+     {
+      "raw_text": "pro:\n(6) Ing. Martin Jedlička, Ing. Petr Dürr, Ivana Trčková, Ing. Karel Krištoufek, Zdeněk Fejfar, Milan Paluska\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)",
+      "pro": {
+       "count": 6,
+       "names": [
+        "Ing. Martin Jedlička",
+        "Ing. Petr Dürr",
+        "Ivana Trčková",
+        "Ing. Karel Krištoufek",
+        "Zdeněk Fejfar",
+        "Milan Paluska"
+       ],
+       "raw": "(6) Ing. Martin Jedlička, Ing. Petr Dürr, Ivana Trčková, Ing. Karel Krištoufek, Zdeněk Fejfar, Milan Paluska"
+      },
+      "proti": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "zdrzel_se": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "nehlasoval": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "result_raw": "Návrh byl přijat jako usnesení číslo: UR-320-38/23",
+      "adopted_resolution_number": "UR-320-38/23"
+     }
+    ],
+    "resolution_numbers_mentioned": [
+     "UR-320-38/23"
+    ],
+    "raw_text": "Předkladatel: Zdeněk Fejfar\nProjednávání bodu bylo zahájeno v 17:01:54\nDůvodová zpráva:\nZ důvodu nesprávných údajů v Pravidlech postupu pořizování změny územního plánu města Pečky a plánovanou účinností nového stavebního zákona ode dne 1.1.2024 a další části následně od 1.7.2024, navrhuji tyto Pravidla postupu pořizování změny územního plánu města Pečky ze dne 18.2.2019 Č.j. PEC/561/2019 zrušit bez náhrady. Po zrušení těchto pravidel se bude změna územního plánu města Pečky řídit platnou legislativou.\nDiskuze zahájena v 17:01:54\nK tomuto bodu se vyjádřili: Zdeněk Fejfar, Ing. Karel Krištoufek, Ivana Trčková, Ing. Petr Dürr\nV 17:20:36 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Zdeněk Fejfar\") v tomto znění:\nRada\nměsta schvaluje zrušení Pravidel postupu pořizování změn územního plánu města Pečky vydaných dne 18.2.2019 pod čj. PEC/561/2019 bez náhrady. Po zrušení těchto pravidel se bude změna územního plánu města Pečky řídit platnou legislativou.\nHlasování\npro:\n(6) Ing. Martin Jedlička, Ing. Petr Dürr, Ivana Trčková, Ing. Karel Krištoufek, Zdeněk Fejfar, Milan Paluska\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-320-38/23\nzodpovídá:\ntermín:\nIHNED\n(6. 11. 2023)\nProjednávání bodu bylo ukončeno v 17:20:48"
+   },
+   {
+    "number": 7,
+    "title_raw": "Rekonstrukce veřejného osvětlení města Pečky – odsouhlasení podkladů pro podání žádosti o dotaci",
+    "heading_raw": "9. Rekonstrukce veřejného osvětlení města Pečky – odsouhlasení podkladů pro podání žádosti o dotaci (bod číslo 7)",
+    "predkladatel": "Jana Zindrová",
+    "votes": [
+     {
+      "raw_text": "pro:\n(6) Ing. Karel Krištoufek, Milan Paluska, Ing. Martin Jedlička, Ing. Petr Dürr, Ivana Trčková, Zdeněk Fejfar\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)",
+      "pro": {
+       "count": 6,
+       "names": [
+        "Ing. Karel Krištoufek",
+        "Milan Paluska",
+        "Ing. Martin Jedlička",
+        "Ing. Petr Dürr",
+        "Ivana Trčková",
+        "Zdeněk Fejfar"
+       ],
+       "raw": "(6) Ing. Karel Krištoufek, Milan Paluska, Ing. Martin Jedlička, Ing. Petr Dürr, Ivana Trčková, Zdeněk Fejfar"
+      },
+      "proti": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "zdrzel_se": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "nehlasoval": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "result_raw": "Návrh byl přijat jako usnesení číslo: UR-321-38/23",
+      "adopted_resolution_number": "UR-321-38/23"
+     }
+    ],
+    "resolution_numbers_mentioned": [
+     "UR-214-23/23",
+     "UR-321-38/23"
+    ],
+    "raw_text": "Předkladatel: Jana Zindrová\nProjednávání bodu bylo zahájeno v 17:20:57\nDůvodová zpráva:\nMěsto Pečky uzavřelo smlouvu (dle usnesení UR-214-23/23) s firmou Sunritek s.r.o.,  Holanská 878/2, Štýřice,\nBrno\n, IČ: 04022351, na ZPRACOVÁNÍ DOKUMENTŮ PRO ZÍSKÁNÍ DOTACE na rekonstrukci veřejného osvětlení, dotační výzva č. NPO1/2022. Firma dokumenty zpracovala a jsou předloženy ke schválení z důvodu následného podpisu Příkazní smlouvy s MAS Podlipansko, o.p.s..\nDiskuze zahájena v 17:20:57\nK tomuto bodu se vyjádřili: Milan Paluska, Ing. Karel Krištoufek, Ing. Martin Jedlička\nV 17:23:32 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Jana Zindrová\") v tomto znění:\nRada\nměsta schvaluje použití zpracovaných dokumentů pro získání dotace na rekonstrukci veřejného osvětlení, dotační výzva č. NPO1/2022 firmou Sunritec s.r.o.,\nBrno\n, IČ: 04022351 z důvodu následného podpisu Příkazní smlouvy s MAS Podlipansko, o.p.s..\nHlasování\npro:\n(6) Ing. Karel Krištoufek, Milan Paluska, Ing. Martin Jedlička, Ing. Petr Dürr, Ivana Trčková, Zdeněk Fejfar\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-321-38/23\nzodpovídá:\nJana Zindrová\ntermín:\n20. 11. 2023\nProjednávání bodu bylo ukončeno v 17:23:42"
+   },
+   {
+    "number": 8,
+    "title_raw": "Rekonstrukce veřejného osvětlení v Pečkách - uzavření smlouvy s MAS Podlipansko na žádost o dotaci",
+    "heading_raw": "10. Rekonstrukce veřejného osvětlení v Pečkách - uzavření smlouvy s MAS Podlipansko na žádost o dotaci (bod číslo 8)",
+    "predkladatel": "Jana Zindrová",
+    "votes": [
+     {
+      "raw_text": "pro:\n(6) Ing. Petr Dürr, Ing. Martin Jedlička, Milan Paluska, Ivana Trčková, Ing. Karel Krištoufek, Zdeněk Fejfar\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)",
+      "pro": {
+       "count": 6,
+       "names": [
+        "Ing. Petr Dürr",
+        "Ing. Martin Jedlička",
+        "Milan Paluska",
+        "Ivana Trčková",
+        "Ing. Karel Krištoufek",
+        "Zdeněk Fejfar"
+       ],
+       "raw": "(6) Ing. Petr Dürr, Ing. Martin Jedlička, Milan Paluska, Ivana Trčková, Ing. Karel Krištoufek, Zdeněk Fejfar"
+      },
+      "proti": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "zdrzel_se": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "nehlasoval": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "result_raw": "Návrh byl přijat jako usnesení číslo: UR-322-38/23",
+      "adopted_resolution_number": "UR-322-38/23"
+     }
+    ],
+    "resolution_numbers_mentioned": [
+     "UR-322-38/23"
+    ],
+    "raw_text": "Předkladatel: Jana Zindrová\nProjednávání bodu bylo zahájeno v 17:23:46\nDůvodová zpráva:\nRekonstrukce veřejného osvětlení města Pečky – uzavření smlouvy mezi městem Pečky a MAS Podlipansko na zpracování žádosti o dotaci, organizaci výběrového řízení na dodavatele a vyhodnocení dotace na rekonstrukci veřejného osvětlení v Pečkách a to v souladu s programem EFEKT Ministerstva průmyslu a obchodu dle výzvy č. NPO 1/2022.\nMěsto Pečky uzavřelo smlouvu s firmou Sunritek s.r.o.,  Holanská 878/2, Štýřice,\nBrno\n, IČ: 04022351, smluvním partnerem MAS Podlipansko na zpracování dokumentů pro získání dotace na modernizaci veřejného osvětlení.\nZa použití těchto nezbytných podkladů lze získat dotaci na rekonstrukci veřejného osvětlení. Žádost o dotaci a související (organizaci výběrového řízení na dodavatele, vyhodnocení dotace) lze pořídit prostřednictvím MAS Podlipansko na základě uzavřené smlouvy mezi městem Pečky a MAS Podlipansko za cenu 62.000,- Kč.\nRekonstrukce  spočívá ve výměně stávajících svítidel za energeticky úsporná LED svítidla ve vybraných lokalitách\nPeček\na Velkých Chvalovic a to v počtu 414 svítidel. Počet a parametry vybraných svítidel je optimalizován pro získání maximální výše dotace 4 mil. Kč vč DPH.\nUzavření smlouvy je podmíněno odsouhlasením zpracovaných podkladů na rekonstrukci VO, jež bylo radou města projednáno před tímto bodem.\nDiskuze zahájena v 17:23:46\nK tomuto bodu se vyjádřili: Milan Paluska\nV 17:24:18 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Jana Zindrová\") v tomto znění:\nRada\nměsta schvaluje uzavření smlouvy mezi městem Pečky a MAS Podlipansko na zpracování žádosti o dotaci, organizaci výběrového řízení na dodavatele a vyhodnocení dotace na rekonstrukci veřejného osvětlení v Pečkách v souladu s programem EFEKT Ministerstva průmyslu a obchodu dle výzvy č. NPO 1/2022 za cenu 62 000,- Kč a pověřuje starostu města podpisem této smlouvy.\nHlasování\npro:\n(6) Ing. Petr Dürr, Ing. Martin Jedlička, Milan Paluska, Ivana Trčková, Ing. Karel Krištoufek, Zdeněk Fejfar\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-322-38/23\nzodpovídá:\nJana Zindrová\ntermín:\n20. 11. 2023\nProjednávání bodu bylo ukončeno v 17:24:26"
+   },
+   {
+    "number": 9,
+    "title_raw": "Výběrové řízení na zhotovitele, doplnění a rekonstrukce VO v ul. Františka Voláka v Pečkách",
+    "heading_raw": "11. Výběrové řízení na zhotovitele, doplnění a rekonstrukce VO v ul. Františka Voláka v Pečkách (bod číslo 9)",
+    "predkladatel": "Jana Zindrová",
+    "votes": [
+     {
+      "raw_text": "pro:\n(6) Ing. Martin Jedlička, Zdeněk Fejfar, Ivana Trčková, Ing. Petr Dürr, Milan Paluska, Ing. Karel Krištoufek\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)",
+      "pro": {
+       "count": 6,
+       "names": [
+        "Ing. Martin Jedlička",
+        "Zdeněk Fejfar",
+        "Ivana Trčková",
+        "Ing. Petr Dürr",
+        "Milan Paluska",
+        "Ing. Karel Krištoufek"
+       ],
+       "raw": "(6) Ing. Martin Jedlička, Zdeněk Fejfar, Ivana Trčková, Ing. Petr Dürr, Milan Paluska, Ing. Karel Krištoufek"
+      },
+      "proti": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "zdrzel_se": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "nehlasoval": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "result_raw": "Návrh byl přijat jako usnesení číslo: UR-323-38/23",
+      "adopted_resolution_number": "UR-323-38/23"
+     }
+    ],
+    "resolution_numbers_mentioned": [
+     "UR-323-38/23"
+    ],
+    "raw_text": "Předkladatel: Jana Zindrová\nProjednávání bodu bylo zahájeno v 17:24:33\nDůvodová zpráva:\nMěsto Pečky má zpracovanou PD na doplnění a rekonstrukci VO v ul. Fr.\nVoláka\nv Pečkách. Akce spočívá ve výměně 6 osvětlení za ledková na stávajících stožárech a v doplnění 4 nových světelných bodů. Předpokládaný rozpočet činí 441 170,69 Kč včetně DPH.\nDiskuze zahájena v 17:24:33\nK tomuto bodu se vyjádřili: Milan Paluska, Zdeněk Fejfar\nV 17:26:10 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Jana Zindrová\") v tomto znění:\nRada\nměsta schvaluje vyhlášení výběrového řízení na zhotovitele pro doplnění a rekonstrukci veřejného osvětlení v ul.\nFrantiška\nVoláka\nv Pečkách.\nHlasování\npro:\n(6) Ing. Martin Jedlička, Zdeněk Fejfar, Ivana Trčková, Ing. Petr Dürr, Milan Paluska, Ing. Karel Krištoufek\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-323-38/23\nzodpovídá:\nJana Zindrová\ntermín:\n20. 11. 2023\nProjednávání bodu bylo ukončeno v 17:26:18"
+   },
+   {
+    "number": 10,
+    "title_raw": "Zápis z jednání Komise stavebně-dopravní a životního prostředí",
+    "heading_raw": "12. Zápis z jednání Komise stavebně-dopravní a životního prostředí (bod číslo 10)",
+    "predkladatel": "Ing. Petr Dürr",
+    "votes": [],
+    "resolution_numbers_mentioned": [],
+    "raw_text": "Předkladatel: Ing. Petr Dürr\nProjednávání bodu bylo zahájeno v 17:31:27\nDůvodová zpráva:\nPředkládáme radě města na vědomí zápis z jednání Komise stavebně - dopravní a životního prostředí, ze dne 18.10.2023.\nDiskuze zahájena v 17:31:27\nK tomuto bodu se vyjádřili: Ing. Petr Dürr, Ing. Karel Krištoufek, Milan Paluska, Zdeněk Fejfar\nRada bere materiály předložené k bodu č. 10 -\nZápis z jednání Komise stavebně-dopravní a životního prostředí\nna vědomí.\nProjednávání bodu bylo ukončeno v 17:45:24"
+   },
+   {
+    "number": 14,
+    "title_raw": "Uzavření Dodatku č.1 k SOD na akci: \"Rekonstrukce otopné soustavy vč. kotelny v Domě služeb Pečky\"",
+    "heading_raw": "13. Uzavření Dodatku č.1 k SOD na akci: \"Rekonstrukce otopné soustavy vč. kotelny v Domě služeb Pečky\" (bod číslo 14)",
+    "predkladatel": "Věra Růžičková",
+    "votes": [
+     {
+      "raw_text": "pro:\n(6) Milan Paluska, Ing. Martin Jedlička, Ing. Petr Dürr, Ivana Trčková, Ing. Karel Krištoufek, Zdeněk Fejfar\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)",
+      "pro": {
+       "count": 6,
+       "names": [
+        "Milan Paluska",
+        "Ing. Martin Jedlička",
+        "Ing. Petr Dürr",
+        "Ivana Trčková",
+        "Ing. Karel Krištoufek",
+        "Zdeněk Fejfar"
+       ],
+       "raw": "(6) Milan Paluska, Ing. Martin Jedlička, Ing. Petr Dürr, Ivana Trčková, Ing. Karel Krištoufek, Zdeněk Fejfar"
+      },
+      "proti": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "zdrzel_se": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "nehlasoval": {
+       "count": 0,
+       "names": [],
+       "raw": "(0)"
+      },
+      "result_raw": "Návrh byl přijat jako usnesení číslo: UR-324-38/23",
+      "adopted_resolution_number": "UR-324-38/23"
+     }
+    ],
+    "resolution_numbers_mentioned": [
+     "UR-324-38/23"
+    ],
+    "raw_text": "Předkladatel: Věra Růžičková\nProjednávání bodu bylo zahájeno v 17:45:46\nDůvodová zpráva:\nPředkládáme Radě města ke schválení uzavření dodatku na základě skutečného provedení prací. Jedná se o méněpráce za celkem 41 070,43,-Kč bez DPH spočívající zejména v upřesnění rozměrů a počtu radiátorů a prostorových termostatů.\nVícepráce za celkem 25 083,49 Kč bez DPH spočívají v provedení sanačního nástřiku omítek kotelny, oprava stupnic schodiště a zhotovení přečerpávání kondenzátu do kanalizace z důvodu nefunkční stávající kanal. vpusti v podlaze.\nDiskuze zahájena v 17:45:46\nK tomuto bodu se vyjádřili: Milan Paluska\nV 17:46:52 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Věra Růžičková\") v tomto znění:\nRada\nměsta schvaluje uzavření Dodatku č.1 k SOD uzavřené mezi městem Pečky a zhotovitelem TZB Kladno s.r.o. Třebízského 466, 273 09 Kladno na stavební práce akce: \"Rekonstrukce otopné soustavy vč. kotelny v Domě služeb Pečky\", celková cena díla se snižuje o 15 986,94 Kč bez DPH.\nHlasování\npro:\n(6) Milan Paluska, Ing. Martin Jedlička, Ing. Petr Dürr, Ivana Trčková, Ing. Karel Krištoufek, Zdeněk Fejfar\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-324-38/23\nzodpovídá:\nVěra Růžičková\ntermín:\n30. 11. 2023\nProjednávání bodu bylo ukončeno v 17:46:59"
+   },
+   {
+    "number": 16,
+    "title_raw": "Kontrola plnění usnesení",
+    "heading_raw": "14. Kontrola plnění usnesení (bod číslo 16)",
+    "predkladatel": "Milan Paluska",
+    "votes": [],
+    "resolution_numbers_mentioned": [],
+    "raw_text": "Předkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 17:47:53\nDiskuze zahájena v 17:47:53\nK tomuto bodu se vyjádřili: Milan Paluska, Pavlína Nepovímová\nRada bere materiály předložené k bodu č. 16 -\nKontrola plnění usnesení\nna vědomí.\nProjednávání bodu bylo ukončeno v 17:48:13"
+   },
+   {
+    "number": 12,
+    "title_raw": "Valná hromada Pečeckých služeb, s.r.o.",
+    "heading_raw": "15. Valná hromada Pečeckých služeb, s.r.o. (bod číslo 12)",
+    "predkladatel": null,
+    "votes": [],
+    "resolution_numbers_mentioned": [],
+    "raw_text": "Projednání bodu bylo odloženo."
+   },
+   {
+    "number": 15,
+    "title_raw": "Uzavření Dohody o odstoupení od SOD na stavební práce akce: \"Oprava schodiště u smuteční síně hřbitova v Pečkách\"",
+    "heading_raw": "16. Uzavření Dohody o odstoupení od SOD na stavební práce akce: \"Oprava schodiště u smuteční síně hřbitova v Pečkách\" (bod číslo 15)",
+    "predkladatel": null,
+    "votes": [],
+    "resolution_numbers_mentioned": [],
+    "raw_text": "Projednání bodu bylo odloženo.\nJednání ukončeno 06.11.2023 v 17:51:00\n\nOvěřeno ověřovateli:\n1)\n7. 11. 2023 13:23\nIvana Trčková\n2)\n7. 11. 2023 14:39\nIng. Karel Krištoufek"
+   }
+  ],
+  "full_text": "ZÁPIS ze schůze rady č. 38/2023\nMěsto Pečky\ndatum: 6. 11. 2023, čas: 15:00\n​\nPrezence:\nPřítomni:\n(6) Zdeněk Fejfar, Milan Paluska, Ing. Martin Jedlička, Ing. Petr Dürr, Ivana Trčková, Ing. Karel Krištoufek\nOmluveni:\n(1) Ing. Hana Kuprová\nNepřítomni:\n(0)\nHosté:\nIng. Adam Brant\nZapisovatel/ka:\nEva Strnadová\nPřítomno je 6 členů a rada je usnášeníschopná.\nJednání zahájeno 06.11.2023 v 15:10:19\n1. Určení zapisovatelů, předsedajícího, příp. ověřovatelů (bod číslo 1)\nPředkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 15:10:25\nPředsedající navrhl jednotlivé členy pracovních komisí\nOvěřovatelé:\nIvana Trčková, Ing. Karel Krištoufek\nPředsedající:\nMilan Paluska\nBod byl přijat bez hlasování.\nDiskuze zahájena v 15:10:25\nK tomuto bodu se vyjádřili: Milan Paluska\nProjednávání bodu bylo ukončeno v 15:10:55\n2. Schválení programu jednání (bod číslo 2)\nPředkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 15:11:01\nProgram jednání\n1. Určení zapisovatelů, předsedajícího, příp. ověřovatelů\n2. Schválení programu jednání\n3. Aktuální informace vedení města\n4. Návrh na navýšení ceny za zřízení VBř do pozemků v majetku města\n5. Bezplatné poskytnutí zbytků dřeva za odklizení\n6. Zrušení Pravidel postupu pořizování změn územního plánu města Pečky\n7. Rekonstrukce veřejného osvětlení města Pečky – odsouhlasení podkladů pro podání žádosti o dotaci\n8. Rekonstrukce veřejného osvětlení v Pečkách - uzavření smlouvy s MAS Podlipansko na žádost o dotaci\n9. Výběrové řízení na zhotovitele, doplnění a rokonstrukce VO v ul. Františka Voláka v Pečkách\n10. Zápis z jednání Komise stavebně-dopravní a životního prostředí\n11. Valná hromada Služeb města Pečky s.r.o.\n12. Valná hromada Pečeckých služeb, s.r.o.\n13. Schválení uzavření objednávek úprav kontejnerových stání\n14. Uzavření Dodatku č.1 k SOD na akci: \"Rekonstrukce otopné soustavy vč. kotelny v Domě služeb Pečky\"\n15. Uzavření Dohody o odstoupení od SOD na stavební práce akce: \"Oprava schodiště u smuteční síně hřbitova v Pečkách\"\n16. Kontrola plnění usnesení\nDiskuze zahájena v 15:11:01\nK tomuto bodu se vyjádřili: Milan Paluska\nV 15:12:02 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Milan Paluska\") v tomto znění:\nRada\nměsta schvaluje návrh programu jednání.\nHlasování\npro:\n(6) Ing. Karel Krištoufek, Ing. Martin Jedlička, Ing. Petr Dürr, Zdeněk Fejfar, Ivana Trčková, Milan Paluska\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-316-38/23\nzodpovídá:\ntermín:\nIHNED\n(6. 11. 2023)\nProjednávání bodu bylo ukončeno v 15:12:10\n3. Aktuální informace vedení města (bod číslo 3)\nPředkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 15:12:16\nDůvodová zpráva:\nstarosta města\n- informace o předání staveniště projektu \"Rekonstrukce kabin AFK Pečky\"\n- informace o slavnostním otevření kulturního domu a zahájení provozu\n- informace o převodu majetku VHI z Pečeckých služeb s.r.o. na město Pečky z důvodu požadavků dotace na úpravnu vody a z důvodu větší přehlednosti\nZdeněk\nFejfar\n- informace o schůzce s Ing. Skálou na MěÚ\nKolín\n, odbor územního plánování\nDiskuze zahájena v 15:12:16\nK tomuto bodu se vyjádřili: Milan Paluska, Zdeněk Fejfar, Ing. Karel Krištoufek, Ivana Trčková, Ing. Petr Dürr, Ing. Martin Jedlička\nRada bere materiály předložené k bodu č. 3 -\nAktuální informace vedení města\nna vědomí.\nProjednávání bodu bylo ukončeno v 16:30:00\n4. Schválení uzavření objednávek úprav kontejnerových stání (bod číslo 13)\nPředkladatel: Adam Brant\nProjednávání bodu bylo zahájeno v 16:32:55\nDůvodová zpráva:\nNa základě oslovení referentky Odboru výstavby, zemědělství, životního prostředí a dopravy Městského úřadu v Pečkách, paní\nPokorné\n, ohledně úprav kontejnerových stání po městě předkládáme nabídku na úpravy kontejnerových stání. Úprava kontejnerových stání spočívá v umístění aretačního systému pro umístění kontejnerových nádob s osazením paravánových zástěn s fasádním profilem Modřín Rhombus, včetně montáže.\nDojde k úpravám těchto kontejnerových stání:\n1) ul. Žerotínova v hodnotě 102.572,- Kč včetně 21 % DPH,\n2) ul.\nFrantiška\nVoláka\nv hodnotě 141.812,- Kč včetně 21 % DPH,\n3) ul.\nJiřího\nz\nPoděbrad\nv hodnotě 141.812,- Kč včetně 21 % DPH,\n4) ul. V Horkách x\nSladkovského\nv hodnotě 224.274,- Kč včetně 21 % DPH,\n5) ul. V Horkách (u garáží) v hodnotě 244.084,- Kč včetně 21 % DPH.\nCelkové náklady jsou tedy ve výši 854.554,- Kč včetně 21 % DPH.\nDiskuze zahájena v 16:32:55\nK tomuto bodu se vyjádřili: Milan Paluska, Ing. Adam Brant, Ing. Martin Jedlička, Ing. Karel Krištoufek\nV 16:48:37 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Adam Brant\") v tomto znění:\nRada\nměsta v souladu s § 11 ZZVZ objednává u spol. Služby města Pečky s.r.o., IČO: 08740844 zajištění úprav kontejnerových stání dle předložené cenové nabídky.\nHlasování\npro:\n(6) Ing. Petr Dürr, Ing. Martin Jedlička, Ivana Trčková, Ing. Karel Krištoufek, Milan Paluska, Zdeněk Fejfar\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-317-38/23\nzodpovídá:\nAdam Brant\ntermín:\n31. 12. 2023\nProjednávání bodu bylo ukončeno v 16:48:45\n5. Valná hromada Služeb města Pečky s.r.o. (bod číslo 11)\nPředkladatel: Adam Brant\nProjednávání bodu bylo zahájeno v 16:49:03\nDiskuze zahájena v 16:49:03\nK tomuto bodu se vyjádřili: Ing. Adam Brant\nRada bere materiály předložené k bodu č. 11 -\nValná hromada Služeb města Pečky s.r.o.\nna vědomí.\nProjednávání bodu bylo ukončeno v 16:54:16\n6. Návrh na navýšení ceny za zřízení VBř do pozemků v majetku města (bod číslo 4)\nPředkladatel: Jana Najbrtová\nProjednávání bodu bylo zahájeno v 16:54:25\nDůvodová zpráva:\nNavrhujeme navýšit cenu za zřízení VBř. při ukládání sítí do pozemků v majetku města.\nTato\nnavýšená cena by se týkala firem, které nepředloží znalecký posudek na zřízení VBř. Posudky pravidelně dokládají firmy ČEZ (el.energie) a GasNet (plyn). Navýšení by se tak dotýkalo takových firem, které budou chtít do pozemků v majetku města uložit např. optické sítě.\nPoslední\nnavýšení ceny bylo schváleno radou města v prosinci 2018 a cena je stanovena na 120,- Kč/bm+DPH. Z tohoto důvodu navrhujeme navýšení na 150,- Kč/bm+DPH.\nCena\nznaleckých posudků je různá a činí např. 133,- Kč/bm (sídliště), 210,- Kč/bm (Bačov), 335,- Kč/bm (\n█​█​█​█​█​█​█​█​\n-Tahiti) ……….  to jsou ceny letošního roku.\nDiskuze zahájena v 16:54:25\nK tomuto bodu se vyjádřili: Milan Paluska, Zdeněk Fejfar, Ing. Petr Dürr, Ing. Karel Krištoufek\nV 16:59:22 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Jana Najbrtová\") v tomto znění:\nRada\nměsta schvaluje cenu za zřízení VBř. do pozemků v majetku města ve výši 200,- Kč/bm + DPH s účinností od 7. 11. 2023.\nHlasování\npro:\n(6) Zdeněk Fejfar, Milan Paluska, Ing. Petr Dürr, Ivana Trčková, Ing. Martin Jedlička, Ing. Karel Krištoufek\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-318-38/23\nzodpovídá:\nJana Najbrtová\ntermín:\n30. 11. 2023\nProjednávání bodu bylo ukončeno v 16:59:30\n7. Bezplatné poskytnutí zbytků dřeva za odklizení (bod číslo 5)\nPředkladatel: Hana Pokorná\nProjednávání bodu bylo zahájeno v 16:59:41\nDůvodová zpráva:\nNa Mlýnském náhonu v Pečkách na pozemku p.č. 1451/3 v k.ú. Pečky, došlo v říjnu k vyvrácení vrby.\nVrba\nbyla firmou Stromotom s.r.o., Radovesnice rozřezána a uklizena, pouze na místě zbyla spodní část kmene, kterou vzhledem k obtížnosti (velké kusy) firma neodstraňovala a které překáží v sečení traktorem kolem\nMlýnského\nnáhonu. Likvidace zbytků kmene od Služeb města\nPeček\ns.r.o., včetně uložení na skládku by bylo obtížné a nákladné.\n█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​\nby za bezplatné poskytnutí, kusy dřeva rozřezal a uklidil.\nDiskuze zahájena v 16:59:41\nK tomuto bodu se vyjádřili: Milan Paluska, Ing. Karel Krištoufek, Ing. Martin Jedlička\nV 17:01:40 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Hana Pokorná\") v tomto znění:\nRada\nměsta schvaluje bezplatné poskytnutí zbytků dřeva (vrby) z vyvráceného stromu na Mlýnském náhonu v Pečkách na pozemku p.č. 1451/3 v k.ú. Pečky,\n█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​\na to za úklid.\nHlasování\npro:\n(6) Ing. Martin Jedlička, Ing. Karel Krištoufek, Ivana Trčková, Zdeněk Fejfar, Milan Paluska, Ing. Petr Dürr\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-319-38/23\nzodpovídá:\nHana Pokorná\ntermín:\n20. 11. 2023\nProjednávání bodu bylo ukončeno v 17:01:47\n8. Zrušení Pravidel postupu pořizování změn územního plánu města Pečky (bod číslo 6)\nPředkladatel: Zdeněk Fejfar\nProjednávání bodu bylo zahájeno v 17:01:54\nDůvodová zpráva:\nZ důvodu nesprávných údajů v Pravidlech postupu pořizování změny územního plánu města Pečky a plánovanou účinností nového stavebního zákona ode dne 1.1.2024 a další části následně od 1.7.2024, navrhuji tyto Pravidla postupu pořizování změny územního plánu města Pečky ze dne 18.2.2019 Č.j. PEC/561/2019 zrušit bez náhrady. Po zrušení těchto pravidel se bude změna územního plánu města Pečky řídit platnou legislativou.\nDiskuze zahájena v 17:01:54\nK tomuto bodu se vyjádřili: Zdeněk Fejfar, Ing. Karel Krištoufek, Ivana Trčková, Ing. Petr Dürr\nV 17:20:36 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Zdeněk Fejfar\") v tomto znění:\nRada\nměsta schvaluje zrušení Pravidel postupu pořizování změn územního plánu města Pečky vydaných dne 18.2.2019 pod čj. PEC/561/2019 bez náhrady. Po zrušení těchto pravidel se bude změna územního plánu města Pečky řídit platnou legislativou.\nHlasování\npro:\n(6) Ing. Martin Jedlička, Ing. Petr Dürr, Ivana Trčková, Ing. Karel Krištoufek, Zdeněk Fejfar, Milan Paluska\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-320-38/23\nzodpovídá:\ntermín:\nIHNED\n(6. 11. 2023)\nProjednávání bodu bylo ukončeno v 17:20:48\n9. Rekonstrukce veřejného osvětlení města Pečky – odsouhlasení podkladů pro podání žádosti o dotaci (bod číslo 7)\nPředkladatel: Jana Zindrová\nProjednávání bodu bylo zahájeno v 17:20:57\nDůvodová zpráva:\nMěsto Pečky uzavřelo smlouvu (dle usnesení UR-214-23/23) s firmou Sunritek s.r.o.,  Holanská 878/2, Štýřice,\nBrno\n, IČ: 04022351, na ZPRACOVÁNÍ DOKUMENTŮ PRO ZÍSKÁNÍ DOTACE na rekonstrukci veřejného osvětlení, dotační výzva č. NPO1/2022. Firma dokumenty zpracovala a jsou předloženy ke schválení z důvodu následného podpisu Příkazní smlouvy s MAS Podlipansko, o.p.s..\nDiskuze zahájena v 17:20:57\nK tomuto bodu se vyjádřili: Milan Paluska, Ing. Karel Krištoufek, Ing. Martin Jedlička\nV 17:23:32 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Jana Zindrová\") v tomto znění:\nRada\nměsta schvaluje použití zpracovaných dokumentů pro získání dotace na rekonstrukci veřejného osvětlení, dotační výzva č. NPO1/2022 firmou Sunritec s.r.o.,\nBrno\n, IČ: 04022351 z důvodu následného podpisu Příkazní smlouvy s MAS Podlipansko, o.p.s..\nHlasování\npro:\n(6) Ing. Karel Krištoufek, Milan Paluska, Ing. Martin Jedlička, Ing. Petr Dürr, Ivana Trčková, Zdeněk Fejfar\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-321-38/23\nzodpovídá:\nJana Zindrová\ntermín:\n20. 11. 2023\nProjednávání bodu bylo ukončeno v 17:23:42\n10. Rekonstrukce veřejného osvětlení v Pečkách - uzavření smlouvy s MAS Podlipansko na žádost o dotaci (bod číslo 8)\nPředkladatel: Jana Zindrová\nProjednávání bodu bylo zahájeno v 17:23:46\nDůvodová zpráva:\nRekonstrukce veřejného osvětlení města Pečky – uzavření smlouvy mezi městem Pečky a MAS Podlipansko na zpracování žádosti o dotaci, organizaci výběrového řízení na dodavatele a vyhodnocení dotace na rekonstrukci veřejného osvětlení v Pečkách a to v souladu s programem EFEKT Ministerstva průmyslu a obchodu dle výzvy č. NPO 1/2022.\nMěsto Pečky uzavřelo smlouvu s firmou Sunritek s.r.o.,  Holanská 878/2, Štýřice,\nBrno\n, IČ: 04022351, smluvním partnerem MAS Podlipansko na zpracování dokumentů pro získání dotace na modernizaci veřejného osvětlení.\nZa použití těchto nezbytných podkladů lze získat dotaci na rekonstrukci veřejného osvětlení. Žádost o dotaci a související (organizaci výběrového řízení na dodavatele, vyhodnocení dotace) lze pořídit prostřednictvím MAS Podlipansko na základě uzavřené smlouvy mezi městem Pečky a MAS Podlipansko za cenu 62.000,- Kč.\nRekonstrukce  spočívá ve výměně stávajících svítidel za energeticky úsporná LED svítidla ve vybraných lokalitách\nPeček\na Velkých Chvalovic a to v počtu 414 svítidel. Počet a parametry vybraných svítidel je optimalizován pro získání maximální výše dotace 4 mil. Kč vč DPH.\nUzavření smlouvy je podmíněno odsouhlasením zpracovaných podkladů na rekonstrukci VO, jež bylo radou města projednáno před tímto bodem.\nDiskuze zahájena v 17:23:46\nK tomuto bodu se vyjádřili: Milan Paluska\nV 17:24:18 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Jana Zindrová\") v tomto znění:\nRada\nměsta schvaluje uzavření smlouvy mezi městem Pečky a MAS Podlipansko na zpracování žádosti o dotaci, organizaci výběrového řízení na dodavatele a vyhodnocení dotace na rekonstrukci veřejného osvětlení v Pečkách v souladu s programem EFEKT Ministerstva průmyslu a obchodu dle výzvy č. NPO 1/2022 za cenu 62 000,- Kč a pověřuje starostu města podpisem této smlouvy.\nHlasování\npro:\n(6) Ing. Petr Dürr, Ing. Martin Jedlička, Milan Paluska, Ivana Trčková, Ing. Karel Krištoufek, Zdeněk Fejfar\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-322-38/23\nzodpovídá:\nJana Zindrová\ntermín:\n20. 11. 2023\nProjednávání bodu bylo ukončeno v 17:24:26\n11. Výběrové řízení na zhotovitele, doplnění a rekonstrukce VO v ul. Františka Voláka v Pečkách (bod číslo 9)\nPředkladatel: Jana Zindrová\nProjednávání bodu bylo zahájeno v 17:24:33\nDůvodová zpráva:\nMěsto Pečky má zpracovanou PD na doplnění a rekonstrukci VO v ul. Fr.\nVoláka\nv Pečkách. Akce spočívá ve výměně 6 osvětlení za ledková na stávajících stožárech a v doplnění 4 nových světelných bodů. Předpokládaný rozpočet činí 441 170,69 Kč včetně DPH.\nDiskuze zahájena v 17:24:33\nK tomuto bodu se vyjádřili: Milan Paluska, Zdeněk Fejfar\nV 17:26:10 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Jana Zindrová\") v tomto znění:\nRada\nměsta schvaluje vyhlášení výběrového řízení na zhotovitele pro doplnění a rekonstrukci veřejného osvětlení v ul.\nFrantiška\nVoláka\nv Pečkách.\nHlasování\npro:\n(6) Ing. Martin Jedlička, Zdeněk Fejfar, Ivana Trčková, Ing. Petr Dürr, Milan Paluska, Ing. Karel Krištoufek\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-323-38/23\nzodpovídá:\nJana Zindrová\ntermín:\n20. 11. 2023\nProjednávání bodu bylo ukončeno v 17:26:18\n12. Zápis z jednání Komise stavebně-dopravní a životního prostředí (bod číslo 10)\nPředkladatel: Ing. Petr Dürr\nProjednávání bodu bylo zahájeno v 17:31:27\nDůvodová zpráva:\nPředkládáme radě města na vědomí zápis z jednání Komise stavebně - dopravní a životního prostředí, ze dne 18.10.2023.\nDiskuze zahájena v 17:31:27\nK tomuto bodu se vyjádřili: Ing. Petr Dürr, Ing. Karel Krištoufek, Milan Paluska, Zdeněk Fejfar\nRada bere materiály předložené k bodu č. 10 -\nZápis z jednání Komise stavebně-dopravní a životního prostředí\nna vědomí.\nProjednávání bodu bylo ukončeno v 17:45:24\n13. Uzavření Dodatku č.1 k SOD na akci: \"Rekonstrukce otopné soustavy vč. kotelny v Domě služeb Pečky\" (bod číslo 14)\nPředkladatel: Věra Růžičková\nProjednávání bodu bylo zahájeno v 17:45:46\nDůvodová zpráva:\nPředkládáme Radě města ke schválení uzavření dodatku na základě skutečného provedení prací. Jedná se o méněpráce za celkem 41 070,43,-Kč bez DPH spočívající zejména v upřesnění rozměrů a počtu radiátorů a prostorových termostatů.\nVícepráce za celkem 25 083,49 Kč bez DPH spočívají v provedení sanačního nástřiku omítek kotelny, oprava stupnic schodiště a zhotovení přečerpávání kondenzátu do kanalizace z důvodu nefunkční stávající kanal. vpusti v podlaze.\nDiskuze zahájena v 17:45:46\nK tomuto bodu se vyjádřili: Milan Paluska\nV 17:46:52 předsedající zahájil hlasování o návrhu usnesení \"A\" (navrhovatel: \"Věra Růžičková\") v tomto znění:\nRada\nměsta schvaluje uzavření Dodatku č.1 k SOD uzavřené mezi městem Pečky a zhotovitelem TZB Kladno s.r.o. Třebízského 466, 273 09 Kladno na stavební práce akce: \"Rekonstrukce otopné soustavy vč. kotelny v Domě služeb Pečky\", celková cena díla se snižuje o 15 986,94 Kč bez DPH.\nHlasování\npro:\n(6) Milan Paluska, Ing. Martin Jedlička, Ing. Petr Dürr, Ivana Trčková, Ing. Karel Krištoufek, Zdeněk Fejfar\nproti\n(0)\nzdržel se:\n(0)\nnehlasoval:\n(0)\nNávrh byl přijat jako usnesení číslo: UR-324-38/23\nzodpovídá:\nVěra Růžičková\ntermín:\n30. 11. 2023\nProjednávání bodu bylo ukončeno v 17:46:59\n14. Kontrola plnění usnesení (bod číslo 16)\nPředkladatel: Milan Paluska\nProjednávání bodu bylo zahájeno v 17:47:53\nDiskuze zahájena v 17:47:53\nK tomuto bodu se vyjádřili: Milan Paluska, Pavlína Nepovímová\nRada bere materiály předložené k bodu č. 16 -\nKontrola plnění usnesení\nna vědomí.\nProjednávání bodu bylo ukončeno v 17:48:13\n15. Valná hromada Pečeckých služeb, s.r.o. (bod číslo 12)\nProjednání bodu bylo odloženo.\n16. Uzavření Dohody o odstoupení od SOD na stavební práce akce: \"Oprava schodiště u smuteční síně hřbitova v Pečkách\" (bod číslo 15)\nProjednání bodu bylo odloženo.\nJednání ukončeno 06.11.2023 v 17:51:00\nOvěřeno ověřovateli:\n1)\n7. 11. 2023 13:23\nIvana Trčková\n2)\n7. 11. 2023 14:39\nIng. Karel Krištoufek"
+ },
+ "resolutions": {
+  "status": "ok",
+  "url": "https://mesto-pecky.usneseni.cz/verejne/f7e91f24-789a-11ee-962e-00505683238f/usneseni/",
+  "fetched_at": "2026-08-04T14:01:38.772951+00:00",
+  "items": [
+   {
+    "number_raw": "UR-316-38/23",
+    "detail_id": 49199,
+    "detail_url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/49199?mod=rada",
+    "agenda_item_raw": "Schválení programu jednání",
+    "text_verbatim": "Rada\nměsta schvaluje návrh programu jednání.",
+    "cell_text_raw": "Bod programu:\nSchválení programu jednání\nText přijatého usnesení:\nRada\nměsta schvaluje návrh programu jednání.",
+    "date_raw": "6. 11. 2023",
+    "date_iso": "2023-11-06",
+    "responsible_raw": "",
+    "deadline_raw": "IHNED (6. 11. 2023)",
+    "vote": {
+     "raw_text": "pro: 6 proti: 0 zdržel se: 0",
+     "pro": {
+      "count": 6,
+      "names": null,
+      "raw": "6"
+     },
+     "proti": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     },
+     "zdrzel_se": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     }
+    },
+    "detail": {
+     "number_raw": "UR-316-38/23",
+     "text_verbatim": "Rada města schvaluje návrh programu jednání.",
+     "typ_raw": null,
+     "zodpovida_raw": "",
+     "prijato_raw": "6. 11. 2023 na jednání č. 38/2023",
+     "prijato_date_iso": "2023-11-06",
+     "prijato_meeting_label": "38/2023",
+     "termin_raw": "IHNED (6. 11. 2023)",
+     "ukonceno_raw": "6. 11. 2023",
+     "ukonceno_date_iso": "2023-11-06",
+     "fields_raw": {
+      "Číslo usnesení": "UR-316-38/23",
+      "Text usnesení": "Rada města schvaluje návrh programu jednání.",
+      "Zodpovídá": "",
+      "Přijato": "6. 11. 2023 na jednání č. 38/2023",
+      "Termín": "IHNED (6. 11. 2023)",
+      "Ukončeno": "6. 11. 2023"
+     }
+    }
+   },
+   {
+    "number_raw": "UR-317-38/23",
+    "detail_id": 49410,
+    "detail_url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/49410?mod=rada",
+    "agenda_item_raw": "Schválení uzavření objednávek úprav kontejnerových stání",
+    "text_verbatim": "Rada\nměsta v souladu s § 11 ZZVZ objednává u spol. Služby města Pečky s.r.o., IČO: 08740844 zajištění úprav kontejnerových stání dle předložené cenové nabídky.",
+    "cell_text_raw": "Bod programu:\nSchválení uzavření objednávek úprav kontejnerových stání\nText přijatého usnesení:\nRada\nměsta v souladu s § 11 ZZVZ objednává u spol. Služby města Pečky s.r.o., IČO: 08740844 zajištění úprav kontejnerových stání dle předložené cenové nabídky.",
+    "date_raw": "6. 11. 2023",
+    "date_iso": "2023-11-06",
+    "responsible_raw": "Adam Brant",
+    "deadline_raw": "31. 12. 2023",
+    "vote": {
+     "raw_text": "pro: 6 proti: 0 zdržel se: 0",
+     "pro": {
+      "count": 6,
+      "names": null,
+      "raw": "6"
+     },
+     "proti": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     },
+     "zdrzel_se": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     }
+    },
+    "detail": {
+     "number_raw": "UR-317-38/23",
+     "text_verbatim": "Rada města v souladu s § 11 ZZVZ objednává u spol. Služby města Pečky s.r.o., IČO: 08740844 zajištění úprav kontejnerových stání dle předložené cenové nabídky.",
+     "typ_raw": null,
+     "zodpovida_raw": "Adam Brant",
+     "prijato_raw": "6. 11. 2023 na jednání č. 38/2023",
+     "prijato_date_iso": "2023-11-06",
+     "prijato_meeting_label": "38/2023",
+     "termin_raw": "31. 12. 2023",
+     "ukonceno_raw": "8. 1. 2024",
+     "ukonceno_date_iso": "2024-01-08",
+     "fields_raw": {
+      "Číslo usnesení": "UR-317-38/23",
+      "Text usnesení": "Rada města v souladu s § 11 ZZVZ objednává u spol. Služby města Pečky s.r.o., IČO: 08740844 zajištění úprav kontejnerových stání dle předložené cenové nabídky.",
+      "Zodpovídá": "Adam Brant",
+      "Přijato": "6. 11. 2023 na jednání č. 38/2023",
+      "Termín": "31. 12. 2023",
+      "Ukončeno": "8. 1. 2024"
+     }
+    }
+   },
+   {
+    "number_raw": "UR-318-38/23",
+    "detail_id": 49319,
+    "detail_url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/49319?mod=rada",
+    "agenda_item_raw": "Návrh na navýšení ceny za zřízení VBř do pozemků v majetku města",
+    "text_verbatim": "Rada\nměsta schvaluje cenu za zřízení VBř. do pozemků v majetku města ve výši 200,- Kč/bm + DPH s účinností od 7. 11. 2023.",
+    "cell_text_raw": "Bod programu:\nNávrh na navýšení ceny za zřízení VBř do pozemků v majetku města\nText přijatého usnesení:\nRada\nměsta schvaluje cenu za zřízení VBř. do pozemků v majetku města ve výši 200,- Kč/bm + DPH s účinností od 7. 11. 2023.",
+    "date_raw": "6. 11. 2023",
+    "date_iso": "2023-11-06",
+    "responsible_raw": "Jana Najbrtová",
+    "deadline_raw": "30. 11. 2023",
+    "vote": {
+     "raw_text": "pro: 6 proti: 0 zdržel se: 0",
+     "pro": {
+      "count": 6,
+      "names": null,
+      "raw": "6"
+     },
+     "proti": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     },
+     "zdrzel_se": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     }
+    },
+    "detail": {
+     "number_raw": "UR-318-38/23",
+     "text_verbatim": "Rada města schvaluje cenu za zřízení VBř. do pozemků v majetku města ve výši 200,- Kč/bm + DPH s účinností od 7. 11. 2023.",
+     "typ_raw": null,
+     "zodpovida_raw": "Jana Najbrtová",
+     "prijato_raw": "6. 11. 2023 na jednání č. 38/2023",
+     "prijato_date_iso": "2023-11-06",
+     "prijato_meeting_label": "38/2023",
+     "termin_raw": "30. 11. 2023",
+     "ukonceno_raw": "7. 11. 2023",
+     "ukonceno_date_iso": "2023-11-07",
+     "fields_raw": {
+      "Číslo usnesení": "UR-318-38/23",
+      "Text usnesení": "Rada města schvaluje cenu za zřízení VBř. do pozemků v majetku města ve výši 200,- Kč/bm + DPH s účinností od 7. 11. 2023.",
+      "Zodpovídá": "Jana Najbrtová",
+      "Přijato": "6. 11. 2023 na jednání č. 38/2023",
+      "Termín": "30. 11. 2023",
+      "Ukončeno": "7. 11. 2023"
+     }
+    }
+   },
+   {
+    "number_raw": "UR-319-38/23",
+    "detail_id": 49373,
+    "detail_url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/49373?mod=rada",
+    "agenda_item_raw": "Bezplatné poskytnutí zbytků dřeva za odklizení",
+    "text_verbatim": "Rada\nměsta schvaluje bezplatné poskytnutí zbytků dřeva (vrby) z vyvráceného stromu na Mlýnském náhonu v Pečkách na pozemku p.č. 1451/3 v k.ú. Pečky,\n█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​\na to za úklid.",
+    "cell_text_raw": "Bod programu:\nBezplatné poskytnutí zbytků dřeva za odklizení\nText přijatého usnesení:\nRada\nměsta schvaluje bezplatné poskytnutí zbytků dřeva (vrby) z vyvráceného stromu na Mlýnském náhonu v Pečkách na pozemku p.č. 1451/3 v k.ú. Pečky,\n█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​\na to za úklid.",
+    "date_raw": "6. 11. 2023",
+    "date_iso": "2023-11-06",
+    "responsible_raw": "Hana Pokorná",
+    "deadline_raw": "20. 11. 2023",
+    "vote": {
+     "raw_text": "pro: 6 proti: 0 zdržel se: 0",
+     "pro": {
+      "count": 6,
+      "names": null,
+      "raw": "6"
+     },
+     "proti": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     },
+     "zdrzel_se": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     }
+    },
+    "detail": {
+     "number_raw": "UR-319-38/23",
+     "text_verbatim": "Rada města schvaluje bezplatné poskytnutí zbytků dřeva (vrby) z vyvráceného stromu na Mlýnském náhonu v Pečkách na pozemku p.č. 1451/3 v k.ú. Pečky, █​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​ a to za úklid.",
+     "typ_raw": null,
+     "zodpovida_raw": "Hana Pokorná",
+     "prijato_raw": "6. 11. 2023 na jednání č. 38/2023",
+     "prijato_date_iso": "2023-11-06",
+     "prijato_meeting_label": "38/2023",
+     "termin_raw": "20. 11. 2023",
+     "ukonceno_raw": "13. 11. 2023",
+     "ukonceno_date_iso": "2023-11-13",
+     "fields_raw": {
+      "Číslo usnesení": "UR-319-38/23",
+      "Text usnesení": "Rada města schvaluje bezplatné poskytnutí zbytků dřeva (vrby) z vyvráceného stromu na Mlýnském náhonu v Pečkách na pozemku p.č. 1451/3 v k.ú. Pečky, █​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​█​ a to za úklid.",
+      "Zodpovídá": "Hana Pokorná",
+      "Přijato": "6. 11. 2023 na jednání č. 38/2023",
+      "Termín": "20. 11. 2023",
+      "Ukončeno": "13. 11. 2023"
+     }
+    }
+   },
+   {
+    "number_raw": "UR-320-38/23",
+    "detail_id": 49408,
+    "detail_url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/49408?mod=rada",
+    "agenda_item_raw": "Zrušení Pravidel postupu pořizování změn územního plánu města Pečky",
+    "text_verbatim": "Rada\nměsta schvaluje zrušení Pravidel postupu pořizování změn územního plánu města Pečky vydaných dne 18.2.2019 pod čj. PEC/561/2019 bez náhrady. Po zrušení těchto pravidel se bude změna územního plánu města Pečky řídit platnou legislativou.",
+    "cell_text_raw": "Bod programu:\nZrušení Pravidel postupu pořizování změn územního plánu města Pečky\nText přijatého usnesení:\nRada\nměsta schvaluje zrušení Pravidel postupu pořizování změn územního plánu města Pečky vydaných dne 18.2.2019 pod čj. PEC/561/2019 bez náhrady. Po zrušení těchto pravidel se bude změna územního plánu města Pečky řídit platnou legislativou.",
+    "date_raw": "6. 11. 2023",
+    "date_iso": "2023-11-06",
+    "responsible_raw": "",
+    "deadline_raw": "IHNED (6. 11. 2023)",
+    "vote": {
+     "raw_text": "pro: 6 proti: 0 zdržel se: 0",
+     "pro": {
+      "count": 6,
+      "names": null,
+      "raw": "6"
+     },
+     "proti": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     },
+     "zdrzel_se": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     }
+    },
+    "detail": {
+     "number_raw": "UR-320-38/23",
+     "text_verbatim": "Rada města schvaluje zrušení Pravidel postupu pořizování změn územního plánu města Pečky vydaných dne 18.2.2019 pod čj. PEC/561/2019 bez náhrady. Po zrušení těchto pravidel se bude změna územního plánu města Pečky řídit platnou legislativou.",
+     "typ_raw": null,
+     "zodpovida_raw": "",
+     "prijato_raw": "6. 11. 2023 na jednání č. 38/2023",
+     "prijato_date_iso": "2023-11-06",
+     "prijato_meeting_label": "38/2023",
+     "termin_raw": "IHNED (6. 11. 2023)",
+     "ukonceno_raw": "6. 11. 2023",
+     "ukonceno_date_iso": "2023-11-06",
+     "fields_raw": {
+      "Číslo usnesení": "UR-320-38/23",
+      "Text usnesení": "Rada města schvaluje zrušení Pravidel postupu pořizování změn územního plánu města Pečky vydaných dne 18.2.2019 pod čj. PEC/561/2019 bez náhrady. Po zrušení těchto pravidel se bude změna územního plánu města Pečky řídit platnou legislativou.",
+      "Zodpovídá": "",
+      "Přijato": "6. 11. 2023 na jednání č. 38/2023",
+      "Termín": "IHNED (6. 11. 2023)",
+      "Ukončeno": "6. 11. 2023"
+     }
+    }
+   },
+   {
+    "number_raw": "UR-321-38/23",
+    "detail_id": 49335,
+    "detail_url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/49335?mod=rada",
+    "agenda_item_raw": "Rekonstrukce veřejného osvětlení města Pečky – odsouhlasení podkladů pro podání žádosti o dotaci",
+    "text_verbatim": "Rada\nměsta schvaluje použití zpracovaných dokumentů pro získání dotace na rekonstrukci veřejného osvětlení, dotační výzva č. NPO1/2022 firmou Sunritec s.r.o.,\nBrno\n, IČ: 04022351 z důvodu následného podpisu Příkazní smlouvy s MAS Podlipansko, o.p.s.",
+    "cell_text_raw": "Bod programu:\nRekonstrukce veřejného osvětlení města Pečky – odsouhlasení podkladů pro podání žádosti o dotaci\nText přijatého usnesení:\nRada\nměsta schvaluje použití zpracovaných dokumentů pro získání dotace na rekonstrukci veřejného osvětlení, dotační výzva č. NPO1/2022 firmou Sunritec s.r.o.,\nBrno\n, IČ: 04022351 z důvodu následného podpisu Příkazní smlouvy s MAS Podlipansko, o.p.s.",
+    "date_raw": "6. 11. 2023",
+    "date_iso": "2023-11-06",
+    "responsible_raw": "Jana Zindrová",
+    "deadline_raw": "20. 11. 2023",
+    "vote": {
+     "raw_text": "pro: 6 proti: 0 zdržel se: 0",
+     "pro": {
+      "count": 6,
+      "names": null,
+      "raw": "6"
+     },
+     "proti": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     },
+     "zdrzel_se": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     }
+    },
+    "detail": {
+     "number_raw": "UR-321-38/23",
+     "text_verbatim": "Rada města schvaluje použití zpracovaných dokumentů pro získání dotace na rekonstrukci veřejného osvětlení, dotační výzva č. NPO1/2022 firmou Sunritec s.r.o., Brno , IČ: 04022351 z důvodu následného podpisu Příkazní smlouvy s MAS Podlipansko, o.p.s.",
+     "typ_raw": null,
+     "zodpovida_raw": "Jana Zindrová",
+     "prijato_raw": "6. 11. 2023 na jednání č. 38/2023",
+     "prijato_date_iso": "2023-11-06",
+     "prijato_meeting_label": "38/2023",
+     "termin_raw": "20. 11. 2023",
+     "ukonceno_raw": "13. 11. 2023",
+     "ukonceno_date_iso": "2023-11-13",
+     "fields_raw": {
+      "Číslo usnesení": "UR-321-38/23",
+      "Text usnesení": "Rada města schvaluje použití zpracovaných dokumentů pro získání dotace na rekonstrukci veřejného osvětlení, dotační výzva č. NPO1/2022 firmou Sunritec s.r.o., Brno , IČ: 04022351 z důvodu následného podpisu Příkazní smlouvy s MAS Podlipansko, o.p.s.",
+      "Zodpovídá": "Jana Zindrová",
+      "Přijato": "6. 11. 2023 na jednání č. 38/2023",
+      "Termín": "20. 11. 2023",
+      "Ukončeno": "13. 11. 2023"
+     }
+    }
+   },
+   {
+    "number_raw": "UR-322-38/23",
+    "detail_id": 49382,
+    "detail_url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/49382?mod=rada",
+    "agenda_item_raw": "Rekonstrukce veřejného osvětlení v Pečkách - uzavření smlouvy s MAS Podlipansko na žádost o dotaci",
+    "text_verbatim": "Rada\nměsta schvaluje uzavření smlouvy mezi městem Pečky a MAS Podlipansko na zpracování žádosti o dotaci, organizaci výběrového řízení na dodavatele a vyhodnocení dotace na rekonstrukci veřejného osvětlení v Pečkách v souladu s programem EFEKT Ministerstva průmyslu a obchodu dle výzvy č. NPO 1/2022 za cenu 62 000,- Kč a pověřuje starostu města podpisem této smlouvy.",
+    "cell_text_raw": "Bod programu:\nRekonstrukce veřejného osvětlení v Pečkách - uzavření smlouvy s MAS Podlipansko na žádost o dotaci\nText přijatého usnesení:\nRada\nměsta schvaluje uzavření smlouvy mezi městem Pečky a MAS Podlipansko na zpracování žádosti o dotaci, organizaci výběrového řízení na dodavatele a vyhodnocení dotace na rekonstrukci veřejného osvětlení v Pečkách v souladu s programem EFEKT Ministerstva průmyslu a obchodu dle výzvy č. NPO 1/2022 za cenu 62 000,- Kč a pověřuje starostu města podpisem této smlouvy.",
+    "date_raw": "6. 11. 2023",
+    "date_iso": "2023-11-06",
+    "responsible_raw": "Jana Zindrová",
+    "deadline_raw": "20. 11. 2023",
+    "vote": {
+     "raw_text": "pro: 6 proti: 0 zdržel se: 0",
+     "pro": {
+      "count": 6,
+      "names": null,
+      "raw": "6"
+     },
+     "proti": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     },
+     "zdrzel_se": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     }
+    },
+    "detail": {
+     "number_raw": "UR-322-38/23",
+     "text_verbatim": "Rada města schvaluje uzavření smlouvy mezi městem Pečky a MAS Podlipansko na zpracování žádosti o dotaci, organizaci výběrového řízení na dodavatele a vyhodnocení dotace na rekonstrukci veřejného osvětlení v Pečkách v souladu s programem EFEKT Ministerstva průmyslu a obchodu dle výzvy č. NPO 1/2022 za cenu 62 000,- Kč a pověřuje starostu města podpisem této smlouvy.",
+     "typ_raw": null,
+     "zodpovida_raw": "Jana Zindrová",
+     "prijato_raw": "6. 11. 2023 na jednání č. 38/2023",
+     "prijato_date_iso": "2023-11-06",
+     "prijato_meeting_label": "38/2023",
+     "termin_raw": "20. 11. 2023",
+     "ukonceno_raw": "20. 11. 2023",
+     "ukonceno_date_iso": "2023-11-20",
+     "fields_raw": {
+      "Číslo usnesení": "UR-322-38/23",
+      "Text usnesení": "Rada města schvaluje uzavření smlouvy mezi městem Pečky a MAS Podlipansko na zpracování žádosti o dotaci, organizaci výběrového řízení na dodavatele a vyhodnocení dotace na rekonstrukci veřejného osvětlení v Pečkách v souladu s programem EFEKT Ministerstva průmyslu a obchodu dle výzvy č. NPO 1/2022 za cenu 62 000,- Kč a pověřuje starostu města podpisem této smlouvy.",
+      "Zodpovídá": "Jana Zindrová",
+      "Přijato": "6. 11. 2023 na jednání č. 38/2023",
+      "Termín": "20. 11. 2023",
+      "Ukončeno": "20. 11. 2023"
+     }
+    }
+   },
+   {
+    "number_raw": "UR-323-38/23",
+    "detail_id": 49383,
+    "detail_url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/49383?mod=rada",
+    "agenda_item_raw": "Výběrové řízení na zhotovitele, doplnění a rokonstrukce VO v ul. Františka Voláka v Pečkách",
+    "text_verbatim": "Rada\nměsta schvaluje vyhlášení výběrového řízení na zhotovitele pro doplnění a rekonstrukci veřejného osvětlení v ul.\nFrantiška\nVoláka\nv Pečkách.",
+    "cell_text_raw": "Bod programu:\nVýběrové řízení na zhotovitele, doplnění a rokonstrukce VO v ul. Františka Voláka v Pečkách\nText přijatého usnesení:\nRada\nměsta schvaluje vyhlášení výběrového řízení na zhotovitele pro doplnění a rekonstrukci veřejného osvětlení v ul.\nFrantiška\nVoláka\nv Pečkách.",
+    "date_raw": "6. 11. 2023",
+    "date_iso": "2023-11-06",
+    "responsible_raw": "Jana Zindrová",
+    "deadline_raw": "20. 11. 2023",
+    "vote": {
+     "raw_text": "pro: 6 proti: 0 zdržel se: 0",
+     "pro": {
+      "count": 6,
+      "names": null,
+      "raw": "6"
+     },
+     "proti": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     },
+     "zdrzel_se": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     }
+    },
+    "detail": {
+     "number_raw": "UR-323-38/23",
+     "text_verbatim": "Rada města schvaluje vyhlášení výběrového řízení na zhotovitele pro doplnění a rekonstrukci veřejného osvětlení v ul. Františka Voláka v Pečkách.",
+     "typ_raw": null,
+     "zodpovida_raw": "Jana Zindrová",
+     "prijato_raw": "6. 11. 2023 na jednání č. 38/2023",
+     "prijato_date_iso": "2023-11-06",
+     "prijato_meeting_label": "38/2023",
+     "termin_raw": "20. 11. 2023",
+     "ukonceno_raw": "24. 11. 2023",
+     "ukonceno_date_iso": "2023-11-24",
+     "fields_raw": {
+      "Číslo usnesení": "UR-323-38/23",
+      "Text usnesení": "Rada města schvaluje vyhlášení výběrového řízení na zhotovitele pro doplnění a rekonstrukci veřejného osvětlení v ul. Františka Voláka v Pečkách.",
+      "Zodpovídá": "Jana Zindrová",
+      "Přijato": "6. 11. 2023 na jednání č. 38/2023",
+      "Termín": "20. 11. 2023",
+      "Ukončeno": "24. 11. 2023"
+     }
+    }
+   },
+   {
+    "number_raw": "UR-324-38/23",
+    "detail_id": 47432,
+    "detail_url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/47432?mod=rada",
+    "agenda_item_raw": "Uzavření Dodatku č.1 k SOD na akci: \"Rekonstrukce otopné soustavy vč. kotelny v Domě služeb Pečky\"",
+    "text_verbatim": "Rada\nměsta schvaluje uzavření Dodatku č.1 k SOD uzavřené mezi městem Pečky a zhotovitelem TZB Kladno s.r.o. Třebízského 466, 273 09 Kladno na stavební práce akce:\"Rekonstrukce otopné soustavy vč. kotelny v Domě služeb Pečky\", celková cena díla se snižuje o 15 986,94 Kč bez DPH.",
+    "cell_text_raw": "Bod programu:\nUzavření Dodatku č.1 k SOD na akci: \"Rekonstrukce otopné soustavy vč. kotelny v Domě služeb Pečky\"\nText přijatého usnesení:\nRada\nměsta schvaluje uzavření Dodatku č.1 k SOD uzavřené mezi městem Pečky a zhotovitelem TZB Kladno s.r.o. Třebízského 466, 273 09 Kladno na stavební práce akce:\"Rekonstrukce otopné soustavy vč. kotelny v Domě služeb Pečky\", celková cena díla se snižuje o 15 986,94 Kč bez DPH.",
+    "date_raw": "6. 11. 2023",
+    "date_iso": "2023-11-06",
+    "responsible_raw": "Věra Růžičková",
+    "deadline_raw": "30. 11. 2023",
+    "vote": {
+     "raw_text": "pro: 6 proti: 0 zdržel se: 0",
+     "pro": {
+      "count": 6,
+      "names": null,
+      "raw": "6"
+     },
+     "proti": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     },
+     "zdrzel_se": {
+      "count": 0,
+      "names": null,
+      "raw": "0"
+     }
+    },
+    "detail": {
+     "number_raw": "UR-324-38/23",
+     "text_verbatim": "Rada města schvaluje uzavření Dodatku č.1 k SOD uzavřené mezi městem Pečky a zhotovitelem TZB Kladno s.r.o. Třebízského 466, 273 09 Kladno na stavební práce akce:\"Rekonstrukce otopné soustavy vč. kotelny v Domě služeb Pečky\", celková cena díla se snižuje o 15 986,94 Kč bez DPH.",
+     "typ_raw": null,
+     "zodpovida_raw": "Věra Růžičková",
+     "prijato_raw": "6. 11. 2023 na jednání č. 38/2023",
+     "prijato_date_iso": "2023-11-06",
+     "prijato_meeting_label": "38/2023",
+     "termin_raw": "30. 11. 2023",
+     "ukonceno_raw": "6. 11. 2023",
+     "ukonceno_date_iso": "2023-11-06",
+     "fields_raw": {
+      "Číslo usnesení": "UR-324-38/23",
+      "Text usnesení": "Rada města schvaluje uzavření Dodatku č.1 k SOD uzavřené mezi městem Pečky a zhotovitelem TZB Kladno s.r.o. Třebízského 466, 273 09 Kladno na stavební práce akce:\"Rekonstrukce otopné soustavy vč. kotelny v Domě služeb Pečky\", celková cena díla se snižuje o 15 986,94 Kč bez DPH.",
+      "Zodpovídá": "Věra Růžičková",
+      "Přijato": "6. 11. 2023 na jednání č. 38/2023",
+      "Termín": "30. 11. 2023",
+      "Ukončeno": "6. 11. 2023"
+     }
+    }
+   }
+  ]
+ }
+}

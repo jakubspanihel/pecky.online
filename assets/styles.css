@@ -359,6 +359,7 @@
   .dash-col > :last-child{flex:1 1 auto;}
   .dash-col > .dash-card--noviny{flex:0 0 auto;}
   .dash-bento .dash-zm--volby{grid-area:vol; margin:0;}
+  .dash-bento .dash-zm--shrnuti{grid-area:rad; margin:0;}
   .dash-card--jednani{grid-area:jed; background:rgba(255,255,255,0.5);}
   .dash-card--kalendar{grid-area:kal;}
   /* Aktuality: bez rámečku a podkladu karty, nadpis se při rolování drží pod navigací */
@@ -399,8 +400,8 @@
     .dash-nove-chevron{grid-area:chev; margin-left:0;}
     .dash-nove-list{grid-area:list;}
   }
-  @media (max-width:980px){.dash-col{display:contents;} .dash-bento .dash-card--noviny{align-self:start;} .dash-bento{display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); grid-template-areas:"zme zme" "nov kal" "jed kal";} .dash-bento--volby{grid-template-areas:"vol vol" "zme zme" "nov kal" "jed kal";}}
-  @media (max-width:720px){.dash-bento{grid-template-columns:minmax(0,1fr); grid-template-areas:"zme" "kal" "nov" "jed";} .dash-bento--volby{grid-template-areas:"vol" "zme" "kal" "nov" "jed";}}
+  @media (max-width:980px){.dash-col{display:contents;} .dash-bento .dash-card--noviny{align-self:start;} .dash-bento{display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); grid-template-areas:"zme zme" "nov kal" "jed kal";} .dash-bento--volby{grid-template-areas:"vol vol" "zme zme" "nov kal" "jed kal";} .dash-bento--rada{grid-template-areas:"zme zme" "rad rad" "nov kal" "jed kal";} .dash-bento--volby.dash-bento--rada{grid-template-areas:"vol vol" "zme zme" "rad rad" "nov kal" "jed kal";}}
+  @media (max-width:720px){.dash-bento{grid-template-columns:minmax(0,1fr); grid-template-areas:"zme" "kal" "nov" "jed";} .dash-bento--volby{grid-template-areas:"vol" "zme" "kal" "nov" "jed";} .dash-bento--rada{grid-template-areas:"zme" "kal" "rad" "nov" "jed";} .dash-bento--volby.dash-bento--rada{grid-template-areas:"vol" "zme" "kal" "rad" "nov" "jed";}}
   /* Příští zastupitelstvo: samostatný pás nad mřížkou karet, jen je-li ohlášené */
   /* každá položka (zasedání, volby) je samostatný blok; barvy stejné jako
      v Kalendáři: zastupitelstvo = bordó (--burgundy), volby = břidlicová (--slate) */
@@ -417,6 +418,7 @@
      podtržený — globální bordó odkaz (a{color:var(--burgundy)}) by na bordó či modrém podkladu zmizel */
   .banner a:not(.banner-cta):not(.dash-more), .kal-banner a:not(.kal-banner-cta){color:inherit; text-decoration:underline;}
   .banner--slate{--banner-from:var(--cyan); --banner-to:var(--cyan); --banner-accent:var(--cyan);}
+  .banner .tag.rel-chip{margin-left:var(--space-2); white-space:nowrap; background:var(--white); border-color:var(--white); color:var(--banner-accent); font-weight:var(--fw-bold);}
   .banner--slate .tag.fut-chip{background:var(--yellow); border-color:var(--yellow-deep); color:var(--ink); font-weight:var(--fw-bold);}
   .banner--green{--banner-from:#3F8A55; --banner-to:#2A5E3A; --banner-accent:#2A5E3A;}
   /* banner s obrázkem vlevo (Domů: Pečecké noviny) — obálka + text a tlačítko */
@@ -449,6 +451,8 @@
   .banner-meta-item{display:inline-flex; align-items:flex-start; gap:7px;}
   .banner-meta-item svg{flex:0 0 auto; margin-top:3px;}
   .banner .banner-text{margin:0 0 var(--space-4); font-size:var(--fs-10); line-height:1.5; color:rgba(255,255,255,0.9);}
+  .banner .banner-topics{margin:0 0 var(--space-4); padding-left:var(--space-9); font-size:var(--fs-10); line-height:1.5; color:var(--white-a92);}
+  .banner .banner-topics li{margin:0 0 var(--space-2); padding:0; border:none; font-size:inherit;}
   .banner-actions{display:flex; flex-wrap:wrap; gap:var(--space-4) var(--space-7); align-items:center; margin-top:var(--space-7);}
   .banner .banner-cta{display:inline-flex; align-items:center; gap:9px; padding:var(--space-5) var(--space-11); background:var(--white); color:var(--banner-accent); font-weight:var(--fw-bold); font-size:var(--fs-11); border-radius:var(--radius-pill); text-decoration:none; box-shadow:var(--shadow-cta); transition:transform .15s; white-space:nowrap; flex:0 0 auto; max-width:none;}
   .banner .banner-cta:hover{transform:translateY(-1px); text-decoration:none; background:var(--material);}
@@ -1081,7 +1085,7 @@
   .akce-karta .ev-time{color:var(--white);}
   .akce-karta.akce-blok-vybor .ev-time{color:var(--ink);}
   .akce-den, .dash-akce .dash-den{position:sticky; top:var(--kal-3dny-top,0px); z-index:7; display:flex; flex-wrap:wrap; align-items:center; gap:var(--space-2) var(--space-4); margin:var(--space-6) 0 var(--space-3); padding:var(--space-3) 0; background:var(--material); border-bottom:1px solid var(--line); font-size:var(--fs-10); font-weight:var(--fw-semibold); text-transform:none; letter-spacing:0;}
-  .dash-akce .dash-den{top:calc(var(--nav-h,0px) + var(--dash-head-h,0px)); margin:var(--space-2) 0 0; list-style:none;}
+  .dash-akce .dash-den{top:calc(var(--nav-h,0px) + var(--dash-head-h,0px)); margin:var(--space-2) 0 0; padding-inline:var(--space-5); list-style:none;}
   .akce-skupina + .akce-den{margin-top:var(--space-3);}
   .akce-den .k3-den, .dash-den .k3-den{font-family:var(--font-banner); font-weight:var(--fw-bold); color:var(--ink);}
   .akce-den .k3-datum, .dash-den .k3-datum{font-family:var(--font-banner); font-weight:var(--fw-regular); color:var(--ink-soft);}
