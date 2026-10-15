@@ -1,7 +1,7 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
-import { executeTool, findOsoby, findOrgany, type ToolContext } from "../src/tools.ts";
+import { DOC_MAX_CHARS, executeTool, findOsoby, findOrgany, udUrl, type ToolContext } from "../src/tools.ts";
 import { answer, QUESTION_COST_CAP_MICRO } from "../src/answer.ts";
 import type { Env } from "../src/common.ts";
 
@@ -14,6 +14,7 @@ function mkCtx(over: Partial<ToolContext> = {}): ToolContext & { cited: { title:
     today: "2026-10-10",
     cited,
     load: async (f) => fx(f),
+    loadDoc: async (p) => fx(p),
     searchText: async () => [{ title: "Web — x", url: "/x/", text: "text" }],
     cite: (title, url) => {
       const i = cited.findIndex((c) => c.title === title && c.url === url);
@@ -120,6 +121,78 @@ test("jednani: výpis od nejnovějšího, filtr typu a slov", async () => {
   assert.equal(v.json.celkem, 1);
 });
 
+test("jednani: nejnovejsi s typem vrátí dvě nejnovější (i s jen pozvánkou), bez typu každý druh; „rada“ nechytí školskou radu", async () => {
+  const r = await run("jednani", { typ: "rada", nejnovejsi: true }, mkCtx({ today: "2026-10-15" }));
+  assert.deepEqual(r.json.jednani.map((j: any) => j.id), ["rada-2026-10-19", "rada-2026-10-12"]);
+  assert.deepEqual(r.json.jednani[0].dostupne, ["pozvanka"]);
+  assert.match(r.json.jednani[0].stav, /plánováno/);
+  assert.equal(r.json.jednani[1].stav, undefined);
+  assert.match(r.content, /cti_dokument/);
+  const all = await run("jednani", { nejnovejsi: true });
+  assert.deepEqual(all.json.jednani.map((j: any) => j.id), ["skolska-rada-2026-11-01", "rada-2026-10-19", "zastupitelstvo-2025-06-11"]);
+  const sr = await run("jednani", { typ: "školská rada" });
+  assert.equal(sr.json.celkem, 1);
+});
+
+test("cti_dokument: celé jednání s usneseními a hlasováním, zdroj /jednani/#id", async () => {
+  const r = await run("cti_dokument", { id: "rada-2026-10-12" });
+  assert.equal(r.isError, false);
+  assert.equal(r.json.oznaceni, "RM 36/2026");
+  assert.equal(r.json.body.length, 3);
+  assert.equal(r.json.body[1].usneseni[0].hlasovani, "pro 5, proti 1, zdržel se 0");
+  assert.equal(r.json.body[1].usneseni[0].cislo, "UR-323-36/26");
+  assert.equal(typeof r.json.n, "number");
+  const ctx = mkCtx();
+  await run("cti_dokument", { id: "rada-2026-10-12" }, ctx);
+  assert.deepEqual(ctx.cited[0], { title: "RM 36/2026 (12. 10. 2026) — program a usnesení", url: "/jednani/#rada-2026-10-12" });
+});
+
+test("cti_dokument: bod podrobně, neexistující bod a id, neplatné id", async () => {
+  const b = await run("cti_dokument", { id: "rada-2026-10-12", bod: 3 });
+  assert.equal(b.json.bod.n, 3);
+  assert.equal(b.json.bod.zprava.length <= 900, true);
+  assert.equal(b.json.bod.zprava.length > 500, true); // podrobně (celé jednání zkrátí na 350)
+  assert.equal(b.json.body, undefined);
+  const x = await run("cti_dokument", { id: "rada-2026-10-12", bod: 99 });
+  assert.equal(x.isError, true);
+  assert.match(x.content, /1, 2, 3/);
+  const missing = await run("cti_dokument", { id: "rada-1999-01-01" }, mkCtx({ loadDoc: async () => { throw new Error("404"); } }));
+  assert.equal(missing.isError, true);
+  assert.match(missing.content, /nástrojem jednani/);
+  for (const bad of ["../osoby", "Rada 1", "a/b", ""]) assert.equal((await run("cti_dokument", { id: bad })).isError, true);
+});
+
+test("cti_dokument: jen pozvánka nese poznámku a dostupne", async () => {
+  const r = await run("cti_dokument", { id: "rada-2026-10-19" });
+  assert.deepEqual(r.json.dostupne, ["pozvanka"]);
+  assert.match(r.json.poznamka, /zápis a usnesení zatím nevyšly/);
+  assert.match(r.json.stav, /plánováno/);
+});
+
+test("cti_dokument: velké jednání se zkrátí pod limit (≈ 5 000 tokenů) a ponese pokyn k detailu", async () => {
+  const r = await run("cti_dokument", { id: "zastupitelstvo-2025-06-11" });
+  assert.equal(r.isError, false);
+  assert.ok(r.content.length <= DOC_MAX_CHARS + 500, String(r.content.length));
+  assert.ok(r.json.body.length >= 1);
+  assert.match(r.content, /cti_dokument\(id, bod\)|zkraceno/);
+});
+
+test("uredni_deska: filtr slov, rozsah a odkazy (číslo → slug z názvu, as4u)", async () => {
+  const r = await run("uredni_deska", { od: "2026-01-01", do: "2026-12-31" });
+  assert.equal(r.json.celkem, 3);
+  assert.equal(r.json.dokumenty[0].vyveseno, "2026-10-09");
+  const h = await run("uredni_deska", { hledej: "záměr", od: "2025-06-01", do: "2026-12-31" });
+  assert.equal(h.json.celkem, 2);
+  const ctx = mkCtx();
+  await run("uredni_deska", { od: "2026-01-01", do: "2026-12-31" }, ctx);
+  assert.equal(ctx.cited[0].url, "https://pecky.cz/default/report/491473_zapis-ze-zasedani-zastupitelstva-mesta-c-7-2026");
+  assert.match(ctx.cited[2].url, /^https:\/\/pecky\.as4u\.cz\/.*detail_claim=123$/);
+  assert.equal(udUrl("111_zamer-x", "Záměr"), "https://pecky.cz/default/report/111_zamer-x");
+  assert.equal((await run("uredni_deska", { od: "2020-01-01", do: "2026-12-31" })).isError, true); // víc než 3 roky
+  const none = await run("uredni_deska", { od: "2010-01-01", do: "2010-12-31" }, mkCtx({ loadDoc: async () => { throw new Error("404"); } }));
+  assert.equal(none.json.celkem, 0);
+});
+
 test("hledej_text: předá dotaz a typ", async () => {
   let seen: any[] = [];
   const r = await run("hledej_text", { dotaz: "knihovna", typ: "Organizace" }, mkCtx({
@@ -162,7 +235,7 @@ let bodies: any[] = [];
 globalThis.fetch = (async (input: any, init?: any) => {
   const url = typeof input === "string" ? input : input.url;
   if (url.startsWith("https://site.test/peckybot/data/")) {
-    const n = url.split("/").pop()!.split(".json")[0];
+    const n = url.split("/peckybot/data/")[1].split(".json")[0];
     return new Response(readFileSync(new URL(`./fixtures/${n}.json`, import.meta.url)));
   }
   if (url.startsWith("https://site.test/")) {
@@ -198,7 +271,7 @@ test("smyčka: bez nástrojů = jedno volání, meta", async () => {
   assert.equal(r.meta.retrieved.length, 8);
   assert.equal(r.sources.length, 1);
   assert.equal(spendOf(e), r.meta.costMicro);
-  assert.ok(bodies[0].tools.length === 6);
+  assert.ok(bodies[0].tools.length === 8);
   assert.deepEqual(bodies[0].system[0].cache_control, { type: "ephemeral" });
   assert.equal(bodies[0].tool_choice, undefined);
 });
@@ -294,4 +367,32 @@ test("smyčka: cache tokeny se počítají vážené, ale meta sečte všechny v
   assert.equal(r.meta.inputTokens, 3100);
   assert.equal(r.meta.costMicro, Math.round((100 + 1250 + 200) * 2));
   assert.equal(spendOf(e), r.meta.costMicro);
+});
+
+test("smyčka: poslední rada → jednani → cti_dokument, zdroj z dokumentu v odpovědi, cena v limitu", async () => {
+  script = [
+    toolUse("jednani", { typ: "rada", nejnovejsi: true }, "t1"),
+    toolUse("cti_dokument", { id: "rada-2026-10-12" }, "t2"),
+    text("Rada schválila pronájem ordinace logopedie [10]."),
+  ];
+  bodies = [];
+  const e = env();
+  const r = await answer(e, [{ role: "user", content: "Co se probíralo na poslední radě?" }], "2026-10");
+  assert.deepEqual(r.meta.tools, ["jednani", "cti_dokument"]);
+  assert.equal(bodies.length, 3);
+  const doc = bodies[2].messages.at(-1).content[0];
+  assert.equal(doc.tool_use_id, "t2");
+  assert.match(doc.content, /UR-323-36\/26/);
+  assert.ok(r.meta.costMicro < QUESTION_COST_CAP_MICRO);
+  assert.equal(r.sources.length, 1);
+  assert.equal(r.sources[0].url, "/jednani/#rada-2026-10-12");
+  assert.match(bodies[0].system[0].text, /pozvanka/);
+  assert.match(bodies[0].tools.find((t: any) => t.name === "jednani").description, /nejnovejsi/);
+  assert.ok(bodies[0].tools.some((t: any) => t.name === "cti_dokument"));
+});
+
+test("smyčka: čtení dokumentu přidá nejvýš ≈ 0,02 USD (limit výsledku v tokenech)", async () => {
+  const r = await executeTool("cti_dokument", { id: "zastupitelstvo-2025-06-11" }, mkCtx());
+  const tokens = r.content.length / 2.3; // pesimistický odhad pro češtinu v JSONu
+  assert.ok((tokens * 2) / 1e6 * 2 < 0.02, `${tokens} tokenů`); // 2 další volání × 2 USD/M
 });

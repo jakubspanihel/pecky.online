@@ -892,5 +892,127 @@
   },
   "category": "Iter2: organizace a události",
   "note": "issues.json 2026-09"
+ },
+ {
+  "q": "Kdo se v pečkách stará o noviny?",
+  "expect": {
+   "titleRegex": "^Web — Kdo vede Pečecké noviny",
+   "inTop": 3
+  },
+  "category": "Skutečné dotazy",
+  "note": "produkční dotaz, bot odpověděl nevím (👎); stránka /noviny/redakce.html"
+ },
+ {
+  "q": "Kdo se v pečkách stará o noviny?",
+  "expect": {
+   "titleRegex": "^(Web — Kdo vede Pečecké noviny|Lidé — Alena Brantová)",
+   "inTop": 3,
+   "textRegex": "Brantov"
+  },
+  "category": "Skutečné dotazy",
+  "note": "očekáván úryvek jmenující současnou redaktorku (Brantová)"
+ },
+ {
+  "q": "Kdo vydává a redigují Pečecké noviny?",
+  "expect": {
+   "titleRegex": "^(Web — Kdo vede Pečecké noviny|Lidé — Alena Brantová)",
+   "inTop": 3,
+   "textRegex": "Brantov"
+  },
+  "category": "Skutečné dotazy",
+  "note": "oprava uživatelů: redakce Brantová od 4/2024, knihovna jen grafika 2006–2016"
+ },
+ {
+  "q": "kdo je redaktor Pečeckých novin",
+  "expect": {
+   "titleRegex": "^(Web — Kdo vede Pečecké noviny|Lidé — Alena Brantová)",
+   "inTop": 3,
+   "textRegex": "Brantov"
+  },
+  "category": "Skutečné dotazy",
+  "note": "současná redaktorka Alena Brantová"
+ },
+ {
+  "q": "Kdy se hraje fotbal",
+  "expect": {
+   "titleRegex": "^Kalendář — Fotbal",
+   "inTop": 3
+  },
+  "category": "Skutečné dotazy",
+  "note": "kalendář zápasů AFK Pečky"
+ },
+ {
+  "q": "Co se děje v Pečkách?",
+  "expect": {
+   "titleRegex": "^Kalendář",
+   "inTop": 5
+  },
+  "category": "Skutečné dotazy",
+  "note": "obecný dotaz; kalendář nejbližších akcí (dnes 7. 10. 2026)"
+ },
+ {
+  "q": "Jaká jsou místa k pronájmu v pečkách?",
+  "expect": {
+   "titleRegex": "^Web — Prostory",
+   "inTop": 3
+  },
+  "category": "Skutečné dotazy",
+  "note": "sekce Prostory (ne garážová stání z RM)"
+ },
+ {
+  "q": "Bačov",
+  "expect": {
+   "titleRegex": "^RM \\d+/2026 — Rekonstrukce MK a vodovodní řad v části Bačov",
+   "inTop": 3
+  },
+  "category": "Skutečné dotazy",
+  "note": "jednoslovný dotaz; stavba Bačov 3. a 4. etapa, RM 32/35 2026"
+ },
+ {
+  "q": "Projekt bačov už je hotový?",
+  "expect": {
+   "titleRegex": "^RM \\d+/2026 — Rekonstrukce MK a vodovodní řad v části Bačov",
+   "inTop": 5
+  },
+  "category": "Skutečné dotazy",
+  "note": "bot odpověděl nevím; nejnovější stav v RM 32/2026 a 35/2026"
+ },
+ {
+  "q": "kde si muzu zajit na pivo az budu v peckach",
+  "expect": {
+   "titleRegex": "^Organizace — (Restaurace, hospody a kavárny|Hostinec|Hospoda)",
+   "inTop": 3
+  },
+  "category": "Skutečné dotazy",
+  "note": "bez diakritiky, hospody v Organizacích"
+ },
+ {
+  "q": "a co obed kde si muzu dat? je tam vubec nekde nejaka?",
+  "expect": {
+   "titleRegex": "^(Na oběd|Organizace — Restaurace, hospody)",
+   "inTop": 3
+  },
+  "category": "Skutečné dotazy",
+  "note": "stránka Na oběd / přehled restaurací"
+ },
+ {
+  "q": "kdo byl starosta pred tim",
+  "expect": {
+   "titleRegex": "^Starostové a místostarostové",
+   "inTop": 1,
+   "textRegex": "Švejnohov"
+  },
+  "category": "Skutečné dotazy",
+  "note": "navazující dotaz; předchozí otázka o starostovi, očekává se Švejnohová přes historii",
+  "context": "Kdo je starosta?"
+ },
+ {
+  "q": "Co se probíralo na poslední radě?",
+  "expect": {
+   "titleRegex": "^RM 36/2026 — přehled jednání",
+   "inTop": 3
+  },
+  "category": "Skutečné dotazy",
+  "note": "v novém designu odpoví nástroj cti_dokument; na úrovni retrievalu se čeká přehled nejnovější RM"
  }
 ]

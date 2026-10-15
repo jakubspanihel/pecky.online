@@ -428,7 +428,7 @@ def chunks_fakta():
         url, nazev = STATICKE[slug]
         if slug not in cache:
             path = ROOT / 'content' / f'{slug}.html'
-            cache[slug] = [ln.lstrip(HEAD_MARK) for ln in html_to_lines(path.read_text(encoding='utf-8'))] \
+            cache[slug] = [re.sub('^' + HEAD_MARK + r'\d', '', ln) for ln in html_to_lines(path.read_text(encoding='utf-8'))] \
                 if path.exists() else []
         hits = []
         for ln in cache[slug]:
@@ -472,26 +472,39 @@ HEAD_MARK = '\x01'
 
 
 def html_to_lines(src):
-    """Text stránky po řádcích; nadpisy (h2–h4, summary bez nadpisu uvnitř) mají prefix HEAD_MARK."""
+    """Text stránky po řádcích; nadpisy (h2–h4, summary bez nadpisu uvnitř, řádky prostorů)
+    mají prefix HEAD_MARK + číslice úrovně."""
     src = re.sub(r'<(script|style)\b.*?</\1>', ' ', src, flags=re.S | re.I)
     src = re.sub(r'\{\{[^}]*\}\}', ' ', src)
+    # dekorace (iniciály avatarů, přepínače +) nejsou text
+    src = re.sub(r'<span\b[^>]*aria-hidden="true"[^>]*>.*?</span>', '', src, flags=re.S | re.I)
 
     def summary(m):
         inner = m.group(1)
         return m.group(0) if re.search(r'<h[1-6]', inner, re.I) else f'<h4>{inner}</h4>'
     src = re.sub(r'<summary\b[^>]*>(.*?)</summary>', summary, src, flags=re.S | re.I)
-    src = re.sub(r'<h([2-4])\b[^>]*>(.*?)</h\1>', lambda m: '\n' + HEAD_MARK + re.sub(r'<[^>]+>', '', m.group(2)) + '\n',
+
+    def mark(level, text):
+        return '\n' + HEAD_MARK + str(level) + re.sub(r'<[^>]+>', '', text) + '\n'
+    # řádek tabulky prostorů: název prostoru je nadpis, zbytek buněk text
+    src = re.sub(r'<tr\b[^>]*class="prostor-row"[^>]*>\s*<td[^>]*>\s*<strong>(.*?)</strong>',
+                 lambda m: mark(3, m.group(1)) + '<td>', src, flags=re.S | re.I)
+    # konec generovaného přehledu prostorů: následující poznámky už nepatří k poslednímu prostoru
+    src = src.replace('<!-- PROSTORY:END -->', mark(3, 'Poznámky k přehledu prostorů'))
+    src = re.sub(r'<h([2-4])\b[^>]*>(.*?)</h\1>', lambda m: mark(m.group(1), m.group(2)),
                  src, flags=re.S | re.I)
-    src = re.sub(r'<br\s*/?>|</(p|li|tr|div|section)>', '\n', src, flags=re.I)
+    src = re.sub(r'<br\s*/?>|</(p|li|tr|div|section|article|header)>', '\n', src, flags=re.I)
     src = re.sub(r'</t[dh]>', ' | ', src, flags=re.I)
+    src = re.sub(r'<small\b[^>]*>|</a>', ' ', src, flags=re.I)
     src = re.sub(r'<[^>]+>', '', src)
     src = html.unescape(src).replace('\xa0', ' ')
     out = []
     for ln in src.splitlines():
-        head = ln.startswith(HEAD_MARK)
-        ln = re.sub(r'\s+', ' ', ln.lstrip(HEAD_MARK)).strip(' |')
+        m = re.match(HEAD_MARK + r'(\d)', ln)
+        ln = re.sub(r'\s+', ' ', re.sub('^' + HEAD_MARK + r'\d', '', ln)).strip(' |')
+        ln = re.sub(r' ([.,;:)])', r'\1', ln)
         if ln:
-            out.append((HEAD_MARK if head else '') + ln)
+            out.append((HEAD_MARK + m.group(1) if m else '') + ln)
     return out
 
 
@@ -510,38 +523,73 @@ def split_long(ln, n):
     return res
 
 
+# stránky, jejichž text úryvku začíná hlavním nadpisem stránky (např. „Prostory k pronájmu“)
+H2_V_TEXTU = {'prostory'}
+# stránky s kartami od nejnovější (podle popisku v HTML)
+KARTY_NEJNOVEJSI = {'redakce'}
+
+
 def chunks_stranky():
     out = []
     for slug, (url, nazev) in STATICKE.items():
         path = ROOT / 'content' / f'{slug}.html'
         if not path.exists():
             continue
-        h2 = ''          # hlavní nadpis stránky
-        sekce = ''       # aktuální podnadpis
+        lv = {}          # aktuální nadpisy podle úrovně (2 = stránka, 3 = sekce/karta, 4 = podsekce)
         buf = []
+        size = 0
+        stav = {'label': ''}   # popisek úryvku podle nadpisů platných na jeho začátku
+
+        def sekce():
+            parts = [lv[k] for k in (3, 4) if lv.get(k)] or ([lv[2]] if lv.get(2) else [])
+            return ' › '.join(p for p in parts if p != nazev)
 
         def flush():
+            nonlocal size
             body = '\n'.join(buf).strip()
             buf.clear()
+            size = 0
             if len(body) < 40:
                 return
-            kde = nazev + (f' — {sekce}' if sekce and sekce != nazev else '')
-            t = f'Web — {kde}'
-            out.append({'u': url, 't': t, 'x': f'{kde}: {body}'})
+            sk = stav['label']
+            kde = nazev + (f' — {sk}' if sk else '')
+            lead = kde
+            if slug in H2_V_TEXTU and lv.get(2) and lv[2] not in kde:
+                lead = f'{lv[2]} — {kde}'
+            out.append({'u': url, 't': f'Web — {kde}', 'x': f'{lead}: {body}'})
 
-        size = 0
-        for ln in html_to_lines(path.read_text(encoding='utf-8')):
+        radky = html_to_lines(path.read_text(encoding='utf-8'))
+        # karty seřazené od nejnovější: perex stránky dostane nadpis a období první karty
+        nejnovejsi = ''
+        if slug in KARTY_NEJNOVEJSI:
+            for i, ln in enumerate(radky[:-1]):
+                if ln.startswith(HEAD_MARK + '3'):
+                    nejnovejsi = f'{ln[2:]}, {radky[i + 1]}'
+                    break
+        for ln in radky:
             if ln.startswith(HEAD_MARK):
+                level, text = int(ln[1]), clip(ln[2:].replace('▾', '').replace('▸', ''), 90).strip()
+                if level == 4 and lv.get(3) and buf and size < 300:
+                    # (popisek úryvku zůstává podle nadpisu karty)
+                    # krátký seznam se slučuje s nadpisem karty: „Redakce: jména“
+                    lv[4] = text
+                    buf.append(f'{text}:')
+                    size += len(text) + 2
+                    continue
+                if nejnovejsi and level == 3 and lv.get(2) and not lv.get(3):
+                    buf.append(f'Nejnovější karta: {nejnovejsi}.')
                 flush()
-                size = 0
-                sekce = clip(ln[1:].replace('▾', '').replace('▸', ''), 90).strip()
+                for k in [k for k in lv if k >= level]:
+                    del lv[k]
+                lv[level] = text
                 continue
             if len(ln) < 3:
                 continue
             for part in split_long(ln, MAX_CHUNK):
                 if buf and size + len(part) > MAX_CHUNK:
                     flush()
-                    size = 0
+                if not buf:
+                    stav['label'] = sekce()
                 buf.append(part)
                 size += len(part) + 1
         flush()

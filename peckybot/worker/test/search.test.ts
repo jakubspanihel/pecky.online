@@ -148,3 +148,26 @@ test("roster/number záměry: Složení a shrnutí web", () => {
   assert.ok(detectIntent("Kolik stojí tělocvična?").number);
   assert.ok(!detectIntent("kontakt knihovna").who);
 });
+
+test("záměry: poslední rada, pronájem, co se děje, pivo", () => {
+  assert.equal(detectIntent("Co se probíralo na poslední radě?").latest, "RM");
+  assert.equal(detectIntent("poslední zastupitelstvo").latest, "ZM");
+  assert.ok(detectIntent("místa k pronájmu").rent);
+  assert.ok(detectIntent("Co se děje v Pečkách?").general);
+  assert.ok(detectIntent("kde si dám pivo").pub);
+  assert.ok(detectIntent("projekt už je hotový").status);
+});
+
+test("výjimka z penalizace nadpisů-otázek a recency u shodného skóre", () => {
+  const q: Index = {
+    v: 1, shard: 100,
+    chunks: [
+      { u: "/jednani/#rada-2024-01-01", t: "RM 1/2024 — Stavba cesty" },
+      { u: "/jednani/#rada-2026-09-01", t: "RM 30/2026 — Stavba cesty" },
+      { u: "/noviny/", t: "Web — Kdo vede noviny — Kdo vede noviny?" },
+    ],
+    post: { stavba: [0, 1, 1, 1], cesty: [0, 1, 1, 1], noviny: [2, 2], vede: [2, 2] },
+  };
+  assert.equal(search(q, "stavba cesty", 3, { today: "2026-10-15" })[0].id, 1);
+  assert.equal(search(q, "kdo vede noviny", 3, { today: "2026-10-15" })[0].id, 2);
+});

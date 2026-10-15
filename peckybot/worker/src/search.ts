@@ -130,6 +130,11 @@ export interface Intent {
   org: boolean;
   number: boolean;
   roster: boolean;
+  general: boolean; // „co se děje / co nového“
+  rent: boolean; // pronájem
+  latest: 'RM' | 'ZM' | 'any' | null; // „poslední rada/zastupitelstvo/jednání“
+  status: boolean; // dotaz na aktuální stav
+  pub: boolean; // pivo, hospoda, kde se najíst
   history: boolean; // minulost: roky, „byl“, „po revoluci“, „dříve“
   calendar: boolean;
   namesPerson: boolean; // v dotazu je slovo s velkým písmenem mimo začátek (jméno)
@@ -188,6 +193,13 @@ export function detectIntent(query: string, today?: string): Intent {
     org: ORG_RE.test(q),
     number: NUMBER_RE.test(q),
     roster: ROSTER_RE.test(q),
+    general: /\bco se deje\b|\bco (je )?noveho\b|\bco nove\b|\bdeje se\b/.test(q),
+    rent: /\b(pronaj\w*|k pronajmu)\b/.test(q),
+    latest: /\b(posledn\w*|nejnovejs\w*|aktualn\w*|naposledy)\b/.test(q)
+      ? /\b(zastupitelstv\w*|zm)\b/.test(q) ? "ZM" : /\b(rad[aeuyě]|rade|radou|rm)\b/.test(q) ? "RM" : /\b(zasedani|jednani)\b/.test(q) ? "any" : null
+      : null,
+    status: /\b(hotov\w*|dokonc\w*|aktualn\w*|nyni|soucasn\w*|stav|uz je|jak to vypada|jak pokrac\w*)\b/.test(q),
+    pub: /\b(pivo|piva|pivko|hospod\w*|hospud\w*|najist|najez\w*|restaurac\w*|kavarn\w*)\b/.test(q),
     history: /\b(byl\w*|\d{4}|revoluc\w*|drive|historie|minul\w*|davn\w*|predchozi)\b/.test(q),
     calendar: CALENDAR_RE.test(q),
     namesPerson: words.some((w) => /^\p{Lu}\p{Ll}{2,}/u.test(w)),
@@ -206,8 +218,35 @@ export interface SearchOptions {
 const DEFAULT_CAP = 4;
 const DOMINANT = 0.8; // úryvek se skóre >= 80 % nejlepšího se do limitu nepočítá
 
-function chunkBoost(c: { u: string; t: string }, it: Intent, today?: string): number {
+const MEETING_DATE_RE = /-(\d{4})-(\d{2})-(\d{2})$/;
+const RECENCY_MAX = 1.35; // jen když v čele výsledků jsou samá jednání
+const RECENCY_STATUS = 1.3; // dotaz na stav („už je hotový“, „aktuálně“) // nejnovější jednání ×1.3, po 4 letech ×1
+const RECENCY_DAYS = 540;
+const LATEST_BOOST = 2;
+const RENT_BOOST = 2;
+const PUB_BOOST = 2;
+
+function daysAgo(u: string, today: string): number | null {
+  const m = u.match(MEETING_DATE_RE);
+  if (!m) return null;
+  return (Date.parse(today + "T00:00:00Z") - Date.parse(`${m[1]}-${m[2]}-${m[3]}T00:00:00Z`)) / 86400000;
+}
+
+function chunkBoost(c: { u: string; t: string }, it: Intent, today?: string, qtoks?: Set<string>): number {
   let f = 1;
+  const meeting = c.t.startsWith("RM ") || c.t.startsWith("ZM ");
+  if (meeting && today) {
+    const age = daysAgo(c.u, today);
+    if (age !== null && age >= -14) {
+      if (it.status) f *= 1 + (RECENCY_STATUS - 1) * Math.max(0, 1 - age / RECENCY_DAYS);
+      if (it.latest && (it.latest === "any" || c.t.startsWith(it.latest + " "))) {
+        if (age <= 90) f *= 1 + (LATEST_BOOST - 1) * (1 - age / 90) ** 2 * 3; // nejnovější nejvíc
+        if (/přehled jednání/.test(c.t)) f *= 1.5;
+      }
+    }
+  }
+  if (it.rent && c.t.startsWith("Web — Prostory")) f *= RENT_BOOST;
+  if (it.pub && /^Organizace — Restaurace/.test(c.t)) f *= PUB_BOOST;
   const isPerson = c.t.startsWith("Lidé —");
   const isMeeting = c.t.startsWith("RM ") || c.t.startsWith("ZM ");
   const personIntent = it.who || it.roster || (it.contact && (it.role || it.namesPerson));
@@ -225,7 +264,12 @@ function chunkBoost(c: { u: string; t: string }, it: Intent, today?: string): nu
   if (c.t.startsWith("Kalendář") && it.number && !it.calendar) f *= 0.6;
   if (personIntent && isMeeting) f *= JEDNANI_PENALTY;
   if (personIntent && /Pakt/.test(c.t)) f *= PAKT_PENALTY;
-  if (c.t.startsWith("Web —") && c.t.endsWith("?")) f *= QUESTION_PENALTY; // nadpisy-otázky vyhrávají na obecná slova
+  if (c.t.startsWith("Web —") && c.t.endsWith("?")) {
+    // výjimka: dotaz se s nadpisem shoduje alespoň ve dvou obsahových slovech
+    let common = 0;
+    if (qtoks) for (const t of new Set(tokenize(c.t.replace(/^Web — /, "")))) if (qtoks.has(t)) common++;
+    if (common < 2) f *= QUESTION_PENALTY;
+  } // nadpisy-otázky vyhrávají na obecná slova
   if (c.t.startsWith("Kalendář")) {
     if (it.calendar) f *= CALENDAR_BOOST;
     const m = c.t.match(/\((\d{1,2})\. (\d{1,2})\. (\d{4})\)\s*$/);
@@ -247,7 +291,23 @@ function addTerm(w: Map<string, number>, tok: string, weight: number) {
 export function search(index: Index, query: string, k: number, opts: SearchOptions = {}): Hit[] {
   const n = index.chunks.length;
   const weights = new Map<string, number>();
-  for (const t of tokenize(query)) addTerm(weights, t, 1);
+  const intent = detectIntent(query, opts.today);
+  const qset = new Set(tokenize(query));
+  for (const t of qset) addTerm(weights, t, 1);
+  if (intent.rent) {
+    for (const t of ["mista", "misto", "mistu"]) weights.delete(t); // „místa“ nemá chytat garážová stání
+    addTerm(weights, "prosto", 1);
+  }
+  if (intent.latest) {
+    for (const t of ["posled", "nejnov", "aktual", "naposl"]) weights.delete(t);
+    for (const [t] of [...weights]) if (/^(posled|nejnov)/.test(t)) weights.delete(t);
+    addTerm(weights, "prehle", 1);
+    addTerm(weights, "jednan", 0.8);
+  }
+  if (intent.general) {
+    addTerm(weights, "kalend", 1);
+    addTerm(weights, "akce", 0.8);
+  }
   if (opts.context) for (const t of tokenize(opts.context)) addTerm(weights, t, CONTEXT_WEIGHT);
   for (const [t, w] of [...weights]) {
     const syns = synonymsOf(t);
@@ -272,12 +332,20 @@ export function search(index: Index, query: string, k: number, opts: SearchOptio
   }
   if (scores.size === 0) return [];
 
-  const intent = detectIntent(query, opts.today);
   const boosted = [...scores.entries()].map(([id, score]) => ({
     id,
-    score: score * chunkBoost(index.chunks[id], intent, opts.today),
+    score: score * chunkBoost(index.chunks[id], intent, opts.today, qset),
   }));
   boosted.sort((a, b) => b.score - a.score || b.id - a.id); // při shodě novější úryvek
+  const isMeet = (id: number) => /^(RM|ZM) /.test(index.chunks[id].t);
+  if (opts.today && boosted.length >= 3 && boosted.slice(0, 3).every((h) => isMeet(h.id))) {
+    // v čele jsou jen jednání: novější jednání mírně dopředu (stejný text, různé roky)
+    for (const h of boosted) {
+      const age = isMeet(h.id) ? daysAgo(index.chunks[h.id].u, opts.today) : null;
+      if (age !== null && age >= -14) h.score *= 1 + (RECENCY_MAX - 1) * Math.max(0, 1 - age / RECENCY_DAYS);
+    }
+    boosted.sort((a, b) => b.score - a.score || b.id - a.id);
+  }
 
   const cap = opts.perUrlCap ?? DEFAULT_CAP;
   const top = boosted[0].score;

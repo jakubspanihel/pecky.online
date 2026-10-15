@@ -26,7 +26,7 @@ function matches(e: any, id: number): boolean {
 interface Row { cat: string; pending: boolean; pass: boolean; rr: number }
 const rows: Row[] = [];
 for (const [n, item] of queries.entries()) {
-  const hits = search(index, item.q, K, { today: TODAY });
+  const hits = search(index, item.q, K, { today: TODAY, ...(item.context ? { context: item.context } : {}) });
   const rank = hits.findIndex((h) => matches(item.expect, h.id)) + 1; // 0 = nenalezeno
   const pass = rank > 0 && rank <= item.expect.inTop;
   // kontrola očekávání: existuje vůbec v indexu nějaký odpovídající úryvek?
