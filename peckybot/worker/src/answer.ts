@@ -13,7 +13,7 @@ import {
   type Env,
 } from "./common.ts";
 import { formatSources, systemPrompt } from "./prompt.ts";
-import { search, type Index } from "./search.ts";
+import { isWeak, search, type Index } from "./search.ts";
 import { MAX_TOOL_ROUNDS, TOOL_DEFS, executeTool, typFilter, type ToolContext } from "./tools.ts";
 
 // ---------- index ----------
@@ -121,7 +121,9 @@ export async function answer(env: Env, messages: ChatMessage[], month: string): 
   const query = users[users.length - 1].content;
   const context = users.length > 1 ? users[users.length - 2].content : undefined;
   const index = await getIndex(env);
-  const hits = search(index, query, TOP_K, { context, today });
+  const found0 = search(index, query, TOP_K, { context, today });
+  // slabá shoda (nesmyslný nebo mimotematický dotaz): model nedostane náhodné úryvky
+  const hits = isWeak(found0) ? [] : found0;
   const texts = await getTexts(env, index, hits.map((h) => h.id));
   const sources = hits.map((h, i) => ({
     n: i + 1,

@@ -223,7 +223,8 @@ const RECENCY_MAX = 1.35; // jen když v čele výsledků jsou samá jednání
 const RECENCY_STATUS = 1.3; // dotaz na stav („už je hotový“, „aktuálně“) // nejnovější jednání ×1.3, po 4 letech ×1
 const RECENCY_DAYS = 540;
 const LATEST_BOOST = 2;
-const RENT_BOOST = 2;
+const RENT_BOOST = 1.5;
+const RENT_RECENT_BOOST = 1.5; // čerstvá jednání o pronájmu (záměr, nájemní smlouva)
 const PUB_BOOST = 2;
 
 function daysAgo(u: string, today: string): number | null {
@@ -246,6 +247,10 @@ function chunkBoost(c: { u: string; t: string }, it: Intent, today?: string, qto
     }
   }
   if (it.rent && c.t.startsWith("Web — Prostory")) f *= RENT_BOOST;
+  if (it.rent && meeting && today && /pronáj|nájem|nájm|záměr/i.test(c.t)) {
+    const age = daysAgo(c.u, today);
+    if (age !== null && age >= -14 && age <= 150) f *= RENT_RECENT_BOOST;
+  }
   if (it.pub && /^Organizace — Restaurace/.test(c.t)) f *= PUB_BOOST;
   const isPerson = c.t.startsWith("Lidé —");
   const isMeeting = c.t.startsWith("RM ") || c.t.startsWith("ZM ");
@@ -288,6 +293,30 @@ function addTerm(w: Map<string, number>, tok: string, weight: number) {
   if ((w.get(tok) ?? 0) < weight) w.set(tok, weight);
 }
 
+const weakResults = new WeakSet<Hit[]>();
+
+/** Výsledek bez dostatečné shody s dotazem (nesmysl, náhodné slovo): odpověď má říct „nic relevantního“. */
+export function isWeak(hits: Hit[]): boolean {
+  return hits.length === 0 || weakResults.has(hits);
+}
+
+const MIN_COVERED = 2; // dotaz o 2+ slovech: alespoň jeden úryvek musí obsahovat aspoň dvě z nich
+
+function isWeakMatch(index: Index, hits: Hit[], qset: Set<string>, covered: Map<number, number>, it: Intent): boolean {
+  if (it.contact || it.who || it.role || it.org || it.roster || it.general || it.rent || it.latest || it.pub ||
+      it.calendar || it.refs.length || it.dates.length || it.calDates.length) return false;
+  if (qset.size === 0) return true;
+  if (qset.size >= 2) {
+    let best = 0;
+    for (const h of hits) best = Math.max(best, covered.get(h.id) ?? 0);
+    return best < MIN_COVERED;
+  }
+  // jedno slovo: některý z prvních úryvků ho musí mít v názvu
+  const [tok] = [...qset];
+  const forms = [tok, ...synonymsOf(tok)];
+  return !hits.slice(0, 1).some((h) => tokenize(index.chunks[h.id].t).some((t) => forms.includes(t)));
+}
+
 export function search(index: Index, query: string, k: number, opts: SearchOptions = {}): Hit[] {
   const n = index.chunks.length;
   const weights = new Map<string, number>();
@@ -321,12 +350,15 @@ export function search(index: Index, query: string, k: number, opts: SearchOptio
   }
 
   const scores = new Map<number, number>();
+  const covered = new Map<number, number>(); // id -> počet různých slov z dotazu, která úryvek obsahuje
   for (const [tok, w] of weights) {
     const list = index.post[tok];
     if (!list) continue;
     const idf = Math.log(1 + n / (list.length / 2));
+    const orig = qset.has(tok);
     for (let i = 0; i < list.length; i += 2) {
       const id = list[i];
+      if (orig) covered.set(id, (covered.get(id) ?? 0) + 1);
       scores.set(id, (scores.get(id) ?? 0) + w * (1 + Math.log(list[i + 1])) * idf);
     }
   }
@@ -365,5 +397,6 @@ export function search(index: Index, query: string, k: number, opts: SearchOptio
     }
   }
   for (const h of overflow) if (out.length < k) out.push(h); // nikdy nezahazovat výsledky
+  if (isWeakMatch(index, out, qset, covered, intent)) weakResults.add(out);
   return out;
 }
