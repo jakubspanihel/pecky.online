@@ -43,7 +43,7 @@ Zdroje, které generuje `scripts/build_peckybot_index.py` (jednání, lidé, sek
 - **shrnutí jednání** (`jednani/shrnuti/*.md`, od 15. 10. 2026): nejdůležitější témata a shrnutí jednání; v `cti_dokument` jako pole `shrnuti_jednani`
 - **absence zastupitelů** (`jednani/absence.json`)
 
-Mimo index zůstává úřední deska, plné texty novin a denní menu. Odpověď vzniká ze 8 úryvků, takže PečkyBot **nespočítá a nesečte** (na „kolik…“ nedá spolehlivý počet).
+Mimo index zůstává úřední deska, plné texty novin a denní menu. Na dotazy k novinám PečkyBot podle `worker/src/prompt.ts` vždy uvede, že má jen úvodní stránky čísel, ne celé texty (Pravidla pro vydávání jsou výjimka). Odpověď vzniká ze 8 úryvků, takže PečkyBot **nespočítá a nesečte** (na „kolik…“ nedá spolehlivý počet).
 Index se přegeneruje při každém `python3 scripts/build.py`; kolik úryvků se zapsalo,
 vypíše build. Soubory se přepisují jen při změně obsahu a nová jednání přibývají na
 konec, takže v gitu se mění hlavně rejstřík a poslední dávky.
