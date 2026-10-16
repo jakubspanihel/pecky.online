@@ -428,7 +428,7 @@ document.querySelectorAll('.rel-chip[data-date]').forEach(el => {
     const casEl = li.querySelector('.ev-time');
     if (casEl) {
       const cas = (li.dataset.timeText || li.dataset.time || '').replace(/\b0(\d:\d{2})/g, '$1');
-      const doDne = li.dataset.denEnd ? 'do ' + li.dataset.denEnd : '';
+      const doDne = li.dataset.denEnd ? (jeBezi ? 'trvá do ' : 'do ') + li.dataset.denEnd : '';
       casEl.textContent = [doDne, jeBezi ? '' : cas].filter(Boolean).join(', ');
     }
   });

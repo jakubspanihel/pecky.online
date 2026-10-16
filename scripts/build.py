@@ -627,6 +627,84 @@ def _zvoleni_avatary():
     return f'<div class="banner-avatars">{"".join(out)}</div>' if out else ''
 
 
+def _volby_hlasy_karty(rok='2026', zdroj=None, vsichni=False):
+    """Karty zvolených zastupitelů (hlasy, avatar s okrajem v barvě uskupení, jméno,
+    šipka změny pořadí) místo tabulky osobních hlasů, seřazené podle hlasů, tak jak jsou
+    v tabulce. Zdroj řádků: tabulka v content/volby<rok>.html (u 2026 s „vsichni“ celá
+    tabulka 104 kandidátů); osoba se páruje s lide/people.json.
+    Šipka = o kolik míst je kandidát ve výsledném pořadí uvnitř uskupení výš/níž než na
+    kandidátní listině (pořadí zvolených a pak náhradníků). Zdroj pořadí: 2018 a 2022
+    volby/<rok>/poradi.json (zápis o výsledku voleb); 2026 výpočet z hranice pro změnu
+    pořadí (volby.gov.cz); 2014 není k dispozici (data ČSÚ mají jen zvolené) → bez šipek."""
+    h = zdroj if zdroj is not None else read(f'content/volby{rok}.html')
+    people = json.loads(read('lide/people.json'))['people']
+    out = []
+    radky = re.findall(r'<tr(?: class="([^"]*)")?><td>(\d+)</td><td><span class="swatch" style="background:var\(--party-([a-z0-9-]+)\);?"></span>(.*?)</td></tr>', h, flags=re.S)
+    misto = {}  # (strana, číslo na kandidátce) -> [původní, konečné pořadí v uskupení]
+    if rok == '2026':
+        # kdo má aspoň „hranici pro změnu pořadí“ (údaj z volby.gov.cz u každé kandidátní
+        # listiny, 11. 10. 2026), předbíhá ostatní a řadí se mezi sebou podle hlasů;
+        # ostatní zůstávají v pořadí z kandidátky. Shoda ověřena s oficiálními sloupci
+        # „Mandát“ a „Pořadí“ (náhradníci) u všech pěti listin.
+        HRANICE = {'peckysrdcem': 172.7, 'nasepecky': 544.5, 'ods': 884.4, 'snk': 168.3, 'spd': 172.7}
+        kandidati = {}
+        for _, hl, s, n in radky:
+            m = re.search(r'\((\d+)\.\)', n)
+            if m:
+                kandidati.setdefault(s, []).append((int(m.group(1)), int(hl)))
+        for s, lst in kandidati.items():
+            lst.sort()
+            pred = sorted((x for x in lst if x[1] >= HRANICE[s]), key=lambda x: -x[1])
+            zbytek = [x for x in lst if x[1] < HRANICE[s]]
+            for k, (cislo, _) in enumerate(lst, 1):
+                misto[(s, cislo)] = [k, None]
+            for k, (cislo, _) in enumerate(pred + zbytek, 1):
+                misto[(s, cislo)][1] = k
+    elif (ROOT / f'volby/{rok}/poradi.json').exists():
+        for s, lst in json.loads(read(f'volby/{rok}/poradi.json'))['strany'].items():
+            for k, c in enumerate(sorted(x['n'] for x in lst), 1):
+                misto[(s, c)] = [k, None]
+            for k, x in enumerate(lst, 1):
+                misto[(s, x['n'])][1] = k
+    for trida, hlasu, strana, n in radky:
+        if rok == '2026' and 'zvolen' not in n and not vsichni:
+            continue
+        m = re.search(r'\((\d+)\.\)', n)
+        poradi = m.group(1) if m else None
+        pred_txt, za = (n[:m.start()], n[m.end():]) if m else (n, '')
+        jmeno_txt = re.sub(r'\s+', ' ', re.sub(r'<.*?>', '', pred_txt).replace('\xa0', ' ')).strip()
+        if rok == '2026' and not vsichni:
+            za = re.sub(r'<span class="tag">zvolen</span>', '', za)
+        w = [x for x in jmeno_txt.split(',')[0].split() if not x.endswith('.')]
+        shoda = [x for x in people if (x['first_name'], re.sub(r'\s+(ml|st)\.$', '', x['last_name'])) == (w[0], ' '.join(w[1:]))]
+        p = next((x for x in shoda if strana in x.get('tags', [])), shoda[0] if len(shoda) == 1 else None)
+        fotky = (p or {}).get('photos') or []
+        foto = next((f['url'] for f in fotky if str(f.get('year')) == rok), (fotky[0]['url'] if fotky else None))
+        ini = esc(w[0][0] + w[-1][0])
+        vnitrek = (f'<img src="{esc(foto)}" alt="" loading="lazy" width="56" height="56">' if foto
+                   else f'<span class="vote-av-init" aria-hidden="true">{ini}</span>')
+        av = f'<span class="vote-av" style="--org-c:var(--party-{strana});">{vnitrek}</span>'
+        jm = n[:0] + (pred_txt if '<' in pred_txt else esc(jmeno_txt))
+        jm = jm.strip()
+        if p:
+            jm = f'<a href="/lide/#lide/osoba/{esc(p["id"])}">{jm}</a>'
+        if poradi:
+            jm += f' <span class="vote-poradi">{poradi}. na kandidátce</span>'
+        if za.strip():
+            jm += ' ' + za.strip()
+        sip = ''
+        if poradi and (strana, int(poradi)) in misto:
+            puvodni, konecne = misto[(strana, int(poradi))]
+            rozdil = puvodni - konecne  # >0 = po započtení preferenčních hlasů je dál vpředu než na kandidátce
+            if rozdil:
+                smer, znak, slovo = ('up', '▲', 'výš') if rozdil > 0 else ('down', '▼', 'níž')
+                sip = (f'<span class="vote-trend vote-trend--{smer}" title="Na kandidátce {puvodni}. v uskupení, po započtení preferenčních hlasů {konecne}. — '
+                       f'o {abs(rozdil)} {"místo" if abs(rozdil) == 1 else "místa" if abs(rozdil) < 5 else "míst"} {slovo}">{znak} {abs(rozdil)}</span>')
+        cls = 'vote-card' + (' vote-card--funkce' if trida and 'vol-funkce' in trida else '')
+        out.append(f'<li class="{cls}"><span class="vote-num">{hlasu}</span>{av}<span class="vote-name">{jm}</span>{sip}</li>')
+    return '<ol class="vote-cards">' + ''.join(out) + '</ol>'
+
+
 def _zm_avatary():
     """Blok avatarů 21 současných zastupitelů do banneru: starosta, ostatní
     radní (místostarostové, pak radní), nakonec zbylí zastupitelé. Zdroj:
@@ -1016,7 +1094,7 @@ def _dash_kalendar(dnes):
                '>Žádná nadcházející akce zatím není v kalendáři zapsaná.</li>')
     out.append('  </ul>')
     # odkaz vede na skupinu „Další akce“ v seznamu Kalendáře; měsíc v odkazu přepíše common.js podle dnešního dne
-    out.append(f'  <a class="dash-more dash-more--center" data-kal-dalsi href="/kalendar/#{dnes[:7]}/seznam/dalsi">Další ...</a>')
+    out.append(f'  <a class="dash-more dash-more--center" data-kal-dalsi href="/kalendar/#{dnes[:7]}/seznam/dalsi">Celý kalendář ...</a>')
     return _dash_card('Aktuality', '/kalendar/', None, '\n'.join(out), 'kalendar', head_link='📅 Celý kalendář')
 
 
@@ -1063,11 +1141,11 @@ def render_dashboard(stav_rows):
     from datetime import date
     dnes = date.today().isoformat()
     zm, volby = _dash_zastupitelstvo(dnes)
-    # dva samostatné sloupce (vlevo banner voleb + jednání + noviny, vpravo flashnews, akce): sloupce se nenatahují podle sebe, takže mezi bloky nevznikají mezery;
+    # dva samostatné sloupce (vlevo banner voleb + jednání + noviny, vpravo akce, flashnews): sloupce se nenatahují podle sebe, takže mezi bloky nevznikají mezery;
     # na užších displejích se sloupce rozpustí do mřížky (grid-area v styles.css)
     shrnuti = _dash_rada_shrnuti()
     levy = ([volby] if volby else []) + ([shrnuti] if shrnuti else []) + [_dash_noviny(), _dash_jednani(dnes)]
-    pravy = [_dash_zmeny(), _dash_kalendar(dnes)]
+    pravy = [_dash_kalendar(dnes), _dash_zmeny()]
     sloupec = lambda karty: '<div class="dash-col">\n' + '\n'.join(karty) + '\n</div>'
     return (zm + '\n'
             + f'<div class="dash-grid dash-bento{" dash-bento--volby" if volby else ""}{" dash-bento--rada" if shrnuti else ""}">\n'
@@ -1227,6 +1305,15 @@ def build_all(stav_rows=None):
         if slug in VOLBY_SLUG_TO_ROK or slug == 'volby':
             content = content.replace('{{VOLBY_ROCNIKY}}', render_volby_rocniky(slug))
             content = content.replace('{{VOLBY_ZASTUPITELE}}', render_volby_zastupitele(slug))
+        if slug == 'volby2026':  # tabulka všech kandidátů (zdroj zůstává ve content) → karty
+            content = re.sub(r'<div class="table-scroll" style="margin-top:12px;">\s*<table class="register">\s*<thead><tr><th>Hlasů</th>.*?</table>\s*</div>',
+                             lambda m: _volby_hlasy_karty('2026', vsichni=True), content, count=1, flags=re.S)
+        if slug in ('volby2022', 'volby2018', 'volby2014'):  # tabulka zvolených podle hlasů → karty
+            rok = VOLBY_SLUG_TO_ROK[slug]
+            content = re.sub(r'<div class="table-scroll">\s*<table class="register">\s*<thead>\s*<tr><th>Hlasů</th>.*?</table>\s*</div>',
+                             lambda m: _volby_hlasy_karty(rok, zdroj=m.group(0)), content, count=1, flags=re.S)
+        if '{{VOLBY_HLASY_KARTY}}' in content:
+            content = content.replace('{{VOLBY_HLASY_KARTY}}', _volby_hlasy_karty('2026'))
         nav = build_nav(nav_slug)
         footer = apply_active(footer_tpl, nav_slug)
         if slug in BEZ_RAMCE:

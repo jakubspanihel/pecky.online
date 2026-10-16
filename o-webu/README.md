@@ -40,8 +40,8 @@ citovat tam, ne centrálně.)
 Samostatná podstránka (`EXTRA_PAGES['changelog']` v `scripts/build.py`,
 zdroj `content/changelog.html`) s tabulkou „Stav sekcí“ (`{{STAV_SEKCI}}`),
 kterou build generuje z tabulky v kořenovém `README.md` → „Stav sekcí“.
-Odkaz je v patičce každé stránky (`assets/footer.html`), na stránku se
-neodkazuje z podzáložek O webu. Datum „Aktualizováno“ je nejnovější datum
+Odkaz je na konci stránky O webu (`content/owebu.html`), do patičky se
+nevkládá. Datum „Aktualizováno“ je nejnovější datum
 „Změna“ ze „Stav sekcí“ (`lastmod: 'auto'`) a stránka je v sitemapě.
 Ručně se do ní nezapisuje — zápis běhu = přepsání řádku ve „Stav sekcí“
 v `README.md` (viz `CLAUDE.md`) a `python3 scripts/build.py`.

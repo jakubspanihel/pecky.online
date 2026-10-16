@@ -305,6 +305,30 @@
   .lede-sm{font-size:var(--fs-6);}
   .perex{font-size:var(--fs-12); line-height:1.55;}
   .peckybot {width:100px; }
+  /* Patička: PečkyBot vlevo (záře), vpravo pozdrav, odkaz na Instagram a poznámka o webu */
+  .footer-bot{background:var(--ink); color:var(--white);}
+  .footer-bot-inner{max-width:1040px; margin:0 auto; padding:var(--space-13) var(--space-11); display:grid; grid-template-columns:auto minmax(0,1fr); column-gap:var(--space-13); row-gap:var(--space-9); align-items:center;}
+  .footer-bot .peckybot{grid-row:1 / span 2; align-self:center; width:clamp(120px,22vw,220px); height:auto; filter:drop-shadow(0 0 10px rgba(255,255,255,.6)) drop-shadow(0 0 36px rgba(255,255,255,.5)) drop-shadow(0 0 70px rgba(255,255,255,.35));}
+  .footer-bot-hello{min-width:0; align-self:end;}
+  .footer-bot-hello > p{margin:0;}
+  .footer-bot-hi{display:inline-block; font-family:var(--font-banner); font-weight:var(--fw-bold); font-size:clamp(32px,5vw,52px); line-height:1.1; border-bottom:4px solid var(--burgundy); padding-bottom:var(--space-1);}
+  .footer-bot-hello > .footer-bot-name{font-family:var(--font-banner); font-weight:var(--fw-bold); font-size:clamp(20px,3vw,30px); line-height:1.2; margin-top:var(--space-4);}
+  .footer-bot-hello > .footer-bot-ig{margin-top:var(--space-9);}
+  .footer-bot-ig a{color:var(--white); font-size:var(--fs-10); text-decoration:underline;}
+  .footer-bot-ig svg{width:22px; height:22px;}
+  .footer-bot-note{align-self:start; max-width:460px; color:var(--material-deep); font-size:var(--fs-5); text-align:left; padding:0;}
+  .footer-bot-note a{color:var(--white);}
+  .footer-bot-note p + p{margin-top:var(--space-7);}
+  @media (max-width:720px){
+    .footer-bot-inner{padding:var(--space-11) var(--space-7); column-gap:var(--space-7); row-gap:var(--space-9);}
+    .footer-bot .peckybot{grid-row:1; width:96px;}
+    .footer-bot-hello{align-self:center;}
+    .footer-bot-hi{font-size:32px;}
+    .footer-bot-hello > .footer-bot-name{font-size:19px;}
+    .footer-bot-hello > .footer-bot-ig{margin-top:var(--space-5);}
+    .footer-bot-ig a{font-size:var(--fs-6);}
+    .footer-bot-note{grid-column:1 / -1;}
+  }
 
   @media (max-width:600px){
     main{padding:28px var(--space-7) 60px;}
@@ -357,6 +381,7 @@
   .dash-bento{display:flex; align-items:stretch; gap:var(--space-6);}
   .dash-col{flex:1 1 0; min-width:0; display:flex; flex-direction:column; gap:var(--space-6);}
   .dash-col > :last-child{flex:1 1 auto;}
+  .dash-col > .dash-card--zmeny{flex:0 0 auto;}
   .dash-col > .dash-card--noviny{flex:0 0 auto;}
   .dash-bento .dash-zm--volby{grid-area:vol; margin:0;}
   .dash-bento .dash-zm--shrnuti{grid-area:rad; margin:0;}
@@ -366,10 +391,12 @@
   .dash-bento .dash-card--kalendar{background:none; border:none; padding:0;}
   .dash-card-head{display:flex; justify-content:space-between; align-items:baseline; gap:var(--space-5); margin:0; position:sticky; top:var(--nav-h,0px); z-index:9; background:var(--material); padding:var(--space-5);}
   .dash-card-head h3{margin:0;}
+  .dash-card--kalendar .dash-card-head{display:none;}
   .dash-head-link{font-family:var(--font-mono); font-size:var(--fs-5); font-weight:var(--fw-bold); color:var(--cyan-deep); text-decoration:none; white-space:nowrap;}
   .dash-head-link:hover{text-decoration:underline;}
   .dash-akce{list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:var(--space-3);}
   .dash-akce li[hidden]{display:none;}
+  .dash-akce .dash-group{display:none;} /* štítky „Probíhající“ a „Další akce“ skryté (zůstávají v HTML pro common.js) */
   .dash-akce .dash-group{margin:var(--space-3) 0 0; font-family:var(--font-mono); font-size:var(--fs-3); font-weight:var(--fw-medium); text-transform:uppercase; letter-spacing:0.04em; color:var(--ink-soft);}
   .dash-akce .dash-empty{color:var(--ink-soft); font-style:italic; font-size:var(--fs-9);}
   /* karty akcí na Domů: sdílená šablona .akce-karta (viz níže, „karty akcí“) */
@@ -379,14 +406,14 @@
   .dash-card--zmeny{grid-area:zme;}
   .banner.dash-nove{animation:dash-nove-puls 1s ease-in-out infinite alternate; display:flex; align-items:center; gap:var(--space-6); padding:var(--space-6) var(--space-10); border-radius:var(--radius-lg); min-width:0;}
   .dash-nove-title{margin:0; flex:0 0 auto; font-family:var(--font-body); font-size:var(--fs-10); font-weight:var(--fw-bold); white-space:nowrap;}
+  .banner.dash-nove.is-open{animation:none; align-items:flex-start;}
+  .dash-nove.is-open .dash-nove-list{display:flex; flex-direction:column; gap:var(--space-2);}
+  .dash-nove.is-open .dash-nove-list li{opacity:1; visibility:visible; transition:none;}
   .dash-nove-toggle{all:unset; box-sizing:border-box; cursor:pointer; color:var(--ink); font:inherit; white-space:nowrap;}
   .dash-nove-toggle:focus-visible{outline:2px solid var(--ink); outline-offset:3px; border-radius:var(--radius-md);}
   .dash-nove{cursor:pointer;}
   .dash-nove-chevron{flex:0 0 auto; margin-left:auto; color:var(--ink); transition:transform .25s ease;}
   .dash-nove.is-open .dash-nove-chevron{transform:rotate(180deg);}
-  .banner.dash-nove.is-open{animation:none; align-items:flex-start;}
-  .dash-nove.is-open .dash-nove-list{display:flex; flex-direction:column; gap:var(--space-2);}
-  .dash-nove.is-open .dash-nove-list li{opacity:1; visibility:visible; transition:none;}
   .dash-nove-list{list-style:none; margin:0; padding:0; flex:1 1 auto; min-width:0; display:grid;}
   .dash-nove-list li{grid-area:1/1; display:flex; min-width:0; align-items:center; margin:0; opacity:0; visibility:hidden; transition:opacity .6s ease, visibility 0s .6s;}
   .dash-nove-list li.on{opacity:1; visibility:visible; transition:opacity .6s ease;}
@@ -400,8 +427,8 @@
     .dash-nove-chevron{grid-area:chev; margin-left:0;}
     .dash-nove-list{grid-area:list;}
   }
-  @media (max-width:980px){.dash-col{display:contents;} .dash-bento .dash-card--noviny{align-self:start;} .dash-bento{display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); grid-template-areas:"zme zme" "nov kal" "jed kal";} .dash-bento--volby{grid-template-areas:"vol vol" "zme zme" "nov kal" "jed kal";} .dash-bento--rada{grid-template-areas:"zme zme" "rad rad" "nov kal" "jed kal";} .dash-bento--volby.dash-bento--rada{grid-template-areas:"vol vol" "zme zme" "rad rad" "nov kal" "jed kal";}}
-  @media (max-width:720px){.dash-bento{grid-template-columns:minmax(0,1fr); grid-template-areas:"zme" "kal" "nov" "jed";} .dash-bento--volby{grid-template-areas:"vol" "zme" "kal" "nov" "jed";} .dash-bento--rada{grid-template-areas:"zme" "kal" "rad" "nov" "jed";} .dash-bento--volby.dash-bento--rada{grid-template-areas:"vol" "zme" "kal" "rad" "nov" "jed";}}
+  @media (max-width:980px){.dash-col{display:contents;} .dash-bento .dash-card--noviny{align-self:start;} .dash-bento{display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); grid-template-areas:"nov kal" "jed kal" "zme zme";} .dash-bento--volby{grid-template-areas:"vol vol" "nov kal" "jed kal" "zme zme";} .dash-bento--rada{grid-template-areas:"rad rad" "nov kal" "jed kal" "zme zme";} .dash-bento--volby.dash-bento--rada{grid-template-areas:"vol vol" "rad rad" "nov kal" "jed kal" "zme zme";}}
+  @media (max-width:720px){.dash-bento{grid-template-columns:minmax(0,1fr); grid-template-areas:"kal" "zme" "nov" "jed";} .dash-bento--volby{grid-template-areas:"vol" "kal" "zme" "nov" "jed";} .dash-bento--rada{grid-template-areas:"kal" "zme" "rad" "nov" "jed";} .dash-bento--volby.dash-bento--rada{grid-template-areas:"vol" "kal" "zme" "rad" "nov" "jed";}}
   /* Příští zastupitelstvo: samostatný pás nad mřížkou karet, jen je-li ohlášené */
   /* každá položka (zasedání, volby) je samostatný blok; barvy stejné jako
      v Kalendáři: zastupitelstvo = bordó (--burgundy), volby = břidlicová (--slate) */
@@ -468,8 +495,23 @@
   .banner > li:has(> .banner-side) > .banner-body{flex:1 1 0; min-width:240px;}
   .banner-side{flex:0 0 392px; box-sizing:border-box; padding:var(--space-7) var(--space-8); background:rgba(255,255,255,0.12); border-radius:var(--radius-lg);}
   .banner .banner-side-title{margin:0 0 var(--space-4); font-size:var(--fs-5); font-weight:var(--fw-bold); letter-spacing:.06em; text-transform:uppercase; color:var(--white-a80);}
-  .banner-avatars{display:flex; flex-wrap:wrap; gap:var(--space-3);}
-  .banner-av{display:block; width:44px; height:44px; border-radius:var(--radius-round); overflow:hidden; border:2px solid var(--white-a35); background:var(--material-deep); text-decoration:none;}
+  /* Volby 2026: zvolení podle osobních hlasů jako karty (číslo hlasů, avatar s okrajem v barvě uskupení, jméno) */
+  .vote-cards{list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:var(--space-3);}
+  .vote-card{display:flex; align-items:center; gap:var(--space-6); padding:var(--space-4) var(--space-7); background:var(--white); border:1px solid var(--line,#d9d6cc); border-radius:var(--radius-sm);}
+  .vote-num{flex:0 0 3.2ch; min-width:3.2ch; font-family:var(--font-banner); font-size:var(--fs-title-mobile); font-weight:var(--fw-bold); line-height:1; color:var(--ink); font-variant-numeric:tabular-nums;}
+  .vote-av{flex:0 0 auto; display:block; width:48px; height:48px; border-radius:var(--radius-round); overflow:hidden; border:3px solid var(--org-c,var(--ink-soft)); background:var(--material-deep); box-sizing:border-box;}
+  .vote-av img{display:block; width:100%; height:100%; object-fit:cover;}
+  .vote-av-init{display:flex; align-items:center; justify-content:center; width:100%; height:100%; font-family:var(--font-banner); font-weight:var(--fw-bold); color:var(--ink-soft);}
+  .vote-name{min-width:0; font-weight:var(--fw-semibold);}
+  .vote-name a{color:inherit;}
+  .vote-card--funkce{border-left:4px solid var(--burgundy);}
+  .vote-name .tag{vertical-align:middle;}
+  .vote-trend{margin-left:auto; flex:0 0 auto; font-family:var(--font-mono); font-size:var(--fs-5); font-weight:var(--fw-bold); white-space:nowrap;}
+  .vote-trend--up{color:#2e7d4f;}
+  .vote-trend--down{color:var(--burgundy);}
+  .vote-poradi{display:block; font-weight:var(--fw-regular); font-size:var(--fs-5); color:var(--ink-soft);}
+  .banner-avatars{display:flex; flex-wrap:wrap; gap:0; padding:0 2px 2px 0;}  /* záporná mezera −2 px: avatary se překrývají */
+  .banner-av{margin:0 -2px -2px 0; display:block; width:44px; height:44px; border-radius:var(--radius-round); overflow:hidden; border:2px solid var(--white-a35); background:var(--material-deep); text-decoration:none;}
   .banner-av--rada{border-color:var(--white);}
   .banner-av:hover{border-color:var(--white); transform:translateY(-1px);}
   .banner-av img{display:block; width:100%; height:100%; object-fit:cover;}
@@ -1097,6 +1139,9 @@
   .dash-akce .dash-den{top:calc(var(--nav-h,0px) + var(--dash-head-h,0px)); margin:var(--space-2) 0 0; padding-inline:var(--space-5); list-style:none;}
   .akce-skupina + .akce-den{margin-top:var(--space-3);}
   .akce-den .k3-den, .dash-den .k3-den{font-family:var(--font-banner); font-weight:var(--fw-bold); color:var(--ink);}
+  .akce-den .k3-den, .dash-den .k3-den{font-size:var(--fs-title-mobile); line-height:1.2;}
+  .akce-den .tag, .dash-den .tag{font-size:var(--fs-6,14px); padding:var(--space-2) var(--space-4);}
+  @media (min-width:601px){.akce-den .k3-den, .dash-den .k3-den{font-size:var(--fs-title);}}
   .akce-den .k3-datum, .dash-den .k3-datum{font-family:var(--font-banner); font-weight:var(--fw-regular); color:var(--ink-soft);}
   .akce-den .akce-den-odkaz{display:flex; flex-wrap:wrap; align-items:center; gap:inherit; color:inherit; text-decoration:none;}
   table.calendar-table.kal-3dny th .akce-den-odkaz{color:inherit; text-decoration:none;}
