@@ -290,7 +290,7 @@ python3 kalendar/scripts/update-kalendar.py --no-sync  # jen vygeneruje
 ```
 `--no-sync` jen tam, kde se generuje z jiného než skutečného stavu
 (např. přegenerování z čistých vstupů při commitu, viz skill
-`pecky-online-commit`) — jinak nikdy. Samotný sync jde dál spustit
+`DoPecek-commit`) — jinak nikdy. Samotný sync jde dál spustit
 i ručně: `python3 kalendar/scripts/sync-google.py [--dry-run]`;
 `--dry-run` jen vypíše plán a nic nezapíše, `--limit N` omezí počet
 zápisů (opatrný běh), `--no-delete` vypne mazání. Velký sync (stovky
@@ -436,9 +436,9 @@ zplošťuje svá specifika na tahle pole, detaily zůstávají dostupné přes
 ## Pracovní postup: týdenní kontrola
 
 Od 24. 9. 2026 (na žádost uživatele) má Kalendář v `README.md` → „Stav
-sekcí" režim `týdně` — spouští ho skill `pecky-online-update` přes tenhle
+sekcí" režim `týdně` — spouští ho skill `DoPecek-update` přes tenhle
 postup. Od 30. 9. 2026 zahrnuje i plakáty a příspěvky pořadatelů na
-Facebooku/Instagramu (krok 3, skill `pecky-online-kalendar-plakat`).
+Facebooku/Instagramu (krok 3, skill `DoPecek-kalendar-plakat`).
 
 1. **Zápasy AFK Pečky:** `python3 kalendar/scripts/fetch-afk-zapasy.py`.
    Skript vypíše změny oproti minulému běhu (nové zápasy, přeložené
@@ -450,12 +450,12 @@ Facebooku/Instagramu (krok 3, skill `pecky-online-kalendar-plakat`).
    články od data minulé kontroly Kalendáře. Klubová akce s konkrétním
    termínem (posvícení, turnaj, kemp, nábor s datem) → zapsat do
    `kalendar/akce.json` podle schématu a konvencí skillu
-   `pecky-online-kalendar-plakat`. „Víkendový program" porovnat s
+   `DoPecek-kalendar-plakat`. „Víkendový program" porovnat s
    rozpisem z kroku 1 — rozpor (jiný čas, přeložení, které rozpis ještě
    nemá) nahlásit, do dat nepsat ručně (přepsal by ho příští běh).
 3. **Plakáty a příspěvky pořadatelů** (od 30. 9. 2026 na žádost
    uživatele součást týdenní kontroly): spustit skill
-   `pecky-online-kalendar-plakat` — postup
+   `DoPecek-kalendar-plakat` — postup
    `kalendar/automation-plakat-akce.md`, zdroje ze `sources.json` (všechny
    facebookové a instagramové, viz „Zdroje" níže). Hledají se jen akce
    s budoucím datem, které ještě nejsou v `akce.json`; už zapsané se
@@ -505,7 +505,7 @@ seznam místo rozházených poznámek po repu.
   z roku 2009.
 - **Nová jednání:** každý nově vytěžený zápis výboru, komise nebo školské rady se má hned promítnout
   do kalendáře (`update-kalendar.py` + synchronizace do Google) — je to poslední krok kontrol
-  `pecky-online-vybory-check` a `pecky-online-komise-check` (viz `jednani/README.md`).
+  `DoPecek-vybory-check` a `DoPecek-komise-check` (viz `jednani/README.md`).
 - **Kategorie:** `vybor` (finanční i kontrolní výbor, komise a školská rada, rozlišené titulkem).
   Barva v mřížce `--gold` (`.kal-ev-vybor`, `.akce-blok-vybor` ve
   `styles.css`), v Google Kalendáři Tangerine (`BARVY` v `sync-google.py`).
@@ -1218,7 +1218,7 @@ seznam místo rozházených poznámek po repu.
   (dřív `DOKLAD` v `content/kalendar-akce.html`, `zpravodaj` →
   „Pečecké noviny") s tím zrušené stránky zmizelo, nemá se kde
   uplatnit.
-- **Aktualizace:** skillem `pecky-online-kalendar-plakat` (předhodí se mu
+- **Aktualizace:** skillem `DoPecek-kalendar-plakat` (předhodí se mu
   obrázek plakátu nebo odkaz na příspěvek, akce rozpozná a zapíše).
   Ručně po jakékoli úpravě `akce.json`:
   ```
@@ -1511,5 +1511,5 @@ Původně plánované jako vlastní scraper (`build_akce_events()` nad
 zdrojovým JSON) — místo toho zapojeno stejně jako ostatní zdroje výše:
 `pecky.cz/default/events` čtené ručně přes claude-in-chrome (ne
 automatizovaný scraper), nálezy přepsané do `kalendar/akce.json` skillem
-`pecky-online-kalendar-plakat`. Viz vlastní bullet „Kalendář událostí na
+`DoPecek-kalendar-plakat`. Viz vlastní bullet „Kalendář událostí na
 webu města" v „Zdroje" výše pro detaily a kvirky.

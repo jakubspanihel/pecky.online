@@ -8,7 +8,7 @@ i školskou radu.
 (nebo se u existujícího doplní zápis/usnesení) — jako krok kontrol
 Jednání, Komisí a Výborů (viz `automation-kontrola-usneseni-cz.md` →
 krok 8f, `README.md` → postupy pro výbory a komise, skilly
-`pecky-online-jednani-check`, `-komise-check`, `-vybory-check`).
+`DoPecek-jednani-check`, `-komise-check`, `-vybory-check`).
 Samostatně ji lze spustit i na přání nad libovolným záznamem.
 
 **Vstup:** odkaz na konkrétní záznam jednání. **Výstup:** dva bloky,

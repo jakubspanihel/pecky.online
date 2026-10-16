@@ -32,7 +32,7 @@ jako první):
 | Voda | `/voda/` | `voda/README.md` (+ `rozbory.json`, generátor `voda/update-rozbory.py`) |
 | Kalendář | `/kalendar/` | `kalendar/README.md` (+ `automation-plakat-akce.md`) |
 | Pečecké noviny | `/noviny/` | `noviny/README.md` |
-| O webu | `/o-webu/` | `o-webu/README.md` (+ `automation-socialni-site.md`; Monitoring úřední desky `o-webu/uredni-deska-monitoring/README.md`, skill `pecky-online-uredni-deska-check`) |
+| O webu | `/o-webu/` | `o-webu/README.md` (+ `automation-socialni-site.md`; Monitoring úřední desky `o-webu/uredni-deska-monitoring/README.md`, skill `DoPecek-uredni-deska-check`) |
 | Historie změn na webu | `/o-webu/changelog.html` | podstránka O webu, tabulka „Stav sekcí“ z `README.md`; odkaz v patičce |
 
 **Needit přímo vygenerované `<sekce>/index.html` soubory ani kořenový
@@ -209,7 +209,7 @@ Provozní pasti prostředí (git deadlock na velkých souborech, pád
 
 ## Projektové skilly
 Všechny projektové skilly v `.claude/skills/` pojmenovávat s prefixem
-`pecky-online-` (např. `pecky-online-dev-server`) — odlišuje je to od
+`DoPecek-` (např. `DoPecek-dev-server`) — odlišuje je to od
 globálních/pluginových skillů se stejným obecným názvem.
 
 ## Git / GitHub
@@ -217,7 +217,7 @@ Remote: https://github.com/jakubspanihel/pecky.online.git
 Před pushem vždy commit s popisnou zprávou, zachovej historii verzí webu.
 Na repu často souběžně pracuje víc relací — commituj jen změny svého
 běhu, ne cizí rozpracovanou práci (ani ve sdíleném `README.md`); postup
-a pomocný skript jsou ve skillu `pecky-online-commit`.
+a pomocný skript jsou ve skillu `DoPecek-commit`.
 GitHub Integration konektor v chatu je zablokovaný OAuth konfliktem —
 publikuj přes přímý git CLI/GitHub API s vlastním GitHub přihlášením (token).
 Token (bez expirace) je uložený lokálně v `.github-pat` (v .gitignore,

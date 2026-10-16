@@ -844,7 +844,7 @@ chybějícího nezmiňuje). Na tom stojí počty účasti u osob v Lidech
 (`content/lide.html` → `lAttachVyborAttendance`): kdo u jednání není
 uveden vůbec, tehdy ve výboru nebyl a jednání se mu nezapočítá.
 
-### Kontrola nových zápisů výborů (týdně, skill `pecky-online-vybory-check`)
+### Kontrola nových zápisů výborů (týdně, skill `DoPecek-vybory-check`)
 
 Výbory nejsou na usneseni.cz, takže je kontrola Jednání (scraper, Chrome)
 nepokrývá — běží zvlášť, ve stejném týdenním běhu. Zdroj je pecky.cz,
@@ -983,7 +983,7 @@ Záznam má stejná pole jako ve `vybory.json` (viz výše) a navíc:
 - Sportovní komise: web uvádí 11 členů, bez Ladislavy Šátkové ml.; zápisy
   2023–2026 ji ale vedou jako členku a Lidé také.
 
-### Kontrola nových zápisů komisí (týdně, skill `pecky-online-komise-check`)
+### Kontrola nových zápisů komisí (týdně, skill `DoPecek-komise-check`)
 
 Běží ve stejném týdenním běhu jako kontrola výborů; zdroj pecky.cz, stačí `curl`.
 

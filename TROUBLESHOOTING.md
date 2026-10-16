@@ -40,6 +40,6 @@ ne konvence pro obsah webu — ty jsou v `CLAUDE.md`.
   port už obsazený (typicky server z předchozí relace), vypíše hlášku
   a skončí čistě (exit 0) místo pádu na traceback, takže "jen to spusť" je
   vždy bezpečné zavolat znovu bez kontroly předem. Tenhle postup je
-  zabalený jako projektový skill `.claude/skills/pecky-online-dev-server/`
+  zabalený jako projektový skill `.claude/skills/DoPecek-dev-server/`
   (needit se přímo, `.claude/` je celé v `.gitignore`) — viz i konvence
   pojmenování skillů v CLAUDE.md.

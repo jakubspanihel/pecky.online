@@ -149,7 +149,7 @@ Facebook strukturu občas mění — při výpadku zkontrolovat klíče
 
 - Čtení probíhá pod přihlášením uživatele v jeho Chrome, v nízkém objemu a jen
   u veřejné stránky.
-- Postup běhu je převedený do skillu `.claude/skills/pecky-online-facebook-monitoring/`
+- Postup běhu je převedený do skillu `.claude/skills/DoPecek-facebook-monitoring/`
   (+ `capture.js` s pomocným kódem pro Chrome). Pravidelnost: měsíční rutina
   `pecky-online-facebook-monitoring-mesicne` (1. v měsíci v 10:00) stáhne chybějící
   uzavřené měsíce a přegeneruje stránku; vyžaduje Chrome s Facebookem a záložku v popředí.

@@ -29,7 +29,7 @@ zastaralá, podnik se přestěhoval) a u Hospůdky Velké Chvalovice se nenašla
 
 ## Postup aktualizace
 
-Skill `pecky-online-obedy` (`.claude/skills/pecky-online-obedy/SKILL.md`):
+Skill `DoPecek-obedy` (`.claude/skills/DoPecek-obedy/SKILL.md`):
 otevře Chrome, na facebookové stránce každé restaurace stáhne fotografii
 nejnovějšího menu, uloží ji do `naobed/img/<id>/`, přepíše `naobed/menu.json`
 a spustí `python3 scripts/build.py`.

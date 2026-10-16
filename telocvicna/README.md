@@ -384,7 +384,7 @@ a nic k nim nedopočítává. Číslo 180 mil. Kč
 (starosta, 9/2025) se liší od „projektové ceny 175 mil. Kč s DPH“ ze zápisu
 finančního výboru z 11. 11. 2025 — obě jsou citovaná tak, jak je zdroj uvádí.
 Do týdenní kontroly Tělocvičny patří i nové zápisy sportovní a stavebně-dopravní
-komise (skill `pecky-online-komise-check` je hlásí, když se tělocvičny týkají).
+komise (skill `DoPecek-komise-check` je hlásí, když se tělocvičny týkají).
 
 ## Doplněno 30. 9. 2026 (večer): pozvánka ZM 7/2026
 

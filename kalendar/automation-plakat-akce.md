@@ -1,6 +1,6 @@
 # Postup: zápis akcí z plakátu do kalendáře
 
-Referenční postup pro skill `pecky-online-kalendar-plakat`. Vstupem je
+Referenční postup pro skill `DoPecek-kalendar-plakat`. Vstupem je
 plakát nebo pozvánka kteréhokoli pořadatele akcí v Pečkách (kulturní
 středisko, knihovna, spolek, škola, město) — obrázek přiložený v chatu,
 soubor v repu, nebo odkaz na příspěvek na sociální síti či web. Výstupem jsou nové

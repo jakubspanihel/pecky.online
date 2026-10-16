@@ -249,7 +249,7 @@ kontrole sociálních sítí ji obnov:
    jako mezeru.
 2. Přibylo-li nové jednání zastupitelstva s videem, skript ho zařadí sám
    (číslování bere z dat Jednání); není-li video v `pecky-jednani.json`,
-   nejdřív doplnit tam (skill `pecky-online-jednani-check`).
+   nejdřív doplnit tam (skill `DoPecek-jednani-check`).
 3. V `scripts/build.py` přepsat `lastmod` záznamu `youtube`
    v `EXTRA_PAGES` na dnešní datum, spustit build a přepsat řádek
    Jednání ve „Stav sekcí“ (`README.md`): změna jen když se čísla
@@ -278,7 +278,7 @@ ještě nejsou v `kalendar/akce.json` — nejen si jich všímej mimochodem.
 Facebook: nejdřív `<profil>/events` → „Nadcházející", pak nejnovější
 příspěvky; Instagram: příspěvky otevřené kvůli datu (krok 2b) si rovnou
 prohlédni i obsahově. Nalezené akce zapiš podle
-`kalendar/automation-plakat-akce.md` (skill `pecky-online-kalendar-plakat`,
+`kalendar/automation-plakat-akce.md` (skill `DoPecek-kalendar-plakat`,
 i s výpisem změn) — týdenní kontrola Kalendáře ten skill stejně spouští.
 V hlášení vždy uveď jednou větou výsledek: vypiš nalezené akce (název,
 datum, pořadatel) a co se s nimi stalo, nebo výslovně „nové akce pro

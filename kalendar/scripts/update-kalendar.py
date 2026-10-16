@@ -13,7 +13,7 @@ do seznamu v main()):
 A) Jednání rady a zastupitelstva — z jednani/pecky-jednani.json (stejný
    zdroj jako sekce Jednání a jednani/scripts/update-pozemky.py).
 B) Kulturní a společenské akce — z kalendar/akce.json, které plní
-   skill pecky-online-kalendar-plakat z plakátů Kulturního střediska
+   skill DoPecek-kalendar-plakat z plakátů Kulturního střediska
    města Pečky (kategorie 'akce' a 'kurz').
 C) Volby — z kalendar/udalosti-volby.json, ručně psaný soubor bez
    vlastního scraperu (termín voleb se nemění často). Datum vždy ověřit
@@ -178,7 +178,7 @@ def build_vybory_events():
 def build_akce_events():
     """Kulturní a společenské akce z kalendar/akce.json -> společné schéma.
 
-    Zdrojový soubor plní skill pecky-online-kalendar-plakat přepisem plakátů
+    Zdrojový soubor plní skill DoPecek-kalendar-plakat přepisem plakátů
     a příspěvků pořadatelů. Pořadatel (`organizer`) a zdroj (`evidence[].source`)
     jsou dvě různé věci: akci může pořádat spolek a ohlásit ji facebook města.
     Do kalendáře jde pořadatel (filtr i tooltip). Akce bez uvedeného času

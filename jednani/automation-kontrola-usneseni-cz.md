@@ -406,7 +406,7 @@ rady** (hledané výrazy: „prostor sloužící podnikání“, „prostoru slo
 „nájmu prostoru“, „nebytov“, „výpůjčk“, „ochoz vodárenské věže“, „záměr
 na pronájem“, „Dům služeb“, „zdravotní středisko“; názvy bodů se skloňují,
 hledat kmen; ne pozemky ani byty) a postupuj podle `prostory/README.md` → „Postup při nové kontrole“
-(skill `pecky-online-prostory-check`):
+(skill `DoPecek-prostory-check`):
 
 0. **Program nadcházejících jednání:** projdi názvy bodů i jednání, která
    mají zatím jen Pozvánku, stejnými výrazy. Najdeš-li bod k prostoru, zapiš
@@ -484,7 +484,7 @@ zkontrolována a je beze změny. Mlčení není totéž co „nic tam nebylo“.
 
 Nejdřív spustit `python3 scripts/build.py` (promítne `content/jednani.html`
 do `jednani/index.html`), pak spustit lokální server (`.claude/launch.json`,
-config `pecky-online-main` — port se přiděluje automaticky, `autoPort: true`),
+config `DoPecek-main` — port se přiděluje automaticky, `autoPort: true`),
 otevřít `/jednani/`, rozkliknout dotčené
 jednání, zkontrolovat: počet usnesení v perexu nahoře odpovídá (`Archiv
 obsahuje … usnesení` — počítá se dynamicky, žádné jinde neupravovat),
