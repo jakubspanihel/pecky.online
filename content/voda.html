@@ -14,7 +14,12 @@
     </div>
     <div id="voda-ceny"></div>
 
-    <h3 class="display" style="margin-top:36px;">Rozbory pitné vody – Pečky, vodojem</h3>
+    <div class="subtabs" role="tablist" aria-label="Části stránky Voda" style="margin-top:36px;">
+      <button class="subtablink active" type="button" data-subpanel="rozbory">Rozbory pitné vody</button>
+      <button class="subtablink" type="button" data-subpanel="upravna">Úpravna vody</button>
+      <button class="subtablink" type="button" data-subpanel="vodojem">Vodojem</button>
+    </div>
+    <div class="subpanel active" id="subpanel-rozbory">
     <p>Laboratorní protokoly o zkoušce pitné vody odebrané ve vodojemu v Pečkách, podle data odběru. Každý řádek odkazuje na PDF protokolu. Graf zobrazuje stejné řádky, jaké jsou vidět v tabulce, a ukazatel v něm jde přepnout.</p>
     <h3 class="search-status" id="rozbory-status"><span class="spinner" aria-hidden="true"></span>Načítám rozbory…</h3>
     <div id="rozbory-box" hidden>
@@ -37,12 +42,9 @@
         <div class="callout" id="rozbory-pozn"></div>
       </details>
     </div>
-
-    <div class="subtabs" role="tablist" aria-label="Části stránky Voda" style="margin-top:36px;">
-      <button class="subtablink active" type="button" data-subpanel="upravna">Úpravna vody</button>
-      <button class="subtablink" type="button" data-subpanel="vodojem">Vodojem</button>
     </div>
-    <div class="subpanel active" id="subpanel-upravna">
+
+    <div class="subpanel" id="subpanel-upravna">
       <h3 class="search-status" id="upravna-status"><span class="spinner" aria-hidden="true"></span>Načítám údaje o úpravně…</h3>
       <div id="upravna-box" hidden>
         <div class="table-scroll"><table class="register" style="min-width:0;"><tbody id="upravna-fakta"></tbody></table></div>
