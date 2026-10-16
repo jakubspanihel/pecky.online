@@ -44,10 +44,10 @@
   <section class="panel active" id="panel-today" aria-label="Dnešní akce v Pečkách">
     <div class="today-frame" id="Frame">
       <span class="today-frame-popisek" aria-hidden="true">Frame</span>
-      <div class="today-format" role="group" aria-label="Formát obrázku">
-        <button type="button" class="today-format-btn" data-f="1:1" aria-pressed="false" title="Čtverec, 1080 × 1080 px">1:1</button>
-        <button type="button" class="today-format-btn" data-f="4:5" aria-pressed="true" title="Na výšku, 1080 × 1350 px">4:5</button>
-        <button type="button" class="today-format-btn" data-f="3:4" aria-pressed="false" title="Vysoký, 1080 × 1440 px">3:4</button>
+      <div class="today-format today-dny" role="group" aria-label="Změna dne">
+        <button type="button" class="today-pismo-btn" id="today-predchozi" aria-label="Předchozí den">‹</button>
+        <button type="button" class="today-pismo-btn" id="today-dnes">Dnes</button>
+        <button type="button" class="today-pismo-btn" id="today-dalsi" aria-label="Další den">›</button>
       </div>
     <div class="today-box" id="today-box">
       <h3 class="search-status" id="today-status"><span class="spinner" aria-hidden="true"></span>Načítám kalendář…</h3>
@@ -58,28 +58,17 @@
         <span class="today-pata">DoPecek.cz/kalendar</span>
       </div>
     </div>
-      <div class="today-barvy" role="group" aria-label="Barva karty">
-        <button type="button" class="today-barva" data-t="yellow" style="background:var(--yellow)" aria-label="Žlutá"></button>
-        <button type="button" class="today-barva" data-t="white" style="background:#fff" aria-label="Bílá"></button>
-        <button type="button" class="today-barva" data-t="burgundy" style="background:var(--burgundy)" aria-label="Bordó"></button>
-        <button type="button" class="today-barva" data-t="cyan" style="background:var(--cyan)" aria-label="Azurová"></button>
-        <button type="button" class="today-barva" data-t="field" style="background:var(--field)" aria-label="Zelená"></button>
-        <button type="button" class="today-barva" data-t="ink" style="background:var(--ink)" aria-label="Tmavá"></button>
-        <span class="today-barvy-cara" aria-hidden="true"></span>
-        <button type="button" class="today-barva today-nahodne" id="today-nahodne" aria-label="Náhodná kombinace barev"></button>
-      </div>
       <div class="today-akce">
         <div class="today-radek">
           <div class="today-pismo" role="group" aria-label="Velikost písma">
-            <button type="button" class="today-pismo-btn" id="today-pismo-mensi" aria-label="Zmenšit písmo">A−</button>
-            <button type="button" class="today-pismo-btn" id="today-pismo-reset">Reset</button>
-            <button type="button" class="today-pismo-btn" id="today-pismo-vetsi" aria-label="Zvětšit písmo">A+</button>
+            <button type="button" class="today-pismo-btn" id="today-pismo" aria-label="Změnit velikost písma" title="Velikost písma">Aa</button>
           </div>
-          <div class="today-dny" role="group" aria-label="Změna dne">
-            <button type="button" class="today-pismo-btn" id="today-predchozi" aria-label="Předchozí den">‹</button>
-            <button type="button" class="today-pismo-btn" id="today-dnes">Dnes</button>
-            <button type="button" class="today-pismo-btn" id="today-dalsi" aria-label="Další den">›</button>
+          <div class="today-format" role="group" aria-label="Formát obrázku">
+            <button type="button" class="today-format-btn" data-f="1:1" aria-pressed="false" title="Čtverec, 1080 × 1080 px">1:1</button>
+            <button type="button" class="today-format-btn" data-f="4:5" aria-pressed="true" title="Na výšku, 1080 × 1350 px">4:5</button>
+            <button type="button" class="today-format-btn" data-f="3:4" aria-pressed="false" title="Vysoký, 1080 × 1440 px">3:4</button>
           </div>
+          <button type="button" class="today-barva today-nahodne" id="today-nahodne" aria-label="Náhodná kombinace barev" title="Náhodné barvy"></button>
         </div>
         <div class="today-akce-tl">
           <button type="button" class="today-uloz-btn" id="today-uloz">Uložit ...</button>
@@ -141,11 +130,19 @@
     .today-format-btn:last-child{border-radius:0 99px 99px 0; border-right-width:1px;}
     .today-format-btn:hover{background:rgba(255,255,255,.12);}
     .today-format-btn[aria-pressed="true"]{background:#fff; color:var(--ink);}
+    .today-radek .today-format{position:static; margin:0;}
     .today-radek{display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;}
-    .today-pismo, .today-dny{display:flex; gap:8px;}
+    .today-pismo{display:flex; gap:8px;}
+    /* přepínač dne jako segmentovaný ovladač (stejný vzhled jako výběr formátu) */
+    .today-dny{display:flex;}
+    .today-dny .today-pismo-btn{border-radius:0; border-right-width:0; height:28px; padding:0 14px;}
+    .today-dny .today-pismo-btn:first-child{border-radius:99px 0 0 99px;}
+    .today-dny .today-pismo-btn:last-child{border-radius:0 99px 99px 0; border-right-width:1px;}
     .today-pismo-btn{min-width:34px; height:26px; padding:0 8px; border-radius:99px; border:1px solid rgba(255,255,255,.55); background:transparent; color:#fff; font:700 13px/1 var(--font-body); cursor:pointer;}
     .today-pismo-btn:hover{border-color:#fff; background:rgba(255,255,255,.12);}
     .today-barvy-cara{width:1px; align-self:stretch; background:rgba(255,255,255,.35);}
+    .today-pismo .today-barva{width:26px; height:26px; flex:none;}
+    .today-radek .today-nahodne, .today-radek .today-nahodne:hover, .today-radek .today-nahodne[aria-pressed]{width:26px; height:26px; flex:none; border:0; box-shadow:none; margin-left:8px;}
     .today-nahodne{background:conic-gradient(red, yellow, lime, aqua, blue, magenta, red);}
     .today-barva:hover{border-color:#fff;}
     .today-barva[aria-pressed="true"]{border-color:#fff; box-shadow:0 0 0 2px var(--ink), 0 0 0 4px #fff;}
@@ -184,15 +181,14 @@
   }
   document.querySelectorAll('.today-barva[data-t]').forEach(b => b.addEventListener('click', () => { KAL_RUCNE = true; kalNastavTema(b.dataset.t); }));
 
-  // velikost písma seznamu akcí: krok 0,06 v rozsahu 0,5–1,1 (proměnná --k na rámu)
-  function kalPismo(krok){
+  // velikost písma seznamu akcí: jedno tlačítko, každé kliknutí přepne na další velikost (proměnná --k na rámu)
+  const KAL_VELIKOSTI = [0.75, 0.9, 1.05];
+  document.getElementById('today-pismo').addEventListener('click', () => {
     const f = document.getElementById('Frame');
-    const k = Math.min(1.1, Math.max(0.5, (parseFloat(getComputedStyle(f).getPropertyValue('--k')) || 0.9) + krok));
-    f.style.setProperty('--k', k.toFixed(2));
-  }
-  document.getElementById('today-pismo-reset').addEventListener('click', () => document.getElementById('Frame').style.removeProperty('--k'));
-  document.getElementById('today-pismo-mensi').addEventListener('click', () => kalPismo(-0.06));
-  document.getElementById('today-pismo-vetsi').addEventListener('click', () => kalPismo(0.06));
+    const k = parseFloat(getComputedStyle(f).getPropertyValue('--k')) || 0.9;
+    let i = KAL_VELIKOSTI.reduce((n, v, j) => Math.abs(v - k) < Math.abs(KAL_VELIKOSTI[n] - k) ? j : n, 0);
+    f.style.setProperty('--k', KAL_VELIKOSTI[(i + 1) % KAL_VELIKOSTI.length]);
+  });
 
   // formáty obrázku: poměr stran rámu a rozlišení exportu (Instagram)
   const KAL_FORMATY = {'1:1': [1080, 1080], '4:5': [1080, 1350], '3:4': [1080, 1440]};
@@ -315,6 +311,26 @@
   document.getElementById('today-dalsi').addEventListener('click', () => kalPosun(1));
   document.getElementById('today-dnes').addEventListener('click', () => { KAL_DNES = kalIso(new Date()); kalRenderDnes(); kalNahodnaTema(); });
   document.getElementById('today-nahodne').addEventListener('click', kalNahodneBarvy);
+  // swipe na mobilu: doleva = další den, doprava = předchozí den (převážně vodorovné gesto ≥ 50 px)
+  (function(){
+    const frame = document.querySelector('.today-frame');
+    let sx = 0, sy = 0, st = 0, sledovat = false;
+    frame.addEventListener('touchstart', ev => {
+      sledovat = ev.touches.length === 1;
+      if (!sledovat) return;
+      sx = ev.touches[0].clientX; sy = ev.touches[0].clientY; st = Date.now();
+    }, {passive:true});
+    frame.addEventListener('touchend', ev => {
+      if (!sledovat) return;
+      sledovat = false;
+      const t = ev.changedTouches[0], dx = t.clientX - sx, dy = t.clientY - sy;
+      if (Date.now() - st > 800 || Math.abs(dx) < 50 || Math.abs(dx) < Math.abs(dy) * 1.5) return;
+      const sel = window.getSelection();
+      if (sel && !sel.isCollapsed) return;   // probíhá výběr textu v seznamu
+      kalPosun(dx < 0 ? 1 : -1);
+    }, {passive:true});
+    frame.style.touchAction = 'pan-y';
+  })();
 
   function kalNorm(t){ return (t || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase(); }
   // Emoji ikona před názvem podle druhu události (sirény, odpad, sporty); '' = bez ikony.
