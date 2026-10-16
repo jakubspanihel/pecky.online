@@ -109,16 +109,33 @@
       </details>
     </div>
 
-    <h3 class="display" style="margin-top:36px;">Úpravna vody</h3>
-    <h3 class="search-status" id="upravna-status"><span class="spinner" aria-hidden="true"></span>Načítám údaje o úpravně…</h3>
-    <div id="upravna-box" hidden>
-      <div class="table-scroll"><table class="register" style="min-width:0;"><tbody id="upravna-fakta"></tbody></table></div>
-      <div id="upravna-text"></div>
-      <div class="callout" id="upravna-gaps"></div>
-      <details class="collapsible" style="margin-top:26px;">
-        <summary style="cursor:pointer; list-style:none;"><h3 class="display" style="margin:0 0 4px; display:inline;" id="upravna-udalosti-nadpis">Časová osa <span class="collapsible-arrow" aria-hidden="true">▾</span></h3></summary>
-        <div class="table-scroll"><table class="register"><thead><tr><th>Datum</th><th>Událost</th><th>Zdroj</th></tr></thead><tbody id="upravna-udalosti"></tbody></table></div>
-      </details>
+    <div class="subtabs" role="tablist" aria-label="Části stránky Voda" style="margin-top:36px;">
+      <button class="subtablink active" type="button" data-subpanel="upravna">Úpravna vody</button>
+      <button class="subtablink" type="button" data-subpanel="vodojem">Vodojem</button>
+    </div>
+    <div class="subpanel active" id="subpanel-upravna">
+      <h3 class="search-status" id="upravna-status"><span class="spinner" aria-hidden="true"></span>Načítám údaje o úpravně…</h3>
+      <div id="upravna-box" hidden>
+        <div class="table-scroll"><table class="register" style="min-width:0;"><tbody id="upravna-fakta"></tbody></table></div>
+        <div id="upravna-text"></div>
+        <div class="callout" id="upravna-gaps"></div>
+        <details class="collapsible" style="margin-top:26px;">
+          <summary style="cursor:pointer; list-style:none;"><h3 class="display" style="margin:0 0 4px; display:inline;" id="upravna-udalosti-nadpis">Časová osa <span class="collapsible-arrow" aria-hidden="true">▾</span></h3></summary>
+          <div class="table-scroll"><table class="register"><thead><tr><th>Datum</th><th>Událost</th><th>Zdroj</th></tr></thead><tbody id="upravna-udalosti"></tbody></table></div>
+        </details>
+      </div>
+    </div>
+    <div class="subpanel" id="subpanel-vodojem">
+      <h3 class="search-status" id="vodojem-status"><span class="spinner" aria-hidden="true"></span>Načítám údaje o vodojemu…</h3>
+      <div id="vodojem-box" hidden>
+        <div class="table-scroll"><table class="register" style="min-width:0;"><tbody id="vodojem-fakta"></tbody></table></div>
+        <div id="vodojem-text"></div>
+        <div class="callout" id="vodojem-gaps"></div>
+        <details class="collapsible" style="margin-top:26px;">
+          <summary style="cursor:pointer; list-style:none;"><h3 class="display" style="margin:0 0 4px; display:inline;" id="vodojem-udalosti-nadpis">Časová osa <span class="collapsible-arrow" aria-hidden="true">▾</span></h3></summary>
+          <div class="table-scroll"><table class="register"><thead><tr><th>Datum</th><th>Událost</th><th>Zdroj</th></tr></thead><tbody id="vodojem-udalosti"></tbody></table></div>
+        </details>
+      </div>
     </div>
   </section>
 
@@ -353,25 +370,29 @@
       var ext = /^https?:/.test(z.url) ? ' target="_blank" rel="noopener"' : '';
       return '<a href="' + esc(z.url) + '"' + ext + '>' + esc(z.label) + '</a>';
     }
-    fetch('/voda/upravna.json').then(function (r) { return r.json(); }).then(function (u) {
-      var sm = u.summary;
-      document.getElementById('upravna-fakta').innerHTML = sm.facts.map(function (f) {
-        return '<tr><th scope="row" style="white-space:nowrap;">' + esc(f.label) + '</th><td>' + esc(f.value) + '</td></tr>';
-      }).join('');
-      document.getElementById('upravna-text').innerHTML = sm.text.map(function (t) { return '<p>' + esc(t) + '</p>'; }).join('');
-      document.getElementById('upravna-gaps').innerHTML = '<strong>Co zdroje neříkají:</strong><ul>' + sm.gaps.map(function (g) { return '<li>' + esc(g) + '</li>'; }).join('') + '</ul>';
-      var ev = u.events.slice().sort(function (a, b) { return a.date < b.date ? 1 : a.date > b.date ? -1 : 0; });
-      document.getElementById('upravna-udalosti').innerHTML = ev.map(function (e) {
-        return '<tr><td style="white-space:nowrap;">' + datum(e.date) + '</td><td><strong>' + esc(e.title) + '</strong><br>' + esc(e.text) + '</td><td>' +
-          e.sources.map(zdroj).join('<br>') + '</td></tr>';
-      }).join('');
-      document.getElementById('upravna-udalosti-nadpis').firstChild.nodeValue = 'Časová osa (' + ev.length + ' událostí) ';
-      document.getElementById('upravna-box').hidden = false;
-      document.getElementById('upravna-status').textContent = ev.length + ' událostí od roku ' + ev[ev.length - 1].date.slice(0, 4);
-    }).catch(function (e) {
-      console.error(e);
-      document.getElementById('upravna-status').textContent = 'Údaje o úpravně se nepodařilo načíst.';
-    });
+    function blok(pre, url, chyba) {
+      fetch(url).then(function (r) { return r.json(); }).then(function (u) {
+        var sm = u.summary;
+        document.getElementById(pre + '-fakta').innerHTML = sm.facts.map(function (f) {
+          return '<tr><th scope="row" style="white-space:nowrap;">' + esc(f.label) + '</th><td>' + esc(f.value) + '</td></tr>';
+        }).join('');
+        document.getElementById(pre + '-text').innerHTML = sm.text.map(function (t) { return '<p>' + esc(t) + '</p>'; }).join('');
+        document.getElementById(pre + '-gaps').innerHTML = '<strong>Co zdroje neříkají:</strong><ul>' + sm.gaps.map(function (g) { return '<li>' + esc(g) + '</li>'; }).join('') + '</ul>';
+        var ev = u.events.slice().sort(function (a, b) { return a.date < b.date ? 1 : a.date > b.date ? -1 : 0; });
+        document.getElementById(pre + '-udalosti').innerHTML = ev.map(function (e) {
+          return '<tr><td style="white-space:nowrap;">' + datum(e.date) + '</td><td><strong>' + esc(e.title) + '</strong><br>' + esc(e.text) + '</td><td>' +
+            e.sources.map(zdroj).join('<br>') + '</td></tr>';
+        }).join('');
+        document.getElementById(pre + '-udalosti-nadpis').firstChild.nodeValue = 'Časová osa (' + ev.length + ' událostí) ';
+        document.getElementById(pre + '-box').hidden = false;
+        document.getElementById(pre + '-status').textContent = ev.length + ' událostí od roku ' + ev[ev.length - 1].date.slice(0, 4);
+      }).catch(function (e) {
+        console.error(e);
+        document.getElementById(pre + '-status').textContent = chyba;
+      });
+    }
+    blok('upravna', '/voda/upravna.json', 'Údaje o úpravně se nepodařilo načíst.');
+    blok('vodojem', '/voda/vodojem.json', 'Údaje o vodojemu se nepodařilo načíst.');
   })();
   </script>
 

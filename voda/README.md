@@ -66,6 +66,20 @@ přečte text PDF (`pdftotext -layout`) a vygeneruje `rozbory.json`
 - Nové protokoly: stáhnout PDF do `voda/rozbory/`, doplnit řádek do
   `_WORKING/voda-rozbory/index.json`, spustit generátor a build.
 
+## Data: `vodojem.json`
+Stejná struktura jako `upravna.json` pro záložku „Vodojem“ (`summary.facts`,
+`summary.text`, `summary.gaps`, `events` s datem `RRRR-MM-DD` nebo `RRRR-MM`).
+Sestaveno 16. 10. 2026 z Pečeckých novin (historie, rozměry, projektant,
+památková ochrana), zápisů rady a zastupitelstva 2016–2026 a úřední desky.
+Ověřeno v novinách: projektant Dr. Ing. František Uher, schválení projektu
+25. 7. 1930, provoz od 1. 7. 1932, kulturní památka od 9. 9. 2011 (č. ÚSKP
+104468), parametry (325 m³, 39,02 m). Mezery: cena opravy, výsledek žádosti
+o dotaci z 2021, jména firem u části nájmů.
+
+Stránka `/voda/` má pod ceníkem a rozbory dvě záložky (`.subtabs`, hash
+`#upravna` a `#vodojem`), obě se vykreslují stejnou funkcí `blok()` v
+`content/voda.html`.
+
 ## Postup práce
 Obecná pravidla (needitovat vygenerovaný `voda/index.html`, upravit
 `content/voda.html` a spustit `python3 scripts/build.py`) jsou v
