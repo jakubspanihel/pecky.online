@@ -175,7 +175,7 @@ se sem, na stránku samotnou se nic ručně nepíše.
 | [Pozemky](pozemky/README.md) | odvozená | 9. 10. 2026 | 9. 10. 2026 | přegenerováno z usnesení — přibylo odkoupení podílů na pozemcích v k.ú. Tatce (UZ-50-7/26, ZM 7/2026, VIAGEM a.s., 19 342 Kč); dřív: ručně psaný callout „Kontrolní výbor k pozemkům“ pod tabulkami (mimo část generovanou `update-pozemky.py`) — zjištění KV 19. 3. 2025 k parc. 1449/118 (podklady k záměru pronájmu neuváděly, že pozemek je už zaplocený a využívaný); postup doplněn do `pozemky/README.md`; dřív (5. 9. 2026): oprava odkazu „řešilo se na: Jednání…" u všech řádků — mířil na `href="#"` s JS handlerem, který se na samostatné stránce Pozemky nikdy nenačetl (pozůstatek jednostránkové architektury); teď skutečný odkaz `/jednani/#rada-YYYY-MM-DD` |
 | [PečkyBot](peckybot/README.md) | odvozená | 8. 10. 2026 | 8. 10. 2026 | index doplněn o 72 starších jednání z úřední desky (zápisy rady 2015–2016, usnesení ZM 2015–2021; ≈ 900 úryvků) a podstránky Kdo vede Pečecké noviny, Zhlédnutí záznamů, Odpracované hodiny, Nejdelší body jednání; rejstřík 1,6 → 2,0 MB (6 020 úryvků); dříve: nová stránka `/peckybot/` s chatbotem: dotazy z dat webu (jednání zastupitelstva a rady, lidé, texty sekcí) s odkazy na zdroj; index generuje `scripts/build_peckybot_index.py`, odpovědi zajišťuje Cloudflare Worker (`peckybot/worker/`, měsíční strop 8 USD); odpovídání zapíná `peckybot/config.json`  |
 | [Plán](plan/README.md) | na vyžádání | 2. 9. 2026 | 2. 9. 2026 | řádek „Nová tělocvična a učebny ZŠ": stav → zastaveno, odkaz na novou sekci Tělocvična |
-| [Zakázky](zakazky/README.md) | týdně | 5. 10. 2026 | 6. 8. 2026 | zkontrolováno, beze změny — 214 výsledků na Hlídači stejně jako 13. 9., žádné nové ID |
+| [Zakázky](zakazky/README.md) | týdně | 16. 10. 2026 | 6. 8. 2026 | zkontrolováno, beze změny — 193 výsledků na Hlídači stejně jako 5. 10., žádné nové ID |
 | [Pokladna](pokladna/README.md) | na vyžádání | 6. 8. 2026 | 6. 8. 2026 | blok Bankovní účty |
 
 Režimy: **týdně** = má zdroj, který kontroluje týdenní rutina (neděle
@@ -193,6 +193,8 @@ a přesune ho na správné místo v řazení. Ostatní řádky nechá být.
 `?` u data znamená nedoložený odhad — nahradit, až se zjistí přesné datum.
 
 ## Poslední aktualizace
+
+16. října 2026 (týdenní kontrola `DoPecek-update`, Zakázky). Hlídač veřejných zakázek hlásí beze změny 193 výsledků, všech 13 ID viditelných ve výpisu je v `zakazky/pecky-zakazky-ids.json`; do snímku doplněn jen údaj `snapshot_date` a `note`, web beze změny.
 
 15. října 2026 (kontrola Jednání). Doplněn zápis RM 36/2026 (12. 10.; UR-322 až UR-326, docházka 6 ze 7, délky bodů) do `jednani/pecky-jednani.json`; ZM 7/2026 dostalo časové značky videa u všech 8 bodů. Kalendář (Google synchronizován) a `absence.json` přepočítány. Prostory: logopedie v čp. 292 pronajata od 30. 10. (UR-323), nájem vinotéky v Domě služeb ukončen k 31. 12. (UR-325). Tělocvična: nový řádek 12. 10. 2026 (bod 3 RM 36/2026, bez usnesení). Pozemky, nejdelší jednání: beze změny.
 
