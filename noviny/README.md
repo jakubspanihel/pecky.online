@@ -200,17 +200,26 @@ vyhledávací pole (`#noviny-search`), které při vstupu do panelu asynchronně
 načte `noviny/pecky-noviny.json` (`loadNoviny()` v `content/zpravodaj.html`)
 a hledá bez ohledu na diakritiku/velikost písmen napříč stránkami všech vydání.
 
-**Badge „Nejnovější vydání" má vždy jen jedna karta — ta úplně první v gridu
-(nejnovější rok, nejnovější měsíc).** Značí se `<span class="stamp">` v
-`.cap` dané karty, např.:
+**Nejnovější vydání je vyčleněné z gridu roku** do bloku `.noviny-top`: vlevo
+`.noviny-latest` s nadpisem „Poslední vydání“ a velkou kartou (dvojnásobná
+šířka; na mobilu 100 %), vpravo `.noviny-year` s nadpisem aktuálního roku
+a gridem zbylých čísel. Nejnovější číslo se v gridu roku **neopakuje**.
+Karta má v `.cap` název („Září 2026“); chip je v nadpisu za textem „Poslední
+vydání“: `<span class="tag rel-chip vyslo-chip" data-date="2026-09-16">vyšlo
+16. 9. 2026</span>` (text „před 4 týdny“ dopočítá JS, `.rel-chip`); datum vydání = datum nahrání PDF na pecky.cz, které je
+zakódované v prvních 8 hex znacích názvu souboru v URL (unixový čas, např.
+`6aaa5f2d…` → 16. 9. 2026).
 ```html
-<div class="cap">Září 2026<br><span class="stamp" style="font-size:8.5px; padding:2px 6px; margin-top:4px;">Nejnovější vydání</span></div>
+<div class="noviny-latest-card"><a class="noviny-card" ...>
+  <img ...><div class="cap">Září 2026</div></a></div>
 ```
 **Při doplnění nového čísla (viz „Po nalezení nového čísla" a „Doplnění
-dávky z lokálního archivu" níže) je nutné badge přesunout:** odebrat ho ze
-staré nejnovější karty a přidat na kartu nového vydání — nikdy ho
-neponechávat na staré kartě a nikdy ho nepřidávat na víc než jednu kartu
-najednou.
+dávky z lokálního archivu" níže) je nutné kartu přesunout:** dosavadní
+„poslední“ kartu (bez chipu) vložit jako první do `.noviny-grid` roku
+a do `.noviny-latest-card` dát kartu nového vydání. Vyšlo-li první číslo
+nového roku, vložit nový `.noviny-year` (nadpis + grid) s rokem místo
+předchozího a předchozí rok přesunout pod `.noviny-top` jako běžný
+`<h3>` + `.noviny-grid`.
 
 ### Náhledy stránek ve výsledcích hledání
 Každý výsledek hledání (`.hit-card.hit-card--noviny`) zobrazuje vlevo
@@ -288,19 +297,17 @@ Claude Code lokálně.
    nového vydání do `pages/{slug}/` (idempotentní, existující vydání
    přeskočí, takže stačí spustit bez parametrů).
 6. Přidat kartu do příslušné roční sekce v `content/zpravodaj.html`
-   (`.noviny-card`) — **vložit ji jako první kartu hned za
-   `<div class="noviny-grid">`, ne na konec.** Karty v rámci roku jdou
+   (`.noviny-card`) — **do `.noviny-latest-card` (viz krok 7), ne do gridu.** Karty v rámci roku jdou
    sestupně, nejnovější měsíc nahoře (prosinec → leden); přidání na konec
    by pořadí rozbilo. Roční sekce samy jsou taky sestupně (nejnovější rok
    navrchu) — nový rok se tedy vkládá jako úplně první `<h3>`/`.noviny-grid`
-   pod `<div id="noviny-results"></div>`. Perex panelu (`<p class="lede"
-   id="noviny-lede">`) se generuje automaticky z `pecky-noviny.json` za
-   běhu stránky (JS v `content/zpravodaj.html`), needit ho ručně — jen
-   spustit `python3 scripts/build.py`, ať se promítne do `/noviny/`.
-7. **Přesunout badge „Nejnovější vydání"** (viz „Zobrazení v panelu" výše)
-   ze staré nejnovější karty na kartu nového vydání — odebrat
-   `<span class="stamp">Nejnovější vydání</span>` ze staré karty (`.cap`
-   se vrátí na prostý text bez `<br>`) a přidat ho na novou první kartu.
+   pod `<div id="noviny-results"></div>`. Stránka nemá perex ani součet vydání;
+   počet v placeholderu hledání („Prohledat N vydaných čísel“) se bere
+   z `meta.editions_count` za běhu — stačí spustit `python3 scripts/build.py`.
+7. **Přesunout „Poslední vydání"** (viz „Zobrazení v panelu" výše): starou
+   kartu z `.noviny-latest-card` vložit jako první do `.noviny-grid` roku
+   a do `.noviny-latest-card` dát kartu nového vydání a v nadpisu přepsat chip (`data-date` + text „vyšlo d. m. RRRR“;
+   datum z hex prefixu názvu PDF).
 8. Ověřit datum poslední aktualizace v odkazu na zdroj archivu v
    `content/zpravodaj.html` (hledat text „Zdroj: … archiv PDF
    zpravodaje").
@@ -356,8 +363,8 @@ Když uživatel dodá další skupinu PDF mimo pecky.cz, postup:
    „Zdroj: lokální archiv…" poznámky pod gridem aktualizovat celkový
    počet a rozsah let a upravit `<meta name="description">`, pak spustit
    `python3 scripts/build.py` (aktualizuje i počet vydání a obálku v
-   banneru na Domů). Perex (`#noviny-lede`) se dopočítává
-   automaticky z `pecky-noviny.json`, needit ho ručně.
+   banneru na Domů). Počet v placeholderu hledání se
+   dopočítává automaticky z `pecky-noviny.json`.
    (Přesně tímhle postupem byla 14. 9. 2026 doplněna dávka 2012–2015 — viz
    „Dávka 2012–2015" výše.)
 8. Ověřit, že `.hit-card` fallback na lokální PDF funguje i pro nová

@@ -69,12 +69,11 @@
 
 <main>
   <section class="panel active" id="panel-zpravodaj">
-    <p class="lastmod" data-date="2026-10-08">Aktualizováno: 8. 10. 2026</p>
     <h2 class="title display">Pečecké noviny</h2>
-    <p class="lede perex" id="noviny-lede">Tady najdete obálky a PDF měsíčníku Pečecké noviny. Stačí zadat slovo a zobrazí se, na kterých stranách kterého vydání se objevilo.</p>
+    <p class="lastmod" data-date="2026-10-16">Poslední kontrola: 16. 10. 2026</p>
     <div class="list-control">
       <div class="search-bar">
-        <input type="search" id="noviny-search" placeholder="Hledat" autocomplete="off" aria-label="Hledat v novinách">
+        <input type="search" id="noviny-search" placeholder="Prohledat vydaná čísla" autocomplete="off" aria-label="Hledat v novinách">
       </div>
     </div>
     <h3 class="search-status" id="noviny-status" aria-live="polite"><span class="spinner" aria-hidden="true"></span>Načítám archiv…</h3>
@@ -82,12 +81,19 @@
 
     <div id="noviny-archive">
 
-    <h3 class="display" style="margin:30px 0 4px;">2026</h3>
-    <div class="noviny-grid">
+    <div class="noviny-top">
+    <div class="noviny-latest">
+    <h3 class="display" style="margin:30px 0 4px;">Poslední vydání <span class="tag rel-chip vyslo-chip" data-date="2026-09-16">vyšlo 16. 9. 2026</span></h3>
+    <div class="noviny-latest-card">
       <a class="noviny-card" href="https://pecky.cz/files/pecky/gallery/18743/6aaa5f2d7f477_Pecky-noviny-9-2026.pdf" target="_blank" rel="noopener">
         <img src="/noviny/img/2026-09.jpg" alt="Titulní strana — Září 2026" loading="lazy">
-        <div class="cap">Září 2026<br><span class="stamp stamp-sm">Nejnovější vydání</span></div>
+        <div class="cap">Září 2026</div>
       </a>
+    </div>
+    </div>
+    <div class="noviny-year">
+    <h3 class="display" style="margin:30px 0 4px;">2026</h3>
+    <div class="noviny-grid">
       <a class="noviny-card" href="https://pecky.cz/files/pecky/gallery/18743/6a570e575bf0f_Pececke-noviny-7-8-2026.pdf" target="_blank" rel="noopener">
         <img src="/noviny/img/2026-07-08.jpg" alt="Titulní strana — Červenec–srpen 2026" loading="lazy">
         <div class="cap">Červenec–srpen 2026</div>
@@ -116,6 +122,8 @@
         <img src="/noviny/img/2026-01.jpg" alt="Titulní strana — Leden 2026" loading="lazy">
         <div class="cap">Leden 2026</div>
       </a>
+    </div>
+    </div>
     </div>
 
     <h3 class="display" style="margin:30px 0 4px;">2025</h3>
@@ -1114,9 +1122,11 @@
     const resultsEl = document.getElementById('noviny-results');
     const archiveEl = document.getElementById('noviny-archive');
     archiveEl.hidden = !!words.length;
+    statusEl.hidden = false;
+    document.getElementById('noviny-search').placeholder = `Prohledat ${NOVINY_DB.meta.editions_count} vydaných čísel`;
 
     if (!words.length) {
-      statusEl.textContent = `${NOVINY_DB.meta.editions_count} vydání`;
+      statusEl.hidden = true;
       resultsEl.innerHTML = '';
       archiveEl.hidden = false;
       return;

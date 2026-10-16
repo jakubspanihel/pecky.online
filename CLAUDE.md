@@ -148,17 +148,17 @@ příslušný `content/<sekce>.html` a přepsat všechny odkazy, pak spustit
   Datumy se drží absolutní — relativní stáří se dopočítává až při čtení,
   nikdy se do souboru nezapisuje. Restrukturalizace a refactory se do
   tabulky nezapisují.
-- Datum „Aktualizováno" pod nadpisem sekce (na stránce samotné, vedle
-  perexu) se **negeneruje ručně** — `scripts/build.py` ho vloží
-  automaticky z téhož data „Změna" v tabulce `README.md` → „Stav sekcí",
-  co používá i `<lastmod>` v sitemapě (funkce `lastmod_map`/`apply_lastmod`).
+- Údaj „Poslední kontrola: před N dny“ pod nadpisem sekce (šedě, bez
+  podtržení) se **negeneruje ručně** — `scripts/build.py` ho vloží
+  automaticky z data „Kontrola" v tabulce `README.md` → „Stav sekcí"
+  (`<lastmod>` v sitemapě zůstává z data „Změna"; funkce `lastmod_map`/`apply_lastmod`).
   Nepsat `<p class="lastmod">` do `content/<sekce>.html` ručně — stačí
   přepsat řádek sekce ve „Stav sekcí" (viz bod výše) a build ho promítne
   na stránku sám. Sekce bez vlastního `<h2 class="title">` (Domů) datum
   nemá. Podstránky z `EXTRA_PAGES` nemají řádek ve „Stav sekcí" (žádné
   pravidelné kontroly odtamtud), ale mají-li vyplněné šesté pole
   (`lastmod`, ruční ISO datum — viz `/jednani/absence.html`,
-  `/jednani/nejdelsi.html`), dostanou stejné „Aktualizováno" jako běžné sekce;
+  `/jednani/nejdelsi.html`), dostanou stejný údaj (s tímto datem) jako běžné sekce;
   ruční přepsání toho pole ve `scripts/build.py` funguje stejně jako
   přepsání řádku ve „Stav sekcí" jinde.
 

@@ -221,39 +221,16 @@ document.querySelectorAll('.rel-chip[data-date]').forEach(el => {
   });
 })();
 
-// ===== "Aktualizováno" pod nadpisem sekce: absolutní datum -> relativní stáří =====
-// Datum je totéž co sloupec "Změna" tabulky Stav sekcí pro danou sekci (viz
+// ===== "Poslední kontrola" pod nadpisem sekce: absolutní datum -> relativní stáří =====
+// Datum je totéž co sloupec "Kontrola" tabulky Stav sekcí pro danou sekci (viz
 // scripts/build.py, apply_lastmod) - jen jiný viditelný text, stejný přepočet.
 (function () {
-  const els = document.querySelectorAll('p.lastmod[data-date]');
-  if (!els.length) return;
-  els.forEach(el => {
+  document.querySelectorAll('p.lastmod[data-date]').forEach(el => {
     const stari = relDatum(el.getAttribute('data-date'));
     if (stari === null) return;
     el.title = el.textContent.trim();
-    el.textContent = stari;
+    el.textContent = 'Poslední kontrola: ' + stari;
   });
-  // čára pod údajem je stejně dlouhá jako text nadpisu sekce (bez odznaků v nadpisu)
-  function sladCaru() {
-    els.forEach(el => {
-      const h2 = el.nextElementSibling;
-      if (!h2 || !h2.matches('h2.title')) return;
-      const r = document.createRange();
-      let sirka = 0;
-      h2.childNodes.forEach(n => {
-        if (n.nodeType !== 3 || !n.textContent.trim()) return;
-        r.setStart(n, 0);
-        r.setEnd(n, n.textContent.trimEnd().length);
-        const b = r.getBoundingClientRect();
-        sirka = Math.max(sirka, b.right - h2.getBoundingClientRect().left);
-      });
-      if (sirka > 0) { el.style.boxSizing = 'border-box'; el.style.width = Math.ceil(sirka) + 'px'; }
-    });
-  }
-  sladCaru();
-  window.addEventListener('resize', sladCaru);
-  window.addEventListener('load', sladCaru);
-  if (document.fonts && document.fonts.ready) document.fonts.ready.then(sladCaru);
 })();
 
 // ===== Sociální sítě (Volby 2026 i O webu): absolutní datum -> relativní stáří =====

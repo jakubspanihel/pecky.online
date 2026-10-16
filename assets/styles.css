@@ -120,7 +120,7 @@
     .overlay-col + .overlay-col .overlay-label{margin-top:0;}
   }
   .overlay-links .navlink{background:var(--material); width:100%; text-align:left; font-size:26px; padding:var(--space-6) var(--space-9); border:none; border-radius:0; font-family:var(--font-banner); font-weight:var(--fw-bold); letter-spacing:0; text-transform:uppercase; color:var(--cyan-deep);}
-  .overlay-links .navlink.active{background:var(--cyan); color:var(--yellow);}
+  .overlay-links .navlink.active{background:var(--cyan); color:var(--white);}
   .overlay-links .navlink.secondary{background:none; color:var(--cyan-deep); text-decoration:underline; padding:var(--space-3) var(--space-9); font-size:24px;}
   .overlay-links .navlink.secondary.small{font-size:var(--fs-12); padding:var(--space-2) var(--space-9);}
   .overlay-links .navlink.secondary.active{background:none; color:var(--cyan-deep); font-weight:var(--fw-bold);}
@@ -159,7 +159,7 @@
   .navlink.active{color:var(--burgundy); border-color:var(--burgundy); font-weight:var(--fw-semibold);}
   .header-nav .navlink{border:none; border-radius:0; padding:var(--space-7); font-family:var(--font-banner); font-weight:var(--fw-bold); letter-spacing:0; text-transform:uppercase; color:var(--cyan-deep); text-decoration:underline;}
   .header-nav .navlink:hover{color:var(--cyan); text-decoration:underline;}
-  .header-nav .navlink.active{background:var(--cyan); color:var(--yellow); text-decoration:none;}
+  .header-nav .navlink.active{background:var(--cyan); color:var(--white); text-decoration:none;}
 
   .year-nav ~ .subtabs{position:sticky; top:calc(var(--nav-h,0px) + var(--yearnav-h,0px)); z-index:8; background:var(--material); margin-top:0;}
   .subtabs{display:flex; gap:var(--space-1); flex-wrap:wrap; border-bottom:1px solid var(--line); margin:var(--space-9) 0 28px;}
@@ -182,7 +182,7 @@
   .text-toggle:hover{color:var(--cyan-deep);}
   .text-toggle.active{color:var(--cyan-deep);}
 
-  .lastmod{display:inline-block; font-family:var(--font-mono); font-size:var(--fs-2); text-transform:uppercase; letter-spacing:0.03em; line-height:1.4; color:var(--cyan-deep); margin:0 0 -0.5lh; position:relative; z-index:11; padding:0; border-bottom:2pt solid var(--cyan);}
+  .lastmod{display:block; font-family:var(--font-mono); font-size:var(--fs-2); letter-spacing:0.03em; line-height:1.4; color:var(--ink-soft); margin:calc(var(--space-2) * -2) 0 0; padding:0;}
 
   .toggle-details{display:inline-flex; align-items:center; gap:5px; font-family:var(--font-mono); font-size:var(--fs-5); text-transform:uppercase; letter-spacing:0.03em; color:var(--cyan-deep); border:1px solid var(--cyan-deep); background:none; padding:0 var(--space-6); box-sizing:border-box; min-height:var(--ctl-h); cursor:pointer; margin:0 0 var(--space-10); text-decoration:none;}
   .toggle-details:hover{background:rgba(0,115,143,0.06);}
@@ -698,6 +698,15 @@
   .noviny-grid{display:grid; grid-template-columns:repeat(6,1fr); gap:var(--space-7); margin-top:var(--space-7);}
   @media (max-width:960px){.noviny-grid{grid-template-columns:repeat(4,1fr);}}
   @media (max-width:640px){.noviny-grid{grid-template-columns:repeat(2,1fr);}}
+  .noviny-top{display:grid; grid-template-columns:repeat(6,1fr); gap:var(--space-7); align-items:start;}
+  .noviny-latest{grid-column:span 2;}
+  .noviny-year{grid-column:span 4;}
+  .noviny-latest .noviny-latest-card{margin-top:var(--space-7);}
+  .noviny-latest .cap{font-size:var(--fs-5);}
+  .noviny-year .noviny-grid{grid-template-columns:repeat(4,1fr);}
+  .vyslo-chip{margin-left:var(--space-2); white-space:nowrap; vertical-align:middle; font-family:var(--font-body); font-weight:var(--fw-medium);}
+  @media (max-width:960px){.noviny-latest{grid-column:span 3;} .noviny-year{grid-column:span 3;} .noviny-year .noviny-grid{grid-template-columns:repeat(3,1fr);}}
+  @media (max-width:640px){.noviny-top{grid-template-columns:1fr;} .noviny-latest,.noviny-year{grid-column:auto;} .noviny-year .noviny-grid{grid-template-columns:repeat(2,1fr);}}
   .noviny-card{display:block; border:1px solid var(--line); background:var(--material-deep); overflow:hidden; text-decoration:none; color:inherit; transition:border-color .15s, transform .15s;}
   .noviny-card:hover{border-color:var(--burgundy); transform:translateY(-2px);}
   .noviny-card img{width:100%; aspect-ratio:380/538; object-fit:cover; display:block; background:var(--white); border-bottom:1px solid var(--line);}

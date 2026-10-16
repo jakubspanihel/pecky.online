@@ -444,15 +444,15 @@ def iso_to_cz(iso):
 
 
 def apply_lastmod(content, lastmod):
-    """Vloží "Aktualizováno: ..." hned před nadpis sekce (<h2 class="title">).
+    """Vloží "Poslední kontrola: ..." hned pod nadpis sekce (<h2 class="title">).
     Beze změny, pokud sekce nemá datum "Změna" v Stav sekcí (typicky Domů,
     která nemá vlastní <h2 class="title"> - nechybí tam co nahradit) nebo
     podstránky z EXTRA_PAGES (nemají řádek v tabulce vůbec)."""
     if lastmod is None:
         return content
-    tag = (f'<p class="lastmod" data-date="{lastmod["iso"]}">'
-           f'Aktualizováno: {lastmod["raw"]}</p>\n    ')
-    new_content, n = TITLE_RE.subn(lambda m: tag + m.group(1), content, count=1)
+    tag = (f'\n    <p class="lastmod" data-date="{lastmod["iso"]}">'
+           f'Poslední kontrola: {lastmod["raw"]}</p>')
+    new_content, n = TITLE_RE.subn(lambda m: m.group(1) + tag, content, count=1)
     return new_content if n else content
 
 
@@ -1199,6 +1199,7 @@ def build_all(stav_rows=None):
     rows = stav_rows or parse_stav_sekci()
     stav_sekci = render_stav_sekci(rows)
     lastmods = lastmod_map(rows)
+    kontroly = {r['url']: r['kontrola'] for r in rows if r['kontrola'] is not None}  # viditelné „Poslední kontrola“
     written = []
     extra_written = []
     extra_indexed = []  # podstránky z EXTRA_PAGES s lastmod (odkázané -> patří do sitemapy)
@@ -1220,7 +1221,7 @@ def build_all(stav_rows=None):
                 content = apply_lastmod(
                     content, {'iso': extra_lastmod, 'raw': iso_to_cz(extra_lastmod), 'odhad': False})
         else:
-            content = apply_lastmod(content, lastmods.get(path))
+            content = apply_lastmod(content, kontroly.get(path) or lastmods.get(path))
         if '{{DASHBOARD}}' in content:
             content = content.replace('{{DASHBOARD}}', render_dashboard(rows))
         if slug in VOLBY_SLUG_TO_ROK or slug == 'volby':
