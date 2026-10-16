@@ -1392,6 +1392,19 @@ seznam místo rozházených poznámek po repu.
 - **Kontrola:** při týdenní kontrole kalendáře ověřit, že se doba
   sběrného dvora nezměnila.
 
+### Pravidelná událost: Zkouška sirén — aktivní (od 16. 10. 2026)
+
+- **Data:** `kalendar/zkouska-siren.json` (stejné schéma jako `sberny-dvur.json`,
+  zpracovává ji `build_provozni_doby_events()`). Pravidlo `weekday: 2`, `nth: 1`
+  = první středa v měsíci ve 12:00 (nové volitelné pole `nth` = pořadí dne
+  v měsíci; `to` může chybět → bez konce události). Platí **bez konce**, do
+  `udalosti.json` a Google Kalendáře se rozepisuje po `meta.horizon`
+  (31. 12. 2027) — **horizont čas od času posunout** a spustit
+  `update-kalendar.py`.
+- **Kategorie** `akce` (viditelná i bez zapnutého filtru „I pravidelné“), pořadatel
+  Město Pečky (`mesto-pecky`), zdroj `wikipedia-zkouska-siren`. Zadal uživatel
+  16. 10. 2026.
+
 ### Rezervace sportovní haly (ParkHala) — aktivní (od 11. 10. 2026)
 
 - **Zdroj:** [pecky.cz/default/default/21405_rezervacni-system](https://pecky.cz/default/default/21405_rezervacni-system)

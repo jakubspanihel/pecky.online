@@ -71,7 +71,8 @@ VOLBY_JSON = ROOT / 'kalendar' / 'udalosti-volby.json'
 AFK_JSON = ROOT / 'kalendar' / 'afk-zapasy.json'
 SVOZ_JSON = ROOT / 'kalendar' / 'svoz-odpadu.json'
 HALA_JSON = ROOT / 'kalendar' / 'sportovni-hala.json'
-PROVOZNI_DOBY_JSON = [ROOT / 'kalendar' / 'sberny-dvur.json']
+PROVOZNI_DOBY_JSON = [ROOT / 'kalendar' / 'sberny-dvur.json',
+                      ROOT / 'kalendar' / 'zkouska-siren.json']
 ORGANIZACE_JSON = ROOT / 'lide' / 'organizations.json'
 OUT_JSON = ROOT / 'kalendar' / 'udalosti.json'
 OUT_ICS = ROOT / 'kalendar' / 'kalendar.ics'
@@ -403,7 +404,8 @@ def build_provozni_doby_events():
         last = datetime.strptime(meta['horizon'], '%Y-%m-%d').date()
         while d <= last:
             for r in data['rules']:
-                if d.weekday() == r['weekday']:
+                # volitelné 'nth' = pořadí dne v měsíci (1 = první středa apod.)
+                if d.weekday() == r['weekday'] and ('nth' not in r or (d.day - 1) // 7 + 1 == r['nth']):
                     eid = f'{meta["id"]}-{d.isoformat()}' + (f'-{r["from"].replace(":", "")}' if meta.get('id_s_casem') else '')
                     events.append({
                         'id': eid,
@@ -412,11 +414,11 @@ def build_provozni_doby_events():
                         'date': d.isoformat(),
                         'date_end': None,
                         'time': r['from'],
-                        'time_end': r['to'],
+                        'time_end': r.get('to'),
                         'all_day': False,
-                        'category': 'svoz',
+                        'category': meta.get('category', 'svoz'),
                         'link': meta['evidence']['url'],
-                        'description': f'{meta["description_prefix"]} {r["from"]}–{r["to"]}',
+                        'description': f'{meta["description_prefix"]} {r["from"]}–{r["to"]}' if r.get('to') else meta['description_prefix'],
                         'place': meta['place'],
                         'organizer': org_id,
                         'organizer_name': org.get(org_id) if org_id else None,

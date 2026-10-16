@@ -1,0 +1,30 @@
+{
+ "meta": {
+  "description": "Pravidelná zkouška sirén jednotného systému varování a vyrozumění: každou první středu v měsíci ve 12:00, bez konce. update-kalendar.py ji rozepisuje na jednotlivé termíny do data `horizon`, které je potřeba čas od času posunout dál (a znovu spustit generátor).",
+  "title": "Zkouška sirén",
+  "place": "Pečky",
+  "organizer": "mesto-pecky",
+  "category": "akce",
+  "from": "2026-10-01",
+  "horizon": "2027-12-31",
+  "updated": "2026-10-16",
+  "evidence": {
+   "source": "wikipedia-zkouska-siren",
+   "kind": "web",
+   "url": "https://cs.wikipedia.org/wiki/Zkou%C5%A1ka_sir%C3%A9n",
+   "label": "Zkouška sirén (Wikipedie)",
+   "published": null,
+   "retrieved": "2026-10-16"
+  },
+  "id": "zkouska-siren",
+  "tag": "",
+  "description_prefix": "Pravidelná zkouška sirén, každou první středu v měsíci ve 12:00. Jde o zkušební provoz sirén, nikoli o skutečné varování"
+ },
+ "rules": [
+  {
+   "weekday": 2,
+   "nth": 1,
+   "from": "12:00"
+  }
+ ]
+}
