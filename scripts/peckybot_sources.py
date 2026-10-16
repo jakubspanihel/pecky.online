@@ -501,6 +501,27 @@ def chunks_noviny():
     return out
 
 
+def chunks_noviny_pravidla():
+    """Pravidla pro vydávání měsíčníku Pečecké noviny (čl. I–X) — po článcích.
+    Zdroj: noviny/Data/pravidla_pro_vydavani_PN (2026).pdf; text z PDF leží vedle
+    (pdftotext, stejný název s příponou .txt)."""
+    txt = (ROOT / 'noviny/Data/pravidla_pro_vydavani_PN (2026).txt').read_text(encoding='utf-8')
+    txt = txt.replace('\x0c', '\n')
+    url = '/noviny/Data/pravidla_pro_vydavani_PN%20(2026).pdf'
+    casti = re.split(r'\n\s*(Článek [IVX]+)\s*\n', txt)
+    out = []
+    for i in range(1, len(casti) - 1, 2):
+        cislo, telo = casti[i], casti[i + 1].strip()
+        nazev, _, rest = telo.partition('\n')
+        nazev = nazev.strip()
+        odst = [re.sub(r'\s+', ' ', x).strip() for x in re.split(r'\n\s*\n|\n(?=\d+\. )', rest)]
+        zahlavi = (f'Pravidla pro vydávání měsíčníku Pečecké noviny (Rada města, UR-263-31/23, účinná od 12. 9. 2023),'
+                   f' {cislo} — {nazev}.')
+        for x in _pack(zahlavi, [o for o in odst if o]):
+            out.append({'u': url, 't': f'Pečecké noviny — pravidla vydávání, {cislo} ({nazev})', 'x': x})
+    return out
+
+
 # ---------------------------------------------------------------- 5. Na oběd
 
 def chunks_naobed():
@@ -609,6 +630,6 @@ def chunks_shrnuti():
 def chunks_extra():
     out = []
     for fn in (chunks_komise, chunks_vybory, chunks_skolska_rada, chunks_kalendar, chunks_organizace,
-               chunks_noviny, chunks_naobed, chunks_absence, chunks_shrnuti):
+               chunks_noviny, chunks_noviny_pravidla, chunks_naobed, chunks_absence, chunks_shrnuti):
         out += fn()
     return out

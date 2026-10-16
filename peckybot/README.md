@@ -38,6 +38,7 @@ Zdroje, které generuje `scripts/build_peckybot_index.py` (jednání, lidé, sek
 - **kalendář** (`kalendar/udalosti.json` a pravidla): akce, opakované kurzy po sériích, svoz odpadu, hodiny úřadu a sběrného dvora; tituly „Kalendář — …“
 - **organizace** (`lide/organizations.json`): adresa, IČO, web, hodiny, propojení lidé; tituly „Organizace — …“
 - **Pečecké noviny** (`noviny/`): jeden úryvek na číslo s odkazem na PDF
+- **Pravidla pro vydávání Pečeckých novin** (`noviny/Data/pravidla_pro_vydavani_PN (2026).pdf`, od 16. 10. 2026): úryvky po článcích I–X (redakční rada, editorka, honorování příspěvků, inzerce, financování); text z PDF je vedle v `.txt` (`pdftotext`), generuje `chunks_noviny_pravidla()` v `scripts/peckybot_sources.py`; po výměně PDF `.txt` přegenerovat; typ nástroje `hledej_text` „noviny“
 - **Na oběd**: restaurace a další podniky s adresou, telefonem a hodinami (bez menu)
 - **shrnutí jednání** (`jednani/shrnuti/*.md`, od 15. 10. 2026): nejdůležitější témata a shrnutí jednání; v `cti_dokument` jako pole `shrnuti_jednani`
 - **absence zastupitelů** (`jednani/absence.json`)
