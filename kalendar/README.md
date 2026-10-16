@@ -1392,6 +1392,26 @@ seznam místo rozházených poznámek po repu.
 - **Kontrola:** při týdenní kontrole kalendáře ověřit, že se doba
   sběrného dvora nezměnila.
 
+### Emoji ikony před názvem (od 16. 10. 2026)
+
+- `kalIkona(e)` + pole `KAL_IKONY` v `content/kalendar.html` (kopie v
+  `content/kalendar-insta.html`) — pravidla podle názvu bez diakritiky, první
+  shoda vyhrává; jen kategorie `akce`/`kurz`/`svoz`. Ikona je před názvem
+  v Seznamu, ve „3 dny“ a na `/kalendar/insta.html`, v mřížce ne. Do dat se
+  nezapisuje.
+- 🚨 sirény · ♻️ všechny `svoz` (i Sběrný dvůr) · 🏐 volejbal · 🏀 basket ·
+  🏑 florbal · 🏓 stolní tenis a badminton · ♟️ šachy · ⛳ minigolf · 🐕 kynologie ·
+  🧘 jóga a cvičení na židli · 🏋️ posilování/Tabata · 🤸 cvičení TJ Sokol
+  (Rodiče a děti, Předškoláci, Přípravka, Všestrannost, Ženy a dorostenky)
+  a Babysport/Sportovky · ⚽ fotbal (zápasy AFK) · 🏃 běh · 🎯 šipky · 💃 tanec
+  (taneční kurzy a oddíly, věnečky). Basketbal pokrývá i „liga ženy“ a „NS UN“.
+  Nová ikona = nový řádek v `KAL_IKONY`.
+- **Štítky v Seznamu:** štítek „svoz“ se od 16. 10. 2026 nezobrazuje; „Pravidelně“
+  (u kurzů) má světlý průhledný podklad a bílý text, aby byl čitelný na barevné kartě.
+- **Pičhora:** místní název, místo častých akcí (zadal uživatel 16. 10. 2026); správný zápis
+  je „Pičhora“, ne „Píchora“. Filtr míst ji sdružuje pod „Pičhora“
+  (`KAL_MISTO_PRAVIDLA`).
+
 ### Pravidelná událost: Zkouška sirén — aktivní (od 16. 10. 2026)
 
 - **Data:** `kalendar/zkouska-siren.json` (stejné schéma jako `sberny-dvur.json`,
@@ -1401,6 +1421,8 @@ seznam místo rozházených poznámek po repu.
   `udalosti.json` a Google Kalendáře se rozepisuje po `meta.horizon`
   (31. 12. 2027) — **horizont čas od času posunout** a spustit
   `update-kalendar.py`.
+- **Štítek** `tag: "sirény"` se nezobrazuje (od 16. 10. 2026 ani v Seznamu — vlastní `tag` z dat
+  `content/kalendar.html` už nevykresluje), slouží jen pro hledání.
 - **Kategorie** `akce` (viditelná i bez zapnutého filtru „I pravidelné“), pořadatel
   Město Pečky (`mesto-pecky`), zdroj `wikipedia-zkouska-siren`. Zadal uživatel
   16. 10. 2026.

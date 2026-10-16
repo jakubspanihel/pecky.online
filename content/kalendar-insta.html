@@ -275,6 +275,32 @@
   document.getElementById('today-dnes').addEventListener('click', () => { KAL_DNES = kalIso(new Date()); kalRenderDnes(); kalNahodnaTema(); });
   document.getElementById('today-nahodne').addEventListener('click', kalNahodneBarvy);
 
+  function kalNorm(t){ return (t || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase(); }
+  // Emoji ikona před názvem podle druhu události (sirény, odpad, sporty); '' = bez ikony.
+  // Pravidla se testují shora, první shoda vyhrává.
+  const KAL_IKONY = [
+    [e => /siren/.test(kalNorm(e.title)), '🚨'],
+    [e => e.category === 'svoz', '♻️'],
+    [e => /fotbal/.test(kalNorm(e.title)), '⚽'],
+    [e => /\bbeh|bezeck|desitka|\bkros/.test(kalNorm(e.title)), '🏃'],
+    [e => /sipkov|darts/.test(kalNorm(e.title)), '🎯'],
+    [e => /\btan[ec]/.test(kalNorm(e.title)), '💃'],
+    [e => /volejbal|prehazov/.test(kalNorm(e.title)), '🏐'],
+    [e => /basket|liga zeny|\bns un\b/.test(kalNorm(e.title)), '🏀'],
+    [e => /florbal/.test(kalNorm(e.title)), '🏑'],
+    [e => /stolniho tenisu|badminton/.test(kalNorm(e.title)), '🏓'],
+    [e => /\bsach/.test(kalNorm(e.title)), '♟️'],
+    [e => /minigolf/.test(kalNorm(e.title)), '⛳'],
+    [e => /kynolog/.test(kalNorm(e.title)), '🐕'],
+    [e => /joga|cviceni na zidli/.test(kalNorm(e.title)), '🧘'],
+    [e => /posilovani|tabata|podvecerni cviceni/.test(kalNorm(e.title)), '🏋️'],
+    [e => /babysport|sportovky/.test(kalNorm(e.title))
+      || (e.organizer === 'tj-sokol-pecky' && /rodice a deti|predskolaci|sportovni pripravka|vsestrannost|zeny a dorostenky/.test(kalNorm(e.title))), '🤸'],
+  ];
+  function kalIkona(e){
+    const r = (e.category === 'akce' || e.category === 'kurz' || e.category === 'svoz') && KAL_IKONY.find(([t]) => t(e));
+    return r ? `<span class="ev-ikona" aria-hidden="true">${r[1]}</span> ` : '';
+  }
   function kalEsc(s){
     return (s || '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
   }
@@ -309,7 +335,7 @@
     document.getElementById('today-seznam').innerHTML = evs.length
       ? evs.map(e => {
           const barva = e.organizer ? ` style="${kalOrgStyle(e.organizer)}"` : '';
-          return `<li><span${barva}>${kalEsc(e.title)}${dodatek(e)}</span></li>`;
+          return `<li><span${barva}>${kalIkona(e)}${kalEsc(e.title)}${dodatek(e)}</span></li>`;
         }).join('')
       : '<li class="prazdno">Žádné akce</li>';
   }

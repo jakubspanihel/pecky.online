@@ -115,6 +115,31 @@
   // ať se hned první den akce nezačne tvářit jako už proběhlá.
   // hledání bez ohledu na velikost písmen a diakritiku
   function kalNorm(t){ return (t || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase(); }
+  // Emoji ikona před názvem podle druhu události (sirény, odpad, sporty); '' = bez ikony.
+  // Pravidla se testují shora, první shoda vyhrává.
+  const KAL_IKONY = [
+    [e => /siren/.test(kalNorm(e.title)), '🚨'],
+    [e => e.category === 'svoz', '♻️'],
+    [e => /fotbal/.test(kalNorm(e.title)), '⚽'],
+    [e => /\bbeh|bezeck|desitka|\bkros/.test(kalNorm(e.title)), '🏃'],
+    [e => /sipkov|darts/.test(kalNorm(e.title)), '🎯'],
+    [e => /\btan[ec]/.test(kalNorm(e.title)), '💃'],
+    [e => /volejbal|prehazov/.test(kalNorm(e.title)), '🏐'],
+    [e => /basket|liga zeny|\bns un\b/.test(kalNorm(e.title)), '🏀'],
+    [e => /florbal/.test(kalNorm(e.title)), '🏑'],
+    [e => /stolniho tenisu|badminton/.test(kalNorm(e.title)), '🏓'],
+    [e => /\bsach/.test(kalNorm(e.title)), '♟️'],
+    [e => /minigolf/.test(kalNorm(e.title)), '⛳'],
+    [e => /kynolog/.test(kalNorm(e.title)), '🐕'],
+    [e => /joga|cviceni na zidli/.test(kalNorm(e.title)), '🧘'],
+    [e => /posilovani|tabata|podvecerni cviceni/.test(kalNorm(e.title)), '🏋️'],
+    [e => /babysport|sportovky/.test(kalNorm(e.title))
+      || (e.organizer === 'tj-sokol-pecky' && /rodice a deti|predskolaci|sportovni pripravka|vsestrannost|zeny a dorostenky/.test(kalNorm(e.title))), '🤸'],
+  ];
+  function kalIkona(e){
+    const r = (e.category === 'akce' || e.category === 'kurz' || e.category === 'svoz') && KAL_IKONY.find(([t]) => t(e));
+    return r ? `<span class="ev-ikona" aria-hidden="true">${r[1]}</span> ` : '';
+  }
   function kalShoda(e){
     if (!KAL_QUERY) return true;
     const hay = kalNorm([e.title, e.description, e.place, e.note, e.tag, e.organizer_name, e.time].join(' '));
@@ -268,6 +293,7 @@
   const KAL_MISTO_OSTATNI = 'Ostatní místa';
   const KAL_MISTO_PRAVIDLA = [
     [/Sběrný dvůr/i, 'Sběrný dvůr'],
+    [/Pičhoř/i, 'Pičhora'],
     [/Velké Chvalovice/i, 'Velké Chvalovice'],
     [/Vzdělávací centrum/i, 'Vzdělávací centrum'],
     [/sokolovn/i, 'Sokolovna'],
@@ -433,7 +459,7 @@
         const cont = range && ds !== e.date ? ' kal-ev-cont' : '';
         return `<a class="kal-ev kal-ev-${e.category} k3-karta${cont}" href="${e.link || '#'}"${barva}${tip}${cizi}>` +
           (cas ? `<span class="k3-cas">${cas}</span>` : '') +
-          `<span class="k3-nazev">${kalEsc(e.title)}</span>` +
+          `<span class="k3-nazev">${kalIkona(e)}${kalEsc(e.title)}</span>` +
           (range ? `<span class="k3-misto">${range}</span>` : '') + misto + `</a>`;
       };
       const vice = e => e.date_end && e.date_end !== e.date;
@@ -491,12 +517,13 @@
       // čas ve formátu G:i (bez úvodní nuly u hodin); u vícedenních akcí rozsah dnů
       let cas = e.time && skupina !== 'bezi' ? kalEsc(e.time).replace(/\b0(\d:\d{2})/g, '$1') : '';
       if (vicedenni) cas = (skupina === 'bezi' ? `do ${denKrat(konec(e))}` : `do ${denKrat(e.date_end)}`) + (cas ? `, ${cas}` : '');
-      const stitek = e.tag != null ? (e.tag ? `<span class="tag ev-stitek">${kalEsc(e.tag)}</span>` : '')
+      // vlastní `tag` z dat (např. „sirény“) se nezobrazuje, slouží jen pro hledání
+      const stitek = e.tag != null ? ''
         : e.category === 'kurz' ? '<span class="tag ev-stitek">Pravidelně</span>'
-        : e.category === 'svoz' ? '<span class="tag ev-stitek">svoz</span>' : '';
+        : '';
       const cizi = e.link && /^https?:\/\//.test(e.link) ? ' target="_blank" rel="noopener"' : '';
-      const nazev = e.link ? `<a class="ev-title" href="${e.link}"${cizi}>${kalEsc(e.title)}</a>`
-        : `<span class="ev-title">${kalEsc(e.title)}</span>`;
+      const nazev = e.link ? `<a class="ev-title" href="${e.link}"${cizi}>${kalIkona(e)}${kalEsc(e.title)}</a>`
+        : `<span class="ev-title">${kalIkona(e)}${kalEsc(e.title)}</span>`;
       const popis = e.description && e.description !== e.place ? `<span class="ev-popis">${kalEsc(e.description)}</span>` : '';
       const misto = e.place ? `<span class="ev-misto"><span aria-hidden="true">📍</span> ${kalEsc(kalMistoBezAdresy(e.place))}</span>` : '';
       const pozn = e.note ? `<span class="ev-popis akce-pozn" hidden>${kalEsc(e.note)}</span>` : '';
