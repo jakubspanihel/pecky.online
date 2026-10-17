@@ -4,11 +4,19 @@
 
     <div class="absence-bar">
       <p class="absence-veta" id="absence-veta" aria-live="polite"></p>
-      <select id="absence-organ" class="kal-org-select" autocomplete="off" aria-label="Orgán">
-        <option value="absence-rada">Rada</option>
-        <option value="absence-zastupitelstvo">Zastupitelstvo</option>
-        <option value="absence-financni-vybor">Finanční výbor</option>
-        <option value="absence-kontrolni-vybor">Kontrolní výbor</option>
+      <select id="absence-organ" class="kal-org-select" autocomplete="off" aria-label="Orgán a volební období">
+        <optgroup label="Volební období 2022–2026">
+          <option value="2022–2026|absence-rada">Rada</option>
+          <option value="2022–2026|absence-zastupitelstvo">Zastupitelstvo</option>
+          <option value="2022–2026|absence-financni-vybor">Finanční výbor</option>
+          <option value="2022–2026|absence-kontrolni-vybor">Kontrolní výbor</option>
+        </optgroup>
+        <optgroup label="Volební období 2018–2022">
+          <option value="2018–2022|absence-rada">Rada</option>
+          <option value="2018–2022|absence-zastupitelstvo">Zastupitelstvo</option>
+          <option value="2018–2022|absence-financni-vybor">Finanční výbor</option>
+          <option value="2018–2022|absence-kontrolni-vybor">Kontrolní výbor</option>
+        </optgroup>
       </select>
     </div>
 
@@ -46,7 +54,7 @@
 
       <h3>Co do čísel nespadá</h3>
       <ul>
-        <li><strong>Období 2018–2022 se ukazuje jen u výborů.</strong> Zápisy na usneseni.cz začínají u zastupitelstva 16. 6. 2021 a u rady 12. 4. 2021 — pokrývají tak jen poslední necelé dva roky toho čtyřletého období, což by srovnání s kompletním obdobím 2022–2026 zkreslilo, proto se u Rady a Zastupitelstva neukazuje. U obou výborů je předchozí období k dispozici v rozbalovacím bloku pod tabulkou, ale s mezerami v zápisech: Kontrolní výbor má jen 3 zveřejněná jednání a dva jeho zápisy z roku 2021 nezmiňují jednu členku.</li>
+        <li><strong>Období 2018–2022 je zveřejněné jen zčásti.</strong> Zápisy na usneseni.cz začínají u zastupitelstva 16. 6. 2021 a u rady 12. 4. 2021 — pokrývají tak jen poslední necelé dva roky čtyřletého období, proto docházku z té doby nejde srovnávat s kompletním obdobím 2022–2026. U obou výborů má předchozí období vlastní mezery: Kontrolní výbor má jen 3 zveřejněná jednání a dva jeho zápisy z roku 2021 nezmiňují jednu členku.</li>
         <li><strong>Průběžnou prezenci nemá každý zápis.</strong> Věty o příchodech a odchodech jsou u 124 z 286 jednání. U ostatních zápis žádnou změnu neuvádí — což může znamenat, že žádná nenastala, ale ověřit to nejde.</li>
         <li><strong>Tři záznamy jsou vadné už u zdroje.</strong> Zápis rady 27/2021 vede Jiřího Katrnošku zároveň mezi přítomnými i nepřítomnými (jinde v témže zápisu stojí, že se účastnil distančně — počítáme ho jako přítomného). Zápis rady 24/2024 vypisuje čtyři přítomné, ale v souhrnné větě tvrdí „přítomno je 5 členů“; počítáme podle jmen. Dva zápisy kontrolního výboru z roku 2021 vůbec nezmiňují jednu členku (ani mezi přítomnými, ani mezi nepřítomnými) — pro ta jednání ji tabulka nepočítá ani jako přítomnou, ani jako nepřítomnou.</li>
         <li><strong>Malý vzorek u výborů.</strong> Finanční a Kontrolní výbor mají za aktuální období jen 12, resp. 11 zveřejněných jednání — necelá desetina toho, co Rada. Procento u nich kolísá mnohem víc než u Rady/Zastupitelstva už z jediné chybějící účasti, „X z Y" pod procentem je tu proto obzvlášť důležité hlídat.</li>
@@ -105,7 +113,6 @@
   // nastoupil uprostřed období má řádek v obou), a klik na jeden z nich
   // nesmí otevřít vizitku i u toho druhého, skrytého v neaktivní podzáložce
   let openRowKey = '';
-  const predchoziOtevrene = new Set();
   const VYHRADA_PREDCHOZI = {
     'Finanční výbor': '<strong>Pozor na úplnost.</strong> Jde o zveřejněné zápisy. U zápisu z 22. 11. 2018 není zaznamenaná účast, takže se do absence nepromítá — první započtené jednání je z 28. 11. 2018. Ladislav Zindr je ve výboru až od 27. 3. 2019.',
     'Kontrolní výbor': '<strong>Pozor na malý a neúplný vzorek.</strong> Zápisy z let 2018–2020 zveřejněné nejsou, k dispozici jsou jen 3 jednání. Zápisy z 22. 9. a 10. 11. 2021 nezmiňují jednu členku (ani mezi přítomnými, ani mezi nepřítomnými), pro tato jednání ji tabulka nepočítá.',
@@ -219,30 +226,24 @@
     return `<ol class="vote-cards absence-cards">${radky}</ol>`;
   }
 
+  let OBDOBI = '2022–2026';
+
   function vykresli(data){
     ABS_DATA = data;
     for (const organ of ['Rada', 'Zastupitelstvo', 'Finanční výbor', 'Kontrolní výbor']) {
-      // hlavní tabulka jen aktuální období — starší (2018–2022) zápisy pokrývají
-      // jen zčásti (u Rady/Zastupitelstva usneseni.cz, u výborů vlastní
-      // mezery v zápisech), viz rozbalovací blok pod tabulkou
-      const blok = data.obdobi.filter(b => b.organ === organ)
-                             .sort((a, b) => b.obdobi.localeCompare(a.obdobi))[0];  // nejnovější období
+      const blok = data.obdobi.find(b => b.organ === organ && b.obdobi === OBDOBI);
       const cil = document.getElementById('absence-' + ORGAN_SLUG[organ] + '-obsah');
       if (!cil) continue;
-      let html = blok ? tabulka(blok) : '<p class="lede">Data nejsou k dispozici.</p>';
-      // u výborů navíc předchozí období jako rozbalovací blok
-      if (organ.endsWith('výbor')) {
-        const stare = data.obdobi.find(b => b.organ === organ && b.obdobi === '2018–2022');
-        if (stare) {
-          const key = ORGAN_SLUG[organ];
-          html += `<details class="absence-predchozi" data-predchozi="${key}"${predchoziOtevrene.has(key) ? ' open' : ''} style="margin-top:24px;">
-            <summary><strong>Předchozí volební období 2018–2022</strong></summary>
-            <div class="callout" style="margin-top:12px;">${VYHRADA_PREDCHOZI[organ]}</div>
-            ${tabulka(stare, false)}
-          </details>`;
-        }
+      let html = '';
+      if (blok && OBDOBI !== '2022–2026') {
+        // starší období: zápisy jsou zveřejněné jen zčásti
+        const vyhrada = VYHRADA_PREDCHOZI[organ] ||
+          `<strong>Období je neúplné.</strong> Zápisy na usneseni.cz začínají až v průběhu období. Období tedy pokrývá jen poslední necelé dva roky ze čtyř. Předtím nejsou data k dispozici.`;
+        html += `<div class="callout" style="margin:0 0 16px;">${vyhrada}</div>`;
       }
+      html += blok ? tabulka(blok) : '<p class="lede">Data nejsou k dispozici.</p>';
       cil.innerHTML = html;
+      if (!blok) VETY['absence-' + ORGAN_SLUG[organ]] = '';
     }
     if (window.absenceUpdateVeta) window.absenceUpdateVeta();
     const p = document.getElementById('absence-patka');
@@ -251,12 +252,12 @@
     }
   }
 
-  document.addEventListener('toggle', (e) => {
-    const d = e.target;
-    if (d && d.dataset && d.dataset.predchozi) {
-      if (d.open) predchoziOtevrene.add(d.dataset.predchozi); else predchoziOtevrene.delete(d.dataset.predchozi);
-    }
-  }, true);
+  window.absenceSetObdobi = function(ob){
+    if (ob === OBDOBI) return;
+    OBDOBI = ob;
+    openRowKey = '';
+    if (ABS_DATA) vykresli(ABS_DATA);
+  };
 
   document.addEventListener('click', (e) => {
     const t = e.target;
@@ -304,18 +305,28 @@
   // výběr orgánu (select) — panely zůstávají .subpanel
   const sel = document.getElementById('absence-organ');
   const veta = document.getElementById('absence-veta');
-  function updateVeta(){ veta.innerHTML = (window.ABSENCE_VETY || {})[sel.value] || ''; }
+  const OBD_DEFAULT = '2022–2026';
+  function updateVeta(){
+    const slug = sel.value.split('|')[1];
+    veta.innerHTML = (window.ABSENCE_VETY || {})[slug] || '';
+  }
   window.absenceUpdateVeta = updateVeta;
-  function show(name, updateHash){
-    if (![...sel.options].some(o => o.value === name)) return;
-    sel.value = name;
+  // hodnota selectu = "období|panel"; hash: #absence-rada (výchozí období) / #absence-rada-2018
+  function show(value, updateHash){
+    if (![...sel.options].some(o => o.value === value)) return;
+    const [ob, slug] = value.split('|');
+    sel.value = value;
     document.querySelectorAll('#panel-absence > .subpanel').forEach(p =>
-      p.classList.toggle('active', p.id === 'subpanel-' + name));
+      p.classList.toggle('active', p.id === 'subpanel-' + slug));
+    if (window.absenceSetObdobi) window.absenceSetObdobi(ob);
     updateVeta();
-    if (updateHash) history.replaceState(null, '', '#' + name);
+    if (updateHash) history.replaceState(null, '', '#' + slug + (ob === OBD_DEFAULT ? '' : '-' + ob.slice(0, 4)));
   }
   sel.addEventListener('change', () => show(sel.value, true));
-  const fromHash = () => show(location.hash.replace(/^#/, ''), false);
+  const fromHash = () => {
+    const m = /^#?(absence-[a-z-]+?)(?:-(2018))?$/.exec(location.hash);
+    if (m) show((m[2] ? '2018–2022' : OBD_DEFAULT) + '|' + m[1], false);
+  };
   if (location.hash) fromHash();
   window.addEventListener('hashchange', fromHash);
 })();
