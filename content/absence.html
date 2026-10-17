@@ -2,19 +2,14 @@
     <h2 class="title display">Jak vás zastupitelé zastupují</h2>
     <p class="lede perex">Docházka zastupitelů, radních a členů výborů zastupitelstva na jednání. Zdrojem dat jsou zápisy z <a href="/jednani/">jednání</a>. <span class="stamp">ověřeno</span></p>
 
-    <div class="segmented-control" style="margin:0 0 18px;">
-      <span class="segmented-label">Zobrazit:</span>
-      <div class="segmented-group" role="group" aria-label="Orgán">
-        <button type="button" class="segmented-btn active" data-organ="absence-rada">Rada</button>
-        <button type="button" class="segmented-btn" data-organ="absence-zastupitelstvo">Zastupitelstvo</button>
-        <span class="segmented-more">
-          <button type="button" class="segmented-btn segmented-more-btn" id="absence-more-btn" aria-haspopup="true" aria-expanded="false">Další…</button>
-          <div class="segmented-menu" id="absence-more-menu" role="menu" hidden>
-            <button type="button" class="segmented-menu-item" role="menuitem" data-organ="absence-financni-vybor">Finanční výbor</button>
-            <button type="button" class="segmented-menu-item" role="menuitem" data-organ="absence-kontrolni-vybor">Kontrolní výbor</button>
-          </div>
-        </span>
-      </div>
+    <div class="absence-bar">
+      <p class="absence-veta" id="absence-veta" aria-live="polite"></p>
+      <select id="absence-organ" class="kal-org-select" autocomplete="off" aria-label="Orgán">
+        <option value="absence-rada">Rada</option>
+        <option value="absence-zastupitelstvo">Zastupitelstvo</option>
+        <option value="absence-financni-vybor">Finanční výbor</option>
+        <option value="absence-kontrolni-vybor">Kontrolní výbor</option>
+      </select>
     </div>
 
     <div class="subpanel active" id="subpanel-absence-rada">
@@ -100,6 +95,7 @@
   // se nepodaří najít (typicky zastupitelé 2018–2022, které people.json
   // nepokrývá — viz jeho meta.note), zůstává beze změny: jen jméno, bez
   // avataru a bez odkazu — žádná vymyšlená data.
+  const VETY = window.ABSENCE_VETY = {};
   let ABS_DATA = null;
   let AFFS = [];
   let ORG_BY_ID = {};
@@ -119,19 +115,44 @@
     return PEOPLE_BY_KEY[jNameKey(jmeno)] || null;
   }
 
-  function personCellHtml(r, p, rowKey){
-    if (!p) {
-      return `<span class="absence-person">
-        <span class="avatar-fallback avatar-inline" style="width:26px; height:26px; background:#5B5347;" aria-hidden="true">${jInitials(r.jmeno)}</span>
-        <span>${jEscapeHtml(r.jmeno)}</span>
-      </span>`;
-    }
+  // uskupení osoby = první tag, který je politické uskupení v organizations.json
+  function partyVar(p){
+    const id = p && (p.tags || []).find(t => ORG_BY_ID[t] && ORG_BY_ID[t].type === 'politicke');
+    return id ? `var(--org-${id})` : 'var(--ink-soft)';
+  }
+
+  // Funkce v radě města platná v daném volebním období (ne dnešní): záznam
+  // starosta/místostarosta/radní z affiliations.json, který se s obdobím
+  // překrývá; při více záznamech vyhrává nejvýznamnější. Začátek a konec
+  // období = ustavující zasedání (stejná data jako v affiliations.json).
+  const OBDOBI_HRANICE = {'2018': ['2018-11-14', '2022-10-20'], '2022': ['2022-10-20', '9999-12-31']};
+  function isoDen(d, konec){
+    if (!d) return konec ? '9999-12-31' : '';
+    return /^\d{4}$/.test(d) ? d + (konec ? '-12-31' : '-01-01') : d;
+  }
+  function funkceChipHtml(p, obdobi){
+    if (!p) return '';
+    const hr = OBDOBI_HRANICE[String(obdobi).slice(0, 4)];
+    if (!hr) return '';
+    const kandidati = AFFS.filter(x => x.person_id === p.id && x.organization_id === 'mesto-pecky'
+      && ['starosta', 'mistostarosta', 'rada'].includes(x.role_type) && x.from
+      && isoDen(x.from) < hr[1] && isoDen(x.to, true) > hr[0]);
+    if (!kandidati.length) return '';
+    kandidati.sort((a, b) => pcTlRank(a.role_type) - pcTlRank(b.role_type) || isoDen(b.from).localeCompare(isoDen(a.from)));
+    const t = kandidati[0].role.replace(/\s*\(.*?\)\s*/g, '').trim();
+    return `<span class="tag vz-funkce">${jEscapeHtml(t.charAt(0).toUpperCase() + t.slice(1))}</span>`;
+  }
+
+  function avatarHtml(r, p){
+    if (!p) return `<span class="avatar-fallback avatar-inline" style="width:52px; height:52px; background:#5B5347;" aria-hidden="true">${jInitials(r.jmeno)}</span>`;
+    return pcAvatarHtml(p, {size: 52, cls: 'avatar-inline'});
+  }
+
+  function nameHtml(r, p, rowKey){
+    if (!p) return jEscapeHtml(r.jmeno);
     const open = openRowKey === rowKey;
-    return `<span class="absence-person">
-      ${pcAvatarHtml(p, {size: 26, cls: 'avatar-inline'})}
-      <button type="button" class="absence-name-link" data-absence-row="${jEscapeHtml(rowKey)}"
-        aria-expanded="${open}" aria-controls="absence-detail-${jEscapeHtml(rowKey)}">${jEscapeHtml(r.jmeno)}</button>
-    </span>`;
+    return `<button type="button" class="absence-name-link" data-absence-row="${jEscapeHtml(rowKey)}"
+        aria-expanded="${open}" aria-controls="absence-detail-${jEscapeHtml(rowKey)}">${jEscapeHtml(r.jmeno)}</button>`;
   }
 
   function personDetailRowHtml(p, rowKey){
@@ -142,23 +163,34 @@
       closeAttr: 'data-absence-close',
       orgHrefPrefix: jWithBase('/lide/')
     });
-    return `<tr class="absence-detail-row"><td colspan="2">${html}</td></tr>`;
+    return `<div class="absence-detail-row">${html}</div>`;
   }
 
   // "chyběl při zahájení", "dorazil později" a "odešel dřív" — jen když je
   // hodnota nenulová. "Přítomen: N" tu záměrně není — stejné číslo teď nese
   // "Přítomen X z Y" ve sloupci Docházka, viz tabulka().
-  function poznamkaHtml(r){
-    const body = [];
+  // "Zvolen za …" — uskupení z role "Kandidát do zastupitelstva RRRR (zvolen)"
+  // (i „Kandidátka … zvolena“) pro rok začátku vybraného období; bez takového záznamu (náhradník) se řádek vynechá
+  function zvolenHtml(p, obdobi){
+    if (!p) return '';
+    const rok = String(obdobi).slice(0, 4);
+    const a = AFFS.find(x => x.person_id === p.id && x.role_type === 'kandidatka'
+      && x.role.startsWith(`Kandidát`) && x.role.includes(`zastupitelstva ${rok} (zvolen`)
+      && !x.role.includes('nezvolen'));
+    const o = a && ORG_BY_ID[a.organization_id];
+    return o ? `<p class="absence-zvolen">${pcGendered(p, 'Zvolen', 'Zvolena')} za ${jEscapeHtml(o.name)}</p>` : '';
+  }
+
+  function poznamkaHtml(r, mandatTxt, zvolen){
+    const body = [`<li>${mandatTxt}</li>`];
     if (r.chybel) body.push(`<li>Chyběl při zahájení: ${r.chybel} (${r.omluven} omluv., ${r.nepritomen} neomluv.)</li>`);
     if (r.dorazil) body.push(`<li>Dorazil později: ${r.dorazil}</li>`);
     if (r.odesel) body.push(`<li>Odešel dřív: ${r.odesel}</li>`);
-    const text = r.poznamka ? `<p class="absence-poznamka-text">${jEscapeHtml(r.poznamka)}</p>` : '';
-    const list = body.length ? `<ul class="absence-poznamka-list">${body.join('')}</ul>` : '';
-    return `${text}${list}`;
+    if (r.poznamka) body.push(`<li>${jEscapeHtml(r.poznamka)}</li>`);
+    return `${zvolen || ''}<ul class="absence-poznamka-list">${body.join('')}</ul>`;
   }
 
-  function tabulka(blok){
+  function tabulka(blok, hlavni = true){
     // od nejmenší docházky (= od nejvyššího podílu "nebyl vůbec") — stabilní
     // řazení drží u shodné docházky původní pořadí ze zdroje (od nejkratšího mandátu)
     const radky = blok.radky.slice().sort((a, b) => b.podil - a.podil).map(r => {
@@ -171,25 +203,20 @@
       // celkový počet jednání v období (Z z dřívějšího "X / Y / Z") je teď
       // jen ve větě nad tabulkou (blok.jednani), tady zůstává "přítomen
       // X z Y" — Y je mandát, ne celé období
-      const mandatHtml = `<span class="absence-mandat">${pcGendered(p, 'Přítomen', 'Přítomna')} ${pritomen} z ${r.mandat}</span>`;
-      return `<tr>
-        <td class="num"><strong>${procenta(100 - r.podil)}</strong>${mandatHtml}</td>
-        <td>${personCellHtml(r, p, rowKey)}${poznamkaHtml(r)}</td>
-      </tr>${p ? personDetailRowHtml(p, rowKey) : ''}`;
+      const mandatTxt = `${pcGendered(p, 'Přítomen', 'Přítomna')} ${pritomen} z ${r.mandat} jednání`;
+      return `<li class="vote-card absence-card">
+        <span class="vote-num">${procenta(100 - r.podil)}</span>
+        <span class="absence-avwrap"><span class="vote-av absence-av" style="--org-c:${partyVar(p)};">${avatarHtml(r, p)}</span>${funkceChipHtml(p, blok.obdobi)}</span>
+        <span class="vote-name">${nameHtml(r, p, rowKey)}${poznamkaHtml(r, mandatTxt, zvolenHtml(p, blok.obdobi))}</span>
+        ${p ? personDetailRowHtml(p, rowKey) : ''}
+      </li>`;
     }).join('\n');
 
     // podmět a sloveso se liší podle rodu orgánu — Rada (ž.), Zastupitelstvo
     // (s.), oba výbory (m.); výbory navíc nejsou "města", jen samy sebou
     const popis = ORGAN_POPIS[blok.organ] || {podmet: blok.organ, sleso: 'sešel'};
-    return `<p>${jEscapeHtml(popis.podmet)} se ve volebním období ${jEscapeHtml(blok.obdobi)} ${popis.sleso} <strong>${blok.jednani}</strong> krát.</p>
-      <div class="table-scroll">
-      <table class="register absence-tabulka">
-        <thead><tr>
-          <th class="num">Docházka</th><th>Jméno</th>
-        </tr></thead>
-        <tbody>${radky}</tbody>
-      </table>
-      </div>`;
+    if (hlavni) VETY['absence-' + ORGAN_SLUG[blok.organ]] = `${jEscapeHtml(popis.podmet)} se ve volebním období ${jEscapeHtml(blok.obdobi)} ${popis.sleso} <strong>${blok.jednani}</strong> krát.`;
+    return `<ol class="vote-cards absence-cards">${radky}</ol>`;
   }
 
   function vykresli(data){
@@ -211,12 +238,13 @@
           html += `<details class="absence-predchozi" data-predchozi="${key}"${predchoziOtevrene.has(key) ? ' open' : ''} style="margin-top:24px;">
             <summary><strong>Předchozí volební období 2018–2022</strong></summary>
             <div class="callout" style="margin-top:12px;">${VYHRADA_PREDCHOZI[organ]}</div>
-            ${tabulka(stare)}
+            ${tabulka(stare, false)}
           </details>`;
         }
       }
       cil.innerHTML = html;
     }
+    if (window.absenceUpdateVeta) window.absenceUpdateVeta();
     const p = document.getElementById('absence-patka');
     if (p) {
       p.textContent = `Data zahrnují jednání do ${datum(data.meta.data_do)}.`;
@@ -273,35 +301,20 @@
 </script>
 <script>
 (function(){
-  // segmentovaný přepínač orgánu (vzor: Jednání) — panely zůstávají .subpanel
-  const btns = document.querySelectorAll('[data-organ]');
-  const menu = document.getElementById('absence-more-menu');
-  const moreBtn = document.getElementById('absence-more-btn');
-  function closeMenu(){
-    if (menu.hidden) return;
-    menu.hidden = true;
-    moreBtn.setAttribute('aria-expanded', 'false');
-  }
+  // výběr orgánu (select) — panely zůstávají .subpanel
+  const sel = document.getElementById('absence-organ');
+  const veta = document.getElementById('absence-veta');
+  function updateVeta(){ veta.innerHTML = (window.ABSENCE_VETY || {})[sel.value] || ''; }
+  window.absenceUpdateVeta = updateVeta;
   function show(name, updateHash){
-    const item = Array.from(btns).find(b => b.dataset.organ === name);
-    if (!item) return;
-    btns.forEach(b => b.classList.toggle('active', b === item));
-    const inMenu = item.classList.contains('segmented-menu-item');
-    moreBtn.classList.toggle('active', inMenu);
-    moreBtn.textContent = inMenu ? item.textContent + ' ▾' : 'Další… ▾';
+    if (![...sel.options].some(o => o.value === name)) return;
+    sel.value = name;
     document.querySelectorAll('#panel-absence > .subpanel').forEach(p =>
       p.classList.toggle('active', p.id === 'subpanel-' + name));
-    closeMenu();
+    updateVeta();
     if (updateHash) history.replaceState(null, '', '#' + name);
   }
-  btns.forEach(b => b.addEventListener('click', () => show(b.dataset.organ, true)));
-  moreBtn.addEventListener('click', e => {
-    e.stopPropagation();
-    menu.hidden = !menu.hidden;
-    moreBtn.setAttribute('aria-expanded', String(!menu.hidden));
-  });
-  document.addEventListener('click', closeMenu);
-  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeMenu(); });
+  sel.addEventListener('change', () => show(sel.value, true));
   const fromHash = () => show(location.hash.replace(/^#/, ''), false);
   if (location.hash) fromHash();
   window.addEventListener('hashchange', fromHash);

@@ -1042,6 +1042,18 @@
   /* jen dva sloupce — Docházka (+ "přítomen X z Y" pod procentem) a Jméno (+ poznámka pod ním) */
   table.absence-tabulka th.num, table.absence-tabulka td.num{text-align:right; white-space:nowrap; vertical-align:top; padding-right:var(--space-10);}
   table.absence-tabulka td{vertical-align:top;}
+  /* Docházka: karty podle .vote-card (Volby 2026) */
+  .absence-card{flex-wrap:wrap; align-items:flex-start;}
+  .absence-card .vote-num{flex:0 0 4.6em; min-width:4.6em; white-space:nowrap; font-size:var(--fs-title-mobile); align-self:center;}
+  .absence-avwrap{position:relative; flex:0 0 auto; align-self:center; margin:0 var(--space-9);}
+  .absence-avwrap .vz-funkce{position:absolute; left:50%; bottom:-8px; transform:translateX(-50%); white-space:nowrap; line-height:1.2; font-size:var(--fs-1); padding:2px var(--space-2); background:var(--burgundy); color:var(--white); border-color:transparent;}
+  .absence-card .vote-av{width:58px; height:58px; align-self:center;}
+  .absence-card .vote-av .avatar-inline, .absence-card .vote-av img{width:100% !important; height:100% !important; border:none; border-radius:var(--radius-round);}
+  .absence-card .vote-name{flex:1 1 0; align-self:center;}
+  .absence-card .absence-detail-row{flex:0 0 100%;}
+  .absence-card .absence-zvolen{margin:var(--space-1) 0 0; font-weight:var(--fw-regular); font-size:var(--fs-6); color:var(--ink-soft);}
+  .absence-card .absence-poznamka-list{margin-top:var(--space-1); font-weight:var(--fw-regular); font-size:var(--fs-6);}
+  .absence-card .absence-poznamka-list li{padding-left:16px;}
   .absence-mandat{display:block; margin-top:3px; font-family:'IBM Plex Mono',monospace; font-size:var(--fs-4); color:var(--ink-soft); font-weight:var(--fw-regular);}
   .absence-poznamka-text, .absence-poznamka-list{font-size:var(--fs-6); color:var(--ink-soft);}
   .absence-poznamka-text{margin:var(--space-2) 0 var(--space-1);}
@@ -1049,7 +1061,7 @@
   .absence-poznamka-list{list-style:none; margin:var(--space-2) 0 0; padding:0;}
   .absence-poznamka-list:not(:first-child){margin-top:2px;}
   .absence-poznamka-list li{position:relative; padding-left:11px;}
-  .absence-poznamka-list li::before{content:"—"; position:absolute; left:0;}
+  .absence-poznamka-list li::before{content:"•"; position:absolute; left:0;}
   .table-scroll table.absence-tabulka{min-width:340px;}
   /* jméno + avatar v prvním sloupci, klik otevře vizitku (pcDetailHtml) — u koho se osoba
      nedohledá v lide/people.json, zůstává jen prostý text bez avataru a bez odkazu */
@@ -1219,3 +1231,7 @@ table.calendar-table .kal-ev{font-family:var(--font-body);}
 .ts-person-name{font-family:var(--font-body); font-size:var(--fs-12); line-height:1.5; font-weight:var(--fw-semibold);}
 .ts-stat-number{font-family:var(--font-body); font-size:27px; line-height:1.15; font-weight:var(--fw-bold);}
 .ts-event-title{font-family:var(--font-body); font-size:var(--fs-h4); line-height:1.3; font-weight:var(--fw-regular);}
+
+  .absence-bar{display:flex; align-items:center; justify-content:space-between; gap:var(--space-5); flex-wrap:wrap; margin:0 0 var(--space-5);}
+  .absence-bar .absence-veta{margin:0; flex:1 1 280px;}
+  .absence-bar .kal-org-select{flex:0 0 auto; width:auto; min-width:200px;}
