@@ -129,6 +129,11 @@ MANIFEST = {
         '/voda/', 'Voda — Do Peček . cz',
         'Voda ve městě Pečky.',
         False),
+    'okolo': (
+        '/okolo/', 'Pro přespolní — Do Peček . cz',
+        'Mapa obcí správního obvodu Peček: Pečky, Cerhenice, Vrbčany, '
+        'Dobřichov, Tatce, Chotutice, Plaňany, Radim a Ratenice.',
+        False),
     'kalendar': (
         '/kalendar/', 'Co se děje v Pečkách — Do Peček . cz',
         'Kalendář termínů týkajících se města Pečky.',
@@ -262,6 +267,7 @@ README_TO_SLUG = {
     'pokladna': 'pokladna',
     'voda': 'voda',
     'kalendar': 'kalendar',
+    'okolo': 'okolo',
     'naobed': 'naobed',
     'pozemky': 'pozemky',
     'prostory': 'prostory',

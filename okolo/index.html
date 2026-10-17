@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pro přespolní — Do Peček . cz</title>
+<meta name="description" content="Mapa obcí správního obvodu Peček: Pečky, Cerhenice, Vrbčany, Dobřichov, Tatce, Chotutice, Plaňany, Radim a Ratenice.">
+<link rel="canonical" href="https://dopecek.cz/okolo/">
+<meta property="og:title" content="Pro přespolní — Do Peček . cz">
+<meta property="og:description" content="Mapa obcí správního obvodu Peček: Pečky, Cerhenice, Vrbčany, Dobřichov, Tatce, Chotutice, Plaňany, Radim a Ratenice.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://dopecek.cz/okolo/">
+<meta property="og:site_name" content="Do Peček . cz">
+<meta property="og:locale" content="cs_CZ">
+<meta property="og:image" content="https://dopecek.cz/img/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Pro přespolní — Do Peček . cz">
+<meta name="twitter:description" content="Mapa obcí správního obvodu Peček: Pečky, Cerhenice, Vrbčany, Dobřichov, Tatce, Chotutice, Plaňany, Radim a Ratenice.">
+<meta name="twitter:image" content="https://dopecek.cz/img/og-image.png">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" type="image/png" sizes="32x32" href="/img/favicons/favicon-32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/img/favicons/icon-192.png">
+<link rel="apple-touch-icon" href="/img/favicons/apple-touch-icon.png">
+<link rel="stylesheet" href="/assets/org-colors.css">
+<link rel="stylesheet" href="/assets/styles.css">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-1CW9XK1VJY"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-1CW9XK1VJY');
+</script>
+
+</head>
+<body>
+<script>window.SITE_BASE_PATH = '';</script>
+<header class="site">
+  <div class="header-inner">
+    <div class="brand-row">
+      <a class="brand" href="/">
+        <img class="brand-logo" src="/img/favicons/icon-192.png" alt="" width="44" height="44">
+        <h1>Do Peček . cz</h1>
+      </a>
+    </div>
+  </div>
+  <nav class="tabs header-nav" id="tabs">
+    <a class="navlink" href="/naobed/">Na oběd</a>
+    <a class="navlink" href="/kalendar/">Kalendář</a>
+    <a class="navlink" href="/noviny/">Pečecké noviny</a>
+    <a class="navlink" href="/jednani/">Jednání</a>
+    <a class="navlink" href="/lide/">Lidé</a>
+    <a class="navlink" href="/telocvicna/">Tělocvična</a>
+    <a class="navlink" href="/volby/">Volby</a>
+    <button type="button" class="navlink navlink-more" id="infoFab" aria-controls="overlayMenu" aria-haspopup="dialog">Více...</button>
+  </nav>
+</header>
+<div class="overlay-menu" id="overlayMenu" role="dialog" aria-modal="true" aria-label="Menu" hidden>
+  <button type="button" class="overlay-close" id="overlayClose" aria-label="Zavřít menu">Zavřít</button>
+  <nav class="overlay-links" id="overlayLinks"></nav>
+  <template id="overlayMonitoring">
+    <a class="navlink secondary small" href="/o-webu/facebook-monitoring/facebook-mestopecky/">Facebook města</a>
+    <a class="navlink secondary small" href="/o-webu/uredni-deska-monitoring/">Úřední deska</a>
+    <a class="navlink secondary small" href="/jednani/absence.html">Docházka zastupitelů</a>
+    <a class="navlink secondary small" href="/jednani/youtube.html">YouTube města</a>
+  </template>
+</div>
+
+<main>
+  <style>
+    .okolo-mapa{display:block; width:100%; max-width:760px; height:auto; margin:var(--space-5) auto 0;}
+    .okolo-mapa .obec{fill:var(--material-deep); stroke:var(--white); stroke-width:2.5; stroke-linejoin:round; cursor:default; transition:fill .12s;}
+    .okolo-mapa .obec.pecky{fill:color-mix(in srgb, var(--burgundy) 35%, var(--white));}
+    .okolo-mapa .obec.zvyrazneno{fill:color-mix(in srgb, var(--cyan-deep) 40%, var(--white));}
+    .okolo-mapa .obec.pecky.zvyrazneno{fill:var(--burgundy);}
+    .okolo-mapa image.znak{pointer-events:none;}
+    .okolo-mapa text{font-family:var(--font-body); font-size:25px; font-weight:var(--fw-semibold); fill:var(--ink); text-anchor:middle; pointer-events:none; paint-order:stroke; stroke:var(--white-a80); stroke-width:5px; stroke-linejoin:round;}
+    .okolo-mapa text.pecky{font-size:30px; font-weight:var(--fw-bold);}
+  </style>
+  <section class="panel active" id="panel-okolo">
+    <h2 class="title display">Pro přespolní</h2>
+    <p class="lastmod" data-date="2026-10-17">Poslední kontrola: 17. 10. 2026</p>
+    <p class="lede perex">Městský úřad Pečky je <b>pověřený obecní úřad</b>. To znamená, že vyřizuje některé úřední věci, například vedení matriky, i pro okolní menší obce, aby nemusely mít vlastní úředníky. Týká se to devíti obcí na mapě. Lidé z malé obce tak chodí na tyto úřady do nejbližšího většího města.</p>
+
+    <h3 class="search-status" id="okolo-status"><span class="spinner" aria-hidden="true"></span>Načítám mapu…</h3>
+    <div id="okolo-box" hidden>
+      <svg class="okolo-mapa" id="okolo-mapa" role="img" aria-label="Mapa obcí správního obvodu Peček"></svg>
+    </div>
+
+    <p><b>V Pečkách vyřídíte</b> matriku (narození, sňatky, úmrtí), přestupky, sociální poradenství a pomoc lidem v tíživé životní situaci, ochranu životního prostředí, dopravu na území města, místní poplatky a stavební záležitosti. Úřad sídlí na <a href="https://mapy.cz/zakladni?q=Masarykovo%20n%C3%A1m%C4%9Bst%C3%AD%2078%2C%20Pe%C4%8Dky" target="_blank" rel="noopener">Masarykově náměstí 78</a> a úřední dny jsou pondělí a středa.</p>
+
+    <p>Co naopak <b>NEVYŘÍDÍTE</b> jsou například občanské průkazy a cestovní pasy, řidičské průkazy, registrace vozidel, živnostenská oprávnění, ochrana dětí v rodinách v problémech nebo vodní hospodářství a ochrana přírody. Kvůli nim je třeba jet na <a href="https://www.mukolin.cz" target="_blank" rel="noopener">úřad obce s rozšířenou působností v Kolíně</a>.</p>
+
+    <p><b>Ve všech devíti obcích je na místním úřadě Czech POINT.</b> Tam zařídíte výpisy z katastru nemovitostí, obchodního rejstříku, živnostenského rejstříku a rejstříku trestů, výpis bodového hodnocení řidiče, zřízení datové schránky a přístup k ní a převod papírových dokumentů do elektronické podoby (a naopak).</p>
+
+    <div class="callout">
+      <p>Zdroj hranic: <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">© přispěvatelé OpenStreetMap</a> (licence ODbL), hranice obcí s úrovní správního členění 8, stažené <span id="okolo-datum">17. 10. 2026</span>. Seznam obcí obvodu pochází z <a href="https://rekos.psp.cz/vyhledani-symbolu?obec=&poverena_obec=pe%C4%8Dky&popis=&kraj=27&okres=3204&od=&do=&typ=0&order=asc&sort=municipality.name_pou" target="_blank" rel="noopener">registru komunálních symbolů Poslanecké sněmovny</a>. Hranice jsou zjednodušené, mapa slouží k orientaci, ne k měření.</p>
+    </div>
+  </section>
+  <script>
+  (function () {
+    const NS = 'http://www.w3.org/2000/svg';
+    const status = document.getElementById('okolo-status');
+    const box = document.getElementById('okolo-box');
+    const svg = document.getElementById('okolo-mapa');
+        const el = (name, attrs) => {
+      const e = document.createElementNS(NS, name);
+      for (const k in attrs) e.setAttribute(k, attrs[k]);
+      return e;
+    };
+    const nacti = u => fetch(u).then(r => { if (!r.ok) throw new Error(r.status); return r.json(); });
+    Promise.all([nacti('/okolo/mapa.json'), nacti('/okolo/vesnice-okolo.json')])
+      .then(([d, v]) => {
+        const znaky = {};
+        v.obce.forEach(o => { if (o.znak && o.znak.obrazek) znaky[o.id] = o.znak.obrazek; });
+        svg.setAttribute('viewBox', '0 0 ' + d.sirka + ' ' + d.vyska);
+        const prvky = {};
+        const zvyrazni = (id, on) => (prvky[id] || []).forEach(e => e.classList.toggle('zvyrazneno', on));
+        d.obce.forEach(o => {
+          const cls = o.id === 'pečky' ? ' pecky' : '';
+          const p = el('path', { d: o.d, class: 'obec' + cls });
+          const t = el('text', { x: o.x, y: o.y, class: cls.trim() });
+          t.textContent = o.nazev;
+          p.addEventListener('mouseenter', () => zvyrazni(o.id, true));
+          p.addEventListener('mouseleave', () => zvyrazni(o.id, false));
+          svg.appendChild(p);
+          prvky[o.id] = [p];
+          o.t = t;
+        });
+        d.obce.forEach(o => {
+          if (!znaky[o.id]) return;
+          const v = o.id === 'pečky' ? 64 : 48;
+          const img = el('image', { href: '/' + znaky[o.id], x: o.x - v / 2, y: o.y - 30 - v, width: v, height: v, preserveAspectRatio: 'xMidYMid meet', class: 'znak' });
+          const tt = el('title', {});
+          tt.textContent = 'Znak obce ' + o.nazev;
+          img.appendChild(tt);
+          svg.appendChild(img);
+        });
+        d.obce.forEach(o => svg.appendChild(o.t));
+        const dt = new Date(d.stazeno);
+        document.getElementById('okolo-datum').textContent = dt.getDate() + '. ' + (dt.getMonth() + 1) + '. ' + dt.getFullYear();
+        status.hidden = true;
+        box.hidden = false;
+      })
+      .catch(() => { status.textContent = 'Mapu se nepodařilo načíst.'; });
+  })();
+  </script>
+
+</main>
+<footer class="site">
+  <nav class="tabs tabs-secondary header-nav" id="tabsSecondary" aria-label="Další sekce">
+    <a class="navlink" href="/plan/">Plán</a>
+    <a class="navlink" href="/smlouvy/">Smlouvy</a>
+    <a class="navlink" href="/zakazky/">Zakázky</a>
+    <a class="navlink" href="/pozemky/">Pozemky</a>
+    <a class="navlink" href="/prostory/">Prostory</a>
+    <a class="navlink" href="/pokladna/">Pokladna</a>
+    <a class="navlink" href="/voda/">Voda</a>
+    <a class="navlink active" href="/okolo/">Pro přespolní</a>
+    <a class="navlink" href="/o-webu/">O webu</a>
+  </nav>
+  <div class="footer-bot">
+    <div class="footer-bot-inner">
+      <img class="peckybot" src="/img/peckybot/welcome.png" alt="PečkyBot">
+      <div class="footer-bot-hello">
+        <p class="footer-bot-hi">Ahoj</p>
+        <p class="footer-bot-name">já jsem PečkyBot.</p>
+        <p class="footer-bot-ig"><a href="https://www.instagram.com/peckybot/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" style="vertical-align:-3px;margin-right:6px;" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>PečkyBot na Instagramu</a></p>
+      </div>
+        <div class="footer-bot-note">
+          <p>Web je sestaven s pomocí AI. Robot čerpá informace z veřejných dat dostupných na internetu.</p>
+          <p>Našli jste nepřesnost? Máte tip na nějaké téma ke zpracování? Zajímá vás něco o Pečkách? Pište na: <a href="mailto:dopecek@gmail.com">dopecek@gmail.com</a>.</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="/assets/common.js"></script>
+</body>
+</html>

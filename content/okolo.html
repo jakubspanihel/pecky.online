@@ -1,0 +1,77 @@
+  <style>
+    .okolo-mapa{display:block; width:100%; max-width:760px; height:auto; margin:var(--space-5) auto 0;}
+    .okolo-mapa .obec{fill:var(--material-deep); stroke:var(--white); stroke-width:2.5; stroke-linejoin:round; cursor:default; transition:fill .12s;}
+    .okolo-mapa .obec.pecky{fill:color-mix(in srgb, var(--burgundy) 35%, var(--white));}
+    .okolo-mapa .obec.zvyrazneno{fill:color-mix(in srgb, var(--cyan-deep) 40%, var(--white));}
+    .okolo-mapa .obec.pecky.zvyrazneno{fill:var(--burgundy);}
+    .okolo-mapa image.znak{pointer-events:none;}
+    .okolo-mapa text{font-family:var(--font-body); font-size:25px; font-weight:var(--fw-semibold); fill:var(--ink); text-anchor:middle; pointer-events:none; paint-order:stroke; stroke:var(--white-a80); stroke-width:5px; stroke-linejoin:round;}
+    .okolo-mapa text.pecky{font-size:30px; font-weight:var(--fw-bold);}
+  </style>
+  <section class="panel active" id="panel-okolo">
+    <h2 class="title display">Pro přespolní</h2>
+    <p class="lede perex">Městský úřad Pečky je <b>pověřený obecní úřad</b>. To znamená, že vyřizuje některé úřední věci, například vedení matriky, i pro okolní menší obce, aby nemusely mít vlastní úředníky. Týká se to devíti obcí na mapě. Lidé z malé obce tak chodí na tyto úřady do nejbližšího většího města.</p>
+
+    <h3 class="search-status" id="okolo-status"><span class="spinner" aria-hidden="true"></span>Načítám mapu…</h3>
+    <div id="okolo-box" hidden>
+      <svg class="okolo-mapa" id="okolo-mapa" role="img" aria-label="Mapa obcí správního obvodu Peček"></svg>
+    </div>
+
+    <p><b>V Pečkách vyřídíte</b> matriku (narození, sňatky, úmrtí), přestupky, sociální poradenství a pomoc lidem v tíživé životní situaci, ochranu životního prostředí, dopravu na území města, místní poplatky a stavební záležitosti. Úřad sídlí na <a href="https://mapy.cz/zakladni?q=Masarykovo%20n%C3%A1m%C4%9Bst%C3%AD%2078%2C%20Pe%C4%8Dky" target="_blank" rel="noopener">Masarykově náměstí 78</a> a úřední dny jsou pondělí a středa.</p>
+
+    <p>Co naopak <b>NEVYŘÍDÍTE</b> jsou například občanské průkazy a cestovní pasy, řidičské průkazy, registrace vozidel, živnostenská oprávnění, ochrana dětí v rodinách v problémech nebo vodní hospodářství a ochrana přírody. Kvůli nim je třeba jet na <a href="https://www.mukolin.cz" target="_blank" rel="noopener">úřad obce s rozšířenou působností v Kolíně</a>.</p>
+
+    <p><b>Ve všech devíti obcích je na místním úřadě Czech POINT.</b> Tam zařídíte výpisy z katastru nemovitostí, obchodního rejstříku, živnostenského rejstříku a rejstříku trestů, výpis bodového hodnocení řidiče, zřízení datové schránky a přístup k ní a převod papírových dokumentů do elektronické podoby (a naopak).</p>
+
+    <div class="callout">
+      <p>Zdroj hranic: <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">© přispěvatelé OpenStreetMap</a> (licence ODbL), hranice obcí s úrovní správního členění 8, stažené <span id="okolo-datum">17. 10. 2026</span>. Seznam obcí obvodu pochází z <a href="https://rekos.psp.cz/vyhledani-symbolu?obec=&poverena_obec=pe%C4%8Dky&popis=&kraj=27&okres=3204&od=&do=&typ=0&order=asc&sort=municipality.name_pou" target="_blank" rel="noopener">registru komunálních symbolů Poslanecké sněmovny</a>. Hranice jsou zjednodušené, mapa slouží k orientaci, ne k měření.</p>
+    </div>
+  </section>
+  <script>
+  (function () {
+    const NS = 'http://www.w3.org/2000/svg';
+    const status = document.getElementById('okolo-status');
+    const box = document.getElementById('okolo-box');
+    const svg = document.getElementById('okolo-mapa');
+        const el = (name, attrs) => {
+      const e = document.createElementNS(NS, name);
+      for (const k in attrs) e.setAttribute(k, attrs[k]);
+      return e;
+    };
+    const nacti = u => fetch(u).then(r => { if (!r.ok) throw new Error(r.status); return r.json(); });
+    Promise.all([nacti('/okolo/mapa.json'), nacti('/okolo/vesnice-okolo.json')])
+      .then(([d, v]) => {
+        const znaky = {};
+        v.obce.forEach(o => { if (o.znak && o.znak.obrazek) znaky[o.id] = o.znak.obrazek; });
+        svg.setAttribute('viewBox', '0 0 ' + d.sirka + ' ' + d.vyska);
+        const prvky = {};
+        const zvyrazni = (id, on) => (prvky[id] || []).forEach(e => e.classList.toggle('zvyrazneno', on));
+        d.obce.forEach(o => {
+          const cls = o.id === 'pečky' ? ' pecky' : '';
+          const p = el('path', { d: o.d, class: 'obec' + cls });
+          const t = el('text', { x: o.x, y: o.y, class: cls.trim() });
+          t.textContent = o.nazev;
+          p.addEventListener('mouseenter', () => zvyrazni(o.id, true));
+          p.addEventListener('mouseleave', () => zvyrazni(o.id, false));
+          svg.appendChild(p);
+          prvky[o.id] = [p];
+          o.t = t;
+        });
+        d.obce.forEach(o => {
+          if (!znaky[o.id]) return;
+          const v = o.id === 'pečky' ? 64 : 48;
+          const img = el('image', { href: '/' + znaky[o.id], x: o.x - v / 2, y: o.y - 30 - v, width: v, height: v, preserveAspectRatio: 'xMidYMid meet', class: 'znak' });
+          const tt = el('title', {});
+          tt.textContent = 'Znak obce ' + o.nazev;
+          img.appendChild(tt);
+          svg.appendChild(img);
+        });
+        d.obce.forEach(o => svg.appendChild(o.t));
+        const dt = new Date(d.stazeno);
+        document.getElementById('okolo-datum').textContent = dt.getDate() + '. ' + (dt.getMonth() + 1) + '. ' + dt.getFullYear();
+        status.hidden = true;
+        box.hidden = false;
+      })
+      .catch(() => { status.textContent = 'Mapu se nepodařilo načíst.'; });
+  })();
+  </script>
