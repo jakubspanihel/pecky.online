@@ -452,6 +452,10 @@
         jLinkVyborItems(data.meetings);
         data._years = Array.from(years).sort((a, b) => b - a);
         JEDNANI_DB = data;
+        if (data._years.length) {
+          document.getElementById('jednani-search').placeholder =
+            `Prohledat ${data.meetings.length} jednání od roku ${data._years[data._years.length - 1]}`;
+        }
         jRunSearch();
         return data;
       } catch (e) {
