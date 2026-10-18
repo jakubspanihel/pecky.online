@@ -44,6 +44,21 @@ Výstupy skriptu pro tuhle část:
   načítá ji frontend pro obecné prolinkování v Jednání (nahrazuje
   smazaný `katastr-odkazy.json`).
 
+## Starší jednání (úřední deska, archiv města, noviny) — od 18. 10. 2026
+
+Texty ve `starsi-jednani.json` a `noviny-jednani.json` jsou souvislý zápis, ve kterém má každý bod jiný katastr, proto
+se pro ně **nepoužívá** plochá mapa `parcely-odkazy.json`. `python3 jednani/scripts/update-pozemky.py --starsi`
+(spouští se i v běžném běhu skriptu) určí katastr u každé zmínky „parc. N“ z jejího bodu (od zmínky po konec bodu, nejvýš
+400 znaků) a zapíše `jednani/parcely-starsi.json` — `{id jednání: {číslo: URL}}`. Zmínka bez katastru v bodu se doplní z kontextu
+dokumentu (`infer_katastr()`): kandidáti jsou Pečky a katastry z `KAT_CODES`, které dokument jmenuje; parcela musí podle RUIAN
+existovat právě v jednom z nich (a mimo Pečky musí být název katastru do 600 znaků od zmínky). Dokument, který jmenuje jiný
+neznámý katastr, se u takových zmínek vynechá; katastr odvozený z kontextu je v `parcely-starsi.json` → `inferred_katastr`,
+parcely, které RUIAN v katastru nenašlo, v `parcely-neexistuje.json` (aby se neověřovaly znovu). Nepodlinkuje se zmínka
+s katastrem mimo `KAT_CODES`, číslo se dvěma různými katastry v jednom dokumentu a parcela, kterou RUIAN nenajde
+(rozdělená/sloučená; hledá se znovu při dalším běhu). Frontend: `jLinkParcelyStarsi()` v `content/jednani.html`; v rozbaleném
+řádku i ve výsledcích hledání se text navíc projde `jLinkRefs()` (zmínky ZM/RM, usnesení, noviny). Po každém přidání
+starších jednání (`as4u-archiv.py`, `starsi-jednani.py`, `noviny-jednani.py`) spustit `update-pozemky.py --starsi`.
+
 ## Tabulky Nákup/Prodej na stránce Pozemky — aktualizovat spolu s Jednáním
 
 Panel „Pozemky" (`content/pozemky.html`, subpanely `subpanel-pozemky-nakup`

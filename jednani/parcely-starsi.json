@@ -1,0 +1,1826 @@
+{
+ "_comment": "Odkazy na parcely ve starších jednáních (jednani/starsi-jednani.json, noviny-jednani.json): {id jednání: {číslo parcely: URL detailu na vdp.cuzk.gov.cz}}. Katastr se určuje u každé zmínky z jejího bodu; nejednoznačné zmínky se vynechávají. Generuje jednani/scripts/update-pozemky.py (--starsi), čte ho jLinkParcelyStarsi() v content/jednani.html.",
+ "stats": {
+  "mentions": 995,
+  "linked": 836,
+  "inferred": 182,
+  "no_kat": 50,
+  "kat_unknown": 9,
+  "conflict": 20,
+  "no_ruian": 80
+ },
+ "inferred_katastr": {
+  "rada-2005-06-27": {
+   "2265/10": "Pečky"
+  },
+  "rada-2005-07-11": {
+   "1994": "Pečky"
+  },
+  "rada-2006-02-06": {
+   "306/5": "Pečky"
+  },
+  "rada-2008-01-21": {
+   "2169/18": "Pečky",
+   "497/7": "Pečky"
+  },
+  "rada-2008-02-04": {
+   "32": "Pečky",
+   "33": "Pečky"
+  },
+  "rada-2008-02-18": {
+   "1468/135": "Pečky",
+   "837": "Pečky"
+  },
+  "rada-2008-05-26": {
+   "993": "Pečky"
+  },
+  "rada-2008-06-19": {
+   "1857": "Pečky"
+  },
+  "rada-2008-08-11": {
+   "378/24": "Velké Chvalovice"
+  },
+  "rada-2008-10-27": {
+   "439": "Pečky"
+  },
+  "rada-2009-03-02": {
+   "1468/133": "Pečky",
+   "1468/18": "Pečky",
+   "1841/2": "Pečky",
+   "869/1": "Pečky"
+  },
+  "rada-2009-03-30": {
+   "1460/10": "Pečky"
+  },
+  "rada-2009-04-20": {
+   "1715": "Pečky"
+  },
+  "rada-2009-07-20": {
+   "832/1": "Pečky",
+   "832/59": "Pečky",
+   "832/62": "Pečky"
+  },
+  "rada-2009-08-10": {
+   "2226/23": "Pečky",
+   "832/36": "Pečky"
+  },
+  "rada-2009-09-21": {
+   "1460/23": "Pečky"
+  },
+  "rada-2009-11-02": {
+   "1841/2": "Pečky",
+   "2169/6": "Pečky",
+   "2179/2": "Pečky",
+   "411/7": "Pečky"
+  },
+  "rada-2010-02-08": {
+   "1841/2": "Pečky",
+   "2265/154": "Pečky",
+   "2265/155": "Pečky"
+  },
+  "rada-2010-02-22": {
+   "1468/138": "Pečky"
+  },
+  "rada-2010-05-03": {
+   "1465/1": "Pečky"
+  },
+  "rada-2010-05-31": {
+   "1674/2": "Pečky"
+  },
+  "rada-2010-08-23": {
+   "481/3": "Pečky"
+  },
+  "rada-2011-03-14": {
+   "172": "Pečky"
+  },
+  "rada-2011-03-28": {
+   "2024/1": "Pečky"
+  },
+  "rada-2011-04-11": {
+   "831/2": "Pečky"
+  },
+  "rada-2011-04-26": {
+   "2024/1": "Pečky"
+  },
+  "rada-2011-05-23": {
+   "2333/1": "Pečky"
+  },
+  "rada-2011-06-06": {
+   "2238/29": "Pečky"
+  },
+  "rada-2011-08-29": {
+   "831/2": "Pečky"
+  },
+  "rada-2011-10-10": {
+   "832/59": "Pečky"
+  },
+  "rada-2011-11-07": {
+   "832/59": "Pečky"
+  },
+  "rada-2011-12-19": {
+   "1011/3": "Pečky",
+   "1170": "Pečky",
+   "1535/1": "Pečky",
+   "1883": "Pečky"
+  },
+  "rada-2012-01-09": {
+   "1680": "Pečky"
+  },
+  "rada-2012-01-23": {
+   "1655/1": "Pečky",
+   "2265/154": "Pečky"
+  },
+  "rada-2012-09-10": {
+   "1537/1": "Pečky"
+  },
+  "rada-2012-11-05": {
+   "308/2": "Pečky"
+  },
+  "rada-2012-12-17": {
+   "344/2": "Velké Chvalovice"
+  },
+  "rada-2013-01-21": {
+   "2023/2": "Pečky",
+   "2023/3": "Pečky",
+   "2157/33": "Pečky"
+  },
+  "rada-2013-03-18": {
+   "1705/3": "Pečky"
+  },
+  "rada-2013-05-27": {
+   "306/32": "Pečky"
+  },
+  "rada-2013-11-11": {
+   "2272/4": "Pečky",
+   "2274/4": "Pečky",
+   "521/6": "Pečky",
+   "536/3": "Pečky"
+  },
+  "rada-2013-12-09": {
+   "2272/4": "Pečky",
+   "2274/4": "Pečky",
+   "536/3": "Pečky"
+  },
+  "rada-2014-06-23": {
+   "1449/118": "Pečky",
+   "1449/60": "Pečky"
+  },
+  "rada-2015-03-02": {
+   "2264/1": "Pečky"
+  },
+  "rada-2015-03-16": {
+   "2264/1": "Pečky"
+  },
+  "rada-2015-03-30": {
+   "2264/3": "Pečky"
+  },
+  "rada-2015-06-22": {
+   "832/59": "Pečky",
+   "832/62": "Pečky"
+  },
+  "rada-2015-11-30": {
+   "1586/1": "Pečky"
+  },
+  "rada-2015-12-21": {
+   "2264/1": "Pečky",
+   "514/1": "Pečky",
+   "519/2": "Pečky"
+  },
+  "rada-2016-01-18": {
+   "514/1": "Pečky"
+  },
+  "rada-2016-02-01": {
+   "828": "Pečky"
+  },
+  "rada-2016-03-22": {
+   "1468/21": "Pečky"
+  },
+  "rada-2016-06-06": {
+   "1392": "Pečky",
+   "308/2": "Pečky"
+  },
+  "rada-2016-11-07": {
+   "832/59": "Pečky"
+  },
+  "rada-2016-12-05": {
+   "514/1": "Pečky",
+   "514/42": "Pečky",
+   "519/4": "Pečky"
+  },
+  "rada-2017-02-06": {
+   "1680": "Pečky"
+  },
+  "rada-2017-05-29": {
+   "554/36": "Pečky"
+  },
+  "rada-2017-06-12": {
+   "1449/119": "Pečky",
+   "1449/195": "Pečky",
+   "1449/60": "Pečky"
+  },
+  "rada-2017-08-14": {
+   "1587/3": "Pečky"
+  },
+  "rada-2017-09-25": {
+   "1467/1": "Pečky",
+   "499": "Pečky",
+   "554/36": "Pečky"
+  },
+  "rada-2017-12-04": {
+   "1467/1": "Pečky"
+  },
+  "rada-2017-12-18": {
+   "1531": "Pečky"
+  },
+  "rada-2018-03-05": {
+   "554/35": "Pečky"
+  },
+  "rada-2018-03-19": {
+   "632": "Pečky",
+   "672/9": "Pečky"
+  },
+  "rada-2018-05-02": {
+   "1024": "Pečky",
+   "554/36": "Pečky",
+   "554/37": "Pečky",
+   "554/65": "Pečky",
+   "554/66": "Pečky"
+  },
+  "rada-2018-10-22": {
+   "107/44": "Velké Chvalovice"
+  },
+  "rada-2018-11-05": {
+   "1467/1": "Pečky"
+  },
+  "rada-2018-12-03": {
+   "1467/1": "Pečky",
+   "1927/1": "Pečky"
+  },
+  "rada-2019-02-18": {
+   "1680": "Pečky"
+  },
+  "rada-2019-04-29": {
+   "2007/2": "Pečky"
+  },
+  "rada-2019-05-27": {
+   "1980/1": "Pečky",
+   "2169/1": "Pečky"
+  },
+  "rada-2019-09-02": {
+   "1958/19": "Pečky"
+  },
+  "rada-2019-10-14": {
+   "1957/18": "Pečky",
+   "1958/15": "Pečky",
+   "1958/26": "Pečky",
+   "1958/27": "Pečky",
+   "2173/1": "Pečky",
+   "2173/8": "Pečky",
+   "2178/10": "Pečky"
+  },
+  "rada-2019-10-21": {
+   "359/212": "Velké Chvalovice"
+  },
+  "rada-2019-11-04": {
+   "2178/16": "Pečky",
+   "359/212": "Velké Chvalovice"
+  },
+  "rada-2019-12-09": {
+   "1467/1": "Pečky"
+  },
+  "rada-2020-01-06": {
+   "2178/17": "Pečky"
+  },
+  "rada-2020-02-17": {
+   "2178/10": "Pečky"
+  },
+  "rada-2020-03-02": {
+   "1680": "Pečky",
+   "1958/14": "Pečky"
+  },
+  "rada-2020-04-08": {
+   "2169/1": "Pečky"
+  },
+  "rada-2020-05-25": {
+   "1056": "Pečky",
+   "1635": "Pečky",
+   "19": "Pečky"
+  },
+  "rada-2020-08-31": {
+   "575": "Pečky"
+  },
+  "rada-2020-09-14": {
+   "2327/29": "Pečky"
+  },
+  "rada-2020-09-21": {
+   "700/1": "Pečky"
+  },
+  "rada-2020-10-19": {
+   "1635": "Pečky",
+   "993": "Pečky"
+  },
+  "rada-2020-12-14": {
+   "1467/1": "Pečky",
+   "1927/1": "Pečky"
+  },
+  "rada-2021-01-25": {
+   "2293/1": "Pečky",
+   "832/19": "Pečky"
+  },
+  "rada-2021-02-22": {
+   "2007/15": "Pečky"
+  },
+  "rada-2021-03-22": {
+   "1468/2": "Pečky",
+   "2305/2": "Pečky",
+   "2307/9": "Pečky"
+  },
+  "zastupitelstvo-2005-05-23": {
+   "1465/1": "Pečky"
+  },
+  "zastupitelstvo-2009-03-11": {
+   "1468/133": "Pečky",
+   "1468/18": "Pečky",
+   "1841/2": "Pečky",
+   "869/1": "Pečky"
+  },
+  "zastupitelstvo-2012-09-05": {
+   "1858/1": "Pečky",
+   "1858/2": "Pečky",
+   "1859": "Pečky"
+  },
+  "zastupitelstvo-2014-06-04": {
+   "357/48": "Velké Chvalovice"
+  },
+  "zastupitelstvo-2015-11-18": {
+   "1460/7": "Pečky"
+  },
+  "zastupitelstvo-2016-03-02": {
+   "2264/1": "Pečky",
+   "2264/45": "Pečky",
+   "514/1": "Pečky"
+  },
+  "zastupitelstvo-2016-06-15": {
+   "2226/19": "Pečky",
+   "308/2": "Pečky"
+  },
+  "zastupitelstvo-2016-12-14": {
+   "514/1": "Pečky",
+   "514/42": "Pečky",
+   "519/4": "Pečky"
+  },
+  "zastupitelstvo-2017-11-08": {
+   "554/36": "Pečky"
+  },
+  "zastupitelstvo-2019-02-20": {
+   "1449/185": "Pečky"
+  },
+  "zastupitelstvo-2019-06-19": {
+   "1980/1": "Pečky",
+   "2169/1": "Pečky"
+  },
+  "zastupitelstvo-2019-11-13": {
+   "1957/18": "Pečky",
+   "1958/15": "Pečky",
+   "1958/26": "Pečky",
+   "1958/27": "Pečky",
+   "2173/1": "Pečky",
+   "2173/8": "Pečky",
+   "2178/10": "Pečky",
+   "2178/16": "Pečky",
+   "359/212": "Velké Chvalovice"
+  },
+  "zastupitelstvo-2020-02-12": {
+   "2178/17": "Pečky"
+  },
+  "zastupitelstvo-2020-04-22": {
+   "1958/14": "Pečky",
+   "2178/10": "Pečky"
+  },
+  "zastupitelstvo-2021-02-17": {
+   "1948/9": "Pečky"
+  }
+ },
+ "meetings": {
+  "rada-2005-06-13": {
+   "248/6": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/2088286204",
+   "378/20": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1889650204",
+   "422/6": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1889808204"
+  },
+  "rada-2005-06-27": {
+   "2265/10": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1604655204"
+  },
+  "rada-2005-07-11": {
+   "1994": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1604300204"
+  },
+  "rada-2006-01-23": {
+   "1655/1": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1603899204"
+  },
+  "rada-2006-02-06": {
+   "306/5": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1841627204"
+  },
+  "rada-2007-12-03": {
+   "342/2": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1606102204"
+  },
+  "rada-2007-12-17": {
+   "2265/4": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1604649204"
+  },
+  "rada-2008-01-21": {
+   "2169/18": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1604526204",
+   "497/7": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1602489204"
+  },
+  "rada-2008-02-04": {
+   "32": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1602002204",
+   "33": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1602003204"
+  },
+  "rada-2008-02-18": {
+   "1468/135": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/2242532204",
+   "173/3": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1413910204",
+   "837": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1602882204"
+  },
+  "rada-2008-03-03": {
+   "1468/135": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/2242532204"
+  },
+  "rada-2008-05-12": {
+   "2265/4": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1604649204"
+  },
+  "rada-2008-05-26": {
+   "993": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1603097204"
+  },
+  "rada-2008-06-19": {
+   "1857": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1604124204",
+   "2028/4": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1933600204",
+   "2157/19": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1604492204",
+   "520/5": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1933107204",
+   "554/33": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1933174204",
+   "832/59": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1933242204"
+  },
+  "rada-2008-07-07": {
+   "2265/7": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1604652204"
+  },
+  "rada-2008-08-11": {
+   "378/24": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/2140912204",
+   "520/5": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1933107204",
+   "520/6": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1933108204",
+   "554/33": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1933174204"
+  },
+  "rada-2008-10-27": {
+   "2169/21": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1604529204",
+   "2169/22": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1604530204",
+   "378/24": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/2140912204",
+   "439": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1602421204"
+  },
+  "rada-2008-11-10": {
+   "1585/1": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1603825204",
+   "1586/1": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1603827204"
+  },
+  "rada-2008-12-08": {
+   "440": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1602422204"
+  },
+  "rada-2009-03-02": {
+   "1451/12": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1603688204",
+   "1451/14": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1603690204",
+   "1451/15": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1603691204",
+   "1468/133": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/2205797204",
+   "1468/18": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1933381204",
+   "1841/2": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/2297750204",
+   "869/1": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1933253204"
+  },
+  "rada-2009-03-30": {
+   "1460/10": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1933304204"
+  },
+  "rada-2009-04-20": {
+   "1715": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1603973204"
+  },
+  "rada-2009-06-15": {
+   "1587/3": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1933402204",
+   "832/59": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1933242204"
+  },
+  "rada-2009-07-20": {
+   "8": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1605728204",
+   "832/1": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1602872204",
+   "832/59": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1933242204",
+   "832/62": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1933245204"
+  },
+  "rada-2009-08-10": {
+   "2226/23": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1933651204",
+   "832/36": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1933219204"
+  },
+  "rada-2009-09-21": {
+   "1460/23": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1933317204"
+  },
+  "rada-2009-11-02": {
+   "1841/2": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/2297750204",
+   "2169/6": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1604515204",
+   "2179/2": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1604547204",
+   "411/7": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1678220204"
+  },
+  "rada-2009-11-30": {
+   "359/196": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/2202555204"
+  },
+  "rada-2010-02-08": {
+   "1460/23": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1933317204",
+   "1841/2": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/2297750204",
+   "2265/154": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/2236475204",
+   "2265/155": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/2236474204"
+  },
+  "rada-2010-02-22": {
+   "1468/138": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/2264193204"
+  },
+  "rada-2010-03-08": {
+   "2265/155": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/2236474204",
+   "832/59": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1933242204",
+   "837": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1602882204"
+  },
+  "rada-2010-03-22": {
+   "1468/133": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/2205797204",
+   "2285/9": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1604698204",
+   "547/2": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1602575204"
+  },
+  "rada-2010-04-19": {
+   "196/2": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/34411791010",
+   "497/2": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1602484204"
+  },
+  "rada-2010-05-03": {
+   "1465/1": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1933345204"
+  },
+  "rada-2010-05-24": {
+   "1680": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1603936204",
+   "1760": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1604022204"
+  },
+  "rada-2010-05-31": {
+   "1674/2": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1603927204"
+  },
+  "rada-2010-06-14": {
+   "1464/8": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1933342204",
+   "1600": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1603842204",
+   "1680": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1603936204"
+  },
+  "rada-2010-08-23": {
+   "481/3": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/2321715204"
+  },
+  "rada-2010-09-06": {
+   "1680": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1603936204"
+  },
+  "rada-2010-11-29": {
+   "1017": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1603122204",
+   "481/3": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/2321715204"
+  },
+  "rada-2010-12-13": {
+   "20/1": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1889064204"
+  },
+  "rada-2011-02-28": {
+   "1646": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1603889204"
+  },
+  "rada-2011-03-14": {
+   "1172": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1603280204",
+   "1646": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1603889204",
+   "172": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1602144204"
+  },
+  "rada-2011-03-28": {
+   "2024/1": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1604345204",
+   "248/1": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1602222204",
+   "29": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1601999204",
+   "47/8": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1889082204",
+   "831/2": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1933200204"
+  },
+  "rada-2011-04-11": {
+   "1172": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1603280204",
+   "831/2": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1933200204"
+  },
+  "rada-2011-04-26": {
+   "2024/1": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1604345204"
+  },
+  "rada-2011-05-09": {
+   "210/4": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/2433921204",
+   "831/2": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1933200204"
+  },
+  "rada-2011-05-23": {
+   "1468/170": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/2264190204",
+   "2273/3": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1604678204",
+   "2333/1": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1604751204",
+   "828": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1602868204"
+  },
+  "rada-2011-06-06": {
+   "214": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1602186204",
+   "2238/29": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1933736204",
+   "2272/2": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1934184204",
+   "2273/3": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1604678204",
+   "481/25": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/2472258204"
+  },
+  "rada-2011-06-20": {
+   "2273/3": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1604678204"
+  },
+  "rada-2011-07-11": {
+   "1600": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1603842204",
+   "238": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1605990204",
+   "411/7": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1678220204"
+  },
+  "rada-2011-08-08": {
+   "1748/2": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1604008204",
+   "20/17": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/2457444204",
+   "357/53": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/2457442204",
+   "357/54": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/2457443204",
+   "537": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1602564204",
+   "831/3": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1933201204",
+   "845/6": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1673452204"
+  },
+  "rada-2011-08-29": {
+   "831/2": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1933200204"
+  },
+  "rada-2011-09-12": {
+   "1450/7": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1933281204",
+   "1468/18": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1933381204",
+   "1702/7": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1933417204",
+   "1705/3": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/2133610204",
+   "2273/3": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1604678204",
+   "831/2": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1933200204",
+   "876/5": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/2261378204",
+   "990": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1603094204"
+  },
+  "rada-2011-10-10": {
+   "832/59": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1933242204"
+  },
+  "rada-2011-10-24": {
+   "1680": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1603936204",
+   "2265/154": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/2236475204"
+  },
+  "rada-2011-11-07": {
+   "1680": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1603936204",
+   "832/59": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1933242204"
+  },
+  "rada-2011-11-21": {
+   "1680": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1603936204",
+   "497/7": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1602489204"
+  },
+  "rada-2011-12-19": {
+   "1011/3": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1933258204",
+   "1170": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1603278204",
+   "1535/1": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1933400204",
+   "1883": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1604151204",
+   "356/9": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1889282204",
+   "828": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1602868204"
+  },
+  "rada-2012-01-09": {
+   "1655/1": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1603899204",
+   "1680": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1603936204"
+  },
+  "rada-2012-01-23": {
+   "1655/1": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1603899204",
+   "2265/154": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/2236475204",
+   "832/59": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1933242204",
+   "845/6": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1673452204"
+  },
+  "rada-2012-02-20": {
+   "1702/5": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1933415204",
+   "1702/6": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1933416204"
+  },
+  "rada-2012-03-05": {
+   "1657": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1603903204",
+   "248/1": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1602222204"
+  },
+  "rada-2012-03-19": {
+   "1655/1": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1603899204",
+   "214": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1602186204"
+  },
+  "rada-2012-04-02": {
+   "47/2": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1605770204"
+  },
+  "rada-2012-04-30": {
+   "1172": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1603280204",
+   "1748/2": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1604008204",
+   "248/1": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1602222204"
+  },
+  "rada-2012-05-14": {
+   "1449/119": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1603625204"
+  },
+  "rada-2012-05-28": {
+   "1172": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1603280204",
+   "1748/2": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1604008204",
+   "20/1": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1889064204",
+   "2265/154": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/2236475204"
+  },
+  "rada-2012-06-11": {
+   "1664": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1603914204"
+  },
+  "rada-2012-06-25": {
+   "1016": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1603121204"
+  },
+  "rada-2012-07-16": {
+   "1465/4": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1933348204",
+   "1664": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1603914204",
+   "2265/34": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1841458204"
+  },
+  "rada-2012-09-10": {
+   "1537/1": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1673464204"
+  },
+  "rada-2012-10-22": {
+   "1665": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1603915204",
+   "1680": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1603936204",
+   "1980/1": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1933521204",
+   "2157/19": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1604492204",
+   "2157/33": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1933609204",
+   "70/1": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1602039204",
+   "831/2": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1933200204",
+   "876/5": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/2261378204",
+   "876/7": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/2498248204"
+  },
+  "rada-2012-11-05": {
+   "308/2": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1933021204"
+  },
+  "rada-2012-12-03": {
+   "1298": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1603406204",
+   "1299": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1603407204"
+  },
+  "rada-2012-12-17": {
+   "344/2": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1889269204",
+   "843": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1602940204"
+  },
+  "rada-2013-01-07": {
+   "1298": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1603406204",
+   "1299": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1603407204"
+  },
+  "rada-2013-01-21": {
+   "2023/2": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1604343204",
+   "2023/3": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1604344204",
+   "2157/33": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1933609204"
+  },
+  "rada-2013-02-04": {
+   "238": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1605990204",
+   "497/34": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/28263122010",
+   "831/2": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1933200204",
+   "845/6": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1673452204"
+  },
+  "rada-2013-03-04": {
+   "1172": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1603280204",
+   "344/2": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1889269204",
+   "345": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1606105204",
+   "497/34": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/28263122010"
+  },
+  "rada-2013-03-18": {
+   "1705/3": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/2133610204",
+   "700/1": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1602739204"
+  },
+  "rada-2013-04-02": {
+   "1172": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1603280204"
+  },
+  "rada-2013-04-15": {
+   "356/9": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1889282204"
+  },
+  "rada-2013-04-29": {
+   "1449/234": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/30433877010",
+   "411/7": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1678220204"
+  },
+  "rada-2013-05-27": {
+   "1449/234": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/30433877010",
+   "306/32": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1933015204",
+   "306/35": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1933018204"
+  },
+  "rada-2013-06-10": {
+   "1600": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1603842204"
+  },
+  "rada-2013-06-24": {
+   "1451/10": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1603686204"
+  },
+  "rada-2013-07-15": {
+   "1679": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1603935204",
+   "2265/153": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/2236472204"
+  },
+  "rada-2013-08-19": {
+   "1587/3": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1933402204",
+   "171/1": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1889165204",
+   "416/2": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1889800204"
+  },
+  "rada-2013-09-02": {
+   "416/2": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1889800204"
+  },
+  "rada-2013-09-16": {
+   "1587/3": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1933402204",
+   "1705/3": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/2133610204",
+   "173/4": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1889191204",
+   "2265/153": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/2236472204",
+   "238": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1605990204"
+  },
+  "rada-2013-10-21": {
+   "173/4": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1889191204"
+  },
+  "rada-2013-11-11": {
+   "1314": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1603425204",
+   "1439/2": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1933265204",
+   "171/1": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1889165204",
+   "2265/34": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1841458204",
+   "2272/4": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1934186204",
+   "2273/3": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1604678204",
+   "2274/4": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1934209204",
+   "337/2": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1606096204",
+   "521/6": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1602542204",
+   "536/3": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1933145204"
+  },
+  "rada-2013-11-25": {
+   "210/4": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/2433921204",
+   "2265/34": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1841458204"
+  },
+  "rada-2013-12-09": {
+   "210/4": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/2433921204",
+   "2272/4": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1934186204",
+   "2274/4": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1934209204",
+   "536/3": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1933145204"
+  },
+  "rada-2014-02-03": {
+   "1011/3": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1933258204",
+   "1680": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1603936204"
+  },
+  "rada-2014-03-03": {
+   "1883": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1604151204"
+  },
+  "rada-2014-03-17": {
+   "1702/5": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1933415204",
+   "831/2": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1933200204",
+   "845/6": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1673452204"
+  },
+  "rada-2014-03-31": {
+   "20/17": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/2457444204",
+   "2179/2": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1604547204",
+   "357/53": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/2457442204",
+   "357/54": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/2457443204"
+  },
+  "rada-2014-04-14": {
+   "1011/3": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1933258204"
+  },
+  "rada-2014-04-28": {
+   "1011/3": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1933258204"
+  },
+  "rada-2014-05-12": {
+   "337/2": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1606096204",
+   "364/11": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/41350949010",
+   "364/2": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1504167204"
+  },
+  "rada-2014-06-23": {
+   "1449/118": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1603624204",
+   "1449/60": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1603573204"
+  },
+  "rada-2014-08-06": {
+   "1600": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1603842204",
+   "238": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1605990204",
+   "338/5": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/43541786010",
+   "52": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1602022204",
+   "55": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1602024204",
+   "57": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1602026204",
+   "58": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1602027204"
+  },
+  "rada-2014-08-25": {
+   "19": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1601989204",
+   "700/1": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1602739204"
+  },
+  "rada-2014-09-08": {
+   "19": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1601989204"
+  },
+  "rada-2014-09-22": {
+   "52": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1602022204",
+   "55": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1602024204",
+   "57": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1602026204",
+   "58": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1602027204"
+  },
+  "rada-2014-10-06": {
+   "171/1": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1889165204",
+   "2022/3": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1933589204"
+  },
+  "rada-2014-10-20": {
+   "2022/3": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1933589204",
+   "400/1": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1933082204",
+   "52": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1602022204",
+   "55": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1602024204",
+   "552/1": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1602583204",
+   "554/32": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1933173204",
+   "554/34": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1933175204",
+   "57": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1602026204",
+   "58": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1602027204"
+  },
+  "rada-2014-11-24": {
+   "364/2": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1504167204",
+   "547/3": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1602576204",
+   "554/32": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1933173204",
+   "554/34": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1933175204"
+  },
+  "rada-2014-12-08": {
+   "1468/21": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1933384204",
+   "831/2": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1933200204"
+  },
+  "rada-2015-01-19": {
+   "2022/1": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1604340204"
+  },
+  "rada-2015-02-02": {
+   "1679": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1603935204",
+   "2022/1": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1604340204"
+  },
+  "rada-2015-03-02": {
+   "2264/1": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1604636204"
+  },
+  "rada-2015-03-16": {
+   "2264/1": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1604636204"
+  },
+  "rada-2015-03-30": {
+   "2264/3": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1604638204"
+  },
+  "rada-2015-04-13": {
+   "3": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1601976204"
+  },
+  "rada-2015-05-25": {
+   "1011/3": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1933258204",
+   "2265/153": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/2236472204"
+  },
+  "rada-2015-06-08": {
+   "1011/3": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1933258204"
+  },
+  "rada-2015-06-22": {
+   "832/59": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1933242204",
+   "832/62": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1933245204"
+  },
+  "rada-2015-08-24": {
+   "20/1": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1889064204",
+   "483/1": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1602467204"
+  },
+  "rada-2015-09-07": {
+   "1731": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1603991204",
+   "1785": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1604047204",
+   "698/1": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1933196204"
+  },
+  "rada-2015-09-21": {
+   "698/1": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1933196204"
+  },
+  "rada-2015-10-05": {
+   "1833": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1604099204",
+   "497/2": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1602484204"
+  },
+  "rada-2015-10-19": {
+   "1705/3": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/2133610204"
+  },
+  "rada-2015-11-02": {
+   "175/3": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1889204204",
+   "175/4": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1889205204",
+   "698/1": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1933196204"
+  },
+  "rada-2015-11-30": {
+   "1460/10": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1933304204",
+   "1460/11": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1933305204",
+   "1586/1": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1603827204",
+   "2264/1": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1604636204",
+   "248/6": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/2088286204",
+   "497/2": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1602484204"
+  },
+  "rada-2015-12-14": {
+   "2327/7": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1934443204",
+   "238": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1605990204"
+  },
+  "rada-2015-12-21": {
+   "2264/1": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1604636204",
+   "514/1": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1602507204",
+   "519/2": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1933101204"
+  },
+  "rada-2016-01-18": {
+   "1468/21": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1933384204",
+   "514/1": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1602507204",
+   "832/59": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1933242204"
+  },
+  "rada-2016-02-01": {
+   "171/1": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1889165204",
+   "345": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1606105204",
+   "828": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1602868204",
+   "845/6": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1673452204"
+  },
+  "rada-2016-02-08": {
+   "1404": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1603516204",
+   "1468/21": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1933384204",
+   "171/1": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1889165204"
+  },
+  "rada-2016-02-22": {
+   "1404": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1603516204",
+   "1468/21": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1933384204",
+   "345": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1606105204"
+  },
+  "rada-2016-03-07": {
+   "19/1": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1889043204"
+  },
+  "rada-2016-03-22": {
+   "1468/21": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1933384204"
+  },
+  "rada-2016-04-25": {
+   "2271/1": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1604675204"
+  },
+  "rada-2016-05-09": {
+   "2271/1": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1604675204"
+  },
+  "rada-2016-05-23": {
+   "151/5": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1889164204",
+   "2226/19": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1832670204",
+   "2271/1": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1604675204",
+   "496": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1602482204"
+  },
+  "rada-2016-06-06": {
+   "1392": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1603504204",
+   "1450/1": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1603680204",
+   "2271/1": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1604675204",
+   "3": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1601976204",
+   "308/2": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1933021204"
+  },
+  "rada-2016-07-11": {
+   "1731": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1603991204"
+  },
+  "rada-2016-08-15": {
+   "1731": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1603991204",
+   "238": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1605990204"
+  },
+  "rada-2016-08-29": {
+   "521/40": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1933127204"
+  },
+  "rada-2016-10-24": {
+   "24": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1601994204",
+   "831/2": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1933200204"
+  },
+  "rada-2016-11-07": {
+   "832/59": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1933242204"
+  },
+  "rada-2016-11-21": {
+   "21": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1605741204",
+   "554/1": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1602586204",
+   "554/36": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1933177204",
+   "700/1": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1602739204"
+  },
+  "rada-2016-12-05": {
+   "2007/15": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1933577204",
+   "514/1": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1602507204",
+   "514/42": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/59956959010",
+   "519/4": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/59956960010",
+   "554/1": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1602586204",
+   "554/36": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1933177204"
+  },
+  "rada-2016-12-19": {
+   "2007/15": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1933577204",
+   "554/1": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1602586204",
+   "554/36": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1933177204",
+   "700/1": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1602739204"
+  },
+  "rada-2017-01-09": {
+   "554/1": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1602586204",
+   "554/36": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1933177204"
+  },
+  "rada-2017-01-23": {
+   "1680": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1603936204",
+   "554/1": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1602586204",
+   "554/36": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1933177204"
+  },
+  "rada-2017-02-06": {
+   "1468/21": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1933384204",
+   "1680": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1603936204",
+   "175/10": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/59735102010",
+   "175/9": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/59735101010",
+   "342/37": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1889259204",
+   "554/1": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1602586204",
+   "554/36": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1933177204"
+  },
+  "rada-2017-02-20": {
+   "554/1": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1602586204",
+   "554/36": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1933177204"
+  },
+  "rada-2017-03-06": {
+   "497/2": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1602484204",
+   "554/1": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1602586204",
+   "554/36": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1933177204"
+  },
+  "rada-2017-03-20": {
+   "554/1": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1602586204",
+   "554/36": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1933177204",
+   "908": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1603013204"
+  },
+  "rada-2017-04-03": {
+   "554/1": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1602586204",
+   "554/36": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1933177204"
+  },
+  "rada-2017-04-19": {
+   "171/1": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1889165204",
+   "554/1": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1602586204",
+   "554/36": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1933177204"
+  },
+  "rada-2017-05-02": {
+   "171/4": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1889168204",
+   "248/1": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1602222204",
+   "554/1": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1602586204",
+   "554/36": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1933177204",
+   "831/3": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1933201204"
+  },
+  "rada-2017-05-15": {
+   "554/1": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1602586204",
+   "554/36": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1933177204"
+  },
+  "rada-2017-05-29": {
+   "2341": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1604764204",
+   "554/36": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1933177204"
+  },
+  "rada-2017-06-12": {
+   "1449/119": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1603625204",
+   "1449/195": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/2133352204",
+   "1449/60": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1603573204",
+   "1468/21": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1933384204",
+   "338/1": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1889223204"
+  },
+  "rada-2017-06-26": {
+   "1468/21": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1933384204",
+   "338/1": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1889223204",
+   "672/8": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1933194204"
+  },
+  "rada-2017-07-10": {
+   "103": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1605829204",
+   "1635": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1603878204",
+   "554/1": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1602586204"
+  },
+  "rada-2017-08-14": {
+   "1587/3": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1933402204",
+   "1635": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1603878204",
+   "554/1": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1602586204"
+  },
+  "rada-2017-08-28": {
+   "103": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1605829204",
+   "1635": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1603878204",
+   "554/1": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1602586204"
+  },
+  "rada-2017-09-11": {
+   "1635": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1603878204",
+   "519/1": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1933100204",
+   "554/1": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1602586204",
+   "831/2": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1933200204"
+  },
+  "rada-2017-09-25": {
+   "107/60": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1889143204",
+   "1467/1": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/2301367204",
+   "1635": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1603878204",
+   "47/1": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1605769204",
+   "499": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1602491204",
+   "554/1": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1602586204",
+   "554/36": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1933177204"
+  },
+  "rada-2017-10-09": {
+   "1635": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1603878204",
+   "554/1": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1602586204"
+  },
+  "rada-2017-10-23": {
+   "1635": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1603878204",
+   "238": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1605990204",
+   "554/1": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1602586204"
+  },
+  "rada-2017-11-06": {
+   "1635": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1603878204",
+   "554/1": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1602586204"
+  },
+  "rada-2017-11-20": {
+   "1635": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1603878204",
+   "554/1": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1602586204"
+  },
+  "rada-2017-12-04": {
+   "1467/1": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/2301367204",
+   "151/5": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1889164204",
+   "151/7": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/55060925010",
+   "1635": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1603878204",
+   "554/1": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1602586204"
+  },
+  "rada-2017-12-18": {
+   "107/70": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1889153204",
+   "1531": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1603772204",
+   "1635": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1603878204",
+   "554/1": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1602586204"
+  },
+  "rada-2018-01-08": {
+   "1635": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1603878204",
+   "1851": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1604118204",
+   "554/1": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1602586204"
+  },
+  "rada-2018-01-22": {
+   "1635": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1603878204",
+   "477/1": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1602459204",
+   "478": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1602461204",
+   "481/3": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/2321715204",
+   "554/1": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1602586204"
+  },
+  "rada-2018-02-05": {
+   "1851": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1604118204",
+   "21": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1605741204"
+  },
+  "rada-2018-03-05": {
+   "1370/1": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1673459204",
+   "1889": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1604158204",
+   "519/1": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1933100204",
+   "554/35": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1933176204",
+   "849": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1602947204"
+  },
+  "rada-2018-03-19": {
+   "632": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1602667204",
+   "672/9": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1933195204"
+  },
+  "rada-2018-04-03": {
+   "238": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1605990204"
+  },
+  "rada-2018-04-16": {
+   "1011/3": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1933258204"
+  },
+  "rada-2018-05-02": {
+   "1011/3": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1933258204",
+   "1024": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1603129204",
+   "103": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1605829204",
+   "1927/1": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1604196204",
+   "554/36": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1933177204",
+   "554/37": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1933178204",
+   "554/65": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/62858848010",
+   "554/66": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/62858849010"
+  },
+  "rada-2018-05-14": {
+   "342/37": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1889259204",
+   "554/1": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1602586204"
+  },
+  "rada-2018-05-28": {
+   "1927/1": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1604196204",
+   "849": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1602947204"
+  },
+  "rada-2018-06-11": {
+   "107/44": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1889127204"
+  },
+  "rada-2018-08-13": {
+   "1587/3": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1933402204"
+  },
+  "rada-2018-08-27": {
+   "1587/3": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1933402204"
+  },
+  "rada-2018-09-10": {
+   "497/8": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1756812204"
+  },
+  "rada-2018-09-24": {
+   "2240/82": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1933915204"
+  },
+  "rada-2018-10-22": {
+   "107/44": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1889127204",
+   "1970": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1604274204",
+   "538/2": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1933149204"
+  },
+  "rada-2018-11-05": {
+   "1467/1": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/2301367204"
+  },
+  "rada-2018-12-03": {
+   "1024": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1603129204",
+   "1467/1": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/2301367204",
+   "1927/1": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1604196204",
+   "1970": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1604274204",
+   "554/36": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1933177204",
+   "554/37": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1933178204",
+   "554/65": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/62858848010",
+   "554/66": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/62858849010"
+  },
+  "rada-2018-12-17": {
+   "107/60": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1889143204",
+   "107/68": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1889151204",
+   "1468/21": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1933384204",
+   "1468/27": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1933390204",
+   "1666": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1603916204",
+   "482/1": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1602465204"
+  },
+  "rada-2019-01-21": {
+   "1680": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1603936204",
+   "47/1": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1605769204",
+   "482/1": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1602465204"
+  },
+  "rada-2019-02-04": {
+   "497/2": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1602484204"
+  },
+  "rada-2019-02-18": {
+   "1449/185": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1705471204",
+   "1449/222": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/2254444204",
+   "1680": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1603936204",
+   "174/3": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1889201204",
+   "267": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1606024204"
+  },
+  "rada-2019-03-04": {
+   "1851": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1604118204"
+  },
+  "rada-2019-03-18": {
+   "2309/1": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1934316204"
+  },
+  "rada-2019-04-01": {
+   "1024": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1603129204",
+   "107/70": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1889153204",
+   "1934/11": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/73253449010",
+   "2309/1": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1934316204",
+   "2379": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/90036628010",
+   "554/36": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1933177204",
+   "554/37": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1933178204",
+   "554/65": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/62858848010",
+   "554/66": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/62858849010"
+  },
+  "rada-2019-04-15": {
+   "2379": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/90036628010"
+  },
+  "rada-2019-04-29": {
+   "1934/11": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/73253449010",
+   "2007/2": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1933564204"
+  },
+  "rada-2019-05-13": {
+   "554/1": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1602586204"
+  },
+  "rada-2019-05-27": {
+   "1980/1": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1933521204",
+   "2169/1": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1604510204"
+  },
+  "rada-2019-06-10": {
+   "210/2": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/2433923204"
+  },
+  "rada-2019-06-24": {
+   "19": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1601989204"
+  },
+  "rada-2019-06-28": {
+   "19": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1601989204"
+  },
+  "rada-2019-07-22": {
+   "554/1": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1602586204"
+  },
+  "rada-2019-08-19": {
+   "1731": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1603991204",
+   "1958/16": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1933474204",
+   "1958/17": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1933475204",
+   "1958/18": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1933476204",
+   "343/1": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1718195204"
+  },
+  "rada-2019-09-02": {
+   "1731": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1603991204",
+   "1958/19": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1933477204",
+   "554/1": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1602586204"
+  },
+  "rada-2019-09-16": {
+   "175/5": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1889206204",
+   "1899": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1604168204"
+  },
+  "rada-2019-09-30": {
+   "481/4": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/2321716204",
+   "496": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1602482204"
+  },
+  "rada-2019-10-14": {
+   "1957/18": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1933467204",
+   "1958/15": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1933473204",
+   "1958/26": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1933484204",
+   "1958/27": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1933485204",
+   "2173/1": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1604534204",
+   "2173/8": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1933619204",
+   "2178/10": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1933641204"
+  },
+  "rada-2019-10-21": {
+   "359/212": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/2226004204",
+   "359/93": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1889401204",
+   "477/1": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1602459204",
+   "828": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1602868204"
+  },
+  "rada-2019-11-04": {
+   "1002/8": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/74966567010",
+   "1467/1": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/2301367204",
+   "1927/1": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1604196204",
+   "196/1": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/34411790010",
+   "2178/16": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1933647204",
+   "359/212": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/2226004204",
+   "359/93": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1889401204",
+   "368/5": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1889588204"
+  },
+  "rada-2019-11-11": {
+   "210/4": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/2433921204",
+   "497/2": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1602484204"
+  },
+  "rada-2019-12-09": {
+   "1467/1": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/2301367204",
+   "466": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/2024339208",
+   "497/2": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1602484204"
+  },
+  "rada-2020-01-06": {
+   "1467/1": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/2301367204",
+   "2178/17": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1933648204"
+  },
+  "rada-2020-01-20": {
+   "2169/20": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1604528204"
+  },
+  "rada-2020-02-03": {
+   "1056": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1603163204",
+   "1086": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1603193204",
+   "1087": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1603194204",
+   "1104": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1603211204",
+   "1136": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1603243204",
+   "1137": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1603244204",
+   "1138": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1603245204",
+   "1170": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1603278204",
+   "1171/5": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1933260204",
+   "1172": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1603280204",
+   "1531": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1603772204",
+   "831/2": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1933200204",
+   "831/3": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1933201204",
+   "908": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1603013204",
+   "947": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1603051204"
+  },
+  "rada-2020-02-17": {
+   "1680": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1603936204",
+   "2169/19": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1604527204",
+   "2178/10": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1933641204",
+   "521/5": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1504408204",
+   "700/1": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1602739204"
+  },
+  "rada-2020-03-02": {
+   "1410": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1603522204",
+   "1467/1": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/2301367204",
+   "1680": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1603936204",
+   "1958/14": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1933472204",
+   "214": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1602186204"
+  },
+  "rada-2020-04-01": {
+   "832/34": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1933217204"
+  },
+  "rada-2020-04-08": {
+   "2169/1": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1604510204"
+  },
+  "rada-2020-04-27": {
+   "2176/6": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1933626204",
+   "2178/11": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1933642204",
+   "2262/8": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1934135204"
+  },
+  "rada-2020-05-11": {
+   "574/3": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1933186204"
+  },
+  "rada-2020-05-25": {
+   "1056": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1603163204",
+   "1635": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1603878204",
+   "1652": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1603896204",
+   "19": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1601989204",
+   "2226/40": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1933668204",
+   "238": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1605990204",
+   "381/5": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1889676204",
+   "519/1": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1933100204",
+   "554/67": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/75572185010"
+  },
+  "rada-2020-06-08": {
+   "214": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1602186204",
+   "47/1": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1605769204",
+   "554/1": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1602586204"
+  },
+  "rada-2020-06-22": {
+   "19": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1601989204",
+   "19/2": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1889044204",
+   "359/93": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1889401204"
+  },
+  "rada-2020-07-20": {
+   "19/2": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1889044204",
+   "21": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1605741204",
+   "2169/1": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1604510204",
+   "2176/6": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1933626204",
+   "2178/11": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1933642204",
+   "2226/40": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1933668204",
+   "2262/8": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1934135204",
+   "359/93": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1889401204",
+   "369/4": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1889592204"
+  },
+  "rada-2020-08-17": {
+   "1843/2": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/29889504010",
+   "1855": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1604122204",
+   "2176/6": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1933626204",
+   "2178/11": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1933642204",
+   "2262/8": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1934135204",
+   "369/4": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1889592204"
+  },
+  "rada-2020-08-31": {
+   "2226/40": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1933668204",
+   "535/2": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/83796387010",
+   "575": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1602610204",
+   "85/5": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1889089204"
+  },
+  "rada-2020-09-14": {
+   "2327/29": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/71769296010"
+  },
+  "rada-2020-09-21": {
+   "700/1": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1602739204"
+  },
+  "rada-2020-10-05": {
+   "1652": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1603896204",
+   "359/230": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/78316219010",
+   "537": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1602564204"
+  },
+  "rada-2020-10-19": {
+   "107/44": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1889127204",
+   "1635": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1603878204",
+   "348/3": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1889272204",
+   "993": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1603097204"
+  },
+  "rada-2020-11-02": {
+   "2273/3": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1604678204",
+   "234/10": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/34411909010",
+   "359/194": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1889502204"
+  },
+  "rada-2020-11-16": {
+   "1467/1": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/2301367204",
+   "1927/1": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1604196204"
+  },
+  "rada-2020-11-30": {
+   "1833": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1604099204",
+   "2265/14": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1604659204",
+   "2271/1": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1604675204",
+   "2273/3": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1604678204",
+   "359/238": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/78316194010",
+   "359/246": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/78316217010"
+  },
+  "rada-2020-12-14": {
+   "1467/1": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/2301367204",
+   "1635": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1603878204",
+   "1927/1": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1604196204",
+   "1935/5": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1933441204"
+  },
+  "rada-2020-12-21": {
+   "214": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1602186204"
+  },
+  "rada-2021-01-25": {
+   "2007/15": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1933577204",
+   "2293/1": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1934281204",
+   "341/1": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1889227204",
+   "343/1": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1718195204",
+   "554/36": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1933177204",
+   "832/19": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1933202204"
+  },
+  "rada-2021-02-08": {
+   "1410": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1603522204",
+   "2293/1": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1934281204",
+   "521/1": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1504406204",
+   "832/19": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1933202204"
+  },
+  "rada-2021-02-22": {
+   "2007/15": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1933577204",
+   "357/36": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1910971204"
+  },
+  "rada-2021-03-08": {
+   "2265/180": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/68219212010"
+  },
+  "rada-2021-03-22": {
+   "1468/2": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1933365204",
+   "1468/21": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1933384204",
+   "2007/2": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1933564204",
+   "2305/2": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1934293204",
+   "2307/9": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1934303204",
+   "47/2": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1605770204"
+  },
+  "zastupitelstvo-2005-05-23": {
+   "1465/1": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1933345204"
+  },
+  "zastupitelstvo-2007-12-17": {
+   "1460/18": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1933312204",
+   "1460/3": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1933297204",
+   "1460/8": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1933302204",
+   "1464/2": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1933336204",
+   "2265/4": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1604649204",
+   "32": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1602002204",
+   "672/6": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1933192204"
+  },
+  "zastupitelstvo-2009-03-11": {
+   "1451/12": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1603688204",
+   "1451/14": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1603690204",
+   "1451/15": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1603691204",
+   "1468/133": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/2205797204",
+   "1468/18": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1933381204",
+   "1652": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1603896204",
+   "1655/1": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1603899204",
+   "1655/2": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1603900204",
+   "1656/1": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1603901204",
+   "1841/2": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/2297750204",
+   "869/1": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1933253204"
+  },
+  "zastupitelstvo-2009-05-20": {
+   "1715": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1603973204"
+  },
+  "zastupitelstvo-2009-09-23": {
+   "498/4": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1933094204"
+  },
+  "zastupitelstvo-2009-12-14": {
+   "1468/170": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/2264190204",
+   "1470/5": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1662621204",
+   "2169/6": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1604515204",
+   "2179/2": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1604547204",
+   "481/4": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/2321716204"
+  },
+  "zastupitelstvo-2010-04-21": {
+   "2265/155": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/2236474204"
+  },
+  "zastupitelstvo-2011-03-23": {
+   "1646": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1603889204"
+  },
+  "zastupitelstvo-2011-06-22": {
+   "1468/170": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/2264190204",
+   "210/4": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/2433921204",
+   "831/2": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1933200204"
+  },
+  "zastupitelstvo-2011-09-21": {
+   "831/4": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/18119911010",
+   "876/5": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/2261378204"
+  },
+  "zastupitelstvo-2012-02-29": {
+   "503/2": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1933096204",
+   "837": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1602882204"
+  },
+  "zastupitelstvo-2012-04-25": {
+   "1655/1": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1603899204",
+   "837": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1602882204"
+  },
+  "zastupitelstvo-2012-06-20": {
+   "1748/2": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1604008204",
+   "2265/154": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/2236475204",
+   "248/7": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/23106769010"
+  },
+  "zastupitelstvo-2012-09-05": {
+   "1664": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1603914204",
+   "1858/1": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1604125204",
+   "1858/2": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1604126204",
+   "1859": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1604127204"
+  },
+  "zastupitelstvo-2012-10-31": {
+   "1537/1": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1673464204",
+   "2": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1601975204",
+   "2286/2": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1604700204",
+   "503/2": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1933096204"
+  },
+  "zastupitelstvo-2013-03-13": {
+   "1298": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1603406204",
+   "1299": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1603407204",
+   "2023/2": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1604343204",
+   "2023/3": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1604344204",
+   "2157/33": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1933609204",
+   "345": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1602325204",
+   "497/34": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/28263122010"
+  },
+  "zastupitelstvo-2013-06-19": {
+   "1449/234": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/30433877010"
+  },
+  "zastupitelstvo-2013-09-11": {
+   "1451/10": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1603686204"
+  },
+  "zastupitelstvo-2013-12-18": {
+   "173/4": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1889191204",
+   "2265/34": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1841458204"
+  },
+  "zastupitelstvo-2014-06-04": {
+   "20/17": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/2457444204",
+   "337/2": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1606096204",
+   "357/48": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/2218986204",
+   "357/53": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/2457442204",
+   "357/54": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/2457443204",
+   "364/11": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/41350949010",
+   "364/2": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1504167204"
+  },
+  "zastupitelstvo-2014-09-17": {
+   "338/5": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/43541786010"
+  },
+  "zastupitelstvo-2014-12-17": {
+   "52": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1602022204",
+   "547/3": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1602576204",
+   "55": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1602024204",
+   "552/1": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1602583204",
+   "554/32": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1933173204",
+   "554/34": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1933175204",
+   "57": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1602026204",
+   "58": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1602027204"
+  },
+  "zastupitelstvo-2015-07-29": {
+   "554/59": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/47202772010"
+  },
+  "zastupitelstvo-2015-11-18": {
+   "1460/7": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1933301204",
+   "175/3": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1889204204",
+   "698/1": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1933196204"
+  },
+  "zastupitelstvo-2015-12-16": {
+   "1460/10": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1933304204",
+   "1460/11": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1933305204"
+  },
+  "zastupitelstvo-2016-03-02": {
+   "1404": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1603516204",
+   "2264/1": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1604636204",
+   "2264/45": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/53646640010",
+   "345": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1606105204",
+   "514/1": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1602507204"
+  },
+  "zastupitelstvo-2016-05-04": {
+   "19/1": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1889043204"
+  },
+  "zastupitelstvo-2016-06-15": {
+   "2226/19": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1832670204",
+   "308/2": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1933021204"
+  },
+  "zastupitelstvo-2016-12-14": {
+   "514/1": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1602507204",
+   "514/42": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/59956959010",
+   "519/4": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/59956960010"
+  },
+  "zastupitelstvo-2017-03-01": {
+   "1468/21": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1933384204",
+   "175/10": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/59735102010",
+   "175/9": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/59735101010",
+   "83": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1605809204"
+  },
+  "zastupitelstvo-2017-04-19": {
+   "700/1": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1602739204",
+   "700/4": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/61033049010"
+  },
+  "zastupitelstvo-2017-06-21": {
+   "171/4": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1889168204"
+  },
+  "zastupitelstvo-2017-09-06": {
+   "338/6": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/62919804010"
+  },
+  "zastupitelstvo-2017-11-08": {
+   "107/60": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1889143204",
+   "554/36": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1933177204"
+  },
+  "zastupitelstvo-2017-12-13": {
+   "151/5": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1889164204",
+   "151/7": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/55060925010"
+  },
+  "zastupitelstvo-2018-06-20": {
+   "554/1": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1602586204",
+   "848/2": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/68894677010",
+   "849": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1602947204"
+  },
+  "zastupitelstvo-2018-08-13": {
+   "345": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1606105204"
+  },
+  "zastupitelstvo-2019-02-20": {
+   "1449/185": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1705471204",
+   "482/1": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1602465204"
+  },
+  "zastupitelstvo-2019-04-17": {
+   "1024": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1603129204",
+   "554/36": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1933177204",
+   "554/37": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1933178204",
+   "554/65": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/62858848010",
+   "554/66": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/62858849010"
+  },
+  "zastupitelstvo-2019-05-22": {
+   "1934/11": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/73253449010",
+   "2379": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/90036628010"
+  },
+  "zastupitelstvo-2019-06-19": {
+   "1980/1": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1933521204",
+   "210/2": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/2433923204",
+   "2169/1": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1604510204"
+  },
+  "zastupitelstvo-2019-11-13": {
+   "1002/8": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/74966567010",
+   "1957/18": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1933467204",
+   "1958/15": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1933473204",
+   "1958/26": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1933484204",
+   "1958/27": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1933485204",
+   "196/1": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/34411790010",
+   "2173/1": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1604534204",
+   "2173/8": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1933619204",
+   "2178/10": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1933641204",
+   "2178/16": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1933647204",
+   "359/212": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/2226004204",
+   "359/93": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1889401204"
+  },
+  "zastupitelstvo-2020-02-12": {
+   "2169/20": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1604528204",
+   "2178/17": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1933648204"
+  },
+  "zastupitelstvo-2020-04-22": {
+   "1082": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1603189204",
+   "1083": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1603190204",
+   "1958/14": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1933472204",
+   "2178/10": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1933641204",
+   "832/34": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1933217204"
+  },
+  "zastupitelstvo-2020-06-17": {
+   "1635": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1603878204",
+   "2176/6": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1933626204",
+   "2178/11": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1933642204",
+   "2262/8": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1934135204"
+  },
+  "zastupitelstvo-2020-09-16": {
+   "19/2": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1889044204",
+   "2176/6": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1933626204",
+   "2178/11": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1933642204",
+   "2226/40": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1933668204",
+   "2262/8": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1934135204",
+   "2265/4": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1604649204",
+   "359/93": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1889401204",
+   "535/2": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/83796387010",
+   "85/5": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1889089204"
+  },
+  "zastupitelstvo-2020-11-11": {
+   "234/10": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/34411909010",
+   "359/194": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1889502204"
+  },
+  "zastupitelstvo-2020-12-16": {
+   "359/238": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/78316194010",
+   "359/246": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/78316217010"
+  },
+  "zastupitelstvo-2021-02-17": {
+   "1948/9": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1604238204",
+   "2293/1": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1934281204",
+   "832/19": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/1933202204"
+  },
+  "zastupitelstvo-2021-04-21": {
+   "2265/180": "https://vdp.cuzk.gov.cz/vdp/ruian/parcely/68219212010"
+  }
+ }
+}

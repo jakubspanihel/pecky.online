@@ -1229,6 +1229,17 @@ i PečkyBota) v samostatném souboru `jednani/starsi-jednani.json` — tvar záz
 - **Případné rozšíření (úroveň B):** z textu zápisů RM vytáhnout přítomné a hlasování po jménech, z usnesení ZM seznam
   usnesení (I.–IV.); u OCR skenů (5 dokumentů) jména ručně zkontrolovat.
 
+### Doplnění z archivu zápisů na starém webu (od 17. 10. 2026)
+
+Stránky `pecky.as4u.cz/cs/mesto/rada-mesta/archiv-zapisu-rm.html` a `…/zastupitelstvo-mesta/archiv-zapisu-jednani-zm.html`
+(RM 1/2013–4/2021, ZM 2013–4/2021) dopňují jednání, která nemá ani usneseni.cz, ani úřední deska, ani noviny.
+- `python3 jednani/scripts/as4u-archiv.py` stáhne PDF do `Data/as4u-cache/` (gitignore), vytěží text a zapíše `jednani/as4u-archiv.json`
+  (jen jednání, jejichž datum není v `pecky-jednani.json`, `noviny-jednani.json` ani ve `starsi-jednani.json` z úřední desky).
+  Datum ZM se bere z textu PDF (v názvu odkazu chybí).
+- `starsi-jednani.py` je pak přidá do `starsi-jednani.json` (`source` = „archiv zápisů na starém webu města…“, stránka je značí
+  štítkem „z archivu města“) a zkopíruje PDF do `Data/<datum>-<rada|zastupitelstvo>/`. Pořadí běhu: `as4u-archiv.py`, pak `starsi-jednani.py`.
+- 17. 10. 2026: 128 zápisů RM + 8 usnesení ZM (zápis označený 8. 1. 2015 je ve skutečnosti RM z 5. 1. 2015 a už je v novinách; datum v odkazu bývá datem vyvěšení, proto se pro RM bere datum z textu). Přílohu „Zakladatelská listina Služby města Pečky s.r.o.“ skript přeskakuje.
+
 ## Jednání z Pečeckých novin (od 10. 10. 2026)
 
 Zápisy Rady a usnesení Zastupitelstva, která vyšla v Pečeckých novinách **před** zápisy na úřední desce (první je RM

@@ -144,6 +144,68 @@ def norm_num(s):
         return None
 
 
+STARSI_SALE_JSON = ROOT / 'jednani' / 'starsi-jednani.json'
+STARSI_SPLIT_RE = re.compile(r'(?:(?<=\s)|^)(?=(?:[a-zA-Z]|\d{1,2})\)\s+[A-ZÁČĎÉĚÍŇÓŘŠŤÚŮÝŽ„"])')
+STARSI_EXCLUDE_HEAD_RE = re.compile(r'^(?:[a-zA-Z]|\d{1,2})\)\s+(?:přesunutí|zrušení|odložení|stažení)', re.I)
+
+
+def extract_rows_starsi(skip_dates):
+    """Řádky z textů starších jednání (starsi-jednani.json: úřední deska + archiv města). Bod zápisu/usnesení
+    = úsek textu od „a) …“ po další „b) …“. Berou se body s klíčovými slovy nákupu/prodeje a parcelou v úvodu.
+    Noviny (noviny-jednani.json) se nezpracovávají — jsou to přepisy výtahů, ne celé zápisy."""
+    if not STARSI_SALE_JSON.exists():
+        return []
+    inferred = {}
+    if STARSI_LINKS_JSON.exists():
+        inferred = json.loads(STARSI_LINKS_JSON.read_text(encoding='utf-8')).get('inferred_katastr', {})
+    out = []
+    for m in json.loads(STARSI_SALE_JSON.read_text(encoding='utf-8'))['meetings']:
+        if m['date'] in skip_dates:
+            continue
+        text = re.sub(r'\s+', ' ', m.get('text') or '')
+        for part in STARSI_SPLIT_RE.split(text):
+            head = part[:220]
+            if STARSI_EXCLUDE_HEAD_RE.match(head):
+                continue
+            if not (SALE_KW.search(head) and re.search(r'pozemk|parc', head, re.I)):
+                continue
+            body = re.split(r'\bHlasování\b', part, 1)[0].strip()
+            parcs = list(dict.fromkeys(STARSI_PARC_RE.findall(body[:600])))   # ne PARC_ITEM_RE: „čp. 990“ je číslo popisné
+            if not parcs:
+                continue
+            title = re.sub(r'^(?:[a-zA-Z]|\d{1,2})\)\s+', '', body)
+            cut = re.search(r'(?<=[a-zěščřžýáíé\)])\.\s+(?=[A-ZÁČĎÉĚÍŇÓŘŠŤÚŮÝŽ])', title[60:])
+            title = title[:60 + cut.start()] if cut else title
+            if len(title) > 230:
+                title = title[:230].rsplit(' ', 1)[0] + ' …'
+            kat = detect_katastr(body[:600]) or (inferred.get(m['id']) or {}).get(parcs[0], '')
+            parc = ', '.join(parcs[:4]) + (f' + {len(parcs) - 4} dalších' if len(parcs) > 4 else '')
+            price_disp, price_num = '', None
+            celk_m = CELK_RE.search(body)
+            celkem_m = re.search(r'tzn\.?\s*celkem\s+([\d][\d\s.,]*\d)\s*,?-?\s*Kč', body)
+            persqm_m = PERSQM_RE.search(body)
+            any_m = ANYPRICE_RE.search(body)
+            if celkem_m and norm_num(celkem_m.group(1)) and not celk_m:
+                price_num = norm_num(celkem_m.group(1))
+                price_disp = f'{price_num:,}'.replace(',', ' ') + ' Kč'
+            elif celk_m and norm_num(celk_m.group(1)):
+                price_num = norm_num(celk_m.group(1))
+                price_disp = f'{price_num:,}'.replace(',', ' ') + ' Kč' + (' bez DPH' if celk_m.group(2) else '')
+            elif persqm_m and (not any_m or persqm_m.start() <= any_m.start()) and norm_num(persqm_m.group(1)):
+                price_disp = f'{norm_num(persqm_m.group(1)):,}'.replace(',', ' ') + ' Kč/m2'
+            elif any_m and norm_num(any_m.group(1)):
+                price_num = norm_num(any_m.group(1))
+                price_disp = f'{price_num:,}'.replace(',', ' ') + ' Kč'
+            zm = m['type'] == 'Zastupitelstvo'
+            out.append(dict(
+                date=m['date'], typ=m['type'], n=('usnesení ZM' if zm else 'zápis RM'), item=title, parc=parc,
+                kat=kat, cls=classify(head), price_disp=price_disp, price_num=price_num,
+                url=(m.get('links') or {}).get('minutes', ''), meeting_number=m.get('number'),
+                meeting_label=None if (zm and m.get('number')) else f'Jednání {meeting_genitive(m["type"])} {fmt_date(m["date"])}',
+            ))
+    return out
+
+
 def extract_rows(data):
     rows = []
     for m in data['meetings']:
@@ -193,6 +255,7 @@ def extract_rows(data):
                 price_disp=price_disp, price_num=price_num, url=r.get('url', ''),
                 meeting_number=m.get('number'),
             ))
+    rows += extract_rows_starsi({m['date'] for m in data['meetings']})
     rows.sort(key=lambda x: x['date'], reverse=True)
 
     # dedup: "kanonický" řádek = zastupitelstvo, pokud ke stejnému (cls,parc,kat,price) existuje,
@@ -433,8 +496,8 @@ def row_html(r, cache):
     item_link = f'<a href="{esc(r["url"])}" target="_blank" rel="noopener">{item}</a>' if r['url'] else item
     parc_html = parcela_cell(r, cache)
     meeting_link = ''
-    if r.get('meeting_number'):
-        meeting_label = f'Jednání {meeting_genitive(r["typ"])} č. {r["meeting_number"]}'
+    if r.get('meeting_number') or r.get('meeting_label'):
+        meeting_label = r.get('meeting_label') or f'Jednání {meeting_genitive(r["typ"])} č. {r["meeting_number"]}'
         is_future = r['date'] > TODAY
         prefix = 'bude se řešit na: ' if is_future else 'řešilo se na: '
         chip = ' <span class="tag" style="margin-left:4px;">PLÁNOVÁNO</span>' if is_future else ''
@@ -454,13 +517,6 @@ def build_table(rows, cls, cache):
              '      <tbody>']
     lines += [row_html(r, cache) for r in subset]
     lines += ['      </tbody>', '    </table>']
-    total = sum(r['price_num'] for r in subset if r['canonical'] and r['price_num'])
-    n_known = sum(1 for r in subset if r['canonical'] and r['price_num'])
-    n_tot = sum(1 for r in subset if r['canonical'])
-    total_fmt = f'{total:,}'.replace(',', ' ')
-    lines.append(f'    <p class="program-note" style="margin-top:10px;"><strong>Součet '
-                 f'({n_known} z {n_tot} unikátních obchodů se známou celkovou cenou v Kč): '
-                 f'{total_fmt} Kč</strong></p>')
     return '\n'.join(lines)
 
 
@@ -509,8 +565,162 @@ def check_tag_balance():
         raise SystemExit(f'HTML tag balance selhala po zásahu — errors={errors[:5]} zbylo otevřených={stack[:5]}')
     print('HTML tag balance OK.')
 
+# ===== Prolinkování parcel ve starších jednáních (starsi-jednani.json, noviny-jednani.json) =====
+# Starší jednání jsou jen souvislý text zápisu/usnesení, každý bod jiného katastru — jednu plochou mapu
+# "číslo -> URL" (parcely-odkazy.json) tu použít nejde (viz případ parcely 254). Proto se katastr určuje
+# u KAŽDÉ zmínky zvlášť z jejího bodu (od zmínky po konec bodu, nejvýš STARSI_WINDOW znaků) a výsledek se
+# ukládá po jednáních: jednani/parcely-starsi.json {id jednání: {číslo: URL}}. Zmínka bez katastru v bodu,
+# s katastrem mimo KAT_CODES nebo s dvěma různými katastry u téhož čísla v jednom dokumentu se nepodlinkuje.
+STARSI_JSONS = [ROOT / 'jednani' / 'starsi-jednani.json', ROOT / 'jednani' / 'noviny-jednani.json']
+STARSI_LINKS_JSON = ROOT / 'jednani' / 'parcely-starsi.json'
+STARSI_PARC_RE = re.compile(r'parc\.?\s*(?:č\.?\s*)?(\d{1,5}(?:/\d{1,3})?)', re.I)
+STARSI_ITEM_END_RE = re.compile(r'\n\s*(?:[a-zA-Z]|\d{1,2})\)\s|\n\s*\d{1,2}\.\s+[A-ZÁČĎÉĚÍŇÓŘŠŤÚŮÝŽ]')
+STARSI_WINDOW = 400
+STARSI_MISSING_JSON = ROOT / 'jednani' / 'parcely-neexistuje.json'   # "katastr|číslo", které RUIAN v katastru nenašlo
+JUNK_KAT_RE = re.compile(r'^(?:Pe[čc]k|V\b|Ing\b|J\b)', re.I)    # „Pečky …“ (přilepené slovo), zkratky, tituly
+
+
+def doc_katastry(text):
+    """(katastry z KAT_CODES, které dokument jmenuje; True pokud jmenuje i jiný, neznámý katastr)."""
+    t = re.sub(r'\s+', ' ', text)
+    named, unknown = set(), False
+    for x in KATASTR_RE.finditer(t):
+        name = x.group(1).strip()
+        if name in KAT_CODES:
+            named.add(name)
+        elif JUNK_KAT_RE.match(name):
+            named.add('Pečky') if re.match(r'Pe[čc]k', name, re.I) else None
+        elif not any(stem in name for stem, _ in KATASTR_STEM_FALLBACK):
+            unknown = True
+    for stem, name in KATASTR_STEM_FALLBACK:
+        if stem in t:
+            named.add(name)
+    if 'V.Ch' in t:
+        named.add('Velké Chvalovice')
+    return named, unknown
+
+
+def scan_starsi_mentions():
+    """{id jednání: {číslo: set(katastr)}} — katastr z bodu, ve kterém zmínka stojí ('' = nezjištěn)."""
+    out = {}
+    for path in STARSI_JSONS:
+        if not path.exists():
+            continue
+        for m in json.loads(path.read_text(encoding='utf-8'))['meetings']:
+            text = m.get('text') or ''
+            for x in STARSI_PARC_RE.finditer(text):
+                rest = text[x.start():x.start() + STARSI_WINDOW]
+                end = STARSI_ITEM_END_RE.search(rest, 1)
+                if end:
+                    rest = rest[:end.start()]
+                kat = detect_katastr(re.sub(r'\s+', ' ', rest))
+                out.setdefault(m['id'], {}).setdefault(x.group(1), set()).add(kat)
+    return out
+
+
+STARSI_TEXTS = {}
+
+
+def infer_katastr(mid, num, cache, missing, stats):
+    """Zmínka bez katastru v bodu: kandidáti = katastry, které dokument jmenuje (z KAT_CODES) + Pečky.
+    Parcela musí podle RUIAN existovat právě v jednom z nich; dokument, který jmenuje neznámý katastr, se vynechá."""
+    named, unknown = doc_katastry(STARSI_TEXTS.get(mid, ''))
+    if unknown:
+        return None
+    found = []
+    for kat in sorted(named | {'Pečky'}):
+        key = f'{kat}|{num}'
+        if key in cache:
+            found.append(kat)
+            continue
+        if key in missing:
+            continue
+        rid, err = lookup_ruian(kat, num)
+        time.sleep(0.15)
+        if rid:
+            cache[key] = rid
+            found.append(kat)
+        elif err and err.startswith('nenalezeno'):
+            missing.add(key)
+    if len(found) != 1:
+        return None
+    if found[0] != 'Pečky':
+        # mimo Pečky stačí existence parcely jen s názvem katastru poblíž zmínky (±600 znaků)
+        text = re.sub(r'\s+', ' ', STARSI_TEXTS.get(mid, ''))
+        stems = [st for st, nm in KATASTR_STEM_FALLBACK if nm == found[0]] + [found[0].split()[0]]
+        near = any(re.search(r'parc\.?\s*(?:č\.?\s*)?' + re.escape(num) + r'(?!\d)', text[max(0, m.start() - 600):m.end() + 600])
+                   for m in re.finditer(r'|'.join(re.escape(x) for x in stems), text))
+        if not near:
+            return None
+    return found[0]
+
+
+def build_starsi_links(cache):
+    mentions = scan_starsi_mentions()
+    missing = set(json.loads(STARSI_MISSING_JSON.read_text(encoding='utf-8'))) if STARSI_MISSING_JSON.exists() else set()
+    inferred = {}
+    global STARSI_TEXTS
+    STARSI_TEXTS = {m['id']: m.get('text') or '' for path in STARSI_JSONS if path.exists()
+                    for m in json.loads(path.read_text(encoding='utf-8'))['meetings']}
+    result, stats = {}, {'mentions': 0, 'linked': 0, 'inferred': 0, 'no_kat': 0, 'kat_unknown': 0, 'conflict': 0, 'no_ruian': 0}
+    new_count = 0
+    cache_before = len(cache)
+    for mid, nums in sorted(mentions.items()):
+        for num, kats in sorted(nums.items()):
+            stats['mentions'] += 1
+            known = {k for k in kats if k}
+            if not known:
+                kat = infer_katastr(mid, num, cache, missing, stats)
+                if not kat:
+                    stats['no_kat'] += 1
+                    continue
+                key = f'{kat}|{num}'
+                result.setdefault(mid, {})[num] = f'https://vdp.cuzk.gov.cz/vdp/ruian/parcely/{cache[key]}'
+                inferred.setdefault(mid, {})[num] = kat
+                stats['linked'] += 1
+                stats['inferred'] += 1
+                continue
+            if len(known) > 1 or '' in kats:
+                # dvě různé katastry, nebo číslo se v dokumentu objevuje i bez určitelného katastru
+                stats['conflict'] += 1
+                continue
+            kat = next(iter(known))
+            if kat not in KAT_CODES:
+                stats['kat_unknown'] += 1
+                continue
+            key = f'{kat}|{num}'
+            rid = cache.get(key)
+            if not rid:
+                rid, err = lookup_ruian(kat, num)
+                time.sleep(0.15)
+                if not rid:
+                    stats['no_ruian'] += 1
+                    continue
+                cache[key] = rid
+                new_count += 1
+            result.setdefault(mid, {})[num] = f'https://vdp.cuzk.gov.cz/vdp/ruian/parcely/{rid}'
+            stats['linked'] += 1
+    STARSI_LINKS_JSON.write_text(json.dumps({
+        '_comment': ('Odkazy na parcely ve starších jednáních (jednani/starsi-jednani.json, noviny-jednani.json): '
+                     '{id jednání: {číslo parcely: URL detailu na vdp.cuzk.gov.cz}}. Katastr se určuje u každé zmínky '
+                     'z jejího bodu; nejednoznačné zmínky se vynechávají. Generuje jednani/scripts/update-pozemky.py '
+                     '(--starsi), čte ho jLinkParcelyStarsi() v content/jednani.html.'),
+        'stats': stats,
+        'inferred_katastr': inferred,
+        'meetings': result,
+    }, ensure_ascii=False, indent=1) + '\n', encoding='utf-8')
+    STARSI_MISSING_JSON.write_text(json.dumps(sorted(missing), ensure_ascii=False, indent=0) + '\n', encoding='utf-8')
+    print(f'Odkazy ve starších jednáních: {stats}, {new_count} nově dohledáno.')
+    new_count = len(cache) - cache_before
+    if new_count:
+        save_cache(cache)
+    return cache
+
 
 def main():
+    if '--starsi' in sys.argv:
+        build_starsi_links(load_cache())
+        return
     data = json.loads(JEDNANI_JSON.read_text(encoding='utf-8'))
     cache = load_cache()
 
@@ -527,7 +737,8 @@ def main():
     print('Hotovo — content/pozemky.html aktualizován. Teď spustit `python3 scripts/build.py`, ať se to promítne i do pozemky/index.html.')
 
     mentions = scan_general_mentions(data)
-    build_general_links(mentions, cache)
+    cache = build_general_links(mentions, cache)
+    build_starsi_links(cache)
 
 
 if __name__ == '__main__':

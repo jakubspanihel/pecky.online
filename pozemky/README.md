@@ -23,6 +23,18 @@ Důvod: tabulky Pozemky se počítají přímo z `jednani/pecky-jednani.json`
 sekci Jednání než na cokoli vlastního, takže zůstávají u zdroje místo
 duplikace/kopírování mezi složkami.
 
+## Vyhledávání
+Pole „Hledat“ nad tabulkami (`#pozemky-search`, inline `<script>` na konci `content/pozemky.html`) filtruje řádky Nákupu i Prodeje
+najednou — všechna slova musí být v řádku (parcela, katastr, název bodu, cena, datum), bez ohledu na diakritiku. Pod polem je
+počet shod v obou tabulkách. Skript `update-pozemky.py` přepisuje jen tabulky, vyhledávání zůstává.
+
+## Starší jednání (od 18. 10. 2026)
+Do tabulek vstupují i body ze zápisů a usnesení před usneseni.cz (`jednani/starsi-jednani.json`: úřední deska + archiv města,
+2013 – 3/2021; `extract_rows_starsi()` v `update-pozemky.py`). Bod = úsek textu „a) …“ až „b) …“ s klíčovými slovy nákupu/prodeje
+a parcelou v úvodu; štítek „zápis RM“ / „usnesení ZM“, odkaz vede na PDF, u RM bez čísla „řešilo se na: Jednání rady <datum>“.
+Katastr: z bodu, jinak z kontextu (`parcely-starsi.json` → `inferred_katastr`). Noviny se nezpracovávají. Po přidání starších
+jednání spustit `update-pozemky.py` (přegeneruje i `parcely-starsi.json`) a upravit čísla v callout „Poznámky k datům“.
+
 ## Aktualizace — spustit po každé změně `pecky-jednani.json`
 ```
 python3 jednani/scripts/update-pozemky.py
@@ -35,7 +47,7 @@ Druhý příkaz je od migrace na vícestránkový web (`ARCHITEKTURA-MIGRACE.md`
 nutný vždy — promítne `content/pozemky.html` do veřejné stránky
 `pozemky/index.html`.
 
-Skript přepisuje jen obsah obou subpanelů (tabulky + součet). Callouty pod
+Skript přepisuje jen obsah obou subpanelů (jen tabulky; součty cen se neuvádějí). Callouty pod
 nimi jsou psané ručně a zůstávají: „Poznámky k datům“ a od 29. 9. 2026
 i „Kontrolní výbor k pozemkům“ — zjištění výborů zastupitelstva
 (`jednani/vybory.json`, viz `jednani/README.md` → „Jednání výborů ZM“)

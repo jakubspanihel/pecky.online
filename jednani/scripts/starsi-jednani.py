@@ -128,6 +128,32 @@ def main():
         }
         seen[ident] = rec
         out.append(rec)
+    # doplnění z archivu starého webu (scripts/as4u-archiv.py): jen jednání, která úřední deska nemá
+    ap = os.path.join(ROOT, 'jednani', 'as4u-archiv.json')
+    if os.path.exists(ap):
+        for a in json.load(open(ap, encoding='utf-8'))['meetings']:
+            if (a['type'], a['date']) in seen:
+                continue
+            d, typ = a['date'], a['type']
+            folder = f'{d}-{"rada" if typ == "Rada" else "zastupitelstvo"}'
+            dst_dir = os.path.join(DATA_OUT, folder)
+            os.makedirs(dst_dir, exist_ok=True)
+            dst = os.path.join(dst_dir, ('zapis' if typ == 'Rada' else 'usneseni') + '.pdf')
+            if not os.path.exists(dst):
+                shutil.copy2(os.path.join(ROOT, 'jednani', a['cache']), dst)
+            num = a['number']
+            lab = (f'ZM {num}/{d[:4]} ({cz(d)})' if num else f'ZM ({cz(d)})') if typ == 'Zastupitelstvo' else f'Rada ({cz(d)})'
+            rec = {
+                'id': f'{"rada" if typ == "Rada" else "zastupitelstvo"}-{d}',
+                'uuid': None, 'type': typ, 'group': 'starsi', 'number': num, 'year': int(d[:4]),
+                'date': d, 'label': lab,
+                'doc_kind': 'zápis' if typ == 'Rada' else 'usnesení', 'doc_title': (f'Zápis z jednání RM dne {cz(d)}' if typ == 'Rada' and a['doc_title'][:1].isdigit() else a['doc_title']), 'posted': None,
+                'source': 'archiv zápisů na starém webu města (pecky.as4u.cz)',
+                'links': {'minutes': a['url']},
+                'file': f'Data/{folder}/{os.path.basename(dst)}', 'ocr': a['ocr'], 'text': a['text'],
+            }
+            seen[(typ, d)] = rec
+            out.append(rec)
     out.sort(key=lambda r: r['date'], reverse=True)
     # mezery v číslování ZM
     gaps = {}
