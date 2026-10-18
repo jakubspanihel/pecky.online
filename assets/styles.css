@@ -152,8 +152,8 @@
   }
   /* sekundární menu (začátek patičky): nenápadné, jen podtržení */
   nav.tabs-secondary{padding-top:var(--space-6); padding-bottom:var(--space-1); gap:var(--space-8);}
-  .tabs-secondary .navlink{border:none; background:none; text-decoration:underline; padding:var(--space-2) 2px;}
-  .tabs-secondary .navlink:hover{text-decoration:underline;}
+  .tabs-secondary{justify-content:center;}
+  .tabs-secondary .navlink-more{padding:var(--space-4) var(--space-9);}
   .tabs-secondary .navlink.active{border:none;}
   .navlink:hover{color:var(--ink); border-color:var(--ink-soft); text-decoration:none;}
   .navlink.active{color:var(--burgundy); border-color:var(--burgundy); font-weight:var(--fw-semibold);}

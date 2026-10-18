@@ -23,9 +23,11 @@
   home.href = '/';
   home.textContent = 'Hlavní stránka';
   colMain.appendChild(home);
-  document.querySelectorAll('#tabs a.navlink, #tabsSecondary .navlink').forEach(a => {
+  const sec = document.getElementById('overlaySecondary');
+  const items = [...document.querySelectorAll('#tabs a.navlink'), ...(sec ? sec.content.querySelectorAll('a.navlink') : [])];
+  items.forEach(a => {
     const clone = a.cloneNode(true);
-    if (a.closest('#tabsSecondary')) {
+    if (sec && sec.content.contains(a)) {
       clone.classList.add('secondary');
       if (!colMore.firstChild) {
         const label = document.createElement('div');
@@ -52,6 +54,8 @@
   const open = () => { overlay.hidden = false; document.body.style.overflow = 'hidden'; };
   const close = () => { overlay.hidden = true; document.body.style.overflow = ''; };
   fab.addEventListener('click', open);
+  const footFab = document.getElementById('footMenu');
+  if (footFab) footFab.addEventListener('click', open);
   closeBtn.addEventListener('click', close);
   overlay.addEventListener('click', e => { if (e.target === overlay) close(); });
   document.addEventListener('keydown', e => { if (e.key === 'Escape' && !overlay.hidden) close(); });
