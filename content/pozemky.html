@@ -5,6 +5,7 @@
     <div class="list-control">
       <div class="search-bar">
         <input type="search" id="pozemky-search" placeholder="Hledat" autocomplete="off" aria-label="Hledat v pozemcích">
+        <button type="button" class="text-toggle" id="pozemky-copy" title="Zkopírovat odkaz na tyto výsledky" hidden>Kopírovat odkaz</button>
       </div>
     </div>
     <h3 class="search-status" id="pozemky-status" hidden></h3>
@@ -282,7 +283,23 @@
         status.textContent = 'Nalezeno — ' + counts.join(', ');
         status.hidden = false;
       }
-      input.addEventListener('input', apply);
+      // hledaný výraz je v URL jako ?q=…, ať jde odkaz zkopírovat z adresního řádku nebo tlačítkem
+      const copyBtn = document.getElementById('pozemky-copy');
+      function syncUrl(){
+        const q = input.value.trim();
+        const url = new URL(location.href);
+        if (q) url.searchParams.set('q', q); else url.searchParams.delete('q');
+        try { history.replaceState(null, '', url.pathname + url.search + url.hash); } catch (e) { /* bez úpravy URL */ }
+        copyBtn.hidden = !q;
+      }
+      input.addEventListener('input', () => { apply(); syncUrl(); });
+      copyBtn.addEventListener('click', () => {
+        const done = () => { copyBtn.textContent = 'Zkopírováno'; setTimeout(() => { copyBtn.textContent = 'Kopírovat odkaz'; }, 1800); };
+        if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(location.href).then(done, () => window.prompt('Odkaz:', location.href));
+        else window.prompt('Odkaz:', location.href);
+      });
+      const initial = new URLSearchParams(location.search).get('q');
+      if (initial) { input.value = initial; apply(); syncUrl(); }
     })();
     </script>
   </section>

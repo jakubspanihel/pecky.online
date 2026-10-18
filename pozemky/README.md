@@ -26,7 +26,7 @@ duplikace/kopírování mezi složkami.
 ## Vyhledávání
 Pole „Hledat“ nad tabulkami (`#pozemky-search`, inline `<script>` na konci `content/pozemky.html`) filtruje řádky Nákupu i Prodeje
 najednou — všechna slova musí být v řádku (parcela, katastr, název bodu, cena, datum), bez ohledu na diakritiku. Pod polem je
-počet shod v obou tabulkách. Skript `update-pozemky.py` přepisuje jen tabulky, vyhledávání zůstává.
+počet shod v obou tabulkách. Hledaný výraz se zapisuje do URL jako `?q=…` (`/pozemky/?q=chvalovice`, funguje i s `#prodej`); tlačítko „Kopírovat odkaz“ ho zkopíruje a odkaz po otevření výraz rovnou vyhledá. Skript `update-pozemky.py` přepisuje jen tabulky, vyhledávání zůstává.
 
 ## Starší jednání (od 18. 10. 2026)
 Do tabulek vstupují i body ze zápisů a usnesení před usneseni.cz (`jednani/starsi-jednani.json`: úřední deska + archiv města,
