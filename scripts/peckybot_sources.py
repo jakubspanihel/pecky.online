@@ -627,9 +627,86 @@ def chunks_shrnuti():
     return out
 
 
+# ---------------------------------------------------------------- 7. voda
+
+def _cz_m(iso):
+    return cz(iso) if iso.count('-') == 2 else f"{MESICE_1P[int(iso[5:7]) - 1]} {iso[:4]}"
+
+
+def _kc(x):
+    return f'{x:.2f}'.replace('.', ',') if x is not None else None
+
+
+def _vod_blok(d, nazev, url, tema):
+    """Úpravna vody / vodojem: fakta, text, mezery a časová osa (nejnovější první)."""
+    out = []
+    zahl = f'Voda, vodní hospodářství — {nazev}.'
+    kusy = [f"{f['label']}: {f['value']}." for f in d['summary']['facts']]
+    kusy += d['summary']['text']
+    for x in _pack(zahl, kusy, MAX + 150):
+        out.append({'u': url, 't': f'Voda — {nazev}', 'x': x})
+    gaps = d['summary'].get('gaps') or []
+    for x in _pack(f'{zahl} Co ve zdrojích chybí:', gaps, MAX + 150):
+        out.append({'u': url, 't': f'Voda — {nazev} — mezery ve zdrojích', 'x': x})
+    kusy = []
+    for e in sorted(d['events'], key=lambda e: e['date'], reverse=True):
+        zdroje = ', '.join(z['label'] for z in e.get('sources', []))
+        kusy.append(f"{e['date']}: {e['title']}. {e['text']}" + (f' ({zdroje})' if zdroje else ''))
+    for x in _pack(f'Voda — {nazev} — historie, časová osa, co se kdy stalo:', kusy, MAX + 150):
+        out.append({'u': url, 't': f'Voda — {nazev} — časová osa', 'x': x})
+    return out
+
+
+def chunks_voda():
+    out = []
+    ceny = _load('voda/ceny.json')
+    roky = ceny['years']
+    nej = roky[0]
+    it = nej['items']
+    out.append({'u': '/voda/', 't': 'Voda — cena vodného a stočného', 'x': (
+        f"Kolik stojí voda v Pečkách: cena vodného a stočného, ceník, cena za metr krychlový (m3), "
+        f"kolik platí domácnost. Od 1. 1. {nej['year']} vodné {_kc(it['vodne']['s_dph'])} Kč/m³ s DPH "
+        f"({_kc(it['vodne']['bez_dph'])} bez DPH), stočné {_kc(it['stocne']['s_dph'])} Kč/m³ s DPH "
+        f"({_kc(it['stocne']['bez_dph'])} bez DPH), celkem {_kc(it['celkem']['s_dph'])} Kč/m³ s DPH "
+        f"({_kc(it['celkem']['bez_dph'])} bez DPH), DPH {nej['vat_rate']} %. "
+        f"{nej.get('note', '')} Provozovatel: Pečecké služby, s.r.o.")})
+    radky = []
+    for y in roky:
+        i = y['items']
+        s_dph = (f"s DPH vodné {_kc(i['vodne']['s_dph'])}, stočné {_kc(i['stocne']['s_dph'])}, celkem {_kc(i['celkem']['s_dph'])} Kč/m³, "
+                 if i['celkem']['s_dph'] is not None else '')
+        radky.append(f"Rok {y['year']}: {s_dph}bez DPH vodné {_kc(i['vodne']['bez_dph'])}, stočné "
+                     f"{_kc(i['stocne']['bez_dph'])}, celkem {_kc(i['celkem']['bez_dph'])} Kč/m³."
+                     + (f" {y['note']}" if y.get('note') else '') + f" Zdroj: {y['source']['label']}.")
+    for x in _pack('Historie ceny vodného a stočného podle let, vývoj ceny vody, ceník (Kč za m³):', radky, MAX + 250):
+        out.append({'u': '/voda/', 't': 'Voda — historie ceníku vodného a stočného', 'x': x})
+    if ceny.get('gaps'):
+        out.append({'u': '/voda/', 't': 'Voda — ceník: chybějící roky',
+                    'x': _clip('Ceník vodného a stočného, chybějící roky: ' + ceny['gaps'], MAX + 150)})
+    out += _vod_blok(_load('voda/upravna.json'), 'Úpravna vody Pečky, zdroj Tatce', '/voda/#upravna', 'upravna')
+    out += _vod_blok(_load('voda/vodojem.json'), 'Věžový vodojem Pečky (vodárna)', '/voda/#vodojem', 'vodojem')
+    vz = _load('voda/rozbory.json')['samples']
+    vz = sorted(vz, key=lambda v: v['date'])
+    nej_v = vz[-1]
+    zahl = (f"Rozbory pitné vody, kvalita vody v Pečkách, laboratorní protokoly: {len(vz)} protokolů od {_cz_m(vz[0]['date'])} "
+            f"do {_cz_m(nej_v['date'])}, laboratoř Vodohospodářská společnost Vrchlice – Maleč, objednatel Pečecké služby.")
+    out.append({'u': '/voda/#rozbory', 't': 'Voda — rozbory pitné vody', 'x': zahl})
+    kusy = []
+    for v in reversed(vz):
+        pr = v['params']
+        mimo = [k for k, p in pr.items() if p.get('ok') is False]
+        zn = lambda k: (f"{k} {str(pr[k]['v']).replace('.', ',')} {pr[k].get('u', '')}" if k in pr else None)
+        klic = ', '.join(x for x in (zn('Dusičnany'), zn('Sírany'), zn('Suma vápníku a hořčíku'), zn('pH')) if x)
+        kusy.append(f"{_cz_m(v['date'])}, {v['misto']} (protokol {v['protokol']}): {klic or 'viz PDF'}; "
+                    + (f"mimo limit: {', '.join(mimo)}." if mimo else 'všechny hodnocené ukazatele v limitu.'))
+    for x in _pack('Rozbory pitné vody podle data odběru, od nejnovějšího (tvrdost, dusičnany, sírany, limity):', kusy, MAX + 250):
+        out.append({'u': '/voda/#rozbory', 't': 'Voda — rozbory pitné vody podle data', 'x': x})
+    return out
+
+
 def chunks_extra():
     out = []
     for fn in (chunks_komise, chunks_vybory, chunks_skolska_rada, chunks_kalendar, chunks_organizace,
-               chunks_noviny, chunks_noviny_pravidla, chunks_naobed, chunks_absence, chunks_shrnuti):
+               chunks_noviny, chunks_noviny_pravidla, chunks_naobed, chunks_absence, chunks_shrnuti, chunks_voda):
         out += fn()
     return out

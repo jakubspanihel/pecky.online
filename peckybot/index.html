@@ -54,7 +54,8 @@
         <button type="button" class="pb-chip">Jak to vypadá se stavbou tělocvičny?</button>
         <button type="button" class="pb-chip">Co naposledy řešila Rada města?</button>
         <button type="button" class="pb-chip">O čem se mluvilo na posledním zastupitelstvu?</button>
-        <button type="button" class="pb-chip">Jaké pozemky město prodává?</button>
+        <button type="button" class="pb-chip">Jak se vyvíjela cena vody?</button>
+        <button type="button" class="pb-chip">Co je nového na úřední desce?</button>
       </div>
 
       <form class="pb-form" id="pb-form" autocomplete="off">
@@ -70,7 +71,7 @@
   <style>
     a.overlay-close{display:inline-block; text-decoration:none;}
     #panel-peckybot{padding-top:44px; padding-bottom:80px;}
-    .pb-chat{margin-top:18px; max-width:760px;}
+    .pb-chat{margin-top:18px; max-width:760px; display:flex; flex-direction:column; min-height:calc(100vh - 230px);}
     .pb-log{display:flex; flex-direction:column; gap:14px; margin-bottom:16px;}
     .pb-msg{display:flex; gap:12px; align-items:flex-start;}
     .pb-msg.pb-user{flex-direction:row-reverse;}
@@ -88,8 +89,8 @@
     .pb-bubble a.pb-ref{font-size:12px; vertical-align:super; text-decoration:none; font-weight:600; padding:0 1px;}
     .pb-zdroje{margin:10px 0 0; padding:8px 0 0; border-top:1px solid var(--line); font-size:13px; color:var(--ink-soft); list-style:none;}
     .pb-zdroje li{margin:2px 0;}
-    .pb-examples{display:flex; flex-wrap:wrap; gap:8px; margin:0 0 14px;}
-    .pb-chip{font:inherit; font-size:13px; padding:6px 12px; border-radius:16px; border:1px solid var(--line); background:var(--material); color:var(--ink); cursor:pointer;}
+    .pb-examples{display:flex; flex-direction:column; align-items:flex-start; gap:10px; margin:auto 0 14px; padding-top:16px;}
+    .pb-chip{font:inherit; font-size:16px; padding:9px 16px; border-radius:20px; border:1px solid var(--line); background:var(--material); color:var(--ink); cursor:pointer; text-align:left;}
     .pb-chip:hover{border-color:var(--burgundy); color:var(--burgundy);}
     .pb-form{position:fixed; z-index:100; left:0; right:0; bottom:0; padding:12px 16px; background:var(--material-deep); border-top:1px solid var(--line);}
     .pb-privacy{max-width:760px; margin:6px auto 0; font-size:12px; line-height:1.4; color:var(--ink-soft);}
@@ -128,6 +129,36 @@
       log.appendChild(d);
       d.scrollIntoView({block: 'nearest', behavior: 'smooth'});
       return d;
+    }
+
+    // Graf ceníku vodného a stočného pod odpovědí, když odpověď cituje zdroj o ceně vody (data: /voda/ceny.json).
+    function vodaGraf(el) {
+      fetch('/voda/ceny.json').then(function (r) { return r.json(); }).then(function (d) {
+        var asc = d.years.filter(function (y) { return y.items.celkem.s_dph != null; }).sort(function (a, b) { return a.year - b.year; });
+        if (asc.length < 2) return;
+        var S = [{k: 'celkem', l: 'Celkem', c: 'var(--burgundy)'}, {k: 'vodne', l: 'Vodné', c: 'var(--cyan-deep)'}, {k: 'stocne', l: 'Stočné', c: 'var(--ink-soft)'}];
+        var W = 640, H = 280, L = 48, R = 56, T = 22, B = 30, y0 = asc[0].year, y1 = asc[asc.length - 1].year, max = 0;
+        asc.forEach(function (y) { max = Math.max(max, y.items.celkem.s_dph); });
+        var top = Math.ceil(max / 40) * 40;
+        function X(yr) { return L + (yr - y0) * (W - L - R) / (y1 - y0); }
+        function Y(v) { return T + (1 - v / top) * (H - T - B); }
+        var o = '<svg viewBox="0 0 ' + W + ' ' + H + '" style="width:100%;height:auto;font-size:12px;" role="img" aria-label="Graf vývoje ceny vodného, stočného a celkové ceny s DPH podle let">';
+        for (var v = 0; v <= top; v += 40) o += '<line x1="' + L + '" x2="' + (W - R) + '" y1="' + Y(v) + '" y2="' + Y(v) + '" stroke="var(--line)"/><text x="' + (L - 8) + '" y="' + (Y(v) + 4) + '" text-anchor="end" fill="var(--ink-soft)">' + v + '</text>';
+        o += '<text x="' + L + '" y="' + (T - 10) + '" fill="var(--ink-soft)">Kč/m³ s DPH</text>';
+        for (var yr = y0; yr <= y1; yr++) if ((y1 - yr) % 2 === 0) o += '<text x="' + X(yr) + '" y="' + (H - 8) + '" text-anchor="middle" fill="var(--ink-soft)">' + yr + '</text>';
+        S.forEach(function (se) {
+          var pts = asc.filter(function (y) { return y.items[se.k].s_dph != null; });
+          for (var i = 1; i < pts.length; i++) o += '<line x1="' + X(pts[i - 1].year) + '" y1="' + Y(pts[i - 1].items[se.k].s_dph) + '" x2="' + X(pts[i].year) + '" y2="' + Y(pts[i].items[se.k].s_dph) + '" stroke="' + se.c + '" stroke-width="2.5"' + (pts[i].year - pts[i - 1].year > 1 ? ' stroke-dasharray="2 6" stroke-linecap="round"' : '') + '/>';
+          pts.forEach(function (y) { o += '<circle cx="' + X(y.year) + '" cy="' + Y(y.items[se.k].s_dph) + '" r="3.5" fill="' + se.c + '"><title>' + se.l + ' ' + y.year + ': ' + y.items[se.k].s_dph.toFixed(2).replace('.', ',') + ' Kč/m³ s DPH</title></circle>'; });
+          var la = pts[pts.length - 1];
+          o += '<text x="' + (X(la.year) + 8) + '" y="' + (Y(la.items[se.k].s_dph) + 4) + '" fill="' + se.c + '" font-weight="700">' + la.items[se.k].s_dph.toFixed(2).replace('.', ',') + '</text>';
+        });
+        o += '</svg>';
+        var leg = S.map(function (se) { return '<span><span style="display:inline-block;width:10px;height:10px;border-radius:50%;background:' + se.c + ';margin-right:6px;"></span>' + se.l + '</span>'; }).join('');
+        var b = el.querySelector('.pb-bubble'), z = b.querySelector('.pb-zdroje'), w = document.createElement('div');
+        w.innerHTML = '<h4 style="margin:12px 0 4px;">Vývoj ceny vody s DPH</h4>' + o + '<div class="chart-legend">' + leg + '<span>Tečkovaná čára = roky bez údaje</span></div>';
+        b.insertBefore(w, z);
+      }).catch(function () {});
     }
 
     // Odpověď modelu: jednoduché formátování (tučné **x**, kurzíva *x*, odrážky „- “, číslovaný seznam „1. “)
@@ -302,6 +333,7 @@
         }
         history.push({role: 'assistant', content: res.body.answer});
         var el = addMsg('bot', renderAnswer(res.body.answer, res.body.sources || []));
+        if ((res.body.sources || []).some(function (x) { return /^\/voda\//.test(x.url) && /cen[auí]|ceník/i.test(x.title); })) vodaGraf(el);
         if (res.body.id) addVote(el, res.body.id);
       }).catch(function () {
         thinking.remove();

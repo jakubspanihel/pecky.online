@@ -42,6 +42,7 @@ Zdroje, které generuje `scripts/build_peckybot_index.py` (jednání, lidé, sek
 - **Na oběd**: restaurace a další podniky s adresou, telefonem a hodinami (bez menu)
 - **shrnutí jednání** (`jednani/shrnuti/*.md`, od 15. 10. 2026): nejdůležitější témata a shrnutí jednání; v `cti_dokument` jako pole `shrnuti_jednani`
 - **absence zastupitelů** (`jednani/absence.json`)
+- **voda** (`voda/ceny.json`, `upravna.json`, `vodojem.json`, `rozbory.json`, od 18. 10. 2026): aktuální cena vodného a stočného, historie ceníku po letech (a chybějící roky), úpravna vody a vodojem (fakta, mezery, časová osa), přehled rozborů pitné vody; generuje `chunks_voda()` v `scripts/peckybot_sources.py`; odkazy `/voda/`
 
 Mimo index zůstává úřední deska, plné texty novin a denní menu. Na dotazy k novinám PečkyBot podle `worker/src/prompt.ts` vždy uvede, že má jen úvodní stránky čísel, ne celé texty (Pravidla pro vydávání jsou výjimka). Odpověď vzniká ze 8 úryvků, takže PečkyBot **nespočítá a nesečte** (na „kolik…“ nedá spolehlivý počet).
 Index se přegeneruje při každém `python3 scripts/build.py`; kolik úryvků se zapsalo,
