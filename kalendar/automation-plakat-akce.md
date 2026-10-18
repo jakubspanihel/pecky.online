@@ -193,6 +193,15 @@ Shoda se hledá podle dvojice `date` + název:
   od 15:00) → jeden záznam podle samostatného plakátu, rozpor do `note`,
   oba doklady do `evidence`. Dva záznamy na tutéž akci nezakládej.
 
+**Akce už v `akce.json` je, jiný zdroj ji jen zmiňuje → hlavním zdrojem
+(`evidence[0]`, tedy i `link`) je vždy oficiální kalendář města
+[pecky.cz/default/events](https://pecky.cz/default/events) (záznamy
+`/default/report/<id>_<slug>`), pokud tam akce je.** Doklad z pecky.cz se
+vloží na první místo, dosavadní doklady (plakát, Facebook událost) zůstanou
+za ním. Důvod: odkazy na Facebook (`facebook.com/photo/?fbid=…`) bez
+přihlášení nefungují. Před zapsáním ověřit, že datum a čas na pecky.cz
+sedí; při rozporu platí pořadí níže.
+
 **Pořadí zdrojů při rozporu:** vlastní kanál pořadatele → oficiální web
 města → zpravodaj nebo tisk → přepis třetí strany. Mezi doklady téže
 úrovně vyhrává novější podle `published`. První položka `evidence` je vždy

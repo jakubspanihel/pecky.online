@@ -74,6 +74,11 @@ příslušný `content/<sekce>.html` a přepsat všechny odkazy, pak spustit
   → PDF `/noviny/Data/PN%20RRRR/<slug>.pdf[#page=N]` (slug z `noviny/issues.json`,
   generuje build). Texty z JSON dat (Lidé: poznámky, bio, zdroj fotky) se
   odkazují v JS přes `jLinkRefs()` v `assets/helpers.js`; ve statickém HTML ručně.
+- **Akce v Kalendáři: hlavní zdroj je pecky.cz.** Když jakýkoli zdroj zmiňuje
+  akci, která v `kalendar/akce.json` už existuje, a stejná akce je v kalendáři
+  města (`pecky.cz/default/events`, `/default/report/<id>_<slug>`), přidat tento
+  doklad jako `evidence[0]` (z něj se bere `link`); starší doklady zůstanou za ním.
+  Postup: `kalendar/automation-plakat-akce.md`, krok „Pořadí zdrojů“.
 - **Zmínky konkrétního příspěvku/zdroje v textu** („3. 9. 2026, na Facebooku
   města“, „podle příspěvku na Facebooku“) jsou odkazem na ten příspěvek
   (URL z řádku/štítku vedle); formulace se liší, hledat i varianty.
