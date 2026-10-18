@@ -1,10 +1,8 @@
   <section class="panel active" id="panel-peckybot">
-    <a class="overlay-close" href="/" aria-label="Zavřít a přejít na hlavní stránku">Zavřít</a>
-
     <div class="pb-chat" id="pb-chat">
       <div class="pb-log" id="pb-log" role="log" aria-live="polite" aria-label="Konverzace s PečkyBotem">
         <div class="pb-msg pb-bot">
-          <img class="pb-avatar" src="/img/peckybot/welcome.png" alt="" width="44" height="44">
+          <span class="pb-avatar"><a class="pb-home" href="/" aria-label="Zavřít PečkyBota a přejít na hlavní stránku" title="Zavřít"><img src="/img/peckybot/welcome.png" alt="" width="44" height="44"></a></span>
           <div class="pb-bubble pb-welcome">Ahoj, já jsem PečkyBot.</div>
         </div>
       </div>
@@ -30,12 +28,14 @@
   </section>
 
   <style>
-    a.overlay-close{display:inline-block; text-decoration:none;}
     #panel-peckybot{padding-top:44px; padding-bottom:80px;}
     .pb-chat{margin-top:18px; max-width:760px; display:flex; flex-direction:column; min-height:calc(100vh - 230px);}
     .pb-log{display:flex; flex-direction:column; gap:14px; margin-bottom:16px;}
     .pb-msg{display:flex; gap:12px; align-items:flex-start;}
     .pb-msg.pb-user{flex-direction:row-reverse;}
+    .pb-home{position:fixed; z-index:101; top:12px; display:block; width:52px; height:52px;}
+    .pb-home img{display:block; width:100%; height:100%; object-fit:contain;}
+    .pb-home:hover{filter:brightness(1.1);}
     .pb-avatar{flex:0 0 44px; width:44px; height:44px; object-fit:contain;}
     .pb-bubble{background:var(--material); border:1px solid var(--line); border-radius:6px; padding:11px 15px; font-size:15px; line-height:1.55; color:var(--ink); max-width:100%; overflow-wrap:anywhere;}
     .pb-user .pb-bubble{background:var(--material-deep);}
