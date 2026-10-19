@@ -1101,7 +1101,7 @@ def _dash_kalendar(dnes):
                '>Žádná nadcházející akce zatím není v kalendáři zapsaná.</li>')
     out.append('  </ul>')
     # odkaz vede na skupinu „Další akce“ v seznamu Kalendáře; měsíc v odkazu přepíše common.js podle dnešního dne
-    out.append(f'  <a class="dash-more dash-more--center" data-kal-dalsi href="/kalendar/#{dnes[:7]}/seznam/dalsi">Celý kalendář ...</a>')
+    out.append(f'  <a class="dash-more dash-more--center" href="/kalendar/">Celý kalendář ...</a>')
     return _dash_card('Aktuality', '/kalendar/', None, '\n'.join(out), 'kalendar', head_link='📅 Celý kalendář')
 
 

@@ -215,13 +215,13 @@
   .kal-find-btn:hover:not(.active){background:var(--cyan-deep-a08);}
   .kal-find-btn.active{background:var(--cyan-deep); color:var(--white);}
   .kal-find-btn.has-filter::after{content:''; position:absolute; top:-3px; right:-3px; width:8px; height:8px; border-radius:var(--radius-round); background:var(--burgundy);}
-  .kal-searchrow[hidden]{display:none;}
+  .kal-searchrow[hidden], .kal-filters-box[hidden]{display:none;}
   .kal-clear{margin:0; padding:0; min-height:0; color:var(--burgundy);}
   .kal-clear:hover{color:var(--burgundy-deep);}
   .kal-clear[hidden]{display:none;}
   .kal-org-source{flex:1 1 100%; margin:0; padding:var(--space-3) var(--space-5); background:var(--material-deep); border-radius:var(--radius-sm);}
   .kal-org-source[hidden]{display:none;}
-  #kal-filters{position:sticky; top:calc(var(--nav-h,0px) + var(--kal-toolbar-h,0px)); z-index:8; background:var(--material-deep); margin:var(--space-2) 0 var(--space-5); padding:var(--space-11) var(--space-13);}
+  #kal-filters{scroll-margin-top:calc(var(--nav-h,0px) + var(--kal-toolbar-h,0px) + var(--space-2)); position:relative; background:var(--material-deep); margin:var(--space-2) 0 var(--space-5); padding:var(--space-11) var(--space-13);}
   .kal-ico{vertical-align:-2px; margin-right:var(--space-2); flex-shrink:0;}
   .kal-toolbar .kal-ico{vertical-align:-2px; margin-right:var(--space-2);}
   .search-bar #lide-filter-toggle{align-items:center; box-sizing:border-box; min-height:var(--ctl-h); padding:0 11px; border-radius:var(--radius-sm); text-decoration:none; font-size:var(--fs-4); border:1px solid transparent;}
@@ -252,7 +252,7 @@
   .kal-searchrow .kal-org-chk:has(input:checked){background:var(--org-c-bg,rgba(0,115,143,0.12));}
   .kal-banner{display:flex; align-items:stretch; justify-content:space-between; gap:var(--space-11); margin:28px 0 var(--space-3); padding:var(--space-12) var(--space-13) 0; background:linear-gradient(135deg,var(--banner-from,var(--burgundy)) 0%,var(--banner-to,var(--burgundy-deep)) 100%); color:var(--banner-fg,var(--white)); border-radius:var(--radius-xl); overflow:hidden; box-shadow:var(--shadow-banner); position:relative;}
   .kal-banner[hidden], .kal-banner-min[hidden]{display:none;}
-  .kal-filters-close{position:absolute; top:var(--space-4); right:var(--space-5); width:32px; height:32px; padding:0; border:0; border-radius:var(--radius-round); background:rgba(0,0,0,0.08); color:var(--ink); font-size:22px; line-height:1; cursor:pointer;}
+  .kal-filters-close{position:sticky; top:calc(var(--nav-h,0px) + var(--kal-toolbar-h,0px) + var(--space-4)); z-index:9; display:block; margin:calc(var(--space-4) - var(--space-11)) calc(var(--space-5) - var(--space-13)) calc(var(--space-11) - var(--space-4) - 32px) auto; width:32px; height:32px; padding:0; border:0; border-radius:var(--radius-round); background:rgba(0,0,0,0.08); color:var(--ink); font-size:22px; line-height:1; cursor:pointer;}
   .kal-filters-close:hover{background:rgba(0,0,0,0.16);}
   .kal-dalsi-mesic{margin:var(--space-11) 0 0; text-align:center;}
   .kal-dalsi-mesic-btn{box-sizing:border-box; height:var(--ctl-h); padding:0 var(--space-9); border:1px solid var(--cyan-deep); border-radius:var(--radius-sm); background:none; color:var(--cyan-deep); font-family:var(--font-mono); font-size:var(--fs-4); cursor:pointer;}
@@ -1164,6 +1164,8 @@
   .akce-karta.akce-blok-vybor .ev-time{color:var(--ink);}
   .akce-den, .dash-akce .dash-den{position:sticky; top:var(--kal-3dny-top,0px); z-index:7; display:flex; flex-wrap:wrap; align-items:center; gap:var(--space-2) var(--space-4); margin:var(--space-6) 0 var(--space-3); padding:var(--space-3) 0; background:var(--material); border-bottom:1px solid var(--line); font-size:var(--fs-10); font-weight:var(--fw-semibold); text-transform:none; letter-spacing:0;}
   .dash-akce .dash-den{top:calc(var(--nav-h,0px) + var(--dash-head-h,0px)); margin:var(--space-2) 0 0; padding-inline:var(--space-5); list-style:none;}
+  .dash-den .dash-den-kal{margin-left:auto; text-decoration:none; font-size:var(--fs-title-mobile); line-height:1;}
+  .dash-den .dash-den-kal:hover{opacity:.7;}
   .akce-skupina + .akce-den{margin-top:var(--space-3);}
   .akce-den .k3-den, .dash-den .k3-den{font-family:var(--font-banner); font-weight:var(--fw-bold); color:var(--ink);}
   .akce-den .k3-den, .dash-den .k3-den{font-size:var(--fs-title-mobile); line-height:1.2;}

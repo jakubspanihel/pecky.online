@@ -106,7 +106,7 @@
         <button type="button" class="segmented-btn" id="kal-3dny-next" title="Dalších 3 dny" aria-label="Dalších 3 dny"><svg class="kal-ico" viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3l5 5-5 5"/></svg></button>
       </div>
       <button type="button" class="text-toggle kal-3dny-dnes" id="kal-3dny-dnes" hidden>Dnes</button>
-      <button type="button" class="kal-find-btn" id="kal-find-toggle" title="Hledat a filtrovat" aria-label="Hledat a filtrovat" aria-expanded="false" aria-controls="kal-filters"><svg class="kal-ico" viewBox="0 0 16 16" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="7" cy="7" r="4.5"/><path d="M10.5 10.5L14 14"/></svg></button>
+      <button type="button" class="kal-find-btn" id="kal-find-toggle" title="Filtr" aria-label="Filtr" aria-expanded="false" aria-controls="kal-filters"><svg class="kal-ico" viewBox="0 0 16 16" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 3h12l-4.5 5.5V13l-3-1.5V8.5z"/></svg></button>
       <div class="segmented-more kal-view-pick" id="kal-view-pick">
         <button type="button" class="kal-view-btn" id="kal-view-btn" aria-haspopup="true" aria-expanded="false" aria-label="Zvolit zobrazení"><span id="kal-view-ico"></span><span id="kal-view-label">3 dny</span><svg class="kal-chevron" viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.5 6l4.5 4.5L12.5 6"/></svg></button>
         <div class="segmented-menu kal-view-menu" id="kal-view-menu" role="menu" hidden>
@@ -117,13 +117,15 @@
       </div>
     </div>
 
-    <div class="kal-searchrow" id="kal-filters" hidden>
+    <div class="kal-filters-box" id="kal-filters" hidden>
       <button type="button" class="kal-filters-close" id="kal-filters-close" aria-label="Zavřít filtry" title="Zavřít">×</button>
+      <div class="kal-searchrow">
       <label class="checkbox-label" id="kal-only-future-label"><input type="checkbox" id="kal-only-future" autocomplete="off"> Jen budoucí</label>
       <div class="kal-org-list" id="kal-org-list" role="group" aria-label="Pořadatelé" hidden></div>
       <input type="search" id="kal-search" class="kal-search" autocomplete="off" placeholder="Hledat" autocomplete="off" aria-label="Hledat v kalendáři">
       <button type="button" class="text-toggle kal-clear" id="kal-clear" hidden>Vymazat filtry</button>
       <p class="meta-note kal-org-source" id="kal-org-source" hidden></p>
+      </div>
     </div>
 
     <p class="search-status" id="kal-status">Načítám kalendář…</p>
@@ -224,9 +226,16 @@
     const hay = kalNorm([e.title, e.description, e.place, e.note, e.tag, e.organizer_name, e.time].join(' '));
     return KAL_QUERY.split(/\s+/).every(w => hay.includes(w));
   }
+  // dnešní akce se zadaným časem, která začala před víc než 2 hodinami
+  function kalSkoncila(e){
+    if (!e.time || (e.date_end || e.date) !== KAL_TODAY_STR || e.date !== KAL_TODAY_STR) return false;
+    const [h, m] = e.time.split(':').map(Number);
+    const ted = new Date();
+    return ted.getHours() * 60 + ted.getMinutes() - (h * 60 + m) > 120;
+  }
   function kalVidet(e){
     return kalShoda(e) && kalOrgOk(e) &&
-      (!KAL_ONLY_FUTURE || (e.date_end || e.date) >= KAL_TODAY_STR);
+      (!KAL_ONLY_FUTURE || ((e.date_end || e.date) >= KAL_TODAY_STR && !kalSkoncila(e)));
   }
   function kalPad(n){ return String(n).padStart(2, '0'); }
   function kalDateStr(y, m, d){ return `${y}-${kalPad(m + 1)}-${kalPad(d)}`; }
@@ -461,7 +470,7 @@
       const chip = n >= 0 && n <= 2
         ? `<span class="tag ${n === 0 ? 'kal-dnes' : 'probiha'}" title="${ds}">${['dnes', 'zítra', 'pozítří'][n]}</span>` : '';
       hd += `<th><a class="akce-den-odkaz" href="/kalendar/insta.html#${ds}" title="Otevřít den jako obrázek pro Instagram">${chip}<b class="k3-den">${den}</b><span class="k3-datum">${x.getDate()}. ${x.getMonth() + 1}.</span></a></th>`;
-      const zaklad = (KAL_EVENTS_BY_DATE[ds] || []).filter(e => kalShoda(e) && kalOrgOk(e));
+      const zaklad = (KAL_EVENTS_BY_DATE[ds] || []).filter(kalVidet);
       const evs = zaklad
         .sort((a, b) => (!!b.time - !!a.time) || (a.time || '').localeCompare(b.time || ''));
       const karta = e => {
@@ -516,10 +525,8 @@
       .filter(e => e.date.slice(0, 7) === ym ||
         (jeTentoMesic && e.date < KAL_TODAY_STR && konec(e) >= KAL_TODAY_STR));
     const vsechny = zaklad.filter(kalVidet);
-    // pravidelné (kurzy, tréninky) se vypisují samostatně až na konci
-    const evs = vsechny.filter(e => e.category !== 'kurz');
-    const pravidelne = vsechny.filter(e => e.category === 'kurz')
-      .sort((a, b) => a.date.localeCompare(b.date) || poCase(a, b));
+    // pravidelné (kurzy, tréninky) jsou řazené mezi ostatními akcemi podle dne a času
+    const evs = vsechny;
 
     if (!vsechny.length) {
       list.innerHTML = '<div class="callout">Pro zvolený filtr a měsíc nejsou žádné akce.</div>' + kalDalsiMesicBtn();
@@ -589,7 +596,7 @@
     list.innerHTML = skupiny.filter(g => g[2].length).map(([nadpis, kod, pole]) =>
       (nadpis && kod !== 'dnes' ? `<h4 class="akce-skupina" data-skupina="${kod}">${nadpis}</h4>` : '') +
       bloky(pole, kod)).join('') +
-      kalPravidelneBlok(pravidelne.length ? bloky(pravidelne, 'dalsi') : '', '') + kalDalsiMesicBtn();
+      kalDalsiMesicBtn();
     list.querySelectorAll('.akce-info').forEach(btn => {
       btn.addEventListener('click', () => {
         const pozn = btn.closest('.akce-karta').querySelector('.akce-pozn');
@@ -623,7 +630,6 @@
     const t3 = document.getElementById('kal-3dny');
     document.querySelector('#panel-kalendar .kal-month-pick').style.display = view === '3dny' ? 'none' : '';
     document.getElementById('kal-3dny-nav').hidden = view !== '3dny';
-    document.getElementById('kal-only-future-label').hidden = view === '3dny';   // pohled „3 dny“ vždy ukazuje i proběhlé dny
     document.getElementById('kal-3dny-dnes').hidden = view !== '3dny' || KAL_3DNY_OFFSET === 0;
     grid.style.display = list.style.display = t3.style.display = 'none';
     if (view === 'seznam') {
@@ -734,12 +740,11 @@
   document.addEventListener('click', kalMonthMenuClose);
   document.addEventListener('keydown', e => { if (e.key === 'Escape') kalMonthMenuClose(); });
 
-  // Záhlaví tabulky „3 dny“ se přilepí pod menu, lištu nástrojů a (je-li otevřený) panel filtrů
+  // Záhlaví tabulky „3 dny“ se přilepí pod menu, lištu nástrojů (panel filtrů je v toku stránky a odroluje se)
   function kalStickyZahlavi(){
-    const f = document.getElementById('kal-filters');
     const nav = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--nav-h')) || 0;
     const bar = document.querySelector('#panel-kalendar .kal-toolbar').offsetHeight;
-    const top = (nav + bar + (f.hidden ? 0 : f.offsetHeight)) + 'px';
+    const top = (nav + bar) + 'px';
     document.getElementById('kal-3dny').style.setProperty('--kal-3dny-top', top);
     document.getElementById('kal-list').style.setProperty('--kal-3dny-top', top);
   }
@@ -809,7 +814,7 @@
     this.classList.toggle('active', !box.hidden);
     this.setAttribute('aria-expanded', String(!box.hidden));
     kalStickyZahlavi();
-    if (!box.hidden) document.getElementById('kal-search').focus();
+    if (!box.hidden) box.scrollIntoView({ block: 'start' });
   });
 
   document.getElementById('kal-filters-close').addEventListener('click', kalSkryjFiltry);
@@ -832,9 +837,26 @@
     lupa.setAttribute('aria-expanded', 'false');
     kalShowView(KAL_VIEW);
   });
-  [['kal-3dny-prev', -3], ['kal-3dny-next', 3]].forEach(([id, d]) => {
-    document.getElementById(id).addEventListener('click', () => { KAL_3DNY_OFFSET += d; kalShowView('3dny'); });
-  });
+  function kal3dnyPrev() { KAL_3DNY_OFFSET -= 3; kalShowView('3dny'); }
+  function kal3dnyNext() { KAL_3DNY_OFFSET += 3; kalShowView('3dny'); }
+  document.getElementById('kal-3dny-prev').addEventListener('click', kal3dnyPrev);
+  document.getElementById('kal-3dny-next').addEventListener('click', kal3dnyNext);
+  // gesto: přejetí prstem po tabulce vlevo = další 3 dny, vpravo = předchozí
+  (function () {
+    const tab = document.getElementById('kal-3dny');
+    let x0 = null, y0 = null;
+    tab.addEventListener('touchstart', ev => {
+      if (ev.touches.length !== 1) { x0 = null; return; }
+      x0 = ev.touches[0].clientX; y0 = ev.touches[0].clientY;
+    }, { passive: true });
+    tab.addEventListener('touchend', ev => {
+      if (x0 === null) return;
+      const dx = ev.changedTouches[0].clientX - x0, dy = ev.changedTouches[0].clientY - y0;
+      x0 = null;
+      if (Math.abs(dx) < 50 || Math.abs(dx) < Math.abs(dy) * 1.5) return;
+      if (dx < 0) kal3dnyNext(); else kal3dnyPrev();
+    }, { passive: true });
+  })();
   document.getElementById('kal-3dny-dnes').addEventListener('click', () => { KAL_3DNY_OFFSET = 0; kalShowView('3dny'); });
   document.getElementById('kal-only-future').addEventListener('change', function(){
     KAL_ONLY_FUTURE = this.checked;

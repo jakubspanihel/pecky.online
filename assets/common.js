@@ -284,8 +284,6 @@ document.querySelectorAll('.rel-chip[data-date]').forEach(el => {
   const dnes = d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0') + '-' + String(d.getDate()).padStart(2, '0');
   lists.forEach(ul => {
     const max = parseInt(ul.getAttribute('data-max'), 10);
-  const dalsi = document.querySelector('a[data-kal-dalsi]');
-  if (dalsi) dalsi.href = '/kalendar/#' + dnes.slice(0, 7) + '/seznam/dalsi';
     const items = ul.querySelectorAll('li[data-until]');
     if (!items.length) return;
     let shown = 0;
@@ -451,7 +449,7 @@ document.querySelectorAll('.rel-chip[data-date]').forEach(el => {
       ? `<span class="tag ${rel === 'dnes' ? 'kal-dnes' : 'probiha'}" title="${den}">${rel}</span>` : '';
     const h = document.createElement('li');
     h.className = 'dash-den';
-    h.innerHTML = `${chip}<b class="k3-den">${dnyTxt[x.getDay()][0].toUpperCase() + dnyTxt[x.getDay()].slice(1)}</b><span class="k3-datum">${x.getDate()}. ${x.getMonth() + 1}.</span>`;
+    h.innerHTML = `${chip}<b class="k3-den">${dnyTxt[x.getDay()][0].toUpperCase() + dnyTxt[x.getDay()].slice(1)}</b><span class="k3-datum">${x.getDate()}. ${x.getMonth() + 1}.</span><a class="dash-den-kal" href="/kalendar/" title="Otevřít Kalendář" aria-label="Otevřít Kalendář">📅</a>`;
     ul.insertBefore(h, li);
   });
   // sticky nadpis dne se lepí pod sticky hlavičku karty
