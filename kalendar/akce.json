@@ -1,7 +1,7 @@
 {
  "meta": {
   "description": "Kulturní a společenské akce v Pečkách a okolí. U každé akce je pořadatel (id do lide/organizations.json) a doklady, ze kterých je přepsaná (evidence[] — zdroj je id do kořenového sources.json). Zdroj sekce Kalendář — do udalosti.json a kalendar.ics je promítá kalendar/scripts/update-kalendar.py.",
-  "updated": "2026-10-09",
+  "updated": "2026-10-19",
   "note": "Jednání rady a zastupitelstva do tohohle souboru nepatří, i když je plakát KD uvádí — ta má kalendář z jednani/pecky-jednani.json a zapsáním sem by v mřížce vznikly duplicity. Pořadatel je vždy ten, kdo akci pořádá, ne ten, od koho o ní víme — to je evidence[].source."
  },
  "events": [
@@ -12359,6 +12359,14 @@
      "label": "Pečecké noviny 9/2026, str. 19 — Rozvrh hodin sokolovny, školní rok 2026/2027",
      "published": "2026-09-01",
      "retrieved": "2026-09-21"
+    },
+    {
+     "source": "pecky-noviny",
+     "kind": "zpravodaj",
+     "url": "https://pecky.cz/default/default/21389_pdf-zpravodaje",
+     "label": "Pečecké noviny, str. 14 — Dorostenky a mladší ženy: Pound, Tabata, HIIT, Jóga (fotografie z e-mailu 18. 10. 2026, číslo novin neuvedeno)",
+     "published": "2026-10-18",
+     "retrieved": "2026-10-19"
     }
    ]
   },
@@ -13672,6 +13680,28 @@
    ]
   },
   {
+   "id": "kurz-2026-10-23-cviceni-pro-seniory",
+   "title": "Cvičení pro seniory",
+   "date": "2026-10-23",
+   "time": "09:00",
+   "category": "kurz",
+   "place": "Sokolovna Pečky",
+   "organizer": "tj-sokol-pecky",
+   "organizer_name": null,
+   "description": "Cvičení je zaměřeno na zdravotní tělocvik, cvičení s náčiním, drobné sportovní hry a výlety.",
+   "note": "Plakát uvádí „Každý pátek od 9 do 10 hod.“, začátek série neuvádí — první termín 23. 10. 2026 je dopočtený, další pátky podle prázdninového kalendáře Sokola (jako ostatní kurzy TJ Sokol).",
+   "evidence": [
+    {
+     "source": "pecky-noviny",
+     "kind": "zpravodaj",
+     "url": "https://pecky.cz/default/default/21389_pdf-zpravodaje",
+     "label": "Pečecké noviny, str. 15 — Sokol Pečky: Cvičení pro seniory (fotografie plakátu z e-mailu 18. 10. 2026, číslo novin neuvedeno)",
+     "published": "2026-10-18",
+     "retrieved": "2026-10-19"
+    }
+   ]
+  },
+  {
    "id": "kurz-2026-10-23-atelier-talent",
    "title": "Ateliér talent",
    "date": "2026-10-23",
@@ -13832,6 +13862,28 @@
      "label": "zuspecky.cz — Rozvrh hodin 2026/2027 (skupinové předměty)",
      "published": "2026-09-22",
      "retrieved": "2026-09-22"
+    }
+   ]
+  },
+  {
+   "id": "kurz-2026-10-23-chlapi-sobe",
+   "title": "Chlapi sobě",
+   "date": "2026-10-23",
+   "time": "18:30",
+   "category": "kurz",
+   "place": "Sokolovna Pečky",
+   "organizer": "tj-sokol-pecky",
+   "organizer_name": null,
+   "description": "Nová otevřená sportovní platforma pro muže: společný sport, kondice a síla, nové aktivity, zdraví a regenerace, odborné lekce. Přijď, když máš čas a zájem.",
+   "note": "Negarantováno. Plakát uvádí „Každý pátek večer od 18:30“, začátek ani konec série neuvádí — termíny jsou dopočtené od 23. 10. 2026 na 8 týdnů dopředu. Místo plakát neuvádí, Sokolovna Pečky potvrzeno uživatelem.",
+   "evidence": [
+    {
+     "source": "web-sokolpecky-cz",
+     "kind": "plakat",
+     "url": "https://www.sokolpecky.cz/",
+     "label": "Plakát „Chlapi sobě“ — Sokol Pečky (fotografie plakátu z e-mailu 18. 10. 2026)",
+     "published": "2026-10-18",
+     "retrieved": "2026-10-19"
     }
    ]
   },
@@ -14403,6 +14455,14 @@
      "label": "Pečecké noviny 9/2026, str. 19 — Rozvrh hodin sokolovny, školní rok 2026/2027",
      "published": "2026-09-01",
      "retrieved": "2026-09-21"
+    },
+    {
+     "source": "pecky-noviny",
+     "kind": "zpravodaj",
+     "url": "https://pecky.cz/default/default/21389_pdf-zpravodaje",
+     "label": "Pečecké noviny, str. 14 — Dorostenky a mladší ženy: Pound, Tabata, HIIT, Jóga (fotografie z e-mailu 18. 10. 2026, číslo novin neuvedeno)",
+     "published": "2026-10-18",
+     "retrieved": "2026-10-19"
     }
    ]
   },
@@ -16089,6 +16149,14 @@
      "label": "Pečecké noviny 9/2026, str. 19 — Rozvrh hodin sokolovny, školní rok 2026/2027",
      "published": "2026-09-01",
      "retrieved": "2026-09-21"
+    },
+    {
+     "source": "pecky-noviny",
+     "kind": "zpravodaj",
+     "url": "https://pecky.cz/default/default/21389_pdf-zpravodaje",
+     "label": "Pečecké noviny, str. 14 — Dorostenky a mladší ženy: Pound, Tabata, HIIT, Jóga (fotografie z e-mailu 18. 10. 2026, číslo novin neuvedeno)",
+     "published": "2026-10-18",
+     "retrieved": "2026-10-19"
     }
    ]
   },
@@ -17371,6 +17439,28 @@
    ]
   },
   {
+   "id": "kurz-2026-11-06-cviceni-pro-seniory",
+   "title": "Cvičení pro seniory",
+   "date": "2026-11-06",
+   "time": "09:00",
+   "category": "kurz",
+   "place": "Sokolovna Pečky",
+   "organizer": "tj-sokol-pecky",
+   "organizer_name": null,
+   "description": "Cvičení je zaměřeno na zdravotní tělocvik, cvičení s náčiním, drobné sportovní hry a výlety.",
+   "note": "Plakát uvádí „Každý pátek od 9 do 10 hod.“, začátek série neuvádí — první termín 23. 10. 2026 je dopočtený, další pátky podle prázdninového kalendáře Sokola (jako ostatní kurzy TJ Sokol).",
+   "evidence": [
+    {
+     "source": "pecky-noviny",
+     "kind": "zpravodaj",
+     "url": "https://pecky.cz/default/default/21389_pdf-zpravodaje",
+     "label": "Pečecké noviny, str. 15 — Sokol Pečky: Cvičení pro seniory (fotografie plakátu z e-mailu 18. 10. 2026, číslo novin neuvedeno)",
+     "published": "2026-10-18",
+     "retrieved": "2026-10-19"
+    }
+   ]
+  },
+  {
    "id": "kurz-2026-11-06-atelier-talent",
    "title": "Ateliér talent",
    "date": "2026-11-06",
@@ -17531,6 +17621,28 @@
      "label": "zuspecky.cz — Rozvrh hodin 2026/2027 (skupinové předměty)",
      "published": "2026-09-22",
      "retrieved": "2026-09-22"
+    }
+   ]
+  },
+  {
+   "id": "kurz-2026-11-06-chlapi-sobe",
+   "title": "Chlapi sobě",
+   "date": "2026-11-06",
+   "time": "18:30",
+   "category": "kurz",
+   "place": "Sokolovna Pečky",
+   "organizer": "tj-sokol-pecky",
+   "organizer_name": null,
+   "description": "Nová otevřená sportovní platforma pro muže: společný sport, kondice a síla, nové aktivity, zdraví a regenerace, odborné lekce. Přijď, když máš čas a zájem.",
+   "note": "Negarantováno. Plakát uvádí „Každý pátek večer od 18:30“, začátek ani konec série neuvádí — termíny jsou dopočtené od 23. 10. 2026 na 8 týdnů dopředu. Místo plakát neuvádí, Sokolovna Pečky potvrzeno uživatelem.",
+   "evidence": [
+    {
+     "source": "web-sokolpecky-cz",
+     "kind": "plakat",
+     "url": "https://www.sokolpecky.cz/",
+     "label": "Plakát „Chlapi sobě“ — Sokol Pečky (fotografie plakátu z e-mailu 18. 10. 2026)",
+     "published": "2026-10-18",
+     "retrieved": "2026-10-19"
     }
    ]
   },
@@ -18078,6 +18190,14 @@
      "label": "Pečecké noviny 9/2026, str. 19 — Rozvrh hodin sokolovny, školní rok 2026/2027",
      "published": "2026-09-01",
      "retrieved": "2026-09-21"
+    },
+    {
+     "source": "pecky-noviny",
+     "kind": "zpravodaj",
+     "url": "https://pecky.cz/default/default/21389_pdf-zpravodaje",
+     "label": "Pečecké noviny, str. 14 — Dorostenky a mladší ženy: Pound, Tabata, HIIT, Jóga (fotografie z e-mailu 18. 10. 2026, číslo novin neuvedeno)",
+     "published": "2026-10-18",
+     "retrieved": "2026-10-19"
     }
    ]
   },
@@ -19442,6 +19562,28 @@
    ]
   },
   {
+   "id": "kurz-2026-11-13-cviceni-pro-seniory",
+   "title": "Cvičení pro seniory",
+   "date": "2026-11-13",
+   "time": "09:00",
+   "category": "kurz",
+   "place": "Sokolovna Pečky",
+   "organizer": "tj-sokol-pecky",
+   "organizer_name": null,
+   "description": "Cvičení je zaměřeno na zdravotní tělocvik, cvičení s náčiním, drobné sportovní hry a výlety.",
+   "note": "Plakát uvádí „Každý pátek od 9 do 10 hod.“, začátek série neuvádí — první termín 23. 10. 2026 je dopočtený, další pátky podle prázdninového kalendáře Sokola (jako ostatní kurzy TJ Sokol).",
+   "evidence": [
+    {
+     "source": "pecky-noviny",
+     "kind": "zpravodaj",
+     "url": "https://pecky.cz/default/default/21389_pdf-zpravodaje",
+     "label": "Pečecké noviny, str. 15 — Sokol Pečky: Cvičení pro seniory (fotografie plakátu z e-mailu 18. 10. 2026, číslo novin neuvedeno)",
+     "published": "2026-10-18",
+     "retrieved": "2026-10-19"
+    }
+   ]
+  },
+  {
    "id": "kurz-2026-11-13-atelier-talent",
    "title": "Ateliér talent",
    "date": "2026-11-13",
@@ -19602,6 +19744,28 @@
      "label": "zuspecky.cz — Rozvrh hodin 2026/2027 (skupinové předměty)",
      "published": "2026-09-22",
      "retrieved": "2026-09-22"
+    }
+   ]
+  },
+  {
+   "id": "kurz-2026-11-13-chlapi-sobe",
+   "title": "Chlapi sobě",
+   "date": "2026-11-13",
+   "time": "18:30",
+   "category": "kurz",
+   "place": "Sokolovna Pečky",
+   "organizer": "tj-sokol-pecky",
+   "organizer_name": null,
+   "description": "Nová otevřená sportovní platforma pro muže: společný sport, kondice a síla, nové aktivity, zdraví a regenerace, odborné lekce. Přijď, když máš čas a zájem.",
+   "note": "Negarantováno. Plakát uvádí „Každý pátek večer od 18:30“, začátek ani konec série neuvádí — termíny jsou dopočtené od 23. 10. 2026 na 8 týdnů dopředu. Místo plakát neuvádí, Sokolovna Pečky potvrzeno uživatelem.",
+   "evidence": [
+    {
+     "source": "web-sokolpecky-cz",
+     "kind": "plakat",
+     "url": "https://www.sokolpecky.cz/",
+     "label": "Plakát „Chlapi sobě“ — Sokol Pečky (fotografie plakátu z e-mailu 18. 10. 2026)",
+     "published": "2026-10-18",
+     "retrieved": "2026-10-19"
     }
    ]
   },
@@ -20171,6 +20335,14 @@
      "label": "Pečecké noviny 9/2026, str. 19 — Rozvrh hodin sokolovny, školní rok 2026/2027",
      "published": "2026-09-01",
      "retrieved": "2026-09-21"
+    },
+    {
+     "source": "pecky-noviny",
+     "kind": "zpravodaj",
+     "url": "https://pecky.cz/default/default/21389_pdf-zpravodaje",
+     "label": "Pečecké noviny, str. 14 — Dorostenky a mladší ženy: Pound, Tabata, HIIT, Jóga (fotografie z e-mailu 18. 10. 2026, číslo novin neuvedeno)",
+     "published": "2026-10-18",
+     "retrieved": "2026-10-19"
     }
    ]
   },
@@ -21431,6 +21603,28 @@
    ]
   },
   {
+   "id": "kurz-2026-11-20-cviceni-pro-seniory",
+   "title": "Cvičení pro seniory",
+   "date": "2026-11-20",
+   "time": "09:00",
+   "category": "kurz",
+   "place": "Sokolovna Pečky",
+   "organizer": "tj-sokol-pecky",
+   "organizer_name": null,
+   "description": "Cvičení je zaměřeno na zdravotní tělocvik, cvičení s náčiním, drobné sportovní hry a výlety.",
+   "note": "Plakát uvádí „Každý pátek od 9 do 10 hod.“, začátek série neuvádí — první termín 23. 10. 2026 je dopočtený, další pátky podle prázdninového kalendáře Sokola (jako ostatní kurzy TJ Sokol).",
+   "evidence": [
+    {
+     "source": "pecky-noviny",
+     "kind": "zpravodaj",
+     "url": "https://pecky.cz/default/default/21389_pdf-zpravodaje",
+     "label": "Pečecké noviny, str. 15 — Sokol Pečky: Cvičení pro seniory (fotografie plakátu z e-mailu 18. 10. 2026, číslo novin neuvedeno)",
+     "published": "2026-10-18",
+     "retrieved": "2026-10-19"
+    }
+   ]
+  },
+  {
    "id": "kurz-2026-11-20-atelier-talent",
    "title": "Ateliér talent",
    "date": "2026-11-20",
@@ -21635,6 +21829,28 @@
      "label": "vzcentrum.cz — Kroužky 2026/2027",
      "published": "2026-09-22",
      "retrieved": "2026-09-22"
+    }
+   ]
+  },
+  {
+   "id": "kurz-2026-11-20-chlapi-sobe",
+   "title": "Chlapi sobě",
+   "date": "2026-11-20",
+   "time": "18:30",
+   "category": "kurz",
+   "place": "Sokolovna Pečky",
+   "organizer": "tj-sokol-pecky",
+   "organizer_name": null,
+   "description": "Nová otevřená sportovní platforma pro muže: společný sport, kondice a síla, nové aktivity, zdraví a regenerace, odborné lekce. Přijď, když máš čas a zájem.",
+   "note": "Negarantováno. Plakát uvádí „Každý pátek večer od 18:30“, začátek ani konec série neuvádí — termíny jsou dopočtené od 23. 10. 2026 na 8 týdnů dopředu. Místo plakát neuvádí, Sokolovna Pečky potvrzeno uživatelem.",
+   "evidence": [
+    {
+     "source": "web-sokolpecky-cz",
+     "kind": "plakat",
+     "url": "https://www.sokolpecky.cz/",
+     "label": "Plakát „Chlapi sobě“ — Sokol Pečky (fotografie plakátu z e-mailu 18. 10. 2026)",
+     "published": "2026-10-18",
+     "retrieved": "2026-10-19"
     }
    ]
   },
@@ -22182,6 +22398,14 @@
      "label": "Pečecké noviny 9/2026, str. 19 — Rozvrh hodin sokolovny, školní rok 2026/2027",
      "published": "2026-09-01",
      "retrieved": "2026-09-21"
+    },
+    {
+     "source": "pecky-noviny",
+     "kind": "zpravodaj",
+     "url": "https://pecky.cz/default/default/21389_pdf-zpravodaje",
+     "label": "Pečecké noviny, str. 14 — Dorostenky a mladší ženy: Pound, Tabata, HIIT, Jóga (fotografie z e-mailu 18. 10. 2026, číslo novin neuvedeno)",
+     "published": "2026-10-18",
+     "retrieved": "2026-10-19"
     }
    ]
   },
@@ -23522,6 +23746,28 @@
    ]
   },
   {
+   "id": "kurz-2026-11-27-cviceni-pro-seniory",
+   "title": "Cvičení pro seniory",
+   "date": "2026-11-27",
+   "time": "09:00",
+   "category": "kurz",
+   "place": "Sokolovna Pečky",
+   "organizer": "tj-sokol-pecky",
+   "organizer_name": null,
+   "description": "Cvičení je zaměřeno na zdravotní tělocvik, cvičení s náčiním, drobné sportovní hry a výlety.",
+   "note": "Plakát uvádí „Každý pátek od 9 do 10 hod.“, začátek série neuvádí — první termín 23. 10. 2026 je dopočtený, další pátky podle prázdninového kalendáře Sokola (jako ostatní kurzy TJ Sokol).",
+   "evidence": [
+    {
+     "source": "pecky-noviny",
+     "kind": "zpravodaj",
+     "url": "https://pecky.cz/default/default/21389_pdf-zpravodaje",
+     "label": "Pečecké noviny, str. 15 — Sokol Pečky: Cvičení pro seniory (fotografie plakátu z e-mailu 18. 10. 2026, číslo novin neuvedeno)",
+     "published": "2026-10-18",
+     "retrieved": "2026-10-19"
+    }
+   ]
+  },
+  {
    "id": "kurz-2026-11-27-atelier-talent",
    "title": "Ateliér talent",
    "date": "2026-11-27",
@@ -23682,6 +23928,28 @@
      "label": "zuspecky.cz — Rozvrh hodin 2026/2027 (skupinové předměty)",
      "published": "2026-09-22",
      "retrieved": "2026-09-22"
+    }
+   ]
+  },
+  {
+   "id": "kurz-2026-11-27-chlapi-sobe",
+   "title": "Chlapi sobě",
+   "date": "2026-11-27",
+   "time": "18:30",
+   "category": "kurz",
+   "place": "Sokolovna Pečky",
+   "organizer": "tj-sokol-pecky",
+   "organizer_name": null,
+   "description": "Nová otevřená sportovní platforma pro muže: společný sport, kondice a síla, nové aktivity, zdraví a regenerace, odborné lekce. Přijď, když máš čas a zájem.",
+   "note": "Negarantováno. Plakát uvádí „Každý pátek večer od 18:30“, začátek ani konec série neuvádí — termíny jsou dopočtené od 23. 10. 2026 na 8 týdnů dopředu. Místo plakát neuvádí, Sokolovna Pečky potvrzeno uživatelem.",
+   "evidence": [
+    {
+     "source": "web-sokolpecky-cz",
+     "kind": "plakat",
+     "url": "https://www.sokolpecky.cz/",
+     "label": "Plakát „Chlapi sobě“ — Sokol Pečky (fotografie plakátu z e-mailu 18. 10. 2026)",
+     "published": "2026-10-18",
+     "retrieved": "2026-10-19"
     }
    ]
   },
@@ -24273,6 +24541,14 @@
      "label": "Pečecké noviny 9/2026, str. 19 — Rozvrh hodin sokolovny, školní rok 2026/2027",
      "published": "2026-09-01",
      "retrieved": "2026-09-21"
+    },
+    {
+     "source": "pecky-noviny",
+     "kind": "zpravodaj",
+     "url": "https://pecky.cz/default/default/21389_pdf-zpravodaje",
+     "label": "Pečecké noviny, str. 14 — Dorostenky a mladší ženy: Pound, Tabata, HIIT, Jóga (fotografie z e-mailu 18. 10. 2026, číslo novin neuvedeno)",
+     "published": "2026-10-18",
+     "retrieved": "2026-10-19"
     }
    ]
   },
@@ -25555,6 +25831,28 @@
    ]
   },
   {
+   "id": "kurz-2026-12-04-cviceni-pro-seniory",
+   "title": "Cvičení pro seniory",
+   "date": "2026-12-04",
+   "time": "09:00",
+   "category": "kurz",
+   "place": "Sokolovna Pečky",
+   "organizer": "tj-sokol-pecky",
+   "organizer_name": null,
+   "description": "Cvičení je zaměřeno na zdravotní tělocvik, cvičení s náčiním, drobné sportovní hry a výlety.",
+   "note": "Plakát uvádí „Každý pátek od 9 do 10 hod.“, začátek série neuvádí — první termín 23. 10. 2026 je dopočtený, další pátky podle prázdninového kalendáře Sokola (jako ostatní kurzy TJ Sokol).",
+   "evidence": [
+    {
+     "source": "pecky-noviny",
+     "kind": "zpravodaj",
+     "url": "https://pecky.cz/default/default/21389_pdf-zpravodaje",
+     "label": "Pečecké noviny, str. 15 — Sokol Pečky: Cvičení pro seniory (fotografie plakátu z e-mailu 18. 10. 2026, číslo novin neuvedeno)",
+     "published": "2026-10-18",
+     "retrieved": "2026-10-19"
+    }
+   ]
+  },
+  {
    "id": "kurz-2026-12-04-atelier-talent",
    "title": "Ateliér talent",
    "date": "2026-12-04",
@@ -25737,6 +26035,28 @@
      "label": "Program KD Pečky 9–12/2026, 2. část (listopad a prosinec)",
      "published": "2026-09-10",
      "retrieved": "2026-09-20"
+    }
+   ]
+  },
+  {
+   "id": "kurz-2026-12-04-chlapi-sobe",
+   "title": "Chlapi sobě",
+   "date": "2026-12-04",
+   "time": "18:30",
+   "category": "kurz",
+   "place": "Sokolovna Pečky",
+   "organizer": "tj-sokol-pecky",
+   "organizer_name": null,
+   "description": "Nová otevřená sportovní platforma pro muže: společný sport, kondice a síla, nové aktivity, zdraví a regenerace, odborné lekce. Přijď, když máš čas a zájem.",
+   "note": "Negarantováno. Plakát uvádí „Každý pátek večer od 18:30“, začátek ani konec série neuvádí — termíny jsou dopočtené od 23. 10. 2026 na 8 týdnů dopředu. Místo plakát neuvádí, Sokolovna Pečky potvrzeno uživatelem.",
+   "evidence": [
+    {
+     "source": "web-sokolpecky-cz",
+     "kind": "plakat",
+     "url": "https://www.sokolpecky.cz/",
+     "label": "Plakát „Chlapi sobě“ — Sokol Pečky (fotografie plakátu z e-mailu 18. 10. 2026)",
+     "published": "2026-10-18",
+     "retrieved": "2026-10-19"
     }
    ]
   },
@@ -26284,6 +26604,14 @@
      "label": "Pečecké noviny 9/2026, str. 19 — Rozvrh hodin sokolovny, školní rok 2026/2027",
      "published": "2026-09-01",
      "retrieved": "2026-09-21"
+    },
+    {
+     "source": "pecky-noviny",
+     "kind": "zpravodaj",
+     "url": "https://pecky.cz/default/default/21389_pdf-zpravodaje",
+     "label": "Pečecké noviny, str. 14 — Dorostenky a mladší ženy: Pound, Tabata, HIIT, Jóga (fotografie z e-mailu 18. 10. 2026, číslo novin neuvedeno)",
+     "published": "2026-10-18",
+     "retrieved": "2026-10-19"
     }
    ]
   },
@@ -27558,6 +27886,28 @@
    ]
   },
   {
+   "id": "kurz-2026-12-11-cviceni-pro-seniory",
+   "title": "Cvičení pro seniory",
+   "date": "2026-12-11",
+   "time": "09:00",
+   "category": "kurz",
+   "place": "Sokolovna Pečky",
+   "organizer": "tj-sokol-pecky",
+   "organizer_name": null,
+   "description": "Cvičení je zaměřeno na zdravotní tělocvik, cvičení s náčiním, drobné sportovní hry a výlety.",
+   "note": "Plakát uvádí „Každý pátek od 9 do 10 hod.“, začátek série neuvádí — první termín 23. 10. 2026 je dopočtený, další pátky podle prázdninového kalendáře Sokola (jako ostatní kurzy TJ Sokol).",
+   "evidence": [
+    {
+     "source": "pecky-noviny",
+     "kind": "zpravodaj",
+     "url": "https://pecky.cz/default/default/21389_pdf-zpravodaje",
+     "label": "Pečecké noviny, str. 15 — Sokol Pečky: Cvičení pro seniory (fotografie plakátu z e-mailu 18. 10. 2026, číslo novin neuvedeno)",
+     "published": "2026-10-18",
+     "retrieved": "2026-10-19"
+    }
+   ]
+  },
+  {
    "id": "kurz-2026-12-11-atelier-talent",
    "title": "Ateliér talent",
    "date": "2026-12-11",
@@ -27762,6 +28112,28 @@
      "label": "vzcentrum.cz — Kroužky 2026/2027",
      "published": "2026-09-22",
      "retrieved": "2026-09-22"
+    }
+   ]
+  },
+  {
+   "id": "kurz-2026-12-11-chlapi-sobe",
+   "title": "Chlapi sobě",
+   "date": "2026-12-11",
+   "time": "18:30",
+   "category": "kurz",
+   "place": "Sokolovna Pečky",
+   "organizer": "tj-sokol-pecky",
+   "organizer_name": null,
+   "description": "Nová otevřená sportovní platforma pro muže: společný sport, kondice a síla, nové aktivity, zdraví a regenerace, odborné lekce. Přijď, když máš čas a zájem.",
+   "note": "Negarantováno. Plakát uvádí „Každý pátek večer od 18:30“, začátek ani konec série neuvádí — termíny jsou dopočtené od 23. 10. 2026 na 8 týdnů dopředu. Místo plakát neuvádí, Sokolovna Pečky potvrzeno uživatelem.",
+   "evidence": [
+    {
+     "source": "web-sokolpecky-cz",
+     "kind": "plakat",
+     "url": "https://www.sokolpecky.cz/",
+     "label": "Plakát „Chlapi sobě“ — Sokol Pečky (fotografie plakátu z e-mailu 18. 10. 2026)",
+     "published": "2026-10-18",
+     "retrieved": "2026-10-19"
     }
    ]
   },
@@ -28331,6 +28703,14 @@
      "label": "Pečecké noviny 9/2026, str. 19 — Rozvrh hodin sokolovny, školní rok 2026/2027",
      "published": "2026-09-01",
      "retrieved": "2026-09-21"
+    },
+    {
+     "source": "pecky-noviny",
+     "kind": "zpravodaj",
+     "url": "https://pecky.cz/default/default/21389_pdf-zpravodaje",
+     "label": "Pečecké noviny, str. 14 — Dorostenky a mladší ženy: Pound, Tabata, HIIT, Jóga (fotografie z e-mailu 18. 10. 2026, číslo novin neuvedeno)",
+     "published": "2026-10-18",
+     "retrieved": "2026-10-19"
     }
    ]
   },
@@ -29547,6 +29927,28 @@
    ]
   },
   {
+   "id": "kurz-2026-12-18-cviceni-pro-seniory",
+   "title": "Cvičení pro seniory",
+   "date": "2026-12-18",
+   "time": "09:00",
+   "category": "kurz",
+   "place": "Sokolovna Pečky",
+   "organizer": "tj-sokol-pecky",
+   "organizer_name": null,
+   "description": "Cvičení je zaměřeno na zdravotní tělocvik, cvičení s náčiním, drobné sportovní hry a výlety.",
+   "note": "Plakát uvádí „Každý pátek od 9 do 10 hod.“, začátek série neuvádí — první termín 23. 10. 2026 je dopočtený, další pátky podle prázdninového kalendáře Sokola (jako ostatní kurzy TJ Sokol).",
+   "evidence": [
+    {
+     "source": "pecky-noviny",
+     "kind": "zpravodaj",
+     "url": "https://pecky.cz/default/default/21389_pdf-zpravodaje",
+     "label": "Pečecké noviny, str. 15 — Sokol Pečky: Cvičení pro seniory (fotografie plakátu z e-mailu 18. 10. 2026, číslo novin neuvedeno)",
+     "published": "2026-10-18",
+     "retrieved": "2026-10-19"
+    }
+   ]
+  },
+  {
    "id": "kurz-2026-12-18-atelier-talent",
    "title": "Ateliér talent",
    "date": "2026-12-18",
@@ -29707,6 +30109,28 @@
      "label": "zuspecky.cz — Rozvrh hodin 2026/2027 (skupinové předměty)",
      "published": "2026-09-22",
      "retrieved": "2026-09-22"
+    }
+   ]
+  },
+  {
+   "id": "kurz-2026-12-18-chlapi-sobe",
+   "title": "Chlapi sobě",
+   "date": "2026-12-18",
+   "time": "18:30",
+   "category": "kurz",
+   "place": "Sokolovna Pečky",
+   "organizer": "tj-sokol-pecky",
+   "organizer_name": null,
+   "description": "Nová otevřená sportovní platforma pro muže: společný sport, kondice a síla, nové aktivity, zdraví a regenerace, odborné lekce. Přijď, když máš čas a zájem.",
+   "note": "Negarantováno. Plakát uvádí „Každý pátek večer od 18:30“, začátek ani konec série neuvádí — termíny jsou dopočtené od 23. 10. 2026 na 8 týdnů dopředu. Místo plakát neuvádí, Sokolovna Pečky potvrzeno uživatelem.",
+   "evidence": [
+    {
+     "source": "web-sokolpecky-cz",
+     "kind": "plakat",
+     "url": "https://www.sokolpecky.cz/",
+     "label": "Plakát „Chlapi sobě“ — Sokol Pečky (fotografie plakátu z e-mailu 18. 10. 2026)",
+     "published": "2026-10-18",
+     "retrieved": "2026-10-19"
     }
    ]
   },
@@ -30232,6 +30656,14 @@
      "label": "Pečecké noviny 9/2026, str. 19 — Rozvrh hodin sokolovny, školní rok 2026/2027",
      "published": "2026-09-01",
      "retrieved": "2026-09-21"
+    },
+    {
+     "source": "pecky-noviny",
+     "kind": "zpravodaj",
+     "url": "https://pecky.cz/default/default/21389_pdf-zpravodaje",
+     "label": "Pečecké noviny, str. 14 — Dorostenky a mladší ženy: Pound, Tabata, HIIT, Jóga (fotografie z e-mailu 18. 10. 2026, číslo novin neuvedeno)",
+     "published": "2026-10-18",
+     "retrieved": "2026-10-19"
     }
    ]
   },
@@ -31220,6 +31652,14 @@
      "label": "Pečecké noviny 9/2026, str. 19 — Rozvrh hodin sokolovny, školní rok 2026/2027",
      "published": "2026-09-01",
      "retrieved": "2026-09-21"
+    },
+    {
+     "source": "pecky-noviny",
+     "kind": "zpravodaj",
+     "url": "https://pecky.cz/default/default/21389_pdf-zpravodaje",
+     "label": "Pečecké noviny, str. 14 — Dorostenky a mladší ženy: Pound, Tabata, HIIT, Jóga (fotografie z e-mailu 18. 10. 2026, číslo novin neuvedeno)",
+     "published": "2026-10-18",
+     "retrieved": "2026-10-19"
     }
    ]
   },
@@ -32428,6 +32868,28 @@
    ]
   },
   {
+   "id": "kurz-2027-01-08-cviceni-pro-seniory",
+   "title": "Cvičení pro seniory",
+   "date": "2027-01-08",
+   "time": "09:00",
+   "category": "kurz",
+   "place": "Sokolovna Pečky",
+   "organizer": "tj-sokol-pecky",
+   "organizer_name": null,
+   "description": "Cvičení je zaměřeno na zdravotní tělocvik, cvičení s náčiním, drobné sportovní hry a výlety.",
+   "note": "Plakát uvádí „Každý pátek od 9 do 10 hod.“, začátek série neuvádí — první termín 23. 10. 2026 je dopočtený, další pátky podle prázdninového kalendáře Sokola (jako ostatní kurzy TJ Sokol).",
+   "evidence": [
+    {
+     "source": "pecky-noviny",
+     "kind": "zpravodaj",
+     "url": "https://pecky.cz/default/default/21389_pdf-zpravodaje",
+     "label": "Pečecké noviny, str. 15 — Sokol Pečky: Cvičení pro seniory (fotografie plakátu z e-mailu 18. 10. 2026, číslo novin neuvedeno)",
+     "published": "2026-10-18",
+     "retrieved": "2026-10-19"
+    }
+   ]
+  },
+  {
    "id": "kurz-2027-01-08-atelier-talent",
    "title": "Ateliér talent",
    "date": "2027-01-08",
@@ -33091,6 +33553,14 @@
      "label": "Pečecké noviny 9/2026, str. 19 — Rozvrh hodin sokolovny, školní rok 2026/2027",
      "published": "2026-09-01",
      "retrieved": "2026-09-21"
+    },
+    {
+     "source": "pecky-noviny",
+     "kind": "zpravodaj",
+     "url": "https://pecky.cz/default/default/21389_pdf-zpravodaje",
+     "label": "Pečecké noviny, str. 14 — Dorostenky a mladší ženy: Pound, Tabata, HIIT, Jóga (fotografie z e-mailu 18. 10. 2026, číslo novin neuvedeno)",
+     "published": "2026-10-18",
+     "retrieved": "2026-10-19"
     }
    ]
   },
@@ -34307,6 +34777,28 @@
    ]
   },
   {
+   "id": "kurz-2027-01-15-cviceni-pro-seniory",
+   "title": "Cvičení pro seniory",
+   "date": "2027-01-15",
+   "time": "09:00",
+   "category": "kurz",
+   "place": "Sokolovna Pečky",
+   "organizer": "tj-sokol-pecky",
+   "organizer_name": null,
+   "description": "Cvičení je zaměřeno na zdravotní tělocvik, cvičení s náčiním, drobné sportovní hry a výlety.",
+   "note": "Plakát uvádí „Každý pátek od 9 do 10 hod.“, začátek série neuvádí — první termín 23. 10. 2026 je dopočtený, další pátky podle prázdninového kalendáře Sokola (jako ostatní kurzy TJ Sokol).",
+   "evidence": [
+    {
+     "source": "pecky-noviny",
+     "kind": "zpravodaj",
+     "url": "https://pecky.cz/default/default/21389_pdf-zpravodaje",
+     "label": "Pečecké noviny, str. 15 — Sokol Pečky: Cvičení pro seniory (fotografie plakátu z e-mailu 18. 10. 2026, číslo novin neuvedeno)",
+     "published": "2026-10-18",
+     "retrieved": "2026-10-19"
+    }
+   ]
+  },
+  {
    "id": "kurz-2027-01-15-atelier-talent",
    "title": "Ateliér talent",
    "date": "2027-01-15",
@@ -34970,6 +35462,14 @@
      "label": "Pečecké noviny 9/2026, str. 19 — Rozvrh hodin sokolovny, školní rok 2026/2027",
      "published": "2026-09-01",
      "retrieved": "2026-09-21"
+    },
+    {
+     "source": "pecky-noviny",
+     "kind": "zpravodaj",
+     "url": "https://pecky.cz/default/default/21389_pdf-zpravodaje",
+     "label": "Pečecké noviny, str. 14 — Dorostenky a mladší ženy: Pound, Tabata, HIIT, Jóga (fotografie z e-mailu 18. 10. 2026, číslo novin neuvedeno)",
+     "published": "2026-10-18",
+     "retrieved": "2026-10-19"
     }
    ]
   },
@@ -36178,6 +36678,28 @@
    ]
   },
   {
+   "id": "kurz-2027-01-22-cviceni-pro-seniory",
+   "title": "Cvičení pro seniory",
+   "date": "2027-01-22",
+   "time": "09:00",
+   "category": "kurz",
+   "place": "Sokolovna Pečky",
+   "organizer": "tj-sokol-pecky",
+   "organizer_name": null,
+   "description": "Cvičení je zaměřeno na zdravotní tělocvik, cvičení s náčiním, drobné sportovní hry a výlety.",
+   "note": "Plakát uvádí „Každý pátek od 9 do 10 hod.“, začátek série neuvádí — první termín 23. 10. 2026 je dopočtený, další pátky podle prázdninového kalendáře Sokola (jako ostatní kurzy TJ Sokol).",
+   "evidence": [
+    {
+     "source": "pecky-noviny",
+     "kind": "zpravodaj",
+     "url": "https://pecky.cz/default/default/21389_pdf-zpravodaje",
+     "label": "Pečecké noviny, str. 15 — Sokol Pečky: Cvičení pro seniory (fotografie plakátu z e-mailu 18. 10. 2026, číslo novin neuvedeno)",
+     "published": "2026-10-18",
+     "retrieved": "2026-10-19"
+    }
+   ]
+  },
+  {
    "id": "kurz-2027-01-22-atelier-talent",
    "title": "Ateliér talent",
    "date": "2027-01-22",
@@ -36841,6 +37363,14 @@
      "label": "Pečecké noviny 9/2026, str. 19 — Rozvrh hodin sokolovny, školní rok 2026/2027",
      "published": "2026-09-01",
      "retrieved": "2026-09-21"
+    },
+    {
+     "source": "pecky-noviny",
+     "kind": "zpravodaj",
+     "url": "https://pecky.cz/default/default/21389_pdf-zpravodaje",
+     "label": "Pečecké noviny, str. 14 — Dorostenky a mladší ženy: Pound, Tabata, HIIT, Jóga (fotografie z e-mailu 18. 10. 2026, číslo novin neuvedeno)",
+     "published": "2026-10-18",
+     "retrieved": "2026-10-19"
     }
    ]
   },
@@ -38759,6 +39289,14 @@
      "label": "Pečecké noviny 9/2026, str. 19 — Rozvrh hodin sokolovny, školní rok 2026/2027",
      "published": "2026-09-01",
      "retrieved": "2026-09-21"
+    },
+    {
+     "source": "pecky-noviny",
+     "kind": "zpravodaj",
+     "url": "https://pecky.cz/default/default/21389_pdf-zpravodaje",
+     "label": "Pečecké noviny, str. 14 — Dorostenky a mladší ženy: Pound, Tabata, HIIT, Jóga (fotografie z e-mailu 18. 10. 2026, číslo novin neuvedeno)",
+     "published": "2026-10-18",
+     "retrieved": "2026-10-19"
     }
    ]
   },
@@ -39975,6 +40513,28 @@
    ]
   },
   {
+   "id": "kurz-2027-02-12-cviceni-pro-seniory",
+   "title": "Cvičení pro seniory",
+   "date": "2027-02-12",
+   "time": "09:00",
+   "category": "kurz",
+   "place": "Sokolovna Pečky",
+   "organizer": "tj-sokol-pecky",
+   "organizer_name": null,
+   "description": "Cvičení je zaměřeno na zdravotní tělocvik, cvičení s náčiním, drobné sportovní hry a výlety.",
+   "note": "Plakát uvádí „Každý pátek od 9 do 10 hod.“, začátek série neuvádí — první termín 23. 10. 2026 je dopočtený, další pátky podle prázdninového kalendáře Sokola (jako ostatní kurzy TJ Sokol).",
+   "evidence": [
+    {
+     "source": "pecky-noviny",
+     "kind": "zpravodaj",
+     "url": "https://pecky.cz/default/default/21389_pdf-zpravodaje",
+     "label": "Pečecké noviny, str. 15 — Sokol Pečky: Cvičení pro seniory (fotografie plakátu z e-mailu 18. 10. 2026, číslo novin neuvedeno)",
+     "published": "2026-10-18",
+     "retrieved": "2026-10-19"
+    }
+   ]
+  },
+  {
    "id": "kurz-2027-02-12-atelier-talent",
    "title": "Ateliér talent",
    "date": "2027-02-12",
@@ -40638,6 +41198,14 @@
      "label": "Pečecké noviny 9/2026, str. 19 — Rozvrh hodin sokolovny, školní rok 2026/2027",
      "published": "2026-09-01",
      "retrieved": "2026-09-21"
+    },
+    {
+     "source": "pecky-noviny",
+     "kind": "zpravodaj",
+     "url": "https://pecky.cz/default/default/21389_pdf-zpravodaje",
+     "label": "Pečecké noviny, str. 14 — Dorostenky a mladší ženy: Pound, Tabata, HIIT, Jóga (fotografie z e-mailu 18. 10. 2026, číslo novin neuvedeno)",
+     "published": "2026-10-18",
+     "retrieved": "2026-10-19"
     }
    ]
   },
@@ -41846,6 +42414,28 @@
    ]
   },
   {
+   "id": "kurz-2027-02-19-cviceni-pro-seniory",
+   "title": "Cvičení pro seniory",
+   "date": "2027-02-19",
+   "time": "09:00",
+   "category": "kurz",
+   "place": "Sokolovna Pečky",
+   "organizer": "tj-sokol-pecky",
+   "organizer_name": null,
+   "description": "Cvičení je zaměřeno na zdravotní tělocvik, cvičení s náčiním, drobné sportovní hry a výlety.",
+   "note": "Plakát uvádí „Každý pátek od 9 do 10 hod.“, začátek série neuvádí — první termín 23. 10. 2026 je dopočtený, další pátky podle prázdninového kalendáře Sokola (jako ostatní kurzy TJ Sokol).",
+   "evidence": [
+    {
+     "source": "pecky-noviny",
+     "kind": "zpravodaj",
+     "url": "https://pecky.cz/default/default/21389_pdf-zpravodaje",
+     "label": "Pečecké noviny, str. 15 — Sokol Pečky: Cvičení pro seniory (fotografie plakátu z e-mailu 18. 10. 2026, číslo novin neuvedeno)",
+     "published": "2026-10-18",
+     "retrieved": "2026-10-19"
+    }
+   ]
+  },
+  {
    "id": "kurz-2027-02-19-atelier-talent",
    "title": "Ateliér talent",
    "date": "2027-02-19",
@@ -42509,6 +43099,14 @@
      "label": "Pečecké noviny 9/2026, str. 19 — Rozvrh hodin sokolovny, školní rok 2026/2027",
      "published": "2026-09-01",
      "retrieved": "2026-09-21"
+    },
+    {
+     "source": "pecky-noviny",
+     "kind": "zpravodaj",
+     "url": "https://pecky.cz/default/default/21389_pdf-zpravodaje",
+     "label": "Pečecké noviny, str. 14 — Dorostenky a mladší ženy: Pound, Tabata, HIIT, Jóga (fotografie z e-mailu 18. 10. 2026, číslo novin neuvedeno)",
+     "published": "2026-10-18",
+     "retrieved": "2026-10-19"
     }
    ]
   },
@@ -43725,6 +44323,28 @@
    ]
   },
   {
+   "id": "kurz-2027-02-26-cviceni-pro-seniory",
+   "title": "Cvičení pro seniory",
+   "date": "2027-02-26",
+   "time": "09:00",
+   "category": "kurz",
+   "place": "Sokolovna Pečky",
+   "organizer": "tj-sokol-pecky",
+   "organizer_name": null,
+   "description": "Cvičení je zaměřeno na zdravotní tělocvik, cvičení s náčiním, drobné sportovní hry a výlety.",
+   "note": "Plakát uvádí „Každý pátek od 9 do 10 hod.“, začátek série neuvádí — první termín 23. 10. 2026 je dopočtený, další pátky podle prázdninového kalendáře Sokola (jako ostatní kurzy TJ Sokol).",
+   "evidence": [
+    {
+     "source": "pecky-noviny",
+     "kind": "zpravodaj",
+     "url": "https://pecky.cz/default/default/21389_pdf-zpravodaje",
+     "label": "Pečecké noviny, str. 15 — Sokol Pečky: Cvičení pro seniory (fotografie plakátu z e-mailu 18. 10. 2026, číslo novin neuvedeno)",
+     "published": "2026-10-18",
+     "retrieved": "2026-10-19"
+    }
+   ]
+  },
+  {
    "id": "kurz-2027-02-26-atelier-talent",
    "title": "Ateliér talent",
    "date": "2027-02-26",
@@ -44388,6 +45008,14 @@
      "label": "Pečecké noviny 9/2026, str. 19 — Rozvrh hodin sokolovny, školní rok 2026/2027",
      "published": "2026-09-01",
      "retrieved": "2026-09-21"
+    },
+    {
+     "source": "pecky-noviny",
+     "kind": "zpravodaj",
+     "url": "https://pecky.cz/default/default/21389_pdf-zpravodaje",
+     "label": "Pečecké noviny, str. 14 — Dorostenky a mladší ženy: Pound, Tabata, HIIT, Jóga (fotografie z e-mailu 18. 10. 2026, číslo novin neuvedeno)",
+     "published": "2026-10-18",
+     "retrieved": "2026-10-19"
     }
    ]
   },
@@ -45596,6 +46224,28 @@
    ]
   },
   {
+   "id": "kurz-2027-03-05-cviceni-pro-seniory",
+   "title": "Cvičení pro seniory",
+   "date": "2027-03-05",
+   "time": "09:00",
+   "category": "kurz",
+   "place": "Sokolovna Pečky",
+   "organizer": "tj-sokol-pecky",
+   "organizer_name": null,
+   "description": "Cvičení je zaměřeno na zdravotní tělocvik, cvičení s náčiním, drobné sportovní hry a výlety.",
+   "note": "Plakát uvádí „Každý pátek od 9 do 10 hod.“, začátek série neuvádí — první termín 23. 10. 2026 je dopočtený, další pátky podle prázdninového kalendáře Sokola (jako ostatní kurzy TJ Sokol).",
+   "evidence": [
+    {
+     "source": "pecky-noviny",
+     "kind": "zpravodaj",
+     "url": "https://pecky.cz/default/default/21389_pdf-zpravodaje",
+     "label": "Pečecké noviny, str. 15 — Sokol Pečky: Cvičení pro seniory (fotografie plakátu z e-mailu 18. 10. 2026, číslo novin neuvedeno)",
+     "published": "2026-10-18",
+     "retrieved": "2026-10-19"
+    }
+   ]
+  },
+  {
    "id": "kurz-2027-03-05-atelier-talent",
    "title": "Ateliér talent",
    "date": "2027-03-05",
@@ -46259,6 +46909,14 @@
      "label": "Pečecké noviny 9/2026, str. 19 — Rozvrh hodin sokolovny, školní rok 2026/2027",
      "published": "2026-09-01",
      "retrieved": "2026-09-21"
+    },
+    {
+     "source": "pecky-noviny",
+     "kind": "zpravodaj",
+     "url": "https://pecky.cz/default/default/21389_pdf-zpravodaje",
+     "label": "Pečecké noviny, str. 14 — Dorostenky a mladší ženy: Pound, Tabata, HIIT, Jóga (fotografie z e-mailu 18. 10. 2026, číslo novin neuvedeno)",
+     "published": "2026-10-18",
+     "retrieved": "2026-10-19"
     }
    ]
   },
@@ -47475,6 +48133,28 @@
    ]
   },
   {
+   "id": "kurz-2027-03-12-cviceni-pro-seniory",
+   "title": "Cvičení pro seniory",
+   "date": "2027-03-12",
+   "time": "09:00",
+   "category": "kurz",
+   "place": "Sokolovna Pečky",
+   "organizer": "tj-sokol-pecky",
+   "organizer_name": null,
+   "description": "Cvičení je zaměřeno na zdravotní tělocvik, cvičení s náčiním, drobné sportovní hry a výlety.",
+   "note": "Plakát uvádí „Každý pátek od 9 do 10 hod.“, začátek série neuvádí — první termín 23. 10. 2026 je dopočtený, další pátky podle prázdninového kalendáře Sokola (jako ostatní kurzy TJ Sokol).",
+   "evidence": [
+    {
+     "source": "pecky-noviny",
+     "kind": "zpravodaj",
+     "url": "https://pecky.cz/default/default/21389_pdf-zpravodaje",
+     "label": "Pečecké noviny, str. 15 — Sokol Pečky: Cvičení pro seniory (fotografie plakátu z e-mailu 18. 10. 2026, číslo novin neuvedeno)",
+     "published": "2026-10-18",
+     "retrieved": "2026-10-19"
+    }
+   ]
+  },
+  {
    "id": "kurz-2027-03-12-atelier-talent",
    "title": "Ateliér talent",
    "date": "2027-03-12",
@@ -48138,6 +48818,14 @@
      "label": "Pečecké noviny 9/2026, str. 19 — Rozvrh hodin sokolovny, školní rok 2026/2027",
      "published": "2026-09-01",
      "retrieved": "2026-09-21"
+    },
+    {
+     "source": "pecky-noviny",
+     "kind": "zpravodaj",
+     "url": "https://pecky.cz/default/default/21389_pdf-zpravodaje",
+     "label": "Pečecké noviny, str. 14 — Dorostenky a mladší ženy: Pound, Tabata, HIIT, Jóga (fotografie z e-mailu 18. 10. 2026, číslo novin neuvedeno)",
+     "published": "2026-10-18",
+     "retrieved": "2026-10-19"
     }
    ]
   },
@@ -49346,6 +50034,28 @@
    ]
   },
   {
+   "id": "kurz-2027-03-19-cviceni-pro-seniory",
+   "title": "Cvičení pro seniory",
+   "date": "2027-03-19",
+   "time": "09:00",
+   "category": "kurz",
+   "place": "Sokolovna Pečky",
+   "organizer": "tj-sokol-pecky",
+   "organizer_name": null,
+   "description": "Cvičení je zaměřeno na zdravotní tělocvik, cvičení s náčiním, drobné sportovní hry a výlety.",
+   "note": "Plakát uvádí „Každý pátek od 9 do 10 hod.“, začátek série neuvádí — první termín 23. 10. 2026 je dopočtený, další pátky podle prázdninového kalendáře Sokola (jako ostatní kurzy TJ Sokol).",
+   "evidence": [
+    {
+     "source": "pecky-noviny",
+     "kind": "zpravodaj",
+     "url": "https://pecky.cz/default/default/21389_pdf-zpravodaje",
+     "label": "Pečecké noviny, str. 15 — Sokol Pečky: Cvičení pro seniory (fotografie plakátu z e-mailu 18. 10. 2026, číslo novin neuvedeno)",
+     "published": "2026-10-18",
+     "retrieved": "2026-10-19"
+    }
+   ]
+  },
+  {
    "id": "kurz-2027-03-19-atelier-talent",
    "title": "Ateliér talent",
    "date": "2027-03-19",
@@ -50009,6 +50719,14 @@
      "label": "Pečecké noviny 9/2026, str. 19 — Rozvrh hodin sokolovny, školní rok 2026/2027",
      "published": "2026-09-01",
      "retrieved": "2026-09-21"
+    },
+    {
+     "source": "pecky-noviny",
+     "kind": "zpravodaj",
+     "url": "https://pecky.cz/default/default/21389_pdf-zpravodaje",
+     "label": "Pečecké noviny, str. 14 — Dorostenky a mladší ženy: Pound, Tabata, HIIT, Jóga (fotografie z e-mailu 18. 10. 2026, číslo novin neuvedeno)",
+     "published": "2026-10-18",
+     "retrieved": "2026-10-19"
     }
    ]
   },
@@ -50984,6 +51702,28 @@
    ]
   },
   {
+   "id": "kurz-2027-03-26-cviceni-pro-seniory",
+   "title": "Cvičení pro seniory",
+   "date": "2027-03-26",
+   "time": "09:00",
+   "category": "kurz",
+   "place": "Sokolovna Pečky",
+   "organizer": "tj-sokol-pecky",
+   "organizer_name": null,
+   "description": "Cvičení je zaměřeno na zdravotní tělocvik, cvičení s náčiním, drobné sportovní hry a výlety.",
+   "note": "Plakát uvádí „Každý pátek od 9 do 10 hod.“, začátek série neuvádí — první termín 23. 10. 2026 je dopočtený, další pátky podle prázdninového kalendáře Sokola (jako ostatní kurzy TJ Sokol).",
+   "evidence": [
+    {
+     "source": "pecky-noviny",
+     "kind": "zpravodaj",
+     "url": "https://pecky.cz/default/default/21389_pdf-zpravodaje",
+     "label": "Pečecké noviny, str. 15 — Sokol Pečky: Cvičení pro seniory (fotografie plakátu z e-mailu 18. 10. 2026, číslo novin neuvedeno)",
+     "published": "2026-10-18",
+     "retrieved": "2026-10-19"
+    }
+   ]
+  },
+  {
    "id": "kurz-2027-03-26-atelier-talent",
    "title": "Ateliér talent",
    "date": "2027-03-26",
@@ -51647,6 +52387,14 @@
      "label": "Pečecké noviny 9/2026, str. 19 — Rozvrh hodin sokolovny, školní rok 2026/2027",
      "published": "2026-09-01",
      "retrieved": "2026-09-21"
+    },
+    {
+     "source": "pecky-noviny",
+     "kind": "zpravodaj",
+     "url": "https://pecky.cz/default/default/21389_pdf-zpravodaje",
+     "label": "Pečecké noviny, str. 14 — Dorostenky a mladší ženy: Pound, Tabata, HIIT, Jóga (fotografie z e-mailu 18. 10. 2026, číslo novin neuvedeno)",
+     "published": "2026-10-18",
+     "retrieved": "2026-10-19"
     }
    ]
   },
@@ -52855,6 +53603,28 @@
    ]
   },
   {
+   "id": "kurz-2027-04-02-cviceni-pro-seniory",
+   "title": "Cvičení pro seniory",
+   "date": "2027-04-02",
+   "time": "09:00",
+   "category": "kurz",
+   "place": "Sokolovna Pečky",
+   "organizer": "tj-sokol-pecky",
+   "organizer_name": null,
+   "description": "Cvičení je zaměřeno na zdravotní tělocvik, cvičení s náčiním, drobné sportovní hry a výlety.",
+   "note": "Plakát uvádí „Každý pátek od 9 do 10 hod.“, začátek série neuvádí — první termín 23. 10. 2026 je dopočtený, další pátky podle prázdninového kalendáře Sokola (jako ostatní kurzy TJ Sokol).",
+   "evidence": [
+    {
+     "source": "pecky-noviny",
+     "kind": "zpravodaj",
+     "url": "https://pecky.cz/default/default/21389_pdf-zpravodaje",
+     "label": "Pečecké noviny, str. 15 — Sokol Pečky: Cvičení pro seniory (fotografie plakátu z e-mailu 18. 10. 2026, číslo novin neuvedeno)",
+     "published": "2026-10-18",
+     "retrieved": "2026-10-19"
+    }
+   ]
+  },
+  {
    "id": "kurz-2027-04-02-atelier-talent",
    "title": "Ateliér talent",
    "date": "2027-04-02",
@@ -53518,6 +54288,14 @@
      "label": "Pečecké noviny 9/2026, str. 19 — Rozvrh hodin sokolovny, školní rok 2026/2027",
      "published": "2026-09-01",
      "retrieved": "2026-09-21"
+    },
+    {
+     "source": "pecky-noviny",
+     "kind": "zpravodaj",
+     "url": "https://pecky.cz/default/default/21389_pdf-zpravodaje",
+     "label": "Pečecké noviny, str. 14 — Dorostenky a mladší ženy: Pound, Tabata, HIIT, Jóga (fotografie z e-mailu 18. 10. 2026, číslo novin neuvedeno)",
+     "published": "2026-10-18",
+     "retrieved": "2026-10-19"
     }
    ]
   },
@@ -54734,6 +55512,28 @@
    ]
   },
   {
+   "id": "kurz-2027-04-09-cviceni-pro-seniory",
+   "title": "Cvičení pro seniory",
+   "date": "2027-04-09",
+   "time": "09:00",
+   "category": "kurz",
+   "place": "Sokolovna Pečky",
+   "organizer": "tj-sokol-pecky",
+   "organizer_name": null,
+   "description": "Cvičení je zaměřeno na zdravotní tělocvik, cvičení s náčiním, drobné sportovní hry a výlety.",
+   "note": "Plakát uvádí „Každý pátek od 9 do 10 hod.“, začátek série neuvádí — první termín 23. 10. 2026 je dopočtený, další pátky podle prázdninového kalendáře Sokola (jako ostatní kurzy TJ Sokol).",
+   "evidence": [
+    {
+     "source": "pecky-noviny",
+     "kind": "zpravodaj",
+     "url": "https://pecky.cz/default/default/21389_pdf-zpravodaje",
+     "label": "Pečecké noviny, str. 15 — Sokol Pečky: Cvičení pro seniory (fotografie plakátu z e-mailu 18. 10. 2026, číslo novin neuvedeno)",
+     "published": "2026-10-18",
+     "retrieved": "2026-10-19"
+    }
+   ]
+  },
+  {
    "id": "kurz-2027-04-09-atelier-talent",
    "title": "Ateliér talent",
    "date": "2027-04-09",
@@ -55397,6 +56197,14 @@
      "label": "Pečecké noviny 9/2026, str. 19 — Rozvrh hodin sokolovny, školní rok 2026/2027",
      "published": "2026-09-01",
      "retrieved": "2026-09-21"
+    },
+    {
+     "source": "pecky-noviny",
+     "kind": "zpravodaj",
+     "url": "https://pecky.cz/default/default/21389_pdf-zpravodaje",
+     "label": "Pečecké noviny, str. 14 — Dorostenky a mladší ženy: Pound, Tabata, HIIT, Jóga (fotografie z e-mailu 18. 10. 2026, číslo novin neuvedeno)",
+     "published": "2026-10-18",
+     "retrieved": "2026-10-19"
     }
    ]
   },
@@ -56605,6 +57413,28 @@
    ]
   },
   {
+   "id": "kurz-2027-04-16-cviceni-pro-seniory",
+   "title": "Cvičení pro seniory",
+   "date": "2027-04-16",
+   "time": "09:00",
+   "category": "kurz",
+   "place": "Sokolovna Pečky",
+   "organizer": "tj-sokol-pecky",
+   "organizer_name": null,
+   "description": "Cvičení je zaměřeno na zdravotní tělocvik, cvičení s náčiním, drobné sportovní hry a výlety.",
+   "note": "Plakát uvádí „Každý pátek od 9 do 10 hod.“, začátek série neuvádí — první termín 23. 10. 2026 je dopočtený, další pátky podle prázdninového kalendáře Sokola (jako ostatní kurzy TJ Sokol).",
+   "evidence": [
+    {
+     "source": "pecky-noviny",
+     "kind": "zpravodaj",
+     "url": "https://pecky.cz/default/default/21389_pdf-zpravodaje",
+     "label": "Pečecké noviny, str. 15 — Sokol Pečky: Cvičení pro seniory (fotografie plakátu z e-mailu 18. 10. 2026, číslo novin neuvedeno)",
+     "published": "2026-10-18",
+     "retrieved": "2026-10-19"
+    }
+   ]
+  },
+  {
    "id": "kurz-2027-04-16-atelier-talent",
    "title": "Ateliér talent",
    "date": "2027-04-16",
@@ -57268,6 +58098,14 @@
      "label": "Pečecké noviny 9/2026, str. 19 — Rozvrh hodin sokolovny, školní rok 2026/2027",
      "published": "2026-09-01",
      "retrieved": "2026-09-21"
+    },
+    {
+     "source": "pecky-noviny",
+     "kind": "zpravodaj",
+     "url": "https://pecky.cz/default/default/21389_pdf-zpravodaje",
+     "label": "Pečecké noviny, str. 14 — Dorostenky a mladší ženy: Pound, Tabata, HIIT, Jóga (fotografie z e-mailu 18. 10. 2026, číslo novin neuvedeno)",
+     "published": "2026-10-18",
+     "retrieved": "2026-10-19"
     }
    ]
   },
@@ -58530,6 +59368,28 @@
    ]
   },
   {
+   "id": "kurz-2027-04-23-cviceni-pro-seniory",
+   "title": "Cvičení pro seniory",
+   "date": "2027-04-23",
+   "time": "09:00",
+   "category": "kurz",
+   "place": "Sokolovna Pečky",
+   "organizer": "tj-sokol-pecky",
+   "organizer_name": null,
+   "description": "Cvičení je zaměřeno na zdravotní tělocvik, cvičení s náčiním, drobné sportovní hry a výlety.",
+   "note": "Plakát uvádí „Každý pátek od 9 do 10 hod.“, začátek série neuvádí — první termín 23. 10. 2026 je dopočtený, další pátky podle prázdninového kalendáře Sokola (jako ostatní kurzy TJ Sokol).",
+   "evidence": [
+    {
+     "source": "pecky-noviny",
+     "kind": "zpravodaj",
+     "url": "https://pecky.cz/default/default/21389_pdf-zpravodaje",
+     "label": "Pečecké noviny, str. 15 — Sokol Pečky: Cvičení pro seniory (fotografie plakátu z e-mailu 18. 10. 2026, číslo novin neuvedeno)",
+     "published": "2026-10-18",
+     "retrieved": "2026-10-19"
+    }
+   ]
+  },
+  {
    "id": "kurz-2027-04-23-atelier-talent",
    "title": "Ateliér talent",
    "date": "2027-04-23",
@@ -59193,6 +60053,14 @@
      "label": "Pečecké noviny 9/2026, str. 19 — Rozvrh hodin sokolovny, školní rok 2026/2027",
      "published": "2026-09-01",
      "retrieved": "2026-09-21"
+    },
+    {
+     "source": "pecky-noviny",
+     "kind": "zpravodaj",
+     "url": "https://pecky.cz/default/default/21389_pdf-zpravodaje",
+     "label": "Pečecké noviny, str. 14 — Dorostenky a mladší ženy: Pound, Tabata, HIIT, Jóga (fotografie z e-mailu 18. 10. 2026, číslo novin neuvedeno)",
+     "published": "2026-10-18",
+     "retrieved": "2026-10-19"
     }
    ]
   },
@@ -60401,6 +61269,28 @@
    ]
   },
   {
+   "id": "kurz-2027-04-30-cviceni-pro-seniory",
+   "title": "Cvičení pro seniory",
+   "date": "2027-04-30",
+   "time": "09:00",
+   "category": "kurz",
+   "place": "Sokolovna Pečky",
+   "organizer": "tj-sokol-pecky",
+   "organizer_name": null,
+   "description": "Cvičení je zaměřeno na zdravotní tělocvik, cvičení s náčiním, drobné sportovní hry a výlety.",
+   "note": "Plakát uvádí „Každý pátek od 9 do 10 hod.“, začátek série neuvádí — první termín 23. 10. 2026 je dopočtený, další pátky podle prázdninového kalendáře Sokola (jako ostatní kurzy TJ Sokol).",
+   "evidence": [
+    {
+     "source": "pecky-noviny",
+     "kind": "zpravodaj",
+     "url": "https://pecky.cz/default/default/21389_pdf-zpravodaje",
+     "label": "Pečecké noviny, str. 15 — Sokol Pečky: Cvičení pro seniory (fotografie plakátu z e-mailu 18. 10. 2026, číslo novin neuvedeno)",
+     "published": "2026-10-18",
+     "retrieved": "2026-10-19"
+    }
+   ]
+  },
+  {
    "id": "kurz-2027-04-30-atelier-talent",
    "title": "Ateliér talent",
    "date": "2027-04-30",
@@ -61064,6 +61954,14 @@
      "label": "Pečecké noviny 9/2026, str. 19 — Rozvrh hodin sokolovny, školní rok 2026/2027",
      "published": "2026-09-01",
      "retrieved": "2026-09-21"
+    },
+    {
+     "source": "pecky-noviny",
+     "kind": "zpravodaj",
+     "url": "https://pecky.cz/default/default/21389_pdf-zpravodaje",
+     "label": "Pečecké noviny, str. 14 — Dorostenky a mladší ženy: Pound, Tabata, HIIT, Jóga (fotografie z e-mailu 18. 10. 2026, číslo novin neuvedeno)",
+     "published": "2026-10-18",
+     "retrieved": "2026-10-19"
     }
    ]
   },
@@ -62280,6 +63178,28 @@
    ]
   },
   {
+   "id": "kurz-2027-05-07-cviceni-pro-seniory",
+   "title": "Cvičení pro seniory",
+   "date": "2027-05-07",
+   "time": "09:00",
+   "category": "kurz",
+   "place": "Sokolovna Pečky",
+   "organizer": "tj-sokol-pecky",
+   "organizer_name": null,
+   "description": "Cvičení je zaměřeno na zdravotní tělocvik, cvičení s náčiním, drobné sportovní hry a výlety.",
+   "note": "Plakát uvádí „Každý pátek od 9 do 10 hod.“, začátek série neuvádí — první termín 23. 10. 2026 je dopočtený, další pátky podle prázdninového kalendáře Sokola (jako ostatní kurzy TJ Sokol).",
+   "evidence": [
+    {
+     "source": "pecky-noviny",
+     "kind": "zpravodaj",
+     "url": "https://pecky.cz/default/default/21389_pdf-zpravodaje",
+     "label": "Pečecké noviny, str. 15 — Sokol Pečky: Cvičení pro seniory (fotografie plakátu z e-mailu 18. 10. 2026, číslo novin neuvedeno)",
+     "published": "2026-10-18",
+     "retrieved": "2026-10-19"
+    }
+   ]
+  },
+  {
    "id": "kurz-2027-05-07-atelier-talent",
    "title": "Ateliér talent",
    "date": "2027-05-07",
@@ -62943,6 +63863,14 @@
      "label": "Pečecké noviny 9/2026, str. 19 — Rozvrh hodin sokolovny, školní rok 2026/2027",
      "published": "2026-09-01",
      "retrieved": "2026-09-21"
+    },
+    {
+     "source": "pecky-noviny",
+     "kind": "zpravodaj",
+     "url": "https://pecky.cz/default/default/21389_pdf-zpravodaje",
+     "label": "Pečecké noviny, str. 14 — Dorostenky a mladší ženy: Pound, Tabata, HIIT, Jóga (fotografie z e-mailu 18. 10. 2026, číslo novin neuvedeno)",
+     "published": "2026-10-18",
+     "retrieved": "2026-10-19"
     }
    ]
   },
@@ -64151,6 +65079,28 @@
    ]
   },
   {
+   "id": "kurz-2027-05-14-cviceni-pro-seniory",
+   "title": "Cvičení pro seniory",
+   "date": "2027-05-14",
+   "time": "09:00",
+   "category": "kurz",
+   "place": "Sokolovna Pečky",
+   "organizer": "tj-sokol-pecky",
+   "organizer_name": null,
+   "description": "Cvičení je zaměřeno na zdravotní tělocvik, cvičení s náčiním, drobné sportovní hry a výlety.",
+   "note": "Plakát uvádí „Každý pátek od 9 do 10 hod.“, začátek série neuvádí — první termín 23. 10. 2026 je dopočtený, další pátky podle prázdninového kalendáře Sokola (jako ostatní kurzy TJ Sokol).",
+   "evidence": [
+    {
+     "source": "pecky-noviny",
+     "kind": "zpravodaj",
+     "url": "https://pecky.cz/default/default/21389_pdf-zpravodaje",
+     "label": "Pečecké noviny, str. 15 — Sokol Pečky: Cvičení pro seniory (fotografie plakátu z e-mailu 18. 10. 2026, číslo novin neuvedeno)",
+     "published": "2026-10-18",
+     "retrieved": "2026-10-19"
+    }
+   ]
+  },
+  {
    "id": "kurz-2027-05-14-atelier-talent",
    "title": "Ateliér talent",
    "date": "2027-05-14",
@@ -64814,6 +65764,14 @@
      "label": "Pečecké noviny 9/2026, str. 19 — Rozvrh hodin sokolovny, školní rok 2026/2027",
      "published": "2026-09-01",
      "retrieved": "2026-09-21"
+    },
+    {
+     "source": "pecky-noviny",
+     "kind": "zpravodaj",
+     "url": "https://pecky.cz/default/default/21389_pdf-zpravodaje",
+     "label": "Pečecké noviny, str. 14 — Dorostenky a mladší ženy: Pound, Tabata, HIIT, Jóga (fotografie z e-mailu 18. 10. 2026, číslo novin neuvedeno)",
+     "published": "2026-10-18",
+     "retrieved": "2026-10-19"
     }
    ]
   },
@@ -66030,6 +66988,28 @@
    ]
   },
   {
+   "id": "kurz-2027-05-21-cviceni-pro-seniory",
+   "title": "Cvičení pro seniory",
+   "date": "2027-05-21",
+   "time": "09:00",
+   "category": "kurz",
+   "place": "Sokolovna Pečky",
+   "organizer": "tj-sokol-pecky",
+   "organizer_name": null,
+   "description": "Cvičení je zaměřeno na zdravotní tělocvik, cvičení s náčiním, drobné sportovní hry a výlety.",
+   "note": "Plakát uvádí „Každý pátek od 9 do 10 hod.“, začátek série neuvádí — první termín 23. 10. 2026 je dopočtený, další pátky podle prázdninového kalendáře Sokola (jako ostatní kurzy TJ Sokol).",
+   "evidence": [
+    {
+     "source": "pecky-noviny",
+     "kind": "zpravodaj",
+     "url": "https://pecky.cz/default/default/21389_pdf-zpravodaje",
+     "label": "Pečecké noviny, str. 15 — Sokol Pečky: Cvičení pro seniory (fotografie plakátu z e-mailu 18. 10. 2026, číslo novin neuvedeno)",
+     "published": "2026-10-18",
+     "retrieved": "2026-10-19"
+    }
+   ]
+  },
+  {
    "id": "kurz-2027-05-21-atelier-talent",
    "title": "Ateliér talent",
    "date": "2027-05-21",
@@ -66693,6 +67673,14 @@
      "label": "Pečecké noviny 9/2026, str. 19 — Rozvrh hodin sokolovny, školní rok 2026/2027",
      "published": "2026-09-01",
      "retrieved": "2026-09-21"
+    },
+    {
+     "source": "pecky-noviny",
+     "kind": "zpravodaj",
+     "url": "https://pecky.cz/default/default/21389_pdf-zpravodaje",
+     "label": "Pečecké noviny, str. 14 — Dorostenky a mladší ženy: Pound, Tabata, HIIT, Jóga (fotografie z e-mailu 18. 10. 2026, číslo novin neuvedeno)",
+     "published": "2026-10-18",
+     "retrieved": "2026-10-19"
     }
    ]
   },
@@ -67901,6 +68889,28 @@
    ]
   },
   {
+   "id": "kurz-2027-05-28-cviceni-pro-seniory",
+   "title": "Cvičení pro seniory",
+   "date": "2027-05-28",
+   "time": "09:00",
+   "category": "kurz",
+   "place": "Sokolovna Pečky",
+   "organizer": "tj-sokol-pecky",
+   "organizer_name": null,
+   "description": "Cvičení je zaměřeno na zdravotní tělocvik, cvičení s náčiním, drobné sportovní hry a výlety.",
+   "note": "Plakát uvádí „Každý pátek od 9 do 10 hod.“, začátek série neuvádí — první termín 23. 10. 2026 je dopočtený, další pátky podle prázdninového kalendáře Sokola (jako ostatní kurzy TJ Sokol).",
+   "evidence": [
+    {
+     "source": "pecky-noviny",
+     "kind": "zpravodaj",
+     "url": "https://pecky.cz/default/default/21389_pdf-zpravodaje",
+     "label": "Pečecké noviny, str. 15 — Sokol Pečky: Cvičení pro seniory (fotografie plakátu z e-mailu 18. 10. 2026, číslo novin neuvedeno)",
+     "published": "2026-10-18",
+     "retrieved": "2026-10-19"
+    }
+   ]
+  },
+  {
    "id": "kurz-2027-05-28-atelier-talent",
    "title": "Ateliér talent",
    "date": "2027-05-28",
@@ -68564,6 +69574,14 @@
      "label": "Pečecké noviny 9/2026, str. 19 — Rozvrh hodin sokolovny, školní rok 2026/2027",
      "published": "2026-09-01",
      "retrieved": "2026-09-21"
+    },
+    {
+     "source": "pecky-noviny",
+     "kind": "zpravodaj",
+     "url": "https://pecky.cz/default/default/21389_pdf-zpravodaje",
+     "label": "Pečecké noviny, str. 14 — Dorostenky a mladší ženy: Pound, Tabata, HIIT, Jóga (fotografie z e-mailu 18. 10. 2026, číslo novin neuvedeno)",
+     "published": "2026-10-18",
+     "retrieved": "2026-10-19"
     }
    ]
   },
@@ -69780,6 +70798,28 @@
    ]
   },
   {
+   "id": "kurz-2027-06-04-cviceni-pro-seniory",
+   "title": "Cvičení pro seniory",
+   "date": "2027-06-04",
+   "time": "09:00",
+   "category": "kurz",
+   "place": "Sokolovna Pečky",
+   "organizer": "tj-sokol-pecky",
+   "organizer_name": null,
+   "description": "Cvičení je zaměřeno na zdravotní tělocvik, cvičení s náčiním, drobné sportovní hry a výlety.",
+   "note": "Plakát uvádí „Každý pátek od 9 do 10 hod.“, začátek série neuvádí — první termín 23. 10. 2026 je dopočtený, další pátky podle prázdninového kalendáře Sokola (jako ostatní kurzy TJ Sokol).",
+   "evidence": [
+    {
+     "source": "pecky-noviny",
+     "kind": "zpravodaj",
+     "url": "https://pecky.cz/default/default/21389_pdf-zpravodaje",
+     "label": "Pečecké noviny, str. 15 — Sokol Pečky: Cvičení pro seniory (fotografie plakátu z e-mailu 18. 10. 2026, číslo novin neuvedeno)",
+     "published": "2026-10-18",
+     "retrieved": "2026-10-19"
+    }
+   ]
+  },
+  {
    "id": "kurz-2027-06-04-atelier-talent",
    "title": "Ateliér talent",
    "date": "2027-06-04",
@@ -70443,6 +71483,14 @@
      "label": "Pečecké noviny 9/2026, str. 19 — Rozvrh hodin sokolovny, školní rok 2026/2027",
      "published": "2026-09-01",
      "retrieved": "2026-09-21"
+    },
+    {
+     "source": "pecky-noviny",
+     "kind": "zpravodaj",
+     "url": "https://pecky.cz/default/default/21389_pdf-zpravodaje",
+     "label": "Pečecké noviny, str. 14 — Dorostenky a mladší ženy: Pound, Tabata, HIIT, Jóga (fotografie z e-mailu 18. 10. 2026, číslo novin neuvedeno)",
+     "published": "2026-10-18",
+     "retrieved": "2026-10-19"
     }
    ]
   },
@@ -71651,6 +72699,28 @@
    ]
   },
   {
+   "id": "kurz-2027-06-11-cviceni-pro-seniory",
+   "title": "Cvičení pro seniory",
+   "date": "2027-06-11",
+   "time": "09:00",
+   "category": "kurz",
+   "place": "Sokolovna Pečky",
+   "organizer": "tj-sokol-pecky",
+   "organizer_name": null,
+   "description": "Cvičení je zaměřeno na zdravotní tělocvik, cvičení s náčiním, drobné sportovní hry a výlety.",
+   "note": "Plakát uvádí „Každý pátek od 9 do 10 hod.“, začátek série neuvádí — první termín 23. 10. 2026 je dopočtený, další pátky podle prázdninového kalendáře Sokola (jako ostatní kurzy TJ Sokol).",
+   "evidence": [
+    {
+     "source": "pecky-noviny",
+     "kind": "zpravodaj",
+     "url": "https://pecky.cz/default/default/21389_pdf-zpravodaje",
+     "label": "Pečecké noviny, str. 15 — Sokol Pečky: Cvičení pro seniory (fotografie plakátu z e-mailu 18. 10. 2026, číslo novin neuvedeno)",
+     "published": "2026-10-18",
+     "retrieved": "2026-10-19"
+    }
+   ]
+  },
+  {
    "id": "kurz-2027-06-11-atelier-talent",
    "title": "Ateliér talent",
    "date": "2027-06-11",
@@ -72283,6 +73353,14 @@
      "label": "Pečecké noviny 9/2026, str. 19 — Rozvrh hodin sokolovny, školní rok 2026/2027",
      "published": "2026-09-01",
      "retrieved": "2026-09-21"
+    },
+    {
+     "source": "pecky-noviny",
+     "kind": "zpravodaj",
+     "url": "https://pecky.cz/default/default/21389_pdf-zpravodaje",
+     "label": "Pečecké noviny, str. 14 — Dorostenky a mladší ženy: Pound, Tabata, HIIT, Jóga (fotografie z e-mailu 18. 10. 2026, číslo novin neuvedeno)",
+     "published": "2026-10-18",
+     "retrieved": "2026-10-19"
     }
    ]
   },
@@ -73499,6 +74577,28 @@
    ]
   },
   {
+   "id": "kurz-2027-06-18-cviceni-pro-seniory",
+   "title": "Cvičení pro seniory",
+   "date": "2027-06-18",
+   "time": "09:00",
+   "category": "kurz",
+   "place": "Sokolovna Pečky",
+   "organizer": "tj-sokol-pecky",
+   "organizer_name": null,
+   "description": "Cvičení je zaměřeno na zdravotní tělocvik, cvičení s náčiním, drobné sportovní hry a výlety.",
+   "note": "Plakát uvádí „Každý pátek od 9 do 10 hod.“, začátek série neuvádí — první termín 23. 10. 2026 je dopočtený, další pátky podle prázdninového kalendáře Sokola (jako ostatní kurzy TJ Sokol).",
+   "evidence": [
+    {
+     "source": "pecky-noviny",
+     "kind": "zpravodaj",
+     "url": "https://pecky.cz/default/default/21389_pdf-zpravodaje",
+     "label": "Pečecké noviny, str. 15 — Sokol Pečky: Cvičení pro seniory (fotografie plakátu z e-mailu 18. 10. 2026, číslo novin neuvedeno)",
+     "published": "2026-10-18",
+     "retrieved": "2026-10-19"
+    }
+   ]
+  },
+  {
    "id": "kurz-2027-06-18-atelier-talent",
    "title": "Ateliér talent",
    "date": "2027-06-18",
@@ -74131,6 +75231,14 @@
      "label": "Pečecké noviny 9/2026, str. 19 — Rozvrh hodin sokolovny, školní rok 2026/2027",
      "published": "2026-09-01",
      "retrieved": "2026-09-21"
+    },
+    {
+     "source": "pecky-noviny",
+     "kind": "zpravodaj",
+     "url": "https://pecky.cz/default/default/21389_pdf-zpravodaje",
+     "label": "Pečecké noviny, str. 14 — Dorostenky a mladší ženy: Pound, Tabata, HIIT, Jóga (fotografie z e-mailu 18. 10. 2026, číslo novin neuvedeno)",
+     "published": "2026-10-18",
+     "retrieved": "2026-10-19"
     }
    ]
   },
@@ -75339,6 +76447,28 @@
    ]
   },
   {
+   "id": "kurz-2027-06-25-cviceni-pro-seniory",
+   "title": "Cvičení pro seniory",
+   "date": "2027-06-25",
+   "time": "09:00",
+   "category": "kurz",
+   "place": "Sokolovna Pečky",
+   "organizer": "tj-sokol-pecky",
+   "organizer_name": null,
+   "description": "Cvičení je zaměřeno na zdravotní tělocvik, cvičení s náčiním, drobné sportovní hry a výlety.",
+   "note": "Plakát uvádí „Každý pátek od 9 do 10 hod.“, začátek série neuvádí — první termín 23. 10. 2026 je dopočtený, další pátky podle prázdninového kalendáře Sokola (jako ostatní kurzy TJ Sokol).",
+   "evidence": [
+    {
+     "source": "pecky-noviny",
+     "kind": "zpravodaj",
+     "url": "https://pecky.cz/default/default/21389_pdf-zpravodaje",
+     "label": "Pečecké noviny, str. 15 — Sokol Pečky: Cvičení pro seniory (fotografie plakátu z e-mailu 18. 10. 2026, číslo novin neuvedeno)",
+     "published": "2026-10-18",
+     "retrieved": "2026-10-19"
+    }
+   ]
+  },
+  {
    "id": "kurz-2027-06-25-atelier-talent",
    "title": "Ateliér talent",
    "date": "2027-06-25",
@@ -75971,6 +77101,14 @@
      "label": "Pečecké noviny 9/2026, str. 19 — Rozvrh hodin sokolovny, školní rok 2026/2027",
      "published": "2026-09-01",
      "retrieved": "2026-09-21"
+    },
+    {
+     "source": "pecky-noviny",
+     "kind": "zpravodaj",
+     "url": "https://pecky.cz/default/default/21389_pdf-zpravodaje",
+     "label": "Pečecké noviny, str. 14 — Dorostenky a mladší ženy: Pound, Tabata, HIIT, Jóga (fotografie z e-mailu 18. 10. 2026, číslo novin neuvedeno)",
+     "published": "2026-10-18",
+     "retrieved": "2026-10-19"
     }
    ]
   },
