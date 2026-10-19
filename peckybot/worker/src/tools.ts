@@ -7,7 +7,7 @@ import { tokenize } from "./search.ts";
 
 export interface ToolContext {
   today: string; // RRRR-MM-DD (Praha)
-  load(file: "osoby" | "slozeni" | "kalendar" | "jednani" | "statistiky"): Promise<any>;
+  load(file: "osoby" | "slozeni" | "kalendar" | "jednani" | "statistiky" | "svoz"): Promise<any>;
   /** malý soubor s dokumentem: „jednani/<id>“ nebo „uredni-deska/<rok>“ (data/…json, cache v answer.ts) */
   loadDoc(path: string): Promise<any>;
   searchText(dotaz: string, typ?: string): Promise<{ title: string; url: string; text: string }[]>;
@@ -274,6 +274,62 @@ async function kalendarTool(input: any, ctx: ToolContext) {
         do: s.do,
       }),
     ),
+  };
+}
+
+// ---------- svoz ----------
+
+const SVOZ_POCET = 3;
+
+export function svozQuery(data: any, today: string, lokalita?: string, druh?: string) {
+  const l = fold(lokalita ?? "");
+  const wanted = (data.lokality as any[]).filter((x) => {
+    if (!l) return true;
+    if (/sidli|sidlist/.test(l)) return x.id === "sidliste";
+    if (/jih|jizn/.test(l)) return x.id === "jih";
+    if (/sever|chvalov/.test(l)) return x.id === "sever";
+    return true;
+  });
+  const d = fold(druh ?? "");
+  const kinds = (x: any) =>
+    (x.druhy as any[]).filter((k) => {
+      if (!d) return true;
+      if (/bio|biood|bioodpad|zahrad|trav/.test(d)) return k.id === "bio";
+      if (/plast|plastic/.test(d)) return k.id === "plast";
+      if (/papir|karton/.test(d)) return k.id === "papir";
+      if (/komun|smes|popelnic|zbytk|cerna/.test(d)) return k.id === "komunal";
+      return true;
+    });
+  return wanted.map((x) => ({
+    lokalita: x.nazev,
+    druhy: kinds(x).map((k) => {
+      const dalsi = (k.terminy as string[]).filter((t) => t >= today);
+      return { druh: k.nazev, pravidlo: k.pravidlo, nejblizsi: dalsi.slice(0, SVOZ_POCET), zbyva_v_roce: dalsi.length };
+    }),
+  }));
+}
+
+async function svozTool(input: any, ctx: ToolContext) {
+  const data = await ctx.load("svoz");
+  const lokalita = str(input.lokalita, "lokalita");
+  const druh = str(input.druh, "druh");
+  const r = svozQuery(data, ctx.today, lokalita, druh);
+  const n = ctx.cite(`Kalendář — svoz odpadu ${data.rok}`, data.url || "/kalendar/svoz.html");
+  return {
+    n,
+    dnes: ctx.today,
+    lokality: r.map((x) => ({
+      lokalita: x.lokalita,
+      druhy: x.druhy.map((k) =>
+        clean({
+          druh: k.druh,
+          pravidlo: k.pravidlo,
+          nejblizsi: k.nejblizsi.map(czd),
+          poznamka: k.zbyva_v_roce ? undefined : `V roce ${data.rok} už další termín není.`,
+        }),
+      ),
+    })),
+    poznamka: "Harmonogram města neuvádí, které ulice patří do které lokality.",
   };
 }
 
@@ -637,6 +693,19 @@ export const TOOL_DEFS = [
     },
   },
   {
+    name: "svoz",
+    description:
+      "Nejbližší termíny svozu odpadu z domácností (komunální, BIO, plast, papír) podle lokality: Pečky sever a Velké Chvalovice, Pečky jih, Pečky sídliště. Vrátí po třech nejbližších termínech od dnešního dne a pravidlo svozu. Bez parametrů vrátí všechny lokality a druhy.",
+    input_schema: {
+      type: "object",
+      properties: {
+        lokalita: { type: "string", description: "„sever“ (vč. Velkých Chvalovic), „jih“ nebo „sídliště“; bez ní všechny tři." },
+        druh: { type: "string", description: "„komunální“, „bio“, „plast“ nebo „papír“; bez něj všechny čtyři." },
+      },
+      additionalProperties: false,
+    },
+  },
+  {
     name: "jednani",
     description:
       "Seznam jednání (zastupitelstvo, rada, komise, výbory, školská rada) od nejnovějšího, nejvýš 15, s id, označením, datem, počtem bodů a příznakem dostupne (pozvanka/zapis/usneseni). Jen názvy bodů, ne obsah. Pro „poslední rada/zasedání“, „co se probíralo naposledy“ použij nejnovejsi=true (s typem vrátí dvě nejnovější, protože nejnovější může mít zatím jen pozvánku) a potom zavolej cti_dokument(id). Volitelně filtr typu, období a slov v názvech bodů.",
@@ -703,6 +772,7 @@ const EXEC: Record<string, Exec> = {
   osoba: osobaTool,
   slozeni: slozeniTool,
   kalendar: kalendarTool,
+  svoz: svozTool,
   jednani: jednaniTool,
   cti_dokument: ctiDokumentTool,
   uredni_deska: uredniDeskaTool,

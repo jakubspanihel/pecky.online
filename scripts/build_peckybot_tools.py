@@ -4,7 +4,7 @@ Vygeneruje kompaktní předpočítané soubory pro nástroje PečkyBota: peckybo
 
 Worker (Cloudflare Free, 10 ms CPU) nesmí parsovat velké zdrojové JSONy, proto z nich
 tenhle skript předem spočítá malé soubory (formát viz peckybot/data/SCHEMA.md):
-osoby.json, slozeni.json, kalendar.json, jednani.json, statistiky.json.
+osoby.json, slozeni.json, kalendar.json, jednani.json, statistiky.json, svoz.json.
 
 Logika (funkce, složení, uskupení, ústředna) se přebírá z build_peckybot_index.py,
 aby si index a nástroje neodporovaly. Soubory se přepisují jen při změně obsahu,
@@ -25,7 +25,7 @@ from build_peckybot_index import (  # noqa: E402
     FUNKCNI, ROLE_TAGY, _d_from, _d_to, _full_name, _lide_data, _party, clean_phone, clip,
     cz_date, meeting_ref,
 )
-from peckybot_sources import _load, _org_names, _vzorec_serie, shrnuti_jednani  # noqa: E402
+from peckybot_sources import SVOZ_LOKALITY, SVOZ_PRAVIDLO, _load, _org_names, _vzorec_serie, shrnuti_jednani  # noqa: E402
 
 ROOT = Path(__file__).resolve().parent.parent
 OUT_DIR = ROOT / 'peckybot' / 'data'
@@ -487,11 +487,25 @@ def write_uredni_deska():
 SCHEMA_NOTE = 'peckybot/data/SCHEMA.md'
 
 
+def build_svoz():
+    """Termíny svozu odpadu po lokalitách pro nástroj `svoz` (nejbližší termíny se počítají za běhu)."""
+    sv = _load('kalendar/svoz-odpadu.json')
+    typy = {t['id']: t for t in sv['types']}
+    lokality = []
+    for lok in SVOZ_LOKALITY:
+        druhy = []
+        for klic, nazev, tid in (('komunal', 'Komunální odpad', lok['kom']), ('bio', 'BIO odpad', 'bio'),
+                                 ('plast', 'Plast', 'plast'), ('papir', 'Papír', 'papir')):
+            druhy.append({'id': klic, 'nazev': nazev, 'pravidlo': SVOZ_PRAVIDLO[tid], 'terminy': typy[tid]['dates']})
+        lokality.append({'id': lok['id'], 'nazev': lok['nazev'], 'druhy': druhy})
+    return {'v': 1, 'rok': sv['meta']['year'], 'url': '/kalendar/svoz.html', 'lokality': lokality}
+
+
 def main():
     OUT_DIR.mkdir(parents=True, exist_ok=True)
     soubory = (('osoby.json', build_osoby()), ('slozeni.json', build_slozeni()),
                ('kalendar.json', build_kalendar()), ('jednani.json', build_jednani()),
-               ('statistiky.json', build_statistiky()))
+               ('statistiky.json', build_statistiky()), ('svoz.json', build_svoz()))
     zmeneno, popis = False, []
     zm_doc, pocet, velikost = write_jednani_docs()
     zmeneno |= zm_doc

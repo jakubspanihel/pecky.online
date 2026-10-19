@@ -271,7 +271,7 @@ test("smyčka: bez nástrojů = jedno volání, meta", async () => {
   assert.equal(r.meta.retrieved.length, 8);
   assert.equal(r.sources.length, 1);
   assert.equal(spendOf(e), r.meta.costMicro);
-  assert.ok(bodies[0].tools.length === 8);
+  assert.ok(bodies[0].tools.length === 9);
   assert.deepEqual(bodies[0].system[0].cache_control, { type: "ephemeral" });
   assert.equal(bodies[0].tool_choice, undefined);
 });

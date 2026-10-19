@@ -306,6 +306,22 @@ def _chunks_pristi(data):
     return out
 
 
+SVOZ_LOKALITY = [
+    {'id': 'sever', 'nazev': 'Pečky sever a Velké Chvalovice', 'kom': 'komunalni-sever',
+     'kom_nazev': 'Komunální odpad'},
+    {'id': 'jih', 'nazev': 'Pečky jih', 'kom': 'komunalni-jih', 'kom_nazev': 'Komunální odpad'},
+    {'id': 'sidliste', 'nazev': 'Pečky sídliště', 'kom': 'komunalni-sidliste', 'kom_nazev': 'Komunální odpad'},
+]
+SVOZ_PRAVIDLO = {
+    'komunalni-sever': 'každé druhé pondělí, od června do srpna každé pondělí.',
+    'komunalni-jih': 'každé druhé úterý, od června do srpna každé úterý.',
+    'komunalni-sidliste': 'každé pondělí.',
+    'bio': 'každé úterý podle rozpisu (v lednu a únoru jen jednou měsíčně).',
+    'plast': 'vždy první pátek v měsíci.',
+    'papir': 'vždy první pátek v měsíci.',
+}
+
+
 def _chunks_provoz():
     """Úřední hodiny, sběrný dvůr a svoz odpadu — z pravidel/harmonogramu, ne z tisíců dat."""
     out = []
@@ -321,16 +337,33 @@ def _chunks_provoz():
              f"Platí od {cz(meta['from'])}. Zdroj: {meta['evidence']['label']}.")
         out.append({'u': '/kalendar/', 't': 'Kalendář — ' + nazev, 'x': _clip(t, MAX + 100)})
     sv = _load('kalendar/svoz-odpadu.json')
-    for ty in sv['types']:
+    typy = {t['id']: t for t in sv['types']}
+    rok = sv['meta']['year']
+
+    def mesice(ty):
         by_m = defaultdict(list)
         for iso in ty['dates']:
             d = _d(iso)
             by_m[d.month].append(str(d.day) + '.')
-        mesice = '; '.join(f"{MESICE_1P[m - 1]} {' '.join(ds)}" for m, ds in sorted(by_m.items()))
-        t = (f"{ty['title']} — harmonogram svozu odpadu {sv['meta']['year']}, kdy se odpad vyváží (popelnice, kontejner, "
-             f"odvoz). Místo: {ty.get('place', '')}. Pravidlo: {ty.get('rule', '')}. "
-             f"Termíny svozu podle měsíců: {mesice}.")
-        out.append({'u': '/kalendar/', 't': f"Kalendář — svoz odpadu: {ty['title']}", 'x': _clip(t, MAX + 350)})
+        return '; '.join(f"{MESICE_1P[m - 1]} {' '.join(ds)}" for m, ds in sorted(by_m.items()))
+
+    URL = '/kalendar/svoz.html'
+    for lok in SVOZ_LOKALITY:
+        # krátké úryvky (hledání je citlivé na délku): pravidla lokality + termíny komunálního odpadu
+        t = (f"Svoz odpadu {lok['nazev']} — harmonogram svozu odpadů z domácností {rok}, kdy se odpad vyváží "
+             f"(popelnice, odvoz): komunální odpad {SVOZ_PRAVIDLO[lok['kom']]} BIO odpad {SVOZ_PRAVIDLO['bio']} "
+             f"Plast a papír {SVOZ_PRAVIDLO['plast']} Harmonogram neuvádí, které ulice patří do které lokality. "
+             f"Přehled k vytištění: {URL}.")
+        out.append({'u': URL, 't': f"Kalendář — svoz odpadu: {lok['nazev']}", 'x': _clip(t, MAX + 200)})
+        t = (f"Svoz komunálního odpadu {lok['nazev']} {rok}, kdy jedou popelnice: {SVOZ_PRAVIDLO[lok['kom']]} "
+             f"Termíny podle měsíců: {mesice(typy[lok['kom']])}.")
+        out.append({'u': URL, 't': f"Kalendář — svoz odpadu: komunální odpad, {lok['nazev']}", 'x': _clip(t, MAX + 350)})
+    t = (f"Svoz BIO odpadu Pečky a Velké Chvalovice {rok}, kdy jede bioodpad (hnědá popelnice, zahradní odpad): "
+         f"{SVOZ_PRAVIDLO['bio']} Termíny podle měsíců: {mesice(typy['bio'])}.")
+    out.append({'u': URL, 't': 'Kalendář — svoz odpadu: BIO odpad', 'x': _clip(t, MAX + 350)})
+    t = (f"Svoz plastu a papíru Pečky a Velké Chvalovice {rok}, kdy jedou plasty a papír (žlutý a modrý kontejner): "
+         f"{SVOZ_PRAVIDLO['plast']} Termíny podle měsíců: {mesice(typy['plast'])}.")
+    out.append({'u': URL, 't': 'Kalendář — svoz odpadu: plast a papír', 'x': _clip(t, MAX + 350)})
     return out
 
 

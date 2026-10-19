@@ -35,7 +35,7 @@ Zdroje, které generuje `scripts/build_peckybot_index.py` (jednání, lidé, sek
 - **lidé** (`lide/people.json`): všech 444 osob; jméno s tituly, funkce, uskupení, dřívější příjmení, bio, e-mail, telefon (ústředna se nezapisuje)
 - **statické texty sekcí** Plán, Tělocvična, Pozemky, Prostory, Pokladna, Smlouvy, Zakázky, Volby 2018/2022/2026, O webu a podstránky Kdo vede Pečecké noviny, Zhlédnutí záznamů zastupitelstva, Odpracované hodiny, Nejdelší body jednání; dělené podle nadpisů
 - **komise, výbory, školská rada** (`jednani/komise.json`, `vybory.json`, `skolska-rada.json`): hlavička jednání, docházka, shrnutí a usnesení s hlasováním
-- **kalendář** (`kalendar/udalosti.json` a pravidla): akce, opakované kurzy po sériích, svoz odpadu, hodiny úřadu a sběrného dvora; tituly „Kalendář — …“
+- **kalendář** (`kalendar/udalosti.json` a pravidla): akce, opakované kurzy po sériích, svoz odpadu po lokalitách (úryvky „Kalendář — svoz odpadu: …“, odkaz `/kalendar/svoz.html`), hodiny sběrného dvora; tituly „Kalendář — …“
 - **organizace** (`lide/organizations.json`): adresa, IČO, web, hodiny, propojení lidé; tituly „Organizace — …“
 - **Pečecké noviny** (`noviny/`): jeden úryvek na číslo s odkazem na PDF
 - **Pravidla pro vydávání Pečeckých novin** (`noviny/Data/pravidla_pro_vydavani_PN (2026).pdf`, od 16. 10. 2026): úryvky po článcích I–X (redakční rada, editorka, honorování příspěvků, inzerce, financování); text z PDF je vedle v `.txt` (`pdftotext`), generuje `chunks_noviny_pravidla()` v `scripts/peckybot_sources.py`; po výměně PDF `.txt` přegenerovat; typ nástroje `hledej_text` „noviny“
@@ -63,6 +63,7 @@ Odpověď má dvě fáze (`worker/src/answer.ts`): nejdřív se jako dosud vyhle
 | `hledej_text(dotaz, typ?)` | rejstřík | druhé hledání jiným dotazem, volitelně jen Lidé/Kalendář/Organizace/Web/jednání/komise/noviny |
 | `osoba(jmeno)` | `data/osoby.json` | fuzzy (bez diakritiky, skloňování) podle jména/funkce; kontakty |
 | `slozeni(organ)` | `data/slozeni.json` | rada, zastupitelstvo, výbory, komise, školská rada, starostové |
+| `svoz(lokalita?, druh?)` | `data/svoz.json` | nejbližší 3 termíny svozu odpadu od dneška podle lokality (sever vč. Velkých Chvalovic / jih / sídliště) a druhu (komunální, BIO, plast, papír) |
 | `kalendar(od, do, hledej?)` | `data/kalendar.json` | akce v rozmezí ISO dat (i vícedenní), max 25, série zvlášť |
 | `jednani(typ?, od?, do?, hledej?, nejnovejsi?)` | `data/jednani.json` | seznam jednání, max 15, od nejnovějšího, s `id` a `dostupne`; `nejnovejsi: true` = poslední jednání (s typem dvě, bez typu od každého druhu) → pak `cti_dokument` |
 | `cti_dokument(id, bod?)` | `data/jednani/<id>.json` | obsah jednoho jednání: body, zprávy, usnesení, hlasování; s `bod` jeden bod podrobně; jen pozvánka → `poznamka` a `dostupne:["pozvanka"]` |

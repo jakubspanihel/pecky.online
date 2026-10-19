@@ -4,7 +4,7 @@ import { existsSync, readFileSync } from "node:fs";
 import { executeTool, type ToolContext } from "../src/tools.ts";
 
 const dataDir = new URL("../../data/", import.meta.url);
-const need = ["osoby", "slozeni", "kalendar", "jednani"];
+const need = ["osoby", "slozeni", "kalendar", "jednani", "svoz"];
 const missing = need.filter((f) => !existsSync(new URL(`${f}.json`, dataDir)));
 if (missing.length) {
   console.log(`SKIP: chybí peckybot/data/${missing.join(".json, ")}.json (spustit python3 scripts/build.py).`);

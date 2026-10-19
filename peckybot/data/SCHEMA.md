@@ -37,3 +37,7 @@ deterministicky. Příklad čtení: `https://pecky.online/peckybot/data/osoby.js
   Jen názvy a data, ne obsah dokumentů.
 - **statistiky.json** — `absence[]` (`organ`, `obdobi`, `clenove[]` s `jmeno`, `mandatu`, `absence_podil`
   v %; jen členové s ≥ 3 mandáty) a `pocty.jednani_podle_typu_a_roku` (`typ` → rok → počet).
+- **svoz.json** — svoz odpadu z domácností pro nástroj `svoz` (z `kalendar/svoz-odpadu.json`, ≈ 6 kB): `rok`, `url`
+  (`/kalendar/svoz.html`), `lokality[]` (`id` `sever|jih|sidliste`, `nazev`, `druhy[]` s `id`
+  `komunal|bio|plast|papir`, `nazev`, `pravidlo`, `terminy[]` ISO data). Nejbližší termíny od dneška počítá
+  nástroj za běhu; harmonogram města neuvádí, které ulice patří do které lokality.

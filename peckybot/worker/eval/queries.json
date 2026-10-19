@@ -625,7 +625,7 @@
  {
   "q": "popelnice kdy vyvazeji papir",
   "expect": {
-   "titleRegex": "^Kalendář — svoz odpadu: Svoz papíru",
+   "titleRegex": "^Kalendář — svoz odpadu",
    "inTop": 3
   },
   "category": "Iter2: kolokviální/jednoslovné",
@@ -643,7 +643,7 @@
  {
   "q": "kdy jedou plasty",
   "expect": {
-   "titleRegex": "^Kalendář — svoz odpadu: Svoz plastu",
+   "titleRegex": "^Kalendář — svoz odpadu",
    "inTop": 3
   },
   "category": "Iter2: kolokviální/jednoslovné",
@@ -1014,5 +1014,50 @@
   },
   "category": "Skutečné dotazy",
   "note": "v novém designu odpoví nástroj cti_dokument; na úrovni retrievalu se čeká přehled nejnovější RM"
+ },
+ {
+  "q": "Kdy bude svoz odpadů?",
+  "expect": {
+   "titleRegex": "^Kalendář — svoz odpadu",
+   "inTop": 3
+  },
+  "category": "Svoz odpadu",
+  "note": "dotaz bez lokality"
+ },
+ {
+  "q": "Kdy svážejí papír, plasty a bio odpad?",
+  "expect": {
+   "titleRegex": "^Kalendář — svoz odpadu",
+   "inTop": 3
+  },
+  "category": "Svoz odpadu",
+  "note": "druhy odpadu"
+ },
+ {
+  "q": "Kdy je svoz popelnic na sídlišti?",
+  "expect": {
+   "titleRegex": "^Kalendář — svoz odpadu",
+   "inTop": 3
+  },
+  "category": "Svoz odpadu",
+  "note": "lokalita sídliště"
+ },
+ {
+  "q": "Kdy jedou popelnice v Pečkách jih?",
+  "expect": {
+   "titleRegex": "^Kalendář — svoz odpadu",
+   "inTop": 3
+  },
+  "category": "Svoz odpadu",
+  "note": "lokalita jih"
+ },
+ {
+  "q": "Kdy je svoz odpadu ve Velkých Chvalovicích?",
+  "expect": {
+   "titleRegex": "^Kalendář — svoz odpadu",
+   "inTop": 3
+  },
+  "category": "Svoz odpadu",
+  "note": "lokalita sever + Chvalovice"
  }
 ]

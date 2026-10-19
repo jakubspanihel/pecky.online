@@ -21,5 +21,8 @@
   {"tool": "cti_dokument", "input": {"id": "sportovni-komise-2026-02-10"}, "mustInclude": ["Dotace"], "note": "komise"},
   {"tool": "cti_dokument", "input": {"id": "zastupitelstvo-2021-04-21"}, "mustInclude": ["text_dokumentu"], "note": "starší jednání jen s textem"},
   {"tool": "uredni_deska", "input": {"hledej": "záměr pronájem", "od": "2026-01-01", "do": "2026-10-15"}, "mustInclude": ["záměr","vyveseno"], "note": "záměry z úřední desky"},
-  {"tool": "uredni_deska", "input": {"hledej": "zápis zasedání zastupitelstva", "od": "2025-01-01", "do": "2026-12-31"}, "mustInclude": ["Zápis"]}
+  {"tool": "uredni_deska", "input": {"hledej": "zápis zasedání zastupitelstva", "od": "2025-01-01", "do": "2026-12-31"}, "mustInclude": ["Zápis"]},
+  { "tool": "svoz", "input": { "lokalita": "jih", "druh": "papír" }, "mustInclude": ["Pečky jih", "6. 11. 2026", "první pátek"], "note": "nejbližší papír od 10. 10. 2026" },
+  { "tool": "svoz", "input": { "lokalita": "sídliště" }, "mustInclude": ["Pečky sídliště", "12. 10. 2026", "BIO odpad"], "note": "sídliště: pondělí každý týden" },
+  { "tool": "svoz", "input": {}, "mustInclude": ["Pečky sever a Velké Chvalovice", "Pečky jih", "Pečky sídliště"], "note": "bez lokality všechny tři" }
 ]
