@@ -313,7 +313,7 @@
   }
   function jOutcomeBadgeHtml(r){
     let html = '';
-    if (r._outcome) html += `<span class="tag res-outcome ${r._outcome.cls}">${jEscapeHtml(r._outcome.label)}</span>`;
+    if (r._outcome) html += `<span class="tag res-outcome ${r._outcome.label === 'Revokuje' ? 'revokovano' : r._outcome.cls}">${jEscapeHtml(r._outcome.label)}</span>`;
     if (r._revokedBy) html += `<span class="tag res-outcome revokovano" title="Revokováno usnesením ${jEscapeHtml(r._revokedBy)}">Revokováno</span>`;
     return html;
   }

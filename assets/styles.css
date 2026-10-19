@@ -1036,6 +1036,10 @@
   .res-dot--bez-stavu{background:var(--line);}
   .res-block-head{display:flex; flex-wrap:wrap; align-items:center; gap:var(--space-2); margin-bottom:var(--space-2);}
   .res-block-head .res-outcome{margin-right:0;}
+  .res-block-head .res-outcome{color:#fff; border:1px solid transparent; border-style:solid;}
+  .res-block-head .res-outcome.hotovo{background:var(--field);}
+  .res-block-head .res-outcome.probiha{background:var(--gold);}
+  .res-block-head .res-outcome.zamitnuto,.res-block-head .res-outcome.revokovano{background:var(--burgundy);}
   .agenda-meta{display:contents;}
   @media (max-width:767px){
     .agenda-item-main{display:grid; grid-template-columns:28px minmax(0,1fr) auto; column-gap:7px; align-items:baseline;}
