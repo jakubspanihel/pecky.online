@@ -585,9 +585,17 @@ def _zm_kdy(dny, weekday):
     return f'Zasedání zastupitelstva <mark class="banner-hl">{_kdy_za(dny)}</mark>'
 
 
+DASH_RADA_PO_DNI = 14  # pruh rady visí na Domů nejvýš tolik dní po konání, než vyjde záznam
+
+
 def _rada_kdy(cislo, dny):
-    """Text pruhu rady: "Rada č. 36 bude pozítří." (stejná logika jako _kdy_za)."""
-    return f'Rada č. {cislo} se sejde {_kdy_za(dny)}.'
+    """Text pruhu rady (dny = kolik dní zbývá do jednání, záporné = už proběhlo):
+    "Rada č. 36 se sejde pozítří." / "Rada č. 36 se sešla dnes. Záznam zatím není
+    k dispozici." / "… se sešla před 3 dny. …". Stejná logika je v assets/common.js."""
+    if dny > 0:
+        return f'Rada č. {cislo} se sejde {_kdy_za(dny)}.'
+    kdy = 'dnes' if dny == 0 else 'včera' if dny == -1 else f'před {-dny} dny'
+    return f'Rada č. {cislo} se sešla {kdy}. Záznam zatím není k dispozici.'
 
 
 def _volby_kdy(dny, probiha):
@@ -880,9 +888,12 @@ def _dash_rada(dnes):
     """Banner plánovaného zasedání rady města (pod bannerem ZM). Stejná logika
     jako u zastupitelstva: vypíše se víc budoucích jednání, common.js ukáže první,
     které ještě neproběhlo, a bez položky schová celý widget."""
-    from datetime import date as _date
+    from datetime import date as _date, timedelta
     meetings = json.loads(read('jednani/pecky-jednani.json'))['meetings']
-    rm = sorted((m for m in meetings if m['type'] == 'Rada' and m['date'] >= dnes),
+    # budoucí jednání + nedávno proběhlá, ke kterým ještě není zápis (pak převezme banner „Z poslední Rady“)
+    od = (_date.fromisoformat(dnes) - timedelta(days=DASH_RADA_PO_DNI)).isoformat()
+    rm = sorted((m for m in meetings if m['type'] == 'Rada'
+                 and (m['date'] >= dnes or (m['date'] >= od and not (m.get('links') or {}).get('minutes')))),
                 key=lambda m: m['date'])[:3]
     if not rm:
         return ''
@@ -890,8 +901,9 @@ def _dash_rada(dnes):
     for i, m in enumerate(rm):
         d = _date.fromisoformat(m['date'])
         dny = (d - _date.fromisoformat(dnes)).days
-        program = ' <span class="zmpo-stav">Program je k dispozici.</span>' if m.get('agenda') else ''
-        out.append(f'    <li data-until="{m["date"]}"{" hidden" if i else ""}>'
+        program = ' <span class="zmpo-stav">Program je k dispozici.</span>' if m.get('agenda') and dny > 0 else ''
+        konec = (d + timedelta(days=DASH_RADA_PO_DNI)).isoformat()
+        out.append(f'    <li data-date="{m["date"]}" data-until="{konec}"{" hidden" if i else ""}>'
                    f'<a class="dash-zmpo-link" href="/jednani/#rada-{m["date"]}">'
                    f'<span class="zmpo-text"><strong class="dash-rada-kdy" data-cislo="{m["number"]}">'
                    f'{_rada_kdy(m["number"], dny)}</strong>{program}</span>'

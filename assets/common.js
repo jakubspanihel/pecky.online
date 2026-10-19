@@ -564,11 +564,22 @@ document.querySelectorAll('.exp-row').forEach(row => {
     if (dny >= 0) zmKdy.innerHTML = `Zasedání zastupitelstva <mark class="banner-hl">${kdyZa(dny)}</mark>`;
   }
 
-  const rKdy = document.querySelector('.dash-zm--rada li:not([hidden]) .dash-rada-kdy');
-  if (rKdy) {
-    const dny = dnu(rKdy.closest('li').getAttribute('data-until'));
-    if (dny >= 0) rKdy.textContent = `Rada č. ${rKdy.dataset.cislo} se sejde ${kdyZa(dny)}.`;
-  }
+  // rada: budoucí „se sejde …“, po konání „se sešla …“ (do vydání záznamu, nejdéle data-until)
+  const rList = document.querySelectorAll('.dash-zm--rada li[data-date]');
+  let rUkazano = false;
+  rList.forEach(li => {
+    const ok = !rUkazano && dnu(li.getAttribute('data-until')) >= 0;
+    li.hidden = !ok;
+    if (!ok) return;
+    rUkazano = true;
+    const rKdy = li.querySelector('.dash-rada-kdy');
+    const dny = dnu(li.getAttribute('data-date'));
+    const c = rKdy.dataset.cislo;
+    rKdy.textContent = dny > 0 ? `Rada č. ${c} se sejde ${kdyZa(dny)}.`
+      : `Rada č. ${c} se sešla ${dny === 0 ? 'dnes' : dny === -1 ? 'včera' : `před ${-dny} dny`}. Záznam zatím není k dispozici.`;
+    const st = li.querySelector('.zmpo-stav');
+    if (st) st.hidden = dny <= 0;
+  });
 
   // volby: odpočet k prvnímu dni, během hlasování "právě probíhají"
   const vKdy = document.querySelector('.dash-zm li:not([hidden]) .dash-volby-kdy');
