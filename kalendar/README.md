@@ -1350,6 +1350,12 @@ seznam místo rozházených poznámek po repu.
   pořadatele). V mřížce stejně tlumeně jako `kurz` (světlé pozadí + proužek
   v barvě pořadatele, `.kal-ev-svoz`), v Seznamu štítek `svoz`, v Google
   kalendáři `colorId` 3 (Grape).
+- **Stránka a tiskové obrázky:** `/kalendar/svoz.html` (`content/svoz.html`,
+  podstránka `svoz` v `EXTRA_PAGES`, tři karty s náhledem obrázku, legendou a
+  tlačítkem Uložit = PDF) a obrázky A4 na šířku
+  `kalendar/svoz/svoz-<sever|jih|sidliste>.png/.svg/.pdf`, generované
+  `python3 kalendar/scripts/generate-svoz-obrazky.py` (PNG vykresluje headless
+  Chrome). Po změně `svoz-odpadu.json` skript pustit znovu.
 - **Rozsah 2026:** 186 termínů ve 111 dnech, celý rok (rozhodl uživatel,
   i zpětně) — komunální sever 34, jih 34, sídliště 52, BIO 42, plast 12,
   papír 12. Nepravidelnosti převzaté z PDF tak, jak jsou: sever navíc

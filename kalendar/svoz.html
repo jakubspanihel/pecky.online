@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Svoz odpadů 2026 dle lokalit — Do Peček . cz</title>
+<meta name="description" content="Harmonogram svozu komunálního odpadu, BIO odpadu, plastu a papíru z domácností v Pečkách a Velkých Chvalovicích — samostatný přehled k vytištění pro Pečky sever a Velké Chvalovice, Pečky jih a Pečky sídliště.">
+<link rel="canonical" href="https://dopecek.cz/kalendar/svoz.html">
+<meta property="og:title" content="Svoz odpadů 2026 dle lokalit — Do Peček . cz">
+<meta property="og:description" content="Harmonogram svozu komunálního odpadu, BIO odpadu, plastu a papíru z domácností v Pečkách a Velkých Chvalovicích — samostatný přehled k vytištění pro Pečky sever a Velké Chvalovice, Pečky jih a Pečky sídliště.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://dopecek.cz/kalendar/svoz.html">
+<meta property="og:site_name" content="Do Peček . cz">
+<meta property="og:locale" content="cs_CZ">
+<meta property="og:image" content="https://dopecek.cz/img/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Svoz odpadů 2026 dle lokalit — Do Peček . cz">
+<meta name="twitter:description" content="Harmonogram svozu komunálního odpadu, BIO odpadu, plastu a papíru z domácností v Pečkách a Velkých Chvalovicích — samostatný přehled k vytištění pro Pečky sever a Velké Chvalovice, Pečky jih a Pečky sídliště.">
+<meta name="twitter:image" content="https://dopecek.cz/img/og-image.png">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" type="image/png" sizes="32x32" href="/img/favicons/favicon-32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/img/favicons/icon-192.png">
+<link rel="apple-touch-icon" href="/img/favicons/apple-touch-icon.png">
+<link rel="stylesheet" href="/assets/org-colors.css">
+<link rel="stylesheet" href="/assets/styles.css">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-1CW9XK1VJY"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-1CW9XK1VJY');
+</script>
+<script src="/assets/helpers.js"></script>
+</head>
+<body>
+<script>window.SITE_BASE_PATH = '';</script>
+<header class="site">
+  <div class="header-inner">
+    <div class="brand-row">
+      <a class="brand" href="/">
+        <img class="brand-logo" src="/img/favicons/icon-192.png" alt="" width="44" height="44">
+        <h1>Do Peček . cz</h1>
+      </a>
+    </div>
+  </div>
+  <nav class="tabs header-nav" id="tabs">
+    <a class="navlink" href="/naobed/">Na oběd</a>
+    <a class="navlink active" href="/kalendar/">Kalendář</a>
+    <a class="navlink" href="/noviny/">Pečecké noviny</a>
+    <a class="navlink" href="/jednani/">Jednání</a>
+    <a class="navlink" href="/lide/">Lidé</a>
+    <a class="navlink" href="/telocvicna/">Tělocvična</a>
+    <a class="navlink" href="/volby/">Volby</a>
+    <button type="button" class="navlink navlink-more" id="infoFab" aria-controls="overlayMenu" aria-haspopup="dialog">Více...</button>
+  </nav>
+</header>
+<div class="overlay-menu" id="overlayMenu" role="dialog" aria-modal="true" aria-label="Menu" hidden>
+  <button type="button" class="overlay-close" id="overlayClose" aria-label="Zavřít menu">Zavřít</button>
+  <nav class="overlay-links" id="overlayLinks"></nav>
+  <template id="overlayMonitoring">
+    <a class="navlink secondary small" href="/o-webu/facebook-monitoring/facebook-mestopecky/">Facebook města</a>
+    <a class="navlink secondary small" href="/o-webu/uredni-deska-monitoring/">Úřední deska</a>
+    <a class="navlink secondary small" href="/jednani/absence.html">Docházka zastupitelů</a>
+    <a class="navlink secondary small" href="/jednani/youtube.html">YouTube města</a>
+  </template>
+</div>
+
+<main>
+  <style>
+    .svoz{--svoz-kom:var(--burgundy); --svoz-bio:#3F8A55; --svoz-plast:var(--yellow); --svoz-papir:var(--cyan);}
+    .svoz-karty{display:grid; grid-template-columns:repeat(3, minmax(0, 1fr)); gap:var(--space-6); margin-top:var(--space-8); align-items:stretch;}
+    @media (max-width:900px){ .svoz-karty{grid-template-columns:1fr;} }
+    .svoz-karta{background:var(--white); border:1px solid var(--line); border-radius:var(--radius-box); padding:var(--space-6); display:flex; flex-direction:column; gap:var(--space-4);}
+    .svoz-karta h3{margin:0; font-size:var(--fs-9);}
+    .svoz-nahled{display:block; border:1px solid var(--line); line-height:0;}
+    .svoz-nahled img{width:100%; height:auto; display:block;}
+    .svoz-legenda{list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:var(--space-2); font-size:var(--fs-6);}
+    .svoz-legenda li{display:flex; gap:var(--space-3); align-items:flex-start;}
+    .svoz-swatche{flex:0 0 12px; width:12px; height:12px; margin-top:4px; border:1px solid var(--ink-soft);}
+    a.svoz-ulozit{display:inline-flex; align-items:center; justify-content:center; gap:var(--space-2); min-height:var(--ctl-h); padding:0 var(--space-9); background:var(--burgundy); color:var(--white); border-radius:var(--radius-sm); font-family:var(--font-mono); font-size:var(--fs-7); font-weight:var(--fw-bold); text-decoration:none;}
+    .svoz-akce{margin-top:auto; display:flex; align-items:center; gap:var(--space-6);}
+    a.svoz-ulozit:hover{background:var(--burgundy-deep); text-decoration:none;}
+  </style>
+  <section class="panel active svoz" id="panel-svoz">
+    <h2 class="title display">Svoz odpadů 2026 dle lokalit</h2>
+    <p class="lastmod" data-date="2026-10-19">Poslední kontrola: 19. 10. 2026</p>
+    <p class="lede">Harmonogram svozu odpadů z domácností, ale <strong>rozdělený dle lokalit</strong>.</p>
+    <div class="svoz-karty">
+      <article class="svoz-karta" id="sever">
+        <h3>Pečky sever a Velké Chvalovice</h3>
+        <a class="svoz-nahled" href="/kalendar/svoz/svoz-sever.png" target="_blank" rel="noopener" title="Otevřít obrázek ve velkém">
+          <img src="/kalendar/svoz/svoz-sever.png" alt="Harmonogram svozu odpadů 2026 — Pečky sever a Velké Chvalovice" width="1123" height="794" loading="lazy">
+        </a>
+        <ul class="svoz-legenda">
+          <li><span class="svoz-swatche" style="background:var(--svoz-kom)"></span><span>Komunální odpad každé druhé pondělí, od června do srpna každé pondělí.</span></li>
+          <li><span class="svoz-swatche" style="background:var(--svoz-bio)"></span><span>BIO odpad každé úterý podle rozpisu.</span></li>
+          <li><span class="svoz-swatche" style="background:linear-gradient(45deg,var(--svoz-plast) 0% 50%,var(--svoz-papir) 50% 100%)"></span><span>Plast a papír vždy první pátek v měsíci.</span></li>
+        </ul>
+        <div class="svoz-akce">
+          <a class="svoz-ulozit" href="/kalendar/svoz/svoz-sever.pdf" download>⬇ Uložit (PDF, A4)</a>
+          <a class="svoz-tisk" href="/kalendar/svoz/svoz-sever.pdf" target="_blank" rel="noopener" data-png="/kalendar/svoz/svoz-sever.png">Tisk</a>
+        </div>
+      </article>
+      <article class="svoz-karta" id="jih">
+        <h3>Pečky jih</h3>
+        <a class="svoz-nahled" href="/kalendar/svoz/svoz-jih.png" target="_blank" rel="noopener" title="Otevřít obrázek ve velkém">
+          <img src="/kalendar/svoz/svoz-jih.png" alt="Harmonogram svozu odpadů 2026 — Pečky jih" width="1123" height="794" loading="lazy">
+        </a>
+        <ul class="svoz-legenda">
+          <li><span class="svoz-swatche" style="background:var(--svoz-kom)"></span><span>Komunální odpad každé druhé úterý, od června do srpna každé úterý.</span></li>
+          <li><span class="svoz-swatche" style="background:var(--svoz-bio)"></span><span>BIO odpad každé úterý podle rozpisu.</span></li>
+          <li><span class="svoz-swatche" style="background:linear-gradient(45deg,var(--svoz-plast) 0% 50%,var(--svoz-papir) 50% 100%)"></span><span>Plast a papír vždy první pátek v měsíci.</span></li>
+        </ul>
+        <div class="svoz-akce">
+          <a class="svoz-ulozit" href="/kalendar/svoz/svoz-jih.pdf" download>⬇ Uložit (PDF, A4)</a>
+          <a class="svoz-tisk" href="/kalendar/svoz/svoz-jih.pdf" target="_blank" rel="noopener" data-png="/kalendar/svoz/svoz-jih.png">Tisk</a>
+        </div>
+      </article>
+      <article class="svoz-karta" id="sidliste">
+        <h3>Pečky sídliště</h3>
+        <a class="svoz-nahled" href="/kalendar/svoz/svoz-sidliste.png" target="_blank" rel="noopener" title="Otevřít obrázek ve velkém">
+          <img src="/kalendar/svoz/svoz-sidliste.png" alt="Harmonogram svozu odpadů 2026 — Pečky sídliště" width="1123" height="794" loading="lazy">
+        </a>
+        <ul class="svoz-legenda">
+          <li><span class="svoz-swatche" style="background:var(--svoz-kom)"></span><span>Komunální odpad každé pondělí.</span></li>
+          <li><span class="svoz-swatche" style="background:var(--svoz-bio)"></span><span>BIO odpad každé úterý podle rozpisu.</span></li>
+          <li><span class="svoz-swatche" style="background:linear-gradient(45deg,var(--svoz-plast) 0% 50%,var(--svoz-papir) 50% 100%)"></span><span>Plast a papír vždy první pátek v měsíci.</span></li>
+        </ul>
+        <div class="svoz-akce">
+          <a class="svoz-ulozit" href="/kalendar/svoz/svoz-sidliste.pdf" download>⬇ Uložit (PDF, A4)</a>
+          <a class="svoz-tisk" href="/kalendar/svoz/svoz-sidliste.pdf" target="_blank" rel="noopener" data-png="/kalendar/svoz/svoz-sidliste.png">Tisk</a>
+        </div>
+      </article>
+    </div>
+    <p>Termíny vycházejí z <a href="https://pecky.cz/files/pecky/gallery/18641/6999802843bb9_Harmonogram-svozu-odpadu-z-domacnosti-2026-final.pdf" target="_blank" rel="noopener">harmonogramu svozu odpadů z domácností 2026 (PDF)</a> na webu města. Svoz zajišťují Pečecké služby, s.r.o. Všechny termíny jsou také v <a href="/kalendar/">Kalendáři</a>.</p>
+  </section>
+  <script>
+  // „Tisk“: otevře tiskový dialog prohlížeče s obrázkem na A4 na šířku (tiskárnu vybere uživatel; web
+  // ji nemůže zvolit ani spustit tisk bez dialogu). Bez JS nebo při chybě se otevře PDF v nové záložce.
+  document.querySelectorAll('a.svoz-tisk').forEach(a => a.addEventListener('click', ev => {
+    try {
+      ev.preventDefault();
+      const f = document.createElement('iframe');
+      f.style.cssText = 'position:fixed; right:0; bottom:0; width:0; height:0; border:0;';
+      f.srcdoc = '<!doctype html><meta charset="utf-8"><style>@page{size:A4 landscape;margin:0}html,body{margin:0}'
+        + 'img{display:block;width:297mm;height:210mm}</style><img src="' + a.dataset.png + '">';
+      f.onload = () => {
+        const img = f.contentDocument.querySelector('img');
+        const go = () => { f.contentWindow.focus(); f.contentWindow.print(); setTimeout(() => f.remove(), 60000); };
+        if (img.complete) go(); else { img.onload = go; img.onerror = () => { f.remove(); window.open(a.href, '_blank'); }; }
+      };
+      document.body.appendChild(f);
+    } catch (e) { window.open(a.href, '_blank'); }
+  }));
+  </script>
+
+</main>
+<footer class="site">
+  <nav class="tabs tabs-secondary header-nav" id="tabsSecondary" aria-label="Další sekce">
+    <button type="button" class="navlink navlink-more" id="footMenu" aria-controls="overlayMenu" aria-haspopup="dialog">Menu</button>
+    <template id="overlaySecondary">
+      <a class="navlink" href="/plan/">Plán</a>
+      <a class="navlink" href="/smlouvy/">Smlouvy</a>
+      <a class="navlink" href="/zakazky/">Zakázky</a>
+      <a class="navlink" href="/pozemky/">Pozemky</a>
+      <a class="navlink" href="/prostory/">Prostory</a>
+      <a class="navlink" href="/pokladna/">Pokladna</a>
+      <a class="navlink" href="/voda/">Voda</a>
+      <a class="navlink" href="/okolo/">Pro přespolní</a>
+      <a class="navlink" href="/o-webu/">O webu</a>
+    </template>
+  </nav>
+  <div class="footer-bot">
+    <div class="footer-bot-inner">
+      <img class="peckybot" src="/img/peckybot/welcome.png" alt="PečkyBot">
+      <div class="footer-bot-hello">
+        <p class="footer-bot-hi">Ahoj</p>
+        <p class="footer-bot-name">já jsem PečkyBot.</p>
+        <p class="footer-bot-ig"><a href="https://www.instagram.com/peckybot/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" style="vertical-align:-3px;margin-right:6px;" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>PečkyBot na Instagramu</a></p>
+      </div>
+        <div class="footer-bot-note">
+          <p>Web je sestaven s pomocí AI. Robot čerpá informace z veřejných dat dostupných na internetu.</p>
+          <p>Našli jste nepřesnost? Máte tip na nějaké téma ke zpracování? Zajímá vás něco o Pečkách? Pište na: <a href="mailto:dopecek@gmail.com">dopecek@gmail.com</a>.</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="/assets/common.js"></script>
+</body>
+</html>

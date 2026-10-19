@@ -196,6 +196,16 @@ EXTRA_PAGES = {
         # proto má lastmod a jde do sitemapy. Statický snímek k datu lastmod.
         # helpers.js: avatary a vizitka osoby (pcAvatarHtml/pcDetailHtml)
         True, 'jednani', '2026-09-30'),
+    'svoz': (
+        '/kalendar/svoz.html', 'Svoz odpadů 2026 dle lokalit — Do Peček . cz',
+        'Harmonogram svozu komunálního odpadu, BIO odpadu, plastu a papíru z domácností '
+        'v Pečkách a Velkých Chvalovicích — samostatný přehled k vytištění pro Pečky sever '
+        'a Velké Chvalovice, Pečky jih a Pečky sídliště.',
+        # Statická stránka (karty s náhledem PNG a PDF ke stažení/tisku z kalendar/svoz/,
+        # generuje kalendar/scripts/generate-svoz-obrazky.py z kalendar/svoz-odpadu.json).
+        # Odkázaná z Kalendáře (řádek "Související") od 19. 10. 2026 — proto má lastmod
+        # a jde do sitemapy.
+        True, 'kalendar', '2026-10-19'),
     'youtube': (
         '/jednani/youtube.html', 'Zhlédnutí záznamů zastupitelstva — Do Peček . cz',
         'Počet zhlédnutí videozáznamů jednání zastupitelstva města Pečky '

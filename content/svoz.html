@@ -1,0 +1,86 @@
+  <style>
+    .svoz{--svoz-kom:var(--burgundy); --svoz-bio:#3F8A55; --svoz-plast:var(--yellow); --svoz-papir:var(--cyan);}
+    .svoz-karty{display:grid; grid-template-columns:repeat(3, minmax(0, 1fr)); gap:var(--space-6); margin-top:var(--space-8); align-items:stretch;}
+    @media (max-width:900px){ .svoz-karty{grid-template-columns:1fr;} }
+    .svoz-karta{background:var(--white); border:1px solid var(--line); border-radius:var(--radius-box); padding:var(--space-6); display:flex; flex-direction:column; gap:var(--space-4);}
+    .svoz-karta h3{margin:0; font-size:var(--fs-9);}
+    .svoz-nahled{display:block; border:1px solid var(--line); line-height:0;}
+    .svoz-nahled img{width:100%; height:auto; display:block;}
+    .svoz-legenda{list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:var(--space-2); font-size:var(--fs-6);}
+    .svoz-legenda li{display:flex; gap:var(--space-3); align-items:flex-start;}
+    .svoz-swatche{flex:0 0 12px; width:12px; height:12px; margin-top:4px; border:1px solid var(--ink-soft);}
+    a.svoz-ulozit{display:inline-flex; align-items:center; justify-content:center; gap:var(--space-2); min-height:var(--ctl-h); padding:0 var(--space-9); background:var(--burgundy); color:var(--white); border-radius:var(--radius-sm); font-family:var(--font-mono); font-size:var(--fs-7); font-weight:var(--fw-bold); text-decoration:none;}
+    .svoz-akce{margin-top:auto; display:flex; align-items:center; gap:var(--space-6);}
+    a.svoz-ulozit:hover{background:var(--burgundy-deep); text-decoration:none;}
+  </style>
+  <section class="panel active svoz" id="panel-svoz">
+    <h2 class="title display">Svoz odpadů 2026 dle lokalit</h2>
+    <p class="lede">Harmonogram svozu odpadů z domácností, ale <strong>rozdělený dle lokalit</strong>.</p>
+    <div class="svoz-karty">
+      <article class="svoz-karta" id="sever">
+        <h3>Pečky sever a Velké Chvalovice</h3>
+        <a class="svoz-nahled" href="/kalendar/svoz/svoz-sever.png" target="_blank" rel="noopener" title="Otevřít obrázek ve velkém">
+          <img src="/kalendar/svoz/svoz-sever.png" alt="Harmonogram svozu odpadů 2026 — Pečky sever a Velké Chvalovice" width="1123" height="794" loading="lazy">
+        </a>
+        <ul class="svoz-legenda">
+          <li><span class="svoz-swatche" style="background:var(--svoz-kom)"></span><span>Komunální odpad každé druhé pondělí, od června do srpna každé pondělí.</span></li>
+          <li><span class="svoz-swatche" style="background:var(--svoz-bio)"></span><span>BIO odpad každé úterý podle rozpisu.</span></li>
+          <li><span class="svoz-swatche" style="background:linear-gradient(45deg,var(--svoz-plast) 0% 50%,var(--svoz-papir) 50% 100%)"></span><span>Plast a papír vždy první pátek v měsíci.</span></li>
+        </ul>
+        <div class="svoz-akce">
+          <a class="svoz-ulozit" href="/kalendar/svoz/svoz-sever.pdf" download>⬇ Uložit (PDF, A4)</a>
+          <a class="svoz-tisk" href="/kalendar/svoz/svoz-sever.pdf" target="_blank" rel="noopener" data-png="/kalendar/svoz/svoz-sever.png">Tisk</a>
+        </div>
+      </article>
+      <article class="svoz-karta" id="jih">
+        <h3>Pečky jih</h3>
+        <a class="svoz-nahled" href="/kalendar/svoz/svoz-jih.png" target="_blank" rel="noopener" title="Otevřít obrázek ve velkém">
+          <img src="/kalendar/svoz/svoz-jih.png" alt="Harmonogram svozu odpadů 2026 — Pečky jih" width="1123" height="794" loading="lazy">
+        </a>
+        <ul class="svoz-legenda">
+          <li><span class="svoz-swatche" style="background:var(--svoz-kom)"></span><span>Komunální odpad každé druhé úterý, od června do srpna každé úterý.</span></li>
+          <li><span class="svoz-swatche" style="background:var(--svoz-bio)"></span><span>BIO odpad každé úterý podle rozpisu.</span></li>
+          <li><span class="svoz-swatche" style="background:linear-gradient(45deg,var(--svoz-plast) 0% 50%,var(--svoz-papir) 50% 100%)"></span><span>Plast a papír vždy první pátek v měsíci.</span></li>
+        </ul>
+        <div class="svoz-akce">
+          <a class="svoz-ulozit" href="/kalendar/svoz/svoz-jih.pdf" download>⬇ Uložit (PDF, A4)</a>
+          <a class="svoz-tisk" href="/kalendar/svoz/svoz-jih.pdf" target="_blank" rel="noopener" data-png="/kalendar/svoz/svoz-jih.png">Tisk</a>
+        </div>
+      </article>
+      <article class="svoz-karta" id="sidliste">
+        <h3>Pečky sídliště</h3>
+        <a class="svoz-nahled" href="/kalendar/svoz/svoz-sidliste.png" target="_blank" rel="noopener" title="Otevřít obrázek ve velkém">
+          <img src="/kalendar/svoz/svoz-sidliste.png" alt="Harmonogram svozu odpadů 2026 — Pečky sídliště" width="1123" height="794" loading="lazy">
+        </a>
+        <ul class="svoz-legenda">
+          <li><span class="svoz-swatche" style="background:var(--svoz-kom)"></span><span>Komunální odpad každé pondělí.</span></li>
+          <li><span class="svoz-swatche" style="background:var(--svoz-bio)"></span><span>BIO odpad každé úterý podle rozpisu.</span></li>
+          <li><span class="svoz-swatche" style="background:linear-gradient(45deg,var(--svoz-plast) 0% 50%,var(--svoz-papir) 50% 100%)"></span><span>Plast a papír vždy první pátek v měsíci.</span></li>
+        </ul>
+        <div class="svoz-akce">
+          <a class="svoz-ulozit" href="/kalendar/svoz/svoz-sidliste.pdf" download>⬇ Uložit (PDF, A4)</a>
+          <a class="svoz-tisk" href="/kalendar/svoz/svoz-sidliste.pdf" target="_blank" rel="noopener" data-png="/kalendar/svoz/svoz-sidliste.png">Tisk</a>
+        </div>
+      </article>
+    </div>
+    <p>Termíny vycházejí z <a href="https://pecky.cz/files/pecky/gallery/18641/6999802843bb9_Harmonogram-svozu-odpadu-z-domacnosti-2026-final.pdf" target="_blank" rel="noopener">harmonogramu svozu odpadů z domácností 2026 (PDF)</a> na webu města. Svoz zajišťují Pečecké služby, s.r.o. Všechny termíny jsou také v <a href="/kalendar/">Kalendáři</a>.</p>
+  </section>
+  <script>
+  // „Tisk“: otevře tiskový dialog prohlížeče s obrázkem na A4 na šířku (tiskárnu vybere uživatel; web
+  // ji nemůže zvolit ani spustit tisk bez dialogu). Bez JS nebo při chybě se otevře PDF v nové záložce.
+  document.querySelectorAll('a.svoz-tisk').forEach(a => a.addEventListener('click', ev => {
+    try {
+      ev.preventDefault();
+      const f = document.createElement('iframe');
+      f.style.cssText = 'position:fixed; right:0; bottom:0; width:0; height:0; border:0;';
+      f.srcdoc = '<!doctype html><meta charset="utf-8"><style>@page{size:A4 landscape;margin:0}html,body{margin:0}'
+        + 'img{display:block;width:297mm;height:210mm}</style><img src="' + a.dataset.png + '">';
+      f.onload = () => {
+        const img = f.contentDocument.querySelector('img');
+        const go = () => { f.contentWindow.focus(); f.contentWindow.print(); setTimeout(() => f.remove(), 60000); };
+        if (img.complete) go(); else { img.onload = go; img.onerror = () => { f.remove(); window.open(a.href, '_blank'); }; }
+      };
+      document.body.appendChild(f);
+    } catch (e) { window.open(a.href, '_blank'); }
+  }));
+  </script>
