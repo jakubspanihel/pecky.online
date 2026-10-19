@@ -318,12 +318,28 @@ Stejně jako krok 6 je i tohle datově řízené — žádná úprava kódu, nov
 `video_ts` se promítnou do tlačítka „▶ video ↗" u bodu agendy
 automaticky.
 
-### 8. Pozemky (pokud relevantní)
+### 8. Pozemky a odkazy na parcely — POVINNÉ při každém novém jednání
 
-Pokud nové usnesení řeší prodej/nákup pozemku, spustit i
-`python3 jednani/scripts/update-pozemky.py` — viz
-[automation-katastr-parcely.md](automation-katastr-parcely.md) pro plný
-popis.
+Po každém novém nebo doplněném jednání (i když nic nepojednává o prodeji
+či nákupu — parcela se objevuje i v názvech bodů o stavbách, prostorech
+apod.) spustit:
+
+```
+python3 jednani/scripts/update-pozemky.py
+python3 scripts/build.py
+```
+
+Skript přegeneruje tabulky Pozemky i `parcely-odkazy.json`, ze kterého
+se prolinkují čísla parcel v názvech bodů a usneseních (viz
+[automation-katastr-parcely.md](automation-katastr-parcely.md)).
+**Pozor: skript nemá `--help`, každé spuštění provede celý běh.**
+
+Ověření (do výpisu běhu): projít `agenda[].t` a `resolutions[]` nových
+jednání, najít zmínky „parc. N“ a u každé zkontrolovat, že číslo je v
+`jednani/parcely-odkazy.json`. Parcely, které v mapě chybí (kolize mezi
+katastry, neurčený katastr, nenalezeno v RUIAN — skript je vypíše na
+stderr), uvést ve výpisu jako „bez odkazu“ s důvodem; případně doplnit
+`MANUAL_OVERRIDES`.
 
 ### 8b. Kalendář — POVINNÉ při každém běhu
 
