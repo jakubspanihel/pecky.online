@@ -45,6 +45,10 @@ o jiný odkaz. Když záznam existuje jen s pozvánkou (bez zápisu,
 `resolutions` prázdné), shrnout jen program a výslovně uvést, že zápis
 ještě není zveřejněn.
 
+Banner „Z poslední Rady města“ na Domů bere jen rady, které už mají zápis
+(`links.minutes`); shrnutí jen z Pozvánky se na Domů nezobrazí, dokud
+nepřibude zápis. Po doplnění zápisu shrnutí přepsat podle zápisu.
+
 ## 1b. Kam se výstup ukládá
 
 **Pro každé nové jednání vždy vytvoř nový soubor** (nikdy nepřepisuj
