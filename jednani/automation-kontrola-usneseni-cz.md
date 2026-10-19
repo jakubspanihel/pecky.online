@@ -29,9 +29,8 @@ tento soubor jen odkazuje. Pro katastr/pozemky viz
 
 **Stabilní klíče:** jednání = UUID (v URL všech dokumentů); usnesení =
 `number_raw` (tvar `UR-XXX-N/RR`, formát ročníku kolísá — `…/26` i
-`…/2026`, vždy zapisovat verbatim). Číslo usnesení „detail_id" (numerické
-ID z `/verejne/usneseni/<id>`) tímto postupem nezjistíš, viz mezera
-u kroku 4.
+`…/2026`, vždy zapisovat verbatim). Číslo detailu usnesení (numerické
+ID z `/verejne/usneseni/<id>`) se čte z `onclick`, viz krok 4.
 
 ## Kdy spustit
 
@@ -182,14 +181,17 @@ Ze stránky `usnesení`:
 - Pro každé usnesení: `n` (číslo, tvar `UR-XXX-N/RR`), `item` (bod
   programu), `text` (plné znění), `date`, `pro`/`proti`/`zdrzel` z
   hlasování.
-- **Trvalá mezera**: odkazy na jednotlivá usnesení na této stránce mají
-  `href="#"` (žádná skutečná URL, jen JS placeholder bez network requestu
-  za klikem) — pole `url` (odkaz na detail usnesení s `detail_id`) proto
-  u takto doplněných usnesení NELZE touto cestou získat. Nechat vynechané
-  — frontend to zvládá (`r.url ? … : ''` v `content/jednani.html`). Dřív šlo doplnění
-  nechat na plný scraper na jiném stroji, který k detailu přistupoval jinak
-  (`in-page fetch`, ne klikání) — k tomu stroji už není přístup, takže jde
-  o trvalou mezeru, ne dočasný stav do dalšího běhu.
+- **`url` (odkaz na detail usnesení)** — opraveno 19. 10. 2026, dřív to
+  bylo chybně popsané jako trvalá mezera. Odkazy na stránce `usnesení` mají
+  sice `href="#"`, ale číslo detailu je v atributu `onclick`:
+  `window.open('https://mesto-pecky.usneseni.cz/verejne/usneseni/<id>?mod=rada', …)`
+  (u ZM `mod=zastupitelstvo`). Vyčti ho v kartě s usneseni.cz, např.
+  `fetch('/verejne/<uuid>/usneseni/')` → `DOMParser` → u každého `<a>` s textem
+  `UR-…`/`UZ-…` regex `usneseni\/(\d+)\?mod=(\w+)` na `onclick`. Do záznamu
+  usnesení zapiš `url` ve tvaru `https://mesto-pecky.usneseni.cz/verejne/usneseni/<id>?mod=<rada|zastupitelstvo>`
+  (`mod` podle předpony `UR`/`UZ`). **Dělat při každém doplnění usnesení**
+  — frontend podle `url` odkazuje nadpis usnesení v rozbaleném bodu; bez něj
+  odkáže jen na seznam usnesení celého jednání.
 
 ### 5. Zapiš do `pecky-jednani.json`
 

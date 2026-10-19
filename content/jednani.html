@@ -31,10 +31,39 @@
       </div>
     </div>
     <h3 class="search-status" id="jednani-status"><span class="spinner" aria-hidden="true"></span>Načítám archiv…</h3>
-    <div id="jednani-results"></div>
+    <style>
+      #jednani-results .meeting-list{border-top:0; display:flex; flex-direction:column; gap:12px;}
+      #jednani-results .meeting-row{border:1px solid var(--line); border-radius:8px; background:rgba(255,255,255,0.5); overflow:hidden;}
+      #jednani-results .meeting-row--expanded{background:var(--white);}
+      #jednani-results .meeting-row-main{padding:12px 14px;}
+      #jednani-results .meeting-row-detail{padding:2px 14px var(--space-8);}
+      .j-tree{display:none;}
+      #jednani-results h3.j-year{margin:26px 0 12px;}
+      #jednani-results h3.j-year:first-child{margin-top:0;}
+      @media (min-width:768px){
+        .j-split{display:grid; grid-template-columns:minmax(150px,200px) minmax(0,1fr); gap:28px; align-items:start; margin-top:22px;}
+        .j-split.j-filtering{display:block;}
+        .j-split.j-filtering .j-tree{display:none;}
+        .j-tree{display:block; position:sticky; top:calc(var(--nav-h,0px) + var(--title-h,0px) + var(--lc-h,0px) + 8px); max-height:calc(100vh - var(--nav-h,0px) - var(--title-h,0px) - var(--lc-h,0px) - 24px); overflow-y:auto; border-right:1px solid var(--line); padding-right:12px;}
+        .j-tree ul{list-style:none; margin:0; padding:0;}
+        .j-ty{all:unset; box-sizing:border-box; width:100%; display:flex; justify-content:space-between; gap:8px; padding:6px 8px; cursor:pointer; border-radius:3px; font-family:var(--font-display,inherit); font-weight:700;}
+        .j-ty:hover{background:var(--material-deep);}
+        .j-ty:focus-visible{outline:2px solid var(--gold); outline-offset:1px;}
+        .j-ty.active{background:var(--burgundy); color:#fff;}
+        .j-tn{font-size:13px; color:var(--ink-soft); font-weight:400;}
+        .j-ty.active .j-tn{color:#fff;}
+        #jednani-results .meeting-row{scroll-margin-top:calc(var(--nav-h,0px) + var(--title-h,0px) + var(--lc-h,0px) + 16px);}
+      }
+    </style>
+    <div class="j-split" id="j-split">
+      <nav class="j-tree" id="j-tree" aria-label="Jednání podle let"></nav>
+      <div id="jednani-results"></div>
+    </div>
     <style>.starsi-text{white-space:pre-wrap; max-height:420px; overflow:auto; font-size:13px; line-height:1.45; background:rgba(255,255,255,0.5); border:1px solid var(--line); border-radius:6px; padding:10px 12px; margin:6px 0 12px;}</style>
 
 
+    <details class="collapsible" style="margin-top:36px;">
+      <summary style="cursor:pointer; list-style:none;"><h3 class="display" style="margin:0 0 4px; display:inline;">Zdroje dat <span class="collapsible-arrow" aria-hidden="true">▾</span></h3></summary>
     <div class="callout">
       Jednání <strong>finančního a kontrolního výboru</strong> zastupitelstva nejsou na usneseni.cz — jejich zápisy
       zveřejňuje jen <a href="https://pecky.cz/default/default/21133_vybory-zm" target="_blank" rel="noopener">pecky.cz ↗</a>
@@ -85,6 +114,7 @@
     <div class="callout">
       <strong>Jednání z Pečeckých novin.</strong> Zápisy a usnesení před rokem 2015 otiskoval i měsíčník <a href="/noviny/">Pečecké noviny</a>. Ve výpisu je jich <strong>165 zápisů rady města</strong> a <strong>30 usnesení zastupitelstva</strong> z let 2001 až června 2015 (zápisy z úřední desky navazují od 8. 6. 2015). Označuje je štítek „z novin“ a odkaz na stranu s PDF. Vybraná čísla se v archivu novin nedochovala: chybí roky 2002 až 2004 a 2007, z let 2001 a 2005–2006 je jen několik čísel a z let 2008–2015 například čísla 2/2011 a 3/2011. Soupis proto není úplný. Text je strojový přepis stránky (u skenů z let 2012–2015 po rozpoznání písmen, OCR), takže může obsahovat chyby v písmenech i řádky z okolních článků; závazná je vždy tištěná strana. U rady noviny přetiskly body „rada bere na vědomí“, „schvaluje“ a „ukládá“, u zastupitelstva jen usnesení, bez hlasování a rozpravy.
     </div>
+    </details>
 
     <p class="lede" style="margin:18px 0 0;">Související: <a href="/jednani/absence.html">Docházka zastupitelů</a> · <a href="/jednani/nejdelsi.html">Nejdelší body jednání zastupitelstva</a> · <a href="/jednani/odpracovano.html">Kolik času zastupitelé odpracovali</a> · <a href="/jednani/youtube.html">Zhlédnutí záznamů zastupitelstva</a></p>
   </section>
@@ -555,12 +585,18 @@
     return `<div class="info-toggle-text" hidden>${jEscapeHtml(r.text)}</div>`;
   }
 
-  function jRenderResItem(r){
+  // text usnesení v rozbaleném bodu: nadpis (číslo usnesení, odkaz na usneseni.cz)
+  // + štítek se stavem, pak text; stav ukazuje i kroužek za názvem bodu
+  // bez detail-stránky usnesení (nejnovější jednání ji v datech ještě nemají) odkazuje
+  // na seznam usnesení celého jednání na usneseni.cz
+  function jRenderResItem(r, m){
+    if (!r.text) return '';
     const label = jEscapeHtml(jResLabel(r.n));
-    const link = r.url
-      ? `<a class="hit-number" href="${r.url}" target="_blank" rel="noopener">${label}</a>`
+    const href = r.url || (m && m.links && m.links.resolutions) || '';
+    const title = href
+      ? `<a class="hit-number" href="${href}" target="_blank" rel="noopener">${label}</a>`
       : `<span class="hit-number">${label}</span>`;
-    return `<div class="agenda-res">${link} ${jOutcomeBadgeHtml(r)}${jResInfoText(r)}</div>`;
+    return `<div class="agenda-res"><div class="info-toggle-text" hidden><div class="res-block-head">${title}${jOutcomeBadgeHtml(r)}</div>${jEscapeHtml(r.text)}</div></div>`;
   }
 
   // Návrh usnesení, který neprošel hlasováním — na rozdíl od m.resolutions
@@ -642,6 +678,16 @@
     return html ? `<div class="meeting-attendance"><div class="people-avatars">${html}</div></div>` : '';
   }
 
+  // barevný kroužek za názvem bodu: jeden za každé usnesení, barva podle stavu
+  // (stejné třídy jako štítky u usnesení: hotovo = schváleno, zamitnuto, probiha, revokovano)
+  function jAgendaDotsHtml(a){
+    const dots = (a._res || []).map(r => {
+      if (r._revokedBy) return ['revokovano', 'Revokováno usnesením ' + r._revokedBy];
+      return r._outcome ? [r._outcome.label === 'Revokuje' ? 'revokovano' : r._outcome.cls, r._outcome.label] : ['bez-stavu', 'Usnesení'];
+    });
+    if (a.rejected_vote) dots.push(['zamitnuto', 'Zamítnuto']);
+    return dots.map(([cls, label]) => `<span class="res-dot res-dot--${cls}" role="img" aria-label="${jEscapeHtml(label)}" title="${jEscapeHtml(label)}"></span>`).join('');
+  }
   function jRenderAgendaList(m){
     if (jIsVybor(m) && (!m.agenda || !m.agenda.length)) {
       return '<p class="lede lede-sm" style="margin:8px 0; color:var(--ink-soft);">Zápis neuvádí program jednání.</p>';
@@ -660,14 +706,16 @@
       <li class="agenda-item${hasDetail ? ' agenda-item--expandable' : ''}">
         <div class="agenda-item-main">
           <span class="agenda-num">${jEscapeHtml(String(a.n))}.</span>
-          <span class="agenda-text">${jLinkedText(a.t || '')}</span>
-          ${a.duration_seconds != null ? `<span class="agenda-time">bod se projednával: ${jFormatItemTime(a.duration_seconds)}${isLongest ? ' 🔥' : ''}</span>` : ''}
-          ${a.video_url ? `<a class="agenda-video" href="${a.video_url}" target="_blank" rel="noopener">▶ video ↗</a>` : ''}
-          ${hasDetail ? '<span class="agenda-toggle" aria-hidden="true">+</span>' : ''}
+          <span class="agenda-text">${jLinkedText(a.t || '')}${jAgendaDotsHtml(a)}</span>
+          ${a.duration_seconds != null || a.video_url ? `<span class="agenda-meta">
+            ${a.duration_seconds != null ? `<span class="agenda-time">bod se projednával: ${jFormatItemTime(a.duration_seconds)}${isLongest ? ' 🔥' : ''}</span>` : ''}
+            ${a.video_url ? `<a class="agenda-video" href="${a.video_url}" target="_blank" rel="noopener">▶ video ↗</a>` : ''}
+          </span>` : ''}
+          ${hasDetail ? '<span class="agenda-toggle" aria-hidden="true">▸</span>' : ''}
         </div>
         ${a._vyborLinks ? `<div class="meeting-count" style="margin:2px 0 0 26px;">${jEscapeHtml(a._vyborLinks.label)} ${a._vyborLinks.meetings.map(v => `<a href="#${jSlugForMeeting(v)}">${jFormatDate(v.date)}</a>`).join(', ')}</div>` : ''}
         ${a.duvodova_zprava ? `<div class="info-toggle-text" hidden>${jEscapeHtml(a.duvodova_zprava)}</div>` : ''}
-        ${a._res && a._res.length ? '<div class="agenda-res-list">' + a._res.map(jRenderResItem).join('') + '</div>' : ''}
+        ${a._res && a._res.length ? '<div class="agenda-res-list">' + a._res.map(r => jRenderResItem(r, m)).join('') + '</div>' : ''}
         ${a.rejected_vote ? jRenderRejectedVote(a.rejected_vote) : ''}
       </li>
     `;
@@ -901,6 +949,8 @@
     jApplyTypeFilter(type || '', {updateHash: false});
     document.getElementById('jednani-search').value = '';
     await loadJednani();
+    const target = JEDNANI_DB.meetings.find(m => attr === 'data-uuid' ? (m.uuid || m.id) === value : jSlugForMeeting(m) === value);
+    if (target) jYear = target.date.slice(0, 4);
     jRunSearch();
     const row = document.querySelector('#jednani-results .meeting-row[' + attr + '="' + value + '"]');
     if (!row) return;
@@ -987,6 +1037,16 @@
     </div>`;
   }
 
+  let jYear = null;
+  const jMq = window.matchMedia('(min-width:768px)');
+  jMq.addEventListener('change', () => jRunSearch());
+  document.getElementById('j-tree').addEventListener('click', (e) => {
+    const b = e.target.closest('.j-ty');
+    if (!b) return;
+    jYear = b.dataset.year;
+    jRunSearch();
+    window.scrollTo({top: document.getElementById('j-split').getBoundingClientRect().top + window.scrollY - 140, behavior: 'smooth'});
+  });
   function jRunSearch(){
     if (!JEDNANI_DB) return;
     const rawQuery = document.getElementById('jednani-search').value;
@@ -995,9 +1055,24 @@
     const statusEl = document.getElementById('jednani-status');
     const resultsEl = document.getElementById('jednani-results');
 
+    document.getElementById('j-split').classList.toggle('j-filtering', !!words.length);
+    statusEl.hidden = false;
     if (!words.length) {
-      statusEl.textContent = `${meetings.length} jednání`;
-      resultsEl.innerHTML = jRenderMeetingList(meetings);
+      statusEl.textContent = '';
+      statusEl.hidden = true;
+      const byYear = {};
+      meetings.forEach(m => { (byYear[m.date.slice(0, 4)] = byYear[m.date.slice(0, 4)] || []).push(m); });
+      const years = Object.keys(byYear).sort((a, b) => b - a);
+      if (!years.includes(jYear)) jYear = years[0] || null;
+      document.getElementById('j-tree').innerHTML = `<ul>${years.map(y =>
+        `<li><button type="button" class="j-ty${y === jYear ? ' active' : ''}" data-year="${y}"><span>${y}</span><span class="j-tn">${byYear[y].length}</span></button></li>`).join('')}</ul>`;
+      if (jMq.matches) {
+        resultsEl.innerHTML = jYear ? jRenderMeetingList(byYear[jYear]) : jRenderMeetingList([]);
+      } else {
+        resultsEl.innerHTML = years.length
+          ? years.map(y => `<h3 class="display j-year">${y} (${byYear[y].length})</h3>${jRenderMeetingList(byYear[y])}`).join('')
+          : jRenderMeetingList([]);
+      }
       jAttachAccordionHandlers();
       return;
     }
@@ -1080,7 +1155,7 @@
         const willShow = !li.classList.contains('agenda-item--expanded');
         if (dzText) dzText.hidden = !willShow;
         resTexts.forEach(t => { t.hidden = !willShow; });
-        if (toggle) toggle.textContent = willShow ? '−' : '+';
+        if (toggle) toggle.textContent = willShow ? '▾' : '▸';
         li.classList.toggle('agenda-item--expanded', willShow);
       }
       return;
