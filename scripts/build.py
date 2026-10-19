@@ -202,7 +202,7 @@ EXTRA_PAGES = {
         'na YouTube od roku 2022, s vyznačeným ustavujícím zasedáním.',
         # Odkázaná z /jednani/ (odstavec "Související") od 8. 10. 2026.
         # Statický snímek k datu lastmod.
-        False, 'jednani', '2026-10-18'),
+        False, 'jednani', '2026-10-19'),
     'fbmonitoring': (
         '/o-webu/facebook-monitoring/facebook-mestopecky/',
         'Monitoring Facebooku města Pečky — Do Peček . cz',
@@ -916,7 +916,8 @@ def _dash_rada_shrnuti():
     jednani/INSTRUKCE-shrnuti-schuzky.md."""
     from datetime import date, date as _date
     meetings = json.loads(read('jednani/pecky-jednani.json'))['meetings']
-    for m in sorted((m for m in meetings if m['type'] == 'Rada'), key=lambda m: m['date'], reverse=True):
+    # jen rada, která už proběhla a má zápis (ne pouhá Pozvánka)
+    for m in sorted((m for m in meetings if m['type'] == 'Rada' and (m.get('links') or {}).get('minutes')), key=lambda m: m['date'], reverse=True):
         cesta = f'jednani/shrnuti/{m["date"]}-rada.md'
         if not (ROOT / cesta).exists():
             continue
