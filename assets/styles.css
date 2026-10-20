@@ -495,6 +495,17 @@
   .banner .banner-text{margin:0 0 var(--space-4); font-size:var(--fs-10); line-height:1.5; color:rgba(255,255,255,0.9);}
   .banner .banner-topics{margin:0 0 var(--space-4); padding-left:var(--space-9); font-size:var(--fs-10); line-height:1.5; color:var(--white-a92);}
   .banner .banner-topics li{margin:0 0 var(--space-2); padding:0; border:none; font-size:inherit;}
+  /* banner „Z rady města“: záhlaví s šipkami, řádek s názvem jednání, textový odkaz za CTA */
+  .banner-head{display:flex; align-items:flex-start; justify-content:space-between; gap:var(--space-4);}
+  .banner-head .banner-title{flex:1 1 auto; min-width:0;}
+  .rada-pager{display:flex; gap:var(--space-2); flex:0 0 auto;}
+  .rada-pager button{width:32px; height:32px; padding:0; border:0; border-radius:var(--radius-pill); background:var(--white); color:var(--banner-accent); font-size:var(--fs-11); font-weight:var(--fw-bold); line-height:1; cursor:pointer; box-shadow:var(--shadow-chip);}
+  .rada-pager button:hover:not(:disabled){background:var(--material);}
+  .rada-pager button:disabled{opacity:.4; cursor:default;}
+  .banner .banner-sub{margin:0 0 var(--space-4); font-size:var(--fs-11); font-weight:var(--fw-semibold); color:var(--white);}
+  .rada-slide .banner-meta{margin-bottom:var(--space-2);}
+  .banner .banner-note{margin:0; font-size:var(--fs-10); font-weight:var(--fw-semibold); color:var(--white-a92);}
+  .banner .banner-more{font-size:var(--fs-10); font-weight:var(--fw-semibold);}
   .banner-actions{display:flex; flex-wrap:wrap; gap:var(--space-4) var(--space-7); align-items:center; margin-top:var(--space-7);}
   .banner .banner-cta{display:inline-flex; align-items:center; gap:9px; padding:var(--space-5) var(--space-11); background:var(--white); color:var(--banner-accent); font-weight:var(--fw-bold); font-size:var(--fs-11); border-radius:var(--radius-pill); text-decoration:none; box-shadow:var(--shadow-cta); transition:transform .15s; white-space:nowrap; flex:0 0 auto; max-width:none;}
   .banner .banner-cta:hover{transform:translateY(-1px); text-decoration:none; background:var(--material);}
@@ -528,6 +539,10 @@
   .banner-avatars{display:flex; flex-wrap:wrap; gap:0; padding:0 2px 2px 0;}  /* záporná mezera −2 px: avatary se překrývají */
   .banner-av{margin:0 -2px -2px 0; display:block; width:44px; height:44px; border-radius:var(--radius-round); overflow:hidden; border:2px solid var(--white-a35); background:var(--material-deep); text-decoration:none;}
   .banner-av--rada{border-color:var(--white);}
+  .rada-avatars{margin:0 0 var(--space-4);}
+  .rada-avatars .banner-av{width:36px; height:36px; margin:0 -2px -2px 0;}
+  .banner-av--absent{opacity:.45; border-color:var(--white-a35);}
+  .banner-av-sep{width:1px; align-self:stretch; background:var(--white-a35); margin:0 var(--space-4) 0 var(--space-5); flex-shrink:0;}
   .banner-av:hover{border-color:var(--white); transform:translateY(-1px);}
   .banner-av img{display:block; width:100%; height:100%; object-fit:cover;}
   .banner-av .banner-av-init{display:flex; width:100%; height:100%; align-items:center; justify-content:center; background:#5B5347; color:var(--white); font-family:var(--font-banner); font-weight:var(--fw-semibold); font-size:var(--fs-10);}
@@ -540,6 +555,7 @@
   .dash-zmpo-link{display:flex; align-items:center; justify-content:space-between; gap:var(--space-5); padding:var(--space-5) var(--space-9); border-radius:var(--radius-lg); background:linear-gradient(135deg,var(--burgundy) 0%,var(--burgundy-deep) 100%); color:var(--white); text-decoration:none; font-size:var(--fs-10); line-height:1.3;}
   .dash-zmpo-link:hover .zmpo-text{text-decoration:underline;}
   .dash-zmpo-link:focus-visible{outline:2px solid var(--ink); outline-offset:2px;}
+  .dash-zmpo-link--slate{background:var(--cyan);}
   .zmpo-text{min-width:0;}
   .zmpo-stav{opacity:.9;}
   .zmpo-sipka{flex:0 0 auto; font-weight:var(--fw-bold);}
@@ -996,7 +1012,6 @@
   .meeting-row-main{display:flex; align-items:center; gap:var(--space-2) var(--space-5); padding:11px var(--space-1); cursor:pointer; font-size:var(--fs-9); flex-wrap:wrap;}
   .meeting-row-main:hover{background:var(--burgundy-a035);}
   .meeting-label{font-size:var(--fs-h4); font-weight:var(--fw-semibold); line-height:1.3; flex:1 1 220px; min-width:0;}
-  .meeting-cal-icon{color:var(--ink-soft); vertical-align:-1px; margin-right:2px; flex-shrink:0;}
   .meeting-permalink{color:inherit; text-decoration:none; display:inline-flex; align-items:center; gap:2px;}
   .meeting-permalink:hover{color:var(--cyan-deep); text-decoration:underline;}
   .meeting-video-badge{display:inline-flex; align-items:center; gap:var(--space-1); margin-left:var(--space-5); font-size:var(--fs-5); font-weight:var(--fw-regular); color:var(--ink-soft); font-family:var(--font-mono);}
@@ -1026,6 +1041,7 @@
   .agenda-toggle{font-size:15px; width:16px; text-align:center; color:var(--cyan-deep); font-weight:var(--fw-semibold); flex-shrink:0;}
   .agenda-num{font-family:var(--font-mono); color:var(--ink-soft); flex-shrink:0; width:2em;}
   .agenda-text{flex:1 1 0; min-width:8em; overflow-wrap:anywhere; font-weight:var(--fw-semibold);}
+  .agenda-text--routine{font-weight:var(--fw-regular);}
   .agenda-time{font-size:var(--fs-5); color:var(--ink-soft); white-space:nowrap; font-family:var(--font-mono);}
   .agenda-video{font-size:var(--fs-5); color:var(--cyan-deep); white-space:nowrap; font-family:var(--font-mono);}
   .res-dot{display:inline-block; width:11px; height:11px; border-radius:50%; margin-left:7px; vertical-align:baseline; background:var(--line); border:1px solid transparent;}

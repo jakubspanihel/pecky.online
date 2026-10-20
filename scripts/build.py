@@ -17,6 +17,7 @@ Použití:
     python3 scripts/build.py --no-check # bez HTML/JS validace (rychlejší, pro ladění)
 """
 import json
+import unicodedata
 import re
 import sys
 from pathlib import Path
@@ -585,19 +586,6 @@ def _zm_kdy(dny, weekday):
     return f'Zasedání zastupitelstva <mark class="banner-hl">{_kdy_za(dny)}</mark>'
 
 
-DASH_RADA_PO_DNI = 14  # pruh rady visí na Domů nejvýš tolik dní po konání, než vyjde záznam
-
-
-def _rada_kdy(cislo, dny):
-    """Text pruhu rady (dny = kolik dní zbývá do jednání, záporné = už proběhlo):
-    "Rada č. 36 se sejde pozítří." / "Rada č. 36 se sešla dnes. Záznam zatím není
-    k dispozici." / "… se sešla před 3 dny. …". Stejná logika je v assets/common.js."""
-    if dny > 0:
-        return f'Rada č. {cislo} se sejde {_kdy_za(dny)}.'
-    kdy = 'dnes' if dny == 0 else 'včera' if dny == -1 else f'před {-dny} dny'
-    return f'Rada č. {cislo} se sešla {kdy}. Záznam zatím není k dispozici.'
-
-
 def _volby_kdy(dny, probiha):
     """Titulek banneru voleb: "Volby do zastupitelstva města budou už zítra"
     (doba zvýrazněná), během hlasování "… právě probíhají"."""
@@ -617,38 +605,6 @@ ICO_LUPA = ('<svg class="kal-ico" viewBox="0 0 16 16" width="16" height="16" fil
 ICO_YT = ('<svg class="kal-ico" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">'
           '<path fill="#FF0000" d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2C0 8.1 0 12 0 12s0 3.9.5 5.8a3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1c.5-1.9.5-5.8.5-5.8s0-3.9-.5-5.8z"/>'
           '<path fill="#fff" d="M9.6 15.6V8.4l6.2 3.6z"/></svg>')
-
-
-def _zvoleni_avatary():
-    """Avatary 21 zastupitelů zvolených ve volbách 2026, seřazení podle osobních
-    hlasů (pořadí řádků s tagem „zvolen“ v tabulce content/volby2026.html).
-    Osoba se páruje podle jména a příjmení s lide/people.json; avatar odkazuje
-    na její kartu v Lidech."""
-    h = read('content/volby2026.html')
-    jmena = []
-    for _, strana, n in re.findall(r'<tr><td>(\d+)</td><td><span class="swatch" style="background:var\(--party-([a-z0-9-]+)\);?"></span>(.*?)</td></tr>', h):
-        if 'zvolen' in n:
-            n = re.sub(r'<.*?>', '', n)
-            n = re.sub(r'\s*\(\d+\.\)\s*zvolen\s*$', '', n).split(',')[0]
-            jmena.append((strana, [w for w in n.split() if not w.endswith('.')]))
-    people = json.loads(read('lide/people.json'))['people']
-    out = []
-    for strana, w in jmena:
-        # příjmení v people.json může nést „ml.“/„st.“; shodu rozhoduje uskupení (tag)
-        shoda = [x for x in people if (x['first_name'], re.sub(r'\s+(ml|st)\.$', '', x['last_name'])) == (w[0], ' '.join(w[1:]))]
-        p = next((x for x in shoda if strana in x.get('tags', [])), shoda[0] if len(shoda) == 1 else None)
-        if not p:  # zvolený bez záznamu v Lidech: avatar s iniciálami bez odkazu
-            n = ' '.join(w)
-            out.append(f'<span class="banner-av" title="{esc(n)}" aria-label="{esc(n)}"><span class="banner-av-init" aria-hidden="true">{esc(w[0][0] + w[-1][0])}</span></span>')
-            continue
-        jmeno = f'{p["first_name"]} {p["last_name"]}'
-        foto = (p.get('photos') or [{}])[0].get('url')
-        if foto:
-            vnitrek = f'<img src="{esc(foto)}" alt="{esc(jmeno)}" loading="lazy" width="56" height="56">'
-        else:
-            vnitrek = f'<span class="banner-av-init" aria-hidden="true">{esc(p["first_name"][0] + p["last_name"][0])}</span>'
-        out.append(f'<a class="banner-av" href="/lide/#lide/osoba/{esc(p["id"])}" title="{esc(jmeno)}" aria-label="{esc(jmeno)}">{vnitrek}</a>')
-    return f'<div class="banner-avatars">{"".join(out)}</div>' if out else ''
 
 
 def _volby_hlasy_karty(rok='2026', zdroj=None, vsichni=False):
@@ -838,8 +794,7 @@ def _dash_zastupitelstvo(dnes):
     volby = sorted((e for e in events if e['category'] == 'volby' and _volby_do(e) >= dnes),
                    key=lambda e: e['date'])[:1]
     po = _dash_zm_po(meetings, dnes)
-    rada = _dash_rada(dnes)
-    if not zm and not volby and not po and not rada:
+    if not zm and not volby and not po:
         return '', ''
     avatary = _zm_avatary()
     out = ['<div class="dash-zm">'] if zm else []
@@ -875,41 +830,11 @@ def _dash_zastupitelstvo(dnes):
         dny_txt = (dnu[d1.weekday()] if d1 == d2 else
                    f'{dnu[d1.weekday()]} a {dnu[d2.weekday()].lower()}' if (d2 - d1).days == 1 else
                    f'{dnu[d1.weekday()]} až {dnu[d2.weekday()].lower()}')
-        out_v.append(f'<div class="dash-zm dash-zm--volby">\n  <ul class="dash-list banner banner--slate">\n    <li data-until="{konec2}">'
-                   f'<div class="banner-body"><h3 class="banner-title">'
-                   f'Nové zastupitelstvo</h3>'
-                   f'{_zvoleni_avatary()}'
-                   f'<div class="banner-actions"><a class="banner-cta" href="/volby/2026/">Co bude dál?</a></div>'
-                   f'</div></li>\n  </ul>\n</div>')
-    return '\n'.join(out + ([po] if po else []) + ([rada] if rada else [])), '\n'.join(out_v)
-
-
-def _dash_rada(dnes):
-    """Banner plánovaného zasedání rady města (pod bannerem ZM). Stejná logika
-    jako u zastupitelstva: vypíše se víc budoucích jednání, common.js ukáže první,
-    které ještě neproběhlo, a bez položky schová celý widget."""
-    from datetime import date as _date, timedelta
-    meetings = json.loads(read('jednani/pecky-jednani.json'))['meetings']
-    # budoucí jednání + nedávno proběhlá, ke kterým ještě není zápis (pak převezme banner „Z poslední Rady“)
-    od = (_date.fromisoformat(dnes) - timedelta(days=DASH_RADA_PO_DNI)).isoformat()
-    rm = sorted((m for m in meetings if m['type'] == 'Rada'
-                 and (m['date'] >= dnes or (m['date'] >= od and not (m.get('links') or {}).get('minutes')))),
-                key=lambda m: m['date'])[:3]
-    if not rm:
-        return ''
-    out = ['<div class="dash-zm dash-zm--rada">', '  <ul class="dash-zmpo-list">']
-    for i, m in enumerate(rm):
-        d = _date.fromisoformat(m['date'])
-        dny = (d - _date.fromisoformat(dnes)).days
-        program = ' <span class="zmpo-stav">Program je k dispozici.</span>' if m.get('agenda') and dny > 0 else ''
-        konec = (d + timedelta(days=DASH_RADA_PO_DNI)).isoformat()
-        out.append(f'    <li data-date="{m["date"]}" data-until="{konec}"{" hidden" if i else ""}>'
-                   f'<a class="dash-zmpo-link" href="/jednani/#rada-{m["date"]}">'
-                   f'<span class="zmpo-text"><strong class="dash-rada-kdy" data-cislo="{m["number"]}">'
-                   f'{_rada_kdy(m["number"], dny)}</strong>{program}</span>'
-                   f'<span class="zmpo-sipka" aria-hidden="true">→</span></a></li>')
-    out += ['  </ul>', '</div>']
-    return '\n'.join(out)
+        out_v.append(f'<div class="dash-zm dash-zm--volby">\n  <ul class="dash-zmpo-list">\n    <li data-until="{konec2}">'
+                   f'<a class="dash-zmpo-link dash-zmpo-link--slate" href="/volby/2026/">'
+                   f'<span class="zmpo-text"><strong>Noví zastupitelé pro období 2026–2030</strong></span>'
+                   f'<span class="zmpo-sipka">více →</span></a></li>\n  </ul>\n</div>')
+    return '\n'.join(out + ([po] if po else [])), '\n'.join(out_v)
 
 
 def _rel_minule(dny):
@@ -930,16 +855,73 @@ def _rel_minule(dny):
     return 'před rokem' if dny < 730 else f'před {max(2, int(dny / 365.25))} lety'
 
 
+def _rada_avatary(m, people, idx, aff):
+    """Avatary radních u jednání rady: z docházky (přítomní, za oddělovačem
+    omluvení/nepřítomní), u jednání bez docházky podle funkcí platných k datu."""
+    import unicodedata
+    def norm(t):
+        return unicodedata.normalize('NFKD', t).encode('ascii', 'ignore').decode().lower()
+    poradi = {'starosta': 0, 'mistostarosta': 1, 'rada': 2}
+    datum = m['date']
+    role = {}
+    for a in aff:
+        if (a['organization_id'] == 'mesto-pecky' and a['role_type'] in poradi and (not a.get('from') or a['from'] <= datum)
+                and (not a.get('to') or datum <= a['to'])):
+            role[a['person_id']] = min(role.get(a['person_id'], 9), poradi[a['role_type']])
+
+    def najdi(jmeno):
+        jmeno = re.split(r'\s+-\s+', jmeno)[0]
+        t = [x for x in re.split(r'\s+', jmeno.replace('\xa0', ' ')) if x and '.' not in x]
+        return idx.get((norm(t[-2]), norm(t[-1]))) if len(t) >= 2 else None
+
+    def avatar(jmeno, pid, absent=False, nota=''):
+        p = people.get(pid)
+        cele = f'{p["first_name"]} {p["last_name"]}' if p else re.sub(r'^(?:(?:Ing|Mgr|Bc|MUDr|JUDr|PhDr)\.\s*)+', '', jmeno.replace('\xa0', ' ')).strip()
+        title = cele + (f' ({nota})' if nota else '')
+        foto = ((p or {}).get('photos') or [{}])[0].get('url')
+        if foto:
+            vn = f'<img src="{esc(foto)}" alt="{esc(cele)}" loading="lazy" width="56" height="56">'
+        else:
+            ini = ''.join(x[0] for x in cele.split()[:1] + cele.split()[-1:])
+            vn = f'<span class="banner-av-init" aria-hidden="true">{esc(ini)}</span>'
+        cls = ' banner-av--absent' if absent else ''
+        tag, attr = (('a', f' href="/lide/#lide/osoba/{esc(pid)}"') if pid else ('span', ''))
+        return f'<{tag} class="banner-av{cls}"{attr} title="{esc(title)}" aria-label="{esc(title)}">{vn}</{tag}>'
+
+    att = m.get('attendance') or {}
+    if att.get('present_names') or att.get('absent_names'):
+        pritomni = [(n, najdi(n)) for n in att.get('present_names') or []]
+        nepritomni = [(x['name'], najdi(x['name']), x.get('note') or '') for x in att.get('absent_names') or []]
+        pritomni.sort(key=lambda it: role.get(it[1], 3))
+        out = ''.join(avatar(n, pid) for n, pid in pritomni)
+        if pritomni and nepritomni:
+            out += '<span class="banner-av-sep" aria-hidden="true"></span>'
+        out += ''.join(avatar(n, pid, True, nota) for n, pid, nota in nepritomni)
+    else:
+        lide = sorted((pid for pid in role if pid in people),
+                      key=lambda pid: (role[pid], people[pid]['last_name'], people[pid]['first_name']))
+        out = ''.join(avatar('', pid) for pid in lide)
+    return f'<div class="banner-avatars rada-avatars">{out}</div>' if out else ''
+
+
 def _dash_rada_shrnuti():
-    """Banner „Z poslední Rady města“ pod bannery zasedání: nejdůležitější témata
-    z nejnovějšího jednání rady, které má soubor jednani/shrnuti/{datum}-rada.md
-    (blok „## Nejdůležitější témata“, číslované položky `**Název** — věta.`),
-    s tlačítkem na detail jednání. Bez souboru je výstup ''. Postup:
+    """Banner „Z rady města“ pod bannery zasedání: nejdůležitější témata z jednání
+    rady, která mají soubor jednani/shrnuti/{datum}-rada.md (blok „## Nejdůležitější
+    témata“, číslované položky `**Název** — věta.`). Vykreslí se všechna taková
+    jednání (nejnovější první), šipkami v záhlaví (common.js, `.rada-pager`) se
+    listuje ke starším. Bez souboru je výstup ''. Postup:
     jednani/INSTRUKCE-shrnuti-schuzky.md."""
     from datetime import date, date as _date
     meetings = json.loads(read('jednani/pecky-jednani.json'))['meetings']
-    # jen rada, která už proběhla a má zápis (ne pouhá Pozvánka)
-    for m in sorted((m for m in meetings if m['type'] == 'Rada' and (m.get('links') or {}).get('minutes')), key=lambda m: m['date'], reverse=True):
+    # každá rada, k níž je soubor shrnutí; bez zápisu (jen Pozvánka) slide uvádí, že zápis chybí
+    slides = []
+    people = {p['id']: p for p in json.loads(read('lide/people.json'))['people']}
+    idx = {}
+    for p in people.values():
+        idx[(unicodedata.normalize('NFKD', p['first_name']).encode('ascii', 'ignore').decode().lower(),
+             unicodedata.normalize('NFKD', p['last_name']).encode('ascii', 'ignore').decode().lower())] = p['id']
+    aff = json.loads(read('lide/affiliations.json'))['affiliations']
+    for m in sorted((m for m in meetings if m['type'] == 'Rada'), key=lambda m: m['date'], reverse=True):
         cesta = f'jednani/shrnuti/{m["date"]}-rada.md'
         if not (ROOT / cesta).exists():
             continue
@@ -947,19 +929,37 @@ def _dash_rada_shrnuti():
         blok = re.search(r'^##\s+Nejdůležitější témata\s*\n(.*?)(?=^##\s|\Z)', md, re.S | re.M)
         pol = re.findall(r'^\d+\.\s+(.+)$', blok.group(1), re.M) if blok else []
         if not pol:
-            return ''
+            continue
         li = ''.join('<li>' + re.sub(r'\*\*(.+?)\*\*', r'<strong>\1</strong>', esc(t)) + '</li>' for t in pol)
-        return ('<div class="dash-zm dash-zm--shrnuti">\n'
-                '  <aside class="banner"><div class="banner-body">'
-                '<h3 class="banner-title">Z poslední Rady města</h3>'
-                f'<p class="banner-meta"><span class="banner-meta-item">{ICO_KAL}<span>'
-                f'Jednání č. {m["number"]}/{m["year"]}, {iso_to_cz(m["date"])} '
-                f'<span class="tag rel-chip" data-date="{m["date"]}">'
-                f'{_rel_minule((date.today() - _date.fromisoformat(m["date"])).days)}</span></span></span></p>'
-                f'<ul class="banner-topics">{li}</ul>'
-                f'<div class="banner-actions"><a class="banner-cta" href="/jednani/#rada-{m["date"]}">'
-                'Detail jednání</a></div></div></aside>\n</div>')
-    return ''
+        slides.append(
+            f'<div class="rada-slide" data-date="{m["date"]}"{" hidden" if slides else ""}>'
+            f'<p class="banner-sub">Jednání č. {m["number"]}/{m["year"]}'
+            f'<span class="tag rel-chip" data-date="{m["date"]}">'
+            f'{_rel_minule((date.today() - _date.fromisoformat(m["date"])).days)}</span></p>'
+            + _rada_avatary(m, people, idx, aff) +
+            f'<ul class="banner-topics">{li}</ul>'
+            + ('' if (m.get('links') or {}).get('minutes') else '<p class="banner-note">Vybrané body z pozvánky. Zápis zatím není k dispozici.</p>') +
+            f'<div class="banner-actions"><a class="banner-cta" href="/jednani/#rada-{m["date"]}">'
+            'Detail jednání</a>'
+            '<a class="banner-more" href="/jednani/#rada">Všechna jednání</a></div></div>')
+    if not slides:
+        return ''
+    # na Domů je rovnou v HTML jen pár nejnovějších, starší se načtou z JSON při prvním listování
+    INLINE = 5
+    celkem = len(slides)
+    starsi = slides[INLINE:]
+    slides = slides[:INLINE]
+    (ROOT / 'jednani' / 'rada-shrnuti.json').write_text(
+        json.dumps(starsi, ensure_ascii=False, separators=(',', ':')), encoding='utf-8')
+    pager = ''
+    if celkem > 1:
+        pager = ('<div class="rada-pager">'
+                 '<button type="button" class="rada-prev" aria-label="Starší jednání rady">‹</button>'
+                 '<button type="button" class="rada-next" aria-label="Novější jednání rady" disabled>›</button></div>')
+    return ('<div class="dash-zm dash-zm--shrnuti" data-total="%d">\n' % celkem +
+            '  <aside class="banner"><div class="banner-body">'
+            f'<div class="banner-head"><h3 class="banner-title">Z rady města</h3>{pager}</div>'
+            + ''.join(slides) + '</div></aside>\n</div>')
 
 
 def _zm_po_kdy(dny):

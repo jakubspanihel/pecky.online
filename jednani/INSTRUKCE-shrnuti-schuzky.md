@@ -45,9 +45,11 @@ o jiný odkaz. Když záznam existuje jen s pozvánkou (bez zápisu,
 `resolutions` prázdné), shrnout jen program a výslovně uvést, že zápis
 ještě není zveřejněn.
 
-Banner „Z poslední Rady města“ na Domů bere jen rady, které už mají zápis
-(`links.minutes`); shrnutí jen z Pozvánky se na Domů nezobrazí, dokud
-nepřibude zápis. Po doplnění zápisu shrnutí přepsat podle zápisu.
+Banner „Z rady města“ na Domů zobrazí i radu, která má jen Pozvánku: u ní
+je nad tlačítkem poznámka „Vybrané body z pozvánky. Zápis zatím není
+k dispozici.“ (generuje build podle chybějícího `links.minutes`). Po
+doplnění zápisu se shrnutí **celé přepíše** podle zápisu (stejný soubor,
+bez ponechání bodů z pozvánky) a poznámka zmizí sama při dalším buildu.
 
 ## 1b. Kam se výstup ukládá
 
@@ -245,15 +247,16 @@ Rada města 36/2026 (12. 10. 2026) — viz záznam
 Shrnutí se **nezobrazuje** v detailu jednání v sekci Jednání (tam je
 program, usnesení a zápis). Využívá se jen takto:
 
-- **Rada města:** při vytvoření souboru `{datum}-rada.md` se na Domů
-  připraví banner **„Z poslední Rady města“** s výpisem bloku
-  *Nejdůležitější témata* a tlačítkem **Detail jednání**
-  (`/jednani/#rada-RRRR-MM-DD`). Banner generuje `_dash_rada_shrnuti()`
-  v `scripts/build.py`: vezme nejnovější Radu, která má soubor, a z něj
-  jen číslované položky bloku *Nejdůležitější témata* (formát
-  `1. **Název** — věta.`). Po vytvoření souboru tedy stačí spustit
-  `python3 scripts/build.py` a zkontrolovat Domů screenshotem. Banner se
-  mění sám s novým souborem; starší soubory zůstávají v archivu.
+- **Rada města:** soubor `{datum}-rada.md` se zobrazí v banneru **„Z rady
+  města“** na Domů (blok *Nejdůležitější témata*, tlačítko **Detail jednání**
+  → `/jednani/#rada-RRRR-MM-DD`, odkaz „všechna jednání rady“ → `/jednani/#rada`).
+  Banner generuje `_dash_rada_shrnuti()` v `scripts/build.py`: bere všechny
+  Rady se zápisem (`links.minutes`) a souborem shrnutí, nejnovější první;
+  šipky v záhlaví listují ke starším. V HTML Domů je 5 nejnovějších, ostatní
+  se při listování načtou z `jednani/rada-shrnuti.json` (generuje build,
+  needitovat). Po vytvoření souboru stačí `python3 scripts/build.py` a
+  kontrola Domů screenshotem. Shrnutí jsou k dispozici pro všechna jednání
+  rady se zápisem (od 12. 4. 2021).
 - **PečkyBot (všechna jednání):** `python3 scripts/build.py` načte každý
   soubor `jednani/shrnuti/*.md` do znalostí PečkyBota — fulltext
   (`chunks_shrnuti()` v `scripts/peckybot_sources.py`, úryvky „Shrnutí

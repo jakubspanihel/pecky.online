@@ -777,7 +777,7 @@
       <li class="agenda-item${hasDetail ? ' agenda-item--expandable' : ''}">
         <div class="agenda-item-main">
           <span class="agenda-num">${jEscapeHtml(String(a.n))}.</span>
-          <span class="agenda-text">${jLinkedText(a.t || '')}${jAgendaDotsHtml(a)}</span>
+          <span class="agenda-text${a.routine ? ' agenda-text--routine' : ''}">${jLinkedText(a.t || '')}${jAgendaDotsHtml(a)}</span>
           ${a.duration_seconds != null || a.video_url ? `<span class="agenda-meta">
             ${a.duration_seconds != null ? `<span class="agenda-time">bod se projednával: ${jFormatItemTime(a.duration_seconds)}${isLongest ? ' 🔥' : ''}</span>` : ''}
             ${a.video_url ? `<a class="agenda-video" href="${a.video_url}" target="_blank" rel="noopener">▶ video ↗</a>` : ''}
@@ -935,7 +935,6 @@
         <div class="meeting-row-main">
           <span class="meeting-label">
             <a class="meeting-permalink" href="#${slug}" title="Trvalý odkaz na toto jednání">
-              <svg class="meeting-cal-icon" viewBox="0 0 16 16" width="13" height="13" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><rect x="1.5" y="3" width="13" height="11" rx="1.5"/><line x1="1.5" y1="6.2" x2="14.5" y2="6.2"/><line x1="4.5" y1="1.3" x2="4.5" y2="4"/><line x1="11.5" y1="1.3" x2="11.5" y2="4"/></svg>
               ${jFormatDateZeroPad(m.date)} | Jednání ${jEscapeHtml(jMeetingTypeGenitive(m.type))}${m.bodies && m.bodies.length > 1 ? ' a ' + m.bodies.filter(b => b !== m.type).map(jMeetingTypeGenitive).join(' a ') : ''}${m.number ? ` č. ${jEscapeHtml(String(m.number))}` : ''}
             </a>
             ${chip}

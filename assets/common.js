@@ -564,23 +564,6 @@ document.querySelectorAll('.exp-row').forEach(row => {
     if (dny >= 0) zmKdy.innerHTML = `Zasedání zastupitelstva <mark class="banner-hl">${kdyZa(dny)}</mark>`;
   }
 
-  // rada: budoucí „se sejde …“, po konání „se sešla …“ (do vydání záznamu, nejdéle data-until)
-  const rList = document.querySelectorAll('.dash-zm--rada li[data-date]');
-  let rUkazano = false;
-  rList.forEach(li => {
-    const ok = !rUkazano && dnu(li.getAttribute('data-until')) >= 0;
-    li.hidden = !ok;
-    if (!ok) return;
-    rUkazano = true;
-    const rKdy = li.querySelector('.dash-rada-kdy');
-    const dny = dnu(li.getAttribute('data-date'));
-    const c = rKdy.dataset.cislo;
-    rKdy.textContent = dny > 0 ? `Rada č. ${c} se sejde ${kdyZa(dny)}.`
-      : `Rada č. ${c} se sešla ${dny === 0 ? 'dnes' : dny === -1 ? 'včera' : `před ${-dny} dny`}. Záznam zatím není k dispozici.`;
-    const st = li.querySelector('.zmpo-stav');
-    if (st) st.hidden = dny <= 0;
-  });
-
   // volby: odpočet k prvnímu dni, během hlasování "právě probíhají"
   const vKdy = document.querySelector('.dash-zm li:not([hidden]) .dash-volby-kdy');
   if (vKdy) {
@@ -667,4 +650,43 @@ document.addEventListener('click', e => {
   set();
   window.addEventListener('resize', set);
   window.addEventListener('load', set);
+})();
+
+
+// Banner „Z rady města“ (Domů): šipky listují mezi jednáními rady (slide 0 = nejnovější);
+// starší jednání než ta v HTML se při prvním listování načtou z jednani/rada-shrnuti.json
+(function(){
+  const box = document.querySelector('.dash-zm--shrnuti');
+  if (!box) return;
+  const prev = box.querySelector('.rada-prev'), next = box.querySelector('.rada-next');
+  if (!prev || !next) return;
+  const total = parseInt(box.dataset.total, 10) || 1;
+  const body = box.querySelector('.banner-body');
+  let slides = Array.from(box.querySelectorAll('.rada-slide'));
+  let i = 0, loading = null;
+  function show(n) {
+    i = Math.max(0, Math.min(total - 1, n));
+    slides.forEach((s, k) => { s.hidden = k !== i; });
+    prev.disabled = i === total - 1;
+    next.disabled = i === 0;
+  }
+  function loadOlder() {
+    if (slides.length >= total) return Promise.resolve();
+    if (!loading) {
+      loading = fetch('/jednani/rada-shrnuti.json').then(r => r.json()).then(list => {
+        const tpl = document.createElement('div');
+        tpl.innerHTML = list.join('');
+        Array.from(tpl.children).forEach(el => body.appendChild(el));
+        slides = Array.from(box.querySelectorAll('.rada-slide'));
+        box.querySelectorAll('.rel-chip[data-date]').forEach(el => {
+          const t = relDatum(el.getAttribute('data-date'));
+          if (t && t !== 'plánováno') el.textContent = t;
+        });
+      }).catch(() => { loading = null; });
+    }
+    return loading;
+  }
+  prev.addEventListener('click', () => { if (i + 1 >= slides.length) loadOlder().then(() => show(i + 1)); else show(i + 1); });
+  next.addEventListener('click', () => show(i - 1));
+  show(0);
 })();

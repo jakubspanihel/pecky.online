@@ -96,6 +96,9 @@ Postup:
    v sekci „Program jednání“, body číslované `N.`.
 4. Do `agenda` zapiš `{"n": N, "t": "<název bodu>"}` (jen tyto dvě
    pole — předkladatel a délka přibudou až ze zápisu).
+   Poté spusť `python3 jednani/scripts/oznac-rutinni-body.py` — doplní
+   `"routine": true` u procedurálních a rutinních bodů (program, zapisovatelé,
+   kontrola usnesení, diskuse…); web je vykreslí netučně, ostatní tučně.
 5. Stažená PDF se v repu nenechávají; soubory v `~/Downloads` jsou
    jen dočasné (smazat na pokyn uživatele).
 
