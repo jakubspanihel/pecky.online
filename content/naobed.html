@@ -47,6 +47,8 @@
     .naobed-text p{margin:0 0 12px; line-height:1.45;}
     .naobed-text .alg{color:var(--ink-soft); font-size:12px; white-space:nowrap;}
     .naobed-text .stare{color:var(--ink-soft);}
+    .naobed-text hr{border:0; border-top:1px solid var(--line); margin:16px 0 12px;}
+    .naobed-text ul{margin:0; padding-left:20px; line-height:1.45;}
   </style>
 
   <script>
@@ -89,7 +91,8 @@
               ? '<span class="naobed-tag dnes">Dnešní menu</span>'
               : '<span class="naobed-tag datum">' + esc(denNazev(dj.date)) + '<br>' + esc(cz(dj.date)) + '</span>';
             photo = '<div class="naobed-text' + (dj.date === dnes ? '' : ' stare') + '"><h4>Polévka</h4><p>' + alg(dj.polevka) + '</p><h4>Hlavní jídla</h4>' +
-              dj.jidla.map(function (j, i) { return '<p>' + (i + 1) + ') ' + alg(j) + '</p>'; }).join('') + '</div>' + tag;
+              dj.jidla.map(function (j, i) { return '<p>' + (i + 1) + ') ' + alg(j) + '</p>'; }).join('') +
+              '<hr><h4>Pro cizí strávníky</h4><ul><li>cena 95 Kč za oběd</li><li>přihlašování do 14:00 den předem</li><li>pro přihlášení obědů kontaktujte jídelnu</li></ul></div>' + tag;
           } else {
             photo = '<div class="naobed-empty">Jídelníček zatím není k dispozici.</div>';
           }
