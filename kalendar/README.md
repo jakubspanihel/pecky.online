@@ -477,10 +477,30 @@ Facebooku/Instagramu (krok 3, skill `DoPecek-kalendar-plakat`).
    s novým stavem a do výpisu uvést změny (nové, zrušené a potvrzené
    rezervace). Rezervace shodná datem a názvem s akcí v `akce.json` se
    v kalendáři nezobrazí podruhé (viz „Duplicity“ níže).
+3d. **Kontrola odkazů na doklady** (od 21. 10. 2026 na žádost uživatele,
+   po nefunkčním odkazu u plakátu „Program KD Pečky 9–12/2026“, který
+   visel u 50 akcí): `python3 kalendar/scripts/kontrola-odkazu-dokladu.py`.
+   Skript vezme odkaz karty akce (`evidence[0].url`) u akcí s dnešním nebo
+   pozdějším datem; běžné weby ověří HTTP požadavkem (4xx/5xx nebo výpadek =
+   PROBLÉM), Facebook a Instagram vypíše k ručnímu ověření — HTTP tam vrací 200
+   i pro smazaný obsah. Každý vypsaný odkaz otevři v claude-in-chrome
+   (`navigate`, počkat asi 6 s, kvůli líné vykreslení) a v `javascript_tool`
+   ověř: `({t: document.body.innerText.replace(/\s+/g,' ').slice(0,120),
+   img: document.querySelectorAll('img[src*="scontent"]').length})`.
+   V pořádku = text začíná jménem stránky a datem příspěvku („Kulturní
+   středisko města Pečky 24. září …“) a `img` ≥ 1. Špatně = „Obsah teď není
+   dostupný“ / „isn't available“ nebo prázdná stránka bez obrázku. U
+   nefunkčního odkazu dohledej náhradu (profil pořadatele → fotka/příspěvek
+   se stejným obsahem), přepiš ji ve **všech** akcích s týmž odkazem
+   (`evidence[0].url` i `published`) a nahlas to ve výpisu; nenajdeš-li
+   náhradu, odkaz neměň a nahlas, které akce jsou bez funkčního dokladu.
+   Profilové odkazy (např. `…/tjsokolpecky/photos`) a Instagram často
+   vrací jen krátký text bez obrázku — počítej je za v pořádku, není-li
+   v textu hláška o nedostupnosti.
 4. **Přegenerovat:** `python3 kalendar/scripts/update-kalendar.py`
    (a `python3 scripts/build.py`, jen pokud se změnil `content/kalendar.html`).
 5. **Výpis a Stav sekcí** podle `CLAUDE.md` → „Konvence": změny
-   z kroků 1–3c jednou větou, jinak „zkontrolováno, beze změny".
+   z kroků 1–3d jednou větou, jinak „zkontrolováno, beze změny".
    Nové výsledky odehraných zápasů se počítají jako změna obsahu.
 
 ## Zdroje
