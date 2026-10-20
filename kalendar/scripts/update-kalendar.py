@@ -314,8 +314,17 @@ def build_afk_events():
     org = nazvy_organizaci()
     events = []
     for t in data['teams']:
+        # týž zápas může být v rozpisu klubu dvakrát (např. starší žáci 23. 8. 2026,
+        # jednou bez výsledku a jednou s ním) - platí ten s výsledkem, jinak první
+        nejlepsi = {}
+        for m in t['matches']:
+            k = (m['date'], (m.get('home_team') or '').strip(), (m.get('away_team') or '').strip())
+            if k not in nejlepsi or (m.get('score') and not nejlepsi[k].get('score')):
+                nejlepsi[k] = m
         for m in t['matches']:
             if not m['in_pecky']:
+                continue
+            if nejlepsi[(m['date'], (m.get('home_team') or '').strip(), (m.get('away_team') or '').strip())] is not m:
                 continue
             # záznam bez soupeřů (prázdný řádek v rozpisu klubu) není zápas
             if not (m.get('home_team') or '').strip() or not (m.get('away_team') or '').strip():
@@ -328,7 +337,7 @@ def build_afk_events():
                 popis.append(f'výsledek {m["score"]}')
             events.append({
                 'id': m['id'],
-                'title': f'Fotbal ({t["name"]}): {m["home_team"]} – {m["away_team"]}',
+                'title': f'{m["home_team"]} – {m["away_team"]} ({t["name"]})',
                 'date': m['date'],
                 'date_end': None,
                 'time': m['time'],

@@ -136,7 +136,7 @@
   const KAL_IKONY = [
     [e => /siren/.test(kalNorm(e.title)), '🚨'],
     [e => e.category === 'svoz', '♻️'],
-    [e => /fotbal/.test(kalNorm(e.title)), '⚽'],
+    [e => /fotbal/.test(kalNorm(e.title)) || e.organizer === 'afk-pecky', '⚽'],
     [e => /\bbeh|bezeck|desitka|\bkros/.test(kalNorm(e.title)), '🏃'],
     [e => /sipkov|darts/.test(kalNorm(e.title)), '🎯'],
     [e => /\btan[ec]/.test(kalNorm(e.title)), '💃'],
@@ -430,7 +430,7 @@
         const range = kalFmtRange(e);
         const cas = kalEsc(kalCas(e));
         const tip = kalMaPoradatele(e) && e.organizer_name ? ` title="Pořádá: ${kalEsc(e.organizer_name)}"` : '';
-        const misto = e.place ? `<span class="k3-misto"><span aria-hidden="true">📍</span> ${kalEsc(kalMistoBezAdresy(e.place))}</span>` : '';
+        const misto = e.place ? `<span class="k3-misto">${kalEsc(kalMistoBezAdresy(e.place))}</span>` : '';
         const barva = kalMaPoradatele(e) ? ` style="${kalOrgStyle(e.organizer)}"` : '';
         const cizi = e.link && /^https?:\/\//.test(e.link) ? ' target="_blank" rel="noopener"' : '';
         const cont = range && ds !== e.date ? ' kal-ev-cont' : '';
@@ -511,7 +511,7 @@
       const nazev = e.link ? `<a class="ev-title" href="${e.link}"${cizi}>${kalIkona(e)}${kalEsc(e.title)}</a>`
         : `<span class="ev-title">${kalIkona(e)}${kalEsc(e.title)}</span>`;
       const popis = e.description && e.description !== e.place ? `<span class="ev-popis">${kalEsc(e.description)}</span>` : '';
-      const misto = e.place ? `<span class="ev-misto"><span aria-hidden="true">📍</span> ${kalEsc(kalMistoBezAdresy(e.place))}</span>` : '';
+      const misto = e.place ? `<span class="ev-misto">${kalEsc(kalMistoBezAdresy(e.place))}</span>` : '';
       const pozn = e.note ? `<span class="ev-popis akce-pozn" hidden>${kalEsc(e.note)}</span>` : '';
       const vice = e.note
         ? '<button type="button" class="akce-info" aria-label="Zobrazit poznámku" aria-expanded="false" title="Poznámka"><svg viewBox="0 0 16 16" width="16" height="16" fill="currentColor" aria-hidden="true"><circle cx="3" cy="8" r="1.5"/><circle cx="8" cy="8" r="1.5"/><circle cx="13" cy="8" r="1.5"/></svg></button>' : '';
