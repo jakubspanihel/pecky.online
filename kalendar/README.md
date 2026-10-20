@@ -1484,6 +1484,8 @@ seznam místo rozházených poznámek po repu.
   výstupu z kroku 2 postupu výše: den `d.m.` → ISO 2026, čas doplnit na `HH:MM`).
   Kategorie se při převodu určuje podle názvu: `akce` = utkání, „NS …“, liga,
   turnaje/volejbal U14/U16, „Podzimní běh v parku“; ostatní (tréninky) `kurz`.
+  **Duplicity:** rezervace se stejným datem a názvem jako akce v `akce.json` generátor
+  vynechá (akce má přednost, rezervace je jen další doklad v její `evidence`).
   Generátor skládá `id`/`source_ref` jako `hala-RRRR-MM-DD-HHMM-<slug názvu>`
   (stav v něm není), `title` = název + „ (nepotvrzeno)“ u nepotvrzených,
   `place` = Sportovní hala, `organizer` = `tj-sokol-pecky` (výchozí z `meta`; u

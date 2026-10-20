@@ -558,6 +558,11 @@ def main():
     svoz = build_svoz_events()
     sberny = build_provozni_doby_events()
     hala = build_hala_events()
+    # Rezervace haly, kterou už pokrývá akce z akce.json (stejné datum a název), se
+    # nezobrazuje podruhé — akce je potvrzená silnějším zdrojem, rezervace je jen doklad.
+    klic_akci = {(a['date'], a['title'].strip().lower()) for a in akce}
+    hala = [h for h in hala
+            if (h['date'], h['title'].replace(' (nepotvrzeno)', '').strip().lower()) not in klic_akci]
     events = jednani + vybory + akce + volby + afk + svoz + sberny + hala
     sjednot_mista(events)
     events.sort(key=lambda e: (e['date'], e['time'] or ''))
