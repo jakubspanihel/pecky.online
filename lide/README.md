@@ -503,6 +503,12 @@ výpis na pecky.cz).
   - KV: předseda Milan Paluska; členové Mgr. Bc. Lenka Krúpová,
     Mgr. Jaroslava Heroldová, Ing. Jan Korouš, Jaroslav Železný, Zdeněk
     Fejfar, Jaroslav Martinec.
+- **Docházka na Radě a Zastupitelstvu** (od 20. 10. 2026): u vazeb `zastupitel`,
+  `rada`, `starosta` a `mistostarosta` v `mesto-pecky` ukazuje detail osoby
+  účast na zveřejněných jednáních v překrývajícím se volebním období (2018–2022
+  jen od prvního zveřejněného zápisu). Počítá se za běhu z `jednani/absence.json`
+  (`lAttachJednaniAttendance` v `content/lide.html`), do `affiliations.json` se
+  nic nezapisuje; po novém jednání stačí přepočítat `absence.py`.
 - Členství předsedů se jako zvláštní vazba „člen" nezapisuje — předseda
   je členem výboru automaticky.
 - **Účast na jednáních výborů** (od 29. 9. 2026): u každé vazby na výbor

@@ -897,6 +897,43 @@
     });
   }
 
+  // Docházka na jednáních Rady a Zastupitelstva (jednani/absence.json, počítá ji
+  // jednani/scripts/absence.py). Vazba radní/starosta/místostarosta → blok „Rada“,
+  // vazba zastupitel → blok „Zastupitelstvo“ ve volebním období, které se s vazbou
+  // překrývá. Bloky 2018–2022 pokrývají jen zveřejněné zápisy (blok.od).
+  const L_OBDOBI_HRANICE = {'2018': ['2018-11-14', '2022-10-20'], '2022': ['2022-10-20', '9999-12-31']};
+  function lAttachJednaniAttendance(db, absence){
+    const people = db.people || db;
+    const isoDen = (d, konec) => !d ? (konec ? '9999-12-31' : '0000-01-01')
+      : (/^\d{4}$/.test(d) ? d + (konec ? '-12-31' : '-01-01') : String(d));
+    const datumCz = iso => { const [y, m, d] = iso.split('-'); return `${+d}. ${+m}. ${y}`; };
+    (Array.isArray(people) ? people : []).forEach(p => {
+      const key = jNameKey([p.first_name, p.last_name].filter(Boolean).join(' '));
+      [...(p._affs || []), ...(p._timeline || [])].forEach(a => {
+        if (a.organization_id !== 'mesto-pecky') return;
+        const organ = a.role_type === 'zastupitel' ? 'Zastupitelstvo'
+          : ['rada', 'starosta', 'mistostarosta'].includes(a.role_type) ? 'Rada' : '';
+        if (!organ) return;
+        const from = isoDen(a.from, false), to = isoDen(a.to, true);
+        const lines = [];
+        (absence.obdobi || []).filter(b => b.organ === organ).forEach(b => {
+          const h = L_OBDOBI_HRANICE[String(b.obdobi).slice(0, 4)];
+          if (!h || !(from < h[1] && to > h[0])) return;
+          const r = (b.radky || []).find(x => jNameKey(x.jmeno) === key);
+          if (!r || !r.mandat) return;
+          const pritomen = r.mandat - r.nebyl;
+          const parts = [`${pcGendered(p, 'přítomen', 'přítomna')} na ${pritomen} z ${r.mandat} jednání (${Math.round(100 - r.podil)} %)`];
+          if (r.omluven) parts.push(`${pcGendered(p, 'omluven', 'omluvena')} při zahájení ${r.omluven}×`);
+          if (r.nepritomen) parts.push(`bez omluvy ${r.nepritomen}×`);
+          if (r.dorazil) parts.push(`${pcGendered(p, 'dorazil', 'dorazila')} později ${r.dorazil}×`);
+          lines.push(`Zveřejněná jednání ${organ === 'Rada' ? 'Rady města' : 'Zastupitelstva'} ${jEscapeHtml(b.obdobi)} (od ${datumCz(r.mandat_od || b.od)}): ${jEscapeHtml(parts.join(', '))}`);
+        });
+        if (!lines.length) return;
+        a._extraHtml = (a._extraHtml || '') + lines.map(l => `<p class="tl-note">${l} · <a href="/jednani/absence.html">tabulka docházky</a></p>`).join('');
+      });
+    });
+  }
+
   async function loadLide(){
     if (LIDE_DB) { lApplyRoute(); return LIDE_DB; }
     if (LIDE_LOADING) return LIDE_LOADING;
@@ -920,6 +957,11 @@
           if (sr && sr.ok) zapisy.push(...((await sr.json()).meetings || []));
           if (zapisy.length) lAttachVyborAttendance(LIDE_DB, zapisy);
         } catch (e) { /* bez účasti na výborech */ }
+        // docházka na jednáních Rady a Zastupitelstva (jednani/absence.json) — nepovinná
+        try {
+          const ar = await fetch('/jednani/absence.json');
+          if (ar.ok) lAttachJednaniAttendance(LIDE_DB, await ar.json());
+        } catch (e) { /* bez docházky na RM/ZM */ }
         LIDE_DB._updated = (peopleDoc.meta || {}).updated || '';
 
         lBuildChips();
