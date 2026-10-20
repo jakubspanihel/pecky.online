@@ -468,10 +468,19 @@ Facebooku/Instagramu (krok 3, skill `DoPecek-kalendar-plakat`).
    aktuální týden, proto ji kontrolovat při každém běhu; případně využít
    přepínače „30 Dnů“ v rozhraní. Změna času/místa u už zapsané lekce se
    přepíše, zmizelá lekce se jen nahlásí.
+3c. **Rezervace sportovní haly (ParkHala)** (od 20. 10. 2026 na žádost
+   uživatele součást týdenní kontroly): stáhnout týden po týdnu z
+   [rezervačního systému](https://pecky.cz/default/default/21405_rezervacni-system)
+   a přepsat `kalendar/sportovni-hala.json` podle postupu v „Rezervace
+   sportovní haly (ParkHala)“ níže (čte se jen přes claude-in-chrome, stav
+   potvrzeno/nepotvrzeno podle barvy). Starý soubor před přepsáním porovnat
+   s novým stavem a do výpisu uvést změny (nové, zrušené a potvrzené
+   rezervace). Rezervace shodná datem a názvem s akcí v `akce.json` se
+   v kalendáři nezobrazí podruhé (viz „Duplicity“ níže).
 4. **Přegenerovat:** `python3 kalendar/scripts/update-kalendar.py`
    (a `python3 scripts/build.py`, jen pokud se změnil `content/kalendar.html`).
 5. **Výpis a Stav sekcí** podle `CLAUDE.md` → „Konvence": změny
-   z kroků 1–3 jednou větou, jinak „zkontrolováno, beze změny".
+   z kroků 1–3c jednou větou, jinak „zkontrolováno, beze změny".
    Nové výsledky odehraných zápasů se počítají jako změna obsahu.
 
 ## Zdroje
