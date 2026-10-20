@@ -689,4 +689,17 @@ document.addEventListener('click', e => {
   prev.addEventListener('click', () => { if (i + 1 >= slides.length) loadOlder().then(() => show(i + 1)); else show(i + 1); });
   next.addEventListener('click', () => show(i - 1));
   show(0);
+  // gesta přes celý widget: swipe vlevo = › (novější), vpravo = ‹ (starší)
+  let sx = 0, sy = 0, tracking = false;
+  box.addEventListener('touchstart', e => {
+    if (e.touches.length !== 1) { tracking = false; return; }
+    sx = e.touches[0].clientX; sy = e.touches[0].clientY; tracking = true;
+  }, {passive: true});
+  box.addEventListener('touchend', e => {
+    if (!tracking) return;
+    tracking = false;
+    const t = e.changedTouches[0], dx = t.clientX - sx, dy = t.clientY - sy;
+    if (Math.abs(dx) < 50 || Math.abs(dx) < Math.abs(dy) * 1.5) return;
+    (dx < 0 ? next : prev).click();
+  }, {passive: true});
 })();

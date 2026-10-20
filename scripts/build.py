@@ -833,7 +833,7 @@ def _dash_zastupitelstvo(dnes):
         out_v.append(f'<div class="dash-zm dash-zm--volby">\n  <ul class="dash-zmpo-list">\n    <li data-until="{konec2}">'
                    f'<a class="dash-zmpo-link dash-zmpo-link--slate" href="/volby/2026/">'
                    f'<span class="zmpo-text"><strong>Noví zastupitelé pro období 2026–2030</strong></span>'
-                   f'<span class="zmpo-sipka">více →</span></a></li>\n  </ul>\n</div>')
+                   f'<span class="zmpo-sipka">→</span></a></li>\n  </ul>\n</div>')
     return '\n'.join(out + ([po] if po else [])), '\n'.join(out_v)
 
 
@@ -937,14 +937,14 @@ def _dash_rada_shrnuti():
         li = ''.join('<li>' + re.sub(r'\*\*(.+?)\*\*', r'<strong>\1</strong>', esc(t)) + '</li>' for t in pol)
         slides.append(
             f'<div class="rada-slide" data-date="{m["date"]}"{" hidden" if slides else ""}>'
-            f'<p class="banner-sub">Jednání č. {m["number"]}/{m["year"]}'
+            f'<p class="banner-sub">'
             f'<span class="tag rel-chip" data-date="{m["date"]}">'
             f'{_rel_minule((date.today() - _date.fromisoformat(m["date"])).days)}</span></p>'
             + _rada_avatary(m, people, idx, aff) +
             f'<ul class="banner-topics">{li}</ul>'
             + ('' if (m.get('links') or {}).get('minutes') else '<p class="banner-note">Vybrané body z pozvánky. Zápis zatím není k dispozici.</p>') +
             f'<div class="banner-actions"><a class="banner-cta" href="/jednani/#rada-{m["date"]}">'
-            'Detail jednání</a>'
+            f'Rada č. {m["number"]}/{m["year"]}</a>'
             '<a class="banner-more" href="/jednani/#rada">Všechna jednání</a></div></div>')
     if not slides:
         return ''

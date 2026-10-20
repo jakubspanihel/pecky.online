@@ -399,6 +399,7 @@
   .dash-col > .dash-card--noviny{flex:0 0 auto;}
   .dash-bento .dash-zm--volby{grid-area:vol; margin:0;}
   .dash-bento .dash-zm--shrnuti{grid-area:rad; margin:0;}
+  .dash-zm--shrnuti{touch-action:pan-y;}
   .dash-card--jednani{grid-area:jed; background:rgba(255,255,255,0.5);}
   .dash-card--kalendar{grid-area:kal;}
   /* Aktuality: bez rámečku a podkladu karty, nadpis se při rolování drží pod navigací */
@@ -406,7 +407,7 @@
   .dash-card-head{display:flex; justify-content:space-between; align-items:baseline; gap:var(--space-5); margin:0; position:sticky; top:var(--nav-h,0px); z-index:9; background:var(--material); padding:var(--space-5);}
   .dash-card-head h3{margin:0;}
   .dash-card--kalendar .dash-card-head{display:none;}
-  .dash-head-link{font-family:var(--font-mono); font-size:var(--fs-5); font-weight:var(--fw-bold); color:var(--cyan-deep); text-decoration:none; white-space:nowrap;}
+  .dash-head-link{font-size:var(--fs-5); font-weight:var(--fw-bold); color:var(--cyan-deep); text-decoration:none; white-space:nowrap;}
   .dash-head-link:hover{text-decoration:underline;}
   .dash-akce{list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:var(--space-3);}
   .dash-akce li[hidden]{display:none;}
@@ -582,7 +583,7 @@
   .dash-list .rel-date{flex:0 0 auto; font-size:var(--fs-5); font-family:var(--font-mono); color:var(--ink-soft); white-space:nowrap;}
   .dash-list li:last-child{border-bottom:none;}
   .dash-list .dash-empty{color:var(--ink-soft); font-style:italic;}
-  .dash-more{margin-top:auto; align-self:flex-start; font-family:var(--font-mono); font-size:var(--fs-5); font-weight:var(--fw-bold); letter-spacing:0.02em; padding:7px var(--space-6); border:1px solid var(--line); border-radius:var(--radius-sm); color:var(--ink); background:var(--material-deep); text-decoration:none; transition:border-color .15s, color .15s;}
+  .dash-more{margin-top:auto; align-self:flex-start; font-size:var(--fs-5); font-weight:var(--fw-bold); letter-spacing:0.02em; padding:7px var(--space-6); border:1px solid var(--line); border-radius:var(--radius-sm); color:var(--ink); background:var(--material-deep); text-decoration:none; transition:border-color .15s, color .15s;}
   .dash-list + .dash-more{margin-top:var(--space-6);}
   .dash-more--center{align-self:center; margin-top:var(--space-7);}
   .dash-more:hover{border-color:var(--cyan-deep); color:var(--cyan-deep); text-decoration:none;}
