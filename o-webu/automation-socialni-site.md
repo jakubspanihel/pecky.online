@@ -332,3 +332,23 @@ Kalendář: žádné nalezeny".
   (nebo některý zanikne), doplnit/odebrat řádek podle aktuálního stavu
   `content/owebu.html`, ne podle seznamu v kroku 1 — ten je jen momentka
   k 1. 9. 2026.
+
+## Bezobslužný běh bez potvrzování
+
+Při naplánovaném běhu nikdo neodklikává povolení. Příkaz, který se
+nevejde do povolených tvarů, běh zastaví na dotazu, proto:
+
+- **Jeden jednoduchý příkaz na volání Bash.** Bez předpony `PROMENNA=…;`,
+  bez řetězení `;`/`&&`, bez rour do `xargs`/`awk`/`sed`. Cestu do
+  scratchpadu psát celou přímo do argumentu, ne přes proměnnou.
+- **Soubory měnit nástrojem Edit/Write, ne skriptem.** Pro `kalendar/akce.json`
+  (nová akce) použít `Edit` — vložit objekt na správné místo podle
+  `date`/`time` a přepsat `meta.updated`; žádný `python3 - <<'E'` heredoc.
+- **Přidání do indexu:** `snapshot.py stage --file <baseline> <soubor> …`
+  se seznamem souborů zadaným výslovně (seznam vzít z `snapshot.py report`
+  jedním samostatným voláním, pak ho ručně opsat do `stage`).
+- **Zbloudilé soubory typu `… 2.json` (Finder) nepřesouvat** — build je od
+  20. 10. 2026 ignoruje; nejsou součástí commitu a nepatří do něj.
+- **Čtení stránek v Chrome** dělat dávkou `browser_batch` (navigate + wait +
+  javascript_tool), počty a data číst skriptem z `creation_time`/`time[datetime]`
+  podle kroku 2.

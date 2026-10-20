@@ -633,7 +633,8 @@ def main():
         texty = [c['x'] for c in chunks[k * SHARD:(k + 1) * SHARD]]
         zmeneno |= write_if_changed(SHARD_DIR / f'{k}.json', texty)
     for stary in SHARD_DIR.glob('*.json'):
-        if int(stary.stem) >= pocet:
+        # cizí názvy (např. „79 2.json“ od Finderu) se při mazání přeskočí
+        if stary.stem.isdigit() and int(stary.stem) >= pocet:
             stary.unlink()
             zmeneno = True
     kb = OUT.stat().st_size / 1024
