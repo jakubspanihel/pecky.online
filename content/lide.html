@@ -597,8 +597,8 @@
 
     // Když je zapnutý filtr podle role, seskupení podle *dnešního* postavení
     // přestává dávat smysl: hledám-li starosty a zapnu historii, vyjdou mi lidé,
-    // kteří starosty byli dřív — a nadpis „Ostatní členové zastupitelstva"
-    // s popiskem „Bez funkce v radě" o nich tvrdí něco jiného, než proč se
+    // kteří starosty byli dřív — a výchozí seskupení
+    // o nich tvrdí něco jiného, než proč se
     // v seznamu octli. Skupiny proto pojmenuje ten filtr: nyní × dříve.
     const roleLabel = L_STATE.roles.size ? lRolesLabel() : '';
     const roleNow = L_STATE.roles.size ? shown.filter(lRoleNow).sort(lSortCurrent) : [];
@@ -619,9 +619,8 @@
                'Osoby, které vybranou roli zastávaly v minulosti a dnes ji nemají. Kartička ukazuje jejich současné postavení, celý průběh je v detailu.');
     } else {
       host.innerHTML = notice + orgHead +
-        lGroup('Rada města', rada) +
-        lGroup('Ostatní členové zastupitelstva', ostatni,
-               'Bez funkce v radě — rozložení mandátů níže na této stránce, výsledky voleb v sekci Volby.') +
+        lGroup('Zastupitelstvo', [...rada, ...ostatni],
+               'Nejdřív starosta, místostarostové a radní, pak ostatní zastupitelé podle uskupení.') +
         lGroup('Úřad města', vedeniUrad,
                'Nevolení lidé, kteří zajišťují každodenní chod radnice — tajemnice, vedoucí odborů, velitel městské policie a referenti jednotlivých odborů. Nikdo z nich není volený; uvedené je jen to, co město samo zveřejňuje jako služební spojení.') +
         lGroup('Městské organizace', vedeniOrg,
@@ -652,6 +651,8 @@
 
     const pl = (n, one, few, many) => `${n} ${n === 1 ? one : n >= 2 && n <= 4 ? few : many}`;
     const total = db.people.filter(lListed).length;
+    // ve výchozím stavu (jen zastupitelé, bez filtru) se počet nezobrazuje
+    statusEl.hidden = lDefaultView() && !L_STATE.everyone && !L_STATE.cand && !L_STATE.term;
     statusEl.textContent = `${pl(total, 'osoba', 'osoby', 'osob')} s funkcí. ` +
       (L_STATE.everyone ? `Všichni v adresáři: ${pl(shown.length, 'osoba', 'osoby', 'osob')}.`
         : L_STATE.cand ? `Nezvolení kandidáti ve volbách ${L_STATE.cand}: ${pl(shown.length, 'osoba', 'osoby', 'osob')}.`

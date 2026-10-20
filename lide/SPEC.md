@@ -521,8 +521,8 @@ div#lide-results        mřížka karet, výchozí seskupení Rada / Ostatní
 div.callout             o fotografiích + přiznané mezery
 ```
 
-Výchozí stav panelu musí vypadat jako dnešní — Rada města (7) a Ostatní
-členové zastupitelstva (14). Filtry jsou nadstavba, ne náhrada.
+Výchozí stav panelu musí vypadat jako dnešní — jedna skupina Zastupitelstvo (21: radní první, pak ostatní; dřív Rada města (7) a Ostatní
+členové zastupitelstva (14)). Filtry jsou nadstavba, ne náhrada.
 
 ### 5.2 Ovládací lišta
 

@@ -421,8 +421,10 @@ Ten rozdíl je správně a je vidět v timeline.
 
 ### Co panel vypisuje a co ne
 
-Šest skupin v tomhle pořadí: **Rada města**, **Ostatní členové
-zastupitelstva**, **Úřad města** (`vedeni-urad`), **Městské organizace**
+Šest skupin v tomhle pořadí: **Zastupitelstvo** (od 20. 10. 2026 jedna
+skupina — starosta, místostarostové a radní první, pak ostatní podle uskupení;
+dřív dvě skupiny „Rada města“ a „Ostatní členové zastupitelstva“),
+**Úřad města** (`vedeni-urad`), **Městské organizace**
 (`vedeni-organizace`), **Výbory, komise, spolky a školská rada** (`komise`
 a `clen`, doplněno 19., resp. 24. 9. 2026; výbory ZM 29. 9. 2026) a — až po přepnutí rozsahu
 na „Včetně historie" —
