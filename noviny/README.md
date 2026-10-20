@@ -201,7 +201,7 @@ načte `noviny/pecky-noviny.json` (`loadNoviny()` v `content/zpravodaj.html`)
 a hledá bez ohledu na diakritiku/velikost písmen napříč stránkami všech vydání.
 
 **Nejnovější vydání je vyčleněné z gridu roku** do bloku `.noviny-top`: vlevo
-`.noviny-latest` s nadpisem „Naposledy publikováno“ a velkou kartou (dvojnásobná
+`.noviny-latest` s nadpisem „Poslední číslo“ a velkou kartou (dvojnásobná
 šířka; na mobilu 100 %), vpravo `.noviny-year` s nadpisem aktuálního roku
 a gridem zbylých čísel. Nejnovější číslo se v gridu roku **neopakuje**.
 Karta má v `.cap` název („Září 2026“); chip je v nadpisu za textem „Naposledy
@@ -304,7 +304,7 @@ Claude Code lokálně.
    pod `<div id="noviny-results"></div>`. Perex (`p.lede`) je jen jeden: vydavatel + odkaz na archiv v PDF a redakci; součet vydání stránka nemá;
    počet v placeholderu hledání („Prohledat N vydaných čísel“) se bere
    z `meta.editions_count` za běhu — stačí spustit `python3 scripts/build.py`.
-7. **Přesunout „Naposledy publikováno"** (viz „Zobrazení v panelu" výše): starou
+7. **Přesunout „Poslední číslo"** (viz „Zobrazení v panelu" výše): starou
    kartu z `.noviny-latest-card` vložit jako první do `.noviny-grid` roku
    a do `.noviny-latest-card` dát kartu nového vydání a v nadpisu přepsat chip (`data-date` + text „vyšlo d. m. RRRR“;
    datum z hex prefixu názvu PDF).

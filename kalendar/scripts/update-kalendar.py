@@ -317,6 +317,9 @@ def build_afk_events():
         for m in t['matches']:
             if not m['in_pecky']:
                 continue
+            # záznam bez soupeřů (prázdný řádek v rozpisu klubu) není zápas
+            if not (m.get('home_team') or '').strip() or not (m.get('away_team') or '').strip():
+                continue
             # "Mistrovská utkání" (nadpis tabulky) -> "mistrovské utkání"
             soutez = {'Mistrovská utkání': 'mistrovské utkání',
                       'Přátelská utkání': 'přátelské utkání'}.get(m['competition'], m['competition'])

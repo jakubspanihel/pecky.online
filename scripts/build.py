@@ -844,7 +844,7 @@ def _dash_zastupitelstvo(dnes):
                    f'{dnu[d1.weekday()]} až {dnu[d2.weekday()].lower()}')
         out_v.append(f'<div class="dash-zm dash-zm--volby">\n  <ul class="dash-zmpo-list">\n    <li data-until="{konec2}">'
                    f'<a class="dash-zmpo-link dash-zmpo-link--slate" href="/volby/2026/">'
-                   f'<span class="zmpo-text"><strong>Noví zastupitelé pro období 2026–2030</strong></span>'
+                   f'<span class="zmpo-text"><strong>Zastupitelé pro období 2026–2030</strong></span>'
                    f'<span class="zmpo-sipka">→</span></a></li>\n  </ul>\n</div>')
     return '\n'.join(out + ([po] if po else [])), '\n'.join(out_v)
 
@@ -1307,9 +1307,6 @@ def build_nav(current_slug):
     tagline = (f'<small class="tagline">{SLOGAN}</small>'
                if current_slug == 'domu' else '')
     html = read('assets/nav.html').replace('{{TAGLINE}}', tagline)
-    if current_slug == 'domu':
-        # Homepage: bez loga
-        html = re.sub(r'\s*<img class="brand-logo"[^>]*>', '', html)
     return apply_active(html, current_slug)
 
 

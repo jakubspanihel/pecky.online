@@ -2,7 +2,7 @@
  "meta": {
   "description": "Rozpis zápasů všech týmů AFK Pečky z afkpecky.cz/<tým>/zapasy/ (doma i venku; odehrané zápasy minulých sezón se ponechávají). Generuje kalendar/scripts/fetch-afk-zapasy.py, do Kalendáře promítá kalendar/scripts/update-kalendar.py (jen zápasy hrané v Pečkách). Needitovat ručně — přepíše ho příští běh.",
   "source": "web-afkpecky-cz",
-  "retrieved": "2026-10-05"
+  "retrieved": "2026-10-20"
  },
  "teams": [
   {
@@ -127,7 +127,7 @@
      "home": true,
      "home_team": "AFK Pečky",
      "away_team": "FC Trnavan Rožďalovice",
-     "score": null,
+     "score": "3:4",
      "venue": "Barákova ul., Pečky",
      "in_pecky": true
     },
@@ -139,7 +139,7 @@
      "home": false,
      "home_team": "TJ FC Jevany",
      "away_team": "AFK Pečky",
-     "score": null,
+     "score": "3:0",
      "venue": "FC Jevany",
      "in_pecky": false
     },
@@ -291,7 +291,7 @@
      "home": true,
      "home_team": "AFK Pečky B",
      "away_team": "SOKOL Dobré Pole I.",
-     "score": null,
+     "score": "7:0",
      "venue": "AFK Pečky",
      "in_pecky": true
     },
@@ -353,6 +353,18 @@
      "away_team": "AFK Pečky B",
      "score": null,
      "venue": "Nučice",
+     "in_pecky": false
+    },
+    {
+     "id": "afk-b-tym-234a",
+     "competition": "Mistrovská utkání",
+     "date": "2026-11-21",
+     "time": "13:00",
+     "home": false,
+     "home_team": "AFK Chotutice",
+     "away_team": "AFK Pečky B",
+     "score": null,
+     "venue": "Chotutice",
      "in_pecky": false
     }
    ]
@@ -455,7 +467,7 @@
      "home": true,
      "home_team": "AFK Pečky",
      "away_team": "Viktoria Radim",
-     "score": null,
+     "score": "3:1",
      "venue": "AFK Pečky",
      "in_pecky": true
     },
@@ -467,7 +479,7 @@
      "home": false,
      "home_team": "Dolnobousovský SK",
      "away_team": "AFK Pečky",
-     "score": null,
+     "score": "0:3",
      "venue": "Dolní Bousov",
      "in_pecky": false
     },
@@ -607,7 +619,7 @@
      "home": false,
      "home_team": "FŠ Velký Osek",
      "away_team": "AFK Pečky",
-     "score": null,
+     "score": "0:12",
      "venue": "Velký Osek",
      "in_pecky": false
     },
@@ -619,7 +631,7 @@
      "home": true,
      "home_team": "AFK Pečky",
      "away_team": "FC Sporting Mladá Boleslav",
-     "score": null,
+     "score": "4:2",
      "venue": "AFK Pečky",
      "in_pecky": true
     },
@@ -771,7 +783,7 @@
      "home": false,
      "home_team": "FŠ Velký Osek",
      "away_team": "AFK Pečky",
-     "score": null,
+     "score": "4:3",
      "venue": "Velký Osek",
      "in_pecky": false
     },
@@ -783,7 +795,7 @@
      "home": true,
      "home_team": "AFK Pečky",
      "away_team": "FC Sporting Mladá Boleslav",
-     "score": null,
+     "score": "1:4",
      "venue": "AFK Pečky",
      "in_pecky": true
     },
@@ -911,7 +923,7 @@
      "home": true,
      "home_team": "AFK Pečky",
      "away_team": "SK Břežany II",
-     "score": null,
+     "score": "16:5",
      "venue": "AFK Pečky",
      "in_pecky": true
     },
@@ -923,7 +935,7 @@
      "home": false,
      "home_team": "Sokol Plaňany",
      "away_team": "AFK Pečky",
-     "score": null,
+     "score": "1:13",
      "venue": "Sokol Plaňany",
      "in_pecky": false
     },
@@ -1051,8 +1063,20 @@
      "home": true,
      "home_team": "AFK Pečky",
      "away_team": "Vrbová Lhota 98",
-     "score": null,
+     "score": "5:6",
      "venue": "Barákova ul., Pečky",
+     "in_pecky": true
+    },
+    {
+     "id": "afk-mladsi-pripravka-6a",
+     "competition": "Přátelská utkání",
+     "date": "2026-10-11",
+     "time": null,
+     "home": false,
+     "home_team": "",
+     "away_team": "",
+     "score": null,
+     "venue": "AFK Pečky",
      "in_pecky": true
     },
     {
@@ -1063,7 +1087,7 @@
      "home": false,
      "home_team": "FC Jevany",
      "away_team": "AFK Pečky",
-     "score": null,
+     "score": "8:11",
      "venue": "Jevany",
      "in_pecky": false
     },
