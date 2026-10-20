@@ -76,6 +76,50 @@ a listopad+prosinec jako dva příspěvky téhož dne) — po zpracování prvn�
 vždy zkontroluj, jestli existuje pokračování, jinak polovina programu tiše
 vypadne.
 
+## 1b. Povinně: srovnat kalendář města `pecky.cz/default/events` s `akce.json`
+
+Platí při **každé** kontrole Kalendáře (týdenní kontrola, aktualizace akcí,
+zpracování plakátu), nejen když kalendář města zmiňuje jiný zdroj. Důvod:
+pecky.cz je hlavní zdroj akcí (`evidence[0]`) a zprávy tam přibývají dřív,
+než je zachytí sociální sítě (20. 10. 2026 chyběly Dýňobraní v MŠ Mašinka
+a Podzimní běh v parku, zveřejněné 6. a 10. 10.).
+
+1. Otevři přes `claude-in-chrome` (`navigate`) `https://pecky.cz/default/events`
+   — web je bot-chráněný, `WebFetch` vrací prázdno.
+2. Neporovnávej z textu mřížky, ale z dat kalendáře. `javascript_tool` na stránce:
+
+   ```js
+   const ev = jQuery('.fc').fullCalendar('clientEvents')
+     .filter(e => (e.end || e.start).format('YYYY-MM-DD') >= '<dnešek>')
+     .sort((a, b) => a.start - b.start);
+   ev.map(e => [e.id, e.start.format('YYYY-MM-DD HH:mm'),
+                e.end ? e.end.format('YYYY-MM-DD') : '', e.title].join('|')).join('\n')
+   ```
+
+   `e.id` je číselné ID zprávy z `/default/report/<id>_<slug>`. Kalendář drží
+   všechny měsíce najednou, listovat po měsících není třeba. Výstup bývá
+   zkrácen — filtruj od dneška a vypiš v několika voláních.
+3. Pro každou položku najdi v `akce.json` záznam podle **ID zprávy v
+   `evidence[].url`** a zároveň podle dvojice datum + název (ID samo nestačí:
+   souhrnná zpráva typu „Týden knihoven" je doklad k více akcím a naopak
+   akce může mít jen doklad z Facebooku). Výsledek roztřiď:
+   - **chybí** — žádný záznam → zapsat podle kroků 2–6, detail zprávy přečíst
+     (`fetch('/default/report/<id>_<slug>')`, odstavec „Událost": začátek
+     a konec) a doplnit pořadatele (krok 3b);
+   - **je, ale `pecky-cz` není `evidence[0]`** → doklad vložit na první místo
+     (krok 5);
+   - **liší se datum nebo čas** → řešit podle pořadí zdrojů v kroku 5;
+   - **zpráva zmizela z kalendáře** → záznam v `akce.json` nech a zmiň ve
+     výpisu (zrušení se z nepřítomnosti odvodit nedá).
+4. Ve výpisu změn (krok 8) uveď počet položek z kalendáře města a kolik
+   z nich bylo chybějících, doplněných a beze změny. Nejsou-li rozdíly,
+   napiš „pecky.cz/default/events: zkontrolováno, beze změny".
+
+Pozor: začátek „Události" na pecky.cz bývá čas zveřejnění nebo otevření
+(např. 14:57, 9:00), ne vždy čas začátku programu; čas zapsat podle textu
+zprávy a rozdíl popsat v `note`. Pořadatel ve zprávě často není — nehádat,
+nechat `organizer` prázdný.
+
 ## 2. Přepsat text z plakátu
 
 Plakát je hustá sazba drobným písmem. Celostránkový screenshot stačí na
