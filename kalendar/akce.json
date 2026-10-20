@@ -1,7 +1,7 @@
 {
  "meta": {
   "description": "Kulturní a společenské akce v Pečkách a okolí. U každé akce je pořadatel (id do lide/organizations.json) a doklady, ze kterých je přepsaná (evidence[] — zdroj je id do kořenového sources.json). Zdroj sekce Kalendář — do udalosti.json a kalendar.ics je promítá kalendar/scripts/update-kalendar.py.",
-  "updated": "2026-10-19",
+  "updated": "2026-10-20",
   "note": "Jednání rady a zastupitelstva do tohohle souboru nepatří, i když je plakát KD uvádí — ta má kalendář z jednani/pecky-jednani.json a zapsáním sem by v mřížce vznikly duplicity. Pořadatel je vždy ten, kdo akci pořádá, ne ten, od koho o ní víme — to je evidence[].source."
  },
  "events": [
@@ -16061,6 +16061,37 @@
      "label": "Pečecké noviny 9/2026, str. 19 — Rozvrh hodin sokolovny, školní rok 2026/2027",
      "published": "2026-09-01",
      "retrieved": "2026-09-21"
+    }
+   ]
+  },
+  {
+   "id": "akce-2026-11-02-prednaska-o-kybersikane",
+   "title": "PŘEDNÁŠKA O KYBERŠIKANĚ",
+   "date": "2026-11-02",
+   "date_end": null,
+   "time": "17:00",
+   "category": "akce",
+   "place": "Městská knihovna Svatopluka Čecha, tř. 5. května 241, Pečky",
+   "organizer": "mestska-knihovna-pecky",
+   "organizer_name": null,
+   "description": "Přednáška Martina Kožíška o kyberšikaně: nejčastější formy, manipulace v online prostředí a jak na ně reagovat. Určeno rodičům, dospělým, seniorům i odborné veřejnosti.",
+   "note": "Kalendář města uvádí konec akce ve 20:00. Událost na Facebooku knihovny má začátek ve 2. 11. 2026 v 17:00 a bez konce.",
+   "evidence": [
+    {
+     "source": "pecky-cz",
+     "kind": "web",
+     "url": "https://pecky.cz/default/report/490457_kybersikana-prednaska-v-mestske-knihovne",
+     "label": "pecky.cz — Kyberšikana - přednáška v městské knihovně",
+     "published": "2026-10-07",
+     "retrieved": "2026-10-20"
+    },
+    {
+     "source": "facebook-knihovna-pecky",
+     "kind": "prispevek",
+     "url": "https://www.facebook.com/events/1851373305848516/",
+     "label": "Facebook událost PŘEDNÁŠKA O KYBERŠIKANĚ",
+     "published": null,
+     "retrieved": "2026-10-20"
     }
    ]
   },

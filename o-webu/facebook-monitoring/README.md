@@ -1,4 +1,4 @@
-# Monitoring Facebooku
+# Facebook města Pečky (monitoring Facebooku)
 
 Podrobný archiv příspěvků z facebookových profilů, které web sleduje. Slouží
 jako zdroj pro ostatní sekce (Kalendář, Tělocvična, Zakázky, Jednání…) — ne
@@ -53,7 +53,7 @@ souboru se rozcházejí s daty). Přepočítává ho skript
 `python3 o-webu/facebook-monitoring/summary.py` — **spustit po každém zápisu
 měsíčního souboru**, ručně se nepíše. Přehled přes všechny měsíce
 generuje tentýž skript do `content/fbmonitoring.html` — veřejná stránka
-**Monitoring** na `/o-webu/facebook-monitoring/facebook-mestopecky/`
+**Facebook města Pečky** na `/o-webu/facebook-monitoring/facebook-mestopecky/`
 (registrace `EXTRA_PAGES['fbmonitoring']` ve `scripts/build.py`, odkaz z
 O webu → Sociální sítě pod položkou „Facebook — Město Pečky (oficiální)“).
 Tabulka je statický snímek (zdrojová JSON jsou v `.gitignore`), takže po
