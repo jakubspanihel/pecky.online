@@ -350,8 +350,8 @@ def build_svoz_events():
     Zdrojový soubor drží jeden záznam na typ svozu se seznamem dat (tak ho
     vytěží extract-svoz-odpadu.py z PDF). Sem se rozepíše na jednu celodenní
     událost na typ a den - v mřížce se tak dá poznat, co ten den jede,
-    a filtr/checkbox "Svoz odpadu" je schová najednou. Odkaz vede rovnou
-    na PDF harmonogramu (stejně jako u akcí: link = doklad, ne interní kotva).
+    a filtr/checkbox "Svoz odpadu" je schová najednou. Odkaz vede na stránku
+    /kalendar/svoz.html (harmonogram dle lokality, PDF ke stažení je tam).
     """
     if not SVOZ_JSON.exists():
         return []
@@ -371,7 +371,7 @@ def build_svoz_events():
                 'time': None,
                 'all_day': True,
                 'category': 'svoz',
-                'link': meta['evidence']['url'],
+                'link': '/kalendar/svoz.html',
                 'description': t['place'],
                 'place': t['place'],
                 'organizer': org_id,

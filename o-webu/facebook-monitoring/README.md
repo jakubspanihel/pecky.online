@@ -153,3 +153,26 @@ Facebook strukturu občas mění — při výpadku zkontrolovat klíče
   (+ `capture.js` s pomocným kódem pro Chrome). Pravidelnost: měsíční rutina
   `pecky-online-facebook-monitoring-mesicne` (1. v měsíci v 10:00) stáhne chybějící
   uzavřené měsíce a přegeneruje stránku; vyžaduje Chrome s Facebookem a záložku v popředí.
+
+## Politická uskupení Peček na Facebooku (od 20. 10. 2026)
+
+Druhá veřejná stránka `/o-webu/facebook-monitoring/uskupeni/` (`EXTRA_PAGES['fbuskupeni']`,
+obsah `content/fbuskupeni.html` generuje `uskupeni.py`). Stejný formát měsíčních JSON, jeden adresář na účet:
+
+| ID zdroje | Účet | Příspěvků (k 20. 10. 2026) |
+|---|---|---|
+| `facebook-nasepecky` | https://www.facebook.com/nasepecky (od 4/2018) | 465 |
+| `facebook-peckynext` | https://www.facebook.com/profile.php?id=61581314026896 (od 3/2026) | 111 |
+| `facebook-odspecky` | https://www.facebook.com/odspecky.cz (od 11/2016) | 202 |
+| `facebook-peckypecakum` | https://www.facebook.com/peckypecakum (od 7/2022) | 99 |
+| `facebook-peckysrdcem` | https://www.facebook.com/profile.php?id=61590557991395 (od 7/2026) | 22 |
+| `facebook-lide-pro-pecky` | skupina https://www.facebook.com/groups/1080849193521600 (od 11/2024) | 205 |
+
+Seznam účtů, barvy (`--org-*`) a počty sledujících jsou v konstantě `SOURCES` v `uskupeni.py`.
+Stránka začíná skládaným grafem po měsících (po účtech) a za 30 dní, pak následuje karta každého uskupení (`render_cards`/`analyze`:
+stáří účtu — u skupiny z data vytvoření `created`, u stránek zdola odhadnuté z nejstaršího příspěvku, protože Facebook datum založení stránky nezobrazuje; aktivita;
+aktivita před volbami; podíl původního a sdíleného obsahu v % bez změn úvodní fotky, rozpad původního obsahu, nejčastější zdroje sdílení; názvy zdrojů v `ZDROJE`,
+soukromé profily se nejmenují), pak filtr a seznamy po účtech/letech/měsících (rozbalovací). Sběr je stejný jako výše (zachycené GraphQL, `capture.js`),
+účet se prochází celý (scroll, dokud přibývají příspěvky); popis `popis` se píše ručně, u sdílení jen názvy veřejných
+subjektů (soukromé profily „jiného profilu“). Po novém sběru: `summary.py` → `uskupeni.py` → `scripts/build.py`
+→ přepsat `lastmod` v `EXTRA_PAGES['fbuskupeni']`.

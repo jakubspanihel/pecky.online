@@ -61,6 +61,7 @@
   <nav class="overlay-links" id="overlayLinks"></nav>
   <template id="overlayMonitoring">
     <a class="navlink secondary small" href="/o-webu/facebook-monitoring/facebook-mestopecky/">Facebook města</a>
+    <a class="navlink secondary small" href="/o-webu/facebook-monitoring/uskupeni/">Facebook uskupení</a>
     <a class="navlink secondary small" href="/o-webu/uredni-deska-monitoring/">Úřední deska</a>
     <a class="navlink secondary small" href="/jednani/absence.html">Docházka zastupitelů</a>
     <a class="navlink secondary small" href="/jednani/youtube.html">YouTube města</a>
@@ -75,12 +76,12 @@
     .fb-row .fb-chev{display:inline-block; width:1em; color:var(--ink-soft);}
     .fb-detail td{padding:6px 0 18px;}
     .fb-detail[hidden]{display:none;}
-    .fb-sum{margin:8px 10px 12px; font-size:13px;}
+    .fb-sum{margin:8px 10px 12px; font-size:13.5px;}
     #panel-fbmonitoring .table-scroll table.register{min-width:0;}
     .fb-cards{list-style:none; margin:0; padding:0; display:grid; grid-template-columns:minmax(0,1fr); gap:12px;}
     .fb-card{display:flex; flex-direction:column; gap:6px; padding:12px 14px; border:1px solid var(--line); border-radius:8px; background:rgba(255,255,255,0.5);}
     .fb-head{display:flex; flex-wrap:wrap; align-items:center; gap:6px;}
-    .fb-chip{display:inline-block; font-size:12px; line-height:1.5; padding:0 7px; border-radius:9px; color:#fff; white-space:nowrap;}
+    .fb-chip{display:inline-block; font-size:11px; line-height:1.5; padding:0 7px; border-radius:9px; color:#fff; white-space:nowrap;}
     .fb-t0{background:var(--slate);}
     .fb-t1{background:var(--gold);}
     .fb-t2{background:var(--burgundy);}
@@ -94,7 +95,7 @@
     #panel-fbmonitoring h3.fb-year{position:sticky; top:calc(var(--title-h,0px) + var(--lc-h,0px)); z-index:8; background:var(--material); padding:6px 0; margin:26px 0 0;}
     @media (min-width:768px){ #panel-fbmonitoring h3.fb-year{top:calc(var(--nav-h,0px) + var(--title-h,0px) + var(--lc-h,0px));} }
     .fb-total{margin:16px 0 0;}
-    .fb-an-btn{font-family:var(--font-mono); font-size:12px; padding:8px 14px; border:1px solid var(--burgundy); border-radius:3px; background:none; color:var(--burgundy); cursor:pointer; margin:28px 0 0;}
+    .fb-an-btn{font-family:var(--font-mono); font-size:11.5px; padding:8px 14px; border:1px solid var(--burgundy); border-radius:3px; background:none; color:var(--burgundy); cursor:pointer; margin:28px 0 0;}
     .fb-an-btn[aria-expanded="true"]{background:var(--burgundy); color:#fff;}
     .fb-an-btn:focus-visible{outline:2px solid var(--gold); outline-offset:2px;}
     .fb-an-btn .fb-an-arrow{display:inline-block; margin-left:4px; transition:transform .15s;}
@@ -114,7 +115,7 @@
     .fb-chart-head{display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:8px 16px; margin-bottom:6px;}
     .fb-chart-title{margin:0;}
     .fb-chart-ctl{margin:0;}
-    .fb-legend{list-style:none; margin:0 0 6px; padding:0; display:flex; flex-wrap:wrap; gap:4px 16px; font-size:13px; color:var(--ink-soft);}
+    .fb-legend{list-style:none; margin:0 0 6px; padding:0; display:flex; flex-wrap:wrap; gap:4px 16px; font-size:12.5px; color:var(--ink-soft);}
     .fb-legend li{display:inline-flex; align-items:center; gap:6px;}
     .fb-sw{display:inline-block; width:12px; height:12px; border-radius:2px;}
     .fb-chart-view[hidden]{display:none;}
@@ -127,7 +128,7 @@
     .fb-split{display:none;}
     #panel-fbmonitoring.fb-filtering .fb-years,#panel-fbmonitoring.fb-filtering .fb-split{display:none !important;}
     #fb-filter{margin:22px 0 14px;}
-    .fb-found{margin:0 0 12px; font-size:13px; color:var(--ink-soft);}
+    .fb-found{margin:0 0 12px; font-size:13.5px; color:var(--ink-soft);}
     #fb-rmore{margin:14px 0 0;}
     @media (min-width:768px){
       #panel-fbmonitoring .fb-years{display:none;}
@@ -139,11 +140,11 @@
       .fb-ty[open] summary::after{content:'▾';}
       .fb-ty summary .fb-tn{margin-left:auto;}
       .fb-ty ul{list-style:none; margin:0 0 8px; padding:0;}
-      .fb-tm{all:unset; box-sizing:border-box; width:100%; display:flex; justify-content:space-between; gap:8px; padding:4px 8px; cursor:pointer; border-radius:3px; font-size:15px;}
+      .fb-tm{all:unset; box-sizing:border-box; width:100%; display:flex; justify-content:space-between; gap:8px; padding:4px 8px; cursor:pointer; border-radius:3px; font-size:14px;}
       .fb-tm:hover{background:var(--material-deep);}
       .fb-tm:focus-visible{outline:2px solid var(--gold); outline-offset:1px;}
       .fb-tm.active{background:var(--burgundy); color:#fff;}
-      .fb-tn{font-size:13px; color:var(--ink-soft); font-weight:400;}
+      .fb-tn{font-size:12.5px; color:var(--ink-soft); font-weight:400;}
       .fb-tm.active .fb-tn{color:#fff;}
       .fb-pane h3{margin:0 0 4px;}
       .fb-pane .fb-sum{margin-left:0;}
@@ -151,9 +152,9 @@
     }
   </style>
   <section class="panel active" id="panel-fbmonitoring">
-    <h2 class="title display">Monitoring Facebooku</h2>
+    <h2 class="title display">Facebook města Pečky</h2>
     <p class="lastmod" data-date="2026-10-10">Poslední kontrola: 10. 10. 2026</p>
-    <p class="lede perex">Příspěvky z oficiálního facebookového profilu Města Pečky od listopadu 2018 po měsících. U každého měsíce je počet příspěvků, po rozkliknutí rozpad podle typu a seznam příspěvků s odkazy na Facebook.</p>
+    <p class="lede">Příspěvky z oficiálního facebookového profilu Města Pečky od listopadu 2018 po měsících. U každého měsíce je počet příspěvků, po rozkliknutí rozpad podle typu a seznam příspěvků s odkazy na Facebook.</p>
 
     <figure class="fb-chart" id="fb-chart">
       <div class="fb-chart-head">
@@ -3361,8 +3362,8 @@
         <tr><td>Doprava a stavby (uzavírky, opravy, rekonstrukce)</td><td class="num">65</td><td class="num">1,4</td><td class="num">80</td><td class="num">1,6</td><td class="num">+16 %</td></tr>
         <tr><td>Připomínky výročí a významných dnů</td><td class="num">64</td><td class="num">1,4</td><td class="num">49</td><td class="num">1,0</td><td class="num">−28 %</td></tr>
         <tr><td>Krize (covid, povodně, bouře, válka, epidemie zvířat)</td><td class="num">87</td><td class="num">1,9</td><td class="num">21</td><td class="num">0,4</td><td class="num">−77 %</td></tr>
-        <tr><td>Škola, školka a děti</td><td class="num">54</td><td class="num">1,2</td><td class="num">49</td><td class="num">1,0</td><td class="num">−14 %</td></tr>
         <tr><td>Pečecké noviny, městský rozhlas a vlastní kanály města</td><td class="num">59</td><td class="num">1,3</td><td class="num">44</td><td class="num">0,9</td><td class="num">−29 %</td></tr>
+        <tr><td>Škola, školka a děti</td><td class="num">54</td><td class="num">1,2</td><td class="num">49</td><td class="num">1,0</td><td class="num">−14 %</td></tr>
         <tr><td>Sport a pohyb</td><td class="num">38</td><td class="num">0,8</td><td class="num">33</td><td class="num">0,7</td><td class="num">−18 %</td></tr>
         <tr><td>Zdraví, sociální služby a bezpečnost</td><td class="num">45</td><td class="num">1,0</td><td class="num">15</td><td class="num">0,3</td><td class="num">−68 %</td></tr>
         <tr><td>Odpady, úklid a příroda</td><td class="num">39</td><td class="num">0,8</td><td class="num">19</td><td class="num">0,4</td><td class="num">−54 %</td></tr>

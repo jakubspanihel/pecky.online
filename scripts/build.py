@@ -225,6 +225,18 @@ EXTRA_PAGES = {
         # (statický snímek tabulky; zdrojová JSON jsou v .gitignore). Po každém
         # novém měsíci: pustit summary.py, build a přepsat lastmod níže.
         False, 'owebu', '2026-10-10'),
+    'fbuskupeni': (
+        '/o-webu/facebook-monitoring/uskupeni/',
+        'Politická uskupení Peček na Facebooku — Do Peček . cz',
+        'Příspěvky z facebookových účtů uskupení, která kandidovala v '
+        'komunálních volbách v Pečkách, po měsících: počty, aktivita před '
+        'volbami a seznam příspěvků s krátkým popisem.',
+        # Odkázaná z O webu -> Sociální sítě od 20. 10. 2026 — proto má lastmod
+        # a jde do sitemapy. Obsah content/fbuskupeni.html GENERUJE
+        # o-webu/facebook-monitoring/uskupeni.py (statický snímek; zdrojová JSON
+        # jsou v .gitignore). Po novém sběru: summary.py, uskupeni.py, build
+        # a přepsat lastmod níže.
+        False, 'owebu', '2026-10-20'),
     'udmonitoring': (
         '/o-webu/uredni-deska-monitoring/',
         'Monitoring úřední desky města Pečky — Do Peček . cz',
@@ -1041,7 +1053,7 @@ def _akce_stitek(e):
     if e.get('tag') is not None:
         txt = e['tag']
     else:
-        txt = {'kurz': 'Pravidelně', 'svoz': 'svoz'}.get(e.get('category'), '')
+        txt = {'kurz': 'Pravidelně'}.get(e.get('category'), '')
     return f'<span class="tag ev-stitek">{esc(txt)}</span>' if txt else ''
 
 
