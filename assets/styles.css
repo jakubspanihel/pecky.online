@@ -209,16 +209,15 @@
   .segmented-btn.active{background:var(--cyan-deep); color:var(--white);}
   /* úzký displej: víc tlačítek (Jednání má 5) se zalomí do řádků místo
      přetečení přes okraj; záporný okraj schová zdvojené hrany pod rámečkem skupiny */
-  .kal-toolbar{position:sticky; top:0; z-index:9; background:var(--material); padding:var(--space-3) 0; margin:0;}
+  .kal-toolbar{position:sticky; top:0; z-index:10; background:var(--material); padding:var(--space-3) 0; margin:0;}
   .kal-find-btn{margin-left:auto; position:relative; display:inline-flex; align-items:center; justify-content:center; box-sizing:border-box; height:var(--ctl-h); min-width:var(--ctl-h); padding:0 9px; border:1px solid var(--cyan-deep); border-radius:var(--radius-sm); background:none; color:var(--cyan-deep); cursor:pointer;}
   .kal-toolbar .kal-find-btn .kal-ico{margin-right:0;}
   .kal-find-btn:hover:not(.active){background:var(--cyan-deep-a08);}
   .kal-find-btn.active{background:var(--cyan-deep); color:var(--white);}
   .kal-find-btn.has-filter::after{content:''; position:absolute; top:-3px; right:-3px; width:8px; height:8px; border-radius:var(--radius-round); background:var(--burgundy);}
   .kal-searchrow[hidden], .kal-filters-box[hidden]{display:none;}
-  .kal-clear{margin:0; padding:0; min-height:0; color:var(--burgundy);}
-  .kal-clear:hover{color:var(--burgundy-deep);}
-  .kal-clear[hidden]{display:none;}
+  .kal-searchrow .kal-all{margin:0; padding:0;}
+  .kal-all[hidden]{display:none;}
   .kal-org-source{flex:1 1 100%; margin:0; padding:var(--space-3) var(--space-5); background:var(--material-deep); border-radius:var(--radius-sm);}
   .kal-org-source[hidden]{display:none;}
   #kal-filters{scroll-margin-top:calc(var(--nav-h,0px) + var(--kal-toolbar-h,0px) + var(--space-2)); position:relative; background:var(--material-deep); margin:var(--space-2) 0 var(--space-5); padding:var(--space-11) var(--space-13);}

@@ -50,9 +50,9 @@
       <button type="button" class="kal-filters-close" id="kal-filters-close" aria-label="Zavřít filtry" title="Zavřít">×</button>
       <div class="kal-searchrow">
       <label class="checkbox-label" id="kal-only-future-label"><input type="checkbox" id="kal-only-future" autocomplete="off"> Jen budoucí</label>
+      <button type="button" class="text-toggle kal-all" id="kal-all" hidden>Označit vše</button>
       <div class="kal-org-list" id="kal-org-list" role="group" aria-label="Pořadatelé" hidden></div>
       <input type="search" id="kal-search" class="kal-search" autocomplete="off" placeholder="Hledat" autocomplete="off" aria-label="Hledat v kalendáři">
-      <button type="button" class="text-toggle kal-clear" id="kal-clear" hidden>Vymazat filtry</button>
       <p class="meta-note kal-org-source" id="kal-org-source" hidden></p>
       </div>
     </div>
@@ -545,7 +545,6 @@
     kalStickyZahlavi();
     const maFiltr = !!(KAL_QUERY || KAL_ORG_SEL);
     document.getElementById('kal-find-toggle').classList.toggle('has-filter', maFiltr);
-    document.getElementById('kal-clear').hidden = !maFiltr;
     document.getElementById('kal-month-label').textContent = `${KAL_MONTHS[kalMonth]} ${kalYear}`;
     // tooltip tlačítka měsíce: počet akcí po aplikaci filtrů (stejný výběr jako v Seznamu)
     const ym = `${kalYear}-${kalPad(kalMonth + 1)}`;
@@ -614,7 +613,7 @@
       }
     });
     // s jediným pořadatelem nemá výběr co nabídnout
-    if (poradatele.size < 2) { list.innerHTML = ''; list.hidden = true; return; }
+    if (poradatele.size < 2) { list.innerHTML = ''; list.hidden = true; document.getElementById('kal-all').hidden = true; return; }
     const razene = [...poradatele].sort((a, b) => a[1].localeCompare(b[1], 'cs'));
     if (events.some(e => !e.organizer)) razene.push([KAL_BEZ_PORADATELE, 'Bez pořadatele']);
     // uložená volba (v localStorage jsou odškrtnutí, nově přidaní pořadatelé tak jsou zaškrtnutí)
@@ -628,6 +627,8 @@
     list.innerHTML = razene.map(([id, nazev]) =>
       `<label class="checkbox-label kal-org-chk"${id === KAL_BEZ_PORADATELE ? '' : ` style="${kalOrgStyle(id)}"`}><input type="checkbox" value="${kalEsc(id)}"${!KAL_ORG_SEL || KAL_ORG_SEL.has(id) ? ' checked' : ''}> ${id === KAL_BEZ_PORADATELE ? '' : (KAL_ORG_IKONY[id] || '🏷️') + ' '}${kalEsc(nazev)}</label>`).join('');
     list.hidden = false;
+    document.getElementById('kal-all').hidden = false;
+    kalSyncVse();
     if (list.dataset.bound) return;
     list.dataset.bound = '1';
     list.addEventListener('change', () => {
@@ -637,8 +638,21 @@
         if (KAL_ORG_SEL) localStorage.setItem('kal-org-vylouceni', JSON.stringify(razene.map(x => x[0]).filter(id => !KAL_ORG_SEL.has(id))));
         else localStorage.removeItem('kal-org-vylouceni');
       } catch (e) {}
+      kalSyncVse();
       kalShowView(KAL_VIEW);
     });
+    // „Označit vše“: přepíná všechny pořadatele najednou
+    document.getElementById('kal-all').addEventListener('click', function(){
+      const zapnout = [...list.querySelectorAll('input')].some(i => !i.checked);
+      list.querySelectorAll('input').forEach(i => { i.checked = zapnout; });
+      list.dispatchEvent(new Event('change'));
+    });
+  }
+  // popisek odkazu: „Označit vše“, dokud něco chybí, jinak „Zrušit výběr“
+  function kalSyncVse(){
+    const all = document.getElementById('kal-all');
+    const inputs = [...document.querySelectorAll('#kal-org-list input')];
+    all.textContent = inputs.every(i => i.checked) ? 'Zrušit výběr' : 'Označit vše';
   }
 
   // Volba měsíce: aktuální měsíc a 3 následující (dál do budoucnosti nenabízet)
@@ -750,20 +764,6 @@
 
   document.getElementById('kal-search').addEventListener('input', function(){
     KAL_QUERY = kalNorm(this.value).trim();
-    kalShowView(KAL_VIEW);
-  });
-  // „Vymazat filtry“: hledání a pořadatelé zpět na výchozí
-  // hodnoty („Pouze budoucí“ se řídí zobrazením, proto zůstává)
-  document.getElementById('kal-clear').addEventListener('click', function(){
-    KAL_QUERY = ''; KAL_ORG_SEL = null;
-    try { localStorage.removeItem('kal-org-vylouceni'); } catch (e) {}
-    document.getElementById('kal-search').value = '';
-    kalRenderOrgSelect(KAL_ALL_EVENTS);
-    // panel filtrů se po vymazání sbalí (lupa zpět do neaktivního stavu)
-    document.getElementById('kal-filters').hidden = true;
-    const lupa = document.getElementById('kal-find-toggle');
-    lupa.classList.remove('active');
-    lupa.setAttribute('aria-expanded', 'false');
     kalShowView(KAL_VIEW);
   });
   function kal3dnyPrev() { KAL_3DNY_OFFSET -= 3; kalShowView('3dny'); }
