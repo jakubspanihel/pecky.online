@@ -667,6 +667,12 @@ document.addEventListener('click', e => {
   function show(n) {
     i = Math.max(0, Math.min(total - 1, n));
     slides.forEach((s, k) => { s.hidden = k !== i; });
+    const chip = box.querySelector('.rada-chip .rel-chip');
+    if (chip && slides[i]) {
+      chip.setAttribute('data-date', slides[i].dataset.date);
+      const t = relDatum(slides[i].dataset.date);
+      if (t && t !== 'plánováno') chip.textContent = t;
+    }
     prev.disabled = i === total - 1;
     next.disabled = i === 0;
   }

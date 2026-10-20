@@ -1484,6 +1484,14 @@ seznam místo rozházených poznámek po repu.
   výstupu z kroku 2 postupu výše: den `d.m.` → ISO 2026, čas doplnit na `HH:MM`).
   Kategorie se při převodu určuje podle názvu: `akce` = utkání, „NS …“, liga,
   turnaje/volejbal U14/U16, „Podzimní běh v parku“; ostatní (tréninky) `kurz`.
+  **Doplňující pravidlo (od 20. 10. 2026):** rezervace v sobotu/neděli
+  na **4 a více hodin** je zpravidla turnaj → `akce` (platilo pro „Basket U11“
+  11. 10., „Basket U12“ 20. 9. a 18. 10.). Víkendový termín sám nestačí
+  („Nohejbal“, „Tenis“, „Volejbal“ v neděli večer jsou pravidelné); je to
+  vodítko k ověření, ne automat. Název bez slova „utkání“ může být zápas
+  („basket ženy“ 18. 10. 10:30 mezi dvěma zápasy U17 — zařazeno jako `akce`
+  ručně). Zápisem je `build_hala_events()` jen převzatá kategorie, rozhodnutí
+  se dělá při stažení rezervací.
   **Duplicity:** rezervace se stejným datem a názvem jako akce v `akce.json` generátor
   vynechá (akce má přednost, rezervace je jen další doklad v její `evidence`).
   Generátor skládá `id`/`source_ref` jako `hala-RRRR-MM-DD-HHMM-<slug názvu>`
@@ -1506,6 +1514,13 @@ seznam místo rozházených poznámek po repu.
 - **Aktualizace:** týdenní kontrola kalendáře (krok 3 „Pracovní postup“),
   rezervace se mění často (utkání, zrušení) → při každém běhu porovnat
   budoucí termíny a změny promítnout, zrušené smazat.
+- **Stav k 20. 10. 2026:** staženy týdny od 12. 10. do 3. 1. 2027 (systém má rezervace
+  i na leden 2027, do souboru zapsáno jen do 31. 12. 2026); soubor má 269 rezervací
+  (21 `akce`, 248 `kurz`; prosincové jsou téměř všechny nepotvrzené). Vedle basketu
+  přibyly rezervace „Nohejbal“ (původně „Nohejbal - p. Martinec“, jméno soukromé osoby
+  vynecháno), „Tenis“, „Volejbal“ a florbalový turnaj ČF (12.–13. 12., v systému
+  8:00–8:00, takže bez `time_end`); pořadatelem je u nich výchozí TJ Sokol, což je
+  převzaté rozhodnutí, ne údaj ze zdroje. Starší stav:
 - **Stav k 11. 10. 2026:** staženy týdny od 24. 8. do 6. 12., do souboru zapsáno
   září–listopad 2026 (195 rezervací, z toho 37 nepotvrzených — všechny od
   27. 10.; 14 `akce`, 181 `kurz`). Zdroj je v `sources.json`

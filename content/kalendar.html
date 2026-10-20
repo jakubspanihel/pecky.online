@@ -237,7 +237,7 @@
             const cont = range && dateStr !== e.date ? ' kal-ev-cont' : '';
             const barva = kalMaPoradatele(e) ? ` style="${kalOrgStyle(e.organizer)}"` : '';
             const cizi = e.link && /^https?:\/\//.test(e.link) ? ' target="_blank" rel="noopener"' : '';
-            return `<a class="kal-ev kal-ev-${e.category}${cont}" href="${e.link || '#'}" title="${kalEsc(tip)}"${barva}${cizi}>${kalEsc(e.title)}</a>`;
+            return `<a class="kal-ev kal-ev-${e.category}${cont}${e.category === 'kurz' && e.tag == null ? ' kal-ev-pravidelne' : ''}" href="${e.link || '#'}" title="${kalEsc(tip)}"${barva}${cizi}>${kalEsc(e.title)}</a>`;
           };
           // skupiny v buňce: jednodenní (včetně pravidelných) → probíhající (vícedenní), oddělené čárou
           const vice = e => e.date_end && e.date_end !== e.date;
@@ -410,8 +410,9 @@
         const barva = kalMaPoradatele(e) ? ` style="${kalOrgStyle(e.organizer)}"` : '';
         const cizi = e.link && /^https?:\/\//.test(e.link) ? ' target="_blank" rel="noopener"' : '';
         const cont = range && ds !== e.date ? ' kal-ev-cont' : '';
+        const stitek = e.category === 'kurz' && e.tag == null ? '<span class="tag ev-stitek">Pravidelně</span>' : '';
         return `<a class="kal-ev kal-ev-${e.category} k3-karta${cont}" href="${e.link || '#'}"${barva}${tip}${cizi}>` +
-          (cas ? `<span class="k3-cas">${cas}</span>` : '') +
+          (cas || stitek ? `<span class="k3-radek">${cas ? `<span class="k3-cas">${cas}</span>` : ''}${stitek}</span>` : '') +
           `<span class="k3-nazev">${kalIkona(e)}${kalEsc(e.title)}</span>` +
           (range ? `<span class="k3-misto">${range}</span>` : '') + misto + `</a>`;
       };
@@ -766,7 +767,7 @@
     KAL_QUERY = kalNorm(this.value).trim();
     kalShowView(KAL_VIEW);
   });
-  function kal3dnyPrev() { KAL_3DNY_OFFSET -= 3; kalShowView('3dny'); }
+  function kal3dnyPrev() { KAL_3DNY_OFFSET -= 3; if (KAL_3DNY_OFFSET < 0) kalSetOnlyFuture(false); kalShowView('3dny'); }
   function kal3dnyNext() { KAL_3DNY_OFFSET += 3; kalShowView('3dny'); }
   document.getElementById('kal-3dny-prev').addEventListener('click', kal3dnyPrev);
   document.getElementById('kal-3dny-next').addEventListener('click', kal3dnyNext);

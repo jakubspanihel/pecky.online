@@ -949,9 +949,6 @@ def _dash_rada_shrnuti():
         li = ''.join('<li>' + re.sub(r'\*\*(.+?)\*\*', r'<strong>\1</strong>', esc(t)) + '</li>' for t in pol)
         slides.append(
             f'<div class="rada-slide" data-date="{m["date"]}"{" hidden" if slides else ""}>'
-            f'<p class="banner-sub">'
-            f'<span class="tag rel-chip" data-date="{m["date"]}">'
-            f'{_rel_minule((date.today() - _date.fromisoformat(m["date"])).days)}</span></p>'
             + _rada_avatary(m, people, idx, aff) +
             f'<ul class="banner-topics">{li}</ul>'
             + ('' if (m.get('links') or {}).get('minutes') else '<p class="banner-note">Vybrané body z pozvánky. Zápis zatím není k dispozici.</p>') +
@@ -972,9 +969,12 @@ def _dash_rada_shrnuti():
         pager = ('<div class="rada-pager">'
                  '<button type="button" class="rada-prev" aria-label="Starší jednání rady">‹</button>'
                  '<button type="button" class="rada-next" aria-label="Novější jednání rady" disabled>›</button></div>')
+    nejnovejsi = max(re.search(r'data-date="([^"]+)"', s).group(1) for s in slides)
+    chip = (f'<span class="rada-chip"><span class="tag rel-chip" data-date="{nejnovejsi}">'
+            f'{_rel_minule((date.today() - _date.fromisoformat(nejnovejsi)).days)}</span></span>')
     return ('<div class="dash-zm dash-zm--shrnuti" data-total="%d">\n' % celkem +
             '  <aside class="banner"><div class="banner-body">'
-            f'<div class="banner-head"><h3 class="banner-title">Z rady města</h3>{pager}</div>'
+            f'<div class="banner-head"><div class="banner-headtext"><h3 class="banner-title">Z rady města</h3>{chip}</div>{pager}</div>'
             + ''.join(slides) + '</div></aside>\n</div>')
 
 
@@ -1145,11 +1145,14 @@ def _dash_kalendar(dnes):
 
 def _dash_noviny():
     """Zelený banner Pečeckých novin na Domů: obálka posledního čísla vlevo,
-    počet vydání v archivu, tlačítko do vyhledávání a odkaz na redakci."""
+    poslední vydání (label z pecky-noviny.json), tlačítko do vyhledávání a odkaz na redakci."""
     editions = json.loads(read('noviny/pecky-noviny.json'))['editions']
     ed = max(editions, key=lambda e: e['slug'])
     pdf = ed['url'] or f'/noviny/Data/PN%20{ed["year"]}/{ed["slug"]}.pdf'
     obalka = f'noviny/pages/{ed["slug"]}/1.jpg'
+    n = len(editions)
+    pocet = (f'{n} vydané číslo' if n == 1 else f'{n} vydaná čísla' if 2 <= n <= 4
+             else f'{n} vydaných čísel')
     img = (f'<a class="banner-media" href="{pdf}" title="Nejnovější číslo: {esc(ed["label"])}">'
            f'<img src="/{obalka}" alt="Titulní strana Pečeckých novin {esc(ed["label"])}" loading="lazy"></a>'
            if (ROOT / obalka).exists() else '')
@@ -1157,9 +1160,9 @@ def _dash_noviny():
             f'  {img}\n'
             '  <div class="banner-body">\n'
             f'    <h3 class="banner-title">Pečecké noviny</h3>\n'
-            f'    <p class="banner-text">{len(editions)} vydání v archivu</p>\n'
+            f'    <p class="banner-text">Poslední vydání: <a href="{pdf}">{esc(ed["label"])}</a><br>{pocet}</p>\n'
             '    <div class="banner-actions">'
-            f'<a class="banner-cta" href="/noviny/">{ICO_LUPA}Prohledat noviny</a>'
+            f'<a class="banner-cta" href="/noviny/">{ICO_LUPA}Prohledat archiv</a>'
             '<a class="banner-link" href="/noviny/redakce.html">Redakce</a></div>\n'
             '  </div>\n'
             '</div>')
