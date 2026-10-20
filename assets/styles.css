@@ -92,7 +92,7 @@
     background:var(--material-deep); width:100%; box-sizing:border-box;
   }
   .brand-row{display:flex; align-items:center; justify-content:space-between; gap:var(--space-4); flex-wrap:wrap;}
-  .brand{display:flex; align-items:center; gap:var(--space-5); order:1; color:inherit; text-decoration:none; cursor:pointer;}
+  .brand{display:flex; align-items:baseline; gap:var(--space-5); order:1; color:inherit; text-decoration:none; cursor:pointer;}
   .brand:hover{text-decoration:none;}
   .brand-logo{width:40px; height:40px; flex-shrink:0; display:block;}
   @media (min-width:601px){.brand-logo{width:48px; height:48px;}}

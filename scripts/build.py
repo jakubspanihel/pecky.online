@@ -1291,7 +1291,11 @@ def build_nav(current_slug):
     # Slogan v hlavičce jen na homepage
     tagline = (f'<small class="tagline">{SLOGAN}</small>'
                if current_slug == 'domu' else '')
-    return apply_active(read('assets/nav.html').replace('{{TAGLINE}}', tagline), current_slug)
+    html = read('assets/nav.html').replace('{{TAGLINE}}', tagline)
+    if current_slug == 'domu':
+        # Homepage: bez loga
+        html = re.sub(r'\s*<img class="brand-logo"[^>]*>', '', html)
+    return apply_active(html, current_slug)
 
 
 def out_file_for(path):
