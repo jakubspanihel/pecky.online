@@ -865,6 +865,10 @@ def _rada_avatary(m, people, idx, aff):
     datum = m['date']
     role = {}
     for a in aff:
+        # vazba bez začátku i konce (např. dříve doložený místostarosta, jehož
+        # funkce nejde datovat) neplatí „k datu“, jen když je označená jako současná
+        if not a.get('from') and not a.get('to') and not a.get('current'):
+            continue
         if (a['organization_id'] == 'mesto-pecky' and a['role_type'] in poradi and (not a.get('from') or a['from'] <= datum)
                 and (not a.get('to') or datum <= a['to'])):
             role[a['person_id']] = min(role.get(a['person_id'], 9), poradi[a['role_type']])
