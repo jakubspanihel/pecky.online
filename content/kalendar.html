@@ -610,21 +610,23 @@
   function kalHash(){
     const org = KAL_ALL_EVENTS.length ? kalOrgJeden() : KAL_ORG_URL;
     const pohled = KAL_VIEW === 'seznam' ? 'seznam' : KAL_VIEW === '3dny' ? '3dny' : 'kalendar';
-    if (org && kalYear === kalNow.getFullYear() && kalMonth === kalNow.getMonth()) return `#org=${org}/${pohled}`;
-    return `#${kalYear}-${kalPad(kalMonth + 1)}` + (pohled === 'kalendar' ? '' : '/' + pohled) + (org ? `/org=${org}` : '');
+    const minule = KAL_ONLY_FUTURE ? '' : '/minule';   // „Jen budoucí“ je výchozí, zapisuje se jen jeho vypnutí
+    if (org && kalYear === kalNow.getFullYear() && kalMonth === kalNow.getMonth()) return `#org=${org}/${pohled}${minule}`;
+    return `#${kalYear}-${kalPad(kalMonth + 1)}` + (pohled === 'kalendar' ? '' : '/' + pohled) + (org ? `/org=${org}` : '') + minule;
   }
   function kalWriteHash(){
     if (window.location.hash !== kalHash()) history.replaceState(null, '', kalHash());
   }
   // načte hash do stavu; vrací false, když hash není platný kalendářní stav
   function kalReadHash(){
-    // segmenty v libovolném pořadí: RRRR-MM, seznam|kalendar|3dny, dalsi, org=<id>
-    let rok = null, mesic = null, pohled = '', dalsi = false, org = '';
+    // segmenty v libovolném pořadí: RRRR-MM, seznam|kalendar|3dny, dalsi, org=<id>, minule
+    let rok = null, mesic = null, pohled = '', dalsi = false, org = '', minule = false;
     for (const seg of window.location.hash.slice(1).split('/')) {
       let m;
       if ((m = seg.match(/^(\d{4})-(\d{2})$/)) && +m[2] >= 1 && +m[2] <= 12) { rok = +m[1]; mesic = +m[2] - 1; }
       else if (/^(seznam|kalendar|3dny)$/.test(seg)) pohled = seg;
       else if (seg === 'dalsi') dalsi = true;
+      else if (seg === 'minule') minule = true;   // „Jen budoucí“ vypnuto: v pohledech jsou vidět i proběhlé akce
       else if ((m = seg.match(/^org=([a-z0-9-]+)$/))) org = m[1];
       else return false;
     }
@@ -635,7 +637,7 @@
     KAL_SCROLL_DALSI = dalsi;   // odkaz „Další ...“ z Domů: odscrolovat na skupinu „Další akce“
     KAL_VIEW = pohled === '3dny' || (rok === null && !pohled && !dalsi) ? '3dny' : pohled === 'seznam' || dalsi ? 'seznam' : 'kalendar';
     if (org) { KAL_ORG_URL = org; kalUplatniOrgZUrl(); }
-    kalSetOnlyFuture(true);
+    kalSetOnlyFuture(!minule);
     kalViewUi();
     return true;
   }
@@ -820,8 +822,7 @@
   // na /kalendar/#RRRR-MM aktuálního měsíce
   // Výchozí pohled je „3 dny“ (na mobilu i na počítači). Odkaz s platným hashem
   // (#RRRR-MM = mřížka, #RRRR-MM/seznam, #RRRR-MM/3dny) zvolený pohled respektuje.
-  if (!kalReadHash()) kalViewUi();
-  kalSetOnlyFuture(true);   // „Jen budoucí“ je výchozí ve všech pohledech
+  if (!kalReadHash()) { kalViewUi(); kalSetOnlyFuture(true); }   // „Jen budoucí“ je výchozí ve všech pohledech
   kalWriteHash();
   window.addEventListener('hashchange', () => {
     if (kalReadHash()) { kalShowView(KAL_VIEW); kalScrollNaDalsi(); } else kalWriteHash();

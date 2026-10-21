@@ -155,6 +155,11 @@ vede rovnou na zdroj" v „Jak to funguje" níže.
     nepřepisuje, dokud uživatel výběr sám nezmění); neznámé id se ignoruje.
     Pořadatel z hashe čeká v `KAL_ORG_URL` na stažení dat, pak ho převede
     `kalUplatniOrgZUrl()`; hash bez `org=` při `hashchange` výběr nemění.
+    **„Jen budoucí“ v URL (od 21. 10. 2026):** zapnuté je výchozí (v hashi nic);
+    vypnutí se zapisuje jako segment `minule`, např. `#org=afk-pecky/seznam/minule`
+    nebo `#2026-10/seznam/minule`. Čte ho `kalReadHash()`, zapisuje `kalHash()`;
+    posun „3 dny“ (`KAL_3DNY_OFFSET`) se do URL dál nezapisuje, takže po
+    zpětném posunu odkaz otevře dnešní tři dny s vypnutým „Jen budoucí“.
   - **Selectbox „Pořadatel“** (`#kal-org-select`, od 11. 10. 2026 na žádost uživatele
     přímo v řádku nástrojů vlevo od přepínače Kalendář/Seznam). Nahradil odkaz „Filtr“
     (`#kal-filter-toggle`) a panel `#kal-filter-org`, které byly zrušeny spolu s jejich
