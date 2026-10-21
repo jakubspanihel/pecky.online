@@ -1222,8 +1222,11 @@
   .akce-karta.akce-blok-vybor .ev-time{color:var(--ink);}
   .akce-den, .dash-akce .dash-den{position:sticky; top:var(--kal-3dny-top,0px); z-index:7; display:flex; flex-wrap:wrap; align-items:center; gap:var(--space-2) var(--space-4); margin:var(--space-6) 0 var(--space-3); padding:var(--space-3) 0; background:var(--material); border-bottom:1px solid var(--line); font-size:var(--fs-10); font-weight:var(--fw-semibold); text-transform:none; letter-spacing:0;}
   .dash-akce .dash-den{top:calc(var(--nav-h,0px) + var(--dash-head-h,0px)); margin:var(--space-2) 0 0; padding-inline:var(--space-5); list-style:none;}
-  .dash-den .dash-den-kal{margin-left:auto; text-decoration:none; font-size:var(--fs-title-mobile); line-height:1;}
+  .dash-den .dash-den-kal{margin-left:auto; padding:0 var(--space-5); text-decoration:none; font-family:var(--font-mono); font-size:var(--fs-4);}
   .dash-den .dash-den-kal:hover{opacity:.7;}
+  .dash-akce .dash-den{display:grid; grid-template-columns:auto auto 1fr; align-items:baseline; justify-items:start;}
+  .dash-akce .dash-den > .tag{grid-column:1/-1; margin-bottom:calc(var(--space-2) * -1);}
+  .dash-akce .dash-den .dash-den-kal{justify-self:end;}
   .akce-skupina + .akce-den{margin-top:var(--space-3);}
   .akce-den, .dash-akce .dash-den{background:var(--material-deep); padding-left:var(--space-4); padding-right:var(--space-4);}
   .akce-den .k3-den, .dash-den .k3-den{font-family:var(--font-banner); font-weight:var(--fw-bold); color:var(--ink);}

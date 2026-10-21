@@ -449,7 +449,7 @@ document.querySelectorAll('.rel-chip[data-date]').forEach(el => {
       ? `<span class="tag ${rel === 'dnes' ? 'kal-dnes' : 'probiha'}" title="${den}">${rel}</span>` : '';
     const h = document.createElement('li');
     h.className = 'dash-den';
-    h.innerHTML = `${chip}<b class="k3-den">${dnyTxt[x.getDay()][0].toUpperCase() + dnyTxt[x.getDay()].slice(1)}</b><span class="k3-datum">${x.getDate()}. ${x.getMonth() + 1}.</span><a class="dash-den-kal" href="/kalendar/" title="Otevřít Kalendář" aria-label="Otevřít Kalendář">📅</a>`;
+    h.innerHTML = `${chip}<b class="k3-den">${dnyTxt[x.getDay()][0].toUpperCase() + dnyTxt[x.getDay()].slice(1)}</b><span class="k3-datum">${x.getDate()}. ${x.getMonth() + 1}.</span><a class="kal-find-btn dash-den-kal" href="/kalendar/" title="Otevřít Kalendář">Celý kalendář</a>`;
     ul.insertBefore(h, li);
   });
   // sticky nadpis dne se lepí pod sticky hlavičku karty
