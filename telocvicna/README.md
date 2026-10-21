@@ -624,3 +624,14 @@ stavební problematiky. Rada vzala informace na vědomí, bez usnesení.
 Zápis neuvádí datum kontrolního dne, rozsah ani cenu sanace, předmět a
 termín posudku ani zadavatele znalce — v `content/telocvicna.html` nový
 řádek „12. 10. 2026“ v tabulce „Zastavení stavby v roce 2026“.
+
+## Doplněno 21. 10. 2026: zápis RM 37/2026
+
+Zdroj: zápis rady města 37/2026 z 19. 10. 2026 (usneseni.cz). Bod 3
+(aktuální informace vedení města): starosta informoval o průběhu
+kontrolního dne, o stavu sanace školní kuchyně a o schůzce se soudním
+znalcem z ČVUT — příprava kamerové zkoušky piloty, příprava znaleckého
+posudku ve spolupráci s právníky a příprava návrhu opatření k pokračování
+stavby. Rada vzala informace na vědomí, bez usnesení. Zápis neuvádí
+termíny, předmět a cenu posudku ani zadavatele — v `content/telocvicna.html`
+nový řádek „19. 10. 2026“ v tabulce „Zastavení stavby v roce 2026“.
