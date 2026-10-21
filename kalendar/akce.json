@@ -1,7 +1,7 @@
 {
  "meta": {
   "description": "Kulturní a společenské akce v Pečkách a okolí. U každé akce je pořadatel (id do lide/organizations.json) a doklady, ze kterých je přepsaná (evidence[] — zdroj je id do kořenového sources.json). Zdroj sekce Kalendář — do udalosti.json a kalendar.ics je promítá kalendar/scripts/update-kalendar.py.",
-  "updated": "2026-10-20",
+  "updated": "2026-10-21",
   "note": "Jednání rady a zastupitelstva do tohohle souboru nepatří, i když je plakát KD uvádí — ta má kalendář z jednani/pecky-jednani.json a zapsáním sem by v mřížce vznikly duplicity. Pořadatel je vždy ten, kdo akci pořádá, ne ten, od koho o ní víme — to je evidence[].source."
  },
  "events": [
@@ -14072,14 +14072,22 @@
    "title": "Tvoření s Jitkou",
    "date": "2026-10-26",
    "date_end": null,
-   "time": null,
+   "time": "18:00",
    "category": "akce",
    "place": "Komunitní centrum Pramínek, Dobřichov 24",
    "organizer": "maminky-sobe",
    "organizer_name": null,
-   "description": "Technika Ring string. Nutné přihlášení.",
-   "note": "Plakát čas neuvádí.",
+   "description": "Technika Ring string — nová technika tvoření, vstup zdarma. Nutné nahlásit účast do 24. 10.; v případě malé účasti se akce ruší. Akce je součástí projektu Společné komunitní Podlipansko II.",
+   "note": "Čas 18:00 je z plakátu na Instagramu (19. 10. 2026); plakát Říjen z Facebooku čas neuváděl.",
    "evidence": [
+    {
+     "source": "instagram-komunitni-centrum-praminek",
+     "kind": "plakat",
+     "url": "https://www.instagram.com/komunitni.centrum.praminek/p/DermG4Qtrqp/",
+     "label": "Plakát Tvoření s Jitkou – technika Ring string (Instagram Komunitní centrum Pramínek)",
+     "published": "2026-10-19",
+     "retrieved": "2026-10-21"
+    },
     {
      "source": "web-mcpraminek-cz",
      "kind": "plakat",
@@ -92348,6 +92356,29 @@
      "label": "FitPečky — rezervační systém, výpis 12.–19. 10. 2026",
      "published": null,
      "retrieved": "2026-10-13"
+    }
+   ]
+  },
+  {
+   "id": "akce-2026-11-06-vyroba-kastanove-masti",
+   "title": "Výroba kaštanové masti",
+   "date": "2026-11-06",
+   "date_end": null,
+   "time": "17:30",
+   "category": "akce",
+   "place": "Komunitní centrum Pramínek, Dobřichov 24",
+   "organizer": "maminky-sobe",
+   "organizer_name": null,
+   "description": "Výroba kaštanové masti a tinktury z macerátu, druhé setkání. Blok 17:30–19:00. Vstup zdarma, nutné nahlásit účast; přednost mají účastníci 1. setkání.",
+   "note": "Plakát označuje jako „druhé setkání“ (první bylo 2. 10. 2026).",
+   "evidence": [
+    {
+     "source": "instagram-komunitni-centrum-praminek",
+     "kind": "plakat",
+     "url": "https://www.instagram.com/komunitni.centrum.praminek/p/DermFpItHAI/",
+     "label": "Plakát Výroba kaštanové masti, druhé setkání (Instagram Komunitní centrum Pramínek)",
+     "published": "2026-10-19",
+     "retrieved": "2026-10-21"
     }
    ]
   }
