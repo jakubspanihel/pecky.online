@@ -53,10 +53,10 @@
       <button type="button" class="text-toggle kal-all" id="kal-all" hidden>Označit vše</button>
       <div class="kal-org-list" id="kal-org-list" role="group" aria-label="Pořadatelé" hidden></div>
       <input type="search" id="kal-search" class="kal-search" autocomplete="off" placeholder="Hledat" autocomplete="off" aria-label="Hledat v kalendáři">
-      <p class="meta-note kal-org-source" id="kal-org-source" hidden></p>
       </div>
     </div>
 
+    <p class="meta-note kal-org-source" id="kal-org-source" hidden></p>
     <p class="search-status" id="kal-status">Načítám kalendář…</p>
     <table class="calendar-table" id="kal-grid" style="display:none;">
       <thead>
@@ -348,6 +348,7 @@
             nazev: soc ? seg : host + (seg ? '/' + seg : ''), poradatel: evs[0].organizer_name};
   }
   // záloha, když z událostí zdroj nevyjde: web pořadatele z lide/organizations.json
+  let KAL_ORG_ZDROJE = {};   // id pořadatele -> [{name, url, n}] z evidence akcí (klíč org_sources v udalosti.json)
   let KAL_ORG_WEB = {};   // id -> {web, nazev}
   fetch('/lide/organizations.json').then(r => r.json()).then(d => {
     (Array.isArray(d) ? d : d.organizations || []).forEach(o => {
@@ -355,26 +356,45 @@
     });
     kalRenderOrgZdroj();
   }).catch(() => {});
+  // Další zdroje akcí pořadatele (evidence v akce.json) a jeho web z rejstříku organizací;
+  // vynechá ten, který už je v hlavní větě (web stejné domény, u sítí stejný profil).
+  function kalOrgDalsiZdroje(orgId, hlavniUrl){
+    const klic = url => {
+      const k = kalZdrojKlic(url);
+      return k ? (k.soc ? k.host + '/' + k.seg : k.host) : url;
+    };
+    const videno = new Set(hlavniUrl ? [klic(hlavniUrl)] : []);
+    const w = KAL_ORG_WEB[orgId];
+    const kandidati = [...(KAL_ORG_ZDROJE[orgId] || []).map(x => ({name: x.name, url: x.url})),
+      ...(w ? [{name: w.nazev, url: w.web}] : [])];
+    return kandidati.filter(x => { const k = klic(x.url); if (videno.has(k)) return false; videno.add(k); return true; });
+  }
   function kalRenderOrgZdroj(){
     const el = document.getElementById('kal-org-source');
     const orgId = kalOrgJeden();
-    const z = orgId ? kalOrgZdroj(orgId) : null;
-    if (!z) {
-      const w = orgId && KAL_ORG_WEB[orgId];
-      if (!w) { el.hidden = true; el.innerHTML = ''; return; }
+    if (!orgId) { el.hidden = true; el.innerHTML = ''; return; }
+    const z = kalOrgZdroj(orgId);
+    const w = KAL_ORG_WEB[orgId];
+    let hlavni = '', hlavniUrl = '';
+    if (z) {
+      hlavniUrl = z.url;
+      const odkaz = `<a href="${kalEsc(z.url)}" target="_blank" rel="noopener">${kalEsc(z.nazev)}</a>`;
+      hlavni = z.soc
+        ? `${kalEsc(z.poradatel)} většinou publikuje akce na Facebooku (${odkaz}).`
+        : `${kalEsc(z.poradatel)} většinou publikuje akce na webu ${odkaz}.`;
+    } else if (w) {
+      hlavniUrl = w.web;
       const host = new URL(w.web).hostname.replace(/^www\./, '');
       const soc = /(^|\.)(facebook|instagram)\.com$/.test(host);
       const kde = /facebook/.test(host) ? 'Facebook' : /instagram/.test(host) ? 'Instagram' : '';
       const odkaz = `<a href="${kalEsc(w.web)}" target="_blank" rel="noopener">${kalEsc(soc ? w.nazev : host)}</a>`;
-      el.innerHTML = soc ? `${kde} pořadatele: ${odkaz}.` : `Web pořadatele ${kalEsc(w.nazev)}: ${odkaz}.`;
-      el.hidden = false;
-      return;
+      hlavni = soc ? `${kde} pořadatele: ${odkaz}.` : `Web pořadatele ${kalEsc(w.nazev)}: ${odkaz}.`;
     }
-    const odkaz = `<a href="${kalEsc(z.url)}" target="_blank" rel="noopener">${kalEsc(z.nazev)}</a>`;
-    el.innerHTML = z.soc
-      ? `${kalEsc(z.poradatel)} většinou publikuje akce na Facebooku (${odkaz}).`
-      : `${kalEsc(z.poradatel)} většinou publikuje akce na webu ${odkaz}.`;
-    el.hidden = false;
+    const dalsi = kalOrgDalsiZdroje(orgId, hlavniUrl)
+      .map(x => `<a href="${kalEsc(x.url)}" target="_blank" rel="noopener">${kalEsc(x.name)}</a>`);
+    const vetaDalsi = dalsi.length ? `${hlavni ? 'Další zdroje' : 'Zdroje akcí'}: ${dalsi.join(', ')}.` : '';
+    el.innerHTML = [hlavni, vetaDalsi].filter(Boolean).join(' ');
+    el.hidden = !el.innerHTML;
   }
 
   // fullscreen dialog musí ležet přímo v <body>, jinak ho předek panelu (transform/animace) ukotví k sobě místo k oknu
@@ -941,6 +961,7 @@
     .then(r => r.json())
     .then(data => {
       KAL_ALL_EVENTS = data.events || [];
+      KAL_ORG_ZDROJE = data.org_sources || {};
       KAL_ALL_EVENTS.forEach(e => {
         kalDateRange(e.date, e.date_end).forEach(ds => {
           (KAL_EVENTS_BY_DATE[ds] = KAL_EVENTS_BY_DATE[ds] || []).push(e);

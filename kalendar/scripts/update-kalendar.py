@@ -67,6 +67,8 @@ VYBORY_JSON = ROOT / 'jednani' / 'vybory.json'
 KOMISE_JSON = ROOT / 'jednani' / 'komise.json'
 SKOLSKA_RADA_JSON = ROOT / 'jednani' / 'skolska-rada.json'
 AKCE_JSON = ROOT / 'kalendar' / 'akce.json'
+SOURCES_JSON = ROOT / 'sources.json'
+LIDE_SOURCES_JSON = ROOT / 'lide' / 'sources.json'
 VOLBY_JSON = ROOT / 'kalendar' / 'udalosti-volby.json'
 AFK_JSON = ROOT / 'kalendar' / 'afk-zapasy.json'
 SVOZ_JSON = ROOT / 'kalendar' / 'svoz-odpadu.json'
@@ -173,6 +175,53 @@ def build_vybory_events():
                 'source_ref': m['id'],
             })
     return events
+
+
+def zdroje_poradatelu():
+    """id pořadatele -> zdroje, ze kterých jsou jeho akce zapsané (nejčastější první).
+
+    Počítá se z `evidence[].source` v kalendar/akce.json; název a adresa zdroje
+    z `sources.json`. Za ně se řadí profily pořadatele na Facebooku a Instagramu
+    z `lide/organizations.json` → `sources` (adresy z `lide/sources.json`),
+    které v evidenci akcí zatím nejsou (`n` = 0; skupiny a odkazy na jednotlivé
+    příspěvky se nepřebírají). Klient (Kalendář, řádek nad tabulkou při jediném vybraném
+    pořadateli) z toho skládá větu „Další zdroje“. Do `udalosti.json` jde jako
+    samostatný klíč `org_sources`, ne do každé události (stovky opakování).
+    """
+    if not AKCE_JSON.exists():
+        return {}
+    zdroje = {z['id']: z for z in json.loads(SOURCES_JSON.read_text(encoding='utf-8')).get('sources', [])}
+    pocty = {}
+    for a in json.loads(AKCE_JSON.read_text(encoding='utf-8')).get('events', []):
+        org_id = a.get('organizer')
+        if not org_id:
+            continue
+        for ev in a.get('evidence') or []:
+            pocty.setdefault(org_id, {}).setdefault(ev['source'], 0)
+            pocty[org_id][ev['source']] += 1
+    lide_zdroje = json.loads(LIDE_SOURCES_JSON.read_text(encoding='utf-8')).get('sources', {})
+    orgs = {o['id']: o for o in json.loads(ORGANIZACE_JSON.read_text(encoding='utf-8'))['organizations']}
+    norm = lambda u: u.lower().rstrip('/')
+    vystup = {}
+    for org_id, podle in pocty.items():
+        radek = []
+        for sid, n in sorted(podle.items(), key=lambda x: (-x[1], x[0])):
+            z = zdroje.get(sid)
+            if z and z.get('url'):
+                radek.append({'name': z['name'], 'url': z['url'], 'n': n})
+        videno = {norm(x['url']) for x in radek}
+        for sid in orgs.get(org_id, {}).get('sources', []):
+            z = lide_zdroje.get(sid)
+            if not z or not re.search(r'//(www\.)?(facebook|instagram)\.com/', z['url']):
+                continue
+            if '/groups/' in z['url'] or '/posts/' in z['url'] or norm(z['url']) in videno:
+                continue
+            videno.add(norm(z['url']))
+            nazev = next((x['name'] for x in zdroje.values() if norm(x.get('url') or '') == norm(z['url'])), z['label'])
+            radek.append({'name': nazev, 'url': z['url'], 'n': 0})
+        if radek:
+            vystup[org_id] = radek
+    return vystup
 
 
 def build_akce_events():
@@ -592,6 +641,7 @@ def main():
                                f'kalendar/sportovni-hala.json ({len(hala)} rezervací sportovní haly)'),
             'updated': datetime.now(PRAGUE).strftime('%Y-%m-%d'),
         },
+        'org_sources': zdroje_poradatelu(),
         'events': events,
     }, ensure_ascii=False, indent=1) + '\n', encoding='utf-8')
 

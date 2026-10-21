@@ -30,6 +30,9 @@ vede rovnou na zdroj" v „Jak to funguje" níže.
   - **`kalendar/udalosti.json`** — data pro klientské vykreslení,
     `content/kalendar.html` si je natahuje přes `fetch()` (stejný vzor
     jako Jednání/Lidé/Noviny).
+    Kromě `events` nese klíč `org_sources` (id pořadatele → zdroje z
+    `evidence[].source` v `akce.json`, nejčastější první, název a adresa ze
+    `sources.json`; generuje `zdroje_poradatelu()` v `update-kalendar.py`).
   - **`kalendar/kalendar.ics`** — stejné události ve formátu iCalendar
     (RFC 5545). Od 22. 9. 2026 na stránku přímo nelinkovaný (viz
     „Odebírání kalendáře" níže) — pořád se ale generuje a je dostupný
@@ -155,6 +158,16 @@ vede rovnou na zdroj" v „Jak to funguje" níže.
     nepřepisuje, dokud uživatel výběr sám nezmění); neznámé id se ignoruje.
     Pořadatel z hashe čeká v `KAL_ORG_URL` na stažení dat, pak ho převede
     `kalUplatniOrgZUrl()`; hash bez `org=` při `hashchange` výběr nemění.
+    **Zdroje vybraného pořadatele (od 21. 10. 2026):** při jediném vybraném
+    pořadateli je pod lištou nástrojů, nad mřížkou/seznamem/„3 dny“, řádek
+    `#kal-org-source` (dřív uvnitř panelu filtrů): nejčastější zdroj jeho
+    událostí („většinou publikuje akce na …“, nebo web z rejstříku organizací)
+    a za ním „Další zdroje: …“ z `org_sources` + web pořadatele; zdroj, který
+    už je ve větě (stejná doména, u sítí stejný profil), se nezopakuje
+    (`kalOrgDalsiZdroje()`). Za zdroje z evidence akcí generátor řadí i profily
+    pořadatele na Facebooku/Instagramu z `lide/organizations.json` → `sources`
+    (bez skupin a odkazů na jednotlivé příspěvky), takže se objeví i dřív, než
+    z nich vznikne první akce.
     **„Jen budoucí“ v URL (od 21. 10. 2026):** zapnuté je výchozí (v hashi nic);
     vypnutí se zapisuje jako segment `minule`, např. `#org=afk-pecky/seznam/minule`
     nebo `#2026-10/seznam/minule`. Čte ho `kalReadHash()`, zapisuje `kalHash()`;

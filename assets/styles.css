@@ -215,7 +215,7 @@
   .kal-searchrow[hidden], .kal-filters-box[hidden]{display:none;}
   .kal-searchrow .kal-all{margin:0; padding:0;}
   .kal-all[hidden]{display:none;}
-  .kal-org-source{flex:1 1 100%; margin:0; padding:var(--space-3) var(--space-5); background:var(--material-deep); border-radius:var(--radius-sm);}
+  .kal-org-source{margin:0 0 var(--space-5); padding:var(--space-3) var(--space-5); background:var(--material-deep); border-radius:var(--radius-sm);}
   .kal-org-source[hidden]{display:none;}
   @media (min-width:768px){
     #kal-filters{scroll-margin-top:calc(var(--nav-h,0px) + var(--kal-toolbar-h,0px) + var(--space-2)); position:relative; background:var(--material-deep); margin:var(--space-2) 0 var(--space-5); padding:var(--space-11) var(--space-13);}
