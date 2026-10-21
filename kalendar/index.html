@@ -166,6 +166,7 @@
     'hospoda-na-hristi-pecky': '🍺', 'fitpecky-cz': '🏋️',
   };
   function kalOrgOk(e){ return !KAL_ORG_SEL || KAL_ORG_SEL.has(e.organizer || KAL_BEZ_PORADATELE); }
+  let KAL_ORG_URL = '';   // pořadatel z hashe, čeká na stažení dat (pak se ověří a převede na KAL_ORG_SEL)
   function kalOrgJeden(){ return KAL_ORG_SEL && KAL_ORG_SEL.size === 1 ? [...KAL_ORG_SEL][0] : ''; }
   let KAL_VIEW = '3dny';   // '3dny' (výchozí) = dnes/zítra/pozítří, 'kalendar' = mřížka, 'seznam' = karty akcí vybraného měsíce
   let KAL_ONLY_FUTURE = false;   // true = skrýt už proběhlé události (checkbox "Pouze budoucí události")
@@ -674,20 +675,37 @@
   // se přes replaceState (stejně jako podzáložky v common.js), ať
   // listování měsíci nezaplní historii prohlížeče; ruční změnu hashe nebo
   // odkaz zvenku zachytí posluchač hashchange níž.
+  // Jediný vybraný pořadatel se zapisuje do hashe jako `org=<id>` (před staženíma datama
+  // se drží pořadatel z URL). V aktuálním měsíci bez měsíce: #org=afk-pecky/3dny;
+  // v jiném měsíci s ním: #2026-11/seznam/org=afk-pecky.
   function kalHash(){
-    return `#${kalYear}-${kalPad(kalMonth + 1)}` + (KAL_VIEW === 'seznam' ? '/seznam' : KAL_VIEW === '3dny' ? '/3dny' : '');
+    const org = KAL_ALL_EVENTS.length ? kalOrgJeden() : KAL_ORG_URL;
+    const pohled = KAL_VIEW === 'seznam' ? 'seznam' : KAL_VIEW === '3dny' ? '3dny' : 'kalendar';
+    if (org && kalYear === kalNow.getFullYear() && kalMonth === kalNow.getMonth()) return `#org=${org}/${pohled}`;
+    return `#${kalYear}-${kalPad(kalMonth + 1)}` + (pohled === 'kalendar' ? '' : '/' + pohled) + (org ? `/org=${org}` : '');
   }
   function kalWriteHash(){
     if (window.location.hash !== kalHash()) history.replaceState(null, '', kalHash());
   }
   // načte hash do stavu; vrací false, když hash není platný kalendářní stav
   function kalReadHash(){
-    const m = window.location.hash.match(/^#(\d{4})-(\d{2})(?:\/(seznam|kalendar|3dny))?(?:\/(dalsi))?$/);
-    if (!m || +m[2] < 1 || +m[2] > 12) return false;
-    kalYear = +m[1];
-    kalMonth = +m[2] - 1;
-    KAL_SCROLL_DALSI = m[4] === 'dalsi';   // odkaz „Další ...“ z Domů: odscrolovat na skupinu „Další akce“
-    KAL_VIEW = m[3] === '3dny' ? '3dny' : m[3] === 'seznam' || KAL_SCROLL_DALSI ? 'seznam' : 'kalendar';
+    // segmenty v libovolném pořadí: RRRR-MM, seznam|kalendar|3dny, dalsi, org=<id>
+    let rok = null, mesic = null, pohled = '', dalsi = false, org = '';
+    for (const seg of window.location.hash.slice(1).split('/')) {
+      let m;
+      if ((m = seg.match(/^(\d{4})-(\d{2})$/)) && +m[2] >= 1 && +m[2] <= 12) { rok = +m[1]; mesic = +m[2] - 1; }
+      else if (/^(seznam|kalendar|3dny)$/.test(seg)) pohled = seg;
+      else if (seg === 'dalsi') dalsi = true;
+      else if ((m = seg.match(/^org=([a-z0-9-]+)$/))) org = m[1];
+      else return false;
+    }
+    if (rok === null && !org) return false;
+    // bez měsíce (#org=...) = aktuální měsíc; bez pohledu a bez měsíce výchozí „3 dny“
+    kalYear = rok === null ? kalNow.getFullYear() : rok;
+    kalMonth = mesic === null ? kalNow.getMonth() : mesic;
+    KAL_SCROLL_DALSI = dalsi;   // odkaz „Další ...“ z Domů: odscrolovat na skupinu „Další akce“
+    KAL_VIEW = pohled === '3dny' || (rok === null && !pohled && !dalsi) ? '3dny' : pohled === 'seznam' || dalsi ? 'seznam' : 'kalendar';
+    if (org) { KAL_ORG_URL = org; kalUplatniOrgZUrl(); }
     kalSetOnlyFuture(true);
     kalViewUi();
     return true;
@@ -699,6 +717,18 @@
   function kalSetOnlyFuture(val){
     KAL_ONLY_FUTURE = val;
     document.getElementById('kal-only-future').checked = val;
+  }
+
+  // Převede pořadatele z hashe na výběr (URL má přednost před uloženou volbou). Dokud nejsou
+  // stažená data, nedělá nic; neznámé id se zahodí.
+  function kalUplatniOrgZUrl(){
+    const id = KAL_ORG_URL;
+    if (!id || !KAL_ALL_EVENTS.length) return;
+    KAL_ORG_URL = '';
+    if (!KAL_ALL_EVENTS.some(e => (e.organizer || KAL_BEZ_PORADATELE) === id)) return;
+    KAL_ORG_SEL = new Set([id]);
+    document.querySelectorAll('#kal-org-list input').forEach(i => { i.checked = i.value === id; });
+    kalSyncVse();
   }
 
   function kalRenderOrgSelect(events){
@@ -724,6 +754,7 @@
         KAL_ORG_SEL = new Set(razene.map(x => x[0]).filter(id => !ulozeno.includes(id)));
       }
     }
+    kalUplatniOrgZUrl();
     list.innerHTML = razene.map(([id, nazev]) =>
       `<label class="checkbox-label kal-org-chk"${id === KAL_BEZ_PORADATELE ? '' : ` style="${kalOrgStyle(id)}"`}><input type="checkbox" value="${kalEsc(id)}"${!KAL_ORG_SEL || KAL_ORG_SEL.has(id) ? ' checked' : ''}> ${id === KAL_BEZ_PORADATELE ? '' : (KAL_ORG_IKONY[id] || '🏷️') + ' '}${kalEsc(nazev)}</label>`).join('');
     list.hidden = false;

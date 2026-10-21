@@ -145,6 +145,16 @@ vede rovnou na zdroj" v „Jak to funguje" níže.
     z 11. 10. 2026 je zrušený). Odkaz s explicitním `#RRRR-MM` (mřížka),
     `#RRRR-MM/seznam` nebo `#RRRR-MM/3dny` zvolený pohled respektuje; po
     přepnutí uživatelem se volba zapisuje do hashe jako dřív.
+    **Pořadatel v URL (od 21. 10. 2026):** je-li vybraný právě jeden pořadatel,
+    zapíše se do hashe jako `org=<id>` (id z `lide/organizations.json`, `-` = „Bez
+    pořadatele“). V aktuálním měsíci bez měsíce: `#org=afk-pecky/3dny`,
+    `#org=afk-pecky/seznam`, `#org=afk-pecky/kalendar` (bez pohledu = „3 dny“);
+    v jiném měsíci s ním: `#2026-11/seznam/org=afk-pecky`. Segmenty se čtou
+    v libovolném pořadí (`kalReadHash()`). Více vybraných pořadatelů se do URL
+    nezapisuje. URL má přednost před uloženou volbou v `localStorage` (ta se
+    nepřepisuje, dokud uživatel výběr sám nezmění); neznámé id se ignoruje.
+    Pořadatel z hashe čeká v `KAL_ORG_URL` na stažení dat, pak ho převede
+    `kalUplatniOrgZUrl()`; hash bez `org=` při `hashchange` výběr nemění.
   - **Selectbox „Pořadatel“** (`#kal-org-select`, od 11. 10. 2026 na žádost uživatele
     přímo v řádku nástrojů vlevo od přepínače Kalendář/Seznam). Nahradil odkaz „Filtr“
     (`#kal-filter-toggle`) a panel `#kal-filter-org`, které byly zrušeny spolu s jejich
