@@ -263,8 +263,9 @@ program, usnesení a zápis). Využívá se jen takto:
     a poznámkou „Vybrané body z pozvánky“. Soubor shrnutí z pozvánky psát jen
     tehdy, když má být výběr témat kurátorský; po doplnění zápisu se shrnutí
     napíše (nebo přepíše) podle zápisu.
-  - Shrnutí pro zastupitelstvo jsou zatím psaná pro jednání 4/2026 až 7/2026
-    (24. 6.–7. 10. 2026); starší zastupitelstva se v banneru nezobrazují.
+  - Shrnutí pro zastupitelstvo jsou napsaná pro všech 41 jednání od 16. 6. 2021
+    (zpětně doplněno 22. 10. 2026 podle programu, důvodových zpráv a usnesení,
+    zápis z diskuse nebyl čten); šipky v banneru listují až k nejstaršímu.
 - **PečkyBot (všechna jednání):** `python3 scripts/build.py` načte každý
   soubor `jednani/shrnuti/*.md` do znalostí PečkyBota — fulltext
   (`chunks_shrnuti()` v `scripts/peckybot_sources.py`, úryvky „Shrnutí
