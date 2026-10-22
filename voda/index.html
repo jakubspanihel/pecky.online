@@ -25,12 +25,18 @@
 <link rel="apple-touch-icon" href="/img/favicons/apple-touch-icon.png">
 <link rel="stylesheet" href="/assets/org-colors.css">
 <link rel="stylesheet" href="/assets/styles.css">
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-1CW9XK1VJY"></script>
 <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-1CW9XK1VJY');
+  // Analytics jen na ostré doméně (ne na localhostu ani v náhledech).
+  if (/(^|\.)dopecek\.cz$/.test(location.hostname)) {
+    window.dataLayer = window.dataLayer || [];
+    window.gtag = function(){dataLayer.push(arguments);};
+    gtag('js', new Date());
+    gtag('config', 'G-1CW9XK1VJY');
+    var ga = document.createElement('script');
+    ga.async = true;
+    ga.src = 'https://www.googletagmanager.com/gtag/js?id=G-1CW9XK1VJY';
+    document.head.appendChild(ga);
+  }
 </script>
 
 </head>
@@ -77,9 +83,8 @@
     <p class="lastmod" data-date="2026-10-15">Poslední kontrola: 15. 10. 2026</p>
     <p class="lede perex">Ceník vodného a stočného v Pečkách podle let, laboratorní rozbory pitné vody od února 2016 a údaje o úpravně vody. Ceny jsou v korunách za metr krychlový, bez DPH i s DPH.</p>
 
-    <h3 class="search-status" id="voda-status"><span class="spinner" aria-hidden="true"></span>Načítám ceník…</h3>
     <div id="voda-graf-box" hidden>
-      <h3>Vývoj ceny s DPH</h3>
+      <h3>Vývoj ceny vody (a počet havárií a odstávek)</h3>
       <div id="voda-graf" role="img" aria-label="Graf vývoje ceny vodného, stočného a celkové ceny s DPH podle let"></div>
       <div class="chart-legend" id="voda-legenda"></div>
     </div>
@@ -107,6 +112,7 @@
         <label for="rozbory-param" class="chip-label">Ukazatel</label>
         <select id="rozbory-param" class="kal-org-select"></select>
       </div>
+      <div class="callout" id="rozbory-vyklad" hidden></div>
       <details class="collapsible" id="rozbory-detail" style="margin-top:var(--space-7);">
         <summary style="cursor:pointer; list-style:none;"><h3 class="display" style="margin:0 0 4px; display:inline;" id="rozbory-tabulka-nadpis">Přehled protokolů <span class="collapsible-arrow" aria-hidden="true">▾</span></h3></summary>
         <div class="table-scroll rozbory-scroll"><table class="register" id="rozbory-tabulka"><thead id="rozbory-hlavicka"></thead><tbody id="rozbory-telo"></tbody></table></div>
@@ -143,7 +149,6 @@
 
   <script>
   (function () {
-    var statusEl = document.getElementById('voda-status');
     var box = document.getElementById('voda-ceny');
     function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]; }); }
     function kc(n) { return n == null ? '—' : n.toFixed(2).replace('.', ',') + ' Kč'; }
@@ -152,10 +157,10 @@
       {k: 'vodne', label: 'Vodné', color: 'var(--cyan-deep)'},
       {k: 'stocne', label: 'Stočné', color: 'var(--ink-soft)'}
     ];
-    function graf(years) {
+    function graf(years, udalosti) {
       var asc = years.filter(function (y) { return y.items.celkem.s_dph != null; })
         .sort(function (a, b) { return a.year - b.year; });
-      var W = 640, H = 300, L = 52, R = 62, T = 22, B = 34;
+      var W = 640, H = 300, L = 52, R = 92, T = 22, B = 34;
       var y0 = asc[0].year, y1 = asc[asc.length - 1].year;
       var max = 0;
       asc.forEach(function (y) { max = Math.max(max, y.items.celkem.s_dph); });
@@ -172,6 +177,30 @@
       for (var yr = y0; yr <= y1; yr++) {
         out += '<line x1="' + X(yr) + '" x2="' + X(yr) + '" y1="' + (H - B) + '" y2="' + (H - B + 4) + '" stroke="var(--ink-soft)"/>';
         if ((y1 - yr) % 2 === 0) out += '<text x="' + X(yr) + '" y="' + (H - 10) + '" text-anchor="middle" fill="var(--ink-soft)">' + yr + '</text>';
+      }
+      // sloupce: počet havárií a odstávek vody podle roku (pravá osa), jen od prvního roku dat
+      var pocty = {}, maxP = 0;
+      (udalosti || []).forEach(function (e) {
+        if (e.typ === 'omezeni') return;
+        var yr = +e.datum.slice(0, 4);
+        pocty[yr] = (pocty[yr] || 0) + 1;
+        maxP = Math.max(maxP, pocty[yr]);
+      });
+      if (maxP) {
+        var firstP = Math.min.apply(null, Object.keys(pocty).map(Number));
+        var topP = Math.ceil(maxP / 4) * 4, stepP = topP / 4;
+        function YP(v) { return T + (1 - v / topP) * (H - T - B); }
+        var bw = Math.min(22, (W - L - R) / Math.max(1, y1 - y0) * 0.55);
+        for (var vp = 0; vp <= topP; vp += stepP) {
+          out += '<text x="' + (W - 4) + '" y="' + (YP(vp) + 4) + '" text-anchor="end" fill="var(--gold)" font-weight="700">' + vp + '</text>';
+        }
+        out += '<text x="' + (W - 4) + '" y="' + (T - 10) + '" text-anchor="end" fill="var(--gold)">událostí/rok</text>';
+        for (var yb = Math.max(y0, firstP); yb <= y1; yb++) {
+          var n = pocty[yb] || 0;
+          if (!n) continue;
+          out += '<rect x="' + (X(yb) - bw / 2) + '" y="' + YP(n) + '" width="' + bw + '" height="' + (H - B - YP(n)) + '" fill="var(--gold)" opacity="0.4"><title>' +
+            yb + ': ' + n + ' ' + (n === 1 ? 'havárie nebo odstávka vody' : n < 5 ? 'havárie nebo odstávky vody' : 'havárií a odstávek vody') + (yb === 2026 ? ' (do 16. 9.)' : '') + '</title></rect>';
+        }
       }
       // úpravna vody: stavba převzata 20. 3. 2024 (den v roce 80 z 366)
       var PROVOZ = 2024 + 79 / 366;
@@ -196,26 +225,77 @@
       });
       return out + '</svg>';
     }
-    fetch('/voda/ceny.json').then(function (r) { return r.json(); }).then(function (d) {
+    var udalostiP = fetch('/voda/havarie-odstavky-vody.json').then(function (r) { return r.json(); })
+      .then(function (j) { return j.udalosti; }).catch(function () { return []; });
+    Promise.all([fetch('/voda/ceny.json').then(function (r) { return r.json(); }), udalostiP]).then(function (res) {
+      var d = res[0];
       var years = d.years.slice().sort(function (a, b) { return b.year - a.year; });
-      document.getElementById('voda-graf').innerHTML = graf(years);
+      document.getElementById('voda-graf').innerHTML = graf(years, res[1]);
       document.getElementById('voda-legenda').innerHTML = SERIE.map(function (s) {
         return '<span><span style="display:inline-block;width:10px;height:10px;border-radius:50%;background:' + s.color + ';margin-right:6px;"></span>' + s.label + '</span>';
-      }).join('') + '<span>Tečkovaná čára = roky bez údaje o ceně s DPH</span>';
+      }).join('') + '<span>Tečkovaná čára = roky bez údaje o ceně s DPH</span>' +
+        (res[1].length ? '<span><span style="display:inline-block;width:10px;height:10px;background:var(--gold);opacity:.4;margin-right:6px;"></span>Sloupce = počet havárií a odstávek vody za rok (Facebook města, od 12/2018, 2026 do 16. 9.)</span>' : '');
       document.getElementById('voda-graf-box').hidden = false;
       box.innerHTML = d.gaps ? '<div class="callout">' + esc(d.gaps) + '</div>' : '';
-      statusEl.textContent = years.length + ' ' + (years.length === 1 ? 'rok' : years.length < 5 ? 'roky' : 'let') + ' v ceníku';
     }).catch(function (e) {
       console.error(e);
-      statusEl.textContent = 'Ceník se nepodařilo načíst.';
+      box.innerHTML = '<div class="callout">Ceník se nepodařilo načíst.</div>';
     });
 
     // ===== Rozbory pitné vody =====
     var MESICE = ['leden','únor','březen','duben','květen','červen','červenec','srpen','září','říjen','listopad','prosinec'];
     var JADRO = ['Escherichia coli','Koliformní bakterie','Dusičnany','Konduktivita','pH','Zákal','Chlor volný','Teplota','Železo'];
-    var BARVY = ['var(--burgundy)','var(--cyan-deep)','var(--gold)','var(--field)','var(--ink-soft)','var(--burgundy-deep)','var(--cyan)'];
+    var R_ZELENA = '#3F8A55', R_CERVENA = 'var(--burgundy)';
     var MISTO = 'Pečky – vodojem (VDJ)';
-    var RZ = {samples: [], mista: [], params: ['Dusičnany'], dostupne: []};
+    var RZ = {samples: [], mista: [], params: ['Konduktivita'], dostupne: []};
+    var VYKLAD = {
+      "Escherichia coli": "Bakterie, která žije ve střevech lidí a zvířat. Její nález ve vodě je spolehlivým znamením čerstvého fekálního znečištění, a proto patří mezi nejdůležitější ukazatele: v pitné vodě se nesmí vyskytovat vůbec. Počet se udává v kolonietvorných jednotkách (KTJ) ve 100 ml vody.",
+      "Koliformní bakterie": "Širší skupina bakterií, do které patří i Escherichia coli. Žijí také v půdě a ve vodě, takže jejich přítomnost nemusí znamenat fekální znečištění. Slouží jako ukazatel účinnosti úpravy a čistoty vodovodní sítě: nález znamená, že je třeba prověřit dezinfekci a stav potrubí či vodojemu.",
+      "Dusičnany": "Soli dusíku, které se do vody dostávají hlavně z hnojiv a odpadních vod. Vysoké hodnoty jsou nebezpečné především pro kojence, protože dusičnany se v těle mohou měnit na dusitany a bránit přenosu kyslíku v krvi. Proto se u nich hlídá nejvyšší mezní hodnota.",
+      "Konduktivita": "Měří, jak dobře voda vede elektrický proud. Čím víc je v ní rozpuštěných solí a minerálů, tím je hodnota vyšší. Sama o sobě neříká, které látky ve vodě jsou, ale je citlivá na změny: náhlý skok může znamenat jiný zdroj vody nebo znečištění.",
+      "pH": "Udává, jak je voda kyselá nebo zásaditá (7 je neutrální). Pitná voda má mít pH mezi 6,5 a 9,5. Příliš kyselá voda rozpouští kovy z potrubí, zásaditá snižuje účinnost chlorové dezinfekce.",
+      "Zákal": "Míra zakalení vody jemnými částicemi, které nejsou na první pohled vidět jako usazenina. Čistá voda má zákal blízko nuly. Vyšší hodnoty mohou znamenat nedostatečnou filtraci nebo rozvířené usazeniny v potrubí a částice mohou mikroby chránit před dezinfekcí.",
+      "Chlor volný": "Zbytek chloru, který se do vody přidává k dezinfekci a který ji chrání na cestě potrubím až ke kohoutku. Příliš malé množství znamená slabší ochranu, příliš velké zhoršuje chuť a vůni vody. V protokolech je uvedena horní hranice.",
+      "Teplota": "Teplota vody při odběru. Doporučený rozsah je 8 až 12 °C. Teplejší voda zhoršuje chuť a umožňuje rychlejší množení bakterií, proto její zvýšení může být upozorněním na problém v rozvodu nebo ve vodojemu.",
+      "Železo": "Železo se do vody dostává z hornin a z potrubí. Ve vyšších hodnotách zbarvuje vodu do žluta až hněda, dává jí kovovou chuť a po praní zanechává skvrny na prádle. Jde hlavně o vzhled a chuť vody, ne o přímé zdravotní riziko.",
+      "Abioseston": "Neživé částice (například zbytky rzi, písek nebo úlomky organického původu), které se ve vodě objeví při mikroskopickém vyšetření. Uvádí se jako podíl v mikroskopickém obrazu. Vysoký podíl ukazuje na nečistoty z potrubí nebo z úpravy vody.",
+      "Absorbance": "Míra, do jaké voda pohlcuje světlo. Vyšší hodnota obvykle znamená více rozpuštěných organických látek, například huminových látek z půdy. Pro tento ukazatel protokoly limit neuvádějí.",
+      "Amonné ionty": "Sloučenina dusíku, která vzniká rozkladem organických látek. Ve vodě může být přirozeně, ale zvýšená hodnota bývá znamením čerstvého znečištění, například z odpadních vod. V pitné vodě je přípustné jen malé množství.",
+      "Barva": "Zabarvení vody, které se měří porovnáním s platinovou stupnicí (mg/l Pt). Způsobují ho nejčastěji huminové látky z půdy nebo železo a mangan. Čistá pitná voda je bezbarvá, vyšší hodnota proto hlavně zhoršuje vzhled vody.",
+      "Bor": "Prvek, který se do vody dostává z hornin a z některých pracích a čisticích prostředků. Ve vyšších koncentracích je zdraví nebezpečný, a proto má stanovenou nejvyšší mezní hodnotu.",
+      "Clostridium perfringens": "Bakterie ze střev lidí a zvířat, která tvoří odolné spory. Ty ve vodě přežívají dlouho a odolávají chloru, takže nález ukazuje na fekální znečištění i tehdy, když už vzniklo dávno.",
+      "Dusitany": "Meziprodukt přeměny dusíkatých látek ve vodě. Jsou toxičtější než dusičnany, protože brání přenosu kyslíku v krvi. Jejich zvýšená hodnota ukazuje na nedokonalý rozklad nebo na znečištění, proto má pro ně pitná voda přísný limit.",
+      "Fluoridy": "Sloučeniny fluoru, které se do vody dostávají z hornin. V malém množství prospívají zubní sklovině, ve větším poškozují zuby a kosti. Proto je stanovená nejvyšší mezní hodnota.",
+      "Hliník": "Prvek přirozeně přítomný v horninách. Do pitné vody se může dostat také z úpravy, protože sloučeniny hliníku se používají k vyčeření (srážení nečistot). Vyšší hodnoty zakalují vodu a vytvářejí usazeniny.",
+      "Hořčík": "Přirozená složka vody, která spolu s vápníkem určuje její tvrdost. Je to důležitý minerál pro lidský organismus. V protokolech se u něj sleduje minimální hodnota, ne maximální.",
+      "Chloridy": "Soli, které se do vody dostávají z hornin, ale také ze solení silnic nebo odpadních vod. Vyšší hodnoty dávají vodě slanou chuť a podporují korozi potrubí.",
+      "CHSK - Mn": "Chemická spotřeba kyslíku stanovená manganistanem draselným. Ukazuje, kolik organických látek je ve vodě, protože čím víc jich je, tím víc kyslíku se spotřebuje. Vyšší hodnota znamená víc organických látek a bývá znamením znečištění nebo zhoršené úpravy.",
+      "Intestinální enterokoky": "Bakterie ze střev lidí a zvířat, odolnější než Escherichia coli. Jejich nález ukazuje na fekální znečištění a v pitné vodě se nesmí vyskytovat.",
+      "KNK 4,5": "Kyselinová neutralizační kapacita: kolik kyseliny dokáže voda zneutralizovat, než se výrazně změní její pH. Určují ji hlavně hydrogenuhličitany. Čím vyšší hodnota, tím stabilnější pH vody; souvisí s její tvrdostí a s korozivními vlastnostmi.",
+      "Mangan": "Prvek podobný železu. Ve vyšších hodnotách zbarvuje vodu a vytváří černé usazeniny v potrubí a na armaturách, dává také kovovou chuť. Zdravotně je významný až ve velkých množstvích, v pitné vodě jde hlavně o vzhled a chuť.",
+      "Mikroskop. obraz - počet org": "Počet organismů (například řas, prvoků nebo drobných živočichů) v 1 ml vody při pohledu mikroskopem. Ukazuje, jestli se ve vodě nenamnožil plankton nebo jiný život z povrchové vody či vodojemu.",
+      "Mikroskop. obraz - živé org": "Z organismů nalezených mikroskopem jde jen o živé jedince. V pitné vodě by žádné živé organismy být neměly. Jejich přítomnost ukazuje na nedostatečnou filtraci nebo na zásah zvenčí do vodojemu či potrubí.",
+      "Počty kolonií při 22°C": "Celkový počet bakterií, které z 1 ml vody vyrostou při 22 °C. Jsou to hlavně běžné vodní bakterie a nejsou samy o sobě nebezpečné. Prudký nárůst ale ukazuje na změnu v rozvodu nebo ve vodojemu, například usazeniny či špatnou dezinfekci.",
+      "Počty kolonií při 36°C": "Počet bakterií, které z 1 ml vody vyrostou při 36 °C, tedy při teplotě lidského těla. Patří sem i bakterie, které žijí v lidech a zvířatech, takže tento ukazatel je citlivější na znečištění z těchto zdrojů než kolonie při 22 °C.",
+      "Sírany": "Soli kyseliny sírové, které se do vody dostávají z hornin a z průmyslu. Ve vyšších hodnotách dávají vodě hořkou chuť a mohou mít projímavé účinky.",
+      "Suma vápníku a hořčíku": "Součet vápníku a hořčíku, tedy tvrdost vody. Doporučené rozmezí je 2,0 až 3,5 mmol/l. Tvrdší voda zanechává vodní kámen na topných tělesech a nádobí, měkká voda je naopak agresivnější k potrubí.",
+      "Vápník": "Přirozená složka vody a hlavní příčina její tvrdosti. Pro lidský organismus je to důležitý minerál. V protokolech se u něj sleduje minimální hodnota, což znamená, že voda má obsahovat alespoň určité množství.",
+      "ZNK 8,3": "Zásadová neutralizační kapacita: kolik zásady dokáže voda zneutralizovat. Souvisí hlavně s obsahem rozpuštěného oxidu uhličitého a s agresivitou vody vůči potrubí. Čím vyšší hodnota, tím agresivnější je voda k potrubí. Pro tento ukazatel protokoly limit neuvádějí."
+    };
+    var VYKLAD_N = {};
+    Object.keys(VYKLAD).forEach(function (k) { VYKLAD_N[k.replace(/\u00a0/g, ' ')] = VYKLAD[k]; });
+    var LIMIT_DRUH = {NMH: 'nejvyšší mezní hodnota', MH: 'mezní hodnota', DH: 'doporučená hodnota'};
+    function rLimitText(sm, name) {
+      for (var i = 0; i < sm.length; i++) {
+        var p = sm[i].params[name];
+        if (!p || !p.limit) continue;
+        var m = /^(.*?)\s*(NMH|MH|DH)\b/.exec(p.limit.replace(/^(max|min)\.\s*/, '$1. '));
+        if (!m) continue;
+        var u = p.u ? ' ' + p.u : '';
+        return m[1].replace(/\s+/g, ' ').trim() + u + ' (' + LIMIT_DRUH[m[2]] + ')';
+      }
+      return '';
+    }
     function rDatum(s) {
       var p = s.date.split('-');
       if (p.length === 2) return MESICE[+p[1] - 1] + ' ' + p[0];
@@ -232,14 +312,20 @@
       return '';
     }
     function rLimit(sm, name) {
-      var vals = {};
+      // limit z nejnovějšího protokolu, který ho uvádí: {min, max, kind}; jinak null
+      var res = null;
+      function num(x) { return parseFloat(x.replace(',', '.')); }
       sm.forEach(function (s) {
         var p = s.params[name];
-        var m = p && p.limit && /^max\.\s*([\d,]+)/.exec(p.limit);
-        if (m) vals[m[1]] = 1;
+        var l = p && p.limit && p.limit.replace(/\u00a0/g, ' ').trim();
+        if (!l || res) return;
+        var kind = /DH\s*$/.test(l) ? 'DH' : 'MH';
+        var m;
+        if ((m = /^max\.?\s*([\d,]+)/.exec(l))) res = {max: num(m[1]), kind: kind};
+        else if ((m = /^min\.?\s*([\d,]+)/.exec(l))) res = {min: num(m[1]), kind: kind};
+        else if ((m = /^([\d,]+)\s*-\s*([\d,]+)/.exec(l))) res = {min: num(m[1]), max: num(m[2]), kind: kind};
       });
-      var k = Object.keys(vals);
-      return k.length === 1 ? parseFloat(k[0].replace(',', '.')) : null;
+      return res;
     }
     function rViditelne() {
       return RZ.samples;
@@ -253,8 +339,9 @@
       var rokOd = new Date(Math.min.apply(null, RZ.samples.map(rCas))).getUTCFullYear();
       var rokDo = Math.max(new Date().getFullYear(), new Date(Math.max.apply(null, RZ.samples.map(rCas))).getUTCFullYear());
       t0 = Date.UTC(rokOd, 0, 1); t1 = Date.UTC(rokDo + 1, 0, 1);
-      if (lim != null) max = Math.max(max, lim);
+      if (lim && lim.max != null) max = Math.max(max, lim.max);
       if (max <= 0) max = 1;
+      max *= 1.1; // rezerva nad největší hodnotou i limitem: horní konec osy je vždy výš než limit
       var mag = Math.pow(10, Math.floor(Math.log(max) / Math.LN10));
       var step = [1, 2, 2.5, 5, 10].map(function (f) { return f * mag; }).filter(function (x) { return max / x <= 6; })[0] || mag * 10;
       var top = Math.ceil(max / step - 1e-9) * step;
@@ -271,9 +358,21 @@
           '<text x="' + (X(tx) + (X(Date.UTC(yr + 1, 0, 1)) - X(tx)) / 2) + '" y="' + (H - 12) + '" text-anchor="middle" fill="var(--ink-soft)">' + yr + '</text>';
       }
       out += '<line x1="' + X(t1) + '" x2="' + X(t1) + '" y1="' + (H - B) + '" y2="' + (H - B + 4) + '" stroke="var(--ink-soft)"/>';
-      if (lim != null) {
-        out += '<line x1="' + L + '" x2="' + (W - R) + '" y1="' + Y(lim) + '" y2="' + Y(lim) + '" stroke="var(--burgundy)" stroke-dasharray="6 4"/>' +
-          '<text x="' + (W - R) + '" y="' + (Y(lim) - 5) + '" text-anchor="end" fill="var(--burgundy)">limit ' + String(lim).replace('.', ',') + '</text>';
+      if (lim) {
+        function cz(n) { return String(n).replace('.', ','); }
+        var lc = 'var(--burgundy)', xr = W - R;
+        var rozsah = lim.min != null && lim.max != null;
+        if (rozsah) {
+          out += '<rect x="' + L + '" y="' + Y(lim.max) + '" width="' + (xr - L) + '" height="' + (Y(lim.min) - Y(lim.max)) + '" fill="var(--field)" opacity="0.14"/>';
+        }
+        if (lim.max != null) {
+          out += '<line x1="' + L + '" x2="' + xr + '" y1="' + Y(lim.max) + '" y2="' + Y(lim.max) + '" stroke="' + lc + '" stroke-dasharray="6 4"/>' +
+            '<text x="' + xr + '" y="' + (Y(lim.max) - 5) + '" text-anchor="end" fill="' + lc + '">' + (lim.kind === 'DH' ? 'doporučené maximum ' : rozsah ? 'maximum ' : 'limit ') + cz(lim.max) + '</text>';
+        }
+        if (lim.min != null) {
+          out += '<line x1="' + L + '" x2="' + xr + '" y1="' + Y(lim.min) + '" y2="' + Y(lim.min) + '" stroke="' + lc + '" stroke-dasharray="6 4"/>' +
+            '<text x="' + xr + '" y="' + (Y(lim.min) + 14) + '" text-anchor="end" fill="' + lc + '">' + (lim.kind === 'DH' ? 'doporučené minimum ' : 'minimum ') + cz(lim.min) + '</text>';
+        }
       }
       var unit = rUnit(sm, name);
       out += '<text x="' + L + '" y="' + (T - 8) + '" fill="var(--ink-soft)">' + esc(name) + (unit ? ' (' + esc(unit) + ')' : '') + '</text>';
@@ -286,14 +385,16 @@
       }
       RZ.mista.forEach(function (m, i) {
         var mp = pts.filter(function (s) { return s.misto === m; }).sort(function (a, b) { return rCas(a) - rCas(b); });
-        var c = BARVY[i % BARVY.length];
+        var c = 'var(--ink-soft)';
         for (var k = 1; k < mp.length; k++) {
           out += '<line x1="' + X(rCas(mp[k - 1])) + '" y1="' + Y(mp[k - 1].params[name].v) + '" x2="' + X(rCas(mp[k])) + '" y2="' + Y(mp[k].params[name].v) + '" stroke="' + c + '" stroke-width="1.5" opacity="0.55"/>';
         }
         mp.forEach(function (s) {
           var p = s.params[name], less = p.op === '<';
-          out += '<circle cx="' + X(rCas(s)) + '" cy="' + Y(p.v) + '" r="4.5" fill="' + (less ? 'var(--paper, #fff)' : c) + '" stroke="' + c + '" stroke-width="2"><title>' +
-            esc(s.misto) + ', ' + rDatum(s) + ': ' + rHod(p) + (unit ? ' ' + esc(unit) : '') + '</title></circle>';
+          var pc = p.ok === false ? R_CERVENA : p.ok === true ? R_ZELENA : c;
+          var stav = p.ok === false ? ' – mimo limit' : p.ok === true ? ' – v normě' : '';
+          out += '<circle cx="' + X(rCas(s)) + '" cy="' + Y(p.v) + '" r="4.5" fill="' + (less ? 'var(--paper, #fff)' : pc) + '" stroke="' + pc + '" stroke-width="2"><title>' +
+            esc(s.misto) + ', ' + rDatum(s) + ': ' + rHod(p) + (unit ? ' ' + esc(unit) : '') + stav + '</title></circle>';
         });
       });
       return out + '</svg>';
@@ -304,8 +405,16 @@
       document.getElementById('rozbory-graf-nadpis').textContent =
         ps[0] + (rUnit(RZ.samples, ps[0]) ? ' (' + rUnit(RZ.samples, ps[0]) + ')' : '');
       document.getElementById('rozbory-graf').innerHTML = rGraf(sm, ps[0]);
-      document.getElementById('rozbory-legenda').innerHTML = '<span>Prázdný bod = hodnota pod mezí stanovitelnosti (&lt;)</span>';
+      function tecka(c) { return '<span style="display:inline-block;width:10px;height:10px;border-radius:50%;background:' + c + ';margin-right:6px;"></span>'; }
+      document.getElementById('rozbory-legenda').innerHTML = '<span>' + tecka(R_ZELENA) + 'V normě</span><span>' + tecka(R_CERVENA) + 'Mimo limit nebo doporučený rozsah</span>' +
+        (sm.some(function (s) { return s.params[ps[0]] && s.params[ps[0]].ok == null; }) ? '<span>' + tecka('var(--ink-soft)') + 'Bez limitu v protokolu</span>' : '') +
+        '<span>Prázdný bod = hodnota pod mezí stanovitelnosti (&lt;)</span>';
       document.getElementById('rozbory-param').value = ps[0];
+      var vyk = document.getElementById('rozbory-vyklad');
+      var lim = rLimitText(RZ.samples, ps[0]);
+      var txt = VYKLAD_N[ps[0].replace(/\u00a0/g, ' ')];
+      vyk.hidden = !txt;
+      vyk.innerHTML = txt ? '<strong>' + esc(ps[0]) + ':</strong> ' + esc(txt) + (lim ? ' Limit podle protokolů: ' + esc(lim) + '.' : '') : '';
       var cols = JADRO.slice();
       ps.forEach(function (n) { if (cols.indexOf(n) < 0) cols.push(n); });
       document.getElementById('rozbory-hlavicka').innerHTML = '<tr><th>Datum odběru</th><th>Dokument</th>' + cols.map(function (c) {
@@ -327,7 +436,7 @@
       pn.innerHTML = (hasApprox ? '* U protokolů z let 2017–2019 není na zveřejněné straně uvedeno datum odběru; je uveden měsíc z názvu dokumentu a v grafu je bod položen na 15. den měsíce.<br>' : '') +
         'Červeně jsou hodnoty, které protokol vyhodnotil jako nevyhovující vyhlášce č. 252/2004 Sb.; sloupec „Mimo limit“ vypisuje všechny takové ukazatele z protokolu. Protokoly obsahují i další ukazatele (kovy, pesticidy, organické látky), úplný výčet je v PDF.';
       document.getElementById('rozbory-tabulka-nadpis').firstChild.nodeValue = 'Přehled protokolů (' + sm.length + ') ';
-      document.getElementById('rozbory-status').textContent = sm.length + ' ' + (sm.length === 1 ? 'protokol' : sm.length < 5 ? 'protokoly' : 'protokolů') + ' od ' + rDatum(RZ.samples[RZ.samples.length - 1]) + ' do ' + rDatum(RZ.samples[0]);
+      document.getElementById('rozbory-status').textContent = 'Protokoly od roku ' + RZ.samples[RZ.samples.length - 1].date.slice(0, 4);
     }
     fetch('/voda/rozbory.json').then(function (r) { return r.json(); }).then(function (d) {
       RZ.samples = d.samples.filter(function (x) { return x.misto === MISTO; });
@@ -339,7 +448,7 @@
         return (ia < 0 ? 99 : ia) - (ib < 0 ? 99 : ib) || a.localeCompare(b, 'cs');
       });
       var sel = document.getElementById('rozbory-param');
-      sel.innerHTML = RZ.dostupne.map(function (k) { return '<option>' + esc(k) + '</option>'; }).join('');
+      sel.innerHTML = RZ.dostupne.map(function (k) { return '<option value="' + esc(k) + '">' + esc(k) + '</option>'; }).join('');
       sel.addEventListener('change', function () { RZ.params = [sel.value]; rVykresli(); });
       document.getElementById('rozbory-predchozi').addEventListener('click', function () {
         RZ.params = [RZ.dostupne[(RZ.dostupne.indexOf(RZ.params[0]) - 1 + RZ.dostupne.length) % RZ.dostupne.length]];
