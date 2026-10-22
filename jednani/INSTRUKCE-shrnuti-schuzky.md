@@ -45,7 +45,7 @@ o jiný odkaz. Když záznam existuje jen s pozvánkou (bez zápisu,
 `resolutions` prázdné), shrnout jen program a výslovně uvést, že zápis
 ještě není zveřejněn.
 
-Banner „Z rady města“ na Domů zobrazí i radu, která má jen Pozvánku: u ní
+Bannery „Z rady města“ a „Ze zastupitelstva“ na Domů zobrazí i jednání, které má jen Pozvánku: u ní
 je nad tlačítkem poznámka „Vybrané body z pozvánky. Zápis zatím není
 k dispozici.“ (generuje build podle chybějícího `links.minutes`). Po
 doplnění zápisu se shrnutí **celé přepíše** podle zápisu (stejný soubor,
@@ -247,16 +247,24 @@ Rada města 36/2026 (12. 10. 2026) — viz záznam
 Shrnutí se **nezobrazuje** v detailu jednání v sekci Jednání (tam je
 program, usnesení a zápis). Využívá se jen takto:
 
-- **Rada města:** soubor `{datum}-rada.md` se zobrazí v banneru **„Z rady
-  města“** na Domů (blok *Nejdůležitější témata*, tlačítko **Detail jednání**
-  → `/jednani/#rada-RRRR-MM-DD`, odkaz „všechna jednání rady“ → `/jednani/#rada`).
-  Banner generuje `_dash_rada_shrnuti()` v `scripts/build.py`: bere všechny
-  Rady se zápisem (`links.minutes`) a souborem shrnutí, nejnovější první;
-  šipky v záhlaví listují ke starším. V HTML Domů je 5 nejnovějších, ostatní
-  se při listování načtou z `jednani/rada-shrnuti.json` (generuje build,
-  needitovat). Po vytvoření souboru stačí `python3 scripts/build.py` a
-  kontrola Domů screenshotem. Shrnutí jsou k dispozici pro všechna jednání
-  rady se zápisem (od 12. 4. 2021).
+- **Rada města a zastupitelstvo:** soubory `{datum}-rada.md` a
+  `{datum}-zastupitelstvo.md` se zobrazí v bannerech **„Z rady města“**
+  (bordó) a **„Ze zastupitelstva“** (modrý) na Domů (blok *Nejdůležitější témata*,
+  tlačítko s číslem jednání → `/jednani/#rada-RRRR-MM-DD` resp.
+  `#zastupitelstvo-RRRR-MM-DD`, odkaz „Všechna jednání“). Oba bannery jsou v levém
+  sloupci mřížky Domů pod sebou, **nahoře je ten s novějším jednáním** (podle
+  data konání). Generuje je `_dash_shrnuti()` v `scripts/build.py`; šipky v záhlaví
+  listují ke starším jednáním. V HTML Domů je 5 nejnovějších, ostatní se při
+  listování načtou z `jednani/rada-shrnuti.json` / `zm-shrnuti.json` (generuje
+  build, needitovat). Po vytvoření souboru stačí `python3 scripts/build.py`.
+  - **Budoucí jednání a jednání jen s pozvánkou:** nemá-li jednání zápis
+    (`links.minutes`) ani soubor shrnutí, build samo vezme první věcné body programu
+    z pozvánky (`agenda[]`, bez rutinních bodů) a slide označí chipem „za N dní“
+    a poznámkou „Vybrané body z pozvánky“. Soubor shrnutí z pozvánky psát jen
+    tehdy, když má být výběr témat kurátorský; po doplnění zápisu se shrnutí
+    napíše (nebo přepíše) podle zápisu.
+  - Shrnutí pro zastupitelstvo jsou zatím psaná pro jednání 4/2026 až 7/2026
+    (24. 6.–7. 10. 2026); starší zastupitelstva se v banneru nezobrazují.
 - **PečkyBot (všechna jednání):** `python3 scripts/build.py` načte každý
   soubor `jednani/shrnuti/*.md` do znalostí PečkyBota — fulltext
   (`chunks_shrnuti()` v `scripts/peckybot_sources.py`, úryvky „Shrnutí
@@ -265,7 +273,7 @@ program, usnesení a zápis). Využívá se jen takto:
   `scripts/build_peckybot_tools.py`). Nic se nedělá ručně; stačí soubor
   uložit se správným názvem (§1b) a pustit build. Závěrečná kurzívní
   poznámka o zdroji se do PečkyBota nepřenáší.
-- **Ostatní jednání** (zastupitelstvo, výbory, komise, ŠR): na webu se
+- **Ostatní jednání** (výbory, komise, ŠR): na webu se
   shrnutí zatím nezobrazuje, jen se předá PečkyBotovi (viz výše).
 
 Vizuálně je to sdílený `.banner` (výchozí bordó, v levém sloupci mřížky Domů nad Pečeckými novinami, seznam

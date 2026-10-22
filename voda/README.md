@@ -80,6 +80,15 @@ Stránka `/voda/` má pod ceníkem a rozbory dvě záložky (`.subtabs`, hash
 `#upravna` a `#vodojem`), obě se vykreslují stejnou funkcí `blok()` v
 `content/voda.html`.
 
+## Data: `havarie-odstavky-vody.json`
+Havárie, odstávky a omezení dodávky pitné vody z Facebooku města (od
+1. 12. 2018 do 16. 9. 2026, 54 událostí, 63 příspěvků). Struktura je v
+`meta.pole` souboru. Soubor zatím nemá vykreslení na stránce `/voda/`.
+Doplňuje se při měsíčním monitoringu Facebooku (krok 7 v
+`o-webu/facebook-monitoring/README.md`) — nové události se zapisují bez
+dotazu, opakovaná oznámení se slučují. Pokrytí starších let (2018–2024) je
+řidší než 2025–2026; úřední deska odstávky vody neobsahuje (jen elektřiny).
+
 ## Postup práce
 Obecná pravidla (needitovat vygenerovaný `voda/index.html`, upravit
 `content/voda.html` a spustit `python3 scripts/build.py`) jsou v

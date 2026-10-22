@@ -1,0 +1,1468 @@
+{
+ "meta": {
+  "popis": "Havárie vodovodu, odstávky a omezení dodávky pitné vody v Pečkách a místních částech. Jedna událost = jedna odstávka nebo havárie; opakovaná oznámení téže události jsou sloučena ve `zdroje`.",
+  "zdroj": "Facebook města Pečky (facebook.com/mestopecky), příspěvky převzaté z monitoringu Facebooku (o-webu/facebook-monitoring/facebook-mestopecky/); sdílené příspěvky Pečeckých služeb jen s krátkým textem.",
+  "rozsah_od": "2018-12-01",
+  "rozsah_do": "2026-09-16",
+  "pokryti": "Jen to, co se objevilo na Facebooku města; starší roky (2018–2024) jsou řidší než 2025–2026. Hledání podle klíčových slov, příspěvky bez nich mohly uniknout. Elektřina, plyn a dopravní uzavírky se nezapisují.",
+  "pole": {
+   "datum": "den odstávky/havárie (ne vždy den publikace příspěvku)",
+   "typ": "havarie = oprava havárie/poruchy; planovana = plánovaná práce (napojení, montáž armatur); odstavka = odstávka bez uvedené příčiny nebo plánu; omezeni = omezení užívání vody bez přerušení dodávky",
+   "lokality": "pecky-jih | pecky-sever | bacov | velke-chvalovice | milcice (označení z příspěvků; Bačov leží v Pečkách-sever); prázdné = v příspěvku neuvedeno",
+   "dotcene_ulice": "ulice a místa v pořadí a znění příspěvku",
+   "misto_poruchy": "kde se závada opravovala, je-li uvedeno",
+   "od/do": "čas HH:MM z oznámení; do_odhad=true, když příspěvek uvádí „cca“ nebo „předpokládaná“ doba",
+   "skupina": "společný identifikátor více dní téže události",
+   "zdroje": "příspěvky na Facebooku města (url, den publikace)"
+  }
+ },
+ "udalosti": [
+  {
+   "id": "2018-12-01-1",
+   "datum": "2018-12-01",
+   "typ": "havarie",
+   "lokality": [
+    "pecky-sever"
+   ],
+   "dotcene_ulice": [],
+   "misto_poruchy": "roh ulic Sladkovského a Přemyslova",
+   "pricina": "Prasklý vodovod",
+   "od": "07:30",
+   "do": "14:00",
+   "do_odhad": true,
+   "poznamka": "Celé Pečky-sever; příspěvek vyšel 30. 11. 2018 s tím, že se začne kopat v sobotu ráno. Později doplněno, že závada byla nalezena a téměř opravena.",
+   "skupina": null,
+   "zdroje": [
+    {
+     "id": "444082482787217",
+     "url": "https://www.facebook.com/mestopecky/posts/pfbid02V3YiLVZfZLG3NVaPxJeg6mMwXydkv3zjErASHj9tb3NnrKLyQYnMSh2CuTfGLjW6l",
+     "publikovano": "2018-11-30",
+     "popis": "Oprava havárie vody v Pečkách sever"
+    }
+   ]
+  },
+  {
+   "id": "2019-02-06-1",
+   "datum": "2019-02-06",
+   "typ": "havarie",
+   "lokality": [
+    "pecky-jih"
+   ],
+   "dotcene_ulice": [],
+   "misto_poruchy": "ul. K. H. Máchy",
+   "pricina": "Oprava havárie vody",
+   "od": "08:00",
+   "do": null,
+   "do_odhad": false,
+   "poznamka": null,
+   "skupina": null,
+   "zdroje": [
+    {
+     "id": "478872369308228",
+     "url": "https://www.facebook.com/mestopecky/posts/pfbid02hwxthNmBgGVwoLsYdxAH3bH7J65Jde5rkCi8gma4aB7EkZD75ToLYZa9HHrpMuELl",
+     "publikovano": "2019-02-04",
+     "popis": "Havárie vody: přerušení dodávky 6. 2."
+    }
+   ]
+  },
+  {
+   "id": "2019-02-13-1",
+   "datum": "2019-02-13",
+   "typ": "havarie",
+   "lokality": [
+    "velke-chvalovice"
+   ],
+   "dotcene_ulice": [],
+   "misto_poruchy": null,
+   "pricina": "Oprava havárie vody",
+   "od": "08:00",
+   "do": "12:00",
+   "do_odhad": false,
+   "poznamka": "Cisterna s pitnou vodou přistavena u bývalého obchodu Olinka.",
+   "skupina": null,
+   "zdroje": [
+    {
+     "id": "483489748846490",
+     "url": "https://www.facebook.com/mestopecky/posts/pfbid06nMfULbK38ZAWXc4QH5S87qiDQhfiLm1cf46GryaBFYrxFQuudpkPJjCYTHH5GXjl",
+     "publikovano": "2019-02-13",
+     "popis": "Bez vody ve Velkých Chvalovicích"
+    }
+   ]
+  },
+  {
+   "id": "2019-04-09-1",
+   "datum": "2019-04-09",
+   "typ": "havarie",
+   "lokality": [
+    "pecky-jih"
+   ],
+   "dotcene_ulice": [],
+   "misto_poruchy": null,
+   "pricina": "Havárie vody; voda uzavřena",
+   "od": null,
+   "do": null,
+   "do_odhad": false,
+   "poznamka": "Příspěvek doplněn: „VODA TEČE!“.",
+   "skupina": null,
+   "zdroje": [
+    {
+     "id": "510426439486154",
+     "url": "https://www.facebook.com/mestopecky/posts/pfbid02mZeXgVrU9MbrPSWK7j2P5AoKBFfneb1CizKYQnXrhZoFDp5azXMCd8C6bPA8Y4Ndl",
+     "publikovano": "2019-04-09",
+     "popis": "Havárie vody v lokalitě Pečky jih: voda teče"
+    }
+   ]
+  },
+  {
+   "id": "2019-07-03-1",
+   "datum": "2019-07-03",
+   "typ": "planovana",
+   "lokality": [
+    "pecky-jih"
+   ],
+   "dotcene_ulice": [
+    "pravá strana od vodojemu přes Masarykovo náměstí k Policii ČR (městský úřad, zdravotní středisko, mateřská školka)"
+   ],
+   "misto_poruchy": null,
+   "pricina": "Oprava havarijního stavu vodovodní sítě využitím probíhající rekonstrukce krajské komunikace",
+   "od": "08:00",
+   "do": "12:00",
+   "do_odhad": false,
+   "poznamka": null,
+   "skupina": null,
+   "zdroje": [
+    {
+     "id": "556215638240567",
+     "url": "https://www.facebook.com/mestopecky/posts/pfbid0QPMzkKFQCpicGZWE6K9UQ5cgjEvG9yRSQ4fPZW7hwHqgkyYUwyP4XLdbGbxdHwy9l",
+     "publikovano": "2019-06-30",
+     "popis": "Přerušení dodávky pitné vody 3. 7."
+    }
+   ]
+  },
+  {
+   "id": "2019-10-04-1",
+   "datum": "2019-10-04",
+   "typ": "odstavka",
+   "lokality": [
+    "pecky-jih"
+   ],
+   "dotcene_ulice": [],
+   "misto_poruchy": "ul. Tř. 5. května",
+   "pricina": "Oprava vodovodní přípojky",
+   "od": "08:00",
+   "do": "12:00",
+   "do_odhad": false,
+   "poznamka": null,
+   "skupina": null,
+   "zdroje": [
+    {
+     "id": "612140289314768",
+     "url": "https://www.facebook.com/mestopecky/posts/pfbid0K9kxYu5wLTtHPgJLEnHRzUDqyzZZdmk9rg6WdWd73RB16jQgqCtPB7yLih5XGtUPl",
+     "publikovano": "2019-10-03",
+     "popis": "Přerušení dodávky vody 4. 10. v lokalitě Pečky jih"
+    }
+   ]
+  },
+  {
+   "id": "2020-04-06-1",
+   "datum": "2020-04-06",
+   "typ": "havarie",
+   "lokality": [
+    "pecky-sever",
+    "bacov"
+   ],
+   "dotcene_ulice": [
+    "Bačov",
+    "sídliště",
+    "Nymburská",
+    "Poděbradova",
+    "Hálkova",
+    "Prokopa Holého",
+    "Lobňanská"
+   ],
+   "misto_poruchy": "ul. Jeronýmova",
+   "pricina": "Havárie vody",
+   "od": "08:00",
+   "do": null,
+   "do_odhad": false,
+   "poznamka": "Spodní část města od Policie ČR ke kamenoprůmyslu.",
+   "skupina": null,
+   "zdroje": [
+    {
+     "id": "749710995557696",
+     "url": "https://www.facebook.com/mestopecky/posts/pfbid0NHA4pmLhCUULG3fAYLhVufAfD1MHBddkvtSQKHMuNFfmhuyXAPehybgPjQxz7PGXl",
+     "publikovano": "2020-04-06",
+     "popis": "Přerušení dodávky pitné vody ve spodní části města"
+    }
+   ]
+  },
+  {
+   "id": "2020-04-23-1",
+   "datum": "2020-04-23",
+   "typ": "havarie",
+   "lokality": [
+    "pecky-sever",
+    "bacov"
+   ],
+   "dotcene_ulice": [
+    "náměstí (část)",
+    "od stanice Policie ČR: Bačov, sídliště, od ul. Chvalovická po ul. Lobňanská"
+   ],
+   "misto_poruchy": "vodovodní řad v ul. Jiřího z Poděbrad",
+   "pricina": "Oprava havarijního stavu",
+   "od": "10:00",
+   "do": "12:30",
+   "do_odhad": true,
+   "poznamka": null,
+   "skupina": null,
+   "zdroje": [
+    {
+     "id": "761267737735355",
+     "url": "https://www.facebook.com/mestopecky/posts/pfbid02dnHLYsXwCFvKBoS6j9SDZLaYfatfHdF2t3Cfs7BNjUdhygjvGAvZeKDdofzfiPLkl",
+     "publikovano": "2020-04-23",
+     "popis": "Uzavírka vody kvůli opravě havarijního stavu"
+    }
+   ]
+  },
+  {
+   "id": "2020-12-22-1",
+   "datum": "2020-12-22",
+   "typ": "havarie",
+   "lokality": [
+    "pecky-jih"
+   ],
+   "dotcene_ulice": [],
+   "misto_poruchy": null,
+   "pricina": "Havárie vody; dodávka ihned uzavřena",
+   "od": null,
+   "do": "15:00",
+   "do_odhad": true,
+   "poznamka": null,
+   "skupina": null,
+   "zdroje": [
+    {
+     "id": "935044680357659",
+     "url": "https://www.facebook.com/mestopecky/posts/pfbid0NiGuS9HktLbdQaeMSnXR8KAPK91sYi2DYdapUk8CsYaK7eP69CUN7WZsV3tx9EAPl",
+     "publikovano": "2020-12-22",
+     "popis": "Havárie vody v lokalitě Pečky jih: dodávka vody uzavřena"
+    }
+   ]
+  },
+  {
+   "id": "2021-04-26-1",
+   "datum": "2021-04-26",
+   "typ": "havarie",
+   "lokality": [
+    "pecky-jih"
+   ],
+   "dotcene_ulice": [
+    "Barákova",
+    "Pod Drahou"
+   ],
+   "misto_poruchy": "vodovodní řad v ul. Pod Drahou",
+   "pricina": "Oprava havarijního stavu",
+   "od": "08:30",
+   "do": "12:00",
+   "do_odhad": false,
+   "poznamka": null,
+   "skupina": null,
+   "zdroje": [
+    {
+     "id": "1010021352859991",
+     "url": "https://www.facebook.com/mestopecky/posts/pfbid02dLj8ySvfxLVHBTEADV7FN2RCzn6FDr1t2aVx35HEGEsAs7Fwp3QUTgypqjtsTUeGl",
+     "publikovano": "2021-04-26",
+     "popis": "Odstávka vody 26. 4. kvůli opravě havarijního stavu"
+    }
+   ]
+  },
+  {
+   "id": "2021-05-20-1",
+   "datum": "2021-05-20",
+   "typ": "havarie",
+   "lokality": [
+    "pecky-jih"
+   ],
+   "dotcene_ulice": [],
+   "misto_poruchy": "vodovodní řad v ul. Sokolská",
+   "pricina": "Oprava havarijního stavu",
+   "od": "07:30",
+   "do": "12:00",
+   "do_odhad": false,
+   "poznamka": "Celá lokalita Pečky-jih.",
+   "skupina": null,
+   "zdroje": [
+    {
+     "id": "1023996084795851",
+     "url": "https://www.facebook.com/mestopecky/posts/pfbid02apPL1safwXZKHsmKBhT62EoHhYyZSk8gP5hE6tF7wv6gss65N9hZLjE5aC2tzLQ1l",
+     "publikovano": "2021-05-19",
+     "popis": "Odstávka vody v Pečkách Jih 20. 5."
+    }
+   ]
+  },
+  {
+   "id": "2021-08-18-1",
+   "datum": "2021-08-18",
+   "typ": "planovana",
+   "lokality": [
+    "velke-chvalovice"
+   ],
+   "dotcene_ulice": [
+    "Ke Hřišti",
+    "Jarní",
+    "Stará",
+    "Pražská",
+    "Krátká"
+   ],
+   "misto_poruchy": null,
+   "pricina": "Napojení nové výstavby na vodovodní řad",
+   "od": "08:00",
+   "do": "13:00",
+   "do_odhad": false,
+   "poznamka": "Od požární nádrže k fotbalovému hřišti.",
+   "skupina": null,
+   "zdroje": [
+    {
+     "id": "1078936449301814",
+     "url": "https://www.facebook.com/mestopecky/posts/pfbid0MQNePHkPfjP1PuLygJqe8pKtSi15vwHK6k8Ssce9SKC8m7x48qMRRPQ1RK2Cqmvvl",
+     "publikovano": "2021-08-16",
+     "popis": "Uzavírka vody ve Velkých Chvalovicích 18. 8."
+    }
+   ]
+  },
+  {
+   "id": "2022-06-19-1",
+   "datum": "2022-06-19",
+   "typ": "havarie",
+   "lokality": [],
+   "dotcene_ulice": [],
+   "misto_poruchy": null,
+   "pricina": "Silný pokles hladiny ve vodojemu, pravděpodobně větší trhlina na vodovodní síti",
+   "od": null,
+   "do": null,
+   "do_odhad": false,
+   "poznamka": "Bez úplného přerušení dodávky: hlášen velmi nízký tlak vody. Příčina poklesu hladiny zjištěna, oprava měla pokračovat následující den.",
+   "skupina": null,
+   "zdroje": [
+    {
+     "id": "1274857669709690",
+     "url": "https://www.facebook.com/mestopecky/posts/pfbid02DoVT6fLxZxzhVibQ9Nx8ayGD4jaJyzjSC74e3NeCYcDJnU1y6GtAYCmvyzRDjfXil",
+     "publikovano": "2022-06-19",
+     "popis": "Aktuální info o příčině poklesu hladiny vody"
+    }
+   ]
+  },
+  {
+   "id": "2022-06-20-1",
+   "datum": "2022-06-20",
+   "typ": "omezeni",
+   "lokality": [],
+   "dotcene_ulice": [],
+   "misto_poruchy": null,
+   "pricina": "Dočasné omezení užívání pitné vody vyhlášené společností Energie AG Kolín (jen pitné a hygienické účely; zákaz zalévání, napouštění bazénů, mytí aut)",
+   "od": null,
+   "do": null,
+   "do_odhad": false,
+   "poznamka": "Platilo od 20. 6. do 20. 9. 2022.",
+   "skupina": null,
+   "zdroje": [
+    {
+     "id": "1266406437221480",
+     "url": "https://www.facebook.com/photo/",
+     "publikovano": "2022-06-07",
+     "popis": "Omezení užívání pitné vody"
+    }
+   ],
+   "datum_do": "2022-09-20"
+  },
+  {
+   "id": "2022-07-07-1",
+   "datum": "2022-07-07",
+   "typ": "havarie",
+   "lokality": [
+    "pecky-jih"
+   ],
+   "dotcene_ulice": [],
+   "misto_poruchy": "vodovodní řad v ul. Na Varhánkách",
+   "pricina": "Havárie vody",
+   "od": null,
+   "do": null,
+   "do_odhad": false,
+   "poznamka": "Celá lokalita Pečky-jih.",
+   "skupina": null,
+   "zdroje": [
+    {
+     "id": "1286879625174161",
+     "url": "https://www.facebook.com/mestopecky/posts/pfbid02Lt7zSh9ZEgZbiphBRgg2DhfmQgQVBET96T4QsyVS2KJb5Bx9jyEDBDedzSwpdqvtl",
+     "publikovano": "2022-07-07",
+     "popis": "Havárie vody v ul. Na Varhánkách"
+    }
+   ]
+  },
+  {
+   "id": "2022-11-04-1",
+   "datum": "2022-11-04",
+   "typ": "havarie",
+   "lokality": [
+    "pecky-jih"
+   ],
+   "dotcene_ulice": [],
+   "misto_poruchy": "vodovodní řad v ul. Dělnická",
+   "pricina": "Oprava havarijního stavu",
+   "od": "08:00",
+   "do": "12:00",
+   "do_odhad": false,
+   "poznamka": "Celá lokalita Pečky-jih.",
+   "skupina": null,
+   "zdroje": [
+    {
+     "id": "669222101295467",
+     "url": "https://www.facebook.com/photo/",
+     "publikovano": "2022-11-04",
+     "popis": "Odstávka vody kvůli opravě havarijního stavu v ul. Dělnická"
+    }
+   ]
+  },
+  {
+   "id": "2022-12-27-1",
+   "datum": "2022-12-27",
+   "typ": "havarie",
+   "lokality": [
+    "pecky-sever"
+   ],
+   "dotcene_ulice": [],
+   "misto_poruchy": null,
+   "pricina": "Oprava havárie",
+   "od": "08:30",
+   "do": "12:30",
+   "do_odhad": false,
+   "poznamka": null,
+   "skupina": null,
+   "zdroje": [
+    {
+     "id": "717583956459281",
+     "url": "https://www.facebook.com/photo/",
+     "publikovano": "2022-12-26",
+     "popis": "Přerušení dodávky pitné vody 27. 12. kvůli havárii v oblasti Pečky sever"
+    }
+   ]
+  },
+  {
+   "id": "2023-01-31-1",
+   "datum": "2023-01-31",
+   "typ": "havarie",
+   "lokality": [
+    "pecky-jih"
+   ],
+   "dotcene_ulice": [],
+   "misto_poruchy": null,
+   "pricina": "Havárie vody",
+   "od": "13:15",
+   "do": "16:00",
+   "do_odhad": true,
+   "poznamka": null,
+   "skupina": null,
+   "zdroje": [
+    {
+     "id": "747276713490005",
+     "url": "https://www.facebook.com/mestopecky/posts/pfbid0qzHuJkjuQYY1DDvWGMyBiiafRL5gGpNrekiYmLbPuyCeh6qEYaokErFreRLzgDrel",
+     "publikovano": "2023-01-31",
+     "popis": "Havárie vody: uzavřený přívod v lokalitě"
+    }
+   ]
+  },
+  {
+   "id": "2023-02-06-1",
+   "datum": "2023-02-06",
+   "typ": "havarie",
+   "lokality": [
+    "pecky-sever"
+   ],
+   "dotcene_ulice": [],
+   "misto_poruchy": "ul. Jeronýmova",
+   "pricina": "Oprava havárie",
+   "od": "08:00",
+   "do": "11:00",
+   "do_odhad": false,
+   "poznamka": "Část Pečky-sever. V aktualizaci z 12:25: porucha opravena, dodávka obnovena (doporučeno zpočátku trochu vody odtočit).",
+   "skupina": null,
+   "zdroje": [
+    {
+     "id": "751793009705042",
+     "url": "https://www.facebook.com/mestopecky/posts/pfbid0D57sUV3fdaLjzFLJZaoAFHXjKcq7SZttDBaJ5ey22LgmdPZoigdrHo1FWhu5icgol",
+     "publikovano": "2023-02-05",
+     "popis": "Přerušení dodávky pitné vody kvůli havárii v ul. Jeronýmova (aktualizace)"
+    }
+   ]
+  },
+  {
+   "id": "2023-11-14-1",
+   "datum": "2023-11-14",
+   "typ": "odstavka",
+   "lokality": [
+    "pecky-jih"
+   ],
+   "dotcene_ulice": [],
+   "misto_poruchy": null,
+   "pricina": "Uzavření přívodu vody (hlášení městského rozhlasu)",
+   "od": "08:00",
+   "do": "12:00",
+   "do_odhad": false,
+   "poznamka": null,
+   "skupina": null,
+   "zdroje": [
+    {
+     "id": "946534630230878",
+     "url": "https://www.facebook.com/photo/",
+     "publikovano": "2023-11-14",
+     "popis": "Shrnutí hlášení městského rozhlasu (14. 11.)"
+    }
+   ]
+  },
+  {
+   "id": "2023-11-15-1",
+   "datum": "2023-11-15",
+   "typ": "odstavka",
+   "lokality": [
+    "pecky-sever"
+   ],
+   "dotcene_ulice": [],
+   "misto_poruchy": null,
+   "pricina": "Přerušení dodávky vody (hlášení městského rozhlasu)",
+   "od": "08:00",
+   "do": "12:00",
+   "do_odhad": false,
+   "poznamka": null,
+   "skupina": null,
+   "zdroje": [
+    {
+     "id": "946534630230878",
+     "url": "https://www.facebook.com/photo/",
+     "publikovano": "2023-11-14",
+     "popis": "Shrnutí hlášení městského rozhlasu (14. 11.)"
+    }
+   ]
+  },
+  {
+   "id": "2024-01-25-1",
+   "datum": "2024-01-25",
+   "typ": "havarie",
+   "lokality": [
+    "pecky-jih"
+   ],
+   "dotcene_ulice": [],
+   "misto_poruchy": "ul. Chaloupeckého",
+   "pricina": "Havárie",
+   "od": null,
+   "do": "13:00",
+   "do_odhad": true,
+   "poznamka": null,
+   "skupina": null,
+   "zdroje": [
+    {
+     "id": "993946972156310",
+     "url": "https://www.facebook.com/mestopecky/posts/pfbid02L87KB1zP72T94Z7ToYfzqmYRjPhVKHBnG4U97c7XxPR1sMBSYczumGWn6WXsySEil",
+     "publikovano": "2024-01-25",
+     "popis": "Porucha vody: uzavření vody 25. 1. v Pečkách-jih (ul. Chaloupeckého)"
+    }
+   ]
+  },
+  {
+   "id": "2024-02-10-1",
+   "datum": "2024-02-10",
+   "typ": "havarie",
+   "lokality": [
+    "pecky-sever"
+   ],
+   "dotcene_ulice": [
+    "od pošty kolem radnice",
+    "Třebízského až po roh ul. Bačovská"
+   ],
+   "misto_poruchy": "vodovodní přípojka, Masarykovo náměstí",
+   "pricina": "Havárie vodovodní přípojky",
+   "od": null,
+   "do": null,
+   "do_odhad": false,
+   "poznamka": "Odhadovaná doba opravy „cca do 12 hodin“ (uvedeno takto v příspěvku).",
+   "skupina": null,
+   "zdroje": [
+    {
+     "id": "1005570114327329",
+     "url": "https://www.facebook.com/mestopecky/posts/pfbid02VYNwPzpAeX3BzByEv4uSvVYEpFcZE7uyPxi9fVQFCs3WXUWHmadSsdErmtEfJcAdl",
+     "publikovano": "2024-02-10",
+     "popis": "Porucha vody 10. 2.: havárie přípojky na Masarykově náměstí"
+    }
+   ]
+  },
+  {
+   "id": "2024-03-01-1",
+   "datum": "2024-03-01",
+   "typ": "havarie",
+   "lokality": [],
+   "dotcene_ulice": [],
+   "misto_poruchy": null,
+   "pricina": "Havárie vody (sdílený příspěvek Pečeckých služeb bez podrobností)",
+   "od": null,
+   "do": null,
+   "do_odhad": false,
+   "poznamka": "Lokalita ani čas nejsou v příspěvku uvedeny.",
+   "skupina": null,
+   "zdroje": [
+    {
+     "id": "1018713046346369",
+     "url": "https://www.facebook.com/mestopecky/posts/pfbid02j6oPYB29zvkvVSwaydZn7c191DDSvVQgBqDpLitVma3CWNZufZxGrEuSHKiwCynGl",
+     "publikovano": "2024-03-01",
+     "popis": "Sdílený příspěvek profilu pececkesluzby: havárie vody",
+     "sdileno_z": "https://www.facebook.com/pececkesluzby/posts/pfbid04M3E85xwjA8E5v7PLxefCVHNmiKaTaooVMRKjPSKHVDwFke35ihSTbt9RmaievKFl"
+    }
+   ]
+  },
+  {
+   "id": "2024-05-26-1",
+   "datum": "2024-05-26",
+   "typ": "havarie",
+   "lokality": [],
+   "dotcene_ulice": [],
+   "misto_poruchy": null,
+   "pricina": "Porucha vody",
+   "od": null,
+   "do": "13:00",
+   "do_odhad": true,
+   "poznamka": "Lokalita není v příspěvku uvedena; obnovení dodávky předpokládáno do 13 hodin.",
+   "skupina": null,
+   "zdroje": [
+    {
+     "id": "1078236717060668",
+     "url": "https://www.facebook.com/mestopecky/posts/pfbid09z1og7HH71YaBCf1EkdwQi3adyArZJNTvfvjcTtqJkvbAmQ787h7taao2qRZNVT2l",
+     "publikovano": "2024-05-26",
+     "popis": "Porucha vody 26. 5.: obnovení dodávky se očekává do 13 hodin"
+    }
+   ]
+  },
+  {
+   "id": "2024-08-22-1",
+   "datum": "2024-08-22",
+   "typ": "havarie",
+   "lokality": [],
+   "dotcene_ulice": [],
+   "misto_poruchy": null,
+   "pricina": "Havárie vody (sdílený příspěvek Pečeckých služeb)",
+   "od": null,
+   "do": null,
+   "do_odhad": false,
+   "poznamka": "Lokalita ani čas nejsou v příspěvku uvedeny.",
+   "skupina": null,
+   "zdroje": [
+    {
+     "id": "1141044160779923",
+     "url": "https://www.facebook.com/mestopecky/posts/pfbid0351b5KBb4aSKpcJBGdRbNjb2t4SjvqVYQFyyjtMaB8zsdMxVDFoCyeMYqBs72PaWgl",
+     "publikovano": "2024-08-22",
+     "popis": "Sdílený příspěvek profilu pececkesluzby: havárie vody",
+     "sdileno_z": "https://www.facebook.com/pececkesluzby/posts/pfbid0N7Dc7rP135PCTnHPDYHPm4m6tPUThnoCYHWeAPi1YSjp9Kf8gpdWEzFitt6YEDUMl"
+    }
+   ]
+  },
+  {
+   "id": "2024-09-02-1",
+   "datum": "2024-09-02",
+   "typ": "odstavka",
+   "lokality": [
+    "bacov"
+   ],
+   "dotcene_ulice": [],
+   "misto_poruchy": null,
+   "pricina": "Odstávka vody na Bačově (sdílený příspěvek Pečeckých služeb)",
+   "od": null,
+   "do": null,
+   "do_odhad": false,
+   "poznamka": "Datum odstávky není ve sdíleném příspěvku uvedeno; vyšel 2. 9. 2024.",
+   "skupina": null,
+   "zdroje": [
+    {
+     "id": "1149476846603321",
+     "url": "https://www.facebook.com/mestopecky/posts/pfbid0eyJaWwnZWwhwrez22A1xSkL8BsnBc5LbyD5jRqdLAmvTyte6eTUNBtwEZFFmyJDpl",
+     "publikovano": "2024-09-02",
+     "popis": "Sdílený příspěvek profilu pececkesluzby: odstávka vody na Bačově",
+     "sdileno_z": "https://www.facebook.com/pececkesluzby/posts/pfbid02V132XqCrCyLRWDJFwFsmj755r8LVEvMVb7Pf8KSRpg7UeEGezaTRx5HGsMxGQ57Cl"
+    }
+   ]
+  },
+  {
+   "id": "2025-02-19-1",
+   "datum": "2025-02-19",
+   "typ": "havarie",
+   "lokality": [
+    "pecky-sever",
+    "bacov"
+   ],
+   "dotcene_ulice": [
+    "Třída Jana Švermy od stanice Policie ČR směrem na Kostelní Lhotu, Vrbovou Lhotu, Ratenice",
+    "okolí Hálkovy ulice",
+    "sídliště",
+    "Bačov",
+    "V Kaštánkách",
+    "Senior resort",
+    "náměstí (Potraviny – Uzeniny Jitro)"
+   ],
+   "misto_poruchy": "vodovodní řad v ul. Jiřího z Poděbrad",
+   "pricina": "Prasklý vodovod, rozsáhlejší havarijní stav",
+   "od": "08:30",
+   "do": "13:30",
+   "do_odhad": false,
+   "poznamka": null,
+   "skupina": "2025-02-jiriho-z-podebrad",
+   "zdroje": [
+    {
+     "id": "1283023323248672",
+     "url": "https://www.facebook.com/mestopecky/posts/pfbid0Ei2H8bupPMJak9iycskEDm3wpYSpJkSmSXC1u8gJhvtGu3WHkVFGu7E4UBRhJ9Ael",
+     "publikovano": "2025-02-19",
+     "popis": "Porucha vodovodu v ul. Jiřího z Poděbrad: uzavření vody 19. 2."
+    }
+   ]
+  },
+  {
+   "id": "2025-02-20-1",
+   "datum": "2025-02-20",
+   "typ": "havarie",
+   "lokality": [
+    "pecky-sever",
+    "bacov"
+   ],
+   "dotcene_ulice": [
+    "Třída Jana Švermy od stanice Policie ČR směrem na Kostelní Lhotu, Vrbovou Lhotu, Ratenice",
+    "okolí Hálkovy ulice",
+    "sídliště",
+    "Bačov",
+    "V Kaštánkách",
+    "Senior resort",
+    "náměstí (Potraviny – Uzeniny Jitro)"
+   ],
+   "misto_poruchy": "vodovodní řad v ul. Jiřího z Poděbrad",
+   "pricina": "Dosud nezjištěné místo havárie prasklého vodovodu; později montáž nových sekčních šoupat",
+   "od": "12:00",
+   "do": "14:00",
+   "do_odhad": false,
+   "poznamka": null,
+   "skupina": "2025-02-jiriho-z-podebrad",
+   "zdroje": [
+    {
+     "id": "1284069366477401",
+     "url": "https://www.facebook.com/mestopecky/posts/pfbid0DLJKgexLg7c2cZrB8KkxYd2ixJ7t7MLsmrM136894VdY2NA1LrizSnz6DVGDTiral",
+     "publikovano": "2025-02-20",
+     "popis": "Havárie vodovodu v ul. Jiřího z Poděbrad: uzavření vody 20. 2. (12:00–14:00)"
+    },
+    {
+     "id": "1283857883165216",
+     "url": "https://www.facebook.com/mestopecky/posts/pfbid02Ye2eg9iKyeSJA96fuSZcPPogaansCyMTNRDJpZcdEA2YJzUgAzKUJJJT34b4csnsl",
+     "publikovano": "2025-02-20",
+     "popis": "Havárie vodovodu v ul. Jiřího z Poděbrad: uzavření vody 20. 2., nová sekční šoupata"
+    }
+   ]
+  },
+  {
+   "id": "2025-02-21-1",
+   "datum": "2025-02-21",
+   "typ": "havarie",
+   "lokality": [
+    "pecky-sever",
+    "bacov"
+   ],
+   "dotcene_ulice": [
+    "Třída Jana Švermy od stanice Policie ČR směrem na Kostelní Lhotu, Vrbovou Lhotu, Ratenice",
+    "okolí Hálkovy ulice",
+    "sídliště",
+    "Bačov",
+    "V Kaštánkách",
+    "Senior resort",
+    "náměstí (Potraviny – Uzeniny Jitro)"
+   ],
+   "misto_poruchy": "vodovodní řad v ul. Jiřího z Poděbrad",
+   "pricina": "Při opravě zjištěno odlišné uložení vodovodu",
+   "od": "09:00",
+   "do": "11:00",
+   "do_odhad": false,
+   "poznamka": null,
+   "skupina": "2025-02-jiriho-z-podebrad",
+   "zdroje": [
+    {
+     "id": "1284747843076220",
+     "url": "https://www.facebook.com/mestopecky/posts/pfbid02Rg4X7ib5n1WMwVKyZkLcnm8QbwZCCvViFvH4zgSYvqtyERsZukN81zsPjfiEWWTDl",
+     "publikovano": "2025-02-21",
+     "popis": "Havárie vodovodu v ul. Jiřího z Poděbrad: uzavření vody 21. 2."
+    },
+    {
+     "id": "1284707446413593",
+     "url": "https://www.facebook.com/mestopecky/posts/pfbid028MmLqz3cVUDyFuGz7FDtbnAsi4TYCPz78p2YpHcBSVHpAqbZC9hiCNWxFjXb4DJCl",
+     "publikovano": "2025-02-21",
+     "popis": "Havárie vodovodu v ul. Jiřího z Poděbrad: uzavření vody 21. 2. (první oznámení)"
+    }
+   ]
+  },
+  {
+   "id": "2025-05-02-1",
+   "datum": "2025-05-02",
+   "typ": "havarie",
+   "lokality": [
+    "pecky-jih"
+   ],
+   "dotcene_ulice": [],
+   "misto_poruchy": "ul. Moravská",
+   "pricina": "Prasklý vodovod",
+   "od": "08:00",
+   "do": "12:00",
+   "do_odhad": false,
+   "poznamka": "Celá lokalita Pečky-jih.",
+   "skupina": null,
+   "zdroje": [
+    {
+     "id": "1348041043413566",
+     "url": "https://www.facebook.com/mestopecky/posts/pfbid02CKS7SxcZ1c6HaVdhh3Quqt4ximC4Xnm6CbTDyNbJnuFSPKvdTiSatYvt6D1wTDCrl",
+     "publikovano": "2025-05-02",
+     "popis": "Prasklý vodovod v ulici Moravská: uzavření vody 2. 5. (8–12 hodin)"
+    },
+    {
+     "id": "1347566296794374",
+     "url": "https://www.facebook.com/mestopecky/posts/pfbid02X72Hgyc1MY7BPaLaHXPbumC75WweshQ7RqkURsdMjjWKfXyAnuZNuE99N2oRkjQdl",
+     "publikovano": "2025-05-01",
+     "popis": "Přerušení dodávky vody v ulici Moravská 2. 5. (Pečky-jih)"
+    }
+   ]
+  },
+  {
+   "id": "2025-05-13-1",
+   "datum": "2025-05-13",
+   "typ": "havarie",
+   "lokality": [
+    "pecky-sever",
+    "bacov"
+   ],
+   "dotcene_ulice": [
+    "Třída Jana Švermy od stanice Policie ČR směrem na Kostelní Lhotu, Vrbovou Lhotu, Ratenice",
+    "okolí Hálkovy ulice",
+    "sídliště",
+    "Bačov",
+    "V Kaštánkách",
+    "Senior resort",
+    "náměstí (Potraviny – Uzeniny Jitro)"
+   ],
+   "misto_poruchy": "ul. Sladkovského",
+   "pricina": "Prasklý vodovod",
+   "od": "08:00",
+   "do": "14:00",
+   "do_odhad": false,
+   "poznamka": null,
+   "skupina": null,
+   "zdroje": [
+    {
+     "id": "1356569759227361",
+     "url": "https://www.facebook.com/mestopecky/posts/pfbid0wqPYv3C7zeZedwRgAj85HqpU3SijBxP7RdP53dhJ7KcZRZ3n244FZLVqCWBbdbjil",
+     "publikovano": "2025-05-12",
+     "popis": "Prasklý vodovod v ul. Sladkovského: uzavření vody 13. 5. (8:00–14:00)"
+    }
+   ]
+  },
+  {
+   "id": "2025-05-21-1",
+   "datum": "2025-05-21",
+   "typ": "planovana",
+   "lokality": [
+    "velke-chvalovice",
+    "milcice"
+   ],
+   "dotcene_ulice": [],
+   "misto_poruchy": "ul. Milčická, Velké Chvalovice",
+   "pricina": "Montáž sekční armatury na vodovodní řad při stavebních pracích",
+   "od": "08:00",
+   "do": "13:00",
+   "do_odhad": false,
+   "poznamka": null,
+   "skupina": null,
+   "zdroje": [
+    {
+     "id": "1362516055299398",
+     "url": "https://www.facebook.com/mestopecky/posts/pfbid0i18eGUYp2cn5f1j1ECBLNMBGqsyb22HDQi9WwKnLMdGgvsw7sP9Z38uTgQP1zLrjl",
+     "publikovano": "2025-05-20",
+     "popis": "Odstávka vodovodu 21. 5. ve Velkých Chvalovicích a Milčicích"
+    }
+   ]
+  },
+  {
+   "id": "2025-06-01-1",
+   "datum": "2025-06-01",
+   "typ": "havarie",
+   "lokality": [],
+   "dotcene_ulice": [],
+   "misto_poruchy": null,
+   "pricina": "Technická porucha, výpadek dodávky vody (odpoledne); po nahození čerpadel se vodojem postupně napouštěl",
+   "od": null,
+   "do": null,
+   "do_odhad": false,
+   "poznamka": "Prosba o omezení spotřeby vody. Navazuje havárie přivaděče z Tatec (3. 6.).",
+   "skupina": "2025-06-tatce",
+   "zdroje": [
+    {
+     "id": "1372942627590074",
+     "url": "https://www.facebook.com/mestopecky/posts/pfbid0ufoG8CtQD5jjCRPFrHDNcuTwkBEqzpKTc7yCpRXR62pEfRNfS4vfdXVFLPkT613kl",
+     "publikovano": "2025-06-01",
+     "popis": "Porucha vodovodu: výpadek dodávky vody, prosba o omezení spotřeby"
+    }
+   ]
+  },
+  {
+   "id": "2025-06-03-1",
+   "datum": "2025-06-03",
+   "typ": "havarie",
+   "lokality": [],
+   "dotcene_ulice": [],
+   "misto_poruchy": "vodovodní přivaděč z Tatec",
+   "pricina": "Havarijní stav části přivaděče zjištěn při opravě víkendového výpadku; oprava prasklé části",
+   "od": null,
+   "do": null,
+   "do_odhad": false,
+   "poznamka": "Bez uzavírky vody: věžový vodojem v Pečkách byl doplněn ručním provozem čerpadel. Prosba o snížení spotřeby jen na nezbytné pití a hygienu.",
+   "skupina": "2025-06-tatce",
+   "zdroje": [
+    {
+     "id": "1374220787462258",
+     "url": "https://www.facebook.com/mestopecky/posts/pfbid0DrstsQHEcnvsLXxLq8vMtU5c8nV3BYTdz3toubfQ4ALW3aek5ms23RVEAJdWnBn2l",
+     "publikovano": "2025-06-03",
+     "popis": "Havárie vodovodního přivaděče z Tatec: oprava 3. 6., prosba o šetření vodou"
+    }
+   ]
+  },
+  {
+   "id": "2025-06-17-1",
+   "datum": "2025-06-17",
+   "typ": "planovana",
+   "lokality": [
+    "pecky-sever",
+    "bacov"
+   ],
+   "dotcene_ulice": [
+    "Třída Jana Švermy od stanice Policie ČR směrem na Kostelní Lhotu, Vrbovou Lhotu, Ratenice",
+    "okolí Hálkovy ulice",
+    "sídliště",
+    "Bačov",
+    "V Kaštánkách",
+    "Senior resort",
+    "náměstí (Potraviny – Uzeniny Jitro)"
+   ],
+   "misto_poruchy": "Bačov",
+   "pricina": "Montáž sekčních šoupat pro další výměnu vodovodu na Bačově",
+   "od": "08:00",
+   "do": "14:00",
+   "do_odhad": false,
+   "poznamka": null,
+   "skupina": null,
+   "zdroje": [
+    {
+     "id": "1385214903029513",
+     "url": "https://www.facebook.com/mestopecky/posts/pfbid02hhDkanEWWP7HRod7UXNVricxhDGLCsJjtMa8YuGpBZjKV8zgJTjyLWVXxJXARutfl",
+     "publikovano": "2025-06-16",
+     "popis": "Uzavírka vodovodu 17. 6. (8:00–14:00): montáž sekčních šoupat na Bačově"
+    },
+    {
+     "id": "1381783946705942",
+     "url": "https://www.facebook.com/mestopecky/posts/pfbid02iLTjZ8EkvDWLxPXWH9ctNusjWySKVQKegVRScACJdMnx9Fkit3ZLEuzGrr2D3huEl",
+     "publikovano": "2025-06-12",
+     "popis": "Uzavírka vodovodu 17. 6.: montáž sekčních šoupat na Bačově (první oznámení)"
+    }
+   ]
+  },
+  {
+   "id": "2025-07-03-1",
+   "datum": "2025-07-03",
+   "typ": "havarie",
+   "lokality": [
+    "pecky-jih"
+   ],
+   "dotcene_ulice": [],
+   "misto_poruchy": null,
+   "pricina": "Oprava havarijního stavu na vodovodním řadu",
+   "od": "08:00",
+   "do": "12:00",
+   "do_odhad": false,
+   "poznamka": null,
+   "skupina": null,
+   "zdroje": [
+    {
+     "id": "1399713604912976",
+     "url": "https://www.facebook.com/mestopecky/posts/pfbid02SfBJKiKDK9DDETXLjeqwvazfLpEakrHGVVvz7FG5Hs9yt8VVwiFEcv9JAuxyUkFFl",
+     "publikovano": "2025-07-03",
+     "popis": "Odstávka vody 3. 7. (8–12 hodin, Pečky-jih)"
+    },
+    {
+     "id": "1399691008248569",
+     "url": "https://www.facebook.com/mestopecky/posts/pfbid02Kcd5pJDESoENyJFNwx2qvJYqrKPCPg8HMx4kC7gsD13QQcNpcQVMEMUEYasXjHmWl",
+     "publikovano": "2025-07-03",
+     "popis": "Odstávka vody 3. 7. (oznámení z webu města)"
+    }
+   ]
+  },
+  {
+   "id": "2025-08-25-1",
+   "datum": "2025-08-25",
+   "typ": "havarie",
+   "lokality": [
+    "velke-chvalovice",
+    "milcice"
+   ],
+   "dotcene_ulice": [
+    "Chvalovická od křižovatky s ul. V Kaštánkách",
+    "V Kaštánkách"
+   ],
+   "misto_poruchy": "vodovodní přivaděč do Velkých Chvalovic",
+   "pricina": "Havarijní stav přivaděče",
+   "od": "09:00",
+   "do": "12:00",
+   "do_odhad": false,
+   "poznamka": null,
+   "skupina": null,
+   "zdroje": [
+    {
+     "id": "1446018776949125",
+     "url": "https://www.facebook.com/mestopecky/posts/pfbid02PMqnDQNxyL73HVkZqjMYBnjPq4gmt7A9QnxRWxek1Qd5r3iHoTDJVRBazXAVxfJyl",
+     "publikovano": "2025-08-25",
+     "popis": "Havárie vodovodního přivaděče do Velkých Chvalovic: uzavření vody 25. 8. (9–12)"
+    }
+   ]
+  },
+  {
+   "id": "2025-10-22-1",
+   "datum": "2025-10-22",
+   "typ": "havarie",
+   "lokality": [
+    "pecky-sever"
+   ],
+   "dotcene_ulice": [],
+   "misto_poruchy": "vodovodní řad v ul. Letohradská",
+   "pricina": "Porucha vodovodního řadu",
+   "od": null,
+   "do": null,
+   "do_odhad": false,
+   "poznamka": "Dodávka obnovena po odstranění závady; čas neupřesněn.",
+   "skupina": null,
+   "zdroje": [
+    {
+     "id": "1500667914817544",
+     "url": "https://www.facebook.com/mestopecky/posts/pfbid0dinhmcHJv8x8y6LxanLt9RM9cQj4Rm7ZKcAFuuZ2XBga8WxA1DZ3D4ZTY3GZc9Hal",
+     "publikovano": "2025-10-22",
+     "popis": "Dočasné přerušení dodávky vody v Pečkách-sever (porucha v ul. Letohradská)"
+    }
+   ]
+  },
+  {
+   "id": "2025-10-22-2",
+   "datum": "2025-10-22",
+   "typ": "havarie",
+   "lokality": [
+    "pecky-sever"
+   ],
+   "dotcene_ulice": [
+    "areál V Kaštánkách",
+    "Chvalovická",
+    "domy čp. 1074, 1073, 1076, 982, 1083, 1220, 1200 včetně restaurace Siňorita"
+   ],
+   "misto_poruchy": "hlavní uzávěr vody domu čp. 1074, V Kaštánkách",
+   "pricina": "Havárie hlavního uzávěru vody",
+   "od": "08:00",
+   "do": "12:00",
+   "do_odhad": false,
+   "poznamka": null,
+   "skupina": null,
+   "zdroje": [
+    {
+     "id": "1499233878294281",
+     "url": "https://www.facebook.com/mestopecky/posts/pfbid0ZaR8nJUFjowbcwKhTH9hjjqyhAuX7BgVYasjLBvk93HLTz5tTmZFb14iWa7dJFFcl",
+     "publikovano": "2025-10-20",
+     "popis": "Přerušení dodávky vody 22. 10. (8–12): areál V Kaštánkách a ul. Chvalovická"
+    }
+   ]
+  },
+  {
+   "id": "2025-12-16-1",
+   "datum": "2025-12-16",
+   "typ": "havarie",
+   "lokality": [
+    "pecky-jih"
+   ],
+   "dotcene_ulice": [],
+   "misto_poruchy": "vodovodní řad v ul. Tř. 5. května",
+   "pricina": "Havárie vodovodního řadu",
+   "od": null,
+   "do": "15:00",
+   "do_odhad": true,
+   "poznamka": null,
+   "skupina": null,
+   "zdroje": [
+    {
+     "id": "1549179199966415",
+     "url": "https://www.facebook.com/mestopecky/posts/pfbid024dRJ5GGyYxHzWwAzJRhvANgv3EEj4QRyDoLgm7fQrZ3rRJie6X3TgYtttBbpFR1Ql",
+     "publikovano": "2025-12-16",
+     "popis": "Havárie vodovodního řadu v ul. Tř. 5. května: přerušení vody 16. 12. (Pečky-jih)"
+    }
+   ]
+  },
+  {
+   "id": "2026-01-09-1",
+   "datum": "2026-01-09",
+   "typ": "havarie",
+   "lokality": [
+    "pecky-jih"
+   ],
+   "dotcene_ulice": [],
+   "misto_poruchy": null,
+   "pricina": "Havárie na vodovodním řadu",
+   "od": "08:00",
+   "do": "13:00",
+   "do_odhad": false,
+   "poznamka": null,
+   "skupina": null,
+   "zdroje": [
+    {
+     "id": "1568292474721754",
+     "url": "https://www.facebook.com/mestopecky/posts/pfbid02Lxi2XCr6ECFBDTWxfU5oBjgCwyjdwgYBxEf9F8dttrCQmdnCHg57povqinabfhkUl",
+     "publikovano": "2026-01-09",
+     "popis": "Odstávka vody 9. 1. (Pečky-jih)"
+    }
+   ]
+  },
+  {
+   "id": "2026-02-03-1",
+   "datum": "2026-02-03",
+   "typ": "havarie",
+   "lokality": [
+    "velke-chvalovice"
+   ],
+   "dotcene_ulice": [
+    "Jarní",
+    "Stará",
+    "Pražská",
+    "Krátká",
+    "Ke Hřišti",
+    "Na Kopci",
+    "Za Statkem"
+   ],
+   "misto_poruchy": null,
+   "pricina": "Havárie na vodovodním řadu",
+   "od": "12:00",
+   "do": "17:00",
+   "do_odhad": false,
+   "poznamka": null,
+   "skupina": null,
+   "zdroje": [
+    {
+     "id": "1591102709107397",
+     "url": "https://www.facebook.com/mestopecky/posts/pfbid0Ee6FMJjvxpgvauY7xuDdJija5pwYD7468kRWrK7MhXeKrsERCKDNRqxAoYAdj956l",
+     "publikovano": "2026-02-04",
+     "popis": "Odstávka vody 3. 2. ve Velkých Chvalovicích"
+    },
+    {
+     "id": "1591102395774095",
+     "url": "https://www.facebook.com/mestopecky/posts/pfbid01Csq3Ghy3ezgMYUu17aFWeppbGw2d2xGbJJfKamyyaEcPzr5sMptCYYVeA6ST7N4l",
+     "publikovano": "2026-02-04",
+     "popis": "Odstávka vody 3. 2. ve Velkých Chvalovicích (druhé oznámení)"
+    }
+   ]
+  },
+  {
+   "id": "2026-02-03-2",
+   "datum": "2026-02-03",
+   "typ": "havarie",
+   "lokality": [],
+   "dotcene_ulice": [],
+   "misto_poruchy": null,
+   "pricina": "Havárie vodovodu (sdílený příspěvek Pečeckých služeb bez podrobností)",
+   "od": null,
+   "do": null,
+   "do_odhad": false,
+   "poznamka": "Shodné datum s odstávkou ve Velkých Chvalovicích; souvislost příspěvek nepotvrzuje.",
+   "skupina": null,
+   "zdroje": [
+    {
+     "id": "1590079712543030",
+     "url": "https://www.facebook.com/mestopecky/posts/pfbid09PWCi4nVjuCEoDp2iMHtPkhu1MGY7wWTUjVnS3q8v82sPe2giqn6gbbeBqj3xmU4l",
+     "publikovano": "2026-02-03",
+     "popis": "Sdílená informace o havárii vodovodu od Pečeckých služeb",
+     "sdileno_z": "https://www.facebook.com/pececkesluzby/posts/pfbid0ew7trth4wsQ9BTD18gamADmpC1YHWVJgUxSLiZqfyypygkuQmEzTcKDUEXUBRi6ul"
+    }
+   ]
+  },
+  {
+   "id": "2026-02-05-1",
+   "datum": "2026-02-05",
+   "typ": "havarie",
+   "lokality": [
+    "pecky-sever",
+    "bacov"
+   ],
+   "dotcene_ulice": [
+    "Třída Jana Švermy od stanice Policie ČR směrem na Kostelní Lhotu, Vrbovou Lhotu, Ratenice",
+    "okolí Hálkovy ulice",
+    "sídliště",
+    "Bačov",
+    "V Kaštánkách",
+    "Senior resort",
+    "náměstí (Potraviny – Uzeniny Jitro)"
+   ],
+   "misto_poruchy": "ul. Sladkovského",
+   "pricina": "Komplikovaná havárie vody",
+   "od": "09:00",
+   "do": "12:00",
+   "do_odhad": true,
+   "poznamka": null,
+   "skupina": null,
+   "zdroje": [
+    {
+     "id": "1591545935729741",
+     "url": "https://www.facebook.com/mestopecky/posts/pfbid02xadq35AiCHmAo6x4xK4fG3mLwkgvts3j2ouZT3i7Q5QPSdv4MFsUMKdUj1xPDJ9Zl",
+     "publikovano": "2026-02-04",
+     "popis": "Uzavření vodovodu 5. 2. kvůli havárii v ulici Sladkovského"
+    }
+   ]
+  },
+  {
+   "id": "2026-02-17-1",
+   "datum": "2026-02-17",
+   "typ": "havarie",
+   "lokality": [
+    "pecky-jih"
+   ],
+   "dotcene_ulice": [],
+   "misto_poruchy": null,
+   "pricina": "Havárie na vodovodním řadu",
+   "od": "10:30",
+   "do": "15:00",
+   "do_odhad": false,
+   "poznamka": null,
+   "skupina": null,
+   "zdroje": [
+    {
+     "id": "1603423454541989",
+     "url": "https://www.facebook.com/mestopecky/posts/pfbid0XijdLUJUN6bUHmZ4aBiqq4onuR8JLbH12YCxrT4rxQaMZYTHfDXzNhfeczNAMnDrl",
+     "publikovano": "2026-02-17",
+     "popis": "Odstávka vody 17. 2. (Pečky-jih)"
+    }
+   ]
+  },
+  {
+   "id": "2026-03-17-1",
+   "datum": "2026-03-17",
+   "typ": "havarie",
+   "lokality": [
+    "velke-chvalovice"
+   ],
+   "dotcene_ulice": [
+    "od ul. Jarní po ul. Ke Hřišti"
+   ],
+   "misto_poruchy": null,
+   "pricina": "Havárie na vodovodním řadu",
+   "od": "15:00",
+   "do": "20:00",
+   "do_odhad": false,
+   "poznamka": null,
+   "skupina": null,
+   "zdroje": [
+    {
+     "id": "1628364608714540",
+     "url": "https://www.facebook.com/mestopecky/posts/pfbid02vt8RBW36eRkrkLiGezbFxe8NRKssrk9JAxKFg7ACxn57PKQteZecGDUWaTZgz8nxl",
+     "publikovano": "2026-03-17",
+     "popis": "Odstávka vody 17. 3. (Velké Chvalovice)"
+    },
+    {
+     "id": "1628357672048567",
+     "url": "https://www.facebook.com/mestopecky/posts/pfbid0s1hhZ1KJSXVwCgVoZvuGFZeR2NVButtWKaPXmcr2MFBrbbANPEhtSSrQpwBJ6qskl",
+     "publikovano": "2026-03-17",
+     "popis": "Odstávka vody 17. 3. (Velké Chvalovice, druhé oznámení)"
+    }
+   ]
+  },
+  {
+   "id": "2026-03-27-1",
+   "datum": "2026-03-27",
+   "typ": "havarie",
+   "lokality": [
+    "bacov"
+   ],
+   "dotcene_ulice": [],
+   "misto_poruchy": null,
+   "pricina": "Havárie na vodovodním řadu",
+   "od": "11:30",
+   "do": "14:00",
+   "do_odhad": false,
+   "poznamka": null,
+   "skupina": null,
+   "zdroje": [
+    {
+     "id": "1637560627794938",
+     "url": "https://www.facebook.com/mestopecky/posts/pfbid0zgWqiUMMgxpDh6WYzEZFnRL2i9RkuvCzBMhYmUFL339Xjt2UHMyT8s8SBssP3f2Ml",
+     "publikovano": "2026-03-27",
+     "popis": "Odstávka vody 27. 3. (Bačov)"
+    }
+   ]
+  },
+  {
+   "id": "2026-06-21-1",
+   "datum": "2026-06-21",
+   "typ": "havarie",
+   "lokality": [],
+   "dotcene_ulice": [],
+   "misto_poruchy": "automatický systém komunikace mezi úpravnou vody a vodojemem",
+   "pricina": "Bouřka vyřadila z provozu automatický systém komunikace mezi úpravnou a vodojemem; pokles tlaku ve vodovodu",
+   "od": null,
+   "do": null,
+   "do_odhad": false,
+   "poznamka": "Bez úplného přerušení dodávky; prosba o omezení spotřeby do večera, vodojem se dopouštěl. Příspěvek zmiňuje „včerejší“ bouřku.",
+   "skupina": "2026-06-21-bourka",
+   "zdroje": [
+    {
+     "id": "1716785093205824",
+     "url": "https://www.facebook.com/mestopecky/posts/pfbid0377FPCC16d2wqsxXgzUcasTdR9jLtaVhEheAWm3xEZuuirtqpaSLS4NZT3jiqdzXTl",
+     "publikovano": "2026-06-21",
+     "popis": "Prosba o šetření vodou po bouřce"
+    }
+   ]
+  },
+  {
+   "id": "2026-06-21-2",
+   "datum": "2026-06-21",
+   "typ": "odstavka",
+   "lokality": [],
+   "dotcene_ulice": [],
+   "misto_poruchy": "čerpací stanice v Tatcích",
+   "pricina": "Čerpací stanice v Tatcích bez elektřiny (výpadek vysokého napětí po odpolední bouřce, napájení Tatec a Poříčan)",
+   "od": null,
+   "do": null,
+   "do_odhad": false,
+   "poznamka": "Nebylo možné čerpat vodu do Peček; čas obnovy v příspěvku není uveden.",
+   "skupina": "2026-06-21-bourka",
+   "zdroje": [
+    {
+     "id": "1717045329846467",
+     "url": "https://www.facebook.com/mestopecky/posts/pfbid031QznA63XPhFfJ1o3SqUWfmCCM5AXFCS9tTBDXye64p6CNz67Bf13yucRNt1PU67ul",
+     "publikovano": "2026-06-21",
+     "popis": "Odstávka vody 21. 6.: čerpací stanice v Tatcích bez elektřiny"
+    }
+   ]
+  },
+  {
+   "id": "2026-07-03-1",
+   "datum": "2026-07-03",
+   "typ": "havarie",
+   "lokality": [
+    "pecky-jih"
+   ],
+   "dotcene_ulice": [],
+   "misto_poruchy": null,
+   "pricina": "Havárie na vodovodním řadu",
+   "od": null,
+   "do": null,
+   "do_odhad": false,
+   "poznamka": "Předpokládaná doba odstávky měla být upřesněna později.",
+   "skupina": null,
+   "zdroje": [
+    {
+     "id": "1728630532021280",
+     "url": "https://www.facebook.com/mestopecky/posts/pfbid0g22PMdRFgzFvtxn8gzVo6sLBvzfTdajPAgFYrt4Wxsg7aNS9qzSuoP32hFVi7VLsl",
+     "publikovano": "2026-07-03",
+     "popis": "Havárie na vodovodním řadu (Pečky-jih), odkaz na web města"
+    },
+    {
+     "id": "1728392825378384",
+     "url": "https://www.facebook.com/mestopecky/posts/pfbid02KChvR9ZgyLaqxPnmqd8WnTSVat7FxTuXGkVZRAXeydC1KhPWzZNJUfyVnofWcAunl",
+     "publikovano": "2026-07-03",
+     "popis": "Porucha na vodovodním řadu (Pečky-jih)"
+    },
+    {
+     "id": "1728391192045214",
+     "url": "https://www.facebook.com/mestopecky/posts/pfbid0zAUwSjoLPUBAm8dG3XqQU6tTpDJ83LqBxsaUMkxH6dmB4XZ8LsBFMv9qKDeG9wQCl",
+     "publikovano": "2026-07-03",
+     "popis": "Porucha na vodovodním řadu (Pečky-jih, druhé oznámení)"
+    }
+   ]
+  },
+  {
+   "id": "2026-08-04-1",
+   "datum": "2026-08-04",
+   "typ": "havarie",
+   "lokality": [
+    "pecky-jih"
+   ],
+   "dotcene_ulice": [],
+   "misto_poruchy": null,
+   "pricina": "Havárie na vodovodním řadu",
+   "od": "12:30",
+   "do": "14:30",
+   "do_odhad": false,
+   "poznamka": null,
+   "skupina": null,
+   "zdroje": [
+    {
+     "id": "1758537695697230",
+     "url": "https://www.facebook.com/mestopecky/posts/pfbid02F7cQMA2yUsth4qwrMkNrZphNBgUgLP9KSu9yE5QjB74Fgyx9GcS1mzQkRc7tKrhCl",
+     "publikovano": "2026-08-04",
+     "popis": "Odstávka vody 4. 8. (Pečky-jih)"
+    }
+   ]
+  },
+  {
+   "id": "2026-08-17-1",
+   "datum": "2026-08-17",
+   "typ": "havarie",
+   "lokality": [
+    "pecky-sever",
+    "bacov"
+   ],
+   "dotcene_ulice": [
+    "od policie ČR směrem na Vrbovou Lhotu",
+    "Bačov",
+    "sídliště",
+    "V Kaštánkách směr sever"
+   ],
+   "misto_poruchy": null,
+   "pricina": "Havárie na vodovodním řadu",
+   "od": "11:45",
+   "do": "15:00",
+   "do_odhad": true,
+   "poznamka": null,
+   "skupina": null,
+   "zdroje": [
+    {
+     "id": "1771202267764106",
+     "url": "https://www.facebook.com/mestopecky/posts/pfbid03HzR8o4vmd1hctZS5EFcs1dYF7LLk5ja1GzaTp8krfBfEpth3N57HRzs6WDRC25El",
+     "publikovano": "2026-08-17",
+     "popis": "Odstávka vody 17. 8. (Pečky-sever)"
+    }
+   ]
+  },
+  {
+   "id": "2026-09-16-1",
+   "datum": "2026-09-16",
+   "typ": "havarie",
+   "lokality": [
+    "pecky-sever",
+    "bacov"
+   ],
+   "dotcene_ulice": [
+    "od policie ČR směrem na Vrbovou Lhotu",
+    "Bačov",
+    "sídliště",
+    "V Kaštánkách směr sever"
+   ],
+   "misto_poruchy": null,
+   "pricina": "Havárie na vodovodním řadu",
+   "od": "09:30",
+   "do": null,
+   "do_odhad": false,
+   "poznamka": "Čas obnovy v příspěvku není uveden.",
+   "skupina": null,
+   "zdroje": [
+    {
+     "id": "1800303504853982",
+     "url": "https://www.facebook.com/mestopecky/posts/pfbid0284BWn7toBdmqpDaX1CqcMLde2GXXKMBh4s3cjPJb9u8mebf7BwYBso32mNU1XcRrl",
+     "publikovano": "2026-09-16",
+     "popis": "Odstávka vody 16. 9. (Pečky-sever)"
+    }
+   ]
+  }
+ ]
+}

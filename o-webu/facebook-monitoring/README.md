@@ -131,9 +131,15 @@ příspěvky tématy sekcí (kalendář, tělocvična…), přidává se samosta
 7. **Kandidáti do jiných sekcí webu** (např. stavba tělocvičny → Tělocvična,
    plakát na akci → Kalendář, pozemky, zakázky): nic nepromítat samovolně.
    Na konci běhu je vypsat a **zeptat se uživatele, co s nimi dál.**
-   Zprávy typu odstávka vody se nezpracovávají vůbec (historická, už
-   nerelevantní data — rozhodnutí uživatele z 2. 10. 2026); nenabízet je ani
-   jako kandidáty.
+   **Havárie a odstávky vody** (a podobné: porucha, uzavírka/uzavření vody,
+   prasklý vodovod, přerušení dodávky pitné vody, omezení užívání vody) se
+   zpracovávají vždy bez dotazu: nové události se doplní do
+   `voda/havarie-odstavky-vody.json` (struktura v jeho `meta.pole`). Opakovaná
+   oznámení téže události sloučit do jednoho záznamu (`zdroje`), vícedenní
+   události spojit společnou `skupina`. Zapisovat jen to, co příspěvek uvádí;
+   chybějící lokalitu/čas nechat prázdné. Pravidlo platí od 22. 10. 2026
+   (dřív se odstávky vody nezpracovávaly — rozhodnutí z 2. 10. 2026 zrušeno).
+   Elektřina, plyn a dopravní uzavírky se nezapisují.
 
 ### Proč GraphQL a ne DOM
 
