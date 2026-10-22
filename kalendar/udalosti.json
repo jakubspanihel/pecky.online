@@ -1,7 +1,7 @@
 {
  "meta": {
   "generated_from": "jednani/pecky-jednani.json (294 jednání), jednani/vybory.json + komise.json + skolska-rada.json (132 jednání výborů, komisí a školské rady), kalendar/akce.json (3878 akcí), kalendar/udalosti-volby.json (1 termínů), kalendar/afk-zapasy.json (40 zápasů v Pečkách), kalendar/svoz-odpadu.json (186 svozů), kalendar/sberny-dvur.json (145 termínů provozních dob), kalendar/sportovni-hala.json (268 rezervací sportovní haly)",
-  "updated": "2026-10-21"
+  "updated": "2026-10-22"
  },
  "org_sources": {
   "kulturni-stredisko-pecky": [
@@ -24,11 +24,6 @@
     "name": "Facebook skupina — Hospůdka na hřišti Velké Chvalovice",
     "url": "https://www.facebook.com/groups/302811704063917",
     "n": 1
-   },
-   {
-    "name": "Instagram — Hospoda na hřišti",
-    "url": "https://www.instagram.com/hospoda_na_hristi_pecky/",
-    "n": 1
    }
   ],
   "mestska-knihovna-pecky": [
@@ -46,11 +41,6 @@
     "name": "Městská knihovna Svatopluka Čecha v Pečkách — web",
     "url": "https://www.pececko.cz",
     "n": 2
-   },
-   {
-    "name": "Facebook — Kulturní středisko města Pečky",
-    "url": "https://www.facebook.com/kspecky",
-    "n": 1
    }
   ],
   "tj-sokol-pecky": [
@@ -135,11 +125,6 @@
   ],
   "pececky-okraslovaci-spolek": [
    {
-    "name": "Facebook — Kulturní středisko města Pečky",
-    "url": "https://www.facebook.com/kspecky",
-    "n": 5
-   },
-   {
     "name": "Facebook skupina — Hospůdka na hřišti Velké Chvalovice",
     "url": "https://www.facebook.com/groups/302811704063917",
     "n": 1
@@ -183,13 +168,6 @@
     "n": 10
    }
   ],
-  "mesto-pecky": [
-   {
-    "name": "Facebook — Kulturní středisko města Pečky",
-    "url": "https://www.facebook.com/kspecky",
-    "n": 1
-   }
-  ],
   "bk-pecky": [
    {
     "name": "Pečecká desítka — oficiální web",
@@ -210,6 +188,11 @@
     "name": "Pečecké noviny — měsíčník města Pečky",
     "url": "https://pecky.cz/default/default/21389_pdf-zpravodaje",
     "n": 1
+   },
+   {
+    "name": "Facebook — Pečecká desítka",
+    "url": "https://www.facebook.com/Pececkadesitka/",
+    "n": 0
    }
   ],
   "zs-pecky": [
@@ -231,6 +214,16 @@
     "name": "AFK Pečky — oficiální web fotbalového klubu",
     "url": "https://www.afkpecky.cz/",
     "n": 1
+   },
+   {
+    "name": "Facebook — AFK Pečky",
+    "url": "https://www.facebook.com/p/AFK-Pe%C4%8Dky-100057262787888",
+    "n": 0
+   },
+   {
+    "name": "Instagram — AFK Pečky",
+    "url": "https://www.instagram.com/afk_pecky/",
+    "n": 0
    }
   ],
   "minigolfclub-dracata-pecky": [
@@ -243,6 +236,13 @@
     "name": "Pečecké noviny — měsíčník města Pečky",
     "url": "https://pecky.cz/default/default/21389_pdf-zpravodaje",
     "n": 43
+   }
+  ],
+  "hospudka-na-hristi-velke-chvalovice": [
+   {
+    "name": "Facebook skupina — Hospůdka na hřišti Velké Chvalovice",
+    "url": "https://www.facebook.com/groups/302811704063917",
+    "n": 2
    }
   ],
   "dsa-planany": [
@@ -15539,8 +15539,8 @@
    "link": "https://www.facebook.com/photo/?fbid=39820254947573689&set=g.302811704063917",
    "description": "Pečené makrely na ohni, grilované maso, hudební doprovod, táborák; pro děti skákací hrad zdarma a dětská výtvarná dílnička.",
    "place": "Hospůdka na hřišti, Velké Chvalovice",
-   "organizer": null,
-   "organizer_name": "Hospůdka na hřišti Velké Chvalovice",
+   "organizer": "hospudka-na-hristi-velke-chvalovice",
+   "organizer_name": "Hospůdka Velké Chvalovice",
    "image": null,
    "note": "Vstupné dobrovolné. Pořadatel odvozen z plakátu („v Hospůdce na hřišti Velké Chvalovice“); vztah k Instagramu „Hospoda na hřišti“ nebyl ověřen, proto bez vazby na pořadatele v rejstříku.",
    "source_ref": "akce-2026-09-27-rozlouceni-s-letem"
@@ -17845,7 +17845,8 @@
    "organizer_name": "Město Pečky",
    "image": null,
    "note": "Plakát uvádí „Na akci srdečně zve Město Pečky“ a místo „Centrální park, přímo na hřišti u Parkhaly / ZUŠ“ (přepsáno doslova). Sdílel ho Kulturní středisko města Pečky 30. 9. 2026 (9:29) v jednom příspěvku s oznámením, že dětské promítání téhož dne (4. 10.) se ruší. Odkaz míří na profil KS, protože adresu konkrétního příspěvku se nepodařilo přečíst.",
-   "source_ref": "akce-2026-10-04-slavnostni-otevreni-detskeho-hriste"
+   "source_ref": "akce-2026-10-04-slavnostni-otevreni-detskeho-hriste",
+   "link_sdileno": true
   },
   {
    "id": "akce-2026-10-04-kino-pro-deti",
@@ -26594,8 +26595,8 @@
    "link": "https://www.facebook.com/photo/?fbid=1075324201874917&set=g.302811704063917",
    "description": "Halloween pro děti 15:00–18:00 (skákací hrad, laboratoř slizu, malování na obličej, soutěž o nejlepší kostým); Halloweenská party pro dospělé od 20:00 (koktejly, hudba, beer pong, vyhlášení 3 nejlepších kostýmů).",
    "place": "Hospůdka na hřišti, Velké Chvalovice",
-   "organizer": null,
-   "organizer_name": "Hospůdka na hřišti Velké Chvalovice",
+   "organizer": "hospudka-na-hristi-velke-chvalovice",
+   "organizer_name": "Hospůdka Velké Chvalovice",
    "image": null,
    "note": "Vstupné 50 Kč, přijít v kostýmu. Pořadatel podle hlavičky plakátu „Hospůdka na hřišti Velké Chvalovice“.",
    "source_ref": "akce-2026-10-31-halloween-hospudka"
@@ -27524,7 +27525,8 @@
    "organizer_name": "Okrašlovací spolek",
    "image": null,
    "note": "Pořadatele uvádí název akce v programu Kulturního domu Pečky, samostatný plakát spolku zatím nemáme.",
-   "source_ref": "akce-2026-11-03-pececky-okraslovaci-spolek-prednaska"
+   "source_ref": "akce-2026-11-03-pececky-okraslovaci-spolek-prednaska",
+   "link_sdileno": true
   },
   {
    "id": "kurz-2026-11-03-anglictina-dospeli-a2",
@@ -29727,7 +29729,8 @@
    "organizer_name": "Okrašlovací spolek",
    "image": null,
    "note": "Pořadatele uvádí název akce v programu Kulturního domu Pečky, samostatný plakát spolku zatím nemáme.",
-   "source_ref": "akce-2026-11-10-pececky-okraslovaci-spolek-prednaska"
+   "source_ref": "akce-2026-11-10-pececky-okraslovaci-spolek-prednaska",
+   "link_sdileno": true
   },
   {
    "id": "kurz-2026-11-10-anglictina-dospeli-a2",
@@ -33918,7 +33921,8 @@
    "organizer_name": "Okrašlovací spolek",
    "image": null,
    "note": "Pořadatele uvádí název akce v programu Kulturního domu Pečky, samostatný plakát spolku zatím nemáme.",
-   "source_ref": "akce-2026-11-24-pececky-okraslovaci-spolek-prednaska"
+   "source_ref": "akce-2026-11-24-pececky-okraslovaci-spolek-prednaska",
+   "link_sdileno": true
   },
   {
    "id": "kurz-2026-11-24-anglictina-dospeli-a2",
@@ -35995,7 +35999,8 @@
    "organizer_name": "Okrašlovací spolek",
    "image": null,
    "note": "Pořadatele uvádí název akce v programu Kulturního domu Pečky, samostatný plakát spolku zatím nemáme.",
-   "source_ref": "akce-2026-12-01-pececky-okraslovaci-spolek-prednaska"
+   "source_ref": "akce-2026-12-01-pececky-okraslovaci-spolek-prednaska",
+   "link_sdileno": true
   },
   {
    "id": "kurz-2026-12-01-anglictina-dospeli-a2",

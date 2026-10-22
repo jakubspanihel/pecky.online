@@ -177,11 +177,30 @@ def build_vybory_events():
     return events
 
 
+def je_profil(sid):
+    return sid.startswith(('facebook-', 'instagram-')) and not sid.startswith(('facebook-group-', 'facebook-event-'))
+
+
+def majitele_profilu(pocty):
+    """source id profilu na síti -> pořadatel, u něhož je v evidenci akcí nejčastější.
+
+    Kdo plakát jen sdílí (město přeposílá akci spolku, kulturní středisko akci města),
+    profil nevlastní: jeho odkaz se u cizího pořadatele nepovažuje za zdroj pořadatele.
+    `pocty` = {id pořadatele: {source id: počet dokladů}}.
+    """
+    nej = {}
+    for org_id, podle in pocty.items():
+        for sid, n in podle.items():
+            if je_profil(sid) and n > nej.get(sid, (None, 0))[1]:
+                nej[sid] = (org_id, n)
+    return {sid: v[0] for sid, v in nej.items()}
+
+
 def zdroje_poradatelu():
     """id pořadatele -> zdroje, ze kterých jsou jeho akce zapsané (nejčastější první).
 
     Počítá se z `evidence[].source` v kalendar/akce.json; název a adresa zdroje
-    z `sources.json`. Za ně se řadí profily pořadatele na Facebooku a Instagramu
+    z `sources.json` (profil na síti jen u pořadatele, u něhož je nejčastější). Za ně se řadí profily pořadatele na Facebooku a Instagramu
     z `lide/organizations.json` → `sources` (adresy z `lide/sources.json`),
     které v evidenci akcí zatím nejsou (`n` = 0; skupiny a odkazy na jednotlivé
     příspěvky se nepřebírají). Klient (Kalendář, řádek nad tabulkou při jediném vybraném
@@ -199,6 +218,10 @@ def zdroje_poradatelu():
         for ev in a.get('evidence') or []:
             pocty.setdefault(org_id, {}).setdefault(ev['source'], 0)
             pocty[org_id][ev['source']] += 1
+    majitel = majitele_profilu(pocty)
+    for org_id, podle in pocty.items():
+        for sid in [s for s in podle if s in majitel and majitel[s] != org_id]:
+            del podle[sid]
     lide_zdroje = json.loads(LIDE_SOURCES_JSON.read_text(encoding='utf-8')).get('sources', {})
     orgs = {o['id']: o for o in json.loads(ORGANIZACE_JSON.read_text(encoding='utf-8'))['organizations']}
     norm = lambda u: u.lower().rstrip('/')
@@ -241,6 +264,12 @@ def build_akce_events():
         return []
     data = json.loads(AKCE_JSON.read_text(encoding='utf-8'))
     org = nazvy_organizaci()
+    pocty = {}
+    for a in data.get('events', []):
+        for ev in a.get('evidence') or []:
+            p = pocty.setdefault(a.get('organizer'), {})
+            p[ev['source']] = p.get(ev['source'], 0) + 1
+    majitel = majitele_profilu(pocty)
     events = []
     for a in data.get('events', []):
         time_val = a.get('time')
@@ -250,6 +279,7 @@ def build_akce_events():
         org_name = org.get(org_id) if org_id else None
         org_name = org_name or a.get('organizer_name')
         evidence = a.get('evidence') or []
+        sdileno = bool(evidence) and majitel.get(evidence[0]['source'], org_id) != org_id
         events.append({
             'id': a['id'],
             'title': a['title'],
@@ -266,6 +296,8 @@ def build_akce_events():
             'image': a.get('image'),
             'note': a.get('note'),
             'source_ref': a['id'],  # id v akce.json je stabilní -> drží UID v .ics
+            # první doklad je cizí profil, který akci jen sdílel -> klient z něj neodvozuje zdroj pořadatele
+            **({'link_sdileno': True} if sdileno else {}),
         })
     return events
 

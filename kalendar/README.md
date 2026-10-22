@@ -168,11 +168,24 @@ vede rovnou na zdroj" v „Jak to funguje" níže.
     pořadatele na Facebooku/Instagramu z `lide/organizations.json` → `sources`
     (bez skupin a odkazů na jednotlivé příspěvky), takže se objeví i dřív, než
     z nich vznikne první akce.
+    **Sdílené plakáty (od 22. 10. 2026):** profil na síti patří pořadateli, u něhož je
+    v evidenci akcí nejčastější (`majitele_profilu()` v generátoru). Kdo plakát cizí akce
+    jen přeposlal (např. KS Pečky akci města), se u pořadatele nevede jako jeho zdroj a
+    událost dostane `link_sdileno: true` — klient ji nepočítá do „většinou publikuje akce na …“.
     **„Jen budoucí“ v URL (od 21. 10. 2026):** zapnuté je výchozí (v hashi nic);
     vypnutí se zapisuje jako segment `minule`, např. `#org=afk-pecky/seznam/minule`
     nebo `#2026-10/seznam/minule`. Čte ho `kalReadHash()`, zapisuje `kalHash()`;
     posun „3 dny“ (`KAL_3DNY_OFFSET`) se do URL dál nezapisuje, takže po
     zpětném posunu odkaz otevře dnešní tři dny s vypnutým „Jen budoucí“.
+    **Měsíční mřížka (od 22. 10. 2026):** „Jen budoucí“ je v ní ve výchozím stavu
+    vypnuté (výchozí stav určuje `kalVychoziBudouci()`), takže se v hashi zapisuje
+    opačná odchylka — zapnutí jako segment `budouci`. Výběr měsíce rozbalovací nabídkou
+    (aktuální + 3 další) nahradily šipky vedle názvu měsíce (`#kal-mesic-prev/-next`),
+    které listují o měsíc zpět i vpřed bez omezení; platí pro mřížku i Seznam.
+    **Přepínání pohledů „Jen budoucí“ nemění (od 22. 10. 2026):** výchozí stav se
+    uplatní jen při načtení stránky z hashe; klik na pohled, šipky ani proběhlý den ho
+    nezaškrtnou (proběhlý den ho jen vypne). Tlačítko Filtr je zvýrazněné (`has-filter`)
+    i při zaškrtnutém „Jen budoucí“.
   - **Selectbox „Pořadatel“** (`#kal-org-select`, od 11. 10. 2026 na žádost uživatele
     přímo v řádku nástrojů vlevo od přepínače Kalendář/Seznam). Nahradil odkaz „Filtr“
     (`#kal-filter-toggle`) a panel `#kal-filter-org`, které byly zrušeny spolu s jejich
