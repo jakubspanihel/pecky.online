@@ -13,11 +13,13 @@
   const links = document.getElementById('overlayLinks');
   const closeBtn = document.getElementById('overlayClose');
   if (!fab || !tabs || !overlay || !links) return;
-  // dva sloupce (na velkých obrazovkách vedle sebe): hlavní položky | sekundární („Více...“)
+  // tři sloupce (na velkých obrazovkách vedle sebe): hlavní položky | sekundární („Více...“) | Monitoring
   const colMain = document.createElement('div');
   colMain.className = 'overlay-col';
   const colMore = document.createElement('div');
   colMore.className = 'overlay-col';
+  const colMon = document.createElement('div');
+  colMon.className = 'overlay-col';
   const home = document.createElement('a');
   home.className = 'navlink';
   home.href = '/';
@@ -46,11 +48,12 @@
     const label = document.createElement('div');
     label.className = 'overlay-label';
     label.textContent = 'Monitoring';
-    colMore.appendChild(label);
-    colMore.appendChild(mon.content.cloneNode(true));
+    colMon.appendChild(label);
+    colMon.appendChild(mon.content.cloneNode(true));
   }
   links.appendChild(colMain);
   if (colMore.firstChild) links.appendChild(colMore);
+  if (colMon.firstChild) links.appendChild(colMon);
   const open = () => { overlay.hidden = false; document.body.style.overflow = 'hidden'; };
   const close = () => { overlay.hidden = true; document.body.style.overflow = ''; };
   fab.addEventListener('click', open);
@@ -371,103 +374,24 @@ document.querySelectorAll('.rel-chip[data-date]').forEach(el => {
   box.hidden = !ukazano;
 })();
 
-// ===== Dashboard: karty událostí v "Nadcházející akce" =====
-// Build vypíše víc událostí, než je vidět (data-max); tady se skryjí proběhlé,
-// odkryjí další a každé kartě se doplní chip dnes / zítra / za N dní. U probíhající
-// vícedenní akce je chip "dnes".
+// ===== Dashboard: widget „Dnes“ =====
+// Build vypíše dnešek a týden dopředu (data-from/data-until); tady se ukážou jen dnešní události.
 (function () {
-  const ul = document.querySelector('.dash-akce');
-  if (!ul) return;
+  const box = document.querySelector('.dash-card--dnes');
+  if (!box) return;
   const pad = n => String(n).padStart(2, '0');
   const d = new Date();
   const dnes = d.getFullYear() + '-' + pad(d.getMonth() + 1) + '-' + pad(d.getDate());
-  const max = parseInt(ul.getAttribute('data-max'), 10);
-  // pořadí podle dnešního dne: nejdřív akce, které teprve začnou (v rámci dne ty
-  // s přesným časem napřed), pak probíhající vícedenní pod nadpisem "Probíhající"
-  const li0 = [...ul.querySelectorAll('.dash-event')];
-  const bezi = li => !!li.dataset.denEnd && li.dataset.from < dnes;
-  // skupiny: 0 = akce dnešního dne, 1 = probíhající (začaly před dneškem), 2 = další dny
-  const klic = li => bezi(li)
-    ? ['1', li.dataset.until, li.dataset.from, li.dataset.time ? '0' : '1', li.dataset.time || '']
-    : [(li.dataset.from || li.dataset.until) <= dnes ? '0' : '2', li.dataset.from || li.dataset.until,
-       li.dataset.time ? '0' : '1', li.dataset.time || ''];
-  li0.sort((a, b) => klic(a).join('|').localeCompare(klic(b).join('|')));
-  const empty0 = ul.querySelector('.dash-empty');
-  const nadpis = ul.querySelector('.dash-group--bezi');
-  const nadpisDalsi = ul.querySelector('.dash-group--dalsi');
-  li0.forEach(li => ul.insertBefore(li, empty0));
-  // z max míst má probíhající až data-max-bezi (jinak je vytlačí akce s časem)
-  const maxBezi = parseInt(ul.getAttribute('data-max-bezi'), 10) || 0;
-  const nBezi = li0.filter(li => li.dataset.until >= dnes && bezi(li)).length;
-  const maxNove = max - Math.min(nBezi, maxBezi);
-  // "Další akce" = jen jediný den (nejbližší po dnešku, kde něco zbylo); je-li
-  // dohromady míň než 5 karet, přidávají se další dny (celé), dokud jich není 5
-  const MIN_KARET = 5;
-  const kandidati = li0.filter(li => !bezi(li) && li.dataset.until >= dnes);
-  const dnesniPocet = kandidati.filter(li => (li.dataset.from || li.dataset.until) <= dnes).length;
-  const beziPocet = Math.min(li0.filter(li => li.dataset.until >= dnes && bezi(li)).length, parseInt(ul.getAttribute('data-max-bezi'), 10) || 0);
-  const dny = [...new Set(kandidati.map(li => li.dataset.from || li.dataset.until).filter(d => d > dnes))].sort();
-  const povoleneDny = new Set();
-  let pocet = dnesniPocet + beziPocet;
-  dny.forEach(den => {
-    if (povoleneDny.size && pocet >= MIN_KARET) return;
-    povoleneDny.add(den);
-    pocet += kandidati.filter(li => (li.dataset.from || li.dataset.until) === den).length;
+  const dny = ['neděle', 'pondělí', 'úterý', 'středa', 'čtvrtek', 'pátek', 'sobota'];
+  const datum = box.querySelector('.dash-dnes-date');
+  if (datum) datum.textContent = dny[d.getDay()].charAt(0).toUpperCase() + dny[d.getDay()].slice(1) + ' ' + d.getDate() + '. ' + (d.getMonth() + 1) + '.';
+  let n = 0;
+  box.querySelectorAll('.dash-dnes-list li[data-from]').forEach(li => {
+    li.hidden = !(li.dataset.from <= dnes && li.dataset.until >= dnes);
+    if (!li.hidden) n++;
   });
-  let shown = 0, nNove = 0, nBeziShown = 0, prvniBezi = null, prvniDalsi = null;
-  ul.querySelectorAll('.dash-event').forEach(li => {
-    const jeBezi = bezi(li);
-    const odDne = li.dataset.from || li.dataset.until;
-    const ok = li.dataset.until >= dnes && (jeBezi || odDne <= dnes || povoleneDny.has(odDne)) && (isNaN(max) ||
-      (jeBezi ? nBeziShown < maxBezi : nNove < maxNove));
-    li.hidden = !ok;
-    if (!ok) return;
-    shown++;
-    if (jeBezi) nBeziShown++; else nNove++;
-    if (bezi(li) && !prvniBezi) prvniBezi = li;
-    if (!bezi(li) && (li.dataset.from || li.dataset.until) > dnes && !prvniDalsi) prvniDalsi = li;
-    // čas (G:i) je v .ev-time; u vícedenních akcí před něj přibyde „do <den> <datum>“
-    const casEl = li.querySelector('.ev-time');
-    if (casEl) {
-      const cas = (li.dataset.timeText || li.dataset.time || '').replace(/\b0(\d:\d{2})/g, '$1');
-      const doDne = li.dataset.denEnd ? (jeBezi ? 'trvá do ' : 'do ') + li.dataset.denEnd : '';
-      casEl.textContent = [doDne, jeBezi ? '' : cas].filter(Boolean).join(', ');
-    }
-  });
-  // datum jako sticky nadpis nad skupinou akcí jednoho dne (chip, den, datum; jako pohled „3 dny“ v Kalendáři)
-  ul.querySelectorAll('.dash-den').forEach(h => h.remove());
-  const dnyTxt = ['neděle', 'pondělí', 'úterý', 'středa', 'čtvrtek', 'pátek', 'sobota'];
-  let posledniDen = null;
-  ul.querySelectorAll('.dash-event:not([hidden])').forEach(li => {
-    if (bezi(li)) { posledniDen = null; return; }
-    const den = (li.dataset.from || li.dataset.until) < dnes ? dnes : (li.dataset.from || li.dataset.until);
-    if (den === posledniDen) return;
-    posledniDen = den;
-    const x = new Date(den + 'T12:00:00');
-    const rel = relBudouci(den);
-    const chip = ['dnes', 'zítra', 'pozítří'].includes(rel)
-      ? `<span class="tag ${rel === 'dnes' ? 'kal-dnes' : 'probiha'}" title="${den}">${rel}</span>` : '';
-    const h = document.createElement('li');
-    h.className = 'dash-den';
-    h.innerHTML = `${chip}<b class="k3-den">${dnyTxt[x.getDay()][0].toUpperCase() + dnyTxt[x.getDay()].slice(1)}</b><span class="k3-datum">${x.getDate()}. ${x.getMonth() + 1}.</span><a class="kal-find-btn dash-den-kal" href="/kalendar/" title="Otevřít Kalendář">Celý kalendář</a>`;
-    ul.insertBefore(h, li);
-  });
-  // sticky nadpis dne se lepí pod sticky hlavičku karty
-  const hlava = ul.closest('.dash-card, section, div')?.querySelector('.dash-card-head');
-  ul.style.setProperty('--dash-head-h', (hlava ? hlava.offsetHeight : 0) + 'px');
-  if (nadpis) {
-    nadpis.hidden = !prvniBezi;
-    if (prvniBezi) ul.insertBefore(nadpis, prvniBezi);
-  }
-  if (nadpisDalsi) {
-    nadpisDalsi.hidden = !prvniDalsi;
-    if (prvniDalsi) {
-      const pred = prvniDalsi.previousElementSibling;
-      ul.insertBefore(nadpisDalsi, pred && pred.classList.contains('dash-den') ? pred : prvniDalsi);
-    }
-  }
-  const empty = ul.querySelector('.dash-empty');
-  if (empty) empty.hidden = shown > 0;
+  const empty = box.querySelector('.dash-empty');
+  if (empty) empty.hidden = n > 0;
 })();
 
 // ===== Rozklikávací řádky tabulky (např. Pokladna: na co město utrácí) =====
@@ -655,9 +579,7 @@ document.addEventListener('click', e => {
 
 // Banner „Z rady města“ (Domů): šipky listují mezi jednáními rady (slide 0 = nejnovější);
 // starší jednání než ta v HTML se při prvním listování načtou z jednani/rada-shrnuti.json
-(function(){
-  const box = document.querySelector('.dash-zm--shrnuti');
-  if (!box) return;
+document.querySelectorAll('.dash-zm--shrnuti').forEach(function(box){
   const prev = box.querySelector('.rada-prev'), next = box.querySelector('.rada-next');
   if (!prev || !next) return;
   const total = parseInt(box.dataset.total, 10) || 1;
@@ -667,10 +589,13 @@ document.addEventListener('click', e => {
   function show(n) {
     i = Math.max(0, Math.min(total - 1, n));
     slides.forEach((s, k) => { s.hidden = k !== i; });
-    const chip = box.querySelector('.rada-chip .rel-chip');
+    const chip = box.querySelector('.rada-chip .tag');
     if (chip && slides[i]) {
       chip.setAttribute('data-date', slides[i].dataset.date);
-      const t = relDatum(slides[i].dataset.date);
+      // budoucí jednání (z pozvánky) má chip „za N dní“, proběhlé „před N dny“
+      const fut = relBudouci(slides[i].dataset.date);
+      const t = fut || relDatum(slides[i].dataset.date);
+      chip.className = fut ? 'tag probiha fut-chip' : 'tag rel-chip';
       if (t && t !== 'plánováno') chip.textContent = t;
     }
     prev.disabled = i === total - 1;
@@ -679,7 +604,7 @@ document.addEventListener('click', e => {
   function loadOlder() {
     if (slides.length >= total) return Promise.resolve();
     if (!loading) {
-      loading = fetch('/jednani/rada-shrnuti.json').then(r => r.json()).then(list => {
+      loading = fetch(box.dataset.json || '/jednani/rada-shrnuti.json').then(r => r.json()).then(list => {
         const tpl = document.createElement('div');
         tpl.innerHTML = list.join('');
         Array.from(tpl.children).forEach(el => body.appendChild(el));
@@ -708,4 +633,4 @@ document.addEventListener('click', e => {
     if (Math.abs(dx) < 50 || Math.abs(dx) < Math.abs(dy) * 1.5) return;
     (dx < 0 ? next : prev).click();
   }, {passive: true});
-})();
+});

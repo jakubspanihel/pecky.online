@@ -51,35 +51,35 @@ MANIFEST = {
         'zastupitelstvo, rada, smlouvy, zakázky a Pečecké noviny na jednom místě.',
         False),
     'jednani': (
-        '/jednani/', 'Jednání zastupitelstva a rady — Do Peček . cz',
+        '/jednani/', 'Jednání',
         'Archiv jednání zastupitelstva a rady města Pečky s usneseními, '
         'docházkou a odkazy na videozáznam — s fulltextovým vyhledáváním.',
         True),
     'zpravodaj': (
-        '/noviny/', 'Pečecké noviny — Do Peček . cz',
+        '/noviny/', 'Pečecké noviny',
         'Archiv Pečeckých novin (městského zpravodaje) s fulltextovým '
         'vyhledáváním napříč všemi vydáními.',
         True),
     'lide': (
-        '/lide/', 'Lidé města Pečky — Do Peček . cz',
+        '/lide/', 'Lidé',
         'Adresář lidí ve veřejných funkcích města Pečky — zastupitelstvo, '
         'rada, vedení a zaměstnanci úřadu i ředitelé městských organizací. '
         'U každého funkce, kontakt a zdroj.',
         True),
     'plan': (
-        '/plan/', 'Strategický plán města — Do Peček . cz',
+        '/plan/', 'Plán',
         'Co si město Pečky předsevzalo ve strategickém a akčním plánu '
         'rozvoje — a co se z toho reálně podařilo dohledat jako splněné.',
         False),
     'telocvicna': (
-        '/telocvicna/', 'Tělocvična — Do Peček . cz',
+        '/telocvicna/', 'Tělocvična',
         'Stavba nové tělocvičny a učeben u ZŠ Pečky (205 mil. Kč) byla '
         'v srpnu 2026 částečně zastavena kvůli problému s piloty — '
         'časová osa, ověřená fakta ze zápisu zastupitelstva a veřejná '
         'výzva k transparentnímu řešení.',
         False),
     'volby': (
-        '/volby/', 'Volby do zastupitelstva — Do Peček . cz',
+        '/volby/', 'Volby',
         'Přehled komunálních voleb do zastupitelstva města Pečky: '
         'ročníky 2014, 2018, 2022 a 2026.',
         False),
@@ -104,43 +104,43 @@ MANIFEST = {
         'stav příprav.',
         False),
     'smlouvy': (
-        '/smlouvy/', 'Smlouvy — Do Peček . cz',
+        '/smlouvy/', 'Smlouvy',
         'Veřejné smlouvy města Pečky podle registru smluv, přes Hlídače '
         'státu.',
         False),
     'zakazky': (
-        '/zakazky/', 'Veřejné zakázky — Do Peček . cz',
+        '/zakazky/', 'Zakázky',
         'Veřejné zakázky zadané městem Pečky.',
         False),
     'pozemky': (
-        '/pozemky/', 'Pozemky — Do Peček . cz',
+        '/pozemky/', 'Pozemky',
         'Pozemky, které město Pečky kupuje nebo prodává, s odkazy na '
         'katastr nemovitostí.',
         False),
     'prostory': (
-        '/prostory/', 'Prostory k pronájmu — Do Peček . cz',
+        '/prostory/', 'Prostory',
         'Nebytové prostory města Pečky: záměry pronájmu, smlouvy a jejich '
         'ukončení podle usnesení rady města.',
         False),
     'pokladna': (
-        '/pokladna/', 'Pokladna — Do Peček . cz',
+        '/pokladna/', 'Pokladna',
         'Na co město Pečky utrácí: rozpočet a hospodaření srozumitelně.',
         False),
     'voda': (
-        '/voda/', 'Voda — Do Peček . cz',
+        '/voda/', 'Voda',
         'Voda ve městě Pečky.',
         False),
     'okolo': (
-        '/okolo/', 'Pro přespolní — Do Peček . cz',
+        '/okolo/', 'Pro přespolní',
         'Mapa obcí správního obvodu Peček: Pečky, Cerhenice, Vrbčany, '
         'Dobřichov, Tatce, Chotutice, Plaňany, Radim a Ratenice.',
         False),
     'kalendar': (
-        '/kalendar/', 'Co se děje v Pečkách — Do Peček . cz',
+        '/kalendar/', 'Kalendář',
         'Kalendář termínů týkajících se města Pečky.',
         False),
     'naobed': (
-        '/naobed/', 'Kam na oběd v Pečkách? — Do Peček . cz',
+        '/naobed/', 'Na oběd',
         'Poslední denní menu pečeckých restaurací U Marka, Siňorita a '
         'Hostinec U Stříkačky podle jejich facebookových stránek.',
         False),
@@ -151,7 +151,7 @@ MANIFEST = {
         'a u každé odpovědi uvádí odkaz na zdroj.',
         False),
     'owebu': (
-        '/o-webu/', 'O webu — Do Peček . cz',
+        '/o-webu/', 'O webu',
         'Co je Do Peček . cz, kdo a jak ho dělá, a odkazy na oficiální '
         'zdroje a otevřená data o městě Pečky.',
         False),
@@ -492,10 +492,7 @@ def apply_lastmod(content, lastmod):
 # nadcházející akce) nesou data-until: build jich vypíše víc, než je vidět
 # (nadbytečné mají hidden), a common.js v prohlížeči skryje ty, co mezitím
 # proběhly, a doplní další v pořadí - homepage tak nezastará mezi buildy.
-DASH_KALENDAR_KATEGORIE = ('akce', 'volby', 'svoz', 'zastupitelstvo')  # kurzy by výpis zahltily
-DASH_AKCE_VIDET, DASH_AKCE_REZERVA = 20, 25  # rezerva ~ týden bez buildu
-DASH_AKCE_MIN = 5  # aspoň tolik karet celkem (jinak se přidávají další dny do Dalších akcí)
-DASH_AKCE_BEZI = 5  # max. míst z DASH_AKCE_VIDET pro probíhající vícedenní akce
+DASH_DNES_DNI = 7  # kolik dní dopředu build vypíše (rezerva ~ týden bez buildu; common.js ukáže jen dnešek)
 DASH_JEDNANI_PROBEHLA = 3
 DASH_ZM_PO_DNI = 5  # pruh „Zastupitelstvo proběhlo“ visí na Domů tolik dní po konání
 DNY_CZ = ['pondělí', 'úterý', 'středa', 'čtvrtek', 'pátek', 'sobota', 'neděle']
@@ -515,10 +512,10 @@ def _den_txt(iso):
     return f'{DNY_CZ[date(y, m, d).weekday()]} {d}. {m}.'
 
 
-def _dash_card(title, href, link_text, body, key, head_link=None):
+def _dash_card(title, href, link_text, body, key, head_link=None, tag='h3'):
     # key = název dlaždice v bento mřížce (grid-area v assets/styles.css)
     title_html = esc(title).replace('\n', '<br>')  # \n v titulku = konec řádku
-    h3 = f'<h3 class="display"><a href="{href}">{title_html}</a></h3>'
+    h3 = f'<{tag} class="display"><a href="{href}">{title_html}</a></{tag}>'
     if head_link:  # odkaz vpravo na řádku s nadpisem
         h3 = (f'<div class="dash-card-head">{h3}'
               f'<a class="dash-head-link" href="{href}">{esc(head_link)} →</a></div>')
@@ -549,18 +546,7 @@ def _dash_jednani(dnes):
     def nazev(m):
         return m['type'] if m.get('number') is None else f'{m["type"]} {m["number"]}/{m["year"]}'
 
-    probehla = sorted((m for m in meetings if m['date'] < dnes),
-                      key=lambda m: m['date'], reverse=True)[:DASH_JEDNANI_PROBEHLA]
-    if not probehla:
-        raise SystemExit('CHYBA: dashboard - v jednani/pecky-jednani.json není žádné proběhlé jednání.')
-
     out = []
-    out.append('  <h4>Poslední zveřejněné zápisy</h4>\n  <ul class="dash-list">')
-    for m in probehla:
-        bez_zapisu = '' if (m.get('links') or {}).get('minutes') else ' <span class="meta-note">zápis zatím nezveřejněn</span>'
-        out.append(f'    <li><span><a href="/jednani/#{slug(m)}">{esc(nazev(m))}</a>{bez_zapisu}</span>'
-                   f'<span class="rel-date" data-date="{m["date"]}">{esc(iso_to_cz(m["date"]))}</span></li>')
-    out.append('  </ul>')
     # výbory zveřejňují zápisy se zpožděním, mezi nejnovějšími jednáními
     # Rady/ZM by se téměř neobjevily — proto poslední jednání každého zvlášť
     posledni_vybory = [max((m for m in vybory if m['type'] == t and m['date'] < dnes),
@@ -573,7 +559,54 @@ def _dash_jednani(dnes):
             out.append(f'    <li><span><a href="/jednani/#{slug(m)}">{esc(nazev(m))}</a></span>'
                        f'<span class="rel-date" data-date="{m["date"]}">{esc(iso_to_cz(m["date"]))}</span></li>')
         out.append('  </ul>')
-    return _dash_card('Poslední proběhlá jednání.\nRady, zastupitelstva i výborů', '/jednani/', 'Všechna jednání', '\n'.join(out), 'jednani')
+    return _dash_card('Poslední jednání výborů', '/jednani/', 'Všechna jednání', '\n'.join(out), 'jednani', tag='h2')
+
+
+def _spolek_odkazy(o, zdroje):
+    """Veřejné odkazy spolku: pole `web` + zdroje z `sources` (sociální sítě
+    a oficiální weby; rejstříky a podstránky se přeskočí). [(popisek, url)]"""
+    from urllib.parse import urlparse
+    SITE = {'facebook.com': 'Facebook', 'instagram.com': 'Instagram',
+            'youtube.com': 'YouTube', 'tiktok.com': 'TikTok', 'x.com': 'X'}
+    urls = [o['web']] if o.get('web') else []
+    for sid in o.get('sources', []):
+        z = zdroje.get(sid)
+        if z and (sid.endswith('-oficialni-web') or sid.endswith(('-facebook', '-instagram', '-youtube'))):
+            urls.append(z['url'])
+    out, videno = [], set()
+    for u in urls:
+        host = urlparse(u).netloc.lower().removeprefix('www.')
+        if u.rstrip('/') in videno:
+            continue
+        videno.add(u.rstrip('/'))
+        out.append((SITE.get(host, 'Web'), u))
+    out.sort(key=lambda x: x[0] != 'Web')
+    return out
+
+
+def _dash_spolky():
+    """Blok „Spolky z města“ na konci Domů: organizace typu `spolek` z
+    lide/organizations.json; název vede na Lidi vyfiltrované podle spolku
+    (jen má-li spolek v affiliations.json nějaké vazby), vpravo odkaz na web
+    nebo Facebook spolku."""
+    from urllib.parse import urlparse
+    orgs = json.loads(read('lide/organizations.json'))['organizations']
+    zdroje = json.loads(read('lide/sources.json'))['sources']
+    s_vazbami = {a['organization_id'] for a in json.loads(read('lide/affiliations.json'))['affiliations']}
+    spolky = sorted((o for o in orgs if o.get('type') == 'spolek'),
+                    key=lambda o: o['short_name'].casefold())
+    if not spolky:
+        return ''
+    out = ['  <ul class="dash-list dash-spolky">']
+    for o in spolky:
+        nazev = esc(o['short_name'])
+        if o['id'] in s_vazbami:
+            nazev = f'<a href="/lide/#lide?org={o["id"]}&amp;scope=all">{nazev}</a>'
+        odkaz = ''.join(f'<a class="dash-spolky-web" href="{esc(u)}" target="_blank" rel="noopener">{j} ↗</a>'
+                        for j, u in _spolek_odkazy(o, zdroje))
+        out.append(f'    <li><span>{nazev}</span>{odkaz}</li>')
+    out.append('  </ul>')
+    return _dash_card('Spolky z města', '/lide/', 'Všichni lidé', '\n'.join(out), 'spolky', tag='h2')
 
 
 ZM_DEN_CZ = ['v pondělí', 'v úterý', 've středu', 've čtvrtek', 'v pátek', 'v sobotu', 'v neděli']  # weekday() 0 = po
@@ -867,13 +900,15 @@ def _rel_minule(dny):
     return 'před rokem' if dny < 730 else f'před {max(2, int(dny / 365.25))} lety'
 
 
-def _rada_avatary(m, people, idx, aff):
+def _rada_avatary(m, people, idx, aff, zm=False):
     """Avatary radních u jednání rady: z docházky (přítomní, za oddělovačem
     omluvení/nepřítomní), u jednání bez docházky podle funkcí platných k datu."""
     import unicodedata
     def norm(t):
         return unicodedata.normalize('NFKD', t).encode('ascii', 'ignore').decode().lower()
     poradi = {'starosta': 0, 'mistostarosta': 1, 'rada': 2}
+    if zm:
+        poradi['zastupitel'] = 2  # bez docházky (budoucí jednání) všichni zastupitelé platní k datu
     datum = m['date']
     role = {}
     for a in aff:
@@ -920,16 +955,62 @@ def _rada_avatary(m, people, idx, aff):
     return f'<div class="banner-avatars rada-avatars">{out}</div>' if out else ''
 
 
+def _temata_z_programu(m, kolik=3):
+    """Témata jednání z programu (pro jednání bez souboru shrnutí, typicky jen s pozvánkou):
+    první věcné body v pořadí programu, bez rutinních (schválení programu, kontrola usnesení,
+    diskuse, úkoly, různé) a bez volby pracovních komisí. Tvar `**Název** — předkládá X.`."""
+    rutina = ('Volba pracovních komisí', 'Schválení programu', 'Kontrola plnění usnesení',
+              'Diskuse', 'Úkoly vyplývající', 'Různé', 'Informace vedení města')
+    body = [b for b in m.get('agenda') or []
+            if not b.get('routine') and not b['t'].startswith(rutina)]
+    return [f'**{b["t"].rstrip(".")}**' + (f' — předkládá {b["predkladatel"]}.' if b.get('predkladatel') else '')
+            for b in body[:kolik]]
+
+
+def _datum_cz(iso):
+    """'2026-11-04' -> '4. 11. 2026'."""
+    y, m, d = (int(x) for x in iso.split('-'))
+    return f'{d}. {m}. {y}'
+
+
+def _rel_budouci(n):
+    """Počet dní do jednání -> text chipu (shodně s relBudouci() v assets/common.js)."""
+    if n <= 0:
+        return 'dnes'
+    if n == 1:
+        return 'zítra'
+    if n == 2:
+        return 'pozítří'
+    if n < 14:
+        return f'za {n} {"dny" if n < 5 else "dní"}'
+    if n < 60:
+        return f'za {n // 7} {"týdny" if n < 35 else "týdnů"}'
+    k = int(n / 30.4)
+    return f'za {k} {"měsíce" if n < 152 else "měsíců"}'
+
+
 def _dash_rada_shrnuti():
-    """Banner „Z rady města“ pod bannery zasedání: nejdůležitější témata z jednání
-    rady, která mají soubor jednani/shrnuti/{datum}-rada.md (blok „## Nejdůležitější
-    témata“, číslované položky `**Název** — věta.`). Vykreslí se všechna taková
+    """Banner „Z rady města“ (viz _dash_shrnuti)."""
+    return _dash_shrnuti('rada')
+
+
+def _dash_zm_shrnuti():
+    """Modrý banner „Ze zastupitelstva“ (viz _dash_shrnuti)."""
+    return _dash_shrnuti('zm')
+
+
+def _dash_shrnuti(druh):
+    """Banner „Z rady města“ / „Ze zastupitelstva“ pod bannery zasedání. Rada: nejdůležitější
+    témata z jednání, která mají soubor jednani/shrnuti/{datum}-rada.md (blok „## Nejdůležitější
+    témata“, číslované položky `**Název** — věta.`). Zastupitelstvo: témata z programu
+    jednání (_zm_temata), jen proběhlá jednání. Vykreslí se všechna taková
     jednání (nejnovější první), šipkami v záhlaví (common.js, `.rada-pager`) se
-    listuje ke starším. Bez souboru je výstup ''. Postup:
+    listuje ke starším. Bez jednání je výstup ''. Postup:
     jednani/INSTRUKCE-shrnuti-schuzky.md."""
     from datetime import date, date as _date
+    zm = druh == 'zm'
     meetings = json.loads(read('jednani/pecky-jednani.json'))['meetings']
-    # každá rada, k níž je soubor shrnutí; bez zápisu (jen Pozvánka) slide uvádí, že zápis chybí
+    # každé jednání s tématy; bez zápisu (jen Pozvánka) slide uvádí, že zápis chybí
     slides = []
     people = {p['id']: p for p in json.loads(read('lide/people.json'))['people']}
     idx = {}
@@ -937,24 +1018,39 @@ def _dash_rada_shrnuti():
         idx[(unicodedata.normalize('NFKD', p['first_name']).encode('ascii', 'ignore').decode().lower(),
              unicodedata.normalize('NFKD', p['last_name']).encode('ascii', 'ignore').decode().lower())] = p['id']
     aff = json.loads(read('lide/affiliations.json'))['affiliations']
-    for m in sorted((m for m in meetings if m['type'] == 'Rada'), key=lambda m: m['date'], reverse=True):
-        cesta = f'jednani/shrnuti/{m["date"]}-rada.md'
-        if not (ROOT / cesta).exists():
+    dnes = date.today().isoformat()
+    kdo = 'zastupitelstvo' if zm else 'rada'
+    for m in sorted((m for m in meetings if m['type'] == ('Zastupitelstvo' if zm else 'Rada')),
+                    key=lambda m: m['date'], reverse=True):
+        cesta = f'jednani/shrnuti/{m["date"]}-{kdo}.md'
+        zapis = (m.get('links') or {}).get('minutes')
+        budouci = m['date'] >= dnes
+        if (ROOT / cesta).exists():
+            md = read(cesta)
+            blok = re.search(r'^##\s+Nejdůležitější témata\s*\n(.*?)(?=^##\s|\Z)', md, re.S | re.M)
+            pol = re.findall(r'^\d+\.\s+(.+)$', blok.group(1), re.M) if blok else []
+        elif not zapis:
+            # jednání bez zápisu (budoucí nebo jen s pozvánkou): témata z programu pozvánky
+            pol = _temata_z_programu(m)
+        else:
             continue
-        md = read(cesta)
-        blok = re.search(r'^##\s+Nejdůležitější témata\s*\n(.*?)(?=^##\s|\Z)', md, re.S | re.M)
-        pol = re.findall(r'^\d+\.\s+(.+)$', blok.group(1), re.M) if blok else []
         if not pol:
             continue
         li = ''.join('<li>' + re.sub(r'\*\*(.+?)\*\*', r'<strong>\1</strong>', esc(t)) + '</li>' for t in pol)
+        if zapis:
+            nota = ''
+        elif budouci:
+            nota = (f'<p class="banner-note">Vybrané body z pozvánky. Jednání se koná {_datum_cz(m["date"])}'
+                    + (f' ({esc(m["venue"].split(",")[0])})' if m.get('venue') else '') + '.</p>')
+        else:
+            nota = '<p class="banner-note">Vybrané body z pozvánky. Zápis zatím není k dispozici.</p>'
         slides.append(
             f'<div class="rada-slide" data-date="{m["date"]}"{" hidden" if slides else ""}>'
-            + _rada_avatary(m, people, idx, aff) +
-            f'<ul class="banner-topics">{li}</ul>'
-            + ('' if (m.get('links') or {}).get('minutes') else '<p class="banner-note">Vybrané body z pozvánky. Zápis zatím není k dispozici.</p>') +
-            f'<div class="banner-actions"><a class="banner-cta" href="/jednani/#rada-{m["date"]}">'
-            f'Rada č. {m["number"]}/{m["year"]}</a>'
-            '<a class="banner-more" href="/jednani/#rada">Všechna jednání</a></div></div>')
+            + _rada_avatary(m, people, idx, aff, zm) +
+            f'<ul class="banner-topics">{li}</ul>' + nota +
+            f'<div class="banner-actions"><a class="banner-cta" href="/jednani/#{kdo}-{m["date"]}">'
+            f'{"Zastupitelstvo č." if zm else "Rada č."} {m["number"]}/{m["year"]}</a>'
+            f'<a class="banner-more" href="/jednani/#{kdo}">Všechna jednání</a></div></div>')
     if not slides:
         return ''
     # na Domů je rovnou v HTML jen pár nejnovějších, starší se načtou z JSON při prvním listování
@@ -962,19 +1058,25 @@ def _dash_rada_shrnuti():
     celkem = len(slides)
     starsi = slides[INLINE:]
     slides = slides[:INLINE]
-    (ROOT / 'jednani' / 'rada-shrnuti.json').write_text(
+    json_soubor = 'zm-shrnuti.json' if zm else 'rada-shrnuti.json'
+    (ROOT / 'jednani' / json_soubor).write_text(
         json.dumps(starsi, ensure_ascii=False, separators=(',', ':')), encoding='utf-8')
     pager = ''
     if celkem > 1:
         pager = ('<div class="rada-pager">'
-                 '<button type="button" class="rada-prev" aria-label="Starší jednání rady">‹</button>'
-                 '<button type="button" class="rada-next" aria-label="Novější jednání rady" disabled>›</button></div>')
+                 f'<button type="button" class="rada-prev" aria-label="Starší jednání {"zastupitelstva" if zm else "rady"}">‹</button>'
+                 f'<button type="button" class="rada-next" aria-label="Novější jednání {"zastupitelstva" if zm else "rady"}" disabled>›</button></div>')
     nejnovejsi = max(re.search(r'data-date="([^"]+)"', s).group(1) for s in slides)
-    chip = (f'<span class="rada-chip"><span class="tag rel-chip" data-date="{nejnovejsi}">'
-            f'{_rel_minule((date.today() - _date.fromisoformat(nejnovejsi)).days)}</span></span>')
-    return ('<div class="dash-zm dash-zm--shrnuti" data-total="%d">\n' % celkem +
-            '  <aside class="banner"><div class="banner-body">'
-            f'<div class="banner-head"><div class="banner-headtext"><h3 class="banner-title">Z rady města</h3>{chip}</div>{pager}</div>'
+    rozdil = (_date.fromisoformat(nejnovejsi) - date.today()).days
+    if rozdil >= 0:
+        chip = (f'<span class="rada-chip"><span class="tag probiha fut-chip" data-date="{nejnovejsi}">'
+                f'{_rel_budouci(rozdil)}</span></span>')
+    else:
+        chip = (f'<span class="rada-chip"><span class="tag rel-chip" data-date="{nejnovejsi}">'
+                f'{_rel_minule(-rozdil)}</span></span>')
+    return (f'<div class="dash-zm dash-zm--shrnuti{" dash-zm--shrnuti-zm" if zm else ""}" data-total="{celkem}" data-json="/jednani/{json_soubor}">\n'
+            f'  <aside class="banner{" banner--slate" if zm else ""}"><div class="banner-body">'
+            f'<div class="banner-head"><div class="banner-headtext"><h3 class="banner-title">{"Ze zastupitelstva" if zm else "Z rady města"}</h3>{chip}</div>{pager}</div>'
             + ''.join(slides) + '</div></aside>\n</div>')
 
 
@@ -1057,90 +1159,35 @@ def _akce_stitek(e):
     return f'<span class="tag ev-stitek">{esc(txt)}</span>' if txt else ''
 
 
-def _dash_akce_li(e, i, hidden=False):
-    # Karta má stejnou šablonu a CSS (.akce-karta) jako pohled Seznam na /kalendar/
-    # (assets/styles.css, renderer kalRenderList v content/kalendar.html).
-    vicedenni = e.get('date_end') and e['date_end'] != e['date']
-    cas = e['time'] if e.get('time') and not e.get('all_day') else ''
-    cas_txt = f'{cas}–{e["time_end"]}' if cas and e.get('time_end') else cas  # např. sběrný dvůr 13:00–16:00
-    # místo konání (bez adresy) s ikonou 📍; pořadatel je rozlišený barvou karty
-    kdo = (f'<span class="ev-meta"><span class="ev-misto"><span aria-hidden="true">📍</span> '
-           f'{esc(_misto_bez_adresy(e["place"]))}</span></span>') if e.get('place') else ''
-    # odkaz vede na originální zdroj události; bez něj na kalendář
-    zdroj = e.get('link') or f'/kalendar/#{e["date"][:7]}/seznam'
-    cizi = ' target="_blank" rel="noopener"' if zdroj.startswith('http') else ''
-    # tooltip s pořadatelem jen u akcí/kurzů/svozů (u jednání je jím vždy město)
-    tip = (f' title="Pořádá: {esc(e["organizer_name"])}"'
-           if e.get('organizer_name') and e.get('category') in ('akce', 'kurz', 'svoz') else '')
-    data_from = f' data-from="{e["date"]}"' if vicedenni else ''
-    data_cas = f' data-time="{esc(cas)}" data-time-text="{esc(cas_txt)}"' if cas else ''
-    # chip (dnes / zítra / za N dní) a text data („do …“) složí common.js
-    # podle dnešního dne; popisky dnů předává build (jediný zdroj českých názvů dnů)
-    popisky = f' data-den-end="{esc(_den_txt(e["date_end"])) if vicedenni else ""}"'
-    org = e.get('organizer')
-    # barva podle pořadatele (--org-<id> z assets/org-colors.css); bez barvy fallback v CSS
-    barva = f' style="--org-c:var(--org-{org});--org-c-bg:var(--org-{org}-bg)"' if org else ''
-    return (f'    <li class="dash-event"{barva} data-until="{e.get("date_end") or e["date"]}"'
-            f'{data_from}{data_cas}{popisky}{" hidden" if hidden else ""}>'
-            f'<a class="card akce-karta" href="{esc(zdroj)}"{cizi}{tip}>'
-            f'<span class="ev-what">'
-            f'<span class="ev-line"><span class="ev-time">{esc(_cas_gi(cas_txt))}</span>{_akce_stitek(e)}</span>'
-            f'<span class="ev-title">{esc(e["title"])}</span>{kdo}</span></a></li>')
-
-
-def _dash_kalendar(dnes):
+def _dash_dnes(dnes):
+    """Widget „Dnes“ na Domů: prosté odkazy na dnešní události z kalendáře, bez pravidelných
+    (kurzy a tréninky, kategorie `kurz` bez vlastního tagu). Build vypíše dnešek i týden dopředu
+    s data-from/data-until, common.js ukáže ty, které platí v prohlížeči dnes (takže widget
+    nezastará mezi buildy). Hlavní CTA vede do Kalendáře."""
+    from datetime import date, timedelta
     events = json.loads(read('kalendar/udalosti.json'))['events']
-    budouci = [e for e in events if e['category'] in DASH_KALENDAR_KATEGORIE
-               and (e.get('date_end') or e['date']) >= dnes]
-    def probiha(e):
-        return bool(e.get('date_end')) and e['date'] < dnes
+    do = (date.fromisoformat(dnes) + timedelta(days=DASH_DNES_DNI)).isoformat()
     def cas(e):
         return e['time'] if e.get('time') and not e.get('all_day') else ''
-    # pořadí: akce dnešního dne (s přesným časem napřed), pak "Probíhající" vícedenní
-    # (začaly před dneškem), pak další dny; common.js řadí stejně podle dne v prohlížeči
-    nove = sorted((e for e in budouci if not probiha(e)),
-                  key=lambda e: (e['date'] > dnes, e['date'], not cas(e), cas(e)))
-    bezi = sorted((e for e in budouci if probiha(e)),
-                  key=lambda e: (e['date_end'], e['date'], not cas(e), cas(e)))
-    nove = nove[:DASH_AKCE_VIDET + DASH_AKCE_REZERVA]
-    bezi = bezi[:DASH_AKCE_REZERVA]
-    dnesni = [e for e in nove if e['date'] <= dnes]
-    pozdeji = [e for e in nove if e['date'] > dnes]
-    pool = dnesni + bezi + pozdeji
-    # z celkových 20 míst jich má "Probíhající" vyhrazeno až DASH_AKCE_BEZI (jinak by je
-    # akce s časem vždy vytlačily); common.js počítá stejně
-    mist_nove = DASH_AKCE_VIDET - min(len(bezi), DASH_AKCE_BEZI)
-    # "Další akce" jen z jediného dne (nejbližšího po dnešku, kde něco je); je-li
-    # dohromady míň než DASH_AKCE_MIN karet, přidávají se další dny (celé), dokud
-    # jich není aspoň tolik. common.js počítá stejně.
-    povolene_dny, pocet = set(), len(dnesni) + min(len(bezi), DASH_AKCE_BEZI)
-    for den in sorted({e['date'] for e in pozdeji}):
-        if povolene_dny and pocet >= DASH_AKCE_MIN:
-            break
-        povolene_dny.add(den)
-        pocet += sum(1 for e in pozdeji if e['date'] == den)
-    out = [f'  <ul class="dash-akce" data-max="{DASH_AKCE_VIDET}" data-max-bezi="{DASH_AKCE_BEZI}">']
-    n_nove = n_bezi = n_pozdeji = 0
-    for i, e in enumerate(pool):
-        je_bezi = probiha(e)
-        if je_bezi and n_bezi == 0:
-            out.append('    <li class="dash-group dash-group--bezi">Probíhající</li>')
-        if e['date'] > dnes and not je_bezi and not n_pozdeji:
-            out.append('    <li class="dash-group dash-group--dalsi">Další akce</li>')
-        n_pozdeji += e['date'] > dnes
-        if je_bezi:
-            skryt = n_bezi >= DASH_AKCE_BEZI
-            n_bezi += 1
-        else:
-            skryt = n_nove >= mist_nove or (e['date'] > dnes and e['date'] not in povolene_dny)
-            n_nove += 1
-        out.append(_dash_akce_li(e, i, hidden=skryt))
-    out.append('    <li class="dash-empty"' + ('' if not pool else ' hidden') +
-               '>Žádná nadcházející akce zatím není v kalendáři zapsaná.</li>')
+    vyber = sorted((e for e in events
+                    if not (e['category'] == 'kurz' and e.get('tag') is None)
+                    and e['date'] <= do and (e.get('date_end') or e['date']) >= dnes),
+                   key=lambda e: (e['date'], not cas(e), cas(e), e['title']))
+    out = ['  <ul class="dash-dnes-list">']
+    for e in vyber:
+        c = _cas_gi(f'{cas(e)}–{e["time_end"]}' if cas(e) and e.get('time_end') else cas(e))
+        zdroj = e.get('link') or f'/kalendar/#{e["date"][:7]}/seznam'
+        cizi = ' target="_blank" rel="noopener"' if zdroj.startswith('http') else ''
+        out.append(f'    <li data-from="{e["date"]}" data-until="{e.get("date_end") or e["date"]}" hidden>'
+                   f'<a href="{esc(zdroj)}"{cizi}>' + (f'<span class="dnes-cas">{esc(c)}</span>' if c else '')
+                   + f'{esc(e["title"])}</a></li>')
+    out.append('    <li class="dash-empty" hidden>Dnes nejsou v kalendáři žádné akce.</li>')
     out.append('  </ul>')
-    # odkaz vede na skupinu „Další akce“ v seznamu Kalendáře; měsíc v odkazu přepíše common.js podle dnešního dne
-    out.append(f'  <a class="dash-more dash-more--center" href="/kalendar/">Celý kalendář ...</a>')
-    return _dash_card('Aktuality', '/kalendar/', None, '\n'.join(out), 'kalendar', head_link='📅 Celý kalendář')
+    out.append('  <a class="dash-dnes-cta" href="/kalendar/">Celý kalendář</a>')
+    return ('<div class="card dash-card dash-card--dnes">\n'
+            f'  <div class="dash-dnes-head"><h2 class="display dash-dnes-date">{esc(_den_txt(dnes)).capitalize()}</h2>'
+            f'<span class="tag probiha">Dnes</span></div>\n'
+            + '\n'.join(out) + '\n</div>')
 
 
 def _dash_noviny():
@@ -1160,7 +1207,7 @@ def _dash_noviny():
             f'  {img}\n'
             '  <div class="banner-body">\n'
             f'    <h3 class="banner-title">Pečecké noviny</h3>\n'
-            f'    <p class="banner-text">Poslední vydání: <a href="{pdf}">{esc(ed["label"])}</a><br>{pocet}</p>\n'
+            f'    <p class="banner-text">Poslední vydání: <a class="tag rel-chip" href="{pdf}">{esc(ed["label"])}</a><br>{pocet}</p>\n'
             '    <div class="banner-actions">'
             f'<a class="banner-cta" href="/noviny/">{ICO_LUPA}Prohledat archiv</a>'
             '<a class="banner-link" href="/noviny/redakce.html">Redakce</a></div>\n'
@@ -1188,15 +1235,20 @@ def _dash_zmeny():
 def render_dashboard(stav_rows):
     from datetime import date
     dnes = date.today().isoformat()
-    zm, volby = _dash_zastupitelstvo(dnes)
+    zm, _volby = _dash_zastupitelstvo(dnes)  # banner „Zastupitelé pro období“ na Domů už není (odkaz je ve flashnews)
     # dva samostatné sloupce (vlevo banner voleb + jednání + noviny, vpravo akce, flashnews): sloupce se nenatahují podle sebe, takže mezi bloky nevznikají mezery;
     # na užších displejích se sloupce rozpustí do mřížky (grid-area v styles.css)
-    shrnuti = _dash_rada_shrnuti()
-    levy = ([volby] if volby else []) + ([shrnuti] if shrnuti else []) + [_dash_noviny(), _dash_jednani(dnes)]
-    pravy = [_dash_kalendar(dnes), _dash_zmeny()]
+    # banery „Z rady města“ (bordó) a „Ze zastupitelstva“ (modrý): novější jednání nahoře
+    # (podle data nejnovějšího slidu, tj. i budoucí jednání z pozvánky); grid-area s1/s2 drží pořadí i v mřížce
+    bloky = [b for b in (_dash_rada_shrnuti(), _dash_zm_shrnuti()) if b]
+    klic = lambda b: re.search(r'data-date="([^"]+)"', b).group(1)
+    bloky.sort(key=klic, reverse=True)
+    bloky = [b.replace('dash-zm dash-zm--shrnuti', f'dash-zm dash-zm--s{i + 1} dash-zm--shrnuti', 1) for i, b in enumerate(bloky)]
+    levy = [_dash_dnes(dnes), _dash_zmeny()] + bloky
+    pravy = [_dash_noviny(), _dash_jednani(dnes), _dash_spolky()]
     sloupec = lambda karty: '<div class="dash-col">\n' + '\n'.join(karty) + '\n</div>'
     return (zm + '\n'
-            + f'<div class="dash-grid dash-bento{" dash-bento--volby" if volby else ""}{" dash-bento--rada" if shrnuti else ""}">\n'
+            + f'<div class="dash-grid dash-bento{" dash-bento--rada" if bloky else ""}">\n'
             + sloupec(levy) + '\n' + sloupec(pravy) + '\n</div>')
 
 
