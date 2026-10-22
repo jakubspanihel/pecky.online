@@ -25,12 +25,18 @@
 <link rel="apple-touch-icon" href="/img/favicons/apple-touch-icon.png">
 <link rel="stylesheet" href="/assets/org-colors.css">
 <link rel="stylesheet" href="/assets/styles.css">
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-1CW9XK1VJY"></script>
 <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-1CW9XK1VJY');
+  // Analytics jen na ostré doméně (ne na localhostu ani v náhledech).
+  if (/(^|\.)dopecek\.cz$/.test(location.hostname)) {
+    window.dataLayer = window.dataLayer || [];
+    window.gtag = function(){dataLayer.push(arguments);};
+    gtag('js', new Date());
+    gtag('config', 'G-1CW9XK1VJY');
+    var ga = document.createElement('script');
+    ga.async = true;
+    ga.src = 'https://www.googletagmanager.com/gtag/js?id=G-1CW9XK1VJY';
+    document.head.appendChild(ga);
+  }
 </script>
 <meta name="robots" content="noindex">
 
