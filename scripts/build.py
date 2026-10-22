@@ -571,7 +571,8 @@ def _spolek_odkazy(o, zdroje):
     urls = [o['web']] if o.get('web') else []
     for sid in o.get('sources', []):
         z = zdroje.get(sid)
-        if z and (sid.endswith('-oficialni-web') or sid.endswith(('-facebook', '-instagram', '-youtube'))):
+        if z and (sid.endswith(('-oficialni-web', '-facebook', '-instagram', '-youtube'))
+                  or sid.startswith(('facebook-', 'instagram-', 'youtube-'))):
             urls.append(z['url'])
     out, videno = [], set()
     for u in urls:
