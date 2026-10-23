@@ -38,7 +38,9 @@ Plakáty chodí i e-mailem (schránka `dopecek@gmail.com`, předmět typu
    (zápis, generátor, build, „Stav sekcí“, výpis změn). E-mail se
    neoznačuje jako přečtený, nearchivuje ani nemaže bez pokynu.
 5. **Commit a push** se při kontrole e-mailu nedělá, dokud nebyl zápis
-   schválen; při pouhém nanečisto běhu není co commitovat. Řádek Kalendáře
+   schválen; po schválení („ano“) se commituje a pushuje rovnou do `main`
+   (`git push origin HEAD:main`, předtím `git fetch origin main` a ověřit
+   fast-forward), bez pull requestu — schválil uživatel 23. 10. 2026; při pouhém nanečisto běhu není co commitovat. Řádek Kalendáře
    ve „Stav sekcí“ se při takovém běhu také nepřepisuje — upraví se až při
    schváleném zápisu.
 
