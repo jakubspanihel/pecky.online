@@ -42,6 +42,27 @@ Plakáty chodí i e-mailem (schránka `dopecek@gmail.com`, předmět typu
    ve „Stav sekcí“ se při takovém běhu také nepřepisuje — upraví se až při
    schváleném zápisu.
 
+## 0b. E-maily z noreply@uradvmobilu.cz (oznámení města z pecky.cz)
+
+Zprávy z adresy `noreply@uradvmobilu.cz` jsou automatická oznámení
+z kalendáře a aktualit města (odkaz na `pecky.cz/default/report/<id>_<slug>`).
+Při kontrole e-mailu se zpracovávají vždy takto:
+
+1. **Po každé takové zprávě se připraví návrh záznamu pro `kalendar/akce.json`**
+   (JSON jako v kroku 6, se stavem nová / už existuje a jistotou), a to i když
+   zpráva není plakát a nemá přílohu. Zpráva se nepřeskakuje; nejde-li ji
+   do kalendáře zařadit (žádné datum), napsat výslovně proč.
+2. `evidence[0]` je `source: pecky-cz`, `kind: web`, `url` z odkazu „Přejít na
+   aktualitu“, `published` = datum e-mailu, `retrieved` = dnešek. Název a
+   místo doslova ze zprávy. Pořadatel podle textu (ne podle odesílatele);
+   mimo rejstřík → `organizer: null` + `organizer_name`.
+3. Uzavírky, objížďky a podobná oznámení s datem se zapisují jako
+   `category: akce` s `date` a `date_end`. Jednání rady a zastupitelstva se
+   vynechávají (krok 4). Duplicity podle kroku 5.
+4. Zápis do repozitáře a ostatní pravidla kroku 0 platí beze změny: až po
+   výslovném „ano“ od uživatele v session; e-mail se neodpovídá, neoznačuje,
+   nearchivuje ani nemaže.
+
 ## 1. Získat obrázek — a nejdřív zkontrolovat sociální sítě podle `sources.json`
 
 - **Před ručním zpracováním jednoho plakátu: projít všechny facebookové
