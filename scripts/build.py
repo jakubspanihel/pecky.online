@@ -224,7 +224,7 @@ EXTRA_PAGES = {
         # content/fbmonitoring.html GENERUJE o-webu/facebook-monitoring/summary.py
         # (statický snímek tabulky; zdrojová JSON jsou v .gitignore). Po každém
         # novém měsíci: pustit summary.py, build a přepsat lastmod níže.
-        False, 'owebu', '2026-10-10'),
+        False, 'owebu', '2026-10-23'),
     'fbuskupeni': (
         '/o-webu/facebook-monitoring/uskupeni/',
         'Politická uskupení Peček na Facebooku — Do Peček . cz',
