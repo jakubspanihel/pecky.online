@@ -1,7 +1,7 @@
 {
  "meta": {
   "description": "Kulturní a společenské akce v Pečkách a okolí. U každé akce je pořadatel (id do lide/organizations.json) a doklady, ze kterých je přepsaná (evidence[] — zdroj je id do kořenového sources.json). Zdroj sekce Kalendář — do udalosti.json a kalendar.ics je promítá kalendar/scripts/update-kalendar.py.",
-  "updated": "2026-10-21",
+  "updated": "2026-10-23",
   "note": "Jednání rady a zastupitelstva do tohohle souboru nepatří, i když je plakát KD uvádí — ta má kalendář z jednani/pecky-jednani.json a zapsáním sem by v mřížce vznikly duplicity. Pořadatel je vždy ten, kdo akci pořádá, ne ten, od koho o ní víme — to je evidence[].source."
  },
  "events": [
@@ -15820,6 +15820,29 @@
      "label": "Pečecké noviny 9/2026, str. 19 — Rozvrh hodin sokolovny, školní rok 2026/2027",
      "published": "2026-09-01",
      "retrieved": "2026-09-21"
+    }
+   ]
+  },
+  {
+   "id": "akce-2026-11-02-uzavirka-silnice-ii-329",
+   "title": "UZAVÍRKA SILNICE II/329, tř. Jana Švermy v Pečkách.",
+   "date": "2026-11-02",
+   "date_end": "2026-11-15",
+   "time": null,
+   "category": "akce",
+   "place": "silnice II/329 v Pečkách, poblíž OC Billa",
+   "organizer": null,
+   "organizer_name": "Krajská správa a údržba silnic Středočeského kraje (KSÚS)",
+   "description": "Plánovaná uzavírka silnice II/329 v Pečkách z důvodu opravy části komunikace poblíž OC Billa. Průchod pro pěší k OC Billa bude umožněn.",
+   "note": "Název doslova podle zprávy města, včetně tečky na konci. Opravu zajišťuje a financuje KSÚS, město ji neprovádí ani nefinancuje. Zpráva zveřejněna do 16. 11. 2026 12:00.",
+   "evidence": [
+    {
+     "source": "pecky-cz",
+     "kind": "web",
+     "url": "https://pecky.cz/default/report/495458_uzavirka-silnice-ii-329-tr-jana-svermy-v-peckach",
+     "label": "Aktualita města: Uzavírka silnice II/329, tř. Jana Švermy v Pečkách",
+     "published": "2026-10-23",
+     "retrieved": "2026-10-23"
     }
    ]
   },
