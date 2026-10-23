@@ -1443,6 +1443,19 @@ seznam místo rozházených poznámek po repu.
   sedí šablona (sloupce/barvy/legenda), pak skript, `update-kalendar.py`
   a `sync-google.py`. Změna během roku (např. mimořádný svoz) se píše
   ručně do `dates[]`.
+  Týdenní kontrola aktualit Pečeckých služeb (typy Odpady a Oznámení) tyto
+  změny zapisuje sama — postup v `.claude/skills/DoPecek-update/SKILL.md`,
+  bod „Aktuality Pečeckých služeb“.
+  **Zrušený/přesunutý svoz:** datum zůstává v `dates[]`, typ má navíc
+  `zruseno` = `{"RRRR-MM-DD": {"zprava": "<text zprávy>", "publikovano": "RRRR-MM-DD"}}`;
+  `build_svoz_events()` pak události přidá k názvu „[zrušeno!] “ a text zprávy
+  do poznámky (`note`).
+  Zmiňuje-li zpráva jen část lokalit svozu (např. jen Velké Chvalovice u svozu
+  „sever“), přidat k záznamu `"upozorneni": true` — název pak dostane předponu
+  „⚠️ “ místo „[zrušeno!] “, událost i poznámka zůstanou. **Mimořádný/náhradní svoz** je samostatná událost v
+  `akce.json` (pořadatel `pececke-sluzby`). Náhradní svoz za pravidelný má
+  výchozí čas svozu (`time` 04:00, `time_end` 06:00; `time_end` je u akcí
+  volitelné pole).
 
 ### Provozní doba: Sběrný dvůr — aktivní (od 3. 10. 2026)
 

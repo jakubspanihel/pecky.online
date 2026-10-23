@@ -80,7 +80,7 @@
   </style>
   <section class="panel active" id="panel-voda">
     <h2 class="title display">Voda</h2>
-    <p class="lastmod" data-date="2026-10-15">Poslední kontrola: 15. 10. 2026</p>
+    <p class="lastmod" data-date="2026-10-23">Poslední kontrola: 23. 10. 2026</p>
     <p class="lede perex">Ceník vodného a stočného v Pečkách podle let, laboratorní rozbory pitné vody od února 2016 a údaje o úpravně vody. Ceny jsou v korunách za metr krychlový, bez DPH i s DPH.</p>
 
     <div id="voda-graf-box" hidden>
@@ -157,6 +157,11 @@
       {k: 'vodne', label: 'Vodné', color: 'var(--cyan-deep)'},
       {k: 'stocne', label: 'Stočné', color: 'var(--ink-soft)'}
     ];
+    // poslední den dat událostí jako „d. m.“ (štítek pro neúplný poslední rok)
+    function posledniDen(udalosti) {
+      var m = (udalosti || []).reduce(function (a, e) { return e.datum > a ? e.datum : a; }, '');
+      return m ? (+m.slice(8, 10)) + '. ' + (+m.slice(5, 7)) + '.' : '';
+    }
     function graf(years, udalosti) {
       var asc = years.filter(function (y) { return y.items.celkem.s_dph != null; })
         .sort(function (a, b) { return a.year - b.year; });
@@ -199,7 +204,7 @@
           var n = pocty[yb] || 0;
           if (!n) continue;
           out += '<rect x="' + (X(yb) - bw / 2) + '" y="' + YP(n) + '" width="' + bw + '" height="' + (H - B - YP(n)) + '" fill="var(--gold)" opacity="0.4"><title>' +
-            yb + ': ' + n + ' ' + (n === 1 ? 'havárie nebo odstávka vody' : n < 5 ? 'havárie nebo odstávky vody' : 'havárií a odstávek vody') + (yb === 2026 ? ' (do 16. 9.)' : '') + '</title></rect>';
+            yb + ': ' + n + ' ' + (n === 1 ? 'havárie nebo odstávka vody' : n < 5 ? 'havárie nebo odstávky vody' : 'havárií a odstávek vody') + (yb === 2026 ? ' (do ' + posledniDen(udalosti) + ')' : '') + '</title></rect>';
         }
       }
       // úpravna vody: stavba převzata 20. 3. 2024 (den v roce 80 z 366)
@@ -234,7 +239,7 @@
       document.getElementById('voda-legenda').innerHTML = SERIE.map(function (s) {
         return '<span><span style="display:inline-block;width:10px;height:10px;border-radius:50%;background:' + s.color + ';margin-right:6px;"></span>' + s.label + '</span>';
       }).join('') + '<span>Tečkovaná čára = roky bez údaje o ceně s DPH</span>' +
-        (res[1].length ? '<span><span style="display:inline-block;width:10px;height:10px;background:var(--gold);opacity:.4;margin-right:6px;"></span>Sloupce = počet havárií a odstávek vody za rok (Facebook města, od 12/2018, 2026 do 16. 9.)</span>' : '');
+        (res[1].length ? '<span><span style="display:inline-block;width:10px;height:10px;background:var(--gold);opacity:.4;margin-right:6px;"></span>Sloupce = počet havárií a odstávek vody za rok (Facebook města a aktuality Pečeckých služeb, od 12/2018, 2026 do ' + posledniDen(res[1]) + ')</span>' : '');
       document.getElementById('voda-graf-box').hidden = false;
       box.innerHTML = d.gaps ? '<div class="callout">' + esc(d.gaps) + '</div>' : '';
     }).catch(function (e) {

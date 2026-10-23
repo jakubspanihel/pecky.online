@@ -1,7 +1,7 @@
 {
  "meta": {
   "popis": "Havárie vodovodu, odstávky a omezení dodávky pitné vody v Pečkách a místních částech. Jedna událost = jedna odstávka nebo havárie; opakovaná oznámení téže události jsou sloučena ve `zdroje`.",
-  "zdroj": "Facebook města Pečky (facebook.com/mestopecky), příspěvky převzaté z monitoringu Facebooku (o-webu/facebook-monitoring/facebook-mestopecky/); sdílené příspěvky Pečeckých služeb jen s krátkým textem.",
+  "zdroj": "Facebook města Pečky (facebook.com/mestopecky), příspěvky převzaté z monitoringu Facebooku (o-webu/facebook-monitoring/facebook-mestopecky/); sdílené příspěvky Pečeckých služeb jen s krátkým textem; aktuality Pečeckých služeb (pececkesluzby.cz, typ „Havárie“, včetně archivu).",
   "rozsah_od": "2018-12-01",
   "rozsah_do": "2026-10-23",
   "pokryti": "Jen to, co se objevilo na Facebooku města; starší roky (2018–2024) jsou řidší než 2025–2026. Hledání podle klíčových slov, příspěvky bez nich mohly uniknout. Elektřina, plyn a dopravní uzavírky se nezapisují.",
@@ -1297,6 +1297,54 @@
      "url": "https://www.facebook.com/mestopecky/posts/pfbid0zgWqiUMMgxpDh6WYzEZFnRL2i9RkuvCzBMhYmUFL339Xjt2UHMyT8s8SBssP3f2Ml",
      "publikovano": "2026-03-27",
      "popis": "Odstávka vody 27. 3. (Bačov)"
+    }
+   ]
+  },
+  {
+   "id": "2026-04-21-1",
+   "datum": "2026-04-21",
+   "typ": "havarie",
+   "lokality": [],
+   "dotcene_ulice": [
+    "U Měnírny (areál TONA)"
+   ],
+   "misto_poruchy": null,
+   "pricina": "Havárie na vodovodním řadu",
+   "od": "13:00",
+   "do": "14:30",
+   "do_odhad": false,
+   "poznamka": null,
+   "skupina": null,
+   "zdroje": [
+    {
+     "id": null,
+     "url": "https://pececkesluzby.cz/default/default/20654_aktuality",
+     "publikovano": "2026-03-27",
+     "popis": "Aktualita Pečeckých služeb (typ Havárie): Odstávka vody – oprava havarijního stavu v areálu TONA"
+    }
+   ]
+  },
+  {
+   "id": "2026-05-13-1",
+   "datum": "2026-05-13",
+   "typ": "planovana",
+   "lokality": [
+    "bacov"
+   ],
+   "dotcene_ulice": [],
+   "misto_poruchy": null,
+   "pricina": "Přepojení starého vodovodního řadu na nový",
+   "od": null,
+   "do": null,
+   "do_odhad": false,
+   "poznamka": "Čas v oznámení není uveden.",
+   "skupina": null,
+   "zdroje": [
+    {
+     "id": null,
+     "url": "https://pececkesluzby.cz/default/default/20654_aktuality",
+     "publikovano": "2026-05-04",
+     "popis": "Oznámení Pečeckých služeb: Odstávka vody – 13. 5. 2026"
     }
    ]
   },

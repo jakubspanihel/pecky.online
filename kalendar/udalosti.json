@@ -1,9 +1,16 @@
 {
  "meta": {
-  "generated_from": "jednani/pecky-jednani.json (294 jednání), jednani/vybory.json + komise.json + skolska-rada.json (132 jednání výborů, komisí a školské rady), kalendar/akce.json (3879 akcí), kalendar/udalosti-volby.json (1 termínů), kalendar/afk-zapasy.json (40 zápasů v Pečkách), kalendar/svoz-odpadu.json (186 svozů), kalendar/sberny-dvur.json (145 termínů provozních dob), kalendar/sportovni-hala.json (268 rezervací sportovní haly)",
+  "generated_from": "jednani/pecky-jednani.json (294 jednání), jednani/vybory.json + komise.json + skolska-rada.json (132 jednání výborů, komisí a školské rady), kalendar/akce.json (3883 akcí), kalendar/udalosti-volby.json (1 termínů), kalendar/afk-zapasy.json (40 zápasů v Pečkách), kalendar/svoz-odpadu.json (186 svozů), kalendar/sberny-dvur.json (145 termínů provozních dob), kalendar/sportovni-hala.json (268 rezervací sportovní haly)",
   "updated": "2026-10-23"
  },
  "org_sources": {
+  "pececke-sluzby": [
+   {
+    "name": "Pečecké služby s.r.o.",
+    "url": "https://pececkesluzby.cz/",
+    "n": 4
+   }
+  ],
   "kulturni-stredisko-pecky": [
    {
     "name": "Vzdělávací centrum Pečky",
@@ -6765,7 +6772,7 @@
   },
   {
    "id": "svoz-bio-2026-01-06",
-   "title": "Svoz BIO odpadu",
+   "title": "[zrušeno!] Svoz BIO odpadu",
    "date": "2026-01-06",
    "date_end": null,
    "time": "04:00",
@@ -6778,8 +6785,25 @@
    "organizer": "pececke-sluzby",
    "organizer_name": "Pečecké služby",
    "image": null,
-   "note": null,
+   "note": "Svoz bioodpadu se 6. ledna 2026 neuskuteční. Společnost Pečecké služby, s.r.o. informuje, že v úterý 6. 1. 2026 nebude z důvodu silného mrazu proveden svoz bioodpadu (hnědé popelnice). Náhradní svoz proběhne další týden, tedy v úterý 13. 1. 2026, pokud se klimatické podmínky opět nezhorší. Děkujeme za pochopení.",
    "source_ref": "svoz-bio-2026-01-06"
+  },
+  {
+   "id": "akce-2026-01-10-mobilni-svoz-odpadu-ve",
+   "title": "Mobilní svoz odpadu ve Velkých Chvalovicích",
+   "date": "2026-01-10",
+   "date_end": null,
+   "time": null,
+   "all_day": true,
+   "category": "akce",
+   "link": "https://pececkesluzby.cz/default/default/20654_aktuality",
+   "description": "Mobilní svoz odpadu ve Velkých Chvalovicích.",
+   "place": "Velké Chvalovice",
+   "organizer": "pececke-sluzby",
+   "organizer_name": "Pečecké služby",
+   "image": null,
+   "note": "Odpady ve Velkých Chvalovicích 2026. Mobilní svoz odpadu ve Velkých Chvalovicích proběhne v lednu 2026 dne 10. ledna 2026. Děkujeme za pochopení.",
+   "source_ref": "akce-2026-01-10-mobilni-svoz-odpadu-ve"
   },
   {
    "id": "jednani-rada-2026-01-12",
@@ -6815,6 +6839,24 @@
    "image": null,
    "note": null,
    "source_ref": "svoz-komunalni-sidliste-2026-01-12"
+  },
+  {
+   "id": "akce-2026-01-13-nahradni-svoz-bioodpadu",
+   "title": "Náhradní svoz bioodpadu",
+   "date": "2026-01-13",
+   "date_end": null,
+   "time": "04:00",
+   "time_end": "06:00",
+   "all_day": false,
+   "category": "akce",
+   "link": "https://pececkesluzby.cz/default/default/20654_aktuality",
+   "description": "Náhradní svoz bioodpadu (hnědé popelnice) za zrušený svoz 6. 1. 2026; platí, pokud se klimatické podmínky opět nezhorší. Čas 04:00–06:00 je obvyklý čas svozu (zpráva čas neuvádí).",
+   "place": null,
+   "organizer": "pececke-sluzby",
+   "organizer_name": "Pečecké služby",
+   "image": null,
+   "note": "Svoz bioodpadu se 6. ledna 2026 neuskuteční. Společnost Pečecké služby, s.r.o. informuje, že v úterý 6. 1. 2026 nebude z důvodu silného mrazu proveden svoz bioodpadu (hnědé popelnice). Náhradní svoz proběhne další týden, tedy v úterý 13. 1. 2026, pokud se klimatické podmínky opět nezhorší. Děkujeme za pochopení.",
+   "source_ref": "akce-2026-01-13-nahradni-svoz-bioodpadu"
   },
   {
    "id": "jednani-rada-2026-01-19",
@@ -9185,7 +9227,7 @@
   },
   {
    "id": "svoz-komunalni-sever-2026-07-13",
-   "title": "Svoz sever (komunální odpad)",
+   "title": "⚠️ Svoz sever (komunální odpad)",
    "date": "2026-07-13",
    "date_end": null,
    "time": "04:00",
@@ -9198,7 +9240,7 @@
    "organizer": "pececke-sluzby",
    "organizer_name": "Pečecké služby",
    "image": null,
-   "note": null,
+   "note": "Svoz odpadu ve Velkých Chvalovicích. Z technických důvodů dnes 13. 7. nebude zajištěn svoz směsného komunálního odpadu ve Velkých Chvalovicích. Náhradní svoz proběhne zítra ráno. Prosíme občany, aby ponechali své nádoby na obvyklém místě až do provedení svozu. Děkujeme za pochopení a omlouváme se za vzniklé komplikace.",
    "source_ref": "svoz-komunalni-sever-2026-07-13"
   },
   {
@@ -9218,6 +9260,24 @@
    "image": null,
    "note": null,
    "source_ref": "svoz-komunalni-sidliste-2026-07-13"
+  },
+  {
+   "id": "akce-2026-07-14-nahradni-svoz-komunalniho-odpadu",
+   "title": "Náhradní svoz komunálního odpadu ve Velkých Chvalovicích",
+   "date": "2026-07-14",
+   "date_end": null,
+   "time": "04:00",
+   "time_end": "06:00",
+   "all_day": false,
+   "category": "akce",
+   "link": "https://pececkesluzby.cz/default/default/20654_aktuality",
+   "description": "Náhradní svoz směsného komunálního odpadu za svoz 13. 7. 2026, který se z technických důvodů nekonal. Čas 04:00–06:00 je obvyklý čas svozu (zpráva uvádí jen „ráno“).",
+   "place": "Velké Chvalovice",
+   "organizer": "pececke-sluzby",
+   "organizer_name": "Pečecké služby",
+   "image": null,
+   "note": "Svoz odpadu ve Velkých Chvalovicích. Z technických důvodů dnes 13. 7. nebude zajištěn svoz směsného komunálního odpadu ve Velkých Chvalovicích. Náhradní svoz proběhne zítra ráno. Prosíme občany, aby ponechali své nádoby na obvyklém místě až do provedení svozu. Děkujeme za pochopení a omlouváme se za vzniklé komplikace.",
+   "source_ref": "akce-2026-07-14-nahradni-svoz-komunalniho-odpadu"
   },
   {
    "id": "svoz-komunalni-jih-2026-07-14",
@@ -13579,6 +13639,23 @@
    "image": null,
    "note": null,
    "source_ref": "hala-2026-09-18-1830-basket-u17-devcata"
+  },
+  {
+   "id": "akce-2026-09-19-zapisovani-stavu-vodomeru",
+   "title": "Zapisování stavů vodoměrů",
+   "date": "2026-09-19",
+   "date_end": "2026-09-30",
+   "time": null,
+   "all_day": true,
+   "category": "akce",
+   "link": "https://pececkesluzby.cz/default/default/20654_aktuality",
+   "description": "Zapisování stavů vodoměrů v Pečkách od 19. do 30. 9., ve Velkých Chvalovicích 26.–27. 9. 2026.",
+   "place": "Pečky, Velké Chvalovice",
+   "organizer": "pececke-sluzby",
+   "organizer_name": "Pečecké služby",
+   "image": null,
+   "note": "Voda se zapisuje v Pečkách od 19. září do 30. září 2026 a ve Velkých Chvalovicích 26.-27. září 2026. Vodu zapisují pan Jaromír Vosmanský a pan Milan Vedral. Žádáme odběratele o umístění stavu vodoměru za okno nebo jiné viditelné místo a toto ponechat do 30.9.2026.",
+   "source_ref": "akce-2026-09-19-zapisovani-stavu-vodomeru"
   },
   {
    "id": "akce-2026-09-19-food-festival-velke-chvalovice",

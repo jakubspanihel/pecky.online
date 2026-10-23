@@ -286,6 +286,7 @@ def build_akce_events():
             'date': a['date'],
             'date_end': a.get('date_end'),
             'time': time_val,
+            **({'time_end': a['time_end']} if a.get('time_end') else {}),
             'all_day': time_val is None,
             'category': a['category'],  # 'akce' / 'kurz'
             'link': evidence[0]['url'] if evidence else None,
@@ -454,11 +455,17 @@ def build_svoz_events():
     org_id = meta.get('organizer')
     events = []
     for t in data['types']:
+        # zrušený / přesunutý svoz zůstává v dates[] (v PDF harmonogramu je),
+        # jen dostane předponu a text zprávy Pečeckých služeb v poznámce;
+        # zpráva se zmínkou jen části lokality (`upozorneni: true`) dostane
+        # místo „[zrušeno!]“ předponu ⚠️
+        zruseno = t.get('zruseno') or {}
         for d in t['dates']:
             eid = f'svoz-{t["id"]}-{d}'
+            zr = zruseno.get(d)
             events.append({
                 'id': eid,
-                'title': t['title'],
+                'title': (('⚠️ ' if zr.get('upozorneni') else '[zrušeno!] ') if zr else '') + t['title'],
                 'date': d,
                 'date_end': None,
                 'time': meta.get('time'),
@@ -471,7 +478,7 @@ def build_svoz_events():
                 'organizer': org_id,
                 'organizer_name': org.get(org_id) if org_id else None,
                 'image': None,
-                'note': None,
+                'note': zr['zprava'] if zr else None,
                 'source_ref': eid,
             })
     return events
