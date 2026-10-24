@@ -165,14 +165,14 @@ Facebook strukturu občas mění — při výpadku zkontrolovat klíče
 Druhá veřejná stránka `/o-webu/facebook-monitoring/uskupeni/` (`EXTRA_PAGES['fbuskupeni']`,
 obsah `content/fbuskupeni.html` generuje `uskupeni.py`). Stejný formát měsíčních JSON, jeden adresář na účet:
 
-| ID zdroje | Účet | Příspěvků (k 20. 10. 2026) |
+| ID zdroje | Účet | Příspěvků (k 23. 10. 2026) |
 |---|---|---|
-| `facebook-nasepecky` | https://www.facebook.com/nasepecky (od 4/2018) | 465 |
-| `facebook-peckynext` | https://www.facebook.com/profile.php?id=61581314026896 (od 3/2026) | 111 |
-| `facebook-odspecky` | https://www.facebook.com/odspecky.cz (od 11/2016) | 202 |
-| `facebook-peckypecakum` | https://www.facebook.com/peckypecakum (od 7/2022) | 99 |
-| `facebook-peckysrdcem` | https://www.facebook.com/profile.php?id=61590557991395 (od 7/2026) | 22 |
-| `facebook-lide-pro-pecky` | skupina https://www.facebook.com/groups/1080849193521600 (od 11/2024) | 205 |
+| `facebook-nasepecky` | https://www.facebook.com/nasepecky (od 4/2018) | 468 |
+| `facebook-peckynext` | https://www.facebook.com/profile.php?id=61581314026896 (od 3/2026) | 114 |
+| `facebook-odspecky` | https://www.facebook.com/odspecky.cz (od 11/2016) | 205 |
+| `facebook-peckypecakum` | https://www.facebook.com/peckypecakum (od 7/2022) | 102 |
+| `facebook-peckysrdcem` | https://www.facebook.com/profile.php?id=61590557991395 (od 7/2026) | 25 |
+| `facebook-lide-pro-pecky` | skupina https://www.facebook.com/groups/1080849193521600 (od 11/2024) | 209 |
 
 Seznam účtů, barvy (`--org-*`) a počty sledujících jsou v konstantě `SOURCES` v `uskupeni.py`.
 Stránka začíná skládaným grafem po měsících (po účtech) a za 30 dní, pak následuje karta každého uskupení (`render_cards`/`analyze`:

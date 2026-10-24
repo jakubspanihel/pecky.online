@@ -166,6 +166,10 @@
     const ted = new Date();
     return ted.getHours() * 60 + ted.getMinutes() - (h * 60 + m) > 120;
   }
+  // událost v minulosti (v dané den `ds`, jinak podle konce události) — v pohledech dostane třídu `kal-minula`
+  function kalMinula(e, ds){
+    return (ds || e.date_end || e.date) < KAL_TODAY_STR || kalSkoncila(e);
+  }
   function kalVidet(e){
     return kalShoda(e) && kalOrgOk(e) &&
       (!KAL_ONLY_FUTURE || ((e.date_end || e.date) >= KAL_TODAY_STR && !kalSkoncila(e)));
@@ -241,7 +245,7 @@
             const cont = range && dateStr !== e.date ? ' kal-ev-cont' : '';
             const barva = kalMaPoradatele(e) ? ` style="${kalOrgStyle(e.organizer)}"` : '';
             const cizi = e.link && /^https?:\/\//.test(e.link) ? ' target="_blank" rel="noopener"' : '';
-            return `<a class="kal-ev kal-ev-${e.category}${cont}${e.category === 'kurz' && e.tag == null ? ' kal-ev-pravidelne' : ''}" href="${e.link || '#'}" title="${kalEsc(tip)}"${barva}${cizi}>${kalEsc(e.title)}</a>`;
+            return `<a class="kal-ev kal-ev-${e.category}${cont}${e.category === 'kurz' && e.tag == null ? ' kal-ev-pravidelne' : ''}${kalMinula(e, dateStr) ? ' kal-minula' : ''}" href="${e.link || '#'}" title="${kalEsc(tip)}"${barva}${cizi}>${kalEsc(e.title)}</a>`;
           };
           // skupiny v buňce: jednodenní (včetně pravidelných) → probíhající (vícedenní), oddělené čárou
           const vice = e => e.date_end && e.date_end !== e.date;
@@ -249,7 +253,7 @@
           evHtml = '<div class="kal-events">' + skupiny.filter(g => g.length)
             .map(g => `<div class="kal-skupina">${g.map(odkaz).join('')}</div>`).join('') + '</div>';
         }
-        html += `<td class="kal-bunka ${dateStr === todayStr ? 'today' : ''}" data-date="${dateStr}"><span class="day-num">${d}</span>${dateStr === todayStr ? '<span class="today-chip">Dnes</span>' : ''}${evHtml}</td>`;
+        html += `<td class="kal-bunka ${dateStr === todayStr ? 'today' : ''}${dateStr < todayStr ? ' kal-den-minuly' : ''}" data-date="${dateStr}"><span class="day-num">${d}</span>${dateStr === todayStr ? '<span class="today-chip">Dnes</span>' : ''}${evHtml}</td>`;
       }
       html += '</tr>';
     }
@@ -437,10 +441,9 @@
       const x = new Date(ds + 'T12:00:00');
       const den = dny[x.getDay()][0].toUpperCase() + dny[x.getDay()].slice(1);
       const n = KAL_3DNY_OFFSET + i;   // dní od dneška
-      // chip jen pro dnes / zítra / pozítří, dál už ne
-      const chip = n >= 0 && n <= 2
-        ? `<span class="tag ${n === 0 ? 'kal-dnes' : 'probiha'}" title="${ds}">${['dnes', 'zítra', 'pozítří'][n]}</span>` : '';
-      hd += `<th data-date="${ds}"><a class="akce-den-odkaz" href="/kalendar/insta.html#${ds}" title="Otevřít den jako obrázek pro Instagram">${chip}<b class="k3-den">${den}</b><span class="k3-datum">${x.getDate()}. ${x.getMonth() + 1}.</span></a></th>`;
+      // chip jen pro dnes (zítra a pozítří se v pohledu „3 dny“ nevypisují)
+      const chip = n === 0 ? `<span class="tag kal-dnes" title="${ds}">dnes</span>` : '';
+      hd += `<th data-date="${ds}"${ds < KAL_TODAY_STR ? ' class="kal-den-minuly"' : ''}><a class="akce-den-odkaz" href="/kalendar/insta.html#${ds}" title="Otevřít den jako obrázek pro Instagram"><b class="k3-den">${den}</b><span class="k3-datum">${x.getDate()}. ${x.getMonth() + 1}.</span>${chip}</a></th>`;
       const zaklad = (KAL_EVENTS_BY_DATE[ds] || []).filter(kalVidet);
       const evs = zaklad
         .sort((a, b) => (!!b.time - !!a.time) || (a.time || '').localeCompare(b.time || ''));
@@ -453,7 +456,7 @@
         const cizi = e.link && /^https?:\/\//.test(e.link) ? ' target="_blank" rel="noopener"' : '';
         const cont = range && ds !== e.date ? ' kal-ev-cont' : '';
         const stitek = e.category === 'kurz' && e.tag == null ? '<span class="tag ev-stitek">Pravidelně</span>' : '';
-        return `<a class="kal-ev kal-ev-${e.category} k3-karta${cont}" href="${e.link || '#'}"${barva}${tip}${cizi}>` +
+        return `<a class="kal-ev kal-ev-${e.category} k3-karta${cont}${kalMinula(e, ds) ? ' kal-minula' : ''}" href="${e.link || '#'}"${barva}${tip}${cizi}>` +
           (cas || stitek ? `<span class="k3-radek">${cas ? `<span class="k3-cas">${cas}</span>` : ''}${stitek}</span>` : '') +
           `<span class="k3-nazev">${kalIkona(e)}${kalEsc(e.title)}</span>` +
           (range ? `<span class="k3-misto">${range}</span>` : '') + misto + `</a>`;
@@ -514,7 +517,7 @@
       const chip = rel && ['dnes', 'zítra', 'pozítří'].includes(rel)
         ? `<span class="tag ${rel === 'dnes' ? 'kal-dnes' : 'probiha'}" title="${ds}">${rel}</span>` : '';
       const den = dny[x.getDay()][0].toUpperCase() + dny[x.getDay()].slice(1);
-      return `<h4 class="akce-den" data-date="${ds}"><a class="akce-den-odkaz" href="/kalendar/insta.html#${ds}" title="Otevřít den jako obrázek pro Instagram"><b class="k3-den">${den}</b><span class="k3-datum">${x.getDate()}. ${x.getMonth() + 1}.</span>${chip}</a></h4>`;
+      return `<h4 class="akce-den${ds < KAL_TODAY_STR ? ' kal-den-minuly' : ''}" data-date="${ds}"><a class="akce-den-odkaz" href="/kalendar/insta.html#${ds}" title="Otevřít den jako obrázek pro Instagram"><b class="k3-den">${den}</b><span class="k3-datum">${x.getDate()}. ${x.getMonth() + 1}.</span>${chip}</a></h4>`;
     }
     function karta(e, skupina){
       const vicedenni = e.date_end && e.date_end !== e.date;
@@ -536,7 +539,7 @@
       const barva = kalMaPoradatele(e) && e.organizer ? ` style="${kalOrgStyle(e.organizer)}"` : '';
       const tip = kalMaPoradatele(e) && e.organizer_name ? ` title="Pořádá: ${kalEsc(e.organizer_name)}"` : '';
       const radek = cas || stitek ? `<div class="ev-line">${cas ? `<span class="ev-time">${cas}</span>` : ''}${stitek}</div>` : '';
-      return `<article class="akce-karta akce-blok-${e.category}"${barva}${tip}>
+      return `<article class="akce-karta akce-blok-${e.category}${kalMinula(e) ? ' kal-minula' : ''}"${barva}${tip}>
         <div class="ev-what">${radek}
           ${nazev}${misto ? `<div class="ev-meta">${misto}</div>` : ''}${popis}${vice}${pozn}</div>
       </article>`;
@@ -665,8 +668,8 @@
   function kalHash(){
     const org = KAL_ALL_EVENTS.length ? kalOrgJeden() : KAL_ORG_URL;
     const pohled = KAL_VIEW === 'seznam' ? 'seznam' : KAL_VIEW === '3dny' ? '3dny' : 'kalendar';
-    // zapisuje se jen odchylka od výchozího stavu pohledu: vypnuté „Jen budoucí“ (`minule`) mimo mřížku, zapnuté (`budouci`) v mřížce
-    const minule = KAL_ONLY_FUTURE === kalVychoziBudouci(KAL_VIEW) ? '' : KAL_ONLY_FUTURE ? '/budouci' : '/minule';
+    // „Jen budoucí“ je ve výchozím stavu vypnuté; zapnuté se zapisuje jako `budouci`
+    const minule = KAL_ONLY_FUTURE ? '/budouci' : '';
     if (org && kalYear === kalNow.getFullYear() && kalMonth === kalNow.getMonth()) return `#org=${org}/${pohled}${minule}`;
     return `#${kalYear}-${kalPad(kalMonth + 1)}` + (pohled === 'kalendar' ? '' : '/' + pohled) + (org ? `/org=${org}` : '') + minule;
   }
@@ -682,8 +685,8 @@
       if ((m = seg.match(/^(\d{4})-(\d{2})$/)) && +m[2] >= 1 && +m[2] <= 12) { rok = +m[1]; mesic = +m[2] - 1; }
       else if (/^(seznam|kalendar|3dny)$/.test(seg)) pohled = seg;
       else if (seg === 'dalsi') dalsi = true;
-      else if (seg === 'budouci') budouci = true;   // „Jen budoucí“ zapnuto v měsíční mřížce
-      else if (seg === 'minule') minule = true;   // „Jen budoucí“ vypnuto: v pohledech jsou vidět i proběhlé akce
+      else if (seg === 'budouci') budouci = true;   // „Jen budoucí“ zapnuto
+      else if (seg === 'minule') minule = true;   // starší odkazy: výchozí stav (vypnuto), segment se jen toleruje
       else if ((m = seg.match(/^org=([a-z0-9-]+)$/))) org = m[1];
       else return false;
     }
@@ -694,7 +697,7 @@
     KAL_SCROLL_DALSI = dalsi;   // odkaz „Další ...“ z Domů: odscrolovat na skupinu „Další akce“
     KAL_VIEW = pohled === '3dny' || (rok === null && !pohled && !dalsi) ? '3dny' : pohled === 'seznam' || dalsi ? 'seznam' : 'kalendar';
     if (org) { KAL_ORG_URL = org; kalUplatniOrgZUrl(); }
-    kalSetOnlyFuture(minule ? false : budouci ? true : kalVychoziBudouci(KAL_VIEW));
+    kalSetOnlyFuture(budouci);
     kalViewUi();
     return true;
   }
@@ -702,8 +705,6 @@
   // Zapne/vypne checkbox "Pouze budoucí události" i jeho stav najednou —
   // volá se programově (načtení z hashe, klik na proběhlý den), ne z vlastního change listeneru checkboxu níž, ať se
   // needit zacyklí.
-  // výchozí stav „Jen budoucí“ podle pohledu: v měsíční mřížce vypnuto (listuje se i zpět), jinde zapnuto
-  const kalVychoziBudouci = pohled => pohled !== 'kalendar';
   function kalSetOnlyFuture(val){
     KAL_ONLY_FUTURE = val;
     document.getElementById('kal-only-future').checked = val;
@@ -746,7 +747,7 @@
     }
     kalUplatniOrgZUrl();
     list.innerHTML = razene.map(([id, nazev]) =>
-      `<label class="checkbox-label kal-org-chk"${id === KAL_BEZ_PORADATELE ? '' : ` style="${kalOrgStyle(id)}"`}><input type="checkbox" value="${kalEsc(id)}"${!KAL_ORG_SEL || KAL_ORG_SEL.has(id) ? ' checked' : ''}> ${id === KAL_BEZ_PORADATELE ? '' : (KAL_ORG_IKONY[id] || '🏷️') + ' '}${kalEsc(nazev)}</label>`).join('');
+      `<label class="checkbox-label kal-org-chk"${id === KAL_BEZ_PORADATELE ? ' style="--org-c:var(--gold-deep)"' : ` style="${kalOrgStyle(id)}"`}><input type="checkbox" value="${kalEsc(id)}"${!KAL_ORG_SEL || KAL_ORG_SEL.has(id) ? ' checked' : ''}> ${id === KAL_BEZ_PORADATELE ? '' : (KAL_ORG_IKONY[id] || '🏷️') + ' '}${kalEsc(nazev)}</label>`).join('');
     list.hidden = false;
     document.getElementById('kal-all').hidden = false;
     kalSyncVse();
@@ -846,7 +847,6 @@
     kalYear = +ds.slice(0, 4); kalMonth = +ds.slice(5, 7) - 1;
     KAL_VIEW = 'seznam';
     kalViewUi();
-    if (ds < KAL_TODAY_STR) kalSetOnlyFuture(false);   // proběhlý den je v Seznamu vidět jen bez „Jen budoucí“; zapnout ho přepnutí nikdy nemá
     kalSkryjFiltry();
     kalShowView(KAL_VIEW);
     const dny = [...document.querySelectorAll('#kal-list .akce-den')];
@@ -878,7 +878,7 @@
   // na /kalendar/#RRRR-MM aktuálního měsíce
   // Výchozí pohled je „3 dny“ (na mobilu i na počítači). Odkaz s platným hashem
   // (#RRRR-MM = mřížka, #RRRR-MM/seznam, #RRRR-MM/3dny) zvolený pohled respektuje.
-  if (!kalReadHash()) { kalViewUi(); kalSetOnlyFuture(true); }   // „Jen budoucí“ je výchozí ve všech pohledech
+  if (!kalReadHash()) { kalViewUi(); kalSetOnlyFuture(false); }   // „Jen budoucí“ je výchozí vypnuté, zapíná se jen ručně
   kalWriteHash();
   window.addEventListener('hashchange', () => {
     if (kalReadHash()) { kalShowView(KAL_VIEW); kalScrollNaDalsi(); } else kalWriteHash();
@@ -903,7 +903,7 @@
     KAL_QUERY = kalNorm(this.value).trim();
     kalShowView(KAL_VIEW);
   });
-  function kal3dnyPrev() { KAL_3DNY_OFFSET -= 3; if (KAL_3DNY_OFFSET < 0) kalSetOnlyFuture(false); kalShowView('3dny'); }
+  function kal3dnyPrev() { KAL_3DNY_OFFSET -= 3; kalShowView('3dny'); }
   function kal3dnyNext() { KAL_3DNY_OFFSET += 3; kalShowView('3dny'); }
   document.getElementById('kal-3dny-prev').addEventListener('click', kal3dnyPrev);
   document.getElementById('kal-3dny-next').addEventListener('click', kal3dnyNext);
@@ -997,6 +997,24 @@
     }
   }
 
+  // Měsíční mřížka po prvním načtení: odscrolluje na týden (řádek tabulky) s dnešním dnem
+  // pod lepivými lištami; jen když mřížka zobrazuje aktuální měsíc a není zvolen odkaz „Další ...“.
+  function kalScrollNaDnes(){
+    if (KAL_VIEW !== 'kalendar' || KAL_SCROLL_DALSI) return;
+    if (!document.querySelector('#kal-grid-body td.today')) return;
+    const jdi = () => {
+      const radek = document.querySelector('#kal-grid-body td.today')?.closest('tr');   // mřížka se může přerenderovat
+      if (!radek) return;
+      const nav = document.querySelector('nav.tabs.header-nav');
+      const bar = document.querySelector('#panel-kalendar .kal-toolbar');
+      const nad = (nav ? nav.offsetHeight : 0) + (bar ? bar.offsetHeight : 0) + 12;
+      window.scrollTo({ top: radek.getBoundingClientRect().top + window.scrollY - nad });
+    };
+    jdi();
+    // výška stránky se ještě mění (obrázky banneru) — po dokončení načtení se srovná znovu
+    if (document.readyState !== 'complete') window.addEventListener('load', jdi, { once: true });
+  }
+
   fetch('/kalendar/udalosti.json')
     .then(r => r.json())
     .then(data => {
@@ -1012,6 +1030,7 @@
       kalRenderOrgSelect(KAL_ALL_EVENTS);
       kalShowView(KAL_VIEW);
       kalScrollNaDalsi();
+      kalScrollNaDnes();
     })
     .catch(() => {
       document.getElementById('kal-status').textContent = 'Kalendář se nepodařilo načíst.';

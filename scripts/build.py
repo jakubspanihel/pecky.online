@@ -236,7 +236,7 @@ EXTRA_PAGES = {
         # o-webu/facebook-monitoring/uskupeni.py (statický snímek; zdrojová JSON
         # jsou v .gitignore). Po novém sběru: summary.py, uskupeni.py, build
         # a přepsat lastmod níže.
-        False, 'owebu', '2026-10-20'),
+        False, 'owebu', '2026-10-23'),
     'udmonitoring': (
         '/o-webu/uredni-deska-monitoring/',
         'Monitoring úřední desky města Pečky — Do Peček . cz',
@@ -1173,13 +1173,16 @@ def _dash_dnes(dnes):
     vyber = sorted((e for e in events
                     if not (e['category'] == 'kurz' and e.get('tag') is None)
                     and e['date'] <= do and (e.get('date_end') or e['date']) >= dnes),
-                   key=lambda e: (e['date'], not cas(e), cas(e), e['title']))
+                   key=lambda e: (bool(e.get('date_end')) and e['date_end'] != e['date'], e['date'], not cas(e), cas(e), e['title']))   # dlouhodobé (vícedenní) na konec
     out = ['  <ul class="dash-dnes-list">']
     for e in vyber:
         c = _cas_gi(f'{cas(e)}–{e["time_end"]}' if cas(e) and e.get('time_end') else cas(e))
         zdroj = e.get('link') or f'/kalendar/#{e["date"][:7]}/seznam'
         cizi = ' target="_blank" rel="noopener"' if zdroj.startswith('http') else ''
-        out.append(f'    <li data-from="{e["date"]}" data-until="{e.get("date_end") or e["date"]}" hidden>'
+        # bulletka v barvě pořadatele; bez pořadatele podle kategorie (jako události v Kalendáři)
+        kat = {'rada': 'field', 'zastupitelstvo': 'burgundy', 'vybor': 'gold', 'volby': 'slate', 'akce': 'gold-deep'}.get(e['category'], 'ink-soft')
+        barva = f' style="--org-c:var(--org-{e["organizer"]})"' if e.get('organizer') else f' style="--org-c:var(--{kat})"'
+        out.append(f'    <li data-from="{e["date"]}" data-until="{e.get("date_end") or e["date"]}"{barva} hidden>'
                    f'<a href="{esc(zdroj)}"{cizi}>' + (f'<span class="dnes-cas">{esc(c)}</span>' if c else '')
                    + f'{esc(e["title"])}</a></li>')
     out.append('    <li class="dash-empty" hidden>Dnes nejsou v kalendáři žádné akce.</li>')
@@ -1187,7 +1190,7 @@ def _dash_dnes(dnes):
     out.append('  <a class="dash-dnes-cta" href="/kalendar/">Celý kalendář</a>')
     return ('<div class="card dash-card dash-card--dnes">\n'
             f'  <div class="dash-dnes-head"><h2 class="display dash-dnes-date">{esc(_den_txt(dnes)).capitalize()}</h2>'
-            f'<span class="tag probiha">Dnes</span></div>\n'
+            f'<span class="tag kal-dnes">Dnes</span></div>\n'
             + '\n'.join(out) + '\n</div>')
 
 

@@ -250,11 +250,13 @@
   .kal-org-select[hidden]{display:none;}
   .kal-org-list{flex:1 1 100%; display:flex; flex-wrap:wrap; justify-content:center; gap:var(--space-2) var(--space-3);}
   .kal-org-list[hidden]{display:none;}
-  .kal-searchrow .kal-org-chk{justify-content:center; border-color:var(--org-c,var(--cyan-deep)); background:var(--org-c,var(--cyan-deep)); color:var(--white); transition:opacity .12s;}
-  .kal-searchrow .kal-org-chk:has(input:not(:checked)){opacity:0.55;}
+  .kal-den-minuly .day-num,.kal-den-minuly .k3-datum{text-decoration:line-through;}   /* datum uplynulého dne: přeškrtnuté ve všech pohledech */
+  .kal-minula{opacity:0.5;}   /* události v minulosti: krytí 50 % */
+  .kal-searchrow .kal-org-chk{justify-content:center; border-width:3px; border-color:var(--material-deep); padding:0 calc(var(--space-4) - 2px); background:var(--org-c,var(--cyan-deep)); color:var(--white); transition:opacity .12s;}   /* nevybraný: ohraničení v barvě pozadí panelu filtrů */
+  .kal-searchrow .kal-org-chk:has(input:not(:checked)){opacity:0.55; border-radius:calc(var(--radius-sm) + 3px);}   /* + šířka borderu: viditelná (vnitřní) plocha má radius-sm */
   .kal-searchrow .kal-org-chk:hover,.kal-searchrow .kal-org-chk:has(input:checked){background:var(--org-c,var(--cyan-deep));}
   .kal-searchrow .kal-org-chk:hover{opacity:0.85;}
-  .kal-searchrow .kal-org-chk:has(input:checked){border-width:3px; border-color:var(--org-c-bg,var(--cyan-deep-a08)); padding:0 calc(var(--space-4) - 2px);}   /* vybraný: ohraničení 3× silnější ve světlém odstínu barvy pořadatele, rozměr se nemění */
+  .kal-searchrow .kal-org-chk:has(input:checked){border-width:3px; border-color:var(--org-c,var(--cyan-deep)); padding:0 calc(var(--space-4) - 2px);}   /* vybraný: ohraničení v barvě pozadí chipu, rozměr se nemění */
   .kal-searchrow .kal-org-chk input{appearance:none; -webkit-appearance:none; position:relative; flex:none; width:16px; height:16px; border-radius:var(--radius-xs); background:var(--white);}
   .kal-searchrow .kal-org-chk input:checked::after{content:''; position:absolute; left:5px; top:1px; width:4px; height:9px; border:solid var(--org-c,var(--cyan-deep)); border-width:0 2.5px 2.5px 0; transform:rotate(45deg);}
   .kal-banner{display:flex; align-items:stretch; justify-content:space-between; gap:var(--space-11); margin:28px 0 var(--space-3); padding:var(--space-12) var(--space-13) 0; background:linear-gradient(135deg,var(--banner-from,var(--burgundy)) 0%,var(--banner-to,var(--burgundy-deep)) 100%); color:var(--banner-fg,var(--white)); border-radius:var(--radius-xl); overflow:hidden; box-shadow:var(--shadow-banner); position:relative;}
@@ -436,6 +438,8 @@
   .dash-dnes-head h2{margin:0; font-weight:var(--fw-semibold);}
   .dash-dnes-list{list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:var(--space-3);}
   .dash-dnes-list li[hidden]{display:none;}
+  .dash-dnes-list li{position:relative; padding-left:var(--space-6);}
+  .dash-dnes-list li::before{content:''; position:absolute; left:0; top:0.55em; width:9px; height:9px; border-radius:var(--radius-round); background:var(--org-c,var(--cyan-deep));}   /* bulletka v barvě pořadatele */
   .dash-dnes-list a{color:var(--ink); text-decoration:none; border-bottom:1px solid var(--line,rgba(0,0,0,0.15));}
   .dash-dnes-list a:hover{color:var(--cyan-deep);}
   .dash-dnes-list .dnes-cas{font-family:var(--font-mono); margin-right:var(--space-3); color:var(--ink-soft);}
@@ -743,6 +747,7 @@
   table.calendar-table .kal-ev:hover{opacity:0.85;}
   #kal-grid thead th{position:sticky; top:var(--kal-3dny-top,0px); z-index:7;}
   #kal-grid .day-num{position:sticky; top:calc(var(--kal-3dny-top,0px) + var(--kal-grid-th-h,0px)); z-index:6; display:inline-block; padding:0 var(--space-1); border-radius:var(--radius-xs); background:var(--material);}
+  #kal-grid .today-chip{position:sticky; top:calc(var(--kal-3dny-top,0px) + var(--kal-grid-th-h,0px)); z-index:6;}   /* chip „Dnes“ drží u čísla dne pod lištami */
   #kal-grid td.today .day-num{background:color-mix(in srgb, var(--burgundy) 8%, var(--material));}
   table.calendar-table td.kal-bunka,table.calendar-table.kal-3dny th[data-date]{cursor:pointer;}
   .akce-den{scroll-margin-top:calc(var(--nav-h,0px) + var(--kal-toolbar-h,0px) + var(--space-2));}
@@ -1301,6 +1306,8 @@ table.calendar-table.kal-3dny thead th{position:sticky; top:var(--kal-3dny-top, 
 table.calendar-table.kal-3dny th,table.calendar-table.kal-3dny td,table.calendar-table.kal-3dny td.today{border:0; border-left:1px solid var(--line);}
 table.calendar-table.kal-3dny th:first-child,table.calendar-table.kal-3dny td:first-child{border-left:0;}
 table.calendar-table.kal-3dny .k3-datum{font-weight:var(--fw-bold); line-height:1.2; margin-top:1px;}
+table.calendar-table.kal-3dny th .k3-datum{display:inline-block; vertical-align:middle;}   /* chip „dnes / zítra“ stojí za datem na stejném řádku */
+table.calendar-table.kal-3dny th .akce-den-odkaz .tag{margin-left:var(--space-3); vertical-align:middle;}
 table.calendar-table.kal-3dny .k3-karta,table.calendar-table.kal-3dny .k3-cas{font-family:var(--font-body);}
 table.calendar-table.kal-3dny .k3-prazdno{color:var(--burgundy);}
 table.calendar-table .kal-ev{font-family:var(--font-body);}

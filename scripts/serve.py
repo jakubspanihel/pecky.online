@@ -29,6 +29,11 @@ SITE_ROOT = Path(__file__).resolve().parent.parent
 
 
 class Handler(http.server.SimpleHTTPRequestHandler):
+    # Dev server: nikdy necachovat, ať se úpravy CSS/JS projeví hned po obnovení.
+    def end_headers(self):
+        self.send_header('Cache-Control', 'no-store')
+        super().end_headers()
+
     def translate_path(self, path):
         path = path.split('?', 1)[0].split('#', 1)[0]
         if path == BASE_PATH or path.startswith(BASE_PATH + '/'):
