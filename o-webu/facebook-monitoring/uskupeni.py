@@ -319,34 +319,36 @@ def card(p, a):
             f'<span class="fb-meta">{meta}</span></li>')
 
 
-def render_account(a):
+def render_store(accs):
+    """Skrytý sklad karet po měsících (všechny účty, nejnovější nahoře); JS z něj plní pravý sloupec."""
+    by = defaultdict(list)
+    for a in accs:
+        for ym, ps in a['months'].items():
+            by[ym] += [(p, a) for p in ps]
+    uls = []
+    for ym in sorted(by, reverse=True):
+        rows = sorted(by[ym], key=lambda x: x[0]['published'], reverse=True)
+        cards = '\n'.join(card(p, a) for p, a in rows)
+        uls.append(f'      <ul class="fb-cards" data-ym="{ym}">\n{cards}\n      </ul>')
+    return '\n'.join(uls), sorted(by, reverse=True)
+
+
+def render_tree(yms):
     years = defaultdict(list)
-    for ym in sorted(a['months'], reverse=True):
+    for ym in yms:
         years[ym[:4]].append(ym)
-    blocks = []
-    for y, yms in years.items():
-        n = sum(len(a['months'][ym]) for ym in yms)
-        mons = []
-        for ym in yms:
-            ps = a['months'][ym]
-            cards = '\n'.join(card(p, a) for p in ps)
-            mons.append(f'''          <details class="fb-mon" id="u-{a["key"]}-{ym}">
-            <summary>{MONTHS[int(ym[5:]) - 1]} {y} <span class="fb-tn">{len(ps)}</span></summary>
-            <ul class="fb-cards">
-{cards}
-            </ul>
-          </details>''')
-        blocks.append(f'''        <details class="fb-yr" id="u-{a["key"]}-y{y}">
-          <summary>{y} <span class="fb-tn">{n} {plural(n)}</span></summary>
-{chr(10).join(mons)}
+    out = []
+    for k, (y, ms) in enumerate(years.items()):
+        btns = '\n'.join(f'            <li><button type="button" class="fb-tm" data-ym="{ym}" '
+                         f'data-label="{MONTHS[int(ym[5:]) - 1].lower()} {ym[:4]}">'
+                         f'<span>{MONTHS[int(ym[5:]) - 1]}</span><span class="fb-tn"></span></button></li>' for ym in ms)
+        out.append(f'''        <details class="fb-ty" data-year="{y}"{' open' if k == 0 else ''}>
+          <summary>{y} <span class="fb-tn"></span></summary>
+          <ul>
+{btns}
+          </ul>
         </details>''')
-    tot = len(a['posts'])
-    return f'''    <details class="fb-acc" id="u-{a["key"]}">
-      <summary><span class="fb-sw" style="background:{a["color"]}"></span> <strong>{escape(a["name"])}</strong> <span class="fb-tn">{tot} {plural(tot)}</span> <span class="collapsible-arrow" aria-hidden="true">▾</span></summary>
-      <div class="fb-acc-body">
-{chr(10).join(blocks)}
-      </div>
-    </details>'''
+    return '\n'.join(out)
 
 
 CSS = '''  <style>
@@ -362,22 +364,31 @@ CSS = '''  <style>
 @@CHIPCSS@@
     .fb-card .fb-date{font-size:12px; color:var(--ink-soft); font-weight:600;}
     .fb-card .fb-ac{font-size:11.5px; font-weight:600;}
-    .fb-acc .fb-ac{display:none;}
     .fb-card .fb-title{line-height:1.35; overflow-wrap:anywhere;}
     .fb-card .fb-meta{margin-top:auto;}
     .fb-card.fb-hit{background:rgba(173,122,42,0.22) !important;}
-    .fb-tn{font-size:12.5px; color:var(--ink-soft); font-weight:400; margin-left:6px;}
-    details.fb-acc{border:1px solid var(--line); border-radius:8px; margin:12px 0; background:rgba(255,255,255,0.35);}
-    details.fb-acc > summary{cursor:pointer; list-style:none; padding:12px 14px; font-size:1.05em;}
-    details.fb-acc > summary::-webkit-details-marker{display:none;}
-    details.fb-acc .collapsible-arrow{display:inline-block; color:var(--burgundy); font-size:0.8em; margin-left:4px; transition:transform .15s;}
-    details.fb-acc:not([open]) .collapsible-arrow{transform:rotate(-90deg);}
-    .fb-acc-body{padding:0 14px 14px;}
-    details.fb-yr > summary,details.fb-mon > summary{cursor:pointer; padding:7px 0; font-weight:600;}
-    details.fb-yr > summary{font-family:var(--font-display,inherit); font-size:1.02em; border-top:1px solid var(--line);}
-    details.fb-mon{margin-left:14px;}
-    details.fb-mon > summary{font-weight:500;}
-    details.fb-mon .fb-cards{margin:6px 0 14px;}
+    .fb-tn{font-size:12.5px; color:var(--ink-soft); font-weight:400;}
+    .fb-store{display:none;}
+    .fb-split{display:grid; grid-template-columns:minmax(0,1fr); gap:16px; align-items:start; margin-top:22px;}
+    .fb-tree{border-bottom:1px solid var(--line); padding-bottom:8px;}
+    .fb-ty summary{cursor:pointer; font-family:var(--font-display,inherit); font-weight:700; padding:6px 0; list-style:none; display:flex; justify-content:space-between; gap:8px;}
+    .fb-ty summary::-webkit-details-marker{display:none;}
+    .fb-ty summary::after{content:'▸'; order:3; color:var(--ink-soft);}
+    .fb-ty[open] summary::after{content:'▾';}
+    .fb-ty summary .fb-tn{margin-left:auto;}
+    .fb-ty ul{list-style:none; margin:0 0 8px; padding:0;}
+    .fb-ty[hidden],.fb-ty li[hidden]{display:none;}
+    .fb-tm{all:unset; box-sizing:border-box; width:100%; display:flex; justify-content:space-between; gap:8px; padding:4px 8px; cursor:pointer; border-radius:3px; font-size:14px;}
+    .fb-tm:hover{background:var(--material-deep);}
+    .fb-tm:focus-visible{outline:2px solid var(--gold); outline-offset:1px;}
+    .fb-tm.active{background:var(--burgundy); color:#fff;}
+    .fb-tm.active .fb-tn{color:#fff;}
+    .fb-pane h3{margin:0 0 10px !important;}
+    @media (min-width:768px){
+      .fb-split{grid-template-columns:minmax(190px,250px) minmax(0,1fr); gap:28px;}
+      .fb-tree{position:sticky; top:calc(var(--nav-h,0px) + var(--title-h,0px) + var(--lc-h,0px) + 8px); max-height:calc(100vh - var(--nav-h,0px) - var(--title-h,0px) - var(--lc-h,0px) - 24px); overflow-y:auto; border-bottom:0; border-right:1px solid var(--line); padding:0 12px 0 0;}
+    }
+    #panel-fbuskupeni.fb-filtering .fb-split{display:none !important;}
     .fb-chart{margin:18px 0 4px;}
     .fb-chart svg{display:block; max-width:100%; height:auto;}
     .fb-chart figcaption{margin-top:4px;}
@@ -389,9 +400,8 @@ CSS = '''  <style>
     .fb-chart-view[hidden]{display:none;}
     .fb-bar{cursor:pointer;}
     .fb-bar:hover rect,.fb-bar:focus-visible rect{opacity:.78;}
-    #panel-fbuskupeni details[id]{scroll-margin-top:190px;}
+    #panel-fbuskupeni .fb-pane h3{scroll-margin-top:190px;}
     #fb-filter{margin:22px 0 14px;}
-    #panel-fbuskupeni.fb-filtering .fb-accs{display:none !important;}
     .fb-found{margin:0 0 12px; font-size:13.5px; color:var(--ink-soft);}
     .fb-more-btn{font-family:var(--font-mono); font-size:11.5px; padding:8px 14px; border:1px solid var(--burgundy); border-radius:3px; background:none; color:var(--burgundy); cursor:pointer; margin:14px 0 0;}
     .fb-ucards{display:grid; grid-template-columns:minmax(0,1fr); gap:16px; margin-top:10px;}
@@ -423,9 +433,10 @@ def render_page(accs):
     od, do = min(allds), max(allds)
     counts = max(a['counts_as_of'] for a in accs)
     counts_cz = cz_date(counts + 'T00:00')
-    acc_btn = '\n'.join(f'          <button type="button" class="segmented-btn" data-a="{a["key"]}">{escape(a["name"])}</button>' for a in accs)
+    acc_opt = '\n'.join(f'          <option value="{a["key"]}">{escape(a["name"])}</option>' for a in accs)
     typ_btn = '\n'.join(f'          <button type="button" class="segmented-btn" data-g="{i}">{g}</button>' for i, (g, _, _) in enumerate(TYPE_GROUPS))
-    sections = '\n'.join(render_account(a) for a in accs)
+    store, yms = render_store(accs)
+    tree = render_tree(yms)
     links = ', '.join(f'<a href="{escape(a["url"], quote=True)}" target="_blank" rel="noopener">{escape(a["name"])}</a>' for a in accs)
     html = f'''{CSS.replace('@@CHIPCSS@@', chipcss)}  <section class="panel active" id="panel-fbuskupeni">
     <h2 class="title display">Politická uskupení Peček na Facebooku</h2>
@@ -442,12 +453,10 @@ def render_page(accs):
     <div class="list-control" id="fb-filter">
       <div class="search-bar">
         <input type="search" id="fb-search" placeholder="Hledat v popisech příspěvků" autocomplete="off" aria-label="Hledat v příspěvcích">
-      </div>
-      <div class="segmented-control">
-        <div class="segmented-group" role="group" aria-label="Účet">
-          <button type="button" class="segmented-btn active" data-a="">Všechny účty</button>
-{acc_btn}
-        </div>
+        <select id="fb-acc" aria-label="Uskupení">
+          <option value="">Všechna uskupení</option>
+{acc_opt}
+        </select>
       </div>
       <div class="segmented-control">
         <div class="segmented-group" role="group" aria-label="Typ příspěvku">
@@ -461,8 +470,14 @@ def render_page(accs):
       <ul class="fb-cards" id="fb-rlist"></ul>
       <p><button type="button" class="fb-more-btn" id="fb-rmore" hidden>Zobrazit dalších</button></p>
     </div>
-    <div class="fb-accs">
-{sections}
+    <div class="fb-store" id="fb-store" hidden>
+{store}
+    </div>
+    <div class="fb-split">
+      <nav class="fb-tree" id="fb-tree" aria-label="Měsíce podle let">
+{tree}
+      </nav>
+      <div class="fb-pane" id="fb-pane" aria-live="polite"></div>
     </div>
 
     <p class="meta-note"><strong>Celkem {total} {plural(total)}</strong> na {len(accs)} účtech od {cz_date(od)} do {cz_date(do)}. Data pocházejí z veřejných facebookových profilů a skupiny uskupení ({links}) a řadí se podle data zveřejnění. Počítají se všechny příspěvky, které účet na Facebooku zobrazuje, včetně sdílení příspěvků jiných profilů a změn úvodní fotky; starší nebo smazané příspěvky v přehledu nejsou. U každého příspěvku je jen krátký popis s odkazem na originál; počty reakcí (👍), komentářů (💬) a sdílení (♺) jsou stav k {counts_cz}. U skupiny se sledujícími myslí členové. Profil samotného města je na stránce <a href="/o-webu/facebook-monitoring/facebook-mestopecky/">Facebook města Pečky</a>. Zpět na <a href="/o-webu/#owebu-socialni">Sociální sítě</a>. <span class="stamp">ověřeno</span></p>
@@ -488,31 +503,66 @@ def render_page(accs):
       Object.keys(FBC).forEach(function (k) {{ if (FBC[k] === g) fbView(k, false); }});
 
       function norm(x) {{ return x.toLowerCase().normalize('NFD').replace(/[\\u0300-\\u036f]/g, ''); }}
-      var all = Array.prototype.map.call(document.querySelectorAll('.fb-accs .fb-card'), function (el) {{
-        return {{ el: el, g: el.getAttribute('data-g'), a: el.getAttribute('data-a'), t: norm(el.textContent) }};
+      var all = Array.prototype.map.call(document.querySelectorAll('#fb-store .fb-card'), function (el) {{
+        return {{ el: el, g: el.getAttribute('data-g'), a: el.getAttribute('data-a'), ym: el.parentNode.getAttribute('data-ym'), t: norm(el.textContent) }};
       }});
-      var panel = document.getElementById('panel-fbuskupeni'), inp = document.getElementById('fb-search');
+      var panel = document.getElementById('panel-fbuskupeni'), inp = document.getElementById('fb-search'), sel = document.getElementById('fb-acc');
       var res = document.getElementById('fb-results'), list = document.getElementById('fb-rlist');
-      var found = document.getElementById('fb-found'), moreBtn = document.getElementById('fb-rmore');
-      var fg = '', fa = '', hits = [], shown = 0, timer = null;
+      var found = document.getElementById('fb-found'), moreBtn = document.getElementById('fb-rmore'), pane = document.getElementById('fb-pane');
+      var fg = '', fa = '', fm = null, hits = [], shown = 0, timer = null;
       function pl(n) {{ return n === 1 ? 'příspěvek' : (n >= 2 && n <= 4 ? 'příspěvky' : 'příspěvků'); }}
       function more() {{
         var n = Math.min(hits.length, shown + 100);
         for (var i = shown; i < n; i++) {{
           var c = hits[i].el.cloneNode(true); c.classList.remove('fb-hit'); c.removeAttribute('data-date');
-          c.querySelector('.fb-ac').style.display = 'inline';
           list.appendChild(c);
         }}
         shown = n; moreBtn.hidden = n >= hits.length;
         moreBtn.textContent = 'Zobrazit dalších ' + Math.min(100, hits.length - n);
         found.textContent = hits.length ? 'Nalezeno ' + hits.length + ' ' + pl(hits.length) + (n < hits.length ? ' (zobrazeno ' + n + ')' : '') + '.' : 'Nic nenalezeno.';
       }}
+      function cnt(ym) {{ return all.filter(function (x) {{ return x.ym === ym && (fa === '' || x.a === fa); }}).length; }}
+      function tree() {{
+        var first = null;
+        document.querySelectorAll('#fb-tree .fb-tm').forEach(function (b) {{
+          var n = cnt(b.getAttribute('data-ym'));
+          b.querySelector('.fb-tn').textContent = n; b.parentNode.hidden = n === 0;
+          if (n && !first) first = b;
+        }});
+        document.querySelectorAll('#fb-tree .fb-ty').forEach(function (d) {{
+          var t = 0;
+          d.querySelectorAll('.fb-tm').forEach(function (b) {{ t += +b.querySelector('.fb-tn').textContent; }});
+          d.querySelector('summary .fb-tn').textContent = t; d.hidden = t === 0;
+        }});
+        return first;
+      }}
+      function show(ym, store) {{
+        var btn = document.querySelector('#fb-tree .fb-tm[data-ym="' + ym + '"]');
+        if (!btn) return false;
+        fm = ym;
+        document.querySelectorAll('#fb-tree .fb-tm').forEach(function (x) {{ x.classList.toggle('active', x === btn); }});
+        btn.closest('details').open = true;
+        pane.textContent = '';
+        var h = document.createElement('h3'); h.className = 'display';
+        h.textContent = btn.getAttribute('data-label').replace(/^./, function (c) {{ return c.toUpperCase(); }}) + ' (' + btn.querySelector('.fb-tn').textContent + ')';
+        pane.appendChild(h);
+        var ul = document.createElement('ul'); ul.className = 'fb-cards';
+        all.forEach(function (x) {{ if (x.ym === ym && (fa === '' || x.a === fa)) ul.appendChild(x.el.cloneNode(true)); }});
+        pane.appendChild(ul);
+        if (store) history.replaceState(null, '', location.pathname + location.search + '#u-' + (fa || 'vse') + '-' + ym);
+        return true;
+      }}
+      function refresh() {{
+        var first = tree();
+        var cur = fm && document.querySelector('#fb-tree .fb-tm[data-ym="' + fm + '"]');
+        if (cur && !cur.parentNode.hidden) show(fm, false); else if (first) show(first.getAttribute('data-ym'), false); else pane.textContent = '';
+      }}
       function filt() {{
         var terms = norm(inp.value.trim()).split(/\\s+/).filter(Boolean);
-        var active = terms.length > 0 || fg !== '' || fa !== '';
+        var active = terms.length > 0 || fg !== '';
         panel.classList.toggle('fb-filtering', active);
         res.hidden = !active;
-        if (!active) {{ list.textContent = ''; return; }}
+        if (!active) {{ list.textContent = ''; refresh(); return; }}
         hits = all.filter(function (x) {{
           return (fg === '' || x.g === fg) && (fa === '' || x.a === fa) && terms.every(function (t) {{ return x.t.indexOf(t) !== -1; }});
         }});
@@ -520,30 +570,31 @@ def render_page(accs):
         list.textContent = ''; shown = 0; more();
       }}
       function reset() {{
-        inp.value = ''; fg = ''; fa = '';
-        document.querySelectorAll('#fb-filter .segmented-btn').forEach(function (b) {{ b.classList.toggle('active', (b.hasAttribute('data-a') && b.getAttribute('data-a') === '') || (b.hasAttribute('data-g') && b.getAttribute('data-g') === '')); }});
+        inp.value = ''; fg = ''; fa = ''; sel.value = '';
+        document.querySelectorAll('#fb-filter .segmented-btn').forEach(function (b) {{ b.classList.toggle('active', b.getAttribute('data-g') === ''); }});
         filt();
       }}
       inp.addEventListener('input', function () {{ clearTimeout(timer); timer = setTimeout(filt, 150); }});
+      sel.addEventListener('change', function () {{ fa = sel.value; filt(); }});
       document.querySelectorAll('#fb-filter .segmented-btn').forEach(function (b) {{
         b.addEventListener('click', function () {{
-          var isA = b.hasAttribute('data-a');
-          if (isA) fa = b.getAttribute('data-a'); else fg = b.getAttribute('data-g');
+          fg = b.getAttribute('data-g');
           b.parentNode.querySelectorAll('.segmented-btn').forEach(function (x) {{ x.classList.toggle('active', x === b); }});
           filt();
         }});
       }});
+      document.querySelectorAll('#fb-tree .fb-tm').forEach(function (b) {{ b.addEventListener('click', function () {{ show(b.getAttribute('data-ym'), true); }}); }});
       moreBtn.addEventListener('click', more);
 
       function go(id) {{
-        var m = /^u-(.+?)-(\\d{{4}}-\\d{{2}})$/.exec(id);
-        var el = document.getElementById(id);
-        if (!el) return false;
+        var m = /^u-(.+?)-(\\d{{4}}-\\d{{2}})(?:-\\d{{2}})?$/.exec(id);
+        if (!m) return false;
         if (panel.classList.contains('fb-filtering')) reset();
-        var d = el;
-        while (d) {{ if (d.tagName === 'DETAILS') d.open = true; d = d.parentElement; }}
-        if (m) {{ var y = document.getElementById('u-' + m[1] + '-y' + m[2].slice(0, 4)); if (y) y.open = true; }}
-        el.scrollIntoView({{ block: 'start', behavior: 'smooth' }});
+        var key = m[1] === 'vse' ? '' : m[1];
+        if (key !== '' && !all.some(function (x) {{ return x.a === key; }})) return false;
+        fa = key; sel.value = key; tree();
+        if (!show(m[2], false)) return false;
+        pane.querySelector('h3').scrollIntoView({{ block: 'start', behavior: 'smooth' }});
         return true;
       }}
       document.querySelectorAll('#fb-chart a.fb-bar').forEach(function (a) {{
@@ -553,6 +604,7 @@ def render_page(accs):
         }});
       }});
       window.addEventListener('hashchange', function () {{ go(location.hash.slice(1)); }});
+      refresh();
       if (location.hash) setTimeout(function () {{ go(location.hash.slice(1)); }}, 50);
     }})();
     </script>
