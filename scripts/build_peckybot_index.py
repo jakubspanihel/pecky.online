@@ -449,6 +449,7 @@ def chunks_fakta():
 # mají v content/*.html jen kostru, data jsou v JSON
 STATICKE = {
     'plan': ('/plan/', 'Strategický plán'),
+    'obchvat': ('/obchvat/', 'Obchvat'),
     'telocvicna': ('/telocvicna/', 'Tělocvična'),
     'pozemky': ('/pozemky/', 'Pozemky'),
     'prostory': ('/prostory/', 'Prostory'),

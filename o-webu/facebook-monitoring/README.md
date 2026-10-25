@@ -25,7 +25,7 @@ Zdroje:
 
 | ID zdroje | Profil | Stav |
 |---|---|---|
-| `facebook-mestopecky` | https://www.facebook.com/mestopecky (Město Pečky), založeno 20. 11. 2018 | ruční běhy, 2018-11 (nejstarší dostupné) až 2026-10 (neúplný, do 23. 10.) |
+| `facebook-mestopecky` | https://www.facebook.com/mestopecky (Město Pečky), založeno 20. 11. 2018 | týdenní běhy, 2018-11 (nejstarší dostupné) až 2026-10 (neúplný, do 23. 10.) |
 
 **Soubory `*.json` a `media/` jsou v `.gitignore`** — jsou jen lokální pracovní
 data, do gitu ani na GitHub Pages nejdou. V gitu je jen tento README.
@@ -156,9 +156,8 @@ Facebook strukturu občas mění — při výpadku zkontrolovat klíče
 - Čtení probíhá pod přihlášením uživatele v jeho Chrome, v nízkém objemu a jen
   u veřejné stránky.
 - Postup běhu je převedený do skillu `.claude/skills/DoPecek-facebook-monitoring/`
-  (+ `capture.js` s pomocným kódem pro Chrome). Pravidelnost: měsíční rutina
-  `pecky-online-facebook-monitoring-mesicne` (1. v měsíci v 10:00) stáhne chybějící
-  uzavřené měsíce a přegeneruje stránku; vyžaduje Chrome s Facebookem a záložku v popředí.
+  (+ `capture.js` s pomocným kódem pro Chrome). Pravidelnost: součást týdenní kontroly (`DoPecek-update`, neděle večer); stáhne chybějící měsíce a
+  znovu aktuální (neúplný) měsíc k dnešnímu datu a přegeneruje stránku (měsíční rutina zrušena 25. 10. 2026); vyžaduje Chrome s Facebookem a záložku v popředí.
 
 ## Politická uskupení Peček na Facebooku (od 20. 10. 2026)
 

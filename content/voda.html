@@ -3,22 +3,27 @@
     #rozbory-tabulka thead th{position:sticky; top:0; z-index:2; background:var(--material);}
   </style>
   <section class="panel active" id="panel-voda">
-    <h2 class="title display">Voda</h2>
-    <p class="lede perex">Ceník vodného a stočného v Pečkách podle let, laboratorní rozbory pitné vody od února 2016 a údaje o úpravně vody. Ceny jsou v korunách za metr krychlový, bez DPH i s DPH.</p>
+    <h2 class="title display">Voda v Pečkách: zastaralý vodovodní řad a úniky vody</h2>
+    <p class="lede perex">Městský vodovod v Pečkách schválila rada města už 14. ledna 1927 a provoz začal 1. července 1932. V posledních letech vodovod porouchává stále častěji: zdroje uvádějí 6 havárií a odstávek v roce 2024, 14 v roce 2025 a 16 od ledna do 23. října 2026. Cena vody mezitím stoupla z 104,23 Kč/m³ s DPH v roce 2023 na 143,92 Kč/m³ v roce 2026. Od března 2024 město zásobuje nová úpravna vody.</p>
 
+    <img src="https://www.cestyapamatky.cz/img/galerie/pam/0571/2019-pecky-vodojem_02.jpg" alt="Vodojem v Pečkách" loading="lazy" style="width:100%; height:auto; display:block; border-radius:4px; box-shadow:var(--paper-shadow);">
+    <p class="photo-credit">Foto: <a href="https://www.cestyapamatky.cz/" target="_blank" rel="noopener">Cesty a památky</a>, 2019</p>
+
+    <div class="subtabs" role="tablist" aria-label="Části stránky Voda">
+      <button class="subtablink active" type="button" data-subpanel="cena">Vývoj ceny vody</button>
+      <button class="subtablink" type="button" data-subpanel="rozbory">Rozbory pitné vody</button>
+      <button class="subtablink" type="button" data-subpanel="upravna">Úpravna vody</button>
+      <button class="subtablink" type="button" data-subpanel="vodojem">Vodojem</button>
+    </div>
+    <div class="subpanel active" id="subpanel-cena">
     <div id="voda-graf-box" hidden>
       <h3>Vývoj ceny vody (a počet havárií a odstávek)</h3>
       <div id="voda-graf" role="img" aria-label="Graf vývoje ceny vodného, stočného a celkové ceny s DPH podle let"></div>
       <div class="chart-legend" id="voda-legenda"></div>
     </div>
     <div id="voda-ceny"></div>
-
-    <div class="subtabs" role="tablist" aria-label="Části stránky Voda" style="margin-top:36px;">
-      <button class="subtablink active" type="button" data-subpanel="rozbory">Rozbory pitné vody</button>
-      <button class="subtablink" type="button" data-subpanel="upravna">Úpravna vody</button>
-      <button class="subtablink" type="button" data-subpanel="vodojem">Vodojem</button>
     </div>
-    <div class="subpanel active" id="subpanel-rozbory">
+    <div class="subpanel" id="subpanel-rozbory">
     <p>Laboratorní protokoly o zkoušce pitné vody odebrané ve vodojemu v Pečkách, podle data odběru. Každý řádek odkazuje na PDF protokolu. Graf zobrazuje stejné řádky, jaké jsou vidět v tabulce, a ukazatel v něm jde přepnout.</p>
     <h3 class="search-status" id="rozbory-status"><span class="spinner" aria-hidden="true"></span>Načítám rozbory…</h3>
     <div id="rozbory-box" hidden>
@@ -50,6 +55,7 @@
         <div class="table-scroll"><table class="register" style="min-width:0;"><tbody id="upravna-fakta"></tbody></table></div>
         <div id="upravna-text"></div>
         <div class="callout" id="upravna-gaps"></div>
+        <p style="margin-top:var(--space-4);">Další zdroj: <a href="https://sdruzeniks.cz/pecky-stavi-upravnu-vody-pro-snizeni-energeticke-narocnosti-zvazuji-fotovoltaiku/" target="_blank" rel="noopener">Pečky stavějí úpravnu vody pro snížení energetické náročnosti, zvažují fotovoltaiku ↗</a> (sdruzeniks.cz)</p>
         <details class="collapsible" style="margin-top:26px;">
           <summary style="cursor:pointer; list-style:none;"><h3 class="display" style="margin:0 0 4px; display:inline;" id="upravna-udalosti-nadpis">Časová osa <span class="collapsible-arrow" aria-hidden="true">▾</span></h3></summary>
           <div class="table-scroll"><table class="register"><thead><tr><th>Datum</th><th>Událost</th><th>Zdroj</th></tr></thead><tbody id="upravna-udalosti"></tbody></table></div>

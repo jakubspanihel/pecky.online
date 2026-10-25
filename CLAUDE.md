@@ -20,6 +20,7 @@ jako první):
 | Domů | `/` | `domu/README.md` |
 | Lidé | `/lide/` | `lide/README.md` (+ `SPEC.md`; `people.json`/`organizations.json`/`affiliations.json`, kontrola `node lide/validate.mjs`) |
 | Plán | `/plan/` | `plan/README.md` |
+| Obchvat | `/obchvat/` | `obchvat/README.md` |
 | Tělocvična | `/telocvicna/` | `telocvicna/README.md` |
 | Volby | `/volby/` | `volby/README.md` (rozcestník) |
 | Volby 2018/2022/2026 | `/volby/2018/` atd. | `volby/<rok>/README.md` |
@@ -29,6 +30,7 @@ jako první):
 | Pozemky | `/pozemky/` | `pozemky/README.md` |
 | Prostory | `/prostory/` | `prostory/README.md` (+ `prostory.json`, generátor `prostory/update-prostory.py`) |
 | Pokladna | `/pokladna/` | `pokladna/README.md` |
+| Dotace od města | `/dotace/` | `dotace/README.md` (+ `dotace.json`, generátor `dotace/update-dotace.py`) |
 | Voda | `/voda/` | `voda/README.md` (+ `rozbory.json`, generátor `voda/update-rozbory.py`) |
 | Kalendář | `/kalendar/` | `kalendar/README.md` (+ `automation-plakat-akce.md`) |
 | Pečecké noviny | `/noviny/` | `noviny/README.md` |

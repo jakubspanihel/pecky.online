@@ -71,6 +71,12 @@ MANIFEST = {
         'Co si město Pečky předsevzalo ve strategickém a akčním plánu '
         'rozvoje — a co se z toho reálně podařilo dohledat jako splněné.',
         False),
+    'obchvat': (
+        '/obchvat/', 'Obchvat',
+        'Severní obchvat Peček (silnice II/329): průběh od původního '
+        'územního plánu z 90. let po právní moc územního rozhodnutí v roce '
+        '2026.',
+        False),
     'telocvicna': (
         '/telocvicna/', 'Tělocvična',
         'Stavba nové tělocvičny a učeben u ZŠ Pečky (205 mil. Kč) byla '
@@ -125,6 +131,11 @@ MANIFEST = {
     'pokladna': (
         '/pokladna/', 'Pokladna',
         'Na co město Pečky utrácí: rozpočet a hospodaření srozumitelně.',
+        False),
+    'dotace': (
+        '/dotace/', 'Dotace od města',
+        'Dotace, které město Pečky poskytlo spolkům a dalším příjemcům podle '
+        'smluv a dodatků na úřední desce: částky po letech a příjemcích.',
         False),
     'voda': (
         '/voda/', 'Voda',
@@ -286,8 +297,10 @@ README_TO_SLUG = {
     'o-webu': 'owebu',
     'peckybot': 'peckybot',
     'plan': 'plan',
+    'obchvat': 'obchvat',
     'telocvicna': 'telocvicna',
     'pokladna': 'pokladna',
+    'dotace': 'dotace',
     'voda': 'voda',
     'kalendar': 'kalendar',
     'okolo': 'okolo',
