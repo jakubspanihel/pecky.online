@@ -23,9 +23,10 @@ v `years` na rok, nejnovější nahoře; `celkem` = vodné + stočné.
   15. 10. 2026). Starší roky zdrojová stránka neuvádí.
 - 2011 a 2014–2022 (15. 10. 2026): z fulltextu Pečeckých novin
   (`noviny/pecky-noviny.json`), u každého roku odkaz na číslo a stranu PDF
-  v `source`. Chybí 2012, 2013, 2023 a 2024 — zápisy ZM uvádějí
-  u let 2023 a 2024 jen informaci o schválení valnou hromadou Pečeckých
+  v `source`. Chybí 2012, 2013 a 2024 — zápisy ZM uvádějí
+  u roku 2024 jen informaci o schválení valnou hromadou Pečeckých
   služeb, bez částek (viz pole `gaps`).
+- 2023 (25. 10. 2026): z oznámení Pečeckých služeb „Cena vodného a stočného od 1. 1. 2023“ (archivní kopie web.archive.org z 16. 6. 2024; živá stránka už vrací 404), DPH 10 %.
 - 2026: z webu Pečeckých služeb (stránka Pečky, stav 15. 10. 2026). 2017: zdroj uvádí jen ceny bez DPH.
 - Stránka as4u.cz se od cca 3/2026 neaktualizuje (viz CLAUDE.md), proto
   ceník na rok 2026 je potřeba dohledat na pecky.cz.
