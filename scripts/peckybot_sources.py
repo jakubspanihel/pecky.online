@@ -737,9 +737,50 @@ def chunks_voda():
     return out
 
 
+def _cz(iso):
+    try:
+        y, m, dd = iso.split('-')
+        return f'{int(dd)}. {int(m)}. {y}'
+    except ValueError:
+        return iso
+
+
+def chunks_okolo():
+    """Sekce /okolo/ (Pro přespolní): obce správního obvodu Peček, popisy znaků a vlajek z registru symbolů."""
+    p = ROOT / 'okolo/vesnice-okolo.json'
+    if not p.exists():
+        return []
+    d = json.loads(p.read_text(encoding='utf-8'))
+    obce = d.get('obce') or []
+    out = []
+    if obce:
+        names = ', '.join(o['nazev'] for o in obce)
+        first = obce[0]
+        out.append({
+            'u': '/okolo/',
+            't': 'Okolo — Obce ve správním obvodu Peček',
+            'x': (f"Obce ve správním obvodu obce s pověřeným obecním úřadem Pečky (okres {first.get('okres', 'Kolín')}, "
+                  f"{first.get('kraj', 'Středočeský')} kraj): {names}. Obce v okolí Peček, vesnice kolem Peček, "
+                  f"sousední obce. Stránka Okolo (Pro přespolní) zobrazuje mapu těchto {len(obce)} obcí se znaky a vlajkami. "
+                  f"Zdroj: registr komunálních symbolů (rekos.psp.cz), stav k {_cz(d.get('stazeno', ''))}."),
+        })
+    for o in obce:
+        parts = [f"{o['nazev']} — obec ve správním obvodu Peček (okres {o.get('okres', '')}, pověřený úřad {o.get('pou', '')})."]
+        for klic, nazev in (('znak', 'Znak'), ('vlajka', 'Vlajka')):
+            sym = o.get(klic) or {}
+            if sym.get('popis'):
+                rozh = f" Rozhodnutí Poslanecké sněmovny č. {sym['cislo_rozhodnuti']} ze dne {sym['datum_rozhodnuti']}." \
+                    if sym.get('cislo_rozhodnuti') and sym.get('datum_rozhodnuti') else ''
+                parts.append(f"{nazev} obce {o['nazev']}: {sym['popis']}{rozh}")
+        if o.get('rekos_url'):
+            parts.append(f"Registr symbolů: {o['rekos_url']}.")
+        out.append({'u': '/okolo/', 't': f"Okolo — {o['nazev']}", 'x': ' '.join(parts)})
+    return out
+
+
 def chunks_extra():
     out = []
     for fn in (chunks_komise, chunks_vybory, chunks_skolska_rada, chunks_kalendar, chunks_organizace,
-               chunks_noviny, chunks_noviny_pravidla, chunks_naobed, chunks_absence, chunks_shrnuti, chunks_voda):
+               chunks_noviny, chunks_noviny_pravidla, chunks_naobed, chunks_absence, chunks_shrnuti, chunks_voda, chunks_okolo):
         out += fn()
     return out

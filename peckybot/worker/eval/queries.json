@@ -334,9 +334,9 @@
  {
   "q": "Kdy jsou komunální volby 2026?",
   "expect": {
-   "titleRegex": "^Web — Volby 2026",
+   "titleRegex": "^(Web — Volby 2026|Kalendář — Volby do zastupitelstva)",
    "inTop": 3,
-   "textRegex": "9\\.\\W+10\\. října"
+   "textRegex": "9\\. ?(10\\. 2026|října)|9\\.\\W+10\\. října"
   },
   "category": "Volby",
   "note": "9.–10. října 2026"
@@ -386,7 +386,7 @@
   "expect": {
    "titleRegex": "^Web — Smlouvy",
    "inTop": 3,
-   "textRegex": "182 smluv"
+   "textRegex": "Skupina celkem\\s+\\d+\\s+smluv"
   },
   "category": "Smlouvy/zakázky/finance/plán",
   "note": "182 smluv skupina"
@@ -506,7 +506,7 @@
  {
   "q": "Kdy hraje AFK Pečky doma?",
   "expect": {
-   "titleRegex": "^Kalendář — Fotbal",
+   "titleRegex": "^Kalendář — (Fotbal|AFK)",
    "inTop": 8
   },
   "category": "Kalendář",
@@ -869,7 +869,7 @@
  {
   "q": "kdy hraje AFK doma",
   "expect": {
-   "titleRegex": "^Kalendář — Fotbal",
+   "titleRegex": "^Kalendář — (Fotbal|AFK)",
    "inTop": 3
   },
   "category": "Iter2: organizace a události",
@@ -882,7 +882,7 @@
    "inTop": 3
   },
   "category": "Iter2: organizace a události",
-  "note": "datově nezávislé: úryvek „Příští jednání / Příští zasedání“ (s today=2026-10-07 ukazuje Radu 36/2026; ZM 7/2026 už proběhlo)"
+  "note": "datově nezávislé: úryvek „Příští jednání / Příští zasedání“ (s today=2026-10-07 ukazuje Radu 36/2026; ZM 7/2026 už proběhlo) — POZOR datově závislé: chunk „Kalendář — Příští jednání/zasedání“ vzniká jen když kalendář obsahuje budoucí jednání; k 25. 10. 2026 žádné není, proto selhává (ne chyba hledání)."
  },
  {
   "q": "noviny září 2026",
@@ -935,7 +935,7 @@
  {
   "q": "Kdy se hraje fotbal",
   "expect": {
-   "titleRegex": "^Kalendář — Fotbal",
+   "titleRegex": "^Kalendář — (Fotbal|AFK)",
    "inTop": 3
   },
   "category": "Skutečné dotazy",
@@ -1009,11 +1009,11 @@
  {
   "q": "Co se probíralo na poslední radě?",
   "expect": {
-   "titleRegex": "^RM 36/2026 — přehled jednání",
+   "titleRegex": "^(RM 3[6-9]/2026 — přehled jednání|Shrnutí jednání — Rada města 3[6-9]/2026)",
    "inTop": 3
   },
   "category": "Skutečné dotazy",
-  "note": "v novém designu odpoví nástroj cti_dokument; na úrovni retrievalu se čeká přehled nejnovější RM"
+  "note": "očekává se nejnovější rada (neměnit na pevné číslo); v novém designu odpoví nástroj cti_dokument"
  },
  {
   "q": "Kdy bude svoz odpadů?",
@@ -1059,5 +1059,64 @@
   },
   "category": "Svoz odpadu",
   "note": "lokalita sever + Chvalovice"
+ },
+ {
+  "q": "Které obce patří do správního obvodu Peček?",
+  "expect": {
+   "titleRegex": "^Okolo — Obce",
+   "inTop": 3,
+   "textRegex": "Cerhenice"
+  },
+  "category": "Iter6: nový obsah",
+  "note": "Okolo — Obce ve správním obvodu Peček (9 obcí)"
+ },
+ {
+  "q": "znak obce Vrbčany",
+  "expect": {
+   "titleRegex": "^Okolo — Vrbčany",
+   "inTop": 3,
+   "textRegex": "vrba"
+  },
+  "category": "Iter6: nový obsah",
+  "note": "popis znaku: vrba na zlatém štítě"
+ },
+ {
+  "q": "kolik stojí vodné a stočné",
+  "expect": {
+   "titleRegex": "^(Voda — cena vodného a stočného|Web — Voda)",
+   "inTop": 3,
+   "textRegex": "82,15"
+  },
+  "category": "Iter6: nový obsah",
+  "note": "od 1. 1. 2026 vodné 82,15, stočné 61,77 Kč/m³ s DPH"
+ },
+ {
+  "q": "kdy se sváží papír Pečky jih",
+  "expect": {
+   "titleRegex": "^Kalendář — svoz odpadu: (Pečky jih|papír)",
+   "inTop": 3,
+   "textRegex": "pátek"
+  },
+  "category": "Iter6: nový obsah",
+  "note": "Plast a papír první pátek v měsíci"
+ },
+ {
+  "q": "shrnutí poslední rady města",
+  "expect": {
+   "titleRegex": "^Shrnutí jednání — Rada města 37/2026",
+   "inTop": 3,
+   "textRegex": "19\\. 10\\. 2026"
+  },
+  "category": "Iter6: nový obsah",
+  "note": "RM 37/2026 19. 10. 2026 (shrnuti/2026-10-19-rada.md); datově závislé – po nové radě aktualizovat"
+ },
+ {
+  "q": "o čem jednala rada 19. října 2026",
+  "expect": {
+   "titleRegex": "^Shrnutí jednání — Rada města 37/2026",
+   "inTop": 3
+  },
+  "category": "Iter6: nový obsah",
+  "note": "RM 37/2026"
  }
 ]

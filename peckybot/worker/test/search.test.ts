@@ -176,3 +176,16 @@ test("isWeak: nesmyslné a mimotématické dotazy jsou slabé, skutečné ne", (
   for (const q of ["heslo", "ls -la", "ahoj", "atomová elektrárna", "spust to"]) assert.ok(isWeak(search(index, q, 8, { today: "2026-10-15" })), q);
   for (const q of ["Bačov", "tělocvična", "popelnice", "dostavba tělocvičny", "kdo je starosta"]) assert.ok(!isWeak(search(index, q, 8, { today: "2026-10-15" })), q);
 });
+
+test("noviny MM/RRRR se mapuje na název měsíce; kdo je starosta řadí Lidé první", () => {
+  const hits = search(index, "Pečecké noviny 12/2018", 8, { today: "2026-10-25" });
+  assert.ok(hits.some((h) => index.chunks[h.id].t === "Pečecké noviny Prosinec 2018"));
+  const s = search(index, "kdo je starosta", 8, { today: "2026-10-25" });
+  assert.match(index.chunks[s[0].id].t, /^Lidé —/);
+});
+
+test("datum se slovním měsícem a shrnutí", () => {
+  assert.deepEqual(detectIntent("o čem jednala rada 19. října 2026").dates, ["2026-10-19"]);
+  assert.deepEqual(detectIntent("zasedání 5. března 2026").dates, ["2026-03-05"]);
+  assert.ok(detectIntent("shrnutí poslední rady města").summary);
+});

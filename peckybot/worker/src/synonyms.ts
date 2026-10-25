@@ -21,7 +21,7 @@ export const SYNONYM_GROUPS: string[][] = [
   ["školka", "mateřská", "školky"],
   ["komise", "komisi", "komisí", "komisích", "výbor", "výboru", "výboru", "sbor"],
   ["silnice", "komunikace", "chodník", "oprava"],
-  ["odpad", "odpady", "popelnice", "kontejner", "kontejnery", "sběrný"],
+  ["odpad", "odpady", "odpadu", "odpadů", "odpadové", "odpadového", "odpadech", "popelnice", "kontejner", "kontejnery", "sběrný"],
   ["svoz", "vývoz", "vyvážejí", "odvoz", "sběr"],
   ["papír", "papíru", "papíry"],
   ["bagr", "bagry", "stavba", "staveniště", "dostavba", "stavební"],
