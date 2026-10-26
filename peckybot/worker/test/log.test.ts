@@ -247,3 +247,37 @@ test("úklid maže záznamy starší než 90 dní", async () => {
   assert.deepEqual([...e.LOG.dotazy.keys()], ["new"]);
   assert.equal(e.LOG.hodnoceni.size, 0);
 });
+
+test("předpřipravené otázky v presets.ts odpovídají tlačítkům na stránce /peckybot/", async () => {
+  const { PRESETS } = await import("../src/presets.ts");
+  const html = readFileSync(new URL("../../../content/peckybot.html", import.meta.url), "utf8");
+  const chips = [...html.matchAll(/class="pb-chip">([^<]+)</g)].map((m) => m[1].trim());
+  assert.deepEqual(PRESETS, chips);
+});
+
+test("cache: předpřipravená otázka se kešuje i s částečným „nevím“, běžná otázka ne", async () => {
+  const saved = answerText;
+  const longHedged = "Stavba je od srpna 2026 částečně zastavená kvůli pilotům [1]. " + "Rada schválila dodatek ke smlouvě. ".repeat(10) + "Aktuální termín dokončení zdroje neuvádějí.";
+  assert.ok(longHedged.length >= 300);
+  try {
+    answerText = longHedged;
+    const e = env({ DAILY_PER_IP: "50" });
+    let before = apiCalls;
+    await worker.fetch(post(ask("Jak to vypadá se stavbou tělocvičny?")), e);
+    await worker.fetch(post(ask("Jak to vypadá se stavbou tělocvičny?")), e);
+    assert.equal(apiCalls, before + 1); // druhý dotaz z cache
+
+    before = apiCalls;
+    await worker.fetch(post(ask("Kdy bude dokončena tělocvična?")), e);
+    await worker.fetch(post(ask("Kdy bude dokončena tělocvična?")), e);
+    assert.equal(apiCalls, before + 2); // „nevím“ u běžné otázky se nekešuje
+
+    answerText = "Zdroje neuvádějí.";
+    before = apiCalls;
+    await worker.fetch(post(ask("Co naposledy řešila Rada města?")), e);
+    await worker.fetch(post(ask("Co naposledy řešila Rada města?")), e);
+    assert.equal(apiCalls, before + 2); // krátké odmítnutí se nekešuje ani u předpřipravené otázky
+  } finally {
+    answerText = saved;
+  }
+});
