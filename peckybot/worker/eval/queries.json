@@ -424,7 +424,7 @@
  {
   "q": "Strategický plán rozvoje obchvat a cyklostezky",
   "expect": {
-   "titleRegex": "^Web — Strategický plán",
+   "titleRegex": "^Web — (Strategický plán|Obchvat)",
    "inTop": 3,
    "textRegex": "(obchvat|Obchvat)"
   },
@@ -551,7 +551,7 @@
  {
   "q": "obchvat",
   "expect": {
-   "titleRegex": "^Web — Strategický plán",
+   "titleRegex": "^Web — (Strategický plán|Obchvat)",
    "inTop": 3,
    "textRegex": "[Oo]bchvat"
   },

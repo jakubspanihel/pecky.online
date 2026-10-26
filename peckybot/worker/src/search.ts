@@ -12,9 +12,13 @@ export interface Index {
   post: Record<string, number[]>; // token -> [idx, tf, idx, tf, ...]
 }
 
+/** Který rejstřík úryvek pochází z: hlavní (peckybot/index.json) nebo archiv (peckybot/archiv/index.json). */
+export type Src = "main" | "archiv";
+
 export interface Hit {
-  id: number;
+  id: number; // lokální v rejstříku `src`
   score: number;
+  src?: Src; // doplňuje searchAll(); bez něj je to hlavní rejstřík
 }
 
 const STEM_LEN = 6;
@@ -435,4 +439,68 @@ export function search(index: Index, query: string, k: number, opts: SearchOptio
   for (const h of overflow) if (out.length < k) out.push(h); // nikdy nezahazovat výsledky
   if (isWeakMatch(index, out, qset, covered, intent)) weakResults.add(out);
   return out;
+}
+
+// ---- archiv (starší jednání z úřední desky 2013 – duben 2021) ----
+// Archivní rejstřík se načítá líně: jen když na něj dotaz míří, nebo hlavní rejstřík nestačí.
+
+export const ARCHIV_FACTOR = 0.85; // archivní skóre ×0.85, ať při shodě vyhraje novější úryvek
+export const ARCHIV_LOW_SCORE = 4; // nejlepší skóre z hlavního rejstříku pod touto hodnotou = slabá shoda (dobré dotazy na složení mají ≥ 5)
+
+const ARCHIV_YEAR_RE = /\b(201\d|2020|2021)\b/;
+const ARCHIV_WORDS_RE = /\b(drive|drivejsi|historie|historii|historick\w*|pred lety|archiv\w*|tehdy|v minulosti|starsi|starsich)\b/;
+
+/** Míří dotaz na minulost před rokem 2022 (rok 2013–2021, datum, „dříve“, „historie“, „archiv“…)? */
+export function wantsArchive(query: string): boolean {
+  const q = fold(query);
+  return ARCHIV_YEAR_RE.test(q) || ARCHIV_WORDS_RE.test(q);
+}
+
+export interface SearchAllOptions extends SearchOptions {
+  archiv?: "auto" | "only"; // only = hledat jen v archivu (nástroj hledej_text, typ „archiv“)
+}
+
+/** Sloučení výsledků: archivní skóre × ARCHIV_FACTOR, při shodě vyhraje hlavní rejstřík; nejvýš k výsledků. */
+export function mergeHits(main: Hit[], archiv: Hit[], k: number): Hit[] {
+  const all: Hit[] = [
+    ...main.map((h) => ({ ...h, src: "main" as Src })),
+    ...archiv.map((h) => ({ id: h.id, score: h.score * ARCHIV_FACTOR, src: "archiv" as Src })),
+  ];
+  all.sort((a, b) => b.score - a.score || (a.src === b.src ? b.id - a.id : a.src === "main" ? -1 : 1));
+  return all.slice(0, k);
+}
+
+/**
+ * Hledání v hlavním rejstříku + (líně) v archivu. `getArchiv` se volá jen tehdy, když
+ * (a) dotaz míří do minulosti (wantsArchive), nebo (b) hlavní výsledky jsou slabé (isWeak)
+ * či s nízkým nejlepším skóre. Eval i Worker používají tuto funkci.
+ */
+export async function searchAll(
+  main: Index,
+  getArchiv: () => Promise<Index>,
+  query: string,
+  k: number,
+  opts: SearchAllOptions = {},
+): Promise<Hit[]> {
+  const { archiv: mode, ...so } = opts;
+  if (mode === "only") {
+    const a = search(await getArchiv(), query, k, so);
+    const out = a.map((h) => ({ ...h, src: "archiv" as Src }));
+    if (isWeak(a)) weakResults.add(out);
+    return out;
+  }
+  const m = search(main, query, k, so);
+  const mainWeak = isWeak(m);
+  const trigger = wantsArchive(query) || mainWeak || m[0].score < ARCHIV_LOW_SCORE;
+  if (!trigger) return m.map((h) => ({ ...h, src: "main" as Src }));
+  const a = search(await getArchiv(), query, k, so);
+  const archWeak = isWeak(a);
+  if (mainWeak && archWeak) {
+    const out = m.map((h) => ({ ...h, src: "main" as Src }));
+    weakResults.add(out);
+    return out;
+  }
+  if (mainWeak) return mergeHits([], a, k); // hlavní výsledky jsou šum
+  if (archWeak) return m.map((h) => ({ ...h, src: "main" as Src }));
+  return mergeHits(m, a, k);
 }

@@ -13,13 +13,17 @@ import {
   type Env,
 } from "./common.ts";
 import { formatSources, systemPrompt } from "./prompt.ts";
-import { isWeak, search, type Index } from "./search.ts";
-import { MAX_TOOL_ROUNDS, TOOL_DEFS, executeTool, typFilter, type ToolContext } from "./tools.ts";
+import { isWeak, searchAll, type Hit, type Index, type Src } from "./search.ts";
+import { MAX_TOOL_ROUNDS, TOOL_DEFS, executeTool, isArchivTyp, typFilter, type ToolContext } from "./tools.ts";
 
 // ---------- index ----------
 
-let indexCache: { index: Index; at: number } | null = null;
-const shardCache = new Map<number, { texts: string[]; at: number }>();
+// Dva rejstříky: hlavní (vždy) a archiv starších jednání z úřední desky (líně, viz searchAll).
+// Každý má vlastní cache rejstříku (modul-level), vlastní dávky textů a vlastní otisk `h`.
+const BASE: Record<Src, string> = { main: "/peckybot", archiv: "/peckybot/archiv" };
+const indexCache: Partial<Record<Src, { index: Index; at: number }>> = {};
+const indexLoading: Partial<Record<Src, Promise<Index>>> = {};
+const shardCache = new Map<string, { texts: string[]; at: number }>(); // klíč „main:3“ / „archiv:3“
 // rejstřík se obnovuje často (nové jednání, přegenerování); dávky textů jsou vázané na otisk obsahu
 const INDEX_TTL_MS = 5 * 60 * 1000;
 
@@ -29,33 +33,49 @@ async function fetchJson<T>(url: string, cacheTtl = 300): Promise<T> {
   return (await r.json()) as T;
 }
 
-async function getIndex(env: Env): Promise<Index> {
-  if (indexCache && Date.now() - indexCache.at < INDEX_TTL_MS) return indexCache.index;
-  const index = await fetchJson<Index>(
-    // časový klíč po 5 minutách = nová položka v cache Cloudflare; GitHub Pages query ignoruje
-    `${env.SITE_URL}/peckybot/index.json?t=${Math.floor(Date.now() / INDEX_TTL_MS)}`,
-  );
-  indexCache = { index, at: Date.now() };
-  shardCache.clear(); // nový rejstřík = nové číslování dávek
-  return index;
+async function getIndex(env: Env, src: Src = "main"): Promise<Index> {
+  const c = indexCache[src];
+  if (c && Date.now() - c.at < INDEX_TTL_MS) return c.index;
+  return (indexLoading[src] ??= (async () => {
+    try {
+      const index = await fetchJson<Index>(
+        // časový klíč po 5 minutách = nová položka v cache Cloudflare; GitHub Pages query ignoruje
+        `${env.SITE_URL}${BASE[src]}/index.json?t=${Math.floor(Date.now() / INDEX_TTL_MS)}`,
+      );
+      indexCache[src] = { index, at: Date.now() };
+      for (const key of [...shardCache.keys()]) if (key.startsWith(src + ":")) shardCache.delete(key); // nový rejstřík = nové číslování dávek
+      return index;
+    } finally {
+      delete indexLoading[src];
+    }
+  })());
 }
 
-async function getTexts(env: Env, index: Index, ids: number[]): Promise<Map<number, string>> {
-  const shards = [...new Set(ids.map((id) => Math.floor(id / index.shard)))];
+/** Texty úryvků podle `h.src` (každý rejstřík má své dávky a své lokální id). */
+export async function getTexts(env: Env, indexes: Record<Src, Index | undefined>, hits: Hit[]): Promise<Map<Hit, string>> {
+  const need = new Map<string, { src: Src; k: number; index: Index }>();
+  for (const h of hits) {
+    const src = h.src ?? "main";
+    const index = indexes[src]!;
+    const k = Math.floor(h.id / index.shard);
+    need.set(`${src}:${k}`, { src, k, index });
+  }
   await Promise.all(
-    shards.map(async (k) => {
-      const hit = shardCache.get(k);
+    [...need].map(async ([key, { src, k, index }]) => {
+      const hit = shardCache.get(key);
       if (hit && Date.now() - hit.at < INDEX_TTL_MS) return;
       const texts = await fetchJson<string[]>(
-        `${env.SITE_URL}/peckybot/chunks/${k}.json${index.h ? `?h=${index.h}` : ""}`,
+        `${env.SITE_URL}${BASE[src]}/chunks/${k}.json${index.h ? `?h=${index.h}` : ""}`,
         index.h ? 86400 : 300,
       );
-      shardCache.set(k, { texts, at: Date.now() });
+      shardCache.set(key, { texts, at: Date.now() });
     }),
   );
-  const out = new Map<number, string>();
-  for (const id of ids) {
-    out.set(id, shardCache.get(Math.floor(id / index.shard))?.texts[id % index.shard] ?? "");
+  const out = new Map<Hit, string>();
+  for (const h of hits) {
+    const src = h.src ?? "main";
+    const index = indexes[src]!;
+    out.set(h, shardCache.get(`${src}:${Math.floor(h.id / index.shard)}`)?.texts[h.id % index.shard] ?? "");
   }
   return out;
 }
@@ -121,15 +141,19 @@ export async function answer(env: Env, messages: ChatMessage[], month: string): 
   const query = users[users.length - 1].content;
   const context = users.length > 1 ? users[users.length - 2].content : undefined;
   const index = await getIndex(env);
-  const found0 = search(index, query, TOP_K, { context, today });
+  // archiv se načte jen na požádání (searchAll ho volá jen při dotazu do minulosti nebo slabé shodě)
+  const indexes: Record<Src, Index | undefined> = { main: index, archiv: undefined };
+  const getArchiv = async () => (indexes.archiv = await getIndex(env, "archiv"));
+  const found0 = await searchAll(index, getArchiv, query, TOP_K, { context, today });
   // slabá shoda (nesmyslný nebo mimotematický dotaz): model nedostane náhodné úryvky
   const hits = isWeak(found0) ? [] : found0;
-  const texts = await getTexts(env, index, hits.map((h) => h.id));
+  const texts = await getTexts(env, indexes, hits);
+  const chunkOf = (h: Hit) => indexes[h.src ?? "main"]!.chunks[h.id];
   const sources = hits.map((h, i) => ({
     n: i + 1,
-    title: index.chunks[h.id].t,
-    url: index.chunks[h.id].u,
-    text: texts.get(h.id) ?? "",
+    title: chunkOf(h).t,
+    url: chunkOf(h).u,
+    text: texts.get(h) ?? "",
   }));
 
   // registr zdrojů: úvodní úryvky + zdroje z výsledků nástrojů (číslování navazuje)
@@ -147,10 +171,11 @@ export async function answer(env: Env, messages: ChatMessage[], month: string): 
     loadDoc: (path) => loadDoc(env, index, path),
     async searchText(dotaz, typ) {
       const re = typFilter(typ);
-      const found = search(index, dotaz, re ? 60 : 6, { today });
-      const sel = re ? found.filter((h) => re.test(index.chunks[h.id].t)).slice(0, 6) : found;
-      const tx = await getTexts(env, index, sel.map((h) => h.id));
-      return sel.map((h) => ({ title: index.chunks[h.id].t, url: index.chunks[h.id].u, text: tx.get(h.id) ?? "" }));
+      const only = isArchivTyp(typ);
+      const found = await searchAll(index, getArchiv, dotaz, re ? 60 : 6, { today, ...(only ? { archiv: "only" as const } : {}) });
+      const sel = re ? found.filter((h) => re.test(chunkOf(h).t)).slice(0, 6) : found;
+      const tx = await getTexts(env, indexes, sel);
+      return sel.map((h) => ({ title: chunkOf(h).t, url: chunkOf(h).u, text: tx.get(h) ?? "" }));
     },
   };
 

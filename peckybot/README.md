@@ -15,7 +15,8 @@ prohlížeč (content/peckybot.html)
    │  POST /chat {messages}
    ▼
 Cloudflare Worker (peckybot/worker/)  ── limity a rozpočet ──▶ KV (BUDGET)
-   │  1. hledá v peckybot/index.json + peckybot/chunks/*.json (stahuje z webu)
+   │  1. hledá v peckybot/index.json + peckybot/chunks/*.json (stahuje z webu);
+   │     archiv starších jednání (peckybot/archiv/) načítá líně jen na požádání
    │  2. volá Claude API (ANTHROPIC_API_KEY je jen secret ve Workeru)
    ▼
 odpověď {answer, sources}
@@ -26,12 +27,17 @@ odpověď {answer, sources}
 | `content/peckybot.html` | stránka s chatem (tělo panelu), `needit` vygenerovaný `peckybot/index.html` |
 | `config.json` | `{"api": "<URL Workeru>/chat"}`; prázdné = chatbot vypnutý (stránka ukáže „zatím není spuštěný“) |
 | `index.json`, `chunks/*.json` | znalostní index, **generuje build** (`scripts/build_peckybot_index.py`), ručně needitovat |
+| `archiv/index.json`, `archiv/chunks/*.json` | archivní rejstřík: starší jednání z úřední desky (2013 – duben 2021), stejný formát, lokální id; **generuje build** |
 | `worker/` | kód Cloudflare Workeru + testy, postup nasazení v `worker/README.md` |
+
+### Hlavní index a archiv
+Build (`scripts/build_peckybot_index.py`) zapisuje dva rejstříky se stejným formátem a vlastním otiskem `h`: hlavní (`index.json`, ≈ 2,2 MB, ≈ 6 400 úryvků) a archivní (`archiv/index.json`, ≈ 0,9 MB, ≈ 2 100 úryvků). Co patří do archivu, určuje jediná funkce `is_archiv()` (titulky „Rada (“ / „Zastupitelstvo (“ = zápisy z úřední desky před usneseni.cz). Id úryvků jsou lokální v každém rejstříku; zásah nese `src: "main"|"archiv"`.
+Worker hledá vždy v hlavním rejstříku; archiv stahuje a prohledává (`searchAll()` v `worker/src/search.ts`, sdílí ho eval) jen když (a) dotaz zmiňuje rok 2013–2021 nebo slova dříve/historie/archiv/tehdy/v minulosti/před lety/starší, nebo (b) hlavní výsledky jsou slabé (`isWeak`) či s nejlepším skóre pod 4. Archivní skóre se násobí 0,85, aby při shodě vyhrál novější úryvek. Nástroj `hledej_text` s typem „archiv“ hledá jen v archivu.
 
 ### Co je v indexu
 Zdroje, které generuje `scripts/build_peckybot_index.py` (jednání, lidé, sekce) a `scripts/peckybot_sources.py` (ostatní):
 - **jednání** zastupitelstva a rady (`jednani/pecky-jednani.json`): bod programu, důvodová zpráva, usnesení s hlasováním, přehled každého jednání s programem; odkaz `/jednani/#<id>`
-- **starší jednání z úřední desky** (`jednani/starsi-jednani.json`, od 8. 10. 2026): zápisy rady 2015–2016 a usnesení zastupitelstva 2015–2021 (72 ze 74, u dvou chybí soubor) po úryvcích (≈ 900), tituly „… — zápis/usnesení z úřední desky (i/n)“; přibývají na konec indexu
+- **starší jednání z úřední desky** (`jednani/starsi-jednani.json`, od 8. 10. 2026): zápisy rady 2015–2016 a usnesení zastupitelstva 2015–2021 (72 ze 74, u dvou chybí soubor) po úryvcích (≈ 2 100), tituly „Rada (d. m. rrrr) — zápis/usnesení z úřední desky (i/n)“; **jsou v archivním rejstříku** (`archiv/`), ne v hlavním
 - **lidé** (`lide/people.json`): všech 444 osob; jméno s tituly, funkce, uskupení, dřívější příjmení, bio, e-mail, telefon (ústředna se nezapisuje)
 - **statické texty sekcí** Plán, Tělocvična, Pozemky, Prostory, Pokladna, Smlouvy, Zakázky, Volby 2018/2022/2026, O webu a podstránky Kdo vede Pečecké noviny, Zhlédnutí záznamů zastupitelstva, Odpracované hodiny, Nejdelší body jednání; dělené podle nadpisů
 - **komise, výbory, školská rada** (`jednani/komise.json`, `vybory.json`, `skolska-rada.json`): hlavička jednání, docházka, shrnutí a usnesení s hlasováním

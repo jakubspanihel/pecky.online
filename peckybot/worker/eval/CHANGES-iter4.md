@@ -21,3 +21,8 @@ Pozn.: #20, #27, #53, #61 selhaly v prvním běhu (před úpravou search.ts jin�
 - #117 „kolik stojí vodné a stočné“ – správný chunk „Voda — cena vodného a stočného“ rank 7; vyhrávají tři chunky „historie ceníku“.
 - #119 „shrnutí poslední rady města“ – vyhrávají „RM 37/2026 — přehled jednání“; chunk „Shrnutí jednání — Rada města 37/2026“ není v top-3.
 - #120 „o čem jednala rada 19. října 2026“ – datum v dotazu nevybere shrnutí RM 37/2026 (vyhrávají jiná shrnutí).
+
+## Obchvat jako samostatná stránka (26. 10. 2026)
+Commit 2536fb8 přesunul obsah o obchvatu z Plánu na novou stránku `/obchvat/` (úryvky „Web — Obchvat — …“).
+Dotazy „obchvat“ (#60) a „Strategický plán rozvoje obchvat a cyklostezky“ (#46) proto přijímají
+`^Web — (Strategický plán|Obchvat)`; textRegex (obchvat) zůstává.

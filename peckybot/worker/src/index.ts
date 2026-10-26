@@ -10,6 +10,7 @@ import {
   type ChatMessage,
   type Env,
 } from "./common.ts";
+import { isPreset, PRESET_MIN_ANSWER_CHARS } from "./presets.ts";
 import {
   cacheGet,
   cacheKey,
@@ -187,7 +188,9 @@ export default {
           result: { ...result, meta },
         }),
       );
-      if (cacheable && !hedge) {
+      // předpřipravené otázky se kešují i s částečným „nevím“, jen když je odpověď věcná
+      const presetOk = isPreset(query) && result.answer.length >= PRESET_MIN_ANSWER_CHARS;
+      if (cacheable && (!hedge || presetOk)) {
         await defer(ctx, cachePut(env.LOG, key, { answer: result.answer, sources: result.sources }));
       }
       // měřicí dotazy (platný X-Eval-Token) dostanou navíc použité nástroje a náklad
