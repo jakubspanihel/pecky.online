@@ -18,6 +18,8 @@ stahoval jen pro nejlepší zásahy:
      "chunks": [{"u": url, "t": titulek}, ...],
      "post":   {token: [idx, tf, idx, tf, ...], ...}}
   peckybot/chunks/<k>.json: pole textů úryvků s indexy k*100 … k*100+99
+  peckybot/archiv/index.json + peckybot/archiv/chunks/<k>.json: stejný formát pro archiv
+  (starší jednání z úřední desky, viz is_archiv); id úryvků jsou lokální v každém rejstříku
 
 Pořadí úryvků je chronologické (nejstarší první), takže nová jednání přibývají
 na konec a mění se jen poslední dávky. Soubory se přepíšou jen při změně obsahu.
@@ -39,6 +41,8 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 OUT = ROOT / 'peckybot' / 'index.json'
 SHARD_DIR = ROOT / 'peckybot' / 'chunks'
+ARCHIV_OUT = ROOT / 'peckybot' / 'archiv' / 'index.json'
+ARCHIV_SHARD_DIR = ROOT / 'peckybot' / 'archiv' / 'chunks'
 
 STEM_LEN = 6
 MAX_CHUNK = 700          # znaků textu jednoho úryvku
@@ -597,7 +601,7 @@ def chunks_stranky():
     return out
 
 
-def build_index(chunks):
+def build_index(chunks, celkem=None):
     n = len(chunks)
     post = {}
     for i, c in enumerate(chunks):
@@ -607,7 +611,8 @@ def build_index(chunks):
             tf[t] = tf.get(t, 0) + 1
         for t, k in sorted(tf.items()):
             post.setdefault(t, []).extend([i, k])
-    max_df = max(20, int(n * MAX_DF_RATIO))
+    # práh častých tokenů se počítá z celku (hlavní + archiv), ať rozdělení nemění, které tokeny se indexují
+    max_df = max(20, int((celkem or n) * MAX_DF_RATIO))
     post = {t: v for t, v in sorted(post.items()) if len(v) // 2 <= max_df}
     meta = [{'u': c['u'], 't': c['t']} for c in chunks]
     # otisk obsahu: Worker s ním stahuje dávky textů, takže se nikdy nespojí nový rejstřík se starými texty
@@ -623,24 +628,42 @@ def write_if_changed(path, obj):
     return True
 
 
-def main():
-    chunks = chunks_jednani() + chunks_lide() + chunks_slozeni() + chunks_stranky() + chunks_fakta() + chunks_extra() + chunks_starsi_jednani()
-    idx = build_index(chunks)
-    OUT.parent.mkdir(parents=True, exist_ok=True)
-    SHARD_DIR.mkdir(exist_ok=True)
-    zmeneno = write_if_changed(OUT, idx)
+def is_archiv(chunk):
+    """Jediné místo, kde se rozhoduje, co patří do archivního rejstříku (peckybot/archiv/):
+    starší jednání z úřední desky (2013 – duben 2021, před usneseni.cz). Jejich úryvky mají
+    titulek „Rada (d. m. rrrr) — …“ / „Zastupitelstvo (d. m. rrrr) — …“ (chunks_starsi_jednani).
+    Worker archiv načítá líně, jen když na něj dotaz míří (viz search.ts, wantsArchive)."""
+    return chunk['t'].startswith(('Rada (', 'Zastupitelstvo ('))
+
+
+def write_index(chunks, out, shard_dir, celkem):
+    """Zapíše rejstřík + dávky textů; vrátí (rejstřík, počet dávek, změněno)."""
+    idx = build_index(chunks, celkem)
+    out.parent.mkdir(parents=True, exist_ok=True)
+    shard_dir.mkdir(parents=True, exist_ok=True)
+    zmeneno = write_if_changed(out, idx)
     pocet = math.ceil(len(chunks) / SHARD)
     for k in range(pocet):
         texty = [c['x'] for c in chunks[k * SHARD:(k + 1) * SHARD]]
-        zmeneno |= write_if_changed(SHARD_DIR / f'{k}.json', texty)
-    for stary in SHARD_DIR.glob('*.json'):
+        zmeneno |= write_if_changed(shard_dir / f'{k}.json', texty)
+    for stary in shard_dir.glob('*.json'):
         # cizí názvy (např. „79 2.json“ od Finderu) se při mazání přeskočí
         if stary.stem.isdigit() and int(stary.stem) >= pocet:
             stary.unlink()
             zmeneno = True
-    kb = OUT.stat().st_size / 1024
-    print(f'PečkyBot index: {len(chunks)} úryvků v {pocet} dávkách, {len(idx["post"])} tokenů, '
-          f'rejstřík {kb:.0f} kB ({"přepsáno" if zmeneno else "beze změny"})')
+    return idx, pocet, zmeneno
+
+
+def main():
+    chunks = chunks_jednani() + chunks_lide() + chunks_slozeni() + chunks_stranky() + chunks_fakta() + chunks_extra() + chunks_starsi_jednani()
+    hlavni = [c for c in chunks if not is_archiv(c)]
+    archiv = [c for c in chunks if is_archiv(c)]
+    idx, pocet, zmeneno = write_index(hlavni, OUT, SHARD_DIR, len(chunks))
+    aidx, apocet, azmeneno = write_index(archiv, ARCHIV_OUT, ARCHIV_SHARD_DIR, len(chunks))
+    print(f'PečkyBot index: {len(hlavni)} úryvků v {pocet} dávkách, {len(idx["post"])} tokenů, '
+          f'rejstřík {OUT.stat().st_size / 1024:.0f} kB ({"přepsáno" if zmeneno else "beze změny"}); '
+          f'archiv: {len(archiv)} úryvků v {apocet} dávkách, {len(aidx["post"])} tokenů, '
+          f'rejstřík {ARCHIV_OUT.stat().st_size / 1024:.0f} kB ({"přepsáno" if azmeneno else "beze změny"})')
 
 
 if __name__ == '__main__':

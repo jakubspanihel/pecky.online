@@ -35,7 +35,7 @@ spustit `python3 scripts/build.py` a publikovat.
 
 Před zapnutím zkontrolovat v `wrangler.toml`:
 - `ALLOWED_ORIGINS` — domény, ze kterých smí prohlížeč volat Worker (výchozí `https://dopecek.cz`). Pro místní test přidat `http://localhost:8000`.
-- `SITE_URL` — odkud se stahuje index (musí už být publikovaný `peckybot/index.json`).
+- `SITE_URL` — odkud se stahuje index (musí už být publikovaný `peckybot/index.json`; archiv `peckybot/archiv/index.json` se stahuje líně, viz `../README.md` → „Hlavní index a archiv“).
 - `MONTHLY_BUDGET_USD`, `DAILY_PER_IP`, `DAILY_GLOBAL` — viz `../README.md`.
 
 ## Místní vývoj

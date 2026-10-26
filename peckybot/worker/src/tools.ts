@@ -71,6 +71,10 @@ const TYP_PREFIX: Record<string, RegExp> = {
   "komise": /^(Sportovní|Kulturní|Stavebně|Finanční|Kontrolní|Školská|Sbor|Komise|Povodňová|Pracovní)/,
   "noviny": /^Pečecké noviny/,
 };
+/** typ „archiv“ = starší jednání z úřední desky (2013 – duben 2021); hledá se jen v archivním rejstříku */
+export function isArchivTyp(typ?: string): boolean {
+  return !!typ && fold(typ) === "archiv";
+}
 export function typFilter(typ?: string): RegExp | undefined {
   if (!typ) return undefined;
   const t = typ.toLowerCase();
@@ -644,12 +648,12 @@ export const TOOL_DEFS = [
   {
     name: "hledej_text",
     description:
-      "Znovu prohledá textový rejstřík webu jiným dotazem; vrátí až 6 úryvků s titulkem a odkazem. Použij, když dodané zdroje na otázku neodpovídají. Volitelně omezí typ zdroje.",
+      "Znovu prohledá textový rejstřík webu jiným dotazem; vrátí až 6 úryvků s titulkem a odkazem. Použij, když dodané zdroje na otázku neodpovídají. Volitelně omezí typ zdroje; starší jednání z úřední desky (2013 – duben 2021) se hledají jen s typem „archiv“ nebo když dotaz zmiňuje rok do 2021 či „dříve/historie“.",
     input_schema: {
       type: "object",
       properties: {
         dotaz: { type: "string", description: "Dotaz nebo klíčová slova česky." },
-        typ: { type: "string", enum: ["Lidé", "Kalendář", "Organizace", "Web", "jednání", "komise", "noviny"], description: "Volitelně jen tento typ zdroje." },
+        typ: { type: "string", enum: ["Lidé", "Kalendář", "Organizace", "Web", "jednání", "komise", "noviny", "archiv"], description: "Volitelně jen tento typ zdroje; „archiv“ = starší jednání z úřední desky 2013–2021." },
       },
       required: ["dotaz"],
       additionalProperties: false,
