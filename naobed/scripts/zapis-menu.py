@@ -7,8 +7,9 @@ Použití (z kořene repa):
 
 <record.json> je záznam dne (popis polí v naobed/README.md, sekce „Záznam dne“).
 Den se zapíše do měsíčního souboru podle pole `date`; záznam se stejným datem
-se přepíše, ostatní dny zůstanou. V menu.json se nastaví `file` a `date`
-(jen pokud je den stejný nebo novější než dosavadní) a `checked` = dnešní datum.
+se přepíše, ostatní dny zůstanou. V menu.json se nastaví `date` (jen pokud je
+den stejný nebo novější než dosavadní) a `checked` = dnešní datum. Fotografie
+se neukládají, záznam je jediný výstup.
 `--checked` nastaví jen `checked` (restaurace bez nového menu).
 Oznámení (`notice`) se nemění.
 """
@@ -39,12 +40,9 @@ def check_record(rec, rest_id):
     date = rec.get("date", "")
     if not DATE_RE.match(date):
         fail("pole `date` musí být RRRR-MM-DD, je %r" % date)
-    photo = rec.get("photo", "")
-    if not (NAOBED / photo).is_file():
-        fail("fotografie %r v naobed/ neexistuje" % photo)
     if not rec.get("jidla") and not rec.get("menu"):
         fail("záznam nemá žádná jídla ani `menu`")
-    return date, photo
+    return date
 
 
 def main(argv):
@@ -68,7 +66,7 @@ def main(argv):
         return
 
     rec = load(Path(arg))
-    date, photo = check_record(rec, rest_id)
+    date = check_record(rec, rest_id)
 
     month_path = NAOBED / "data" / rest_id / (date[:7] + ".json")
     if month_path.exists():
@@ -80,7 +78,6 @@ def main(argv):
     save(month_path, month)
 
     if not entry.get("date") or date >= entry["date"]:
-        entry["file"] = photo
         entry["date"] = date
     entry["checked"] = today
     save(menu_path, menu)

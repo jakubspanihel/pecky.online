@@ -88,9 +88,8 @@
   </section>
 
   <style>
-    .naobed-list{display:flex; gap:18px; margin-top:14px; overflow-x:auto; scroll-snap-type:x proximity; padding-bottom:12px; -webkit-overflow-scrolling:touch;}
-    .naobed-card{flex:0 0 min(380px,86vw); scroll-snap-align:start; display:flex; flex-direction:column; gap:var(--space-2); margin:0; max-width:none;}
-    @media (max-width:600px){.naobed-card{flex-basis:min(380px,68vw);}}
+    .naobed-list{display:flex; flex-direction:column; gap:18px; margin-top:14px;}
+    .naobed-card{width:100%; display:flex; flex-direction:column; gap:var(--space-2); margin:0; max-width:none;}
     .naobed-card .greybox-title{font-size:30px; overflow-wrap:anywhere;}
     .naobed-chip{align-self:flex-start; padding:3px 11px; border-radius:999px; background:#b3261e; border:1px solid #8f1d17; color:#fff; font-family:system-ui,sans-serif; font-size:12px; font-weight:700; line-height:1.4; white-space:nowrap;}
     .naobed-photo:has(.naobed-notice){display:flex;}
@@ -98,8 +97,13 @@
     .naobed-notice p{margin:0 0 6px; line-height:1.45;}
     .naobed-notice a{font-size:15px;}
     .naobed-photo{position:relative; background:#fff; border-radius:var(--radius-sm); overflow:hidden; min-height:200px; flex:1 1 auto;}
-    .naobed-photo a{display:block;}
-    .naobed-photo img{display:block; width:100%; height:auto;}
+    .naobed-tag.naobed-toggle{position:static; margin:0 0 0 14px; vertical-align:middle; cursor:pointer; font-family:inherit;}
+    .naobed-tag.dnes.naobed-toggle{transform:none;}
+    .naobed-datum{margin:0 0 8px; font-weight:700;}
+    .naobed-ico{display:inline-block; vertical-align:middle; margin-left:8px;}
+    .naobed-toggle[aria-expanded="true"] .naobed-ico-dolu,
+    .naobed-toggle[aria-expanded="false"] .naobed-ico-zavrit{display:none;}
+    @media (max-width:600px){.naobed-tag.naobed-toggle{float:right;}}
     .naobed-missing{position:absolute; inset:0; display:flex; align-items:center; justify-content:center; padding:20px; background:rgba(255,255,255,0.72); text-align:center; pointer-events:none;}
     .naobed-missing p{margin:0; padding:12px 16px; background:#fff; border:1px solid var(--line); border-radius:var(--radius-sm); box-shadow:0 1px 4px rgba(42,36,32,0.2); font-size:15px; font-weight:600; color:var(--ink); pointer-events:auto;}
     .naobed-photo img.stare{filter:grayscale(1);}
@@ -117,19 +121,29 @@
     .naobed-mini p{margin:0;}
     .naobed-mini .naobed-actions{margin-top:auto; padding-top:6px;}
     .naobed-empty{padding:60px 20px; color:var(--ink-soft); font-size:15px; text-align:center;}
-    .naobed-text{padding:52px 18px 16px; font-size:15px; color:var(--ink);}
-    .naobed-text h4{margin:0 0 4px; font-size:13px; text-transform:uppercase; letter-spacing:.06em; color:var(--ink-soft);}
+    .naobed-text{padding:18px; font-size:15px; color:var(--ink);}
+    .naobed-row{display:flex; align-items:baseline; gap:6px;}
+    .naobed-lead{flex:1; min-width:16px; border-bottom:2px dotted var(--ink-soft); transform:translateY(-0.3em);}
+    .naobed-cena{white-space:nowrap;}
+    .naobed-text h4{margin:22px 0 6px; font-size:13px; text-transform:uppercase; letter-spacing:.06em; color:var(--ink-soft);}
     .naobed-text p{margin:0 0 12px; line-height:1.45;}
     .naobed-text .alg{color:var(--ink-soft); font-size:12px; white-space:nowrap;}
     .naobed-text .stare{color:var(--ink-soft);}
     .naobed-text hr{border:0; border-top:1px solid var(--line); margin:16px 0 12px;}
-    .naobed-text ul{margin:0; padding-left:20px; line-height:1.45;}
+    .naobed-text ul{margin:0 0 18px; padding-left:20px; line-height:1.45;}
   </style>
 
   <script>
   (function () {
     var statusEl = document.getElementById('naobed-status');
     var listEl = document.getElementById('naobed-list');
+    listEl.addEventListener('click', function (e) {
+      var b = e.target.closest('.naobed-toggle');
+      if (!b) return;
+      var foto = b.closest('.naobed-card').querySelector('.naobed-photo');
+      foto.hidden = !foto.hidden;
+      b.setAttribute('aria-expanded', String(!foto.hidden));
+    });
     function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]; }); }
     function cz(iso) { var p = iso.split('-'); return +p[2] + '. ' + +p[1] + '. ' + p[0]; }
     var DNY = ['ne', 'po', 'ut', 'st', 'ct', 'pa', 'so'];
@@ -142,21 +156,74 @@
       return '<span title="' + esc(tydne + (oh.note ? '\n' + oh.note : '')) + '">🕒 Dnes ' + (h ? 'otevřeno ' + esc(hod(h)) : 'zavřeno') + '</span>';
     }
     function adresa(a) { return '<a href="https://mapy.com/?q=' + encodeURIComponent(/Pečky/.test(a) ? a : a + ', Pečky') + '" target="_blank" rel="noopener">' + esc(a) + '</a>'; }
+    function jidloHtml(den) {
+      function polozky(seznam) {
+        return '<ul>' + seznam.map(function (p) {
+          return '<li><span class="naobed-row"><span>' + esc(p.nazev) + (p.gramaz ? ' (' + esc(p.gramaz) + ')' : '') + (p.objem ? ' (' + esc(p.objem) + ')' : '') + '</span><span class="naobed-lead"></span><span class="naobed-cena">' + p.cena + ' Kč</span></span></li>';
+        }).join('') + '</ul>';
+      }
+      var h = '<p class="naobed-datum">' + denDatum(den.date) + '</p>';
+      if (den.menu) h += '<h4>Menu</h4>' + polozky([den.menu]);
+      if (den.polevky && den.polevky.length) h += '<h4>Polévka</h4>' + polozky(den.polevky);
+      if (den.jidla && den.jidla.length) h += '<h4>Hlavní jídla</h4>' + polozky(den.jidla);
+      if (den.ostatni && den.ostatni.length) h += '<h4>Ostatní</h4>' + polozky(den.ostatni);
+      if (den.poznamka) h += '<p class="naobed-note">' + esc(den.poznamka) + '</p>';
+      return h;
+    }
     function denNazev(iso) { var p = iso.split('-'); return DNY_CZ[DNY[new Date(+p[0], +p[1] - 1, +p[2], 12).getDay()]]; }
+    // „Pondělí, 26.10.“
+    function denDatum(iso) {
+      var p = iso.split('-'), jmena = ['Neděle', 'Pondělí', 'Úterý', 'Středa', 'Čtvrtek', 'Pátek', 'Sobota'];
+      return jmena[new Date(Date.UTC(+p[0], +p[1] - 1, +p[2])).getUTCDay()] + ', ' + (+p[2]) + '.' + (+p[1]) + '.';
+    }
+    // hláška místo menu, když dnešní neexistuje: včera / v pátek / před N dní
+    function chybiMenu(iso) {
+      var p = iso.split('-'), den = Date.UTC(+p[0], +p[1] - 1, +p[2]) / 864e5;
+      var q = today().split('-'), dnesDen = Date.UTC(+q[0], +q[1] - 1, +q[2]) / 864e5;
+      var rozdil = dnesDen - den;
+      var vDen = ['v neděli', 'v pondělí', 'v úterý', 've středu', 've čtvrtek', 'v pátek', 'v sobotu'][new Date(den * 864e5).getUTCDay()];
+      var kdy = rozdil === 1 ? 'včera' : rozdil < 7 ? vDen : 'před ' + rozdil + ' dní';
+      return '<p class="naobed-missing">Dnešní menu není k dispozici. (poslední menu bylo ' + kdy + ')</p>';
+    }
     function today() { var d = new Date(); return d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0') + '-' + String(d.getDate()).padStart(2, '0'); }
+
+    // Jídelníček školy: archiv po měsících; bere se aktuální a příští měsíc
+    function mesic(posun) {
+      var d = new Date(), m = new Date(d.getFullYear(), d.getMonth() + posun, 1);
+      return fetch('/naobed/data/skolni-jidelna-pecky/' + m.getFullYear() + '-' + String(m.getMonth() + 1).padStart(2, '0') + '.json')
+        .then(function (r) { return r.ok ? r.json() : { dny: [] }; })
+        .catch(function () { return { dny: [] }; });
+    }
 
     Promise.all([
       fetch('/naobed/restaurace.json').then(function (r) { return r.json(); }),
       fetch('/naobed/menu.json').then(function (r) { return r.json(); }),
       fetch('/lide/organizations.json').then(function (r) { return r.json(); }),
-      fetch('/naobed/jidelna.json').then(function (r) { return r.json(); })
+      mesic(0), mesic(1)
     ]).then(function (res) {
+      // přepis menu z fotografie: měsíční archiv data/<id>/RRRR-MM.json, den podle menu.json
+      var menu = res[1].restaurace || {}, texty = {};
+      var jobs = Object.keys(menu).filter(function (id) { return menu[id].date; }).map(function (id) {
+        var ym = menu[id].date.slice(0, 7);
+        return fetch('/naobed/data/' + id + '/' + ym + '.json').then(function (r) { return r.ok ? r.json() : { dny: [] }; })
+          .catch(function () { return { dny: [] }; })
+          .then(function (j) { texty[id] = (j.dny || []).filter(function (d) { return d.date === menu[id].date; })[0]; });
+      });
+      return Promise.all(jobs).then(function () { return [res, texty]; });
+    }).then(function (out) {
+      var res = out[0], texty = out[1];
       var rest = res[0].restaurace, menu = res[1].restaurace || {}, dnes = today(), nalezeno = 0;
-      var jid = res[3] || {}, orgs = {};
+      var jid = { dny: [].concat(res[3].dny, res[4].dny).sort(function (a, b) { return a.date < b.date ? -1 : a.date > b.date ? 1 : 0; }) }, orgs = {};
       (res[2].organizations || []).forEach(function (o) { orgs[o.id] = o; });
+      // nahoře restaurace s dnešním polední menu, pak ostatní (řazení je stabilní)
+      function maMenu(r) {
+        if (r.jidelnicek) return jid.dny.some(function (d) { return d.date === dnes; });
+        return !!(menu[r.id] && menu[r.id].date === dnes);
+      }
+      rest = rest.slice().sort(function (a, b) { return maMenu(b) - maMenu(a); });
       listEl.innerHTML = rest.map(function (r) {
         var m = menu[r.id];
-        var photo, tag = '', chybi = true;
+        var photo, tag = '', chybi = true, skryt = false;
         if (r.jidelnicek) {
           var dj = (jid.dny || []).filter(function (d) { return d.date >= dnes; })[0] || (jid.dny || []).slice(-1)[0];
           if (dj) {
@@ -166,20 +233,22 @@
             tag = dj.date === dnes
               ? '<span class="naobed-tag dnes">Dnešní menu</span>'
               : '<span class="naobed-tag ' + (dj.date > dnes ? 'dnes' : 'datum') + '">' + esc(denNazev(dj.date)) + '<br>' + esc(cz(dj.date)) + '</span>';
-            photo = '<div class="naobed-text' + (dj.date >= dnes ? '' : ' stare') + '"><h4>Polévka</h4><p>' + alg(dj.polevka) + '</p><h4>Hlavní jídla</h4>' +
-              dj.jidla.map(function (j, i) { return '<p>' + (i + 1) + ') ' + alg(j) + '</p>'; }).join('') +
+            photo = '<div class="naobed-text' + (dj.date >= dnes ? '' : ' stare') + '"><p class="naobed-datum">' + denDatum(dj.date) + '</p><h4>Polévka</h4><ul><li>' + alg(dj.polevka) + '</li></ul><h4>Hlavní jídla</h4><ul>' +
+              dj.jidla.map(function (j) { return '<li>' + alg(j) + '</li>'; }).join('') + '</ul>' +
               '<hr><h4>Pro cizí strávníky</h4><ul><li>cena 95 Kč za oběd</li><li>přihlašování do 14:00 den předem</li><li>pro přihlášení obědů kontaktujte jídelnu</li></ul></div>' + tag;
+            if (dj.date < dnes) { photo = chybiMenu(dj.date); tag = ''; chybi = false; skryt = true; }
           } else {
             photo = '';
           }
-        } else if (m && m.file) {
+        } else if (m && m.date) {
           nalezeno++;
           if (m.date >= dnes) chybi = false;
-          var url = '/naobed/' + m.file;
           tag = m.date === dnes
               ? '<span class="naobed-tag dnes">Dnešní menu</span>'
               : '<span class="naobed-tag ' + (m.date > dnes ? 'dnes' : 'datum') + '">' + esc(denNazev(m.date)) + '<br>' + esc(cz(m.date)) + '</span>';
-          photo = '<a href="' + esc(url) + '" target="_blank" rel="noopener"><img' + (m.date >= dnes ? '' : ' class="stare"') + ' src="' + esc(url) + '" alt="Denní menu ' + esc(r.name) + ' z ' + esc(cz(m.date)) + '" loading="lazy"></a>' + tag;
+          photo = tag +
+            (texty[r.id] ? '<div class="naobed-text' + (m.date >= dnes ? '' : ' stare') + '">' + jidloHtml(texty[r.id]) + '</div>' : '');
+          if (m.date < dnes) { photo = chybiMenu(m.date); tag = ''; chybi = false; skryt = true; }
         } else {
           photo = '';
         }
@@ -193,13 +262,27 @@
             '<a href="' + esc(nt.url) + '" target="_blank" rel="noopener">Příspěvek na Facebooku ↗</a></div>' +
             '<span class="naobed-tag datum">' + esc(denNazev(dnes)) + '<br>' + esc(cz(dnes)) + '</span>';
         }
+        // chip „Dnešní menu“ jde za název restaurace a přepíná výpis menu i obrázku
+        var jeDnes = tag.indexOf('Dnešní menu') >= 0, chip = '';
+        if (jeDnes) {
+          photo = photo.split(tag).join('');
+          chip = '<button type="button" class="naobed-tag dnes naobed-toggle" aria-expanded="true">Dnešní menu' +
+            '<svg class="naobed-ico naobed-ico-zavrit" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="7.25" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M5.5 5.5l5 5M10.5 5.5l-5 5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>' +
+            '<svg class="naobed-ico naobed-ico-dolu" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 6l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>';
+        }
+        // chip „🤷 menu“ u podniku bez dnešního menu, obsah (hláška) je ve výchozím stavu skrytý
+        if (skryt) {
+          chip = '<button type="button" class="naobed-tag dnes naobed-toggle" aria-expanded="false">🤷‍♂️ menu' +
+            '<svg class="naobed-ico naobed-ico-zavrit" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="7.25" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M5.5 5.5l5 5M10.5 5.5l-5 5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>' +
+            '<svg class="naobed-ico naobed-ico-dolu" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 6l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>';
+        }
         var info = '<div class="naobed-info">' +
           (r.address ? '<p>📍 ' + adresa(r.address) + '</p>' : '') +
           (dnesOtevreno((orgs[r.id] || {}).opening_hours) ? '<p>' + dnesOtevreno((orgs[r.id] || {}).opening_hours) + '</p>' : '') +
           '<div class="naobed-actions">' + tel + '<span>' + odkazy + '</span></div></div>';
         return '<article class="greybox-black naobed-card" id="' + esc(r.id) + '">' +
-          '<h4 class="greybox-title">' + esc(r.name) + '</h4>' +
-          '<div class="naobed-photo">' + photo + (chybi ? '<div class="naobed-missing"><p>Dnešní menu se nepodařilo zobrazit. Zkuste <a href="' + esc(r.facebook) + '" target="_blank" rel="noopener">Facebook podniku ↗</a></p></div>' : '') + '</div>' + info + '</article>';
+          '<h4 class="greybox-title">' + esc(r.name) + chip + '</h4>' +
+          '<div class="naobed-photo"' + (skryt ? ' hidden' : '') + '>' + photo + (chybi ? '<div class="naobed-missing"><p>Dnešní menu se nepodařilo zobrazit. Zkuste <a href="' + esc(r.facebook) + '" target="_blank" rel="noopener">Facebook podniku ↗</a></p></div>' : '') + '</div>' + info + '</article>';
       }).join('');
       document.getElementById('naobed-dalsi').innerHTML = (res[0].dalsi || []).map(function (r) {
         var oh = dnesOtevreno((orgs[r.id] || {}).opening_hours);

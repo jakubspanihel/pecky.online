@@ -1,15 +1,15 @@
 #!/usr/bin/env python3
-"""Přepíše naobed/jidelna.json z jídelníčku školní jídelny na zspecky.cz.
+"""Stáhne jídelníček školní jídelny z zspecky.cz a uloží dny do měsíčního
+archivu naobed/data/skolni-jidelna-pecky/RRRR-MM.json.
 
 Použití (z kořene repa):
     python3 naobed/scripts/update-jidelna.py          # stáhne a zapíše
     python3 naobed/scripts/update-jidelna.py --check  # jen řekne, jestli je potřeba
 
---check skončí kódem 0, když jidelna.json obsahuje dnešek (pracovní den)
+--check skončí kódem 0, když archiv obsahuje dnešek (pracovní den)
 nebo nejbližší další pracovní den, jinak kódem 1.
 
-Dny z webu se sloučí s dosavadními (web má přednost), dny starší než
-7 dní se zahodí. Pole `checked` = dnešní datum.
+Dny z webu přepisují stejná data v archivu, ostatní dny zůstanou.
 """
 import datetime as dt
 import html
@@ -20,8 +20,7 @@ import urllib.request
 from pathlib import Path
 
 URL = "https://www.zspecky.cz/jidelna/jidelnicek/"
-PATH = Path(__file__).resolve().parent.parent / "jidelna.json"
-KEEP_DAYS = 7
+ARCHIVE = Path(__file__).resolve().parent.parent / "data" / "skolni-jidelna-pecky"
 
 DAY_RE = re.compile(r"^(Po|Út|St|Čt|Pá)\s+(\d{1,2})\.\s*(\d{1,2})\.\s*$")
 SOUP_RE = re.compile(r"^Polévka\s*:\s*(.*)$", re.I)
@@ -85,15 +84,41 @@ def next_workday(today):
     return d
 
 
+def load_archive():
+    """Vrátí dny ze všech měsíčních souborů jako {datum: den}."""
+    dny = {}
+    for path in ARCHIVE.glob("*.json"):
+        for d in json.loads(path.read_text(encoding="utf-8"))["dny"]:
+            dny[d["date"]] = d
+    return dny
+
+
+def save_archive(dny):
+    """Upíše dny do měsíčních souborů; den se stejným datem se přepíše, ostatní zůstanou."""
+    by_month = {}
+    for d in dny:
+        by_month.setdefault(d["date"][:7], []).append(d)
+    ARCHIVE.mkdir(parents=True, exist_ok=True)
+    for ym, ds in by_month.items():
+        path = ARCHIVE / (ym + ".json")
+        if path.exists():
+            month = json.loads(path.read_text(encoding="utf-8"))
+        else:
+            month = {"schema": 1, "restaurace": "skolni-jidelna-pecky", "zdroj": URL, "dny": []}
+        upd = {d["date"]: d for d in month["dny"]}
+        upd.update({d["date"]: d for d in ds})
+        month["dny"] = [upd[k] for k in sorted(upd)]
+        path.write_text(json.dumps(month, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
+
+
 def main():
     today = dt.date.today()
-    data = json.loads(PATH.read_text(encoding="utf-8")) if PATH.exists() else {}
-    have = {d["date"] for d in data.get("dny", [])}
+    have = load_archive()
     need = next_workday(today).isoformat()
 
     if "--check" in sys.argv:
         ok = need in have
-        print(f"jidelna.json {'má' if ok else 'nemá'} {need}")
+        print(f"archiv {'má' if ok else 'nemá'} {need}")
         sys.exit(0 if ok else 1)
 
     web = parse(fetch_text(), today)
@@ -101,16 +126,10 @@ def main():
         print("Na webu se nenašel žádný den jídelníčku — nic nezměněno.", file=sys.stderr)
         sys.exit(2)
 
-    merged = {d["date"]: d for d in data.get("dny", [])}
-    merged.update({d["date"]: d for d in web})
-    cutoff = (today - dt.timedelta(days=KEEP_DAYS)).isoformat()
-    dny = [merged[k] for k in sorted(merged) if k >= cutoff]
-
-    new = {"source": URL, "checked": today.isoformat(), "dny": dny}
-    PATH.write_text(json.dumps(new, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
-    added = sorted(set(d["date"] for d in web) - have)
+    save_archive(web)
+    added = sorted(set(d["date"] for d in web) - set(have))
     print(f"Na webu {len(web)} dní ({web[0]['date']} – {web[-1]['date']}), "
-          f"nové: {', '.join(added) if added else 'žádné'}; v souboru {len(dny)} dní.")
+          f"nové: {', '.join(added) if added else 'žádné'}; v archivu celkem {len(load_archive())} dní.")
 
 
 if __name__ == "__main__":
