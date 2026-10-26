@@ -1,7 +1,7 @@
 {
  "meta": {
   "description": "Kulturní a společenské akce v Pečkách a okolí. U každé akce je pořadatel (id do lide/organizations.json) a doklady, ze kterých je přepsaná (evidence[] — zdroj je id do kořenového sources.json). Zdroj sekce Kalendář — do udalosti.json a kalendar.ics je promítá kalendar/scripts/update-kalendar.py.",
-  "updated": "2026-10-23",
+  "updated": "2026-10-26",
   "note": "Jednání rady a zastupitelstva do tohohle souboru nepatří, i když je plakát KD uvádí — ta má kalendář z jednani/pecky-jednani.json a zapsáním sem by v mřížce vznikly duplicity. Pořadatel je vždy ten, kdo akci pořádá, ne ten, od koho o ní víme — to je evidence[].source."
  },
  "events": [
@@ -25113,28 +25113,6 @@
      "label": "mcpraminek.cz — Zálesák",
      "published": "2026-09-23",
      "retrieved": "2026-09-23"
-    }
-   ]
-  },
-  {
-   "id": "akce-2026-12-01-pececky-okraslovaci-spolek-prednaska",
-   "title": "Pečecký okrašlovací spolek – přednáška",
-   "date": "2026-12-01",
-   "time": "18:00",
-   "category": "akce",
-   "place": "Přednáškový sál Kulturního domu Pečky",
-   "organizer": "pececky-okraslovaci-spolek",
-   "organizer_name": null,
-   "description": null,
-   "note": "Pořadatele uvádí název akce v programu Kulturního domu Pečky, samostatný plakát spolku zatím nemáme.",
-   "evidence": [
-    {
-     "source": "facebook-kspecky",
-     "kind": "plakat",
-     "url": "https://www.facebook.com/photo/?fbid=1472256094959407",
-     "label": "Program KD Pečky 9–12/2026, 2. část (listopad a prosinec)",
-     "published": "2026-09-24",
-     "retrieved": "2026-09-20"
     }
    ]
   },
@@ -92579,7 +92557,7 @@
    "organizer": "pececky-okraslovaci-spolek",
    "organizer_name": null,
    "description": "Přednáška Michala Plavce o svatbě pečeckého starosty Otakara Hrázského a letecké historii. 18:30–20:00.",
-   "note": "Konec 20:00. Plakát: Pečecký okrašlovací spolek, Kulturní dům Pečky, vstup dobrovolný. Zpráva města z 1. 7. 2026 v Aktualitách.",
+   "note": "Konec 20:00. Plakát: Pečecký okrašlovací spolek, Kulturní dům Pečky, vstup dobrovolný, občerstvení zajištěno. Zpráva města z 1. 7. 2026 v Aktualitách. Program KD Pečky uváděl začátek v 18:00 v přednáškovém sále; plakát spolku uvádí 18:30 (plakát má přednost). Záznam Pečecký okrašlovací spolek – přednáška (18:00) je tatáž akce a byl sloučen sem.",
    "evidence": [
      {
        "source": "pecky-cz-aktuality",
@@ -92588,6 +92566,22 @@
        "label": "Aktualita Město Pečky: Přednáška Michala Plavce – Okřídlená svatba",
        "published": "2026-07-01",
        "retrieved": "2026-10-25"
+     },
+     {
+       "source": "facebook-pececky-okraslovaci-spolek",
+       "kind": "plakat",
+       "url": "https://www.facebook.com/p/Pe%C4%8Deck%C3%BD-okra%C5%A1lovac%C3%AD-spolek-61555436032529/",
+       "label": "Plakát „Okřídlená svatba“, přednáška Michal Plavec (zaslán uživatelem)",
+       "published": null,
+       "retrieved": "2026-10-26"
+     },
+     {
+       "source": "facebook-kspecky",
+       "kind": "plakat",
+       "url": "https://www.facebook.com/photo/?fbid=1472256094959407",
+       "label": "Program KD Pečky 9–12/2026, 2. část (listopad a prosinec)",
+       "published": "2026-09-24",
+       "retrieved": "2026-09-20"
      }
    ]
   },

@@ -182,6 +182,7 @@ Jednání a Pečecké noviny. Lokálně `python3 -m http.server`.
 | `short_name` | string | — | pro badge a úzké sloupce; fallback = `name` |
 | `type` | enum | ✅ | `urad` · `prispevkova` · `firma` · `spolek` · `politicke` · `skola` · `jine` |
 | `ico` | string \| `null` | — | 8 číslic jako **string** (vedoucí nuly); prolinkuje na Hlídač státu |
+| `email` | string \| — | — | kontaktní e-mail organizace (veřejný, z plakátu nebo oficiálního webu); ne osobní adresa člověka |
 | `color` | `#RRGGBB` \| `null` | ✅ u `politicke` | uskupení z palety v [`volby/README.md`](../volby/README.md), pořadatelé akcí z palety v [`kalendar/README.md`](../kalendar/README.md); build z ní generuje `--org-<id>` v `assets/org-colors.css` |
 | `color_bg` | `#RRGGBB` \| `null` | ✅ u `politicke` | světlé pozadí (kartička, kurz v kalendáři); jen spolu s `color`; generuje `--org-<id>-bg` |
 | `css_class` | string \| `null` | ✅ u `politicke` | `party-*`, existující třída v `index.html` |
