@@ -10,11 +10,42 @@ zobrazuje poslední stažený snímek u každé z nich.
 |---|---|
 | `content/naobed.html` | tělo stránky (horizontálně posuvné karty stejné výšky, vykreslené JS z JSON níže) |
 | `naobed/restaurace.json` | seznam restaurací na stránce: `id` (= `id` v `lide/organizations.json`), název, adresa, telefon, Facebook, web |
-| `naobed/menu.json` | poslední stažené menu pro každé `id`: `file` (cesta od `naobed/`), `date` (den, pro který menu platí), `checked` (den kontroly) |
+| `naobed/menu.json` | index: pro každé `id` poslední menu (`file` a `date`, cesta od `naobed/`), `checked` (den kontroly), případně `notice` |
+| `naobed/data/<id>/RRRR-MM.json` | archiv přepisů jednoho měsíce: `schema`, `restaurace`, pole `dny` se záznamy dnů (viz níže) |
 | `naobed/img/<id>/RRRR-MM-DD.jpg` | stažené fotografie menu; datum v názvu = den, který je na lístku (ne den stažení) |
+| `naobed/scripts/zapis-menu.py` | zapíše záznam dne do `data/` a aktualizuje `menu.json` (volá ho skill) |
 
 Přidání restaurace: záznam do `lide/organizations.json` (+ zdroj do
 `lide/sources.json`), řádek do `naobed/restaurace.json`, pak skill.
+
+## Záznam dne
+
+Jeden den v `dny` (a soubor pro `zapis-menu.py`):
+
+```json
+{
+  "date": "2026-10-23",
+  "photo": "img/sinorita-pecky/2026-10-23.jpg",
+  "checked": "2026-10-26",
+  "polevky": [{"nazev": "Česnečka", "objem": "0,33 l", "cena": 39}],
+  "menu": {"nazev": "Plněné bramborové knedlíky uzeným masem, zelí", "cena": 139},
+  "jidla": [{"nazev": "Smažený vepřový řízek, bramborový salát", "gramaz": "150 g", "cena": 139}],
+  "ostatni": [{"nazev": "Okurkový salát", "gramaz": "150 g", "cena": 45}],
+  "poznamka": "Na pondělí: Segedínský guláš, houskové knedlíky."
+}
+```
+
+- `date` a `photo` jsou povinné; `photo` je cesta od `naobed/`. `menu` (paušální
+  menu s polévkou), `polevky`, `ostatni` (přílohy, saláty, pití, omáčky) jsou
+  volitelné. Pole `polevky`, `jidla` a `ostatni` jsou seznamy položek
+  `{nazev, gramaz?, objem?, cena}`.
+- `cena` je celé číslo v Kč, `gramaz` a `objem` jsou text (`"150 g"`, `"0,33 l"`).
+- `checked` se doplní jen u posledního zachyceného dne (den kontroly). Starší záznamy ho nemají.
+- Přepis je odečtený z fotografie, ne z oficiálního zdroje. Nečitelné položky se vynechají a uvedou v `poznamka`.
+
+Zápis: `python3 naobed/scripts/zapis-menu.py <id> záznam.json` (nebo
+`--checked` pro restauraci bez nového menu). Skript den přepíše, pokud už v
+měsíčním souboru je, a `menu.json` nastaví na nejnovější den.
 
 ## Otevírací doba
 
@@ -31,8 +62,9 @@ zastaralá, podnik se přestěhoval) a u Hospůdky Velké Chvalovice se nenašla
 
 Skill `DoPecek-obedy` (`.claude/skills/DoPecek-obedy/SKILL.md`):
 otevře Chrome, na facebookové stránce každé restaurace stáhne fotografii
-nejnovějšího menu, uloží ji do `naobed/img/<id>/`, přepíše `naobed/menu.json`
-a spustí `python3 scripts/build.py`.
+nejnovějšího menu, uloží ji do `naobed/img/<id>/`, přepíše lístek do záznamu
+dne a zapíše ho přes `naobed/scripts/zapis-menu.py` do `naobed/data/` a
+`menu.json`, pak spustí `python3 scripts/build.py`.
 
 ## Poznámky
 
