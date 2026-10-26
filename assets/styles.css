@@ -446,6 +446,8 @@
   .dash-dnes-list .dash-empty{color:var(--ink-soft); font-style:italic;}
   .dash-dnes-cta{align-self:flex-start; display:inline-block; padding:var(--space-5) var(--space-11); background:var(--burgundy); color:var(--white); font-weight:var(--fw-bold); font-size:var(--fs-11); border-radius:var(--radius-pill); text-decoration:none;}
   .dash-dnes-cta:hover{filter:brightness(1.1);}
+  .dash-dnes-actions{display:flex; flex-wrap:wrap; align-items:center; gap:var(--space-5) var(--space-9);}
+  .dash-dnes-menu{color:var(--burgundy); font-weight:var(--fw-bold); text-decoration:underline;}
   .dash-card--zmeny{grid-area:zme;}
   .banner.dash-nove{animation:dash-nove-puls 1s ease-in-out infinite alternate; display:flex; align-items:center; gap:var(--space-6); padding:var(--space-6) var(--space-10); border-radius:var(--radius-lg); min-width:0;}
   .dash-nove-title{margin:0; flex:0 0 auto; font-family:var(--font-body); font-size:var(--fs-10); font-weight:var(--fw-bold); white-space:nowrap;}

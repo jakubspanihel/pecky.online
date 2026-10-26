@@ -392,6 +392,9 @@ document.querySelectorAll('.rel-chip[data-date]').forEach(el => {
   });
   const empty = box.querySelector('.dash-empty');
   if (empty) empty.hidden = n > 0;
+  const menu = box.querySelector('.dash-dnes-menu');
+  // polední menu: jen v dny s menu a do 14:00
+  if (menu) menu.hidden = !((menu.dataset.dny || '').split(',').includes(dnes) && d.getHours() < 14);
 })();
 
 // ===== Rozklikávací řádky tabulky (např. Pokladna: na co město utrácí) =====

@@ -1200,7 +1200,14 @@ def _dash_dnes(dnes):
                    + f'{esc(e["title"])}</a></li>')
     out.append('    <li class="dash-empty" hidden>Dnes nejsou v kalendáři žádné akce.</li>')
     out.append('  </ul>')
-    out.append('  <a class="dash-dnes-cta" href="/kalendar/">Celý kalendář</a>')
+    # odkaz na polední menu: viditelný jen v dny, kdy je v naobed/data aspoň jedno menu (common.js)
+    menu_dny = set()
+    for f in (ROOT / 'naobed' / 'data').glob('*/*.json'):
+        for d in json.loads(f.read_text(encoding='utf-8')).get('dny', []):
+            if dnes <= d['date'] <= do and d.get('jidla'):
+                menu_dny.add(d['date'])
+    out.append('  <div class="dash-dnes-actions"><a class="dash-dnes-cta" href="/kalendar/">Celý kalendář</a>'
+               f'<a class="dash-dnes-menu" href="/naobed/" data-dny="{",".join(sorted(menu_dny))}" hidden>🍽️ Polední menu</a></div>')
     return ('<div class="card dash-card dash-card--dnes">\n'
             f'  <div class="dash-dnes-head"><h2 class="display dash-dnes-date">{esc(_den_txt(dnes)).capitalize()}</h2>'
             f'<span class="tag kal-dnes">Dnes</span></div>\n'
