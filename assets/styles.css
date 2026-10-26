@@ -766,6 +766,8 @@
   table.calendar-table .kal-ev-volby{background:var(--slate);}
   /* svoz odpadů: stejně tlumeně jako kurz (opakuje se každý týden) */
   table.calendar-table .kal-ev-svoz{background:var(--org-c, var(--ink-soft));}
+  /* astronomické úkazy (úplňky, roční období): barva pořadatele Vesmír */
+  table.calendar-table .kal-ev-astronomie{background:var(--org-c, var(--slate));}
   /* pokračování vícedenní akce (den 2+ v date_end rozsahu) - tlumenější, ať je jasné, že
      nejde o novou samostatnou akci ten den, ale o pokračování zahájené dřív */
   table.calendar-table .kal-ev-cont{opacity:0.65; background-image:repeating-linear-gradient(
@@ -785,6 +787,7 @@
   .akce-blok-vybor{border-left-color:var(--gold);}
   .akce-blok-volby{border-left-color:var(--slate);}
   .akce-blok-akce{border-left-color:var(--org-c, var(--gold-deep));}
+  .akce-blok-astronomie{border-left-color:var(--org-c, var(--slate));}
   .akce-blok .akce-kdy, .akce-blok .akce-kdekdy{margin:0; font-family:var(--font-mono); font-size:var(--fs-6); color:var(--ink-soft);}
   .akce-blok .akce-kdy .akce-rozsah{font-size:var(--fs-4);}
   .akce-blok .akce-kdy strong{color:var(--ink); font-size:var(--fs-h3);}

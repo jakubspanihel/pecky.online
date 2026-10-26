@@ -89,7 +89,7 @@
     'mestska-knihovna-pecky': '📚', 'tj-sokol-pecky': '🤸', 'vzdelavaci-centrum-pecky': '🎓', 'zus-pecky': '🎵',
     'fbc-charisma-pecky': '🏑', 'volejbal-pecky': '🏐', 'maminky-sobe': '👶', 'pececky-okraslovaci-spolek': '🌳',
     'msmasinka-pecky': '🧒', 'pecovatelska-sluzba-pecky': '🤝', 'nasepecky': '🗳️', 'dsa-planany': '💃',
-    'hospoda-na-hristi-pecky': '🍺', 'fitpecky-cz': '🏋️',
+    'hospoda-na-hristi-pecky': '🍺', 'fitpecky-cz': '🏋️', 'vesmir': '🌌',
   };
   function kalOrgOk(e){ return !KAL_ORG_SEL || KAL_ORG_SEL.has(e.organizer || KAL_BEZ_PORADATELE); }
   let KAL_ORG_URL = '';   // pořadatel z hashe, čeká na stažení dat (pak se ověří a převede na KAL_ORG_SEL)
@@ -123,7 +123,7 @@
   }
   // kategorie, které se barví podle pořadatele a ukazují "pořádá …"
   // (jednání a volby se barví podle kategorie, pořadatelem je vždy město)
-  function kalMaPoradatele(e){ return e.category === 'akce' || e.category === 'kurz' || e.category === 'svoz'; }
+  function kalMaPoradatele(e){ return e.category === 'akce' || e.category === 'kurz' || e.category === 'svoz' || e.category === 'astronomie'; }
   // společný filtr pořadatele + checkboxů kategorie/budoucnosti pro mřížku i Seznam.
   // "Budoucí" = ještě neskončilo — u vícedenní akce rozhoduje date_end, ne date,
   // ať se hned první den akce nezačne tvářit jako už proběhlá.
@@ -134,6 +134,11 @@
   const KAL_IKONY = [
     [e => /siren/.test(kalNorm(e.title)), '🚨'],
     [e => e.category === 'svoz', '♻️'],
+    [e => e.category === 'astronomie' && /ulnek/.test(kalNorm(e.title)), '🌕'],
+    [e => e.category === 'astronomie' && /jarni/.test(kalNorm(e.title)), '🌱'],
+    [e => e.category === 'astronomie' && /letni/.test(kalNorm(e.title)), '☀️'],
+    [e => e.category === 'astronomie' && /podzimni/.test(kalNorm(e.title)), '🍂'],
+    [e => e.category === 'astronomie' && /zimni/.test(kalNorm(e.title)), '❄️'],
     [e => /fotbal/.test(kalNorm(e.title)) || e.organizer === 'afk-pecky', '⚽'],
     [e => /\bbeh|bezeck|desitka|\bkros/.test(kalNorm(e.title)), '🏃'],
     [e => /sipkov|darts/.test(kalNorm(e.title)), '🎯'],
@@ -151,7 +156,7 @@
       || (e.organizer === 'tj-sokol-pecky' && /rodice a deti|predskolaci|sportovni pripravka|vsestrannost|zeny a dorostenky/.test(kalNorm(e.title))), '🤸'],
   ];
   function kalIkona(e){
-    const r = (e.category === 'akce' || e.category === 'kurz' || e.category === 'svoz') && KAL_IKONY.find(([t]) => t(e));
+    const r = (e.category === 'akce' || e.category === 'kurz' || e.category === 'svoz' || e.category === 'astronomie') && KAL_IKONY.find(([t]) => t(e));
     return r ? `<span class="ev-ikona" aria-hidden="true">${r[1]}</span> ` : '';
   }
   function kalShoda(e){

@@ -988,6 +988,15 @@
    "description": "Průvodce pamětihodnostmi Peček (texty a foto Roman Šulc), včetně věžového vodojemu. Odkaz doplněn do quicklinks (sekce O webu → Odkazy).",
    "status": "vytěženo",
    "note": "Použito 25. 10. 2026 na stránce Voda: fotografie vodojemu a rozhodnutí rady o vodovodu z 14. 1. 1927 (stránka věžového vodojemu)."
+  },
+  {
+   "id": "kalendar-beda",
+   "name": "Kalendář Beda — astronomické úkazy",
+   "url": "https://kalendar.beda.cz/mesicni-faze-v-roce",
+   "category": "astronomie · kalendář",
+   "description": "Tabulky měsíčních fází (úplňky) a začátků ročních období (rovnodennosti, slunovraty) s přesným časem. Druhá stránka: https://kalendar.beda.cz/kdy-zacina-jaro-leto-podzim-zima. Odkaz doplněn do quicklinks (sekce O webu → Odkazy).",
+   "status": "vytěženo",
+   "note": "Použito 26. 10. 2026 pro kalendar/astronomie.json: úplňky od 26. 10. 2026 do 5. 10. 2036 a rovnodennosti a slunovraty do roku 2032. Roky se přepínají parametrem ?year=RRRR. Časy jsou místní (SEČ/SELČ). Web odmítá klienty s upraveným User-Agentem (503), stránky se proto stahují obyčejným curl; postup je v kalendar/scripts/fetch-astronomie.py."
   }
   ]
 }

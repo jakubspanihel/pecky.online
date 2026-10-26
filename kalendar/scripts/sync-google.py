@@ -64,6 +64,7 @@ BARVY = {
     'akce': '9',             # Blueberry
     'kurz': '8',             # Graphite — tlumená, kurzů je řádově nejvíc
     'volby': '5',            # Banana
+    'astronomie': '9',       # Blueberry — nejblíž tmavě modré barvě Vesmíru
     'svoz': '3',             # Grape — nejblíž vínové barvě Pečeckých služeb v mřížce
 }
 

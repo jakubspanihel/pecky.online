@@ -26,6 +26,9 @@ D) Zápasy AFK Pečky — z kalendar/afk-zapasy.json, které stahuje
    "Zápasy AFK Pečky".
 F) Pravidelné provozní doby — kalendar/sberny-dvur.json, otevírací doba
    bez konce (rozepisuje se na horizont meta.horizon), kategorie 'svoz'.
+G) Astronomické úkazy — z kalendar/astronomie.json (úplňky, rovnodennosti
+   a slunovraty; stahuje kalendar/scripts/fetch-astronomie.py z kalendar.beda.cz),
+   kategorie 'astronomie', pořadatel Vesmír, čas místní.
 E) Svoz odpadů — z kalendar/svoz-odpadu.json (harmonogram města, vytěžený
    z PDF skriptem kalendar/scripts/extract-svoz-odpadu.py), kategorie
    'svoz', jedna celodenní událost na typ svozu a den.
@@ -73,6 +76,7 @@ VOLBY_JSON = ROOT / 'kalendar' / 'udalosti-volby.json'
 AFK_JSON = ROOT / 'kalendar' / 'afk-zapasy.json'
 SVOZ_JSON = ROOT / 'kalendar' / 'svoz-odpadu.json'
 HALA_JSON = ROOT / 'kalendar' / 'sportovni-hala.json'
+ASTRONOMIE_JSON = ROOT / 'kalendar' / 'astronomie.json'
 PROVOZNI_DOBY_JSON = [ROOT / 'kalendar' / 'sberny-dvur.json',
                       ROOT / 'kalendar' / 'zkouska-siren.json']
 ORGANIZACE_JSON = ROOT / 'lide' / 'organizations.json'
@@ -484,6 +488,46 @@ def build_svoz_events():
     return events
 
 
+def build_astronomie_events():
+    """Úplňky, rovnodennosti a slunovraty z kalendar/astronomie.json -> společné schéma.
+
+    Událost nese přesný místní čas úkazu. Odkaz vede na stránku zdroje
+    (meta.evidence podle pole `source` u události), pořadatelem je Vesmír.
+    """
+    if not ASTRONOMIE_JSON.exists():
+        return []
+    data = json.loads(ASTRONOMIE_JSON.read_text(encoding='utf-8'))
+    meta = data['meta']
+    org = nazvy_organizaci()
+    org_id = meta.get('organizer')
+    popis = {
+        'uplnek': 'Okamžik úplňku, čas je místní.',
+        'rovnodennost': 'Okamžik rovnodennosti, tedy začátek astronomického jara nebo podzimu, čas je místní.',
+        'slunovrat': 'Okamžik slunovratu, tedy začátek astronomického léta nebo zimy, čas je místní.',
+    }
+    events = []
+    for a in data['events']:
+        ev = meta['evidence'][a['source']]
+        events.append({
+            'id': a['id'],
+            'title': a['title'],
+            'date': a['date'],
+            'date_end': None,
+            'time': a['time'],
+            'all_day': False,
+            'category': meta.get('category', 'astronomie'),
+            'link': ev['url'],
+            'description': popis[a['type']],
+            'place': None,
+            'organizer': org_id,
+            'organizer_name': org.get(org_id) if org_id else None,
+            'image': None,
+            'note': None,
+            'source_ref': a['id'],
+        })
+    return events
+
+
 def build_provozni_doby_events():
     """Pravidelné provozní doby (sběrný dvůr, městský úřad) -> společné schéma.
 
@@ -659,12 +703,13 @@ def main():
     svoz = build_svoz_events()
     sberny = build_provozni_doby_events()
     hala = build_hala_events()
+    astro = build_astronomie_events()
     # Rezervace haly, kterou už pokrývá akce z akce.json (stejné datum a název), se
     # nezobrazuje podruhé — akce je potvrzená silnějším zdrojem, rezervace je jen doklad.
     klic_akci = {(a['date'], a['title'].strip().lower()) for a in akce}
     hala = [h for h in hala
             if (h['date'], h['title'].replace(' (nepotvrzeno)', '').strip().lower()) not in klic_akci]
-    events = jednani + vybory + akce + volby + afk + svoz + sberny + hala
+    events = jednani + vybory + akce + volby + afk + svoz + sberny + hala + astro
     sjednot_mista(events)
     events.sort(key=lambda e: (e['date'], e['time'] or ''))
 
@@ -677,7 +722,8 @@ def main():
                                f'kalendar/afk-zapasy.json ({len(afk)} zápasů v Pečkách), '
                                f'kalendar/svoz-odpadu.json ({len(svoz)} svozů), '
                                f'kalendar/sberny-dvur.json ({len(sberny)} termínů provozních dob), '
-                               f'kalendar/sportovni-hala.json ({len(hala)} rezervací sportovní haly)'),
+                               f'kalendar/sportovni-hala.json ({len(hala)} rezervací sportovní haly), '
+                               f'kalendar/astronomie.json ({len(astro)} astronomických úkazů)'),
             'updated': datetime.now(PRAGUE).strftime('%Y-%m-%d'),
         },
         'org_sources': zdroje_poradatelu(),

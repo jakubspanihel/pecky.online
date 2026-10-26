@@ -281,6 +281,31 @@ změnil `content/kalendar.html` samotný (data soubory build.py
 nekopíruje ani neupravuje — GitHub Pages/`scripts/serve.py` je
 servíruje přímo ze složky `kalendar/`).
 
+## Astronomické úkazy (`astronomie.json`)
+
+Od 26. 10. 2026 Kalendář obsahuje úplňky, rovnodennosti a slunovraty.
+Kategorie `astronomie`, pořadatel **Vesmír** (`vesmir` v `lide/organizations.json`,
+typ `jine`, bez IČO); filtr pořadatelů je schová najednou. Ikony před názvem:
+🌕 úplněk, 🌱 jarní a 🍂 podzimní rovnodennost, ☀️ letní a ❄️ zimní slunovrat.
+Čas úkazu je místní (SEČ/SELČ), událost nemá konec.
+
+- **Soubor:** `kalendar/astronomie.json` (`meta` + `events[]` s `id`, `title`,
+  `type` = `uplnek` / `rovnodennost` / `slunovrat`, `date`, `time`, `source`
+  = klíč v `meta.evidence`). Do `udalosti.json` a `kalendar.ics` ho promítá
+  `build_astronomie_events()` v `update-kalendar.py`.
+- **Rozsah (stav 26. 10. 2026):** úplňky od 26. 10. 2026 do 5. 10. 2036
+  (124), rovnodennosti a slunovraty od 21. 12. 2026 do 21. 12. 2032 (25).
+- **Zdroj:** [kalendar.beda.cz](https://kalendar.beda.cz/mesicni-faze-v-roce)
+  (`sources.json` → `kalendar-beda`): úplňky z `…/mesicni-faze-v-roce?year=RRRR`,
+  roční období z `…/kdy-zacina-jaro-leto-podzim-zima` (všechny roky v jedné tabulce).
+- **Obnova / prodloužení rozsahu:** stránky stáhnout obyčejným `curl` do
+  jednoho adresáře (web odmítá klienty s upraveným User-Agentem a při
+  rychlém sledu požadavků vrací 503), spustit
+  `python3 kalendar/scripts/fetch-astronomie.py ADRESAR`, pak
+  `update-kalendar.py` a `scripts/build.py`. Rozsah určují konstanty
+  `FROM`, `UPLNKY_DO` a `OBDOBI_DO_ROK` v hlavičce skriptu.
+- Astronomická data se v týdenní kontrole nekontrolují.
+
 ## Odebírání kalendáře
 
 Od 22. 9. 2026 (na žádost uživatele) první věta perexu `/kalendar/`
@@ -387,6 +412,7 @@ s proměnnými `--org-<id>` a `--org-<id>-bg`. Kalendář je čte podle pole
 | Pramínek / Maminky sobě (`maminky-sobe`) | `#1580A0` azurová | `#D5E8EE` | 79 |
 | AFK Pečky (`afk-pecky`) | `#1010E0` královská modrá | `#D8D8F9` | 42 |
 | Pečecké služby (`pececke-sluzby`) | `#6D1F4F` vínová | `#E5D7DF` | 186 svozů |
+| Vesmír (`vesmir`) | `#17133F` noční modrá | `#DAD9E6` | 149 úkazů |
 
 Ostatní pořadatelé barvu nemají a padají na neutrální fallback (akce
 `--gold-deep`, kurz šedý proužek). Město Pečky barvu záměrně nemá — jeho
@@ -409,7 +435,7 @@ odstín nedal ΔE ≥ 17, splnila to až sytá královská modrá `#1010E0`
 výraznější než zbytek palety — vědomý kompromis ve prospěch klubové barvy.
 Pečecké služby (24. 9. 2026, kvůli svozu odpadů): vínová `#6D1F4F`,
 nejbližší SNK Pečky Pečákům 18,0 a `--burgundy` 18,5, kontrast s bílou
-10,7 : 1. Novou barvu zkontrolovat stejně; validátor
+10,7 : 1. Vesmír (26. 10. 2026, astronomické úkazy): tmavá noční modrá `#17133F`, nejbližší `--slate` 27,7 (CIE76); světlejší návrh `#2E2F6B` byl od ODS vzdálený jen 17,7. Novou barvu zkontrolovat stejně; validátor
 `node lide/validate.mjs` hlídá formát a duplicitu hexu.
 
 ## Schéma jedné události
