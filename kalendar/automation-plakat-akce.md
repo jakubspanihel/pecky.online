@@ -259,6 +259,18 @@ Shoda se hledá podle dvojice `date` + název:
   vinný košt" od 13:00, samostatný plakát „Slavnosti svatého Václava"
   od 15:00) → jeden záznam podle samostatného plakátu, rozpor do `note`,
   oba doklady do `evidence`. Dva záznamy na tutéž akci nezakládej.
+- **Stejný den, čas a místo (nebo pořadatel), název se jen liší** (jiný
+  překlep či skloňování, doplněné jméno lektora: „Tvoření s Jitkou" ×
+  „Tvoření – technika Rong string", oboje 26. 10. v 18:00 v Pramínku)
+  → jde o jednu akci, i když ji ohlásilo víc kanálů téhož pořadatele
+  (web, Facebook, Instagram). Před zápisem hledat i záznamy se stejným
+  dnem a místem, ne jen se stejným názvem. Najde-li se duplicita už
+  v `akce.json`, **zůstane záznam, který má doklad z pecky.cz** (není-li
+  žádný, ten s nejsilnějším dokladem podle pořadí níže); jeho `id` se
+  nemění. Ostatní doklady se přesunou za něj do `evidence`, užitečné údaje
+  (cena, přihlášení, projekt) se doplní do `description`, rozpor v názvu či
+  čase se popíše v `note`, druhý záznam se smaže. Generátor ho z kalendáře
+  i z Google Kalendáře odstraní sám.
 
 **Akce už v `akce.json` je, jiný zdroj ji jen zmiňuje → hlavním zdrojem
 (`evidence[0]`, tedy i `link`) je vždy oficiální kalendář města

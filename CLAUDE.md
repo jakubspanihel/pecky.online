@@ -81,6 +81,11 @@ příslušný `content/<sekce>.html` a přepsat všechny odkazy, pak spustit
   města (`pecky.cz/default/events`, `/default/report/<id>_<slug>`), přidat tento
   doklad jako `evidence[0]` (z něj se bere `link`); starší doklady zůstanou za ním.
   Postup: `kalendar/automation-plakat-akce.md`, krok „Pořadí zdrojů“.
+  **Jedna akce = jeden záznam**, i když ji pořadatel ohlásil na webu,
+  Facebooku i Instagramu pod mírně odlišným názvem: shoda se hledá podle
+  dne + času + místa/pořadatele, ne jen názvu. Při duplicitě zůstane záznam
+  s dokladem z pecky.cz, ostatní doklady se přesunou do jeho `evidence`
+  a druhý záznam se smaže.
 - **Zmínky konkrétního příspěvku/zdroje v textu** („3. 9. 2026, na Facebooku
   města“, „podle příspěvku na Facebooku“) jsou odkazem na ten příspěvek
   (URL z řádku/štítku vedle); formulace se liší, hledat i varianty.
