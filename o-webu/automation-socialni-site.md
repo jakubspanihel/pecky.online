@@ -271,8 +271,14 @@ mají novou aktivitu, které zůstávají dlouhodobě neaktivní. Nic
 nevymýšlet — číslo/datum, které web nezobrazí (např. stránka
 nedostupná), nechat beze změny a nahlásit jako mezeru.
 
-**Nové akce pro Kalendář (povinná součást každé kontroly):** při každé
-kontrole sociálních sítí u každého účtu aktivně hledej budoucí akce
+**Nové akce pro Kalendář (povinná součást každé kontroly, u VŠECH
+účtů):** hledání se dělá u **každého** účtu v seznamu bez výjimky —
+nepřeskakovat z důvodu rozsahu (50+ účtů) ani proto, že je účet dlouho
+neaktivní nebo „nepravděpodobný“. Čtení jen počtů a dat (krok 2) toto
+hledání nenahrazuje. Běh nelze ukončit ani hlásit „žádné nalezeny“,
+dokud nejsou projité všechny účty; ve výpisu uvést, kolik účtů bylo
+projito (např. „50 z 50“). Postup: při každé kontrole sociálních sítí
+u každého účtu aktivně hledej budoucí akce
 (plakát, pozvánka, Facebook Událost, příspěvek s konkrétním datem), které
 ještě nejsou v `kalendar/akce.json` — nejen si jich všímej mimochodem.
 Facebook: nejdřív `<profil>/events` → „Nadcházející", pak nejnovější
