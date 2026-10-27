@@ -997,6 +997,24 @@
    "description": "Tabulky měsíčních fází (úplňky) a začátků ročních období (rovnodennosti, slunovraty) s přesným časem. Druhá stránka: https://kalendar.beda.cz/kdy-zacina-jaro-leto-podzim-zima. Odkaz doplněn do quicklinks (sekce O webu → Odkazy).",
    "status": "vytěženo",
    "note": "Použito 26. 10. 2026 pro kalendar/astronomie.json: úplňky od 26. 10. 2026 do 5. 10. 2036 a rovnodennosti a slunovraty do roku 2032. Roky se přepínají parametrem ?year=RRRR. Časy jsou místní (SEČ/SELČ). Web odmítá klienty s upraveným User-Agentem (503), stránky se proto stahují obyčejným curl; postup je v kalendar/scripts/fetch-astronomie.py."
+  },
+  {
+   "id": "facebook-ovtpecky",
+   "name": "Facebook — Oddíl vodní turistiky Pečky",
+   "url": "https://www.facebook.com/OVTPecky",
+   "category": "sociální síť · spolek",
+   "description": "Facebookový profil vodáckého oddílu v Pečkách (623 sledujících k 27. 10. 2026), pořadatele závodu Vavřinecký potok.",
+   "status": "vytěženo",
+   "note": "Přidáno uživatelem 27. 10. 2026. Poslední příspěvek 12. 10. 2026 (fotky z Vavřiňáku). Pořadatel: lide/organizations.json → oddil-vodni-turistiky-pecky."
+  },
+  {
+   "id": "web-vavrinecky-potok-cz",
+   "name": "Vavřinecký potok — web vodáckého závodu",
+   "url": "https://vavrinecky-potok.cz/",
+   "category": "sportovní akce",
+   "description": "Web tradičního vodáckého závodu Vavřinecký potok (Vavřinec, tradičně druhý říjnový víkend). Aktuality s pokyny k ročníku 2026 (nezávodní volné splutí 10.–11. 10. 2026).",
+   "status": "vytěženo",
+   "note": "Nalezen 27. 10. 2026 přes odkaz na Facebooku oddílu. Pořádá Oddíl vodní turistiky Pečky, z.s. (lide/organizations.json → oddil-vodni-turistiky-pecky)."
   }
-  ]
+ ]
 }
