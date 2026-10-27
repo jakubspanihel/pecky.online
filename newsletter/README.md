@@ -39,6 +39,7 @@ newsletter/
 
 | Datum | Soubor | Téma |
 |---|---|---|
+| 18. 10. 2026 | [2026-10-18-novinky.md](2026-10-18-novinky.md) | Číslo 3: hlavní stránka s bodem z jednání, kalendář (3denní pohled, filtr), volby 2026, docházka zastupitelů, archiv jednání od 2001, Voda, Pozemky |
 | 8. 10. 2026 (návrh, neodesláno) | [2026-10-08-tyden1.md](2026-10-08-tyden1.md) | Přehled novinek: kalendář, Na oběd, zasedání zastupitelstva, Jednání, Monitoring Facebooku a úřední desky, Prostory, PečkyBot na Instagramu |
 | 2. 10. 2026 | [2026-10-02-novy-web.md](2026-10-02-novy-web.md) | Představení webu: archiv jednání, kalendář, noviny, přehled sekcí |
 
