@@ -182,6 +182,30 @@ vede rovnou na zdroj" v „Jak to funguje" níže.
     názvu měsíce (`#kal-mesic-prev/-next`, od 22. 10. 2026), které listují o měsíc
     zpět i vpřed bez omezení; platí pro mřížku i Seznam. Tlačítko Filtr je
     zvýrazněné (`has-filter`) i při zaškrtnutém „Jen budoucí“.
+  - **Panel „Nastavení kalendáře“ (od 27. 10. 2026):** na celou obrazovku na desktopu
+    i mobilu (`#kal-filters` v `<body>`, `position:fixed; inset:0`, pozadí
+    `--material-deep` jako `.overlay-menu` v navigaci „Více…“), bez vnitřní karty,
+    obsah do 960 px. **Záhlaví** (nadpis + kulatý × v barvě textu) a **patička**
+    (tlačítko „Uložit nastavení“, bordó pilulka) jsou lepivé (`position:sticky`),
+    rolují jen volby mezi nimi. Pravidlo: popupy na webu jsou vždy celoobrazovkové
+    s pozadím `--material-deep`, lepivým záhlavím i patičkou.
+    **Uložení:** přepínače pořadatelů i „Skrýt události, které už proběhly“ jsou jen
+    rozpracovaný stav; uplatní se a uloží (`localStorage` `kal-org-vylouceni`) až
+    tlačítkem „Uložit nastavení“ (`kalUlozNastaveni()`) nebo odesláním hledání. Zavření
+    ×, Escape nebo klikem mimo obsah změny zahodí — `kalNactiFormular()` při každém
+    otevření načte formulář ze skutečného stavu.
+    Tlačítko `#kal-find-toggle` se jmenuje „Nastavení“ a stojí vpravo za přepínačem Měsíc / 3 dny / Seznam; ikona
+    `toggle-left` (bez aktivního filtru) a `toggle-right` (třída `has-filter`). Nadpis
+    panelu je vidět i na desktopu. Pořadí v panelu: formulář Hledat (input + tlačítko
+    na jednom řádku, i na mobilu; fulltext se uplatní až po odeslání — tlačítko nebo
+    Enter — a panel se zavře), čára, řádek „Pořadatelé“ s odkazem „Označit vše“ /
+    „Zrušit výběr“, pod ním pořadatelé v mřížce (řádek 20–30 em, na širším okně dva sloupce, na mobilu jeden;
+    čtvereček v barvě pořadatele s emoji, název, vpravo přepínač `.kal-toggle` =
+    původní checkbox), čára, přepínač „Skrýt události, které už proběhly“
+    (`#kal-only-future`, funkce beze změny).
+    Při aktivním fulltextu je nad tabulkou řádek `#kal-query-info` (hledaný výraz,
+    počet nalezených akcí v celém kalendáři při platných ostatních filtrech, tlačítko
+    „Zrušit hledání“; `kalRenderHledani()`).
   - **Selectbox „Pořadatel“** (`#kal-org-select`, od 11. 10. 2026 na žádost uživatele
     přímo v řádku nástrojů vlevo od přepínače Kalendář/Seznam). Nahradil odkaz „Filtr“
     (`#kal-filter-toggle`) a panel `#kal-filter-org`, které byly zrušeny spolu s jejich
