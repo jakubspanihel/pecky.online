@@ -290,6 +290,24 @@ V hlášení vždy uveď jednou větou výsledek: vypiš nalezené akce (název,
 datum, pořadatel) a co se s nimi stalo, nebo výslovně „nové akce pro
 Kalendář: žádné nalezeny".
 
+**Změny provozu pro Kalendář (povinná součást každé kontroly, u VŠECH
+účtů):** kromě nových akcí hledej i příspěvky, které mění běžný provoz
+zdrojů, jež Kalendář generuje z pravidel: *zavřeno, uzavřen, mimořádná
+nebo změněná otevírací doba, posunutý/náhradní/zrušený svoz, odložená
+zkouška sirén, výpadek, uzavírka*. Bývají kolem státních svátků a
+prázdnin. Zvlášť pozorně projít **Pečecké služby**
+(`facebook.com/pececkesluzby`) a **Město Pečky**. Nalezenou změnu zapsat:
+- sběrný dvůr, zkouška sirén a další provozní doby → `exceptions[]`
+  v `kalendar/sberny-dvur.json` / `zkouska-siren.json` (termín zůstane,
+  název dostane „[zavřeno]“; schéma viz `kalendar/README.md` → „Provozní
+  doba: Sběrný dvůr“), doklad = odkaz na příspěvek v `url`;
+- svoz odpadu → `exceptions[]` u typu svozu v `kalendar/svoz-odpadu.json`
+  (stejné schéma, název dostane „[zrušeno!]“); mimořádný/náhradní svoz jako
+  samostatná akce podle `kalendar/README.md`;
+- pak `python3 kalendar/scripts/update-kalendar.py` (sync do Google sám).
+V hlášení uvést jednou větou výsledek, např. „změny provozu: sběrný dvůr
+zavřen 28. 10.“, nebo výslovně „změny provozu: žádné nalezeny“.
+
 ## Další rizika
 
 - **Zaokrouhlení u větších čísel** — Facebook od cca 1 000 sledujících

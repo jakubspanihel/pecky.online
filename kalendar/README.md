@@ -1493,9 +1493,11 @@ seznam místo rozházených poznámek po repu.
   změny zapisuje sama — postup v `.claude/skills/DoPecek-update/SKILL.md`,
   bod „Aktuality Pečeckých služeb“.
   **Zrušený/přesunutý svoz:** datum zůstává v `dates[]`, typ má navíc
-  `zruseno` = `{"RRRR-MM-DD": {"zprava": "<text zprávy>", "publikovano": "RRRR-MM-DD"}}`;
-  `build_svoz_events()` pak události přidá k názvu „[zrušeno!] “ a text zprávy
-  do poznámky (`note`).
+  `exceptions[]` — stejné schéma jako u provozních dob (od 27. 10. 2026, dřív
+  `zruseno`): `{"date": "RRRR-MM-DD", "closed": true, "note": "<text zprávy>",
+  "published": "RRRR-MM-DD", "url": "<příspěvek>"}`; `build_svoz_events()` pak
+  události přidá k názvu „[zrušeno!] “ a text zprávy do poznámky (`note`).
+  Společné pomocné funkce `vyjimky_podle_data()` a `predpona_vyjimky()`.
   Zmiňuje-li zpráva jen část lokalit svozu (např. jen Velké Chvalovice u svozu
   „sever“), přidat k záznamu `"upozorneni": true` — název pak dostane předponu
   „⚠️ “ místo „[zrušeno!] “, událost i poznámka zůstanou. **Mimořádný/náhradní svoz** je samostatná událost v
@@ -1524,8 +1526,16 @@ seznam místo rozházených poznámek po repu.
 - **Schéma:** nová volitelná pole `time_end` (HH:MM; `DTEND` v `.ics`,
   konec v Google Kalendáři) a `tag` (štítek v Seznamu, prázdný řetězec = žádný). Ostatní zdroje
   je nemají. Google Kalendář štítek nezobrazuje.
+- **Výjimky (od 27. 10. 2026):** volitelné pole `exceptions[]` v souboru
+  provozní doby (`date`, `closed: true`, `note`, `url` = příspěvek/doklad).
+  Termín z pravidla v kalendáři zůstane, název dostane předponu
+  „[zavřeno] “, popis „Zavřeno“ a důvod jde do poznámky. Platí pro všechny
+  soubory z `PROVOZNI_DOBY_JSON`; u svozu odpadu stejné pole `exceptions[]`
+  u typu svozu (předpona „[zrušeno!] “, viz „Svoz odpadu“). První: sběrný dvůr zavřen ve středu
+  28. 10. 2026 (státní svátek; příspěvek Pečeckých služeb 27. 10. 2026).
+  Po zápisu spustit `update-kalendar.py` (sync do Google proběhne sám).
 - **Kontrola:** při týdenní kontrole kalendáře ověřit, že se doba
-  sběrného dvora nezměnila.
+  sběrného dvora nezměnila, a že u svátků a prázdnin nepřibyla výjimka.
 
 ### Emoji ikony před názvem (od 16. 10. 2026)
 

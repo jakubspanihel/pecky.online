@@ -463,13 +463,13 @@ def build_svoz_events():
         # jen dostane předponu a text zprávy Pečeckých služeb v poznámce;
         # zpráva se zmínkou jen části lokality (`upozorneni: true`) dostane
         # místo „[zrušeno!]“ předponu ⚠️
-        zruseno = t.get('zruseno') or {}
+        zruseno = vyjimky_podle_data(t)
         for d in t['dates']:
             eid = f'svoz-{t["id"]}-{d}'
             zr = zruseno.get(d)
             events.append({
                 'id': eid,
-                'title': (('⚠️ ' if zr.get('upozorneni') else '[zrušeno!] ') if zr else '') + t['title'],
+                'title': (predpona_vyjimky(zr, '[zrušeno!] ') if zr else '') + t['title'],
                 'date': d,
                 'date_end': None,
                 'time': meta.get('time'),
@@ -482,7 +482,7 @@ def build_svoz_events():
                 'organizer': org_id,
                 'organizer_name': org.get(org_id) if org_id else None,
                 'image': None,
-                'note': zr['zprava'] if zr else None,
+                'note': (zr.get('note') or None) if zr else None,
                 'source_ref': eid,
             })
     return events
@@ -528,6 +528,22 @@ def build_astronomie_events():
     return events
 
 
+def vyjimky_podle_data(data):
+    """Výjimky z pravidelného termínu (provozní doby i svoz odpadu) -> {datum: výjimka}.
+
+    Zdroj: volitelné `exceptions[]` (v souboru provozní doby nahoře, u svozu
+    u typu): {date, closed: true, note, url, published, upozorneni}. Termín
+    v kalendáři zůstane, jen dostane předponu (predpona_vyjimky) a `note`
+    jde do poznámky události. `closed: false` = výjimka se nepoužije."""
+    return {x['date']: x for x in data.get('exceptions', []) if x.get('closed', True)}
+
+
+def predpona_vyjimky(vyj, vychozi):
+    """Předpona názvu: ⚠️ u výjimky s `upozorneni` (týká se jen části), jinak
+    výchozí ('[zavřeno] ' u provozních dob, '[zrušeno!] ' u svozu)."""
+    return '⚠️ ' if vyj.get('upozorneni') else vychozi
+
+
 def build_provozni_doby_events():
     """Pravidelné provozní doby (sběrný dvůr, městský úřad) -> společné schéma.
 
@@ -547,14 +563,16 @@ def build_provozni_doby_events():
         org_id = meta.get('organizer')
         d = datetime.strptime(meta['from'], '%Y-%m-%d').date()
         last = datetime.strptime(meta['horizon'], '%Y-%m-%d').date()
+        vyjimky = vyjimky_podle_data(data)
         while d <= last:
             for r in data['rules']:
                 # volitelné 'nth' = pořadí dne v měsíci (1 = první středa apod.)
                 if d.weekday() == r['weekday'] and ('nth' not in r or (d.day - 1) // 7 + 1 == r['nth']):
                     eid = f'{meta["id"]}-{d.isoformat()}' + (f'-{r["from"].replace(":", "")}' if meta.get('id_s_casem') else '')
+                    vyj = vyjimky.get(d.isoformat())
                     events.append({
                         'id': eid,
-                        'title': meta['title'],
+                        'title': (predpona_vyjimky(vyj, '[zavřeno] ') if vyj else '') + meta['title'],
                         'tag': meta.get('tag', ''),  # '' = bez štítku (ne štítek kategorie)
                         'date': d.isoformat(),
                         'date_end': None,
@@ -563,12 +581,12 @@ def build_provozni_doby_events():
                         'all_day': False,
                         'category': meta.get('category', 'svoz'),
                         'link': meta['evidence']['url'],
-                        'description': f'{meta["description_prefix"]} {r["from"]}–{r["to"]}' if r.get('to') else meta['description_prefix'],
+                        'description': ('Zavřeno' if vyj else (f'{meta["description_prefix"]} {r["from"]}–{r["to"]}' if r.get('to') else meta['description_prefix'])),
                         'place': meta['place'],
                         'organizer': org_id,
                         'organizer_name': org.get(org_id) if org_id else None,
                         'image': None,
-                        'note': None,
+                        'note': (vyj.get('note') or None) if vyj else None,
                         'source_ref': eid,
                     })
             d += timedelta(days=1)
