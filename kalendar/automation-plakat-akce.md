@@ -72,7 +72,11 @@ Při kontrole e-mailu se zpracovávají vždy takto:
   `kalendar/README.md` → „Kulturní a společenské akce — aktivní"** (seznam
   se vytahuje ze `sources.json` znovu při každé kontrole, ne z pevného
   výčtu tady). U facebookových zdrojů vždy nejdřív `facebook.com/<profil>/events`
-  (u skupin `facebook.com/groups/<id>/events`), ne fotky — kde organizátor
+  (u skupin `facebook.com/groups/<id>/events`) a **potom vždy i fotky**
+  (`<profil>/photos`, u skupin `groups/<id>/media`) — od data poslední
+  kontroly sociálních sítí, plakát se čte vizuálně; Události fotky
+  nenahrazují (mnoho organizátorů Události nezakládá, plakát pak je jen
+  obrázek). Kde organizátor
   Události zakládá, je datum/čas/místo hned jako strukturovaný text
   (`get_page_text`), bez čtení plakátu okem. Záložka „Nadcházející" je ta,
   co zajímá — existuje jen u organizátorů, co Události aktivně používají

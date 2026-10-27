@@ -277,7 +277,20 @@ nepřeskakovat z důvodu rozsahu (50+ účtů) ani proto, že je účet dlouho
 neaktivní nebo „nepravděpodobný“. Čtení jen počtů a dat (krok 2) toto
 hledání nenahrazuje. Běh nelze ukončit ani hlásit „žádné nalezeny“,
 dokud nejsou projité všechny účty; ve výpisu uvést, kolik účtů bylo
-projito (např. „50 z 50“). Postup: při každé kontrole sociálních sítí
+projito (např. „50 z 50“). **U každého Facebook účtu se kromě Událostí
+a příspěvků vždy projde i záložka Fotky** (`<profil>/photos`, u skupin
+`groups/<id>/media`): plakáty a pozvánky bývají jen jako obrázek bez
+textu v příspěvku a Události je mnoho organizátorů nezakládá (např. kurz
+Mozkový jogging v Pramínku, plakát z 2. 9. 2026, byl dohledán až z fotek).
+Čtou se fotky přidané od data poslední kontroly (řádek O webu ve „Stav
+sekcí“ v `README.md`), nejnovější první; plakát se čte vizuálně
+(`screenshot`), ne z textu příspěvku. Při prvním průchodu účtu, který
+ještě nikdy neprošel, nebo po vynechané kontrole delší než týden se čte
+celý archiv fotek ve směru od nejnovější do data poslední kontroly
+(u nového účtu aspoň posledních 6 měsíců). Do výpisu uvést počet účtů
+s projitými fotkami. Nepodaří-li se fotky otevřít (stěna, prázdná
+záložka), účet se ve výpisu nahlásí jako mezera, ne mlčky. Postup: při každé
+kontrole sociálních sítí
 u každého účtu aktivně hledej budoucí akce
 (plakát, pozvánka, Facebook Událost, příspěvek s konkrétním datem), které
 ještě nejsou v `kalendar/akce.json` — nejen si jich všímej mimochodem.
