@@ -94,6 +94,10 @@ Při kontrole e-mailu se zpracovávají vždy takto:
   (`sources.json` → `web-fitpecky-inrs`). Lekce cvičení jako `kurz`,
   pořadatel `fitpecky-cz`, doklad `kind: "web"`. Ukazuje jen aktuální týden.
 
+- **Pečecké noviny** — plakáty a propozice v každém čísle (i jen jako
+  rámeček na části stránky); postup hledání je v `noviny/README.md` →
+  „Po nalezení nového čísla“, krok 10.
+
 Program kulturního domu vychází ve dvou plakátech (září+říjen
 a listopad+prosinec jako dva příspěvky téhož dne) — po zpracování prvního
 vždy zkontroluj, jestli existuje pokračování, jinak polovina programu tiše

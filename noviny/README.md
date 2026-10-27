@@ -322,7 +322,35 @@ Claude Code lokálně.
    Stránku `redakce.html` ani adresář Lidé v tomhle kroku bez pokynu
    nepřepisovat. Beze změny: do výpisu napsat „tiráž: redakce a rada beze
    změny".
-10. **Spustit `python3 scripts/build.py`** (na konci kontroly). Promítne se
+10. **Projít všechny strany a vyhledat plakáty a propozice** (i ty, které
+    zabírají jen část stránky: rámeček v článku, inzertní blok, pozvánka
+    pod textem). Plakát je obrázek, takže `pdftotext` z něj nic nevrátí
+    a podle textu stránky se žádná strana nevyřazuje.
+    - Každou stranu vyrenderovat z PDF ve 110–150 DPI (`pdftoppm -r 110
+      -jpeg`) do scratchpadu (do repa ne; náhledy v `pages/` mají 40 DPI
+      a drobný text se z nich nepřečte) a prohlédnout celou, ne jen
+      stránky s málo textem.
+    - Kandidát je rámeček nebo blok s datem, časem nebo místem, logem
+      pořadatele, slovy „zve“, „pozvánka“, „propozice“, „přihlášky“, nebo
+      s pravidelným rytmem („každý pátek od 18:30“). Inzerát bez data
+      (např. „Bazar knih stále pokračuje“) se jen zmíní v `note` existující
+      akce.
+    - Fulltext slouží jen jako kontrola: stránky s velmi málo textem
+      (strana s plakáty v čísle 10/2026 měla 599 znaků) a data po dnešku
+      v textu. Nikdy nesměřuje k vyřazení strany.
+    - Nalezené plakáty zpracovat podle `kalendar/automation-plakat-akce.md`
+      (text po výřezech přes `zoom`, porovnání s `akce.json`, jedna akce =
+      jeden záznam). Doklad: `source: pecky-noviny`, `kind: zpravodaj`,
+      `url` PDF s `#page=N`, `label` „Pečecké noviny RRRR/MM, str. N — …“,
+      `published` podle hex prefixu názvu PDF. Je-li akce i na pecky.cz,
+      zůstává ten doklad na prvním místě. Existující doklady s „číslo
+      novin neuvedeno“ upřesnit na konkrétní číslo a stranu.
+    - Do výpisu seznam nálezů po stranách: strana, název, stav (už
+      v kalendáři / doplněno / nová / bez data / proběhlo). Strana bez
+      plakátu se uvede jako „prohlédnuto, bez plakátu“.
+    - Po zápisu `python3 kalendar/scripts/update-kalendar.py` (sám
+      synchronizuje Google Kalendář), řádek Kalendář ve „Stav sekcí“.
+11. **Spustit `python3 scripts/build.py`** (na konci kontroly). Promítne se
    tím i banner Pečeckých novin na Domů: počet vydání v nadpisu („N vydání
    novin v archivu“) a obálka nejnovějšího čísla se berou z
    `pecky-noviny.json` při buildu, ručně se nepíšou. Bez buildu zůstane

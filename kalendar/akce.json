@@ -1,7 +1,7 @@
 {
  "meta": {
   "description": "Kulturní a společenské akce v Pečkách a okolí. U každé akce je pořadatel (id do lide/organizations.json) a doklady, ze kterých je přepsaná (evidence[] — zdroj je id do kořenového sources.json). Zdroj sekce Kalendář — do udalosti.json a kalendar.ics je promítá kalendar/scripts/update-kalendar.py.",
-  "updated": "2026-10-26",
+  "updated": "2026-10-27",
   "note": "Jednání rady a zastupitelstva do tohohle souboru nepatří, i když je plakát KD uvádí — ta má kalendář z jednani/pecky-jednani.json a zapsáním sem by v mřížce vznikly duplicity. Pořadatel je vždy ten, kdo akci pořádá, ne ten, od koho o ní víme — to je evidence[].source."
  },
  "events": [
@@ -9692,6 +9692,29 @@
    ]
   },
   {
+   "id": "akce-2026-10-10-vavrinak-2026-memorial",
+   "title": "VAVŘIŇÁK 2026 – Memoriál Milana Marka – nezávodní ročník – volné splutí celý víkend",
+   "date": "2026-10-10",
+   "date_end": "2026-10-11",
+   "time": "09:30",
+   "category": "akce",
+   "place": "start ve Vavřinci",
+   "organizer": null,
+   "organizer_name": "Oddíl vodní turistiky Pečky",
+   "description": "Volné splutí celý víkend, 10.–11. října 2026, start v 9:30 ve Vavřinci. Více informací na www.vavrinecky-potok.cz.",
+   "note": "Plakát uvádí „Oddíl vodní turistiky Pečky srdečně zve na“ a jako zajišťovatele Oddíl vodní turistiky Pečky, SK Fortuna Kolín, Klub DAK Žásmuky, Ing. Jan Manbelík, Rybářství Vavřinec a Rybářství Chlumec nad Cidlinou, a. s. Pořadatel není v rejstříku organizací (lide/organizations.json), proto jen textem. Akce proběhla před zveřejněním; plakát je v čísle 10/2026 vydaném 26. 10. 2026.",
+   "evidence": [
+    {
+     "source": "pecky-noviny",
+     "kind": "zpravodaj",
+     "url": "https://pecky.cz/files/pecky/gallery/18743/6adeecd80ad69_Pececke-noviny-10-2026.pdf#page=15",
+     "label": "Pečecké noviny 10/2026, str. 15 — Vavřiňák 2026, volné splutí 10.–11. října (plakát)",
+     "published": "2026-10-26",
+     "retrieved": "2026-10-27"
+    }
+   ]
+  },
+  {
    "id": "kurz-2026-10-10-tanecni-kurz-pro-mladez-odpoledni",
    "title": "Taneční kurz pro mládež — odpolední",
    "date": "2026-10-10",
@@ -12465,9 +12488,9 @@
     {
      "source": "pecky-noviny",
      "kind": "zpravodaj",
-     "url": "https://pecky.cz/default/default/21389_pdf-zpravodaje",
-     "label": "Pečecké noviny, str. 14 — Dorostenky a mladší ženy: Pound, Tabata, HIIT, Jóga (fotografie z e-mailu 18. 10. 2026, číslo novin neuvedeno)",
-     "published": "2026-10-18",
+     "url": "https://pecky.cz/files/pecky/gallery/18743/6adeecd80ad69_Pececke-noviny-10-2026.pdf#page=14",
+     "label": "Pečecké noviny 10/2026, str. 14 — Sokol Pečky: Dorostenky a mladší ženy — Pound, Tabata, HIIT, Jóga (plakát)",
+     "published": "2026-10-26",
      "retrieved": "2026-10-19"
     }
    ]
@@ -13254,7 +13277,7 @@
    "place": "Přednáškový sál Kulturního domu Pečky",
    "organizer": "kulturni-stredisko-pecky",
    "organizer_name": null,
-   "description": null,
+   "description": "Přednáší Mgr. Lubomír Krátký, vyučující na gymnáziu v Kolíně.",
    "note": null,
    "evidence": [
     {
@@ -13264,6 +13287,14 @@
      "label": "Program KD Pečky 9–12/2026, 1. část (září a říjen)",
      "published": "2026-09-24",
      "retrieved": "2026-09-20"
+    },
+    {
+     "source": "pecky-noviny",
+     "kind": "zpravodaj",
+     "url": "https://pecky.cz/files/pecky/gallery/18743/6adeecd80ad69_Pececke-noviny-10-2026.pdf#page=13",
+     "label": "Pečecké noviny 10/2026, str. 13 — Místní skupina ČKA & KS Pečky: Kde domov můj? Životní příběh Františka Škroupa (plakát)",
+     "published": "2026-10-26",
+     "retrieved": "2026-10-27"
     }
    ]
   },
@@ -13819,9 +13850,9 @@
     {
      "source": "pecky-noviny",
      "kind": "zpravodaj",
-     "url": "https://pecky.cz/default/default/21389_pdf-zpravodaje",
-     "label": "Pečecké noviny, str. 15 — Sokol Pečky: Cvičení pro seniory (fotografie plakátu z e-mailu 18. 10. 2026, číslo novin neuvedeno)",
-     "published": "2026-10-18",
+     "url": "https://pecky.cz/files/pecky/gallery/18743/6adeecd80ad69_Pececke-noviny-10-2026.pdf#page=15",
+     "label": "Pečecké noviny 10/2026, str. 15 — Sokol Pečky: Cvičení pro seniory (plakát)",
+     "published": "2026-10-26",
      "retrieved": "2026-10-19"
     }
    ]
@@ -14009,6 +14040,14 @@
      "label": "Plakát „Chlapi sobě“ — Sokol Pečky (fotografie plakátu z e-mailu 18. 10. 2026)",
      "published": "2026-10-18",
      "retrieved": "2026-10-19"
+    },
+    {
+     "source": "pecky-noviny",
+     "kind": "zpravodaj",
+     "url": "https://pecky.cz/files/pecky/gallery/18743/6adeecd80ad69_Pececke-noviny-10-2026.pdf#page=16",
+     "label": "Pečecké noviny 10/2026, str. 16 — Sokol Pečky: Chlapi sobě — sport, zdraví, parta (plakát)",
+     "published": "2026-10-26",
+     "retrieved": "2026-10-27"
     }
    ]
   },
@@ -14561,9 +14600,9 @@
     {
      "source": "pecky-noviny",
      "kind": "zpravodaj",
-     "url": "https://pecky.cz/default/default/21389_pdf-zpravodaje",
-     "label": "Pečecké noviny, str. 14 — Dorostenky a mladší ženy: Pound, Tabata, HIIT, Jóga (fotografie z e-mailu 18. 10. 2026, číslo novin neuvedeno)",
-     "published": "2026-10-18",
+     "url": "https://pecky.cz/files/pecky/gallery/18743/6adeecd80ad69_Pececke-noviny-10-2026.pdf#page=14",
+     "label": "Pečecké noviny 10/2026, str. 14 — Sokol Pečky: Dorostenky a mladší ženy — Pound, Tabata, HIIT, Jóga (plakát)",
+     "published": "2026-10-26",
      "retrieved": "2026-10-19"
     }
    ]
@@ -14813,8 +14852,8 @@
    "place": "Přednáškový sál Kulturního domu Pečky",
    "organizer": "kulturni-stredisko-pecky",
    "organizer_name": null,
-   "description": null,
-   "note": null,
+   "description": "Beseda o bezpečnosti na našich silnicích, určená široké veřejnosti. Vystoupí por. Mgr. Iva Nasadošová (preventistka) a Bc. Ondřej Žabenský (koordinátor BESIP pro Středočeský kraj). Témata: bodový systém řidičů, novinky v zákonech, pravidla pro řidiče, cyklisty i chodce, význam reflexních prvků. Součástí setkání bude preventivní kampaň „Chybělo málo“ a „Hele, motorka!“.",
+   "note": "Plakát v Pečeckých novinách uvádí „Úterý 27. října 2026 od 16:00 hodin, Kulturní dům v Pečkách“; sál nejmenuje, „Přednáškový sál“ je z programu KD.",
    "evidence": [
     {
      "source": "facebook-kspecky",
@@ -14823,6 +14862,14 @@
      "label": "Program KD Pečky 9–12/2026, 1. část (září a říjen)",
      "published": "2026-09-24",
      "retrieved": "2026-09-20"
+    },
+    {
+     "source": "pecky-noviny",
+     "kind": "zpravodaj",
+     "url": "https://pecky.cz/files/pecky/gallery/18743/6adeecd80ad69_Pececke-noviny-10-2026.pdf#page=13",
+     "label": "Pečecké noviny 10/2026, str. 13 — Beseda o bezpečnosti na silnicích BESIP znovu v Pečkách (plakát)",
+     "published": "2026-10-26",
+     "retrieved": "2026-10-27"
     }
    ]
   },
@@ -15078,8 +15125,8 @@
    "place": "Pečecký park, start u sportovní haly",
    "organizer": "bk-pecky",
    "organizer_name": null,
-   "description": "32. ročník podzimního běhu na 10 km v pečeckém parku. Přihlášky v den závodu od 8:30 ve sportovní hale, v 9:30 položení kytice u pomníku T. G. Masaryka, start závodu v 10:00 u sportovní haly.",
-   "note": "Čas 10:00 je start závodu z textu zprávy; kalendář města uvádí začátek události v 9:00 a konec v 11:32. Zpráva pořadatele neuvádí; pořadatelem je Běžecký klub Pečky (upřesnil uživatel 20. 10. 2026, poznat podle odkazu na pececkadesitka.cz). Příloha podzimnipecky2026.pdf nebyla přečtena. Rezervace sportovní haly 28. 10. 9:30–11:00 (nepotvrzeno) v ParkHale se zvlášť nezobrazuje, je sloučena s touto akcí.",
+   "description": "32. ročník podzimního běhu parkem ke dni vzniku samostatného československého státu, tratě 10 a 5 km. Prezentace a šatny ve sportovní hale Pečky, park Svobody. Přihlášky v den závodu od 8:30 ve sportovní hale, v 9:30 položení kytice u pomníku v parku na Masarykově náměstí, starty v 10:00 a 10:02. Startovné dobrovolné, věcná cena pro prvního muže a ženu.",
+   "note": "Čas 10:00 je start závodu z textu zprávy; kalendář města uvádí začátek události v 9:00 a konec v 11:32. Zpráva pořadatele neuvádí; pořadatelem je Běžecký klub Pečky (upřesnil uživatel 20. 10. 2026, poznat podle odkazu na pececkadesitka.cz). Propozice v Pečeckých novinách 10/2026 (str. 14) uvádějí tratě 10 a 5 km a starty v 10:00 a 10:02; příloha podzimnipecky2026.pdf nebyla přečtena. Rezervace sportovní haly 28. 10. 9:30–11:00 (nepotvrzeno) v ParkHale se zvlášť nezobrazuje, je sloučena s touto akcí.",
    "evidence": [
     {
      "source": "pecky-cz",
@@ -15096,6 +15143,14 @@
      "label": "Rezervační systém ParkHala — Podzimní běh v parku, 28. 10. 2026 9:30–11:00 (nepotvrzeno)",
      "published": null,
      "retrieved": "2026-10-11"
+    },
+    {
+     "source": "pecky-noviny",
+     "kind": "zpravodaj",
+     "url": "https://pecky.cz/files/pecky/gallery/18743/6adeecd80ad69_Pececke-noviny-10-2026.pdf#page=14",
+     "label": "Pečecké noviny 10/2026, str. 14 — Podzimní běh parkem, 32. ročník — propozice",
+     "published": "2026-10-26",
+     "retrieved": "2026-10-27"
     }
    ]
   },
@@ -16248,6 +16303,14 @@
      "label": "Facebook událost PŘEDNÁŠKA O KYBERŠIKANĚ",
      "published": null,
      "retrieved": "2026-10-20"
+    },
+    {
+     "source": "pecky-noviny",
+     "kind": "zpravodaj",
+     "url": "https://pecky.cz/files/pecky/gallery/18743/6adeecd80ad69_Pececke-noviny-10-2026.pdf#page=13",
+     "label": "Pečecké noviny 10/2026, str. 13 — Přednáška Kyberšikana, 2. 11. 2026 v 17:00 (plakát)",
+     "published": "2026-10-26",
+     "retrieved": "2026-10-27"
     }
    ]
   },
@@ -16340,9 +16403,9 @@
     {
      "source": "pecky-noviny",
      "kind": "zpravodaj",
-     "url": "https://pecky.cz/default/default/21389_pdf-zpravodaje",
-     "label": "Pečecké noviny, str. 14 — Dorostenky a mladší ženy: Pound, Tabata, HIIT, Jóga (fotografie z e-mailu 18. 10. 2026, číslo novin neuvedeno)",
-     "published": "2026-10-18",
+     "url": "https://pecky.cz/files/pecky/gallery/18743/6adeecd80ad69_Pececke-noviny-10-2026.pdf#page=14",
+     "label": "Pečecké noviny 10/2026, str. 14 — Sokol Pečky: Dorostenky a mladší ženy — Pound, Tabata, HIIT, Jóga (plakát)",
+     "published": "2026-10-26",
      "retrieved": "2026-10-19"
     }
    ]
@@ -17121,15 +17184,15 @@
   },
   {
    "id": "akce-2026-11-04-cka-prednaska-pohadky-a",
-   "title": "ČKA – přednáška: Pohádky a jejich léčivá",
+   "title": "ČKA – přednáška: Pohádky a jejich léčivá moc",
    "date": "2026-11-04",
    "time": "17:00",
    "category": "akce",
    "place": "Přednáškový sál Kulturního domu Pečky",
    "organizer": "kulturni-stredisko-pecky",
    "organizer_name": null,
-   "description": null,
-   "note": "Název je na plakátu useknutý slovem „léčivá“ — přepsáno doslova, doplnit po zveřejnění upřesnění.",
+   "description": "Přednáší Mgr. Adam Votruba, Ph.D., etnograf a historik, Muzeum lidových staveb v Kouřimi.",
+   "note": "Program KD Pečky 9–12/2026 uvádí název useknutý slovem „léčivá“; celý název („Pohádky a jejich léčivá moc“) je z plakátu v Pečeckých novinách 10/2026, str. 13. Plakát uvádí místo „Přednáškový sál Kulturního střediska Pečky“.",
    "evidence": [
     {
      "source": "facebook-kspecky",
@@ -17138,6 +17201,14 @@
      "label": "Program KD Pečky 9–12/2026, 2. část (listopad a prosinec)",
      "published": "2026-09-24",
      "retrieved": "2026-09-20"
+    },
+    {
+     "source": "pecky-noviny",
+     "kind": "zpravodaj",
+     "url": "https://pecky.cz/files/pecky/gallery/18743/6adeecd80ad69_Pececke-noviny-10-2026.pdf#page=13",
+     "label": "Pečecké noviny 10/2026, str. 13 — Místní skupina ČKA & KS Pečky: Pohádky a jejich léčivá moc (plakát)",
+     "published": "2026-10-26",
+     "retrieved": "2026-10-27"
     }
    ]
   },
@@ -17640,9 +17711,9 @@
     {
      "source": "pecky-noviny",
      "kind": "zpravodaj",
-     "url": "https://pecky.cz/default/default/21389_pdf-zpravodaje",
-     "label": "Pečecké noviny, str. 15 — Sokol Pečky: Cvičení pro seniory (fotografie plakátu z e-mailu 18. 10. 2026, číslo novin neuvedeno)",
-     "published": "2026-10-18",
+     "url": "https://pecky.cz/files/pecky/gallery/18743/6adeecd80ad69_Pececke-noviny-10-2026.pdf#page=15",
+     "label": "Pečecké noviny 10/2026, str. 15 — Sokol Pečky: Cvičení pro seniory (plakát)",
+     "published": "2026-10-26",
      "retrieved": "2026-10-19"
     }
    ]
@@ -17830,6 +17901,14 @@
      "label": "Plakát „Chlapi sobě“ — Sokol Pečky (fotografie plakátu z e-mailu 18. 10. 2026)",
      "published": "2026-10-18",
      "retrieved": "2026-10-19"
+    },
+    {
+     "source": "pecky-noviny",
+     "kind": "zpravodaj",
+     "url": "https://pecky.cz/files/pecky/gallery/18743/6adeecd80ad69_Pececke-noviny-10-2026.pdf#page=16",
+     "label": "Pečecké noviny 10/2026, str. 16 — Sokol Pečky: Chlapi sobě — sport, zdraví, parta (plakát)",
+     "published": "2026-10-26",
+     "retrieved": "2026-10-27"
     }
    ]
   },
@@ -18381,9 +18460,9 @@
     {
      "source": "pecky-noviny",
      "kind": "zpravodaj",
-     "url": "https://pecky.cz/default/default/21389_pdf-zpravodaje",
-     "label": "Pečecké noviny, str. 14 — Dorostenky a mladší ženy: Pound, Tabata, HIIT, Jóga (fotografie z e-mailu 18. 10. 2026, číslo novin neuvedeno)",
-     "published": "2026-10-18",
+     "url": "https://pecky.cz/files/pecky/gallery/18743/6adeecd80ad69_Pececke-noviny-10-2026.pdf#page=14",
+     "label": "Pečecké noviny 10/2026, str. 14 — Sokol Pečky: Dorostenky a mladší ženy — Pound, Tabata, HIIT, Jóga (plakát)",
+     "published": "2026-10-26",
      "retrieved": "2026-10-19"
     }
    ]
@@ -19763,9 +19842,9 @@
     {
      "source": "pecky-noviny",
      "kind": "zpravodaj",
-     "url": "https://pecky.cz/default/default/21389_pdf-zpravodaje",
-     "label": "Pečecké noviny, str. 15 — Sokol Pečky: Cvičení pro seniory (fotografie plakátu z e-mailu 18. 10. 2026, číslo novin neuvedeno)",
-     "published": "2026-10-18",
+     "url": "https://pecky.cz/files/pecky/gallery/18743/6adeecd80ad69_Pececke-noviny-10-2026.pdf#page=15",
+     "label": "Pečecké noviny 10/2026, str. 15 — Sokol Pečky: Cvičení pro seniory (plakát)",
+     "published": "2026-10-26",
      "retrieved": "2026-10-19"
     }
    ]
@@ -19953,6 +20032,14 @@
      "label": "Plakát „Chlapi sobě“ — Sokol Pečky (fotografie plakátu z e-mailu 18. 10. 2026)",
      "published": "2026-10-18",
      "retrieved": "2026-10-19"
+    },
+    {
+     "source": "pecky-noviny",
+     "kind": "zpravodaj",
+     "url": "https://pecky.cz/files/pecky/gallery/18743/6adeecd80ad69_Pececke-noviny-10-2026.pdf#page=16",
+     "label": "Pečecké noviny 10/2026, str. 16 — Sokol Pečky: Chlapi sobě — sport, zdraví, parta (plakát)",
+     "published": "2026-10-26",
+     "retrieved": "2026-10-27"
     }
    ]
   },
@@ -20526,9 +20613,9 @@
     {
      "source": "pecky-noviny",
      "kind": "zpravodaj",
-     "url": "https://pecky.cz/default/default/21389_pdf-zpravodaje",
-     "label": "Pečecké noviny, str. 14 — Dorostenky a mladší ženy: Pound, Tabata, HIIT, Jóga (fotografie z e-mailu 18. 10. 2026, číslo novin neuvedeno)",
-     "published": "2026-10-18",
+     "url": "https://pecky.cz/files/pecky/gallery/18743/6adeecd80ad69_Pececke-noviny-10-2026.pdf#page=14",
+     "label": "Pečecké noviny 10/2026, str. 14 — Sokol Pečky: Dorostenky a mladší ženy — Pound, Tabata, HIIT, Jóga (plakát)",
+     "published": "2026-10-26",
      "retrieved": "2026-10-19"
     }
    ]
@@ -21804,9 +21891,9 @@
     {
      "source": "pecky-noviny",
      "kind": "zpravodaj",
-     "url": "https://pecky.cz/default/default/21389_pdf-zpravodaje",
-     "label": "Pečecké noviny, str. 15 — Sokol Pečky: Cvičení pro seniory (fotografie plakátu z e-mailu 18. 10. 2026, číslo novin neuvedeno)",
-     "published": "2026-10-18",
+     "url": "https://pecky.cz/files/pecky/gallery/18743/6adeecd80ad69_Pececke-noviny-10-2026.pdf#page=15",
+     "label": "Pečecké noviny 10/2026, str. 15 — Sokol Pečky: Cvičení pro seniory (plakát)",
+     "published": "2026-10-26",
      "retrieved": "2026-10-19"
     }
    ]
@@ -22038,6 +22125,14 @@
      "label": "Plakát „Chlapi sobě“ — Sokol Pečky (fotografie plakátu z e-mailu 18. 10. 2026)",
      "published": "2026-10-18",
      "retrieved": "2026-10-19"
+    },
+    {
+     "source": "pecky-noviny",
+     "kind": "zpravodaj",
+     "url": "https://pecky.cz/files/pecky/gallery/18743/6adeecd80ad69_Pececke-noviny-10-2026.pdf#page=16",
+     "label": "Pečecké noviny 10/2026, str. 16 — Sokol Pečky: Chlapi sobě — sport, zdraví, parta (plakát)",
+     "published": "2026-10-26",
+     "retrieved": "2026-10-27"
     }
    ]
   },
@@ -22589,9 +22684,9 @@
     {
      "source": "pecky-noviny",
      "kind": "zpravodaj",
-     "url": "https://pecky.cz/default/default/21389_pdf-zpravodaje",
-     "label": "Pečecké noviny, str. 14 — Dorostenky a mladší ženy: Pound, Tabata, HIIT, Jóga (fotografie z e-mailu 18. 10. 2026, číslo novin neuvedeno)",
-     "published": "2026-10-18",
+     "url": "https://pecky.cz/files/pecky/gallery/18743/6adeecd80ad69_Pececke-noviny-10-2026.pdf#page=14",
+     "label": "Pečecké noviny 10/2026, str. 14 — Sokol Pečky: Dorostenky a mladší ženy — Pound, Tabata, HIIT, Jóga (plakát)",
+     "published": "2026-10-26",
      "retrieved": "2026-10-19"
     }
    ]
@@ -23947,9 +24042,9 @@
     {
      "source": "pecky-noviny",
      "kind": "zpravodaj",
-     "url": "https://pecky.cz/default/default/21389_pdf-zpravodaje",
-     "label": "Pečecké noviny, str. 15 — Sokol Pečky: Cvičení pro seniory (fotografie plakátu z e-mailu 18. 10. 2026, číslo novin neuvedeno)",
-     "published": "2026-10-18",
+     "url": "https://pecky.cz/files/pecky/gallery/18743/6adeecd80ad69_Pececke-noviny-10-2026.pdf#page=15",
+     "label": "Pečecké noviny 10/2026, str. 15 — Sokol Pečky: Cvičení pro seniory (plakát)",
+     "published": "2026-10-26",
      "retrieved": "2026-10-19"
     }
    ]
@@ -24137,6 +24232,14 @@
      "label": "Plakát „Chlapi sobě“ — Sokol Pečky (fotografie plakátu z e-mailu 18. 10. 2026)",
      "published": "2026-10-18",
      "retrieved": "2026-10-19"
+    },
+    {
+     "source": "pecky-noviny",
+     "kind": "zpravodaj",
+     "url": "https://pecky.cz/files/pecky/gallery/18743/6adeecd80ad69_Pececke-noviny-10-2026.pdf#page=16",
+     "label": "Pečecké noviny 10/2026, str. 16 — Sokol Pečky: Chlapi sobě — sport, zdraví, parta (plakát)",
+     "published": "2026-10-26",
+     "retrieved": "2026-10-27"
     }
    ]
   },
@@ -24732,9 +24835,9 @@
     {
      "source": "pecky-noviny",
      "kind": "zpravodaj",
-     "url": "https://pecky.cz/default/default/21389_pdf-zpravodaje",
-     "label": "Pečecké noviny, str. 14 — Dorostenky a mladší ženy: Pound, Tabata, HIIT, Jóga (fotografie z e-mailu 18. 10. 2026, číslo novin neuvedeno)",
-     "published": "2026-10-18",
+     "url": "https://pecky.cz/files/pecky/gallery/18743/6adeecd80ad69_Pececke-noviny-10-2026.pdf#page=14",
+     "label": "Pečecké noviny 10/2026, str. 14 — Sokol Pečky: Dorostenky a mladší ženy — Pound, Tabata, HIIT, Jóga (plakát)",
+     "published": "2026-10-26",
      "retrieved": "2026-10-19"
     }
    ]
@@ -26010,9 +26113,9 @@
     {
      "source": "pecky-noviny",
      "kind": "zpravodaj",
-     "url": "https://pecky.cz/default/default/21389_pdf-zpravodaje",
-     "label": "Pečecké noviny, str. 15 — Sokol Pečky: Cvičení pro seniory (fotografie plakátu z e-mailu 18. 10. 2026, číslo novin neuvedeno)",
-     "published": "2026-10-18",
+     "url": "https://pecky.cz/files/pecky/gallery/18743/6adeecd80ad69_Pececke-noviny-10-2026.pdf#page=15",
+     "label": "Pečecké noviny 10/2026, str. 15 — Sokol Pečky: Cvičení pro seniory (plakát)",
+     "published": "2026-10-26",
      "retrieved": "2026-10-19"
     }
    ]
@@ -26222,6 +26325,14 @@
      "label": "Plakát „Chlapi sobě“ — Sokol Pečky (fotografie plakátu z e-mailu 18. 10. 2026)",
      "published": "2026-10-18",
      "retrieved": "2026-10-19"
+    },
+    {
+     "source": "pecky-noviny",
+     "kind": "zpravodaj",
+     "url": "https://pecky.cz/files/pecky/gallery/18743/6adeecd80ad69_Pececke-noviny-10-2026.pdf#page=16",
+     "label": "Pečecké noviny 10/2026, str. 16 — Sokol Pečky: Chlapi sobě — sport, zdraví, parta (plakát)",
+     "published": "2026-10-26",
+     "retrieved": "2026-10-27"
     }
    ]
   },
@@ -26773,9 +26884,9 @@
     {
      "source": "pecky-noviny",
      "kind": "zpravodaj",
-     "url": "https://pecky.cz/default/default/21389_pdf-zpravodaje",
-     "label": "Pečecké noviny, str. 14 — Dorostenky a mladší ženy: Pound, Tabata, HIIT, Jóga (fotografie z e-mailu 18. 10. 2026, číslo novin neuvedeno)",
-     "published": "2026-10-18",
+     "url": "https://pecky.cz/files/pecky/gallery/18743/6adeecd80ad69_Pececke-noviny-10-2026.pdf#page=14",
+     "label": "Pečecké noviny 10/2026, str. 14 — Sokol Pečky: Dorostenky a mladší ženy — Pound, Tabata, HIIT, Jóga (plakát)",
+     "published": "2026-10-26",
      "retrieved": "2026-10-19"
     }
    ]
@@ -28065,9 +28176,9 @@
     {
      "source": "pecky-noviny",
      "kind": "zpravodaj",
-     "url": "https://pecky.cz/default/default/21389_pdf-zpravodaje",
-     "label": "Pečecké noviny, str. 15 — Sokol Pečky: Cvičení pro seniory (fotografie plakátu z e-mailu 18. 10. 2026, číslo novin neuvedeno)",
-     "published": "2026-10-18",
+     "url": "https://pecky.cz/files/pecky/gallery/18743/6adeecd80ad69_Pececke-noviny-10-2026.pdf#page=15",
+     "label": "Pečecké noviny 10/2026, str. 15 — Sokol Pečky: Cvičení pro seniory (plakát)",
+     "published": "2026-10-26",
      "retrieved": "2026-10-19"
     }
    ]
@@ -28299,6 +28410,14 @@
      "label": "Plakát „Chlapi sobě“ — Sokol Pečky (fotografie plakátu z e-mailu 18. 10. 2026)",
      "published": "2026-10-18",
      "retrieved": "2026-10-19"
+    },
+    {
+     "source": "pecky-noviny",
+     "kind": "zpravodaj",
+     "url": "https://pecky.cz/files/pecky/gallery/18743/6adeecd80ad69_Pececke-noviny-10-2026.pdf#page=16",
+     "label": "Pečecké noviny 10/2026, str. 16 — Sokol Pečky: Chlapi sobě — sport, zdraví, parta (plakát)",
+     "published": "2026-10-26",
+     "retrieved": "2026-10-27"
     }
    ]
   },
@@ -28872,9 +28991,9 @@
     {
      "source": "pecky-noviny",
      "kind": "zpravodaj",
-     "url": "https://pecky.cz/default/default/21389_pdf-zpravodaje",
-     "label": "Pečecké noviny, str. 14 — Dorostenky a mladší ženy: Pound, Tabata, HIIT, Jóga (fotografie z e-mailu 18. 10. 2026, číslo novin neuvedeno)",
-     "published": "2026-10-18",
+     "url": "https://pecky.cz/files/pecky/gallery/18743/6adeecd80ad69_Pececke-noviny-10-2026.pdf#page=14",
+     "label": "Pečecké noviny 10/2026, str. 14 — Sokol Pečky: Dorostenky a mladší ženy — Pound, Tabata, HIIT, Jóga (plakát)",
+     "published": "2026-10-26",
      "retrieved": "2026-10-19"
     }
    ]
@@ -30106,9 +30225,9 @@
     {
      "source": "pecky-noviny",
      "kind": "zpravodaj",
-     "url": "https://pecky.cz/default/default/21389_pdf-zpravodaje",
-     "label": "Pečecké noviny, str. 15 — Sokol Pečky: Cvičení pro seniory (fotografie plakátu z e-mailu 18. 10. 2026, číslo novin neuvedeno)",
-     "published": "2026-10-18",
+     "url": "https://pecky.cz/files/pecky/gallery/18743/6adeecd80ad69_Pececke-noviny-10-2026.pdf#page=15",
+     "label": "Pečecké noviny 10/2026, str. 15 — Sokol Pečky: Cvičení pro seniory (plakát)",
+     "published": "2026-10-26",
      "retrieved": "2026-10-19"
     }
    ]
@@ -30296,6 +30415,14 @@
      "label": "Plakát „Chlapi sobě“ — Sokol Pečky (fotografie plakátu z e-mailu 18. 10. 2026)",
      "published": "2026-10-18",
      "retrieved": "2026-10-19"
+    },
+    {
+     "source": "pecky-noviny",
+     "kind": "zpravodaj",
+     "url": "https://pecky.cz/files/pecky/gallery/18743/6adeecd80ad69_Pececke-noviny-10-2026.pdf#page=16",
+     "label": "Pečecké noviny 10/2026, str. 16 — Sokol Pečky: Chlapi sobě — sport, zdraví, parta (plakát)",
+     "published": "2026-10-26",
+     "retrieved": "2026-10-27"
     }
    ]
   },
@@ -30825,9 +30952,9 @@
     {
      "source": "pecky-noviny",
      "kind": "zpravodaj",
-     "url": "https://pecky.cz/default/default/21389_pdf-zpravodaje",
-     "label": "Pečecké noviny, str. 14 — Dorostenky a mladší ženy: Pound, Tabata, HIIT, Jóga (fotografie z e-mailu 18. 10. 2026, číslo novin neuvedeno)",
-     "published": "2026-10-18",
+     "url": "https://pecky.cz/files/pecky/gallery/18743/6adeecd80ad69_Pececke-noviny-10-2026.pdf#page=14",
+     "label": "Pečecké noviny 10/2026, str. 14 — Sokol Pečky: Dorostenky a mladší ženy — Pound, Tabata, HIIT, Jóga (plakát)",
+     "published": "2026-10-26",
      "retrieved": "2026-10-19"
     }
    ]
@@ -31821,9 +31948,9 @@
     {
      "source": "pecky-noviny",
      "kind": "zpravodaj",
-     "url": "https://pecky.cz/default/default/21389_pdf-zpravodaje",
-     "label": "Pečecké noviny, str. 14 — Dorostenky a mladší ženy: Pound, Tabata, HIIT, Jóga (fotografie z e-mailu 18. 10. 2026, číslo novin neuvedeno)",
-     "published": "2026-10-18",
+     "url": "https://pecky.cz/files/pecky/gallery/18743/6adeecd80ad69_Pececke-noviny-10-2026.pdf#page=14",
+     "label": "Pečecké noviny 10/2026, str. 14 — Sokol Pečky: Dorostenky a mladší ženy — Pound, Tabata, HIIT, Jóga (plakát)",
+     "published": "2026-10-26",
      "retrieved": "2026-10-19"
     }
    ]
@@ -33047,9 +33174,9 @@
     {
      "source": "pecky-noviny",
      "kind": "zpravodaj",
-     "url": "https://pecky.cz/default/default/21389_pdf-zpravodaje",
-     "label": "Pečecké noviny, str. 15 — Sokol Pečky: Cvičení pro seniory (fotografie plakátu z e-mailu 18. 10. 2026, číslo novin neuvedeno)",
-     "published": "2026-10-18",
+     "url": "https://pecky.cz/files/pecky/gallery/18743/6adeecd80ad69_Pececke-noviny-10-2026.pdf#page=15",
+     "label": "Pečecké noviny 10/2026, str. 15 — Sokol Pečky: Cvičení pro seniory (plakát)",
+     "published": "2026-10-26",
      "retrieved": "2026-10-19"
     }
    ]
@@ -33722,9 +33849,9 @@
     {
      "source": "pecky-noviny",
      "kind": "zpravodaj",
-     "url": "https://pecky.cz/default/default/21389_pdf-zpravodaje",
-     "label": "Pečecké noviny, str. 14 — Dorostenky a mladší ženy: Pound, Tabata, HIIT, Jóga (fotografie z e-mailu 18. 10. 2026, číslo novin neuvedeno)",
-     "published": "2026-10-18",
+     "url": "https://pecky.cz/files/pecky/gallery/18743/6adeecd80ad69_Pececke-noviny-10-2026.pdf#page=14",
+     "label": "Pečecké noviny 10/2026, str. 14 — Sokol Pečky: Dorostenky a mladší ženy — Pound, Tabata, HIIT, Jóga (plakát)",
+     "published": "2026-10-26",
      "retrieved": "2026-10-19"
     }
    ]
@@ -34956,9 +35083,9 @@
     {
      "source": "pecky-noviny",
      "kind": "zpravodaj",
-     "url": "https://pecky.cz/default/default/21389_pdf-zpravodaje",
-     "label": "Pečecké noviny, str. 15 — Sokol Pečky: Cvičení pro seniory (fotografie plakátu z e-mailu 18. 10. 2026, číslo novin neuvedeno)",
-     "published": "2026-10-18",
+     "url": "https://pecky.cz/files/pecky/gallery/18743/6adeecd80ad69_Pececke-noviny-10-2026.pdf#page=15",
+     "label": "Pečecké noviny 10/2026, str. 15 — Sokol Pečky: Cvičení pro seniory (plakát)",
+     "published": "2026-10-26",
      "retrieved": "2026-10-19"
     }
    ]
@@ -35631,9 +35758,9 @@
     {
      "source": "pecky-noviny",
      "kind": "zpravodaj",
-     "url": "https://pecky.cz/default/default/21389_pdf-zpravodaje",
-     "label": "Pečecké noviny, str. 14 — Dorostenky a mladší ženy: Pound, Tabata, HIIT, Jóga (fotografie z e-mailu 18. 10. 2026, číslo novin neuvedeno)",
-     "published": "2026-10-18",
+     "url": "https://pecky.cz/files/pecky/gallery/18743/6adeecd80ad69_Pececke-noviny-10-2026.pdf#page=14",
+     "label": "Pečecké noviny 10/2026, str. 14 — Sokol Pečky: Dorostenky a mladší ženy — Pound, Tabata, HIIT, Jóga (plakát)",
+     "published": "2026-10-26",
      "retrieved": "2026-10-19"
     }
    ]
@@ -36857,9 +36984,9 @@
     {
      "source": "pecky-noviny",
      "kind": "zpravodaj",
-     "url": "https://pecky.cz/default/default/21389_pdf-zpravodaje",
-     "label": "Pečecké noviny, str. 15 — Sokol Pečky: Cvičení pro seniory (fotografie plakátu z e-mailu 18. 10. 2026, číslo novin neuvedeno)",
-     "published": "2026-10-18",
+     "url": "https://pecky.cz/files/pecky/gallery/18743/6adeecd80ad69_Pececke-noviny-10-2026.pdf#page=15",
+     "label": "Pečecké noviny 10/2026, str. 15 — Sokol Pečky: Cvičení pro seniory (plakát)",
+     "published": "2026-10-26",
      "retrieved": "2026-10-19"
     }
    ]
@@ -37532,9 +37659,9 @@
     {
      "source": "pecky-noviny",
      "kind": "zpravodaj",
-     "url": "https://pecky.cz/default/default/21389_pdf-zpravodaje",
-     "label": "Pečecké noviny, str. 14 — Dorostenky a mladší ženy: Pound, Tabata, HIIT, Jóga (fotografie z e-mailu 18. 10. 2026, číslo novin neuvedeno)",
-     "published": "2026-10-18",
+     "url": "https://pecky.cz/files/pecky/gallery/18743/6adeecd80ad69_Pececke-noviny-10-2026.pdf#page=14",
+     "label": "Pečecké noviny 10/2026, str. 14 — Sokol Pečky: Dorostenky a mladší ženy — Pound, Tabata, HIIT, Jóga (plakát)",
+     "published": "2026-10-26",
      "retrieved": "2026-10-19"
     }
    ]
@@ -39458,9 +39585,9 @@
     {
      "source": "pecky-noviny",
      "kind": "zpravodaj",
-     "url": "https://pecky.cz/default/default/21389_pdf-zpravodaje",
-     "label": "Pečecké noviny, str. 14 — Dorostenky a mladší ženy: Pound, Tabata, HIIT, Jóga (fotografie z e-mailu 18. 10. 2026, číslo novin neuvedeno)",
-     "published": "2026-10-18",
+     "url": "https://pecky.cz/files/pecky/gallery/18743/6adeecd80ad69_Pececke-noviny-10-2026.pdf#page=14",
+     "label": "Pečecké noviny 10/2026, str. 14 — Sokol Pečky: Dorostenky a mladší ženy — Pound, Tabata, HIIT, Jóga (plakát)",
+     "published": "2026-10-26",
      "retrieved": "2026-10-19"
     }
    ]
@@ -40692,9 +40819,9 @@
     {
      "source": "pecky-noviny",
      "kind": "zpravodaj",
-     "url": "https://pecky.cz/default/default/21389_pdf-zpravodaje",
-     "label": "Pečecké noviny, str. 15 — Sokol Pečky: Cvičení pro seniory (fotografie plakátu z e-mailu 18. 10. 2026, číslo novin neuvedeno)",
-     "published": "2026-10-18",
+     "url": "https://pecky.cz/files/pecky/gallery/18743/6adeecd80ad69_Pececke-noviny-10-2026.pdf#page=15",
+     "label": "Pečecké noviny 10/2026, str. 15 — Sokol Pečky: Cvičení pro seniory (plakát)",
+     "published": "2026-10-26",
      "retrieved": "2026-10-19"
     }
    ]
@@ -41367,9 +41494,9 @@
     {
      "source": "pecky-noviny",
      "kind": "zpravodaj",
-     "url": "https://pecky.cz/default/default/21389_pdf-zpravodaje",
-     "label": "Pečecké noviny, str. 14 — Dorostenky a mladší ženy: Pound, Tabata, HIIT, Jóga (fotografie z e-mailu 18. 10. 2026, číslo novin neuvedeno)",
-     "published": "2026-10-18",
+     "url": "https://pecky.cz/files/pecky/gallery/18743/6adeecd80ad69_Pececke-noviny-10-2026.pdf#page=14",
+     "label": "Pečecké noviny 10/2026, str. 14 — Sokol Pečky: Dorostenky a mladší ženy — Pound, Tabata, HIIT, Jóga (plakát)",
+     "published": "2026-10-26",
      "retrieved": "2026-10-19"
     }
    ]
@@ -42593,9 +42720,9 @@
     {
      "source": "pecky-noviny",
      "kind": "zpravodaj",
-     "url": "https://pecky.cz/default/default/21389_pdf-zpravodaje",
-     "label": "Pečecké noviny, str. 15 — Sokol Pečky: Cvičení pro seniory (fotografie plakátu z e-mailu 18. 10. 2026, číslo novin neuvedeno)",
-     "published": "2026-10-18",
+     "url": "https://pecky.cz/files/pecky/gallery/18743/6adeecd80ad69_Pececke-noviny-10-2026.pdf#page=15",
+     "label": "Pečecké noviny 10/2026, str. 15 — Sokol Pečky: Cvičení pro seniory (plakát)",
+     "published": "2026-10-26",
      "retrieved": "2026-10-19"
     }
    ]
@@ -43268,9 +43395,9 @@
     {
      "source": "pecky-noviny",
      "kind": "zpravodaj",
-     "url": "https://pecky.cz/default/default/21389_pdf-zpravodaje",
-     "label": "Pečecké noviny, str. 14 — Dorostenky a mladší ženy: Pound, Tabata, HIIT, Jóga (fotografie z e-mailu 18. 10. 2026, číslo novin neuvedeno)",
-     "published": "2026-10-18",
+     "url": "https://pecky.cz/files/pecky/gallery/18743/6adeecd80ad69_Pececke-noviny-10-2026.pdf#page=14",
+     "label": "Pečecké noviny 10/2026, str. 14 — Sokol Pečky: Dorostenky a mladší ženy — Pound, Tabata, HIIT, Jóga (plakát)",
+     "published": "2026-10-26",
      "retrieved": "2026-10-19"
     }
    ]
@@ -44502,9 +44629,9 @@
     {
      "source": "pecky-noviny",
      "kind": "zpravodaj",
-     "url": "https://pecky.cz/default/default/21389_pdf-zpravodaje",
-     "label": "Pečecké noviny, str. 15 — Sokol Pečky: Cvičení pro seniory (fotografie plakátu z e-mailu 18. 10. 2026, číslo novin neuvedeno)",
-     "published": "2026-10-18",
+     "url": "https://pecky.cz/files/pecky/gallery/18743/6adeecd80ad69_Pececke-noviny-10-2026.pdf#page=15",
+     "label": "Pečecké noviny 10/2026, str. 15 — Sokol Pečky: Cvičení pro seniory (plakát)",
+     "published": "2026-10-26",
      "retrieved": "2026-10-19"
     }
    ]
@@ -45177,9 +45304,9 @@
     {
      "source": "pecky-noviny",
      "kind": "zpravodaj",
-     "url": "https://pecky.cz/default/default/21389_pdf-zpravodaje",
-     "label": "Pečecké noviny, str. 14 — Dorostenky a mladší ženy: Pound, Tabata, HIIT, Jóga (fotografie z e-mailu 18. 10. 2026, číslo novin neuvedeno)",
-     "published": "2026-10-18",
+     "url": "https://pecky.cz/files/pecky/gallery/18743/6adeecd80ad69_Pececke-noviny-10-2026.pdf#page=14",
+     "label": "Pečecké noviny 10/2026, str. 14 — Sokol Pečky: Dorostenky a mladší ženy — Pound, Tabata, HIIT, Jóga (plakát)",
+     "published": "2026-10-26",
      "retrieved": "2026-10-19"
     }
    ]
@@ -46403,9 +46530,9 @@
     {
      "source": "pecky-noviny",
      "kind": "zpravodaj",
-     "url": "https://pecky.cz/default/default/21389_pdf-zpravodaje",
-     "label": "Pečecké noviny, str. 15 — Sokol Pečky: Cvičení pro seniory (fotografie plakátu z e-mailu 18. 10. 2026, číslo novin neuvedeno)",
-     "published": "2026-10-18",
+     "url": "https://pecky.cz/files/pecky/gallery/18743/6adeecd80ad69_Pececke-noviny-10-2026.pdf#page=15",
+     "label": "Pečecké noviny 10/2026, str. 15 — Sokol Pečky: Cvičení pro seniory (plakát)",
+     "published": "2026-10-26",
      "retrieved": "2026-10-19"
     }
    ]
@@ -47078,9 +47205,9 @@
     {
      "source": "pecky-noviny",
      "kind": "zpravodaj",
-     "url": "https://pecky.cz/default/default/21389_pdf-zpravodaje",
-     "label": "Pečecké noviny, str. 14 — Dorostenky a mladší ženy: Pound, Tabata, HIIT, Jóga (fotografie z e-mailu 18. 10. 2026, číslo novin neuvedeno)",
-     "published": "2026-10-18",
+     "url": "https://pecky.cz/files/pecky/gallery/18743/6adeecd80ad69_Pececke-noviny-10-2026.pdf#page=14",
+     "label": "Pečecké noviny 10/2026, str. 14 — Sokol Pečky: Dorostenky a mladší ženy — Pound, Tabata, HIIT, Jóga (plakát)",
+     "published": "2026-10-26",
      "retrieved": "2026-10-19"
     }
    ]
@@ -48312,9 +48439,9 @@
     {
      "source": "pecky-noviny",
      "kind": "zpravodaj",
-     "url": "https://pecky.cz/default/default/21389_pdf-zpravodaje",
-     "label": "Pečecké noviny, str. 15 — Sokol Pečky: Cvičení pro seniory (fotografie plakátu z e-mailu 18. 10. 2026, číslo novin neuvedeno)",
-     "published": "2026-10-18",
+     "url": "https://pecky.cz/files/pecky/gallery/18743/6adeecd80ad69_Pececke-noviny-10-2026.pdf#page=15",
+     "label": "Pečecké noviny 10/2026, str. 15 — Sokol Pečky: Cvičení pro seniory (plakát)",
+     "published": "2026-10-26",
      "retrieved": "2026-10-19"
     }
    ]
@@ -48987,9 +49114,9 @@
     {
      "source": "pecky-noviny",
      "kind": "zpravodaj",
-     "url": "https://pecky.cz/default/default/21389_pdf-zpravodaje",
-     "label": "Pečecké noviny, str. 14 — Dorostenky a mladší ženy: Pound, Tabata, HIIT, Jóga (fotografie z e-mailu 18. 10. 2026, číslo novin neuvedeno)",
-     "published": "2026-10-18",
+     "url": "https://pecky.cz/files/pecky/gallery/18743/6adeecd80ad69_Pececke-noviny-10-2026.pdf#page=14",
+     "label": "Pečecké noviny 10/2026, str. 14 — Sokol Pečky: Dorostenky a mladší ženy — Pound, Tabata, HIIT, Jóga (plakát)",
+     "published": "2026-10-26",
      "retrieved": "2026-10-19"
     }
    ]
@@ -50213,9 +50340,9 @@
     {
      "source": "pecky-noviny",
      "kind": "zpravodaj",
-     "url": "https://pecky.cz/default/default/21389_pdf-zpravodaje",
-     "label": "Pečecké noviny, str. 15 — Sokol Pečky: Cvičení pro seniory (fotografie plakátu z e-mailu 18. 10. 2026, číslo novin neuvedeno)",
-     "published": "2026-10-18",
+     "url": "https://pecky.cz/files/pecky/gallery/18743/6adeecd80ad69_Pececke-noviny-10-2026.pdf#page=15",
+     "label": "Pečecké noviny 10/2026, str. 15 — Sokol Pečky: Cvičení pro seniory (plakát)",
+     "published": "2026-10-26",
      "retrieved": "2026-10-19"
     }
    ]
@@ -50888,9 +51015,9 @@
     {
      "source": "pecky-noviny",
      "kind": "zpravodaj",
-     "url": "https://pecky.cz/default/default/21389_pdf-zpravodaje",
-     "label": "Pečecké noviny, str. 14 — Dorostenky a mladší ženy: Pound, Tabata, HIIT, Jóga (fotografie z e-mailu 18. 10. 2026, číslo novin neuvedeno)",
-     "published": "2026-10-18",
+     "url": "https://pecky.cz/files/pecky/gallery/18743/6adeecd80ad69_Pececke-noviny-10-2026.pdf#page=14",
+     "label": "Pečecké noviny 10/2026, str. 14 — Sokol Pečky: Dorostenky a mladší ženy — Pound, Tabata, HIIT, Jóga (plakát)",
+     "published": "2026-10-26",
      "retrieved": "2026-10-19"
     }
    ]
@@ -51881,9 +52008,9 @@
     {
      "source": "pecky-noviny",
      "kind": "zpravodaj",
-     "url": "https://pecky.cz/default/default/21389_pdf-zpravodaje",
-     "label": "Pečecké noviny, str. 15 — Sokol Pečky: Cvičení pro seniory (fotografie plakátu z e-mailu 18. 10. 2026, číslo novin neuvedeno)",
-     "published": "2026-10-18",
+     "url": "https://pecky.cz/files/pecky/gallery/18743/6adeecd80ad69_Pececke-noviny-10-2026.pdf#page=15",
+     "label": "Pečecké noviny 10/2026, str. 15 — Sokol Pečky: Cvičení pro seniory (plakát)",
+     "published": "2026-10-26",
      "retrieved": "2026-10-19"
     }
    ]
@@ -52556,9 +52683,9 @@
     {
      "source": "pecky-noviny",
      "kind": "zpravodaj",
-     "url": "https://pecky.cz/default/default/21389_pdf-zpravodaje",
-     "label": "Pečecké noviny, str. 14 — Dorostenky a mladší ženy: Pound, Tabata, HIIT, Jóga (fotografie z e-mailu 18. 10. 2026, číslo novin neuvedeno)",
-     "published": "2026-10-18",
+     "url": "https://pecky.cz/files/pecky/gallery/18743/6adeecd80ad69_Pececke-noviny-10-2026.pdf#page=14",
+     "label": "Pečecké noviny 10/2026, str. 14 — Sokol Pečky: Dorostenky a mladší ženy — Pound, Tabata, HIIT, Jóga (plakát)",
+     "published": "2026-10-26",
      "retrieved": "2026-10-19"
     }
    ]
@@ -53782,9 +53909,9 @@
     {
      "source": "pecky-noviny",
      "kind": "zpravodaj",
-     "url": "https://pecky.cz/default/default/21389_pdf-zpravodaje",
-     "label": "Pečecké noviny, str. 15 — Sokol Pečky: Cvičení pro seniory (fotografie plakátu z e-mailu 18. 10. 2026, číslo novin neuvedeno)",
-     "published": "2026-10-18",
+     "url": "https://pecky.cz/files/pecky/gallery/18743/6adeecd80ad69_Pececke-noviny-10-2026.pdf#page=15",
+     "label": "Pečecké noviny 10/2026, str. 15 — Sokol Pečky: Cvičení pro seniory (plakát)",
+     "published": "2026-10-26",
      "retrieved": "2026-10-19"
     }
    ]
@@ -54457,9 +54584,9 @@
     {
      "source": "pecky-noviny",
      "kind": "zpravodaj",
-     "url": "https://pecky.cz/default/default/21389_pdf-zpravodaje",
-     "label": "Pečecké noviny, str. 14 — Dorostenky a mladší ženy: Pound, Tabata, HIIT, Jóga (fotografie z e-mailu 18. 10. 2026, číslo novin neuvedeno)",
-     "published": "2026-10-18",
+     "url": "https://pecky.cz/files/pecky/gallery/18743/6adeecd80ad69_Pececke-noviny-10-2026.pdf#page=14",
+     "label": "Pečecké noviny 10/2026, str. 14 — Sokol Pečky: Dorostenky a mladší ženy — Pound, Tabata, HIIT, Jóga (plakát)",
+     "published": "2026-10-26",
      "retrieved": "2026-10-19"
     }
    ]
@@ -55691,9 +55818,9 @@
     {
      "source": "pecky-noviny",
      "kind": "zpravodaj",
-     "url": "https://pecky.cz/default/default/21389_pdf-zpravodaje",
-     "label": "Pečecké noviny, str. 15 — Sokol Pečky: Cvičení pro seniory (fotografie plakátu z e-mailu 18. 10. 2026, číslo novin neuvedeno)",
-     "published": "2026-10-18",
+     "url": "https://pecky.cz/files/pecky/gallery/18743/6adeecd80ad69_Pececke-noviny-10-2026.pdf#page=15",
+     "label": "Pečecké noviny 10/2026, str. 15 — Sokol Pečky: Cvičení pro seniory (plakát)",
+     "published": "2026-10-26",
      "retrieved": "2026-10-19"
     }
    ]
@@ -56366,9 +56493,9 @@
     {
      "source": "pecky-noviny",
      "kind": "zpravodaj",
-     "url": "https://pecky.cz/default/default/21389_pdf-zpravodaje",
-     "label": "Pečecké noviny, str. 14 — Dorostenky a mladší ženy: Pound, Tabata, HIIT, Jóga (fotografie z e-mailu 18. 10. 2026, číslo novin neuvedeno)",
-     "published": "2026-10-18",
+     "url": "https://pecky.cz/files/pecky/gallery/18743/6adeecd80ad69_Pececke-noviny-10-2026.pdf#page=14",
+     "label": "Pečecké noviny 10/2026, str. 14 — Sokol Pečky: Dorostenky a mladší ženy — Pound, Tabata, HIIT, Jóga (plakát)",
+     "published": "2026-10-26",
      "retrieved": "2026-10-19"
     }
    ]
@@ -57592,9 +57719,9 @@
     {
      "source": "pecky-noviny",
      "kind": "zpravodaj",
-     "url": "https://pecky.cz/default/default/21389_pdf-zpravodaje",
-     "label": "Pečecké noviny, str. 15 — Sokol Pečky: Cvičení pro seniory (fotografie plakátu z e-mailu 18. 10. 2026, číslo novin neuvedeno)",
-     "published": "2026-10-18",
+     "url": "https://pecky.cz/files/pecky/gallery/18743/6adeecd80ad69_Pececke-noviny-10-2026.pdf#page=15",
+     "label": "Pečecké noviny 10/2026, str. 15 — Sokol Pečky: Cvičení pro seniory (plakát)",
+     "published": "2026-10-26",
      "retrieved": "2026-10-19"
     }
    ]
@@ -58267,9 +58394,9 @@
     {
      "source": "pecky-noviny",
      "kind": "zpravodaj",
-     "url": "https://pecky.cz/default/default/21389_pdf-zpravodaje",
-     "label": "Pečecké noviny, str. 14 — Dorostenky a mladší ženy: Pound, Tabata, HIIT, Jóga (fotografie z e-mailu 18. 10. 2026, číslo novin neuvedeno)",
-     "published": "2026-10-18",
+     "url": "https://pecky.cz/files/pecky/gallery/18743/6adeecd80ad69_Pececke-noviny-10-2026.pdf#page=14",
+     "label": "Pečecké noviny 10/2026, str. 14 — Sokol Pečky: Dorostenky a mladší ženy — Pound, Tabata, HIIT, Jóga (plakát)",
+     "published": "2026-10-26",
      "retrieved": "2026-10-19"
     }
    ]
@@ -59547,9 +59674,9 @@
     {
      "source": "pecky-noviny",
      "kind": "zpravodaj",
-     "url": "https://pecky.cz/default/default/21389_pdf-zpravodaje",
-     "label": "Pečecké noviny, str. 15 — Sokol Pečky: Cvičení pro seniory (fotografie plakátu z e-mailu 18. 10. 2026, číslo novin neuvedeno)",
-     "published": "2026-10-18",
+     "url": "https://pecky.cz/files/pecky/gallery/18743/6adeecd80ad69_Pececke-noviny-10-2026.pdf#page=15",
+     "label": "Pečecké noviny 10/2026, str. 15 — Sokol Pečky: Cvičení pro seniory (plakát)",
+     "published": "2026-10-26",
      "retrieved": "2026-10-19"
     }
    ]
@@ -60222,9 +60349,9 @@
     {
      "source": "pecky-noviny",
      "kind": "zpravodaj",
-     "url": "https://pecky.cz/default/default/21389_pdf-zpravodaje",
-     "label": "Pečecké noviny, str. 14 — Dorostenky a mladší ženy: Pound, Tabata, HIIT, Jóga (fotografie z e-mailu 18. 10. 2026, číslo novin neuvedeno)",
-     "published": "2026-10-18",
+     "url": "https://pecky.cz/files/pecky/gallery/18743/6adeecd80ad69_Pececke-noviny-10-2026.pdf#page=14",
+     "label": "Pečecké noviny 10/2026, str. 14 — Sokol Pečky: Dorostenky a mladší ženy — Pound, Tabata, HIIT, Jóga (plakát)",
+     "published": "2026-10-26",
      "retrieved": "2026-10-19"
     }
    ]
@@ -61448,9 +61575,9 @@
     {
      "source": "pecky-noviny",
      "kind": "zpravodaj",
-     "url": "https://pecky.cz/default/default/21389_pdf-zpravodaje",
-     "label": "Pečecké noviny, str. 15 — Sokol Pečky: Cvičení pro seniory (fotografie plakátu z e-mailu 18. 10. 2026, číslo novin neuvedeno)",
-     "published": "2026-10-18",
+     "url": "https://pecky.cz/files/pecky/gallery/18743/6adeecd80ad69_Pececke-noviny-10-2026.pdf#page=15",
+     "label": "Pečecké noviny 10/2026, str. 15 — Sokol Pečky: Cvičení pro seniory (plakát)",
+     "published": "2026-10-26",
      "retrieved": "2026-10-19"
     }
    ]
@@ -62123,9 +62250,9 @@
     {
      "source": "pecky-noviny",
      "kind": "zpravodaj",
-     "url": "https://pecky.cz/default/default/21389_pdf-zpravodaje",
-     "label": "Pečecké noviny, str. 14 — Dorostenky a mladší ženy: Pound, Tabata, HIIT, Jóga (fotografie z e-mailu 18. 10. 2026, číslo novin neuvedeno)",
-     "published": "2026-10-18",
+     "url": "https://pecky.cz/files/pecky/gallery/18743/6adeecd80ad69_Pececke-noviny-10-2026.pdf#page=14",
+     "label": "Pečecké noviny 10/2026, str. 14 — Sokol Pečky: Dorostenky a mladší ženy — Pound, Tabata, HIIT, Jóga (plakát)",
+     "published": "2026-10-26",
      "retrieved": "2026-10-19"
     }
    ]
@@ -63357,9 +63484,9 @@
     {
      "source": "pecky-noviny",
      "kind": "zpravodaj",
-     "url": "https://pecky.cz/default/default/21389_pdf-zpravodaje",
-     "label": "Pečecké noviny, str. 15 — Sokol Pečky: Cvičení pro seniory (fotografie plakátu z e-mailu 18. 10. 2026, číslo novin neuvedeno)",
-     "published": "2026-10-18",
+     "url": "https://pecky.cz/files/pecky/gallery/18743/6adeecd80ad69_Pececke-noviny-10-2026.pdf#page=15",
+     "label": "Pečecké noviny 10/2026, str. 15 — Sokol Pečky: Cvičení pro seniory (plakát)",
+     "published": "2026-10-26",
      "retrieved": "2026-10-19"
     }
    ]
@@ -64032,9 +64159,9 @@
     {
      "source": "pecky-noviny",
      "kind": "zpravodaj",
-     "url": "https://pecky.cz/default/default/21389_pdf-zpravodaje",
-     "label": "Pečecké noviny, str. 14 — Dorostenky a mladší ženy: Pound, Tabata, HIIT, Jóga (fotografie z e-mailu 18. 10. 2026, číslo novin neuvedeno)",
-     "published": "2026-10-18",
+     "url": "https://pecky.cz/files/pecky/gallery/18743/6adeecd80ad69_Pececke-noviny-10-2026.pdf#page=14",
+     "label": "Pečecké noviny 10/2026, str. 14 — Sokol Pečky: Dorostenky a mladší ženy — Pound, Tabata, HIIT, Jóga (plakát)",
+     "published": "2026-10-26",
      "retrieved": "2026-10-19"
     }
    ]
@@ -65258,9 +65385,9 @@
     {
      "source": "pecky-noviny",
      "kind": "zpravodaj",
-     "url": "https://pecky.cz/default/default/21389_pdf-zpravodaje",
-     "label": "Pečecké noviny, str. 15 — Sokol Pečky: Cvičení pro seniory (fotografie plakátu z e-mailu 18. 10. 2026, číslo novin neuvedeno)",
-     "published": "2026-10-18",
+     "url": "https://pecky.cz/files/pecky/gallery/18743/6adeecd80ad69_Pececke-noviny-10-2026.pdf#page=15",
+     "label": "Pečecké noviny 10/2026, str. 15 — Sokol Pečky: Cvičení pro seniory (plakát)",
+     "published": "2026-10-26",
      "retrieved": "2026-10-19"
     }
    ]
@@ -65933,9 +66060,9 @@
     {
      "source": "pecky-noviny",
      "kind": "zpravodaj",
-     "url": "https://pecky.cz/default/default/21389_pdf-zpravodaje",
-     "label": "Pečecké noviny, str. 14 — Dorostenky a mladší ženy: Pound, Tabata, HIIT, Jóga (fotografie z e-mailu 18. 10. 2026, číslo novin neuvedeno)",
-     "published": "2026-10-18",
+     "url": "https://pecky.cz/files/pecky/gallery/18743/6adeecd80ad69_Pececke-noviny-10-2026.pdf#page=14",
+     "label": "Pečecké noviny 10/2026, str. 14 — Sokol Pečky: Dorostenky a mladší ženy — Pound, Tabata, HIIT, Jóga (plakát)",
+     "published": "2026-10-26",
      "retrieved": "2026-10-19"
     }
    ]
@@ -67167,9 +67294,9 @@
     {
      "source": "pecky-noviny",
      "kind": "zpravodaj",
-     "url": "https://pecky.cz/default/default/21389_pdf-zpravodaje",
-     "label": "Pečecké noviny, str. 15 — Sokol Pečky: Cvičení pro seniory (fotografie plakátu z e-mailu 18. 10. 2026, číslo novin neuvedeno)",
-     "published": "2026-10-18",
+     "url": "https://pecky.cz/files/pecky/gallery/18743/6adeecd80ad69_Pececke-noviny-10-2026.pdf#page=15",
+     "label": "Pečecké noviny 10/2026, str. 15 — Sokol Pečky: Cvičení pro seniory (plakát)",
+     "published": "2026-10-26",
      "retrieved": "2026-10-19"
     }
    ]
@@ -67842,9 +67969,9 @@
     {
      "source": "pecky-noviny",
      "kind": "zpravodaj",
-     "url": "https://pecky.cz/default/default/21389_pdf-zpravodaje",
-     "label": "Pečecké noviny, str. 14 — Dorostenky a mladší ženy: Pound, Tabata, HIIT, Jóga (fotografie z e-mailu 18. 10. 2026, číslo novin neuvedeno)",
-     "published": "2026-10-18",
+     "url": "https://pecky.cz/files/pecky/gallery/18743/6adeecd80ad69_Pececke-noviny-10-2026.pdf#page=14",
+     "label": "Pečecké noviny 10/2026, str. 14 — Sokol Pečky: Dorostenky a mladší ženy — Pound, Tabata, HIIT, Jóga (plakát)",
+     "published": "2026-10-26",
      "retrieved": "2026-10-19"
     }
    ]
@@ -69068,9 +69195,9 @@
     {
      "source": "pecky-noviny",
      "kind": "zpravodaj",
-     "url": "https://pecky.cz/default/default/21389_pdf-zpravodaje",
-     "label": "Pečecké noviny, str. 15 — Sokol Pečky: Cvičení pro seniory (fotografie plakátu z e-mailu 18. 10. 2026, číslo novin neuvedeno)",
-     "published": "2026-10-18",
+     "url": "https://pecky.cz/files/pecky/gallery/18743/6adeecd80ad69_Pececke-noviny-10-2026.pdf#page=15",
+     "label": "Pečecké noviny 10/2026, str. 15 — Sokol Pečky: Cvičení pro seniory (plakát)",
+     "published": "2026-10-26",
      "retrieved": "2026-10-19"
     }
    ]
@@ -69743,9 +69870,9 @@
     {
      "source": "pecky-noviny",
      "kind": "zpravodaj",
-     "url": "https://pecky.cz/default/default/21389_pdf-zpravodaje",
-     "label": "Pečecké noviny, str. 14 — Dorostenky a mladší ženy: Pound, Tabata, HIIT, Jóga (fotografie z e-mailu 18. 10. 2026, číslo novin neuvedeno)",
-     "published": "2026-10-18",
+     "url": "https://pecky.cz/files/pecky/gallery/18743/6adeecd80ad69_Pececke-noviny-10-2026.pdf#page=14",
+     "label": "Pečecké noviny 10/2026, str. 14 — Sokol Pečky: Dorostenky a mladší ženy — Pound, Tabata, HIIT, Jóga (plakát)",
+     "published": "2026-10-26",
      "retrieved": "2026-10-19"
     }
    ]
@@ -70977,9 +71104,9 @@
     {
      "source": "pecky-noviny",
      "kind": "zpravodaj",
-     "url": "https://pecky.cz/default/default/21389_pdf-zpravodaje",
-     "label": "Pečecké noviny, str. 15 — Sokol Pečky: Cvičení pro seniory (fotografie plakátu z e-mailu 18. 10. 2026, číslo novin neuvedeno)",
-     "published": "2026-10-18",
+     "url": "https://pecky.cz/files/pecky/gallery/18743/6adeecd80ad69_Pececke-noviny-10-2026.pdf#page=15",
+     "label": "Pečecké noviny 10/2026, str. 15 — Sokol Pečky: Cvičení pro seniory (plakát)",
+     "published": "2026-10-26",
      "retrieved": "2026-10-19"
     }
    ]
@@ -71652,9 +71779,9 @@
     {
      "source": "pecky-noviny",
      "kind": "zpravodaj",
-     "url": "https://pecky.cz/default/default/21389_pdf-zpravodaje",
-     "label": "Pečecké noviny, str. 14 — Dorostenky a mladší ženy: Pound, Tabata, HIIT, Jóga (fotografie z e-mailu 18. 10. 2026, číslo novin neuvedeno)",
-     "published": "2026-10-18",
+     "url": "https://pecky.cz/files/pecky/gallery/18743/6adeecd80ad69_Pececke-noviny-10-2026.pdf#page=14",
+     "label": "Pečecké noviny 10/2026, str. 14 — Sokol Pečky: Dorostenky a mladší ženy — Pound, Tabata, HIIT, Jóga (plakát)",
+     "published": "2026-10-26",
      "retrieved": "2026-10-19"
     }
    ]
@@ -72878,9 +73005,9 @@
     {
      "source": "pecky-noviny",
      "kind": "zpravodaj",
-     "url": "https://pecky.cz/default/default/21389_pdf-zpravodaje",
-     "label": "Pečecké noviny, str. 15 — Sokol Pečky: Cvičení pro seniory (fotografie plakátu z e-mailu 18. 10. 2026, číslo novin neuvedeno)",
-     "published": "2026-10-18",
+     "url": "https://pecky.cz/files/pecky/gallery/18743/6adeecd80ad69_Pececke-noviny-10-2026.pdf#page=15",
+     "label": "Pečecké noviny 10/2026, str. 15 — Sokol Pečky: Cvičení pro seniory (plakát)",
+     "published": "2026-10-26",
      "retrieved": "2026-10-19"
     }
    ]
@@ -73522,9 +73649,9 @@
     {
      "source": "pecky-noviny",
      "kind": "zpravodaj",
-     "url": "https://pecky.cz/default/default/21389_pdf-zpravodaje",
-     "label": "Pečecké noviny, str. 14 — Dorostenky a mladší ženy: Pound, Tabata, HIIT, Jóga (fotografie z e-mailu 18. 10. 2026, číslo novin neuvedeno)",
-     "published": "2026-10-18",
+     "url": "https://pecky.cz/files/pecky/gallery/18743/6adeecd80ad69_Pececke-noviny-10-2026.pdf#page=14",
+     "label": "Pečecké noviny 10/2026, str. 14 — Sokol Pečky: Dorostenky a mladší ženy — Pound, Tabata, HIIT, Jóga (plakát)",
+     "published": "2026-10-26",
      "retrieved": "2026-10-19"
     }
    ]
@@ -74756,9 +74883,9 @@
     {
      "source": "pecky-noviny",
      "kind": "zpravodaj",
-     "url": "https://pecky.cz/default/default/21389_pdf-zpravodaje",
-     "label": "Pečecké noviny, str. 15 — Sokol Pečky: Cvičení pro seniory (fotografie plakátu z e-mailu 18. 10. 2026, číslo novin neuvedeno)",
-     "published": "2026-10-18",
+     "url": "https://pecky.cz/files/pecky/gallery/18743/6adeecd80ad69_Pececke-noviny-10-2026.pdf#page=15",
+     "label": "Pečecké noviny 10/2026, str. 15 — Sokol Pečky: Cvičení pro seniory (plakát)",
+     "published": "2026-10-26",
      "retrieved": "2026-10-19"
     }
    ]
@@ -75400,9 +75527,9 @@
     {
      "source": "pecky-noviny",
      "kind": "zpravodaj",
-     "url": "https://pecky.cz/default/default/21389_pdf-zpravodaje",
-     "label": "Pečecké noviny, str. 14 — Dorostenky a mladší ženy: Pound, Tabata, HIIT, Jóga (fotografie z e-mailu 18. 10. 2026, číslo novin neuvedeno)",
-     "published": "2026-10-18",
+     "url": "https://pecky.cz/files/pecky/gallery/18743/6adeecd80ad69_Pececke-noviny-10-2026.pdf#page=14",
+     "label": "Pečecké noviny 10/2026, str. 14 — Sokol Pečky: Dorostenky a mladší ženy — Pound, Tabata, HIIT, Jóga (plakát)",
+     "published": "2026-10-26",
      "retrieved": "2026-10-19"
     }
    ]
@@ -76626,9 +76753,9 @@
     {
      "source": "pecky-noviny",
      "kind": "zpravodaj",
-     "url": "https://pecky.cz/default/default/21389_pdf-zpravodaje",
-     "label": "Pečecké noviny, str. 15 — Sokol Pečky: Cvičení pro seniory (fotografie plakátu z e-mailu 18. 10. 2026, číslo novin neuvedeno)",
-     "published": "2026-10-18",
+     "url": "https://pecky.cz/files/pecky/gallery/18743/6adeecd80ad69_Pececke-noviny-10-2026.pdf#page=15",
+     "label": "Pečecké noviny 10/2026, str. 15 — Sokol Pečky: Cvičení pro seniory (plakát)",
+     "published": "2026-10-26",
      "retrieved": "2026-10-19"
     }
    ]
@@ -77270,9 +77397,9 @@
     {
      "source": "pecky-noviny",
      "kind": "zpravodaj",
-     "url": "https://pecky.cz/default/default/21389_pdf-zpravodaje",
-     "label": "Pečecké noviny, str. 14 — Dorostenky a mladší ženy: Pound, Tabata, HIIT, Jóga (fotografie z e-mailu 18. 10. 2026, číslo novin neuvedeno)",
-     "published": "2026-10-18",
+     "url": "https://pecky.cz/files/pecky/gallery/18743/6adeecd80ad69_Pececke-noviny-10-2026.pdf#page=14",
+     "label": "Pečecké noviny 10/2026, str. 14 — Sokol Pečky: Dorostenky a mladší ženy — Pound, Tabata, HIIT, Jóga (plakát)",
+     "published": "2026-10-26",
      "retrieved": "2026-10-19"
     }
    ]
@@ -89666,7 +89793,7 @@
    "organizer": "mestska-knihovna-pecky",
    "organizer_name": null,
    "description": "Výprodej vyřazených knih.",
-   "note": "Plakát uvádí „v pečecké knihovně“, místo dovozeno z toho; hodiny neuvádí.",
+   "note": "Plakát uvádí „v pečecké knihovně“, místo dovozeno z toho; hodiny neuvádí. Inzerát v Pečeckých novinách 10/2026 (str. 12) uvádí „Bazar knih stále pokračuje“ bez data a hodin; konec záznamu (12. 10. 2026) zůstává podle původního plakátu.",
    "evidence": [
     {
      "source": "pecky-cz",
@@ -89675,6 +89802,14 @@
      "label": "Týden knihoven 2026 — plakát v pečecké knihovně od 29.9.-4.10.2026",
      "published": "2026-09-29",
      "retrieved": "2026-10-01"
+    },
+    {
+     "source": "pecky-noviny",
+     "kind": "zpravodaj",
+     "url": "https://pecky.cz/files/pecky/gallery/18743/6adeecd80ad69_Pececke-noviny-10-2026.pdf#page=12",
+     "label": "Pečecké noviny 10/2026, str. 12 — Inzerát Městské knihovny „Bazar knih stále pokračuje“",
+     "published": "2026-10-26",
+     "retrieved": "2026-10-27"
     }
    ]
   },
