@@ -375,7 +375,8 @@ document.querySelectorAll('.rel-chip[data-date]').forEach(el => {
 })();
 
 // ===== Dashboard: widget „Dnes“ =====
-// Build vypíše dnešek a týden dopředu (data-from/data-until); tady se ukážou jen dnešní události.
+// Build vypíše dnešek a týden dopředu (data-from/data-until); tady se ukážou jen dnešní události,
+// které ještě neskončily (data-konec = minuty od půlnoci).
 (function () {
   const box = document.querySelector('.dash-card--dnes');
   if (!box) return;
@@ -387,7 +388,8 @@ document.querySelectorAll('.rel-chip[data-date]').forEach(el => {
   if (datum) datum.textContent = dny[d.getDay()].charAt(0).toUpperCase() + dny[d.getDay()].slice(1) + ' ' + d.getDate() + '. ' + (d.getMonth() + 1) + '.';
   let n = 0;
   box.querySelectorAll('.dash-dnes-list li[data-from]').forEach(li => {
-    li.hidden = !(li.dataset.from <= dnes && li.dataset.until >= dnes);
+    const probehla = li.dataset.konec && +li.dataset.konec <= d.getHours() * 60 + d.getMinutes();   // proběhlá dnešní akce
+    li.hidden = !(li.dataset.from <= dnes && li.dataset.until >= dnes) || !!probehla;
     if (!li.hidden) n++;
   });
   const empty = box.querySelector('.dash-empty');

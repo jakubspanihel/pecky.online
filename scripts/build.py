@@ -505,7 +505,8 @@ def apply_lastmod(content, lastmod):
 # nadcházející akce) nesou data-until: build jich vypíše víc, než je vidět
 # (nadbytečné mají hidden), a common.js v prohlížeči skryje ty, co mezitím
 # proběhly, a doplní další v pořadí - homepage tak nezastará mezi buildy.
-DASH_DNES_DNI = 7  # kolik dní dopředu build vypíše (rezerva ~ týden bez buildu; common.js ukáže jen dnešek)
+DASH_DNES_TRVANI = 2  # akce s časem bez konce se ve widgetu Dnes schová po začátku + tolik hodin
+DASH_DNES_DNI = 7 # kolik dní dopředu build vypíše (rezerva ~ týden bez buildu; common.js ukáže jen dnešek)
 DASH_JEDNANI_PROBEHLA = 3
 DASH_ZM_PO_DNI = 5  # pruh „Zastupitelstvo proběhlo“ visí na Domů tolik dní po konání
 DNY_CZ = ['pondělí', 'úterý', 'středa', 'čtvrtek', 'pátek', 'sobota', 'neděle']
@@ -1177,7 +1178,8 @@ def _dash_dnes(dnes):
     """Widget „Dnes“ na Domů: prosté odkazy na dnešní události z kalendáře, bez pravidelných
     (kurzy a tréninky, kategorie `kurz` bez vlastního tagu). Build vypíše dnešek i týden dopředu
     s data-from/data-until, common.js ukáže ty, které platí v prohlížeči dnes (takže widget
-    nezastará mezi buildy). Hlavní CTA vede do Kalendáře."""
+    nezastará mezi buildy). Jednodenní akce s časem nesou data-konec (minuty od půlnoci; bez
+    time_end začátek + DASH_DNES_TRVANI h), po něm je common.js schová. Hlavní CTA vede do Kalendáře."""
     from datetime import date, timedelta
     events = json.loads(read('kalendar/udalosti.json'))['events']
     do = (date.fromisoformat(dnes) + timedelta(days=DASH_DNES_DNI)).isoformat()
@@ -1195,7 +1197,13 @@ def _dash_dnes(dnes):
         # bulletka v barvě pořadatele; bez pořadatele podle kategorie (jako události v Kalendáři)
         kat = {'rada': 'field', 'zastupitelstvo': 'burgundy', 'vybor': 'gold', 'volby': 'slate', 'akce': 'gold-deep'}.get(e['category'], 'ink-soft')
         barva = f' style="--org-c:var(--org-{e["organizer"]})"' if e.get('organizer') else f' style="--org-c:var(--{kat})"'
-        out.append(f'    <li data-from="{e["date"]}" data-until="{e.get("date_end") or e["date"]}"{barva} hidden>'
+        konec = ''
+        if cas(e) and (e.get('date_end') or e['date']) == e['date']:   # jednodenní s časem: po konci (bez konce začátek + 2 h) zmizí
+            h, m = map(int, (e.get('time_end') or cas(e)).split(':'))
+            if not e.get('time_end'):
+                h += DASH_DNES_TRVANI
+            konec = f' data-konec="{min(h * 60 + m, 24 * 60 - 1)}"'
+        out.append(f'    <li data-from="{e["date"]}" data-until="{e.get("date_end") or e["date"]}"{konec}{barva} hidden>'
                    f'<a href="{esc(zdroj)}"{cizi}>' + (f'<span class="dnes-cas">{esc(c)}</span>' if c else '')
                    + f'{esc(e["title"])}</a></li>')
     out.append('    <li class="dash-empty" hidden>Dnes nejsou v kalendáři žádné akce.</li>')
