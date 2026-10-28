@@ -684,6 +684,12 @@ běhu kontroly zjistit, jestli už na playlistu „Zasedání ZM"
 existuje záznam pro nadcházející/plánovaný přenos (YouTube ho typicky
 zobrazí jako „Premiéra"/naplánované video ještě před začátkem).
 
+- **Zdroj č. 1: pozvánka na úřední desce** (pecky.cz/office/board). Od
+  27. 10. 2026 (ustavující ZM 4. 11. 2026) město k pozvánce vyvěšuje přílohu
+  „odkaz na YouTube“ (PDF/DOCX) s adresou přenosu `youtube.com/live/…`,
+  takže odkaz je znám dřív než na playlistu. **U budoucího zasedání
+  zastupitelstva je odkaz na živý přenos vždy k dispozici.** Při kontrole úřední desky
+  u pozvánky na ZM otevřít tuto přílohu a odkaz opsat.
 - **Pokud odkaz existuje**, doplnit ho do `pecky-jednani.json` jako
   `links.livestream` (stejný tvar URL jako `links.youtube`). Frontend pak
   na sbaleném řádku zobrazí „📺 Živé vysílání od HH:MM" (čas je z pole

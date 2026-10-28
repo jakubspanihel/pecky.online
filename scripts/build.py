@@ -746,40 +746,32 @@ def _volby_hlasy_karty(rok='2026', zdroj=None, vsichni=False):
 
 
 def _zm_avatary():
-    """Blok avatarů 21 současných zastupitelů do banneru: starosta, ostatní
-    radní (místostarostové, pak radní), nakonec zbylí zastupitelé. Zdroj:
-    lide/people.json + affiliations.json (current = zdroj pravdy). Bez fotky
-    iniciálový kroužek; každý avatar odkazuje na kartu osoby v Lidech."""
-    people = {p['id']: p for p in json.loads(read('lide/people.json'))['people']}
-    aff = json.loads(read('lide/affiliations.json'))['affiliations']
-    poradi = {'starosta': 0, 'mistostarosta': 1, 'rada': 2}
-    role = {}
-    for a in aff:
-        if a.get('current') and a['person_id'] in people:
-            if a['role_type'] in poradi:
-                role[a['person_id']] = min(role.get(a['person_id'], 9), poradi[a['role_type']])
-            elif a['role_type'] == 'zastupitel':
-                role.setdefault(a['person_id'], 3)
-    lide = sorted(role, key=lambda pid: (role[pid], people[pid]['last_name'], people[pid]['first_name']))
-    if not lide:
-        return ''
+    """Blok avatarů 21 nově zvolených zastupitelů (volby 2026) do banneru, v pořadí
+    podle tabulky v content/volby2026.html (osobní hlasy). Bez fotky iniciálový
+    kroužek; každý avatar odkazuje na kartu osoby v Lidech."""
+    people = json.loads(read('lide/people.json'))['people']
+    radky = re.findall(r'<tr(?: class="([^"]*)")?><td>(\d+)</td><td><span class="swatch" style="background:var\(--party-([a-z0-9-]+)\);?"></span>(.*?)</td></tr>',
+                       read('content/volby2026.html'), flags=re.S)
     out = []
-    for pid in lide:
-        p = people[pid]
-        jmeno = f'{p["first_name"]} {p["last_name"]}'
-        popis = {0: 'starosta', 1: 'místostarosta', 2: 'radní', 3: 'zastupitel'}[role[pid]]
-        if p['gender'] == 'f':
-            popis = {'starosta': 'starostka', 'místostarosta': 'místostarostka', 'radní': 'radní',
-                     'zastupitel': 'zastupitelka'}[popis]
-        foto = (p.get('photos') or [{}])[0].get('url')
+    for _t, _hlasu, strana, n in radky:
+        if 'zvolen' not in n:
+            continue
+        m = re.search(r'\((\d+)\.\)', n)
+        jmeno = re.sub(r'\s+', ' ', re.sub(r'<.*?>', '', n[:m.start()] if m else n).replace('\xa0', ' ')).strip()
+        w = [x for x in jmeno.split(',')[0].split() if not x.endswith('.')]
+        shoda = [x for x in people if (x['first_name'], re.sub(r'\s+(ml|st)\.$', '', x['last_name'])) == (w[0], ' '.join(w[1:]))]
+        p = next((x for x in shoda if strana in x.get('tags', [])), shoda[0] if len(shoda) == 1 else None)
+        fotky = (p or {}).get('photos') or []
+        foto = next((f['url'] for f in fotky if str(f.get('year')) == '2026'), (fotky[0]['url'] if fotky else None))
         if foto:
             vnitrek = f'<img src="{esc(foto)}" alt="{esc(jmeno)}" loading="lazy" width="56" height="56">'
         else:
-            vnitrek = f'<span class="banner-av-init" aria-hidden="true">{esc(p["first_name"][0] + p["last_name"][0])}</span>'
-        cls = ' banner-av--rada' if role[pid] < 3 else ''
-        out.append(f'<a class="banner-av{cls}" href="/lide/#lide/osoba/{esc(pid)}" '
-                   f'title="{esc(jmeno)} — {popis}" aria-label="{esc(jmeno)}, {popis}">{vnitrek}</a>')
-    return ('<div class="banner-side"><p class="banner-side-title">Zastupitelstvo města</p>'
+            vnitrek = f'<span class="banner-av-init" aria-hidden="true">{esc(w[0][0] + w[-1][0])}</span>'
+        tag, attr = (('a', f' href="/lide/#lide/osoba/{esc(p["id"])}"') if p else ('span', ''))
+        out.append(f'<{tag} class="banner-av"{attr} title="{esc(jmeno)}" aria-label="{esc(jmeno)}">{vnitrek}</{tag}>')
+    if not out:
+        return ''
+    return ('<div class="banner-side"><p class="banner-side-title">Nově zvolení zastupitelé</p>'
             f'<div class="banner-avatars">{"".join(out)}</div></div>')
 
 
@@ -860,7 +852,7 @@ def _dash_zastupitelstvo(dnes):
     out = ['<div class="dash-zm">'] if zm else []
     out_v = []
     if zm:
-        out.append('  <ul class="dash-list banner" data-max="1">')
+        out.append('  <ul class="dash-list banner banner--slate" data-max="1">')
     for i, m in enumerate(zm):
         den = ['Pondělí', 'Úterý', 'Středa', 'Čtvrtek', 'Pátek', 'Sobota', 'Neděle'][_date.fromisoformat(m['date']).weekday()]
         kdy = f'{den}, {iso_to_cz(m["date"])}' + (f' v {m["time"]}' if m.get('time') else '')
@@ -1040,6 +1032,8 @@ def _dash_shrnuti(druh):
         cesta = f'jednani/shrnuti/{m["date"]}-{kdo}.md'
         zapis = (m.get('links') or {}).get('minutes')
         budouci = m['date'] >= dnes
+        if zm and budouci:
+            continue  # banner „Ze zastupitelstva“ ukazuje jen proběhlá zasedání; budoucí je v bordó banneru nahoře
         if (ROOT / cesta).exists():
             md = read(cesta)
             blok = re.search(r'^##\s+Nejdůležitější témata\s*\n(.*?)(?=^##\s|\Z)', md, re.S | re.M)

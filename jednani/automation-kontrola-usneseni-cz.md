@@ -268,13 +268,28 @@ může mít video zítra.
    bez `links.youtube` a nevymýšlet. Může se objevit až při některém
    příštím běhu, nebo nikdy — v obou případech nic nepředstírat.
 
+### Křížová kontrola s úřední deskou (dělat při KAŽDÉM běhu, doplněno 28. 10. 2026)
+
+Informace z usneseni.cz (nové/změněné jednání, datum, čas, místo, program,
+odkaz na živý přenos) vždy křížově ověř na úřední desce města
+(`https://pecky.cz/office/board`, případně `o-webu/uredni-deska-monitoring/2026.txt`):
+pozvánka na zasedání ZM / jednání rady (příloha s programem, u ZM příloha
+„odkaz na YouTube“), zápis ze zasedání. Při rozporu (jiné datum, čas, místo,
+chybějící jednání na jedné ze stran) výslovně uveď v hlášení běhu a nepřepisuj
+data naslepo. Přílohy jsou PDF/DOCX; odkaz v PDF přečíst ze screenshotu
+i z textu a ověřit otevřením.
+
 ### 6b. Živý přenos u naplánovaného zastupitelstva (dělat při KAŽDÉM běhu, doplněno 18. 9. 2026)
 
 Najdeš-li v archivu jednání `type: "Zastupitelstvo"` s `date` **v
-budoucnosti** (naplánované, ještě neproběhlo), zkontroluj stejný playlist
-„Zasedání ZM" jako v kroku 6, jestli už obsahuje odkaz na nadcházející
-živý přenos (YouTube ho zpravidla ukazuje jako naplánované video/premiéru
-ještě před začátkem vysílání).
+budoucnosti** (naplánované, ještě neproběhlo), **odkaz na živý přenos na
+YouTube je vždy k dispozici** — město ho vyvěšuje s pozvánkou (od 27. 10.
+2026 jako příloha „odkaz na YouTube“ u pozvánky na úřední desce
+pecky.cz/office/board, `youtube.com/live/<ID>`). Chybějící `links.livestream`
+u budoucího zastupitelstva proto bereš jako nedodělek, ne jako „zatím
+neexistuje“: najdi ho na úřední desce (viz „Křížová kontrola“ níže), případně
+na playlistu „Zasedání ZM" z kroku 6, a ověř na YouTube, že video existuje
+a název odpovídá jednání (např. „ZM Pečky č. 8/2026, 4. 11. 2026, 16:30").
 
 - Pokud odkaz existuje, doplň ho jako `links.livestream` (stejný tvar
   URL jako `links.youtube`). Web pak sám zobrazí na sbaleném řádku „📺
@@ -282,8 +297,9 @@ ještě před začátkem vysílání).
   a v rozbaleném řádku tlačítko „Video ↗" — viz
   [README.md](README.md) → „Živé vysílání budoucího jednání
   zastupitelstva".
-- Pokud odkaz zatím neexistuje, nic nezobrazovat ani nevymýšlet (žádný
-  generický text bez ověření) — zkusit znovu při příštím běhu.
+- Pokud se odkaz přesto nepodaří najít (pozvánka na úřední desce ještě není
+  vyvěšená), nic nezobrazovat ani nevymýšlet (žádný generický text bez
+  ověření) — zkusit znovu při příštím běhu.
 - Po jednání nahradí `links.youtube` z běžného kroku 6 tuhle dočasnou
   hodnotu; mazat `links.livestream` ručně není nutné.
 
