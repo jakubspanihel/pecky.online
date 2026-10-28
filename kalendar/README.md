@@ -1213,6 +1213,16 @@ seznam místo rozházených poznámek po repu.
     moštování" (3. 10. 2026), ale pořádá ji spolek Huslík v Poděbradech
     — mimo Pečky/Velké Chvalovice, nezapsáno. Feed měl navrchu jen
     nesouvisející AI reklamu na manikúru, dál se nenačetl. Nic k zápisu.
+  - **FB skupina „Православна громада — Dobřichov-Pečky"**
+    (`facebook-group-pravoslavna-obec-dobrichov-pecky`, 302 členů, přidáno
+    uživatelem 28. 10. 2026) — pravoslavná obec, ukrajinsky, správce kněz
+    o. Ivan Popovič. Zveřejňuje měsíční rozvrh bohoslužeb v kostele
+    Nejsvětější Trojice v Dobřichově jako plakát (listopad 2026 zapsán:
+    7 akcí, pořadatel `pravoslavna-obec-dobrichov-pecky`) a obecný plakát
+    „každou neděli 9:30 hodinky, 10:00 liturgie" (nezapsáno — bez data
+    začátku a konce). Při další kontrole hledat plakát na prosinec.
+    Římskokatolická farnost Pečky uvádí v Dobřichově bohoslužby jen po
+    ohlášení a pravoslavné nezmiňuje.
   - **Hostinec „U Stříkačky"** (`facebook-hostinec-u-strikacky`, 517
     sledujících, přidáno uživatelem 24. 9. 2026) — soukromá hospoda,
     V. B. Třebízského 84, Pečky. Záložka Události má jen dvě staré
