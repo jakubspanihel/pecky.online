@@ -151,7 +151,7 @@
             var alg = function (s) { return esc(s).replace(/\s*\(([\d, a-z]+)\)/g, ' <span class="alg">($1)</span>'); };
             tag = dj.date === dnes
               ? '<span class="naobed-tag dnes">Dnešní menu</span>'
-              : '<span class="naobed-tag ' + (dj.date > dnes ? 'dnes' : 'datum') + '">' + esc(denNazev(dj.date)) + '<br>' + esc(cz(dj.date)) + '</span>';
+              : '';
             photo = '<div class="naobed-text' + (dj.date >= dnes ? '' : ' stare') + '"><p class="naobed-datum">' + denDatum(dj.date) + '</p><h4>Polévka</h4><ul><li>' + alg(dj.polevka) + '</li></ul><h4>Hlavní jídla</h4><ul>' +
               dj.jidla.map(function (j) { return '<li>' + alg(j) + '</li>'; }).join('') + '</ul>' +
               '<hr><h4>Pro cizí strávníky</h4><ul><li>cena 95 Kč za oběd</li><li>přihlašování do 14:00 den předem</li><li>pro přihlášení obědů kontaktujte jídelnu</li></ul></div>' + tag;

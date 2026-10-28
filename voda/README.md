@@ -83,8 +83,8 @@ Stránka `/voda/` má pod ceníkem a rozbory dvě záložky (`.subtabs`, hash
 
 ## Data: `havarie-odstavky-vody.json`
 Havárie, odstávky a omezení dodávky pitné vody z Facebooku města a od
-23. 10. 2026 i z aktualit Pečeckých služeb (od 1. 12. 2018 do 23. 10. 2026,
-57 událostí, 67 zdrojů). Z tohoto souboru se kreslí sloupce počtu událostí
+23. 10. 2026 i z aktualit Pečeckých služeb (od 1. 12. 2018 do 27. 10. 2026,
+58 událostí, 68 zdrojů). Z tohoto souboru se kreslí sloupce počtu událostí
 za rok v grafu na `/voda/` — po zápisu nové události spustit build. Struktura je v
 `meta.pole` souboru. Soubor zatím nemá vykreslení na stránce `/voda/`.
 Doplňuje se při týdenní kontrole aktualit Pečeckých služeb (typy Havárie a Oznámení, postup v

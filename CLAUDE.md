@@ -235,20 +235,22 @@ publikuj přes přímý git CLI/GitHub API s vlastním GitHub přihlášením (t
 Token (bez expirace) je uložený lokálně v `.github-pat` (v .gitignore,
 nikdy nejde do gitu) — před publikací ho odtud načíst, needit znovu žádat.
 
-Postup publikace ověřený 9. 9. 2026:
+Publikace jde přes skript `scripts/git-sync.sh` (načte token z
+`.github-pat`, nic z něj nevypíše, nepushuje s force):
 
 ```bash
-PAT=$(tr -d '\r\n' < .github-pat)
-git push "https://x-access-token:${PAT}@github.com/jakubspanihel/pecky.online.git" main
-# tracking ref se pushem na explicitní URL neaktualizuje — dorovnat:
-git fetch "https://x-access-token:${PAT}@github.com/jakubspanihel/pecky.online.git" \
-  main:refs/remotes/origin/main --force
+scripts/git-sync.sh fetch   # stáhne origin/main a vypíše rozdíly obou směrů
+scripts/git-sync.sh push    # fetch + push main + dorovnání tracking refu
 ```
+
+Skript je jeden jednoduchý příkaz bez proměnných, takže ho lze povolit
+v allowlistu (`Bash(scripts/git-sync.sh:*)`) a bezobslužné běhy se nezastaví
+na dotazu. Ručně psaný `PAT=$(…); git push "…${PAT}…"` nepoužívat.
 
 - Push přes pojmenovaný `origin` selže na chybějící přihlášení — posílat
   na explicitní URL s tokenem (bez toho i `git status -sb` po pushi
-  mylně tvrdí „ahead N", proto ten `fetch` výše). Token nikdy
-  nevypisovat do výstupu — filtrovat přes `sed -e "s|${PAT}|***|g"`.
+  mylně tvrdí „ahead N", proto skript po pushi dělá `fetch`). Token
+  nikdy nevypisovat do výstupu (skript ho maskuje).
   Hláška `git: 'credential-osxkeychain' is not a git command` je
   neškodná (macOS credential helper v linuxovém sandboxu neexistuje) —
   push i tak projde.
