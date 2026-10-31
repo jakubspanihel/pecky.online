@@ -3,7 +3,7 @@
   "popis": "Havárie vodovodu, odstávky a omezení dodávky pitné vody v Pečkách a místních částech. Jedna událost = jedna odstávka nebo havárie; opakovaná oznámení téže události jsou sloučena ve `zdroje`.",
   "zdroj": "Facebook města Pečky (facebook.com/mestopecky), příspěvky převzaté z monitoringu Facebooku (o-webu/facebook-monitoring/facebook-mestopecky/); sdílené příspěvky Pečeckých služeb jen s krátkým textem; aktuality Pečeckých služeb (pececkesluzby.cz, typ „Havárie“, včetně archivu).",
   "rozsah_od": "2018-12-01",
-  "rozsah_do": "2026-10-27",
+  "rozsah_do": "2026-11-02",
   "pokryti": "Jen to, co se objevilo na Facebooku města; starší roky (2018–2024) jsou řidší než 2025–2026. Hledání podle klíčových slov, příspěvky bez nich mohly uniknout. Elektřina, plyn a dopravní uzavírky se nezapisují.",
   "pole": {
    "datum": "den odstávky/havárie (ne vždy den publikace příspěvku)",
@@ -1569,6 +1569,68 @@
      "url": "https://pececkesluzby.cz/default/default/20654_aktuality",
      "publikovano": "2026-10-27",
      "popis": "Výzva občanům: Šetřete pitnou vodou! (Aktuality Pečeckých služeb, typ Oznámení; platnost 27. 10. 12:00 – 29. 10. 2026 12:00)"
+    }
+   ]
+  },
+  {
+   "id": "2026-10-30-1",
+   "datum": "2026-10-30",
+   "typ": "havarie",
+   "lokality": [],
+   "dotcene_ulice": [
+    "Masarykovo náměstí a okolí"
+   ],
+   "misto_poruchy": null,
+   "pricina": "Havárie na vodovodním řadu",
+   "od": null,
+   "do": null,
+   "do_odhad": false,
+   "poznamka": "Mimořádné přerušení dodávky pitné vody; na odstranění havárie se pracuje (zpráva zveřejněna 30. 10. 2026 v 10:57).",
+   "skupina": null,
+   "zdroje": [
+    {
+     "id": "497345",
+     "url": "https://pecky.cz/default/report/497345_odstavka-pitne-vody-z-duvodu-havarie",
+     "publikovano": "2026-10-30",
+     "popis": "Odstávka pitné vody z důvodu havárie (Aktuality města, Pečecké služby)"
+    },
+    {
+     "id": "ps-2026-10-30",
+     "url": "https://pececkesluzby.cz/default/default/20654_aktuality",
+     "publikovano": "2026-10-30",
+     "popis": "Odstávka pitné vody z důvodu havárie (Aktuality Pečeckých služeb, typ Havárie)"
+    }
+   ]
+  },
+  {
+   "id": "2026-11-02-1",
+   "datum": "2026-11-02",
+   "typ": "planovana",
+   "lokality": [
+    "velke-chvalovice"
+   ],
+   "dotcene_ulice": [
+    "část ulice J. A. Komenského (v úseku mezi ulicemi Tř. 5. května a Chvalovická)",
+    "Chvalovická",
+    "V Kaštánkách",
+    "Nymburská",
+    "areál TONA",
+    "U Měnírny",
+    "Velké Chvalovice"
+   ],
+   "misto_poruchy": null,
+   "pricina": "Výměna součásti vodovodního řadu",
+   "od": "09:00",
+   "do": "13:00",
+   "do_odhad": true,
+   "poznamka": "Po obnovení dodávky může dojít ke krátkodobému zakalení vody.",
+   "skupina": null,
+   "zdroje": [
+    {
+     "id": "ps-2026-10-30-b",
+     "url": "https://pececkesluzby.cz/default/default/20654_aktuality",
+     "publikovano": "2026-10-30",
+     "popis": "Upozornění na přerušení dodávky pitné vody (Aktuality Pečeckých služeb, typ Oznámení)"
     }
    ]
   }

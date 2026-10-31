@@ -1,7 +1,7 @@
 {
  "meta": {
-  "generated_from": "jednani/pecky-jednani.json (296 jednání), jednani/vybory.json + komise.json + skolska-rada.json (132 jednání výborů, komisí a školské rady), kalendar/akce.json (3940 akcí), kalendar/udalosti-volby.json (1 termínů), kalendar/afk-zapasy.json (40 zápasů v Pečkách), kalendar/svoz-odpadu.json (186 svozů), kalendar/sberny-dvur.json (145 termínů provozních dob), kalendar/sportovni-hala.json (268 rezervací sportovní haly), kalendar/astronomie.json (149 astronomických úkazů)",
-  "updated": "2026-10-28"
+  "generated_from": "jednani/pecky-jednani.json (297 jednání), jednani/vybory.json + komise.json + skolska-rada.json (132 jednání výborů, komisí a školské rady), kalendar/akce.json (3941 akcí), kalendar/udalosti-volby.json (1 termínů), kalendar/afk-zapasy.json (40 zápasů v Pečkách), kalendar/svoz-odpadu.json (186 svozů), kalendar/sberny-dvur.json (145 termínů provozních dob), kalendar/sportovni-hala.json (268 rezervací sportovní haly), kalendar/astronomie.json (149 astronomických úkazů)",
+  "updated": "2026-10-31"
  },
  "org_sources": {
   "pececke-sluzby": [
@@ -159,14 +159,14 @@
   ],
   "msmasinka-pecky": [
    {
-    "name": "MŠ MAŠINKA Pečky — web",
-    "url": "https://www.msmasinkapecky.cz/",
+    "name": "Oficiální web města Pečky",
+    "url": "http://pecky.cz",
     "n": 2
    },
    {
-    "name": "Oficiální web města Pečky",
-    "url": "http://pecky.cz",
-    "n": 1
+    "name": "MŠ MAŠINKA Pečky — web",
+    "url": "https://www.msmasinkapecky.cz/",
+    "n": 2
    }
   ],
   "pecovatelska-sluzba-pecky": [
@@ -27326,6 +27326,23 @@
    "source_ref": "kurz-2026-11-02-tvorilek-1"
   },
   {
+   "id": "jednani-rada-2026-11-02",
+   "title": "Rada 39/2026",
+   "date": "2026-11-02",
+   "date_end": null,
+   "time": "15:00",
+   "all_day": false,
+   "category": "rada",
+   "link": "/jednani/#rada-2026-11-02",
+   "description": "8 bodů programu",
+   "place": null,
+   "organizer": "mesto-pecky",
+   "organizer_name": "Město Pečky",
+   "image": null,
+   "note": null,
+   "source_ref": "3dde225b-d1ec-11f1-bb58-0242c0a80002"
+  },
+  {
    "id": "kurz-2026-11-02-sportovky-pohybova-vsestrannost-1-st-zs",
    "title": "Sportovky — pohybová všestrannost (1. st. ZŠ)",
    "date": "2026-11-02",
@@ -39266,6 +39283,24 @@
    "image": null,
    "note": "Blok 17:00–19:00. Pro ty, kdo nestíhají středeční lekce, otevřen i každou poslední sobotu v měsíci — přiznaná mezera, konkrétní sobotní termíny web neuvádí.",
    "source_ref": "kurz-2026-12-09-atelier"
+  },
+  {
+   "id": "akce-2026-12-09-vanocni-jarmark-v-ms-masinka-pecky",
+   "title": "Vánoční jarmark v MŠ Mašinka Pečky",
+   "date": "2026-12-09",
+   "date_end": null,
+   "time": "17:00",
+   "time_end": "19:00",
+   "all_day": false,
+   "category": "akce",
+   "link": "https://pecky.cz/default/report/496608_vanocni-jarmark-v-ms-masinka-pecky",
+   "description": "Výrobky dětí a zaměstnanců školky. Občerstvení zajistí SRPMŠ. V 18:00 zazní koledy v rámci celorepublikové akce Česko zpívá koledy. Vstup zdarma.",
+   "place": "Velká zahrada Mateřské školy MAŠINKA Pečky",
+   "organizer": "msmasinka-pecky",
+   "organizer_name": "MŠ MAŠINKA Pečky",
+   "image": null,
+   "note": null,
+   "source_ref": "akce-2026-12-09-vanocni-jarmark-v-ms-masinka-pecky"
   },
   {
    "id": "kurz-2026-12-09-nesoubor",
