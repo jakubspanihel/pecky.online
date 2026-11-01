@@ -4,6 +4,8 @@ Chronologický deník běhů a úprav, nejnovější nahoře. Přesunuto z
 kořenového `README.md` (sekce „Poslední aktualizace“). Aktuální stav sekcí
 je v tabulce „Stav sekcí“ v `README.md`; sem patří podrobnosti běhu.
 
+1. listopadu 2026 (úprava Domů). Widget „Dnes“: když dnes nezbývá žádná akce, ukáže se nejbližší další den s chipem (zítra / pozítří / za N dní) a jeho událostmi (`assets/common.js`, popis v `domu/README.md`).
+
 1. listopadu 2026 (Usnesení, rozpočtová opatření). Na `/usneseni/` přibyl u usnesení k rozpočtovým opatřením sbalovací blok s důvodovou zprávou a ručně sestaveným shrnutím změny rozpočtu v titulku (`usneseni/rozpocet-shrnuti.json`, 30 usnesení s úplnými částkami); dále jména hlasujících u usnesení zastupitelstva (`usneseni/hlasovani.json`, `hlasovani-rucne.json`, generátor `update-hlasovani.py`).
 
 1. listopadu 2026 (nová stránka Usnesení, zatím bez odkazu). Založena `/usneseni/` (`content/usneseni.html`, `usneseni/README.md`, záznam v `EXTRA_PAGES` v `scripts/build.py` s `noindex`, mimo navigaci a sitemapu): seznam všech 2 828 usnesení rady a zastupitelstva od 4/2021 z `jednani/pecky-jednani.json` s fulltextem, filtrem orgánu a roku, štítkem výsledku a odkazem na jednání. Klasifikace výsledku usnesení přesunuta z `content/jednani.html` do `assets/helpers.js`, aby ji sdílely obě stránky.

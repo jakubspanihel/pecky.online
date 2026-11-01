@@ -392,6 +392,24 @@ document.querySelectorAll('.rel-chip[data-date]').forEach(el => {
     li.hidden = !(li.dataset.from <= dnes && li.dataset.until >= dnes) || !!probehla;
     if (!li.hidden) n++;
   });
+  // dnes nic → ukáže nejbližší další den (v rámci vypsané zásoby) s chipem zítra / pozítří / za N dní
+  const chip = box.querySelector('.dash-dnes-head .tag');
+  if (n === 0) {
+    const lis = [...box.querySelectorAll('.dash-dnes-list li[data-from]')];
+    for (let i = 1; i <= 7 && n === 0; i++) {
+      const t = new Date(d.getFullYear(), d.getMonth(), d.getDate() + i);
+      const iso = t.getFullYear() + '-' + pad(t.getMonth() + 1) + '-' + pad(t.getDate());
+      lis.forEach(li => {
+        li.hidden = !(li.dataset.from <= iso && li.dataset.until >= iso);
+        if (!li.hidden) n++;
+      });
+      if (n > 0) {
+        if (datum) datum.textContent = dny[t.getDay()].charAt(0).toUpperCase() + dny[t.getDay()].slice(1) + ' ' + t.getDate() + '. ' + (t.getMonth() + 1) + '.';
+        if (chip) { chip.textContent = relBudouci(iso); chip.className = 'tag kal-blizko'; }
+      }
+    }
+    if (n === 0) lis.forEach(li => { li.hidden = true; });
+  }
   const empty = box.querySelector('.dash-empty');
   if (empty) empty.hidden = n > 0;
   const menu = box.querySelector('.dash-dnes-menu');

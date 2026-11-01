@@ -62,3 +62,11 @@ Titulek bloku je shrnutí změny rozpočtu z `usneseni/rozpocet-shrnuti.json` (k
 kde text uvádí úplné částky (součty položek se počítají; přesuny mezi výdaji se uvádějí jako přesun).
 U ostatních usnesení (jen dotace bez částek, neúplné položky) je titulek „Projednávání bodu“.
 Při přidání nového rozpočtového opatření doplnit shrnutí do JSON, pokud zpráva částky uvádí.
+
+## Graf hlasování
+Nad výpisem je graf: jeden sloupec = jedno usnesení (rada i zastupitelstvo), od nejstaršího vlevo.
+Hlasy pro jdou nahoru od základní čáry, proti dolů, zdržení jsou uprostřed základny. Výška sloupce
+odpovídá počtu hlasů. Graf se řídí filtrem orgánu a hledáním; při více než ~160 usneseních se
+posouvá vodorovně (6 px na sloupec, začíná u nejnovějších). Popisky osy: roky a začátky čtvrtletí.
+Hover (nebo dotyk) ukáže usnesení s hlasy, klik na kartu usnesení. Kreslí `uChart()` v
+`content/usneseni.html` jako SVG, barvy z tokenů (`--cyan-deep`, `--burgundy`, `--ink-soft`).

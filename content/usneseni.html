@@ -18,7 +18,34 @@
       </div>
     </div>
     <h3 class="search-status" id="usneseni-status"><span class="spinner" aria-hidden="true"></span>Načítám usnesení…</h3>
+    <figure class="u-chart" id="usneseni-chart" hidden>
+      <figcaption>
+        <span class="u-chart-title">Hlasování <span id="usneseni-chart-count"></span> <span id="usneseni-chart-hint" hidden>· graf se posouvá vodorovně</span></span>
+        <span class="u-chart-legend" aria-hidden="true">
+          <span><i class="u-sw u-sw-pro"></i>pro</span><span><i class="u-sw u-sw-proti"></i>proti</span><span><i class="u-sw u-sw-zdrz"></i>zdržel se</span>
+        </span>
+      </figcaption>
+      <div class="u-chart-scroll" id="usneseni-chart-scroll" role="img" aria-label="Graf hlasování: každý sloupec je jedno usnesení, hlasy pro nahoru, proti dolů, zdržení uprostřed"></div>
+      <div class="u-chart-tip" id="usneseni-chart-tip" hidden></div>
+    </figure>
     <style>
+      .u-chart{position:relative; margin:var(--space-6) 0 var(--space-4); padding:var(--space-4) var(--space-5) var(--space-3); border:1px solid var(--line); border-radius:8px; background:var(--white);}
+      .u-chart figcaption{display:flex; flex-wrap:wrap; justify-content:space-between; gap:4px 16px; margin-bottom:var(--space-3); font-size:var(--fs-6);}
+      .u-chart-title{font-weight:var(--fw-semibold);}
+      .u-chart-title span{font-weight:400; color:var(--ink-soft);}
+      .u-chart-legend{display:flex; gap:14px; font-family:var(--font-mono); font-size:var(--fs-3); color:var(--ink-soft);}
+      .u-sw{display:inline-block; width:10px; height:10px; margin-right:5px; border-radius:2px; vertical-align:-1px;}
+      .u-sw-pro{background:var(--cyan-deep);} .u-sw-proti{background:var(--burgundy);} .u-sw-zdrz{background:var(--ink-soft); opacity:.5;}
+      .u-chart-scroll{overflow-x:auto; overflow-y:hidden;}
+      .u-chart-scroll svg{display:block; cursor:pointer; touch-action:pan-x;}
+      .u-chart .c-pro{fill:var(--cyan-deep);} .u-chart .c-proti{fill:var(--burgundy);} .u-chart .c-zdrz{fill:var(--ink-soft); fill-opacity:.5;}
+      .u-chart .c-base{stroke:var(--ink-soft); stroke-opacity:.5; stroke-width:1;}
+      .u-chart .c-year{font-family:var(--font-mono); font-size:11px; fill:var(--ink-soft);}
+      .u-chart .c-year-jan{font-weight:600;}
+      .u-chart .c-tick{stroke:var(--line); stroke-width:1;}
+      .u-chart .c-hover{fill:var(--ink); fill-opacity:.07;}
+      .u-chart-tip{position:absolute; z-index:20; max-width:300px; padding:8px 10px; border:1px solid var(--line); border-radius:6px; background:var(--white); box-shadow:var(--shadow-menu); font-size:var(--fs-6); pointer-events:none;}
+      .u-chart-tip .meeting-count{display:block;}
       #usneseni-type{flex:0 0 auto;}
       #usneseni-type-sel{display:none;}
       @media (max-width:600px){
@@ -152,6 +179,92 @@
       .map(y => `<h3 class="display u-year">${y} (${byYear[y].length} usnesení)</h3><div class="u-list">${byYear[y].map(r => uCard(r, rawWords)).join('')}</div>`).join('');
   }
 
+  // ===== graf: jeden sloupec = jedno usnesení (nejstarší vlevo); pro nahoru, proti dolů, zdržení uprostřed základny =====
+  const U_CH = {H: 170, top: 8, bottom: 22, minPitch: 6};
+  let uChartList = [], uChartPitch = 6;
+  function uChart(){
+    const fig = document.getElementById('usneseni-chart');
+    const wrap = document.getElementById('usneseni-chart-scroll');
+    const list = U_FILTERED.slice().reverse();
+    uChartList = list;
+    fig.hidden = !list.length;
+    if (!list.length) return;
+    document.getElementById('usneseni-chart-count').textContent = `(${list.length} usnesení)`;
+    const N = list.length;
+    const avail = Math.max(120, wrap.clientWidth || 600);
+    const pitch = Math.max(U_CH.minPitch, avail / N);
+    uChartPitch = pitch;
+    const W = Math.ceil(pitch * N), H = U_CH.H;
+    const bw = Math.max(1, pitch - 1);                     // mezera 1 px mezi sloupci, když je místo
+    let up = 0, down = 0;
+    list.forEach(r => { const z = (r.zdrzel || 0) / 2; up = Math.max(up, z + (r.pro || 0)); down = Math.max(down, z + (r.proti || 0)); });
+    const plotH = H - U_CH.top - U_CH.bottom;
+    const k = plotH / ((up + down) || 1);
+    const base = U_CH.top + up * k;
+    const rect = (x, y, h) => h > 0 ? `M${x.toFixed(2)} ${y.toFixed(2)}h${bw.toFixed(2)}v${h.toFixed(2)}h-${bw.toFixed(2)}z` : '';
+    let pPro = '', pProti = '', pZ = '';
+    list.forEach((r, i) => {
+      const x = i * pitch, z = (r.zdrzel || 0) * k, pro = (r.pro || 0) * k, pr = (r.proti || 0) * k;
+      pZ += rect(x, base - z / 2, z);
+      pPro += rect(x, base - z / 2 - pro, pro);
+      pProti += rect(x, base + z / 2, pr);
+    });
+    let years = '', last = '';
+    list.forEach((r, i) => {
+      const q = r.date.slice(0, 4) + '-' + Math.floor((+r.date.slice(5, 7) - 1) / 3);   // čtvrtletí
+      if (q === last) return;
+      last = q;
+      const x = i * pitch, jan = q.endsWith('-0');
+      const label = jan ? r.date.slice(0, 4) : (+q.slice(-1) * 3 + 1) + '.';
+      years += `<line class="c-tick" x1="${x.toFixed(1)}" x2="${x.toFixed(1)}" y1="${jan ? U_CH.top : H - U_CH.bottom}" y2="${H - U_CH.bottom + 4}"/><text class="c-year${jan ? ' c-year-jan' : ''}" x="${(x + 4).toFixed(1)}" y="${H - 6}">${label}</text>`;
+    });
+    wrap.innerHTML = `<svg width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" aria-hidden="true">
+      ${years}<rect class="c-hover" id="usneseni-chart-hover" width="${Math.max(pitch, 2).toFixed(2)}" height="${H - U_CH.bottom - U_CH.top}" y="${U_CH.top}" x="-10" hidden/>
+      <path class="c-pro" d="${pPro}"/><path class="c-zdrz" d="${pZ}"/><path class="c-proti" d="${pProti}"/>
+      <line class="c-base" x1="0" x2="${W}" y1="${base.toFixed(2)}" y2="${base.toFixed(2)}"/></svg>`;
+    if (!uChart.scrolled || wrap.scrollWidth > wrap.clientWidth) wrap.scrollLeft = wrap.scrollWidth;   // začíná u nejnovějších
+    uChart.scrolled = true;
+    document.getElementById('usneseni-chart-hint').hidden = wrap.scrollWidth <= wrap.clientWidth;
+  }
+  function uChartIdx(e){
+    const svg = document.querySelector('#usneseni-chart-scroll svg');
+    if (!svg) return -1;
+    const i = Math.floor((e.clientX - svg.getBoundingClientRect().left) / uChartPitch);
+    return i >= 0 && i < uChartList.length ? i : -1;
+  }
+  function uChartHover(e){
+    const tip = document.getElementById('usneseni-chart-tip'), hov = document.getElementById('usneseni-chart-hover');
+    const i = uChartIdx(e);
+    if (i < 0) { tip.hidden = true; if (hov) hov.setAttribute('hidden', ''); return; }
+    const r = uChartList[i], m = r._m;
+    if (hov) { hov.removeAttribute('hidden'); hov.setAttribute('x', (i * uChartPitch).toFixed(2)); }
+    tip.innerHTML = `<span class="meeting-count">${uFormatDate(r.date)} · ${U_TYPE_ABBR[m.type]} ${m.number}/${m.year} · ${jEscapeHtml(r.n)}</span><strong>${jEscapeHtml(r.item || '')}</strong>${uVoteLine(r)}`;
+    tip.hidden = false;
+    const f = document.getElementById('usneseni-chart').getBoundingClientRect();
+    let left = e.clientX - f.left + 14;
+    if (left + tip.offsetWidth > f.width - 4) left = e.clientX - f.left - tip.offsetWidth - 14;
+    tip.style.left = Math.max(4, left) + 'px';
+    tip.style.top = (e.clientY - f.top + 16) + 'px';
+  }
+  (function(){
+    const wrap = document.getElementById('usneseni-chart-scroll');
+    wrap.addEventListener('pointermove', uChartHover);
+    wrap.addEventListener('pointerleave', () => {
+      document.getElementById('usneseni-chart-tip').hidden = true;
+      const h = document.getElementById('usneseni-chart-hover'); if (h) h.setAttribute('hidden', '');
+    });
+    wrap.addEventListener('click', e => {
+      const i = uChartIdx(e);
+      const el = i >= 0 && document.getElementById(uChartList[i].n);
+      if (!el) return;
+      el.scrollIntoView({block: 'start'});
+      el.classList.add('u-flash');
+      setTimeout(() => el.classList.remove('u-flash'), 2500);
+    });
+    let t = null;
+    window.addEventListener('resize', () => { clearTimeout(t); t = setTimeout(() => U_ALL && uChart(), 200); });
+  })();
+
   function uApply(){
     if (!U_ALL) return;
     const statusEl = document.getElementById('usneseni-status');
@@ -166,6 +279,7 @@
     const celkem = U_ALL.filter(r => !type || r._m.type === type).length;
     document.getElementById('usneseni-search').placeholder = `Prohledat ${celkem} usnesení`;
     uRender();
+    uChart();
   }
 
   async function uLoad(){
