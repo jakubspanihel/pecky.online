@@ -41,7 +41,7 @@ vede rovnou na zdroj" v „Jak to funguje" níže.
   (žádný build-time HTML pro jednotlivé dny): navigace měsícem
   (◀ / Dnes / ▶), filtr podle pořadatele (chipy, generované z dat —
   samostatný filtr podle typu/kategorie od 22. 9. 2026 zrušen, viz
-  changelog v kořenovém `README.md`), barevné odznaky v buňkách dne
+  kořenový `HISTORIE.md`), barevné odznaky v buňkách dne
   (zelená = Rada přes `--field`, bordó = Zastupitelstvo přes
   `--burgundy`) prolinkované na `/jednani/#{typ}-{datum}`. Pod mřížkou
   je callout **„Kalendář čerpá z těchto zdrojů"** — bulletkový seznam

@@ -60,7 +60,7 @@ Struktura:
    starších ID. V takovém případě jen doplň nová ID (nic nemaž) a do
    `note` napiš, co bylo ověřeno a že úplná rekonciliace pole `ids` se
    nedělala.
-6. Zapsat běh do changelogu v kořenovém `README.md`, k příslušnému
+6. Zapsat běh do `HISTORIE.md` v kořeni, k příslušnému
    zdroji v `sources.json` a do tabulky „Stav sekcí" (datum kontroly
    vždy, datum změny jen při reálné změně obsahu — viz `CLAUDE.md` →
    Konvence).

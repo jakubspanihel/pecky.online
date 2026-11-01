@@ -45,5 +45,5 @@ tomu, co je v tabulkách v `content/smlouvy.html`.
    být, dokud nerozhodne. (Nastalo 30. 8. 2026: skupina 182 → 179 smluv,
    úřad 47 → 46, bez nové smlouvy; ponecháno beze změny.)
 5. Po změně `content/smlouvy.html` spustit `python3 scripts/build.py`.
-6. Zapsat běh do changelogu v kořenovém `README.md`, k příslušnému zdroji
+6. Zapsat běh do `HISTORIE.md` v kořeni, k příslušnému zdroji
    v `sources.json` a do tabulky „Stav sekcí" (viz `CLAUDE.md` → Konvence).

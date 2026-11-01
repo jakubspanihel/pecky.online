@@ -160,6 +160,14 @@ příslušný `content/<sekce>.html` a přepsat všechny odkazy, pak spustit
   Datumy se drží absolutní — relativní stáří se dopočítává až při čtení,
   nikdy se do souboru nezapisuje. Restrukturalizace a refactory se do
   tabulky nezapisují.
+- **Deník běhů patří do `HISTORIE.md`**, ne do `README.md`. Každá kontrola
+  nebo změna obsahu přidá **nahoru** kořenového `HISTORIE.md` odstavec
+  „D. měsíce RRRR (co za běh/úpravu). …“ (co se změnilo a proč, po
+  souborech). Sekce s vlastním deníkem (zatím Tělocvična →
+  `telocvicna/HISTORIE.md`, **na konec** blok „## Doplněno <datum>: …“,
+  soubor je řazen chronologicky vzestupně) zapíše navíc tam. README sekcí obsahují jen platný stav a postup, žádné datované
+  podsekce („Doplněno…“, „od 25. 9.“) — tabulka „Stav sekcí“ zůstává
+  v `README.md`, protože ji čte build.
 - Údaj „Poslední kontrola: před N dny“ pod nadpisem sekce (šedě, bez
   podtržení) se **negeneruje ručně** — `scripts/build.py` ho vloží
   automaticky z data „Kontrola" v tabulce `README.md` → „Stav sekcí"

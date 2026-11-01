@@ -509,8 +509,8 @@ Najdeš-li takový bod:
 3. Drž konvenci sekce: co je doložené zápisem, označ jako ověřené
    (`.stamp`); co zápis neříká (dopad na termín, cenu, odpovědnost),
    přiznej jako mezeru — nedopočítávat a nedomýšlet.
-4. Zapiš změnu do `telocvicna/README.md` (nová datovaná podsekce),
-   do changelogu v kořenovém `README.md` a přepiš řádek Tělocvična
+4. Zapiš změnu do `telocvicna/HISTORIE.md` (nový blok „## Doplněno <datum>“ na konec),
+   do kořenového `HISTORIE.md` a přepiš řádek Tělocvična
    v tabulce „Stav sekcí“.
 5. **Nahlaš to ve shrnutí běhu** — viz krok 11.
 
