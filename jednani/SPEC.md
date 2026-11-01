@@ -108,8 +108,7 @@ Veřejná data o jednáních orgánů města Pečky (zastupitelstvo, rada, výbo
 ## Výsledek prvního běhu (2026-08-04)
 
 281/281 jednání, 2 731 usnesení (vše s detaily), 2 846 hlasování, číselné řady
-bez děr, verbatim audit bez odchylek, 0 CF challenge. Viz
-`data/report-2026-08-04.md`.
+bez děr, verbatim audit bez odchylek, 0 CF challenge. Souhrnná zpráva `data/report-2026-08-04.md` se nedochovala.
 
 **Stav k 27. 8. 2026:** ke stroji, na kterém tento scraper běžel
 (`/Users/sigy/Projects/Pečky`), už není přístup — jde o uzavřenou

@@ -6,7 +6,7 @@ o samosprávě města Pečky (okres Kolín, Středočeský kraj).
 ## Obsah složky
 
 - **Vícestránkový statický web** (od migrace 30. 8. 2026 — viz
-  `ARCHITEKTURA-MIGRACE.md`), bez runtime frameworku, bez externích
+  `docs/ARCHITEKTURA-MIGRACE.md`), bez runtime frameworku, bez externích
   závislostí (jen systémová písma). `content/<sekce>.html` (jen obsah dané
   sekce) + sdílené `templates/page.html`, `assets/nav.html`,
   `assets/footer.html`, `assets/styles.css`, `assets/common.js`,
@@ -16,7 +16,7 @@ o samosprávě města Pečky (okres Kolín, Středočeský kraj).
   atd.) — needit vygenerované stránky přímo, vždy přes odpovídající
   `content/*.html` + `scripts/build.py`. Web běží na vlastní doméně
   `dopecek.cz` na kořeni (`CNAME` v rootu repa, GitHub Pages — viz
-  ARCHITEKTURA-MIGRACE.md, Dodatek 3), odkazy/assety jsou proto
+  docs/ARCHITEKTURA-MIGRACE.md, Dodatek 3), odkazy/assety jsou proto
   kořenově-absolutní bez subcesty (`SITE_BASE_PATH = ''` ve
   `scripts/build.py`) — pro místní test proto místo `python3 -m
   http.server` spustit `python3 scripts/serve.py` a otevřít

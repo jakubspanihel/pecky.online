@@ -125,7 +125,7 @@ JS handler (`.pozemek-jednani-link` / `jGotoMeeting()`), který ale žije
 jen v `<script>` bloku `content/jednani.html`, takže se na stránce
 Pozemky vůbec nenačetl (a i kdyby ano, `jGotoMeeting()` spoléhal na
 starou jednostránkovou navigaci `.navlink[data-panel="jednani"]`
-z doby před migrací na vícestránkový web, viz `ARCHITEKTURA-MIGRACE.md`).
+z doby před migrací na vícestránkový web, viz `docs/ARCHITEKTURA-MIGRACE.md`).
 Řádky tak vypadaly jako klikací odkaz, ale klik nikam nevedl. Oprava:
 generovat rovnou skutečný meziseránkový `<a href="/jednani/#…">`
 místo JS-only handleru — funguje bez ohledu na to, ze které stránky se

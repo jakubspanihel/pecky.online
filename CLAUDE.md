@@ -1,13 +1,13 @@
 # pecky.online
 
 Neoficiální občanský transparentní web o městě Pečky (okres Kolín).
-Vícestránkový statický web (viz `ARCHITEKTURA-MIGRACE.md`) — žádný
+Vícestránkový statický web (viz `docs/ARCHITEKTURA-MIGRACE.md`) — žádný
 runtime framework, žádné externí závislosti (ani webová písma — jen systémová,
 viz proměnné `--font-*` v `assets/styles.css`). Jediný
 "build krok" je lokální generovací skript `scripts/build.py`, jeho
 výstup jsou čisté statické soubory pro GitHub Pages.
 
-## Struktura (od migrace 30. 8. 2026 — viz ARCHITEKTURA-MIGRACE.md)
+## Struktura (od migrace 30. 8. 2026 — viz docs/ARCHITEKTURA-MIGRACE.md)
 Vícestránkový statický web, žádný runtime framework. Styl: pergamenově-
 úřední, jen systémová písma (`system-ui` pro text, `ui-serif`/Georgia pro
 nadpisy, systémové neproporcionální). Každá sekce má vlastní adresář/URL,
@@ -52,7 +52,7 @@ jako první):
   všechny stránky + `sitemap.xml`/`robots.txt`)
 
 Mapování starý slug → nová cesta (kvůli redirectu starých `#panel`
-odkazů v `content/domu.html`) je v `ARCHITEKTURA-MIGRACE.md`, sekce 2.3.
+odkazů v `content/domu.html`) je v `docs/ARCHITEKTURA-MIGRACE.md`, sekce 2.3.
 
 Data i obrázky patří vždy do složky sekce, ke které se vážou, ne do
 kořene repa. Kořenová `img/` je jen pro celowebové obrázky bez vazby na

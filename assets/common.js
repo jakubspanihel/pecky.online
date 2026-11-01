@@ -1,5 +1,5 @@
 // ===== assets/common.js — sdílená JS logika, načtená na každé stránce =====
-// Vzniklo migrací z jednosouborového index.html (ARCHITEKTURA-MIGRACE.md).
+// Vzniklo migrací z jednosouborového index.html (docs/ARCHITEKTURA-MIGRACE.md).
 // Obsahuje jen to, co je opravdu napříč sekcemi společné:
 // responzivní tabulky, podzáložky (+ jejich odkaz na URL hash), kartičky
 // volebních programů, rozbalovací bloky. Logika specifická pro jednu sekci
@@ -79,7 +79,7 @@ document.querySelectorAll('table.register').forEach(t => {
 
 // ===== Podzáložky uvnitř sekce (např. Volby 2022, Pozemky) =====
 // Rozšířeno o trvalý odkaz na konkrétní záložku: pecky.online/pozemky/#prodej
-// (viz ARCHITEKTURA-MIGRACE.md 2.2). Dřív (na jednostránkovém webu) neexistovalo
+// (viz docs/ARCHITEKTURA-MIGRACE.md 2.2). Dřív (na jednostránkovém webu) neexistovalo
 // vůbec — přepínání jen měnilo CSS třídy, hash se netýkal.
 document.querySelectorAll('.subtabs').forEach(nav => {
   const links = nav.querySelectorAll('.subtablink');

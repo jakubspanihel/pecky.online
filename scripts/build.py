@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Generovací skript pro pecky.online (viz ARCHITEKTURA-MIGRACE.md).
+Generovací skript pro pecky.online (viz docs/ARCHITEKTURA-MIGRACE.md).
 
 Skládá finální statické stránky ze sdílené šablony (templates/page.html),
 sdílené navigace (assets/nav.html), patičky (assets/footer.html) a obsahu
@@ -30,7 +30,7 @@ from build_peckybot_tools import main as build_peckybot_tools  # noqa: E402
 ROOT = Path(__file__).resolve().parent.parent
 
 # Nasazení: vlastní doména dopecek.cz na kořeni (CNAME, přes GitHub Pages),
-# viz ARCHITEKTURA-MIGRACE.md. Dřív web běžel na GitHub Pages subcestě
+# viz docs/ARCHITEKTURA-MIGRACE.md. Dřív web běžel na GitHub Pages subcestě
 # (https://jakubspanihel.github.io/pecky.online/) bez vlastní domény —
 # proto SITE_BASE_PATH pořád existuje jako přepínač pro tenhle stav.
 SITE_BASE_PATH = ''

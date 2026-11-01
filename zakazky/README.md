@@ -13,7 +13,7 @@ statický výřez, ne živá data.
 
 Zobrazovaný obsah panelu žije v `content/zakazky.html` (needit
 vygenerovanou veřejnou stránku `zakazky/index.html` přímo, vždy přes
-`content/zakazky.html` + `scripts/build.py` — viz `ARCHITEKTURA-MIGRACE.md`
+`content/zakazky.html` + `scripts/build.py` — viz `docs/ARCHITEKTURA-MIGRACE.md`
 v kořeni repa). Ve složce sekce je navíc jeden pomocný datový soubor,
 který se na webu nezobrazuje a slouží jen ke kontrole novinek.
 
