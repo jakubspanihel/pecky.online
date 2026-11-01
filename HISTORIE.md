@@ -933,8 +933,7 @@ předchozí záznam), opakovaný běh po pár hodinách by u malých lokálních
 účtů nepřinesl nic nového.)
 
 30. srpna 2026 (**architektura webu přepracována z jednosouborového
-`index.html` na vícestránkový statický web** — plán v
-`ARCHITEKTURA-MIGRACE.md`, motivace: web přerostl jednosouborovou
+`index.html` na vícestránkový statický web**, motivace: web přerostl jednosouborovou
 strukturu a chyběly trvalé odkazy na jednotlivé sekce i záložky uvnitř
 nich. Obsah rozřezán do `content/<sekce>.html` (13 souborů), sdílené
 části do `templates/page.html`, `assets/nav.html`, `assets/footer.html`,

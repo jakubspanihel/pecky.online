@@ -14,8 +14,7 @@ Všechny soubory týkající se sekce Jednání (index pro fulltextové hledán�
 kompletní datový snímek, referenční dokumenty, skripty) patří do
 `jednani/`, ne do kořene repa ani do `data/` — i nově vznikající.
 Jediná výjimka: zobrazení sekce žije v `content/jednani.html` (od migrace
-na vícestránkový web 30. 8. 2026 — viz `docs/ARCHITEKTURA-MIGRACE.md`
-repa) — needit vygenerovanou veřejnou stránku přímo, jen `content/jednani.html`
+na vícestránkový web 30. 8. 2026) — needit vygenerovanou veřejnou stránku přímo, jen `content/jednani.html`
 a pak spustit `scripts/build.py`. Dřívější samostatná stránka
 `jednani/index.html` (kopie bez hlavičky hlavního webu) migrací
 zanikla — nahradila ji plnohodnotná veřejná stránka `/jednani/`.
@@ -308,7 +307,7 @@ zastupitelé zastupují" nad nadpisem „Zápisy z jednání" v
 `content/jednani.html`. V navigaci vlastní odkaz pořád nemá (žije jen
 jako podstránka `/jednani/absence.html`, ne jako plnohodnotná sekce
 s vlastním řádkem v „Stav sekcí"). Generuje ji `scripts/build.py`
-z `content/absence.html` přes `EXTRA_PAGES` (viz `docs/ARCHITEKTURA-MIGRACE.md`)
+z `content/absence.html` přes `EXTRA_PAGES`
 — šesté pole u záznamu `absence` je ISO datum, které zároveň sundá
 `noindex` a stránku zařadí do `sitemap.xml` s tímhle datem jako
 `<lastmod>` (bez vlastního řádku v „Stav sekcí" ho nemá odkud dopočítat

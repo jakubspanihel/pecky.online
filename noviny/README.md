@@ -10,8 +10,7 @@ Všechny soubory týkající se Pečeckých novin (tento dokument, extrahovaný
 fulltext JSON, obálky, stažená PDF, skripty) patří do `noviny/`, ne
 do kořene repa ani do `data/`/`img/` — i nově vznikající. Jediná výjimka:
 zobrazení sekce žije v `content/zpravodaj.html` (od migrace na
-vícestránkový web 30. 8. 2026 — viz `docs/ARCHITEKTURA-MIGRACE.md`
-repa) — needit vygenerovanou veřejnou stránku (`noviny/index.html`)
+vícestránkový web 30. 8. 2026) — needit vygenerovanou veřejnou stránku (`noviny/index.html`)
 přímo, jen `content/zpravodaj.html` a pak spustit `scripts/build.py`.
 Dřívější samostatná stránka `noviny/index.html` (kopie bez
 hlavičky hlavního webu) migrací zanikla — nahradila ji plnohodnotná
@@ -410,7 +409,7 @@ Dřív (do 30. 8. 2026) existovala vedle panelu v hlavním webu i samostatná,
 nezávisle otevíratelná stránka `noviny/index.html` se stejným
 obsahem, ale bez hlavičky/navigace hlavního webu — duplicitní kód, který
 šlo snadno rozjet (JS hledání muselo zůstávat ručně synchronizované mezi
-oběma soubory). Migrace na vícestránkový web (`docs/ARCHITEKTURA-MIGRACE.md`)
+oběma soubory). Migrace na vícestránkový web
 tenhle problém odstranila: `noviny/index.html` byl smazán, veřejná
 stránka `/noviny/` se teď generuje ze stejného `content/zpravodaj.html`,
 který vidí i tenhle dokument výše — žádná ruční synchronizace dvou kopií

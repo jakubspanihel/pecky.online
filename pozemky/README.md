@@ -43,7 +43,7 @@ python3 scripts/build.py
 První skript v jednom běhu přegeneruje obě HTML tabulky (Nákup/Prodej)
 přímo v `content/pozemky.html` a zároveň `jednani/parcely-odkazy.json`;
 ověří i balanci HTML tagů po zásahu (selže s chybou, pokud něco rozbije).
-Druhý příkaz je od migrace na vícestránkový web (`docs/ARCHITEKTURA-MIGRACE.md`)
+Druhý příkaz je od migrace na vícestránkový web
 nutný vždy — promítne `content/pozemky.html` do veřejné stránky
 `pozemky/index.html`.
 

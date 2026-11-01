@@ -11,7 +11,7 @@ B) Obecné prolinkování zmínek "parc. NNNN" kdekoli v textu usnesení
    dřív jednani/katastr-odkazy.json, teď parcely-odkazy.json
    generovaný tímhle skriptem.
 
-DŮLEŽITÉ (od migrace na vícestránkový web, docs/ARCHITEKTURA-MIGRACE.md):
+DŮLEŽITÉ (od migrace na vícestránkový web):
 tenhle skript edituje content/pozemky.html, ne přímo veřejnou stránku —
 po jeho běhu je vždy potřeba ještě spustit `python3 scripts/build.py`,
 ať se změna promítne i do vygenerovaného pozemky/index.html.
