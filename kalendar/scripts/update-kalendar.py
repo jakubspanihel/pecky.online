@@ -124,7 +124,7 @@ def build_jednani_events():
             'category': cat,
             'link': f'/jednani/#{cat}-{m["date"]}',
             'description': f'{agenda_n} bodů programu' if agenda_n else None,
-            'place': None,
+            'place': m.get('venue'),
             'organizer': 'mesto-pecky',
             'organizer_name': org.get('mesto-pecky', 'Město Pečky'),
             'image': None,
