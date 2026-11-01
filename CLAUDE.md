@@ -155,7 +155,9 @@ příslušný `content/<sekce>.html` a přepsat všechny odkazy, pak spustit
 - Po každé kontrole nebo změně obsahu sekce (automatické i ručně vyvolané)
   přepsat její řádek v tabulce `README.md` → „Stav sekcí" (build ji vykreslí na
   stránce `/o-webu/changelog.html` — Historie změn na webu; ručně se tam nepíše): datum kontroly
-  vždy, datum změny a sloupec „Co naposledy" jen při reálné změně obsahu;
+  vždy, datum změny a sloupec „Co naposledy" jen při reálné změně obsahu
+  (**jen poslední změna, bez řetězce „dřív: …“** — starší patří do
+  `HISTORIE.md`; při nové změně text buňky přepsat, ne doplnit);
   pak řádek přesunout na správné místo v řazení (nejnovější změna nahoře).
   Datumy se drží absolutní — relativní stáří se dopočítává až při čtení,
   nikdy se do souboru nezapisuje. Restrukturalizace a refactory se do
