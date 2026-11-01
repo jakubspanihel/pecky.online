@@ -44,6 +44,10 @@ Výstupy skriptu pro tuhle část:
   načítá ji frontend pro obecné prolinkování v Jednání (nahrazuje
   smazaný `katastr-odkazy.json`).
 
+Stejnou plochou mapou se prolinkovávají i témata v bannerech „Z rady města“ /
+„Ze zastupitelstva“ na Domů: `_odkaz_parcely()` v `scripts/build.py` (zmínka
+„parc. č. 359/27“ → odkaz na číslo parcely; číslo bez záznamu v mapě zůstane textem).
+
 ## Starší jednání (úřední deska, archiv města, noviny) — od 18. 10. 2026
 
 Texty ve `starsi-jednani.json` a `noviny-jednani.json` jsou souvislý zápis, ve kterém má každý bod jiný katastr, proto

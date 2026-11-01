@@ -235,7 +235,7 @@ EXTRA_PAGES = {
         # content/fbmonitoring.html GENERUJE o-webu/facebook-monitoring/summary.py
         # (statický snímek tabulky; zdrojová JSON jsou v .gitignore). Po každém
         # novém měsíci: pustit summary.py, build a přepsat lastmod níže.
-        False, 'owebu', '2026-10-23'),
+        False, 'owebu', '2026-11-01'),
     'fbuskupeni': (
         '/o-webu/facebook-monitoring/uskupeni/',
         'Politická uskupení Peček na Facebooku — Do Peček . cz',
@@ -824,6 +824,22 @@ def _zm_akce(m, odkaz):
     return f'<div class="banner-actions">{"".join(out)}</div>' if out else ''
 
 
+def _zm_poznamky():
+    """Odrážky pod bannerem příštího zasedání: veřejnost, živý přenos, dotazy.
+    Telefon je mobil tajemnice z `lide/people.json` (uvádí ho pozvánky ZM
+    jako kontakt v době zasedání)."""
+    osoby = json.loads(read('lide/people.json'))['people']
+    tel = next((c.strip() for o in osoby if o['id'] == 'nepovimovap'
+                for c in o.get('phone', '').split('·')[1:]), '')
+    cislo = tel.replace('+420', '').strip()
+    tel_html = (f' telefonicky na <a href="tel:{tel.replace(" ", "")}">{esc(cislo)}</a>' if tel else '')
+    return ('<ul class="banner-points">'
+            '<li>Jednání je veřejné, můžete jej osobně navštívit.</li>'
+            '<li>Jednání se přenáší živě online (a bude dostupný záznam).</li>'
+            f'<li>Dotazy můžete pokládat pomocí chatu na YouTube, případně{tel_html}.</li>'
+            '</ul>')
+
+
 def _dash_zastupitelstvo(dnes):
     """Samostatný widget na úplném začátku Domů: ohlášené zastupitelstvo
     (jen ZM, ne Rada) a nejbližší volby z kalendáře. Vrací dvojici
@@ -868,7 +884,7 @@ def _dash_zastupitelstvo(dnes):
                    f'<p class="banner-meta"><span class="banner-meta-item">{ICO_KAL}<span>{esc(kdy)}</span></span>{misto}</p>'
                    f'{_zm_hot(m)}{_zm_akce(m, odkaz)}</div>'
                    f'{avatary}'
-                   f'<p class="banner-note">Jednání je veřejné. Ze zasedání bude dostupný audio i video záznam.</p></li>')
+                   f'{_zm_poznamky()}</li>')
     if zm:
         out.append('  </ul>')
         out.append('</div>')
@@ -1006,6 +1022,36 @@ def _dash_zm_shrnuti():
     return _dash_shrnuti('zm')
 
 
+_RE_CASTKA = (r'\d+(?: \d{3})*(?:,\d+)?(?: (?:tisíc|milionů|mil\.|miliard))? Kč(?:/[A-Za-zµ²³]+)?(?: bez DPH| \+ DPH| s DPH)?'
+              r'|\d+(?:,\d+)? ?%')
+
+
+def _zvyrazni(html):
+    """Zvýraznění důležitých údajů v tématech banneru „Z rady / ze zastupitelstva“:
+    částky v Kč a procenta se obalí do `<mark>` (žluté pozadí, viz `.banner mark`);
+    ručně lze označit cokoli jiného jako `==text==` ve shrnutí."""
+    html = re.sub(r'==(.+?)==', r'<mark>\1</mark>', html)
+    return re.sub(r'(<mark>.*?</mark>)|(' + _RE_CASTKA + ')',
+                  lambda m: m.group(1) or f'<mark>{m.group(2)}</mark>', html)
+
+
+def _odkaz_parcely(html):
+    """Zmínky „parc. č. 359/27“ v tématech banneru odkážou na detail parcely v Nahlížení
+    do KN. Stejné pravidlo jako `jLinkParcely()` v `content/jednani.html`: plochá mapa
+    `jednani/parcely-odkazy.json` (číslo bez jednoznačného katastru v ní není, takové
+    zůstane textem), odkaz nese jen číslo parcely."""
+    mapa = json.loads(read('jednani/parcely-odkazy.json')).get('parcely') or {}
+
+    def _nahrad(m):
+        url = mapa.get(m.group(1))
+        if not url:
+            return m.group(0)
+        pred = m.group(0)[:-len(m.group(1))]
+        return (f'{pred}<a href="{url}" target="_blank" rel="noopener" '
+                f'title="Detail parcely {m.group(1)} na Nahlížení do KN (VDP) ↗">{m.group(1)}</a>')
+    return re.sub(r'parc\.\s*(?:č\.\s*)?(\d{1,5}(?:/\d{1,3})?)', _nahrad, html, flags=re.I)
+
+
 def _dash_shrnuti(druh):
     """Banner „Z rady města“ / „Ze zastupitelstva“ pod bannery zasedání. Rada: nejdůležitější
     témata z jednání, která mají soubor jednani/shrnuti/{datum}-rada.md (blok „## Nejdůležitější
@@ -1045,7 +1091,7 @@ def _dash_shrnuti(druh):
             continue
         if not pol:
             continue
-        li = ''.join('<li>' + re.sub(r'\*\*(.+?)\*\*', r'<strong>\1</strong>', esc(t)) + '</li>' for t in pol)
+        li = ''.join('<li>' + _odkaz_parcely(_zvyrazni(re.sub(r'\*\*(.+?)\*\*', r'<strong>\1</strong>', esc(t)))) + '</li>' for t in pol)
         if zapis:
             nota = ''
         elif budouci:

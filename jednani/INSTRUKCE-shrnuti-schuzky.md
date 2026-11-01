@@ -84,7 +84,10 @@ Hlavička jednou větou.
 *Shrnutí vychází z … ; zápis z diskuse nebyl čten.*
 ```
 
-Žádné jiné značky (bez nadpisu `#`, tabulek, odkazů `[]()`). Zmínky
+Žádné jiné značky (bez nadpisu `#`, tabulek, odkazů `[]()`); jedinou výjimkou je
+zvýraznění `==text==` v „Nejdůležitějších tématech“ (žlutý podklad v banneru na
+Domů). Částky v Kč a procenta zvýrazní build sám, `==…==` jen pro jiný zásadní
+údaj (např. výsledek hlasování). Zmínky
 „RM 36/2026“, „UR-…/26“ web odkáže sám. Při doplnění zápisu k již
 shrnutému jednání se soubor **přepíše novou verzí** (stejný název),
 ne duplikuje.

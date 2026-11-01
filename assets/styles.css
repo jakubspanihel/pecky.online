@@ -487,8 +487,9 @@
      podtržený — globální bordó odkaz (a{color:var(--burgundy)}) by na bordó či modrém podkladu zmizel */
   .banner a:not(.banner-cta):not(.dash-more), .kal-banner a:not(.kal-banner-cta){color:inherit; text-decoration:underline;}
   .banner--slate{--banner-from:var(--cyan); --banner-to:var(--cyan); --banner-accent:var(--cyan);}
-  .banner .tag.rel-chip{margin-left:var(--space-2); white-space:nowrap; background:var(--white); border-color:var(--white); color:var(--banner-accent); font-weight:var(--fw-bold);}
-  .banner--slate .tag.fut-chip{background:var(--yellow); border-color:var(--yellow-deep); color:var(--ink); font-weight:var(--fw-bold);}
+  /* štítky na barevném pozadí banneru: vždy bílá pilulka s barvou banneru (kontrast) */
+  .banner .tag, .kal-banner .tag, .banner span.tag, .kal-banner span.tag{background:var(--white); border-color:var(--white); color:var(--banner-accent,var(--burgundy)); font-weight:var(--fw-bold);}
+  .banner .tag.rel-chip{margin-left:var(--space-2); white-space:nowrap;}
   .banner--green{--banner-from:#3F8A55; --banner-to:#2A5E3A; --banner-accent:#2A5E3A;}
   /* banner s obrázkem vlevo (Domů: Pečecké noviny) — obálka + text a tlačítko */
   .banner--media{display:flex; align-items:center; gap:var(--space-10); padding:var(--space-10) var(--space-12);}
@@ -522,6 +523,7 @@
   .banner-meta-item svg{flex:0 0 auto; margin-top:3px;}
   .banner .banner-text{margin:0 0 var(--space-4); font-size:var(--fs-10); line-height:1.5; color:rgba(255,255,255,0.9);}
   .banner .banner-topics{margin:0 0 var(--space-4); padding-left:var(--space-9); font-size:var(--fs-10); line-height:1.5; color:var(--white-a92);}
+  .banner mark{background:var(--yellow); color:var(--ink); font-weight:var(--fw-semibold); padding:0 var(--space-1); border-radius:var(--radius-xs); -webkit-box-decoration-break:clone; box-decoration-break:clone;}
   .banner .banner-topics li{margin:0 0 var(--space-2); padding:0; border:none; font-size:inherit;}
   /* banner „Z rady města“: záhlaví s šipkami, řádek s názvem jednání, textový odkaz za CTA */
   .banner-head{display:flex; align-items:flex-start; justify-content:space-between; gap:var(--space-4);}
@@ -543,6 +545,9 @@
   .banner .banner-hot + .banner-actions{margin-top:var(--space-4);}
   .banner > li > .banner-note{flex:0 0 100%; margin:0; text-align:right;}
   .banner .banner-note{margin:var(--space-6) 0 0; font-size:var(--fs-7); line-height:1.4; color:var(--white-a80);}
+  .banner .banner-points{flex:0 0 100%; margin:var(--space-6) 0 0; padding:0 0 0 var(--space-9); list-style:disc; font-size:var(--fs-7); line-height:1.4; font-weight:var(--fw-semibold); color:var(--white-a80);}
+  .dash-zm .banner.dash-list .banner-points li{display:list-item; padding:var(--space-1) 0; border-bottom:none; font-size:inherit; line-height:inherit;}
+  .banner .banner-points a{color:var(--white); text-decoration:underline;}
   .banner .banner-link{color:var(--white); font-size:var(--fs-10);}
   /* .dash-list (definovaný níže) nuluje padding — banner na dashboardu musí mít přednost */
   .banner.dash-list{padding:var(--space-12) var(--space-13); margin:0;}
