@@ -155,7 +155,7 @@ se sem, na stránku samotnou se nic ručně nepíše.
 
 | Sekce | Režim | Kontrola | Změna | Co naposledy |
 |---|---|---|---|---|
-| [Lidé](lide/README.md) | na vyžádání | 1. 11. 2026 | 1. 11. 2026 | tajemnice Bc. Pavlína Nepovímová: doplněno, že její mobil je telefonní kontakt v době zasedání zastupitelstva (podle pozvánek ZM 2022–2026) |
+| [Lidé](lide/README.md) | na vyžádání | 1. 11. 2026 | 1. 11. 2026 | doplněno 19 fotek kandidátů 2018 (NAŠE PEČKY str. 8, ODS str. 10) z Pečeckých novin 9/2018 |
 | [Jednání](jednani/README.md) | týdně | 31. 10. 2026 | 31. 10. 2026 | zápis a usnesení RM 38/2026 (26. 10. 2026; 7 usnesení UR-331 až UR-337-38/26, délky bodů, docházka s příchodem v 15:45) a nová Pozvánka RM 39/2026 (2. 11. 2026, 8 bodů); komise, výbory a školská rada beze změny |
 | [O webu](o-webu/README.md) | týdně | 1. 11. 2026 | 1. 11. 2026 | Monitoring Facebooku města (kontrola 1. 11. 2026): říjen 2026 dokončen, 35 příspěvků (5 nových z 27.–30. 10.), počty reakcí obnoveny; archiv 96 měsíců, 2 103 příspěvků; sociální sítě (kontrola 1. 11. 2026, projito 55 z 55 odkazů): Instagram Nejen kavárna u Radu 518 → 517 |
 | [Volby 2026](volby/2026/README.md) | týdně | 1. 11. 2026 | 31. 10. 2026 | promítnuty účty (kontrola 31. 10. 2026): Pečky NEXT FB 328 → 327, Pečky Pečákům 255 → 256, ODS 265 → 266, Pečky srdcem 126 → 128 (poslední příspěvek 27. → 28. 10.), skupina SPD 56 → 57 členů, ostatní beze změny (NAŠE PEČKY FB i IG, Pečky NEXT IG) |
