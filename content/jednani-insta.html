@@ -161,9 +161,18 @@
       for (const name of cs) c[i].style.setProperty(name, cs.getPropertyValue(name));
     });
     clone.style.position = 'static'; clone.style.margin = '0';
+    // fotky se před vložením do SVG zmenší (čtverec 160 px, ořez na střed jako object-fit:cover) a dekódují;
+    // velké portréty ve foreignObject Safari často nestihne vykreslit a avatar zůstane prázdný
     for (const img of clone.querySelectorAll('img')) {
-      const blob = await (await fetch(img.src)).blob();
-      img.src = await new Promise(res => { const r = new FileReader(); r.onload = () => res(r.result); r.readAsDataURL(blob); });
+      const zdroj = new Image();
+      zdroj.src = URL.createObjectURL(await (await fetch(img.src)).blob());
+      await zdroj.decode();
+      const S = 160, k = Math.max(S / zdroj.naturalWidth, S / zdroj.naturalHeight);
+      const c = document.createElement('canvas');
+      c.width = c.height = S;
+      c.getContext('2d').drawImage(zdroj, (S - zdroj.naturalWidth * k) / 2, (S - zdroj.naturalHeight * k) / 2, zdroj.naturalWidth * k, zdroj.naturalHeight * k);
+      URL.revokeObjectURL(zdroj.src);
+      img.src = c.toDataURL('image/png');
     }
     clone.setAttribute('xmlns', 'http://www.w3.org/1999/xhtml');
     const w = orig.offsetWidth, h = orig.offsetHeight;
@@ -172,7 +181,13 @@
     await new Promise((res, rej) => { img.onload = res; img.onerror = rej; img.src = 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(svg); });
     const canvas = document.createElement('canvas');
     [canvas.width, canvas.height] = JI_FORMATY[JI_FORMAT];
-    canvas.getContext('2d').drawImage(img, 0, 0, canvas.width, canvas.height);
+    const ctx = canvas.getContext('2d');
+    await img.decode().catch(() => {});
+    ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+    // Safari při prvním vykreslení SVG často vynechá vložené obrázky; po chvíli se nakreslí znovu
+    await new Promise(r => setTimeout(r, 150));
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
     return new Promise(res => canvas.toBlob(res, 'image/png'));
   }
   function jiStav(t){ document.getElementById('today-stav').textContent = t; }
