@@ -24,6 +24,10 @@
       #jednani-results .meeting-list{border-top:0; display:flex; flex-direction:column; gap:12px;}
       #jednani-results .meeting-row{border:1px solid var(--line); border-radius:8px; background:rgba(255,255,255,0.5); overflow:hidden;}
       #jednani-results .meeting-row--expanded{background:var(--white);}
+      #jednani-results .agenda-permalink{color:inherit; text-decoration:none;}
+      #jednani-results .agenda-permalink:hover{color:var(--cyan-deep); text-decoration:underline;}
+      #jednani-results .agenda-item{scroll-margin-top:calc(var(--nav-h,0px) + var(--title-h,0px) + var(--lc-h,0px) + 16px);}
+      #jednani-results .agenda-item--flash{background:var(--burgundy-a035);}
       #jednani-results .meeting-row-main{padding:12px 14px;}
       #jednani-results .meeting-row-detail{padding:2px 14px var(--space-8);}
       #jednani-results h3.j-year{position:sticky; z-index:8; background:var(--material); margin:0 0 12px; padding:var(--space-2) 0; top:calc(var(--nav-h,0px) + var(--title-h,0px) + var(--lc-h,0px));}
@@ -104,21 +108,6 @@
   let PEOPLE_GENDER = {};  // jNameKey(jméno) -> 'm' / 'f', z lide/people.json (skloňování)
   let TERM_BOUNDARIES = [];  // hranice volebních období, z jednani/volebni-obdobi.json
 
-  function jTextSim(a, b){
-    const clean = s => jNorm(s || '').replace(/[^a-z0-9\s]/g, ' ').replace(/\s+/g, ' ').trim();
-    const na = clean(a), nb = clean(b);
-    if (!na || !nb) return 0;
-    if (na === nb) return 1;
-    if (na.includes(nb) || nb.includes(na)) return 0.9;
-    const bigrams = s => { const arr = []; for (let i = 0; i < s.length - 1; i++) arr.push(s.slice(i, i + 2)); return arr; };
-    const ba = bigrams(na), bb = bigrams(nb);
-    if (!ba.length || !bb.length) return 0;
-    const counts = {};
-    bb.forEach(g => counts[g] = (counts[g] || 0) + 1);
-    let matches = 0;
-    ba.forEach(g => { if (counts[g] > 0) { matches++; counts[g]--; } });
-    return (2 * matches) / (ba.length + bb.length);
-  }
   function jFormatDateZeroPad(iso){
     if (!iso) return '';
     const parts = iso.split('-');
@@ -579,9 +568,9 @@
       const hasDetail = !!(a.duvodova_zprava || (a._res && a._res.some(r => r.text)) || a.rejected_vote);
       const isLongest = maxDuration != null && a.duration_seconds === maxDuration;
       return `
-      <li class="agenda-item${hasDetail ? ' agenda-item--expandable' : ''}">
+      <li class="agenda-item${hasDetail ? ' agenda-item--expandable' : ''}" data-bod="${jEscapeHtml(String(a.n))}">
         <div class="agenda-item-main">
-          <span class="agenda-num">${jEscapeHtml(String(a.n))}.</span>
+          <a class="agenda-num agenda-permalink" href="#${jSlugForMeeting(m)}-bod-${encodeURIComponent(String(a.n))}" title="Trvalý odkaz na tento bod">${jEscapeHtml(String(a.n))}.</a>
           <span class="agenda-text${a.routine ? ' agenda-text--routine' : ''}">${jLinkedText(a.t || '')}${jAgendaDotsHtml(a)}</span>
           ${a.duration_seconds != null || a.video_url ? `<span class="agenda-meta">
             ${a.duration_seconds != null ? `<span class="agenda-time">bod se projednával: ${jFormatItemTime(a.duration_seconds)}${isLongest ? ' 🔥' : ''}</span>` : ''}
@@ -977,7 +966,31 @@
   // směrování podle hashe v URL: #rada / #zastupitelstvo (filtr typu) nebo
   // #rada-2026-08-31 / #zastupitelstvo-2026-06-24 (trvalý odkaz na konkrétní jednání)
   const J_MEETING_HASH_RE = /^(rada|zastupitelstvo|financni-vybor|kontrolni-vybor|sportovni-komise|kulturni-komise|stavebni-komise|pracovni-skupina|sbor|skolska-rada)-(\d{4}-\d{2}-\d{2})$/;
+  // #rada-2026-10-26-bod-7: trvalý odkaz na bod programu (jednání se rozbalí a bod se zvýrazní)
+  const J_ITEM_HASH_RE = new RegExp(J_MEETING_HASH_RE.source.replace(/\$$/, '') + '-bod-([^/]+)$');
+  async function jGotoAgendaItem(slug, bod){
+    await jGotoMeetingBySlug(slug);
+    const row = document.querySelector('#jednani-results .meeting-row[data-slug="' + slug + '"]');
+    const li = row && [...row.querySelectorAll('.agenda-item')].find(x => x.dataset.bod === bod);
+    if (!li) return;
+    jSetAgendaItem(li, true);
+    li.scrollIntoView({behavior: 'smooth', block: 'center'});
+    li.classList.add('agenda-item--flash');
+    setTimeout(() => li.classList.remove('agenda-item--flash'), 2500);
+  }
+  // rozbalí/sbalí detail bodu (důvodová zpráva, usnesení)
+  function jSetAgendaItem(li, show){
+    if (!li.classList.contains('agenda-item--expandable')) return;
+    const toggle = li.querySelector('.agenda-toggle');
+    const dzText = li.querySelector(':scope > .info-toggle-text');
+    if (dzText) dzText.hidden = !show;
+    li.querySelectorAll('.agenda-res-list .info-toggle-text').forEach(t => { t.hidden = !show; });
+    if (toggle) toggle.textContent = show ? '▾' : '▸';
+    li.classList.toggle('agenda-item--expanded', show);
+  }
   function jRouteHash(hash){
+    const im = J_ITEM_HASH_RE.exec(hash);
+    if (im) { jGotoAgendaItem(im[1] + '-' + im[2], decodeURIComponent(im[3])); return; }
     if (J_HASH_TO_TYPE[hash]) { jApplyTypeFilter(J_HASH_TO_TYPE[hash], {updateHash: false}); return; }
     if (J_MEETING_HASH_RE.test(hash)) { jGotoMeetingBySlug(hash); return; }
     jApplyTypeFilter('', {updateHash: false});
@@ -995,17 +1008,24 @@
   // v hlavičce bodu (ne jen na text), s +/− indikátorem (viz .meeting-toggle)
   document.getElementById('jednani-results').addEventListener('click', (e) => {
     const agendaMain = e.target.closest('.agenda-item-main');
+    // číslo bodu je trvalý odkaz: rozbalí bod a nastaví hash (Ctrl/Cmd/prostřední tlačítko nechá prohlížeči)
+    const perma = e.target.closest('.agenda-permalink');
+    if (perma) {
+      if (e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+      e.preventDefault();
+      const li = perma.closest('.agenda-item');
+      jSetAgendaItem(li, true);
+      history.replaceState(null, '', perma.getAttribute('href'));
+      return;
+    }
     if (agendaMain && !e.target.closest('a')) {
       const li = agendaMain.closest('.agenda-item');
       if (li && li.classList.contains('agenda-item--expandable')) {
-        const toggle = li.querySelector('.agenda-toggle');
-        const dzText = li.querySelector(':scope > .info-toggle-text');
-        const resTexts = li.querySelectorAll('.agenda-res-list .info-toggle-text');
         const willShow = !li.classList.contains('agenda-item--expanded');
-        if (dzText) dzText.hidden = !willShow;
-        resTexts.forEach(t => { t.hidden = !willShow; });
-        if (toggle) toggle.textContent = willShow ? '▾' : '▸';
-        li.classList.toggle('agenda-item--expanded', willShow);
+        jSetAgendaItem(li, willShow);
+        // po rozbalení se do URL dá odkaz na bod, po sbalení zpět na jednání
+        const row = li.closest('.meeting-row');
+        if (row && row.dataset.slug) history.replaceState(null, '', '#' + row.dataset.slug + (willShow ? '-bod-' + encodeURIComponent(li.dataset.bod) : ''));
       }
       return;
     }

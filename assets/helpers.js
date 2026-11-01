@@ -413,3 +413,20 @@ function jLinkParcely(escapedHtml){
     return `${prefix}<a href="${url}" target="_blank" rel="noopener" title="Detail parcely ${num} na Nahlížení do KN (VDP) ↗">${num}</a>`;
   });
 }
+
+// podobnost dvou textů 0–1 (shoda, obsažení, jinak bigramy) — párování usnesení s body programu
+function jTextSim(a, b){
+  const clean = s => jNorm(s || '').replace(/[^a-z0-9\s]/g, ' ').replace(/\s+/g, ' ').trim();
+  const na = clean(a), nb = clean(b);
+  if (!na || !nb) return 0;
+  if (na === nb) return 1;
+  if (na.includes(nb) || nb.includes(na)) return 0.9;
+  const bigrams = s => { const arr = []; for (let i = 0; i < s.length - 1; i++) arr.push(s.slice(i, i + 2)); return arr; };
+  const ba = bigrams(na), bb = bigrams(nb);
+  if (!ba.length || !bb.length) return 0;
+  const counts = {};
+  bb.forEach(g => counts[g] = (counts[g] || 0) + 1);
+  let matches = 0;
+  ba.forEach(g => { if (counts[g] > 0) { matches++; counts[g]--; } });
+  return (2 * matches) / (ba.length + bb.length);
+}

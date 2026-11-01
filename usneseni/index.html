@@ -79,7 +79,7 @@
 <main>
   <section class="panel active" id="panel-usneseni">
     <h2 class="title display">Usnesení</h2>
-    <p class="lede perex" id="usneseni-lede">Seznam usnesení, která přijala rada města a zastupitelstvo. U každého je číslo, text, výsledek hlasování a odkaz na jednání. Body programu bez usnesení tu nejsou. Zdrojem je <a href="https://mesto-pecky.usneseni.cz/verejne/" target="_blank" rel="noopener">mesto-pecky.usneseni.cz/verejne</a>.</p>
+    <p class="lede perex" id="usneseni-lede">Seznam usnesení rady města a zastupitelstva i návrhů, které při hlasování neprošly. U každého je výsledek hlasování a odkaz na jednání, u přijatých i číslo a text usnesení. Body programu bez hlasování tu nejsou. Zdrojem je <a href="https://mesto-pecky.usneseni.cz/verejne/" target="_blank" rel="noopener">mesto-pecky.usneseni.cz/verejne</a>.</p>
 
     <div class="list-control">
       <div class="search-bar">
@@ -93,6 +93,16 @@
           <option value="">Rada i zastupitelstvo</option>
           <option value="Rada">Rada</option>
           <option value="Zastupitelstvo">Zastupitelstvo</option>
+        </select>
+        <div class="segmented-group" id="usneseni-res" role="group" aria-label="Výsledek">
+          <button type="button" class="segmented-btn active" data-res="" aria-pressed="true">Vše</button>
+          <button type="button" class="segmented-btn" data-res="prijata" aria-pressed="false">Přijatá</button>
+          <button type="button" class="segmented-btn" data-res="neprijata" aria-pressed="false">Nepřijatá</button>
+        </div>
+        <select id="usneseni-res-sel" class="kal-org-select" autocomplete="off" aria-label="Výsledek">
+          <option value="">Přijatá i nepřijatá</option>
+          <option value="prijata">Přijatá</option>
+          <option value="neprijata">Nepřijatá</option>
         </select>
       </div>
     </div>
@@ -125,11 +135,11 @@
       .u-chart .c-hover{fill:var(--ink); fill-opacity:.07;}
       .u-chart-tip{position:absolute; z-index:20; max-width:300px; padding:8px 10px; border:1px solid var(--line); border-radius:6px; background:var(--white); box-shadow:var(--shadow-menu); font-size:var(--fs-6); pointer-events:none;}
       .u-chart-tip .meeting-count{display:block;}
-      #usneseni-type{flex:0 0 auto;}
-      #usneseni-type-sel{display:none;}
+      #usneseni-type, #usneseni-res{flex:0 0 auto;}
+      #usneseni-type-sel, #usneseni-res-sel{display:none;}
       @media (max-width:600px){
-        #usneseni-type{display:none;}
-        #usneseni-type-sel{display:block;}
+        #usneseni-type, #usneseni-res{display:none;}
+        #usneseni-type-sel, #usneseni-res-sel{display:block;}
       }
       #usneseni-results h3.u-year{position:sticky; z-index:8; background:var(--material); margin:0 0 12px; padding:var(--space-2) 0; top:calc(var(--nav-h,0px) + var(--title-h,0px) + var(--lc-h,0px));}
       #usneseni-results h3.u-year:not(:first-child){margin-top:var(--space-6);}
@@ -139,7 +149,10 @@
       #usneseni-results .u-card{scroll-margin-top:calc(var(--nav-h,0px) + var(--title-h,0px) + var(--lc-h,0px) + 56px);}
       #usneseni-results .u-card.u-flash{box-shadow:0 0 0 3px var(--burgundy);}
       #usneseni-results .u-head .hit-number{font-family:var(--font-mono); font-size:var(--fs-3);}
-      #usneseni-results .u-item{margin:0 0 4px; font-weight:var(--fw-semibold);}
+      #usneseni-results .u-title{display:flex; align-items:center; gap:var(--space-2); cursor:pointer;}
+      #usneseni-results .u-item{flex:1 1 auto;}
+      #usneseni-results .u-title .meeting-toggle{margin-left:auto;}
+      #usneseni-results .u-detail{margin-top:8px;}
       #usneseni-results .u-text{margin:0 0 8px; font-size:var(--fs-7); white-space:pre-line;}
       #usneseni-results .u-names{margin:0; flex:1 1 auto; min-width:0;}
       #usneseni-results .u-names > summary{margin:0; list-style:none; cursor:pointer;}
@@ -162,6 +175,7 @@
         Texty jsou převzaté beze změn. Data jsou společná se sekcí <a href="/jednani/">Jednání</a>;
         odkaz u čísla usnesení vede na jeho detail na usneseni.cz, odkaz u jednání na program a ostatní usnesení téhož dne.
         Štítek výsledku (Schváleno, Uloženo, Revokováno…) je odvozený z úvodního slovesa textu usnesení.
+        Nepřijaté návrhy jsou ze záznamů hlasování v zápisech (výsledek „Návrh nebyl přijat“). Zdroj u nich neuvádí znění návrhu, proto karta ukazuje název bodu programu, předkladatele a hlasování. Návrhy stažené před hlasováním tu nejsou.
         Usnesení výborů a komisí jsou jen v sekci Jednání, protože na usneseni.cz nejsou.
         <span class="stamp">přiznaná mezera</span>
       </div>
@@ -178,9 +192,20 @@
   let U_ALL = null;        // všechna usnesení, nejnovější první
   let U_FILTERED = [];
   let U_TYPE = '';
+  let U_RES = '';          // '' = vše, 'prijata', 'neprijata'
   let U_VOTES = {};        // číslo usnesení ZM -> jména podle hlasování, usneseni/hlasovani.json
   const U_BY_NUMBER = {};  // číslo usnesení (velkými písmeny) -> usnesení
 
+  // bod programu, ze kterého usnesení vzešlo (stejné fuzzy párování podle názvu jako v Jednání)
+  function uBod(m, item){
+    let best = null, score = 0;
+    (m.agenda || []).forEach(a => { const sc = jTextSim(a.t, item); if (sc > score) { score = sc; best = a; } });
+    return best && score >= 0.5 ? best.n : null;
+  }
+  function uMeetingHref(r){
+    const m = r._m, bod = r._bod != null ? '-bod-' + encodeURIComponent(r._bod) : '';
+    return `/jednani/#${U_TYPE_HASH[m.type]}-${m.date}${bod}`;
+  }
   function uFormatDate(iso){
     const [y, mo, d] = (iso || '').split('-');
     return y ? `${parseInt(d, 10)}. ${parseInt(mo, 10)}. ${y}` : '';
@@ -213,7 +238,7 @@
   // (rada jména neuvádí)
   function uVoteBlock(r){
     const line = uVoteLine(r);
-    const v = r._m.type === 'Zastupitelstvo' ? U_VOTES[(r.n || '').toUpperCase()] : null;
+    const v = (r._m.type === 'Zastupitelstvo' || r._nepr) ? U_VOTES[(r.n || '').toUpperCase()] : null;
     if (!v) return line;
     const rows = U_VOTE_ROWS.filter(([k]) => k !== 'nehlasoval' || (v[k] || []).length).map(([k, l]) => {
       const n = v[k] || [];
@@ -236,26 +261,44 @@
   function uCard(r, words){
     const txt = uLinked(r.text, words);
     const item = uLinked(r.item, words);
+    if (r._nepr) {
+      const m0 = r._m;
+      const meet0 = `<a href="${uMeetingHref(r)}">${U_TYPE_ABBR[m0.type]} ${m0.number}/${m0.year}</a>`;
+      return `<article class="u-card u-card--nepr${words.length ? ' u-card--open' : ''}" id="${jEscapeHtml(r.n)}">
+      <div class="u-title"><span class="meeting-label u-item">${uFormatDate(r.date)} | ${item}</span><span class="meeting-toggle">${words.length ? '−' : '+'}</span></div>
+      <div class="u-detail"${words.length ? '' : ' hidden'}>
+        <div class="u-head"><span class="meeting-count">${meet0}</span>${r.bod ? `<span class="meeting-count">bod programu č. ${jEscapeHtml(String(r.bod))}</span>` : ''}</div>
+        ${r.text ? `<p class="u-text">${txt}</p>` : ''}
+        ${r.predkladatel ? `<p class="u-text">Předkládá ${jEscapeHtml(r.predkladatel)}</p>` : ''}
+        <div class="u-foot"><span class="tag res-outcome zamitnuto">Nepřijato</span>${uVoteBlock(r)}</div>
+      </div>
+    </article>`;
+    }
     const num = r.url
       ? `<a class="hit-number" href="${r.url}" target="_blank" rel="noopener">${jEscapeHtml(r.n)}</a>`
       : `<span class="hit-number">${jEscapeHtml(r.n)}</span>`;
     const m = r._m;
-    const meet = `<a href="/jednani/#${U_TYPE_HASH[m.type]}-${m.date}">${U_TYPE_ABBR[m.type]} ${m.number}/${m.year}</a>`;
-    return `<article class="u-card" id="${jEscapeHtml(r.n)}">
-      ${r.item ? `<p class="u-item">${item}</p>` : ''}
-      <div class="u-head"><span class="meeting-count">${uFormatDate(r.date)}</span><span class="meeting-count">${meet}</span>${num}</div>
-      <p class="u-text">${txt}</p>
-      ${uZapis(r, words)}
-      <div class="u-foot">${jOutcomeBadgeHtml(r)}${uVoteBlock(r)}</div>
+    const meet = `<a href="${uMeetingHref(r)}">${U_TYPE_ABBR[m.type]} ${m.number}/${m.year}</a>`;
+    const open = words.length > 0;       // při hledání jsou karty rozbalené, aby byly vidět zvýrazněné shody
+    return `<article class="u-card${open ? ' u-card--open' : ''}" id="${jEscapeHtml(r.n)}">
+      <div class="u-title"><span class="meeting-label u-item">${uFormatDate(r.date)} | ${item || jEscapeHtml(r.n)}</span><span class="meeting-toggle">${open ? '−' : '+'}</span></div>
+      <div class="u-detail"${open ? '' : ' hidden'}>
+        <div class="u-head"><span class="meeting-count">${meet}</span>${num}</div>
+        <p class="u-text">${txt}</p>
+        ${uZapis(r, words)}
+        <div class="u-foot">${jOutcomeBadgeHtml(r)}${uVoteBlock(r)}</div>
+      </div>
     </article>`;
   }
 
+  // „usnesení“, když jsou ve výpisu jen přijatá; jinak „rozhodnutí“ (včetně nepřijatých návrhů)
+  function uUnit(){ return U_RES === 'prijata' ? 'usnesení' : 'rozhodnutí'; }
   function uRender(){
     const rawWords = document.getElementById('usneseni-search').value.trim().split(/\s+/).filter(w => w.length > 1);
     const byYear = {};
     U_FILTERED.forEach(r => { (byYear[r.date.slice(0, 4)] = byYear[r.date.slice(0, 4)] || []).push(r); });
     document.getElementById('usneseni-results').innerHTML = Object.keys(byYear).sort((a, b) => b - a)
-      .map(y => `<h3 class="display u-year">${y} (${byYear[y].length} usnesení)</h3><div class="u-list">${byYear[y].map(r => uCard(r, rawWords)).join('')}</div>`).join('');
+      .map(y => `<h3 class="display u-year">${y} (${byYear[y].length} ${uUnit()})</h3><div class="u-list">${byYear[y].map(r => uCard(r, rawWords)).join('')}</div>`).join('');
   }
 
   // ===== graf: jeden sloupec = jedno usnesení (nejstarší vlevo); pro nahoru, proti dolů, zdržení uprostřed základny =====
@@ -268,7 +311,7 @@
     uChartList = list;
     fig.hidden = !list.length;
     if (!list.length) return;
-    document.getElementById('usneseni-chart-count').textContent = `(${list.length} usnesení)`;
+    document.getElementById('usneseni-chart-count').textContent = `(${list.length} ${uUnit()})`;
     const N = list.length;
     const avail = Math.max(120, wrap.clientWidth || 600);
     const pitch = Math.max(U_CH.minPitch, avail / N);
@@ -336,6 +379,7 @@
       const i = uChartIdx(e);
       const el = i >= 0 && document.getElementById(uChartList[i].n);
       if (!el) return;
+      uOpen(el, true);
       el.scrollIntoView({block: 'start'});
       el.classList.add('u-flash');
       setTimeout(() => el.classList.remove('u-flash'), 2500);
@@ -351,12 +395,13 @@
     const words = jNorm(document.getElementById('usneseni-search').value).split(/\s+/).filter(w => w.length > 1);
     U_FILTERED = U_ALL.filter(r =>
       (!type || r._m.type === type) &&
+      (!U_RES || (U_RES === 'neprijata') === !!r._nepr) &&
       words.every(w => r._norm.includes(w)));
     const n = U_FILTERED.length;
     statusEl.hidden = n > 0;
     statusEl.textContent = 'Nic nenalezeno';
-    const celkem = U_ALL.filter(r => !type || r._m.type === type).length;
-    document.getElementById('usneseni-search').placeholder = `Prohledat ${celkem} usnesení`;
+    const celkem = U_ALL.filter(r => (!type || r._m.type === type) && (!U_RES || (U_RES === 'neprijata') === !!r._nepr)).length;
+    document.getElementById('usneseni-search').placeholder = `Prohledat ${celkem} ${uUnit()}`;
     uRender();
     uChart();
   }
@@ -364,11 +409,12 @@
   async function uLoad(){
     const statusEl = document.getElementById('usneseni-status');
     try {
-      const [res, parcelRes, votesRes, shrnRes] = await Promise.all([
+      const [res, parcelRes, votesRes, shrnRes, neprRes] = await Promise.all([
         fetch('/jednani/pecky-jednani.json'),
         fetch('/jednani/parcely-odkazy.json').catch(() => null),
         fetch('/usneseni/hlasovani.json').catch(() => null),
         fetch('/usneseni/rozpocet-shrnuti.json').catch(() => null),
+        fetch('/usneseni/neprijata.json').catch(() => null),
         jLoadRefs()
       ]);
       if (!res.ok) throw new Error('HTTP ' + res.status);
@@ -384,11 +430,30 @@
       const data = await res.json();
       const byNumber = {};
       const all = [];
+      // nepřijaté návrhy: archiv usneseni.cz (usneseni/neprijata.json) + hlasování z jednání novějších než archiv (rejected_vote)
+      const meetingOf = (type, date, x) => data.meetings.find(m => m.type === type && m.date === date) || {type, date, number: x.number, year: x.year};
+      const addNepr = r => { r._nepr = true; r._outcome = null; r._norm = jNorm([r.item, r.text, r.predkladatel, 'nepřijato nepřijatý návrh'].filter(Boolean).join(' ')); all.push(r); };
+      if (neprRes && neprRes.ok) {
+        try {
+          (await neprRes.json()).navrhy.forEach(x => {
+            if (x.jmena) U_VOTES[x.n.toUpperCase()] = x.jmena;
+            const mm = meetingOf(x.type, x.date, x);
+            addNepr(Object.assign(x, {_m: mm, _bod: uBod(mm, x.item)}));
+          });
+        } catch (e) {}
+      }
       data.meetings.forEach(m => {
         if (!U_TYPE_ABBR[m.type]) return;
         const agendaByTitle = new Map((m.agenda || []).map(a => [jNorm((a.t || '').trim()), a]));
+        (m.agenda || []).forEach((a, i) => {
+          if (!a.rejected_vote) return;
+          const rv = a.rejected_vote;
+          addNepr({n: `NP-${m.date}-${U_TYPE_ABBR[m.type]}-${a.n || i + 1}-1`, date: m.date, _m: m, item: a.t, bod: a.n || null, predkladatel: a.predkladatel || null,
+                   _bod: a.n, text: rv.text, pro: rv.pro, proti: rv.proti, zdrzel: rv.zdrzel});
+        });
         (m.resolutions || []).forEach(r => {
           r._m = m;
+          r._bod = uBod(m, r.item);
           if (U_ZAPIS_RE.test(r.item || '')) r._agenda = agendaByTitle.get(jNorm((r.item || '').trim()));
           r._norm = jNorm([r.n, r.item, r.text].filter(Boolean).join(' '));
           r._outcome = jClassifyOutcome(r.text);
@@ -407,7 +472,8 @@
       const q = new URLSearchParams(location.search).get('q');
       if (q) document.getElementById('usneseni-search').value = q;
       const h = decodeURIComponent(location.hash.slice(1));
-      if (U_HASH_TYPE[h]) uSetType(U_HASH_TYPE[h], true);
+      const hf = uParseHash(h);
+      if (hf) uSetFilters(hf[0], hf[1], true);
       else uApply();
       if (U_BY_NUMBER[h.toUpperCase()]) uGoto(U_BY_NUMBER[h.toUpperCase()].n, false);
     } catch (e) {
@@ -416,13 +482,24 @@
   }
 
   // přechod na kartu usnesení: zruší filtry, aby karta byla ve výpisu, a zvýrazní ji
+  function uOpen(el, open){
+    el.classList.toggle('u-card--open', open);
+    el.querySelector('.u-detail').hidden = !open;
+    el.querySelector('.u-title .meeting-toggle').textContent = open ? '−' : '+';
+  }
+  document.getElementById('usneseni-results').addEventListener('click', e => {
+    const t = e.target.closest('.u-title');
+    if (!t || e.target.closest('a')) return;
+    uOpen(t.parentElement, !t.parentElement.classList.contains('u-card--open'));
+  });
   function uGoto(n, push){
     if (!U_ALL) return;
     document.getElementById('usneseni-search').value = '';
-    uSetType('', true);
+    uSetFilters('', '', true);
     const el = document.getElementById(n);
     if (!el) return;
     if (push) history.pushState(null, '', '#' + n);
+    uOpen(el, true);
     el.scrollIntoView({block: 'start'});
     el.classList.add('u-flash');
     setTimeout(() => el.classList.remove('u-flash'), 2500);
@@ -436,32 +513,52 @@
   window.addEventListener('hashchange', () => {
     const h = decodeURIComponent(location.hash.slice(1));
     if (!U_ALL) return;
-    if (!h || U_HASH_TYPE[h]) uSetType(U_HASH_TYPE[h] || '', true);
+    if (!h || uParseHash(h)) uSetFilters(...uParseHash(h) || ['', ''], true);
     else if (U_BY_NUMBER[h.toUpperCase()]) uGoto(U_BY_NUMBER[h.toUpperCase()].n, false);
   });
 
   let uTimer = null;
   document.getElementById('usneseni-search').addEventListener('input', () => { clearTimeout(uTimer); uTimer = setTimeout(uApply, 150); });
-  // volba orgánu se pamatuje v hashi (#rada / #zastupitelstvo, bez hashe = vše); hash #UR-… je odkaz na usnesení
-  function uSetType(t, bezHashe){
+  // volby filtrů se pamatují v hashi: #rada, #zastupitelstvo, #neprijata, #rada,neprijata (bez hashe = vše);
+  // hash #UR-… je odkaz na usnesení
+  const U_HASH_RES = {prijata: 'prijata', neprijata: 'neprijata'};
+  function uParseHash(h){
+    const parts = (h || '').split(',').filter(Boolean);
+    if (!parts.length || !parts.every(x => U_HASH_TYPE[x] || U_HASH_RES[x])) return null;
+    return [U_HASH_TYPE[parts.find(x => U_HASH_TYPE[x])] || '', parts.find(x => U_HASH_RES[x]) || ''];
+  }
+  function uSetFilters(t, res, bezHashe){
     U_TYPE = t;
+    U_RES = res;
     if (!bezHashe) {
-      const h = U_TYPE_HASH[t] ? '#' + U_TYPE_HASH[t] : '';
-      history.replaceState(null, '', location.pathname + location.search + h);
+      const h = [U_TYPE_HASH[t], res].filter(Boolean).join(',');
+      history.replaceState(null, '', location.pathname + location.search + (h ? '#' + h : ''));
     }
     document.querySelectorAll('#usneseni-type .segmented-btn').forEach(x => {
       const on = x.dataset.type === t;
       x.classList.toggle('active', on);
       x.setAttribute('aria-pressed', on ? 'true' : 'false');
     });
+    document.querySelectorAll('#usneseni-res .segmented-btn').forEach(x => {
+      const on = x.dataset.res === res;
+      x.classList.toggle('active', on);
+      x.setAttribute('aria-pressed', on ? 'true' : 'false');
+    });
     document.getElementById('usneseni-type-sel').value = t;
+    document.getElementById('usneseni-res-sel').value = res;
     uApply();
   }
+  const uSetType = (t, bezHashe) => uSetFilters(t, U_RES, bezHashe);
   document.getElementById('usneseni-type').addEventListener('click', e => {
     const b = e.target.closest('.segmented-btn');
     if (b) uSetType(b.dataset.type);
   });
   document.getElementById('usneseni-type-sel').addEventListener('change', e => uSetType(e.target.value));
+  document.getElementById('usneseni-res').addEventListener('click', e => {
+    const b = e.target.closest('.segmented-btn');
+    if (b) uSetFilters(U_TYPE, b.dataset.res);
+  });
+  document.getElementById('usneseni-res-sel').addEventListener('change', e => uSetFilters(U_TYPE, e.target.value));
   uLoad();
 </script>
 

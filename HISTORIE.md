@@ -4,6 +4,8 @@ Chronologický deník běhů a úprav, nejnovější nahoře. Přesunuto z
 kořenového `README.md` (sekce „Poslední aktualizace“). Aktuální stav sekcí
 je v tabulce „Stav sekcí“ v `README.md`; sem patří podrobnosti běhu.
 
+1. listopadu 2026 (úprava stránky Usnesení, zatím bez odkazu). Přidány nepřijaté návrhy (81 z archivu usneseni.cz do `usneseni/neprijata.json` + 2 z `rejected_vote` v `jednani/pecky-jednani.json`) s filtrem Výsledek a štítkem „Nepřijato“; karty jsou sbalené (datum | nadpis, „+“). Změněno: `content/usneseni.html`, `usneseni/update-hlasovani.py`, `usneseni/README.md`.
+
 1. listopadu 2026 (úprava Domů). Widget „Dnes“: když dnes nezbývá žádná akce, ukáže se nejbližší další den s chipem (zítra / pozítří / za N dní) a jeho událostmi (`assets/common.js`, popis v `domu/README.md`).
 
 1. listopadu 2026 (Usnesení, rozpočtová opatření). Na `/usneseni/` přibyl u usnesení k rozpočtovým opatřením sbalovací blok s důvodovou zprávou a ručně sestaveným shrnutím změny rozpočtu v titulku (`usneseni/rozpocet-shrnuti.json`, 30 usnesení s úplnými částkami); dále jména hlasujících u usnesení zastupitelstva (`usneseni/hlasovani.json`, `hlasovani-rucne.json`, generátor `update-hlasovani.py`).

@@ -70,3 +70,15 @@ odpovídá počtu hlasů. Graf se řídí filtrem orgánu a hledáním; při ví
 posouvá vodorovně (6 px na sloupec, začíná u nejnovějších). Popisky osy: roky a začátky čtvrtletí.
 Hover (nebo dotyk) ukáže usnesení s hlasy, klik na kartu usnesení. Kreslí `uChart()` v
 `content/usneseni.html` jako SVG, barvy z tokenů (`--cyan-deep`, `--burgundy`, `--ink-soft`).
+
+## Nepřijaté návrhy
+
+Vedle přijatých usnesení výpis ukazuje i návrhy, které při hlasování neprošly (štítek „Nepřijato“).
+- Zdroj: archiv usneseni.cz, hlasování s výsledkem „Návrh nebyl přijat“ a bez čísla usnesení.
+  `update-hlasovani.py` je ukládá do `neprijata.json` (rada i zastupitelstvo, u většiny se jmény).
+  Hlasování z jednání novějších než archiv načítá stránka z pole `rejected_vote` u bodu v `jednani/pecky-jednani.json`.
+- Zdroj neuvádí znění návrhu: karta ukazuje název bodu programu, předkladatele a hlasování
+  (u dvou návrhů z `rejected_vote` i text). Návrhy stažené před hlasováním v datech nejsou.
+- Filtr „Výsledek“ (Vše / Přijatá / Nepřijatá) je vedle filtru orgánu; ukládá se do hashe (`#neprijata`, `#rada,neprijata`).
+  Bez filtru jsou ve výpisu všechna rozhodnutí; nadpisy roků pak mluví o „rozhodnutích“, při filtru Přijatá o „usneseních“.
+- Číslo karty je `NP-<datum>-<RM|ZM>-<bod>-<pořadí hlasování>`; karty jsou ve výchozím stavu sbalené (datum | nadpis, „+“).
