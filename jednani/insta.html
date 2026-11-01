@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>Jednání pro sociální sítě — Do Peček . cz</title>
+<meta name="description" content="Obrázek s tématy jednání rady nebo zastupitelstva ve formátu 1080 × 1350 px.">
+<link rel="canonical" href="https://dopecek.cz/jednani/insta.html">
+<meta property="og:title" content="Jednání pro sociální sítě — Do Peček . cz">
+<meta property="og:description" content="Obrázek s tématy jednání rady nebo zastupitelstva ve formátu 1080 × 1350 px.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://dopecek.cz/jednani/insta.html">
+<meta property="og:site_name" content="Do Peček . cz">
+<meta property="og:locale" content="cs_CZ">
+<meta property="og:image" content="https://dopecek.cz/img/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Jednání pro sociální sítě — Do Peček . cz">
+<meta name="twitter:description" content="Obrázek s tématy jednání rady nebo zastupitelstva ve formátu 1080 × 1350 px.">
+<meta name="twitter:image" content="https://dopecek.cz/img/og-image.png">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" type="image/png" sizes="32x32" href="/img/favicons/favicon-32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/img/favicons/icon-192.png">
+<link rel="apple-touch-icon" href="/img/favicons/apple-touch-icon.png">
+<link rel="stylesheet" href="/assets/org-colors.css">
+<link rel="stylesheet" href="/assets/styles.css">
+<script>
+  // Analytics jen na ostré doméně (ne na localhostu ani v náhledech).
+  if (/(^|\.)dopecek\.cz$/.test(location.hostname)) {
+    window.dataLayer = window.dataLayer || [];
+    window.gtag = function(){dataLayer.push(arguments);};
+    gtag('js', new Date());
+    gtag('config', 'G-1CW9XK1VJY');
+    var ga = document.createElement('script');
+    ga.async = true;
+    ga.src = 'https://www.googletagmanager.com/gtag/js?id=G-1CW9XK1VJY';
+    document.head.appendChild(ga);
+  }
+</script>
+<meta name="robots" content="noindex">
+
+</head>
+<body>
+<script>window.SITE_BASE_PATH = '';</script>
+
+<main>
+  <a class="overlay-close" href="/jednani/" aria-label="Zavřít a vrátit se na Jednání">Zavřít</a>
+
+  <section class="panel active" id="panel-today" aria-label="Jednání pro sociální sítě">
+    <div class="today-frame" id="Frame">
+      <div class="ji-nav">
+        <div class="today-format" role="group" aria-label="Druh jednání">
+          <button type="button" class="today-format-btn" data-druh="rada" aria-pressed="true">Rada</button>
+          <button type="button" class="today-format-btn" data-druh="zastupitelstvo" aria-pressed="false">Zastupitelstvo</button>
+        </div>
+        <div class="today-format today-dny" role="group" aria-label="Změna jednání">
+          <button type="button" class="today-pismo-btn" id="ji-starsi" aria-label="Starší jednání">‹</button>
+          <button type="button" class="today-pismo-btn" id="ji-novejsi" aria-label="Novější jednání">›</button>
+        </div>
+      </div>
+      <div class="today-box">
+        <h3 class="search-status" id="ji-status"><span class="spinner" aria-hidden="true"></span>Načítám jednání…</h3>
+        <div class="ji-card" id="ji-card" hidden>
+          <h3 class="ji-title" id="ji-title"></h3>
+          <p class="ji-sub" id="ji-sub"></p>
+          <div id="ji-avatary"></div>
+          <ul class="ji-temata" id="ji-temata" contenteditable="true" spellcheck="false" aria-label="Témata jednání, po kliknutí jde upravit"></ul>
+          <span class="ji-pata" id="ji-pata">DoPecek.cz/jednani</span>
+        </div>
+      </div>
+      <div class="today-akce">
+        <div class="today-radek">
+          <button type="button" class="today-pismo-btn" id="ji-pismo" aria-label="Změnit velikost písma" title="Velikost písma">Aa</button>
+          <div class="today-format" role="group" aria-label="Formát obrázku">
+            <button type="button" class="today-format-btn" data-f="1:1" aria-pressed="false" title="Čtverec, 1080 × 1080 px">1:1</button>
+            <button type="button" class="today-format-btn" data-f="4:5" aria-pressed="true" title="Na výšku, 1080 × 1350 px">4:5</button>
+            <button type="button" class="today-format-btn" data-f="3:4" aria-pressed="false" title="Vysoký, 1080 × 1440 px">3:4</button>
+          </div>
+        </div>
+        <div class="today-akce-tl">
+          <button type="button" class="today-uloz-btn" id="today-uloz">Uložit ...</button>
+          <button type="button" class="today-uloz-btn" id="today-sdilet">Sdílet ...</button>
+        </div>
+        <span class="today-stav" id="today-stav" role="status"></span>
+      </div>
+    </div>
+  </section>
+
+  <style>
+    /* Rám 327 px široký (4:5 jako 1080 × 1350), karta v barvě widgetu z Domů: rada = bordó, zastupitelstvo = břidlicová modrá. */
+    html,body{background:var(--ink); touch-action:manipulation;}
+    main{max-width:none; margin:0; padding:0;}
+    #panel-today{position:static; display:flex; align-items:center; justify-content:center; min-height:100vh; box-sizing:border-box; padding:110px 0 190px;}
+    .today-frame{position:relative; flex:none; --k:.82; box-sizing:border-box; width:327px; aspect-ratio:var(--pomer,4 / 5); margin:12px; padding:10px; background:var(--material);}
+    .today-box{position:relative; z-index:1; width:100%; height:100%;}
+    .today-box .search-status{margin:0; color:#fff;}
+    .ji-card{
+      --banner-from:var(--burgundy); --banner-to:var(--burgundy-deep); --banner-accent:var(--burgundy);
+      box-sizing:border-box; width:100%; height:100%; display:flex; flex-direction:column; align-items:flex-start; overflow:hidden;
+      padding:20px 20px 14px; border-radius:16px; color:#fff; background:linear-gradient(135deg,var(--banner-from) 0%,var(--banner-to) 100%);
+    }
+    .ji-card[hidden]{display:none;}
+    .ji-card.slate{--banner-from:var(--cyan); --banner-to:var(--cyan); --banner-accent:var(--cyan);}  /* jako .banner--slate na Domů */
+    .ji-title{margin:0; font:600 calc(26px * var(--k))/1.15 var(--font-banner); color:#fff;}
+    .ji-sub{margin:4px 0 12px; font:600 calc(14px * var(--k))/1.3 var(--font-body); color:rgba(255,255,255,.9);}
+    .ji-card .banner-avatars{margin-bottom:12px;}
+    .ji-card .rada-avatars .banner-av{width:32px; height:32px;}
+    .ji-temata{margin:0 0 auto; padding:0 0 0 18px; width:100%; box-sizing:border-box; overflow:hidden; font:400 calc(13.5px * var(--k))/1.4 var(--font-body); color:rgba(255,255,255,.95); cursor:text;}
+    .ji-temata:focus{outline:1px dashed #fff; outline-offset:4px;}
+    .ji-temata li{margin:0 0 7px; padding:0;}
+    .ji-temata a{color:#fff;}
+    .ji-temata mark{background:var(--yellow); color:var(--ink); font-weight:600; padding:0 3px; border-radius:3px; -webkit-box-decoration-break:clone; box-decoration-break:clone;}
+    .ji-pata{align-self:flex-end; margin-top:8px; font:700 13px/1 var(--font-body); color:#fff;}
+    .ji-nav{position:absolute; left:0; right:0; bottom:100%; margin-bottom:7px; display:flex; justify-content:space-between; align-items:center;}
+    .today-format{display:flex;}
+    .today-format-btn{min-width:56px; height:28px; padding:0 14px; border:1px solid rgba(255,255,255,.55); border-right-width:0; background:transparent; color:#fff; font:700 13px/1 var(--font-body); cursor:pointer;}
+    .today-format-btn:first-child{border-radius:99px 0 0 99px;}
+    .today-format-btn:last-child{border-radius:0 99px 99px 0; border-right-width:1px;}
+    .today-format-btn:hover{background:rgba(255,255,255,.12);}
+    .today-format-btn[aria-pressed="true"]{background:#fff; color:var(--ink);}
+    .today-radek{display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;}
+    .today-dny .today-pismo-btn{border-radius:0; border-right-width:0; height:28px; padding:0 14px;}
+    .today-dny .today-pismo-btn:first-child{border-radius:99px 0 0 99px;}
+    .today-dny .today-pismo-btn:last-child{border-radius:0 99px 99px 0; border-right-width:1px;}
+    .today-pismo-btn{min-width:34px; height:26px; padding:0 8px; border-radius:99px; border:1px solid rgba(255,255,255,.55); background:transparent; color:#fff; font:700 13px/1 var(--font-body); cursor:pointer;}
+    .today-pismo-btn:hover{border-color:#fff; background:rgba(255,255,255,.12);}
+    .today-pismo-btn:disabled{opacity:.4; cursor:default;}
+    .today-akce{position:absolute; top:100%; left:0; right:0; margin-top:16px;}
+    .today-akce-tl{display:flex; gap:10px; justify-content:center;}
+    .today-stav{display:block; margin-top:10px; text-align:center; font:400 13px/1.3 var(--font-body); color:#fff; min-height:1.3em;}
+    .today-uloz-btn{white-space:nowrap; border:none; border-radius:0; background:var(--burgundy); color:#fff; font-family:var(--font-body); font-size:15px; font-weight:700; line-height:1; padding:12px 16px; cursor:pointer;}
+    .today-uloz-btn:hover{background:var(--burgundy-deep);}
+    #today-sdilet{background:color-mix(in srgb, var(--cyan) 55%, #fff); color:var(--ink);}
+    #today-sdilet:hover{background:color-mix(in srgb, var(--cyan) 70%, #fff);}
+    .today-uloz-btn:disabled{opacity:.6; cursor:wait;}
+    a.overlay-close{display:inline-block; text-decoration:none;}
+  </style>
+
+<script>
+  // ===== Jednání: karta s tématy jednání z jednani/insta.json (generuje scripts/build.py) =====
+  ['gesturestart', 'gesturechange'].forEach(t => document.addEventListener(t, ev => ev.preventDefault()));
+  const JI = {data: {}, ids: [], id: '', druh: 'rada'};
+  const jiSeznam = () => JI.ids.filter(x => JI.data[x].druh === JI.druh);
+  const JI_FORMATY = {'1:1': [1080, 1080], '4:5': [1080, 1350], '3:4': [1080, 1440]};
+  let JI_FORMAT = '4:5';
+
+  function jiRender(){
+    const m = JI.data[JI.id];
+    if (!m) return;
+    const zm = m.druh === 'zastupitelstvo';
+    JI.druh = m.druh;
+    document.querySelectorAll('[data-druh]').forEach(b => b.setAttribute('aria-pressed', b.dataset.druh === m.druh ? 'true' : 'false'));
+    const [r, mm, d] = [m.date.slice(0, 4), +m.date.slice(5, 7), +m.date.slice(8)];
+    const card = document.getElementById('ji-card');
+    card.classList.toggle('slate', zm);
+    document.getElementById('ji-title').textContent = `${zm ? 'Zastupitelstvo' : 'Rada'} č. ${m.number}/${m.year}`;
+    document.getElementById('ji-sub').textContent = `${d}. ${mm}. ${r}`;
+    document.getElementById('ji-avatary').innerHTML = m.avatary;
+    document.getElementById('ji-temata').innerHTML = m.temata;
+    document.getElementById('ji-pata').textContent = 'DoPecek.cz/jednani';
+    const sez = jiSeznam(), i = sez.indexOf(JI.id);
+    document.getElementById('ji-starsi').disabled = i >= sez.length - 1;
+    document.getElementById('ji-novejsi').disabled = i <= 0;
+    history.replaceState(null, '', '#' + JI.id);
+  }
+  function jiPosun(o){
+    const sez = jiSeznam(), i = sez.indexOf(JI.id) + o;
+    if (i < 0 || i >= sez.length) return;
+    JI.id = sez[i];
+    jiRender();
+  }
+  document.getElementById('ji-starsi').addEventListener('click', () => jiPosun(1));
+  document.getElementById('ji-novejsi').addEventListener('click', () => jiPosun(-1));
+  document.querySelectorAll('[data-druh]').forEach(b => b.addEventListener('click', () => {
+    JI.druh = b.dataset.druh;
+    JI.id = jiSeznam()[0];
+    jiRender();
+  }));
+
+  const JI_VELIKOSTI = [0.7, 0.82, 0.95];
+  document.getElementById('ji-pismo').addEventListener('click', () => {
+    const f = document.getElementById('Frame');
+    const k = parseFloat(getComputedStyle(f).getPropertyValue('--k')) || 0.82;
+    const i = JI_VELIKOSTI.reduce((n, v, j) => Math.abs(v - k) < Math.abs(JI_VELIKOSTI[n] - k) ? j : n, 0);
+    f.style.setProperty('--k', JI_VELIKOSTI[(i + 1) % JI_VELIKOSTI.length]);
+  });
+  document.querySelectorAll('.today-format-btn[data-f]').forEach(b => b.addEventListener('click', () => {
+    JI_FORMAT = b.dataset.f;
+    const [w, h] = JI_FORMATY[JI_FORMAT];
+    document.getElementById('Frame').style.setProperty('--pomer', w + ' / ' + h);
+    document.querySelectorAll('.today-format-btn[data-f]').forEach(x => x.setAttribute('aria-pressed', x === b ? 'true' : 'false'));
+  }));
+  document.getElementById('ji-temata').addEventListener('paste', ev => {
+    ev.preventDefault();
+    document.execCommand('insertText', false, (ev.clipboardData || window.clipboardData).getData('text/plain'));
+  });
+
+  // export bloku #Frame do PNG (stejný postup jako Kalendář → insta): klon s vloženými vypočtenými styly → SVG foreignObject → canvas
+  const JI_SKRYT = '.ji-nav, .today-akce';
+  async function jiFramePng(){
+    const orig = document.getElementById('Frame');
+    const clone = orig.cloneNode(true);
+    clone.querySelectorAll(JI_SKRYT).forEach(n => n.remove());
+    const c = [clone, ...clone.querySelectorAll('*')];
+    [orig, ...orig.querySelectorAll('*')].filter(n => !n.closest(JI_SKRYT)).forEach((n, i) => {
+      const cs = getComputedStyle(n);
+      for (const name of cs) c[i].style.setProperty(name, cs.getPropertyValue(name));
+    });
+    clone.style.position = 'static'; clone.style.margin = '0';
+    for (const img of clone.querySelectorAll('img')) {
+      const blob = await (await fetch(img.src)).blob();
+      img.src = await new Promise(res => { const r = new FileReader(); r.onload = () => res(r.result); r.readAsDataURL(blob); });
+    }
+    clone.setAttribute('xmlns', 'http://www.w3.org/1999/xhtml');
+    const w = orig.offsetWidth, h = orig.offsetHeight;
+    const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${w}" height="${h}"><foreignObject width="100%" height="100%">${new XMLSerializer().serializeToString(clone)}</foreignObject></svg>`;
+    const img = new Image();
+    await new Promise((res, rej) => { img.onload = res; img.onerror = rej; img.src = 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(svg); });
+    const canvas = document.createElement('canvas');
+    [canvas.width, canvas.height] = JI_FORMATY[JI_FORMAT];
+    canvas.getContext('2d').drawImage(img, 0, 0, canvas.width, canvas.height);
+    return new Promise(res => canvas.toBlob(res, 'image/png'));
+  }
+  function jiStav(t){ document.getElementById('today-stav').textContent = t; }
+  function jiStahni(blob, nazev){
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = nazev;
+    document.body.appendChild(a); a.click(); a.remove();
+    setTimeout(() => URL.revokeObjectURL(a.href), 2000);
+  }
+  document.getElementById('today-uloz').addEventListener('click', async ev => {
+    const b = ev.currentTarget;
+    b.disabled = true; jiStav('');
+    try { jiStahni(await jiFramePng(), `instagram-${JI.id}.png`); }
+    catch (e) { jiStav('Obrázek se nepodařilo vytvořit.'); }
+    b.disabled = false;
+  });
+  document.getElementById('today-sdilet').addEventListener('click', async ev => {
+    const b = ev.currentTarget, nazev = `instagram-${JI.id}.png`;
+    b.disabled = true; jiStav('');
+    try {
+      const blob = await jiFramePng();
+      const soubor = new File([blob], nazev, {type: 'image/png'});
+      if (navigator.canShare && navigator.canShare({files: [soubor]})) {
+        await navigator.share({files: [soubor]});
+      } else {
+        jiStahni(blob, nazev);
+        jiStav('Sdílení není v tomto zařízení dostupné. Obrázek je stažený, nahrajte ho v aplikaci Instagram.');
+      }
+    } catch (e) {
+      if (e && e.name !== 'AbortError') jiStav('Obrázek se nepodařilo sdílet.');
+    }
+    b.disabled = false;
+  });
+
+  fetch('/jednani/insta.json')
+    .then(r => r.json())
+    .then(data => {
+      JI.data = data;
+      JI.ids = Object.keys(data).sort((a, b) => data[b].date.localeCompare(data[a].date));
+      const z = location.hash.slice(1);
+      JI.id = data[z] ? z : JI.ids[0];
+      document.getElementById('ji-status').style.display = 'none';
+      document.getElementById('ji-card').hidden = false;
+      jiRender();
+    })
+    .catch(() => { document.getElementById('ji-status').textContent = 'Jednání se nepodařilo načíst.'; });
+</script>
+
+</main>
+
+<script src="/assets/common.js"></script>
+</body>
+</html>

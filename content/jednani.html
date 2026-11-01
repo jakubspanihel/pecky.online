@@ -886,9 +886,10 @@
           ${vybor ? jRenderVyborResolutions(m) : ''}
           <div class="meeting-links">
             ${(future || isToday) && m.links.invitation ? `<a href="${m.links.invitation}" target="_blank" rel="noopener" title="Zdrojový web někdy odkaz z cizí stránky blokuje a otevře jen úvodní stránku archivu — zkuste prosím znovu, případně vyhledejte jednání přímo na usneseni.cz.">Pozvánka PDF ↗</a>` : ''}
-            ${m.links.minutes ? `<a class="toggle-details" href="${m.links.minutes}" target="_blank" rel="noopener" style="margin:0;">${m.links.minutes_label || (vybor ? 'Zápis (PDF, pecky.cz) ↗' : 'Zápis ↗')}</a>` : ''}
-            ${(m.links.minutes_more || []).map(x => `<a class="toggle-details" href="${x.url}" target="_blank" rel="noopener" style="margin:0;">${jEscapeHtml(x.label)} (PDF) ↗</a>`).join('')}
+            ${m.links.minutes ? `<a href="${m.links.minutes}" target="_blank" rel="noopener">${m.links.minutes_label || (vybor ? 'Zápis (PDF, pecky.cz) ↗' : 'Zápis ↗')}</a>` : ''}
+            ${(m.links.minutes_more || []).map(x => `<a href="${x.url}" target="_blank" rel="noopener">${jEscapeHtml(x.label)} (PDF) ↗</a>`).join('')}
             ${m.links.resolutions ? `<a href="${m.links.resolutions}" target="_blank" rel="noopener">Všechna přijatá usnesení ↗</a>` : ''}
+            ${(m.type === 'Rada' || m.type === 'Zastupitelstvo') ? `<a class="meeting-share" href="/jednani/insta.html#${slug}" title="Obrázek jednání pro sociální sítě" aria-label="Sdílet jednání jako obrázek"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12v7a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-7"/><path d="M16 6l-4-4-4 4"/><path d="M12 2v13"/></svg></a>` : ''}
           </div>
         </div>
       </div>

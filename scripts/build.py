@@ -272,6 +272,12 @@ EXTRA_PAGES = {
         # Celoobrazovkový blok bez hlavičky a patičky (BEZ_RAMCE), určený pro
         # snímek obrazovky. Nikam nelinkovaná -> lastmod None: noindex, mimo sitemapu.
         False, 'kalendar', None),
+    'jednani-insta': (
+        '/jednani/insta.html', 'Jednání pro sociální sítě — Do Peček . cz',
+        'Obrázek s tématy jednání rady nebo zastupitelstva ve formátu 1080 × 1350 px.',
+        # Nástrojová stránka jako kalendar-insta: bez hlavičky a patičky, noindex, mimo sitemapu.
+        # Data generuje _jednani_insta_json() do jednani/insta.json. Odkaz z rozbalené karty v Jednání.
+        False, 'jednani', None),
     'changelog': (
         '/o-webu/changelog.html', 'Historie změn na webu — Do Peček . cz',
         'Přehled sekcí webu Do Peček . cz: kdy byl u každé naposledy '
@@ -285,7 +291,7 @@ EXTRA_PAGES = {
 
 
 # Stránky bez hlavičky a patičky (celoobrazovkové, se samostatným tlačítkem Zavřít)
-BEZ_RAMCE = {'peckybot', 'kalendar-insta'}
+BEZ_RAMCE = {'peckybot', 'kalendar-insta', 'jednani-insta'}
 
 
 # cesta k README sekce (jak je zapsaná v tabulce "Stav sekcí") -> slug v MANIFEST
@@ -749,6 +755,16 @@ def _zm_avatary():
     """Blok avatarů 21 nově zvolených zastupitelů (volby 2026) do banneru, v pořadí
     podle tabulky v content/volby2026.html (osobní hlasy). Bez fotky iniciálový
     kroužek; každý avatar odkazuje na kartu osoby v Lidech."""
+    out = _zm_zvoleni_avatary()
+    if not out:
+        return ''
+    return ('<div class="banner-side"><p class="banner-side-title">Nově zvolení zastupitelé</p>'
+            f'<div class="banner-avatars">{"".join(out)}</div></div>')
+
+
+def _zm_zvoleni_avatary():
+    """Seznam avatarů (HTML) 21 zvolených zastupitelů z voleb 2026, v pořadí podle
+    osobních hlasů v content/volby2026.html."""
     people = json.loads(read('lide/people.json'))['people']
     radky = re.findall(r'<tr(?: class="([^"]*)")?><td>(\d+)</td><td><span class="swatch" style="background:var\(--party-([a-z0-9-]+)\);?"></span>(.*?)</td></tr>',
                        read('content/volby2026.html'), flags=re.S)
@@ -769,10 +785,7 @@ def _zm_avatary():
             vnitrek = f'<span class="banner-av-init" aria-hidden="true">{esc(w[0][0] + w[-1][0])}</span>'
         tag, attr = (('a', f' href="/lide/#lide/osoba/{esc(p["id"])}"') if p else ('span', ''))
         out.append(f'<{tag} class="banner-av"{attr} title="{esc(jmeno)}" aria-label="{esc(jmeno)}">{vnitrek}</{tag}>')
-    if not out:
-        return ''
-    return ('<div class="banner-side"><p class="banner-side-title">Nově zvolení zastupitelé</p>'
-            f'<div class="banner-avatars">{"".join(out)}</div></div>')
+    return out
 
 
 # Témata, o kterých se na zastupitelstvu historicky jedná nejdéle (medián/průměr
@@ -1010,6 +1023,57 @@ def _rel_budouci(n):
         return f'za {n // 7} {"týdny" if n < 35 else "týdnů"}'
     k = int(n / 30.4)
     return f'za {k} {"měsíce" if n < 152 else "měsíců"}'
+
+
+def _insta_avatary(m, people, idx, aff, zm):
+    """Avatary jednání pro insta.json. Zastupitelstvo od ustavujícího zasedání 2026
+    bez docházky (budoucí) = nově zvolení z voleb 2026, jinak jako ve widgetu na Domů."""
+    att = m.get('attendance') or {}
+    if zm and m['date'] >= '2026-11-04' and not (att.get('present_names') or att.get('absent_names')):
+        av = ''.join(_zm_zvoleni_avatary())
+        return f'<div class="banner-avatars rada-avatars">{av}</div>' if av else ''
+    return _rada_avatary(m, people, idx, aff, zm)
+
+
+def _jednani_insta_json():
+    """Data pro /jednani/insta.html (obrázek jednání na sociální sítě): pro každou radu
+    a zastupitelstvo s tématy (soubor shrnutí, jinak program z pozvánky) hotový HTML
+    seznam témat jako ve widgetech „Z rady města“ / „Ze zastupitelstva“ na Domů.
+    Klíč = id jednání (`rada-RRRR-MM-DD`, `zastupitelstvo-RRRR-MM-DD`)."""
+    meetings = json.loads(read('jednani/pecky-jednani.json'))['meetings']
+    people = {p['id']: p for p in json.loads(read('lide/people.json'))['people']}
+    idx = {}
+    for p in people.values():
+        idx[(unicodedata.normalize('NFKD', p['first_name']).encode('ascii', 'ignore').decode().lower(),
+             unicodedata.normalize('NFKD', p['last_name']).encode('ascii', 'ignore').decode().lower())] = p['id']
+    aff = json.loads(read('lide/affiliations.json'))['affiliations']
+    out = {}
+    for m in meetings:
+        if m['type'] not in ('Rada', 'Zastupitelstvo'):
+            continue
+        zm = m['type'] == 'Zastupitelstvo'
+        kdo = 'zastupitelstvo' if zm else 'rada'
+        cesta = f'jednani/shrnuti/{m["date"]}-{kdo}.md'
+        zapis = (m.get('links') or {}).get('minutes')
+        if (ROOT / cesta).exists():
+            md = read(cesta)
+            blok = re.search(r'^##\s+Nejdůležitější témata\s*\n(.*?)(?=^##\s|\Z)', md, re.S | re.M)
+            pol = re.findall(r'^\d+\.\s+(.+)$', blok.group(1), re.M) if blok else []
+        elif not zapis:
+            pol = _temata_z_programu(m, 5)
+        else:
+            pol = []
+        if not pol:
+            continue
+        li = ''.join('<li>' + _odkaz_parcely(_zvyrazni(re.sub(r'\*\*(.+?)\*\*', r'<strong>\1</strong>', esc(t)))) + '</li>' for t in pol)
+        out[f'{kdo}-{m["date"]}'] = {
+            'druh': kdo, 'number': m.get('number'), 'year': m.get('year'), 'date': m['date'],
+            'time': m.get('time') or '', 'venue': (m.get('venue') or '').split(',')[0].strip(),
+            'zapis': bool(zapis), 'temata': li,
+            'avatary': _insta_avatary(m, people, idx, aff, zm),
+        }
+    (ROOT / 'jednani' / 'insta.json').write_text(
+        json.dumps(out, ensure_ascii=False, separators=(',', ':')), encoding='utf-8')
 
 
 def _dash_rada_shrnuti():
@@ -1445,6 +1509,7 @@ def out_file_for(path):
 
 
 def build_all(stav_rows=None):
+    _jednani_insta_json()
     page_tpl = read('templates/page.html')
     footer_tpl = read('assets/footer.html')
     rows = stav_rows or parse_stav_sekci()
@@ -1496,7 +1561,7 @@ def build_all(stav_rows=None):
             head_scripts = '<meta name="robots" content="noindex">\n' + head_scripts
 
         html = page_tpl
-        if slug == 'kalendar-insta':   # nástrojová stránka: bez přibližování na mobilu
+        if slug in ('kalendar-insta', 'jednani-insta'):   # nástrojová stránka: bez přibližování na mobilu
             html = html.replace('initial-scale=1"', 'initial-scale=1, maximum-scale=1, user-scalable=no"', 1)
         html = html.replace('{{TITLE}}', title)
         html = html.replace('{{DESCRIPTION}}', desc)
