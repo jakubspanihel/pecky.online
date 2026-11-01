@@ -1,0 +1,273 @@
+  <section class="panel active" id="panel-usneseni">
+    <h2 class="title display">Usnesení</h2>
+    <p class="lede perex" id="usneseni-lede">Seznam usnesení, která přijala rada města a zastupitelstvo. U každého je číslo, text, výsledek hlasování a odkaz na jednání. Body programu bez usnesení tu nejsou. Zdrojem je <a href="https://mesto-pecky.usneseni.cz/verejne/" target="_blank" rel="noopener">mesto-pecky.usneseni.cz/verejne</a>.</p>
+
+    <div class="list-control">
+      <div class="search-bar">
+        <input type="search" id="usneseni-search" placeholder="Hledat" autocomplete="off" aria-label="Hledat v usneseních">
+        <div class="segmented-group" id="usneseni-type" role="group" aria-label="Orgán">
+          <button type="button" class="segmented-btn active" data-type="" aria-pressed="true">Vše</button>
+          <button type="button" class="segmented-btn" data-type="Rada" aria-pressed="false">Rada</button>
+          <button type="button" class="segmented-btn" data-type="Zastupitelstvo" aria-pressed="false">Zastupitelstvo</button>
+        </div>
+        <select id="usneseni-type-sel" class="kal-org-select" autocomplete="off" aria-label="Orgán">
+          <option value="">Rada i zastupitelstvo</option>
+          <option value="Rada">Rada</option>
+          <option value="Zastupitelstvo">Zastupitelstvo</option>
+        </select>
+      </div>
+    </div>
+    <h3 class="search-status" id="usneseni-status"><span class="spinner" aria-hidden="true"></span>Načítám usnesení…</h3>
+    <style>
+      #usneseni-type{flex:0 0 auto;}
+      #usneseni-type-sel{display:none;}
+      @media (max-width:600px){
+        #usneseni-type{display:none;}
+        #usneseni-type-sel{display:block;}
+      }
+      #usneseni-results h3.u-year{position:sticky; z-index:8; background:var(--material); margin:0 0 12px; padding:var(--space-2) 0; top:calc(var(--nav-h,0px) + var(--title-h,0px) + var(--lc-h,0px));}
+      #usneseni-results h3.u-year:not(:first-child){margin-top:var(--space-6);}
+      #usneseni-results .u-list{display:flex; flex-direction:column; gap:12px;}
+      #usneseni-results .u-card{border:1px solid var(--line); border-radius:8px; background:var(--white); padding:12px 14px;}
+      #usneseni-results .u-head{display:flex; flex-wrap:wrap; align-items:baseline; gap:6px 12px;}
+      #usneseni-results .u-card{scroll-margin-top:calc(var(--nav-h,0px) + var(--title-h,0px) + var(--lc-h,0px) + 56px);}
+      #usneseni-results .u-card.u-flash{box-shadow:0 0 0 3px var(--burgundy);}
+      #usneseni-results .u-head .hit-number{font-family:var(--font-mono); font-size:var(--fs-3);}
+      #usneseni-results .u-item{margin:0 0 4px; font-weight:var(--fw-semibold);}
+      #usneseni-results .u-text{margin:0 0 8px; font-size:var(--fs-7); white-space:pre-line;}
+      #usneseni-results .u-names{margin:0; flex:1 1 auto; min-width:0;}
+      #usneseni-results .u-names > summary{margin:0; list-style:none; cursor:pointer;}
+      #usneseni-results .u-names > summary .meeting-count{text-decoration:underline dotted; text-underline-offset:3px;}
+      #usneseni-results .u-names ul{margin:var(--space-3) 0 0; padding-left:0; list-style:none; font-size:var(--fs-7);}
+      #usneseni-results .u-names li{padding:2px 0;}
+      #usneseni-results .u-zapis{margin:0 0 10px;}
+      #usneseni-results .u-zapis > summary{margin:0; cursor:pointer; list-style:none;}
+      #usneseni-results .u-zapis > :not(summary){margin-left:var(--space-2); padding-left:var(--space-5); border-left:3px solid var(--line);}
+      #usneseni-results .u-zapis p{margin:2px 0 0; font-size:var(--fs-6); color:var(--ink-soft); white-space:pre-line;}
+      #usneseni-results .u-foot{display:flex; flex-wrap:wrap; align-items:flex-start; gap:6px 12px;}
+    </style>
+    <div id="usneseni-results"></div>
+
+    <details class="collapsible" style="margin-top:36px;">
+      <summary style="cursor:pointer; list-style:none;"><h3 class="display" style="margin:0 0 4px; display:inline;">Zdroje dat <span class="collapsible-arrow" aria-hidden="true">▾</span></h3></summary>
+      <div class="callout">
+        Seznam obsahuje usnesení rady a zastupitelstva od 12. 4. 2021, kdy začíná archiv
+        <a href="https://mesto-pecky.usneseni.cz/verejne/" target="_blank" rel="noopener">mesto-pecky.usneseni.cz</a>.
+        Texty jsou převzaté beze změn. Data jsou společná se sekcí <a href="/jednani/">Jednání</a>;
+        odkaz u čísla usnesení vede na jeho detail na usneseni.cz, odkaz u jednání na program a ostatní usnesení téhož dne.
+        Štítek výsledku (Schváleno, Uloženo, Revokováno…) je odvozený z úvodního slovesa textu usnesení.
+        Usnesení výborů a komisí jsou jen v sekci Jednání, protože na usneseni.cz nejsou.
+        <span class="stamp">přiznaná mezera</span>
+      </div>
+    </details>
+
+    <p class="lede" style="margin:18px 0 0;">Související: <a href="/jednani/">Jednání</a></p>
+  </section>
+
+<script>
+  // ===== Usnesení: seznam všech přijatých usnesení (data z jednani/pecky-jednani.json) =====
+  const U_TYPE_ABBR = {'Rada': 'RM', 'Zastupitelstvo': 'ZM'};
+  const U_HASH_TYPE = {rada: 'Rada', zastupitelstvo: 'Zastupitelstvo'};
+  const U_TYPE_HASH = {'Rada': 'rada', 'Zastupitelstvo': 'zastupitelstvo'};
+  let U_ALL = null;        // všechna usnesení, nejnovější první
+  let U_FILTERED = [];
+  let U_TYPE = '';
+  let U_VOTES = {};        // číslo usnesení ZM -> jména podle hlasování, usneseni/hlasovani.json
+  const U_BY_NUMBER = {};  // číslo usnesení (velkými písmeny) -> usnesení
+
+  function uFormatDate(iso){
+    const [y, mo, d] = (iso || '').split('-');
+    return y ? `${parseInt(d, 10)}. ${parseInt(mo, 10)}. ${y}` : '';
+  }
+  function uVoteLine(r){
+    if (r.pro == null) return '<span class="meeting-count">hlasování zápis neuvádí</span>';
+    return `<span class="meeting-count">pro ${r.pro} · proti ${r.proti} · zdržel se ${r.zdrzel}</span>`;
+  }
+  const U_REF_RE = /\bU[RZ]-\d+-\d{1,2}\/(?:20)?\d{2}\b/gi;
+  // text s odkazy na parcely (KN) a jednání; hledaná slova se zvýrazní jen mimo značky
+  function uLinked(text, words){
+    // odkazy na jiná usnesení (revokace, změna termínu…) míří na kartu usnesení na této stránce;
+    // před jLinkRefs() se schovají do zástupných znaků, aby je ten nepřelinkoval na jednání
+    const refs = [];
+    let html = jEscapeHtml(text || '').replace(U_REF_RE, all => {
+      const t = U_BY_NUMBER[all.toUpperCase()] || U_BY_NUMBER[all.toUpperCase().replace(/\/(\d\d)(\d\d)$/, '/$2')];
+      if (!t) return all;
+      refs.push(`<a href="#${jEscapeHtml(t.n)}" data-uref="${jEscapeHtml(t.n)}" title="Přejít na usnesení ${jEscapeHtml(t.n)}">${all}</a>`);
+      return '\u0001' + (refs.length - 1) + '\u0001';
+    });
+    html = jLinkRefs(jLinkParcely(html)).replace(/\u0001(\d+)\u0001/g, (m, i) => refs[i]);
+    words.forEach(w => {
+      const esc = w.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+      try { html = html.replace(new RegExp('(' + esc + ')(?![^<]*>)', 'gi'), '<mark>$1</mark>'); } catch (e) {}
+    });
+    return html;
+  }
+  const U_VOTE_ROWS = [['pro', 'Pro'], ['proti', 'Proti'], ['zdrzel', 'Zdržel se'], ['nehlasoval', 'Nehlasoval']];
+  // hlasování: řádek „pro · proti · zdržel se“; u zastupitelstva s jmény je to odkaz, který rozbalí jmenovitý výpis
+  // (rada jména neuvádí)
+  function uVoteBlock(r){
+    const line = uVoteLine(r);
+    const v = r._m.type === 'Zastupitelstvo' ? U_VOTES[(r.n || '').toUpperCase()] : null;
+    if (!v) return line;
+    const rows = U_VOTE_ROWS.filter(([k]) => k !== 'nehlasoval' || (v[k] || []).length).map(([k, l]) => {
+      const n = v[k] || [];
+      return `<li><strong>${l} (${n.length}):</strong> ${n.length ? n.map(jEscapeHtml).join(', ') : 'nikdo'}</li>`;
+    }).join('');
+    return `<details class="collapsible u-names"><summary title="Zobrazit, kdo jak hlasoval">${line}<span class="collapsible-arrow" aria-hidden="true">▾</span></summary><ul>${rows}</ul></details>`;
+  }
+  // zápis projednávání bodu (předkladatel + důvodová zpráva z programu jednání) — zatím jen u rozpočtových opatření;
+  // titulek sbalovacího bloku je shrnutí změny rozpočtu (usneseni/rozpocet-shrnuti.json), jinak jen „Projednávání bodu“
+  const U_ZAPIS_RE = /rozpočtov\S*\s+opatřen/i;
+  let U_RO_SHRNUTI = {};
+  function uZapis(r, words){
+    const a = r._agenda;
+    if (!a || !a.duvodova_zprava) return '';
+    const kdo = a.predkladatel ? `<div class="meeting-count">Předkládá ${jEscapeHtml(a.predkladatel)}</div>` : '';
+    const sh = U_RO_SHRNUTI[r.n];
+    const titulek = sh ? `<strong>Celkem:</strong> ${jEscapeHtml(sh)}` : 'Projednávání bodu';
+    return `<details class="collapsible u-zapis"><summary><span class="meeting-count">${titulek}<span class="collapsible-arrow" aria-hidden="true">▾</span></span></summary>${kdo}<p>${uLinked(a.duvodova_zprava, words)}</p></details>`;
+  }
+  function uCard(r, words){
+    const txt = uLinked(r.text, words);
+    const item = uLinked(r.item, words);
+    const num = r.url
+      ? `<a class="hit-number" href="${r.url}" target="_blank" rel="noopener">${jEscapeHtml(r.n)}</a>`
+      : `<span class="hit-number">${jEscapeHtml(r.n)}</span>`;
+    const m = r._m;
+    const meet = `<a href="/jednani/#${U_TYPE_HASH[m.type]}-${m.date}">${U_TYPE_ABBR[m.type]} ${m.number}/${m.year}</a>`;
+    return `<article class="u-card" id="${jEscapeHtml(r.n)}">
+      ${r.item ? `<p class="u-item">${item}</p>` : ''}
+      <div class="u-head"><span class="meeting-count">${uFormatDate(r.date)}</span><span class="meeting-count">${meet}</span>${num}</div>
+      <p class="u-text">${txt}</p>
+      ${uZapis(r, words)}
+      <div class="u-foot">${jOutcomeBadgeHtml(r)}${uVoteBlock(r)}</div>
+    </article>`;
+  }
+
+  function uRender(){
+    const rawWords = document.getElementById('usneseni-search').value.trim().split(/\s+/).filter(w => w.length > 1);
+    const byYear = {};
+    U_FILTERED.forEach(r => { (byYear[r.date.slice(0, 4)] = byYear[r.date.slice(0, 4)] || []).push(r); });
+    document.getElementById('usneseni-results').innerHTML = Object.keys(byYear).sort((a, b) => b - a)
+      .map(y => `<h3 class="display u-year">${y} (${byYear[y].length} usnesení)</h3><div class="u-list">${byYear[y].map(r => uCard(r, rawWords)).join('')}</div>`).join('');
+  }
+
+  function uApply(){
+    if (!U_ALL) return;
+    const statusEl = document.getElementById('usneseni-status');
+    const type = U_TYPE;
+    const words = jNorm(document.getElementById('usneseni-search').value).split(/\s+/).filter(w => w.length > 1);
+    U_FILTERED = U_ALL.filter(r =>
+      (!type || r._m.type === type) &&
+      words.every(w => r._norm.includes(w)));
+    const n = U_FILTERED.length;
+    statusEl.hidden = n > 0;
+    statusEl.textContent = 'Nic nenalezeno';
+    const celkem = U_ALL.filter(r => !type || r._m.type === type).length;
+    document.getElementById('usneseni-search').placeholder = `Prohledat ${celkem} usnesení`;
+    uRender();
+  }
+
+  async function uLoad(){
+    const statusEl = document.getElementById('usneseni-status');
+    try {
+      const [res, parcelRes, votesRes, shrnRes] = await Promise.all([
+        fetch('/jednani/pecky-jednani.json'),
+        fetch('/jednani/parcely-odkazy.json').catch(() => null),
+        fetch('/usneseni/hlasovani.json').catch(() => null),
+        fetch('/usneseni/rozpocet-shrnuti.json').catch(() => null),
+        jLoadRefs()
+      ]);
+      if (!res.ok) throw new Error('HTTP ' + res.status);
+      if (parcelRes && parcelRes.ok) {
+        try { PARCEL_URLS = (await parcelRes.json()).parcely || {}; } catch (e) { PARCEL_URLS = {}; }
+      }
+      if (votesRes && votesRes.ok) {
+        try { U_VOTES = (await votesRes.json()).hlasovani || {}; } catch (e) { U_VOTES = {}; }
+      }
+      if (shrnRes && shrnRes.ok) {
+        try { U_RO_SHRNUTI = (await shrnRes.json()).shrnuti || {}; } catch (e) { U_RO_SHRNUTI = {}; }
+      }
+      const data = await res.json();
+      const byNumber = {};
+      const all = [];
+      data.meetings.forEach(m => {
+        if (!U_TYPE_ABBR[m.type]) return;
+        const agendaByTitle = new Map((m.agenda || []).map(a => [jNorm((a.t || '').trim()), a]));
+        (m.resolutions || []).forEach(r => {
+          r._m = m;
+          if (U_ZAPIS_RE.test(r.item || '')) r._agenda = agendaByTitle.get(jNorm((r.item || '').trim()));
+          r._norm = jNorm([r.n, r.item, r.text].filter(Boolean).join(' '));
+          r._outcome = jClassifyOutcome(r.text);
+          if (r.n) { byNumber[r.n.toUpperCase()] = r; U_BY_NUMBER[r.n.toUpperCase()] = r; }
+          all.push(r);
+        });
+      });
+      all.forEach(r => {
+        jRevokeTargets(r.text).forEach(target => {
+          const hit = byNumber[target] || byNumber[target.replace(/\/(\d\d)(\d\d)$/, '/$2')];
+          if (hit && hit !== r) hit._revokedBy = r.n;
+        });
+      });
+      all.sort((a, b) => b.date.localeCompare(a.date) || b.n.localeCompare(a.n, 'cs', {numeric: true}));
+      U_ALL = all;
+      const q = new URLSearchParams(location.search).get('q');
+      if (q) document.getElementById('usneseni-search').value = q;
+      const h = decodeURIComponent(location.hash.slice(1));
+      if (U_HASH_TYPE[h]) uSetType(U_HASH_TYPE[h], true);
+      else uApply();
+      if (U_BY_NUMBER[h.toUpperCase()]) uGoto(U_BY_NUMBER[h.toUpperCase()].n, false);
+    } catch (e) {
+      statusEl.textContent = 'Usnesení se nepodařilo načíst (' + e.message + '). Zkuste stránku obnovit.';
+    }
+  }
+
+  // přechod na kartu usnesení: zruší filtry, aby karta byla ve výpisu, a zvýrazní ji
+  function uGoto(n, push){
+    if (!U_ALL) return;
+    document.getElementById('usneseni-search').value = '';
+    uSetType('', true);
+    const el = document.getElementById(n);
+    if (!el) return;
+    if (push) history.pushState(null, '', '#' + n);
+    el.scrollIntoView({block: 'start'});
+    el.classList.add('u-flash');
+    setTimeout(() => el.classList.remove('u-flash'), 2500);
+  }
+  document.getElementById('usneseni-results').addEventListener('click', e => {
+    const a = e.target.closest('a[data-uref]');
+    if (!a) return;
+    e.preventDefault();
+    uGoto(a.dataset.uref, true);
+  });
+  window.addEventListener('hashchange', () => {
+    const h = decodeURIComponent(location.hash.slice(1));
+    if (!U_ALL) return;
+    if (!h || U_HASH_TYPE[h]) uSetType(U_HASH_TYPE[h] || '', true);
+    else if (U_BY_NUMBER[h.toUpperCase()]) uGoto(U_BY_NUMBER[h.toUpperCase()].n, false);
+  });
+
+  let uTimer = null;
+  document.getElementById('usneseni-search').addEventListener('input', () => { clearTimeout(uTimer); uTimer = setTimeout(uApply, 150); });
+  // volba orgánu se pamatuje v hashi (#rada / #zastupitelstvo, bez hashe = vše); hash #UR-… je odkaz na usnesení
+  function uSetType(t, bezHashe){
+    U_TYPE = t;
+    if (!bezHashe) {
+      const h = U_TYPE_HASH[t] ? '#' + U_TYPE_HASH[t] : '';
+      history.replaceState(null, '', location.pathname + location.search + h);
+    }
+    document.querySelectorAll('#usneseni-type .segmented-btn').forEach(x => {
+      const on = x.dataset.type === t;
+      x.classList.toggle('active', on);
+      x.setAttribute('aria-pressed', on ? 'true' : 'false');
+    });
+    document.getElementById('usneseni-type-sel').value = t;
+    uApply();
+  }
+  document.getElementById('usneseni-type').addEventListener('click', e => {
+    const b = e.target.closest('.segmented-btn');
+    if (b) uSetType(b.dataset.type);
+  });
+  document.getElementById('usneseni-type-sel').addEventListener('change', e => uSetType(e.target.value));
+  uLoad();
+</script>

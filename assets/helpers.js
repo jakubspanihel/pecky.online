@@ -324,3 +324,92 @@ function pcDetailHtml(p, opts){
         ${photosHtml}
       </div>`;
 }
+
+// ----- Výsledek usnesení (přesunuto z content/jednani.html, sdílí Jednání a Usnesení) -----
+// ===== Jak jednání dopadlo: klasifikace usnesení podle úvodního slovesa =====
+// Řádky bez konkrétní shody (výjimečné/nestandardní formulace) badge nedostanou.
+// JS \b je definované jen na ASCII [A-Za-z0-9_] — u slov končících na
+// diakritiku (á, í, é...) proto \b za posledním písmenem chybně "neplatí"
+// (obě sousední pozice bere jako "non-word"), takže vzory jako \bukládá\b
+// na reálný text nikdy nesednou. Boundary proto stavíme ručně přes
+// Unicode-aware lookaround (\p{L}\p{N}_), ne přes \b.
+function jWordRe(alt){
+  return new RegExp('(?<![\\p{L}\\p{N}_])(?:' + alt + ')(?![\\p{L}\\p{N}_])', 'iu');
+}
+const J_OUTCOME_PATTERNS = [
+  [jWordRe('neschvaluje'), 'Neschváleno', 'zamitnuto'],
+  [jWordRe('nedoporučuje'), 'Nedoporučeno', 'zamitnuto'],
+  [jWordRe('nesouhlasí'), 'Nesouhlasí', 'zamitnuto'],
+  [jWordRe('nenavrhuje'), 'Nenavrženo', 'zamitnuto'],
+  [jWordRe('nebere na vědomí'), 'Nevzato na vědomí', 'zamitnuto'],
+  [jWordRe('zamítá|zamítla|zamítl'), 'Zamítnuto', 'zamitnuto'],
+  [jWordRe('odmítá'), 'Odmítnuto', 'zamitnuto'],
+  [jWordRe('odvolává'), 'Odvoláno', 'zamitnuto'],
+  [jWordRe('ruší'), 'Zrušeno', 'zamitnuto'],
+  [jWordRe('revokuje'), 'Revokuje', 'probiha'],
+  [jWordRe('doporučuje'), 'Doporučeno', 'probiha'],
+  [jWordRe('ukládá'), 'Uloženo', 'probiha'],
+  [jWordRe('bere na vědomí'), 'Vzato na vědomí', 'probiha'],
+  [jWordRe('schvaluje|schváluje'), 'Schváleno', 'hotovo'],
+  [jWordRe('souhlasí'), 'Souhlasí', 'hotovo'],
+  [jWordRe('vydává'), 'Vydáno', 'hotovo'],
+  [jWordRe('udílí|uděluje'), 'Uděleno', 'hotovo'],
+  [jWordRe('povoluje'), 'Povoleno', 'hotovo'],
+  [jWordRe('vyhlašuje|vyhlášuje'), 'Vyhlášeno', 'hotovo'],
+  [jWordRe('jmenuje'), 'Jmenováno', 'hotovo'],
+  [jWordRe('pověřuje'), 'Pověřeno', 'hotovo'],
+  [jWordRe('svěřuje'), 'Svěřeno', 'hotovo'],
+  [jWordRe('stanovuje|stanoví'), 'Stanoveno', 'hotovo'],
+  [jWordRe('mění'), 'Změněno', 'hotovo'],
+  [jWordRe('projednala|projednal'), 'Projednáno', 'hotovo'],
+  [jWordRe('navrhuje'), 'Navrženo', 'hotovo'],
+  [jWordRe('rozhoduje|rozhodlo|rozhodla'), 'Rozhodnuto', 'hotovo'],
+  [jWordRe('předkládá'), 'Předloženo', 'probiha'],
+];
+function jClassifyOutcome(text){
+  const t = text || '';
+  let best = null;
+  for (const [re, label, cls] of J_OUTCOME_PATTERNS) {
+    const m = re.exec(t);
+    if (m && (best === null || m.index < best.index)) best = {label, cls};
+  }
+  return best;
+}
+
+// "Rada města revokuje usnesení UR-228-24/26 ..." → vytáhne cílové číslo usnesení
+const J_REVOKE_TARGET_RE = /revokuje\s+(?:své\s+)?(?:usnesení\s+)?(?:č(?:íslo|\.)?\s*)?((?:UZ|UR)-\d+-\d+\/\d{2,4})/gi;
+function jRevokeTargets(text){
+  const t = text || '';
+  const out = [];
+  let m;
+  J_REVOKE_TARGET_RE.lastIndex = 0;
+  while ((m = J_REVOKE_TARGET_RE.exec(t))) out.push(m[1].toUpperCase());
+  return out;
+}
+function jOutcomeBadgeHtml(r){
+  let html = '';
+  if (r._outcome) html += `<span class="tag res-outcome ${r._outcome.label === 'Revokuje' ? 'revokovano' : r._outcome.cls}">${jEscapeHtml(r._outcome.label)}</span>`;
+  if (r._revokedBy) html += `<span class="tag res-outcome revokovano" title="Revokováno usnesením ${jEscapeHtml(r._revokedBy)}">Revokováno</span>`;
+  return html;
+}
+
+// ----- Odkazy na parcely (přesunuto z content/jednani.html, sdílí Jednání a Usnesení) -----
+let PARCEL_URLS = {};  // číslo parcely -> URL, jednani/parcely-odkazy.json
+// ===== Prolinkování zmínek o parcelách na detail na Nahlížení do KN (VDP) =====
+// Mapování „č. parc. NNNN(/NNN)“ -> URL generuje jednani/scripts/update-pozemky.py
+// do jednani/parcely-odkazy.json (katastr-přesné dohledání přes vdp.cuzk.gov.cz;
+// číslo, u kterého skript zjistil kolizi mezi víc katastry nebo katastr vůbec neurčil,
+// se do mapy nepřidává, takže tu zůstane nepodlinkované — bezpečnější, než odkázat na
+// špatnou parcelu). Prolinkuje jen číslo, které následuje hned za výskytem „parc“
+// (pokrývá „č. parc. 1680“, „č.parc.1595“, „parc. 348/3“…); druhé a další číslo ve výčtu
+// odděleném čárkou beze slova „parc“ se neprolinkuje (bezpečnější než hádat, které
+// navazující číslo do výčtu ještě patří).
+function jLinkParcely(escapedHtml){
+  if (!escapedHtml || !PARCEL_URLS || !Object.keys(PARCEL_URLS).length) return escapedHtml;
+  return escapedHtml.replace(/parc\.?\s*(\d{1,5}(?:\/\d{1,3})?)/gi, (whole, num) => {
+    const url = PARCEL_URLS[num];
+    if (!url) return whole;
+    const prefix = whole.slice(0, whole.length - num.length);
+    return `${prefix}<a href="${url}" target="_blank" rel="noopener" title="Detail parcely ${num} na Nahlížení do KN (VDP) ↗">${num}</a>`;
+  });
+}

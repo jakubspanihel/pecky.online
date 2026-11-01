@@ -272,6 +272,14 @@ EXTRA_PAGES = {
         # Celoobrazovkový blok bez hlavičky a patičky (BEZ_RAMCE), určený pro
         # snímek obrazovky. Nikam nelinkovaná -> lastmod None: noindex, mimo sitemapu.
         False, 'kalendar', None),
+    'usneseni': (
+        '/usneseni/', 'Usnesení — Do Peček . cz',
+        'Seznam všech usnesení rady a zastupitelstva města Pečky od dubna 2021 '
+        's textem, výsledkem hlasování a odkazem na jednání.',
+        # Nová sekce zatím bez odkazu z nabídky i ze stránek (od 1. 11. 2026) -> lastmod None:
+        # noindex, mimo sitemapu. Data bere z jednani/pecky-jednani.json (bez vlastního souboru).
+        # Až bude odkázaná: přesunout do MANIFEST, přidat řádek do "Stav sekcí" a do README_TO_SLUG.
+        True, 'jednani', None),
     'jednani-insta': (
         '/jednani/insta.html', 'Jednání pro sociální sítě — Do Peček . cz',
         'Obrázek s tématy jednání rady nebo zastupitelstva ve formátu 1080 × 1350 px.',
@@ -823,6 +831,29 @@ def _zm_hot(m):
     return f'<p class="banner-hot">🔥 Bude se jednat o {esc(text)}</p>'
 
 
+def _jednani_temata(m, zapis=False):
+    """Výběr témat jednání Rady/ZM (markdown s `**tučným**`): blok „Nejdůležitější témata“
+    ze souboru shrnutí, jinak (bez zápisu) program z pozvánky. Společné pro insta.json
+    a banner příštího zastupitelstva na Domů."""
+    kdo = 'zastupitelstvo' if m['type'] == 'Zastupitelstvo' else 'rada'
+    cesta = f'jednani/shrnuti/{m["date"]}-{kdo}.md'
+    if (ROOT / cesta).exists():
+        blok = re.search(r'^##\s+Nejdůležitější témata\s*\n(.*?)(?=^##\s|\Z)', read(cesta), re.S | re.M)
+        return re.findall(r'^\d+\.\s+(.+)$', blok.group(1), re.M) if blok else []
+    return [] if zapis else _temata_z_programu(m, 5)
+
+
+def _zm_temata(m):
+    """Výběr bodů jednání v banneru příštího zastupitelstva (stejný jako v insta.json)."""
+    pol = _jednani_temata(m)
+    if not pol:
+        return ''
+    # na Domů jen tučný název bodu, bez vysvětlivky za pomlčkou
+    nazvy = [re.match(r'\*\*(.+?)\*\*', t).group(1) if t.startswith('**') else t for t in pol]
+    li = ''.join(f'<li><strong>{esc(n)}</strong></li>' for n in nazvy)
+    return f'<ul class="banner-topics">{li}</ul>'
+
+
 def _zm_akce(m, odkaz):
     """Tlačítka banneru: hlavní CTA "Živé vysílání…" (jen je-li známý odkaz na
     livestream) a vedle něj odkaz na program jednání (jen je-li znám z pozvánky)."""
@@ -894,7 +925,7 @@ def _dash_zastupitelstvo(dnes):
                    f'<div class="banner-body">'
                    f'<h3 class="banner-title"><span class="dash-zm-kdy">{za}</span></h3>'
                    f'<p class="banner-meta"><span class="banner-meta-item">{ICO_KAL}<span>{esc(kdy)}</span></span>{misto}</p>'
-                   f'{_zm_hot(m)}{_zm_akce(m, odkaz)}</div>'
+                   f'{_zm_hot(m)}{_zm_temata(m)}{_zm_akce(m, odkaz)}</div>'
                    f'{avatary}'
                    f'{_zm_poznamky()}</li>')
     if zm:
@@ -1052,16 +1083,8 @@ def _jednani_insta_json():
             continue
         zm = m['type'] == 'Zastupitelstvo'
         kdo = 'zastupitelstvo' if zm else 'rada'
-        cesta = f'jednani/shrnuti/{m["date"]}-{kdo}.md'
         zapis = (m.get('links') or {}).get('minutes')
-        if (ROOT / cesta).exists():
-            md = read(cesta)
-            blok = re.search(r'^##\s+Nejdůležitější témata\s*\n(.*?)(?=^##\s|\Z)', md, re.S | re.M)
-            pol = re.findall(r'^\d+\.\s+(.+)$', blok.group(1), re.M) if blok else []
-        elif not zapis:
-            pol = _temata_z_programu(m, 5)
-        else:
-            pol = []
+        pol = _jednani_temata(m, bool(zapis))
         if not pol:
             continue
         li = ''.join('<li>' + _odkaz_parcely(_zvyrazni(re.sub(r'\*\*(.+?)\*\*', r'<strong>\1</strong>', esc(t)))) + '</li>' for t in pol)
