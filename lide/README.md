@@ -31,6 +31,27 @@ Ondřej Schulz za Bc. Ivetu Dvořákovou (slib 26. 2. 2025). Při další
 rezignaci, kooptaci náhradníka nebo změně ve vedení se opraví **jen
 tenhle panel**; historický seznam u Voleb 2022 zůstává, jaký byl.
 
+## Cenzura příjmení
+Na vizitce (karta i detail) se u osob **bez veřejné funkce** zobrazí jen jméno,
+iniciála příjmení a štítek „cenzura“ (např. „Martin T. CENZURA“). Data zůstávají
+celá — mění se jen výpis; vyhledávání a řazení používají skutečné příjmení.
+Zobrazení zajišťuje `pcDisplayNameHtml()` v `assets/helpers.js`, řídí ho příznak
+`censor_surname: true` v `people.json` (nastavuje se ručně, aby šel výjimkou přepnout).
+
+**Veřejná funkce** (celé příjmení, příznak se nedává) = osoba splňuje aspoň jedno
+kritérium, i v minulosti:
+1. zastupitel, člen rady, komise, výboru, redakční rady nebo jiného orgánu města
+   (vazba na `mesto-pecky`),
+2. kandidát v komunálních volbách,
+3. úředník města,
+4. ředitel nebo zástupce ředitele městské příspěvkové organizace,
+5. člen školské rady (zástupce zřizovatele, pedagogů i zákonných zástupců).
+
+Všichni ostatní (řadoví učitelé, vychovatelé, asistenti, provozní zaměstnanci,
+členové a trenéři spolků, firmy, zdravotnictví…) mají `censor_surname: true`.
+`node lide/validate.mjs` vypíše varování, když příznak s kritérii nesedí. Kontrola
+`kontrolní komise` spolku (TJ Sokol, AFK) se za veřejnou funkci nepočítá.
+
 ## Fotky
 Portréty na kartičkách (`img.avatar`) nejsou ve složce této sekce —
 leží u volebního ročníku, ke kterému se váží: `volby/2022/zastupitele/

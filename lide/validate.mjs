@@ -142,6 +142,27 @@ for (const id of Object.keys(sources)) {
   if (!usedSources.has(id)) warn(`zdroj ${id}`, 'nikde nepoužitý');
 }
 
+// --- cenzura příjmení: veřejná funkce = celé příjmení (viz README → „Cenzura příjmení") ---
+{
+  const orgById = Object.fromEntries(orgs.map((o) => [o.id, o]));
+  const PUBLIC_ROLE_TYPES = new Set(['zastupitel', 'starosta', 'mistostarosta', 'kandidatka']);
+  const publicPeople = new Set();
+  for (const p of people) if ((p.tags || []).includes('kandidat') || (p.tags || []).includes('urednik')) publicPeople.add(p.id);
+  for (const a of affs) {
+    const org = orgById[a.organization_id];
+    const city = a.organization_id === 'mesto-pecky';
+    if (city || PUBLIC_ROLE_TYPES.has(a.role_type) ||
+        (org?.type === 'prispevkova' && a.role_type === 'vedeni-organizace') ||
+        /školské rady/i.test(a.role || '')) publicPeople.add(a.person_id);
+  }
+  for (const p of people) {
+    const pub = publicPeople.has(p.id);
+    if (pub && p.censor_surname) warn(`osoba ${p.id}`, 'má veřejnou funkci, ale censor_surname: true');
+    if (!pub && !p.censor_surname && p.tags?.some((t) => ['skolstvi', 'sport', 'spolky', 'spolek', 'firma', 'zdravotnictvi', 'kultura'].includes(t)))
+      warn(`osoba ${p.id}`, 'bez veřejné funkce a bez censor_surname');
+  }
+}
+
 // --- osoby ---
 for (const p of people) {
   const where = `osoba ${p.id}`;
