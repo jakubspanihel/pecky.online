@@ -552,12 +552,11 @@ def _dash_jednani(dnes):
     # slug stejný jako trvalý odkaz na stránce Jednání (#financni-vybor-…)
     vybory = json.loads(read('jednani/vybory.json'))['meetings']
     VYBOR_SLUG = {'Finanční výbor': 'financni-vybor', 'Kontrolní výbor': 'kontrolni-vybor'}
-    # komise rady a pracovní skupina (komise.json), školská rada (skolska-rada.json)
+    # komise rady (komise.json; pracovní skupina se na Domů nezobrazuje), školská rada (skolska-rada.json)
     komise = (json.loads(read('jednani/komise.json'))['meetings']
               + json.loads(read('jednani/skolska-rada.json'))['meetings'])
     KOMISE_SLUG = {'Sportovní komise': 'sportovni-komise', 'Kulturní komise': 'kulturni-komise',
                    'Stavebně-dopravní komise': 'stavebni-komise',
-                   'Pracovní skupina pro oslavy 100 let': 'pracovni-skupina',
                    'Sbor pro občanské záležitosti': 'sbor', 'Školská rada': 'skolska-rada'}
     VYBOR_SLUG.update(KOMISE_SLUG)
     vybory = vybory + komise

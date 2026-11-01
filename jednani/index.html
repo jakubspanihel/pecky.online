@@ -84,29 +84,18 @@
     <div class="list-control">
       <div class="search-bar">
         <input type="search" id="jednani-search" placeholder="Hledat" autocomplete="off" aria-label="Hledat v jednáních">
-      </div>
-      <div class="segmented-control">
-        <div class="segmented-group" role="group" aria-label="Typ jednání">
-          <button type="button" class="segmented-btn active" data-type="">Vše</button>
-          <button type="button" class="segmented-btn" data-type="Rada">Rada</button>
-          <button type="button" class="segmented-btn" data-type="Zastupitelstvo">Zastupitelstvo</button>
-          <span class="segmented-more">
-            <button type="button" class="segmented-btn segmented-more-btn" id="jednani-more-btn" aria-haspopup="true" aria-expanded="false"><span class="lbl-d">Další…</span><span class="lbl-m">Vše</span> ▾</button>
-            <div class="segmented-menu" id="jednani-more-menu" role="menu" hidden>
-            <button type="button" class="segmented-menu-item seg-primary" role="menuitem" data-type="">Vše</button>
-            <button type="button" class="segmented-menu-item seg-primary" role="menuitem" data-type="Rada">Rada</button>
-            <button type="button" class="segmented-menu-item seg-primary" role="menuitem" data-type="Zastupitelstvo">Zastupitelstvo</button>
-            <button type="button" class="segmented-menu-item" role="menuitem" data-type="Finanční výbor">Finanční výbor</button>
-            <button type="button" class="segmented-menu-item" role="menuitem" data-type="Kontrolní výbor">Kontrolní výbor</button>
-            <button type="button" class="segmented-menu-item" role="menuitem" data-type="Sportovní komise">Sportovní komise</button>
-            <button type="button" class="segmented-menu-item" role="menuitem" data-type="Kulturní komise">Kulturní komise</button>
-            <button type="button" class="segmented-menu-item" role="menuitem" data-type="Stavebně-dopravní komise">Stavebně-dopravní komise</button>
-            <button type="button" class="segmented-menu-item" role="menuitem" data-type="Pracovní skupina pro oslavy 100 let">Pracovní skupina pro oslavy 100 let</button>
-            <button type="button" class="segmented-menu-item" role="menuitem" data-type="Sbor pro občanské záležitosti">Sbor pro občanské záležitosti</button>
-            <button type="button" class="segmented-menu-item" role="menuitem" data-type="Školská rada">Školská rada</button>
-            </div>
-          </span>
-        </div>
+        <select id="jednani-type" class="kal-org-select" autocomplete="off" aria-label="Typ jednání">
+          <option value="">Vše</option>
+          <option value="Rada">Rada</option>
+          <option value="Zastupitelstvo">Zastupitelstvo</option>
+          <option value="Finanční výbor">Finanční výbor</option>
+          <option value="Kontrolní výbor">Kontrolní výbor</option>
+          <option value="Sportovní komise">Sportovní komise</option>
+          <option value="Kulturní komise">Kulturní komise</option>
+          <option value="Stavebně-dopravní komise">Stavebně-dopravní komise</option>
+          <option value="Sbor pro občanské záležitosti">Sbor pro občanské záležitosti</option>
+          <option value="Školská rada">Školská rada</option>
+        </select>
       </div>
     </div>
     <h3 class="search-status" id="jednani-status"><span class="spinner" aria-hidden="true"></span>Načítám archiv…</h3>
@@ -116,15 +105,13 @@
       #jednani-results .meeting-row--expanded{background:var(--white);}
       #jednani-results .meeting-row-main{padding:12px 14px;}
       #jednani-results .meeting-row-detail{padding:2px 14px var(--space-8);}
-      .j-tree{display:none;}
-      #jednani-results h3.j-year{margin:26px 0 12px;}
-      #jednani-results h3.j-year:first-child{margin-top:0;}
+      #jednani-results h3.j-year{position:sticky; z-index:8; background:var(--material); margin:0 0 12px; padding:var(--space-2) 0; top:calc(var(--nav-h,0px) + var(--title-h,0px) + var(--lc-h,0px));}
+      #jednani-results h3.j-year:not(:first-child){margin-top:var(--space-6);}
       @media (min-width:768px){
         #jednani-results .meeting-row{scroll-margin-top:calc(var(--nav-h,0px) + var(--title-h,0px) + var(--lc-h,0px) + 16px);}
       }
     </style>
     <div class="j-split" id="j-split">
-      <nav class="j-tree" id="j-tree" aria-label="Jednání podle let"></nav>
       <div id="jednani-results"></div>
     </div>
     <style>.starsi-text{white-space:pre-wrap; max-height:420px; overflow:auto; font-size:13px; line-height:1.45; background:rgba(255,255,255,0.5); border:1px solid var(--line); border-radius:6px; padding:10px 12px; margin:6px 0 12px;}</style>
@@ -146,7 +133,7 @@
     </div>
 
     <div class="callout">
-      Filtry <strong>komisí</strong> (sportovní, kulturní, stavebně-dopravní, pracovní skupina, sbor, školská rada) ukazují zápisy komisí rady města — sportovní, kulturní, stavebně-dopravní (do roku 2022 stavební) a Sboru pro občanské záležitosti
+      Filtry <strong>komisí</strong> (sportovní, kulturní včetně pracovní skupiny, stavebně-dopravní, sbor, školská rada) ukazují zápisy komisí rady města — sportovní, kulturní, stavebně-dopravní (do roku 2022 stavební) a Sboru pro občanské záležitosti
       — a pracovní skupiny pro oslavy 100 let povýšení Peček na město z volebních období 2018–2022 a 2022–2026. Zveřejňuje je jen
       <a href="https://pecky.cz/default/default/21179_komise-rm" target="_blank" rel="noopener">pecky.cz ↗</a> jako PDF;
       účast, program a usnesení jsou z nich přepsané ručně a u každého jednání je odkaz na původní zápis. Komise zpravidla
@@ -608,25 +595,10 @@
     sbor: 'Sbor pro občanské záležitosti', 'skolska-rada': 'Školská rada'};
 
   let jTypeFilter = '';
-  function jCloseMoreMenu(){
-    const menu = document.getElementById('jednani-more-menu');
-    if (!menu || menu.hidden) return;
-    menu.hidden = true;
-    document.getElementById('jednani-more-btn').setAttribute('aria-expanded', 'false');
-  }
   function jApplyTypeFilter(type, opts){
     opts = opts || {};
     jTypeFilter = type;
-    document.querySelectorAll('.segmented-btn:not(.segmented-more-btn)').forEach(b => b.classList.toggle('active', b.dataset.type === type));
-    const curItem = document.querySelector('.segmented-menu-item[data-type="' + type + '"]');
-    const moreItem = curItem && !curItem.classList.contains('seg-primary') ? curItem : null;
-    document.querySelectorAll('.segmented-menu-item').forEach(b => b.classList.toggle('active', b === curItem));
-    const moreBtn = document.getElementById('jednani-more-btn');
-    moreBtn.classList.toggle('active', !!moreItem);
-    // desktop: "Další…" / název vybraného typu mimo tři hlavní; mobil (.lbl-m): vždy název aktivního filtru
-    moreBtn.querySelector('.lbl-d').textContent = moreItem ? moreItem.textContent : 'Další…';
-    moreBtn.querySelector('.lbl-m').textContent = curItem ? curItem.textContent : 'Vše';
-    jCloseMoreMenu();
+    document.getElementById('jednani-type').value = type;
     if (opts.updateHash !== false) {
       const h = J_TYPE_TO_HASH[type];
       history.replaceState(null, '', h ? '#' + h : location.pathname + location.search);
@@ -636,7 +608,7 @@
 
   function jFilteredMeetings(){
     return JEDNANI_DB.meetings.filter(m =>
-      !jTypeFilter || m.type === jTypeFilter || (m.bodies || []).includes(jTypeFilter)
+      !jTypeFilter || m.type === jTypeFilter || (m.bodies || []).includes(jTypeFilter) || (jTypeFilter === 'Kulturní komise' && m.type === 'Pracovní skupina pro oslavy 100 let')
     );
   }
 
@@ -1018,7 +990,6 @@
     document.getElementById('jednani-search').value = '';
     await loadJednani();
     const target = JEDNANI_DB.meetings.find(m => attr === 'data-uuid' ? (m.uuid || m.id) === value : jSlugForMeeting(m) === value);
-    if (target) jYear = target.date.slice(0, 4);
     jRunSearch();
     const row = document.querySelector('#jednani-results .meeting-row[' + attr + '="' + value + '"]');
     if (!row) return;
@@ -1105,16 +1076,6 @@
     </div>`;
   }
 
-  let jYear = null;
-  const jMq = window.matchMedia('(min-width:768px)');
-  jMq.addEventListener('change', () => jRunSearch());
-  document.getElementById('j-tree').addEventListener('click', (e) => {
-    const b = e.target.closest('.j-ty');
-    if (!b) return;
-    jYear = b.dataset.year;
-    jRunSearch();
-    window.scrollTo({top: document.getElementById('j-split').getBoundingClientRect().top + window.scrollY - 140, behavior: 'smooth'});
-  });
   function jRunSearch(){
     if (!JEDNANI_DB) return;
     const rawQuery = document.getElementById('jednani-search').value;
@@ -1131,16 +1092,9 @@
       const byYear = {};
       meetings.forEach(m => { (byYear[m.date.slice(0, 4)] = byYear[m.date.slice(0, 4)] || []).push(m); });
       const years = Object.keys(byYear).sort((a, b) => b - a);
-      if (!years.includes(jYear)) jYear = years[0] || null;
-      document.getElementById('j-tree').innerHTML = `<ul>${years.map(y =>
-        `<li><button type="button" class="j-ty${y === jYear ? ' active' : ''}" data-year="${y}"><span>${y}</span><span class="j-tn">${byYear[y].length}</span></button></li>`).join('')}</ul>`;
-      if (jMq.matches) {
-        resultsEl.innerHTML = jYear ? jRenderMeetingList(byYear[jYear]) : jRenderMeetingList([]);
-      } else {
-        resultsEl.innerHTML = years.length
-          ? years.map(y => `<h3 class="display j-year">${y} (${byYear[y].length})</h3>${jRenderMeetingList(byYear[y])}`).join('')
-          : jRenderMeetingList([]);
-      }
+      resultsEl.innerHTML = years.length
+        ? years.map(y => `<h3 class="display j-year">${y} (${byYear[y].length} jednání)</h3>${jRenderMeetingList(byYear[y])}`).join('')
+        : jRenderMeetingList([]);
       jAttachAccordionHandlers();
       return;
     }
@@ -1179,19 +1133,7 @@
   }
   document.getElementById('jednani-search').addEventListener('input', jScheduleSearch);
 
-  document.querySelectorAll('.segmented-btn:not(.segmented-more-btn), .segmented-menu-item').forEach(btn => {
-    btn.addEventListener('click', function(){
-      jApplyTypeFilter(this.dataset.type);
-    });
-  });
-  document.getElementById('jednani-more-btn').addEventListener('click', function(e){
-    e.stopPropagation();
-    const menu = document.getElementById('jednani-more-menu');
-    menu.hidden = !menu.hidden;
-    this.setAttribute('aria-expanded', String(!menu.hidden));
-  });
-  document.addEventListener('click', jCloseMoreMenu);
-  document.addEventListener('keydown', e => { if (e.key === 'Escape') jCloseMoreMenu(); });
+  document.getElementById('jednani-type').addEventListener('change', function(){ jApplyTypeFilter(this.value); });
 
   // směrování podle hashe v URL: #rada / #zastupitelstvo (filtr typu) nebo
   // #rada-2026-08-31 / #zastupitelstvo-2026-06-24 (trvalý odkaz na konkrétní jednání)
