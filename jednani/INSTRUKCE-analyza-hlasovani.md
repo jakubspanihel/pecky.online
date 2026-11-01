@@ -2,7 +2,7 @@
 
 Postup pro rozbor toho, jak konkrétní člen zastupitelstva hlasuje vůči
 zbytku sboru. Poprvé použito 4. 9. 2026 na Mgr. Alenu Švejnohovou
-(výstup: `analyza-hlasovani-svejnohova.md`).
+(výstup se neuchovává).
 
 > **Stav: rozpracováno.** Zatím jde o jednorázový rozbor jedné osoby.
 > Počítá se s tím, že se k tomu vrátíme a **doplníme další osoby** —
