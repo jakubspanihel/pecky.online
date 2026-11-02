@@ -4,6 +4,8 @@ Chronologický deník běhů a úprav, nejnovější nahoře. Přesunuto z
 kořenového `README.md` (sekce „Poslední aktualizace“). Aktuální stav sekcí
 je v tabulce „Stav sekcí“ v `README.md`; sem patří podrobnosti běhu.
 
+2. listopadu 2026 (denní kontrola Na oběd). U Marka: zapsáno denní menu z 2. 11. 2026 (polévka, 12 jídel, přílohy) přepsané z fotografie na Facebooku (`naobed/data/u-marka-pecky/2026-11.json`, `naobed/menu.json`). Siňorita (poslední menu 29. 10.) a U Stříkačky (30. 10.) bez nového menu, označeny jako zkontrolované. Školní jídelna už měla dnešní jídelníček.
+
 1. listopadu 2026 (úprava stránky Usnesení, zatím bez odkazu). Přidány nepřijaté návrhy (81 z archivu usneseni.cz do `usneseni/neprijata.json` + 2 z `rejected_vote` v `jednani/pecky-jednani.json`) s filtrem Výsledek a štítkem „Nepřijato“; karty jsou sbalené (datum | nadpis, „+“). Změněno: `content/usneseni.html`, `usneseni/update-hlasovani.py`, `usneseni/README.md`.
 
 1. listopadu 2026 (úprava Domů). Widget „Dnes“: když dnes nezbývá žádná akce, ukáže se nejbližší další den s chipem (zítra / pozítří / za N dní) a jeho událostmi (`assets/common.js`, popis v `domu/README.md`).
