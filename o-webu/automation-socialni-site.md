@@ -5,10 +5,9 @@ všech odkazů na sociální sítě v sekci [O webu](README.md) → „Sociáln�
 sítě" (`content/owebu.html`, druhý blok `div.quicklinks`): **počet
 sledujících/členů/odběratelů** a **datum posledního příspěvku/videa na
 dané síti** (ukazatel, jak moc je účet aktivní — NE datum, kdy jsme si
-údaje naposledy ověřili). Osm z těchto odkazů se navíc opakuje na
-stránce [Volby 2026](../volby/2026/README.md) (tabulka „Volební
-uskupení", sloupeček „Poznámka" → `.socials-cell`) — ty se zapisují na
-obě místa najednou, viz krok 4. Nemá vlastní datový soubor — údaje se
+údaje naposledy ověřili). Stránka [Volby 2026](../volby/2026/README.md)
+sociální sítě uskupení nezobrazuje a při kontrole se neaktualizuje.
+Nemá vlastní datový soubor — údaje se
 zapisují přímo do HTML.
 
 ## Kdy spustit
@@ -216,25 +215,6 @@ dvou položek po aktualizaci prohodí, přesuň řádek `<a class="qlink">`
 na správné místo (ne nutně po každé kontrole, jen když se pořadí
 skutečně změní).
 
-### 4. Promítni na Volby 2026 (jen 8 překrývajících se odkazů)
-
-Těchto 8 odkazů se objevuje i v tabulce „Volební uskupení" na
-`/volby/2026/` (`content/volby2026.html`, `.socials-cell`): Facebook
-NAŠE PEČKY, Instagram NAŠE PEČKY, Facebook Pečky NEXT, Instagram Pečky
-NEXT, Facebook Pečky Pečákům, Facebook ODS a nezávislí Pečky, Facebook
-Pečky srdcem, FB skupina Lidé pro Pečky s podporou SPD. (Instagram NAŠE
-PEČKY přibyl 28. 9. 2026.) Zapiš tam stejné číslo i stejné datum
-poslední aktivity, ve tvaru:
-
-```html
-<span class="social-meta">(N sledujících, poslední příspěvek: <span data-date="RRRR-MM-DD">D. M. RRRR</span>)</span>
-```
-
-Ostatní odkazy (město, spolky, školy, podniky, Alena Švejnohová jako
-osoba…) na Volby 2026 nepatří — nejsou volební uskupení. Přibude-li
-v O webu další účet některého z pěti kandidujících uskupení, patří
-i sem — pak rozšiř výčet výše.
-
 ### 4a. Zhlédnutí záznamů zastupitelstva (YouTube)
 
 Stránka `/jednani/youtube.html` (graf + tabulka zhlédnutí videozáznamů
@@ -259,8 +239,7 @@ kontrole sociálních sítí ji obnov:
 
 ### 5. Přegeneruj a ověř
 
-Spusť `python3 scripts/build.py`, otevři `/o-webu/` a (pokud se
-aktualizovaly i překrývající se odkazy) `/volby/2026/`, zkontroluj, že
+Spusť `python3 scripts/build.py`, otevři `/o-webu/` a zkontroluj, že
 se u každého odkazu zobrazuje aktualizované číslo a datum poslední
 aktivity (najetím myší na text se zobrazí přesné datum v tooltipu).
 

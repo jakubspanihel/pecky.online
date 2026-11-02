@@ -712,10 +712,53 @@ def sjednot_mista(events):
                 e['description'] = e['place']
 
 
+def najdi_podezrele_duplicity(akce):
+    """Dvojice akcí (category „akce"), které vypadají jako jedna akce zapsaná dvakrát.
+
+    Pravidlo „jedna akce = jeden záznam" (CLAUDE.md): shoda se hledá podle dne,
+    místa a pořadatele nebo času, ne podle názvu. Podezřelá je dvojice ve stejný
+    den s časem začátku nejvýš 60 minut od sebe, se stejným pořadatelem a místy,
+    která sdílejí aspoň jedno slovo (místo se zapisuje různě: „Kulturní dům
+    Pečky" × „Přednáškový sál Kulturního domu Pečky"). Řada se společným začátkem
+    názvu („Třídní schůzky — 1. stupeň" × „… 2. stupeň") se přeskakuje. Kurzy se
+    nekontrolují. Jen upozorňuje, nic nemaže ani nesluči.
+    """
+    def minuty(t):
+        return int(t[:2]) * 60 + int(t[3:5])
+
+    def slova(misto):
+        # kmen prvních 5 písmen zvládne i skloňování (Kulturní/Kulturního)
+        return {w[:5] for w in re.findall(r'[^\W\d_]{5,}', misto.lower())} - {'pečky', 'obecn'}
+
+    def spolecny_zacatek(x, y):
+        n = 0
+        while n < min(len(x), len(y)) and x[n].lower() == y[n].lower():
+            n += 1
+        return n
+
+    po_dnech = {}
+    for a in akce:
+        if a.get('category') == 'akce' and a.get('time') and a.get('place') and a.get('organizer'):
+            po_dnech.setdefault((a['date'], a['organizer']), []).append(a)
+    dvojice = []
+    for skupina in po_dnech.values():
+        for i, a in enumerate(skupina):
+            for b in skupina[i + 1:]:
+                if (abs(minuty(a['time']) - minuty(b['time'])) <= 60
+                        and slova(a['place']) & slova(b['place'])
+                        and spolecny_zacatek(a['title'], b['title']) < 10):
+                    dvojice.append((a, b))
+    return dvojice
+
+
 def main():
     jednani = build_jednani_events()
     vybory = build_vybory_events()
     akce = build_akce_events()
+    for a, b in najdi_podezrele_duplicity(akce):
+        print(f"POZOR možná duplicita {a['date']}: „{a['title']}“ ({a['time'] or 'bez času'}, {a['id']}) "
+              f"a „{b['title']}“ ({b['time'] or 'bez času'}, {b['id']}) — {a['place']}; "
+              f"sloučit podle pravidla „jedna akce = jeden záznam“")
     volby = build_volby_events()
     afk = build_afk_events()
     svoz = build_svoz_events()

@@ -38,16 +38,6 @@ jen barevný avatar s iniciálami (`av-init`), fotky nejsou k dispozici,
 stejně jako u ročníků 2018/2022 před volbami. Průběžné oficiální
 výsledky po volbách budou na volby.gov.cz a v otevřených datech ČSÚ.
 
-## Kde se volí (volební okrsky) — zrušeno 17. 9. 2026
-Blok „Kde se volí" (6 volebních okrsků a jejich sídla podle dokumentu
-*Informace o počtu a sídlech volebních okrsků*, starosta Milan Paluska,
-25. 8. 2026, úřední deska pecky.cz — záznam
-`pecky-cz-uredni-deska-volby-2026-okrsky` v `sources.json`) byl
-doplněn 1. 9. 2026 a k 17. 9. 2026 z `content/volby2026.html` odstraněn
-na žádost uživatele. Zdrojový dokument v `sources.json` zůstává —
-kdyby se blok měl vrátit, text (vč. upozornění na chyby v OCR skenu
-a mezery v přiřazení ulic k okrskům) je v historii gitu.
-
 ## Po volbách: hlídat ustavující zasedání
 Jakmile volby proběhnou, platí pravidlo „Zvolení zástupci patří do
 Výsledků voleb" ([`volby/README.md`](../README.md)): do subpanelu
@@ -55,7 +45,7 @@ Výsledků voleb" ([`volby/README.md`](../README.md)): do subpanelu
 Zdrojem není výsledek voleb, ale **ustavující zasedání zastupitelstva** —
 u ročníku 2022 se konalo necelý měsíc po volbách (ZM 7/2022 dne
 20. 10. 2022), takže u voleb 9.–10. 10. 2026 čekat ustavující zasedání
-zhruba v **listopadu 2026**. Sledovat archiv jednání a pozvánky na
+**4. 11. 2026** (ZM 8/2026, 16:30, Kulturní dům). Sledovat archiv jednání a pozvánky na
 úřední desce; jednání se pozná podle bodů „složení slibu", „ověření
 platnosti voleb" a „volba starosty".
 
@@ -88,25 +78,6 @@ Mapování listina → uskupení (needit měnit bez ověření na volby.gov.cz,
 | 3 | Sdružení ODS, NK |
 | 4 | Sdružení nezávislých kandidátů PEČKY PEČÁKŮM |
 | 5 | Lidé pro Pečky a Velké Chvalovice s podporou SPD |
-
-## Perex (od 9. 9. 2026)
-
-Dvojice `.stat-card` pod perexem („9.–10. 10. 2026" / „52,36 % volební
-účast ve volbách 2022") byla odstraněná — oba údaje byly duplicitní
-(termín voleb je v samotném perexu, účast 2022 je v grafu „Volební
-účast stoupá" na `/volby/`). Datum voleb je místo toho tučně
-zvýrazněné přímo v textu perexu (`<strong>9.–10. října 2026</strong>`).
-
-## Podzáložky (od 8. 9. 2026)
-
-Stránka teď má stejnou `.subtabs`/`.subpanel` strukturu jako Volby 2018/2022
-(dřív byla plochá, bez záložek): **Volební uskupení** (tabulka uskupení +
-Kde se volí + stavové callouty) a **Předvolební sliby** — druhá se ale
-nejmenuje `sliby`/`uskupeni` jako u starších ročníků, ale `sliby2026`/
-`uskupeni2026`, protože `id="subpanel-…"` musí být na webu jedinečné napříč
-sekcemi a build skládá jen jednu stránku najednou (kolize by teoreticky
-nevadila, ale konvence pojmenování `<sekce><rok>` je zavedená už z
-`content/volby2018.html`).
 
 ## Volební programy (od 8. 9. 2026, doplněno 16. 9. 2026)
 
@@ -173,17 +144,3 @@ Přesná čísla za uskupení (obhajuje / bylo ve vedení dřív / kandidovalo
 dřív bez zvolení / nováček, součet vždy 21): ODS a nezávislí Pečky
 5/1/11/4, NAŠE PEČKY A PEČKY NEXT 4/1/6/10, PEČKY PEČÁKŮM 3/0/11/7,
 Lidé pro Pečky a Velké Chvalovice s SPD 3/0/6/12, Pečky srdcem 2/0/8/11.
-
-## Sociální sítě uskupení
-
-U každého odkazu na sociální síť v tabulce „Volební uskupení" (sloupeček
-„Poznámka") je v závorce počet sledujících/členů a datum **posledního
-příspěvku na dané síti** (ne datum naší kontroly — ukazatel, jak moc je
-stránka aktivní) — aktualizuje se týdně. Těchto 7 odkazů je podmnožinou
-delšího seznamu v sekci [O webu](../../o-webu/README.md) → „Sociální
-sítě", kde žije i samotný postup kontroly:
-[o-webu/automation-socialni-site.md](../../o-webu/automation-socialni-site.md)
-— při každé aktualizaci se zapisuje na obě místa najednou. Poznámka je
-zúžená na max. 50 % šířky tabulky (`assets/styles.css`,
-`#panel-volby2026 table.register td:last-child`), aby ji dlouhý text
-u některých uskupení nenafukoval na úkor sloupečku „Lidé".

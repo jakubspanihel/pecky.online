@@ -98,6 +98,11 @@ příslušný `content/<sekce>.html` a přepsat všechny odkazy, pak spustit
   dne + času + místa/pořadatele, ne jen názvu. Při duplicitě zůstane záznam
   s dokladem z pecky.cz, ostatní doklady se přesunou do jeho `evidence`
   a druhý záznam se smaže.
+  Při sloučení se **aktuální údaje (čas, místo) berou z novějšího zdroje**
+  (podle `evidence[].published`), ale jen mezi srovnatelnými zdroji: souhrnný
+  přehled (program KD, rozvrh, měsíční plakát) nepřebíjí konkrétní oznámení
+  akce (aktualita pecky.cz, plakát pořadatele) jen tím, že je novější — při
+  rozporu zapsat do `note` a čas nechat u konkrétního oznámení nebo se zeptat.
 - **Zmínky konkrétního příspěvku/zdroje v textu** („3. 9. 2026, na Facebooku
   města“, „podle příspěvku na Facebooku“) jsou odkazem na ten příspěvek
   (URL z řádku/štítku vedle); formulace se liší, hledat i varianty.

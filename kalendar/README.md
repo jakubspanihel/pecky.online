@@ -299,6 +299,8 @@ spustit (zápasy AFK Pečky předtím stáhnout
 python3 kalendar/scripts/update-kalendar.py
 python3 scripts/build.py
 ```
+Generátor při každém běhu vypíše řádky `POZOR možná duplicita` pro dvojice akcí (ne kurzů) téhož pořadatele ve stejný den, s začátkem do 60 minut od sebe a se shodným slovem v místě (`najdi_podezrele_duplicity()`). Jen upozorňuje; sloučení se dělá ručně podle pravidla „jedna akce = jeden záznam“ z `CLAUDE.md` (hlavní záznam má doklad z pecky.cz).
+
 První příkaz přegeneruje `kalendar/udalosti.json` a `kalendar/kalendar.ics`
 ze všech zapojených zdrojů najednou. Druhý je potřeba, jen pokud se
 změnil `content/kalendar.html` samotný (data soubory build.py

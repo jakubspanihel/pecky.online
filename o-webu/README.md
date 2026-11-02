@@ -57,10 +57,8 @@ Sekce „Sociální sítě" (skupina `subpanel-owebu-socialni`, blok
 facebookové/instagramové/YouTube účty zmiňované na webu, u každého počet
 sledujících/členů/odběratelů a datum posledního příspěvku/videa (ukazatel
 aktivity, ne datum naší kontroly). Aktualizuje se týdně, postup viz
-[automation-socialni-site.md](automation-socialni-site.md). Sedm z těchto
-odkazů (volební uskupení) se zapisuje i do tabulky „Volební uskupení" na
-[Volby 2026](../volby/2026/README.md) — postup pokrývá obě místa
-najednou.
+[automation-socialni-site.md](automation-socialni-site.md). Stránka
+[Volby 2026](../volby/2026/README.md) sociální sítě uskupení nezobrazuje.
 
 Zatím žádná další zvláštní pravidla nad rámec konvence výše. Doplnit sem,
 až nějaká vzniknou.
