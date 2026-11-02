@@ -18,6 +18,11 @@ Poznámky k datům (viz i kořenový `CLAUDE.md` → „Poznámky k datům"):
 
 Obsah panelu žije v `content/smlouvy.html` (žádná samostatná datová sada).
 
+## Známé mezery
+
+- Tabulka smluv je statický výřez z Hlídače státu, ne živě se obnovující
+  data (chybí veřejné API volatelné přímo z prohlížeče).
+
 ## Pracovní postup: týdenní kontrola
 
 Sekce nemá vlastní snímek ID jako Zakázky — porovnává se přímo proti

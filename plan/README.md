@@ -13,7 +13,7 @@ s archivem usnesení, dotacemi a Pečeckými novinami).
 
 Srovnání plánu se skutečností je zatím hotové jen pro vybrané projekty —
 zbytek ze 197 aktivit nebyl proti plnému archivu a všem dotacím
-systematicky prověřen (viz kořenový `README.md` → „Známé mezery"). Dokud
+systematicky prověřen (včetně všech 148 dotací). Dokud
 se to nestane, netvrdit o nich, že se nerealizovaly.
 
 Verze dokumentů na pecky.cz (25. 10. 2026): Souhrn (718 úkolů, 360,8 mil. Kč,

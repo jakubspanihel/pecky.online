@@ -8,7 +8,7 @@ CLAUDE.md) — tohle je detail jen pro tuhle jednu sekci.
 ## Účel sekce
 Kartičky členů zastupitelstva (21) a rady města (7) — kdo v nich sedí,
 za jaké uskupení, případně fotka. Zdroj: jmenný seznam ZM/RM z pecky.cz,
-doplňkově web ODS Pečky (viz kořenový `README.md` → „Zdroje dat").
+doplňkově web ODS Pečky (viz `lide/sources.json`).
 
 Každé politické uskupení má na celém webu jednu pevně přiřazenou barvu
 (CSS třídy `.person-card.party-*`) — používá se konzistentně napříč

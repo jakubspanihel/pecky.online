@@ -66,6 +66,8 @@ Struktura:
 
 ## Poznámky a známé mezery
 
+- Tabulka zakázek je statický výřez z Hlídače veřejných zakázek, ne živě
+  se obnovující data (chybí veřejné API volatelné přímo z prohlížeče).
 - Hlídač hlásil u posledního průchodu (13. 9. 2026) **214 výsledků
   celkem**, ale potvrzených unikátních ID je **176**. Rozdíl jde za
   reklamní/duplicitní řádky ve výpisu — nepovažovat 214 za počet zakázek.

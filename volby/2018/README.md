@@ -10,8 +10,7 @@ Výsledky komunálních voleb 2018 v Pečkách (šest kandidujících uskupení,
 vítěz SNK NAŠE PEČKY s 39,60 % hlasů / 9 z 21 mandátů), předvolební sliby
 uskupení (záložka „Předvolební sliby") a rozbor, jak se naplnily (záložka
 „Rozbor") — vč. zajímavosti o soudem napadených volbách. Zdroj výsledků:
-dobový tisk / Seznam Zprávy, Novinky.cz (viz kořenový `README.md` →
-„Zdroje dat").
+dobový tisk / Seznam Zprávy, Novinky.cz (viz `sources.json`).
 
 ## Ustavující zasedání — mezera v datech (částečně doplněno 6. 10. 2026)
 Pravidlo „Zvolení zástupci patří do Výsledků voleb"

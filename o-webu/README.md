@@ -64,3 +64,9 @@ najednou.
 
 Zatím žádná další zvláštní pravidla nad rámec konvence výše. Doplnit sem,
 až nějaká vzniknou.
+
+## Známé mezery
+
+- Žádosti dle zákona 106/1999 Sb. a výroční zprávy 2011–2024 (jednotlivé
+  žádosti a odpovědi v PDF na starém webu `pecky.as4u.cz`) nejsou vytěžené
+  ani promítnuté na web.
