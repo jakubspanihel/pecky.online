@@ -1,41 +1,53 @@
-# pecky.online
+# DoPeček.cz
 
 Neoficiální občanský transparentní web o městě Pečky (okres Kolín).
-Vícestránkový statický web — žádný
-runtime framework, žádné externí závislosti (ani webová písma — jen systémová,
-viz proměnné `--font-*` v `assets/styles.css`). Jediný
-"build krok" je lokální generovací skript `scripts/build.py`, jeho
-výstup jsou čisté statické soubory pro GitHub Pages.
 
 ## Struktura
-Vícestránkový statický web, žádný runtime framework. Styl: pergamenově-
-úřední, jen systémová písma (`system-ui` pro text, `ui-serif`/Georgia pro
-nadpisy, systémové neproporcionální). Každá sekce má vlastní adresář/URL,
-generovaný `index.html` (needit — přepíše ho příští build, viz níže) a
-`README.md` (hlavní referenční dokument pro práci na sekci, načíst vždy
-jako první):
+Každá sekce má vlastní adresář/URL, generovaný `index.html` (needit —
+přepíše ho příští build, viz níže) a `README.md` (hlavní referenční
+dokument pro práci na sekci, načíst vždy jako první). Podstránky
+(URL pod některou sekcí) se řídí README nadřazené sekce, pokud sloupec
+Dokumentace neuvádí jinak. Tabulka je řazená podle URL:
 
 | Sekce | URL | Dokumentace |
 |---|---|---|
 | Domů | `/` | `domu/README.md` |
-| Lidé | `/lide/` | `lide/README.md` (+ `SPEC.md`; `people.json`/`organizations.json`/`affiliations.json`, kontrola `node lide/validate.mjs`) |
-| Plán | `/plan/` | `plan/README.md` |
-| Obchvat | `/obchvat/` | `obchvat/README.md` |
-| Tělocvična | `/telocvicna/` | `telocvicna/README.md` |
-| Volby | `/volby/` | `volby/README.md` (rozcestník) |
-| Volby 2018/2022/2026 | `/volby/2018/` atd. | `volby/<rok>/README.md` |
+| Dotace od města | `/dotace/` | `dotace/README.md` (+ `dotace.json`, generátor `dotace/update-dotace.py`) |
 | Jednání | `/jednani/` | `jednani/README.md` (+ `SPEC.md`, `automation-kontrola-usneseni-cz.md`, `automation-katastr-parcely.md`) |
-| Smlouvy | `/smlouvy/` | `smlouvy/README.md` |
-| Zakázky | `/zakazky/` | `zakazky/README.md` |
+| Docházka zastupitelů | `/jednani/absence.html` | |
+| Jednání pro sociální sítě | `/jednani/insta.html` | |
+| Nejdelší body jednání | `/jednani/nejdelsi.html` | |
+| Odpracované hodiny zastupitelů | `/jednani/odpracovano.html` | |
+| Zhlédnutí záznamů zastupitelstva | `/jednani/youtube.html` | |
+| Kalendář | `/kalendar/` | `kalendar/README.md` (+ `automation-plakat-akce.md`) |
+| Dnes v Pečkách | `/kalendar/insta.html` | |
+| Svoz odpadů | `/kalendar/svoz.html` | |
+| Lidé | `/lide/` | `lide/README.md` (+ `SPEC.md`; `people.json`/`organizations.json`/`affiliations.json`, kontrola `node lide/validate.mjs`) |
+| Na oběd | `/naobed/` | `naobed/README.md` (skill `DoPecek-obedy`) |
+| Pečecké noviny | `/noviny/` | `noviny/README.md` |
+| Redakce Pečeckých novin | `/noviny/redakce.html` | |
+| O webu | `/o-webu/` | `o-webu/README.md` (+ `automation-socialni-site.md`) |
+| Historie změn na webu | `/o-webu/changelog.html` | tabulka „Stav sekcí“ z `README.md`; odkaz na konci stránky O webu |
+| Facebook města Pečky | `/o-webu/facebook-monitoring/facebook-mestopecky/` | skill `DoPecek-facebook-monitoring` |
+| Politická uskupení na Facebooku | `/o-webu/facebook-monitoring/uskupeni/` | skill `DoPecek-facebook-uskupeni` |
+| Monitoring úřední desky | `/o-webu/uredni-deska-monitoring/` | `o-webu/uredni-deska-monitoring/README.md`, skill `DoPecek-uredni-deska-check` |
+| Obchvat | `/obchvat/` | `obchvat/README.md` |
+| Pro přespolní | `/okolo/` | `okolo/README.md` (+ `update-mapa.py`) |
+| PečkyBot | `/peckybot/` | `peckybot/README.md` |
+| Plán | `/plan/` | `plan/README.md` |
+| Pokladna | `/pokladna/` | `pokladna/README.md` |
 | Pozemky | `/pozemky/` | `pozemky/README.md` |
 | Prostory | `/prostory/` | `prostory/README.md` (+ `prostory.json`, generátor `prostory/update-prostory.py`) |
-| Pokladna | `/pokladna/` | `pokladna/README.md` |
-| Dotace od města | `/dotace/` | `dotace/README.md` (+ `dotace.json`, generátor `dotace/update-dotace.py`) |
+| Smlouvy | `/smlouvy/` | `smlouvy/README.md` |
+| Tělocvična | `/telocvicna/` | `telocvicna/README.md` |
+| Usnesení | `/usneseni/` | `usneseni/README.md` (+ `update-hlasovani.py`) |
 | Voda | `/voda/` | `voda/README.md` (+ `rozbory.json`, generátor `voda/update-rozbory.py`) |
-| Kalendář | `/kalendar/` | `kalendar/README.md` (+ `automation-plakat-akce.md`) |
-| Pečecké noviny | `/noviny/` | `noviny/README.md` |
-| O webu | `/o-webu/` | `o-webu/README.md` (+ `automation-socialni-site.md`; Monitoring úřední desky `o-webu/uredni-deska-monitoring/README.md`, skill `DoPecek-uredni-deska-check`) |
-| Historie změn na webu | `/o-webu/changelog.html` | podstránka O webu, tabulka „Stav sekcí“ z `README.md`; odkaz na konci stránky O webu |
+| Volby | `/volby/` | `volby/README.md` (rozcestník) |
+| Volby 2014 | `/volby/2014/` | `volby/2014/README.md` |
+| Volby 2018 | `/volby/2018/` | `volby/2018/README.md` |
+| Volby 2022 | `/volby/2022/` | `volby/2022/README.md` |
+| Volby 2026 | `/volby/2026/` | `volby/2026/README.md` |
+| Zakázky | `/zakazky/` | `zakazky/README.md` |
 
 **Needit přímo vygenerované `<sekce>/index.html` soubory ani kořenový
 `index.html`** (výstup pro Domů). Místo toho:

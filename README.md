@@ -3,6 +3,13 @@
 Neoficiální, nezávislý občanský projekt zpřehledňující veřejně dostupné informace
 o samosprávě města Pečky (okres Kolín, Středočeský kraj).
 
+## Technické řešení
+Vícestránkový statický web — žádný
+runtime framework, žádné externí závislosti (ani webová písma — jen systémová,
+viz proměnné `--font-*` v `assets/styles.css`). Jediný
+"build krok" je lokální generovací skript `scripts/build.py`, jeho
+výstup jsou čisté statické soubory pro GitHub Pages.
+
 ## Metodika ověřování (POVINNÉ)
 
 Než o čemkoli prohlásíš, že to „v datech není“ nebo že se to „nestalo“, prověř to
@@ -56,7 +63,7 @@ se sem, na stránku samotnou se nic ručně nepíše.
 | [Lidé](lide/README.md) | na vyžádání | 1. 11. 2026 | 1. 11. 2026 | doplněno 19 fotek kandidátů 2018 (NAŠE PEČKY str. 8, ODS str. 10) z Pečeckých novin 9/2018 |
 | [Jednání](jednani/README.md) | týdně | 2. 11. 2026 | 31. 10. 2026 | zápis a usnesení RM 38/2026 (26. 10. 2026; 7 usnesení UR-331 až UR-337-38/26, délky bodů, docházka s příchodem v 15:45) a nová Pozvánka RM 39/2026 (2. 11. 2026, 8 bodů); komise, výbory a školská rada beze změny |
 | [Volby 2026](volby/2026/README.md) | týdně | 2. 11. 2026 | 31. 10. 2026 | promítnuty účty (kontrola 31. 10. 2026): změny počtů sledujících u Pečky NEXT, Pečky Pečákům, ODS, Pečky srdcem a skupiny SPD |
-| [Kalendář](kalendar/README.md) | týdně | 31. 10. 2026 | 31. 10. 2026 | nová akce Vánoční jarmark v MŠ Mašinka (9. 12. 2026) a událost Rada 39/2026 (2. 11. 2026) |
+| [Kalendář](kalendar/README.md) | týdně | 31. 10. 2026 | 2. 11. 2026 | nová akce Vánoční jarmark v MŠ Mašinka (9. 12. 2026) a událost Rada 39/2026 (2. 11. 2026) |
 | [Voda](voda/README.md) | na vyžádání | 31. 10. 2026 | 31. 10. 2026 | dvě nové události: havárie vodovodu na Masarykově náměstí (30. 10. 2026) a odstávka 2. 11. 2026; celkem 60 událostí / 72 zdrojů |
 | [Tělocvična](telocvicna/README.md) | týdně | 31. 10. 2026 | 31. 10. 2026 | 26. 10. 2026 RM 38/2026, bod 3: starosta informoval o sanačních pracích, zabezpečení stavby před zimou a opravě střechy školní kuchyně (bez usnesení); Aktuality města bez zmínky o zastavení stavby |
 | [Smlouvy](smlouvy/README.md) | týdně | 31. 10. 2026 | 31. 10. 2026 | skupina 185 smluv / 104,6 mil. Kč (úřad 49 / 33,9 mil. Kč), přidána investiční dotace Středočeského kraje z Fondu JSDH a složek IZS (150 000 Kč, 27. 10. 2026) |
