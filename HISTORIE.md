@@ -4,6 +4,8 @@ Chronologický deník běhů a úprav, nejnovější nahoře. Přesunuto z
 kořenového `README.md` (sekce „Poslední aktualizace“). Aktuální stav sekcí
 je v tabulce „Stav sekcí“ v `README.md`; sem patří podrobnosti běhu.
 
+3. listopadu 2026 (denní kontrola sociálních sítí, 49 účtů). Počet sledujících: Pečky NEXT (Facebook) 327 → 328, ostatní beze změny. Nová aktivita 3. 11. 2026: U Marka, Pečecké služby, Alena Švejnohová, Instagram Pramínek. YouTube Město Pečky 100 odběratelů beze změny; `jednani/update-youtube.py` obnovil `content/youtube.html` (33 záznamů, 9 164 zhlédnutí). Fotky ani Události nebyly tento běh procházeny, hledání akcí pro Kalendář se neprovedlo.
+
 3. listopadu 2026 (otevírací doba Hospůdky na hřišti ve Velkých Chvalovicích). Z plakátu „Zimní otevírací doba od 1. 11.“ (příspěvek ve Facebook skupině, 2. 11. 2026) doplněno `opening_hours` v `lide/organizations.json` (st–čt 17:00–23:00, pá–so 17:00–24:00, ne–út zavřeno), nový zdroj v `lide/sources.json`; `naobed/README.md` upraven, že doba už je známá. Build bez chyb.
 
 3. listopadu 2026 (denní běh Na oběd). U Marka a Siňorita doplněno menu z 3. 11. 2026, U Stříkačky lístek z 2. 11. 2026 (nejnovější příspěvek; přepis z fotografií, zapsáno do `naobed/data/<id>/2026-11.json` a `menu.json`). Školní jídelna už měla dnešní jídelníček (přeskočeno). Dodatečně doplněn lístek Siňority z 2. 11. 2026 (dohledán v sekci Fotky na Facebooku).
