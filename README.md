@@ -59,7 +59,7 @@ se sem, na stránku samotnou se nic ručně nepíše.
 | Sekce | Režim | Kontrola | Změna | Co naposledy |
 |---|---|---|---|---|
 | [Volby 2026](volby/2026/README.md) | na vyžádání | 3. 11. 2026 | 3. 11. 2026 | z tabulky uskupení odstraněny odkazy na sociální sítě a počty sledujících, ponechán odkaz na kandidátní listinu |
-| [Na oběd](naobed/README.md) | denně | 3. 11. 2026 | 3. 11. 2026 | denní menu U Marka a Siňorita z 3. 11. 2026 a U Stříkačky z 2. 11. 2026 (přepis z fotografií na Facebooku); školní jídelna beze změny |
+| [Na oběd](naobed/README.md) | denně | 3. 11. 2026 | 3. 11. 2026 | otevírací doba Hospůdky na hřišti ve Velkých Chvalovicích (zimní, od 1. 11. 2026, z plakátu na Facebooku); denní menu U Marka, Siňorita a U Stříkačky beze změny oproti předchozímu zápisu |
 | [Kalendář](kalendar/README.md) | týdně | 3. 11. 2026 | 3. 11. 2026 | sloučeny 3 duplicitní přednášky okrašlovacího spolku (3., 10. a 24. 11. 2026): začátek 18:30, doklady spojeny |
 | [O webu](o-webu/README.md) | týdně | 2. 11. 2026 | 2. 11. 2026 | sociální sítě (kontrola 2. 11. 2026, 52 odkazů): aktualizované počty sledujících u 10 účtů, nová aktivita u 10 účtů, zhlédnutí záznamů ZM na YouTube 9 160 |
 | [Lidé](lide/README.md) | na vyžádání | 1. 11. 2026 | 1. 11. 2026 | doplněno 19 fotek kandidátů 2018 (NAŠE PEČKY str. 8, ODS str. 10) z Pečeckých novin 9/2018 |

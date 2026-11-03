@@ -54,8 +54,8 @@ Týdenní otevírací doba je u organizace v `lide/organizations.json`
 web podniku (Western Saloon, Pizza Maximo) nebo Mapy.com (U Marka, Siňorita,
 Samer Kebab; na Facebooku je jen „teď je zavřeno“). Hostinec U Stříkačky: Facebook (dialog „Otevřeno“ v levém sloupci profilu),
 údaj starý asi 3 roky. U Asia&Wok je doba jen v poznámce (stránka je
-zastaralá, podnik se přestěhoval) a u Hospůdky Velké Chvalovice se nenašla —
-řádek se nezobrazuje.
+zastaralá, podnik se přestěhoval) a u Hospůdky Velké Chvalovice je z plakátu
+„Zimní otevírací doba od 1. 11.“ ve Facebook skupině (půlnoc jako 24:00).
 
 ## Postup aktualizace
 
