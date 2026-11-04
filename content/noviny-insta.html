@@ -63,7 +63,7 @@
   // ===== Pečecké noviny: banner posledního čísla jako obrázek pro sociální sítě =====
   ['gesturestart', 'gesturechange'].forEach(t => document.addEventListener(t, ev => ev.preventDefault()));
   const JI_FORMATY = {'1:1': [1080, 1080], '4:5': [1080, 1350], '3:4': [1080, 1440]};
-  const JI_OBALKA = {'1:1': 84, '4:5': 135, '3:4': 160};  // šířka obálky v px, aby se obsah vešel do bloku
+  const JI_OBALKA = {'1:1': 92, '4:5': 148, '3:4': 176};  // šířka obálky v px, aby se obsah vešel do bloku
   let JI_FORMAT = '4:5';
   document.querySelectorAll('.today-format-btn[data-f]').forEach(b => b.addEventListener('click', () => {
     JI_FORMAT = b.dataset.f;
