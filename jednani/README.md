@@ -1294,7 +1294,8 @@ Zápisy Rady a usnesení Zastupitelstva, která vyšla v Pečeckých novinách *
   3/2011. Text je strojový přepis; u skenů mohou být vsuvky z okolních článků a chyby OCR, u několika jednání je přepis zkrácený
   (`text_note`). Ustavující zasedání 2010, 2006 a 2002 se ve `volebni-obdobi.json` nehledala (výpis nemá dělicí čáru).
 
-**Hranice volebních období (`volebni-obdobi.json`, doplněno 6. 10. 2026):** kromě ustavujícího zasedání 20. 10. 2022
+**Hranice volebních období (`volebni-obdobi.json`, doplněno 6. 10. 2026):** kromě ustavujících zasedání 4. 11. 2026 a 20. 10. 2022
+(obě se zlatě vyznačují i v grafu `jednani/update-youtube.py`, konstanta `USTAVUJICI`)
 jsou zapsaná i **14. 11. 2018** (PN 11/2018 a 12/2018, s. 3; zasedání se posunulo kvůli návrhu na neplatnost
 voleb) a **5. 11. 2014** (PN 12/2014, s. 2–3, usnesení ustavujícího zasedání). Zdroje jsou odkazy na PDF novin
 s `#page=N`. Díky tomu se i mezi staršími jednáními z úřední desky zobrazí dělicí čára „Ustavující zasedání 2018“

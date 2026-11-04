@@ -24,7 +24,7 @@ for mm in data['meetings']:
     d=datetime.date.fromisoformat(mm['date'])
     rows.append((d,int(vm.group(1)),str(mm['number'])+'/'+str(mm['year']),i))
 rows.sort()
-ust=next(r for r in rows if r[0].isoformat()=='2022-10-20')
+USTAVUJICI={'2022-10-20','2026-11-04'}  # ustavující zasedání po volbách (viz volebni-obdobi.json)
 W,H,L,R,T,B=960,330,44,950,22,50
 mx=max(1000,-(-max(r[1] for r in rows)//200)*200);pl=H-B-T;n=len(rows);step=(R-L)/n;bw=step*0.7
 s=[]
@@ -34,7 +34,7 @@ for v in range(0,mx+1,200):
 s.append('        <text x="2" y="12" text-anchor="start" font-size="11" fill="var(--ink-soft)">zhlédnutí</text>')
 for k,(d,v,lab,i) in enumerate(rows):
     x=L+k*step+(step-bw)/2;h=pl*v/mx;y=T+pl-h
-    u=d==ust[0];col='var(--gold)' if u else 'var(--burgundy)'
+    u=d.isoformat() in USTAVUJICI;col='var(--gold)' if u else 'var(--burgundy)'
     extra=' – ustavující zasedání po volbách' if u else ''
     ttl=f'ZM {lab} ({d.day}. {d.month}. {d.year}){extra}: {v} zhlédnutí'
     s.append(f'        <a class="fb-bar" href="https://www.youtube.com/watch?v={i}" target="_blank" rel="noopener"><title>{ttl}</title><rect x="{x:.1f}" y="{y:.1f}" width="{bw:.1f}" height="{h:.1f}" fill="{col}"/><rect x="{x:.1f}" y="{T}" width="{bw:.1f}" height="{pl}" fill="transparent"/></a>')
@@ -65,7 +65,7 @@ html=f'''  <style>
     <figure class="fb-chart">
       <ul class="fb-legend" aria-label="Legenda grafu">
         <li><span class="fb-sw" style="background:var(--burgundy)"></span>Řádné zasedání</li>
-        <li><span class="fb-sw" style="background:var(--gold)"></span>Ustavující zasedání po volbách (20. 10. 2022)</li>
+        <li><span class="fb-sw" style="background:var(--gold)"></span>Ustavující zasedání po volbách (20. 10. 2022, 4. 11. 2026)</li>
       </ul>
       <svg viewBox="0 0 {W} {H}" width="100%" role="img" aria-labelledby="yt-t yt-d">
         <title id="yt-t">Zhlédnutí záznamů zastupitelstva</title>
