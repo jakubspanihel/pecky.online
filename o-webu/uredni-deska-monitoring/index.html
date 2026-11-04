@@ -79,9 +79,10 @@
   <style>
     .ud-month{margin-top:22px;}
     .ud-sum{margin:6px 0 12px; font-size:13.5px;}
-    .ud-filter{margin:22px 0 0;}
-    .ud-filter .filter-row{justify-content:flex-end;}
-    .ud-filter + .ud-months{margin-top:0;}
+    .ud-filter{margin-top:22px;}
+    .ud-found{margin:8px 0 0;}
+    .ud-found[hidden]{display:none;}
+    .ud-found + .ud-months{margin-top:0;}
     .ud-card[hidden],.ud-tm-li[hidden],.ud-ty[hidden],.ud-month[hidden]{display:none;}
     .ud-cards{list-style:none; margin:0; padding:0; display:grid; grid-template-columns:minmax(0,1fr); gap:12px;}
     .ud-split{display:none;}
@@ -1027,9 +1028,9 @@
       <label class="checkbox-label ud-arch"><input type="checkbox" id="ud-arch" checked> včetně archivu ze starého webu</label>
     </figure>
 
-    <div class="list-filters ud-filter">
-      <div class="filter-row">
-        <label class="segmented-label" for="ud-theme">Téma</label>
+    <div class="list-control ud-filter">
+      <div class="search-bar">
+        <input type="search" id="ud-search" placeholder="Hledat v názvech dokumentů" autocomplete="off" aria-label="Hledat v dokumentech úřední desky">
         <select id="ud-theme" aria-label="Filtr výpisu podle tématu dokumentu">
           <option value="">Všechna témata (1929)</option>
           <option value="0">Zastupitelstvo (156)</option>
@@ -1044,6 +1045,7 @@
         <button type="button" class="chip-clear" id="ud-theme-clear" hidden>Vymazat filtr</button>
       </div>
     </div>
+    <p class="meta-note ud-found" id="ud-found" role="status" hidden></p>
     <div class="ud-months">
     <details class="collapsible ud-month" id="ud-2026-11">
     <summary style="cursor:pointer; list-style:none;"><h3 class="display" style="margin:0 0 4px; display:inline;">Listopad 2026 (<span class="ud-mn">1</span>) <span class="collapsible-arrow" aria-hidden="true">▾</span></h3></summary>
@@ -4347,12 +4349,31 @@
     }
     var udTheme = document.getElementById('ud-theme');
     var udThemeClear = document.getElementById('ud-theme-clear');
+    var udSearch = document.getElementById('ud-search');
+    var udFound = document.getElementById('ud-found');
+    function udNorm(s) {
+      return s.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
+    }
+    function udText(c) {
+      if (c.udT === undefined) {
+        c.udT = udNorm(['.ud-date', '.ud-chip', '.ud-title'].map(function (q) {
+          return c.querySelector(q).textContent;
+        }).join(' ').replace(/\s+/g, ' '));
+      }
+      return c.udT;
+    }
     function udFilter() {
-      var g = udTheme.value, per = {}, perY = {};
+      var g = udTheme.value, per = {}, perY = {}, shown = 0;
+      var words = udNorm(udSearch.value).split(/\s+/).filter(Boolean);
       document.querySelectorAll('#panel-udmonitoring .ud-card').forEach(function (c) {
         var show = g === '' || c.getAttribute('data-g') === g;
+        if (show && words.length) {
+          var t = udText(c);
+          show = words.every(function (w) { return t.indexOf(w) !== -1; });
+        }
         c.hidden = !show;
         if (show) {
+          shown++;
           var ym = c.getAttribute('data-date').slice(0, 7);
           per[ym] = (per[ym] || 0) + 1;
           perY[ym.slice(0, 4)] = (perY[ym.slice(0, 4)] || 0) + 1;
@@ -4373,8 +4394,10 @@
         m.querySelector('.ud-mn').textContent = n;
         m.hidden = n === 0;
       });
-      document.querySelectorAll('#panel-udmonitoring .ud-sum').forEach(function (sm) { sm.hidden = g !== ''; });
-      udThemeClear.hidden = g === '';
+      document.querySelectorAll('#panel-udmonitoring .ud-sum').forEach(function (sm) { sm.hidden = g !== '' || words.length > 0; });
+      udThemeClear.hidden = g === '' && !words.length;
+      udFound.hidden = !words.length && g === '';
+      udFound.textContent = shown === 0 ? 'Nic nenalezeno.' : 'Nalezeno ' + shown + ' ' + (shown === 1 ? 'dokument' : shown < 5 ? 'dokumenty' : 'dokumentů') + '.';
       if (udMq.matches) {
         var cur = udCur && document.querySelector('#ud-tree .ud-tm[data-ym="' + udCur + '"]');
         if (cur && !cur.closest('li').hidden) udSelect(cur, false);
@@ -4382,7 +4405,8 @@
       }
     }
     udTheme.addEventListener('change', udFilter);
-    udThemeClear.addEventListener('click', function () { udTheme.value = ''; udFilter(); });
+    udSearch.addEventListener('input', udFilter);
+    udThemeClear.addEventListener('click', function () { udTheme.value = ''; udSearch.value = ''; udFilter(); });
     document.querySelectorAll('#ud-tree .ud-tm').forEach(function (b) {
       b.addEventListener('click', function () { udSelect(b, true); });
     });
@@ -4390,7 +4414,7 @@
     function udGo(id) {
       var m = /^ud-(?:d-)?(\d{4}-\d{2})/.exec(id);
       if (!m) return false;
-      if (udTheme.value !== '') { udTheme.value = ''; udFilter(); }
+      if (udTheme.value !== '' || udSearch.value !== '') { udTheme.value = ''; udSearch.value = ''; udFilter(); }
       var desk = udMq.matches;
       if (desk) udSelect(document.querySelector('#ud-tree .ud-tm[data-ym="' + m[1] + '"]'), false);
       var el = document.getElementById(id);

@@ -44,6 +44,14 @@ platné — filtrovat podle roku vyvěšení). Starší než 2015 tam nic není.
 3. Nové řádky doplnit do `<rok>.txt` (nejnovější nahoře), sloupec
    „značka“ se nepřenáší.
 
+## Hledání na stránce
+
+Nad výpisem je pole „Hledat v názvech dokumentů“ vedle filtru témat (`list-control`, stejný vzhled jako
+v ostatních sekcích). Hledá se v prohlížeči přes všechny karty (`.ud-card`): ve slovech z data, tématu a
+názvu, bez ohledu na diakritiku a velikost písmen; více slov = všechna musí sedět. Kombinuje se s filtrem
+tématu, strom let a měsíců ukazuje jen měsíce s nálezem, pod polem je počet nalezených dokumentů.
+Text příloh se na stránce nehledá (index `Text/` je jen lokální, viz níže).
+
 ## Generování
 
 ```bash
