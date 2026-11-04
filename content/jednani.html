@@ -461,7 +461,19 @@
     const title = href
       ? `<a class="hit-number" href="${href}" target="_blank" rel="noopener">${label}</a>`
       : `<span class="hit-number">${label}</span>`;
-    return `<div class="agenda-res"><div class="info-toggle-text" hidden><div class="res-block-head">${title}${jOutcomeBadgeHtml(r)}</div>${jEscapeHtml(r.text)}</div></div>`;
+    return `<div class="agenda-res"><div class="info-toggle-text" hidden><div class="res-block-head">${title}${jOutcomeBadgeHtml(r)}</div>${jEscapeHtml(r.text)}${jRenderVoteNames(r)}</div></div>`;
+  }
+
+  // Jmenovité hlasování (jen zastupitelstvo — rada na usneseni.cz jména neuvádí,
+  // jen počty). Zdroj: r.vote_names {pro, proti, zdrzel, nehlasoval}; prázdné skupiny se vynechají.
+  function jRenderVoteNames(r){
+    const v = r.vote_names;
+    if (!v) return '';
+    const groups = [['pro', 'Pro'], ['proti', 'Proti'], ['zdrzel', 'Zdrželi se'], ['nehlasoval', 'Nehlasovali']]
+      .filter(([k]) => (v[k] || []).length)
+      .map(([k, label]) => `<div class="res-votes-row"><strong>${label} (${v[k].length}):</strong> ${v[k].map(jEscapeHtml).join(', ')}</div>`)
+      .join('');
+    return groups ? `<div class="res-votes"><div class="res-votes-title">Jak hlasovali</div>${groups}</div>` : '';
   }
 
   // Návrh usnesení, který neprošel hlasováním — na rozdíl od m.resolutions

@@ -483,6 +483,22 @@ U **Rady města** tím vznikne banner „Z poslední Rady města“ na Domů
 se shrnutí nezobrazuje. Build ho zároveň předá PečkyBotovi (fulltext + `cti_dokument`),
 nic dalšího se nedělá. Shrnutí jde i do výpisu v kroku 11.
 
+### 8g. Jmenovité hlasování zastupitelstva — POVINNÉ pro každé nové ZM s usneseními
+
+U každého usnesení Zastupitelstva (`resolutions[]` v `pecky-jednani.json`) musí být pole
+`vote_names` (`{"pro": [], "proti": [], "zdrzel": [], "nehlasoval": []}`), které web zobrazí jako
+„Jak hlasovali“ v rozbaleném bodu. Rada jména nemá (zdroj uvádí jen počty) — netýká se jí.
+
+- **ZM je v archivu `jednani/archive/`:** `python3 jednani/scripts/doplnit-jmenovite-hlasovani.py`
+  (idempotentní; doplní všechna usnesení ZM a vypíše, kde chybí zdroj nebo nesedí počty).
+- **ZM novější než archiv (typicky každé nové):** stránka zápisu
+  `https://mesto-pecky.usneseni.cz/verejne/<uuid>/zapis/` v Chrome. Hlasování jsou v textu jako
+  `pro: (N) jména … proti: (N) … zdržel se: (N) … nehlasoval: (N) …` a hned za nimi řádek
+  „Návrh A. byl přijat jako usnesení číslo: UZ-…“ — podle toho se hlasování páruje
+  s usnesením (hlasování bez čísla usnesení je procedurální nebo zamítnutý návrh, nezapisuje se).
+  Jména opsat doslova, počty jmen musí sedět s `pro`/`proti`/`zdrzel` u usnesení.
+- Kontrola: žádné usnesení ZM bez `vote_names` (skript vypíše „bez jmen zbývá“).
+
 ### 9. Tělocvična (pokud relevantní) — POVINNÉ při každém běhu
 
 Stavbu „Dostavba učeben a tělocvičny v ZŠ Pečky“ sleduje vlastní sekce

@@ -506,6 +506,21 @@ výše jsou chronologický záznam úprav, tohle je stav, který platí:
   `POZNAMKY`). Řazeno od nejmenší docházky. Celkový počet jednání v
   období je jen ve větě nad tabulkou, tučně.
 
+## Jmenovité hlasování zastupitelstva (`resolutions[].vote_names`, od 4. 11. 2026)
+
+U všech usnesení Zastupitelstva (2021–2026) je v `pecky-jednani.json` pole
+`vote_names` — `{"pro": […], "proti": […], "zdrzel": […], "nehlasoval": […]}` se jmény tak, jak je uvádí
+zápis. Web je zobrazí v rozbaleném bodu programu pod textem usnesení jako „Jak hlasovali“
+(`jRenderVoteNames()` v `content/jednani.html`; prázdné skupiny se nevypisují). Rada pole nemá:
+usneseni.cz u ní uvádí jen počty hlasů, jména nejsou nikde.
+
+Zdroj: velký archiv (`archive/*zastupitelstvo*.json`, `vote.pro/proti/zdrzel_se.names`) a `nehlasoval` z hlasování
+v zápisu (`minutes.agenda_items[].votes[]`, párování přes `adopted_resolution_number`) — skript
+`scripts/doplnit-jmenovite-hlasovani.py`. ZM 5/2026, 6/2026 a 7/2026 nejsou v archivu, jejich jména jsou
+ručně ze stránky zápisu. Postup pro nová jednání: `automation-kontrola-usneseni-cz.md`, krok 8g.
+Součet jmen musí vždy sedět s `pro`/`proti`/`zdrzel` u usnesení. Hlasování o zamítnutých návrzích
+(bez čísla usnesení) se zatím nezapisuje.
+
 ## Pořadí v poli `meetings` (opraveno 28. 9. 2026)
 
 `pecky-jednani.json` → `meetings` musí být seřazené sestupně podle `date`
