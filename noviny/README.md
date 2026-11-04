@@ -407,6 +407,15 @@ Když uživatel dodá další skupinu PDF mimo pecky.cz, postup:
 9. Smazat `TEMP/` (obsah je beze zbytku v `Data/`) a jednorázový
    zpracovávací skript, pokud byl napsaný jako samostatný soubor.
 
+## Obrázek pro sociální sítě (`/noviny/insta.html`)
+
+Nástrojová stránka jako `/jednani/insta.html` a `/kalendar/insta.html`: bez hlavičky
+a patičky, noindex, mimo sitemapu, tlačítka Uložit/Sdílet (PNG 1:1, 4:5, 3:4).
+Obsah je zelený banner Pečeckých novin z Domů (`_dash_noviny()` ve `scripts/build.py`,
+vkládá se přes `{{NOVINY_INSTA}}`), takže se po novém vydání aktualizuje sám při buildu.
+Zdroj: `content/noviny-insta.html`. Odkaz je sdílecí ikona vedle nadpisu „Poslední číslo“
+v `content/zpravodaj.html`.
+
 ## Pečecké noviny vs. DoPeček.cz (`/noviny/zastupitelstvo.html`)
 Podstránka Pečeckých novin (odkaz ze „Související“ na `/noviny/`, bez položky v menu).
 Ke každému zasedání zastupitelstva ukazuje článek z rubriky Z radnice („N. zasedání

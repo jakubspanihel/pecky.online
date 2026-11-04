@@ -1,0 +1,149 @@
+  <a class="overlay-close" href="/noviny/" aria-label="Zavřít a vrátit se na Pečecké noviny">Zavřít</a>
+
+  <section class="panel active" id="panel-today" aria-label="Pečecké noviny pro sociální sítě">
+    <div class="today-frame" id="Frame">
+      <div class="today-box">{{NOVINY_INSTA}}</div>
+      <div class="today-akce">
+        <div class="today-radek">
+          <div class="today-format" role="group" aria-label="Formát obrázku">
+            <button type="button" class="today-format-btn" data-f="1:1" aria-pressed="false" title="Čtverec, 1080 × 1080 px">1:1</button>
+            <button type="button" class="today-format-btn" data-f="4:5" aria-pressed="true" title="Na výšku, 1080 × 1350 px">4:5</button>
+            <button type="button" class="today-format-btn" data-f="3:4" aria-pressed="false" title="Vysoký, 1080 × 1440 px">3:4</button>
+          </div>
+        </div>
+        <div class="today-akce-tl">
+          <button type="button" class="today-uloz-btn" id="today-uloz">Uložit ...</button>
+          <button type="button" class="today-uloz-btn" id="today-sdilet">Sdílet ...</button>
+        </div>
+        <span class="today-stav" id="today-stav" role="status"></span>
+      </div>
+    </div>
+  </section>
+
+  <style>
+    /* Rám 327 px široký (4:5 jako 1080 × 1350), uvnitř zelený banner Pečeckých novin jako na Domů. */
+    html,body{background:var(--ink); touch-action:manipulation;}
+    main{max-width:none; margin:0; padding:0;}
+    #panel-today{position:static; display:flex; align-items:center; justify-content:center; min-height:100vh; box-sizing:border-box; padding:110px 0 190px;}
+    .today-frame{position:relative; flex:none; --k:.82; box-sizing:border-box; width:327px; aspect-ratio:var(--pomer,4 / 5); margin:12px; padding:10px; background:var(--material);}
+    .today-box{position:relative; z-index:1; width:100%; height:100%;}
+    .today-box .search-status{margin:0; color:#fff;}
+    .ji-nav{position:absolute; left:0; right:0; bottom:100%; margin-bottom:7px; display:flex; justify-content:space-between; align-items:center;}
+    .today-format{display:flex;}
+    .today-format-btn{min-width:56px; height:28px; padding:0 14px; border:1px solid rgba(255,255,255,.55); border-right-width:0; background:transparent; color:#fff; font:700 13px/1 var(--font-body); cursor:pointer;}
+    .today-format-btn:first-child{border-radius:99px 0 0 99px;}
+    .today-format-btn:last-child{border-radius:0 99px 99px 0; border-right-width:1px;}
+    .today-format-btn:hover{background:rgba(255,255,255,.12);}
+    .today-format-btn[aria-pressed="true"]{background:#fff; color:var(--ink);}
+    .today-radek{display:flex; justify-content:center; align-items:center; margin-bottom:12px;}
+    .today-pismo-btn{min-width:34px; height:26px; padding:0 8px; border-radius:99px; border:1px solid rgba(255,255,255,.55); background:transparent; color:#fff; font:700 13px/1 var(--font-body); cursor:pointer;}
+    .today-pismo-btn:hover{border-color:#fff; background:rgba(255,255,255,.12);}
+    .today-pismo-btn:disabled{opacity:.4; cursor:default;}
+    .today-akce{position:absolute; top:100%; left:0; right:0; margin-top:16px;}
+    .today-akce-tl{display:flex; gap:10px; justify-content:center;}
+    .today-stav{display:block; margin-top:10px; text-align:center; font:400 13px/1.3 var(--font-body); color:#fff; min-height:1.3em;}
+    .today-uloz-btn{white-space:nowrap; border:none; border-radius:0; background:var(--burgundy); color:#fff; font-family:var(--font-body); font-size:15px; font-weight:700; line-height:1; padding:12px 16px; cursor:pointer;}
+    .today-uloz-btn:hover{background:var(--burgundy-deep);}
+    #today-sdilet{background:color-mix(in srgb, var(--cyan) 55%, #fff); color:var(--ink);}
+    #today-sdilet:hover{background:color-mix(in srgb, var(--cyan) 70%, #fff);}
+    .today-uloz-btn:disabled{opacity:.6; cursor:wait;}
+    a.overlay-close{display:inline-block; text-decoration:none;}
+
+    .today-box .banner{box-sizing:border-box; width:100%; height:100%; margin:0; flex-direction:column; justify-content:center; text-align:center; gap:calc(16px * var(--k)); padding:20px 20px 34px; position:relative;}
+    .today-box .banner-media{pointer-events:none;}
+    .today-box .banner-media img{width:var(--cw,135px);}
+    .today-box .banner-body{flex:0 0 auto; width:100%;}
+    .today-box .banner-title{font-size:calc(26px * var(--k) / .82);}
+    .today-box .banner-text{font-size:calc(15px * var(--k) / .82);}
+    .today-box .banner-actions{display:none;}
+    .today-box .ji-pata{position:absolute; right:20px; bottom:14px; font:700 13px/1 var(--font-body); color:#fff; text-align:right;}
+  </style>
+
+<script>
+  // ===== Pečecké noviny: banner posledního čísla jako obrázek pro sociální sítě =====
+  ['gesturestart', 'gesturechange'].forEach(t => document.addEventListener(t, ev => ev.preventDefault()));
+  const JI_FORMATY = {'1:1': [1080, 1080], '4:5': [1080, 1350], '3:4': [1080, 1440]};
+  const JI_OBALKA = {'1:1': 84, '4:5': 135, '3:4': 160};  // šířka obálky v px, aby se obsah vešel do bloku
+  let JI_FORMAT = '4:5';
+  document.querySelectorAll('.today-format-btn[data-f]').forEach(b => b.addEventListener('click', () => {
+    JI_FORMAT = b.dataset.f;
+    const [w, h] = JI_FORMATY[JI_FORMAT];
+    document.getElementById('Frame').style.setProperty('--pomer', w + ' / ' + h);
+    document.getElementById('Frame').style.setProperty('--cw', JI_OBALKA[JI_FORMAT] + 'px');
+    document.querySelectorAll('.today-format-btn[data-f]').forEach(x => x.setAttribute('aria-pressed', x === b ? 'true' : 'false'));
+  }));
+
+  // export bloku #Frame do PNG (stejný postup jako Jednání → insta): klon s vloženými vypočtenými styly → SVG foreignObject → canvas
+  const JI_SKRYT = '.today-akce';
+  async function jiFramePng(){
+    const orig = document.getElementById('Frame');
+    const clone = orig.cloneNode(true);
+    clone.querySelectorAll(JI_SKRYT).forEach(n => n.remove());
+    const c = [clone, ...clone.querySelectorAll('*')];
+    [orig, ...orig.querySelectorAll('*')].filter(n => !n.closest(JI_SKRYT)).forEach((n, i) => {
+      const cs = getComputedStyle(n);
+      for (const name of cs) c[i].style.setProperty(name, cs.getPropertyValue(name));
+    });
+    clone.style.position = 'static'; clone.style.margin = '0';
+    // obálka se před vložením do SVG zmenší (šířka 600 px, poměr stran zachován) a dekóduje
+    for (const img of clone.querySelectorAll('img')) {
+      const zdroj = new Image();
+      zdroj.src = URL.createObjectURL(await (await fetch(img.src)).blob());
+      await zdroj.decode();
+      const k = Math.min(1, 600 / zdroj.naturalWidth);
+      const cv = document.createElement('canvas');
+      cv.width = Math.round(zdroj.naturalWidth * k); cv.height = Math.round(zdroj.naturalHeight * k);
+      cv.getContext('2d').drawImage(zdroj, 0, 0, cv.width, cv.height);
+      URL.revokeObjectURL(zdroj.src);
+      img.src = cv.toDataURL('image/jpeg', 0.92);
+    }
+    clone.setAttribute('xmlns', 'http://www.w3.org/1999/xhtml');
+    const w = orig.offsetWidth, h = orig.offsetHeight;
+    const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${w}" height="${h}"><foreignObject width="100%" height="100%">${new XMLSerializer().serializeToString(clone)}</foreignObject></svg>`;
+    const img = new Image();
+    await new Promise((res, rej) => { img.onload = res; img.onerror = rej; img.src = 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(svg); });
+    const canvas = document.createElement('canvas');
+    [canvas.width, canvas.height] = JI_FORMATY[JI_FORMAT];
+    const ctx = canvas.getContext('2d');
+    await img.decode().catch(() => {});
+    ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+    // Safari při prvním vykreslení SVG často vynechá vložené obrázky; po chvíli se nakreslí znovu
+    await new Promise(r => setTimeout(r, 150));
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+    return new Promise(res => canvas.toBlob(res, 'image/png'));
+  }
+  function jiStav(t){ document.getElementById('today-stav').textContent = t; }
+  function jiStahni(blob, nazev){
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = nazev;
+    document.body.appendChild(a); a.click(); a.remove();
+    setTimeout(() => URL.revokeObjectURL(a.href), 2000);
+  }
+  const JI_NAZEV = 'instagram-noviny.png';
+  document.getElementById('today-uloz').addEventListener('click', async ev => {
+    const b = ev.currentTarget;
+    b.disabled = true; jiStav('');
+    try { jiStahni(await jiFramePng(), JI_NAZEV); }
+    catch (e) { jiStav('Obrázek se nepodařilo vytvořit.'); }
+    b.disabled = false;
+  });
+  document.getElementById('today-sdilet').addEventListener('click', async ev => {
+    const b = ev.currentTarget;
+    b.disabled = true; jiStav('');
+    try {
+      const blob = await jiFramePng();
+      const soubor = new File([blob], JI_NAZEV, {type: 'image/png'});
+      if (navigator.canShare && navigator.canShare({files: [soubor]})) {
+        await navigator.share({files: [soubor]});
+      } else {
+        jiStahni(blob, JI_NAZEV);
+        jiStav('Sdílení není v tomto zařízení dostupné. Obrázek je stažený, nahrajte ho v aplikaci Instagram.');
+      }
+    } catch (e) {
+      if (e && e.name !== 'AbortError') jiStav('Obrázek se nepodařilo sdílet.');
+    }
+    b.disabled = false;
+  });
+</script>

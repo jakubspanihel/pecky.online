@@ -25,6 +25,7 @@ Dokumentace neuvádí jinak. Tabulka je řazená podle URL:
 | Lidé | `/lide/` | `lide/README.md` (+ `SPEC.md`; `people.json`/`organizations.json`/`affiliations.json`, kontrola `node lide/validate.mjs`) |
 | Na oběd | `/naobed/` | `naobed/README.md` (skill `DoPecek-obedy`) |
 | Pečecké noviny | `/noviny/` | `noviny/README.md` |
+| Pečecké noviny pro sociální sítě | `/noviny/insta.html` | `noviny/README.md` → „Obrázek pro sociální sítě“ |
 | Redakce Pečeckých novin | `/noviny/redakce.html` | |
 | Pečecké noviny vs. DoPeček.cz | `/noviny/zastupitelstvo.html` | `noviny/README.md` → „Pečecké noviny vs. DoPeček.cz“ (+ `zastupitelstvo.json`, generátor výřezů `noviny/zastupitelstvo.py`) |
 | O webu | `/o-webu/` | `o-webu/README.md` (+ `automation-socialni-site.md`) |

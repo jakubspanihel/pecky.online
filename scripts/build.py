@@ -288,6 +288,12 @@ EXTRA_PAGES = {
         # noindex, mimo sitemapu. Data bere z jednani/pecky-jednani.json (bez vlastního souboru).
         # Až bude odkázaná: přesunout do MANIFEST, přidat řádek do "Stav sekcí" a do README_TO_SLUG.
         True, 'jednani', None),
+    'noviny-insta': (
+        '/noviny/insta.html', 'Pečecké noviny pro sociální sítě — Do Peček . cz',
+        'Banner posledního čísla Pečeckých novin ve formátu 1080 × 1350 px.',
+        # Nástrojová stránka jako jednani-insta: bez hlavičky a patičky, noindex, mimo sitemapu.
+        # Obsah = banner z Domů (_dash_noviny). Odkaz sdílecí ikonou z bloku "Poslední číslo" v Novinách.
+        False, 'zpravodaj', None),
     'jednani-insta': (
         '/jednani/insta.html', 'Jednání pro sociální sítě — Do Peček . cz',
         'Obrázek s tématy jednání rady nebo zastupitelstva ve formátu 1080 × 1350 px.',
@@ -307,7 +313,7 @@ EXTRA_PAGES = {
 
 
 # Stránky bez hlavičky a patičky (celoobrazovkové, se samostatným tlačítkem Zavřít)
-BEZ_RAMCE = {'peckybot', 'kalendar-insta', 'jednani-insta'}
+BEZ_RAMCE = {'peckybot', 'kalendar-insta', 'jednani-insta', 'noviny-insta'}
 
 
 # cesta k README sekce (jak je zapsaná v tabulce "Stav sekcí") -> slug v MANIFEST
@@ -1440,6 +1446,17 @@ def _dash_noviny():
             '</div>')
 
 
+def _noviny_insta_banner():
+    """Banner pro /noviny/insta.html: jako widget z Domů, ale titulek je měsíc vydání
+    (např. „Listopad 2026“) a text jen „N čísel v archivu“; patička s adresou."""
+    editions = json.loads(read('noviny/pecky-noviny.json'))['editions']
+    ed = max(editions, key=lambda e: e['slug'])
+    h = _dash_noviny()
+    h = re.sub(r'(<h3 class="banner-title">).*?(</h3>)', lambda m: m.group(1) + esc(ed['label']) + m.group(2), h, count=1)
+    h = re.sub(r'<p class="banner-text">.*?</p>', f'<p class="banner-text">{len(editions)} čísel v archivu</p>', h, count=1, flags=re.S)
+    return h[:-len('</div>')] + '<span class="ji-pata">DoPecek.cz/noviny</span></div>'
+
+
 def _dash_zmeny():
     # Banner "Nově na webu" (#flashnews) se spravuje plně ručně v
     # domu/flashnews.json: [{"emoji", "text" (3-4 slova), "url"}], pořadí = pořadí
@@ -1627,6 +1644,8 @@ def build_all(stav_rows=None):
                     content, {'iso': extra_lastmod, 'raw': iso_to_cz(extra_lastmod), 'odhad': False})
         else:
             content = apply_lastmod(content, kontroly.get(path) or lastmods.get(path))
+        if '{{NOVINY_INSTA}}' in content:
+            content = content.replace('{{NOVINY_INSTA}}', _noviny_insta_banner())
         if '{{NOVINY_ZASTUPITELSTVO}}' in content:
             content = content.replace('{{NOVINY_ZASTUPITELSTVO}}', render_noviny_zastupitelstvo())
         if '{{DASHBOARD}}' in content:
@@ -1652,7 +1671,7 @@ def build_all(stav_rows=None):
             head_scripts = '<meta name="robots" content="noindex">\n' + head_scripts
 
         html = page_tpl
-        if slug in ('kalendar-insta', 'jednani-insta'):   # nástrojová stránka: bez přibližování na mobilu
+        if slug in ('kalendar-insta', 'jednani-insta', 'noviny-insta'):   # nástrojová stránka: bez přibližování na mobilu
             html = html.replace('initial-scale=1"', 'initial-scale=1, maximum-scale=1, user-scalable=no"', 1)
         html = html.replace('{{TITLE}}', title)
         html = html.replace('{{DESCRIPTION}}', desc)

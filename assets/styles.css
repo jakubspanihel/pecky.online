@@ -837,6 +837,7 @@
   .noviny-latest .noviny-latest-card{margin-top:var(--space-7);}
   .noviny-latest .cap{font-size:var(--fs-5);}
   .noviny-year .noviny-grid{grid-template-columns:repeat(4,1fr);}
+  .noviny-latest .meeting-share{display:inline-flex; margin-left:var(--space-3); vertical-align:middle;}
   .vyslo-chip{margin-left:var(--space-2); white-space:nowrap; vertical-align:middle; font-family:var(--font-body); font-weight:var(--fw-medium);}
   @media (max-width:960px){.noviny-latest{grid-column:span 3;} .noviny-year{grid-column:span 3;} .noviny-year .noviny-grid{grid-template-columns:repeat(3,1fr);}}
   @media (max-width:640px){.noviny-top{grid-template-columns:1fr;} .noviny-latest,.noviny-year{grid-column:auto;} .noviny-year .noviny-grid{grid-template-columns:repeat(2,1fr);}}
