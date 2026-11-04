@@ -558,6 +558,17 @@ zvláštní pole v datech není potřeba.
 24MB souboru už nehrozí; kopírování do `/tmp` není potřeba. Načítání a skládání zpět umí
 `jednani/scripts/archive_split.py` (`load_archive()`, příkazy `split`/`join`/`verify`).
 
+**Archiv se průběžně doplňuje (od 4. 11. 2026).** Původní export z 4. 8. 2026 má 281 jednání; dalších
+16 (Rada 28–39/2026, Zastupitelstvo 5–8/2026 do 4. 11. 2026) přibylo přes Chrome: skript
+`scripts/archive-capture.js` stáhne zápis, usnesení s detaily a Pozvánku jako soubor, `scripts/archive_capture_import.py`
+z něj sestaví záznam ve stejném tvaru jako u původního exportu a zapíše ho do `archive/` a `archive/index.json`
+(`supplements` uvádí, co a kdy přibylo). Zápis parsuje `scripts/archive_parse.py`; jeho test
+(`python3 jednani/scripts/archive_parse.py --test`) porovnává parser s uloženými zápisy od července 2025.
+Rozdíly proti původnímu scraperu: tabulátory v textu zápisu jsou nahrazené novými řádky, text Pozvánky pochází z pdf.js
+(ne z pdftotext) a u usnesení je navíc `detail.typ_raw` („Standardní usnesení“). `archive_split.py verify`
+proti starému jednosouborovému snímku už kvůli novým jednáním neprojde. Postup při každé kontrole:
+[automation-kontrola-usneseni-cz.md](automation-kontrola-usneseni-cz.md) → krok 5b.
+
 **Verbatim zásada:** texty se nikdy nečistí (vč. nezlomitelných mezer a
 anonymizačních bloků █). Normalizovaná pole (`date_iso`, `number`) jsou vždy
 vedle `*_raw` originálu. Assemble fáze programově ověřuje, že každý text

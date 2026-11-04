@@ -232,6 +232,39 @@ uložené v JSON. Jakmile je nový záznam v `pecky-jednani.json` a web se
 přegeneruje (`python3 scripts/build.py`), permalink pro něj funguje sám
 od sebe.
 
+### 5b. Archiv `jednani/archive/` — POVINNÉ při každém běhu
+
+Velký archiv (jeden soubor na jednání, viz README.md → „Struktura archivu“) se **nesmí zastavit
+u jednání z původního exportu (4. 8. 2026)**. Každé jednání Rady a Zastupitelstva, které se v tomto běhu
+přidalo do `pecky-jednani.json` nebo u něj přibyl zápis a usnesení, se uloží i do archivu — úplný zápis,
+usnesení s detaily, hlasování po jménech u ZM a text Pozvánky. `pecky-jednani.json` je jen lehký výřez;
+zdroj pro zpětné doplnění (např. jména hlasování, krok 8g) je vždy archiv.
+
+Postup (Claude in Chrome, jedna karta na `https://mesto-pecky.usneseni.cz/verejne/`):
+
+1. Zjisti, která jednání v archivu chybí nebo jsou neúplná: porovnej UUID v `pecky-jednani.json`
+   s `jednani/archive/index.json`. **Neúplné** je i jednání uložené jen s Pozvánkou (např. ZM, které ještě
+   nemá zápis): jeho soubor se po zveřejnění zápisu přepíše (`--force`), nezakládá se druhý.
+2. Do `javascript_tool` vlož celý obsah `jednani/scripts/archive-capture.js` (definuje `archListing()`
+   a `archCapture(uuid)`). Pak jednou `await archListing()` (výpis s odkazy a typem jednání) a pro každé
+   jednání `await archCapture('<uuid>')` — **nejvýš dvě jednání v jednom volání a mezi nimi pauza**
+   (skript ji obsahuje; bez ní server po několika rychlých požadavcích vrací prázdné stránky a soubor
+   vznikne bez zápisu — takový soubor smazat a jednání stáhnout znovu).
+   Výstup nástroje je zkrácený na ~1 kB, proto skript ukládá výsledek jako soubory
+   `~/Downloads/archive-capture-<uuid8>.json` a `archive-capture-listing.json` (Chrome je stáhne sám,
+   žádné klikání). **Stahování z usneseni.cz do ~/Downloads schválil uživatel (4. 11. 2026) — v běžném
+   běhu se na něj už neptat; uložené soubory po importu smazat.**
+3. `python3 jednani/scripts/archive_capture_import.py` — z dávky sestaví
+   `archive/<datum>-<rada|zastupitelstvo>-<uuid8>.json`, doplní `archive/index.json` (a `supplements`).
+   Už existující soubor přeskočí, přepsat jde jen s `--force`.
+4. Kontrola: počet usnesení a jejich čísla/hlasy v archivu sedí s `resolutions[]` v `pecky-jednani.json`,
+   počet bodů programu a přítomných také. Rozdíl nejdřív vysvětli (nová data na webu?), nepřepisuj naslepo.
+   Parser zápisu hlídá `python3 jednani/scripts/archive_parse.py --test` — po úpravě parseru spustit.
+5. Pozvánka se čte z PDF přes pdf.js (kvůli Cloudflare), proto je text v archivu jen přibližný
+   (pořadí řádků může být jiné než v pdftotext). U starších jednání web pozvánku nevydává
+   (`invitation.status: site_error`) — to je v pořádku.
+6. Do výpisu běhu řádek „Jednání — archiv“: která jednání přibyla (nebo „beze změny“).
+
 ### 6. Kontrola YouTube u zastupitelstva (dělat při KAŽDÉM běhu)
 
 Rada nikdy nemá záznam na YouTube (ověřeno 27. 8. 2026: 0/246 jednání
@@ -491,7 +524,8 @@ U každého usnesení Zastupitelstva (`resolutions[]` v `pecky-jednani.json`) mu
 
 - **ZM je v archivu `jednani/archive/`:** `python3 jednani/scripts/doplnit-jmenovite-hlasovani.py`
   (idempotentní; doplní všechna usnesení ZM a vypíše, kde chybí zdroj nebo nesedí počty).
-- **ZM novější než archiv (typicky každé nové):** stránka zápisu
+- **ZM, které ještě není v archivu:** nejdřív ho uložit podle kroku 5b (pak stačí skript výše). Ručně
+  jen v nouzi — stránka zápisu
   `https://mesto-pecky.usneseni.cz/verejne/<uuid>/zapis/` v Chrome. Hlasování jsou v textu jako
   `pro: (N) jména … proti: (N) … zdržel se: (N) … nehlasoval: (N) …` a hned za nimi řádek
   „Návrh A. byl přijat jako usnesení číslo: UZ-…“ — podle toho se hlasování páruje
