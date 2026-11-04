@@ -266,6 +266,14 @@ EXTRA_PAGES = {
         # Odkázaná z /noviny/ (odstavec "Související") od 8. 10. 2026 —
         # proto má lastmod a jde do sitemapy. Statická tabulka z tiráží novin.
         False, 'zpravodaj', '2026-10-12'),
+    'zastupitelstvo': (
+        '/noviny/zastupitelstvo.html', 'Pečecké noviny vs. DoPeček.cz — Do Peček . cz',
+        'Srovnání článků o zasedáních zastupitelstva v Pečeckých novinách s automaticky '
+        'vytvořeným shrnutím téhož jednání: míra detailu a výběr témat.',
+        # Odkázaná z /noviny/ (odstavec "Související") od 4. 11. 2026 — proto má
+        # lastmod a jde do sitemapy. Obsah skládá build ze `noviny/zastupitelstvo.json`
+        # (výřezy generuje `noviny/zastupitelstvo.py`) a z `jednani/pecky-jednani.json`.
+        False, 'zpravodaj', '2026-11-04'),
     'kalendar-insta': (
         '/kalendar/insta.html', 'Dnes v Pečkách — Do Peček . cz',
         'Dnešní akce v Pečkách na jedné obrazovce, ve formátu 1080 × 1350 px.',
@@ -1221,6 +1229,65 @@ def _dash_shrnuti(druh):
             + ''.join(slides) + '</div></aside>\n</div>')
 
 
+def _noviny_cislo(slug):
+    """'2026-04' -> '4/2026', '2026-07-08' -> '7–8/2026'."""
+    p = slug.split('-')
+    return f'{int(p[1])}–{int(p[2])}/{p[0]}' if len(p) == 3 else f'{int(p[1])}/{p[0]}'
+
+
+def render_noviny_zastupitelstvo():
+    """Stránka /noviny/zastupitelstvo.html: pro každý článek o zasedání zastupitelstva
+    v Pečeckých novinách (`noviny/zastupitelstvo.json`) nadpis s číslem novin, vlevo
+    výřez z PDF (`noviny/zastupitelstvo/ZM-RRRR-MM-DD.jpg`), vpravo widget „Ze zastupitelstva“
+    ve stejném provedení jako na Domů (témata, avatary přítomných, odkaz na jednání)."""
+    cfg = json.loads(read('noviny/zastupitelstvo.json'))['clanky']
+    meetings = {m['date']: m for m in json.loads(read('jednani/pecky-jednani.json'))['meetings']
+                if m['type'] == 'Zastupitelstvo'}
+    people = {p['id']: p for p in json.loads(read('lide/people.json'))['people']}
+    idx = {}
+    for p in people.values():
+        idx[(unicodedata.normalize('NFKD', p['first_name']).encode('ascii', 'ignore').decode().lower(),
+             unicodedata.normalize('NFKD', p['last_name']).encode('ascii', 'ignore').decode().lower())] = p['id']
+    aff = json.loads(read('lide/affiliations.json'))['affiliations']
+    from datetime import date
+    dnes = date.today()
+    den = ['pondělí', 'úterý', 'středa', 'čtvrtek', 'pátek', 'sobota', 'neděle']
+    out = []
+    for c in sorted(cfg, key=lambda c: c['zm'], reverse=True):
+        m = meetings.get(c['zm'])
+        if not m:
+            continue
+        cislo = _noviny_cislo(c['issue'])
+        pdf = f'/noviny/Data/PN%20{c["issue"][:4]}/{c["issue"]}.pdf#page={c["page"]}'
+        x0, y0, x1, y1 = c['crop']
+        sirka, vyska = round((x1 - x0) * 200 / 72), round((y1 - y0) * 200 / 72)
+        obr = f'/noviny/zastupitelstvo/ZM-{c["zm"]}.jpg'
+        alt = (f'Výřez z Pečeckých novin {cislo}, strana {c["page"]}: článek „{m["number"]}. zasedání '
+               f'Zastupitelstva města Pečky v roce {m["year"]}“')
+        # témata: shrnutí jednání, jinak body programu z pozvánky
+        pol = _jednani_temata(m) or _temata_z_programu(m, 4)
+        li = ''.join('<li>' + _odkaz_parcely(_zvyrazni(re.sub(r'\*\*(.+?)\*\*', r'<strong>\1</strong>', esc(t)))) + '</li>'
+                     for t in pol)
+        d = date.fromisoformat(c['zm'])
+        rozdil = (dnes - d).days
+        kdy = f'{den[d.weekday()].capitalize()}, {iso_to_cz(c["zm"])}' + (f' v {m["time"]}' if m.get('time') else '')
+        akce = [f'<a class="banner-cta" href="/jednani/#zastupitelstvo-{c["zm"]}">Zastupitelstvo č. {m["number"]}/{m["year"]}</a>']
+        out.append(
+            f'<section class="nzm-item" id="zm-{c["zm"]}" aria-labelledby="nzm-h-{c["zm"]}">\n'
+            f'  <h3 class="nzm-title" id="nzm-h-{c["zm"]}">Pečecké noviny <a href="{pdf}">{cislo}</a>, strana {c["page"]}</h3>\n'
+            f'  <div class="nzm-grid">\n'
+            f'    <a class="nzm-shot" href="{pdf}"><img src="{obr}" alt="{esc(alt)}" width="{sirka}" height="{vyska}" loading="lazy"></a>\n'
+            f'    <aside class="banner banner--slate nzm-widget"><div class="banner-body">'
+            f'<div class="banner-head"><div class="banner-headtext"><h3 class="banner-title">Ze zastupitelstva</h3>'
+            f'<span class="rada-chip"><span class="tag rel-chip" data-date="{c["zm"]}">{_rel_minule(rozdil)}</span></span></div></div>'
+            f'<p class="banner-meta"><span class="banner-meta-item">{ICO_KAL}<span>{esc(kdy)}</span></span></p>'
+            + _rada_avatary(m, people, idx, aff, True)
+            + (f'<ul class="banner-topics">{li}</ul>' if li else '')
+            + f'<div class="banner-actions">{"".join(akce)}</div></div></aside>\n'
+            f'  </div>\n</section>')
+    return '\n'.join(out)
+
+
 def _zm_po_kdy(dny):
     """„proběhlo včera / předevčírem / před N dny“ (dny = kolik dní je po zasedání)."""
     if dny <= 0:
@@ -1560,6 +1627,8 @@ def build_all(stav_rows=None):
                     content, {'iso': extra_lastmod, 'raw': iso_to_cz(extra_lastmod), 'odhad': False})
         else:
             content = apply_lastmod(content, kontroly.get(path) or lastmods.get(path))
+        if '{{NOVINY_ZASTUPITELSTVO}}' in content:
+            content = content.replace('{{NOVINY_ZASTUPITELSTVO}}', render_noviny_zastupitelstvo())
         if '{{DASHBOARD}}' in content:
             content = content.replace('{{DASHBOARD}}', render_dashboard(rows))
         if slug in VOLBY_SLUG_TO_ROK or slug == 'volby':

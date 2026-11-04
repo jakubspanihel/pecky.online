@@ -26,6 +26,7 @@ Dokumentace neuvádí jinak. Tabulka je řazená podle URL:
 | Na oběd | `/naobed/` | `naobed/README.md` (skill `DoPecek-obedy`) |
 | Pečecké noviny | `/noviny/` | `noviny/README.md` |
 | Redakce Pečeckých novin | `/noviny/redakce.html` | |
+| Pečecké noviny vs. DoPeček.cz | `/noviny/zastupitelstvo.html` | `noviny/README.md` → „Pečecké noviny vs. DoPeček.cz“ (+ `zastupitelstvo.json`, generátor výřezů `noviny/zastupitelstvo.py`) |
 | O webu | `/o-webu/` | `o-webu/README.md` (+ `automation-socialni-site.md`) |
 | Historie změn na webu | `/o-webu/changelog.html` | tabulka „Stav sekcí“ z `README.md`; odkaz na konci stránky O webu |
 | Facebook města Pečky | `/o-webu/facebook-monitoring/facebook-mestopecky/` | skill `DoPecek-facebook-monitoring` |

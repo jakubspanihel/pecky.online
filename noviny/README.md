@@ -349,7 +349,10 @@ Claude Code lokálně.
       plakátu se uvede jako „prohlédnuto, bez plakátu“.
     - Po zápisu `python3 kalendar/scripts/update-kalendar.py` (sám
       synchronizuje Google Kalendář), řádek Kalendář ve „Stav sekcí“.
-11. **Spustit `python3 scripts/build.py`** (na konci kontroly). Promítne se
+11. **Doplnit článek o zasedání zastupitelstva** do `noviny/zastupitelstvo.json`
+    (viz „Pečecké noviny vs. DoPeček.cz“), vyrenderovat výřez
+    `python3 noviny/zastupitelstvo.py` a zkontrolovat ho okem.
+12. **Spustit `python3 scripts/build.py`** (na konci kontroly). Promítne se
    tím i banner Pečeckých novin na Domů: počet vydání v nadpisu („N vydání
    novin v archivu“) a obálka nejnovějšího čísla se berou z
    `pecky-noviny.json` při buildu, ručně se nepíšou. Bez buildu zůstane
@@ -403,6 +406,31 @@ Když uživatel dodá další skupinu PDF mimo pecky.cz, postup:
    nástroje ne — viz „Kde co je" výše).
 9. Smazat `TEMP/` (obsah je beze zbytku v `Data/`) a jednorázový
    zpracovávací skript, pokud byl napsaný jako samostatný soubor.
+
+## Pečecké noviny vs. DoPeček.cz (`/noviny/zastupitelstvo.html`)
+Podstránka Pečeckých novin (odkaz ze „Související“ na `/noviny/`, bez položky v menu).
+Ke každému zasedání zastupitelstva ukazuje článek z rubriky Z radnice („N. zasedání
+Zastupitelstva města Pečky v roce RRRR“, podepsaný tajemnicí): nadpis s číslem novin
+a stranou (odkaz na PDF), vlevo výřez ze stránky, vpravo widget „Ze zastupitelstva“
+jako na Domů (témata ze `jednani/shrnuti/…-zastupitelstvo.md`, jinak z programu
+pozvánky; avatary přítomných; odkaz na jednání; bez počtu usnesení a bez odkazu na YouTube).
+
+- **Zdroj dat:** `noviny/zastupitelstvo.json` (pole `clanky`: `zm` = datum zasedání,
+  `issue` = slug čísla, `page`, `crop` = výřez v bodech PDF, volitelně `mask` =
+  obdélníky přebarvené bíle — vždy, když do výřezu zasahuje blok, který evidentně nepatří k článku o zasedání: plakát, inzerát, omluva apod.). Widget a stránku
+  skládá `render_noviny_zastupitelstvo()` v `scripts/build.py` z tohoto souboru
+  a z `jednani/pecky-jednani.json`; šablona je `content/zastupitelstvo.html`.
+- **Výřezy:** `python3 noviny/zastupitelstvo.py [RRRR-MM-DD …]` je vyrenderuje z PDF
+  v `Data/` (200 DPI) do `noviny/zastupitelstvo/ZM-RRRR-MM-DD.jpg`. Souřadnice
+  výřezu se zjistí z `pdftotext -bbox` (nadpis a podpis „Pavlína Nepovímová“),
+  výsledek vždy zkontrolovat okem.
+- **Při novém čísle novin** (krok v „Po nalezení nového čísla“): vyhledat článek o zasedání
+  (`pdftotext` na „zasedání Zastupitelstva“, jinak projít strany Z radnice),
+  doplnit záznam do JSON, pustit skript, `python3 scripts/build.py`.
+- **Rozsah a mezery:** články z let 2025 a 2026 (2026: 1., 2., 4., 5., 6., 7. zasedání; 2025:
+  1., 3., 4., 5., 6. zasedání). Články o 3. zasedání 2026 (25. 5. 2026; čísla 5/2026
+  a 6/2026) a o 2. zasedání 2025 (2. 4. 2025; čísla 4/2025 a 5/2025) se v textu nenašly;
+  roky před 2025 nejsou projité.
 
 ## Samostatná stránka (zaniklo migrací 30. 8. 2026)
 Dřív (do 30. 8. 2026) existovala vedle panelu v hlavním webu i samostatná,

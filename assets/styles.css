@@ -653,6 +653,14 @@
   table.register td{padding:11px var(--space-4); border-bottom:1px solid var(--line); vertical-align:top;}
   /* Redakce Pečeckých novin: karty jednotlivých redakcí, mezi nimi callout se změnou */
   .red-cards{display:flex; flex-direction:column; gap:var(--space-5); margin:var(--space-8) 0;}
+  /* /noviny/zastupitelstvo.html: výřez článku z novin vlevo, widget „Ze zastupitelstva“ vpravo */
+  .nzm-list{display:flex; flex-direction:column; gap:var(--space-13);}
+  .nzm-title{margin:0 0 var(--space-5); font-size:var(--fs-12, 20px);}
+  .nzm-grid{display:grid; grid-template-columns:minmax(0,1.4fr) minmax(0,1fr); gap:var(--space-9); align-items:start;}
+  .nzm-shot{display:block; line-height:0; border:1px solid var(--line); background:var(--white); border-radius:var(--radius-sm); overflow:hidden;}
+  .nzm-shot img{display:block; width:100%; height:auto;}
+  .nzm-widget{padding:var(--space-9) var(--space-10);}
+  @media (max-width:900px){ .nzm-grid{grid-template-columns:minmax(0,1fr);} }
   .red-card{background:var(--white); border:1px solid var(--line); border-radius:var(--radius-box); padding:var(--space-7) var(--space-9);}
   .red-card--aktualni{border-color:var(--burgundy); box-shadow:inset 4px 0 0 var(--burgundy);}
   .red-card header{display:grid; grid-template-columns:1fr auto; column-gap:var(--space-5); row-gap:var(--space-1); align-items:center;}
