@@ -516,3 +516,14 @@ posudku ve spolupráci s právníky a příprava návrhu opatření k pokračov�
 stavby. Rada vzala informace na vědomí, bez usnesení. Zápis neuvádí
 termíny, předmět a cenu posudku ani zadavatele — v `content/telocvicna.html`
 nový řádek „19. 10. 2026“ v tabulce „Zastavení stavby v roce 2026“.
+
+## Doplněno 4. 11. 2026: zápis RM 39/2026
+
+Zdroj: zápis rady města 39/2026 z 2. 11. 2026 (usneseni.cz). Bod 3
+(aktuální informace vedení města): dozdívání atik a zateplení opláštění
+školní jídelny; příprava schůzky se soudním znalcem p. Fojtíkem, právničkou
+a zhotovitelem na 9. 11. 2026 od 12:00 (diagnostika odvrtané piloty jako
+důkazní materiál ke znaleckému posudku, návrh statického řešení pro
+pokračování stavby). Rada vzala informaci na vědomí, bez usnesení. Zápis
+neuvádí rozsah posudku, dopad na termín ani cenu — v `content/telocvicna.html`
+nový řádek „2. 11. 2026“ v tabulce „Zastavení stavby v roce 2026“.

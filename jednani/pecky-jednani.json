@@ -1,10 +1,10 @@
 {
   "meta": {
-    "generated_from": "2026-10-31T00:00:00+00:00 (přírůstkový update: zápis a usnesení RM 38/2026, Pozvánka RM 39/2026)",
+    "generated_from": "2026-11-04T00:00:00+00:00 (přírůstkový update: zápis a usnesení RM 39/2026, ZM 8/2026 jen Pozvánka)",
     "source": "https://mesto-pecky.usneseni.cz/verejne/",
     "meetings_count": 297,
-    "resolutions_count": 2828,
-    "agenda_items_count": 4217
+    "resolutions_count": 2830,
+    "agenda_items_count": 4231
   },
   "meetings": [
     {
@@ -105,12 +105,11 @@
       "year": 2026,
       "date": "2026-11-02",
       "label": "39/2026 (2. 11. 2026)",
-      "time": "15:00",
       "links": {
-        "minutes": null,
-        "resolutions": null,
+        "minutes": "https://mesto-pecky.usneseni.cz/verejne/3dde225b-d1ec-11f1-bb58-0242c0a80002/zapis/",
+        "resolutions": "https://mesto-pecky.usneseni.cz/verejne/3dde225b-d1ec-11f1-bb58-0242c0a80002/usneseni/",
         "invitation": "https://mesto-pecky.usneseni.cz/verejne/?uuid=3dde225b-d1ec-11f1-bb58-0242c0a80002&do=printPublicInvitation",
-        "pdf": null,
+        "pdf": "https://mesto-pecky.usneseni.cz/verejne/?meetingReportControl-uuid=3dde225b-d1ec-11f1-bb58-0242c0a80002&do=meetingReportControl-getSignedReportPdf",
         "audio": null
       },
       "venue": "obřadní síň, radnice",
@@ -118,44 +117,109 @@
         {
           "n": 1,
           "t": "Určení zapisovatelů, předsedajícího, příp. ověřovatelů",
-          "routine": true
+          "routine": true,
+          "predkladatel": "Milan Paluska",
+          "duration_seconds": 601
         },
         {
           "n": 2,
           "t": "Schválení programu jednání",
-          "routine": true
+          "routine": true,
+          "predkladatel": "Milan Paluska",
+          "duration_seconds": 182
         },
         {
           "n": 3,
           "t": "Aktuální informace vedení města",
-          "routine": true
+          "routine": true,
+          "predkladatel": "Milan Paluska",
+          "duration_seconds": 2511,
+          "duvodova_zprava": "starosta města\n\n- informace o aktuální situaci týkající se úniků vody na vodovodní síti v Pečkách, v lokalitě Pečky – sever, největší únik byl v prodloužené ulici Nymburská, kde se tento hlavní únik podařilo lokalizovat a odstranit. Další porucha vody byla na Tř. Jana Švermy před budovou Pečeckých služeb, s.r.o. Pečky a v lokalitě Pečky - jih, ulice Dobřichovská, tyto úniky byly již také opraveny. Současně se na území města objevuje celá řada menších úniků vody, které rovněž přispívají ke zvýšeným ztrátám vody ve vodovodní síti. Technici pokračují v hledání závady a prověřování jednotlivých míst s cílem úniky lokalizovat a následně zajistit jejich odstranění. Situace zůstává nadále sledována. Vzhledem k současnému stavu je důležité, aby obyvatelé města maximálně šetřili pitnou vodou, a přispěli tak ke zmírnění dopadů na zásobování vodou.\n\n- informace o stavební akci \"Dostavba učeben a tělocvičny v ZŠ Pečky\" - probíhá dozdívání atik a zateplení opláštění školní jídelny. Je připravována schůzka se soudním znalcem p. Fojtíkem, právničkou Mgr. A. Komeiserovou a zhotovitelem a projednáván návrh statického řešení. Schůzka je naplánována na 9. 11. 2026 od 12.00 hodin na radnici a stavbě. Bude se projednávat a řešit diagnostika odvrtané piloty za účelem důkazního materiálu ke znaleckému posudku a návrh statického pro pokračování stavby.\n\n- informace o odchytu nutrií – aktuální informace o dosavadním průběhu odchytu a další postup"
         },
         {
           "n": 4,
           "t": "Informativní schůzka s řediteli příspěvkových organizací",
-          "routine": true
+          "routine": true,
+          "predkladatel": "Milan Paluska",
+          "duration_seconds": 3842,
+          "duvodova_zprava": "Schůzka ředitele Kulturního střediska města Pečky Lukáše Hanzelína v době od 16.30 - 17.00 hodin."
         },
         {
           "n": 5,
-          "t": "Žádost o odkoupení sochy Klementa Gottwalda"
+          "t": "Žádost o odkoupení sochy Klementa Gottwalda",
+          "predkladatel": "Martina Hrázská",
+          "duration_seconds": 934,
+          "duvodova_zprava": "Dne 29.10.2026 byla doručena od pana █████████████████████████████████████████████ žádost o odkoupení nebo uzavření smlouvy o dlouhodobé zápůjčce sochy Klementa Gottwalda, která se nachází v zázemí Pečeckých služeb. V minulosti již byla žádost pana ██████████████████████████████████████████ na Radě města několikrát projednávána a byla zamítnuta.",
+          "rejected_vote": {
+            "text": "Rada města schvaluje prodej/dlouhodobou zápůjčku sochy Klementa Gottwalda za cenu .............Kč a uzavření kupní smlouvy a panem █████████████████████████████████████████.",
+            "pro": 0,
+            "proti": 6,
+            "zdrzel": 0
+          }
         },
         {
           "n": 6,
           "t": "Kontrola plnění usnesení",
-          "routine": true
+          "routine": true,
+          "predkladatel": "Milan Paluska",
+          "duration_seconds": 83
         },
         {
           "n": 7,
           "t": "Diskuse, různé",
-          "routine": true
+          "routine": true,
+          "predkladatel": "Milan Paluska",
+          "duration_seconds": 63
         },
         {
           "n": 8,
           "t": "Úkoly vyplývající z jednání rady města",
-          "routine": true
+          "routine": true,
+          "predkladatel": "Milan Paluska",
+          "duration_seconds": 137
         }
       ],
-      "resolutions": []
+      "resolutions": [
+        {
+          "n": "UR-338-39/26",
+          "item": "Schválení programu jednání",
+          "text": "Rada města schvaluje návrh programu jednání.",
+          "date": "2026-11-02",
+          "pro": 6,
+          "proti": 0,
+          "zdrzel": 0,
+          "url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/158807?mod=rada"
+        },
+        {
+          "n": "UR-339-39/26",
+          "item": "Úkoly vyplývající z jednání rady města",
+          "text": "Rada města ukládá starostovi města prověřit aktuální stav sochy Klementa Gottwalda a předložit informaci o zjištěném stavu a případných možnostech dalšího postupu.",
+          "date": "2026-11-02",
+          "pro": 6,
+          "proti": 0,
+          "zdrzel": 0,
+          "url": "https://mesto-pecky.usneseni.cz/verejne/usneseni/159523?mod=rada"
+        }
+      ],
+      "duration_seconds": 8762,
+      "attendance": {
+        "present": 6,
+        "total": 7,
+        "present_names": [
+          "Zdeněk Fejfar",
+          "Ing. Martin Jedlička",
+          "Ing. Karel Krištoufek",
+          "Ing. Hana Kuprová",
+          "Milan Paluska",
+          "Ivana Trčková"
+        ],
+        "absent_names": [
+          {
+            "name": "Ing. Petr Dürr",
+            "note": "omluven"
+          }
+        ]
+      }
     },
     {
       "uuid": "e7a73d02-cc6b-11f1-8ec5-0242c0a80003",
