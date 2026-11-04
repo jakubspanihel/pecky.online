@@ -59,9 +59,9 @@ se sem, na stránku samotnou se nic ručně nepíše.
 | Sekce | Režim | Kontrola | Změna | Co naposledy |
 |---|---|---|---|---|
 | [Na oběd](naobed/README.md) | denně | 4. 11. 2026 | 4. 11. 2026 | denní menu U Marka a Siňority z 4. 11. 2026 |
+| [O webu](o-webu/README.md) | týdně | 4. 11. 2026 | 4. 11. 2026 | sociální sítě (kontrola 4. 11. 2026, 49 účtů): počet sledujících se změnil u 6 účtů (o 1 až 3), nová aktivita u 10 účtů, zhlédnutí záznamů ZM na YouTube 9 172 |
 | [Volby 2026](volby/2026/README.md) | na vyžádání | 3. 11. 2026 | 3. 11. 2026 | z tabulky uskupení odstraněny odkazy na sociální sítě a počty sledujících, ponechán odkaz na kandidátní listinu |
 | [Kalendář](kalendar/README.md) | týdně | 3. 11. 2026 | 3. 11. 2026 | sloučeny 3 duplicitní přednášky okrašlovacího spolku (3., 10. a 24. 11. 2026): začátek 18:30, doklady spojeny |
-| [O webu](o-webu/README.md) | týdně | 3. 11. 2026 | 3. 11. 2026 | sociální sítě (kontrola 3. 11. 2026, 49 účtů): počet sledujících se změnil u Pečky NEXT (328), nová aktivita u 5 účtů, zhlédnutí záznamů ZM na YouTube 9 164 |
 | [Lidé](lide/README.md) | na vyžádání | 1. 11. 2026 | 1. 11. 2026 | doplněno 19 fotek kandidátů 2018 (NAŠE PEČKY str. 8, ODS str. 10) z Pečeckých novin 9/2018 |
 | [Jednání](jednani/README.md) | týdně | 2. 11. 2026 | 31. 10. 2026 | zápis a usnesení RM 38/2026 (26. 10. 2026; 7 usnesení UR-331 až UR-337-38/26, délky bodů, docházka s příchodem v 15:45) a nová Pozvánka RM 39/2026 (2. 11. 2026, 8 bodů); komise, výbory a školská rada beze změny |
 | [Voda](voda/README.md) | na vyžádání | 31. 10. 2026 | 31. 10. 2026 | dvě nové události: havárie vodovodu na Masarykově náměstí (30. 10. 2026) a odstávka 2. 11. 2026; celkem 60 událostí / 72 zdrojů |

@@ -4,6 +4,8 @@ Chronologický deník běhů a úprav, nejnovější nahoře. Přesunuto z
 kořenového `README.md` (sekce „Poslední aktualizace“). Aktuální stav sekcí
 je v tabulce „Stav sekcí“ v `README.md`; sem patří podrobnosti běhu.
 
+4. listopadu 2026 (denní kontrola sociálních sítí, 49 účtů). Počet sledujících: Pravoslavná obec (FB skupina) 325 → 328 členů, Alena Švejnohová 971 → 972, Pečecké služby 815 → 818, NAŠE PEČKY – komunita (FB skupina) 538 → 540 členů, Instagram AFK Pečky 361 → 362, ZŠ Pečky při ZŠ Kolín 141 → 142, ostatní beze změny. Nová aktivita: 4. 11. (PEČKY město v Polabí, U Marka, Siňorita, NAŠE PEČKY – komunita), 3. 11. (Máme rádi Pečky, Město Pečky, Školní jídelna, Pramínek FB, U Stříkačky, ZUŠ). Datum posledního příspěvku na Instagramu se četlo z kódů příspěvků (nejnovější z prvních 12 dlaždic). YouTube Město Pečky 100 odběratelů beze změny; `jednani/update-youtube.py` obnovil `content/youtube.html` (33 záznamů, 9 172 zhlédnutí, +8). Fotky ani Události nebyly tento běh procházeny, hledání akcí a změn provozu pro Kalendář se neprovedlo.
+
 4. listopadu 2026 (denní běh Na oběd). Doplněno menu U Marka a Siňority z 4. 11. 2026 (přepis z fotografie do `naobed/data/<id>/2026-11.json` a `menu.json`). U Stříkačky bez nového menu (poslední příspěvek je lístek z 3. 11.), označeno jako zkontrolováno. Školní jídelna už měla jídelníček na dnešek; skript nepřidal žádný nový den.
 
 3. listopadu 2026 (opakovaný běh Na oběd). U Stříkačky doplněno menu z 3. 11. 2026 (přepis z fotografie do `naobed/data/hostinec-u-strikacky-pecky/2026-11.json` a `menu.json`). U Marka, Siňorita a školní jídelna už měly dnešní menu (přeskočeno).
