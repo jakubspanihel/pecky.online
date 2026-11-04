@@ -187,8 +187,8 @@ nerozbaluje — všechna jednání startují sbalená.
 jednání i jednotlivých bodů do `pecky-jednani.json`.
 
 **Nejdéle projednávaný bod (🔥, od 23. 9. 2026):** bod programu s nejvyšším
-`duration_seconds` v rámci jednání dostane u svého času ve výpisu příponu
-„ 🔥" (`bod se projednával: 2h:14min 🔥`). Počítá se za běhu z dat, která už
+`duration_seconds` v rámci jednání dostane u svého času ve výpisu předponu
+„🔥 " (`🔥 bod se projednával: 2h:14min`). Počítá se za běhu z dat, která už
 v `pecky-jednani.json` jsou — žádné nové pole, žádný ruční krok při
 doplňování jednání. Podmínka: jednání musí mít aspoň dva body s vyplněným
 `duration_seconds`, jinak by "nejdelší" u jediného časovaného bodu nic

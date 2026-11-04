@@ -573,7 +573,7 @@
           <a class="agenda-num agenda-permalink" href="#${jSlugForMeeting(m)}-bod-${encodeURIComponent(String(a.n))}" title="Trvalý odkaz na tento bod">${jEscapeHtml(String(a.n))}.</a>
           <span class="agenda-text${a.routine ? ' agenda-text--routine' : ''}">${jLinkedText(a.t || '')}${jAgendaDotsHtml(a)}</span>
           ${a.duration_seconds != null || a.video_url ? `<span class="agenda-meta">
-            ${a.duration_seconds != null ? `<span class="agenda-time">bod se projednával: ${jFormatItemTime(a.duration_seconds)}${isLongest ? ' 🔥' : ''}</span>` : ''}
+            ${a.duration_seconds != null ? `<span class="agenda-time">${isLongest ? '🔥 ' : ''}bod se projednával: ${jFormatItemTime(a.duration_seconds)}</span>` : ''}
             ${a.video_url ? `<a class="agenda-video" href="${a.video_url}" target="_blank" rel="noopener">▶ video ↗</a>` : ''}
           </span>` : ''}
           ${hasDetail ? '<span class="agenda-toggle" aria-hidden="true">▸</span>' : ''}

@@ -59,14 +59,15 @@ se sem, na stránku samotnou se nic ručně nepíše.
 | Sekce | Režim | Kontrola | Změna | Co naposledy |
 |---|---|---|---|---|
 | [Na oběd](naobed/README.md) | denně | 4. 11. 2026 | 4. 11. 2026 | denní menu U Marka a Siňority z 4. 11. 2026 |
-| [O webu](o-webu/README.md) | týdně | 4. 11. 2026 | 4. 11. 2026 | sociální sítě (kontrola 4. 11. 2026, 49 účtů): počet sledujících se změnil u 6 účtů (o 1 až 3), nová aktivita u 10 účtů, zhlédnutí záznamů ZM na YouTube 9 172 |
+| [O webu](o-webu/README.md) | týdně | 4. 11. 2026 | 4. 11. 2026 | Monitoring Facebooku města: doplněn listopad 2026 (3 příspěvky, stav k 4. 11. 2026); Monitoring úřední desky: 1 nový dokument (rozhodnutí o povolení stavby, vyvěšeno 3. 11. 2026), celkem 1 929 dokumentů; sociální sítě (kontrola 4. 11. 2026, 49 účtů): počet sledujících se změnil u 6 účtů, nová aktivita u 10 účtů |
 | [Jednání](jednani/README.md) | týdně | 4. 11. 2026 | 4. 11. 2026 | zápis a usnesení RM 39/2026 (2. 11. 2026; 2 usnesení UR-338 a UR-339-39/26, zamítnutý návrh prodeje či zápůjčky sochy Klementa Gottwalda 0–6–0, docházka 6 ze 7); ZM 8/2026 (4. 11. 2026) jen s Pozvánkou a živým přenosem; komise, výbory a školská rada beze změny |
-| [Tělocvična](telocvicna/README.md) | týdně | 4. 11. 2026 | 4. 11. 2026 | 2. 11. 2026 RM 39/2026, bod 3: dozdívání atik, zateplení jídelny a schůzka se soudním znalcem 9. 11. 2026 k diagnostice piloty a statickému řešení (bez usnesení) |
+| [Tělocvična](telocvicna/README.md) | týdně | 4. 11. 2026 | 4. 11. 2026 | 2. 11. 2026 Pečecké noviny 11/2026, s. 3: v první polovině října jednání se soudním znalcem, termín obnovení stavebních prací zatím nelze stanovit; RM 39/2026, bod 3: dozdívání atik, zateplení jídelny a schůzka se soudním znalcem 9. 11. 2026 (bez usnesení) |
+| [Kalendář](kalendar/README.md) | týdně | 4. 11. 2026 | 4. 11. 2026 | nové akce: Koncert k poctě sv. Cecílii (19. 11. 2026, ZUŠ Pečky) a florbal TJ Sokol (čtvrtky 16–18, Sokolovna, 14 termínů do 17. 12. s poznámkou „Negarantováno“); doklady z Pečeckých novin 11/2026 u Adventního setkání (29. 11.) a Rozsvícení stromu ve V. Chvalovicích (28. 11.) |
+| [Pečecké noviny](noviny/README.md) | týdně | 4. 11. 2026 | 4. 11. 2026 | vydání 11/2026 (16 stran) doplněno do archivu (208. vydání celkem, 3192 stran); tiráž beze změny |
+| [Smlouvy](smlouvy/README.md) | týdně | 4. 11. 2026 | 4. 11. 2026 | skupina 156 smluv / 97,0 mil. Kč (úřad 49 / 33,9 mil. Kč) podle Hlídače státu k 4. 11. 2026 (dřív 185 / 104,6 mil. Kč, úbytek u zdroje), žádná nová smlouva |
 | [Volby 2026](volby/2026/README.md) | na vyžádání | 3. 11. 2026 | 3. 11. 2026 | z tabulky uskupení odstraněny odkazy na sociální sítě a počty sledujících, ponechán odkaz na kandidátní listinu |
-| [Kalendář](kalendar/README.md) | týdně | 3. 11. 2026 | 3. 11. 2026 | sloučeny 3 duplicitní přednášky okrašlovacího spolku (3., 10. a 24. 11. 2026): začátek 18:30, doklady spojeny |
 | [Lidé](lide/README.md) | na vyžádání | 1. 11. 2026 | 1. 11. 2026 | doplněno 19 fotek kandidátů 2018 (NAŠE PEČKY str. 8, ODS str. 10) z Pečeckých novin 9/2018 |
 | [Voda](voda/README.md) | na vyžádání | 31. 10. 2026 | 31. 10. 2026 | dvě nové události: havárie vodovodu na Masarykově náměstí (30. 10. 2026) a odstávka 2. 11. 2026; celkem 60 událostí / 72 zdrojů |
-| [Smlouvy](smlouvy/README.md) | týdně | 2. 11. 2026 | 31. 10. 2026 | skupina 185 smluv / 104,6 mil. Kč (úřad 49 / 33,9 mil. Kč), přidána investiční dotace Středočeského kraje z Fondu JSDH a složek IZS (150 000 Kč, 27. 10. 2026) |
 | [Dotace od města](dotace/README.md) | na vyžádání | 25. 10. 2026 | 25. 10. 2026 | nová stránka `/dotace/`: sloupcový graf dotací po letech 2016–2026 a příjemcích (77 smluv, 17,94 mil. Kč), investiční akce Sokola 2019 a tabulka dodatků ke smlouvám |
 | [Obchvat](obchvat/README.md) | na vyžádání | 25. 10. 2026 | 25. 10. 2026 | nová stránka `/obchvat/`: blok přesunut z Plánu, přidána situační mapa, oddíl o územním plánu, časová osa 2001–2026 z archivu jednání a Pečeckých novin, zástavba lokalit Z08/Z09/Z11, obchvat ve volebních programech a oddíl o staré silnici II/329 |
 | [Plán](plan/README.md) | na vyžádání | 25. 10. 2026 | 25. 10. 2026 | projity všechny dokumenty strategického plánu na pecky.cz: nový výklad plnění plánu (Excel 2020: 197 z 339 úkolů 2016–2020 splněno), čísla 697 úkolů / 558,5 mil. Kč po aktualizaci 2020, tabulka dalších položek Akčního plánu 2024–2026 a srovnání částek |
@@ -77,10 +78,9 @@ se sem, na stránku samotnou se nic ručně nepíše.
 | [Volby](volby/README.md) | odvozená | — | 10. 10. 2026 | graf „Volební účast stoupá“ doplněn o sloupec 2026 (53,68 %, 1 964 lidí), upraven text pod grafem a zdroje |
 | [Volby 2014](volby/2014/README.md) | uzavřené | — | 10. 10. 2026 | nová stránka `/volby/2014/`: výsledky pěti uskupení, tabulka 21 zvolených podle osobních hlasů s funkcemi, tlačítko ročníku v rozcestníku |
 | [Volby 2022](volby/2022/README.md) | uzavřené | — | 10. 10. 2026 | nový blok „Kolik kdo dostal hlasů od voličů?“: tabulka 21 zvolených zastupitelů podle osobních hlasů s pořadím na kandidátce, funkcemi a legendou uskupení; odstraněn blok „Kdo byl zvolen“ |
-| [Pečecké noviny](noviny/README.md) | týdně | 2. 11. 2026 | 26. 10. 2026 | vydání 10/2026 (16 stran) doplněno do archivu (207. vydání celkem, 3176 stran); tiráž beze změny |
 | [Domů](domu/README.md) | odvozená | — | 8. 10. 2026 | widget Pečecké noviny přepracován na zelený banner (`.banner--green`, `.banner--media`): obálka posledního čísla vlevo, počet vydání v archivu, tlačítko „Hledat v novinách“ a odkaz „Redakce“ |
 | [PečkyBot](peckybot/README.md) | odvozená | 8. 10. 2026 | 8. 10. 2026 | index doplněn o 72 starších jednání z úřední desky (≈ 900 úryvků) a podstránky Noviny, Zhlédnutí, Odpracované hodiny, Nejdelší body; rejstřík 6 020 úryvků |
-| [Zakázky](zakazky/README.md) | týdně | 2. 11. 2026 | 6. 8. 2026 | zkontrolováno, beze změny — 193 výsledků na Hlídači stejně jako 5. 10., žádné nové ID |
+| [Zakázky](zakazky/README.md) | týdně | 4. 11. 2026 | 6. 8. 2026 | zkontrolováno, beze změny — 193 výsledků na Hlídači stejně jako 5. 10., žádné nové ID |
 | [Pokladna](pokladna/README.md) | na vyžádání | 6. 8. 2026 | 6. 8. 2026 | blok Bankovní účty |
 
 Režimy: **týdně** = má zdroj, který kontroluje týdenní rutina (neděle
