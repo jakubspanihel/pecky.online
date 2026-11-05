@@ -4,6 +4,12 @@ Chronologický deník běhů a úprav, nejnovější nahoře. Přesunuto z
 kořenového `README.md` (sekce „Poslední aktualizace“). Aktuální stav sekcí
 je v tabulce „Stav sekcí“ v `README.md`; sem patří podrobnosti běhu.
 
+5. listopadu 2026 (barvy hlaviček v Jednání). Hlavičky řádků Rady jsou bordó a Zastupitelstva modré s bílým textem, stejně jako bannery na Domů (`jRowTypeClass()` v `content/jednani.html`, styl v `assets/styles.css`). Výbory, komise a školská rada mají hlavičku v šedé rámečku. Rozbalené jednání má 3px rámeček v barvě hlavičky a hlavičku na třech řádcích (název ve velikosti h3, datum, délka schůze); délka schůze je vidět jen v rozbaleném stavu; avatary v hlavičce mají 24 px (sbaleno) a 40 px (rozbaleno); detail jednání má padding 14 px; avatary účastníků jsou v hlavičce u všech typů jednání (dřív u Zastupitelstva v detailu) a velké avatary (40 px) v rozbaleném stavu jsou jen na desktopu; avatary v hlavičce se překrývají.
+
+5. listopadu 2026 (vzhled usnesení v Jednání). Text usnesení v rozbaleném bodu je bez levého okraje a tučně má rozhodnutí na začátku a peněžní částky (`jResTextHtml()` v `content/jednani.html`, styl v `assets/styles.css`). Zamítnutý návrh a přijatá usnesení jsou v jednom `agenda-res-list`. Důvodová zpráva bodu je bez levého okraje a pozadí, větším písmem a zarovnaná s názvem bodu, blok usnesení pod ní začíná ve stejném místě.
+
+5. listopadu 2026 (úprava zobrazení Jednání). Zamítnutý návrh usnesení (`rejected_vote`) už ve sbaleném bodu programu nezobrazuje štítek „Zamítnuto“ a počty hlasů; stav ukazuje jen kroužek za názvem a podrobnosti jsou v rozbaleném bodu, stejně jako u přijatých usnesení (`jRenderRejectedVote` v `content/jednani.html`, popis v `jednani/README.md`).
+
 5. listopadu 2026 (Na oběd: druhý opakovaný běh). `naobed/data/hostinec-u-strikacky-pecky/2026-11.json` a `naobed/menu.json`: doplněn lístek Hostince U Stříkačky z 5. 11. 2026 (vývar s nudlemi, 8 jídel, přílohy a omáčky; telefon pro objednávky v poznámce). U Marka, Siňorita i školní jídelna už měly dnešní menu (přeskočeno). `README.md`: přepsán řádek „Na oběd“.
 
 5. listopadu 2026 (Na oběd: opakovaný automatický běh). `naobed/data/hostinec-u-strikacky-pecky/2026-11.json` a `naobed/menu.json`: doplněn lístek Hostince U Stříkačky ze 4. 11. 2026 (gulášová, 7 jídel; řádek s omáčkami na náhledu oříznutý, vynecháno); na 5. 11. lístek zatím není. U Marka a Siňorita už měly dnešní menu, školní jídelna dnešní jídelníček. `README.md`: přepsán řádek „Na oběd“.
