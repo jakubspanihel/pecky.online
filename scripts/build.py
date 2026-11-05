@@ -1334,7 +1334,7 @@ def _dash_zm_po(meetings, dnes):
         nazev = f'Zastupitelstvo {m["number"]}/{m["year"]}'
         out.append(
             f'    <li data-date="{m["date"]}" data-od="{od.isoformat()}" data-do="{do.isoformat()}" hidden>'
-            f'<a class="dash-zmpo-link" href="/jednani/#zastupitelstvo-{m["date"]}">'
+            f'<a class="dash-zmpo-link dash-zmpo-link--slate" href="/jednani/#zastupitelstvo-{m["date"]}">'
             f'<span class="zmpo-text"><strong>{esc(nazev)}</strong> <span class="zmpo-kdy">{_zm_po_kdy((d0 - dm).days)}</span>'
             f' · <span class="zmpo-stav">{stav}</span></span>'
             f'<span class="zmpo-sipka" aria-hidden="true">→</span></a></li>')
