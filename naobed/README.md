@@ -60,7 +60,7 @@ zastaralá, podnik se přestěhoval) a u Hospůdky Velké Chvalovice je z plaká
 ## Postup aktualizace
 
 Skill `DoPecek-obedy` (`.claude/skills/DoPecek-obedy/SKILL.md`):
-otevře Chrome, na facebookové stránce každé restaurace stáhne fotografii
+otevře Chrome, v archivu fotografií (`/photos`) facebookové stránky každé restaurace stáhne fotografii
 nejnovějšího menu do dočasného souboru, přepíše z ní lístek do záznamu
 dne a zapíše ho přes `naobed/scripts/zapis-menu.py` do `naobed/data/` a
 `menu.json`, pak spustí `python3 scripts/build.py`.
