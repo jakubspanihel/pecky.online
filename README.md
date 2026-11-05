@@ -58,7 +58,7 @@ se sem, na stránku samotnou se nic ručně nepíše.
 
 | Sekce | Režim | Kontrola | Změna | Co naposledy |
 |---|---|---|---|---|
-| [Na oběd](naobed/README.md) | denně | 4. 11. 2026 | 4. 11. 2026 | denní menu U Marka a Siňority z 4. 11. 2026 |
+| [Na oběd](naobed/README.md) | denně | 5. 11. 2026 | 5. 11. 2026 | denní menu U Marka a Siňority z 5. 11. 2026 |
 | [O webu](o-webu/README.md) | týdně | 4. 11. 2026 | 4. 11. 2026 | Monitoring Facebooku města: doplněn listopad 2026 (3 příspěvky, stav k 4. 11. 2026); Monitoring úřední desky: 1 nový dokument (rozhodnutí o povolení stavby, vyvěšeno 3. 11. 2026), celkem 1 929 dokumentů; sociální sítě (kontrola 4. 11. 2026, 49 účtů): počet sledujících se změnil u 6 účtů, nová aktivita u 10 účtů |
 | [Jednání](jednani/README.md) | týdně | 4. 11. 2026 | 4. 11. 2026 | ZM 8/2026 (4. 11. 2026): doplněn záznam na YouTube (po jednání nahradil odkaz na živý přenos) |
 | [Tělocvična](telocvicna/README.md) | týdně | 4. 11. 2026 | 4. 11. 2026 | 2. 11. 2026 Pečecké noviny 11/2026, s. 3: v první polovině října jednání se soudním znalcem, termín obnovení stavebních prací zatím nelze stanovit; RM 39/2026, bod 3: dozdívání atik, zateplení jídelny a schůzka se soudním znalcem 9. 11. 2026 (bez usnesení) |

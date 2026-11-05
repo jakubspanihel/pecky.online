@@ -4,6 +4,8 @@ Chronologický deník běhů a úprav, nejnovější nahoře. Přesunuto z
 kořenového `README.md` (sekce „Poslední aktualizace“). Aktuální stav sekcí
 je v tabulce „Stav sekcí“ v `README.md`; sem patří podrobnosti běhu.
 
+5. listopadu 2026 (Na oběd: denní menu). `naobed/data/u-marka-pecky/2026-11.json` a `naobed/data/sinorita-pecky/2026-11.json`: doplněn lístek z 5. 11. 2026 (U Marka: 2 polévky, 14 jídel; Siňorita: 2 polévky, menu, 5 jídel, 2 saláty). U Stříkačky bez nového menu (poslední lístek 4. 11., příspěvky na Facebooku se nenačetly), pouze `checked`. Školní jídelna už měla dnešní jídelníček (přeskočeno). `naobed/menu.json` a `/naobed/` přegenerovány.
+
 4. listopadu 2026 (Jednání: ZM 8/2026 jako ustavující). `jednani/volebni-obdobi.json`: přidána hranice „Ustavující zasedání 2026“ (zdroj: pozvánka na úřední desce) → ve výpisu Jednání nad ZM 8/2026 dělicí čára; `content/jednani.html` (`jTermDividerHtml`) ji vyznačí i u prvního řádku skupiny, je-li to přímo ustavující zasedání. `jednani/update-youtube.py`: ustavující zasedání 4. 11. 2026 je v grafu zlatě a v legendě; `jednani/youtube.html` přegenerováno.
 
 4. listopadu 2026 (Jednání: kontrola usneseni.cz, večer). Na usneseni.cz nic nového (ZM 8/2026 má stále jen Pozvánku, RM 39/2026 poslední zápis); archiv `jednani/archive/` je kompletní. `jednani/pecky-jednani.json`: u ZM 8/2026 doplněn `links.youtube` (záznam už je v playlistu „Zasedání ZM“, shodný s dřívějším odkazem na živý přenos, 1:20:49; bez kapitol, takže zatím bez `video_ts`). Úřední deska souhlasí (pozvánka na ZM 4. 11. 2026 v 16:30 v KD s odkazem na YouTube). Absence, Kalendář, Prostory, Tělocvična: zkontrolováno, beze změny.
