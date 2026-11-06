@@ -58,7 +58,7 @@ se sem, na stránku samotnou se nic ručně nepíše.
 
 | Sekce | Režim | Kontrola | Změna | Co naposledy |
 |---|---|---|---|---|
-| [Na oběd](naobed/README.md) | denně | 6. 11. 2026 | 6. 11. 2026 | denní menu Siňority z 6. 11. 2026 (U Marka a U Stříkačky z 5. 11.) |
+| [Na oběd](naobed/README.md) | denně | 6. 11. 2026 | 6. 11. 2026 | denní menu U Marka z 6. 11. 2026 (stejně Siňorita; U Stříkačky z 5. 11.) |
 | [O webu](o-webu/README.md) | týdně | 6. 11. 2026 | 6. 11. 2026 | sociální sítě (kontrola 6. 11. 2026, 52 účtů): počet sledujících se změnil u 7 účtů (např. FB skupina Pravoslavná obec +5, Pečky srdcem +2), nová aktivita u 12 účtů |
 | [Jednání](jednani/README.md) | týdně | 6. 11. 2026 | 6. 11. 2026 | Zhlédnutí záznamů zastupitelstva na YouTube: 9 845 zhlédnutí u 34 záznamů (+77), ZM 8/2026 má 623 zhlédnutí |
 | [Tělocvična](telocvicna/README.md) | týdně | 4. 11. 2026 | 4. 11. 2026 | 2. 11. 2026 Pečecké noviny 11/2026, s. 3: v první polovině října jednání se soudním znalcem, termín obnovení stavebních prací zatím nelze stanovit; RM 39/2026, bod 3: dozdívání atik, zateplení jídelny a schůzka se soudním znalcem 9. 11. 2026 (bez usnesení) |
