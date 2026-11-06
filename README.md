@@ -59,8 +59,8 @@ se sem, na stránku samotnou se nic ručně nepíše.
 | Sekce | Režim | Kontrola | Změna | Co naposledy |
 |---|---|---|---|---|
 | [Na oběd](naobed/README.md) | denně | 6. 11. 2026 | 6. 11. 2026 | denní menu Siňority z 6. 11. 2026 (U Marka a U Stříkačky z 5. 11.) |
-| [O webu](o-webu/README.md) | týdně | 5. 11. 2026 | 5. 11. 2026 | sociální sítě (kontrola 5. 11. 2026, 52 účtů): počet sledujících se změnil u 5 účtů (YouTube 102 odběratelů, +2), nová aktivita u 16 účtů |
-| [Jednání](jednani/README.md) | týdně | 5. 11. 2026 | 5. 11. 2026 | Zhlédnutí záznamů zastupitelstva na YouTube: 9 768 zhlédnutí u 34 záznamů (+126), ZM 8/2026 (ustavující) má 554 zhlédnutí |
+| [O webu](o-webu/README.md) | týdně | 6. 11. 2026 | 6. 11. 2026 | sociální sítě (kontrola 6. 11. 2026, 52 účtů): počet sledujících se změnil u 7 účtů (např. FB skupina Pravoslavná obec +5, Pečky srdcem +2), nová aktivita u 12 účtů |
+| [Jednání](jednani/README.md) | týdně | 6. 11. 2026 | 6. 11. 2026 | Zhlédnutí záznamů zastupitelstva na YouTube: 9 845 zhlédnutí u 34 záznamů (+77), ZM 8/2026 má 623 zhlédnutí |
 | [Tělocvična](telocvicna/README.md) | týdně | 4. 11. 2026 | 4. 11. 2026 | 2. 11. 2026 Pečecké noviny 11/2026, s. 3: v první polovině října jednání se soudním znalcem, termín obnovení stavebních prací zatím nelze stanovit; RM 39/2026, bod 3: dozdívání atik, zateplení jídelny a schůzka se soudním znalcem 9. 11. 2026 (bez usnesení) |
 | [Kalendář](kalendar/README.md) | týdně | 4. 11. 2026 | 4. 11. 2026 | nové akce: Koncert k poctě sv. Cecílii (19. 11. 2026, ZUŠ Pečky) a florbal TJ Sokol (čtvrtky 16–18, Sokolovna, 14 termínů do 17. 12. s poznámkou „Negarantováno“); doklady z Pečeckých novin 11/2026 u Adventního setkání (29. 11.) a Rozsvícení stromu ve V. Chvalovicích (28. 11.) |
 | [Pečecké noviny](noviny/README.md) | týdně | 4. 11. 2026 | 4. 11. 2026 | nová podstránka Pečecké noviny pro sociální sítě (`/noviny/insta.html`): banner posledního čísla jako obrázek 1:1, 4:5, 3:4; odkaz sdílecí ikonou v bloku Poslední číslo |
