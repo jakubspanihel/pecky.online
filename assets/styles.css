@@ -86,21 +86,33 @@
 
   /* ===== Header ===== */
   /* header.site je display:contents (bez boxu), aby se lišta menu lepila přes celou stránku; bordery (cyan + žlutý) nese sticky lišta menu */
-  header.site{display:contents;}
+  header.site{position:fixed; top:0; left:0; right:0; z-index:30; background:var(--material-deep); border-bottom:2pt solid var(--cyan); box-shadow:0 2pt 0 var(--yellow);}
+  body{padding-top:var(--nav-h,120px);}
+  header.site nav.tabs.header-nav{position:static; border-bottom:none; box-shadow:none; margin-bottom:0;}
+  .brand-row .navlink-more{margin-left:auto; order:2;}
+  @media (max-width:600px){
+    header.site nav.tabs.header-nav{display:none;}
+    .navlink-more .menu-txt{display:none;}
+    .header-inner{padding-top:var(--space-4); padding-bottom:var(--space-4);}
+  }
   .header-inner{
     max-width:none; margin:0; padding:16px max(18px, calc((100% - 1040px) / 2 + 18px));
     background:var(--material-deep); width:100%; box-sizing:border-box;
   }
-  .brand-row{display:flex; align-items:center; justify-content:center; gap:var(--space-4); flex-wrap:wrap;}
+  .brand-row{display:flex; align-items:center; justify-content:flex-start; gap:var(--space-4); flex-wrap:wrap;}
   .brand{display:flex; align-items:baseline; gap:var(--space-5); order:1; color:inherit; text-decoration:none; cursor:pointer;}
   .brand:hover{text-decoration:none;}
   /* mobile-first: základ pro telefon, od 601 px větší */
   .brand h1{font-family:var(--font-banner); font-style:italic; color:var(--cyan); -webkit-text-stroke:0.7px currentColor; font-size:42px; margin:0; letter-spacing:-0.03em; font-weight:900; line-height:1.15;}
 
+  .site--sub .brand h1{font-size:28px;}
+  .brand-back{width:0.8em; height:0.8em; margin-right:0.15em; vertical-align:-0.05em; -webkit-text-stroke:0;}
   .brand h1 .tagline{display:block; margin:var(--space-1) 0 0; font-family:var(--font-body); font-style:normal; font-weight:var(--fw-regular); font-size:var(--fs-lede, 16px); letter-spacing:0; line-height:1.3; color:var(--ink-soft); -webkit-text-stroke:0;}
 
   /* ===== Tlačítko „Více...“ (#infoFab): poslední položka lišty menu, otevírá overlay-menu ===== */
   .navlink-more{font:inherit; line-height:inherit; margin:0;}
+  .header-nav .navlink-more, .brand-row .navlink-more{display:inline-flex; align-items:center; gap:var(--space-3); text-decoration:none; background:none; border:none; color:var(--cyan-deep); font-family:var(--font-banner); font-weight:var(--fw-bold); text-transform:uppercase; padding:var(--space-6); cursor:pointer;}
+  .navlink-more .menu-ico{flex:none;}
 
   /* ===== overlay-menu: celá obrazovka, plné pozadí material-deep, vycentrovaný sloupec bloků ===== */
   .overlay-menu{

@@ -42,12 +42,13 @@
 </head>
 <body>
 <script>window.SITE_BASE_PATH = '';</script>
-<header class="site">
+<header class="site site--sub">
   <div class="header-inner">
     <div class="brand-row">
       <a class="brand" href="/">
-        <h1>Do Peček . cz</h1>
+        <h1><svg class="brand-back" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 4l-8 8 8 8" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Do Peček . cz</h1>
       </a>
+      <button type="button" class="navlink navlink-more" id="infoFab" aria-controls="overlayMenu" aria-haspopup="dialog" aria-label="Menu"><svg class="menu-ico" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg><span class="menu-txt">Menu</span></button>
     </div>
   </div>
   <nav class="tabs header-nav" id="tabs">
@@ -59,7 +60,6 @@
     <a class="navlink" href="/obchvat/">Obchvat</a>
     <a class="navlink" href="/telocvicna/">Tělocvična</a>
     <a class="navlink" href="/voda/">Voda</a>
-    <button type="button" class="navlink navlink-more" id="infoFab" aria-controls="overlayMenu" aria-haspopup="dialog">Více...</button>
   </nav>
 </header>
 <div class="overlay-menu" id="overlayMenu" role="dialog" aria-modal="true" aria-label="Menu" hidden>
@@ -78,7 +78,7 @@
 <main>
   <section class="panel active" id="panel-naobed">
     <h2 class="title display">Kam na oběd v Pečkách?</h2>
-    <p class="lastmod" data-date="2026-11-05">Poslední kontrola: 5. 11. 2026</p>
+    <p class="lastmod" data-date="2026-11-06">Poslední kontrola: 6. 11. 2026</p>
 
     <h3 class="search-status" id="naobed-status"><span class="spinner" aria-hidden="true"></span>Načítám menu…</h3>
     <div id="naobed-list" class="naobed-list"></div>

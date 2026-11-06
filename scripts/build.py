@@ -918,7 +918,7 @@ def _dash_zastupitelstvo(dnes):
         return po_volbach[0] if po_volbach else '2099-12-31'
     volby = sorted((e for e in events if e['category'] == 'volby' and _volby_do(e) >= dnes),
                    key=lambda e: e['date'])[:1]
-    po = _dash_zm_po(meetings, dnes)
+    po = ''   # pruh „Zastupitelstvo proběhlo“ se na Domů nezobrazuje (duplicita s widgetem „Ze zastupitelstva“)
     if not zm and not volby and not po:
         return '', ''
     avatary = _zm_avatary()
@@ -1600,7 +1600,11 @@ def build_nav(current_slug):
     # Slogan v hlavičce jen na homepage
     tagline = (f'<small class="tagline">{SLOGAN}</small>'
                if current_slug == 'domu' else '')
-    html = read('assets/nav.html').replace('{{TAGLINE}}', tagline)
+    sub = current_slug != 'domu'
+    back = ('<svg class="brand-back" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 4l-8 8 8 8" fill="none" '
+            'stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/></svg>') if sub else ''
+    html = (read('assets/nav.html').replace('{{TAGLINE}}', tagline)
+            .replace('{{SUBCLASS}}', ' site--sub' if sub else '').replace('{{BACK}}', back))
     return apply_active(html, current_slug)
 
 

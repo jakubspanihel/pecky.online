@@ -605,7 +605,7 @@
       if (!cil) skryt = true;
       else {
         const r = (cil.nextElementSibling || cil).getBoundingClientRect();   // nadpis dne je sticky, měří se karty pod ním
-        const nad = (document.querySelector('nav.tabs.header-nav')?.offsetHeight || 0) + (document.querySelector('#panel-kalendar .kal-toolbar')?.offsetHeight || 0);
+        const nad = (document.querySelector('header.site')?.offsetHeight || 0) + (document.querySelector('#panel-kalendar .kal-toolbar')?.offsetHeight || 0);
         skryt = r.bottom > nad && r.top < window.innerHeight;
       }
     }
@@ -1022,7 +1022,7 @@
     const h = document.querySelector('#kal-list .akce-skupina[data-skupina="dalsi"]');
     if (!h) { KAL_SCROLL_DALSI = false; return; }
     const jdi = () => {
-      const nav = document.querySelector('nav.tabs.header-nav');
+      const nav = document.querySelector('header.site');
       const bar = document.querySelector('#panel-kalendar .kal-toolbar');
       const nad = (nav ? nav.offsetHeight : 0) + (bar ? bar.offsetHeight : 0) + 12;
       window.scrollTo({ top: h.getBoundingClientRect().top + window.scrollY - nad });
@@ -1044,7 +1044,7 @@
     const jdi = () => {
       const radek = document.querySelector('#kal-grid-body td.today')?.closest('tr');   // mřížka se může přerenderovat
       if (!radek) return;
-      const nav = document.querySelector('nav.tabs.header-nav');
+      const nav = document.querySelector('header.site');
       const bar = document.querySelector('#panel-kalendar .kal-toolbar');
       const nad = (nav ? nav.offsetHeight : 0) + (bar ? bar.offsetHeight : 0) + 12;
       window.scrollTo({ top: radek.getBoundingClientRect().top + window.scrollY - nad });

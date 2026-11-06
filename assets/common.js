@@ -8,7 +8,7 @@
 // ===== Tlačítko „Více...“ (#infoFab, poslední položka lišty menu) + overlay-menu =====
 (function () {
   const fab = document.getElementById('infoFab');
-  const tabs = document.getElementById('tabs');
+  const tabs = document.querySelector('header.site');
   const overlay = document.getElementById('overlayMenu');
   const links = document.getElementById('overlayLinks');
   const closeBtn = document.getElementById('overlayClose');
