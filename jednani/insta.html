@@ -172,6 +172,26 @@
   }
   document.getElementById('ji-starsi').addEventListener('click', () => jiPosun(1));
   document.getElementById('ji-novejsi').addEventListener('click', () => jiPosun(-1));
+  // swipe na mobilu: doleva = starší jednání, doprava = novější (převážně vodorovné gesto ≥ 50 px)
+  (function(){
+    const frame = document.getElementById('Frame');
+    let sx = 0, sy = 0, st = 0, sledovat = false;
+    frame.addEventListener('touchstart', ev => {
+      sledovat = ev.touches.length === 1;
+      if (!sledovat) return;
+      sx = ev.touches[0].clientX; sy = ev.touches[0].clientY; st = Date.now();
+    }, {passive:true});
+    frame.addEventListener('touchend', ev => {
+      if (!sledovat) return;
+      sledovat = false;
+      const t = ev.changedTouches[0], dx = t.clientX - sx, dy = t.clientY - sy;
+      if (Date.now() - st > 800 || Math.abs(dx) < 50 || Math.abs(dx) < Math.abs(dy) * 1.5) return;
+      const sel = window.getSelection();
+      if (sel && !sel.isCollapsed) return;
+      jiPosun(dx < 0 ? 1 : -1);
+    }, {passive:true});
+    frame.style.touchAction = 'pan-y';
+  })();
   document.querySelectorAll('[data-druh]').forEach(b => b.addEventListener('click', () => {
     JI.druh = b.dataset.druh;
     JI.id = jiSeznam()[0];
