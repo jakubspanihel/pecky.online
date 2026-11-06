@@ -633,6 +633,33 @@ na sobě — u jednání s víc body je běžné chtít porovnat text dvou z nic
 najednou. Zdrojová funkce: `jRenderAgendaList`/click handler v
 `content/jednani.html`.
 
+## Vzhled textu usnesení v rozbaleném bodu (od 5. 11. 2026)
+
+Blok s textem usnesení (`.agenda-res .info-toggle-text`) nemá levý okraj. Stejně tak důvodová zpráva bodu (`.agenda-item > .info-toggle-text`): bez okraje a pozadí, písmo `--fs-10` (15 px) a text začíná ve stejném místě jako název bodu (levý odstup 33 px, na mobilu 35 px). Blok s usnesením (`.agenda-res-list`, levý odstup 24 px + padding 9 px, na mobilu 26 px) začíná textem ve stejném místě. Rozhodnutí na začátku
+(„Rada města schvaluje“, „Zastupitelstvo města ukládá“, „bere na vědomí“ …) a peněžní částky
+(`150 000 Kč`, `2.000,-`) jsou tučně. Tučné se přidává až při vykreslení (`jResTextHtml()`
+v `content/jednani.html`, regulární výrazy `J_RES_VERB` a `J_RES_AMOUNT`) — text v datech zůstává
+doslovný. Nové sloveso, které se netučí, patří do `J_RES_VERB`. Platí i pro zamítnuté návrhy.
+
+## Barva hlavičky jednání (od 5. 11. 2026)
+
+Hlavička řádku jednání (`.meeting-row-main`) je v barvě bannerů z Domů, text je bílý: Rada města
+bordó (přechod `--burgundy` → `--burgundy-deep`, třída `meeting-row--rada`), Zastupitelstvo modrá
+(`--cyan`, `meeting-row--zm`). Třídu přidává `jRowTypeClass()` v `content/jednani.html` podle `m.type`,
+včetně starších jednání z úřední desky, novin a archivu města. Výbory, komise a školská rada
+(`meeting-row--other`) mají hlavičku v šedé rámečku (`--line`) s tmavým textem. Rozbalené jednání má kolem
+celého bloku 3px rámeček v barvě hlavičky (bordó, modrá, šedá).
+V rozbaleném jednání je hlavička na třech řádcích: název (`.meeting-name`, písmo h3 `--fs-h3`), pod ním datum
+(`.meeting-date`) a na vlastním řádku „schůze trvala: …“ (`.meeting-duration--own`, ve sbaleném řádku skrytá — délka
+schůze se zobrazuje jen v rozbaleném stavu). Sbalený řádek zůstává „datum | název“. Avatary účastníků v hlavičce (`.meeting-row-avatars`) mají ve sbaleném řádku 24 px, v rozbaleném 40 px. Detail rozbaleného jednání (`.meeting-row-detail`) má padding 14 px ze všech stran.
+Avatary účastníků jsou v hlavičce u všech typů jednání stejně (přítomní, svislá linka, omluvení/nepřítomní
+zeslabení) — dřív je Zastupitelstvo mělo jen v rozbaleném detailu a v hlavičce text „sešlo se N z M“. Text se
+zobrazí jen u jednání bez jmenné prezence. Od 768 px má hlavička název vlevo (max 45 % šířky) a avatary
+vpravo zalomené v zbylém místě, takže 21 zastupitelů se vejde do několika řad a +/− zůstává vpravo.
+Hlavička rozbaleného jednání se při scrollu nelepí. Velké avatary (40 px) v rozbaleném stavu jsou jen od 768 px,
+na mobilu zůstávají 24 px. Avatary se v hlavičce překrývají (záporný levý margin −6 px, v rozbaleném stavu −10 px) a odděluje je bílý proužek; svislá linka mezi přítomnými a nepřítomnými má vlastní odstup. Styl je v `assets/styles.css` (`--mr-from/-to/-accent`); štítky v hlavičce („plánováno“) jsou
+bílé s barvou jednání. Rozbalený detail zůstává na bílém pozadí.
+
 ## Zamítnuté návrhy usnesení (`agenda[].rejected_vote`, od 25. 9. 2026)
 
 `m.resolutions` (a z něj `content/jednani.html` odvozený `a._res`) obsahuje
@@ -649,10 +676,10 @@ rozlišuje: `text` je verbatim navržené znění usnesení z zápisu (ne
 vymyšlené - proto ne "usnesení", ale "návrh usnesení", protože k přijetí
 nedošlo), `pro`/`proti`/`zdrzel` je výsledek hlasování. Zobrazí se jako
 badge „Zamítnuto" (stejná vizuální třída `res-outcome zamitnuto` jako
-u zamítnutých/neschválených přijatých usnesení) + hlasování na sbaleném
-řádku bodu, s rozbalovacím "i" tlačítkem na plný navržený text — stejný
-vzor jako `jResInfoIcon`/`jResInfoText` u běžných usnesení, jen bez čísla
-a odkazu (žádné neexistuje). Zdrojová funkce: `jRenderRejectedVote`
+u zamítnutých/neschválených přijatých usnesení) + hlasování + navržený text,
+vše v rozbalovacím bloku bodu (od 5. 11. 2026 stejně jako u přijatých usnesení,
+`jRenderResItem`, jen bez čísla a odkazu — žádné neexistuje). Ve sbaleném
+řádku bodu je vidět jen červený kroužek za názvem. Zdrojová funkce: `jRenderRejectedVote`
 v `content/jednani.html`.
 
 **Zatím jen u jednoho bodu** — bod 14 „Souhlas s krátkodobým užitím části

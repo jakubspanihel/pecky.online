@@ -1075,16 +1075,55 @@
   .meeting-row{border-bottom:1px solid var(--line);}
   .meeting-row--expanded{background:var(--white);}
   .meeting-row--future .meeting-row-main, .meeting-row--today .meeting-row-main{background:rgba(173,122,42,0.08);}
+  /* hlavička jednání v barvě bannerů z Domů: Rada = bordó, Zastupitelstvo = modrá (cyan), text bílý */
+  .meeting-row--rada{--mr-from:var(--burgundy); --mr-to:var(--burgundy-deep); --mr-accent:var(--burgundy);}
+  .meeting-row--zm{--mr-from:var(--cyan); --mr-to:var(--cyan); --mr-accent:var(--cyan);}
+  .meeting-row--rada .meeting-row-main, .meeting-row--zm .meeting-row-main{background:linear-gradient(135deg,var(--mr-from) 0%,var(--mr-to) 100%); color:var(--white);}
+  .meeting-row--rada .meeting-row-main:hover, .meeting-row--zm .meeting-row-main:hover{background:linear-gradient(135deg,var(--mr-from) 0%,var(--mr-to) 100%); filter:brightness(1.08);}
+  .meeting-row--rada .meeting-row-main :is(a,.meeting-count,.meeting-duration,.meeting-venue,.meeting-live-note,.meeting-video-badge,.meeting-toggle,.meeting-share,.no-minutes-warning,.starsi-badge),
+  .meeting-row--zm .meeting-row-main :is(a,.meeting-count,.meeting-duration,.meeting-venue,.meeting-live-note,.meeting-video-badge,.meeting-toggle,.meeting-share,.no-minutes-warning,.starsi-badge){color:var(--white);}
+  .meeting-row--rada .meeting-row-main .tag, .meeting-row--zm .meeting-row-main .tag{background:var(--white); border-color:var(--white); color:var(--mr-accent); font-weight:var(--fw-bold);}
+  /* ostatní typy (výbory, komise, školská rada): hlavička v šedé rámečku, tmavý text */
+  .meeting-row--other{--mr-from:var(--line);}
+  .meeting-row--other .meeting-row-main, .meeting-row--other .meeting-row-main:hover{background:var(--line);}
+  .meeting-row--other .meeting-row-main:hover{filter:brightness(0.97);}
+  /* rozbalené jednání: 3px rámeček celého bloku v barvě hlavičky */
+  #jednani-results .meeting-row--expanded.meeting-row--rada,
+  #jednani-results .meeting-row--expanded.meeting-row--zm,
+  #jednani-results .meeting-row--expanded.meeting-row--other{border:3px solid var(--mr-from);}
   .meeting-attendance{margin:2px 0 var(--space-5);}
   .meeting-attendance .people-avatars{max-width:none; flex-wrap:nowrap; overflow-x:auto; padding-bottom:2px;}
   .meeting-row-avatars{max-width:none;}
-  .meeting-row-avatars .av-init, .meeting-row-avatars .av-img{width:20px; height:20px; font-size:8px;}
+  /* avatary v hlavičce se lehce překrývají (záporný margin), bílý proužek je odděluje */
+  .meeting-row-avatars{gap:0;}
+  .meeting-row-avatars .av-init, .meeting-row-avatars .av-img{margin-left:-6px; box-shadow:0 0 0 1.5px var(--white);}
+  .meeting-row-avatars > :first-child{margin-left:0;}
+  .meeting-row-avatars .attendance-sep{margin:0 var(--space-3) 0 var(--space-4); background:var(--white);}
+  .meeting-row-avatars .attendance-sep + *{margin-left:0;}
+  .meeting-row-avatars .av-init, .meeting-row-avatars .av-img{width:24px; height:24px; font-size:var(--fs-2);}
+  @media (min-width:768px){
+    .meeting-row--expanded .meeting-row-avatars .av-init, .meeting-row--expanded .meeting-row-avatars .av-img{width:40px; height:40px; font-size:var(--fs-10); margin-left:-10px;}
+    .meeting-row--expanded .meeting-row-avatars > :first-child, .meeting-row--expanded .meeting-row-avatars .attendance-sep + *{margin-left:0;}
+  }
   .meeting-row-main{display:flex; align-items:center; gap:var(--space-2) var(--space-5); padding:11px var(--space-1); cursor:pointer; font-size:var(--fs-9); flex-wrap:wrap;}
   .meeting-row-main:hover{background:var(--burgundy-a035);}
   .meeting-label{font-size:var(--fs-h4); font-weight:var(--fw-semibold); line-height:1.3; flex:1 1 220px; min-width:0;}
   .meeting-permalink{color:inherit; text-decoration:none; display:inline-flex; align-items:center; gap:2px;}
   .meeting-permalink:hover{color:var(--cyan-deep); text-decoration:underline;}
-  .meeting-video-badge{display:inline-flex; align-items:center; gap:var(--space-1); margin-left:var(--space-5); font-size:var(--fs-5); font-weight:var(--fw-regular); color:var(--ink-soft); font-family:var(--font-mono);}
+  /* rozbalené jednání: název (velký, h3) nad datem, délka schůze na vlastním řádku */
+  .meeting-row .meeting-duration--own{display:none;}
+  /* od tabletu: název vlevo, avatary vpravo zalomené v zbylém místě (21 zastupitelů se nevejde do jedné řady), +/− zůstává vpravo */
+  @media (min-width:768px){
+    .meeting-row-main .meeting-label{flex:0 1 auto; max-width:45%;}
+    .meeting-row-main .meeting-info{flex:1 1 0; min-width:0; justify-content:flex-end;}
+    .meeting-row-main .meeting-row-avatars{flex:1 1 0; min-width:0; justify-content:flex-end;}
+  }
+  .meeting-row--expanded .meeting-row-main .meeting-label{display:flex; flex-direction:column; align-items:flex-start; gap:var(--space-1);}
+  .meeting-row--expanded .meeting-permalink{display:flex; flex-direction:column; align-items:flex-start; gap:var(--space-1);}
+  .meeting-row--expanded .meeting-permalink .meeting-name{order:1; font-family:var(--font-display); font-size:var(--fs-h3); line-height:1.2;}
+  .meeting-row--expanded .meeting-permalink .meeting-date{order:2; font-size:var(--fs-h4); font-weight:var(--fw-regular);}
+  .meeting-row--expanded .meeting-permalink .meeting-sep{display:none;}
+  .meeting-row--expanded .meeting-row-main .meeting-duration--own{display:block;}  .meeting-video-badge{display:inline-flex; align-items:center; gap:var(--space-1); margin-left:var(--space-5); font-size:var(--fs-5); font-weight:var(--fw-regular); color:var(--ink-soft); font-family:var(--font-mono);}
   .meeting-info{display:flex; align-items:center; gap:var(--space-2) var(--space-4); flex-wrap:wrap; min-width:0;}
   .meeting-duration{font-size:var(--fs-5); color:var(--ink-soft); font-family:var(--font-mono); white-space:nowrap;}
   .meeting-venue{font-size:var(--fs-5); color:var(--ink-soft); margin-left:var(--space-3);}
@@ -1100,7 +1139,7 @@
   .prostory-tabulka tr.prostor-detail:hover > td{background:var(--white);}
   .prostory-tabulka tr.prostor-detail .table-scroll{margin:var(--space-2) 0 0;}
   .meeting-toggle{width:18px; text-align:center; color:var(--cyan-deep); font-weight:var(--fw-semibold); flex-shrink:0;}
-  .meeting-row-detail{padding:2px var(--space-1) var(--space-8) var(--space-1);}
+  .meeting-row-detail{padding:14px;}
   .meeting-share{display:flex; align-items:center; margin-left:auto; color:var(--cyan-deep);}
   .meeting-share:hover{color:var(--burgundy);}
   .res-list{margin:var(--space-2) 0 var(--space-5); padding-left:0; list-style:none; font-size:var(--fs-7);}
@@ -1135,8 +1174,8 @@
     .agenda-toggle{grid-column:3; grid-row:1;}
     .agenda-meta{display:flex; flex-wrap:wrap; gap:2px 12px; grid-column:2; margin-top:2px;}
   }
-  .agenda-res-list{margin:5px 0 0 var(--space-9); display:flex; flex-direction:column; gap:var(--space-1);}
-  @media (max-width:767px){ .agenda-res-list{margin-left:35px;} }
+  .agenda-res-list{margin:5px 0 0 24px; display:flex; flex-direction:column; gap:var(--space-1);}
+  @media (max-width:767px){ .agenda-res-list{margin-left:26px;} }
   .agenda-res{font-size:var(--fs-6); display:flex; align-items:center; gap:var(--space-3); color:var(--ink-soft); white-space:nowrap; flex-wrap:wrap;}
   .agenda-res .hit-number{white-space:nowrap;}
   .info-icon{display:inline-flex; align-items:center; justify-content:center; width:15px; height:15px; border-radius:var(--radius-round); border:1px solid var(--cyan-deep); background:none; color:var(--cyan-deep); font-family:var(--font-mono); font-style:italic; font-size:10px; font-weight:var(--fw-bold); line-height:1; padding:0; cursor:pointer; flex-shrink:0;}
@@ -1145,6 +1184,11 @@
   .res-votes-title{font-size:var(--fs-6); text-transform:uppercase; letter-spacing:.04em; margin-bottom:var(--space-1);}
   .res-votes-row{margin:2px 0; line-height:1.5;}
   .info-toggle-text{flex-basis:100%; width:100%; font-size:var(--fs-6); color:var(--ink-soft); white-space:pre-line; margin:var(--space-1) 0 2px; padding:7px 9px; background:rgba(0,0,0,0.03); border-left:2px solid var(--line);}
+  .agenda-res .info-toggle-text{border-left:0;}
+  /* důvodová zpráva bodu: bez okraje, text zarovnaný s názvem bodu (číslo 2em + mezera 7px) */
+  .agenda-item > .info-toggle-text{width:auto; border-left:0; background:none; padding:0; margin-left:33px; font-size:var(--fs-10);}
+  @media (max-width:767px){ .agenda-item > .info-toggle-text{margin-left:35px;} }
+  .agenda-res .info-toggle-text strong{font-weight:var(--fw-bold); color:var(--ink);}
   .meeting-links{display:flex; align-items:center; gap:var(--space-6); flex-wrap:wrap; font-size:var(--fs-6); margin-bottom:var(--space-4);}
 
   .hit-card{border:1px solid var(--line); background:var(--white-a35); padding:var(--space-6) var(--space-7); margin-bottom:var(--space-5);}
