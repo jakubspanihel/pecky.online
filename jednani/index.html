@@ -108,7 +108,6 @@
       #jednani-results .agenda-item{scroll-margin-top:calc(var(--nav-h,0px) + var(--title-h,0px) + var(--lc-h,0px) + 16px);}
       #jednani-results .agenda-item--flash{background:var(--burgundy-a035);}
       #jednani-results .meeting-row-main{padding:12px 14px;}
-      #jednani-results .meeting-row-detail{padding:2px 14px var(--space-8);}
       #jednani-results h3.j-year{position:sticky; z-index:8; background:var(--material); margin:0 0 12px; padding:var(--space-2) 0; top:calc(var(--nav-h,0px) + var(--title-h,0px) + var(--lc-h,0px));}
       #jednani-results h3.j-year:not(:first-child){margin-top:var(--space-6);}
       @media (min-width:768px){
@@ -529,6 +528,16 @@
     return `<div class="info-toggle-text" hidden>${jEscapeHtml(r.text)}</div>`;
   }
 
+  // Text usnesení s vytučněným rozhodnutím („Rada města schvaluje“, „ukládá“, …)
+  // a peněžními částkami. Jen při vykreslení — text v datech zůstává doslovný.
+  const J_RES_VERB = /^(\s*(?:Rada|Zastupitelstvo)(?:\s+města)?(?:\s+Pečky)?\s+(?:ne)?(?:schvaluje|doporučuje|ukládá|revokuje|souhlasí|bere\s+na\s+vědomí|jmenuje|volí|stanovuje|pověřuje|zamítá|odkládá|rozhoduje|žádá|vyhlašuje|určuje|odvolává|ruší|bere|vydává|pověřuje))/;
+  const J_RES_AMOUNT = /\d{1,3}(?:[ \u00a0.]\d{3})*(?:,\d{1,2})?[ \u00a0]?(?:Kč|,-)|\d+(?:,\d{1,2})?[ \u00a0]?(?:Kč|,-)/g;
+  function jResTextHtml(text){
+    return jEscapeHtml(text || '')
+      .replace(J_RES_VERB, '<strong>$1</strong>')
+      .replace(J_RES_AMOUNT, '<strong>$&</strong>');
+  }
+
   // text usnesení v rozbaleném bodu: nadpis (číslo usnesení, odkaz na usneseni.cz)
   // + štítek se stavem, pak text; stav ukazuje i kroužek za názvem bodu
   // bez detail-stránky usnesení (nejnovější jednání ji v datech ještě nemají) odkazuje
@@ -540,7 +549,7 @@
     const title = href
       ? `<a class="hit-number" href="${href}" target="_blank" rel="noopener">${label}</a>`
       : `<span class="hit-number">${label}</span>`;
-    return `<div class="agenda-res"><div class="info-toggle-text" hidden><div class="res-block-head">${title}${jOutcomeBadgeHtml(r)}</div>${jEscapeHtml(r.text)}${jRenderVoteNames(r)}</div></div>`;
+    return `<div class="agenda-res"><div class="info-toggle-text" hidden><div class="res-block-head">${title}${jOutcomeBadgeHtml(r)}</div>${jResTextHtml(r.text)}${jRenderVoteNames(r)}</div></div>`;
   }
 
   // Jmenovité hlasování (jen zastupitelstvo — rada na usneseni.cz jména neuvádí,
@@ -560,7 +569,9 @@
   // jen text návrhu a výsledek hlasování. Viz jednani/README.md → "Zamítnuté návrhy usnesení".
   function jRenderRejectedVote(rv){
     const voteText = `pro: ${rv.pro} · proti: ${rv.proti} · zdržel se: ${rv.zdrzel}`;
-    return `<div class="agenda-res-list"><div class="agenda-res"><span class="tag res-outcome zamitnuto">Zamítnuto</span> <span class="meeting-count">${jEscapeHtml(voteText)}</span>${jResInfoText(rv)}</div></div>`;
+    // stejně jako u přijatých usnesení (jRenderResItem) je vše uvnitř rozbalovacího bloku;
+    // stav ukazuje ve sbaleném řádku jen kroužek za názvem bodu
+    return `<div class="agenda-res"><div class="info-toggle-text" hidden><div class="res-block-head"><span class="tag res-outcome zamitnuto">Zamítnuto</span> <span class="meeting-count">${jEscapeHtml(voteText)}</span></div>${jResTextHtml(rv.text)}</div></div>`;
   }
 
   function jRenderResLine(r){
@@ -629,10 +640,6 @@
     const sep = present && absent ? '<span class="attendance-sep" aria-hidden="true"></span>' : '';
     return `${present}${sep}${absent}`;
   }
-  function jRenderPresenceRow(m){
-    const html = jAttendanceAvatarsHtml(m);
-    return html ? `<div class="meeting-attendance"><div class="people-avatars">${html}</div></div>` : '';
-  }
 
   // barevný kroužek za názvem bodu: jeden za každé usnesení, barva podle stavu
   // (stejné třídy jako štítky u usnesení: hotovo = schváleno, zamitnuto, probiha, revokovano)
@@ -671,8 +678,7 @@
         </div>
         ${a._vyborLinks ? `<div class="meeting-count" style="margin:2px 0 0 26px;">${jEscapeHtml(a._vyborLinks.label)} ${a._vyborLinks.meetings.map(v => `<a href="#${jSlugForMeeting(v)}">${jFormatDate(v.date)}</a>`).join(', ')}</div>` : ''}
         ${a.duvodova_zprava ? `<div class="info-toggle-text" hidden>${jEscapeHtml(a.duvodova_zprava)}</div>` : ''}
-        ${a._res && a._res.length ? '<div class="agenda-res-list">' + a._res.map(r => jRenderResItem(r, m)).join('') + '</div>' : ''}
-        ${a.rejected_vote ? jRenderRejectedVote(a.rejected_vote) : ''}
+        ${(a._res && a._res.length) || a.rejected_vote ? '<div class="agenda-res-list">' + (a._res || []).map(r => jRenderResItem(r, m)).join('') + (a.rejected_vote ? jRenderRejectedVote(a.rejected_vote) : '') + '</div>' : ''}
       </li>
     `;
     }).join('');
@@ -750,6 +756,11 @@
 
   // starší jednání z úřední desky: řádek = datum + název dokumentu, vpravo štítek
   // „z úřední desky“, po rozkliknutí text usnesení / zápisu (jednani/starsi-jednani.json)
+  // barva hlavičky řádku podle typu jednání (jako bannery na Domů): Rada = bordó, Zastupitelstvo = modrá, ostatní = šedá rámečku
+  function jRowTypeClass(m){
+    return m.type === 'Rada' ? ' meeting-row--rada' : m.type === 'Zastupitelstvo' ? ' meeting-row--zm' : ' meeting-row--other';
+  }
+
   function jRenderStarsiRow(m, dividerHtml){
     const slug = jSlugForMeeting(m);
     const notes = [];
@@ -763,11 +774,11 @@
     }
     return `
       ${dividerHtml}
-      <div class="meeting-row" data-uuid="${jEscapeHtml(m.id)}" data-slug="${slug}">
+      <div class="meeting-row${jRowTypeClass(m)}" data-uuid="${jEscapeHtml(m.id)}" data-slug="${slug}">
         <div class="meeting-row-main">
           <span class="meeting-label">
             <a class="meeting-permalink" href="#${slug}" title="Trvalý odkaz na toto jednání">
-              ${jFormatDateZeroPad(m.date)} | ${jEscapeHtml(m.doc_title)}
+              <span class="meeting-date">${jFormatDateZeroPad(m.date)}</span><span class="meeting-sep"> | </span><span class="meeting-name">${jEscapeHtml(m.doc_title)}</span>
             </a>
           </span>
           <span class="meeting-info">
@@ -797,7 +808,7 @@
         : isToday ? `<span class="tag probiha">dnes${m.time ? `, ${jEscapeHtml(m.time)}` : ''}</span>` : '';
       const venueHtml = m.venue ? `<span class="meeting-venue">📍 ${jEscapeHtml(m.venue)}</span>` : '';
       const vybor = jIsVybor(m);
-      const avatarsHtml = (m.type === 'Rada' || vybor) ? jAttendanceAvatarsHtml(m) : '';
+      const avatarsHtml = jAttendanceAvatarsHtml(m);
       const attendanceHtml = avatarsHtml
         ? `<span class="people-avatars meeting-row-avatars">${avatarsHtml}</span>`
         : (jFormatAttendance(m) ? `<span class="meeting-count">${jEscapeHtml(jFormatAttendance(m))}</span>` : '');
@@ -815,21 +826,21 @@
       const detailTopHtml = vybor ? jRenderVyborGuests(m)
         : m.type === 'Rada'
         ? (m.resolutions.length ? `<p class="lede lede-sm" style="margin:2px 0 12px; font-family:var(--font-mono); color:var(--ink-soft);">Přijato ${m.resolutions.length} usnesení</p>` : '')
-        : jRenderPresenceRow(m);
+        : '';
       const slug = jSlugForMeeting(m);
       return `
       ${dividerHtml}
-      <div class="meeting-row${future ? ' meeting-row--future' : ''}${isToday ? ' meeting-row--today' : ''}" data-uuid="${m.uuid || m.id}" data-slug="${slug}">
+      <div class="meeting-row${jRowTypeClass(m)}${future ? ' meeting-row--future' : ''}${isToday ? ' meeting-row--today' : ''}" data-uuid="${m.uuid || m.id}" data-slug="${slug}">
         <div class="meeting-row-main">
           <span class="meeting-label">
             <a class="meeting-permalink" href="#${slug}" title="Trvalý odkaz na toto jednání">
-              ${jFormatDateZeroPad(m.date)} | Jednání ${jEscapeHtml(jMeetingTypeGenitive(m.type))}${m.bodies && m.bodies.length > 1 ? ' a ' + m.bodies.filter(b => b !== m.type).map(jMeetingTypeGenitive).join(' a ') : ''}${m.number ? ` č. ${jEscapeHtml(String(m.number))}` : ''}
+              <span class="meeting-date">${jFormatDateZeroPad(m.date)}</span><span class="meeting-sep"> | </span><span class="meeting-name">Jednání ${jEscapeHtml(jMeetingTypeGenitive(m.type))}${m.bodies && m.bodies.length > 1 ? ' a ' + m.bodies.filter(b => b !== m.type).map(jMeetingTypeGenitive).join(' a ') : ''}${m.number ? ` č. ${jEscapeHtml(String(m.number))}` : ''}</span>
             </a>
             ${chip}
+            ${m.duration_seconds != null ? `<span class="meeting-duration meeting-duration--own">schůze trvala: ${jFormatDuration(m.duration_seconds)}</span>` : ''}
           </span>
           <span class="meeting-info">
             ${attendanceHtml}
-            ${m.duration_seconds != null ? `<span class="meeting-duration">schůze trvala: ${jFormatDuration(m.duration_seconds)}</span>` : ''}
             ${daysAgoHtml}
             ${(future || isToday) && venueHtml ? venueHtml : ''}
             ${livestreamHtml}
