@@ -307,6 +307,15 @@ Do `kalendar/akce.json`:
    `zpravodaj` · `tisk` · `ustni`), `url` (odkaz na konkrétní příspěvek
    nebo stránku, ne na profil), `label` (název konkrétního plakátu —
    u vícedílného programu i s částí), `published`, `retrieved` (dnešek).
+   **Nové akci** nic dalšího nepiš — pole `added` (datum přidání) doplní
+   generátor `update-kalendar.py` sám při dalším běhu.
+   **Úprava už existující akce** (změněný čas, místo, název nebo termín,
+   doplněný zdroj, který něco mění): do jejího pole `changes[]` přidej
+   `{"date": "RRRR-MM-DD" (dnešek), "text": "co se změnilo, z čeho na co,
+   a podle jakého zdroje"}`. Zobrazí se na stránce
+   `/kalendar/posledni-pridane.html` s chipem „Upraveno“. Bez záznamu se
+   úprava na stránce neukáže. Neplatí pro opravu překlepu ani pro pouhé
+   přidání dalšího dokladu beze změny údajů.
 2. **Akce** do pole `events`, pole podle `kalendar/README.md`. `id` má
    tvar `akce-RRRR-MM-DD-<slug názvu, první čtyři slova>`, při kolizi
    `-2`, `-3`. **Jednou zapsané `id` se už nemění** — drží `UID`

@@ -208,6 +208,12 @@ EXTRA_PAGES = {
         # proto má lastmod a jde do sitemapy. Statický snímek k datu lastmod.
         # helpers.js: avatary a vizitka osoby (pcAvatarHtml/pcDetailHtml)
         True, 'jednani', '2026-09-30'),
+    'posledni-pridane': (
+        '/kalendar/posledni-pridane.html', 'Naposledy přidané akce — Do Peček . cz',
+        'Deset akcí, které přibyly do Kalendáře města Pečky při posledních aktualizacích.',
+        # Odkázaná z Kalendáře (řádek "Související") od 6. 11. 2026 — proto má lastmod a jde do sitemapy.
+        # Data: kalendar/posledni-pridane.json, generuje ho update-kalendar.py.
+        False, 'kalendar', '2026-11-06'),
     'svoz': (
         '/kalendar/svoz.html', 'Svoz odpadů 2026 dle lokalit — Do Peček . cz',
         'Harmonogram svozu komunálního odpadu, BIO odpadu, plastu a papíru z domácností '

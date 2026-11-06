@@ -301,6 +301,8 @@ python3 scripts/build.py
 ```
 Generátor při každém běhu vypíše řádky `POZOR možná duplicita` pro dvojice akcí (ne kurzů) téhož pořadatele ve stejný den, s začátkem do 60 minut od sebe a se shodným slovem v místě (`najdi_podezrele_duplicity()`). Jen upozorňuje; sloučení se dělá ručně podle pravidla „jedna akce = jeden záznam“ z `CLAUDE.md` (hlavní záznam má doklad z pecky.cz).
 
+Generátor na začátku každého běhu doplní každému novému záznamu v `akce.json` pole `added` (dnešní datum) a zapíše `kalendar/posledni-pridane.json` — deset naposledy přidaných jednorázových akcí (kategorie `akce`, řazeno podle `added`, uvnitř dne podle pořadí v souboru). Čte ho nelinkovaná stránka `/kalendar/posledni-pridane.html` (`content/posledni-pridane.html`, v `EXTRA_PAGES`). Pole `added` nemazat ani ručně nepřepisovat. **Při úpravě existující akce** (změna času, místa, názvu, doplnění zdroje) přidat do jejího `changes[]` záznam `{"date": "RRRR-MM-DD", "text": "co se změnilo a podle jakého zdroje"}` — akce se pak na stránce posledních přidaných akcí zobrazí s chipem „Upraveno“ a textem změny. Opravu překlepu bez věcné změny nezapisovat.
+
 První příkaz přegeneruje `kalendar/udalosti.json` a `kalendar/kalendar.ics`
 ze všech zapojených zdrojů najednou. Druhý je potřeba, jen pokud se
 změnil `content/kalendar.html` samotný (data soubory build.py

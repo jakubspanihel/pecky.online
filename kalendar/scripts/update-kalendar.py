@@ -751,7 +751,58 @@ def najdi_podezrele_duplicity(akce):
     return dvojice
 
 
+POSLEDNI_PRIDANE_DNI = 30  # do JSON jde 30 dní, stránka z toho při načtení ukáže jen posledních 7
+
+
+def oznac_pridane_akce():
+    """Novým záznamům v akce.json doplní `added` (dnešní datum) a zapíše výpis
+    jednorázové akce s aktivitou za posledních 30 dní (stránka z nich ukáže 7 dní) (přidání `added`, nebo úprava =
+    nejnovější `changes[].date`; `status` přidáno/upraveno) do kalendar/posledni-pridane.json
+    (čte ho stránka /kalendar/posledni-pridane.html). Pořadí uvnitř jednoho dne
+    = pořadí v akce.json (novější záznamy jsou na konci)."""
+    data = json.loads(AKCE_JSON.read_text(encoding='utf-8'))
+    dnes = datetime.now(PRAGUE).strftime('%Y-%m-%d')
+    novych = 0
+    for a in data['events']:
+        if not a.get('added'):
+            a['added'] = dnes
+            novych += 1
+    if novych:
+        AKCE_JSON.write_text(json.dumps(data, indent=1, ensure_ascii=False), encoding='utf-8')
+        print(f'akce.json: {novych} nových záznamů označeno added={dnes}')
+    org = nazvy_organizaci()
+    serazene = sorted(enumerate(data['events']), key=lambda x: (x[1]['added'], x[0]), reverse=True)
+    zdroje_jmena = {x['id']: x['name'] for x in (lambda d: d if isinstance(d, list) else d.get('sources', []))(
+        json.loads((ROOT / 'sources.json').read_text(encoding='utf-8'))) if isinstance(x, dict) and x.get('id')}
+
+    def radek(a):
+        return {
+            'id': a['id'], 'added': a['added'], 'title': a['title'], 'date': a['date'],
+            'date_end': a.get('date_end'), 'time': a.get('time'), 'place': a.get('place'),
+            'organizer': org.get(a.get('organizer')) or a.get('organizer_name'),
+            'changes': a.get('changes') or [],
+            'evidence': [{'source': v.get('source'), 'source_name': zdroje_jmena.get(v.get('source')),
+                          'url': v.get('url'), 'label': v.get('label')}
+                         for v in a.get('evidence', [])],
+        }
+    def aktivita(a):
+        return max([a['added']] + [c['date'] for c in a.get('changes') or []])
+    vsechny = [(aktivita(a), i, a) for i, a in enumerate(data['events']) if a.get('category') == 'akce']
+    vsechny.sort(key=lambda x: (x[0], x[1]), reverse=True)
+    radky = []
+    hranice = (datetime.now(PRAGUE) - timedelta(days=POSLEDNI_PRIDANE_DNI)).strftime('%Y-%m-%d')
+    for datum, _, a in [v for v in vsechny if v[0] >= hranice]:
+        r = radek(a)
+        r['activity'] = datum
+        r['status'] = 'upraveno' if datum != a['added'] else 'přidáno'
+        radky.append(r)
+    (ROOT / 'kalendar' / 'posledni-pridane.json').write_text(
+        json.dumps({'updated': dnes, 'events': radky}, ensure_ascii=False, indent=1) + '\n',
+        encoding='utf-8')
+
+
 def main():
+    oznac_pridane_akce()
     jednani = build_jednani_events()
     vybory = build_vybory_events()
     akce = build_akce_events()
