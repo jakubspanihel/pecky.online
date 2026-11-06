@@ -4,6 +4,8 @@ Chronologický deník běhů a úprav, nejnovější nahoře. Přesunuto z
 kořenového `README.md` (sekce „Poslední aktualizace“). Aktuální stav sekcí
 je v tabulce „Stav sekcí“ v `README.md`; sem patří podrobnosti běhu.
 
+6. listopadu 2026 (Na oběd: denní menu). `naobed/data/sinorita-pecky/2026-11.json` a `naobed/menu.json`: doplněn lístek Siňority z 6. 11. 2026 (2 polévky, menu, 4 jídla, 2 saláty). U Marka a Hostinec U Stříkačky bez nového menu (nejnovější lístky z 5. 11.), pouze `checked`. Školní jídelna už měla dnešní jídelníček. `README.md`: přepsán řádek „Na oběd“.
+
 5. listopadu 2026 (Na oběd: druhý opakovaný běh). `naobed/data/hostinec-u-strikacky-pecky/2026-11.json` a `naobed/menu.json`: doplněn lístek Hostince U Stříkačky z 5. 11. 2026 (vývar s nudlemi, 8 jídel, přílohy a omáčky; telefon pro objednávky v poznámce). U Marka, Siňorita i školní jídelna už měly dnešní menu (přeskočeno). `README.md`: přepsán řádek „Na oběd“.
 
 5. listopadu 2026 (Na oběd: opakovaný automatický běh). `naobed/data/hostinec-u-strikacky-pecky/2026-11.json` a `naobed/menu.json`: doplněn lístek Hostince U Stříkačky ze 4. 11. 2026 (gulášová, 7 jídel; řádek s omáčkami na náhledu oříznutý, vynecháno); na 5. 11. lístek zatím není. U Marka a Siňorita už měly dnešní menu, školní jídelna dnešní jídelníček. `README.md`: přepsán řádek „Na oběd“.
