@@ -59,12 +59,13 @@ se sem, na stránku samotnou se nic ručně nepíše.
 | Sekce | Režim | Kontrola | Změna | Co naposledy |
 |---|---|---|---|---|
 | [Na oběd](naobed/README.md) | denně | 7. 11. 2026 | 7. 11. 2026 | denní menu U Marka z 7. 11. 2026 a jídelníček školní jídelny na 9.–13. 11. 2026 |
-| [Kalendář](kalendar/README.md) | týdně | 7. 11. 2026 | 7. 11. 2026 | přidány Zabijačkové hody (8. 11. 2026, 9:00–12:00, proluka u lékárny) z plakátu a příspěvku na Facebooku |
-| [O webu](o-webu/README.md) | týdně | 6. 11. 2026 | 6. 11. 2026 | sociální sítě (kontrola 6. 11. 2026, 52 účtů): počet sledujících se změnil u 7 účtů (např. FB skupina Pravoslavná obec +5, Pečky srdcem +2), nová aktivita u 12 účtů |
-| [Jednání](jednani/README.md) | týdně | 6. 11. 2026 | 6. 11. 2026 | Zhlédnutí záznamů zastupitelstva na YouTube: 9 845 zhlédnutí u 34 záznamů (+77), ZM 8/2026 má 623 zhlédnutí |
-| [Tělocvična](telocvicna/README.md) | týdně | 6. 11. 2026 | 4. 11. 2026 | 2. 11. 2026 Pečecké noviny 11/2026, s. 3: v první polovině října jednání se soudním znalcem, termín obnovení stavebních prací zatím nelze stanovit; RM 39/2026, bod 3: dozdívání atik, zateplení jídelny a schůzka se soudním znalcem 9. 11. 2026 (bez usnesení) |
-| [Pečecké noviny](noviny/README.md) | týdně | 4. 11. 2026 | 4. 11. 2026 | nová podstránka Pečecké noviny pro sociální sítě (`/noviny/insta.html`): banner posledního čísla jako obrázek 1:1, 4:5, 3:4; odkaz sdílecí ikonou v bloku Poslední číslo |
-| [Smlouvy](smlouvy/README.md) | týdně | 4. 11. 2026 | 4. 11. 2026 | skupina 156 smluv / 97,0 mil. Kč (úřad 49 / 33,9 mil. Kč) podle Hlídače státu k 4. 11. 2026 (dřív 185 / 104,6 mil. Kč, úbytek u zdroje), žádná nová smlouva |
+| [O webu](o-webu/README.md) | týdně | 7. 11. 2026 | 7. 11. 2026 | Úřední deska (kontrola 7. 11. 2026): 3 nové dokumenty vyvěšené 6. 11. 2026 — výběrová řízení na vedoucí a referenta Odboru stavebního a na referenta oddělení životního prostředí MěÚ Pečky (celkem 1 932 záznamů s přílohami); doplněny přílohy tří dokumentů z konce října |
+| [Jednání](jednani/README.md) | týdně | 7. 11. 2026 | 7. 11. 2026 | Rada 40/2026 (9. 11. 2026) přidána z pozvánky (11 bodů, mj. záměr pronájmu části ochozu vodárenské věže a pronájmu části pozemku 47/2 ve Velkých Chvalovicích) a uložena do archivu; zhlédnutí záznamů zastupitelstva na YouTube: 9 933 zhlédnutí u 34 záznamů (+88) |
+| [Kalendář](kalendar/README.md) | týdně | 7. 11. 2026 | 7. 11. 2026 | přidány Zabijačkové hody (8. 11. 2026, 9:00–12:00, proluka u lékárny) z plakátu a příspěvku na Facebooku; termín Rady města 40/2026 (9. 11. 2026, 15:00, obřadní síň) z pozvánky |
+| [Prostory](prostory/README.md) | odvozená | 7. 11. 2026 | 7. 11. 2026 | část ochozu vodárenské věže: na programu RM 40/2026 (9. 11. 2026) zveřejnění záměru pronájmu |
+| [Tělocvična](telocvicna/README.md) | týdně | 7. 11. 2026 | 4. 11. 2026 | 2. 11. 2026 Pečecké noviny 11/2026, s. 3: v první polovině října jednání se soudním znalcem, termín obnovení stavebních prací zatím nelze stanovit; RM 39/2026, bod 3: dozdívání atik, zateplení jídelny a schůzka se soudním znalcem 9. 11. 2026 (bez usnesení) |
+| [Pečecké noviny](noviny/README.md) | týdně | 7. 11. 2026 | 4. 11. 2026 | nová podstránka Pečecké noviny pro sociální sítě (`/noviny/insta.html`): banner posledního čísla jako obrázek 1:1, 4:5, 3:4; odkaz sdílecí ikonou v bloku Poslední číslo |
+| [Smlouvy](smlouvy/README.md) | týdně | 7. 11. 2026 | 4. 11. 2026 | skupina 156 smluv / 97,0 mil. Kč (úřad 49 / 33,9 mil. Kč) podle Hlídače státu k 4. 11. 2026 (dřív 185 / 104,6 mil. Kč, úbytek u zdroje), žádná nová smlouva |
 | [Volby 2026](volby/2026/README.md) | na vyžádání | 3. 11. 2026 | 3. 11. 2026 | z tabulky uskupení odstraněny odkazy na sociální sítě a počty sledujících, ponechán odkaz na kandidátní listinu |
 | [Lidé](lide/README.md) | na vyžádání | 1. 11. 2026 | 1. 11. 2026 | doplněno 19 fotek kandidátů 2018 (NAŠE PEČKY str. 8, ODS str. 10) z Pečeckých novin 9/2018 |
 | [Voda](voda/README.md) | na vyžádání | 31. 10. 2026 | 31. 10. 2026 | dvě nové události: havárie vodovodu na Masarykově náměstí (30. 10. 2026) a odstávka 2. 11. 2026; celkem 60 událostí / 72 zdrojů |
@@ -74,13 +75,12 @@ se sem, na stránku samotnou se nic ručně nepíše.
 | [Volby 2018](volby/2018/README.md) | uzavřené | — | 25. 10. 2026 | oprava tématu Obchvat ve srovnání uskupení: 6 z 6 (dřív 5 z 6) — Sdružení ODS a nezávislých kandidátů má v programu (PN 9/2018, s. 10) bod „aktivnější zapojení do jednání se Středočeským krajem o dokončení obchvatu“ |
 | [Pozemky](pozemky/README.md) | odvozená | 21. 10. 2026 | 18. 10. 2026 | fulltextové vyhledávání v tabulkách Nákup/Prodej (`?q=` v URL, Kopírovat odkaz); doplněno 133 bodů ze starších jednání 2013–3/2021 (nákup 95, prodej 44 unikátních obchodů) |
 | [Pro přespolní](okolo/README.md) | na vyžádání | 17. 10. 2026 | 17. 10. 2026 | nová stránka `/okolo/` (sekundární menu): SVG mapa devíti obcí správního obvodu Peček s názvy a zvýrazněnou obcí Pečky (hranice z OpenStreetMap, generátor `okolo/update-mapa.py`, data `okolo/mapa.json`) |
-| [Prostory](prostory/README.md) | odvozená | 4. 11. 2026 | 15. 10. 2026 | ordinace logopedie (čp. 292): po UR-323-36/26 pronajato od 30. 10. 2026 (5 100 Kč/měsíc + služby); vinotéka v Domě služeb (čp. 184): smlouva ukončena dohodou k 31. 12. 2026 |
 | [Volby](volby/README.md) | odvozená | — | 10. 10. 2026 | graf „Volební účast stoupá“ doplněn o sloupec 2026 (53,68 %, 1 964 lidí), upraven text pod grafem a zdroje |
 | [Volby 2014](volby/2014/README.md) | uzavřené | — | 10. 10. 2026 | nová stránka `/volby/2014/`: výsledky pěti uskupení, tabulka 21 zvolených podle osobních hlasů s funkcemi, tlačítko ročníku v rozcestníku |
 | [Volby 2022](volby/2022/README.md) | uzavřené | — | 10. 10. 2026 | nový blok „Kolik kdo dostal hlasů od voličů?“: tabulka 21 zvolených zastupitelů podle osobních hlasů s pořadím na kandidátce, funkcemi a legendou uskupení; odstraněn blok „Kdo byl zvolen“ |
 | [Domů](domu/README.md) | odvozená | — | 8. 10. 2026 | widget Pečecké noviny přepracován na zelený banner (`.banner--green`, `.banner--media`): obálka posledního čísla vlevo, počet vydání v archivu, tlačítko „Hledat v novinách“ a odkaz „Redakce“ |
 | [PečkyBot](peckybot/README.md) | odvozená | 8. 10. 2026 | 8. 10. 2026 | index doplněn o 72 starších jednání z úřední desky (≈ 900 úryvků) a podstránky Noviny, Zhlédnutí, Odpracované hodiny, Nejdelší body; rejstřík 6 020 úryvků |
-| [Zakázky](zakazky/README.md) | týdně | 4. 11. 2026 | 6. 8. 2026 | zkontrolováno, beze změny — 193 výsledků na Hlídači stejně jako 5. 10., žádné nové ID |
+| [Zakázky](zakazky/README.md) | týdně | 7. 11. 2026 | 6. 8. 2026 | zkontrolováno, beze změny — 193 výsledků na Hlídači stejně jako 5. 10., žádné nové ID |
 | [Pokladna](pokladna/README.md) | na vyžádání | 6. 8. 2026 | 6. 8. 2026 | blok Bankovní účty |
 
 Režimy: **týdně** = má zdroj, který kontroluje týdenní rutina (neděle

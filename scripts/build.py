@@ -230,7 +230,7 @@ EXTRA_PAGES = {
         'na YouTube od roku 2022, s vyznačeným ustavujícím zasedáním.',
         # Odkázaná z /jednani/ (odstavec "Související") od 8. 10. 2026.
         # Statický snímek k datu lastmod.
-        False, 'jednani', '2026-11-06'),
+        False, 'jednani', '2026-11-07'),
     'fbmonitoring': (
         '/o-webu/facebook-monitoring/facebook-mestopecky/',
         'Facebook města Pečky — Do Peček . cz',
@@ -264,7 +264,7 @@ EXTRA_PAGES = {
         # content/udmonitoring.html GENERUJE o-webu/uredni-deska-monitoring/summary.py
         # ze souboru <rok>.txt (statický snímek). Po každé kontrole desky:
         # doplnit dokumenty do .txt, pustit summary.py, build a přepsat lastmod níže.
-        False, 'owebu', '2026-11-04'),
+        False, 'owebu', '2026-11-07'),
     'redakce': (
         '/noviny/redakce.html', 'Kdo vede Pečecké noviny? — Do Peček . cz',
         'Kdo vedl redakci Pečeckých novin a kdo seděl v redakční radě '
