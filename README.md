@@ -58,7 +58,7 @@ se sem, na stránku samotnou se nic ručně nepíše.
 
 | Sekce | Režim | Kontrola | Změna | Co naposledy |
 |---|---|---|---|---|
-| [Na oběd](naobed/README.md) | denně | 6. 11. 2026 | 6. 11. 2026 | denní menu U Marka, Siňority a U Stříkačky z 6. 11. 2026 |
+| [Na oběd](naobed/README.md) | denně | 7. 11. 2026 | 7. 11. 2026 | denní menu U Marka z 7. 11. 2026 a jídelníček školní jídelny na 9.–13. 11. 2026 |
 | [Kalendář](kalendar/README.md) | týdně | 6. 11. 2026 | 6. 11. 2026 | Degustace moldavských vín (13. 11.): čas 20:00–23:00 a malý sál KD podle aktuality pecky.cz z 5. 11., doklad z pecky.cz jako první; nová stránka posledních přidaných akcí (nelinkovaná) |
 | [O webu](o-webu/README.md) | týdně | 6. 11. 2026 | 6. 11. 2026 | sociální sítě (kontrola 6. 11. 2026, 52 účtů): počet sledujících se změnil u 7 účtů (např. FB skupina Pravoslavná obec +5, Pečky srdcem +2), nová aktivita u 12 účtů |
 | [Jednání](jednani/README.md) | týdně | 6. 11. 2026 | 6. 11. 2026 | Zhlédnutí záznamů zastupitelstva na YouTube: 9 845 zhlédnutí u 34 záznamů (+77), ZM 8/2026 má 623 zhlédnutí |

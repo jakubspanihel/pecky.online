@@ -4,6 +4,8 @@ Chronologický deník běhů a úprav, nejnovější nahoře. Přesunuto z
 kořenového `README.md` (sekce „Poslední aktualizace“). Aktuální stav sekcí
 je v tabulce „Stav sekcí“ v `README.md`; sem patří podrobnosti běhu.
 
+7. listopadu 2026 (Na oběd, automatický běh). `naobed/data/u-marka-pecky/2026-11.json` a `naobed/menu.json`: doplněn lístek U Marka ze soboty 7. 11. 2026 (polévka, 14 jídel, šopský salát, omáčky, obal). Siňorita a U Stříkačky bez nového menu (nejnovější lístky z 6. 11.), pouze `checked`. `naobed/data/skolni-jidelna-pecky/2026-11.json`: přibyl jídelníček na 9.–13. 11. 2026. `README.md`: přepsán řádek „Na oběd“.
+
 6. listopadu 2026 (Na oběd, odpolední běh). `naobed/data/hostinec-u-strikacky-pecky/2026-11.json` a `naobed/menu.json`: doplněno menu U Stříkačky na pátek 6. 11. (U Marka a Siňorita i školní jídelna už dnešek měly, přeskočeno). `README.md`: řádek „Na oběd“ ve Stavu sekcí.
 
 6. listopadu 2026 (kontrola sociálních sítí). Projito 52 účtů (43 Facebook, 8 Instagram, 1 YouTube). `content/owebu.html`: změněné počty u 7 účtů (FB skupina Pravoslavná obec 330→335, Pečky srdcem 128→130, Pramínek FB +1, FB skupina NAŠE PEČKY – komunita +1, Pečecké služby +1, VZC −1, streetpeopleofpecky −1) a nová aktivita u 12 účtů (Město Pečky 5. 11., PEČKY město v Polabí 6. 11., U Marka 6. 11., AFK FB 6. 11., KS, Pramínek FB, Pečecké služby, Siňorita, U Stříkačky, Volejbal, ODS, ZŠ Kolín 5. 11.); snímek k 6. 11. `content/youtube.html` + `scripts/build.py` (lastmod): zhlédnutí záznamů ZM 9 845 (+77). Kalendář: hledání akcí na plakátech/ve Fotkách se v tomto běhu neprovedlo (mezera).
