@@ -4,6 +4,8 @@ Chronologický deník běhů a úprav, nejnovější nahoře. Přesunuto z
 kořenového `README.md` (sekce „Poslední aktualizace“). Aktuální stav sekcí
 je v tabulce „Stav sekcí“ v `README.md`; sem patří podrobnosti běhu.
 
+7. listopadu 2026 (plakát z e-mailu + příspěvek na Facebooku, schváleno uživatelem). Kalendář: do `kalendar/akce.json` přidána akce Zabijačkové hody (8. 11. 2026, 9:00–12:00, proluka u lékárny, pořadatel mimo rejstřík → `organizer_name`; doklad: příspěvek stránky Zabijačkové a uzenářské speciality z 6. 11., plakát z e-mailu je shodný); `update-kalendar.py` založil událost i v Google kalendáři, build prošel. `sources.json`: nový zdroj `facebook-zabijackove-uzenarske-speciality`; `content/owebu.html`: odkaz v Sociálních sítích (4,5 tis. sledujících). Kalendář města pecky.cz/default/events tentokrát nezkontrolován; havárie vody z 30. 10. (e-mail z uradvmobilu.cz) do kalendáře nezapsána.
+
 7. listopadu 2026 (Na oběd, automatický běh). `naobed/data/u-marka-pecky/2026-11.json` a `naobed/menu.json`: doplněn lístek U Marka ze soboty 7. 11. 2026 (polévka, 14 jídel, šopský salát, omáčky, obal). Siňorita a U Stříkačky bez nového menu (nejnovější lístky z 6. 11.), pouze `checked`. `naobed/data/skolni-jidelna-pecky/2026-11.json`: přibyl jídelníček na 9.–13. 11. 2026. `README.md`: přepsán řádek „Na oběd“.
 
 6. listopadu 2026 (Na oběd, odpolední běh). `naobed/data/hostinec-u-strikacky-pecky/2026-11.json` a `naobed/menu.json`: doplněno menu U Stříkačky na pátek 6. 11. (U Marka a Siňorita i školní jídelna už dnešek měly, přeskočeno). `README.md`: řádek „Na oběd“ ve Stavu sekcí.

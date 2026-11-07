@@ -1,7 +1,7 @@
 {
  "meta": {
   "description": "Kulturní a společenské akce v Pečkách a okolí. U každé akce je pořadatel (id do lide/organizations.json) a doklady, ze kterých je přepsaná (evidence[] — zdroj je id do kořenového sources.json). Zdroj sekce Kalendář — do udalosti.json a kalendar.ics je promítá kalendar/scripts/update-kalendar.py.",
-  "updated": "2026-11-02",
+  "updated": "2026-11-07",
   "note": "Jednání rady a zastupitelstva do tohohle souboru nepatří, i když je plakát KD uvádí — ta má kalendář z jednani/pecky-jednani.json a zapsáním sem by v mřížce vznikly duplicity. Pořadatel je vždy ten, kdo akci pořádá, ne ten, od koho o ní víme — to je evidence[].source."
  },
  "events": [
@@ -99132,6 +99132,30 @@
     }
    ],
    "added": "2026-11-02"
+  },
+  {
+   "id": "akce-2026-11-08-zabijackove-hody-pecky",
+   "title": "Zabijačkové hody",
+   "date": "2026-11-08",
+   "date_end": null,
+   "time": "09:00",
+   "category": "akce",
+   "place": "Proluka u lékárny, Pečky",
+   "organizer": null,
+   "organizer_name": "Zabijačkové a uzenářské speciality (stánkový prodej)",
+   "description": "Stánkový prodej zabijačkových výrobků v prolukách u lékárny, 9:00–12:00. Podle příspěvku: jitrnice, jelítka, tlačenka s cibulí a octem. Stánek je v Pečkách jednorázově v neděli 8. 11. 2026.",
+   "note": "Pořadatel (stánkový prodejce) není v rejstříku organizací; zapsán textem. Plakát přišel e-mailem 7. 11. 2026 a je shodný s plakátem v příspěvku. Zatím bez dokladu z pecky.cz (kalendář města nezkontrolován).",
+   "evidence": [
+    {
+     "source": "facebook-zabijackove-uzenarske-speciality",
+     "kind": "prispevek",
+     "url": "https://www.facebook.com/permalink.php?story_fbid=pfbid0Yf9Ergs4zRcGP5xh2DRhtvmV2LRY1hbrmvMMfYNY6vcUiomrNn2CQMstn7jP7NKQl&id=61568955311869",
+     "label": "Příspěvek „Pečky, v neděli k vám vezeme zabijačkové hody!“ s plakátem (Facebook Zabijačkové a uzenářské speciality)",
+     "published": "2026-11-06",
+     "retrieved": "2026-11-07"
+    }
+   ],
+   "added": "2026-11-07"
   },
   {
    "id": "kurz-2026-11-10-filatelisticky-krouzek-pro-deti",
