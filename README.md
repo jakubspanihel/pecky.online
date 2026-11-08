@@ -60,6 +60,7 @@ se sem, na stránku samotnou se nic ručně nepíše.
 |---|---|---|---|---|
 | [O webu](o-webu/README.md) | týdně | 8. 11. 2026 | 8. 11. 2026 | Sociální sítě (kontrola 8. 11. 2026): aktualizovány počty sledujících a data posledních příspěvků u 52 účtů; nejvíc přibylo členů u skupiny Pravoslavná obec Dobřichov-Pečky (+10), YouTube Města Pečky (+2); AFK Pečky na Instagramu má nový příspěvek z 6. 11. 2026 |
 | [Jednání](jednani/README.md) | týdně | 8. 11. 2026 | 8. 11. 2026 | zhlédnutí záznamů zastupitelstva na YouTube: 9 937 zhlédnutí u 34 záznamů (+4) |
+| [Lidé](lide/README.md) | na vyžádání | 8. 11. 2026 | 8. 11. 2026 | doplněny portréty Lubomíra Metelák a Dušana Říhy z fotografie zastupitelů 2026–2030 na Facebooku města |
 | [Na oběd](naobed/README.md) | denně | 8. 11. 2026 | 7. 11. 2026 | denní menu U Marka z 7. 11. 2026 a jídelníček školní jídelny na 9.–13. 11. 2026 |
 | [Kalendář](kalendar/README.md) | týdně | 7. 11. 2026 | 7. 11. 2026 | přidány Zabijačkové hody (8. 11. 2026, 9:00–12:00, proluka u lékárny) z plakátu a příspěvku na Facebooku; termín Rady města 40/2026 (9. 11. 2026, 15:00, obřadní síň) z pozvánky |
 | [Prostory](prostory/README.md) | odvozená | 7. 11. 2026 | 7. 11. 2026 | část ochozu vodárenské věže: na programu RM 40/2026 (9. 11. 2026) zveřejnění záměru pronájmu |
@@ -67,7 +68,6 @@ se sem, na stránku samotnou se nic ručně nepíše.
 | [Pečecké noviny](noviny/README.md) | týdně | 7. 11. 2026 | 4. 11. 2026 | nová podstránka Pečecké noviny pro sociální sítě (`/noviny/insta.html`): banner posledního čísla jako obrázek 1:1, 4:5, 3:4; odkaz sdílecí ikonou v bloku Poslední číslo |
 | [Smlouvy](smlouvy/README.md) | týdně | 7. 11. 2026 | 4. 11. 2026 | skupina 156 smluv / 97,0 mil. Kč (úřad 49 / 33,9 mil. Kč) podle Hlídače státu k 4. 11. 2026 (dřív 185 / 104,6 mil. Kč, úbytek u zdroje), žádná nová smlouva |
 | [Volby 2026](volby/2026/README.md) | na vyžádání | 3. 11. 2026 | 3. 11. 2026 | z tabulky uskupení odstraněny odkazy na sociální sítě a počty sledujících, ponechán odkaz na kandidátní listinu |
-| [Lidé](lide/README.md) | na vyžádání | 1. 11. 2026 | 1. 11. 2026 | doplněno 19 fotek kandidátů 2018 (NAŠE PEČKY str. 8, ODS str. 10) z Pečeckých novin 9/2018 |
 | [Voda](voda/README.md) | na vyžádání | 31. 10. 2026 | 31. 10. 2026 | dvě nové události: havárie vodovodu na Masarykově náměstí (30. 10. 2026) a odstávka 2. 11. 2026; celkem 60 událostí / 72 zdrojů |
 | [Dotace od města](dotace/README.md) | na vyžádání | 25. 10. 2026 | 25. 10. 2026 | nová stránka `/dotace/`: sloupcový graf dotací po letech 2016–2026 a příjemcích (77 smluv, 17,94 mil. Kč), investiční akce Sokola 2019 a tabulka dodatků ke smlouvám |
 | [Obchvat](obchvat/README.md) | na vyžádání | 25. 10. 2026 | 25. 10. 2026 | nová stránka `/obchvat/`: blok přesunut z Plánu, přidána situační mapa, oddíl o územním plánu, časová osa 2001–2026 z archivu jednání a Pečeckých novin, zástavba lokalit Z08/Z09/Z11, obchvat ve volebních programech a oddíl o staré silnici II/329 |

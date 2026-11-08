@@ -65,11 +65,11 @@ Jeden člověk tak může mít fotky ve víc ročnících najednou — proto
 staré nepřepisovat. Detaily viz [`volby/README.md`](../volby/README.md).
 
 Výjimkou jsou portréty, které nepocházejí z voleb — ty leží v
-`lide/foto/{prijmeni}.jpg`. Zatím jde o jediný případ: 2. místostarosta
-Ing. Martin Jedlička, jehož fotka je z Rady města na oficiálním webu
-(pecky.as4u.cz). Do složky volebního ročníku nepatří, protože ta je
-popsaná jako portréty zvolených kandidátů z volebních materiálů — fotka
-z webu radnice by tam o svém původu lhala.
+`lide/foto/{prijmeni}.jpg`: 2. místostarosta Ing. Martin Jedlička (fotka z Rady
+města na oficiálním webu, pecky.as4u.cz) a Lubomír Metelák a Dušan Říha
+(výřezy ze skupinové fotografie zastupitelů 2026–2030 na Facebooku města).
+Do složky volebního ročníku nepatří, protože ta je popsaná jako portréty
+zvolených kandidátů z volebních materiálů — fotka odjinud by o svém původu lhala.
 
 ## Datová sada
 
