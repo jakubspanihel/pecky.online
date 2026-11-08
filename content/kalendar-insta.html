@@ -41,9 +41,10 @@
   <style>
     /* Rám 327 px široký (poměr stran 4:5 jako 1080 × 1350) ve stylu příspěvků z Instagramu: tři barevné varianty se střídají po dnech;
        uprostřed obrazovky (vodorovně i svisle; na nízké obrazovce se stránka posouvá) na inkoustovém pozadí; bez hlavičky a patičky. */
-    html,body{background:var(--ink); touch-action:manipulation;}  /* bez zoomu dvojitým klepnutím */
+    html,body{background:var(--ink); touch-action:manipulation;}
+    body{padding-top:0;}   /* bez hlavičky: odsazení pod hlavičku z styles.css by přidalo zbytečný scroll */  /* bez zoomu dvojitým klepnutím */
     main{max-width:none; margin:0; padding:0;}
-    #panel-today{position:static; display:flex; align-items:center; justify-content:center; min-height:100vh; box-sizing:border-box; padding:110px 0 190px;}
+    #panel-today{position:static; display:flex; align-items:center; justify-content:center; min-height:100vh; min-height:100dvh; box-sizing:border-box; padding:110px 0 190px;}
     .today-frame{position:relative; flex:none; --k0:.74; --k:.9; box-sizing:border-box; width:327px; aspect-ratio:var(--pomer,4 / 5); margin:12px; padding:10px; background:var(--ink);}  /* poměr 4:5 jako Instagram (export 1080 × 1350) */
     /* pozadí rámu kontrastuje s barvou karty (všechno barvy projektu) */
     .today-frame.t-yellow{background:var(--burgundy);}

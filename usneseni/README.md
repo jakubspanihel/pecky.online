@@ -8,18 +8,14 @@ Seznam všech přijatých usnesení rady a zastupitelstva — na rozdíl od sekc
 [Jednání](../jednani/README.md), která ukazuje jednání včetně bodů programu
 bez usnesení. Každé usnesení má číslo (odkaz na detail na usneseni.cz), datum,
 odkaz na jednání (`/jednani/#rada-RRRR-MM-DD`), název bodu, plný text,
-štítek výsledku a hlasování. Fulltext, filtr orgánu a roku, řazení od nejnovějšího.
+štítek výsledku a hlasování. Fulltext, skrývání nedůležitých a nepřijatých, řazení od nejnovějšího.
+Výpis je seskupený podle jednání: každé má nadpis „datum | Rada města / Zastupitelstvo města N/RRRR“
+(odkaz na jednání, počet rozhodnutí); uvnitř skupiny jsou karty podle čísla bodu programu.
 
 ## Stav
-Stránka je **zatím bez odkazu** (od 1. 11. 2026): není v navigaci ani nikde
-odkázaná, má `noindex` a není v sitemapě. V `scripts/build.py` je v `EXTRA_PAGES`
-s `lastmod = None`.
-
-Až se odkáže:
-1. přesunout záznam z `EXTRA_PAGES` do `MANIFEST`,
-2. přidat `'usneseni': 'usneseni'` do `README_TO_SLUG`,
-3. přidat řádek do kořenového `README.md` → „Stav sekcí“,
-4. přidat odkaz do `assets/nav.html` (a případně ze stránky Jednání, „Související“).
+Stránka je od 8. 11. 2026 zveřejněná: v hlavním menu (za Jednáním, `assets/nav.html`), v sitemapě
+(`MANIFEST` a `README_TO_SLUG` v `scripts/build.py`, řádek ve „Stav sekcí“ v kořenovém `README.md`).
+Podstránka `/usneseni/insta.html` zůstává nástrojová (noindex, mimo sitemapu).
 
 ## Data
 Žádný vlastní datový soubor. Stránka za běhu načítá `jednani/pecky-jednani.json`
@@ -40,14 +36,33 @@ je v `assets/helpers.js` a používá ji i Jednání. Odkazy „ZM 6/2026“ v t
   a kartu zvýrazní. Zmínky ZM/RM míří do Jednání, čísla parcel do KN (`jLinkParcely()`).
 
 ## Filtr a hash
-Volba orgánu se pamatuje v hashi: `#rada`, `#zastupitelstvo` (bez hashe = vše). Hash
-`#UR-…` / `#UZ-…` je odkaz na konkrétní usnesení a filtry zruší.
+Filtr orgánu (Vše / Rada / Zastupitelstvo) není. Dvě zaškrtávátka, obě ve výchozím stavu zapnutá:
+- „Skrýt nedůležité“ — jen body „Schválení programu jednání“ a „Schválení ověřovatelů zápisu“
+  (seznam je i v tooltipu), regex `U_NEDULEZITA_RE` v `content/usneseni.html`.
+- „Skrýt nepřijaté“ — návrhy, které při hlasování neprošly (viz „Nepřijaté návrhy“).
+
+Vypnutá volba se pamatuje v hashi: `#nedulezite` (nedůležité zobrazeny), `#neprijata` (nepřijaté
+zobrazeny), lze spojit (`#nedulezite,neprijata`); bez hashe jsou obojí skrytá. Hash `#UR-…` / `#UZ-…`
+je odkaz na konkrétní usnesení a filtry podle potřeby zruší.
+Rozbalená karta má stejný vzhled jako text usnesení v Jednání (`.agenda-res > .info-toggle-text`,
+`.res-block-head`, tučné rozhodnutí a částky přes `jResTextHtml()` z `assets/helpers.js`).
 
 ## Jmenovité hlasování (zastupitelstvo)
-Karty usnesení zastupitelstva mají sbalený blok „Hlasování jmenovitě“ (pro, proti,
-zdržel se, případně nehlasoval). Data jsou v `usneseni/hlasovani.json`, generuje je
+Rozbalená karta začíná nadpisem = úvodem věty usnesení („Rada města schvaluje“, `jResSplit()` v
+`assets/helpers.js`), pod ním je zbytek textu. Končí blokem hlasování (`jVotesBlockHtml()` v `assets/helpers.js`,
+stejný jako v Jednání): plnobarevný štítek výsledku, pod ním Pro / Proti / Zdrželi se (případně
+Nehlasovali) a na konci řádek „Zdroj: Usnesení 48-7/26“ (odkaz na detail na usneseni.cz s ikonou odkazu ven)
+s ikonou sdílení vpravo, která otevírá `/usneseni/insta.html#<číslo usnesení>`.
+
+## Obrázek pro sociální sítě (`/usneseni/insta.html`)
+Nástrojová stránka jako ostatní „insta“ (`content/usneseni-insta.html`, v `EXTRA_PAGES` jako `usneseni-insta`;
+bez hlavičky a patičky, noindex, mimo sitemapu). Karta s jedním usnesením (rada = bordó, zastupitelstvo =
+modrá): datum, nadpis = úvod věty („Rada města schvaluje“), pod ním zbytek textu, štítek výsledku s hlasy. Listování tlačítky ‹ ›
+a swipem; přepínač Rada / Zastupitelstvo, velikost písma, formát 1:1 / 4:5 / 3:4, Uložit / Sdílet.
+Data bere za běhu z `jednani/pecky-jednani.json`; přeskakuje „Schválení programu“ a „Schválení ověřovatelů“
+(mimo odkaz přímo na ně). Text na kartě jde upravit kliknutím. U zastupitelstva s jmény, u rady jen s počty. Data jsou v `usneseni/hlasovani.json`, generuje je
 `python3 usneseni/update-hlasovani.py` z archivu `jednani/archive/` (zápisy zastupitelstva,
-jména verbatim). Rada jména neuvádí, tam blok není. Jednání novější než snímek archivu (ZM 5/2026 – 7/2026, 18 usnesení) mají jména
+jména verbatim). Rada jména neuvádí, tam jsou jen počty. Jednání novější než snímek archivu (ZM 5/2026 – 7/2026, 18 usnesení) mají jména
 ručně přepsaná ze zápisů na usneseni.cz v `usneseni/hlasovani-rucne.json`; generátor je
 doplní, pokud je archiv nemá (archiv má přednost). Počty jmen u každého usnesení se shodují
 s počty hlasů v `pecky-jednani.json`. Nové zasedání zastupitelstva: jména přibudou po novém snímku
@@ -63,14 +78,6 @@ kde text uvádí úplné částky (součty položek se počítají; přesuny mez
 U ostatních usnesení (jen dotace bez částek, neúplné položky) je titulek „Projednávání bodu“.
 Při přidání nového rozpočtového opatření doplnit shrnutí do JSON, pokud zpráva částky uvádí.
 
-## Graf hlasování
-Nad výpisem je graf: jeden sloupec = jedno usnesení (rada i zastupitelstvo), od nejstaršího vlevo.
-Hlasy pro jdou nahoru od základní čáry, proti dolů, zdržení jsou uprostřed základny. Výška sloupce
-odpovídá počtu hlasů. Graf se řídí filtrem orgánu a hledáním; při více než ~160 usneseních se
-posouvá vodorovně (6 px na sloupec, začíná u nejnovějších). Popisky osy: roky a začátky čtvrtletí.
-Hover (nebo dotyk) ukáže usnesení s hlasy, klik na kartu usnesení. Kreslí `uChart()` v
-`content/usneseni.html` jako SVG, barvy z tokenů (`--cyan-deep`, `--burgundy`, `--ink-soft`).
-
 ## Nepřijaté návrhy
 
 Vedle přijatých usnesení výpis ukazuje i návrhy, které při hlasování neprošly (štítek „Nepřijato“).
@@ -79,6 +86,5 @@ Vedle přijatých usnesení výpis ukazuje i návrhy, které při hlasování ne
   Hlasování z jednání novějších než archiv načítá stránka z pole `rejected_vote` u bodu v `jednani/pecky-jednani.json`.
 - Zdroj neuvádí znění návrhu: karta ukazuje název bodu programu, předkladatele a hlasování
   (u dvou návrhů z `rejected_vote` i text). Návrhy stažené před hlasováním v datech nejsou.
-- Filtr „Výsledek“ (Vše / Přijatá / Nepřijatá) je vedle filtru orgánu; ukládá se do hashe (`#neprijata`, `#rada,neprijata`).
-  Bez filtru jsou ve výpisu všechna rozhodnutí; nadpisy roků pak mluví o „rozhodnutích“, při filtru Přijatá o „usneseních“.
+- Ve výchozím stavu jsou skryté (zaškrtávátko „Skrýt nepřijaté“); skupiny mluví o „rozhodnutích“.
 - Číslo karty je `NP-<datum>-<RM|ZM>-<bod>-<pořadí hlasování>`; karty jsou ve výchozím stavu sbalené (datum | nadpis, „+“).

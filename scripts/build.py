@@ -55,6 +55,11 @@ MANIFEST = {
         'Archiv jednání zastupitelstva a rady města Pečky s usneseními, '
         'docházkou a odkazy na videozáznam — s fulltextovým vyhledáváním.',
         True),
+    'usneseni': (
+        '/usneseni/', 'Usnesení',
+        'Seznam všech usnesení rady a zastupitelstva města Pečky od dubna 2021 '
+        's textem, výsledkem hlasování a odkazem na jednání.',
+        True),
     'zpravodaj': (
         '/noviny/', 'Pečecké noviny',
         'Archiv Pečeckých novin (městského zpravodaje) s fulltextovým '
@@ -286,13 +291,11 @@ EXTRA_PAGES = {
         # Celoobrazovkový blok bez hlavičky a patičky (BEZ_RAMCE), určený pro
         # snímek obrazovky. Nikam nelinkovaná -> lastmod None: noindex, mimo sitemapu.
         False, 'kalendar', None),
-    'usneseni': (
-        '/usneseni/', 'Usnesení — Do Peček . cz',
-        'Seznam všech usnesení rady a zastupitelstva města Pečky od dubna 2021 '
-        's textem, výsledkem hlasování a odkazem na jednání.',
-        # Nová sekce zatím bez odkazu z nabídky i ze stránek (od 1. 11. 2026) -> lastmod None:
-        # noindex, mimo sitemapu. Data bere z jednani/pecky-jednani.json (bez vlastního souboru).
-        # Až bude odkázaná: přesunout do MANIFEST, přidat řádek do "Stav sekcí" a do README_TO_SLUG.
+    'usneseni-insta': (
+        '/usneseni/insta.html', 'Usnesení pro sociální sítě — Do Peček . cz',
+        'Obrázek s jedním usnesením rady nebo zastupitelstva ve formátu 1080 × 1350 px.',
+        # Nástrojová stránka jako jednani-insta: bez hlavičky a patičky, noindex, mimo sitemapu.
+        # Data bere za běhu z jednani/pecky-jednani.json (helpers.js). Odkaz sdílecí ikonou z bloku hlasování v Usnesení a v Jednání.
         True, 'jednani', None),
     'noviny-insta': (
         '/noviny/insta.html', 'Pečecké noviny pro sociální sítě — Do Peček . cz',
@@ -319,13 +322,14 @@ EXTRA_PAGES = {
 
 
 # Stránky bez hlavičky a patičky (celoobrazovkové, se samostatným tlačítkem Zavřít)
-BEZ_RAMCE = {'peckybot', 'kalendar-insta', 'jednani-insta', 'noviny-insta'}
+BEZ_RAMCE = {'peckybot', 'kalendar-insta', 'jednani-insta', 'noviny-insta', 'usneseni-insta'}
 
 
 # cesta k README sekce (jak je zapsaná v tabulce "Stav sekcí") -> slug v MANIFEST
 README_TO_SLUG = {
     'domu': 'domu',
     'jednani': 'jednani',
+    'usneseni': 'usneseni',
     'lide': 'lide',
     'noviny': 'zpravodaj',
     'o-webu': 'owebu',
@@ -1681,7 +1685,7 @@ def build_all(stav_rows=None):
             head_scripts = '<meta name="robots" content="noindex">\n' + head_scripts
 
         html = page_tpl
-        if slug in ('kalendar-insta', 'jednani-insta', 'noviny-insta'):   # nástrojová stránka: bez přibližování na mobilu
+        if slug in ('kalendar-insta', 'jednani-insta', 'noviny-insta', 'usneseni-insta'):   # nástrojová stránka: bez přibližování na mobilu
             html = html.replace('initial-scale=1"', 'initial-scale=1, maximum-scale=1, user-scalable=no"', 1)
         html = html.replace('{{TITLE}}', title)
         html = html.replace('{{DESCRIPTION}}', desc)

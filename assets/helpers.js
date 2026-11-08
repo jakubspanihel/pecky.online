@@ -430,3 +430,55 @@ function jTextSim(a, b){
   ba.forEach(g => { if (counts[g] > 0) { matches++; counts[g]--; } });
   return (2 * matches) / (ba.length + bb.length);
 }
+
+// Text usnesení s vytučněným rozhodnutím („Rada města schvaluje“, „ukládá“, …)
+// a peněžními částkami. Jen při vykreslení — text v datech zůstává doslovný.
+const J_RES_VERB = /^(\s*(?:Rada|Zastupitelstvo)(?:\s+města)?(?:\s+Pečky)?\s+(?:ne)?(?:schvaluje|doporučuje|ukládá|revokuje|souhlasí|bere\s+na\s+vědomí|jmenuje|volí|stanovuje|pověřuje|zamítá|odkládá|rozhoduje|žádá|vyhlašuje|určuje|odvolává|ruší|bere|vydává|pověřuje))/;
+const J_RES_AMOUNT = /\d{1,3}(?:[ \u00a0.]\d{3})*(?:,\d{1,2})?[ \u00a0]?(?:Kč|,-)|\d+(?:,\d{1,2})?[ \u00a0]?(?:Kč|,-)/g;
+function jResTextHtml(text){
+  return jEscapeHtml(text || '')
+    .replace(J_RES_VERB, '<strong>$1</strong>')
+    .replace(J_RES_AMOUNT, '<strong>$&</strong>');
+}
+
+// číslo usnesení pro zobrazení: „UR-328-37/26“ → „Usnesení 328-37/26“
+function jResLabel(n){
+  return (n || '').replace(/^U[RZ]-/, 'Usnesení ');
+}
+
+// Úvodní část věty usnesení („Rada města schvaluje“, „Zastupitelstvo města bere na vědomí“…) = nadpis,
+// zbytek věty = text. Bez úvodní části (návrhy bez znění apod.) je nadpis prázdný.
+function jResSplit(text){
+  const t = text || '', m = J_RES_VERB.exec(t);
+  return m ? {head: m[1].replace(/\s+/g, ' ').trim(), rest: t.slice(m[0].length).replace(/^[\s:,]+/, '')} : {head: '', rest: t};
+}
+// Hlavička rozbaleného usnesení: nadpis (úvod věty), případně `fallback` (HTML), a pod ním text s tučnými částkami
+function jResBodyHtml(text, fallback){
+  const sp = jResSplit(text);
+  const title = sp.head ? `<span class="res-title">${jEscapeHtml(sp.head)}</span>` : (fallback || '');
+  return (title ? `<div class="res-block-head">${title}</div>` : '') + (sp.rest ? jResTextHtml(sp.rest) : '');
+}
+
+// Blok hlasování pod rozbaleným usnesením (Jednání i Usnesení): štítek výsledku, pak řádky
+// Pro / Proti / Zdrželi se (/ Nehlasovali) a na konci řádek „Zdroj: …“ s ikonou sdílení.
+// `names` = {pro, proti, zdrzel, nehlasoval} s jmény (jen zastupitelstvo); bez jmen (rada) jsou v řádcích
+// jen počty. `chip` = hotové HTML štítku výsledku. `src` = {url, label, share}: detail usnesení na
+// mesto-pecky.usneseni.cz (text odkazu = označení usnesení) a odkaz na obrázek pro sociální sítě.
+const J_OUTLINK_ICON = '<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 2.5h4.5V7M13.5 2.5 7 9M12 9.5v3a1 1 0 0 1-1 1H3.5a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3"/></svg>';
+const J_SHARE_ICON = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12v7a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-7"/><path d="M16 6l-4-4-4 4"/><path d="M12 2v13"/></svg>';
+function jVotesBlockHtml(r, names, chip, src){
+  src = src || {};
+  const title = chip ? `<div class="res-votes-title">${chip}</div>` : '';
+  const zdroj = (src.url || src.share) ? `<div class="res-votes-src"><span>${src.url ? `Zdroj: <a href="${jEscapeHtml(src.url)}" target="_blank" rel="noopener">${jEscapeHtml(src.label || 'mesto-pecky.usneseni.cz')}${J_OUTLINK_ICON}</a>` : ''}</span>${src.share ? `<a class="res-share" href="${jEscapeHtml(src.share)}" title="Obrázek usnesení pro sociální sítě" aria-label="Sdílet usnesení jako obrázek">${J_SHARE_ICON}</a>` : ''}</div>` : '';
+  if (r.pro == null && !names) return `<div class="res-votes">${title}<div class="res-votes-row">hlasování zápis neuvádí</div>${zdroj}</div>`;
+  const rows = [['pro', 'Pro'], ['proti', 'Proti'], ['zdrzel', 'Zdrželi se'], ['nehlasoval', 'Nehlasovali']].map(([k, label]) => {
+    if (names) {
+      const n = names[k] || [];
+      if (k === 'nehlasoval' && !n.length) return '';
+      return `<div class="res-votes-row"><strong>${label} (${n.length}):</strong> ${n.length ? n.map(jEscapeHtml).join(', ') : 'nikdo'}</div>`;
+    }
+    if (k === 'nehlasoval') return '';
+    return `<div class="res-votes-row"><strong>${label}:</strong> ${r[k]}</div>`;
+  }).join('');
+  return `<div class="res-votes">${title}${rows}${zdroj}</div>`;
+}

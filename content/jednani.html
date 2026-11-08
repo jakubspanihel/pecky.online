@@ -436,10 +436,6 @@
     );
   }
 
-  function jResLabel(n){
-    return (n || '').replace(/^U[RZ]-/, 'Usnesení ');
-  }
-
   function jResInfoIcon(r){
     if (!r.text) return '';
     return `<button type="button" class="info-icon" title="${jEscapeHtml(r.text)}" aria-label="Zobrazit text usnesení">i</button>`;
@@ -449,50 +445,24 @@
     return `<div class="info-toggle-text" hidden>${jEscapeHtml(r.text)}</div>`;
   }
 
-  // Text usnesení s vytučněným rozhodnutím („Rada města schvaluje“, „ukládá“, …)
-  // a peněžními částkami. Jen při vykreslení — text v datech zůstává doslovný.
-  const J_RES_VERB = /^(\s*(?:Rada|Zastupitelstvo)(?:\s+města)?(?:\s+Pečky)?\s+(?:ne)?(?:schvaluje|doporučuje|ukládá|revokuje|souhlasí|bere\s+na\s+vědomí|jmenuje|volí|stanovuje|pověřuje|zamítá|odkládá|rozhoduje|žádá|vyhlašuje|určuje|odvolává|ruší|bere|vydává|pověřuje))/;
-  const J_RES_AMOUNT = /\d{1,3}(?:[ \u00a0.]\d{3})*(?:,\d{1,2})?[ \u00a0]?(?:Kč|,-)|\d+(?:,\d{1,2})?[ \u00a0]?(?:Kč|,-)/g;
-  function jResTextHtml(text){
-    return jEscapeHtml(text || '')
-      .replace(J_RES_VERB, '<strong>$1</strong>')
-      .replace(J_RES_AMOUNT, '<strong>$&</strong>');
-  }
-
   // text usnesení v rozbaleném bodu: nadpis (číslo usnesení, odkaz na usneseni.cz)
   // + štítek se stavem, pak text; stav ukazuje i kroužek za názvem bodu
   // bez detail-stránky usnesení (nejnovější jednání ji v datech ještě nemají) odkazuje
   // na seznam usnesení celého jednání na usneseni.cz
   function jRenderResItem(r, m){
     if (!r.text) return '';
-    const label = jEscapeHtml(jResLabel(r.n));
+    const label = jResLabel(r.n);
     const href = r.url || (m && m.links && m.links.resolutions) || '';
-    const title = href
-      ? `<a class="hit-number" href="${href}" target="_blank" rel="noopener">${label}</a>`
-      : `<span class="hit-number">${label}</span>`;
-    return `<div class="agenda-res"><div class="info-toggle-text" hidden><div class="res-block-head">${title}${jOutcomeBadgeHtml(r)}</div>${jResTextHtml(r.text)}${jRenderVoteNames(r)}</div></div>`;
-  }
-
-  // Jmenovité hlasování (jen zastupitelstvo — rada na usneseni.cz jména neuvádí,
-  // jen počty). Zdroj: r.vote_names {pro, proti, zdrzel, nehlasoval}; prázdné skupiny se vynechají.
-  function jRenderVoteNames(r){
-    const v = r.vote_names;
-    if (!v) return '';
-    const groups = [['pro', 'Pro'], ['proti', 'Proti'], ['zdrzel', 'Zdrželi se'], ['nehlasoval', 'Nehlasovali']]
-      .filter(([k]) => (v[k] || []).length)
-      .map(([k, label]) => `<div class="res-votes-row"><strong>${label} (${v[k].length}):</strong> ${v[k].map(jEscapeHtml).join(', ')}</div>`)
-      .join('');
-    return groups ? `<div class="res-votes"><div class="res-votes-title">Jak hlasovali</div>${groups}</div>` : '';
+    return `<div class="agenda-res"><div class="info-toggle-text" hidden>${jResBodyHtml(r.text)}${jVotesBlockHtml(r, r.vote_names, jOutcomeBadgeHtml(r), {url: href, label, share: r.n ? '/usneseni/insta.html#' + r.n : ''})}</div></div>`;
   }
 
   // Návrh usnesení, který neprošel hlasováním — na rozdíl od m.resolutions
   // (jen přijatá usnesení, jak je vede usneseni.cz) nemá číslo ani odkaz,
   // jen text návrhu a výsledek hlasování. Viz jednani/README.md → "Zamítnuté návrhy usnesení".
   function jRenderRejectedVote(rv){
-    const voteText = `pro: ${rv.pro} · proti: ${rv.proti} · zdržel se: ${rv.zdrzel}`;
     // stejně jako u přijatých usnesení (jRenderResItem) je vše uvnitř rozbalovacího bloku;
     // stav ukazuje ve sbaleném řádku jen kroužek za názvem bodu
-    return `<div class="agenda-res"><div class="info-toggle-text" hidden><div class="res-block-head"><span class="tag res-outcome zamitnuto">Zamítnuto</span> <span class="meeting-count">${jEscapeHtml(voteText)}</span></div>${jResTextHtml(rv.text)}</div></div>`;
+    return `<div class="agenda-res"><div class="info-toggle-text" hidden>${jResBodyHtml(rv.text)}${jVotesBlockHtml(rv, null, '<span class="tag res-outcome zamitnuto">Zamítnuto</span>')}</div></div>`;
   }
 
   function jRenderResLine(r){

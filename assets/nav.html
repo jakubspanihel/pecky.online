@@ -12,15 +12,19 @@
     <a class="navlink{{ACTIVE:kalendar}}" href="/kalendar/">Kalendář</a>
     <a class="navlink{{ACTIVE:zpravodaj}}" href="/noviny/">Pečecké noviny</a>
     <a class="navlink{{ACTIVE:jednani}}" href="/jednani/">Jednání</a>
+    <a class="navlink{{ACTIVE:usneseni}}" href="/usneseni/">Usnesení</a>
     <a class="navlink{{ACTIVE:lide}}" href="/lide/">Lidé</a>
-    <a class="navlink{{ACTIVE:obchvat}}" href="/obchvat/">Obchvat</a>
-    <a class="navlink{{ACTIVE:telocvicna}}" href="/telocvicna/">Tělocvična</a>
-    <a class="navlink{{ACTIVE:voda}}" href="/voda/">Voda</a>
   </nav>
 </header>
 <div class="overlay-menu" id="overlayMenu" role="dialog" aria-modal="true" aria-label="Menu" hidden>
   <button type="button" class="overlay-close" id="overlayClose" aria-label="Zavřít menu">Zavřít</button>
   <nav class="overlay-links" id="overlayLinks"></nav>
+  <template id="overlayTema">
+    <a class="navlink secondary small{{ACTIVE:obchvat}}" href="/obchvat/">Obchvat</a>
+    <a class="navlink secondary small{{ACTIVE:telocvicna}}" href="/telocvicna/">Tělocvična</a>
+    <a class="navlink secondary small{{ACTIVE:voda}}" href="/voda/">Voda</a>
+    <a class="navlink secondary small{{ACTIVE:volby}}" href="/volby/">Volby</a>
+  </template>
   <template id="overlayMonitoring">
     <a class="navlink secondary small" href="/o-webu/facebook-monitoring/facebook-mestopecky/">Facebook města</a>
     <a class="navlink secondary small" href="/o-webu/facebook-monitoring/uskupeni/">Facebook uskupení</a>

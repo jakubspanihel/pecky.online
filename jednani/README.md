@@ -510,9 +510,10 @@ výše jsou chronologický záznam úprav, tohle je stav, který platí:
 
 U všech usnesení Zastupitelstva (2021–2026) je v `pecky-jednani.json` pole
 `vote_names` — `{"pro": […], "proti": […], "zdrzel": […], "nehlasoval": […]}` se jmény tak, jak je uvádí
-zápis. Web je zobrazí v rozbaleném bodu programu pod textem usnesení jako „Jak hlasovali“
-(`jRenderVoteNames()` v `content/jednani.html`; prázdné skupiny se nevypisují). Rada pole nemá:
-usneseni.cz u ní uvádí jen počty hlasů, jména nejsou nikde.
+zápis. Web je zobrazí v rozbaleném bodu programu pod textem usnesení jako blok hlasování
+(`jVotesBlockHtml()` v `assets/helpers.js`, sdílí ho Usnesení: štítek výsledku, řádky Pro / Proti /
+Zdrželi se, na konci odkaz na zdroj; prázdná skupina je „nikdo“). Rada pole nemá: usneseni.cz u ní uvádí jen počty hlasů, takže blok má
+stejný vzhled, ale řádky jen s počty.
 
 Zdroj: velký archiv (`archive/*zastupitelstvo*.json`, `vote.pro/proti/zdrzel_se.names`) a `nehlasoval` z hlasování
 v zápisu (`minutes.agenda_items[].votes[]`, párování přes `adopted_resolution_number`) — skript

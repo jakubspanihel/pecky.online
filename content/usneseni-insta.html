@@ -1,0 +1,271 @@
+  <a class="overlay-close" href="/usneseni/" aria-label="Zavřít a vrátit se na Usnesení">Zavřít</a>
+
+  <section class="panel active" id="panel-today" aria-label="Usnesení pro sociální sítě">
+    <div class="today-frame" id="Frame">
+      <div class="ji-nav">
+        <div class="today-format" role="group" aria-label="Orgán">
+          <button type="button" class="today-format-btn" data-druh="rada" aria-pressed="true">Rada</button>
+          <button type="button" class="today-format-btn" data-druh="zastupitelstvo" aria-pressed="false">Zastupitelstvo</button>
+        </div>
+        <div class="today-format today-dny" role="group" aria-label="Změna usnesení">
+          <button type="button" class="today-pismo-btn" id="ji-starsi" aria-label="Předchozí usnesení">‹</button>
+          <button type="button" class="today-pismo-btn" id="ji-novejsi" aria-label="Další usnesení">›</button>
+        </div>
+      </div>
+      <div class="today-box">
+        <h3 class="search-status" id="ji-status"><span class="spinner" aria-hidden="true"></span>Načítám usnesení…</h3>
+        <div class="ji-card" id="ji-card" hidden>
+          <p class="ji-sub" id="ji-sub"></p>
+          <h3 class="ji-title" id="ji-title"></h3>
+          <div class="ji-text" id="ji-text" contenteditable="true" spellcheck="false" aria-label="Text usnesení, po kliknutí jde upravit"></div>
+          <div class="ji-vote" id="ji-vote"></div>
+          <span class="ji-pata" id="ji-pata">DoPecek.cz/usneseni</span>
+        </div>
+      </div>
+      <div class="today-akce">
+        <div class="today-radek">
+          <button type="button" class="today-pismo-btn" id="ji-pismo" aria-label="Změnit velikost písma" title="Velikost písma">Aa</button>
+          <div class="today-format" role="group" aria-label="Formát obrázku">
+            <button type="button" class="today-format-btn" data-f="1:1" aria-pressed="false" title="Čtverec, 1080 × 1080 px">1:1</button>
+            <button type="button" class="today-format-btn" data-f="4:5" aria-pressed="true" title="Na výšku, 1080 × 1350 px">4:5</button>
+            <button type="button" class="today-format-btn" data-f="3:4" aria-pressed="false" title="Vysoký, 1080 × 1440 px">3:4</button>
+          </div>
+        </div>
+        <div class="today-akce-tl">
+          <button type="button" class="today-uloz-btn" id="today-uloz">Uložit ...</button>
+          <button type="button" class="today-uloz-btn" id="today-sdilet">Sdílet ...</button>
+        </div>
+        <span class="today-stav" id="today-stav" role="status"></span>
+      </div>
+    </div>
+  </section>
+
+  <style>
+    /* Rám 327 px široký (4:5 jako 1080 × 1350), karta v barvě widgetu z Domů: rada = bordó, zastupitelstvo = břidlicová modrá. */
+    html,body{background:var(--ink); touch-action:manipulation;}
+    body{padding-top:0;}   /* bez hlavičky: odsazení pod hlavičku z styles.css by přidalo zbytečný scroll */
+    main{max-width:none; margin:0; padding:0;}
+    #panel-today{position:static; display:flex; align-items:center; justify-content:center; min-height:100vh; min-height:100dvh; box-sizing:border-box; padding:110px 0 190px;}
+    .today-frame{position:relative; flex:none; --k:.82; box-sizing:border-box; width:327px; aspect-ratio:var(--pomer,4 / 5); margin:12px; padding:10px; background:var(--material);}
+    .today-box{position:relative; z-index:1; width:100%; height:100%;}
+    .today-box .search-status{margin:0; color:#fff;}
+    .ji-card{
+      --banner-from:var(--burgundy); --banner-to:var(--burgundy-deep); --banner-accent:var(--burgundy);
+      box-sizing:border-box; width:100%; height:100%; display:flex; flex-direction:column; align-items:flex-start; overflow:hidden;
+      padding:20px 20px 14px; border-radius:16px; color:#fff; background:linear-gradient(135deg,var(--banner-from) 0%,var(--banner-to) 100%);
+    }
+    .ji-card[hidden]{display:none;}
+    .ji-card.slate{--banner-from:var(--cyan); --banner-to:var(--cyan); --banner-accent:var(--cyan);}  /* jako .banner--slate na Domů */
+    .ji-sub{margin:0 0 6px; font:600 calc(13px * var(--k))/1.3 var(--font-body); color:rgba(255,255,255,.9);}
+    .ji-title{margin:0 0 12px; font:600 calc(24px * var(--k))/1.15 var(--font-banner); color:#fff;}
+    .ji-text{margin:0 0 auto; width:100%; box-sizing:border-box; overflow:hidden; font:400 calc(15px * var(--k))/1.45 var(--font-body); color:rgba(255,255,255,.95); white-space:pre-line; cursor:text;}
+    .ji-text:focus{outline:1px dashed #fff; outline-offset:4px;}
+    .ji-text strong{font-weight:700; color:#fff;}
+    .ji-text mark{background:var(--yellow); color:var(--ink); font-weight:600; padding:0 3px; border-radius:3px;}
+    .ji-vote{display:flex; flex-wrap:wrap; align-items:center; gap:6px 10px; margin-top:10px; font:600 calc(13px * var(--k))/1.3 var(--font-body); color:rgba(255,255,255,.95);}
+    .ji-vote .tag{margin:0; background:#fff; border-color:#fff; font-weight:700; color:var(--ink);}
+    .ji-vote .tag.hotovo{color:var(--field);} .ji-vote .tag.probiha{color:var(--gold);} .ji-vote .tag.zamitnuto,.ji-vote .tag.revokovano{color:var(--burgundy);}
+    .ji-pata{align-self:flex-end; margin-top:8px; font:700 13px/1 var(--font-body); color:#fff;}
+    .ji-nav{position:absolute; left:0; right:0; bottom:100%; margin-bottom:7px; display:flex; justify-content:space-between; align-items:center;}
+    .today-format{display:flex;}
+    .today-format-btn{min-width:56px; height:28px; padding:0 14px; border:1px solid rgba(255,255,255,.55); border-right-width:0; background:transparent; color:#fff; font:700 13px/1 var(--font-body); cursor:pointer;}
+    .today-format-btn:first-child{border-radius:99px 0 0 99px;}
+    .today-format-btn:last-child{border-radius:0 99px 99px 0; border-right-width:1px;}
+    .today-format-btn:hover{background:rgba(255,255,255,.12);}
+    .today-format-btn[aria-pressed="true"]{background:#fff; color:var(--ink);}
+    .today-radek{display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;}
+    .today-dny .today-pismo-btn{border-radius:0; border-right-width:0; height:28px; padding:0 14px;}
+    .today-dny .today-pismo-btn:first-child{border-radius:99px 0 0 99px;}
+    .today-dny .today-pismo-btn:last-child{border-radius:0 99px 99px 0; border-right-width:1px;}
+    .today-pismo-btn{min-width:34px; height:26px; padding:0 8px; border-radius:99px; border:1px solid rgba(255,255,255,.55); background:transparent; color:#fff; font:700 13px/1 var(--font-body); cursor:pointer;}
+    .today-pismo-btn:hover{border-color:#fff; background:rgba(255,255,255,.12);}
+    .today-pismo-btn:disabled{opacity:.4; cursor:default;}
+    .today-akce{position:absolute; top:100%; left:0; right:0; margin-top:16px;}
+    .today-akce-tl{display:flex; gap:10px; justify-content:center;}
+    .today-stav{display:block; margin-top:10px; text-align:center; font:400 13px/1.3 var(--font-body); color:#fff; min-height:1.3em;}
+    .today-uloz-btn{white-space:nowrap; border:none; border-radius:0; background:var(--burgundy); color:#fff; font-family:var(--font-body); font-size:15px; font-weight:700; line-height:1; padding:12px 16px; cursor:pointer;}
+    .today-uloz-btn:hover{background:var(--burgundy-deep);}
+    #today-sdilet{background:color-mix(in srgb, var(--cyan) 55%, #fff); color:var(--ink);}
+    #today-sdilet:hover{background:color-mix(in srgb, var(--cyan) 70%, #fff);}
+    .today-uloz-btn:disabled{opacity:.6; cursor:wait;}
+    a.overlay-close{display:inline-block; text-decoration:none;}
+  </style>
+
+<script>
+  // ===== Usnesení: karta s jedním usnesením z jednani/pecky-jednani.json (rada i zastupitelstvo, od 4/2021) =====
+  ['gesturestart', 'gesturechange'].forEach(t => document.addEventListener(t, ev => ev.preventDefault()));
+  const JI = {data: {}, ids: [], id: '', druh: 'rada'};
+  const JI_NEDULEZITA = /^\s*schválení\s+(programu|ověřovatel)/i;     // jako v seznamu Usnesení („Skrýt nedůležité“)
+  // seznam od nejstaršího po nejnovější; ‹ = předchozí, › = další; nedůležité body se přeskakují
+  const jiSeznam = () => JI.ids.filter(x => JI.data[x].druh === JI.druh);
+  const JI_FORMATY = {'1:1': [1080, 1080], '4:5': [1080, 1350], '3:4': [1080, 1440]};
+  let JI_FORMAT = '4:5';
+
+  function jiRender(){
+    const r = JI.data[JI.id];
+    if (!r) return;
+    const zm = r.druh === 'zastupitelstvo';
+    JI.druh = r.druh;
+    document.querySelectorAll('[data-druh]').forEach(b => b.setAttribute('aria-pressed', b.dataset.druh === r.druh ? 'true' : 'false'));
+    const [y, mm, d] = [r.date.slice(0, 4), +r.date.slice(5, 7), +r.date.slice(8)];
+    document.getElementById('ji-card').classList.toggle('slate', zm);
+    document.getElementById('ji-sub').textContent = `${d}. ${mm}. ${y}`;
+    const sp = jResSplit(r.text);      // nadpis = úvod věty usnesení („Rada města schvaluje“), bez něj bod programu
+    document.getElementById('ji-title').textContent = sp.head || r.item || jResLabel(r.n);
+    document.getElementById('ji-text').innerHTML = jResTextHtml(sp.rest);
+    const hlasy = r.pro == null ? '' : `<span>Pro ${r.pro} · Proti ${r.proti} · Zdrželi se ${r.zdrzel}</span>`;
+    document.getElementById('ji-vote').innerHTML = jOutcomeBadgeHtml(r) + hlasy;
+    const sez = jiSeznam(), i = sez.indexOf(JI.id);
+    document.getElementById('ji-starsi').disabled = i <= 0;
+    document.getElementById('ji-novejsi').disabled = i < 0 || i >= sez.length - 1;
+    history.replaceState(null, '', '#' + JI.id);
+  }
+  function jiPosun(o){      // o = -1 předchozí (starší), +1 další (novější)
+    const sez = jiSeznam(), i = sez.indexOf(JI.id) + o;
+    if (i < 0 || i >= sez.length) return;
+    JI.id = sez[i];
+    jiRender();
+  }
+  document.getElementById('ji-starsi').addEventListener('click', () => jiPosun(-1));
+  document.getElementById('ji-novejsi').addEventListener('click', () => jiPosun(1));
+  // swipe na mobilu: doprava = předchozí usnesení, doleva = další (převážně vodorovné gesto ≥ 50 px)
+  (function(){
+    const frame = document.getElementById('Frame');
+    let sx = 0, sy = 0, st = 0, sledovat = false;
+    frame.addEventListener('touchstart', ev => {
+      sledovat = ev.touches.length === 1;
+      if (!sledovat) return;
+      sx = ev.touches[0].clientX; sy = ev.touches[0].clientY; st = Date.now();
+    }, {passive:true});
+    frame.addEventListener('touchend', ev => {
+      if (!sledovat) return;
+      sledovat = false;
+      const t = ev.changedTouches[0], dx = t.clientX - sx, dy = t.clientY - sy;
+      if (Date.now() - st > 800 || Math.abs(dx) < 50 || Math.abs(dx) < Math.abs(dy) * 1.5) return;
+      const sel = window.getSelection();
+      if (sel && !sel.isCollapsed) return;
+      jiPosun(dx < 0 ? 1 : -1);
+    }, {passive:true});
+    frame.style.touchAction = 'pan-y';
+  })();
+  document.querySelectorAll('[data-druh]').forEach(b => b.addEventListener('click', () => {
+    JI.druh = b.dataset.druh;
+    const sez = jiSeznam();
+    JI.id = sez[sez.length - 1];
+    jiRender();
+  }));
+
+  const JI_VELIKOSTI = [0.7, 0.82, 0.95];
+  document.getElementById('ji-pismo').addEventListener('click', () => {
+    const f = document.getElementById('Frame');
+    const k = parseFloat(getComputedStyle(f).getPropertyValue('--k')) || 0.82;
+    const i = JI_VELIKOSTI.reduce((n, v, j) => Math.abs(v - k) < Math.abs(JI_VELIKOSTI[n] - k) ? j : n, 0);
+    f.style.setProperty('--k', JI_VELIKOSTI[(i + 1) % JI_VELIKOSTI.length]);
+  });
+  document.querySelectorAll('.today-format-btn[data-f]').forEach(b => b.addEventListener('click', () => {
+    JI_FORMAT = b.dataset.f;
+    const [w, h] = JI_FORMATY[JI_FORMAT];
+    document.getElementById('Frame').style.setProperty('--pomer', w + ' / ' + h);
+    document.querySelectorAll('.today-format-btn[data-f]').forEach(x => x.setAttribute('aria-pressed', x === b ? 'true' : 'false'));
+  }));
+  document.getElementById('ji-text').addEventListener('paste', ev => {
+    ev.preventDefault();
+    document.execCommand('insertText', false, (ev.clipboardData || window.clipboardData).getData('text/plain'));
+  });
+
+  // export bloku #Frame do PNG (stejný postup jako Kalendář → insta): klon s vloženými vypočtenými styly → SVG foreignObject → canvas
+  const JI_SKRYT = '.ji-nav, .today-akce';
+  async function jiFramePng(){
+    const orig = document.getElementById('Frame');
+    const clone = orig.cloneNode(true);
+    clone.querySelectorAll(JI_SKRYT).forEach(n => n.remove());
+    const c = [clone, ...clone.querySelectorAll('*')];
+    [orig, ...orig.querySelectorAll('*')].filter(n => !n.closest(JI_SKRYT)).forEach((n, i) => {
+      const cs = getComputedStyle(n);
+      for (const name of cs) c[i].style.setProperty(name, cs.getPropertyValue(name));
+    });
+    clone.style.position = 'static'; clone.style.margin = '0';
+    // fotky se před vložením do SVG zmenší (čtverec 160 px, ořez na střed jako object-fit:cover) a dekódují;
+    // velké portréty ve foreignObject Safari často nestihne vykreslit a avatar zůstane prázdný
+    for (const img of clone.querySelectorAll('img')) {
+      const zdroj = new Image();
+      zdroj.src = URL.createObjectURL(await (await fetch(img.src)).blob());
+      await zdroj.decode();
+      const S = 160, k = Math.max(S / zdroj.naturalWidth, S / zdroj.naturalHeight);
+      const c = document.createElement('canvas');
+      c.width = c.height = S;
+      c.getContext('2d').drawImage(zdroj, (S - zdroj.naturalWidth * k) / 2, (S - zdroj.naturalHeight * k) / 2, zdroj.naturalWidth * k, zdroj.naturalHeight * k);
+      URL.revokeObjectURL(zdroj.src);
+      img.src = c.toDataURL('image/png');
+    }
+    clone.setAttribute('xmlns', 'http://www.w3.org/1999/xhtml');
+    const w = orig.offsetWidth, h = orig.offsetHeight;
+    const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${w}" height="${h}"><foreignObject width="100%" height="100%">${new XMLSerializer().serializeToString(clone)}</foreignObject></svg>`;
+    const img = new Image();
+    await new Promise((res, rej) => { img.onload = res; img.onerror = rej; img.src = 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(svg); });
+    const canvas = document.createElement('canvas');
+    [canvas.width, canvas.height] = JI_FORMATY[JI_FORMAT];
+    const ctx = canvas.getContext('2d');
+    await img.decode().catch(() => {});
+    ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+    // Safari při prvním vykreslení SVG často vynechá vložené obrázky; po chvíli se nakreslí znovu
+    await new Promise(r => setTimeout(r, 150));
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+    return new Promise(res => canvas.toBlob(res, 'image/png'));
+  }
+  function jiStav(t){ document.getElementById('today-stav').textContent = t; }
+  function jiStahni(blob, nazev){
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = nazev;
+    document.body.appendChild(a); a.click(); a.remove();
+    setTimeout(() => URL.revokeObjectURL(a.href), 2000);
+  }
+  document.getElementById('today-uloz').addEventListener('click', async ev => {
+    const b = ev.currentTarget;
+    b.disabled = true; jiStav('');
+    try { jiStahni(await jiFramePng(), `usneseni-${JI.id.replace(/[^A-Za-z0-9]+/g, '-')}.png`); }
+    catch (e) { jiStav('Obrázek se nepodařilo vytvořit.'); }
+    b.disabled = false;
+  });
+  document.getElementById('today-sdilet').addEventListener('click', async ev => {
+    const b = ev.currentTarget, nazev = `usneseni-${JI.id.replace(/[^A-Za-z0-9]+/g, '-')}.png`;
+    b.disabled = true; jiStav('');
+    try {
+      const blob = await jiFramePng();
+      const soubor = new File([blob], nazev, {type: 'image/png'});
+      if (navigator.canShare && navigator.canShare({files: [soubor]})) {
+        await navigator.share({files: [soubor]});
+      } else {
+        jiStahni(blob, nazev);
+        jiStav('Sdílení není v tomto zařízení dostupné. Obrázek je stažený, nahrajte ho v aplikaci Instagram.');
+      }
+    } catch (e) {
+      if (e && e.name !== 'AbortError') jiStav('Obrázek se nepodařilo sdílet.');
+    }
+    b.disabled = false;
+  });
+
+  fetch('/jednani/pecky-jednani.json')
+    .then(r => r.json())
+    .then(db => {
+      const vse = [], byN = {};
+      db.meetings.filter(m => m.type === 'Rada' || m.type === 'Zastupitelstvo').forEach(m => (m.resolutions || []).forEach(r => {
+        if (!r.n || !r.text) return;
+        const x = {n: r.n, druh: m.type === 'Rada' ? 'rada' : 'zastupitelstvo', date: m.date, number: m.number, year: m.year,
+                   item: r.item, text: r.text, pro: r.pro, proti: r.proti, zdrzel: r.zdrzel, _outcome: jClassifyOutcome(r.text)};
+        vse.push(x); byN[x.n.toUpperCase()] = x;
+      }));
+      vse.forEach(x => jRevokeTargets(x.text).forEach(t => { const hit = byN[t] || byN[t.replace(/\/(\d\d)(\d\d)$/, '/$2')]; if (hit && hit !== x) hit._revokedBy = x.n; }));
+      vse.sort((a, b) => a.date.localeCompare(b.date) || a.n.localeCompare(b.n, 'cs', {numeric: true}));
+      const z = decodeURIComponent(location.hash.slice(1));
+      vse.forEach(x => { JI.data[x.n] = x; });
+      JI.ids = vse.filter(x => x.n === z || !JI_NEDULEZITA.test(x.item || '')).map(x => x.n);
+      JI.id = JI.data[z] ? z : JI.ids[JI.ids.length - 1];
+      document.getElementById('ji-status').style.display = 'none';
+      document.getElementById('ji-card').hidden = false;
+      jiRender();
+    })
+    .catch(() => { document.getElementById('ji-status').textContent = 'Usnesení se nepodařilo načíst.'; });
+</script>

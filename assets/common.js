@@ -13,11 +13,13 @@
   const links = document.getElementById('overlayLinks');
   const closeBtn = document.getElementById('overlayClose');
   if (!fab || !tabs || !overlay || !links) return;
-  // tři sloupce (na velkých obrazovkách vedle sebe): hlavní položky | sekundární („Více...“) | Monitoring
+  // sloupce (na velkých obrazovkách vedle sebe): hlavní položky | Téma | Monitoring | sekundární („Více...“)
   const colMain = document.createElement('div');
   colMain.className = 'overlay-col';
   const colMore = document.createElement('div');
   colMore.className = 'overlay-col';
+  const colTema = document.createElement('div');
+  colTema.className = 'overlay-col';
   const colMon = document.createElement('div');
   colMon.className = 'overlay-col';
   const home = document.createElement('a');
@@ -42,7 +44,16 @@
       colMain.appendChild(clone);
     }
   });
-  // seznam „Monitoring“ (šablona v assets/nav.html) pod „Více...“
+  // seznam „Téma“ (šablona v assets/nav.html): Obchvat, Tělocvična, Voda, Volby
+  const tema = document.getElementById('overlayTema');
+  if (tema) {
+    const label = document.createElement('div');
+    label.className = 'overlay-label';
+    label.textContent = 'Téma';
+    colTema.appendChild(label);
+    colTema.appendChild(tema.content.cloneNode(true));
+  }
+  // seznam „Monitoring“ (šablona v assets/nav.html)
   const mon = document.getElementById('overlayMonitoring');
   if (mon) {
     const label = document.createElement('div');
@@ -52,8 +63,9 @@
     colMon.appendChild(mon.content.cloneNode(true));
   }
   links.appendChild(colMain);
-  if (colMore.firstChild) links.appendChild(colMore);
+  if (colTema.firstChild) links.appendChild(colTema);
   if (colMon.firstChild) links.appendChild(colMon);
+  if (colMore.firstChild) links.appendChild(colMore);
   const open = () => { overlay.hidden = false; document.body.style.overflow = 'hidden'; };
   const close = () => { overlay.hidden = true; document.body.style.overflow = ''; };
   fab.addEventListener('click', open);

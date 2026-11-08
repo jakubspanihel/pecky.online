@@ -1162,11 +1162,17 @@
   .res-dot--revokovano{background:var(--burgundy);}
   .res-dot--bez-stavu{background:var(--line);}
   .res-block-head{display:flex; flex-wrap:wrap; align-items:center; gap:var(--space-2); margin-bottom:var(--space-2);}
-  .res-block-head .res-outcome{margin-right:0;}
-  .res-block-head .res-outcome{color:#fff; border:1px solid transparent; border-style:solid;}
-  .res-block-head .res-outcome.hotovo{background:var(--field);}
-  .res-block-head .res-outcome.probiha{background:var(--gold);}
-  .res-block-head .res-outcome.zamitnuto,.res-block-head .res-outcome.revokovano{background:var(--burgundy);}
+  .res-block-head .res-outcome,.res-votes .res-outcome{margin-right:0;}
+  .res-block-head .res-outcome,.res-votes .res-outcome{color:#fff; border:1px solid transparent; border-style:solid;}
+  .res-block-head .res-outcome.hotovo,.res-votes .res-outcome.hotovo{background:var(--field);}
+  .res-block-head .res-outcome.probiha,.res-votes .res-outcome.probiha{background:var(--gold);}
+  .res-block-head .res-outcome.zamitnuto,.res-block-head .res-outcome.revokovano,.res-votes .res-outcome.zamitnuto,.res-votes .res-outcome.revokovano{background:var(--burgundy);}
+  .res-votes-src{display:flex; align-items:center; justify-content:space-between; gap:var(--space-3); margin-top:var(--space-3); color:var(--ink-soft);}
+  .res-votes-src a{display:inline-flex; align-items:center; gap:4px;}
+  .res-votes-src a svg{width:13px; height:13px; flex:none;}
+  .res-votes-src .res-share{color:var(--cyan-deep);}
+  .res-votes-src .res-share svg{width:20px; height:20px;}
+  .res-block-head .res-title{font-size:var(--fs-12); font-weight:var(--fw-semibold); color:var(--ink); line-height:1.25;}
   .agenda-meta{display:contents;}
   @media (max-width:767px){
     .agenda-item-main{display:grid; grid-template-columns:28px minmax(0,1fr) auto; column-gap:7px; align-items:baseline;}
@@ -1181,10 +1187,11 @@
   .info-icon{display:inline-flex; align-items:center; justify-content:center; width:15px; height:15px; border-radius:var(--radius-round); border:1px solid var(--cyan-deep); background:none; color:var(--cyan-deep); font-family:var(--font-mono); font-style:italic; font-size:10px; font-weight:var(--fw-bold); line-height:1; padding:0; cursor:pointer; flex-shrink:0;}
   .info-icon:hover{background:var(--cyan-deep-a08);}
   .res-votes{margin-top:var(--space-3); padding-top:var(--space-3); border-top:1px dotted var(--line); white-space:normal;}
-  .res-votes-title{font-size:var(--fs-6); text-transform:uppercase; letter-spacing:.04em; margin-bottom:var(--space-1);}
+  .res-votes-title{display:flex; flex-wrap:wrap; align-items:center; gap:var(--space-2); font-size:var(--fs-6); text-transform:uppercase; letter-spacing:.04em; margin-bottom:var(--space-1);}
+  .res-votes-title .tag{margin:0;}
   .res-votes-row{margin:2px 0; line-height:1.5;}
   .info-toggle-text{flex-basis:100%; width:100%; font-size:var(--fs-6); color:var(--ink-soft); white-space:pre-line; margin:var(--space-1) 0 2px; padding:7px 9px; background:rgba(0,0,0,0.03); border-left:2px solid var(--line);}
-  .agenda-res .info-toggle-text{border-left:0;}
+  .agenda-res .info-toggle-text{border-left:0; font-size:var(--fs-10);}
   /* důvodová zpráva bodu: bez okraje, text zarovnaný s názvem bodu (číslo 2em + mezera 7px) */
   .agenda-item > .info-toggle-text{width:auto; border-left:0; background:none; padding:0; margin-left:33px; font-size:var(--fs-10);}
   @media (max-width:767px){ .agenda-item > .info-toggle-text{margin-left:35px;} }
