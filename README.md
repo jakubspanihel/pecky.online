@@ -59,8 +59,8 @@ se sem, na stránku samotnou se nic ručně nepíše.
 | Sekce | Režim | Kontrola | Změna | Co naposledy |
 |---|---|---|---|---|
 | [Na oběd](naobed/README.md) | denně | 9. 11. 2026 | 9. 11. 2026 | denní menu U Marka a U Stříkačky z 9. 11. 2026 a jídelníček školní jídelny na 9.–13. 11. 2026 |
-| [O webu](o-webu/README.md) | týdně | 8. 11. 2026 | 8. 11. 2026 | Sociální sítě (kontrola 8. 11. 2026): aktualizovány počty sledujících a data posledních příspěvků u 52 účtů; nejvíc přibylo členů u skupiny Pravoslavná obec Dobřichov-Pečky (+10), YouTube Města Pečky (+2); AFK Pečky na Instagramu má nový příspěvek z 6. 11. 2026 |
-| [Jednání](jednani/README.md) | týdně | 8. 11. 2026 | 8. 11. 2026 | zhlédnutí záznamů zastupitelstva na YouTube: 9 937 zhlédnutí u 34 záznamů (+4) |
+| [O webu](o-webu/README.md) | týdně | 9. 11. 2026 | 9. 11. 2026 | Sociální sítě (kontrola 9. 11. 2026): aktualizovány počty sledujících a data posledních příspěvků u 11 účtů; nejvíc přibylo členů u skupiny Pravoslavná obec Dobřichov-Pečky (+4); nová aktivita u Spolku železničních modelářů (8. 11. 2026) a dalších účtů |
+| [Jednání](jednani/README.md) | týdně | 9. 11. 2026 | 9. 11. 2026 | zhlédnutí záznamů zastupitelstva na YouTube: 9 946 zhlédnutí u 34 záznamů (+9) |
 | [Lidé](lide/README.md) | na vyžádání | 8. 11. 2026 | 8. 11. 2026 | doplněny portréty Lubomíra Metelák a Dušana Říhy z fotografie zastupitelů 2026–2030 na Facebooku města |
 | [Usnesení](usneseni/README.md) | odvozená | 8. 11. 2026 | 8. 11. 2026 | stránka zveřejněna: v hlavním menu a v sitemapě; výpis seskupený podle jednání, skrytí nedůležitých a nepřijatých, blok hlasování se zdrojem a obrázek pro sociální sítě (`/usneseni/insta.html`) |
 | [Kalendář](kalendar/README.md) | týdně | 7. 11. 2026 | 7. 11. 2026 | přidány Zabijačkové hody (8. 11. 2026, 9:00–12:00, proluka u lékárny) z plakátu a příspěvku na Facebooku; termín Rady města 40/2026 (9. 11. 2026, 15:00, obřadní síň) z pozvánky |
