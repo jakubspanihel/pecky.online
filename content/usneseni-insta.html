@@ -29,6 +29,7 @@
             <button type="button" class="today-format-btn" data-f="1:1" aria-pressed="false" title="Čtverec, 1080 × 1080 px">1:1</button>
             <button type="button" class="today-format-btn" data-f="4:5" aria-pressed="true" title="Na výšku, 1080 × 1350 px">4:5</button>
             <button type="button" class="today-format-btn" data-f="3:4" aria-pressed="false" title="Vysoký, 1080 × 1440 px">3:4</button>
+            <button type="button" class="today-format-btn" data-f="9:16" aria-pressed="false" title="Story / Reels, 1080 × 1920 px">9:16</button>
           </div>
         </div>
         <div class="today-akce-tl">
@@ -98,7 +99,7 @@
   const JI_NEDULEZITA = /^\s*schválení\s+(programu|ověřovatel)/i;     // jako v seznamu Usnesení („Skrýt nedůležité“)
   // seznam od nejstaršího po nejnovější; ‹ = předchozí, › = další; nedůležité body se přeskakují
   const jiSeznam = () => JI.ids.filter(x => JI.data[x].druh === JI.druh);
-  const JI_FORMATY = {'1:1': [1080, 1080], '4:5': [1080, 1350], '3:4': [1080, 1440]};
+  const JI_FORMATY = {'1:1': [1080, 1080], '4:5': [1080, 1350], '3:4': [1080, 1440], '9:16': [1080, 1920]};
   let JI_FORMAT = '4:5';
 
   function jiRender(){

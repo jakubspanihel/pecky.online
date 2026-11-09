@@ -26,6 +26,7 @@
             <button type="button" class="today-format-btn" data-f="1:1" aria-pressed="false" title="Čtverec, 1080 × 1080 px">1:1</button>
             <button type="button" class="today-format-btn" data-f="4:5" aria-pressed="true" title="Na výšku, 1080 × 1350 px">4:5</button>
             <button type="button" class="today-format-btn" data-f="3:4" aria-pressed="false" title="Vysoký, 1080 × 1440 px">3:4</button>
+            <button type="button" class="today-format-btn" data-f="9:16" aria-pressed="false" title="Story / Reels, 1080 × 1920 px">9:16</button>
           </div>
           <button type="button" class="today-barva today-nahodne" id="today-nahodne" aria-label="Náhodná kombinace barev" title="Náhodné barvy"></button>
         </div>
@@ -151,7 +152,7 @@
   });
 
   // formáty obrázku: poměr stran rámu a rozlišení exportu (Instagram)
-  const KAL_FORMATY = {'1:1': [1080, 1080], '4:5': [1080, 1350], '3:4': [1080, 1440]};
+  const KAL_FORMATY = {'1:1': [1080, 1080], '4:5': [1080, 1350], '3:4': [1080, 1440], '9:16': [1080, 1920]};
   let KAL_FORMAT = '4:5';
   document.querySelectorAll('.today-format-btn').forEach(b => b.addEventListener('click', () => {
     KAL_FORMAT = b.dataset.f;
