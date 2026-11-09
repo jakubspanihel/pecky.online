@@ -62,7 +62,7 @@ se sem, na stránku samotnou se nic ručně nepíše.
 | [Jednání](jednani/README.md) | týdně | 8. 11. 2026 | 8. 11. 2026 | zhlédnutí záznamů zastupitelstva na YouTube: 9 937 zhlédnutí u 34 záznamů (+4) |
 | [Lidé](lide/README.md) | na vyžádání | 8. 11. 2026 | 8. 11. 2026 | doplněny portréty Lubomíra Metelák a Dušana Říhy z fotografie zastupitelů 2026–2030 na Facebooku města |
 | [Usnesení](usneseni/README.md) | odvozená | 8. 11. 2026 | 8. 11. 2026 | stránka zveřejněna: v hlavním menu a v sitemapě; výpis seskupený podle jednání, skrytí nedůležitých a nepřijatých, blok hlasování se zdrojem a obrázek pro sociální sítě (`/usneseni/insta.html`) |
-| [Na oběd](naobed/README.md) | denně | 8. 11. 2026 | 7. 11. 2026 | denní menu U Marka z 7. 11. 2026 a jídelníček školní jídelny na 9.–13. 11. 2026 |
+| [Na oběd](naobed/README.md) | denně | 9. 11. 2026 | 7. 11. 2026 | denní menu U Marka z 7. 11. 2026 a jídelníček školní jídelny na 9.–13. 11. 2026 |
 | [Kalendář](kalendar/README.md) | týdně | 7. 11. 2026 | 7. 11. 2026 | přidány Zabijačkové hody (8. 11. 2026, 9:00–12:00, proluka u lékárny) z plakátu a příspěvku na Facebooku; termín Rady města 40/2026 (9. 11. 2026, 15:00, obřadní síň) z pozvánky |
 | [Prostory](prostory/README.md) | odvozená | 7. 11. 2026 | 7. 11. 2026 | část ochozu vodárenské věže: na programu RM 40/2026 (9. 11. 2026) zveřejnění záměru pronájmu |
 | [Tělocvična](telocvicna/README.md) | týdně | 7. 11. 2026 | 4. 11. 2026 | 2. 11. 2026 Pečecké noviny 11/2026, s. 3: v první polovině října jednání se soudním znalcem, termín obnovení stavebních prací zatím nelze stanovit; RM 39/2026, bod 3: dozdívání atik, zateplení jídelny a schůzka se soudním znalcem 9. 11. 2026 (bez usnesení) |
