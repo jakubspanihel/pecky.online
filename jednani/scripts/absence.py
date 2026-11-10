@@ -36,13 +36,16 @@ VYSTUP = KOREN / 'jednani' / 'absence.json'
 
 # Hranice volebních období = první jednání nového složení orgánu. Zastupitelstvo
 # se obměnilo na ustavujícím zasedání 20. 10. 2022 (viz jednani/volebni-obdobi.json),
-# rada zvolená na témže zasedání poprvé jednala 31. 10. 2022. Výbory ZM se
+# rada zvolená na témže zasedání poprvé jednala 31. 10. 2022. Od 4. 11. 2026
+# (ustavující ZM 8/2026) běží období 2026–2030; stránka zatím zobrazuje jen 2022–2026. Výbory ZM se
 # obměňují spolu se zastupitelstvem, které je volí — stejná hranice jako u ZM.
 OBDOBI = {
     'Zastupitelstvo': [('2018–2022', '0000-00-00', '2022-10-20'),
-                       ('2022–2026', '2022-10-20', '9999-99-99')],
+                       ('2022–2026', '2022-10-20', '2026-11-04'),
+                       ('2026–2030', '2026-11-04', '9999-99-99')],
     'Rada': [('2018–2022', '0000-00-00', '2022-10-31'),
-             ('2022–2026', '2022-10-31', '9999-99-99')],
+             ('2022–2026', '2022-10-31', '2026-11-04'),
+             ('2026–2030', '2026-11-04', '9999-99-99')],
     'Finanční výbor': [('2018–2022', '0000-00-00', '2022-10-20'),
                         ('2022–2026', '2022-10-20', '9999-99-99')],
     'Kontrolní výbor': [('2018–2022', '0000-00-00', '2022-10-20'),

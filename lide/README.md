@@ -27,7 +27,10 @@ ročníku — viz [`volby/README.md`](../volby/README.md) →
 „Zvolení zástupci". **Oba seznamy jsou samostatné a už se rozcházejí:**
 od ustavujícího zasedání 20. 10. 2022 se složení dvakrát změnilo —
 Jaroslava Vosecká nastoupila za Lenku Třískovou (slib 11. 9. 2024) a
-Ondřej Schulz za Bc. Ivetu Dvořákovou (slib 26. 2. 2025). Při další
+Ondřej Schulz za Bc. Ivetu Dvořákovou (slib 26. 2. 2025). Od ustavujícího zasedání 4. 11. 2026 (ZM 8/2026) sedí v zastupitelstvu
+nové složení z voleb 2026: devět zastupitelů skončilo, devět nastoupilo,
+všechny funkce v radě a ve výborech se obsadily znovu (viz „Změna složení
+4. 11. 2026“ níže). Při další
 rezignaci, kooptaci náhradníka nebo změně ve vedení se opraví **jen
 tenhle panel**; historický seznam u Voleb 2022 zůstává, jaký byl.
 
@@ -547,6 +550,40 @@ výpis na pecky.cz).
   nezastupitelka se na stránce objeví ve skupině „Výbory, komise, spolky
   a školská rada".
 
+### Změna složení 4. 11. 2026 (ustavující ZM 8/2026)
+
+Zdroj: zápis a usnesení UZ-51 až UZ-85-8/26 (`lide/sources.json`:
+`zm-ustavujici-2026-zapis`, `usneseni-uz-N-8-26-zm-8-2026-4-11-2026`).
+Postup stejný jako po ustavujícím zasedání 2022: každá funkce z období
+2022–2026 má `to: "2026-11-04"` a `current: false`, nová funkce má vlastní
+vazbu `from: "2026-11-04"` (i u lidí, kteří funkci drží dál — mandát
+i funkce jsou po volbách samostatné). Komise rady města se tímto
+postupem nemění: nové složení komisí určí až usnesení nové rady.
+
+- **Mandát skončil (9):** Ing. Karel Krištoufek, Václav Drška, Šárka
+  Horynová, Tomáš Vodička, Milan Urban, Pavel Sedláček, Tomáš Růžička,
+  Jaroslava Vosecká, Ladislav Kejda. Dostali štítek `byvaly-zastupitel`
+  a z výchozího pohledu zmizeli; jsou vidět po přepnutí na „Včetně historie“.
+- **Mandát začal (9):** Ing. Jan Hruška, Ing. Pavel Krejčí, Tadeáš Lebduška,
+  Miloš Novák, Dušan Říha, Michal Rumlena, Ing. Ladislava Šátková, Mgr. Petr
+  Zavřel, LL.M., Ing. Petr Zedník — shodně s 21 zvolenými z kandidátních
+  vazeb 2026 (zvolení se v datech poznají podle „(zvolen/a)“).
+- **Vedení města:** starosta Milan Paluska (UZ-58-8/26, 20–0–1),
+  1. místostarosta Zdeněk Fejfar (UZ-59-8/26), nově 2. místostarostka
+  Ivana Trčková (UZ-60-8/26), která dosud byla radní.
+- **Rada (7):** kromě vedení Ing. Petr Dürr (UZ-61-8/26, poměr 16–1–4),
+  Ing. Hana Kuprová (UZ-62), Ing. Petr Zedník (UZ-63), Ing. Martin Jedlička
+  (UZ-64; dosud 2. místostarosta). Ing. Karel Krištoufek v radě skončil.
+- **Finanční výbor (7):** předseda Ing. Petr Zedník, členové Dušan Říha,
+  Tadeáš Lebduška, Jaroslav Železný, Ing. Jan Hruška, Michal Rumlena,
+  Ing. Šárka Jedličková (UZ-67 až UZ-73-8/26).
+- **Kontrolní výbor (7):** předsedkyně Mgr. Alena Švejnohová, členové
+  Ing. Petr Dürr, Ondřej Schulz, Tadeáš Lebduška, Ing. Hana Kuprová, Milan
+  Pečenka, Lubomír Metelák (UZ-74 až UZ-80-8/26).
+- **Neověřeno:** zda a komu rada po 4. 11. 2026 obnoví jmenování do komisí
+  (vazby komisí zůstávají `current: true`) a zda Ing. Martin Jedlička dál
+  řídí Městskou policii (pověření z UZ-121-8/22 bylo „jako 2. místostarosta“).
+
 ### Validace
 
 Z kořene repa, před každým commitem datové změny:
@@ -568,7 +605,8 @@ ukazuje `url` každé položky `photos`, existuje.
 | 2006–2018 | Milan Urban (Sdružení ODS a NK) | — | Kolínský deník 29. 9. 2018 |
 | 2014–2018 | Milan Urban | Milan Paluska | Kolínský deník 29. 9. 2018 |
 | 2018–2022 | Mgr. Alena Švejnohová | Bc. Iveta Minaříková, Mgr. Blanka Kozáková | Pečecké noviny 12/2018, str. 3 |
-| 2022–dosud | Milan Paluska | Zdeněk Fejfar, Ing. Martin Jedlička | usnesení ZM 7/2022 |
+| 2022–2026 | Milan Paluska | Zdeněk Fejfar, Ing. Martin Jedlička | usnesení ZM 7/2022 |
+| 2026–dosud | Milan Paluska | Zdeněk Fejfar, Ivana Trčková | usnesení ZM 8/2026 (UZ-58 až UZ-60-8/26) |
 
 **František Pospíšil** byl prvním polistopadovým starostou Peček, rovněž tři
 období po sobě (1990, 1994, 1998). Do vedení města nastoupil už 1989 jako

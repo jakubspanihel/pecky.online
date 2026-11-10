@@ -21,7 +21,14 @@ SRC = ROOT / 'pecky-jednani.json'
 
 def names(v, key):
     x = (v or {}).get(key) or {}
-    return list(x.get('names') or []), x.get('count')
+    out = []
+    for n in x.get('names') or []:
+        # parser rozdělí „Mgr. Petr Zavřel, LL.M.“ čárkou na dvě jména
+        if n == 'LL.M.' and out:
+            out[-1] += ', LL.M.'
+        else:
+            out.append(n)
+    return out, x.get('count')
 
 
 def main():
