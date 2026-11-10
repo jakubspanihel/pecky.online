@@ -149,6 +149,31 @@
   const JI_FORMATY = {'1:1': [1080, 1080], '4:5': [1080, 1350], '3:4': [1080, 1440], '9:16': [1080, 1920]};
   let JI_FORMAT = '4:5';
 
+  // Zvýraznění (žlutě) jedné nejdůležitější informace: nejvyšší částka, jinak jméno, počet nebo parcela, jinak datum.
+  function jiZvyrazni(text){
+    const esc = jEscapeHtml(text || '');
+    const cast = (re, f) => { const m = re.exec(esc); return m ? (f ? f(m) : m[0]) : null; };
+    let nej = null, max = -1;
+    for (const m of esc.matchAll(J_RES_AMOUNT)) {
+      const v = parseFloat(m[0].replace(/[^\d,]/g, '').replace(',', '.'));
+      if (v > max) { max = v; nej = m[0]; }
+    }
+    nej = nej
+      || cast(/(?:panu|paní|pana|pani)\s+((?:(?:Ing|Mgr|Bc|MUDr|JUDr|PhDr)\.?\s+)*[A-ZÁČĎÉĚÍŇÓŘŠŤÚŮÝŽ][a-zá-ž]+\s+[A-ZÁČĎÉĚÍŇÓŘŠŤÚŮÝŽ][a-zá-ž]+)/, m => m[1])
+      || jiJmeno(esc)
+      || cast(/\b\d+[\s\u00a0]?(?:m²|m2|bytů|bytu|parcel|členů|členy|dětí|žáků|míst|lidí|let|měsíců|ks|%)/i)
+      || cast(/p\. ?č\. ?\d+(?:\/\d+)?/)
+      || cast(/\b\d{1,2}\. ?\d{1,2}\. ?\d{4}/);
+    return nej ? esc.replace(nej, '<mark>' + nej + '</mark>') : esc;
+  }
+  // jméno bez oslovení: dvě slova s velkým písmenem, první odpovídá (i v ohnutém tvaru) křestnímu jménu z Lidí
+  const JI_KRESTNI = [];
+  function jiJmeno(esc){
+    for (const m of esc.matchAll(/((?:(?:Ing|Mgr|Bc|MUDr|JUDr|PhDr|RNDr|MVDr|Ph\.D|DiS|MBA)\.?\s+)*)([A-ZÁČĎÉĚÍŇÓŘŠŤÚŮÝŽ][a-zá-ž]+)\s+([A-ZÁČĎÉĚÍŇÓŘŠŤÚŮÝŽ][a-zá-ž]{2,})/g)) {
+      if (JI_KRESTNI.some(k => m[2].length <= k.length + 2 && m[2].startsWith(k.length > 3 ? k.slice(0, -1) : k))) return m[0];
+    }
+    return null;
+  }
   function jiRender(){
     const r = JI.data[JI.id];
     if (!r) return;
@@ -160,7 +185,7 @@
     document.getElementById('ji-sub').textContent = `${d}. ${mm}. ${y}`;
     const sp = jResSplit(r.text);      // nadpis = úvod věty usnesení („Rada města schvaluje“), bez něj bod programu
     document.getElementById('ji-title').textContent = sp.head || r.item || jResLabel(r.n);
-    document.getElementById('ji-text').innerHTML = jResTextHtml(sp.rest);
+    document.getElementById('ji-text').innerHTML = jiZvyrazni(sp.rest);
     const hlasy = r.pro == null ? '' : `<span>Pro ${r.pro} · Proti ${r.proti} · Zdrželi se ${r.zdrzel}</span>`;
     document.getElementById('ji-vote').innerHTML = jOutcomeBadgeHtml(r) + hlasy;
     const sez = jiSeznam(), i = sez.indexOf(JI.id);
@@ -295,7 +320,10 @@
     b.disabled = false;
   });
 
-  fetch('/jednani/pecky-jednani.json')
+  fetch('/lide/people.json').then(r => r.json()).then(d => {
+    const kr = new Set((Array.isArray(d) ? d : d.people || []).map(p => p.first_name).filter(Boolean));
+    JI_KRESTNI.push(...kr);
+  }).catch(() => {}).then(() => fetch('/jednani/pecky-jednani.json'))
     .then(r => r.json())
     .then(db => {
       const vse = [], byN = {};
