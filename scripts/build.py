@@ -858,9 +858,10 @@ def _zm_hot(m):
 def _bez_cisel_usneseni(t):
     """Pro sociální sítě: odstraní čísla usnesení (UR-377-40/22, UZ-35-6/26) z textu."""
     c = r'U[ZR]-\d+-\d+/\d+'
-    t = re.sub(r'\s*\((?:úkol\s+)?' + c + r'\)', '', t)           # "(UR-1-2/24)" / "(úkol UR-…)"
+    t = re.sub(r'\s*\((?:(?:úkol|usnesení)\s+)?' + c + r'(?:\s*(?:,|;|a)\s*' + c + r')*\)', '', t)           # "(UR-1-2/24)" / "(úkol UR-…)"
     t = re.sub(c + r'(?:\s+a\s+' + c + r')+', 'UZ-X', t)          # "UR-1 a UR-2" → jeden zástupný znak
     t = re.sub(r'\s*,?\s*(?:úkol(?:u)?\s+)?(?:' + c + r'|UZ-X)', '', t)   # holé číslo v textu
+    t = re.sub(r'\s*\(\s*\)', '', t)                              # zbylé prázdné závorky
     return re.sub(r'\s{2,}', ' ', t).strip()
 
 
