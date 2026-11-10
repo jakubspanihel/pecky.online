@@ -793,6 +793,20 @@ def _zm_avatary():
             f'<div class="banner-avatars">{"".join(out)}</div></div>')
 
 
+def _avatar_html(cele, pid, foto, absent=False, title=None):
+    """Jeden avatar zastupitele/radního (společný pro widgety Domů, Noviny a insta):
+    fotka, jinak iniciály; odkaz na osobu v Lidech, když je pid známé."""
+    title = title or cele
+    if foto:
+        vn = f'<img src="{esc(foto)}" alt="{esc(cele)}" loading="lazy" width="56" height="56">'
+    else:
+        w = cele.split(',')[0].split()
+        vn = f'<span class="banner-av-init" aria-hidden="true">{esc(w[0][0] + w[-1][0])}</span>'
+    cls = ' banner-av--absent' if absent else ''
+    tag, attr = (('a', f' href="/lide/#lide/osoba/{esc(pid)}"') if pid else ('span', ''))
+    return f'<{tag} class="banner-av{cls}"{attr} title="{esc(title)}" aria-label="{esc(title)}">{vn}</{tag}>'
+
+
 def _zm_zvoleni_avatary():
     """Seznam avatarů (HTML) 21 zvolených zastupitelů z voleb 2026, v pořadí podle
     osobních hlasů v content/volby2026.html."""
@@ -810,12 +824,7 @@ def _zm_zvoleni_avatary():
         p = next((x for x in shoda if strana in x.get('tags', [])), shoda[0] if len(shoda) == 1 else None)
         fotky = (p or {}).get('photos') or []
         foto = next((f['url'] for f in fotky if str(f.get('year')) == '2026'), (fotky[0]['url'] if fotky else None))
-        if foto:
-            vnitrek = f'<img src="{esc(foto)}" alt="{esc(jmeno)}" loading="lazy" width="56" height="56">'
-        else:
-            vnitrek = f'<span class="banner-av-init" aria-hidden="true">{esc(w[0][0] + w[-1][0])}</span>'
-        tag, attr = (('a', f' href="/lide/#lide/osoba/{esc(p["id"])}"') if p else ('span', ''))
-        out.append(f'<{tag} class="banner-av"{attr} title="{esc(jmeno)}" aria-label="{esc(jmeno)}">{vnitrek}</{tag}>')
+        out.append(_avatar_html(jmeno, p['id'] if p else None, foto))
     return out
 
 
@@ -1000,10 +1009,9 @@ def _rel_minule(dny):
     return 'před rokem' if dny < 730 else f'před {max(2, int(dny / 365.25))} lety'
 
 
-def _rada_avatary(m, people, idx, aff, zm=False):
+def _rada_avatary(m, people, aff, zm=False):
     """Avatary radních u jednání rady: z docházky (přítomní, za oddělovačem
     omluvení/nepřítomní), u jednání bez docházky podle funkcí platných k datu."""
-    import unicodedata
     def norm(t):
         return unicodedata.normalize('NFKD', t).encode('ascii', 'ignore').decode().lower()
     poradi = {'starosta': 0, 'mistostarosta': 1, 'rada': 2}
@@ -1021,23 +1029,25 @@ def _rada_avatary(m, people, idx, aff, zm=False):
             role[a['person_id']] = min(role.get(a['person_id'], 9), poradi[a['role_type']])
 
     def najdi(jmeno):
-        jmeno = re.split(r'\s+-\s+', jmeno)[0]
+        jmeno = re.split(r'\s+-\s+', jmeno)[0].split(',')[0]   # bez titulů za čárkou (LL.M.)
         t = [x for x in re.split(r'\s+', jmeno.replace('\xa0', ' ')) if x and '.' not in x]
-        return idx.get((norm(t[-2]), norm(t[-1]))) if len(t) >= 2 else None
+        if len(t) < 2:
+            return None
+        klic = (norm(t[-2]), norm(t[-1]))
+        # shoda křestní jméno + příjmení (bez ml./st.); při více osobách stejného jména
+        # (ml./st., jmenovci) vyhrává ta s funkcí platnou k datu jednání, pak ta s fotkou
+        shoda = [pid for pid, x in people.items()
+                 if (norm(x['first_name']), norm(re.sub(r'\s+(?:ml|st)\.$', '', x['last_name']))) == klic]
+        if not shoda:
+            return None
+        return min(shoda, key=lambda pid: (pid not in role, not (people[pid].get('photos')), pid))
 
     def avatar(jmeno, pid, absent=False, nota=''):
         p = people.get(pid)
         cele = f'{p["first_name"]} {p["last_name"]}' if p else re.sub(r'^(?:(?:Ing|Mgr|Bc|MUDr|JUDr|PhDr)\.\s*)+', '', jmeno.replace('\xa0', ' ')).strip()
         title = cele + (f' ({nota})' if nota else '')
         foto = ((p or {}).get('photos') or [{}])[0].get('url')
-        if foto:
-            vn = f'<img src="{esc(foto)}" alt="{esc(cele)}" loading="lazy" width="56" height="56">'
-        else:
-            ini = ''.join(x[0] for x in cele.split()[:1] + cele.split()[-1:])
-            vn = f'<span class="banner-av-init" aria-hidden="true">{esc(ini)}</span>'
-        cls = ' banner-av--absent' if absent else ''
-        tag, attr = (('a', f' href="/lide/#lide/osoba/{esc(pid)}"') if pid else ('span', ''))
-        return f'<{tag} class="banner-av{cls}"{attr} title="{esc(title)}" aria-label="{esc(title)}">{vn}</{tag}>'
+        return _avatar_html(cele, pid, foto, absent, title)
 
     att = m.get('attendance') or {}
     if att.get('present_names') or att.get('absent_names'):
@@ -1089,14 +1099,14 @@ def _rel_budouci(n):
     return f'za {k} {"měsíce" if n < 152 else "měsíců"}'
 
 
-def _insta_avatary(m, people, idx, aff, zm):
+def _insta_avatary(m, people, aff, zm):
     """Avatary jednání pro insta.json. Zastupitelstvo od ustavujícího zasedání 2026
     bez docházky (budoucí) = nově zvolení z voleb 2026, jinak jako ve widgetu na Domů."""
     att = m.get('attendance') or {}
     if zm and m['date'] >= '2026-11-04' and not (att.get('present_names') or att.get('absent_names')):
         av = ''.join(_zm_zvoleni_avatary())
         return f'<div class="banner-avatars rada-avatars">{av}</div>' if av else ''
-    return _rada_avatary(m, people, idx, aff, zm)
+    return _rada_avatary(m, people, aff, zm)
 
 
 def _jednani_insta_json():
@@ -1106,10 +1116,6 @@ def _jednani_insta_json():
     Klíč = id jednání (`rada-RRRR-MM-DD`, `zastupitelstvo-RRRR-MM-DD`)."""
     meetings = json.loads(read('jednani/pecky-jednani.json'))['meetings']
     people = {p['id']: p for p in json.loads(read('lide/people.json'))['people']}
-    idx = {}
-    for p in people.values():
-        idx[(unicodedata.normalize('NFKD', p['first_name']).encode('ascii', 'ignore').decode().lower(),
-             unicodedata.normalize('NFKD', p['last_name']).encode('ascii', 'ignore').decode().lower())] = p['id']
     aff = json.loads(read('lide/affiliations.json'))['affiliations']
     out = {}
     for m in meetings:
@@ -1126,7 +1132,7 @@ def _jednani_insta_json():
             'druh': kdo, 'number': m.get('number'), 'year': m.get('year'), 'date': m['date'],
             'time': m.get('time') or '', 'venue': (m.get('venue') or '').split(',')[0].strip(),
             'zapis': bool(zapis), 'temata': li,
-            'avatary': _insta_avatary(m, people, idx, aff, zm),
+            'avatary': _insta_avatary(m, people, aff, zm),
         }
     (ROOT / 'jednani' / 'insta.json').write_text(
         json.dumps(out, ensure_ascii=False, separators=(',', ':')), encoding='utf-8')
@@ -1186,10 +1192,6 @@ def _dash_shrnuti(druh):
     # každé jednání s tématy; bez zápisu (jen Pozvánka) slide uvádí, že zápis chybí
     slides = []
     people = {p['id']: p for p in json.loads(read('lide/people.json'))['people']}
-    idx = {}
-    for p in people.values():
-        idx[(unicodedata.normalize('NFKD', p['first_name']).encode('ascii', 'ignore').decode().lower(),
-             unicodedata.normalize('NFKD', p['last_name']).encode('ascii', 'ignore').decode().lower())] = p['id']
     aff = json.loads(read('lide/affiliations.json'))['affiliations']
     dnes = date.today().isoformat()
     kdo = 'zastupitelstvo' if zm else 'rada'
@@ -1221,7 +1223,7 @@ def _dash_shrnuti(druh):
             nota = '<p class="banner-note">Vybrané body z pozvánky. Zápis zatím není k dispozici.</p>'
         slides.append(
             f'<div class="rada-slide" data-date="{m["date"]}"{" hidden" if slides else ""}>'
-            + _rada_avatary(m, people, idx, aff, zm) +
+            + _rada_avatary(m, people, aff, zm) +
             f'<ul class="banner-topics">{li}</ul>' + nota +
             f'<div class="banner-actions"><a class="banner-cta" href="/jednani/#{kdo}-{m["date"]}">'
             f'{"Zastupitelstvo č." if zm else "Rada č."} {m["number"]}/{m["year"]}</a>'
@@ -1270,10 +1272,6 @@ def render_noviny_zastupitelstvo():
     meetings = {m['date']: m for m in json.loads(read('jednani/pecky-jednani.json'))['meetings']
                 if m['type'] == 'Zastupitelstvo'}
     people = {p['id']: p for p in json.loads(read('lide/people.json'))['people']}
-    idx = {}
-    for p in people.values():
-        idx[(unicodedata.normalize('NFKD', p['first_name']).encode('ascii', 'ignore').decode().lower(),
-             unicodedata.normalize('NFKD', p['last_name']).encode('ascii', 'ignore').decode().lower())] = p['id']
     aff = json.loads(read('lide/affiliations.json'))['affiliations']
     from datetime import date
     dnes = date.today()
@@ -1307,7 +1305,7 @@ def render_noviny_zastupitelstvo():
             f'<div class="banner-head"><div class="banner-headtext"><h3 class="banner-title">Ze zastupitelstva</h3>'
             f'<span class="rada-chip"><span class="tag rel-chip" data-date="{c["zm"]}">{_rel_minule(rozdil)}</span></span></div></div>'
             f'<p class="banner-meta"><span class="banner-meta-item">{ICO_KAL}<span>{esc(kdy)}</span></span></p>'
-            + _rada_avatary(m, people, idx, aff, True)
+            + _rada_avatary(m, people, aff, True)
             + (f'<ul class="banner-topics">{li}</ul>' if li else '')
             + f'<div class="banner-actions">{"".join(akce)}</div></div></aside>\n'
             f'  </div>\n</section>')
