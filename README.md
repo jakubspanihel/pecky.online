@@ -58,8 +58,8 @@ se sem, na stránku samotnou se nic ručně nepíše.
 
 | Sekce | Režim | Kontrola | Změna | Co naposledy |
 |---|---|---|---|---|
+| [Na oběd](naobed/README.md) | denně | 10. 11. 2026 | 10. 11. 2026 | nové menu 10. 11. 2026 u U Marka a Siňority; U Stříkačky bez nového menu, školní jídelna už má dnešní jídelníček |
 | [Kalendář](kalendar/README.md) | týdně | 9. 11. 2026 | 9. 11. 2026 | přidáno ředitelské volno v ZŠ Pečky na 16. 11. 2026 z příspěvku na Facebooku školy |
-| [Na oběd](naobed/README.md) | denně | 9. 11. 2026 | 9. 11. 2026 | u školní jídelny oznámení o ředitelském volnu 16. 11. 2026 (karta ho ukáže v ten den) |
 | [O webu](o-webu/README.md) | týdně | 9. 11. 2026 | 9. 11. 2026 | Sociální sítě (kontrola 9. 11. 2026): aktualizovány počty sledujících a data posledních příspěvků u 11 účtů; nejvíc přibylo členů u skupiny Pravoslavná obec Dobřichov-Pečky (+4); nová aktivita u Spolku železničních modelářů (8. 11. 2026) a dalších účtů |
 | [Jednání](jednani/README.md) | týdně | 9. 11. 2026 | 9. 11. 2026 | zhlédnutí záznamů zastupitelstva na YouTube: 9 946 zhlédnutí u 34 záznamů (+9) |
 | [Lidé](lide/README.md) | na vyžádání | 8. 11. 2026 | 8. 11. 2026 | doplněny portréty Lubomíra Metelák a Dušana Říhy z fotografie zastupitelů 2026–2030 na Facebooku města |
