@@ -35,6 +35,13 @@ je v `assets/helpers.js` a používá ji i Jednání. Odkazy „ZM 6/2026“ v t
   i `…/2026`) míří na kotvu karty na této stránce (`#UR-328-37/26`); odkaz zruší filtry
   a kartu zvýrazní. Zmínky ZM/RM míří do Jednání, čísla parcel do KN (`jLinkParcely()`).
 
+## Postranní strom let a měsíců
+Vlevo je sbalovací strom (rok → měsíce, počty rozhodnutí po aktuálních filtrech), vpravo výpis jednoho
+vybraného měsíce seskupený podle jednání. Výchozí je nejnovější měsíc s výsledky, jeho rok je rozbalený.
+Stejné rozložení jako Monitoring (sticky strom vlevo od 768 px; na telefonu strom nad výpisem).
+Při hledání jsou ve výpisu všechny shody ze všech měsíců a strom (s počty shod) jen odskočí na měsíc.
+Kreslí `uTree()` v `content/usneseni.html`.
+
 ## Filtr a hash
 Filtr orgánu (Vše / Rada / Zastupitelstvo) není. Dvě zaškrtávátka, obě ve výchozím stavu zapnutá:
 - „Skrýt nedůležité“ — jen body „Schválení programu jednání“ a „Schválení ověřovatelů zápisu“
@@ -42,7 +49,8 @@ Filtr orgánu (Vše / Rada / Zastupitelstvo) není. Dvě zaškrtávátka, obě v
 - „Skrýt nepřijaté“ — návrhy, které při hlasování neprošly (viz „Nepřijaté návrhy“).
 
 Vypnutá volba se pamatuje v hashi: `#nedulezite` (nedůležité zobrazeny), `#neprijata` (nepřijaté
-zobrazeny), lze spojit (`#nedulezite,neprijata`); bez hashe jsou obojí skrytá. Hash `#UR-…` / `#UZ-…`
+zobrazeny), vybraný měsíc jako `#RRRR-MM`; lze spojit (`#nedulezite,2025-03`); bez hashe jsou obojí skrytá
+a vybraný je nejnovější měsíc. Hash `#UR-…` / `#UZ-…`
 je odkaz na konkrétní usnesení a filtry podle potřeby zruší.
 Rozbalená karta má stejný vzhled jako text usnesení v Jednání (`.agenda-res > .info-toggle-text`,
 `.res-block-head`, tučné rozhodnutí a částky přes `jResTextHtml()` z `assets/helpers.js`).

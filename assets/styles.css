@@ -1180,6 +1180,8 @@
     .agenda-toggle{grid-column:3; grid-row:1;}
     .agenda-meta{display:flex; flex-wrap:wrap; gap:2px 12px; grid-column:2; margin-top:2px;}
   }
+  .res-orphans{display:flex; flex-direction:column; gap:var(--space-5); margin:var(--space-3) 0 var(--space-5);}
+  .res-orphan-item{font-weight:var(--fw-semibold); font-size:var(--fs-10); margin-bottom:var(--space-2);}
   .agenda-res-list{margin:5px 0 0 24px; display:flex; flex-direction:column; gap:var(--space-1);}
   @media (max-width:767px){ .agenda-res-list{margin-left:26px;} }
   .agenda-res{font-size:var(--fs-6); display:flex; align-items:center; gap:var(--space-3); color:var(--ink-soft); white-space:nowrap; flex-wrap:wrap;}

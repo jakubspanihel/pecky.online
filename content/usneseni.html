@@ -11,6 +11,24 @@
     </div>
     <h3 class="search-status" id="usneseni-status"><span class="spinner" aria-hidden="true"></span>Načítám usnesení…</h3>
     <style>
+      .u-split{display:grid; grid-template-columns:minmax(0,1fr); gap:var(--space-5); align-items:start; margin-top:var(--space-5);}
+      .u-tree{border-bottom:1px solid var(--line); padding-bottom:var(--space-3);}
+      .u-ty summary{cursor:pointer; font-weight:var(--fw-bold); padding:6px 0; list-style:none; display:flex; justify-content:space-between; gap:8px;}
+      .u-ty summary::-webkit-details-marker{display:none;}
+      .u-ty summary::after{content:'▸'; order:3; color:var(--ink-soft);}
+      .u-ty[open] summary::after{content:'▾';}
+      .u-ty summary .u-tn{margin-left:auto;}
+      .u-ty ul{list-style:none; margin:0 0 8px; padding:0;}
+      .u-tm{all:unset; box-sizing:border-box; width:100%; display:flex; justify-content:space-between; gap:8px; padding:4px 8px; cursor:pointer; border-radius:3px; font-size:var(--fs-9);}
+      .u-tm:hover{background:var(--material-deep);}
+      .u-tm:focus-visible{outline:2px solid var(--gold); outline-offset:1px;}
+      .u-tm.active{background:var(--burgundy); color:#fff;}
+      .u-tn{font-size:var(--fs-6); color:var(--ink-soft); font-weight:400;}
+      .u-tm.active .u-tn{color:#fff;}
+      @media (min-width:768px){
+        .u-split{grid-template-columns:minmax(190px,250px) minmax(0,1fr); gap:28px;}
+        .u-tree{position:sticky; top:calc(var(--nav-h,0px) + var(--title-h,0px) + var(--lc-h,0px) + 8px); max-height:calc(100vh - var(--nav-h,0px) - var(--title-h,0px) - var(--lc-h,0px) - 24px); overflow-y:auto; border-bottom:0; border-right:1px solid var(--line); padding:0 12px 0 0;}
+      }
       #usneseni-results h3.u-year{position:sticky; z-index:8; background:var(--material); margin:0 0 12px; padding:var(--space-2) 0; top:calc(var(--nav-h,0px) + var(--title-h,0px) + var(--lc-h,0px));}
       #usneseni-results h3.u-year a{color:inherit; text-decoration:none;}
       #usneseni-results h3.u-year a:hover{text-decoration:underline;}
@@ -33,7 +51,10 @@
       #usneseni-results .u-zapis > :not(summary){margin-left:var(--space-2); padding-left:var(--space-5); border-left:3px solid var(--line);}
       #usneseni-results .u-zapis p{margin:2px 0 0; font-size:var(--fs-6); color:var(--ink-soft); white-space:pre-line;}
     </style>
-    <div id="usneseni-results"></div>
+    <div class="u-split">
+      <nav class="u-tree" id="usneseni-tree" aria-label="Měsíce podle let"></nav>
+      <div class="u-pane" id="usneseni-results"></div>
+    </div>
 
     <details class="collapsible" style="margin-top:36px;">
       <summary style="cursor:pointer; list-style:none;"><h3 class="display" style="margin:0 0 4px; display:inline;">Zdroje dat <span class="collapsible-arrow" aria-hidden="true">▾</span></h3></summary>
@@ -60,6 +81,11 @@
   let U_FILTERED = [];
   let U_SKRYT_NEDUL = true;   // skrýt nedůležité (schválení programu a ověřovatelů)
   let U_SKRYT_NEPR = true;    // skrýt nepřijaté návrhy
+  let U_YM = '';              // vybraný měsíc ve stromu (RRRR-MM)
+  let U_YM_PICKED = false;    // měsíc zvolil uživatel (patří do hashe)
+  const U_OPEN = new Set();   // roky rozbalené ve stromu
+  let U_MONTHS = new Map();   // RRRR-MM -> počet rozhodnutí po filtrech, od nejnovějšího
+  const U_MESICE = ['leden', 'únor', 'březen', 'duben', 'květen', 'červen', 'červenec', 'srpen', 'září', 'říjen', 'listopad', 'prosinec'];
   const uSkryt = r => (U_SKRYT_NEDUL && uNedulezite(r)) || (U_SKRYT_NEPR && r._nepr);
   // nedůležitá = jen tyto procedurální body (seznam je i v tooltipu zaškrtávátka)
   const U_NEDULEZITA_RE = /^\s*schválení\s+(programu|ověřovatel)/i;
@@ -148,9 +174,10 @@
   function uUnit(){ return 'rozhodnutí'; }
   function uRender(){
     const rawWords = document.getElementById('usneseni-search').value.trim().split(/\s+/).filter(w => w.length > 1);
-    // seskupení podle jednání (orgán + datum); skupiny od nejnovějšího, uvnitř podle bodu programu
+    // seskupení podle jednání (orgán + datum); skupiny od nejnovějšího, uvnitř podle bodu programu;
+    // bez hledání jen vybraný měsíc ze stromu, při hledání všechny shody
     const groups = new Map();
-    U_FILTERED.forEach(r => {
+    (rawWords.length ? U_FILTERED : U_FILTERED.filter(r => r.date.slice(0, 7) === U_YM)).forEach(r => {
       const key = r._m.type + '|' + r.date;
       if (!groups.has(key)) groups.set(key, []);
       groups.get(key).push(r);
@@ -160,7 +187,7 @@
       list.sort((a, b) => bodNum(a) - bodNum(b) || (a.n || '').localeCompare(b.n || '', 'cs', {numeric: true}));
       const m = list[0]._m;
       const name = `${m.type === 'Rada' ? 'Rada města' : 'Zastupitelstvo města'} ${m.number}/${m.year}`;
-      return `<h3 class="display u-year"><a href="/jednani/#${U_TYPE_HASH[m.type]}-${m.date}" title="Program a další informace o jednání">${uFormatDate(list[0].date)} | ${jEscapeHtml(name)}</a> <span class="u-count">(${list.length} ${uUnit()})</span></h3><div class="u-list">${list.map(r => uCard(r, rawWords)).join('')}</div>`;
+      return `<h3 class="display u-year" data-ym="${list[0].date.slice(0, 7)}"><a href="/jednani/#${U_TYPE_HASH[m.type]}-${m.date}" title="Program a další informace o jednání">${uFormatDate(list[0].date)} | ${jEscapeHtml(name)}</a> <span class="u-count">(${list.length} ${uUnit()})</span></h3><div class="u-list">${list.map(r => uCard(r, rawWords)).join('')}</div>`;
     }).join('');
   }
 
@@ -171,13 +198,48 @@
     U_FILTERED = U_ALL.filter(r =>
       !uSkryt(r) &&
       words.every(w => r._norm.includes(w)));
+    U_MONTHS = new Map();
+    U_FILTERED.forEach(r => { const ym = r.date.slice(0, 7); U_MONTHS.set(ym, (U_MONTHS.get(ym) || 0) + 1); });
+    if (!U_MONTHS.has(U_YM)) { U_YM = U_MONTHS.size ? [...U_MONTHS.keys()][0] : ''; U_YM_PICKED = false; }
     const n = U_FILTERED.length;
     statusEl.hidden = n > 0;
     statusEl.textContent = 'Nic nenalezeno';
     const celkem = U_ALL.filter(r => !uSkryt(r)).length;
     document.getElementById('usneseni-search').placeholder = `Prohledat ${celkem} ${uUnit()}`;
+    uTree();
     uRender();
   }
+
+  // strom let a měsíců (sbalovací roky, počty rozhodnutí po filtrech)
+  function uHledam(){ return document.getElementById('usneseni-search').value.trim().length > 1; }
+  function uTree(){
+    const hledam = uHledam();
+    const roky = new Map();
+    U_MONTHS.forEach((n, ym) => { const y = ym.slice(0, 4); if (!roky.has(y)) roky.set(y, []); roky.get(y).push([ym, n]); });
+    document.getElementById('usneseni-tree').innerHTML = [...roky].map(([y, ms]) => {
+      const open = U_OPEN.has(y) || (!hledam && y === U_YM.slice(0, 4));
+      return `<details class="u-ty" data-year="${y}"${open ? ' open' : ''}><summary><span>${y}</span><span class="u-tn">${ms.reduce((a, m) => a + m[1], 0)}</span></summary><ul>${ms.map(([ym, n]) => `<li><button type="button" class="u-tm${!hledam && ym === U_YM ? ' active' : ''}" data-ym="${ym}"><span>${U_MESICE[+ym.slice(5) - 1]}</span><span class="u-tn">${n}</span></button></li>`).join('')}</ul></details>`;
+    }).join('');
+  }
+  document.getElementById('usneseni-tree').addEventListener('toggle', e => {
+    const d = e.target;
+    if (d && d.matches && d.matches('details.u-ty')) { if (d.open) U_OPEN.add(d.dataset.year); else U_OPEN.delete(d.dataset.year); }
+  }, true);
+  document.getElementById('usneseni-tree').addEventListener('click', e => {
+    const b = e.target.closest('.u-tm');
+    if (!b) return;
+    if (uHledam()) {      // při hledání jsou ve výpisu všechny shody: strom jen odskočí na měsíc
+      const h = document.querySelector('#usneseni-results h3[data-ym="' + b.dataset.ym + '"]');
+      if (h) h.scrollIntoView({block: 'start'});
+      return;
+    }
+    U_YM = b.dataset.ym;
+    U_YM_PICKED = true;
+    uWriteHash();
+    uApply();
+    const pane = document.getElementById('usneseni-results');
+    if (pane.getBoundingClientRect().top < 0) pane.scrollIntoView({block: 'start'});
+  });
 
   async function uLoad(){
     const statusEl = document.getElementById('usneseni-status');
@@ -246,7 +308,7 @@
       if (q) document.getElementById('usneseni-search').value = q;
       const h = decodeURIComponent(location.hash.slice(1));
       const hf = uParseHash(h);
-      if (hf) uSetFilters(hf[0], hf[1], true);
+      if (hf) uUseHash(hf);
       else uApply();
       if (U_BY_NUMBER[h.toUpperCase()]) uGoto(U_BY_NUMBER[h.toUpperCase()].n, false);
     } catch (e) {
@@ -269,6 +331,7 @@
     if (!U_ALL) return;
     document.getElementById('usneseni-search').value = '';
     const cil = U_BY_NUMBER[n.toUpperCase()];
+    if (cil) { U_YM = cil.date.slice(0, 7); U_YM_PICKED = false; }
     uSetFilters(!(cil && uNedulezite(cil)), !(cil && cil._nepr), true);
     const el = document.getElementById(n);
     if (!el) return;
@@ -287,29 +350,37 @@
   window.addEventListener('hashchange', () => {
     const h = decodeURIComponent(location.hash.slice(1));
     if (!U_ALL) return;
-    if (!h || uParseHash(h)) uSetFilters(...uParseHash(h) || [true, true], true);
+    if (!h || uParseHash(h)) uUseHash(uParseHash(h));
     else if (U_BY_NUMBER[h.toUpperCase()]) uGoto(U_BY_NUMBER[h.toUpperCase()].n, false);
   });
 
   let uTimer = null;
   document.getElementById('usneseni-search').addEventListener('input', () => { clearTimeout(uTimer); uTimer = setTimeout(uApply, 150); });
-  // volby filtrů se pamatují v hashi: #nedulezite (= nedůležitá zobrazena), #neprijata (= nepřijatá zobrazena),
-  // lze spojit (#nedulezite,neprijata); bez hashe jsou obojí skrytá; hash #UR-… je odkaz na usnesení
+  // volby se pamatují v hashi: #nedulezite (= nedůležitá zobrazena), #neprijata (= nepřijatá zobrazena),
+  // #RRRR-MM (vybraný měsíc), lze spojit (#nedulezite,2025-03); bez hashe jsou obojí skrytá a vybraný je nejnovější měsíc;
+  // hash #UR-… je odkaz na usnesení
   function uParseHash(h){
     const parts = (h || '').split(',').filter(Boolean);
-    if (!parts.length || !parts.every(x => x === 'nedulezite' || x === 'neprijata')) return null;
-    return [!parts.includes('nedulezite'), !parts.includes('neprijata')];
+    if (!parts.length || !parts.every(x => x === 'nedulezite' || x === 'neprijata' || /^\d{4}-\d{2}$/.test(x))) return null;
+    return [!parts.includes('nedulezite'), !parts.includes('neprijata'), parts.find(x => /^\d/.test(x)) || ''];
+  }
+  function uUseHash(hf){     // použije výsledek uParseHash (nebo výchozí stav)
+    const [nedul, nepr, ym] = hf || [true, true, ''];
+    U_YM = ym;
+    U_YM_PICKED = !!ym;
+    uSetFilters(nedul, nepr, true);
+  }
+  function uWriteHash(){
+    const h = [U_SKRYT_NEDUL ? '' : 'nedulezite', U_SKRYT_NEPR ? '' : 'neprijata', U_YM_PICKED ? U_YM : ''].filter(Boolean).join(',');
+    history.replaceState(null, '', location.pathname + location.search + (h ? '#' + h : ''));
   }
   function uSetFilters(nedul, nepr, bezHashe){
     U_SKRYT_NEDUL = nedul;
     U_SKRYT_NEPR = nepr;
-    if (!bezHashe) {
-      const h = [nedul ? '' : 'nedulezite', nepr ? '' : 'neprijata'].filter(Boolean).join(',');
-      history.replaceState(null, '', location.pathname + location.search + (h ? '#' + h : ''));
-    }
     document.getElementById('usneseni-nedul').checked = nedul;
     document.getElementById('usneseni-nepr').checked = nepr;
     uApply();
+    if (!bezHashe) uWriteHash();
   }
   document.getElementById('usneseni-nedul').addEventListener('change', e => uSetFilters(e.target.checked, U_SKRYT_NEPR));
   document.getElementById('usneseni-nepr').addEventListener('change', e => uSetFilters(U_SKRYT_NEDUL, e.target.checked));

@@ -82,7 +82,7 @@
 <main>
   <section class="panel active" id="panel-jednani">
     <h2 class="title display">Jednání a usnesení</h2>
-    <p class="lastmod" data-date="2026-11-08">Poslední kontrola: 8. 11. 2026</p>
+    <p class="lastmod" data-date="2026-11-10">Poslední kontrola: 10. 11. 2026</p>
     <p class="lede perex" id="jednani-stats">Tady najdete jednání rady města, zastupitelstva, výborů, komisí a školské rady. U každého je program, usnesení a výsledky hlasování. Stačí zadat slovo a zobrazí se, kde se o něm jednalo. Zdrojem dat je <a href="https://mesto-pecky.usneseni.cz/verejne/" target="_blank" rel="noopener">mesto-pecky.usneseni.cz/verejne</a>.</p>
 
     <div class="list-control">
@@ -532,11 +532,19 @@
   // + štítek se stavem, pak text; stav ukazuje i kroužek za názvem bodu
   // bez detail-stránky usnesení (nejnovější jednání ji v datech ještě nemají) odkazuje
   // na seznam usnesení celého jednání na usneseni.cz
+  // vnitřek rozbaleného usnesení: nadpis (úvod věty), text, blok hlasování se zdrojem a ikonou sdílení
+  function jResDetailHtml(r, m){
+    const href = r.url || (m && m.links && m.links.resolutions) || '';
+    return jResBodyHtml(r.text) + jVotesBlockHtml(r, r.vote_names, jOutcomeBadgeHtml(r), {url: href, label: jResLabel(r.n), share: r.n ? '/usneseni/insta.html#' + r.n : ''});
+  }
   function jRenderResItem(r, m){
     if (!r.text) return '';
-    const label = jResLabel(r.n);
-    const href = r.url || (m && m.links && m.links.resolutions) || '';
-    return `<div class="agenda-res"><div class="info-toggle-text" hidden>${jResBodyHtml(r.text)}${jVotesBlockHtml(r, r.vote_names, jOutcomeBadgeHtml(r), {url: href, label, share: r.n ? '/usneseni/insta.html#' + r.n : ''})}</div></div>`;
+    return `<div class="agenda-res"><div class="info-toggle-text" hidden>${jResDetailHtml(r, m)}</div></div>`;
+  }
+  // usnesení bez bodu programu (jednání bez programu, nepřiřazená usnesení): název bodu a pod ním stejný,
+  // vždy rozbalený blok jako u usnesení pod bodem programu
+  function jRenderResBlock(r, m){
+    return `<div class="res-orphan"><div class="res-orphan-item">${jLinkedText(r.item || jResLabel(r.n))}</div><div class="agenda-res"><div class="info-toggle-text">${jResDetailHtml(r, m)}</div></div></div>`;
   }
 
   // Návrh usnesení, který neprošel hlasováním — na rozdíl od m.resolutions
@@ -548,13 +556,6 @@
     return `<div class="agenda-res"><div class="info-toggle-text" hidden>${jResBodyHtml(rv.text)}${jVotesBlockHtml(rv, null, '<span class="tag res-outcome zamitnuto">Zamítnuto</span>')}</div></div>`;
   }
 
-  function jRenderResLine(r){
-    const label = jEscapeHtml(jResLabel(r.n));
-    const link = r.url
-      ? `<a class="hit-number" href="${r.url}" target="_blank" rel="noopener">${label}</a>`
-      : `<span class="hit-number">${label}</span>`;
-    return `<li>${jResInfoIcon(r)}${link} — ${jLinkedText(r.item || '')} ${jOutcomeBadgeHtml(r)}${jResInfoText(r)}</li>`;
-  }
 
   function jIsFutureMeeting(dateIso){
     const now = new Date();
@@ -631,7 +632,7 @@
     }
     if (!m.agenda || !m.agenda.length) {
       return m.resolutions.length
-        ? '<ul class="res-list">' + m.resolutions.map(jRenderResLine).join('') + '</ul>'
+        ? '<div class="res-orphans">' + m.resolutions.map(r => jRenderResBlock(r, m)).join('') + '</div>'
         : '<p class="lede" style="margin:8px 0;">Program ani usnesení k tomuto jednání nejsou zveřejněné.</p>';
     }
     const timedDurations = m.agenda.map(a => a.duration_seconds).filter(d => d != null);
@@ -658,7 +659,7 @@
     }).join('');
     const unmatched = m._unmatchedRes && m._unmatchedRes.length
       ? `<p class="lede lede-sm" style="margin:14px 0 4px;">Usnesení nešlo jednoznačně přiřadit k bodu programu:</p>
-         <ul class="res-list">${m._unmatchedRes.map(jRenderResLine).join('')}</ul>`
+         <div class="res-orphans">${m._unmatchedRes.map(r => jRenderResBlock(r, m)).join('')}</div>`
       : '';
     return `<ol class="agenda-list">${items}</ol>${unmatched}`;
   }
