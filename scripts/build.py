@@ -855,6 +855,15 @@ def _zm_hot(m):
     return f'<p class="banner-hot">🔥 Bude se jednat o {esc(text)}</p>'
 
 
+def _bez_cisel_usneseni(t):
+    """Pro sociální sítě: odstraní čísla usnesení (UR-377-40/22, UZ-35-6/26) z textu."""
+    c = r'U[ZR]-\d+-\d+/\d+'
+    t = re.sub(r'\s*\((?:úkol\s+)?' + c + r'\)', '', t)           # "(UR-1-2/24)" / "(úkol UR-…)"
+    t = re.sub(c + r'(?:\s+a\s+' + c + r')+', 'UZ-X', t)          # "UR-1 a UR-2" → jeden zástupný znak
+    t = re.sub(r'\s*,?\s*(?:úkol(?:u)?\s+)?(?:' + c + r'|UZ-X)', '', t)   # holé číslo v textu
+    return re.sub(r'\s{2,}', ' ', t).strip()
+
+
 def _jednani_temata(m, zapis=False):
     """Výběr témat jednání Rady/ZM (markdown s `**tučným**`): blok „Nejdůležitější témata“
     ze souboru shrnutí, jinak (bez zápisu) program z pozvánky. Společné pro insta.json
@@ -873,7 +882,7 @@ def _zm_temata(m):
     if not pol:
         return ''
     # na Domů jen tučný název bodu, bez vysvětlivky za pomlčkou
-    nazvy = [re.match(r'\*\*(.+?)\*\*', t).group(1) if t.startswith('**') else t for t in pol]
+    nazvy = [re.match(r'\*\*(.+?)\*\*', t).group(1) if t.startswith('**') else t for t in map(_bez_cisel_usneseni, pol)]
     li = ''.join(f'<li><strong>{esc(n)}</strong></li>' for n in nazvy)
     return f'<ul class="banner-topics">{li}</ul>'
 
@@ -1111,7 +1120,7 @@ def _jednani_insta_json():
         pol = _jednani_temata(m, bool(zapis))
         if not pol:
             continue
-        li = ''.join('<li>' + _odkaz_parcely(_zvyrazni(re.sub(r'\*\*(.+?)\*\*', r'<strong>\1</strong>', esc(t)))) + '</li>' for t in pol)
+        li = ''.join('<li>' + _odkaz_parcely(_zvyrazni(re.sub(r'\*\*(.+?)\*\*', r'<strong>\1</strong>', esc(_bez_cisel_usneseni(t))))) + '</li>' for t in pol)
         out[f'{kdo}-{m["date"]}'] = {
             'druh': kdo, 'number': m.get('number'), 'year': m.get('year'), 'date': m['date'],
             'time': m.get('time') or '', 'venue': (m.get('venue') or '').split(',')[0].strip(),
@@ -1201,7 +1210,7 @@ def _dash_shrnuti(druh):
             continue
         if not pol:
             continue
-        li = ''.join('<li>' + _odkaz_parcely(_zvyrazni(re.sub(r'\*\*(.+?)\*\*', r'<strong>\1</strong>', esc(t)))) + '</li>' for t in pol)
+        li = ''.join('<li>' + _odkaz_parcely(_zvyrazni(re.sub(r'\*\*(.+?)\*\*', r'<strong>\1</strong>', esc(_bez_cisel_usneseni(t))))) + '</li>' for t in pol)
         if zapis:
             nota = ''
         elif budouci:
