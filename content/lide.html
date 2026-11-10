@@ -81,7 +81,7 @@
   // dřívější volební období zastupitelstva (mandát patří do období, v jehož mezích začal;
   // dnešní období je výchozí pohled, proto tu není)
   const L_TERMS = [
-    ['2026', 'Zastupitelstvo 2026–2030', '2026-01-01', '9999'],
+    ['2022', 'Zastupitelstvo 2022–2026', '2022-10-20', '2026-11-04'],
     ['2018', 'Zastupitelstvo 2018–2022', '2018-11-14', '2022-10-20'],
     ['2014', 'Zastupitelstvo 2014–2018', '2014-11-05', '2018-11-14']
   ];
@@ -341,10 +341,6 @@
   // pole list_org u mandátu (2014, 2018; prázdné = uskupení bez záznamu), jinak
   // poslední kandidátka před začátkem období
   function lPartyFor(p, term){
-    if (term[0] === '2026') {
-      const k = p._affs.find(a => a.role_type === 'kandidatka' && lJeZvolen(a) && a.from >= term[2]);
-      return k ? k._org : null;
-    }
     const m = p._affs.find(a => a.role_type === 'zastupitel' && a.from >= term[2] && a.from < term[3]);
     if (m && m.list_org !== undefined) return LIDE_DB.orgById[m.list_org] || null;
     const k = p._affs.filter(a => a.role_type === 'kandidatka' && a.from <= term[2])
@@ -359,9 +355,7 @@
     if (L_STATE.everyone) return lTermText(p);
     if (L_STATE.cand) return !!lCandAff(p, L_STATE.cand) && lTermText(p);
     const term = lTerm();
-    if (term) return p._affs.some(a => (term[0] === '2026'
-      ? (a.role_type === 'kandidatka' && lJeZvolen(a) && a.from >= term[2])
-      : (a.role_type === 'zastupitel' && a.from >= term[2] && a.from < term[3]))) && lTermText(p);
+    if (term) return p._affs.some(a => a.role_type === 'zastupitel' && a.from >= term[2] && a.from < term[3]) && lTermText(p);
     if (!lListed(p)) return false;
     if (L_STATE.open === p.id) return true;
     if (!lInScope(p)) return false;
@@ -552,16 +546,13 @@
     // uskupení na kartičce a řazení patří k vybranému období, ne k první kandidátce v pořadí
     db.people.forEach(p => {
       p._party = term ? lPartyFor(p, term) : p._party0;
-      // kdo dnes nemá funkci, má u zvolených 2026 stát „Kandidát do zastupitelstva 2026 (zvolen)“, ne kandidatura z roku 2022
-      const z = term && term[0] === '2026' && !(p._exec || p._mandate || p._office)
-        ? p._affs.find(a => a.role_type === 'kandidatka' && lJeZvolen(a) && a.from >= term[2]) : null;
-      p._displayRole = z ? z.role : p._displayRole0;
+      p._displayRole = p._displayRole0;
     });
     const shown = db.people.filter(lMatches);
     if (term) {
       const members = shown.sort(lSortParty);
       host.innerHTML = notice + (members.length
-        ? lGroup(term[1], members, term[0] === '2026' ? 'Zvolení ve volbách 2026. Mandát vznikne až ustavujícím zasedáním zastupitelstva, na kterém zvolení složí slib. Seřazeno podle uskupení. Zdroj: výsledky voleb ČSÚ, viz sekce <a href="/volby/2026/">Volby 2026</a>.' : 'Všichni, kdo v období od ' + term[2].split('-').reverse().map(Number).join('. ') + ' do ' + term[3].split('-').reverse().map(Number).join('. ') + ' získali mandát zastupitele, včetně náhradníků. Seřazeno podle uskupení. Zdroj: seznam zastupitelů v Pečeckých novinách a výsledky voleb ČSÚ, viz sekce <a href="/volby/">Volby</a>.')
+        ? lGroup(term[1], members, 'Všichni, kdo v období od ' + term[2].split('-').reverse().map(Number).join('. ') + ' do ' + term[3].split('-').reverse().map(Number).join('. ') + ' získali mandát zastupitele, včetně náhradníků. Seřazeno podle uskupení. Zdroj: seznam zastupitelů v Pečeckých novinách a výsledky voleb ČSÚ, viz sekce <a href="/volby/">Volby</a>.')
         : '<div class="callout"><strong>Nikdo neodpovídá zadání.</strong> Zkus jiné slovo, nebo <button type="button" class="chip-clear" data-lide-clear>vymaž filtry</button>.</div>');
       lRenderStatus(shown, [], [], [], []);
       return;
@@ -698,7 +689,7 @@
         ? usedBodies.filter(b => b[0] !== 'zastupitelstvo').map(b => `<option value="organ:${jEscapeHtml(b[0])}">${jEscapeHtml(b[1])}</option>`).join('') : '';
       return opts || bodies ? `<optgroup label="${label}">${opts}${bodies}</optgroup>` : '';
     }).join('') +
-      '<optgroup label="Zastupitelstvo"><option value="">Zastupitelé</option>' +
+      '<optgroup label="Zastupitelstvo"><option value="">Zastupitelstvo 2026–2030</option>' +
       L_TERMS.map(x => `<option value="term:${x[0]}">${jEscapeHtml(x[1])}</option>`).join('') + '</optgroup>' +
       '<optgroup label="Nezvolení kandidáti">' + L_CAND_YEARS.map(y => `<option value="cand:${y}">Kandidáti ${y}</option>`).join('') + '</optgroup>' +
       '<option value="everyone">Všichni</option>';

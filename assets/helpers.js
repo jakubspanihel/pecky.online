@@ -24,7 +24,7 @@ function jHighlight(text, rawQuery){
   return html;
 }
 
-const J_TITLE_RE = /^(Ing\.|Mgr\.|Bc\.|MUDr\.|PhDr\.|JUDr\.|RNDr\.|MgA\.|PaedDr\.|Ph\.D\.|CSc\.|DiS\.|MSc\.|M\.Sc\.|MBA|MPA|arch\.|doc\.|prof\.)$/i;
+const J_TITLE_RE = /^(Ing\.|Mgr\.|Bc\.|MUDr\.|PhDr\.|JUDr\.|RNDr\.|MgA\.|PaedDr\.|Ph\.D\.|CSc\.|DiS\.|MSc\.|M\.Sc\.|MBA|MPA|arch\.|doc\.|prof\.|LL\.M\.|ml\.|st\.)$/i;
 function jInitials(name){
   const parts = (name || '').split(/[\s,]+/).filter(p => p && !J_TITLE_RE.test(p));
   if (!parts.length) return '?';
