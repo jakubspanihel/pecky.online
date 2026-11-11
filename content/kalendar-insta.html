@@ -11,10 +11,13 @@
     <div class="today-box" id="today-box">
       <h3 class="search-status" id="today-status"><span class="spinner" aria-hidden="true"></span>Načítám kalendář…</h3>
       <div class="today-card" id="today-card" hidden>
-        <b class="today-den" id="today-den"></b>
-        <span class="today-datum" id="today-datum"></span>
+        <div class="today-cara" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+        <div class="today-hlavicka">
+          <b class="today-den" id="today-den"></b>
+          <span class="today-datum" id="today-datum"></span>
+        </div>
         <ul class="today-seznam" id="today-seznam" contenteditable="true" spellcheck="false" aria-label="Seznam akcí, po kliknutí jde upravit"></ul>
-        <span class="today-pata">DoPecek.cz/kalendar</span>
+        <span class="today-pata">Celý kalendář na <span class="today-url">dopecek.cz/kalendar</span></span>
       </div>
     </div>
       <div class="today-akce">
@@ -24,11 +27,10 @@
           </div>
           <div class="today-format" role="group" aria-label="Formát obrázku">
             <button type="button" class="today-format-btn" data-f="1:1" aria-pressed="false" title="Čtverec, 1080 × 1080 px">1:1</button>
-            <button type="button" class="today-format-btn" data-f="4:5" aria-pressed="true" title="Na výšku, 1080 × 1350 px">4:5</button>
+            <button type="button" class="today-format-btn" data-f="4:5" aria-pressed="false" title="Na výšku, 1080 × 1350 px">4:5</button>
             <button type="button" class="today-format-btn" data-f="3:4" aria-pressed="false" title="Vysoký, 1080 × 1440 px">3:4</button>
-            <button type="button" class="today-format-btn" data-f="9:16" aria-pressed="false" title="Story / Reels, 1080 × 1920 px">9:16</button>
+            <button type="button" class="today-format-btn" data-f="9:16" aria-pressed="true" title="Story / Reels, 1080 × 1920 px">9:16</button>
           </div>
-          <button type="button" class="today-barva today-nahodne" id="today-nahodne" aria-label="Náhodná kombinace barev" title="Náhodné barvy"></button>
         </div>
         <div class="today-akce-tl">
           <button type="button" class="today-uloz-btn" id="today-uloz">Uložit ...</button>
@@ -46,45 +48,41 @@
     body{padding-top:0;}   /* bez hlavičky: odsazení pod hlavičku z styles.css by přidalo zbytečný scroll */  /* bez zoomu dvojitým klepnutím */
     main{max-width:none; margin:0; padding:0;}
     #panel-today{position:static; display:flex; align-items:center; justify-content:center; min-height:100vh; min-height:100dvh; box-sizing:border-box; padding:110px 0 190px;}
-    .today-frame{position:relative; flex:none; --k0:.74; --k:.9; box-sizing:border-box; width:327px; aspect-ratio:var(--pomer,4 / 5); margin:12px; padding:10px; background:var(--ink);}  /* poměr 4:5 jako Instagram (export 1080 × 1350) */
-    /* pozadí rámu kontrastuje s barvou karty (všechno barvy projektu) */
-    .today-frame.t-yellow{background:var(--burgundy);}
-    .today-frame.t-white{background:var(--cyan);}
-    .today-frame.t-burgundy{background:var(--yellow);}
-    .today-frame.t-cyan{background:var(--slate);}
-    .today-frame.t-field{background:var(--yellow);}
-    .today-frame.t-ink{background:var(--yellow);}
+    .today-frame{position:relative; flex:none; --k0:.74; --k:.9; box-sizing:border-box; width:327px; aspect-ratio:var(--pomer,9 / 16); margin:12px; padding:0; background:var(--ink);}  /* výchozí poměr 9:16 (Story / Reels, export 1080 × 1920) */
+    .today-frame{background:var(--cyan);}
     .today-frame-popisek{position:absolute; left:0; bottom:100%; margin-bottom:12px; white-space:nowrap; font:600 18px/1 var(--font-body); color:#D63FD6; pointer-events:none;}
-    .today-box{position:relative; z-index:1; width:100%; height:100%; color:var(--ink);}
+    .today-box{position:relative; z-index:1; width:100%; height:100%; color:var(--ink); display:flex; flex-direction:column;}
     .today-box .search-status{margin:0; color:#fff;}
     .today-card{
-      --t-bg:var(--yellow); --t-den:var(--cyan); --t-datum:var(--ink); --t-text:var(--ink); --t-chip-bg:var(--ink); --t-chip-fg:#fff;
-      box-sizing:border-box; width:100%; height:100%; display:flex; flex-direction:column; align-items:flex-start;
-      padding:calc(22px * var(--k0)) calc(22px * var(--k0)) calc(14px * var(--k0)); border-radius:calc(16px * var(--k0)); background:var(--t-bg);
+      --t-bg:var(--material); --t-den:var(--material); --t-datum:var(--material); --t-text:var(--burgundy); --t-chip-bg:var(--ink); --t-chip-fg:#fff;
+      box-sizing:border-box; width:100%; flex:1; min-height:0; display:flex; flex-direction:column; align-items:stretch;
+      padding:0 0 calc(14px * var(--k0)); background:var(--t-bg); overflow:hidden;   /* kroužky nepřesahují přes horní okraj karty */
     }
     .today-card[hidden]{display:none;}
-    .today-card.t-white{--t-bg:#fff; --t-den:var(--burgundy); --t-datum:var(--cyan); --t-chip-bg:var(--cyan); --t-chip-fg:var(--ink);}
-    .today-card.t-burgundy{--t-bg:var(--burgundy); --t-den:#fff; --t-datum:rgba(255,255,255,.85); --t-text:#fff; --t-chip-bg:#fff; --t-chip-fg:var(--ink); }
-    .today-card.t-cyan{--t-bg:var(--cyan); --t-den:#fff; --t-datum:var(--ink); --t-text:var(--ink); --t-chip-bg:var(--ink); --t-chip-fg:#fff;}
-    .today-card.t-field{--t-bg:var(--field); --t-den:var(--yellow); --t-datum:#fff; --t-text:#fff; --t-chip-bg:#fff; --t-chip-fg:var(--ink);}
-    .today-card.t-ink{--t-bg:var(--ink); --t-den:var(--yellow); --t-datum:#fff; --t-text:#fff; --t-chip-bg:#fff; --t-chip-fg:var(--ink);}
-    .today-den{font:700 calc(66px * var(--k0))/1 var(--font-banner); color:var(--t-den); margin-top:calc(6px * var(--k0)); letter-spacing:-.01em;}
-    .today-datum{font:700 calc(52px * var(--k0))/1 var(--font-banner); color:var(--t-datum); margin-top:calc(-11px * var(--k0));}
+    .today-cara{flex:none; position:relative; z-index:1; height:20px; margin:-10px 0; display:flex; justify-content:space-evenly;}
+    .today-cara i{width:14px; height:20px; border-radius:7px; background:var(--material);}
+    .today-hlavicka{display:flex; flex-direction:column; align-items:flex-start; text-align:left; background:var(--burgundy); padding:calc(30px * var(--k0) + 20px) calc(14px * var(--k0)) calc(16px * var(--k0));}
+    .today-den{font:700 calc(50px * var(--k0))/1 var(--font-banner); color:var(--t-den); margin-top:0; letter-spacing:-.01em;}
+    .today-datum{font:700 calc(30px * var(--k0))/1 var(--font-banner); color:var(--t-datum); margin-top:calc(2px * var(--k0));}
     .today-seznam{
-      list-style:disc; margin:auto 0 calc(18px * var(--k0)); padding:calc(14px * var(--k0)) 0 0 calc(22px * var(--k0)); width:100%; box-sizing:border-box; overflow:auto;
-      font:700 calc(16px * var(--k))/1.25 var(--font-body); color:var(--t-text);
+      list-style:none; margin:0 0 calc(18px * var(--k0)); padding:calc(14px * var(--k0)) 0 0; width:100%; box-sizing:border-box; overflow:auto;
+      font:400 calc(16px * var(--k))/1.25 var(--font-body); color:var(--t-text);
     }
     .today-seznam{min-height:1.4em; cursor:text;}
-    .today-seznam:focus{outline:1px dashed var(--t-text); outline-offset:4px;}
-    .today-seznam li{margin:0 0 calc(6px * var(--k0)); padding-left:2px;}
-    .today-seznam li::marker{color:var(--t-text);}
-    .today-seznam li span{color:var(--t-text);}
-    /* barvy pořadatelů jen na světlém podkladu, kde mají dost kontrastu */
-    .today-card.t-yellow .today-seznam li span, .today-card.t-white .today-seznam li span{color:var(--org-c, var(--t-text));}
-    .today-seznam .prazdno{list-style:none; margin-left:-20px;}
-    .today-pata{align-self:flex-end; display:flex; align-items:center; gap:calc(4px * var(--k0)); font:700 calc(13px * var(--k0))/1 var(--font-body); color:var(--t-text);}
+    .today-seznam:focus{outline:1px dashed var(--t-text); outline-offset:-3px;}
+    .today-seznam li{margin:0 calc(14px * var(--k0)); padding:calc(8px * var(--k0)) 0; border-bottom:1px solid rgba(0,0,0,.18);}
+    .today-seznam li:last-child{border-bottom:none;}
+    .today-seznam li{display:flex; align-items:flex-start; gap:calc(8px * var(--k0));}   /* čas / bulleta vlevo, název a místo vedle sebe (nepodtékají) */
+    .today-seznam .ev-telo{flex:1; min-width:0;}
+    .today-seznam li:has(.ev-cas) .ev-telo>span:first-child{font-weight:700;}   /* název akce se zadaným časem tučně */
+    .today-seznam .ev-misto{display:block; margin-top:calc(2px * var(--k0)); font-size:.85em; color:rgba(0,0,0,.6);}
+    .today-seznam li span{color:rgba(0,0,0,.8);}
+    .today-seznam .ev-cas{display:inline-block; box-sizing:content-box; min-width:4.6ch; text-align:center; font-variant-numeric:tabular-nums; padding:0 calc(6px * var(--k0)); flex:none; border-radius:calc(5px * var(--k0)); background:var(--org-c-bg,var(--material-deep)); color:var(--org-c,var(--ink)); font-weight:700;}
+    .today-seznam .ev-bullet{display:inline-block; width:calc(9px * var(--k0)); height:calc(9px * var(--k0)); flex:none; margin-top:calc(.5em); border-radius:50%; background:var(--org-c,var(--ink-soft));}
+    .today-seznam .prazdno{background:transparent; padding-left:calc(14px * var(--k0));}
+    .today-url{color:var(--cyan-deep); text-decoration:underline;}
+    .today-pata{align-self:flex-end; margin:auto calc(14px * var(--k0)) 0 0; display:flex; align-items:center; gap:calc(4px * var(--k0)); font:700 calc(13px * var(--k0))/1 var(--font-body); color:var(--t-text);}
     .today-barvy{position:absolute; bottom:100%; left:0; right:0; margin-bottom:40px; display:flex; justify-content:center; gap:12px;}
-    .today-barva{width:28px; height:28px; padding:0; border-radius:50%; border:2px solid rgba(255,255,255,.55); cursor:pointer;}
     .today-format{position:absolute; right:0; bottom:100%; margin-bottom:7px; display:flex;}
     .today-format-btn{min-width:56px; height:28px; padding:0 14px; border:1px solid rgba(255,255,255,.55); border-right-width:0; background:transparent; color:#fff; font:700 13px/1 var(--font-body); cursor:pointer;}
     .today-format-btn:first-child{border-radius:99px 0 0 99px;}
@@ -102,12 +100,6 @@
     .today-pismo-btn{min-width:34px; height:26px; padding:0 8px; border-radius:99px; border:1px solid rgba(255,255,255,.55); background:transparent; color:#fff; font:700 13px/1 var(--font-body); cursor:pointer;}
     .today-pismo-btn:hover{border-color:#fff; background:rgba(255,255,255,.12);}
     .today-barvy-cara{width:1px; align-self:stretch; background:rgba(255,255,255,.35);}
-    .today-pismo .today-barva{width:26px; height:26px; flex:none;}
-    .today-radek .today-nahodne, .today-radek .today-nahodne:hover, .today-radek .today-nahodne[aria-pressed]{width:26px; height:26px; flex:none; border:0; box-shadow:none; margin-left:8px;}
-    .today-nahodne{background:conic-gradient(red, yellow, lime, aqua, blue, magenta, red);}
-    .today-barva:hover{border-color:#fff;}
-    .today-barva[aria-pressed="true"]{border-color:#fff; box-shadow:0 0 0 2px var(--ink), 0 0 0 4px #fff;}
-    .today-barva:focus-visible{outline:2px solid var(--cyan); outline-offset:3px;}
     .today-akce{position:absolute; top:100%; left:0; right:0; margin-top:16px;}
     .today-akce-tl{display:flex; gap:10px; justify-content:center;}
     .today-stav{display:block; margin-top:10px; text-align:center; font:400 13px/1.3 var(--font-body); color:#fff; min-height:1.3em;}
@@ -127,20 +119,8 @@
   const kalIso = d => `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
   const KAL_HASH = (location.hash.match(/^#(\d{4}-\d{2}-\d{2})$/) || [])[1];
   let KAL_DNES = KAL_HASH || kalIso(KAL_NOW);   // zobrazený den (#RRRR-MM-DD z odkazu); šipky ho posouvají o den
-  let KAL_RUCNE = false;            // true po ruční volbě barvy: pak se barva při změně dne nemění
   let KAL_EVENTS = [];
-  let KAL_TEMA = '';   // barva karty: výchozí se střídá po dnech, kolečka ji přepíšou
 
-  function kalNastavTema(t){
-    KAL_TEMA = t;
-    const card = document.getElementById('today-card'), frame = document.querySelector('.today-frame');
-    card.className = 'today-card t-' + t;
-    frame.className = 'today-frame t-' + t;
-    if (t !== 'random') { card.removeAttribute('style'); frame.style.removeProperty('background'); }
-    document.querySelectorAll('.today-barva').forEach(b => b.setAttribute('aria-pressed', b.dataset.t === t ? 'true' : 'false'));
-    document.getElementById('today-nahodne').setAttribute('aria-pressed', 'false');
-  }
-  document.querySelectorAll('.today-barva[data-t]').forEach(b => b.addEventListener('click', () => { KAL_RUCNE = true; kalNastavTema(b.dataset.t); }));
 
   // velikost písma seznamu akcí: jedno tlačítko, každé kliknutí přepne na další velikost (proměnná --k na rámu)
   const KAL_VELIKOSTI = [0.75, 0.9, 1.05];
@@ -153,7 +133,7 @@
 
   // formáty obrázku: poměr stran rámu a rozlišení exportu (Instagram)
   const KAL_FORMATY = {'1:1': [1080, 1080], '4:5': [1080, 1350], '3:4': [1080, 1440], '9:16': [1080, 1920]};
-  let KAL_FORMAT = '4:5';
+  let KAL_FORMAT = '9:16';
   document.querySelectorAll('.today-format-btn').forEach(b => b.addEventListener('click', () => {
     KAL_FORMAT = b.dataset.f;
     const [w, h] = KAL_FORMATY[KAL_FORMAT];
@@ -225,30 +205,6 @@
     b.disabled = false;
   });
 
-  // náhodná kombinace jen z barev projektu; text ≥ 4,5 : 1, nadpis a datum ≥ 3 : 1, rám odlišný od karty (≥ 1,6 : 1)
-  function kalNahodneBarvy(){
-    const css = getComputedStyle(document.documentElement);
-    const pal = ['--yellow', '--burgundy', '--burgundy-deep', '--cyan', '--cyan-deep', '--field', '--slate', '--slate-deep', '--ink', '--material']
-      .map(v => css.getPropertyValue(v).trim()).filter(c => /^#[0-9a-f]{6}$/i.test(c)).concat('#FFFFFF');
-    const lum = c => {
-      const k = [1, 3, 5].map(i => parseInt(c.substr(i, 2), 16) / 255).map(v => v <= 0.03928 ? v / 12.92 : Math.pow((v + 0.055) / 1.055, 2.4));
-      return 0.2126 * k[0] + 0.7152 * k[1] + 0.0722 * k[2];
-    };
-    const kontrast = (a, b) => { const x = lum(a), y = lum(b); return (Math.max(x, y) + 0.05) / (Math.min(x, y) + 0.05); };
-    const vyber = a => a[Math.floor(Math.random() * a.length)];
-    let bg, text;
-    do { bg = vyber(pal); text = pal.filter(c => kontrast(c, bg) >= 4.5); } while (!text.length);
-    const nadp = pal.filter(c => kontrast(c, bg) >= 3);
-    const inkBg = css.getPropertyValue('--ink').trim().toLowerCase();   // rám v barvě pozadí stránky by splynul se stránkou
-    const ram = pal.filter(c => c !== bg && c.toLowerCase() !== inkBg && kontrast(c, bg) >= 1.6);
-    const t = vyber(text), den = vyber(nadp), datum = vyber(nadp);
-    const card = document.getElementById('today-card'), frame = document.querySelector('.today-frame');
-    KAL_RUCNE = true;
-    kalNastavTema('random');
-    card.setAttribute('style', `--t-bg:${bg};--t-den:${den};--t-datum:${datum};--t-text:${t};--t-chip-bg:${t};--t-chip-fg:${bg};}`);
-    frame.style.background = vyber(ram.length ? ram : pal.filter(c => c !== bg && c.toLowerCase() !== inkBg));
-    document.getElementById('today-nahodne').setAttribute('aria-pressed', 'true');
-  }
   // text seznamu se upravuje přímo na kartě (kliknutím); vkládá se jen prostý text
   document.getElementById('today-seznam').addEventListener('paste', ev => {
     ev.preventDefault();
@@ -260,18 +216,14 @@
     x.setDate(x.getDate() + dny);
     KAL_DNES = kalIso(x);
     kalRenderDnes();
-    kalNahodnaTema();
   }
-  // při změně dne se vybere náhodná z šesti barev, jiná než právě zobrazená
-  function kalNahodnaTema(){
-    const temata = ['yellow', 'white', 'burgundy', 'cyan', 'field', 'ink'].filter(t => t !== KAL_TEMA);
-    KAL_RUCNE = true;
-    kalNastavTema(temata[Math.floor(Math.random() * temata.length)]);
-  }
+  window.addEventListener('hashchange', () => {
+    const h = (location.hash.match(/^#(\d{4}-\d{2}-\d{2})$/) || [])[1];
+    if (h && h !== KAL_DNES && typeof KAL_EVENTS !== 'undefined' && KAL_EVENTS.length) { KAL_DNES = h; kalRenderDnes(); }
+  });
   document.getElementById('today-predchozi').addEventListener('click', () => kalPosun(-1));
   document.getElementById('today-dalsi').addEventListener('click', () => kalPosun(1));
-  document.getElementById('today-dnes').addEventListener('click', () => { KAL_DNES = kalIso(new Date()); kalRenderDnes(); kalNahodnaTema(); });
-  document.getElementById('today-nahodne').addEventListener('click', kalNahodneBarvy);
+  document.getElementById('today-dnes').addEventListener('click', () => { KAL_DNES = kalIso(new Date()); kalRenderDnes(); });
   // swipe na mobilu: doleva = další den, doprava = předchozí den (převážně vodorovné gesto ≥ 50 px)
   (function(){
     const frame = document.querySelector('.today-frame');
@@ -322,22 +274,27 @@
   function kalEsc(s){
     return (s || '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
   }
-  // CSS proměnné barvy pořadatele (--org-<id> generuje build z organizations.json)
-  function kalOrgStyle(id){
-    if (!id) return '';
-    const s = kalEsc(id);
-    return `--org-c:var(--org-${s});--org-c-bg:var(--org-${s}-bg);--chip:var(--org-${s});`;
+  function kalMistoBezAdresy(place){
+    const obce = /^(Pečky|Velké Chvalovice|Dobřichov)$/;
+    const casti = place
+      .replace(/\s*\([^)(,]*\d+[a-z]?\)/g, '')   // "(Sokolská 330)"
+      .replace(/,\s*[^,()]*\d+[a-z]?\)/g, ')')    // "(prezentace v hale, Barákova 1039)"
+      .split(/,\s*(?![^(]*\))/).map(x => x.trim()).filter(Boolean);
+    const jadro = casti.filter(c => {
+      if (/\(/.test(c)) return true;
+      if (/patro/i.test(c) || /^učebna/i.test(c)) return true;
+      return !(/\d/.test(c) || /\b(ul\.|tř\.)/i.test(c) || /^okres /i.test(c));
+    });
+    const bezObce = jadro.filter(c => !obce.test(c));
+    return (bezObce.length ? bezObce : jadro.length ? jadro : [place]).join(', ');
   }
   function kalRenderDnes(){
     const dny = ['neděle', 'pondělí', 'úterý', 'středa', 'čtvrtek', 'pátek', 'sobota'];
     const ds = KAL_DNES;
+    history.replaceState(null, '', '#' + ds);   // adresa vždy odpovídá zobrazenému dni (bez hashe se doplní dnešek)
     const x = new Date(ds + 'T12:00:00');
     document.getElementById('today-den').textContent = dny[x.getDay()][0].toUpperCase() + dny[x.getDay()].slice(1);
     document.getElementById('today-datum').textContent = `${x.getDate()}. ${x.getMonth() + 1}.`;
-    // barevná varianta se střídá po dnech (13. 10. 2026 = žlutá, 14. 10. bílá, 15. 10. bordó)
-    const n = Math.round((Date.UTC(x.getFullYear(), x.getMonth(), x.getDate()) - Date.UTC(2026, 9, 13)) / 864e5);
-    if (!KAL_RUCNE) kalNastavTema(['yellow', 'white', 'burgundy'][((n % 3) + 3) % 3]);
-
     const vice = e => e.date_end && e.date_end !== e.date;
     // pravidelné tréninky a kurzy (category „kurz“) se na kartě nezobrazují, stejně jako ve výchozím pohledu „3 dny“
     const evs = KAL_EVENTS.filter(e => e.category !== 'kurz' && e.date <= ds && (e.date_end || e.date) >= ds)
@@ -348,12 +305,17 @@
         const konecMesice = new Date(k.getFullYear(), k.getMonth() + 1, 0).getDate() === k.getDate();
         return konecMesice ? ' (do konce měsíce)' : ` (do ${k.getDate()}. ${k.getMonth() + 1}.)`;
       }
-      return e.time ? ` (od ${kalEsc(e.time).replace(/^0/, '')})` : '';
+      return '';
+    };
+    // čas (jen u jednodenních akcí) před názvem, v samostatném štítku v barvě pořadatele
+    const cas = e => {
+      const o = e.organizer ? `;--org-c:var(--org-${e.organizer});--org-c-bg:var(--org-${e.organizer}-bg)` : '';
+      if (vice(e) || !e.time || e.all_day) return `<span class="ev-bullet" style="${o.slice(1)}"></span>`;   // bez času: bulleta v barvě pořadatele
+      return `<span class="ev-cas" style="${o.slice(1)}">${kalEsc(e.time).replace(/^0/, '')}</span>`;
     };
     document.getElementById('today-seznam').innerHTML = evs.length
       ? evs.map(e => {
-          const barva = e.organizer ? ` style="${kalOrgStyle(e.organizer)}"` : '';
-          return `<li><span${barva}>${kalIkona(e)}${kalEsc(e.title)}${dodatek(e)}</span></li>`;
+          return `<li>${cas(e)}<div class="ev-telo"><span>${kalIkona(e)}${kalEsc(e.title)}${dodatek(e)}</span>${e.place ? `<span class="ev-misto">${kalEsc(kalMistoBezAdresy(e.place))}</span>` : ''}</div></li>`;
         }).join('')
       : '<li class="prazdno">Žádné akce</li>';
   }
