@@ -58,7 +58,7 @@ se sem, na stránku samotnou se nic ručně nepíše.
 
 | Sekce | Režim | Kontrola | Změna | Co naposledy |
 |---|---|---|---|---|
-| [O webu](o-webu/README.md) | týdně | 11. 11. 2026 | 11. 11. 2026 | Sociální sítě (druhá kontrola 11. 11. 2026): streetpeopleofpecky na Instagramu +2 sledující (1 195), nová aktivita u Hostince „U Stříkačky“ (11. 11. 2026); zhlédnutí záznamů zastupitelstva beze změny (9 954) |
+| [O webu](o-webu/README.md) | týdně | 11. 11. 2026 | 11. 11. 2026 | Sociální sítě (kontrola 11. 11. 2026, odpoledne): skupina Pravoslavná obec +3 členové (364), streetpeopleofpecky −1 sledující (1 194); nová aktivita u Vinotéky Pečky, ODS a nezávislí a ZŠ Pečky (11. 11. 2026); zhlédnutí záznamů zastupitelstva 9 959 (+5) |
 | [Na oběd](naobed/README.md) | denně | 11. 11. 2026 | 11. 11. 2026 | nové menu 11. 11. 2026 u U Marka, Siňority a U Stříkačky; školní jídelna už má dnešní jídelníček |
 | [Kalendář](kalendar/README.md) | týdně | 11. 11. 2026 | 11. 11. 2026 | přidány 4 akce: vánoční koncert žáků ZUŠ 15. 12., vánoční koncert Small Bandu 18. 12. a Tak trochu vánoční keramika ve Vzdělávacím centru 14. 11. a 5. 12. |
 | [Jednání](jednani/README.md) | týdně | 10. 11. 2026 | 10. 11. 2026 | ustavující ZM 8/2026 (4. 11. 2026): doplněn zápis a 35 usnesení (UZ-51 až UZ-85-8/26) vč. jmenovitého hlasování, shrnutí; RM 40/2026 (9. 11. 2026) zatím jen pozvánka; zhlédnutí záznamů ZM na YouTube 9 950 u 34 záznamů |
