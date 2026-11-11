@@ -1475,7 +1475,7 @@ def _noviny_insta_banner():
     h = _dash_noviny()
     h = re.sub(r'(<h3 class="banner-title">).*?(</h3>)', lambda m: m.group(1) + esc(ed['label']) + m.group(2), h, count=1)
     h = re.sub(r'<p class="banner-text">.*?</p>', f'<p class="banner-text">{len(editions)} čísel v archivu</p>', h, count=1, flags=re.S)
-    return h[:-len('</div>')] + '<span class="ji-pata">DoPecek.cz/noviny</span></div>'
+    return h[:-len('</div>')] + '<span class="ji-pata"><span class="pata-nova">Celý archiv na <span class="ji-url">dopecek.cz/noviny</span></span><span class="pata-stara">DoPecek.cz/noviny</span></span></div>'
 
 
 def _dash_zmeny():

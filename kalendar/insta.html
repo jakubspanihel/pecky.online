@@ -146,12 +146,12 @@
     /* nový vzhled (9:16) */
     .today-frame[data-vzhled="novy"] .pata-stara{display:none;}
     .today-frame[data-vzhled="novy"] .today-card{
-      --t-bg:var(--material); --t-den:var(--material); --t-datum:var(--material); --t-text:var(--burgundy);
+      --t-bg:var(--material); --t-den:var(--yellow); --t-datum:var(--yellow); --t-text:var(--burgundy);
       align-items:stretch; padding:0 0 calc(14px * var(--k0)); border-radius:0; overflow:hidden;   /* kroužky nepřesahují přes horní okraj karty */
     }
     .today-cara{flex:none; position:relative; z-index:1; height:20px; margin:-10px 0; display:flex; justify-content:space-evenly;}
     .today-cara i{width:14px; height:20px; border-radius:7px; background:var(--material);}
-    .today-hlavicka{display:flex; flex-direction:column; align-items:flex-start; text-align:left; background:var(--burgundy); padding:calc(30px * var(--k0) + 38px) calc(14px * var(--k0)) calc(16px * var(--k0));}
+    .today-hlavicka{display:flex; flex-direction:column; align-items:flex-start; text-align:left; background:var(--cyan-deep); padding:calc(30px * var(--k0) + 38px) calc(14px * var(--k0)) calc(16px * var(--k0));}
     .today-frame[data-vzhled="novy"] .today-den{font:700 calc(50px * var(--k0))/1 var(--font-banner); color:var(--t-den); margin-top:0; letter-spacing:-.01em;}
     .today-frame[data-vzhled="novy"] .today-datum{font:700 calc(30px * var(--k0))/1 var(--font-banner); color:var(--t-datum); margin-top:calc(2px * var(--k0));}
     .today-frame[data-vzhled="novy"] .today-seznam{
@@ -169,8 +169,8 @@
     .today-frame[data-vzhled="novy"] .today-seznam .ev-cas{display:inline-block; box-sizing:content-box; min-width:4.6ch; text-align:center; font-variant-numeric:tabular-nums; padding:0 calc(6px * var(--k0)); flex:none; border-radius:calc(5px * var(--k0)); background:var(--org-c-bg,var(--material-deep)); color:var(--org-c,var(--ink)); font-weight:700;}
     .today-frame[data-vzhled="novy"] .today-seznam .ev-bullet{display:inline-block; width:calc(9px * var(--k0)); height:calc(9px * var(--k0)); flex:none; margin-top:calc(.5em); border-radius:50%; background:var(--org-c,var(--ink-soft));}
     .today-frame[data-vzhled="novy"] .today-seznam .prazdno{background:transparent; padding-left:calc(14px * var(--k0));}
-    .today-url{color:var(--cyan-deep); text-decoration:underline;}
-    .today-frame[data-vzhled="novy"] .today-pata{align-self:flex-end; margin:auto calc(14px * var(--k0)) 0 0;}
+    .today-url{color:var(--cyan-deep); text-decoration:underline; font-weight:700;}
+    .today-frame[data-vzhled="novy"] .today-pata{align-self:flex-end; margin:auto calc(14px * var(--k0)) 0 0; color:var(--cyan-deep); font-weight:400;}
     .today-barvy{position:absolute; bottom:100%; left:0; right:0; margin-bottom:40px; display:flex; justify-content:center; gap:12px;}
     .today-format{position:absolute; right:0; bottom:100%; margin-bottom:7px; display:flex;}
     .today-format-btn{min-width:56px; height:28px; padding:0 14px; border:1px solid rgba(255,255,255,.55); border-right-width:0; background:transparent; color:#fff; font:700 13px/1 var(--font-body); cursor:pointer;}
@@ -192,10 +192,8 @@
     .today-akce{position:absolute; top:100%; left:0; right:0; margin-top:16px;}
     .today-akce-tl{display:flex; gap:10px; justify-content:center;}
     .today-stav{display:block; margin-top:10px; text-align:center; font:400 13px/1.3 var(--font-body); color:#fff; min-height:1.3em;}
-    .today-uloz-btn{white-space:nowrap; border:none; border-radius:0; background:var(--burgundy); color:#fff; font-family:var(--font-body); font-size:15px; font-weight:700; line-height:1; padding:12px 16px; cursor:pointer;}
-    .today-uloz-btn:hover{background:var(--burgundy-deep);}
-    #today-sdilet{background:color-mix(in srgb, var(--cyan) 55%, #fff); color:var(--ink);}
-    #today-sdilet:hover{background:color-mix(in srgb, var(--cyan) 70%, #fff);}
+    .today-uloz-btn{white-space:nowrap; border:1px solid #fff; border-radius:99px; background:transparent; color:#fff; font-family:var(--font-body); font-size:15px; font-weight:700; line-height:1; padding:12px 20px; cursor:pointer;}
+    .today-uloz-btn:hover{background:rgba(255,255,255,.12);}
     .today-uloz-btn:disabled{opacity:.6; cursor:wait;}
     a.overlay-close{display:inline-block; text-decoration:none;}
   </style>

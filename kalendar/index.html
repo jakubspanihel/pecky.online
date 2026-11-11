@@ -607,7 +607,7 @@
       const chip = rel && ['dnes', 'zítra', 'pozítří'].includes(rel)
         ? `<span class="tag ${rel === 'dnes' ? 'kal-dnes' : 'probiha'}" title="${ds}">${rel}</span>` : '';
       const den = dny[x.getDay()][0].toUpperCase() + dny[x.getDay()].slice(1);
-      return `<h4 class="akce-den${ds < KAL_TODAY_STR ? ' kal-den-minuly' : ''}" data-date="${ds}"><a class="akce-den-odkaz" href="/kalendar/insta.html#${ds}" title="Otevřít den jako obrázek pro Instagram"><b class="k3-den">${den}</b><span class="k3-datum">${x.getDate()}. ${x.getMonth() + 1}.</span>${chip}</a></h4>`;
+      return `<h4 class="akce-den${ds < KAL_TODAY_STR ? ' kal-den-minuly' : ''}" data-date="${ds}"><span class="akce-den-text"><b class="k3-den">${den}</b><span class="k3-datum">${x.getDate()}. ${x.getMonth() + 1}.</span>${chip}</span><a class="akce-den-share" href="/kalendar/insta.html#${ds}" title="Otevřít den jako obrázek pro sociální sítě" aria-label="Sdílet ${den.toLowerCase()} ${x.getDate()}. ${x.getMonth() + 1}. jako obrázek"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12v7a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-7"/><path d="M16 6l-4-4-4 4"/><path d="M12 2v13"/></svg></a></h4>`;
     }
     function karta(e, skupina){
       const vicedenni = e.date_end && e.date_end !== e.date;

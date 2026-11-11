@@ -1,7 +1,7 @@
   <a class="overlay-close" href="/usneseni/" aria-label="Zavřít a vrátit se na Usnesení">Zavřít</a>
 
   <section class="panel active" id="panel-today" aria-label="Usnesení pro sociální sítě">
-    <div class="today-frame" id="Frame">
+    <div class="today-frame" id="Frame" data-vzhled="puvodni">
       <div class="ji-nav">
         <div class="today-format" role="group" aria-label="Orgán">
           <button type="button" class="today-format-btn" data-druh="rada" aria-pressed="true">Rada</button>
@@ -15,11 +15,13 @@
       <div class="today-box">
         <h3 class="search-status" id="ji-status"><span class="spinner" aria-hidden="true"></span>Načítám usnesení…</h3>
         <div class="ji-card" id="ji-card" hidden>
-          <p class="ji-sub" id="ji-sub"></p>
-          <h3 class="ji-title" id="ji-title"></h3>
+          <div class="ji-hlavicka">
+            <p class="ji-sub" id="ji-sub"></p>
+            <h3 class="ji-title" id="ji-title"></h3>
+          </div>
           <div class="ji-text" id="ji-text" contenteditable="true" spellcheck="false" aria-label="Text usnesení, po kliknutí jde upravit"></div>
           <div class="ji-vote" id="ji-vote"></div>
-          <span class="ji-pata" id="ji-pata">DoPecek.cz/usneseni</span>
+          <span class="ji-pata" id="ji-pata"><span class="pata-nova">Všechna usnesení na <span class="ji-url">dopecek.cz/usneseni</span></span><span class="pata-stara">DoPecek.cz/usneseni</span></span>
         </div>
       </div>
       <div class="today-akce">
@@ -84,12 +86,32 @@
     .today-akce{position:absolute; top:100%; left:0; right:0; margin-top:16px;}
     .today-akce-tl{display:flex; gap:10px; justify-content:center;}
     .today-stav{display:block; margin-top:10px; text-align:center; font:400 13px/1.3 var(--font-body); color:#fff; min-height:1.3em;}
-    .today-uloz-btn{white-space:nowrap; border:none; border-radius:0; background:var(--burgundy); color:#fff; font-family:var(--font-body); font-size:15px; font-weight:700; line-height:1; padding:12px 16px; cursor:pointer;}
-    .today-uloz-btn:hover{background:var(--burgundy-deep);}
-    #today-sdilet{background:color-mix(in srgb, var(--cyan) 55%, #fff); color:var(--ink);}
-    #today-sdilet:hover{background:color-mix(in srgb, var(--cyan) 70%, #fff);}
+    .today-uloz-btn{white-space:nowrap; border:1px solid #fff; border-radius:99px; background:transparent; color:#fff; font-family:var(--font-body); font-size:15px; font-weight:700; line-height:1; padding:12px 20px; cursor:pointer;}
+    .today-uloz-btn:hover{background:rgba(255,255,255,.12);}
     .today-uloz-btn:disabled{opacity:.6; cursor:wait;}
     a.overlay-close{display:inline-block; text-decoration:none;}
+
+    /* vzhled pro 9:16 (Story / Reels) jako v Kalendáři: perforace, vysoká barevná hlavička, světlé tělo s položkami oddělenými čárou;
+       ostatní formáty zůstávají beze změny (atribut data-vzhled na rámu nastavuje přepínač formátu) */
+    .ji-hlavicka{display:contents;}
+    .ji-pata .pata-nova{display:none;}
+    .today-frame[data-vzhled="novy"]{padding:0; background:var(--material);}
+    .today-frame[data-vzhled="novy"] .ji-card{
+      background:var(--banner-from); color:#fff; padding:0 0 calc(14px * var(--k)); border-radius:0; align-items:stretch;
+    }
+    .today-frame[data-vzhled="novy"] .ji-hlavicka{display:flex; flex-direction:column; align-items:flex-start; text-align:left; background:transparent; padding:calc(30px * .82 + 38px) 14px calc(16px * .82);}
+    .today-frame[data-vzhled="novy"] .ji-pata{align-self:flex-end; margin:auto 14px 0 0; color:#fff; font-weight:400;}
+    .today-frame[data-vzhled="novy"] .ji-pata .pata-nova{display:inline;}
+    .today-frame[data-vzhled="novy"] .ji-pata .pata-stara{display:none;}
+    .today-frame[data-vzhled="novy"] .ji-title, .today-frame[data-vzhled="novy"] .ji-sub{color:#fff;}
+    .today-frame[data-vzhled="novy"] .ji-url{color:#fff; text-decoration:underline; font-weight:700;}
+    .today-frame[data-vzhled="novy"] .ji-sub{margin:0 0 calc(6px * .82); font:600 calc(18px * .82)/1.2 var(--font-body);}
+    .today-frame[data-vzhled="novy"] .ji-title{margin:0; font:600 calc(34px * .82)/1.1 var(--font-banner);}
+    .today-frame[data-vzhled="novy"] .ji-text{margin:0 14px; width:auto; padding-top:14px; color:#fff; font-size:calc(19px * var(--k));}
+    .today-frame[data-vzhled="novy"] .ji-text:focus{outline-offset:-3px;}
+    .today-frame[data-vzhled="novy"] .ji-text strong{color:inherit;}
+    .today-frame[data-vzhled="novy"] .ji-vote{margin:14px 14px 0; padding-top:calc(10px * var(--k)); border-top:1px solid rgba(255,255,255,.35); color:#fff;}
+    .today-frame[data-vzhled="novy"] .ji-vote .tag{background:transparent; border:0; padding:0; color:#fff;}   /* výsledek jako prostý text, ne štítek */
   </style>
 
 <script>
@@ -192,6 +214,7 @@
     JI_FORMAT = b.dataset.f;
     const [w, h] = JI_FORMATY[JI_FORMAT];
     document.getElementById('Frame').style.setProperty('--pomer', w + ' / ' + h);
+    document.getElementById('Frame').dataset.vzhled = JI_FORMAT === '9:16' ? 'novy' : 'puvodni';
     document.querySelectorAll('.today-format-btn[data-f]').forEach(x => x.setAttribute('aria-pressed', x === b ? 'true' : 'false'));
   }));
   document.getElementById('ji-text').addEventListener('paste', ev => {
