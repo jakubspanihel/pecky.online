@@ -19,7 +19,7 @@ Dokumentace neuvádí jinak. Tabulka je řazená podle URL:
 | Nejdelší body jednání | `/jednani/nejdelsi.html` | |
 | Odpracované hodiny zastupitelů | `/jednani/odpracovano.html` | |
 | Zhlédnutí záznamů zastupitelstva | `/jednani/youtube.html` | |
-| Kalendář | `/kalendar/` | `kalendar/README.md` (+ `automation-plakat-akce.md`) |
+| Kalendář | `/kalendar/` | `kalendar/README.md` (+ `automation-plakat-akce.md`, `automation-nove-akce.md`) |
 | Dnes v Pečkách | `/kalendar/insta.html` | |
 | Svoz odpadů | `/kalendar/svoz.html` | |
 | Lidé | `/lide/` | `lide/README.md` (+ `SPEC.md`; `people.json`/`organizations.json`/`affiliations.json`, kontrola `node lide/validate.mjs`) |

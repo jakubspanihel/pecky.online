@@ -250,55 +250,13 @@ mají novou aktivitu, které zůstávají dlouhodobě neaktivní. Nic
 nevymýšlet — číslo/datum, které web nezobrazí (např. stránka
 nedostupná), nechat beze změny a nahlásit jako mezeru.
 
-**Nové akce pro Kalendář (povinná součást každé kontroly, u VŠECH
-účtů):** hledání se dělá u **každého** účtu v seznamu bez výjimky —
-nepřeskakovat z důvodu rozsahu (50+ účtů) ani proto, že je účet dlouho
-neaktivní nebo „nepravděpodobný“. Čtení jen počtů a dat (krok 2) toto
-hledání nenahrazuje. Běh nelze ukončit ani hlásit „žádné nalezeny“,
-dokud nejsou projité všechny účty; ve výpisu uvést, kolik účtů bylo
-projito (např. „50 z 50“). **U každého Facebook účtu se kromě Událostí
-a příspěvků vždy projde i záložka Fotky** (`<profil>/photos`, u skupin
-`groups/<id>/media`): plakáty a pozvánky bývají jen jako obrázek bez
-textu v příspěvku a Události je mnoho organizátorů nezakládá (např. kurz
-Mozkový jogging v Pramínku, plakát z 2. 9. 2026, byl dohledán až z fotek).
-Čtou se fotky přidané od data poslední kontroly (řádek O webu ve „Stav
-sekcí“ v `README.md`), nejnovější první; plakát se čte vizuálně
-(`screenshot`), ne z textu příspěvku. Při prvním průchodu účtu, který
-ještě nikdy neprošel, nebo po vynechané kontrole delší než týden se čte
-celý archiv fotek ve směru od nejnovější do data poslední kontroly
-(u nového účtu aspoň posledních 6 měsíců). Do výpisu uvést počet účtů
-s projitými fotkami. Nepodaří-li se fotky otevřít (stěna, prázdná
-záložka), účet se ve výpisu nahlásí jako mezera, ne mlčky. Postup: při každé
-kontrole sociálních sítí
-u každého účtu aktivně hledej budoucí akce
-(plakát, pozvánka, Facebook Událost, příspěvek s konkrétním datem), které
-ještě nejsou v `kalendar/akce.json` — nejen si jich všímej mimochodem.
-Facebook: nejdřív `<profil>/events` → „Nadcházející", pak nejnovější
-příspěvky; Instagram: příspěvky otevřené kvůli datu (krok 2b) si rovnou
-prohlédni i obsahově. Nalezené akce zapiš podle
-`kalendar/automation-plakat-akce.md` (skill `DoPecek-kalendar-plakat`,
-i s výpisem změn) — týdenní kontrola Kalendáře ten skill stejně spouští.
-V hlášení vždy uveď jednou větou výsledek: vypiš nalezené akce (název,
-datum, pořadatel) a co se s nimi stalo, nebo výslovně „nové akce pro
-Kalendář: žádné nalezeny".
-
-**Změny provozu pro Kalendář (povinná součást každé kontroly, u VŠECH
-účtů):** kromě nových akcí hledej i příspěvky, které mění běžný provoz
-zdrojů, jež Kalendář generuje z pravidel: *zavřeno, uzavřen, mimořádná
-nebo změněná otevírací doba, posunutý/náhradní/zrušený svoz, odložená
-zkouška sirén, výpadek, uzavírka*. Bývají kolem státních svátků a
-prázdnin. Zvlášť pozorně projít **Pečecké služby**
-(`facebook.com/pececkesluzby`) a **Město Pečky**. Nalezenou změnu zapsat:
-- sběrný dvůr, zkouška sirén a další provozní doby → `exceptions[]`
-  v `kalendar/sberny-dvur.json` / `zkouska-siren.json` (termín zůstane,
-  název dostane „[zavřeno]“; schéma viz `kalendar/README.md` → „Provozní
-  doba: Sběrný dvůr“), doklad = odkaz na příspěvek v `url`;
-- svoz odpadu → `exceptions[]` u typu svozu v `kalendar/svoz-odpadu.json`
-  (stejné schéma, název dostane „[zrušeno!]“); mimořádný/náhradní svoz jako
-  samostatná akce podle `kalendar/README.md`;
-- pak `python3 kalendar/scripts/update-kalendar.py` (sync do Google sám).
-V hlášení uvést jednou větou výsledek, např. „změny provozu: sběrný dvůr
-zavřen 28. 10.“, nebo výslovně „změny provozu: žádné nalezeny“.
+**Akce a změny provozu pro Kalendář se v této rutině nehledají.** Hledá je
+samostatný běh podle `kalendar/automation-nove-akce.md` (skill
+`DoPecek-nove-akce-check`, vlastní naplánovaný úkol), protože je mnohem
+pomalejší a nevešel by se spolehlivě do jednoho běhu s kontrolou počtů.
+Narazíš-li tady mimochodem na akci, zapiš ji podle
+`kalendar/automation-plakat-akce.md`, ale hledání ani výpis „projito N z N“
+od tebe nikdo nečeká.
 
 ## Další rizika
 
