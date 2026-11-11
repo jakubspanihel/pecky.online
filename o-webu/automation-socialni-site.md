@@ -1,328 +1,191 @@
 # Kontrola sociálních sítí (Claude in Chrome)
 
-Lehký, poloautomatický postup pro pravidelnou aktualizaci dvou údajů u
-všech odkazů na sociální sítě v sekci [O webu](README.md) → „Sociální
-sítě" (`content/owebu.html`, druhý blok `div.quicklinks`): **počet
-sledujících/členů/odběratelů** a **datum posledního příspěvku/videa na
-dané síti** (ukazatel, jak moc je účet aktivní — NE datum, kdy jsme si
-údaje naposledy ověřili). Stránka [Volby 2026](../volby/2026/README.md)
-sociální sítě uskupení nezobrazuje a při kontrole se neaktualizuje.
-Nemá vlastní datový soubor — údaje se
-zapisují přímo do HTML.
+Denní, poloautomatický postup. U všech odkazů v sekci [O webu](README.md) →
+„Sociální sítě“ (`content/owebu.html`, druhý blok `div.quicklinks`)
+aktualizuje dva údaje:
 
-## Kdy spustit
+- **počet sledujících / členů / odběratelů**,
+- **datum posledního příspěvku / videa** — datum skutečné aktivity účtu,
+  **nikdy datum kontroly**.
 
-V rámci týdenní rutiny, spolu s ostatními sekcemi v režimu „týdně" (viz
-`README.md` → „Stav sekcí"). Počty sledujících se u malých místních
-účtů mění pomalu, ale požadavek je aktualizovat je každý běh, ne jen
-příležitostně.
+Navíc obnoví stránku zhlédnutí záznamů zastupitelstva (krok 4).
+Nemá vlastní datový soubor, údaje se zapisují přímo do HTML. Sociální sítě
+uskupení z [Voleb 2026](../volby/2026/README.md) se tady neaktualizují.
+
+**Co se tady nedělá:** hledání akcí a změn provozu pro Kalendář. Má ho
+samostatný skill `DoPecek-nove-akce-check` (`kalendar/automation-nove-akce.md`)
+a vlastní naplánovaný úkol. Narazí-li kontrola mimochodem na akci, zapíše ji
+podle `kalendar/automation-plakat-akce.md`, ale nehledá ji.
+
+Podrobnosti dřívějších běhů a změn metod jsou v `HISTORIE.md`.
+
+## Prostředí
+
+Facebook, Instagram i YouTube vyžadují `mcp__claude-in-chrome__*` (skutečné
+přihlášené Chrome). `WebFetch`, curl ani izolovaný `mcp__Claude_Browser__*`
+nefungují (přihlašovací stěna, cookie-consent u YouTube). Není-li rozšíření
+připojené, kontrolu přeskočit, nic neměnit a napsat, že je potřeba ji spustit
+ručně z lokální relace s Chrome.
+
+Číslo nebo datum, které se nepodaří přečíst, nechat beze změny a nahlásit
+jako mezeru. Nic nedopočítávat.
 
 ## Postup
 
-### 1. Projdi všechny odkazy v seznamu
+### 1. Seznam účtů
 
-V `content/owebu.html`, sekce „Sociální sítě", je `div.quicklinks`
-s jedním `<a class="qlink">` na účet. **Projdi všechny, které tam právě
-jsou** — seznam průběžně roste (hlavně s novými zdroji Kalendáře), takže
-pevný výčet by tu rychle zastaral. Pro orientaci: 9. 9. 2026 jich bylo
-15, 28. 9. 2026 už 35, 30. 9. 2026 už 36 (Facebookové stránky i skupiny, šest Instagramů,
-YouTube). Aktuální počet i seznam vypíše:
+V `content/owebu.html` je `div.quicklinks` s jedním `<a class="qlink">` na
+účet. Projít **všechny, které tam právě jsou** (seznam roste, počet si
+nepamatovat). Přehled účtů s dosavadním počtem a datem (jen čte):
 
 ```bash
-grep -c 'class="qlink"' <(awk '/id="subpanel-owebu-socialni"/,/class="footer-note"/' content/owebu.html)
+python3 o-webu/socialni-site-prehled.py
 ```
 
-Nově přidaný účet může mít jen `follower-count` bez řádku `url-meta`
-(datum) — doplň mu ho stejně jako ostatním (viz krok 3).
+Účtu bez řádku `url-meta` (datum) doplnit datum stejně jako ostatním.
+Skript vynechává interní odkazy (`/o-webu/…`). Odkazy na weby jsou v jiném
+bloku (mimo „Sociální sítě“) a netýkají se ho.
 
-### 2. Zjisti počet sledujících a datum poslední aktivity (Claude in Chrome)
+### 2. Přečíst údaje (Chrome)
 
-Pro každý odkaz naviguj na URL a přečti `get_page_text`. Zjišťují se
-dva nezávislé údaje:
+Číst dávkou `browser_batch`: navigate → wait 4 s → `javascript_tool`.
+Po navigaci nechat stránku načíst aspoň 4 s, jinak jsou skripty prázdné.
 
-**a) Počet sledujících/členů/odběratelů:**
-- **Facebook stránka**: číslo je v textu „sledující (N)" hned pod
-  názvem stránky. Facebook u větších čísel zaokrouhluje (např. „1 tis.")
-  — zapsat jako „cca 1 000"/„1,4 tis." podle toho, jak to ukazuje
-  platforma, nedopočítávat si přesné číslo.
-- **Facebook skupina** (Lidé pro Pečky s podporou SPD): skupiny nemají
-  „sledující", ale „N členů" — zapsat s jednotkou „členů", ne
-  „sledujících", je to jiná metrika.
-- **Instagram**: číslo je v textu „Sledující (N)" na profilu.
-- **YouTube**: číslo je v textu „N odběratelů" na kanálu (`@handle`,
-  ne playlist). Vyžaduje `mcp__claude-in-chrome__*` nástroje (skutečná
-  přihlášená Chrome relace), ne `mcp__Claude_Browser__*` (izolovaný
-  in-app prohlížeč) — YouTube ho opakovaně zasekne na
-  `consent.youtube.com` a kliknutí na „Odmítnout vše" se tam neprojeví.
-  Viz i poznámka v kořenovém `CLAUDE.md` → „Poznámky k datům".
+| Zdroj | Počet | Datum poslední aktivity |
+|---|---|---|
+| Facebook stránka | text „sledující (N)“ | `creation_time` (viz níže) |
+| Facebook skupina | „N členů“ (jiná metrika, jednotka „členů“) | `creation_time` |
+| Instagram | „Sledující (N)“ | `<time datetime>` na detailu příspěvku |
+| YouTube kanál `@handle` | „N odběratelů“ | playlist „Zasedání ZM“ |
 
-**b) Datum poslední aktivity** — NE datum, kdy jsme se dívali, ale
-datum posledního skutečného příspěvku/videa (ukazuje, jak je účet
-živý):
-- **Facebook stránka/skupina**: první/nejvyšší příspěvek ve feedu
-  `get_page_text` ukazuje relativní čas hned pod jménem autora („6 h",
-  „4 d", nebo starší jako datum „5. červen"). Přepočítej na absolutní
-  datum vůči dni kontroly (např. „4 d" a kontrola 1. 9. → 28. 8. 2026).
-  Pozor na sdílené příspěvky — řádek „Jméno stránky … [datum] · Jiné
-  jméno … [jiné datum] · text" znamená, že stránka teď sdílela starší
-  příspěvek jiné stránky; rozhoduje **první** (vlastní) datum stránky,
-  ne datum sdíleného obsahu (viz Pečky Pečákům, kde vlastní sdílení je
-  z 5. 6., ale sdílený příspěvek Města Pečky je ze 4. 6.).
-- **Facebook — zamíchaný (obfuskovaný) timestamp**: od 2. 9. 2026 Facebook
-  u části stránek nevypisuje datum příspěvku jako prostý text, ale rozsype
-  ho do desítek jednoznakových `<span>` promíchaných s návnadovými znaky
-  (v `get_page_text` to vypadá jako `S͏n͏d͏t͏o͏o͏p͏s͏e͏r͏4͏h͏…`).
-  Prosté čtení textu pak vrátí nesmysl, nebo — hůř — časovou značku
-  **komentáře** místo příspěvku. Spolehlivé je přečíst znaky v pořadí, v
-  jakém se skutečně vykreslí, tedy podle jejich pozice na obrazovce
-  (`javascript_tool`):
-  ```js
-  function dec(c){
-    const s=Array.from(c.querySelectorAll('span')).filter(x=>x.children.length===0);
-    const i=s.map(x=>{const r=x.getBoundingClientRect(),cs=getComputedStyle(x);
-      return {t:x.textContent.replace(/[͏​]/g,''),x:r.left,y:r.top,w:r.width,d:cs.display};})
-      .filter(o=>o.t&&o.d!=='none'&&o.w>0);
-    i.sort((a,b)=>(a.y-b.y)||(a.x-b.x));
-    return i.map(o=>o.t).join('');
-  }
-  const st=[];
-  for(const el of document.querySelectorAll('span')){
-    if(el.children.length>8 && /͏/.test(el.textContent) && el.textContent.length<250){
-      st.push(dec(el).slice(0,22));
-    }
-  }
-  st;
-  ```
-  Vrátí řetězce jako `"31. srpna v 18:45sptre"` nebo `"17 h…"` — platná je
-  jen ta část na začátku, zbytek je vata z návnadových znaků. Nesetřídit
-  podle CSS `order` (vrací jinou, špatnou permutaci) — jen podle
-  `getBoundingClientRect()`. Vrátí-li skript víc značek, ta první v pořadí
-  DOM nemusí být nejnovější příspěvek (připíchnuté příspěvky navrchu, viz
-  Městská knihovna: `["24. července…","31. srpna v 10:56…"]`) — brát
-  **nejnovější** datum, ne první.
-- **Facebook — od 13. 9. 2026 nejspolehlivější je `creation_time`
-  z vložených dat.** Trik s pořadím znaků výše přestal zabírat: značka
-  data je teď prázdný `<span>` (`textContent.length === 0`) doplněný
-  `<template>` elementem, takže z DOM textu se nepřečte vůbec nic — ani
-  nesmysl. Datum posledního příspěvku ale zůstává ve `<script>` datech
-  stránky:
-  ```js
-  const s = [...document.querySelectorAll('script')].map(x => x.textContent).join(' ');
-  const m = [...s.matchAll(/(?:creation_time|publish_time)\\?"?:\s*(\d{9,13})/g)]
-    .map(x => +x[1]).filter(v => v > 1600000000 && v < 1900000000);
-  [...new Set(m)].sort((a,b) => b-a).slice(0,3)
-    .map(v => new Date(v*1000).toISOString().slice(0,16));
-  ```
-  Bere se **nejvyšší** (nejnovější) hodnota — připíchnuté starší
-  příspěvky i starší sdílený obsah tak vypadnou samy. Ověřeno proti
-  relativnímu tvaru: Město Pečky ukazovalo „7 h" a `creation_time` dalo
-  13. 9. 2026 07:53, což při kontrole v ~14:50 sedí. Stránku po navigaci
-  nechat načíst ~4 s, jinak jsou skripty ještě prázdné. Pro pořádek: ani
-  jeden ze způsobů níže (obfuskované `<span>`, relativní čas) není
-  potřeba, pokud tenhle vrátí výsledek.
-- **Facebook — absolutní datum je přesnější než relativní**: kde skript
-  vrátí tvar „31. srpna v 18:45", zapisovat to datum. Dopočet z relativního
-  tvaru („4 d") se snadno splete o den — při běhu 2. 9. 2026 se takhle
-  ukázalo, že u tří účtů (Kulturní středisko, Pečky srdcem, FB skupina SPD)
-  bylo datum z předchozího dne o den novější, než jaké má poslední skutečný
-  příspěvek.
-- **Instagram**: příspěvky v mřížce profilu mívají 1–3 **připíchnuté
-  (pinned)** navrchu, takže **mřížka NENÍ spolehlivě chronologická**.
-  Nejspolehlivější zdroj data je atribut `datetime` elementu `<time>`
-  na stránce **jednotlivého příspěvku** (`/p/<kód>/`), ne cokoli
-  v mřížce samotné:
-  ```js
-  const t = document.querySelector('time');
-  t && {datetime: t.getAttribute('datetime'), title: t.getAttribute('title')}
-  ```
-  Ověřeno funkční 22. 9. 2026 v relaci `claude-in-chrome` (skutečné
-  přihlášené Chrome, ne izolovaný `mcp__Claude_Browser__*`) — zřejmě
-  proto, že jde o přihlášenou relaci, ne o odhlášenou, ve které dřív
-  narážela na stěnu (viz níže „starší poznámka“). Postup:
-  1. Otevři profil, `computer` klikni na dlaždici v mřížce (souřadnice
-     ze screenshotu, ne `href` — čtení `a[href^="/p/"]` přes
-     `javascript_tool` bylo v této relaci blokované jako „Base64 encoded
-     data“, zjevně bezpečnostní filtr nástroje na krátké kódy).
-  2. Na stránce příspěvku přečti `<time datetime>` výše.
-  3. **Zkontroluj takhle víc než jen první dlaždici** — viz „chyták
-     s připíchnutím“ hned pod tímto seznamem.
+**Zaokrouhlení:** Facebook od cca 1 000 ukazuje „1 tis.“, „4,5 tis.“. Zapsat
+ve stejném tvaru, nedopočítávat přesné číslo.
 
-  **Chyták s připíchnutím (zjištěno 22. 9. 2026, `nase_pecky` a
-  `peckynext`):** připíchnutý příspěvek u `nase_pecky` zabíral první
-  tři dlaždice (jeden vícedílný příspěvek), takže dlaždice 1 dala
-  úplně špatné datum (27. 10. 2025 místo skutečného 21. 9. 2026 —
-  chyba, která se dostala až na živý web, než ji odhalil uživatel).
-  U `peckynext` byla připíchnutá **jen prostřední, druhá dlaždice** —
-  dlaždice 1 a 3 pin ikonu neměly, ale přesto byly staré (duben a
-  červen 2026), zatímco skutečně nejnovější příspěvek byl až na
-  dlaždici 4 (21. 9. 2026, shodou okolností tentýž sdílený příspěvek
-  jako u `nase_pecky`). **Poučení: pin ikona (📌, pravý horní roh
-  dlaždice) se nedá spolehnout, že bude jen na dlaždici 1, ani že
-  bude vůbec vidět na screenshotu spolehlivě — nekontroluj proto jen
-  první dlaždici a nevěř pozici v mřížce.** Bezpečný postup: otevři
-  postupně dlaždice 1 až aspoň 4–5, přečti `<time datetime>` u každé,
-  a jako „poslední příspěvek“ zapiš **nejvyšší (nejnovější) nalezené
-  datum**, ne datum první dlaždice.
+#### Facebook — počet a datum jedním skriptem
 
-  **Starší poznámka (platila do cca 22. 9. 2026, ponechána pro
-  kontext):** v odhlášené/izolované relaci `alt` atribut obrázků
-  v mřížce nesl datum ve tvaru `"Photo by Jméno on September 01,
-  2026."`, dokud od 2. 9. 2026 nepřestal (v české lokalizaci Instagram
-  do `alt` plní popisek příspěvku, ne datum) a `time[datetime]` na
-  detailu příspěvku se prý nevykresloval vůbec. V přihlášené relaci
-  `claude-in-chrome` se `time[datetime]` ukázalo jako spolehlivé —
-  pokud by v budoucnu zase selhalo (odhlášení, změna Instagramu),
-  vrať se k pokusu o `alt` text jako fallback, ne rovnou k „jen počet
-  sledujících“.
-- **YouTube**: kanálová záložka „Videa" u tohoto kanálu NEODPOVÍDÁ
-  skutečné poslední aktivitě — zasedání zastupitelstva se nahrávají
-  jako „neveřejné" a v ní se neobjeví (naposledy zobrazovala video staré
-  8 měsíců, zatímco playlist měl novější). Zjišťuj datum posledního
-  videa z playlistu „Zasedání ZM"
-  (`https://www.youtube.com/playlist?list=PL1KVT2dbyIKSTFRv7tfDqrfk5gkTSnoyu`,
-  stejný postup jako v `jednani/automation-kontrola-usneseni-cz.md`
-  krok 6) — poslední položka v seznamu ukazuje „Vysíláno před N dny/
-  týdny/měsíci" u nejnovějšího videa.
+Datum posledního příspěvku je ve `<script>` datech stránky. Bere se
+**nejvyšší** hodnota, takže připíchnuté i sdílené starší příspěvky vypadnou
+samy:
 
-`WebFetch`/curl na Facebook, Instagram a YouTube nefunguje (přihlašovací
-stěna/JS rendering) — jen skutečná navigace v prohlížeči. Bez přihlášení
-jde přečíst jen zaokrouhlené/veřejné číslo sledujících, ne podrobné
-Přehledy stránky (to nevadí, píšeme jen souhrnné číslo).
+```js
+const s=[...document.querySelectorAll('script')].map(x=>x.textContent).join(' ');
+const m=[...s.matchAll(/(?:creation_time|publish_time)\\?"?:\s*(\d{9,13})/g)]
+  .map(x=>+x[1]).filter(v=>v>1600000000&&v<1900000000);
+({f:(document.body.innerText.match(/[^\n]*(sledující|členů|členové)[^\n]*/g)||[]).slice(0,2),
+  t:[...new Set(m)].sort((a,b)=>b-a).slice(0,2).map(v=>new Date(v*1000).toISOString().slice(0,16))})
+```
 
-### 3. Zapiš do `content/owebu.html`
+Čas je v UTC (v listopadu +1 h do českého; kolem půlnoci dávat pozor na
+posun dne). Vrátí-li pole `t` prázdné (zatím Wok Pečky), datum nechat beze
+změny a nahlásit jako mezeru. Záloha: absolutní datum v textu prvního
+příspěvku („31. srpna v 18:45“) je přesnější než relativní „4 d“; relativní
+čas se snadno splete o den. Při sdíleném příspěvku (dvě jména a dvě data)
+platí datum **vlastního** sdílení.
 
-Každý `<a class="qlink">` má `<span class="url">` se dvěma řádky:
+#### Instagram — datum
+
+Mřížka profilu **není chronologická**: 1–3 příspěvky jsou připíchnuté
+(i vícedílný příspěvek může zabrat tři dlaždice, pin může být třeba jen na
+dlaždici 2) a pin ikona na screenshotu není spolehlivá. Proto **otevřít
+aspoň první 4–5 dlaždic a zapsat nejnovější nalezené datum**, ne datum první
+dlaždice.
+
+Spolehlivě funguje otevření dlaždice skriptem (čtení `href` je blokované
+jako „Base64 encoded data“, samotné `.click()` projde) a čtení prvního
+`<time>`:
+
+```js
+document.querySelectorAll('main a[href*="/p/"], main a[href*="/reel/"]')[0].click();1
+```
+
+Po 2 s čekání:
+
+```js
+[...document.querySelectorAll('time')].map(t=>t.getAttribute('datetime')).slice(0,1)
+```
+
+Mezi dlaždicemi navigovat znovu na URL profilu (ne `back`, ten se pletl).
+Počet: `document.body.innerText.match(/Sledující[^\n]*/)` na profilu.
+Údaj `<time>` číst jen z **prvního** elementu. Další mohou patřit jinému
+příspěvku (u streetpeopleofpecky druhý `<time>` ukazoval nesouvisející datum).
+Je-li relace odhlášená a objeví se přihlašovací stěna, ověřit přihlášení
+Chrome, než se použije jiná metoda.
+
+#### YouTube — datum
+
+Záložka „Videa“ neodpovídá skutečné aktivitě (zasedání ZM se nahrávají jako
+neveřejná). Datum posledního videa brát z playlistu „Zasedání ZM“
+(`https://www.youtube.com/playlist?list=PL1KVT2dbyIKSTFRv7tfDqrfk5gkTSnoyu`):
+je seřazený od nejstaršího, nejnovější je poslední položka („Vysíláno před N
+dny“), tedy po scrollu na konec stránky. Relativní údaj je přibližný, proto
+se zapisuje datum zastupitelstva z Jednání, pokud sedí.
+
+### 3. Zapsat do `content/owebu.html`
+
+Každý `<a class="qlink">` má dva řádky v `span.url`:
 
 ```html
 <span class="url"><span class="follower-count">N sledujících</span><span class="url-meta">poslední příspěvek <span data-date="RRRR-MM-DD">D. M. RRRR</span></span></span>
 ```
 
-`follower-count` obsahuje jen samotné číslo s jednotkou (žádný handle/URL,
-žádná šipka ↗) — na rozdíl od bloku „Odkazy" výše, kde `.url` pořád nese
-plnou doménu/handle a šipku, tady je to jen holé číslo. (U YouTube
-„odběratelů" a „poslední video" místo „sledujících"/„poslední příspěvek";
-u FB skupiny „členů".) `data-date`/
-viditelné datum je datum **poslední aktivity** zjištěné v kroku 2b —
-u aktivního účtu se bude měnit skoro každý den, u neaktivního zůstane
-stát na stejném datu klidně týdny/měsíce. Text „poslední příspěvek:
-dnes/včera/před X dny" se pak dopočítává sám za běhu v prohlížeči
-(`assets/common.js`, funkce `relDatum()`, stejný princip jako u tabulky
-„Stav sekcí" na Domů). Neupravuj text ručně na „dnes"/„včera" — stačí
-zapsat absolutní datum, JS zbytek dopočítá.
+- `follower-count`: jen číslo s jednotkou (bez handle, URL a šipky ↗).
+  U YouTube „odběratelů“ a „poslední video“, u FB skupiny „členů“.
+- `data-date` a viditelné datum: absolutní datum poslední aktivity. Text
+  „dnes / včera / před X dny“ dopočítá `relDatum()` v `assets/common.js`.
+  Ručně ho nepsat.
+- Seznam je seřazený sestupně podle počtu sledujících. Změní-li se pořadí,
+  přesunout řádek `<a class="qlink">` (ne po každé kontrole, jen při skutečné
+  změně).
+- Vyjde-li u mnoha účtů najednou totéž (typicky dnešní) datum, je to
+  varovný signál chyby čtení. Ověřit.
+- Účty propojených stránek (NAŠE PEČKY, Pečky NEXT, Alena Švejnohová) občas
+  zveřejní identický příspěvek najednou. Datum přesto ověřit zvlášť u každého
+  účtu a nekopírovat mezi nimi.
+- Nový nebo zaniklý účet: doplnit nebo odebrat řádek podle aktuálního stavu
+  `content/owebu.html`.
 
-Seznam je seřazený sestupně podle počtu sledujících — pokud se pořadím
-dvou položek po aktualizaci prohodí, přesuň řádek `<a class="qlink">`
-na správné místo (ne nutně po každé kontrole, jen když se pořadí
-skutečně změní).
+### 4. Zhlédnutí záznamů zastupitelstva (YouTube)
 
-### 4a. Zhlédnutí záznamů zastupitelstva (YouTube)
+Stránka `/jednani/youtube.html` je statický snímek. Při každé kontrole:
 
-Stránka `/jednani/youtube.html` (graf + tabulka zhlédnutí videozáznamů
-zastupitelstva) je statický snímek — počty se samy neobnovují. Při každé
-kontrole sociálních sítí ji obnov:
+1. `python3 jednani/update-youtube.py` přečte zhlédnutí všech záznamů ZM
+   s YouTube odkazem v `jednani/pecky-jednani.json` a přepíše
+   `content/youtube.html` (bez Chrome, jen HTTP). Hlásí-li
+   `CHYBA: nelze přečíst zhlédnutí`, ten záznam v grafu chybí → nahlásit jako
+   mezeru.
+2. Přibylo-li nové jednání ZM s videem, skript ho zařadí sám. Není-li video
+   v `pecky-jednani.json`, nejdřív doplnit tam (skill `DoPecek-jednani-check`).
+3. Změnila-li se čísla, přepsat `lastmod` záznamu `youtube` v `EXTRA_PAGES`
+   ve `scripts/build.py` na dnešní datum a řádek Jednání ve „Stav sekcí“
+   (`README.md`). Beze změny čísel se nic nezapisuje.
+4. Do hlášení: nový součet, o kolik se změnil, nové záznamy, největší nárůst
+   u konkrétního videa.
 
-1. `python3 jednani/update-youtube.py` — přečte z veřejných stránek videí
-   aktuální zhlédnutí všech záznamů zastupitelstva s odkazem na YouTube
-   v `jednani/pecky-jednani.json` a přepíše `content/youtube.html`
-   (bez Chrome, jen HTTP). Skript vypíše počet záznamů a součet; hlásí-li
-   `CHYBA: nelze přečíst zhlédnutí`, ten záznam v grafu chybí — nahlásit
-   jako mezeru.
-2. Přibylo-li nové jednání zastupitelstva s videem, skript ho zařadí sám
-   (číslování bere z dat Jednání); není-li video v `pecky-jednani.json`,
-   nejdřív doplnit tam (skill `DoPecek-jednani-check`).
-3. V `scripts/build.py` přepsat `lastmod` záznamu `youtube`
-   v `EXTRA_PAGES` na dnešní datum, spustit build a přepsat řádek
-   Jednání ve „Stav sekcí“ (`README.md`): změna jen když se čísla
-   skutečně změnila.
-4. V hlášení uvést: nový součet zhlédnutí, o kolik se změnil, nové
-   záznamy a největší nárůst u konkrétního videa.
+### 5. Přegenerovat a ověřit
 
-### 5. Přegeneruj a ověř
+`python3 scripts/build.py`, pak zkontrolovat `/o-webu/`: u každého odkazu
+musí být nové číslo a datum (přesné datum v tooltipu).
 
-Spusť `python3 scripts/build.py`, otevři `/o-webu/` a zkontroluj, že
-se u každého odkazu zobrazuje aktualizované číslo a datum poslední
-aktivity (najetím myší na text se zobrazí přesné datum v tooltipu).
+### 6. Záznam a hlášení
 
-### 6. Nahlaš uživateli
-
-Stručně: u kterých účtů se počet sledujících změnil (a o kolik), které
-mají novou aktivitu, které zůstávají dlouhodobě neaktivní. Nic
-nevymýšlet — číslo/datum, které web nezobrazí (např. stránka
-nedostupná), nechat beze změny a nahlásit jako mezeru.
-
-**Akce a změny provozu pro Kalendář se v této rutině nehledají.** Hledá je
-samostatný běh podle `kalendar/automation-nove-akce.md` (skill
-`DoPecek-nove-akce-check`, vlastní naplánovaný úkol), protože je mnohem
-pomalejší a nevešel by se spolehlivě do jednoho běhu s kontrolou počtů.
-Narazíš-li tady mimochodem na akci, zapiš ji podle
-`kalendar/automation-plakat-akce.md`, ale hledání ani výpis „projito N z N“
-od tebe nikdo nečeká.
-
-## Další rizika
-
-- **Zaokrouhlení u větších čísel** — Facebook od cca 1 000 sledujících
-  zobrazuje zkrácený tvar („1 tis.", „12 tis."). Zapisovat vždy ve
-  stejném zaokrouhleném tvaru, nedopočítávat si přesné číslo.
-- **Skupina vs. stránka** — skupina (`facebook.com/groups/...`) ukazuje
-  „členů", ne „sledujících". Nezaměňovat jednotku.
-- **Sdílené příspěvky na Facebooku** — když stránka sdílí cizí příspěvek,
-  `get_page_text` ukáže dvě jména a dvě data za sebou. Datum posledního
-  příspěvku = datum **vlastního** sdílení (první jméno/datum ve dvojici),
-  ne datum původního sdíleného obsahu.
-- **Připíchnuté příspěvky na Instagramu — nejde spolehnout ani na to,
-  že pin je jen na dlaždici 1.** Mřížka profilu není spolehlivě
-  chronologická (1–3 pinned příspěvky navrchu, ověřeno i 3 dlaždice
-  najednou u jednoho vícedílného příspěvku). U `peckynext` (22. 9. 2026)
-  byla připíchnutá dlaždice 2, ne 1 — dlaždice 1 a 3 bez pin ikony byly
-  přesto staré. **Vždy otevři a přečti `<time datetime>` aspoň u prvních
-  4–5 dlaždic (krok 2b) a jako poslední příspěvek zapiš nejvyšší
-  nalezené datum, nikdy jen datum dlaždice 1.** Tahle chyba se jednou
-  reálně dostala až na živý web (`nase_pecky`, 22. 9. 2026) — odhalil ji
-  až uživatel, ne kontrola.
-- **Instagram detail příspěvku (`/p/<kód>/`) — přihlašovací stěna byla
-  dřív problém, teď ne.** V přihlášené relaci `claude-in-chrome`
-  (ověřeno 22. 9. 2026, 4 účty po sobě) se `<time datetime>` čte
-  spolehlivě bez zdi. Přihlašovací stěna po pár kliknutích byla
-  pozorována jen v izolované/odhlášené relaci — pokud se objeví znovu,
-  zkontroluj nejdřív, jestli relace `claude-in-chrome` není odhlášená,
-  než se vracet k `img[alt]` fallbacku.
-- **YouTube a `mcp__Claude_Browser__*`** — v izolovaném in-app
-  prohlížeči se `consent.youtube.com` opakovaně zasekává i po kliknutí
-  na „Odmítnout vše" (ověřeno 1. 9. 2026, více pokusů). Přepnout na
-  `mcp__claude-in-chrome__*` (skutečná Chrome relace) — tam projde na
-  první pokus, stejně jako u kroku 6/7 v
-  `jednani/automation-kontrola-usneseni-cz.md`.
-- **YouTube kanálová záložka „Videa" je zavádějící** — nejnovější
-  zasedání zastupitelstva se do ní nedostanou (nahrána jako neveřejná,
-  viditelná jen přes playlist). Vždy číst datum poslední aktivity
-  z playlistu „Zasedání ZM", ne ze záložky „Videa".
-- **Křížené příspěvky mezi propojenými stránkami** — NAŠE PEČKY, Pečky
-  NEXT (Facebook i Instagram) a Alena Švejnohová sdílí část
-  administrátorů a občas zveřejní identický příspěvek na všech najednou
-  (ověřeno 1. 9. 2026, příspěvek „Pojďme se potkat!" na čtyřech účtech
-  zároveň). Přesto ověřovat datum zvlášť u každého odkazu, ne kopírovat
-  mezi nimi automaticky — shoda je náhoda dne, ne pravidlo.
-- **Nový/zaniklý účet** — pokud na webu přibude zmínka o dalším účtu
-  (nebo některý zanikne), doplnit/odebrat řádek podle aktuálního stavu
-  `content/owebu.html`, ne podle seznamu v kroku 1 — ten je jen momentka
-  k 1. 9. 2026.
+- `README.md` → „Stav sekcí“: přepsat řádek O webu (datum kontroly vždy,
+  datum změny a „Co naposledy“ jen při reálné změně).
+- `HISTORIE.md`: odstavec nahoru.
+- Hlášení: u kterých účtů se změnil počet (o kolik), kde je nová aktivita,
+  které účty jsou dlouhodobě neaktivní, které údaje se nepodařilo přečíst.
+  „Beze změny“ je platný výsledek, nemlčet.
 
 ## Bezobslužný běh bez potvrzování
 
-Při naplánovaném běhu nikdo neodklikává povolení. Příkaz, který se
-nevejde do povolených tvarů, běh zastaví na dotazu, proto:
+Při naplánovaném běhu nikdo neodklikává povolení. Příkaz, který se nevejde do
+povolených tvarů, běh zastaví na dotazu, proto:
 
-- **Jeden jednoduchý příkaz na volání Bash.** Bez předpony `PROMENNA=…;`,
-  bez řetězení `;`/`&&`, bez rour do `xargs`/`awk`/`sed`. Cestu do
-  scratchpadu psát celou přímo do argumentu, ne přes proměnnou.
-- **Soubory měnit nástrojem Edit/Write, ne skriptem.** Pro `kalendar/akce.json`
-  (nová akce) použít `Edit` — vložit objekt na správné místo podle
-  `date`/`time` a přepsat `meta.updated`; žádný `python3 - <<'E'` heredoc.
-- **Přidání do indexu:** `snapshot.py stage --file <baseline> <soubor> …`
-  se seznamem souborů zadaným výslovně (seznam vzít z `snapshot.py report`
-  jedním samostatným voláním, pak ho ručně opsat do `stage`).
-- **Zbloudilé soubory typu `… 2.json` (Finder) nepřesouvat** — build je od
-  20. 10. 2026 ignoruje; nejsou součástí commitu a nepatří do něj.
-- **Čtení stránek v Chrome** dělat dávkou `browser_batch` (navigate + wait +
-  javascript_tool), počty a data číst skriptem z `creation_time`/`time[datetime]`
-  podle kroku 2.
+- Jeden jednoduchý příkaz na volání Bash: bez předpony `PROMENNA=…;`, bez
+  řetězení `;`/`&&`, bez rour do `xargs`/`awk`/`sed`. Cestu do scratchpadu
+  psát celou přímo do argumentu.
+- Soubory měnit nástrojem Edit/Write, ne skriptem ani heredocem.
+- Přidání do indexu: `snapshot.py stage --file <baseline> <soubor> …` se
+  seznamem souborů výslovně (seznam z `snapshot.py report` jedním samostatným
+  voláním, pak ručně opsat do `stage`).
+- Zbloudilé soubory typu `… 2.json` (Finder) nepřesouvat: build je ignoruje
+  a do commitu nepatří.
