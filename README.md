@@ -58,8 +58,8 @@ se sem, na stránku samotnou se nic ručně nepíše.
 
 | Sekce | Režim | Kontrola | Změna | Co naposledy |
 |---|---|---|---|---|
+| [O webu](o-webu/README.md) | týdně | 11. 11. 2026 | 11. 11. 2026 | Sociální sítě (kontrola 11. 11. 2026): aktualizovány počty sledujících a data posledních příspěvků u 17 účtů; nejvíc přibylo sledujících u Základní školy Pečky na Facebooku (+3); nová aktivita u Města Pečky, U Marka a skupiny Máme rádi Pečky (11. 11. 2026); zhlédnutí záznamů zastupitelstva 9 953 |
 | [Na oběd](naobed/README.md) | denně | 10. 11. 2026 | 10. 11. 2026 | nové menu 10. 11. 2026 u U Marka a Siňority; U Stříkačky bez nového menu, školní jídelna už má dnešní jídelníček |
-| [O webu](o-webu/README.md) | týdně | 10. 11. 2026 | 10. 11. 2026 | Sociální sítě (kontrola 10. 11. 2026): aktualizovány počty sledujících a data posledních příspěvků u 14 účtů; nejvíc přibylo sledujících u Základní školy Pečky na Facebooku (+8); nová aktivita u Komunitního centra Pramínek a U Marka (10. 11. 2026) a dalších účtů |
 | [Jednání](jednani/README.md) | týdně | 10. 11. 2026 | 10. 11. 2026 | ustavující ZM 8/2026 (4. 11. 2026): doplněn zápis a 35 usnesení (UZ-51 až UZ-85-8/26) vč. jmenovitého hlasování, shrnutí; RM 40/2026 (9. 11. 2026) zatím jen pozvánka; zhlédnutí záznamů ZM na YouTube 9 950 u 34 záznamů |
 | [Lidé](lide/README.md) | na vyžádání | 10. 11. 2026 | 10. 11. 2026 | změna složení po ustavujícím ZM 8/2026 (4. 11. 2026): mandát skončil 9 zastupitelům a začal 9 novým, nové vedení města (2. místostarostka Ivana Trčková), rada a oba výbory |
 | [Kalendář](kalendar/README.md) | týdně | 10. 11. 2026 | 10. 11. 2026 | přidáno 6 záznamů: Bookstart v knihovně 19. 11., potravinová sbírka v Tescu 14. 11., Silvestr v Hospodě na Hřišti, výstava Sinamon Art, uzavření knihovny 16. 11. a sbírka mobilů Remobil |
