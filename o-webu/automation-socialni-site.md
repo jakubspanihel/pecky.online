@@ -50,6 +50,8 @@ bloku (mimo „Sociální sítě“) a netýkají se ho.
 
 Číst dávkou `browser_batch`: navigate → wait 4 s → `javascript_tool`.
 Po navigaci nechat stránku načíst aspoň 4 s, jinak jsou skripty prázdné.
+Jedna dávka max. cca 14 Facebooků nebo 2 Instagramy (u Instagramu se v JS
+prochází 4–5 dlaždic); delší dávka vyprší na timeoutu.
 
 | Zdroj | Počet | Datum poslední aktivity |
 |---|---|---|
