@@ -48,7 +48,7 @@
   <a class="overlay-close" href="/kalendar/" aria-label="Zavřít a vrátit se do kalendáře">Zavřít</a>
 
   <section class="panel active" id="panel-today" aria-label="Dnešní akce v Pečkách">
-    <div class="today-frame" id="Frame">
+    <div class="today-frame" id="Frame" data-vzhled="novy">
       <span class="today-frame-popisek" aria-hidden="true">Frame</span>
       <div class="today-format today-dny" role="group" aria-label="Změna dne">
         <button type="button" class="today-pismo-btn" id="today-predchozi" aria-label="Předchozí den">‹</button>
@@ -64,7 +64,7 @@
           <span class="today-datum" id="today-datum"></span>
         </div>
         <ul class="today-seznam" id="today-seznam" contenteditable="true" spellcheck="false" aria-label="Seznam akcí, po kliknutí jde upravit"></ul>
-        <span class="today-pata">Celý kalendář na <span class="today-url">dopecek.cz/kalendar</span></span>
+        <span class="today-pata"><span class="pata-nova">Celý kalendář na <span class="today-url">dopecek.cz/kalendar</span></span><span class="pata-stara">DoPecek.cz/kalendar</span></span>
       </div>
     </div>
       <div class="today-akce">
@@ -95,40 +95,82 @@
     body{padding-top:0;}   /* bez hlavičky: odsazení pod hlavičku z styles.css by přidalo zbytečný scroll */  /* bez zoomu dvojitým klepnutím */
     main{max-width:none; margin:0; padding:0;}
     #panel-today{position:static; display:flex; align-items:center; justify-content:center; min-height:100vh; min-height:100dvh; box-sizing:border-box; padding:110px 0 190px;}
-    .today-frame{position:relative; flex:none; --k0:.74; --k:.9; box-sizing:border-box; width:327px; aspect-ratio:var(--pomer,9 / 16); margin:12px; padding:0; background:var(--ink);}  /* výchozí poměr 9:16 (Story / Reels, export 1080 × 1920) */
-    .today-frame{background:var(--cyan);}
+    /* Dva vzhledy karty podle formátu (atribut data-vzhled na rámu): „novy“ jen pro 9:16 (Story / Reels),
+       „puvodni“ pro 1:1, 4:5 a 3:4 (barevná témata, rámeček, odrážky). */
+    .today-frame{position:relative; flex:none; --k0:.74; --k:.9; box-sizing:border-box; width:327px; aspect-ratio:var(--pomer,9 / 16); margin:12px; background:var(--ink);}  /* výchozí poměr 9:16 (export 1080 × 1920) */
+    .today-frame[data-vzhled="novy"]{padding:0; background:var(--cyan);}
+    .today-frame[data-vzhled="puvodni"]{padding:10px;}
+    /* pozadí rámu kontrastuje s barvou karty (všechno barvy projektu) – původní vzhled */
+    .today-frame.t-yellow{background:var(--burgundy);}
+    .today-frame.t-white{background:var(--cyan);}
+    .today-frame.t-burgundy{background:var(--yellow);}
+    .today-frame.t-cyan{background:var(--slate);}
+    .today-frame.t-field{background:var(--yellow);}
+    .today-frame.t-ink{background:var(--yellow);}
     .today-frame-popisek{position:absolute; left:0; bottom:100%; margin-bottom:12px; white-space:nowrap; font:600 18px/1 var(--font-body); color:#D63FD6; pointer-events:none;}
     .today-box{position:relative; z-index:1; width:100%; height:100%; color:var(--ink); display:flex; flex-direction:column;}
     .today-box .search-status{margin:0; color:#fff;}
     .today-card{
-      --t-bg:var(--material); --t-den:var(--material); --t-datum:var(--material); --t-text:var(--burgundy); --t-chip-bg:var(--ink); --t-chip-fg:#fff;
-      box-sizing:border-box; width:100%; flex:1; min-height:0; display:flex; flex-direction:column; align-items:stretch;
-      padding:0 0 calc(14px * var(--k0)); background:var(--t-bg); overflow:hidden;   /* kroužky nepřesahují přes horní okraj karty */
+      --t-bg:var(--yellow); --t-den:var(--cyan); --t-datum:var(--ink); --t-text:var(--ink); --t-chip-bg:var(--ink); --t-chip-fg:#fff;
+      box-sizing:border-box; width:100%; flex:1; min-height:0; display:flex; flex-direction:column; align-items:flex-start;
+      padding:calc(22px * var(--k0)) calc(22px * var(--k0)) calc(14px * var(--k0)); border-radius:calc(16px * var(--k0)); background:var(--t-bg);
     }
     .today-card[hidden]{display:none;}
+    .today-card.t-white{--t-bg:#fff; --t-den:var(--burgundy); --t-datum:var(--cyan); --t-chip-bg:var(--cyan); --t-chip-fg:var(--ink);}
+    .today-card.t-burgundy{--t-bg:var(--burgundy); --t-den:#fff; --t-datum:rgba(255,255,255,.85); --t-text:#fff; --t-chip-bg:#fff; --t-chip-fg:var(--ink); }
+    .today-card.t-cyan{--t-bg:var(--cyan); --t-den:#fff; --t-datum:var(--ink); --t-text:var(--ink); --t-chip-bg:var(--ink); --t-chip-fg:#fff;}
+    .today-card.t-field{--t-bg:var(--field); --t-den:var(--yellow); --t-datum:#fff; --t-text:#fff; --t-chip-bg:#fff; --t-chip-fg:var(--ink);}
+    .today-card.t-ink{--t-bg:var(--ink); --t-den:var(--yellow); --t-datum:#fff; --t-text:#fff; --t-chip-bg:#fff; --t-chip-fg:var(--ink);}
+    .today-seznam{min-height:1.4em; cursor:text;}
+    .today-seznam:focus{outline:1px dashed var(--t-text); outline-offset:4px;}
+    .today-pata{display:flex; align-items:center; gap:calc(4px * var(--k0)); font:700 calc(13px * var(--k0))/1 var(--font-body); color:var(--t-text);}
+
+    /* původní vzhled (1:1, 4:5, 3:4) */
+    .today-frame[data-vzhled="puvodni"] .today-cara{display:none;}
+    .today-frame[data-vzhled="puvodni"] .today-hlavicka{display:contents;}
+    .today-frame[data-vzhled="puvodni"] .pata-nova{display:none;}
+    .today-frame[data-vzhled="puvodni"] .today-den{font:700 calc(66px * var(--k0))/1 var(--font-banner); color:var(--t-den); margin-top:calc(6px * var(--k0)); letter-spacing:-.01em;}
+    .today-frame[data-vzhled="puvodni"] .today-datum{font:700 calc(52px * var(--k0))/1 var(--font-banner); color:var(--t-datum); margin-top:calc(-11px * var(--k0));}
+    .today-frame[data-vzhled="puvodni"] .today-seznam{
+      list-style:disc; margin:auto 0 calc(18px * var(--k0)); padding:calc(14px * var(--k0)) 0 0 calc(22px * var(--k0)); width:100%; box-sizing:border-box; overflow:auto;
+      font:700 calc(16px * var(--k))/1.25 var(--font-body); color:var(--t-text);
+    }
+    .today-frame[data-vzhled="puvodni"] .today-seznam li{margin:0 0 calc(6px * var(--k0)); padding-left:2px;}
+    .today-frame[data-vzhled="puvodni"] .today-seznam li::marker{color:var(--t-text);}
+    .today-frame[data-vzhled="puvodni"] .today-seznam li span{color:var(--t-text);}
+    /* barvy pořadatelů jen na světlém podkladu, kde mají dost kontrastu */
+    .today-frame[data-vzhled="puvodni"] .today-card.t-yellow .today-seznam li span, .today-frame[data-vzhled="puvodni"] .today-card.t-white .today-seznam li span{color:var(--org-c, var(--t-text));}
+    .today-frame[data-vzhled="puvodni"] .today-seznam .prazdno{list-style:none; margin-left:-20px;}
+    .today-frame[data-vzhled="puvodni"] .today-pata{align-self:flex-end;}
+
+    /* nový vzhled (9:16) */
+    .today-frame[data-vzhled="novy"] .pata-stara{display:none;}
+    .today-frame[data-vzhled="novy"] .today-card{
+      --t-bg:var(--material); --t-den:var(--material); --t-datum:var(--material); --t-text:var(--burgundy);
+      align-items:stretch; padding:0 0 calc(14px * var(--k0)); border-radius:0; overflow:hidden;   /* kroužky nepřesahují přes horní okraj karty */
+    }
     .today-cara{flex:none; position:relative; z-index:1; height:20px; margin:-10px 0; display:flex; justify-content:space-evenly;}
     .today-cara i{width:14px; height:20px; border-radius:7px; background:var(--material);}
     .today-hlavicka{display:flex; flex-direction:column; align-items:flex-start; text-align:left; background:var(--burgundy); padding:calc(30px * var(--k0) + 38px) calc(14px * var(--k0)) calc(16px * var(--k0));}
-    .today-den{font:700 calc(50px * var(--k0))/1 var(--font-banner); color:var(--t-den); margin-top:0; letter-spacing:-.01em;}
-    .today-datum{font:700 calc(30px * var(--k0))/1 var(--font-banner); color:var(--t-datum); margin-top:calc(2px * var(--k0));}
-    .today-seznam{
+    .today-frame[data-vzhled="novy"] .today-den{font:700 calc(50px * var(--k0))/1 var(--font-banner); color:var(--t-den); margin-top:0; letter-spacing:-.01em;}
+    .today-frame[data-vzhled="novy"] .today-datum{font:700 calc(30px * var(--k0))/1 var(--font-banner); color:var(--t-datum); margin-top:calc(2px * var(--k0));}
+    .today-frame[data-vzhled="novy"] .today-seznam{
       list-style:none; margin:0 0 calc(18px * var(--k0)); padding:calc(14px * var(--k0)) 0 0; width:100%; box-sizing:border-box; overflow:auto;
       font:400 calc(16px * var(--k))/1.25 var(--font-body); color:var(--t-text);
     }
-    .today-seznam{min-height:1.4em; cursor:text;}
-    .today-seznam:focus{outline:1px dashed var(--t-text); outline-offset:-3px;}
-    .today-seznam li{margin:0 calc(14px * var(--k0)); padding:calc(8px * var(--k0)) 0; border-bottom:1px solid rgba(0,0,0,.18);}
-    .today-seznam li:last-child{border-bottom:none;}
-    .today-seznam li{display:flex; align-items:flex-start; gap:calc(8px * var(--k0));}   /* čas / bulleta vlevo, název a místo vedle sebe (nepodtékají) */
-    .today-seznam .ev-telo{flex:1; min-width:0;}
-    .today-seznam li:has(.ev-cas) .ev-telo>span:first-child{font-weight:700;}   /* název akce se zadaným časem tučně */
-    .today-seznam .ev-misto{display:block; margin-top:calc(2px * var(--k0)); font-size:.85em; color:rgba(0,0,0,.6);}
-    .today-seznam li span{color:rgba(0,0,0,.8);}
-    .today-seznam .ev-cas{display:inline-block; box-sizing:content-box; min-width:4.6ch; text-align:center; font-variant-numeric:tabular-nums; padding:0 calc(6px * var(--k0)); flex:none; border-radius:calc(5px * var(--k0)); background:var(--org-c-bg,var(--material-deep)); color:var(--org-c,var(--ink)); font-weight:700;}
-    .today-seznam .ev-bullet{display:inline-block; width:calc(9px * var(--k0)); height:calc(9px * var(--k0)); flex:none; margin-top:calc(.5em); border-radius:50%; background:var(--org-c,var(--ink-soft));}
-    .today-seznam .prazdno{background:transparent; padding-left:calc(14px * var(--k0));}
+    .today-frame[data-vzhled="novy"] .today-seznam:focus{outline-offset:-3px;}
+    .today-frame[data-vzhled="novy"] .today-seznam li{margin:0 calc(14px * var(--k0)); padding:calc(8px * var(--k0)) 0; border-bottom:1px solid rgba(0,0,0,.18);}
+    .today-frame[data-vzhled="novy"] .today-seznam li:last-child{border-bottom:none;}
+    .today-frame[data-vzhled="novy"] .today-seznam li{display:flex; align-items:flex-start; gap:calc(8px * var(--k0));}   /* čas / bulleta vlevo, název a místo vedle sebe (nepodtékají) */
+    .today-frame[data-vzhled="novy"] .today-seznam .ev-telo{flex:1; min-width:0;}
+    .today-frame[data-vzhled="novy"] .today-seznam li:has(.ev-cas) .ev-telo>span:first-child{font-weight:700;}   /* název akce se zadaným časem tučně */
+    .today-frame[data-vzhled="novy"] .today-seznam .ev-misto{display:block; margin-top:calc(2px * var(--k0)); font-size:.85em; color:rgba(0,0,0,.6);}
+    .today-frame[data-vzhled="novy"] .today-seznam li span{color:rgba(0,0,0,.8);}
+    .today-frame[data-vzhled="novy"] .today-seznam .ev-cas{display:inline-block; box-sizing:content-box; min-width:4.6ch; text-align:center; font-variant-numeric:tabular-nums; padding:0 calc(6px * var(--k0)); flex:none; border-radius:calc(5px * var(--k0)); background:var(--org-c-bg,var(--material-deep)); color:var(--org-c,var(--ink)); font-weight:700;}
+    .today-frame[data-vzhled="novy"] .today-seznam .ev-bullet{display:inline-block; width:calc(9px * var(--k0)); height:calc(9px * var(--k0)); flex:none; margin-top:calc(.5em); border-radius:50%; background:var(--org-c,var(--ink-soft));}
+    .today-frame[data-vzhled="novy"] .today-seznam .prazdno{background:transparent; padding-left:calc(14px * var(--k0));}
     .today-url{color:var(--cyan-deep); text-decoration:underline;}
-    .today-pata{align-self:flex-end; margin:auto calc(14px * var(--k0)) 0 0; display:flex; align-items:center; gap:calc(4px * var(--k0)); font:700 calc(13px * var(--k0))/1 var(--font-body); color:var(--t-text);}
+    .today-frame[data-vzhled="novy"] .today-pata{align-self:flex-end; margin:auto calc(14px * var(--k0)) 0 0;}
     .today-barvy{position:absolute; bottom:100%; left:0; right:0; margin-bottom:40px; display:flex; justify-content:center; gap:12px;}
     .today-format{position:absolute; right:0; bottom:100%; margin-bottom:7px; display:flex;}
     .today-format-btn{min-width:56px; height:28px; padding:0 14px; border:1px solid rgba(255,255,255,.55); border-right-width:0; background:transparent; color:#fff; font:700 13px/1 var(--font-body); cursor:pointer;}
@@ -167,6 +209,37 @@
   const KAL_HASH = (location.hash.match(/^#(\d{4}-\d{2}-\d{2})$/) || [])[1];
   let KAL_DNES = KAL_HASH || kalIso(KAL_NOW);   // zobrazený den (#RRRR-MM-DD z odkazu); šipky ho posouvají o den
   let KAL_EVENTS = [];
+  let KAL_RUCNE = false;            // true po ruční volbě barvy: pak se barva při změně dne nemění
+  let KAL_TEMA = '';                // barva karty v původním vzhledu (1:1, 4:5, 3:4)
+  const kalNovy = () => KAL_FORMAT === '9:16';   // nový vzhled karty jen pro 9:16
+
+  function kalNastavTema(t){
+    KAL_TEMA = t;
+    const card = document.getElementById('today-card'), frame = document.querySelector('.today-frame');
+    card.className = 'today-card t-' + t;
+    frame.className = 'today-frame t-' + t;
+    card.removeAttribute('style'); frame.style.removeProperty('background');
+  }
+  // při změně dne se v původním vzhledu vybere náhodná z šesti barev, jiná než právě zobrazená
+  function kalNahodnaTema(){
+    if (kalNovy()) return;
+    const temata = ['yellow', 'white', 'burgundy', 'cyan', 'field', 'ink'].filter(t => t !== KAL_TEMA);
+    KAL_RUCNE = true;
+    kalNastavTema(temata[Math.floor(Math.random() * temata.length)]);
+  }
+  // přepnutí vzhledu karty podle formátu: 9:16 = nový vzhled, ostatní formáty = původní s barevnými tématy
+  function kalVzhled(){
+    const frame = document.getElementById('Frame'), card = document.getElementById('today-card');
+    frame.dataset.vzhled = kalNovy() ? 'novy' : 'puvodni';
+    if (kalNovy()) {
+      KAL_TEMA = ''; KAL_RUCNE = false;
+      card.className = 'today-card'; frame.className = 'today-frame';
+      card.removeAttribute('style'); frame.style.removeProperty('background');
+    } else {
+      KAL_RUCNE = false;   // výchozí barva dne; ruční volba se po přepnutí formátu neuchová
+    }
+    kalRenderDnes();
+  }
 
 
   // velikost písma seznamu akcí: jedno tlačítko, každé kliknutí přepne na další velikost (proměnná --k na rámu)
@@ -180,12 +253,13 @@
 
   // formáty obrázku: poměr stran rámu a rozlišení exportu (Instagram)
   const KAL_FORMATY = {'1:1': [1080, 1080], '4:5': [1080, 1350], '3:4': [1080, 1440], '9:16': [1080, 1920]};
-  let KAL_FORMAT = '9:16';
+  var KAL_FORMAT = '9:16';
   document.querySelectorAll('.today-format-btn').forEach(b => b.addEventListener('click', () => {
     KAL_FORMAT = b.dataset.f;
     const [w, h] = KAL_FORMATY[KAL_FORMAT];
     document.getElementById('Frame').style.setProperty('--pomer', w + ' / ' + h);
     document.querySelectorAll('.today-format-btn').forEach(x => x.setAttribute('aria-pressed', x === b ? 'true' : 'false'));
+    kalVzhled();
   }));
   // export bloku #Frame do PNG v rozlišení zvoleného formátu (výchozí 1080 × 1350): klon s vloženými vypočtenými styly → SVG foreignObject → canvas
   async function kalFramePng(){
@@ -263,6 +337,7 @@
     x.setDate(x.getDate() + dny);
     KAL_DNES = kalIso(x);
     kalRenderDnes();
+    kalNahodnaTema();
   }
   window.addEventListener('hashchange', () => {
     const h = (location.hash.match(/^#(\d{4}-\d{2}-\d{2})$/) || [])[1];
@@ -270,7 +345,7 @@
   });
   document.getElementById('today-predchozi').addEventListener('click', () => kalPosun(-1));
   document.getElementById('today-dalsi').addEventListener('click', () => kalPosun(1));
-  document.getElementById('today-dnes').addEventListener('click', () => { KAL_DNES = kalIso(new Date()); kalRenderDnes(); });
+  document.getElementById('today-dnes').addEventListener('click', () => { KAL_DNES = kalIso(new Date()); kalRenderDnes(); kalNahodnaTema(); });
   // swipe na mobilu: doleva = další den, doprava = předchozí den (převážně vodorovné gesto ≥ 50 px)
   (function(){
     const frame = document.querySelector('.today-frame');
@@ -342,6 +417,11 @@
     const x = new Date(ds + 'T12:00:00');
     document.getElementById('today-den').textContent = dny[x.getDay()][0].toUpperCase() + dny[x.getDay()].slice(1);
     document.getElementById('today-datum').textContent = `${x.getDate()}. ${x.getMonth() + 1}.`;
+    // původní vzhled: barevná varianta se střídá po dnech (13. 10. 2026 = žlutá, 14. 10. bílá, 15. 10. bordó)
+    if (!kalNovy() && !KAL_RUCNE) {
+      const n = Math.round((Date.UTC(x.getFullYear(), x.getMonth(), x.getDate()) - Date.UTC(2026, 9, 13)) / 864e5);
+      kalNastavTema(['yellow', 'white', 'burgundy'][((n % 3) + 3) % 3]);
+    }
     const vice = e => e.date_end && e.date_end !== e.date;
     // pravidelné tréninky a kurzy (category „kurz“) se na kartě nezobrazují, stejně jako ve výchozím pohledu „3 dny“
     const evs = KAL_EVENTS.filter(e => e.category !== 'kurz' && e.date <= ds && (e.date_end || e.date) >= ds)
@@ -352,7 +432,13 @@
         const konecMesice = new Date(k.getFullYear(), k.getMonth() + 1, 0).getDate() === k.getDate();
         return konecMesice ? ' (do konce měsíce)' : ` (do ${k.getDate()}. ${k.getMonth() + 1}.)`;
       }
-      return '';
+      return kalNovy() || !e.time ? '' : ` (od ${kalEsc(e.time).replace(/^0/, '')})`;   // původní vzhled má čas v závorce za názvem
+    };
+    // CSS proměnné barvy pořadatele (--org-<id> generuje build z organizations.json)
+    const orgStyle = id => {
+      if (!id) return '';
+      const q = kalEsc(id);
+      return `--org-c:var(--org-${q});--org-c-bg:var(--org-${q}-bg);--chip:var(--org-${q});`;
     };
     // čas (jen u jednodenních akcí) před názvem, v samostatném štítku v barvě pořadatele
     const cas = e => {
@@ -362,6 +448,10 @@
     };
     document.getElementById('today-seznam').innerHTML = evs.length
       ? evs.map(e => {
+          if (!kalNovy()) {
+            const barva = e.organizer ? ` style="${orgStyle(e.organizer)}"` : '';
+            return `<li><span${barva}>${kalIkona(e)}${kalEsc(e.title)}${dodatek(e)}</span></li>`;
+          }
           return `<li>${cas(e)}<div class="ev-telo"><span>${kalIkona(e)}${kalEsc(e.title)}${dodatek(e)}</span>${e.place ? `<span class="ev-misto">${kalEsc(kalMistoBezAdresy(e.place))}</span>` : ''}</div></li>`;
         }).join('')
       : '<li class="prazdno">Žádné akce</li>';
