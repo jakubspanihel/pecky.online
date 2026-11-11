@@ -1432,7 +1432,10 @@ def _dash_dnes(dnes):
             if dnes <= d['date'] <= do and d.get('jidla'):
                 menu_dny.add(d['date'])
     out.append('  <div class="dash-dnes-actions"><a class="dash-dnes-cta" href="/kalendar/">Celý kalendář</a>'
-               f'<a class="dash-dnes-menu" href="/naobed/" data-dny="{",".join(sorted(menu_dny))}" hidden>🍽️ Polední menu</a></div>')
+               f'<a class="dash-dnes-menu" href="/naobed/" data-dny="{",".join(sorted(menu_dny))}" hidden>🍽️ Polední menu</a>'
+               '<a class="dash-dnes-share" href="/kalendar/insta.html" title="Dnešní program jako obrázek pro sociální sítě" aria-label="Sdílet dnešní program jako obrázek">'
+               '<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">'
+               '<path d="M4 12v7a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-7"/><path d="M16 6l-4-4-4 4"/><path d="M12 2v13"/></svg></a></div>')
     return ('<div class="card dash-card dash-card--dnes">\n'
             f'  <div class="dash-dnes-head"><h2 class="display dash-dnes-date">{esc(_den_txt(dnes)).capitalize()}</h2>'
             f'<span class="tag kal-dnes">Dnes</span></div>\n'
