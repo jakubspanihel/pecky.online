@@ -5,7 +5,7 @@
     <div class="list-control">
       <div class="search-bar">
         <input type="search" id="usneseni-search" placeholder="Hledat" autocomplete="off" aria-label="Hledat v usneseních">
-        <label class="checkbox-label" id="usneseni-nedul-label" title="Skrývají se body:&#10;• Schválení programu jednání&#10;• Schválení ověřovatelů zápisu"><input type="checkbox" id="usneseni-nedul" checked autocomplete="off"> Skrýt nedůležité</label>
+        <label class="checkbox-label" id="usneseni-nedul-label" title="Skrývají se body:&#10;• Schválení programu jednání&#10;• Schválení ověřovatelů zápisu&#10;• Volba volební komise (způsob volby, volební řád, návrhová a mandátová komise)"><input type="checkbox" id="usneseni-nedul" checked autocomplete="off"> Skrýt nedůležité</label>
         <label class="checkbox-label" id="usneseni-nepr-label" title="Skrývají se návrhy, které při hlasování neprošly"><input type="checkbox" id="usneseni-nepr" checked autocomplete="off"> Skrýt nepřijaté</label>
       </div>
     </div>
@@ -79,7 +79,7 @@
   const U_TYPE_HASH = {'Rada': 'rada', 'Zastupitelstvo': 'zastupitelstvo'};
   let U_ALL = null;        // všechna usnesení, nejnovější první
   let U_FILTERED = [];
-  let U_SKRYT_NEDUL = true;   // skrýt nedůležité (schválení programu a ověřovatelů)
+  let U_SKRYT_NEDUL = true;   // skrýt nedůležité (schválení programu, ověřovatelů, volba volební komise)
   let U_SKRYT_NEPR = true;    // skrýt nepřijaté návrhy
   let U_YM = '';              // vybraný měsíc ve stromu (RRRR-MM)
   let U_YM_PICKED = false;    // měsíc zvolil uživatel (patří do hashe)
@@ -88,7 +88,7 @@
   const U_MESICE = ['leden', 'únor', 'březen', 'duben', 'květen', 'červen', 'červenec', 'srpen', 'září', 'říjen', 'listopad', 'prosinec'];
   const uSkryt = r => (U_SKRYT_NEDUL && uNedulezite(r)) || (U_SKRYT_NEPR && r._nepr);
   // nedůležitá = jen tyto procedurální body (seznam je i v tooltipu zaškrtávátka)
-  const U_NEDULEZITA_RE = /^\s*schválení\s+(programu|ověřovatel)/i;
+  const U_NEDULEZITA_RE = /^\s*(schválení\s+(programu|ověřovatel)|volba\s+volební\s+komise)/i;
   const uNedulezite = r => U_NEDULEZITA_RE.test(r.item || '');
   let U_VOTES = {};        // číslo usnesení ZM -> jména podle hlasování, usneseni/hlasovani.json
   const U_BY_NUMBER = {};  // číslo usnesení (velkými písmeny) -> usnesení

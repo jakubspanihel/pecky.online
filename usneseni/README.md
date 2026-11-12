@@ -45,6 +45,7 @@ Kreslí `uTree()` v `content/usneseni.html`.
 ## Filtr a hash
 Filtr orgánu (Vše / Rada / Zastupitelstvo) není. Dvě zaškrtávátka, obě ve výchozím stavu zapnutá:
 - „Skrýt nedůležité“ — jen body „Schválení programu jednání“ a „Schválení ověřovatelů zápisu“
+  a „Volba volební komise, způsob volby…“
   (seznam je i v tooltipu), regex `U_NEDULEZITA_RE` v `content/usneseni.html`.
 - „Skrýt nepřijaté“ — návrhy, které při hlasování neprošly (viz „Nepřijaté návrhy“).
 
