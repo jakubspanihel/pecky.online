@@ -59,8 +59,8 @@ se sem, na stránku samotnou se nic ručně nepíše.
 | Sekce | Režim | Kontrola | Změna | Co naposledy |
 |---|---|---|---|---|
 | [Na oběd](naobed/README.md) | denně | 12. 11. 2026 | 12. 11. 2026 | nové menu 12. 11. 2026 u U Marka, Siňority a U Stříkačky; školní jídelna už má dnešní jídelníček |
+| [Kalendář](kalendar/README.md) | týdně | 12. 11. 2026 | 12. 11. 2026 | přidány 3 akce: Setkání s vedením školy 2. 12., Muzikálový koktejl v Kulturním domě 13. 2. 2027 a Bodystyling v sokolovně 12. 11. |
 | [O webu](o-webu/README.md) | týdně | 11. 11. 2026 | 11. 11. 2026 | Sociální sítě (kontrola 11. 11. 2026, odpoledne): skupina Pravoslavná obec +3 členové (364), streetpeopleofpecky −1 sledující (1 194); nová aktivita u Vinotéky Pečky, ODS a nezávislí a ZŠ Pečky (11. 11. 2026); zhlédnutí záznamů zastupitelstva 9 959 (+5) |
-| [Kalendář](kalendar/README.md) | týdně | 11. 11. 2026 | 11. 11. 2026 | přidány 4 akce: vánoční koncert žáků ZUŠ 15. 12., vánoční koncert Small Bandu 18. 12. a Tak trochu vánoční keramika ve Vzdělávacím centru 14. 11. a 5. 12. |
 | [Jednání](jednani/README.md) | týdně | 10. 11. 2026 | 10. 11. 2026 | ustavující ZM 8/2026 (4. 11. 2026): doplněn zápis a 35 usnesení (UZ-51 až UZ-85-8/26) vč. jmenovitého hlasování, shrnutí; RM 40/2026 (9. 11. 2026) zatím jen pozvánka; zhlédnutí záznamů ZM na YouTube 9 950 u 34 záznamů |
 | [Lidé](lide/README.md) | na vyžádání | 10. 11. 2026 | 10. 11. 2026 | změna složení po ustavujícím ZM 8/2026 (4. 11. 2026): mandát skončil 9 zastupitelům a začal 9 novým, nové vedení města (2. místostarostka Ivana Trčková), rada a oba výbory |
 | [Usnesení](usneseni/README.md) | odvozená | 8. 11. 2026 | 8. 11. 2026 | stránka zveřejněna: v hlavním menu a v sitemapě; výpis seskupený podle jednání, skrytí nedůležitých a nepřijatých, blok hlasování se zdrojem a obrázek pro sociální sítě (`/usneseni/insta.html`) |
