@@ -66,10 +66,16 @@ rozkliknout „Zobrazit více“). Hledej konkrétní datum nebo čas v budoucnu
 plakát, pozvánku, výzvu k přihlášení, zmínku „zveme vás“. Čas příspěvku
 dává `creation_time` (viz `o-webu/automation-socialni-site.md`, krok 2b).
 
+Zároveň hledej **zrušení a změny** už zapsaných akcí (*zrušeno, ruší se,
+odloženo, přesunuto, změna termínu/času/místa, nekoná se, z důvodu nemoci*)
+a porovnej je s akcemi v `kalendar/akce.json` — zapisuje se podle kroku 5a.
+
 **c) Fotky** — `<profil>/photos` (u skupin `groups/<id>/media`). Plakáty a
 pozvánky bývají jen obrázek bez textu. Čtou se fotky přidané od data
 poslední kontroly, nejnovější první; **plakát se čte vizuálně**
-(`screenshot` + `zoom`), ne z textu. Dlaždice bez změny od poslední kontroly
+(`screenshot` + `zoom`), ne z textu. Na plakátu hledej i **nápis o zrušení či změně**
+(„ZRUŠENO“, „odloženo“, přeškrtnutý termín) — oznámení bývá jen obrázek
+bez textu, a to i u příspěvků. Dlaždice bez změny od poslední kontroly
 nečti znovu. Při prvním průchodu účtu nebo po vynechané kontrole delší než
 týden čti archiv fotek od nejnovější do data poslední kontroly (u nového
 účtu aspoň 6 měsíců).
@@ -118,6 +124,34 @@ Pečky**. Zápis:
   (název „[zrušeno!]“); mimořádný/náhradní svoz jako samostatná akce podle
   `kalendar/README.md`;
 - pak `python3 kalendar/scripts/update-kalendar.py` (Google sync dělá sám).
+
+### 5a. Zrušené a změněné akce
+
+U **každého** účtu hledej i příspěvky, které **zrušují nebo mění akci**,
+jež už je v `kalendar/akce.json` (*zrušeno, ruší se, odloženo, přesunuto,
+změna termínu/místa*). Akci najdi podle dne + pořadatele/místa (stejně jako
+při duplicitách). Příspěvek musí akci výslovně zrušit — zrušení se
+z nepřítomnosti na plakátu odvodit nedá.
+
+- **Zrušení** → před `title` přidej prefix **`[ZRUŠENO!] `** (přesně takto,
+  jednotně u všech akcí), do `note` stručně, co pořadatel oznámil
+  a proč (datum příspěvku, důvod, bez „my“) a nový doklad
+  (`kind: "prispevek"`, `url` přímo na příspěvek, `published`, `retrieved`)
+  přidej na **konec** `evidence` (`evidence[0]` zůstává původní).
+  Akce se nemaže. Je-li zrušená akce z řady (kurz, týdenní konání),
+  zrušit jen dotčený termín, ne celou řadu.
+- **Změna času/místa/termínu** → uprav údaje v záznamu, starý údaj zmiň
+  v `note`, doklad přidej do `evidence` (pravidlo „aktuální údaje z novějšího
+  zdroje“ viz `CLAUDE.md` → „Konvence“).
+- Zápis, `update-kalendar.py` (Google sync dělá sám) a `build.py` jako
+  v kroku 6. Změny **provádět rovnou**, neptat se; vyjmenovat je až
+  ve výpisu na konci běhu (u každé akce: co, kdy, odkaz na příspěvek).
+- **Příspěvek bez data akce** („dnešní představení se ruší“): akci urči
+  podle pořadatele a dne příspěvku — kandidát je jediná akce téhož
+  pořadatele v nejbližších dnech (u „dnes“/„zítra“ v ten den). Je-li
+  kandidátů víc nebo žádný, nezapisuj a nahlas.
+- Nejasné případy (příspěvek nejde přiřadit k jedné akci, rozpor mezi
+  zdroji) nezapisovat, nahlásit ve výpisu.
 
 ### 6. Zápis, build a kontrola
 
