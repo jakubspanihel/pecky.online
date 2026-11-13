@@ -150,7 +150,18 @@ def main():
         if not matches:
             problems.append(f'{name}: žádný zápas nenalezen ({url})')
         prev = {m['id']: m for m in old.get(slug, [])}
+        # web klubu někdy vypíše stejný zápas (den + týmy) víckrát pod různými
+        # id (A tým 11/2026: až 3x) - ponechat jeden, přednost má id už známé
+        best = {}
+        for m in matches:
+            k = (m['date'], m['home_team'], m['away_team'])
+            if k not in best or (m['id'] in prev and best[k]['id'] not in prev):
+                best[k] = m
+        matches = [m for m in matches if best[(m['date'], m['home_team'], m['away_team'])] is m]
         ids = {m['id'] for m in matches}
+        # klub občas přečísluje id zápasů - stejný zápas (den + týmy) pod novým
+        # id nesmí zůstat v souboru dvakrát (starý záznam se zahodí)
+        keys = {(m['date'], m['home_team'], m['away_team']) for m in matches}
         for m in matches:
             p = prev.get(m['id'])
             popis = f'{name} {m["home_team"]} – {m["away_team"]}'
@@ -161,7 +172,7 @@ def main():
             elif m['score'] and not p['score']:
                 changes.append(f'výsledek: {popis} {m["score"]}')
         for mid, p in prev.items():
-            if mid in ids:
+            if mid in ids or (p['date'], p['home_team'], p['away_team']) in keys:
                 continue
             if p['date'] < today:
                 matches.append(p)  # odehraný zápas z minulé sezóny - ponechat

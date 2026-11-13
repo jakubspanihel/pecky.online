@@ -59,7 +59,7 @@ se sem, na stránku samotnou se nic ručně nepíše.
 | Sekce | Režim | Kontrola | Změna | Co naposledy |
 |---|---|---|---|---|
 | [Na oběd](naobed/README.md) | denně | 13. 11. 2026 | 13. 11. 2026 | nové menu 13. 11. 2026 u U Marka a U Stříkačky; Siňorita bez nového menu (poslední 12. 11.); školní jídelna už má dnešní jídelníček |
-| [Kalendář](kalendar/README.md) | týdně | 13. 11. 2026 | 13. 11. 2026 | přidány 2 akce: Andělské tvoření v Dobřichově 13. 11. a Mikulášský průvod 6. 12. |
+| [Kalendář](kalendar/README.md) | týdně | 13. 11. 2026 | 13. 11. 2026 | zápasy AFK Pečky: 13 nových zápasů v rozpisu (celkem 48 v Pečkách), nové výsledky a přeložení Starší přípravky TJ Kouřim 2. 11. na 16:20 |
 | [O webu](o-webu/README.md) | týdně | 11. 11. 2026 | 11. 11. 2026 | Sociální sítě (kontrola 11. 11. 2026, odpoledne): skupina Pravoslavná obec +3 členové (364), streetpeopleofpecky −1 sledující (1 194); nová aktivita u Vinotéky Pečky, ODS a nezávislí a ZŠ Pečky (11. 11. 2026); zhlédnutí záznamů zastupitelstva 9 959 (+5) |
 | [Jednání](jednani/README.md) | týdně | 10. 11. 2026 | 10. 11. 2026 | ustavující ZM 8/2026 (4. 11. 2026): doplněn zápis a 35 usnesení (UZ-51 až UZ-85-8/26) vč. jmenovitého hlasování, shrnutí; RM 40/2026 (9. 11. 2026) zatím jen pozvánka; zhlédnutí záznamů ZM na YouTube 9 950 u 34 záznamů |
 | [Lidé](lide/README.md) | na vyžádání | 10. 11. 2026 | 10. 11. 2026 | změna složení po ustavujícím ZM 8/2026 (4. 11. 2026): mandát skončil 9 zastupitelům a začal 9 novým, nové vedení města (2. místostarostka Ivana Trčková), rada a oba výbory |
