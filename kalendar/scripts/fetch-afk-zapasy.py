@@ -155,7 +155,10 @@ def main():
         best = {}
         for m in matches:
             k = (m['date'], m['home_team'], m['away_team'])
-            if k not in best or (m['id'] in prev and best[k]['id'] not in prev):
+            # přednost: řádek s výsledkem, pak už známé id (starší duplicita
+            # bývá bez skóre i u odehraného zápasu - Starší žáci 8/2026, 11/2026)
+            rank = lambda x: (bool(x['score']), x['id'] in prev)
+            if k not in best or rank(m) > rank(best[k]):
                 best[k] = m
         matches = [m for m in matches if best[(m['date'], m['home_team'], m['away_team'])] is m]
         ids = {m['id'] for m in matches}
