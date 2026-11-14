@@ -25,7 +25,7 @@ def _list(raw):
     m = re.match(r'^\((\d+)\)\s*(.*)$', raw, re.S)
     if not m:
         return {'count': None, 'names': None, 'raw': raw}
-    names = [x.strip() for x in re.split(r',\s*(?=[A-ZÁČĎÉĚÍŇÓŘŠŤÚŮÝŽ])', m.group(2)) if x.strip()] if m.group(2).strip() else []
+    names = [x.strip() for x in re.split(r',\s*(?!(?:LL\.M\.|MBA|MPA|MSc\.|Ph\.D\.|DiS\.|CSc\.|DrSc\.|Th\.D\.)(?:,|$))(?=[A-ZÁČĎÉĚÍŇÓŘŠŤÚŮÝŽ])', m.group(2)) if x.strip()] if m.group(2).strip() else []
     return {'count': int(m.group(1)), 'names': names, 'raw': raw}
 
 
