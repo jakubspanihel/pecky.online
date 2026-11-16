@@ -527,3 +527,7 @@ důkazní materiál ke znaleckému posudku, návrh statického řešení pro
 pokračování stavby). Rada vzala informaci na vědomí, bez usnesení. Zápis
 neuvádí rozsah posudku, dopad na termín ani cenu — v `content/telocvicna.html`
 nový řádek „2. 11. 2026“ v tabulce „Zastavení stavby v roce 2026“.
+
+## Doplněno 14. 11. 2026: zápis RM 40/2026
+
+Zdroj: zápis rady města 40/2026 z 9. 11. 2026 (usneseni.cz). Bod 3 (aktuální informace vedení města): zateplení školní kuchyně; 9. 11. 2026 návštěva soudního znalce Ing. Fojtíka za účelem projednání dalšího postupu, diagnostika piloty, přizvána právnička Mgr. A. Komeiserová. Rada vzala informaci na vědomí, bez usnesení. Zápis neuvádí výsledek jednání, termín ani cenu — v `content/telocvicna.html` nový řádek „9. 11. 2026“ v tabulce „Zastavení stavby v roce 2026“. Aktuality města (14. 11. 2026): bez zmínky o stavbě.

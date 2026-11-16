@@ -59,15 +59,15 @@ se sem, na stránku samotnou se nic ručně nepíše.
 | Sekce | Režim | Kontrola | Změna | Co naposledy |
 |---|---|---|---|---|
 | [Na oběd](naobed/README.md) | denně | 15. 11. 2026 | 14. 11. 2026 | nové menu 14. 11. 2026 u U Marka; nový jídelníček školní jídelny na 16.–20. 11. 2026; Siňorita (poslední 12. 11.) a U Stříkačky (poslední 13. 11.) bez nového menu |
+| [Jednání](jednani/README.md) | týdně | 14. 11. 2026 | 14. 11. 2026 | RM 40/2026 (9. 11. 2026): doplněn zápis a 4 usnesení (UR-340 až UR-343-40/26), zamítnut záměr pronájmu pozemku pro AlzaBox ve Velkých Chvalovicích; nové jednání RM 41/2026 (16. 11. 2026) zatím jen pozvánka; ZM 8/2026: časové značky videa u 17 bodů; zhlédnutí záznamů ZM na YouTube 9 971 |
+| [Prostory](prostory/README.md) | odvozená | 14. 11. 2026 | 14. 11. 2026 | část ochozu vodárenské věže: usnesení RM 40/2026 (UR-341-40/26) o zveřejnění záměru pronájmu na rok 2027 za 150 000 Kč + DPH ročně, záměr na úřední desce od 10. 11. 2026 |
+| [Tělocvična](telocvicna/README.md) | týdně | 14. 11. 2026 | 14. 11. 2026 | 9. 11. 2026 RM 40/2026, bod 3: návštěva soudního znalce Ing. Fojtíka a diagnostika piloty, zateplení školní kuchyně (bez usnesení) |
+| [O webu](o-webu/README.md) | týdně | 14. 11. 2026 | 14. 11. 2026 | Úřední deska (kontrola 14. 11. 2026): 5 nových dokumentů (celkem 1 937), mj. záměr pronájmu ochozu vodárenské věže a zápis z ustavujícího ZM; sociální sítě naposledy zkontrolovány 11. 11. 2026 |
+| [Smlouvy](smlouvy/README.md) | týdně | 14. 11. 2026 | 14. 11. 2026 | skupina 188 smluv / 105,6 mil. Kč (úřad 51 / 34,8 mil. Kč) podle Hlídače státu k 14. 11. 2026; dvě nové smlouvy (9. 11. a 27. 10. 2026) |
 | [Kalendář](kalendar/README.md) | týdně | 15. 11. 2026 | 13. 11. 2026 | zápasy AFK Pečky: 13 nových zápasů v rozpisu (celkem 48 v Pečkách), nové výsledky a přeložení Starší přípravky TJ Kouřim 2. 11. na 16:20 |
-| [O webu](o-webu/README.md) | týdně | 11. 11. 2026 | 11. 11. 2026 | Sociální sítě (kontrola 11. 11. 2026, odpoledne): skupina Pravoslavná obec +3 členové (364), streetpeopleofpecky −1 sledující (1 194); nová aktivita u Vinotéky Pečky, ODS a nezávislí a ZŠ Pečky (11. 11. 2026); zhlédnutí záznamů zastupitelstva 9 959 (+5) |
-| [Jednání](jednani/README.md) | týdně | 10. 11. 2026 | 10. 11. 2026 | ustavující ZM 8/2026 (4. 11. 2026): doplněn zápis a 35 usnesení (UZ-51 až UZ-85-8/26) vč. jmenovitého hlasování, shrnutí; RM 40/2026 (9. 11. 2026) zatím jen pozvánka; zhlédnutí záznamů ZM na YouTube 9 950 u 34 záznamů |
 | [Lidé](lide/README.md) | na vyžádání | 10. 11. 2026 | 10. 11. 2026 | změna složení po ustavujícím ZM 8/2026 (4. 11. 2026): mandát skončil 9 zastupitelům a začal 9 novým, nové vedení města (2. místostarostka Ivana Trčková), rada a oba výbory |
 | [Usnesení](usneseni/README.md) | odvozená | 8. 11. 2026 | 8. 11. 2026 | stránka zveřejněna: v hlavním menu a v sitemapě; výpis seskupený podle jednání, skrytí nedůležitých a nepřijatých, blok hlasování se zdrojem a obrázek pro sociální sítě (`/usneseni/insta.html`) |
-| [Prostory](prostory/README.md) | odvozená | 10. 11. 2026 | 7. 11. 2026 | část ochozu vodárenské věže: na programu RM 40/2026 (9. 11. 2026) zveřejnění záměru pronájmu |
-| [Tělocvična](telocvicna/README.md) | týdně | 10. 11. 2026 | 4. 11. 2026 | 2. 11. 2026 Pečecké noviny 11/2026, s. 3: v první polovině října jednání se soudním znalcem, termín obnovení stavebních prací zatím nelze stanovit; RM 39/2026, bod 3: dozdívání atik, zateplení jídelny a schůzka se soudním znalcem 9. 11. 2026 (bez usnesení) |
-| [Pečecké noviny](noviny/README.md) | týdně | 7. 11. 2026 | 4. 11. 2026 | nová podstránka Pečecké noviny pro sociální sítě (`/noviny/insta.html`): banner posledního čísla jako obrázek 1:1, 4:5, 3:4; odkaz sdílecí ikonou v bloku Poslední číslo |
-| [Smlouvy](smlouvy/README.md) | týdně | 7. 11. 2026 | 4. 11. 2026 | skupina 156 smluv / 97,0 mil. Kč (úřad 49 / 33,9 mil. Kč) podle Hlídače státu k 4. 11. 2026 (dřív 185 / 104,6 mil. Kč, úbytek u zdroje), žádná nová smlouva |
+| [Pečecké noviny](noviny/README.md) | týdně | 14. 11. 2026 | 4. 11. 2026 | nová podstránka Pečecké noviny pro sociální sítě (`/noviny/insta.html`): banner posledního čísla jako obrázek 1:1, 4:5, 3:4; odkaz sdílecí ikonou v bloku Poslední číslo |
 | [Volby 2026](volby/2026/README.md) | na vyžádání | 3. 11. 2026 | 3. 11. 2026 | z tabulky uskupení odstraněny odkazy na sociální sítě a počty sledujících, ponechán odkaz na kandidátní listinu |
 | [Voda](voda/README.md) | na vyžádání | 31. 10. 2026 | 31. 10. 2026 | dvě nové události: havárie vodovodu na Masarykově náměstí (30. 10. 2026) a odstávka 2. 11. 2026; celkem 60 událostí / 72 zdrojů |
 | [Dotace od města](dotace/README.md) | na vyžádání | 25. 10. 2026 | 25. 10. 2026 | nová stránka `/dotace/`: sloupcový graf dotací po letech 2016–2026 a příjemcích (77 smluv, 17,94 mil. Kč), investiční akce Sokola 2019 a tabulka dodatků ke smlouvám |
@@ -81,7 +81,7 @@ se sem, na stránku samotnou se nic ručně nepíše.
 | [Volby 2022](volby/2022/README.md) | uzavřené | — | 10. 10. 2026 | nový blok „Kolik kdo dostal hlasů od voličů?“: tabulka 21 zvolených zastupitelů podle osobních hlasů s pořadím na kandidátce, funkcemi a legendou uskupení; odstraněn blok „Kdo byl zvolen“ |
 | [Domů](domu/README.md) | odvozená | — | 8. 10. 2026 | widget Pečecké noviny přepracován na zelený banner (`.banner--green`, `.banner--media`): obálka posledního čísla vlevo, počet vydání v archivu, tlačítko „Hledat v novinách“ a odkaz „Redakce“ |
 | [PečkyBot](peckybot/README.md) | odvozená | 8. 10. 2026 | 8. 10. 2026 | index doplněn o 72 starších jednání z úřední desky (≈ 900 úryvků) a podstránky Noviny, Zhlédnutí, Odpracované hodiny, Nejdelší body; rejstřík 6 020 úryvků |
-| [Zakázky](zakazky/README.md) | týdně | 7. 11. 2026 | 6. 8. 2026 | zkontrolováno, beze změny — 193 výsledků na Hlídači stejně jako 5. 10., žádné nové ID |
+| [Zakázky](zakazky/README.md) | týdně | 14. 11. 2026 | 6. 8. 2026 | zkontrolováno, beze změny — 193 výsledků na Hlídači stejně jako 5. 10., žádné nové ID |
 | [Pokladna](pokladna/README.md) | na vyžádání | 6. 8. 2026 | 6. 8. 2026 | blok Bankovní účty |
 
 Režimy: **týdně** = má zdroj, který kontroluje týdenní rutina (neděle
