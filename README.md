@@ -58,11 +58,11 @@ se sem, na stránku samotnou se nic ručně nepíše.
 
 | Sekce | Režim | Kontrola | Změna | Co naposledy |
 |---|---|---|---|---|
+| [O webu](o-webu/README.md) | týdně | 16. 11. 2026 | 16. 11. 2026 | sociální sítě (kontrola 16. 11. 2026, část účtů): aktualizováno 12 Facebooků a skupin (např. skupina Pravoslavná obec 383 členů, +19; zabijačkové speciality 4,6 tis.), zbývajících cca 40 účtů včetně Instagramů a YouTube zůstává z 11. 11. 2026; zhlédnutí ZM na YouTube 9 971 |
 | [Na oběd](naobed/README.md) | denně | 16. 11. 2026 | 14. 11. 2026 | nové menu 14. 11. 2026 u U Marka; nový jídelníček školní jídelny na 16.–20. 11. 2026; Siňorita (poslední 12. 11.) a U Stříkačky (poslední 13. 11.) bez nového menu |
 | [Jednání](jednani/README.md) | týdně | 14. 11. 2026 | 14. 11. 2026 | RM 40/2026 (9. 11. 2026): doplněn zápis a 4 usnesení (UR-340 až UR-343-40/26), zamítnut záměr pronájmu pozemku pro AlzaBox ve Velkých Chvalovicích; nové jednání RM 41/2026 (16. 11. 2026) zatím jen pozvánka; ZM 8/2026: časové značky videa u 17 bodů; zhlédnutí záznamů ZM na YouTube 9 971 |
 | [Prostory](prostory/README.md) | odvozená | 14. 11. 2026 | 14. 11. 2026 | část ochozu vodárenské věže: usnesení RM 40/2026 (UR-341-40/26) o zveřejnění záměru pronájmu na rok 2027 za 150 000 Kč + DPH ročně, záměr na úřední desce od 10. 11. 2026 |
 | [Tělocvična](telocvicna/README.md) | týdně | 14. 11. 2026 | 14. 11. 2026 | 9. 11. 2026 RM 40/2026, bod 3: návštěva soudního znalce Ing. Fojtíka a diagnostika piloty, zateplení školní kuchyně (bez usnesení) |
-| [O webu](o-webu/README.md) | týdně | 14. 11. 2026 | 14. 11. 2026 | Úřední deska (kontrola 14. 11. 2026): 5 nových dokumentů (celkem 1 937), mj. záměr pronájmu ochozu vodárenské věže a zápis z ustavujícího ZM; sociální sítě naposledy zkontrolovány 11. 11. 2026 |
 | [Smlouvy](smlouvy/README.md) | týdně | 14. 11. 2026 | 14. 11. 2026 | skupina 188 smluv / 105,6 mil. Kč (úřad 51 / 34,8 mil. Kč) podle Hlídače státu k 14. 11. 2026; dvě nové smlouvy (9. 11. a 27. 10. 2026) |
 | [Kalendář](kalendar/README.md) | týdně | 15. 11. 2026 | 13. 11. 2026 | zápasy AFK Pečky: 13 nových zápasů v rozpisu (celkem 48 v Pečkách), nové výsledky a přeložení Starší přípravky TJ Kouřim 2. 11. na 16:20 |
 | [Lidé](lide/README.md) | na vyžádání | 10. 11. 2026 | 10. 11. 2026 | změna složení po ustavujícím ZM 8/2026 (4. 11. 2026): mandát skončil 9 zastupitelům a začal 9 novým, nové vedení města (2. místostarostka Ivana Trčková), rada a oba výbory |
