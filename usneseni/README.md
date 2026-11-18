@@ -45,7 +45,7 @@ další přidává tlačítko „Zobrazit starší“. Při hledání se vykresl
 Filtr orgánu (Vše / Rada / Zastupitelstvo) není. Dvě zaškrtávátka, obě ve výchozím stavu zapnutá:
 - „Skrýt nedůležité“ — jen body „Schválení programu jednání“ a „Schválení ověřovatelů zápisu“
   a „Volba volební komise, způsob volby…“
-  (seznam je i v tooltipu), regex `U_NEDULEZITA_RE` v `content/usneseni.html`.
+  (seznam je i v tooltipu), regex `U_NEDULEZITA_RE` v `content/usneseni.html`. Když jsou zobrazené, mají v řádku netučný nadpis (třída `u-card--nedul`).
 - „Skrýt nepřijaté“ — návrhy, které při hlasování neprošly (viz „Nepřijaté návrhy“).
 
 Vypnutá volba se pamatuje v hashi: `#nedulezite` (nedůležité zobrazeny), `#neprijata` (nepřijaté
@@ -94,4 +94,4 @@ Vedle přijatých usnesení výpis ukazuje i návrhy, které při hlasování ne
 - Zdroj neuvádí znění návrhu: karta ukazuje název bodu programu, předkladatele a hlasování
   (u dvou návrhů z `rejected_vote` i text). Návrhy stažené před hlasováním v datech nejsou.
 - Ve výchozím stavu jsou skryté (zaškrtávátko „Skrýt nepřijaté“); skupiny mluví o „rozhodnutích“.
-- Číslo karty je `NP-<datum>-<RM|ZM>-<bod>-<pořadí hlasování>`; karty jsou ve výchozím stavu sbalené (datum | nadpis, „+“).
+- Číslo karty je `NP-<datum>-<RM|ZM>-<bod>-<pořadí hlasování>`; karty jsou ve výchozím stavu sbalené (datum | nadpis, „+“); chip „Nepřijato“ je vidět už v řádku sbalené karty.

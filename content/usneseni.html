@@ -26,7 +26,10 @@
       #usneseni-results .u-card.u-flash{box-shadow:0 0 0 3px var(--burgundy);}
       #usneseni-results .u-title{display:flex; align-items:center; gap:var(--space-2); cursor:pointer;}
       #usneseni-results .u-item{flex:1 1 auto;}
+      #usneseni-results .u-card--nedul .u-item{font-weight:var(--fw-regular,400);}
       #usneseni-results .u-title .meeting-toggle{margin-left:auto;}
+      #usneseni-results .u-title .u-chip{flex:0 0 auto; margin-left:auto;}
+      #usneseni-results .u-title .u-chip + .meeting-toggle{margin-left:0;}
       #usneseni-results .u-detail{margin-top:8px;}
       #usneseni-results .u-detail[hidden]{display:none;}
       #usneseni-results .u-detail .info-toggle-text{margin:0;}
@@ -144,8 +147,8 @@
       src = {url: r.url, label: jResLabel(r.n), share: '/usneseni/insta.html#' + r.n};
     }
     const head = sp.head ? `<span class="res-title">${uLinked(sp.head, words)}</span>` : fallback;
-    return `<article class="u-card${r._nepr ? ' u-card--nepr' : ''}${open ? ' u-card--open' : ''}" id="${jEscapeHtml(r.n)}">
-      <div class="u-title"><span class="meeting-label u-item">${item || jEscapeHtml(r.n)}</span><span class="meeting-toggle">${open ? '−' : '+'}</span></div>
+    return `<article class="u-card${r._nepr ? ' u-card--nepr' : ''}${uNedulezite(r) ? ' u-card--nedul' : ''}${open ? ' u-card--open' : ''}" id="${jEscapeHtml(r.n)}">
+      <div class="u-title"><span class="meeting-label u-item">${item || jEscapeHtml(r.n)}</span>${r._nepr ? '<span class="tag res-outcome zamitnuto u-chip">Nepřijato</span>' : ''}<span class="meeting-toggle">${open ? '−' : '+'}</span></div>
       <div class="u-detail agenda-res"${open ? '' : ' hidden'}><div class="info-toggle-text">${head ? `<div class="res-block-head">${head}</div>` : ''}${body}${uVoteBlock(r, chip, src)}</div></div>
     </article>`;
   }
