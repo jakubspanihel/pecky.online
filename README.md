@@ -58,7 +58,7 @@ se sem, na stránku samotnou se nic ručně nepíše.
 
 | Sekce | Režim | Kontrola | Změna | Co naposledy |
 |---|---|---|---|---|
-| [Na oběd](naobed/README.md) | denně | 18. 11. 2026 | 18. 11. 2026 | nové menu 18. 11. 2026 u U Marka a Siňority; školní jídelna má jídelníček na 16.–20. 11. 2026; U Stříkačky (poslední 13. 11.) bez nového menu |
+| [Na oběd](naobed/README.md) | denně | 18. 11. 2026 | 18. 11. 2026 | nové menu 18. 11. 2026 u U Marka, Siňority a U Stříkačky; školní jídelna má jídelníček na 16.–20. 11. 2026 |
 | [Kalendář](kalendar/README.md) | týdně | 17. 11. 2026 | 17. 11. 2026 | Rozsvícení vánočního stromu ve Velkých Chvalovicích (28. 11.): doplněn doklad, příspěvek KS Pečky z 16. 11. 2026 potvrzuje čas 15:00 a rozsvícení v 17:00 |
 | [O webu](o-webu/README.md) | týdně | 16. 11. 2026 | 16. 11. 2026 | sociální sítě (kontrola 16. 11. 2026, část účtů): aktualizováno 12 Facebooků a skupin (např. skupina Pravoslavná obec 383 členů, +19; zabijačkové speciality 4,6 tis.), zbývajících cca 40 účtů včetně Instagramů a YouTube zůstává z 11. 11. 2026; zhlédnutí ZM na YouTube 9 971 |
 | [Jednání](jednani/README.md) | týdně | 14. 11. 2026 | 14. 11. 2026 | RM 40/2026 (9. 11. 2026): doplněn zápis a 4 usnesení (UR-340 až UR-343-40/26), zamítnut záměr pronájmu pozemku pro AlzaBox ve Velkých Chvalovicích; nové jednání RM 41/2026 (16. 11. 2026) zatím jen pozvánka; ZM 8/2026: časové značky videa u 17 bodů; zhlédnutí záznamů ZM na YouTube 9 971 |
