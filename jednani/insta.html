@@ -68,6 +68,7 @@
           </div>
           <div id="ji-avatary"></div>
           <ul class="ji-temata" id="ji-temata" contenteditable="true" spellcheck="false" aria-label="Témata jednání, po kliknutí jde upravit"></ul>
+          <div class="ji-live" id="ji-live" hidden></div>
           <span class="ji-pata" id="ji-pata"><span class="pata-nova">Všechna jednání na <span class="ji-url">dopecek.cz/jednani</span></span><span class="pata-stara">DoPecek.cz/jednani</span></span>
         </div>
       </div>
@@ -115,6 +116,13 @@
     .ji-temata li{margin:0 0 7px; padding:0;}
     .ji-temata a{color:#fff;}
     .ji-temata mark{background:var(--yellow); color:var(--ink); font-weight:600; padding:0 3px; border-radius:3px; -webkit-box-decoration-break:clone; box-decoration-break:clone;}
+    .ji-sub.ji-meta{display:flex; flex-direction:column; gap:calc(3px * var(--k)); font-weight:600;}
+    .ji-sub.ji-meta .banner-meta-item{gap:calc(7px * var(--k));}
+    .ji-sub.ji-meta .kal-ico{width:calc(16px * var(--k)); height:calc(16px * var(--k)); margin-top:calc(2px * var(--k));}
+    .ji-live{margin:6px 0 0;}
+    .ji-live[hidden]{display:none;}
+    .ji-cta{display:inline-flex; align-items:center; gap:calc(9px * var(--k)); padding:calc(9px * var(--k)) calc(16px * var(--k)); background:#fff; color:var(--banner-accent); font:700 calc(15px * var(--k))/1.2 var(--font-body); border-radius:99px; box-shadow:0 2px 0 rgba(0,0,0,.18); white-space:nowrap;}
+    .ji-cta svg{flex:none; width:calc(22px * var(--k)); height:calc(22px * var(--k));}
     .ji-pata{align-self:flex-end; margin-top:8px; font:700 13px/1 var(--font-body); color:#fff;}
     .ji-nav{position:absolute; left:0; right:0; bottom:100%; margin-bottom:7px; display:flex; justify-content:space-between; align-items:center;}
     .today-format{display:flex;}
@@ -154,6 +162,7 @@
     .today-frame[data-vzhled="novy"] .ji-url{color:#fff; text-decoration:underline; font-weight:700;}
     .today-frame[data-vzhled="novy"] .ji-title{font:600 calc(34px * .82)/1.1 var(--font-banner);}
     .today-frame[data-vzhled="novy"] .ji-sub{margin:calc(6px * .82) 0 0; font:600 calc(18px * .82)/1.2 var(--font-body);}
+    .today-frame[data-vzhled="novy"] .ji-live{margin:12px 14px 0;}
     .today-frame[data-vzhled="novy"] #ji-avatary{margin:12px 14px 4px;}
     .today-frame[data-vzhled="novy"] .ji-card .banner-avatars{margin:0; padding:0;}
     .today-frame[data-vzhled="novy"] #ji-avatary .banner-av{margin:0 calc(-1 * var(--av-ov, 0px)) 0 0; box-shadow:0 0 0 2px var(--banner-from);}   /* překrytí dopočítává jiAvatary(): nejvýš 2 řádky */
@@ -171,6 +180,11 @@
   ['gesturestart', 'gesturechange'].forEach(t => document.addEventListener(t, ev => ev.preventDefault()));
   const JI = {data: {}, ids: [], id: '', druh: 'rada'};
   const jiSeznam = () => JI.ids.filter(x => JI.data[x].druh === JI.druh);
+  // ikony jako v banneru příštího zasedání na Domů (ICO_KAL / ICO_PIN / ICO_YT ve scripts/build.py)
+  const JI_ICO_KAL = '<svg class="kal-ico" viewBox="0 0 16 16" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="3" width="12" height="11" rx="1.5"/><path d="M2 6.5h12M5 1.5v3M11 1.5v3"/></svg>';
+  const JI_ICO_PIN = '<svg class="kal-ico" viewBox="0 0 16 16" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 14.5s4.5-4.2 4.5-7.8a4.5 4.5 0 0 0-9 0C3.5 10.3 8 14.5 8 14.5z"/><circle cx="8" cy="6.7" r="1.6"/></svg>';
+  const JI_ICO_YT = '<svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="#FF0000" d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2C0 8.1 0 12 0 12s0 3.9.5 5.8a3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1c.5-1.9.5-5.8.5-5.8s0-3.9-.5-5.8z"/><path fill="#fff" d="M9.6 15.6V8.4l6.2 3.6z"/></svg>';
+  const JI_DNY = ['Neděle', 'Pondělí', 'Úterý', 'Středa', 'Čtvrtek', 'Pátek', 'Sobota'];
   const JI_FORMATY = {'1:1': [1080, 1080], '4:5': [1080, 1350], '3:4': [1080, 1440], '9:16': [1080, 1920]};
   let JI_FORMAT = '4:5';
 
@@ -183,11 +197,29 @@
     const [r, mm, d] = [m.date.slice(0, 4), +m.date.slice(5, 7), +m.date.slice(8)];
     const card = document.getElementById('ji-card');
     card.classList.toggle('slate', zm);
-    document.getElementById('ji-title').textContent = `${zm ? 'Zastupitelstvo' : 'Rada'} č. ${m.number}/${m.year}`;
-    document.getElementById('ji-sub').textContent = `${d}. ${mm}. ${r}`;
+    // jednání, které ještě neproběhlo: den v týdnu, čas, místo, odkaz na živé vysílání a body jako v banneru na Domů
+    const dnes = new Date().toISOString().slice(0, 10);
+    const budouci = m.date >= dnes && m.dom;
+    const sub = document.getElementById('ji-sub');
+    const titulek = document.getElementById('ji-title');
+    if (budouci) titulek.innerHTML = `Pozvánka na zasedání<br>${zm ? 'zastupitelstva' : 'rady'} č. ${m.number}/${m.year}`;
+    else titulek.textContent = `${zm ? 'Zastupitelstvo' : 'Rada'} č. ${m.number}/${m.year}`;
+    if (budouci) {
+      const den = JI_DNY[new Date(+r, mm - 1, d).getDay()];
+      sub.classList.add('ji-meta');
+      sub.innerHTML = `<span class="banner-meta-item">${JI_ICO_KAL}<span>${den}, ${d}. ${mm}. ${r}${m.time ? ' v ' + m.time : ''}</span></span>`
+        + (m.venue ? `<span class="banner-meta-item">${JI_ICO_PIN}<span>${m.venue}</span></span>` : '');
+    } else {
+      sub.classList.remove('ji-meta');
+      sub.textContent = `${d}. ${mm}. ${r}`;
+    }
+    const live = document.getElementById('ji-live');
+    live.hidden = !(budouci && m.dom.live);
+    live.innerHTML = live.hidden ? '' : `<span class="ji-cta">${JI_ICO_YT}Živé vysílání${m.time ? ' od ' + m.time : ''} na YouTube</span>`;
     document.getElementById('ji-avatary').innerHTML = m.avatary;
     jiAvatary();
-    document.getElementById('ji-temata').innerHTML = m.temata;
+    document.getElementById('ji-temata').innerHTML = budouci && m.dom.temata ? m.dom.temata + '<li>a další...</li>' : m.temata;
+    jiVejde();
     const sez = jiSeznam(), i = sez.indexOf(JI.id);
     document.getElementById('ji-starsi').disabled = i >= sez.length - 1;
     document.getElementById('ji-novejsi').disabled = i <= 0;
@@ -200,6 +232,19 @@
     if (document.getElementById('Frame').dataset.vzhled !== 'novy' || !av.length) return;
     const w = box.clientWidth, a = av[0].offsetWidth, naRadek = Math.ceil(av.length / 2);
     if (naRadek * a > w) box.style.setProperty('--av-ov', (a - w / naRadek + 0.5) + 'px');
+  }
+  // obsah pozvánky se někdy nevejde do karty (delší titulek, „a další...“): zmenšuje písmo, dokud se nevejde (min. 0,6)
+  function jiVejde(){
+    if (!JI.data[JI.id] || !JI.data[JI.id].dom || JI.data[JI.id].date < new Date().toISOString().slice(0, 10)) return;
+    const f = document.getElementById('Frame'), t = document.getElementById('ji-temata');
+    let k = 0.82;      // výchozí velikost; ruční změna tlačítkem Aa platí do dalšího přepnutí jednání nebo formátu
+    const av = document.getElementById('ji-avatary');
+    av.hidden = false;
+    f.style.setProperty('--k', k);
+    const zmensi = () => { while (t.scrollHeight > t.clientHeight + 1 && k > 0.6) { k = Math.round((k - 0.02) * 100) / 100; f.style.setProperty('--k', k); } };
+    zmensi();
+    // ve čtverci (1:1) se ani při nejmenším písmu nevejde všechno: avatary se vynechají a písmo se vrátí
+    if (t.scrollHeight > t.clientHeight + 1 && !av.hidden) { av.hidden = true; k = 0.82; f.style.setProperty('--k', k); zmensi(); }
   }
   function jiPosun(o){
     const sez = jiSeznam(), i = sez.indexOf(JI.id) + o;
@@ -248,6 +293,7 @@
     document.getElementById('Frame').style.setProperty('--pomer', w + ' / ' + h);
     document.getElementById('Frame').dataset.vzhled = JI_FORMAT === '9:16' ? 'novy' : 'puvodni';
     jiAvatary();
+    jiVejde();
     document.querySelectorAll('.today-format-btn[data-f]').forEach(x => x.setAttribute('aria-pressed', x === b ? 'true' : 'false'));
   }));
   document.getElementById('ji-temata').addEventListener('paste', ev => {

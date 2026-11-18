@@ -796,7 +796,7 @@ def _zm_avatary():
     out = _zm_zvoleni_avatary()
     if not out:
         return ''
-    return ('<div class="banner-side"><p class="banner-side-title">Nově zvolení zastupitelé</p>'
+    return ('<div class="banner-side"><p class="banner-side-title">Zastupitelé města</p>'
             f'<div class="banner-avatars">{"".join(out)}</div></div>')
 
 
@@ -893,15 +893,18 @@ def _jednani_temata(m, zapis=False):
     return [] if zapis else _temata_z_programu(m, 5)
 
 
+def _zm_temata_li(m):
+    """Položky <li> bodů jednání v banneru příštího zastupitelstva: jen tučný název bodu,
+    bez vysvětlivky za pomlčkou. Společné pro Domů a insta.json (budoucí zastupitelstvo)."""
+    pol = _jednani_temata(m)
+    nazvy = [re.match(r'\*\*(.+?)\*\*', t).group(1) if t.startswith('**') else t for t in map(_bez_cisel_usneseni, pol)]
+    return ''.join(f'<li><strong>{esc(n)}</strong></li>' for n in nazvy)
+
+
 def _zm_temata(m):
     """Výběr bodů jednání v banneru příštího zastupitelstva (stejný jako v insta.json)."""
-    pol = _jednani_temata(m)
-    if not pol:
-        return ''
-    # na Domů jen tučný název bodu, bez vysvětlivky za pomlčkou
-    nazvy = [re.match(r'\*\*(.+?)\*\*', t).group(1) if t.startswith('**') else t for t in map(_bez_cisel_usneseni, pol)]
-    li = ''.join(f'<li><strong>{esc(n)}</strong></li>' for n in nazvy)
-    return f'<ul class="banner-topics">{li}</ul>'
+    li = _zm_temata_li(m)
+    return f'<ul class="banner-topics">{li}</ul>' if li else ''
 
 
 def _zm_akce(m, odkaz):
@@ -1121,6 +1124,7 @@ def _jednani_insta_json():
     a zastupitelstvo s tématy (soubor shrnutí, jinak program z pozvánky) hotový HTML
     seznam témat jako ve widgetech „Z rady města“ / „Ze zastupitelstva“ na Domů.
     Klíč = id jednání (`rada-RRRR-MM-DD`, `zastupitelstvo-RRRR-MM-DD`)."""
+    from datetime import date, timedelta
     meetings = json.loads(read('jednani/pecky-jednani.json'))['meetings']
     people = {p['id']: p for p in json.loads(read('lide/people.json'))['people']}
     aff = json.loads(read('lide/affiliations.json'))['affiliations']
@@ -1141,6 +1145,12 @@ def _jednani_insta_json():
             'zapis': bool(zapis), 'temata': li,
             'avatary': _insta_avatary(m, people, aff, zm),
         }
+        # budoucí jednání: texty jako v banneru příštího zasedání na Domů (stránka je použije, dokud jednání neproběhlo)
+        if m['date'] >= (date.today() - timedelta(days=7)).isoformat():
+            out[f'{kdo}-{m["date"]}']['dom'] = {
+                'temata': _zm_temata_li(m) if zm else '',
+                'live': bool((m.get('links') or {}).get('livestream')) and zm,
+            }
     (ROOT / 'jednani' / 'insta.json').write_text(
         json.dumps(out, ensure_ascii=False, separators=(',', ':')), encoding='utf-8')
 
