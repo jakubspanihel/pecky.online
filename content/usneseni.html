@@ -34,7 +34,8 @@
       #usneseni-results .u-detail[hidden]{display:none;}
       #usneseni-results .u-detail .info-toggle-text{margin:0;}
       #usneseni-results .u-detail .res-block-head .hit-number{font-family:var(--font-mono);}
-      #usneseni-results .u-text{margin:0 0 var(--space-3); white-space:pre-line;}
+      #usneseni-results .u-termin{display:flex; flex-wrap:wrap; gap:2px var(--space-4); margin:0 0 var(--space-3); line-height:1.5;}
+  #usneseni-results .u-text{margin:0 0 var(--space-3); white-space:pre-line;}
       #usneseni-results .u-zapis{margin:0 0 10px;}
       #usneseni-results .u-zapis > summary{margin:0; cursor:pointer; list-style:none;}
       #usneseni-results .u-zapis > :not(summary){margin-left:var(--space-2); padding-left:var(--space-5); border-left:3px solid var(--line);}
@@ -56,7 +57,7 @@
       </div>
     </details>
 
-    <p class="lede" style="margin:18px 0 0;">Související: <a href="/jednani/">Jednání</a></p>
+    <p class="lede" style="margin:18px 0 0;">Související: <a href="/jednani/">Jednání</a> · <a href="/usneseni/ukoly.html">Úkoly z usnesení</a></p>
   </section>
 
 <script>
@@ -73,6 +74,7 @@
   // nedůležitá = jen tyto procedurální body (seznam je i v tooltipu zaškrtávátka)
   const U_NEDULEZITA_RE = /^\s*(schválení\s+(programu|ověřovatel)|volba\s+volební\s+komise)/i;
   const uNedulezite = r => U_NEDULEZITA_RE.test(r.item || '');
+  let U_TERM = {};         // číslo usnesení -> {z: zodpovídá, t: termín, i: ihned, u: ukončeno}, usneseni/terminy.json
   let U_VOTES = {};        // číslo usnesení ZM -> jména podle hlasování, usneseni/hlasovani.json
   const U_BY_NUMBER = {};  // číslo usnesení (velkými písmeny) -> usnesení
 
@@ -116,6 +118,20 @@
     const v = (r._m.type === 'Zastupitelstvo' || r._nepr) ? U_VOTES[(r.n || '').toUpperCase()] : null;
     return jVotesBlockHtml(r, v, chip, src);
   }
+  // řádek „Zodpovídá / Termín / Ukončeno“ z detailu usnesení na usneseni.cz; u budoucího termínu chip s relativním údajem
+  function uTermin(r){
+    const x = U_TERM[(r.n || '').toUpperCase()];
+    if (!x) return '';
+    const part = [];
+    if (x.z) part.push(`<span><strong>Zodpovídá:</strong> ${jEscapeHtml(x.z)}</span>`);
+    if (x.t) {
+      const rel = x.i ? null : relBudouci(x.t);
+      const chip = rel ? ` <span class="tag probiha fut-chip" data-date="${x.t}">${jEscapeHtml(rel)}</span>` : '';
+      part.push(`<span><strong>Termín:</strong> ${x.i ? 'ihned' : uFormatDate(x.t)}${chip}</span>`);
+    }
+    if (x.u) part.push(`<span><strong>Ukončeno:</strong> ${uFormatDate(x.u)}</span>`);
+    return part.length ? `<div class="u-termin">${part.join('')}</div>` : '';
+  }
   // zápis projednávání bodu (předkladatel + důvodová zpráva z programu jednání) — zatím jen u rozpočtových opatření;
   // titulek sbalovacího bloku je shrnutí změny rozpočtu (usneseni/rozpocet-shrnuti.json), jinak jen „Projednávání bodu“
   const U_ZAPIS_RE = /rozpočtov\S*\s+opatřen/i;
@@ -149,7 +165,7 @@
     const head = sp.head ? `<span class="res-title">${uLinked(sp.head, words)}</span>` : fallback;
     return `<article class="u-card${r._nepr ? ' u-card--nepr' : ''}${uNedulezite(r) ? ' u-card--nedul' : ''}${open ? ' u-card--open' : ''}" id="${jEscapeHtml(r.n)}">
       <div class="u-title"><span class="meeting-label u-item">${item || jEscapeHtml(r.n)}</span>${r._nepr ? '<span class="tag res-outcome zamitnuto u-chip">Nepřijato</span>' : ''}<span class="meeting-toggle">${open ? '−' : '+'}</span></div>
-      <div class="u-detail agenda-res"${open ? '' : ' hidden'}><div class="info-toggle-text">${head ? `<div class="res-block-head">${head}</div>` : ''}${body}${uVoteBlock(r, chip, src)}</div></div>
+      <div class="u-detail agenda-res"${open ? '' : ' hidden'}><div class="info-toggle-text">${head ? `<div class="res-block-head">${head}</div>` : ''}${body}${r._nepr ? '' : uTermin(r)}${uVoteBlock(r, chip, src)}</div></div>
     </article>`;
   }
 
@@ -195,12 +211,13 @@
   async function uLoad(){
     const statusEl = document.getElementById('usneseni-status');
     try {
-      const [res, parcelRes, votesRes, shrnRes, neprRes] = await Promise.all([
+      const [res, parcelRes, votesRes, shrnRes, neprRes, termRes] = await Promise.all([
         fetch('/jednani/pecky-jednani.json'),
         fetch('/jednani/parcely-odkazy.json').catch(() => null),
         fetch('/usneseni/hlasovani.json').catch(() => null),
         fetch('/usneseni/rozpocet-shrnuti.json').catch(() => null),
         fetch('/usneseni/neprijata.json').catch(() => null),
+        fetch('/usneseni/terminy.json').catch(() => null),
         jLoadRefs()
       ]);
       if (!res.ok) throw new Error('HTTP ' + res.status);
@@ -209,6 +226,9 @@
       }
       if (votesRes && votesRes.ok) {
         try { U_VOTES = (await votesRes.json()).hlasovani || {}; } catch (e) { U_VOTES = {}; }
+      }
+      if (termRes && termRes.ok) {
+        try { U_TERM = (await termRes.json()).terminy || {}; } catch (e) { U_TERM = {}; }
       }
       if (shrnRes && shrnRes.ok) {
         try { U_RO_SHRNUTI = (await shrnRes.json()).shrnuti || {}; } catch (e) { U_RO_SHRNUTI = {}; }

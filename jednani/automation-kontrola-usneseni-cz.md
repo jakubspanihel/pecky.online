@@ -265,6 +265,27 @@ Postup (Claude in Chrome, jedna karta na `https://mesto-pecky.usneseni.cz/verejn
    (`invitation.status: site_error`) — to je v pořádku.
 6. Do výpisu běhu řádek „Jednání — archiv“: která jednání přibyla (nebo „beze změny“).
 
+### 5c. Termíny a ukončení usnesení — POVINNÉ při každém běhu
+
+Na usneseni.cz přibývá u usnesení údaj „Ukončeno“ (a mění se termín či odpovědná osoba) i zpětně, proto se
+**otevřená usnesení** (termín jiný než „IHNED“ a zatím bez data ukončení) stahují při každém běhu znovu.
+Ukončená se znovu nestahují. Data: `usneseni/terminy.json` (generuje `update-hlasovani.py`), stažené údaje
+`usneseni/terminy-stazene.json` mají přednost před archivem. Dělat **po kroku 5b** (nová jednání se tím také doplní).
+
+1. `python3 usneseni/obnovit-terminy.py seznam` — vypíše otevřená usnesení jako JSON pole „číslo:id:mod“.
+2. Karta na `https://mesto-pecky.usneseni.cz/verejne/`; do `javascript_tool` vlož `usneseni/terminy-capture.js`
+   a spusť **bez `await`** (volání nástroje vyprší po 45 s): `window.__tc = terminyCapture([…seznam…]); 'spuštěno'`
+   (nejlépe po dávkách do ~40 usnesení; pauza 3 s mezi stránkami je ve skriptu). Chrome uloží
+   `~/Downloads/terminy-capture-<čas>.json` (stahování z usneseni.cz do `~/Downloads` je schválené jako v 5b);
+   počkej na soubor, např. `until ls ~/Downloads | grep -q terminy-capture; do sleep 2; done`.
+   Při ověření (Cloudflare) skript sám skončí, uloží stažené a v souboru je `stopped` — ověření neobcházet,
+   zbytek se stáhne při dalším běhu.
+3. `python3 usneseni/obnovit-terminy.py import` — zapíše do `terminy-stazene.json`, přegeneruje `terminy.json`,
+   smaže zpracované soubory a vypíše změny („UZ-45-6/26: termín 2026-10-31 → 2026-12-31“, „ukončeno – → …“).
+   Výpis změn patří do výpisu běhu a do `HISTORIE.md` (jen počet a pozoruhodné změny, ne celý seznam).
+4. `python3 scripts/build.py`. Nová usnesení z nově přidaného jednání (krok 5b) po tomto kroku už termíny mají;
+   pokud je `seznam` vypíše bez záznamu, stáhnou se stejně.
+
 ### 6. Kontrola YouTube u zastupitelstva (dělat při KAŽDÉM běhu)
 
 Rada nikdy nemá záznam na YouTube (ověřeno 27. 8. 2026: 0/246 jednání

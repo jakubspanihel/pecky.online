@@ -20,6 +20,7 @@
             <h3 class="ji-title" id="ji-title"></h3>
           </div>
           <div class="ji-text" id="ji-text" contenteditable="true" spellcheck="false" aria-label="Text usnesení, po kliknutí jde upravit"></div>
+          <div class="ji-termin" id="ji-termin" hidden></div>
           <div class="ji-vote" id="ji-vote"></div>
           <span class="ji-pata" id="ji-pata"><span class="pata-nova">Všechna usnesení na <span class="ji-url">dopecek.cz/usneseni</span></span><span class="pata-stara">DoPecek.cz/usneseni</span></span>
         </div>
@@ -68,6 +69,9 @@
     .ji-vote{display:flex; flex-wrap:wrap; align-items:center; gap:6px 10px; margin-top:10px; font:600 calc(13px * var(--k))/1.3 var(--font-body); color:rgba(255,255,255,.95);}
     .ji-vote .tag{margin:0; background:#fff; border-color:#fff; font-weight:700; color:var(--ink);}
     .ji-vote .tag.hotovo{color:var(--field);} .ji-vote .tag.probiha{color:var(--gold);} .ji-vote .tag.zamitnuto,.ji-vote .tag.revokovano{color:var(--burgundy);}
+    .ji-termin{display:flex; flex-direction:column; gap:3px; margin-top:10px; font:400 calc(16px * var(--k))/1.3 var(--font-body); color:rgba(255,255,255,.95);}
+    .ji-termin[hidden]{display:none;}
+    .ji-termin strong{font-weight:700; color:#fff;}
     .ji-pata{align-self:flex-end; margin-top:8px; font:700 13px/1 var(--font-body); color:#fff;}
     .ji-nav{position:absolute; left:0; right:0; bottom:100%; margin-bottom:7px; display:flex; justify-content:space-between; align-items:center;}
     .today-format{display:flex;}
@@ -110,6 +114,8 @@
     .today-frame[data-vzhled="novy"] .ji-text{margin:0 14px; width:auto; padding-top:14px; color:#fff; font-size:calc(19px * var(--k));}
     .today-frame[data-vzhled="novy"] .ji-text:focus{outline-offset:-3px;}
     .today-frame[data-vzhled="novy"] .ji-text strong{color:inherit;}
+    .today-frame[data-vzhled="novy"] .ji-termin{margin:14px 14px 0; font-size:calc(19px * var(--k)); color:#fff;}
+    .today-frame[data-vzhled="novy"] .ji-termin + .ji-vote{margin-top:10px;}
     .today-frame[data-vzhled="novy"] .ji-vote{margin:14px 14px 0; padding-top:calc(10px * var(--k)); border-top:1px solid rgba(255,255,255,.35); color:#fff;}
     .today-frame[data-vzhled="novy"] .ji-vote .tag{background:transparent; border:0; padding:0; color:#fff;}   /* výsledek jako prostý text, ne štítek */
   </style>
@@ -121,6 +127,7 @@
   const JI_NEDULEZITA = /^\s*schválení\s+(programu|ověřovatel)/i;     // jako v seznamu Usnesení („Skrýt nedůležité“)
   // seznam od nejstaršího po nejnovější; ‹ = předchozí, › = další; nedůležité body se přeskakují
   const jiSeznam = () => JI.ids.filter(x => JI.data[x].druh === JI.druh);
+  let JI_TERM = {};      // číslo usnesení -> {z: zodpovídá, t: termín, i: ihned}, usneseni/terminy.json
   const JI_FORMATY = {'1:1': [1080, 1080], '4:5': [1080, 1350], '3:4': [1080, 1440], '9:16': [1080, 1920]};
   let JI_FORMAT = '4:5';
 
@@ -161,6 +168,12 @@
     const sp = jResSplit(r.text);      // nadpis = úvod věty usnesení („Rada města schvaluje“), bez něj bod programu
     document.getElementById('ji-title').textContent = sp.head || r.item || jResLabel(r.n);
     document.getElementById('ji-text').innerHTML = jiZvyrazni(sp.rest);
+    const tm = JI_TERM[r.n.toUpperCase()] || {};
+    const datum = iso => `${+iso.slice(8)}. ${+iso.slice(5, 7)}. ${iso.slice(0, 4)}`;
+    const tEl = document.getElementById('ji-termin');
+    tEl.innerHTML = [tm.z ? `<span><strong>Zodpovídá:</strong> ${jEscapeHtml(tm.z)}</span>` : '',
+                     tm.t ? `<span><strong>Termín:</strong> ${tm.i ? 'ihned' : datum(tm.t)}</span>` : ''].join('');
+    tEl.hidden = !tEl.innerHTML;
     const hlasy = r.pro == null ? '' : `<span>Pro ${r.pro} · Proti ${r.proti} · Zdrželi se ${r.zdrzel}</span>`;
     document.getElementById('ji-vote').innerHTML = jOutcomeBadgeHtml(r) + hlasy;
     const sez = jiSeznam(), i = sez.indexOf(JI.id);
@@ -299,7 +312,9 @@
   fetch('/lide/people.json').then(r => r.json()).then(d => {
     const kr = new Set((Array.isArray(d) ? d : d.people || []).map(p => p.first_name).filter(Boolean));
     JI_KRESTNI.push(...kr);
-  }).catch(() => {}).then(() => fetch('/jednani/pecky-jednani.json'))
+  }).catch(() => {})
+    .then(() => fetch('/usneseni/terminy.json').then(r => r.json()).then(d => { JI_TERM = d.terminy || {}; }).catch(() => {}))
+    .then(() => fetch('/jednani/pecky-jednani.json'))
     .then(r => r.json())
     .then(db => {
       const vse = [], byN = {};

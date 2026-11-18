@@ -12,11 +12,15 @@ přijat“, bez čísla usnesení), do usneseni/neprijata.json — rada i zastup
 u zastupitelstva i se jmény. Hlasování z jednání novějších než archiv (pole
 `rejected_vote` v jednani/pecky-jednani.json) načítá přímo stránka.
 
+Navíc uloží u každého usnesení, kdo zodpovídá, termín a datum ukončení
+(usneseni/terminy.json; novější stažené z usneseni.cz v terminy-stazene.json mají přednost, viz obnovit-terminy.py).
+
 Použití: python3 usneseni/update-hlasovani.py
 Po spuštění: python3 scripts/build.py (stránka data jen načítá, build je nemění).
 """
 import glob
 import json
+import re
 import sys
 from pathlib import Path
 
@@ -56,6 +60,48 @@ def neprijata():
     print(f'{len(out)} nepřijatých návrhů')
 
 
+def _iso(raw):
+    m = re.search(r'(\d{1,2})\.\s*(\d{1,2})\.\s*(\d{4})', raw or '')
+    return f'{m.group(3)}-{int(m.group(2)):02d}-{int(m.group(1)):02d}' if m else None
+
+
+def terminy():
+    """Zodpovídá, termín a datum ukončení každého usnesení (detail usneseni.cz).
+
+    Klíč = číslo usnesení; z: kdo zodpovídá, t: termín (ISO), i: 1 = termín „IHNED“,
+    u: datum ukončení. Přednost mají údaje z terminy-stazene.json."""
+    out = {}
+    for f in sorted(glob.glob(str(ROOT / 'jednani' / 'archive' / '*.json'))):
+        d = json.load(open(f, encoding='utf-8'))
+        for it in ((d.get('resolutions') or {}).get('items') or []):
+            x = it.get('detail') or {}
+            n = (x.get('number_raw') or '').strip()
+            if not n:
+                continue
+            rec = {}
+            if (x.get('zodpovida_raw') or '').strip():
+                rec['z'] = x['zodpovida_raw'].strip()
+            tr = (x.get('termin_raw') or '').strip()
+            if _iso(tr):
+                rec['t'] = _iso(tr)
+                if tr.upper().startswith('IHNED'):
+                    rec['i'] = 1
+            if x.get('ukonceno_date_iso') or _iso(x.get('ukonceno_raw')):
+                rec['u'] = x.get('ukonceno_date_iso') or _iso(x.get('ukonceno_raw'))
+            if rec:
+                out[n] = rec
+    # stažené z detailu usneseni.cz (obnovit-terminy.py; nejnovější údaje, také usnesení novější než archiv)
+    stazene = ROOT / 'usneseni' / 'terminy-stazene.json'
+    if stazene.exists():
+        for n, rec in json.loads(stazene.read_text(encoding='utf-8'))['terminy'].items():
+            out[n] = {k: v for k, v in rec.items() if k != 's'}   # stažené mají přednost před archivem
+    (ROOT / 'usneseni' / 'terminy.json').write_text(
+        json.dumps({'meta': {'source': 'jednani/archive (usneseni.cz)', 'count': len(out)},
+                    'terminy': out}, ensure_ascii=False, separators=(',', ':')) + '\n',
+        encoding='utf-8')
+    print(f'{len(out)} usnesení s termínem / odpovědnou osobou')
+
+
 def main():
     out = {}
     for f in sorted(glob.glob(str(ROOT / 'jednani' / 'archive' / '*zastupitelstvo*.json'))):
@@ -83,6 +129,7 @@ def main():
         encoding='utf-8')
     print(f'{len(out)} usnesení zastupitelstva se jmény')
     neprijata()
+    terminy()
 
 
 if __name__ == '__main__':

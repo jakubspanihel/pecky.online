@@ -43,6 +43,7 @@ Dokumentace neuvádí jinak. Tabulka je řazená podle URL:
 | Smlouvy | `/smlouvy/` | `smlouvy/README.md` |
 | Tělocvična | `/telocvicna/` | `telocvicna/README.md` |
 | Usnesení | `/usneseni/` | `usneseni/README.md` (+ `update-hlasovani.py`) |
+| Úkoly z usnesení | `/usneseni/ukoly.html` | `usneseni/README.md` → „Úkoly z usnesení“ |
 | Voda | `/voda/` | `voda/README.md` (+ `rozbory.json`, generátor `voda/update-rozbory.py`) |
 | Volby | `/volby/` | `volby/README.md` (rozcestník) |
 | Volby 2014 | `/volby/2014/` | `volby/2014/README.md` |

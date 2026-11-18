@@ -67,7 +67,7 @@ bez hlavičky a patičky, noindex, mimo sitemapu). Karta s jedním usnesením (r
 modrá): datum, nadpis = úvod věty („Rada města schvaluje“), pod ním zbytek textu, štítek výsledku s hlasy. Listování tlačítky ‹ ›
 a swipem; přepínač Rada / Zastupitelstvo, velikost písma, formát 1:1 / 4:5 / 3:4, Uložit / Sdílet.
 Data bere za běhu z `jednani/pecky-jednani.json`; přeskakuje „Schválení programu“ a „Schválení ověřovatelů“
-(mimo odkaz přímo na ně). Text na kartě jde upravit kliknutím. U zastupitelstva s jmény, u rady jen s počty. Data jsou v `usneseni/hlasovani.json`, generuje je
+(mimo odkaz přímo na ně). Text na kartě jde upravit kliknutím. Nad štítkem výsledku je řádek „Zodpovídá · Termín“ z `usneseni/terminy.json` (bez záznamu se nezobrazí). U zastupitelstva s jmény, u rady jen s počty. Data jsou v `usneseni/hlasovani.json`, generuje je
 `python3 usneseni/update-hlasovani.py` z archivu `jednani/archive/` (zápisy zastupitelstva,
 jména verbatim). Rada jména neuvádí, tam jsou jen počty. Jednání novější než snímek archivu (ZM 5/2026 – 7/2026, 18 usnesení) mají jména
 ručně přepsaná ze zápisů na usneseni.cz v `usneseni/hlasovani-rucne.json`; generátor je
@@ -75,6 +75,31 @@ doplní, pokud je archiv nemá (archiv má přednost). Počty jmen u každého u
 s počty hlasů v `pecky-jednani.json`. Nové zasedání zastupitelstva: jména přibudou po novém snímku
 archivu, do té doby u něj karty ukazují větu „Jména hlasujících zatím nejsou k dispozici“
 (nebo jména doplnit do `hlasovani-rucne.json`).
+
+## Zodpovídá, termín, ukončeno
+Rozbalená karta přijatého usnesení (rada i zastupitelstvo) má před blokem hlasování řádek „Zodpovídá · Termín · Ukončeno“
+z detailu usnesení na usneseni.cz; stejný řádek (bez „Ukončeno“) je i na kartě v `/usneseni/insta.html`.
+Data jsou v `usneseni/terminy.json` (klíč = číslo usnesení; `z` zodpovídá, `t` termín ISO, `i` = 1 u termínu „IHNED“ —
+zobrazí se „ihned“, `u` datum ukončení). Generuje je `usneseni/update-hlasovani.py` ze dvou zdrojů; přednost mají
+údaje stažené z usneseni.cz v `usneseni/terminy-stazene.json` (`s` = datum stažení), pak archiv `jednani/archive/`
+(pole `zodpovida_raw`, `termin_raw`, `ukonceno_*`). Budoucí termín má vedle data chip s relativním údajem
+(`relBudouci()`). Termín není ve vyhledávání. Nepřijaté návrhy řádek nemají; usnesení bez záznamu také ne.
+
+**Průběžná obnova:** „Ukončeno“ přibývá zpětně, proto se při každé kontrole Jednání znovu stahují jen *otevřená*
+usnesení (termín jiný než „IHNED“, bez data ukončení), viz `jednani/automation-kontrola-usneseni-cz.md` → krok 5c.
+Pomůcky: `usneseni/obnovit-terminy.py` (`seznam` otevřených pro Chrome; `import` zpracuje stažené soubory a vypíše změny
+termínu, osoby a ukončení) a `usneseni/terminy-capture.js` (stahování v Chrome na usneseni.cz, pauza 3 s mezi stránkami,
+při ověření Cloudflare se zastaví a neobchází).
+
+## Úkoly z usnesení (`/usneseni/ukoly.html`)
+Podstránka (`content/usneseni-ukoly.html`, v `EXTRA_PAGES` jako `usneseni-ukoly`; odkaz v řádku „Související“ na `/usneseni/`,
+v sitemapě, bez položky v menu). Tabulka Úkol · Termín · Stav, seskupená podle odpovědné osoby (skupiny od největší,
+„Bez určené osoby“ na konci). Úkol = usnesení rady nebo zastupitelstva, v jehož textu je „ukládá“ nebo „pověřuje“ (regex `UKOL_RE` v `content/usneseni-ukoly.html`);
+jiná usnesení s termínem tu nejsou. Data za běhu: `jednani/pecky-jednani.json` + `usneseni/terminy.json`.
+Stav: **Ukončeno** (vyplněné `u`, s datem), **Po termínu** (bez `u`, termín už uplynul; neznamená „nesplněno“, jen že zdroj
+ukončení neuvádí), jinak **Otevřeno**; u budoucího termínu chip s relativním údajem. V rámci osoby jdou nahoře po termínu,
+pak otevřené podle termínu, nakonec ukončené od nejnovějšího. Filtr: hledání a „Skrýt ukončené“ (ve výchozím stavu zapnuté). Číslo usnesení pod textem vede na detail na usneseni.cz (nová karta). Stav se mění s obnovou
+termínů (krok 5c v `jednani/automation-kontrola-usneseni-cz.md`), build není potřeba.
 
 ## Projednávání bodu u rozpočtových opatření
 U usnesení k bodu „Rozpočtové/á opatření“ je sbalovací blok s předkladatelem a důvodovou zprávou

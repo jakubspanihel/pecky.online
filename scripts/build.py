@@ -229,6 +229,13 @@ EXTRA_PAGES = {
         # Odkázaná z Kalendáře (řádek "Související") od 19. 10. 2026 — proto má lastmod
         # a jde do sitemapy.
         True, 'kalendar', '2026-10-19'),
+    'usneseni-ukoly': (
+        '/usneseni/ukoly.html', 'Úkoly z usnesení — Do Peček . cz',
+        'Úkoly, které ukládají usnesení rady a zastupitelstva města Pečky: '
+        'kdo za ně odpovídá, do kdy mají být splněny a v jakém jsou stavu.',
+        # Odkázaná z /usneseni/ (řádek "Související") od 18. 11. 2026 — proto má lastmod a jde do sitemapy.
+        # Data za běhu: jednani/pecky-jednani.json + usneseni/terminy.json (viz usneseni/README.md).
+        True, 'usneseni', '2026-11-18'),
     'youtube': (
         '/jednani/youtube.html', 'Zhlédnutí záznamů zastupitelstva — Do Peček . cz',
         'Počet zhlédnutí videozáznamů jednání zastupitelstva města Pečky '

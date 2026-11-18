@@ -1,0 +1,113 @@
+  <section class="panel active" id="panel-usneseni-ukoly">
+    <h2 class="title display">Úkoly z usnesení</h2>
+    <p class="lede perex" id="ukoly-lede">Usnesení rady a zastupitelstva, která někomu ukládají nebo někoho pověřují úkolem, podle toho, kdo za jeho splnění odpovídá. U každého je termín a stav. Zdrojem je <a href="https://mesto-pecky.usneseni.cz/verejne/" target="_blank" rel="noopener">mesto-pecky.usneseni.cz/verejne</a>.</p>
+
+    <div class="list-control">
+      <div class="search-bar">
+        <input type="search" id="ukoly-search" placeholder="Hledat" autocomplete="off" aria-label="Hledat v úkolech">
+        <label class="checkbox-label" id="ukoly-hotove-label" title="Skryjí se úkoly, u kterých je na usneseni.cz vyplněné datum ukončení"><input type="checkbox" id="ukoly-hotove" checked autocomplete="off"> Skrýt ukončené</label>
+      </div>
+    </div>
+    <h3 class="search-status" id="ukoly-status"><span class="spinner" aria-hidden="true"></span>Načítám úkoly…</h3>
+    <style>
+      #ukoly-results{margin-top:var(--space-5);}
+      #ukoly-results h3.uk-osoba{margin:0 0 var(--space-3);}
+      #ukoly-results h3.uk-osoba:not(:first-child){margin-top:var(--space-7);}
+      #ukoly-results h3.uk-osoba .uk-count{font-weight:400; color:var(--ink-soft); font-size:var(--fs-6);}
+      #ukoly-results table{width:100%;}
+      #ukoly-results .uk-text{margin:0;}
+      #ukoly-results .uk-cislo{display:inline-flex; align-items:center; gap:4px; margin-top:var(--space-1); font-family:var(--font-mono); font-size:var(--fs-6);}
+      #ukoly-results .uk-cislo svg{width:13px; height:13px; flex:none;}
+      #ukoly-results td.uk-termin, #ukoly-results td.uk-stav{white-space:nowrap; vertical-align:top;}
+      #ukoly-results td.uk-stav small{display:block; margin-top:var(--space-1); color:var(--ink-soft);}
+      @media (max-width:640px){
+        #ukoly-results thead{display:none;}
+        #ukoly-results table, #ukoly-results tbody{display:block; min-width:0; width:100%;}
+        #ukoly-results tr{display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); box-sizing:border-box; width:100%; gap:var(--space-2) var(--space-3); padding:var(--space-3) 0; border-bottom:1px solid var(--line);}
+        #ukoly-results td{display:block; padding:0; border:0; min-width:0;}
+        #ukoly-results .table-scroll{overflow-x:visible;}
+        #ukoly-results td:first-child{grid-column:1 / -1;}
+        #ukoly-results td.uk-termin::before{content:"Termín"; display:block; font-family:var(--font-mono); font-size:var(--fs-6); color:var(--ink-soft);}
+        #ukoly-results td.uk-stav::before{content:"Stav"; display:block; font-family:var(--font-mono); font-size:var(--fs-6); color:var(--ink-soft);}
+        #ukoly-results td.uk-termin, #ukoly-results td.uk-stav{white-space:normal;}
+      }
+    </style>
+    <div id="ukoly-results"></div>
+
+    <details class="collapsible" style="margin-top:36px;">
+      <summary style="cursor:pointer; list-style:none;"><h3 class="display" style="margin:0 0 4px; display:inline;">Jak se úkoly určují <span class="collapsible-arrow" aria-hidden="true">▾</span></h3></summary>
+      <div class="callout">
+        Úkol je usnesení rady nebo zastupitelstva od 12. 4. 2021, v jehož textu je sloveso „ukládá“ nebo „pověřuje“. Jiná usnesení
+        (schvaluje, bere na vědomí…) tu nejsou, i když mají na usneseni.cz termín.
+        Zodpovídá, termín a datum ukončení jsou z detailu usnesení na usneseni.cz.
+        Stav „Ukončeno“ znamená, že je u usnesení vyplněné datum ukončení na usneseni.cz; město usnesení uzavírá i hromadně, takže datum nemusí odpovídat dni splnění úkolu. „Po termínu“ je usnesení bez data ukončení,
+        jehož termín už uplynul; neznamená to, že úkol nebyl splněn, jen že jeho ukončení zdroj neuvádí.
+        U několika usnesení zdroj zodpovědnou osobu neuvádí, ta jsou ve skupině „Bez určené osoby“.
+        Datum ukončení se zjišťuje při každé kontrole Jednání, takže se stav může zpětně změnit.
+        <span class="stamp">ověřeno</span>
+      </div>
+    </details>
+
+    <p class="lede" style="margin:18px 0 0;">Související: <a href="/usneseni/">Usnesení</a> · <a href="/jednani/">Jednání</a></p>
+  </section>
+
+  <script>
+  (async function(){
+    const statusEl = document.getElementById('ukoly-status');
+    const out = document.getElementById('ukoly-results');
+    const fmt = iso => { const [y, m, d] = (iso || '').split('-'); return y ? `${+d}. ${+m}. ${y}` : ''; };
+    const dnes = new Date().toISOString().slice(0, 10);
+    const UKOL_RE = /\b(ukládá|pověřuje)(?![a-záčďéěíňóřšťúůýž])/i;   // \b v JS nezná diakritiku, proto negativní lookahead
+    let U = [];
+    function stav(x){
+      if (x.u) return {rank: 2, html: `<span class="tag hotovo">Ukončeno</span><small>${fmt(x.u)}</small>`};
+      if (!x.i && x.t && x.t < dnes) return {rank: 0, html: '<span class="tag zamitnuto">Po termínu</span>'};
+      return {rank: 1, html: '<span class="tag probiha">Otevřeno</span>'};
+    }
+    function termin(x){
+      if (!x.t) return '–';
+      if (x.i) return 'ihned';
+      const rel = x.u ? null : relBudouci(x.t);
+      return fmt(x.t) + (rel ? ` <span class="tag probiha fut-chip" data-date="${x.t}">${jEscapeHtml(rel)}</span>` : '');
+    }
+    function render(){
+      const q = jNorm(document.getElementById('ukoly-search').value).split(/\s+/).filter(w => w.length > 1);
+      const skryt = document.getElementById('ukoly-hotove').checked;
+      const list = U.filter(x => !(skryt && x.u) && q.every(w => x._norm.includes(w)));
+      statusEl.hidden = false;
+      statusEl.textContent = list.length ? `${list.length} ${list.length === 1 ? 'úkol' : list.length < 5 ? 'úkoly' : 'úkolů'}` : 'Nic nenalezeno';
+      const skup = new Map();
+      list.forEach(x => { const k = x.z || ''; if (!skup.has(k)) skup.set(k, []); skup.get(k).push(x); });
+      const poradi = [...skup.entries()].sort((a, b) => (!a[0]) - (!b[0]) || b[1].length - a[1].length || a[0].localeCompare(b[0], 'cs'));
+      out.innerHTML = poradi.map(([osoba, ul]) => {
+        ul.sort((a, b) => stav(a).rank - stav(b).rank || (stav(a).rank === 2 ? (b.u || '').localeCompare(a.u || '') : (a.t || '9').localeCompare(b.t || '9')));
+        const otevr = ul.filter(x => !x.u).length;
+        const pocet = `${ul.length} ${ul.length === 1 ? 'úkol' : ul.length < 5 ? 'úkoly' : 'úkolů'}${otevr ? `, z toho ${otevr} ${otevr === 1 ? 'otevřený' : 'otevřených'}` : ''}`;
+        return `<h3 class="display uk-osoba">${osoba ? jEscapeHtml(osoba) : 'Bez určené osoby'} <span class="uk-count">(${pocet})</span></h3>
+          <div class="table-scroll"><table class="register"><thead><tr><th>Úkol</th><th>Termín</th><th>Stav</th></tr></thead><tbody>${
+          ul.map(x => `<tr><td><p class="uk-text">${jEscapeHtml(x.text)}</p><a class="uk-cislo" href="${jEscapeHtml(x.url)}" target="_blank" rel="noopener" title="Detail usnesení na usneseni.cz">${jEscapeHtml(jResLabel(x.n))} · ${fmt(x.date)}${J_OUTLINK_ICON}</a></td><td class="uk-termin">${termin(x)}</td><td class="uk-stav">${stav(x).html}</td></tr>`).join('')
+          }</tbody></table></div>`;
+      }).join('');
+    }
+    try {
+      const [res, tRes] = await Promise.all([fetch('/jednani/pecky-jednani.json'), fetch('/usneseni/terminy.json')]);
+      if (!res.ok || !tRes.ok) throw new Error('HTTP');
+      const data = await res.json();
+      const T = (await tRes.json()).terminy || {};
+      data.meetings.forEach(m => {
+        if (m.type !== 'Rada' && m.type !== 'Zastupitelstvo') return;
+        (m.resolutions || []).forEach(r => {
+          if (!r.n || !r.text || !UKOL_RE.test(r.text)) return;
+          const t = T[r.n.toUpperCase()] || {};
+          U.push({n: r.n, url: r.url, text: r.text.replace(/\s+/g, ' ').trim(), date: m.date, z: t.z || '', t: t.t || '', i: t.i || 0, u: t.u || '',
+                  _norm: jNorm([r.text, t.z].filter(Boolean).join(' '))});
+        });
+      });
+      render();
+      document.getElementById('ukoly-search').addEventListener('input', render);
+      document.getElementById('ukoly-hotove').addEventListener('change', render);
+    } catch (e) {
+      statusEl.textContent = 'Úkoly se nepodařilo načíst.';
+    }
+  })();
+  </script>
