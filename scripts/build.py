@@ -1217,17 +1217,20 @@ def _dash_shrnuti(druh):
         if zapis:
             nota = ''
         elif budouci:
-            nota = (f'<p class="banner-note">Vybrané body z pozvánky. Jednání se koná {_datum_cz(m["date"])}'
-                    + (f' ({esc(m["venue"].split(",")[0])})' if m.get('venue') else '') + '.</p>')
+            nota = (f'<p class="banner-note"><mark>Vybrané body z pozvánky. Jednání se koná {_datum_cz(m["date"])}'
+                    + (f' ({esc(m["venue"].split(",")[0])})' if m.get('venue') else '') + '.</mark></p>')
         else:
-            nota = '<p class="banner-note">Vybrané body z pozvánky. Zápis zatím není k dispozici.</p>'
+            nota = '<p class="banner-note"><mark>Vybrané body z pozvánky. Zápis zatím není k dispozici.</mark></p>'
         slides.append(
             f'<div class="rada-slide" data-date="{m["date"]}"{" hidden" if slides else ""}>'
             + _rada_avatary(m, people, aff, zm) +
-            f'<ul class="banner-topics">{li}</ul>' + nota +
+            nota + f'<ul class="banner-topics">{li}</ul>' +
             f'<div class="banner-actions"><a class="banner-cta" href="/jednani/#{kdo}-{m["date"]}">'
             f'{"Zastupitelstvo č." if zm else "Rada č."} {m["number"]}/{m["year"]}</a>'
-            f'<a class="banner-more" href="/jednani/#{kdo}">Všechna jednání</a></div></div>')
+            f'<a class="banner-more" href="/jednani/#{kdo}">Všechna jednání</a>'
+            f'<a class="banner-share" href="/jednani/insta.html#{kdo}-{m["date"]}" title="Obrázek jednání pro sociální sítě" aria-label="Sdílet jednání jako obrázek">'
+            '<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">'
+            '<path d="M4 12v7a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-7"/><path d="M16 6l-4-4-4 4"/><path d="M12 2v13"/></svg></a></div></div>')
     if not slides:
         return ''
     # na Domů je rovnou v HTML jen pár nejnovějších, starší se načtou z JSON při prvním listování
@@ -1462,7 +1465,10 @@ def _dash_noviny():
             f'    <p class="banner-text">Poslední vydání: <a class="tag rel-chip" href="{pdf}">{esc(ed["label"])}</a><br>{pocet}</p>\n'
             '    <div class="banner-actions">'
             f'<a class="banner-cta" href="/noviny/">{ICO_LUPA}Prohledat archiv</a>'
-            '<a class="banner-link" href="/noviny/redakce.html">Redakce</a></div>\n'
+            '<a class="banner-link" href="/noviny/redakce.html">Redakce</a>'
+            '<a class="banner-share" href="/noviny/insta.html" title="Obrázek pro sociální sítě" aria-label="Sdílet poslední číslo jako obrázek">'
+            '<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">'
+            '<path d="M4 12v7a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-7"/><path d="M16 6l-4-4-4 4"/><path d="M12 2v13"/></svg></a></div>\n'
             '  </div>\n'
             '</div>')
 
@@ -1473,6 +1479,7 @@ def _noviny_insta_banner():
     editions = json.loads(read('noviny/pecky-noviny.json'))['editions']
     ed = max(editions, key=lambda e: e['slug'])
     h = _dash_noviny()
+    h = re.sub(r'<a class="banner-share".*?</a>', '', h, count=1, flags=re.S)
     h = re.sub(r'(<h3 class="banner-title">).*?(</h3>)', lambda m: m.group(1) + esc(ed['label']) + m.group(2), h, count=1)
     h = re.sub(r'<p class="banner-text">.*?</p>', f'<p class="banner-text">{len(editions)} čísel v archivu</p>', h, count=1, flags=re.S)
     return h[:-len('</div>')] + '<span class="ji-pata"><span class="pata-nova">Celý archiv na <span class="ji-url">dopecek.cz/noviny</span></span><span class="pata-stara">DoPecek.cz/noviny</span></span></div>'

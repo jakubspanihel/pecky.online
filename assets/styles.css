@@ -553,6 +553,8 @@
   .banner .banner-note{margin:0; font-size:var(--fs-10); font-weight:var(--fw-semibold); color:var(--white-a92);}
   .banner .banner-more{font-size:var(--fs-10); font-weight:var(--fw-semibold);}
   .banner-actions{display:flex; flex-wrap:wrap; gap:var(--space-4) var(--space-7); align-items:center; margin-top:var(--space-7);}
+  .banner-share{display:flex; align-items:center; margin-left:auto; color:var(--white); opacity:.85;}
+  .banner-share:hover{opacity:1;}
   .banner .banner-cta{display:inline-flex; align-items:center; gap:9px; padding:var(--space-5) var(--space-11); background:var(--white); color:var(--banner-accent); font-weight:var(--fw-bold); font-size:var(--fs-11); border-radius:var(--radius-pill); text-decoration:none; box-shadow:var(--shadow-cta); transition:transform .15s; white-space:nowrap; flex:0 0 auto; max-width:none;}
   .banner .banner-cta:hover{transform:translateY(-1px); text-decoration:none; background:var(--material);}
   .banner .banner-hot{margin:var(--space-7) 0 0; font-size:var(--fs-11); line-height:1.4; color:var(--white);}
@@ -589,6 +591,7 @@
   .banner-av{margin:0 -2px -2px 0; display:block; width:44px; height:44px; border-radius:var(--radius-round); overflow:hidden; border:2px solid var(--white-a35); background:var(--material-deep); text-decoration:none;}
   .banner-av--rada{border-color:var(--white);}
   .rada-avatars{margin:0 0 var(--space-4);}
+  .banner .rada-slide .banner-note{margin:0 0 var(--space-4); line-height:1.7; color:var(--ink);}
   .rada-avatars .banner-av{width:36px; height:36px; margin:0 -2px -2px 0;}
   .banner-av--absent{opacity:.45; border-color:var(--white-a35);}
   .banner-av-sep{width:1px; align-self:stretch; background:var(--white-a35); margin:0 var(--space-4) 0 var(--space-5); flex-shrink:0;}
