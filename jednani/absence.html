@@ -88,6 +88,12 @@
     <div class="absence-bar">
       <p class="absence-veta" id="absence-veta" aria-live="polite"></p>
       <select id="absence-organ" class="kal-org-select" autocomplete="off" aria-label="Orgán a volební období">
+        <optgroup label="Volební období 2026–2030">
+          <option value="2026–2030|absence-rada">Rada</option>
+          <option value="2026–2030|absence-zastupitelstvo">Zastupitelstvo</option>
+          <option value="2026–2030|absence-financni-vybor">Finanční výbor</option>
+          <option value="2026–2030|absence-kontrolni-vybor">Kontrolní výbor</option>
+        </optgroup>
         <optgroup label="Volební období 2022–2026">
           <option value="2022–2026|absence-rada">Rada</option>
           <option value="2022–2026|absence-zastupitelstvo">Zastupitelstvo</option>
@@ -215,7 +221,7 @@
   // starosta/místostarosta/radní z affiliations.json, který se s obdobím
   // překrývá; při více záznamech vyhrává nejvýznamnější. Začátek a konec
   // období = ustavující zasedání (stejná data jako v affiliations.json).
-  const OBDOBI_HRANICE = {'2018': ['2018-11-14', '2022-10-20'], '2022': ['2022-10-20', '9999-12-31']};
+  const OBDOBI_HRANICE = {'2018': ['2018-11-14', '2022-10-20'], '2022': ['2022-10-20', '2026-11-04'], '2026': ['2026-11-04', '9999-12-31']};
   function isoDen(d, konec){
     if (!d) return konec ? '9999-12-31' : '';
     return /^\d{4}$/.test(d) ? d + (konec ? '-12-31' : '-01-01') : d;
@@ -309,7 +315,7 @@
     return `<ol class="vote-cards absence-cards">${radky}</ol>`;
   }
 
-  let OBDOBI = '2022–2026';
+  let OBDOBI = '2026–2030';
 
   function vykresli(data){
     ABS_DATA = data;
@@ -318,13 +324,15 @@
       const cil = document.getElementById('absence-' + ORGAN_SLUG[organ] + '-obsah');
       if (!cil) continue;
       let html = '';
-      if (blok && OBDOBI !== '2022–2026') {
+      if (blok && OBDOBI === '2018–2022') {
         // starší období: zápisy jsou zveřejněné jen zčásti
         const vyhrada = VYHRADA_PREDCHOZI[organ] ||
           `<strong>Období je neúplné.</strong> Zápisy na usneseni.cz začínají až v průběhu období. Období tedy pokrývá jen poslední necelé dva roky ze čtyř. Předtím nejsou data k dispozici.`;
         html += `<div class="callout" style="margin:0 0 16px;">${vyhrada}</div>`;
       }
-      html += blok ? tabulka(blok) : '<p class="lede">Data nejsou k dispozici.</p>';
+      html += blok ? tabulka(blok) : (OBDOBI === '2026–2030'
+        ? '<p class="lede">V novém volebním období se orgán zatím nesešel, takže není z čeho docházku počítat.</p>'
+        : '<p class="lede">Data nejsou k dispozici.</p>');
       cil.innerHTML = html;
       if (!blok) VETY['absence-' + ORGAN_SLUG[organ]] = '';
     }
@@ -388,7 +396,7 @@
   // výběr orgánu (select) — panely zůstávají .subpanel
   const sel = document.getElementById('absence-organ');
   const veta = document.getElementById('absence-veta');
-  const OBD_DEFAULT = '2022–2026';
+  const OBD_DEFAULT = '2026–2030';
   function updateVeta(){
     const slug = sel.value.split('|')[1];
     veta.innerHTML = (window.ABSENCE_VETY || {})[slug] || '';
@@ -407,8 +415,8 @@
   }
   sel.addEventListener('change', () => show(sel.value, true));
   const fromHash = () => {
-    const m = /^#?(absence-[a-z-]+?)(?:-(2018))?$/.exec(location.hash);
-    if (m) show((m[2] ? '2018–2022' : OBD_DEFAULT) + '|' + m[1], false);
+    const m = /^#?(absence-[a-z-]+?)(?:-(2018|2022))?$/.exec(location.hash);
+    if (m) show((m[2] === '2018' ? '2018–2022' : m[2] === '2022' ? '2022–2026' : OBD_DEFAULT) + '|' + m[1], false);
   };
   if (location.hash) fromHash();
   window.addEventListener('hashchange', fromHash);
