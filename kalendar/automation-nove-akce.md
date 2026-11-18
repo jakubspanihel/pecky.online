@@ -47,7 +47,10 @@ z lokální relace s Chrome.
 `javascript_tool`), jeden účet = jeden blok. Pro každý účet tři zdroje:
 
 **a) Události** — `<profil>/events`, sekce „Nadcházející“ (u profilů
-s `profile.php?id=` použij `…&sk=events`). Skript vypíše text od slova
+s `profile.php?id=` použij `…&sk=events`). **Adresy tvaru `facebook.com/p/<název>-<id>/…`
+přesměrují na obecný přehled událostí Facebooku — u nich vždy použij
+`facebook.com/profile.php?id=<id>&sk=events`** (výstup začínající „Hlavní
+stránka | Vaše události | Kategorie…“ není událostmi stránky). Skript vypíše text od slova
 „Události“:
 
 ```js
