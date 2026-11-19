@@ -59,7 +59,7 @@ se sem, na stránku samotnou se nic ručně nepíše.
 | Sekce | Režim | Kontrola | Změna | Co naposledy |
 |---|---|---|---|---|
 | [Na oběd](naobed/README.md) | denně | 19. 11. 2026 | 19. 11. 2026 | nové menu 19. 11. 2026 u U Marka; Siňorita a U Stříkačky (poslední 18. 11.) bez nového menu; školní jídelna má jídelníček na 16.–20. 11. 2026 |
-| [Kalendář](kalendar/README.md) | týdně | 18. 11. 2026 | 18. 11. 2026 | Nová akce Nedělní adventní dílna (Vzdělávací centrum Pečky, 22. 11. 2026 v 16:00) z Facebook Události centra |
+| [Kalendář](kalendar/README.md) | týdně | 19. 11. 2026 | 18. 11. 2026 | Nová akce Nedělní adventní dílna (Vzdělávací centrum Pečky, 22. 11. 2026 v 16:00) z Facebook Události centra |
 | [Jednání](jednani/README.md) | týdně | 18. 11. 2026 | 18. 11. 2026 | nové jednání ZM 9/2026 (25. 11. 2026, 16:30, Kulturní dům): program z pozvánky (18 bodů), odkaz na živý přenos na YouTube; RM 41/2026 (16. 11. 2026) zatím jen pozvánka, zápis zatím není zveřejněný |
 | [O webu](o-webu/README.md) | týdně | 16. 11. 2026 | 16. 11. 2026 | sociální sítě (kontrola 16. 11. 2026, část účtů): aktualizováno 12 Facebooků a skupin (např. skupina Pravoslavná obec 383 členů, +19; zabijačkové speciality 4,6 tis.), zbývajících cca 40 účtů včetně Instagramů a YouTube zůstává z 11. 11. 2026; zhlédnutí ZM na YouTube 9 971 |
 | [Prostory](prostory/README.md) | odvozená | 18. 11. 2026 | 14. 11. 2026 | část ochozu vodárenské věže: usnesení RM 40/2026 (UR-341-40/26) o zveřejnění záměru pronájmu na rok 2027 za 150 000 Kč + DPH ročně, záměr na úřední desce od 10. 11. 2026 |
