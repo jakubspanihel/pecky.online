@@ -156,6 +156,27 @@ z nepřítomnosti na plakátu odvodit nedá.
 - Nejasné případy (příspěvek nejde přiřadit k jedné akci, rozpor mezi
   zdroji) nezapisovat, nahlásit ve výpisu.
 
+### 5b. Aktuality města (pecky.cz)
+
+Zdroj mimo sociální sítě, ale čte se ve stejném běhu a stejným Chrome:
+`https://pecky.cz/default/default/21395_aktuality`.
+
+1. **Průchod.** Přes claude-in-chrome projdi **všechny strany
+   stránkování** („Další »“ je klik, URL se nemění, po kliknutí chvíli
+   počkat a znovu `get_page_text`; pokračuj, dokud tlačítko „Další »“
+   existuje; „Zobrazit archiv“ je volitelný filtr, běžně stačí výchozí
+   výpis). Každá položka má typ (Kalendář akcí, Odstávky a poruchy,
+   Pečecké služby, Zpravodaj, Ztráty a nálezy…).
+2. **Promítnutí.** Porovnej s webem a promítni jen to, co věcně patří do
+   některé sekce: akce → Kalendář (podle kroku 4 a
+   `kalendar/automation-plakat-akce.md`, skill `DoPecek-kalendar-plakat`),
+   nové číslo zpravodaje → Pečecké noviny. Odstávky, ztráty a nálezy web nevede — jen je zmiň ve
+   výpisu.
+3. **Duplicity.** Akce z Aktualit jsou často už zapsané z jiného zdroje —
+   jen doplň doklad (`evidence`), nezakládej duplicitu.
+4. Do výpisu vlastní řádek „Aktuality města“ (i „zkontrolováno, beze
+   změny“).
+
 ### 6. Zápis, build a kontrola
 
 1. Nalezené akce zapiš podle `kalendar/automation-plakat-akce.md`
@@ -195,4 +216,6 @@ Dále:
    výslovně „žádné nalezeny (projito N z M)“.
 3. **Změny provozu:** např. „sběrný dvůr zavřen 28. 10.“ — nebo výslovně
    „žádné nalezeny“.
-4. Mezery: účty a záložky, které se nepodařilo přečíst.
+4. **Aktuality města:** samostatný řádek (počet projitých stran, co se
+   promítlo kam) — nebo „zkontrolováno, beze změny“.
+5. Mezery: účty a záložky, které se nepodařilo přečíst.
