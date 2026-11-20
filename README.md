@@ -58,7 +58,7 @@ se sem, na stránku samotnou se nic ručně nepíše.
 
 | Sekce | Režim | Kontrola | Změna | Co naposledy |
 |---|---|---|---|---|
-| [Na oběd](naobed/README.md) | denně | 20. 11. 2026 | 20. 11. 2026 | nové menu 20. 11. 2026 u U Marka a 19. 11. 2026 u Siňority; U Stříkačky (poslední 19. 11.) bez nového menu; školní jídelna má jídelníček na 16.–20. 11. 2026 |
+| [Na oběd](naobed/README.md) | denně | 20. 11. 2026 | 20. 11. 2026 | nové menu 20. 11. 2026 u U Marka a U Stříkačky, 19. 11. 2026 u Siňority (dnešní zatím bez nového menu); školní jídelna má jídelníček na 16.–20. 11. 2026 |
 | [Kalendář](kalendar/README.md) | týdně | 20. 11. 2026 | 20. 11. 2026 | Nová akce Výstava – Betlémy v Pečkách (18. 11.–31. 12. 2026, Tř. 5. května 294) z Aktualit města |
 | [Jednání](jednani/README.md) | týdně | 18. 11. 2026 | 18. 11. 2026 | nové jednání ZM 9/2026 (25. 11. 2026, 16:30, Kulturní dům): program z pozvánky (18 bodů), odkaz na živý přenos na YouTube; RM 41/2026 (16. 11. 2026) zatím jen pozvánka, zápis zatím není zveřejněný |
 | [O webu](o-webu/README.md) | týdně | 16. 11. 2026 | 16. 11. 2026 | sociální sítě (kontrola 16. 11. 2026, část účtů): aktualizováno 12 Facebooků a skupin (např. skupina Pravoslavná obec 383 členů, +19; zabijačkové speciality 4,6 tis.), zbývajících cca 40 účtů včetně Instagramů a YouTube zůstává z 11. 11. 2026; zhlédnutí ZM na YouTube 9 971 |
