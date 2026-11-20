@@ -852,7 +852,7 @@
     }
     kalUplatniOrgZUrl();
     list.innerHTML = razene.map(([id, nazev]) =>
-      `<label class="kal-row kal-org-row" style="${id === KAL_BEZ_PORADATELE ? '--org-c:var(--gold-deep)' : kalOrgStyle(id)}"><span class="kal-org-sq" aria-hidden="true">${id === KAL_BEZ_PORADATELE ? '' : (KAL_ORG_IKONY[id] || '')}</span><span class="kal-row-name">${kalEsc(nazev)}</span><input type="checkbox" class="kal-toggle" role="switch" value="${kalEsc(id)}"${!KAL_ORG_SEL || KAL_ORG_SEL.has(id) ? ' checked' : ''}></label>`).join('');
+      `<label class="kal-row kal-org-row" style="${id === KAL_BEZ_PORADATELE ? '--org-c:var(--gold-deep)' : kalOrgStyle(id)}"><span class="kal-org-sq" aria-hidden="true">${id === KAL_BEZ_PORADATELE ? '' : (KAL_ORG_IKONY[id] || '')}</span><span class="kal-row-name">${kalEsc(nazev)} <a href="#org=${kalEsc(id)}" class="kal-org-only" data-org="${kalEsc(id)}">jen tento</a></span><input type="checkbox" class="kal-toggle" role="switch" value="${kalEsc(id)}"${!KAL_ORG_SEL || KAL_ORG_SEL.has(id) ? ' checked' : ''}></label>`).join('');
     document.getElementById('kal-hr-org').hidden = false;
     list.hidden = false;
     document.getElementById('kal-all').hidden = false;
@@ -861,6 +861,16 @@
     list.dataset.bound = '1';
     // přepínače jsou jen rozpracovaný stav; uplatní se až v kalUlozNastaveni()
     list.addEventListener('change', kalSyncVse);
+    // „jen tento“: vyfiltruje jediného pořadatele a rovnou uloží (label nesmí přepnout checkbox)
+    list.addEventListener('click', function(ev){
+      const a = ev.target.closest('.kal-org-only');
+      if (!a) return;
+      ev.preventDefault();
+      list.querySelectorAll('input').forEach(i => { i.checked = i.value === a.dataset.org; });
+      kalSyncVse();
+      KAL_VIEW = 'kalendar'; kalViewUi();   // filtr jednoho pořadatele vždy přepne na měsíční pohled
+      kalUlozNastaveni();
+    });
     // „Označit vše“: přepíná všechny pořadatele najednou
     document.getElementById('kal-all').addEventListener('click', function(){
       const zapnout = [...list.querySelectorAll('input')].some(i => !i.checked);
