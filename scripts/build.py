@@ -923,7 +923,8 @@ def _zm_temata(m):
 
 def _zm_akce(m, odkaz):
     """Tlačítka banneru: hlavní CTA "Živé vysílání…" (jen je-li známý odkaz na
-    livestream) a vedle něj odkaz na program jednání (jen je-li znám z pozvánky)."""
+    livestream), vedle něj odkaz na program jednání (jen je-li znám z pozvánky)
+    ."""
     out = []
     live = (m.get('links') or {}).get('livestream')
     if live:
@@ -932,6 +933,13 @@ def _zm_akce(m, odkaz):
     if m.get('agenda'):
         out.append(f'<a class="banner-link" href="{odkaz}">Program jednání</a>')
     return f'<div class="banner-actions">{"".join(out)}</div>' if out else ''
+
+
+def _zm_sdileni(m):
+    """Ikona sdílení (obrázek jednání pro sociální sítě) v pravém dolním rohu banneru."""
+    return (f'<a class="banner-share banner-share--roh" href="/jednani/insta.html#zastupitelstvo-{m["date"]}" title="Obrázek jednání pro sociální sítě" aria-label="Sdílet jednání jako obrázek">'
+            '<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">'
+            '<path d="M4 12v7a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-7"/><path d="M16 6l-4-4-4 4"/><path d="M12 2v13"/></svg></a>')
 
 
 def _zm_poznamky():
@@ -994,7 +1002,7 @@ def _dash_zastupitelstvo(dnes):
                    f'<p class="banner-meta"><span class="banner-meta-item">{ICO_KAL}<span>{esc(kdy)}</span></span>{misto}</p>'
                    f'{_zm_hot(m)}{_zm_temata(m)}{_zm_akce(m, odkaz)}</div>'
                    f'{avatary}'
-                   f'{_zm_poznamky()}</li>')
+                   f'{_zm_poznamky()}{_zm_sdileni(m)}</li>')
     if zm:
         out.append('  </ul>')
         out.append('</div>')
@@ -1128,7 +1136,7 @@ def _insta_avatary(m, people, aff, zm):
     bez docházky (budoucí) = nově zvolení z voleb 2026, jinak jako ve widgetu na Domů."""
     att = m.get('attendance') or {}
     if zm and m['date'] >= '2026-11-04' and not (att.get('present_names') or att.get('absent_names')):
-        av = ''.join(_zm_zvoleni_avatary())
+        av = ''.join(_zm_zvoleni_avatary(podle_funkci=True))
         return f'<div class="banner-avatars rada-avatars">{av}</div>' if av else ''
     return _rada_avatary(m, people, aff, zm)
 
