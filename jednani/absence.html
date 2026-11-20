@@ -211,10 +211,11 @@
     return PEOPLE_BY_KEY[jNameKey(jmeno)] || null;
   }
 
-  // uskupení osoby = první tag, který je politické uskupení v organizations.json
-  function partyVar(p){
-    const id = p && (p.tags || []).find(t => ORG_BY_ID[t] && ORG_BY_ID[t].type === 'politicke');
-    return id ? `var(--org-${id})` : 'var(--ink-soft)';
+  // uskupení osoby ve volebním období: kandidátka platná k začátku období (ne první politický tag)
+  function partyVar(p, obdobi){
+    const hr = OBDOBI_HRANICE[String(obdobi).slice(0, 4)];
+    const id = p && pcPartyIdAt(AFFS, p.id, hr ? hr[0] : '9999-12-31');
+    return id && ORG_BY_ID[id] ? `var(--org-${id})` : 'var(--ink-soft)';
   }
 
   // Funkce v radě města platná v daném volebním období (ne dnešní): záznam
@@ -302,7 +303,7 @@
       const mandatTxt = `${pcGendered(p, 'Přítomen', 'Přítomna')} ${pritomen} z ${r.mandat} jednání`;
       return `<li class="vote-card absence-card">
         <span class="vote-num">${procenta(100 - r.podil)}</span>
-        <span class="absence-avwrap"><span class="vote-av absence-av" style="--org-c:${partyVar(p)};">${avatarHtml(r, p)}</span>${funkceChipHtml(p, blok.obdobi)}</span>
+        <span class="absence-avwrap"><span class="vote-av absence-av" style="--org-c:${partyVar(p, blok.obdobi)};">${avatarHtml(r, p)}</span>${funkceChipHtml(p, blok.obdobi)}</span>
         <span class="vote-name">${nameHtml(r, p, rowKey)}${poznamkaHtml(r, mandatTxt, zvolenHtml(p, blok.obdobi))}</span>
         ${p ? personDetailRowHtml(p, rowKey) : ''}
       </li>`;

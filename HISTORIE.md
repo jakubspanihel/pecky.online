@@ -4,6 +4,10 @@ Chronologický deník běhů a úprav, nejnovější nahoře. Přesunuto z
 kořenového `README.md` (sekce „Poslední aktualizace“). Aktuální stav sekcí
 je v tabulce „Stav sekcí“ v `README.md`; sem patří podrobnosti běhu.
 
+20. listopadu 2026 (kontrola Zakázek). Hlídač veřejných zakázek pro IČO 00239607 hlásí beze změny 193 výsledků; všech 13 P##V ID z první strany výpisu je ve snímku `zakazky/pecky-zakazky-ids.json` (aktualizováno jen `snapshot_date` a `note`), nová zakázka nepřibyla, `content/zakazky.html` beze změny.
+
+20. listopadu 2026 (kontrola Smluv a Dotací podle Hlídače státu). `content/smlouvy.html`: přidán řádek smlouvy z 12. 11. 2026 (MŠ Mašinka, dotace Středočeského kraje na bezplatné školní stravování, 72 420 Kč). Souhrnná čísla ponechána: skupina Město Pečky u Hlídače státu klesla ze 188 na 160 smluv (105,6 → 98,1 mil. Kč), úřad beze změny (51 smluv, 34 772 846 Kč); pokles podle `smlouvy/README.md` čeká na rozhodnutí. Dotace: v Monitoringu úřední desky (stav 14. 11. 2026) není od smlouvy č. 28/2026 (15. 6. 2026) žádná nová dotace ani dodatek; Hlídač státu nevede žádné dotace poskytnuté městem; `dotace.json` beze změny.
+
 20. listopadu 2026 (Na oběd, opakovaná kontrola). U Stříkačky: přibyl lístek na 20. 11. 2026, zapsán do `naobed/data/hostinec-u-strikacky-pecky/2026-11.json`. Siňorita: stále poslední 19. 11., označeno `--checked`. U Marka a jídelna už měly dnešek.
 
 20. listopadu 2026 (Nové akce ze sociálních sítí, navazující běh, NEÚPLNÉ). Doplněné příspěvky: Studio Anett (poslední 27. 8.), Švejnohová (19. 11. gratulace), DC Glow (25. 10.), Wok (2019), U Marka (20. 11. denní menu). Facebook Fotky vizuálně u Města (17. listopad, Den veteránů, pracovní nabídky, nové vedení města) a alt texty u KS, Pečeckých služeb, VZC. Nové akce ani změny provozu nenalezeny. NEPROJITO: Fotky vizuálně u KS, Pečeckých služeb, VZC a ostatních účtů, příspěvky skupin a profilů s id; příští běh začne od nich.

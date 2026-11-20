@@ -32,14 +32,23 @@ z lokální relace s Chrome.
    `a.qlink` v bloku `#subpanel-owebu-socialni`), ne z paměti. Řádek,
    který není sociální sítí (rezervační systém FitPečky), přeskoč a ve
    výpisu uveď. Duplicitní odkazy (stejné URL dvakrát) projdi jednou.
-4. **Datum poslední kontroly** = datum nejnovějšího záznamu
-   „Nové akce ze sociálních sítí“ v `HISTORIE.md`; nenajdeš-li ho, vezmi
-   posledních 6 měsíců. Fotky a příspěvky se čtou jen od tohoto data.
-5. **Pokračování po neúplném běhu:** záznam v `HISTORIE.md` z minulého
-   běhu uvádí účty, které zůstaly neprojité. Ty projdi jako první.
-6. Založ si v scratchpadu kontrolní seznam (`akce-checklist.md`): jeden
-   řádek na účet — `[ ] účet | události | příspěvky | fotky`. Políčko
-   odškrtni teprve po přečtení dané záložky, ne předem.
+4. **Stavový soubor `kalendar/nove-akce-stav.json`** je zdroj pravdy o tom,
+   co kdy bylo přečteno. Pro každý účet a zdroj (události, příspěvky,
+   fotky) drží datum poslední kontroly a u fotek značku první dlaždice
+   (`photo_marker`). Účty z `content/owebu.html`, které v něm chybí,
+   přidej s `tier: "tyden"` a výchozími `null`. Příspěvky a fotky se čtou jen
+   od data poslední kontroly daného zdroje (u `null` posledních 6 měsíců).
+5. **Pořadí práce:** vyber zdroje po lhůtě (`tiers_dny`: denně = 1 den,
+   3dny = 3, tyden = 7; `null` = nejdřív), seřaď je od nejstarší kontroly
+   a projdi je v tomto pořadí. Neúplný běh tak další den automaticky
+   pokračuje u nejstarších, nic se neztrácí.
+6. **Zjištění změn místo čtení všeho:** Události ověřuj u všech účtů s
+   událostmi při každém běhu (jedno volání skriptu na účet). Fotky otevři
+   vizuálně jen tehdy, když se první dlaždice na `/photos` liší od
+   `photo_marker`, jinak jen obnov datum. Datum kontroly a značku zapiš do
+   stavového souboru hned po přečtení zdroje (Edit), ne až na konci běhu.
+7. **Jeden naplánovaný úkol:** rutina běží jako jediný denní úkol, rozdělení
+   do více úkolů se nepoužívá (Chrome je jen jeden).
 
 ### 1. Průchod účtu — Facebook stránka
 
@@ -192,14 +201,15 @@ Zdroj mimo sociální sítě, ale čte se ve stejném běhu a stejným Chrome:
 
 ## Úplnost běhu (povinné)
 
-Běh smí hlásit „projito N z N“ jen tehdy, když jsou v kontrolním seznamu
-odškrtnuté **všechny tři zdroje** (události, příspěvky, fotky; u
-Instagramu a skupin ty, které se na dané síti dají otevřít) u každého
-účtu. Jinak:
+Běh je **úplný**, když ve stavovém souboru nemá žádný zdroj datum kontroly
+starší než lhůta jeho `tier` (události, příspěvky, fotky; u Instagramu a
+skupin ty, které se na dané síti dají otevřít). Fotky bez změny
+`photo_marker` se počítají jako zkontrolované. Jinak:
 
-- ve výpisu i v záznamu `HISTORIE.md` napiš **„NEÚPLNÉ“**, kolik účtů
-  z kolika je projito, a jmenovitě které účty nebo záložky zůstaly
-  (příští běh začne od nich);
+- ve výpisu i v záznamu `HISTORIE.md` napiš **„NEÚPLNÉ“**, kolik zdrojů
+  je po lhůtě a které účty nebo záložky to jsou (příští běh začne od
+  nejstarších ze stavového souboru, ne od textu v `HISTORIE.md`);
+- nehlas „NEÚPLNÉ“ kvůli zdrojům, které lhůtu ještě nepřekročily;
 - nikdy nepiš „nové akce: žádné nalezeny“ bez dodatku „(projito N z M)“;
 - účet, jehož záložku se nepodařilo načíst, je mezera, ne „nic nenalezeno“.
 

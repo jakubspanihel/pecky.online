@@ -224,6 +224,18 @@ function pcBuildTimeline(personId, affs, orgById){
       (pcTlRank(x.role_type) - pcTlRank(y.role_type)));
 }
 
+// id uskupení, za které byla osoba k danému dni zvolená/kandidovala: list_org z mandátu
+// platného k datu, jinak nejnovější kandidátka s datem do `iso` (ne první v pořadí —
+// lidé kandidovali napříč ročníky za různá uskupení)
+function pcPartyIdAt(affs, personId, iso){
+  const mine = (affs || []).filter(a => a.person_id === personId);
+  const m = mine.find(a => a.role_type === 'zastupitel' && a.list_org !== undefined && a.from <= iso && (!a.to || a.to > iso));
+  if (m) return m.list_org;
+  const k = mine.filter(a => a.role_type === 'kandidatka' && a.from <= iso)
+    .sort((x, y) => y.from.localeCompare(x.from))[0];
+  return k ? k.organization_id : null;
+}
+
 // avatar osoby (fotka, nebo barevný kroužek s iniciálami) — pro kartičku
 // v sekci Lidé (opts.ring = barva obrysu dle uskupení) i pro jednotlivý odkaz na osobu jinde na webu (menší, opts.size)
 function pcAvatarHtml(p, opts){

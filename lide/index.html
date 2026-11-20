@@ -222,11 +222,16 @@
       const list = p._affs.find(a => a.role_type === 'kandidatka');
       p._party = list ? list._org : null;
       p._party0 = p._party;
+      // výchozí uskupení = to z aktuálního mandátu, ne první kandidátka v pořadí (viz pcPartyIdAt)
       // výchozí pohled „Zastupitelé“ = mandáty platné k dnešnímu dni (podle dat od–do),
       // ne podle ručně držené příznaku current
       const dnes = new Date().toISOString().slice(0, 10);
       p._mandate = p._affs.find(a => a.role_type === 'zastupitel' && a.from <= dnes && (!a.to || a.to > dnes)) || null;
       p._exec = p._affs.find(a => a.current && L_EXEC_RANK[a.role_type] !== undefined) || null;
+      if (p._affs.some(a => a.role_type === 'kandidatka')) {
+        const pid = pcPartyIdAt(p._affs, p.id, p._mandate ? p._mandate.from : '9999-12-31');
+        if (pid && orgById[pid]) { p._party = orgById[pid]; p._party0 = p._party; }
+      }
       // vedení úřadu/příspěvkových organizací a městských firem (fáze 5b, SPEC.md
       // §7) — mimo zastupitelstvo/radu, proto samostatné pole, ne součást _exec
       p._urad = p._affs.find(a => a.current && a.role_type === 'vedeni-urad') || null;
