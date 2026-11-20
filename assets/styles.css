@@ -590,6 +590,7 @@
   .banner-avatars{display:flex; flex-wrap:wrap; gap:0; padding:0 2px 2px 0;}  /* záporná mezera −2 px: avatary se překrývají */
   .banner-av{margin:0 -2px -2px 0; display:block; width:44px; height:44px; border-radius:var(--radius-round); overflow:hidden; border:2px solid var(--white-a35); background:var(--material-deep); text-decoration:none;}
   .banner-av--rada{border-color:var(--white);}
+  .banner-side .banner-avatars{display:grid; grid-template-columns:repeat(7,max-content);}  /* vždy 7 avatarů na řádek */
   .rada-avatars{margin:0 0 var(--space-4);}
   .banner .rada-slide .banner-note{margin:0 0 var(--space-4); line-height:1.7; color:var(--ink);}
   .rada-avatars .banner-av{width:36px; height:36px; margin:0 -2px -2px 0;}

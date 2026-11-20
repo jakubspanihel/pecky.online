@@ -792,8 +792,9 @@ def _volby_hlasy_karty(rok='2026', zdroj=None, vsichni=False):
 def _zm_avatary():
     """Blok avatarů 21 nově zvolených zastupitelů (volby 2026) do banneru, v pořadí
     podle tabulky v content/volby2026.html (osobní hlasy). Bez fotky iniciálový
-    kroužek; každý avatar odkazuje na kartu osoby v Lidech."""
-    out = _zm_zvoleni_avatary()
+    kroužek; každý avatar odkazuje na kartu osoby v Lidech. Pořadí: starosta, místostarostové
+    (nejdřív uvolněný), členové rady, ostatní zastupitelé podle osobních hlasů."""
+    out = _zm_zvoleni_avatary(podle_funkci=True)
     if not out:
         return ''
     return ('<div class="banner-side"><p class="banner-side-title">Zastupitelé města</p>'
@@ -814,10 +815,23 @@ def _avatar_html(cele, pid, foto, absent=False, title=None):
     return f'<{tag} class="banner-av{cls}"{attr} title="{esc(title)}" aria-label="{esc(title)}">{vn}</{tag}>'
 
 
-def _zm_zvoleni_avatary():
+def _zm_zvoleni_avatary(podle_funkci=False):
     """Seznam avatarů (HTML) 21 zvolených zastupitelů z voleb 2026, v pořadí podle
-    osobních hlasů v content/volby2026.html."""
+    osobních hlasů v content/volby2026.html. S podle_funkci=True napřed starosta,
+    místostarostové (uvolněný první), členové rady a pak ostatní (hlasy se drží
+    jako druhé kritérium)."""
     people = json.loads(read('lide/people.json'))['people']
+    funkce = {}
+    if podle_funkci:
+        for a in json.loads(read('lide/affiliations.json'))['affiliations']:
+            if a['organization_id'] != 'mesto-pecky' or not a.get('current'):
+                continue
+            poradi = {'starosta': 0, 'mistostarosta': 1, 'rada': 2}.get(a['role_type'])
+            if poradi is None:
+                continue
+            if poradi == 1 and 'neuvolněn' in a['role']:
+                poradi = 1.5
+            funkce[a['person_id']] = min(funkce.get(a['person_id'], 9), poradi)
     radky = re.findall(r'<tr(?: class="([^"]*)")?><td>(\d+)</td><td><span class="swatch" style="background:var\(--party-([a-z0-9-]+)\);?"></span>(.*?)</td></tr>',
                        read('content/volby2026.html'), flags=re.S)
     out = []
@@ -831,8 +845,8 @@ def _zm_zvoleni_avatary():
         p = next((x for x in shoda if strana in x.get('tags', [])), shoda[0] if len(shoda) == 1 else None)
         fotky = (p or {}).get('photos') or []
         foto = next((f['url'] for f in fotky if str(f.get('year')) == '2026'), (fotky[0]['url'] if fotky else None))
-        out.append(_avatar_html(jmeno, p['id'] if p else None, foto))
-    return out
+        out.append((funkce.get(p['id'], 9) if p else 9, len(out), _avatar_html(jmeno, p['id'] if p else None, foto)))
+    return [h for _f, _i, h in sorted(out)]
 
 
 # Témata, o kterých se na zastupitelstvu historicky jedná nejdéle (medián/průměr
