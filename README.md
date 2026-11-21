@@ -58,7 +58,7 @@ se sem, na stránku samotnou se nic ručně nepíše.
 
 | Sekce | Režim | Kontrola | Změna | Co naposledy |
 |---|---|---|---|---|
-| [Na oběd](naobed/README.md) | denně | 20. 11. 2026 | 20. 11. 2026 | nové menu 20. 11. 2026 u U Marka a U Stříkačky, 19. 11. 2026 u Siňority (dnešní zatím bez nového menu); školní jídelna má jídelníček na 16.–20. 11. 2026 |
+| [Na oběd](naobed/README.md) | denně | 21. 11. 2026 | 21. 11. 2026 | školní jídelna: nový jídelníček na 23.–27. 11. 2026; restaurace bez nového menu (U Marka a U Stříkačky 20. 11., Siňorita 19. 11. 2026) |
 | [Kalendář](kalendar/README.md) | týdně | 20. 11. 2026 | 20. 11. 2026 | Nová akce Výstava – Betlémy v Pečkách (18. 11.–31. 12. 2026, Tř. 5. května 294) z Aktualit města |
 | [Smlouvy](smlouvy/README.md) | týdně | 20. 11. 2026 | 20. 11. 2026 | nová smlouva z 12. 11. 2026 (dotace Středočeského kraje na bezplatné stravování, MŠ Mašinka, 72 420 Kč); souhrn skupiny ponechán na 188 smluv / 105,6 mil. Kč, protože Hlídač státu k 20. 11. 2026 vrací 160 smluv / 98,1 mil. Kč (úřad beze změny, 51 / 34,8 mil. Kč) |
 | [O webu](o-webu/README.md) | týdně | 20. 11. 2026 | 20. 11. 2026 | sociální sítě (kontrola 20. 11. 2026, všech 56 účtů): změněné počty u 24 účtů (např. skupina Pravoslavná obec 391 členů, +8; skupina NAŠE PEČKY – komunita 554 členů, +8; ZŠ Pečky 240, +13), nová aktivita u 28 účtů; zhlédnutí ZM na YouTube 9 979 |
