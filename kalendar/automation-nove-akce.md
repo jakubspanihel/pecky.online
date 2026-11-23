@@ -206,6 +206,12 @@ starší než lhůta jeho `tier` (události, příspěvky, fotky; u Instagramu a
 skupin ty, které se na dané síti dají otevřít). Fotky bez změny
 `photo_marker` se počítají jako zkontrolované. Jinak:
 
+- **běh se opakuje, dokud není úplný:** po neúplném průchodu se hned spustí
+  další průchod od nejstarších zdrojů ve stavovém souboru (v téže relaci,
+  nestihne-li se to, dalším spuštěním úkolu) a tak dokola, dokud nemá žádný
+  zdroj kontrolu po lhůtě. Teprve úplný běh se označí jako úplný. Zdroj, který
+  se opakovaně nepodaří načíst (prázdný výstup po zopakování), se zapíše jako
+  mezera a opakování kvůli němu nepokračuje donekonečna;
 - ve výpisu i v záznamu `HISTORIE.md` napiš **„NEÚPLNÉ“**, kolik zdrojů
   je po lhůtě a které účty nebo záložky to jsou (příští běh začne od
   nejstarších ze stavového souboru, ne od textu v `HISTORIE.md`);
