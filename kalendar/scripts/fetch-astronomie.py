@@ -87,7 +87,7 @@ def main():
     for rok in range(int(FROM[:4]), int(UPLNKY_DO[:4]) + 1):
         for d, cas in uplnky(rok):
             if FROM <= d <= UPLNKY_DO:
-                events.append({'id': f'astronomie-uplnek-{d}', 'title': 'Úplněk', 'type': 'uplnek',
+                events.append({'id': f'astronomie-uplnek-{d}', 'title': 'Úplněk – Fullmoon Party!', 'type': 'uplnek',
                                'date': d, 'time': cas, 'source': 'faze'})
     for rok, klic, nazev, druh, d, cas in obdobi():
         if FROM <= d and rok <= OBDOBI_DO_ROK:
