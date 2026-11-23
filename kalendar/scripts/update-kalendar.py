@@ -200,6 +200,13 @@ def majitele_profilu(pocty):
     return {sid: v[0] for sid, v in nej.items()}
 
 
+def nazvy_zdroju():
+    """id zdroje -> název ze sources.json (pro seznam zdrojů v detailu karty akce)."""
+    d = json.loads(SOURCES_JSON.read_text(encoding='utf-8'))
+    return {z['id']: z['name'] for z in (d if isinstance(d, list) else d.get('sources', []))
+            if isinstance(z, dict) and z.get('id') and z.get('name')}
+
+
 def zdroje_poradatelu():
     """id pořadatele -> zdroje, ze kterých jsou jeho akce zapsané (nejčastější první).
 
@@ -300,6 +307,9 @@ def build_akce_events():
             'organizer_name': org_name,
             'image': a.get('image'),
             'note': a.get('note'),
+            # všechny doklady akce v pořadí priority (evidence[0] = hlavní); klient je vypisuje v detailu karty
+            'zdroje': [[ev['source'], ev['url']] + ([ev['label']] if a['category'] == 'akce' and ev.get('label') else [])
+                       for ev in evidence],
             'source_ref': a['id'],  # id v akce.json je stabilní -> drží UID v .ics
             # první doklad je cizí profil, který akci jen sdílel -> klient z něj neodvozuje zdroj pořadatele
             **({'link_sdileno': True} if sdileno else {}),
@@ -839,6 +849,7 @@ def main():
             'updated': datetime.now(PRAGUE).strftime('%Y-%m-%d'),
         },
         'org_sources': zdroje_poradatelu(),
+        'zdroje_nazvy': nazvy_zdroju(),
         'events': events,
     }, ensure_ascii=False, indent=1) + '\n', encoding='utf-8')
 

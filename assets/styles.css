@@ -1324,6 +1324,13 @@
   .akce-karta .ev-popis{font-size:17px; color:var(--white-a92);}
   .akce-karta .akce-pozn{font-style:italic;}
   .akce-karta .akce-pozn[hidden]{display:none;}
+  .akce-karta .ev-zdroj{font-size:var(--fs-11); color:var(--white-a92);}
+  .akce-karta .ev-zdroj[hidden]{display:none;}
+  .akce-karta .ev-zdroj-nadpis{display:block; font-weight:var(--fw-semibold); margin-bottom:var(--space-1);}
+  .akce-karta .ev-zdroj ul{margin:0; padding-left:var(--space-5);}
+  .akce-karta .ev-zdroj a{color:inherit; text-decoration:underline;}
+  .akce-karta .ev-zdroj-popis{opacity:.8;}
+  .akce-karta.akce-blok-vybor .ev-zdroj{color:var(--ink);}
   .akce-karta .akce-info{align-self:flex-start; display:inline-flex; align-items:center; justify-content:center; box-sizing:border-box; width:32px; height:22px; padding:0; border:0; border-radius:11px; background:rgba(255,255,255,0.2); color:var(--white); line-height:0; cursor:pointer;}
   .akce-karta .akce-info:hover, .akce-karta .akce-info.active{background:var(--white); color:var(--ink);}
   .akce-karta.akce-blok-vybor, .akce-karta.akce-blok-vybor .ev-title, .akce-karta.akce-blok-vybor .ev-misto, .akce-karta.akce-blok-vybor .ev-popis{color:var(--ink);}   /* zlatá: tmavý text */

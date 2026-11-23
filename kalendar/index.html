@@ -447,6 +447,7 @@
             nazev: soc ? seg : host + (seg ? '/' + seg : ''), poradatel: evs[0].organizer_name};
   }
   // záloha, když z událostí zdroj nevyjde: web pořadatele z lide/organizations.json
+  let KAL_ZDROJE_NAZVY = {};   // id zdroje -> název (klíč zdroje_nazvy v udalosti.json)
   let KAL_ORG_ZDROJE = {};   // id pořadatele -> [{name, url, n}] z evidence akcí (klíč org_sources v udalosti.json)
   let KAL_ORG_WEB = {};   // id -> {web, nazev}
   fetch('/lide/organizations.json').then(r => r.json()).then(d => {
@@ -578,6 +579,21 @@
     document.getElementById('kal-list').scrollIntoView({block: 'start'});
   });
 
+  // Zdroje události v pořadí priority (evidence[0] = hlavní). Bez dokladů (jednání, svozy, úkazy)
+  // jediný odkaz z `link`; vnitřní cesta = DoPeček.cz.
+  function kalZdrojeDetail(e){
+    let pol = (e.zdroje || []).map(([id, url, label]) => ({url, nazev: KAL_ZDROJE_NAZVY[id] || id, label}));
+    if (!pol.length && e.link) {
+      let nazev = 'DoPeček.cz';
+      if (/^https?:\/\//.test(e.link)) { try { nazev = new URL(e.link).hostname.replace(/^www\./, ''); } catch (_) {} }
+      pol = [{url: e.link, nazev}];
+    }
+    if (!pol.length) return '';
+    const cizi = u => /^https?:\/\//.test(u) ? ' target="_blank" rel="noopener"' : '';
+    return `<div class="ev-zdroj" hidden><span class="ev-zdroj-nadpis">${pol.length > 1 ? 'Zdroje' : 'Zdroj'}</span><ul>` +
+      pol.map(x => `<li><a href="${kalEsc(x.url)}"${cizi(x.url)}>${kalEsc(x.nazev)}</a>${x.label ? ` <span class="ev-zdroj-popis">${kalEsc(x.label)}</span>` : ''}</li>`).join('') + '</ul></div>';
+  }
+
   function kalRenderList(){
     const list = document.getElementById('kal-list');
     const ym = `${kalYear}-${kalPad(kalMonth + 1)}`;
@@ -624,14 +640,14 @@
       const popis = e.description && e.description !== e.place ? `<span class="ev-popis">${kalEsc(e.description)}</span>` : '';
       const misto = e.place ? `<span class="ev-misto">${kalEsc(kalMistoBezAdresy(e.place))}</span>` : '';
       const pozn = e.note ? `<span class="ev-popis akce-pozn" hidden>${kalEsc(e.note)}</span>` : '';
-      const vice = e.note
-        ? '<button type="button" class="akce-info" aria-label="Zobrazit poznámku" aria-expanded="false" title="Poznámka"><svg viewBox="0 0 16 16" width="16" height="16" fill="currentColor" aria-hidden="true"><circle cx="3" cy="8" r="1.5"/><circle cx="8" cy="8" r="1.5"/><circle cx="13" cy="8" r="1.5"/></svg></button>' : '';
+      const zdroj = kalZdrojeDetail(e);
+      const vice = '<button type="button" class="akce-info" aria-label="Zobrazit detail" aria-expanded="false" title="Detail"><svg viewBox="0 0 16 16" width="16" height="16" fill="currentColor" aria-hidden="true"><circle cx="3" cy="8" r="1.5"/><circle cx="8" cy="8" r="1.5"/><circle cx="13" cy="8" r="1.5"/></svg></button>';
       const barva = kalMaPoradatele(e) && e.organizer ? ` style="${kalOrgStyle(e.organizer)}"` : '';
       const tip = kalMaPoradatele(e) && e.organizer_name ? ` title="Pořádá: ${kalEsc(e.organizer_name)}"` : '';
       const radek = cas || stitek ? `<div class="ev-line">${cas ? `<span class="ev-time">${cas}</span>` : ''}${stitek}</div>` : '';
       return `<article class="akce-karta akce-blok-${e.category}${kalMinula(e) ? ' kal-minula' : ''}"${barva}${tip}>
         <div class="ev-what">${radek}
-          ${nazev}${misto ? `<div class="ev-meta">${misto}</div>` : ''}${popis}${vice}${pozn}</div>
+          ${nazev}${misto ? `<div class="ev-meta">${misto}</div>` : ''}${popis}${vice}${pozn}${zdroj}</div>
       </article>`;
     }
     // karty seskupené po dnech (nadpis dne + karty); „bezi“ je bez nadpisů dnů
@@ -664,10 +680,11 @@
       kalDalsiMesicBtn();
     list.querySelectorAll('.akce-info').forEach(btn => {
       btn.addEventListener('click', () => {
-        const pozn = btn.closest('.akce-karta').querySelector('.akce-pozn');
-        pozn.hidden = !pozn.hidden;
-        btn.setAttribute('aria-expanded', String(!pozn.hidden));
-        btn.classList.toggle('active', !pozn.hidden);
+        const karta = btn.closest('.akce-karta');
+        const otevrit = btn.getAttribute('aria-expanded') !== 'true';
+        karta.querySelectorAll('.akce-pozn, .ev-zdroj').forEach(x => { x.hidden = !otevrit; });
+        btn.setAttribute('aria-expanded', String(otevrit));
+        btn.classList.toggle('active', otevrit);
       });
     });
   }
@@ -1152,6 +1169,7 @@
     .then(data => {
       KAL_ALL_EVENTS = data.events || [];
       KAL_ORG_ZDROJE = data.org_sources || {};
+      KAL_ZDROJE_NAZVY = data.zdroje_nazvy || {};
       KAL_ALL_EVENTS.forEach(e => {
         kalDateRange(e.date, e.date_end).forEach(ds => {
           (KAL_EVENTS_BY_DATE[ds] = KAL_EVENTS_BY_DATE[ds] || []).push(e);
