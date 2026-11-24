@@ -4,6 +4,8 @@ Chronologický deník běhů a úprav, nejnovější nahoře. Přesunuto z
 kořenového `README.md` (sekce „Poslední aktualizace“). Aktuální stav sekcí
 je v tabulce „Stav sekcí“ v `README.md`; sem patří podrobnosti běhu.
 
+24. listopadu 2026 (Nové akce ze sociálních sítí, automatický běh, NEÚPLNÉ). Přes Chrome přečteny Události všech Facebook účtů a skupin (kromě Woku, U Marka, Hasičů a školní jídelny bez záložky/s prázdným výstupem) a příspěvky 6 denních účtů (Město, Pečecké služby, KS, knihovna, VZ centrum, Sokol); Aktuality města všechny 3 strany. Nová akce: Vánoční Bookstart – klubík Sovičky, 1. 12. 2026 16:30 (příspěvek knihovny z 22. 11., `kalendar/akce.json`, Google sync proběhl). Aktuality města: vše už v Kalendáři, beze změny. Změny provozu: žádné nalezeny. `kalendar/nove-akce-stav.json`: Události k 24. 11., příspěvky 6 denních účtů; příspěvky a fotky ostatních účtů a Instagram nečteny (po lhůtě), mezery: ZŠ Pečky a Pečecké služby/Siňorita bez záložky Události.
+
 24. listopadu 2026 (Na oběd, automatický běh). U Marka, Siňorita a U Stříkačky: nový lístek na 24. 11. 2026 zapsán do naobed/data a menu.json; školní jídelna už má jídelníček (přeskočeno).
 
 23. listopadu 2026 (Na oběd, automatický běh). U Marka a Siňorita: nový lístek na 23. 11. 2026 zapsán do naobed/data a menu.json; U Stříkačky bez nového menu (poslední lístek 20. 11., žádné oznámení), jen označeno jako zkontrolováno; školní jídelna už měla jídelníček na dnešek.

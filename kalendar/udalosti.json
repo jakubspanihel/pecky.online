@@ -1,7 +1,7 @@
 {
  "meta": {
-  "generated_from": "jednani/pecky-jednani.json (301 jednání), jednani/vybory.json + komise.json + skolska-rada.json (132 jednání výborů, komisí a školské rady), kalendar/akce.json (4038 akcí), kalendar/udalosti-volby.json (1 termínů), kalendar/afk-zapasy.json (47 zápasů v Pečkách), kalendar/svoz-odpadu.json (186 svozů), kalendar/sberny-dvur.json (145 termínů provozních dob), kalendar/sportovni-hala.json (268 rezervací sportovní haly), kalendar/astronomie.json (149 astronomických úkazů)",
-  "updated": "2026-11-23"
+  "generated_from": "jednani/pecky-jednani.json (301 jednání), jednani/vybory.json + komise.json + skolska-rada.json (132 jednání výborů, komisí a školské rady), kalendar/akce.json (4041 akcí), kalendar/udalosti-volby.json (1 termínů), kalendar/afk-zapasy.json (47 zápasů v Pečkách), kalendar/svoz-odpadu.json (186 svozů), kalendar/sberny-dvur.json (145 termínů provozních dob), kalendar/sportovni-hala.json (268 rezervací sportovní haly), kalendar/astronomie.json (149 astronomických úkazů)",
+  "updated": "2026-11-24"
  },
  "org_sources": {
   "pececke-sluzby": [
@@ -40,14 +40,14 @@
   ],
   "mestska-knihovna-pecky": [
    {
-    "name": "Oficiální web města Pečky",
-    "url": "http://pecky.cz",
+    "name": "Facebook — Městská knihovna Svatopluka Čecha v Pečkách",
+    "url": "https://www.facebook.com/knihovnapecky",
     "n": 29
    },
    {
-    "name": "Facebook — Městská knihovna Svatopluka Čecha v Pečkách",
-    "url": "https://www.facebook.com/knihovnapecky",
-    "n": 28
+    "name": "Oficiální web města Pečky",
+    "url": "http://pecky.cz",
+    "n": 29
    },
    {
     "name": "Pečecké noviny — měsíčník města Pečky",
@@ -142,7 +142,7 @@
    {
     "name": "Instagram — Komunitní centrum Pramínek Dobřichov",
     "url": "https://www.instagram.com/komunitni.centrum.praminek/",
-    "n": 2
+    "n": 4
    }
   ],
   "pececky-okraslovaci-spolek": [
@@ -199,7 +199,7 @@
    {
     "name": "Instagram — Hospoda na hřišti",
     "url": "https://www.instagram.com/hospoda_na_hristi_pecky/",
-    "n": 11
+    "n": 12
    }
   ],
   "oddil-vodni-turistiky-pecky": [
@@ -42625,30 +42625,6 @@
    "source_ref": "hala-2026-11-22-1900-nohejbal"
   },
   {
-   "id": "akce-2026-11-23-tvoreni-s-jitkou",
-   "title": "Tvoření s Jitkou",
-   "date": "2026-11-23",
-   "date_end": null,
-   "time": null,
-   "all_day": true,
-   "category": "akce",
-   "link": "https://www.facebook.com/photo.php?fbid=1422171490083207",
-   "description": "Překvapení z korálků.",
-   "place": "Komunitní centrum Pramínek, Dobřichov 24",
-   "organizer": "maminky-sobe",
-   "organizer_name": "Pramínek Dobřichov",
-   "image": null,
-   "note": "Plakát čas neuvádí.",
-   "zdroje": [
-    [
-     "facebook-komunitni-centrum-praminek",
-     "https://www.facebook.com/photo.php?fbid=1422171490083207",
-     "Plakát Listopad v komunitním centru Pramínek (Facebook Komunitní centrum Dobřichov Pramínek)"
-    ]
-   ],
-   "source_ref": "akce-2026-11-23-tvoreni-s-jitkou"
-  },
-  {
    "id": "kurz-2026-11-23-krabice-od-bot",
    "title": "Krabice od bot",
    "date": "2026-11-23",
@@ -43061,6 +43037,35 @@
     ]
    ],
    "source_ref": "kurz-2026-11-23-predskolaci"
+  },
+  {
+   "id": "akce-2026-11-23-tvoreni-s-jitkou",
+   "title": "Tvoření s Jitkou",
+   "date": "2026-11-23",
+   "date_end": null,
+   "time": "17:00",
+   "all_day": false,
+   "category": "akce",
+   "link": "https://www.facebook.com/photo.php?fbid=1422171490083207",
+   "description": "Překvapení z korálků: nová technika. Vstup zdarma.",
+   "place": "Komunitní centrum Pramínek, Dobřichov 24",
+   "organizer": "maminky-sobe",
+   "organizer_name": "Pramínek Dobřichov",
+   "image": null,
+   "note": "Čas od 17:00 podle samostatného plakátu z Instagramu (21. 11. 2026); měsíční plakát čas neuváděl. Plakát prosí o nahlášení účasti do 22. 11., v případě malé účasti se akce ruší.",
+   "zdroje": [
+    [
+     "facebook-komunitni-centrum-praminek",
+     "https://www.facebook.com/photo.php?fbid=1422171490083207",
+     "Plakát Listopad v komunitním centru Pramínek (Facebook Komunitní centrum Dobřichov Pramínek)"
+    ],
+    [
+     "instagram-komunitni-centrum-praminek",
+     "https://www.instagram.com/p/DgALg7NNjTV/",
+     "Plakát Překvapení z korálků (Instagram Komunitní centrum Dobřichov Pramínek)"
+    ]
+   ],
+   "source_ref": "akce-2026-11-23-tvoreni-s-jitkou"
   },
   {
    "id": "kurz-2026-11-23-stolni-tenis-po",
@@ -46736,6 +46741,30 @@
    "source_ref": "kurz-2026-12-01-volejbal-zakyne-skupina-3-ut"
   },
   {
+   "id": "akce-2026-12-01-vanocni-bookstart-klubik-sovicky",
+   "title": "Vánoční Bookstart – klubík Sovičky",
+   "date": "2026-12-01",
+   "date_end": null,
+   "time": "16:30",
+   "all_day": false,
+   "category": "akce",
+   "link": "https://www.facebook.com/knihovnapecky/posts/pfbid0Q1LCSvndohqVU6zQCh4e3vpTgDWBnC74zbkWfvXfkqENE8xNz9XtaH1wNjbQfpmrl",
+   "description": "Vánoční setkání klubíku Sovičky pro děti ve věku 3–6 let s rodiči v rámci projektu Bookstart – S knížkou do života: příběh „Oslík a vánoční andělíček“, čtení, hry a vánoční tvoření.",
+   "place": "Knihovna",
+   "organizer": "mestska-knihovna-pecky",
+   "organizer_name": "Městská knihovna",
+   "image": null,
+   "note": null,
+   "zdroje": [
+    [
+     "facebook-knihovna-pecky",
+     "https://www.facebook.com/knihovnapecky/posts/pfbid0Q1LCSvndohqVU6zQCh4e3vpTgDWBnC74zbkWfvXfkqENE8xNz9XtaH1wNjbQfpmrl",
+     "Facebook knihovny: Vánoční Bookstart se blíží! (22. 11. 2026)"
+    ]
+   ],
+   "source_ref": "akce-2026-12-01-vanocni-bookstart-klubik-sovicky"
+  },
+  {
    "id": "hala-2026-12-01-1630-volejbal-zakyne",
    "title": "Volejbal - žákyně (nepotvrzeno)",
    "date": "2026-12-01",
@@ -48541,6 +48570,30 @@
     ]
    ],
    "source_ref": "kurz-2026-12-04-volejbal-zakyne"
+  },
+  {
+   "id": "akce-2026-12-04-vertep-praminek",
+   "title": "Loutkové divadelní představení Vertěp aneb Vánoční příběh trochu jinak",
+   "date": "2026-12-04",
+   "date_end": null,
+   "time": "17:00",
+   "all_day": false,
+   "category": "akce",
+   "link": "https://www.instagram.com/p/DgALthPNXhZ/",
+   "description": "Loutkové divadelní představení 17:00–18:00, hraje Spolek Rozmarýna. Vstupné zdarma, vhodné pro děti od 1. stupně i celé rodiny.",
+   "place": "Komunitní centrum Pramínek, Dobřichov 24",
+   "organizer": "maminky-sobe",
+   "organizer_name": "Pramínek Dobřichov",
+   "image": null,
+   "note": "Podle plakátu na Instagramu Komunitního centra Dobřichov Pramínek z 21. 11. 2026. Rezervace míst na tel. 777 296 131.",
+   "zdroje": [
+    [
+     "instagram-komunitni-centrum-praminek",
+     "https://www.instagram.com/p/DgALthPNXhZ/",
+     "Plakát Vertěp aneb Vánoční příběh trochu jinak (Instagram Komunitní centrum Dobřichov Pramínek)"
+    ]
+   ],
+   "source_ref": "akce-2026-12-04-vertep-praminek"
   },
   {
    "id": "hala-2026-12-04-1700-basket-u14",
@@ -56051,6 +56104,30 @@
    "image": null,
    "note": null,
    "source_ref": "hala-2026-12-24-2000-volejbal-juniorky-dospeli"
+  },
+  {
+   "id": "akce-2026-12-25-vanocni-sipkovy-turnaj",
+   "title": "Vánoční šipkový turnaj",
+   "date": "2026-12-25",
+   "date_end": null,
+   "time": "15:00",
+   "all_day": false,
+   "category": "akce",
+   "link": "https://www.instagram.com/p/DgAanJIN3Zw/",
+   "description": "Šipkový turnaj od 15:00, hraje se 501 do Soft. Startovné 100 Kč za hráče, občerstvení v ceně. Odměněna budou první tři místa, nejlepší žena, nejvyšší zavření, nejvícekrát hozené bingo a nejlepší neregistrovaný hráč.",
+   "place": "Hospoda na Hřišti, Pečky",
+   "organizer": "hospoda-na-hristi-pecky",
+   "organizer_name": "Hospoda na hřišti",
+   "image": null,
+   "note": "Podle plakátu na Instagramu Hospody na Hřišti z 21. 11. 2026. Plakát neuvádí způsob přihlášení.",
+   "zdroje": [
+    [
+     "instagram-hospoda-na-hristi-pecky",
+     "https://www.instagram.com/p/DgAanJIN3Zw/",
+     "Plakát Vánoční šipkový turnaj (Instagram Hospoda na hřišti)"
+    ]
+   ],
+   "source_ref": "akce-2026-12-25-vanocni-sipkovy-turnaj"
   },
   {
    "id": "hala-2026-12-25-1500-basket-u11",
