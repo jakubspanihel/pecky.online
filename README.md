@@ -58,6 +58,7 @@ se sem, na stránku samotnou se nic ručně nepíše.
 
 | Sekce | Režim | Kontrola | Změna | Co naposledy |
 |---|---|---|---|---|
+| [Obchvat](obchvat/README.md) | na vyžádání | 24. 11. 2026 | 24. 11. 2026 | nový blok „Výkup pozemků“ (vlastnictví 106 parcel pod trasou z katastru, doložené kroky výkupu), banner „Kde projekt stojí“ pod mapou, bloky o územním plánu a zástavbě na konci stránky, časová osa od nejnovějších; kontrola zdrojů po RM 2. 3. 2026: k severnímu obchvatu nic nového (časová osa i „Aktuální fáze“ beze změny); do oddílu o staré silnici II/329 doplněn přechod u Hellichovy (RM 29. 6., ZM 16. 9. 2026) a oprava u OC Billa (uzavírka 2.–15. 11. 2026) |
 | [Na oběd](naobed/README.md) | denně | 24. 11. 2026 | 24. 11. 2026 | Siňorita: nové menu na 25. 11. 2026 (z příspěvku na Facebooku, zveřejněno den předem) |
 | [Kalendář](kalendar/README.md) | týdně | 24. 11. 2026 | 24. 11. 2026 | Zápis do 1. ročníku (27. a 28. 1. 2027): doplněn plakát ZŠ Pečky z Facebooku (učebny, rezervace v ZápisyOnline, konec zápisu) |
 | [O webu](o-webu/README.md) | týdně | 24. 11. 2026 | 24. 11. 2026 | nový odkaz Pamětní kniha obce Pečky z roku 1888 (eBadatelna Státního oblastního archivu v Praze) |
@@ -71,7 +72,6 @@ se sem, na stránku samotnou se nic ručně nepíše.
 | [Pečecké noviny](noviny/README.md) | týdně | 24. 11. 2026 | 4. 11. 2026 | nová podstránka Pečecké noviny pro sociální sítě (`/noviny/insta.html`): banner posledního čísla jako obrázek 1:1, 4:5, 3:4; odkaz sdílecí ikonou v bloku Poslední číslo |
 | [Volby 2026](volby/2026/README.md) | na vyžádání | 3. 11. 2026 | 3. 11. 2026 | z tabulky uskupení odstraněny odkazy na sociální sítě a počty sledujících, ponechán odkaz na kandidátní listinu |
 | [Dotace od města](dotace/README.md) | na vyžádání | 25. 10. 2026 | 20. 11. 2026 | nová stránka `/dotace/`: sloupcový graf dotací po letech 2016–2026 a příjemcích (77 smluv, 17,94 mil. Kč), investiční akce Sokola 2019 a tabulka dodatků ke smlouvám |
-| [Obchvat](obchvat/README.md) | na vyžádání | 25. 10. 2026 | 25. 10. 2026 | nová stránka `/obchvat/`: blok přesunut z Plánu, přidána situační mapa, oddíl o územním plánu, časová osa 2001–2026 z archivu jednání a Pečeckých novin, zástavba lokalit Z08/Z09/Z11, obchvat ve volebních programech a oddíl o staré silnici II/329 |
 | [Plán](plan/README.md) | na vyžádání | 25. 10. 2026 | 25. 10. 2026 | projity všechny dokumenty strategického plánu na pecky.cz: nový výklad plnění plánu (Excel 2020: 197 z 339 úkolů 2016–2020 splněno), čísla 697 úkolů / 558,5 mil. Kč po aktualizaci 2020, tabulka dalších položek Akčního plánu 2024–2026 a srovnání částek |
 | [Volby 2018](volby/2018/README.md) | uzavřené | — | 25. 10. 2026 | oprava tématu Obchvat ve srovnání uskupení: 6 z 6 (dřív 5 z 6) — Sdružení ODS a nezávislých kandidátů má v programu (PN 9/2018, s. 10) bod „aktivnější zapojení do jednání se Středočeským krajem o dokončení obchvatu“ |
 | [Pozemky](pozemky/README.md) | odvozená | 21. 11. 2026 | 18. 10. 2026 | fulltextové vyhledávání v tabulkách Nákup/Prodej (`?q=` v URL, Kopírovat odkaz); doplněno 133 bodů ze starších jednání 2013–3/2021 (nákup 95, prodej 44 unikátních obchodů) |

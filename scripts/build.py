@@ -1541,6 +1541,21 @@ def _dash_zmeny():
     return '\n'.join(out)
 
 
+def _dash_temata():
+    """Tři karty s hlavními tématy nad patičkou Domů: obrázek + název tématu, celá karta je odkaz.
+    Obrázky: Obchvat = situační mapa v repu, Voda a Tělocvična = titulní obrázky z jejich stránek."""
+    temata = [
+        ('Obchvat', '/obchvat/', '/obchvat/situace.webp', 'Situační mapa trasy severního obchvatu Peček'),
+        ('Voda', '/voda/', 'https://www.cestyapamatky.cz/img/galerie/pam/0571/2019-pecky-vodojem_02.jpg', 'Vodojem v Pečkách'),
+        ('Tělocvična', '/telocvicna/', 'https://kolinsky.denik.cz/images/api/image/968x645/b4c/b4ceb93b-5fec-45ba-8cca-8886f71e2d78.webp', 'Vizualizace dostavby učeben a tělocvičny ZŠ Pečky'),
+    ]
+    karty = ''.join(
+        f'<a class="tema-karta" href="{h}"><img src="{img}" alt="{esc(alt)}" loading="lazy">'
+        f'<span class="tema-nazev">{esc(n)}</span></a>'
+        for n, h, img, alt in temata)
+    return f'<nav class="tema-karty" aria-label="Hlavní témata">{karty}</nav>'
+
+
 def render_dashboard(stav_rows):
     from datetime import date
     dnes = date.today().isoformat()
@@ -1558,7 +1573,8 @@ def render_dashboard(stav_rows):
     sloupec = lambda karty: '<div class="dash-col">\n' + '\n'.join(karty) + '\n</div>'
     return (zm + '\n'
             + f'<div class="dash-grid dash-bento{" dash-bento--rada" if bloky else ""}">\n'
-            + sloupec(levy) + '\n' + sloupec(pravy) + '\n</div>')
+            + sloupec(levy) + '\n' + sloupec(pravy) + '\n</div>\n'
+            + _dash_temata())
 
 
 # Znovupoužitelná komponenta "rozcestník volebních ročníků" - řádek buttonů,
