@@ -58,7 +58,7 @@ se sem, na stránku samotnou se nic ručně nepíše.
 
 | Sekce | Režim | Kontrola | Změna | Co naposledy |
 |---|---|---|---|---|
-| [Na oběd](naobed/README.md) | denně | 24. 11. 2026 | 24. 11. 2026 | U Marka, Siňorita a U Stříkačky: nové menu na 24. 11. 2026; školní jídelna už má jídelníček na 23.–27. 11. |
+| [Na oběd](naobed/README.md) | denně | 24. 11. 2026 | 24. 11. 2026 | Siňorita: nové menu na 25. 11. 2026 (z příspěvku na Facebooku, zveřejněno den předem) |
 | [Kalendář](kalendar/README.md) | týdně | 24. 11. 2026 | 24. 11. 2026 | Latina pro ženy: doplněn příspěvek ze skupiny Máme rádi Pečky a web trenérky (nový zdroj tsld.cz) |
 | [O webu](o-webu/README.md) | týdně | 24. 11. 2026 | 24. 11. 2026 | Úřední deska (24. 11. 2026): nová pozvánka na ZM 9/2026 (25. 11. 2026) s třemi přílohami, celkem 1 938 dokumentů; sociální sítě (kontrola 23. 11. 2026, 56 účtů): změněné počty u 17 účtů (např. ZŠ Pečky 243, +3; Pečky srdcem — ZŠ Pečky při ZŠ Kolín 153, +5; Pravoslavná obec 395 členů, +4), nová aktivita u 21 účtů; zhlédnutí ZM na YouTube nepřečteno (časový limit) |
 | [Smlouvy](smlouvy/README.md) | týdně | 24. 11. 2026 | 24. 11. 2026 | souhrn skupiny přepsán na 189 smluv / 105,7 mil. Kč (Hlídač státu už počítá smlouvu z 12. 11. 2026 — dotace Středočeského kraje na bezplatné stravování, MŠ Mašinka, 72 420 Kč); úřad beze změny (51 smluv / 34,8 mil. Kč) |
