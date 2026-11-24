@@ -4,6 +4,8 @@ Chronologický deník běhů a úprav, nejnovější nahoře. Přesunuto z
 kořenového `README.md` (sekce „Poslední aktualizace“). Aktuální stav sekcí
 je v tabulce „Stav sekcí“ v `README.md`; sem patří podrobnosti běhu.
 
+24. listopadu 2026 (Na oběd, automatický běh). U Marka, Siňorita a U Stříkačky: nový lístek na 24. 11. 2026 zapsán do naobed/data a menu.json; školní jídelna už má jídelníček (přeskočeno).
+
 23. listopadu 2026 (Na oběd, automatický běh). U Marka a Siňorita: nový lístek na 23. 11. 2026 zapsán do naobed/data a menu.json; U Stříkačky bez nového menu (poslední lístek 20. 11., žádné oznámení), jen označeno jako zkontrolováno; školní jídelna už měla jídelníček na dnešek.
 
 23. listopadu 2026 (Kontrola sociálních sítí, automatický běh). Přečteno všech 56 řádků v O webu přes Chrome (FB po jednom účtu, Instagram 5 dlaždic, YouTube). Změněné počty u 17 účtů (`content/owebu.html`): skupina Pravoslavná obec 395 členů (+4), Pečky srdcem/ZŠ Pečky při ZŠ Kolín 153 (+5), ZŠ Pečky 243 (+3), hospoda na hřišti IG 272 (+2), Pečky NEXT FB 332 (+2), Hasiči JPO II 949 (−2), IG streetpeopleofpecky 1 187 (−2) a další o ±1. Nová aktivita u 21 účtů. Instagram streetpeopleofpecky: nejnovější z prvních 5 dlaždic je 22. 8. 2026 (starší než dosud zapsané 27. 8.), datum proto ponecháno. Mezery: Asia&Wok (FB bez dat o datu), YouTube — datum posledního videa (playlist „Zasedání ZM“ ukazuje „před 2 týdny“, zapsané 4. 11. ponecháno) a skript `jednani/update-youtube.py` skončil na časovém limitu (zhlédnutí ZM nepřečteno, `content/youtube.html` beze změny). Monitoring Facebooku města v tomto běhu nespuštěn (časová náročnost, Chrome se opakovaně odpojoval u delších dávek).

@@ -58,7 +58,7 @@ se sem, na stránku samotnou se nic ručně nepíše.
 
 | Sekce | Režim | Kontrola | Změna | Co naposledy |
 |---|---|---|---|---|
-| [Na oběd](naobed/README.md) | denně | 23. 11. 2026 | 23. 11. 2026 | U Marka a Siňorita: nové menu na 23. 11. 2026; U Stříkačky (poslední lístek 20. 11.) bez nového menu; školní jídelna už má jídelníček na 23.–27. 11. |
+| [Na oběd](naobed/README.md) | denně | 24. 11. 2026 | 24. 11. 2026 | U Marka, Siňorita a U Stříkačky: nové menu na 24. 11. 2026; školní jídelna už má jídelníček na 23.–27. 11. |
 | [Jednání](jednani/README.md) | týdně | 21. 11. 2026 | 21. 11. 2026 | RM 41/2026 (16. 11. 2026) se zápisem a 16 usneseními, nová RM 42/2026 (23. 11. 2026, 15:00) s programem z pozvánky (19 bodů); obě uložené v archivu, shrnutí RM 41 a RM 42; ZM 9/2026 (25. 11. 2026, 16:30) s odkazem na živý přenos beze změny |
 | [Tělocvična](telocvicna/README.md) | týdně | 21. 11. 2026 | 21. 11. 2026 | 16. 11. 2026 RM 41/2026, bod 3: zateplení školní kuchyně a zahájení prací na střeše (bez usnesení) |
 | [Usnesení](usneseni/README.md) | odvozená | 21. 11. 2026 | 21. 11. 2026 | termíny, odpovědné osoby a ukončení u 36 otevřených usnesení obnoveny z usneseni.cz; nová usnesení RM 41/2026 mají termíny |
