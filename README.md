@@ -59,8 +59,8 @@ se sem, na stránku samotnou se nic ručně nepíše.
 | Sekce | Režim | Kontrola | Změna | Co naposledy |
 |---|---|---|---|---|
 | [Na oběd](naobed/README.md) | denně | 24. 11. 2026 | 24. 11. 2026 | Siňorita: nové menu na 25. 11. 2026 (z příspěvku na Facebooku, zveřejněno den předem) |
-| [Kalendář](kalendar/README.md) | týdně | 24. 11. 2026 | 24. 11. 2026 | Latina pro ženy: doplněn příspěvek ze skupiny Máme rádi Pečky a web trenérky (nový zdroj tsld.cz) |
-| [O webu](o-webu/README.md) | týdně | 24. 11. 2026 | 24. 11. 2026 | Úřední deska (24. 11. 2026): nová pozvánka na ZM 9/2026 (25. 11. 2026) s třemi přílohami, celkem 1 938 dokumentů; sociální sítě (kontrola 23. 11. 2026, 56 účtů): změněné počty u 17 účtů (např. ZŠ Pečky 243, +3; Pečky srdcem — ZŠ Pečky při ZŠ Kolín 153, +5; Pravoslavná obec 395 členů, +4), nová aktivita u 21 účtů; zhlédnutí ZM na YouTube nepřečteno (časový limit) |
+| [Kalendář](kalendar/README.md) | týdně | 24. 11. 2026 | 24. 11. 2026 | Zápis do 1. ročníku (27. a 28. 1. 2027): doplněn plakát ZŠ Pečky z Facebooku (učebny, rezervace v ZápisyOnline, konec zápisu) |
+| [O webu](o-webu/README.md) | týdně | 24. 11. 2026 | 24. 11. 2026 | nový odkaz Pamětní kniha obce Pečky z roku 1888 (eBadatelna Státního oblastního archivu v Praze) |
 | [Smlouvy](smlouvy/README.md) | týdně | 24. 11. 2026 | 24. 11. 2026 | souhrn skupiny přepsán na 189 smluv / 105,7 mil. Kč (Hlídač státu už počítá smlouvu z 12. 11. 2026 — dotace Středočeského kraje na bezplatné stravování, MŠ Mašinka, 72 420 Kč); úřad beze změny (51 smluv / 34,8 mil. Kč) |
 | [Voda](voda/README.md) | na vyžádání | 24. 11. 2026 | 24. 11. 2026 | k výzvě k šetření vodou z 27. 10. 2026 doplněn zdroj: oznámení Pečeckých služeb z 3. 11. 2026 o opravě tří úniků (Dobřichovská, Tř. Jana Švermy, Nymburská × V Kaštánkách); celkem 60 událostí / 73 zdrojů |
 | [Jednání](jednani/README.md) | týdně | 24. 11. 2026 | 21. 11. 2026 | RM 41/2026 (16. 11. 2026) se zápisem a 16 usneseními, nová RM 42/2026 (23. 11. 2026, 15:00) s programem z pozvánky (19 bodů); obě uložené v archivu, shrnutí RM 41 a RM 42; ZM 9/2026 (25. 11. 2026, 16:30) s odkazem na živý přenos beze změny |
