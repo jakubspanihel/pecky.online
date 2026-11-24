@@ -59,7 +59,7 @@ se sem, na stránku samotnou se nic ručně nepíše.
 | Sekce | Režim | Kontrola | Změna | Co naposledy |
 |---|---|---|---|---|
 | [Na oběd](naobed/README.md) | denně | 24. 11. 2026 | 24. 11. 2026 | U Marka, Siňorita a U Stříkačky: nové menu na 24. 11. 2026; školní jídelna už má jídelníček na 23.–27. 11. |
-| [Kalendář](kalendar/README.md) | týdně | 24. 11. 2026 | 24. 11. 2026 | nová akce Vánoční Bookstart – klubík Sovičky (1. 12. 2026, 16:30, knihovna) z Facebooku knihovny |
+| [Kalendář](kalendar/README.md) | týdně | 24. 11. 2026 | 24. 11. 2026 | nová akce Šipkový turnaj DartsCup.cz (25. 11. 2026, 18:30, Velké Chvalovice) z Facebook skupiny Máme rádi Pečky; zprávy pecky.cz doplněny jako hlavní doklad (Digitální odysea, adventní setkání, Divadlo pro dospělé), nově Virtuální univerzita třetího věku |
 | [Jednání](jednani/README.md) | týdně | 21. 11. 2026 | 21. 11. 2026 | RM 41/2026 (16. 11. 2026) se zápisem a 16 usneseními, nová RM 42/2026 (23. 11. 2026, 15:00) s programem z pozvánky (19 bodů); obě uložené v archivu, shrnutí RM 41 a RM 42; ZM 9/2026 (25. 11. 2026, 16:30) s odkazem na živý přenos beze změny |
 | [Tělocvična](telocvicna/README.md) | týdně | 21. 11. 2026 | 21. 11. 2026 | 16. 11. 2026 RM 41/2026, bod 3: zateplení školní kuchyně a zahájení prací na střeše (bez usnesení) |
 | [Usnesení](usneseni/README.md) | odvozená | 21. 11. 2026 | 21. 11. 2026 | termíny, odpovědné osoby a ukončení u 36 otevřených usnesení obnoveny z usneseni.cz; nová usnesení RM 41/2026 mají termíny |
