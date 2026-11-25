@@ -4,6 +4,8 @@ Chronologický deník běhů a úprav, nejnovější nahoře. Přesunuto z
 kořenového `README.md` (sekce „Poslední aktualizace“). Aktuální stav sekcí
 je v tabulce „Stav sekcí“ v `README.md`; sem patří podrobnosti běhu.
 
+25. listopadu 2026 (denní běh Na oběd). U Marka: nové menu na 25. 11. 2026 (`naobed/data/u-marka-pecky/2026-11.json`, `naobed/menu.json`). Siňorita už měla dnešní menu (přeskočeno), školní jídelna už má dnešní jídelníček, U Stříkačky bez nového menu (nejnovější lístek 24. 11.; profil se nevykreslil, oznámení nelze ověřit).
+
 24. listopadu 2026 (úprava Domů). Nad patičkou přibyly tři karty témat (Obchvat, Voda, Tělocvična) s obrázkem a názvem: `_dash_temata()` ve `scripts/build.py`, styly `.tema-karty` v `assets/styles.css`.
 
 24. listopadu 2026 (Obchvat: zvýraznění čísel v perexu výkupu). V perexu bloku „Výkup pozemků“ v `content/obchvat.html` tučně zvýrazněn celkový počet parcel (107) a počet parcel aspoň zčásti v soukromém vlastnictví (53).
