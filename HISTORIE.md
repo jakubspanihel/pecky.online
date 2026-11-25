@@ -4,6 +4,8 @@ Chronologický deník běhů a úprav, nejnovější nahoře. Přesunuto z
 kořenového `README.md` (sekce „Poslední aktualizace“). Aktuální stav sekcí
 je v tabulce „Stav sekcí“ v `README.md`; sem patří podrobnosti běhu.
 
+25. listopadu 2026 (Nové akce ze sociálních sítí — NEÚPLNÉ). Přečteny Aktuality města (3 strany) a události u 12 účtů (Město Pečky, Kulturní středisko, knihovna, Vzdělávací centrum, Sokol, Naše Pečky, skupina 514789833279969 aj.), příspěvky u Města, Vzdělávacího centra, Sokola, Siňority a Pečeckých služeb. Nová akce: Vánoční jarmark v MŠ Mašinka (9. 12. 2026) z Aktualit města — `kalendar/akce.json`, Google Kalendář synchronizován. Stav průchodu v `kalendar/nove-akce-stav.json` aktualizován jen u přečtených zdrojů; zbylé zdroje (fotky všech účtů, Instagram, většina příspěvků ostatních účtů) zůstávají po lhůtě.
+
 25. listopadu 2026 (denní běh Na oběd). U Marka: nové menu na 25. 11. 2026 (`naobed/data/u-marka-pecky/2026-11.json`, `naobed/menu.json`). Siňorita už měla dnešní menu (přeskočeno), školní jídelna už má dnešní jídelníček, U Stříkačky bez nového menu (nejnovější lístek 24. 11.; profil se nevykreslil, oznámení nelze ověřit).
 
 24. listopadu 2026 (úprava Domů). Nad patičkou přibyly tři karty témat (Obchvat, Voda, Tělocvična) s obrázkem a názvem: `_dash_temata()` ve `scripts/build.py`, styly `.tema-karty` v `assets/styles.css`.
