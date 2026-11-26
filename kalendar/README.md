@@ -1667,6 +1667,13 @@ seznam místo rozházených poznámek po repu.
 - **Aktualizace:** týdenní kontrola kalendáře (krok 3 „Pracovní postup“),
   rezervace se mění často (utkání, zrušení) → při každém běhu porovnat
   budoucí termíny a změny promítnout, zrušené smazat.
+- **Stav k 26. 11. 2026:** staženy týdny od 19. 10. do 3. 1. 2027 (systém má
+  rezervace nejméně do poloviny března 2027, do souboru zapsáno jen do 31. 12. 2026);
+  záznamy před 19. 10. zůstaly beze změny. Soubor má 327 rezervací (31 `akce`,
+  296 `kurz`, 29 nepotvrzených). Jména soukromých osob v názvech jsou
+  vynechána („Nohejbal - p. Martinec“ → „Nohejbal“, volejbal vedený pod jménem →
+  „Volejbal“, „AFK Pečky - Buřič“ → „AFK Pečky“). Florbalový turnaj ČF
+  12.–13. 12. už v systému není. Starší stav:
 - **Stav k 20. 10. 2026:** staženy týdny od 12. 10. do 3. 1. 2027 (systém má rezervace
   i na leden 2027, do souboru zapsáno jen do 31. 12. 2026); soubor má 269 rezervací
   (21 `akce`, 248 `kurz`; prosincové jsou téměř všechny nepotvrzené). Vedle basketu

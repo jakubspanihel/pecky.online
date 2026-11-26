@@ -1,6 +1,6 @@
 {
  "meta": {
-  "generated_from": "jednani/pecky-jednani.json (301 jednání), jednani/vybory.json + komise.json + skolska-rada.json (132 jednání výborů, komisí a školské rady), kalendar/akce.json (4028 akcí), kalendar/udalosti-volby.json (1 termínů), kalendar/afk-zapasy.json (47 zápasů v Pečkách), kalendar/svoz-odpadu.json (186 svozů), kalendar/sberny-dvur.json (145 termínů provozních dob), kalendar/sportovni-hala.json (268 rezervací sportovní haly), kalendar/astronomie.json (149 astronomických úkazů)",
+  "generated_from": "jednani/pecky-jednani.json (301 jednání), jednani/vybory.json + komise.json + skolska-rada.json (132 jednání výborů, komisí a školské rady), kalendar/akce.json (4028 akcí), kalendar/udalosti-volby.json (1 termínů), kalendar/afk-zapasy.json (47 zápasů v Pečkách), kalendar/svoz-odpadu.json (186 svozů), kalendar/sberny-dvur.json (145 termínů provozních dob), kalendar/sportovni-hala.json (326 rezervací sportovní haly), kalendar/astronomie.json (149 astronomických úkazů)",
   "updated": "2026-11-26"
  },
  "org_sources": {
@@ -29902,12 +29902,30 @@
    "source_ref": "kurz-2026-10-24-tanecni-kurz-pro-mladez-vecerni"
   },
   {
+   "id": "hala-2026-10-25-0800-volejbal-u16",
+   "title": "Volejbal - U16",
+   "date": "2026-10-25",
+   "date_end": null,
+   "time": "08:00",
+   "time_end": "09:00",
+   "all_day": false,
+   "category": "akce",
+   "link": "https://pecky.cz/default/default/21405_rezervacni-system",
+   "description": "Hala",
+   "place": "Hala",
+   "organizer": "tj-sokol-pecky",
+   "organizer_name": "TJ Sokol Pečky",
+   "image": null,
+   "note": null,
+   "source_ref": "hala-2026-10-25-0800-volejbal-u16"
+  },
+  {
    "id": "hala-2026-10-25-0900-volejbal-u16",
    "title": "Volejbal - U16",
    "date": "2026-10-25",
    "date_end": null,
    "time": "09:00",
-   "time_end": "17:00",
+   "time_end": "18:00",
    "all_day": false,
    "category": "akce",
    "link": "https://pecky.cz/default/default/21405_rezervacni-system",
@@ -29991,11 +30009,11 @@
    "source_ref": "kurz-2026-10-25-tanecni-dospeli"
   },
   {
-   "id": "hala-2026-10-25-1700-volejbal",
-   "title": "Volejbal (nepotvrzeno)",
+   "id": "hala-2026-10-25-1800-volejbal",
+   "title": "Volejbal",
    "date": "2026-10-25",
    "date_end": null,
-   "time": "17:00",
+   "time": "18:00",
    "time_end": "19:00",
    "all_day": false,
    "category": "kurz",
@@ -30006,7 +30024,7 @@
    "organizer_name": "TJ Sokol Pečky",
    "image": null,
    "note": null,
-   "source_ref": "hala-2026-10-25-1700-volejbal"
+   "source_ref": "hala-2026-10-25-1800-volejbal"
   },
   {
    "id": "hala-2026-10-25-1900-nohejbal",
@@ -31730,24 +31748,6 @@
    "source_ref": "kurz-2026-10-28-velky-hrdina-skolicka-prvni-pomoci-zs"
   },
   {
-   "id": "hala-2026-10-28-1630-basket-u14",
-   "title": "Basket U14",
-   "date": "2026-10-28",
-   "date_end": null,
-   "time": "16:30",
-   "time_end": "18:00",
-   "all_day": false,
-   "category": "kurz",
-   "link": "https://pecky.cz/default/default/21405_rezervacni-system",
-   "description": "Hala",
-   "place": "Hala",
-   "organizer": "tj-sokol-pecky",
-   "organizer_name": "TJ Sokol Pečky",
-   "image": null,
-   "note": null,
-   "source_ref": "hala-2026-10-28-1630-basket-u14"
-  },
-  {
    "id": "kurz-2026-10-28-hudebni-nauka-5-rocnik",
    "title": "Hudební nauka — 5. ročník",
    "date": "2026-10-28",
@@ -32139,42 +32139,6 @@
    "source_ref": "akce-2026-10-29-vu3v-genealogie"
   },
   {
-   "id": "hala-2026-10-29-1500-basket-u11",
-   "title": "Basket U11",
-   "date": "2026-10-29",
-   "date_end": null,
-   "time": "15:00",
-   "time_end": "16:00",
-   "all_day": false,
-   "category": "kurz",
-   "link": "https://pecky.cz/default/default/21405_rezervacni-system",
-   "description": "Hala",
-   "place": "Hala",
-   "organizer": "tj-sokol-pecky",
-   "organizer_name": "TJ Sokol Pečky",
-   "image": null,
-   "note": null,
-   "source_ref": "hala-2026-10-29-1500-basket-u11"
-  },
-  {
-   "id": "hala-2026-10-29-1600-basket-u12",
-   "title": "Basket U12",
-   "date": "2026-10-29",
-   "date_end": null,
-   "time": "16:00",
-   "time_end": "17:00",
-   "all_day": false,
-   "category": "kurz",
-   "link": "https://pecky.cz/default/default/21405_rezervacni-system",
-   "description": "Hala",
-   "place": "Hala",
-   "organizer": "tj-sokol-pecky",
-   "organizer_name": "TJ Sokol Pečky",
-   "image": null,
-   "note": null,
-   "source_ref": "hala-2026-10-29-1600-basket-u12"
-  },
-  {
    "id": "hala-2026-10-29-1830-basket-zeny",
    "title": "basket ženy",
    "date": "2026-10-29",
@@ -32209,24 +32173,6 @@
    "image": null,
    "note": null,
    "source_ref": "hala-2026-10-29-2000-volejbal-juniorky-dospeli"
-  },
-  {
-   "id": "hala-2026-10-30-1500-basket-u11",
-   "title": "Basket U11",
-   "date": "2026-10-30",
-   "date_end": null,
-   "time": "15:00",
-   "time_end": "16:00",
-   "all_day": false,
-   "category": "kurz",
-   "link": "https://pecky.cz/default/default/21405_rezervacni-system",
-   "description": "Hala",
-   "place": "Hala",
-   "organizer": "tj-sokol-pecky",
-   "organizer_name": "TJ Sokol Pečky",
-   "image": null,
-   "note": null,
-   "source_ref": "hala-2026-10-30-1500-basket-u11"
   },
   {
    "id": "hala-2026-10-30-1600-basket-u12",
@@ -32571,6 +32517,24 @@
    "source_ref": "kurz-2026-11-01-taneční-deti"
   },
   {
+   "id": "hala-2026-11-01-1500-volejbal",
+   "title": "Volejbal",
+   "date": "2026-11-01",
+   "date_end": null,
+   "time": "15:00",
+   "time_end": "17:00",
+   "all_day": false,
+   "category": "kurz",
+   "link": "https://pecky.cz/default/default/21405_rezervacni-system",
+   "description": "Hala",
+   "place": "Hala",
+   "organizer": "tj-sokol-pecky",
+   "organizer_name": "TJ Sokol Pečky",
+   "image": null,
+   "note": null,
+   "source_ref": "hala-2026-11-01-1500-volejbal"
+  },
+  {
    "id": "kurz-2026-11-01-tanecni-dospeli",
    "title": "Taneční oddíl — mládež a dospělí",
    "date": "2026-11-01",
@@ -32599,7 +32563,7 @@
   },
   {
    "id": "hala-2026-11-01-1700-tenis",
-   "title": "Tenis (nepotvrzeno)",
+   "title": "Tenis",
    "date": "2026-11-01",
    "date_end": null,
    "time": "17:00",
@@ -33078,6 +33042,24 @@
     ]
    ],
    "source_ref": "kurz-2026-11-02-pevecky-sbor"
+  },
+  {
+   "id": "hala-2026-11-02-1630-afk-pecky-u6",
+   "title": "AFK Pečky - U6",
+   "date": "2026-11-02",
+   "date_end": null,
+   "time": "16:30",
+   "time_end": "17:30",
+   "all_day": false,
+   "category": "kurz",
+   "link": "https://pecky.cz/default/default/21405_rezervacni-system",
+   "description": "Hala",
+   "place": "Hala",
+   "organizer": "tj-sokol-pecky",
+   "organizer_name": "TJ Sokol Pečky",
+   "image": null,
+   "note": null,
+   "source_ref": "hala-2026-11-02-1630-afk-pecky-u6"
   },
   {
    "id": "kurz-2026-11-02-predskolaci",
@@ -34218,6 +34200,24 @@
    "source_ref": "kurz-2026-11-04-maly-hrdina-skolicka-prvni-pomoci-ms"
   },
   {
+   "id": "hala-2026-11-04-1530-afk-pecky-u6",
+   "title": "AFK Pečky - U6",
+   "date": "2026-11-04",
+   "date_end": null,
+   "time": "15:30",
+   "time_end": "16:30",
+   "all_day": false,
+   "category": "kurz",
+   "link": "https://pecky.cz/default/default/21405_rezervacni-system",
+   "description": "Hala",
+   "place": "Hala",
+   "organizer": "tj-sokol-pecky",
+   "organizer_name": "TJ Sokol Pečky",
+   "image": null,
+   "note": null,
+   "source_ref": "hala-2026-11-04-1530-afk-pecky-u6"
+  },
+  {
    "id": "kurz-2026-11-04-hudebni-nauka-4-rocnik",
    "title": "Hudební nauka — 4. ročník",
    "date": "2026-11-04",
@@ -35164,6 +35164,24 @@
    "source_ref": "kurz-2026-11-05-tanec-bomby-ctvrtek"
   },
   {
+   "id": "hala-2026-11-05-1830-zeny-basket",
+   "title": "ženy basket",
+   "date": "2026-11-05",
+   "date_end": null,
+   "time": "18:30",
+   "time_end": "20:00",
+   "all_day": false,
+   "category": "kurz",
+   "link": "https://pecky.cz/default/default/21405_rezervacni-system",
+   "description": "Hala",
+   "place": "Hala",
+   "organizer": "tj-sokol-pecky",
+   "organizer_name": "TJ Sokol Pečky",
+   "image": null,
+   "note": null,
+   "source_ref": "hala-2026-11-05-1830-zeny-basket"
+  },
+  {
    "id": "kurz-2026-11-05-volejbal-radim-dospeli",
    "title": "Volejbal Radim — dospělí",
    "date": "2026-11-05",
@@ -35707,6 +35725,42 @@
    "source_ref": "akce-2026-11-07-pravoslavna-bohosluzba-v-dobrichove"
   },
   {
+   "id": "hala-2026-11-07-1230-afk-pecky",
+   "title": "AFK Pečky",
+   "date": "2026-11-07",
+   "date_end": null,
+   "time": "12:30",
+   "time_end": "14:30",
+   "all_day": false,
+   "category": "kurz",
+   "link": "https://pecky.cz/default/default/21405_rezervacni-system",
+   "description": "Hala",
+   "place": "Hala",
+   "organizer": "tj-sokol-pecky",
+   "organizer_name": "TJ Sokol Pečky",
+   "image": null,
+   "note": null,
+   "source_ref": "hala-2026-11-07-1230-afk-pecky"
+  },
+  {
+   "id": "hala-2026-11-07-1430-basket-u17-divky-zapas",
+   "title": "Basket U17 dívky zápas",
+   "date": "2026-11-07",
+   "date_end": null,
+   "time": "14:30",
+   "time_end": "16:30",
+   "all_day": false,
+   "category": "akce",
+   "link": "https://pecky.cz/default/default/21405_rezervacni-system",
+   "description": "Hala",
+   "place": "Hala",
+   "organizer": "tj-sokol-pecky",
+   "organizer_name": "TJ Sokol Pečky",
+   "image": null,
+   "note": null,
+   "source_ref": "hala-2026-11-07-1430-basket-u17-divky-zapas"
+  },
+  {
    "id": "akce-2026-11-07-kurzy-spolecenskeho-tance",
    "title": "Kurzy společenského tance",
    "date": "2026-11-07",
@@ -35735,6 +35789,24 @@
    "source_ref": "akce-2026-11-07-kurzy-spolecenskeho-tance"
   },
   {
+   "id": "hala-2026-11-07-1700-basket-u14-zapas",
+   "title": "Basket U14 zápas",
+   "date": "2026-11-07",
+   "date_end": null,
+   "time": "17:00",
+   "time_end": "19:00",
+   "all_day": false,
+   "category": "akce",
+   "link": "https://pecky.cz/default/default/21405_rezervacni-system",
+   "description": "Hala",
+   "place": "Hala",
+   "organizer": "tj-sokol-pecky",
+   "organizer_name": "TJ Sokol Pečky",
+   "image": null,
+   "note": null,
+   "source_ref": "hala-2026-11-07-1700-basket-u14-zapas"
+  },
+  {
    "id": "kurz-2026-11-07-tanecni-kurz-pro-mladez-vecerni",
    "title": "Taneční kurz pro mládež — večerní",
    "date": "2026-11-07",
@@ -35756,6 +35828,42 @@
     ]
    ],
    "source_ref": "kurz-2026-11-07-tanecni-kurz-pro-mladez-vecerni"
+  },
+  {
+   "id": "hala-2026-11-07-1900-volejbal",
+   "title": "Volejbal",
+   "date": "2026-11-07",
+   "date_end": null,
+   "time": "19:00",
+   "time_end": "21:00",
+   "all_day": false,
+   "category": "kurz",
+   "link": "https://pecky.cz/default/default/21405_rezervacni-system",
+   "description": "Hala",
+   "place": "Hala",
+   "organizer": "tj-sokol-pecky",
+   "organizer_name": "TJ Sokol Pečky",
+   "image": null,
+   "note": null,
+   "source_ref": "hala-2026-11-07-1900-volejbal"
+  },
+  {
+   "id": "hala-2026-11-08-0730-basket-smoulinka-turnaj",
+   "title": "Basket Šmoulinka turnaj",
+   "date": "2026-11-08",
+   "date_end": null,
+   "time": "07:30",
+   "time_end": "15:00",
+   "all_day": false,
+   "category": "akce",
+   "link": "https://pecky.cz/default/default/21405_rezervacni-system",
+   "description": "Hala",
+   "place": "Hala",
+   "organizer": "tj-sokol-pecky",
+   "organizer_name": "TJ Sokol Pečky",
+   "image": null,
+   "note": null,
+   "source_ref": "hala-2026-11-08-0730-basket-smoulinka-turnaj"
   },
   {
    "id": "akce-2026-11-08-zabijackove-hody-pecky",
@@ -35879,6 +35987,24 @@
    "source_ref": "kurz-2026-11-08-taneční-deti"
   },
   {
+   "id": "hala-2026-11-08-1530-basket-u17-zapas",
+   "title": "Basket U17 zápas",
+   "date": "2026-11-08",
+   "date_end": null,
+   "time": "15:30",
+   "time_end": "17:30",
+   "all_day": false,
+   "category": "akce",
+   "link": "https://pecky.cz/default/default/21405_rezervacni-system",
+   "description": "Hala",
+   "place": "Hala",
+   "organizer": "tj-sokol-pecky",
+   "organizer_name": "TJ Sokol Pečky",
+   "image": null,
+   "note": null,
+   "source_ref": "hala-2026-11-08-1530-basket-u17-zapas"
+  },
+  {
    "id": "kurz-2026-11-08-tanecni-dospeli",
    "title": "Taneční oddíl — mládež a dospělí",
    "date": "2026-11-08",
@@ -35906,24 +36032,6 @@
    "source_ref": "kurz-2026-11-08-tanecni-dospeli"
   },
   {
-   "id": "hala-2026-11-08-1700-tenis",
-   "title": "Tenis (nepotvrzeno)",
-   "date": "2026-11-08",
-   "date_end": null,
-   "time": "17:00",
-   "time_end": "19:00",
-   "all_day": false,
-   "category": "kurz",
-   "link": "https://pecky.cz/default/default/21405_rezervacni-system",
-   "description": "Hala",
-   "place": "Hala",
-   "organizer": "tj-sokol-pecky",
-   "organizer_name": "TJ Sokol Pečky",
-   "image": null,
-   "note": null,
-   "source_ref": "hala-2026-11-08-1700-tenis"
-  },
-  {
    "id": "kurz-2026-11-08-joga",
    "title": "Jóga",
    "date": "2026-11-08",
@@ -35945,6 +36053,24 @@
     ]
    ],
    "source_ref": "kurz-2026-11-08-joga"
+  },
+  {
+   "id": "hala-2026-11-08-1730-tenis",
+   "title": "Tenis",
+   "date": "2026-11-08",
+   "date_end": null,
+   "time": "17:30",
+   "time_end": "19:00",
+   "all_day": false,
+   "category": "kurz",
+   "link": "https://pecky.cz/default/default/21405_rezervacni-system",
+   "description": "Hala",
+   "place": "Hala",
+   "organizer": "tj-sokol-pecky",
+   "organizer_name": "TJ Sokol Pečky",
+   "image": null,
+   "note": null,
+   "source_ref": "hala-2026-11-08-1730-tenis"
   },
   {
    "id": "hala-2026-11-08-1900-nohejbal",
@@ -36357,6 +36483,24 @@
    "source_ref": "kurz-2026-11-09-pevecky-sbor"
   },
   {
+   "id": "hala-2026-11-09-1630-afk-pecky-u6",
+   "title": "AFK Pečky U6",
+   "date": "2026-11-09",
+   "date_end": null,
+   "time": "16:30",
+   "time_end": "17:30",
+   "all_day": false,
+   "category": "kurz",
+   "link": "https://pecky.cz/default/default/21405_rezervacni-system",
+   "description": "Hala",
+   "place": "Hala",
+   "organizer": "tj-sokol-pecky",
+   "organizer_name": "TJ Sokol Pečky",
+   "image": null,
+   "note": null,
+   "source_ref": "hala-2026-11-09-1630-afk-pecky-u6"
+  },
+  {
    "id": "kurz-2026-11-09-predskolaci",
    "title": "Předškoláci",
    "date": "2026-11-09",
@@ -36426,6 +36570,24 @@
    "source_ref": "kurz-2026-11-09-keramika-pro-dospele"
   },
   {
+   "id": "hala-2026-11-09-1730-afk-pecky-u8",
+   "title": "AFK Pečky U8",
+   "date": "2026-11-09",
+   "date_end": null,
+   "time": "17:30",
+   "time_end": "18:30",
+   "all_day": false,
+   "category": "kurz",
+   "link": "https://pecky.cz/default/default/21405_rezervacni-system",
+   "description": "Hala",
+   "place": "Hala",
+   "organizer": "tj-sokol-pecky",
+   "organizer_name": "TJ Sokol Pečky",
+   "image": null,
+   "note": null,
+   "source_ref": "hala-2026-11-09-1730-afk-pecky-u8"
+  },
+  {
    "id": "kurz-2026-11-09-vsestrannost-nejstarsi",
    "title": "Všestrannost — nejstarší",
    "date": "2026-11-09",
@@ -36450,7 +36612,7 @@
   },
   {
    "id": "hala-2026-11-09-1830-basket-u17-devcata",
-   "title": "Basket U17 děvčata (nepotvrzeno)",
+   "title": "Basket U17 děvčata",
    "date": "2026-11-09",
    "date_end": null,
    "time": "18:30",
@@ -36518,7 +36680,7 @@
   },
   {
    "id": "hala-2026-11-09-2000-florbal-charisma-pecky",
-   "title": "Florbal Charisma Pečky (nepotvrzeno)",
+   "title": "Florbal Charisma Pečky",
    "date": "2026-11-09",
    "date_end": null,
    "time": "20:00",
@@ -36793,7 +36955,7 @@
   },
   {
    "id": "hala-2026-11-10-1500-volejbal-pecky-pripravka-minivolejbal",
-   "title": "Volejbal Pečky - přípravka, minivolejbal (nepotvrzeno)",
+   "title": "Volejbal Pečky - přípravka, minivolejbal",
    "date": "2026-11-10",
    "date_end": null,
    "time": "15:00",
@@ -36955,7 +37117,7 @@
   },
   {
    "id": "hala-2026-11-10-1630-volejbal-zakyne",
-   "title": "Volejbal - žákyně (nepotvrzeno)",
+   "title": "Volejbal - žákyně",
    "date": "2026-11-10",
    "date_end": null,
    "time": "16:30",
@@ -37524,6 +37686,24 @@
    "source_ref": "kurz-2026-11-11-maly-hrdina-skolicka-prvni-pomoci-ms"
   },
   {
+   "id": "hala-2026-11-11-1530-afk-pecky-u6",
+   "title": "AFK Pečky U6",
+   "date": "2026-11-11",
+   "date_end": null,
+   "time": "15:30",
+   "time_end": "16:30",
+   "all_day": false,
+   "category": "kurz",
+   "link": "https://pecky.cz/default/default/21405_rezervacni-system",
+   "description": "Hala",
+   "place": "Hala",
+   "organizer": "tj-sokol-pecky",
+   "organizer_name": "TJ Sokol Pečky",
+   "image": null,
+   "note": null,
+   "source_ref": "hala-2026-11-11-1530-afk-pecky-u6"
+  },
+  {
    "id": "kurz-2026-11-11-hudebni-nauka-4-rocnik",
    "title": "Hudební nauka — 4. ročník",
    "date": "2026-11-11",
@@ -37865,7 +38045,7 @@
   },
   {
    "id": "hala-2026-11-11-1800-basket-u17-devcata",
-   "title": "Basket U17 děvčata (nepotvrzeno)",
+   "title": "Basket U17 děvčata",
    "date": "2026-11-11",
    "date_end": null,
    "time": "18:00",
@@ -38512,6 +38692,24 @@
    "source_ref": "kurz-2026-11-12-tanec-bomby-ctvrtek"
   },
   {
+   "id": "hala-2026-11-12-1830-basket-zeny",
+   "title": "basket ženy",
+   "date": "2026-11-12",
+   "date_end": null,
+   "time": "18:30",
+   "time_end": "20:00",
+   "all_day": false,
+   "category": "kurz",
+   "link": "https://pecky.cz/default/default/21405_rezervacni-system",
+   "description": "Hala",
+   "place": "Hala",
+   "organizer": "tj-sokol-pecky",
+   "organizer_name": "TJ Sokol Pečky",
+   "image": null,
+   "note": null,
+   "source_ref": "hala-2026-11-12-1830-basket-zeny"
+  },
+  {
    "id": "kurz-2026-11-12-volejbal-radim-dospeli",
    "title": "Volejbal Radim — dospělí",
    "date": "2026-11-12",
@@ -38563,7 +38761,7 @@
   },
   {
    "id": "hala-2026-11-12-2000-volejbal-juniorky-dospeli",
-   "title": "Volejbal - juniorky, dospělí (nepotvrzeno)",
+   "title": "Volejbal - juniorky, dospělí",
    "date": "2026-11-12",
    "date_end": null,
    "time": "20:00",
@@ -38927,7 +39125,7 @@
   },
   {
    "id": "hala-2026-11-13-1830-basket-u17-devcata",
-   "title": "Basket U17 děvčata (nepotvrzeno)",
+   "title": "Basket U17 děvčata",
    "date": "2026-11-13",
    "date_end": null,
    "time": "18:30",
@@ -39017,6 +39215,24 @@
    "source_ref": "sberny-dvur-2026-11-14"
   },
   {
+   "id": "hala-2026-11-14-1300-afk-pecky",
+   "title": "AFK Pečky",
+   "date": "2026-11-14",
+   "date_end": null,
+   "time": "13:00",
+   "time_end": "16:00",
+   "all_day": false,
+   "category": "kurz",
+   "link": "https://pecky.cz/default/default/21405_rezervacni-system",
+   "description": "Hala",
+   "place": "Hala",
+   "organizer": "tj-sokol-pecky",
+   "organizer_name": "TJ Sokol Pečky",
+   "image": null,
+   "note": null,
+   "source_ref": "hala-2026-11-14-1300-afk-pecky"
+  },
+  {
    "id": "akce-2026-11-14-kurzy-spolecenskeho-tance",
    "title": "Kurzy společenského tance",
    "date": "2026-11-14",
@@ -39069,6 +39285,24 @@
    "source_ref": "akce-2026-11-14-tak-trochu-vanocni-keramika"
   },
   {
+   "id": "hala-2026-11-14-1630-basket-u15-divky-zapas",
+   "title": "Basket U15 dívky zápas",
+   "date": "2026-11-14",
+   "date_end": null,
+   "time": "16:30",
+   "time_end": "18:30",
+   "all_day": false,
+   "category": "akce",
+   "link": "https://pecky.cz/default/default/21405_rezervacni-system",
+   "description": "Hala",
+   "place": "Hala",
+   "organizer": "tj-sokol-pecky",
+   "organizer_name": "TJ Sokol Pečky",
+   "image": null,
+   "note": null,
+   "source_ref": "hala-2026-11-14-1630-basket-u15-divky-zapas"
+  },
+  {
    "id": "kurz-2026-11-14-tanecni-kurz-pro-mladez-vecerni",
    "title": "Taneční kurz pro mládež — večerní",
    "date": "2026-11-14",
@@ -39090,6 +39324,24 @@
     ]
    ],
    "source_ref": "kurz-2026-11-14-tanecni-kurz-pro-mladez-vecerni"
+  },
+  {
+   "id": "hala-2026-11-15-0830-basket-u15-divky-zapas",
+   "title": "Basket U15 dívky zápas",
+   "date": "2026-11-15",
+   "date_end": null,
+   "time": "08:30",
+   "time_end": "10:30",
+   "all_day": false,
+   "category": "akce",
+   "link": "https://pecky.cz/default/default/21405_rezervacni-system",
+   "description": "Hala",
+   "place": "Hala",
+   "organizer": "tj-sokol-pecky",
+   "organizer_name": "TJ Sokol Pečky",
+   "image": null,
+   "note": null,
+   "source_ref": "hala-2026-11-15-0830-basket-u15-divky-zapas"
   },
   {
    "id": "akce-2026-11-15-pravoslavna-bohosluzba-v-dobrichove",
@@ -39114,6 +39366,24 @@
     ]
    ],
    "source_ref": "akce-2026-11-15-pravoslavna-bohosluzba-v-dobrichove"
+  },
+  {
+   "id": "hala-2026-11-15-1100-basket-u11-mix-zapas",
+   "title": "Basket U11 MIX zápas",
+   "date": "2026-11-15",
+   "date_end": null,
+   "time": "11:00",
+   "time_end": "15:00",
+   "all_day": false,
+   "category": "akce",
+   "link": "https://pecky.cz/default/default/21405_rezervacni-system",
+   "description": "Hala",
+   "place": "Hala",
+   "organizer": "tj-sokol-pecky",
+   "organizer_name": "TJ Sokol Pečky",
+   "image": null,
+   "note": null,
+   "source_ref": "hala-2026-11-15-1100-basket-u11-mix-zapas"
   },
   {
    "id": "akce-2026-11-15-komunitni-kavarna-otevrena",
@@ -39201,6 +39471,24 @@
    "source_ref": "kurz-2026-11-15-taneční-deti"
   },
   {
+   "id": "hala-2026-11-15-1500-tenis",
+   "title": "Tenis",
+   "date": "2026-11-15",
+   "date_end": null,
+   "time": "15:00",
+   "time_end": "17:00",
+   "all_day": false,
+   "category": "kurz",
+   "link": "https://pecky.cz/default/default/21405_rezervacni-system",
+   "description": "Hala",
+   "place": "Hala",
+   "organizer": "tj-sokol-pecky",
+   "organizer_name": "TJ Sokol Pečky",
+   "image": null,
+   "note": null,
+   "source_ref": "hala-2026-11-15-1500-tenis"
+  },
+  {
    "id": "kurz-2026-11-15-tanecni-dospeli",
    "title": "Taneční oddíl — mládež a dospělí",
    "date": "2026-11-15",
@@ -39226,6 +39514,24 @@
     ]
    ],
    "source_ref": "kurz-2026-11-15-tanecni-dospeli"
+  },
+  {
+   "id": "hala-2026-11-15-1700-volejbal",
+   "title": "Volejbal",
+   "date": "2026-11-15",
+   "date_end": null,
+   "time": "17:00",
+   "time_end": "19:00",
+   "all_day": false,
+   "category": "kurz",
+   "link": "https://pecky.cz/default/default/21405_rezervacni-system",
+   "description": "Hala",
+   "place": "Hala",
+   "organizer": "tj-sokol-pecky",
+   "organizer_name": "TJ Sokol Pečky",
+   "image": null,
+   "note": null,
+   "source_ref": "hala-2026-11-15-1700-volejbal"
   },
   {
    "id": "kurz-2026-11-15-joga",
@@ -39644,6 +39950,24 @@
    "source_ref": "kurz-2026-11-16-detska-joga-zviratkova"
   },
   {
+   "id": "hala-2026-11-16-1600-afk-pecky-u6",
+   "title": "AFK Pečky U6",
+   "date": "2026-11-16",
+   "date_end": null,
+   "time": "16:00",
+   "time_end": "17:30",
+   "all_day": false,
+   "category": "kurz",
+   "link": "https://pecky.cz/default/default/21405_rezervacni-system",
+   "description": "Hala",
+   "place": "Hala",
+   "organizer": "tj-sokol-pecky",
+   "organizer_name": "TJ Sokol Pečky",
+   "image": null,
+   "note": null,
+   "source_ref": "hala-2026-11-16-1600-afk-pecky-u6"
+  },
+  {
    "id": "kurz-2026-11-16-pevecky-sbor",
    "title": "Pěvecký sbor",
    "date": "2026-11-16",
@@ -39736,6 +40060,24 @@
    "source_ref": "kurz-2026-11-16-keramika-pro-dospele"
   },
   {
+   "id": "hala-2026-11-16-1730-afk-pecky-u8",
+   "title": "AFK Pečky U8",
+   "date": "2026-11-16",
+   "date_end": null,
+   "time": "17:30",
+   "time_end": "18:30",
+   "all_day": false,
+   "category": "kurz",
+   "link": "https://pecky.cz/default/default/21405_rezervacni-system",
+   "description": "Hala",
+   "place": "Hala",
+   "organizer": "tj-sokol-pecky",
+   "organizer_name": "TJ Sokol Pečky",
+   "image": null,
+   "note": null,
+   "source_ref": "hala-2026-11-16-1730-afk-pecky-u8"
+  },
+  {
    "id": "kurz-2026-11-16-vsestrannost-nejstarsi",
    "title": "Všestrannost — nejstarší",
    "date": "2026-11-16",
@@ -39757,24 +40099,6 @@
     ]
    ],
    "source_ref": "kurz-2026-11-16-vsestrannost-nejstarsi"
-  },
-  {
-   "id": "hala-2026-11-16-1830-basket-u17-devcata",
-   "title": "Basket U17 děvčata (nepotvrzeno)",
-   "date": "2026-11-16",
-   "date_end": null,
-   "time": "18:30",
-   "time_end": "20:00",
-   "all_day": false,
-   "category": "kurz",
-   "link": "https://pecky.cz/default/default/21405_rezervacni-system",
-   "description": "Hala",
-   "place": "Hala",
-   "organizer": "tj-sokol-pecky",
-   "organizer_name": "TJ Sokol Pečky",
-   "image": null,
-   "note": null,
-   "source_ref": "hala-2026-11-16-1830-basket-u17-devcata"
   },
   {
    "id": "kurz-2026-11-16-zeny-a-dorostenky",
@@ -39825,24 +40149,6 @@
     ]
    ],
    "source_ref": "kurz-2026-11-16-badminton-dospeli-po"
-  },
-  {
-   "id": "hala-2026-11-16-2000-florbal-charisma-pecky",
-   "title": "Florbal Charisma Pečky (nepotvrzeno)",
-   "date": "2026-11-16",
-   "date_end": null,
-   "time": "20:00",
-   "time_end": "21:30",
-   "all_day": false,
-   "category": "kurz",
-   "link": "https://pecky.cz/default/default/21405_rezervacni-system",
-   "description": "Hala",
-   "place": "Hala",
-   "organizer": "fbc-charisma-pecky",
-   "organizer_name": "FBC Charisma Pečky",
-   "image": null,
-   "note": null,
-   "source_ref": "hala-2026-11-16-2000-florbal-charisma-pecky"
   },
   {
    "id": "svoz-bio-2026-11-17",
@@ -40049,12 +40355,12 @@
    "source_ref": "kurz-2026-11-17-od-prehazovane-k-volejbalu"
   },
   {
-   "id": "hala-2026-11-17-1500-volejbal-pecky-pripravka-minivolejbal",
-   "title": "Volejbal Pečky - přípravka, minivolejbal (nepotvrzeno)",
+   "id": "hala-2026-11-17-1545-afk-pecky",
+   "title": "AFK Pečky",
    "date": "2026-11-17",
    "date_end": null,
-   "time": "15:00",
-   "time_end": "16:30",
+   "time": "15:45",
+   "time_end": "18:15",
    "all_day": false,
    "category": "kurz",
    "link": "https://pecky.cz/default/default/21405_rezervacni-system",
@@ -40064,7 +40370,7 @@
    "organizer_name": "TJ Sokol Pečky",
    "image": null,
    "note": null,
-   "source_ref": "hala-2026-11-17-1500-volejbal-pecky-pripravka-minivolejbal"
+   "source_ref": "hala-2026-11-17-1545-afk-pecky"
   },
   {
    "id": "kurz-2026-11-17-sportovni-pripravka",
@@ -40180,24 +40486,6 @@
     ]
    ],
    "source_ref": "kurz-2026-11-17-volejbal-zakyne-skupina-3-ut"
-  },
-  {
-   "id": "hala-2026-11-17-1630-volejbal-zakyne",
-   "title": "Volejbal - žákyně (nepotvrzeno)",
-   "date": "2026-11-17",
-   "date_end": null,
-   "time": "16:30",
-   "time_end": "18:30",
-   "all_day": false,
-   "category": "kurz",
-   "link": "https://pecky.cz/default/default/21405_rezervacni-system",
-   "description": "Hala",
-   "place": "Hala",
-   "organizer": "tj-sokol-pecky",
-   "organizer_name": "TJ Sokol Pečky",
-   "image": null,
-   "note": null,
-   "source_ref": "hala-2026-11-17-1630-volejbal-zakyne"
   },
   {
    "id": "kurz-2026-11-17-basketbal-deti",
@@ -40473,6 +40761,24 @@
    "source_ref": "kurz-2026-11-17-tanec-hlavaci-uterek"
   },
   {
+   "id": "hala-2026-11-17-1930-basket-zeny",
+   "title": "basket ženy",
+   "date": "2026-11-17",
+   "date_end": null,
+   "time": "19:30",
+   "time_end": "20:30",
+   "all_day": false,
+   "category": "kurz",
+   "link": "https://pecky.cz/default/default/21405_rezervacni-system",
+   "description": "Hala",
+   "place": "Hala",
+   "organizer": "tj-sokol-pecky",
+   "organizer_name": "TJ Sokol Pečky",
+   "image": null,
+   "note": null,
+   "source_ref": "hala-2026-11-17-1930-basket-zeny"
+  },
+  {
    "id": "akce-2026-11-18-vystava-betlemy-v-peckach",
    "title": "Výstava – Betlémy v Pečkách",
    "date": "2026-11-18",
@@ -40721,6 +41027,24 @@
     ]
    ],
    "source_ref": "kurz-2026-11-18-maly-hrdina-skolicka-prvni-pomoci-ms"
+  },
+  {
+   "id": "hala-2026-11-18-1530-afk-pecky-u6",
+   "title": "AFK Pečky U6",
+   "date": "2026-11-18",
+   "date_end": null,
+   "time": "15:30",
+   "time_end": "16:30",
+   "all_day": false,
+   "category": "kurz",
+   "link": "https://pecky.cz/default/default/21405_rezervacni-system",
+   "description": "Hala",
+   "place": "Hala",
+   "organizer": "tj-sokol-pecky",
+   "organizer_name": "TJ Sokol Pečky",
+   "image": null,
+   "note": null,
+   "source_ref": "hala-2026-11-18-1530-afk-pecky-u6"
   },
   {
    "id": "kurz-2026-11-18-hudebni-nauka-4-rocnik",
@@ -41139,7 +41463,7 @@
   },
   {
    "id": "hala-2026-11-18-1800-basket-u17-devcata",
-   "title": "Basket U17 děvčata (nepotvrzeno)",
+   "title": "Basket U17 děvčata",
    "date": "2026-11-18",
    "date_end": null,
    "time": "18:00",
@@ -41765,6 +42089,24 @@
    "source_ref": "kurz-2026-11-19-tanec-bomby-ctvrtek"
   },
   {
+   "id": "hala-2026-11-19-1830-basket-zeny",
+   "title": "basket ženy",
+   "date": "2026-11-19",
+   "date_end": null,
+   "time": "18:30",
+   "time_end": "20:00",
+   "all_day": false,
+   "category": "kurz",
+   "link": "https://pecky.cz/default/default/21405_rezervacni-system",
+   "description": "Hala",
+   "place": "Hala",
+   "organizer": "tj-sokol-pecky",
+   "organizer_name": "TJ Sokol Pečky",
+   "image": null,
+   "note": null,
+   "source_ref": "hala-2026-11-19-1830-basket-zeny"
+  },
+  {
    "id": "kurz-2026-11-19-volejbal-radim-dospeli",
    "title": "Volejbal Radim — dospělí",
    "date": "2026-11-19",
@@ -41816,7 +42158,7 @@
   },
   {
    "id": "hala-2026-11-19-2000-volejbal-juniorky-dospeli",
-   "title": "Volejbal - juniorky, dospělí (nepotvrzeno)",
+   "title": "Volejbal - juniorky, dospělí",
    "date": "2026-11-19",
    "date_end": null,
    "time": "20:00",
@@ -42167,7 +42509,7 @@
   },
   {
    "id": "hala-2026-11-20-1830-basket-u17-devcata",
-   "title": "Basket U17 děvčata (nepotvrzeno)",
+   "title": "Basket U17 děvčata",
    "date": "2026-11-20",
    "date_end": null,
    "time": "18:30",
@@ -42227,6 +42569,60 @@
    "source_ref": "akce-2026-11-21-pravoslavna-bohosluzba-v-dobrichove"
   },
   {
+   "id": "hala-2026-11-21-0930-basketbal-u17-kluci",
+   "title": "basketbal U17 kluci",
+   "date": "2026-11-21",
+   "date_end": null,
+   "time": "09:30",
+   "time_end": "11:30",
+   "all_day": false,
+   "category": "kurz",
+   "link": "https://pecky.cz/default/default/21405_rezervacni-system",
+   "description": "Hala",
+   "place": "Hala",
+   "organizer": "tj-sokol-pecky",
+   "organizer_name": "TJ Sokol Pečky",
+   "image": null,
+   "note": null,
+   "source_ref": "hala-2026-11-21-0930-basketbal-u17-kluci"
+  },
+  {
+   "id": "hala-2026-11-21-1230-1-liga-zeny",
+   "title": "1.liga ženy",
+   "date": "2026-11-21",
+   "date_end": null,
+   "time": "12:30",
+   "time_end": "14:30",
+   "all_day": false,
+   "category": "akce",
+   "link": "https://pecky.cz/default/default/21405_rezervacni-system",
+   "description": "Hala",
+   "place": "Hala",
+   "organizer": "tj-sokol-pecky",
+   "organizer_name": "TJ Sokol Pečky",
+   "image": null,
+   "note": null,
+   "source_ref": "hala-2026-11-21-1230-1-liga-zeny"
+  },
+  {
+   "id": "hala-2026-11-21-1445-afk-pecky",
+   "title": "AFK Pečky",
+   "date": "2026-11-21",
+   "date_end": null,
+   "time": "14:45",
+   "time_end": "16:45",
+   "all_day": false,
+   "category": "kurz",
+   "link": "https://pecky.cz/default/default/21405_rezervacni-system",
+   "description": "Hala",
+   "place": "Hala",
+   "organizer": "tj-sokol-pecky",
+   "organizer_name": "TJ Sokol Pečky",
+   "image": null,
+   "note": null,
+   "source_ref": "hala-2026-11-21-1445-afk-pecky"
+  },
+  {
    "id": "kurz-2026-11-21-tanecni-kurz-pro-mladez-odpoledni",
    "title": "Taneční kurz pro mládež — odpolední",
    "date": "2026-11-21",
@@ -42248,6 +42644,24 @@
     ]
    ],
    "source_ref": "kurz-2026-11-21-tanecni-kurz-pro-mladez-odpoledni"
+  },
+  {
+   "id": "hala-2026-11-21-1700-volejbal",
+   "title": "Volejbal",
+   "date": "2026-11-21",
+   "date_end": null,
+   "time": "17:00",
+   "time_end": "19:00",
+   "all_day": false,
+   "category": "kurz",
+   "link": "https://pecky.cz/default/default/21405_rezervacni-system",
+   "description": "Hala",
+   "place": "Hala",
+   "organizer": "tj-sokol-pecky",
+   "organizer_name": "TJ Sokol Pečky",
+   "image": null,
+   "note": null,
+   "source_ref": "hala-2026-11-21-1700-volejbal"
   },
   {
    "id": "akce-2026-11-21-kurz-spolecenskeho-tance-3",
@@ -42279,11 +42693,11 @@
   },
   {
    "id": "hala-2026-11-22-0800-volejbal-u14",
-   "title": "Volejbal U14 (nepotvrzeno)",
+   "title": "Volejbal U14",
    "date": "2026-11-22",
    "date_end": null,
    "time": "08:00",
-   "time_end": "16:00",
+   "time_end": "17:00",
    "all_day": false,
    "category": "akce",
    "link": "https://pecky.cz/default/default/21405_rezervacni-system",
@@ -42421,12 +42835,12 @@
    "source_ref": "kurz-2026-11-22-joga"
   },
   {
-   "id": "hala-2026-11-22-1900-nohejbal",
-   "title": "Nohejbal",
+   "id": "hala-2026-11-22-1745-basket-u17-kluci",
+   "title": "Basket U17 kluci",
    "date": "2026-11-22",
    "date_end": null,
-   "time": "19:00",
-   "time_end": "20:00",
+   "time": "17:45",
+   "time_end": "19:45",
    "all_day": false,
    "category": "kurz",
    "link": "https://pecky.cz/default/default/21405_rezervacni-system",
@@ -42436,7 +42850,7 @@
    "organizer_name": "TJ Sokol Pečky",
    "image": null,
    "note": null,
-   "source_ref": "hala-2026-11-22-1900-nohejbal"
+   "source_ref": "hala-2026-11-22-1745-basket-u17-kluci"
   },
   {
    "id": "jednani-rada-2026-11-23",
@@ -42830,6 +43244,24 @@
    "source_ref": "kurz-2026-11-23-pevecky-sbor"
   },
   {
+   "id": "hala-2026-11-23-1630-afk-pecky-u6",
+   "title": "AFK Pečky U6",
+   "date": "2026-11-23",
+   "date_end": null,
+   "time": "16:30",
+   "time_end": "17:30",
+   "all_day": false,
+   "category": "kurz",
+   "link": "https://pecky.cz/default/default/21405_rezervacni-system",
+   "description": "Hala",
+   "place": "Hala",
+   "organizer": "tj-sokol-pecky",
+   "organizer_name": "TJ Sokol Pečky",
+   "image": null,
+   "note": null,
+   "source_ref": "hala-2026-11-23-1630-afk-pecky-u6"
+  },
+  {
    "id": "kurz-2026-11-23-predskolaci",
    "title": "Předškoláci",
    "date": "2026-11-23",
@@ -42928,6 +43360,24 @@
    "source_ref": "kurz-2026-11-23-keramika-pro-dospele"
   },
   {
+   "id": "hala-2026-11-23-1730-afk-pecky-u8",
+   "title": "AFK Pečky U8",
+   "date": "2026-11-23",
+   "date_end": null,
+   "time": "17:30",
+   "time_end": "18:30",
+   "all_day": false,
+   "category": "kurz",
+   "link": "https://pecky.cz/default/default/21405_rezervacni-system",
+   "description": "Hala",
+   "place": "Hala",
+   "organizer": "tj-sokol-pecky",
+   "organizer_name": "TJ Sokol Pečky",
+   "image": null,
+   "note": null,
+   "source_ref": "hala-2026-11-23-1730-afk-pecky-u8"
+  },
+  {
    "id": "kurz-2026-11-23-vsestrannost-nejstarsi",
    "title": "Všestrannost — nejstarší",
    "date": "2026-11-23",
@@ -42952,7 +43402,7 @@
   },
   {
    "id": "hala-2026-11-23-1830-basket-u17-devcata",
-   "title": "Basket U17 děvčata (nepotvrzeno)",
+   "title": "Basket U17 děvčata",
    "date": "2026-11-23",
    "date_end": null,
    "time": "18:30",
@@ -43020,7 +43470,7 @@
   },
   {
    "id": "hala-2026-11-23-2000-florbal-charisma-pecky",
-   "title": "Florbal Charisma Pečky (nepotvrzeno)",
+   "title": "Florbal Charisma Pečky",
    "date": "2026-11-23",
    "date_end": null,
    "time": "20:00",
@@ -43295,7 +43745,7 @@
   },
   {
    "id": "hala-2026-11-24-1500-volejbal-pecky-pripravka-minivolejbal",
-   "title": "Volejbal Pečky - přípravka, minivolejbal (nepotvrzeno)",
+   "title": "Volejbal Pečky - přípravka, minivolejbal",
    "date": "2026-11-24",
    "date_end": null,
    "time": "15:00",
@@ -43445,7 +43895,7 @@
   },
   {
    "id": "hala-2026-11-24-1630-volejbal-zakyne",
-   "title": "Volejbal - žákyně (nepotvrzeno)",
+   "title": "Volejbal - žákyně",
    "date": "2026-11-24",
    "date_end": null,
    "time": "16:30",
@@ -43673,6 +44123,24 @@
    "source_ref": "akce-2026-11-24-pout-do-rima"
   },
   {
+   "id": "hala-2026-11-24-1830-trenink-u17-kluci-basket",
+   "title": "trénink U17 kluci basket",
+   "date": "2026-11-24",
+   "date_end": null,
+   "time": "18:30",
+   "time_end": "19:30",
+   "all_day": false,
+   "category": "kurz",
+   "link": "https://pecky.cz/default/default/21405_rezervacni-system",
+   "description": "Hala",
+   "place": "Hala",
+   "organizer": "tj-sokol-pecky",
+   "organizer_name": "TJ Sokol Pečky",
+   "image": null,
+   "note": null,
+   "source_ref": "hala-2026-11-24-1830-trenink-u17-kluci-basket"
+  },
+  {
    "id": "kurz-2026-11-24-spanelstina-zacatecnici-i-ti-vecni",
    "title": "Španělština — začátečníci (i ti věční)",
    "date": "2026-11-24",
@@ -43767,6 +44235,24 @@
     ]
    ],
    "source_ref": "kurz-2026-11-24-tanec-hlavaci-uterek"
+  },
+  {
+   "id": "hala-2026-11-24-1930-basket-zeny-trenink",
+   "title": "basket ženy trénink",
+   "date": "2026-11-24",
+   "date_end": null,
+   "time": "19:30",
+   "time_end": "20:30",
+   "all_day": false,
+   "category": "kurz",
+   "link": "https://pecky.cz/default/default/21405_rezervacni-system",
+   "description": "Hala",
+   "place": "Hala",
+   "organizer": "tj-sokol-pecky",
+   "organizer_name": "TJ Sokol Pečky",
+   "image": null,
+   "note": null,
+   "source_ref": "hala-2026-11-24-1930-basket-zeny-trenink"
   },
   {
    "id": "kurz-2026-11-25-hudebni-nauka-1-rocnik",
@@ -44064,6 +44550,24 @@
    "source_ref": "kurz-2026-11-25-nemcina-b1"
   },
   {
+   "id": "hala-2026-11-25-1600-afk-pecky-u6",
+   "title": "AFK Pečky U6",
+   "date": "2026-11-25",
+   "date_end": null,
+   "time": "16:00",
+   "time_end": "18:00",
+   "all_day": false,
+   "category": "kurz",
+   "link": "https://pecky.cz/default/default/21405_rezervacni-system",
+   "description": "Hala",
+   "place": "Hala",
+   "organizer": "tj-sokol-pecky",
+   "organizer_name": "TJ Sokol Pečky",
+   "image": null,
+   "note": null,
+   "source_ref": "hala-2026-11-25-1600-afk-pecky-u6"
+  },
+  {
    "id": "kurz-2026-11-25-velky-hrdina-skolicka-prvni-pomoci-zs",
    "title": "Velký hrdina — školička první pomoci (ZŠ)",
    "date": "2026-11-25",
@@ -44102,24 +44606,6 @@
    "image": null,
    "note": null,
    "source_ref": "4173d167-e139-11f1-a58e-0242c0a80002"
-  },
-  {
-   "id": "hala-2026-11-25-1630-basket-u14",
-   "title": "Basket U14",
-   "date": "2026-11-25",
-   "date_end": null,
-   "time": "16:30",
-   "time_end": "18:00",
-   "all_day": false,
-   "category": "kurz",
-   "link": "https://pecky.cz/default/default/21405_rezervacni-system",
-   "description": "Hala",
-   "place": "Hala",
-   "organizer": "tj-sokol-pecky",
-   "organizer_name": "TJ Sokol Pečky",
-   "image": null,
-   "note": null,
-   "source_ref": "hala-2026-11-25-1630-basket-u14"
   },
   {
    "id": "kurz-2026-11-25-hudebni-nauka-5-rocnik",
@@ -44353,7 +44839,7 @@
   },
   {
    "id": "hala-2026-11-25-1800-basket-u17-devcata",
-   "title": "Basket U17 děvčata (nepotvrzeno)",
+   "title": "Basket U17 děvčata",
    "date": "2026-11-25",
    "date_end": null,
    "time": "18:00",
@@ -45045,6 +45531,24 @@
    "source_ref": "kurz-2026-11-26-tanec-bomby-ctvrtek"
   },
   {
+   "id": "hala-2026-11-26-1830-basket-zeny",
+   "title": "basket ženy",
+   "date": "2026-11-26",
+   "date_end": null,
+   "time": "18:30",
+   "time_end": "20:00",
+   "all_day": false,
+   "category": "kurz",
+   "link": "https://pecky.cz/default/default/21405_rezervacni-system",
+   "description": "Hala",
+   "place": "Hala",
+   "organizer": "tj-sokol-pecky",
+   "organizer_name": "TJ Sokol Pečky",
+   "image": null,
+   "note": null,
+   "source_ref": "hala-2026-11-26-1830-basket-zeny"
+  },
+  {
    "id": "kurz-2026-11-26-volejbal-radim-dospeli",
    "title": "Volejbal Radim — dospělí",
    "date": "2026-11-26",
@@ -45096,7 +45600,7 @@
   },
   {
    "id": "hala-2026-11-26-2000-volejbal-juniorky-dospeli",
-   "title": "Volejbal - juniorky, dospělí (nepotvrzeno)",
+   "title": "Volejbal - juniorky, dospělí",
    "date": "2026-11-26",
    "date_end": null,
    "time": "20:00",
@@ -45395,7 +45899,7 @@
   },
   {
    "id": "hala-2026-11-27-1830-basket-u17-devcata",
-   "title": "Basket U17 děvčata (nepotvrzeno)",
+   "title": "Basket U17 děvčata",
    "date": "2026-11-27",
    "date_end": null,
    "time": "18:30",
@@ -45481,6 +45985,24 @@
     ]
    ],
    "source_ref": "kurz-2026-11-28-atelier-sobotni"
+  },
+  {
+   "id": "hala-2026-11-28-1100-afk-pecky",
+   "title": "AFK Pečky",
+   "date": "2026-11-28",
+   "date_end": null,
+   "time": "11:00",
+   "time_end": "17:00",
+   "all_day": false,
+   "category": "akce",
+   "link": "https://pecky.cz/default/default/21405_rezervacni-system",
+   "description": "Hala",
+   "place": "Hala",
+   "organizer": "tj-sokol-pecky",
+   "organizer_name": "TJ Sokol Pečky",
+   "image": null,
+   "note": null,
+   "source_ref": "hala-2026-11-28-1100-afk-pecky"
   },
   {
    "id": "akce-2026-11-28-adventni-setkani-ve-velkych",
@@ -45658,6 +46180,24 @@
    "source_ref": "kurz-2026-11-29-taneční-deti"
   },
   {
+   "id": "hala-2026-11-29-1500-tenis",
+   "title": "Tenis",
+   "date": "2026-11-29",
+   "date_end": null,
+   "time": "15:00",
+   "time_end": "17:00",
+   "all_day": false,
+   "category": "kurz",
+   "link": "https://pecky.cz/default/default/21405_rezervacni-system",
+   "description": "Hala",
+   "place": "Hala",
+   "organizer": "tj-sokol-pecky",
+   "organizer_name": "TJ Sokol Pečky",
+   "image": null,
+   "note": null,
+   "source_ref": "hala-2026-11-29-1500-tenis"
+  },
+  {
    "id": "kurz-2026-11-29-tanecni-dospeli",
    "title": "Taneční oddíl — mládež a dospělí",
    "date": "2026-11-29",
@@ -45683,6 +46223,24 @@
     ]
    ],
    "source_ref": "kurz-2026-11-29-tanecni-dospeli"
+  },
+  {
+   "id": "hala-2026-11-29-1700-volejbal",
+   "title": "Volejbal",
+   "date": "2026-11-29",
+   "date_end": null,
+   "time": "17:00",
+   "time_end": "19:00",
+   "all_day": false,
+   "category": "kurz",
+   "link": "https://pecky.cz/default/default/21405_rezervacni-system",
+   "description": "Hala",
+   "place": "Hala",
+   "organizer": "tj-sokol-pecky",
+   "organizer_name": "TJ Sokol Pečky",
+   "image": null,
+   "note": null,
+   "source_ref": "hala-2026-11-29-1700-volejbal"
   },
   {
    "id": "kurz-2026-11-29-joga",
@@ -46083,6 +46641,24 @@
    "source_ref": "kurz-2026-11-30-pevecky-sbor"
   },
   {
+   "id": "hala-2026-11-30-1630-afk-pecky-u6",
+   "title": "AFK Pečky U6",
+   "date": "2026-11-30",
+   "date_end": null,
+   "time": "16:30",
+   "time_end": "17:30",
+   "all_day": false,
+   "category": "kurz",
+   "link": "https://pecky.cz/default/default/21405_rezervacni-system",
+   "description": "Hala",
+   "place": "Hala",
+   "organizer": "tj-sokol-pecky",
+   "organizer_name": "TJ Sokol Pečky",
+   "image": null,
+   "note": null,
+   "source_ref": "hala-2026-11-30-1630-afk-pecky-u6"
+  },
+  {
    "id": "kurz-2026-11-30-predskolaci",
    "title": "Předškoláci",
    "date": "2026-11-30",
@@ -46152,6 +46728,24 @@
    "source_ref": "kurz-2026-11-30-keramika-pro-dospele"
   },
   {
+   "id": "hala-2026-11-30-1730-afk-pecky-u8",
+   "title": "AFK Pečky U8",
+   "date": "2026-11-30",
+   "date_end": null,
+   "time": "17:30",
+   "time_end": "18:30",
+   "all_day": false,
+   "category": "kurz",
+   "link": "https://pecky.cz/default/default/21405_rezervacni-system",
+   "description": "Hala",
+   "place": "Hala",
+   "organizer": "tj-sokol-pecky",
+   "organizer_name": "TJ Sokol Pečky",
+   "image": null,
+   "note": null,
+   "source_ref": "hala-2026-11-30-1730-afk-pecky-u8"
+  },
+  {
    "id": "kurz-2026-11-30-vsestrannost-nejstarsi",
    "title": "Všestrannost — nejstarší",
    "date": "2026-11-30",
@@ -46176,7 +46770,7 @@
   },
   {
    "id": "hala-2026-11-30-1830-basket-u17-devcata",
-   "title": "Basket U17 děvčata (nepotvrzeno)",
+   "title": "Basket U17 děvčata",
    "date": "2026-11-30",
    "date_end": null,
    "time": "18:30",
@@ -46268,7 +46862,7 @@
   },
   {
    "id": "hala-2026-11-30-2000-florbal-charisma-pecky",
-   "title": "Florbal Charisma Pečky (nepotvrzeno)",
+   "title": "Florbal Charisma Pečky",
    "date": "2026-11-30",
    "date_end": null,
    "time": "20:00",
@@ -46473,7 +47067,7 @@
   },
   {
    "id": "hala-2026-12-01-1500-volejbal-pecky-pripravka-minivolejbal",
-   "title": "Volejbal Pečky - přípravka, minivolejbal (nepotvrzeno)",
+   "title": "Volejbal Pečky - přípravka, minivolejbal",
    "date": "2026-12-01",
    "date_end": null,
    "time": "15:00",
@@ -46630,7 +47224,7 @@
   },
   {
    "id": "hala-2026-12-01-1630-volejbal-zakyne",
-   "title": "Volejbal - žákyně (nepotvrzeno)",
+   "title": "Volejbal - žákyně",
    "date": "2026-12-01",
    "date_end": null,
    "time": "16:30",
@@ -46835,6 +47429,24 @@
    "source_ref": "akce-2026-12-01-okridlena-svatba-plavec"
   },
   {
+   "id": "hala-2026-12-01-1830-basket-kluci-u17",
+   "title": "basket kluci U17",
+   "date": "2026-12-01",
+   "date_end": null,
+   "time": "18:30",
+   "time_end": "19:30",
+   "all_day": false,
+   "category": "kurz",
+   "link": "https://pecky.cz/default/default/21405_rezervacni-system",
+   "description": "Hala",
+   "place": "Hala",
+   "organizer": "tj-sokol-pecky",
+   "organizer_name": "TJ Sokol Pečky",
+   "image": null,
+   "note": null,
+   "source_ref": "hala-2026-12-01-1830-basket-kluci-u17"
+  },
+  {
    "id": "kurz-2026-12-01-spanelstina-zacatecnici-i-ti-vecni",
    "title": "Španělština — začátečníci (i ti věční)",
    "date": "2026-12-01",
@@ -46929,6 +47541,24 @@
     ]
    ],
    "source_ref": "kurz-2026-12-01-tanec-hlavaci-uterek"
+  },
+  {
+   "id": "hala-2026-12-01-1930-basket-zeny",
+   "title": "basket ženy",
+   "date": "2026-12-01",
+   "date_end": null,
+   "time": "19:30",
+   "time_end": "20:30",
+   "all_day": false,
+   "category": "kurz",
+   "link": "https://pecky.cz/default/default/21405_rezervacni-system",
+   "description": "Hala",
+   "place": "Hala",
+   "organizer": "tj-sokol-pecky",
+   "organizer_name": "TJ Sokol Pečky",
+   "image": null,
+   "note": null,
+   "source_ref": "hala-2026-12-01-1930-basket-zeny"
   },
   {
    "id": "kurz-2026-12-01-latina-pro-zeny",
@@ -47206,6 +47836,24 @@
     ]
    ],
    "source_ref": "kurz-2026-12-02-maly-hrdina-skolicka-prvni-pomoci-ms"
+  },
+  {
+   "id": "hala-2026-12-02-1530-afk-pecky-u6",
+   "title": "AFK Pečky U6",
+   "date": "2026-12-02",
+   "date_end": null,
+   "time": "15:30",
+   "time_end": "16:30",
+   "all_day": false,
+   "category": "kurz",
+   "link": "https://pecky.cz/default/default/21405_rezervacni-system",
+   "description": "Hala",
+   "place": "Hala",
+   "organizer": "tj-sokol-pecky",
+   "organizer_name": "TJ Sokol Pečky",
+   "image": null,
+   "note": null,
+   "source_ref": "hala-2026-12-02-1530-afk-pecky-u6"
   },
   {
    "id": "kurz-2026-12-02-hudebni-nauka-4-rocnik",
@@ -47601,7 +48249,7 @@
   },
   {
    "id": "hala-2026-12-02-1800-basket-u17-devcata",
-   "title": "Basket U17 děvčata (nepotvrzeno)",
+   "title": "Basket U17 děvčata",
    "date": "2026-12-02",
    "date_end": null,
    "time": "18:00",
@@ -48127,6 +48775,24 @@
    "source_ref": "kurz-2026-12-03-tanec-bomby-ctvrtek"
   },
   {
+   "id": "hala-2026-12-03-1830-basket-zeny",
+   "title": "basket ženy",
+   "date": "2026-12-03",
+   "date_end": null,
+   "time": "18:30",
+   "time_end": "20:00",
+   "all_day": false,
+   "category": "kurz",
+   "link": "https://pecky.cz/default/default/21405_rezervacni-system",
+   "description": "Hala",
+   "place": "Hala",
+   "organizer": "tj-sokol-pecky",
+   "organizer_name": "TJ Sokol Pečky",
+   "image": null,
+   "note": null,
+   "source_ref": "hala-2026-12-03-1830-basket-zeny"
+  },
+  {
    "id": "kurz-2026-12-03-volejbal-radim-dospeli",
    "title": "Volejbal Radim — dospělí",
    "date": "2026-12-03",
@@ -48178,7 +48844,7 @@
   },
   {
    "id": "hala-2026-12-03-2000-volejbal-juniorky-dospeli",
-   "title": "Volejbal - juniorky, dospělí (nepotvrzeno)",
+   "title": "Volejbal - juniorky, dospělí",
    "date": "2026-12-03",
    "date_end": null,
    "time": "20:00",
@@ -48561,7 +49227,7 @@
   },
   {
    "id": "hala-2026-12-04-1830-basket-u17-devcata",
-   "title": "Basket U17 děvčata (nepotvrzeno)",
+   "title": "Basket U17 děvčata",
    "date": "2026-12-04",
    "date_end": null,
    "time": "18:30",
@@ -48720,6 +49386,24 @@
    "source_ref": "kurz-2026-12-05-tanecni-kurz-pro-mladez-vecerni"
   },
   {
+   "id": "hala-2026-12-06-0830-basket-u11-2x",
+   "title": "Basket U11 2x",
+   "date": "2026-12-06",
+   "date_end": null,
+   "time": "08:30",
+   "time_end": "11:30",
+   "all_day": false,
+   "category": "akce",
+   "link": "https://pecky.cz/default/default/21405_rezervacni-system",
+   "description": "Hala",
+   "place": "Hala",
+   "organizer": "tj-sokol-pecky",
+   "organizer_name": "TJ Sokol Pečky",
+   "image": null,
+   "note": null,
+   "source_ref": "hala-2026-12-06-0830-basket-u11-2x"
+  },
+  {
    "id": "akce-2026-12-06-mikulasska-promitani-s-nadilkou",
    "title": "Mikulášská promítání s nadílkou",
    "date": "2026-12-06",
@@ -48769,6 +49453,24 @@
     ]
    ],
    "source_ref": "kurz-2026-12-06-taneční-deti"
+  },
+  {
+   "id": "hala-2026-12-06-1500-tenis",
+   "title": "Tenis",
+   "date": "2026-12-06",
+   "date_end": null,
+   "time": "15:00",
+   "time_end": "17:00",
+   "all_day": false,
+   "category": "kurz",
+   "link": "https://pecky.cz/default/default/21405_rezervacni-system",
+   "description": "Hala",
+   "place": "Hala",
+   "organizer": "tj-sokol-pecky",
+   "organizer_name": "TJ Sokol Pečky",
+   "image": null,
+   "note": null,
+   "source_ref": "hala-2026-12-06-1500-tenis"
   },
   {
    "id": "akce-2026-12-06-adventni-koncert-tetrapunkt",
@@ -48849,6 +49551,24 @@
     ]
    ],
    "source_ref": "akce-2026-12-06-mikulassky-pruvod"
+  },
+  {
+   "id": "hala-2026-12-06-1700-volejbal",
+   "title": "Volejbal",
+   "date": "2026-12-06",
+   "date_end": null,
+   "time": "17:00",
+   "time_end": "19:00",
+   "all_day": false,
+   "category": "kurz",
+   "link": "https://pecky.cz/default/default/21405_rezervacni-system",
+   "description": "Hala",
+   "place": "Hala",
+   "organizer": "tj-sokol-pecky",
+   "organizer_name": "TJ Sokol Pečky",
+   "image": null,
+   "note": null,
+   "source_ref": "hala-2026-12-06-1700-volejbal"
   },
   {
    "id": "hala-2026-12-06-1900-nohejbal",
@@ -49245,6 +49965,24 @@
    "source_ref": "kurz-2026-12-07-pevecky-sbor"
   },
   {
+   "id": "hala-2026-12-07-1630-afk-pecky-u6",
+   "title": "AFK Pečky U6",
+   "date": "2026-12-07",
+   "date_end": null,
+   "time": "16:30",
+   "time_end": "17:30",
+   "all_day": false,
+   "category": "kurz",
+   "link": "https://pecky.cz/default/default/21405_rezervacni-system",
+   "description": "Hala",
+   "place": "Hala",
+   "organizer": "tj-sokol-pecky",
+   "organizer_name": "TJ Sokol Pečky",
+   "image": null,
+   "note": null,
+   "source_ref": "hala-2026-12-07-1630-afk-pecky-u6"
+  },
+  {
    "id": "kurz-2026-12-07-predskolaci",
    "title": "Předškoláci",
    "date": "2026-12-07",
@@ -49314,6 +50052,24 @@
    "source_ref": "kurz-2026-12-07-keramika-pro-dospele"
   },
   {
+   "id": "hala-2026-12-07-1730-afk-pecky-u8",
+   "title": "AFK Pečky U8",
+   "date": "2026-12-07",
+   "date_end": null,
+   "time": "17:30",
+   "time_end": "18:30",
+   "all_day": false,
+   "category": "kurz",
+   "link": "https://pecky.cz/default/default/21405_rezervacni-system",
+   "description": "Hala",
+   "place": "Hala",
+   "organizer": "tj-sokol-pecky",
+   "organizer_name": "TJ Sokol Pečky",
+   "image": null,
+   "note": null,
+   "source_ref": "hala-2026-12-07-1730-afk-pecky-u8"
+  },
+  {
    "id": "kurz-2026-12-07-vsestrannost-nejstarsi",
    "title": "Všestrannost — nejstarší",
    "date": "2026-12-07",
@@ -49338,7 +50094,7 @@
   },
   {
    "id": "hala-2026-12-07-1830-basket-u17-devcata",
-   "title": "Basket U17 děvčata (nepotvrzeno)",
+   "title": "Basket U17 děvčata",
    "date": "2026-12-07",
    "date_end": null,
    "time": "18:30",
@@ -49406,7 +50162,7 @@
   },
   {
    "id": "hala-2026-12-07-2000-florbal-charisma-pecky",
-   "title": "Florbal Charisma Pečky (nepotvrzeno)",
+   "title": "Florbal Charisma Pečky",
    "date": "2026-12-07",
    "date_end": null,
    "time": "20:00",
@@ -49634,7 +50390,7 @@
   },
   {
    "id": "hala-2026-12-08-1500-volejbal-pecky-pripravka-minivolejbal",
-   "title": "Volejbal Pečky - přípravka, minivolejbal (nepotvrzeno)",
+   "title": "Volejbal Pečky - přípravka, minivolejbal",
    "date": "2026-12-08",
    "date_end": null,
    "time": "15:00",
@@ -49767,7 +50523,7 @@
   },
   {
    "id": "hala-2026-12-08-1630-volejbal-zakyne",
-   "title": "Volejbal - žákyně (nepotvrzeno)",
+   "title": "Volejbal - žákyně",
    "date": "2026-12-08",
    "date_end": null,
    "time": "16:30",
@@ -50034,6 +50790,24 @@
    "source_ref": "kurz-2026-12-08-tanec-hlavaci-uterek"
   },
   {
+   "id": "hala-2026-12-08-1930-basket-zeny",
+   "title": "basket ženy",
+   "date": "2026-12-08",
+   "date_end": null,
+   "time": "19:30",
+   "time_end": "20:30",
+   "all_day": false,
+   "category": "kurz",
+   "link": "https://pecky.cz/default/default/21405_rezervacni-system",
+   "description": "Hala",
+   "place": "Hala",
+   "organizer": "tj-sokol-pecky",
+   "organizer_name": "TJ Sokol Pečky",
+   "image": null,
+   "note": null,
+   "source_ref": "hala-2026-12-08-1930-basket-zeny"
+  },
+  {
    "id": "kurz-2026-12-08-latina-pro-zeny",
    "title": "Latina pro ženy (Lady Latin Dance, Winter Edition)",
    "date": "2026-12-08",
@@ -50290,6 +51064,24 @@
     ]
    ],
    "source_ref": "kurz-2026-12-09-maly-hrdina-skolicka-prvni-pomoci-ms"
+  },
+  {
+   "id": "hala-2026-12-09-1530-afk-pecky-u6",
+   "title": "AFK Pečky U6",
+   "date": "2026-12-09",
+   "date_end": null,
+   "time": "15:30",
+   "time_end": "16:30",
+   "all_day": false,
+   "category": "kurz",
+   "link": "https://pecky.cz/default/default/21405_rezervacni-system",
+   "description": "Hala",
+   "place": "Hala",
+   "organizer": "tj-sokol-pecky",
+   "organizer_name": "TJ Sokol Pečky",
+   "image": null,
+   "note": null,
+   "source_ref": "hala-2026-12-09-1530-afk-pecky-u6"
   },
   {
    "id": "kurz-2026-12-09-hudebni-nauka-4-rocnik",
@@ -50659,7 +51451,7 @@
   },
   {
    "id": "hala-2026-12-09-1800-basket-u17-devcata",
-   "title": "Basket U17 děvčata (nepotvrzeno)",
+   "title": "Basket U17 děvčata",
    "date": "2026-12-09",
    "date_end": null,
    "time": "18:00",
@@ -51233,6 +52025,24 @@
    "source_ref": "kurz-2026-12-10-tanec-bomby-ctvrtek"
   },
   {
+   "id": "hala-2026-12-10-1830-basket-zeny",
+   "title": "basket ženy",
+   "date": "2026-12-10",
+   "date_end": null,
+   "time": "18:30",
+   "time_end": "20:00",
+   "all_day": false,
+   "category": "kurz",
+   "link": "https://pecky.cz/default/default/21405_rezervacni-system",
+   "description": "Hala",
+   "place": "Hala",
+   "organizer": "tj-sokol-pecky",
+   "organizer_name": "TJ Sokol Pečky",
+   "image": null,
+   "note": null,
+   "source_ref": "hala-2026-12-10-1830-basket-zeny"
+  },
+  {
    "id": "kurz-2026-12-10-volejbal-radim-dospeli",
    "title": "Volejbal Radim — dospělí",
    "date": "2026-12-10",
@@ -51284,7 +52094,7 @@
   },
   {
    "id": "hala-2026-12-10-2000-volejbal-juniorky-dospeli",
-   "title": "Volejbal - juniorky, dospělí (nepotvrzeno)",
+   "title": "Volejbal - juniorky, dospělí",
    "date": "2026-12-10",
    "date_end": null,
    "time": "20:00",
@@ -51611,7 +52421,7 @@
   },
   {
    "id": "hala-2026-12-11-1830-basket-u17-devcata",
-   "title": "Basket U17 děvčata (nepotvrzeno)",
+   "title": "Basket U17 děvčata",
    "date": "2026-12-11",
    "date_end": null,
    "time": "18:30",
@@ -51647,24 +52457,6 @@
    "source_ref": "sberny-dvur-2026-12-12"
   },
   {
-   "id": "hala-2026-12-12-0800-florbalovy-turnaj-cf-krajsky-prebor",
-   "title": "Florbalový turnaj ČF krajský přebor (nepotvrzeno)",
-   "date": "2026-12-12",
-   "date_end": null,
-   "time": "08:00",
-   "time_end": null,
-   "all_day": false,
-   "category": "akce",
-   "link": "https://pecky.cz/default/default/21405_rezervacni-system",
-   "description": "Hala",
-   "place": "Hala",
-   "organizer": "tj-sokol-pecky",
-   "organizer_name": "TJ Sokol Pečky",
-   "image": null,
-   "note": null,
-   "source_ref": "hala-2026-12-12-0800-florbalovy-turnaj-cf-krajsky-prebor"
-  },
-  {
    "id": "kurz-2026-12-12-tanecni-kurz-pro-mladez-odpoledni",
    "title": "Taneční kurz pro mládež — odpolední",
    "date": "2026-12-12",
@@ -51686,6 +52478,24 @@
     ]
    ],
    "source_ref": "kurz-2026-12-12-tanecni-kurz-pro-mladez-odpoledni"
+  },
+  {
+   "id": "hala-2026-12-12-1630-basket-u14",
+   "title": "Basket U14",
+   "date": "2026-12-12",
+   "date_end": null,
+   "time": "16:30",
+   "time_end": "18:30",
+   "all_day": false,
+   "category": "kurz",
+   "link": "https://pecky.cz/default/default/21405_rezervacni-system",
+   "description": "Hala",
+   "place": "Hala",
+   "organizer": "tj-sokol-pecky",
+   "organizer_name": "TJ Sokol Pečky",
+   "image": null,
+   "note": null,
+   "source_ref": "hala-2026-12-12-1630-basket-u14"
   },
   {
    "id": "akce-2026-12-12-kurz-spolecenskeho-tance-venecek",
@@ -51716,14 +52526,14 @@
    "source_ref": "akce-2026-12-12-kurz-spolecenskeho-tance-venecek"
   },
   {
-   "id": "hala-2026-12-13-0800-florbalovy-turnaj-cf-krajsky-prebor",
-   "title": "Florbalový turnaj ČF krajský přebor (nepotvrzeno)",
+   "id": "hala-2026-12-13-0830-basket-divky-u17",
+   "title": "basket dívky U17",
    "date": "2026-12-13",
    "date_end": null,
-   "time": "08:00",
-   "time_end": null,
+   "time": "08:30",
+   "time_end": "10:30",
    "all_day": false,
-   "category": "akce",
+   "category": "kurz",
    "link": "https://pecky.cz/default/default/21405_rezervacni-system",
    "description": "Hala",
    "place": "Hala",
@@ -51731,7 +52541,43 @@
    "organizer_name": "TJ Sokol Pečky",
    "image": null,
    "note": null,
-   "source_ref": "hala-2026-12-13-0800-florbalovy-turnaj-cf-krajsky-prebor"
+   "source_ref": "hala-2026-12-13-0830-basket-divky-u17"
+  },
+  {
+   "id": "hala-2026-12-13-1100-zeny-basket",
+   "title": "ženy basket",
+   "date": "2026-12-13",
+   "date_end": null,
+   "time": "11:00",
+   "time_end": "13:00",
+   "all_day": false,
+   "category": "kurz",
+   "link": "https://pecky.cz/default/default/21405_rezervacni-system",
+   "description": "Hala",
+   "place": "Hala",
+   "organizer": "tj-sokol-pecky",
+   "organizer_name": "TJ Sokol Pečky",
+   "image": null,
+   "note": null,
+   "source_ref": "hala-2026-12-13-1100-zeny-basket"
+  },
+  {
+   "id": "hala-2026-12-13-1330-basket-u17k",
+   "title": "basket U17K",
+   "date": "2026-12-13",
+   "date_end": null,
+   "time": "13:30",
+   "time_end": "15:30",
+   "all_day": false,
+   "category": "kurz",
+   "link": "https://pecky.cz/default/default/21405_rezervacni-system",
+   "description": "Hala",
+   "place": "Hala",
+   "organizer": "tj-sokol-pecky",
+   "organizer_name": "TJ Sokol Pečky",
+   "image": null,
+   "note": null,
+   "source_ref": "hala-2026-12-13-1330-basket-u17k"
   },
   {
    "id": "akce-2026-12-13-cka-predvanocni-koncert",
@@ -51785,6 +52631,24 @@
    "source_ref": "kurz-2026-12-13-taneční-deti"
   },
   {
+   "id": "hala-2026-12-13-1530-tenis",
+   "title": "Tenis",
+   "date": "2026-12-13",
+   "date_end": null,
+   "time": "15:30",
+   "time_end": "17:00",
+   "all_day": false,
+   "category": "kurz",
+   "link": "https://pecky.cz/default/default/21405_rezervacni-system",
+   "description": "Hala",
+   "place": "Hala",
+   "organizer": "tj-sokol-pecky",
+   "organizer_name": "TJ Sokol Pečky",
+   "image": null,
+   "note": null,
+   "source_ref": "hala-2026-12-13-1530-tenis"
+  },
+  {
    "id": "kurz-2026-12-13-tanecni-dospeli",
    "title": "Taneční oddíl — mládež a dospělí",
    "date": "2026-12-13",
@@ -51810,6 +52674,24 @@
     ]
    ],
    "source_ref": "kurz-2026-12-13-tanecni-dospeli"
+  },
+  {
+   "id": "hala-2026-12-13-1700-volejbal",
+   "title": "Volejbal",
+   "date": "2026-12-13",
+   "date_end": null,
+   "time": "17:00",
+   "time_end": "19:00",
+   "all_day": false,
+   "category": "kurz",
+   "link": "https://pecky.cz/default/default/21405_rezervacni-system",
+   "description": "Hala",
+   "place": "Hala",
+   "organizer": "tj-sokol-pecky",
+   "organizer_name": "TJ Sokol Pečky",
+   "image": null,
+   "note": null,
+   "source_ref": "hala-2026-12-13-1700-volejbal"
   },
   {
    "id": "hala-2026-12-13-1900-nohejbal",
@@ -52187,6 +53069,24 @@
    "source_ref": "kurz-2026-12-14-pevecky-sbor"
   },
   {
+   "id": "hala-2026-12-14-1630-afk-pecky-u6",
+   "title": "AFK Pečky U6 (nepotvrzeno)",
+   "date": "2026-12-14",
+   "date_end": null,
+   "time": "16:30",
+   "time_end": "17:30",
+   "all_day": false,
+   "category": "kurz",
+   "link": "https://pecky.cz/default/default/21405_rezervacni-system",
+   "description": "Hala",
+   "place": "Hala",
+   "organizer": "tj-sokol-pecky",
+   "organizer_name": "TJ Sokol Pečky",
+   "image": null,
+   "note": null,
+   "source_ref": "hala-2026-12-14-1630-afk-pecky-u6"
+  },
+  {
    "id": "kurz-2026-12-14-predskolaci",
    "title": "Předškoláci",
    "date": "2026-12-14",
@@ -52254,6 +53154,24 @@
     ]
    ],
    "source_ref": "kurz-2026-12-14-keramika-pro-dospele"
+  },
+  {
+   "id": "hala-2026-12-14-1730-afk-pecky-u8",
+   "title": "AFK Pečky U8 (nepotvrzeno)",
+   "date": "2026-12-14",
+   "date_end": null,
+   "time": "17:30",
+   "time_end": "18:30",
+   "all_day": false,
+   "category": "kurz",
+   "link": "https://pecky.cz/default/default/21405_rezervacni-system",
+   "description": "Hala",
+   "place": "Hala",
+   "organizer": "tj-sokol-pecky",
+   "organizer_name": "TJ Sokol Pečky",
+   "image": null,
+   "note": null,
+   "source_ref": "hala-2026-12-14-1730-afk-pecky-u8"
   },
   {
    "id": "kurz-2026-12-14-vsestrannost-nejstarsi",
@@ -53217,6 +54135,24 @@
    "source_ref": "kurz-2026-12-16-maly-hrdina-skolicka-prvni-pomoci-ms"
   },
   {
+   "id": "hala-2026-12-16-1530-afk-pecky-u6",
+   "title": "AFK Pečky U6 (nepotvrzeno)",
+   "date": "2026-12-16",
+   "date_end": null,
+   "time": "15:30",
+   "time_end": "16:30",
+   "all_day": false,
+   "category": "kurz",
+   "link": "https://pecky.cz/default/default/21405_rezervacni-system",
+   "description": "Hala",
+   "place": "Hala",
+   "organizer": "tj-sokol-pecky",
+   "organizer_name": "TJ Sokol Pečky",
+   "image": null,
+   "note": null,
+   "source_ref": "hala-2026-12-16-1530-afk-pecky-u6"
+  },
+  {
    "id": "kurz-2026-12-16-hudebni-nauka-4-rocnik",
    "title": "Hudební nauka — 4. ročník",
    "date": "2026-12-16",
@@ -54064,6 +55000,24 @@
    "source_ref": "kurz-2026-12-17-tanec-bomby-ctvrtek"
   },
   {
+   "id": "hala-2026-12-17-1830-basket-zeny",
+   "title": "basket ženy (nepotvrzeno)",
+   "date": "2026-12-17",
+   "date_end": null,
+   "time": "18:30",
+   "time_end": "20:00",
+   "all_day": false,
+   "category": "kurz",
+   "link": "https://pecky.cz/default/default/21405_rezervacni-system",
+   "description": "Hala",
+   "place": "Hala",
+   "organizer": "tj-sokol-pecky",
+   "organizer_name": "TJ Sokol Pečky",
+   "image": null,
+   "note": null,
+   "source_ref": "hala-2026-12-17-1830-basket-zeny"
+  },
+  {
    "id": "kurz-2026-12-17-volejbal-radim-dospeli",
    "title": "Volejbal Radim — dospělí",
    "date": "2026-12-17",
@@ -54594,6 +55548,24 @@
    "source_ref": "kurz-2026-12-20-taneční-deti"
   },
   {
+   "id": "hala-2026-12-20-1500-tenis",
+   "title": "Tenis (nepotvrzeno)",
+   "date": "2026-12-20",
+   "date_end": null,
+   "time": "15:00",
+   "time_end": "17:00",
+   "all_day": false,
+   "category": "kurz",
+   "link": "https://pecky.cz/default/default/21405_rezervacni-system",
+   "description": "Hala",
+   "place": "Hala",
+   "organizer": "tj-sokol-pecky",
+   "organizer_name": "TJ Sokol Pečky",
+   "image": null,
+   "note": null,
+   "source_ref": "hala-2026-12-20-1500-tenis"
+  },
+  {
    "id": "kurz-2026-12-20-tanecni-dospeli",
    "title": "Taneční oddíl — mládež a dospělí",
    "date": "2026-12-20",
@@ -54619,6 +55591,24 @@
     ]
    ],
    "source_ref": "kurz-2026-12-20-tanecni-dospeli"
+  },
+  {
+   "id": "hala-2026-12-20-1700-volejbal",
+   "title": "Volejbal (nepotvrzeno)",
+   "date": "2026-12-20",
+   "date_end": null,
+   "time": "17:00",
+   "time_end": "19:00",
+   "all_day": false,
+   "category": "kurz",
+   "link": "https://pecky.cz/default/default/21405_rezervacni-system",
+   "description": "Hala",
+   "place": "Hala",
+   "organizer": "tj-sokol-pecky",
+   "organizer_name": "TJ Sokol Pečky",
+   "image": null,
+   "note": null,
+   "source_ref": "hala-2026-12-20-1700-volejbal"
   },
   {
    "id": "hala-2026-12-20-1900-nohejbal",
@@ -54990,6 +55980,24 @@
    "source_ref": "kurz-2026-12-21-pevecky-sbor"
   },
   {
+   "id": "hala-2026-12-21-1630-afk-pecky-u6",
+   "title": "AFK Pečky U6 (nepotvrzeno)",
+   "date": "2026-12-21",
+   "date_end": null,
+   "time": "16:30",
+   "time_end": "17:30",
+   "all_day": false,
+   "category": "kurz",
+   "link": "https://pecky.cz/default/default/21405_rezervacni-system",
+   "description": "Hala",
+   "place": "Hala",
+   "organizer": "tj-sokol-pecky",
+   "organizer_name": "TJ Sokol Pečky",
+   "image": null,
+   "note": null,
+   "source_ref": "hala-2026-12-21-1630-afk-pecky-u6"
+  },
+  {
    "id": "kurz-2026-12-21-predskolaci",
    "title": "Předškoláci",
    "date": "2026-12-21",
@@ -55057,6 +56065,24 @@
     ]
    ],
    "source_ref": "kurz-2026-12-21-keramika-pro-dospele"
+  },
+  {
+   "id": "hala-2026-12-21-1730-afk-pecky-u8",
+   "title": "AFK Pečky U8 (nepotvrzeno)",
+   "date": "2026-12-21",
+   "date_end": null,
+   "time": "17:30",
+   "time_end": "18:30",
+   "all_day": false,
+   "category": "kurz",
+   "link": "https://pecky.cz/default/default/21405_rezervacni-system",
+   "description": "Hala",
+   "place": "Hala",
+   "organizer": "tj-sokol-pecky",
+   "organizer_name": "TJ Sokol Pečky",
+   "image": null,
+   "note": null,
+   "source_ref": "hala-2026-12-21-1730-afk-pecky-u8"
   },
   {
    "id": "kurz-2026-12-21-vsestrannost-nejstarsi",
@@ -55395,24 +56421,6 @@
    "source_ref": "kurz-2026-12-22-od-prehazovane-k-volejbalu"
   },
   {
-   "id": "hala-2026-12-22-1500-volejbal-pecky-pripravka-minivolejbal",
-   "title": "Volejbal Pečky - přípravka, minivolejbal (nepotvrzeno)",
-   "date": "2026-12-22",
-   "date_end": null,
-   "time": "15:00",
-   "time_end": "16:30",
-   "all_day": false,
-   "category": "kurz",
-   "link": "https://pecky.cz/default/default/21405_rezervacni-system",
-   "description": "Hala",
-   "place": "Hala",
-   "organizer": "tj-sokol-pecky",
-   "organizer_name": "TJ Sokol Pečky",
-   "image": null,
-   "note": null,
-   "source_ref": "hala-2026-12-22-1500-volejbal-pecky-pripravka-minivolejbal"
-  },
-  {
    "id": "kurz-2026-12-22-sportovni-pripravka",
    "title": "Sportovní přípravka",
    "date": "2026-12-22",
@@ -55526,24 +56534,6 @@
     ]
    ],
    "source_ref": "kurz-2026-12-22-volejbal-zakyne-skupina-3-ut"
-  },
-  {
-   "id": "hala-2026-12-22-1630-volejbal-zakyne",
-   "title": "Volejbal - žákyně (nepotvrzeno)",
-   "date": "2026-12-22",
-   "date_end": null,
-   "time": "16:30",
-   "time_end": "18:30",
-   "all_day": false,
-   "category": "kurz",
-   "link": "https://pecky.cz/default/default/21405_rezervacni-system",
-   "description": "Hala",
-   "place": "Hala",
-   "organizer": "tj-sokol-pecky",
-   "organizer_name": "TJ Sokol Pečky",
-   "image": null,
-   "note": null,
-   "source_ref": "hala-2026-12-22-1630-volejbal-zakyne"
   },
   {
    "id": "kurz-2026-12-22-basketbal-deti",
@@ -55839,6 +56829,24 @@
    "source_ref": "sberny-dvur-2026-12-23"
   },
   {
+   "id": "hala-2026-12-23-1530-afk-pecky-u6",
+   "title": "AFK Pečky U6 (nepotvrzeno)",
+   "date": "2026-12-23",
+   "date_end": null,
+   "time": "15:30",
+   "time_end": "16:30",
+   "all_day": false,
+   "category": "kurz",
+   "link": "https://pecky.cz/default/default/21405_rezervacni-system",
+   "description": "Hala",
+   "place": "Hala",
+   "organizer": "tj-sokol-pecky",
+   "organizer_name": "TJ Sokol Pečky",
+   "image": null,
+   "note": null,
+   "source_ref": "hala-2026-12-23-1530-afk-pecky-u6"
+  },
+  {
    "id": "hala-2026-12-23-1630-basket-u14",
    "title": "Basket U14",
    "date": "2026-12-23",
@@ -56084,6 +57092,24 @@
    "source_ref": "sberny-dvur-2026-12-26"
   },
   {
+   "id": "hala-2026-12-27-1700-volejbal",
+   "title": "Volejbal (nepotvrzeno)",
+   "date": "2026-12-27",
+   "date_end": null,
+   "time": "17:00",
+   "time_end": "19:00",
+   "all_day": false,
+   "category": "kurz",
+   "link": "https://pecky.cz/default/default/21405_rezervacni-system",
+   "description": "Hala",
+   "place": "Hala",
+   "organizer": "tj-sokol-pecky",
+   "organizer_name": "TJ Sokol Pečky",
+   "image": null,
+   "note": null,
+   "source_ref": "hala-2026-12-27-1700-volejbal"
+  },
+  {
    "id": "hala-2026-12-27-1900-nohejbal",
    "title": "Nohejbal",
    "date": "2026-12-27",
@@ -56185,6 +57211,24 @@
    "source_ref": "kurz-2026-12-28-trenink-pameti"
   },
   {
+   "id": "hala-2026-12-28-1230-florbal-charisma-turnaj",
+   "title": "Florbal Charisma - turnaj (nepotvrzeno)",
+   "date": "2026-12-28",
+   "date_end": null,
+   "time": "12:30",
+   "time_end": "18:30",
+   "all_day": false,
+   "category": "akce",
+   "link": "https://pecky.cz/default/default/21405_rezervacni-system",
+   "description": "Hala",
+   "place": "Hala",
+   "organizer": "fbc-charisma-pecky",
+   "organizer_name": "FBC Charisma Pečky",
+   "image": null,
+   "note": null,
+   "source_ref": "hala-2026-12-28-1230-florbal-charisma-turnaj"
+  },
+  {
    "id": "kurz-2026-12-28-minigolf-trenink-deti",
    "title": "Minigolf: trénink dětí",
    "date": "2026-12-28",
@@ -56212,6 +57256,42 @@
    "source_ref": "kurz-2026-12-28-minigolf-trenink-deti"
   },
   {
+   "id": "hala-2026-12-28-1630-afk-pecky-u6",
+   "title": "AFK Pečky U6 (nepotvrzeno)",
+   "date": "2026-12-28",
+   "date_end": null,
+   "time": "16:30",
+   "time_end": "17:30",
+   "all_day": false,
+   "category": "kurz",
+   "link": "https://pecky.cz/default/default/21405_rezervacni-system",
+   "description": "Hala",
+   "place": "Hala",
+   "organizer": "tj-sokol-pecky",
+   "organizer_name": "TJ Sokol Pečky",
+   "image": null,
+   "note": null,
+   "source_ref": "hala-2026-12-28-1630-afk-pecky-u6"
+  },
+  {
+   "id": "hala-2026-12-28-1730-afk-pecky-u8",
+   "title": "AFK Pečky U8 (nepotvrzeno)",
+   "date": "2026-12-28",
+   "date_end": null,
+   "time": "17:30",
+   "time_end": "18:30",
+   "all_day": false,
+   "category": "kurz",
+   "link": "https://pecky.cz/default/default/21405_rezervacni-system",
+   "description": "Hala",
+   "place": "Hala",
+   "organizer": "tj-sokol-pecky",
+   "organizer_name": "TJ Sokol Pečky",
+   "image": null,
+   "note": null,
+   "source_ref": "hala-2026-12-28-1730-afk-pecky-u8"
+  },
+  {
    "id": "hala-2026-12-28-1830-basket-u17-devcata",
    "title": "Basket U17 děvčata (nepotvrzeno)",
    "date": "2026-12-28",
@@ -56228,24 +57308,6 @@
    "image": null,
    "note": null,
    "source_ref": "hala-2026-12-28-1830-basket-u17-devcata"
-  },
-  {
-   "id": "hala-2026-12-28-2000-florbal-charisma-pecky",
-   "title": "Florbal Charisma Pečky (nepotvrzeno)",
-   "date": "2026-12-28",
-   "date_end": null,
-   "time": "20:00",
-   "time_end": "21:30",
-   "all_day": false,
-   "category": "kurz",
-   "link": "https://pecky.cz/default/default/21405_rezervacni-system",
-   "description": "Hala",
-   "place": "Hala",
-   "organizer": "fbc-charisma-pecky",
-   "organizer_name": "FBC Charisma Pečky",
-   "image": null,
-   "note": null,
-   "source_ref": "hala-2026-12-28-2000-florbal-charisma-pecky"
   },
   {
    "id": "akce-2026-12-29-vystava-modelovych-kolejist",
@@ -56313,42 +57375,6 @@
    "source_ref": "kurz-2026-12-29-tvoriva-dilna"
   },
   {
-   "id": "hala-2026-12-29-1500-volejbal-pecky-pripravka-minivolejbal",
-   "title": "Volejbal Pečky - přípravka, minivolejbal (nepotvrzeno)",
-   "date": "2026-12-29",
-   "date_end": null,
-   "time": "15:00",
-   "time_end": "16:30",
-   "all_day": false,
-   "category": "kurz",
-   "link": "https://pecky.cz/default/default/21405_rezervacni-system",
-   "description": "Hala",
-   "place": "Hala",
-   "organizer": "tj-sokol-pecky",
-   "organizer_name": "TJ Sokol Pečky",
-   "image": null,
-   "note": null,
-   "source_ref": "hala-2026-12-29-1500-volejbal-pecky-pripravka-minivolejbal"
-  },
-  {
-   "id": "hala-2026-12-29-1630-volejbal-zakyne",
-   "title": "Volejbal - žákyně (nepotvrzeno)",
-   "date": "2026-12-29",
-   "date_end": null,
-   "time": "16:30",
-   "time_end": "18:30",
-   "all_day": false,
-   "category": "kurz",
-   "link": "https://pecky.cz/default/default/21405_rezervacni-system",
-   "description": "Hala",
-   "place": "Hala",
-   "organizer": "tj-sokol-pecky",
-   "organizer_name": "TJ Sokol Pečky",
-   "image": null,
-   "note": null,
-   "source_ref": "hala-2026-12-29-1630-volejbal-zakyne"
-  },
-  {
    "id": "sberny-dvur-2026-12-30",
    "title": "Sběrný dvůr",
    "tag": "",
@@ -56366,6 +57392,24 @@
    "image": null,
    "note": null,
    "source_ref": "sberny-dvur-2026-12-30"
+  },
+  {
+   "id": "hala-2026-12-30-1530-afk-pecky-u6",
+   "title": "AFK Pečky U6 (nepotvrzeno)",
+   "date": "2026-12-30",
+   "date_end": null,
+   "time": "15:30",
+   "time_end": "16:30",
+   "all_day": false,
+   "category": "kurz",
+   "link": "https://pecky.cz/default/default/21405_rezervacni-system",
+   "description": "Hala",
+   "place": "Hala",
+   "organizer": "tj-sokol-pecky",
+   "organizer_name": "TJ Sokol Pečky",
+   "image": null,
+   "note": null,
+   "source_ref": "hala-2026-12-30-1530-afk-pecky-u6"
   },
   {
    "id": "hala-2026-12-30-1800-basket-u17-devcata",

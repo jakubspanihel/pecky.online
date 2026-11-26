@@ -5,13 +5,13 @@
   "organizer": "tj-sokol-pecky",
   "from": "2026-09-01",
   "to": "2026-12-31",
-  "updated": "2026-10-20",
+  "updated": "2026-11-26",
   "evidence": {
    "source": "pecky-cz-rezervace-parkhala",
    "kind": "web",
    "url": "https://pecky.cz/default/default/21405_rezervacni-system",
    "label": "Rezervační systém — ParkHala (pecky.cz)",
-   "retrieved": "2026-10-20"
+   "retrieved": "2026-11-26"
   }
  },
  "events": [
@@ -1008,18 +1008,26 @@
   },
   {
    "date": "2026-10-25",
-   "time": "09:00",
-   "time_end": "17:00",
+   "time": "08:00",
+   "time_end": "09:00",
    "title": "Volejbal - U16",
    "status": "potvrzeno",
    "category": "akce"
   },
   {
    "date": "2026-10-25",
-   "time": "17:00",
+   "time": "09:00",
+   "time_end": "18:00",
+   "title": "Volejbal - U16",
+   "status": "potvrzeno",
+   "category": "akce"
+  },
+  {
+   "date": "2026-10-25",
+   "time": "18:00",
    "time_end": "19:00",
    "title": "Volejbal",
-   "status": "nepotvrzeno",
+   "status": "potvrzeno",
    "category": "kurz"
   },
   {
@@ -1081,33 +1089,9 @@
   },
   {
    "date": "2026-10-28",
-   "time": "16:30",
-   "time_end": "18:00",
-   "title": "Basket U14",
-   "status": "potvrzeno",
-   "category": "kurz"
-  },
-  {
-   "date": "2026-10-28",
    "time": "18:00",
    "time_end": "20:00",
    "title": "Basket U17 děvčata",
-   "status": "potvrzeno",
-   "category": "kurz"
-  },
-  {
-   "date": "2026-10-29",
-   "time": "15:00",
-   "time_end": "16:00",
-   "title": "Basket U11",
-   "status": "potvrzeno",
-   "category": "kurz"
-  },
-  {
-   "date": "2026-10-29",
-   "time": "16:00",
-   "time_end": "17:00",
-   "title": "Basket U12",
    "status": "potvrzeno",
    "category": "kurz"
   },
@@ -1129,14 +1113,6 @@
   },
   {
    "date": "2026-10-30",
-   "time": "15:00",
-   "time_end": "16:00",
-   "title": "Basket U11",
-   "status": "potvrzeno",
-   "category": "kurz"
-  },
-  {
-   "date": "2026-10-30",
    "time": "16:00",
    "time_end": "17:00",
    "title": "Basket U12",
@@ -1161,10 +1137,18 @@
   },
   {
    "date": "2026-11-01",
+   "time": "15:00",
+   "time_end": "17:00",
+   "title": "Volejbal",
+   "status": "potvrzeno",
+   "category": "kurz"
+  },
+  {
+   "date": "2026-11-01",
    "time": "17:00",
    "time_end": "19:00",
    "title": "Tenis",
-   "status": "nepotvrzeno",
+   "status": "potvrzeno",
    "category": "kurz"
   },
   {
@@ -1172,6 +1156,14 @@
    "time": "19:00",
    "time_end": "20:00",
    "title": "Nohejbal",
+   "status": "potvrzeno",
+   "category": "kurz"
+  },
+  {
+   "date": "2026-11-02",
+   "time": "16:30",
+   "time_end": "17:30",
+   "title": "AFK Pečky - U6",
    "status": "potvrzeno",
    "category": "kurz"
   },
@@ -1210,6 +1202,14 @@
   },
   {
    "date": "2026-11-04",
+   "time": "15:30",
+   "time_end": "16:30",
+   "title": "AFK Pečky - U6",
+   "status": "potvrzeno",
+   "category": "kurz"
+  },
+  {
+   "date": "2026-11-04",
    "time": "16:30",
    "time_end": "18:00",
    "title": "Basket U14",
@@ -1237,6 +1237,14 @@
    "time": "16:00",
    "time_end": "17:00",
    "title": "Basket U12",
+   "status": "potvrzeno",
+   "category": "kurz"
+  },
+  {
+   "date": "2026-11-05",
+   "time": "18:30",
+   "time_end": "20:00",
+   "title": "ženy basket",
    "status": "potvrzeno",
    "category": "kurz"
   },
@@ -1281,11 +1289,59 @@
    "category": "kurz"
   },
   {
-   "date": "2026-11-08",
+   "date": "2026-11-07",
+   "time": "12:30",
+   "time_end": "14:30",
+   "title": "AFK Pečky",
+   "status": "potvrzeno",
+   "category": "kurz"
+  },
+  {
+   "date": "2026-11-07",
+   "time": "14:30",
+   "time_end": "16:30",
+   "title": "Basket U17 dívky zápas",
+   "status": "potvrzeno",
+   "category": "akce"
+  },
+  {
+   "date": "2026-11-07",
    "time": "17:00",
    "time_end": "19:00",
+   "title": "Basket U14 zápas",
+   "status": "potvrzeno",
+   "category": "akce"
+  },
+  {
+   "date": "2026-11-07",
+   "time": "19:00",
+   "time_end": "21:00",
+   "title": "Volejbal",
+   "status": "potvrzeno",
+   "category": "kurz"
+  },
+  {
+   "date": "2026-11-08",
+   "time": "07:30",
+   "time_end": "15:00",
+   "title": "Basket Šmoulinka turnaj",
+   "status": "potvrzeno",
+   "category": "akce"
+  },
+  {
+   "date": "2026-11-08",
+   "time": "15:30",
+   "time_end": "17:30",
+   "title": "Basket U17 zápas",
+   "status": "potvrzeno",
+   "category": "akce"
+  },
+  {
+   "date": "2026-11-08",
+   "time": "17:30",
+   "time_end": "19:00",
    "title": "Tenis",
-   "status": "nepotvrzeno",
+   "status": "potvrzeno",
    "category": "kurz"
   },
   {
@@ -1298,10 +1354,26 @@
   },
   {
    "date": "2026-11-09",
+   "time": "16:30",
+   "time_end": "17:30",
+   "title": "AFK Pečky U6",
+   "status": "potvrzeno",
+   "category": "kurz"
+  },
+  {
+   "date": "2026-11-09",
+   "time": "17:30",
+   "time_end": "18:30",
+   "title": "AFK Pečky U8",
+   "status": "potvrzeno",
+   "category": "kurz"
+  },
+  {
+   "date": "2026-11-09",
    "time": "18:30",
    "time_end": "20:00",
    "title": "Basket U17 děvčata",
-   "status": "nepotvrzeno",
+   "status": "potvrzeno",
    "category": "kurz"
   },
   {
@@ -1309,7 +1381,7 @@
    "time": "20:00",
    "time_end": "21:30",
    "title": "Florbal Charisma Pečky",
-   "status": "nepotvrzeno",
+   "status": "potvrzeno",
    "category": "kurz",
    "organizer": "fbc-charisma-pecky"
   },
@@ -1318,7 +1390,7 @@
    "time": "15:00",
    "time_end": "16:30",
    "title": "Volejbal Pečky - přípravka, minivolejbal",
-   "status": "nepotvrzeno",
+   "status": "potvrzeno",
    "category": "kurz"
   },
   {
@@ -1326,7 +1398,15 @@
    "time": "16:30",
    "time_end": "18:30",
    "title": "Volejbal - žákyně",
-   "status": "nepotvrzeno",
+   "status": "potvrzeno",
+   "category": "kurz"
+  },
+  {
+   "date": "2026-11-11",
+   "time": "15:30",
+   "time_end": "16:30",
+   "title": "AFK Pečky U6",
+   "status": "potvrzeno",
    "category": "kurz"
   },
   {
@@ -1342,7 +1422,7 @@
    "time": "18:00",
    "time_end": "20:00",
    "title": "Basket U17 děvčata",
-   "status": "nepotvrzeno",
+   "status": "potvrzeno",
    "category": "kurz"
   },
   {
@@ -1363,10 +1443,18 @@
   },
   {
    "date": "2026-11-12",
+   "time": "18:30",
+   "time_end": "20:00",
+   "title": "basket ženy",
+   "status": "potvrzeno",
+   "category": "kurz"
+  },
+  {
+   "date": "2026-11-12",
    "time": "20:00",
    "time_end": "21:30",
    "title": "Volejbal - juniorky, dospělí",
-   "status": "nepotvrzeno",
+   "status": "potvrzeno",
    "category": "kurz"
   },
   {
@@ -1398,7 +1486,55 @@
    "time": "18:30",
    "time_end": "20:00",
    "title": "Basket U17 děvčata",
-   "status": "nepotvrzeno",
+   "status": "potvrzeno",
+   "category": "kurz"
+  },
+  {
+   "date": "2026-11-14",
+   "time": "13:00",
+   "time_end": "16:00",
+   "title": "AFK Pečky",
+   "status": "potvrzeno",
+   "category": "kurz"
+  },
+  {
+   "date": "2026-11-14",
+   "time": "16:30",
+   "time_end": "18:30",
+   "title": "Basket U15 dívky zápas",
+   "status": "potvrzeno",
+   "category": "akce"
+  },
+  {
+   "date": "2026-11-15",
+   "time": "08:30",
+   "time_end": "10:30",
+   "title": "Basket U15 dívky zápas",
+   "status": "potvrzeno",
+   "category": "akce"
+  },
+  {
+   "date": "2026-11-15",
+   "time": "11:00",
+   "time_end": "15:00",
+   "title": "Basket U11 MIX zápas",
+   "status": "potvrzeno",
+   "category": "akce"
+  },
+  {
+   "date": "2026-11-15",
+   "time": "15:00",
+   "time_end": "17:00",
+   "title": "Tenis",
+   "status": "potvrzeno",
+   "category": "kurz"
+  },
+  {
+   "date": "2026-11-15",
+   "time": "17:00",
+   "time_end": "19:00",
+   "title": "Volejbal",
+   "status": "potvrzeno",
    "category": "kurz"
   },
   {
@@ -1411,35 +1547,42 @@
   },
   {
    "date": "2026-11-16",
-   "time": "18:30",
-   "time_end": "20:00",
-   "title": "Basket U17 děvčata",
-   "status": "nepotvrzeno",
+   "time": "16:00",
+   "time_end": "17:30",
+   "title": "AFK Pečky U6",
+   "status": "potvrzeno",
    "category": "kurz"
   },
   {
    "date": "2026-11-16",
-   "time": "20:00",
-   "time_end": "21:30",
-   "title": "Florbal Charisma Pečky",
-   "status": "nepotvrzeno",
-   "category": "kurz",
-   "organizer": "fbc-charisma-pecky"
-  },
-  {
-   "date": "2026-11-17",
-   "time": "15:00",
-   "time_end": "16:30",
-   "title": "Volejbal Pečky - přípravka, minivolejbal",
-   "status": "nepotvrzeno",
+   "time": "17:30",
+   "time_end": "18:30",
+   "title": "AFK Pečky U8",
+   "status": "potvrzeno",
    "category": "kurz"
   },
   {
    "date": "2026-11-17",
-   "time": "16:30",
-   "time_end": "18:30",
-   "title": "Volejbal - žákyně",
-   "status": "nepotvrzeno",
+   "time": "15:45",
+   "time_end": "18:15",
+   "title": "AFK Pečky",
+   "status": "potvrzeno",
+   "category": "kurz"
+  },
+  {
+   "date": "2026-11-17",
+   "time": "19:30",
+   "time_end": "20:30",
+   "title": "basket ženy",
+   "status": "potvrzeno",
+   "category": "kurz"
+  },
+  {
+   "date": "2026-11-18",
+   "time": "15:30",
+   "time_end": "16:30",
+   "title": "AFK Pečky U6",
+   "status": "potvrzeno",
    "category": "kurz"
   },
   {
@@ -1455,7 +1598,7 @@
    "time": "18:00",
    "time_end": "20:00",
    "title": "Basket U17 děvčata",
-   "status": "nepotvrzeno",
+   "status": "potvrzeno",
    "category": "kurz"
   },
   {
@@ -1476,10 +1619,18 @@
   },
   {
    "date": "2026-11-19",
+   "time": "18:30",
+   "time_end": "20:00",
+   "title": "basket ženy",
+   "status": "potvrzeno",
+   "category": "kurz"
+  },
+  {
+   "date": "2026-11-19",
    "time": "20:00",
    "time_end": "21:30",
    "title": "Volejbal - juniorky, dospělí",
-   "status": "nepotvrzeno",
+   "status": "potvrzeno",
    "category": "kurz"
   },
   {
@@ -1511,22 +1662,70 @@
    "time": "18:30",
    "time_end": "20:00",
    "title": "Basket U17 děvčata",
-   "status": "nepotvrzeno",
+   "status": "potvrzeno",
+   "category": "kurz"
+  },
+  {
+   "date": "2026-11-21",
+   "time": "09:30",
+   "time_end": "11:30",
+   "title": "basketbal U17 kluci",
+   "status": "potvrzeno",
+   "category": "kurz"
+  },
+  {
+   "date": "2026-11-21",
+   "time": "12:30",
+   "time_end": "14:30",
+   "title": "1.liga ženy",
+   "status": "potvrzeno",
+   "category": "akce"
+  },
+  {
+   "date": "2026-11-21",
+   "time": "14:45",
+   "time_end": "16:45",
+   "title": "AFK Pečky",
+   "status": "potvrzeno",
+   "category": "kurz"
+  },
+  {
+   "date": "2026-11-21",
+   "time": "17:00",
+   "time_end": "19:00",
+   "title": "Volejbal",
+   "status": "potvrzeno",
    "category": "kurz"
   },
   {
    "date": "2026-11-22",
    "time": "08:00",
-   "time_end": "16:00",
+   "time_end": "17:00",
    "title": "Volejbal U14",
-   "status": "nepotvrzeno",
+   "status": "potvrzeno",
    "category": "akce"
   },
   {
    "date": "2026-11-22",
-   "time": "19:00",
-   "time_end": "20:00",
-   "title": "Nohejbal",
+   "time": "17:45",
+   "time_end": "19:45",
+   "title": "Basket U17 kluci",
+   "status": "potvrzeno",
+   "category": "kurz"
+  },
+  {
+   "date": "2026-11-23",
+   "time": "16:30",
+   "time_end": "17:30",
+   "title": "AFK Pečky U6",
+   "status": "potvrzeno",
+   "category": "kurz"
+  },
+  {
+   "date": "2026-11-23",
+   "time": "17:30",
+   "time_end": "18:30",
+   "title": "AFK Pečky U8",
    "status": "potvrzeno",
    "category": "kurz"
   },
@@ -1535,7 +1734,7 @@
    "time": "18:30",
    "time_end": "20:00",
    "title": "Basket U17 děvčata",
-   "status": "nepotvrzeno",
+   "status": "potvrzeno",
    "category": "kurz"
   },
   {
@@ -1543,7 +1742,7 @@
    "time": "20:00",
    "time_end": "21:30",
    "title": "Florbal Charisma Pečky",
-   "status": "nepotvrzeno",
+   "status": "potvrzeno",
    "category": "kurz",
    "organizer": "fbc-charisma-pecky"
   },
@@ -1552,7 +1751,7 @@
    "time": "15:00",
    "time_end": "16:30",
    "title": "Volejbal Pečky - přípravka, minivolejbal",
-   "status": "nepotvrzeno",
+   "status": "potvrzeno",
    "category": "kurz"
   },
   {
@@ -1560,14 +1759,30 @@
    "time": "16:30",
    "time_end": "18:30",
    "title": "Volejbal - žákyně",
-   "status": "nepotvrzeno",
+   "status": "potvrzeno",
+   "category": "kurz"
+  },
+  {
+   "date": "2026-11-24",
+   "time": "18:30",
+   "time_end": "19:30",
+   "title": "trénink U17 kluci basket",
+   "status": "potvrzeno",
+   "category": "kurz"
+  },
+  {
+   "date": "2026-11-24",
+   "time": "19:30",
+   "time_end": "20:30",
+   "title": "basket ženy trénink",
+   "status": "potvrzeno",
    "category": "kurz"
   },
   {
    "date": "2026-11-25",
-   "time": "16:30",
+   "time": "16:00",
    "time_end": "18:00",
-   "title": "Basket U14",
+   "title": "AFK Pečky U6",
    "status": "potvrzeno",
    "category": "kurz"
   },
@@ -1576,7 +1791,7 @@
    "time": "18:00",
    "time_end": "20:00",
    "title": "Basket U17 děvčata",
-   "status": "nepotvrzeno",
+   "status": "potvrzeno",
    "category": "kurz"
   },
   {
@@ -1597,10 +1812,18 @@
   },
   {
    "date": "2026-11-26",
+   "time": "18:30",
+   "time_end": "20:00",
+   "title": "basket ženy",
+   "status": "potvrzeno",
+   "category": "kurz"
+  },
+  {
+   "date": "2026-11-26",
    "time": "20:00",
    "time_end": "21:30",
    "title": "Volejbal - juniorky, dospělí",
-   "status": "nepotvrzeno",
+   "status": "potvrzeno",
    "category": "kurz"
   },
   {
@@ -1632,7 +1855,31 @@
    "time": "18:30",
    "time_end": "20:00",
    "title": "Basket U17 děvčata",
-   "status": "nepotvrzeno",
+   "status": "potvrzeno",
+   "category": "kurz"
+  },
+  {
+   "date": "2026-11-28",
+   "time": "11:00",
+   "time_end": "17:00",
+   "title": "AFK Pečky",
+   "status": "potvrzeno",
+   "category": "akce"
+  },
+  {
+   "date": "2026-11-29",
+   "time": "15:00",
+   "time_end": "17:00",
+   "title": "Tenis",
+   "status": "potvrzeno",
+   "category": "kurz"
+  },
+  {
+   "date": "2026-11-29",
+   "time": "17:00",
+   "time_end": "19:00",
+   "title": "Volejbal",
+   "status": "potvrzeno",
    "category": "kurz"
   },
   {
@@ -1645,10 +1892,26 @@
   },
   {
    "date": "2026-11-30",
+   "time": "16:30",
+   "time_end": "17:30",
+   "title": "AFK Pečky U6",
+   "status": "potvrzeno",
+   "category": "kurz"
+  },
+  {
+   "date": "2026-11-30",
+   "time": "17:30",
+   "time_end": "18:30",
+   "title": "AFK Pečky U8",
+   "status": "potvrzeno",
+   "category": "kurz"
+  },
+  {
+   "date": "2026-11-30",
    "time": "18:30",
    "time_end": "20:00",
    "title": "Basket U17 děvčata",
-   "status": "nepotvrzeno",
+   "status": "potvrzeno",
    "category": "kurz"
   },
   {
@@ -1656,7 +1919,7 @@
    "time": "20:00",
    "time_end": "21:30",
    "title": "Florbal Charisma Pečky",
-   "status": "nepotvrzeno",
+   "status": "potvrzeno",
    "category": "kurz",
    "organizer": "fbc-charisma-pecky"
   },
@@ -1665,7 +1928,7 @@
    "time": "15:00",
    "time_end": "16:30",
    "title": "Volejbal Pečky - přípravka, minivolejbal",
-   "status": "nepotvrzeno",
+   "status": "potvrzeno",
    "category": "kurz"
   },
   {
@@ -1673,7 +1936,31 @@
    "time": "16:30",
    "time_end": "18:30",
    "title": "Volejbal - žákyně",
-   "status": "nepotvrzeno",
+   "status": "potvrzeno",
+   "category": "kurz"
+  },
+  {
+   "date": "2026-12-01",
+   "time": "18:30",
+   "time_end": "19:30",
+   "title": "basket kluci U17",
+   "status": "potvrzeno",
+   "category": "kurz"
+  },
+  {
+   "date": "2026-12-01",
+   "time": "19:30",
+   "time_end": "20:30",
+   "title": "basket ženy",
+   "status": "potvrzeno",
+   "category": "kurz"
+  },
+  {
+   "date": "2026-12-02",
+   "time": "15:30",
+   "time_end": "16:30",
+   "title": "AFK Pečky U6",
+   "status": "potvrzeno",
    "category": "kurz"
   },
   {
@@ -1689,7 +1976,7 @@
    "time": "18:00",
    "time_end": "20:00",
    "title": "Basket U17 děvčata",
-   "status": "nepotvrzeno",
+   "status": "potvrzeno",
    "category": "kurz"
   },
   {
@@ -1710,10 +1997,18 @@
   },
   {
    "date": "2026-12-03",
+   "time": "18:30",
+   "time_end": "20:00",
+   "title": "basket ženy",
+   "status": "potvrzeno",
+   "category": "kurz"
+  },
+  {
+   "date": "2026-12-03",
    "time": "20:00",
    "time_end": "21:30",
    "title": "Volejbal - juniorky, dospělí",
-   "status": "nepotvrzeno",
+   "status": "potvrzeno",
    "category": "kurz"
   },
   {
@@ -1745,7 +2040,7 @@
    "time": "18:30",
    "time_end": "20:00",
    "title": "Basket U17 děvčata",
-   "status": "nepotvrzeno",
+   "status": "potvrzeno",
    "category": "kurz"
   },
   {
@@ -1758,6 +2053,30 @@
   },
   {
    "date": "2026-12-06",
+   "time": "08:30",
+   "time_end": "11:30",
+   "title": "Basket U11 2x",
+   "status": "potvrzeno",
+   "category": "akce"
+  },
+  {
+   "date": "2026-12-06",
+   "time": "15:00",
+   "time_end": "17:00",
+   "title": "Tenis",
+   "status": "potvrzeno",
+   "category": "kurz"
+  },
+  {
+   "date": "2026-12-06",
+   "time": "17:00",
+   "time_end": "19:00",
+   "title": "Volejbal",
+   "status": "potvrzeno",
+   "category": "kurz"
+  },
+  {
+   "date": "2026-12-06",
    "time": "19:00",
    "time_end": "20:00",
    "title": "Nohejbal",
@@ -1766,10 +2085,26 @@
   },
   {
    "date": "2026-12-07",
+   "time": "16:30",
+   "time_end": "17:30",
+   "title": "AFK Pečky U6",
+   "status": "potvrzeno",
+   "category": "kurz"
+  },
+  {
+   "date": "2026-12-07",
+   "time": "17:30",
+   "time_end": "18:30",
+   "title": "AFK Pečky U8",
+   "status": "potvrzeno",
+   "category": "kurz"
+  },
+  {
+   "date": "2026-12-07",
    "time": "18:30",
    "time_end": "20:00",
    "title": "Basket U17 děvčata",
-   "status": "nepotvrzeno",
+   "status": "potvrzeno",
    "category": "kurz"
   },
   {
@@ -1777,7 +2112,7 @@
    "time": "20:00",
    "time_end": "21:30",
    "title": "Florbal Charisma Pečky",
-   "status": "nepotvrzeno",
+   "status": "potvrzeno",
    "category": "kurz",
    "organizer": "fbc-charisma-pecky"
   },
@@ -1786,7 +2121,7 @@
    "time": "15:00",
    "time_end": "16:30",
    "title": "Volejbal Pečky - přípravka, minivolejbal",
-   "status": "nepotvrzeno",
+   "status": "potvrzeno",
    "category": "kurz"
   },
   {
@@ -1794,7 +2129,23 @@
    "time": "16:30",
    "time_end": "18:30",
    "title": "Volejbal - žákyně",
-   "status": "nepotvrzeno",
+   "status": "potvrzeno",
+   "category": "kurz"
+  },
+  {
+   "date": "2026-12-08",
+   "time": "19:30",
+   "time_end": "20:30",
+   "title": "basket ženy",
+   "status": "potvrzeno",
+   "category": "kurz"
+  },
+  {
+   "date": "2026-12-09",
+   "time": "15:30",
+   "time_end": "16:30",
+   "title": "AFK Pečky U6",
+   "status": "potvrzeno",
    "category": "kurz"
   },
   {
@@ -1810,7 +2161,7 @@
    "time": "18:00",
    "time_end": "20:00",
    "title": "Basket U17 děvčata",
-   "status": "nepotvrzeno",
+   "status": "potvrzeno",
    "category": "kurz"
   },
   {
@@ -1831,10 +2182,18 @@
   },
   {
    "date": "2026-12-10",
+   "time": "18:30",
+   "time_end": "20:00",
+   "title": "basket ženy",
+   "status": "potvrzeno",
+   "category": "kurz"
+  },
+  {
+   "date": "2026-12-10",
    "time": "20:00",
    "time_end": "21:30",
    "title": "Volejbal - juniorky, dospělí",
-   "status": "nepotvrzeno",
+   "status": "potvrzeno",
    "category": "kurz"
   },
   {
@@ -1866,24 +2225,56 @@
    "time": "18:30",
    "time_end": "20:00",
    "title": "Basket U17 děvčata",
-   "status": "nepotvrzeno",
+   "status": "potvrzeno",
    "category": "kurz"
   },
   {
    "date": "2026-12-12",
-   "time": "08:00",
-   "time_end": null,
-   "title": "Florbalový turnaj ČF krajský přebor",
-   "status": "nepotvrzeno",
-   "category": "akce"
+   "time": "16:30",
+   "time_end": "18:30",
+   "title": "Basket U14",
+   "status": "potvrzeno",
+   "category": "kurz"
   },
   {
    "date": "2026-12-13",
-   "time": "08:00",
-   "time_end": null,
-   "title": "Florbalový turnaj ČF krajský přebor",
-   "status": "nepotvrzeno",
-   "category": "akce"
+   "time": "08:30",
+   "time_end": "10:30",
+   "title": "basket dívky U17",
+   "status": "potvrzeno",
+   "category": "kurz"
+  },
+  {
+   "date": "2026-12-13",
+   "time": "11:00",
+   "time_end": "13:00",
+   "title": "ženy basket",
+   "status": "potvrzeno",
+   "category": "kurz"
+  },
+  {
+   "date": "2026-12-13",
+   "time": "13:30",
+   "time_end": "15:30",
+   "title": "basket U17K",
+   "status": "potvrzeno",
+   "category": "kurz"
+  },
+  {
+   "date": "2026-12-13",
+   "time": "15:30",
+   "time_end": "17:00",
+   "title": "Tenis",
+   "status": "potvrzeno",
+   "category": "kurz"
+  },
+  {
+   "date": "2026-12-13",
+   "time": "17:00",
+   "time_end": "19:00",
+   "title": "Volejbal",
+   "status": "potvrzeno",
+   "category": "kurz"
   },
   {
    "date": "2026-12-13",
@@ -1891,6 +2282,22 @@
    "time_end": "20:00",
    "title": "Nohejbal",
    "status": "potvrzeno",
+   "category": "kurz"
+  },
+  {
+   "date": "2026-12-14",
+   "time": "16:30",
+   "time_end": "17:30",
+   "title": "AFK Pečky U6",
+   "status": "nepotvrzeno",
+   "category": "kurz"
+  },
+  {
+   "date": "2026-12-14",
+   "time": "17:30",
+   "time_end": "18:30",
+   "title": "AFK Pečky U8",
+   "status": "nepotvrzeno",
    "category": "kurz"
   },
   {
@@ -1928,6 +2335,14 @@
   },
   {
    "date": "2026-12-16",
+   "time": "15:30",
+   "time_end": "16:30",
+   "title": "AFK Pečky U6",
+   "status": "nepotvrzeno",
+   "category": "kurz"
+  },
+  {
+   "date": "2026-12-16",
    "time": "16:30",
    "time_end": "18:00",
    "title": "Basket U14",
@@ -1956,6 +2371,14 @@
    "time_end": "17:00",
    "title": "Basket U12",
    "status": "potvrzeno",
+   "category": "kurz"
+  },
+  {
+   "date": "2026-12-17",
+   "time": "18:30",
+   "time_end": "20:00",
+   "title": "basket ženy",
+   "status": "nepotvrzeno",
    "category": "kurz"
   },
   {
@@ -2000,10 +2423,42 @@
   },
   {
    "date": "2026-12-20",
+   "time": "15:00",
+   "time_end": "17:00",
+   "title": "Tenis",
+   "status": "nepotvrzeno",
+   "category": "kurz"
+  },
+  {
+   "date": "2026-12-20",
+   "time": "17:00",
+   "time_end": "19:00",
+   "title": "Volejbal",
+   "status": "nepotvrzeno",
+   "category": "kurz"
+  },
+  {
+   "date": "2026-12-20",
    "time": "19:00",
    "time_end": "20:00",
    "title": "Nohejbal",
    "status": "potvrzeno",
+   "category": "kurz"
+  },
+  {
+   "date": "2026-12-21",
+   "time": "16:30",
+   "time_end": "17:30",
+   "title": "AFK Pečky U6",
+   "status": "nepotvrzeno",
+   "category": "kurz"
+  },
+  {
+   "date": "2026-12-21",
+   "time": "17:30",
+   "time_end": "18:30",
+   "title": "AFK Pečky U8",
+   "status": "nepotvrzeno",
    "category": "kurz"
   },
   {
@@ -2024,18 +2479,10 @@
    "organizer": "fbc-charisma-pecky"
   },
   {
-   "date": "2026-12-22",
-   "time": "15:00",
+   "date": "2026-12-23",
+   "time": "15:30",
    "time_end": "16:30",
-   "title": "Volejbal Pečky - přípravka, minivolejbal",
-   "status": "nepotvrzeno",
-   "category": "kurz"
-  },
-  {
-   "date": "2026-12-22",
-   "time": "16:30",
-   "time_end": "18:30",
-   "title": "Volejbal - žákyně",
+   "title": "AFK Pečky U6",
    "status": "nepotvrzeno",
    "category": "kurz"
   },
@@ -2113,10 +2560,43 @@
   },
   {
    "date": "2026-12-27",
+   "time": "17:00",
+   "time_end": "19:00",
+   "title": "Volejbal",
+   "status": "nepotvrzeno",
+   "category": "kurz"
+  },
+  {
+   "date": "2026-12-27",
    "time": "19:00",
    "time_end": "20:00",
    "title": "Nohejbal",
    "status": "potvrzeno",
+   "category": "kurz"
+  },
+  {
+   "date": "2026-12-28",
+   "time": "12:30",
+   "time_end": "18:30",
+   "title": "Florbal Charisma - turnaj",
+   "status": "nepotvrzeno",
+   "category": "akce",
+   "organizer": "fbc-charisma-pecky"
+  },
+  {
+   "date": "2026-12-28",
+   "time": "16:30",
+   "time_end": "17:30",
+   "title": "AFK Pečky U6",
+   "status": "nepotvrzeno",
+   "category": "kurz"
+  },
+  {
+   "date": "2026-12-28",
+   "time": "17:30",
+   "time_end": "18:30",
+   "title": "AFK Pečky U8",
+   "status": "nepotvrzeno",
    "category": "kurz"
   },
   {
@@ -2128,27 +2608,10 @@
    "category": "kurz"
   },
   {
-   "date": "2026-12-28",
-   "time": "20:00",
-   "time_end": "21:30",
-   "title": "Florbal Charisma Pečky",
-   "status": "nepotvrzeno",
-   "category": "kurz",
-   "organizer": "fbc-charisma-pecky"
-  },
-  {
-   "date": "2026-12-29",
-   "time": "15:00",
+   "date": "2026-12-30",
+   "time": "15:30",
    "time_end": "16:30",
-   "title": "Volejbal Pečky - přípravka, minivolejbal",
-   "status": "nepotvrzeno",
-   "category": "kurz"
-  },
-  {
-   "date": "2026-12-29",
-   "time": "16:30",
-   "time_end": "18:30",
-   "title": "Volejbal - žákyně",
+   "title": "AFK Pečky U6",
    "status": "nepotvrzeno",
    "category": "kurz"
   },

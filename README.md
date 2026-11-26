@@ -58,10 +58,10 @@ se sem, na stránku samotnou se nic ručně nepíše.
 
 | Sekce | Režim | Kontrola | Změna | Co naposledy |
 |---|---|---|---|---|
+| [Kalendář](kalendar/README.md) | týdně | 26. 11. 2026 | 26. 11. 2026 | rezervace sportovní haly aktualizovány z rezervačního systému do 31. 12. 2026 |
 | [Jednání](jednani/README.md) | týdně | 26. 11. 2026 | 26. 11. 2026 | RM 42/2026 (23. 11. 2026) se zápisem a 10 usneseními, doplněná do archivu spolu s pozvánkou na ZM 9/2026; u ZM 9/2026 (25. 11. 2026) zatím není zápis ani záznam, odstraněn odkaz na živý přenos (video je soukromé) |
 | [Tělocvična](telocvicna/README.md) | týdně | 26. 11. 2026 | 26. 11. 2026 | 23. 11. 2026 RM 42/2026, bod 3: cenová nabídka na statické řešení stabilizace základů, kontrolní den 26. 11. (bez usnesení) |
 | [Usnesení](usneseni/README.md) | odvozená | 26. 11. 2026 | 26. 11. 2026 | nová usnesení RM 42/2026 s termíny; u 10 dříve otevřených usnesení doplněno datum ukončení |
-| [Kalendář](kalendar/README.md) | týdně | 26. 11. 2026 | 26. 11. 2026 | nová akce: Vánoční výstava žáků výtvarného oboru ZUŠ Pečky (7.–11. 12. 2026); sloučeny dvojité záznamy Vánočního jarmarku v MŠ Mašinka, akce Tak trochu vánoční keramika a 17 dvojitých termínů tanečních kurzů Kulturního střediska; smazány 4 překrývající se večerní lekce tanečního kurzu |
 | [Na oběd](naobed/README.md) | denně | 26. 11. 2026 | 26. 11. 2026 | U Marka: nové menu na 26. 11. 2026 (z fotografie lístku na Facebooku) |
 | [Obchvat](obchvat/README.md) | na vyžádání | 24. 11. 2026 | 24. 11. 2026 | nový blok „Výkup pozemků“ (vlastnictví 106 parcel pod trasou z katastru, doložené kroky výkupu), banner „Kde projekt stojí“ pod mapou, bloky o územním plánu a zástavbě na konci stránky, časová osa od nejnovějších; kontrola zdrojů po RM 2. 3. 2026: k severnímu obchvatu nic nového (časová osa i „Aktuální fáze“ beze změny); do oddílu o staré silnici II/329 doplněn přechod u Hellichovy (RM 29. 6., ZM 16. 9. 2026) a oprava u OC Billa (uzavírka 2.–15. 11. 2026) |
 | [O webu](o-webu/README.md) | týdně | 24. 11. 2026 | 24. 11. 2026 | nový odkaz Pamětní kniha obce Pečky z roku 1888 (eBadatelna Státního oblastního archivu v Praze) |
