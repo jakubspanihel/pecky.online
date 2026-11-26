@@ -306,7 +306,14 @@ def main():
     for i in ke_smazani:
         if limit_vycerpan():
             break
-        zkus(svc.events().delete(calendarId=args.calendar_id, eventId=i), f'delete {i}')
+        try:
+            zkus(svc.events().delete(calendarId=args.calendar_id, eventId=i), f'delete {i}')
+        except HttpError as e:
+            # 404/410: událost už v kalendáři není (např. ji mezi výpisem a
+            # mazáním smazal souběžný běh) — cíl je splněný.
+            if e.resp.status not in (404, 410):
+                raise
+            print(f'  událost {i} už je smazaná, pokračuji')
         hotovo += 1
         time.sleep(PRODLEVA_S)
 
