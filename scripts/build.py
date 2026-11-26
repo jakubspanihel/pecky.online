@@ -1776,6 +1776,9 @@ def build_all(stav_rows=None):
             html = html.replace('/img/favicons/icon-192.png', '/img/favicons/peckybot-icon-192.png')
             html = html.replace('/img/favicons/apple-touch-icon.png', '/img/favicons/peckybot-apple-touch-icon.png')
             html = html.replace('/img/og-image.png', '/img/peckybot/og-image.png')
+        # vlastní náhled pro sdílení: <sekce>/og-image.png (1200×630); jinak výchozí /img/og-image.png
+        elif path != '/' and path.endswith('/') and (ROOT / path.strip('/') / 'og-image.png').is_file():
+            html = html.replace('/img/og-image.png', f'{path}og-image.png')
         html = nbsp_html(html)  # české pevné mezery, viz TYPOGRAFIE.md
         html = apply_base_path(html)
 
