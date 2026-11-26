@@ -1664,7 +1664,8 @@ seznam místo rozházených poznámek po repu.
   rezervace od 27. 10. (8 z 16 v týdnu 26. 10.), vše dřív je potvrzené.
 - **Čas konce:** týdenní zobrazení ho má → `time_end` vyplnit (původní
   poznámka o chybějícím konci výše platí jen pro měsíční mřížku).
-- **Aktualizace:** týdenní kontrola kalendáře (krok 3 „Pracovní postup“),
+- **Aktualizace:** při každém běhu skillu `DoPecek-nove-akce-check`
+  (naplánovaný denně) a při týdenní kontrole kalendáře (krok 3c „Pracovní postup“);
   rezervace se mění často (utkání, zrušení) → při každém běhu porovnat
   budoucí termíny a změny promítnout, zrušené smazat.
 - **Stav k 26. 11. 2026:** staženy týdny od 19. 10. do 3. 1. 2027 (systém má
