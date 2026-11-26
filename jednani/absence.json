@@ -3,9 +3,9 @@
     "popis": "Absence členů zastupitelstva, rady a výborů ZM města Pečky, spočítaná z jmenné prezence v zápisech. Postup: jednani/INSTRUKCE-absence.md.",
     "generoval": "jednani/scripts/absence.py",
     "zdroj": "jednani/pecky-jednani.json (Rada, Zastupitelstvo) + jednani/vybory.json (Finanční výbor, Kontrolní výbor)",
-    "jednani_celkem": 347,
-    "jednani_s_prubeznou_prezenci": 141,
-    "data_do": "2026-11-16"
+    "jednani_celkem": 348,
+    "jednani_s_prubeznou_prezenci": 142,
+    "data_do": "2026-11-23"
   },
   "obdobi": [
     {
@@ -1232,14 +1232,28 @@
     {
       "organ": "Rada",
       "obdobi": "2026–2030",
-      "jednani": 2,
+      "jednani": 3,
       "od": "2026-11-09",
-      "do": "2026-11-16",
+      "do": "2026-11-23",
       "radky": [
+        {
+          "klic": "petr durr",
+          "jmeno": "Ing. Petr Dürr",
+          "mandat": 3,
+          "chybel": 2,
+          "omluven": 1,
+          "nepritomen": 1,
+          "dorazil": 1,
+          "nebyl": 1,
+          "podil": 33.3,
+          "odesel": 0,
+          "mandat_od": "2026-11-09",
+          "mandat_do": "2026-11-23"
+        },
         {
           "klic": "hana kuprova",
           "jmeno": "Ing. Hana Kuprová",
-          "mandat": 2,
+          "mandat": 3,
           "chybel": 0,
           "omluven": 0,
           "nepritomen": 0,
@@ -1248,26 +1262,12 @@
           "podil": 0.0,
           "odesel": 0,
           "mandat_od": "2026-11-09",
-          "mandat_do": "2026-11-16"
+          "mandat_do": "2026-11-23"
         },
         {
           "klic": "martin jedlicka",
           "jmeno": "Ing. Martin Jedlička",
-          "mandat": 2,
-          "chybel": 0,
-          "omluven": 0,
-          "nepritomen": 0,
-          "dorazil": 0,
-          "nebyl": 0,
-          "podil": 0.0,
-          "odesel": 0,
-          "mandat_od": "2026-11-09",
-          "mandat_do": "2026-11-16"
-        },
-        {
-          "klic": "petr durr",
-          "jmeno": "Ing. Petr Dürr",
-          "mandat": 2,
+          "mandat": 3,
           "chybel": 1,
           "omluven": 0,
           "nepritomen": 1,
@@ -1276,12 +1276,12 @@
           "podil": 0.0,
           "odesel": 0,
           "mandat_od": "2026-11-09",
-          "mandat_do": "2026-11-16"
+          "mandat_do": "2026-11-23"
         },
         {
           "klic": "petr zednik",
           "jmeno": "Ing. Petr Zedník",
-          "mandat": 2,
+          "mandat": 3,
           "chybel": 0,
           "omluven": 0,
           "nepritomen": 0,
@@ -1290,12 +1290,12 @@
           "podil": 0.0,
           "odesel": 1,
           "mandat_od": "2026-11-09",
-          "mandat_do": "2026-11-16"
+          "mandat_do": "2026-11-23"
         },
         {
           "klic": "ivana trckova",
           "jmeno": "Ivana Trčková",
-          "mandat": 2,
+          "mandat": 3,
           "chybel": 0,
           "omluven": 0,
           "nepritomen": 0,
@@ -1304,12 +1304,12 @@
           "podil": 0.0,
           "odesel": 0,
           "mandat_od": "2026-11-09",
-          "mandat_do": "2026-11-16"
+          "mandat_do": "2026-11-23"
         },
         {
           "klic": "milan paluska",
           "jmeno": "Milan Paluska",
-          "mandat": 2,
+          "mandat": 3,
           "chybel": 0,
           "omluven": 0,
           "nepritomen": 0,
@@ -1318,12 +1318,12 @@
           "podil": 0.0,
           "odesel": 0,
           "mandat_od": "2026-11-09",
-          "mandat_do": "2026-11-16"
+          "mandat_do": "2026-11-23"
         },
         {
           "klic": "zdenek fejfar",
           "jmeno": "Zdeněk Fejfar",
-          "mandat": 2,
+          "mandat": 3,
           "chybel": 0,
           "omluven": 0,
           "nepritomen": 0,
@@ -1332,12 +1332,12 @@
           "podil": 0.0,
           "odesel": 0,
           "mandat_od": "2026-11-09",
-          "mandat_do": "2026-11-16"
+          "mandat_do": "2026-11-23"
         }
       ],
       "kontrola": {
-        "soucet_pres_osoby": 1,
-        "soucet_pres_jednani": 1,
+        "soucet_pres_osoby": 3,
+        "soucet_pres_jednani": 3,
         "rozdil": 0,
         "vadne_zaznamy": []
       }
