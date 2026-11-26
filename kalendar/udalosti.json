@@ -1,7 +1,7 @@
 {
  "meta": {
-  "generated_from": "jednani/pecky-jednani.json (301 jednání), jednani/vybory.json + komise.json + skolska-rada.json (132 jednání výborů, komisí a školské rady), kalendar/akce.json (4050 akcí), kalendar/udalosti-volby.json (1 termínů), kalendar/afk-zapasy.json (47 zápasů v Pečkách), kalendar/svoz-odpadu.json (186 svozů), kalendar/sberny-dvur.json (145 termínů provozních dob), kalendar/sportovni-hala.json (268 rezervací sportovní haly), kalendar/astronomie.json (149 astronomických úkazů)",
-  "updated": "2026-11-25"
+  "generated_from": "jednani/pecky-jednani.json (301 jednání), jednani/vybory.json + komise.json + skolska-rada.json (132 jednání výborů, komisí a školské rady), kalendar/akce.json (4049 akcí), kalendar/udalosti-volby.json (1 termínů), kalendar/afk-zapasy.json (47 zápasů v Pečkách), kalendar/svoz-odpadu.json (186 svozů), kalendar/sberny-dvur.json (145 termínů provozních dob), kalendar/sportovni-hala.json (268 rezervací sportovní haly), kalendar/astronomie.json (149 astronomických úkazů)",
+  "updated": "2026-11-26"
  },
  "org_sources": {
   "pececke-sluzby": [
@@ -96,7 +96,7 @@
    {
     "name": "Facebook — Vzdělávací centrum Pečky",
     "url": "https://www.facebook.com/vzcentrum",
-    "n": 35
+    "n": 36
    }
   ],
   "zus-pecky": [
@@ -108,7 +108,7 @@
    {
     "name": "Oficiální web města Pečky",
     "url": "http://pecky.cz",
-    "n": 3
+    "n": 4
    }
   ],
   "volejbal-pecky": [
@@ -168,7 +168,7 @@
    {
     "name": "Oficiální web města Pečky",
     "url": "http://pecky.cz",
-    "n": 3
+    "n": 2
    },
    {
     "name": "MŠ MAŠINKA Pečky — web",
@@ -49017,41 +49017,22 @@
    "date": "2026-12-05",
    "date_end": null,
    "time": "16:00",
+   "time_end": "18:00",
    "all_day": false,
    "category": "akce",
    "link": "https://www.facebook.com/vzcentrum",
    "description": "Předvánoční tvoření v keramickém ateliéru. 16:00–18:00, 450 Kč za osobu, čtvrteční glazování v ceně (termín dle domluvy). Přihlášení na tel. 724 811 636.",
-   "place": "Vzdělávací centrum Pečky, Tř. Jana Švermy 141, Pečky",
+   "place": "Keramický ateliér Vzdělávacího centra Pečky, Tř. Jana Švermy 141, Pečky",
    "organizer": "vzdelavaci-centrum-pecky",
    "organizer_name": "Vzdělávací centrum",
    "image": null,
    "note": "Druhý termín plakátu „Tak trochu vánoční Keramika 2026“ (první 14. listopadu). Místo konání plakát neuvádí; adresa je adresa centra.",
    "zdroje": [
     [
-     "facebook-vzdelavaci-centrum",
+     "facebook-vzcentrum",
      "https://www.facebook.com/vzcentrum",
      "Příspěvek Vzdělávacího centra Pečky: Tak trochu vánoční Keramika 2026 (plakát)"
-    ]
-   ],
-   "source_ref": "akce-2026-12-05-tak-trochu-vanocni-keramika"
-  },
-  {
-   "id": "akce-2026-12-05-tak-trochu-vanocni-keramika",
-   "title": "Tak trochu vánoční keramika",
-   "date": "2026-12-05",
-   "date_end": null,
-   "time": "16:00",
-   "time_end": "18:00",
-   "all_day": false,
-   "category": "akce",
-   "link": "https://www.facebook.com/vzcentrum",
-   "description": "Předvánoční tvoření v keramickém ateliéru, 450 Kč na osobu, čtvrteční glazování v ceně (termín dle domluvy). Přihlášky na tel. 724 811 636.",
-   "place": "Keramický ateliér Vzdělávacího centra Pečky, Tř. Jana Švermy 141, Pečky",
-   "organizer": "vzdelavaci-centrum-pecky",
-   "organizer_name": "Vzdělávací centrum",
-   "image": null,
-   "note": "Plakát VZC uvádí dva termíny: 14. 11. a 5. 12. 2026; 14. 11. už proběhl. Příspěvek z 9. 11. 2026 zve na „tuto sobotu“ (14. 11.).",
-   "zdroje": [
+    ],
     [
      "facebook-vzcentrum",
      "https://www.facebook.com/vzcentrum",
@@ -49390,6 +49371,31 @@
     ]
    ],
    "source_ref": "kurz-2026-12-07-minigolf-trenink-deti"
+  },
+  {
+   "id": "akce-2026-12-07-vanocni-vystava-zaku-vytvarneho",
+   "title": "Vánoční výstava žáků výtvarného oboru ZUŠ Pečky",
+   "date": "2026-12-07",
+   "date_end": "2026-12-11",
+   "time": "14:00",
+   "time_end": "17:00",
+   "all_day": false,
+   "category": "akce",
+   "link": "https://pecky.cz/default/report/504853_vanocni-vystava-zaku-vytvarneho-oboru-zus-pecky",
+   "description": "Výstava prací žáků výtvarného oboru. Otevřeno 14:00–17:00 nebo dle domluvy.",
+   "place": "ZUŠ Pečky, učebna č. 10, 1. patro",
+   "organizer": "zus-pecky",
+   "organizer_name": "ZUŠ Pečky",
+   "image": null,
+   "note": "Učebnu a možnost domluvit se na jiném čase uvádí plakát připojený k aktualitě města.",
+   "zdroje": [
+    [
+     "pecky-cz",
+     "https://pecky.cz/default/report/504853_vanocni-vystava-zaku-vytvarneho-oboru-zus-pecky",
+     "pecky.cz — Vánoční výstava žáků výtvarného oboru ZUŠ Pečky"
+    ]
+   ],
+   "source_ref": "akce-2026-12-07-vanocni-vystava-zaku-vytvarneho"
   },
   {
    "id": "kurz-2026-12-07-hudebni-nauka-se-sborem-1-3-rocnik-po",
@@ -50820,7 +50826,7 @@
    "category": "akce",
    "link": "https://pecky.cz/default/report/496608_vanocni-jarmark-v-ms-masinka-pecky",
    "description": "Výrobky dětí a zaměstnanců školky. Občerstvení zajistí SRPMŠ. V 18:00 zazní koledy v rámci celorepublikové akce Česko zpívá koledy. Vstup zdarma.",
-   "place": "Velká zahrada Mateřské školy MAŠINKA Pečky",
+   "place": "Velká zahrada, Mateřská škola MAŠINKA Pečky, Tř. Jana Švermy 825, Pečky",
    "organizer": "msmasinka-pecky",
    "organizer_name": "MŠ MAŠINKA Pečky",
    "image": null,
@@ -50833,30 +50839,6 @@
     ]
    ],
    "source_ref": "akce-2026-12-09-vanocni-jarmark-v-ms-masinka-pecky"
-  },
-  {
-   "id": "akce-2026-12-09-vanocni-jarmark-ms-masinka",
-   "title": "Vánoční jarmark v MŠ Mašinka",
-   "date": "2026-12-09",
-   "date_end": null,
-   "time": "17:00",
-   "all_day": false,
-   "category": "akce",
-   "link": "https://pecky.cz/default/report/496608_vanocni-jarmark-v-ms-masinka-pecky",
-   "description": "Výrobky dětí a zaměstnanců školky, občerstvení zajistí SRPMŠ. V 18:00 koledy v rámci celorepublikové akce Česko zpívá koledy. 17:00–19:00, vstup zdarma.",
-   "place": "Velká zahrada, Mateřská škola MAŠINKA Pečky, Tř. Jana Švermy 825, Pečky",
-   "organizer": "msmasinka-pecky",
-   "organizer_name": "MŠ MAŠINKA Pečky",
-   "image": null,
-   "note": "Aktualita města zveřejněná 28. 10. 2026 uvádí začátek 17:00 a konec 19:00.",
-   "zdroje": [
-    [
-     "pecky-cz",
-     "https://pecky.cz/default/report/496608_vanocni-jarmark-v-ms-masinka-pecky",
-     "pecky.cz — Vánoční jarmark v MŠ Mašinka Pečky"
-    ]
-   ],
-   "source_ref": "akce-2026-12-09-vanocni-jarmark-ms-masinka"
   },
   {
    "id": "kurz-2026-12-09-nesoubor",

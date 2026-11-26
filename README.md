@@ -58,9 +58,9 @@ se sem, na stránku samotnou se nic ručně nepíše.
 
 | Sekce | Režim | Kontrola | Změna | Co naposledy |
 |---|---|---|---|---|
+| [Kalendář](kalendar/README.md) | týdně | 26. 11. 2026 | 26. 11. 2026 | nová akce: Vánoční výstava žáků výtvarného oboru ZUŠ Pečky (7.–11. 12. 2026); sloučeny dvojité záznamy Vánočního jarmarku v MŠ Mašinka a akce Tak trochu vánoční keramika |
 | [Na oběd](naobed/README.md) | denně | 26. 11. 2026 | 26. 11. 2026 | U Marka: nové menu na 26. 11. 2026 (z fotografie lístku na Facebooku) |
 | [Obchvat](obchvat/README.md) | na vyžádání | 24. 11. 2026 | 24. 11. 2026 | nový blok „Výkup pozemků“ (vlastnictví 106 parcel pod trasou z katastru, doložené kroky výkupu), banner „Kde projekt stojí“ pod mapou, bloky o územním plánu a zástavbě na konci stránky, časová osa od nejnovějších; kontrola zdrojů po RM 2. 3. 2026: k severnímu obchvatu nic nového (časová osa i „Aktuální fáze“ beze změny); do oddílu o staré silnici II/329 doplněn přechod u Hellichovy (RM 29. 6., ZM 16. 9. 2026) a oprava u OC Billa (uzavírka 2.–15. 11. 2026) |
-| [Kalendář](kalendar/README.md) | týdně | 24. 11. 2026 | 24. 11. 2026 | Zápis do 1. ročníku (27. a 28. 1. 2027): doplněn plakát ZŠ Pečky z Facebooku (učebny, rezervace v ZápisyOnline, konec zápisu) |
 | [O webu](o-webu/README.md) | týdně | 24. 11. 2026 | 24. 11. 2026 | nový odkaz Pamětní kniha obce Pečky z roku 1888 (eBadatelna Státního oblastního archivu v Praze) |
 | [Smlouvy](smlouvy/README.md) | týdně | 24. 11. 2026 | 24. 11. 2026 | souhrn skupiny přepsán na 189 smluv / 105,7 mil. Kč (Hlídač státu už počítá smlouvu z 12. 11. 2026 — dotace Středočeského kraje na bezplatné stravování, MŠ Mašinka, 72 420 Kč); úřad beze změny (51 smluv / 34,8 mil. Kč) |
 | [Voda](voda/README.md) | na vyžádání | 24. 11. 2026 | 24. 11. 2026 | k výzvě k šetření vodou z 27. 10. 2026 doplněn zdroj: oznámení Pečeckých služeb z 3. 11. 2026 o opravě tří úniků (Dobřichovská, Tř. Jana Švermy, Nymburská × V Kaštánkách); celkem 60 událostí / 73 zdrojů |
