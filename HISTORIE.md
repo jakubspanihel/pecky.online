@@ -4,6 +4,8 @@ Chronologický deník běhů a úprav, nejnovější nahoře. Přesunuto z
 kořenového `README.md` (sekce „Poslední aktualizace“). Aktuální stav sekcí
 je v tabulce „Stav sekcí“ v `README.md`; sem patří podrobnosti běhu.
 
+27. listopadu 2026 (odkaz na video k ZM 9/2026, na žádost uživatele). `jednani/pecky-jednani.json`: k ZM 9/2026 (25. 11.) vrácen `links.livestream` (youtube.com/live/Q-MbEdYt7lM), přestože YouTube video hlásí jako soukromé; na playlistu „Zasedání ZM“ ani mezi živými přenosy kanálu města záznam z 25. 11. není. `jednani/automation-kontrola-usneseni-cz.md` (krok 6b): odkaz z pozvánky se kvůli soukromému videu nemaže.
+
 27. listopadu 2026 (Na oběd, nová kontrola na žádost uživatele). Beze změny obsahu. Siňorita (nejnovější lístek 25. 11.) a U Stříkačky (24. 11.) stále bez nového menu a bez novějšího příspěvku s oznámením.
 
 27. listopadu 2026 (Na oběd, opakovaný automatický běh). Beze změny obsahu. U Marka a školní jídelna už měly dnešní menu (přeskočeno). Siňorita (nejnovější lístek 25. 11.) a U Stříkačky (24. 11.) bez nového menu a bez novějšího příspěvku s oznámením; datum kontroly v `naobed/menu.json` i „Stav sekcí“ už bylo 27. 11.

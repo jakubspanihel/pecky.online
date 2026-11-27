@@ -354,6 +354,8 @@ a název odpovídá jednání (např. „ZM Pečky č. 8/2026, 4. 11. 2026, 16:3
 - Pokud se odkaz přesto nepodaří najít (pozvánka na úřední desce ještě není
   vyvěšená), nic nezobrazovat ani nevymýšlet (žádný generický text bez
   ověření) — zkusit znovu při příštím běhu.
+- Odkaz z pozvánky se doplňuje a ponechává i tehdy, když YouTube hlásí „Toto
+  video je soukromé“. Kvůli tomu ho nemazat; stav jen uvést v hlášení běhu.
 - Po jednání nahradí `links.youtube` z běžného kroku 6 tuhle dočasnou
   hodnotu; mazat `links.livestream` ručně není nutné.
 
