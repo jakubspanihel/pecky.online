@@ -4,6 +4,8 @@ Chronologický deník běhů a úprav, nejnovější nahoře. Přesunuto z
 kořenového `README.md` (sekce „Poslední aktualizace“). Aktuální stav sekcí
 je v tabulce „Stav sekcí“ v `README.md`; sem patří podrobnosti běhu.
 
+27. listopadu 2026 (Na oběd, opakovaný automatický běh). Beze změny obsahu. U Marka a školní jídelna už měly dnešní menu (přeskočeno). Siňorita (nejnovější lístek 25. 11.) a U Stříkačky (24. 11.) bez nového menu a bez novějšího příspěvku s oznámením; datum kontroly v `naobed/menu.json` i „Stav sekcí“ už bylo 27. 11.
+
 27. listopadu 2026 (běh Na oběd, ruční spuštění dopoledne). U Marka: nové menu na 27. 11. 2026 (`naobed/data/u-marka-pecky/2026-11.json`, `naobed/menu.json`). Školní jídelna už má dnešní jídelníček. Siňorita (nejnovější lístek 25. 11.) a U Stříkačky (24. 11.) bez nového menu a bez oznámení v zobrazených příspěvcích, označeno jako zkontrolováno.
 
 26. listopadu 2026 (Kalendář: rezervace sportovní haly, ruční spuštění). `kalendar/sportovni-hala.json` (předchozí stažení 20. 10.): staženy týdny 19. 10. – 3. 1., záznamy od 19. 10. přepsány (269 → 327 rezervací), 33 rezervací se změnilo z nepotvrzených na potvrzené, u dvou se posunul konec (25. 10. a 22. 11.), florbalový turnaj ČF 12.–13. 12. v systému už není; jména soukromých osob v názvech vynechána. `kalendar/udalosti.json` a `kalendar.ics` přegenerovány bez synchronizace do Google Kalendáře. `kalendar/README.md`: nový stav.
