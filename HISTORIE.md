@@ -4,6 +4,8 @@ Chronologický deník běhů a úprav, nejnovější nahoře. Přesunuto z
 kořenového `README.md` (sekce „Poslední aktualizace“). Aktuální stav sekcí
 je v tabulce „Stav sekcí“ v `README.md`; sem patří podrobnosti běhu.
 
+27. listopadu 2026 (Na oběd, nová kontrola na žádost uživatele). Beze změny obsahu. Siňorita (nejnovější lístek 25. 11.) a U Stříkačky (24. 11.) stále bez nového menu a bez novějšího příspěvku s oznámením.
+
 27. listopadu 2026 (Na oběd, opakovaný automatický běh). Beze změny obsahu. U Marka a školní jídelna už měly dnešní menu (přeskočeno). Siňorita (nejnovější lístek 25. 11.) a U Stříkačky (24. 11.) bez nového menu a bez novějšího příspěvku s oznámením; datum kontroly v `naobed/menu.json` i „Stav sekcí“ už bylo 27. 11.
 
 27. listopadu 2026 (běh Na oběd, ruční spuštění dopoledne). U Marka: nové menu na 27. 11. 2026 (`naobed/data/u-marka-pecky/2026-11.json`, `naobed/menu.json`). Školní jídelna už má dnešní jídelníček. Siňorita (nejnovější lístek 25. 11.) a U Stříkačky (24. 11.) bez nového menu a bez oznámení v zobrazených příspěvcích, označeno jako zkontrolováno.
