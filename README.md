@@ -60,7 +60,7 @@ se sem, na stránku samotnou se nic ručně nepíše.
 |---|---|---|---|---|
 | [Jednání](jednani/README.md) | týdně | 27. 11. 2026 | 27. 11. 2026 | U ZM 9/2026 (25. 11. 2026) doplněn odkaz na video z pozvánky; 27. 11. ho YouTube hlásil jako soukromé |
 | [Na oběd](naobed/README.md) | denně | 27. 11. 2026 | 27. 11. 2026 | U Marka: nové menu na 27. 11. 2026 (z fotografie lístku na Facebooku) |
-| [Kalendář](kalendar/README.md) | týdně | 26. 11. 2026 | 26. 11. 2026 | rezervace sportovní haly aktualizovány z rezervačního systému do 31. 12. 2026 |
+| [Kalendář](kalendar/README.md) | týdně | 27. 11. 2026 | 26. 11. 2026 | rezervace sportovní haly aktualizovány z rezervačního systému do 31. 12. 2026 |
 | [Tělocvična](telocvicna/README.md) | týdně | 26. 11. 2026 | 26. 11. 2026 | 23. 11. 2026 RM 42/2026, bod 3: cenová nabídka na statické řešení stabilizace základů, kontrolní den 26. 11. (bez usnesení) |
 | [Usnesení](usneseni/README.md) | odvozená | 26. 11. 2026 | 26. 11. 2026 | nová usnesení RM 42/2026 s termíny; u 10 dříve otevřených usnesení doplněno datum ukončení |
 | [Obchvat](obchvat/README.md) | na vyžádání | 24. 11. 2026 | 24. 11. 2026 | nový blok „Výkup pozemků“ (vlastnictví 106 parcel pod trasou z katastru, doložené kroky výkupu), banner „Kde projekt stojí“ pod mapou, bloky o územním plánu a zástavbě na konci stránky, časová osa od nejnovějších; kontrola zdrojů po RM 2. 3. 2026: k severnímu obchvatu nic nového (časová osa i „Aktuální fáze“ beze změny); do oddílu o staré silnici II/329 doplněn přechod u Hellichovy (RM 29. 6., ZM 16. 9. 2026) a oprava u OC Billa (uzavírka 2.–15. 11. 2026) |
