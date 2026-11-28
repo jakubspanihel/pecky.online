@@ -1,7 +1,10 @@
 ## Nejdůležitější témata
-1. **Rozpočet města na rok 2022** — schodkový: příjmy 95 492 890 Kč, výdaje 169 403 000 Kč, schodek 73 910 110 Kč kryjí prostředky z předchozích období; schválen 12 hlasy pro, 8 proti; bod trval 34 minut.
-2. **Odkup pozemků od KUTA a.s.** — koupě pozemků v Pečkách (11 pro, 4 proti, 6 se zdrželo) a pověření vedení města přípravou projektu výstavby včetně chybějících komunikací (12 pro, 2 proti, 7 se zdrželo); sekce Pozemky.
-3. **Studie rekonstrukcí** — ulic Pražská, Stará, Jarní a Krátká ve Velkých Chvalovicích (26 minut) a kabin AFK Pečky (17 minut).
+1. **Schválen rozpočet 2022 se schodkem** — ==Schodek 73,9 mil. Kč==.
+2. **Schváleno chystat stavbu na pozemcích** — V rozpočtu 2022 jsou ==výdaje 169,4 mil. Kč==.
+3. **Schválena studie ulic v Chvalovicích** — Ve Velkých Chvalovicích.
+4. **Schválena studie kabin AFK** — 20 pro, 1 se zdržel.
+5. **Schváleno náměstí Vladimíra Renčína** — Náměstí Vladimíra Renčína.
+6. **Schváleno převzetí osvětlení zdarma** — Ve Velkých Chvalovicích.
 
 ## Shrnutí
 Zastupitelstvo města se sešlo 8. 12. 2021 a jednalo 2 h 28 min. Přítomno bylo všech 21 členů, jeden později odešel. Přijalo 13 usnesení (UZ-33-5/21 až UZ-45-5/21).

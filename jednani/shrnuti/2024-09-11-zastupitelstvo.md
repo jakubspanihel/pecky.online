@@ -1,7 +1,9 @@
 ## Nejdůležitější témata
-1. **Plán společných zařízení komplexních pozemkových úprav (KoPÚ) Pečky** — návrh schválen k projednání s požadavkem doplnit návrhy zastupitele Tomáše Vodičky; pro 17, zdrželi se 2; bod trval 29 minut.
-2. **Koeficienty daně z nemovitých věcí** — nová vyhláška účinná od 1. 1. 2025; pro 16, proti 1, zdrželi se 2; bod trval 21 minut.
-3. **Fond obnovy vodovodů a Bačov** — použití až 3 200 000 Kč z fondu na rekonstrukci vodovodu Bačov; pro 18, zdržel se 1.
+1. **Schváleny ==nové koeficienty daně==** — Vyhláška platí od roku 2025.
+2. **Schváleno čerpání na vodovod v Bačově** — ==Až 3,2 mil. Kč==.
+3. **Schválen plán cest k projednání** — Doplní se návrhy T. Vodičky.
+4. **Schválen převod ostrůvku kraji** — Bezúplatný převod i s pozemky.
+5. **Schválen akční plán na roky 2024–2026**
 
 ## Shrnutí
 Zastupitelstvo města se sešlo 11. 9. 2024 a jednalo 3 h 5 min. Na začátku bylo přítomno 19 z 21 členů (2 omluvení), Tomáš Růžička později odešel. Na začátku jednání složila slib Jaroslava Vosecká jako náhradnice za uvolněný mandát. Přijalo 8 usnesení (UZ-37-4/24 až UZ-44-4/24).

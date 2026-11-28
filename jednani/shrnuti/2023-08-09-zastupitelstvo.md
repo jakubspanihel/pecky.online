@@ -1,7 +1,7 @@
 ## Nejdůležitější témata
-1. **Odkup pozemků ve Velkých Chvalovicích** — dva pozemky (421 m² silnice a 569 m² koryta Chvalovického potoka) za celkem 78 748,66 Kč, jednomyslně; podle důvodové zprávy souvisí s budoucím obchvatem (sekce Pozemky).
-2. **Podíl ⅛ pozemků z LV 2656 a LV 2628 v Pečkách** — starosta má jednat s realitní kanceláří M&M reality holding a.s. o snížení ceny; bod trval 15 minut.
-3. **Pověření rady při rezervacích a dražbách pozemků** — bod trval 11 minut, usnesení mezi zveřejněnými není; materiály byly doplněny dodatečně.
+1. **Schválen odkup silnice a kusu potoka** — ==Za celkem 78 748,66 Kč==.
+2. **Uloženo jednat o slevě na pozemky** — Jde o osminový podíl.
+3. **Pověření rady k dražbám bez závěru** — ==11 minut==; zveřejněné usnesení chybí.
 
 ## Shrnutí
 Zastupitelstvo města se sešlo 9. 8. 2023 a jednalo 1 h 7 min. Na začátku bylo přítomno 18 z 21 členů (3 omluvení), později odešla Lenka Třísková. Přijalo 3 usnesení (UZ-30-4/23 až UZ-32-4/23), všechna jednomyslně.

@@ -1,7 +1,10 @@
 ## Nejdůležitější témata
-1. **Dražba spoluvlastnického podílu pozemku v Radimi u Kolína** — účast na dražbě podílu ½ pozemku parc. č. 388/140 (5 620 m²); nejnižší podání 100 000 Kč; starosta pověřen vydražit pozemek do nejvýše stanovené částky; pro 12, zdrželo se 6; bod trval 18 minut (sekce Pozemky).
-2. **Dotace sportovním oddílům na rok 2024** — TJ Sokol Pečky 560 000 Kč a AFK Pečky 450 000 Kč; jednomyslně.
-3. **Poplatek za užívání veřejného prostranství** — nová vyhláška; pro 13, proti 2, zdrželi se 3; bod trval 15 minut.
+1. **Schváleny dotace sportovním oddílům** — TJ ==Sokol 560 000 Kč== a AFK 450 000 Kč.
+2. **Schválena ==dražba podílu v Radimi==** — Rozhodnuto 12 hlasy.
+3. **Schváleno doplacení auta pro hasiče** — Město doplatí, co nepokryje dotace.
+4. **Vydána vyhláška o veřejné ploše** — U psů se výše poplatku nemění.
+5. **Schválena změna smlouvy o úpravně vody** — Dodatek č. 2 ke smlouvě.
+6. **Schválen dodatek dohody s developerem** — General Property X; 13 pro, 5 se zdrželo.
 
 ## Shrnutí
 Zastupitelstvo města se sešlo 21. 2. 2024 a jednalo 2 h 36 min. Přítomno bylo 18 z 21 členů (3 omluvení). Přijalo 15 usnesení (UZ-1-1/24 až UZ-15-1/24).

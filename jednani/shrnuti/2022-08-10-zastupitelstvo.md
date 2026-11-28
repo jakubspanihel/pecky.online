@@ -1,7 +1,10 @@
 ## Nejdůležitější témata
-1. **Rozpočtové opatření č. 11/2022** — nejdelší bod jednání (22 minut), schváleno 11 hlasy pro, 4 proti, 1 se zdržel.
-2. **Stavby: přechod pro chodce v ulici Sladkovského a úprava prostranství před ZUŠ** — smlouvy o dílo s firmou PKbau s.r.o.; přechod 12 pro, 1 proti, 3 se zdrželi, bod trval 15 minut.
-3. **Pozemky** — změna katastrální hranice mezi Pečkami a Velkými Chvalovicemi, darování a odkupy pozemků (sekce Pozemky).
+1. **Schváleno odpuštění dluhu farnosti** — ==300 000 Kč== z městské půjčky.
+2. **Schválena stavba před ZUŠ a přechod** — Úprava prostranství a nový přechod.
+3. **Schválena změna hranice katastrů** — V rámci pozemkových úprav.
+4. **Schváleno přijetí tří darů pozemků**
+5. **Schváleny odkupy několika pozemků**
+6. **Schválen prodej 4 ==m² za 932 Kč==** — Za 932 Kč.
 
 ## Shrnutí
 Zastupitelstvo města se sešlo 10. 8. 2022 a jednalo 1 h 57 min. Na začátku bylo přítomno 15 z 21 členů (6 omluvených). Přijalo 15 usnesení (UZ-50-5/22 až UZ-64-5/22).

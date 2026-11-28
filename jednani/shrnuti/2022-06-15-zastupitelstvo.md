@@ -1,7 +1,7 @@
 ## Nejdůležitější témata
-1. **Úpravna vody Pečky, zdroj Tatce** — smlouva o dílo s vybraným dodavatelem (společnost ÚV Pečky ze společníků VPK Suchý s.r.o. a POHL cz, a.s.) s víceletým financováním; pro 16, zdrželi se 2.
-2. **Rozpočtová opatření č. 8/2022** — nejdelší bod jednání (14 minut), jednomyslně; navazuje č. 9/2022.
-3. **Odkup spoluvlastnického podílu pozemku v Tatcích** — jedna třetina parc. č. 462/57 (1 188 m²) za 60 000 Kč (sekce Pozemky).
+1. **Schválen ==stavitel úpravny vody v Tatcích==** — Smlouva s víceletým financováním.
+2. **Schválen odkup podílu v Tatcích** — ==Za 60 000 Kč==.
+3. **Schváleny dvě úpravy rozpočtu** — Č. 8 a 9/2022.
 
 ## Shrnutí
 Zastupitelstvo města se sešlo 15. 6. 2022. Jednání trvalo 58 minut. Přítomno bylo 18 z 21 členů (3 omluvení). Přijalo 5 usnesení (UZ-45-4/22 až UZ-49-4/22).

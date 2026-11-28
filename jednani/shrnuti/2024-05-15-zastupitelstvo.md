@@ -1,7 +1,10 @@
 ## Nejdůležitější témata
-1. **Akční plán pro udržitelnou energii a klima Podlipanska (SECAP)** — schválen jako závazný strategický dokument, jednomyslně (17 hlasů); bod trval 19 minut.
-2. **Poplatky a příspěvky** — nová vyhláška o poplatku za užívání veřejného prostranství s navýšením poplatků (pro 11, proti 2, zdrželi se 3) a příspěvky uvolněným zastupitelům: stravenky 100 Kč za den, penzijní připojištění 500 Kč měsíčně, benefity 1 000 Kč měsíčně (pro 12, proti 2, zdrželi se 3).
-3. **Směna pozemků** — pozemek města parc. č. 531/1 (10 983 m²) za dva pozemky u Benešáku (3 952 m² a 37 m²) bez finanční náhrady; jednomyslně (sekce Pozemky).
+1. **Schválen plán pro energii a klima** — Akční plán Podlipanska.
+2. **Vydána nová vyhláška o záboru plochy** — S vyššími poplatky.
+3. **Schváleny benefity pro zastupitele** — Stravenky, penze a ==1 000 Kč měsíčně==.
+4. **Schválena směna pozemků u Benešáku** — Bez finančního doplatku.
+5. **Schváleno víceleté placení Bačova** — Pro 16, 1 se zdržel.
+6. **Schválena ==půjčka 250 000 Kč== na koupelnu** — Z fondu rozvoje bydlení.
 
 ## Shrnutí
 Zastupitelstvo města se sešlo 15. 5. 2024 a jednalo 2 h 13 min. Na začátku bylo přítomno 18 z 21 členů (3 omluvení). Přijalo 10 usnesení (UZ-16-2/24 až UZ-25-2/24).

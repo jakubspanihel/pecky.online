@@ -1,7 +1,10 @@
 ## Nejdůležitější témata
-1. **Studie kabin TJ Velké Chvalovice** — nejdelší bod jednání (39 minut), studie schválena jednomyslně (18 hlasů).
-2. **Dohody o spolupráci s developery** — RP Pečky, s.r.o. (pro 15, proti 1, zdržel se 1; změna využití pozemků na veřejnou zeleň) a Palma Development s.r.o. (pro 12, proti 1, zdrželo se 5).
-3. **Kulturní středisko Pečky, II. etapa** — smlouva o dílo na obnovu interiéru s víceletým financováním, jednomyslně; a žádost o dotaci na rekonstrukci kabin AFK.
+1. **Schváleny dohody se dvěma developery** — RP Pečky a Palma Development.
+2. **Schválena studie kabin v Chvalovicích** — Nejdelší bod, ==39 minut==.
+3. **Schválen interiér pro kulturní středisko** — Zakázku má Bursík Holding.
+4. **Schválena žádost o dotaci na kabiny AFK** — A slíbilo spolufinancování.
+5. **Schváleny dvě smlouvy pro obchvat** — O budoucí koupi pozemků.
+6. **Schválena ==půjčka 400 000 Kč== na střechu**
 
 ## Shrnutí
 Zastupitelstvo města se sešlo 21. 9. 2022 a jednalo 2 h 30 min. Na začátku bylo přítomno 17 z 21 členů (4 omluvení). Přijalo 18 usnesení (UZ-65-6/22 až UZ-82-6/22).

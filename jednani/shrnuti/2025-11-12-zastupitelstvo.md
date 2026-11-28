@@ -1,7 +1,10 @@
 ## Nejdůležitější témata
-1. **Severní obchvat Peček** — bezúplatné převzetí stávající silnice II/329 (průtah Pečkami, cca 2,9 km), která se po dokončení obchvatu vyřadí ze silniční sítě; jednomyslně (18 hlasů); bod trval 7 minut.
-2. **Dodatek č. 2 k dohodě s VPK Suchý Development s.r.o.** — pro 16, proti 1, zdrželi se 2; bod trval 12 minut.
-3. **Komplexní pozemkové úpravy** — aktualizace plánů společných zařízení v k.ú. Pečky a Dobřichov (nové, zkrácené a zrušené cesty a další úpravy); v obou případech pro 16, zdrželi se 2 (sekce Pozemky).
+1. **Schváleno ==převzetí staré silnice==** — Jde o dnešní průtah Pečkami.
+2. **Upraveny plány cest u Peček a Dobřichova** — V rámci pozemkových úprav.
+3. **Schválen odkup podílu pozemků** — V ==Chvalovicích za 53 739 Kč==.
+4. **Pověřen starosta jednat o koupi domu** — Starosta bude jednat o koupi čp. 179.
+5. **Schváleny cíle města v energetice** — Týkají se i ochrany klimatu.
+6. **Schválena nová pravidla fondu bydlení** — Mění se převod půjček příjemcům.
 
 ## Shrnutí
 Zastupitelstvo města se sešlo 12. 11. 2025 a jednalo 1 h 51 min. Na začátku bylo přítomno 18 z 21 členů (3 omluvení). Přijalo 9 usnesení (UZ-47-5/25 až UZ-55-5/25).

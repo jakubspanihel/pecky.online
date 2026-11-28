@@ -1,7 +1,10 @@
 ## Nejdůležitější témata
-1. **Dětský tábor v Hryzelích** — pověření starosty jednat s realitní kanceláří ZFP Reality, s.r.o., a ZO OS KOVO ZPA Pečky o odkoupení tábora; nejdelší bod jednání (35 minut), pro 14, proti 1, zdrželo se 5.
-2. **Dotace sportovním organizacím na rok 2023** — mimo jiné TJ Sokol 560 000 Kč, AFK 420 000 Kč, TJ Spartak 250 000 Kč; jednomyslně.
-3. **Nákupy pozemků** — pozemek parc. č. 531 (12 345 m²) za 934 445 Kč a pozemek od General Property X s.r.o. (589 m²) za 894 102 Kč bez DPH (sekce Pozemky).
+1. **Schváleno jednat o táboře Hryzely** — O jeho odkoupení.
+2. **Schváleny dotace sportu na rok 2023** — Nejvíc Sokol, ==560 000 Kč==.
+3. **Schválena koupě ==pozemku za 934 445 Kč==** — 12 345 m² orné půdy.
+4. **Schválena smlouva o energii a klimatu** — Město přispěje 78 488 Kč.
+5. **Schváleny pozemky do změny plánu** — Zařazeny do změny územního plánu.
+6. **Schváleno 60 000 Kč pro postižené**
 
 ## Shrnutí
 Zastupitelstvo města se sešlo 15. 2. 2023 a jednalo 2 h 20 min. Přítomno bylo 20 z 21 členů (omluven Lubomír Metelák). Přijalo 13 usnesení (UZ-1-1/23 až UZ-13-1/23).

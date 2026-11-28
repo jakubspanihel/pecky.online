@@ -1,7 +1,10 @@
 ## Nejdůležitější témata
-1. **Městská policie Pečky** — pověření řízením policie 2. místostarostou Ing. Martinem Jedličkou (18 pro, 3 se zdrželi) a ukončení veřejnoprávních smluv o výkonu úkonů s obcemi Ratenice, Chotutice, Tatce a Plaňany (15 pro, 2 proti, 4 se zdrželi); bod trval 18 minut.
-2. **Revokace usnesení UZ-115-7/22** — zrušeno usnesení o přístupu všech zastupitelů k anonymizovaným podkladům rady; 13 pro, 7 proti, 1 se zdržel; bod trval 7 minut.
-3. **Poplatek za odpady** — nová vyhláška o místním poplatku za obecní systém odpadového hospodářství; pro 16, proti 2, zdrželi se 3.
+1. **Pověřen ==Jedlička řízením policie==** — Martin Jedlička.
+2. **Schválen konec služby policie obcím** — Ratenice, Chotutice, Tatce a Plaňany.
+3. **Vydána nová vyhláška o odpadech** — 16 pro, 2 proti, 3 se zdrželi.
+4. **Zrušen přístup k podkladům rady** — Neplatí přístup pro všechny zastupitele.
+5. **Stanoveny pravomoci rady k rozpočtu** — Ve stejném rozsahu jako dříve.
+6. **Schválen odkup pozemku v Barákově ulici** — Asi 49 ==m² za 11 270 Kč==.
 
 ## Shrnutí
 Zastupitelstvo města se sešlo 23. 11. 2022 a jednalo 1 h 57 min. Přítomno bylo všech 21 členů, jeden později odešel. Přijalo 14 usnesení (UZ-116-8/22 až UZ-129-8/22).

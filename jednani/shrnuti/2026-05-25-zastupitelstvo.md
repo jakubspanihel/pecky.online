@@ -1,6 +1,6 @@
 ## Nejdůležitější témata
-1. **Dražba pozemku ve Velkých Chvalovicích** — účast na dražbě pozemku parc. č. 342/41 (1 296 m², koryto vodního toku) s nejnižším podáním 53 334 Kč (41,15 Kč/m²); starosta pověřen vydražit pozemek do nejvýše stanovené částky; jednomyslně; bod trval 14 minut (sekce Pozemky).
-2. **Neobvykle krátké jednání** — 34 minut (medián všech 41 jednání od června 2021 je 2 h 28 min), při přítomnosti 14 z 21 členů.
+1. **Schválena účast v dražbě vodní plochy** — Koryto v Chvalovicích ==má 1 296 m²==.
+2. **Jednání trvalo ==jen 34 minut==** — Přítomno bylo 14 z 21 zastupitelů.
 
 ## Shrnutí
 Zastupitelstvo města se sešlo 25. 5. 2026 a jednalo 34 minut. Na začátku bylo přítomno 14 z 21 členů (7 omluvených). Přijalo 2 usnesení (UZ-15-3/26 a UZ-16-3/26), obě jednomyslně.

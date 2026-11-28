@@ -1,7 +1,10 @@
 ## Nejdůležitější témata
-1. **Revitalizace vodního toku Výrovka v Plánu společných zařízení KoPÚ Pečky** — nejdelší bod jednání (73 minut); zastupitelstvo schválilo zakreslení prvku revitalizace, při nesouhlasu vlastníků jen na pozemcích souhlasících vlastníků; pro 15, zdrželi se 2.
-2. **Strategický plán rozvoje města 2016–2026** — vytvoření Akčního plánu na roky 2024–2026, vyhodnocení akcí za rok 2023 a zrušení pracovních skupin; pro 12, proti 1, zdrželi se 4.
-3. **Fondy obnovy vodovodů a kanalizací** — mimořádné vklady 3 640 000 Kč a 1 960 000 Kč z 5 600 000 Kč převedených z nerozděleného zisku Pečeckých služeb; jednomyslně.
+1. **Schválen ==zákres obnovy Výrovky do plánu==** — Na pozemcích souhlasících vlastníků.
+2. **Schváleno hospodaření za rok 2023** — Závěrečný účet prošel bez výhrad.
+3. **Schváleny vklady do fondů vodovodů** — ==Přes 5 mil. Kč== z nerozděleného zisku.
+4. **Schválena nová listina pro pečovatele** — Zřizovací listina od 1. 7. 2024.
+5. **Pověřen starosta jednat o kabinách AFK** — Starosta bude jednat se Stafiko.
+6. **Schváleno vytvoření akčního plánu města**
 
 ## Shrnutí
 Zastupitelstvo města se sešlo 19. 6. 2024 a jednalo 2 h 42 min. Na začátku bylo přítomno 17 z 21 členů (4 omluvení). Přijalo 11 usnesení (UZ-26-3/24 až UZ-36-3/24).

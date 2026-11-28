@@ -1,7 +1,10 @@
 ## Nejdůležitější témata
-1. **Čestná občanství a Pamětní medaile k výročí města** — udělena čestná občanství 12 osobám (dvě in memoriam) a pamětní medaile čtyřem příjemcům; návrhy zabraly 74 minut, většinou jednomyslně.
-2. **Revokace usnesení UZ-38-5/21 o projektu na pozemcích KUTA a.s.** — bod trval 39 minut a zastupitelstvo ho odložilo na zasedání 25. 6. 2025; pro 14, zdrželo se 5 (sekce Pozemky).
-3. **Nové ulice v Pečkách** — pojmenována ulice Radovana Lukavského a prodloužena ulice Dělnická; jednomyslně.
+1. **Uděleno ==čestné občanství 12 lidem==** — Dva z nich in memoriam.
+2. **Uděleny ==čtyři pamětní medaile==** — Mj. basketbalistkám Sokola.
+3. **Schválena ulice Radovana Lukavského** — Prodlouží se i ulice Dělnická.
+4. **Odložen spor o projekt na pozemcích KUTA** — Na červnové zasedání.
+5. **Schválena úprava rozpočtu 2025** — Hlavně o průtokové dotace.
+6. **Prodej dvou pozemků bez usnesení** — Zveřejněné usnesení k žádostem chybí.
 
 ## Shrnutí
 Zastupitelstvo města se sešlo 2. 4. 2025 a jednalo 3 h 3 min. Na začátku bylo přítomno 19 z 21 členů (omluveni Jaroslav Železný a Jaroslava Vosecká). Přijalo 20 usnesení (UZ-10-2/25 až UZ-29-2/25).

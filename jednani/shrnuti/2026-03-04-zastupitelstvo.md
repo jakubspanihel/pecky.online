@@ -1,7 +1,10 @@
 ## Nejdůležitější témata
-1. **Dostavba učeben a tělocvičny v ZŠ Pečky** — výběr dodavatele „Společnost MARHOLD + POHL cz – ZŠ Pečky“ za 168 614 851 Kč bez DPH (zhruba 205 mil. Kč s DPH) s víceletým financováním; nejdelší bod jednání (44 minut); pro 18, zdrželi se 2 (sekce Tělocvična).
-2. **Rozpočtové opatření č. 1/2026** — snížení výdajů na revitalizaci mlýnského náhonu, která byla podmíněna dotací, a navýšení jiných položek (mimo jiné projektová dokumentace pod shybkou o 600 000 Kč); jednomyslně; bod trval 14 minut.
-3. **Dotace sportovním oddílům na rok 2026** — TJ Sokol Pečky 700 000 Kč a AFK Pečky 490 000 Kč; jednomyslně.
+1. **Vybráni stavitelé tělocvičny** — MARHOLD a POHL cz, ==168,6 mil. Kč bez DPH==.
+2. **Schváleny dotace Sokolu a AFK Pečky** — AFK Pečky ==získá 490 000 Kč==.
+3. **Uloženo žádat ČEZ o přípojné místo** — U fotbalového hřiště v Chvalovicích.
+4. **Zvolena nová oddávající Švejnohová** — Zastupitelstvo ji určilo jako oddávající.
+5. **Schválena první úprava rozpočtu 2026**
+6. **O půjčku z fondu bydlení nikdo nežádal** — V 1. kole; bez usnesení.
 
 ## Shrnutí
 Zastupitelstvo města se sešlo 4. 3. 2026 a jednalo 2 h 27 min. Na začátku bylo přítomno 19 z 21 členů (2 omluvení). Přijalo 6 usnesení (UZ-1-1/26 až UZ-6-1/26).

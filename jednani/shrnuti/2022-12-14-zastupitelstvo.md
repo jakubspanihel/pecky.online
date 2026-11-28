@@ -1,7 +1,8 @@
 ## Nejdůležitější témata
-1. **Rozpočet města na rok 2023** — schodkový: příjmy 173 853 150 Kč, výdaje 208 643 590 Kč, schodek 34 790 440 Kč kryjí prostředky z předchozích let; schválen 17 hlasy pro, 3 proti; nejdelší bod jednání (77 minut).
-2. **Úpravna vody Pečky, zdroj Tatce** — závazek převést majetek vodohospodářské infrastruktury pro pitnou vodu do vlastnictví města nejpozději do 31. 12. roku posledního kolaudačního souhlasu; jednomyslně.
-3. **Konec spolupráce s Člověkem v tísni** — ukončení memoranda o sociálním bydlení, protože celkové náklady stavby výrazně převyšují hodnotu v zadávacím řízení; jednomyslně.
+1. **Schválen rozpočet 2023 se schodkem** — ==Schodek 34,8 mil. Kč==.
+2. **Schválen ==konec spolupráce o bydlení==** — S Člověkem v tísni.
+3. **Schváleno prohlášení k vodovodní síti** — Do konce roku poslední kolaudace.
+4. **Zrušen odkup pozemku v Plaňanech**
 
 ## Shrnutí
 Zastupitelstvo města se sešlo 14. 12. 2022 a jednalo 2 h 24 min. Na začátku bylo přítomno 19 z 21 členů (2 omluvení). Přijalo 6 usnesení (UZ-130-9/22 až UZ-135-9/22).

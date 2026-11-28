@@ -1,7 +1,10 @@
 ## Nejdůležitější témata
-1. **Komplexní pozemkové úpravy v Pečkách** — informace za účasti Státního pozemkového úřadu a projekční kanceláře; nejdelší bod jednání (55 minut); zastupitelstvo souhlasilo s pozemkovou úpravou a pověřilo starostu pokračovat v jednání s hospodařícím vlastníkem a podepsat aktuální soupis nových pozemků; jednomyslně.
-2. **Zásady pro spolupráci s investory a Fond veřejné infrastruktury** — zásady včetně plánovacích smluv (pro 16, zdržel se 1) a nový účelový fond od 1. 7. 2025 (jednomyslně).
-3. **Rozpočtové opatření č. 4/2025** — mimo jiné kamerový systém v ZŠ, dar 200 000 Kč na film Večerka a opravy; schváleno 16 hlasy proti 1 zdržení; bod trval 17 minut.
+1. **Schváleny pozemkové úpravy** — Starosta má dál jednat o nových pozemcích.
+2. **Schválen fond veřejné infrastruktury** — A zásady pro spolupráci s investory.
+3. **Schválen ==dar 200 000 Kč== na film Večerka** — Jde o táboře v Hryzelích.
+4. **Schváleny odměny hasičům** — ==Celkem 49 000 Kč== za zásahy při povodních.
+5. **Schválen odkup pozemků v Chvalovicích**
+6. **Schváleno hospodaření za rok 2024** — Závěrečný účet prošel bez výhrad.
 
 ## Shrnutí
 Zastupitelstvo města se sešlo 25. 6. 2025 a jednalo 3 h 29 min. Na začátku bylo přítomno 17 z 21 členů (4 omluvení). Přijalo 10 usnesení (UZ-30-3/25 až UZ-39-3/25).

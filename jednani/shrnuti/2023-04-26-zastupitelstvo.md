@@ -1,7 +1,10 @@
 ## Nejdůležitější témata
-1. **Dlouhé jednání** — 3 h 48 min (medián všech 41 jednání od června 2021 je 2 h 28 min); informace vedení města zabraly 82 minut, probíhající investiční akce 37 minut a rozpočtové opatření č. 2/2023 33 minut (schváleno jednomyslně, 19 hlasů).
-2. **Dotace spolkům** — Spolek železničních modelářů 70 000 Kč (činnost, výstava a jízda historického vlaku 26.–28. 5. 2023), AFK Pečky investiční dotace 255 000 Kč na traktorovou sekačku (14 pro, 1 proti, 4 se zdrželi).
-3. **Plot kolem Mateřské školy Mašinka** — bezúdržbový poplastovaný plot na podezdívce; pro 13, proti 3, zdrželi se 3.
+1. **Jednání trvalo 3 h 48 min** — Informace vedení zabraly 82 minut.
+2. **Schváleno ==255 000 Kč== AFK na sekačku** — Modeláři získají 70 000 Kč.
+3. **Schválen nový plot u MŠ Mašinka** — Kovový, bezúdržbový a červený.
+4. **Schválen odkup podílu na náhonu** — ==Za 2 400,12 Kč==.
+5. **Schváleno přijetí darovaných pozemků**
+6. **Dražba v Dobřichově bez závěru** — 9 minut; zveřejněné usnesení chybí.
 
 ## Shrnutí
 Zastupitelstvo města se sešlo 26. 4. 2023 a jednalo 3 h 48 min. Přítomno bylo 19 z 21 členů (omluveni Jiří Katrnoška a Lenka Třísková). Přijalo 9 usnesení (UZ-14-2/23 až UZ-22-2/23).

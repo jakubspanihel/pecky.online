@@ -1,7 +1,10 @@
 ## Nejdůležitější témata
-1. **Nové fondy obnovy vodovodů a kanalizací** — založení od 1. 1. 2024 se statuty; do každého fondu mimořádný vklad 1 500 000 Kč z rozpočtu 2024; jednomyslně (19 až 20 hlasů).
-2. **Místní poplatek za odpady od 2024** — nová vyhláška kvůli novele zákona; pro 14, proti 5, zdržel se 1; bod trval 19 minut.
-3. **Nemovitosti u radnice na náměstí** — odkoupení pozemků a budov bez čp. o celkové výměře 987 m²; pro 18, zdržel se 1 (sekce Pozemky).
+1. **Schváleny dva fondy obnovy sítí** — ==Do každého jde 1,5 mil. Kč==.
+2. **Schválena nová vyhláška o odpadech** — Platí od roku 2024.
+3. **Schválen odkup nemovitostí u radnice** — Cena ==celkem 4,2 mil. Kč==.
+4. **Schválen nový školní obvod ZŠ** — Nová vyhláška od roku 2024.
+5. **Schválen odkup kusu potoka** — A také další malý pozemek.
+6. **Schválena nová pravidla fondu bydlení** — Platí od 1. 1. 2024.
 
 ## Shrnutí
 Zastupitelstvo města se sešlo 8. 11. 2023 a jednalo 3 h 4 min. Na začátku bylo přítomno 18 z 21 členů (3 omluvení), dva se později připojili. Přijalo 12 usnesení (UZ-39-6/23 až UZ-50-6/23).

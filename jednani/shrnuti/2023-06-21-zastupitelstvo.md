@@ -1,7 +1,9 @@
 ## Nejdůležitější témata
-1. **Změna provozu v ulicích V Kaštánkách a Nymburská** — nejdelší bod jednání (31 minut); zastupitelstvo uložilo vedení města vypořádat námitky obyvatel a doplnit bezpečnostní prvky do návrhu zobousměrnění; pro 12, zdrželi se 4.
-2. **Dohoda o spolupráci se čtyřmi investory** — výstavba rodinných domů ve Velkých Chvalovicích; bod trval 29 minut, pro 12, proti 3, zdržel se 1.
-3. **Fondy oprav vodovodní a kanalizační infrastruktury** — příprava statutů s účinností od 1. 1. 2024; jednomyslně.
+1. **Schválena ==dohoda o domech v Chvalovicích==** — Se čtyřmi investory.
+2. **Uloženo ==vypořádat námitky k provozu==** — A doplnit prvky pro bezpečí dětí.
+3. **Pověřeno vedení připravit fondy sítí** — Vodovody a kanalizace od roku 2024.
+4. **Schváleno hospodaření za rok 2022** — Závěrečný účet prošel bez výhrad.
+5. **Schválena úprava rozpočtu 2023** — Rozpočtové opatření č. 4/2023.
 
 ## Shrnutí
 Zastupitelstvo města se sešlo 21. 6. 2023 a jednalo 2 h 30 min. Přítomno bylo 16 z 21 členů (5 omluvených). Přijalo 7 usnesení (UZ-23-3/23 až UZ-29-3/23).

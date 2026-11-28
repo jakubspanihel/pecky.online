@@ -1,7 +1,10 @@
 ## Nejdůležitější témata
-1. **Volební blok** — změna počtu místostarostů na jednoho, zvolení nové členky rady a určení dlouhodobě uvolněné funkce člena rady; u dvou hlasování bylo 8 hlasů proti, resp. 8 se zdrželo; blok trval 38 minut.
-2. **Úprava křižovatky Tř. 5. května a P. Bezruče** — prezentace návrhu zabrala 44 minut, studie schválena s úpravami (15 pro, 6 se zdrželo).
-3. **Územní plán a dopravní zklidnění** — vydána změna č. 1 územního plánu a schválena studie zklidnění ulice V Kaštánkách (22 minut diskuse, 13 pro, 3 proti, 5 se zdrželo).
+1. **Schválen jen jeden místostarosta** — Do rady přibyla ==nová členka==.
+2. **Schválena ==studie křižovatky u Bezruče==** — S úpravami povrchu a zábran.
+3. **Schválena studie zklidnění V Kaštánkách** — Studie prošla 13 hlasy.
+4. **Schválen vstup do komunálního družstva** — Se sídlem v Nymburce.
+5. **Schválen záměr převzít ZUŠ od kraje**
+6. **Vydána první změna územního plánu**
 
 ## Shrnutí
 Zastupitelstvo města se sešlo 15. 9. 2021 a jednalo 3 h 58 min, nejdéle z jednání roku 2021. Přítomno bylo všech 21 členů. Přijalo 11 usnesení (UZ-10-2/21 až UZ-20-2/21).

@@ -1,6 +1,6 @@
 ## Nejdůležitější témata
-1. **Dostavba tělocvičny — aktuální stav realizace** — nejdelší bod jednání (23 minut); promítá se do sekce Tělocvična, usnesení k bodu není.
-2. **Odkoupení pozemku parc. č. 359/27 ve Velkých Chvalovicích** — bod trval 8 minut, usnesení k němu mezi přijatými není (sekce Pozemky).
+1. **Stav tělocvičny probrán bez usnesení** — Informace ==trvala 23 minut==.
+2. **Koupě pozemku v Chvalovicích bez závěru** — Bod ==trval 8 minut==; usnesení chybí.
 
 ## Shrnutí
 Zastupitelstvo města se sešlo 26. 8. 2026 v Kulturním domě. Jednání trvalo 49 min, přítomno bylo 17 z 21 členů (omluveni Ing. Martin Jedlička, Tomáš Vodička a Mgr. Alena Švejnohová, nepřítomen Pavel Sedláček). Přijalo 1 usnesení.

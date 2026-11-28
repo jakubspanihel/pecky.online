@@ -1,7 +1,9 @@
 ## Nejdůležitější témata
-1. **Kabiny AFK** — rozpočet na studii a projektovou dokumentaci kabin vzrostl ze 110 000 Kč na 1 300 000 Kč; realizace podmíněna dotací nejméně 70 %; schváleno 11 hlasy pro, 3 proti, 1 se zdržel; bod trval 13 minut.
-2. **Rozpočtová opatření č. 4/2021** — schválena 11 hlasy pro, 1 proti, 3 se zdrželi; bod trval 9 minut.
-3. **Odkup pozemků od Státního statku Čáslav** — jednomyslné schválení koupě pozemků v Pečkách (sekce Pozemky).
+1. **Schváleno ==1,3 mil. Kč na projekt== kabin** — Stavba jen s dotací aspoň 70 %.
+2. **Schválen odkup od Státního statku**
+3. **Schváleno hospodaření za rok 2020** — Závěrečný účet prošel bez výhrad.
+4. **Schválena nová listina pro pečovatele** — Od 1. 7. 2021.
+5. **Schváleno břemeno u chodníku k nádraží** — Dráhám město ==zaplatí 10 000 Kč==.
 
 ## Shrnutí
 Zastupitelstvo města se sešlo 16. 6. 2021 a jednalo 1 h 41 min. Přítomno bylo 15 z 21 členů (6 omluvených). Přijalo 9 usnesení (UZ-1-1/21 až UZ-9-1/21), z toho 6 jednomyslně.

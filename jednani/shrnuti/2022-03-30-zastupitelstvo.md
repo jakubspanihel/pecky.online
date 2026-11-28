@@ -1,7 +1,10 @@
 ## Nejdůležitější témata
-1. **Změna č. 2 územního plánu** — rozhodnutí o jejím pořízení, zařazení čtyř žádostí k prověření a podmínka částečné úhrady nákladů žadateli; sedm usnesení, bod trval 25 minut.
-2. **Základní umělecká škola** — zrušení dvou starších usnesení, záměr převzít od 1. 9. 2022 zřizovatelské kompetence od Středočeského kraje a schválení zřizovací listiny; vše 18 hlasy pro.
-3. **Zjednosměrnění lokality Tř. 5. května – Barákova** — dopravní studie, nejdelší bod jednání (36 minut); pro 12, proti 5, zdržel se 1.
+1. **Schválen záměr převzít ZUŠ od kraje** — Od 1. 9. 2022.
+2. **Schválena studie jednosměrek u Barákovy** — Schválena dopravní studie.
+3. **Schváleno prominutí dluhu Sokolu** — ==160 000 Kč==.
+4. **Schválena druhá změna územního plánu** — Prověří se čtyři žádosti.
+5. **Schválena oprava elektřiny ve škole** — Práce potrvají dva roky.
+6. **Schválen ==počet 21 zastupitelů==** — Pro období 2022–2026.
 
 ## Shrnutí
 Zastupitelstvo města se sešlo 30. 3. 2022 a jednalo 2 h 50 min. Na začátku bylo přítomno 17 z 21 členů (4 omluvení). Přijalo 21 usnesení (UZ-9-2/22 až UZ-29-2/22).

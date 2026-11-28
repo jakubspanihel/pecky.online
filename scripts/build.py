@@ -912,7 +912,7 @@ def _zm_temata_li(m):
     bez vysvětlivky za pomlčkou. Společné pro Domů a insta.json (budoucí zastupitelstvo)."""
     pol = _jednani_temata(m)
     nazvy = [re.match(r'\*\*(.+?)\*\*', t).group(1) if t.startswith('**') else t for t in map(_bez_cisel_usneseni, pol)]
-    return ''.join(f'<li><strong>{esc(n)}</strong></li>' for n in nazvy)
+    return ''.join(f'<li><strong>{_zvyrazni(esc(n))}</strong></li>' for n in nazvy)
 
 
 def _zm_temata(m):
@@ -1187,17 +1187,11 @@ def _dash_zm_shrnuti():
     return _dash_shrnuti('zm')
 
 
-_RE_CASTKA = (r'\d+(?: \d{3})*(?:,\d+)?(?: (?:tisíc|milionů|mil\.|miliard))? Kč(?:/[A-Za-zµ²³]+)?(?: bez DPH| \+ DPH| s DPH)?'
-              r'|\d+(?:,\d+)? ?%')
-
-
 def _zvyrazni(html):
-    """Zvýraznění důležitých údajů v tématech banneru „Z rady / ze zastupitelstva“:
-    částky v Kč a procenta se obalí do `<mark>` (žluté pozadí, viz `.banner mark`);
-    ručně lze označit cokoli jiného jako `==text==` ve shrnutí."""
-    html = re.sub(r'==(.+?)==', r'<mark>\1</mark>', html)
-    return re.sub(r'(<mark>.*?</mark>)|(' + _RE_CASTKA + ')',
-                  lambda m: m.group(1) or f'<mark>{m.group(2)}</mark>', html)
+    """Zvýraznění v tématech jednání: jen ručně označené `==text==` ve shrnutí se obalí do
+    `<mark>` (žluté pozadí, viz `.banner mark`). Co a jak značit (nejvýš jedno na bod, jen
+    důležité údaje): jednani/INSTRUKCE-shrnuti-schuzky.md, §1b."""
+    return re.sub(r'==(.+?)==', r'<mark>\1</mark>', html)
 
 
 def _odkaz_parcely(html):

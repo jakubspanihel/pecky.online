@@ -84,10 +84,36 @@ Hlavička jednou větou.
 *Shrnutí vychází z … ; zápis z diskuse nebyl čten.*
 ```
 
+**Zvýraznění v tématech: číslo i slova, která k němu patří.**
+- **Jen jedno na bod**, v titulku **nebo** v popisu. Když je důležitý
+  údaj v titulku i v popisu, zvýrazní se ten úplnější.
+- **Alespoň dvě zvýraznění na celé jednání** (ne na bod), každé v jiném
+  bodě. Jednání s jediným bodem má jedno.
+- **Částky mají přednost před textem.** Když popis důležitého bodu částku
+  nemá, ale záznam ji uvádí (`resolutions[]`, blok Shrnutí), **doplní se
+  do popisu** (v limitu 70 znaků) a zvýrazní. Součet lze uvést jen ze
+  všech položek téhož usnesení, se slovem „celkem“, po ověření výpočtu.
+  Zaokrouhluje se nejvýš na dvě desetinná místa v milionech; u cen se
+  zachová „bez DPH“ / „+ DPH“. Chybí-li k doplnění do dvou důležitá
+  částka, použije se nejvyšší nebo nejvýznamnější jiná; text bez čísla
+  (výsledek, termín, dopad) jen když jednání žádnou částku nemá.
+- **Jen důležité údaje:** od 500 000 Kč (úvěry, rozpočet a jeho schodek,
+  investice, zdražení staveb, velké dotace a nákupy) a bez ohledu na výši
+  změny, které platí obyvatelé (nájemné, poplatky, daně, školné).
+  Drobné dary, spolkové dotace, malé smlouvy a nájmy se nezvýrazňují.
+  Bod bez důležitého údaje zůstane bez zvýraznění, pokud ho není potřeba
+  k doplnění dvou zvýraznění na jednání.
+- **Střední délka**, zpravidla 3–5 slov: slovo, které říká, čeho se číslo
+  týká nebo co se s ním děje, předložka, číslo, jednotka a nutný dovětek
+  („==bytů o 20 %==“, „==schodek 70,7 mil. Kč==“,
+  „==úvěr 100 mil. Kč==“). Fráze je souvislá a nepřesahuje větu ani
+  středník. Slova se kvůli zvýraznění do textu nedoplňují.
+
 Žádné jiné značky (bez nadpisu `#`, tabulek, odkazů `[]()`); jedinou výjimkou je
 zvýraznění `==text==` v „Nejdůležitějších tématech“ (žlutý podklad v banneru na
-Domů). Částky v Kč a procenta zvýrazní build sám, `==…==` jen pro jiný zásadní
-údaj (např. výsledek hlasování). Zmínky
+Domů). Co a jak zvýraznit, určuje pravidlo výše; kromě čísel lze označit
+i jiný zásadní údaj (např. výsledek hlasování), vždy ale jen jeden na bod.
+Build sám nic nezvýrazňuje, zobrazí jen `==…==`. Zmínky
 „RM 36/2026“, „UR-…/26“ web odkáže sám. Při doplnění zápisu k již
 shrnutému jednání se soubor **přepíše novou verzí** (stejný název),
 ne duplikuje.
@@ -127,8 +153,48 @@ usnesení) — a pak to ve výstupu uvést.
 
 ## 4. Výstup 1: Nejdůležitější témata
 
-2 až 4 témata, seřazená podle významu (ne podle pořadí v programu).
-Zformulovat jako krátký nadpis + jedna věta, proč je téma důležité.
+5 až 6 témat, seřazených podle významu (ne podle pořadí v programu).
+Méně než 5 jen tehdy, když jednání víc věcných bodů nemá; body se
+nenatahují rozdělováním jedné věci ani procedurálními body. Zformulovat
+jako krátký nadpis + jedna krátká věta s tím nejdůležitějším. Body se
+čtou v kartách na Domů a na obrázcích, podrobnosti patří do bloku
+Shrnutí (§5).
+
+**Délka a zkracování:**
+
+- **Název:** nejvýš 40 znaků. **Musí sám nést informaci a být
+  pochopitelný bez popisu**, protože někde se ukazuje jen on (§9). Říká,
+  čeho se bod týká a co se s tím děje nebo jak to dopadlo: „Nájem v
+  obecních bytech vzroste o 20 %“, ne „Nájem v obecních bytech“. Nestačí
+  jen téma („Rozpočet“, „Výbory“, „Úniky vody“) ani jméno firmy či
+  číslo dokumentu bez věci, které se týká („Dodatek s Vantage Towers“).
+  Když předmět záznam neuvádí, popis to řekne.
+- **Titulek je konkrétní a začíná věcí nebo výsledkem.** Nepsat obraty
+  „Rada řešila“, „Rada rozhodla“, „Rada schválila“, „Rada probrala“,
+  „Zastupitelé řešili“, „Na programu je / bylo“ ani jejich obdoby; kdo
+  jednal, plyne z karty.
+  - **K bodu je usnesení:** napsat výsledek podle jeho znění:
+    „Schváleno…“, „Zamítnuto…“, „Doporučeno…“ (rada jen doporučuje
+    zastupitelstvu), „Zvolen…“, „Uloženo prověřit…“.
+  - **Bez usnesení:** napsat konkrétní zjištění nebo stav („K diagnostice
+    piloty přizván znalec“).
+  - **Jen pozvánka nebo chybí zápis:** žádný výsledek; napsat návrh nebo
+    věc, o kterou jde („Navrženy odměny vedení města“).
+  - Výsledek se ověří v `resolutions[]` (znění a hlasování), nestačí
+    název bodu. Když pro konkrétní titulek v datech nic není, bod se
+    vypustí, i kdyby jich pak bylo méně než 5.
+  Nesmí tvrdit víc, než je v záznamu: doporučení zastupitelstvu není
+  schválení, u jednání jen s pozvánkou se nepíše výsledek.
+- **Popis** název neopakuje, jen ho doplňuje.
+- **Popis:** jedna věta, nejvýš 70 znaků včetně mezer (značky `==` se
+  nepočítají). Jedno sdělení; neopakovat název a nepsat úvody typu
+  „na programu je“.
+- **Datumy lze vypustit**, pokud bez nich bod dává smysl. Nenahrazují se
+  vágním údajem („nedávno“, „brzy“).
+- **Čísla pozemků (parc. č., p. č., st.) se vypouštějí** z názvu i popisu;
+  stačí „část pozemku“, případně obec nebo ulice. Zůstávají v bloku Shrnutí.
+- Podrobnosti hlasování, čísla smluv a dodatků a jména firem uvádět jen
+  tehdy, když je bez nich bod nesrozumitelný.
 
 **Co téma zvedá nahoru** (kritéria, ne vyčerpávající seznam):
 
@@ -143,9 +209,11 @@ Zformulovat jako krátký nadpis + jedna věta, proč je téma důležité.
   vyčnívá nad ostatní body) nebo celkově neobvykle dlouhé či krátké
   jednání (`duration_seconds`; porovnat s typickou délkou stejného typu
   jednání, ne odhadem). Délku uvést konkrétně v minutách a u bodu napsat,
-  kolik z celku zabral;
+  kolik z celku zabral (v bloku Shrnutí; do krátkého popisu stačí
+  minuty);
 - věci, které se promítají do jiných sekcí webu (Tělocvična, Pozemky,
-  Prostory) — u nich to ve výstupu **vždy uvést**, viz `CLAUDE.md`
+  Prostory) — u nich to **vždy uvést ve výpisu běhu** (do textu bodu se
+  označení „sekce …“ nepíše), viz `CLAUDE.md`
   (kapitola Konvence, „Body jednání se promítají do sekcí…“).
 
 Bod bez usnesení může být důležitý (např. informace starosty) — pak ho
@@ -198,6 +266,8 @@ Platí `CLAUDE.md` → Konvence:
 
 ## 7. Kontrola před odevzdáním
 
+- Témat je 5 až 6, pokud je jednání má (§4), název má nejvýš 40 znaků, popis nejvýš
+  70 znaků a v tématech nejsou čísla pozemků.
 - Všechny částky, plochy, data a čísla usnesení opsané ze záznamu a
   ověřené zpětným porovnáním.
 - Počet usnesení a hlasování odpovídá `resolutions[]` (`pro`/`proti`/
@@ -206,7 +276,7 @@ Platí `CLAUDE.md` → Konvence:
 - Žádný bod z programu s usnesením nechybí, procedurální body nejsou
   vypisovány.
 - U bodů, které patří do sekcí Tělocvična / Pozemky / Prostory, je to
-  uvedeno.
+  uvedeno ve výpisu běhu.
 - `grep -iE "\b(máme|jsme|naše|našich|nám|nás)\b"` na výstupu nic
   nenajde (kromě citací).
 
@@ -216,12 +286,11 @@ Rada města 36/2026 (12. 10. 2026) — viz záznam
 `#rada-2026-10-12`.
 
 > **Nejdůležitější témata**
-> 1. **Stavba tělocvičny u ZŠ** — kontrolní den, sanace školní kuchyně,
->    přizvaný soudní znalec z ČVUT (bez usnesení; promítá se do sekce
->    Tělocvična).
-> 2. **Nebytové prostory** — nový nájemce logopedie ve zdravotním
->    středisku a ukončení nájmu vinotéky v Domě služeb (sekce Prostory).
-> 3. **Oplocení dětského hřiště na sídlišti** živým plotem.
+> 1. **K tělocvičně přizván znalec z ČVUT** — Proběhl i kontrolní den; bez usnesení.
+> 2. **Schválen nový nájem logopedie** — 38,3 m² ve zdravotním středisku.
+> 3. **Vinotéka v Domě služeb skončí s rokem** — Nájem končí dohodou.
+> 4. **Schválen živý plot kolem dětského hřiště** — Zakázka do 750 000 Kč bez DPH.
+> 5. **Schváleno vánoční zavření MŠ Mašinka** — Od 23. 12. 2026 do 3. 1. 2027.
 >
 > **Shrnutí**
 > Rada se sešla 12. 10. 2026 v obřadní síni radnice, jednání trvalo

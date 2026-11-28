@@ -1,7 +1,10 @@
 ## Nejdůležitější témata
-1. **Rozpočet města na rok 2025** — schodkový: příjmy 176 961 300 Kč, výdaje 217 638 990 Kč, schodek 40 677 690 Kč kryjí prostředky z předchozích let; pro 14, proti 2, zdrželi se 4; bod trval 42 minut.
-2. **Palma development s.r.o.** — kupní smlouva na veřejnou infrastrukturu (komunikace, chodníky, park, vodovod, splašková kanalizace) za 10 000 Kč bez DPH; jednomyslně (sekce Pozemky).
-3. **Vodovod pro Tatce a Milčice** — smlouva o spolupráci mezi obcí Tatce, obcí Milčice a městem Pečky před výstavbou vodovodní infrastruktury; jednomyslně.
+1. **Schválen rozpočet 2025 se schodkem** — ==Schodek 40,7 mil. Kč==.
+2. **Schválena koupě sítí a parku od PALMA** — ==Za 10 000 Kč bez DPH==.
+3. **Vyhlášen dotační program Dešťovka** — Platí pro Pečky a Chvalovice.
+4. **Doporučena nová vyhláška o psech** — Týká se veřejných prostranství.
+5. **Schválena výsadba tří lip** — V Pečkách a Velkých Chvalovicích.
+6. **Schválena dohoda o vodovodu v Tatcích** — S obcemi Tatce a Milčice.
 
 ## Shrnutí
 Zastupitelstvo města se sešlo 18. 12. 2024 a jednalo 3 h 21 min. Přítomno bylo 20 z 21 členů (omluven Lubomír Metelák). Přijalo 14 usnesení (UZ-58-6/24 až UZ-71-6/24).

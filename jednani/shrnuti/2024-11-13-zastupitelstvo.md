@@ -1,7 +1,10 @@
 ## Nejdůležitější témata
-1. **Dostavba učeben a tělocvičny v ZŠ Pečky** — závazek dofinancovat z rozpočtu města podíl nad rámec dotace, nejméně 30 % z celkových způsobilých výdajů a nezpůsobilé výdaje, pro žádost ve výzvě 19/2025 Regiony 2025; jednomyslně (sekce Tělocvična).
-2. **Poplatek za odpady od 1. 1. 2025** — nová vyhláška se změnou výše sazby a zrušením úlevy pro osoby starší 75 let; pro 17, proti 1, zdrželi se 3; bod trval 24 minut.
-3. **Bezpečnost přechodu u hřbitova** — po střetu dítěte s autem uložilo zastupitelstvo vedení města jednat s dotčenými orgány a vlastníkem silnice II/329; jednomyslně.
+1. **Schváleno ==doplatit tělocvičnu==** — K tomu výdaje, které dotace nekryje.
+2. **Schválena nová vyhláška o odpadech** — Od 1. 1. 2025.
+3. **Uloženo jednat o přechodu u hřbitova** — Bude jednat se správcem silnice.
+4. **Schválen odkup pozemku pod chodníkem** — U Billy 58 m² ==za 11 600 Kč==.
+5. **Schválena péče o 20 nových slivoní** — Péče na deset let.
+6. **Schválena pravidla oceňování občanů** — Pravidla čestného občanství a medailí.
 
 ## Shrnutí
 Zastupitelstvo města se sešlo 13. 11. 2024 a jednalo 2 h 51 min. Přítomno bylo všech 21 členů, několik jich v průběhu odcházelo a vracelo se. Přijalo 13 usnesení (UZ-45-5/24 až UZ-57-5/24).

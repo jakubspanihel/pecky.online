@@ -1,7 +1,10 @@
 ## Nejdůležitější témata
-1. **Investiční úvěr 100 mil. Kč na dostavbu učeben a tělocvičny** — přijetí nabídky UniCredit Bank s pětiletou fixní sazbou 4,1 % ročně a bez zajištění (z nabídek čtyř bank); jednomyslně (19 hlasů); nejdelší bod jednání (54 minut; sekce Tělocvična).
-2. **Odkup nemovitosti čp. 179 v ulici Bačovská** — pozemek 502 m² s rodinným domem za nabídkovou cenu 5 mil. Kč včetně provize a právních služeb, k budoucímu využití pro občanskou vybavenost; pro 14, proti 3, zdrželi se 2; bod trval 27 minut (sekce Pozemky).
-3. **Schvalování programu** — program zabral 24 minut; zastupitelstvo stáhlo dva body o General Property X s.r.o. a doplnilo informaci o konkurzech na ředitele ZŠ Pečky (pro 16, proti 3).
+1. **Schválen ==úvěr 100 mil. Kč== od UniCredit** — UniCredit Bank, fixní sazba 4,1 % ročně.
+2. **Schválena koupě ==domu za 5 mil. Kč==** — Cena zahrnuje provizi i právní služby.
+3. **Uloženo jednat o projektu nádraží** — Jednat má i se Správou železnic.
+4. **Staženy dva body o developerovi** — Týkaly se firmy General Property X.
+5. **Schválen ==rozpočet vyšší o 2 mil. Kč==** — Hlavně kvůli průtokovým dotacím.
+6. **Uloženo předložit úvěrovou smlouvu** — Přijde na nejbližší zasedání.
 
 ## Shrnutí
 Zastupitelstvo města se sešlo 22. 4. 2026 a jednalo 3 h 39 min. Na začátku bylo přítomno 19 z 21 členů (omluveni Ing. Karel Krištoufek a Pavel Sedláček). Přijalo 8 usnesení (UZ-7-2/26 až UZ-14-2/26).

@@ -1,7 +1,10 @@
 ## Nejdůležitější témata
-1. **Investiční úvěr na tělocvičnu** — zastupitelstvo zrušilo dřívější usnesení o úvěru od UniCreditBank a schválilo úvěr 100 mil. Kč od České spořitelny (fixní sazba 4,34 % na 5 let, splácení 4/2028–3/2038); nejdelší bod jednání (46 minut), 18 pro, 1 zdržel se.
-2. **Pravomoc k dodatkům stavby tělocvičny** — radě města svěřeno schvalovat dodatky ke smlouvě o dílo, pokud celkový nárůst ceny nepřekročí 5 % vysoutěžené ceny bez DPH (sekce Tělocvična).
-3. **Počet zastupitelů na období 2026–2030** — stanoven na 21 (16 pro, 2 proti, 1 zdržel se).
+1. **Schválen ==úvěr 100 mil. Kč== na tělocvičnu** — Od České spořitelny.
+2. **Schváleno: menší dodatky podepíše rada** — Zastupitelstvo na ni přeneslo pravomoc.
+3. **Schválen ==počet 21 zastupitelů==** — Platí pro období 2026–2030.
+4. **Schváleny společné školské obvody ZŠ** — Schváleny smlouvy s obcemi.
+5. **Schváleno hospodaření za rok 2025** — Závěrečný účet prošel bez výhrad.
+6. **Schválena přeměna svazku obcí** — Zastupitelé se záměrem souhlasili.
 
 ## Shrnutí
 Zastupitelstvo města se sešlo 24. 6. 2026. Jednání trvalo 4 h 30 min, přítomno bylo 19 z 21 členů (omluveni Ladislav Kejda a Jaroslava Vosecká). Přijalo 16 usnesení (UZ-17 až UZ-32-4/26).

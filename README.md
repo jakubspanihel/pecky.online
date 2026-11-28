@@ -58,8 +58,8 @@ se sem, na stránku samotnou se nic ručně nepíše.
 
 | Sekce | Režim | Kontrola | Změna | Co naposledy |
 |---|---|---|---|---|
+| [Jednání](jednani/README.md) | týdně | 28. 11. 2026 | 28. 11. 2026 | Nové body „Nejdůležitější témata“ u rady a zastupitelstva: 5–6 bodů se samostatně srozumitelnými titulky |
 | [Na oběd](naobed/README.md) | denně | 28. 11. 2026 | 28. 11. 2026 | U Marka: nové menu na 28. 11. 2026; školní jídelna: jídelníček od 30. 11. do 4. 12. 2026 |
-| [Jednání](jednani/README.md) | týdně | 27. 11. 2026 | 27. 11. 2026 | U ZM 9/2026 (25. 11. 2026) doplněn odkaz na video z pozvánky; 27. 11. ho YouTube hlásil jako soukromé |
 | [Kalendář](kalendar/README.md) | týdně | 27. 11. 2026 | 26. 11. 2026 | rezervace sportovní haly aktualizovány z rezervačního systému do 31. 12. 2026 |
 | [Tělocvična](telocvicna/README.md) | týdně | 26. 11. 2026 | 26. 11. 2026 | 23. 11. 2026 RM 42/2026, bod 3: cenová nabídka na statické řešení stabilizace základů, kontrolní den 26. 11. (bez usnesení) |
 | [Usnesení](usneseni/README.md) | odvozená | 26. 11. 2026 | 26. 11. 2026 | nová usnesení RM 42/2026 s termíny; u 10 dříve otevřených usnesení doplněno datum ukončení |

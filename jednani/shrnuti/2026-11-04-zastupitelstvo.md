@@ -1,9 +1,10 @@
 ## Nejdůležitější témata
-1. **Starostou zvolen Milan Paluska** — pro hlasovalo 20 zastupitelů, on sám se zdržel (UZ-58-8/26).
-2. **Místostarostové:** uvolněným 1. místostarostou je Zdeněk Fejfar, neuvolněnou 2. místostarostkou Ivana Trčková (UZ-59-8/26, UZ-60-8/26).
-3. **Rada města má 7 členů** — kromě starosty a obou místostarostů ji tvoří Ing. Petr Dürr, Ing. Hana Kuprová, Ing. Petr Zedník a Ing. Martin Jedlička. Dürr dostal ==16 hlasů pro, 1 proti a 4 se zdrželi== (UZ-61-8/26).
-4. **Výbory:** finančnímu výboru předsedá Ing. Petr Zedník, kontrolnímu Mgr. Alena Švejnohová; každý výbor má 7 členů.
-5. **Odměny neuvolněných zastupitelů** zůstávají ve výši platné od 1. 1. 2026 a vyplácejí se od 4. 11. 2026; Lubomír Metelák o odměnu požádal, že ji nechce (UZ-81-8/26, UZ-82-8/26).
+1. **Zvolen starosta Milan Paluska** — Pro hlasovalo 20 zastupitelů, on sám se zdržel.
+2. **Zvoleni místostarostové Fejfar a Trčková** — Zdeněk Fejfar je první, Ivana Trčková druhá.
+3. **Zvolena sedmičlenná rada města** — Člen rady bude brát ==7 056 Kč měsíčně==.
+4. **Zvoleni předsedové obou výborů** — Finanční Zedník, kontrolní Švejnohová.
+5. **Schváleny odměny pro neuvolněné** — Bez další ==funkce 1 763 Kč měsíčně==.
+6. **Slib složilo všech 21 zastupitelů**
 
 ## Shrnutí
 Ustavující zasedání Zastupitelstva města Pečky č. 8/2026 se konalo 4. 11. 2026 od 16:30 v Kulturním domě a trvalo 1 h 21 min. Přítomno bylo všech 21 zastupitelů. Zastupitelé složili slib, zastupitelstvo vzalo na vědomí ověření platnosti voleb a přijalo 35 usnesení (UZ-51-8/26 až UZ-85-8/26). Většina z nich prošla jednomyslně nebo s jediným zdržením, kterým se zvolený zdržel hlasování o vlastní osobě.

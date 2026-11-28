@@ -1,7 +1,10 @@
 ## Nejdůležitější témata
-1. **Memorandum o spolupráci s Člověkem v tísni** — sociální bydlení a příspěvek města na jeho vybudování; bod trval 29 minut, pro hlasovalo 14, 1 proti, 4 se zdrželi.
-2. **Žádost Spolku občanů města Pečky o změnu projektové dokumentace obchvatu** — nejdelší bod jednání (34 minut), bez usnesení mezi zveřejněnými.
-3. **Dohody o spolupráci s developery a soukromým stavebníkem** — General Property X (řadové domy ve Velkých Chvalovicích, 23 minut, jednomyslně) a dohoda o příjezdové cestě k rodinnému domu (13 minut, 14 pro, 5 se zdrželo).
+1. **Schváleno ==memorandum o bydlení==** — S Člověkem v tísni.
+2. **Schválena ==dohoda o řadových domech==** — S General Property X.
+3. **Schválena smlouva o převzetí ZUŠ** — Schválena smlouva o převodu.
+4. **Schváleny nové ulice v Chvalovicích** — Na Kopci a Za Statkem.
+5. **Pověřen výbor prověřit dohody o práci** — Dostal to kontrolní výbor.
+6. **Schváleno hospodaření za rok 2021** — Závěrečný účet prošel bez výhrad.
 
 ## Shrnutí
 Zastupitelstvo města se sešlo 25. 5. 2022 a jednalo 3 h 46 min. Na začátku bylo přítomno 19 z 21 členů (2 omluvení). Přijalo 15 usnesení (UZ-30-3/22 až UZ-44-3/22).

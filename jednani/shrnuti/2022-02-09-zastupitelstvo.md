@@ -1,7 +1,9 @@
 ## Nejdůležitější témata
-1. **Dotační program Dešťovka** — rozšířen o podporu využití dešťových a šedých vod i bez svodu do kanalizace, spoluúčast do 50 %, nejvýše 25 000 Kč; nejdelší bod jednání (25 minut); 18 pro, 2 proti.
-2. **Dotace spolkům na rok 2022** — pět sportovních spolků, jednomyslně (TJ Spartak 202 000 Kč, TJ Sokol 465 000 Kč, AFK 370 000 Kč, Zimní turisti 80 000 Kč, Oddíl vodní turistiky 100 000 Kč).
-3. **Fond rozvoje bydlení** — úprava pravidel a vyhlášení I. kola půjček na rok 2022 s úrokem 3,75 % ročně.
+1. **Schválena širší dotace Dešťovka** — ==Nejvýše 25 000 Kč==.
+2. **Schváleny dotace pěti sportovním spolkům** — Nejvíc TJ Sokol, ==465 000 Kč==.
+3. **Vyhlášeny půjčky na bydlení za 3,75 %** — Vyhlášeno 1. kolo.
+4. **Schválena změna vyhlášky o odpadech**
+5. **Schválen delší termín dotace pro Spartak** — Do 30. 6. 2022.
 
 ## Shrnutí
 Zastupitelstvo města se sešlo 9. 2. 2022 a jednalo 1 h 29 min. Přítomno bylo 20 z 21 členů (omluven Ing. Karel Krištoufek). Přijalo 8 usnesení (UZ-1-1/22 až UZ-8-1/22).

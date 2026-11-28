@@ -1,7 +1,10 @@
 ## Nejdůležitější témata
-1. **Rozpočtová opatření č. 9/2026** — zvýšení schodku o 13,22 mil. Kč, z toho 10 mil. Kč na dostavbu tělocvičny; nejdelší bod jednání (42 minut), schváleno s úpravou (18 pro, 1 zdržel se).
-2. **Kolárna u nádraží ČD** — tři body ke kolárně IDSK (záměr, právo stavby, údržba okolí); zastupitelstvo schválilo záměr a smlouvu o právu stavby na 20 let, bezúplatně.
-3. **Pečecké služby, s.r.o.** — rozprava o hospodaření společnosti (ztráta 2 528 803 Kč za rok 2025 podle důvodové zprávy) a o vedení společnosti trvala 17 minut, bez usnesení.
+1. **Schváleno ==10 mil. Kč navíc== na tělocvičnu** — Úprava rozpočtu počítá i s opravami komunikací.
+2. **Schváleno právo stavby pro kolárnu** — U nádraží, na 20 let.
+3. **Schváleny dary pozemků od developera** — Od General Property X.
+4. **Debata o Pečeckých službách bez závěru** — Šlo o hospodaření a vedení firmy.
+5. **Uloženo sepsat stavební povolení** — Inventura se týká investičních akcí.
+6. **Schválena ==půjčka 200 000 Kč== na střechu** — Z Fondu rozvoje bydlení.
 
 ## Shrnutí
 Zastupitelstvo města se sešlo 16. 9. 2026 v Kulturním domě. Jednání trvalo 3 h 18 min, na začátku bylo přítomno 19 z 21 členů (omluveni Ing. Petr Dürr a Šárka Horynová). Přijalo 13 usnesení (UZ-34 až UZ-46-6/26).

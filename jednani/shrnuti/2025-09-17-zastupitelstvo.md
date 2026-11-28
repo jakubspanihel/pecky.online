@@ -1,7 +1,9 @@
 ## Nejdůležitější témata
-1. **Dar obci Ratenice** — 1 000 000 Kč na opravu mostu na cyklostezce č. 0125 mezi Ratenicemi a Pečkami (celková cena opravy zhruba 2,2 mil. Kč); jednomyslně; bod trval 9 minut.
-2. **Rozpočtová opatření č. 8/2025** — nové výdaje 2 561 119 Kč, mimo jiné dar obci Ratenice a o 1 mil. Kč vyšší položka na přechod pro chodce na Tř. J. Švermy u ulice Hellichova; schváleno 11 hlasy, 7 proti, 2 se zdrželi; bod trval 14 minut.
-3. **Prodej pozemků za 400 Kč/m²** — předzahrádka u domu čp. 101 v ulici Barákova (45 m²) a část pozemku pod bývalou garáží ve Velkých Chvalovicích (cca 36 m²); vždy 18 pro, 1 se zdržel (sekce Pozemky).
+1. **Schválen ==dar 1 mil. Kč== Ratenicím na most** — Most je na cyklostezce do Peček.
+2. **Schváleno 25 000 Kč AFK na kameru** — Na automatické nahrávání zápasů.
+3. **Schváleno ==o 1 mil. Kč víc== na přechod** — Nové výdaje celkem přes 2,5 mil. Kč.
+4. **Schválen prodej dvou pozemků** — Za 400 Kč/m².
+5. **Schválena půjčka 400 000 Kč na dům** — 400 000 Kč z fondu rozvoje bydlení.
 
 ## Shrnutí
 Zastupitelstvo města se sešlo 17. 9. 2025 a jednalo 2 h 20 min. Na začátku bylo přítomno 20 z 21 členů (omluvena Jaroslava Vosecká), v průběhu několik členů odcházelo. Přijalo 7 usnesení (UZ-40-4/25 až UZ-46-4/25).

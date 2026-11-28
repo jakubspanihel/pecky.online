@@ -1,7 +1,10 @@
 ## Nejdůležitější témata
-1. **Změna č. 2 územního plánu Pečky** — vydána formou opatření obecné povahy, jednomyslně (20 hlasů); bod trval 9 minut.
-2. **Dopravní studie celého města** — Rada města doporučila zahájit práce na studii; bod trval 25 minut, usnesení mezi zveřejněnými k němu není.
-3. **Rozpočtová opatření č. 6/2023** — zahrnují dotaci Národní sportovní agentury na rekonstrukci kabin AFK (realizace od 11/2023 do roku 2024); pro 14, proti 4, zdrželi se 2; bod trval 16 minut.
+1. **Vydána ==změna č. 2 územního plánu==** — Schváleno jednomyslně.
+2. **==Dopravní studie města== bez usnesení** — Rada doporučila s pracemi začít.
+3. **Schválena úprava rozpočtu s kabinami AFK** — Úprava rozpočtu č. 6/2023.
+4. **Město od koupě náhonu ustupuje** — Vlastník ho nabízí jen s dalším polem.
+5. **Schváleno informování o hubení plevele**
+6. **Schválen nový jednací řád zastupitelstva**
 
 ## Shrnutí
 Zastupitelstvo města se sešlo 20. 9. 2023 a jednalo 2 h 51 min. Na začátku bylo přítomno 20 z 21 členů (omluvena Lenka Třísková), Mgr. Alena Švejnohová později odešla. Přijalo 6 usnesení (UZ-33-5/23 až UZ-38-5/23).

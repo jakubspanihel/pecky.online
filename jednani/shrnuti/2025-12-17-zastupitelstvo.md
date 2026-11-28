@@ -1,7 +1,10 @@
 ## Nejdůležitější témata
-1. **Rozpočet města na rok 2026** — schodkový: příjmy 202 197 800 Kč, výdaje 272 875 790 Kč, schodek 70 677 990 Kč kryjí prostředky z předchozích let; schválen jednomyslně (20 hlasů); bod trval 50 minut.
-2. **Dostavba učeben a tělocvičny v ZŠ Pečky** — závazek dofinancovat v letech 2026 a 2027 podíl nad rámec dotace, nejméně 50 % z celkových způsobilých výdajů a nezpůsobilé výdaje, pro žádost ve výzvě 17/2026 Regiony 2026; jednomyslně (sekce Tělocvična).
-3. **Odměny neuvolněných zastupitelů** — zvýšení o 7,12 % od 1. 1. 2026; pro 14, proti 2, zdrželo se 4; bod trval 26 minut.
+1. **Schválen rozpočet 2026 se schodkem** — ==Schodek 70,7 mil. Kč==.
+2. **Schváleno doplatit tělocvičnu** — K tomu výdaje, které dotace nekryje.
+3. **Schváleny vyšší odměny neuvolněných** — Od 1. 1. 2026.
+4. **Schváleno 110 000 Kč navíc pro Sokol** — Hlavně na sport dětí a mládeže.
+5. **Schváleno čerpání na vodovody** — ==Až 1 062 000 Kč==.
+6. **Uloženo předložit zadání dopravní studie** — Ještě před soutěží.
 
 ## Shrnutí
 Zastupitelstvo města se sešlo 17. 12. 2025 a jednalo 3 h 53 min. Na začátku bylo přítomno 20 z 21 členů (omluvena Šárka Horynová). Přijalo 12 usnesení (UZ-56-6/25 až UZ-67-6/25).

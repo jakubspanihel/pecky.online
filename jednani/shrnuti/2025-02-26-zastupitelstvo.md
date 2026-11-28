@@ -1,7 +1,10 @@
 ## Nejdůležitější témata
-1. **Odměny neuvolněných zastupitelů** — zvýšení o 6,3 % od 1. 3. 2025; pro 12, proti 4, zdrželi se 3; bod trval 17 minut.
-2. **Kontrolní výbor** — po uvolnění mandátu zvolen další člen Jiří Katrnoška (18 pro) a předsedkyně Mgr. Alena Švejnohová (19 pro).
-3. **Změna katastrální hranice Pečky – Velké Chvalovice** — zarovnání hranice v rámci komplexních pozemkových úprav; pro 17, zdrželi se 2; bod trval 15 minut (sekce Pozemky).
+1. **Schváleny vyšší odměny neuvolněných** — O 6,3 %.
+2. **Schváleny dotace Sokolu a AFK** — ==560 000 Kč== a 470 000 Kč.
+3. **Schváleno ==200 000 Kč== na přípravu opravy** — Jde o vodojem.
+4. **Zvolen nový člen kontrolního výboru** — Jiří Katrnoška; předsedá Švejnohová.
+5. **Schválen odkup kusu cesty v Bačově** — 45 m² za 18 000 Kč.
+6. **Schválena změna hranice katastrů** — Mezi Pečkami a Velkými Chvalovicemi.
 
 ## Shrnutí
 Zastupitelstvo města se sešlo 26. 2. 2025 a jednalo 2 h 21 min. Na začátku bylo přítomno 18 z 21 členů (3 omluvení). Přijalo 9 usnesení (UZ-1-1/25 až UZ-9-1/25). Na začátku jednání složil slib nový člen zastupitelstva.

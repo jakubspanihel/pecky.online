@@ -1,7 +1,9 @@
 ## Nejdůležitější témata
-1. **Nejkratší jednání zastupitelstva v archivu** — 33 minut (medián všech 41 jednání od června 2021 je 2 h 28 min); všech 5 usnesení přijato.
-2. **Dopravní ostrůvek ve Velkých Chvalovicích** — rozpočtové opatření č. 10/2023 zvyšuje výdaje na ostrůvek o 1,6 mil. Kč včetně nejvyšších možných víceprací kvůli stavu podloží a dodatek smlouvy s PKbau s.r.o. mění termín plnění; jednomyslně.
-3. **Obousměrný provoz v ulici V Kaštánkách** — obnovení schváleno 13 hlasy, 2 proti, 2 se zdrželi.
+1. **Schváleno zdražení ostrůvku** — ==O 1,6 mil. Kč== kvůli podloží.
+2. **Schválen obousměrný provoz V Kaštánkách**
+3. **Schválen nový termín ostrůvku** — Dodatek s firmou PKbau.
+4. **Schválen prodej 16 m² se schodištěm** — Spoluvlastníci domu zaplatí ==celkem 16 000 Kč==.
+5. **Jednání trvalo jen 33 minut** — Prošlo všech 5 usnesení.
 
 ## Shrnutí
 Zastupitelstvo města se sešlo 29. 11. 2023 a jednalo 33 minut. Na začátku bylo přítomno 17 z 21 členů (4 omluvení), Lenka Třísková později odešla. Přijalo 5 usnesení (UZ-51-7/23 až UZ-55-7/23).

@@ -1,7 +1,10 @@
 ## Nejdůležitější témata
-1. **Ustavující zasedání po volbách** — zvolení starosty Milana Palusky (13 pro, 6 proti, 2 se zdrželi), 1. místostarosty Zdeňka Fejfara a 2. místostarosty Ing. Martina Jedličky; rada města má 7 členů.
-2. **Finanční a kontrolní výbor** — 7členné výbory; předsedou finančního výboru zvolen Ing. Karel Krištoufek (11 pro, 8 proti, 2 se zdrželi), předsedkyní kontrolního Bc. Iveta Dvořáková; volba členů zabrala 19 a 22 minut.
-3. **Odměny neuvolněných zastupitelů** — odměny od 20. 10. 2022 (např. 1 301 Kč měsíčně zastupitel bez dalších funkcí, 2 169 Kč člen komise nebo výboru); bod trval 11 minut.
+1. **Zvolen starosta Milan Paluska** — 13 pro, 6 proti, 2 se zdrželi.
+2. **Zvoleni místostarostové Fejfar, Jedlička** — Neuvolněný bere ==15 620 Kč měsíčně==.
+3. **Zvolena sedmičlenná rada města**
+4. **Zvoleni předsedové obou výborů** — Krištoufek a Dvořáková.
+5. **Stanoveny odměny neuvolněných** — Zastupitel bez ==funkce 1 301 Kč měsíčně==.
+6. **Schválen přístup k podkladům rady** — Usnesení bylo později zrušeno.
 
 ## Shrnutí
 Zastupitelstvo města se sešlo 20. 10. 2022 po komunálních volbách a jednalo 2 h 6 min. Přítomno bylo všech 21 členů. Přijalo 33 usnesení (UZ-83-7/22 až UZ-115-7/22). Volilo se veřejným hlasováním.

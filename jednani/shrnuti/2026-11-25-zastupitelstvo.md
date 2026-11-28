@@ -1,8 +1,10 @@
 ## Nejdůležitější témata
-1. **Pravomoci a odměny po volbách** — na programu jsou pravomoci k provádění rozpočtových opatření, určení místostarosty, který zastupuje starostu, příspěvky pro uvolněné členy ZM a mimořádné odměny starosty a místostarosty.
-2. **Městská policie** — zastupitelé projednají zprávu o činnosti Městské policie v Pečkách a pověření řízením Městské policie Pečky.
-3. **Rozpočet** — program zahrnuje plnění rozpočtu k 31. 10. 2026 a plánu hospodářské činnosti k 30. 9. 2026 a rozpočtová opatření č. 11/2026.
-4. **Plánovací smlouva pro novou výrobní halu ve Velkých Chvalovicích** — bod se týká investičního záměru „Novostavba výrobní haly na p. č. st. 60 a p. č. 61, k. ú. Velké Chvalovice“.
+1. **Navrženy ==mimořádné odměny vedení města==** — Návrh zahrnuje i příspěvky uvolněným zastupitelům.
+2. **Navrženo ==nové pověření k řízení policie==** — Spolu se zprávou o její činnosti.
+3. **Navržena 11. úprava rozpočtu 2026** — Spolu s přehledem plnění k 31. 10.
+4. **Plánovací smlouva na halu v Chvalovicích** — Jde o návrh pro novou výrobní halu.
+5. **Žádost o odkup pozemku u zastupitelů** — Výsledek zatím není zveřejněn.
+6. **Navrženi další oddávající zastupitelé** — Jména pozvánka neuvádí.
 
 ## Shrnutí
 Zastupitelstvo města Pečky č. 9/2026 se koná 25. 11. 2026 od 16:30 v Kulturním domě Pečky. Program má 18 bodů. Kromě volby pracovních komisí, schválení programu, kontroly plnění usnesení, diskuse občanů a úkolů z jednání obsahuje informace vedení města a níže uvedené věcné body.
